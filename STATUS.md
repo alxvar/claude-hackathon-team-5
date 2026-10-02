@@ -1,14 +1,15 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Fri 22:04** · tick 103 (60 s/tick) · game hour 1.72 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Fri 22:09** · tick 109 (60 s/tick) · game hour 1.82 · running · today closes 23:00._
 
 ## Team: now and latest
 
 _From `team/<name>.md`; each person writes only their own file._
 
-**Aleks** — Duels: Clock-Standing (`agents/duelist/`) verified offline and against Claude; next: live run in the practice duels (game hour 2.0, ~22:20) with full logging.
+**Aleks** — Duels: Clock-Standing (`agents/duelist/`) goes live in the practice duels (game hour 2.0, ~22:20; 12 ticks, 6% decay, 6 at once) with Opus as strategist and Sonnet 5.5 as negotiator (backups + supervisor: `agents/duelist/supervise.sh`), every duel recorded in `docs/duels/`; after it: `review`, read `intel/judge.md`, push.
+  - Fri 22:09 · duelist fallbacks: backup model per role (Opus→Sonnet, Sonnet→Haiku; primary skipped 2 min after 2 failures), code fallback now concedes on a schedule and accepts their in-limit offer instead of restating forever, poll/payload errors no longer stop the loop, `agents/duelist/supervise.sh` restarts a dead process · 17 tests pass, live dry-run starts with both backups · next: practice via `supervise.sh --negotiator-model claude-sonnet-5-5`
+  - Fri 22:07 · smoke, faster negotiator: strategist (Opus) 4.4 s / 3.8 s + negotiator Sonnet 5.5 2.6 s ($0.005/turn) or Haiku 4.5 1.4 s ($0.005/turn); duels decide concurrently (one task each) · ~7 s with Sonnet, ~5 s with Haiku, both inside Sunday's ~10 s budget; Haiku is the fallback if the live turns run slower · next: `run --negotiator-model claude-sonnet-5-5` in the practice
   - Fri 22:00 · duelist now keeps a record of every duel in the repo (`docs/duels/duel-<id>.json`: payloads, decisions with latency and cost, sends, refusals, final result), sweeps the done list every minute so a restart loses nothing, saves the feed's duel events (to unmask aliases) and our duel points; `review` writes one table · 15 tests pass, live sweep OK · next: practice duels, then `review` and push `docs/duels/`
-  - Fri 21:25 · duelist checks: 14 offline tests pass; `probe` reads clock + schedule; `smoke` failed (`.env` had CLAUDE_API_KEY, engine reads ANTHROPIC_API_KEY; renamed locally), then works: Opus decision 6-10 s, ~$0.007/turn, `--days` OK · Sunday's 15 s tick leaves a 10 s budget, too tight for Opus · next: `run` live in the practice, then read the payload
 
 **Dani** — Live dashboard running (`python dashboard/server.py` → http://127.0.0.1:8765, read-only). Then the organisers' desk (2 questions) and the room (LAV-09 holder, buyers for SAL/LAT).
   - Fri 22:10 · suggestions · **Lucas:** wake the judge/strategist on events too (outbid, a dealer opens, a rival switches sets), not only on the timer; estimate the analysts' spend over ~30 game hours (check the Console after 1 h). **Aleks:** pick the duel model from `tick_seconds` (60 s Opus, 30 s Sonnet, 15 s Haiku; budget = tick − 5 s); after the practice, measure across duels how rivals open and concede, and feed that into the strategist prompt before Duels I · next: `intel/teams.md` from the dashboard, if Lucas agrees
@@ -24,18 +25,18 @@ _From `team/<name>.md`; each person writes only their own file._
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 14.87 | 8 | 14.87 | 0.00 | 0.00 | 0.06 | — | 17 | 2 | 333 | 18/40 |
+| 15.20 | 8 | 15.20 | 0.00 | 0.00 | 0.06 | — | 18 | 2 | 342 | 18/40 |
 
-Leaderboard (snapshot at tick 100; refreshes every few minutes):
+Leaderboard (snapshot at tick 105; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 13 | 27.83 | 27.83 | 0.00 | 15 |
-| 2 | Team 8 | 23.05 | 23.05 | 0.00 | 9 |
-| 3 | Team 18 | 22.04 | 22.04 | 0.00 | 11 |
-| 4 | Team 10 | 21.68 | 21.68 | 0.00 | 15 |
-| 5 | Team 12 | 19.46 | 19.46 | 0.00 | 12 |
-| 8 | Team 5 | 14.87 | 14.87 | 0.00 | 16 |
+| 1 | Team 13 | 27.83 | 27.83 | 0.00 | 17 |
+| 2 | Team 8 | 23.20 | 23.20 | 0.00 | 9 |
+| 3 | Team 18 | 22.16 | 22.16 | 0.00 | 11 |
+| 4 | Team 10 | 21.79 | 21.79 | 0.00 | 15 |
+| 5 | Team 12 | 21.49 | 21.49 | 0.00 | 13 |
+| 8 | Team 5 | 15.20 | 15.20 | 0.00 | 17 |
 
 ## Next on the schedule
 
@@ -43,14 +44,14 @@ _ETA assumes the current tick length and no pause._
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 2.00 | ~17 min | duels | Practice duels (not scored): learn the protocol |
-| 2.63 | ~55 min | persona_opens | El Chato opens for everyone |
-| 3.00 | ~77 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
-| 4.00 | ~137 min (after today's close) | round | Round 2 starts (holdings carry over) |
-| 4.00 | ~137 min (after today's close) | set_release | El Retiro released |
-| 4.00 | ~137 min (after today's close) | day_closes | Closed until Saturday 09:00 |
-| 4.00 | ~137 min (after today's close) | day_opens | Saturday opens |
-| 4.05 | ~140 min (after today's close) | grant_all | El Retiro has arrived: a pack and the Saturday allowance (150 primas) for everyone |
+| 2.00 | ~11 min | duels | Practice duels (not scored): learn the protocol |
+| 2.63 | ~49 min | persona_opens | El Chato opens for everyone |
+| 3.00 | ~71 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 4.00 | ~131 min (after today's close) | round | Round 2 starts (holdings carry over) |
+| 4.00 | ~131 min (after today's close) | set_release | El Retiro released |
+| 4.00 | ~131 min (after today's close) | day_closes | Closed until Saturday 09:00 |
+| 4.00 | ~131 min (after today's close) | day_opens | Saturday opens |
+| 4.05 | ~134 min (after today's close) | grant_all | El Retiro has arrived: a pack and the Saturday allowance (150 primas) for everyone |
 
 ## Our dealer deals
 
@@ -75,16 +76,17 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | 147 | abuela | buy | LAT-08 | 29 | 16 | — | — | 8 | closed |  |
 | 160 | abuela | buy | MAL-07 | 29 | 16 | — | — | 4 | closed |  |
 | 176 | abuela | buy | MAL-07 | 29 | — | 29 | +0% | 1 | deal |  |
-| 190 | chato | buy | LAV-06 | 33 | 23 | — | — | 6 | open |  |
+| 190 | chato | buy | LAV-06 | 33 | 23 | — | — | 9 | closed |  |
+| 203 | chato | buy | LAV-07 | 33 | 23 | — | — | 5 | open |  |
 
 ## Abuela benchmark: every team's deals with her (public feed)
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
 | common card | team buys | 21 | 9 | 7 | 12 | 2 | 9 |
-| common card | team sells | 18 | 9.50 | 5 | 23 | 4 | 5.50 |
+| common card | team sells | 20 | 6.00 | 5 | 23 | 4 | 5.50 |
 | sobre_barrio | team buys | 28 | 22.00 | 17 | 30 | 3 | 20.33 |
-| uncommon card | team buys | 28 | 22.50 | 17 | 29 | 2 | 26.50 |
+| uncommon card | team buys | 30 | 22.00 | 17 | 29 | 2 | 26.50 |
 | uncommon card | team sells | 4 | 14.00 | 13 | 16 | 0 | — |
 
 ## Duels
