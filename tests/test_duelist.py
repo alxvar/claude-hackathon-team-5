@@ -173,3 +173,28 @@ def test_runner_sends_one_move_per_tick_and_waits_for_their_reply(tmp_path: Path
     assert r.due(mem)
     obs_ = r.observe(mem)
     assert [(t.mine, t.offer.price) for t in obs_.turns] == [(True, 70), (False, 30)]
+
+
+def test_records_keep_the_whole_duel_and_review_reads_it(tmp_path: Path):
+    from agents.duelist.records import Records, review, summary
+    b = FakeBazaar()
+    fake = FakeModel(plan(70, 72, 68), Decision(action="offer", price=70, message="70 P."))
+    rec = Records(tmp_path / "duels")
+    r = DuelRunner(b, fake, fake, dry_run=False, log=Log(tmp_path), decay=None, duel_ticks=12, poll_s=1,
+                   records=rec)
+    r.tick = 101
+    raw = {"id": 9, "role": "seller", "your_limit": 40, "deadline": 112, "rival_offer": None, "rival": "Fox"}
+    mem = r.update(raw)
+    asyncio.run(r.decide(mem))
+    r.tick = 102
+    r.update({**raw, "rival_offer": {"price": 30}})
+    rec.save(9, done={**raw, "status": "deal", "price": 55})
+    d = rec.load(9)
+    assert [p["tick"] for p in d["payloads"]] == [101, 102]
+    assert len(d["decisions"]) == 1 and d["sent"][0]["move"]["price"] == 70
+    assert d["view"]["limit"] == 40 and rec.finished(9)
+    row = summary(d)
+    assert (row["rival"], row["role"], row["our_first"], row["price"], row["surplus"]) == ("Fox", "seller", 70, 55, 15)
+    assert "| 9 |" in review(rec)
+    assert rec.add_feed([{"id": 1, "type": "duel.deal"}, {"id": 2, "type": "offer.listed"}]) == 1
+    assert rec.add_feed([{"id": 1, "type": "duel.deal"}]) == 0

@@ -4,6 +4,7 @@
     uv run python -m agents.duelist smoke            # one turn of a made-up duel through the models; sends nothing
     uv run python -m agents.duelist run --dry-run    # play live duels, but only print the moves
     uv run python -m agents.duelist run              # play live duels
+    uv run python -m agents.duelist review           # every recorded duel in one table (docs/duels/README.md)
 """
 from __future__ import annotations
 
@@ -20,6 +21,7 @@ from engine.claude import Claude, require_credentials
 
 from .agent import DuelAgent
 from .model import DuelView, Observation, Offer, Role, Turn
+from .records import Records, review as review_table
 from .runner import DuelRunner, Log
 
 LOGS = Path(__file__).resolve().parents[2] / "logs" / "duelist"
@@ -70,11 +72,19 @@ def smoke(a: argparse.Namespace) -> None:
 def run(a: argparse.Namespace) -> None:
     strategist, negotiator = models(a)
     runner = DuelRunner(bazaar(), strategist, negotiator, dry_run=a.dry_run, log=Log(LOGS), decay=a.decay,
-                        duel_ticks=a.duel_ticks, poll_s=a.poll)
+                        duel_ticks=a.duel_ticks, poll_s=a.poll, records=Records())
     try:
         asyncio.run(runner.run())
     except KeyboardInterrupt:
         print(f"\nstopped; model spend this run about ${runner.spent_usd:.2f}; log {runner.log.path}")
+
+
+def review(_: argparse.Namespace) -> None:
+    records = Records()
+    text = review_table(records)
+    (records.folder / "README.md").write_text(text)
+    print(text)
+    print(f"saved to {records.folder / 'README.md'}")
 
 
 def main() -> None:
@@ -97,6 +107,7 @@ def main() -> None:
             s.add_argument("--decay", type=float, help="override the session's decay per tick")
             s.add_argument("--duel-ticks", type=int, help="override the session's ticks per duel")
             s.add_argument("--poll", type=float, default=2.0, help="seconds between polls (two reads each)")
+    sub.add_parser("review", help="every recorded duel in one table").set_defaults(fn=review)
     sub.choices["probe"].set_defaults(fn=probe)
     a = p.parse_args()
     a.fn(a)

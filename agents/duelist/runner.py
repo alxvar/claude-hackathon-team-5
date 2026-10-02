@@ -22,6 +22,7 @@ from .adapter import Snapshot, parse_duel
 from .agent import DuelAgent, Move
 from .model import Observation, Offer, Turn
 from .prices import money
+from .records import Records, duel_key
 
 
 class Log:
@@ -70,7 +71,7 @@ def signature(snap: Snapshot) -> Any:
 
 class DuelRunner:
     def __init__(self, b: Bazaar, strategist: Model, negotiator: Model, *, dry_run: bool, log: Log,
-                 decay: float | None, duel_ticks: int | None, poll_s: float):
+                 decay: float | None, duel_ticks: int | None, poll_s: float, records: Records | None = None):
         self.b = b
         self.strategist, self.negotiator = strategist, negotiator
         self.dry_run = dry_run
@@ -84,6 +85,16 @@ class DuelRunner:
         self.tick_seconds = 60.0
         self.accepted_tick: int | None = None   # one acceptance per team per tick
         self.spent_usd = 0.0
+        self.records = records
+
+    def record(self, key: Any, **fields: Any) -> None:
+        """Into the duel's record; a failure here must never stop a duel."""
+        if self.records is None:
+            return
+        try:
+            self.records.save(key, **fields)
+        except Exception as e:
+            self.log.write("error", where="record", duel=key, error=repr(e))
 
     async def call(self, fn, *args, **kw):
         return await asyncio.to_thread(fn, *args, **kw)
@@ -133,6 +144,7 @@ class DuelRunner:
         key = snap.id
         if self.log.changed(f"duel:{key}", raw):
             self.log.write("duel", tick=self.tick, raw=raw, problems=snap.problems)
+            self.record(key, payloads=[{"tick": self.tick, "raw": raw}], problems=snap.problems or None)
         mem = self.duels.get(key)
         if mem is None:
             if snap.view is None:
@@ -146,6 +158,9 @@ class DuelRunner:
                 f"{snap.ticks_left} ticks left" + (f" [{'; '.join(snap.problems)}]" if snap.problems else ""))
             self.log.write("new_duel", duel=key, view=v.model_dump(), strategist_system=agent.strategist_system,
                            negotiator_system=agent.negotiator_system)
+            self.record(key, session=self.session, first_tick=self.tick, view=v.model_dump(),
+                        models={"strategist": self.strategist.label, "negotiator": self.negotiator.label},
+                        strategist_system=agent.strategist_system, negotiator_system=agent.negotiator_system)
         mem.snap = snap
         if snap.messages is None and snap.rival_offer is not None:
             last = next((t.offer for t in reversed(mem.seen)), None)
@@ -187,6 +202,8 @@ class DuelRunner:
         self.spent_usd += cost
         self.log.write("decision", duel=mem.snap.id, tick=self.tick, took_s=round(took, 2), cost_usd=cost,
                        obs=obs.model_dump(), move=move.__dict__)
+        self.record(mem.snap.id, decisions=[{"tick": self.tick, "took_s": round(took, 2), "cost_usd": cost,
+                                             "obs": obs.model_dump(), "move": move.__dict__}])
         if signature(mem.snap) != sig and move.action == "accept":
             say(f"duel {mem.snap.id}: their offer changed while deciding; deciding again")
             mem.force = True
@@ -219,6 +236,8 @@ class DuelRunner:
             except BazaarError as e:
                 self.log.write("send_error", duel=did, tick=self.tick, code=e.code, message=e.message,
                                extra=e.extra, move=move.__dict__)
+                self.record(did, errors=[{"tick": self.tick, "code": e.code, "message": e.message,
+                                          "move": move.__dict__}])
                 if e.code == "wait_for_tick":
                     mem.pending = (move, sig)
                     return
@@ -229,6 +248,7 @@ class DuelRunner:
                 say(f"duel {did}: refused: {e.code}: {e.message}")
                 return
         self.log.write("sent", duel=did, tick=self.tick, move=move.__dict__, result=result)
+        self.record(did, sent=[{"tick": self.tick, "dry_run": self.dry_run, "move": move.__dict__, "result": result}])
         if move.action == "accept":
             self.accepted_tick = self.tick
         mem.sent.append(Turn(mine=True, text=move.text, accept=move.action == "accept", tick=self.tick,
@@ -249,8 +269,25 @@ class DuelRunner:
                 mem.task.cancel()
             raw = done.get(key)
             self.log.write("finished", duel=key, raw=raw)
+            self.record(key, last_seen_tick=self.tick, done=raw)   # if not in the done list yet, the sweep adds it
             say(f"duel {key} finished: " + (json.dumps({k: raw[k] for k in raw if k not in ('messages',)})[:300]
                                              if raw else "(not in the done list yet)"))
+
+    async def sweep(self) -> None:
+        """Every minute: finished duels we haven't recorded (also ones a restart missed), the feed's duel events,
+        our duel points. Three reads; any failure is logged and skipped."""
+        if self.records is None:
+            return
+        try:
+            for raw in (await self.call(self.b.duels, True)).get("duels", []):
+                key = duel_key(raw)
+                if key is not None and key not in self.duels and not self.records.finished(key):
+                    self.record(key, done=raw)
+                    self.log.write("recorded", duel=key)
+            self.records.add_feed((await self.call(self.b.feed, 200)).get("events", []))
+            self.records.add_score(self.tick, (await self.call(self.b.me)).get("score") or {})
+        except Exception as e:
+            self.log.write("error", where="sweep", error=repr(e))
 
     # The loop
 
@@ -260,6 +297,7 @@ class DuelRunner:
         say(f"{me.get('name')} ({me.get('id')}): {'DRY RUN, ' if self.dry_run else ''}strategist "
             f"{self.strategist.label}, negotiator {self.negotiator.label}; log {self.log.path}")
         await self.refresh_session()
+        await self.sweep()
         last_schedule = time.monotonic()
         while True:
             try:
@@ -269,6 +307,7 @@ class DuelRunner:
                     self.tick_seconds = float(clock.get("tick_seconds") or self.tick_seconds)
                 if time.monotonic() - last_schedule > 60:
                     await self.refresh_session(clock.get("t_hours"))
+                    await self.sweep()
                     last_schedule = time.monotonic()
                 if clock.get("doors") not in (None, "open") or clock.get("paused"):
                     await asyncio.sleep(max(self.poll_s, 10))
