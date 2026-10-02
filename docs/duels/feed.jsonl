@@ -1,1 +1,3 @@
 {"id": 5852, "tick": 120, "t": 2.0, "type": "duels.scheduled", "scope": "public", "actor": "", "payload": {"session": 1, "name": "Practice duels", "duels": 306, "rounds": 1, "duel_ticks": 12, "decay": 0.06}}
+{"id": 6284, "tick": 124, "t": 2.0667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16, "session": 1, "status": "deal", "item": "El Rastro al Amanecer"}}
+{"id": 6380, "tick": 125, "t": 2.0833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15, "session": 1, "status": "deal", "item": "El Rastro al Amanecer"}}
