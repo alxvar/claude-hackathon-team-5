@@ -1,22 +1,22 @@
-# Metrics (auto, 21:54, game tick 94)
+# Metrics (auto, 21:56, game tick 96)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
 1. Team 13 27.8 (+0.0 / +0.0) deals 13
-2. Team 18 25.1 (+0.0 / +0.0) deals 9
+2. Team 18 26.1 (+0.9 / +0.9) deals 10
 3. Team 8 25.0 (+0.0 / +0.0) deals 8
-4. Team 10 24.0 (+0.0 / +0.0) deals 13
-5. Team 12 21.2 (+0.0 / +0.0) deals 12
-6. Team 4 19.7 (+0.0 / +0.0) deals 11
-7. Team 14 19.6 (+0.0 / +0.0) deals 7
-8. Team 5 17.8 (+0.0 / +0.0) deals 15 ← US
+4. Team 10 23.6 (-0.3 / -0.3) deals 13
+5. Team 12 20.9 (-0.2 / -0.2) deals 12
+6. Team 4 19.4 (-0.3 / -0.3) deals 11
+7. Team 14 18.4 (-1.1 / -1.1) deals 8
+8. Team 5 17.7 (-0.1 / -0.1) deals 15 ← US
 9. Team 9 12.5 (+0.0 / +0.0) deals 7
-10. Team 3 12.1 (+0.0 / +0.0) deals 5
+10. Team 17 12.5 (+0.9 / +0.9) deals 8
 Us: #8
 
 ## Us
 
-score 17.8 · neg_points 26.3 (15 min ago 26.3) · ladder 0.064 · duel 0.0 · cash 380 · level 1 · deals 15
+score 17.67 · neg_points 26.3 (15 min ago 26.3) · ladder 0.064 · duel 0.0 · cash 380 · level 1 · deals 15
 
 ## Trades between teams (35 so far; last 12)
 
@@ -38,35 +38,36 @@ Who buys which set (team trades): t04: LAT×4, LAV×3; t05: MAL×1; t08: MAL×4,
 ## Dealer prices, last 60 ticks (median per item)
 
 - abuela common (team buys): median 9 over 12
-- abuela common (team sells): median 6 over 22
-- abuela sobre_barrio (team buys): median 23 over 19
-- abuela uncommon (team buys): median 22 over 21
-- abuela uncommon (team sells): median 15 over 3
+- abuela common (team sells): median 5 over 21
+- abuela sobre_barrio (team buys): median 23 over 18
+- abuela uncommon (team buys): median 22 over 20
+- abuela uncommon (team sells): median 15 over 2
 
 ## El Rastro now: top bids by price (team, card, price)
 
 - t10: LAV-09 (rare) 110 P · offer 1373
-- t05 (US): LAV-09 (rare) 91 P · offer 1371
 - t17: MAL-09 (rare) 78 P · offer 1329
 - t17: MAL-10 (rare) 78 P · offer 1330
 - t10: MAL-10 (rare) 75 P · offer 1382
+- t04: LAV-10 (rare) 75 P · offer 1409
 - t13: SAL-10 (rare) 70 P · offer 1146
 - t12: MAL-09 (rare) 70 P · offer 1306
-- t04: LAV-10 (rare) 70 P · offer 1338
-- t08: MAL-09 (rare) 67 P · offer 1265
 - t18: LAT-09 (rare) 55 P · offer 1157
 - t18: LAT-10 (rare) 55 P · offer 1158
 - ?: MAL-09 (rare) 38 P · offer 987
 - ?: MAL-10 (rare) 38 P · offer 988
 - t17: MAL-07 (uncommon) 26 P · offer 1331
 - t17: MAL-08 (uncommon) 26 P · offer 1332
+- ?: LAV-07 (uncommon) 24 P · offer 939
+- t17: SAL-06 (uncommon) 21 P · offer 1333
 
-Asks by others (card, price: count): LAV-05 10: 4; MAL-02 10: 4; LAT-04 10: 3; SAL-01 9: 2; LAV-02 10: 2; MAL-04 10: 2; LAV-04 10: 2; SAL-02 11: 1; LAV-03 11: 1; MAL-04 9: 1; LAT-02 10: 1; MAL-02 8: 1; LAT-04 11: 1
+Asks by others (card, price: count): LAV-04 10: 2; SAL-02 11: 1; LAV-03 11: 1; SAL-01 9: 1; MAL-04 9: 1; MAL-02 8: 1; LAT-04 11: 1; LAT-04 10: 1; MAL-02 10: 1
 
-Our open offers: 4: sell LAV-04 10; sell LAV-04 10; sell SAL-06 30; bid LAV-09 91
+Our open offers: 3: sell LAV-04 9; sell LAV-04 9; sell SAL-06 27
 
 ## Latest announcements
 
 - tick 71 level.announced: {"level": "chato", "kind": "persona", "name": "El Chato", "teaser": "\u00abBetter packs, friendly prices. If I like you.\u00bb"}
 - tick 94 announcement: {"text": "Short maintenance in 2 minutes: the server restarts for about 30 seconds. Your cards, cash and offers are kept. If your agent stops on an error, start
+- tick 96 announcement: {"text": "We are back. The dealers speak through Claude again. Happy haggling!"}
 
