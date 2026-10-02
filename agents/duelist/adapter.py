@@ -17,7 +17,7 @@ DONE = {"deal", "done", "closed", "expired", "no_deal", "finished", "settled", "
         "timed_out", "agreed", "accepted", "failed", "cancelled", "canceled", "over", "ended", "complete", "completed"}
 MESSAGE_KEYS = ("messages", "history", "transcript", "log", "turns")
 # Keys we read; everything else of the top level goes to `extra`. Limits are listed so they never reach it twice.
-KNOWN = {"id", "duel_id", "status", "state", "done", "closed", "role", "your_role", "side", "your_limit", "limit",
+KNOWN = {"id", "duel_id", "duel", "status", "state", "done", "closed", "role", "your_role", "side", "your_limit", "limit",
          "your_cost", "your_value", "cost", "value", "reservation", "rival_offer", "their_offer", "rival",
          "rival_alias", "opponent", "alias", "your_offer", "my_offer", "own_offer", "deadline", "deadline_tick",
          "ends_at_tick", "end_tick", "expires_tick", "ticks_left", "remaining_ticks", "issues",
@@ -146,7 +146,7 @@ def parse_duel(raw: dict[str, Any], *, team: set[str], tick: int | None, default
     """`team`: our team's id and name, to recognise our own messages. `defaults`: the session's `decay` and
     `duel_ticks` from the schedule, used when the duel doesn't state them."""
     problems: list[str] = []
-    did = first(raw, "id", "duel_id")
+    did = first(raw, "id", "duel_id", "duel")
     status = str(first(raw, "status", "state") or "")
     live = status.lower() not in DONE and not raw.get("done") and not raw.get("closed")
     role = as_role(first(raw, "role", "your_role", "side"))

@@ -260,7 +260,7 @@ class DuelRunner:
     async def finish(self, gone: list[Any]) -> None:
         """Duels that left the live list: log how they ended."""
         try:
-            done = {d.get("id", d.get("duel_id")): d for d in (await self.call(self.b.duels, True)).get("duels", [])}
+            done = {d.get("id", d.get("duel_id", d.get("duel"))): d for d in (await self.call(self.b.duels, True)).get("duels", [])}
         except BazaarError:
             done = {}
         for key in gone:

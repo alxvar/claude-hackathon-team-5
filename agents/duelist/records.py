@@ -22,7 +22,7 @@ RECORDS = Path(__file__).resolve().parents[2] / "docs" / "duels"
 
 
 def duel_key(raw: dict[str, Any]) -> Any:
-    return first(raw, "id", "duel_id")
+    return first(raw, "id", "duel_id", "duel")
 
 
 class Records:
