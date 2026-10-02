@@ -41,7 +41,15 @@ Four different games run in parallel on one key. Each has its own scoring and it
 | Schedule | `/api/schedule` `upcoming` | 3.0 bench gone or re-timed | 3.0 bench still listed |
 | Reset | `/api/me` `neg_points`, `ladder_points` right after the `round` event fires (not at 09:00 under resume) | ~0 = **reset**: ladder is cheap points again, every trade from zero, move first | 67.8 / 0.064 = **carry**: the LAV page keeps counting |
 
-Then: open the grant pack the tick it arrives, before any trade [V drag].
+Evidence so far favours **resume**: the big screen's "Coming up" reads *Market Test in 21m, New round in 1h 21m* at the
+paused game clock 2:39 [V screen], i.e. ~09:21 and ~10:21 if nothing is re-anchored. No organiser statement either way.
+
+**The trader (`loop.py`) and the analysts are stopped overnight on purpose** (they would start on Friday's premises with
+an unopened grant pack). The operator starts them only after: clock checked → grant pack opened → reset checked.
+
+**This plan supersedes every `intel/directives.md` block written before Sat 00:45 where they conflict:**
+cap test = a RET common at p ≈ 12 (not an uncommon at ≥20); RET rares from Chato with the 80-84 protocol (not "up to 90");
+cash floor per §4B (GUARDRAIL pending Lucas's word).
 
 ---
 
@@ -70,11 +78,15 @@ Then: open the grant pack the tick it arrives, before any trade [V drag].
   offer unfilled for 10 minutes.
 - **Sell page-completers at the buyer's page price** (biggest new lever). A team one card from a page values that
   card with its bonus (ours read 99.1 for a common). Our spares are worth 2-3 to us: second LAV-02, LAV-03, LAV-04,
-  second SAL-02, second LAT-04. Price 30-50, addressed `to` the team. Known gaps [L, field report]: t14 (LAV, missing one
-  of 01/02/07/08), t04 (LAV-09: we can't), t02 (SAL-09), t08 (SAL rares), t18 (LAT-09/10), t17 (MAL-09).
-- **Feeding rule.** Before any sale read the buyer's progress in that set (feed + `intel/teams.md`). Never sell a
-  page's second-to-last or last card to a team in the top 4 or within ~8 points of us; prefer teams far below.
-  Friday's SAL-06 → t17 let them finish SAL (+6.25 board) and pass us [V].
+  second SAL-02, second LAT-04. Price ≈ 45-50 (about half the buyer's implied gain), addressed `to` the team. Known gaps
+  [L, field report]: t14 (LAV, missing one of 01/02/07/08), t04 (LAV-09: we can't), t02 (SAL-09), t08 (SAL rares),
+  t18 (LAT-09/10), t17 (MAL-09). No API shows other teams' albums (only `album_filled`, `pages_complete`): the best
+  signal that a team lacks card X is that it **bids for X or asks a dealer for X**. `intel/sellable.md` (builder,
+  §5) turns that into one line per opportunity for Dani.
+- **Feeding rule.** Before any sale read the buyer's progress in that set (feed + `intel/teams.md`). A page-completing
+  card (second-to-last or last) goes only to a team **≥ 10 points below us** and never to the top 4: at a 45-50 price
+  the buyer books up to the cap while we book less. Friday's SAL-06 → t17 let them finish SAL (+6.25 board) and pass
+  us [V].
 - **Accept (taker) only** for: a page-completing card, or an ask below our value − 3 − fee.
 
 ### 4B. Pages — the recipe that worked (+40 net, #10 → #5)
@@ -85,6 +97,9 @@ Then: open the grant pack the tick it arrives, before any trade [V drag].
    - Uncommons: Abuela after 5-7 rounds (~21). Chato's 28-29 is above 27.5 (−1 each).
    - Rares: from teams at ≤ 74, else Chato at ~80-84 (−3 to −7 each, a dealer loss counts in full).
    - Cost ≈ 5×9 + 3×22 + 2×82 ≈ 275 P. Expected net ≈ +35 to +45 if the cap holds.
+   - **Order: rares first** (scarce: 30 copies each, and teams with a high RET multiplier value them ~112 and will
+     outbid us), uncommons next, commons last. If a rare is still missing at 15:00, stop and sell the RET cards we hold
+     to RET collectors at their page price instead of finishing.
    - **Cap test with the last card:** a RET common at price ≈ 12 (p + f ≈ 14). Measured score 50 → flat/5×book;
      ≈ 70 → 5×(p+f); ≈ 46 → value ≤ 6×book. Log it in GAME.md immediately; it sets every later price.
 4. **CHA page (Sunday, 18.0)**: values common 16, uncommon 40, rare 112 > dealer prices, so no dealer losses even on
@@ -117,13 +132,24 @@ Practice [V]: 11 deals / 24 finished; 9/12 closed when the rival spoke; ~14% of 
 4. Silent rival: concede on a code schedule toward a floor (keep ≥ 30% of anchor-to-limit). Silence costs no decay;
    two "silent" rivals accepted our opener (accept-only bots).
 5. Fix the prompt: decay is per exchange, not per tick (`agent.py:148,178`). Read session params from the payload.
+6. **Close by sending the rival's own standing price** (and day) from `ticks_left ≤ 4`: then THEY accept and spend
+   their accept, which avoids collisions when 6 duels end on the same tick.
+- **Single point of failure**: Aleks's laptop on mains power with `caffeinate`; a stopped copy of the duelist on Lucas's
+  machine as cold standby (never both running: one key). Check the spend limit on Aleks's API key before 11:00.
 - **Duels II (18:00, `days`)**: payload shape never seen; test number/list/dict; compute day value in code; always send
   full packages; concede cheap days for price; ≤ 3 exchanges at 8% decay.
 - **Sunday (15 s ticks)**: Sonnet strategist (Opus max was 14.2 s vs a 10 s budget).
 
 ### 4E. Market-making — record first, decide on evidence
 - The free stall already ≈ the starter broker (half points). Our sim says even a perfect-information broker beats it
-  by only +1.0-1.6 pp [L, model]; the real generator may differ. A board venue with its broker down scores **0**.
+  by only +1.0-1.6 pp [L, model]; the real generator may differ. **That edge is not small in points**: the scale runs
+  from the stall (half) to the top-3 mean (full), so +1.6 pp can be most of the other half. A board venue with its
+  broker down scores **0**.
+- **Decision for Lucas (cash + 270 P):** Option A (pre-mortem): build an `auto`-clone broker (no LLM: cross best bid /
+  best ask every tick, as the stall does) + one improvement, supervised by `daemons.sh`; open a `board` venue at fee 0
+  as soon as it reproduces the stall's matches on a recorded bench (replay equality). Downside bounded to "= stall"
+  except downtime; it is the only way to capture any edge. Funds: the bond is refundable; sell low-multiplier cards.
+  Option B: the gate below. **Recommendation: A**, because B's four conditions are unlikely to all hold before 15:00.
 - **Before the first bench**: a read-only recorder of `bench_offers` (needs `starter_broker_key` from `/api/me` once
   the stall exists) + our `bench_efficiency` and every team's `market` after each session.
 - **~14:15 gate** (Lucas): open a `board` venue at fee 0, between sessions, only if (a) broker v1 ≥ stall + 2 pp on the
@@ -133,13 +159,19 @@ Practice [V]: 11 deals / 24 finished; 9/12 closed when the rival spoke; ~14% of 
 
 ---
 
-## 5. Throughput and infrastructure (build before 09:00)
+## 5. Throughput and infrastructure
+
+**Before 09:00 build only three things** (a builder eating 09:00-11:30, the only accept window before Duels I, is a
+pre-mortem failure): the operator PID lock, the API spend preflight, and the market recorder (+ the `auto`-clone broker
+if Lucas picks option A). Everything else is built during Duels I, when our bots hold accepts anyway.
 
 | Fix | Why | Owner |
 |---|---|---|
+| `intel/sellable.md` generator: cross teams' bids and dealer threads (what they lack) with our spares and the feeding rule → one line per opportunity with price, buyer, pitch text; the watcher alerts Dani on a new line | Turns the room into targeted page-completion sales | builder, by 10:00 |
+| Repricer daemon (no LLM) that owns our maker book within the hard limits: keeps 20-30 offers live, reprices after 10 min unfilled | The operator's context can fill or its Monitor expire; standing still = falling | builder |
 | Read-only daemons (collector, watcher, metrics, dashboard) on **keyless** public routes | Keyless reads get 60/s per IP; the team key's 5/s is shared and we hit 429s at 21:50 and 21:54 | builder session |
 | Watcher on `/api/events/stream` (SSE) | Instant reaction, fewer requests | builder |
-| **Accept arbiter**: bots hold accepts only during SCORED duel sessions and only on ticks the duelist flags (`docs/duels/want_accept.json`); include dealer `final` accepts | Today's rule freezes all accepts during any live duel (~3.3 h Saturday) | builder + Aleks |
+| **Accept arbiter**: bots hold accepts only during SCORED duel sessions, and only on ticks where a live duel has an in-limit rival offer or `ticks_left ≤ 3`, read **directly from `/api/duels`** (git sync takes 2-8 ticks, too slow); include dealer `final` accepts | Today's rule freezes all accepts during any live duel (~3.3 h Saturday) | builder + Aleks |
 | `metrics.md` attribution per settlement (not per score change) | Friday merged LAT-08 and LAV-05 into one window | builder |
 | Operator PID lock; strategy session has no write path to the game | Two sessions operated at once on Friday | builder |
 | Spend preflight for every API key + alert on the first analyst error | The $1 cap stopped the analysts 21:59-22:16 | builder |
@@ -152,8 +184,11 @@ Practice [V]: 11 deals / 24 finished; 9/12 closed when the rival spoke; ~14% of 
 **Lucas** — decides, is the human channel, owns the story. Talks only to the strategy session. His leverage is what
 agents can't do: the desk, other teams' humans, spotting what doesn't add up, the judges' pitch.
 
-**Lucas's machine — three sessions, one role each, all started fresh at 08:45:**
+**Lucas's machine — three sessions, one role each, all started fresh at 08:45** in a VS Code window opened on the repo
+folder (explorer + Git panel + terminals all in the repo):
 1. **Operator** (unattended, Opus high): the only process that writes to the game. Runbook `intel/ORCHESTRATOR.md`.
+   Liveness: if `team/lucas.md` gets no operator line for 15 minutes, push Lucas. Planned fresh restart (with handoff)
+   during Duels I, when trading is quiet.
 2. **Strategy** (Lucas talks here): reads everything, writes decisions to `intel/directives.md`, and for urgent ones
    also `SendMessage` to the operator (same machine: wakes it at once) [V docs].
 3. **Builder**: §5 fixes, then the market recorder → sim → broker v1. Commits code, never trades.
@@ -170,8 +205,10 @@ team_sync hook) and writes `team/aleks.md` + `docs/duels/want_accept.json`.
    card from a page and pitches with a concrete offer: *"You need LAV-02 to finish Lavapiés. It's on El Rastro
    addressed to you at 40; accept it and your page is done."* For buying: *"We pay 12 for RET-0x right now, bid is
    up."* She never improvises prices; she only points teams at offers that already exist.
-3. **Judges' story (40%)**: `docs/demo.md` skeleton now, a screenshot of the dashboard and leaderboard at each round
-   close, and the decision timeline (from `team/*.md`, `LOG.md`, `intel/directives.md`).
+3. **Judges' story (40%)**: get the judging format from the desk by 09:30; `docs/demo.md` skeleton; a screenshot of the
+   dashboard and leaderboard at each round close; the decision timeline (from `team/*.md`, `LOG.md`,
+   `intel/directives.md`). **Lucas and Dani draft the pitch during Duels I (11:30-13:05)** and rehearse during Duels II:
+   those are the windows when the bots hold accepts and Lucas is least needed.
 
 **Sync** [V docs]: same machine → `SendMessage` (instant) + files; across machines → git (hooks pull on every prompt,
 the watcher emits teammate pushes within a minute). No tool shares another session's context: everything that
@@ -180,7 +217,8 @@ matters goes into a file.
 ---
 
 ## 7. Quality guardrails (the process that would have prevented Friday's losses)
-1. **One deal per measurement window.** Predict each trade's score with the §1 formula, log predicted vs measured.
+1. **One deal per measurement window** for our own accepts and dealer deals (maker fills can't be timed: attribute them
+   per settlement instead). Predict each trade's score with the §1 formula, log predicted vs measured.
 2. **A new finding must explain every earlier measurement**, or it isn't a finding.
 3. **Manual test before automating** any lever; no bot ever accepts a dealer's first price.
 4. **One fact store**: `intel/GAME.md`, each fact labelled [V]/[L]/[?] with its source.

@@ -22,7 +22,11 @@ There is exactly ONE operator (this session). Lucas talks only to his strategy s
 1. `tools/daemons.sh status`; start anything DOWN with `tools/daemons.sh start <name>`.
 2. Arm the live watcher with the Monitor tool: command `set -a; . ./.env; set +a; python3 -u tools/watch.py`,
    timeout 1800000. Re-arm it every time it expires.
-3. Read `intel/directives.md`, `intel/strategy.md`, `intel/judge.md`, then the top of `intel/metrics.md` (it now has our
+3. **Saturday:** read `intel/saturday-plan.md` first and run its §2 decision tree before anything else. The trader and
+   the analysts were stopped overnight on purpose: start them (`tools/daemons.sh start trader scout judge strategist`)
+   only after the clock check, opening the grant pack and the reset check. The plan supersedes directive blocks written
+   before Sat 00:45 where they conflict.
+4. Read `intel/directives.md`, `intel/strategy.md`, `intel/judge.md`, then the top of `intel/metrics.md` (it now has our
    holdings with per-copy values, our open offers with `to`, what each of our deals did to `neg_points`, and our dealer
    conversations). Nothing else unless needed.
 
