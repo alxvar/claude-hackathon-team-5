@@ -1,4 +1,4 @@
-# Metrics (auto, 23:00, game tick 159)
+# Metrics (auto, 00:00, game tick 159)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -92,7 +92,7 @@ Who buys which set (team trades): t04: LAV×3, LAT×3; t05: MAL×1, SAL×1, LAV�
 - t15: SAL-09 (rare) 7 P · offer 2648
 - t02: LAT-03 (common) 2 P · offer 2725
 
-Asks by others (card, price: count): LAT-04 9: 3; LAV-04 10: 3; MAL-08 40: 2; LAT-05 9: 2; LAT-01 9: 2; MAL-02 3: 2; LAV-03 8: 1; MAL-04 8: 1; LAT-01 8: 1; MAL-05 8: 1; LAV-04 8: 1; MAL-06 28: 1; LAV-08 40: 1; MAL-07 30: 1; LAT-08 30: 1
+Asks by others (card, price: count): LAT-04 9: 3; LAV-04 10: 3; MAL-08 40: 2; LAT-05 9: 2; LAT-01 9: 2; MAL-02 3: 2; MAL-04 9: 2; LAV-03 8: 1; MAL-04 8: 1; LAT-01 8: 1; MAL-05 8: 1; LAV-04 8: 1; MAL-06 28: 1; LAV-08 40: 1; MAL-07 30: 1
 
 ## Our duels: 6 live, 30 finished (last 10)
 
@@ -109,9 +109,9 @@ Asks by others (card, price: count): LAT-04 9: 3; LAV-04 10: 3; MAL-08 40: 2; LA
 
 ## Latest announcements
 
-- tick 126 level.unlocked: {"team": "t08", "name": "Team 8", "persona": "chato", "persona_name": "El Chato", "level": 2, "why": "3 deals with abuela"}
 - tick 132 level.unlocked: {"team": "t16", "name": "Team 16", "persona": "chato", "persona_name": "El Chato", "level": 2, "why": "3 deals with abuela"}
 - tick 144 announcement: {"text": "We close at 23:00. Offers stay open; the clock stops."}
 - tick 158 level.unlocked: {"team": "t11", "name": "Team 11", "persona": "chato", "persona_name": "El Chato", "level": 2, "why": "open to everyone now"}
 - tick 158 level.unlocked: {"team": "t15", "name": "Team 15", "persona": "chato", "persona_name": "El Chato", "level": 2, "why": "open to everyone now"}
+- tick 159 announcement: {"text": "Closed until Saturday 09:00. Offers stay open; the clock stops."}
 
