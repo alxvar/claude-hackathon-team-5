@@ -225,12 +225,19 @@ def main() -> None:
         cheapest items on the menu, packs included, never above 90% of list. Dealer deals barely move neg_points."""
         menu = b.dealer(DEALER).get("menu", {}).get("sells", [])
         n = 0
+        cat = b.catalog()
+        held = {a["ref"] for a in b.me()["assets"] if a["kind"] == "card"}
         for m in sorted(menu, key=lambda m: m.get("list_price", 0)):
-            while n < limit:
-                cap = min(int(m.get("list_price", 0) * 0.9), max(0, b.me()["cash"] - CASH_FLOOR))
+            if "rarity" not in m:
+                continue  # packs: their value to us is unknown, and buying above value subtracts (LOG finding 13)
+            options = sorted(((b.value(c["id"])["your_value"], c["id"]) for s in cat["sets"] if s.get("released")
+                              for c in s["cards"] if c["rarity"] == m["rarity"] and c["id"] not in held), reverse=True)
+            while n < limit and options:
+                value, card = options.pop(0)
+                cap = min(int(m.get("list_price", 0) * 0.9), int(value) - 1, max(0, b.me()["cash"] - CASH_FLOOR))
                 if cap < 1:
-                    return n
-                topic = {"buy": {"pack": m["pack"]}} if "pack" in m else {"buy": {"rarity": m["rarity"], "set": "LAV"}}
+                    break  # never above our private value
+                topic = {"buy": {"card": card}}
                 t = negotiate(b, topic, "buy", cap)
                 n += done_one(t, f"ladder {topic}")
                 if t["status"] != "deal" or "per_team_per_hour" in m and n >= m["per_team_per_hour"]:

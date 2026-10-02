@@ -7,8 +7,8 @@
 - Never counts: number of trades, fees earned, pack luck, gifts.
 
 ## Measured facts (LOG.md findings, verified on our own trades)
-- **`neg_points` = sum over trades between teams of (value received − value given) at OUR private values, net of fees.** Selling a card scores `price − our value of that copy` (minus the fee, 5% + 1 P, when WE accept). What we paid for the card never enters: a dealer purchase neither scores nor subtracts.
-- Dealer deals barely move `neg_points`; they feed the ladder only.
+- **`neg_points` counts trades between teams at OUR private values, net of fees: selling a card scores `price − our value of that copy` (minus the fee, 5% + 1 P, when WE accept).**
+- **CORRECTED 22:00: dealer purchases ABOVE our value SUBTRACT.** Measured: MAL-07 bought from Abuela at 29 (worth 17.5 to us) → `neg_points` 26.3 → 14.5 (−11.8). The −8.5 we started with came from packs bought above their value. A dealer purchase BELOW our value showed no clear gain (LAV-08 at 24, worth 32.5: ~+0.3). **Rule: never buy from a dealer above our private value, ladder deals included. Flipping dealer cards into team bids is dead (−11.5 on the buy, +5 to +8 on the sale).**
 - Every trade between teams also scores for the counterparty. Price sales near the BUYER's value; prefer counterparties below us.
 - Big jumps on the leaderboard (+8 to +15) came from single rare trades between teams (65-80 P).
 - Good bids get filled by other teams within minutes. Speed beats price on purchases.
@@ -21,7 +21,7 @@ Book values: common 10, uncommon 25, rare 70, epic 180, legendary 450. Our value
 ## What we can do (the executors)
 - El Rastro: list a card for cash, bid cash for any copy of a card, accept others' offers (1 accept per team per tick), offers addressed to one team (`to`).
 - `agents/trader/loop.py`: auto-accepts El Rastro offers that gain ≥3 (buys) / ≥6 (sells into bids).
-- `agents/trader/autoflip.py`: fills other teams' bids with cards bought from Abuela when the sale scores ≥8.
+- `agents/trader/autoflip.py`: STOPPED 22:00 (flipping loses points, see the correction above).
 - `agents/trader/trade.py`: manual list / bid / accept. `agents/dealers/abuela_bot.py`: dealer negotiation (`--dealer`, `--ladder`).
 - Duels: Aleks's `agents/duelist/` (not ours to run).
 - Humans in the room (Lucas, Dani) can find card holders and agree trades; card owners are anonymous in the API.

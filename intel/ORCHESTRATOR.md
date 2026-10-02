@@ -31,6 +31,7 @@ All state lives in files; your context is disposable. When it gets heavy, write 
 - `WATCH ERROR` or a daemon down: restart it; if it keeps failing, notify Lucas.
 
 ## Guardrails (never break these without Lucas)
+- **Never buy from a dealer above our private value** (it subtracts from `neg_points`, LOG finding 13). Autoflip stays stopped.
 - Cash never below 200 P (Saturday adds 150).
 - Never bid above our private value of the card (`trade.py` / `b.value`). Never sell below our value + 3.
 - Sales to a team in the top 3 only if our gain is larger than theirs (their value ≈ book × 1.6 at most).
