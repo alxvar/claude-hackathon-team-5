@@ -29,6 +29,12 @@ The schedule says the practice duels last 12 ticks, lose 6% per tick, run 6 at a
 
 Ticks are 60 s on Friday, 30 s on Saturday and 15 s on Sunday. A decision that takes longer than the tick minus 5 s is replaced by restating our last offer. Check the decision times printed in the practice session before Sunday.
 
+## Records: every duel, kept in the repo
+
+`run` also writes one `docs/duels/duel-<id>.json` per duel: the session, how we read it, every raw payload, every decision (latency, cost, what the agent saw), what we sent and what the game answered, refusals, and the game's final payload. Once a minute it also sweeps the done list, so a duel that a crash or a restart missed is still saved (with the final payload only). Two timelines sit next to the records: `feed.jsonl` (the public feed's duel events, which may name the team behind an alias) and `scores.jsonl` (our duel points whenever they move).
+
+After each session: `uv run python -m agents.duelist review` writes `docs/duels/README.md`, one row per duel (rival, role, limit, our first and last offer, price, surplus, points, decision seconds, spend, fallbacks). Then commit and push `docs/duels/`, so the team and the next session learn from it. The field names for price and points are guesses until the practice shows the real ones; fix `summary()` in `agents/duelist/records.py` then.
+
 ## What to read in the log after the practice
 
 `logs/duelist/duels-<time>.jsonl` has one JSON object per line:
