@@ -217,6 +217,79 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 158,
+   "raw": {
+    "duel": 227,
+    "session": 1,
+    "status": "live",
+    "role": "seller",
+    "item": "Plaza de Olavide",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 130,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 168,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 1753,
+     "price": 168,
+     "tick": 157,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1769,
+     "price": 144,
+     "tick": 158,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 156,
+      "from": "Rival Luna",
+      "text": "Thank you for meeting me. I can do 96 P.",
+      "price": 96,
+      "days": null
+     },
+     {
+      "tick": 156,
+      "from": "you",
+      "text": "Thanks for opening. Plaza de Olavide is a prime central square with steady foot traffic and lasting appeal, and I'm offering it at 185 P. Your opening figure is well below what the property supports, so I'd welcome a serious counteroffer.",
+      "price": 185,
+      "days": null
+     },
+     {
+      "tick": 157,
+      "from": "Rival Luna",
+      "text": "I appreciate your move. 136 P is where I can be.",
+      "price": 136,
+      "days": null
+     },
+     {
+      "tick": 157,
+      "from": "you",
+      "text": "I appreciate the sizable move on your side, and I'll meet it with a step of my own, coming down to 168 P. Plaza de Olavide's central location and constant footfall support that figure well, and I'd like us to close the remaining gap quickly.",
+      "price": 168,
+      "days": null
+     },
+     {
+      "tick": 158,
+      "from": "Rival Luna",
+      "text": "Let us close quickly: 144 P.",
+      "price": 144,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {

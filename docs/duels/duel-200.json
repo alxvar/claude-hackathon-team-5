@@ -518,5 +518,62 @@
     "settles_at_tick": 158
    }
   }
- ]
+ ],
+ "last_seen_tick": 158,
+ "done": {
+  "duel": 200,
+  "session": 1,
+  "status": "deal",
+  "role": "seller",
+  "item": "Mercado de Vallehermoso",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 68,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Noche",
+  "deadline_tick": 168,
+  "decay_per_round": 0.06,
+  "rounds": 1,
+  "your_offer": {
+   "id": 1717,
+   "price": 104,
+   "tick": 156,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 1728,
+   "price": 102,
+   "tick": 157,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 156,
+    "from": "Rival Noche",
+    "text": "Hello, and thank you for meeting me. I would propose 87 P for this one.",
+    "price": 87,
+    "days": null
+   },
+   {
+    "tick": 156,
+    "from": "you",
+    "text": "Thanks for opening, but your offer is below what this stall is worth. Mercado de Vallehermoso has steady foot traffic and a strong position, so 104 P is a fair price. Every tick of talk costs us both, so I hope you can move up quickly.}",
+    "price": 104,
+    "days": null
+   },
+   {
+    "tick": 157,
+    "from": "Rival Noche",
+    "text": "I appreciate it. Let us try to close quickly: 102 P.",
+    "price": 102,
+    "days": null
+   }
+  ],
+  "result": 32.0,
+  "price": 102,
+  "days": 0
+ }
 }
