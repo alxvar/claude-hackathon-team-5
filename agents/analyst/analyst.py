@@ -69,7 +69,7 @@ Concrete and executable, ranked; expected effect and the main risk for each."""}
 }
 
 RULES = """Ground rules for every answer:
-- Use only facts present in GAME.md, the metrics, the scout's notes or our logs. If a number is not there, say "not in the data" instead of estimating it.
+- Use only facts present in GAME.md, the Saturday plan, Lucas's directives, the metrics, the scout's notes or our logs. If a number is not there, say "not in the data" instead of estimating it.
 - Every recommendation must be executable with the tools in GAME.md ("what we can do") or by a human in the room.
 - Never recommend trades that hand a leading team more value than we gain.
 - Be terse; no preamble."""
@@ -128,7 +128,7 @@ def main():
     role = ROLES[args.role]
     client = anthropic.Anthropic()
     while True:
-        system = [{"type": "text", "text": read("GAME.md") + "\n\n" + RULES + "\n\n" + role["brief"],  # re-read: GAME.md changes
+        system = [{"type": "text", "text": read("GAME.md", 40000) + "\n\n" + RULES + "\n\n" + role["brief"],  # re-read: GAME.md changes
                    "cache_control": {"type": "ephemeral"}}]
         facts = (f"# Lucas's directives (decided; never recommend against them)\n{head('directives.md', 6000)}\n\n# Saturday plan\n{head('saturday-plan.md', 30000)}\n\n"
                  f"# Live metrics\n{read('metrics.md')}\n\n# Rival profiles (Dani, intel/teams.md)\n{read('teams.md', 6000)}"

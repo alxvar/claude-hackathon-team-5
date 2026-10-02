@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Start / stop / list the team's long-running processes, detached from any Claude Code session.
 #   tools/daemons.sh start [name...]   tools/daemons.sh stop [name...]   tools/daemons.sh status
-# Logs in logs/<name>.log, pids in run/<name>.pid. Names: status collector trader scout judge
+# Logs in logs/<name>.log, pids in run/<name>.pid. Names: status collector trader scout judge strategist
 R="$(cd "$(dirname "$0")/.." && pwd)"
 mkdir -p "$R/logs" "$R/run"
 cmd_for() {
