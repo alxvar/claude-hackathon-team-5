@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Fri 22:45** · tick 144 (60 s/tick) · game hour 2.40 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Fri 22:50** · tick 149 (60 s/tick) · game hour 2.48 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -25,18 +25,18 @@ _From `team/<name>.md`; each person writes only their own file._
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 13.94 | 9 | 13.94 | 0.00 | 0.00 | 0.06 | — | 21 | 2 | 350 | 19/40 |
+| 13.51 | 9 | 13.51 | 0.00 | 0.00 | 0.06 | — | 22 | 2 | 355 | 18/40 |
 
-Leaderboard (snapshot at tick 140; refreshes every few minutes):
+Leaderboard (snapshot at tick 145; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
 | 1 | Team 13 | 30.00 | 30.00 | 0.00 | 23 |
-| 2 | Team 12 | 27.35 | 27.35 | 0.00 | 18 |
-| 3 | Team 8 | 23.88 | 23.88 | 0.00 | 11 |
-| 4 | Team 17 | 21.56 | 21.56 | 0.00 | 14 |
-| 5 | Team 10 | 20.34 | 20.34 | 0.00 | 17 |
-| 9 | Team 5 | 13.94 | 13.94 | 0.00 | 20 |
+| 2 | Team 12 | 26.81 | 26.81 | 0.00 | 18 |
+| 3 | Team 8 | 23.47 | 23.47 | 0.00 | 11 |
+| 4 | Team 17 | 21.13 | 21.13 | 0.00 | 14 |
+| 5 | Team 10 | 20.49 | 20.49 | 0.00 | 18 |
+| 9 | Team 5 | 13.51 | 13.51 | 0.00 | 21 |
 
 ## Next on the schedule
 
@@ -44,14 +44,14 @@ _ETA assumes the current tick length and no pause._
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 2.63 | ~14 min | persona_opens | El Chato opens for everyone |
-| 3.00 | ~36 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
-| 4.00 | ~96 min (after today's close) | round | Round 2 starts (holdings carry over) |
-| 4.00 | ~96 min (after today's close) | set_release | El Retiro released |
-| 4.00 | ~96 min (after today's close) | day_closes | Closed until Saturday 09:00 |
-| 4.00 | ~96 min (after today's close) | day_opens | Saturday opens |
-| 4.05 | ~99 min (after today's close) | grant_all | El Retiro has arrived: a pack and the Saturday allowance (150 primas) for everyone |
-| 5.00 | ~156 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 2.63 | ~9 min | persona_opens | El Chato opens for everyone |
+| 3.00 | ~31 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 4.00 | ~91 min (after today's close) | round | Round 2 starts (holdings carry over) |
+| 4.00 | ~91 min (after today's close) | set_release | El Retiro released |
+| 4.00 | ~91 min (after today's close) | day_closes | Closed until Saturday 09:00 |
+| 4.00 | ~91 min (after today's close) | day_opens | Saturday opens |
+| 4.05 | ~94 min (after today's close) | grant_all | El Retiro has arrived: a pack and the Saturday allowance (150 primas) for everyone |
+| 5.00 | ~151 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
 
 ## Our dealer deals
 
@@ -82,31 +82,33 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | 228 | chato | buy | LAV-06 | 33 | 23 | 31 | -6% | 13 | deal |  |
 | 264 | chato | buy | LAV-07 | — | — | — | — | 0 | closed |  |
 | 276 | chato | sell | 1 card(s) | 13 | 24 | 13 | +0% | 11 | deal |  |
+| 288 | abuela | sell | 1 card(s) | 5 | — | 5 | +0% | 1 | deal |  |
+| 289 | chato | buy | LAV-09 | 97 | 70 | — | — | 6 | open |  |
 
 ## Abuela benchmark: every team's deals with her (public feed)
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
 | common card | team buys | 28 | 9.50 | 7 | 12 | 2 | 9 |
-| common card | team sells | 24 | 6.00 | 5 | 23 | 4 | 5.50 |
-| sobre_barrio | team buys | 30 | 22.00 | 17 | 30 | 3 | 20.33 |
+| common card | team sells | 26 | 6.00 | 5 | 23 | 5 | 5.40 |
+| sobre_barrio | team buys | 32 | 22.00 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 38 | 22.50 | 17 | 29 | 2 | 26.50 |
 | uncommon card | team sells | 5 | 14 | 13 | 16 | 0 | — |
 
 ## Duels
 
-Live: 6 · finished: 19
+Live: 6 · finished: 21
 
-- {"duel": 106, "session": 1, "status": "no_deal", "role": "buyer", "item": "Plaza de Olavide", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 96, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "deadline_tick": 144, "decay_per_round": 0.06, "ro
-- {"duel": 113, "session": 1, "status": "no_deal", "role": "seller", "item": "El Rastro al Amanecer", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 51, "limit_meaning": "never sell below your cost", "rival": "Rival Verde", "deadline_tick": 144, "decay_per_round": 0
 - {"duel": 114, "session": 1, "status": "live", "role": "buyer", "item": "El Rastro al Amanecer", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 93, "limit_meaning": "never pay above your value", "rival": "Rival Luna", "deadline_tick": 156, "decay_per_round": 0.06, 
 - {"duel": 115, "session": 1, "status": "live", "role": "seller", "item": "And\u00e9n 0", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 69, "limit_meaning": "never sell below your cost", "rival": "Rival Noche", "deadline_tick": 156, "decay_per_round": 0.06, "rounds
 - {"duel": 119, "session": 1, "status": "no_deal", "role": "buyer", "item": "El Tren Fantasma", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 180, "limit_meaning": "never pay above your value", "rival": "Rival Plata", "deadline_tick": 132, "decay_per_round": 0.06, 
 - {"duel": 120, "session": 1, "status": "no_deal", "role": "seller", "item": "El Tren Fantasma", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 53, "limit_meaning": "never sell below your cost", "rival": "Rival Rojo", "deadline_tick": 132, "decay_per_round": 0.06, "
 - {"duel": 121, "session": 1, "status": "deal", "role": "seller", "item": "El Tren Fantasma", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 74, "limit_meaning": "never sell below your cost", "rival": "Rival Sol", "deadline_tick": 148, "decay_per_round": 0.06, "roun
-- {"duel": 122, "session": 1, "status": "live", "role": "buyer", "item": "El Tren Fantasma", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 130, "limit_meaning": "never pay above your value", "rival": "Rival Noche", "deadline_tick": 153, "decay_per_round": 0.06, "ro
+- {"duel": 122, "session": 1, "status": "deal", "role": "buyer", "item": "El Tren Fantasma", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 130, "limit_meaning": "never pay above your value", "rival": "Rival Noche", "deadline_tick": 153, "decay_per_round": 0.06, "ro
 - {"duel": 163, "session": 1, "status": "deal", "role": "seller", "item": "Mercado de Vallehermoso", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 69, "limit_meaning": "never sell below your cost", "rival": "Rival Rojo", "deadline_tick": 144, "decay_per_round": 0.0
-- {"duel": 175, "session": 1, "status": "live", "role": "seller", "item": "Taxi Blanco", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 80, "limit_meaning": "never sell below your cost", "rival": "Rival Verde", "deadline_tick": 153, "decay_per_round": 0.06, "rounds"
+- {"duel": 164, "session": 1, "status": "live", "role": "buyer", "item": "Mercado de Vallehermoso", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 79, "limit_meaning": "never pay above your value", "rival": "Rival Luna", "deadline_tick": 159, "decay_per_round": 0.06
+- {"duel": 175, "session": 1, "status": "deal", "role": "seller", "item": "Taxi Blanco", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 80, "limit_meaning": "never sell below your cost", "rival": "Rival Verde", "deadline_tick": 153, "decay_per_round": 0.06, "rounds"
+- {"duel": 176, "session": 1, "status": "live", "role": "buyer", "item": "Taxi Blanco", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 107, "limit_meaning": "never pay above your value", "rival": "Rival Plata", "deadline_tick": 160, "decay_per_round": 0.06, "rounds"
 - {"duel": 181, "session": 1, "status": "no_deal", "role": "buyer", "item": "El Rastro al Amanecer", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 85, "limit_meaning": "never pay above your value", "rival": "Rival Verde", "deadline_tick": 144, "decay_per_round": 0.
 - {"duel": 257, "session": 1, "status": "deal", "role": "seller", "item": "El Rastro al Amanecer", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 78, "limit_meaning": "never sell below your cost", "rival": "Rival Oro", "deadline_tick": 144, "decay_per_round": 0.06, 
 
