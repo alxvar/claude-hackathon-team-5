@@ -1,4 +1,4 @@
-# Metrics (auto, 22:56, game tick 155)
+# Metrics (auto, 22:58, game tick 157)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -81,7 +81,7 @@ Who buys which set (team trades): t04: LAV×3, LAT×2; t05: MAL×1, SAL×1, LAV�
 
 ## El Rastro now: top bids by price (team, card, price)
 
-- t17: MAL-09 (rare) 70 P · offer 2519
+- t17: MAL-09 (rare) 70 P · offer 2698
 - t18: LAT-09 (rare) 62 P · offer 2503
 - t18: LAT-10 (rare) 62 P · offer 2504
 - t02: MAL-10 (rare) 28 P · offer 2547
@@ -90,20 +90,20 @@ Who buys which set (team trades): t04: LAV×3, LAT×2; t05: MAL×1, SAL×1, LAV�
 - t15: LAV-09 (rare) 7 P · offer 2567
 - t15: SAL-09 (rare) 7 P · offer 2648
 
-Asks by others (card, price: count): LAV-04 10: 3; LAT-04 10: 2; MAL-08 40: 2; LAT-05 9: 2; MAL-02 3: 2; LAT-04 9: 2; LAV-03 8: 1; MAL-04 8: 1; LAT-01 8: 1; MAL-05 8: 1; LAV-04 8: 1; MAL-06 28: 1; LAV-08 40: 1; LAV-03 7: 1; MAL-02 10: 1
+Asks by others (card, price: count): LAV-04 10: 3; LAT-04 10: 2; MAL-08 40: 2; LAT-05 9: 2; MAL-02 3: 2; LAT-04 9: 2; LAV-03 8: 1; MAL-04 8: 1; LAT-01 8: 1; MAL-05 8: 1; LAV-04 8: 1; MAL-06 28: 1; LAV-08 40: 1; LAT-01 6: 1; SAL-07 27: 1
 
-## Our duels: 6 live, 22 finished (last 10)
+## Our duels: 6 live, 28 finished (last 10)
 
-- {"duel": 120, "session": 1, "status": "no_deal", "role": "seller", "item": "El Tren Fantasma", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 53, "limit_meaning": "never sell below your cost", "rival": "Rival Rojo", "deadlin
-- {"duel": 121, "session": 1, "status": "deal", "role": "seller", "item": "El Tren Fantasma", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 74, "limit_meaning": "never sell below your cost", "rival": "Rival Sol", "deadline_ti
-- {"duel": 122, "session": 1, "status": "deal", "role": "buyer", "item": "El Tren Fantasma", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 130, "limit_meaning": "never pay above your value", "rival": "Rival Noche", "deadline_
-- {"duel": 163, "session": 1, "status": "deal", "role": "seller", "item": "Mercado de Vallehermoso", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 69, "limit_meaning": "never sell below your cost", "rival": "Rival Rojo", "dea
-- {"duel": 164, "session": 1, "status": "live", "role": "buyer", "item": "Mercado de Vallehermoso", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 79, "limit_meaning": "never pay above your value", "rival": "Rival Luna", "dead
 - {"duel": 175, "session": 1, "status": "deal", "role": "seller", "item": "Taxi Blanco", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 80, "limit_meaning": "never sell below your cost", "rival": "Rival Verde", "deadline_tick"
 - {"duel": 176, "session": 1, "status": "deal", "role": "buyer", "item": "Taxi Blanco", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 107, "limit_meaning": "never pay above your value", "rival": "Rival Plata", "deadline_tick"
 - {"duel": 181, "session": 1, "status": "no_deal", "role": "buyer", "item": "El Rastro al Amanecer", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 85, "limit_meaning": "never pay above your value", "rival": "Rival Verde", "de
-- {"duel": 199, "session": 1, "status": "live", "role": "buyer", "item": "Mercado de Vallehermoso", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 150, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "dead
+- {"duel": 182, "session": 1, "status": "live", "role": "seller", "item": "El Rastro al Amanecer", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 59, "limit_meaning": "never sell below your cost", "rival": "Rival Oro", "deadli
+- {"duel": 199, "session": 1, "status": "deal", "role": "buyer", "item": "Mercado de Vallehermoso", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 150, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "dead
+- {"duel": 200, "session": 1, "status": "live", "role": "seller", "item": "Mercado de Vallehermoso", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 68, "limit_meaning": "never sell below your cost", "rival": "Rival Noche", "de
+- {"duel": 227, "session": 1, "status": "live", "role": "seller", "item": "Plaza de Olavide", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 130, "limit_meaning": "never sell below your cost", "rival": "Rival Luna", "deadline_
+- {"duel": 228, "session": 1, "status": "live", "role": "buyer", "item": "Plaza de Olavide", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 138, "limit_meaning": "never pay above your value", "rival": "Rival Verde", "deadline_
 - {"duel": 257, "session": 1, "status": "deal", "role": "seller", "item": "El Rastro al Amanecer", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 78, "limit_meaning": "never sell below your cost", "rival": "Rival Oro", "deadli
+- {"duel": 258, "session": 1, "status": "live", "role": "buyer", "item": "El Rastro al Amanecer", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 64, "limit_meaning": "never pay above your value", "rival": "Rival Noche", "deadl
 
 ## Latest announcements
 
