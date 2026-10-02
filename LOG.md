@@ -5,14 +5,16 @@ Pull before you add a line and push right after. Live numbers are in `STATUS.md`
 
 ## Findings so far (keep this list short; update it, don't append)
 
-1. **Abuela's opening price changes from one conversation to the next.** For the same pack she opened at 17 P in some conversations and at 30 P in others. From 30 she came down to 22 P in steps that kept shrinking (−5, −2, −1).
-2. **Other teams pay a median of 17 P for a pack (13 deals); we paid 22 P twice.** Their 17s look like her low opening. Next time she opens low, counter once just under her price and then accept: still cheap, and it counts as negotiated.
-3. **Abuela pays teams about 9 P for a common** (median of 2 deals, thin data). Our spare copies are worth about 1 P to us, so selling her a spare brings in cash and a dealer deal. The other route is listing them on El Rastro at 10 P for another team.
-4. **Single commons are the cheapest dealer deals:** 9 P each against her 12 P opening, and the same ladder credit per deal as a 22 P pack.
-5. **The first Market Test (game hour 3.0) falls after tonight's 23:00 close**, so the first one runs Saturday morning. The practice duels (game hour 2.0) are still tonight, at about 22:20.
+1. **Abuela follows a fixed pattern** (50 conversations from all teams, public feed, ticks 4-36). When she opens high (pack 30 P, uncommon 29, common 12) she ends at about **73-75% of her opening** (pack ~22, uncommon ~21, common ~9). She concedes most in her first two moves, then 1 P at a time, and our step size barely changes this. **When she opens low (pack 17, some commons 7) she doesn't move at all.**
+2. **Our Abuela deals already land at her floor.** We're 2nd at 12.46, against 12.50 for 1st. Only our best 3 deals per level count, so **more Abuela deals add almost nothing.** Effort goes to the next dealers (higher levels weigh more), the market and the duels.
+3. **Selling to her:** she bids about 5 or 12-13 P and mostly holds. One team pushed her from 12 to 16 by asking 35 and stepping down 3 P at a time. Our spare copies are worth about 1 P to us.
+4. **El Rastro has nothing worth buying at our values** (32 listings at tick 35; commons flooded at 12 P). Check again on Saturday, when El Retiro comes out and teams chase full pages.
+5. **Our private `neg_points` shows −8.5 and we can't explain it.** Question for the organisers: what is it, and does it pull our negotiating score down?
+6. **The first Market Test (game hour 3.0) falls after tonight's 23:00 close**, so it runs Saturday morning. The practice duels (game hour 2.0) are still tonight, at about 22:20.
 
 ## Log
 
+- Fri 21:00 · Lucas · mined all teams' Abuela conversations from the public feed · she ends at ~73-75% of a high opening and never moves from a low one; our deals are at her floor (findings 1-3) · next: bot ready for the next dealer, then the market broker
 - Fri 20:50 · Lucas · `tools/status.py` writes `STATUS.md` every 5 min (score, deals, Abuela benchmark from every team's deals, duels, schedule) · live on GitHub · everyone reads it before asking
 - Fri 20:47 · Lucas (bot) · `abuela_bot.py --deals 2`: LAV-05 and LAV-02 bought at 9 P each (she opened at 12; we went 7 → 8 → 9) · 4 negotiated deals in total, cash 321 P, rank 3 · next: sell spares to Abuela, tune the opening counter against the benchmark
 - Fri 20:38 · Aleks · starter stopped; Abuela handed to Lucas's bot · Aleks on the practice duels
