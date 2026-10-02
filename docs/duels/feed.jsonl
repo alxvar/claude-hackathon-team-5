@@ -52,3 +52,6 @@
 {"id": 7273, "tick": 132, "t": 2.2, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 120, "session": 1, "status": "no_deal", "item": "El Tren Fantasma"}}
 {"id": 7276, "tick": 132, "t": 2.2, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 179, "session": 1, "status": "no_deal", "item": "Taxi Blanco"}}
 {"id": 7279, "tick": 132, "t": 2.2, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 180, "session": 1, "status": "no_deal", "item": "Taxi Blanco"}}
+{"id": 7600, "tick": 134, "t": 2.2333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 19, "session": 1, "status": "deal", "item": "El Rastro al Amanecer"}}
+{"id": 7603, "tick": 134, "t": 2.2333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 20, "session": 1, "status": "deal", "item": "El Rastro al Amanecer"}}
+{"id": 7606, "tick": 134, "t": 2.2333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 54, "session": 1, "status": "deal", "item": "Plaza de Olavide"}}
