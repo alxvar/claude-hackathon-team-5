@@ -1,6 +1,6 @@
 # Team 5 — The Bazaar (Causa Prima, Madrid, Oct 2–4)
 
-Start with `CROSSWALK.md`: what the real rules change, and how the research and the simulations fit together.
+Start with `PLAN.md` (who owns what, what we do today), then `CROSSWALK.md` (what the real rules change, and how the research and the simulations fit together).
 
 ## Source of truth
 
@@ -18,6 +18,7 @@ Start with `CROSSWALK.md`: what the real rules change, and how the research and 
 ## Rules for anyone working here, humans and Claude Code alike
 
 - **Never commit a key.** `BAZAAR_KEY`, `BROKER_KEY` and `ANTHROPIC_API_KEY` live in `.env`, which is gitignored. Start from `.env.example`.
-- **One team key, shared limits.** Every process that uses the team key shares 5 requests per second, 1 accept per tick, 1 message per conversation per tick, 6 open conversations and 30 open offers (`GET /api/clock` → `limits`). Only the runtime we agree on acts on the live server. Everything else stays read-only: `me`, `clock`, `schedule`, `levels`, `dealers`, `catalog`, `duels`.
-- **Don't run `starter_agent.py` against the live server without telling the team.** It spends team cash on a pack.
+- **One team key, shared limits.** Every process that uses the team key shares 5 requests per second, 1 accept per tick, 1 message per conversation per tick, 6 open conversations and 30 open offers (`GET /api/clock` → `limits`).
+- **One live script per job, one owner** (`PLAN.md`): duels → Aleks; dealers and our market → Lucas. A script writes only to its own job's endpoints, and announces start and stop in the team chat. Anything else stays read-only: `me`, `clock`, `schedule`, `levels`, `dealers`, `catalog`, `duels`.
+- **Scripts wait for the server's tick** (`b.wait_tick()`), never a fixed sleep: the tick goes 60 s → 30 s → 15 s and can move.
 - **Budget:** the $100 of API credits each is for the agent runtime and simulations. Claude Code runs on personal plans.
