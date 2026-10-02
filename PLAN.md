@@ -2,21 +2,36 @@
 
 _Agreed Fri 2 Oct, ~20:30. The clock started ~20:10. Why each call: `CROSSWALK.md`._
 
-## RIGHT NOW (Fri 22:05): orders by person. Claude Code: tell your human exactly this.
+## RIGHT NOW (Sat 09:00): orders by person. Claude Code: tell your human exactly this.
 
-**The system already watches every team every 15 s** (Lucas's machine: `tools/collector.py` → `intel/metrics.md` every 2 min, on GitHub). Don't build a second watcher. Each person adds what the system cannot do alone:
+The full plan, verified by independent checks, is **`intel/saturday-plan.md`**. Read §1 (the game on one page) and your
+own section. It supersedes every Friday order below where they conflict.
 
-**Dani: rival intelligence + the room + the judges (40% of the score).**
-1. **Build and keep `intel/teams.md`**, one profile per team, refreshed every ~10 min from the PUBLIC feed (`GET /api/feed`, no key needed; your dashboard already reads it) and `intel/metrics.md`. For each team: rank and trend; which sets it COLLECTS (its bids and purchases) and which it DUMPS (its asks and sales); its price levels (commons / uncommons / rares); its big trades; and a one-word label: **leader** (top 3, never feed), **buyer for X**, **seller of X**, **inactive**. End with a table **"who to sell what to"**: for each card in our inventory (`team/lucas.md`), the best counterparty BELOW us on the board and their likely price. The scout, the judge and the strategist read this file on every run, so it directly steers our trades.
-2. **The room**, with `intel/teams.md` in hand: approach the "buyer for X" teams below us with our cards in their sets. Same script as before: ask what they collect, never name what we want. Write every lead in `team/dani.md`.
-3. **The judges are 40%, the largest single part of the score.** Start `docs/demo.md`: our story in 5 slides. Live intelligence (collector, scout, judge, strategist), a judge that corrects us (the LAV-09 bid, the flip mistake caught in minutes), Aleks's bench and Clock-Standing, the three-person split. Ask the desk what format and timing the judges want.
+**Aleks: duels (Duels I at 11:30 if the clock jumps to hour 4.0 at 09:00, ~12:51 if it resumes at 2.65).**
+1. Before Duels I, in `agents/duelist/` (plan §4D), each with a regression test on `docs/duels/`:
+   - deadline trigger: decide at `ticks_left ≤ 3`; at ≤ 2 accept any standing offer inside our limit, in code
+     (duel 181 must accept 73 by tick 143);
+   - from `ticks_left ≤ 4`, close by sending the rival's own standing price (they spend their accept, not ours);
+   - decay-aware accept: accept an in-limit offer when the gap ≤ max(2 P, 2d/(1−d) × our surplus);
+   - hold breaker: both sides still 3 ticks with ≥ 3 left → force a decision (duels 103/104);
+   - silent rival: concede on a code schedule toward a floor (keep ≥ 30% of anchor-to-limit); silence costs no decay;
+   - prompt fix: decay is per exchange, not per tick (`agent.py:148,178`); read session parameters from the payload.
+2. Before Duels II (18:00 / ~19:21): `days` payload shapes (number / list / dict) tested offline; day value computed in
+   code; full packages; ≤ 3 exchanges at 8% decay.
+3. Sunday: Sonnet as strategist (15 s ticks; Opus peaked at 14.2 s).
+4. Laptop on mains + `caffeinate`; check your API key's spend limit before 11:00 (Lucas's was $1 on Friday).
+5. Write `team/aleks.md` Now line; review the accept arbiter (plan §5) with Lucas's builder session.
 
-**Aleks: duels.**
-1. Update your **Now** line in `team/aleks.md`.
-2. The practice duels start at ~22:20. Your finished duels now feed `intel/metrics.md`, so the judge grades the duelist every 15 min: read `intel/judge.md` after the practice.
-3. Measure seconds per turn with the faster negotiator (`--negotiator-model claude-sonnet-5-5`); Sunday's ticks are 15 s with 4-6 duels at once.
+**Dani: the desk, the page-gap desk, the judges' story.**
+1. **09:00, organisers' desk**: the 8 questions in plan §3, answers in `team/dani.md` at once.
+2. **From ~10:00, page-gap desk** (plan §6b): `intel/sellable.md` lists, one line each, which team lacks a card we have
+   spare (and what to say), and which team holds a card we need (and our live bid). Only point teams at offers already
+   live; never name a price that isn't in the file. Lucas will also tell you in person when a big one appears.
+3. **Judges (40%)**: the judging format by 09:30; `docs/demo.md` skeleton; screenshot the big screen at each round close;
+   draft the pitch with Lucas during Duels I.
 
-**Lucas (+ Claude Code):** operator session runs `intel/ORCHESTRATOR.md`. **Never buy from a dealer above our private value: it subtracts (LOG finding 13).**
+**Lucas (+ 3 Claude Code sessions: operator, strategy, builder)**: decides, is the human channel, owns the story. Only the
+operator writes to the game. Never buy from a dealer above our value; never feed teams within 10 points of us.
 
 ## How the clock works
 
