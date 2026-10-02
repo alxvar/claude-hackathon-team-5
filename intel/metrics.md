@@ -1,4 +1,4 @@
-# Metrics (auto, 00:37, game tick 159)
+# Metrics (auto, 00:43, game tick 159)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -84,6 +84,7 @@ Who buys which set (team trades): t04: LAV×3, LAT×3; t05: MAL×1, SAL×1, LAV�
 - t17: MAL-09 (rare) 70 P · offer 2698
 - t18: LAT-09 (rare) 62 P · offer 2503
 - t18: LAT-10 (rare) 62 P · offer 2504
+- t14: LAV-07 (uncommon) 55 P · offer 2749
 - t15: LAV-10 (rare) 20 P · offer 2628
 - t02: LAT-06 (uncommon) 12 P · offer 2724
 - t02: SAL-09 (rare) 8 P · offer 2722
