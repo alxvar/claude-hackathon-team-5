@@ -872,5 +872,76 @@
     "settles_at_tick": 157
    }
   }
- ]
+ ],
+ "last_seen_tick": 157,
+ "done": {
+  "duel": 199,
+  "session": 1,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Mercado de Vallehermoso",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 150,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Oro",
+  "deadline_tick": 166,
+  "decay_per_round": 0.06,
+  "rounds": 2,
+  "your_offer": {
+   "id": 1672,
+   "price": 96,
+   "tick": 155,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 1693,
+   "price": 97,
+   "tick": 156,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 154,
+    "from": "Rival Oro",
+    "text": "Hello, and thank you for meeting me. I would propose 116 P for this one.",
+    "price": 116,
+    "days": null
+   },
+   {
+    "tick": 154,
+    "from": "you",
+    "text": "I'd like to open at 90 P for Mercado de Vallehermoso. That reflects a fair read of what a market like this can earn, and I'm ready to move quickly if your number is reasonable. What price do you have in mind?",
+    "price": 90,
+    "days": null
+   },
+   {
+    "tick": 155,
+    "from": "Rival Oro",
+    "text": "I appreciate it. Let us try to close quickly: 103 P.",
+    "price": 103,
+    "days": null
+   },
+   {
+    "tick": 155,
+    "from": "you",
+    "text": "Thank you for moving so quickly, I appreciate it. I'll meet you partway at 96 P, which lets us wrap this up right now and avoid losing value to extra rounds of talk.",
+    "price": 96,
+    "days": null
+   },
+   {
+    "tick": 156,
+    "from": "Rival Oro",
+    "text": "Fair enough, I will meet you partway at 97 P.",
+    "price": 97,
+    "days": null
+   }
+  ],
+  "result": 46.8,
+  "price": 97,
+  "days": 0
+ }
 }
