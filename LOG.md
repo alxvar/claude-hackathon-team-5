@@ -33,6 +33,8 @@ Team 10 leads with one lever: buying from Abuela the cards of its high-value set
 5. **Our private `neg_points` shows −8.5 and we can't explain it.** Question for the organisers: what is it, and does it pull our negotiating score down?
 7. **Every trade scores for BOTH sides, so price for the buyer's value, not ours.** We sold MAL-08 at 26 to Team 13 (the leader), who likely values it ~37: we handed the leader most of the gain. Sell near what the buyer values (collectors: uncommons ~35, rares ~100) and bid low to sellers. Prefer counterparties below us on the board.
 8. **Who collects what** (from all 13 trades between teams so far): Team 13 (1st) buys Malasaña and Salamanca (paid 74 for SAL-09); Teams 14 and 4 buy La Latina; Team 10 buys Lavapiés (our set too: it's racing us for the page). Prices: rares 65-74, uncommons 12-26, commons 6-12.
+9. **Our multipliers (`GET /api/me` → `affinity`): Chamberí 1.6 (out Sunday: our best set), Lavapiés 1.3, El Retiro 1.1 (out Saturday), Salamanca 0.9, Malasaña 0.7, La Latina 0.5.** Every team gets the same six numbers, shuffled. So a collector values an uncommon at up to 40 P (25 × 1.6) and a rare at up to 112 P.
+10. **Level 2 announced at 21:31: "El Chato", *"Better packs, friendly prices. If I like you."*** Not open yet. When it opens, the dealer bot runs `--dealer chato --ladder --deals 3` (cheapest menu items, packs included, ≤90% of list).
 6. **The first Market Test (game hour 3.0) falls after tonight's 23:00 close**, so it runs Saturday morning. The practice duels (game hour 2.0) are still tonight, at about 22:20.
 
 ## Log (history up to Fri 21:18; new lines go in `team/<name>.md`)

@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Fri 21:34 · El Chato (level 2) announced; dealer bot gained `--ladder` (cheapest menu items, packs included) for when he opens · our multipliers found in `/api/me`: CHA 1.6 (Sunday), LAV 1.3, RET 1.1 (Saturday) · next: Chato's 3 deals the moment he opens
 - Fri 21:32 · MAL-06 bought at 12 (+5.2) and LAT-07 sold at 21 (+8.7): `neg_points` 16.6 · repriced sells toward the buyer's value (finding 7), raised SAL/MAL bids, added MAL rare bids · next: watch fills, reprice every ~10 min
 - Fri 21:28 · only ONE LAV-09 (Cine Doré) exists; Team 10 holds the other LAV-10 and is building the LAV page too · raised our LAV-09 bid 70 → 85 P (worth 91 to us now, more with the page bonus) · card owners are anonymous in the API: find the holder in the room
 - Fri 21:22 · `tools/team_sync.sh` now injects the changed lines of `CLAUDE.md`/`PLAN.md` into your Claude on your next prompt, so new team rules apply mid-session · nothing to do on your side

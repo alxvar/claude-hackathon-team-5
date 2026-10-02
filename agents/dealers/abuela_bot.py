@@ -171,6 +171,8 @@ def main() -> None:
                     help="also sell unlisted spares to Abuela (a spare sold to a team at book scores more)")
     ap.add_argument("--resume-cap", type=int, default=0,
                     help="pick up an open Abuela conversation with this cap instead of refusing to start")
+    ap.add_argument("--ladder", action="store_true",
+                    help="new dealer: N negotiated deals on the cheapest menu items, packs included (ladder only)")
     ap.add_argument("--no-buy", action="store_true",
                     help="sell only: dealer buys barely move neg_points (LOG finding 0); buy from teams instead")
     ap.add_argument("--dry-run", action="store_true", help="print the plan, write nothing")
@@ -218,7 +220,28 @@ def main() -> None:
             n += done_one(negotiate(b, {"buy": {"card": ref}}, "buy", cap), f"buy {ref}")
         return n
 
+    def ladder_round(limit):
+        """Ladder-only deals (a new dealer: 3 negotiated deals per level count, higher levels weigh more): the
+        cheapest items on the menu, packs included, never above 90% of list. Dealer deals barely move neg_points."""
+        menu = b.dealer(DEALER).get("menu", {}).get("sells", [])
+        n = 0
+        for m in sorted(menu, key=lambda m: m.get("list_price", 0)):
+            while n < limit:
+                cap = min(int(m.get("list_price", 0) * 0.9), max(0, b.me()["cash"] - CASH_FLOOR))
+                if cap < 1:
+                    return n
+                topic = {"buy": {"pack": m["pack"]}} if "pack" in m else {"buy": {"rarity": m["rarity"], "set": "LAV"}}
+                t = negotiate(b, topic, "buy", cap)
+                n += done_one(t, f"ladder {topic}")
+                if t["status"] != "deal" or "per_team_per_hour" in m and n >= m["per_team_per_hour"]:
+                    break
+        return n
+
     bought, deals = set(), 0
+    if args.ladder:
+        deals += ladder_round(args.deals)
+        log({"event": "done", "deals": deals, "cash": b.me()["cash"], "score": score()})
+        return
     if busy:  # pick it up: whoever opened it has stopped
         t0 = busy[0]
         side = "buy" if "buy" in t0["topic"] else "sell"
