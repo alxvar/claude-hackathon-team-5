@@ -2,7 +2,7 @@
 
 Start with `STATUS.md` (live numbers, auto-updated every 5 min) and `LOG.md` (what each of us did and what came of it), then `PLAN.md` (who owns what) and `CROSSWALK.md` (what the real rules change, and how the research and the simulations fit together).
 
-**After every run, experiment or decision, add one line at the top of `LOG.md`'s log:** `time · who · what · result · next`. If it changes what we believe, update the "Findings so far" list too. Pull before, push right after. This is how the three of us, and each of our Claude Code sessions, stay in sync.
+**Keep your own line in `LOG.md` → "Now" current**, so nobody works on what someone else owns. **After every run, experiment or decision, add one line at the top of `LOG.md`'s log:** `time · who · what · result · next`. If it changes what we believe, update the "Findings so far" list too. Pull before, push right after. This is how the three of us, and each of our Claude Code sessions, stay in sync.
 
 ## Source of truth
 

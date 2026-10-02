@@ -146,6 +146,15 @@ def build(b):
     for d in done[-12:]:
         L.append("- " + json.dumps({k: v for k, v in d.items() if k not in ("messages", "transcript")})[:300])
 
+    L += ["", "## Dealers", ""]
+    unlocked = set(me.get("unlocked") or [])
+    L += table(["Dealer", "Status", "Level", "Open to us", "Sells", "Buys", "Deals/hour"],
+               [[d["id"], d.get("status"), d.get("level"), d["id"] in unlocked,
+                 ", ".join(str(m.get("pack") or m.get("rarity")) + (f" ({m['list_price']} P)" if m.get("list_price") else "")
+                           for m in (d.get("menu") or {}).get("sells", [])),
+                 ", ".join(str(m.get("rarity") or m.get("pack")) for m in (d.get("menu") or {}).get("buys", [])),
+                 (d.get("menu") or {}).get("deals_per_team_per_hour")]
+                for d in b.dealers().get("personas", [])])
     lv = b.levels().get("levels", [])
     L += ["", "## Levels", ""] + ([f"- {x.get('name')}: {x.get('status')} — {x.get('how') or x.get('line', '')}"
                                     for x in lv] or ["_None announced yet._"])

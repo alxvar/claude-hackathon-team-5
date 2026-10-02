@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Fri 20:59** · tick 40 (60 s/tick) · game hour 0.67 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Fri 21:01** · tick 41 (60 s/tick) · game hour 0.68 · running · today closes 23:00._
 
 ## Score
 
@@ -24,14 +24,14 @@ _ETA assumes the current tick length and no pause._
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 2.00 | ~80 min | duels | Practice duels (not scored): learn the protocol |
-| 3.00 | ~140 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
-| 4.00 | ~200 min (after today's close) | round | Round 2 starts (holdings carry over) |
-| 4.00 | ~200 min (after today's close) | set_release | El Retiro released |
-| 4.00 | ~200 min (after today's close) | day_closes | Closed until Saturday 09:00 |
-| 4.00 | ~200 min (after today's close) | day_opens | Saturday opens |
-| 4.05 | ~203 min (after today's close) | grant_all | El Retiro has arrived: a pack and the Saturday allowance (150 primas) for everyone |
-| 5.00 | ~260 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 2.00 | ~79 min | duels | Practice duels (not scored): learn the protocol |
+| 3.00 | ~139 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 4.00 | ~199 min (after today's close) | round | Round 2 starts (holdings carry over) |
+| 4.00 | ~199 min (after today's close) | set_release | El Retiro released |
+| 4.00 | ~199 min (after today's close) | day_closes | Closed until Saturday 09:00 |
+| 4.00 | ~199 min (after today's close) | day_opens | Saturday opens |
+| 4.05 | ~202 min (after today's close) | grant_all | El Retiro has arrived: a pack and the Saturday allowance (150 primas) for everyone |
+| 5.00 | ~259 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
 
 ## Our dealer deals
 
@@ -51,14 +51,20 @@ _Her first = her first price in the conversation. A deal at her first price prob
 |---|---|---|---|---|---|---|---|
 | common card | team buys | 10 | 9.50 | 7 | 12 | 2 | 9 |
 | common card | team sells | 4 | 9.50 | 5 | 13 | 0 | — |
-| sobre_barrio | team buys | 16 | 20.00 | 17 | 24 | 3 | 20.33 |
-| uncommon card | team buys | 10 | 21.50 | 17 | 25 | 0 | — |
+| sobre_barrio | team buys | 17 | 19 | 17 | 24 | 3 | 20.33 |
+| uncommon card | team buys | 11 | 22 | 17 | 25 | 0 | — |
 | uncommon card | team sells | 3 | 13 | 13 | 16 | 0 | — |
 
 ## Duels
 
 Live: 0 · finished: 0
 
+
+## Dealers
+
+| Dealer | Status | Level | Open to us | Sells | Buys | Deals/hour |
+|---|---|---|---|---|---|---|
+| abuela | active | 1 | True | sobre_barrio (26 P), common (10 P), uncommon (25 P) | common, uncommon | 8 |
 
 ## Levels
 

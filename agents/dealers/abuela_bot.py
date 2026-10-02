@@ -1,12 +1,14 @@
-"""Abuela bot: negotiated deals with Abuela Carmen, for the ladder and the level-2 unlock.
+"""Dealer bot: negotiated deals with a dealer (Abuela by default; `--dealer` for the others), for the ladder
+and the level unlocks.
 
-Sells our spare commons first (cash in, nothing we need goes out), then buys the missing
-commons we value most. Every deal is countered at least once, so none closes at her opening
+Buys the missing cards we value most, from what the dealer's menu sells (cheapest rarity first), never
+above our private value; with --sell-spares it first sells spare copies. Every deal is countered at least once, so none closes at her opening
 price. Waits for the server's tick, never repeats a price, never accepts while a duel is live
 (unless her offer is final), and never lets cash drop below the venue bond.
 
     source .env && python3 agents/dealers/abuela_bot.py --dry-run
     source .env && python3 agents/dealers/abuela_bot.py --deals 3
+    source .env && python3 agents/dealers/abuela_bot.py --dealer <id> --deals 3 --dry-run
 """
 import argparse
 import collections
@@ -128,7 +130,7 @@ def negotiate(b: Bazaar, topic: dict, side: str, cap: int, tid: int = None) -> d
         b.wait_tick()
 
 
-def plan(b: Bazaar, max_buy: int) -> tuple:
+def plan(b: Bazaar) -> tuple:
     me = b.me()
     by_ref = collections.defaultdict(list)
     for a in me["assets"]:
@@ -140,9 +142,13 @@ def plan(b: Bazaar, max_buy: int) -> tuple:
              if a["id"] not in listed]  # a spare already listed for other teams stays there
     sells.sort(key=lambda a: a["your_value"])
     cat = b.catalog()
-    missing = [c["id"] for s in cat["sets"] if s.get("released") for c in s["cards"]
-               if c["rarity"] == "common" and c["id"] not in by_ref]
-    buys = sorted(((b.value(r)["your_value"], r) for r in missing), reverse=True)
+    menu = b.dealer(DEALER).get("menu", {}).get("sells", [])
+    rarities = [m["rarity"] for m in sorted(menu, key=lambda m: m.get("list_price", 0)) if "rarity" in m]
+    buys = []  # (our value, card), cheapest rarity first, then the cards we value most
+    for r in rarities:
+        missing = [c["id"] for s in cat["sets"] if s.get("released") for c in s["cards"]
+                   if c["rarity"] == r and c["id"] not in by_ref]
+        buys += sorted(((b.value(c)["your_value"], c) for c in missing), reverse=True)
     budget = max(0, me["cash"] - CASH_FLOOR)
     return me, sells, buys, budget
 
@@ -150,7 +156,8 @@ def plan(b: Bazaar, max_buy: int) -> tuple:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--deals", type=int, default=3, help="stop after this many deals")
-    ap.add_argument("--max-buy", type=int, default=12, help="never pay more than this for a common")
+    ap.add_argument("--dealer", default="abuela", help="dealer id, as GET /api/dealers lists it")
+    ap.add_argument("--max-buy", type=int, default=0, help="optional extra cap per card (0 = our value is the cap)")
     ap.add_argument("--min-sell", type=int, default=3, help="never sell a spare for less than this")
     ap.add_argument("--sell-spares", action="store_true",
                     help="also sell unlisted spares to Abuela (a spare sold to a team at book scores more)")
@@ -160,12 +167,14 @@ def main() -> None:
     args = ap.parse_args()
     b = Bazaar(os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai"), os.environ["BAZAAR_KEY"])
 
-    me, sells, buys, budget = plan(b, args.max_buy)
+    global DEALER
+    DEALER = args.dealer
+    me, sells, buys, budget = plan(b)
     clock = b.clock()
     print(f"tick {clock['tick']} ({clock['tick_seconds']}s) · cash {me['cash']} P · spend budget {budget} P · "
           f"duel live: {duel_live(b)}")
     print("sell (spares):", [(a["ref"], a["id"], a["your_value"]) for a in sells])
-    print("buy (missing commons, our value):", buys[:6])
+    print(f"dealer {DEALER} · buy (our value, card):", buys[:6])
     busy = [t for t in b.my_threads()["threads"] if t["with"] == DEALER and t["status"] == "open"]
     if busy:
         print(f"Abuela already has an open conversation with us (thread {busy[0]['id']}).")
@@ -186,7 +195,9 @@ def main() -> None:
     for value, ref in buys:
         if deals >= args.deals:
             break
-        cap = min(args.max_buy, int(value), max(0, b.me()["cash"] - CASH_FLOOR))
+        cap = min(int(value), max(0, b.me()["cash"] - CASH_FLOOR))  # never above what the card is worth to us
+        if args.max_buy:
+            cap = min(cap, args.max_buy)
         if cap < 1:
             log({"event": "stop", "reason": "cash floor", "cash": b.me()["cash"]})
             break

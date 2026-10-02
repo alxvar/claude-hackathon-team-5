@@ -3,6 +3,14 @@
 **One line per run, experiment or decision. Newest on top.** Format: `time · who · what · result · next`.
 Pull before you add a line and push right after. Live numbers are in `STATUS.md` (auto-updated); why we do things is in `PLAN.md` and `CROSSWALK.md`.
 
+## Now: who is doing what (each owner keeps their own line current)
+
+| Who | Working on now | Touches | Next |
+|---|---|---|---|
+| **Aleks** | Duels: Clock-Standing on the duel API (`duels`, `duel_say`, `duel_accept`), on Claude, for the practice duels (~22:20). _Aleks: please confirm or correct this line_ | `agents/duels/`, duel endpoints | Push the bench code; log what you run in the practice |
+| **Lucas** (+ Claude Code) | 1) The dealer bot works with any dealer (`--dealer`), ready for the next stall to open. 2) **Market Test broker:** offline simulator plus a broker that estimates traders' hidden limits, ready for the first Market Test on Saturday morning | `agents/dealers/`, `broker/`, `tools/`, `STATUS.md`; dealer and market endpoints only | After the practice duels: read the transcripts and results, and log how decay works |
+| **Dani** | Five questions to the organisers' desk (the four in `PLAN.md`, plus: what is `neg_points`?). Writes the answers here | `LOG.md` | The story for the judges |
+
 ## Findings so far (keep this list short; update it, don't append)
 
 1. **Abuela follows a fixed pattern** (50 conversations from all teams, public feed, ticks 4-36). When she opens high (pack 30 P, uncommon 29, common 12) she ends at about **73-75% of her opening** (pack ~22, uncommon ~21, common ~9). She concedes most in her first two moves, then 1 P at a time, and our step size barely changes this. **When she opens low (pack 17, some commons 7) she doesn't move at all.**
