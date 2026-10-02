@@ -2,6 +2,21 @@
 
 _Written by the strategy session. It never touches the game: no trades, no bots. The operator executes inside its guardrails; anything involving a rare or >50 P still needs Lucas. Newest block on top. Labels: **[Verified]** measured on our own deals or read from the server; **[Likely]** fitted or inferred; **[Open]** unknown._
 
+## Fri 22:57 — Saturday plan (decided; read at 09:00)
+
+- 22:57 · Core lever: page bonus = 66.25 × our multiplier, scored only when a TEAM trade completes the page. Method (measured tonight, +40 net): buy every card but the last at ≤ our value (dealer buys at ≤ value cost 0), then buy the last card from a team.
+- 22:57 · The +50.0 cap test: three readings fit 50 (flat 50 per trade; 5 × book; 5 × cash paid). Complete the next page with an UNCOMMON bought from a team at ≥20 P. If it scores >50, the cap is not flat; then always finish with a card paid ≥ gain ÷ 5.
+- 22:57 · RET page (multiplier 1.1, bonus ~73). Commons ≤11 and uncommons ≤27.5 from Abuela or teams. Rares: from teams ≤77 first; from Chato only ≤90 (each costs ~−13). Expected net +24 to +50 for ~300 P. Start right after the RET release and the 150 P grant.
+- 22:57 · Cash scores nothing at the end. Every P should become a non-negative buy by Sunday 15:00. Fund the Sunday CHA page (bonus ~106, rares worth 112 > Chato's ~90, so no losses) by selling MAL, SAL and LAT cards into bids under the selling rule.
+- 22:57 · No venue bond Saturday: we cannot afford 270 before the 150 P grant, and the cash goes to pages. Run the free stall for the Market Test and record `bench_offers`.
+- 22:57 · Dealer deals and our own accepts go before Duels I (hour 6.5) or between its waves. Our bots hold accepts while a scored duel is live.
+
+## Questions for the organisers (Dani, Saturday 09:00)
+1. Is there a cap on `neg_points` per trade? Our page-completing buy scored exactly +50.0 where the value gain was ~89.
+2. After 3 Chato deals tonight (LAV-06, LAT-08, LAV-09), `ladder_points` is unchanged at 0.064. Do level-2 deals count yet, and how is a deal's range share measured?
+3. Saturday 09:00: does the clock resume at ~2.65 or jump to 4.0? Does the 3.0 Market Test run, and in which round?
+4. Do `neg_points` and the ladder reset each round?
+
 ## Fri 22:54 — LAV page DONE (supersedes the 22:53 block)
 
 - 22:54 · LAV page complete at tick 152 (LAV-05 from Team 6 at 8). Do NOT post the LAV-05 bid at 18; cancel it if already posted (a 2nd copy is worth 3.2). No more LAV buys of any kind.
