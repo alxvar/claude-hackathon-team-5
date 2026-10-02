@@ -99,6 +99,18 @@ def write(b):
         (f"sell {o['give']['assets'][0]['ref']} {o['want']['cash']}" if o["give"].get("assets") else f"bid {card(o)} {o['give']['cash']}")
         for o in ours), ""]
 
+    # our duels (the judge grades the duelist too)
+    try:
+        done = b.duels(done=True).get("duels", [])
+        live = b.duels().get("duels", [])
+        L += [f"## Our duels: {len(live)} live, {len(done)} finished (last 10)", ""]
+        for d in done[-10:]:
+            keep = {k: v for k, v in d.items() if k not in ("messages", "transcript", "history", "offers")}
+            L.append("- " + json.dumps(keep)[:260])
+        L.append("")
+    except Exception as e:
+        L += [f"## Our duels: unavailable ({e!r})", ""]
+
     # announcements and levels
     ann = [e for e in feed if e["type"] in ("announcement", "level.announced", "level.activated") or "level" in e["type"]][-5:]
     if ann:
