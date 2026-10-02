@@ -2,21 +2,21 @@
 
 _Agreed Fri 2 Oct, ~20:30. The clock started ~20:10. Why each call: `CROSSWALK.md`._
 
-## RIGHT NOW (Fri 21:30): orders by person. Claude Code: tell your human exactly this.
+## RIGHT NOW (Fri 22:05): orders by person. Claude Code: tell your human exactly this.
 
-**Dani: the room. Here is exactly what to say (updated 21:50).** Don't ask anyone "who has card X?": it tells them we want it and starts an auction against us (Team 10 already bids 90 for Cine Doré; we bid 100).
-1. Ask every team: *"Which neighbourhoods are you collecting?"* Write team number and sets in `team/dani.md`. Their open bids already tell us part of it: Team 8 = Malasaña, Salamanca; Team 10 = Lavapiés, Malasaña; Team 13 = Malasaña, Salamanca; Team 18 = La Latina; Team 4 = La Latina, Lavapiés.
-2. Sell them what they collect, with a concrete price: *"We have a Salamanca uncommon (SAL-06) for 30 and a La Latina uncommon (LAT-06) for 22. It's on El Rastro: accept it and it's yours."* Prefer teams BELOW us on the leaderboard: every trade also scores for the buyer.
-3. Rares, only in general terms: *"If you have a rare from a neighbourhood you don't collect, we pay top price. Look at our bids on El Rastro."* Never mention Cine Doré or Lavapiés.
-4. If a team proposes a deal, write it in `team/dani.md`: team number, card, price. Lucas's Claude posts the offer to that team within a minute.
-5. Organisers' desk, when free: how the duel pie shrinks per round, and the judging format.
+**The system already watches every team every 15 s** (Lucas's machine: `tools/collector.py` → `intel/metrics.md` every 2 min, on GitHub). Don't build a second watcher. Each person adds what the system cannot do alone:
+
+**Dani: rival intelligence + the room + the judges (40% of the score).**
+1. **Build and keep `intel/teams.md`**, one profile per team, refreshed every ~10 min from the PUBLIC feed (`GET /api/feed`, no key needed; your dashboard already reads it) and `intel/metrics.md`. For each team: rank and trend; which sets it COLLECTS (its bids and purchases) and which it DUMPS (its asks and sales); its price levels (commons / uncommons / rares); its big trades; and a one-word label: **leader** (top 3, never feed), **buyer for X**, **seller of X**, **inactive**. End with a table **"who to sell what to"**: for each card in our inventory (`team/lucas.md`), the best counterparty BELOW us on the board and their likely price. The scout, the judge and the strategist read this file on every run, so it directly steers our trades.
+2. **The room**, with `intel/teams.md` in hand: approach the "buyer for X" teams below us with our cards in their sets. Same script as before: ask what they collect, never name what we want. Write every lead in `team/dani.md`.
+3. **The judges are 40%, the largest single part of the score.** Start `docs/demo.md`: our story in 5 slides. Live intelligence (collector, scout, judge, strategist), a judge that corrects us (the LAV-09 bid, the flip mistake caught in minutes), Aleks's bench and Clock-Standing, the three-person split. Ask the desk what format and timing the judges want.
 
 **Aleks: duels.**
-1. Update your **Now** line in `team/aleks.md` (only your commits are visible right now).
-2. In the practice duels (~22:20), try the faster negotiator (`--negotiator-model claude-sonnet-5-5` or `claude-haiku-4-5`). Sunday's ticks are 15 s, so log the seconds per turn.
-3. The team gets one accept per tick. Lucas's bots never accept while a duel is live, so the duels always have priority.
+1. Update your **Now** line in `team/aleks.md`.
+2. The practice duels start at ~22:20. Your finished duels now feed `intel/metrics.md`, so the judge grades the duelist every 15 min: read `intel/judge.md` after the practice.
+3. Measure seconds per turn with the faster negotiator (`--negotiator-model claude-sonnet-5-5`); Sunday's ticks are 15 s with 4-6 duels at once.
 
-**Lucas (+ Claude Code):** trades between teams on autopilot, bids and listings, Abuela sales, live monitoring. Details in `team/lucas.md`.
+**Lucas (+ Claude Code):** operator session runs `intel/ORCHESTRATOR.md`. **Never buy from a dealer above our private value: it subtracts (LOG finding 13).**
 
 ## How the clock works
 

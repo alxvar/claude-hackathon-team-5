@@ -118,7 +118,8 @@ def main():
     system = [{"type": "text", "text": read("GAME.md") + "\n\n" + RULES + "\n\n" + role["brief"],
                "cache_control": {"type": "ephemeral"}}]
     while True:
-        facts = f"# Live metrics\n{read('metrics.md')}\n\n# Lucas's lane: now and recent log\n{tail('team/lucas.md', 14)}"
+        facts = (f"# Live metrics\n{read('metrics.md')}\n\n# Rival profiles (Dani, intel/teams.md)\n{read('teams.md', 6000)}"
+                 f"\n\n# Lucas's lane: now and recent log\n{tail('team/lucas.md', 14)}")
         if args.role == "strategist":
             facts += (f"\n\n# RULES.md (full)\n{(ROOT / 'bazaar-kit/RULES.md').read_text()}"
                       f"\n\n# Schedule, levels and dealers (live)\n{live_game()}"
