@@ -1,4 +1,4 @@
-# Metrics (auto, 22:07, game tick 106)
+# Metrics (auto, 22:09, game tick 108)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -18,9 +18,8 @@ Us: #8
 
 score 15.2 · neg_points 24.1 (15 min ago 26.3) · ladder 0.064 · duel 0.0 · cash 342 · level 2 · deals 18
 
-## Trades between teams (44 so far; last 12)
+## Trades between teams (45 so far; last 12)
 
-- tick 89: LAV-01 (common) t06→t04 for 10 P
 - tick 90: MAL-01 (common) t18→t15 for 9 P
 - tick 92: MAL-04 (common) t18→t17 for 10 P
 - tick 98: SAL-10 (rare) t10→t13 for 70 P
@@ -32,36 +31,35 @@ score 15.2 · neg_points 24.1 (15 min ago 26.3) · ladder 0.064 · duel 0.0 · c
 - tick 104: LAT-02 (common) t13→t07 for 10 P
 - tick 105: LAV-02 (common) t06→t07 for 10 P
 - tick 106: LAV-04 (common) t05→t07 for 9 P
+- tick 107: LAV-05 (common) t06→t07 for 9 P
 
-Who buys which set (team trades): t04: LAT×4, LAV×3; t05: MAL×1, SAL×1; t07: LAV×2, LAT×1; t08: MAL×4, SAL×1, LAT×1; t10: LAV×2; t12: MAL×4; t13: MAL×4, SAL×2; t14: LAT×2; t15: LAT×10, MAL×2; t17: MAL×2; t18: SAL×2
+Who buys which set (team trades): t04: LAT×4, LAV×3; t05: MAL×1, SAL×1; t07: LAV×3, LAT×1; t08: MAL×4, SAL×1, LAT×1; t10: LAV×2; t12: MAL×4; t13: MAL×4, SAL×2; t14: LAT×2; t15: LAT×10, MAL×2; t17: MAL×2; t18: SAL×2
 
 ## Dealer prices, last 60 ticks (median per item)
 
-- abuela common (team buys): median 10 over 10
+- abuela common (team buys): median 10 over 8
 - abuela common (team sells): median 5 over 17
 - abuela sobre_barrio (team buys): median 23 over 18
-- abuela uncommon (team buys): median 22 over 20
+- abuela uncommon (team buys): median 22 over 18
 - abuela uncommon (team sells): median 15 over 2
 
 ## El Rastro now: top bids by price (team, card, price)
 
 - t12: SAL-11 (epic) 88 P · offer 1605
-- t04: LAV-10 (rare) 80 P · offer 1507
-- t17: MAL-09 (rare) 78 P · offer 1586
+- t04: LAV-10 (rare) 85 P · offer 1641
 - t17: MAL-10 (rare) 78 P · offer 1587
 - t08: MAL-09 (rare) 66 P · offer 1469
 - t18: LAT-09 (rare) 55 P · offer 1157
 - t18: LAT-10 (rare) 55 P · offer 1158
 - t08: SAL-09 (rare) 54 P · offer 1470
-- ?: MAL-09 (rare) 38 P · offer 987
-- ?: MAL-10 (rare) 38 P · offer 988
-- t17: SAL-06 (uncommon) 21 P · offer 1588
-- ?: SAL-07 (uncommon) 18 P · offer 984
+- t12: SAL-10 (rare) 34 P · offer 1645
+- t17: MAL-08 (uncommon) 26 P · offer 1653
 - t18: LAT-06 (uncommon) 16 P · offer 1159
 - t18: LAT-08 (uncommon) 16 P · offer 1160
 - t18: LAT-03 (common) 8 P · offer 1161
+- t12: LAV-05 (common) 7 P · offer 1665
 
-Asks by others (card, price: count): SAL-01 9: 2; LAT-01 8: 2; LAV-04 10: 2; MAL-04 9: 1; MAL-02 12: 1; MAL-02 9: 1; LAV-05 10: 1; MAL-04 8: 1; MAL-01 10: 1; MAL-02 8: 1; LAT-01 9: 1; MAL-05 9: 1; SAL-05 9: 1; MAL-06 24: 1; MAL-01 9: 1
+Asks by others (card, price: count): LAT-01 8: 2; LAV-04 10: 2; MAL-02 7: 2; LAV-05 10: 2; MAL-04 8: 2; SAL-01 9: 1; MAL-04 9: 1; MAL-02 8: 1; LAT-01 9: 1; MAL-05 9: 1; SAL-05 9: 1; MAL-06 24: 1; MAL-01 9: 1; LAT-09 88: 1; LAT-04 10: 1
 
 Our open offers: 1: sell LAV-04 9
 
