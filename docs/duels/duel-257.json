@@ -317,6 +317,86 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 134,
+   "raw": {
+    "duel": 257,
+    "session": 1,
+    "status": "live",
+    "role": "seller",
+    "item": "El Rastro al Amanecer",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 78,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 144,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 798,
+     "price": 106,
+     "tick": 134,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 812,
+     "price": 101,
+     "tick": 134,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 132,
+      "from": "you",
+      "text": "El Rastro al Amanecer is a rare, high-quality piece, and I'm opening at 115 P, which reflects its craftsmanship and scarcity. I'm open to your counteroffer, and since every tick of talk costs us both value, let's move efficiently.",
+      "price": 115,
+      "days": null
+     },
+     {
+      "tick": 132,
+      "from": "Rival Oro",
+      "text": "Fair is fair: 96 P, and we can close now.",
+      "price": 96,
+      "days": null
+     },
+     {
+      "tick": 133,
+      "from": "you",
+      "text": "I'm willing to move to 110 P as a show of good faith, which is a real step from where I opened. The piece is genuinely rare, and I'd ask you to come up meaningfully from your figure so we can close quickly before more value slips away.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 133,
+      "from": "Rival Oro",
+      "text": "Let's find a deal that works for both of us: 100 P.",
+      "price": 100,
+      "days": null
+     },
+     {
+      "tick": 134,
+      "from": "you",
+      "text": "I can move to 106 P, which is a real step down from my earlier figure and meets you well past halfway on what's left between us. Settling there now saves both of us the value that slips away with each further round.",
+      "price": 106,
+      "days": null
+     },
+     {
+      "tick": 134,
+      "from": "Rival Oro",
+      "text": "We both lose the longer we talk. 101 P?",
+      "price": 101,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
