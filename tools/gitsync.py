@@ -15,5 +15,5 @@ def push(paths, message):
         if subprocess.run(git + ["diff", "--cached", "--quiet", "--"] + paths).returncode == 0:
             return
         subprocess.run(git + ["commit", "-q", "-m", message, "--"] + paths, capture_output=True)
-        subprocess.run(git + ["pull", "--rebase", "--autostash", "-q"], capture_output=True)
+        subprocess.run(git + ["pull", "--rebase", "--autostash", "-q", "origin", "main"], capture_output=True)
         subprocess.run(git + ["push", "-q", "origin", "HEAD:main"], capture_output=True)

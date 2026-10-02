@@ -11,7 +11,7 @@ state=".git/team_sync_seen"
 me="$(git config user.name)"
 
 if [ "$mode" = "pull" ]; then
-  git pull --rebase --autostash -q >/dev/null 2>&1 || echo "team_sync: git pull failed, resolve by hand" >&2
+  git pull --rebase --autostash -q origin main >/dev/null 2>&1 || echo "team_sync: git pull failed, resolve by hand" >&2
   head="$(git rev-parse HEAD)"
   seen="$(cat "$state" 2>/dev/null)"
   [ "$head" = "$seen" ] && exit 0
@@ -45,7 +45,7 @@ if [ "$mode" = "push" ]; then
     files="$(git diff --cached --name-only | head -6 | tr '\n' ' ')"
     git commit -q -m "auto ($me): $files" >/dev/null 2>&1
   fi
-  git pull --rebase --autostash -q >/dev/null 2>&1 || { git rebase --abort >/dev/null 2>&1; echo "team_sync: pull conflict, push by hand" >&2; exit 0; }
+  git pull --rebase --autostash -q origin main >/dev/null 2>&1 || { git rebase --abort >/dev/null 2>&1; echo "team_sync: pull conflict, push by hand" >&2; exit 0; }
   git push -q origin HEAD:main >/dev/null 2>&1 || echo "team_sync: push failed" >&2
   git rev-parse HEAD > "$state" 2>/dev/null
   exit 0
