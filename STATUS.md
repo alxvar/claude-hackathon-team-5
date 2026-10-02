@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Fri 21:53** · tick 93 (60 s/tick) · game hour 1.55 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Fri 21:54** · tick 94 (60 s/tick) · game hour 1.57 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -41,14 +41,14 @@ _ETA assumes the current tick length and no pause._
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 2.00 | ~27 min | duels | Practice duels (not scored): learn the protocol |
-| 3.00 | ~87 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
-| 4.00 | ~147 min (after today's close) | round | Round 2 starts (holdings carry over) |
-| 4.00 | ~147 min (after today's close) | set_release | El Retiro released |
-| 4.00 | ~147 min (after today's close) | day_closes | Closed until Saturday 09:00 |
-| 4.00 | ~147 min (after today's close) | day_opens | Saturday opens |
-| 4.05 | ~150 min (after today's close) | grant_all | El Retiro has arrived: a pack and the Saturday allowance (150 primas) for everyone |
-| 5.00 | ~207 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 2.00 | ~26 min | duels | Practice duels (not scored): learn the protocol |
+| 3.00 | ~86 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 4.00 | ~146 min (after today's close) | round | Round 2 starts (holdings carry over) |
+| 4.00 | ~146 min (after today's close) | set_release | El Retiro released |
+| 4.00 | ~146 min (after today's close) | day_closes | Closed until Saturday 09:00 |
+| 4.00 | ~146 min (after today's close) | day_opens | Saturday opens |
+| 4.05 | ~149 min (after today's close) | grant_all | El Retiro has arrived: a pack and the Saturday allowance (150 primas) for everyone |
+| 5.00 | ~206 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
 
 ## Our dealer deals
 
