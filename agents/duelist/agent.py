@@ -3,8 +3,8 @@ the move to the band and the hard limits (regateo agents/ranged/v4, config clock
 and `clock` on, the negotiator never told our limit).
 
 Code states facts only: offers so far, how far each side has moved, ticks left, the decay, the gap. Prices and
-when to accept stay with the models. The one exception is the fallback when a model fails: restate our last
-offer.
+when to accept stay with the models. The one exception is the fallback when both models fail (`safe_move`): it
+concedes on a schedule and accepts once their offer meets it, so a duel still closes.
 """
 from __future__ import annotations
 
@@ -371,13 +371,31 @@ class DuelAgent:
         return Move("message", d.message, meta=meta)
 
     def safe_move(self, obs: Observation, reason: str, **meta: Any) -> Move:
-        """Code's move when the models fail: restate our last offer, or open far from our limit."""
+        """Code's move when the models fail, so a duel still closes without them: open far from our limit; then
+        concede a share of the gap to the better of our limit and their standing offer, a larger share as the
+        clock runs out; accept their standing offer once it is inside our limit and at least as good as that
+        concession (or within 2 P of it)."""
         ours = our_offers(obs)
-        price = ours[-1].price if ours else toward_us(self.s, self.view.limit * (1.6 if self.s > 0 else 0.6))
         days = self._days(None, obs)
-        text = f"My offer stands at {money(price, self.view.currency)}" + (f", delivery on day {days}." if
-                                                                            days is not None else ".")
-        return Move("offer", text, price=price, days=days, meta={"fallback": reason, **meta})
+        meta = {"fallback": reason, **meta}
+        if not ours:
+            price = toward_us(self.s, self.view.limit * (1.6 if self.s > 0 else 0.6))
+        else:
+            last = ours[-1].price
+            their = standing_price(obs)
+            floor = self.view.limit
+            if their is not None and not past_limit(self.view, their) and self.s * their > self.s * floor:
+                floor = their
+            left = obs.ticks_left if obs.ticks_left is not None else 4
+            share = 1.0 if left <= 1 else min(0.5, 1 / max(left - 1, 2))
+            price = toward_us(self.s, last - (last - floor) * share)
+            if self.s * price < self.s * floor:
+                price = floor
+            if their is not None and not past_limit(self.view, their) and self.s * (price - their) <= 2:
+                return Move("accept", "Agreed.", price=their, meta=meta)
+        text = f"I can do {money(price, self.view.currency)}" + (f", delivery on day {days}." if
+                                                                  days is not None else ".")
+        return Move("offer", text, price=price, days=days, meta=meta)
 
     def repair(self, d: Decision, obs: Observation, band: Band, days: int | None, /, **meta: Any) -> Move:
         """A decision that failed its checks twice: an offer clamped into the band with a plain message."""

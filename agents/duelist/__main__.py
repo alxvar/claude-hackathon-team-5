@@ -17,7 +17,9 @@ from pathlib import Path
 from dotenv import find_dotenv, load_dotenv
 
 from bazaar_sdk import Bazaar
+from engine import Model
 from engine.claude import Claude, require_credentials
+from engine.failover import Failover
 
 from .agent import DuelAgent
 from .model import DuelView, Observation, Offer, Role, Turn
@@ -32,11 +34,21 @@ def bazaar(wait_on_tick: bool = False) -> Bazaar:
                   wait_on_tick=wait_on_tick)
 
 
-def models(a: argparse.Namespace) -> tuple[Claude, Claude]:
+BACKUP = {"claude-opus-5-5": "claude-sonnet-5-5", "claude-sonnet-5-5": "claude-haiku-4-5",
+          "claude-haiku-4-5": "claude-sonnet-5-5"}
+
+
+def models(a: argparse.Namespace) -> tuple[Model, Model]:
+    """Each role on its model, with a backup model behind it unless --no-failover. If both fail, the agent's
+    code fallback plays (agent.safe_move)."""
     require_credentials()
-    strategist = Claude(model=a.model, effort=a.effort, thinking_off=a.thinking_off)
-    negotiator = Claude(model=a.negotiator_model or a.model, effort=a.negotiator_effort or a.effort,
-                        thinking_off=a.thinking_off)
+    strategist: Model = Claude(model=a.model, effort=a.effort, thinking_off=a.thinking_off)
+    negotiator: Model = Claude(model=a.negotiator_model or a.model, effort=a.negotiator_effort or a.effort,
+                               thinking_off=a.thinking_off)
+    if not getattr(a, "no_failover", False):
+        wrap = lambda m: Failover(m, Claude(model=BACKUP[m.model], effort="low", timeout_s=20)) \
+            if m.model in BACKUP else m  # noqa: E731
+        strategist, negotiator = wrap(strategist), wrap(negotiator)
     return strategist, negotiator
 
 
@@ -100,6 +112,8 @@ def main() -> None:
         s.add_argument("--negotiator-model", help="e.g. claude-sonnet-5-5 or claude-haiku-4-5 for a faster turn")
         s.add_argument("--negotiator-effort", choices=["low", "medium", "high"])
         s.add_argument("--thinking-off", action="store_true", help="Sonnet 5.5 only: thinking between_tools")
+        s.add_argument("--no-failover", action="store_true",
+                       help="no backup model (default: Opus -> Sonnet, Sonnet -> Haiku, Haiku -> Sonnet)")
         if name == "smoke":
             s.add_argument("--days", action="store_true", help="a two-issue duel (price and delivery day)")
         else:

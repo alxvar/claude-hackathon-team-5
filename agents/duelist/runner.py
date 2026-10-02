@@ -313,21 +313,31 @@ class DuelRunner:
                     await asyncio.sleep(max(self.poll_s, 10))
                     continue
                 live = (await self.call(self.b.duels)).get("duels", [])
-            except BazaarError as e:
-                self.log.write("error", where="poll", error=str(e))
-                say(f"poll failed: {e}")
+            except Exception as e:                # never let a bad read stop the loop
+                self.log.write("error", where="poll", error=repr(e))
+                say(f"poll failed: {e!r}")
                 await asyncio.sleep(self.poll_s * 2)
                 continue
             keys = set()
             for raw in live:
-                mem = self.update(raw)
+                try:
+                    mem = self.update(raw)
+                except Exception as e:            # one unreadable duel must not stop the others
+                    self.log.write("error", where="update", raw=raw, error=repr(e))
+                    say(f"duel payload failed: {e!r}")
+                    if (k := duel_key(raw)) in self.duels:
+                        keys.add(k)               # keep it; don't finish it on a parse error
+                    continue
                 if mem is None:
                     continue
                 keys.add(mem.snap.id)
                 if self.due(mem):
                     mem.task = asyncio.create_task(self._decide(mem))
             if gone := [k for k in self.duels if k not in keys and self.duels[k].task is None]:
-                await self.finish(gone)
+                try:
+                    await self.finish(gone)
+                except Exception as e:
+                    self.log.write("error", where="finish", error=repr(e))
             await asyncio.sleep(self.poll_s)
 
     async def _decide(self, mem: Memory) -> None:

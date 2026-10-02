@@ -92,10 +92,33 @@ def test_offer_worse_than_their_standing_offer_is_vetoed():
     assert move.action == "accept" and "standing offer" in move.meta["vetoes"][0]
 
 
-def test_strategist_failure_restates_our_last_offer():
+def test_strategist_failure_concedes_toward_our_limit():
     turns = [Turn(mine=True, text="60 P.", offer=Offer(price=60), tick=1)]
-    move = respond(SELLER, obs(SELLER, rival=30, turns=turns), FakeModel(LLMError("down")))
-    assert (move.action, move.price) == ("offer", 60) and "strategist" in move.meta["fallback"]
+    move = respond(SELLER, obs(SELLER, rival=30, turns=turns, left=8), FakeModel(LLMError("down")))
+    assert move.action == "offer" and 40 <= move.price < 60 and "strategist" in move.meta["fallback"]
+    move = respond(SELLER, obs(SELLER, rival=30, turns=turns, left=1), FakeModel(LLMError("down")))
+    assert (move.action, move.price) == ("offer", 40)          # last tick: our limit, never past it
+
+
+def test_fallback_accepts_their_offer_once_the_concession_meets_it():
+    turns = [Turn(mine=True, text="50 P.", offer=Offer(price=50), tick=1)]
+    move = respond(SELLER, obs(SELLER, rival=48, turns=turns, left=3), FakeModel(LLMError("down")))
+    assert (move.action, move.price) == ("accept", 48)
+    move = respond(SELLER, obs(SELLER, rival=35, turns=turns, left=1), FakeModel(LLMError("down")))
+    assert move.action == "offer" and move.price == 40          # their 35 is past our limit: never accept it
+    move = respond(BUYER, obs(BUYER, rival=55, turns=[Turn(mine=True, offer=Offer(price=40), tick=1)], left=1),
+                   FakeModel(LLMError("down")))
+    assert (move.action, move.price) == ("accept", 55)
+
+
+def test_failover_uses_the_backup_and_skips_a_failing_primary():
+    from engine.failover import Failover
+    good = FakeModel(plan(70, 72, 68), Decision(action="offer", price=70, message="70 P."))
+    bad = FakeModel(LLMError("overloaded"))
+    m = Failover(bad, good, trip=1, cooldown_s=60)
+    move = respond(SELLER, obs(SELLER, rival=30), m)
+    assert (move.action, move.price) == ("offer", 70) and "fallback" not in move.meta
+    assert len(bad.seen) == 1                                   # tripped: the negotiator call skipped it
 
 
 def test_days_come_from_the_strategist():

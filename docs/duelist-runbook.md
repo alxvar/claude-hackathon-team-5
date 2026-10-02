@@ -61,4 +61,11 @@ Questions to answer from it, before the scored Duels I on Saturday (hour 6.5, 16
 - We never write an amount past our limit in a message.
 - An acceptance is dropped if the rival's offer changed while we were deciding.
 - One acceptance per team per tick: a second one waits for the next tick.
-- If the models fail or time out, we restate our last offer.
+## Fallbacks, layer by layer
+
+1. **A model fails or is slow:** each role has a backup model (`engine/failover.py`): Opus → Sonnet, Sonnet → Haiku, Haiku → Sonnet. The primary gets 20 s; after 2 failures in a row it is skipped for 2 minutes. `--no-failover` turns this off.
+2. **Both models fail, or the decision runs past the tick minus 5 s:** code plays (`agent.safe_move`). It concedes a share of the gap toward our limit (or their offer, if better), a larger share as the clock runs out, and accepts their standing offer once it is inside our limit and within 2 P of that concession. On the last tick it offers our limit. It never goes past the limit.
+3. **A bad payload or a failed read:** that duel or that poll is skipped and logged; the loop goes on.
+4. **The process dies:** run it under the supervisor, which restarts it after 5 s. The game keeps each duel's messages and `docs/duels/` keeps our records, so it picks the duels up again:
+   `agents/duelist/supervise.sh --negotiator-model claude-sonnet-5-5`
+5. **The duelist can't run at all:** `uv run python -m agents.duelist run --no-failover --model claude-haiku-4-5` from any team laptop with the `.env`. Only one duelist may run at a time (one key, one accept per tick).
