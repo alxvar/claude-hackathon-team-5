@@ -45,6 +45,9 @@ class Log:
         return True
 
 
+QUIET_TICKS = 2      # rival silent this many ticks since our last message: code concedes one step (no model call)
+
+
 def say(msg: str) -> None:
     print(f"{datetime.now():%H:%M:%S} {msg}", flush=True)
 
@@ -61,6 +64,7 @@ class Memory:
     task: asyncio.Task | None = None
     pending: tuple[Move, Any] | None = None              # a move refused with wait_for_tick, for the next tick
     force: bool = False                                  # decide again even if the rival hasn't moved
+    nudge: bool = False                                  # the rival is silent: code concedes one step
 
 
 def signature(snap: Snapshot) -> Any:
@@ -176,7 +180,14 @@ class DuelRunner:
             return False
         if mem.pending is not None or mem.force:
             return True
-        return not mem.sent or signature(mem.snap) != mem.decided_on
+        if not mem.sent or signature(mem.snap) != mem.decided_on:
+            return True
+        left = mem.snap.ticks_left
+        if self.tick is not None and mem.sent_tick is not None and (
+                self.tick - mem.sent_tick >= QUIET_TICKS or (left is not None and left <= 1)):
+            mem.nudge = True                      # silent rival: an accept-only bot may still take a better offer
+            return True
+        return False
 
     async def decide(self, mem: Memory) -> None:
         sig = signature(mem.snap)
@@ -190,8 +201,12 @@ class DuelRunner:
         obs = self.observe(mem)
         start = time.perf_counter()
         timeout = max(8.0, self.tick_seconds - 5.0)
+        nudge, mem.nudge = mem.nudge, False
         try:
-            move = await asyncio.wait_for(mem.agent.respond(obs), timeout)
+            if nudge:
+                move = mem.agent.final(mem.agent.safe_move(obs, "rival silent"), obs)
+            else:
+                move = await asyncio.wait_for(mem.agent.respond(obs), timeout)
         except TimeoutError:
             move = mem.agent.final(mem.agent.safe_move(obs, f"timeout after {timeout:.0f} s"), obs)
         except Exception as e:                    # never let one duel's bug stop the loop
