@@ -1,4 +1,4 @@
-# Metrics (auto, 22:58, game tick 157)
+# Metrics (auto, 23:00, game tick 159)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -49,9 +49,8 @@ LAT-03 (common): 5; LAT-04 (common): 1.2 / 1.2; LAV-01 (common): 99.1; LAV-02 (c
 - tick 145 abuela sell Bici de Reparto: 5 → 5, ours - · deal
 - tick 145 chato buy LAV-09: 97 → 93, ours 76 · deal
 
-## Trades between teams (45 so far; last 12)
+## Trades between teams (46 so far; last 12)
 
-- tick 106: LAV-04 (common) t05→t07 for 9 P
 - tick 107: LAV-05 (common) t06→t07 for 9 P
 - tick 109: SAL-09 (rare) t12→t17 for 75 P
 - tick 118: SAL-01 (common) t18→t06 for 9 P
@@ -63,15 +62,16 @@ LAT-03 (common): 5; LAT-04 (common): 1.2 / 1.2; LAV-01 (common): 99.1; LAV-02 (c
 - tick 147: MAL-08 (uncommon) t03→t17 for 28 P
 - tick 149: LAV-05 (common) t15→t12 for 7 P
 - tick 152: LAV-05 (common) t06→t05 for 8 P
+- tick 159: LAT-01 (common) t06→t04 for 5 P
 
-Who buys which set (team trades): t04: LAV×3, LAT×2; t05: MAL×1, SAL×1, LAV×1; t06: SAL×2; t07: LAV×3, LAT×1; t08: MAL×2, SAL×1, LAT×1; t10: LAV×2; t12: MAL×2, LAV×1; t13: MAL×4, SAL×2; t14: LAT×2; t15: LAT×6, MAL×2; t17: MAL×3, SAL×3; t18: SAL×1, LAT×1
+Who buys which set (team trades): t04: LAV×3, LAT×3; t05: MAL×1, SAL×1, LAV×1; t06: SAL×2; t07: LAV×3, LAT×1; t08: MAL×2, SAL×1, LAT×1; t10: LAV×2; t12: MAL×2, LAV×1; t13: MAL×4, SAL×2; t14: LAT×2; t15: LAT×6, MAL×2; t17: MAL×3, SAL×3; t18: SAL×1, LAT×1
 
 ## Dealer prices, last 60 ticks (median per item)
 
 - abuela common (team buys): median 10 over 7
-- abuela common (team sells): median 5 over 9
-- abuela sobre_barrio (team buys): median 22 over 7
-- abuela uncommon (team buys): median 24 over 14
+- abuela common (team sells): median 5 over 10
+- abuela sobre_barrio (team buys): median 22 over 5
+- abuela uncommon (team buys): median 22 over 12
 - abuela uncommon (team sells): median 14 over 2
 - chato rare (team buys): median 90 over 8
 - chato rare (team sells): median 46 over 1
@@ -84,32 +84,34 @@ Who buys which set (team trades): t04: LAV×3, LAT×2; t05: MAL×1, SAL×1, LAV�
 - t17: MAL-09 (rare) 70 P · offer 2698
 - t18: LAT-09 (rare) 62 P · offer 2503
 - t18: LAT-10 (rare) 62 P · offer 2504
-- t02: MAL-10 (rare) 28 P · offer 2547
 - t15: LAV-10 (rare) 20 P · offer 2628
-- t02: LAV-06 (uncommon) 7 P · offer 2548
+- t02: LAT-06 (uncommon) 12 P · offer 2724
+- t02: SAL-09 (rare) 8 P · offer 2722
+- t02: LAV-09 (rare) 8 P · offer 2723
 - t15: LAV-09 (rare) 7 P · offer 2567
 - t15: SAL-09 (rare) 7 P · offer 2648
+- t02: LAT-03 (common) 2 P · offer 2725
 
-Asks by others (card, price: count): LAV-04 10: 3; LAT-04 10: 2; MAL-08 40: 2; LAT-05 9: 2; MAL-02 3: 2; LAT-04 9: 2; LAV-03 8: 1; MAL-04 8: 1; LAT-01 8: 1; MAL-05 8: 1; LAV-04 8: 1; MAL-06 28: 1; LAV-08 40: 1; LAT-01 6: 1; SAL-07 27: 1
+Asks by others (card, price: count): LAT-04 9: 3; LAV-04 10: 3; MAL-08 40: 2; LAT-05 9: 2; LAT-01 9: 2; MAL-02 3: 2; LAV-03 8: 1; MAL-04 8: 1; LAT-01 8: 1; MAL-05 8: 1; LAV-04 8: 1; MAL-06 28: 1; LAV-08 40: 1; MAL-07 30: 1; LAT-08 30: 1
 
-## Our duels: 6 live, 28 finished (last 10)
+## Our duels: 6 live, 30 finished (last 10)
 
-- {"duel": 175, "session": 1, "status": "deal", "role": "seller", "item": "Taxi Blanco", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 80, "limit_meaning": "never sell below your cost", "rival": "Rival Verde", "deadline_tick"
-- {"duel": 176, "session": 1, "status": "deal", "role": "buyer", "item": "Taxi Blanco", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 107, "limit_meaning": "never pay above your value", "rival": "Rival Plata", "deadline_tick"
 - {"duel": 181, "session": 1, "status": "no_deal", "role": "buyer", "item": "El Rastro al Amanecer", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 85, "limit_meaning": "never pay above your value", "rival": "Rival Verde", "de
 - {"duel": 182, "session": 1, "status": "live", "role": "seller", "item": "El Rastro al Amanecer", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 59, "limit_meaning": "never sell below your cost", "rival": "Rival Oro", "deadli
 - {"duel": 199, "session": 1, "status": "deal", "role": "buyer", "item": "Mercado de Vallehermoso", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 150, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "dead
-- {"duel": 200, "session": 1, "status": "live", "role": "seller", "item": "Mercado de Vallehermoso", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 68, "limit_meaning": "never sell below your cost", "rival": "Rival Noche", "de
+- {"duel": 200, "session": 1, "status": "deal", "role": "seller", "item": "Mercado de Vallehermoso", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 68, "limit_meaning": "never sell below your cost", "rival": "Rival Noche", "de
 - {"duel": 227, "session": 1, "status": "live", "role": "seller", "item": "Plaza de Olavide", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 130, "limit_meaning": "never sell below your cost", "rival": "Rival Luna", "deadline_
 - {"duel": 228, "session": 1, "status": "live", "role": "buyer", "item": "Plaza de Olavide", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 138, "limit_meaning": "never pay above your value", "rival": "Rival Verde", "deadline_
 - {"duel": 257, "session": 1, "status": "deal", "role": "seller", "item": "El Rastro al Amanecer", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 78, "limit_meaning": "never sell below your cost", "rival": "Rival Oro", "deadli
-- {"duel": 258, "session": 1, "status": "live", "role": "buyer", "item": "El Rastro al Amanecer", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 64, "limit_meaning": "never pay above your value", "rival": "Rival Noche", "deadl
+- {"duel": 258, "session": 1, "status": "deal", "role": "buyer", "item": "El Rastro al Amanecer", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 64, "limit_meaning": "never pay above your value", "rival": "Rival Noche", "deadl
+- {"duel": 269, "session": 1, "status": "live", "role": "seller", "item": "Taxi Blanco", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 81, "limit_meaning": "never sell below your cost", "rival": "Rival Rojo", "deadline_tick":
+- {"duel": 270, "session": 1, "status": "live", "role": "buyer", "item": "Taxi Blanco", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 102, "limit_meaning": "never pay above your value", "rival": "Rival Verde", "deadline_tick"
 
 ## Latest announcements
 
-- tick 121 level.unlocked: {"team": "t02", "name": "Team 2", "persona": "chato", "persona_name": "El Chato", "level": 2, "why": "3 deals with abuela"}
-- tick 122 level.unlocked: {"team": "t04", "name": "Team 4", "persona": "chato", "persona_name": "El Chato", "level": 2, "why": "3 deals with abuela"}
 - tick 126 level.unlocked: {"team": "t08", "name": "Team 8", "persona": "chato", "persona_name": "El Chato", "level": 2, "why": "3 deals with abuela"}
 - tick 132 level.unlocked: {"team": "t16", "name": "Team 16", "persona": "chato", "persona_name": "El Chato", "level": 2, "why": "3 deals with abuela"}
 - tick 144 announcement: {"text": "We close at 23:00. Offers stay open; the clock stops."}
+- tick 158 level.unlocked: {"team": "t11", "name": "Team 11", "persona": "chato", "persona_name": "El Chato", "level": 2, "why": "open to everyone now"}
+- tick 158 level.unlocked: {"team": "t15", "name": "Team 15", "persona": "chato", "persona_name": "El Chato", "level": 2, "why": "open to everyone now"}
 
