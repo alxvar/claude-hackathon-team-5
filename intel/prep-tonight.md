@@ -14,7 +14,7 @@ Status: [ ] open · [~] in progress · [x] done
 7. [x] Aleks: a precise Saturday brief in the repo (PLAN.md "RIGHT NOW"): duelist fixes with acceptance tests, Duels II
    prep, Sunday model, accept arbiter, cold standby, API spend check.
 8. [x] Sessions tomorrow: how many, exact first prompts, model and effort for each; how to use the $100 API credits each.
-9. [~] Repo cleanup + update so it is 100% accurate: inventory every file (current / historical / wrong / noise), fix
+9. [x] Repo cleanup + update so it is 100% accurate: inventory every file (current / historical / wrong / noise), fix
    Lucas-owned files, flag teammates' files for them.
 
 Done so far: plan fact-checked and fixed (§1-§4E), stage table §2b, Dani's page-gap desk §6b, PLAN.md RIGHT NOW (Sat),
