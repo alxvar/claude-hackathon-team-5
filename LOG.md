@@ -19,7 +19,7 @@ Team 10 leads with one lever: buying from Abuela the cards of its high-value set
 |---|---|---|---|---|---|
 | E1 | Buy from dealers what is worth more to us than its price (now: LAV uncommons, worth 32.5 P to us, ~23 P from Abuela) | Lucas (bot) | running since 21:07 | `neg_points` and `negotiating` before vs after each deal (bot logs both) | — |
 | E2 | Sell to dealers what is worth little to us (7 spare copies worth ~1 P; Abuela pays 5-13) | Lucas (bot) | queued after E1 | same | — |
-| E3 | Trade with other teams: multipliers differ up to 3x between teams, so our low-value cards (LAT, MAL) are worth more to someone else, and LAV-09 (rare) is worth 91 P to us. Only 1 team-to-team trade in the whole game so far | Lucas | next build | value gained at our private values (rules: Negotiating) | — |
+| E3 | Trade with other teams: multipliers differ up to 3x between teams, so our low-value cards (LAT, MAL) are worth more to someone else, and LAV-09 (rare) is worth 91 P to us. Only 1 team-to-team trade in the whole game so far | Lucas (`agents/trader/trade.py`) | **live since 21:14** | value gained at our private values (rules: Negotiating) | Teams 8, 13 and 14 jumped from ~11 to 22-26 points with ONE rare traded between teams at 65-70 P. Ours: accepted 6 P for a spare MAL-02 (worth 1.8 to us); listed SAL-06 32, MAL-08 26, LAT-07 21, LAT-06 22 (worth 12.5-22.5 to us); bid 70 for LAV-09 (worth 91 to us) |
 | E4 | Flag dealers whose words don't match their structured offer (*"a correct flag scores, a wrong one costs"*) | Lucas (bot) | when a dealer that lies appears | flag points | — |
 | E5 | Be first with each new dealer, value-first (higher levels weigh more; our negotiated deals give us the head start) | Lucas (bot, `--dealer`) | ready | ladder + `neg_points` | — |
 | E6 | Duels: Clock-Standing on the duel API, decay-aware closing, two issues for Duels II | Aleks | practice duels ~22:20 | duel share | — |
@@ -39,6 +39,7 @@ Team 10 leads with one lever: buying from Abuela the cards of its high-value set
 
 ## Log
 
+- Fri 21:14 · Lucas · E3 live: the jump of Teams 8/13/14 came from rare cards traded between teams at 65-70 P, not from Abuela · accepted MAL-02 for 6 P; 4 uncommons listed at ~9 P above our value; bid 70 P for LAV-09 · cash floor for the venue bond relaxed to ~200 tonight (no venue possible before level 2; Saturday adds 150 P)
 - Fri 21:12 · Lucas · `tools/watch.py` live watcher (score, leaderboard, deals, dealers, duels, pushes) + experiments table E1-E7 · next: E3 (team trades) while E1-E2 run
 - Fri 21:07 · Lucas (bot) · dealer bot reworked: buys by value minus expected price, logs score per deal; running: LAV-08 and LAV-07, then 7 spare sales, then LAV-06 · next: check neg_points per deal to confirm finding 0
 - Fri 21:05 · Lucas · `broker/sim.py`, an offline Market Test: **the free stall's best-bid-vs-best-ask beats both alternatives I tried** (most pairs: 0.92 vs 0.95 efficiency; waiting: 0.48) in every trader model · beating the stall needs real limit estimates, so we record the real book at the first Market Test before building more
