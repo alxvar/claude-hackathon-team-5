@@ -2,6 +2,29 @@
 
 _Written by the strategy session. It never touches the game: no trades, no bots. The operator executes inside its guardrails; anything involving a rare or >50 P still needs Lucas. Newest block on top. Labels: **[Verified]** measured on our own deals or read from the server; **[Likely]** fitted or inferred; **[Open]** unknown._
 
+## Fri 22:47 — LAV page plan (replaces the LAV-09 bid; execute now, in order)
+
+- 22:47 · Cancel our LAV-09 bid 2353 now and close Chato thread 276 (LAT-08). Goal: a TEAM trade completes the LAV page (~+87 `neg_points`) and Chato gives us a ladder slot on the way. Steps 1-3 below, in order.
+- 22:47 · Why: the page bonus only scores when a team trade completes the page (Team 17 +~45 at tick 124 via a team; Team 10 ~0 via Chato). Make the cheap common LAV-05 the last card, not LAV-09. Bid-125 route: +52 if ever filled. This route: about +78 plus a ladder slot.
+- 22:47 · Step 1: sell our only LAV-05 now, fastest route (Abuela sell thread, accept her first bid ~5; costs about −8). GATE for step 2: value?card=LAV-09 must read ~91, not 177.
+- 22:47 · Step 2: Chato, buy LAV-09: open 70, +3 per tick, accept his offer or `final` at ≤93 (Team 10 got 90, Team 14 93). Costs ≤ −2 because the page is still open. Never accept while LAV-09 reads 177.
+- 22:47 · Step 3: right after LAV-09 settles, buy LAV-05 from a team: accept the cheapest ask ≤15 (offer 2398 at 8 now). If none, public bid 12 (fills overnight). Check value?card=LAV-05 ≈ 99 first. Expected ≈ +89.
+- 22:47 · Abort: if Chato is not at ≤93 by tick 156, close it, buy LAV-05 back at ≤10 and re-post the LAV-09 bid at 125 overnight. If a LAV-09 arrives from a team at any point, stop and skip Chato: that trade already scored.
+- 22:47 · From now on never sell a LAV page card (each sale would lose the ~86 bonus). Spare copies only: the second LAV-02, LAV-03 and LAV-04.
+- 22:47 · Selling rule (replaces "never sell to the top 4"): sell into any bid where price − our copy value − fee ≥ 3. Selling to the #1 team: also require our gain ≥ (our neg_points ÷ ~130) × their max gain (book × 1.6 − price). Feeding #1 only hurts us through the score denominator.
+- 22:47 · Rares from packs (Lucas's question, decided): sell a rare to the best bid when it is not part of a page we are completing and the selling rule passes. Today none qualify: our only rare, LAV-10, is in the LAV page.
+- 22:47 · Saturday lever: page bonus = 66.25 × our multiplier. Build pages with dealer buys at ≤ our value (score 0, no loss), finish with one team-bought common. Targets: RET (73), Sunday CHA (106). Skip SAL, MAL and LAT pages: their rares cost more than the bonus.
+- 22:47 · Cash: no venue bond Saturday morning unless the broker beats `auto` in replay. RET page needs ~300 P and CHA ~300 P, and the bond would lock 270.
+- 22:47 · Bots hold accepts only during SCORED duel sessions. In the practice, `hold_accept_duel_live` held Chato's 31 for 7 ticks (22:24-22:30); the server does not freeze accepts, our bots chose to.
+
+## Corrections to the 22:32 block (independent verification, 22:45)
+- D1 confirmed: packs opened at 22:42, `neg_points` unchanged at 27.8, and LAV-06 at 31 cost exactly the predicted −2.3.
+- D2: Chato is not a flat 13 on uncommon sales. He moved to a 15 `final` for Team 13 (MAL-06, tick 128). His rare pattern: holds 97 for ~3 offers, then about −1 per tick, `final` around 89-93 after 6-7 offers. "Mirrors 1:1" is wrong.
+- D3: "dealer gains score 0" rests on one derived case (LAV-08) plus RULES ("value you gained in trades with other teams"). Treat it as [Likely]. The step-2 gate makes our plan safe either way.
+- D6: four team venues exist: v01 Team 6 (0.5%), v02 Team 12 (0%), v03 Team 13 (1%), v04 Team 2 (0%, `auto`). Team 10's complete page comes from `/api/leaderboard` `pages_complete` (1).
+- D7: the leader's `neg_points` is fitted per snapshot (85 → 130 between ticks 90 and 125); it is not a test of the model. At tick 130 our ladder part is ~10.7, the leader ~130, and one `neg_point` is ~0.135 board points. Duel points are outside the model.
+- D8: the accept freeze is our bots' own rule, not the server's (see the 22:47 line above).
+
 ## Fri 22:40 — act on these now, in order (format: time · decision with limits · why)
 
 - 22:40 · OPEN both packs now (assets 320 and 427) before any other deal; read `neg_points` before and after (expect no change) · the −2.3 on LAV-06 was pack drag, not a dealer penalty: 32.5 − 3.8 (unopened packs lose value when we add a card) − 31 = −2.3, the number D1 gave before the trade.
