@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Fri 21:46 · LAT-06 sold at 22 within ~3 min of repricing it to the market (was unsold at 30 for 15 min) · `neg_points` 16.6 → 26.3 · lesson: price at the market's bid level, it fills fast
 - Fri 21:50 · stopped the LAT flip before buying (collectors bid 16, not 27); Team 8's 35 bid for MAL-07 vanished while we haggled · autoflip live: takes Abuela's first price and sells into the bid in ~2 ticks · Dani's script for the room is in PLAN.md
 - Fri 21:43 · Dani spotted Team 10 bidding 90 for LAV-09 · raised ours to 100 (worth 91 now; the page bonus scores if LAV-06/07 come last from teams; also blocks Team 10's page) · LAT flip restarted with caps 25/10 (Abuela stops at ~24)
 - Fri 21:38 · found the scoring lever (LOG finding 11): sales to teams score price − our value, dealer buys cost only cash · stopped selling spares to Abuela (0 points) and listed them for teams; started flipping LAT cards (buy from Abuela, list at 26/11) · next: measure the first flip's points
