@@ -18,8 +18,8 @@ sys.path.insert(0, str(ROOT / "agents" / "dealers"))
 import abuela_bot as bot  # noqa: E402
 from bazaar_sdk import Bazaar, BazaarError  # noqa: E402
 
-MIN_SCORE = 8          # what the sale must add to neg_points
-MAX_CASH_LOSS = 4      # how much cash a flip may lose (the score is what counts)
+MIN_SCORE = 5          # what the sale must add to neg_points (judge 21:55: 8 blocked +6 flips)
+MAX_CASH_LOSS = 6      # how much cash a flip may lose (cash never scores; 380 P on hand)
 EXPECTED = {"common": 12, "uncommon": 29}  # Abuela's OPENING price: a flip takes it at once (bids last minutes)
 CASH_FLOOR = 200
 

@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Fri 22:00 · applied judge 21:55: autoflip threshold 8 → 5 (Team 17 bids 26 for MAL-07/08: +6 each), cash loss per flip 4 → 6; LAV-09 bid cancelled (Team 10 now bids 110; ours neither fills nor blocks); all daemons supervised (auto-restart) before the server restart · next: strategist's first plan
 - Fri 21:58 · architecture: collector + metrics (facts), scout/judge/strategist (Claude API, advisory), all as detached daemons (`tools/daemons.sh`) · judge's first call applied: LAV-09 bid cut 100 → 91 (still above Team 10's 90; 100 would score −9 without LAV-06/07) · next: operator session
 - Fri 21:46 · LAT-06 sold at 22 within ~3 min of repricing it to the market (was unsold at 30 for 15 min) · `neg_points` 16.6 → 26.3 · lesson: price at the market's bid level, it fills fast
 - Fri 21:50 · stopped the LAT flip before buying (collectors bid 16, not 27); Team 8's 35 bid for MAL-07 vanished while we haggled · autoflip live: takes Abuela's first price and sells into the bid in ~2 ticks · Dani's script for the room is in PLAN.md
