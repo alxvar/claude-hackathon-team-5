@@ -1,16 +1,16 @@
-# Scout (claude-sonnet-5-5, Fri 22:50)
+# Scout (claude-sonnet-5-5, Fri 22:55)
 
 ## Top 3 actions now
-1. **Cancel bid 2563 (76 for LAV-09 to chato) unless we hold LAV-06/07/08 and test `GET /api/me/value?card=LAV-09` first.** We hold LAV-06, 07, 08, so run the test now (human or `trade.py`). Evidence: Chato's price is 97 → 95, our bid is 76, and Chato ladder purchases above our value subtract (MAL-07 −11.8). Team 10 already holds LAV-09, so this may be a different copy. Effect: if the value is ~91, we avoid a possible loss. If ~177, a dealer buy still scores 0 and only a TEAM seller scores. Confidence: med.
-2. **Sell the spare commons to teams, maker-side, at the market's bid.** Offers 2173 (MAL-06 at 22 to t15) and 2174 (LAV-04 at 9 to t07) expire at tick 161, so relist them at the same price. Add LAV-02, LAV-03 and the second copy of LAT-04 at 9-10 (team asks sit at 9-10). Evidence: LAV-04 at 9 to t07 gave +7.7, and SAL-06 at 26 gave +6.0. A 2nd copy is worth only 25% of book, so we gain about +4 to +6 each. Executor: `trade.py` list. Confidence: high.
-3. **Ask Lucas to sell MAL-07 and MAL-06 to t17 (rank #4, collects MAL/SAL).** t17 bid 70 for MAL-09 and bought MAL-08 at 28 (tick 147). Ask 26-28 addressed `to` t17, so they pay the fee. Our value is 17.5, so the gain is +8.5 to +10.5 each. t17 is above us but 5 places below the leaders, and the sale is small. Confidence: med.
+1. **Do not accept or place anything involving Chato/Abuela above our value; check the page bonus now.** Run `GET /api/me/value?card=LAV-09` (Lucas/operator). We hold LAV-06/07/08 and LAV-09/10 (our values 118.6 and 177.1). The tick-152 sale of LAV-05 to t06 at 8 gave +50.0 (neg_points 17.8 → 67.8), which looks like a page-bonus effect. Evidence: LAV-01..10 are mostly held, and Team 17's +45 at tick 124 was a team trade. Effect: it confirms the bonus scores through team trades. Confidence: med.
+2. **Reprice the two open offers to the live bids.** Offer 2173 (MAL-06 at 22 to t15) expires at tick 161. Asks for MAL-06 sit at 28, and Team 17 is the MAL/SAL buyer (est. 26, above us). Relist MAL-06 and MAL-07 at about 25 `to` t15 or t17 through `trade.py` as maker-side offers. Evidence: the sales table shows +5.5 each at an estimated 26. Effect: +5 to +8 neg_points each. Confidence: med. Team 17 is #4, so the gain must exceed what it gets. A 25 P sale of a card worth 17.5 to us gives it a small gain, so it is acceptable.
+3. **Sell spare commons to buyers below us, as maker-side offers.** LAV-02/03/04 (3.2 each, second copies): Team 7 est. 9.5, Teams 9/1/2 at 9. LAT-04 (1.2): Team 7 and Team 2 at 9. SAL-02 (2.2): Team 3 at 9. Offer 2174 (LAV-04 at 9 to t07) is already open. Evidence: the tick-106 LAV-04 sale at 9 scored +7.7. Effect: about +6 each, 5–6 offers, about +30 neg_points. Confidence: high. The buyers are not leaders.
 
 ## What the climbing teams are doing
-- Team 17 (+9.5 over 60 min) buys MAL and SAL from teams: SAL-09 at 75 (tick 109), SAL-06 at 26 (tick 119), SAL-08 at 35 (tick 124), MAL-08 at 28 (tick 147). Our SAL-06 sale to them scored +6.
-- Team 12 (+5.6) sells SAL rares and uncommons to t17 and t18 (SAL-09 at 75, SAL-08 at 35). It also buys LAV cheap (LAV-05 at 7 from t15, tick 149) and runs the zero-fee venue v02.
-- Team 13 (leader, 23 deals) is mostly a MAL/SAL buyer (MAL×4, SAL×2). Our dealer flips lost points (neg_points 27.8 → 19.8), so we should not copy that.
+- Team 17 (+10.0 over 60 min) buys MAL/SAL from teams: SAL-09 at 75 from t12 (tick 109), SAL-06 at 26, SAL-08 at 35 (tick 124), MAL-08 at 28 from t03 (tick 147). It pays above book for rares and uncommons.
+- Team 12 (+6.1) sells SAL/MAL/LAT to the buyers: SAL-09 at 75, SAL-08 at 35, LAT-03 at 9 to t18, and it opened a 0-fee venue. It also collects LAV.
+- Team 6 trades commons and rares between teams at a high volume: LAT-10 at 60 to t15, LAV-05 at 8 to us and at 9 to t07, and SAL-01. It has a board venue (50 bps).
 
 ## Threats
-- Our neg_points fell 27.8 → 19.8 at tick 147 (−8.0), from the Chato sell of LAT-08 at 13 (worth 12.5) and the Abuela sell of LAV-05 at 5. Do not sell to dealers. Team bids for LAT-08 were ~22 est. (Team 15).
-- Team 10 holds LAV-09 and a complete page, and t04, t07, t14, t09 and t1 are all collecting LAV. LAV-06/07/08 cards could be worth more to them, but never sell them to Team 12, which is a leader and also collects LAV.
-- The ladder part is at its cap (~12.4) and erodes as others fill Chato slots. Our score fell −3.0 over 15 min while neg_points dropped, so avoid any further dealer deals above our value.
+- Team 15 is a heavy LAT buyer (6 trades). It bids 7 for LAV-09 and SAL-09 and pays 60 for a rare, so it competes for LAT/MAL cards. Bids from t17 (MAL-09 at 70) and t18 (LAT-09/10 at 62) are pulling rares away. Rares go fast.
+- Leaders Team 13 (30.0) and Team 12 (27.2) are far ahead, and Team 13 has bought MAL×4 and SAL×2. Do not sell MAL or SAL to them. Team 12 collects LAV, so do not sell it our LAV cards.
+- Our score fell to 12.2 (−2.6 in 15 min) and we are #10 despite neg_points 67.8. Our ladder is 0.064, so the field is catching up on Chato slots. Leader neg_points are not in the data, so we can't size the gap. Teams 2, 4, 8 and 16 have all unlocked Chato.
