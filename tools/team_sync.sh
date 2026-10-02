@@ -29,6 +29,11 @@ if [ "$mode" = "pull" ]; then
     git diff --quiet "${seen:-HEAD~10}" HEAD -- "$f" 2>/dev/null && continue
     echo "$f changed:"; grep -m1 '^\*\*Now:\*\*' "$f"; grep '^- ' "$f" | head -3
   done
+  for f in CLAUDE.md PLAN.md; do  # instructions: inject the changed lines, so they apply even mid-session
+    git diff --quiet "${seen:-HEAD~10}" HEAD -- "$f" 2>/dev/null && continue
+    echo "$f CHANGED. These lines are now the team's instructions (+ added, - removed); follow them:"
+    git diff -U0 "${seen:-HEAD~10}" HEAD -- "$f" | grep -E '^[+-]' | grep -vE '^(\+\+\+|---)' | head -40
+  done
   git diff --quiet "${seen:-HEAD~10}" HEAD -- LOG.md 2>/dev/null || echo "LOG.md (findings/experiments) changed: read it."
   echo "Write only in your own team/<name>.md; never edit someone else's file (CLAUDE.md)."
   exit 0
