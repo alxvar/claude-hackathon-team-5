@@ -11,6 +11,22 @@ Pull before you add a line and push right after. Live numbers are in `STATUS.md`
 | **Lucas** (+ Claude Code) | 1) **Dealer bot running (since 21:07):** buys LAV uncommons (worth 32.5 P to us, about 23 P from Abuela), sells our 7 spare copies, and logs the score before and after every deal. 2) Market Test broker, offline (`broker/sim.py`) | `agents/dealers/`, `broker/`, `tools/`, `STATUS.md`; dealer and market endpoints only | Read the practice duels; tune the broker |
 | **Dani** | Five questions to the organisers' desk (the four in `PLAN.md`, plus: what is `neg_points`?). Writes the answers here | `LOG.md` | The story for the judges |
 
+## Experiments: how we beat the leaders, not copy them
+
+Team 10 leads with one lever: buying from Abuela the cards of its high-value sets. We stack every lever the rules score. Each row has an owner and a metric from the server; results go in the last column.
+
+| # | Lever | Owner | Status | Metric | Result |
+|---|---|---|---|---|---|
+| E1 | Buy from dealers what is worth more to us than its price (now: LAV uncommons, worth 32.5 P to us, ~23 P from Abuela) | Lucas (bot) | running since 21:07 | `neg_points` and `negotiating` before vs after each deal (bot logs both) | — |
+| E2 | Sell to dealers what is worth little to us (7 spare copies worth ~1 P; Abuela pays 5-13) | Lucas (bot) | queued after E1 | same | — |
+| E3 | Trade with other teams: multipliers differ up to 3x between teams, so our low-value cards (LAT, MAL) are worth more to someone else, and LAV-09 (rare) is worth 91 P to us. Only 1 team-to-team trade in the whole game so far | Lucas | next build | value gained at our private values (rules: Negotiating) | — |
+| E4 | Flag dealers whose words don't match their structured offer (*"a correct flag scores, a wrong one costs"*) | Lucas (bot) | when a dealer that lies appears | flag points | — |
+| E5 | Be first with each new dealer, value-first (higher levels weigh more; our negotiated deals give us the head start) | Lucas (bot, `--dealer`) | ready | ladder + `neg_points` | — |
+| E6 | Duels: Clock-Standing on the duel API, decay-aware closing, two issues for Duels II | Aleks | practice duels ~22:20 | duel share | — |
+| E7 | Market: record the real bench book at the first Market Test, then a broker that beats the stall | Lucas | Saturday morning | bench efficiency | sim: the stall beats both naive alternatives; need real data |
+
+**Live loop:** `tools/watch.py` runs on Lucas's machine and wakes his Claude Code on every change: leaderboard, our score, our deals, new dealers or levels, duels, teammate pushes. Each experiment's result lands here within minutes.
+
 ## Findings so far (keep this list short; update it, don't append)
 
 0. **Score is about value at OUR private values, not just haggling** (likely; checking it deal by deal). Team 10 leads with 29.1 (we have 12.0) by buying uncommons of its valuable sets from Abuela at 23-24 P (LAV-06, LAV-07, MAL-07), building a full LAV page. Our private `neg_points` is −8.5, almost surely from the 3 packs: random cards, mostly duplicates worth little to us. **Rule: buy what is worth more to us than its price, sell what is worth less, no more packs.** For us that's LAV (each LAV uncommon is worth 32.5 P to us; LAV-09 rare is worth 91 P and would complete our LAV page).
@@ -23,6 +39,7 @@ Pull before you add a line and push right after. Live numbers are in `STATUS.md`
 
 ## Log
 
+- Fri 21:12 · Lucas · `tools/watch.py` live watcher (score, leaderboard, deals, dealers, duels, pushes) + experiments table E1-E7 · next: E3 (team trades) while E1-E2 run
 - Fri 21:07 · Lucas (bot) · dealer bot reworked: buys by value minus expected price, logs score per deal; running: LAV-08 and LAV-07, then 7 spare sales, then LAV-06 · next: check neg_points per deal to confirm finding 0
 - Fri 21:05 · Lucas · `broker/sim.py`, an offline Market Test: **the free stall's best-bid-vs-best-ask beats both alternatives I tried** (most pairs: 0.92 vs 0.95 efficiency; waiting: 0.48) in every trader model · beating the stall needs real limit estimates, so we record the real book at the first Market Test before building more
 - Fri 21:02 · Aleks · duelist moved out of `bazaar-kit/` to `agents/duelist/`; LLM engine split into `engine/` (`Model` interface + Claude provider); our deps now in the root `pyproject.toml`, kit's back to the organisers' · 14 offline tests pass · next: run with `uv run python -m agents.duelist` from the repo root
