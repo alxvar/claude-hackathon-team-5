@@ -170,14 +170,9 @@ def build(b):
 
 
 def push():
-    git = ["git", "-C", str(ROOT)]
-    subprocess.run(git + ["pull", "--rebase", "--autostash", "-q"], check=False)
-    if subprocess.run(git + ["diff", "--quiet", "--", "STATUS.md"]).returncode == 0 and \
-            subprocess.run(git + ["ls-files", "--error-unmatch", "STATUS.md"], capture_output=True).returncode == 0:
-        return
-    subprocess.run(git + ["add", "STATUS.md"], check=True)
-    subprocess.run(git + ["commit", "-q", "-m", f"status: {time.strftime('%H:%M')}", "--", "STATUS.md"], check=True)
-    subprocess.run(git + ["push", "-q", "origin", "main"], check=False)
+    sys.path.insert(0, str(ROOT / "tools"))
+    import gitsync
+    gitsync.push(["STATUS.md"], f"status: {time.strftime('%H:%M')}")
 
 
 def main():

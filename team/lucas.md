@@ -1,11 +1,12 @@
 # Lucas (+ Claude Code) — dealers, team trades, market, monitoring
 
-**Now:** `autoflip.py` live: fills other teams' bids with cards bought from Abuela at her first price when the sale scores ≥8. `loop.py` sells our cards into good bids and buys underpriced listings. LAV-09 bid 100. Listings repriced to market (LAT-06 22, SAL-06 30). Watcher live
+**Now:** New architecture live (see `intel/ORCHESTRATOR.md`): daemons (collector, trader, autoflip, status) + LLM analysts (scout 5 min, judge 15 min, strategist 45 min) writing `intel/`. Next: an unattended operator session runs the runbook; Lucas keeps a strategy session
 
 **Touches:** `agents/dealers/`, `agents/trader/`, `broker/`, `tools/`, `STATUS.md`, `LOG.md`; dealer, trade and market endpoints only.
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Fri 21:58 · architecture: collector + metrics (facts), scout/judge/strategist (Claude API, advisory), all as detached daemons (`tools/daemons.sh`) · judge's first call applied: LAV-09 bid cut 100 → 91 (still above Team 10's 90; 100 would score −9 without LAV-06/07) · next: operator session
 - Fri 21:46 · LAT-06 sold at 22 within ~3 min of repricing it to the market (was unsold at 30 for 15 min) · `neg_points` 16.6 → 26.3 · lesson: price at the market's bid level, it fills fast
 - Fri 21:50 · stopped the LAT flip before buying (collectors bid 16, not 27); Team 8's 35 bid for MAL-07 vanished while we haggled · autoflip live: takes Abuela's first price and sells into the bid in ~2 ticks · Dani's script for the room is in PLAN.md
 - Fri 21:43 · Dani spotted Team 10 bidding 90 for LAV-09 · raised ours to 100 (worth 91 now; the page bonus scores if LAV-06/07 come last from teams; also blocks Team 10's page) · LAT flip restarted with caps 25/10 (Abuela stops at ~24)

@@ -28,6 +28,17 @@ def fee(price):
     return math.ceil(price * 0.05) + 1
 
 
+_VALUES = {}
+
+
+def value(b, me, card):
+    """Our value of one more copy, cached until our holdings change (saves the team's 5 requests/s)."""
+    key = (card, len(me["assets"]))
+    if key not in _VALUES:
+        _VALUES[key] = b.value(card)["your_value"]
+    return _VALUES[key]
+
+
 def best_flip(b, me, cat, tried):
     rar = {c["id"]: (c["rarity"], s["id"]) for s in cat["sets"] if s.get("released") for c in s["cards"]}
     held = {a["ref"] for a in me["assets"] if a["kind"] == "card"}
@@ -40,8 +51,8 @@ def best_flip(b, me, cat, tried):
         card = cards[0]
         if card not in rar or rar[card][0] not in EXPECTED or card in held:  # held cards: loop.py sells those
             continue
-        value = b.value(card)["your_value"]
-        score = g["cash"] - fee(g["cash"]) - value
+        v = value(b, me, card)
+        score = g["cash"] - fee(g["cash"]) - v
         cash = g["cash"] - fee(g["cash"]) - EXPECTED[rar[card][0]]
         if score >= MIN_SCORE and cash >= -MAX_CASH_LOSS and (best is None or score > best["score"]):
             best = {"offer": o["id"], "card": card, "bid": g["cash"], "score": round(score, 1), "cash": cash,

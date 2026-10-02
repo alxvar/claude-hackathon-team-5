@@ -12,3 +12,5 @@ dist/
 .ruff_cache/
 .mypy_cache/
 logs/
+data/
+run/

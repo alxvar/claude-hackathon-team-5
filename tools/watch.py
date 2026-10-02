@@ -70,6 +70,14 @@ def main():
                 emit("DUELS", f"{live} live (was {last['duels']})")
             last["duels"] = live
 
+            for name in ("scout.md", "judge.md"):  # an analyst wrote: surface its first recommendation
+                f = ROOT / "intel" / name
+                if f.exists() and f.stat().st_mtime != last.get(name):
+                    if name in last:
+                        body = f.read_text().splitlines()
+                        first = next((l for l in body if l.strip().startswith(("1.", "- ", "**1"))), "")
+                        emit("INTEL", f"{name}: {first[:220]}")
+                    last[name] = f.stat().st_mtime
             if int(time.time()) // 60 != last.get("git_min"):  # once a minute
                 last["git_min"] = int(time.time()) // 60
                 subprocess.run(["git", "-C", str(ROOT), "fetch", "-q"], capture_output=True)

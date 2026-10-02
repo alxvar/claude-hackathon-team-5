@@ -22,7 +22,10 @@ Start with `STATUS.md` (live numbers, auto-updated every 5 min) and `LOG.md` (wh
 | `agents/duelist/` | The duel agent (Clock-Standing). `uv run python -m agents.duelist --help`; runbook in `docs/duelist-runbook.md` | Aleks |
 | `engine/` | The LLM engine agents run on: `Model` interface, Claude provider in `claude.py` | Aleks |
 | `agents/dealers/` | `abuela_bot.py`: negotiated dealer deals within the 270 P cash floor | Lucas |
-| `tools/` | `status.py`: writes and pushes `STATUS.md` | Lucas |
+| `tools/` | `daemons.sh` (start/stop/status of every long-running process), `collector.py` (all game data → `data/`), `metrics.py` (→ `intel/metrics.md`), `status.py`, `watch.py` (live events for a Monitor), `team_sync.sh`, `gitsync.py` | Lucas |
+| `intel/` | `GAME.md` (rules + measured facts), `metrics.md` (live facts), `scout.md` / `judge.md` / `strategy.md` (LLM analysts, advisory), `ORCHESTRATOR.md` (runbook for the unattended operator session) | Lucas |
+| `agents/analyst/` | `analyst.py --role scout|judge|strategist`: the analysts (Claude API, our credits) | Lucas |
+| `agents/trader/` | `loop.py` (auto-accept), `autoflip.py` (fill teams' bids from Abuela), `trade.py` (manual), `flip.py` | Lucas |
 
 ## Rules for anyone working here, humans and Claude Code alike
 
