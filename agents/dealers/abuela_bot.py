@@ -171,6 +171,8 @@ def main() -> None:
                     help="also sell unlisted spares to Abuela (a spare sold to a team at book scores more)")
     ap.add_argument("--resume-cap", type=int, default=0,
                     help="pick up an open Abuela conversation with this cap instead of refusing to start")
+    ap.add_argument("--no-buy", action="store_true",
+                    help="sell only: dealer buys barely move neg_points (LOG finding 0); buy from teams instead")
     ap.add_argument("--dry-run", action="store_true", help="print the plan, write nothing")
     args = ap.parse_args()
     b = Bazaar(os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai"), os.environ["BAZAAR_KEY"])
@@ -222,13 +224,15 @@ def main() -> None:
         side = "buy" if "buy" in t0["topic"] else "sell"
         t = negotiate(b, t0["topic"], side, args.resume_cap, tid=t0["id"])
         deals += t["status"] == "deal"
-    deals += buy_round(args.deals)  # what we can afford now, best expected gain first
+    if not args.no_buy:
+        deals += buy_round(args.deals)  # what we can afford now, best expected gain first
     for a in (sells if args.sell_spares else []):  # spares are worth ~1 P to us: cash in, value up
         if deals >= args.deals:
             break
         cap = max(args.min_sell, int(a["your_value"]) + MIN_GAIN)
         deals += done_one(negotiate(b, {"sell": {"assets": [a["id"]]}}, "sell", cap), f"sell {a['ref']}")
-    deals += buy_round(args.deals - deals)  # the rest, with the cash the sales brought in
+    if not args.no_buy:
+        deals += buy_round(args.deals - deals)  # the rest, with the cash the sales brought in
     log({"event": "done", "deals": deals, "cash": b.me()["cash"], "score": score()})
 
 
