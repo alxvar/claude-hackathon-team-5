@@ -92,6 +92,131 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 159,
+   "raw": {
+    "duel": 269,
+    "session": 1,
+    "status": "live",
+    "role": "seller",
+    "item": "Taxi Blanco",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 81,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 170,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 1783,
+     "price": 112,
+     "tick": 158,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1807,
+     "price": 74,
+     "tick": 159,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 158,
+      "from": "Rival Rojo",
+      "text": "I can do 65. Let's close it quickly.",
+      "price": 65,
+      "days": null
+     },
+     {
+      "tick": 158,
+      "from": "you",
+      "text": "Your offer is well short of what Taxi Blanco is worth: it's a proven, ready-to-run asset and priced accordingly. I can offer it at 112, and if you move up meaningfully we can wrap this up quickly.",
+      "price": 112,
+      "days": null
+     },
+     {
+      "tick": 159,
+      "from": "Rival Rojo",
+      "text": "I can do 74. Let's close it quickly.",
+      "price": 74,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 159,
+   "raw": {
+    "duel": 269,
+    "session": 1,
+    "status": "live",
+    "role": "seller",
+    "item": "Taxi Blanco",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 81,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 170,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 1815,
+     "price": 106,
+     "tick": 159,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1807,
+     "price": 74,
+     "tick": 159,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 158,
+      "from": "Rival Rojo",
+      "text": "I can do 65. Let's close it quickly.",
+      "price": 65,
+      "days": null
+     },
+     {
+      "tick": 158,
+      "from": "you",
+      "text": "Your offer is well short of what Taxi Blanco is worth: it's a proven, ready-to-run asset and priced accordingly. I can offer it at 112, and if you move up meaningfully we can wrap this up quickly.",
+      "price": 112,
+      "days": null
+     },
+     {
+      "tick": 159,
+      "from": "Rival Rojo",
+      "text": "I can do 74. Let's close it quickly.",
+      "price": 74,
+      "days": null
+     },
+     {
+      "tick": 159,
+      "from": "you",
+      "text": "I appreciate you moving up, but your offer still doesn't reflect what Taxi Blanco delivers as a proven, ready-to-run asset. I can come down to 106 as a real step on my side; a further meaningful move from you will get us there quickly.",
+      "price": 106,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -226,6 +351,126 @@
      ]
     }
    }
+  },
+  {
+   "tick": 159,
+   "took_s": 10.13,
+   "cost_usd": 0.00608,
+   "obs": {
+    "view": {
+     "duel_id": 269,
+     "role": "seller",
+     "limit": 81,
+     "currency": "P",
+     "item": "Taxi Blanco",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never sell below your cost",
+      "decay_per_round": 0.06,
+      "rounds": 1,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "I can do 65. Let's close it quickly.",
+      "offer": {
+       "price": 65,
+       "days": null
+      },
+      "accept": false,
+      "tick": 158,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Your offer is well short of what Taxi Blanco is worth: it's a proven, ready-to-run asset and priced accordingly. I can offer it at 112, and if you move up meaningfully we can wrap this up quickly.",
+      "offer": {
+       "price": 112,
+       "days": null
+      },
+      "accept": false,
+      "tick": 158,
+      "decision": {
+       "action": "offer",
+       "price": 112,
+       "message": "Your offer is well short of what Taxi Blanco is worth: it's a proven, ready-to-run asset and priced accordingly. I can offer it at 112, and if you move up meaningfully we can wrap this up quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I can do 74. Let's close it quickly.",
+      "offer": {
+       "price": 74,
+       "days": null
+      },
+      "accept": false,
+      "tick": 159,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 74,
+     "days": 0
+    },
+    "tick": 159,
+    "ticks_left": 12
+   },
+   "move": {
+    "action": "offer",
+    "text": "I appreciate you moving up, but your offer still doesn't reflect what Taxi Blanco delivers as a proven, ready-to-run asset. I can come down to 106 as a real step on my side; a further meaningful move from you will get us there quickly.",
+    "price": 106,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 106,
+      "message": "I appreciate you moving up, but your offer still doesn't reflect what Taxi Blanco delivers as a proven, ready-to-run asset. I can come down to 106 as a real step on my side; a further meaningful move from you will get us there quickly."
+     },
+     "band": {
+      "worst": 104,
+      "target": 106,
+      "best": 108
+     },
+     "plan": {
+      "read": "They moved from 65 to 74, a real 9 P step. Their offer is still too low for us, and their repeated 'close quickly' is pressure, not a binding limit.",
+      "target": 106,
+      "best": 108,
+      "worst": 104,
+      "days": null,
+      "angle": "Acknowledge their move and match it with a smaller step of our own. Stress the asset's value and ask them for another meaningful move up to get this closed."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.15,
+       "in": 424,
+       "out": 135,
+       "cost_usd": 0.0044,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.97,
+       "in": 341,
+       "out": 100,
+       "cost_usd": 0.00168,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
   }
  ],
  "sent": [
@@ -282,6 +527,63 @@
      "id": 1783,
      "price": 112,
      "tick": 158,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 159,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I appreciate you moving up, but your offer still doesn't reflect what Taxi Blanco delivers as a proven, ready-to-run asset. I can come down to 106 as a real step on my side; a further meaningful move from you will get us there quickly.",
+    "price": 106,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 106,
+      "message": "I appreciate you moving up, but your offer still doesn't reflect what Taxi Blanco delivers as a proven, ready-to-run asset. I can come down to 106 as a real step on my side; a further meaningful move from you will get us there quickly."
+     },
+     "band": {
+      "worst": 104,
+      "target": 106,
+      "best": 108
+     },
+     "plan": {
+      "read": "They moved from 65 to 74, a real 9 P step. Their offer is still too low for us, and their repeated 'close quickly' is pressure, not a binding limit.",
+      "target": 106,
+      "best": 108,
+      "worst": 104,
+      "days": null,
+      "angle": "Acknowledge their move and match it with a smaller step of our own. Stress the asset's value and ask them for another meaningful move up to get this closed."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.15,
+       "in": 424,
+       "out": 135,
+       "cost_usd": 0.0044,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.97,
+       "in": 341,
+       "out": 100,
+       "cost_usd": 0.00168,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 269,
+    "offer": {
+     "id": 1815,
+     "price": 106,
+     "tick": 159,
      "days": 0
     }
    }

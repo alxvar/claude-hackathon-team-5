@@ -217,6 +217,159 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 159,
+   "raw": {
+    "duel": 228,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "Plaza de Olavide",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 138,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 169,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 1784,
+     "price": 110,
+     "tick": 158,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1799,
+     "price": 117,
+     "tick": 159,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 157,
+      "from": "Rival Verde",
+      "text": "Thank you for meeting me. I can do 138 P.",
+      "price": 138,
+      "days": null
+     },
+     {
+      "tick": 157,
+      "from": "you",
+      "text": "Thanks for opening, but your figure is well above what this plaza justifies. I can offer 105 P, which is a fair price for the item as it stands. If you come down substantially, we can wrap this up quickly before more time erodes the value for both of us.",
+      "price": 105,
+      "days": null
+     },
+     {
+      "tick": 158,
+      "from": "Rival Verde",
+      "text": "I appreciate your move. 116 P is where I can be.",
+      "price": 116,
+      "days": null
+     },
+     {
+      "tick": 158,
+      "from": "you",
+      "text": "Thank you for moving so far in one step; I appreciate it. I can meet you at 110 P, which sits close to the middle and lets us finish now rather than lose more value to delay.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 159,
+      "from": "Rival Verde",
+      "text": "Let us close quickly: 117 P.",
+      "price": 117,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 159,
+   "raw": {
+    "duel": 228,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "Plaza de Olavide",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 138,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 169,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 1812,
+     "price": 113,
+     "tick": 159,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1799,
+     "price": 117,
+     "tick": 159,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 157,
+      "from": "Rival Verde",
+      "text": "Thank you for meeting me. I can do 138 P.",
+      "price": 138,
+      "days": null
+     },
+     {
+      "tick": 157,
+      "from": "you",
+      "text": "Thanks for opening, but your figure is well above what this plaza justifies. I can offer 105 P, which is a fair price for the item as it stands. If you come down substantially, we can wrap this up quickly before more time erodes the value for both of us.",
+      "price": 105,
+      "days": null
+     },
+     {
+      "tick": 158,
+      "from": "Rival Verde",
+      "text": "I appreciate your move. 116 P is where I can be.",
+      "price": 116,
+      "days": null
+     },
+     {
+      "tick": 158,
+      "from": "you",
+      "text": "Thank you for moving so far in one step; I appreciate it. I can meet you at 110 P, which sits close to the middle and lets us finish now rather than lose more value to delay.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 159,
+      "from": "Rival Verde",
+      "text": "Let us close quickly: 117 P.",
+      "price": 117,
+      "days": null
+     },
+     {
+      "tick": 159,
+      "from": "you",
+      "text": "I noticed your figure went back up after the last round, so I'd rather we meet near the middle. I can do 113 P, which keeps the gap small and lets us wrap up now before more value slips away.",
+      "price": 113,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -471,6 +624,152 @@
      ]
     }
    }
+  },
+  {
+   "tick": 159,
+   "took_s": 7.24,
+   "cost_usd": 0.0073999999999999995,
+   "obs": {
+    "view": {
+     "duel_id": 228,
+     "role": "buyer",
+     "limit": 138,
+     "currency": "P",
+     "item": "Plaza de Olavide",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never pay above your value",
+      "decay_per_round": 0.06,
+      "rounds": 2,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Thank you for meeting me. I can do 138 P.",
+      "offer": {
+       "price": 138,
+       "days": null
+      },
+      "accept": false,
+      "tick": 157,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for opening, but your figure is well above what this plaza justifies. I can offer 105 P, which is a fair price for the item as it stands. If you come down substantially, we can wrap this up quickly before more time erodes the value for both of us.",
+      "offer": {
+       "price": 105,
+       "days": null
+      },
+      "accept": false,
+      "tick": 157,
+      "decision": {
+       "action": "offer",
+       "price": 105,
+       "message": "Thanks for opening, but your figure is well above what this plaza justifies. I can offer 105 P, which is a fair price for the item as it stands. If you come down substantially, we can wrap this up quickly before more time erodes the value for both of us."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I appreciate your move. 116 P is where I can be.",
+      "offer": {
+       "price": 116,
+       "days": null
+      },
+      "accept": false,
+      "tick": 158,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for moving so far in one step; I appreciate it. I can meet you at 110 P, which sits close to the middle and lets us finish now rather than lose more value to delay.",
+      "offer": {
+       "price": 110,
+       "days": null
+      },
+      "accept": false,
+      "tick": 158,
+      "decision": {
+       "action": "offer",
+       "price": 110,
+       "message": "Thank you for moving so far in one step; I appreciate it. I can meet you at 110 P, which sits close to the middle and lets us finish now rather than lose more value to delay."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Let us close quickly: 117 P.",
+      "offer": {
+       "price": 117,
+       "days": null
+      },
+      "accept": false,
+      "tick": 159,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 117,
+     "days": 0
+    },
+    "tick": 159,
+    "ticks_left": 11
+   },
+   "move": {
+    "action": "offer",
+    "text": "I noticed your figure went back up after the last round, so I'd rather we meet near the middle. I can do 113 P, which keeps the gap small and lets us wrap up now before more value slips away.",
+    "price": 113,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 113,
+      "message": "I noticed your figure went back up after the last round, so I'd rather we meet near the middle. I can do 113 P, which keeps the gap small and lets us wrap up now before more value slips away."
+     },
+     "band": {
+      "worst": 117,
+      "target": 113,
+      "best": 112
+     },
+     "plan": {
+      "read": "They moved back up from 116 to 117, a slight retreat signalling they see 116-117 as their floor zone; the gap is small (7 P) compared with the ground already covered, so the 'close quickly' push is plausible rather than a bluff.",
+      "target": 113,
+      "best": 112,
+      "worst": 117,
+      "days": null,
+      "angle": "Propose 113 as a near-split to close now; note that they went back up from their own 116, and if they stay firm at 117, accepting it is fine rather than burning ticks."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.48,
+       "in": 578,
+       "out": 166,
+       "cost_usd": 0.00563,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.76,
+       "in": 485,
+       "out": 80,
+       "cost_usd": 0.00177,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
   }
  ],
  "sent": [
@@ -584,6 +883,63 @@
      "id": 1784,
      "price": 110,
      "tick": 158,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 159,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I noticed your figure went back up after the last round, so I'd rather we meet near the middle. I can do 113 P, which keeps the gap small and lets us wrap up now before more value slips away.",
+    "price": 113,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 113,
+      "message": "I noticed your figure went back up after the last round, so I'd rather we meet near the middle. I can do 113 P, which keeps the gap small and lets us wrap up now before more value slips away."
+     },
+     "band": {
+      "worst": 117,
+      "target": 113,
+      "best": 112
+     },
+     "plan": {
+      "read": "They moved back up from 116 to 117, a slight retreat signalling they see 116-117 as their floor zone; the gap is small (7 P) compared with the ground already covered, so the 'close quickly' push is plausible rather than a bluff.",
+      "target": 113,
+      "best": 112,
+      "worst": 117,
+      "days": null,
+      "angle": "Propose 113 as a near-split to close now; note that they went back up from their own 116, and if they stay firm at 117, accepting it is fine rather than burning ticks."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.48,
+       "in": 578,
+       "out": 166,
+       "cost_usd": 0.00563,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.76,
+       "in": 485,
+       "out": 80,
+       "cost_usd": 0.00177,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 228,
+    "offer": {
+     "id": 1812,
+     "price": 113,
+     "tick": 159,
      "days": 0
     }
    }

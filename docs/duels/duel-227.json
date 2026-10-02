@@ -290,6 +290,267 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 158,
+   "raw": {
+    "duel": 227,
+    "session": 1,
+    "status": "live",
+    "role": "seller",
+    "item": "Plaza de Olavide",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 130,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 168,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 1789,
+     "price": 160,
+     "tick": 158,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1769,
+     "price": 144,
+     "tick": 158,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 156,
+      "from": "Rival Luna",
+      "text": "Thank you for meeting me. I can do 96 P.",
+      "price": 96,
+      "days": null
+     },
+     {
+      "tick": 156,
+      "from": "you",
+      "text": "Thanks for opening. Plaza de Olavide is a prime central square with steady foot traffic and lasting appeal, and I'm offering it at 185 P. Your opening figure is well below what the property supports, so I'd welcome a serious counteroffer.",
+      "price": 185,
+      "days": null
+     },
+     {
+      "tick": 157,
+      "from": "Rival Luna",
+      "text": "I appreciate your move. 136 P is where I can be.",
+      "price": 136,
+      "days": null
+     },
+     {
+      "tick": 157,
+      "from": "you",
+      "text": "I appreciate the sizable move on your side, and I'll meet it with a step of my own, coming down to 168 P. Plaza de Olavide's central location and constant footfall support that figure well, and I'd like us to close the remaining gap quickly.",
+      "price": 168,
+      "days": null
+     },
+     {
+      "tick": 158,
+      "from": "Rival Luna",
+      "text": "Let us close quickly: 144 P.",
+      "price": 144,
+      "days": null
+     },
+     {
+      "tick": 158,
+      "from": "you",
+      "text": "I appreciate your move toward me, and I'll answer with another step down to 160 P. That reflects the square's central position and steady footfall, and it brings us close enough to finish in the next exchange.",
+      "price": 160,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 159,
+   "raw": {
+    "duel": 227,
+    "session": 1,
+    "status": "live",
+    "role": "seller",
+    "item": "Plaza de Olavide",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 130,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 168,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 1789,
+     "price": 160,
+     "tick": 158,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1796,
+     "price": 152,
+     "tick": 159,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 156,
+      "from": "Rival Luna",
+      "text": "Thank you for meeting me. I can do 96 P.",
+      "price": 96,
+      "days": null
+     },
+     {
+      "tick": 156,
+      "from": "you",
+      "text": "Thanks for opening. Plaza de Olavide is a prime central square with steady foot traffic and lasting appeal, and I'm offering it at 185 P. Your opening figure is well below what the property supports, so I'd welcome a serious counteroffer.",
+      "price": 185,
+      "days": null
+     },
+     {
+      "tick": 157,
+      "from": "Rival Luna",
+      "text": "I appreciate your move. 136 P is where I can be.",
+      "price": 136,
+      "days": null
+     },
+     {
+      "tick": 157,
+      "from": "you",
+      "text": "I appreciate the sizable move on your side, and I'll meet it with a step of my own, coming down to 168 P. Plaza de Olavide's central location and constant footfall support that figure well, and I'd like us to close the remaining gap quickly.",
+      "price": 168,
+      "days": null
+     },
+     {
+      "tick": 158,
+      "from": "Rival Luna",
+      "text": "Let us close quickly: 144 P.",
+      "price": 144,
+      "days": null
+     },
+     {
+      "tick": 158,
+      "from": "you",
+      "text": "I appreciate your move toward me, and I'll answer with another step down to 160 P. That reflects the square's central position and steady footfall, and it brings us close enough to finish in the next exchange.",
+      "price": 160,
+      "days": null
+     },
+     {
+      "tick": 159,
+      "from": "Rival Luna",
+      "text": "A real step towards you: 152 P.",
+      "price": 152,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 159,
+   "raw": {
+    "duel": 227,
+    "session": 1,
+    "status": "live",
+    "role": "seller",
+    "item": "Plaza de Olavide",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 130,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 168,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 1813,
+     "price": 156,
+     "tick": 159,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1796,
+     "price": 152,
+     "tick": 159,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 156,
+      "from": "Rival Luna",
+      "text": "Thank you for meeting me. I can do 96 P.",
+      "price": 96,
+      "days": null
+     },
+     {
+      "tick": 156,
+      "from": "you",
+      "text": "Thanks for opening. Plaza de Olavide is a prime central square with steady foot traffic and lasting appeal, and I'm offering it at 185 P. Your opening figure is well below what the property supports, so I'd welcome a serious counteroffer.",
+      "price": 185,
+      "days": null
+     },
+     {
+      "tick": 157,
+      "from": "Rival Luna",
+      "text": "I appreciate your move. 136 P is where I can be.",
+      "price": 136,
+      "days": null
+     },
+     {
+      "tick": 157,
+      "from": "you",
+      "text": "I appreciate the sizable move on your side, and I'll meet it with a step of my own, coming down to 168 P. Plaza de Olavide's central location and constant footfall support that figure well, and I'd like us to close the remaining gap quickly.",
+      "price": 168,
+      "days": null
+     },
+     {
+      "tick": 158,
+      "from": "Rival Luna",
+      "text": "Let us close quickly: 144 P.",
+      "price": 144,
+      "days": null
+     },
+     {
+      "tick": 158,
+      "from": "you",
+      "text": "I appreciate your move toward me, and I'll answer with another step down to 160 P. That reflects the square's central position and steady footfall, and it brings us close enough to finish in the next exchange.",
+      "price": 160,
+      "days": null
+     },
+     {
+      "tick": 159,
+      "from": "Rival Luna",
+      "text": "A real step towards you: 152 P.",
+      "price": 152,
+      "days": null
+     },
+     {
+      "tick": 159,
+      "from": "you",
+      "text": "Thank you for the real step toward me. Let's split the small remaining gap and settle at 156 P, which fits the square's central position and steady footfall and saves us both more ticks of talk.",
+      "price": 156,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -544,6 +805,324 @@
      ]
     }
    }
+  },
+  {
+   "tick": 158,
+   "took_s": 14.24,
+   "cost_usd": 0.00681,
+   "obs": {
+    "view": {
+     "duel_id": 227,
+     "role": "seller",
+     "limit": 130,
+     "currency": "P",
+     "item": "Plaza de Olavide",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never sell below your cost",
+      "decay_per_round": 0.06,
+      "rounds": 2,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Thank you for meeting me. I can do 96 P.",
+      "offer": {
+       "price": 96,
+       "days": null
+      },
+      "accept": false,
+      "tick": 156,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for opening. Plaza de Olavide is a prime central square with steady foot traffic and lasting appeal, and I'm offering it at 185 P. Your opening figure is well below what the property supports, so I'd welcome a serious counteroffer.",
+      "offer": {
+       "price": 185,
+       "days": null
+      },
+      "accept": false,
+      "tick": 156,
+      "decision": {
+       "action": "offer",
+       "price": 185,
+       "message": "Thanks for opening. Plaza de Olavide is a prime central square with steady foot traffic and lasting appeal, and I'm offering it at 185 P. Your opening figure is well below what the property supports, so I'd welcome a serious counteroffer."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I appreciate your move. 136 P is where I can be.",
+      "offer": {
+       "price": 136,
+       "days": null
+      },
+      "accept": false,
+      "tick": 157,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate the sizable move on your side, and I'll meet it with a step of my own, coming down to 168 P. Plaza de Olavide's central location and constant footfall support that figure well, and I'd like us to close the remaining gap quickly.",
+      "offer": {
+       "price": 168,
+       "days": null
+      },
+      "accept": false,
+      "tick": 157,
+      "decision": {
+       "action": "offer",
+       "price": 168,
+       "message": "I appreciate the sizable move on your side, and I'll meet it with a step of my own, coming down to 168 P. Plaza de Olavide's central location and constant footfall support that figure well, and I'd like us to close the remaining gap quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Let us close quickly: 144 P.",
+      "offer": {
+       "price": 144,
+       "days": null
+      },
+      "accept": false,
+      "tick": 158,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 144,
+     "days": 0
+    },
+    "tick": 158,
+    "ticks_left": 11
+   },
+   "move": {
+    "action": "offer",
+    "text": "I appreciate your move toward me, and I'll answer with another step down to 160 P. That reflects the square's central position and steady footfall, and it brings us close enough to finish in the next exchange.",
+    "price": 160,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 160,
+      "message": "I appreciate your move toward me, and I'll answer with another step down to 160 P. That reflects the square's central position and steady footfall, and it brings us close enough to finish in the next exchange."
+     },
+     "band": {
+      "worst": 158,
+      "target": 160,
+      "best": 162
+     },
+     "plan": {
+      "read": "They moved 8 P (136 to 144) and are signalling a wish to close fast; their concessions are shrinking, so their limit is likely not far above the mid-150s.",
+      "target": 160,
+      "best": 162,
+      "worst": 158,
+      "days": null,
+      "angle": "Acknowledge their move and match it with a smaller step to 160, framing it as a near-final figure that lets us close in the next exchange."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.46,
+       "in": 605,
+       "out": 131,
+       "cost_usd": 0.00504,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 9.78,
+       "in": 477,
+       "out": 82,
+       "cost_usd": 0.00177,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "tick": 159,
+   "took_s": 8.06,
+   "cost_usd": 0.007859999999999999,
+   "obs": {
+    "view": {
+     "duel_id": 227,
+     "role": "seller",
+     "limit": 130,
+     "currency": "P",
+     "item": "Plaza de Olavide",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never sell below your cost",
+      "decay_per_round": 0.06,
+      "rounds": 3,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Thank you for meeting me. I can do 96 P.",
+      "offer": {
+       "price": 96,
+       "days": null
+      },
+      "accept": false,
+      "tick": 156,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for opening. Plaza de Olavide is a prime central square with steady foot traffic and lasting appeal, and I'm offering it at 185 P. Your opening figure is well below what the property supports, so I'd welcome a serious counteroffer.",
+      "offer": {
+       "price": 185,
+       "days": null
+      },
+      "accept": false,
+      "tick": 156,
+      "decision": {
+       "action": "offer",
+       "price": 185,
+       "message": "Thanks for opening. Plaza de Olavide is a prime central square with steady foot traffic and lasting appeal, and I'm offering it at 185 P. Your opening figure is well below what the property supports, so I'd welcome a serious counteroffer."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I appreciate your move. 136 P is where I can be.",
+      "offer": {
+       "price": 136,
+       "days": null
+      },
+      "accept": false,
+      "tick": 157,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate the sizable move on your side, and I'll meet it with a step of my own, coming down to 168 P. Plaza de Olavide's central location and constant footfall support that figure well, and I'd like us to close the remaining gap quickly.",
+      "offer": {
+       "price": 168,
+       "days": null
+      },
+      "accept": false,
+      "tick": 157,
+      "decision": {
+       "action": "offer",
+       "price": 168,
+       "message": "I appreciate the sizable move on your side, and I'll meet it with a step of my own, coming down to 168 P. Plaza de Olavide's central location and constant footfall support that figure well, and I'd like us to close the remaining gap quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Let us close quickly: 144 P.",
+      "offer": {
+       "price": 144,
+       "days": null
+      },
+      "accept": false,
+      "tick": 158,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate your move toward me, and I'll answer with another step down to 160 P. That reflects the square's central position and steady footfall, and it brings us close enough to finish in the next exchange.",
+      "offer": {
+       "price": 160,
+       "days": null
+      },
+      "accept": false,
+      "tick": 158,
+      "decision": {
+       "action": "offer",
+       "price": 160,
+       "message": "I appreciate your move toward me, and I'll answer with another step down to 160 P. That reflects the square's central position and steady footfall, and it brings us close enough to finish in the next exchange."
+      }
+     },
+     {
+      "mine": false,
+      "text": "A real step towards you: 152 P.",
+      "offer": {
+       "price": 152,
+       "days": null
+      },
+      "accept": false,
+      "tick": 159,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 152,
+     "days": 0
+    },
+    "tick": 159,
+    "ticks_left": 10
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thank you for the real step toward me. Let's split the small remaining gap and settle at 156 P, which fits the square's central position and steady footfall and saves us both more ticks of talk.",
+    "price": 156,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 156,
+      "message": "Thank you for the real step toward me. Let's split the small remaining gap and settle at 156 P, which fits the square's central position and steady footfall and saves us both more ticks of talk."
+     },
+     "band": {
+      "worst": 152,
+      "target": 156,
+      "best": 157
+     },
+     "plan": {
+      "read": "They moved from 144 to 152, a real 8 P step, and are clearly converging. The remaining 8 P gap is small next to the 81 P both sides have already moved, so further haggling costs more in decay than it can win.",
+      "target": 156,
+      "best": 157,
+      "worst": 152,
+      "days": null,
+      "angle": "Propose splitting the small gap at 156 P to close now, and accept their 152 P if they hold firm rather than spend more ticks."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.4,
+       "in": 735,
+       "out": 147,
+       "cost_usd": 0.00588,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.67,
+       "in": 598,
+       "out": 78,
+       "cost_usd": 0.00198,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
   }
  ],
  "sent": [
@@ -657,6 +1236,120 @@
      "id": 1753,
      "price": 168,
      "tick": 157,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 158,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I appreciate your move toward me, and I'll answer with another step down to 160 P. That reflects the square's central position and steady footfall, and it brings us close enough to finish in the next exchange.",
+    "price": 160,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 160,
+      "message": "I appreciate your move toward me, and I'll answer with another step down to 160 P. That reflects the square's central position and steady footfall, and it brings us close enough to finish in the next exchange."
+     },
+     "band": {
+      "worst": 158,
+      "target": 160,
+      "best": 162
+     },
+     "plan": {
+      "read": "They moved 8 P (136 to 144) and are signalling a wish to close fast; their concessions are shrinking, so their limit is likely not far above the mid-150s.",
+      "target": 160,
+      "best": 162,
+      "worst": 158,
+      "days": null,
+      "angle": "Acknowledge their move and match it with a smaller step to 160, framing it as a near-final figure that lets us close in the next exchange."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.46,
+       "in": 605,
+       "out": 131,
+       "cost_usd": 0.00504,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 9.78,
+       "in": 477,
+       "out": 82,
+       "cost_usd": 0.00177,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 227,
+    "offer": {
+     "id": 1789,
+     "price": 160,
+     "tick": 158,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 159,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thank you for the real step toward me. Let's split the small remaining gap and settle at 156 P, which fits the square's central position and steady footfall and saves us both more ticks of talk.",
+    "price": 156,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 156,
+      "message": "Thank you for the real step toward me. Let's split the small remaining gap and settle at 156 P, which fits the square's central position and steady footfall and saves us both more ticks of talk."
+     },
+     "band": {
+      "worst": 152,
+      "target": 156,
+      "best": 157
+     },
+     "plan": {
+      "read": "They moved from 144 to 152, a real 8 P step, and are clearly converging. The remaining 8 P gap is small next to the 81 P both sides have already moved, so further haggling costs more in decay than it can win.",
+      "target": 156,
+      "best": 157,
+      "worst": 152,
+      "days": null,
+      "angle": "Propose splitting the small gap at 156 P to close now, and accept their 152 P if they hold firm rather than spend more ticks."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.4,
+       "in": 735,
+       "out": 147,
+       "cost_usd": 0.00588,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.67,
+       "in": 598,
+       "out": 78,
+       "cost_usd": 0.00198,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 227,
+    "offer": {
+     "id": 1813,
+     "price": 156,
+     "tick": 159,
      "days": 0
     }
    }
