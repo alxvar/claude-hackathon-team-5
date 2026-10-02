@@ -85,3 +85,39 @@
 {"id": 8619, "tick": 142, "t": 2.3667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 162, "session": 1, "status": "deal", "item": "Andén 0"}}
 {"id": 8739, "tick": 143, "t": 2.3833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 172, "session": 1, "status": "deal", "item": "Plaza de Olavide"}}
 {"id": 8742, "tick": 143, "t": 2.3833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 226, "session": 1, "status": "deal", "item": "El Tren Fantasma"}}
+{"id": 8858, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 35, "session": 1, "status": "no_deal", "item": "El Tren Fantasma"}}
+{"id": 8861, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 37, "session": 1, "status": "no_deal", "item": "El Rastro al Amanecer"}}
+{"id": 8864, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 38, "session": 1, "status": "no_deal", "item": "El Rastro al Amanecer"}}
+{"id": 8867, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 41, "session": 1, "status": "no_deal", "item": "Mercado de Vallehermoso"}}
+{"id": 8870, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 42, "session": 1, "status": "no_deal", "item": "Mercado de Vallehermoso"}}
+{"id": 8873, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 51, "session": 1, "status": "no_deal", "item": "El Tren Fantasma"}}
+{"id": 8876, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 52, "session": 1, "status": "no_deal", "item": "El Tren Fantasma"}}
+{"id": 8879, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 57, "session": 1, "status": "no_deal", "item": "Plaza de Olavide"}}
+{"id": 8882, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 58, "session": 1, "status": "no_deal", "item": "Plaza de Olavide"}}
+{"id": 8885, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 63, "session": 1, "status": "no_deal", "item": "Andén 0"}}
+{"id": 8888, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 64, "session": 1, "status": "no_deal", "item": "Andén 0"}}
+{"id": 8891, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 66, "session": 1, "status": "deal", "item": "Plaza de Olavide"}}
+{"id": 8894, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 67, "session": 1, "status": "no_deal", "item": "Taxi Blanco"}}
+{"id": 8897, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 72, "session": 1, "status": "deal", "item": "Andén 0"}}
+{"id": 8900, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 75, "session": 1, "status": "no_deal", "item": "El Rastro al Amanecer"}}
+{"id": 8903, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 76, "session": 1, "status": "no_deal", "item": "El Rastro al Amanecer"}}
+{"id": 8906, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 81, "session": 1, "status": "no_deal", "item": "Taxi Blanco"}}
+{"id": 8909, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 82, "session": 1, "status": "no_deal", "item": "Taxi Blanco"}}
+{"id": 8912, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 90, "session": 1, "status": "deal", "item": "Mercado de Vallehermoso"}}
+{"id": 8915, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 91, "session": 1, "status": "no_deal", "item": "Plaza de Olavide"}}
+{"id": 8918, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 92, "session": 1, "status": "no_deal", "item": "Plaza de Olavide"}}
+{"id": 8921, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 93, "session": 1, "status": "no_deal", "item": "El Tren Fantasma"}}
+{"id": 8924, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 94, "session": 1, "status": "no_deal", "item": "El Tren Fantasma"}}
+{"id": 8927, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 95, "session": 1, "status": "no_deal", "item": "Mercado de Vallehermoso"}}
+{"id": 8930, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 105, "session": 1, "status": "no_deal", "item": "Plaza de Olavide"}}
+{"id": 8933, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 106, "session": 1, "status": "no_deal", "item": "Plaza de Olavide"}}
+{"id": 8936, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 109, "session": 1, "status": "no_deal", "item": "Plaza de Olavide"}}
+{"id": 8939, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 110, "session": 1, "status": "no_deal", "item": "Plaza de Olavide"}}
+{"id": 8942, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 113, "session": 1, "status": "no_deal", "item": "El Rastro al Amanecer"}}
+{"id": 8945, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 117, "session": 1, "status": "no_deal", "item": "Plaza de Olavide"}}
+{"id": 8948, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 118, "session": 1, "status": "no_deal", "item": "Plaza de Olavide"}}
+{"id": 8951, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 137, "session": 1, "status": "deal", "item": "Taxi Blanco"}}
+{"id": 8954, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 147, "session": 1, "status": "no_deal", "item": "Taxi Blanco"}}
+{"id": 8957, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 148, "session": 1, "status": "no_deal", "item": "Taxi Blanco"}}
+{"id": 8960, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 155, "session": 1, "status": "deal", "item": "Taxi Blanco"}}
+{"id": 8963, "tick": 144, "t": 2.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 181, "session": 1, "status": "no_deal", "item": "El Rastro al Amanecer"}}
