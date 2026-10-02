@@ -2,6 +2,12 @@
 
 _Written by the strategy session. It never touches the game: no trades, no bots. The operator executes inside its guardrails; anything involving a rare or >50 P still needs Lucas. Newest block on top. Labels: **[Verified]** measured on our own deals or read from the server; **[Likely]** fitted or inferred; **[Open]** unknown._
 
+## Fri 22:54 — LAV page DONE (supersedes the 22:53 block)
+
+- 22:54 · LAV page complete at tick 152 (LAV-05 from Team 6 at 8). Do NOT post the LAV-05 bid at 18; cancel it if already posted (a 2nd copy is worth 3.2). No more LAV buys of any kind.
+- 22:54 · Measured: the completing trade scored +50.0 exactly (17.8 → 67.8), not the +89 we priced (99.1 − 8 − fee 2). Whole plan net +40 (−8 sale, −2 Chato, +50). Likely a per-trade cap on `neg_points` (flat 50, or ~5× the card's book value). Open question for the organisers.
+- 22:54 · Never sell a LAV card: each one now carries the page bonus (value?card shows LAV-01 99.1, LAV-06 118.6, LAV-10 177.1). Spare copies only: the second LAV-02, LAV-03 and LAV-04, at 3.2 each.
+
 ## Fri 22:53 — step 3 update
 
 - 22:53 · Steps 1-2 done (LAV-05 out at 5: −8.0; LAV-09 in at 93: −2.0; value?card=LAV-05 now 99.1). No LAV-05 ask is on the board. Post a PUBLIC bid for LAV-05 at 18 now and leave it up overnight. Gain if filled ≈ +81.
