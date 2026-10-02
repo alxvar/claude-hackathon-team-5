@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team 5 · Bazaar live</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+.viz-root {
+  color-scheme: dark;
+  --page: #0d0d0d;
+  --surface-1: #1a1a19;
+  --surface-2: #222220;
+  --text-primary: #ffffff;
+  --text-secondary: #c3c2b7;
+  --text-muted: #898781;
+  --grid: #2c2c2a;
+  --axis: #383835;
+  --border: rgba(255,255,255,0.10);
+  --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70; --series-4: #c98500;
+  --series-5: #d55181; --series-6: #008300; --series-7: #9085e9; --series-8: #e66767;
+  --other: #4a4a46;
+  --good: #0ca30c; --warning: #fab219; --serious: #ec835a; --critical: #d03b3b;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--text-primary);
+       font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+header { position: sticky; top: 0; z-index: 5; background: var(--page); border-bottom: 1px solid var(--border);
+         padding: 10px 20px; display: flex; flex-wrap: wrap; gap: 6px 22px; align-items: baseline; }
+header h1 { font-size: 17px; margin: 0 8px 0 0; }
+header .meta { color: var(--text-secondary); font-size: 13px; }
+header .meta b { color: var(--text-primary); font-weight: 600; }
+nav { display: flex; gap: 14px; font-size: 13px; }
+nav a { color: var(--text-secondary); text-decoration: none; }
+nav a:hover { color: var(--text-primary); }
+main { padding: 16px 20px 60px; display: grid; gap: 16px; max-width: 1600px; margin: 0 auto; }
+.card { background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+.card h2 { font-size: 15px; margin: 0 0 4px; }
+.card .sub { color: var(--text-muted); font-size: 12px; margin: 0 0 10px; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(520px, 1fr)); gap: 16px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.tile { background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; }
+.tile .k { color: var(--text-secondary); font-size: 12px; }
+.tile .v { font-size: 26px; font-weight: 600; margin-top: 2px; }
+.tile .d { font-size: 12px; color: var(--text-muted); }
+.tile svg { display: block; margin-top: 4px; }
+.up { color: var(--good); } .down { color: var(--critical); }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { text-align: left; padding: 5px 8px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+th { color: var(--text-muted); font-weight: 500; font-size: 12px; cursor: pointer; white-space: nowrap; user-select: none; }
+th:hover { color: var(--text-primary); }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+tr.us td { background: rgba(57,135,229,0.12); }
+#teamsT td:nth-child(2), #mktT td:nth-child(2), #abT td:nth-child(1) { white-space: nowrap; }
+tr:hover td { background: var(--surface-2); }
+.scroll { max-height: 460px; overflow: auto; }
+.chip { display: inline-block; padding: 0 7px; border-radius: 9px; font-size: 11px; line-height: 18px;
+        border: 1px solid var(--border); color: var(--text-secondary); margin: 1px 3px 1px 0; white-space: nowrap; }
+.chip.rival::before { content: "⚔ "; color: var(--serious); }
+.chip.buyer::before { content: "$ "; color: var(--good); }
+.chip.seller::before { content: "↓ "; color: var(--series-1); }
+.ins { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.ins li { display: flex; gap: 10px; align-items: baseline; padding: 6px 8px; border-radius: 6px; background: var(--surface-2); }
+.tag { flex: 0 0 74px; font-size: 11px; font-weight: 700; letter-spacing: .03em; }
+.tag.sell, .tag.buy, .tag.buyer { color: var(--good); }
+.tag.rival { color: var(--serious); }
+.tag.mover { color: var(--warning); }
+.tag.warn { color: var(--critical); }
+.tag.info { color: var(--text-secondary); }
+.filters { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; margin-bottom: 10px; font-size: 13px; color: var(--text-secondary); }
+select, input[type=text] { background: var(--surface-2); color: var(--text-primary); border: 1px solid var(--border);
+                           border-radius: 6px; padding: 3px 6px; font: inherit; }
+.edge-pos { color: var(--good); font-weight: 600; }
+.edge-neg { color: var(--text-muted); }
+.muted { color: var(--text-muted); }
+.chartbox { position: relative; height: 360px; }
+.chartbox.small { height: 420px; }
+.err { color: var(--critical); font-size: 12px; }
+details summary { cursor: pointer; color: var(--text-secondary); }
+code { font-size: 12px; color: var(--text-secondary); }
+</style>
+</head>
+<body class="viz-root">
+<header>
+  <h1>Team 5 · Bazaar live</h1>
+  <span class="meta" id="hdr">connecting…</span>
+  <nav>
+    <a href="#insights">Insights</a><a href="#board">Leaderboard</a><a href="#teams">Teams</a>
+    <a href="#market">Market</a><a href="#holders">Who holds</a><a href="#prices">Prices</a>
+    <a href="#abuela">Abuela</a><a href="#duels">Duels</a><a href="#sched">Schedule</a>
+  </nav>
+</header>
+<main>
+  <div class="tiles" id="tiles"></div>
+
+  <section class="card" id="insights">
+    <h2>Insights</h2>
+    <p class="sub">Computed from the public feed and our private values. Offers and edges are after El Rastro's fee (paid by the side that accepts). Nothing here trades: Lucas's bots decide.</p>
+    <ul class="ins" id="ins"></ul>
+  </section>
+
+  <section class="card" id="board">
+    <h2>Leaderboard over time</h2>
+    <p class="sub">Score per leaderboard snapshot (every ~5 ticks). Colored: us and the current top 5; gray: every other team. History starts when this dashboard first ran.</p>
+    <div class="chartbox"><canvas id="lbChart"></canvas></div>
+  </section>
+
+  <section class="card" id="teams">
+    <h2>Teams: score, strategy and what they mean for us</h2>
+    <p class="sub">Strategy is inferred from what each team bought, sold, bid and asked (feed). <b>Collects</b> = sets it buys or bids for; ⚔ competes with our sets, $ buys sets we value little, ↓ sells sets we want. Δ = score change over the last ~30 ticks. Click a header to sort.</p>
+    <div class="scroll"><table id="teamsT"></table></div>
+  </section>
+
+  <div class="grid2">
+    <section class="card">
+      <h2>Activity per team</h2>
+      <p class="sub">Settled trades seen in the feed: with other teams (they score) and with dealers (they mostly don't).</p>
+      <div class="chartbox small"><canvas id="actChart"></canvas></div>
+    </section>
+    <section class="card" id="holders">
+      <h2>Who holds the cards we want</h2>
+      <p class="sub">Cards of our top sets (affinity ≥ 1.1) and cards we bid for, last seen going to a team in a trade. Starting cards and pack pulls are invisible: ask in the room.</p>
+      <div class="scroll"><table id="holdT"></table></div>
+    </section>
+  </div>
+
+  <section class="card" id="market">
+    <h2>El Rastro board, with the real teams behind the offers</h2>
+    <p class="sub">The board shows makers as pseudonyms; the feed's <code>offer.listed</code> events give the team. Edge = what accepting would gain us at our private values, after the fee (asks: value of one more copy − price − fee; bids: price − value of our copy − fee).</p>
+    <div class="filters">
+      <label>Side <select id="fSide"><option value="">all</option><option>bid</option><option>ask</option><option>swap</option></select></label>
+      <label>Set <select id="fSet"><option value="">all</option></select></label>
+      <label>Team <select id="fTeam"><option value="">all</option></select></label>
+      <label><input type="checkbox" id="fOpp"> opportunities only (edge ≥ 3)</label>
+      <label><input type="checkbox" id="fOurs"> hide ours</label>
+      <span class="muted" id="mCount"></span>
+    </div>
+    <div class="scroll"><table id="mktT"></table></div>
+  </section>
+
+  <div class="grid2">
+    <section class="card" id="prices">
+      <h2>Price guide by rarity</h2>
+      <p class="sub">Single-card settlements in the feed. Book value is the catalog's base.</p>
+      <table id="priceT"></table>
+      <h2 style="margin-top:16px">Latest trades</h2>
+      <div class="scroll" style="max-height:320px"><table id="tapeT"></table></div>
+    </section>
+    <section class="card" id="abuela">
+      <h2>Haggling with dealers</h2>
+      <p class="sub">Per team and dealer: how far the dealer moved from her first price (her last price vs her first). Higher = better haggler.</p>
+      <div class="scroll"><table id="abT"></table></div>
+    </section>
+  </div>
+
+  <div class="grid2">
+    <section class="card" id="duels">
+      <h2>Duels</h2>
+      <p class="sub">Ours (live and finished) and duel events in the public feed.</p>
+      <div id="duelBox"></div>
+    </section>
+    <section class="card" id="sched">
+      <h2>Schedule, dealers and levels</h2>
+      <table id="schedT"></table>
+      <h2 style="margin-top:16px">Dealers</h2>
+      <table id="dealT"></table>
+      <div id="levels" class="muted" style="margin-top:8px"></div>
+      <details style="margin-top:10px"><summary>Game news and errors</summary><div id="news"></div></details>
+    </section>
+  </div>
+</main>
+
+<script>
+const $ = s => document.querySelector(s);
+const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const num = (v, d = 1) => v === null || v === undefined || v === "" ? "—" : (typeof v === "number" ? (Number.isInteger(v) ? v : v.toFixed(d)) : esc(v));
+const css = n => getComputedStyle(document.body).getPropertyValue(n).trim();
+const SLOTS = [2,3,4,5,6,7,8].map(i => css(`--series-${i}`));
+let DATA = null, lbChart = null, actChart = null;
+const sortState = {};
+
+// Color follows the team, not its rank: a team keeps the slot it got the first time it was highlighted.
+const colorMap = JSON.parse(localStorage.getItem("bz-colors") || "{}");
+function teamColor(id) {
+  if (!(id in colorMap)) {
+    const used = new Set(Object.values(colorMap));
+    const free = SLOTS.findIndex((c, i) => !used.has(i));
+    if (free < 0) return null;
+    colorMap[id] = free;
+    localStorage.setItem("bz-colors", JSON.stringify(colorMap));
+  }
+  return SLOTS[colorMap[id]];
+}
+
+function spark(series, invert = false) {
+  const ys = series.filter(v => typeof v === "number");
+  if (ys.length < 2) return "";
+  const w = 130, h = 26, lo = Math.min(...ys), hi = Math.max(...ys), span = hi - lo || 1;
+  const pts = ys.map((v, i) => `${(i / (ys.length - 1) * w).toFixed(1)},${(invert ? (v - lo) / span * (h - 4) + 2 : h - 2 - (v - lo) / span * (h - 4)).toFixed(1)}`);
+  return `<svg width="${w}" height="${h}" aria-hidden="true"><polyline points="${pts.join(" ")}" fill="none" stroke="${css("--series-1")}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>`;
+}
+
+function tiles(d) {
+  const s = d.me.score || {}, h = d.me_hist || [];
+  const prev = h.length > 30 ? h[h.length - 31] : h[0];
+  const delta = (k, inv) => {
+    if (!prev || s[k] == null || prev[k] == null) return "";
+    const x = s[k] - prev[k]; if (Math.abs(x) < 1e-9) return `<span class="d">±0 over ${h.length > 30 ? 30 : h.length - 1} ticks</span>`;
+    const good = inv ? x < 0 : x > 0;
+    return `<span class="d ${good ? "up" : "down"}">${good ? "▲" : "▼"} ${x > 0 ? "+" : ""}${num(x)} over ${h.length > 30 ? 30 : h.length - 1} ticks</span>`;
+  };
+  const col = k => h.map(r => r[k]);
+  const T = [
+    ["Score", num(s.score, 2), delta("score"), spark(col("score"))],
+    ["Rank", s.rank ? "#" + s.rank : "—", delta("rank", true), spark(col("rank"), true)],
+    ["neg_points (team trades)", num(s.neg_points), delta("neg_points"), spark(col("neg_points"))],
+    ["Cash", d.me.cash != null ? d.me.cash + " P" : "—", "", spark(h.map(r => r.cash))],
+    ["Negotiating / Market", `${num(s.negotiating, 2)} / ${num(s.market, 2)}`, "", ""],
+    ["Ladder · Duel pts", `${num(s.ladder_points, 3)} · ${num(s.duel_points, 2)}`, "", ""],
+    ["Level · Album", `${d.me.level ?? "—"} · ${esc(d.me.album)}`, `<span class="d">pages complete: ${s.pages_complete ?? "—"}</span>`, ""],
+    ["Our affinity", "", `<span class="d">${Object.entries(d.me.affinity || {}).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${esc(k)} ${v}`).join(" · ")}</span>`, ""],
+  ];
+  $("#tiles").innerHTML = (d.has_key ? T : T.slice(7)).map(([k, v, dl, sp]) =>
+    `<div class="tile"><div class="k">${k}</div>${v !== "" ? `<div class="v">${v}</div>` : ""}${dl}${sp}</div>`).join("")
+    + (d.has_key ? "" : `<div class="tile"><div class="k">No team key</div><div class="d">Public data only: start without --no-key for our score.</div></div>`);
+}
+
+const TAG = { sell: "SELL", buy: "BUY", rival: "RIVAL", buyer: "BUYERS", mover: "MOVER", info: "INFO", warn: "WARNING" };
+function insights(d) {
+  const order = ["warn", "sell", "buy", "rival", "buyer", "mover", "info"];
+  const xs = [...d.insights].sort((a, b) => order.indexOf(a.kind) - order.indexOf(b.kind));
+  $("#ins").innerHTML = xs.length ? xs.map(i => `<li><span class="tag ${i.kind}">${TAG[i.kind] || esc(i.kind)}</span><span>${esc(i.text)}</span></li>`).join("")
+    : `<li><span class="muted">Collecting data… insights appear after the first ticks.</span></li>`;
+}
+
+function leaderboardChart(d) {
+  if (!window.Chart) { $("#lbChart").parentElement.innerHTML = `<p class="err">Chart library blocked (cdn.jsdelivr.net). Tables still work.</p>`; return; }
+  const hist = d.lb_hist;
+  const current = [...d.teams].sort((a, b) => a.rank - b.rank);
+  const top = current.filter(t => !t.us).slice(0, 5).map(t => t.team);
+  const ids = new Set(); hist.forEach(h => Object.keys(h.scores).forEach(k => ids.add(k)));
+  const ds = [];
+  for (const id of ids) {
+    const us = id === d.us, hi = us || top.includes(id);
+    const color = us ? css("--series-1") : hi ? (teamColor(id) || css("--other")) : css("--other");
+    ds.push({
+      label: d.names[id] || id, teamId: id, highlighted: hi,
+      data: hist.filter(h => h.scores[id] != null).map(h => ({ x: h.tick, y: h.scores[id] })),
+      borderColor: color, backgroundColor: color, borderWidth: us ? 3 : hi ? 2 : 1,
+      pointRadius: hi && hist.length < 3 ? 4 : 0, pointHoverRadius: hi ? 5 : 0, pointHitRadius: hi ? 8 : 0, tension: 0.15, order: us ? 0 : hi ? 1 : 2,
+    });
+  }
+  ds.sort((a, b) => a.order - b.order);
+  const opts = {
+    responsive: true, maintainAspectRatio: false, animation: false, parsing: true,
+    interaction: { mode: "index", intersect: false },
+    scales: {
+      x: { type: "linear", title: { display: true, text: "tick", color: css("--text-muted") }, grid: { color: css("--grid") }, ticks: { color: css("--text-muted") }, border: { color: css("--axis") } },
+      y: { beginAtZero: true, title: { display: true, text: "score", color: css("--text-muted") }, grid: { color: css("--grid") }, ticks: { color: css("--text-muted") }, border: { color: css("--axis") } },
+    },
+    plugins: {
+      legend: { labels: { color: css("--text-secondary"), boxWidth: 14, boxHeight: 3, filter: (it, cd) => cd.datasets[it.datasetIndex].highlighted } },
+      tooltip: { filter: it => it.dataset.highlighted, itemSort: (a, b) => b.parsed.y - a.parsed.y,
+                 callbacks: { title: it => `tick ${it[0]?.parsed.x}`, label: it => ` ${it.dataset.label}: ${it.parsed.y.toFixed(2)}` } },
+    },
+  };
+  if (!lbChart) lbChart = new Chart($("#lbChart"), { type: "line", data: { datasets: ds }, options: opts });
+  else { lbChart.data.datasets = ds; lbChart.update("none"); }
+}
+
+function activityChart(d) {
+  if (!window.Chart) { $("#actChart").parentElement.innerHTML = `<p class="err">Chart library blocked.</p>`; return; }
+  const rows = [...d.teams].filter(t => t.team_trades + t.dealer_trades > 0).sort((a, b) => (b.team_trades + b.dealer_trades) - (a.team_trades + a.dealer_trades));
+  const labels = rows.map(t => (t.us ? "★ " : "") + t.name);
+  const base = { borderColor: css("--surface-1"), borderWidth: 2, borderRadius: 4, borderSkipped: false, barPercentage: 0.8 };
+  const ds = [
+    { ...base, label: "with teams", data: rows.map(t => t.team_trades), backgroundColor: css("--series-1") },
+    { ...base, label: "with dealers", data: rows.map(t => t.dealer_trades), backgroundColor: css("--series-2") },
+  ];
+  const opts = {
+    indexAxis: "y", responsive: true, maintainAspectRatio: false, animation: false,
+    scales: { x: { stacked: true, grid: { color: css("--grid") }, ticks: { color: css("--text-muted"), precision: 0 }, border: { color: css("--axis") } },
+              y: { stacked: true, grid: { display: false }, ticks: { color: css("--text-secondary") } } },
+    plugins: { legend: { labels: { color: css("--text-secondary"), boxWidth: 12 } },
+               tooltip: { mode: "index", intersect: false } },
+  };
+  if (!actChart) actChart = new Chart($("#actChart"), { type: "bar", data: { labels, datasets: ds }, options: opts });
+  else { actChart.data.labels = labels; actChart.data.datasets = ds; actChart.update("none"); }
+}
+
+// Generic sortable table: cols = [key, header, render?, numeric?]
+function table(el, id, rows, cols, rowClass) {
+  const st = sortState[id];
+  if (st) {
+    rows = [...rows].sort((a, b) => {
+      const x = a[st.k], y = b[st.k];
+      const r = (x === null || x === undefined) - (y === null || y === undefined) || (typeof x === "number" && typeof y === "number" ? x - y : String(x).localeCompare(String(y)));
+      return st.dir * r;
+    });
+  }
+  el.innerHTML = `<thead><tr>${cols.map(c => `<th class="${c[3] ? "n" : ""}" data-k="${c[0]}">${c[1]}${st && st.k === c[0] ? (st.dir > 0 ? " ▲" : " ▼") : ""}</th>`).join("")}</tr></thead>`
+    + `<tbody>${rows.length ? rows.map(r => `<tr class="${rowClass ? rowClass(r) : ""}">${cols.map(c => `<td class="${c[3] ? "n" : ""}">${c[2] ? c[2](r) : num(r[c[0]])}</td>`).join("")}</tr>`).join("")
+      : `<tr><td colspan="${cols.length}" class="muted">nothing yet</td></tr>`}</tbody>`;
+  el.querySelectorAll("th").forEach(th => th.onclick = () => {
+    const k = th.dataset.k, cur = sortState[id];
+    sortState[id] = { k, dir: cur && cur.k === k ? -cur.dir : -1 };
+    render();
+  });
+}
+
+function teamsTable(d) {
+  table($("#teamsT"), "teams", d.teams, [
+    ["rank", "#", null, true],
+    ["name", "Team", r => `${r.us ? "★ " : ""}${esc(r.name)}`],
+    ["score", "Score", r => num(r.score, 2), true],
+    ["delta", "Δ ~30t", r => r.delta == null ? "—" : `<span class="${r.delta > 0 ? "up" : r.delta < 0 ? "down" : ""}">${r.delta > 0 ? "+" : ""}${num(r.delta, 2)}</span>`, true],
+    ["market", "Market", r => num(r.market, 2), true],
+    ["level", "Lvl", null, true],
+    ["album", "Album"],
+    ["team_trades", "Team trades", null, true],
+    ["dealer_trades", "Dealer deals", null, true],
+    ["volume", "Volume P", null, true],
+    ["listings", "Listings", null, true],
+    ["packs", "Packs", null, true],
+    ["wants", "Collects", r => r.wants.map(esc).join(", ") || "—"],
+    ["dumps", "Sells off", r => r.dumps.map(esc).join(", ") || "—"],
+    ["labels", "Strategy", r => r.labels.map(l => `<span class="chip">${esc(l)}</span>`).join("")],
+    ["relation", "For us", r => r.relation.map(([k, t]) => `<span class="chip ${k}">${esc(t)}</span>`).join("") || "—"],
+    ["biggest", "Biggest team trade", r => `<span class="muted">${esc(r.biggest || "—")}</span>`],
+  ], r => r.us ? "us" : "");
+}
+
+function fillSelect(sel, values) {
+  const cur = sel.value;
+  sel.innerHTML = `<option value="">all</option>` + values.map(v => `<option value="${esc(v[0])}">${esc(v[1])}</option>`).join("");
+  sel.value = values.some(v => String(v[0]) === cur) ? cur : "";
+}
+
+function marketTable(d) {
+  const sets = [...new Set(d.market.map(r => r.set).filter(s => s && s !== "?"))].sort();
+  fillSelect($("#fSet"), sets.map(s => [s, s]));
+  const teams = [...new Set(d.market.map(r => r.team).filter(Boolean))].sort();
+  fillSelect($("#fTeam"), teams.map(t => [t, d.names[t] || t]));
+  const side = $("#fSide").value, set = $("#fSet").value, team = $("#fTeam").value, opp = $("#fOpp").checked, hide = $("#fOurs").checked;
+  const rows = d.market.filter(r => (!side || r.side === side) && (!set || r.set === set) && (!team || r.team === team)
+    && (!opp || (r.edge ?? -1) >= 3) && (!hide || !r.ours));
+  $("#mCount").textContent = `${rows.length} of ${d.market.length} offers · ${d.market.filter(r => r.team).length} with a known team`;
+  table($("#mktT"), "mkt", rows, [
+    ["id", "Offer", r => "#" + r.id, true],
+    ["name", "Team", r => r.ours ? "★ us" : r.team ? esc(r.name) : `<span class="muted">unknown</span>`],
+    ["side", "Side", r => r.side === "bid" ? "buys" : r.side === "ask" ? "sells" : esc(r.side)],
+    ["ref", "Card", r => `${esc(r.ref || "—")}${r.n > 1 ? ` +${r.n - 1}` : ""} <span class="muted">${esc(r.card || "")}</span>`],
+    ["rarity", "Rarity"],
+    ["price", "Price P", null, true],
+    ["value", "Our value", r => num(r.value), true],
+    ["edge", "Edge P", r => r.edge == null ? "—" : `<span class="${r.edge >= 3 ? "edge-pos" : "edge-neg"}">${r.edge > 0 ? "+" : ""}${num(r.edge)}</span>`, true],
+    ["to", "To", r => r.to ? esc(d.names[r.to] || r.to) : "anyone"],
+    ["expires", "Expires tick", null, true],
+  ], r => r.ours ? "us" : "");
+}
+
+function holdersTable(d) {
+  table($("#holdT"), "hold", d.holders, [
+    ["ref", "Card", r => `${esc(r.ref)} <span class="muted">${esc(r.card || "")}</span>`],
+    ["rarity", "Rarity"],
+    ["value", "Worth to us", r => num(r.value), true],
+    ["we_hold", "We hold", null, true],
+    ["holders", "Last seen with", r => r.holders.map(h => `${esc(h.name)} <span class="muted">(t${h.tick}, ${h.price} P from ${esc(h.from)})</span>`).join("<br>")],
+  ]);
+}
+
+function pricesTables(d) {
+  table($("#priceT"), "price", d.prices, [
+    ["rarity", "Rarity"], ["book", "Book", null, true],
+    ["team_n", "Team trades", null, true], ["team_median", "Median", null, true], ["team_min", "Min", null, true], ["team_max", "Max", null, true],
+    ["dealer_n", "Dealer deals", null, true], ["dealer_median", "Dealer median", null, true],
+  ]);
+  table($("#tapeT"), "tape", d.tape, [
+    ["tick", "Tick", null, true], ["kind", "With"], ["ref", "Card"], ["rarity", "Rarity"],
+    ["buyer", "Buyer"], ["seller", "Seller"], ["price", "P", null, true],
+  ], r => r.ours ? "us" : "");
+}
+
+function abuelaTable(d) {
+  table($("#abT"), "ab", d.abuela, [
+    ["name", "Team", r => `${r.us ? "★ " : ""}${esc(r.name)}`], ["dealer", "Dealer"],
+    ["threads", "Conversations", null, true], ["avg_move", "Avg move %", null, true],
+    ["best_move", "Best move %", null, true], ["avg_msgs", "Msgs/conv", null, true],
+  ], r => r.us ? "us" : "");
+}
+
+function duelsBox(d) {
+  const row = x => `<tr><td><code>${esc(JSON.stringify(Object.fromEntries(Object.entries(x).filter(([k]) => !["messages", "transcript"].includes(k)))).slice(0, 300))}</code></td></tr>`;
+  $("#duelBox").innerHTML =
+    `<p class="muted">Live: ${d.duels.length} · finished: ${d.duels_done.length}${d.has_key ? "" : " (needs the team key)"}</p>`
+    + (d.duels.length ? `<h2>Live</h2><table>${d.duels.map(row).join("")}</table>` : "")
+    + (d.duels_done.length ? `<h2>Finished</h2><div class="scroll"><table>${d.duels_done.slice().reverse().map(row).join("")}</table></div>` : "")
+    + (d.duel_events.length ? `<h2>Public duel events</h2><div class="scroll"><table>${d.duel_events.slice().reverse().map(e => `<tr><td class="n">${e.tick}</td><td>${esc(e.type)}</td><td><code>${esc(e.text)}</code></td></tr>`).join("")}</table></div>` : "");
+}
+
+function schedTables(d) {
+  table($("#schedT"), "sched", d.schedule, [
+    ["at", "Game hour", r => num(r.at, 2), true], ["eta_min", "ETA min", null, true],
+    ["action", "Action"], ["note", "Note", r => `${esc(r.note)}${r.params && r.params !== "{}" ? `<br><code>${esc(r.params)}</code>` : ""}`],
+  ]);
+  table($("#dealT"), "deal", d.dealers, [
+    ["name", "Dealer"], ["status", "Status"], ["level", "Level", null, true],
+    ["open_to_us", "Open to us", r => r.open_to_us ? "yes" : "no"], ["line", "Line", r => `<span class="muted">${esc(r.line || "")}</span>`],
+  ]);
+  $("#levels").innerHTML = d.levels.length ? "Levels: " + d.levels.map(l => `<b>${esc(l.name)}</b> (${esc(l.status)}) ${esc(l.how || l.line || l.teaser || "")}`).join(" · ") : "No levels announced yet.";
+  $("#news").innerHTML = d.news.map(n => `<div><span class="muted">t${n.tick} ${esc(n.type)}</span> <code>${esc(n.text)}</code></div>`).join("")
+    + (d.errors.length ? `<h2 style="margin-top:10px">Errors</h2>` + d.errors.map(e => `<div class="err">${esc(e)}</div>`).join("") : "");
+}
+
+function header(d) {
+  const c = d.clock || {};
+  $("#hdr").innerHTML = `tick <b>${c.tick ?? "—"}</b> · ${c.tick_seconds ?? "—"} s/tick · game hour <b>${num(c.t_hours, 2)}</b> · `
+    + `${c.paused ? "<b class='down'>PAUSED</b>" : "running"} · closes ${esc((c.closes || "").slice(11, 16) || "—")} · `
+    + `data ${esc(d.updated || "—")} · ${d.events_cached} events cached · ${d.requests} requests`
+    + (d.errors.length ? ` · <span class="err">${d.errors.length} errors</span>` : "");
+}
+
+function render() {
+  const d = DATA; if (!d) return;
+  if (d.fatal) { $("#hdr").innerHTML = `<span class="err">server error: ${esc(d.fatal)}</span>`; return; }
+  header(d); tiles(d); insights(d); leaderboardChart(d); teamsTable(d); activityChart(d);
+  marketTable(d); holdersTable(d); pricesTables(d); abuelaTable(d); duelsBox(d); schedTables(d);
+}
+
+async function refresh() {
+  try {
+    const r = await fetch("/api/data", { cache: "no-store" });
+    DATA = await r.json(); render();
+  } catch (e) { $("#hdr").innerHTML = `<span class="err">dashboard server not reachable: ${esc(e.message)}</span>`; }
+}
+["#fSide", "#fSet", "#fTeam", "#fOpp", "#fOurs"].forEach(s => $(s).addEventListener("change", render));
+refresh(); setInterval(refresh, 15000);
+</script>
+</body>
+</html>
