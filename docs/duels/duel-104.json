@@ -523,5 +523,62 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 156,
+ "done": {
+  "duel": 104,
+  "session": 1,
+  "status": "no_deal",
+  "role": "seller",
+  "item": "Plaza de Olavide",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 69,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Azul",
+  "deadline_tick": 156,
+  "decay_per_round": 0.06,
+  "rounds": 1,
+  "your_offer": {
+   "id": 1334,
+   "price": 95,
+   "tick": 146,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 1329,
+   "price": 67,
+   "tick": 146,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 144,
+    "from": "you",
+    "text": "Plaza de Olavide is one of Madrid's most sought-after squares: a lively, tree-lined plaza with steady foot traffic and strong appeal in a prime central neighborhood. I'm offering it at 98 P, which reflects that quality. I'm happy to hear your reasoning.}",
+    "price": 98,
+    "days": null
+   },
+   {
+    "tick": 146,
+    "from": "Rival Azul",
+    "text": "I can move a little: 67.",
+    "price": 67,
+    "days": null
+   },
+   {
+    "tick": 146,
+    "from": "you",
+    "text": "I've come down to 95 P as a gesture of good faith, but your offer is still far from the value of a prime central plaza with constant footfall and lasting appeal. I'll need a real step up from you before I can move further.",
+    "price": 95,
+    "days": null
+   }
+  ],
+  "result": 0.0,
+  "price": null,
+  "days": null
+ }
 }

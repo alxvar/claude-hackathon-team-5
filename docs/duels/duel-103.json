@@ -523,5 +523,62 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 156,
+ "done": {
+  "duel": 103,
+  "session": 1,
+  "status": "no_deal",
+  "role": "buyer",
+  "item": "Plaza de Olavide",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 129,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Oro",
+  "deadline_tick": 156,
+  "decay_per_round": 0.06,
+  "rounds": 1,
+  "your_offer": {
+   "id": 1333,
+   "price": 88,
+   "tick": 146,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 1328,
+   "price": 143,
+   "tick": 146,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 144,
+    "from": "you",
+    "text": "I'm offering 85 P for Plaza de Olavide. That's a fair price given there's no clear market reference, and I'd like to close quickly since every tick of talk erodes value for both of us. If you're realistic, send a counter and we can get this done.",
+    "price": 85,
+    "days": null
+   },
+   {
+    "tick": 146,
+    "from": "Rival Oro",
+    "text": "I can move a little: 143.",
+    "price": 143,
+    "days": null
+   },
+   {
+    "tick": 146,
+    "from": "you",
+    "text": "That figure is the same one you've already put forward, so it isn't really a move. I'm stepping up to 88 P as a show of good faith, and further movement from me depends on a real concession from you.",
+    "price": 88,
+    "days": null
+   }
+  ],
+  "result": 0.0,
+  "price": null,
+  "days": null
+ }
 }

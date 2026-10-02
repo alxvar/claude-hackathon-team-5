@@ -246,5 +246,43 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 156,
+ "done": {
+  "duel": 115,
+  "session": 1,
+  "status": "no_deal",
+  "role": "seller",
+  "item": "Andén 0",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 69,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Noche",
+  "deadline_tick": 156,
+  "decay_per_round": 0.06,
+  "rounds": 0,
+  "your_offer": {
+   "id": 1230,
+   "price": 98,
+   "tick": 144,
+   "days": 0
+  },
+  "rival_offer": null,
+  "messages": [
+   {
+    "tick": 144,
+    "from": "you",
+    "text": "I'm offering Andén 0 at 98 P, which I think is fair value for what it is. I'm open to hearing where you stand, so send me your counter.",
+    "price": 98,
+    "days": null
+   }
+  ],
+  "result": 0.0,
+  "price": null,
+  "days": null
+ }
 }

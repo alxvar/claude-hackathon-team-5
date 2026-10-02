@@ -67,6 +67,117 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 152,
+   "raw": {
+    "duel": 114,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Rastro al Amanecer",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 93,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Luna",
+    "deadline_tick": 156,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 1232,
+     "price": 55,
+     "tick": 144,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1575,
+     "price": 62,
+     "tick": 152,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 144,
+      "from": "you",
+      "text": "I'm opening at 55 P for El Rastro al Amanecer. That reflects what a dawn flea-market piece like this typically fetches when the buyer has to take on the risk of condition and provenance. I'm happy to move if you show me your reasoning and a figure, and every tick of talk costs us both value.",
+      "price": 55,
+      "days": null
+     },
+     {
+      "tick": 152,
+      "from": "Rival Luna",
+      "text": "Thank you for the offer. I could let it go for 62.",
+      "price": 62,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 152,
+   "raw": {
+    "duel": 114,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Rastro al Amanecer",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 93,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Luna",
+    "deadline_tick": 156,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 1578,
+     "price": 58,
+     "tick": 152,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1575,
+     "price": 62,
+     "tick": 152,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 144,
+      "from": "you",
+      "text": "I'm opening at 55 P for El Rastro al Amanecer. That reflects what a dawn flea-market piece like this typically fetches when the buyer has to take on the risk of condition and provenance. I'm happy to move if you show me your reasoning and a figure, and every tick of talk costs us both value.",
+      "price": 55,
+      "days": null
+     },
+     {
+      "tick": 152,
+      "from": "Rival Luna",
+      "text": "Thank you for the offer. I could let it go for 62.",
+      "price": 62,
+      "days": null
+     },
+     {
+      "tick": 152,
+      "from": "you",
+      "text": "Thanks for coming back so quickly. I can move to 58 P, which closes most of the gap between us. Time is eroding the value for both of us, so I'd like to settle this soon.",
+      "price": 58,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -186,6 +297,115 @@
      ]
     }
    }
+  },
+  {
+   "tick": 152,
+   "took_s": 5.67,
+   "cost_usd": 0.00618,
+   "obs": {
+    "view": {
+     "duel_id": 114,
+     "role": "buyer",
+     "limit": 93,
+     "currency": "P",
+     "item": "El Rastro al Amanecer",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never pay above your value",
+      "decay_per_round": 0.06,
+      "rounds": 1,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm opening at 55 P for El Rastro al Amanecer. That reflects what a dawn flea-market piece like this typically fetches when the buyer has to take on the risk of condition and provenance. I'm happy to move if you show me your reasoning and a figure, and every tick of talk costs us both value.",
+      "offer": {
+       "price": 55,
+       "days": null
+      },
+      "accept": false,
+      "tick": 144,
+      "decision": {
+       "action": "offer",
+       "price": 55,
+       "message": "I'm opening at 55 P for El Rastro al Amanecer. That reflects what a dawn flea-market piece like this typically fetches when the buyer has to take on the risk of condition and provenance. I'm happy to move if you show me your reasoning and a figure, and every tick of talk costs us both value."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you for the offer. I could let it go for 62.",
+      "offer": {
+       "price": 62,
+       "days": null
+      },
+      "accept": false,
+      "tick": 152,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 62,
+     "days": 0
+    },
+    "tick": 152,
+    "ticks_left": 5
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thanks for coming back so quickly. I can move to 58 P, which closes most of the gap between us. Time is eroding the value for both of us, so I'd like to settle this soon.",
+    "price": 58,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 58,
+      "message": "Thanks for coming back so quickly. I can move to 58 P, which closes most of the gap between us. Time is eroding the value for both of us, so I'd like to settle this soon."
+     },
+     "band": {
+      "worst": 62,
+      "target": 58,
+      "best": 57
+     },
+     "plan": {
+      "read": "They opened at 62, just 7 above our 55 and well within our range; the open is modest, so their floor may sit near it. With only 5 ticks left, the gap is small next to the value time is costing us.",
+      "target": 58,
+      "best": 57,
+      "worst": 62,
+      "days": null,
+      "angle": "Propose 58 as a quick meet-in-the-middle-ish close, stressing that time erodes value for both. If they hold firm, accepting their 62 is fine."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.23,
+       "in": 409,
+       "out": 151,
+       "cost_usd": 0.00466,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.44,
+       "in": 376,
+       "out": 77,
+       "cost_usd": 0.00152,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
   }
  ],
  "sent": [
@@ -245,6 +465,120 @@
      "days": 0
     }
    }
+  },
+  {
+   "tick": 152,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thanks for coming back so quickly. I can move to 58 P, which closes most of the gap between us. Time is eroding the value for both of us, so I'd like to settle this soon.",
+    "price": 58,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 58,
+      "message": "Thanks for coming back so quickly. I can move to 58 P, which closes most of the gap between us. Time is eroding the value for both of us, so I'd like to settle this soon."
+     },
+     "band": {
+      "worst": 62,
+      "target": 58,
+      "best": 57
+     },
+     "plan": {
+      "read": "They opened at 62, just 7 above our 55 and well within our range; the open is modest, so their floor may sit near it. With only 5 ticks left, the gap is small next to the value time is costing us.",
+      "target": 58,
+      "best": 57,
+      "worst": 62,
+      "days": null,
+      "angle": "Propose 58 as a quick meet-in-the-middle-ish close, stressing that time erodes value for both. If they hold firm, accepting their 62 is fine."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.23,
+       "in": 409,
+       "out": 151,
+       "cost_usd": 0.00466,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.44,
+       "in": 376,
+       "out": 77,
+       "cost_usd": 0.00152,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 114,
+    "offer": {
+     "id": 1578,
+     "price": 58,
+     "tick": 152,
+     "days": 0
+    }
+   }
   }
- ]
+ ],
+ "last_seen_tick": 156,
+ "done": {
+  "duel": 114,
+  "session": 1,
+  "status": "deal",
+  "role": "buyer",
+  "item": "El Rastro al Amanecer",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 93,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Luna",
+  "deadline_tick": 156,
+  "decay_per_round": 0.06,
+  "rounds": 1,
+  "your_offer": {
+   "id": 1578,
+   "price": 58,
+   "tick": 152,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 1575,
+   "price": 62,
+   "tick": 152,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 144,
+    "from": "you",
+    "text": "I'm opening at 55 P for El Rastro al Amanecer. That reflects what a dawn flea-market piece like this typically fetches when the buyer has to take on the risk of condition and provenance. I'm happy to move if you show me your reasoning and a figure, and every tick of talk costs us both value.",
+    "price": 55,
+    "days": null
+   },
+   {
+    "tick": 152,
+    "from": "Rival Luna",
+    "text": "Thank you for the offer. I could let it go for 62.",
+    "price": 62,
+    "days": null
+   },
+   {
+    "tick": 152,
+    "from": "you",
+    "text": "Thanks for coming back so quickly. I can move to 58 P, which closes most of the gap between us. Time is eroding the value for both of us, so I'd like to settle this soon.",
+    "price": 58,
+    "days": null
+   }
+  ],
+  "result": 32.9,
+  "price": 58,
+  "days": 0
+ }
 }
