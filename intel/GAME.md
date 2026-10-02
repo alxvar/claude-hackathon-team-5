@@ -6,18 +6,39 @@
 - Market-making = Market Test efficiency (bench, every ~2 h from Saturday) + value created between other teams on our venue. Fees never count.
 - Never counts: number of trades, fees earned, pack luck, gifts.
 
-## Measured facts (kept current by the operator from metrics.md → "What each of our deals did to neg_points")
-- **`neg_points` counts trades between teams at OUR private values, net of fees: selling a card scores `price − our value of that copy` (minus the fee, 5% + 1 P, when WE accept).**
-- **CORRECTED 22:00: dealer purchases ABOVE our value SUBTRACT.** Measured: MAL-07 bought from Abuela at 29 (worth 17.5 to us) → `neg_points` 26.3 → 14.5 (−11.8). The −8.5 we started with came from packs bought above their value. A dealer purchase BELOW our value showed no clear gain (LAV-08 at 24, worth 32.5: ~+0.3). **Rule: never buy from a dealer above our private value, ladder deals included. Flipping dealer cards into team bids is dead (−11.5 on the buy, +5 to +8 on the sale).**
-- Measured on our deals (22:00-22:20): buying from a team scores value − price − fee only when we accept (SAL-08 at 18, worth 22.5: we were the MAKER, no fee; the +1.9 instead of +4.5 is unopened-pack drag); selling scores price − the copy's value when they accept (LAV-04 3rd copy at 9, worth 1.3: +7.7). One sale scored more than that: SAL-06 at 26, worth 22.5 → +6.0 instead of +3.5 (unexplained; watch the next SAL sale).
-- **El Chato (level 2, 6 deals/team/hour; we had early access, open to all at hour 2.63):** sells LAV uncommons from 33, down to 31-32 after ~5 rounds (our value 32.5, so ≈0 `neg_points`; ladder only). Bids 13 for a MAL uncommon (worth 17.5) and doesn't move. Silver pack: list 150, opens 188. Rares list 77. No value-positive Chato deal found yet. 22:32: bought LAV-06 from Chato at 31 (worth 32.5): `neg_points` −2.3, explained by pack drag (directive 22:40: unopened packs lose value when we add a card of their set: 32.5 − 3.8 − 31 = −2.3), and ladder unchanged. Dealer gains score 0 and losses in full. Packs opened 22:37: `neg_points` unchanged (27.8).
-- **LAV page completed through a team trade (measured 22:46-22:52, ticks 146-152): +40.0 net, `neg_points` 27.8 → 67.8.** Steps: LAV-05 sold to Abuela at 5 (worth 13): −8.0; LAV-09 bought from Chato at 93 while the page was open (worth 91): −2.0 (a dealer loss counts in full); LAV-05 bought back from a team at 8 + fee when `value?card=LAV-05` read 99.1: **+50.0** (exactly +50.0, not the +89 the value implied: likely a per-trade cap on `neg_points`, flat 50 or ~5× book; open question for the organisers). Every LAV card now carries the bonus (value LAV-01 99.1, LAV-06 118.6, LAV-10 177.1): never sell one; spares only (2nd LAV-02/03/04 at 3.2). **Recipe for any page: build it with dealer buys at ≤ value, leave the cheapest common for last, buy that one from a team.** Chato rare pattern: 97, 97, 95, 93 (accepted).
-- **Chato's ladder (measured 22:44):** he buys uncommons at a fixed 13 (opening = final; LAT-08 sold at 13, worth 12.5): `neg_points` and `ladder_points` both unchanged, so selling to him captures no range. Ladder only moves on BUYS where he concedes (uncommons 33 → final 29 after ~6 moves of +1, Team 3). Our values make no Chato buy ≥ his final except LAV uncommons (all held) and LAV-09 (excluded: page bonus scores only via a team).
-- **Page bonus (measured 22:37):** with only LAV-09 missing, `/api/me/value?card=LAV-09` = 177.1 (was 91): the bonus (~86) is priced into the last missing card. It scores only through a TEAM trade (Team 17: SAL page via a team trade, ≈+45 at tick 124; Team 10: LAV page via Chato, +2.1). LAV-09 sources: Chato sells it (~90-93 to t10, t14); holders t07, t10, t14 all collect LAV.
-- Every trade between teams also scores for the counterparty. Price sales near the BUYER's value; prefer counterparties below us.
-- Big jumps on the leaderboard (+8 to +15) came from single rare trades between teams (65-80 P).
-- Good bids get filled by other teams within minutes. Speed beats price on purchases.
-- Abuela: opens commons ~12, uncommons ~29, packs 30 (sometimes low: 17 or 7, and then she doesn't move); ends ~73-75% of a high opening. Limits: 8 deals/team/hour, 3 packs/hour.
+## Measured facts (operator-maintained; verified Sat 00:00-01:15 by independent agents; [V] verified, [L] likely, [?] open)
+- **Team trade** [V]: score = Δ(our whole collection value, incl. page bonus and unopened packs) − price − fee if WE accept.
+  `parties` = [maker, taker]; only the taker pays the fee, ceil(5% × price) + 1 P per card. Being the maker saves the fee
+  and the team's single accept per tick.
+- **Dealer deal**: score = min(0, ΔV − price). Losses count in full [V: MAL-07 at 29 (worth 17.5) −11.8; LAV-05 sold at 5
+  (worth 13) −8.0; LAV-09 at 93 (worth 91) −2.0]. Gains are clipped to 0 [L]. A dealer deal never adds `neg_points`.
+- **Per-trade cap** [L, n=1]: our page-completing buy (value 99.1, paid 8 + 2) scored exactly +50.0, not 89.1. Forms that
+  still fit: flat 50 · gain ≤ 5×book · gain ≤ 5×(price+fee) · value ≤ 6×book. Test: plan §4B.
+- **Page bonus** [V]: 25% of the page's book (265) × our multiplier = 66.25 × m (LAV 86.1, RET 72.9, CHA 106), priced into the
+  last missing card (LAV-09 read 177.1 when it was the only one missing). It scores only when a TEAM trade completes the
+  page [L: Team 17 +6.25 board via a team trade; Team 10 +2.1, Team 7 +1.1, Team 12 +1.0 via Chato].
+- **Unopened packs drag** [L]: each new card lowers an unopened pack's expected value, shifting a trade's score by ~1-4
+  points (explains SAL-08 +1.9, SAL-06 +6.0, LAV-06 −2.3). Open packs before trading.
+- **Relative score** [V]: the leader sits at the top of the scale; idle teams fall 0.07-1.7 per snapshot when others gain.
+  1 `neg_point` ≈ 0.16 board points (Friday's marginal rate; [L] for Saturday).
+- **El Chato** (level 2, 6 deals/team/hour) [V]:
+  - Sells uncommons from 33; +1 per round → final 28-29 (Team 3); bigger early bids end at 31-32.
+  - Sells rares from 97; constant +2 to +4 per round, bid just under his standing offer → 82-90 [L: one sale at 82, the
+    other seven 89-93]; +1 steps give an early final at 91-93; big jumps earn ~1.
+  - Buys uncommons at 13; if you open ≥ 39 and step down 2-3 he goes to a 15-16 final. Buys rares (paid 46 for LAT-09).
+  - Silver pack: opens 188 (Team 8 paid 181, board −5.65). Never buy packs.
+- **Abuela** (level 1, 8 deals/team/hour, 3 packs/hour) [V]: opens common 12, uncommon 29, pack 30; more rounds = lower
+  (common 9-10, uncommon 21-24 after 5-7 rounds, pack 19 after 8). Each team's first deal was a fixed welcome price (17
+  pack/uncommon, 7 common) [V; whether it resets each day: ?].
+- **Ladder** [?]: Abuela deals moved ours (0.054 → 0.064); our 3 Chato deals did not, and no variable explains which Chato
+  deals count. A deal at the dealer's opening price never counts [V, RULES]. Level 2 opened early to teams with 3
+  negotiated Abuela deals [V].
+- **Venues** [V]: 4 team venues exist (v01 Team 6 0.5%→0%, v02 Team 12 0%, v03 Team 13 1%, v04 Team 2 0% auto), all with 0
+  trades on Friday. All 46 team trades went through El Rastro.
+- **Clearing prices on El Rastro** [V]: common 9 (LAT 7.5), uncommon 24.5 (MAL 26, SAL 24.5, LAT 21.5), rare 70 (53-80).
+  Only 5% of asks and 9% of bids filled; filled bids took a median 4 ticks.
+- **Duels** [V, 30 practice duels]: result = our surplus × (1 − decay)^rounds, rounds = min(our priced offers, theirs);
+  silence costs no decay; no deal = 0.
 
 ## Our private values (`/api/me` → affinity; every team has the same six numbers, shuffled)
 Chamberí (CHA) 1.6 (released Sunday) · Lavapiés (LAV) 1.3 · El Retiro (RET) 1.1 (released Saturday) · Salamanca (SAL) 0.9 · Malasaña (MAL) 0.7 · La Latina (LAT) 0.5.
@@ -26,7 +47,7 @@ Book values: common 10, uncommon 25, rare 70, epic 180, legendary 450. Our value
 ## What we can do (the executors)
 - El Rastro: list a card for cash, bid cash for any copy of a card, accept others' offers (1 accept per team per tick), offers addressed to one team (`to`).
 - `agents/trader/loop.py`: auto-accepts El Rastro offers that gain ≥3 (buys) / ≥6 (sells into bids).
-- `agents/trader/autoflip.py`: STOPPED 22:00 (flipping loses points, see the correction above).
+- Autoflip (archived in `archive/fri/autoflip.py`): DEAD, dealer buys above value subtract. Never restart it.
 - `agents/trader/trade.py`: manual list / bid / accept. `agents/dealers/abuela_bot.py`: dealer negotiation (`--dealer`, `--ladder`).
 - Duels: Aleks's `agents/duelist/` (not ours to run).
 - Humans in the room (Lucas, Dani) can find card holders and agree trades; card owners are anonymous in the API.

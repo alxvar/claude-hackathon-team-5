@@ -1,7 +1,7 @@
 ---
 type: brief
 entity: [people]
-status: active
+status: historical
 updated: 2026-10-02
 ---
 

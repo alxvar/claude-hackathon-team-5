@@ -1,7 +1,7 @@
 ---
 type: reference
 entity: [people]
-status: active
+status: historical
 updated: 2026-10-01
 source: https://osf.io/yr9qv/overview?view_only=dafe4cc009fe4bffb0de2ed08d60334b
 ---

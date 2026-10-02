@@ -228,8 +228,9 @@ folder (explorer + Git panel + terminals all in the repo):
 3. **Builder**: §5 fixes, then the market recorder → sim → broker v1. Commits code, never trades.
 
 **Aleks** — owns the duelist end to end (§4D fixes before 11:30, Duels II prep before 18:00), reviews the accept
-arbiter. His Claude reads `intel/directives.md`, `intel/saturday-plan.md` and `team/lucas.md` on every prompt (the
-team_sync hook) and writes `team/aleks.md` + `docs/duels/want_accept.json`.
+arbiter. His channel is `PLAN.md` "RIGHT NOW" (the team_sync hook injects PLAN.md and CLAUDE.md diffs, teammates' Now
+lines and the top of their logs on every prompt; it does NOT inject `intel/`): his Claude must read the plan's §4D
+itself. He writes `team/aleks.md`.
 
 **Dani** — three jobs with clear outputs, none of them in our critical path:
 1. **Desk (09:00)**: the §3 questions, answers in `team/dani.md` within minutes; the strategy session turns them into

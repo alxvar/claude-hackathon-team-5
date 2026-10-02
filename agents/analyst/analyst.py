@@ -60,7 +60,7 @@ Write markdown, at most 40 lines:
 ## Verdict
 One line: are we gaining on the leaders, holding, or falling behind, with the numbers.
 ## Our strategies: keep / kill / scale
-One line each for every strategy you can see in our actions (dealer bot, trading loop, autoflip, our bids and listings,
+One line each for every strategy you can see in our actions (dealer bot, trading loop, our bids and listings,
 in-room trades): verdict and the evidence (neg_points movement, fills, time unfilled).
 ## Check the scout
 Which of the scout's claims hold against the metrics, and which do not.
@@ -78,6 +78,18 @@ RULES = """Ground rules for every answer:
 def read(name, limit=12000):
     p = INTEL / name
     return p.read_text()[-limit:] if p.exists() else f"({name}: not available yet)"
+
+
+def head(name, limit=6000):
+    """Newest-on-top files (directives.md): the newest part is the head."""
+    p = INTEL / name
+    return p.read_text()[:limit] if p.exists() else f"({name}: not available yet)"
+
+
+def top(path, n=30):
+    """Newest-on-top logs (team/*.md): the Now line and the latest entries are the first lines."""
+    p = ROOT / path
+    return "\n".join(p.read_text().splitlines()[:n]) if p.exists() else "(none)"
 
 
 def tail(path, n=30):
@@ -115,12 +127,12 @@ def main():
     load_dotenv(ROOT / ".env")
     role = ROLES[args.role]
     client = anthropic.Anthropic()
-    system = [{"type": "text", "text": read("GAME.md") + "\n\n" + RULES + "\n\n" + role["brief"],
-               "cache_control": {"type": "ephemeral"}}]
     while True:
-        facts = (f"# Lucas's directives (decided; never recommend against them)\n{read('directives.md', 3000)}\n\n"
+        system = [{"type": "text", "text": read("GAME.md") + "\n\n" + RULES + "\n\n" + role["brief"],  # re-read: GAME.md changes
+                   "cache_control": {"type": "ephemeral"}}]
+        facts = (f"# Lucas's directives (decided; never recommend against them)\n{head('directives.md', 6000)}\n\n# Saturday plan\n{head('saturday-plan.md', 30000)}\n\n"
                  f"# Live metrics\n{read('metrics.md')}\n\n# Rival profiles (Dani, intel/teams.md)\n{read('teams.md', 6000)}"
-                 f"\n\n# Lucas's lane: now and recent log\n{tail('team/lucas.md', 14)}")
+                 f"\n\n# Lucas's lane: now and recent log\n{top('team/lucas.md', 16)}")
         if args.role == "strategist":
             facts += (f"\n\n# RULES.md (full)\n{(ROOT / 'bazaar-kit/RULES.md').read_text()}"
                       f"\n\n# Schedule, levels and dealers (live)\n{live_game()}"

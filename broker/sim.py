@@ -6,7 +6,7 @@ patience runs out and leave when it does; the firm ones never relax. A match nee
 (ask <= price, price + fee <= bid). The score is the share of the possible gains, between the TRUE limits, that
 the venue realises. The free stall crosses the best bid with the best ask each tick, at the midpoint.
 
-What we guess (calibrate on the first real session with broker/record_bench.py): limit ranges, shade sizes, how
+What we guess (calibrate on the first real session with broker/record_bench.py, to be written: plan §4E): limit ranges, shade sizes, how
 patience and relaxation work, the mix of trader types. Every guess is a parameter of `Model`, and `--sweep`
 runs the strategies across a range of them: we pick the strategy that wins everywhere, not under one guess.
 

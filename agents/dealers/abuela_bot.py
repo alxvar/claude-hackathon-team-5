@@ -23,7 +23,7 @@ sys.path.insert(0, str(ROOT / "bazaar-kit"))
 from bazaar_sdk import Bazaar, BazaarError  # noqa: E402
 
 DEALER = "abuela"
-CASH_FLOOR = 270     # venue bond (250) + opening fee (20)
+CASH_FLOOR = 200     # overridden by --cash-floor (the GUARDRAIL in intel/directives.md decides it)
 EXPECTED_PRICE = 0.92  # dealers end near 0.9x list in the public data (Abuela: common 9 of 10, uncommon 21-24 of 25)
 MIN_GAIN = 3         # buy only if our value beats the expected price by this much; never pay above value - MIN_GAIN
 FIRST_COUNTER = 0.55  # buy: open at 55% of her first ask; sell: ask her first bid / 0.55
@@ -162,8 +162,10 @@ def plan(b: Bazaar) -> tuple:
 
 
 def main() -> None:
+    global DEALER, CASH_FLOOR
     ap = argparse.ArgumentParser()
     ap.add_argument("--deals", type=int, default=3, help="stop after this many deals")
+    ap.add_argument("--cash-floor", type=int, default=CASH_FLOOR, help="never let cash fall below this (GUARDRAIL)")
     ap.add_argument("--dealer", default="abuela", help="dealer id, as GET /api/dealers lists it")
     ap.add_argument("--max-buy", type=int, default=0, help="optional extra cap per card (0 = our value is the cap)")
     ap.add_argument("--min-sell", type=int, default=3, help="never sell a spare for less than this")
@@ -172,15 +174,15 @@ def main() -> None:
     ap.add_argument("--resume-cap", type=int, default=0,
                     help="pick up an open Abuela conversation with this cap instead of refusing to start")
     ap.add_argument("--ladder", action="store_true",
-                    help="new dealer: N negotiated deals on the cheapest menu items, packs included (ladder only)")
+                    help="new dealer: N negotiated deals on the cheapest card items of the menu (ladder only; dealer gains score 0)")
     ap.add_argument("--no-buy", action="store_true",
-                    help="sell only: dealer buys barely move neg_points (LOG finding 0); buy from teams instead")
+                    help="sell only: a dealer deal never adds neg_points (gains 0, losses in full: GAME.md); buy from teams instead")
     ap.add_argument("--dry-run", action="store_true", help="print the plan, write nothing")
     args = ap.parse_args()
     b = Bazaar(os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai"), os.environ["BAZAAR_KEY"])
 
-    global DEALER
     DEALER = args.dealer
+    CASH_FLOOR = args.cash_floor
     me, sells, buys, budget = plan(b)
     clock = b.clock()
     print(f"tick {clock['tick']} ({clock['tick_seconds']}s) · cash {me['cash']} P · spend budget {budget} P · "
@@ -222,7 +224,7 @@ def main() -> None:
 
     def ladder_round(limit):
         """Ladder-only deals (a new dealer: 3 negotiated deals per level count, higher levels weigh more): the
-        cheapest items on the menu, packs included, never above 90% of list. Dealer deals barely move neg_points."""
+        cheapest card items on the menu, never above 90% of list. A dealer deal never adds neg_points (GAME.md)."""
         menu = b.dealer(DEALER).get("menu", {}).get("sells", [])
         n = 0
         cat = b.catalog()

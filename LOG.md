@@ -1,13 +1,13 @@
 # Team log
 
 **One line per run, experiment or decision. Newest on top.** Format: `time · who · what · result · next`.
-Pull before you add a line and push right after. Live numbers are in `STATUS.md` (auto-updated); why we do things is in `PLAN.md` and `CROSSWALK.md`.
+Pull before you add a line and push right after. Live numbers are in `STATUS.md` (auto-updated); the plan is `intel/saturday-plan.md`; measured facts are in `intel/GAME.md`.
 
 ## Who is doing what
 
 Each person keeps a **Now** line and a log in their own file: `team/aleks.md`, `team/dani.md`, `team/lucas.md`. `STATUS.md` shows all three, refreshed every 5 minutes. **Write only in your own file.** This file (findings, experiments, history) is maintained by Lucas.
 
-## Experiments: how we beat the leaders, not copy them
+## Experiments: how we beat the leaders, not copy them (status as of Fri 21:18; current work is in intel/saturday-plan.md)
 
 Team 10 leads with one lever: buying from Abuela the cards of its high-value sets. We stack every lever the rules score. Each row has an owner and a metric from the server; results go in the last column.
 
@@ -23,22 +23,18 @@ Team 10 leads with one lever: buying from Abuela the cards of its high-value set
 
 **Live loop:** `tools/watch.py` runs on Lucas's machine and wakes his Claude Code on every change: leaderboard, our score, our deals, new dealers or levels, duels, teammate pushes. Each experiment's result lands here within minutes.
 
-## Findings so far (keep this list short; update it, don't append)
+## Findings so far (current; the full list with evidence is `intel/GAME.md` → "Measured facts")
 
-0. **⚠️ CORRECTED 22:00, see 13.** ~~MEASURED: `neg_points` only counts trades between teams, at our private values, net of fees.** Dealer deals barely move it: buying LAV-08 from Abuela (worth 32.5 to us, paid 24) added ~+0.3, while selling MAL-08 to a team (worth 17.5, sold at 26) added ~+8.5. Dealer deals feed the ladder (best 3 per level, small: +0.005 for LAV-08). **So: buy cards worth a lot to us from TEAMS, not dealers; use dealers for the ladder and for cash.** Team 10 leads with 29.1 (we have 12.0) by buying uncommons of its valuable sets from Abuela at 23-24 P (LAV-06, LAV-07, MAL-07), building a full LAV page. Our private `neg_points` is −8.5, almost surely from the 3 packs: random cards, mostly duplicates worth little to us. **Rule: buy what is worth more to us than its price, sell what is worth less, no more packs.** For us that's LAV (each LAV uncommon is worth 32.5 P to us; LAV-09 rare is worth 91 P and would complete our LAV page).
-1. **Abuela follows a fixed pattern** (50 conversations from all teams, public feed, ticks 4-36). When she opens high (pack 30 P, uncommon 29, common 12) she ends at about **73-75% of her opening** (pack ~22, uncommon ~21, common ~9). She concedes most in her first two moves, then 1 P at a time, and our step size barely changes this. **When she opens low (pack 17, some commons 7) she doesn't move at all.**
-2. **Our Abuela deals already land at her floor.** We're 2nd at 12.46, against 12.50 for 1st. Only our best 3 deals per level count, so **more Abuela deals add almost nothing.** Effort goes to the next dealers (higher levels weigh more), the market and the duels.
-3. **Selling to her:** she bids about 5 or 12-13 P and mostly holds. One team pushed her from 12 to 16 by asking 35 and stepping down 3 P at a time. Our spare copies are worth about 1 P to us.
-4. **El Rastro has nothing worth buying at our values** (32 listings at tick 35; commons flooded at 12 P). Check again on Saturday, when El Retiro comes out and teams chase full pages.
-5. **Our private `neg_points` shows −8.5 and we can't explain it.** Question for the organisers: what is it, and does it pull our negotiating score down?
-7. **Every trade scores for BOTH sides, so price for the buyer's value, not ours.** We sold MAL-08 at 26 to Team 13 (the leader), who likely values it ~37: we handed the leader most of the gain. Sell near what the buyer values (collectors: uncommons ~35, rares ~100) and bid low to sellers. Prefer counterparties below us on the board.
-8. **Who collects what** (from all 13 trades between teams so far): Team 13 (1st) buys Malasaña and Salamanca (paid 74 for SAL-09); Teams 14 and 4 buy La Latina; Team 10 buys Lavapiés (our set too: it's racing us for the page). Prices: rares 65-74, uncommons 12-26, commons 6-12.
-9. **Our multipliers (`GET /api/me` → `affinity`): Chamberí 1.6 (out Sunday: our best set), Lavapiés 1.3, El Retiro 1.1 (out Saturday), Salamanca 0.9, Malasaña 0.7, La Latina 0.5.** Every team gets the same six numbers, shuffled. So a collector values an uncommon at up to 40 P (25 × 1.6) and a rare at up to 112 P.
-10. **Level 2 announced at 21:31: "El Chato", *"Better packs, friendly prices. If I like you."*** Not open yet. When it opens, the dealer bot runs `--dealer chato --ladder --deals 3` (cheapest menu items, packs included, ≤90% of list).
-11. **⚠️ PARTLY WRONG, see 13.** ~~The scoring lever (measured on 4 trades): selling a card to another team scores `price − our value of that card` (minus the fee if we accept), whatever we paid for it; dealer purchases neither score nor subtract.** So buy from dealers the cards we value least (La Latina, 0.5×) and sell them to collectors: a LAT uncommon bought at ~17-22 and sold at 26 scores ~+13.5. Never sell spares to a dealer (scores 0); list them for teams (+8.5 each at 10 P). Team 18 went 16.9 → 27.4 buying ONE rare (SAL-10 at 80) through a public bid.
-12. **Check the BUY side before sourcing anything.** Other teams' bids are public, and the feed's `offer.listed` events name the team behind each offer (Dani's find). Collectors bid ~16 for La Latina uncommons, not the 27 we listed at, so buying them from Abuela at 24 would have lost cash for +3.5 each: stopped. **Good bids vanish within minutes** (Team 8's 35 for MAL-07 was filled by another team while we haggled), so a flip takes Abuela's first price at once: the purchase price costs only cash, never score. `agents/trader/autoflip.py` does this on every tick: fill a team's bid with a card from Abuela when the sale scores ≥ 8 and the cash comes back.
-13. **CORRECTION (22:00, measured): buying from a dealer ABOVE our private value subtracts from `neg_points`.** Autoflip bought MAL-07 from Abuela at 29 (worth 17.5 to us): `neg_points` 26.3 → 14.5. Our starting −8.5 came from packs bought above their value. Below our value, the gain is unclear (LAV-08 at 24, worth 32.5: ~+0.3). Selling to teams above our value still scores. **Never buy from a dealer above our value (ladder deals included); flipping is dead; autoflip is stopped.**
-6. **The first Market Test (game hour 3.0) falls after tonight's 23:00 close**, so it runs Saturday morning. The practice duels (game hour 2.0) are still tonight, at about 22:20.
+1. **A team trade scores** Δ(our collection value) − price − fee if we accept; only the taker pays the fee. Be the maker.
+2. **A dealer deal never adds `neg_points`**: losses count in full (MAL-07 at 29, worth 17.5: −11.8), gains are clipped to 0.
+3. **A page bonus scores only when a TEAM trade completes the page.** Our LAV page: build at ≤ value, sell LAV-05, buy LAV-09
+   from Chato, buy LAV-05 back from a team at 8 → +50.0, net +40, #10 → #5.
+4. **There is a per-trade cap**, probably 50 (one observation); the RET finish tests its form (plan §4B).
+5. **Unopened packs drag** every trade's score by ~1-4 points: open packs first.
+6. **The score is relative**: idle teams fall when others gain; the 5 teams with no team trades finished last.
+7. **Chato and Abuela have repeatable price patterns** (GAME.md); never a first price, never a pack.
+8. **Feeding rivals costs us**: our SAL-06 was Team 17's second-to-last SAL card; they passed us.
+9. Duels: result = surplus × (1 − decay)^rounds; silence costs no decay; our duelist missed deadline accepts (plan §4D).
 
 ## Log (history up to Fri 21:18; new lines go in `team/<name>.md`)
 
@@ -58,3 +54,22 @@ Team 10 leads with one lever: buying from Abuela the cards of its high-value set
 - Fri ~20:12 · Aleks · `starter_agent.py`: pack at 17 P, her first offer, accepted with no counter · probably not a negotiated deal
 - Fri ~20:10 · organisers · game clock started (60 s ticks)
 - Fri 20:10 · Lucas · `CROSSWALK.md` (research × sims × rules) checked by an independent verifier; 3 major flags fixed
+
+## Findings history (Friday 20:00-22:00; several were WRONG and are superseded by the list above and intel/GAME.md)
+
+
+0. **⚠️ CORRECTED 22:00, see 13.** ~~MEASURED: `neg_points` only counts trades between teams, at our private values, net of fees.** Dealer deals barely move it: buying LAV-08 from Abuela (worth 32.5 to us, paid 24) added ~+0.3, while selling MAL-08 to a team (worth 17.5, sold at 26) added ~+8.5. Dealer deals feed the ladder (best 3 per level, small: +0.005 for LAV-08). **So: buy cards worth a lot to us from TEAMS, not dealers; use dealers for the ladder and for cash.** Team 10 leads with 29.1 (we have 12.0) by buying uncommons of its valuable sets from Abuela at 23-24 P (LAV-06, LAV-07, MAL-07), building a full LAV page. Our private `neg_points` is −8.5, almost surely from the 3 packs: random cards, mostly duplicates worth little to us. **Rule: buy what is worth more to us than its price, sell what is worth less, no more packs.** For us that's LAV (each LAV uncommon is worth 32.5 P to us; LAV-09 rare is worth 91 P and would complete our LAV page).
+1. **Abuela follows a fixed pattern** (50 conversations from all teams, public feed, ticks 4-36). When she opens high (pack 30 P, uncommon 29, common 12) she ends at about **73-75% of her opening** (pack ~22, uncommon ~21, common ~9). She concedes most in her first two moves, then 1 P at a time, and our step size barely changes this. **When she opens low (pack 17, some commons 7) she doesn't move at all.**
+2. **Our Abuela deals already land at her floor.** We're 2nd at 12.46, against 12.50 for 1st. Only our best 3 deals per level count, so **more Abuela deals add almost nothing.** Effort goes to the next dealers (higher levels weigh more), the market and the duels.
+3. **Selling to her:** she bids about 5 or 12-13 P and mostly holds. One team pushed her from 12 to 16 by asking 35 and stepping down 3 P at a time. Our spare copies are worth about 1 P to us.
+4. **El Rastro has nothing worth buying at our values** (32 listings at tick 35; commons flooded at 12 P). Check again on Saturday, when El Retiro comes out and teams chase full pages.
+5. **Our private `neg_points` shows −8.5 and we can't explain it.** Question for the organisers: what is it, and does it pull our negotiating score down?
+7. **Every trade scores for BOTH sides, so price for the buyer's value, not ours.** We sold MAL-08 at 26 to Team 13 (the leader), who likely values it ~37: we handed the leader most of the gain. Sell near what the buyer values (collectors: uncommons ~35, rares ~100) and bid low to sellers. Prefer counterparties below us on the board.
+8. **Who collects what** (from all 13 trades between teams so far): Team 13 (1st) buys Malasaña and Salamanca (paid 74 for SAL-09); Teams 14 and 4 buy La Latina; Team 10 buys Lavapiés (our set too: it's racing us for the page). Prices: rares 65-74, uncommons 12-26, commons 6-12.
+9. **Our multipliers (`GET /api/me` → `affinity`): Chamberí 1.6 (out Sunday: our best set), Lavapiés 1.3, El Retiro 1.1 (out Saturday), Salamanca 0.9, Malasaña 0.7, La Latina 0.5.** Every team gets the same six numbers, shuffled. So a collector values an uncommon at up to 40 P (25 × 1.6) and a rare at up to 112 P.
+10. **Level 2 announced at 21:31: "El Chato", *"Better packs, friendly prices. If I like you."*** Not open yet. When it opens, the dealer bot runs `--dealer chato --ladder --deals 3` (cheapest menu items, packs included, ≤90% of list).
+11. **⚠️ PARTLY WRONG, see 13.** ~~The scoring lever (measured on 4 trades): selling a card to another team scores `price − our value of that card` (minus the fee if we accept), whatever we paid for it; dealer purchases neither score nor subtract.** So buy from dealers the cards we value least (La Latina, 0.5×) and sell them to collectors: a LAT uncommon bought at ~17-22 and sold at 26 scores ~+13.5. Never sell spares to a dealer (scores 0); list them for teams (+8.5 each at 10 P). Team 18 went 16.9 → 27.4 buying ONE rare (SAL-10 at 80) through a public bid.
+12. **Check the BUY side before sourcing anything.** Other teams' bids are public, and the feed's `offer.listed` events name the team behind each offer (Dani's find). Collectors bid ~16 for La Latina uncommons, not the 27 we listed at, so buying them from Abuela at 24 would have lost cash for +3.5 each: stopped. **Good bids vanish within minutes** (Team 8's 35 for MAL-07 was filled by another team while we haggled), so a flip takes Abuela's first price at once: the purchase price costs only cash, never score. `agents/trader/autoflip.py` does this on every tick: fill a team's bid with a card from Abuela when the sale scores ≥ 8 and the cash comes back.
+13. **CORRECTION (22:00, measured): buying from a dealer ABOVE our private value subtracts from `neg_points`.** Autoflip bought MAL-07 from Abuela at 29 (worth 17.5 to us): `neg_points` 26.3 → 14.5. Our starting −8.5 came from packs bought above their value. Below our value, the gain is unclear (LAV-08 at 24, worth 32.5: ~+0.3). Selling to teams above our value still scores. **Never buy from a dealer above our value (ladder deals included); flipping is dead; autoflip is stopped.**
+6. **The first Market Test (game hour 3.0) falls after tonight's 23:00 close**, so it runs Saturday morning. The practice duels (game hour 2.0) are still tonight, at about 22:20.
+

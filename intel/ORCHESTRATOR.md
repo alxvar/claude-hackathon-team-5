@@ -8,7 +8,7 @@ All state lives in files; your context is disposable. When it gets heavy, write 
 
 | Layer | What | Where |
 |---|---|---|
-| Daemons (no LLM, detached) | status, collector, trader (`loop.py`), autoflip | `tools/daemons.sh status` · logs in `logs/<name>.log` |
+| Daemons (no LLM, detached) | status, collector, trader (`loop.py`). Autoflip is DEAD: never start it | `tools/daemons.sh status` · logs in `logs/<name>.log` |
 | Facts | `data/` (raw, gitignored) → `intel/metrics.md` every 2 min | `tools/collector.py`, `tools/metrics.py` |
 | Analysts (LLM, advisory, detached) | scout (Sonnet, 5 min) · judge (Opus, 15 min) · **strategist** (Opus, 45 min: cracks the game, sets the plan) | `intel/scout.md`, `intel/judge.md`, `intel/strategy.md` |
 | You | Turn advice into actions within the guardrails; keep everything running | this file |
@@ -19,7 +19,7 @@ There is exactly ONE operator (this session). Lucas talks only to his strategy s
 `intel/directives.md`, and you reach Lucas through PushNotification plus your log in `team/lucas.md`.
 
 ## Start of every session
-1. `tools/daemons.sh status`; start anything DOWN with `tools/daemons.sh start <name>`.
+1. `tools/daemons.sh status`. Before the §2 checks start only `status` and `collector` if they are DOWN.
 2. Arm the live watcher with the Monitor tool: command `set -a; . ./.env; set +a; python3 -u tools/watch.py`,
    timeout 1800000. Re-arm it every time it expires.
 3. **Saturday:** read `intel/saturday-plan.md` first and run its §2 decision tree before anything else. The trader and
@@ -40,9 +40,10 @@ There is exactly ONE operator (this session). Lucas talks only to his strategy s
   section; the analysts read it on every run). `LOG.md` stays Lucas's.
 - `LEADERBOARD` (only when our rank moves 2+ or the top 4 changes): re-check our open offers addressed `to` a team that is
   now in the top 4, and cancel them.
-- `LEVELS/DEALERS` (a new dealer opens): run `python3 agents/dealers/abuela_bot.py --dealer <id> --dry-run`, then
-  `--ladder --deals 3` (3 negotiated deals per level; higher levels weigh more).
-- `DUELS`: nothing. Aleks owns duels; our bots already hold accepts while a duel is live.
+- `LEVELS/DEALERS` (a new dealer opens): read its menu (`/api/dealers/<id>`) and run
+  `python3 agents/dealers/abuela_bot.py --dealer <id> --dry-run`. Deal only on cards we need at ≤ our value (plan §4C);
+  three negotiated deals with it likely unlock the next level early [L]. Never buy packs.
+- `DUELS`: nothing. Aleks owns duels. Bots hold accepts only during SCORED duel sessions (plan §5 accept arbiter).
 - `TEAMMATE PUSH`: read only if it touches `team/` or `PLAN.md`.
 - `WATCH ERROR` or a daemon down: restart it; if it keeps failing, notify Lucas.
 
@@ -51,18 +52,20 @@ You decide and act on everything inside these hard limits, rares and big trades 
 Lucas changes a limit only through a `DIRECTIVE` line containing GUARDRAIL.
 
 ## Hard limits
-- Cash never below 200 P (Saturday adds 150; keep 270 for the venue bond when the strategist opens one).
+- Cash never below 200 P until a GUARDRAIL directive changes it (plan §4B proposes 100 on Saturday, 0 by Sunday 14:00;
+  a venue bond is 270 P). Pass the floor to the dealer bot with `--cash-floor`.
 - **Teams:** buy only at ≤ our value − 3 (fee included); sell only at ≥ our value + 3. Never sell the last copy of a
   card that completes or protects a page (check `b.value` of the missing card before and after).
 - **Dealers** (directive 22:40): dealer gains score 0 and losses score in full. Buy only at ≤ our value with no
-  unopened packs held (≤ value − 4 if we hold one); sell only at ≥ our value. These deals are for the ladder (best 3 per
-  level), so take the dealer's `final` (Team 3's protocol: open low, +1 per tick). Never buy a page-completing card from
-  a dealer: the page bonus scores only through a team trade. Autoflip stays stopped.
-- **Feeding:** no sale to a top-4 team unless our gain clearly beats theirs (their value ≈ book × 1.6 at most). Don't sell
-  into a set a team within ~8 points of us collects, or one it is close to completing (Dani 22:35). Prefer addressing
-  offers `to` a team below us.
-- One process per dealer conversation. While a duel is live never use the team's accept: propose the counterparty's own
-  price instead, so THEY accept.
+  unopened packs held (≤ value − 4 if we hold one); sell only at ≥ our value. Use the protocols in plan §4C (Chato
+  uncommon: +1 per round to his 28-29 final; rare: constant +2 to +4, never +1; Abuela: more rounds, lower price). Never a
+  first price, never a pack. Never buy a page-completing card from a dealer: the page bonus scores only through a team
+  trade. Autoflip is dead.
+- **Feeding** (plan §4A): a page-completing card (second-to-last or last of a page) goes only to a team ≥ 10 points below
+  us and never to the top 4. Other sales to the top 4 only if our gain clearly beats theirs (their value ≈ book × 1.6 at
+  most). Prefer addressing offers `to` a team below us.
+- One process per dealer conversation. During a SCORED duel session don't use the team's accept: propose the
+  counterparty's own price instead, so THEY accept.
 - Log every action: one line at the top of `team/lucas.md`'s log, then push.
 
 ## Learning loop (every deal)

@@ -14,3 +14,5 @@ dist/
 logs/
 data/
 run/
+.DS_Store
+.claude/settings.local.json

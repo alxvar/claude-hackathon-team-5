@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Start / stop / list the team's long-running processes, detached from any Claude Code session.
 #   tools/daemons.sh start [name...]   tools/daemons.sh stop [name...]   tools/daemons.sh status
-# Logs in logs/<name>.log, pids in run/<name>.pid. Names: status collector trader autoflip scout judge
+# Logs in logs/<name>.log, pids in run/<name>.pid. Names: status collector trader scout judge
 R="$(cd "$(dirname "$0")/.." && pwd)"
 mkdir -p "$R/logs" "$R/run"
 cmd_for() {
@@ -9,14 +9,13 @@ cmd_for() {
     status)    echo "python3 -u $R/tools/status.py --every 300 --push" ;;
     collector) echo "python3 -u $R/tools/collector.py" ;;
     trader)    echo "python3 -u $R/agents/trader/loop.py --min-gain 3 --min-gain-sell 6 --cash-floor 200" ;;
-    autoflip)  echo "python3 -u $R/agents/trader/autoflip.py" ;;
     scout)     echo "uv run --project $R python -u $R/agents/analyst/analyst.py --role scout --every 300" ;;
     judge)     echo "uv run --project $R python -u $R/agents/analyst/analyst.py --role judge --every 900" ;;
     strategist) echo "uv run --project $R python -u $R/agents/analyst/analyst.py --role strategist --every 2700" ;;
     *) return 1 ;;
   esac
 }
-ALL="status collector trader autoflip scout judge strategist"
+ALL="status collector trader scout judge strategist"  # autoflip is DEAD (dealer buys above value subtract): never add it back
 alive() { [ -f "$R/run/$1.pid" ] && kill -0 "$(cat "$R/run/$1.pid")" 2>/dev/null; }
 action="$1"; shift; names="${*:-$ALL}"
 for n in $names; do

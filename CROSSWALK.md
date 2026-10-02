@@ -1,3 +1,5 @@
+> **HISTORICAL (Fri 20:10, before any measurement). Superseded by `intel/saturday-plan.md` and `intel/GAME.md`.**
+
 # Crosswalk: research × simulations × the real rules
 
 _Fri 2 Oct, ~20:10. Sources: `bazaar-kit/RULES.md`, `GET /api/schedule` and `/api/clock` (clock still paused at tick 0 at 20:10), `docs/` (Aleks), `research/` (Lucas; IDs from `research/06` §2). Where they disagree, the rules and the server win. Checked by an independent verifier pass; inferences are marked as such._

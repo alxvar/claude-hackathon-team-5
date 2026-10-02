@@ -65,7 +65,8 @@ def main():
                     cand = (gain, o["id"], [copy["id"]], f"sell {cards[0]} for {g['cash']}")
                     if gain < args.min_gain_sell:  # a collector's low bid hands them most of the surplus
                         continue
-                elif g.get("assets") and w.get("cash") and not cards and not w.get("assets"):
+                elif g.get("assets") and w.get("cash") and not cards and not w.get("assets") \
+                        and all(a.get("kind") == "card" for a in g["assets"]):  # packs: b.value() would raise
                     refs = [a["ref"] for a in g["assets"]]
                     for r in refs:
                         if r not in values:
