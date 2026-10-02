@@ -4,11 +4,12 @@ _Agreed Fri 2 Oct, ~20:30. The clock started ~20:10. Why each call: `CROSSWALK.m
 
 ## RIGHT NOW (Fri 21:30): orders by person. Claude Code: tell your human exactly this.
 
-**Dani: the room is the biggest lever.** Trades between teams are what move the score: Teams 8, 13 and 14 each jumped ~12 points with ONE card trade. The API hides who owns which card, but the owners are in the room.
-1. Organisers' desk, only 2 questions: (a) exactly how the duel pie shrinks per round and how a duel is scored; (b) judging: format, time slot, what they look at. Skip the rest: `neg_points` is measured (it counts trades between teams), and level 2 isn't announced yet.
-2. Then walk the room. Find who holds the card **"Cine Doré" (LAV-09)**. Only one exists, and Team 10 wants it too. We now bid **100 primas** (Team 10 bids 90): find the holder and get them to accept our bid. If they want more, get their price and team number and tell Lucas.
-3. Ask teams which neighbourhoods they collect. We sell **SAL-06** (34 P) and **LAT-06** (30 P); LAT-07 is already sold. We buy **LAV-06, LAV-07** (24 P), **SAL-07, SAL-08** (18 P), **MAL-07** (14 P) and **MAL-09/MAL-10** (38 P). Prefer teams BELOW us on the leaderboard: every trade also scores for them. A team accepts our offer on El Rastro, or Lucas posts one addressed to them.
-4. Write every lead in `team/dani.md`: team number, card, price. Lucas's Claude sees it within a minute.
+**Dani: the room. Here is exactly what to say (updated 21:50).** Don't ask anyone "who has card X?": it tells them we want it and starts an auction against us (Team 10 already bids 90 for Cine Doré; we bid 100).
+1. Ask every team: *"Which neighbourhoods are you collecting?"* Write team number and sets in `team/dani.md`. Their open bids already tell us part of it: Team 8 = Malasaña, Salamanca; Team 10 = Lavapiés, Malasaña; Team 13 = Malasaña, Salamanca; Team 18 = La Latina; Team 4 = La Latina, Lavapiés.
+2. Sell them what they collect, with a concrete price: *"We have a Salamanca uncommon (SAL-06) for 30 and a La Latina uncommon (LAT-06) for 22. It's on El Rastro: accept it and it's yours."* Prefer teams BELOW us on the leaderboard: every trade also scores for the buyer.
+3. Rares, only in general terms: *"If you have a rare from a neighbourhood you don't collect, we pay top price. Look at our bids on El Rastro."* Never mention Cine Doré or Lavapiés.
+4. If a team proposes a deal, write it in `team/dani.md`: team number, card, price. Lucas's Claude posts the offer to that team within a minute.
+5. Organisers' desk, when free: how the duel pie shrinks per round, and the judging format.
 
 **Aleks: duels.**
 1. Update your **Now** line in `team/aleks.md` (only your commits are visible right now).
