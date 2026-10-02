@@ -67,6 +67,58 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 136,
+   "raw": {
+    "duel": 121,
+    "session": 1,
+    "status": "live",
+    "role": "seller",
+    "item": "El Tren Fantasma",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 74,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 148,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 897,
+     "price": 118,
+     "tick": 136,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 899,
+     "price": 44,
+     "tick": 136,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 136,
+      "from": "you",
+      "text": "El Tren Fantasma is a rare, sought-after piece, and I'm opening at 118 P, which reflects its quality and scarcity. I'd like to hear your offer so we can find common ground quickly.",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 136,
+      "from": "Rival Sol",
+      "text": "Hello, we'd like to open at 44 for the card, which fits the budget we've set for this album page. Happy to hear your thoughts and work toward a fair deal.",
+      "price": 44,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
