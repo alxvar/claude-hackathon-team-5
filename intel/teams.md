@@ -1,4 +1,4 @@
-# Rival profiles (Dani's dashboard, auto Fri 23:03, tick 159)
+# Rival profiles (Dani's dashboard, auto Sat 00:47, tick 159)
 
 _From the public feed since tick 67, the leaderboard and our /api/me. Inferred: starting cards and pack pulls are invisible. Collects = sets it buys or bids for; dumps = sets it sells or asks for. Prices = median of its team trades and open bids (c/u/r). Δ = score change over ~30 ticks._
 
@@ -11,7 +11,7 @@ _From the public feed since tick 67, the leaderboard and our /api/me. Inferred: 
 - #5 Team 5 20.0 (Δ +3.6) · **US** · dumps LAT/LAV/SAL · prices c 8.5 u 21.5 · 6 team / 7 dealer trades, 26 listings · Abuela −5.9%
 - #6 Team 4 19.9 (Δ +0.7) · **buyer for LAV/LAT** · collects LAV/LAT · dumps MAL · prices c 7.5 u 21 · 6 team / 3 dealer trades, 20 listings · Abuela −15.3% · big: LAT-07 from Team 5 for 21 P (tick 68)
 - #7 Team 18 19.2 (Δ -2.2) · **seller of MAL/LAV** · dumps MAL/LAV · prices c 9 u 23 r 62 · 6 team / 4 dealer trades, 34 listings · Abuela −19.5% · big: SAL-10 from Team 12 for 80 P (tick 72)
-- #8 Team 14 18.1 (Δ +0.6) · **buyer for LAV** · collects LAV · dumps MAL/LAT/SAL · prices r 53 · 1 team / 4 dealer trades, 16 listings · Abuela −25%
+- #8 Team 14 18.1 (Δ +0.6) · **buyer for LAV** · collects LAV · dumps MAL/LAT/SAL · prices u 55 r 53 · 1 team / 4 dealer trades, 17 listings · Abuela −25%
 - #9 Team 8 17.6 (Δ -4.0) · **buyer for SAL/LAT/LAV** · collects SAL/LAT/LAV · prices c 7.5 r 53 · 3 team / 3 dealer trades, 80 listings · Abuela −15.5% · big: MAL-10 from Team 14 for 53 P (tick 77)
 - #10 Team 3 14.6 (Δ +3.2) · **buyer for SAL/LAT** · collects SAL/LAT · dumps MAL/LAV · prices u 28 · 1 team / 5 dealer trades, 4 listings · Abuela −15.8%
 - #11 Team 6 12.1 (Δ -1.7) · **buyer for SAL** · collects SAL · dumps MAL/LAV/LAT · prices c 8.5 u 23 r 60 · 10 team / 2 dealer trades, 112 listings · Abuela −9.6%
