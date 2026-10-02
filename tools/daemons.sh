@@ -24,7 +24,8 @@ for n in $names; do
     start)
       if alive "$n"; then echo "$n: already running ($(cat "$R/run/$n.pid"))"; continue; fi
       c="$(cmd_for "$n")" || { echo "$n: unknown"; continue; }
-      (set -a; . "$R/.env"; set +a; nohup bash -c "$c" >> "$R/logs/$n.log" 2>&1 & echo $! > "$R/run/$n.pid")
+      # supervised: if the process dies (server restart, network), it comes back after 10 s
+      (set -a; . "$R/.env"; set +a; nohup bash -c "while true; do $c; echo \"\$(date +%H:%M:%S) exited, restarting\"; sleep 10; done" >> "$R/logs/$n.log" 2>&1 & echo $! > "$R/run/$n.pid")
       echo "$n: started ($(cat "$R/run/$n.pid"))" ;;
     stop)
       if alive "$n"; then pkill -P "$(cat "$R/run/$n.pid")" 2>/dev/null; kill "$(cat "$R/run/$n.pid")" 2>/dev/null; echo "$n: stopped"; else echo "$n: not running"; fi
