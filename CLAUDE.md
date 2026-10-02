@@ -1,6 +1,8 @@
 # Team 5 — The Bazaar (Causa Prima, Madrid, Oct 2–4)
 
-Start with `PLAN.md` (who owns what, what we do today), then `CROSSWALK.md` (what the real rules change, and how the research and the simulations fit together).
+Start with `STATUS.md` (live numbers, auto-updated every 5 min) and `LOG.md` (what each of us did and what came of it), then `PLAN.md` (who owns what) and `CROSSWALK.md` (what the real rules change, and how the research and the simulations fit together).
+
+**After every run, experiment or decision, add one line at the top of `LOG.md`'s log:** `time · who · what · result · next`. If it changes what we believe, update the "Findings so far" list too. Pull before, push right after. This is how the three of us, and each of our Claude Code sessions, stay in sync.
 
 ## Source of truth
 
@@ -14,6 +16,10 @@ Start with `PLAN.md` (who owns what, what we do today), then `CROSSWALK.md` (wha
 | `docs/` | Simulations, test bench results and the leading duel agent (Clock-Standing) | Aleks |
 | `research/` | Evidence base (`01`), offense (`02`), defense (`03`), red team (`04`), sponsor (`05`), hypotheses and experiment plan (`06`), spec kit (`07`), field-tested MIT prompts. `_data/` holds the MIT competition data behind `01`; the two files over 30 MB are left out | Lucas |
 | `CROSSWALK.md` | Research × simulations × real rules, hypothesis by hypothesis | team |
+| `STATUS.md` | Live numbers from the server. Written only by `tools/status.py`; don't edit by hand | Lucas's machine |
+| `LOG.md` | Team log and findings | everyone |
+| `agents/dealers/` | `abuela_bot.py`: negotiated dealer deals within the 270 P cash floor | Lucas |
+| `tools/` | `status.py`: writes and pushes `STATUS.md` | Lucas |
 
 ## Rules for anyone working here, humans and Claude Code alike
 
