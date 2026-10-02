@@ -2,6 +2,11 @@
 
 _Written by the strategy session. It never touches the game: no trades, no bots. The operator executes inside its guardrails; anything involving a rare or >50 P still needs Lucas. Newest block on top. Labels: **[Verified]** measured on our own deals or read from the server; **[Likely]** fitted or inferred; **[Open]** unknown._
 
+## Fri 22:53 — step 3 update
+
+- 22:53 · Steps 1-2 done (LAV-05 out at 5: −8.0; LAV-09 in at 93: −2.0; value?card=LAV-05 now 99.1). No LAV-05 ask is on the board. Post a PUBLIC bid for LAV-05 at 18 now and leave it up overnight. Gain if filled ≈ +81.
+- 22:53 · LAV-05 bid limits: if it has not filled by Saturday 09:30, raise to 25; hard cap 40. Never buy LAV-05 from a dealer (that would complete the page through a dealer and score ~0). Never sell any LAV card while the bid is open.
+
 ## Fri 22:47 — LAV page plan (replaces the LAV-09 bid; execute now, in order)
 
 - 22:47 · Cancel our LAV-09 bid 2353 now and close Chato thread 276 (LAT-08). Goal: a TEAM trade completes the LAV page (~+87 `neg_points`) and Chato gives us a ladder slot on the way. Steps 1-3 below, in order.
