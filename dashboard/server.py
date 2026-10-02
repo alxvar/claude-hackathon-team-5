@@ -606,10 +606,16 @@ class Analysis:
                 add("rival", f"OUTBID on {ref}: {who} P vs our {mine['price']} (#{mine['id']}). Raise, or drop it.")
             else:
                 add("rival", f"We lead on {ref} at {mine['price']} P (#{mine['id']}); also bidding: {who}.")
+        rivals_by_set = collections.defaultdict(list)
         for p in prof:
-            for kind, text in p["relation"]:
-                if kind == "rival":
-                    add("rival", f"{p['name']} (#{p['rank']}) {text}.")
+            if p["us"]:
+                continue
+            for s in p["wants"]:
+                if self.aff.get(s, 0) >= 1.1:
+                    rivals_by_set[s].append(f"{p['name']} (#{p['rank']})")
+        for s, who in rivals_by_set.items():
+            add("rival", f"{len(who)} teams also collect {s} (worth {self.aff.get(s)}× to us): {', '.join(who)}. "
+                         f"Expect competition for {s} cards; don't sell them {s}.")
         buyers = collections.defaultdict(list)
         for p in prof:
             for kind, text in p["relation"]:
@@ -627,6 +633,51 @@ class Analysis:
                         + (f"; we get {mine['avg_move']}%." if mine else "."))
         if self.c.feed_gap:
             add("warn", "The feed had a gap (the dashboard was off for a while): counts before it are incomplete.")
+        return out
+
+    # -------------------------------------------------------------------------------------- why our score moved
+    def our_trade_text(self, tr):
+        i = tr["items"][0] if tr["items"] else {}
+        refs = ", ".join(x.get("ref", "?") for x in tr["items"]) or "cash"
+        if i.get("to") == self.us:
+            return f"bought {refs} from {self.name(i.get('frm'))} for {tr['price']} P"
+        return f"sold {refs} to {self.name(i.get('to'))} for {tr['price']} P"
+
+    def story(self):
+        """Per leaderboard interval: our score change = field drift (what idle teams did) + our own doing.
+
+        The score is relative: teams that make no trade still move together when others gain. The median change
+        of the teams that made no trade in the interval estimates that drift; the rest of our change is ours."""
+        def neg_at(t):
+            xs = [r for r in self.me_hist if r.get("tick") is not None and r["tick"] <= t and r.get("neg_points") is not None]
+            return xs[-1]["neg_points"] if xs else None
+
+        def rank_in(snap):
+            order = sorted(snap["teams"], key=lambda k: -(snap["teams"][k].get("score") or 0))
+            return order.index(self.us) + 1 if self.us in order else None
+
+        out = []
+        for a, b in zip(self.lb_hist, self.lb_hist[1:]):
+            ta, tb = a["tick"], b["tick"]
+            active, ours = set(), []
+            for tr in self.trades:
+                if ta < (tr["tick"] or 0) <= tb:
+                    active.update(tr["parties"])
+                    if self.us in tr["parties"]:
+                        ours.append(tr)
+            idle = [b["teams"][k]["score"] - a["teams"][k]["score"] for k in b["teams"]
+                    if k in a["teams"] and k not in active and k != self.us
+                    and b["teams"][k].get("score") is not None and a["teams"][k].get("score") is not None]
+            usa, usb = a["teams"].get(self.us, {}).get("score"), b["teams"].get(self.us, {}).get("score")
+            if usa is None or usb is None:
+                continue
+            drift = median(idle) if idle else 0.0
+            delta = usb - usa
+            na, nb = neg_at(ta), neg_at(tb)
+            out.append({"from": ta, "to": tb, "score": usb, "rank": rank_in(b), "delta": round(delta, 2),
+                        "drift": round(drift, 2), "ours": round(delta - drift, 2),
+                        "neg_points": nb, "neg_delta": round(nb - na, 1) if na is not None and nb is not None else None,
+                        "trades": [self.our_trade_text(t) for t in ours], "idle_teams": len(idle)})
         return out
 
     # -------------------------------------------------------------------------------------- intel/teams.md
@@ -743,7 +794,16 @@ class Analysis:
         market = self.market()
         price_rows, last_price = self.prices()
         s = self.me.get("score") or {}
+        us = next((p for p in prof if p["us"]), None)
+        above = next((p for p in prof if us and p["rank"] == us["rank"] - 1), None)
+        below = next((p for p in prof if us and p["rank"] == us["rank"] + 1), None)
+        neighbours = [p["team"] for p in prof if us and abs(p["rank"] - us["rank"]) <= 2]
         return {
+            "story": self.story(),
+            "neighbours": neighbours,
+            "above": {"name": above["name"], "score": above["score"], "rank": above["rank"]} if above else None,
+            "below": {"name": below["name"], "score": below["score"], "rank": below["rank"]} if below else None,
+            "lb_score": us["score"] if us else None, "lb_rank": us["rank"] if us else None,
             "now": time.strftime("%H:%M:%S"),
             "updated": datetime.fromtimestamp(self.c.updated).strftime("%H:%M:%S") if self.c.updated else None,
             "requests": self.c.requests, "errors": list(self.c.errors), "has_key": self.c.team is not None,
