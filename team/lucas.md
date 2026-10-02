@@ -1,11 +1,12 @@
 # Lucas (+ Claude Code) — dealers, team trades, market, monitoring
 
-**Now:** FLIP (`agents/trader/flip.py`): buying La Latina cards from Abuela (we value them least) and listing them for LAT collectors at 26 (uncommons) / 11 (commons). E3 autopilot + 19 offers up. Spares now listed for teams at 10, no longer sold to Abuela. Watcher live
+**Now:** `autoflip.py` live: fills other teams' bids with cards bought from Abuela at her first price when the sale scores ≥8. `loop.py` sells our cards into good bids and buys underpriced listings. LAV-09 bid 100. Listings repriced to market (LAT-06 22, SAL-06 30). Watcher live
 
 **Touches:** `agents/dealers/`, `agents/trader/`, `broker/`, `tools/`, `STATUS.md`, `LOG.md`; dealer, trade and market endpoints only.
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Fri 21:50 · stopped the LAT flip before buying (collectors bid 16, not 27); Team 8's 35 bid for MAL-07 vanished while we haggled · autoflip live: takes Abuela's first price and sells into the bid in ~2 ticks · Dani's script for the room is in PLAN.md
 - Fri 21:43 · Dani spotted Team 10 bidding 90 for LAV-09 · raised ours to 100 (worth 91 now; the page bonus scores if LAV-06/07 come last from teams; also blocks Team 10's page) · LAT flip restarted with caps 25/10 (Abuela stops at ~24)
 - Fri 21:38 · found the scoring lever (LOG finding 11): sales to teams score price − our value, dealer buys cost only cash · stopped selling spares to Abuela (0 points) and listed them for teams; started flipping LAT cards (buy from Abuela, list at 26/11) · next: measure the first flip's points
 - Fri 21:34 · El Chato (level 2) announced; dealer bot gained `--ladder` (cheapest menu items, packs included) for when he opens · our multipliers found in `/api/me`: CHA 1.6 (Sunday), LAV 1.3, RET 1.1 (Saturday) · next: Chato's 3 deals the moment he opens

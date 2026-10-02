@@ -69,7 +69,7 @@ def duel_live(b: Bazaar) -> bool:
         return False
 
 
-def negotiate(b: Bazaar, topic: dict, side: str, cap: int, tid: int = None) -> dict:
+def negotiate(b: Bazaar, topic: dict, side: str, cap: int, tid: int = None, fast: bool = False) -> dict:
     """side 'buy': cap = the most we pay. side 'sell': cap = the least we take.
     With `tid`, pick up an open conversation where it stands."""
     better = (lambda x, y: x < y) if side == "buy" else (lambda x, y: x > y)  # x better for us than y
@@ -112,7 +112,7 @@ def negotiate(b: Bazaar, topic: dict, side: str, cap: int, tid: int = None) -> d
         close = ours is not None and abs(price - ours) <= 1
         log({"event": "tick", "thread": tid, "her": price, "final": o.get("final"), "ours": ours, "next": nxt})
 
-        if within_cap and (o.get("final") or crosses or close):
+        if within_cap and (o.get("final") or crosses or close or fast):  # fast: take her price now (a flip)
             if duel_live(b) and not o.get("final"):
                 log({"event": "hold_accept_duel_live", "thread": tid})
                 b.wait_tick()
