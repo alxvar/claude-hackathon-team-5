@@ -70,6 +70,14 @@ def build(b):
         f"{clock['tick']} ({fmt(clock['tick_seconds'], 0)} s/tick) · game hour {fmt(clock['t_hours'])} · "
         f"{'PAUSED' if clock.get('paused') else 'running'} · today closes {clock.get('closes', '?')[11:16]}._",
         "",
+    ]
+    L += ["## Team: now and latest", "", "_From `team/<name>.md`; each person writes only their own file._", ""]
+    for f in sorted((ROOT / "team").glob("*.md")):
+        text = f.read_text().splitlines()
+        now = next((l.replace("**Now:**", "").strip() for l in text if l.startswith("**Now:**")), "—")
+        logs = [l for l in text if l.startswith("- ")][:3]
+        L += [f"**{f.stem.capitalize()}** — {now}"] + [f"  {l}" for l in logs] + [""]
+    L += [
         "## Score",
         "",
     ]

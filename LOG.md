@@ -3,13 +3,9 @@
 **One line per run, experiment or decision. Newest on top.** Format: `time · who · what · result · next`.
 Pull before you add a line and push right after. Live numbers are in `STATUS.md` (auto-updated); why we do things is in `PLAN.md` and `CROSSWALK.md`.
 
-## Now: who is doing what (each owner keeps their own line current)
+## Who is doing what
 
-| Who | Working on now | Touches | Next |
-|---|---|---|---|
-| **Aleks** | Duels: Clock-Standing on the duel API (`duels`, `duel_say`, `duel_accept`), on Claude, for the practice duels (~22:20). _Aleks: please confirm or correct this line_ | `agents/duelist/`, `engine/`, duel endpoints | Push the bench code; log what you run in the practice |
-| **Lucas** (+ Claude Code) | 1) **Dealer bot running (since 21:07):** buys LAV uncommons (worth 32.5 P to us, about 23 P from Abuela), sells our 7 spare copies, and logs the score before and after every deal. 2) Market Test broker, offline (`broker/sim.py`) | `agents/dealers/`, `broker/`, `tools/`, `STATUS.md`; dealer and market endpoints only | Read the practice duels; tune the broker |
-| **Dani** | Five questions to the organisers' desk (the four in `PLAN.md`, plus: what is `neg_points`?). Writes the answers here | `LOG.md` | The story for the judges |
+Each person keeps a **Now** line and a log in their own file: `team/aleks.md`, `team/dani.md`, `team/lucas.md`. `STATUS.md` shows all three, refreshed every 5 minutes. **Write only in your own file.** This file (findings, experiments, history) is maintained by Lucas.
 
 ## Experiments: how we beat the leaders, not copy them
 
@@ -37,7 +33,7 @@ Team 10 leads with one lever: buying from Abuela the cards of its high-value set
 5. **Our private `neg_points` shows −8.5 and we can't explain it.** Question for the organisers: what is it, and does it pull our negotiating score down?
 6. **The first Market Test (game hour 3.0) falls after tonight's 23:00 close**, so it runs Saturday morning. The practice duels (game hour 2.0) are still tonight, at about 22:20.
 
-## Log
+## Log (history up to Fri 21:18; new lines go in `team/<name>.md`)
 
 - Fri 21:15 · Lucas · **measured:** MAL-08 sold to a team at 26 P (+~8.5 `neg_points`) vs LAV-08 bought from Abuela at 24 P (+~0.3) · team trades are the lever, dealer buys aren't (finding 0 rewritten) · bid 24 P for LAV-06 from teams instead of buying it from Abuela · `neg_points` −8.5 → +2.7
 - Fri 21:12 · Lucas · **calibration:** sold the spare MAL-02 for 6 P → `neg_points` −8.5 → −6.1 (+2.4) and cash +4 (we paid the 2 P fee as the accepting side) · confirms `neg_points` = value gained at our private values, net of fees (6 − 2 fee − 1.75 lost ≈ +2.3) · when we accept, we pay the fee; when they accept our listing, they do

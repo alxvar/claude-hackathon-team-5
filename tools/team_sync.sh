@@ -25,12 +25,12 @@ if [ "$mode" = "pull" ]; then
   for h in $hashes; do git log -1 --format='- %h %an, %ar: %s' "$h"; done
   echo "Files they touched:"
   for h in $hashes; do git show --name-only --format= "$h" -- . ':(exclude)STATUS.md'; done | sort -u | sed 's/^/  /' | head -20
-  if git diff --quiet "${seen:-HEAD~10}" HEAD -- LOG.md 2>/dev/null; then :; else
-    echo "LOG.md changed. Current 'Now' board and latest log lines:"
-    sed -n '/^## Now/,/^## Findings/p' LOG.md | sed '$d'
-    sed -n '/^## Log/,$p' LOG.md | sed -n '3,10p'
-  fi
-  echo "Read the files above before touching anything they own (see LOG.md 'Now')."
+  for f in team/*.md; do
+    git diff --quiet "${seen:-HEAD~10}" HEAD -- "$f" 2>/dev/null && continue
+    echo "$f changed:"; grep -m1 '^\*\*Now:\*\*' "$f"; grep '^- ' "$f" | head -3
+  done
+  git diff --quiet "${seen:-HEAD~10}" HEAD -- LOG.md 2>/dev/null || echo "LOG.md (findings/experiments) changed: read it."
+  echo "Write only in your own team/<name>.md; never edit someone else's file (CLAUDE.md)."
   exit 0
 fi
 
