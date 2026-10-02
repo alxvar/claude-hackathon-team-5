@@ -1,31 +1,23 @@
-# Scout (claude-sonnet-5-5, Fri 22:35)
+# Scout (claude-sonnet-5-5, Fri 22:40)
 
 ## Top 3 actions now
 
-1. **Reprice our sells to the live bids, via `trade.py` list (maker-side, no fee).**
-   - SAL-06: t06 bids 23 (offer 2134). We no longer hold SAL-06 (sold to t17 at 26), so skip it.
-   - MAL-06 / MAL-07: our offers 2173 and 1853 are at 22 and addressed to t15. t15 bought MAL-07 at 26 (tick 98) and MAL-06 at 21 (tick 103). Asks elsewhere: MAL-07 30 (one ask). Keep them at 22 for t15.
-   - Value is 17.5 each, so +4.5 each at 22.
-   - LAV-04 (our 2nd copy, value 3.2) is at 9 to t07. t07 bought LAV-04 at 9 (tick 106). The expected gain is ≈+5.8.
-   - Confidence: med. t15 and t07 are below us on the board (t15 is last; t07 is #13 in the profiles).
+1. **Reprice our open sells to the bids that exist; do not wait on t15.** Offers 1853 (MAL-07 at 22), 2173 (MAL-06 at 22), 1869 and 1870 are all addressed `to t15`. Offers 1853, 1869 and 1870 expire at tick 147. t15 is #17 (4.7 points) and its fills so far are LAT×5, MAL×2, so it is a real buyer. Our value is 17.5 for each MAL, so 22 gives +4.5 each. Lucas can re-list MAL-06 and MAL-07 at 22-23 as open asks (`trade.py`, no `to`) so t17 and t13 (buys MAL×4) can also fill. Never sell to t13 (leader, rank 1). Expected effect: +4.5 to +5.5 per MAL, so about +9 to +11 for the pair. Confidence: med.
 
-2. **Sell LAT-03 and LAT-04 (value 5 each) to t08 or t14, not just t15.**
-   - Offers 1869 and 1870 at 10 are addressed to t15. t08 bids LAT-07 at 18 and collects LAT. t14 buys LAT×2.
-   - t08 is #3 and ahead of us, but the gain is only ≈+5 each. Never hand a leading team more value than we gain, so keep t15 as the target and let the offers run (expire tick 147).
-   - Confidence: low-med.
+2. **Hold the LAV-09 bid of 125 (offer 2353) and run the free test.** Run `GET /api/me/value?card=LAV-09` once. We hold LAV-06, LAV-07, LAV-08 and LAV-10, so check whether LAV-09 shows ~177 (page bonus) or 91. Evidence: t17 gained about +45 at tick 124 for a page-completing SAL-08 bought from a team at 35. D6 says Team 10 holds LAV-09 and has a complete page. Its 110 bid is gone, and t02 bids only 22 for LAV-09. If the value is 91, cancel the 125 bid: paying 125 would score −34 on a card worth 91 (neg_points counts value − price), so the bid only makes sense at ~177. If it is ~177, Lucas asks the room for the holder; a team sale scores value − price − fee. Confidence: low-med.
 
-3. **Hold the rare plan (D5) and ask Lucas to find holders now.**
-   - Open bids: LAT-09 and LAT-10 at 55 each (offers 1157/1158), SAL-09 and SAL-10 at 37 each.
-   - We hold none of these. Only a pack can produce them.
-   - If we open `sobre_bienvenida` (worth 46.1) or `sobre_barrio` (14.6) and get a LAT rare, sell it into the 55 bid (≈+20, per D5).
-   - Confidence: low. It depends on pack luck.
+3. **Sell the cheap spare commons into open asks and bids near 9-10.**
+   - LAV-04 at 9 to t07 (offer 2174) is already out. Our copies are worth 3.2 each, so +5.8.
+   - Add LAV-02 and LAV-03 spares at 9.5 to t07 or t09 (team 9 is a LAV buyer). Evidence: t07 bought LAV-02 at 10, LAV-05 at 9 and LAV-04 at 9 (ticks 105-107).
+   - Also SAL-02 spare (worth 2.2) at 9 to t03, t06 or t16, which all collect SAL. Each is +4 to +6 per copy; Dani's table estimates +4.3 to +4.8.
+   - Keep these offers maker-side so the other team pays the fee. Confidence: med-high.
 
 ## What the climbing teams are doing
-- **Team 17 (+7.3 / +10.5):** buys SAL and MAL from teams at fair prices. It bought SAL-09 from t12 at 75 (tick 109), SAL-06 from us at 26 (tick 119) and SAL-08 from t12 at 35 (tick 124). It also paid 26 for MAL-07 (tick 98).
-- **Team 12 (+5.2 / 60 min):** sells SAL to Team 17, with rares at 75 and an uncommon at 35 (up from the 18 it sold SAL-08 to us for at tick 102). It collects LAV.
-- **Chato unlock wave:** t02, t04, t08 and t16 unlocked level 2 between ticks 121 and 132. The ladder cap erodes as the field fills slots (D7).
+- **Team 17 (+10 over 60 min):** buys MAL and SAL uncommons and rares from teams: SAL-09 at 75 from t12 (tick 109), SAL-06 at 26 from us (tick 119), SAL-08 at 35 from t12 (tick 124), MAL-07 at 26 from t15 (tick 98). The page bonus of about +45 came from the SAL-08 trade.
+- **Team 12 (+6.2):** sells SAL rares to teams (SAL-09 for 75, SAL-10 for 80 earlier) and uncommons (SAL-08 at 35), and collects LAV. It also runs the 0-fee venue v02 (D6).
+- **Team 13 (leader, +2.3):** has the most deals (23) and buys MAL×4 and SAL×2. It dumps LAT/SAL/MAL. Chato levels are opening for the field (t02, t04, t08, t16 unlocked), which erodes our ladder cap.
 
 ## Threats
-- **Our Chato buy (tick 131):** LAV-06 at 31 (worth 32.5) cost −2.3 `neg_points`. Do not buy LAV-07 from Chato at 31, since it scores below 0.
-- **We feed Team 17:** it is a top-3 team and took SAL-06 from us at 26. Do not sell SAL to t17 or t12 again.
-- **Score slipping:** we are #9 at 14.9 (−1.5 in 15 min). Teams #10 and below are within about 2.4 points of us.
+- **Our neg_points fell 30.1 → 27.8** after buying LAV-06 from Chato at 31 (worth 32.5, −2.3 including the fee). Do not buy more from Chato at 31 or higher; LAV-07 closed with no deal, which is correct.
+- **Leaders buy our sell targets:** t13 buys MAL×4 and t17 sits above us. Offering MAL to t17 at 22 feeds #4, but for +4.5 each that is acceptable. Do not offer to t13, t12 or t08.
+- **LAV buyers (t04, t07, t10, t14, t09, t01) are all crowding the same LAV page.** A team seller of LAV-09 may not exist, so the 125 bid may never fill. Cancel it on a test result of 91.
