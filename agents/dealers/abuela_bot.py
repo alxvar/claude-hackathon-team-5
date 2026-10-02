@@ -24,6 +24,8 @@ from bazaar_sdk import Bazaar, BazaarError  # noqa: E402
 
 DEALER = "abuela"
 CASH_FLOOR = 270     # venue bond (250) + opening fee (20)
+EXPECTED_PRICE = 0.92  # dealers end near 0.9x list in the public data (Abuela: common 9 of 10, uncommon 21-24 of 25)
+MIN_GAIN = 3         # buy only if our value beats the expected price by this much; never pay above value - MIN_GAIN
 FIRST_COUNTER = 0.55  # buy: open at 55% of her first ask; sell: ask her first bid / 0.55
 STEP = 0.3           # each counter closes 30% of the gap, at least 1 P
 LOG = ROOT / "logs" / "dealers" / f"abuela-{time.strftime('%Y%m%d-%H%M%S')}.jsonl"
@@ -143,12 +145,18 @@ def plan(b: Bazaar) -> tuple:
     sells.sort(key=lambda a: a["your_value"])
     cat = b.catalog()
     menu = b.dealer(DEALER).get("menu", {}).get("sells", [])
-    rarities = [m["rarity"] for m in sorted(menu, key=lambda m: m.get("list_price", 0)) if "rarity" in m]
-    buys = []  # (our value, card), cheapest rarity first, then the cards we value most
-    for r in rarities:
-        missing = [c["id"] for s in cat["sets"] if s.get("released") for c in s["cards"]
-                   if c["rarity"] == r and c["id"] not in by_ref]
-        buys += sorted(((b.value(c)["your_value"], c) for c in missing), reverse=True)
+    list_price = {m["rarity"]: m.get("list_price", 0) for m in menu if "rarity" in m}
+    buys = []  # (expected gain, our value, card): our private value minus the price we expect to pay
+    for s in cat["sets"]:
+        if not s.get("released"):
+            continue
+        for c in s["cards"]:
+            if c["rarity"] in list_price:
+                v = b.value(c["id"])["your_value"]
+                gain = v - EXPECTED_PRICE * list_price[c["rarity"]]
+                if gain >= MIN_GAIN:
+                    buys.append((round(gain, 1), v, c["id"]))
+    buys.sort(reverse=True)
     budget = max(0, me["cash"] - CASH_FLOOR)
     return me, sells, buys, budget
 
@@ -174,36 +182,54 @@ def main() -> None:
     print(f"tick {clock['tick']} ({clock['tick_seconds']}s) · cash {me['cash']} P · spend budget {budget} P · "
           f"duel live: {duel_live(b)}")
     print("sell (spares):", [(a["ref"], a["id"], a["your_value"]) for a in sells])
-    print(f"dealer {DEALER} · buy (our value, card):", buys[:6])
+    print(f"dealer {DEALER} · buy (expected gain, our value, card):", buys[:8])
     busy = [t for t in b.my_threads()["threads"] if t["with"] == DEALER and t["status"] == "open"]
     if busy:
         print(f"Abuela already has an open conversation with us (thread {busy[0]['id']}).")
     if args.dry_run or (busy and not args.resume_cap):
         return
 
-    deals = 0
+    def score():
+        sc = b.me().get("score") or {}
+        return {k: sc.get(k) for k in ("negotiating", "neg_points", "ladder_points")}
+
+    def done_one(t, label):
+        before = done_one.last
+        after = score()
+        log({"event": "score", "deal": label, "status": t["status"], "before": before, "after": after})
+        done_one.last = after
+        return t["status"] == "deal"
+    done_one.last = score()
+
+    def buy_round(limit):
+        n = 0
+        for gain, value, ref in buys:
+            if n >= limit or ref in bought:
+                continue
+            cap = min(int(value - MIN_GAIN), max(0, b.me()["cash"] - CASH_FLOOR))
+            if args.max_buy:
+                cap = min(cap, args.max_buy)
+            if cap < 1:
+                log({"event": "skip_buy", "card": ref, "reason": "cash floor", "cash": b.me()["cash"]})
+                break
+            bought.add(ref)
+            n += done_one(negotiate(b, {"buy": {"card": ref}}, "buy", cap), f"buy {ref}")
+        return n
+
+    bought, deals = set(), 0
     if busy:  # pick it up: whoever opened it has stopped
         t0 = busy[0]
         side = "buy" if "buy" in t0["topic"] else "sell"
         t = negotiate(b, t0["topic"], side, args.resume_cap, tid=t0["id"])
         deals += t["status"] == "deal"
-    for a in (sells if args.sell_spares else []):
+    deals += buy_round(args.deals)  # what we can afford now, best expected gain first
+    for a in (sells if args.sell_spares else []):  # spares are worth ~1 P to us: cash in, value up
         if deals >= args.deals:
             break
-        t = negotiate(b, {"sell": {"assets": [a["id"]]}}, "sell", args.min_sell)
-        deals += t["status"] == "deal"
-    for value, ref in buys:
-        if deals >= args.deals:
-            break
-        cap = min(int(value), max(0, b.me()["cash"] - CASH_FLOOR))  # never above what the card is worth to us
-        if args.max_buy:
-            cap = min(cap, args.max_buy)
-        if cap < 1:
-            log({"event": "stop", "reason": "cash floor", "cash": b.me()["cash"]})
-            break
-        t = negotiate(b, {"buy": {"card": ref}}, "buy", cap)
-        deals += t["status"] == "deal"
-    log({"event": "done", "deals": deals, "cash": b.me()["cash"]})
+        cap = max(args.min_sell, int(a["your_value"]) + MIN_GAIN)
+        deals += done_one(negotiate(b, {"sell": {"assets": [a["id"]]}}, "sell", cap), f"sell {a['ref']}")
+    deals += buy_round(args.deals - deals)  # the rest, with the cash the sales brought in
+    log({"event": "done", "deals": deals, "cash": b.me()["cash"], "score": score()})
 
 
 if __name__ == "__main__":
