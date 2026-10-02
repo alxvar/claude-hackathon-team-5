@@ -884,7 +884,12 @@ def main():
     c.teams_every, c.teams_push = args.teams_every, args.push
     threading.Thread(target=c.run, daemon=True).start()
     Handler.collector = c
-    srv = ThreadingHTTPServer(("127.0.0.1", args.port), Handler)
+    ThreadingHTTPServer.allow_reuse_address = os.name != "nt"  # on Windows reuse lets a 2nd copy share the port
+    try:
+        srv = ThreadingHTTPServer(("127.0.0.1", args.port), Handler)
+    except OSError:
+        print(f"Port {args.port} is busy: the dashboard is probably already running on http://127.0.0.1:{args.port}")
+        return
     print(f"Bazaar dashboard on http://127.0.0.1:{args.port}  (team key: {'yes' if key else 'no'}; read-only)", flush=True)
     try:
         srv.serve_forever()

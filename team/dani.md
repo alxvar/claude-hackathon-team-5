@@ -1,6 +1,6 @@
 # Dani — judges, organisers, notes
 
-**Now:** Live dashboard running (`python dashboard/server.py` → http://127.0.0.1:8765, read-only). Then the organisers' desk (2 questions) and the room (LAV-09 holder, buyers for SAL/LAT).
+**Now:** Dashboard runs on my laptop as a standalone process (http://127.0.0.1:8765, read-only; anyone can run their own with `dashboard/start.bat` or `python dashboard/server.py`). It rewrites `intel/teams.md` every 10 min. Next: the room (buyers for SAL/LAT below us) and the organisers' desk.
 
 **Touches:** this file only.
 

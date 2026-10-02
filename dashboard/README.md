@@ -7,6 +7,9 @@ dealer haggling per team, duels and the schedule.
 
     python dashboard/server.py        # open http://127.0.0.1:8765
 
+On Windows, double-click `dashboard/start.bat`: it starts the server in the background (it keeps running after
+VS Code or the window closes) and opens the browser. Every teammate can run their own copy with their own key.
+
 - **Never writes to the game.** Public routes are read without the team key; only `me` and `duels` use it.
 - **Light on the shared limits:** about 5-8 requests per tick, 0.4 s apart.
 - **The key stays local:** it comes from `BAZAAR_KEY`, `.env` or `~/bazaar_key.txt`, and the page is served on
