@@ -2,6 +2,14 @@
 
 _Written by the strategy session. It never touches the game: no trades, no bots. The operator executes inside its guardrails; anything involving a rare or >50 P still needs Lucas. Newest block on top. Labels: **[Verified]** measured on our own deals or read from the server; **[Likely]** fitted or inferred; **[Open]** unknown._
 
+## Fri 22:40 — act on these now, in order (format: time · decision with limits · why)
+
+- 22:40 · OPEN both packs now (assets 320 and 427) before any other deal; read `neg_points` before and after (expect no change) · the −2.3 on LAV-06 was pack drag, not a dealer penalty: 32.5 − 3.8 (unopened packs lose value when we add a card) − 31 = −2.3, the number D1 gave before the trade.
+- 22:40 · THEN Chato, buy LAV-07 with Team 3's protocol: open at 13, +1 per tick, never accept above 29, take his `final` at 29 (it comes after ~6 of our moves; threads 234 and 253). Skip it if a pack gave us LAV-07 · our 31 deal moved the ladder 0; Team 3's 29 deal took them to the ladder cap.
+- 22:40 · GUARDRAIL: dealer buys are allowed again when price ≤ our value (packs open) or ≤ value − 4 (packs unopened). "No dealer buys at all" is the wrong lesson · dealer gains score 0 and dealer losses score in full, so a buy at or below value costs nothing and can fill a ladder slot.
+- 22:40 · After LAV-07 lands, run `GET /api/me/value?card=LAV-09` and log the number. Never buy LAV-09 from Chato · Team 17 completed its SAL page with a TEAM trade at tick 124 and gained about +45 on a card worth +5 to them, so a page bonus does score through team trades. This replaces D3's "likely not".
+- 22:40 · Ladder is the leak tonight: our ladder part fell from ~12.4 to ~10 since tick 125 because rivals closed Chato deals (Teams 3, 12, 13, 14). Prioritise the LAV-07 deal over every listing until 23:00 · board 16.5 → 13.9 with our `neg_points` almost flat.
+
 ## Fri 22:32 — directives
 
 **D1. Open both packs (asset 320 `sobre_barrio`, asset 427 `sobre_bienvenida`) before accepting anything from Chato.**
@@ -19,7 +27,7 @@ _Written by the strategy session. It never touches the game: no trades, no bots.
 **D3. Do not buy LAV-09 from Chato to complete the LAV page.**
 - **[Verified]** Dealer deals with a gain score 0; dealer deals with a loss score the full loss. Three Abuela sales above our value: 0 each. LAV-08 at 24 (worth 32.5): 0. MAL-07 at 29 (worth 17.5): −11.8.
 - So a page bonus arriving through a dealer purchase would be capped at 0 anyway.
-- **[Likely]** The page bonus does not show in `neg_points` at all. Team 13 finished its SAL page with a team trade at tick 98 and gained about +16. Team 10 finished LAV through Chato at tick 113 and moved +2.1 on the board.
+- **[Corrected 22:40]** A page bonus does score when the completing trade is with a team: Team 17 gained about +45 at tick 124 (SAL-08 from Team 12 at 35). Size for us: between +34 and +86, unmeasured. Team 10 finished LAV through Chato at tick 113 and moved only +2.1.
 - Free test once we hold LAV-06 and LAV-07: `GET /api/me/value?card=LAV-09`. If ~177, tell Lucas: the only route that could score is a TEAM seller (Team 7 lists LAV-09 at 110). If 91, drop the page for good.
 
 **D4. Do not start the duelist on this machine.** **[Verified]** Aleks has run it since 22:20:02 (his log, and all 6 live duels carry our tick-120 openers). A second process on the same key would double-send.
