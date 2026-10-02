@@ -42,15 +42,29 @@ There is exactly ONE operator (this session). Lucas talks only to his strategy s
 - `TEAMMATE PUSH`: read only if it touches `team/` or `PLAN.md`.
 - `WATCH ERROR` or a daemon down: restart it; if it keeps failing, notify Lucas.
 
-## Guardrails (never break these without Lucas)
-- **Never buy from a dealer above our private value** (it subtracts from `neg_points`, LOG finding 13). Autoflip stays stopped.
-- Cash never below 200 P (Saturday adds 150).
-- Never bid above our private value of the card (`trade.py` / `b.value`). Never sell below our value + 3.
-- Sales to a team in the top 3 only if our gain is larger than theirs (their value ≈ book × 1.6 at most).
-- One process per dealer conversation; never run two dealer bots at once.
-- Any single trade above 50 P, any rare, and any change to these guardrails: ask Lucas first (PushNotification).
-- Log every action you take: one line at the top of `team/lucas.md`'s log, then push.
+## Decide, don't ask (Lucas, Fri 22:40: "I don't want things stopped by me not looking")
+You decide and act on everything inside these hard limits, rares and big trades included. Nothing waits for a human.
+Lucas changes a limit only through a `DIRECTIVE` line containing GUARDRAIL.
 
-## Notify Lucas (PushNotification) when
-Our rank moves 3+ places · a rare-card opportunity appears · a new level or dealer opens · the strategist changes the
-plan · a daemon keeps failing · the guardrails block something the judge rates as high value.
+## Hard limits
+- Cash never below 200 P (Saturday adds 150; keep 270 for the venue bond when the strategist opens one).
+- **Teams:** buy only at ≤ our value − 3 (fee included); sell only at ≥ our value + 3. Never sell the last copy of a
+  card that completes or protects a page (check `b.value` of the missing card before and after).
+- **Dealers** (directive 22:40): dealer gains score 0 and losses score in full. Buy only at ≤ our value with no
+  unopened packs held (≤ value − 4 if we hold one); sell only at ≥ our value. These deals are for the ladder (best 3 per
+  level), so take the dealer's `final` (Team 3's protocol: open low, +1 per tick). Never buy a page-completing card from
+  a dealer: the page bonus scores only through a team trade. Autoflip stays stopped.
+- **Feeding:** no sale to a top-4 team unless our gain clearly beats theirs (their value ≈ book × 1.6 at most). Don't sell
+  into a set a team within ~8 points of us collects, or one it is close to completing (Dani 22:35). Prefer addressing
+  offers `to` a team below us.
+- One process per dealer conversation. While a duel is live never use the team's accept: propose the counterparty's own
+  price instead, so THEY accept.
+- Log every action: one line at the top of `team/lucas.md`'s log, then push.
+
+## Learning loop (every deal)
+After each `OUR DEAL`, read its row in `metrics.md` → "What each of our deals did to neg_points". Expected ≠ measured
+→ find why, and update GAME.md's "Measured facts" in the same pass, so the analysts' next run starts from it.
+
+## Tell Lucas (PushNotification, FYI after acting, never to ask)
+A trade above 50 P or any rare done · our rank moves 3+ places · a new level or dealer opens · the strategist changes
+the plan · a daemon keeps failing.
