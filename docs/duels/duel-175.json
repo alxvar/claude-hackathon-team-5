@@ -578,6 +578,452 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 145,
+   "raw": {
+    "duel": 175,
+    "session": 1,
+    "status": "live",
+    "role": "seller",
+    "item": "Taxi Blanco",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 80,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Verde",
+    "deadline_tick": 153,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 1235,
+     "price": 124,
+     "tick": 144,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1258,
+     "price": 70,
+     "tick": 145,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 141,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 64 primas. Dime si cerramos.",
+      "price": 64,
+      "days": null
+     },
+     {
+      "tick": 141,
+      "from": "you",
+      "text": "Taxi Blanco is a dependable, well-kept vehicle that will earn its keep from day one. I'm offering it at 130 P, which is fair value for its reliability. I'd welcome your counteroffer.}",
+      "price": 130,
+      "days": null
+     },
+     {
+      "tick": 142,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 65 primas. Dime si cerramos.",
+      "price": 65,
+      "days": null
+     },
+     {
+      "tick": 142,
+      "from": "you",
+      "text": "I'm moving to 127 P as a gesture of good faith, but a one-prima step won't bridge the distance between us. Taxi Blanco is reliable and well kept, so I'd need to see a real counteroffer from you to keep talking.",
+      "price": 127,
+      "days": null
+     },
+     {
+      "tick": 143,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 67 primas. Dime si cerramos.",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 143,
+      "from": "you",
+      "text": "Thanks for moving, but steps of a prima or two will burn our ticks without getting us anywhere. I'm coming down to 125 P, and I'd like to see a substantial jump from you to keep this alive.",
+      "price": 125,
+      "days": null
+     },
+     {
+      "tick": 144,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 67 primas. Dime si cerramos.",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 144,
+      "from": "you",
+      "text": "Your figure hasn't moved since last time, so I'll only shift a little, to 124 P. Taxi Blanco is reliable and well kept, and I'd need a substantial move from you before I come down further.",
+      "price": 124,
+      "days": null
+     },
+     {
+      "tick": 145,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 70 primas. Dime si cerramos.",
+      "price": 70,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 145,
+   "raw": {
+    "duel": 175,
+    "session": 1,
+    "status": "live",
+    "role": "seller",
+    "item": "Taxi Blanco",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 80,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Verde",
+    "deadline_tick": 153,
+    "decay_per_round": 0.06,
+    "rounds": 5,
+    "your_offer": {
+     "id": 1275,
+     "price": 121,
+     "tick": 145,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1258,
+     "price": 70,
+     "tick": 145,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 141,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 64 primas. Dime si cerramos.",
+      "price": 64,
+      "days": null
+     },
+     {
+      "tick": 141,
+      "from": "you",
+      "text": "Taxi Blanco is a dependable, well-kept vehicle that will earn its keep from day one. I'm offering it at 130 P, which is fair value for its reliability. I'd welcome your counteroffer.}",
+      "price": 130,
+      "days": null
+     },
+     {
+      "tick": 142,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 65 primas. Dime si cerramos.",
+      "price": 65,
+      "days": null
+     },
+     {
+      "tick": 142,
+      "from": "you",
+      "text": "I'm moving to 127 P as a gesture of good faith, but a one-prima step won't bridge the distance between us. Taxi Blanco is reliable and well kept, so I'd need to see a real counteroffer from you to keep talking.",
+      "price": 127,
+      "days": null
+     },
+     {
+      "tick": 143,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 67 primas. Dime si cerramos.",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 143,
+      "from": "you",
+      "text": "Thanks for moving, but steps of a prima or two will burn our ticks without getting us anywhere. I'm coming down to 125 P, and I'd like to see a substantial jump from you to keep this alive.",
+      "price": 125,
+      "days": null
+     },
+     {
+      "tick": 144,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 67 primas. Dime si cerramos.",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 144,
+      "from": "you",
+      "text": "Your figure hasn't moved since last time, so I'll only shift a little, to 124 P. Taxi Blanco is reliable and well kept, and I'd need a substantial move from you before I come down further.",
+      "price": 124,
+      "days": null
+     },
+     {
+      "tick": 145,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 70 primas. Dime si cerramos.",
+      "price": 70,
+      "days": null
+     },
+     {
+      "tick": 145,
+      "from": "you",
+      "text": "Thanks for the move, but at this pace we'll run out of ticks before we get anywhere. I can come to 121 P for Taxi Blanco, a reliable, well-kept vehicle. I need a much bigger jump from you toward the middle to keep this going.",
+      "price": 121,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 146,
+   "raw": {
+    "duel": 175,
+    "session": 1,
+    "status": "live",
+    "role": "seller",
+    "item": "Taxi Blanco",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 80,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Verde",
+    "deadline_tick": 153,
+    "decay_per_round": 0.06,
+    "rounds": 5,
+    "your_offer": {
+     "id": 1275,
+     "price": 121,
+     "tick": 145,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1302,
+     "price": 74,
+     "tick": 146,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 141,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 64 primas. Dime si cerramos.",
+      "price": 64,
+      "days": null
+     },
+     {
+      "tick": 141,
+      "from": "you",
+      "text": "Taxi Blanco is a dependable, well-kept vehicle that will earn its keep from day one. I'm offering it at 130 P, which is fair value for its reliability. I'd welcome your counteroffer.}",
+      "price": 130,
+      "days": null
+     },
+     {
+      "tick": 142,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 65 primas. Dime si cerramos.",
+      "price": 65,
+      "days": null
+     },
+     {
+      "tick": 142,
+      "from": "you",
+      "text": "I'm moving to 127 P as a gesture of good faith, but a one-prima step won't bridge the distance between us. Taxi Blanco is reliable and well kept, so I'd need to see a real counteroffer from you to keep talking.",
+      "price": 127,
+      "days": null
+     },
+     {
+      "tick": 143,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 67 primas. Dime si cerramos.",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 143,
+      "from": "you",
+      "text": "Thanks for moving, but steps of a prima or two will burn our ticks without getting us anywhere. I'm coming down to 125 P, and I'd like to see a substantial jump from you to keep this alive.",
+      "price": 125,
+      "days": null
+     },
+     {
+      "tick": 144,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 67 primas. Dime si cerramos.",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 144,
+      "from": "you",
+      "text": "Your figure hasn't moved since last time, so I'll only shift a little, to 124 P. Taxi Blanco is reliable and well kept, and I'd need a substantial move from you before I come down further.",
+      "price": 124,
+      "days": null
+     },
+     {
+      "tick": 145,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 70 primas. Dime si cerramos.",
+      "price": 70,
+      "days": null
+     },
+     {
+      "tick": 145,
+      "from": "you",
+      "text": "Thanks for the move, but at this pace we'll run out of ticks before we get anywhere. I can come to 121 P for Taxi Blanco, a reliable, well-kept vehicle. I need a much bigger jump from you toward the middle to keep this going.",
+      "price": 121,
+      "days": null
+     },
+     {
+      "tick": 146,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 74 primas. Dime si cerramos.",
+      "price": 74,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 146,
+   "raw": {
+    "duel": 175,
+    "session": 1,
+    "status": "live",
+    "role": "seller",
+    "item": "Taxi Blanco",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 80,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Verde",
+    "deadline_tick": 153,
+    "decay_per_round": 0.06,
+    "rounds": 6,
+    "your_offer": {
+     "id": 1316,
+     "price": 118,
+     "tick": 146,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1302,
+     "price": 74,
+     "tick": 146,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 141,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 64 primas. Dime si cerramos.",
+      "price": 64,
+      "days": null
+     },
+     {
+      "tick": 141,
+      "from": "you",
+      "text": "Taxi Blanco is a dependable, well-kept vehicle that will earn its keep from day one. I'm offering it at 130 P, which is fair value for its reliability. I'd welcome your counteroffer.}",
+      "price": 130,
+      "days": null
+     },
+     {
+      "tick": 142,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 65 primas. Dime si cerramos.",
+      "price": 65,
+      "days": null
+     },
+     {
+      "tick": 142,
+      "from": "you",
+      "text": "I'm moving to 127 P as a gesture of good faith, but a one-prima step won't bridge the distance between us. Taxi Blanco is reliable and well kept, so I'd need to see a real counteroffer from you to keep talking.",
+      "price": 127,
+      "days": null
+     },
+     {
+      "tick": 143,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 67 primas. Dime si cerramos.",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 143,
+      "from": "you",
+      "text": "Thanks for moving, but steps of a prima or two will burn our ticks without getting us anywhere. I'm coming down to 125 P, and I'd like to see a substantial jump from you to keep this alive.",
+      "price": 125,
+      "days": null
+     },
+     {
+      "tick": 144,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 67 primas. Dime si cerramos.",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 144,
+      "from": "you",
+      "text": "Your figure hasn't moved since last time, so I'll only shift a little, to 124 P. Taxi Blanco is reliable and well kept, and I'd need a substantial move from you before I come down further.",
+      "price": 124,
+      "days": null
+     },
+     {
+      "tick": 145,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 70 primas. Dime si cerramos.",
+      "price": 70,
+      "days": null
+     },
+     {
+      "tick": 145,
+      "from": "you",
+      "text": "Thanks for the move, but at this pace we'll run out of ticks before we get anywhere. I can come to 121 P for Taxi Blanco, a reliable, well-kept vehicle. I need a much bigger jump from you toward the middle to keep this going.",
+      "price": 121,
+      "days": null
+     },
+     {
+      "tick": 146,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 74 primas. Dime si cerramos.",
+      "price": 74,
+      "days": null
+     },
+     {
+      "tick": 146,
+      "from": "you",
+      "text": "I can do 118 P.",
+      "price": 118,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1135,6 +1581,441 @@
      ]
     }
    }
+  },
+  {
+   "tick": 145,
+   "took_s": 6.51,
+   "cost_usd": 0.00889,
+   "obs": {
+    "view": {
+     "duel_id": 175,
+     "role": "seller",
+     "limit": 80,
+     "currency": "P",
+     "item": "Taxi Blanco",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never sell below your cost",
+      "decay_per_round": 0.06,
+      "rounds": 4,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Puedo llegar a 64 primas. Dime si cerramos.",
+      "offer": {
+       "price": 64,
+       "days": null
+      },
+      "accept": false,
+      "tick": 141,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Taxi Blanco is a dependable, well-kept vehicle that will earn its keep from day one. I'm offering it at 130 P, which is fair value for its reliability. I'd welcome your counteroffer.}",
+      "offer": {
+       "price": 130,
+       "days": null
+      },
+      "accept": false,
+      "tick": 141,
+      "decision": {
+       "action": "offer",
+       "price": 130,
+       "message": "Taxi Blanco is a dependable, well-kept vehicle that will earn its keep from day one. I'm offering it at 130 P, which is fair value for its reliability. I'd welcome your counteroffer.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 65 primas. Dime si cerramos.",
+      "offer": {
+       "price": 65,
+       "days": null
+      },
+      "accept": false,
+      "tick": 142,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm moving to 127 P as a gesture of good faith, but a one-prima step won't bridge the distance between us. Taxi Blanco is reliable and well kept, so I'd need to see a real counteroffer from you to keep talking.",
+      "offer": {
+       "price": 127,
+       "days": null
+      },
+      "accept": false,
+      "tick": 142,
+      "decision": {
+       "action": "offer",
+       "price": 127,
+       "message": "I'm moving to 127 P as a gesture of good faith, but a one-prima step won't bridge the distance between us. Taxi Blanco is reliable and well kept, so I'd need to see a real counteroffer from you to keep talking."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 67 primas. Dime si cerramos.",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 143,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for moving, but steps of a prima or two will burn our ticks without getting us anywhere. I'm coming down to 125 P, and I'd like to see a substantial jump from you to keep this alive.",
+      "offer": {
+       "price": 125,
+       "days": null
+      },
+      "accept": false,
+      "tick": 143,
+      "decision": {
+       "action": "offer",
+       "price": 125,
+       "message": "Thanks for moving, but steps of a prima or two will burn our ticks without getting us anywhere. I'm coming down to 125 P, and I'd like to see a substantial jump from you to keep this alive."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 67 primas. Dime si cerramos.",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 144,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Your figure hasn't moved since last time, so I'll only shift a little, to 124 P. Taxi Blanco is reliable and well kept, and I'd need a substantial move from you before I come down further.",
+      "offer": {
+       "price": 124,
+       "days": null
+      },
+      "accept": false,
+      "tick": 144,
+      "decision": {
+       "action": "offer",
+       "price": 124,
+       "message": "Your figure hasn't moved since last time, so I'll only shift a little, to 124 P. Taxi Blanco is reliable and well kept, and I'd need a substantial move from you before I come down further."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 70 primas. Dime si cerramos.",
+      "offer": {
+       "price": 70,
+       "days": null
+      },
+      "accept": false,
+      "tick": 145,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 70,
+     "days": 0
+    },
+    "tick": 145,
+    "ticks_left": 9
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thanks for the move, but at this pace we'll run out of ticks before we get anywhere. I can come to 121 P for Taxi Blanco, a reliable, well-kept vehicle. I need a much bigger jump from you toward the middle to keep this going.",
+    "price": 121,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 121,
+      "message": "Thanks for the move, but at this pace we'll run out of ticks before we get anywhere. I can come to 121 P for Taxi Blanco, a reliable, well-kept vehicle. I need a much bigger jump from you toward the middle to keep this going."
+     },
+     "band": {
+      "worst": 120,
+      "target": 121,
+      "best": 122
+     },
+     "plan": {
+      "read": "They moved 3 P to 70, still under our cost; small steady steps, so their real ceiling is probably well above 70. Their 'shall we close' is a repeated script, not a real final.",
+      "target": 121,
+      "best": 122,
+      "worst": 120,
+      "days": null,
+      "angle": "Acknowledge their move with a modest step to about 121 and ask for a much bigger jump toward the middle, since at this pace we run out of time."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.15,
+       "in": 902,
+       "out": 139,
+       "cost_usd": 0.00639,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.36,
+       "in": 733,
+       "out": 103,
+       "cost_usd": 0.0025,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "tick": 146,
+   "took_s": 8.8,
+   "cost_usd": 0.01321,
+   "obs": {
+    "view": {
+     "duel_id": 175,
+     "role": "seller",
+     "limit": 80,
+     "currency": "P",
+     "item": "Taxi Blanco",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never sell below your cost",
+      "decay_per_round": 0.06,
+      "rounds": 5,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Puedo llegar a 64 primas. Dime si cerramos.",
+      "offer": {
+       "price": 64,
+       "days": null
+      },
+      "accept": false,
+      "tick": 141,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Taxi Blanco is a dependable, well-kept vehicle that will earn its keep from day one. I'm offering it at 130 P, which is fair value for its reliability. I'd welcome your counteroffer.}",
+      "offer": {
+       "price": 130,
+       "days": null
+      },
+      "accept": false,
+      "tick": 141,
+      "decision": {
+       "action": "offer",
+       "price": 130,
+       "message": "Taxi Blanco is a dependable, well-kept vehicle that will earn its keep from day one. I'm offering it at 130 P, which is fair value for its reliability. I'd welcome your counteroffer.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 65 primas. Dime si cerramos.",
+      "offer": {
+       "price": 65,
+       "days": null
+      },
+      "accept": false,
+      "tick": 142,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm moving to 127 P as a gesture of good faith, but a one-prima step won't bridge the distance between us. Taxi Blanco is reliable and well kept, so I'd need to see a real counteroffer from you to keep talking.",
+      "offer": {
+       "price": 127,
+       "days": null
+      },
+      "accept": false,
+      "tick": 142,
+      "decision": {
+       "action": "offer",
+       "price": 127,
+       "message": "I'm moving to 127 P as a gesture of good faith, but a one-prima step won't bridge the distance between us. Taxi Blanco is reliable and well kept, so I'd need to see a real counteroffer from you to keep talking."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 67 primas. Dime si cerramos.",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 143,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for moving, but steps of a prima or two will burn our ticks without getting us anywhere. I'm coming down to 125 P, and I'd like to see a substantial jump from you to keep this alive.",
+      "offer": {
+       "price": 125,
+       "days": null
+      },
+      "accept": false,
+      "tick": 143,
+      "decision": {
+       "action": "offer",
+       "price": 125,
+       "message": "Thanks for moving, but steps of a prima or two will burn our ticks without getting us anywhere. I'm coming down to 125 P, and I'd like to see a substantial jump from you to keep this alive."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 67 primas. Dime si cerramos.",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 144,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Your figure hasn't moved since last time, so I'll only shift a little, to 124 P. Taxi Blanco is reliable and well kept, and I'd need a substantial move from you before I come down further.",
+      "offer": {
+       "price": 124,
+       "days": null
+      },
+      "accept": false,
+      "tick": 144,
+      "decision": {
+       "action": "offer",
+       "price": 124,
+       "message": "Your figure hasn't moved since last time, so I'll only shift a little, to 124 P. Taxi Blanco is reliable and well kept, and I'd need a substantial move from you before I come down further."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 70 primas. Dime si cerramos.",
+      "offer": {
+       "price": 70,
+       "days": null
+      },
+      "accept": false,
+      "tick": 145,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the move, but at this pace we'll run out of ticks before we get anywhere. I can come to 121 P for Taxi Blanco, a reliable, well-kept vehicle. I need a much bigger jump from you toward the middle to keep this going.",
+      "offer": {
+       "price": 121,
+       "days": null
+      },
+      "accept": false,
+      "tick": 145,
+      "decision": {
+       "action": "offer",
+       "price": 121,
+       "message": "Thanks for the move, but at this pace we'll run out of ticks before we get anywhere. I can come to 121 P for Taxi Blanco, a reliable, well-kept vehicle. I need a much bigger jump from you toward the middle to keep this going."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 74 primas. Dime si cerramos.",
+      "offer": {
+       "price": 74,
+       "days": null
+      },
+      "accept": false,
+      "tick": 146,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 74,
+     "days": 0
+    },
+    "tick": 146,
+    "ticks_left": 8
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 118 P.",
+    "price": 118,
+    "days": null,
+    "meta": {
+     "repaired": true,
+     "vetoes": [
+      "the message could be read as accepting, but you are not accepting. Don't use words like 'deal', 'agree', 'accept', 'sounds good' or 'works for me' unless you accept.",
+      "the message mentions 4 P. Don't write those amounts, not even to reject them."
+     ],
+     "rejected": {
+      "action": "offer",
+      "price": 118,
+      "message": "I appreciate the 4 P step, and I'm coming down to 118 P for Taxi Blanco. With half our ticks gone, we both need bigger moves, so I'd like to see a real jump from you, into the 90s, to show you're serious."
+     },
+     "band": {
+      "worst": 117,
+      "target": 118,
+      "best": 119
+     },
+     "plan": {
+      "read": "They moved 70 to 74, a 4 P step in a slow, steady pattern of creeping concessions. Their offer is still below what we can accept, and their buyer limit is likely well above it.",
+      "target": 118,
+      "best": 119,
+      "worst": 117,
+      "days": null,
+      "angle": "Acknowledge their 4 P step and come to 118 P. Stress that with half the ticks gone, both of us need bigger moves, and ask them for a jump into the 90s to show they're serious."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.33,
+       "in": 1066,
+       "out": 158,
+       "cost_usd": 0.00742,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.61,
+       "in": 891,
+       "out": 107,
+       "cost_usd": 0.00285,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.86,
+       "in": 981,
+       "out": 98,
+       "cost_usd": 0.00294,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
   }
  ],
  "sent": [
@@ -1362,6 +2243,133 @@
      "id": 1235,
      "price": 124,
      "tick": 144,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 145,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thanks for the move, but at this pace we'll run out of ticks before we get anywhere. I can come to 121 P for Taxi Blanco, a reliable, well-kept vehicle. I need a much bigger jump from you toward the middle to keep this going.",
+    "price": 121,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 121,
+      "message": "Thanks for the move, but at this pace we'll run out of ticks before we get anywhere. I can come to 121 P for Taxi Blanco, a reliable, well-kept vehicle. I need a much bigger jump from you toward the middle to keep this going."
+     },
+     "band": {
+      "worst": 120,
+      "target": 121,
+      "best": 122
+     },
+     "plan": {
+      "read": "They moved 3 P to 70, still under our cost; small steady steps, so their real ceiling is probably well above 70. Their 'shall we close' is a repeated script, not a real final.",
+      "target": 121,
+      "best": 122,
+      "worst": 120,
+      "days": null,
+      "angle": "Acknowledge their move with a modest step to about 121 and ask for a much bigger jump toward the middle, since at this pace we run out of time."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.15,
+       "in": 902,
+       "out": 139,
+       "cost_usd": 0.00639,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.36,
+       "in": 733,
+       "out": 103,
+       "cost_usd": 0.0025,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 175,
+    "offer": {
+     "id": 1275,
+     "price": 121,
+     "tick": 145,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 146,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 118 P.",
+    "price": 118,
+    "days": null,
+    "meta": {
+     "repaired": true,
+     "vetoes": [
+      "the message could be read as accepting, but you are not accepting. Don't use words like 'deal', 'agree', 'accept', 'sounds good' or 'works for me' unless you accept.",
+      "the message mentions 4 P. Don't write those amounts, not even to reject them."
+     ],
+     "rejected": {
+      "action": "offer",
+      "price": 118,
+      "message": "I appreciate the 4 P step, and I'm coming down to 118 P for Taxi Blanco. With half our ticks gone, we both need bigger moves, so I'd like to see a real jump from you, into the 90s, to show you're serious."
+     },
+     "band": {
+      "worst": 117,
+      "target": 118,
+      "best": 119
+     },
+     "plan": {
+      "read": "They moved 70 to 74, a 4 P step in a slow, steady pattern of creeping concessions. Their offer is still below what we can accept, and their buyer limit is likely well above it.",
+      "target": 118,
+      "best": 119,
+      "worst": 117,
+      "days": null,
+      "angle": "Acknowledge their 4 P step and come to 118 P. Stress that with half the ticks gone, both of us need bigger moves, and ask them for a jump into the 90s to show they're serious."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.33,
+       "in": 1066,
+       "out": 158,
+       "cost_usd": 0.00742,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.61,
+       "in": 891,
+       "out": 107,
+       "cost_usd": 0.00285,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.86,
+       "in": 981,
+       "out": 98,
+       "cost_usd": 0.00294,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 175,
+    "offer": {
+     "id": 1316,
+     "price": 118,
+     "tick": 146,
      "days": 0
     }
    }

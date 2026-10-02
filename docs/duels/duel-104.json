@@ -67,6 +67,117 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 146,
+   "raw": {
+    "duel": 104,
+    "session": 1,
+    "status": "live",
+    "role": "seller",
+    "item": "Plaza de Olavide",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 69,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 156,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 1231,
+     "price": 98,
+     "tick": 144,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1329,
+     "price": 67,
+     "tick": 146,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 144,
+      "from": "you",
+      "text": "Plaza de Olavide is one of Madrid's most sought-after squares: a lively, tree-lined plaza with steady foot traffic and strong appeal in a prime central neighborhood. I'm offering it at 98 P, which reflects that quality. I'm happy to hear your reasoning.}",
+      "price": 98,
+      "days": null
+     },
+     {
+      "tick": 146,
+      "from": "Rival Azul",
+      "text": "I can move a little: 67.",
+      "price": 67,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 146,
+   "raw": {
+    "duel": 104,
+    "session": 1,
+    "status": "live",
+    "role": "seller",
+    "item": "Plaza de Olavide",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 69,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 156,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 1334,
+     "price": 95,
+     "tick": 146,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1329,
+     "price": 67,
+     "tick": 146,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 144,
+      "from": "you",
+      "text": "Plaza de Olavide is one of Madrid's most sought-after squares: a lively, tree-lined plaza with steady foot traffic and strong appeal in a prime central neighborhood. I'm offering it at 98 P, which reflects that quality. I'm happy to hear your reasoning.}",
+      "price": 98,
+      "days": null
+     },
+     {
+      "tick": 146,
+      "from": "Rival Azul",
+      "text": "I can move a little: 67.",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 146,
+      "from": "you",
+      "text": "I've come down to 95 P as a gesture of good faith, but your offer is still far from the value of a prime central plaza with constant footfall and lasting appeal. I'll need a real step up from you before I can move further.",
+      "price": 95,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -186,6 +297,115 @@
      ]
     }
    }
+  },
+  {
+   "tick": 146,
+   "took_s": 5.67,
+   "cost_usd": 0.00541,
+   "obs": {
+    "view": {
+     "duel_id": 104,
+     "role": "seller",
+     "limit": 69,
+     "currency": "P",
+     "item": "Plaza de Olavide",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never sell below your cost",
+      "decay_per_round": 0.06,
+      "rounds": 1,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "Plaza de Olavide is one of Madrid's most sought-after squares: a lively, tree-lined plaza with steady foot traffic and strong appeal in a prime central neighborhood. I'm offering it at 98 P, which reflects that quality. I'm happy to hear your reasoning.}",
+      "offer": {
+       "price": 98,
+       "days": null
+      },
+      "accept": false,
+      "tick": 144,
+      "decision": {
+       "action": "offer",
+       "price": 98,
+       "message": "Plaza de Olavide is one of Madrid's most sought-after squares: a lively, tree-lined plaza with steady foot traffic and strong appeal in a prime central neighborhood. I'm offering it at 98 P, which reflects that quality. I'm happy to hear your reasoning.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "I can move a little: 67.",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 146,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 67,
+     "days": 0
+    },
+    "tick": 146,
+    "ticks_left": 11
+   },
+   "move": {
+    "action": "offer",
+    "text": "I've come down to 95 P as a gesture of good faith, but your offer is still far from the value of a prime central plaza with constant footfall and lasting appeal. I'll need a real step up from you before I can move further.",
+    "price": 95,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 95,
+      "message": "I've come down to 95 P as a gesture of good faith, but your offer is still far from the value of a prime central plaza with constant footfall and lasting appeal. I'll need a real step up from you before I can move further."
+     },
+     "band": {
+      "worst": 94,
+      "target": 95,
+      "best": 96
+     },
+     "plan": {
+      "read": "They claim to move but sit at 67, which is unacceptable; their 'moving a little' is talk, not movement in the offers.",
+      "target": 95,
+      "best": 96,
+      "worst": 94,
+      "days": null,
+      "angle": "Make a small gesture down to show good faith, but stress the plaza's prime location and say a real step up from them is needed before we move further."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.72,
+       "in": 398,
+       "out": 115,
+       "cost_usd": 0.00389,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.95,
+       "in": 330,
+       "out": 86,
+       "cost_usd": 0.00152,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
   }
  ],
  "sent": [
@@ -242,6 +462,63 @@
      "id": 1231,
      "price": 98,
      "tick": 144,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 146,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I've come down to 95 P as a gesture of good faith, but your offer is still far from the value of a prime central plaza with constant footfall and lasting appeal. I'll need a real step up from you before I can move further.",
+    "price": 95,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 95,
+      "message": "I've come down to 95 P as a gesture of good faith, but your offer is still far from the value of a prime central plaza with constant footfall and lasting appeal. I'll need a real step up from you before I can move further."
+     },
+     "band": {
+      "worst": 94,
+      "target": 95,
+      "best": 96
+     },
+     "plan": {
+      "read": "They claim to move but sit at 67, which is unacceptable; their 'moving a little' is talk, not movement in the offers.",
+      "target": 95,
+      "best": 96,
+      "worst": 94,
+      "days": null,
+      "angle": "Make a small gesture down to show good faith, but stress the plaza's prime location and say a real step up from them is needed before we move further."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.72,
+       "in": 398,
+       "out": 115,
+       "cost_usd": 0.00389,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.95,
+       "in": 330,
+       "out": 86,
+       "cost_usd": 0.00152,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 104,
+    "offer": {
+     "id": 1334,
+     "price": 95,
+     "tick": 146,
      "days": 0
     }
    }
