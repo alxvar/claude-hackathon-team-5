@@ -18,6 +18,8 @@ Start with `STATUS.md` (live numbers, auto-updated every 5 min) and `LOG.md` (wh
 | `CROSSWALK.md` | Research × simulations × real rules, hypothesis by hypothesis | team |
 | `STATUS.md` | Live numbers from the server. Written only by `tools/status.py`; don't edit by hand | Lucas's machine |
 | `LOG.md` | Team log and findings | everyone |
+| `agents/duelist/` | The duel agent (Clock-Standing). `uv run python -m agents.duelist --help`; runbook in `docs/duelist-runbook.md` | Aleks |
+| `engine/` | The LLM engine agents run on: `Model` interface, Claude provider in `claude.py` | Aleks |
 | `agents/dealers/` | `abuela_bot.py`: negotiated dealer deals within the 270 P cash floor | Lucas |
 | `tools/` | `status.py`: writes and pushes `STATUS.md` | Lucas |
 

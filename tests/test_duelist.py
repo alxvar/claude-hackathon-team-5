@@ -3,19 +3,19 @@ import asyncio
 import json
 from pathlib import Path
 
-from duelist.adapter import parse_duel
-from duelist.agent import BandPlan, Decision, DuelAgent, ledger, make_band
-from duelist.llm import LLMError, Reply
-from duelist.model import DuelView, Observation, Offer, Role, Turn
-from duelist.runner import DuelRunner, Log
+from agents.duelist.adapter import parse_duel
+from agents.duelist.agent import BandPlan, Decision, DuelAgent, ledger, make_band
+from agents.duelist.model import DuelView, Observation, Offer, Role, Turn
+from agents.duelist.runner import DuelRunner, Log
+from engine import LLMError, Reply
 
 SELLER = DuelView(duel_id=1, role=Role.SELLER, limit=40, item="a card", decay=0.06, duel_ticks=12)
 BUYER = DuelView(duel_id=2, role=Role.BUYER, limit=60, item="a card", decay=0.06, duel_ticks=12)
 
 
-class FakeClaude:
+class FakeModel:
     """Answers the strategist with `plan` and the negotiator with `decisions` in turn."""
-    model, effort = "fake", "low"
+    label = "fake"
 
     def __init__(self, plan, *decisions):
         self.plan, self.decisions, self.seen = plan, list(decisions), []
@@ -43,7 +43,7 @@ def respond(view, o, fake):
 
 
 def test_offer_inside_the_band_goes_out_as_is():
-    fake = FakeClaude(plan(70, 72, 68), Decision(action="offer", price=70, message="70 P, it's rare."))
+    fake = FakeModel(plan(70, 72, 68), Decision(action="offer", price=70, message="70 P, it's rare."))
     move = respond(SELLER, obs(SELLER, rival=30), fake)
     assert (move.action, move.price, move.days) == ("offer", 70, None)
     assert "vetoes" not in move.meta
@@ -58,55 +58,55 @@ def test_band_never_crosses_the_limit_and_rounds_toward_us():
 
 def test_offer_past_the_limit_is_repaired_inside_the_band():
     bad = Decision(action="offer", price=35, message="35 P.")
-    move = respond(SELLER, obs(SELLER, rival=30), FakeClaude(plan(50, 52, 45), bad, bad))
+    move = respond(SELLER, obs(SELLER, rival=30), FakeModel(plan(50, 52, 45), bad, bad))
     assert move.action == "offer" and 45 <= move.price <= 52 and move.meta["repaired"]
 
 
 def test_writing_an_amount_past_the_limit_is_vetoed():
     leaky = Decision(action="offer", price=50, message="I won't go down to 30 P, but 50 P works.")
     clean = Decision(action="offer", price=50, message="50 P is fair for a rare.")
-    move = respond(SELLER, obs(SELLER, rival=30), FakeClaude(plan(50, 52, 45), leaky, clean))
+    move = respond(SELLER, obs(SELLER, rival=30), FakeModel(plan(50, 52, 45), leaky, clean))
     assert move.text == clean.message and move.meta["vetoes"]
 
 
 def test_accept_needs_their_offer_inside_the_band():
-    ok = respond(SELLER, obs(SELLER, rival=48), FakeClaude(plan(50, 52, 47),
+    ok = respond(SELLER, obs(SELLER, rival=48), FakeModel(plan(50, 52, 47),
                                                            Decision(action="accept", price=48, message="Done.")))
     assert (ok.action, ok.price) == ("accept", 48)
     low = Decision(action="accept", price=44, message="Done.")
-    move = respond(SELLER, obs(SELLER, rival=44), FakeClaude(plan(50, 52, 47), low, low))
+    move = respond(SELLER, obs(SELLER, rival=44), FakeModel(plan(50, 52, 47), low, low))
     assert move.action == "offer" and move.price >= 47
 
 
 def test_never_accepts_past_the_limit_whatever_the_plan():
     # The plan's worst is clamped to the limit, so an offer of 35 can't pass the band check either.
     take = Decision(action="accept", price=35, message="Fine.")
-    move = respond(SELLER, obs(SELLER, rival=35), FakeClaude(plan(36, 38, 30), take, take))
+    move = respond(SELLER, obs(SELLER, rival=35), FakeModel(plan(36, 38, 30), take, take))
     assert move.action != "accept"
 
 
 def test_offer_worse_than_their_standing_offer_is_vetoed():
     worse = Decision(action="offer", price=46, message="46 P.")
     better = Decision(action="accept", price=48, message="Done.")
-    move = respond(SELLER, obs(SELLER, rival=48), FakeClaude(plan(46, 50, 45), worse, better))
+    move = respond(SELLER, obs(SELLER, rival=48), FakeModel(plan(46, 50, 45), worse, better))
     assert move.action == "accept" and "standing offer" in move.meta["vetoes"][0]
 
 
 def test_strategist_failure_restates_our_last_offer():
     turns = [Turn(mine=True, text="60 P.", offer=Offer(price=60), tick=1)]
-    move = respond(SELLER, obs(SELLER, rival=30, turns=turns), FakeClaude(LLMError("down")))
+    move = respond(SELLER, obs(SELLER, rival=30, turns=turns), FakeModel(LLMError("down")))
     assert (move.action, move.price) == ("offer", 60) and "strategist" in move.meta["fallback"]
 
 
 def test_days_come_from_the_strategist():
     view = SELLER.model_copy(update={"issues": ["price", "days"], "days_weight": 2})
-    move = respond(view, obs(view, rival=30), FakeClaude(plan(60, 62, 58, days=7),
+    move = respond(view, obs(view, rival=30), FakeModel(plan(60, 62, 58, days=7),
                                                          Decision(action="offer", price=60, message="60 P, day 7.")))
     assert (move.price, move.days) == (60, 7)
 
 
 def test_negotiator_never_sees_the_limit_and_prompts_are_filled():
-    fake = FakeClaude(plan(70, 72, 68), Decision(action="offer", price=70, message="70 P."))
+    fake = FakeModel(plan(70, 72, 68), Decision(action="offer", price=70, message="70 P."))
     view = SELLER.model_copy(update={"limit": 37})
     respond(view, obs(view, rival=30), fake)
     (_, s_system, s_msgs), (_, n_system, n_msgs) = fake.seen
@@ -157,7 +157,7 @@ class FakeBazaar:
 
 def test_runner_sends_one_move_per_tick_and_waits_for_their_reply(tmp_path: Path):
     b = FakeBazaar()
-    fake = FakeClaude(plan(70, 72, 68), Decision(action="offer", price=70, message="70 P."))
+    fake = FakeModel(plan(70, 72, 68), Decision(action="offer", price=70, message="70 P."))
     r = DuelRunner(b, fake, fake, dry_run=False, log=Log(tmp_path), decay=None, duel_ticks=12, poll_s=1)
     r.tick = 101
     raw = {"id": 9, "role": "seller", "your_limit": 40, "deadline": 112, "rival_offer": None}

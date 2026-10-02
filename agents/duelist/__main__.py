@@ -1,9 +1,9 @@
-"""Run from bazaar-kit/ (BAZAAR_URL, BAZAAR_KEY and ANTHROPIC_API_KEY from the environment or a .env file):
+"""Run from the repo root (BAZAAR_URL, BAZAAR_KEY and ANTHROPIC_API_KEY from the environment or a .env file):
 
-    uv run python -m duelist probe            # what the game shows now: clock, duel sessions, our duels (raw JSON)
-    uv run python -m duelist smoke            # one turn of a made-up duel through the models; sends nothing
-    uv run python -m duelist run --dry-run    # play live duels, but only print the moves
-    uv run python -m duelist run              # play live duels
+    uv run python -m agents.duelist probe            # what the game shows now: clock, duel sessions, our duels (raw JSON)
+    uv run python -m agents.duelist smoke            # one turn of a made-up duel through the models; sends nothing
+    uv run python -m agents.duelist run --dry-run    # play live duels, but only print the moves
+    uv run python -m agents.duelist run              # play live duels
 """
 from __future__ import annotations
 
@@ -16,25 +16,18 @@ from pathlib import Path
 from dotenv import find_dotenv, load_dotenv
 
 from bazaar_sdk import Bazaar
+from engine.claude import Claude, require_credentials
 
 from .agent import DuelAgent
-from .llm import Claude
 from .model import DuelView, Observation, Offer, Role, Turn
 from .runner import DuelRunner, Log
 
-LOGS = Path(__file__).resolve().parent.parent / "logs"
+LOGS = Path(__file__).resolve().parents[2] / "logs" / "duelist"
 
 
 def bazaar(wait_on_tick: bool = False) -> Bazaar:
     return Bazaar(os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai"), os.environ["BAZAAR_KEY"],
                   wait_on_tick=wait_on_tick)
-
-
-def require_credentials() -> None:
-    """The models need a key; without one every turn would be the fallback. Fail before playing."""
-    profile = Path(os.environ.get("ANTHROPIC_CONFIG_DIR", Path.home() / ".config" / "anthropic"))
-    if not (os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN") or profile.exists()):
-        raise SystemExit("No Claude credentials: set ANTHROPIC_API_KEY in the repo's .env (see .env.template).")
 
 
 def models(a: argparse.Namespace) -> tuple[Claude, Claude]:
@@ -50,7 +43,7 @@ def probe(_: argparse.Namespace) -> None:
     out = {"clock": b.clock(), "duel_sessions": [u for u in b.schedule().get("upcoming", [])
                                                  if u.get("action") == "duels"],
            "duels": b.duels(), "duels_done": b.duels(done=True)}
-    LOGS.mkdir(exist_ok=True)
+    LOGS.mkdir(parents=True, exist_ok=True)
     path = LOGS / f"probe-tick{out['clock'].get('tick')}.json"
     path.write_text(json.dumps(out, indent=2))
     print(json.dumps(out, indent=2))
@@ -86,7 +79,7 @@ def run(a: argparse.Namespace) -> None:
 
 def main() -> None:
     load_dotenv(find_dotenv(usecwd=True))
-    p = argparse.ArgumentParser(prog="duelist", description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
+    p = argparse.ArgumentParser(prog="agents.duelist", description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
     sub = p.add_subparsers(dest="cmd", required=True)
     sub.add_parser("probe", help="print and save what the game shows now")
     for name, fn in (("smoke", smoke), ("run", run)):

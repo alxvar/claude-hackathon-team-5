@@ -17,8 +17,9 @@ from typing import Any, Literal
 
 from pydantic import BaseModel, Field
 
+from engine import LLMError, Model, Reply
+
 from .guards import mentions_past_limit, past_limit, reads_as_agreement, standing_problems
-from .llm import Claude, LLMError, Reply
 from .model import DuelView, Observation, Offer, Role, sign
 from .prices import money
 
@@ -261,7 +262,7 @@ def with_note(messages: list[dict[str, str]], note: str) -> list[dict[str, str]]
 # The agent
 
 class DuelAgent:
-    def __init__(self, view: DuelView, strategist: Claude, negotiator: Claude | None = None):
+    def __init__(self, view: DuelView, strategist: Model, negotiator: Model | None = None):
         self.view = view
         self.s = sign(view.role)
         self.strategist = strategist

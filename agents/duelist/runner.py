@@ -16,10 +16,10 @@ from pathlib import Path
 from typing import Any
 
 from bazaar_sdk import Bazaar, BazaarError
+from engine import Model
 
 from .adapter import Snapshot, parse_duel
 from .agent import DuelAgent, Move
-from .llm import Claude
 from .model import Observation, Offer, Turn
 from .prices import money
 
@@ -69,7 +69,7 @@ def signature(snap: Snapshot) -> Any:
 
 
 class DuelRunner:
-    def __init__(self, b: Bazaar, strategist: Claude, negotiator: Claude, *, dry_run: bool, log: Log,
+    def __init__(self, b: Bazaar, strategist: Model, negotiator: Model, *, dry_run: bool, log: Log,
                  decay: float | None, duel_ticks: int | None, poll_s: float):
         self.b = b
         self.strategist, self.negotiator = strategist, negotiator
@@ -258,8 +258,7 @@ class DuelRunner:
         me = await self.call(self.b.me)
         self.team = {str(me.get("id")), str(me.get("name"))}
         say(f"{me.get('name')} ({me.get('id')}): {'DRY RUN, ' if self.dry_run else ''}strategist "
-            f"{self.strategist.model}/{self.strategist.effort}, negotiator {self.negotiator.model}/"
-            f"{self.negotiator.effort}; log {self.log.path}")
+            f"{self.strategist.label}, negotiator {self.negotiator.label}; log {self.log.path}")
         await self.refresh_session()
         last_schedule = time.monotonic()
         while True:

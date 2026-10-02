@@ -40,23 +40,26 @@ Regateo's open questions ([regateo docs/01 §5](../../regateo/docs/01-problem-an
 
 ### 4.1 Architecture
 
-The agent and its runtime live in the kit:
+The agent lives outside the organisers' kit, and the model provider is kept apart from the agent:
 
 ```
 bazaar-kit/
-  bazaar_sdk.py          the organisers' SDK (unchanged)
-  duelist/               our duel agent
+  bazaar_sdk.py          the organisers' SDK (unchanged; imported from here)
+agents/
+  duelist/               our duel agent (no provider SDK in it)
     model.py             what the agent sees: view, turns, offers
     adapter.py           duel JSON -> view and turns, read defensively
     agent.py             strategist + negotiator + guards (Clock-Standing)
     prompts/             strategist.md, negotiator.md
-    llm.py               Claude client (structured output)
     runner.py            async loop: poll, decide, send; JSONL log
-    __main__.py          probe | smoke | run
-  tests/test_duelist.py  offline tests
+    __main__.py          probe | smoke | run; picks the provider
+engine/
+  __init__.py            Model (the interface agents use), Reply, LLMError
+  claude.py              Claude via the Anthropic SDK (structured output)
+tests/test_duelist.py    offline tests
 ```
 
-- **Decided on 2 October: no imports from regateo.** What we need is copied into `bazaar-kit/duelist/` (the agent, its prompts, the guards, the price reader and the Anthropic client), and the §4.2 changes are built in rather than behind switches. We don't run simulations for now. How to run it: [duelist-runbook.md](duelist-runbook.md).
+- **Decided on 2 October: no imports from regateo.** What we need is copied into `agents/duelist/` (the agent, its prompts, the guards, the price reader) and `engine/` (the Anthropic client), and the §4.2 changes are built in rather than behind switches. We don't run simulations for now. How to run it: [duelist-runbook.md](duelist-runbook.md).
 - **The SDK is synchronous** (urllib). Call it through `asyncio.to_thread` so that many duels can think in parallel. Model calls are the slow part; HTTP is not.
 - **The request budget.** The limit is 5 requests per second per key, and the team shares one key. Read all live duels with one `GET /api/duels` per tick and send at most one message per duel. Don't poll a duel's thread on its own.
 

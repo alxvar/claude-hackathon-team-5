@@ -9,5 +9,12 @@ Changes from regateo's v4 for the duels (docs/plan-clock-standing-on-bazaar.md Â
 - with the `days` issue, the strategist also picks a delivery day and every priced message carries one;
 - prices are whole primas, rounded toward our side so rounding can never cross the limit.
 
-Run from bazaar-kit/:  uv run python -m duelist --help
+The models come in through `engine.Model`; which provider plays is chosen in `__main__`.
+
+Run from the repo root:  uv run python -m agents.duelist --help
 """
+import sys
+from pathlib import Path
+
+# The organisers' SDK is one file in bazaar-kit/, not a package: import it from there, as the dealer bots do.
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "bazaar-kit"))

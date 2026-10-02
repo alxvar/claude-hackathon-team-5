@@ -1,29 +1,26 @@
-"""Claude through the official Anthropic SDK (from regateo's engine provider), structured output only."""
+"""The Anthropic provider for `engine.Model`: Claude through the official SDK, structured output only."""
 from __future__ import annotations
 
+import os
 import time
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Any
 
 import anthropic
 from pydantic import BaseModel, ValidationError
 
+from . import LLMError, Reply
+
 # USD per MTok (input, output), for the running cost line in the logs.
 PRICES = {"claude-opus-5-5": (4.0, 20.0), "claude-sonnet-5-5": (2.0, 10.0), "claude-haiku-4-5": (1.0, 5.0)}
 
 
-class LLMError(Exception):
-    """Any failure of a model call. The agent falls back to a safe move on it."""
-
-
-@dataclass
-class Reply:
-    parsed: BaseModel
-    latency_s: float
-    input_tokens: int
-    output_tokens: int
-    cost_usd: float
-    model: str
+def require_credentials() -> None:
+    """Without a key every call fails and the agent only plays its fallback. Fail before playing."""
+    profile = Path(os.environ.get("ANTHROPIC_CONFIG_DIR", Path.home() / ".config" / "anthropic"))
+    if not (os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN") or profile.exists()):
+        raise SystemExit("No Claude credentials: set ANTHROPIC_API_KEY in the repo's .env (see .env.template).")
 
 
 @dataclass
@@ -41,11 +38,15 @@ class Claude:
     def __post_init__(self) -> None:
         self._client = anthropic.AsyncAnthropic(timeout=self.timeout_s, max_retries=1)
 
+    @property
+    def label(self) -> str:
+        return f"{self.model}/{self.effort}"
+
     async def parse(self, schema: type[BaseModel], system: str, messages: list[dict[str, str]]) -> Reply:
         kwargs: dict[str, Any] = {
             "model": self.model,
             "max_tokens": self.max_tokens,
-            # The system prompt is the same every turn of a duel: cache it.
+            # An agent's system prompt is the same every turn: cache it.
             "system": [{"type": "text", "text": system, "cache_control": {"type": "ephemeral"}}],
             "messages": messages,
         }

@@ -1,0 +1,22 @@
+[project]
+name = "team5-bazaar"
+version = "0.1.0"
+description = "Team 5's agents for The Bazaar, and the LLM engine they run on"
+requires-python = ">=3.13"
+dependencies = [
+    "anthropic>=1.8.0",
+    "pydantic>=2.13",
+    "python-dotenv>=1.2.4",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

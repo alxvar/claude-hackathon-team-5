@@ -1,21 +1,21 @@
 # Running the duel agent
 
-The duel agent is `bazaar-kit/duelist/`: regateo's Clock-Standing, copied over and adapted to the duel API. It doesn't depend on the regateo repo. The plan behind it is in [plan-clock-standing-on-bazaar.md](plan-clock-standing-on-bazaar.md).
+The duel agent is `agents/duelist/`, running on the model engine in `engine/`: regateo's Clock-Standing, copied over and adapted to the duel API. It doesn't depend on the regateo repo. The plan behind it is in [plan-clock-standing-on-bazaar.md](plan-clock-standing-on-bazaar.md).
 
 ## Setup (once)
 
 1. Add `ANTHROPIC_API_KEY=...` to the repo's `.env`, next to `BAZAAR_KEY` (see `.env.template`).
-2. `cd bazaar-kit && uv sync`
+2. `uv sync` at the repo root (all commands below run from there)
 3. `uv run pytest`: offline tests, with a fake model and a fake game.
-4. `uv run python -m duelist smoke`: one turn of a made-up duel through Claude. It prints the strategist's plan, the band, the move, and each call's latency and cost. It sends nothing to the game. Add `--days` to try a two-issue duel.
+4. `uv run python -m agents.duelist smoke`: one turn of a made-up duel through Claude. It prints the strategist's plan, the band, the move, and each call's latency and cost. It sends nothing to the game. Add `--days` to try a two-issue duel.
 
 ## The first duel (practice session, Friday at hour 2.0, about 21:00)
 
 The schedule says the practice duels last 12 ticks, lose 6% per tick, run 6 at a time, are price only, and don't score.
 
-1. A few minutes before, run `uv run python -m duelist probe`. It shows the clock, the duel sessions, and any live duels as raw JSON, and saves them to `bazaar-kit/logs/`.
-2. When duels appear, start `uv run python -m duelist run` and leave it running. It polls every 2 s, makes one decision per duel whenever the rival has moved, and sends at most one message per duel per tick. Every move is printed on one line: tick, duel, role, limit, the move, the band, and how long the decision took.
-3. If the console says `can't read it` for a duel, the payload uses field names the adapter doesn't know. Open `logs/duels-*.jsonl`, find the `"event": "duel"` lines, and add the names to `duelist/adapter.py` (`first(raw, ...)` lists). Ctrl-C and restart. Duels resume from the game's state.
+1. A few minutes before, run `uv run python -m agents.duelist probe`. It shows the clock, the duel sessions, and any live duels as raw JSON, and saves them to `logs/duelist/`.
+2. When duels appear, start `uv run python -m agents.duelist run` and leave it running. It polls every 2 s, makes one decision per duel whenever the rival has moved, and sends at most one message per duel per tick. Every move is printed on one line: tick, duel, role, limit, the move, the band, and how long the decision took.
+3. If the console says `can't read it` for a duel, the payload uses field names the adapter doesn't know. Open `logs/duelist/duels-*.jsonl`, find the `"event": "duel"` lines, and add the names to `agents/duelist/adapter.py` (`first(raw, ...)` lists). Ctrl-C and restart. Duels resume from the game's state.
 4. Use `run --dry-run` to watch decisions without sending anything.
 
 ## Choosing the model
@@ -31,7 +31,7 @@ Ticks are 60 s on Friday, 30 s on Saturday and 15 s on Sunday. A decision that t
 
 ## What to read in the log after the practice
 
-`logs/duels-<time>.jsonl` has one JSON object per line:
+`logs/duelist/duels-<time>.jsonl` has one JSON object per line:
 
 | Event | What it holds |
 |---|---|

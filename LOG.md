@@ -7,7 +7,7 @@ Pull before you add a line and push right after. Live numbers are in `STATUS.md`
 
 | Who | Working on now | Touches | Next |
 |---|---|---|---|
-| **Aleks** | Duels: Clock-Standing on the duel API (`duels`, `duel_say`, `duel_accept`), on Claude, for the practice duels (~22:20). _Aleks: please confirm or correct this line_ | `agents/duels/`, duel endpoints | Push the bench code; log what you run in the practice |
+| **Aleks** | Duels: Clock-Standing on the duel API (`duels`, `duel_say`, `duel_accept`), on Claude, for the practice duels (~22:20). _Aleks: please confirm or correct this line_ | `agents/duelist/`, `engine/`, duel endpoints | Push the bench code; log what you run in the practice |
 | **Lucas** (+ Claude Code) | 1) **Dealer bot running (since 21:07):** buys LAV uncommons (worth 32.5 P to us, about 23 P from Abuela), sells our 7 spare copies, and logs the score before and after every deal. 2) Market Test broker, offline (`broker/sim.py`) | `agents/dealers/`, `broker/`, `tools/`, `STATUS.md`; dealer and market endpoints only | Read the practice duels; tune the broker |
 | **Dani** | Five questions to the organisers' desk (the four in `PLAN.md`, plus: what is `neg_points`?). Writes the answers here | `LOG.md` | The story for the judges |
 
@@ -25,6 +25,7 @@ Pull before you add a line and push right after. Live numbers are in `STATUS.md`
 
 - Fri 21:07 · Lucas (bot) · dealer bot reworked: buys by value minus expected price, logs score per deal; running: LAV-08 and LAV-07, then 7 spare sales, then LAV-06 · next: check neg_points per deal to confirm finding 0
 - Fri 21:05 · Lucas · `broker/sim.py`, an offline Market Test: **the free stall's best-bid-vs-best-ask beats both alternatives I tried** (most pairs: 0.92 vs 0.95 efficiency; waiting: 0.48) in every trader model · beating the stall needs real limit estimates, so we record the real book at the first Market Test before building more
+- Fri 21:02 · Aleks · duelist moved out of `bazaar-kit/` to `agents/duelist/`; LLM engine split into `engine/` (`Model` interface + Claude provider); our deps now in the root `pyproject.toml`, kit's back to the organisers' · 14 offline tests pass · next: run with `uv run python -m agents.duelist` from the repo root
 - Fri 21:00 · Lucas · mined all teams' Abuela conversations from the public feed · she ends at ~73-75% of a high opening and never moves from a low one; our deals are at her floor (findings 1-3) · next: bot ready for the next dealer, then the market broker
 - Fri 20:50 · Lucas · `tools/status.py` writes `STATUS.md` every 5 min (score, deals, Abuela benchmark from every team's deals, duels, schedule) · live on GitHub · everyone reads it before asking
 - Fri 20:47 · Lucas (bot) · `abuela_bot.py --deals 2`: LAV-05 and LAV-02 bought at 9 P each (she opened at 12; we went 7 → 8 → 9) · 4 negotiated deals in total, cash 321 P, rank 3 · next: sell spares to Abuela, tune the opening counter against the benchmark
