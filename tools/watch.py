@@ -1,7 +1,9 @@
 """Prints one line per change that matters, for a Claude Code Monitor (read-only, ~1 request/s on average).
 
-Events: leaderboard snapshot (top 5 + us), our live score components, organiser announcements, levels and
-dealers, duels starting/ending, commits on origin/main by someone else, our dealer deals settling.
+Events (only what the operator acts on): our score components (not the relative score), our rank moving 2+ places
+or the top 4 changing (the guardrails), organiser announcements and levels (not other teams' unlocks), dealers,
+duels starting/ending, our deals settling, analysts writing (scout, judge, strategy), new lines in
+intel/directives.md (Lucas's decisions), teammates' commits that touch team/, PLAN.md or CLAUDE.md.
 
     source .env && python3 -u tools/watch.py
 """
@@ -33,8 +35,8 @@ def main():
             s = me.get("score") or {}
             mine = {k: s.get(k) for k in ("score", "negotiating", "market", "neg_points", "ladder_points", "duel_points",
                                           "bench_efficiency", "deals")}
-            if last.get("mine") and mine != last["mine"]:
-                d = {k: v for k, v in mine.items() if v != last["mine"].get(k)}
+            d = {k: v for k, v in mine.items() if last.get("mine") and v != last["mine"].get(k)}
+            if set(d) - {"score", "negotiating"}:  # the relative score moves every snapshot; only our components matter
                 emit("OUR SCORE", f"{json.dumps(d)} (cash {me.get('cash')}, level {me.get('level')})")
             last["mine"] = mine
 
@@ -43,8 +45,12 @@ def main():
                 teams = sorted(lb.get("teams", []), key=lambda t: -(t.get("score") or 0))
                 rank = next((i + 1 for i, t in enumerate(teams) if t.get("team") == me.get("id")), None)
                 top = " | ".join(f"{i + 1} {t['name'].replace('Team ', 'T')} {t.get('score'):.1f}" for i, t in enumerate(teams[:5]))
-                if last.get("snap") is not None:
-                    emit("LEADERBOARD", f"tick {lb.get('snapshot_tick')}: {top} || us #{rank} {s.get('score')}")
+                top4 = sorted(t.get("team") for t in teams[:4])  # the guardrails: never feed the top 4
+                if last.get("snap") is not None and (abs((rank or 0) - last.get("rank", rank or 0)) >= 2 or top4 != last.get("top4")):
+                    emit("LEADERBOARD", f"tick {lb.get('snapshot_tick')}: {top} || us #{rank} {s.get('score')} (top 4 now {top4})")
+                    last["rank"] = rank
+                last.setdefault("rank", rank)
+                last["top4"] = top4
                 last["snap"] = lb.get("snapshot_tick")
 
             ev = b.feed(limit=200).get("events", [])
@@ -53,6 +59,8 @@ def main():
                 if e["id"] <= seen:
                     continue
                 p = e.get("payload", {})
+                if e["type"] == "level.unlocked" and p.get("team") != me.get("id"):
+                    continue  # another team unlocked a level: noise
                 if e["type"] in ("announcement", "level.announced", "level.activated", "schedule.fired") or "level" in e["type"]:
                     emit("GAME", f"{e['type']} {json.dumps(p)[:200]}")
                 elif e["type"] == "settlement" and me.get("id") in p.get("parties", []):
@@ -70,7 +78,14 @@ def main():
                 emit("DUELS", f"{live} live (was {last['duels']})")
             last["duels"] = live
 
-            for name in ("scout.md", "judge.md"):  # an analyst wrote: surface its first recommendation
+            d = ROOT / "intel" / "directives.md"  # Lucas's decisions, written by his strategy session: new lines only
+            if d.exists() and d.stat().st_mtime != last.get("dir_t"):
+                now = d.read_text().splitlines()
+                if "dir" in last:
+                    for line in [x for x in now if x.strip() and x not in last["dir"]]:
+                        emit("DIRECTIVE", line[:300])
+                last["dir"], last["dir_t"] = set(now), d.stat().st_mtime
+            for name in ("scout.md", "judge.md", "strategy.md"):  # an analyst wrote: surface its first recommendation
                 f = ROOT / "intel" / name
                 if f.exists() and f.stat().st_mtime != last.get(name):
                     if name in last:
@@ -87,8 +102,10 @@ def main():
                                          capture_output=True, text=True).stdout.splitlines()
                     for line in out:
                         who, msg = line.split("|", 1)
-                        if who != ME:
-                            emit("TEAMMATE PUSH", f"{who}: {msg}")
+                        files = subprocess.run(["git", "-C", str(ROOT), "show", "--name-only", "--format=", msg.split()[0]],
+                                               capture_output=True, text=True).stdout.split()
+                        if who != ME and any(f.startswith(("team/", "PLAN.md", "CLAUDE.md", "intel/directives.md")) for f in files):
+                            emit("TEAMMATE PUSH", f"{who}: {msg} ({', '.join(files[:4])})")
                 last["head"] = head
         except Exception as e:  # keep watching through a bad read
             emit("WATCH ERROR", repr(e)[:200])
