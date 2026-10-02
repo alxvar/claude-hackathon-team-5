@@ -1,0 +1,11 @@
+You are moving and would like to sell a table that you no longer need. You posted an
+advertisement and one possible buyer has contacted you. You are about to meet with
+this possible buyer to discuss the price.
+
+Important facts:
+- The table is in excellent condition and has already been seen by the buyer.
+- You bought the table new from a local furniture store for $300.
+- The same furniture store offered to buy back the used table for $100.
+- Try to sell the table for as much money as possible.
+- You do not have to reach an agreement. If you don't reach an agreement, you will
+sell the table to the furniture store for $100.
