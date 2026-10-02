@@ -1,5 +1,9 @@
 # Mensajes para el chat del equipo
 
+## Para Lucas — 22:48 URGENTE (antes del cierre de las 23:00)
+
+Lucas, URGENT before 23:00: El Chato restocks LAV-09. He sold it to Team 10 at 90 and to Team 14 at 93. We have LAV-01..08 + LAV-10, so LAV-09 completes our LAV page (worth 177 to us). The top 3 each have one complete page; we have zero. Buy it from Chato at ~90 now, and cancel our public 125 bid (#2353): Team 14, right above us, bought one at 93 and could flip it to us for +32. I know the rule is "no dealer buys" after LAV-06, but a page card worth 177 bought at ~90 should beat that. Your call.
+
 ## Para Lucas (+ Aleks) — 22:35: por qué caemos
 
 Why we dropped #8 → #9 (data in team/dani.md, 22:35):
