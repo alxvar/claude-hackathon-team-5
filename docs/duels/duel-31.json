@@ -3,7 +3,7 @@
  "done": {
   "duel": 31,
   "session": 1,
-  "status": "live",
+  "status": "no_deal",
   "role": "seller",
   "item": "Mercado de Vallehermoso",
   "issues": [
@@ -17,10 +17,23 @@
   "deadline_tick": 132,
   "decay_per_round": 0.06,
   "rounds": 0,
-  "your_offer": null,
+  "your_offer": {
+   "id": 318,
+   "price": 165,
+   "tick": 120,
+   "days": 0
+  },
   "rival_offer": null,
-  "messages": [],
-  "result": null,
+  "messages": [
+   {
+    "tick": 120,
+    "from": "you",
+    "text": "Mercado de Vallehermoso sits in a prime neighbourhood with steady daily foot traffic and loyal local customers, which is why I'm offering it at 165 P. I'm open to a reasoned counteroffer, so tell me what figure you have in mind and why.",
+    "price": 165,
+    "days": null
+   }
+  ],
+  "result": 0.0,
   "price": null,
   "days": null
  },
@@ -270,5 +283,6 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 132
 }

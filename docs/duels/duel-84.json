@@ -3,7 +3,7 @@
  "done": {
   "duel": 84,
   "session": 1,
-  "status": "live",
+  "status": "no_deal",
   "role": "buyer",
   "item": "Andén 0",
   "issues": [
@@ -17,10 +17,23 @@
   "deadline_tick": 132,
   "decay_per_round": 0.06,
   "rounds": 0,
-  "your_offer": null,
+  "your_offer": {
+   "id": 315,
+   "price": 40,
+   "tick": 120,
+   "days": 0
+  },
   "rival_offer": null,
-  "messages": [],
-  "result": null,
+  "messages": [
+   {
+    "tick": 120,
+    "from": "you",
+    "text": "I'm offering 40 P for Andén 0. It's a fair price for what it is, and I'd like to close quickly since every tick of talk erodes value for both of us. Tell me where you stand and we can settle this fast.",
+    "price": 40,
+    "days": null
+   }
+  ],
+  "result": 0.0,
   "price": null,
   "days": null
  },
@@ -270,5 +283,6 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 132
 }
