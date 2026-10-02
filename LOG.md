@@ -39,6 +39,7 @@ Team 10 leads with one lever: buying from Abuela the cards of its high-value set
 
 ## Log
 
+- Fri 21:12 · Lucas · **calibration:** sold the spare MAL-02 for 6 P → `neg_points` −8.5 → −6.1 (+2.4) and cash +4 (we paid the 2 P fee as the accepting side) · confirms `neg_points` = value gained at our private values, net of fees (6 − 2 fee − 1.75 lost ≈ +2.3) · when we accept, we pay the fee; when they accept our listing, they do
 - Fri 21:14 · Lucas · E3 live: the jump of Teams 8/13/14 came from rare cards traded between teams at 65-70 P, not from Abuela · accepted MAL-02 for 6 P; 4 uncommons listed at ~9 P above our value; bid 70 P for LAV-09 · cash floor for the venue bond relaxed to ~200 tonight (no venue possible before level 2; Saturday adds 150 P)
 - Fri 21:12 · Lucas · `tools/watch.py` live watcher (score, leaderboard, deals, dealers, duels, pushes) + experiments table E1-E7 · next: E3 (team trades) while E1-E2 run
 - Fri 21:07 · Lucas (bot) · dealer bot reworked: buys by value minus expected price, logs score per deal; running: LAV-08 and LAV-07, then 7 spare sales, then LAV-06 · next: check neg_points per deal to confirm finding 0
