@@ -16,6 +16,7 @@ import json
 import math
 import os
 import statistics
+import subprocess
 import sys
 import threading
 import time
@@ -29,6 +30,7 @@ from bazaar_sdk import Bazaar, BazaarError  # noqa: E402
 
 HERE = Path(__file__).resolve().parent
 CACHE = ROOT / "logs" / "dashboard"
+TEAMS_MD = ROOT / "intel" / "teams.md"
 URL = os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai")
 GAP = 0.4          # seconds between two requests
 EDGE = 3           # P of gain, after fees, that makes an offer an opportunity
@@ -63,6 +65,9 @@ class Collector:
         self.requests = 0
         self.updated = None
         self.feed_gap = False
+        self.teams_every = 0
+        self.teams_push = False
+        self.teams_last = 0.0
         CACHE.mkdir(parents=True, exist_ok=True)
         self._load()
 
@@ -138,6 +143,34 @@ class Collector:
             self.me_hist.append(row)
         self._append("me.jsonl", [row])
 
+    def write_teams(self):
+        """Rewrite intel/teams.md and, with --push, commit and push that one file (retries on a busy git)."""
+        try:
+            text = Analysis(self).teams_md()
+            TEAMS_MD.write_text(text, encoding="utf-8")
+        except Exception as e:
+            self.errors.appendleft(f"{time.strftime('%H:%M:%S')} teams.md: {e!r}"[:200])
+            return
+        if not self.teams_push:
+            return
+        git = ["git", "-C", str(ROOT)]
+        rel = str(TEAMS_MD.relative_to(ROOT)).replace("\\", "/")
+        for attempt in range(3):
+            subprocess.run(git + ["add", "--", rel], capture_output=True)
+            if subprocess.run(git + ["diff", "--cached", "--quiet", "--", rel]).returncode == 0:
+                return
+            c = subprocess.run(git + ["commit", "-q", "-m", f"intel: teams.md (Dani's dashboard, {time.strftime('%H:%M')})",
+                                      "--", rel], capture_output=True, text=True)
+            if c.returncode == 0:
+                subprocess.run(git + ["pull", "--rebase", "--autostash", "-q", "origin", "main"], capture_output=True)
+                p = subprocess.run(git + ["push", "-q", "origin", "HEAD:main"], capture_output=True, text=True)
+                if p.returncode == 0:
+                    return
+                self.errors.appendleft(f"{time.strftime('%H:%M:%S')} teams.md push: {p.stderr.strip()[:150]}")
+                return
+            time.sleep(5)  # git busy (index.lock): try again
+        self.errors.appendleft(f"{time.strftime('%H:%M:%S')} teams.md: git busy, will retry next round")
+
     def run(self):
         n = 0
         while True:
@@ -164,6 +197,9 @@ class Collector:
                                  ("venues", self.pub.venues)):
                     self._get(name, fn)
             self.updated = time.time()
+            if self.teams_every and time.time() - self.teams_last >= self.teams_every and self.team:
+                self.teams_last = time.time()
+                self.write_teams()
             n += 1
             wait = float(clock.get("next_tick_in") or 30) + 1.0
             if clock.get("paused"):
@@ -593,6 +629,114 @@ class Analysis:
             add("warn", "The feed had a gap (the dashboard was off for a while): counts before it are incomplete.")
         return out
 
+    # -------------------------------------------------------------------------------------- intel/teams.md
+    def team_prices(self, tid, market):
+        """Median price per rarity a team traded at with other teams, plus its open bids."""
+        by = collections.defaultdict(list)
+        for tr in self.trades:
+            if tr["kind"] == "team" and tid in tr["parties"] and len(tr["items"]) == 1:
+                i = tr["items"][0]
+                by[i.get("rarity") or self.rarity(i.get("ref"))].append(tr["price"])
+        for r in market:
+            if r["team"] == tid and r["side"] == "bid" and r["rarity"]:
+                by[r["rarity"]].append(r["price"])
+        return {k: median(v) for k, v in by.items() if v}
+
+    def teams_md(self):
+        """Rival profiles for the analysts (they read the first 6000 characters, so keep it tight)."""
+        self.scan()
+        prof = self.profiles()
+        market = self.market()
+        byid = {p["team"]: p for p in prof}
+        us = byid.get(self.us, {})
+        our_rank = us.get("rank", 99)
+        first_tick = self.events[0].get("tick") if self.events else "?"
+        ab = {r["team"]: r for r in self.abuela() if r["dealer"] == "abuela"}
+        short = {"common": "c", "uncommon": "u", "rare": "r", "epic": "e", "legendary": "l"}
+        L = [f"# Rival profiles (Dani's dashboard, auto {time.strftime('%a %H:%M')}, tick {self.clock.get('tick')})", "",
+             f"_From the public feed since tick {first_tick}, the leaderboard and our /api/me. Inferred: starting cards "
+             f"and pack pulls are invisible. Collects = sets it buys or bids for; dumps = sets it sells or asks for. "
+             f"Prices = median of its team trades and open bids (c/u/r). Δ = score change over ~{RECENT} ticks._", "",
+             "## Teams", ""]
+        prices = {}
+        for p in prof:
+            tid = p["team"]
+            tp = self.team_prices(tid, market)
+            prices[tid] = tp
+            if p["us"]:
+                label = "US"
+            elif p["rank"] <= 3:
+                label = "leader (never feed)"
+            elif p["wants"]:
+                label = f"buyer for {'/'.join(p['wants'])}"
+            elif p["dumps"]:
+                label = f"seller of {'/'.join(p['dumps'])}"
+            elif "Quiet" in p["labels"]:
+                label = "inactive"
+            else:
+                label = "trader"
+            bits = [f"#{p['rank']} {p['name']} {p['score']:.1f}"
+                    + (f" (Δ {p['delta']:+.1f})" if p["delta"] is not None else ""), f"**{label}**"]
+            if p["wants"]:
+                bits.append("collects " + "/".join(p["wants"]))
+            if p["dumps"]:
+                bits.append("dumps " + "/".join(p["dumps"]))
+            if tp:
+                bits.append("prices " + " ".join(f"{short.get(k, k)} {v:g}" for k, v in sorted(tp.items(), key=lambda kv: list(short).index(kv[0]) if kv[0] in short else 9)))
+            bits.append(f"{p['team_trades']} team / {p['dealer_trades']} dealer trades, {p['listings']} listings")
+            if tid in ab:
+                bits.append(f"Abuela −{ab[tid]['avg_move']:g}%")
+            if p["biggest"] and p["biggest"].split(" bought ")[0] == p["name"]:
+                bits.append("big: " + p["biggest"].split(" bought ", 1)[1])
+            L.append("- " + " · ".join(bits))
+
+        # who to sell what to: our cards, best counterparty below us
+        copies = collections.defaultdict(list)
+        for a in self.me.get("assets", []):
+            if a.get("kind") == "card" and a.get("your_value") is not None:
+                copies[a["ref"]].append(a["your_value"])
+        all_med = collections.defaultdict(list)
+        for tr in self.trades:
+            if tr["kind"] == "team" and len(tr["items"]) == 1:
+                all_med[tr["items"][0].get("rarity")].append(tr["price"])
+        rows = []
+        for ref, vals in copies.items():
+            v = min(vals)
+            rar, st = self.rarity(ref), set_of(ref)
+            cands = []
+            for p in prof:
+                if p["us"] or p["rank"] <= 3:
+                    continue
+                bid = max((r["price"] for r in market if r["team"] == p["team"] and r["side"] == "bid" and r["ref"] == ref), default=None)
+                if bid is None and st not in p["wants"]:
+                    continue
+                price = bid if bid is not None else (prices[p["team"]].get(rar) or median(all_med.get(rar, [])))
+                if price is None:
+                    continue
+                gain = round(price - v - self.fee(price), 1)
+                cands.append((p["rank"] > our_rank, bid is not None, gain, p, price))
+            cands = [c for c in cands if c[2] >= EDGE]
+            if not cands:
+                continue
+            cands.sort(key=lambda c: (c[0], c[1], c[2]), reverse=True)
+            below, hasbid, gain, p, price = cands[0]
+            also = ", ".join(f"{c[3]['name']} {c[4]:g}" for c in cands[1:4])
+            rows.append((gain, f"| {ref} {rar[0] if rar else '?'} | {len(vals)} | {v:g} | {p['name']} (#{p['rank']}{'' if below else ', above us'}) "
+                               f"| {price:g}{' bid' if hasbid else ' est.'} | {gain:+g} | {also or '—'} |"))
+        rows.sort(key=lambda r: -r[0])
+        L += ["", f"## Who to sell what to (us #{our_rank}; never the top 3)", "",
+              "_Our copies (cheapest value), the best buyer, preferring teams BELOW us and an open bid over an estimate. "
+              "Gain = price − our value − El Rastro fee (if we accept; 0 fee if they accept our ask)._", "",
+              "| Card | Copies | Our value | Best buyer | Price | Gain | Also |", "|---|---|---|---|---|---|---|"]
+        L += [r[1] for r in rows] or ["| — | | | no buyer above our value + 3 yet | | | |"]
+        text = "\n".join(L) + "\n"
+        if len(text) > 5900:  # the analysts read 6000 characters: drop the tail of the team list first
+            head, rest = text.split("\n## Who to sell", 1)
+            sell = "\n## Who to sell" + rest
+            keep = 5900 - len(sell) - 40
+            text = head[:keep].rsplit("\n", 1)[0] + "\n- … (more teams on the dashboard)\n" + sell
+        return text
+
     def build(self):
         self.scan()
         prof = self.profiles()
@@ -672,9 +816,12 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--port", type=int, default=8765)
     ap.add_argument("--no-key", action="store_true", help="public data only")
+    ap.add_argument("--teams-every", type=int, default=600, help="seconds between intel/teams.md rewrites; 0 = off")
+    ap.add_argument("--push", action="store_true", help="commit and push intel/teams.md after each rewrite")
     args = ap.parse_args()
     key = None if args.no_key else load_key()
     c = Collector(key)
+    c.teams_every, c.teams_push = args.teams_every, args.push
     threading.Thread(target=c.run, daemon=True).start()
     Handler.collector = c
     srv = ThreadingHTTPServer(("127.0.0.1", args.port), Handler)

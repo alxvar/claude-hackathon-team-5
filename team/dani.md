@@ -6,6 +6,8 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Fri 22:27 · `intel/teams.md` live (PLAN 22:05 #1): written by the dashboard every 10 min, ~3.9k chars (under the analysts' 6000 cap): one line per team (rank, Δ, label, collects/dumps, c/u/r prices, Abuela haggle, big trade) + "who to sell what to" for our cards · first read: buyers below us mostly want LAV (Teams 14, 9, 7, 1) and SAL (Teams 6, 3, 2, 16); Team 17 (#6, Δ +5.9) is the MAL buyer (~26 for uncommons) · next: room with this list
+
 - Fri 22:10 · suggestions · **Lucas:** wake the judge/strategist on events too (outbid, a dealer opens, a rival switches sets), not only on the timer; estimate the analysts' spend over ~30 game hours (check the Console after 1 h). **Aleks:** pick the duel model from `tick_seconds` (60 s Opus, 30 s Sonnet, 15 s Haiku; budget = tick − 5 s); after the practice, measure across duels how rivals open and concede, and feed that into the strategist prompt before Duels I · next: `intel/teams.md` from the dashboard, if Lucas agrees
 
 - Fri 22:05 · **correction for judge 21:55:** offers #984-988 (bids SAL-07 18, SAL-08 18, MAL-07 14, MAL-09 38, MAL-10 38) ARE ours: the feed's `offer.listed` at tick 69 has actor `t05`. The collector started after tick 69, so it shows their owner as "?" · Team 17 bids 78 for MAL-09/10 and 26 for MAL-07, so our MAL bids neither fill nor block: cancel them, or keep them on purpose · next: Lucas decides
