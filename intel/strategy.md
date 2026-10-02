@@ -1,88 +1,98 @@
-# Strategist (claude-opus-5-5, Fri 21:56)
+# Strategist (claude-opus-5-5, Fri 22:18)
 
 ## How the points really work
-- **Weights.** Friday counts 0.5 and Saturday and Sunday 1 each, so 80% of the weight is still ahead. Friday has about 66 ticks left (tick 94, closes 23:00), and every move tonight counts half. Saturday is the decisive round: 14 h, 8 Market Tests and both scored duel sessions.
-- **Negotiating (30).**
-  - Team trades: price − our value, net of fees, relative to the field. The gap to #1 is 10 points (17.8 vs 27.8), about one rare trade between teams (observed jumps +8 to +15).
-  - Ladder: capped at our best 3 deals per level. Abuela is already at her floor (0.064), so more Abuela deals add almost nothing, while Chato (level 2) weighs more.
-  - Duels: 0.0 for us. The practice session doesn't score, so every team is at 0 until Duels I (hour 6.5).
-- **Market-making (30).** Every team is at 0: no venues yet, and the first Market Test lands Saturday morning (finding 6).
-  - The free auto stall earns half the bench points for everyone, so that half gives no edge.
-  - The edge is only above it: matching better than auto, toward the top-3 mean.
-  - "Value created on our venue" is a second, uncontested line. Fees never count, so a 0-fee venue costs us nothing.
-- **Judges (40).** The biggest share, not in the API. Our multi-agent daemon setup (collector, metrics, scout, judge, strategist) is craft we have to show.
-- **Weakest field components: Market-making and duels.** These are the cheapest points.
+- **Negotiating (30)** has three parts:
+  - **Duels.** Ours is 0.0. No session has scored yet: the practice at hour 2.0 doesn't count, and the first scored one is Duels I at hour 6.5. The field is at zero.
+  - **Ladder.** Capped at the best 3 deals per level, and higher levels weigh more. Ours is 0.064, all from level 1. Chato (level 2) has 0 of our 3 slots filled, and a missing deal counts 0.
+  - **Team trades.** Uncapped. Our `neg_points` is 24.1.
+- **Market-making (30).** No Market Test has run, and no team venue appears in the metrics or the feed, so every team is at 0. The free auto stall earns half the bench points by default. The full points go to the mean of the top three, so the only upside is a broker that beats `auto`.
+- **Judges (40).** The largest share, and not in the metrics.
+- **Relative and weighted.** The leader (Team 13) has 27.8 and we have 16.4, a gap of 11.4. Friday counts half.
+- **Cheapest points.** Market-making (30, everyone at 0), then duels (everyone at 0), then Chato's 3 ladder slots. Neg-trades is where the field competes hardest.
+- **Data conflicts to resolve:**
+  - **`neg_points` history.** The lane log says it fell 26.3 → 14.5 after the MAL-07 buy. The metrics say 26.3 → 24.1 over 15 min, with our SAL-08 buy at 18 (t12) and LAV-04 sale at 9 (t07) in between. The exact breakdown is not in the data.
+  - **LAV-09.** "Only one LAV-09 exists" contradicts RULES (rares print 30 copies), and Chato lists LAV-09 at 77.
+  - **Team 10's 110 bid.** It is no longer in the top bids. A LAV-09 ask at 110 is now on the book.
 
 ## Our winning strategy
-1. **Saturday: own Market-making.**
-   - Unlock Chato.
-   - Open a `board` venue with our own broker, built to beat the auto stall on the bench.
-   - Set the fee at 0 (if accepted), so it undercuts El Rastro's 5% + 1 and draws trades between teams.
-2. **Act as a cheap-set supplier to collectors below us.** Our LAT 0.5 and MAL 0.7 cards are worth little to us. Rares are the lever: a MAL rare into t17's 78 bid scores about +24 (78 − 49 − fee 4.9).
-3. **Sunday: become the Chamberí buyer (1.6×).** Bid for CHA from teams that value it low. Never sell CHA.
-4. **Duels:** Aleks closes every duel inside our limit, early (decay 0.06–0.08 per round).
-
-**Stop doing:**
-- **Racing for the LAV page.**
-  - Team 10 now bids 110 for LAV-09. Our 91 bid scores 0 even if it fills and ties up 91 of our 380 P, which we need for the 270 P venue bond.
-  - Cancel it unless H2 shows the page bonus is priced in.
-- **Autoflip on LAT commons:** they score at most +4.
-- **Haggling for flip stock.**
-- **Selling to teams above us** (t13, t18, t08, t10, t12, t04, t14) unless our gain clearly exceeds theirs.
-  - All SAL buyers are leaders (t13, t18, t08), so hold SAL-06 or offer it only `to` a team below us.
+- **1. Own Market-making.** Open a `board` venue with fee 0 and our own broker.
+  - The broker computes the max-surplus matching on `bench_offers`: sort bids descending and asks ascending, pair while bid > ask, and don't greedily cross early pairs.
+  - This beats `auto`, which crosses the best pair every tick.
+  - A fee of 0 also undercuts El Rastro's 5% + 1 P, drawing other teams' trades onto our venue. That value scores for us; fees never do.
+  - Nobody is here yet, and it is worth 30 points.
+- **2. Fill Chato's 3 ladder slots before he opens to all at hour 2.63 (~22:58).** Two kinds of deal fit:
+  - Buys below our value: LAV-06 and LAV-07 at ≤29, worth 32.5 each.
+  - A sale above our value: MAL-07, worth 17.5.
+- **3. Sell our low-multiplier cards to non-leaders near the buyer's value.**
+  - Our low sets: LAT 0.5, MAL 0.7, SAL 0.9.
+  - Buyers to target: t17, t15, t06, t04.
+  - Never sell to t13, t12, t08 or t18 (the top 4).
+- **4. Sunday: buy Chamberí at 1.6×.** A CHA uncommon is worth 40 to us and a rare 112. Buy from teams below those values, and from dealers only below value.
+- **Stop doing:**
+  - Autoflip and packs.
+  - Any dealer buy above our value.
+  - The LAV-09 bidding war.
+  - Selling first copies below our value. Our LAV-04 ask at 9 loses 4 if it is a first copy (worth 13).
+  - Feeding the top 4.
 
 ## Levers nobody is using yet
-- **Board broker on the Market Test.**
-  - Evidence: no venue exists; level 2 isn't open yet.
-  - Exploit: the operator builds the broker overnight and replays a 10-trader, 16-tick book offline. It matches every crossing pair, best bid against best ask, in the first tick, before impatient traders leave.
-- **0-fee venue.**
-  - Evidence: every one of the 35 trades between teams paid El Rastro's fee (it is the only venue).
-  - Exploit: open it the moment level 2 is ours. Dani pitches "0% fee" in the room.
-- **Rares sourced from Abuela.**
-  - Evidence: the dealer medians show only commons, uncommons and packs, and all rare trades were between teams.
-  - Exploit: if Abuela sells MAL-09/10, buy at her first price (≤73 keeps our cash level) and fill t17's two bids, 1329 and 1330 → about +48. t17 is below #10 on the board, so this is safe to feed.
-- **MAL spares into t17's uncommon bids (MAL-07/08 at 26).**
-  - A 2nd copy is worth 4.4 to us, so a sale scores about +19.
-  - A 1st copy scores only +6.2: skip it.
-- **Abuela's budget is being spent on deals that don't help us level up.**
-  - Autoflip takes her opening price, which doesn't count toward unlocking Chato, and it uses up the 8 deals per hour.
-  - Reserve 3 deals per hour for negotiated and Chato deals.
+- **Own venue + optimal broker.** No team venue or Market-making score exists in the data. We exploit it by having the broker ready before the first bench (hour 3.0).
+- **Zero-fee venue.** All 46 team trades so far paid house fees, and no alternative venue is listed. We open at fee 0 so other teams' trade value lands on our book.
+- **Selling to dealers for the ladder.** The dealer table shows no team selling to Chato, and only 2 uncommon sells to Abuela. Selling MAL-07 to Chato above 17.5 fills a ladder slot and should score positive.
+- **Duels II on delivery day.** No duel has scored yet. Aleks's duelist should ask for `days` first, concede days where our weight is low, and close early because decay is 0.08 per round.
+- **`/api/me/value?card=` for the page bonus.** No log entry has priced it yet. This one read settles whether LAV-09 is worth chasing.
 
 ## Plan, anchored to the schedule
-**Tonight (half weight):**
-1. **Now, operator (`trade.py`):** run H2, then cancel the LAV-09 bid (offer 1371) unless the bonus is priced in.
-2. **Now, Lucas (`/api/me`):**
-   - Do we hold any MAL rare? If yes, accept t17's 78 → +24.
-   - MAL-07/08 spares? Accept t17's 26.
-   - Check SAL-06 and LAV-04 values.
-3. **Now, operator:** run H1 (Abuela rare quote). If it passes, flip into t17 only.
-4. **Now, operator:** add an "above us" block-list to `autoflip.py`, `loop.py` sells and `trade.py` listings. Raise autoflip's minimum to cover rares; drop LAT commons.
-5. **~22:20 practice duels, Aleks:** test the protocol, including `days` handling. Log messages-to-close and limit breaches.
-6. **Before 23:00, Lucas:** confirm in `/api/levels` that we've earned Chato's head start (negotiated Abuela deals, not opening-price ones).
-
-**Overnight:**
-- Operator: board broker plus offline sim.
-- Aleks: Duels II two-issue logic: concede days that our `your_days_weight` says are cheap, ask price in return.
-- Lucas: judge-facing write-up of the architecture.
-- Dani: room script for the 0-fee venue.
-
-**Saturday:**
-- **09:00 open:** Chato's 3 ladder deals (`abuela_bot.py --dealer chato --ladder --deals 3`). Once we reach level 2, open the venue: board, fee 0 (H4). The stall covers the first bench.
-- **Hour 4.0–4.05 (RET release, +150 P, a pack):** open the pack. List LAT/MAL/RET spares `to` collectors below us.
-- **Benches at hours 5, 7, 9, 11, 13, 15, 16 (hard) and 17:** broker live. Compare each session against the half-point baseline (H3).
-- **Hour 6.5, Duels I; hour 13, Duels II:** Aleks.
-
-**Sunday (hour 18, CHA release):**
-- Post CHA bids at the low prices sellers will take (commons ~10, uncommons ~20). Our values are 16 and 40.
-- Lucas and Dani find CHA holders in the room.
+1. **Now, ticks 115–118 (operator).**
+   - Read `/api/me`: copy counts and LAV page status.
+   - Cancel the LAV-04 ask if it is a first copy.
+   - Run `/api/me/value?card=LAV-09`.
+   - Impact: stops a −4 sale and decides the LAV-09 question.
+2. **Hour 2.0, ~22:20 (Aleks).** Run the practice duels with `agents/duelist/`. Log the protocol, how decay behaves, and how alias rivals open.
+   - Impact: 0 points tonight, readiness for Duels I.
+3. **22:15–22:55 (dealer bot, operator).** Run `abuela_bot.py --dealer chato --ladder --deals 3`, restricted to:
+   - selling MAL-07, any price above 17.5, pushed high;
+   - buying LAV-06 and LAV-07 at ≤29, only if we don't already hold them.
+   - Buy LAV-09 at ≤77 only if step 1 shows the page bonus is priced.
+   - Impact: fills level-2 ladder slots ahead of the field. The exact point value is not in the data.
+4. **22:20–23:00 (Lucas, Dani, in the room).**
+   - t17 bids 78 for MAL-09 (#9). If we hold a MAL-09 (worth 49), list it `to` t17 at 78: +29.
+   - t04 bids 85 for LAV-10. Sell only a spare copy (worth 22.75): +62. Keep a first copy (worth 91).
+   - Skip t18's LAT-09/LAT-10 bids at 55. Team 18 is in the top 4.
+5. **Overnight (operator).**
+   - Write `agents/broker/`: max-surplus matching, with a patience rule that matches early when a trader's ticks run out (for the hard test at hour 16).
+   - Replay it on a synthetic book against greedy `auto`.
+   - Keep cash ≥270 for the bond (250 + 20); we have 342 now.
+6. **Sat 09:00 (operator).**
+   - Check `/api/clock` and `/api/schedule`: when does hour 3.0 fall?
+   - If the broker beat `auto` in replay, open the board venue (fee 0) before the bench.
+   - Otherwise keep the free stall for 3.0 and switch by 5.0.
+   - Impact: up to the full Market-making share against a field at the half-share stall.
+7. **Hour 4.05.** The 150 P grant and the RET pack arrive. Gifts don't count. Keep RET first copies, which are worth 1.1×.
+8. **Hours 6.5 and 13.0 (Aleks).**
+   - Duels I: always close inside our limit, and early.
+   - Duels II: trade on `days`.
+9. **Hour 16.0 (broker).** The hard Market Test: switch on the impatience mode.
+10. **Hour 18.0, Sunday (Lucas, Dani, trader).**
+    - Bid for CHA cards from non-leaders below 40 (uncommons) and 112 (rares).
+    - Sell our remaining LAT/MAL to CHA-indifferent collectors.
 
 ## Hypotheses to test
-| # | Hypothesis | Cheapest experiment | Deciding metric |
-|---|---|---|---|
-| H1 | Abuela sells MAL/LAT rares at ≤73 | Open a buy thread for MAL-09, read her opening, close | Her opening/final price, and `neg_points` after the flip (+24 expected) |
-| H2 | The page bonus is priced into `your_value` | `GET /api/me/value?card=LAV-09` | Result > 91 means the bonus counts; = 91 means cancel the bid |
-| H3 | A board broker beats the auto stall | Offline replay tonight, then the first bench with a board venue | Bench efficiency above the stall's half-point share |
-| H4 | `fee_bps: 0` is accepted | Open the venue with 0 (a refused opening costs nothing) | 200 vs 400 |
-| H5 | A 0-fee venue draws trades between teams | Dani's pitch plus 1 h live | Market-making "value created on our venue" > 0 |
-| H6 | Early duel closes beat holding out | Practice duels: close by round 2 vs round 6 | Pie share in Duels I |
-| H7 | Opening-price Abuela deals don't count toward unlocking Chato | Compare our head-start status when Chato activates against the log of negotiated deals | `/api/levels` access tick |
+- **Dealer buys score asymmetrically**: only above-value buys subtract, below-value ones score about 0.
+  - Experiment: buy one Abuela common below our value with nothing else pending, and read `neg_points` before and after.
+  - Decides: whether Chato's LAV buys are neutral.
+- **Selling to a dealer scores price − value.**
+  - Experiment: sell one spare (worth 25%) to Abuela, with nothing else pending.
+  - Decides: the `neg_points` delta.
+- **The page bonus is priced into our value.**
+  - Experiment: `/api/me/value?card=<last missing LAV card>`.
+  - Decides: whether it shows more than book × 1.3.
+- **Round 1 (Friday) runs until game hour 4.0, so the 3.0 bench counts toward Friday.**
+  - Experiment: `/api/clock` at 23:00 and at Sat 09:00.
+  - Decides: which round is active during the bench.
+- **The board broker beats `auto`.**
+  - Experiment: replay the first `bench_offers` through both.
+  - Decides: realised share of the possible gains.
+- **A fee-0 venue pulls trades away from El Rastro.**
+  - Experiment: open it and watch the first 2 hours.
+  - Decides: value traded on our venue vs on El Rastro.
