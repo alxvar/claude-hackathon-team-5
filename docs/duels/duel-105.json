@@ -364,6 +364,95 @@
      ]
     }
    }
+  },
+  {
+   "tick": 136,
+   "took_s": 0.0,
+   "cost_usd": 0.00421,
+   "obs": {
+    "view": {
+     "duel_id": 105,
+     "role": "seller",
+     "limit": 74,
+     "currency": "P",
+     "item": "Plaza de Olavide",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never sell below your cost",
+      "decay_per_round": 0.06,
+      "rounds": 0,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "Plaza de Olavide is a rare find: a prime central location, a lively square with real character, and steady demand. I'm offering it at 118 P, which reflects that value. I'd be glad to hear where you stand.",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 132,
+      "decision": {
+       "action": "offer",
+       "price": 118,
+       "message": "I'm holding at 118 P. The square's central location, its character and its steady foot traffic all support that figure. Could you put a concrete number on the table so we can see how far apart we really are?"
+      }
+     },
+     {
+      "mine": true,
+      "text": "I'm holding at 118 P. The square's central location, its character and its steady foot traffic all support that figure. Could you put a concrete number on the table so we can see how far apart we really are?",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 134,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 136,
+    "ticks_left": 9
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 113 P.",
+    "price": 113,
+    "days": null,
+    "meta": {
+     "fallback": "rival silent",
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.49,
+       "in": 252,
+       "out": 95,
+       "cost_usd": 0.00291,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.64,
+       "in": 261,
+       "out": 78,
+       "cost_usd": 0.0013,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
   }
  ],
  "sent": [
@@ -477,6 +566,46 @@
      "id": 807,
      "price": 118,
      "tick": 134,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 136,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 113 P.",
+    "price": 113,
+    "days": null,
+    "meta": {
+     "fallback": "rival silent",
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.49,
+       "in": 252,
+       "out": 95,
+       "cost_usd": 0.00291,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.64,
+       "in": 261,
+       "out": 78,
+       "cost_usd": 0.0013,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 105,
+    "offer": {
+     "id": 866,
+     "price": 113,
+     "tick": 136,
      "days": 0
     }
    }

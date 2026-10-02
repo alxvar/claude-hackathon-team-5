@@ -364,6 +364,95 @@
      ]
     }
    }
+  },
+  {
+   "tick": 136,
+   "took_s": 0.0,
+   "cost_usd": 0.0046,
+   "obs": {
+    "view": {
+     "duel_id": 113,
+     "role": "seller",
+     "limit": 51,
+     "currency": "P",
+     "item": "El Rastro al Amanecer",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never sell below your cost",
+      "decay_per_round": 0.06,
+      "rounds": 0,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "El Rastro al Amanecer is a rare find, the kind of piece that only turns up at the first light of the flea market and rarely comes back around. I'm offering it at 85 P, which reflects its quality and scarcity. I'd welcome a serious counteroffer soon, since every tick of talk costs us both.}",
+      "offer": {
+       "price": 85,
+       "days": null
+      },
+      "accept": false,
+      "tick": 132,
+      "decision": {
+       "action": "offer",
+       "price": 85,
+       "message": "My price stays at 85 P for El Rastro al Amanecer, a rare piece that is hard to find once the market wakes up. Could you name a concrete figure so we can move this forward quickly?"
+      }
+     },
+     {
+      "mine": true,
+      "text": "My price stays at 85 P for El Rastro al Amanecer, a rare piece that is hard to find once the market wakes up. Could you name a concrete figure so we can move this forward quickly?",
+      "offer": {
+       "price": 85,
+       "days": null
+      },
+      "accept": false,
+      "tick": 134,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 136,
+    "ticks_left": 9
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 81 P.",
+    "price": 81,
+    "days": null,
+    "meta": {
+     "fallback": "rival silent",
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.61,
+       "in": 285,
+       "out": 102,
+       "cost_usd": 0.00318,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.7,
+       "in": 302,
+       "out": 82,
+       "cost_usd": 0.00142,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
   }
  ],
  "sent": [
@@ -477,6 +566,46 @@
      "id": 808,
      "price": 85,
      "tick": 134,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 136,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 81 P.",
+    "price": 81,
+    "days": null,
+    "meta": {
+     "fallback": "rival silent",
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.61,
+       "in": 285,
+       "out": 102,
+       "cost_usd": 0.00318,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.7,
+       "in": 302,
+       "out": 82,
+       "cost_usd": 0.00142,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 113,
+    "offer": {
+     "id": 867,
+     "price": 81,
+     "tick": 136,
      "days": 0
     }
    }

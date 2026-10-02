@@ -397,6 +397,93 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 135,
+   "raw": {
+    "duel": 257,
+    "session": 1,
+    "status": "live",
+    "role": "seller",
+    "item": "El Rastro al Amanecer",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 78,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 144,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 840,
+     "price": 103,
+     "tick": 135,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 812,
+     "price": 101,
+     "tick": 134,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 132,
+      "from": "you",
+      "text": "El Rastro al Amanecer is a rare, high-quality piece, and I'm opening at 115 P, which reflects its craftsmanship and scarcity. I'm open to your counteroffer, and since every tick of talk costs us both value, let's move efficiently.",
+      "price": 115,
+      "days": null
+     },
+     {
+      "tick": 132,
+      "from": "Rival Oro",
+      "text": "Fair is fair: 96 P, and we can close now.",
+      "price": 96,
+      "days": null
+     },
+     {
+      "tick": 133,
+      "from": "you",
+      "text": "I'm willing to move to 110 P as a show of good faith, which is a real step from where I opened. The piece is genuinely rare, and I'd ask you to come up meaningfully from your figure so we can close quickly before more value slips away.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 133,
+      "from": "Rival Oro",
+      "text": "Let's find a deal that works for both of us: 100 P.",
+      "price": 100,
+      "days": null
+     },
+     {
+      "tick": 134,
+      "from": "you",
+      "text": "I can move to 106 P, which is a real step down from my earlier figure and meets you well past halfway on what's left between us. Settling there now saves both of us the value that slips away with each further round.",
+      "price": 106,
+      "days": null
+     },
+     {
+      "tick": 134,
+      "from": "Rival Oro",
+      "text": "We both lose the longer we talk. 101 P?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 135,
+      "from": "you",
+      "text": "Let's end this now: I'll come down to 103 P, which splits what's left between us almost evenly. The remaining gap is smaller than what another round of talk costs us both, so meeting there makes sense for each of us.}",
+      "price": 103,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -898,6 +985,155 @@
      ]
     }
    }
+  },
+  {
+   "tick": 135,
+   "took_s": 7.38,
+   "cost_usd": 0.00799,
+   "obs": {
+    "view": {
+     "duel_id": 257,
+     "role": "seller",
+     "limit": 78,
+     "currency": "P",
+     "item": "El Rastro al Amanecer",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never sell below your cost",
+      "decay_per_round": 0.06,
+      "rounds": 3,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "El Rastro al Amanecer is a rare, high-quality piece, and I'm opening at 115 P, which reflects its craftsmanship and scarcity. I'm open to your counteroffer, and since every tick of talk costs us both value, let's move efficiently.",
+      "offer": {
+       "price": 115,
+       "days": null
+      },
+      "accept": false,
+      "tick": 132,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Fair is fair: 96 P, and we can close now.",
+      "offer": {
+       "price": 96,
+       "days": null
+      },
+      "accept": false,
+      "tick": 132,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm willing to move to 110 P as a show of good faith, which is a real step from where I opened. The piece is genuinely rare, and I'd ask you to come up meaningfully from your figure so we can close quickly before more value slips away.",
+      "offer": {
+       "price": 110,
+       "days": null
+      },
+      "accept": false,
+      "tick": 133,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Let's find a deal that works for both of us: 100 P.",
+      "offer": {
+       "price": 100,
+       "days": null
+      },
+      "accept": false,
+      "tick": 133,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 106 P, which is a real step down from my earlier figure and meets you well past halfway on what's left between us. Settling there now saves both of us the value that slips away with each further round.",
+      "offer": {
+       "price": 106,
+       "days": null
+      },
+      "accept": false,
+      "tick": 134,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "We both lose the longer we talk. 101 P?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 134,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 101,
+     "days": 0
+    },
+    "tick": 134,
+    "ticks_left": 11
+   },
+   "move": {
+    "action": "offer",
+    "text": "Let's end this now: I'll come down to 103 P, which splits what's left between us almost evenly. The remaining gap is smaller than what another round of talk costs us both, so meeting there makes sense for each of us.}",
+    "price": 103,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 103,
+      "message": "Let's end this now: I'll come down to 103 P, which splits what's left between us almost evenly. The remaining gap is smaller than what another round of talk costs us both, so meeting there makes sense for each of us.}"
+     },
+     "band": {
+      "worst": 101,
+      "target": 103,
+      "best": 104
+     },
+     "plan": {
+      "read": "They moved only 1 P (100 to 101) and are signalling they're near their ceiling. The 5 P gap is small next to the 14 P both sides have already moved, and each tick costs about 6%.",
+      "target": 103,
+      "best": 104,
+      "worst": 101,
+      "days": null,
+      "angle": "Propose closing at 103 now as a near-split of the small remaining gap, and stress that further rounds cost us both more than the difference; their 101 may be accepted if they won't budge."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.61,
+       "in": 695,
+       "out": 156,
+       "cost_usd": 0.0059,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.76,
+       "in": 601,
+       "out": 89,
+       "cost_usd": 0.00209,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
   }
  ],
  "sent": [
@@ -1071,12 +1307,69 @@
      "days": 0
     }
    }
+  },
+  {
+   "tick": 135,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Let's end this now: I'll come down to 103 P, which splits what's left between us almost evenly. The remaining gap is smaller than what another round of talk costs us both, so meeting there makes sense for each of us.}",
+    "price": 103,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 103,
+      "message": "Let's end this now: I'll come down to 103 P, which splits what's left between us almost evenly. The remaining gap is smaller than what another round of talk costs us both, so meeting there makes sense for each of us.}"
+     },
+     "band": {
+      "worst": 101,
+      "target": 103,
+      "best": 104
+     },
+     "plan": {
+      "read": "They moved only 1 P (100 to 101) and are signalling they're near their ceiling. The 5 P gap is small next to the 14 P both sides have already moved, and each tick costs about 6%.",
+      "target": 103,
+      "best": 104,
+      "worst": 101,
+      "days": null,
+      "angle": "Propose closing at 103 now as a near-split of the small remaining gap, and stress that further rounds cost us both more than the difference; their 101 may be accepted if they won't budge."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.61,
+       "in": 695,
+       "out": 156,
+       "cost_usd": 0.0059,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.76,
+       "in": 601,
+       "out": 89,
+       "cost_usd": 0.00209,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 257,
+    "offer": {
+     "id": 840,
+     "price": 103,
+     "tick": 135,
+     "days": 0
+    }
+   }
   }
  ],
  "done": {
   "duel": 257,
   "session": 1,
-  "status": "live",
+  "status": "deal",
   "role": "seller",
   "item": "El Rastro al Amanecer",
   "issues": [
@@ -1089,17 +1382,17 @@
   "rival": "Rival Oro",
   "deadline_tick": 144,
   "decay_per_round": 0.06,
-  "rounds": 2,
+  "rounds": 3,
   "your_offer": {
-   "id": 798,
-   "price": 106,
-   "tick": 134,
+   "id": 840,
+   "price": 103,
+   "tick": 135,
    "days": 0
   },
   "rival_offer": {
-   "id": 766,
-   "price": 100,
-   "tick": 133,
+   "id": 812,
+   "price": 101,
+   "tick": 134,
    "days": 0
   },
   "messages": [
@@ -1137,11 +1430,25 @@
     "text": "I can move to 106 P, which is a real step down from my earlier figure and meets you well past halfway on what's left between us. Settling there now saves both of us the value that slips away with each further round.",
     "price": 106,
     "days": null
+   },
+   {
+    "tick": 134,
+    "from": "Rival Oro",
+    "text": "We both lose the longer we talk. 101 P?",
+    "price": 101,
+    "days": null
+   },
+   {
+    "tick": 135,
+    "from": "you",
+    "text": "Let's end this now: I'll come down to 103 P, which splits what's left between us almost evenly. The remaining gap is smaller than what another round of talk costs us both, so meeting there makes sense for each of us.}",
+    "price": 103,
+    "days": null
    }
   ],
-  "result": null,
-  "price": null,
-  "days": null
+  "result": 20.8,
+  "price": 103,
+  "days": 0
  },
  "errors": [
   {
@@ -1193,5 +1500,6 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 136
 }

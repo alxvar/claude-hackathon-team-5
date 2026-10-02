@@ -364,6 +364,92 @@
      ]
     }
    }
+  },
+  {
+   "tick": 136,
+   "took_s": 0.0,
+   "cost_usd": 0.0039,
+   "obs": {
+    "view": {
+     "duel_id": 106,
+     "role": "buyer",
+     "limit": 96,
+     "currency": "P",
+     "item": "Plaza de Olavide",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never pay above your value",
+      "decay_per_round": 0.06,
+      "rounds": 0,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm opening at 62 P for Plaza de Olavide, which I think is a fair figure given how little there is to compare it against. If your number is sensible we can wrap this up quickly, so tell me where you stand.",
+      "offer": {
+       "price": 62,
+       "days": null
+      },
+      "accept": false,
+      "tick": 132,
+      "decision": {
+       "action": "message",
+       "price": null,
+       "message": "My opening figure stands, and I'd like to hear yours so we have something concrete to work from. Every tick of talk costs us both value, so a clear number from you will get us moving."
+      }
+     },
+     {
+      "mine": true,
+      "text": "My opening figure stands, and I'd like to hear yours so we have something concrete to work from. Every tick of talk costs us both value, so a clear number from you will get us moving.",
+      "offer": null,
+      "accept": false,
+      "tick": 134,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 136,
+    "ticks_left": 9
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 66 P.",
+    "price": 66,
+    "days": null,
+    "meta": {
+     "fallback": "rival silent",
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.26,
+       "in": 252,
+       "out": 83,
+       "cost_usd": 0.00267,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.48,
+       "in": 249,
+       "out": 73,
+       "cost_usd": 0.00123,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
   }
  ],
  "sent": [
@@ -477,6 +563,46 @@
      "id": 726,
      "price": 62,
      "tick": 132,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 136,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 66 P.",
+    "price": 66,
+    "days": null,
+    "meta": {
+     "fallback": "rival silent",
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.26,
+       "in": 252,
+       "out": 83,
+       "cost_usd": 0.00267,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.48,
+       "in": 249,
+       "out": 73,
+       "cost_usd": 0.00123,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 106,
+    "offer": {
+     "id": 865,
+     "price": 66,
+     "tick": 136,
      "days": 0
     }
    }
