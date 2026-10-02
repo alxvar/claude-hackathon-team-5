@@ -1,0 +1,1 @@
+{"id": 5852, "tick": 120, "t": 2.0, "type": "duels.scheduled", "scope": "public", "actor": "", "payload": {"session": 1, "name": "Practice duels", "duels": 306, "rounds": 1, "duel_ticks": 12, "decay": 0.06}}
