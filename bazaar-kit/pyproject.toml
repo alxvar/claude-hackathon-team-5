@@ -1,0 +1,19 @@
+[project]
+name = "bazaar-kit"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Aleksandar Varga", email = "aleksandar.varga@proton.me" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "python-dotenv>=1.2.4",
+]
+
+[project.scripts]
+bazaar-kit = "bazaar_kit:main"
+
+[build-system]
+requires = ["uv_build>=0.12.20,<0.13.0"]
+build-backend = "uv_build"

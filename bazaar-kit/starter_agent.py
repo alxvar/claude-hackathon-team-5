@@ -1,10 +1,15 @@
 """Your first deal in the Bazaar: buy a pack from Abuela Carmen, open it, see your score.
 
     BAZAAR_URL=https://bazaar.causaprima.ai BAZAAR_KEY=tk-xxxx-xxxx python starter_agent.py
+
+or put BAZAAR_URL / BAZAAR_KEY in a .env file (found in this directory or any parent).
 """
 import os
 
 from bazaar_sdk import Bazaar
+from dotenv import load_dotenv
+
+load_dotenv()
 
 b = Bazaar(os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai"), os.environ["BAZAAR_KEY"])
 print("The Bazaar · Cromos de Madrid, hosted by Causa Prima. Welcome!")
