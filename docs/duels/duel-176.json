@@ -119,6 +119,465 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 149,
+   "raw": {
+    "duel": 176,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "Taxi Blanco",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 107,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 160,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 1409,
+     "price": 72,
+     "tick": 148,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1436,
+     "price": 105,
+     "tick": 149,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 148,
+      "from": "Rival Plata",
+      "text": "Es una pieza que merece su precio: 105 primas. Pienso que es justo.",
+      "price": 105,
+      "days": null
+     },
+     {
+      "tick": 148,
+      "from": "you",
+      "text": "I'd like to open at 72 P for Taxi Blanco. It's a fair price for a vehicle of this kind, and I'm keen to close quickly since every tick of talk erodes value for both of us. What price do you have in mind?",
+      "price": 72,
+      "days": null
+     },
+     {
+      "tick": 149,
+      "from": "Rival Plata",
+      "text": "Es una pieza que merece su precio: 105 primas. Pienso que es justo.",
+      "price": 105,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 149,
+   "raw": {
+    "duel": 176,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "Taxi Blanco",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 107,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 160,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 1456,
+     "price": 75,
+     "tick": 149,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1436,
+     "price": 105,
+     "tick": 149,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 148,
+      "from": "Rival Plata",
+      "text": "Es una pieza que merece su precio: 105 primas. Pienso que es justo.",
+      "price": 105,
+      "days": null
+     },
+     {
+      "tick": 148,
+      "from": "you",
+      "text": "I'd like to open at 72 P for Taxi Blanco. It's a fair price for a vehicle of this kind, and I'm keen to close quickly since every tick of talk erodes value for both of us. What price do you have in mind?",
+      "price": 72,
+      "days": null
+     },
+     {
+      "tick": 149,
+      "from": "Rival Plata",
+      "text": "Es una pieza que merece su precio: 105 primas. Pienso que es justo.",
+      "price": 105,
+      "days": null
+     },
+     {
+      "tick": 149,
+      "from": "you",
+      "text": "I've moved up to 75 P as a sign of good faith. Further movement from me depends on you coming down from your current figure, so what flexibility do you have? Every tick of talk costs us both value, so let's find a middle ground soon.",
+      "price": 75,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 150,
+   "raw": {
+    "duel": 176,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "Taxi Blanco",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 107,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 160,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 1456,
+     "price": 75,
+     "tick": 149,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1479,
+     "price": 103,
+     "tick": 150,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 148,
+      "from": "Rival Plata",
+      "text": "Es una pieza que merece su precio: 105 primas. Pienso que es justo.",
+      "price": 105,
+      "days": null
+     },
+     {
+      "tick": 148,
+      "from": "you",
+      "text": "I'd like to open at 72 P for Taxi Blanco. It's a fair price for a vehicle of this kind, and I'm keen to close quickly since every tick of talk erodes value for both of us. What price do you have in mind?",
+      "price": 72,
+      "days": null
+     },
+     {
+      "tick": 149,
+      "from": "Rival Plata",
+      "text": "Es una pieza que merece su precio: 105 primas. Pienso que es justo.",
+      "price": 105,
+      "days": null
+     },
+     {
+      "tick": 149,
+      "from": "you",
+      "text": "I've moved up to 75 P as a sign of good faith. Further movement from me depends on you coming down from your current figure, so what flexibility do you have? Every tick of talk costs us both value, so let's find a middle ground soon.",
+      "price": 75,
+      "days": null
+     },
+     {
+      "tick": 150,
+      "from": "Rival Plata",
+      "text": "Es una pieza que merece su precio: 103 primas. Pienso que es justo.",
+      "price": 103,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 150,
+   "raw": {
+    "duel": 176,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "Taxi Blanco",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 107,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 160,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 1498,
+     "price": 77,
+     "tick": 150,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1479,
+     "price": 103,
+     "tick": 150,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 148,
+      "from": "Rival Plata",
+      "text": "Es una pieza que merece su precio: 105 primas. Pienso que es justo.",
+      "price": 105,
+      "days": null
+     },
+     {
+      "tick": 148,
+      "from": "you",
+      "text": "I'd like to open at 72 P for Taxi Blanco. It's a fair price for a vehicle of this kind, and I'm keen to close quickly since every tick of talk erodes value for both of us. What price do you have in mind?",
+      "price": 72,
+      "days": null
+     },
+     {
+      "tick": 149,
+      "from": "Rival Plata",
+      "text": "Es una pieza que merece su precio: 105 primas. Pienso que es justo.",
+      "price": 105,
+      "days": null
+     },
+     {
+      "tick": 149,
+      "from": "you",
+      "text": "I've moved up to 75 P as a sign of good faith. Further movement from me depends on you coming down from your current figure, so what flexibility do you have? Every tick of talk costs us both value, so let's find a middle ground soon.",
+      "price": 75,
+      "days": null
+     },
+     {
+      "tick": 150,
+      "from": "Rival Plata",
+      "text": "Es una pieza que merece su precio: 103 primas. Pienso que es justo.",
+      "price": 103,
+      "days": null
+     },
+     {
+      "tick": 150,
+      "from": "you",
+      "text": "I see you've come down a little, so I'm matching with a small step: 77 P. Bigger moves from me would need a meaningful drop from your side, so I hope you can show some more flexibility.",
+      "price": 77,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 151,
+   "raw": {
+    "duel": 176,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "Taxi Blanco",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 107,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 160,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 1498,
+     "price": 77,
+     "tick": 150,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1519,
+     "price": 103,
+     "tick": 151,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 148,
+      "from": "Rival Plata",
+      "text": "Es una pieza que merece su precio: 105 primas. Pienso que es justo.",
+      "price": 105,
+      "days": null
+     },
+     {
+      "tick": 148,
+      "from": "you",
+      "text": "I'd like to open at 72 P for Taxi Blanco. It's a fair price for a vehicle of this kind, and I'm keen to close quickly since every tick of talk erodes value for both of us. What price do you have in mind?",
+      "price": 72,
+      "days": null
+     },
+     {
+      "tick": 149,
+      "from": "Rival Plata",
+      "text": "Es una pieza que merece su precio: 105 primas. Pienso que es justo.",
+      "price": 105,
+      "days": null
+     },
+     {
+      "tick": 149,
+      "from": "you",
+      "text": "I've moved up to 75 P as a sign of good faith. Further movement from me depends on you coming down from your current figure, so what flexibility do you have? Every tick of talk costs us both value, so let's find a middle ground soon.",
+      "price": 75,
+      "days": null
+     },
+     {
+      "tick": 150,
+      "from": "Rival Plata",
+      "text": "Es una pieza que merece su precio: 103 primas. Pienso que es justo.",
+      "price": 103,
+      "days": null
+     },
+     {
+      "tick": 150,
+      "from": "you",
+      "text": "I see you've come down a little, so I'm matching with a small step: 77 P. Bigger moves from me would need a meaningful drop from your side, so I hope you can show some more flexibility.",
+      "price": 77,
+      "days": null
+     },
+     {
+      "tick": 151,
+      "from": "Rival Plata",
+      "text": "Es una pieza que merece su precio: 103 primas. Pienso que es justo.",
+      "price": 103,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 151,
+   "raw": {
+    "duel": 176,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "Taxi Blanco",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 107,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 160,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 1537,
+     "price": 78,
+     "tick": 151,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1519,
+     "price": 103,
+     "tick": 151,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 148,
+      "from": "Rival Plata",
+      "text": "Es una pieza que merece su precio: 105 primas. Pienso que es justo.",
+      "price": 105,
+      "days": null
+     },
+     {
+      "tick": 148,
+      "from": "you",
+      "text": "I'd like to open at 72 P for Taxi Blanco. It's a fair price for a vehicle of this kind, and I'm keen to close quickly since every tick of talk erodes value for both of us. What price do you have in mind?",
+      "price": 72,
+      "days": null
+     },
+     {
+      "tick": 149,
+      "from": "Rival Plata",
+      "text": "Es una pieza que merece su precio: 105 primas. Pienso que es justo.",
+      "price": 105,
+      "days": null
+     },
+     {
+      "tick": 149,
+      "from": "you",
+      "text": "I've moved up to 75 P as a sign of good faith. Further movement from me depends on you coming down from your current figure, so what flexibility do you have? Every tick of talk costs us both value, so let's find a middle ground soon.",
+      "price": 75,
+      "days": null
+     },
+     {
+      "tick": 150,
+      "from": "Rival Plata",
+      "text": "Es una pieza que merece su precio: 103 primas. Pienso que es justo.",
+      "price": 103,
+      "days": null
+     },
+     {
+      "tick": 150,
+      "from": "you",
+      "text": "I see you've come down a little, so I'm matching with a small step: 77 P. Bigger moves from me would need a meaningful drop from your side, so I hope you can show some more flexibility.",
+      "price": 77,
+      "days": null
+     },
+     {
+      "tick": 151,
+      "from": "Rival Plata",
+      "text": "Es una pieza que merece su precio: 103 primas. Pienso que es justo.",
+      "price": 103,
+      "days": null
+     },
+     {
+      "tick": 151,
+      "from": "you",
+      "text": "Your figure hasn't moved since my last offer, so I'm only nudging up to 78 P. A real step down from your side is needed before I can move in any meaningful way. Every tick costs us both, so let's close the gap.",
+      "price": 78,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -238,6 +697,444 @@
      ]
     }
    }
+  },
+  {
+   "tick": 149,
+   "took_s": 6.68,
+   "cost_usd": 0.006,
+   "obs": {
+    "view": {
+     "duel_id": 176,
+     "role": "buyer",
+     "limit": 107,
+     "currency": "P",
+     "item": "Taxi Blanco",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never pay above your value",
+      "decay_per_round": 0.06,
+      "rounds": 1,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Es una pieza que merece su precio: 105 primas. Pienso que es justo.",
+      "offer": {
+       "price": 105,
+       "days": null
+      },
+      "accept": false,
+      "tick": 148,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'd like to open at 72 P for Taxi Blanco. It's a fair price for a vehicle of this kind, and I'm keen to close quickly since every tick of talk erodes value for both of us. What price do you have in mind?",
+      "offer": {
+       "price": 72,
+       "days": null
+      },
+      "accept": false,
+      "tick": 148,
+      "decision": {
+       "action": "offer",
+       "price": 72,
+       "message": "I'd like to open at 72 P for Taxi Blanco. It's a fair price for a vehicle of this kind, and I'm keen to close quickly since every tick of talk erodes value for both of us. What price do you have in mind?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Es una pieza que merece su precio: 105 primas. Pienso que es justo.",
+      "offer": {
+       "price": 105,
+       "days": null
+      },
+      "accept": false,
+      "tick": 149,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 105,
+     "days": 0
+    },
+    "tick": 149,
+    "ticks_left": 12
+   },
+   "move": {
+    "action": "offer",
+    "text": "I've moved up to 75 P as a sign of good faith. Further movement from me depends on you coming down from your current figure, so what flexibility do you have? Every tick of talk costs us both value, so let's find a middle ground soon.",
+    "price": 75,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 75,
+      "message": "I've moved up to 75 P as a sign of good faith. Further movement from me depends on you coming down from your current figure, so what flexibility do you have? Every tick of talk costs us both value, so let's find a middle ground soon."
+     },
+     "band": {
+      "worst": 77,
+      "target": 75,
+      "best": 73
+     },
+     "plan": {
+      "read": "They repeat 105 with no movement, a stubborn anchor; their words carry no new information and their price sits close to what we can bear, so we should not reward patience.",
+      "target": 75,
+      "best": 73,
+      "worst": 77,
+      "days": null,
+      "angle": "Make a small token move to signal good faith, but say clearly that further movement depends on them coming down from 105, and ask what flexibility they have."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.27,
+       "in": 451,
+       "out": 128,
+       "cost_usd": 0.00436,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.41,
+       "in": 362,
+       "out": 92,
+       "cost_usd": 0.00164,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "tick": 150,
+   "took_s": 6.3,
+   "cost_usd": 0.00664,
+   "obs": {
+    "view": {
+     "duel_id": 176,
+     "role": "buyer",
+     "limit": 107,
+     "currency": "P",
+     "item": "Taxi Blanco",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never pay above your value",
+      "decay_per_round": 0.06,
+      "rounds": 2,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Es una pieza que merece su precio: 105 primas. Pienso que es justo.",
+      "offer": {
+       "price": 105,
+       "days": null
+      },
+      "accept": false,
+      "tick": 148,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'd like to open at 72 P for Taxi Blanco. It's a fair price for a vehicle of this kind, and I'm keen to close quickly since every tick of talk erodes value for both of us. What price do you have in mind?",
+      "offer": {
+       "price": 72,
+       "days": null
+      },
+      "accept": false,
+      "tick": 148,
+      "decision": {
+       "action": "offer",
+       "price": 72,
+       "message": "I'd like to open at 72 P for Taxi Blanco. It's a fair price for a vehicle of this kind, and I'm keen to close quickly since every tick of talk erodes value for both of us. What price do you have in mind?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Es una pieza que merece su precio: 105 primas. Pienso que es justo.",
+      "offer": {
+       "price": 105,
+       "days": null
+      },
+      "accept": false,
+      "tick": 149,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've moved up to 75 P as a sign of good faith. Further movement from me depends on you coming down from your current figure, so what flexibility do you have? Every tick of talk costs us both value, so let's find a middle ground soon.",
+      "offer": {
+       "price": 75,
+       "days": null
+      },
+      "accept": false,
+      "tick": 149,
+      "decision": {
+       "action": "offer",
+       "price": 75,
+       "message": "I've moved up to 75 P as a sign of good faith. Further movement from me depends on you coming down from your current figure, so what flexibility do you have? Every tick of talk costs us both value, so let's find a middle ground soon."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Es una pieza que merece su precio: 103 primas. Pienso que es justo.",
+      "offer": {
+       "price": 103,
+       "days": null
+      },
+      "accept": false,
+      "tick": 150,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 103,
+     "days": 0
+    },
+    "tick": 150,
+    "ticks_left": 11
+   },
+   "move": {
+    "action": "offer",
+    "text": "I see you've come down a little, so I'm matching with a small step: 77 P. Bigger moves from me would need a meaningful drop from your side, so I hope you can show some more flexibility.",
+    "price": 77,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 77,
+      "message": "I see you've come down a little, so I'm matching with a small step: 77 P. Bigger moves from me would need a meaningful drop from your side, so I hope you can show some more flexibility."
+     },
+     "band": {
+      "worst": 78,
+      "target": 77,
+      "best": 76
+     },
+     "plan": {
+      "read": "They moved 2 P (105 to 103) with the same scripted line; slow but real movement. Their words carry no information beyond the offer.",
+      "target": 77,
+      "best": 76,
+      "worst": 78,
+      "days": null,
+      "angle": "Acknowledge their small move with a matching small step to 77 and stress that bigger moves from us require a meaningful drop from their side."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.83,
+       "in": 625,
+       "out": 119,
+       "cost_usd": 0.00488,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.47,
+       "in": 486,
+       "out": 79,
+       "cost_usd": 0.00176,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "tick": 151,
+   "took_s": 6.55,
+   "cost_usd": 0.00787,
+   "obs": {
+    "view": {
+     "duel_id": 176,
+     "role": "buyer",
+     "limit": 107,
+     "currency": "P",
+     "item": "Taxi Blanco",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never pay above your value",
+      "decay_per_round": 0.06,
+      "rounds": 3,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Es una pieza que merece su precio: 105 primas. Pienso que es justo.",
+      "offer": {
+       "price": 105,
+       "days": null
+      },
+      "accept": false,
+      "tick": 148,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'd like to open at 72 P for Taxi Blanco. It's a fair price for a vehicle of this kind, and I'm keen to close quickly since every tick of talk erodes value for both of us. What price do you have in mind?",
+      "offer": {
+       "price": 72,
+       "days": null
+      },
+      "accept": false,
+      "tick": 148,
+      "decision": {
+       "action": "offer",
+       "price": 72,
+       "message": "I'd like to open at 72 P for Taxi Blanco. It's a fair price for a vehicle of this kind, and I'm keen to close quickly since every tick of talk erodes value for both of us. What price do you have in mind?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Es una pieza que merece su precio: 105 primas. Pienso que es justo.",
+      "offer": {
+       "price": 105,
+       "days": null
+      },
+      "accept": false,
+      "tick": 149,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've moved up to 75 P as a sign of good faith. Further movement from me depends on you coming down from your current figure, so what flexibility do you have? Every tick of talk costs us both value, so let's find a middle ground soon.",
+      "offer": {
+       "price": 75,
+       "days": null
+      },
+      "accept": false,
+      "tick": 149,
+      "decision": {
+       "action": "offer",
+       "price": 75,
+       "message": "I've moved up to 75 P as a sign of good faith. Further movement from me depends on you coming down from your current figure, so what flexibility do you have? Every tick of talk costs us both value, so let's find a middle ground soon."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Es una pieza que merece su precio: 103 primas. Pienso que es justo.",
+      "offer": {
+       "price": 103,
+       "days": null
+      },
+      "accept": false,
+      "tick": 150,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I see you've come down a little, so I'm matching with a small step: 77 P. Bigger moves from me would need a meaningful drop from your side, so I hope you can show some more flexibility.",
+      "offer": {
+       "price": 77,
+       "days": null
+      },
+      "accept": false,
+      "tick": 150,
+      "decision": {
+       "action": "offer",
+       "price": 77,
+       "message": "I see you've come down a little, so I'm matching with a small step: 77 P. Bigger moves from me would need a meaningful drop from your side, so I hope you can show some more flexibility."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Es una pieza que merece su precio: 103 primas. Pienso que es justo.",
+      "offer": {
+       "price": 103,
+       "days": null
+      },
+      "accept": false,
+      "tick": 151,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 103,
+     "days": 0
+    },
+    "tick": 151,
+    "ticks_left": 10
+   },
+   "move": {
+    "action": "offer",
+    "text": "Your figure hasn't moved since my last offer, so I'm only nudging up to 78 P. A real step down from your side is needed before I can move in any meaningful way. Every tick costs us both, so let's close the gap.",
+    "price": 78,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 78,
+      "message": "Your figure hasn't moved since my last offer, so I'm only nudging up to 78 P. A real step down from your side is needed before I can move in any meaningful way. Every tick costs us both, so let's close the gap."
+     },
+     "band": {
+      "worst": 79,
+      "target": 78,
+      "best": 77
+     },
+     "plan": {
+      "read": "They held at 103 P after their small 2 P drop; their repeated scripted line suggests a slow, stubborn concession pattern, so no new movement to reward.",
+      "target": 78,
+      "best": 77,
+      "worst": 79,
+      "days": null,
+      "angle": "Hold essentially firm, noting they haven't moved since our last offer, and make clear that a real step down from 103 is needed before we move meaningfully."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.35,
+       "in": 770,
+       "out": 133,
+       "cost_usd": 0.00574,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.2,
+       "in": 620,
+       "out": 89,
+       "cost_usd": 0.00213,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
   }
  ],
  "sent": [
@@ -294,6 +1191,177 @@
      "id": 1409,
      "price": 72,
      "tick": 148,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 149,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I've moved up to 75 P as a sign of good faith. Further movement from me depends on you coming down from your current figure, so what flexibility do you have? Every tick of talk costs us both value, so let's find a middle ground soon.",
+    "price": 75,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 75,
+      "message": "I've moved up to 75 P as a sign of good faith. Further movement from me depends on you coming down from your current figure, so what flexibility do you have? Every tick of talk costs us both value, so let's find a middle ground soon."
+     },
+     "band": {
+      "worst": 77,
+      "target": 75,
+      "best": 73
+     },
+     "plan": {
+      "read": "They repeat 105 with no movement, a stubborn anchor; their words carry no new information and their price sits close to what we can bear, so we should not reward patience.",
+      "target": 75,
+      "best": 73,
+      "worst": 77,
+      "days": null,
+      "angle": "Make a small token move to signal good faith, but say clearly that further movement depends on them coming down from 105, and ask what flexibility they have."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.27,
+       "in": 451,
+       "out": 128,
+       "cost_usd": 0.00436,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.41,
+       "in": 362,
+       "out": 92,
+       "cost_usd": 0.00164,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 176,
+    "offer": {
+     "id": 1456,
+     "price": 75,
+     "tick": 149,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 150,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I see you've come down a little, so I'm matching with a small step: 77 P. Bigger moves from me would need a meaningful drop from your side, so I hope you can show some more flexibility.",
+    "price": 77,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 77,
+      "message": "I see you've come down a little, so I'm matching with a small step: 77 P. Bigger moves from me would need a meaningful drop from your side, so I hope you can show some more flexibility."
+     },
+     "band": {
+      "worst": 78,
+      "target": 77,
+      "best": 76
+     },
+     "plan": {
+      "read": "They moved 2 P (105 to 103) with the same scripted line; slow but real movement. Their words carry no information beyond the offer.",
+      "target": 77,
+      "best": 76,
+      "worst": 78,
+      "days": null,
+      "angle": "Acknowledge their small move with a matching small step to 77 and stress that bigger moves from us require a meaningful drop from their side."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.83,
+       "in": 625,
+       "out": 119,
+       "cost_usd": 0.00488,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.47,
+       "in": 486,
+       "out": 79,
+       "cost_usd": 0.00176,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 176,
+    "offer": {
+     "id": 1498,
+     "price": 77,
+     "tick": 150,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 151,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Your figure hasn't moved since my last offer, so I'm only nudging up to 78 P. A real step down from your side is needed before I can move in any meaningful way. Every tick costs us both, so let's close the gap.",
+    "price": 78,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 78,
+      "message": "Your figure hasn't moved since my last offer, so I'm only nudging up to 78 P. A real step down from your side is needed before I can move in any meaningful way. Every tick costs us both, so let's close the gap."
+     },
+     "band": {
+      "worst": 79,
+      "target": 78,
+      "best": 77
+     },
+     "plan": {
+      "read": "They held at 103 P after their small 2 P drop; their repeated scripted line suggests a slow, stubborn concession pattern, so no new movement to reward.",
+      "target": 78,
+      "best": 77,
+      "worst": 79,
+      "days": null,
+      "angle": "Hold essentially firm, noting they haven't moved since our last offer, and make clear that a real step down from 103 is needed before we move meaningfully."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.35,
+       "in": 770,
+       "out": 133,
+       "cost_usd": 0.00574,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.2,
+       "in": 620,
+       "out": 89,
+       "cost_usd": 0.00213,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 176,
+    "offer": {
+     "id": 1537,
+     "price": 78,
+     "tick": 151,
      "days": 0
     }
    }
