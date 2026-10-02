@@ -1,13 +1,13 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Fri 22:19** · tick 119 (60 s/tick) · game hour 1.98 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Fri 22:24** · tick 124 (60 s/tick) · game hour 2.07 · running · today closes 23:00._
 
 ## Team: now and latest
 
 _From `team/<name>.md`; each person writes only their own file._
 
 **Aleks** — Duels: Clock-Standing (`agents/duelist/`) goes live in the practice duels (game hour 2.0, ~22:20; 12 ticks, 6% decay, 6 at once) with Opus as strategist and Sonnet 5.5 as negotiator (backups + supervisor: `agents/duelist/supervise.sh`), every duel recorded in `docs/duels/`; after it: `review`, read `intel/judge.md`, push.
-  - Fri 22:17 · tried to schedule the duelist for 22:20 on this laptop: blocked, this checkout has no `.env` (no BAZAAR_KEY/ANTHROPIC_API_KEY), no `.venv`, and the pyenv `uv` shim cannot find Python 3.13 · not running · next: start `supervise.sh` from the machine with the `.env`
+  - Fri 22:20 · duelist live for the practice duels on this laptop (`.env` added, `uv sync` via `~/.local/bin/uv`): smoke OK (Opus + Sonnet 5.5 negotiator 2.5 s), probe OK, `supervise.sh --negotiator-model claude-sonnet-5-5` started 22:20:02, session read (12 ticks, decay 0.06, price) · running · next: watch the duels, then `review` and push `docs/duels/`
   - Fri 22:09 · duelist fallbacks: backup model per role (Opus→Sonnet, Sonnet→Haiku; primary skipped 2 min after 2 failures), code fallback now concedes on a schedule and accepts their in-limit offer instead of restating forever, poll/payload errors no longer stop the loop, `agents/duelist/supervise.sh` restarts a dead process · 17 tests pass, live dry-run starts with both backups · next: practice via `supervise.sh --negotiator-model claude-sonnet-5-5`
   - Fri 22:07 · smoke, faster negotiator: strategist (Opus) 4.4 s / 3.8 s + negotiator Sonnet 5.5 2.6 s ($0.005/turn) or Haiku 4.5 1.4 s ($0.005/turn); duels decide concurrently (one task each) · ~7 s with Sonnet, ~5 s with Haiku, both inside Sunday's ~10 s budget; Haiku is the fallback if the live turns run slower · next: `run --negotiator-model claude-sonnet-5-5` in the practice
 
@@ -25,18 +25,18 @@ _From `team/<name>.md`; each person writes only their own file._
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 16.21 | 8 | 16.21 | 0.00 | 0.00 | 0.06 | — | 19 | 2 | 368 | 17/40 |
+| 16.74 | 8 | 16.74 | 0.00 | 0.00 | 0.06 | — | 19 | 2 | 368 | 17/40 |
 
-Leaderboard (snapshot at tick 115; refreshes every few minutes):
+Leaderboard (snapshot at tick 120; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 13 | 27.70 | 27.70 | 0.00 | 18 |
-| 2 | Team 12 | 25.26 | 25.26 | 0.00 | 14 |
-| 3 | Team 10 | 23.53 | 23.53 | 0.00 | 16 |
-| 4 | Team 8 | 22.62 | 22.62 | 0.00 | 9 |
-| 5 | Team 18 | 21.35 | 21.35 | 0.00 | 12 |
-| 8 | Team 5 | 16.21 | 16.21 | 0.00 | 18 |
+| 1 | Team 13 | 30.00 | 30.00 | 0.00 | 20 |
+| 2 | Team 12 | 24.83 | 24.83 | 0.00 | 14 |
+| 3 | Team 10 | 23.07 | 23.07 | 0.00 | 16 |
+| 4 | Team 8 | 22.34 | 22.34 | 0.00 | 9 |
+| 5 | Team 18 | 22.02 | 22.02 | 0.00 | 13 |
+| 8 | Team 5 | 16.74 | 16.74 | 0.00 | 19 |
 
 ## Next on the schedule
 
@@ -44,14 +44,14 @@ _ETA assumes the current tick length and no pause._
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 2.00 | ~1 min | duels | Practice duels (not scored): learn the protocol |
-| 2.63 | ~39 min | persona_opens | El Chato opens for everyone |
-| 3.00 | ~61 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
-| 4.00 | ~121 min (after today's close) | round | Round 2 starts (holdings carry over) |
-| 4.00 | ~121 min (after today's close) | set_release | El Retiro released |
-| 4.00 | ~121 min (after today's close) | day_closes | Closed until Saturday 09:00 |
-| 4.00 | ~121 min (after today's close) | day_opens | Saturday opens |
-| 4.05 | ~124 min (after today's close) | grant_all | El Retiro has arrived: a pack and the Saturday allowance (150 primas) for everyone |
+| 2.63 | ~34 min | persona_opens | El Chato opens for everyone |
+| 3.00 | ~56 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 4.00 | ~116 min (after today's close) | round | Round 2 starts (holdings carry over) |
+| 4.00 | ~116 min (after today's close) | set_release | El Retiro released |
+| 4.00 | ~116 min (after today's close) | day_closes | Closed until Saturday 09:00 |
+| 4.00 | ~116 min (after today's close) | day_opens | Saturday opens |
+| 4.05 | ~119 min (after today's close) | grant_all | El Retiro has arrived: a pack and the Saturday allowance (150 primas) for everyone |
+| 5.00 | ~176 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
 
 ## Our dealer deals
 
@@ -79,22 +79,28 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | 190 | chato | buy | LAV-06 | 33 | 23 | — | — | 9 | closed |  |
 | 203 | chato | buy | LAV-07 | 33 | 23 | — | — | 9 | closed |  |
 | 214 | chato | sell | 1 card(s) | 13 | 21 | — | — | 3 | closed |  |
-| 228 | chato | buy | LAV-06 | 33 | 23 | — | — | 2 | open |  |
+| 228 | chato | buy | LAV-06 | 33 | 23 | — | — | 11 | open |  |
 
 ## Abuela benchmark: every team's deals with her (public feed)
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
-| common card | team buys | 22 | 9.00 | 7 | 12 | 2 | 9 |
-| common card | team sells | 21 | 6 | 5 | 23 | 4 | 5.50 |
+| common card | team buys | 24 | 9.00 | 7 | 12 | 2 | 9 |
+| common card | team sells | 22 | 6.00 | 5 | 23 | 4 | 5.50 |
 | sobre_barrio | team buys | 29 | 22 | 17 | 30 | 3 | 20.33 |
-| uncommon card | team buys | 33 | 22 | 17 | 29 | 2 | 26.50 |
+| uncommon card | team buys | 35 | 22 | 17 | 29 | 2 | 26.50 |
 | uncommon card | team sells | 4 | 14.00 | 13 | 16 | 0 | — |
 
 ## Duels
 
-Live: 0 · finished: 0
+Live: 6 · finished: 6
 
+- {"duel": 31, "session": 1, "status": "live", "role": "seller", "item": "Mercado de Vallehermoso", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 111, "limit_meaning": "never sell below your cost", "rival": "Rival Sol", "deadline_tick": 132, "decay_per_round": 0.06
+- {"duel": 32, "session": 1, "status": "live", "role": "buyer", "item": "Mercado de Vallehermoso", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 160, "limit_meaning": "never pay above your value", "rival": "Rival Verde", "deadline_tick": 132, "decay_per_round": 0.0
+- {"duel": 83, "session": 1, "status": "live", "role": "seller", "item": "And\u00e9n 0", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 86, "limit_meaning": "never sell below your cost", "rival": "Rival Sol", "deadline_tick": 132, "decay_per_round": 0.06, "rounds": 
+- {"duel": 84, "session": 1, "status": "live", "role": "buyer", "item": "And\u00e9n 0", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 65, "limit_meaning": "never pay above your value", "rival": "Rival Azul", "deadline_tick": 132, "decay_per_round": 0.06, "rounds": 
+- {"duel": 119, "session": 1, "status": "live", "role": "buyer", "item": "El Tren Fantasma", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 180, "limit_meaning": "never pay above your value", "rival": "Rival Plata", "deadline_tick": 132, "decay_per_round": 0.06, "ro
+- {"duel": 120, "session": 1, "status": "live", "role": "seller", "item": "El Tren Fantasma", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 53, "limit_meaning": "never sell below your cost", "rival": "Rival Rojo", "deadline_tick": 132, "decay_per_round": 0.06, "rou
 
 ## Dealers
 
