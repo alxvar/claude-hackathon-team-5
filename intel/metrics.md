@@ -1,4 +1,4 @@
-# Metrics (auto, 01:18, game tick 159)
+# Metrics (auto, 01:39, game tick 159)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -93,7 +93,7 @@ Who buys which set (team trades): t04: LAV×3, LAT×3; t05: MAL×1, SAL×1, LAV�
 - t15: SAL-09 (rare) 7 P · offer 2648
 - t02: LAT-03 (common) 2 P · offer 2725
 
-Asks by others (card, price: count): LAT-04 9: 3; LAV-04 10: 3; MAL-08 40: 2; LAT-05 9: 2; LAT-01 9: 2; MAL-02 3: 2; MAL-04 9: 2; LAV-03 8: 1; MAL-04 8: 1; LAT-01 8: 1; MAL-05 8: 1; LAV-04 8: 1; MAL-06 28: 1; LAV-08 40: 1; MAL-07 30: 1
+Asks by others (card, price: count): LAT-04 9: 3; LAV-04 10: 3; MAL-08 40: 2; MAL-02 3: 2; MAL-04 9: 2; LAV-03 8: 1; MAL-04 8: 1; MAL-05 8: 1; LAV-04 8: 1; MAL-06 28: 1; LAV-08 40: 1; MAL-07 30: 1; LAT-08 30: 1; MAL-03 12: 1; LAT-05 9: 1
 
 ## Our duels: 6 live, 30 finished (last 10)
 
