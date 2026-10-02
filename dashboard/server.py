@@ -304,6 +304,7 @@ class Analysis:
         self.asks = collections.defaultdict(collections.Counter)
         self.news = []
         self.duel_events = []
+        self.duel_closed = []
         for e in self.events:
             p, ty = e.get("payload") or {}, e.get("type", "")
             if ty == "offer.listed":
@@ -330,16 +331,22 @@ class Analysis:
             elif ty == "thread.message" and p.get("kind") == "persona":
                 th = self.threads.setdefault(p.get("thread"), {"team": p.get("team"), "dealer": p.get("with"),
                                                                "dealer_prices": [], "team_prices": [], "msgs": 0,
-                                                               "side": None})
+                                                               "side": None, "log": [], "item": None})
                 th["msgs"] += 1
                 o = p.get("offer") or {}
+                mine = p.get("sender") == p.get("with")
+                price = None
                 if o:
-                    mine = p.get("sender") == p.get("with")
                     gives, wants = cash_of(o.get("give")), cash_of(o.get("want"))
                     price = wants if mine and wants else gives if mine else gives if gives else wants
                     if mine:
                         th["side"] = "team buys" if wants else "team sells"
                     (th["dealer_prices"] if mine else th["team_prices"]).append(price)
+                    th["item"] = th["item"] or ", ".join(refs_of(o.get("give")) + refs_of(o.get("want"))) or None
+                th["log"].append({"tick": e.get("tick"), "dealer": mine, "text": (p.get("text") or "")[:400],
+                                  "price": price, "final": bool(o.get("final")) if o else False})
+            elif ty == "duel.closed":
+                self.duel_closed.append(p)
             elif ty == "pack.opened":
                 self.packs[p.get("team")] += 1
             elif ty == "gift.given":
@@ -635,6 +642,95 @@ class Analysis:
             add("warn", "The feed had a gap (the dashboard was off for a while): counts before it are incomplete.")
         return out
 
+    # -------------------------------------------------------------------------------------- duels and conversations
+    def duel_view(self):
+        """Our duels (live and finished, from GET /api/duels with the team key): transcript, price paths, lessons.
+
+        `result` is our surplus in P (price vs our limit) times (1 − decay) ** rounds; the rival's limit stays secret,
+        so its offers only bound it: a rival buyer's value is at least its best bid, a seller's cost at most its best ask."""
+        seen, out = set(), []
+        for d in list(self.duels) + list(reversed(self.duels_done)):
+            did = d.get("duel")
+            if did in seen:
+                continue
+            seen.add(did)
+            role, limit = d.get("role"), d.get("your_limit")
+            msgs = [{"tick": m.get("tick"), "us": m.get("from") == "you", "who": "us" if m.get("from") == "you" else m.get("from"),
+                     "text": (m.get("text") or "")[:500], "price": m.get("price"), "days": m.get("days")}
+                    for m in (d.get("messages") or [])]
+            ours = [m for m in msgs if m["us"] and m["price"] is not None]
+            theirs = [m for m in msgs if not m["us"] and m["price"] is not None]
+            better = (lambda a, b: a < b) if role == "buyer" else (lambda a, b: a > b)  # better for us
+            rival_best = None
+            for m in theirs:
+                if rival_best is None or better(m["price"], rival_best):
+                    rival_best = m["price"]
+            within = rival_best is not None and limit is not None and (rival_best <= limit if role == "buyer" else rival_best >= limit)
+            missed = d.get("status") == "no_deal" and within
+            gain_missed = (limit - rival_best if role == "buyer" else rival_best - limit) if missed else None
+            conc_us = abs(ours[-1]["price"] - ours[0]["price"]) if len(ours) > 1 else 0
+            conc_them = abs(theirs[-1]["price"] - theirs[0]["price"]) if len(theirs) > 1 else 0
+            out.append({"duel": did, "status": d.get("status"), "role": role, "item": d.get("item"), "rival": d.get("rival"),
+                        "session": d.get("session"), "limit": limit, "price": d.get("price"), "rounds": d.get("rounds"),
+                        "decay": d.get("decay_per_round"), "result": d.get("result"), "deadline": d.get("deadline_tick"),
+                        "messages": msgs,
+                        # a rival that never wrote but accepted our offer did have an agent: only no-deal silence counts
+                        "rival_silent": not any(not m["us"] for m in msgs) and d.get("status") != "deal",
+                        "rival_best": rival_best, "missed": missed, "gain_missed": gain_missed,
+                        "our_first": ours[0]["price"] if ours else None, "their_first": theirs[0]["price"] if theirs else None,
+                        "conc_us": conc_us, "conc_them": conc_them,
+                        "surplus": (limit - d["price"] if role == "buyer" else d["price"] - limit) if d.get("price") is not None and limit is not None else None})
+        out.sort(key=lambda x: (x["status"] != "live", -(x["duel"] or 0)))
+        decided = [x for x in out if x["status"] in ("deal", "no_deal")]
+        talked = [x for x in decided if not x["rival_silent"]]
+        deals = [x for x in decided if x["status"] == "deal"]
+        closed = collections.Counter(p.get("status") for p in self.duel_closed)
+        summary = {"live": sum(1 for x in out if x["status"] == "live"), "decided": len(decided), "deals": len(deals),
+                   "silent": sum(1 for x in decided if x["rival_silent"]), "talked": len(talked),
+                   "deal_rate_talked": round(len(deals) / len(talked), 2) if talked else None,
+                   "missed": [x["duel"] for x in out if x["missed"]],
+                   "missed_gain": sum(x["gain_missed"] or 0 for x in out if x["missed"]),
+                   "points": round(sum(x["result"] or 0 for x in deals), 1),
+                   "surplus": sum(x["surplus"] or 0 for x in deals),
+                   "avg_rounds": round(statistics.mean(x["rounds"] or 0 for x in deals), 1) if deals else None,
+                   "conc_us": sum(x["conc_us"] for x in deals), "conc_them": sum(x["conc_them"] for x in deals),
+                   "field_deals": closed.get("deal", 0), "field_no_deals": closed.get("no_deal", 0)}
+        lessons = []
+        for x in out:
+            if x["missed"]:
+                lessons.append(f"Duel {x['duel']} ({x['role']}, limit {x['limit']}): {x['rival']} offered {x['rival_best']}, "
+                               f"inside our limit, and the duel ended with no deal: +{x['gain_missed']} P left on the table. "
+                               f"Accept an in-limit offer before the deadline.")
+        if summary["silent"]:
+            lessons.append(f"{summary['silent']} of {summary['decided']} finished duels had a silent rival (no agent running): "
+                           f"no deal was possible there. Deal rate when the rival talked: "
+                           f"{summary['deal_rate_talked'] if summary['deal_rate_talked'] is not None else '—'}.")
+        if deals and summary["conc_us"] > summary["conc_them"]:
+            lessons.append(f"In our deals we conceded {summary['conc_us']} P in total and the rivals {summary['conc_them']} P: "
+                           f"we move more than they do.")
+        elif deals:
+            lessons.append(f"In our deals the rivals conceded {summary['conc_them']} P and we {summary['conc_us']} P: good.")
+        if summary["field_deals"] + summary["field_no_deals"]:
+            n = summary["field_deals"] + summary["field_no_deals"]
+            lessons.append(f"Whole field (public feed): {summary['field_deals']} deals out of {n} closed duels "
+                           f"({round(100 * summary['field_deals'] / n)}%).")
+        return {"duels": out, "summary": summary, "lessons": lessons}
+
+    def conversations(self, n=60):
+        """Public dealer conversations (every team's haggling, from the feed), newest first."""
+        out = []
+        for tid, th in self.threads.items():
+            if not th["log"]:
+                continue
+            dp, tp = th["dealer_prices"], th["team_prices"]
+            out.append({"thread": tid, "team": th["team"], "name": self.name(th["team"]), "dealer": th["dealer"],
+                        "dealer_name": self.name(th["dealer"]), "side": th["side"], "item": th["item"],
+                        "first": dp[0] if dp else None, "last": dp[-1] if dp else None, "team_first": tp[0] if tp else None,
+                        "msgs": th["msgs"], "start": th["log"][0]["tick"], "end": th["log"][-1]["tick"],
+                        "us": th["team"] == self.us, "log": th["log"][-40:]})
+        out.sort(key=lambda x: -(x["end"] or 0))
+        return out[:n]
+
     # -------------------------------------------------------------------------------------- why our score moved
     def our_trade_text(self, tr):
         i = tr["items"][0] if tr["items"] else {}
@@ -799,6 +895,8 @@ class Analysis:
         below = next((p for p in prof if us and p["rank"] == us["rank"] + 1), None)
         neighbours = [p["team"] for p in prof if us and abs(p["rank"] - us["rank"]) <= 2]
         return {
+            "duelview": self.duel_view(),
+            "conversations": self.conversations(),
             "story": self.story(),
             "neighbours": neighbours,
             "above": {"name": above["name"], "score": above["score"], "rank": above["rank"]} if above else None,

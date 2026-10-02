@@ -59,7 +59,8 @@ th:hover { color: var(--text-primary); }
 td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
 tr.us td { background: rgba(57,135,229,0.12); }
 tr:hover td { background: var(--surface-2); }
-#teamsT td:nth-child(2), #mktT td:nth-child(2), #abT td:nth-child(1) { white-space: nowrap; }
+#teamsT td:nth-child(2), #mktT td:nth-child(2), #abT td:nth-child(1),
+#convT td:nth-child(2), #convT td:nth-child(3), #convT td:nth-child(5), #duelT td:nth-child(2) { white-space: nowrap; }
 .scroll { max-height: 480px; overflow: auto; }
 .chip { display: inline-block; padding: 0 7px; border-radius: 9px; font-size: 11px; line-height: 18px;
         border: 1px solid var(--border); color: var(--text-secondary); margin: 1px 3px 1px 0; white-space: nowrap; }
@@ -88,6 +89,19 @@ dl.gloss { display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px;
 dl.gloss dt { color: var(--text-primary); font-weight: 600; }
 dl.gloss dd { margin: 0; color: var(--text-secondary); }
 code { font-size: 12px; color: var(--text-secondary); }
+.split { display: grid; grid-template-columns: minmax(320px, 2fr) 3fr; gap: 16px; align-items: start; }
+@media (max-width: 1000px) { .split { grid-template-columns: 1fr; } }
+tr.pick { cursor: pointer; }
+tr.sel td { background: rgba(57,135,229,0.22) !important; }
+.chat { display: flex; flex-direction: column; gap: 8px; max-height: 520px; overflow: auto; padding: 4px 2px; }
+.bubble { max-width: 82%; padding: 7px 10px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--border); font-size: 13px; }
+.bubble.us { align-self: flex-end; background: rgba(57,135,229,0.16); border-color: rgba(57,135,229,0.35); }
+.bubble .who { font-size: 11px; color: var(--text-muted); margin-bottom: 2px; }
+.bubble .px { display: inline-block; margin-left: 6px; padding: 0 6px; border-radius: 8px; background: var(--page); color: var(--text-primary); font-size: 11px; font-variant-numeric: tabular-nums; }
+.status-deal::before { content: "✓ "; color: var(--good); }
+.status-no_deal::before { content: "✗ "; color: var(--critical); }
+.status-live::before { content: "● "; color: var(--warning); }
+.flag { color: var(--serious); font-size: 11px; font-weight: 700; margin-left: 4px; }
 @media (max-width: 560px) { main, header { padding-left: 16px; padding-right: 16px; } .grid2 { grid-template-columns: 1fr; } }
 </style>
 </head>
@@ -100,8 +114,10 @@ code { font-size: 12px; color: var(--text-secondary); }
   <div class="tabs" role="tablist">
     <button data-tab="overview" class="on">Overview</button>
     <button data-tab="rivals">Rivals</button>
+    <button data-tab="duels">Duels</button>
+    <button data-tab="convs">Conversations</button>
     <button data-tab="market">Market</button>
-    <button data-tab="more">Dealers · duels · schedule</button>
+    <button data-tab="more">Dealers · schedule</button>
   </div>
 </header>
 <main>
@@ -176,6 +192,52 @@ code { font-size: 12px; color: var(--text-secondary); }
   </section>
 </section>
 
+<!-- ============================================================ DUELS -->
+<section class="tab" id="tab-duels">
+  <div class="tiles" id="duelTiles"></div>
+  <section class="card">
+    <h2>What our duels teach us</h2>
+    <p class="sub">Computed from our own duels (GET /api/duels with the team key, read-only). In each duel we only see our own limit; the rival's limit stays secret, and its offers only bound it.</p>
+    <ul class="ins" id="duelLessons"></ul>
+  </section>
+  <div class="split">
+    <section class="card">
+      <h2>Our duels</h2>
+      <p class="sub">Click a duel to see the conversation and the price path. ⚠ = a missed deal (the rival offered inside our limit and the duel ended with no deal).</p>
+      <div class="scroll" style="max-height:640px"><table id="duelT"></table></div>
+    </section>
+    <section class="card">
+      <h2 id="duelTitle">Pick a duel</h2>
+      <p class="sub" id="duelSub"></p>
+      <div class="chartbox short"><canvas id="duelChart"></canvas></div>
+      <p class="read" id="duelRead"></p>
+      <div class="chat" id="duelChat" style="margin-top:12px"></div>
+    </section>
+  </div>
+</section>
+
+<!-- ============================================================ CONVERSATIONS -->
+<section class="tab" id="tab-convs">
+  <div class="split">
+    <section class="card">
+      <h2>Haggling with dealers, every team</h2>
+      <p class="sub">The public feed carries every team's conversation with the dealers: the words and the prices. Click one to read it. "Dealer moved" = how far the dealer came down (or up) from her first price.</p>
+      <div class="filters">
+        <label>Team <select id="cTeam"><option value="">all</option></select></label>
+        <label>Dealer <select id="cDealer"><option value="">all</option></select></label>
+        <label><input type="checkbox" id="cOurs"> ours only</label>
+      </div>
+      <div class="scroll" style="max-height:640px"><table id="convT"></table></div>
+    </section>
+    <section class="card">
+      <h2 id="convTitle">Pick a conversation</h2>
+      <p class="sub" id="convSub"></p>
+      <div class="chartbox short"><canvas id="convChart"></canvas></div>
+      <div class="chat" id="convChat" style="margin-top:12px"></div>
+    </section>
+  </div>
+</section>
+
 <!-- ============================================================ MARKET -->
 <section class="tab" id="tab-market">
   <section class="card">
@@ -216,19 +278,14 @@ code { font-size: 12px; color: var(--text-secondary); }
       <div class="scroll"><table id="abT"></table></div>
     </section>
     <section class="card">
-      <h2>Duels</h2>
-      <p class="sub">Ours (live and finished) and duel events in the public feed.</p>
-      <div id="duelBox"></div>
+      <h2>Schedule</h2>
+    <table id="schedT"></table>
+      <h2 style="margin-top:16px">Dealers</h2>
+      <table id="dealT"></table>
+      <div id="levels" class="muted" style="margin-top:8px"></div>
+      <details style="margin-top:10px"><summary>Game news and errors</summary><div id="news"></div></details>
     </section>
   </div>
-  <section class="card">
-    <h2>Schedule</h2>
-    <table id="schedT"></table>
-    <h2 style="margin-top:16px">Dealers</h2>
-    <table id="dealT"></table>
-    <div id="levels" class="muted" style="margin-top:8px"></div>
-    <details style="margin-top:10px"><summary>Game news and errors</summary><div id="news"></div></details>
-  </section>
 </section>
 </main>
 
@@ -487,11 +544,6 @@ function moreTab(d) {
     ["name", "Team", r => `${r.us ? "★ " : ""}${esc(r.name)}`], ["dealer", "Dealer"], ["threads", "Conversations", null, true],
     ["avg_move", "Avg move %", null, true], ["best_move", "Best move %", null, true], ["avg_msgs", "Msgs/conv", null, true],
   ], r => r.us ? "us" : "");
-  const row = x => `<tr><td><code>${esc(JSON.stringify(Object.fromEntries(Object.entries(x).filter(([k]) => !["messages", "transcript"].includes(k)))).slice(0, 300))}</code></td></tr>`;
-  $("#duelBox").innerHTML = `<p class="muted">Live: ${d.duels.length} · finished: ${d.duels_done.length}${d.has_key ? "" : " (needs the team key)"}</p>`
-    + (d.duels.length ? `<h2>Live</h2><table>${d.duels.map(row).join("")}</table>` : "")
-    + (d.duels_done.length ? `<h2>Finished</h2><div class="scroll"><table>${d.duels_done.slice().reverse().map(row).join("")}</table></div>` : "")
-    + (d.duel_events.length ? `<h2>Public duel events</h2><div class="scroll"><table>${d.duel_events.slice().reverse().map(e => `<tr><td class="n">${e.tick}</td><td>${esc(e.type)}</td><td><code>${esc(e.text)}</code></td></tr>`).join("")}</table></div>` : "");
   table($("#schedT"), "sched", d.schedule, [
     ["at", "Game hour", r => num(r.at, 2), true], ["eta_min", "In ~min", null, true], ["action", "What"],
     ["note", "Note", r => `${esc(r.note)}${r.params && r.params !== "{}" ? `<br><code>${esc(r.params)}</code>` : ""}`],
@@ -503,6 +555,112 @@ function moreTab(d) {
   $("#levels").innerHTML = d.levels.length ? "Levels: " + d.levels.map(l => `<b>${esc(l.name)}</b> (${esc(l.status)}) ${esc(l.how || l.line || l.teaser || "")}`).join(" · ") : "No levels announced yet.";
   $("#news").innerHTML = d.news.map(n => `<div><span class="muted">t${n.tick} ${esc(n.type)}</span> <code>${esc(n.text)}</code></div>`).join("")
     + (d.errors.length ? `<h2 style="margin-top:10px">Errors</h2>` + d.errors.map(e => `<div class="err">${esc(e)}</div>`).join("") : "");
+}
+
+// ------------------------------------------------------------------ duels
+let pickedDuel = null, pickedConv = null;
+
+function chatHtml(msgs, label) {
+  return msgs.length ? msgs.map(m => `<div class="bubble ${m.us ? "us" : ""}"><div class="who">${esc(label(m))} · tick ${m.tick ?? "—"}</div>`
+    + `${esc(m.text || "")}${m.price != null ? `<span class="px">${m.price} P${m.days != null ? ` · day ${m.days}` : ""}${m.final ? " · final" : ""}</span>` : ""}</div>`).join("")
+    : `<p class="muted">No messages.</p>`;
+}
+
+function pricePath(id, series, extra = [], yTitle = "price P") {
+  const ds = series.map(s => ({ label: s.label, data: s.points, borderColor: s.color, backgroundColor: s.color, borderWidth: 2,
+    stepped: true, pointRadius: 4, pointHoverRadius: 6, pointHitRadius: 8, borderDash: s.dash || [] }));
+  chart(id, "line", { datasets: [...ds, ...extra] }, {
+    interaction: { mode: "nearest", intersect: false },
+    scales: { x: { type: "linear", ...axis("tick"), ticks: { color: css("--text-muted"), precision: 0 } }, y: axis(yTitle) },
+    plugins: { legend: { labels: { color: css("--text-secondary"), boxWidth: 14, boxHeight: 3 } },
+               tooltip: { callbacks: { title: it => `tick ${it[0].parsed.x}`, label: it => ` ${it.dataset.label}: ${it.parsed.y} P` } } },
+  });
+}
+
+function duelsTab(d) {
+  const v = d.duelview || { duels: [], summary: {}, lessons: [] }, s = v.summary;
+  const T = [
+    ["Finished duels", s.decided ?? 0, `<span class="d">${s.deals ?? 0} deals · ${(s.decided ?? 0) - (s.deals ?? 0)} no deal · ${s.live ?? 0} live</span>`],
+    ["Rival silent", s.silent ?? 0, `<span class="d">no agent on the other side: no deal possible</span>`],
+    ["Deal rate when the rival talked", s.deal_rate_talked != null ? Math.round(s.deal_rate_talked * 100) + "%" : "—", `<span class="d">${s.talked ?? 0} duels with a real negotiation</span>`],
+    ["Our surplus in deals", (s.surplus ?? 0) + " P", `<span class="d">${s.points ?? 0} after the decay (the duel's result)</span>`],
+    ["Missed deals", (s.missed || []).length, `<span class="d ${(s.missed || []).length ? "down" : ""}">${s.missed_gain ?? 0} P left on the table</span>`],
+    ["Concessions in deals", `${s.conc_us ?? 0} / ${s.conc_them ?? 0}`, `<span class="d">P moved by us / by the rivals</span>`],
+  ];
+  $("#duelTiles").innerHTML = T.map(([k, val, dl]) => `<div class="tile"><div class="k">${k}</div><div class="v">${val}</div>${dl}</div>`).join("");
+  $("#duelLessons").innerHTML = v.lessons.length ? v.lessons.map(l => `<li><span class="tag ${l.includes("left on the table") ? "warn" : "info"}">${l.includes("left on the table") ? "MISSED" : "LESSON"}</span><span>${esc(l)}</span></li>`).join("")
+    : `<li><span class="muted">${d.has_key ? "No finished duels yet." : "Needs the team key."}</span></li>`;
+  if (pickedDuel == null && v.duels.length) pickedDuel = (v.duels.find(x => x.missed) || v.duels.find(x => !x.rival_silent) || v.duels[0]).duel;
+  table($("#duelT"), "duels", v.duels, [
+    ["duel", "#", r => `${r.duel}${r.missed ? `<span class="flag">⚠</span>` : ""}`, true],
+    ["status", "Result", r => `<span class="status-${esc(r.status)}">${esc((r.status || "").replace("_", " "))}</span>`],
+    ["role", "We", r => esc(r.role)],
+    ["rival", "Rival", r => r.rival_silent ? `<span class="muted">${esc(r.rival)} (silent)</span>` : esc(r.rival)],
+    ["limit", "Our limit", null, true],
+    ["price", "Price", null, true],
+    ["result", "Points", r => num(r.result), true],
+    ["rounds", "Rounds", null, true],
+  ], r => `pick ${r.duel === pickedDuel ? "sel" : ""}`);
+  $("#duelT").querySelectorAll("tbody tr").forEach(tr => {
+    tr.onclick = () => { pickedDuel = parseInt(tr.querySelector("td").textContent); duelsTab(d); };
+  });
+  const x = v.duels.find(r => r.duel === pickedDuel);
+  if (!x) return;
+  $("#duelTitle").textContent = `Duel ${x.duel}: ${x.item || ""}`;
+  $("#duelSub").innerHTML = `We are the <b>${esc(x.role)}</b> · our limit <b>${x.limit}</b> (${x.role === "buyer" ? "never pay above it" : "never sell below it"}) · rival ${esc(x.rival)} · decay ${x.decay != null ? Math.round(x.decay * 100) + "% per round" : "—"} · ${esc(x.status)}`;
+  const pts = who => x.messages.filter(m => m.us === who && m.price != null).map(m => ({ x: m.tick, y: m.price }));
+  const ticks = x.messages.map(m => m.tick).filter(t => t != null);
+  const lo = Math.min(...ticks, x.deadline ?? Infinity), hi = Math.max(...ticks, 0);
+  const extra = [{ label: "Our limit", data: ticks.length ? [{ x: Math.min(...ticks), y: x.limit }, { x: Math.max(hi, x.deadline || hi), y: x.limit }] : [],
+                   borderColor: css("--text-muted"), borderDash: [6, 4], borderWidth: 2, pointRadius: 0, backgroundColor: css("--text-muted") }];
+  if (x.status === "deal" && x.price != null) extra.push({ label: "Deal", data: [{ x: hi, y: x.price }], borderColor: css("--good"), backgroundColor: css("--good"), pointRadius: 7, pointStyle: "rectRot", showLine: false });
+  pricePath("duelChart", [
+    { label: "Our offers", color: css("--series-1"), points: pts(true) },
+    { label: `${x.rival} offers`, color: css("--series-2"), points: pts(false) },
+  ], extra);
+  const gap = (a, b) => a != null && b != null ? Math.abs(a - b) : null;
+  $("#duelRead").innerHTML = x.rival_silent ? `The rival never answered: their team had no agent running. Nothing to learn about them here.`
+    : (x.status === "deal" ? `Deal at <b>${x.price} P</b>: our surplus ${x.surplus} P, ${num(x.result)} after ${x.rounds} round(s) of decay. ` : "")
+      + (x.missed ? `<b>Missed deal:</b> their best offer (${x.rival_best}) was inside our limit (${x.limit}): accepting it was worth +${x.gain_missed} P. ` : "")
+      + `We opened at ${x.our_first ?? "—"} and moved ${x.conc_us} P; they opened at ${x.their_first ?? "—"} and moved ${x.conc_them} P.`
+      + (x.rival_best != null ? ` Their limit is ${x.role === "buyer" ? "at most" : "at least"} ${x.rival_best} (their best offer).` : "");
+  $("#duelChat").innerHTML = chatHtml(x.messages, m => m.us ? "us (Team 5)" : m.who);
+}
+
+// ------------------------------------------------------------------ conversations
+function convsTab(d) {
+  const all = d.conversations || [];
+  fillSelect($("#cTeam"), [...new Set(all.map(c => c.team))].sort().map(t => [t, d.names[t] || t]));
+  fillSelect($("#cDealer"), [...new Set(all.map(c => c.dealer))].sort().map(t => [t, d.names[t] || t]));
+  const team = $("#cTeam").value, dealer = $("#cDealer").value, ours = $("#cOurs").checked;
+  const rows = all.filter(c => (!team || c.team === team) && (!dealer || c.dealer === dealer) && (!ours || c.us)).map(c => ({
+    ...c, moved: c.first && c.last != null ? Math.round(100 * (c.last - c.first) / c.first) : null }));
+  if (pickedConv == null && rows.length) pickedConv = rows[0].thread;
+  table($("#convT"), "convs", rows, [
+    ["end", "Tick", null, true],
+    ["name", "Team", r => `${r.us ? "★ " : ""}${esc(r.name)}`],
+    ["dealer_name", "Dealer", r => esc(r.dealer_name)],
+    ["side", "Side", r => esc(r.side === "team buys" ? "buys" : r.side === "team sells" ? "sells" : "—")],
+    ["item", "Item", r => esc(r.item || "—")],
+    ["first", "Her first", null, true],
+    ["last", "Her last", null, true],
+    ["moved", "Dealer moved", r => r.moved == null ? "—" : `${r.moved > 0 ? "+" : ""}${r.moved}%`, true],
+    ["msgs", "Msgs", null, true],
+  ], r => `pick ${r.thread === pickedConv ? "sel" : ""} ${r.us ? "us" : ""}`);
+  const st = sortState.convs;  // same order as table() drew the rows
+  const shown = st ? [...rows].sort((a, b) => { const x = a[st.k], y = b[st.k];
+    return st.dir * ((x == null) - (y == null) || (typeof x === "number" && typeof y === "number" ? x - y : String(x).localeCompare(String(y)))); }) : rows;
+  $("#convT").querySelectorAll("tbody tr").forEach((tr, i) => { tr.onclick = () => { pickedConv = shown[i]?.thread; convsTab(d); }; });
+  const c = all.find(r => r.thread === pickedConv);
+  if (!c) return;
+  $("#convTitle").textContent = `${c.name} × ${c.dealer_name}`;
+  $("#convSub").innerHTML = `Thread ${c.thread} · the team ${esc(c.side === "team buys" ? "buys" : c.side === "team sells" ? "sells" : "talks")} ${esc(c.item || "")} · ticks ${c.start}–${c.end} · ${c.msgs} messages`;
+  const pts = dealerSide => c.log.filter(m => m.dealer === dealerSide && m.price != null).map(m => ({ x: m.tick, y: m.price }));
+  pricePath("convChart", [
+    { label: `${c.dealer_name} (dealer)`, color: css("--series-2"), points: pts(true) },
+    { label: `${c.name}`, color: css("--series-1"), points: pts(false) },
+  ]);
+  $("#convChat").innerHTML = chatHtml(c.log.map(m => ({ ...m, us: !m.dealer })), m => m.us ? c.name : c.dealer_name);
 }
 
 function header(d) {
@@ -521,6 +679,8 @@ function render() {
   const tab = document.querySelector(".tabs button.on").dataset.tab;
   if (tab === "overview") { tiles(d); storyChart(d); ourCharts(d); raceChart(d); insights(d); }
   if (tab === "rivals") { teamsTable(d); leaderboardChart(d); activityChart(d); }
+  if (tab === "duels") duelsTab(d);
+  if (tab === "convs") convsTab(d);
   if (tab === "market") { marketTable(d); holdersTable(d); pricesTables(d); }
   if (tab === "more") moreTab(d);
 }
@@ -539,8 +699,10 @@ async function refresh() {
     DATA = await r.json(); render();
   } catch (e) { $("#hdr").innerHTML = `<span class="err">dashboard server not reachable: ${esc(e.message)}</span>`; }
 }
-["#fSide", "#fSet", "#fTeam", "#fOpp", "#fOurs"].forEach(s => $(s).addEventListener("change", render));
-showTab(store.get("bz-tab", "overview"));
+["#fSide", "#fSet", "#fTeam", "#fOpp", "#fOurs", "#cTeam", "#cDealer", "#cOurs"].forEach(s => $(s).addEventListener("change", render));
+const TABS = [...document.querySelectorAll(".tabs button")].map(b => b.dataset.tab);
+const fromHash = location.hash.slice(1);
+showTab(TABS.includes(fromHash) ? fromHash : store.get("bz-tab", "overview"));
 refresh(); setInterval(refresh, 15000);
 </script>
 </body>
