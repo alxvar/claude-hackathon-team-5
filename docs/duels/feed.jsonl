@@ -1,3 +1,11 @@
 {"id": 5852, "tick": 120, "t": 2.0, "type": "duels.scheduled", "scope": "public", "actor": "", "payload": {"session": 1, "name": "Practice duels", "duels": 306, "rounds": 1, "duel_ticks": 12, "decay": 0.06}}
 {"id": 6284, "tick": 124, "t": 2.0667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16, "session": 1, "status": "deal", "item": "El Rastro al Amanecer"}}
 {"id": 6380, "tick": 125, "t": 2.0833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15, "session": 1, "status": "deal", "item": "El Rastro al Amanecer"}}
+{"id": 6662, "tick": 128, "t": 2.1333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 22, "session": 1, "status": "deal", "item": "Mercado de Vallehermoso"}}
+{"id": 6774, "tick": 129, "t": 2.15, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2, "session": 1, "status": "deal", "item": "Taxi Blanco"}}
+{"id": 6777, "tick": 129, "t": 2.15, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 21, "session": 1, "status": "deal", "item": "Mercado de Vallehermoso"}}
+{"id": 6780, "tick": 129, "t": 2.15, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 59, "session": 1, "status": "deal", "item": "Taxi Blanco"}}
+{"id": 6899, "tick": 130, "t": 2.1667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 1, "session": 1, "status": "deal", "item": "Taxi Blanco"}}
+{"id": 6902, "tick": 130, "t": 2.1667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11, "session": 1, "status": "deal", "item": "Plaza de Olavide"}}
+{"id": 7015, "tick": 131, "t": 2.1833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 60, "session": 1, "status": "deal", "item": "Taxi Blanco"}}
+{"id": 7018, "tick": 131, "t": 2.1833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 77, "session": 1, "status": "deal", "item": "Andén 0"}}
