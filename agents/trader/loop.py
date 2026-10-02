@@ -37,7 +37,9 @@ def fee(price, cards):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--min-gain", type=float, default=3.0)
+    ap.add_argument("--min-gain", type=float, default=3.0, help="buys: our value minus price and fee")
+    ap.add_argument("--min-gain-sell", type=float, default=6.0,
+                    help="sells into bids: higher bar, every sale also scores for the buyer (LOG finding 7)")
     ap.add_argument("--cash-floor", type=int, default=200)
     args = ap.parse_args()
     b = Bazaar(os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai"), os.environ["BAZAAR_KEY"])
@@ -61,6 +63,8 @@ def main():
                     copy = min(held[cards[0]], key=lambda a: a["your_value"])  # give away our least valuable copy
                     gain = g["cash"] - fee(g["cash"], 1) - copy["your_value"]
                     cand = (gain, o["id"], [copy["id"]], f"sell {cards[0]} for {g['cash']}")
+                    if gain < args.min_gain_sell:  # a collector's low bid hands them most of the surplus
+                        continue
                 elif g.get("assets") and w.get("cash") and not cards and not w.get("assets"):
                     refs = [a["ref"] for a in g["assets"]]
                     for r in refs:

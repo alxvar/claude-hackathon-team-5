@@ -31,6 +31,8 @@ Team 10 leads with one lever: buying from Abuela the cards of its high-value set
 3. **Selling to her:** she bids about 5 or 12-13 P and mostly holds. One team pushed her from 12 to 16 by asking 35 and stepping down 3 P at a time. Our spare copies are worth about 1 P to us.
 4. **El Rastro has nothing worth buying at our values** (32 listings at tick 35; commons flooded at 12 P). Check again on Saturday, when El Retiro comes out and teams chase full pages.
 5. **Our private `neg_points` shows −8.5 and we can't explain it.** Question for the organisers: what is it, and does it pull our negotiating score down?
+7. **Every trade scores for BOTH sides, so price for the buyer's value, not ours.** We sold MAL-08 at 26 to Team 13 (the leader), who likely values it ~37: we handed the leader most of the gain. Sell near what the buyer values (collectors: uncommons ~35, rares ~100) and bid low to sellers. Prefer counterparties below us on the board.
+8. **Who collects what** (from all 13 trades between teams so far): Team 13 (1st) buys Malasaña and Salamanca (paid 74 for SAL-09); Teams 14 and 4 buy La Latina; Team 10 buys Lavapiés (our set too: it's racing us for the page). Prices: rares 65-74, uncommons 12-26, commons 6-12.
 6. **The first Market Test (game hour 3.0) falls after tonight's 23:00 close**, so it runs Saturday morning. The practice duels (game hour 2.0) are still tonight, at about 22:20.
 
 ## Log (history up to Fri 21:18; new lines go in `team/<name>.md`)

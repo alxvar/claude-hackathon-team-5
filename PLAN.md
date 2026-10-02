@@ -7,7 +7,7 @@ _Agreed Fri 2 Oct, ~20:30. The clock started ~20:10. Why each call: `CROSSWALK.m
 **Dani: the room is the biggest lever.** Trades between teams are what move the score: Teams 8, 13 and 14 each jumped ~12 points with ONE card trade. The API hides who owns which card, but the owners are in the room.
 1. Organisers' desk, only 2 questions: (a) exactly how the duel pie shrinks per round and how a duel is scored; (b) judging: format, time slot, what they look at. Skip the rest: `neg_points` is measured (it counts trades between teams), and level 2 isn't announced yet.
 2. Then walk the room. Find who holds the card **"Cine Doré" (LAV-09)**. Only one exists, and Team 10 wants it too. We bid 85 primas on El Rastro: they just accept **offer #910**. If they want more, get their price and team number and tell Lucas.
-3. Ask teams which neighbourhoods they collect. We sell **SAL-06, LAT-06, LAT-07** and we buy **LAV-06, LAV-07** (24 P), **SAL-07, SAL-08** (16 P), **MAL-07** (12 P) and rares from Salamanca, Malasaña and La Latina. A team accepts our offer on El Rastro, or Lucas posts one addressed to them.
+3. Ask teams which neighbourhoods they collect. We sell **SAL-06** (34 P) and **LAT-06** (30 P); LAT-07 is already sold. We buy **LAV-06, LAV-07** (24 P), **SAL-07, SAL-08** (18 P), **MAL-07** (14 P) and **MAL-09/MAL-10** (38 P). Prefer teams BELOW us on the leaderboard: every trade also scores for them. A team accepts our offer on El Rastro, or Lucas posts one addressed to them.
 4. Write every lead in `team/dani.md`: team number, card, price. Lucas's Claude sees it within a minute.
 
 **Aleks: duels.**
