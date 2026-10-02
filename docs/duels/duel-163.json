@@ -269,6 +269,159 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 139,
+   "raw": {
+    "duel": 163,
+    "session": 1,
+    "status": "live",
+    "role": "seller",
+    "item": "Mercado de Vallehermoso",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 69,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 144,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 939,
+     "price": 95,
+     "tick": 137,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1036,
+     "price": 80,
+     "tick": 139,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 132,
+      "from": "you",
+      "text": "Mercado de Vallehermoso is a well-located, established market with steady footfall and loyal customers, and I'm offering it at 98 P. I'd welcome a concrete counteroffer so we can settle quickly.",
+      "price": 98,
+      "days": null
+     },
+     {
+      "tick": 134,
+      "from": "you",
+      "text": "My price stays at 98 P for this well-located market with steady footfall and a loyal customer base. Every tick of talk costs both of us value, so please send me a concrete counteroffer.",
+      "price": 98,
+      "days": null
+     },
+     {
+      "tick": 136,
+      "from": "you",
+      "text": "I can do 95 P.",
+      "price": 95,
+      "days": null
+     },
+     {
+      "tick": 137,
+      "from": "you",
+      "text": "I'm holding at 95 P for this well-located market with steady footfall and loyal customers. I've already moved once without hearing a counteroffer from you, and every tick costs us both value, so please put a concrete figure on the table.",
+      "price": 95,
+      "days": null
+     },
+     {
+      "tick": 139,
+      "from": "Rival Rojo",
+      "text": "I can offer 80 P for this one.",
+      "price": 80,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 139,
+   "raw": {
+    "duel": 163,
+    "session": 1,
+    "status": "live",
+    "role": "seller",
+    "item": "Mercado de Vallehermoso",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 69,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 144,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 1038,
+     "price": 91,
+     "tick": 139,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1036,
+     "price": 80,
+     "tick": 139,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 132,
+      "from": "you",
+      "text": "Mercado de Vallehermoso is a well-located, established market with steady footfall and loyal customers, and I'm offering it at 98 P. I'd welcome a concrete counteroffer so we can settle quickly.",
+      "price": 98,
+      "days": null
+     },
+     {
+      "tick": 134,
+      "from": "you",
+      "text": "My price stays at 98 P for this well-located market with steady footfall and a loyal customer base. Every tick of talk costs both of us value, so please send me a concrete counteroffer.",
+      "price": 98,
+      "days": null
+     },
+     {
+      "tick": 136,
+      "from": "you",
+      "text": "I can do 95 P.",
+      "price": 95,
+      "days": null
+     },
+     {
+      "tick": 137,
+      "from": "you",
+      "text": "I'm holding at 95 P for this well-located market with steady footfall and loyal customers. I've already moved once without hearing a counteroffer from you, and every tick costs us both value, so please put a concrete figure on the table.",
+      "price": 95,
+      "days": null
+     },
+     {
+      "tick": 139,
+      "from": "Rival Rojo",
+      "text": "I can offer 80 P for this one.",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 139,
+      "from": "you",
+      "text": "Thanks for putting a figure on the table. I'm willing to move meaningfully to 91 P, given the market's steady footfall and loyal customer base. With time running down, I'd ask you to come up substantially so we can close within the next couple of ticks.",
+      "price": 91,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -681,6 +834,148 @@
      ]
     }
    }
+  },
+  {
+   "tick": 139,
+   "took_s": 5.98,
+   "cost_usd": 0.00738,
+   "obs": {
+    "view": {
+     "duel_id": 163,
+     "role": "seller",
+     "limit": 69,
+     "currency": "P",
+     "item": "Mercado de Vallehermoso",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never sell below your cost",
+      "decay_per_round": 0.06,
+      "rounds": 1,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "Mercado de Vallehermoso is a well-located, established market with steady footfall and loyal customers, and I'm offering it at 98 P. I'd welcome a concrete counteroffer so we can settle quickly.",
+      "offer": {
+       "price": 98,
+       "days": null
+      },
+      "accept": false,
+      "tick": 132,
+      "decision": {
+       "action": "offer",
+       "price": 95,
+       "message": "I'm holding at 95 P for this well-located market with steady footfall and loyal customers. I've already moved once without hearing a counteroffer from you, and every tick costs us both value, so please put a concrete figure on the table."
+      }
+     },
+     {
+      "mine": true,
+      "text": "My price stays at 98 P for this well-located market with steady footfall and a loyal customer base. Every tick of talk costs both of us value, so please send me a concrete counteroffer.",
+      "offer": {
+       "price": 98,
+       "days": null
+      },
+      "accept": false,
+      "tick": 134,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 95 P.",
+      "offer": {
+       "price": 95,
+       "days": null
+      },
+      "accept": false,
+      "tick": 136,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm holding at 95 P for this well-located market with steady footfall and loyal customers. I've already moved once without hearing a counteroffer from you, and every tick costs us both value, so please put a concrete figure on the table.",
+      "offer": {
+       "price": 95,
+       "days": null
+      },
+      "accept": false,
+      "tick": 137,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can offer 80 P for this one.",
+      "offer": {
+       "price": 80,
+       "days": null
+      },
+      "accept": false,
+      "tick": 139,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 80,
+     "days": 0
+    },
+    "tick": 139,
+    "ticks_left": 6
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thanks for putting a figure on the table. I'm willing to move meaningfully to 91 P, given the market's steady footfall and loyal customer base. With time running down, I'd ask you to come up substantially so we can close within the next couple of ticks.",
+    "price": 91,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 91,
+      "message": "Thanks for putting a figure on the table. I'm willing to move meaningfully to 91 P, given the market's steady footfall and loyal customer base. With time running down, I'd ask you to come up substantially so we can close within the next couple of ticks."
+     },
+     "band": {
+      "worst": 89,
+      "target": 91,
+      "best": 92
+     },
+     "plan": {
+      "read": "They finally countered at 80 P after silence; it's an opening anchor, likely with room above it. With only 6 ticks left, time pressure is real for both sides.",
+      "target": 91,
+      "best": 92,
+      "worst": 89,
+      "days": null,
+      "angle": "Welcome their first figure and show a meaningful move to around 91 P, stressing the market's steady footfall, and ask them to come up substantially so we can close within the next couple of ticks."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.82,
+       "in": 611,
+       "out": 144,
+       "cost_usd": 0.00532,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.16,
+       "in": 532,
+       "out": 100,
+       "cost_usd": 0.00206,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
   }
  ],
  "sent": [
@@ -894,12 +1189,69 @@
      "days": 0
     }
    }
+  },
+  {
+   "tick": 139,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thanks for putting a figure on the table. I'm willing to move meaningfully to 91 P, given the market's steady footfall and loyal customer base. With time running down, I'd ask you to come up substantially so we can close within the next couple of ticks.",
+    "price": 91,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 91,
+      "message": "Thanks for putting a figure on the table. I'm willing to move meaningfully to 91 P, given the market's steady footfall and loyal customer base. With time running down, I'd ask you to come up substantially so we can close within the next couple of ticks."
+     },
+     "band": {
+      "worst": 89,
+      "target": 91,
+      "best": 92
+     },
+     "plan": {
+      "read": "They finally countered at 80 P after silence; it's an opening anchor, likely with room above it. With only 6 ticks left, time pressure is real for both sides.",
+      "target": 91,
+      "best": 92,
+      "worst": 89,
+      "days": null,
+      "angle": "Welcome their first figure and show a meaningful move to around 91 P, stressing the market's steady footfall, and ask them to come up substantially so we can close within the next couple of ticks."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.82,
+       "in": 611,
+       "out": 144,
+       "cost_usd": 0.00532,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.16,
+       "in": 532,
+       "out": 100,
+       "cost_usd": 0.00206,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 163,
+    "offer": {
+     "id": 1038,
+     "price": 91,
+     "tick": 139,
+     "days": 0
+    }
+   }
   }
  ],
  "done": {
   "duel": 163,
   "session": 1,
-  "status": "live",
+  "status": "deal",
   "role": "seller",
   "item": "Mercado de Vallehermoso",
   "issues": [
@@ -912,14 +1264,19 @@
   "rival": "Rival Rojo",
   "deadline_tick": 144,
   "decay_per_round": 0.06,
-  "rounds": 0,
+  "rounds": 1,
   "your_offer": {
-   "id": 723,
-   "price": 98,
-   "tick": 132,
+   "id": 1038,
+   "price": 91,
+   "tick": 139,
    "days": 0
   },
-  "rival_offer": null,
+  "rival_offer": {
+   "id": 1036,
+   "price": 80,
+   "tick": 139,
+   "days": 0
+  },
   "messages": [
    {
     "tick": 132,
@@ -927,10 +1284,46 @@
     "text": "Mercado de Vallehermoso is a well-located, established market with steady footfall and loyal customers, and I'm offering it at 98 P. I'd welcome a concrete counteroffer so we can settle quickly.",
     "price": 98,
     "days": null
+   },
+   {
+    "tick": 134,
+    "from": "you",
+    "text": "My price stays at 98 P for this well-located market with steady footfall and a loyal customer base. Every tick of talk costs both of us value, so please send me a concrete counteroffer.",
+    "price": 98,
+    "days": null
+   },
+   {
+    "tick": 136,
+    "from": "you",
+    "text": "I can do 95 P.",
+    "price": 95,
+    "days": null
+   },
+   {
+    "tick": 137,
+    "from": "you",
+    "text": "I'm holding at 95 P for this well-located market with steady footfall and loyal customers. I've already moved once without hearing a counteroffer from you, and every tick costs us both value, so please put a concrete figure on the table.",
+    "price": 95,
+    "days": null
+   },
+   {
+    "tick": 139,
+    "from": "Rival Rojo",
+    "text": "I can offer 80 P for this one.",
+    "price": 80,
+    "days": null
+   },
+   {
+    "tick": 139,
+    "from": "you",
+    "text": "Thanks for putting a figure on the table. I'm willing to move meaningfully to 91 P, given the market's steady footfall and loyal customer base. With time running down, I'd ask you to come up substantially so we can close within the next couple of ticks.",
+    "price": 91,
+    "days": null
    }
   ],
-  "result": null,
-  "price": null,
-  "days": null
- }
+  "result": 20.7,
+  "price": 91,
+  "days": 0
+ },
+ "last_seen_tick": 141
 }

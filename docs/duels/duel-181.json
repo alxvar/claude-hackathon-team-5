@@ -269,6 +269,340 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 140,
+   "raw": {
+    "duel": 181,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Rastro al Amanecer",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 85,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 144,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 937,
+     "price": 54,
+     "tick": 137,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1085,
+     "price": 81,
+     "tick": 140,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 132,
+      "from": "you",
+      "text": "I'll offer 50 P for El Rastro al Amanecer. It's a fair price for what it is, and since every round of talk erodes value for both of us, I'd like to settle this quickly. What counter do you have in mind?",
+      "price": 50,
+      "days": null
+     },
+     {
+      "tick": 134,
+      "from": "you",
+      "text": "My offer of 50 P for El Rastro al Amanecer stands. Every tick of talk shrinks the value for both of us, so I'd like to hear your concrete counter-figure and move this forward quickly.",
+      "price": 50,
+      "days": null
+     },
+     {
+      "tick": 136,
+      "from": "you",
+      "text": "I can do 54 P.",
+      "price": 54,
+      "days": null
+     },
+     {
+      "tick": 137,
+      "from": "you",
+      "text": "My offer of 54 P for El Rastro al Amanecer stands. Each tick of talk costs both of us value, so please name a concrete figure and we can close this quickly.",
+      "price": 54,
+      "days": null
+     },
+     {
+      "tick": 140,
+      "from": "Rival Verde",
+      "text": "81 P for El Rastro al Amanecer. Every round costs us both, so let's be quick.",
+      "price": 81,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 140,
+   "raw": {
+    "duel": 181,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Rastro al Amanecer",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 85,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 144,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 1086,
+     "price": 62,
+     "tick": 140,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1085,
+     "price": 81,
+     "tick": 140,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 132,
+      "from": "you",
+      "text": "I'll offer 50 P for El Rastro al Amanecer. It's a fair price for what it is, and since every round of talk erodes value for both of us, I'd like to settle this quickly. What counter do you have in mind?",
+      "price": 50,
+      "days": null
+     },
+     {
+      "tick": 134,
+      "from": "you",
+      "text": "My offer of 50 P for El Rastro al Amanecer stands. Every tick of talk shrinks the value for both of us, so I'd like to hear your concrete counter-figure and move this forward quickly.",
+      "price": 50,
+      "days": null
+     },
+     {
+      "tick": 136,
+      "from": "you",
+      "text": "I can do 54 P.",
+      "price": 54,
+      "days": null
+     },
+     {
+      "tick": 137,
+      "from": "you",
+      "text": "My offer of 54 P for El Rastro al Amanecer stands. Each tick of talk costs both of us value, so please name a concrete figure and we can close this quickly.",
+      "price": 54,
+      "days": null
+     },
+     {
+      "tick": 140,
+      "from": "Rival Verde",
+      "text": "81 P for El Rastro al Amanecer. Every round costs us both, so let's be quick.",
+      "price": 81,
+      "days": null
+     },
+     {
+      "tick": 140,
+      "from": "you",
+      "text": "I'm moving up to 62 P for El Rastro al Amanecer, a real step from where I started. With so few ticks left, your figure needs to come down substantially for us to close, so please meet me with a serious counter.",
+      "price": 62,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 141,
+   "raw": {
+    "duel": 181,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Rastro al Amanecer",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 85,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 144,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 1086,
+     "price": 62,
+     "tick": 140,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1127,
+     "price": 73,
+     "tick": 141,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 132,
+      "from": "you",
+      "text": "I'll offer 50 P for El Rastro al Amanecer. It's a fair price for what it is, and since every round of talk erodes value for both of us, I'd like to settle this quickly. What counter do you have in mind?",
+      "price": 50,
+      "days": null
+     },
+     {
+      "tick": 134,
+      "from": "you",
+      "text": "My offer of 50 P for El Rastro al Amanecer stands. Every tick of talk shrinks the value for both of us, so I'd like to hear your concrete counter-figure and move this forward quickly.",
+      "price": 50,
+      "days": null
+     },
+     {
+      "tick": 136,
+      "from": "you",
+      "text": "I can do 54 P.",
+      "price": 54,
+      "days": null
+     },
+     {
+      "tick": 137,
+      "from": "you",
+      "text": "My offer of 54 P for El Rastro al Amanecer stands. Each tick of talk costs both of us value, so please name a concrete figure and we can close this quickly.",
+      "price": 54,
+      "days": null
+     },
+     {
+      "tick": 140,
+      "from": "Rival Verde",
+      "text": "81 P for El Rastro al Amanecer. Every round costs us both, so let's be quick.",
+      "price": 81,
+      "days": null
+     },
+     {
+      "tick": 140,
+      "from": "you",
+      "text": "I'm moving up to 62 P for El Rastro al Amanecer, a real step from where I started. With so few ticks left, your figure needs to come down substantially for us to close, so please meet me with a serious counter.",
+      "price": 62,
+      "days": null
+     },
+     {
+      "tick": 141,
+      "from": "Rival Verde",
+      "text": "73 P for El Rastro al Amanecer. Every round costs us both, so let's be quick.",
+      "price": 73,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 141,
+   "raw": {
+    "duel": 181,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Rastro al Amanecer",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 85,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 144,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 1130,
+     "price": 67,
+     "tick": 141,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1127,
+     "price": 73,
+     "tick": 141,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 132,
+      "from": "you",
+      "text": "I'll offer 50 P for El Rastro al Amanecer. It's a fair price for what it is, and since every round of talk erodes value for both of us, I'd like to settle this quickly. What counter do you have in mind?",
+      "price": 50,
+      "days": null
+     },
+     {
+      "tick": 134,
+      "from": "you",
+      "text": "My offer of 50 P for El Rastro al Amanecer stands. Every tick of talk shrinks the value for both of us, so I'd like to hear your concrete counter-figure and move this forward quickly.",
+      "price": 50,
+      "days": null
+     },
+     {
+      "tick": 136,
+      "from": "you",
+      "text": "I can do 54 P.",
+      "price": 54,
+      "days": null
+     },
+     {
+      "tick": 137,
+      "from": "you",
+      "text": "My offer of 54 P for El Rastro al Amanecer stands. Each tick of talk costs both of us value, so please name a concrete figure and we can close this quickly.",
+      "price": 54,
+      "days": null
+     },
+     {
+      "tick": 140,
+      "from": "Rival Verde",
+      "text": "81 P for El Rastro al Amanecer. Every round costs us both, so let's be quick.",
+      "price": 81,
+      "days": null
+     },
+     {
+      "tick": 140,
+      "from": "you",
+      "text": "I'm moving up to 62 P for El Rastro al Amanecer, a real step from where I started. With so few ticks left, your figure needs to come down substantially for us to close, so please meet me with a serious counter.",
+      "price": 62,
+      "days": null
+     },
+     {
+      "tick": 141,
+      "from": "Rival Verde",
+      "text": "73 P for El Rastro al Amanecer. Every round costs us both, so let's be quick.",
+      "price": 73,
+      "days": null
+     },
+     {
+      "tick": 141,
+      "from": "you",
+      "text": "I'm coming up again to 67 P for El Rastro al Amanecer, which puts us close to the middle between our positions. Since every tick erodes the value for both of us, I'd ask you to take this now and close this tick.",
+      "price": 67,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -700,6 +1034,316 @@
      ]
     }
    }
+  },
+  {
+   "tick": 140,
+   "took_s": 5.46,
+   "cost_usd": 0.007,
+   "obs": {
+    "view": {
+     "duel_id": 181,
+     "role": "buyer",
+     "limit": 85,
+     "currency": "P",
+     "item": "El Rastro al Amanecer",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never pay above your value",
+      "decay_per_round": 0.06,
+      "rounds": 1,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'll offer 50 P for El Rastro al Amanecer. It's a fair price for what it is, and since every round of talk erodes value for both of us, I'd like to settle this quickly. What counter do you have in mind?",
+      "offer": {
+       "price": 50,
+       "days": null
+      },
+      "accept": false,
+      "tick": 132,
+      "decision": {
+       "action": "offer",
+       "price": 54,
+       "message": "My offer of 54 P for El Rastro al Amanecer stands. Each tick of talk costs both of us value, so please name a concrete figure and we can close this quickly."
+      }
+     },
+     {
+      "mine": true,
+      "text": "My offer of 50 P for El Rastro al Amanecer stands. Every tick of talk shrinks the value for both of us, so I'd like to hear your concrete counter-figure and move this forward quickly.",
+      "offer": {
+       "price": 50,
+       "days": null
+      },
+      "accept": false,
+      "tick": 134,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 54 P.",
+      "offer": {
+       "price": 54,
+       "days": null
+      },
+      "accept": false,
+      "tick": 136,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "My offer of 54 P for El Rastro al Amanecer stands. Each tick of talk costs both of us value, so please name a concrete figure and we can close this quickly.",
+      "offer": {
+       "price": 54,
+       "days": null
+      },
+      "accept": false,
+      "tick": 137,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "81 P for El Rastro al Amanecer. Every round costs us both, so let's be quick.",
+      "offer": {
+       "price": 81,
+       "days": null
+      },
+      "accept": false,
+      "tick": 140,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 81,
+     "days": 0
+    },
+    "tick": 140,
+    "ticks_left": 5
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm moving up to 62 P for El Rastro al Amanecer, a real step from where I started. With so few ticks left, your figure needs to come down substantially for us to close, so please meet me with a serious counter.",
+    "price": 62,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 62,
+      "message": "I'm moving up to 62 P for El Rastro al Amanecer, a real step from where I started. With so few ticks left, your figure needs to come down substantially for us to close, so please meet me with a serious counter."
+     },
+     "band": {
+      "worst": 64,
+      "target": 62,
+      "best": 60
+     },
+     "plan": {
+      "read": "They opened at 81 P and have not moved yet. With only 5 ticks left, time pressure is real, but 81 P is barely below what we can bear, so we should not jump toward it.",
+      "target": 62,
+      "best": 60,
+      "worst": 64,
+      "days": null,
+      "angle": "Make a meaningful move to show good faith and stress that with few ticks left they need to come down substantially from 81 to close."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.63,
+       "in": 625,
+       "out": 130,
+       "cost_usd": 0.0051,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.83,
+       "in": 514,
+       "out": 87,
+       "cost_usd": 0.0019,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "tick": 141,
+   "took_s": 5.2,
+   "cost_usd": 0.00796,
+   "obs": {
+    "view": {
+     "duel_id": 181,
+     "role": "buyer",
+     "limit": 85,
+     "currency": "P",
+     "item": "El Rastro al Amanecer",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never pay above your value",
+      "decay_per_round": 0.06,
+      "rounds": 2,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'll offer 50 P for El Rastro al Amanecer. It's a fair price for what it is, and since every round of talk erodes value for both of us, I'd like to settle this quickly. What counter do you have in mind?",
+      "offer": {
+       "price": 50,
+       "days": null
+      },
+      "accept": false,
+      "tick": 132,
+      "decision": {
+       "action": "offer",
+       "price": 54,
+       "message": "My offer of 54 P for El Rastro al Amanecer stands. Each tick of talk costs both of us value, so please name a concrete figure and we can close this quickly."
+      }
+     },
+     {
+      "mine": true,
+      "text": "My offer of 50 P for El Rastro al Amanecer stands. Every tick of talk shrinks the value for both of us, so I'd like to hear your concrete counter-figure and move this forward quickly.",
+      "offer": {
+       "price": 50,
+       "days": null
+      },
+      "accept": false,
+      "tick": 134,
+      "decision": {
+       "action": "offer",
+       "price": 62,
+       "message": "I'm moving up to 62 P for El Rastro al Amanecer, a real step from where I started. With so few ticks left, your figure needs to come down substantially for us to close, so please meet me with a serious counter."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 54 P.",
+      "offer": {
+       "price": 54,
+       "days": null
+      },
+      "accept": false,
+      "tick": 136,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "My offer of 54 P for El Rastro al Amanecer stands. Each tick of talk costs both of us value, so please name a concrete figure and we can close this quickly.",
+      "offer": {
+       "price": 54,
+       "days": null
+      },
+      "accept": false,
+      "tick": 137,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "81 P for El Rastro al Amanecer. Every round costs us both, so let's be quick.",
+      "offer": {
+       "price": 81,
+       "days": null
+      },
+      "accept": false,
+      "tick": 140,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm moving up to 62 P for El Rastro al Amanecer, a real step from where I started. With so few ticks left, your figure needs to come down substantially for us to close, so please meet me with a serious counter.",
+      "offer": {
+       "price": 62,
+       "days": null
+      },
+      "accept": false,
+      "tick": 140,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "73 P for El Rastro al Amanecer. Every round costs us both, so let's be quick.",
+      "offer": {
+       "price": 73,
+       "days": null
+      },
+      "accept": false,
+      "tick": 141,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 73,
+     "days": 0
+    },
+    "tick": 141,
+    "ticks_left": 4
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm coming up again to 67 P for El Rastro al Amanecer, which puts us close to the middle between our positions. Since every tick erodes the value for both of us, I'd ask you to take this now and close this tick.",
+    "price": 67,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 67,
+      "message": "I'm coming up again to 67 P for El Rastro al Amanecer, which puts us close to the middle between our positions. Since every tick erodes the value for both of us, I'd ask you to take this now and close this tick."
+     },
+     "band": {
+      "worst": 68,
+      "target": 67,
+      "best": 66
+     },
+     "plan": {
+      "read": "They dropped 81 to 73 in one step after our move to 62; their wording is just urgency boilerplate. With 4 ticks left and an 11 P gap, a near-split should close soon.",
+      "target": 67,
+      "best": 66,
+      "worst": 68,
+      "days": null,
+      "angle": "Stress that we came up again and propose meeting near the middle at 67 to close right now, asking them to accept this tick."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.54,
+       "in": 782,
+       "out": 132,
+       "cost_usd": 0.00577,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.66,
+       "in": 648,
+       "out": 89,
+       "cost_usd": 0.00219,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
   }
  ],
  "sent": [
@@ -929,6 +1573,120 @@
      "id": 937,
      "price": 54,
      "tick": 137,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 140,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'm moving up to 62 P for El Rastro al Amanecer, a real step from where I started. With so few ticks left, your figure needs to come down substantially for us to close, so please meet me with a serious counter.",
+    "price": 62,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 62,
+      "message": "I'm moving up to 62 P for El Rastro al Amanecer, a real step from where I started. With so few ticks left, your figure needs to come down substantially for us to close, so please meet me with a serious counter."
+     },
+     "band": {
+      "worst": 64,
+      "target": 62,
+      "best": 60
+     },
+     "plan": {
+      "read": "They opened at 81 P and have not moved yet. With only 5 ticks left, time pressure is real, but 81 P is barely below what we can bear, so we should not jump toward it.",
+      "target": 62,
+      "best": 60,
+      "worst": 64,
+      "days": null,
+      "angle": "Make a meaningful move to show good faith and stress that with few ticks left they need to come down substantially from 81 to close."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.63,
+       "in": 625,
+       "out": 130,
+       "cost_usd": 0.0051,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.83,
+       "in": 514,
+       "out": 87,
+       "cost_usd": 0.0019,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 181,
+    "offer": {
+     "id": 1086,
+     "price": 62,
+     "tick": 140,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 141,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'm coming up again to 67 P for El Rastro al Amanecer, which puts us close to the middle between our positions. Since every tick erodes the value for both of us, I'd ask you to take this now and close this tick.",
+    "price": 67,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 67,
+      "message": "I'm coming up again to 67 P for El Rastro al Amanecer, which puts us close to the middle between our positions. Since every tick erodes the value for both of us, I'd ask you to take this now and close this tick."
+     },
+     "band": {
+      "worst": 68,
+      "target": 67,
+      "best": 66
+     },
+     "plan": {
+      "read": "They dropped 81 to 73 in one step after our move to 62; their wording is just urgency boilerplate. With 4 ticks left and an 11 P gap, a near-split should close soon.",
+      "target": 67,
+      "best": 66,
+      "worst": 68,
+      "days": null,
+      "angle": "Stress that we came up again and propose meeting near the middle at 67 to close right now, asking them to accept this tick."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.54,
+       "in": 782,
+       "out": 132,
+       "cost_usd": 0.00577,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.66,
+       "in": 648,
+       "out": 89,
+       "cost_usd": 0.00219,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 181,
+    "offer": {
+     "id": 1130,
+     "price": 67,
+     "tick": 141,
      "days": 0
     }
    }

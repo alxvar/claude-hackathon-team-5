@@ -296,6 +296,281 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 138,
+   "raw": {
+    "duel": 121,
+    "session": 1,
+    "status": "live",
+    "role": "seller",
+    "item": "El Tren Fantasma",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 74,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 148,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 984,
+     "price": 106,
+     "tick": 138,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 986,
+     "price": 60,
+     "tick": 138,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 136,
+      "from": "you",
+      "text": "El Tren Fantasma is a rare, sought-after piece, and I'm opening at 118 P, which reflects its quality and scarcity. I'd like to hear your offer so we can find common ground quickly.",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 136,
+      "from": "Rival Sol",
+      "text": "Hello, we'd like to open at 44 for the card, which fits the budget we've set for this album page. Happy to hear your thoughts and work toward a fair deal.",
+      "price": 44,
+      "days": null
+     },
+     {
+      "tick": 137,
+      "from": "you",
+      "text": "Thanks for opening the conversation. To show good faith I'll move to 112 P, though El Tren Fantasma is a genuinely scarce card and that gap to your figure is wide. If you can come up meaningfully from where you started, I'm happy to keep working toward a middle ground.",
+      "price": 112,
+      "days": null
+     },
+     {
+      "tick": 137,
+      "from": "Rival Sol",
+      "text": "We hear you on the card's quality, and we're stepping up to 52 as a genuine move toward the middle. If you can come down meaningfully from 118, we can close this quickly.",
+      "price": 52,
+      "days": null
+     },
+     {
+      "tick": 138,
+      "from": "you",
+      "text": "Thanks for stepping up, I appreciate the movement. I'll come down to 106 P, since El Tren Fantasma is a scarce card and hard to replace for an album page. I'd like to see another substantial move from you so we keep momentum.",
+      "price": 106,
+      "days": null
+     },
+     {
+      "tick": 138,
+      "from": "Rival Sol",
+      "text": "Thanks for moving to 112, though that step was a small one given the gap between us. We'll come up to 60 to keep this moving, and a bigger move from your side would help us meet sooner.",
+      "price": 60,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 139,
+   "raw": {
+    "duel": 121,
+    "session": 1,
+    "status": "live",
+    "role": "seller",
+    "item": "El Tren Fantasma",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 74,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 148,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 1028,
+     "price": 100,
+     "tick": 139,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1027,
+     "price": 66,
+     "tick": 139,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 136,
+      "from": "you",
+      "text": "El Tren Fantasma is a rare, sought-after piece, and I'm opening at 118 P, which reflects its quality and scarcity. I'd like to hear your offer so we can find common ground quickly.",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 136,
+      "from": "Rival Sol",
+      "text": "Hello, we'd like to open at 44 for the card, which fits the budget we've set for this album page. Happy to hear your thoughts and work toward a fair deal.",
+      "price": 44,
+      "days": null
+     },
+     {
+      "tick": 137,
+      "from": "you",
+      "text": "Thanks for opening the conversation. To show good faith I'll move to 112 P, though El Tren Fantasma is a genuinely scarce card and that gap to your figure is wide. If you can come up meaningfully from where you started, I'm happy to keep working toward a middle ground.",
+      "price": 112,
+      "days": null
+     },
+     {
+      "tick": 137,
+      "from": "Rival Sol",
+      "text": "We hear you on the card's quality, and we're stepping up to 52 as a genuine move toward the middle. If you can come down meaningfully from 118, we can close this quickly.",
+      "price": 52,
+      "days": null
+     },
+     {
+      "tick": 138,
+      "from": "you",
+      "text": "Thanks for stepping up, I appreciate the movement. I'll come down to 106 P, since El Tren Fantasma is a scarce card and hard to replace for an album page. I'd like to see another substantial move from you so we keep momentum.",
+      "price": 106,
+      "days": null
+     },
+     {
+      "tick": 138,
+      "from": "Rival Sol",
+      "text": "Thanks for moving to 112, though that step was a small one given the gap between us. We'll come up to 60 to keep this moving, and a bigger move from your side would help us meet sooner.",
+      "price": 60,
+      "days": null
+     },
+     {
+      "tick": 139,
+      "from": "Rival Sol",
+      "text": "We appreciate the move to 106, and we're stepping up to 66 to keep the momentum going on both sides. A similar step from you would bring us much closer to a deal that works for our album page.",
+      "price": 66,
+      "days": null
+     },
+     {
+      "tick": 139,
+      "from": "you",
+      "text": "I appreciate the steady movement. I'll step down to 100 P, which brings me down a good distance from where I began, and El Tren Fantasma is still a scarce card. I'd like to see you come up decisively so we can wrap this up soon, since every round of talk costs us both.",
+      "price": 100,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 140,
+   "raw": {
+    "duel": 121,
+    "session": 1,
+    "status": "live",
+    "role": "seller",
+    "item": "El Tren Fantasma",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 74,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 148,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 1077,
+     "price": 96,
+     "tick": 140,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1027,
+     "price": 66,
+     "tick": 139,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 136,
+      "from": "you",
+      "text": "El Tren Fantasma is a rare, sought-after piece, and I'm opening at 118 P, which reflects its quality and scarcity. I'd like to hear your offer so we can find common ground quickly.",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 136,
+      "from": "Rival Sol",
+      "text": "Hello, we'd like to open at 44 for the card, which fits the budget we've set for this album page. Happy to hear your thoughts and work toward a fair deal.",
+      "price": 44,
+      "days": null
+     },
+     {
+      "tick": 137,
+      "from": "you",
+      "text": "Thanks for opening the conversation. To show good faith I'll move to 112 P, though El Tren Fantasma is a genuinely scarce card and that gap to your figure is wide. If you can come up meaningfully from where you started, I'm happy to keep working toward a middle ground.",
+      "price": 112,
+      "days": null
+     },
+     {
+      "tick": 137,
+      "from": "Rival Sol",
+      "text": "We hear you on the card's quality, and we're stepping up to 52 as a genuine move toward the middle. If you can come down meaningfully from 118, we can close this quickly.",
+      "price": 52,
+      "days": null
+     },
+     {
+      "tick": 138,
+      "from": "you",
+      "text": "Thanks for stepping up, I appreciate the movement. I'll come down to 106 P, since El Tren Fantasma is a scarce card and hard to replace for an album page. I'd like to see another substantial move from you so we keep momentum.",
+      "price": 106,
+      "days": null
+     },
+     {
+      "tick": 138,
+      "from": "Rival Sol",
+      "text": "Thanks for moving to 112, though that step was a small one given the gap between us. We'll come up to 60 to keep this moving, and a bigger move from your side would help us meet sooner.",
+      "price": 60,
+      "days": null
+     },
+     {
+      "tick": 139,
+      "from": "Rival Sol",
+      "text": "We appreciate the move to 106, and we're stepping up to 66 to keep the momentum going on both sides. A similar step from you would bring us much closer to a deal that works for our album page.",
+      "price": 66,
+      "days": null
+     },
+     {
+      "tick": 139,
+      "from": "you",
+      "text": "I appreciate the steady movement. I'll step down to 100 P, which brings me down a good distance from where I began, and El Tren Fantasma is still a scarce card. I'd like to see you come up decisively so we can wrap this up soon, since every round of talk costs us both.",
+      "price": 100,
+      "days": null
+     },
+     {
+      "tick": 140,
+      "from": "you",
+      "text": "I'll make a modest step to 96 P to keep us moving. El Tren Fantasma is scarce and hard to replace, so any further movement from me depends on you coming up decisively from where you are now, well into the 70s or higher.",
+      "price": 96,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -520,6 +795,477 @@
      ]
     }
    }
+  },
+  {
+   "tick": 138,
+   "took_s": 5.2,
+   "cost_usd": 0.00724,
+   "obs": {
+    "view": {
+     "duel_id": 121,
+     "role": "seller",
+     "limit": 74,
+     "currency": "P",
+     "item": "El Tren Fantasma",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never sell below your cost",
+      "decay_per_round": 0.06,
+      "rounds": 2,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "El Tren Fantasma is a rare, sought-after piece, and I'm opening at 118 P, which reflects its quality and scarcity. I'd like to hear your offer so we can find common ground quickly.",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 136,
+      "decision": {
+       "action": "offer",
+       "price": 112,
+       "message": "Thanks for opening the conversation. To show good faith I'll move to 112 P, though El Tren Fantasma is a genuinely scarce card and that gap to your figure is wide. If you can come up meaningfully from where you started, I'm happy to keep working toward a middle ground."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hello, we'd like to open at 44 for the card, which fits the budget we've set for this album page. Happy to hear your thoughts and work toward a fair deal.",
+      "offer": {
+       "price": 44,
+       "days": null
+      },
+      "accept": false,
+      "tick": 136,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for opening the conversation. To show good faith I'll move to 112 P, though El Tren Fantasma is a genuinely scarce card and that gap to your figure is wide. If you can come up meaningfully from where you started, I'm happy to keep working toward a middle ground.",
+      "offer": {
+       "price": 112,
+       "days": null
+      },
+      "accept": false,
+      "tick": 137,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "We hear you on the card's quality, and we're stepping up to 52 as a genuine move toward the middle. If you can come down meaningfully from 118, we can close this quickly.",
+      "offer": {
+       "price": 52,
+       "days": null
+      },
+      "accept": false,
+      "tick": 137,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 52,
+     "days": 0
+    },
+    "tick": 138,
+    "ticks_left": 11
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thanks for stepping up, I appreciate the movement. I'll come down to 106 P, since El Tren Fantasma is a scarce card and hard to replace for an album page. I'd like to see another substantial move from you so we keep momentum.",
+    "price": 106,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 106,
+      "message": "Thanks for stepping up, I appreciate the movement. I'll come down to 106 P, since El Tren Fantasma is a scarce card and hard to replace for an album page. I'd like to see another substantial move from you so we keep momentum."
+     },
+     "band": {
+      "worst": 105,
+      "target": 106,
+      "best": 107
+     },
+     "plan": {
+      "read": "They moved 44→52, an 8 P step, slightly more than our 6. Their talk of closing quickly is cheap; their offer is still far below acceptable.",
+      "target": 106,
+      "best": 107,
+      "worst": 105,
+      "days": null,
+      "angle": "Acknowledge their move with a measured step down, stress the card's scarcity, and ask for another substantial move up from 52 to keep momentum."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.27,
+       "in": 632,
+       "out": 131,
+       "cost_usd": 0.00515,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.93,
+       "in": 562,
+       "out": 97,
+       "cost_usd": 0.00209,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "tick": 139,
+   "took_s": 6.39,
+   "cost_usd": 0.0088,
+   "obs": {
+    "view": {
+     "duel_id": 121,
+     "role": "seller",
+     "limit": 74,
+     "currency": "P",
+     "item": "El Tren Fantasma",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never sell below your cost",
+      "decay_per_round": 0.06,
+      "rounds": 3,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "El Tren Fantasma is a rare, sought-after piece, and I'm opening at 118 P, which reflects its quality and scarcity. I'd like to hear your offer so we can find common ground quickly.",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 136,
+      "decision": {
+       "action": "offer",
+       "price": 112,
+       "message": "Thanks for opening the conversation. To show good faith I'll move to 112 P, though El Tren Fantasma is a genuinely scarce card and that gap to your figure is wide. If you can come up meaningfully from where you started, I'm happy to keep working toward a middle ground."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hello, we'd like to open at 44 for the card, which fits the budget we've set for this album page. Happy to hear your thoughts and work toward a fair deal.",
+      "offer": {
+       "price": 44,
+       "days": null
+      },
+      "accept": false,
+      "tick": 136,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for opening the conversation. To show good faith I'll move to 112 P, though El Tren Fantasma is a genuinely scarce card and that gap to your figure is wide. If you can come up meaningfully from where you started, I'm happy to keep working toward a middle ground.",
+      "offer": {
+       "price": 112,
+       "days": null
+      },
+      "accept": false,
+      "tick": 137,
+      "decision": {
+       "action": "offer",
+       "price": 106,
+       "message": "Thanks for stepping up, I appreciate the movement. I'll come down to 106 P, since El Tren Fantasma is a scarce card and hard to replace for an album page. I'd like to see another substantial move from you so we keep momentum."
+      }
+     },
+     {
+      "mine": false,
+      "text": "We hear you on the card's quality, and we're stepping up to 52 as a genuine move toward the middle. If you can come down meaningfully from 118, we can close this quickly.",
+      "offer": {
+       "price": 52,
+       "days": null
+      },
+      "accept": false,
+      "tick": 137,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for stepping up, I appreciate the movement. I'll come down to 106 P, since El Tren Fantasma is a scarce card and hard to replace for an album page. I'd like to see another substantial move from you so we keep momentum.",
+      "offer": {
+       "price": 106,
+       "days": null
+      },
+      "accept": false,
+      "tick": 138,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Thanks for moving to 112, though that step was a small one given the gap between us. We'll come up to 60 to keep this moving, and a bigger move from your side would help us meet sooner.",
+      "offer": {
+       "price": 60,
+       "days": null
+      },
+      "accept": false,
+      "tick": 138,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 60,
+     "days": 0
+    },
+    "tick": 139,
+    "ticks_left": 10
+   },
+   "move": {
+    "action": "offer",
+    "text": "I appreciate the steady movement. I'll step down to 100 P, which brings me down a good distance from where I began, and El Tren Fantasma is still a scarce card. I'd like to see you come up decisively so we can wrap this up soon, since every round of talk costs us both.",
+    "price": 100,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 100,
+      "message": "I appreciate the steady movement. I'll step down to 100 P, which brings me down a good distance from where I began, and El Tren Fantasma is still a scarce card. I'd like to see you come up decisively so we can wrap this up soon, since every round of talk costs us both."
+     },
+     "band": {
+      "worst": 99,
+      "target": 100,
+      "best": 101
+     },
+     "plan": {
+      "read": "They moved 8 P to 60, a steady 8-per-round pace, and they ask for a bigger move from us. Their claim of budget limits is unverified. Their offer is still below our floor.",
+      "target": 100,
+      "best": 101,
+      "worst": 99,
+      "days": null,
+      "angle": "Match their effort with a clear 6 P step to 100, note we've now come down 18 P in total, and ask them to come up decisively into the 80s so we can close soon."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.48,
+       "in": 826,
+       "out": 148,
+       "cost_usd": 0.00626,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.91,
+       "in": 735,
+       "out": 107,
+       "cost_usd": 0.00254,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "tick": 140,
+   "took_s": 5.7,
+   "cost_usd": 0.01001,
+   "obs": {
+    "view": {
+     "duel_id": 121,
+     "role": "seller",
+     "limit": 74,
+     "currency": "P",
+     "item": "El Tren Fantasma",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never sell below your cost",
+      "decay_per_round": 0.06,
+      "rounds": 4,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "El Tren Fantasma is a rare, sought-after piece, and I'm opening at 118 P, which reflects its quality and scarcity. I'd like to hear your offer so we can find common ground quickly.",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 136,
+      "decision": {
+       "action": "offer",
+       "price": 112,
+       "message": "Thanks for opening the conversation. To show good faith I'll move to 112 P, though El Tren Fantasma is a genuinely scarce card and that gap to your figure is wide. If you can come up meaningfully from where you started, I'm happy to keep working toward a middle ground."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hello, we'd like to open at 44 for the card, which fits the budget we've set for this album page. Happy to hear your thoughts and work toward a fair deal.",
+      "offer": {
+       "price": 44,
+       "days": null
+      },
+      "accept": false,
+      "tick": 136,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for opening the conversation. To show good faith I'll move to 112 P, though El Tren Fantasma is a genuinely scarce card and that gap to your figure is wide. If you can come up meaningfully from where you started, I'm happy to keep working toward a middle ground.",
+      "offer": {
+       "price": 112,
+       "days": null
+      },
+      "accept": false,
+      "tick": 137,
+      "decision": {
+       "action": "offer",
+       "price": 106,
+       "message": "Thanks for stepping up, I appreciate the movement. I'll come down to 106 P, since El Tren Fantasma is a scarce card and hard to replace for an album page. I'd like to see another substantial move from you so we keep momentum."
+      }
+     },
+     {
+      "mine": false,
+      "text": "We hear you on the card's quality, and we're stepping up to 52 as a genuine move toward the middle. If you can come down meaningfully from 118, we can close this quickly.",
+      "offer": {
+       "price": 52,
+       "days": null
+      },
+      "accept": false,
+      "tick": 137,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for stepping up, I appreciate the movement. I'll come down to 106 P, since El Tren Fantasma is a scarce card and hard to replace for an album page. I'd like to see another substantial move from you so we keep momentum.",
+      "offer": {
+       "price": 106,
+       "days": null
+      },
+      "accept": false,
+      "tick": 138,
+      "decision": {
+       "action": "offer",
+       "price": 100,
+       "message": "I appreciate the steady movement. I'll step down to 100 P, which brings me down a good distance from where I began, and El Tren Fantasma is still a scarce card. I'd like to see you come up decisively so we can wrap this up soon, since every round of talk costs us both."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for moving to 112, though that step was a small one given the gap between us. We'll come up to 60 to keep this moving, and a bigger move from your side would help us meet sooner.",
+      "offer": {
+       "price": 60,
+       "days": null
+      },
+      "accept": false,
+      "tick": 138,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "We appreciate the move to 106, and we're stepping up to 66 to keep the momentum going on both sides. A similar step from you would bring us much closer to a deal that works for our album page.",
+      "offer": {
+       "price": 66,
+       "days": null
+      },
+      "accept": false,
+      "tick": 139,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate the steady movement. I'll step down to 100 P, which brings me down a good distance from where I began, and El Tren Fantasma is still a scarce card. I'd like to see you come up decisively so we can wrap this up soon, since every round of talk costs us both.",
+      "offer": {
+       "price": 100,
+       "days": null
+      },
+      "accept": false,
+      "tick": 139,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 66,
+     "days": 0
+    },
+    "tick": 140,
+    "ticks_left": 9
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'll make a modest step to 96 P to keep us moving. El Tren Fantasma is scarce and hard to replace, so any further movement from me depends on you coming up decisively from where you are now, well into the 70s or higher.",
+    "price": 96,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 96,
+      "message": "I'll make a modest step to 96 P to keep us moving. El Tren Fantasma is scarce and hard to replace, so any further movement from me depends on you coming up decisively from where you are now, well into the 70s or higher."
+     },
+     "band": {
+      "worst": 95,
+      "target": 96,
+      "best": 97
+     },
+     "plan": {
+      "read": "They have moved steadily (44→52→60→66, about 6–8 P per step) but did not move again after our 100. Their 66 is still below what we can accept, and their talk of 'similar steps' is just pressure to keep conceding.",
+      "target": 96,
+      "best": 97,
+      "worst": 95,
+      "days": null,
+      "angle": "Make a modest step to 96 to keep momentum, and say clearly that further moves from us depend on them coming up decisively into the 70s or higher."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.03,
+       "in": 1030,
+       "out": 155,
+       "cost_usd": 0.00722,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.67,
+       "in": 931,
+       "out": 93,
+       "cost_usd": 0.00279,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
   }
  ],
  "sent": [
@@ -636,12 +1382,183 @@
      "days": 0
     }
    }
+  },
+  {
+   "tick": 138,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thanks for stepping up, I appreciate the movement. I'll come down to 106 P, since El Tren Fantasma is a scarce card and hard to replace for an album page. I'd like to see another substantial move from you so we keep momentum.",
+    "price": 106,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 106,
+      "message": "Thanks for stepping up, I appreciate the movement. I'll come down to 106 P, since El Tren Fantasma is a scarce card and hard to replace for an album page. I'd like to see another substantial move from you so we keep momentum."
+     },
+     "band": {
+      "worst": 105,
+      "target": 106,
+      "best": 107
+     },
+     "plan": {
+      "read": "They moved 44→52, an 8 P step, slightly more than our 6. Their talk of closing quickly is cheap; their offer is still far below acceptable.",
+      "target": 106,
+      "best": 107,
+      "worst": 105,
+      "days": null,
+      "angle": "Acknowledge their move with a measured step down, stress the card's scarcity, and ask for another substantial move up from 52 to keep momentum."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.27,
+       "in": 632,
+       "out": 131,
+       "cost_usd": 0.00515,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.93,
+       "in": 562,
+       "out": 97,
+       "cost_usd": 0.00209,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 121,
+    "offer": {
+     "id": 984,
+     "price": 106,
+     "tick": 138,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 139,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I appreciate the steady movement. I'll step down to 100 P, which brings me down a good distance from where I began, and El Tren Fantasma is still a scarce card. I'd like to see you come up decisively so we can wrap this up soon, since every round of talk costs us both.",
+    "price": 100,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 100,
+      "message": "I appreciate the steady movement. I'll step down to 100 P, which brings me down a good distance from where I began, and El Tren Fantasma is still a scarce card. I'd like to see you come up decisively so we can wrap this up soon, since every round of talk costs us both."
+     },
+     "band": {
+      "worst": 99,
+      "target": 100,
+      "best": 101
+     },
+     "plan": {
+      "read": "They moved 8 P to 60, a steady 8-per-round pace, and they ask for a bigger move from us. Their claim of budget limits is unverified. Their offer is still below our floor.",
+      "target": 100,
+      "best": 101,
+      "worst": 99,
+      "days": null,
+      "angle": "Match their effort with a clear 6 P step to 100, note we've now come down 18 P in total, and ask them to come up decisively into the 80s so we can close soon."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.48,
+       "in": 826,
+       "out": 148,
+       "cost_usd": 0.00626,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.91,
+       "in": 735,
+       "out": 107,
+       "cost_usd": 0.00254,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 121,
+    "offer": {
+     "id": 1028,
+     "price": 100,
+     "tick": 139,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 140,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'll make a modest step to 96 P to keep us moving. El Tren Fantasma is scarce and hard to replace, so any further movement from me depends on you coming up decisively from where you are now, well into the 70s or higher.",
+    "price": 96,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 96,
+      "message": "I'll make a modest step to 96 P to keep us moving. El Tren Fantasma is scarce and hard to replace, so any further movement from me depends on you coming up decisively from where you are now, well into the 70s or higher."
+     },
+     "band": {
+      "worst": 95,
+      "target": 96,
+      "best": 97
+     },
+     "plan": {
+      "read": "They have moved steadily (44→52→60→66, about 6–8 P per step) but did not move again after our 100. Their 66 is still below what we can accept, and their talk of 'similar steps' is just pressure to keep conceding.",
+      "target": 96,
+      "best": 97,
+      "worst": 95,
+      "days": null,
+      "angle": "Make a modest step to 96 to keep momentum, and say clearly that further moves from us depend on them coming up decisively into the 70s or higher."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.03,
+       "in": 1030,
+       "out": 155,
+       "cost_usd": 0.00722,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.67,
+       "in": 931,
+       "out": 93,
+       "cost_usd": 0.00279,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 121,
+    "offer": {
+     "id": 1077,
+     "price": 96,
+     "tick": 140,
+     "days": 0
+    }
+   }
   }
  ],
  "done": {
   "duel": 121,
   "session": 1,
-  "status": "live",
+  "status": "deal",
   "role": "seller",
   "item": "El Tren Fantasma",
   "issues": [
@@ -654,17 +1571,17 @@
   "rival": "Rival Sol",
   "deadline_tick": 148,
   "decay_per_round": 0.06,
-  "rounds": 1,
+  "rounds": 4,
   "your_offer": {
-   "id": 897,
-   "price": 118,
-   "tick": 136,
+   "id": 1077,
+   "price": 96,
+   "tick": 140,
    "days": 0
   },
   "rival_offer": {
-   "id": 899,
-   "price": 44,
-   "tick": 136,
+   "id": 1027,
+   "price": 66,
+   "tick": 139,
    "days": 0
   },
   "messages": [
@@ -681,10 +1598,60 @@
     "text": "Hello, we'd like to open at 44 for the card, which fits the budget we've set for this album page. Happy to hear your thoughts and work toward a fair deal.",
     "price": 44,
     "days": null
+   },
+   {
+    "tick": 137,
+    "from": "you",
+    "text": "Thanks for opening the conversation. To show good faith I'll move to 112 P, though El Tren Fantasma is a genuinely scarce card and that gap to your figure is wide. If you can come up meaningfully from where you started, I'm happy to keep working toward a middle ground.",
+    "price": 112,
+    "days": null
+   },
+   {
+    "tick": 137,
+    "from": "Rival Sol",
+    "text": "We hear you on the card's quality, and we're stepping up to 52 as a genuine move toward the middle. If you can come down meaningfully from 118, we can close this quickly.",
+    "price": 52,
+    "days": null
+   },
+   {
+    "tick": 138,
+    "from": "you",
+    "text": "Thanks for stepping up, I appreciate the movement. I'll come down to 106 P, since El Tren Fantasma is a scarce card and hard to replace for an album page. I'd like to see another substantial move from you so we keep momentum.",
+    "price": 106,
+    "days": null
+   },
+   {
+    "tick": 138,
+    "from": "Rival Sol",
+    "text": "Thanks for moving to 112, though that step was a small one given the gap between us. We'll come up to 60 to keep this moving, and a bigger move from your side would help us meet sooner.",
+    "price": 60,
+    "days": null
+   },
+   {
+    "tick": 139,
+    "from": "Rival Sol",
+    "text": "We appreciate the move to 106, and we're stepping up to 66 to keep the momentum going on both sides. A similar step from you would bring us much closer to a deal that works for our album page.",
+    "price": 66,
+    "days": null
+   },
+   {
+    "tick": 139,
+    "from": "you",
+    "text": "I appreciate the steady movement. I'll step down to 100 P, which brings me down a good distance from where I began, and El Tren Fantasma is still a scarce card. I'd like to see you come up decisively so we can wrap this up soon, since every round of talk costs us both.",
+    "price": 100,
+    "days": null
+   },
+   {
+    "tick": 140,
+    "from": "you",
+    "text": "I'll make a modest step to 96 P to keep us moving. El Tren Fantasma is scarce and hard to replace, so any further movement from me depends on you coming up decisively from where you are now, well into the 70s or higher.",
+    "price": 96,
+    "days": null
    }
   ],
-  "result": null,
-  "price": null,
-  "days": null
- }
+  "result": 20.3,
+  "price": 100,
+  "days": 0
+ },
+ "last_seen_tick": 141
 }
