@@ -899,7 +899,7 @@
  "done": {
   "duel": 105,
   "session": 1,
-  "status": "live",
+  "status": "no_deal",
   "role": "seller",
   "item": "Plaza de Olavide",
   "issues": [
@@ -914,9 +914,9 @@
   "decay_per_round": 0.06,
   "rounds": 0,
   "your_offer": {
-   "id": 727,
-   "price": 118,
-   "tick": 132,
+   "id": 944,
+   "price": 113,
+   "tick": 137,
    "days": 0
   },
   "rival_offer": null,
@@ -927,10 +927,32 @@
     "text": "Plaza de Olavide is a rare find: a prime central location, a lively square with real character, and steady demand. I'm offering it at 118 P, which reflects that value. I'd be glad to hear where you stand.",
     "price": 118,
     "days": null
+   },
+   {
+    "tick": 134,
+    "from": "you",
+    "text": "I'm holding at 118 P. The square's central location, its character and its steady foot traffic all support that figure. Could you put a concrete number on the table so we can see how far apart we really are?",
+    "price": 118,
+    "days": null
+   },
+   {
+    "tick": 136,
+    "from": "you",
+    "text": "I can do 113 P.",
+    "price": 113,
+    "days": null
+   },
+   {
+    "tick": 137,
+    "from": "you",
+    "text": "I'm holding at 113 P for now, and I've already moved to get us started. Plaza de Olavide's central position and steady foot traffic support that figure. I'd like to see a concrete counteroffer from you before I adjust further.",
+    "price": 113,
+    "days": null
    }
   ],
-  "result": null,
+  "result": 0.0,
   "price": null,
   "days": null
- }
+ },
+ "last_seen_tick": 144
 }

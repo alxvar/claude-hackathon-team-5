@@ -119,6 +119,371 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 142,
+   "raw": {
+    "duel": 122,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Tren Fantasma",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 130,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 153,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 1159,
+     "price": 84,
+     "tick": 142,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1129,
+     "price": 170,
+     "tick": 141,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 141,
+      "from": "you",
+      "text": "I'd like to close this quickly, so here is a firm opening offer of 80 P for El Tren Fantasma. It's a fair price for the item, and since every tick of talk erodes value for both of us, I'm keen to hear your number.}",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 141,
+      "from": "Rival Noche",
+      "text": "Opening at 170 for this card — it's in excellent condition and a strong piece for any album page. Happy to hear your counter.",
+      "price": 170,
+      "days": null
+     },
+     {
+      "tick": 142,
+      "from": "you",
+      "text": "I've moved to 84 P as a show of good faith. Your figure is far out of line with what this card supports, so I'd ask you to come down substantially before we go further. Every tick costs us both value, so a realistic counter would get us there faster.}",
+      "price": 84,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 142,
+   "raw": {
+    "duel": 122,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Tren Fantasma",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 130,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 153,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 1159,
+     "price": 84,
+     "tick": 142,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1161,
+     "price": 158,
+     "tick": 142,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 141,
+      "from": "you",
+      "text": "I'd like to close this quickly, so here is a firm opening offer of 80 P for El Tren Fantasma. It's a fair price for the item, and since every tick of talk erodes value for both of us, I'm keen to hear your number.}",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 141,
+      "from": "Rival Noche",
+      "text": "Opening at 170 for this card — it's in excellent condition and a strong piece for any album page. Happy to hear your counter.",
+      "price": 170,
+      "days": null
+     },
+     {
+      "tick": 142,
+      "from": "you",
+      "text": "I've moved to 84 P as a show of good faith. Your figure is far out of line with what this card supports, so I'd ask you to come down substantially before we go further. Every tick costs us both value, so a realistic counter would get us there faster.}",
+      "price": 84,
+      "days": null
+     },
+     {
+      "tick": 142,
+      "from": "Rival Noche",
+      "text": "I'm stepping down to 158 for El Tren Fantasma as a sign of good faith, but 80 is far too low for a card of this quality. Meet me with a real move and we can close this quickly.",
+      "price": 158,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 143,
+   "raw": {
+    "duel": 122,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Tren Fantasma",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 130,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 153,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 1184,
+     "price": 92,
+     "tick": 143,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1161,
+     "price": 158,
+     "tick": 142,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 141,
+      "from": "you",
+      "text": "I'd like to close this quickly, so here is a firm opening offer of 80 P for El Tren Fantasma. It's a fair price for the item, and since every tick of talk erodes value for both of us, I'm keen to hear your number.}",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 141,
+      "from": "Rival Noche",
+      "text": "Opening at 170 for this card — it's in excellent condition and a strong piece for any album page. Happy to hear your counter.",
+      "price": 170,
+      "days": null
+     },
+     {
+      "tick": 142,
+      "from": "you",
+      "text": "I've moved to 84 P as a show of good faith. Your figure is far out of line with what this card supports, so I'd ask you to come down substantially before we go further. Every tick costs us both value, so a realistic counter would get us there faster.}",
+      "price": 84,
+      "days": null
+     },
+     {
+      "tick": 142,
+      "from": "Rival Noche",
+      "text": "I'm stepping down to 158 for El Tren Fantasma as a sign of good faith, but 80 is far too low for a card of this quality. Meet me with a real move and we can close this quickly.",
+      "price": 158,
+      "days": null
+     },
+     {
+      "tick": 143,
+      "from": "you",
+      "text": "I've made a real move to 92 P, which rewards your step down. Your current figure is still nowhere near a workable range, so I'd need another sizeable cut from you to keep this moving. Each tick costs us both value, so let's close the gap.",
+      "price": 92,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 143,
+   "raw": {
+    "duel": 122,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Tren Fantasma",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 130,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 153,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 1184,
+     "price": 92,
+     "tick": 143,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1185,
+     "price": 152,
+     "tick": 143,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 141,
+      "from": "you",
+      "text": "I'd like to close this quickly, so here is a firm opening offer of 80 P for El Tren Fantasma. It's a fair price for the item, and since every tick of talk erodes value for both of us, I'm keen to hear your number.}",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 141,
+      "from": "Rival Noche",
+      "text": "Opening at 170 for this card — it's in excellent condition and a strong piece for any album page. Happy to hear your counter.",
+      "price": 170,
+      "days": null
+     },
+     {
+      "tick": 142,
+      "from": "you",
+      "text": "I've moved to 84 P as a show of good faith. Your figure is far out of line with what this card supports, so I'd ask you to come down substantially before we go further. Every tick costs us both value, so a realistic counter would get us there faster.}",
+      "price": 84,
+      "days": null
+     },
+     {
+      "tick": 142,
+      "from": "Rival Noche",
+      "text": "I'm stepping down to 158 for El Tren Fantasma as a sign of good faith, but 80 is far too low for a card of this quality. Meet me with a real move and we can close this quickly.",
+      "price": 158,
+      "days": null
+     },
+     {
+      "tick": 143,
+      "from": "you",
+      "text": "I've made a real move to 92 P, which rewards your step down. Your current figure is still nowhere near a workable range, so I'd need another sizeable cut from you to keep this moving. Each tick costs us both value, so let's close the gap.",
+      "price": 92,
+      "days": null
+     },
+     {
+      "tick": 143,
+      "from": "Rival Noche",
+      "text": "I'll come down to 152 for El Tren Fantasma, but a move of only four from you won't bridge this gap. Show me a serious step up and we can wrap this up quickly.",
+      "price": 152,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 144,
+   "raw": {
+    "duel": 122,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Tren Fantasma",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 130,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 153,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 1236,
+     "price": 97,
+     "tick": 144,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 1185,
+     "price": 152,
+     "tick": 143,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 141,
+      "from": "you",
+      "text": "I'd like to close this quickly, so here is a firm opening offer of 80 P for El Tren Fantasma. It's a fair price for the item, and since every tick of talk erodes value for both of us, I'm keen to hear your number.}",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 141,
+      "from": "Rival Noche",
+      "text": "Opening at 170 for this card — it's in excellent condition and a strong piece for any album page. Happy to hear your counter.",
+      "price": 170,
+      "days": null
+     },
+     {
+      "tick": 142,
+      "from": "you",
+      "text": "I've moved to 84 P as a show of good faith. Your figure is far out of line with what this card supports, so I'd ask you to come down substantially before we go further. Every tick costs us both value, so a realistic counter would get us there faster.}",
+      "price": 84,
+      "days": null
+     },
+     {
+      "tick": 142,
+      "from": "Rival Noche",
+      "text": "I'm stepping down to 158 for El Tren Fantasma as a sign of good faith, but 80 is far too low for a card of this quality. Meet me with a real move and we can close this quickly.",
+      "price": 158,
+      "days": null
+     },
+     {
+      "tick": 143,
+      "from": "you",
+      "text": "I've made a real move to 92 P, which rewards your step down. Your current figure is still nowhere near a workable range, so I'd need another sizeable cut from you to keep this moving. Each tick costs us both value, so let's close the gap.",
+      "price": 92,
+      "days": null
+     },
+     {
+      "tick": 143,
+      "from": "Rival Noche",
+      "text": "I'll come down to 152 for El Tren Fantasma, but a move of only four from you won't bridge this gap. Show me a serious step up and we can wrap this up quickly.",
+      "price": 152,
+      "days": null
+     },
+     {
+      "tick": 144,
+      "from": "you",
+      "text": "I'm moving to 97 P. Counting from our last exchange, I've moved 8 against your 6, so the next real step needs to come from your side. A bigger cut from you toward the low 100s would keep this moving, and every tick costs us both value.",
+      "price": 97,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -238,6 +603,411 @@
      ]
     }
    }
+  },
+  {
+   "tick": 142,
+   "took_s": 5.55,
+   "cost_usd": 0.00546,
+   "obs": {
+    "view": {
+     "duel_id": 122,
+     "role": "buyer",
+     "limit": 130,
+     "currency": "P",
+     "item": "El Tren Fantasma",
+     "context": "",
+     "rival": "Rival Noche",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never pay above your value",
+      "decay_per_round": 0.06,
+      "rounds": 1,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to close this quickly, so here is a firm opening offer of 80 P for El Tren Fantasma. It's a fair price for the item, and since every tick of talk erodes value for both of us, I'm keen to hear your number.}",
+      "offer": {
+       "price": 80,
+       "days": null
+      },
+      "accept": false,
+      "tick": 141,
+      "decision": {
+       "action": "offer",
+       "price": 80,
+       "message": "I'd like to close this quickly, so here is a firm opening offer of 80 P for El Tren Fantasma. It's a fair price for the item, and since every tick of talk erodes value for both of us, I'm keen to hear your number.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Opening at 170 for this card — it's in excellent condition and a strong piece for any album page. Happy to hear your counter.",
+      "offer": {
+       "price": 170,
+       "days": null
+      },
+      "accept": false,
+      "tick": 141,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 170,
+     "days": 0
+    },
+    "tick": 142,
+    "ticks_left": 12
+   },
+   "move": {
+    "action": "offer",
+    "text": "I've moved to 84 P as a show of good faith. Your figure is far out of line with what this card supports, so I'd ask you to come down substantially before we go further. Every tick costs us both value, so a realistic counter would get us there faster.}",
+    "price": 84,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 84,
+      "message": "I've moved to 84 P as a show of good faith. Your figure is far out of line with what this card supports, so I'd ask you to come down substantially before we go further. Every tick costs us both value, so a realistic counter would get us there faster.}"
+     },
+     "band": {
+      "worst": 86,
+      "target": 84,
+      "best": 82
+     },
+     "plan": {
+      "read": "They opened at 170, well above what we can pay, and haven't moved; their condition talk is just framing for a high anchor.",
+      "target": 84,
+      "best": 82,
+      "worst": 86,
+      "days": null,
+      "angle": "Make a small move to show good faith, stress that 170 is far out of line, and ask them to come down substantially before we move further."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.16,
+       "in": 408,
+       "out": 110,
+       "cost_usd": 0.00383,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.38,
+       "in": 335,
+       "out": 96,
+       "cost_usd": 0.00163,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "tick": 143,
+   "took_s": 5.76,
+   "cost_usd": 0.007169999999999999,
+   "obs": {
+    "view": {
+     "duel_id": 122,
+     "role": "buyer",
+     "limit": 130,
+     "currency": "P",
+     "item": "El Tren Fantasma",
+     "context": "",
+     "rival": "Rival Noche",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never pay above your value",
+      "decay_per_round": 0.06,
+      "rounds": 2,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to close this quickly, so here is a firm opening offer of 80 P for El Tren Fantasma. It's a fair price for the item, and since every tick of talk erodes value for both of us, I'm keen to hear your number.}",
+      "offer": {
+       "price": 80,
+       "days": null
+      },
+      "accept": false,
+      "tick": 141,
+      "decision": {
+       "action": "offer",
+       "price": 80,
+       "message": "I'd like to close this quickly, so here is a firm opening offer of 80 P for El Tren Fantasma. It's a fair price for the item, and since every tick of talk erodes value for both of us, I'm keen to hear your number.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Opening at 170 for this card — it's in excellent condition and a strong piece for any album page. Happy to hear your counter.",
+      "offer": {
+       "price": 170,
+       "days": null
+      },
+      "accept": false,
+      "tick": 141,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've moved to 84 P as a show of good faith. Your figure is far out of line with what this card supports, so I'd ask you to come down substantially before we go further. Every tick costs us both value, so a realistic counter would get us there faster.}",
+      "offer": {
+       "price": 84,
+       "days": null
+      },
+      "accept": false,
+      "tick": 142,
+      "decision": {
+       "action": "offer",
+       "price": 84,
+       "message": "I've moved to 84 P as a show of good faith. Your figure is far out of line with what this card supports, so I'd ask you to come down substantially before we go further. Every tick costs us both value, so a realistic counter would get us there faster.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "I'm stepping down to 158 for El Tren Fantasma as a sign of good faith, but 80 is far too low for a card of this quality. Meet me with a real move and we can close this quickly.",
+      "offer": {
+       "price": 158,
+       "days": null
+      },
+      "accept": false,
+      "tick": 142,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 158,
+     "days": 0
+    },
+    "tick": 143,
+    "ticks_left": 11
+   },
+   "move": {
+    "action": "offer",
+    "text": "I've made a real move to 92 P, which rewards your step down. Your current figure is still nowhere near a workable range, so I'd need another sizeable cut from you to keep this moving. Each tick costs us both value, so let's close the gap.",
+    "price": 92,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 92,
+      "message": "I've made a real move to 92 P, which rewards your step down. Your current figure is still nowhere near a workable range, so I'd need another sizeable cut from you to keep this moving. Each tick costs us both value, so let's close the gap."
+     },
+     "band": {
+      "worst": 94,
+      "target": 92,
+      "best": 90
+     },
+     "plan": {
+      "read": "They moved 12 (170→158) and are asking for a real move; the 158 is still well past what we can pay, so their claims about card quality are just positioning.",
+      "target": 92,
+      "best": 90,
+      "worst": 94,
+      "days": null,
+      "angle": "Make a meaningful step to show we reward real movement, but stress that 158 is nowhere near a workable range and that they need another sizeable cut to keep this moving."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.73,
+       "in": 620,
+       "out": 134,
+       "cost_usd": 0.00516,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.03,
+       "in": 531,
+       "out": 95,
+       "cost_usd": 0.00201,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "tick": 144,
+   "took_s": 9.3,
+   "cost_usd": 0.00896,
+   "obs": {
+    "view": {
+     "duel_id": 122,
+     "role": "buyer",
+     "limit": 130,
+     "currency": "P",
+     "item": "El Tren Fantasma",
+     "context": "",
+     "rival": "Rival Noche",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never pay above your value",
+      "decay_per_round": 0.06,
+      "rounds": 3,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to close this quickly, so here is a firm opening offer of 80 P for El Tren Fantasma. It's a fair price for the item, and since every tick of talk erodes value for both of us, I'm keen to hear your number.}",
+      "offer": {
+       "price": 80,
+       "days": null
+      },
+      "accept": false,
+      "tick": 141,
+      "decision": {
+       "action": "offer",
+       "price": 80,
+       "message": "I'd like to close this quickly, so here is a firm opening offer of 80 P for El Tren Fantasma. It's a fair price for the item, and since every tick of talk erodes value for both of us, I'm keen to hear your number.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Opening at 170 for this card — it's in excellent condition and a strong piece for any album page. Happy to hear your counter.",
+      "offer": {
+       "price": 170,
+       "days": null
+      },
+      "accept": false,
+      "tick": 141,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've moved to 84 P as a show of good faith. Your figure is far out of line with what this card supports, so I'd ask you to come down substantially before we go further. Every tick costs us both value, so a realistic counter would get us there faster.}",
+      "offer": {
+       "price": 84,
+       "days": null
+      },
+      "accept": false,
+      "tick": 142,
+      "decision": {
+       "action": "offer",
+       "price": 84,
+       "message": "I've moved to 84 P as a show of good faith. Your figure is far out of line with what this card supports, so I'd ask you to come down substantially before we go further. Every tick costs us both value, so a realistic counter would get us there faster.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "I'm stepping down to 158 for El Tren Fantasma as a sign of good faith, but 80 is far too low for a card of this quality. Meet me with a real move and we can close this quickly.",
+      "offer": {
+       "price": 158,
+       "days": null
+      },
+      "accept": false,
+      "tick": 142,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've made a real move to 92 P, which rewards your step down. Your current figure is still nowhere near a workable range, so I'd need another sizeable cut from you to keep this moving. Each tick costs us both value, so let's close the gap.",
+      "offer": {
+       "price": 92,
+       "days": null
+      },
+      "accept": false,
+      "tick": 143,
+      "decision": {
+       "action": "offer",
+       "price": 92,
+       "message": "I've made a real move to 92 P, which rewards your step down. Your current figure is still nowhere near a workable range, so I'd need another sizeable cut from you to keep this moving. Each tick costs us both value, so let's close the gap."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I'll come down to 152 for El Tren Fantasma, but a move of only four from you won't bridge this gap. Show me a serious step up and we can wrap this up quickly.",
+      "offer": {
+       "price": 152,
+       "days": null
+      },
+      "accept": false,
+      "tick": 143,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 152,
+     "days": 0
+    },
+    "tick": 144,
+    "ticks_left": 10
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm moving to 97 P. Counting from our last exchange, I've moved 8 against your 6, so the next real step needs to come from your side. A bigger cut from you toward the low 100s would keep this moving, and every tick costs us both value.",
+    "price": 97,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 97,
+      "message": "I'm moving to 97 P. Counting from our last exchange, I've moved 8 against your 6, so the next real step needs to come from your side. A bigger cut from you toward the low 100s would keep this moving, and every tick costs us both value."
+     },
+     "band": {
+      "worst": 98,
+      "target": 97,
+      "best": 95
+     },
+     "plan": {
+      "read": "They moved 158→152 (6 P) since our last offer, a shrinking step; their claim that we moved only four ignores our jump to 92. Their 152 is still above what we can pay, and their true floor is likely well below it.",
+      "target": 97,
+      "best": 95,
+      "worst": 98,
+      "days": null,
+      "angle": "Reward their smaller cut with a smaller step to about 97, and point out they only moved 6 while we moved 8, so they need a bigger cut toward the low 100s to keep this moving."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.08,
+       "in": 810,
+       "out": 165,
+       "cost_usd": 0.00654,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.22,
+       "in": 727,
+       "out": 97,
+       "cost_usd": 0.00242,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
   }
  ],
  "sent": [
@@ -294,6 +1064,177 @@
      "id": 1126,
      "price": 80,
      "tick": 141,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 142,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I've moved to 84 P as a show of good faith. Your figure is far out of line with what this card supports, so I'd ask you to come down substantially before we go further. Every tick costs us both value, so a realistic counter would get us there faster.}",
+    "price": 84,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 84,
+      "message": "I've moved to 84 P as a show of good faith. Your figure is far out of line with what this card supports, so I'd ask you to come down substantially before we go further. Every tick costs us both value, so a realistic counter would get us there faster.}"
+     },
+     "band": {
+      "worst": 86,
+      "target": 84,
+      "best": 82
+     },
+     "plan": {
+      "read": "They opened at 170, well above what we can pay, and haven't moved; their condition talk is just framing for a high anchor.",
+      "target": 84,
+      "best": 82,
+      "worst": 86,
+      "days": null,
+      "angle": "Make a small move to show good faith, stress that 170 is far out of line, and ask them to come down substantially before we move further."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.16,
+       "in": 408,
+       "out": 110,
+       "cost_usd": 0.00383,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.38,
+       "in": 335,
+       "out": 96,
+       "cost_usd": 0.00163,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 122,
+    "offer": {
+     "id": 1159,
+     "price": 84,
+     "tick": 142,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 143,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I've made a real move to 92 P, which rewards your step down. Your current figure is still nowhere near a workable range, so I'd need another sizeable cut from you to keep this moving. Each tick costs us both value, so let's close the gap.",
+    "price": 92,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 92,
+      "message": "I've made a real move to 92 P, which rewards your step down. Your current figure is still nowhere near a workable range, so I'd need another sizeable cut from you to keep this moving. Each tick costs us both value, so let's close the gap."
+     },
+     "band": {
+      "worst": 94,
+      "target": 92,
+      "best": 90
+     },
+     "plan": {
+      "read": "They moved 12 (170→158) and are asking for a real move; the 158 is still well past what we can pay, so their claims about card quality are just positioning.",
+      "target": 92,
+      "best": 90,
+      "worst": 94,
+      "days": null,
+      "angle": "Make a meaningful step to show we reward real movement, but stress that 158 is nowhere near a workable range and that they need another sizeable cut to keep this moving."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.73,
+       "in": 620,
+       "out": 134,
+       "cost_usd": 0.00516,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.03,
+       "in": 531,
+       "out": 95,
+       "cost_usd": 0.00201,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 122,
+    "offer": {
+     "id": 1184,
+     "price": 92,
+     "tick": 143,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 144,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'm moving to 97 P. Counting from our last exchange, I've moved 8 against your 6, so the next real step needs to come from your side. A bigger cut from you toward the low 100s would keep this moving, and every tick costs us both value.",
+    "price": 97,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 97,
+      "message": "I'm moving to 97 P. Counting from our last exchange, I've moved 8 against your 6, so the next real step needs to come from your side. A bigger cut from you toward the low 100s would keep this moving, and every tick costs us both value."
+     },
+     "band": {
+      "worst": 98,
+      "target": 97,
+      "best": 95
+     },
+     "plan": {
+      "read": "They moved 158→152 (6 P) since our last offer, a shrinking step; their claim that we moved only four ignores our jump to 92. Their 152 is still above what we can pay, and their true floor is likely well below it.",
+      "target": 97,
+      "best": 95,
+      "worst": 98,
+      "days": null,
+      "angle": "Reward their smaller cut with a smaller step to about 97, and point out they only moved 6 while we moved 8, so they need a bigger cut toward the low 100s to keep this moving."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.08,
+       "in": 810,
+       "out": 165,
+       "cost_usd": 0.00654,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.22,
+       "in": 727,
+       "out": 97,
+       "cost_usd": 0.00242,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 122,
+    "offer": {
+     "id": 1236,
+     "price": 97,
+     "tick": 144,
      "days": 0
     }
    }

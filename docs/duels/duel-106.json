@@ -893,7 +893,7 @@
  "done": {
   "duel": 106,
   "session": 1,
-  "status": "live",
+  "status": "no_deal",
   "role": "buyer",
   "item": "Plaza de Olavide",
   "issues": [
@@ -908,9 +908,9 @@
   "decay_per_round": 0.06,
   "rounds": 0,
   "your_offer": {
-   "id": 726,
-   "price": 62,
-   "tick": 132,
+   "id": 941,
+   "price": 66,
+   "tick": 137,
    "days": 0
   },
   "rival_offer": null,
@@ -921,10 +921,32 @@
     "text": "I'm opening at 62 P for Plaza de Olavide, which I think is a fair figure given how little there is to compare it against. If your number is sensible we can wrap this up quickly, so tell me where you stand.",
     "price": 62,
     "days": null
+   },
+   {
+    "tick": 134,
+    "from": "you",
+    "text": "My opening figure stands, and I'd like to hear yours so we have something concrete to work from. Every tick of talk costs us both value, so a clear number from you will get us moving.",
+    "price": null,
+    "days": null
+   },
+   {
+    "tick": 136,
+    "from": "you",
+    "text": "I can do 66 P.",
+    "price": 66,
+    "days": null
+   },
+   {
+    "tick": 137,
+    "from": "you",
+    "text": "I'm holding at 66 P for now, and I won't move again until you put a number on the table. Every tick costs us both value, so a clear counter-figure from you is the quickest way forward.",
+    "price": 66,
+    "days": null
    }
   ],
-  "result": null,
+  "result": 0.0,
   "price": null,
   "days": null
- }
+ },
+ "last_seen_tick": 144
 }

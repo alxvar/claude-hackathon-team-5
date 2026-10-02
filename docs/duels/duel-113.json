@@ -899,7 +899,7 @@
  "done": {
   "duel": 113,
   "session": 1,
-  "status": "live",
+  "status": "no_deal",
   "role": "seller",
   "item": "El Rastro al Amanecer",
   "issues": [
@@ -914,9 +914,9 @@
   "decay_per_round": 0.06,
   "rounds": 0,
   "your_offer": {
-   "id": 725,
-   "price": 85,
-   "tick": 132,
+   "id": 940,
+   "price": 81,
+   "tick": 137,
    "days": 0
   },
   "rival_offer": null,
@@ -927,10 +927,32 @@
     "text": "El Rastro al Amanecer is a rare find, the kind of piece that only turns up at the first light of the flea market and rarely comes back around. I'm offering it at 85 P, which reflects its quality and scarcity. I'd welcome a serious counteroffer soon, since every tick of talk costs us both.}",
     "price": 85,
     "days": null
+   },
+   {
+    "tick": 134,
+    "from": "you",
+    "text": "My price stays at 85 P for El Rastro al Amanecer, a rare piece that is hard to find once the market wakes up. Could you name a concrete figure so we can move this forward quickly?",
+    "price": 85,
+    "days": null
+   },
+   {
+    "tick": 136,
+    "from": "you",
+    "text": "I can do 81 P.",
+    "price": 81,
+    "days": null
+   },
+   {
+    "tick": 137,
+    "from": "you",
+    "text": "I'm holding at 81 P for El Rastro al Amanecer, which already reflects a step toward you. It's a scarce piece, and I'd like to hear a concrete figure from you so we can close this quickly before more time erodes its value for both of us.",
+    "price": 81,
+    "days": null
    }
   ],
-  "result": null,
+  "result": 0.0,
   "price": null,
   "days": null
- }
+ },
+ "last_seen_tick": 144
 }
