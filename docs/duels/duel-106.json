@@ -154,6 +154,121 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 137,
+   "raw": {
+    "duel": 106,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "Plaza de Olavide",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 96,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 144,
+    "decay_per_round": 0.06,
+    "rounds": 0,
+    "your_offer": {
+     "id": 865,
+     "price": 66,
+     "tick": 136,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 132,
+      "from": "you",
+      "text": "I'm opening at 62 P for Plaza de Olavide, which I think is a fair figure given how little there is to compare it against. If your number is sensible we can wrap this up quickly, so tell me where you stand.",
+      "price": 62,
+      "days": null
+     },
+     {
+      "tick": 134,
+      "from": "you",
+      "text": "My opening figure stands, and I'd like to hear yours so we have something concrete to work from. Every tick of talk costs us both value, so a clear number from you will get us moving.",
+      "price": null,
+      "days": null
+     },
+     {
+      "tick": 136,
+      "from": "you",
+      "text": "I can do 66 P.",
+      "price": 66,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 137,
+   "raw": {
+    "duel": 106,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "Plaza de Olavide",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 96,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 144,
+    "decay_per_round": 0.06,
+    "rounds": 0,
+    "your_offer": {
+     "id": 941,
+     "price": 66,
+     "tick": 137,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 132,
+      "from": "you",
+      "text": "I'm opening at 62 P for Plaza de Olavide, which I think is a fair figure given how little there is to compare it against. If your number is sensible we can wrap this up quickly, so tell me where you stand.",
+      "price": 62,
+      "days": null
+     },
+     {
+      "tick": 134,
+      "from": "you",
+      "text": "My opening figure stands, and I'd like to hear yours so we have something concrete to work from. Every tick of talk costs us both value, so a clear number from you will get us moving.",
+      "price": null,
+      "days": null
+     },
+     {
+      "tick": 136,
+      "from": "you",
+      "text": "I can do 66 P.",
+      "price": 66,
+      "days": null
+     },
+     {
+      "tick": 137,
+      "from": "you",
+      "text": "I'm holding at 66 P for now, and I won't move again until you put a number on the table. Every tick costs us both value, so a clear counter-figure from you is the quickest way forward.",
+      "price": 66,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -163,7 +278,7 @@
   "decay": 0.06,
   "max_concurrent": 3
  },
- "first_tick": 134,
+ "first_tick": 137,
  "view": {
   "duel_id": 106,
   "role": "buyer",
@@ -450,6 +565,116 @@
      ]
     }
    }
+  },
+  {
+   "tick": 137,
+   "took_s": 6.81,
+   "cost_usd": 0.00564,
+   "obs": {
+    "view": {
+     "duel_id": 106,
+     "role": "buyer",
+     "limit": 96,
+     "currency": "P",
+     "item": "Plaza de Olavide",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never pay above your value",
+      "decay_per_round": 0.06,
+      "rounds": 0,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm opening at 62 P for Plaza de Olavide, which I think is a fair figure given how little there is to compare it against. If your number is sensible we can wrap this up quickly, so tell me where you stand.",
+      "offer": {
+       "price": 62,
+       "days": null
+      },
+      "accept": false,
+      "tick": 132,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "My opening figure stands, and I'd like to hear yours so we have something concrete to work from. Every tick of talk costs us both value, so a clear number from you will get us moving.",
+      "offer": null,
+      "accept": false,
+      "tick": 134,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 66 P.",
+      "offer": {
+       "price": 66,
+       "days": null
+      },
+      "accept": false,
+      "tick": 136,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 137,
+    "ticks_left": 8
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm holding at 66 P for now, and I won't move again until you put a number on the table. Every tick costs us both value, so a clear counter-figure from you is the quickest way forward.",
+    "price": 66,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 66,
+      "message": "I'm holding at 66 P for now, and I won't move again until you put a number on the table. Every tick costs us both value, so a clear counter-figure from you is the quickest way forward."
+     },
+     "band": {
+      "worst": 66,
+      "target": 66,
+      "best": 64
+     },
+     "plan": {
+      "read": "They have sent nothing at all, no offer and no message, while we have already moved from 62 to 66 P. Silence gives us no reason to concede further.",
+      "target": 66,
+      "best": 64,
+      "worst": 66,
+      "days": null,
+      "angle": "Hold at 66 P and ask them plainly for a counter-figure; say we won't move again until they put a number on the table, since every tick costs us both."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.37,
+       "in": 375,
+       "out": 128,
+       "cost_usd": 0.00406,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.44,
+       "in": 395,
+       "out": 79,
+       "cost_usd": 0.00158,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
   }
  ],
  "sent": [
@@ -603,6 +828,63 @@
      "id": 865,
      "price": 66,
      "tick": 136,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 137,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'm holding at 66 P for now, and I won't move again until you put a number on the table. Every tick costs us both value, so a clear counter-figure from you is the quickest way forward.",
+    "price": 66,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 66,
+      "message": "I'm holding at 66 P for now, and I won't move again until you put a number on the table. Every tick costs us both value, so a clear counter-figure from you is the quickest way forward."
+     },
+     "band": {
+      "worst": 66,
+      "target": 66,
+      "best": 64
+     },
+     "plan": {
+      "read": "They have sent nothing at all, no offer and no message, while we have already moved from 62 to 66 P. Silence gives us no reason to concede further.",
+      "target": 66,
+      "best": 64,
+      "worst": 66,
+      "days": null,
+      "angle": "Hold at 66 P and ask them plainly for a counter-figure; say we won't move again until they put a number on the table, since every tick costs us both."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.37,
+       "in": 375,
+       "out": 128,
+       "cost_usd": 0.00406,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.44,
+       "in": 395,
+       "out": 79,
+       "cost_usd": 0.00158,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 106,
+    "offer": {
+     "id": 941,
+     "price": 66,
+     "tick": 137,
      "days": 0
     }
    }

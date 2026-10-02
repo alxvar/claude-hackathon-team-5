@@ -154,6 +154,121 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 137,
+   "raw": {
+    "duel": 105,
+    "session": 1,
+    "status": "live",
+    "role": "seller",
+    "item": "Plaza de Olavide",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 74,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 144,
+    "decay_per_round": 0.06,
+    "rounds": 0,
+    "your_offer": {
+     "id": 866,
+     "price": 113,
+     "tick": 136,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 132,
+      "from": "you",
+      "text": "Plaza de Olavide is a rare find: a prime central location, a lively square with real character, and steady demand. I'm offering it at 118 P, which reflects that value. I'd be glad to hear where you stand.",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 134,
+      "from": "you",
+      "text": "I'm holding at 118 P. The square's central location, its character and its steady foot traffic all support that figure. Could you put a concrete number on the table so we can see how far apart we really are?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 136,
+      "from": "you",
+      "text": "I can do 113 P.",
+      "price": 113,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 137,
+   "raw": {
+    "duel": 105,
+    "session": 1,
+    "status": "live",
+    "role": "seller",
+    "item": "Plaza de Olavide",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 74,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 144,
+    "decay_per_round": 0.06,
+    "rounds": 0,
+    "your_offer": {
+     "id": 944,
+     "price": 113,
+     "tick": 137,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 132,
+      "from": "you",
+      "text": "Plaza de Olavide is a rare find: a prime central location, a lively square with real character, and steady demand. I'm offering it at 118 P, which reflects that value. I'd be glad to hear where you stand.",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 134,
+      "from": "you",
+      "text": "I'm holding at 118 P. The square's central location, its character and its steady foot traffic all support that figure. Could you put a concrete number on the table so we can see how far apart we really are?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 136,
+      "from": "you",
+      "text": "I can do 113 P.",
+      "price": 113,
+      "days": null
+     },
+     {
+      "tick": 137,
+      "from": "you",
+      "text": "I'm holding at 113 P for now, and I've already moved to get us started. Plaza de Olavide's central position and steady foot traffic support that figure. I'd like to see a concrete counteroffer from you before I adjust further.",
+      "price": 113,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -163,7 +278,7 @@
   "decay": 0.06,
   "max_concurrent": 3
  },
- "first_tick": 134,
+ "first_tick": 137,
  "view": {
   "duel_id": 105,
   "role": "seller",
@@ -453,6 +568,119 @@
      ]
     }
    }
+  },
+  {
+   "tick": 137,
+   "took_s": 7.68,
+   "cost_usd": 0.00575,
+   "obs": {
+    "view": {
+     "duel_id": 105,
+     "role": "seller",
+     "limit": 74,
+     "currency": "P",
+     "item": "Plaza de Olavide",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never sell below your cost",
+      "decay_per_round": 0.06,
+      "rounds": 0,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "Plaza de Olavide is a rare find: a prime central location, a lively square with real character, and steady demand. I'm offering it at 118 P, which reflects that value. I'd be glad to hear where you stand.",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 132,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm holding at 118 P. The square's central location, its character and its steady foot traffic all support that figure. Could you put a concrete number on the table so we can see how far apart we really are?",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 134,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 113 P.",
+      "offer": {
+       "price": 113,
+       "days": null
+      },
+      "accept": false,
+      "tick": 136,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 137,
+    "ticks_left": 8
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm holding at 113 P for now, and I've already moved to get us started. Plaza de Olavide's central position and steady foot traffic support that figure. I'd like to see a concrete counteroffer from you before I adjust further.",
+    "price": 113,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 113,
+      "message": "I'm holding at 113 P for now, and I've already moved to get us started. Plaza de Olavide's central position and steady foot traffic support that figure. I'd like to see a concrete counteroffer from you before I adjust further."
+     },
+     "band": {
+      "worst": 112,
+      "target": 113,
+      "best": 115
+     },
+     "plan": {
+      "read": "They have made no offer at all after three of our messages, and we already dropped 5 P without any reciprocation. There is nothing to trust or respond to yet.",
+      "target": 113,
+      "best": 115,
+      "worst": 112,
+      "days": null,
+      "angle": "Hold at 113 P and ask them directly for a concrete counteroffer; make clear we won't move further until they put a number on the table."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.05,
+       "in": 390,
+       "out": 124,
+       "cost_usd": 0.00404,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.62,
+       "in": 397,
+       "out": 92,
+       "cost_usd": 0.00171,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
   }
  ],
  "sent": [
@@ -606,6 +834,63 @@
      "id": 866,
      "price": 113,
      "tick": 136,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 137,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'm holding at 113 P for now, and I've already moved to get us started. Plaza de Olavide's central position and steady foot traffic support that figure. I'd like to see a concrete counteroffer from you before I adjust further.",
+    "price": 113,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 113,
+      "message": "I'm holding at 113 P for now, and I've already moved to get us started. Plaza de Olavide's central position and steady foot traffic support that figure. I'd like to see a concrete counteroffer from you before I adjust further."
+     },
+     "band": {
+      "worst": 112,
+      "target": 113,
+      "best": 115
+     },
+     "plan": {
+      "read": "They have made no offer at all after three of our messages, and we already dropped 5 P without any reciprocation. There is nothing to trust or respond to yet.",
+      "target": 113,
+      "best": 115,
+      "worst": 112,
+      "days": null,
+      "angle": "Hold at 113 P and ask them directly for a concrete counteroffer; make clear we won't move further until they put a number on the table."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.05,
+       "in": 390,
+       "out": 124,
+       "cost_usd": 0.00404,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.62,
+       "in": 397,
+       "out": 92,
+       "cost_usd": 0.00171,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 105,
+    "offer": {
+     "id": 944,
+     "price": 113,
+     "tick": 137,
      "days": 0
     }
    }

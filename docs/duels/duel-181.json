@@ -154,6 +154,121 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 137,
+   "raw": {
+    "duel": 181,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Rastro al Amanecer",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 85,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 144,
+    "decay_per_round": 0.06,
+    "rounds": 0,
+    "your_offer": {
+     "id": 869,
+     "price": 54,
+     "tick": 136,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 132,
+      "from": "you",
+      "text": "I'll offer 50 P for El Rastro al Amanecer. It's a fair price for what it is, and since every round of talk erodes value for both of us, I'd like to settle this quickly. What counter do you have in mind?",
+      "price": 50,
+      "days": null
+     },
+     {
+      "tick": 134,
+      "from": "you",
+      "text": "My offer of 50 P for El Rastro al Amanecer stands. Every tick of talk shrinks the value for both of us, so I'd like to hear your concrete counter-figure and move this forward quickly.",
+      "price": 50,
+      "days": null
+     },
+     {
+      "tick": 136,
+      "from": "you",
+      "text": "I can do 54 P.",
+      "price": 54,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 137,
+   "raw": {
+    "duel": 181,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Rastro al Amanecer",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 85,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 144,
+    "decay_per_round": 0.06,
+    "rounds": 0,
+    "your_offer": {
+     "id": 937,
+     "price": 54,
+     "tick": 137,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 132,
+      "from": "you",
+      "text": "I'll offer 50 P for El Rastro al Amanecer. It's a fair price for what it is, and since every round of talk erodes value for both of us, I'd like to settle this quickly. What counter do you have in mind?",
+      "price": 50,
+      "days": null
+     },
+     {
+      "tick": 134,
+      "from": "you",
+      "text": "My offer of 50 P for El Rastro al Amanecer stands. Every tick of talk shrinks the value for both of us, so I'd like to hear your concrete counter-figure and move this forward quickly.",
+      "price": 50,
+      "days": null
+     },
+     {
+      "tick": 136,
+      "from": "you",
+      "text": "I can do 54 P.",
+      "price": 54,
+      "days": null
+     },
+     {
+      "tick": 137,
+      "from": "you",
+      "text": "My offer of 54 P for El Rastro al Amanecer stands. Each tick of talk costs both of us value, so please name a concrete figure and we can close this quickly.",
+      "price": 54,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -163,7 +278,7 @@
   "decay": 0.06,
   "max_concurrent": 3
  },
- "first_tick": 134,
+ "first_tick": 137,
  "view": {
   "duel_id": 181,
   "role": "buyer",
@@ -472,6 +587,119 @@
      ]
     }
    }
+  },
+  {
+   "tick": 137,
+   "took_s": 4.84,
+   "cost_usd": 0.00551,
+   "obs": {
+    "view": {
+     "duel_id": 181,
+     "role": "buyer",
+     "limit": 85,
+     "currency": "P",
+     "item": "El Rastro al Amanecer",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {
+      "days_meaning": null,
+      "limit_meaning": "never pay above your value",
+      "decay_per_round": 0.06,
+      "rounds": 0,
+      "price": null,
+      "days": null
+     }
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'll offer 50 P for El Rastro al Amanecer. It's a fair price for what it is, and since every round of talk erodes value for both of us, I'd like to settle this quickly. What counter do you have in mind?",
+      "offer": {
+       "price": 50,
+       "days": null
+      },
+      "accept": false,
+      "tick": 132,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "My offer of 50 P for El Rastro al Amanecer stands. Every tick of talk shrinks the value for both of us, so I'd like to hear your concrete counter-figure and move this forward quickly.",
+      "offer": {
+       "price": 50,
+       "days": null
+      },
+      "accept": false,
+      "tick": 134,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 54 P.",
+      "offer": {
+       "price": 54,
+       "days": null
+      },
+      "accept": false,
+      "tick": 136,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 137,
+    "ticks_left": 8
+   },
+   "move": {
+    "action": "offer",
+    "text": "My offer of 54 P for El Rastro al Amanecer stands. Each tick of talk costs both of us value, so please name a concrete figure and we can close this quickly.",
+    "price": 54,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 54,
+      "message": "My offer of 54 P for El Rastro al Amanecer stands. Each tick of talk costs both of us value, so please name a concrete figure and we can close this quickly."
+     },
+     "band": {
+      "worst": 55,
+      "target": 54,
+      "best": 52
+     },
+     "plan": {
+      "read": "The other side has made no offer at all; we already moved 4 P without any response, so there is nothing to reward. Their silence may be a patience tactic.",
+      "target": 54,
+      "best": 52,
+      "worst": 55,
+      "days": null,
+      "angle": "Hold at 54 P and ask them plainly for a concrete counter-figure; we won't move further until they name a price."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.14,
+       "in": 402,
+       "out": 117,
+       "cost_usd": 0.00395,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.7,
+       "in": 402,
+       "out": 76,
+       "cost_usd": 0.00156,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
   }
  ],
  "sent": [
@@ -644,6 +872,63 @@
      "id": 869,
      "price": 54,
      "tick": 136,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 137,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "My offer of 54 P for El Rastro al Amanecer stands. Each tick of talk costs both of us value, so please name a concrete figure and we can close this quickly.",
+    "price": 54,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 54,
+      "message": "My offer of 54 P for El Rastro al Amanecer stands. Each tick of talk costs both of us value, so please name a concrete figure and we can close this quickly."
+     },
+     "band": {
+      "worst": 55,
+      "target": 54,
+      "best": 52
+     },
+     "plan": {
+      "read": "The other side has made no offer at all; we already moved 4 P without any response, so there is nothing to reward. Their silence may be a patience tactic.",
+      "target": 54,
+      "best": 52,
+      "worst": 55,
+      "days": null,
+      "angle": "Hold at 54 P and ask them plainly for a concrete counter-figure; we won't move further until they name a price."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.14,
+       "in": 402,
+       "out": 117,
+       "cost_usd": 0.00395,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.7,
+       "in": 402,
+       "out": 76,
+       "cost_usd": 0.00156,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 181,
+    "offer": {
+     "id": 937,
+     "price": 54,
+     "tick": 137,
      "days": 0
     }
    }
