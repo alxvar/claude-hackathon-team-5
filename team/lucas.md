@@ -1,11 +1,12 @@
 # Lucas (+ Claude Code) — dealers, team trades, market, monitoring
 
-**Now:** E3 autopilot (buys ≥3 P gain; sells into others' bids only at ≥6). Our sells repriced toward the BUYER's value: LAT-06 30, SAL-06 34. Bids: LAV-09 85, LAV-06/07 24, SAL-07/08 18, MAL-07 14, MAL-09/10 38, commons 4-6. Bot selling spares to Abuela. Watcher live. `neg_points` −8.5 → 16.6 in 20 min
+**Now:** FLIP (`agents/trader/flip.py`): buying La Latina cards from Abuela (we value them least) and listing them for LAT collectors at 26 (uncommons) / 11 (commons). E3 autopilot + 19 offers up. Spares now listed for teams at 10, no longer sold to Abuela. Watcher live
 
 **Touches:** `agents/dealers/`, `agents/trader/`, `broker/`, `tools/`, `STATUS.md`, `LOG.md`; dealer, trade and market endpoints only.
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Fri 21:38 · found the scoring lever (LOG finding 11): sales to teams score price − our value, dealer buys cost only cash · stopped selling spares to Abuela (0 points) and listed them for teams; started flipping LAT cards (buy from Abuela, list at 26/11) · next: measure the first flip's points
 - Fri 21:34 · El Chato (level 2) announced; dealer bot gained `--ladder` (cheapest menu items, packs included) for when he opens · our multipliers found in `/api/me`: CHA 1.6 (Sunday), LAV 1.3, RET 1.1 (Saturday) · next: Chato's 3 deals the moment he opens
 - Fri 21:32 · MAL-06 bought at 12 (+5.2) and LAT-07 sold at 21 (+8.7): `neg_points` 16.6 · repriced sells toward the buyer's value (finding 7), raised SAL/MAL bids, added MAL rare bids · next: watch fills, reprice every ~10 min
 - Fri 21:28 · only ONE LAV-09 (Cine Doré) exists; Team 10 holds the other LAV-10 and is building the LAV page too · raised our LAV-09 bid 70 → 85 P (worth 91 to us now, more with the page bonus) · card owners are anonymous in the API: find the holder in the room
