@@ -129,3 +129,8 @@
 {"id": 9283, "tick": 146, "t": 2.4333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 184, "session": 1, "status": "deal", "item": "Mercado de Vallehermoso"}}
 {"id": 9286, "tick": 146, "t": 2.4333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 201, "session": 1, "status": "no_deal", "item": "Mercado de Vallehermoso"}}
 {"id": 9289, "tick": 146, "t": 2.4333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 207, "session": 1, "status": "deal", "item": "El Tren Fantasma"}}
+{"id": 9412, "tick": 147, "t": 2.45, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 122, "session": 1, "status": "deal", "item": "El Tren Fantasma"}}
+{"id": 9415, "tick": 147, "t": 2.45, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 123, "session": 1, "status": "deal", "item": "Plaza de Olavide"}}
+{"id": 9418, "tick": 147, "t": 2.45, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 169, "session": 1, "status": "deal", "item": "Mercado de Vallehermoso"}}
+{"id": 9421, "tick": 147, "t": 2.45, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 208, "session": 1, "status": "deal", "item": "El Tren Fantasma"}}
+{"id": 9424, "tick": 147, "t": 2.45, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 239, "session": 1, "status": "deal", "item": "Mercado de Vallehermoso"}}
