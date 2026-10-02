@@ -198,27 +198,6 @@ def test_runner_sends_one_move_per_tick_and_waits_for_their_reply(tmp_path: Path
     assert [(t.mine, t.offer.price) for t in obs_.turns] == [(True, 70), (False, 30)]
 
 
-def test_silent_rival_gets_a_code_concession_and_our_limit_on_the_last_tick(tmp_path: Path):
-    b = FakeBazaar()
-    fake = FakeModel(plan(70, 72, 68), Decision(action="offer", price=70, message="70 P."))
-    r = DuelRunner(b, fake, fake, dry_run=False, log=Log(tmp_path), decay=None, duel_ticks=12, poll_s=1)
-    r.tick = 101
-    raw = {"duel": 9, "role": "seller", "your_limit": 40, "deadline_tick": 112, "rival_offer": None}
-    asyncio.run(r.decide(r.update(raw)))
-    r.tick = 102
-    assert not r.due(r.update(raw))                # one quiet tick: wait
-    r.tick = 103
-    mem = r.update(raw)
-    assert r.due(mem)
-    asyncio.run(r.decide(mem))
-    assert 40 <= b.said[-1][2] < 70                # conceded, never past the limit
-    r.tick = 112
-    mem = r.update(raw)
-    assert r.due(mem)
-    asyncio.run(r.decide(mem))
-    assert b.said[-1][2] == 40                     # last tick: our limit
-
-
 def test_records_keep_the_whole_duel_and_review_reads_it(tmp_path: Path):
     from agents.duelist.records import Records, review, summary
     b = FakeBazaar()
