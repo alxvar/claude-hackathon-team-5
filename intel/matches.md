@@ -1,6 +1,6 @@
 # v10 matchmaker: page finishers and first copies
 
-_Written by `tools/matchmaker.py` at 23:28 (tick 1440). Read-only. Holdings are a feed lower bound (~80% recall on our own album): a missing card may already be held unless the team bid for it or put it on a want-list (✓). Giver: a true duplicate or a set it dumps; receiver: no copy, collects the set; both gain > 0 at the price (conservative multipliers). Want-lists: `intel/wants.md`. Never a page-closer for a rival or a team < 6 below us; a rival on either side gains <= 10 P at our price._
+_Written by `tools/matchmaker.py` at 23:33 (tick 1440). Read-only. Holdings are a feed lower bound (~80% recall on our own album): a missing card may already be held unless the team bid for it or put it on a want-list (✓). Giver: a true duplicate or a set it dumps; receiver: no copy, collects the set; both gain > 0 at the price (conservative multipliers). Want-lists: `intel/wants.md`. Never a page-closer for a rival or a team < 6 below us; a rival on either side gains <= 10 P at our price._
 
 ## Matches (best first)
 
@@ -8,10 +8,10 @@ _Written by `tools/matchmaker.py` at 23:28 (tick 1440). Read-only. Holdings are 
 |---|---|---|---|---|---|---|---|---|
 | 1 | Team 1 | MAL-11 La Sala Pentagrama | Team 10 | ~100 | +72 (low +72) |  | rival seller | bid ✓ · seller dumps MAL |
 | 2 | Team 9 | RET-09 El Ángel Caído | Team 7 | ~70 | +67.6 (low +67.6) |  |  | page 9/10 · bid ✓ · seller holds 2 · also t08 |
-| 3 | Team 15 | MAL-09 La Heroína del Dos de Mayo | Team 10 | ~45 | +42.4 (low +42.4) |  | rival seller | page 8/10 · known want ✓ · seller dumps MAL |
-| 4 | Team 15 | MAL-10 Noche de Movida | Team 10 | ~45 | +42.4 (low +42.4) |  | rival seller | page 8/10 · known want ✓ · seller dumps MAL |
-| 5 | Team 16 | RET-09 El Ángel Caído | Team 8 | ~70 | +23.6 (low +23.6) |  |  | bid ✓ · seller dumps RET · also t07 |
-| 6 | Team 1 | RET-08 Palacio de Velázquez | Team 7 | ~23 | +14 (low +14) |  |  | bid ✓ · seller holds 2 |
+| 3 | Team 15 | MAL-09 La Heroína del Dos de Mayo | Team 10 | ~45 | +42.2 (low +42.2) |  | rival seller | page 8/10 · known want ✓ · seller dumps MAL |
+| 4 | Team 15 | MAL-10 Noche de Movida | Team 10 | ~45 | +42.2 (low +42.2) |  | rival seller | page 8/10 · known want ✓ · seller dumps MAL |
+| 5 | Team 16 | RET-09 El Ángel Caído | Team 8 | ~70 | +23.7 (low +23.7) |  |  | bid ✓ · seller dumps RET · also t07 |
+| 6 | Team 1 | RET-08 Palacio de Velázquez | Team 7 | ~22 | +13.7 (low +13.7) |  |  | bid ✓ · seller holds 2 |
 | 7 | Team 8 | SAL-03 Perrito con Abrigo | Team 1 | ~9 | +13.2 (low +12.9) |  |  | bid ✓ · seller holds 3 · also t15, t02, t12 |
 | 8 | Team 9 | LAV-02 El Frutero de Argumosa | Team 16 | ~9 | +13 (low +11.2) |  |  | bid ✓ · seller holds 2 · also t04, t18 |
 | 9 | Team 17 | LAV-06 La Tabacalera | Team 16 | ~24 | +12 (low +9.5) |  | rival buyer | bid ✓ · seller dumps LAV |
@@ -49,9 +49,9 @@ _Written by `tools/matchmaker.py` at 23:28 (tick 1440). Read-only. Holdings are 
 - To Team 8: "Hi Team 8! Could you post your El Ángel Caído (RET-09) on v10 as an open ask at ~70 P? There's a buyer for it. Only if it's a spare for you, keep one copy. Thanks!"
 - To Team 16: "Hi Team 16! El Ángel Caído (RET-09) can be on v10 soon: post an open bid there at ~70 P and it crosses. Thanks!"
 
-**6. RET-08 · Team 7 → Team 1 at ~23 P**
-- To Team 7: "Hi Team 7! Could you post your Palacio de Velázquez (RET-08) on v10 as an open ask at ~23 P? There's a buyer for it. Only if it's a spare for you, keep one copy. Thanks!"
-- To Team 1: "Hi Team 1! Palacio de Velázquez (RET-08) can be on v10 soon: post an open bid there at ~23 P and it crosses. Thanks!"
+**6. RET-08 · Team 7 → Team 1 at ~22 P**
+- To Team 7: "Hi Team 7! Could you post your Palacio de Velázquez (RET-08) on v10 as an open ask at ~22 P? There's a buyer for it. Only if it's a spare for you, keep one copy. Thanks!"
+- To Team 1: "Hi Team 1! Palacio de Velázquez (RET-08) can be on v10 soon: post an open bid there at ~22 P and it crosses. Thanks!"
 
 **7. SAL-03 · Team 1 → Team 8 at ~9 P**
 - To Team 1: "Hi Team 1! Could you post your Perrito con Abrigo (SAL-03) on v10 as an open ask at ~9 P? There's a buyer for it. Only if it's a spare for you, keep one copy. Thanks!"
