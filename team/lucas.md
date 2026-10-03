@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sat 19:00 · Builder · dealer-hint miner tools/hints.py live (13135ab, daemon hints): backfill 126 hits → intel/hints.md; golden-chulapa chain mapped (Pilar → Abuela egg → Don Ernesto 'El oro de Moscú' → LAT-13 to t02 at 1021); LAT-13 hidden, print run 1, minted 1: gone (banco 1045 'left Spain'); also underpriced-ask scanner in bargains (7e07250, first scan empty), suggestions per buyer + exclusions (18a8679); 435 pass
 - Sat 18:56 · operator · Chief/Analyst: our ladder fell back below its cap (−0.28 at tick 1030), so 0-neg ladder sells pay again → job bxpdvaqj5, one at a time, offer-only, never at the first price: (a) MAL-08 → Pilar (ask 30, −1, floor 18; value 17.5), (b) LAT-04 → Pícaros (ask 12, −1, floor 5), (c) LAV-04 spare → Pícaros (ask 10, −1, floor 4; value 3.2) · can-give YES on all three (LAV-03 NO) · none starts after 20:00; watchdog bfqg25rty kills the sellers and closes dealer threads at 20:15 (Duels II at 20:33) · ladder 0.437, negotiating 24.18
 - Sat 18:31 · operator · Team 15 window over (18:30): thread 1179 was already closed; t15 posted one approved v10 sale (MAL-07 → t02, offer 13773, tick 893), **0 v10 settlements** since → commission N = 0, nothing owed; any t15 settlement offer > 0 gets ignored and reported
 - Sat 18:30 · operator · board at tick 990 after the SAL close: **#1 31.97** (T6 31.7, T14 31.5, T3 29.6, T10 28.3), +1.99 board from +40.4 neg (≈ 0.049 per neg point)
