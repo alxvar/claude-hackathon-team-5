@@ -236,10 +236,10 @@ itself. He writes `team/aleks.md`.
 1. **Desk (09:00)**: the §3 questions, answers in `team/dani.md` within minutes; the strategy session turns them into
    directives.
 2. **Page-completion broker in the room.** The operator publishes `intel/sellable.md` (our spares and asks, approved
-   buyers, floor prices) and `intel/wanted.md` (cards we need, max prices). Dani uses her dashboard to find teams one
+   buyers, floor prices) and `intel/wanted.md` (cards we need, max prices). Dani uses his dashboard to find teams one
    card from a page and pitches with a concrete offer: *"You need LAV-02 to finish Lavapiés. It's on El Rastro
    addressed to you at 40; accept it and your page is done."* For buying: *"We pay 12 for RET-0x right now, bid is
-   up."* She never improvises prices; she only points teams at offers that already exist.
+   up."* He never improvises prices; he only points teams at offers that already exist.
 3. **Judges' story (40%)**: get the judging format from the desk by 09:30; `docs/demo.md` skeleton; a screenshot of the
    dashboard and leaderboard at each round close; the decision timeline (from `team/*.md`, `LOG.md`,
    `intel/directives.md`). **Lucas and Dani draft the pitch during Duels I (11:30-13:05)** and rehearse during Duels II:
@@ -259,10 +259,10 @@ itself. He writes `team/aleks.md`.
   (you've never bid for it), so it's worth more to us than to you."`
 - *SWAP* (both sides gain): `Team 9 lacks MAL-04, we lack RET-02 and they hold it · offer: our MAL-04 for their RET-02.`
 
-**Rules**: the operator posts every offer first; Dani only points teams at offers that are already live; she never
+**Rules**: the operator posts every offer first; Dani only points teams at offers that are already live; he never
 names a price that isn't in the file. Sells only to teams that pass the feeding rule (§4A).
 
-**Alert path** (Dani's Claude doesn't get real-time pushes from git): (1) her dashboard panel `git pull`s every 60 s,
+**Alert path** (Dani's Claude doesn't get real-time pushes from git): (1) his dashboard panel `git pull`s every 60 s,
 renders `intel/sellable.md` and flags new lines; (2) for each new line worth ≥ 10 points the operator also pushes
 Lucas a notification, and Lucas tells Dani in the room. Target latency ≤ 2 minutes.
 

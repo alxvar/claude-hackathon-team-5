@@ -6,7 +6,7 @@ Status: [ ] open · [~] in progress · [x] done
 2. [x] Explain the game to Lucas in plain Spanish with examples (chat).
 3. [~] Explain the market-making venue decision in plain terms, then ask Lucas: open a venue (270 P) and lower the cash floor?
 4. [x] Dani: automated, exact page-gap analysis — which team has a card we need, which team needs a spare we hold, whether it
-   is far enough below us; real-time alert path (Lucas's local session tells Lucas, who tells Dani in the room; her
+   is far enough below us; real-time alert path (Lucas's local session tells Lucas, who tells Dani in the room; his
    dashboard pulls the file); exact pitch scripts (what to say so they sell to us / buy from us). Spec in the plan + builder task.
 5. [x] Stage-by-stage strategy for Sat and Sun (RET, benches, Duels I/II/III/Final, new dealers, CHA, faster ticks,
    dealer close at hour 23): add a timeline section to the plan.
