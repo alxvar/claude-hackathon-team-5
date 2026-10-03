@@ -344,6 +344,597 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1335,
+   "raw": {
+    "duel": 5947,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 7.74,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 94,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Luna",
+    "deadline_tick": 1340,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 9883,
+     "price": 73,
+     "tick": 1335,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 9892,
+     "price": 101,
+     "tick": 1335,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1326,
+      "from": "you",
+      "text": "I can do 55 P with delivery on day 0. Happy to talk once I see where you stand.",
+      "price": 55,
+      "days": 0
+     },
+     {
+      "tick": 1332,
+      "from": "you",
+      "text": "I can do 59 P, delivery on day 0.",
+      "price": 59,
+      "days": 0
+     },
+     {
+      "tick": 1333,
+      "from": "you",
+      "text": "I can do 64 P, delivery on day 0.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1334,
+      "from": "you",
+      "text": "I can do 69 P, delivery on day 0.",
+      "price": 69,
+      "days": 0
+     },
+     {
+      "tick": 1335,
+      "from": "you",
+      "text": "I can do 73 P, delivery on day 0.",
+      "price": 73,
+      "days": 0
+     },
+     {
+      "tick": 1335,
+      "from": "Rival Luna",
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 101.",
+      "price": 101,
+      "days": 5
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1336,
+   "raw": {
+    "duel": 5947,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 7.74,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 94,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Luna",
+    "deadline_tick": 1340,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 9883,
+     "price": 73,
+     "tick": 1335,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 9909,
+     "price": 98,
+     "tick": 1336,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1326,
+      "from": "you",
+      "text": "I can do 55 P with delivery on day 0. Happy to talk once I see where you stand.",
+      "price": 55,
+      "days": 0
+     },
+     {
+      "tick": 1332,
+      "from": "you",
+      "text": "I can do 59 P, delivery on day 0.",
+      "price": 59,
+      "days": 0
+     },
+     {
+      "tick": 1333,
+      "from": "you",
+      "text": "I can do 64 P, delivery on day 0.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1334,
+      "from": "you",
+      "text": "I can do 69 P, delivery on day 0.",
+      "price": 69,
+      "days": 0
+     },
+     {
+      "tick": 1335,
+      "from": "you",
+      "text": "I can do 73 P, delivery on day 0.",
+      "price": 73,
+      "days": 0
+     },
+     {
+      "tick": 1335,
+      "from": "Rival Luna",
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 101.",
+      "price": 101,
+      "days": 5
+     },
+     {
+      "tick": 1336,
+      "from": "Rival Luna",
+      "text": "That was a real step from my side: 98.",
+      "price": 98,
+      "days": 5
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1336,
+   "raw": {
+    "duel": 5947,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 7.74,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 94,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Luna",
+    "deadline_tick": 1340,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 9916,
+     "price": 34,
+     "tick": 1336,
+     "days": 5
+    },
+    "rival_offer": {
+     "id": 9909,
+     "price": 98,
+     "tick": 1336,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1326,
+      "from": "you",
+      "text": "I can do 55 P with delivery on day 0. Happy to talk once I see where you stand.",
+      "price": 55,
+      "days": 0
+     },
+     {
+      "tick": 1332,
+      "from": "you",
+      "text": "I can do 59 P, delivery on day 0.",
+      "price": 59,
+      "days": 0
+     },
+     {
+      "tick": 1333,
+      "from": "you",
+      "text": "I can do 64 P, delivery on day 0.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1334,
+      "from": "you",
+      "text": "I can do 69 P, delivery on day 0.",
+      "price": 69,
+      "days": 0
+     },
+     {
+      "tick": 1335,
+      "from": "you",
+      "text": "I can do 73 P, delivery on day 0.",
+      "price": 73,
+      "days": 0
+     },
+     {
+      "tick": 1335,
+      "from": "Rival Luna",
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 101.",
+      "price": 101,
+      "days": 5
+     },
+     {
+      "tick": 1336,
+      "from": "Rival Luna",
+      "text": "That was a real step from my side: 98.",
+      "price": 98,
+      "days": 5
+     },
+     {
+      "tick": 1336,
+      "from": "you",
+      "text": "I can do 34 P, delivery on day 5.",
+      "price": 34,
+      "days": 5
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1337,
+   "raw": {
+    "duel": 5947,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 7.74,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 94,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Luna",
+    "deadline_tick": 1340,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 9916,
+     "price": 34,
+     "tick": 1336,
+     "days": 5
+    },
+    "rival_offer": {
+     "id": 9956,
+     "price": 91,
+     "tick": 1337,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1326,
+      "from": "you",
+      "text": "I can do 55 P with delivery on day 0. Happy to talk once I see where you stand.",
+      "price": 55,
+      "days": 0
+     },
+     {
+      "tick": 1332,
+      "from": "you",
+      "text": "I can do 59 P, delivery on day 0.",
+      "price": 59,
+      "days": 0
+     },
+     {
+      "tick": 1333,
+      "from": "you",
+      "text": "I can do 64 P, delivery on day 0.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1334,
+      "from": "you",
+      "text": "I can do 69 P, delivery on day 0.",
+      "price": 69,
+      "days": 0
+     },
+     {
+      "tick": 1335,
+      "from": "you",
+      "text": "I can do 73 P, delivery on day 0.",
+      "price": 73,
+      "days": 0
+     },
+     {
+      "tick": 1335,
+      "from": "Rival Luna",
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 101.",
+      "price": 101,
+      "days": 5
+     },
+     {
+      "tick": 1336,
+      "from": "Rival Luna",
+      "text": "That was a real step from my side: 98.",
+      "price": 98,
+      "days": 5
+     },
+     {
+      "tick": 1336,
+      "from": "you",
+      "text": "I can do 34 P, delivery on day 5.",
+      "price": 34,
+      "days": 5
+     },
+     {
+      "tick": 1337,
+      "from": "Rival Luna",
+      "text": "That was a real step from my side: 91.",
+      "price": 91,
+      "days": 5
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1337,
+   "raw": {
+    "duel": 5947,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 7.74,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 94,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Luna",
+    "deadline_tick": 1340,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 9986,
+     "price": 84,
+     "tick": 1337,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 9956,
+     "price": 91,
+     "tick": 1337,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1326,
+      "from": "you",
+      "text": "I can do 55 P with delivery on day 0. Happy to talk once I see where you stand.",
+      "price": 55,
+      "days": 0
+     },
+     {
+      "tick": 1332,
+      "from": "you",
+      "text": "I can do 59 P, delivery on day 0.",
+      "price": 59,
+      "days": 0
+     },
+     {
+      "tick": 1333,
+      "from": "you",
+      "text": "I can do 64 P, delivery on day 0.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1334,
+      "from": "you",
+      "text": "I can do 69 P, delivery on day 0.",
+      "price": 69,
+      "days": 0
+     },
+     {
+      "tick": 1335,
+      "from": "you",
+      "text": "I can do 73 P, delivery on day 0.",
+      "price": 73,
+      "days": 0
+     },
+     {
+      "tick": 1335,
+      "from": "Rival Luna",
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 101.",
+      "price": 101,
+      "days": 5
+     },
+     {
+      "tick": 1336,
+      "from": "Rival Luna",
+      "text": "That was a real step from my side: 98.",
+      "price": 98,
+      "days": 5
+     },
+     {
+      "tick": 1336,
+      "from": "you",
+      "text": "I can do 34 P, delivery on day 5.",
+      "price": 34,
+      "days": 5
+     },
+     {
+      "tick": 1337,
+      "from": "Rival Luna",
+      "text": "That was a real step from my side: 91.",
+      "price": 91,
+      "days": 5
+     },
+     {
+      "tick": 1337,
+      "from": "you",
+      "text": "I can do 84 P with delivery on day 0. That's a serious move from me toward closing now.",
+      "price": 84,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1338,
+   "raw": {
+    "duel": 5947,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 7.74,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 94,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Luna",
+    "deadline_tick": 1340,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 10018,
+     "price": 89,
+     "tick": 1338,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 9956,
+     "price": 91,
+     "tick": 1337,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1326,
+      "from": "you",
+      "text": "I can do 55 P with delivery on day 0. Happy to talk once I see where you stand.",
+      "price": 55,
+      "days": 0
+     },
+     {
+      "tick": 1332,
+      "from": "you",
+      "text": "I can do 59 P, delivery on day 0.",
+      "price": 59,
+      "days": 0
+     },
+     {
+      "tick": 1333,
+      "from": "you",
+      "text": "I can do 64 P, delivery on day 0.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1334,
+      "from": "you",
+      "text": "I can do 69 P, delivery on day 0.",
+      "price": 69,
+      "days": 0
+     },
+     {
+      "tick": 1335,
+      "from": "you",
+      "text": "I can do 73 P, delivery on day 0.",
+      "price": 73,
+      "days": 0
+     },
+     {
+      "tick": 1335,
+      "from": "Rival Luna",
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 101.",
+      "price": 101,
+      "days": 5
+     },
+     {
+      "tick": 1336,
+      "from": "Rival Luna",
+      "text": "That was a real step from my side: 98.",
+      "price": 98,
+      "days": 5
+     },
+     {
+      "tick": 1336,
+      "from": "you",
+      "text": "I can do 34 P, delivery on day 5.",
+      "price": 34,
+      "days": 5
+     },
+     {
+      "tick": 1337,
+      "from": "Rival Luna",
+      "text": "That was a real step from my side: 91.",
+      "price": 91,
+      "days": 5
+     },
+     {
+      "tick": 1337,
+      "from": "you",
+      "text": "I can do 84 P with delivery on day 0. That's a serious move from me toward closing now.",
+      "price": 84,
+      "days": 0
+     },
+     {
+      "tick": 1338,
+      "from": "you",
+      "text": "I can do 89 P with delivery on day 0. That meets you most of the way, so we can finish now.",
+      "price": 89,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -804,6 +1395,544 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1336,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 5947,
+     "role": "buyer",
+     "limit": 94,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 7.74,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I can do 55 P with delivery on day 0. Happy to talk once I see where you stand.",
+      "offer": {
+       "price": 55,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1326,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 59 P, delivery on day 0.",
+      "offer": {
+       "price": 59,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1332,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 64 P, delivery on day 0.",
+      "offer": {
+       "price": 64,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1333,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 69 P, delivery on day 0.",
+      "offer": {
+       "price": 69,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1334,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 73 P, delivery on day 0.",
+      "offer": {
+       "price": 73,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1335,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 101.",
+      "offer": {
+       "price": 101,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1335,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 98.",
+      "offer": {
+       "price": 98,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1336,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 98,
+     "days": 5
+    },
+    "tick": 1336,
+    "ticks_left": 4,
+    "rounds": 2,
+    "day_swings": [
+     25.299999999999997,
+     22.0,
+     27.599999999999998,
+     77.4,
+     27.799999999999997,
+     8.4,
+     59.900000000000006,
+     11.200000000000001,
+     40.300000000000004,
+     36.800000000000004,
+     26.7
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 34 P, delivery on day 5.",
+    "price": 34,
+    "days": 5,
+    "meta": {
+     "rule": "late switch",
+     "calls": []
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1337,
+   "took_s": 9.3,
+   "cost_usd": 0.01607,
+   "obs": {
+    "view": {
+     "duel_id": 5947,
+     "role": "buyer",
+     "limit": 94,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 7.74,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I can do 55 P with delivery on day 0. Happy to talk once I see where you stand.",
+      "offer": {
+       "price": 55,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1326,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 59 P, delivery on day 0.",
+      "offer": {
+       "price": 59,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1332,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 64 P, delivery on day 0.",
+      "offer": {
+       "price": 64,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1333,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 69 P, delivery on day 0.",
+      "offer": {
+       "price": 69,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1334,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 73 P, delivery on day 0.",
+      "offer": {
+       "price": 73,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1335,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 101.",
+      "offer": {
+       "price": 101,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1335,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 98.",
+      "offer": {
+       "price": 98,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1336,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 34 P, delivery on day 5.",
+      "offer": {
+       "price": 34,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1336,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 91.",
+      "offer": {
+       "price": 91,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1337,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 91,
+     "days": 5
+    },
+    "tick": 1337,
+    "ticks_left": 3,
+    "rounds": 3,
+    "day_swings": [
+     25.299999999999997,
+     22.0,
+     27.599999999999998,
+     77.4,
+     27.799999999999997,
+     8.4,
+     59.900000000000006,
+     11.200000000000001,
+     40.300000000000004,
+     36.800000000000004,
+     26.7,
+     77.5
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 84 P with delivery on day 0. That's a serious move from me toward closing now.",
+    "price": 84,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 84,
+      "message": "I can do 84 P with delivery on day 0. That's a serious move from me toward closing now."
+     },
+     "band": {
+      "worst": 88,
+      "target": 84,
+      "best": 80
+     },
+     "plan": {
+      "read": "They have stepped 101→98→91, all on day 5, and their 'real step' talk is just framing. 91 at day 5 is well past what works for us once the day's cost is counted, and only 3 ticks remain.",
+      "target": 84,
+      "best": 80,
+      "worst": 88,
+      "days": 0,
+      "angle": "Go back to day 0 and make one clear, firm offer of 84 P on day 0. Frame it as a serious move toward closing now, and keep the tone friendly and brief."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.57,
+       "in": 1096,
+       "out": 502,
+       "cost_usd": 0.01442,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.74,
+       "in": 581,
+       "out": 49,
+       "cost_usd": 0.00165,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1338,
+   "took_s": 7.99,
+   "cost_usd": 0.014280000000000001,
+   "obs": {
+    "view": {
+     "duel_id": 5947,
+     "role": "buyer",
+     "limit": 94,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 7.74,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I can do 55 P with delivery on day 0. Happy to talk once I see where you stand.",
+      "offer": {
+       "price": 55,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1326,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 59 P, delivery on day 0.",
+      "offer": {
+       "price": 59,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1332,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 64 P, delivery on day 0.",
+      "offer": {
+       "price": 64,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1333,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 69 P, delivery on day 0.",
+      "offer": {
+       "price": 69,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1334,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 73 P, delivery on day 0.",
+      "offer": {
+       "price": 73,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1335,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 101.",
+      "offer": {
+       "price": 101,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1335,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 98.",
+      "offer": {
+       "price": 98,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1336,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 34 P, delivery on day 5.",
+      "offer": {
+       "price": 34,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1336,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 91.",
+      "offer": {
+       "price": 91,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1337,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 84 P with delivery on day 0. That's a serious move from me toward closing now.",
+      "offer": {
+       "price": 84,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1337,
+      "decision": {
+       "action": "offer",
+       "price": 84,
+       "message": "I can do 84 P with delivery on day 0. That's a serious move from me toward closing now."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 91,
+     "days": 5
+    },
+    "tick": 1338,
+    "ticks_left": 2,
+    "rounds": 3,
+    "day_swings": [
+     25.299999999999997,
+     22.0,
+     27.599999999999998,
+     77.4,
+     27.799999999999997,
+     8.4,
+     59.900000000000006,
+     11.200000000000001,
+     40.300000000000004,
+     36.800000000000004,
+     26.7,
+     77.5,
+     32.1
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 89 P with delivery on day 0. That meets you most of the way, so we can finish now.",
+    "price": 89,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 89,
+      "message": "I can do 89 P with delivery on day 0. That meets you most of the way, so we can finish now."
+     },
+     "band": {
+      "worst": 90,
+      "target": 89,
+      "best": 87
+     },
+     "plan": {
+      "read": "They dropped 101 to 91 in two quick steps but are still asking for day 5. That day costs us so much that 91 on day 5 is far past what the deal is worth to us, so it cannot be accepted. Their talk of a 'real step' is just pressure. Only their offers count.",
+      "target": 89,
+      "best": 87,
+      "worst": 90,
+      "days": 0,
+      "angle": "Make one firm closing move to 89 P on day 0, framed as meeting them most of the way so we can finish now; keep day 0 and don't reopen the day."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.19,
+       "in": 1192,
+       "out": 385,
+       "cost_usd": 0.01247,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.8,
+       "in": 650,
+       "out": 51,
+       "cost_usd": 0.00181,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -955,6 +2084,257 @@
      "days": 0
     }
    }
+  },
+  {
+   "tick": 1336,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 34 P, delivery on day 5.",
+    "price": 34,
+    "days": 5,
+    "meta": {
+     "rule": "late switch",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 5947,
+    "offer": {
+     "id": 9916,
+     "price": 34,
+     "tick": 1336,
+     "days": 5
+    }
+   }
+  },
+  {
+   "tick": 1337,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 84 P with delivery on day 0. That's a serious move from me toward closing now.",
+    "price": 84,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 84,
+      "message": "I can do 84 P with delivery on day 0. That's a serious move from me toward closing now."
+     },
+     "band": {
+      "worst": 88,
+      "target": 84,
+      "best": 80
+     },
+     "plan": {
+      "read": "They have stepped 101→98→91, all on day 5, and their 'real step' talk is just framing. 91 at day 5 is well past what works for us once the day's cost is counted, and only 3 ticks remain.",
+      "target": 84,
+      "best": 80,
+      "worst": 88,
+      "days": 0,
+      "angle": "Go back to day 0 and make one clear, firm offer of 84 P on day 0. Frame it as a serious move toward closing now, and keep the tone friendly and brief."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.57,
+       "in": 1096,
+       "out": 502,
+       "cost_usd": 0.01442,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.74,
+       "in": 581,
+       "out": 49,
+       "cost_usd": 0.00165,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5947,
+    "offer": {
+     "id": 9986,
+     "price": 84,
+     "tick": 1337,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1338,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 89 P with delivery on day 0. That meets you most of the way, so we can finish now.",
+    "price": 89,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 89,
+      "message": "I can do 89 P with delivery on day 0. That meets you most of the way, so we can finish now."
+     },
+     "band": {
+      "worst": 90,
+      "target": 89,
+      "best": 87
+     },
+     "plan": {
+      "read": "They dropped 101 to 91 in two quick steps but are still asking for day 5. That day costs us so much that 91 on day 5 is far past what the deal is worth to us, so it cannot be accepted. Their talk of a 'real step' is just pressure. Only their offers count.",
+      "target": 89,
+      "best": 87,
+      "worst": 90,
+      "days": 0,
+      "angle": "Make one firm closing move to 89 P on day 0, framed as meeting them most of the way so we can finish now; keep day 0 and don't reopen the day."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.19,
+       "in": 1192,
+       "out": 385,
+       "cost_usd": 0.01247,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.8,
+       "in": 650,
+       "out": 51,
+       "cost_usd": 0.00181,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5947,
+    "offer": {
+     "id": 10018,
+     "price": 89,
+     "tick": 1338,
+     "days": 0
+    }
+   }
   }
- ]
+ ],
+ "last_seen_tick": 1339,
+ "done": {
+  "duel": 5947,
+  "session": 3,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Fiesta de San Cayetano",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 7.74,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 94,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Luna",
+  "deadline_tick": 1340,
+  "decay_per_round": 0.08,
+  "rounds": 3,
+  "your_offer": {
+   "id": 10018,
+   "price": 89,
+   "tick": 1338,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 9956,
+   "price": 91,
+   "tick": 1337,
+   "days": 5
+  },
+  "messages": [
+   {
+    "tick": 1326,
+    "from": "you",
+    "text": "I can do 55 P with delivery on day 0. Happy to talk once I see where you stand.",
+    "price": 55,
+    "days": 0
+   },
+   {
+    "tick": 1332,
+    "from": "you",
+    "text": "I can do 59 P, delivery on day 0.",
+    "price": 59,
+    "days": 0
+   },
+   {
+    "tick": 1333,
+    "from": "you",
+    "text": "I can do 64 P, delivery on day 0.",
+    "price": 64,
+    "days": 0
+   },
+   {
+    "tick": 1334,
+    "from": "you",
+    "text": "I can do 69 P, delivery on day 0.",
+    "price": 69,
+    "days": 0
+   },
+   {
+    "tick": 1335,
+    "from": "you",
+    "text": "I can do 73 P, delivery on day 0.",
+    "price": 73,
+    "days": 0
+   },
+   {
+    "tick": 1335,
+    "from": "Rival Luna",
+    "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 101.",
+    "price": 101,
+    "days": 5
+   },
+   {
+    "tick": 1336,
+    "from": "Rival Luna",
+    "text": "That was a real step from my side: 98.",
+    "price": 98,
+    "days": 5
+   },
+   {
+    "tick": 1336,
+    "from": "you",
+    "text": "I can do 34 P, delivery on day 5.",
+    "price": 34,
+    "days": 5
+   },
+   {
+    "tick": 1337,
+    "from": "Rival Luna",
+    "text": "That was a real step from my side: 91.",
+    "price": 91,
+    "days": 5
+   },
+   {
+    "tick": 1337,
+    "from": "you",
+    "text": "I can do 84 P with delivery on day 0. That's a serious move from me toward closing now.",
+    "price": 84,
+    "days": 0
+   },
+   {
+    "tick": 1338,
+    "from": "you",
+    "text": "I can do 89 P with delivery on day 0. That meets you most of the way, so we can finish now.",
+    "price": 89,
+    "days": 0
+   }
+  ],
+  "result": 7.8,
+  "price": 84,
+  "days": 0
+ }
 }

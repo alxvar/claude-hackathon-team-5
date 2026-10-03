@@ -182,6 +182,228 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1335,
+   "raw": {
+    "duel": 6040,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "El Frutero de Argumosa",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.12,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 87,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1349,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 9897,
+     "price": 138,
+     "tick": 1335,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 9859,
+     "price": 115,
+     "tick": 1334,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1333,
+      "from": "Rival Azul",
+      "text": "I can do 108 P with delivery in 0 days. Every round costs us both, so let's close.",
+      "price": 108,
+      "days": 0
+     },
+     {
+      "tick": 1334,
+      "from": "you",
+      "text": "I can meet you on day 0 for delivery, so the price needs to come up: I can do 145 P on day 0.",
+      "price": 145,
+      "days": 0
+     },
+     {
+      "tick": 1334,
+      "from": "Rival Azul",
+      "text": "Thanks for the quick reply. Day 0 works for us too, and I can come up to 115 P on day 0.",
+      "price": 115,
+      "days": 0
+     },
+     {
+      "tick": 1335,
+      "from": "you",
+      "text": "I've come down a clear step to 138 P on day 0. It's your turn to close the rest of the gap seriously.",
+      "price": 138,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1336,
+   "raw": {
+    "duel": 6040,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "El Frutero de Argumosa",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.12,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 87,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1349,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 9897,
+     "price": 138,
+     "tick": 1335,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 9941,
+     "price": 118,
+     "tick": 1336,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1333,
+      "from": "Rival Azul",
+      "text": "I can do 108 P with delivery in 0 days. Every round costs us both, so let's close.",
+      "price": 108,
+      "days": 0
+     },
+     {
+      "tick": 1334,
+      "from": "you",
+      "text": "I can meet you on day 0 for delivery, so the price needs to come up: I can do 145 P on day 0.",
+      "price": 145,
+      "days": 0
+     },
+     {
+      "tick": 1334,
+      "from": "Rival Azul",
+      "text": "Thanks for the quick reply. Day 0 works for us too, and I can come up to 115 P on day 0.",
+      "price": 115,
+      "days": 0
+     },
+     {
+      "tick": 1335,
+      "from": "you",
+      "text": "I've come down a clear step to 138 P on day 0. It's your turn to close the rest of the gap seriously.",
+      "price": 138,
+      "days": 0
+     },
+     {
+      "tick": 1336,
+      "from": "Rival Azul",
+      "text": "Thanks for the step. I can come up to 118 P with delivery on day 0.",
+      "price": 118,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1336,
+   "raw": {
+    "duel": 6040,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "El Frutero de Argumosa",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.12,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 87,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1349,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 9949,
+     "price": 134,
+     "tick": 1336,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 9941,
+     "price": 118,
+     "tick": 1336,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1333,
+      "from": "Rival Azul",
+      "text": "I can do 108 P with delivery in 0 days. Every round costs us both, so let's close.",
+      "price": 108,
+      "days": 0
+     },
+     {
+      "tick": 1334,
+      "from": "you",
+      "text": "I can meet you on day 0 for delivery, so the price needs to come up: I can do 145 P on day 0.",
+      "price": 145,
+      "days": 0
+     },
+     {
+      "tick": 1334,
+      "from": "Rival Azul",
+      "text": "Thanks for the quick reply. Day 0 works for us too, and I can come up to 115 P on day 0.",
+      "price": 115,
+      "days": 0
+     },
+     {
+      "tick": 1335,
+      "from": "you",
+      "text": "I've come down a clear step to 138 P on day 0. It's your turn to close the rest of the gap seriously.",
+      "price": 138,
+      "days": 0
+     },
+     {
+      "tick": 1336,
+      "from": "Rival Azul",
+      "text": "Thanks for the step. I can come up to 118 P with delivery on day 0.",
+      "price": 118,
+      "days": 0
+     },
+     {
+      "tick": 1336,
+      "from": "you",
+      "text": "I can come down once more to 134 P on day 0. That's two moves from me, so I'd like to see a bigger move from you toward the middle.",
+      "price": 134,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -321,6 +543,291 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1335,
+   "took_s": 7.0,
+   "cost_usd": 0.00952,
+   "obs": {
+    "view": {
+     "duel_id": 6040,
+     "role": "seller",
+     "limit": 87,
+     "currency": "P",
+     "item": "El Frutero de Argumosa",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.12,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "I can do 108 P with delivery in 0 days. Every round costs us both, so let's close.",
+      "offer": {
+       "price": 108,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1333,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can meet you on day 0 for delivery, so the price needs to come up: I can do 145 P on day 0.",
+      "offer": {
+       "price": 145,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1334,
+      "decision": {
+       "action": "offer",
+       "price": 145,
+       "message": "I can meet you on day 0 for delivery, so the price needs to come up: I can do 145 P on day 0."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the quick reply. Day 0 works for us too, and I can come up to 115 P on day 0.",
+      "offer": {
+       "price": 115,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1334,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 115,
+     "days": 0
+    },
+    "tick": 1335,
+    "ticks_left": 14,
+    "rounds": 1,
+    "day_swings": [
+     25.299999999999997,
+     22.0,
+     27.599999999999998,
+     77.4,
+     27.799999999999997,
+     8.4,
+     59.900000000000006,
+     11.200000000000001,
+     40.300000000000004,
+     36.800000000000004
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I've come down a clear step to 138 P on day 0. It's your turn to close the rest of the gap seriously.",
+    "price": 138,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 138,
+      "message": "I've come down a clear step to 138 P on day 0. It's your turn to close the rest of the gap seriously."
+     },
+     "band": {
+      "worst": 137,
+      "target": 138,
+      "best": 140
+     },
+     "plan": {
+      "read": "They have moved from 108 to 115 on day 0 and have accepted day 0, a real step of 7. The wide gap and the time left make it worth holding most of our ground.",
+      "target": 138,
+      "best": 140,
+      "worst": 137,
+      "days": 0,
+      "angle": "Keep day 0 settled and come down one clear step to 138. Note that we've moved, and that it's their turn to close the gap seriously."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.9,
+       "in": 841,
+       "out": 244,
+       "cost_usd": 0.00824,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.1,
+       "in": 363,
+       "out": 55,
+       "cost_usd": 0.00128,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1336,
+   "took_s": 6.78,
+   "cost_usd": 0.010209999999999999,
+   "obs": {
+    "view": {
+     "duel_id": 6040,
+     "role": "seller",
+     "limit": 87,
+     "currency": "P",
+     "item": "El Frutero de Argumosa",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.12,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "I can do 108 P with delivery in 0 days. Every round costs us both, so let's close.",
+      "offer": {
+       "price": 108,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1333,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can meet you on day 0 for delivery, so the price needs to come up: I can do 145 P on day 0.",
+      "offer": {
+       "price": 145,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1334,
+      "decision": {
+       "action": "offer",
+       "price": 145,
+       "message": "I can meet you on day 0 for delivery, so the price needs to come up: I can do 145 P on day 0."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the quick reply. Day 0 works for us too, and I can come up to 115 P on day 0.",
+      "offer": {
+       "price": 115,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1334,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've come down a clear step to 138 P on day 0. It's your turn to close the rest of the gap seriously.",
+      "offer": {
+       "price": 138,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1335,
+      "decision": {
+       "action": "offer",
+       "price": 138,
+       "message": "I've come down a clear step to 138 P on day 0. It's your turn to close the rest of the gap seriously."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the step. I can come up to 118 P with delivery on day 0.",
+      "offer": {
+       "price": 118,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1336,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 118,
+     "days": 0
+    },
+    "tick": 1336,
+    "ticks_left": 13,
+    "rounds": 2,
+    "day_swings": [
+     25.299999999999997,
+     22.0,
+     27.599999999999998,
+     77.4,
+     27.799999999999997,
+     8.4,
+     59.900000000000006,
+     11.200000000000001,
+     40.300000000000004,
+     36.800000000000004,
+     26.7
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can come down once more to 134 P on day 0. That's two moves from me, so I'd like to see a bigger move from you toward the middle.",
+    "price": 134,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 134,
+      "message": "I can come down once more to 134 P on day 0. That's two moves from me, so I'd like to see a bigger move from you toward the middle."
+     },
+     "band": {
+      "worst": 133,
+      "target": 134,
+      "best": 135
+     },
+     "plan": {
+      "read": "They moved 3 P to 118 on day 0, a steady but shrinking climb; their words are just polite pressure. The day is settled at 0, so only price is left.",
+      "target": 134,
+      "best": 135,
+      "worst": 133,
+      "days": 0,
+      "angle": "Keep day 0 and come down one measured step to 134. Note that we've moved twice, and ask them to make a bigger move toward the middle."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.69,
+       "in": 996,
+       "out": 234,
+       "cost_usd": 0.00866,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.09,
+       "in": 461,
+       "out": 63,
+       "cost_usd": 0.00155,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -380,6 +887,199 @@
      "days": 0
     }
    }
+  },
+  {
+   "tick": 1335,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I've come down a clear step to 138 P on day 0. It's your turn to close the rest of the gap seriously.",
+    "price": 138,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 138,
+      "message": "I've come down a clear step to 138 P on day 0. It's your turn to close the rest of the gap seriously."
+     },
+     "band": {
+      "worst": 137,
+      "target": 138,
+      "best": 140
+     },
+     "plan": {
+      "read": "They have moved from 108 to 115 on day 0 and have accepted day 0, a real step of 7. The wide gap and the time left make it worth holding most of our ground.",
+      "target": 138,
+      "best": 140,
+      "worst": 137,
+      "days": 0,
+      "angle": "Keep day 0 settled and come down one clear step to 138. Note that we've moved, and that it's their turn to close the gap seriously."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.9,
+       "in": 841,
+       "out": 244,
+       "cost_usd": 0.00824,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.1,
+       "in": 363,
+       "out": 55,
+       "cost_usd": 0.00128,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 6040,
+    "offer": {
+     "id": 9897,
+     "price": 138,
+     "tick": 1335,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1336,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can come down once more to 134 P on day 0. That's two moves from me, so I'd like to see a bigger move from you toward the middle.",
+    "price": 134,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 134,
+      "message": "I can come down once more to 134 P on day 0. That's two moves from me, so I'd like to see a bigger move from you toward the middle."
+     },
+     "band": {
+      "worst": 133,
+      "target": 134,
+      "best": 135
+     },
+     "plan": {
+      "read": "They moved 3 P to 118 on day 0, a steady but shrinking climb; their words are just polite pressure. The day is settled at 0, so only price is left.",
+      "target": 134,
+      "best": 135,
+      "worst": 133,
+      "days": 0,
+      "angle": "Keep day 0 and come down one measured step to 134. Note that we've moved twice, and ask them to make a bigger move toward the middle."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.69,
+       "in": 996,
+       "out": 234,
+       "cost_usd": 0.00866,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.09,
+       "in": 461,
+       "out": 63,
+       "cost_usd": 0.00155,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 6040,
+    "offer": {
+     "id": 9949,
+     "price": 134,
+     "tick": 1336,
+     "days": 0
+    }
+   }
   }
- ]
+ ],
+ "last_seen_tick": 1338,
+ "done": {
+  "duel": 6040,
+  "session": 3,
+  "status": "deal",
+  "role": "seller",
+  "item": "El Frutero de Argumosa",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 1.12,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 87,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Azul",
+  "deadline_tick": 1349,
+  "decay_per_round": 0.08,
+  "rounds": 3,
+  "your_offer": {
+   "id": 9949,
+   "price": 134,
+   "tick": 1336,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 9941,
+   "price": 118,
+   "tick": 1336,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1333,
+    "from": "Rival Azul",
+    "text": "I can do 108 P with delivery in 0 days. Every round costs us both, so let's close.",
+    "price": 108,
+    "days": 0
+   },
+   {
+    "tick": 1334,
+    "from": "you",
+    "text": "I can meet you on day 0 for delivery, so the price needs to come up: I can do 145 P on day 0.",
+    "price": 145,
+    "days": 0
+   },
+   {
+    "tick": 1334,
+    "from": "Rival Azul",
+    "text": "Thanks for the quick reply. Day 0 works for us too, and I can come up to 115 P on day 0.",
+    "price": 115,
+    "days": 0
+   },
+   {
+    "tick": 1335,
+    "from": "you",
+    "text": "I've come down a clear step to 138 P on day 0. It's your turn to close the rest of the gap seriously.",
+    "price": 138,
+    "days": 0
+   },
+   {
+    "tick": 1336,
+    "from": "Rival Azul",
+    "text": "Thanks for the step. I can come up to 118 P with delivery on day 0.",
+    "price": 118,
+    "days": 0
+   },
+   {
+    "tick": 1336,
+    "from": "you",
+    "text": "I can come down once more to 134 P on day 0. That's two moves from me, so I'd like to see a bigger move from you toward the middle.",
+    "price": 134,
+    "days": 0
+   }
+  ],
+  "result": 36.6,
+  "price": 134,
+  "days": 0
+ }
 }

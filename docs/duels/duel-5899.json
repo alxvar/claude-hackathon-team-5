@@ -1573,5 +1573,93 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1336,
+ "done": {
+  "duel": 5899,
+  "session": 3,
+  "status": "no_deal",
+  "role": "buyer",
+  "item": "La Dama de Serrano",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 2.76,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 98,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Plata",
+  "deadline_tick": 1336,
+  "decay_per_round": 0.08,
+  "rounds": 0,
+  "your_offer": {
+   "id": 9841,
+   "price": 92,
+   "tick": 1334,
+   "days": 0
+  },
+  "rival_offer": null,
+  "messages": [
+   {
+    "tick": 1322,
+    "from": "you",
+    "text": "I can do 62 P with delivery on day 0. I'm open to talking if you come back with a reasonable counter.",
+    "price": 62,
+    "days": 0
+   },
+   {
+    "tick": 1328,
+    "from": "you",
+    "text": "I can do 66 P, delivery on day 0.",
+    "price": 66,
+    "days": 0
+   },
+   {
+    "tick": 1329,
+    "from": "you",
+    "text": "I can do 70 P, delivery on day 0.",
+    "price": 70,
+    "days": 0
+   },
+   {
+    "tick": 1330,
+    "from": "you",
+    "text": "I can do 75 P, delivery on day 0.",
+    "price": 75,
+    "days": 0
+   },
+   {
+    "tick": 1331,
+    "from": "you",
+    "text": "I can do 79 P, delivery on day 0.",
+    "price": 79,
+    "days": 0
+   },
+   {
+    "tick": 1332,
+    "from": "you",
+    "text": "I can do 83 P, delivery on day 0.",
+    "price": 83,
+    "days": 0
+   },
+   {
+    "tick": 1333,
+    "from": "you",
+    "text": "I can do 88 P, delivery on day 0.",
+    "price": 88,
+    "days": 0
+   },
+   {
+    "tick": 1334,
+    "from": "you",
+    "text": "I can do 92 P, delivery on day 0.",
+    "price": 92,
+    "days": 0
+   }
+  ],
+  "result": 0.0,
+  "price": null,
+  "days": null
+ }
 }

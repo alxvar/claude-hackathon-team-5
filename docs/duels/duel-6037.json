@@ -404,6 +404,400 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1335,
+   "raw": {
+    "duel": 6037,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.99,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 145,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 1348,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 9866,
+     "price": 112,
+     "tick": 1334,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 9899,
+     "price": 165,
+     "tick": 1335,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1332,
+      "from": "Rival Noche",
+      "text": "Hello, and thank you so much for sitting down with us. We'd be glad to part with this card for 202, and we're happy to be flexible on delivery timing to make it easy for you.",
+      "price": 202,
+      "days": 10
+     },
+     {
+      "tick": 1332,
+      "from": "you",
+      "text": "Thanks for the warm welcome and the flexibility on timing. I can do 95 P with delivery on day 0, which is what works best for us.\n\nI hope we can find a figure close to that.}",
+      "price": 95,
+      "days": 0
+     },
+     {
+      "tick": 1333,
+      "from": "Rival Noche",
+      "text": "Thank you kindly for your offer of 95, and I'm so glad the timing flexibility helps you. We'd be delighted to come down to 189 for you, and we're happy to work around your preferred delivery day if that makes things easier.",
+      "price": 189,
+      "days": 10
+     },
+     {
+      "tick": 1333,
+      "from": "you",
+      "text": "Thank you, I appreciate you coming down and being open on timing. I can move to 104 P with delivery on day 0, which is what makes this work for us.",
+      "price": 104,
+      "days": 0
+     },
+     {
+      "tick": 1334,
+      "from": "Rival Noche",
+      "text": "Thank you so much for meeting us partway, it truly means a lot. We'd be glad to come down to 180, and we're very happy to deliver on the day that suits you best.",
+      "price": 180,
+      "days": 10
+     },
+     {
+      "tick": 1334,
+      "from": "you",
+      "text": "Thank you, I appreciate the continued movement. I can come up to 112 P with delivery on day 0, and since you're flexible on timing, that day should work well for both of us.",
+      "price": 112,
+      "days": 0
+     },
+     {
+      "tick": 1335,
+      "from": "Rival Noche",
+      "text": "Thank you so much for coming up to 112, we really do appreciate your steady good faith. We'd be glad to move to 165 and happily deliver on the day you prefer, since we'd love to make this work for both of us.",
+      "price": 165,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1335,
+   "raw": {
+    "duel": 6037,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.99,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 145,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 1348,
+    "decay_per_round": 0.08,
+    "rounds": 4,
+    "your_offer": {
+     "id": 9907,
+     "price": 120,
+     "tick": 1335,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 9899,
+     "price": 165,
+     "tick": 1335,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1332,
+      "from": "Rival Noche",
+      "text": "Hello, and thank you so much for sitting down with us. We'd be glad to part with this card for 202, and we're happy to be flexible on delivery timing to make it easy for you.",
+      "price": 202,
+      "days": 10
+     },
+     {
+      "tick": 1332,
+      "from": "you",
+      "text": "Thanks for the warm welcome and the flexibility on timing. I can do 95 P with delivery on day 0, which is what works best for us.\n\nI hope we can find a figure close to that.}",
+      "price": 95,
+      "days": 0
+     },
+     {
+      "tick": 1333,
+      "from": "Rival Noche",
+      "text": "Thank you kindly for your offer of 95, and I'm so glad the timing flexibility helps you. We'd be delighted to come down to 189 for you, and we're happy to work around your preferred delivery day if that makes things easier.",
+      "price": 189,
+      "days": 10
+     },
+     {
+      "tick": 1333,
+      "from": "you",
+      "text": "Thank you, I appreciate you coming down and being open on timing. I can move to 104 P with delivery on day 0, which is what makes this work for us.",
+      "price": 104,
+      "days": 0
+     },
+     {
+      "tick": 1334,
+      "from": "Rival Noche",
+      "text": "Thank you so much for meeting us partway, it truly means a lot. We'd be glad to come down to 180, and we're very happy to deliver on the day that suits you best.",
+      "price": 180,
+      "days": 10
+     },
+     {
+      "tick": 1334,
+      "from": "you",
+      "text": "Thank you, I appreciate the continued movement. I can come up to 112 P with delivery on day 0, and since you're flexible on timing, that day should work well for both of us.",
+      "price": 112,
+      "days": 0
+     },
+     {
+      "tick": 1335,
+      "from": "Rival Noche",
+      "text": "Thank you so much for coming up to 112, we really do appreciate your steady good faith. We'd be glad to move to 165 and happily deliver on the day you prefer, since we'd love to make this work for both of us.",
+      "price": 165,
+      "days": 10
+     },
+     {
+      "tick": 1335,
+      "from": "you",
+      "text": "Thank you for the continued movement. I can come up to 120 P with delivery on day 0, and since you're happy to deliver on my preferred day, I'd ask that your next offer name day 0 as well.",
+      "price": 120,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1336,
+   "raw": {
+    "duel": 6037,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.99,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 145,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 1348,
+    "decay_per_round": 0.08,
+    "rounds": 4,
+    "your_offer": {
+     "id": 9907,
+     "price": 120,
+     "tick": 1335,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 9943,
+     "price": 151,
+     "tick": 1336,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1332,
+      "from": "Rival Noche",
+      "text": "Hello, and thank you so much for sitting down with us. We'd be glad to part with this card for 202, and we're happy to be flexible on delivery timing to make it easy for you.",
+      "price": 202,
+      "days": 10
+     },
+     {
+      "tick": 1332,
+      "from": "you",
+      "text": "Thanks for the warm welcome and the flexibility on timing. I can do 95 P with delivery on day 0, which is what works best for us.\n\nI hope we can find a figure close to that.}",
+      "price": 95,
+      "days": 0
+     },
+     {
+      "tick": 1333,
+      "from": "Rival Noche",
+      "text": "Thank you kindly for your offer of 95, and I'm so glad the timing flexibility helps you. We'd be delighted to come down to 189 for you, and we're happy to work around your preferred delivery day if that makes things easier.",
+      "price": 189,
+      "days": 10
+     },
+     {
+      "tick": 1333,
+      "from": "you",
+      "text": "Thank you, I appreciate you coming down and being open on timing. I can move to 104 P with delivery on day 0, which is what makes this work for us.",
+      "price": 104,
+      "days": 0
+     },
+     {
+      "tick": 1334,
+      "from": "Rival Noche",
+      "text": "Thank you so much for meeting us partway, it truly means a lot. We'd be glad to come down to 180, and we're very happy to deliver on the day that suits you best.",
+      "price": 180,
+      "days": 10
+     },
+     {
+      "tick": 1334,
+      "from": "you",
+      "text": "Thank you, I appreciate the continued movement. I can come up to 112 P with delivery on day 0, and since you're flexible on timing, that day should work well for both of us.",
+      "price": 112,
+      "days": 0
+     },
+     {
+      "tick": 1335,
+      "from": "Rival Noche",
+      "text": "Thank you so much for coming up to 112, we really do appreciate your steady good faith. We'd be glad to move to 165 and happily deliver on the day you prefer, since we'd love to make this work for both of us.",
+      "price": 165,
+      "days": 10
+     },
+     {
+      "tick": 1335,
+      "from": "you",
+      "text": "Thank you for the continued movement. I can come up to 120 P with delivery on day 0, and since you're happy to deliver on my preferred day, I'd ask that your next offer name day 0 as well.",
+      "price": 120,
+      "days": 0
+     },
+     {
+      "tick": 1336,
+      "from": "Rival Noche",
+      "text": "Thank you for coming up to 120, your steady good faith is truly appreciated. We'd be glad to move to 151, and we remain very happy to work with you on delivery timing.",
+      "price": 151,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1336,
+   "raw": {
+    "duel": 6037,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.99,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 145,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 1348,
+    "decay_per_round": 0.08,
+    "rounds": 5,
+    "your_offer": {
+     "id": 9955,
+     "price": 128,
+     "tick": 1336,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 9943,
+     "price": 151,
+     "tick": 1336,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1332,
+      "from": "Rival Noche",
+      "text": "Hello, and thank you so much for sitting down with us. We'd be glad to part with this card for 202, and we're happy to be flexible on delivery timing to make it easy for you.",
+      "price": 202,
+      "days": 10
+     },
+     {
+      "tick": 1332,
+      "from": "you",
+      "text": "Thanks for the warm welcome and the flexibility on timing. I can do 95 P with delivery on day 0, which is what works best for us.\n\nI hope we can find a figure close to that.}",
+      "price": 95,
+      "days": 0
+     },
+     {
+      "tick": 1333,
+      "from": "Rival Noche",
+      "text": "Thank you kindly for your offer of 95, and I'm so glad the timing flexibility helps you. We'd be delighted to come down to 189 for you, and we're happy to work around your preferred delivery day if that makes things easier.",
+      "price": 189,
+      "days": 10
+     },
+     {
+      "tick": 1333,
+      "from": "you",
+      "text": "Thank you, I appreciate you coming down and being open on timing. I can move to 104 P with delivery on day 0, which is what makes this work for us.",
+      "price": 104,
+      "days": 0
+     },
+     {
+      "tick": 1334,
+      "from": "Rival Noche",
+      "text": "Thank you so much for meeting us partway, it truly means a lot. We'd be glad to come down to 180, and we're very happy to deliver on the day that suits you best.",
+      "price": 180,
+      "days": 10
+     },
+     {
+      "tick": 1334,
+      "from": "you",
+      "text": "Thank you, I appreciate the continued movement. I can come up to 112 P with delivery on day 0, and since you're flexible on timing, that day should work well for both of us.",
+      "price": 112,
+      "days": 0
+     },
+     {
+      "tick": 1335,
+      "from": "Rival Noche",
+      "text": "Thank you so much for coming up to 112, we really do appreciate your steady good faith. We'd be glad to move to 165 and happily deliver on the day you prefer, since we'd love to make this work for both of us.",
+      "price": 165,
+      "days": 10
+     },
+     {
+      "tick": 1335,
+      "from": "you",
+      "text": "Thank you for the continued movement. I can come up to 120 P with delivery on day 0, and since you're happy to deliver on my preferred day, I'd ask that your next offer name day 0 as well.",
+      "price": 120,
+      "days": 0
+     },
+     {
+      "tick": 1336,
+      "from": "Rival Noche",
+      "text": "Thank you for coming up to 120, your steady good faith is truly appreciated. We'd be glad to move to 151, and we remain very happy to work with you on delivery timing.",
+      "price": 151,
+      "days": 10
+     },
+     {
+      "tick": 1336,
+      "from": "you",
+      "text": "Thank you for moving again. I can come up to 128 P with delivery on day 0, and since you say you're happy to deliver on my preferred day, I'd ask that your next offer name day 0.",
+      "price": 128,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -823,6 +1217,395 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1335,
+   "took_s": 7.5,
+   "cost_usd": 0.01346,
+   "obs": {
+    "view": {
+     "duel_id": 6037,
+     "role": "buyer",
+     "limit": 145,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Noche",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.99,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello, and thank you so much for sitting down with us. We'd be glad to part with this card for 202, and we're happy to be flexible on delivery timing to make it easy for you.",
+      "offer": {
+       "price": 202,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1332,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the warm welcome and the flexibility on timing. I can do 95 P with delivery on day 0, which is what works best for us.\n\nI hope we can find a figure close to that.}",
+      "offer": {
+       "price": 95,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1332,
+      "decision": {
+       "action": "offer",
+       "price": 95,
+       "message": "Thanks for the warm welcome and the flexibility on timing. I can do 95 P with delivery on day 0, which is what works best for us.\n\nI hope we can find a figure close to that.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you kindly for your offer of 95, and I'm so glad the timing flexibility helps you. We'd be delighted to come down to 189 for you, and we're happy to work around your preferred delivery day if that makes things easier.",
+      "offer": {
+       "price": 189,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1333,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you, I appreciate you coming down and being open on timing. I can move to 104 P with delivery on day 0, which is what makes this work for us.",
+      "offer": {
+       "price": 104,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1333,
+      "decision": {
+       "action": "offer",
+       "price": 104,
+       "message": "Thank you, I appreciate you coming down and being open on timing. I can move to 104 P with delivery on day 0, which is what makes this work for us."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you so much for meeting us partway, it truly means a lot. We'd be glad to come down to 180, and we're very happy to deliver on the day that suits you best.",
+      "offer": {
+       "price": 180,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1334,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you, I appreciate the continued movement. I can come up to 112 P with delivery on day 0, and since you're flexible on timing, that day should work well for both of us.",
+      "offer": {
+       "price": 112,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1334,
+      "decision": {
+       "action": "offer",
+       "price": 112,
+       "message": "Thank you, I appreciate the continued movement. I can come up to 112 P with delivery on day 0, and since you're flexible on timing, that day should work well for both of us."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you so much for coming up to 112, we really do appreciate your steady good faith. We'd be glad to move to 165 and happily deliver on the day you prefer, since we'd love to make this work for both of us.",
+      "offer": {
+       "price": 165,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1335,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 165,
+     "days": 10
+    },
+    "tick": 1335,
+    "ticks_left": 13,
+    "rounds": 3,
+    "day_swings": [
+     25.299999999999997,
+     22.0,
+     27.599999999999998,
+     77.4,
+     27.799999999999997,
+     8.4,
+     59.900000000000006,
+     11.200000000000001,
+     40.300000000000004,
+     36.800000000000004
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thank you for the continued movement. I can come up to 120 P with delivery on day 0, and since you're happy to deliver on my preferred day, I'd ask that your next offer name day 0 as well.",
+    "price": 120,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 120,
+      "message": "Thank you for the continued movement. I can come up to 120 P with delivery on day 0, and since you're happy to deliver on my preferred day, I'd ask that your next offer name day 0 as well."
+     },
+     "band": {
+      "worst": 122,
+      "target": 120,
+      "best": 118
+     },
+     "plan": {
+      "read": "They dropped 15 to 165 but keep naming day 10 while saying they'll deliver on our preferred day. That talk is cheap until their structured offer moves to day 0. Their concessions are real and larger than ours, so a measured step is warranted.",
+      "target": 120,
+      "best": 118,
+      "worst": 122,
+      "days": 0,
+      "angle": "Warmly acknowledge their move, say we're glad they'll deliver on day 0, and come up to 120 on day 0, asking them to put day 0 into their next offer."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.36,
+       "in": 1323,
+       "out": 288,
+       "cost_usd": 0.01105,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.14,
+       "in": 792,
+       "out": 83,
+       "cost_usd": 0.00241,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1336,
+   "took_s": 7.62,
+   "cost_usd": 0.01544,
+   "obs": {
+    "view": {
+     "duel_id": 6037,
+     "role": "buyer",
+     "limit": 145,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Noche",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.99,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello, and thank you so much for sitting down with us. We'd be glad to part with this card for 202, and we're happy to be flexible on delivery timing to make it easy for you.",
+      "offer": {
+       "price": 202,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1332,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the warm welcome and the flexibility on timing. I can do 95 P with delivery on day 0, which is what works best for us.\n\nI hope we can find a figure close to that.}",
+      "offer": {
+       "price": 95,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1332,
+      "decision": {
+       "action": "offer",
+       "price": 95,
+       "message": "Thanks for the warm welcome and the flexibility on timing. I can do 95 P with delivery on day 0, which is what works best for us.\n\nI hope we can find a figure close to that.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you kindly for your offer of 95, and I'm so glad the timing flexibility helps you. We'd be delighted to come down to 189 for you, and we're happy to work around your preferred delivery day if that makes things easier.",
+      "offer": {
+       "price": 189,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1333,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you, I appreciate you coming down and being open on timing. I can move to 104 P with delivery on day 0, which is what makes this work for us.",
+      "offer": {
+       "price": 104,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1333,
+      "decision": {
+       "action": "offer",
+       "price": 104,
+       "message": "Thank you, I appreciate you coming down and being open on timing. I can move to 104 P with delivery on day 0, which is what makes this work for us."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you so much for meeting us partway, it truly means a lot. We'd be glad to come down to 180, and we're very happy to deliver on the day that suits you best.",
+      "offer": {
+       "price": 180,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1334,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you, I appreciate the continued movement. I can come up to 112 P with delivery on day 0, and since you're flexible on timing, that day should work well for both of us.",
+      "offer": {
+       "price": 112,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1334,
+      "decision": {
+       "action": "offer",
+       "price": 112,
+       "message": "Thank you, I appreciate the continued movement. I can come up to 112 P with delivery on day 0, and since you're flexible on timing, that day should work well for both of us."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you so much for coming up to 112, we really do appreciate your steady good faith. We'd be glad to move to 165 and happily deliver on the day you prefer, since we'd love to make this work for both of us.",
+      "offer": {
+       "price": 165,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1335,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the continued movement. I can come up to 120 P with delivery on day 0, and since you're happy to deliver on my preferred day, I'd ask that your next offer name day 0 as well.",
+      "offer": {
+       "price": 120,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1335,
+      "decision": {
+       "action": "offer",
+       "price": 120,
+       "message": "Thank you for the continued movement. I can come up to 120 P with delivery on day 0, and since you're happy to deliver on my preferred day, I'd ask that your next offer name day 0 as well."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you for coming up to 120, your steady good faith is truly appreciated. We'd be glad to move to 151, and we remain very happy to work with you on delivery timing.",
+      "offer": {
+       "price": 151,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1336,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 151,
+     "days": 10
+    },
+    "tick": 1336,
+    "ticks_left": 12,
+    "rounds": 4,
+    "day_swings": [
+     25.299999999999997,
+     22.0,
+     27.599999999999998,
+     77.4,
+     27.799999999999997,
+     8.4,
+     59.900000000000006,
+     11.200000000000001,
+     40.300000000000004,
+     36.800000000000004,
+     26.7
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thank you for moving again. I can come up to 128 P with delivery on day 0, and since you say you're happy to deliver on my preferred day, I'd ask that your next offer name day 0.",
+    "price": 128,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 128,
+      "message": "Thank you for moving again. I can come up to 128 P with delivery on day 0, and since you say you're happy to deliver on my preferred day, I'd ask that your next offer name day 0."
+     },
+     "band": {
+      "worst": 130,
+      "target": 128,
+      "best": 126
+     },
+     "plan": {
+      "read": "They dropped another 14 to 151 but still name day 10 in every offer while saying they'll deliver on our preferred day. Their words on timing are cheap until an offer names day 0. At day 10 their offer is far outside what works for us.",
+      "target": 128,
+      "best": 126,
+      "worst": 130,
+      "days": 0,
+      "angle": "Warm but firm: move to 128 on day 0, and point out that since they keep saying they'll deliver on our preferred day, their next offer should name day 0."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.43,
+       "in": 1520,
+       "out": 334,
+       "cost_usd": 0.01276,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.19,
+       "in": 939,
+       "out": 80,
+       "cost_usd": 0.00268,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -996,6 +1779,227 @@
      "days": 0
     }
    }
+  },
+  {
+   "tick": 1335,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thank you for the continued movement. I can come up to 120 P with delivery on day 0, and since you're happy to deliver on my preferred day, I'd ask that your next offer name day 0 as well.",
+    "price": 120,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 120,
+      "message": "Thank you for the continued movement. I can come up to 120 P with delivery on day 0, and since you're happy to deliver on my preferred day, I'd ask that your next offer name day 0 as well."
+     },
+     "band": {
+      "worst": 122,
+      "target": 120,
+      "best": 118
+     },
+     "plan": {
+      "read": "They dropped 15 to 165 but keep naming day 10 while saying they'll deliver on our preferred day. That talk is cheap until their structured offer moves to day 0. Their concessions are real and larger than ours, so a measured step is warranted.",
+      "target": 120,
+      "best": 118,
+      "worst": 122,
+      "days": 0,
+      "angle": "Warmly acknowledge their move, say we're glad they'll deliver on day 0, and come up to 120 on day 0, asking them to put day 0 into their next offer."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.36,
+       "in": 1323,
+       "out": 288,
+       "cost_usd": 0.01105,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.14,
+       "in": 792,
+       "out": 83,
+       "cost_usd": 0.00241,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 6037,
+    "offer": {
+     "id": 9907,
+     "price": 120,
+     "tick": 1335,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1336,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thank you for moving again. I can come up to 128 P with delivery on day 0, and since you say you're happy to deliver on my preferred day, I'd ask that your next offer name day 0.",
+    "price": 128,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 128,
+      "message": "Thank you for moving again. I can come up to 128 P with delivery on day 0, and since you say you're happy to deliver on my preferred day, I'd ask that your next offer name day 0."
+     },
+     "band": {
+      "worst": 130,
+      "target": 128,
+      "best": 126
+     },
+     "plan": {
+      "read": "They dropped another 14 to 151 but still name day 10 in every offer while saying they'll deliver on our preferred day. Their words on timing are cheap until an offer names day 0. At day 10 their offer is far outside what works for us.",
+      "target": 128,
+      "best": 126,
+      "worst": 130,
+      "days": 0,
+      "angle": "Warm but firm: move to 128 on day 0, and point out that since they keep saying they'll deliver on our preferred day, their next offer should name day 0."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.43,
+       "in": 1520,
+       "out": 334,
+       "cost_usd": 0.01276,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.19,
+       "in": 939,
+       "out": 80,
+       "cost_usd": 0.00268,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 6037,
+    "offer": {
+     "id": 9955,
+     "price": 128,
+     "tick": 1336,
+     "days": 0
+    }
+   }
   }
- ]
+ ],
+ "last_seen_tick": 1337,
+ "done": {
+  "duel": 6037,
+  "session": 3,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Fiesta de San Cayetano",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 5.99,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 145,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Noche",
+  "deadline_tick": 1348,
+  "decay_per_round": 0.08,
+  "rounds": 5,
+  "your_offer": {
+   "id": 9955,
+   "price": 128,
+   "tick": 1336,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 9943,
+   "price": 151,
+   "tick": 1336,
+   "days": 10
+  },
+  "messages": [
+   {
+    "tick": 1332,
+    "from": "Rival Noche",
+    "text": "Hello, and thank you so much for sitting down with us. We'd be glad to part with this card for 202, and we're happy to be flexible on delivery timing to make it easy for you.",
+    "price": 202,
+    "days": 10
+   },
+   {
+    "tick": 1332,
+    "from": "you",
+    "text": "Thanks for the warm welcome and the flexibility on timing. I can do 95 P with delivery on day 0, which is what works best for us.\n\nI hope we can find a figure close to that.}",
+    "price": 95,
+    "days": 0
+   },
+   {
+    "tick": 1333,
+    "from": "Rival Noche",
+    "text": "Thank you kindly for your offer of 95, and I'm so glad the timing flexibility helps you. We'd be delighted to come down to 189 for you, and we're happy to work around your preferred delivery day if that makes things easier.",
+    "price": 189,
+    "days": 10
+   },
+   {
+    "tick": 1333,
+    "from": "you",
+    "text": "Thank you, I appreciate you coming down and being open on timing. I can move to 104 P with delivery on day 0, which is what makes this work for us.",
+    "price": 104,
+    "days": 0
+   },
+   {
+    "tick": 1334,
+    "from": "Rival Noche",
+    "text": "Thank you so much for meeting us partway, it truly means a lot. We'd be glad to come down to 180, and we're very happy to deliver on the day that suits you best.",
+    "price": 180,
+    "days": 10
+   },
+   {
+    "tick": 1334,
+    "from": "you",
+    "text": "Thank you, I appreciate the continued movement. I can come up to 112 P with delivery on day 0, and since you're flexible on timing, that day should work well for both of us.",
+    "price": 112,
+    "days": 0
+   },
+   {
+    "tick": 1335,
+    "from": "Rival Noche",
+    "text": "Thank you so much for coming up to 112, we really do appreciate your steady good faith. We'd be glad to move to 165 and happily deliver on the day you prefer, since we'd love to make this work for both of us.",
+    "price": 165,
+    "days": 10
+   },
+   {
+    "tick": 1335,
+    "from": "you",
+    "text": "Thank you for the continued movement. I can come up to 120 P with delivery on day 0, and since you're happy to deliver on my preferred day, I'd ask that your next offer name day 0 as well.",
+    "price": 120,
+    "days": 0
+   },
+   {
+    "tick": 1336,
+    "from": "Rival Noche",
+    "text": "Thank you for coming up to 120, your steady good faith is truly appreciated. We'd be glad to move to 151, and we remain very happy to work with you on delivery timing.",
+    "price": 151,
+    "days": 10
+   },
+   {
+    "tick": 1336,
+    "from": "you",
+    "text": "Thank you for moving again. I can come up to 128 P with delivery on day 0, and since you say you're happy to deliver on my preferred day, I'd ask that your next offer name day 0.",
+    "price": 128,
+    "days": 0
+   }
+  ],
+  "result": 16.5,
+  "price": 120,
+  "days": 0
+ }
 }
