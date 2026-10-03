@@ -1,15 +1,15 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 17:01** · tick 813 (30 s/tick) · game hour 8.10 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 17:06** · tick 823 (30 s/tick) · game hour 8.18 · running · today closes 23:00._
 
 ## Team: now and latest
 
 _From `team/<name>.md`; each person writes only their own file._
 
 **Aleks** — Duels I done (30/34 deals, 13.93 duel points). **Duels II ≈ 20:33** (PLAN #18). **Duelist LIVE on 4699673** (Duels II days + rounds rollback, Opus medium + Sonnet low). Duel Lab picks (PLAN #20) decided 16:24 and handed to my Builder: 18% step cap, days (no C/2 pre-pay, late switch at 4 left, middle-day opener → our corner), SILENT_KEEP 0.15; merge by 19:30. **Restart by ~20:15** after the full suite: `agents/duelist/supervise.sh --negotiator-model claude-sonnet-5-5 --effort medium --negotiator-effort low`. First wave: no step > 18% of the gap outside the last 3 ticks, day reading ≠ CAN'T READ, `review` pred = points, share per deal vs 0.58.
+  - Sat 17:01 · duelist restarted on Aleks's call (HEAD 81f6cd1; latest duelist code is still 69ef465, nothing newer), same flags; full suite 418 pass, no live duels; one process · log `logs/duelist/supervise-20261003-1701.log` · open: PLAN #22 (duel accepts not limited per tick: remove `runner.accepted_tick` serialization) not yet coded
   - Sat 16:55 · **duel rival book** → `docs/duel-rivals.md` (68 records; consecutive duel ids = one rival team, verified: all 17 pairs same item, opposite roles) · **scripted vs LLM:** Duels I 16/17 scripted (fixed lines, formula prices: constant steps, midpoint, fixed repeat; 0 of 176 rival messages name our numbers), 1 silent (Team 11 [L]), **0 LLM**; Friday had 1 LLM team (121/122), which sent only its fallback line in Duels I (2318/2319) · clusters: followers (10/10 deals, 3.0 rounds), clock bots (7.6 rounds per deal), holders, accept-only, silent · replay 'stay silent vs clock bots': +32 P on 3 teams, −54 P on R15, −24 P overall → no blanket rule; a per-team fact by wording is possible (not built) · watch: days break un-updated bots (missing_days), wording may change, R3's LLM may return
   - Sat 16:30 · duelist restarted on the Duel Lab changes (69ef465, HEAD 46dfd5d), same flags (Opus medium + Sonnet low); full suite 417 pass, no live duels; reads Duels II (≈ 20:33) · log `logs/duelist/supervise-20261003-1630.log` · next: day reading at the first days duel
-  - Sat 16:31 · Builder · **Duel Lab changes merged** (69ef465, Aleks's 16:24 picks, PLAN #20): (1) step cap `MAX_STEP_SHARE` 0.18: a mid-duel concession above 18% of the gap (in worth) is cut to it with code's text, rule `capped`, then the 3 P floor (under a ~17 P gap nothing goes out until the last 3 ticks); ledger + strategist name the largest step; (2) days hold = keep our day, no C/2 pre-pay; (3) late switch: once, from 4 ticks left (runner decides that tick), days apart and direction sure → their day at a worth-neutral price; (4) middle-day rival under linear weights → hold, answer with our end (no far-corner gift); (5) `SILENT_KEEP` 0.3 → 0.15 · full suite 417 pass (11 duelist tests fail on the old code) · smoke (real models, Opus medium + Sonnet low): price duel 70 → 65 (5 P, inside the 7 P cap, sent as drafted; strategist 5.9 s); days duel 70 day 4 → 64 day 10 + 'day 4 at 70' in words (middle day → our end, as the Lab asks; 7.3 s); neither drafted a step big enough to cut, so the cut and the switch were checked on the runner offline: `offer 126 P [capped] :: I can do 126 P.` and `offer 105 P day 0 [late switch] :: I can do 105 P, delivery on day 0.` · **not live: restart by ~20:15 (Aleks) with `agents/duelist/supervise.sh --negotiator-model claude-sonnet-5-5 --effort medium --negotiator-effort low`** · first-wave gates: no concession over 18% of the gap outside the last 3 ticks; day reading not CAN'T READ; `review` pred = points on days deals; our share per deal vs Duels I's ~0.58
 
 **Dani** — Desk, still open: Q6 (do duel threads count in the 6 open conversations? Duels II runs 6 at once ≈ 18:29), venue bond cooldown length, Q7 judging, Q4 ladder "price range" (do above-list deals count?), Q3 cap flat 50 or 5×book. Answered: stale `day_closes fri` did nothing (Lucas 10:50); Round 3 + CHA re-anchored to Sun ≈ 09:29 (server, log 11:44). Room: RET holders/collectors in log 11:44; steer other teams' trades to our v10 (0% fee: one trade there took us #4 → #2 at 10:45); no sell pitches (no line in `intel/opportunities.md` is live; top 4 at tick 424: t14, t13, t18, t12, and it moves every few minutes, so check the live board). Pitch draft with Lucas during Duels I (11:59-~13:34). Dashboard on my laptop (http://127.0.0.1:8765, read-only; Duel monitor tab at `#duelmon` for Duels I/II/III) rewrites `intel/teams.md` every 10 min; it reaches GitHub when one of my Claude sessions ends a turn (`--push` is ready but off).
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
@@ -25,9 +25,9 @@ _From `team/<name>.md`; each person writes only their own file._
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 29.73 | 2 | 22.23 | 7.50 | 13.93 | 0.33 | 0.88 | 47 | 4 | 72 | 39/50 |
+| 29.73 | 2 | 22.23 | 7.50 | 13.93 | 0.37 | 0.88 | 48 | 4 | 92 | 38/50 |
 
-Leaderboard (snapshot at tick 810; refreshes every few minutes):
+Leaderboard (snapshot at tick 820; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 8.67 | ~34 min | persona_opens | Los Pícaros opens for everyone |
-| 9.00 | ~54 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.15 | ~63 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
-| 11.00 | ~174 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~183 min | persona_patch | The fever breaks |
-| 11.65 | ~213 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~294 min | bench | The Market Test: every venue gets the same synthetic book |
-| 14.08 | ~359 min (after today's close) | day_closes | Closed until Sunday 09:00 |
+| 8.67 | ~29 min | persona_opens | Los Pícaros opens for everyone |
+| 9.00 | ~49 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.15 | ~58 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
+| 11.00 | ~169 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~178 min | persona_patch | The fever breaks |
+| 11.65 | ~208 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~289 min | bench | The Market Test: every venue gets the same synthetic book |
+| 14.08 | ~354 min | day_closes | Closed until Sunday 09:00 |
 
 ## Our dealer deals
 
@@ -58,7 +58,6 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Thread | Dealer | Side | Item | Her first | Our first | Deal | vs her first | Msgs | Status | Closed |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 104 | abuela | sell | 1 card(s) | 5 | 9 | 6 | +20% | 7 | deal |  |
 | 114 | abuela | sell | 1 card(s) | 5 | 9 | 5 | +0% | 9 | deal |  |
 | 124 | abuela | sell | 1 card(s) | 5 | 9 | 5 | +0% | 9 | deal |  |
 | 136 | abuela | sell | 1 card(s) | — | — | — | — | 0 | closed |  |
@@ -103,13 +102,14 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | 1092 | picaros | sell | 1 card(s) | 4 | 20 | — | — | 2 | closed |  |
 | 1097 | picaros | buy | SAL-10 | 73 | 44 | — | — | 7 | closed |  |
 | 1118 | picaros | buy | SAL-10 | 73 | 44 | 54 | -26% | 9 | deal |  |
+| 1150 | pilar | sell | 1 card(s) | 16 | 30 | 20 | +25% | 13 | deal |  |
 
 ## Abuela benchmark: every team's deals with her (public feed)
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
 | common card | team buys | 67 | 9 | 7 | 12 | 5 | 9 |
-| common card | team sells | 92 | 6.00 | 2 | 23 | 5 | 5.40 |
+| common card | team sells | 94 | 6.00 | 2 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 42 | 22.00 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 74 | 22.50 | 17 | 29 | 5 | 24.20 |
 | uncommon card | team sells | 9 | 14 | 12 | 17 | 0 | — |
