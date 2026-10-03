@@ -138,6 +138,730 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 569,
+   "raw": {
+    "duel": 2461,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Heroína del Dos de Mayo",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 170,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Sol",
+    "deadline_tick": 583,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 5006,
+     "price": 105,
+     "tick": 568,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 5026,
+     "price": 178,
+     "tick": 569,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 567,
+      "from": "you",
+      "text": "I'd like to open at 95 P for La Heroína del Dos de Mayo. That reflects a fair price given condition and resale uncertainty, and I'm keen to move efficiently. What figure did you have in mind?",
+      "price": 95,
+      "days": null
+     },
+     {
+      "tick": 567,
+      "from": "Rival Sol",
+      "text": "Happy to sell La Heroína del Dos de Mayo for 180 primas, a fair price we can close on right away.",
+      "price": 180,
+      "days": null
+     },
+     {
+      "tick": 568,
+      "from": "you",
+      "text": "I've moved up to 105 P as a show of good faith. Given the condition and the resale risk I'm taking on, I'd need to see your figure come down meaningfully from where it started. Where can you meet me?",
+      "price": 105,
+      "days": null
+     },
+     {
+      "tick": 569,
+      "from": "Rival Sol",
+      "text": "178 P works for me and we can close now.",
+      "price": 178,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 569,
+   "raw": {
+    "duel": 2461,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Heroína del Dos de Mayo",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 170,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Sol",
+    "deadline_tick": 583,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 5029,
+     "price": 107,
+     "tick": 569,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 5026,
+     "price": 178,
+     "tick": 569,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 567,
+      "from": "you",
+      "text": "I'd like to open at 95 P for La Heroína del Dos de Mayo. That reflects a fair price given condition and resale uncertainty, and I'm keen to move efficiently. What figure did you have in mind?",
+      "price": 95,
+      "days": null
+     },
+     {
+      "tick": 567,
+      "from": "Rival Sol",
+      "text": "Happy to sell La Heroína del Dos de Mayo for 180 primas, a fair price we can close on right away.",
+      "price": 180,
+      "days": null
+     },
+     {
+      "tick": 568,
+      "from": "you",
+      "text": "I've moved up to 105 P as a show of good faith. Given the condition and the resale risk I'm taking on, I'd need to see your figure come down meaningfully from where it started. Where can you meet me?",
+      "price": 105,
+      "days": null
+     },
+     {
+      "tick": 569,
+      "from": "Rival Sol",
+      "text": "178 P works for me and we can close now.",
+      "price": 178,
+      "days": null
+     },
+     {
+      "tick": 569,
+      "from": "you",
+      "text": "I've stepped up to 107 P, but a 2 P move from your side isn't a serious step toward me. I need to see a real cut from your figure before I can go further, so what room do you have to come down meaningfully?",
+      "price": 107,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 570,
+   "raw": {
+    "duel": 2461,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Heroína del Dos de Mayo",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 170,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Sol",
+    "deadline_tick": 583,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 5029,
+     "price": 107,
+     "tick": 569,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 5041,
+     "price": 176,
+     "tick": 570,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 567,
+      "from": "you",
+      "text": "I'd like to open at 95 P for La Heroína del Dos de Mayo. That reflects a fair price given condition and resale uncertainty, and I'm keen to move efficiently. What figure did you have in mind?",
+      "price": 95,
+      "days": null
+     },
+     {
+      "tick": 567,
+      "from": "Rival Sol",
+      "text": "Happy to sell La Heroína del Dos de Mayo for 180 primas, a fair price we can close on right away.",
+      "price": 180,
+      "days": null
+     },
+     {
+      "tick": 568,
+      "from": "you",
+      "text": "I've moved up to 105 P as a show of good faith. Given the condition and the resale risk I'm taking on, I'd need to see your figure come down meaningfully from where it started. Where can you meet me?",
+      "price": 105,
+      "days": null
+     },
+     {
+      "tick": 569,
+      "from": "Rival Sol",
+      "text": "178 P works for me and we can close now.",
+      "price": 178,
+      "days": null
+     },
+     {
+      "tick": 569,
+      "from": "you",
+      "text": "I've stepped up to 107 P, but a 2 P move from your side isn't a serious step toward me. I need to see a real cut from your figure before I can go further, so what room do you have to come down meaningfully?",
+      "price": 107,
+      "days": null
+     },
+     {
+      "tick": 570,
+      "from": "Rival Sol",
+      "text": "Meeting you closer: 176 P.",
+      "price": 176,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 570,
+   "raw": {
+    "duel": 2461,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Heroína del Dos de Mayo",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 170,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Sol",
+    "deadline_tick": 583,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 5044,
+     "price": 108,
+     "tick": 570,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 5041,
+     "price": 176,
+     "tick": 570,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 567,
+      "from": "you",
+      "text": "I'd like to open at 95 P for La Heroína del Dos de Mayo. That reflects a fair price given condition and resale uncertainty, and I'm keen to move efficiently. What figure did you have in mind?",
+      "price": 95,
+      "days": null
+     },
+     {
+      "tick": 567,
+      "from": "Rival Sol",
+      "text": "Happy to sell La Heroína del Dos de Mayo for 180 primas, a fair price we can close on right away.",
+      "price": 180,
+      "days": null
+     },
+     {
+      "tick": 568,
+      "from": "you",
+      "text": "I've moved up to 105 P as a show of good faith. Given the condition and the resale risk I'm taking on, I'd need to see your figure come down meaningfully from where it started. Where can you meet me?",
+      "price": 105,
+      "days": null
+     },
+     {
+      "tick": 569,
+      "from": "Rival Sol",
+      "text": "178 P works for me and we can close now.",
+      "price": 178,
+      "days": null
+     },
+     {
+      "tick": 569,
+      "from": "you",
+      "text": "I've stepped up to 107 P, but a 2 P move from your side isn't a serious step toward me. I need to see a real cut from your figure before I can go further, so what room do you have to come down meaningfully?",
+      "price": 107,
+      "days": null
+     },
+     {
+      "tick": 570,
+      "from": "Rival Sol",
+      "text": "Meeting you closer: 176 P.",
+      "price": 176,
+      "days": null
+     },
+     {
+      "tick": 570,
+      "from": "you",
+      "text": "I can go to 108 P, a small step to match yours. The gap between us is still large, and small moves from either side won't close it. Show me a substantial cut and I'll respond in kind.",
+      "price": 108,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 571,
+   "raw": {
+    "duel": 2461,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Heroína del Dos de Mayo",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 170,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Sol",
+    "deadline_tick": 583,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 5044,
+     "price": 108,
+     "tick": 570,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 5061,
+     "price": 174,
+     "tick": 571,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 567,
+      "from": "you",
+      "text": "I'd like to open at 95 P for La Heroína del Dos de Mayo. That reflects a fair price given condition and resale uncertainty, and I'm keen to move efficiently. What figure did you have in mind?",
+      "price": 95,
+      "days": null
+     },
+     {
+      "tick": 567,
+      "from": "Rival Sol",
+      "text": "Happy to sell La Heroína del Dos de Mayo for 180 primas, a fair price we can close on right away.",
+      "price": 180,
+      "days": null
+     },
+     {
+      "tick": 568,
+      "from": "you",
+      "text": "I've moved up to 105 P as a show of good faith. Given the condition and the resale risk I'm taking on, I'd need to see your figure come down meaningfully from where it started. Where can you meet me?",
+      "price": 105,
+      "days": null
+     },
+     {
+      "tick": 569,
+      "from": "Rival Sol",
+      "text": "178 P works for me and we can close now.",
+      "price": 178,
+      "days": null
+     },
+     {
+      "tick": 569,
+      "from": "you",
+      "text": "I've stepped up to 107 P, but a 2 P move from your side isn't a serious step toward me. I need to see a real cut from your figure before I can go further, so what room do you have to come down meaningfully?",
+      "price": 107,
+      "days": null
+     },
+     {
+      "tick": 570,
+      "from": "Rival Sol",
+      "text": "Meeting you closer: 176 P.",
+      "price": 176,
+      "days": null
+     },
+     {
+      "tick": 570,
+      "from": "you",
+      "text": "I can go to 108 P, a small step to match yours. The gap between us is still large, and small moves from either side won't close it. Show me a substantial cut and I'll respond in kind.",
+      "price": 108,
+      "days": null
+     },
+     {
+      "tick": 571,
+      "from": "Rival Sol",
+      "text": "A real step from me: 174 P.",
+      "price": 174,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 571,
+   "raw": {
+    "duel": 2461,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Heroína del Dos de Mayo",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 170,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Sol",
+    "deadline_tick": 583,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 5065,
+     "price": 109,
+     "tick": 571,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 5061,
+     "price": 174,
+     "tick": 571,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 567,
+      "from": "you",
+      "text": "I'd like to open at 95 P for La Heroína del Dos de Mayo. That reflects a fair price given condition and resale uncertainty, and I'm keen to move efficiently. What figure did you have in mind?",
+      "price": 95,
+      "days": null
+     },
+     {
+      "tick": 567,
+      "from": "Rival Sol",
+      "text": "Happy to sell La Heroína del Dos de Mayo for 180 primas, a fair price we can close on right away.",
+      "price": 180,
+      "days": null
+     },
+     {
+      "tick": 568,
+      "from": "you",
+      "text": "I've moved up to 105 P as a show of good faith. Given the condition and the resale risk I'm taking on, I'd need to see your figure come down meaningfully from where it started. Where can you meet me?",
+      "price": 105,
+      "days": null
+     },
+     {
+      "tick": 569,
+      "from": "Rival Sol",
+      "text": "178 P works for me and we can close now.",
+      "price": 178,
+      "days": null
+     },
+     {
+      "tick": 569,
+      "from": "you",
+      "text": "I've stepped up to 107 P, but a 2 P move from your side isn't a serious step toward me. I need to see a real cut from your figure before I can go further, so what room do you have to come down meaningfully?",
+      "price": 107,
+      "days": null
+     },
+     {
+      "tick": 570,
+      "from": "Rival Sol",
+      "text": "Meeting you closer: 176 P.",
+      "price": 176,
+      "days": null
+     },
+     {
+      "tick": 570,
+      "from": "you",
+      "text": "I can go to 108 P, a small step to match yours. The gap between us is still large, and small moves from either side won't close it. Show me a substantial cut and I'll respond in kind.",
+      "price": 108,
+      "days": null
+     },
+     {
+      "tick": 571,
+      "from": "Rival Sol",
+      "text": "A real step from me: 174 P.",
+      "price": 174,
+      "days": null
+     },
+     {
+      "tick": 571,
+      "from": "you",
+      "text": "I'll move to 109 P, a small step to match yours. Steps of 2 P from where you started won't bridge a gap this size. If you can make a substantive move below 160, I'll respond in kind.",
+      "price": 109,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 572,
+   "raw": {
+    "duel": 2461,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Heroína del Dos de Mayo",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 170,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Sol",
+    "deadline_tick": 583,
+    "decay_per_round": 0.06,
+    "rounds": 5,
+    "your_offer": {
+     "id": 5065,
+     "price": 109,
+     "tick": 571,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 5078,
+     "price": 172,
+     "tick": 572,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 567,
+      "from": "you",
+      "text": "I'd like to open at 95 P for La Heroína del Dos de Mayo. That reflects a fair price given condition and resale uncertainty, and I'm keen to move efficiently. What figure did you have in mind?",
+      "price": 95,
+      "days": null
+     },
+     {
+      "tick": 567,
+      "from": "Rival Sol",
+      "text": "Happy to sell La Heroína del Dos de Mayo for 180 primas, a fair price we can close on right away.",
+      "price": 180,
+      "days": null
+     },
+     {
+      "tick": 568,
+      "from": "you",
+      "text": "I've moved up to 105 P as a show of good faith. Given the condition and the resale risk I'm taking on, I'd need to see your figure come down meaningfully from where it started. Where can you meet me?",
+      "price": 105,
+      "days": null
+     },
+     {
+      "tick": 569,
+      "from": "Rival Sol",
+      "text": "178 P works for me and we can close now.",
+      "price": 178,
+      "days": null
+     },
+     {
+      "tick": 569,
+      "from": "you",
+      "text": "I've stepped up to 107 P, but a 2 P move from your side isn't a serious step toward me. I need to see a real cut from your figure before I can go further, so what room do you have to come down meaningfully?",
+      "price": 107,
+      "days": null
+     },
+     {
+      "tick": 570,
+      "from": "Rival Sol",
+      "text": "Meeting you closer: 176 P.",
+      "price": 176,
+      "days": null
+     },
+     {
+      "tick": 570,
+      "from": "you",
+      "text": "I can go to 108 P, a small step to match yours. The gap between us is still large, and small moves from either side won't close it. Show me a substantial cut and I'll respond in kind.",
+      "price": 108,
+      "days": null
+     },
+     {
+      "tick": 571,
+      "from": "Rival Sol",
+      "text": "A real step from me: 174 P.",
+      "price": 174,
+      "days": null
+     },
+     {
+      "tick": 571,
+      "from": "you",
+      "text": "I'll move to 109 P, a small step to match yours. Steps of 2 P from where you started won't bridge a gap this size. If you can make a substantive move below 160, I'll respond in kind.",
+      "price": 109,
+      "days": null
+     },
+     {
+      "tick": 572,
+      "from": "Rival Sol",
+      "text": "I can do 172 P. Every round costs us both, so let's close.",
+      "price": 172,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 572,
+   "raw": {
+    "duel": 2461,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Heroína del Dos de Mayo",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 170,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Sol",
+    "deadline_tick": 583,
+    "decay_per_round": 0.06,
+    "rounds": 5,
+    "your_offer": {
+     "id": 5080,
+     "price": 110,
+     "tick": 572,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 5078,
+     "price": 172,
+     "tick": 572,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 567,
+      "from": "you",
+      "text": "I'd like to open at 95 P for La Heroína del Dos de Mayo. That reflects a fair price given condition and resale uncertainty, and I'm keen to move efficiently. What figure did you have in mind?",
+      "price": 95,
+      "days": null
+     },
+     {
+      "tick": 567,
+      "from": "Rival Sol",
+      "text": "Happy to sell La Heroína del Dos de Mayo for 180 primas, a fair price we can close on right away.",
+      "price": 180,
+      "days": null
+     },
+     {
+      "tick": 568,
+      "from": "you",
+      "text": "I've moved up to 105 P as a show of good faith. Given the condition and the resale risk I'm taking on, I'd need to see your figure come down meaningfully from where it started. Where can you meet me?",
+      "price": 105,
+      "days": null
+     },
+     {
+      "tick": 569,
+      "from": "Rival Sol",
+      "text": "178 P works for me and we can close now.",
+      "price": 178,
+      "days": null
+     },
+     {
+      "tick": 569,
+      "from": "you",
+      "text": "I've stepped up to 107 P, but a 2 P move from your side isn't a serious step toward me. I need to see a real cut from your figure before I can go further, so what room do you have to come down meaningfully?",
+      "price": 107,
+      "days": null
+     },
+     {
+      "tick": 570,
+      "from": "Rival Sol",
+      "text": "Meeting you closer: 176 P.",
+      "price": 176,
+      "days": null
+     },
+     {
+      "tick": 570,
+      "from": "you",
+      "text": "I can go to 108 P, a small step to match yours. The gap between us is still large, and small moves from either side won't close it. Show me a substantial cut and I'll respond in kind.",
+      "price": 108,
+      "days": null
+     },
+     {
+      "tick": 571,
+      "from": "Rival Sol",
+      "text": "A real step from me: 174 P.",
+      "price": 174,
+      "days": null
+     },
+     {
+      "tick": 571,
+      "from": "you",
+      "text": "I'll move to 109 P, a small step to match yours. Steps of 2 P from where you started won't bridge a gap this size. If you can make a substantive move below 160, I'll respond in kind.",
+      "price": 109,
+      "days": null
+     },
+     {
+      "tick": 572,
+      "from": "Rival Sol",
+      "text": "I can do 172 P. Every round costs us both, so let's close.",
+      "price": 172,
+      "days": null
+     },
+     {
+      "tick": 572,
+      "from": "you",
+      "text": "I'll move to 110 P. Your steps of 2 P leave us very far apart, and each round costs us both, so a real cut is needed. Bring your figure into the 150s and I'll respond with a meaningful move of my own.",
+      "price": 110,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -353,6 +1077,686 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 569,
+   "took_s": 6.83,
+   "cost_usd": 0.006659999999999999,
+   "obs": {
+    "view": {
+     "duel_id": 2461,
+     "role": "buyer",
+     "limit": 170,
+     "currency": "P",
+     "item": "La Heroína del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 95 P for La Heroína del Dos de Mayo. That reflects a fair price given condition and resale uncertainty, and I'm keen to move efficiently. What figure did you have in mind?",
+      "offer": {
+       "price": 95,
+       "days": null
+      },
+      "accept": false,
+      "tick": 567,
+      "decision": {
+       "action": "offer",
+       "price": 95,
+       "message": "I'd like to open at 95 P for La Heroína del Dos de Mayo. That reflects a fair price given condition and resale uncertainty, and I'm keen to move efficiently. What figure did you have in mind?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Happy to sell La Heroína del Dos de Mayo for 180 primas, a fair price we can close on right away.",
+      "offer": {
+       "price": 180,
+       "days": null
+      },
+      "accept": false,
+      "tick": 567,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've moved up to 105 P as a show of good faith. Given the condition and the resale risk I'm taking on, I'd need to see your figure come down meaningfully from where it started. Where can you meet me?",
+      "offer": {
+       "price": 105,
+       "days": null
+      },
+      "accept": false,
+      "tick": 568,
+      "decision": {
+       "action": "offer",
+       "price": 105,
+       "message": "I've moved up to 105 P as a show of good faith. Given the condition and the resale risk I'm taking on, I'd need to see your figure come down meaningfully from where it started. Where can you meet me?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "178 P works for me and we can close now.",
+      "offer": {
+       "price": 178,
+       "days": null
+      },
+      "accept": false,
+      "tick": 569,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 178,
+     "days": null
+    },
+    "tick": 569,
+    "ticks_left": 14,
+    "rounds": 2
+   },
+   "move": {
+    "action": "offer",
+    "text": "I've stepped up to 107 P, but a 2 P move from your side isn't a serious step toward me. I need to see a real cut from your figure before I can go further, so what room do you have to come down meaningfully?",
+    "price": 107,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 107,
+      "message": "I've stepped up to 107 P, but a 2 P move from your side isn't a serious step toward me. I need to see a real cut from your figure before I can go further, so what room do you have to come down meaningfully?"
+     },
+     "band": {
+      "worst": 108,
+      "target": 107,
+      "best": 105
+     },
+     "plan": {
+      "read": "They moved only 2 P (180 to 178) against our 10 P; the 'close now' line is pressure, not movement, and their offer is still past what we can pay.",
+      "target": 107,
+      "best": 105,
+      "worst": 108,
+      "days": null,
+      "angle": "Make only a token step and stress that their 2 P move is not serious; ask for a real cut toward the low 100s-to-130s before we move further."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.23,
+       "in": 570,
+       "out": 130,
+       "cost_usd": 0.00488,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.59,
+       "in": 461,
+       "out": 86,
+       "cost_usd": 0.00178,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 570,
+   "took_s": 5.36,
+   "cost_usd": 0.00759,
+   "obs": {
+    "view": {
+     "duel_id": 2461,
+     "role": "buyer",
+     "limit": 170,
+     "currency": "P",
+     "item": "La Heroína del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 95 P for La Heroína del Dos de Mayo. That reflects a fair price given condition and resale uncertainty, and I'm keen to move efficiently. What figure did you have in mind?",
+      "offer": {
+       "price": 95,
+       "days": null
+      },
+      "accept": false,
+      "tick": 567,
+      "decision": {
+       "action": "offer",
+       "price": 95,
+       "message": "I'd like to open at 95 P for La Heroína del Dos de Mayo. That reflects a fair price given condition and resale uncertainty, and I'm keen to move efficiently. What figure did you have in mind?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Happy to sell La Heroína del Dos de Mayo for 180 primas, a fair price we can close on right away.",
+      "offer": {
+       "price": 180,
+       "days": null
+      },
+      "accept": false,
+      "tick": 567,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've moved up to 105 P as a show of good faith. Given the condition and the resale risk I'm taking on, I'd need to see your figure come down meaningfully from where it started. Where can you meet me?",
+      "offer": {
+       "price": 105,
+       "days": null
+      },
+      "accept": false,
+      "tick": 568,
+      "decision": {
+       "action": "offer",
+       "price": 105,
+       "message": "I've moved up to 105 P as a show of good faith. Given the condition and the resale risk I'm taking on, I'd need to see your figure come down meaningfully from where it started. Where can you meet me?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "178 P works for me and we can close now.",
+      "offer": {
+       "price": 178,
+       "days": null
+      },
+      "accept": false,
+      "tick": 569,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've stepped up to 107 P, but a 2 P move from your side isn't a serious step toward me. I need to see a real cut from your figure before I can go further, so what room do you have to come down meaningfully?",
+      "offer": {
+       "price": 107,
+       "days": null
+      },
+      "accept": false,
+      "tick": 569,
+      "decision": {
+       "action": "offer",
+       "price": 107,
+       "message": "I've stepped up to 107 P, but a 2 P move from your side isn't a serious step toward me. I need to see a real cut from your figure before I can go further, so what room do you have to come down meaningfully?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Meeting you closer: 176 P.",
+      "offer": {
+       "price": 176,
+       "days": null
+      },
+      "accept": false,
+      "tick": 570,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 176,
+     "days": null
+    },
+    "tick": 570,
+    "ticks_left": 13,
+    "rounds": 3
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can go to 108 P, a small step to match yours. The gap between us is still large, and small moves from either side won't close it. Show me a substantial cut and I'll respond in kind.",
+    "price": 108,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 108,
+      "message": "I can go to 108 P, a small step to match yours. The gap between us is still large, and small moves from either side won't close it. Show me a substantial cut and I'll respond in kind."
+     },
+     "band": {
+      "worst": 109,
+      "target": 108,
+      "best": 107
+     },
+     "plan": {
+      "read": "They moved 2 P again (178 to 176), still above what we can pay; their steps are token concessions and 'close now' framing is pressure, not movement.",
+      "target": 108,
+      "best": 107,
+      "worst": 109,
+      "days": null,
+      "angle": "Match their small step with an even smaller one and stress that their 2 P moves leave a huge gap; ask for a substantial cut toward the low 100s-150 range before we move meaningfully."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.37,
+       "in": 706,
+       "out": 142,
+       "cost_usd": 0.00566,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.99,
+       "in": 585,
+       "out": 76,
+       "cost_usd": 0.00193,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 571,
+   "took_s": 5.75,
+   "cost_usd": 0.00844,
+   "obs": {
+    "view": {
+     "duel_id": 2461,
+     "role": "buyer",
+     "limit": 170,
+     "currency": "P",
+     "item": "La Heroína del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 95 P for La Heroína del Dos de Mayo. That reflects a fair price given condition and resale uncertainty, and I'm keen to move efficiently. What figure did you have in mind?",
+      "offer": {
+       "price": 95,
+       "days": null
+      },
+      "accept": false,
+      "tick": 567,
+      "decision": {
+       "action": "offer",
+       "price": 95,
+       "message": "I'd like to open at 95 P for La Heroína del Dos de Mayo. That reflects a fair price given condition and resale uncertainty, and I'm keen to move efficiently. What figure did you have in mind?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Happy to sell La Heroína del Dos de Mayo for 180 primas, a fair price we can close on right away.",
+      "offer": {
+       "price": 180,
+       "days": null
+      },
+      "accept": false,
+      "tick": 567,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've moved up to 105 P as a show of good faith. Given the condition and the resale risk I'm taking on, I'd need to see your figure come down meaningfully from where it started. Where can you meet me?",
+      "offer": {
+       "price": 105,
+       "days": null
+      },
+      "accept": false,
+      "tick": 568,
+      "decision": {
+       "action": "offer",
+       "price": 105,
+       "message": "I've moved up to 105 P as a show of good faith. Given the condition and the resale risk I'm taking on, I'd need to see your figure come down meaningfully from where it started. Where can you meet me?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "178 P works for me and we can close now.",
+      "offer": {
+       "price": 178,
+       "days": null
+      },
+      "accept": false,
+      "tick": 569,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've stepped up to 107 P, but a 2 P move from your side isn't a serious step toward me. I need to see a real cut from your figure before I can go further, so what room do you have to come down meaningfully?",
+      "offer": {
+       "price": 107,
+       "days": null
+      },
+      "accept": false,
+      "tick": 569,
+      "decision": {
+       "action": "offer",
+       "price": 107,
+       "message": "I've stepped up to 107 P, but a 2 P move from your side isn't a serious step toward me. I need to see a real cut from your figure before I can go further, so what room do you have to come down meaningfully?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Meeting you closer: 176 P.",
+      "offer": {
+       "price": 176,
+       "days": null
+      },
+      "accept": false,
+      "tick": 570,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can go to 108 P, a small step to match yours. The gap between us is still large, and small moves from either side won't close it. Show me a substantial cut and I'll respond in kind.",
+      "offer": {
+       "price": 108,
+       "days": null
+      },
+      "accept": false,
+      "tick": 570,
+      "decision": {
+       "action": "offer",
+       "price": 108,
+       "message": "I can go to 108 P, a small step to match yours. The gap between us is still large, and small moves from either side won't close it. Show me a substantial cut and I'll respond in kind."
+      }
+     },
+     {
+      "mine": false,
+      "text": "A real step from me: 174 P.",
+      "offer": {
+       "price": 174,
+       "days": null
+      },
+      "accept": false,
+      "tick": 571,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 174,
+     "days": null
+    },
+    "tick": 571,
+    "ticks_left": 12,
+    "rounds": 4
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'll move to 109 P, a small step to match yours. Steps of 2 P from where you started won't bridge a gap this size. If you can make a substantive move below 160, I'll respond in kind.",
+    "price": 109,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 109,
+      "message": "I'll move to 109 P, a small step to match yours. Steps of 2 P from where you started won't bridge a gap this size. If you can make a substantive move below 160, I'll respond in kind."
+     },
+     "band": {
+      "worst": 110,
+      "target": 109,
+      "best": 108
+     },
+     "plan": {
+      "read": "They moved 2 P again to 174, still above what we'd pay; their steps are tiny and steady, a slow-grind pattern. We've already out-conceded them, so small matching steps only.",
+      "target": 109,
+      "best": 108,
+      "worst": 110,
+      "days": null,
+      "angle": "Make a token 1 P step and stress that their 2 P increments from 180 won't bridge a gap this size; ask for a substantive move below 160 before we go further."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.58,
+       "in": 831,
+       "out": 146,
+       "cost_usd": 0.00624,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.17,
+       "in": 689,
+       "out": 82,
+       "cost_usd": 0.0022,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 572,
+   "took_s": 6.46,
+   "cost_usd": 0.009219999999999999,
+   "obs": {
+    "view": {
+     "duel_id": 2461,
+     "role": "buyer",
+     "limit": 170,
+     "currency": "P",
+     "item": "La Heroína del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 95 P for La Heroína del Dos de Mayo. That reflects a fair price given condition and resale uncertainty, and I'm keen to move efficiently. What figure did you have in mind?",
+      "offer": {
+       "price": 95,
+       "days": null
+      },
+      "accept": false,
+      "tick": 567,
+      "decision": {
+       "action": "offer",
+       "price": 95,
+       "message": "I'd like to open at 95 P for La Heroína del Dos de Mayo. That reflects a fair price given condition and resale uncertainty, and I'm keen to move efficiently. What figure did you have in mind?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Happy to sell La Heroína del Dos de Mayo for 180 primas, a fair price we can close on right away.",
+      "offer": {
+       "price": 180,
+       "days": null
+      },
+      "accept": false,
+      "tick": 567,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've moved up to 105 P as a show of good faith. Given the condition and the resale risk I'm taking on, I'd need to see your figure come down meaningfully from where it started. Where can you meet me?",
+      "offer": {
+       "price": 105,
+       "days": null
+      },
+      "accept": false,
+      "tick": 568,
+      "decision": {
+       "action": "offer",
+       "price": 105,
+       "message": "I've moved up to 105 P as a show of good faith. Given the condition and the resale risk I'm taking on, I'd need to see your figure come down meaningfully from where it started. Where can you meet me?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "178 P works for me and we can close now.",
+      "offer": {
+       "price": 178,
+       "days": null
+      },
+      "accept": false,
+      "tick": 569,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've stepped up to 107 P, but a 2 P move from your side isn't a serious step toward me. I need to see a real cut from your figure before I can go further, so what room do you have to come down meaningfully?",
+      "offer": {
+       "price": 107,
+       "days": null
+      },
+      "accept": false,
+      "tick": 569,
+      "decision": {
+       "action": "offer",
+       "price": 107,
+       "message": "I've stepped up to 107 P, but a 2 P move from your side isn't a serious step toward me. I need to see a real cut from your figure before I can go further, so what room do you have to come down meaningfully?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Meeting you closer: 176 P.",
+      "offer": {
+       "price": 176,
+       "days": null
+      },
+      "accept": false,
+      "tick": 570,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can go to 108 P, a small step to match yours. The gap between us is still large, and small moves from either side won't close it. Show me a substantial cut and I'll respond in kind.",
+      "offer": {
+       "price": 108,
+       "days": null
+      },
+      "accept": false,
+      "tick": 570,
+      "decision": {
+       "action": "offer",
+       "price": 108,
+       "message": "I can go to 108 P, a small step to match yours. The gap between us is still large, and small moves from either side won't close it. Show me a substantial cut and I'll respond in kind."
+      }
+     },
+     {
+      "mine": false,
+      "text": "A real step from me: 174 P.",
+      "offer": {
+       "price": 174,
+       "days": null
+      },
+      "accept": false,
+      "tick": 571,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'll move to 109 P, a small step to match yours. Steps of 2 P from where you started won't bridge a gap this size. If you can make a substantive move below 160, I'll respond in kind.",
+      "offer": {
+       "price": 109,
+       "days": null
+      },
+      "accept": false,
+      "tick": 571,
+      "decision": {
+       "action": "offer",
+       "price": 109,
+       "message": "I'll move to 109 P, a small step to match yours. Steps of 2 P from where you started won't bridge a gap this size. If you can make a substantive move below 160, I'll respond in kind."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I can do 172 P. Every round costs us both, so let's close.",
+      "offer": {
+       "price": 172,
+       "days": null
+      },
+      "accept": false,
+      "tick": 572,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 172,
+     "days": null
+    },
+    "tick": 572,
+    "ticks_left": 11,
+    "rounds": 5
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'll move to 110 P. Your steps of 2 P leave us very far apart, and each round costs us both, so a real cut is needed. Bring your figure into the 150s and I'll respond with a meaningful move of my own.",
+    "price": 110,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 110,
+      "message": "I'll move to 110 P. Your steps of 2 P leave us very far apart, and each round costs us both, so a real cut is needed. Bring your figure into the 150s and I'll respond with a meaningful move of my own."
+     },
+     "band": {
+      "worst": 111,
+      "target": 110,
+      "best": 109
+     },
+     "plan": {
+      "read": "They dropped 2 P again to 172 P, still past what we can pay; steady 2 P steps signal slow drift, and their 'every round costs' line is pressure, not a concession.",
+      "target": 110,
+      "best": 109,
+      "worst": 111,
+      "days": null,
+      "angle": "Make a token 1 P move and stress that their 2 P steps leave them far off; ask for a real cut into the 150s before we move meaningfully again."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.29,
+       "in": 972,
+       "out": 140,
+       "cost_usd": 0.00669,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.17,
+       "in": 799,
+       "out": 93,
+       "cost_usd": 0.00253,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -466,6 +1870,234 @@
      "id": 5006,
      "price": 105,
      "tick": 568,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 569,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I've stepped up to 107 P, but a 2 P move from your side isn't a serious step toward me. I need to see a real cut from your figure before I can go further, so what room do you have to come down meaningfully?",
+    "price": 107,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 107,
+      "message": "I've stepped up to 107 P, but a 2 P move from your side isn't a serious step toward me. I need to see a real cut from your figure before I can go further, so what room do you have to come down meaningfully?"
+     },
+     "band": {
+      "worst": 108,
+      "target": 107,
+      "best": 105
+     },
+     "plan": {
+      "read": "They moved only 2 P (180 to 178) against our 10 P; the 'close now' line is pressure, not movement, and their offer is still past what we can pay.",
+      "target": 107,
+      "best": 105,
+      "worst": 108,
+      "days": null,
+      "angle": "Make only a token step and stress that their 2 P move is not serious; ask for a real cut toward the low 100s-to-130s before we move further."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.23,
+       "in": 570,
+       "out": 130,
+       "cost_usd": 0.00488,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.59,
+       "in": 461,
+       "out": 86,
+       "cost_usd": 0.00178,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2461,
+    "offer": {
+     "id": 5029,
+     "price": 107,
+     "tick": 569,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 570,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can go to 108 P, a small step to match yours. The gap between us is still large, and small moves from either side won't close it. Show me a substantial cut and I'll respond in kind.",
+    "price": 108,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 108,
+      "message": "I can go to 108 P, a small step to match yours. The gap between us is still large, and small moves from either side won't close it. Show me a substantial cut and I'll respond in kind."
+     },
+     "band": {
+      "worst": 109,
+      "target": 108,
+      "best": 107
+     },
+     "plan": {
+      "read": "They moved 2 P again (178 to 176), still above what we can pay; their steps are token concessions and 'close now' framing is pressure, not movement.",
+      "target": 108,
+      "best": 107,
+      "worst": 109,
+      "days": null,
+      "angle": "Match their small step with an even smaller one and stress that their 2 P moves leave a huge gap; ask for a substantial cut toward the low 100s-150 range before we move meaningfully."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.37,
+       "in": 706,
+       "out": 142,
+       "cost_usd": 0.00566,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.99,
+       "in": 585,
+       "out": 76,
+       "cost_usd": 0.00193,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2461,
+    "offer": {
+     "id": 5044,
+     "price": 108,
+     "tick": 570,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 571,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'll move to 109 P, a small step to match yours. Steps of 2 P from where you started won't bridge a gap this size. If you can make a substantive move below 160, I'll respond in kind.",
+    "price": 109,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 109,
+      "message": "I'll move to 109 P, a small step to match yours. Steps of 2 P from where you started won't bridge a gap this size. If you can make a substantive move below 160, I'll respond in kind."
+     },
+     "band": {
+      "worst": 110,
+      "target": 109,
+      "best": 108
+     },
+     "plan": {
+      "read": "They moved 2 P again to 174, still above what we'd pay; their steps are tiny and steady, a slow-grind pattern. We've already out-conceded them, so small matching steps only.",
+      "target": 109,
+      "best": 108,
+      "worst": 110,
+      "days": null,
+      "angle": "Make a token 1 P step and stress that their 2 P increments from 180 won't bridge a gap this size; ask for a substantive move below 160 before we go further."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.58,
+       "in": 831,
+       "out": 146,
+       "cost_usd": 0.00624,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.17,
+       "in": 689,
+       "out": 82,
+       "cost_usd": 0.0022,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2461,
+    "offer": {
+     "id": 5065,
+     "price": 109,
+     "tick": 571,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 572,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'll move to 110 P. Your steps of 2 P leave us very far apart, and each round costs us both, so a real cut is needed. Bring your figure into the 150s and I'll respond with a meaningful move of my own.",
+    "price": 110,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 110,
+      "message": "I'll move to 110 P. Your steps of 2 P leave us very far apart, and each round costs us both, so a real cut is needed. Bring your figure into the 150s and I'll respond with a meaningful move of my own."
+     },
+     "band": {
+      "worst": 111,
+      "target": 110,
+      "best": 109
+     },
+     "plan": {
+      "read": "They dropped 2 P again to 172 P, still past what we can pay; steady 2 P steps signal slow drift, and their 'every round costs' line is pressure, not a concession.",
+      "target": 110,
+      "best": 109,
+      "worst": 111,
+      "days": null,
+      "angle": "Make a token 1 P move and stress that their 2 P steps leave them far off; ask for a real cut into the 150s before we move meaningfully again."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.29,
+       "in": 972,
+       "out": 140,
+       "cost_usd": 0.00669,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.17,
+       "in": 799,
+       "out": 93,
+       "cost_usd": 0.00253,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2461,
+    "offer": {
+     "id": 5080,
+     "price": 110,
+     "tick": 572,
      "days": 0
     }
    }

@@ -522,3 +522,12 @@
 {"id": 30137, "tick": 566, "t": 6.0417, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2598, "session": 2, "status": "deal", "item": "Café en Goya"}}
 {"id": 30201, "tick": 567, "t": 6.05, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2465, "session": 2, "status": "deal", "item": "El Mesón de la Cava"}}
 {"id": 30204, "tick": 567, "t": 6.05, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2520, "session": 2, "status": "deal", "item": "Mercado de la Paz"}}
+{"id": 30265, "tick": 568, "t": 6.0583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2460, "session": 2, "status": "deal", "item": "La Heroína del Dos de Mayo"}}
+{"id": 30268, "tick": 568, "t": 6.0583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2473, "session": 2, "status": "deal", "item": "El Mesón de la Cava"}}
+{"id": 30271, "tick": 568, "t": 6.0583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2589, "session": 2, "status": "deal", "item": "Palacio de Cristal"}}
+{"id": 30329, "tick": 569, "t": 6.0667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2486, "session": 2, "status": "deal", "item": "El Mesón de la Cava"}}
+{"id": 30332, "tick": 569, "t": 6.0667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2505, "session": 2, "status": "no_deal", "item": "La Heroína del Dos de Mayo"}}
+{"id": 30335, "tick": 569, "t": 6.0667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2581, "session": 2, "status": "deal", "item": "Café en Goya"}}
+{"id": 30448, "tick": 571, "t": 6.0833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2405, "session": 2, "status": "no_deal", "item": "El Mesón de la Cava"}}
+{"id": 30451, "tick": 571, "t": 6.0833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2539, "session": 2, "status": "deal", "item": "Café en Goya"}}
+{"id": 30454, "tick": 571, "t": 6.0833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2549, "session": 2, "status": "deal", "item": "Mercado de la Paz"}}
