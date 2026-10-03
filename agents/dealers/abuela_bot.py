@@ -59,6 +59,8 @@ REOPEN_TICKS = 10    # never open a conversation with a dealer sooner than this 
                      # a walk on thread 367, then thread 373 with her 5 s later)
 SILENT_TICKS = 4     # our word is the last and she hasn't said anything for this many ticks: close, pause her
 SILENT_PAUSE_S = 30 * 60
+NO_OFFER_TICKS = 4   # no live offer from the dealer this many ticks (theirs expire after 4; nobody moves): walk.
+                     # Sat 13:02 and 13:12: his 32 / her 25 expired while we held at our cap, the loop spun silently
 
 OFFER_ONLY = False  # --offer-only: never call accept; offer the dealer's own price so the dealer accepts (and
                     # spends its accept, not the team's one per tick: dealer deals during scored duels)
@@ -269,7 +271,7 @@ def _haggle(b, tid, topic, side, cap, fast, resume, accepted):
                 ours = int(o.get("give", {}).get("cash", 0) if side == "buy" else o.get("want", {}).get("cash", 0))
                 turn += 1
     log({"event": "open", "thread": tid, "topic": topic, "cap": cap, "her_first": first, "ours": ours})
-    heard, quiet = None, 0
+    heard, quiet, idle = None, 0, 0
     while True:
         watchdog()
         t = b.thread(tid)
@@ -291,8 +293,19 @@ def _haggle(b, tid, topic, side, cap, fast, resume, accepted):
             return {**t, "status": "closed", "closed_reason": "silent dealer"}
         hers = [o for o in t.get("standing_offers", []) if o.get("maker") == DEALER and o.get("status") == "open"]
         if not hers:
+            if waiting:                           # our word is the last: the silent-dealer rule above decides
+                b.wait_tick()
+                continue
+            idle += 1                             # her word is the last but her offer expired: it's on us
+            log({"event": "no_live_offer", "thread": tid, "ticks": idle, "ours": ours})
+            if idle >= NO_OFFER_TICKS and not accepted:   # after our accept the deal settles: never close then
+                b.close_thread(tid)
+                log({"event": "walk", "thread": tid, "ours": ours,
+                     "why": f"no live offer from {DEALER} for {idle} ticks"})
+                return {**t, "status": "closed", "closed_reason": "no live offer"}
             b.wait_tick()
             continue
+        idle = 0
         o = hers[-1]
         price = her_price(o, side)
         first = first if first is not None else price

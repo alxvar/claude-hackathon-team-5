@@ -596,3 +596,40 @@ def test_chato_steady_walks_after_8_ticks_of_wall_time_stuck(monkeypatch, tmp_pa
     cs.main(["SAL-06", "--cap", "26", "--open", "26", "--step", "2", "--cash-floor", "100"])
     walk = [json.loads(x) for x in (tmp_path / "chato.jsonl").read_text().splitlines() if '"walk"' in x][0]
     assert walk["why"].startswith("stuck 4 ticks")                      # 240 s = 8 ticks of 30 s, before 8 loops
+
+
+class Expired(FakeThread):
+    """Sat 13:12, thread 832: her 25 expired (dealer offers live 4 ticks) while we held at our cap 22; nobody moved."""
+
+    def thread(self, tid):
+        if self.closed:
+            return {"status": "closed", "messages": []}
+        return {"id": tid, "status": "open", "messages": [{"sender": "t05", "offer": {"give": {"cash": 22}}},
+                                               {"sender": "abuela", "offer": {"want": {"cash": 25}}}],
+                "standing_offers": [{"id": 8798, "maker": "abuela", "status": "expired", "want": {"cash": 25}}]}
+
+
+def test_abuela_walks_when_the_dealer_has_no_live_offer_for_4_ticks(bot):
+    b = Expired()
+    t = bot.negotiate(b, {"buy": {"card": "SAL-06"}}, "buy", 22, tid=832)
+    assert t["closed_reason"] == "no live offer" and b.closed == [832] and b.accepted == []
+    assert events(bot).count("no_live_offer") == bot.NO_OFFER_TICKS and "walk" in events(bot)
+
+
+def test_chato_steady_walks_when_his_offer_expired_and_nobody_moves(monkeypatch, tmp_path):
+    import chato_steady as cs
+    monkeypatch.setattr(ab, "LOG", tmp_path / "chato.jsonl")
+    monkeypatch.setattr(ab, "DEALER", ab.DEALER)
+    monkeypatch.setattr(ab, "CASH_FLOOR", ab.CASH_FLOOR)
+    monkeypatch.setattr(ab, "watchdog", lambda *a: None)
+    game = Expired()
+    game.me = lambda: {"cash": 400, "assets": [], "score": {}}
+    game.my_threads = lambda: {"threads": [{"with": "abuela", "status": "open"}]}
+    game.say = lambda *a, **k: None
+    monkeypatch.setattr(ab, "PacedBazaar", lambda *a, **k: game)
+    monkeypatch.setenv("BAZAAR_KEY", "test-key-not-real")
+    cs.main(["SAL-06", "--dealer", "abuela", "--cap", "22", "--open", "16", "--step", "2", "--cash-floor", "100",
+             "--resume", "832"])
+    ev = [json.loads(x) for x in (tmp_path / "chato.jsonl").read_text().splitlines()]
+    assert [e["event"] for e in ev].count("no_live_offer") == ab.NO_OFFER_TICKS and game.closed == [832]
+    assert ev[-1]["event"] == "end" and "no live offer" in [e for e in ev if e["event"] == "walk"][0]["why"]

@@ -73,6 +73,7 @@ def main(argv=None):
 
 
 def _loop(b, args, tid, first, stuck, turn, ours, cap, before, stuck_since, stuck_s):
+    idle, accepted = 0, False
     while True:
         ab.watchdog()
         t = b.thread(tid)
@@ -83,9 +84,17 @@ def _loop(b, args, tid, first, stuck, turn, ours, cap, before, stuck_since, stuc
             print(t["status"], "first", first, "ours", ours, before, "→", after)
             return
         hers = [o for o in t.get("standing_offers", []) if o.get("maker") == args.dealer and o.get("status") == "open"]
-        if not hers:
+        if not hers:                              # his offer expired (4 ticks) and nobody moves: Sat 13:02 / 13:12
+            idle += 1
+            ab.log({"event": "no_live_offer", "thread": tid, "ticks": idle, "ours": ours})
+            if idle >= ab.NO_OFFER_TICKS and not accepted:
+                b.close_thread(tid)
+                ab.log({"event": "walk", "thread": tid, "ours": ours,
+                        "why": f"no live offer from {args.dealer} for {idle} ticks"})
+                continue
             b.wait_tick()
             continue
+        idle = 0
         o = hers[-1]
         price = ab.her_price(o, "buy")
         first = price if first is None else first
@@ -110,6 +119,7 @@ def _loop(b, args, tid, first, stuck, turn, ours, cap, before, stuck_since, stuc
                 b.wait_tick()
                 continue
             b.accept(o["id"])
+            accepted = True
             ab.log({"event": "accept", "thread": tid, "price": price})
             b.wait_tick()
             continue
