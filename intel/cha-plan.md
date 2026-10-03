@@ -1,5 +1,7 @@
 # Sunday: the Chamberí (CHA) page (Builder, Sat 11:40; team bids 12:10; reviews 12:30, 13:30, 13:55, fixes applied)
 
+> **Sat 19:00, Chief (Analyst [V feed]: how t10 closed RET for +3.3 board):** buy the expensive CHA cards from DEALERS at ≤ our value (0 neg), and keep the LAST missing card for a cheap TEAM trade, because the page bonus (≈ 25% × 265 × 1.6 = 106 → +50 capped) scores only through a team trade. Never let a dealer buy, a pack or the Workshop deliver the last card. Open the silver pack (asset 1013) BEFORE the page is 9/10, or after it closes, never at 9/10.
+
 **Goal:** complete the CHA page Sunday morning, **buying from teams first** (Chief 12:05, from intel/rivals.md play 1).
 A dealer buy below our value scores 0 (gains clipped, GAME.md). A team buy scores value − price (cap 50). As maker at
 clearing (9 / 24.5 / 70) that is **+7 / +15.5 / +42** per common / uncommon / rare. Dealers are a per-card timed
