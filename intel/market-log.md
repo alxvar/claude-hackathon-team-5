@@ -1,5 +1,16 @@
 # Market log (Market session; newest first)
 
+## Sat 18:06 · bench-h09.0 (ticks 922-935), on the stall v10
+- **Ours [V]:** bench_efficiency 0.891 (3.0 0.899 · 5.0 0.933 · 7.0 0.878), bench_points 0.5, market 7.5 = stall teams.
+- **Field at snapshot 930 [V]:** t10 12.5 · t06 12.05 · t09 9.67 · t14 9.53 · t07 9.35 · t17 8.78 · t08 8.62 · stall
+  teams 7.5 · t13 6.08 · t03 4.75. Still no venue above the stall on the bench. Decision: stay on the stall.
+- **Team 12 fell off the same cliff we did [V]:** market 12.43 (snapshot 900) → 7.5 (910), after two small trades on
+  its v02 by Team 7: RET-04 → t01 at 6 (tick 898) and LAT-01 → t08 at 6 (tick 903). v02 had ~12 positive trades
+  before. One cheap common trade wiping a venue's whole value-created score does not fit a plain sum of small values:
+  some trades carry a large negative (seller breaking a page? buyer's duplicate?) [?]. Every trade on v10 is a risk
+  until the desk explains mm_points.
+- Team 15: approved offer 13773 (MAL-07 → t02 at 14) listed tick 893, unfilled, expires tick 941. Other two not listed.
+
 ## Partner audit · Sat 17:30 · tick 870 · snapshot 870: stall teams 7.5 · us 7.5 (+0.00)
 - **Team 15** (v15, market 7.5 = +0.00): on v10 0 open offers, 1 trades (26 P) · ours on v15: 2 open offers, 0 trades (0 P)
   - v10 trade tick 398: [('SAL-07', 't10', '→', 't15')] at 26
