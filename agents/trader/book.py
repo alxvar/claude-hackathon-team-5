@@ -145,6 +145,7 @@ class Book:
         self.venues: dict = {}
         self.top: set = set()
         self.teams: list | None = None
+        self.reserved = policy.reserved_refs
 
     def context(self, tick: int) -> None:
         """Venues and the top 4, read every 10 ticks (public reads)."""
@@ -216,6 +217,8 @@ class Book:
                 ok, why = self.collectors.get().allows(e.get("to"), set_of(e["card"]))
                 if ok and self.teams and e.get("to"):  # and the counterparty policy (16:20); unread board: as before
                     ok, why = policy.check(e.get("to"), teams=self.teams, page_closer=bool(e.get("page_closer")))
+                if e["card"] in self.reserved():      # never a reserved card (run/reserved.json, Chief 16:45)
+                    ok, why = False, f"{e['card']} is reserved (run/reserved.json)"
                 if not ok:
                     if s.get("offer") in mine and self.dry_run:
                         self.log({"event": "cancel_not_collector", "card": e["card"], "offer": s["offer"], "why": why,

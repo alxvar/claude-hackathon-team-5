@@ -600,3 +600,12 @@ def test_our_own_live_ask_for_the_card_beats_a_worse_accept():
     b = FakeBazaar(boards={"rastro": [bid(122, 15, "SAL-02")]}, listed={122: "t09"})
     run(b)
     assert [a[0] for a in b.accepted] == [122]               # no ask of ours: the same bid is taken
+
+
+
+def test_a_reserved_card_is_never_given(tmp_path, monkeypatch):
+    # Sat 16:06: Team 10's swap would have taken MAL-09; the reserved list (run/reserved.json) blocks any such give.
+    monkeypatch.setattr(loop.policy, "reserved_refs", lambda *a, **k: {"MAL-06"})
+    b = FakeBazaar(boards={"rastro": [bid(130, 36, "MAL-06")]}, listed={130: "t09"})
+    run(b)
+    assert b.accepted == []

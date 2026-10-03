@@ -10,11 +10,34 @@
 """
 from __future__ import annotations
 
+import json
+import re
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+RESERVED, HANDOFF = ROOT / "run" / "reserved.json", ROOT / "run" / "operator-handoff.md"
+_CARD = re.compile(r"\b[A-Z]{3}-\d{2}\b")
+
 ME = "t05"
 TOP_N = 5
 TOP_RATIO = 3.0
 PAGE_CLOSER_GAP = 6
 RIVALS = frozenset({"t13", "t17"})
+
+
+def reserved_refs(path: Path = RESERVED, handoff: Path = HANDOFF) -> set:
+    """Cards no bot gives away: run/reserved.json {"cards": [...]}, else the cards named in the handoff's
+    "## Reserved" section."""
+    try:
+        return set(json.loads(Path(path).read_text()).get("cards") or [])
+    except (OSError, ValueError, AttributeError):
+        pass
+    try:
+        text = Path(handoff).read_text()
+    except OSError:
+        return set()
+    m = re.search(r"^## Reserved[^\n]*\n(.*?)(?=^## |\Z)", text, re.S | re.M)
+    return set(_CARD.findall(m.group(1))) if m else set()
 
 
 def ranked(teams) -> list:

@@ -86,17 +86,7 @@ def book_refs(path: Path = BOOK, side: str = "sell") -> set:
 
 
 def reserved_refs(path: Path = RESERVED, handoff: Path = HANDOFF) -> set:
-    """Cards held out of the market: run/reserved.json, else the cards named in the handoff's "## Reserved" section."""
-    try:
-        return set(json.loads(Path(path).read_text()).get("cards") or [])
-    except (OSError, ValueError, AttributeError):
-        pass
-    try:
-        text = Path(handoff).read_text()
-    except OSError:
-        return set()
-    m = re.search(r"^## Reserved[^\n]*\n(.*?)(?=^## |\Z)", text, re.S | re.M)
-    return set(CARD.findall(m.group(1))) if m else set()
+    return policy.reserved_refs(path, handoff)
 
 
 def wants_of(offers) -> set:

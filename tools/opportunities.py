@@ -669,7 +669,7 @@ def write_md(path, opps, state, ctx, *, dry_run, now, clock, src):
 # ---------------------------------------------------------------------------------------------------- one run
 
 def run_once(api, *, dry_run, now=None, state_path=STATE, out_path=OUT, data_dir=DATA, build=BUILD,
-             cash_floor=None, notifier=notify, log=print, collectors=None, book_path=BOOK):
+             cash_floor=None, notifier=notify, log=print, collectors=None, book_path=BOOK, reserved_path=None):
     now = time.time() if now is None else now
     cash_floor = int(os.environ.get("CASH_FLOOR", 200)) if cash_floor is None else cash_floor
     state = load_state(state_path, strict=not dry_run)
@@ -712,7 +712,13 @@ def run_once(api, *, dry_run, now=None, state_path=STATE, out_path=OUT, data_dir
     for o in opps:
         if o["side"] == "BUY" and o["card"] in owned:
             o["status"] = "the book bids for it (run/book.json): not posted here"
-    picked = choose_alerts([o for o in opps if not (o["side"] == "BUY" and o["card"] in owned)], state, now)
+    import policy  # tools/policy.py: cards no bot gives away (run/reserved.json, Chief 16:45)
+    reserved = policy.reserved_refs(reserved_path) if reserved_path else policy.reserved_refs()
+    for o in opps:
+        if o["side"] == "SELL" and o["card"] in reserved:
+            o["status"] = "reserved (run/reserved.json): never sold"
+    picked = choose_alerts([o for o in opps if not (o["side"] == "BUY" and o["card"] in owned)
+                            and not (o["side"] == "SELL" and o["card"] in reserved)], state, now)
     ttl_ticks = expires_param(OFFER_TTL_TICKS, clock.get("tick_seconds"))
     cash = me.get("cash", 0) - committed
     venues = None

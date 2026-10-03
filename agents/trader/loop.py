@@ -257,9 +257,11 @@ def wanted_cards(want):
     return refs
 
 
-def pick_copies(refs, held, me, protect_missing, keep_sets=frozenset(KEEP_SETS)):
+def pick_copies(refs, held, me, protect_missing, keep_sets=frozenset(KEEP_SETS), reserved=frozenset(),
+                keep_page_cards=False):
     """(asset ids we hand over, their value to us, why not). Gives our least valuable free copy of each card.
-    `held` must already leave out the copies in our open offers."""
+    `held` must already leave out the copies in our open offers. Never a reserved card (run/reserved.json); with
+    keep_page_cards, never the last free copy of any page card (01-10) (Operator 16:40)."""
     if len(set(refs)) != len(refs):
         return None, 0.0, "wants two copies of one card"
     pages = {p["set"]: p for p in (me.get("album") or {}).get("pages") or []}
@@ -267,6 +269,8 @@ def pick_copies(refs, held, me, protect_missing, keep_sets=frozenset(KEEP_SETS))
     ids, loss = [], 0.0
     for r in refs:
         copies = held.get(r)
+        if r in reserved:
+            return None, 0.0, f"{r} is reserved (run/reserved.json)"
         if not copies:
             return None, 0.0, f"no free {r} (none held, or all in our open offers)"
         c = min(copies, key=lambda a: a["your_value"])
@@ -276,6 +280,8 @@ def pick_copies(refs, held, me, protect_missing, keep_sets=frozenset(KEEP_SETS))
             return None, 0.0, f"{r} carries a page bonus ({c['your_value']} > book x m {base:g})"
         if len(copies) == 1 and s in keep_sets:
             return None, 0.0, f"last free {r}: set {s} is kept (--build / LAV)"
+        if len(copies) == 1 and keep_page_cards and c.get("rarity") in PAGE_RARITIES:
+            return None, 0.0, f"last free {r}: page cards keep a copy (--keep-page-cards)"
         p = pages.get(s)
         if len(copies) == 1 and c.get("rarity") in PAGE_RARITIES and p and \
                 (p.get("complete") or p["of"] - p["have"] <= protect_missing):
@@ -354,7 +360,8 @@ def evaluate(b, o, me, held, st, args):
     c["what"] = {"sell": f"sell {refs} for {gcash}", "buy": f"buy {got} for {wcash}", "swap": f"swap {got} for {refs}"}[kind]
     loss = 0.0
     if kind in ("sell", "swap"):
-        ids, loss, why = pick_copies(refs, held, me, args.protect_missing, KEEP_SETS | set(args.build))
+        ids, loss, why = pick_copies(refs, held, me, args.protect_missing, KEEP_SETS | set(args.build),
+                                     reserved=policy.reserved_refs(), keep_page_cards=args.keep_page_cards)
         if ids is None:
             c.update(skip=why, gain=None)
             return c
@@ -482,6 +489,8 @@ def parse_args(argv=None):
     ap.add_argument("--min-gain-sell", type=float, default=6.0,
                     help="sells into bids: higher bar, every sale also scores for the buyer (LOG finding 7)")
     ap.add_argument("--cash-floor", type=int, default=200)
+    ap.add_argument("--keep-page-cards", action="store_true",
+                    help="never give the last free copy of any page card (01-10) (Operator 16:40: opt-in)")
     ap.add_argument("--protect-missing", type=int, default=2,
                     help="never give the last copy of a card whose page misses at most this many cards (or is complete)")
     ap.add_argument("--build", type=lambda s: [x.strip().upper() for x in s.split(",") if x.strip()],

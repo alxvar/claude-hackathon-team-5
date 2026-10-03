@@ -487,3 +487,15 @@ def test_an_addressed_ask_follows_the_counterparty_policy():
     g.teams = TOP + [{"team": "t16", "score": 8}]
     run(g, [{"card": "SAL-08", "side": "sell", "to": "t16", "price": 30, "floor": 20}])
     assert g.posted[0]["to"] == "t16"
+
+
+
+def test_a_reserved_card_is_never_asked_and_a_live_ask_for_it_comes_down():
+    g = Game()
+    e = [{"card": "SAL-08", "side": "sell", "to": "t16", "price": 30, "floor": 20}]
+    g.teams = TOP + [{"team": "t16", "score": 8}]
+    st, _, book = run(g, e)
+    oid = g.posted[0]["id"]
+    book.reserved = lambda: {"SAL-08"}
+    st = book.step(e, st, {**CLOCK, "tick": 301})
+    assert g.cancelled == [oid] and "SAL-08:sell" in st and not st["SAL-08:sell"].get("offer")
