@@ -629,6 +629,115 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1254,
+   "raw": {
+    "duel": 5622,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.42,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 83,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Plata",
+    "deadline_tick": 1255,
+    "decay_per_round": 0.08,
+    "rounds": 4,
+    "your_offer": {
+     "id": 6843,
+     "price": 92,
+     "tick": 1254,
+     "days": 5
+    },
+    "rival_offer": {
+     "id": 6702,
+     "price": 90,
+     "tick": 1251,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1240,
+      "from": "Rival Plata",
+      "text": "Hello! I can offer 51 P. Delivery on day 0.",
+      "price": 51,
+      "days": 0
+     },
+     {
+      "tick": 1240,
+      "from": "you",
+      "text": "Thanks for the opening. That figure is a long way from where I can work, so I'm offering 135 P with delivery on day 5. I'm happy to talk from there.",
+      "price": 135,
+      "days": 5
+     },
+     {
+      "tick": 1243,
+      "from": "Rival Plata",
+      "text": "99 P, then. Delivery on day 10.",
+      "price": 99,
+      "days": 10
+     },
+     {
+      "tick": 1243,
+      "from": "you",
+      "text": "I've moved to 122 P with delivery on day 5. That's a real step on my side, and I'd like to see a counter from you.",
+      "price": 122,
+      "days": 5
+     },
+     {
+      "tick": 1246,
+      "from": "Rival Plata",
+      "text": "How about 106 P? Delivery on day 10.",
+      "price": 106,
+      "days": 10
+     },
+     {
+      "tick": 1251,
+      "from": "Rival Plata",
+      "text": "Final offer: 90 P. Happy to close now. Delivery on day 5.",
+      "price": 90,
+      "days": 5
+     },
+     {
+      "tick": 1251,
+      "from": "you",
+      "text": "Your last move went backwards from where you had been, so I'd rather not follow it. I'm offering 117 P with delivery on day 5, which is a real step on my side. Come back up from there and we can finish.",
+      "price": 117,
+      "days": 5
+     },
+     {
+      "tick": 1252,
+      "from": "you",
+      "text": "You were already higher than your last figure earlier, so I'd rather not follow the step back. I'm offering 104 P with delivery on day 5, a price I can close on now. Please take it and we can finish.",
+      "price": 104,
+      "days": 5
+     },
+     {
+      "tick": 1253,
+      "from": "you",
+      "text": "I'm offering 97 P with delivery on day 5, a clear step toward you and one I can close on now. You were already well above that figure earlier, so please take it and we can finish.",
+      "price": 97,
+      "days": 5
+     },
+     {
+      "tick": 1254,
+      "from": "you",
+      "text": "Let's finish this: I'm offering 92 P with delivery on day 5, just a small step from your figure. I'm ready to close on it right now.",
+      "price": 92,
+      "days": 5
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1852,6 +1961,214 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1254,
+   "took_s": 8.6,
+   "cost_usd": 0.014960000000000001,
+   "obs": {
+    "view": {
+     "duel_id": 5622,
+     "role": "seller",
+     "limit": 83,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.42,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello! I can offer 51 P. Delivery on day 0.",
+      "offer": {
+       "price": 51,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1240,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the opening. That figure is a long way from where I can work, so I'm offering 135 P with delivery on day 5. I'm happy to talk from there.",
+      "offer": {
+       "price": 135,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1240,
+      "decision": {
+       "action": "offer",
+       "price": 135,
+       "message": "Thanks for the opening. That figure is a long way from where I can work, so I'm offering 135 P with delivery on day 5. I'm happy to talk from there."
+      }
+     },
+     {
+      "mine": false,
+      "text": "99 P, then. Delivery on day 10.",
+      "offer": {
+       "price": 99,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1243,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've moved to 122 P with delivery on day 5. That's a real step on my side, and I'd like to see a counter from you.",
+      "offer": {
+       "price": 122,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1243,
+      "decision": {
+       "action": "offer",
+       "price": 122,
+       "message": "I've moved to 122 P with delivery on day 5. That's a real step on my side, and I'd like to see a counter from you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "How about 106 P? Delivery on day 10.",
+      "offer": {
+       "price": 106,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1246,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Final offer: 90 P. Happy to close now. Delivery on day 5.",
+      "offer": {
+       "price": 90,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1251,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Your last move went backwards from where you had been, so I'd rather not follow it. I'm offering 117 P with delivery on day 5, which is a real step on my side. Come back up from there and we can finish.",
+      "offer": {
+       "price": 117,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1251,
+      "decision": {
+       "action": "offer",
+       "price": 117,
+       "message": "Your last move went backwards from where you had been, so I'd rather not follow it. I'm offering 117 P with delivery on day 5, which is a real step on my side. Come back up from there and we can finish."
+      }
+     },
+     {
+      "mine": true,
+      "text": "You were already higher than your last figure earlier, so I'd rather not follow the step back. I'm offering 104 P with delivery on day 5, a price I can close on now. Please take it and we can finish.",
+      "offer": {
+       "price": 104,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1252,
+      "decision": {
+       "action": "offer",
+       "price": 104,
+       "message": "You were already higher than your last figure earlier, so I'd rather not follow the step back. I'm offering 104 P with delivery on day 5, a price I can close on now. Please take it and we can finish."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I'm offering 97 P with delivery on day 5, a clear step toward you and one I can close on now. You were already well above that figure earlier, so please take it and we can finish.",
+      "offer": {
+       "price": 97,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1253,
+      "decision": {
+       "action": "offer",
+       "price": 97,
+       "message": "I'm offering 97 P with delivery on day 5, a clear step toward you and one I can close on now. You were already well above that figure earlier, so please take it and we can finish."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 90,
+     "days": 5
+    },
+    "tick": 1254,
+    "ticks_left": 1,
+    "rounds": 4,
+    "day_swings": [
+     31.9,
+     46.3,
+     50.099999999999994,
+     32.9,
+     14.2,
+     36.6,
+     54.5
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "Let's finish this: I'm offering 92 P with delivery on day 5, just a small step from your figure. I'm ready to close on it right now.",
+    "price": 92,
+    "days": 5,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 92,
+      "message": "Let's finish this: I'm offering 92 P with delivery on day 5, just a small step from your figure. I'm ready to close on it right now."
+     },
+     "band": {
+      "worst": 91,
+      "target": 92,
+      "best": 94
+     },
+     "plan": {
+      "read": "Last tick. Their standing 90 P on day 5 does not quite cover what that day costs us, so we cannot accept it. Their 'final offer' framing is a pressure play, and they did go higher before at day 10, but there is no time left to test it.",
+      "target": 92,
+      "best": 94,
+      "worst": 91,
+      "days": 5,
+      "angle": "Make one short, friendly closing offer at 92 P on day 5, framed as just above their figure and ready to close right now; do not accept 90."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.46,
+       "in": 1330,
+       "out": 372,
+       "cost_usd": 0.01276,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.13,
+       "in": 775,
+       "out": 65,
+       "cost_usd": 0.0022,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -2136,6 +2453,63 @@
      "id": 6800,
      "price": 97,
      "tick": 1253,
+     "days": 5
+    }
+   }
+  },
+  {
+   "tick": 1254,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Let's finish this: I'm offering 92 P with delivery on day 5, just a small step from your figure. I'm ready to close on it right now.",
+    "price": 92,
+    "days": 5,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 92,
+      "message": "Let's finish this: I'm offering 92 P with delivery on day 5, just a small step from your figure. I'm ready to close on it right now."
+     },
+     "band": {
+      "worst": 91,
+      "target": 92,
+      "best": 94
+     },
+     "plan": {
+      "read": "Last tick. Their standing 90 P on day 5 does not quite cover what that day costs us, so we cannot accept it. Their 'final offer' framing is a pressure play, and they did go higher before at day 10, but there is no time left to test it.",
+      "target": 92,
+      "best": 94,
+      "worst": 91,
+      "days": 5,
+      "angle": "Make one short, friendly closing offer at 92 P on day 5, framed as just above their figure and ready to close right now; do not accept 90."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.46,
+       "in": 1330,
+       "out": 372,
+       "cost_usd": 0.01276,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.13,
+       "in": 775,
+       "out": 65,
+       "cost_usd": 0.0022,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5622,
+    "offer": {
+     "id": 6843,
+     "price": 92,
+     "tick": 1254,
      "days": 5
     }
    }

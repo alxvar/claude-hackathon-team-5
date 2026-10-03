@@ -1185,6 +1185,181 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1254,
+   "took_s": 6.67,
+   "cost_usd": 0.01221,
+   "obs": {
+    "view": {
+     "duel_id": 5617,
+     "role": "buyer",
+     "limit": 88,
+     "currency": "P",
+     "item": "Plaza del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.63,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I can do 35 P with delivery on day 5. I'm keen to get this done quickly if we can meet near there.",
+      "offer": {
+       "price": 35,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1241,
+      "decision": {
+       "action": "offer",
+       "price": 35,
+       "message": "I can do 35 P with delivery on day 5. I'm keen to get this done quickly if we can meet near there."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I can do 114 P with delivery in 1 days.",
+      "offer": {
+       "price": 114,
+       "days": 1
+      },
+      "accept": false,
+      "tick": 1244,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move up to 47 P with delivery on day 5. That figure of yours is far from where I can go, so I'd need to see you come down substantially.",
+      "offer": {
+       "price": 47,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1247,
+      "decision": {
+       "action": "offer",
+       "price": 47,
+       "message": "I can move up to 47 P with delivery on day 5. That figure of yours is far from where I can go, so I'd need to see you come down substantially."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 53 P with delivery on day 5. That's a modest move from me, and I'd need to see you come down a long way before I go further.",
+      "offer": {
+       "price": 53,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1250,
+      "decision": {
+       "action": "offer",
+       "price": 53,
+       "message": "I can do 53 P with delivery on day 5. That's a modest move from me, and I'd need to see you come down a long way before I go further."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 60 P with delivery on day 5. That's a clear step from me, and I'd need you to come down substantially to meet it.",
+      "offer": {
+       "price": 60,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1252,
+      "decision": {
+       "action": "offer",
+       "price": 60,
+       "message": "I can do 60 P with delivery on day 5. That's a clear step from me, and I'd need you to come down substantially to meet it."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 64 P with delivery on day 5. That's my firmest move, and I'd like to close it before time runs out if you can meet it.",
+      "offer": {
+       "price": 64,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1253,
+      "decision": {
+       "action": "offer",
+       "price": 64,
+       "message": "I can do 64 P with delivery on day 5. That's my firmest move, and I'd like to close it before time runs out if you can meet it."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 114,
+     "days": 1
+    },
+    "tick": 1254,
+    "ticks_left": 1,
+    "rounds": 1,
+    "day_swings": [
+     31.9,
+     46.3,
+     50.099999999999994,
+     32.9,
+     14.2,
+     36.6,
+     54.5
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 64 P with delivery on day 5. That's my standing offer, and I'm ready to close it right away if you can meet it.",
+    "price": 64,
+    "days": 5,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 64,
+      "message": "I can do 64 P with delivery on day 5. That's my standing offer, and I'm ready to close it right away if you can meet it."
+     },
+     "band": {
+      "worst": 64,
+      "target": 64,
+      "best": 64
+     },
+     "plan": {
+      "read": "They opened at 114 on day 1 and have not moved or replied since. Their offer is well past what we can pay, and this is the last tick.",
+      "target": 64,
+      "best": 64,
+      "worst": 64,
+      "days": 5,
+      "angle": "Hold firm. Restate 64 on day 5 as our standing offer, ready to close immediately if they accept, without adding any new concession."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.81,
+       "in": 1094,
+       "out": 304,
+       "cost_usd": 0.01046,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.86,
+       "in": 569,
+       "out": 61,
+       "cost_usd": 0.00175,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [
