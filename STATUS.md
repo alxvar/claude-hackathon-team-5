@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 10:00** · tick 223 (30 s/tick) · game hour 3.18 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 10:05** · tick 233 (30 s/tick) · game hour 3.27 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,26 +17,26 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 09:41 · Team 12 label fixed (Aleks's model: MAL 1.6; my profile said "dumps MAL"): the dashboard counted every relisting as one more sale, and t12 relisted one spare MAL-02 ~23 times (6-10 P) while buying 6 MAL cards (rares MAL-09/10 from Chato at 90/89) → `dashboard/server.py` now counts bids/asks once per distinct card · `intel/teams.md` 09:39: t12 collects MAL/RET, dumps SAL/LAT/LAV (still "leader, never feed"); t15 collects LAT/MAL/RET; t18 collects LAT; t17 no longer "dumps LAV" · dashboard restarted 09:39 on the new code, which also turns on the hub read (+89 events, no errors) · next: desk, room, judges
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 10:05 · operator · **RET-10 from Chato at 86** (retry, cap 91 per Chief; his final 86 when our +3 steps reached 69): `neg_points` −10 → **−19.0** exactly (77 − 86), ladder unchanged · RET held: 02/03/04/05/09/10; missing 06/07/08 (uncommons) + 01 (cap-test card) · cash 202 · RET-06 from Chato started (open 18, +1 steps, cap 28: tests whether a below-list Chato deal moves the ladder) · next: RET-07/08 (swaps 3245/3246 until ~10:10, then Abuela ≤ 24), RET-01 from a team at ~20 last
   - Sat 10:00 · Market: bench 3.0 on the stall v10 · efficiency 0.899, bench_points 0.5, market 4.8 = every stall team; no board venue beat the stall (t06 3.66, t13 2.13 worse); t12 8.01 from one 7 P trade on v02 (value created); the stall book shows only leftovers, so replays cannot measure an edge; fee PATCH on v10 blocked by permissions · next: sim calibration, bench 5.0 ~11:50 (`intel/market-log.md`)
   - Sat 09:59 · operator · RET-10: Chato FINAL 91 > cap 88 after 4 rounds (97 → 94 → 91f vs our 57 → 66) → walked; Chief raised the cap to 91 (directive 10:03); retry scheduled 10:01:45 (anti-spam: 10 ticks after the walk) · judge 09:57 applied: 6 spare asks repriced 10 → 9 (LAV-04/SAL-01/SAL-02 → t07, LAV-02 → t09, LAV-03 → t16, LAT-03 → t15); SAL-08 re-addressed t02 → t16 at 33 (scout: t16 is the SAL buyer, bids 78 for SAL-10); swaps kept (scout 09:51 misread them as 0 P asks) · bench 3.0: `bench_efficiency` 0.899 · other RET buys held ~5 min (Chief: bench / Team 12 market check) · next: RET-10 retry
-  - Sat 09:57 · Builder: **rounds fix = Aleks's** (ab0f793 + his 277/278 tests); mine dropped · **git incident 09:44-09:52**: `pull --autostash` stashed my half-done duelist edit in the shared tree, conflicted with Aleks's push, then every hook run committed everything mid-rebase and `rebase --abort`ed it (reflog: 13×), discarding the Operator's and Chief's work (restored by the Chief from the reflog) · fixed in 5b22cc1: gitsync + team_sync never pull over tracked code edits, never git mid-rebase, abort a failed pull, honour `run/git-paused`; duelmon tests a `git archive` copy of the commit (it paged 3 false "tests failed" 09:44-09:46) · 7 new tests fail on the old scripts, suite 263 pass · status, duelmon, scout, judge, strategist restarted 09:55; duelmon: Aleks's 49 tests pass on 6d69d18 · **rule: code edits in a git worktree, never in the shared tree** · next: 429 handling audit
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 19.31 | 8 | 14.51 | 4.80 | 0.00 | 0.05 | 0.90 | 28 | 2 | 288 | 26/50 |
+| 19.20 | 7 | 13.97 | 5.23 | 0.00 | 0.05 | 0.90 | 29 | 2 | 202 | 27/50 |
 
-Leaderboard (snapshot at tick 220; refreshes every few minutes):
+Leaderboard (snapshot at tick 230; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 12 | 27.60 | 19.59 | 8.01 | 29 |
-| 2 | Team 13 | 24.66 | 22.53 | 2.13 | 34 |
-| 3 | Team 14 | 21.94 | 17.13 | 4.80 | 13 |
-| 4 | Team 18 | 21.06 | 16.25 | 4.80 | 24 |
-| 5 | Team 2 | 20.12 | 15.32 | 4.80 | 17 |
-| 8 | Team 5 | 19.31 | 14.51 | 4.80 | 28 |
+| 1 | Team 12 | 27.52 | 18.80 | 8.72 | 29 |
+| 2 | Team 18 | 27.31 | 22.08 | 5.23 | 27 |
+| 3 | Team 13 | 24.18 | 21.86 | 2.32 | 34 |
+| 4 | Team 2 | 21.36 | 16.13 | 5.23 | 20 |
+| 5 | Team 14 | 21.20 | 15.97 | 5.23 | 13 |
+| 7 | Team 5 | 19.20 | 13.97 | 5.23 | 28 |
 
 ## Next on the schedule
 
@@ -44,14 +44,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 4.00 | ~49 min | day_closes | Closed until Saturday 09:00 |
-| 5.00 | ~109 min | bench | The Market Test: every venue gets the same synthetic book |
-| 5.15 | ~118 min | duels | Duels I: price only, one round-robin |
-| 7.00 | ~229 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.00 | ~349 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.00 | ~469 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.65 | ~508 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~589 min | bench | The Market Test: every venue gets the same synthetic book |
+| 4.00 | ~44 min | day_closes | Closed until Saturday 09:00 |
+| 5.00 | ~104 min | bench | The Market Test: every venue gets the same synthetic book |
+| 5.15 | ~113 min | duels | Duels I: price only, one round-robin |
+| 7.00 | ~224 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.00 | ~344 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.00 | ~464 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.65 | ~503 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~584 min | bench | The Market Test: every venue gets the same synthetic book |
 
 ## Our dealer deals
 
@@ -91,15 +91,17 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | 384 | chato | buy | RET-09 | 97 | 57 | 87 | -10% | 11 | deal |  |
 | 389 | abuela | buy | RET-02 | 12 | 7 | 9 | -25% | 7 | deal |  |
 | 394 | chato | buy | RET-10 | 97 | 57 | — | — | 9 | closed |  |
+| 412 | chato | buy | RET-10 | 97 | 57 | 86 | -11% | 11 | deal |  |
+| 418 | chato | buy | RET-06 | 33 | 18 | — | — | 2 | open |  |
 
 ## Abuela benchmark: every team's deals with her (public feed)
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
-| common card | team buys | 46 | 9.00 | 7 | 12 | 5 | 9 |
+| common card | team buys | 49 | 9 | 7 | 12 | 5 | 9 |
 | common card | team sells | 37 | 6 | 5 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 36 | 22.00 | 17 | 30 | 3 | 20.33 |
-| uncommon card | team buys | 48 | 22.00 | 17 | 29 | 2 | 26.50 |
+| uncommon card | team buys | 50 | 22.00 | 17 | 29 | 2 | 26.50 |
 | uncommon card | team sells | 6 | 14.00 | 13 | 16 | 0 | — |
 
 ## Duels
