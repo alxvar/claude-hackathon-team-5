@@ -1,6 +1,6 @@
 # Easter eggs: trigger → reward → dealer (castizo catalog)
 
-_Written by `tools/eggs.py` at 22:45 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
+_Written by `tools/eggs.py` at 23:24 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
 
 ## Trigger → reward → dealer
 
@@ -40,6 +40,13 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 
 | tick | team | dealer | words | what followed | reply |
 |---|---|---|---|---|---|
+| 1439 | t04 | pilar | manton | price 63 → 66 | Qué labia tiene usted, caballero. Pero el mantón no paga las cartas; el dinero sí. Sesenta y seis, 66 P, aquí mismo y en el acto. El Marqués entraría en su álbu |
+| 1433 | t08 | pilar | cocido | - | Qué buen gusto: cocido los martes, croquetas siempre, y la Milla de Oro, por supuesto. Serrano no se discute. Pues bien, hablemos de negocios: le ofrezco un sob |
+| 1428 | t10 | abuela | churros | price 29 → 26 | Ay, churros! You know my weakness, hijo. But eighteen, no... let me say twenty-six for La Galería. And a little advice, cariño: a full page is worth much more t |
+| 1428 | t08 | pilar | plaza mayor | - | Ah, la Cuesta de Moyano... los domingos en la Plaza Mayor, sí, los conozco bien. Allí aprendí a mirar. Pero hablemos de negocios: le ofrezco un sobre dorado por |
+| 1427 | t04 | pilar | chulapa | - | Flattery is pleasant, but I know exactly what this card is worth, and so do you. My offer stands: 61 P. The Sunday album awaits it. And do ask Carmen at El Rast |
+| 1425 | t02 | chato | bocata | - | Buenas. El bocata lo pago yo, que como solo. Pack plateado: 188 P. Ahí lo tienes. |
+| 1419 | t04 | pilar | chulapa | - | Let us be civilised: 61 P. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about the golden chulapa. Don Ernesto |
 | 1413 | t04 | pilar | chulapa | - | Good evening. El Marqués, 61 P. I trust that suits you. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about th |
 | 1409 | t06 | picaros | lazarillo, organillero | - | —¡Ay, el Lazarillo! Buen regateo, pero cuatro primas es cuatro primas, hermano. El Organillero se va contigo ahora mismo.  —Nando, dile lo del coche.  —Eso, que |
 | 1407 | t10 | picaros | cascorro, gallinejas | - | ¡Hombre, un paisano con buen gusto! Gallinejas en Cascorro, ¡eso es Madrid puro! —Y caracoles, Paco, no olvides los caracoles. Mira, amigo: La Cebada, joya rara |
@@ -113,10 +120,3 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 | 1221 | t06 | picaros | organillero | - | ¡Ay, hermano, nos quiere matar! —Nando, sujétame— Cinco, dice, y nosotros bajando ya a cuatro. ¡Cuatro! Mira, el Organillero esta noche tocó solo, se lo juro po |
 | 1220 | t06 | picaros | organillero | - | ¡Ey, amigo, qué ojo tienes! —Paco, enséñale— ¡El Organillero! Pieza rara, suena solita por las noches, te lo juro. Para ti, porque nos caes bien y porque llevam |
 | 1208 | t14 | banco | gato | - | Buenas. You find me at my desk, as always. El Gato de Lavapiés — seven hundred sixty-one. Those are my terms. Take your time; I am not hurried. |
-| 1187 | t06 | chato | san isidro | - | You're Carmen's friend. San Isidro, 97 P. |
-| 1176 | t08 | banco | chulapa | - | Buenas tardes. La historia la conozco mejor que su familia, y no es la del chulapa. Mientras tanto, le ofrezco términos: un paquete dorado, quinientos cuarenta  |
-| 1172 | t08 | chato | san isidro | - | Buenas. La siguiente está en San Isidro. Noventa y siete P. Ni un euro menos, y ya sabes que no regateo por deporte. |
-| 1169 | t08 | abuela | mi santo | - | ¡Hola, cariño! Qué bien que has comido. Sí, Manuela, la pobre costurera, quince añitos nada más... mi abuela también contaba esa historia. Y mi santo es el diec |
-| 1166 | t16 | pilar | chulapa | - | Good evening. El Marqués, 70 P. I trust that suits you. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about th |
-| 1164 | t10 | pilar | chulapa | price 70 → 71 | Caballero, we are still far apart, and I do not haggle like a fishmonger. Seventy-one, and said with respect. El Marqués deserves my safe, not a long argument.  |
-| 1160 | t08 | pilar | dama de serrano | - | Buenas tardes. La Dama de Serrano es, me temo, un rumor elegante; yo colecciono cartas, no leyendas. Pero si viene en serio, tengo un sobre dorado para usted: 5 |

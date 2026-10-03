@@ -1,4 +1,4 @@
-# Market plan for Sunday (Market session) · written Sat 22:50
+# Market plan for Sunday (Market session) · written Sat 22:52
 
 _Sources: `intel/matches.md` (matchmaker, 22:47, tick 1410), leaderboard snapshot 1420 (us 30.49), `intel/market-log.md`. Labels: [V] measured, [L] inferred, [?] unknown. Regenerate: `python3 make_sunday.py` in the Market session's scratchpad._
 
@@ -111,4 +111,45 @@ Question: which pitch gets a fill on v10 fastest. One variable at a time, 5 pair
 - Spares only on the selling side: both the SAL-07 sale on v10 and the MAL swap on Team 7's stall cost a whole day's score.
 - No rival buyers; page finishers only for teams more than 5 board below us.
 - The Market session watches every v10 listing (page-risk tag) and fill (mm before → after) from 09:00 and reports each to the Chief.
+
+## 6. Red Castiza forecast with the venue rotation [L, model]
+
+Club = Team 7, Team 9, Team 8, Team 15, Team 4, Team 2. Member-to-member pairs on the match list: 4, **+89.2 VC** (low estimates); +67.6 of it is one trade, RET-09 Team 7 → Team 9. Want-lists not yet in intel/wants.md (empty at 23:00) can only add to this.
+
+**The rule that decides it:** with half of the club's VC on v10, we score full marks exactly when the club's executed VC is at least the sum of the two best rival venues' VC (if v10 = X/2 and rivals have a and b, v10 ≥ mean(X/2, a, b) ⇔ X ≥ a + b). Saturday's two best rival venues ended near 60 and 55 [L, from the fitted formula], so X must reach about 115 at Saturday's pace and more if the field trades faster.
+
+| Scenario at 15:00 | club VC executed | on v10 | rivals' two best (a, b) | our points | Team 10 |
+|---|---|---|---|---|---|
+| Rotation by count, 50% executed | +45 | +22 | 60, 55 | **2.4** | 5.0 |
+| Rotation by count, 100% executed | +89 | +45 | 60, 55 | **4.2** | 5.0 |
+| Big trade on v10 + half of the rest, 50% of the rest executed | +78 | +73 | 60, 55 | **5.0** | 4.8 |
+| Big trade on v10 + half of the rest, all executed | +89 | +78 | 60, 55 | **5.0** | 4.7 |
+| Same, field at 2× pace | +89 | +78 | 110, 100 | **4.1** | 5.0 |
+
+- **By time (big trade on v10 in the first hour, half of the rest executed by the close, half of that on v10):** 10:00 ≈ +68 on v10 · 12:00 ≈ +70 · 15:00 ≈ +73. A lead of that size holds full marks for the first hours (the field needs about 50 VC after 1 h, 100 after 3 h to catch it). Without the big trade v10 gets about +5 by the close: under 1 point.
+- **So:** the rotation should be by VC, not by count, and the club's largest trade must settle on v10 (we found the pair and we run the desk). It is also a page finisher for Team 9 (-7.2 board vs us): that is the price of the points.
+- **The members' side:** every club venue with any positive VC scores too, pro rata to the top-three mean. A member whose venue gets one +7 trade earns about 0.5 point; that is the honest pitch, and it is why members will want the big trades on their own venue. Fix the rotation order in writing before 09:00.
+- **Team 10** scores full marks as long as its v07 stays in the top three by VC. It falls below us only if its own flow dries up (§7).
+
+## 7. Team 10's market (v07): who fed it on Saturday, and how to pull each [V counts from the feed]
+
+v07 had 11 fills. Makers (whose offer was filled): Team 6 6, Team 5 4, Team 4 1. Takers: Team 14 3, Team 12 3, Team 3 1, Team 4 1, Team 9 1, Team 6 1, Team 13 1. Listings on v07: Team 8 204, Team 5 135, Team 6 104, Team 4 55, Team 13 19, Team 9 10, Team 16 8.
+
+| Team | Role on v07 | How to pull it |
+|---|---|---|
+| Team 5 (us) | maker of 4 of its 11 fills | Already stopped (Chief, 17:00). Sunday: none of our offers on v07; our asks go on v10's partners' venues only inside the club rotation. This alone removes the largest share of v07's Saturday VC. |
+| Team 6 | maker of 6 fills (bids for RET/LAT commons) | A rival (top 3) with its own venue v01: do not recruit. Its bids on v07 are filled by takers; if the club's sellers list the same commons on club venues, Team 6's bot will find them there or on El Rastro. |
+| Team 8 | 204 listings on v07, its bot's default venue list | Club member: ask it to post on the club rotation's venue instead of v07 (its bot sprays the same listings over several venues, so the venue is a setting on its side [L]). The biggest lever on v07's listing depth. |
+| Team 4 | 55 listings, maker of 1 fill (RET-06 to Team 9) | Club member: same ask, list on the rotation's venue of the day. |
+| Teams 12, 14 (takers) | bought from v07's asks | Board-scanning bots: they follow the listings. No pitch needed; they are rivals as buyers of page cards. |
+| Team 1 | reported ally of Team 10 | Not recruitable while the alliance holds; watch for t01 ↔ t10 trades on v19 or v07 (the Market session's live watch reports each one). |
+
+## 8. Pitch to Team 13 as the 7th member (draft for Lucas)
+
+Facts behind it [V]: Team 13 posted the most listings of any team on Saturday and runs three venues (El Club v22, MAD RUSH v23/v24), yet its market score is 6.77 against the free stall's 7.5: its board venues cost it Market Test points and attracted no scoring trades. It is -5.3 board vs us.
+
+> Hi Team 13! Straight numbers: your markets show less than a free stall on the board, and so did ours: a venue only scores when two OTHER teams trade on it, and nobody routes to a venue that only says "0% fee". Six of us are fixing that together: **Red Castiza**. We share want-lists and spares in one feed, a matcher finds the pairs (spare ↔ missing card, both sides gain), and the matched trades are posted on the members' venues in a fixed rotation, so every member's venue gets real, positive trades. MAD RUSH would be in the rotation from the first hour on Sunday. What we ask: your want-list and spare list tonight, and your bot posting its matched orders on the venue of the turn. Spares only, never a page card: one bad trade wipes a venue's score. In?
+
+- **Before sending:** Team 13 was on our fixed-rival list (it led on Friday). The Chief decides whether the 7th seat is worth giving it a share of real-trades points; at −5.3 board it is outside the top-3 race today.
+- **Cost to us:** a 7th venue in the rotation cuts v10's share of count-rotated trades from 1/2 to whatever the rotation says; it does not matter if the big trades stay on v10.
 
