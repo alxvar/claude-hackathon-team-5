@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Duel monitor</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --surface-2: #f3f2ee;
+  --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,0.10);
+  --us: #2a78d6; --them: #eb6834; --us-wash: rgba(42,120,214,0.09); --them-wash: rgba(235,104,52,0.09);
+  --good: #0ca30c; --good-ink: #006300; --bad: #d03b3b; --warn: #fab219; --warn-ink: #8a5a00;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --surface-2: #232321;
+    --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,0.10);
+    --us: #3987e5; --them: #d95926; --us-wash: rgba(57,135,229,0.14); --them-wash: rgba(217,89,38,0.14);
+    --good: #0ca30c; --good-ink: #0ca30c; --bad: #e66767; --warn: #fab219; --warn-ink: #fab219;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --surface-2: #232321;
+  --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+  --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,0.10);
+  --us: #3987e5; --them: #d95926; --us-wash: rgba(57,135,229,0.14); --them-wash: rgba(217,89,38,0.14);
+  --good: #0ca30c; --good-ink: #0ca30c; --bad: #e66767; --warn: #fab219; --warn-ink: #fab219;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+header { position: sticky; top: 0; z-index: 5; background: var(--page); border-bottom: 1px solid var(--ring);
+  display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; padding: 10px 16px; }
+h1 { font-size: 16px; margin: 0 8px 0 0; }
+h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-2); margin: 0 0 10px; font-weight: 600; }
+.meta { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.pill { display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px; border-radius: 999px; border: 1px solid var(--ring); background: var(--surface); white-space: nowrap; }
+.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.wrap { padding: 16px; display: grid; gap: 16px; grid-template-columns: minmax(0, 2.2fr) minmax(280px, 1fr); align-items: start; }
+@media (max-width: 960px) { .wrap { grid-template-columns: minmax(0, 1fr); } }
+.tiles { grid-column: 1 / -1; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.tile { background: var(--surface); border: 1px solid var(--ring); border-radius: 10px; padding: 10px 12px; }
+.tile .k { color: var(--ink-2); font-size: 12px; }
+.tile .v { font-size: 22px; font-weight: 600; margin-top: 2px; }
+.tile .s { color: var(--muted); font-size: 12px; }
+select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--ring); border-radius: 6px; padding: 3px 6px; }
+section, aside { min-width: 0; }
+.cards { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); }
+.card { background: var(--surface); border: 1px solid var(--ring); border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.card.flash { box-shadow: 0 0 0 2px var(--good); transition: box-shadow 2s; }
+.head { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: baseline; }
+.head .id { font-weight: 700; }
+.head .item { font-weight: 600; }
+.head .rival { color: var(--ink-2); }
+.badge { font-size: 12px; padding: 1px 8px; border-radius: 6px; background: var(--surface-2); color: var(--ink-2); }
+.bar { height: 6px; border-radius: 3px; background: var(--grid); overflow: hidden; }
+.bar > i { display: block; height: 100%; background: var(--ink-2); border-radius: 3px; }
+.bar.late > i { background: var(--warn); }
+.nums { display: grid; grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); gap: 6px; }
+.nums div { background: var(--surface-2); border-radius: 8px; padding: 4px 8px; }
+.nums .k { font-size: 11px; color: var(--ink-2); }
+.nums .v { font-weight: 600; font-variant-numeric: tabular-nums; }
+.k .sw { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 4px; vertical-align: 0; }
+svg.chart { width: 100%; height: 120px; display: block; overflow: visible; }
+.chart text { font-size: 10px; fill: var(--muted); }
+.legend { display: flex; gap: 12px; font-size: 12px; color: var(--ink-2); }
+.tx { max-height: 340px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; padding-right: 4px; }
+.msg { max-width: 86%; padding: 6px 10px; border-radius: 10px; border: 1px solid var(--ring); }
+.msg.them { align-self: flex-start; background: var(--them-wash); border-left: 3px solid var(--them); }
+.msg.us { align-self: flex-end; background: var(--us-wash); border-right: 3px solid var(--us); }
+.msg .who { font-size: 11px; color: var(--ink-2); display: flex; gap: 8px; justify-content: space-between; }
+.msg .price { font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.msg .why { font-size: 12px; color: var(--ink-2); margin-top: 4px; border-top: 1px dashed var(--ring); padding-top: 4px; }
+.note { align-self: center; font-size: 12px; color: var(--ink-2); background: var(--surface-2); border-radius: 999px; padding: 2px 10px; text-align: center; }
+.note.accept { color: var(--good-ink); font-weight: 600; }
+.tag { font-size: 11px; padding: 0 6px; border-radius: 4px; border: 1px solid var(--ring); color: var(--ink-2); margin-left: 4px; }
+details summary { cursor: pointer; color: var(--muted); font-size: 12px; }
+details p { margin: 4px 0 0; }
+.status { font-weight: 600; display: inline-flex; gap: 6px; align-items: center; }
+.status.deal { color: var(--good-ink); } .status.no { color: var(--bad); } .status.wait { color: var(--warn-ink); }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th { text-align: left; font-size: 12px; color: var(--ink-2); font-weight: 600; padding: 4px 6px; border-bottom: 1px solid var(--axis); }
+td { padding: 5px 6px; border-bottom: 1px solid var(--grid); }
+tr.row { cursor: pointer; } tr.row:hover td { background: var(--surface-2); }
+.num { text-align: right; }
+.panel { background: var(--surface); border: 1px solid var(--ring); border-radius: 12px; padding: 12px; }
+.feed { max-height: 520px; overflow-y: auto; }
+.feed div { display: grid; grid-template-columns: 48px 52px minmax(0, 1fr) auto; gap: 6px; padding: 4px 0; border-bottom: 1px solid var(--grid); font-size: 13px; }
+.feed div.ours { box-shadow: inset 3px 0 0 var(--us); padding-left: 6px; }
+.feed .item { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.small { font-size: 12px; color: var(--muted); }
+.empty { color: var(--muted); padding: 16px; text-align: center; border: 1px dashed var(--ring); border-radius: 12px; }
+.err { color: var(--bad); font-size: 12px; }
+#toasts { position: fixed; right: 16px; bottom: 16px; display: flex; flex-direction: column; gap: 8px; z-index: 10; }
+.toast { background: var(--surface); border: 1px solid var(--ring); border-left: 4px solid var(--good); border-radius: 8px; padding: 8px 12px; box-shadow: 0 4px 16px rgba(0,0,0,.15); max-width: 360px; }
+.toast.no { border-left-color: var(--bad); }
+#tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--page); font-size: 12px; padding: 3px 8px; border-radius: 6px; display: none; z-index: 20; white-space: nowrap; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Duel monitor</h1>
+  <span class="meta" id="clock">connecting…</span>
+  <span id="duelist"></span>
+  <span class="meta" id="next"></span>
+  <span class="meta" id="updated"></span>
+</header>
+<div class="wrap">
+  <div class="tiles" id="tiles"></div>
+  <section>
+    <h2>Live duels</h2>
+    <div class="cards" id="live"></div>
+    <h2 style="margin-top:20px">Finished <span class="small" id="fin-note"></span></h2>
+    <div class="panel" style="padding:4px 8px">
+      <table><thead><tr><th>Duel</th><th>Result</th><th>Role</th><th>Item</th><th>Rival</th><th class="num">Price</th><th class="num">Points</th><th class="num">Rounds</th></tr></thead>
+      <tbody id="done"></tbody></table>
+    </div>
+    <div id="opened" class="cards" style="margin-top:12px"></div>
+  </section>
+  <aside>
+    <h2>All duels in the game</h2>
+    <div class="panel" id="field"></div>
+  </aside>
+</div>
+<div id="toasts"></div>
+<div id="tip"></div>
+<script>
+"use strict";
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
+const P = (x) => x == null ? "–" : `${Math.round(x * 10) / 10} P`;
+let S = null, session = null, prev = {}, cards = {}, opened = new Set(), first = true;
+
+function statusHtml(d) {
+  if (d.status === "deal") return `<span class="status deal">✓ Deal</span>`;
+  if (d.status === "no_deal") return `<span class="status no">✕ No deal</span>`;
+  if (d.status === "live") return `<span class="status wait">● Live</span>`;
+  if (d.status === "ended") return `<span class="status wait">⏳ Ended, result pending</span>`;
+  return `<span class="status">${esc(d.status)}</span>`;
+}
+const roleText = (d) => d.role === "seller" ? "We sell" : d.role === "buyer" ? "We buy" : esc(d.role);
+
+function chart(d) {
+  const pts = d.events.filter((e) => e.kind === "message" && e.price != null && e.tick != null);
+  const t0 = d.first_tick ?? (pts[0] && pts[0].tick), t1 = Math.max(d.deadline ?? 0, ...pts.map((p) => p.tick)) ;
+  if (t0 == null || !pts.length) return `<div class="small">No priced message yet.</div>`;
+  const prices = [...pts.map((p) => p.price), d.limit].filter((x) => x != null);
+  let lo = Math.min(...prices), hi = Math.max(...prices); const pad = Math.max(2, (hi - lo) * 0.12); lo -= pad; hi += pad;
+  const W = 300, H = 110, L = 30, R = 8, T = 6, B = 16;
+  const x = (t) => L + (W - L - R) * ((t - t0) / Math.max(1, t1 - t0));
+  const y = (p) => T + (H - T - B) * (1 - (p - lo) / (hi - lo));
+  const series = (mine) => {
+    const s = pts.filter((p) => p.mine === mine); if (!s.length) return "";
+    let path = `M${x(s[0].tick)},${y(s[0].price)}`;
+    for (let i = 1; i < s.length; i++) path += ` H${x(s[i].tick)} V${y(s[i].price)}`;
+    const end = d.live ? (d.deadline - d.ticks_left) : s[s.length - 1].tick;
+    if (end > s[s.length - 1].tick) path += ` H${x(end)}`;
+    const color = mine ? "var(--us)" : "var(--them)";
+    const dots = s.map((p) => `<circle cx="${x(p.tick)}" cy="${y(p.price)}" r="4" fill="${color}" stroke="var(--surface)" stroke-width="2"
+      data-tip="${esc(`t${p.tick} · ${mine ? "us" : p.who} · ${p.price} P`)}"></circle>`).join("");
+    const last = s[s.length - 1];
+    return `<path d="${path}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round"></path>${dots}
+      <text x="${Math.min(W - 2, x(last.tick) + 6)}" y="${y(last.price) - 6}" style="fill:var(--ink-2)">${last.price}</text>`;
+  };
+  const ticks = [lo + pad, (lo + hi) / 2, hi - pad].map((p) => Math.round(p));
+  const grid = ticks.map((p) => `<line x1="${L}" x2="${W - R}" y1="${y(p)}" y2="${y(p)}" stroke="var(--grid)" stroke-width="1"></line>
+    <text x="${L - 4}" y="${y(p) + 3}" text-anchor="end">${p}</text>`).join("");
+  const limit = d.limit == null ? "" : `<line x1="${L}" x2="${W - R}" y1="${y(d.limit)}" y2="${y(d.limit)}" stroke="var(--ink-2)" stroke-dasharray="4 3" stroke-width="1"></line>
+    <text x="${W - R}" y="${y(d.limit) - 3}" text-anchor="end" style="fill:var(--ink-2)">our limit ${d.limit}</text>`;
+  const now = d.live && d.deadline != null ? `<line x1="${x(d.deadline - d.ticks_left)}" x2="${x(d.deadline - d.ticks_left)}" y1="${T}" y2="${H - B}" stroke="var(--axis)" stroke-width="1"></line>` : "";
+  const axis = `<text x="${L}" y="${H - 3}">t${t0}</text><text x="${W - R}" y="${H - 3}" text-anchor="end">${d.deadline != null ? "deadline t" + d.deadline : "t" + t1}</text>`;
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="Offers over time">${grid}${limit}${now}${series(false)}${series(true)}${axis}</svg>
+    <div class="legend"><span><span class="dot" style="background:var(--us)"></span> Us</span><span><span class="dot" style="background:var(--them)"></span> ${esc(d.rival || "Them")}</span><span>- - our limit</span></div>`;
+}
+
+function why(e) {
+  const bits = [];
+  if (e.band) bits.push(`band ${e.band.best}–${e.band.worst}`);
+  if (e.took_s != null) bits.push(`${e.took_s} s`);
+  if (e.cost_usd) bits.push(`$${e.cost_usd.toFixed(4)}`);
+  const tags = [e.rule && `<span class="tag">${esc(e.rule)}</span>`, e.fallback && `<span class="tag">fallback</span>`].filter(Boolean).join("");
+  const plan = e.read || e.angle ? `<details data-k="why"><summary>strategist</summary>${e.read ? `<p>${esc(e.read)}</p>` : ""}${e.angle ? `<p><i>${esc(e.angle)}</i></p>` : ""}</details>` : "";
+  return `<div class="why">${esc(bits.join(" · "))}${tags}${plan}</div>`;
+}
+
+function transcript(d) {
+  if (!d.events.length) return `<div class="small">No messages yet.</div>`;
+  return d.events.map((e, i) => {
+    if (e.kind === "message") {
+      const day = e.days != null && d.issues.includes("days") ? ` · day ${e.days}` : "";
+      return `<div class="msg ${e.mine ? "us" : "them"}"><div class="who"><span>${e.mine ? "Us" : esc(e.who)} · t${e.tick}</span>
+        <span class="price">${e.price != null ? e.price + " P" + day : "no price"}</span></div>${esc(e.text)}${e.mine && e.decision ? why(e.decision) : ""}</div>`;
+    }
+    if (e.kind === "hold") return `<div class="note">t${e.tick} · hold${e.price != null ? " at " + e.price + " P" : ""}, nothing sent${e.took_s != null ? " · " + e.took_s + " s" : ""}${e.read ? `<details data-k="h${i}"><summary>strategist</summary><p>${esc(e.read)}</p></details>` : ""}</div>`;
+    return `<div class="note accept">t${e.tick} · ${e.sent ? "we accept" : "accept decided (held)"} ${e.price != null ? e.price + " P" : ""}${e.rule ? `<span class="tag">${esc(e.rule)}</span>` : ""}</div>`;
+  }).join("");
+}
+
+function cardHtml(d) {
+  const total = d.deadline != null && d.first_tick != null ? Math.max(1, d.deadline - d.first_tick) : null;
+  const progress = d.live && total ? `<div class="bar ${d.ticks_left <= 3 ? "late" : ""}" title="${d.ticks_left} ticks left"><i style="width:${Math.min(100, 100 * (1 - d.ticks_left / total))}%"></i></div>
+    <div class="small">${d.ticks_left} tick${d.ticks_left === 1 ? "" : "s"} left · deadline t${d.deadline}</div>` : "";
+  const gap = d.our_offer != null && d.their_offer != null ? Math.abs(d.our_offer - d.their_offer) : null;
+  const res = d.status === "deal" ? `<div><div class="k">Result</div><div class="v">${P(d.result)}</div></div><div><div class="k">Price</div><div class="v">${P(d.price)}</div></div>` :
+    `<div><div class="k">Worth now</div><div class="v">${P(d.worth_now)}</div></div>`;
+  return `<div class="head"><span class="id">#${d.id}</span><span class="badge">${roleText(d)}</span><span class="item">${esc(d.item)}</span>
+      <span class="rival">vs ${esc(d.rival)}</span>${d.live ? "" : statusHtml(d)}</div>
+    ${progress}
+    <div class="nums">
+      <div><div class="k">Our limit</div><div class="v">${P(d.limit)}</div></div>
+      <div><div class="k"><span class="sw" style="background:var(--us)"></span>Ours</div><div class="v">${P(d.our_offer)}</div></div>
+      <div><div class="k"><span class="sw" style="background:var(--them)"></span>Theirs</div><div class="v">${P(d.their_offer)}</div></div>
+      <div><div class="k">Gap</div><div class="v">${P(gap)}</div></div>
+      <div><div class="k">Rounds</div><div class="v">${d.rounds}</div></div>${res}
+    </div>
+    ${chart(d)}
+    <div class="small">Messages: ${d.messages[0]} ours, ${d.messages[1]} theirs · holds ${d.holds} · ${d.avg_s ?? "–"} s per decision · $${d.cost_usd}</div>
+    <div class="tx">${transcript(d)}</div>`;
+}
+
+function render(container, list, keyPrefix) {
+  const seen = new Set();
+  for (const d of list) {
+    const key = keyPrefix + d.id; seen.add(key);
+    const sig = JSON.stringify([d.status, d.ticks_left, d.events.length, d.result, d.our_offer, d.their_offer, d.rounds]);
+    let c = cards[key];
+    if (!c) { const el = document.createElement("div"); el.className = "card"; container.appendChild(el); c = cards[key] = {el, sig: null}; }
+    if (c.sig === sig) continue;
+    const tx = c.el.querySelector(".tx"), atBottom = !tx || tx.scrollHeight - tx.scrollTop - tx.clientHeight < 30, top = tx ? tx.scrollTop : 0;
+    const open = new Set([...c.el.querySelectorAll("details[open]")].map((x) => x.dataset.k));
+    c.el.innerHTML = cardHtml(d); c.sig = sig;
+    c.el.querySelectorAll("details").forEach((x) => { if (open.has(x.dataset.k)) x.open = true; });
+    const t2 = c.el.querySelector(".tx"); if (t2) t2.scrollTop = atBottom ? t2.scrollHeight : top;
+  }
+  for (const key of Object.keys(cards)) if (key.startsWith(keyPrefix) && !seen.has(key)) { cards[key].el.remove(); delete cards[key]; }
+}
+
+function toast(d) {
+  const deal = d.status === "deal";
+  const el = document.createElement("div"); el.className = "toast" + (deal ? "" : " no");
+  el.innerHTML = `<b>${deal ? "✓ Deal" : "✕ No deal"}</b> · #${d.id} ${roleText(d).toLowerCase()} ${esc(d.item)} vs ${esc(d.rival)}` +
+    (deal ? `<br>at ${d.price} P → ${P(d.result)} after ${d.rounds} round${d.rounds === 1 ? "" : "s"}` : "");
+  $("toasts").appendChild(el); setTimeout(() => el.remove(), 15000);
+}
+
+function sessionsOf(s) {
+  const names = {}; for (const f of s.field.sessions) names[f.session] = f.name;
+  for (const d of s.duels) if (d.session != null && !names[d.session]) names[d.session] = d.session_name || `Session ${d.session}`;
+  return names;
+}
+
+function draw() {
+  const s = S; if (!s) return;
+  const c = s.clock || {};
+  $("clock").textContent = c.tick != null ? `tick ${c.tick} · hour ${(+c.t_hours).toFixed(2)} · ${c.tick_seconds} s ticks${c.paused ? " · PAUSED" : ""}${c.doors && c.doors !== "open" ? " · doors " + c.doors : ""}` : "clock unavailable";
+  const du = s.duelist;
+  const ok = du.running;
+  $("duelist").innerHTML = `<span class="pill"><span class="dot" style="background:${ok ? "var(--good)" : "var(--bad)"}"></span>${ok ? "Duelist running" : "Duelist NOT running"}${du.pid ? " · pid " + du.pid : ""}${du.records_age_s != null ? " · records written " + ago(du.records_age_s) : ""}</span>` +
+    (du.errors.length ? ` <span class="pill err" title="${esc(du.errors.map((e) => `${ago(e.ago_s)} ${e.event} duel ${e.duel ?? "-"}: ${e.what}`).join("\n"))}">⚠ ${du.errors.length} error${du.errors.length > 1 ? "s" : ""} in 30 min</span>` : "") +
+    (Object.keys(s.public_errors).length ? ` <span class="pill err">⚠ public feed: ${esc(Object.values(s.public_errors)[0])}</span>` : "");
+  const n = s.next_session;
+  $("next").textContent = n ? `Next: ${n.name}${n.minutes != null ? ` in ${n.minutes} min (tick ~${n.tick})` : ""} · ${n.duel_ticks} ticks · ${Math.round(n.decay * 100)}% · ${n.max_concurrent} at once` : "";
+  $("updated").textContent = `updated ${new Date(s.now * 1000).toLocaleTimeString()}`;
+
+  const names = sessionsOf(s);
+  const liveSession = (s.duels.find((d) => d.live) || {}).session;
+  const sessionsWithDuels = [...new Set(s.duels.map((d) => d.session))].filter((x) => x != null).sort((a, b) => a - b);
+  if (session == null || (liveSession != null && liveSession !== session && !userPicked)) session = liveSession ?? sessionsWithDuels[sessionsWithDuels.length - 1] ?? null;
+  const mine = s.duels.filter((d) => d.session === session);
+  const live = mine.filter((d) => d.live), done = mine.filter((d) => !d.live).sort((a, b) => (b.deadline ?? 0) - (a.deadline ?? 0));
+  const fin = done.filter((d) => d.status === "deal" || d.status === "no_deal"), deals = fin.filter((d) => d.status === "deal");
+  const fs = s.field.sessions.find((f) => f.session === session) || {};
+  const pts = deals.reduce((a, d) => a + (d.result || 0), 0);
+  const rate = (a, b) => b ? `${Math.round(100 * a / b)}%` : "–";
+  const opts = [...new Set([...sessionsWithDuels, ...s.field.sessions.map((f) => f.session)])].filter((x) => x != null).sort((a, b) => a - b)
+    .map((x) => `<option value="${x}" ${x === session ? "selected" : ""}>${esc(names[x] || "Session " + x)}</option>`).join("");
+  $("tiles").innerHTML = `
+    <div class="tile"><div class="k">Session</div><div class="v" style="font-size:16px"><select id="sess">${opts}</select></div><div class="s">${fs.duel_ticks ? fs.duel_ticks + " ticks · " + Math.round(fs.decay * 100) + "% per round" : ""}${fs.finished ? " · finished" : ""}</div></div>
+    <div class="tile"><div class="k">Live now</div><div class="v">${live.length}</div><div class="s">${done.length} finished</div></div>
+    <div class="tile"><div class="k">Our deals</div><div class="v">${deals.length} / ${fin.length}</div><div class="s">${rate(deals.length, fin.length)} of finished</div></div>
+    <div class="tile"><div class="k">Our points (Σ results)</div><div class="v">${P(pts)}</div><div class="s">${deals.length ? "avg " + (deals.reduce((a, d) => a + d.rounds, 0) / deals.length).toFixed(1) + " rounds per deal" : ""}</div></div>
+    <div class="tile"><div class="k">Field deal rate</div><div class="v">${rate(fs.deals, fs.closed)}</div><div class="s">ours ${rate(fs.ours_deals, fs.ours_closed)} · all teams' duels as they close</div></div>
+    <div class="tile"><div class="k">Field progress</div><div class="v">${fs.closed ?? 0}${fs.total ? " / " + fs.total : ""}</div><div class="s">duels closed${s.score ? ` · our duel points ${s.score.duel_points ?? "–"} (rank ${s.score.rank ?? "–"})` : ""}</div></div>`;
+  $("sess").onchange = (e) => { session = +e.target.value; userPicked = true; Object.keys(cards).forEach((k) => { cards[k].el.remove(); delete cards[k]; }); opened.clear(); draw(); };
+
+  if (!live.length) $("live").innerHTML = `<div class="empty">No live duel in this session${n && n.minutes != null ? ` · ${esc(n.name)} starts in ~${n.minutes} min` : ""}.</div>`;
+  else { const empty = $("live").querySelector(".empty"); if (empty) empty.remove(); }
+  render($("live"), live.sort((a, b) => (a.ticks_left ?? 99) - (b.ticks_left ?? 99) || a.id - b.id), "L");
+  $("fin-note").textContent = done.length ? `· click a row for the transcript` : "";
+  $("done").innerHTML = done.map((d) => `<tr class="row" data-id="${d.id}"><td>#${d.id}</td><td>${statusHtml(d)}</td><td>${roleText(d)}</td><td>${esc(d.item)}</td><td>${esc(d.rival)}</td>
+    <td class="num">${d.price ?? "–"}</td><td class="num">${d.result ?? "–"}</td><td class="num">${d.rounds}</td></tr>`).join("") ||
+    `<tr><td colspan="8" class="small">None yet.</td></tr>`;
+  $("done").querySelectorAll("tr.row").forEach((r) => r.onclick = () => { const id = +r.dataset.id; opened.has(id) ? opened.delete(id) : opened.add(id); draw(); });
+  render($("opened"), done.filter((d) => opened.has(d.id)), "O");
+
+  const closed = s.field.closed.filter((e) => e.session === session).slice(0, 120);
+  $("field").innerHTML = `<p class="small" style="margin-top:0">The game shows other teams' duels only as they close (item, deal or not): no teams, prices or messages. Ours are marked.</p>
+    ${fs.total ? `<div class="bar" title="${fs.closed} of ${fs.total} closed"><i style="width:${100 * fs.closed / fs.total}%"></i></div><div class="small">${fs.closed} of ${fs.total} closed · ${fs.deals} deals</div>` : ""}
+    <h2 style="margin-top:12px">Closings, newest first</h2>
+    <div class="feed">${closed.map((e) => `<div class="${e.ours ? "ours" : ""}"><span class="small">t${e.tick}</span><span>#${e.duel}</span><span class="item" title="${esc(e.item)}">${esc(e.item)}${e.ours ? ' <span class="tag">ours</span>' : ""}</span>
+      ${e.status === "deal" ? '<span class="status deal">✓ deal</span>' : '<span class="status no">✕ no deal</span>'}</div>`).join("") || '<div class="small">None yet.</div>'}</div>
+    ${fs.items && fs.items.length ? `<h2 style="margin-top:12px">Deal rate by item</h2><table><thead><tr><th>Item</th><th class="num">Closed</th><th class="num">Deals</th></tr></thead><tbody>
+      ${fs.items.map((r) => `<tr><td>${esc(r.item)}</td><td class="num">${r.closed}</td><td class="num">${r.deals} (${rate(r.deals, r.closed)})</td></tr>`).join("")}</tbody></table>` : ""}`;
+
+  for (const d of s.duels) {
+    if (!first && prev[d.id] === "live" && (d.status === "deal" || d.status === "no_deal")) {
+      toast(d); const c2 = cards["O" + d.id] || cards["L" + d.id]; if (c2) c2.el.classList.add("flash");
+    }
+    prev[d.id] = d.status;
+  }
+  first = false;
+}
+let userPicked = false;
+const ago = (s) => s < 60 ? `${s} s ago` : s < 3600 ? `${Math.round(s / 60)} min ago` : `${Math.round(s / 3600)} h ago`;
+
+async function poll() {
+  try {
+    const r = await fetch("/api/state", {cache: "no-store"});
+    S = await r.json(); draw();
+  } catch (e) { $("updated").innerHTML = `<span class="err">monitor server unreachable (${esc(e.message)})</span>`; }
+}
+document.addEventListener("mouseover", (e) => {
+  const t = e.target.closest("[data-tip]"), tip = $("tip");
+  if (!t) { tip.style.display = "none"; return; }
+  tip.textContent = t.dataset.tip; tip.style.display = "block";
+  const r = t.getBoundingClientRect(); tip.style.left = `${r.left + r.width / 2 + 8}px`; tip.style.top = `${r.top - 28}px`;
+});
+poll(); setInterval(poll, 2000);
+</script>
+</body>
+</html>
