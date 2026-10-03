@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 09:34** · tick 171 (30 s/tick) · game hour 2.75 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 09:39** · tick 180 (30 s/tick) · game hour 2.83 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -12,46 +12,46 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 08:35 · duelist #5 on Aleks's call: a rival that has said nothing since our opener (price-only) is played by code, no model: from half the duel's ticks left, our offer walks in equal steps from the opener to a floor keeping 30% of the opener-to-limit distance, reached at 2 ticks left; the moment the rival speaks, the models take over; days duels stay with the models · duel 31 replayed (12 ticks, cost 111, opener 165): 158, 150, 143, 135, 128 on ticks 126-130 · 35 duelist tests, full suite 237 pass · next: Duels II `days` prep
 
 **Dani** — Dashboard runs on my laptop as a standalone process (http://127.0.0.1:8765, read-only; anyone can run their own with `dashboard/start.bat` or `python dashboard/server.py`). It rewrites `intel/teams.md` every 10 min. Next: the room (buyers for SAL/LAT below us) and the organisers' desk.
+  - Sat 09:40 · dashboard reads the hub (Aleks's suggestion, optional): with `HUB_READER_URL` it reads the hub read-only at start and every 5 rounds and merges the events, leaderboard snapshots and `/api/me` rows it lacks (also into `logs/dashboard/`, so the cache survives offline); `--no-hub` turns it off; the header shows `hub synced HH:MM` · tested on a copy of the cache: +92 events (Friday's 80 backfilled settlements, ticks 2-67, which the dashboard never saw, + 12 recent), second pass adds no duplicates, ~1 s per pass, a bad URL logs an error without the password · next: restart the dashboard to turn it on; it matters on Sunday (15 s ticks, the feed holds only minutes)
+  - Sat 09:34 · hub import from this laptop: hub URLs in `.env` (gitignored), `pip install --user psycopg[binary] python-dotenv`, Netskope lets Neon through · `logs/dashboard/*.jsonl` → hub (source `dani:`): all 2,842 unique feed events (ids 2918-11895) are in, only 3 were new (tick 96; Lucas's import already had the rest); leaderboard 0 new (same 15 ticks); **`me_snapshots` +79 rows** (our `/api/me` history; Lucas had 24) · **for Aleks, `hub/import_files.py`:** (1) a `me` row with `tick: null` aborts the file (NotNullViolation): skip it; (2) "new" overcounts when a file repeats ids (my feed: 3,203 lines, 2,842 ids → said 338 new, really 3); (3) files open without `encoding='utf-8'`, so on Windows it needs `PYTHONUTF8=1` · next: desk, room, judges; the dashboard can read the hub later if it's worth it
   - Fri 23:08 · dashboard v3: **Duels** tab (each of our duels: chat transcript, price path vs our limit, lessons) and **Conversations** tab (every team's public haggling with the dealers: words + price path) · **for Aleks: duel 181 was a missed deal.** We were the buyer with limit 85; Rival Verde's standing offer was 73 at tick 141 and the duel ended with no deal (we were at 67), +12 P left on the table. Rule: when their standing offer is inside our limit near the deadline, accept · our duels: 24 finished, 11 deals, 10 with a silent rival (no agent), 79% deal rate when the rival engaged, rivals conceded 104 P vs our 95; whole field 96/206 deals (47%) · `result` = our surplus × (1 − decay)^rounds, so the rival's limit is NOT recoverable from it · next: Duels I on Saturday
-  - Fri 22:48 · **URGENT, LAV-09:** El Chato restocks LAV-09. He sold it to Team 10 (90, tick 113) and Team 14 (93, tick 132), and LAV-10 to Teams 14 (91), 7 (91) and 4 (82). We hold LAV-01..08 + LAV-10, so **LAV-09 completes our LAV page (worth 177 to us)**. The top 3 (Teams 13, 12, 10) each have 1 complete page; we have 0. → Buy LAV-09 from Chato now (~90) instead of our public bid at 125 (#2353): Team 14 (#8, right above us) bought one at 93 and could fill our 125 for +32. Needs Lucas's OK against the "no dealer buys" rule (LAV-06 at 31 gave −2.3), but a +87 page card should outweigh it · Team 10 is NOT rising: 24.0 → 20.3 (#4 → #5); risers are Team 17 +6.8, Team 4 +2.9, Team 13 +2.2, Team 12 +2.0 · next: Lucas decides before 23:00
-  - Fri 22:40 · dashboard redesigned (Overview tab: rank, gap to the teams above/below, "why our score moved" = our trades vs field drift, `neg_points` vs score, the race around us) · ticks 90-135: **our trades −1.23, field drift −2.63**; standing still cost us more than our mistakes · **new data point: LAV-06 bought from El Chato at 31 (tick ~133, worth 32.5 to us): `neg_points` 30.1 → 27.8 (−2.3)**, so even a dealer buy *below* our value subtracted. Finding 13 may need "never buy from dealers" rather than "never above value" · 8 teams now collect LAV (incl. #2 Team 12) · next: Lucas checks the LAV-06 effect
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 09:37 · operator (new session, lock held), plan §2 run · **clock RESUMED and round 2 (Gran Vía) already fired at ~2.7** (tick 172, 30 s ticks); bench 3.0 still on the schedule (round 2's first bench, ~09:41); Duels I 5.15, Duels II 11.65 · **RESET confirmed**: `neg_points` 0.0, `ladder_points` 0.0 (board score 17.81 = Friday carried in the average) · grant arrived: cash 252 → 402, pack 551 opened → RET-05, SAL-01 (2nd), SAL-03 (`neg_points` still 0) · started `trader opps scout judge strategist` with CASH_FLOOR=370 (GUARDRAIL 03:30, until the Market session's venue decision after bench 3.0) · watcher armed · next: RET page by §4B (rares first, from teams), drop the floor to 100 after the venue decision
   - Sat 09:30 · handoff to the 4 sessions (read this first) · **clock RESUMES at 2.65**, still paused at tick 159 (Aleks read the server): Duels I = hour 5.15 = tick 309 (~75 min after unpause, 3 at once, 16 ticks, 6%), Duels II = 11.65 = tick 699 (~4.5 h after unpause, earlier than 18:00; 6 at once, 8%) · **duelist LIVE on Aleks's Mac since 09:15**: never start the standby copy here · preflight all OK 09:28, caffeinate on · hub: collector running here (outside daemons.sh); the demand model on Aleks's Mac now uses Friday's history (421 obs); `hub.team_mult` (rivals' multipliers) is an input for the opportunity engine, not wired · **Builder:** `tools/duel_monitor.py:92` counts ticks left as deadline − tick + 1, the duelist and `tools/arbiter.py:108` use deadline − tick → near-deadline alerts fire a tick late; fix with a test · **Chief:** desk Q6 open: if duels count in the 6 open conversations, no dealer conversations during Duels II (6 duels at once fill all 6) · next: the Operator runs plan §2 at unpause
   - Sat 08:12 · hub (Aleks's Neon store) set up on this Mac: URLs in `.env` (quoted: the `&` breaks `. ./.env`), `uv sync` (+psycopg only), **second collector running** (`hub/supervise.sh collect --host lucas`, keyless, read-only, not in daemons.sh; stop: `pkill -f 'hub/supervise.sh collect'; pkill -f hub.collect`), imported `data/feed.jsonl` + leaderboard + me + duels feed → hub 2618 events, ticks 2-159, 192 settlements · **found:** 106 backfilled settlements in `data/feed.jsonl` carry `id: -1`, the importer keys on id → 105 would be dropped; imported with id = −settlement (80; 26 already had a real event) · our `tools/opportunities.py` stays the only engine that alerts/posts; `hub.team_mult` (rivals' multipliers) is an input to test, not wired · next: Aleks fixes the importer before Dani loads his files
-  - Sat 03:35 · operator, night build DONE and verified · new daemons: opportunity engine `opps` (page-gap alerts to Dani/Lucas via ntfy, strategic thresholds), duel monitor `duelmon`, round archiver, market `recorder`/`broker` (auto_clone = the stall, verified), trader with swaps + offers addressed to us + feeding/page protections, dealer bot never buys a page-closer, accept arbiter (scored duels only), operator lock, preflight · 199 tests pass; 2 independent reviews, all blockers fixed · nothing that trades is running; `daemons.sh start` without names is refused · decisions: cash floor 370 until the venue decision, then 100; venue staged after the first Market Test · **morning: follow `intel/morning-start.md`**; this session must not operate tomorrow
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 17.81 | 7 | 17.81 | 0.00 | 0.00 | 0.00 | — | 24 | 2 | 402 | 20/50 |
+| 16.04 | 7 | 16.04 | 0.00 | 0.00 | 0.00 | — | 24 | 2 | 402 | 22/50 |
 
-Leaderboard (snapshot at tick 170; refreshes every few minutes):
+Leaderboard (snapshot at tick 180; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 13 | 28.18 | 28.18 | 0.00 | 26 |
-| 2 | Team 12 | 24.79 | 24.79 | 0.00 | 21 |
-| 3 | Team 17 | 20.20 | 20.20 | 0.00 | 16 |
-| 4 | Team 4 | 19.28 | 19.28 | 0.00 | 15 |
-| 5 | Team 10 | 18.50 | 18.50 | 0.00 | 20 |
-| 7 | Team 5 | 17.81 | 17.81 | 0.00 | 24 |
+| 1 | Team 13 | 26.52 | 26.52 | 0.00 | 29 |
+| 2 | Team 12 | 23.25 | 23.25 | 0.00 | 22 |
+| 3 | Team 17 | 18.72 | 18.72 | 0.00 | 16 |
+| 4 | Team 4 | 18.23 | 18.23 | 0.00 | 16 |
+| 5 | Team 14 | 17.92 | 17.92 | 0.00 | 12 |
+| 7 | Team 5 | 16.04 | 16.04 | 0.00 | 24 |
 
 ## Next on the schedule
 
-_ETA assumes the current tick length and no pause._
+_ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour is a wall hour at any pace)._
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 3.00 | ~8 min | bench | The Market Test: every venue gets the same synthetic book |
-| 4.00 | ~38 min | day_closes | Closed until Saturday 09:00 |
-| 5.00 | ~68 min | bench | The Market Test: every venue gets the same synthetic book |
-| 5.15 | ~72 min | duels | Duels I: price only, one round-robin |
-| 7.00 | ~128 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.00 | ~188 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.00 | ~248 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.65 | ~267 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 3.00 | ~10 min | bench | The Market Test: every venue gets the same synthetic book |
+| 4.00 | ~70 min | day_closes | Closed until Saturday 09:00 |
+| 5.00 | ~130 min | bench | The Market Test: every venue gets the same synthetic book |
+| 5.15 | ~140 min | duels | Duels I: price only, one round-robin |
+| 7.00 | ~250 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.00 | ~370 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.00 | ~491 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.65 | ~530 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
 
 ## Our dealer deals
 
@@ -90,14 +90,14 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
 | common card | team buys | 29 | 10 | 7 | 12 | 2 | 9 |
-| common card | team sells | 30 | 6.00 | 5 | 23 | 5 | 5.40 |
-| sobre_barrio | team buys | 32 | 22.00 | 17 | 30 | 3 | 20.33 |
-| uncommon card | team buys | 40 | 23.00 | 17 | 29 | 2 | 26.50 |
+| common card | team sells | 32 | 6.00 | 5 | 23 | 5 | 5.40 |
+| sobre_barrio | team buys | 34 | 22.00 | 17 | 30 | 3 | 20.33 |
+| uncommon card | team buys | 42 | 23.00 | 17 | 29 | 2 | 26.50 |
 | uncommon card | team sells | 6 | 14.00 | 13 | 16 | 0 | — |
 
 ## Duels
 
-Live: 3 · finished: 34
+Live: 0 · finished: 34
 
 - {"duel": 199, "session": 1, "status": "deal", "role": "buyer", "item": "Mercado de Vallehermoso", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 150, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "deadline_tick": 166, "decay_per_round": 0.06
 - {"duel": 200, "session": 1, "status": "deal", "role": "seller", "item": "Mercado de Vallehermoso", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 68, "limit_meaning": "never sell below your cost", "rival": "Rival Noche", "deadline_tick": 168, "decay_per_round": 0.
@@ -108,9 +108,9 @@ Live: 3 · finished: 34
 - {"duel": 269, "session": 1, "status": "deal", "role": "seller", "item": "Taxi Blanco", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 81, "limit_meaning": "never sell below your cost", "rival": "Rival Rojo", "deadline_tick": 170, "decay_per_round": 0.06, "rounds":
 - {"duel": 270, "session": 1, "status": "deal", "role": "buyer", "item": "Taxi Blanco", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 102, "limit_meaning": "never pay above your value", "rival": "Rival Verde", "deadline_tick": 170, "decay_per_round": 0.06, "rounds"
 - {"duel": 271, "session": 1, "status": "deal", "role": "seller", "item": "Taxi Blanco", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 87, "limit_meaning": "never sell below your cost", "rival": "Rival Noche", "deadline_tick": 174, "decay_per_round": 0.06, "rounds"
-- {"duel": 272, "session": 1, "status": "live", "role": "buyer", "item": "Taxi Blanco", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 128, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "deadline_tick": 180, "decay_per_round": 0.06, "rounds": 
-- {"duel": 277, "session": 1, "status": "live", "role": "seller", "item": "El Tren Fantasma", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 119, "limit_meaning": "never sell below your cost", "rival": "Rival Plata", "deadline_tick": 175, "decay_per_round": 0.06, "r
-- {"duel": 278, "session": 1, "status": "live", "role": "buyer", "item": "El Tren Fantasma", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 116, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "deadline_tick": 177, "decay_per_round": 0.06, "roun
+- {"duel": 272, "session": 1, "status": "deal", "role": "buyer", "item": "Taxi Blanco", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 128, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "deadline_tick": 180, "decay_per_round": 0.06, "rounds": 
+- {"duel": 277, "session": 1, "status": "deal", "role": "seller", "item": "El Tren Fantasma", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 119, "limit_meaning": "never sell below your cost", "rival": "Rival Plata", "deadline_tick": 175, "decay_per_round": 0.06, "r
+- {"duel": 278, "session": 1, "status": "deal", "role": "buyer", "item": "El Tren Fantasma", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 116, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "deadline_tick": 177, "decay_per_round": 0.06, "roun
 
 ## Dealers
 
