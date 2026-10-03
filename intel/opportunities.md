@@ -1,4 +1,4 @@
-# Opportunities (auto, 16:05, game tick 703, t 7.1833 h)
+# Opportunities (auto, 16:06, game tick 705, t 7.2 h)
 
 Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and ≤ 60 real min old · ≤ 3 alerts/h · team 45 min · team+card 2 h · never to the top 4 (t10, t12, t14, t18); a sale that closes their page (last or second-to-last known lack) only to teams ≥ 10 below us (28.34); page-closers on El Rastro, the rest on v07. Data: collector.
 
@@ -6,21 +6,21 @@ Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and �
 
 | # | side | team | card | price | our value | gain | signal | age (game / real min) | status |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | SELL | Team 10 (#4, 28.65) | MAL-09 rare | 73 | 49 | 24 | bid 0 P for it (tick 673) | 15 / 15 | no: top 4; dumps MAL (teams.md): sell only to collectors; 0.31 above us |
-| 2 | SELL | Team 15 (#14, 22.06) | MAL-09 rare | 61 | 49 | 12 | bid 0 P for it (tick 651) | 26 / 26 | no: only 6.28 below us (needs ≥ 10) |
-| 3 | SELL | Team 10 (#4, 28.65) | SAL-05 common | 32 | 9 | 23 | asked abuela to sell it (tick 696) | 3 / 3 | no: top 4; dumps SAL (teams.md): sell only to collectors |
-| 4 | SELL | Team 10 (#4, 28.65) | SAL-04 common | 32 | 9 | 23 | asked abuela to sell it (tick 670) | 17 / 17 | no: top 4; dumps SAL (teams.md): sell only to collectors |
-| 5 | SELL | Team 3 (#11, 23.26) | SAL-02 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 208) | 248 / 373 | no: only 5.08 below us (needs ≥ 10) |
-| 6 | SELL | Team 7 (#17, 19.44) | SAL-01 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 136) | 295 / 1049 | no: dumps SAL (teams.md): sell only to collectors; only 8.9 below us (needs ≥ 10) |
-| 7 | SELL | Team 9 (#16, 20.94) | LAV-02 common | 40 | 3.2 | 36.8 | bid 2 P for it (tick 586) | 58 / 183 | no: only 7.4 below us (needs ≥ 10) |
-| 8 | SELL | Team 3 (#11, 23.26) | SAL-05 common | 40 | 9 | 31 | bid 9 P for it (tick 182) | 260 / 386 | no: only 5.08 below us (needs ≥ 10) |
-| 9 | SELL | Team 8 (#15, 21.57) | SAL-03 common | 40 | 9 | 31 | bid 5 P for it (tick 142) | 289 / 1044 | no: only 6.77 below us (needs ≥ 10) |
-| 10 | SELL | Team 7 (#17, 19.44) | SAL-05 common | 40 | 9 | 31 | asked abuela to sell it (tick 128) | 303 / 1056 | no: dumps SAL (teams.md): sell only to collectors; only 8.9 below us (needs ≥ 10) |
-| 11 | SELL | Team 2 (#10, 23.89) | MAL-04 common | 27 | 7 | 20 | bid 7 P for it (tick 523) | 90 / 214 | no: only 4.45 below us (needs ≥ 10) |
-| 12 | SELL | Team 12 (#2, 29.79) | SAL-01 common | 19 | 2.2 | 16.8 | bid 5 P for it (tick 634) | 35 / 34 | no: top 4; dumps SAL (teams.md): sell only to collectors; 1.45 above us |
-| 13 | SELL | Team 9 (#16, 20.94) | MAL-09 rare | 54 | 49 | 5 | asked chato to sell it (tick 418) | 142 / 267 | no: dumps MAL (teams.md): sell only to collectors; only 7.4 below us (needs ≥ 10) |
-| 14 | SELL | Team 2 (#10, 23.89) | LAV-02 common | 19 | 3.2 | 15.8 | bid 3 P for it (tick 512) | 95 / 220 | no: dumps LAV (teams.md): sell only to collectors |
-| 15 | SELL | Team 6 (#9, 24.98) | MAL-09 rare | 52 | 49 | 3 | bid 31 P for it (tick 549) | 77 / 201 | no: dumps MAL (teams.md): sell only to collectors |
+| 1 | SELL | Team 10 (#4, 28.65) | MAL-09 rare | 73 | 49 | 24 | bid 0 P for it (tick 673) | 16 / 16 | no: top 4; dumps MAL (teams.md): sell only to collectors; 0.31 above us |
+| 2 | SELL | Team 15 (#14, 22.06) | MAL-09 rare | 61 | 49 | 12 | bid 0 P for it (tick 651) | 27 / 27 | no: only 6.28 below us (needs ≥ 10) |
+| 3 | SELL | Team 10 (#4, 28.65) | SAL-04 common | 32 | 9 | 23 | asked abuela to sell it (tick 703) | 1 / 1 | no: top 4; dumps SAL (teams.md): sell only to collectors |
+| 4 | SELL | Team 10 (#4, 28.65) | SAL-05 common | 32 | 9 | 23 | asked abuela to sell it (tick 696) | 5 / 4 | no: top 4; dumps SAL (teams.md): sell only to collectors |
+| 5 | SELL | Team 3 (#11, 23.26) | SAL-02 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 208) | 249 / 374 | no: only 5.08 below us (needs ≥ 10) |
+| 6 | SELL | Team 7 (#17, 19.44) | SAL-01 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 136) | 296 / 1050 | no: dumps SAL (teams.md): sell only to collectors; only 8.9 below us (needs ≥ 10) |
+| 7 | SELL | Team 9 (#16, 20.94) | LAV-02 common | 40 | 3.2 | 36.8 | bid 2 P for it (tick 586) | 60 / 184 | no: only 7.4 below us (needs ≥ 10) |
+| 8 | SELL | Team 3 (#11, 23.26) | SAL-05 common | 40 | 9 | 31 | bid 9 P for it (tick 182) | 261 / 387 | no: only 5.08 below us (needs ≥ 10) |
+| 9 | SELL | Team 8 (#15, 21.57) | SAL-03 common | 40 | 9 | 31 | bid 5 P for it (tick 142) | 290 / 1045 | no: only 6.77 below us (needs ≥ 10) |
+| 10 | SELL | Team 7 (#17, 19.44) | SAL-05 common | 40 | 9 | 31 | asked abuela to sell it (tick 128) | 304 / 1057 | no: dumps SAL (teams.md): sell only to collectors; only 8.9 below us (needs ≥ 10) |
+| 11 | SELL | Team 2 (#10, 23.89) | MAL-04 common | 27 | 7 | 20 | bid 7 P for it (tick 523) | 91 / 215 | no: only 4.45 below us (needs ≥ 10) |
+| 12 | SELL | Team 12 (#2, 29.79) | SAL-01 common | 19 | 2.2 | 16.8 | bid 5 P for it (tick 634) | 36 / 35 | no: top 4; dumps SAL (teams.md): sell only to collectors; 1.45 above us |
+| 13 | SELL | Team 9 (#16, 20.94) | MAL-09 rare | 54 | 49 | 5 | asked chato to sell it (tick 418) | 144 / 268 | no: dumps MAL (teams.md): sell only to collectors; only 7.4 below us (needs ≥ 10) |
+| 14 | SELL | Team 2 (#10, 23.89) | LAV-02 common | 19 | 3.2 | 15.8 | bid 3 P for it (tick 512) | 96 / 221 | no: dumps LAV (teams.md): sell only to collectors |
+| 15 | SELL | Team 6 (#9, 24.98) | MAL-09 rare | 52 | 49 | 3 | bid 31 P for it (tick 549) | 78 / 202 | no: dumps MAL (teams.md): sell only to collectors |
 
 ## Alerts (newest first)
 
@@ -33,4 +33,4 @@ Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and �
 
 Pages we build, cards missing: RET: none; CHA: CHA-01, CHA-02, CHA-03, CHA-04, CHA-05, CHA-06, CHA-07, CHA-08, CHA-09, CHA-10
 Value of missing cards looked up this run (only those some team holds): none
-Spares (sellable copies): LAT-03 ×1 (5), LAT-04 ×2 (1.2), LAT-08 ×1 (12.5), LAV-02 ×2 (3.2), LAV-03 ×2 (3.2), LAV-04 ×2 (3.2), MAL-02 ×1 (7), MAL-03 ×1 (7), MAL-04 ×1 (7), MAL-05 ×1 (7), MAL-09 ×1 (49), SAL-01 ×2 (2.2), SAL-02 ×2 (2.2), SAL-03 ×1 (9), SAL-04 ×1 (9), SAL-05 ×1 (9), SAL-08 ×1 (22.5)
+Spares (sellable copies): LAT-03 ×1 (5), LAT-04 ×2 (1.2), LAV-02 ×2 (3.2), LAV-03 ×2 (3.2), LAV-04 ×2 (3.2), MAL-02 ×1 (7), MAL-03 ×1 (7), MAL-04 ×1 (7), MAL-05 ×1 (7), MAL-09 ×1 (49), SAL-01 ×2 (2.2), SAL-02 ×2 (2.2), SAL-03 ×1 (9), SAL-04 ×1 (9), SAL-05 ×1 (9), SAL-08 ×1 (22.5)
