@@ -181,3 +181,4 @@ Swap your duplicates, hijo — a full page is wort
 - Sat 19:57 · message tick 1164 · pilar → t10 · Caballero, we are still far apart, and I do not haggle like a fishmonger. Seventy-one, and said with respect. El Marqués deserves my safe, not a long argument. By the way, ask Carmen at El Rastro about the golden chulapa.
 - Sat 19:58 · message tick 1166 · pilar → t16 · Good evening. El Marqués, 70 P. I trust that suits you. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about the golden chulapa.
 - Sat 20:03 · message tick 1176 · banco → t08 · Buenas tardes. La historia la conozco mejor que su familia, y no es la del chulapa. Mientras tanto, le ofrezco términos: un paquete dorado, quinientos cuarenta y seis P.
+- Sat 20:04 · persona.updated tick 1179 · pilar → ? · {"persona": "pilar", "name": "Do\u00f1a Pilar", "version": 3}
