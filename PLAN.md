@@ -92,6 +92,9 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    day with linear weights. Guards unchanged (worth ≥ 0; break-even accept at d = 8%). First wave: check `pred` = the
    game's points on days deals before wave 2. If rivals never move days, it falls back to price-only. Duels II starts
    5.07 game hours after the resume (the game is paused for lunch since 13:25).
+17. **13:55, correction to #15:** your replay on real rival offers (docs/duels-1-review.md §2) refutes "anchor closer" (−43 to
+   −83 P) and "break-even accept" (−31 P); drop both (the Analyst agrees, score-model §1d fixed). Your plan stands: keep
+   the 3 P floor, MIN_STEP_SHARE 0.05, no OFFER_BUDGET, the days rule, strategist effort medium.
 
 **Dani: the desk, the page-gap desk, the judges' story.**
 1. **09:00, organisers' desk**: the 8 questions in plan §3, answers in `team/dani.md` at once.
