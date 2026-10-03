@@ -69,6 +69,119 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1318,
+   "raw": {
+    "duel": 5893,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Plaza del Dos de Mayo",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.2,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 65,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 1334,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 9337,
+     "price": 140,
+     "tick": 1318,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 9311,
+     "price": 58,
+     "tick": 1318,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1318,
+      "from": "Rival Luna",
+      "text": "Hola, Rival Sol, voy con prisa: 58 por Plaza del Dos de Mayo y cerramos ya. Entrega inmediata.",
+      "price": 58,
+      "days": 0
+     },
+     {
+      "tick": 1318,
+      "from": "you",
+      "text": "I can do 140 P, delivery on day 0.",
+      "price": 140,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1319,
+   "raw": {
+    "duel": 5893,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Plaza del Dos de Mayo",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.2,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 65,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 1334,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 9337,
+     "price": 140,
+     "tick": 1318,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 9341,
+     "price": 67,
+     "tick": 1319,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1318,
+      "from": "Rival Luna",
+      "text": "Hola, Rival Sol, voy con prisa: 58 por Plaza del Dos de Mayo y cerramos ya. Entrega inmediata.",
+      "price": 58,
+      "days": 0
+     },
+     {
+      "tick": 1318,
+      "from": "you",
+      "text": "I can do 140 P, delivery on day 0.",
+      "price": 140,
+      "days": 0
+     },
+     {
+      "tick": 1319,
+      "from": "Rival Luna",
+      "text": "67 y lo cerramos ahora. Entrega inmediata.",
+      "price": 67,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {

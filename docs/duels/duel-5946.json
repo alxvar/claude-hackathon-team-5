@@ -1581,5 +1581,98 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1319,
+ "done": {
+  "duel": 5946,
+  "session": 3,
+  "status": "deal",
+  "role": "seller",
+  "item": "Fiesta de San Cayetano",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 2.33,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 124,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Rojo",
+  "deadline_tick": 1323,
+  "decay_per_round": 0.08,
+  "rounds": 4,
+  "your_offer": {
+   "id": 9303,
+   "price": 153,
+   "tick": 1317,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 9273,
+   "price": 146,
+   "tick": 1317,
+   "days": 5
+  },
+  "messages": [
+   {
+    "tick": 1309,
+    "from": "you",
+    "text": "I'm opening at 175 P for delivery on day 10. Happy to hear your counter.",
+    "price": 175,
+    "days": 10
+   },
+   {
+    "tick": 1314,
+    "from": "Rival Rojo",
+    "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 112.",
+    "price": 112,
+    "days": 5
+   },
+   {
+    "tick": 1314,
+    "from": "you",
+    "text": "I can come down to 164 P for delivery on day 10. I'd need to see real movement from your side to keep going.",
+    "price": 164,
+    "days": 10
+   },
+   {
+    "tick": 1315,
+    "from": "Rival Rojo",
+    "text": "I just moved for you. 114, your turn to meet me.",
+    "price": 114,
+    "days": 5
+   },
+   {
+    "tick": 1316,
+    "from": "Rival Rojo",
+    "text": "That was a real step from my side: 119.",
+    "price": 119,
+    "days": 5
+   },
+   {
+    "tick": 1316,
+    "from": "you",
+    "text": "Thanks for the step; I can move to 156 P for delivery on day 10. Please keep moving toward me.",
+    "price": 156,
+    "days": 10
+   },
+   {
+    "tick": 1317,
+    "from": "Rival Rojo",
+    "text": "Happy to close at 146.",
+    "price": 146,
+    "days": 5
+   },
+   {
+    "tick": 1317,
+    "from": "you",
+    "text": "Thank you, that was a big step. I can do 153 P for delivery on day 10, and I'd be glad to close it quickly on that.",
+    "price": 153,
+    "days": 10
+   }
+  ],
+  "result": 37.5,
+  "price": 153,
+  "days": 10
+ }
 }
