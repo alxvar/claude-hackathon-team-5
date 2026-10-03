@@ -1,4 +1,4 @@
-# Metrics (auto, 18:30, game tick 992)
+# Metrics (auto, 18:33, game tick 996)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -24,10 +24,10 @@ LAT-03 (common): 5; LAT-04 (common): 5; LAV-01 (common): 99.1; LAV-02 (common): 
 
 ## Our open offers (4)
 
-- 14696: sell MAL-02 for 9 · to t15 · expires tick 1001
-- 14698: sell MAL-05 for 9 · to t15 · expires tick 1001
 - 14733: sell LAV-03 for 6 · to t09 · expires tick 1003
 - 15055: sell MAL-03 for 9 · to t09 · expires tick 1027
+- 15180: sell MAL-02 for 9 · to t15 · expires tick 1036
+- 15181: sell MAL-05 for 9 · to t15 · expires tick 1036
 
 ## What each of our deals did to neg_points (measured, last 12)
 
@@ -74,28 +74,28 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: RET×3, MAL�
 
 ## Dealer prices, last 60 ticks (median per item)
 
-- abuela common (team buys): median 9 over 2
+- abuela common (team buys): median 9 over 1
 - abuela common (team sells): median 6 over 2
 - abuela uncommon (team buys): median 21 over 1
 - chato uncommon (team buys): median 26 over 1
 - chato uncommon (team sells): median 14 over 2
-- picaros common (team sells): median 5 over 1
-- picaros rare (team buys): median 55 over 5
+- picaros common (team sells): median 5 over 2
+- picaros rare (team buys): median 54 over 4
 - picaros uncommon (team sells): median 11 over 2
+- pilar epic (team sells): median 199 over 1
 - pilar rare (team sells): median 76 over 6
-- pilar uncommon (team sells): median 27 over 11
+- pilar uncommon (team sells): median 27 over 12
 
 ## El Rastro now: top bids by price (team, card, price)
 
-- t16: LAV-06 (uncommon) 12 P · offer 14995
+- t16: RET-07 (uncommon) 13 P · offer 15158
 - t16: RET-01 (common) 5 P · offer 15044
 - t16: RET-02 (common) 5 P · offer 15059
 - t16: RET-03 (common) 5 P · offer 15078
-- t08: RET-02 (common) 5 P · offer 15134
+- t16: RET-04 (common) 4 P · offer 15169
+- t16: RET-05 (common) 4 P · offer 15182
 - t16: LAV-03 (common) 3 P · offer 15060
-- t13: RET-01 (common) 2 P · offer 14884
-- t16: MAL-11 (epic) 1 P · offer 15010
-- t16: LAT-12 (legendary) 1 P · offer 15023
+- t13: RET-01 (common) 2 P · offer 15162
 - t16: MAL-12 (legendary) 1 P · offer 15094
 - t16: SAL-12 (legendary) 1 P · offer 15106
 
