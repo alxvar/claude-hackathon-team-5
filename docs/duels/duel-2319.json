@@ -178,6 +178,145 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 497,
+   "raw": {
+    "duel": 2319,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 97,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 511,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 3554,
+     "price": 55,
+     "tick": 495,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3597,
+     "price": 176,
+     "tick": 497,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 495,
+      "from": "Rival Oro",
+      "text": "I can do 192. That is a fair deal for both of us.",
+      "price": 192,
+      "days": null
+     },
+     {
+      "tick": 495,
+      "from": "you",
+      "text": "I'm a serious buyer for Palacio de Cristal and ready to move quickly. My offer is 55 P, which I think is fair given its condition and upkeep needs. What figure do you have in mind?",
+      "price": 55,
+      "days": null
+     },
+     {
+      "tick": 496,
+      "from": "Rival Oro",
+      "text": "I can do 185. That is a fair deal for both of us.",
+      "price": 185,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "Rival Oro",
+      "text": "I can do 176. That is a fair deal for both of us.",
+      "price": 176,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 497,
+   "raw": {
+    "duel": 2319,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 97,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 511,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 3603,
+     "price": 59,
+     "tick": 497,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3597,
+     "price": 176,
+     "tick": 497,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 495,
+      "from": "Rival Oro",
+      "text": "I can do 192. That is a fair deal for both of us.",
+      "price": 192,
+      "days": null
+     },
+     {
+      "tick": 495,
+      "from": "you",
+      "text": "I'm a serious buyer for Palacio de Cristal and ready to move quickly. My offer is 55 P, which I think is fair given its condition and upkeep needs. What figure do you have in mind?",
+      "price": 55,
+      "days": null
+     },
+     {
+      "tick": 496,
+      "from": "Rival Oro",
+      "text": "I can do 185. That is a fair deal for both of us.",
+      "price": 185,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "Rival Oro",
+      "text": "I can do 176. That is a fair deal for both of us.",
+      "price": 176,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "you",
+      "text": "Thanks for moving. I've nudged up to 59 P, but given the condition and upkeep costs of Palacio de Cristal, the price needs to come down substantially from where you are. Can you meet me closer?",
+      "price": 59,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -288,6 +427,227 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 496,
+   "took_s": 4.79,
+   "cost_usd": 0.0047,
+   "obs": {
+    "view": {
+     "duel_id": 2319,
+     "role": "buyer",
+     "limit": 97,
+     "currency": "P",
+     "item": "Palacio de Cristal",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "I can do 192. That is a fair deal for both of us.",
+      "offer": {
+       "price": 192,
+       "days": null
+      },
+      "accept": false,
+      "tick": 495,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm a serious buyer for Palacio de Cristal and ready to move quickly. My offer is 55 P, which I think is fair given its condition and upkeep needs. What figure do you have in mind?",
+      "offer": {
+       "price": 55,
+       "days": null
+      },
+      "accept": false,
+      "tick": 495,
+      "decision": {
+       "action": "offer",
+       "price": 55,
+       "message": "I'm a serious buyer for Palacio de Cristal and ready to move quickly. My offer is 55 P, which I think is fair given its condition and upkeep needs. What figure do you have in mind?"
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 192,
+     "days": null
+    },
+    "tick": 496,
+    "ticks_left": 15,
+    "rounds": 1
+   },
+   "move": {
+    "action": "message",
+    "text": "I'll hold my current offer and wait for your response.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "I'll hold my current offer and wait for your response."
+     },
+     "band": {
+      "worst": 55,
+      "target": 55,
+      "best": 55
+     },
+     "plan": {
+      "read": "They opened at 192 and haven't replied to our 55 yet; their 'fair deal' claim is just an anchor, and there has been no movement to respond to.",
+      "target": 55,
+      "best": 55,
+      "worst": 55,
+      "days": null,
+      "angle": "Hold at 55 and send nothing; wait for them to move off their opening before conceding anything."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 2.71,
+       "in": 378,
+       "out": 114,
+       "cost_usd": 0.00379,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.07,
+       "in": 279,
+       "out": 35,
+       "cost_usd": 0.00091,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 497,
+   "took_s": 5.87,
+   "cost_usd": 0.00602,
+   "obs": {
+    "view": {
+     "duel_id": 2319,
+     "role": "buyer",
+     "limit": 97,
+     "currency": "P",
+     "item": "Palacio de Cristal",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "I can do 192. That is a fair deal for both of us.",
+      "offer": {
+       "price": 192,
+       "days": null
+      },
+      "accept": false,
+      "tick": 495,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm a serious buyer for Palacio de Cristal and ready to move quickly. My offer is 55 P, which I think is fair given its condition and upkeep needs. What figure do you have in mind?",
+      "offer": {
+       "price": 55,
+       "days": null
+      },
+      "accept": false,
+      "tick": 495,
+      "decision": {
+       "action": "offer",
+       "price": 55,
+       "message": "I'm a serious buyer for Palacio de Cristal and ready to move quickly. My offer is 55 P, which I think is fair given its condition and upkeep needs. What figure do you have in mind?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "I can do 185. That is a fair deal for both of us.",
+      "offer": {
+       "price": 185,
+       "days": null
+      },
+      "accept": false,
+      "tick": 496,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 185,
+     "days": null
+    },
+    "tick": 497,
+    "ticks_left": 14,
+    "rounds": 1
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thanks for moving. I've nudged up to 59 P, but given the condition and upkeep costs of Palacio de Cristal, the price needs to come down substantially from where you are. Can you meet me closer?",
+    "price": 59,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 59,
+      "message": "Thanks for moving. I've nudged up to 59 P, but given the condition and upkeep costs of Palacio de Cristal, the price needs to come down substantially from where you are. Can you meet me closer?"
+     },
+     "band": {
+      "worst": 60,
+      "target": 59,
+      "best": 58
+     },
+     "plan": {
+      "read": "They opened at 192 and moved 7 to 185, still far above what we can pay; the 'fair deal' line is boilerplate and their small step shows they are anchoring high.",
+      "target": 59,
+      "best": 58,
+      "worst": 60,
+      "days": null,
+      "angle": "Acknowledge their move with a small step of our own, and stress that the price must come down substantially for the deal to work given its condition and upkeep costs."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.58,
+       "in": 443,
+       "out": 135,
+       "cost_usd": 0.00447,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.28,
+       "in": 340,
+       "out": 87,
+       "cost_usd": 0.00155,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -344,6 +704,63 @@
      "id": 3554,
      "price": 55,
      "tick": 495,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 497,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thanks for moving. I've nudged up to 59 P, but given the condition and upkeep costs of Palacio de Cristal, the price needs to come down substantially from where you are. Can you meet me closer?",
+    "price": 59,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 59,
+      "message": "Thanks for moving. I've nudged up to 59 P, but given the condition and upkeep costs of Palacio de Cristal, the price needs to come down substantially from where you are. Can you meet me closer?"
+     },
+     "band": {
+      "worst": 60,
+      "target": 59,
+      "best": 58
+     },
+     "plan": {
+      "read": "They opened at 192 and moved 7 to 185, still far above what we can pay; the 'fair deal' line is boilerplate and their small step shows they are anchoring high.",
+      "target": 59,
+      "best": 58,
+      "worst": 60,
+      "days": null,
+      "angle": "Acknowledge their move with a small step of our own, and stress that the price must come down substantially for the deal to work given its condition and upkeep costs."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.58,
+       "in": 443,
+       "out": 135,
+       "cost_usd": 0.00447,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.28,
+       "in": 340,
+       "out": 87,
+       "cost_usd": 0.00155,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2319,
+    "offer": {
+     "id": 3603,
+     "price": 59,
+     "tick": 497,
      "days": 0
     }
    }
