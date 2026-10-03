@@ -2121,5 +2121,133 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1292,
+ "done": {
+  "duel": 5826,
+  "session": 3,
+  "status": "deal",
+  "role": "seller",
+  "item": "La Sala Pentagrama",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 3.79,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 72,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Sol",
+  "deadline_tick": 1298,
+  "decay_per_round": 0.08,
+  "rounds": 4,
+  "your_offer": {
+   "id": 8235,
+   "price": 90,
+   "tick": 1289,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 8264,
+   "price": 47,
+   "tick": 1290,
+   "days": 10
+  },
+  "messages": [
+   {
+    "tick": 1282,
+    "from": "Rival Sol",
+    "text": "93 with delivery on day 0. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+    "price": 93,
+    "days": 0
+   },
+   {
+    "tick": 1282,
+    "from": "you",
+    "text": "I can do 145 P on day 0; or, if you prefer, 110 P on day 10. I'll keep my per-day numbers to myself, but your pick between the two will tell us both where the day matters more.",
+    "price": 145,
+    "days": 0
+   },
+   {
+    "tick": 1283,
+    "from": "Rival Sol",
+    "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 47,
+    "days": 10
+   },
+   {
+    "tick": 1283,
+    "from": "you",
+    "text": "110 P with delivery on day 10. Your last offer moved backwards in value, so I'm holding here and would like to see a serious counter.",
+    "price": 110,
+    "days": 10
+   },
+   {
+    "tick": 1284,
+    "from": "Rival Sol",
+    "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 47,
+    "days": 10
+   },
+   {
+    "tick": 1285,
+    "from": "Rival Sol",
+    "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 47,
+    "days": 10
+   },
+   {
+    "tick": 1286,
+    "from": "Rival Sol",
+    "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 47,
+    "days": 10
+   },
+   {
+    "tick": 1286,
+    "from": "you",
+    "text": "I'll make a clear step to 99 P with delivery on day 10. That's a real move from me, so the next move is yours.} ```",
+    "price": 99,
+    "days": 10
+   },
+   {
+    "tick": 1287,
+    "from": "Rival Sol",
+    "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 47,
+    "days": 10
+   },
+   {
+    "tick": 1288,
+    "from": "Rival Sol",
+    "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 47,
+    "days": 10
+   },
+   {
+    "tick": 1289,
+    "from": "Rival Sol",
+    "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 47,
+    "days": 10
+   },
+   {
+    "tick": 1289,
+    "from": "you",
+    "text": "I'll step to 90 P with delivery on day 10. That's my second move and you haven't moved at all, so the next move needs to be yours.",
+    "price": 90,
+    "days": 10
+   },
+   {
+    "tick": 1290,
+    "from": "Rival Sol",
+    "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 47,
+    "days": 10
+   }
+  ],
+  "result": 40.0,
+  "price": 90,
+  "days": 10
+ }
 }

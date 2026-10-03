@@ -69,6 +69,59 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1292,
+   "raw": {
+    "duel": 5800,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.98,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 77,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1300,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 8113,
+     "price": 128,
+     "tick": 1286,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 8325,
+     "price": 57,
+     "tick": 1292,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1286,
+      "from": "you",
+      "text": "I'm opening at 128 P with delivery on day 10. I'm open to talking, so tell me what price and day work for you.",
+      "price": 128,
+      "days": 10
+     },
+     {
+      "tick": 1292,
+      "from": "Rival Azul",
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 57.",
+      "price": 57,
+      "days": 5
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
