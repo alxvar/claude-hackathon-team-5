@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 16:44 (tick 776), snapshot 770; flags score +10 neg_points each (§3c); us #2. Duels I post-mortem §1d; Duels II day rule §1e. Rival detail: intel/rivals.md (Analyst-owned)._
+_Last update: Sat 16:49 (tick 777), snapshot 770; flags ±10 (§3c); first L4 deal +0.070 ladder. Duels I post-mortem §1d; Duels II day rule §1e. Rival detail: intel/rivals.md (Analyst-owned)._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -229,6 +229,7 @@ t13 and t04 have dealer deals in the window). Full = 12 Saturday points = 8.0 bo
 | 632 / 639 | BUY SAL-06 ← Abuela at 23, then SELL → Pilar at 25 | Pilar SAL opening 22 | neg_points 35.2 → 32.5 (−2.7); ladder 0.181 → 0.188 (+0.007, replaces SAL-08's slot). **Net ≈ −0.2 board**: Pilar's SAL range is wide, 25 is a small share |
 | 704 | SELL LAT-08 → Chato at 14 (2nd L2 slot; LAT-08 regained via a swap) | his opening 13 | 0.188 → 0.200 (**+0.012**); our Saturday part +0.28 vs field −0.08 → ≈ +0.24 board → **≈ 20 board per 1.0 ladder, down from ≈ 35 at tick 550** (erosion as the field fills its slots) [L] |
 | 709 | Workshop: 3 commons → MAL-06 (uncommon; our first copy again, 17.5 to us) | — | no score (luck) |
+| 775 | **BUY SAL-09 ← Los Pícaros at 54** (L4; below list 63; worth 63 to us) | their asks 73, 65 (words "El Marqués", structure SAL-06: the trick), 60 "final", 56; they took our 54 | 0.200 → **0.270 (+0.070, first L4 slot)**; neg 0; cash 180 → 126 |
 
 - **Same card, other teams [V feed]:** SAL-08 → Pilar: t04 25 (opened 40, 6 messages), t10 24, **us 23**; her opening 22.
   Uncommons (non-SAL): t14 LAT-08 20, **us MAL-07 19**, t08 MAL-08 18, t16/t08/t13 17; her opening 16. So a full share at L3
@@ -306,7 +307,10 @@ the ladder can.
     snapshot 770: our negotiating +0.95 with the field ≈ −0.2 → **≈ +0.57 board per flag** (≈ +0.058 per neg_point). We moved
     to **#2 at 29.53, 0.53 behind t14**. Pícaros lies are public in the feed (t02 763, t08 765, t01 768 got the same lines);
     t02's +0.54 net with no scoring event at 770 fits one flag [L]. Abuela/Chato/Pilar: 3,253 messages, no checkable false
-    facts (only "last word" posture and the golden-chulapa egg lore): don't flag them. A wrong flag costs (amount [?]).
+    facts (only "last word" posture and the golden-chulapa egg lore): don't flag them.
+    **A wrong flag costs −10.0 [V]:** flag #3 +10 (tick 773), then 73.2 → 63.2 (774). Safe classes: words ≠ structure (msg 7160:
+    words sell "El Marqués" = SAL-09 at 65, structure gives `card:SAL-06`) and checkable false facts ("stopped printing").
+    Not lies: "final" / "last offer" price posture, deadline theatre.
 - **The Workshop: ACTIVE since tick 706 (16:00)** [V]: `POST /api/taller {"assets": [a, b, c]}`: three spare copies of one
   rarity (keep ≥ 1 of each card) → one card of the next rarity; "the pull is luck, shown and never scored". Value only comes
   from using the pulled card (team sale ≈ +5-12 neg_points, swap, or a dealer slot). Swaps of the same spares score directly
