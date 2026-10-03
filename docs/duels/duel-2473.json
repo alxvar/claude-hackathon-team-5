@@ -382,6 +382,93 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 566,
+   "raw": {
+    "duel": 2473,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 94,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Rojo",
+    "deadline_tick": 568,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 4971,
+     "price": 88,
+     "tick": 566,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4914,
+     "price": 100,
+     "tick": 563,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 552,
+      "from": "you",
+      "text": "I'm interested in El Mesón de la Cava and I'm offering 55 P. That reflects a fair value for a business of this kind, and I'm ready to move quickly. What price do you have in mind?",
+      "price": 55,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "you",
+      "text": "I can do 58 P.",
+      "price": 58,
+      "days": null
+     },
+     {
+      "tick": 561,
+      "from": "you",
+      "text": "I can do 62 P.",
+      "price": 62,
+      "days": null
+     },
+     {
+      "tick": 562,
+      "from": "you",
+      "text": "I can do 66 P.",
+      "price": 66,
+      "days": null
+     },
+     {
+      "tick": 563,
+      "from": "Rival Rojo",
+      "text": "100 P y cerramos ahora.",
+      "price": 100,
+      "days": null
+     },
+     {
+      "tick": 565,
+      "from": "you",
+      "text": "We've already moved several times while you've made a single offer, so I'm making one clear, substantial step to 80 P. That's a serious price for El Mesón de la Cava, and with little time left I'd ask you to meet me so we can close.",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 566,
+      "from": "you",
+      "text": "I've moved a long way from where I started, while your position hasn't changed. I'm making one last clear step to 88 P for El Mesón de la Cava, and I'd ask you to take it now so this doesn't run out at the deadline.",
+      "price": 88,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -972,6 +1059,159 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 566,
+   "took_s": 6.71,
+   "cost_usd": 0.00753,
+   "obs": {
+    "view": {
+     "duel_id": 2473,
+     "role": "buyer",
+     "limit": 94,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm interested in El Mesón de la Cava and I'm offering 55 P. That reflects a fair value for a business of this kind, and I'm ready to move quickly. What price do you have in mind?",
+      "offer": {
+       "price": 55,
+       "days": null
+      },
+      "accept": false,
+      "tick": 552,
+      "decision": {
+       "action": "offer",
+       "price": 55,
+       "message": "I'm interested in El Mesón de la Cava and I'm offering 55 P. That reflects a fair value for a business of this kind, and I'm ready to move quickly. What price do you have in mind?"
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 58 P.",
+      "offer": {
+       "price": 58,
+       "days": null
+      },
+      "accept": false,
+      "tick": 560,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 62 P.",
+      "offer": {
+       "price": 62,
+       "days": null
+      },
+      "accept": false,
+      "tick": 561,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 66 P.",
+      "offer": {
+       "price": 66,
+       "days": null
+      },
+      "accept": false,
+      "tick": 562,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "100 P y cerramos ahora.",
+      "offer": {
+       "price": 100,
+       "days": null
+      },
+      "accept": false,
+      "tick": 563,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "We've already moved several times while you've made a single offer, so I'm making one clear, substantial step to 80 P. That's a serious price for El Mesón de la Cava, and with little time left I'd ask you to meet me so we can close.",
+      "offer": {
+       "price": 80,
+       "days": null
+      },
+      "accept": false,
+      "tick": 565,
+      "decision": {
+       "action": "offer",
+       "price": 80,
+       "message": "We've already moved several times while you've made a single offer, so I'm making one clear, substantial step to 80 P. That's a serious price for El Mesón de la Cava, and with little time left I'd ask you to meet me so we can close."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 100,
+     "days": null
+    },
+    "tick": 566,
+    "ticks_left": 2,
+    "rounds": 1
+   },
+   "move": {
+    "action": "offer",
+    "text": "I've moved a long way from where I started, while your position hasn't changed. I'm making one last clear step to 88 P for El Mesón de la Cava, and I'd ask you to take it now so this doesn't run out at the deadline.",
+    "price": 88,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 88,
+      "message": "I've moved a long way from where I started, while your position hasn't changed. I'm making one last clear step to 88 P for El Mesón de la Cava, and I'd ask you to take it now so this doesn't run out at the deadline."
+     },
+     "band": {
+      "worst": 90,
+      "target": 88,
+      "best": 86
+     },
+     "plan": {
+      "read": "They opened at 100 P and haven't moved since; their 'close now' is pressure, not a concession. With 2 ticks left, a final step toward a closable price is warranted, but their 100 is beyond what we can pay.",
+      "target": 88,
+      "best": 86,
+      "worst": 90,
+      "days": null,
+      "angle": "Make one last clear move to 88 P as our final offer, stress that we've moved far more than they have, and invite them to accept now so the deal doesn't die at the deadline."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.37,
+       "in": 597,
+       "out": 158,
+       "cost_usd": 0.00555,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.34,
+       "in": 532,
+       "out": 92,
+       "cost_usd": 0.00198,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1154,6 +1394,63 @@
      "id": 4955,
      "price": 80,
      "tick": 565,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 566,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I've moved a long way from where I started, while your position hasn't changed. I'm making one last clear step to 88 P for El Mesón de la Cava, and I'd ask you to take it now so this doesn't run out at the deadline.",
+    "price": 88,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 88,
+      "message": "I've moved a long way from where I started, while your position hasn't changed. I'm making one last clear step to 88 P for El Mesón de la Cava, and I'd ask you to take it now so this doesn't run out at the deadline."
+     },
+     "band": {
+      "worst": 90,
+      "target": 88,
+      "best": 86
+     },
+     "plan": {
+      "read": "They opened at 100 P and haven't moved since; their 'close now' is pressure, not a concession. With 2 ticks left, a final step toward a closable price is warranted, but their 100 is beyond what we can pay.",
+      "target": 88,
+      "best": 86,
+      "worst": 90,
+      "days": null,
+      "angle": "Make one last clear move to 88 P as our final offer, stress that we've moved far more than they have, and invite them to accept now so the deal doesn't die at the deadline."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.37,
+       "in": 597,
+       "out": 158,
+       "cost_usd": 0.00555,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.34,
+       "in": 532,
+       "out": 92,
+       "cost_usd": 0.00198,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2473,
+    "offer": {
+     "id": 4971,
+     "price": 88,
+     "tick": 566,
      "days": 0
     }
    }
