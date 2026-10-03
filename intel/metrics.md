@@ -1,4 +1,4 @@
-# Metrics (auto, 10:42, game tick 305)
+# Metrics (auto, 10:44, game tick 309)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -90,7 +90,7 @@ Who buys which set (team trades): t01: SAL×3, MAL×2; t02: MAL×2, RET×1; t04:
 
 ## El Rastro now: top bids by price (team, card, price)
 
-- t17: MAL-09 (rare) 70 P · offer 4267
+- t17: MAL-09 (rare) 70 P · offer 4524
 - t02: RET-10 (rare) 24 P · offer 4424
 - t02: RET-03 (common) 4 P · offer 4425
 - t02: RET-02 (common) 4 P · offer 4439
@@ -100,7 +100,7 @@ Who buys which set (team trades): t01: SAL×3, MAL×2; t02: MAL×2, RET×1; t04:
 - t13: RET-02 (common) 2 P · offer 4452
 - t13: RET-01 (common) 2 P · offer 4464
 
-Asks by others (card, price: count): LAV-04 10: 3; MAL-05 9: 2; LAT-01 9: 2; LAV-03 9: 2; LAV-04 9: 2; MAL-02 10: 2; LAT-04 9: 2; LAT-04 6: 2; MAL-02 8: 2; MAL-06 20: 2; LAV-01 7: 2; SAL-01 9: 2; LAT-05 9: 1; MAL-04 9: 1; LAT-01 10: 1
+Asks by others (card, price: count): LAT-04 9: 3; LAV-04 10: 3; MAL-05 9: 2; LAT-01 9: 2; LAV-03 9: 2; LAV-04 9: 2; LAT-04 6: 2; MAL-02 8: 2; MAL-02 10: 2; LAV-01 7: 2; SAL-01 9: 2; LAT-05 9: 1; MAL-04 9: 1; MAL-01 9: 1; LAV-02 9: 1
 
 ## Our duels: 0 live, 34 finished (last 10)
 
