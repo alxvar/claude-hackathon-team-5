@@ -9,12 +9,12 @@ and a token-bucket simulation. No game call was made. Tags: [V] verified in code
 1. **The duel accept cannot lose the market's accept to the trader or a dealer bot, and duels don't use up our 6
    conversations** [V, §1]. Two of the feared collisions don't exist.
 2. **The real shared resource is 5 requests/s per key (bursts of 20).** With everything on at 15 s ticks, the key runs
-   at **73-92 % of capacity** during Duels III. The trader alone takes ≈ 1.6 req/s (≈ 24 per tick: 18 venue boards).
+   at **73-92 % of capacity** during Duels III. The trader alone takes ≈ 1.6 req/s, 32 % of the key (≈ 24 requests per tick, 18 of them venue boards).
    Every daemon fires in the first 0-4 s after the tick, the same seconds as the duelist's moves. Model: **30-700
    429s per hour** (≈ 300 at 0.15 s latency), **8-180 of them on the duelist** [L, §3].
 3. **Damage to duels is small, not zero.** The SDK's 3 quick retries (1.5 s) absorb almost every 429. In the model,
-   0-2 duel moves an hour slip a full tick, and no deadline accept is lost. Saturday's duelist logged 0 `rate_limited`
-   send errors in 136 recorded duels at 30 s ticks [V]. The insurance is cheap, though: on Saturday the trader took **2 accepts all
+   0-2 duel moves an hour slip a full tick, and no deadline accept is lost. The duelist logged 0 `rate_limited`
+   send errors in 136 recorded duels (34 Friday practice, 102 Saturday) [V]. The insurance is cheap, though: on Saturday the trader took **2 accepts all
    day** [V], so pausing it, swaps and opps for the waves costs ≈ nothing. With them off: **0-1 429s an hour at every
    latency tested** [L].
 4. **Nothing gives the duelist priority** [V]. The arbiter only gates accepts and is off (`ARBITER_HOLDS` unset,
@@ -22,7 +22,7 @@ and a token-bucket simulation. No game call was made. Tags: [V] verified in code
 5. **Policy, §6:** the Operator runs `tools/daemons.sh stop trader swaps opps` at T−5 min before Duels III and before
    the Final. There are no dealer threads, no `run/book.json` edits and no restarts inside a window. Resume when
    `duels.finished` appears, one daemon per tick, **with the floors spelled out** (daemons.sh defaults to
-   `CASH_FLOOR=100`). Aleks starts the duelist at 10:30, not 08:30. Its idle polling is 10 % of the key during the CHA rush.
+   `CASH_FLOOR=100`). Aleks starts the duelist at 10:30, not 08:30. Its idle polling is ≈ 9 % of the key during the CHA rush.
 
 ## 1. Settled facts
 
@@ -34,7 +34,7 @@ and a token-bucket simulation. No game call was made. Tags: [V] verified in code
 | Market limits in force | 1 accept, 1 message/side/tick, 6 threads, 30 open offers, 12 new listings per tick [V] | `/api/clock` limits as recorded in the repo |
 | A spent accept returns | `wait_for_tick` (429), not `accept_taken` [V] | team/aleks.md Sat 10:40 |
 | Keyless reads | 60/s per address, separate from the key [V] | 97 "at most 60 requests per second" lines Sat 11:59-16:34 (bargains, news, opps, radar, recorder). They hit our intel tools, never the key. |
-| Saturday's key 429s | ≈ 8 events [V] | opps 09:39, 10:41, 21:34:59 · status 10:41, 15:29 · duelmon 21:35 · trader 21:50 · autoflip 21:54. The **21:34-21:35 cluster is the mid-Duels-II restart burst** (team/lucas.md 21:37). |
+| Saturday's key 429s | 6 events [V] | opps 09:39, 10:41, 21:34:59 · status 10:41, 15:29 · duelmon 21:35 (the trader 21:50 and autoflip 21:54 lines are Friday's). The **21:34-21:35 cluster is the mid-Duels-II restart burst** (team/lucas.md 21:37). |
 
 ## 2. Each process on the key (15 s ticks; code-derived)
 
@@ -47,13 +47,14 @@ and a token-bucket simulation. No game call was made. Tags: [V] verified in code
 | **trader** (`loop.py`) | ≈ 24 (1.6): 2 clock, me, my_offers, **18 boards**, 0-3 values, feed/duels sometimes | t+0.2 → ≈ t+11 s, paced 0.3 s | ≤ 1 accept/tick (Sat: 2 all day); no offers | SDK 3 retries. A refused accept (`wait_for_tick`/`rate_limited`/`http_429`) is always retried next tick; a failed board is skipped |
 | **book.py** | ≈ 7 (0.47) steady. CHA merge: 13 posts + 13 value reads over 3 ticks (6 new/tick) | **unpaced burst** at t+0.2-1.5 s (≈ 6 req/s) | maker only. Keeps our open offers ≤ 25 (30 − OPEN_RESERVE). ≤ 6 new/tick | retries=1. A failed post is retried next tick. A refresh whose cancel worked but post failed leaves the bid **off the board ≥ 1 tick** |
 | **swaps.py** | ≈ 5 (0.32): 2 clocks/tick, 6-9 reads every other tick | t+0.2 burst | ≤ 2 posts/run, ≤ 4 live | retries=1; error → run skipped, sleep 5 s |
-| **opportunities.py** (opps) | 3 + V value reads + posts per run, every 2-3 ticks (0.2-0.33) | from t+0.2, paced 1/s | ≤ 3 live, ≤ 3 posts/run | **retries=0**: a 429 on me/my_offers aborts that run; a failed post ends the run |
+| **opportunities.py** (opps) | 3 + V value reads + posts per run, every 2-3 ticks (0.2-0.33) | from t+0.2, paced 1/s | ≤ 3 live, ≤ 2 posts/run | **retries=0**: a 429 on me/my_offers aborts that run; a failed post ends the run |
 | collector | ≈ 4.4 (0.29): feed(1000), me, leaderboard, rastro board every ≈ 16 s, plus 6 reads every 2 min | drifts | none | SDK default; logs, continues |
 | duel_monitor | 2-3 (0.15-0.21). It reads `duels(done)` **every tick while no duel is live** | t+7.5 s, paced 1.05 s | none | retries=1; error → 15 s pause |
 | reactor | 0.05, rising to ≈ 0.5 in a listing wave (CHA release); value lookups ≤ 1/s, plus me + my_offers per minute | on events | none | a failed value read → that listing is **never evaluated** (a BUY line silently missed) |
 | status | 11 unpaced every 5 min (0.04) | a 2 s burst | none | logs |
 | watch.py (Operator Monitor) | 6 unpaced every 30 s (0.2) | burst | none | logs |
 | scout / judge | 4 per 15 / 30 min | burst | none | logs |
+| bargains (DOWN since Sat) | keyed value reads + board sweep every 2 min | | none | retries=0; keep it down (the reactor covers it keylessly) |
 | archiver | 2 at the round change (fires at R3 t+0) | t+0 | none | logs |
 | recorder | broker key, 2 Hz during benches (≈ 09:21, 11:21, 13:21 [L]) | | none | separate key [L; ? whether broker keys share the team's 5/s] |
 | Dani's dashboard | ≈ 2.3 (0.16): me + duels per tick, duels(done) every 3rd | t+1..t+4 s | none | logs |
@@ -98,7 +99,7 @@ Saturday's, so the bucket has less time to refill.
 
 ## 4. Collisions, ranked
 
-1. **Tick-start 429s on the key during duel waves** (trader ≈ 35 % of the key, then the book, swaps and opps bursts).
+1. **Tick-start 429s on the key during duel waves** (trader ≈ 32 % of the key, then the book, swaps and opps bursts).
    It costs duel moves 0.25-1.5 s, now and then a whole tick, and the monitors their reads. The worst case,
    a deadline accept refused twice = no deal, is ≈ 0 in the model but not impossible under a stricter limiter.
 2. **Restart bursts.** Sat 21:34-21:35: restarting opps, bargains, trader, book and swaps mid-Duels II gave the 429s on
@@ -113,10 +114,10 @@ Saturday's, so the bucket has less time to refill.
 5. **Leaked conversations.** chato_steady and dealer_sell die with the thread open after repeated refusals, and so does
    simple_buy on a failed walk-close. That blocks "one per dealer" (the next Pícaros or Abuela run is refused) and
    holds 1 of 6. Our planned peak is ≈ 4 threads, so the cap only bites through leaks.
-6. **New listings and offers.** The merge tick can reach book 6 + opps 3 + swaps 2 + any manual post > 12, and the last
-   one gets `wait_for_tick`. Open offers ≈ 24-26 of 30 in R3: book entries ≈ 17, opps ≤ 3, swaps ≤ 4. book stops at 25
+6. **New listings and offers.** The merge tick can reach book 6 + opps 2 + swaps 2 = 10, so 3 manual posts in that tick
+   push it past 12, and the last one gets `wait_for_tick`. Open offers ≈ 24-26 of 30 in R3: book entries ≈ 17, opps ≤ 3, swaps ≤ 4. book stops at 25
    total by design, but opps and swaps can push past 30 and get refused (harmless).
-7. **The duelist's own idle polling** (0.43 req/s from whenever it starts) is 10 % of the key during the CHA rush.
+7. **The duelist's own idle polling** (0.43 req/s from whenever it starts) is ≈ 9 % of the key during the CHA rush.
 
 ## 5. 429 and accept handling: verdict
 
@@ -143,11 +144,27 @@ Saturday's, so the bucket has less time to refill.
 | R3 t+0 (09:00 if the clock jumps) | Operator | Order: (1) the Pícaros CHA-09 thread first, while the bucket is full; (2) merge `book_cha_entries.json` (book posts 6/tick by itself); put the LAT-06/07/08 fodder bids into run/book.json, not by hand (12 listings/tick); (3) `CASH_FLOOR=464 tools/daemons.sh restart trader` at **t+2 min**, not t+0 |
 | R3 t−2 min → t+5 min | Operator | `tools/daemons.sh stop swaps opps`, then at t+5 min `CASH_FLOOR=<opps floor> tools/daemons.sh start opps`, 15 s later `tools/daemons.sh start swaps`. Model: 157 → 18 429s over 90 min without swaps |
 | ≤ T−15 min (≈ 10:45, ≈ 13:45) | Operator | Last dealer deals settle; **no new dealer threads** until the window ends (dealers close 14:00 anyway) |
-| **T−5 min (≈ 10:55)** | Operator | `tools/daemons.sh stop trader swaps opps`, then `pgrep -fl "agents/trader/loop.py\|agents/trader/swaps.py\|tools/opportunities.py"` must print nothing (swaps runs under `uv run`: check no orphan python survived the `pkill -P`). `bargains` stays down |
+| **T−5 min (≈ 10:55)** | Operator | `tools/daemons.sh stop trader swaps opps`, then the `pgrep` check in the block below must print nothing (swaps runs under `uv run`: no orphan python may survive the `pkill -P`). `bargains` stays down |
 | inside the window | everyone | **Running:** book (CHA bids stay live; fills need no accept of ours), collector, status, duelmon, reactor, watch, scout/judge, archiver, recorder, Dani's dashboard, keyless tools. **Allowed:** rbuy/deny one-shots on reactor lines, and last cards as maker posts (they accept). **Not allowed:** run/book.json edits (each = cancel + post bursts), any `daemons.sh start/restart`, abuela_bot (plan() = 50 reads at 4/s), chato_steady, dealer_sell, simple_buy, ad-hoc loops on the key |
-| end: `duels.finished` for "Duels III" in the feed (`wait_duels_end.py "Duels III" --until 1230`), else 12:30 | Operator | `CASH_FLOOR=<trader floor in force> tools/daemons.sh start trader`; 15 s later `CASH_FLOOR=<opps floor> tools/daemons.sh start opps` (+ `OPPS_BUILD=…` if set); 15 s later `tools/daemons.sh start swaps`. **Always pass the floors**: daemons.sh defaults trader, opps and book to `CASH_FLOOR=100` |
+| end: `duels.finished` for "Duels III" in the feed (`wait_duels_end.py`, block below), else 12:30 | Operator | `CASH_FLOOR=<trader floor in force> tools/daemons.sh start trader`; 15 s later `CASH_FLOOR=<opps floor> tools/daemons.sh start opps` (+ `OPPS_BUILD=…` if set); 15 s later `tools/daemons.sh start swaps`. **Always pass the floors**: daemons.sh defaults trader, opps and book to `CASH_FLOOR=100` |
 | 13:55 → `duels.finished` "Final" (fallback 14:35) | Operator | Same stop, same staggered restart. The market closes 15:00 |
 | any window | Aleks | Announce "wave live / Duels III done" in the team chat; one duelist only. If a duel shows a refused move, tell the Operator, who checks `tools/daemons.sh status` |
+
+Copy-paste block for the Operator (repo root on Lucas's Mac; fill the floors in force from team/lucas.md):
+
+```bash
+# T-5 min
+tools/daemons.sh stop trader swaps opps
+pgrep -fl "agents/trader/loop.py|agents/trader/swaps.py|tools/opportunities.py"   # must print nothing
+# plain | on purpose: macOS pgrep reads an extended regex; "\|" matches nothing (false all-clear, tested Sun 01:40)
+
+# end of the window: wait for duels.finished (script in the Operator session's scratchpad, not in the repo)
+python3 /private/tmp/claude-501/-Users-lucaswiese-Documents-claude-hackathon-team-5/b5f4f4ed-eee9-4f01-988e-7d30f8b0148b/scratchpad/wait_duels_end.py "Duels III" --until 1230
+CASH_FLOOR=<trader floor> tools/daemons.sh start trader; sleep 15
+CASH_FLOOR=<opps floor> tools/daemons.sh start opps; sleep 15    # add OPPS_BUILD=... if one is in force
+tools/daemons.sh start swaps
+tools/daemons.sh status
+```
 
 If the clock **resumes** instead of jumping, the CHA release can fall inside a duel window. Run the CHA fast start with
 the trader, swaps and opps still off (book merge + Pícaros thread fit: 0-6 429s an hour in the model).
