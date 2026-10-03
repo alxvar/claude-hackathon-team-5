@@ -87,3 +87,19 @@ def test_dry_and_empty_board(tmp_path):
     assert r.scan() and sent == [] and not (tmp_path / "radar.md").exists()
     r, sent = radar(tmp_path, [])
     assert r.scan() == [] and sent == []
+
+
+
+def test_a_high_multiplier_team_selling_a_duplicate_creates_value():
+    # Analyst 12:05 [V]: t15 (LAT ~1.45) sold duplicates to t12 (~0.8): +4.36 and +2.76 on other venues.
+    ask = {"id": 77, "give": {"assets": [{"ref": "SAL-06"}]}, "want": {"cash": 24}}
+    held = {("t15", "SAL-06"): {501, 502}}                               # the seller holds two copies
+    teams = [{"team": "t16", "name": "Team 16", "score": 5, "rank": 9}, {"team": "t05", "score": 24}]
+    class Ok:
+        def allows(self, team, set_id):
+            return True, "collects"
+    b = vr.buyers_for(ask, seller="t15", teams=teams, top=set(), ours=24, last={("t16", "SAL-01"): {"kind": "lack"},
+                      ("t16", "SAL-02"): {"kind": "lack"}}, prof={}, mult={"t15": {"SAL": 1.45}, "t16": {"SAL": 0.8}},
+                      collectors=Ok(), cards=vr.card_index(CATALOG), held=held)
+    assert b and b[0]["team"] == "t16" and b[0]["c_seller"] == 0.25
+    assert b[0]["vc"] == round(25 * (0.8 * 1.0 - 1.45 * 0.25), 1)        # +10.9; with first copies it would be < 0
