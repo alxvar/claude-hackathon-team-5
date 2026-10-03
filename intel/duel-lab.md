@@ -26,7 +26,7 @@ Final: 34._
 | Path | What | Expected vs main today [L] (`nomerge.py` / `.out`) |
 |---|---|---|
 | **A. Merge `duelist-loop` (head b10f9cc: the guards are abd0301, `GUARDS` defaults to 1 = on) and write the params file** | the three guards (accept instead of offering worse; worth-monotonic steps; the day call on the first offer) + the file below | **+0.038 to +0.040 per duel** (H2 / H1; worst world +0.034) ≈ **+2.6 to +2.7 points over Duels III, +1.3 in the Final** |
-| B. No merge: edit three constants on main | `agent.py`: `MIN_STEP_P` 3→5 (l.50), `MAX_STEP_SHARE` 0.25→0.18 (l.52), `LATE_SWITCH_LEFT` 4→2 (l.54) | +0.032 to +0.034 per duel (worst world +0.027) ≈ +2.2 points. Path B was not run in the extreme worlds or with reciprocity |
+| B. No merge: edit three constants on main | `agent.py`: `MIN_STEP_P` 3→5 (l.50), `MAX_STEP_SHARE` 0.25→0.18 (l.52), `LATE_SWITCH_LEFT` 4→2 (l.54) | +0.032 to +0.034 per duel (worst world +0.027) ≈ +2.2 points. Also positive in 8 extreme worlds and with reciprocity 0.5: worst +0.003 ± 0.002, rivals that never soften (`gaps.out`) |
 
 `run/duel_params.json` for path A. It passes `params.validate()` on b10f9cc with no errors, and the cross-check
 `MIN_STEP_SHARE` 0.05 ≤ 0.18 holds:
@@ -90,9 +90,10 @@ Until `duel_loop.py` switches to it, its simulated gains don't model days or rol
      `MIN_STEP_P` 8, cap 0.12, late switch off, `OPEN_WAIT` 0. The exception is rivals locked on their own best day,
      which prefer `OPEN_WAIT` 2, and you can only tell them apart by waiting.
    - So the oracle's +0.017 per duel (an in-sample maximum, biased up) is mostly that global set, not specialisation.
-     That set was not run as one policy. Its pieces alone are `MIN_STEP_P` 8 +0.006 to +0.008, `OPEN_WAIT` 0 +0.005 to
-     +0.008, cap 0.12 +0.000 to +0.003.
-   - It holds every mid-duel step under a ~67 P gap, far from anything played. Move toward it only through the gates.
+     Run as one policy (`gaps.out`), it beats the params file by **+0.016 to +0.019 per duel** (worst world +0.010):
+     ≈ +1.2 points more over Duels III, in the model.
+   - It holds every mid-duel step under a ~67 P gap, far from anything played, and its `OPEN_WAIT` 0 part is the one
+     the models disagree on. Move toward it only through the gates (`MIN_STEP_P` 5 → 6 → 8 if two-wave data agree).
 2. **The opener: keep the LLM's [L].**
    - Scaling it per role is mixed: H1 −0.006 to +0.002 for ×0.7-0.85; H2 sellers +0.005 to +0.006; ×1.15 and ×1.3 lose
      everywhere (`opener_role.out`).
