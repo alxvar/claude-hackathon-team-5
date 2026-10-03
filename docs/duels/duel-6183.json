@@ -303,6 +303,255 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1384,
+   "raw": {
+    "duel": 6183,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Plaza del Dos de Mayo",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.03,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 82,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1388,
+    "decay_per_round": 0.08,
+    "rounds": 0,
+    "your_offer": {
+     "id": 10959,
+     "price": 71,
+     "tick": 1384,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1374,
+      "from": "you",
+      "text": "I can do 55 P with delivery on day 0. I'm ready to close quickly if your side meets me reasonably.",
+      "price": 55,
+      "days": 0
+     },
+     {
+      "tick": 1380,
+      "from": "you",
+      "text": "I can do 58 P, delivery on day 0.",
+      "price": 58,
+      "days": 0
+     },
+     {
+      "tick": 1381,
+      "from": "you",
+      "text": "I can do 61 P, delivery on day 0.",
+      "price": 61,
+      "days": 0
+     },
+     {
+      "tick": 1382,
+      "from": "you",
+      "text": "I can do 64 P, delivery on day 0.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1383,
+      "from": "you",
+      "text": "I can do 68 P, delivery on day 0.",
+      "price": 68,
+      "days": 0
+     },
+     {
+      "tick": 1384,
+      "from": "you",
+      "text": "I can do 71 P, delivery on day 0.",
+      "price": 71,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1385,
+   "raw": {
+    "duel": 6183,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Plaza del Dos de Mayo",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.03,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 82,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1388,
+    "decay_per_round": 0.08,
+    "rounds": 0,
+    "your_offer": {
+     "id": 10964,
+     "price": 74,
+     "tick": 1385,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1374,
+      "from": "you",
+      "text": "I can do 55 P with delivery on day 0. I'm ready to close quickly if your side meets me reasonably.",
+      "price": 55,
+      "days": 0
+     },
+     {
+      "tick": 1380,
+      "from": "you",
+      "text": "I can do 58 P, delivery on day 0.",
+      "price": 58,
+      "days": 0
+     },
+     {
+      "tick": 1381,
+      "from": "you",
+      "text": "I can do 61 P, delivery on day 0.",
+      "price": 61,
+      "days": 0
+     },
+     {
+      "tick": 1382,
+      "from": "you",
+      "text": "I can do 64 P, delivery on day 0.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1383,
+      "from": "you",
+      "text": "I can do 68 P, delivery on day 0.",
+      "price": 68,
+      "days": 0
+     },
+     {
+      "tick": 1384,
+      "from": "you",
+      "text": "I can do 71 P, delivery on day 0.",
+      "price": 71,
+      "days": 0
+     },
+     {
+      "tick": 1385,
+      "from": "you",
+      "text": "I can do 74 P, delivery on day 0.",
+      "price": 74,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1386,
+   "raw": {
+    "duel": 6183,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Plaza del Dos de Mayo",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.03,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 82,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1388,
+    "decay_per_round": 0.08,
+    "rounds": 0,
+    "your_offer": {
+     "id": 10969,
+     "price": 77,
+     "tick": 1386,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1374,
+      "from": "you",
+      "text": "I can do 55 P with delivery on day 0. I'm ready to close quickly if your side meets me reasonably.",
+      "price": 55,
+      "days": 0
+     },
+     {
+      "tick": 1380,
+      "from": "you",
+      "text": "I can do 58 P, delivery on day 0.",
+      "price": 58,
+      "days": 0
+     },
+     {
+      "tick": 1381,
+      "from": "you",
+      "text": "I can do 61 P, delivery on day 0.",
+      "price": 61,
+      "days": 0
+     },
+     {
+      "tick": 1382,
+      "from": "you",
+      "text": "I can do 64 P, delivery on day 0.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1383,
+      "from": "you",
+      "text": "I can do 68 P, delivery on day 0.",
+      "price": 68,
+      "days": 0
+     },
+     {
+      "tick": 1384,
+      "from": "you",
+      "text": "I can do 71 P, delivery on day 0.",
+      "price": 71,
+      "days": 0
+     },
+     {
+      "tick": 1385,
+      "from": "you",
+      "text": "I can do 74 P, delivery on day 0.",
+      "price": 74,
+      "days": 0
+     },
+     {
+      "tick": 1386,
+      "from": "you",
+      "text": "I can do 77 P, delivery on day 0.",
+      "price": 77,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -794,6 +1043,395 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1384,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 6183,
+     "role": "buyer",
+     "limit": 82,
+     "currency": "P",
+     "item": "Plaza del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.03,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I can do 55 P with delivery on day 0. I'm ready to close quickly if your side meets me reasonably.",
+      "offer": {
+       "price": 55,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1374,
+      "decision": {
+       "action": "offer",
+       "price": 55,
+       "message": "I can do 55 P with delivery on day 0. I'm ready to close quickly if your side meets me reasonably."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 58 P, delivery on day 0.",
+      "offer": {
+       "price": 58,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1380,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 61 P, delivery on day 0.",
+      "offer": {
+       "price": 61,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1381,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 64 P, delivery on day 0.",
+      "offer": {
+       "price": 64,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1382,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 68 P, delivery on day 0.",
+      "offer": {
+       "price": 68,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1383,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1384,
+    "ticks_left": 4,
+    "rounds": 0,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6,
+     70.6,
+     33.3,
+     20.7,
+     50.0,
+     11.5,
+     40.300000000000004
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 71 P, delivery on day 0.",
+    "price": 71,
+    "days": 0,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1385,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 6183,
+     "role": "buyer",
+     "limit": 82,
+     "currency": "P",
+     "item": "Plaza del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.03,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I can do 55 P with delivery on day 0. I'm ready to close quickly if your side meets me reasonably.",
+      "offer": {
+       "price": 55,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1374,
+      "decision": {
+       "action": "offer",
+       "price": 55,
+       "message": "I can do 55 P with delivery on day 0. I'm ready to close quickly if your side meets me reasonably."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 58 P, delivery on day 0.",
+      "offer": {
+       "price": 58,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1380,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 61 P, delivery on day 0.",
+      "offer": {
+       "price": 61,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1381,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 64 P, delivery on day 0.",
+      "offer": {
+       "price": 64,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1382,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 68 P, delivery on day 0.",
+      "offer": {
+       "price": 68,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1383,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 71 P, delivery on day 0.",
+      "offer": {
+       "price": 71,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1384,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1385,
+    "ticks_left": 3,
+    "rounds": 0,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6,
+     70.6,
+     33.3,
+     20.7,
+     50.0,
+     11.5,
+     40.300000000000004
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 74 P, delivery on day 0.",
+    "price": 74,
+    "days": 0,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1386,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 6183,
+     "role": "buyer",
+     "limit": 82,
+     "currency": "P",
+     "item": "Plaza del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.03,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I can do 55 P with delivery on day 0. I'm ready to close quickly if your side meets me reasonably.",
+      "offer": {
+       "price": 55,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1374,
+      "decision": {
+       "action": "offer",
+       "price": 55,
+       "message": "I can do 55 P with delivery on day 0. I'm ready to close quickly if your side meets me reasonably."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 58 P, delivery on day 0.",
+      "offer": {
+       "price": 58,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1380,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 61 P, delivery on day 0.",
+      "offer": {
+       "price": 61,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1381,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 64 P, delivery on day 0.",
+      "offer": {
+       "price": 64,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1382,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 68 P, delivery on day 0.",
+      "offer": {
+       "price": 68,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1383,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 71 P, delivery on day 0.",
+      "offer": {
+       "price": 71,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1384,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 74 P, delivery on day 0.",
+      "offer": {
+       "price": 74,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1385,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1386,
+    "ticks_left": 2,
+    "rounds": 0,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6,
+     70.6,
+     33.3,
+     20.7,
+     50.0,
+     11.5,
+     40.300000000000004,
+     23.3,
+     33.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 77 P, delivery on day 0.",
+    "price": 77,
+    "days": 0,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -942,6 +1580,75 @@
      "id": 10954,
      "price": 68,
      "tick": 1383,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1384,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 71 P, delivery on day 0.",
+    "price": 71,
+    "days": 0,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 6183,
+    "offer": {
+     "id": 10959,
+     "price": 71,
+     "tick": 1384,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1385,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 74 P, delivery on day 0.",
+    "price": 74,
+    "days": 0,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 6183,
+    "offer": {
+     "id": 10964,
+     "price": 74,
+     "tick": 1385,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1386,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 77 P, delivery on day 0.",
+    "price": 77,
+    "days": 0,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 6183,
+    "offer": {
+     "id": 10969,
+     "price": 77,
+     "tick": 1386,
      "days": 0
     }
    }

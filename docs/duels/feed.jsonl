@@ -1196,3 +1196,5 @@
 {"id": 71212, "tick": 1383, "t": 12.85, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6075, "session": 3, "status": "no_deal", "item": "La Vía Láctea"}}
 {"id": 71215, "tick": 1383, "t": 12.85, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6163, "session": 3, "status": "deal", "item": "La Dama de Serrano"}}
 {"id": 71218, "tick": 1383, "t": 12.85, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6200, "session": 3, "status": "deal", "item": "Fiesta de San Cayetano"}}
+{"id": 71298, "tick": 1385, "t": 12.8667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6167, "session": 3, "status": "deal", "item": "El Frutero de Argumosa"}}
+{"id": 71301, "tick": 1385, "t": 12.8667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6198, "session": 3, "status": "deal", "item": "La Vía Láctea"}}
