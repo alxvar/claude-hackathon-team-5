@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 18:37** · tick 1005 (30 s/tick) · game hour 9.70 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 18:42** · tick 1016 (30 s/tick) · game hour 9.79 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -27,7 +27,7 @@ _From `team/<name>.md`; each person writes only their own file._
 |---|---|---|---|---|---|---|---|---|---|---|
 | 32.00 | 1 | 24.50 | 7.50 | 13.93 | 0.44 | 0.89 | 52 | 5 | 120 | 38/50 |
 
-Leaderboard (snapshot at tick 1000; refreshes every few minutes):
+Leaderboard (snapshot at tick 1010; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 10.42 | ~43 min | persona_opens | Don Ernesto opens for everyone |
-| 11.00 | ~78 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~87 min | persona_patch | The fever breaks |
-| 11.65 | ~117 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~198 min | bench | The Market Test: every venue gets the same synthetic book |
-| 14.07 | ~262 min | day_closes | Closed until Sunday 09:00 |
-| 14.07 | ~262 min | day_opens | Sunday opens |
-| 14.65 | ~297 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 10.42 | ~37 min | persona_opens | Don Ernesto opens for everyone |
+| 11.00 | ~72 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~81 min | persona_patch | The fever breaks |
+| 11.65 | ~111 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~192 min | bench | The Market Test: every venue gets the same synthetic book |
+| 14.08 | ~257 min | day_closes | Closed until Sunday 09:00 |
+| 14.08 | ~257 min | day_opens | Sunday opens |
+| 14.65 | ~291 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
 
 ## Our dealer deals
 
@@ -58,7 +58,6 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Thread | Dealer | Side | Item | Her first | Our first | Deal | vs her first | Msgs | Status | Closed |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 288 | abuela | sell | 1 card(s) | 5 | — | 5 | +0% | 1 | deal |  |
 | 289 | chato | buy | LAV-09 | 97 | 70 | 93 | -4% | 7 | deal |  |
 | 353 | abuela | buy | RET-04 | 12 | 7 | 9 | -25% | 5 | deal |  |
 | 359 | abuela | buy | RET-03 | 12 | 7 | 9 | -25% | 7 | deal |  |
