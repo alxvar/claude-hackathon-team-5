@@ -393,6 +393,126 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 466,
+   "took_s": 6.56,
+   "cost_usd": 0.00689,
+   "obs": {
+    "view": {
+     "duel_id": 2314,
+     "role": "buyer",
+     "limit": 75,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm a serious buyer and ready to close quickly. For El Mesón de la Cava, I offer 45 P, which I think is a fair price. I'd be glad to hear your counter.",
+      "offer": {
+       "price": 45,
+       "days": null
+      },
+      "accept": false,
+      "tick": 459,
+      "decision": {
+       "action": "offer",
+       "price": 45,
+       "message": "I'm a serious buyer and ready to close quickly. For El Mesón de la Cava, I offer 45 P, which I think is a fair price. I'd be glad to hear your counter."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hola. This one is in perfect condition. 100 P.",
+      "offer": {
+       "price": 100,
+       "days": null
+      },
+      "accept": false,
+      "tick": 463,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the reply. I've moved up to 50 P as a show of good faith. Could you tell me what justifies a figure double that? I'm ready to close quickly if we can meet closer to the middle.",
+      "offer": {
+       "price": 50,
+       "days": null
+      },
+      "accept": false,
+      "tick": 463,
+      "decision": {
+       "action": "offer",
+       "price": 50,
+       "message": "Thanks for the reply. I've moved up to 50 P as a show of good faith. Could you tell me what justifies a figure double that? I'm ready to close quickly if we can meet closer to the middle."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 100,
+     "days": null
+    },
+    "tick": 466,
+    "ticks_left": 9,
+    "rounds": 1
+   },
+   "move": {
+    "action": "message",
+    "text": "I'm holding my position and waiting for your move.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "I'm holding my position and waiting for your move."
+     },
+     "band": {
+      "worst": 50,
+      "target": 50,
+      "best": 50
+     },
+     "plan": {
+      "read": "They opened at 100 P and haven't moved since; we already conceded 5 P to 50 P without any movement from them. Their 'perfect condition' claim is just talk, not a concession.",
+      "target": 50,
+      "best": 50,
+      "worst": 50,
+      "days": null,
+      "angle": "Hold at 50 P and send nothing; we moved last, so it's their turn to come down from 100 P."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.73,
+       "in": 519,
+       "out": 127,
+       "cost_usd": 0.00462,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.83,
+       "in": 394,
+       "out": 148,
+       "cost_usd": 0.00227,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [

@@ -178,6 +178,72 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 466,
+   "raw": {
+    "duel": 2540,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 71,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 480,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 2778,
+     "price": 110,
+     "tick": 464,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2823,
+     "price": 77,
+     "tick": 466,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 464,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 68. Thank you for your time.",
+      "price": 68,
+      "days": null
+     },
+     {
+      "tick": 464,
+      "from": "you",
+      "text": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 465,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 73 works for me.",
+      "price": 73,
+      "days": null
+     },
+     {
+      "tick": 466,
+      "from": "Rival Luna",
+      "text": "Let me move closer: 77.",
+      "price": 77,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
