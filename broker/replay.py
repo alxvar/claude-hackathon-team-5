@@ -49,6 +49,9 @@ MODELS = {
     "many-firm": sim.Model(firm=0.5),
     "no-firm": sim.Model(firm=0.0),
     "20-traders": sim.Model(traders=20),
+    # bench 3.0 (stall leftovers): ~20 ids, staggered arrivals, asks up to 129, short lives
+    "staggered-20": sim.Model(traders=20, arrive=(0, 10), lo_hi=(20, 110), shade=(0.1, 0.4), early_leave=(2, 5), late_leave=(5, 12)),
+    "staggered-20-firm": sim.Model(traders=20, arrive=(0, 10), lo_hi=(20, 110), shade=(0.1, 0.4), early_leave=(2, 5), late_leave=(5, 12), firm=0.4, impatient=0.7),
 }
 
 

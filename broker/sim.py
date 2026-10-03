@@ -29,6 +29,7 @@ class Model:
     early_leave: tuple = (3, 7)    # patience of the impatient ones, in ticks
     late_leave: tuple = (10, 17)   # patience of the others
     lo_hi: tuple = (20, 100)       # limits drawn from this range
+    arrive: tuple = (0, 0)         # arrival tick drawn from this range (bench 3.0: traders arrive over ticks 1-10)
 
 
 class Trader:
@@ -38,13 +39,14 @@ class Trader:
         self.shade = rnd.uniform(*m.shade)
         self.firm = rnd.random() < m.firm
         self.patience = rnd.randint(*(m.early_leave if rnd.random() < m.impatient else m.late_leave))
+        self.arrive = rnd.randint(*m.arrive) if m.arrive != (0, 0) else 0   # no draw at (0, 0): old seeds unchanged
 
     def quote(self, t: int) -> int:
-        s = self.shade if self.firm else self.shade * max(0.0, 1 - t / self.patience)
+        s = self.shade if self.firm else self.shade * max(0.0, 1 - (t - self.arrive) / self.patience)
         return round(self.limit * (1 - s)) if self.side == "buy" else round(self.limit * (1 + s))
 
     def alive(self, t: int) -> bool:
-        return t < self.patience
+        return self.arrive <= t < self.arrive + self.patience
 
 
 def session(rnd: random.Random, m: Model) -> list:
