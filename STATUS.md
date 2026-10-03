@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 22:51** · tick 1428 (30 s/tick) · game hour 13.22 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 23:27** · tick 1445 (30 s/tick) · game hour 13.37 · PAUSED · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,25 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 23:26 · operator · **network outage on this machine ≈ 22:50-23:24** (DNS errors in the watcher, trader and jobs) · game closed at tick 1445 (paused; opens Sun 09:00) · **overnight SAL-11 bid 20252** (115 → t04 on v15, exp tick 1565) posted after the outage; the server accepts posts while closed · trader: 5 'unknown_card sobre_bienvenida' errors 22:41-22:45 (a pack ref looked up as a card) → Builder guard · overnight: dealer lab → intel/dealer-lab.md by 07:30 (read-only)
   - Sat 22:47 · operator · Chief: re-post the SAL-11 bid to stay open overnight (if t04 fills at Sunday's open: +47 on Sunday's trade part; cash 427 still covers CHA ≈ 330; the MAL close now needs only MAL-07/09/10) → job bz665n6tg posts 115 → t04 on v15 the moment 19620 lapses (asks 400 ticks, falls back to 200/120) · counter cap ≤ 125 stays for Sunday · before 09:00: restart everything on HEAD per the handoff
   - Sat 22:46 · operator · organisers 22:45: 'We close at 23:00. Offers stay open; the clock stops.' · state at tick 1418: **#4 30.49** (negotiating 22.99, market 7.5), neg_points 119.1, duel 35.39, ladder 0.483, pages 3, cash 392 · open: SAL-11 bid 19620 (lapses at tick 1432, before the close; asked the Chief about an overnight re-post), book asks LAV-03 → t04 6, MAL-03 → t09 9, LAV-04 → t01 6, MAL-08 → t01 20 (exp 1455, they survive the night)
-  - Sat 22:36 · operator · RET-11 kept for Sunday (Chief) · duels-end detector fixed: scratchpad wait_duels_end.py (byte-offset feed reader; exit 0 finished, 2 fallback) · handoff 'Next': Club Castizo (directives 22:55; hourly bonuses via a direct team trade; Market tally), intel/sunday-plan.md (the Chief updates it at 07:30)
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 30.49 | 4 | 22.99 | 7.50 | 35.39 | 0.48 | 0.85 | 53 | 5 | 392 | 39/50 |
+| 30.49 | 3 | 22.99 | 7.50 | 35.39 | 0.48 | 0.85 | 53 | 5 | 392 | 39/50 |
 
-Leaderboard (snapshot at tick 1420; refreshes every few minutes):
+Leaderboard (snapshot at tick 1440; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 10 | 37.74 | 25.24 | 12.50 | 62 |
-| 2 | Team 18 | 30.98 | 23.48 | 7.50 | 39 |
-| 3 | Team 12 | 30.56 | 23.31 | 7.25 | 70 |
-| 4 | Team 5 | 30.49 | 22.99 | 7.50 | 53 |
-| 5 | Team 3 | 29.81 | 23.73 | 6.08 | 32 |
+| 1 | Team 10 | 37.58 | 25.08 | 12.50 | 62 |
+| 2 | Team 18 | 31.26 | 23.76 | 7.50 | 40 |
+| 3 | Team 5 | 30.49 | 22.99 | 7.50 | 53 |
+| 4 | Team 12 | 30.42 | 23.17 | 7.25 | 70 |
+| 5 | Team 3 | 29.67 | 23.59 | 6.08 | 32 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 13.37 | ~9 min (after today's close) | day_closes | Closed until Sunday 09:00 |
-| 13.37 | ~9 min (after today's close) | day_opens | Sunday opens |
-| 14.65 | ~86 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
-| 15.00 | ~107 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
-| 16.65 | ~205 min (after today's close) | set_release | Chamberí released |
-| 16.65 | ~205 min (after today's close) | round | Round 3 starts |
-| 16.70 | ~208 min (after today's close) | grant_all | The Sunday allowance: 150 primas for everyone |
-| 17.00 | ~227 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 14.65 | ~77 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 15.00 | ~98 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 16.65 | ~197 min (after today's close) | set_release | Chamberí released |
+| 16.65 | ~197 min (after today's close) | round | Round 3 starts |
+| 16.65 | ~197 min (after today's close) | day_closes | Closed until Sunday 09:00 |
+| 16.65 | ~197 min (after today's close) | day_opens | Sunday opens |
+| 16.70 | ~200 min (after today's close) | grant_all | The Sunday allowance: 150 primas for everyone |
+| 17.00 | ~218 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
 
 ## Our dealer deals
 
