@@ -312,7 +312,8 @@ class Book:
         edited = s.get("entry") != int(e["price"])    # a new entry, or its price edited in the file: the file's price
         price = int(e["price"]) if edited or why == "move" else int(s.get("price") or e["price"])
         if sell:
-            free = [a for a in copies.get(card, []) if a["id"] not in locked or a["id"] == s.get("asset")]
+            free = [a for a in copies.get(card, []) if a["id"] not in locked     # ours only while our offer holds it
+                    or (a["id"] == s.get("asset") and s.get("offer"))]
             free = [a for a in free if a.get("your_value") is not None]
             if not free:
                 self.log({"event": "skip", "card": card, "side": "sell", "why": "no free copy with a value"})

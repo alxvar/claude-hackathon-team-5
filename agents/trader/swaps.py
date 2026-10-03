@@ -1,17 +1,24 @@
 """Swap engine (Chief, Sat 15:40): our spare copies for cards we lack, card for card, no cash.
 
 A swap scores like a team trade for both sides at private values [V feed: t15 <-> t07, 3 swaps at ticks 607-616]. Every
-other tick, for each spare we hold (2nd+ copy: the least valuable copy goes) and each card we lack (0 copies):
-- a holder: a team outside the live top 5 that holds the card (feed holdings, a lower bound; tools/v10_radar.py);
-- our gain = our value of the card (GET /api/me/value, page bonus included) - our value of the copy we give, >= +3;
-- their gain, est. = book x m x copy weight of what they get - the same of what they give (intel/multipliers.json at
-  conf V/L, else the hub's model, else 1.0 [L]; 2nd copy 25%, 3rd 10%), > 0;
-- never feed a page: no spare of a set where the team holds >= 8 of the 10 page cards (feed) while within 10 points
-  of us; never a card the book bids for (run/book.json);
+other tick, for each spare we hold and each card we lack (0 copies):
+- a spare: a card with 2+ copies free of open offers (2 copies, one in an ask: no spare), never a card the book asks for
+  (run/book.json "sell") nor a reserved one (run/reserved.json {"cards": [...]}, else the "## Reserved" section of
+  run/operator-handoff.md); the least valuable free copy goes;
+- a holder: a team outside the live top 5 that holds the card (feed holdings, a lower bound; tools/v10_radar.py) and
+  collects our spare's set (tools/collectors.py, never "dumps") or values it at m >= 1 (multipliers);
+- the feeding rule: a page card (01-10) only to a team >= 10 points below us, unless the feed shows it lacks 2+ other
+  cards of that set (as tools/v10_radar.py and opps); unknown scores block;
+- our gain = our value of the card (GET /api/me/value, page bonus included) - our value of the copy we give >= +3
+  (+PACK_DRAG while we hold an unopened pack); never a card we already want in an open offer or the book bids for;
+- their gain, conservative (their low multiplier on what they get, high on what they give; 2nd copy 25%, 3rd 10%) minus
+  the venue's per-card fee on both cards, > 0;
 and posts the best as an ADDRESSED swap (give our asset, want the card type) on a partner venue (v15 Team 15, v07
-Team 10, v20 Team 3: 0% fee, the partner scores the value created) that is open, not the counterparty's own and not
-owned by a top-5 team; El Rastro never (its 1 P per card fee). Short life (LIFE_TICKS), at most MAX_LIVE live, one per
-team, one per card wanted, one per spare. Every post, fill and expiry goes to logs/swaps.jsonl with our est. gain.
+Team 10, v20 Team 3) that is open, owned, not the counterparty's own and not owned by a top-5 team. Live swaps are read
+from /api/me/offers every run: at most MAX_LIVE, one per team, card and spare; one is cancelled when its card reached
+us another way or its counterparty or venue owner entered the top 5. Value reads: only for pairs that pass every other
+check, at most VALUE_READS per run, paced. Every post, fill, expiry and cancel goes to logs/swaps.jsonl with our est.
+gain (dry-run events are tagged and nothing is posted or saved).
 
     source .env && uv run python -u agents/trader/swaps.py           # every other tick (tools/daemons.sh start swaps)
     source .env && uv run python agents/trader/swaps.py --dry-run --once
@@ -21,6 +28,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 import time
 from pathlib import Path
@@ -29,20 +37,25 @@ ROOT = Path(__file__).resolve().parents[2]
 for p in ("bazaar-kit", "tools", "agents/trader"):
     sys.path.insert(0, str(ROOT / p))
 from bazaar_sdk import Bazaar, BazaarError  # noqa: E402
+import opportunities as op  # noqa: E402
 import v10_radar as vr  # noqa: E402
 from book import expires_param  # noqa: E402
-from opportunities import book_buys  # noqa: E402
+from collectors import CachedCollectors  # noqa: E402
 
 PARTNERS = ("v15", "v07", "v20")
 MIN_OUR_GAIN = 3.0
+PACK_DRAG = 2.5        # an unopened pack drags each trade's score ~-2.4 (GAME.md): raise our bar while we hold one
 MAX_LIVE = 4
 LIFE_TICKS = 10        # real ticks a swap offer lives
 TOP_N = 5
-SCORE_GAP = 10         # a team this close to us never gets a card that may close its page
-VALUE_TICKS = 20       # our value of a card we lack is re-read this often
+SCORE_GAP = 10         # a page card only to a team this far below us
+VALUE_TICKS = 20       # our value of a card we lack is re-read this often (and whenever our holdings change)
+VALUE_READS, READ_GAP_S = 4, 0.25   # at most this many value reads per run, this far apart (shared 5 req/s)
 POSTS_PER_RUN = 2
 ME = "t05"
 STATE, LOG = ROOT / "run" / "swaps_state.json", ROOT / "logs" / "swaps.jsonl"
+BOOK, RESERVED, HANDOFF = ROOT / "run" / "book.json", ROOT / "run" / "reserved.json", ROOT / "run" / "operator-handoff.md"
+CARD = re.compile(r"\b[A-Z]{3}-\d{2}\b")
 
 
 def log(event: dict) -> None:
@@ -53,19 +66,50 @@ def log(event: dict) -> None:
     print(json.dumps(event), flush=True)
 
 
-def page_cards(card: str) -> bool:
+def page_card(card: str) -> bool:
     try:
         return 1 <= int(card.split("-")[1]) <= 10
     except (IndexError, ValueError):
         return False
 
 
-def our_spares(me: dict, locked: set) -> dict:
+def book_refs(path: Path = BOOK, side: str = "sell") -> set:
+    try:
+        return {e["card"] for e in json.loads(Path(path).read_text()).get("offers") or [] if e.get("side") == side}
+    except (OSError, ValueError, AttributeError, KeyError, TypeError):
+        return set()
+
+
+def reserved_refs(path: Path = RESERVED, handoff: Path = HANDOFF) -> set:
+    """Cards held out of the market: run/reserved.json, else the cards named in the handoff's "## Reserved" section."""
+    try:
+        return set(json.loads(Path(path).read_text()).get("cards") or [])
+    except (OSError, ValueError, AttributeError):
+        pass
+    try:
+        text = Path(handoff).read_text()
+    except OSError:
+        return set()
+    m = re.search(r"^## Reserved[^\n]*\n(.*?)(?=^## |\Z)", text, re.S | re.M)
+    return set(CARD.findall(m.group(1))) if m else set()
+
+
+def wants_of(offers) -> set:
+    """Every card our open offers want (bids and swaps): never a second one through a swap."""
+    out = set()
+    for o in offers:
+        w = o.get("want") or {}
+        out |= set(w.get("cards") or []) | {t[5:] for t in w.get("types") or [] if str(t).startswith("card:")}
+        out |= {a.get("ref") for a in w.get("assets") or [] if isinstance(a, dict) and a.get("ref")}
+    return out
+
+
+def our_spares(me: dict, locked: set, exclude=frozenset()) -> dict:
     """{ref: the least valuable free copy} for every card with a spare left after the copies already in open offers
     (2 copies, one in an ask: no spare, else both could go and the page loses the card)."""
     copies: dict = {}
     for a in me.get("assets") or []:
-        if a.get("kind") == "card" and a.get("your_value") is not None:
+        if a.get("kind") == "card" and a.get("your_value") is not None and a.get("ref") not in exclude:
             copies.setdefault(a["ref"], []).append(a)
     out = {}
     for ref, cs in copies.items():
@@ -75,122 +119,198 @@ def our_spares(me: dict, locked: set) -> dict:
     return out
 
 
-def their_gain(team, gets: str, gives: str, *, mult, held, cards) -> tuple[float, float]:
-    """(est., conservative) gain for `team` getting card `gets` and giving one copy of `gives`."""
+def their_gain(team, gets: str, gives: str, *, mult, held, cards, fee: int = 0) -> tuple[float, float]:
+    """(est., conservative) gain for `team` getting card `gets` and giving one copy of `gives`, less its fee."""
     g, v = cards[gets], cards[gives]
     m_g, lo_g, _ = vr._triple((mult.get(team) or {}).get(g["set"], 1.0))
     m_v, _, hi_v = vr._triple((mult.get(team) or {}).get(v["set"], 1.0))
     c_get = vr.copy_weight(len(held.get((team, gets), ())) + 1)
     c_give = vr.copy_weight(len(held.get((team, gives), ())) or 1)
-    return (round(g["book"] * m_g * c_get - v["book"] * m_v * c_give, 1),
-            round(g["book"] * lo_g * c_get - v["book"] * hi_v * c_give, 1))
-
-
-def candidates(*, me, locked, our_value, teams, held, mult, cards, skip_want=frozenset(), busy=()) -> list[dict]:
-    """Every swap that clears both bars, best first. `our_value(card)` -> our value of a card we lack (or None)."""
-    top = {t["team"] for t in teams[:TOP_N]}
-    ours = next((t.get("score") for t in teams if t["team"] == ME), None)
-    score = {t["team"]: t.get("score") for t in teams}
-    have = {a["ref"] for a in me.get("assets") or [] if a.get("kind") == "card"}
-    spares = our_spares(me, locked)
-    holders: dict = {}
-    for (team, card), ids in held.items():
-        if ids and team not in top and team != ME and team and team.startswith("t") and card in cards \
-                and card not in have and card not in skip_want:
-            holders.setdefault(card, []).append(team)
-    busy_teams = {b["to"] for b in busy}
-    busy_cards = {b["want"] for b in busy}
-    busy_assets = {b["asset"] for b in busy}
-    out = []
-    for want, teams_with in holders.items():
-        if want in busy_cards:
-            continue
-        v_want = our_value(want)
-        if v_want is None:
-            continue
-        for ref, asset in spares.items():
-            if asset is None or asset["id"] in busy_assets or ref not in cards:
-                continue
-            gain = round(v_want - asset["your_value"], 1)
-            if gain < MIN_OUR_GAIN:
-                continue
-            st = cards[ref]["set"]
-            for team in teams_with:
-                if team in busy_teams:
-                    continue
-                gap = None if ours is None or score.get(team) is None else ours - score[team]
-                theirs_in_set = sum(1 for (t, c), ids in held.items() if t == team and ids and page_cards(c)
-                                    and cards.get(c, {}).get("set") == st)
-                if page_cards(ref) and theirs_in_set >= 8 and (gap is None or gap < SCORE_GAP):
-                    continue                          # may close its page, and it is within 10 points of us
-                est, low = their_gain(team, ref, want, mult=mult, held=held, cards=cards)
-                if est <= 0:
-                    continue
-                out.append({"asset": asset["id"], "give": ref, "want": want, "to": team, "our_gain": gain,
-                            "their_est": est, "their_low": low, "our_value_want": v_want,
-                            "our_value_give": asset["your_value"]})
-    out.sort(key=lambda c: (-c["our_gain"], -c["their_est"]))
-    return out
+    return (round(g["book"] * m_g * c_get - v["book"] * m_v * c_give - fee, 1),
+            round(g["book"] * lo_g * c_get - v["book"] * hi_v * c_give - fee, 1))
 
 
 def pick_venue(to: str, venues: dict, top: set) -> str | None:
     for v in PARTNERS:
         x = venues.get(v) or {}
-        if x.get("status") == "open" and x.get("owner") not in top and x.get("owner") != to:
+        if x.get("status") == "open" and x.get("owner") and x["owner"] not in top and x["owner"] != to:
             return v
     return None
 
 
+def candidates(*, me, locked, our_value, teams, held, mult, cards, last, collectors, venues, skip_want=frozenset(),
+               no_spare=frozenset(), busy=(), min_gain=MIN_OUR_GAIN) -> list[dict]:
+    """Every swap that clears both bars, best first. `our_value(card)` is called only for pairs that pass every
+    other check (a value read costs a request on the shared key) and may return None (not read: skip)."""
+    if not teams or ME not in {t["team"] for t in teams}:
+        return []                                     # no live ranking: no top 5, no gaps: post nothing
+    spares = our_spares(me, locked, no_spare)
+    if not spares:
+        return []
+    top = {t["team"] for t in teams[:TOP_N]}
+    score = {t["team"]: t.get("score") for t in teams}
+    ours = score.get(ME)
+    have = {a["ref"] for a in me.get("assets") or [] if a.get("kind") == "card"}
+    busy_teams, busy_cards = {b["to"] for b in busy}, {b["want"] for b in busy}
+    busy_assets = {b["asset"] for b in busy}
+    holders: dict = {}
+    for (team, card), ids in held.items():
+        if ids and team not in top and team != ME and str(team).startswith("t") and card in cards \
+                and card not in have and card not in skip_want and card not in busy_cards and team not in busy_teams:
+            holders.setdefault(card, []).append(team)
+    out = []
+    for want, with_it in sorted(holders.items()):
+        pairs = []
+        for ref, asset in spares.items():
+            if asset["id"] in busy_assets or ref not in cards:
+                continue
+            st = cards[ref]["set"]
+            for team in with_it:
+                ok, why = collectors.allows(team, st)
+                m = vr._triple((mult.get(team) or {}).get(st, 0.0))[0]
+                if "dumps" in why or not (ok or m >= 1.0):
+                    continue                          # it neither collects our spare's set nor values it
+                if page_card(ref):
+                    lacks = [k for k, x in last.items() if k[0] == team and k[1] != ref and x.get("kind") == "lack"
+                             and cards.get(k[1], {}).get("set") == st]
+                    gap = None if ours is None or score.get(team) is None else ours - score[team]
+                    if len(lacks) < 2 and (gap is None or gap < SCORE_GAP):
+                        continue                      # may close its page and it isn't 10+ below us (or unknown)
+                venue = pick_venue(team, venues, top)
+                if venue is None:
+                    continue
+                fee = 2 * int((venues.get(venue) or {}).get("fee_per_card") or 0)
+                est, low = their_gain(team, ref, want, mult=mult, held=held, cards=cards, fee=fee)
+                if low <= 0:
+                    continue
+                pairs.append((ref, asset, team, venue, est, low))
+        if not pairs:
+            continue
+        v_want = our_value(want)                      # only now: every other check passed
+        if v_want is None:
+            continue
+        for ref, asset, team, venue, est, low in pairs:
+            gain = round(v_want - asset["your_value"], 1)
+            if gain >= min_gain:
+                out.append({"asset": asset["id"], "give": ref, "want": want, "to": team, "venue": venue,
+                            "our_gain": gain, "their_est": est, "their_low": low, "our_value_want": v_want,
+                            "our_value_give": asset["your_value"]})
+    out.sort(key=lambda c: (-c["our_gain"], -c["their_low"]))
+    return out
+
+
+def is_swap(o: dict) -> bool:
+    give, want = o.get("give") or {}, o.get("want") or {}
+    return (o.get("venue") in PARTNERS and len(give.get("assets") or []) == 1 and not give.get("cash")
+            and not want.get("cash") and len(wants_of([o])) == 1 and bool(o.get("to")))
+
+
 class Engine:
-    def __init__(self, b, *, dry_run=False, mult_fn=vr.hub_mult, events_fn=vr.load_events, state=STATE, book=None,
-                 log=log):
+    def __init__(self, b, *, dry_run=False, mult_fn=vr.hub_mult, events_fn=vr.load_events, state=STATE, book=BOOK,
+                 reserved=RESERVED, handoff=HANDOFF, collectors=None, log=log, sleep=time.sleep):
         self.b, self.dry_run, self.mult_fn, self.events_fn, self.state_path = b, dry_run, mult_fn, events_fn, state
-        self.book, self.log = book, log
+        self.book, self.reserved, self.handoff, self.log, self.sleep = book, reserved, handoff, log, sleep
+        self.collectors = collectors or CachedCollectors()
         self.values: dict = {}
         self.cards: dict = {}
         self._hub: dict = {}
         self._hub_at = 0.0
+        self._holdings = None
+        self._reads = 0
         try:
             self.state = json.loads(Path(state).read_text())
         except (OSError, ValueError):
             self.state = {"live": []}
 
+    def emit(self, event: dict) -> None:
+        self.log({**event, "dry_run": True} if self.dry_run else event)
+
+    def save(self) -> None:
+        if self.dry_run:
+            return
+        path = Path(self.state_path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        tmp = path.with_suffix(".tmp")
+        tmp.write_text(json.dumps(self.state, indent=1))
+        tmp.replace(path)
+
     def our_value(self, card: str, tick: int):
         hit = self.values.get(card)
-        if hit is None or tick - hit[1] >= VALUE_TICKS:
-            try:
-                self.values[card] = (float(self.b.value(card)["your_value"]), tick)
-            except (BazaarError, KeyError, TypeError, ValueError):
-                return None if hit is None else hit[0]
+        if hit is not None and tick - hit[1] < VALUE_TICKS:
+            return hit[0]
+        if self._reads >= VALUE_READS:
+            return None                               # next run
+        if self._reads:
+            self.sleep(READ_GAP_S)
+        self._reads += 1
+        try:
+            self.values[card] = (float(self.b.value(card)["your_value"]), tick)
+        except (BazaarError, KeyError, TypeError, ValueError):
+            return None
         return self.values[card][0]
 
     def run(self, tick: int, tick_seconds: float) -> list[dict]:
+        self._reads = 0
         if not self.cards:
             self.cards = vr.card_index(self.b.catalog())
         if time.time() - self._hub_at > 600:
             self._hub, self._hub_at = self.mult_fn() or self._hub, time.time()
         mult = vr.load_mult(self._hub)
         me = self.b.me()
-        mine = {o["id"]: o for o in self.b.my_offers().get("offers") or []
-                if o.get("maker") == me["id"] and o.get("status", "open") in ("open", "queued")}
-        locked = {a["id"] if isinstance(a, dict) else a for o in mine.values()
-                  for a in (o.get("give") or {}).get("assets") or []}
+        ids = tuple(sorted(a["id"] for a in me.get("assets") or []))
+        if ids != self._holdings:                     # a card in or out: our values moved (page bonuses)
+            self.values, self._holdings = {}, ids
+        mine = [o for o in self.b.my_offers().get("offers") or []
+                if o.get("maker") == me["id"] and o.get("status", "open") in ("open", "queued")]
+        locked = {a["id"] if isinstance(a, dict) else a for o in mine for a in (o.get("give") or {}).get("assets") or []}
         have = {a["ref"] for a in me.get("assets") or [] if a.get("kind") == "card"}
+        mine_ids = {a["id"] for a in me.get("assets") or []}
+        known = {x["offer"]: x for x in self.state.get("live", []) if x.get("offer") is not None}
         live = []
-        for x in self.state.get("live", []):          # reconcile: still open, filled or gone
-            if x["offer"] in mine:
-                live.append(x)
-                continue
-            filled = x["want"] in have
-            self.log({"event": "filled" if filled else "expired", **x})
-        self.state["live"] = live
+        for o in mine:                                # live swaps from the server, not from our file
+            if is_swap(o):
+                a = (o["give"]["assets"] or [None])[0]
+                asset = a.get("id") if isinstance(a, dict) else a
+                live.append({**known.get(o["id"], {}), "offer": o["id"], "asset": asset,
+                             "want": next(iter(wants_of([o]))), "to": o["to"], "venue": o["venue"]})
+        live_ids = {x["offer"] for x in live}
+        for x in known.values():                      # gone since last run: filled, or expired
+            if x["offer"] not in live_ids:
+                filled = x.get("asset") not in mine_ids and x["want"] in have
+                self.emit({"event": "filled" if filled else "expired", **x})
         teams = sorted(self.b.leaderboard().get("teams") or [], key=lambda t: -(t.get("score") or 0))
         top = {t["team"] for t in teams[:TOP_N]}
-        events = self.events_fn()
-        cands = candidates(me=me, locked=locked, our_value=lambda c: self.our_value(c, tick), teams=teams,
-                           held=vr.holdings(events), mult=mult, cards=self.cards,
-                           skip_want=frozenset(book_buys(self.book) if self.book else book_buys()), busy=live)
         venues = None
+        for x in list(live):                          # cancel what no longer passes
+            why = ("its card reached us another way" if x["want"] in have else
+                   f"{x['to']} is in the top {TOP_N}" if x["to"] in top else None)
+            if why is None and teams:
+                venues = venues or {v.get("venue"): v for v in self.b.venues().get("venues") or []}
+                if (venues.get(x["venue"]) or {}).get("owner") in top:
+                    why = f"venue {x['venue']}'s owner is in the top {TOP_N}"
+            if why:
+                if not self.dry_run:
+                    try:
+                        self.b.cancel(x["offer"])
+                    except BazaarError as e:
+                        self.emit({"event": "cancel_failed", "code": e.code, **x})
+                        continue
+                self.emit({"event": "cancel", "why": why, **x})
+                live.remove(x)
+        self.state["live"] = live
+        self.save()
+        if len(live) >= MAX_LIVE:
+            return []
+        venues = venues or {v.get("venue"): v for v in self.b.venues().get("venues") or []}
+        events = self.events_fn()
+        last, _ = op.read_signals(events, [], ME, op.GameTime(events), tick, self.cards)
+        packs = any(a.get("kind") == "pack" for a in me.get("assets") or [])
+        cands = candidates(me=me, locked=locked, our_value=lambda c: self.our_value(c, tick), teams=teams,
+                           held=vr.holdings(events), mult=mult, cards=self.cards, last=last,
+                           collectors=self.collectors.get(), venues=venues,
+                           skip_want=frozenset(wants_of(mine) | book_refs(self.book, "buy")),
+                           no_spare=frozenset(book_refs(self.book, "sell") | reserved_refs(self.reserved, self.handoff)),
+                           busy=live, min_gain=MIN_OUR_GAIN + (PACK_DRAG if packs else 0))
         posted = []
         for c in cands:
             if len(self.state["live"]) >= MAX_LIVE or len(posted) >= POSTS_PER_RUN:
@@ -198,40 +318,35 @@ class Engine:
             if any(c["to"] == x["to"] or c["want"] == x["want"] or c["asset"] == x["asset"]
                    for x in self.state["live"]):
                 continue
-            if venues is None:
-                venues = {v.get("venue"): v for v in self.b.venues().get("venues") or []}
-            venue = pick_venue(c["to"], venues, top)
-            if venue is None:
-                self.log({"event": "skip", "why": "no open partner venue outside the top 5", **c})
-                continue
-            ev = {"event": "post", "venue": venue, "tick": tick, **c}
+            ev = {"event": "post", "tick": tick, **c}
             if self.dry_run:
-                self.log({**ev, "dry_run": True})
-                self.state["live"].append({**c, "offer": None, "venue": venue, "tick": tick})   # one per team/card
+                self.emit(ev)
+                self.state["live"].append({**c, "offer": None, "tick": tick})   # one per team/card/spare this run
                 posted.append(c)
                 continue
             try:
-                r = self.b.list_offer({"assets": [c["asset"]]}, {"types": [f"card:{c['want']}"]}, venue=venue,
+                r = self.b.list_offer({"assets": [c["asset"]]}, {"types": [f"card:{c['want']}"]}, venue=c["venue"],
                                       to=c["to"], expires_in_ticks=expires_param(LIFE_TICKS, tick_seconds))
             except BazaarError as e:
-                self.log({**ev, "event": "post_failed", "code": e.code, "message": e.message[:120]})
+                self.emit({**ev, "event": "post_failed", "code": e.code, "message": e.message[:120]})
                 break
+            r = r if isinstance(r, dict) else {}
             oid = r.get("id") or (r.get("offer") or {}).get("id")
-            self.log({**ev, "offer": oid})
-            self.state["live"].append({**c, "offer": oid, "venue": venue, "tick": tick})
+            self.emit({**ev, "offer": oid})
+            if oid is None:                           # posted, can't track it: stop; the next run reads it back
+                break
+            self.state["live"].append({**c, "offer": oid, "tick": tick})
             posted.append(c)
+            self.save()
         if self.dry_run:
             self.state["live"] = live
-        else:
-            Path(self.state_path).parent.mkdir(parents=True, exist_ok=True)
-            Path(self.state_path).write_text(json.dumps(self.state, indent=1))
         return cands
 
 
 def main(argv=None) -> None:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0], allow_abbrev=False)
     ap.add_argument("--once", action="store_true")
-    ap.add_argument("--dry-run", action="store_true", help="log what it would post, write nothing")
+    ap.add_argument("--dry-run", action="store_true", help="post and save nothing; logged events are tagged dry_run")
     args = ap.parse_args(argv)
     b = Bazaar(os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai"), os.environ["BAZAAR_KEY"],
                wait_on_tick=False, retries=1)
@@ -243,7 +358,7 @@ def main(argv=None) -> None:
             if clock.get("paused") or clock.get("doors") not in (None, "open"):
                 if args.once:
                     return
-                time.sleep(30)
+                time.sleep(max(5.0, float(clock.get("next_tick_in") or 30)))
                 continue
             if last is None or clock["tick"] - last >= 2 or args.once:
                 last = clock["tick"]

@@ -695,6 +695,14 @@ def run_once(api, *, dry_run, now=None, state_path=STATE, out_path=OUT, data_dir
                                    collectors=collectors)
     ctx["values"] = values
     owned = book_buys(book_path)
+    if not dry_run:                                   # cards our open offers already want (book bids, swaps)
+        try:
+            for x in api.my_offers().get("offers") or []:
+                if x.get("maker") == me["id"]:
+                    w = x.get("want") or {}
+                    owned |= set(w.get("cards") or []) | {t[5:] for t in w.get("types") or [] if str(t).startswith("card:")}
+        except BazaarError as e:
+            log(f"opportunities: my_offers unavailable ({e.code}): book bids only")
     for o in opps:
         if o["side"] == "BUY" and o["card"] in owned:
             o["status"] = "the book bids for it (run/book.json): not posted here"

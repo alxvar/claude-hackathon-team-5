@@ -465,3 +465,15 @@ def test_a_closing_bid_stays_at_value_minus_50_when_only_its_reprice_is_due():
     st, _, _ = run(g, [CHA], st, tick=300 + bk.REPRICE_AFTER + 1)      # checked at 300 + 20 + 1 > VALUE_TICKS: recheck
     st, _, _ = run(g, [CHA], st, tick=300 + 2 * bk.REPRICE_AFTER + 2)
     assert {o["give"]["cash"] for o in g.posted} == {72}
+
+
+
+def test_an_asset_another_offer_holds_is_never_reused_by_an_ask():
+    # Review 16:05: book reused its previous asset after its own ask expired, though a swap had locked it meanwhile.
+    g = Game()
+    e = [{"card": "SAL-08", "side": "sell", "to": "t16", "price": 30, "floor": 20}]
+    st = {"SAL-08:sell": {"offer": None, "price": 30, "since": 300, "asset": 179, "held": 1, "entry": 30}}
+    g.offers[777] = {"id": 777, "maker": "t05", "status": "open", "give": {"assets": [{"id": 179, "ref": "SAL-08"}]},
+                     "want": {"types": ["card:LAT-07"]}}
+    st, ev, _ = run(g, e, st, tick=301)
+    assert g.posted == [] and any("no free copy" in (x.get("why") or "") for x in ev)
