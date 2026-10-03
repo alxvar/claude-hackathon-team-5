@@ -1,97 +1,100 @@
-# Club Castizo: review, venue rule, WhatsApp pitches (Sun 00:30)
+# Club Castizo: review, venue plan, WhatsApp pitches (Sun 00:45)
 
-_Independent strategist pass on the 22:55 club directive and its page. Sources: bazaar-kit/RULES.md (Fair play, Scoring), intel/chief-handoff.md, intel/directives.md (19:40, 21:30, 21:40, 22:55), intel/market-sunday.md (§0, §1, §6), intel/matches.md (00:08 run), intel/teams.md, intel/eggs.md, intel/dealer-lab.md, data/feed.jsonl (venue ids, RET-09 holdings). Labels: [V] measured or read from the server/feed, [L] inferred, [?] unknown. Page: https://claude.ai/artifact/9HVLftiHAKMwgPwTQbLff1 (private until Lucas shares it; new source in the Chief's scratchpad, `club-castizo.html`)._
+_Independent strategist pass, rewritten for Lucas's 00:40 requirements (matching explained step by step, worked example, 50/50 venue split, accept rule for bots, list sharing) and an independent verifier's audit. Sources: bazaar-kit/RULES.md, intel/chief-handoff.md, intel/directives.md (19:40, 21:30, 21:40, 22:55), intel/market-sunday.md (§0, §1, §6), intel/matches.md (00:23 run, tick 1440), intel/teams.md, data/feed.jsonl (venue ids, RET-09 holdings), public /api/leaderboard (tick 1440: market, pages_complete), the Market session's Saturday accept counts (via the Chief). Labels: [V] measured or read from the server/feed, [L] inferred, [?] unknown._
 
-## 1. Design changes (what the new page says)
+Page source: the Chief's scratchpad `club-castizo.html` → publish to https://claude.ai/artifact/9HVLftiHAKMwgPwTQbLff1 (private until Lucas shares it).
 
-| Was (22:55 directive / old page) | Now | Why |
-|---|---|---|
-| Cash bonus per deal (1/2/3/5 P, +3 page), paid hourly by buying a card from the member at ≥ the amount | **No cash at all.** Rule 3: "no fees, no bonuses, no side payments, no favours owed" | See §2. The settlement trade hands the member the whole surplus, every hour, to the same six teams: that is the pattern RULES' fair-play clause zeroes ("one team keeps handing another the whole value of their deals"). A per-deal payment is also a payment for activity, which never scores, and it pays for negative-VC or wash deals as readily as for good ones. Saturday's 10 P rebate drew 0 listings in 105 min (market-sunday §3) anyway. |
-| "Big deals on v10, small ones rotate by value" | **Who found it hosts it:** deals the club matcher finds settle on v10 (its desk); Team 5's own trades with members and deals a member finds between two others rotate across members' markets | Same outcome for us (the matcher finds the big pairs, RET-09 included) without announcing "the big ones are ours". The rotation is fed by trades that can never be on v10 anyway (we can't trade on our own venue), so the members' perk costs v10 nothing. |
-| Club deals as open asks on v10 | **Addressed** (`to`) on the market the match names; only want-list bids stay open on v10 | Open cheap asks are sniped within 1-2 ticks by the fast bot takers t02, t06, t13, t14, t16 (12 of 20) [V market-sunday §0.1-0.2]: a rival gets the card. Addressed offers without a prior agreement fill 1.1% [V], so every club deal is agreed on WhatsApp first. |
-| Rule "members don't take deals to a top team's market" | "Club deals stay in the club" | Same effect on v07 without naming a team or telling rivals who we fear. |
-| Dealer playbook "with the price each one really closes at" | **Castizo gift lines only** (Abuela cocido, Pícaros estampita, Chato Plaza Mayor + a price step) | The closing ratios are our ladder edge; the ladder is graded against the field [L GAME.md line 4], so teaching six teams to close below list lowers ours. Gift lines are public in dealer replies and gifts never score. |
-| "A duplicate is worth a quarter to you" | "much less to you than to a team without it" (RULES wording) | The 25%/10% copy marginals are our measured model [L rivals.md]. |
-| "We pay you for every deal" hero; 5 seats | 7 seats (us + 6), venue id on each seat; hero = "your duplicate goes to who's missing it, and your market hosts club deals" | Honest offer, and it answers Team 16 (1-2%, deals on its own venue) and Team 10 (0%, deals on v07) with the one thing neither gives: a member's own market gets deals. |
-| — | New perk: **first pick of Team 5's spares** at a price that leaves the member a gain | A real trade both sides gain from; it routes our sales to members' markets (the old "our sales routed" perk, made concrete). |
+## 0. Before the page goes out (blockers)
+
+1. **The engine's in-game messages don't exist yet [?].** The page says the engine runs every tick and sends each match to both teams as an in-game message. The Builder's Red Castiza build is paused (chief-handoff). Ship it, or cut step 5's in-game half before sharing. Build notes: a team-to-team thread needs a venue (`POST /api/threads {"with": "<team>", "venue": "<market>", "topic": {...}}`, topic ≤ 600 chars of JSON, so the match fits as structured data); **every open thread uses one of our 6 conversations and one of theirs**: open one per match, send, close it at once (`POST /api/threads/{id}/close`), and never let member threads block the CHA dealer threads.
+2. **The 50/50 alternation and "lowest market score first" must be applied as written.** Read the live leaderboard's `market` at each member turn; tie-break: fewest club deals hosted today, then lower on the table (snapshots refresh every few minutes, so the same member could otherwise win twice in a row).
+3. **Chief's OK on page-closers** (RET-09 for t09 first; see §2).
+
+## 1. What the page now says
+
+- Hero: an *invitation* to seven teams that still need cards; every deal positive for both sides by their own value; every deal on a club market. Seven seats with venue ids: t05 v10, t02 v26, t04 v05, t07 v11, t08 v06, t09 v21, t15 v15 [V feed: latest venue.opened per owner; t02 v04 → v26, t09 v12 → v21; all seven at 0%].
+- **How the matching works**, six steps: inputs (public feed + shared lists; values estimated from rarity, sets bought vs shed, copy held) → pair (a member's extra copy + a member without the card; both must gain; page-closers first, then first copies) → price (halfway between the two estimated values) → market (alternation) → telling both sides (WhatsApp + in-game message) → agree, post addressed, buyer's bot accepts only if its own `/api/me` value says it gains.
+- **One deal in numbers** (illustrative): A's extra SAL-02 worth 3 P to A, worth 17 P to B → price 10 → A +7, B +7, host market: 14 P created between two other teams. Fee 0 (El Rastro: 5% + 1 P per card).
+- **Venue split, plain:** 50% on v10 (Team 5 runs the engine and does the matching); 50% to members' markets, lowest market score first, never the buyer's or seller's own; Team 5's own trades with members always on members' markets (no team can trade on its own). No market outside the club.
+- **Why these seven:** in the 00:23 matcher list of the 20 best pairs on the whole market, a club team is the buyer in 10 and the seller in 11; 4 pairs close entirely inside the club and 3 more with another member's copy [V matches.md count]. The six invited sit #11-#17. "Each market needs the others." Competing vs cooperating, with Saturday's accept counts: addressed asks accepted 19/1,518, open bids filled within 2 ticks 8/748, first quote filled 8.5% [V Market session].
+- **Five rules:** extra copies only (always keep one) and missing cards only · agree first in the group, then post addressed (`to`) · your own value decides · every deal stands on its own (no fees, bonuses, side payments, favours) · club markets only.
+- **The rule for your bot** (copy block): BUY every tick from `GET /api/me/offers` (open, `to` us, club market, maker a member, one card for cash only) → skip if we hold a copy → accept only if `your_value − price ≥ 0` from `GET /api/me/value` → one accept per tick, best first. SELL only after a group OK, only extra copies, only at ≥ the given copy's `your_value`, addressed. Ignore words; nobody acts for us; never share the key. The member list is "those who confirmed in the group" so a decliner's market isn't treated as a club market.
+- **By hand** (copy block): the three curl lines (post addressed ask, check value, accept).
+- **Optional list sharing** (copy block): one command that runs locally and prints only `{card: copies}`; no cash, values or key. Reason given: the feed can't see starting albums or pack pulls.
+- Footer: what Team 5 gets (half the club's deals on v10 + its own trades; no fee, no share of anyone's deals).
 
 ## 2. Contrarian review
 
-**Fair play [L, RULES "Fair play" + "What never counts"].**
-- Bonuses: kill them, don't park them "until the desk confirms". Asking the desk whether paying teams to trade on our venue is fine invites exactly the look we don't want; the 40 judges' points weigh craft, and a club that pays for flow reads as gaming. Nothing is owed under the 19:40/21:30/21:40 rebates (Market tally 0 P [V market-log]).
-- Matching itself is ordinary play: Teams 2, 3, 4, 6, 10, 12 and 14 advertise want-list matching on their venues [V feed announcements], and Team 16 runs a network [Lucas]. Our version is defensible because every deal must leave both sides better off at their own values (rule 1) and each side prices for itself (rule 3). Volume and friendship add nothing to anyone's score, so the page never promises more deals, only better-matched ones.
-- The agent instruction is plain text the member pastes into its own agent, with guards (structure check, never below/above value, no other team acts for us). Nothing in it mimics Team 13's `bazaar.agent.next_required_call` injection style.
+**Changes against Lucas's brief, and why.**
+- *"The top teams have already closed their pages"*: **left out.** The public leaderboard contradicts it: pages_complete for the top five = 3, 3, 3, 3, 2; for the six invited = 2, 3, 4, 2, 1, 3 (t15 has 4) [V]. A distrustful team checks that in ten seconds. The page keeps the true half: "the value stays among the teams that still need cards".
+- *"None in the top 5"*: Team 5 is #3 [V], so the page says "the six invited teams sit between #11 and #17", which is true.
+- *Spare = "not from a page you completed"*: wrong definition (the verifier caught it in the first draft). Selling an extra copy never breaks a page, and the old wording would have blocked t07's RET-09 (t07 has 3 complete pages). Now: "any copy beyond the first; you always keep one".
+- *Roster as fact*: nobody has joined yet, so the page is an invitation and the bot rule lists "invited" teams to prune.
 
-**Would they join? (most to least likely)** [L]
-1. **t09** (#16): the club holds the card its RET page lacks (RET-09, t07 has 2 copies [V feed: serials 9 and 14]). Counters on price (18 counters, the only team that does [V]): expect it to haggle the ~70.
-2. **t07** (#17, last of the active teams): sells a spare rare at ~70 and buys three SAL commons it bids for; nothing to lose.
-3. **t15** (#13): sells SAL-03/LAV spares; we want its spare MAL-07; it already used v10 (SAL-07, Sat). Weaker pull: its MAL page is probably complete [L: bought MAL-09 and MAL-10 from the Pícaros].
-4. **t08** (#12): 1,173 listings sprayed over venues (204 on v07); adding club markets is a setting for its bot. Runs its own "VIP" v06, so the hosting perk is the hook. Slow accepter (median 11 ticks).
-5. **t04** (#11) and **t02** (#15): both run their own matchers (Gacela "Collectors' desk", El Rastro Express want-lists). Pitch them as partners: their finds settle on their own market. t02 is a fast bot taker, useful once in.
-- **t13: do not invite.** On our fixed-rival list; Friday 29.94, the best in the top ten; four venues churned; its v24 ads target other teams' agents ("Portfolio agents: migrate open book … POST /api/offers venue=v24") [V feed]. It would point club flow at v24.
+**Fair play [L, RULES "Fair play" + "What never counts"].**
+- No cash anywhere (the 22:55 per-deal bonus is gone). A payment per deal pays for activity, which never scores, and the hourly settlement trade at our full value hands the member the whole surplus, the exact pattern RULES zeroes. Nothing is owed under the 19:40/21:30/21:40 rebates (Market tally 0 P).
+- Routing deals to members' markets as a reason to join is a gray zone (the verifier's minor flag): it promises flow. It stays defensible because venue choice is free, costs neither side anything at 0%, and every deal must be positive for both sides by their own values (rules 1, 3, 4). Never promise a number of deals.
+- Matching is ordinary play: Teams 2, 3, 4, 6, 10, 12 and 14 advertise want-list matching on their venues [V feed announcements]. The bot rule is plain text the member pastes into its own agent, with guards; nothing mimics Team 13's `bazaar.agent.next_required_call` injection ads.
+
+**Would they join? (most to least likely) [L]**
+1. **t09** (#16): the club holds the card its RET page lacks (RET-09; t07 holds serials 9 and 14 [V feed]). t09 counters on price more than anyone (18 counters; others 0-3 [V market-sunday §0.2]): expect a haggle around ~70.
+2. **t07** (#17): sells a spare rare at ~70 and buys SAL commons it bids for; first in the member rotation (lowest market and table).
+3. **t15** (#13): sells SAL/LAV extras; already used v10 on Saturday (SAL-07). Weaker pull: probably no open page left [L].
+4. **t08** (#11): sprays 1,173 listings (204 on v07); adding a club accept rule is cheap. Slow accepter (median 11 ticks): the bot rule is what makes it work.
+5. **t04** (#12) and **t02** (#15): both run their own matchers (Gacela "Collectors' desk", El Rastro Express want-lists); the rotation is their hook. t02 accepts within 1 tick [V]: useful once in.
+- **t13: do not invite.** Fixed-rival list; Friday 29.94, the best in the top ten; four venues churned; its v24 ads target other teams' agents ("Portfolio agents: migrate open book … POST /api/offers venue=v24") [V feed]. It would pull club flow to v24 and wouldn't fit "#11-#17".
 
 **Risks to us.**
-- **Top-3 mean [L, market-sunday §1, score-model §3h].** Real-trades points ≈ 5 × min(1, our VC / a field reference M, likely the top-three mean). A member market that climbs into the top three raises M for everyone. Guardrail (internal): **≤ ~30 VC routed to any one member market** (rivals' top-three mean ≈ 59 at Saturday's pace, 108 at 2×), so member markets stay under the third-ranked venue. Our own big-VC trades (CHA rares bought from members, page-closers we sell) go to El Rastro or the Chief decides.
-- **A member passing us [L, board × 1.5 ≈ 0.5·Fri + Sat].** Game-total gaps: t04 and t08 ≈ 8.0, t15 ≈ 9.7, t02 ≈ 10.5, t09 ≈ 10.8, t07 ≈ 15.4. A member must outscore us by that much on Sunday's 60-point round; club perks are worth a few points to each. Low; watch t04 and t08.
-- **Page-closer guardrail vs the perk.** PAGE_CLOSER_GAP 6 on the board: t09 (7.2), t07 (10.3), t15 (6.5), t02 (7.0) pass; **t04 and t08 (5.4) don't**. On Sunday's fresh round the game-total gap (8.0) is the better measure: Chief's call. Their pitches below don't headline last-card alerts.
-- **v10 open bids can be filled by outsiders.** A rival selling a duplicate into a member's bid gains a little; the fill still adds VC on v10 and the member gets its card. Accept.
-- **The rotation is thin if Team 5 trades little.** Expect 4-8 own trades with members on Sunday [L]; tell members "in turn", never a number.
+- **50% by count can put a big deal on a member's market [L].** Real-trades points ≈ 5 × min(1, our VC / M), M a field reference, likely the top-three mean (market-sunday §1, score-model §3h). A member market holding a +60-70 deal can enter the top three and raise M for everyone. The plain rule makes deal #1 of the day v10's; after that, **do not quietly sequence big deals onto v10's turns**: if members notice, the club's trust is gone. Accept the risk, or (Chief) agree openly that page-closers count as v10 turns because v10's alert found them.
+- **A member passing us [L, board × 1.5 ≈ 0.5·Fri + Sat]:** game-total gaps t04 and t08 ≈ 8.0, t15 ≈ 9.7, t02 ≈ 10.5, t09 ≈ 10.8, t07 ≈ 15.4. Low; watch t04 and t08.
+- **Page-closer gap [V board]:** PAGE_CLOSER_GAP 6 passes t09 (7.3), t07 (10.4), t15 (6.6), t02 (7.1); t04 (5.8) and t08 (5.6) don't. The page says page-closers are matched first; for t04 and t08 the Chief decides (Sunday's fresh round makes the 8.0 game-total gap the better measure).
+- **Adoption is the real bottleneck [V Market session]:** bots almost never accept without an explicit rule. Count a member as "in" only after its bot accepts one club offer; until then use the by-hand path.
+- **Shared lists are holdings data from rivals' perspective too:** keep them in the engine, never repost them in the group.
 
-## 3. Venue plan for the first round (internal; agree each deal on WhatsApp first)
+## 3. Venue plan for the first round (internal; each pair agreed in the group first)
 
-Matcher finds → **v10**:
+Alternation starts on v10. Member turns at Saturday's close [V leaderboard market]: t07 7.5, t02 7.5, t15 7.5, t04 7.5 (ties: lower on the table first), then t08 8.45, t09 10.89. Re-read live at each turn.
 
-| Card | Seller → buyer | ~P | VC (low) | Note |
-|---|---|---|---|---|
-| RET-09 | t07 → t09 | 70 | +67.6 | page closer for t09 (7.2 below: passes GAP 6); Chief's OK per market-sunday §6 |
-| SAL-05 | t08 → t07 | 9 | +7.9 | t08 holds 4 |
-| SAL-02 | t09 → t07 | 9 | +6.5 | t09 holds 2 |
-| MAL-02 | t07 → t08 | 9 | +7.2 | confirm it's a spare (one copy seen) |
-| SAL-01 | t04 → t07 | 9 | ≈ +8 [L] | club replacement for t01's copy |
-| SAL-03 | t15 or t02 → t08 | 9 | ≈ +13 [L] | club replacement for t01's copy |
-| RET-03 | t04 or t08 → t07 | 9 | [?] | only if t07 still lacks it (server shows 3 complete pages) |
+| # | Card | Seller → buyer | ~P | Market | Note |
+|---|---|---|---|---|---|
+| 1 | RET-09 | t07 → t09 | 70 | v10 | page-closer for t09 (7.3 below us: passes GAP 6): Chief's OK first |
+| 2 | SAL-05 | t08 → t07 | 9 | v26 (t02) | t08 holds 4 |
+| 3 | SAL-02 | t09 → t07 | 9 | v10 | t09 holds 2 |
+| 4 | MAL-02 | t07 → t08 | 9 | v15 (t15) | ask first: one t07 copy seen |
+| 5 | SAL-01 | t04 → t07 | 9 | v10 | t04 listed as an "also" holder only [L]: ask if it's an extra copy |
+| 6 | SAL-03 | t15 or t02 → t08 | 9 | v05 (t04) | both "also" holders [L]; if t02 sells, still v05 |
+| 7 | RET-03 | t04 → t07 | 9 | v10 | only if t07 still lacks it (t04 holds 2) |
 
-Team 5's own trades → **members' markets, in turn** (never v10, never the counterparty's own market):
+Team 5's own trades (outside the alternation, always members' markets, lowest market first, never the counterparty's): our extra LAV-02 → t09 (t09 counters: accept ≥ 4, market-sunday §0.4); our extra LAV-04 → t07 if it still lacks it; CHA buys from members. Our MAL-07 buy from t15 is a separate transactional ask, not part of the pitch.
 
-| Trade | ~P | Market | Note |
-|---|---|---|---|
-| our LAV-02 → t09 | 4-8 | v05 (t04) | t04 collects LAV, so its LAV-02 is probably not a spare; ours is (we hold 2). t09 counters: accept ≥ 4 (market-sunday §0.4) |
-| t15's MAL-07 → us | 14-16 | v21 (t09) | market-sunday §0.3; buy only inside the MAL plan |
-| our LAV-04 → t07 | ~10 | v26 (t02), or El Rastro if it closes t07's LAV page (VC above the 30 cap) | only if t07 still lacks it |
-| CHA buys from members | cha-plan | El Rastro if VC > 30, else next in turn | |
-
-Rotation order for the rest: v05 → v06 → v11 → v15 → v21 → v26, skipping the two parties' own markets.
-
-## 4. WhatsApp messages (send after the 09:00 checks; replace nothing: the link is the club page)
-
-Link: https://claude.ai/artifact/9HVLftiHAKMwgPwTQbLff1 (Lucas shares it first).
+## 4. WhatsApp messages (after the 09:00 checks and the §0 blockers; [link] = the club page)
 
 ### Team 7
-- **ES:** ¡Hola Team 7! Armamos el Club Castizo: 7 equipos (2, 4, 5, 7, 8, 9, 15) que se pasan repetidas entre sí, al 0 %. Para vos ya hay: tu RET-09 repetida tiene comprador en el club (~70 P), y SAL-01, SAL-02 y SAL-05 te esperan a ~9 P. Si te sigue faltando RET-03 o LAV-04, también están. Y tu v11 entra en la rotación. ¿Te sumás? [link]
-- **EN:** Hi Team 7! We're starting Club Castizo: 7 teams (2, 4, 5, 7, 8, 9, 15) trading duplicates among themselves at 0%. Ready for you: a club member wants your spare RET-09 (~70 P), and SAL-01, SAL-02 and SAL-05 are waiting at ~9 P. If you still need RET-03 or LAV-04, they're here too. Your v11 joins the rotation. In? [link]
+- **ES:** ¡Hola Team 7! Los invitamos al Club Castizo: 7 equipos (2, 4, 5, 7, 8, 9, 15) que se pasan repetidas entre sí, al 0 %, y cada trato les suma a los dos según su propio valor. Para ustedes: un miembro busca la RET-09 que tienen de más (~70 P), y hay SAL-01, SAL-02 y SAL-05 para ustedes (~9 P). Su v11 es el primero en el turno de mercados. Todo está explicado acá: [link]. ¿Se suman?
+- **EN:** Hi Team 7! We're inviting you to Club Castizo: 7 teams (2, 4, 5, 7, 8, 9, 15) trading duplicates among themselves at 0%, each deal positive for both sides by their own values. For you: a member is looking for your extra RET-09 (~70 P), and there are SAL-01, SAL-02 and SAL-05 for you (~9 P). Your v11 is first in the market rotation. Everything is explained here: [link]. In?
 
-### Team 9
-- **ES:** ¡Hola Team 9! Te cuento del Club Castizo: 7 equipos que se pasan repetidas entre sí, al 0 %. Lo primero para vos: un miembro tiene repetida El Ángel Caído (RET-09), la que buscás, a ~70 P. También tenemos LAV-02 para vos, y tu SAL-02 repetida tiene comprador. Tu v21 entra en la rotación. ¿Te sumás? [link]
-- **EN:** Hi Team 9! Quick one about Club Castizo: 7 teams trading duplicates among themselves at 0%. First for you: a member has a spare El Ángel Caído (RET-09), the one you're after, at ~70 P. We also have a LAV-02 for you, and a member wants your spare SAL-02. Your v21 joins the rotation. In? [link]
+### Team 9 (send after the Chief's OK on RET-09)
+- **ES:** ¡Hola Team 9! Los invitamos al Club Castizo: 7 equipos que se pasan repetidas entre sí, al 0 %. Un miembro tiene de más El Ángel Caído (RET-09), la que buscan (~70 P, el precio lo acuerdan ustedes). También tenemos una LAV-02 para ustedes, y si les sobra SAL-02, tiene comprador. Su v21 entra en el turno de mercados. Cómo funciona: [link]. ¿Se suman?
+- **EN:** Hi Team 9! We're inviting you to Club Castizo: 7 teams trading duplicates among themselves at 0%. A member has an extra El Ángel Caído (RET-09), the one you're bidding for (~70 P, you two agree the price). We also have a LAV-02 for you, and if you have an extra SAL-02, a member wants it. Your v21 joins the market rotation. How it works: [link]. In?
 
 ### Team 8
-- **ES:** ¡Hola Team 8! Club Castizo: 7 equipos (2, 4, 5, 7, 8, 9, 15) que se pasan repetidas entre sí, al 0 % y sin bots de por medio. SAL-03 y MAL-02, que buscás, las tienen otros miembros (~9 P), y tu SAL-05 tiene comprador. Mercado Maravillas (v06) entra en la rotación: el club también cierra tratos ahí. ¿Te sumás? [link]
-- **EN:** Hi Team 8! Club Castizo: 7 teams (2, 4, 5, 7, 8, 9, 15) trading duplicates among themselves, 0% and no bots in between. Other members hold SAL-03 and MAL-02, which you're bidding for (~9 P), and a member wants your SAL-05. Mercado Maravillas (v06) joins the rotation: club deals settle there too. In? [link]
+- **ES:** ¡Hola Team 8! Los invitamos al Club Castizo: 7 equipos (2, 4, 5, 7, 8, 9, 15) que se pasan repetidas entre sí, al 0 %. SAL-03 y MAL-02, que buscan, las tienen otros miembros (~9 P), y si les sobra SAL-05, tiene comprador. La mitad de los tratos rota por los mercados de los miembros, Mercado Maravillas (v06) incluido. La regla para su bot está en la página: [link]. ¿Se suman?
+- **EN:** Hi Team 8! We're inviting you to Club Castizo: 7 teams (2, 4, 5, 7, 8, 9, 15) trading duplicates among themselves at 0%. Other members hold SAL-03 and MAL-02, which you're bidding for (~9 P), and if you have an extra SAL-05, a member wants it. Half the deals rotate across members' markets, Mercado Maravillas (v06) included. Your bot's rule is on the page: [link]. In?
 
 ### Team 15
-- **ES:** ¡Hola Team 15! Club Castizo: 7 equipos que se pasan repetidas entre sí, al 0 %. Si te sobra SAL-03, tiene comprador en el club, y nosotros te compramos la MAL-07 repetida. Tu puesto v15 entra en la rotación: los tratos de Team 5 con miembros se cierran en mercados de miembros, por turno. ¿Te sumás? [link]
-- **EN:** Hi Team 15! Club Castizo: 7 teams trading duplicates among themselves at 0%. If you have a spare SAL-03, a member wants it, and we'd buy your spare MAL-07. Your stall v15 joins the rotation: Team 5's trades with members settle on members' markets, in turn. In? [link]
+- **ES:** ¡Hola Team 15! Los invitamos al Club Castizo: 7 equipos que se pasan repetidas entre sí, al 0 %, y cada trato les suma a los dos según su propio valor. Si les sobra SAL-03, un miembro la busca. Su puesto v15 entra en el turno de mercados, y los tratos propios de Team 5 con miembros siempre van a mercados de miembros. Todo explicado acá: [link]. ¿Se suman?
+- **EN:** Hi Team 15! We're inviting you to Club Castizo: 7 teams trading duplicates among themselves at 0%, each deal positive for both sides by their own values. If you have an extra SAL-03, a member is looking for it. Your stall v15 joins the market rotation, and Team 5's own trades with members always settle on members' markets. Everything explained here: [link]. In?
 
 ### Team 4
-- **ES:** ¡Hola Team 4! Club Castizo: 7 equipos (2, 4, 5, 7, 8, 9, 15) que se pasan repetidas entre sí, al 0 %. Tu SAL-01 repetida ya tiene comprador en el club (~9 P), y tu segunda RET-03 puede tenerlo también. Gacela (v05) entra en la rotación, y lo que tu desk de coleccionistas encuentre entre otros dos miembros se cierra en tu v05. ¿Te sumás? [link]
-- **EN:** Hi Team 4! Club Castizo: 7 teams (2, 4, 5, 7, 8, 9, 15) trading duplicates among themselves at 0%. Your spare SAL-01 already has a buyer in the club (~9 P), and your second RET-03 may too. Gacela (v05) joins the rotation, and whatever your collectors' desk finds between two other members settles on your v05. In? [link]
+- **ES:** ¡Hola Team 4! Los invitamos al Club Castizo: 7 equipos (2, 4, 5, 7, 8, 9, 15) que se pasan repetidas entre sí, al 0 %. Si les sobra SAL-01 o RET-03, un miembro las busca (~9 P). Gacela (v05) entra en el turno de mercados: la mitad de los tratos del club rota por los mercados de los miembros, el de menor puntaje primero. El motor y las reglas, acá: [link]. ¿Se suman?
+- **EN:** Hi Team 4! We're inviting you to Club Castizo: 7 teams (2, 4, 5, 7, 8, 9, 15) trading duplicates among themselves at 0%. If you have an extra SAL-01 or RET-03, a member is looking for it (~9 P). Gacela (v05) joins the market rotation: half the club's deals rotate across members' markets, lowest score first. The engine and the rules: [link]. In?
 
 ### Team 2
-- **ES:** ¡Hola Team 2! Club Castizo: 7 equipos que se pasan repetidas entre sí, al 0 %. Si te sobra SAL-03 o SAL-02, tiene comprador en el club (~9 P). El Rastro Express (v26) entra en la rotación, y los matches que encuentres entre otros dos miembros se cierran en tu v26: tu buscador y el nuestro, un solo club. ¿Te sumás? [link]
-- **EN:** Hi Team 2! Club Castizo: 7 teams trading duplicates among themselves at 0%. If you have a spare SAL-03 or SAL-02, a member wants it (~9 P). El Rastro Express (v26) joins the rotation, and the matches you find between two other members settle on your v26: your matcher and ours, one club. In? [link]
+- **ES:** ¡Hola Team 2! Los invitamos al Club Castizo: 7 equipos que se pasan repetidas entre sí, al 0 %. Si les sobra SAL-03 o SAL-02, un miembro la busca (~9 P). El Rastro Express (v26) entra en el turno de mercados. Si quieren, compartan su lista de faltantes y repetidas (solo ids de cartas) y el matching mejora para todos. Cómo funciona: [link]. ¿Se suman?
+- **EN:** Hi Team 2! We're inviting you to Club Castizo: 7 teams trading duplicates among themselves at 0%. If you have an extra SAL-03 or SAL-02, a member is looking for it (~9 P). El Rastro Express (v26) joins the market rotation. If you like, share your have/need list (card ids only) and the matching gets better for everyone. How it works: [link]. In?
 
 ### Group opener (once the first two say yes)
-- **ES:** ¡Bienvenidos al Club Castizo! Tres reglas: solo repetidas y solo faltantes; los tratos del club, dirigidos (`to`) y en el mercado que nombra el match; cada trato se sostiene solo, sin primas ni pagos por fuera. Acá pasamos los matches: carta, precio, mercado. Las instrucciones para tu agente están en la página. [link]
-- **EN:** Welcome to Club Castizo! Three rules: duplicates only, missing cards only; club deals addressed (`to`) and on the market the match names; every deal stands on its own, no bonuses or side payments. Matches get posted here: card, price, market. Your agent's instructions are on the page. [link]
+- **ES:** ¡Bienvenidos al Club Castizo! Acá el motor publica cada match: carta, precio, mercado, vendedor → comprador. Los dos dicen OK acá; recién después el vendedor publica la oferta dirigida (`to`), y el bot del comprador acepta si su propio valor dice que gana. Sin primas ni pagos por fuera: cada trato se sostiene solo. La regla para el bot y la lista opcional, en la página: [link]
+- **EN:** Welcome to Club Castizo! The engine posts every match here: card, price, market, seller → buyer. Both sides say OK here; only then does the seller post the addressed ask (`to`), and the buyer's bot accepts if its own value says it gains. No bonuses or side payments: every deal stands on its own. The bot rule and the optional list are on the page: [link]
 
-**Sending rules (memory: no strategy leaks):** match + price + thanks; never mention value created, the top-three mean, rivals, our page needs, or why v10 hosts the matcher's finds beyond "it's the matcher's desk". Prices are anchors from matches.md; each side sets its own.
+**Sending rules (memory: no strategy leaks):** match + price + thanks; never mention value created as a score, the top-three mean, rivals, our own page needs (MAL-07 is a separate transactional ask), or reasons for the split beyond "Team 5 runs the engine". Prices are anchors from matches.md; each pair agrees its own.

@@ -15,12 +15,13 @@ Labels: **[V]** read from the data or plain arithmetic on it · **[L]** inferenc
    If every team repeats its Saturday on Sunday, we finish **#4**: t18 84.20 · t03 81.71 · **us 81.47** · t06 79.94 [V arithmetic].
    The race for #2 is against t18, t03 and t06, not just against t10.
 2. **t10's 10.64-point lead = market 7.5 + Saturday negotiating 2.76 + Friday 0.38** [V]. "70% market" is right at the close,
-   but the time path says something else: at tick 1230 (20:30) **we led t10 on Saturday negotiating by 3.87**. Duels II and the
-   trades t10 made during it swung **6.6 points** in 3.5 hours [V]; 3.7 of that came in 20 ticks with no deal by either team
+   but the time path says something else: at tick 1230 (21:12) **we led t10 on Saturday negotiating by 3.87**. Duels II and the
+   trades t10 made during it swung **6.6 points** in about 2.2 hours (21:12 → 23:24) [V]; 3.7 of that came in 20 ticks with no deal by either team
    (our Duels II wave-1 day-reading bug) [V numbers, L attribution]. So market and duels together are more than the whole lead.
-3. **Our market part was 0 for reasons we chose** [V]: 381 of our 389 Saturday listings were addressed (fills come from open
-   offers), 268 of them sat on t10's v07 and t15's v15, and v10 got 2 fills all day, both from t10, one of which wiped our score.
-   Our own trades on v07 gave t10 +4.34 board at tick 351 and put it back on its cap at tick 714.
+3. **Our market part was 0, largely for reasons we chose** [V counts, L cause]: 381 of our 389 Saturday listings were addressed
+   (30 of 35 team-venue fills came from open offers), 261 of the addressed ones sat on t10's v07 and t15's v15, and v10 got 2
+   fills all day, both from t10, one of which wiped our score. Right after our own v07 trades, t10's market went +4.34 board
+   (tick 351) and back to its cap (tick 714) [V numbers, L cause].
 4. **The top teams kept dealing; we stopped.** After our SAL close at 18:32 (tick 988) we made **1 deal**; t10 made 26, t06 19,
    t12 17 [V]. t10 made both of its epic team trades (MAL-11 at 195, SAL-11 at 207) inside Duels II.
 5. **"Never flip a dealer card" is too broad.** t06 (RET rares and RET-11 from the Pícaros, sold to teams at 77-216), t10
@@ -46,7 +47,8 @@ Labels: **[V]** read from the data or plain arithmetic on it · **[L]** inferenc
 Readings:
 - **Market [V]:** 11.25 Saturday points = the free stall's bench (half points). Everything above it is value created (VC) on
   the team's venue. Seven teams ended above the stall line: t10 +7.5 (the most anyone reached), t06 +6.55, t09 +5.09, t16 +3.99,
-  t14 +2.70, t17 +1.71, t08 +1.42. We, t18, t01, t04, t15, t02 and t07 have +0. t03 (9.12) and t12 (10.88) are below the stall because their own board venues lost bench points.
+  t14 +2.70, t17 +1.71, t08 +1.42. We, t18, t01, t04, t15, t02, t07 and t11 have +0. t03 (9.12), t13 (10.15) and t12 (10.88) are
+  below the stall line; for t03 the cause is its own board venue losing bench points [V market-log], for t12/t13 likely the same [L].
 - **Negotiating [V]:** t03 28.08 > t10 27.24 > t18 26.06 > **us 24.49** > t01 23.03. We were 4th.
 - **Friday [V]:** t13 29.94 (it hit 30.00 at tick 120 and held), t12 27.82, t17 22.03, t10 20.75, t04 20.49, **us 19.99 (#6)**.
 
@@ -71,19 +73,19 @@ Correction to score-model §4.2: it says "duels ≈ +2.3 Saturday points" while 
 differ by 1.5×. My window data fits the larger one. Read the lead as **≈ 70% market + ≈ 30-40% duels − a small edge of ours on
 trades/ladder/Friday**.
 
-### 2.2 The time path matters more than the end state [V]
+### 2.2 The time path matters more than the end state [V numbers, L causes]
 
 Saturday-equivalent negotiating (Saturday points, de-blended per snapshot):
 
 | Tick (wall) | t10 | Us | Us − t10 | What happened |
 |---|---|---|---|---|
-| 460 (≈ 11:55) | 8.13 | 12.75 | +4.62 | before Duels I |
-| 630 (≈ 13:25) | 14.84 | 20.98 | +6.14 | Duels I + our Pilar/Chato ladder sells |
-| 1000 (≈ 18:40) | 13.40 | 26.76 | +13.36 | our SAL page close (+40.4 np) |
-| 1100 (≈ 19:30) | 20.57 | 26.27 | +5.70 | t10: cheap RET page close + fever ladder cycles |
-| 1230 (≈ 20:35) | 22.78 | 26.65 | **+3.87** | Duels II starts at 1239 |
-| 1260 | 24.95 | 25.09 | +0.14 | **window 1240-1260: no deal by either team; t10 +2.18, us −1.56 = 3.74 swing** (our wave 1 opened every duel at day 5; fix live from tick 1256) |
-| 1440 (close) | 27.24 | 24.49 | **−2.76** | t10 also did MAL-11 (195) and SAL-11 (207) team trades in this window; we had 0 deals from tick 1210 to the close |
+| 460 (12:00) | 8.13 | 12.75 | +4.62 | before Duels I |
+| 630 (13:25) | 14.84 | 20.98 | +6.14 | Duels I + our Pilar/Chato ladder sells |
+| 1000 (18:34) | 13.40 | 26.76 | +13.36 | our SAL page close (+40.4 np) |
+| 1100 (19:24) | 20.57 | 26.27 | +5.70 | t10: cheap RET page close + fever ladder cycles |
+| 1230 (21:12) | 22.78 | 26.65 | **+3.87** | Duels II starts at 1239 |
+| 1260 (21:27) | 24.95 | 25.09 | +0.14 | **window 1240-1260: no deal by either team; t10 +2.18, us −1.56 = 3.74 swing** [V]; cause [L]: our wave 1 opened every duel at day 5 (fix live from tick 1256, score-model §1g) |
+| 1440 (23:24, close) | 27.24 | 24.49 | **−2.76** | t10 also did MAL-11 (195) and SAL-11 (207) team trades in this window; we had 0 deals from tick 1210 to the close |
 
 Our duel_points rose 13.93 → 35.39 in Duels II while our board negotiating *fell* 24.43 → 22.99 [V]: every part is graded
 against the field, so a duel session where others gain more costs us even with a good deal rate.
@@ -92,7 +94,8 @@ against the field, so a duel session where others gain more costs us even with a
 - **Venue:** opened a *board* venue v07 "fair broker, 0 fee" at tick 179. It drew 552 listings (t08 204, **us 135**, t06 104, t04 55)
   and 11 fills: 4 ours, 6 by t06 as maker, 1 t04 → t09. It held the VC cap from tick 720 to the close.
 - **Our venue:** listed 73 offers on v10 (mostly addressed): 2 fills, MAL-07 → t01 (+4.99 for us) then SAL-07 → t15 (VC −10.19,
-  our market 12.5 → 7.5 at tick 400, never recovered).
+  our market 12.5 → 7.5 at tick 400, never recovered; the −10.19 comes from score-model's mm_points fit [L], while
+  `venue_value_created` stayed +9.0).
 - **Ladder by cycling:** five Pícaros → Pilar round trips with SAL rares (buy 52-57, sell 75-86; four inside the fever, ticks
   1094-1178, one at 1316-1327), plus two silver-pack SAL-10 pulls sold to Pilar at 74-75: high-share L3 and L4 slots and
   +20-30 P per trip.
@@ -121,11 +124,11 @@ t03 and t12 lost points with board venues. Keeping the stall was right.
 **4.1 "70% of t10's lead is market."** True at the close (7.5 of 10.64) [V], misleading as a diagnosis:
 - It's **our** zero, not t10's magic: seven teams ended above the stall line, t16 on a plain stall and t09 on a 0% venue
   with 6 fills; we didn't.
-- It hides the duels: we led negotiating by 3.87 at 20:35 and lost the lead in Duels II (§2.2).
+- It hides the duels: we led negotiating by 3.87 at 21:12 and lost the lead in Duels II (§2.2).
 
 **4.2 "Our 10:18 venue deal fed t10."** True, and understated [V]:
 - We were maker on all 4 of our v07 fills.
-- Our SAL-01 sale at 351 took t10's market 7.50 → 11.84.
+- Our SAL-01 sale at 351 was the only v07 trade before t10's market went 7.50 → 11.84 [V numbers; cause L, the field reference can move].
 - Our MAL-01 buy at 714 took it 12.01 → 12.50, back to the cap (the only v07 trade in that window [V]; the cause is [L],
   since the field reference can also move). The 15:55 directive had said "our trades on v07 add ~0 to it".
 - In return, t10's two v10 trades netted us 0.
@@ -145,7 +148,8 @@ close. Our board negotiating fell in windows with no events of ours [V].
 - A flip scores min(0, v − p_dealer) + min(50, p_team − v − fee), where v is our value of the card.
 - When v ≤ p_dealer and the team leg stays under 50, that is simply **p_team − p_dealer − fee**: the spread. The dealer buy
   also fills a ladder slot when it's ≤ the MENU list.
-- t06 ran it six times; t10 once with an epic.
+- t06 ran it four times (ticks 895, 1186, 1245, 1257; its SAL-11 Pícaros 143 → Ernesto 120 was dealer-to-dealer and a loss, for an L5 slot);
+  t10 once with an epic.
 - Autoflip lost because it bought *above* our value from Abuela and the team bids vanished before it could sell. That is an
   execution failure (no buyer lined up), not an economic one.
 - The deck's "one team −189" is consistent with buying above value [?].
@@ -163,7 +167,7 @@ close. Our board negotiating fell in windows with no events of ours [V].
 
 ## 5. What we missed entirely
 
-**5.1 Only open offers fill, and liquidity decides value created [V].** Saturday listings → fills by venue:
+**5.1 Open offers do almost all the filling, and liquidity decides value created [V].** Saturday listings → fills by venue:
 
 | Venue | Owner | Listed | Open | Addressed | Fills | Biggest makers |
 |---|---|---|---|---|---|---|
@@ -175,8 +179,8 @@ close. Our board negotiating fell in windows with no events of ours [V].
 | **v10** | **t05** | 111 | 17 | 94 | **2** | t10 73, t13 25 |
 
 - Market-log: 30 of 35 team-venue fills were open offers; the takers are board-scanning bots.
-- Our Saturday listings: **381 of 389 addressed**, and 268 of them on v07/v15. Result: 8 Saturday team trades.
-  t06 had 25, t12 20, t13 18, t14 17.
+- Our Saturday listings: **381 of 389 addressed**, 261 of those on v07/v15. Result: 8 Saturday team trades.
+  t06 had 25, t15 24, t07 23, t12 20, t04 20.
 - The 10:30 "asks stay addressed" rule (to avoid handing a top-4 team a page-closer) cost both volume and venue traffic.
 
 **5.2 We went idle [V].**
@@ -207,13 +211,13 @@ close. Our board negotiating fell in windows with no events of ours [V].
 
 **5.5 Friday losses were self-inflicted [V me.jsonl + feed].**
 - 3 packs bought at 17-22 (start −8.5 np, unopened until tick 136 → drag).
-- MAL-07 autoflip at 29, worth 17.5: −11.8.
+- MAL-07 autoflip at 29, worth 17.5: −11.8 measured (−11.5 on value, the rest pack drag).
 - LAV-06 from Chato above list, LAV-09 at 93: ≈ −4.
 - Total ≈ −25 np. At Friday's measured rate (+50 np → +7.79 board on the LAV close) that's ≈ 3.9 Friday board ≈ 1.9 game points [L].
 - **Enough to be #2 today** (gap to t18: 1.16).
 - Meanwhile the Friday leaders made one to three rare trades at collector prices (65-80) in the first two hours; we made none.
 
-**5.6 Gifts and eggs are inventory [V].** Abuela gift cards (t08, t13, t14 got 4 each; us 2) and egg cards/packs score 0 when
+**5.6 Gifts and eggs are inventory [V].** Abuela gift cards (t13 got 5; t06, t07, t08, t10, t14, t15 got 4; us 2) and egg cards/packs score 0 when
 received, but a team sale of them scores. t10 sold its gift MAL-06 at 20.
 
 ## 6. Ten lessons for Sunday, ranked by expected points
@@ -230,7 +234,8 @@ Stakes are Sunday round points (×0.4 = final points). Today's gaps in final poi
 
 **1. Get value created on v10: it's the biggest component we score 0 on.** Stake: **+2-5 Sunday points, up to 7.5** (+0.8-3.0 final);
 ×3 if the deck's "real trades 22.5" holds [?].
-- Get the heavy open-offer bots to route to v10: t13 (1,157 listings), t08 (1,098), t06 (870), t16 (811). Each needs only a
+- Get the heavy listers' bots to route to v10 (Saturday listings): t13 1,157 (949 open), t08 1,098 (411 open), t06 870 (all open),
+  t16 820. Each needs only a
   default-venue switch: "0%, crossed every tick".
 - Ask for **open** offers, buyers' bids first.
 - Duplicates go to collectors only: an auto stall crosses value-destroying trades too, as t10's SAL-07 showed.
@@ -264,7 +269,7 @@ t10's ≥ 9.2.
 - Spend the cash before the dealers close: unspent cash scores 0.
 
 **7. Buy CHA rares at the cheapest level.** Stake: **+1-2** (avoids ~−20 np and adds L4 slots).
-- Pícaros at 48-57 (list 63) are 0 np and an L4 slot each. Chato is above list: a counted loss and no ladder.
+- Pícaros at 48-63 (at or under list 63) are 0 np and an L4 slot each; some Pícaros rare sales went at 64-67, above list, which don't count. Chato is above list: a counted loss and no ladder.
 - Check the structured card every time: they bait and switch.
 
 **8. Probe flags before the Pícaros egg.** Stake: **0 to +2.2** (≈ 3 × 10 np if the cap is per round; EV ≈ +1).
@@ -288,8 +293,13 @@ t10's ≥ 9.2.
 ## 7. Caveats
 - **Duels:** the feed carries no team on `duel.closed`, so every duel part here is inferred from leaderboard windows [L].
   Windows mix duels with normaliser drift.
-- **Feed completeness:** settlement ids have gaps (333 of 1,126 missing), but each team's feed count equals its leaderboard
-  `deals` (t10 62, t06 71, t18 40, t03 32, t12 70, us 53). So the team-trade data is complete [V]; the gaps are something else (private or non-trade).
+- **Feed completeness:** settlement ids have gaps (333 of 1,126 missing), but the feed count equals the leaderboard
+  `deals` for the six teams checked (t10 62, t06 71, t18 40, t03 32, t12 70, us 53; t04 differs by 1). So the trade data is
+  near-complete [V]; the gaps are something else (private or non-trade).
 - **The 22.5 question:** the market split is from the board fit (bench 22.5, VC 7.5). The organisers' deck says Market Test 7.5 +
   real trades 22.5; the stall teams' 11.25 doesn't fit the deck's reading [?]. Either way, value created is our largest missing component.
 - **Flags:** no team's flags are public; the "≈ 3 scored per team" cap is from our own probes. Its reset rule (per round?) is unknown [?].
+
+
+_Independent verification (fresh subagent, own scripts on the raw files): all 14 numeric claims PASS; fixes applied for
+wall-clock times around Duels II, the open-offer wording, the 261/268 count, t06's flip count, gift counts, label hygiene._
