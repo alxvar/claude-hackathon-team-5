@@ -138,6 +138,8 @@
 - **Easter egg (chulapa dorada)** [V feed, Sat]: ask Abuela about 'la chulapa dorada' (text only) → `egg.found` for the team
   (t05 at tick 1047); she points to Don Ernesto + 'el oro de Moscú', which paid t02 LAT-13 (print run 1) at 1021, then no
   more ('not mine today'). Score effect of egg.found alone: unknown.
+  Pícaros egg [V, tick 1231]: text 'Conozco el timo de la estampita…' → egg.found + badge 'Trickster tricked' ('sin trucos para
+  ti... hoy'); the Abuela egg gave badge 'Sharp ear'. Badges: score effect unknown.
 - **Payday** [V, Sat 20:37, game paused at tick 1201]: every team +400 P ('a second starting purse… Only deals score, never
   cash you hold'). Ours 120 → 520.
 - **Abuela gifts** [V, tick 261]: after our 5th Abuela deal of the day she gave us LAT-08 ("gift from Abuela Carmen",
