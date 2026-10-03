@@ -11,6 +11,51 @@ _Lucas's Duel Lab session. It never writes to the game or to `agents/duelist/`._
   fixed below._
 - _**Labels:** [V] measured on our records or code, [L] modelled or inferred, [?] unknown._
 
+## Update Sat 22:00: for Sunday (Duels III ≈ 11:00, 12 ticks, 10% decay, 4 at once; the Final the same)
+
+_Data: the 24 closed Duels II records in `docs/duels/` as of 21:45 (Duels II was still running), plus Duels I. Outputs in
+the scratchpad `lab2/` (`rules.out`, `latency.out`, `lateswitch.out`). Every replay below is an **exact** "accept
+earlier" replay on real transcripts, scored with the days-aware worth. That worth reproduces the game's `result` in
+every closed Duels II deal [V]. Units are P of `result`: Duels II pies are known for only 5 duels, so share-weighting
+isn't possible yet [L: P overweights big pies]._
+
+**Three changes for Sunday morning, in order:**
+
+| # | Change | Evidence | Test |
+|---|---|---|---|
+| 1 | **Latency.** Strategist at `--effort low` for Sunday. Failover primary budget ≤ tick − 8 s (7 s), or no backup for the strategist | [V] Duels II with Opus medium: model decisions mean 9.4 s, p95 13.6 s, max 20 s, **29% over 10 s** (35% in the later waves). Duels I with Opus low: mean 6.3 s, p95 8.2 s, 1% over 10 s (but only 3 duels at once vs 6, so effort and load are confounded; Aleks's red team: Opus low max 8.0 s). At 15 s ticks the runner's timeout is max(8, 15 − 5) = **10 s**, so about a third of model moves would become code fallbacks. The failover gives the primary 20 s, so the backup never answers in time | Offline or smoke run with 4 concurrent days duels at 15 s ticks: p95 ≤ 9 s and no timeouts |
+| 2 | **Late switch only when no in-limit rival offer is standing** (`agent.py` ~l.712: add "their standing offer is inside our limit" to the conditions that skip the switch) | [V] It fired 5 times in Duels II (5662, 5663, 5736, 5968, 6094), all at 4 ticks left, and **every time an in-limit rival offer was already standing** (worth 48.2, 5.6, 39.1, 15.9, 31.0). It never saved a deal; each firing added at least one round. [L] One round saved per firing ≈ +10 P over those 5. Replaying "send nothing more once an in-limit offer stands with ≤ 4 ticks left; take it at 2" gives **+15.4 P** over the 18 post-fix duels (5662 +5.6, 5663 +1.6, 5736 +3.7, 6094 +4.4) | Offline runner: in-limit offer standing at 4 ticks left → no switch sent; no in-limit offer → the switch goes out as today |
+| 3 | **Accept rule: don't ship break-even.** If anything, `ACCEPT_BY` 2 → 3 | [V replay] **Break-even** ("accept when worth now ≥ (1 − d) × next-round worth", next round estimated from their last step): **−63.4 P** over the 18 post-fix Duels II duels (5652 −22.0, 5826 −28.1, 5968 −10.1, 5812 −5.3), and −0.67 share-points in Duels I. The rivals' steps are lumpy: a small step is followed by a big one. **`ACCEPT_BY` 3:** +3.5 P on post-fix Duels II (5662, 5663, 6094) and +0.03 share in Duels I. Small, but positive in both sessions, and it gives the accept a tick of slack on 15 s ticks | Offline runner: an in-limit standing offer is accepted at 3 ticks left |
+
+**Not recommended:** the broad version of #2 (no messages at all in the last 4 ticks once an in-limit offer stands).
+- It gains +15.4 P on Duels II but loses −0.47 share-points in Duels I.
+- The losses came from bots that improved only because we kept moving: 2494, a reply-only bot, and 2319, an
+  accelerating bot that took our last offer.
+- Limit the change to the late switch.
+
+**The Chief's three duels (5653, 5797, 5808), with the day priced in [V transcripts]:**
+- **5653 and 5797 aren't losses.** Their earlier "in-limit" rival offers were in limit on price only.
+  - 5653: 93 on day 10 costs us 2.33 × 10 = 23.3, so it was worth −2.3.
+  - 5797: 60 on day 10 costs us 5.03 × 10 = 50.3, so it was worth −12.3.
+  - Taking either would have scored below zero. Our deals were worth 16.7 and 25.0. **Any check of this kind must use
+    worth including the day, not price.**
+- **5808 is real, −3.6 P.**
+  - The rival stepped 160 → 159 (1 P) on day 0, worth 36 at round 3, then went quiet.
+  - We sent 132 and 136, and took its 158 at round 5: 24.4, against 28.0 at round 3.
+  - No code rule applied: the gap was 31 in worth, far from "small gap", and the deadline accept comes only at 2 ticks
+    left. The model chose to keep haggling.
+  - Break-even would have caught this one (+3.6), but it loses 63 P elsewhere.
+- **The biggest real leak wasn't on the list: 5662, −4.9 P.**
+  - The rival jumped 91 → 100 on day 5 (worth 48.2) with 4 ticks left.
+  - The late switch fired that same tick (128 on day 5, round 6); the model then sent 110 (round 7).
+  - Deal at 100: 26.9, against 31.8 had we sent nothing and taken it at 2 ticks left.
+- **Total real leak:** ≈ 9 P over 3 duels (5808, 5662, 5663 −0.7), not ≈ 21 P. Two of the three are late-switch
+  rounds (#2).
+
+**Also check for Duels III (12 ticks):** the fixed tick constants were set for 16-tick duels (`OPEN_WAIT` 2,
+`LATE_SWITCH_LEFT` 4, `ACCEPT_BY` 2, `DECIDE_LEFT` 3, `HOLD_TICKS` 3). With 12 ticks, these now cover a larger share
+of each duel [?, not modelled].
+
 ## Update Sat 18:30: second pass before the 19:30 freeze (Chief's three questions)
 
 **Answer: one change, as insurance. Everything Aleks picked from the Lab's list is live** (69ef465 + 89a6dd6, running
