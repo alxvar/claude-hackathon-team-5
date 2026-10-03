@@ -95,6 +95,10 @@ team_sync hook injects every change here into your Claude on your next prompt. A
 17. **13:55, correction to #15:** your replay on real rival offers (docs/duels-1-review.md §2) refutes "anchor closer" (−43 to
    −83 P) and "break-even accept" (−31 P); drop both (the Analyst agrees, score-model §1d fixed). Your plan stands: keep
    the 3 P floor, MIN_STEP_SHARE 0.05, no OFFER_BUDGET, the days rule, strategist effort medium.
+18. **15:30, NEW TIMES after the lunch pause (resumed 15:29 at hour 6.58) [V, /api/schedule]: Duels II ≈ 20:33**
+   (not 18:29) · Market Tests 15:54, 17:54, 19:54, 21:54 · Salamanca fever 18:03-20:03 · Saturday closes 23:00 (hour
+   14.09); the hard Market Test (14.65) and bench 15.0 now fall on Sunday morning, and CHA/round 3 (16.65) ≈ Sunday 11:34
+   unless the organisers re-anchor. Your timeline: decide changes → code → full suite green → restart by ~20:15.
 
 **Dani: the desk, the page-gap desk, the judges' story.**
 1. **09:00, organisers' desk**: the 8 questions in plan §3, answers in `team/dani.md` at once.

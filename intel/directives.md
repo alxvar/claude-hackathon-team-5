@@ -2,6 +2,10 @@
 
 _Written by the strategy session. It never touches the game: no trades, no bots. The operator decides and executes inside its hard limits (ORCHESTRATOR.md, "Decide, don't ask"); Lucas changes a limit only with a line containing GUARDRAIL. Format: `- HH:MM · decision with limits · why`. Newest block on top. Labels: **[Verified]** measured on our own deals or read from the server; **[Likely]** fitted or inferred; **[Open]** unknown._
 
+## Sat 15:30 — new times after the lunch pause
+
+- 15:30 · Resumed 15:29 at hour 6.58 [Verified]. Market Tests 15:54 / 17:54 / 19:54 / 21:54; Salamanca fever 18:03-20:03 (Pilar +25% over book: the SAL resale window); **Duels II ≈ 20:33**; Saturday closes 23:00 (hour 14.09). On the current schedule the hard Market Test (14.65) and bench 15.0 land Sunday ~09:34 / 09:55 and CHA + round 3 ≈ Sunday 11:34, after the 09:00 open: re-read `/api/schedule` at 09:00 (cha-plan assumes the release at the open).
+
 ## Sat 13:15 — lunch-time autonomy (Lucas: "yes", "make the best decisions to win")
 
 - 13:15 · GUARDRAIL · **One autonomous bargain buy (Operator):** from a team outside the live top 5, not a dealer, not on a top-5 venue; value re-read right before; value − price − fee ≥ 50; total ≤ 100; cash may drop to 60 for this trade only · one team buy scores up to the 50 cap (≈ +4.7 board) and LAV-11 was lost while we stepped. Anything outside these limits → the Chief.
