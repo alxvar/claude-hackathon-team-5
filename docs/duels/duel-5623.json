@@ -2200,5 +2200,105 @@
     "settles_at_tick": 1254
    }
   }
- ]
+ ],
+ "last_seen_tick": 1254,
+ "done": {
+  "duel": 5623,
+  "session": 3,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Fiesta de San Cayetano",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 3.66,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 119,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Azul",
+  "deadline_tick": 1255,
+  "decay_per_round": 0.08,
+  "rounds": 4,
+  "your_offer": {
+   "id": 6771,
+   "price": 91,
+   "tick": 1252,
+   "days": 5
+  },
+  "rival_offer": {
+   "id": 6705,
+   "price": 97,
+   "tick": 1251,
+   "days": 5
+  },
+  "messages": [
+   {
+    "tick": 1240,
+    "from": "Rival Azul",
+    "text": "Hi there. 104 P and it is yours. Delivery on day 10.",
+    "price": 104,
+    "days": 10
+   },
+   {
+    "tick": 1240,
+    "from": "you",
+    "text": "Thanks for the opening. I can do 70 P with delivery on day 5, which is a fair place for us to start.}",
+    "price": 70,
+    "days": 5
+   },
+   {
+    "tick": 1243,
+    "from": "Rival Azul",
+    "text": "How about 105 P? Delivery on day 5.",
+    "price": 105,
+    "days": 5
+   },
+   {
+    "tick": 1243,
+    "from": "you",
+    "text": "I'm willing to move up to 76 P with delivery on day 5, as a sign of good faith. I'd appreciate a step down from your side in return.",
+    "price": 76,
+    "days": 5
+   },
+   {
+    "tick": 1246,
+    "from": "Rival Azul",
+    "text": "100 P, then. Delivery on day 5.",
+    "price": 100,
+    "days": 5
+   },
+   {
+    "tick": 1246,
+    "from": "you",
+    "text": "Thanks for the step down. I can come up to 80 P with delivery on day 5; a further real step from your side is what will move us closer.}",
+    "price": 80,
+    "days": 5
+   },
+   {
+    "tick": 1249,
+    "from": "you",
+    "text": "I can move to 83 P with delivery on day 5. That is another real step from me, and I'd like to see a real move down from your side in return.",
+    "price": 83,
+    "days": 5
+   },
+   {
+    "tick": 1251,
+    "from": "Rival Azul",
+    "text": "Last offer from my side: 97 P. Delivery on day 5.",
+    "price": 97,
+    "days": 5
+   },
+   {
+    "tick": 1252,
+    "from": "you",
+    "text": "I can move to 91 P with delivery on day 5. That is a clear step from me and my serious closing number; I hope you can meet it.",
+    "price": 91,
+    "days": 5
+   }
+  ],
+  "result": 2.6,
+  "price": 97,
+  "days": 5
+ }
 }

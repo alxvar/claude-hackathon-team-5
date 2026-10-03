@@ -492,6 +492,101 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1253,
+   "raw": {
+    "duel": 5618,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.01,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 50,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Azul",
+    "deadline_tick": 1255,
+    "decay_per_round": 0.08,
+    "rounds": 4,
+    "your_offer": {
+     "id": 6770,
+     "price": 23,
+     "tick": 1252,
+     "days": 5
+    },
+    "rival_offer": {
+     "id": 6793,
+     "price": 46,
+     "tick": 1253,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1241,
+      "from": "you",
+      "text": "I'll open at 12 P for delivery on day 5. Let me know your counter.",
+      "price": 12,
+      "days": 5
+     },
+     {
+      "tick": 1242,
+      "from": "Rival Azul",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 62,
+      "days": 0
+     },
+     {
+      "tick": 1244,
+      "from": "Rival Azul",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 59,
+      "days": 0
+     },
+     {
+      "tick": 1244,
+      "from": "you",
+      "text": "I can move to 16 P for delivery on day 5. A bigger move from me depends on a substantial step down from you.",
+      "price": 16,
+      "days": 5
+     },
+     {
+      "tick": 1247,
+      "from": "you",
+      "text": "I can step to 20 P for delivery on day 5, and day 5 is firm for me. Further movement depends on you coming well down from your current figure and moving off your current day.",
+      "price": 20,
+      "days": 5
+     },
+     {
+      "tick": 1252,
+      "from": "Rival Azul",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 46,
+      "days": 0
+     },
+     {
+      "tick": 1252,
+      "from": "you",
+      "text": "Thanks for coming down. I can move to 23 P for delivery on day 5, and day 5 is the only day I can do. A price close to this on day 5 closes it now.",
+      "price": 23,
+      "days": 5
+     },
+     {
+      "tick": 1253,
+      "from": "Rival Azul",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 46,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1335,6 +1430,187 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1253,
+   "took_s": 10.38,
+   "cost_usd": 0.01728,
+   "obs": {
+    "view": {
+     "duel_id": 5618,
+     "role": "buyer",
+     "limit": 50,
+     "currency": "P",
+     "item": "La Vía Láctea",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.01,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'll open at 12 P for delivery on day 5. Let me know your counter.",
+      "offer": {
+       "price": 12,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1241,
+      "decision": {
+       "action": "offer",
+       "price": 12,
+       "message": "I'll open at 12 P for delivery on day 5. Let me know your counter."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 62,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1242,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 59,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1244,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 16 P for delivery on day 5. A bigger move from me depends on a substantial step down from you.",
+      "offer": {
+       "price": 16,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1244,
+      "decision": {
+       "action": "offer",
+       "price": 16,
+       "message": "I can move to 16 P for delivery on day 5. A bigger move from me depends on a substantial step down from you."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can step to 20 P for delivery on day 5, and day 5 is firm for me. Further movement depends on you coming well down from your current figure and moving off your current day.",
+      "offer": {
+       "price": 20,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1247,
+      "decision": {
+       "action": "offer",
+       "price": 20,
+       "message": "I can step to 20 P for delivery on day 5, and day 5 is firm for me. Further movement depends on you coming well down from your current figure and moving off your current day."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 46,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1252,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for coming down. I can move to 23 P for delivery on day 5, and day 5 is the only day I can do. A price close to this on day 5 closes it now.",
+      "offer": {
+       "price": 23,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1252,
+      "decision": {
+       "action": "offer",
+       "price": 23,
+       "message": "Thanks for coming down. I can move to 23 P for delivery on day 5, and day 5 is the only day I can do. A price close to this on day 5 closes it now."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 46,
+     "days": 0
+    },
+    "tick": 1253,
+    "ticks_left": 2,
+    "rounds": 3,
+    "day_swings": [
+     31.9,
+     46.3,
+     50.099999999999994,
+     32.9,
+     14.2,
+     36.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "My offer stays at 23 P for delivery on day 5. It is open to close right now, and day 5 is not open to change.",
+    "price": 23,
+    "days": 5,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 23,
+      "message": "My offer stays at 23 P for delivery on day 5. It is open to close right now, and day 5 is not open to change."
+     },
+     "band": {
+      "worst": 24,
+      "target": 23,
+      "best": 23
+     },
+     "plan": {
+      "read": "They came down to 46 P but are still holding day 0. On day 0 no price works for us, and on day 5 we have almost no room left above our 23 P. With two ticks left the gap is too wide to close, so a tiny step adds nothing.",
+      "target": 23,
+      "best": 23,
+      "worst": 24,
+      "days": 5,
+      "angle": "Stay firm and brief: 23 P on day 5 stands and can close right now, and day 5 is not open to change."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.51,
+       "in": 1140,
+       "out": 548,
+       "cost_usd": 0.01552,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.87,
+       "in": 596,
+       "out": 57,
+       "cost_usd": 0.00176,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [

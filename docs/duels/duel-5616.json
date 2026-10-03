@@ -323,6 +323,87 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1253,
+   "raw": {
+    "duel": 5616,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Plaza del Dos de Mayo",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.19,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 69,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Verde",
+    "deadline_tick": 1255,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 6802,
+     "price": 105,
+     "tick": 1253,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 6452,
+     "price": 97,
+     "tick": 1244,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1241,
+      "from": "you",
+      "text": "I'll start at 128 P with delivery on day 5, which I think is a fair opening point. I'd like to hear your proposal.",
+      "price": 128,
+      "days": 5
+     },
+     {
+      "tick": 1244,
+      "from": "Rival Verde",
+      "text": "I can do 97 P with delivery in 0 days.",
+      "price": 97,
+      "days": 0
+     },
+     {
+      "tick": 1244,
+      "from": "you",
+      "text": "I can move to 123 P with delivery on day 5. Day 0 doesn't work at prices like yours, so I'd like to see you come up meaningfully.",
+      "price": 123,
+      "days": 5
+     },
+     {
+      "tick": 1250,
+      "from": "you",
+      "text": "I'll make a real step to 116 P with delivery on day 5, to break the standoff. I'd ask you to come up meaningfully in return.",
+      "price": 116,
+      "days": 5
+     },
+     {
+      "tick": 1252,
+      "from": "you",
+      "text": "I can do 108 P with delivery on day 5, a serious move toward closing. If you prefer day 0, that would be 120 P instead; please pick one so we can settle now.",
+      "price": 108,
+      "days": 5
+     },
+     {
+      "tick": 1253,
+      "from": "you",
+      "text": "I can do 105 P with delivery on day 0. If you prefer day 5, I could do 98 P instead. Please pick one of the two this tick so we can close.",
+      "price": 105,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -960,6 +1041,176 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1253,
+   "took_s": 14.5,
+   "cost_usd": 0.02259,
+   "obs": {
+    "view": {
+     "duel_id": 5616,
+     "role": "seller",
+     "limit": 69,
+     "currency": "P",
+     "item": "Plaza del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.19,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'll start at 128 P with delivery on day 5, which I think is a fair opening point. I'd like to hear your proposal.",
+      "offer": {
+       "price": 128,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1241,
+      "decision": {
+       "action": "offer",
+       "price": 128,
+       "message": "I'll start at 128 P with delivery on day 5, which I think is a fair opening point. I'd like to hear your proposal."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I can do 97 P with delivery in 0 days.",
+      "offer": {
+       "price": 97,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1244,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 123 P with delivery on day 5. Day 0 doesn't work at prices like yours, so I'd like to see you come up meaningfully.",
+      "offer": {
+       "price": 123,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1244,
+      "decision": {
+       "action": "offer",
+       "price": 123,
+       "message": "I can move to 123 P with delivery on day 5. Day 0 doesn't work at prices like yours, so I'd like to see you come up meaningfully."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I'll make a real step to 116 P with delivery on day 5, to break the standoff. I'd ask you to come up meaningfully in return.",
+      "offer": {
+       "price": 116,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1250,
+      "decision": {
+       "action": "offer",
+       "price": 116,
+       "message": "I'll make a real step to 116 P with delivery on day 5, to break the standoff. I'd ask you to come up meaningfully in return."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 108 P with delivery on day 5, a serious move toward closing. If you prefer day 0, that would be 120 P instead; please pick one so we can settle now.",
+      "offer": {
+       "price": 108,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1252,
+      "decision": {
+       "action": "offer",
+       "price": 108,
+       "message": "I can do 108 P with delivery on day 5, a serious move toward closing. If you prefer day 0, that would be 120 P instead; please pick one so we can settle now."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 97,
+     "days": 0
+    },
+    "tick": 1253,
+    "ticks_left": 2,
+    "rounds": 1,
+    "day_swings": [
+     31.9,
+     46.3,
+     50.099999999999994,
+     32.9,
+     14.2,
+     36.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 105 P with delivery on day 0. If you prefer day 5, I could do 98 P instead. Please pick one of the two this tick so we can close.",
+    "price": 105,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 105,
+      "message": "I can do 105 P with delivery on day 0. If you prefer day 5, I could do 98 P instead. Please pick one of the two this tick so we can close."
+     },
+     "vetoes": [
+      "the message could be read as accepting, but you are not accepting. Don't use words like 'deal', 'agree', 'accept', 'sounds good' or 'works for me' unless you accept."
+     ],
+     "band": {
+      "worst": 102,
+      "target": 105,
+      "best": 108
+     },
+     "plan": {
+      "read": "They have sat at 97 P on day 0 since their only offer and have not moved. On day 0 that price is past what we can accept. With 2 ticks left we need a package they can close on now.",
+      "target": 105,
+      "best": 108,
+      "worst": 102,
+      "days": 0,
+      "angle": "Be firm and closing-minded: offer day 0 at 105 P as a deal they can accept right now, and mention as the alternative that day 5 at 98 P also works; ask them to accept one of the two this tick."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 10.95,
+       "in": 1032,
+       "out": 732,
+       "cost_usd": 0.01877,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.88,
+       "in": 559,
+       "out": 69,
+       "cost_usd": 0.00181,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.67,
+       "in": 649,
+       "out": 71,
+       "cost_usd": 0.00201,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1188,6 +1439,74 @@
      "price": 108,
      "tick": 1252,
      "days": 5
+    }
+   }
+  },
+  {
+   "tick": 1253,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 105 P with delivery on day 0. If you prefer day 5, I could do 98 P instead. Please pick one of the two this tick so we can close.",
+    "price": 105,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 105,
+      "message": "I can do 105 P with delivery on day 0. If you prefer day 5, I could do 98 P instead. Please pick one of the two this tick so we can close."
+     },
+     "vetoes": [
+      "the message could be read as accepting, but you are not accepting. Don't use words like 'deal', 'agree', 'accept', 'sounds good' or 'works for me' unless you accept."
+     ],
+     "band": {
+      "worst": 102,
+      "target": 105,
+      "best": 108
+     },
+     "plan": {
+      "read": "They have sat at 97 P on day 0 since their only offer and have not moved. On day 0 that price is past what we can accept. With 2 ticks left we need a package they can close on now.",
+      "target": 105,
+      "best": 108,
+      "worst": 102,
+      "days": 0,
+      "angle": "Be firm and closing-minded: offer day 0 at 105 P as a deal they can accept right now, and mention as the alternative that day 5 at 98 P also works; ask them to accept one of the two this tick."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 10.95,
+       "in": 1032,
+       "out": 732,
+       "cost_usd": 0.01877,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.88,
+       "in": 559,
+       "out": 69,
+       "cost_usd": 0.00181,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.67,
+       "in": 649,
+       "out": 71,
+       "cost_usd": 0.00201,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5616,
+    "offer": {
+     "id": 6802,
+     "price": 105,
+     "tick": 1253,
+     "days": 0
     }
    }
   }
