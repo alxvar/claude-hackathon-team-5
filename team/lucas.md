@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sat 19:12 · operator · egg try 2 (Chief; LAT-12 'El Rastro al Amanecer', legendary, minted 0; text only): Abuela (1582) 'las cartas legendarias no las vendo yo… Para esas, habla con El Chato, ahí al lado' → no egg event, no assets; thread closed
 - Sat 19:10 · Builder · PLAN #24 for Aleks: branch duelist-days-read @ 552819d (--days-read auto|flip|unsure, env DAYS_READ; auto = today's reading, flip reverses, unsure = sure False), 439 pass, not merged; main + live duelist untouched · merge/restart commands sent to the Chief · Aleks decides
 - Sat 19:09 · operator · Chief: t15 already holds MAL-08 (MAL 8/10, missing 09/10) → 15931 cancelled, **MAL-08 → t01 at 24** (16001, v15; t01 7.6 below us, not a rival) · LAV-04 → t04 (15963) live, job by6d1udbr switches it to t01 at 19:28 if unfilled
 - Sat 19:08 · operator · Chief: team sales score, dealer sales don't → book: **MAL-08 → t15 at 24** (15931, El Rastro; t15 collects MAL, can't trade on v15) and **LAV-04 → t04 at 9** (15963, v15; first posted to t09 as 15930, cancelled because teams.md says t09 collects RET/SAL, not LAV; t17 is a fixed rival, blocked) · next: LAV-04 → t01 if unfilled by ~19:28
