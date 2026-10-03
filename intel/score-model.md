@@ -237,6 +237,14 @@ t13 and t04 have dealer deals in the window). Full = 12 Saturday points = 8.0 bo
 | — | **Our negotiating was exactly 21.88 at snapshots 850-890** while the field drifted −0.1 to −0.2 per snapshot and our ladder rose +0.064 | | **ladder part capped [L, 2 clean tests]**: further ladder deals add 0 board; being capped also shields us from ladder erosion |
 | 904 | SWAP LAT-01 → t07 for SAL-07 (El Rastro, price 0) | — | neg_points 63.2 → 78.7 (+15.5); board negotiating +0.74 at 910 with the field median 0.00 → **trade part NOT capped: ≈ 0.048 board per neg_point [V]** |
 
+**Saturday negotiating decomposition at snapshot 910 [L, fits]:** 23.73 = duel part ≈ 9.1 + ladder 0.6 × 15 (capped) = 9.0
++ trades 0.6 × 15 × T/N with T = 78.7 and N ≈ 125 (from the 0.072 Saturday points per neg_point measured at 904). Implications:
+a +50 page-close trade is worth ≈ +2.2 board (the min(1, T/N) cap trims the top), never more than 50 × 0.048 = +2.4.
+**SAL page 9/10** since the SAL-07 swap (only SAL-06 missing). The close must be a TEAM trade (dealer gains are clipped).
+Feed-visible SAL-06 holders (one copy each): t02 (#14), t13 (#11), t16 (#8, own near-complete page), t17 (#10), t03 (#4),
+t06 (#2); Pilar holds 3 (dealer: doesn't score the page).
+
+
 - **Same card, other teams [V feed]:** SAL-08 → Pilar: t04 25 (opened 40, 6 messages), t10 24, **us 23**; her opening 22.
   Uncommons (non-SAL): t14 LAT-08 20, **us MAL-07 19**, t08 MAL-08 18, t16/t08/t13 17; her opening 16. So a full share at L3
   ≈ +0.06 ladder, and our SAL-08 captured ~1/3 of it: **the big final step (28 → 23) handed her the final** (dealers
