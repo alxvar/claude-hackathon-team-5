@@ -404,6 +404,400 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1378,
+   "raw": {
+    "duel": 6190,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Frutero de Argumosa",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.0,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 143,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 1383,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 10903,
+     "price": 116,
+     "tick": 1378,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 10727,
+     "price": 116,
+     "tick": 1369,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1367,
+      "from": "Rival Oro",
+      "text": "Hola, Rival Azul, voy con prisa: El Frutero de Argumosa por 134 y cerramos ya. Entrega en 10 días.",
+      "price": 134,
+      "days": 10
+     },
+     {
+      "tick": 1367,
+      "from": "you",
+      "text": "Hola. Puedo hacer 95 P con entrega el día 0, y cerramos rápido con esa base.",
+      "price": 95,
+      "days": 0
+     },
+     {
+      "tick": 1368,
+      "from": "Rival Oro",
+      "text": "125 y lo cerramos ahora. Entrega en 10 días.",
+      "price": 125,
+      "days": 10
+     },
+     {
+      "tick": 1368,
+      "from": "you",
+      "text": "I can do 103 P, delivery on day 0.",
+      "price": 103,
+      "days": 0
+     },
+     {
+      "tick": 1369,
+      "from": "Rival Oro",
+      "text": "Venga, 116. Entrega en 10 días.",
+      "price": 116,
+      "days": 10
+     },
+     {
+      "tick": 1369,
+      "from": "you",
+      "text": "I can do 108 P with delivery on day 0. Day 0 is part of this for me, but the price can keep moving toward a quick close.",
+      "price": 108,
+      "days": 0
+     },
+     {
+      "tick": 1378,
+      "from": "you",
+      "text": "I'll meet your price exactly: 116 P, with delivery on day 0. That's a real step from me, so let's close it now.",
+      "price": 116,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1379,
+   "raw": {
+    "duel": 6190,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Frutero de Argumosa",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.0,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 143,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 1383,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 10908,
+     "price": 66,
+     "tick": 1379,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 10727,
+     "price": 116,
+     "tick": 1369,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1367,
+      "from": "Rival Oro",
+      "text": "Hola, Rival Azul, voy con prisa: El Frutero de Argumosa por 134 y cerramos ya. Entrega en 10 días.",
+      "price": 134,
+      "days": 10
+     },
+     {
+      "tick": 1367,
+      "from": "you",
+      "text": "Hola. Puedo hacer 95 P con entrega el día 0, y cerramos rápido con esa base.",
+      "price": 95,
+      "days": 0
+     },
+     {
+      "tick": 1368,
+      "from": "Rival Oro",
+      "text": "125 y lo cerramos ahora. Entrega en 10 días.",
+      "price": 125,
+      "days": 10
+     },
+     {
+      "tick": 1368,
+      "from": "you",
+      "text": "I can do 103 P, delivery on day 0.",
+      "price": 103,
+      "days": 0
+     },
+     {
+      "tick": 1369,
+      "from": "Rival Oro",
+      "text": "Venga, 116. Entrega en 10 días.",
+      "price": 116,
+      "days": 10
+     },
+     {
+      "tick": 1369,
+      "from": "you",
+      "text": "I can do 108 P with delivery on day 0. Day 0 is part of this for me, but the price can keep moving toward a quick close.",
+      "price": 108,
+      "days": 0
+     },
+     {
+      "tick": 1378,
+      "from": "you",
+      "text": "I'll meet your price exactly: 116 P, with delivery on day 0. That's a real step from me, so let's close it now.",
+      "price": 116,
+      "days": 0
+     },
+     {
+      "tick": 1379,
+      "from": "you",
+      "text": "I can do 66 P, delivery on day 10.",
+      "price": 66,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1380,
+   "raw": {
+    "duel": 6190,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Frutero de Argumosa",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.0,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 143,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 1383,
+    "decay_per_round": 0.08,
+    "rounds": 4,
+    "your_offer": {
+     "id": 10908,
+     "price": 66,
+     "tick": 1379,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 10922,
+     "price": 108,
+     "tick": 1380,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1367,
+      "from": "Rival Oro",
+      "text": "Hola, Rival Azul, voy con prisa: El Frutero de Argumosa por 134 y cerramos ya. Entrega en 10 días.",
+      "price": 134,
+      "days": 10
+     },
+     {
+      "tick": 1367,
+      "from": "you",
+      "text": "Hola. Puedo hacer 95 P con entrega el día 0, y cerramos rápido con esa base.",
+      "price": 95,
+      "days": 0
+     },
+     {
+      "tick": 1368,
+      "from": "Rival Oro",
+      "text": "125 y lo cerramos ahora. Entrega en 10 días.",
+      "price": 125,
+      "days": 10
+     },
+     {
+      "tick": 1368,
+      "from": "you",
+      "text": "I can do 103 P, delivery on day 0.",
+      "price": 103,
+      "days": 0
+     },
+     {
+      "tick": 1369,
+      "from": "Rival Oro",
+      "text": "Venga, 116. Entrega en 10 días.",
+      "price": 116,
+      "days": 10
+     },
+     {
+      "tick": 1369,
+      "from": "you",
+      "text": "I can do 108 P with delivery on day 0. Day 0 is part of this for me, but the price can keep moving toward a quick close.",
+      "price": 108,
+      "days": 0
+     },
+     {
+      "tick": 1378,
+      "from": "you",
+      "text": "I'll meet your price exactly: 116 P, with delivery on day 0. That's a real step from me, so let's close it now.",
+      "price": 116,
+      "days": 0
+     },
+     {
+      "tick": 1379,
+      "from": "you",
+      "text": "I can do 66 P, delivery on day 10.",
+      "price": 66,
+      "days": 10
+     },
+     {
+      "tick": 1380,
+      "from": "Rival Oro",
+      "text": "108, último paso. Entrega en 10 días.",
+      "price": 108,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1380,
+   "raw": {
+    "duel": 6190,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Frutero de Argumosa",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.0,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 143,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 1383,
+    "decay_per_round": 0.08,
+    "rounds": 4,
+    "your_offer": {
+     "id": 10930,
+     "price": 88,
+     "tick": 1380,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 10922,
+     "price": 108,
+     "tick": 1380,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1367,
+      "from": "Rival Oro",
+      "text": "Hola, Rival Azul, voy con prisa: El Frutero de Argumosa por 134 y cerramos ya. Entrega en 10 días.",
+      "price": 134,
+      "days": 10
+     },
+     {
+      "tick": 1367,
+      "from": "you",
+      "text": "Hola. Puedo hacer 95 P con entrega el día 0, y cerramos rápido con esa base.",
+      "price": 95,
+      "days": 0
+     },
+     {
+      "tick": 1368,
+      "from": "Rival Oro",
+      "text": "125 y lo cerramos ahora. Entrega en 10 días.",
+      "price": 125,
+      "days": 10
+     },
+     {
+      "tick": 1368,
+      "from": "you",
+      "text": "I can do 103 P, delivery on day 0.",
+      "price": 103,
+      "days": 0
+     },
+     {
+      "tick": 1369,
+      "from": "Rival Oro",
+      "text": "Venga, 116. Entrega en 10 días.",
+      "price": 116,
+      "days": 10
+     },
+     {
+      "tick": 1369,
+      "from": "you",
+      "text": "I can do 108 P with delivery on day 0. Day 0 is part of this for me, but the price can keep moving toward a quick close.",
+      "price": 108,
+      "days": 0
+     },
+     {
+      "tick": 1378,
+      "from": "you",
+      "text": "I'll meet your price exactly: 116 P, with delivery on day 0. That's a real step from me, so let's close it now.",
+      "price": 116,
+      "days": 0
+     },
+     {
+      "tick": 1379,
+      "from": "you",
+      "text": "I can do 66 P, delivery on day 10.",
+      "price": 66,
+      "days": 10
+     },
+     {
+      "tick": 1380,
+      "from": "Rival Oro",
+      "text": "108, último paso. Entrega en 10 días.",
+      "price": 108,
+      "days": 10
+     },
+     {
+      "tick": 1380,
+      "from": "you",
+      "text": "I can do 88 P with delivery on day 10, which matches your day. That's a firm number from me and a quick way to settle now.",
+      "price": 88,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1013,6 +1407,937 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 1375,
+   "took_s": 13.72,
+   "cost_usd": 0.019440000000000002,
+   "obs": {
+    "view": {
+     "duel_id": 6190,
+     "role": "buyer",
+     "limit": 143,
+     "currency": "P",
+     "item": "El Frutero de Argumosa",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.0,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hola, Rival Azul, voy con prisa: El Frutero de Argumosa por 134 y cerramos ya. Entrega en 10 días.",
+      "offer": {
+       "price": 134,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1367,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Hola. Puedo hacer 95 P con entrega el día 0, y cerramos rápido con esa base.",
+      "offer": {
+       "price": 95,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1367,
+      "decision": {
+       "action": "offer",
+       "price": 95,
+       "message": "Hola. Puedo hacer 95 P con entrega el día 0, y cerramos rápido con esa base."
+      }
+     },
+     {
+      "mine": false,
+      "text": "125 y lo cerramos ahora. Entrega en 10 días.",
+      "offer": {
+       "price": 125,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1368,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 103 P, delivery on day 0.",
+      "offer": {
+       "price": 103,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1368,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Venga, 116. Entrega en 10 días.",
+      "offer": {
+       "price": 116,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1369,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 108 P with delivery on day 0. Day 0 is part of this for me, but the price can keep moving toward a quick close.",
+      "offer": {
+       "price": 108,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1369,
+      "decision": {
+       "action": "offer",
+       "price": 108,
+       "message": "I can do 108 P with delivery on day 0. Day 0 is part of this for me, but the price can keep moving toward a quick close."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 116,
+     "days": 10
+    },
+    "tick": 1375,
+    "ticks_left": 8,
+    "rounds": 3,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6,
+     70.6,
+     33.3,
+     20.7,
+     50.0,
+     11.5,
+     40.300000000000004
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "I'm holding my offer of 108 P with delivery on day 0. We're close on price, so the day is what matters most to me.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "I'm holding my offer of 108 P with delivery on day 0. We're close on price, so the day is what matters most to me."
+     },
+     "vetoes": [
+      "the message states facts (condition). Say nothing about the item (its quality, condition, history, location, rarity or demand), costs, budgets, limits, other buyers, sellers or offers, or the market: talk only about prices, days, the moves on both sides and how you see the gap."
+     ],
+     "band": {
+      "worst": 112,
+      "target": 108,
+      "best": 106
+     },
+     "plan": {
+      "read": "They have come down 134→125→116 but stay fixed on day 10, which costs us 50 P and puts their offer past what we can pay. The 8 P price gap is small, but the real gap is the day, and their haste talk is unproven.",
+      "target": 108,
+      "best": 106,
+      "worst": 112,
+      "days": 0,
+      "angle": "Hold at 108 P for day 0 and send nothing new. If a message goes out, stay firm and friendly, and say day 0 is the condition while the price is close to done."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 9.91,
+       "in": 1076,
+       "out": 584,
+       "cost_usd": 0.01598,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.07,
+       "in": 547,
+       "out": 46,
+       "cost_usd": 0.00155,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.73,
+       "in": 664,
+       "out": 58,
+       "cost_usd": 0.00191,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 1378,
+   "took_s": 11.47,
+   "cost_usd": 0.01678,
+   "obs": {
+    "view": {
+     "duel_id": 6190,
+     "role": "buyer",
+     "limit": 143,
+     "currency": "P",
+     "item": "El Frutero de Argumosa",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.0,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hola, Rival Azul, voy con prisa: El Frutero de Argumosa por 134 y cerramos ya. Entrega en 10 días.",
+      "offer": {
+       "price": 134,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1367,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Hola. Puedo hacer 95 P con entrega el día 0, y cerramos rápido con esa base.",
+      "offer": {
+       "price": 95,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1367,
+      "decision": {
+       "action": "offer",
+       "price": 95,
+       "message": "Hola. Puedo hacer 95 P con entrega el día 0, y cerramos rápido con esa base."
+      }
+     },
+     {
+      "mine": false,
+      "text": "125 y lo cerramos ahora. Entrega en 10 días.",
+      "offer": {
+       "price": 125,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1368,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 103 P, delivery on day 0.",
+      "offer": {
+       "price": 103,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1368,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Venga, 116. Entrega en 10 días.",
+      "offer": {
+       "price": 116,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1369,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 108 P with delivery on day 0. Day 0 is part of this for me, but the price can keep moving toward a quick close.",
+      "offer": {
+       "price": 108,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1369,
+      "decision": {
+       "action": "offer",
+       "price": 108,
+       "message": "I can do 108 P with delivery on day 0. Day 0 is part of this for me, but the price can keep moving toward a quick close."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 116,
+     "days": 10
+    },
+    "tick": 1378,
+    "ticks_left": 5,
+    "rounds": 3,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6,
+     70.6,
+     33.3,
+     20.7,
+     50.0,
+     11.5,
+     40.300000000000004
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'll meet your price exactly: 116 P, with delivery on day 0. That's a real step from me, so let's close it now.",
+    "price": 116,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 116,
+      "message": "I'll meet your price exactly: 116 P, with delivery on day 0. That's a real step from me, so let's close it now."
+     },
+     "band": {
+      "worst": 118,
+      "target": 116,
+      "best": 114
+     },
+     "plan": {
+      "read": "They walked 134→125→116, always on day 10, and have now sat at 116 for several ticks. At day 10 that offer is past what we can take once the day's cost is counted, so it can't be accepted as it stands. The price gap is only 8 P; the real dispute is the delivery day.",
+      "target": 116,
+      "best": 114,
+      "worst": 118,
+      "days": 0,
+      "angle": "Make one clear step that matches their own 116 but on day 0, framing it as meeting their price exactly so we can close now; keep the day at 0 firmly and don't go below 114."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 9.37,
+       "in": 1076,
+       "out": 538,
+       "cost_usd": 0.01506,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.1,
+       "in": 567,
+       "out": 59,
+       "cost_usd": 0.00172,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1379,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 6190,
+     "role": "buyer",
+     "limit": 143,
+     "currency": "P",
+     "item": "El Frutero de Argumosa",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.0,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hola, Rival Azul, voy con prisa: El Frutero de Argumosa por 134 y cerramos ya. Entrega en 10 días.",
+      "offer": {
+       "price": 134,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1367,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Hola. Puedo hacer 95 P con entrega el día 0, y cerramos rápido con esa base.",
+      "offer": {
+       "price": 95,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1367,
+      "decision": {
+       "action": "offer",
+       "price": 95,
+       "message": "Hola. Puedo hacer 95 P con entrega el día 0, y cerramos rápido con esa base."
+      }
+     },
+     {
+      "mine": false,
+      "text": "125 y lo cerramos ahora. Entrega en 10 días.",
+      "offer": {
+       "price": 125,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1368,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 103 P, delivery on day 0.",
+      "offer": {
+       "price": 103,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1368,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Venga, 116. Entrega en 10 días.",
+      "offer": {
+       "price": 116,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1369,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 108 P with delivery on day 0. Day 0 is part of this for me, but the price can keep moving toward a quick close.",
+      "offer": {
+       "price": 108,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1369,
+      "decision": {
+       "action": "offer",
+       "price": 108,
+       "message": "I can do 108 P with delivery on day 0. Day 0 is part of this for me, but the price can keep moving toward a quick close."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I'll meet your price exactly: 116 P, with delivery on day 0. That's a real step from me, so let's close it now.",
+      "offer": {
+       "price": 116,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1378,
+      "decision": {
+       "action": "offer",
+       "price": 116,
+       "message": "I'll meet your price exactly: 116 P, with delivery on day 0. That's a real step from me, so let's close it now."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 116,
+     "days": 10
+    },
+    "tick": 1379,
+    "ticks_left": 4,
+    "rounds": 3,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6,
+     70.6,
+     33.3,
+     20.7,
+     50.0,
+     11.5,
+     40.300000000000004
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 66 P, delivery on day 10.",
+    "price": 66,
+    "days": 10,
+    "meta": {
+     "rule": "late switch",
+     "calls": []
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1380,
+   "took_s": 9.04,
+   "cost_usd": 0.01547,
+   "obs": {
+    "view": {
+     "duel_id": 6190,
+     "role": "buyer",
+     "limit": 143,
+     "currency": "P",
+     "item": "El Frutero de Argumosa",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.0,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hola, Rival Azul, voy con prisa: El Frutero de Argumosa por 134 y cerramos ya. Entrega en 10 días.",
+      "offer": {
+       "price": 134,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1367,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Hola. Puedo hacer 95 P con entrega el día 0, y cerramos rápido con esa base.",
+      "offer": {
+       "price": 95,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1367,
+      "decision": {
+       "action": "offer",
+       "price": 95,
+       "message": "Hola. Puedo hacer 95 P con entrega el día 0, y cerramos rápido con esa base."
+      }
+     },
+     {
+      "mine": false,
+      "text": "125 y lo cerramos ahora. Entrega en 10 días.",
+      "offer": {
+       "price": 125,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1368,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 103 P, delivery on day 0.",
+      "offer": {
+       "price": 103,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1368,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Venga, 116. Entrega en 10 días.",
+      "offer": {
+       "price": 116,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1369,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 108 P with delivery on day 0. Day 0 is part of this for me, but the price can keep moving toward a quick close.",
+      "offer": {
+       "price": 108,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1369,
+      "decision": {
+       "action": "offer",
+       "price": 108,
+       "message": "I can do 108 P with delivery on day 0. Day 0 is part of this for me, but the price can keep moving toward a quick close."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I'll meet your price exactly: 116 P, with delivery on day 0. That's a real step from me, so let's close it now.",
+      "offer": {
+       "price": 116,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1378,
+      "decision": {
+       "action": "offer",
+       "price": 116,
+       "message": "I'll meet your price exactly: 116 P, with delivery on day 0. That's a real step from me, so let's close it now."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 66 P, delivery on day 10.",
+      "offer": {
+       "price": 66,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1379,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "108, último paso. Entrega en 10 días.",
+      "offer": {
+       "price": 108,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1380,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 108,
+     "days": 10
+    },
+    "tick": 1380,
+    "ticks_left": 3,
+    "rounds": 4,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6,
+     70.6,
+     33.3,
+     20.7,
+     50.0,
+     11.5,
+     40.300000000000004
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 88 P with delivery on day 10, which matches your day. That's a firm number from me and a quick way to settle now.",
+    "price": 88,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 88,
+      "message": "I can do 88 P with delivery on day 10, which matches your day. That's a firm number from me and a quick way to settle now."
+     },
+     "band": {
+      "worst": 92,
+      "target": 88,
+      "best": 85
+     },
+     "plan": {
+      "read": "They stepped from 116 to 108 on day 10 and call it a last step; the 'último paso' may be a bluff, but they have moved steadily by about 8-9 P each time. At day 10 their 108 is still past what the deal is worth to us, so we need them to come down further.",
+      "target": 88,
+      "best": 85,
+      "worst": 92,
+      "days": 10,
+      "angle": "Keep day 10 as they want, name 88 P firmly as a closing number, and present it as the quick way to settle now."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.01,
+       "in": 1200,
+       "out": 437,
+       "cost_usd": 0.01354,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.03,
+       "in": 672,
+       "out": 59,
+       "cost_usd": 0.00193,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1381,
+   "took_s": 15.67,
+   "cost_usd": 0.02265,
+   "obs": {
+    "view": {
+     "duel_id": 6190,
+     "role": "buyer",
+     "limit": 143,
+     "currency": "P",
+     "item": "El Frutero de Argumosa",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.0,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hola, Rival Azul, voy con prisa: El Frutero de Argumosa por 134 y cerramos ya. Entrega en 10 días.",
+      "offer": {
+       "price": 134,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1367,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Hola. Puedo hacer 95 P con entrega el día 0, y cerramos rápido con esa base.",
+      "offer": {
+       "price": 95,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1367,
+      "decision": {
+       "action": "offer",
+       "price": 95,
+       "message": "Hola. Puedo hacer 95 P con entrega el día 0, y cerramos rápido con esa base."
+      }
+     },
+     {
+      "mine": false,
+      "text": "125 y lo cerramos ahora. Entrega en 10 días.",
+      "offer": {
+       "price": 125,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1368,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 103 P, delivery on day 0.",
+      "offer": {
+       "price": 103,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1368,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Venga, 116. Entrega en 10 días.",
+      "offer": {
+       "price": 116,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1369,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 108 P with delivery on day 0. Day 0 is part of this for me, but the price can keep moving toward a quick close.",
+      "offer": {
+       "price": 108,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1369,
+      "decision": {
+       "action": "offer",
+       "price": 108,
+       "message": "I can do 108 P with delivery on day 0. Day 0 is part of this for me, but the price can keep moving toward a quick close."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I'll meet your price exactly: 116 P, with delivery on day 0. That's a real step from me, so let's close it now.",
+      "offer": {
+       "price": 116,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1378,
+      "decision": {
+       "action": "offer",
+       "price": 116,
+       "message": "I'll meet your price exactly: 116 P, with delivery on day 0. That's a real step from me, so let's close it now."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 66 P, delivery on day 10.",
+      "offer": {
+       "price": 66,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1379,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "108, último paso. Entrega en 10 días.",
+      "offer": {
+       "price": 108,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1380,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 88 P with delivery on day 10, which matches your day. That's a firm number from me and a quick way to settle now.",
+      "offer": {
+       "price": 88,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1380,
+      "decision": {
+       "action": "offer",
+       "price": 88,
+       "message": "I can do 88 P with delivery on day 10, which matches your day. That's a firm number from me and a quick way to settle now."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 108,
+     "days": 10
+    },
+    "tick": 1381,
+    "ticks_left": 2,
+    "rounds": 4,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6,
+     70.6,
+     33.3,
+     20.7,
+     50.0,
+     11.5,
+     40.300000000000004
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "122 P with delivery on day 0. That is my close-now package.",
+    "price": 122,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 122,
+      "message": "122 P with delivery on day 0. That is my close-now package."
+     },
+     "band": {
+      "worst": 130,
+      "target": 126,
+      "best": 122
+     },
+     "plan": {
+      "read": "They have come down to 108 P on day 10 and call it their last step. That is past our limit once day 10's cost is counted, so we cannot accept it. They have stuck to day 10 throughout and passed on our earlier 116 P at day 0, so they seem to value the late day.",
+      "target": 126,
+      "best": 122,
+      "worst": 130,
+      "days": 0,
+      "angle": "One clear, final-sounding offer with two ticks left: name day 0 at the target price as a firm close-now package; keep it short and decisive, with no haggling language."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 10.74,
+       "in": 1278,
+       "out": 660,
+       "cost_usd": 0.01831,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 4.93,
+       "in": 747,
+       "out": 285,
+       "cost_usd": 0.00434,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1196,6 +2521,200 @@
      "id": 10735,
      "price": 108,
      "tick": 1369,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1378,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'll meet your price exactly: 116 P, with delivery on day 0. That's a real step from me, so let's close it now.",
+    "price": 116,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 116,
+      "message": "I'll meet your price exactly: 116 P, with delivery on day 0. That's a real step from me, so let's close it now."
+     },
+     "band": {
+      "worst": 118,
+      "target": 116,
+      "best": 114
+     },
+     "plan": {
+      "read": "They walked 134→125→116, always on day 10, and have now sat at 116 for several ticks. At day 10 that offer is past what we can take once the day's cost is counted, so it can't be accepted as it stands. The price gap is only 8 P; the real dispute is the delivery day.",
+      "target": 116,
+      "best": 114,
+      "worst": 118,
+      "days": 0,
+      "angle": "Make one clear step that matches their own 116 but on day 0, framing it as meeting their price exactly so we can close now; keep the day at 0 firmly and don't go below 114."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 9.37,
+       "in": 1076,
+       "out": 538,
+       "cost_usd": 0.01506,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.1,
+       "in": 567,
+       "out": 59,
+       "cost_usd": 0.00172,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 6190,
+    "offer": {
+     "id": 10903,
+     "price": 116,
+     "tick": 1378,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1379,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 66 P, delivery on day 10.",
+    "price": 66,
+    "days": 10,
+    "meta": {
+     "rule": "late switch",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 6190,
+    "offer": {
+     "id": 10908,
+     "price": 66,
+     "tick": 1379,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1380,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 88 P with delivery on day 10, which matches your day. That's a firm number from me and a quick way to settle now.",
+    "price": 88,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 88,
+      "message": "I can do 88 P with delivery on day 10, which matches your day. That's a firm number from me and a quick way to settle now."
+     },
+     "band": {
+      "worst": 92,
+      "target": 88,
+      "best": 85
+     },
+     "plan": {
+      "read": "They stepped from 116 to 108 on day 10 and call it a last step; the 'último paso' may be a bluff, but they have moved steadily by about 8-9 P each time. At day 10 their 108 is still past what the deal is worth to us, so we need them to come down further.",
+      "target": 88,
+      "best": 85,
+      "worst": 92,
+      "days": 10,
+      "angle": "Keep day 10 as they want, name 88 P firmly as a closing number, and present it as the quick way to settle now."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.01,
+       "in": 1200,
+       "out": 437,
+       "cost_usd": 0.01354,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.03,
+       "in": 672,
+       "out": 59,
+       "cost_usd": 0.00193,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 6190,
+    "offer": {
+     "id": 10930,
+     "price": 88,
+     "tick": 1380,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1381,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "122 P with delivery on day 0. That is my close-now package.",
+    "price": 122,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 122,
+      "message": "122 P with delivery on day 0. That is my close-now package."
+     },
+     "band": {
+      "worst": 130,
+      "target": 126,
+      "best": 122
+     },
+     "plan": {
+      "read": "They have come down to 108 P on day 10 and call it their last step. That is past our limit once day 10's cost is counted, so we cannot accept it. They have stuck to day 10 throughout and passed on our earlier 116 P at day 0, so they seem to value the late day.",
+      "target": 126,
+      "best": 122,
+      "worst": 130,
+      "days": 0,
+      "angle": "One clear, final-sounding offer with two ticks left: name day 0 at the target price as a firm close-now package; keep it short and decisive, with no haggling language."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 10.74,
+       "in": 1278,
+       "out": 660,
+       "cost_usd": 0.01831,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 4.93,
+       "in": 747,
+       "out": 285,
+       "cost_usd": 0.00434,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 6190,
+    "offer": {
+     "id": 10942,
+     "price": 122,
+     "tick": 1381,
      "days": 0
     }
    }

@@ -740,6 +740,483 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 1375,
+   "took_s": 10.97,
+   "cost_usd": 0.0162,
+   "obs": {
+    "view": {
+     "duel_id": 6191,
+     "role": "seller",
+     "limit": 83,
+     "currency": "P",
+     "item": "El Frutero de Argumosa",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.15,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hola, Rival Sol, voy con prisa: 121 por El Frutero de Argumosa y cerramos ya. Entrega inmediata.",
+      "offer": {
+       "price": 121,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1370,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Day 0 is fine for me. I can do 158 P on day 0, and I'm ready to close quickly at that number.",
+      "offer": {
+       "price": 158,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1370,
+      "decision": {
+       "action": "offer",
+       "price": 158,
+       "message": "Day 0 is fine for me. I can do 158 P on day 0, and I'm ready to close quickly at that number."
+      }
+     },
+     {
+      "mine": false,
+      "text": "130, último paso. Entrega inmediata.",
+      "offer": {
+       "price": 130,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1371,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've made a real step here: 151 P on day 0. That's a fair move toward closing quickly.",
+      "offer": {
+       "price": 151,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1371,
+      "decision": {
+       "action": "offer",
+       "price": 151,
+       "message": "I've made a real step here: 151 P on day 0. That's a fair move toward closing quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Venga, 139; no tengo mucho tiempo. Entrega inmediata.",
+      "offer": {
+       "price": 139,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1372,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 139,
+     "days": 0
+    },
+    "tick": 1375,
+    "ticks_left": 11,
+    "rounds": 2,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6,
+     70.6,
+     33.3,
+     20.7,
+     50.0,
+     11.5,
+     40.300000000000004
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "I'm holding my offer as it stands.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "I'm holding my offer as it stands."
+     },
+     "band": {
+      "worst": 145,
+      "target": 151,
+      "best": 152
+     },
+     "plan": {
+      "read": "They are stepping up about 9 P each message (121, 130, 139) on day 0, and the 'no time' talk is pressure, not evidence. Their standing offer is comfortably within our range, and they keep moving while we stay silent.",
+      "target": 151,
+      "best": 152,
+      "worst": 145,
+      "days": 0,
+      "angle": "Hold at 151 on day 0 and send nothing this tick. If they come up to 145 or better, accept."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.99,
+       "in": 1031,
+       "out": 541,
+       "cost_usd": 0.01494,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.98,
+       "in": 471,
+       "out": 32,
+       "cost_usd": 0.00126,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 1378,
+   "took_s": 13.56,
+   "cost_usd": 0.018750000000000003,
+   "obs": {
+    "view": {
+     "duel_id": 6191,
+     "role": "seller",
+     "limit": 83,
+     "currency": "P",
+     "item": "El Frutero de Argumosa",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.15,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hola, Rival Sol, voy con prisa: 121 por El Frutero de Argumosa y cerramos ya. Entrega inmediata.",
+      "offer": {
+       "price": 121,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1370,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Day 0 is fine for me. I can do 158 P on day 0, and I'm ready to close quickly at that number.",
+      "offer": {
+       "price": 158,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1370,
+      "decision": {
+       "action": "offer",
+       "price": 158,
+       "message": "Day 0 is fine for me. I can do 158 P on day 0, and I'm ready to close quickly at that number."
+      }
+     },
+     {
+      "mine": false,
+      "text": "130, último paso. Entrega inmediata.",
+      "offer": {
+       "price": 130,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1371,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've made a real step here: 151 P on day 0. That's a fair move toward closing quickly.",
+      "offer": {
+       "price": 151,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1371,
+      "decision": {
+       "action": "offer",
+       "price": 151,
+       "message": "I've made a real step here: 151 P on day 0. That's a fair move toward closing quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Venga, 139; no tengo mucho tiempo. Entrega inmediata.",
+      "offer": {
+       "price": 139,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1372,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 139,
+     "days": 0
+    },
+    "tick": 1378,
+    "ticks_left": 8,
+    "rounds": 2,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6,
+     70.6,
+     33.3,
+     20.7,
+     50.0,
+     11.5,
+     40.300000000000004
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm holding at 151 P on day 0.",
+    "price": 151,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 151,
+      "message": "I'm holding at 151 P on day 0."
+     },
+     "band": {
+      "worst": 145,
+      "target": 151,
+      "best": 151
+     },
+     "plan": {
+      "read": "They keep stepping up about 9 P per message (121→130→139) on day 0 while claiming haste; the 'último paso' talk is contradicted by their own continued moves, so more movement is likely if we stay quiet.",
+      "target": 151,
+      "best": 151,
+      "worst": 145,
+      "days": 0,
+      "angle": "Hold at 151 on day 0 and send nothing this tick; if they come up to 145 or better on day 0, accept it."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 10.64,
+       "in": 1031,
+       "out": 610,
+       "cost_usd": 0.01632,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.92,
+       "in": 472,
+       "out": 149,
+       "cost_usd": 0.00243,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 1381,
+   "took_s": 11.85,
+   "cost_usd": 0.01881,
+   "obs": {
+    "view": {
+     "duel_id": 6191,
+     "role": "seller",
+     "limit": 83,
+     "currency": "P",
+     "item": "El Frutero de Argumosa",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.15,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hola, Rival Sol, voy con prisa: 121 por El Frutero de Argumosa y cerramos ya. Entrega inmediata.",
+      "offer": {
+       "price": 121,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1370,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Day 0 is fine for me. I can do 158 P on day 0, and I'm ready to close quickly at that number.",
+      "offer": {
+       "price": 158,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1370,
+      "decision": {
+       "action": "offer",
+       "price": 158,
+       "message": "Day 0 is fine for me. I can do 158 P on day 0, and I'm ready to close quickly at that number."
+      }
+     },
+     {
+      "mine": false,
+      "text": "130, último paso. Entrega inmediata.",
+      "offer": {
+       "price": 130,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1371,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've made a real step here: 151 P on day 0. That's a fair move toward closing quickly.",
+      "offer": {
+       "price": 151,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1371,
+      "decision": {
+       "action": "offer",
+       "price": 151,
+       "message": "I've made a real step here: 151 P on day 0. That's a fair move toward closing quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Venga, 139; no tengo mucho tiempo. Entrega inmediata.",
+      "offer": {
+       "price": 139,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1372,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 139,
+     "days": 0
+    },
+    "tick": 1381,
+    "ticks_left": 5,
+    "rounds": 2,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6,
+     70.6,
+     33.3,
+     20.7,
+     50.0,
+     11.5,
+     40.300000000000004
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Accepted: 139 P on day 0. Let's close it.",
+    "price": 139,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "accept",
+      "price": 139,
+      "message": "Accepted: 139 P on day 0. Let's close it."
+     },
+     "band": {
+      "worst": 139,
+      "target": 139,
+      "best": 145
+     },
+     "plan": {
+      "read": "They have climbed steadily, 121 to 130 to 139, all on day 0, and the 'no time' line is pressure, not evidence. 139 on day 0 is comfortably inside our limit, and the 12 P gap is small next to how far both sides have moved, so another round mostly burns value.",
+      "target": 139,
+      "best": 145,
+      "worst": 139,
+      "days": 0,
+      "angle": "Accept their 139 P on day 0 now and close the deal; if you send anything else, make it a single quick split at 145 P on day 0, framed as closing right away."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 9.95,
+       "in": 1031,
+       "out": 664,
+       "cost_usd": 0.0174,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.9,
+       "in": 508,
+       "out": 39,
+       "cost_usd": 0.00141,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -866,6 +1343,59 @@
      "tick": 1371,
      "days": 0
     }
+   }
+  },
+  {
+   "tick": 1381,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Accepted: 139 P on day 0. Let's close it.",
+    "price": 139,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "accept",
+      "price": 139,
+      "message": "Accepted: 139 P on day 0. Let's close it."
+     },
+     "band": {
+      "worst": 139,
+      "target": 139,
+      "best": 145
+     },
+     "plan": {
+      "read": "They have climbed steadily, 121 to 130 to 139, all on day 0, and the 'no time' line is pressure, not evidence. 139 on day 0 is comfortably inside our limit, and the 12 P gap is small next to how far both sides have moved, so another round mostly burns value.",
+      "target": 139,
+      "best": 145,
+      "worst": 139,
+      "days": 0,
+      "angle": "Accept their 139 P on day 0 now and close the deal; if you send anything else, make it a single quick split at 145 P on day 0, framed as closing right away."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 9.95,
+       "in": 1031,
+       "out": 664,
+       "cost_usd": 0.0174,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.9,
+       "in": 508,
+       "out": 39,
+       "cost_usd": 0.00141,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 139,
+    "settles_at_tick": 1382
    }
   }
  ]
