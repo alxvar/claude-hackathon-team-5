@@ -531,3 +531,12 @@
 {"id": 30448, "tick": 571, "t": 6.0833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2405, "session": 2, "status": "no_deal", "item": "El Mesón de la Cava"}}
 {"id": 30451, "tick": 571, "t": 6.0833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2539, "session": 2, "status": "deal", "item": "Café en Goya"}}
 {"id": 30454, "tick": 571, "t": 6.0833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2549, "session": 2, "status": "deal", "item": "Mercado de la Paz"}}
+{"id": 30559, "tick": 573, "t": 6.1, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2487, "session": 2, "status": "no_deal", "item": "El Mesón de la Cava"}}
+{"id": 30562, "tick": 573, "t": 6.1, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2491, "session": 2, "status": "no_deal", "item": "La Heroína del Dos de Mayo"}}
+{"id": 30565, "tick": 573, "t": 6.1, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2552, "session": 2, "status": "deal", "item": "La Heroína del Dos de Mayo"}}
+{"id": 30568, "tick": 573, "t": 6.1, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2554, "session": 2, "status": "no_deal", "item": "Café en Goya"}}
+{"id": 30628, "tick": 574, "t": 6.1083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2579, "session": 2, "status": "deal", "item": "Mercado de la Paz"}}
+{"id": 30663, "tick": 575, "t": 6.1167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2509, "session": 2, "status": "deal", "item": "El Mesón de la Cava"}}
+{"id": 30719, "tick": 576, "t": 6.125, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2406, "session": 2, "status": "deal", "item": "La Heroína del Dos de Mayo"}}
+{"id": 30722, "tick": 576, "t": 6.125, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2573, "session": 2, "status": "deal", "item": "El Mesón de la Cava"}}
+{"id": 30764, "tick": 577, "t": 6.1333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2511, "session": 2, "status": "no_deal", "item": "Mercado de la Paz"}}
