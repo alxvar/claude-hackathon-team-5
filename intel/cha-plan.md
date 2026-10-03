@@ -178,7 +178,9 @@ Commands run from the repo root with the key loaded: `set -a; . ./.env; set +a; 
 2. **09:01** · `tools/daemons.sh status`. Book with floor 0 (its only bids are the CHA page's):
    `CASH_FLOOR=0 MIN_GAIN_SELL=2 tools/daemons.sh restart book`. Opps separately at 100:
    `CASH_FLOOR=100 tools/daemons.sh restart opps`. **Trader stays stopped until Duels III ends** (directive 10:35).
-3. **At the release** · add the 10 CHA bids to run/book.json (keep the asks).
+3. **At the release** · add the 10 CHA bids to run/book.json (keep the asks), with the floors of the degrade tier.
+   **≈ 09:32** · read `/api/me` cash = C after the allowance; adjust the tier if it differs from the expected (Saturday
+   close + 150) and tell the Chief. Tier C: add CHA-01..04 only once both rares are in.
 4. **First bid out** · `/api/me` cash before and after (does the server hold bid cash?); `expires_tick − created_tick`
    (×4?); it sits on El Rastro.
 5. **~10:00** · rares not filled: remove the entry, check `/api/me/offers`, then
@@ -189,6 +191,7 @@ Commands run from the repo root with the key loaded: `set -a; . ./.env; set +a; 
    same with `--cards <uncommons> --max-buy 25`.
 7. **By ~11:20** · every dealer thread closed (Duels III ≈ 11:29). Log `neg_points` before and after each deal:
    expect value − price on team buys, 0 on dealer buys.
-8. **When CHA-05 or CHA-08 fills** · set the other's `price` to its floor (72 / 90). **12:30** · if neither filled:
+8. **When CHA-05 or CHA-08 fills** · set the other's `price` to its floor (72 / 90); in tiers A-C, its `price` and
+   `floor` to min(72 / 90, free cash). **12:30** · if neither filled:
    remove CHA-08, `abuela_bot.py --dealer abuela --cards CHA-08 --max-buy 25 --deals 1 --cash-floor <CHA-05 bid>`,
    then CHA-05's `price` to 72. Expect **+50** on the closing team trade.
