@@ -11,7 +11,7 @@ _Lucas's Duel Lab session. It never writes to the game or to `agents/duelist/`._
   fixed below._
 - _**Labels:** [V] measured on our records or code, [L] modelled or inferred, [?] unknown._
 
-## FINAL for Sunday (overnight program, Sun 00:30): Duels III (≈ 11:00) and the Final (≈ 14:00)
+## FINAL for Sunday (overnight program, Sat 23:45): Duels III (≈ 11:00) and the Final (≈ 14:00)
 
 _Both sessions: 12 ticks, 10% decay, 4 at once, price + day (`/api/schedule` at 22:08). Duels III: 68 duels; the
 Final: 34._
@@ -33,7 +33,7 @@ Final: 34._
 
 ```json
 {
- "_note": "Duel Lab, Sun 00:15, for Duels III / Final (12 ticks, 10% decay). Role-aware simulator calibrated on 62 Duels II duels: vs main today +0.039/duel (path A: this file + the guards), robust in 5 worlds x 2 scorings x 2 reciprocity levels and 12 extreme worlds. MONO_END_SHARE 0.5 ties 0.25 and beats off. Evidence: intel/duel-lab.md FINAL. Aleks approves before it goes live.",
+ "_note": "Duel Lab, Sat 23:45, for Duels III / Final (12 ticks, 10% decay). Role-aware simulator calibrated on 62 Duels II duels: vs main today +0.039/duel (path A: this file + the guards), robust in 5 worlds x 2 scorings x 2 reciprocity levels and 12 extreme worlds. MONO_END_SHARE 0.5 ties 0.25 and beats off. Evidence: intel/duel-lab.md FINAL. Aleks approves before it goes live.",
  "MIN_STEP_P": 5,
  "MAX_STEP_SHARE": 0.18,
  "LATE_SWITCH_LEFT": 2,
