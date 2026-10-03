@@ -67,6 +67,58 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 525,
+   "raw": {
+    "duel": 2494,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "La Heroína del Dos de Mayo",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 57,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 538,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 4146,
+     "price": 95,
+     "tick": 522,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4202,
+     "price": 64,
+     "tick": 525,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 522,
+      "from": "you",
+      "text": "La Heroína del Dos de Mayo is a rare, well-regarded vessel with real historical pedigree, and pieces of this quality seldom come to market. I'm offering it at 95 P and welcome a serious counteroffer.",
+      "price": 95,
+      "days": null
+     },
+     {
+      "tick": 525,
+      "from": "Rival Sol",
+      "text": "Thank you, that's kind. I could do 64 P and close it today.",
+      "price": 64,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {

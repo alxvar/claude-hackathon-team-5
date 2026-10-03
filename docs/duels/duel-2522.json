@@ -484,6 +484,675 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 522,
+   "raw": {
+    "duel": 2522,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Café en Goya",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 44,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Plata",
+    "deadline_tick": 535,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 4148,
+     "price": 68,
+     "tick": 522,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4139,
+     "price": 56,
+     "tick": 522,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 519,
+      "from": "Rival Plata",
+      "text": "I can do 52. Let's close it quickly.",
+      "price": 52,
+      "days": null
+     },
+     {
+      "tick": 519,
+      "from": "you",
+      "text": "Café en Goya is a carefully sourced, freshly roasted coffee with a rich, balanced cup, and I'm offering it at 72 P. That price reflects its quality and origin, and I'm glad to hear your thoughts.",
+      "price": 72,
+      "days": null
+     },
+     {
+      "tick": 520,
+      "from": "Rival Plata",
+      "text": "I can do 54. Let's close it quickly.",
+      "price": 54,
+      "days": null
+     },
+     {
+      "tick": 520,
+      "from": "you",
+      "text": "I've come down to 70 P as a real step toward you. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. If you can make a meaningfully bigger move, we can finish this quickly.",
+      "price": 70,
+      "days": null
+     },
+     {
+      "tick": 521,
+      "from": "Rival Plata",
+      "text": "I can do 55. Let's close it quickly.",
+      "price": 55,
+      "days": null
+     },
+     {
+      "tick": 521,
+      "from": "you",
+      "text": "I've moved to 69 P to meet you partway. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. A meaningfully larger move from you would let us finish this.",
+      "price": 69,
+      "days": null
+     },
+     {
+      "tick": 522,
+      "from": "Rival Plata",
+      "text": "I can do 56. Let's close it quickly.",
+      "price": 56,
+      "days": null
+     },
+     {
+      "tick": 522,
+      "from": "you",
+      "text": "I've taken another step to 68 P. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. Moves of one prima won't get us there quickly, so a materially larger step from you would help us finish.",
+      "price": 68,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 523,
+   "raw": {
+    "duel": 2522,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Café en Goya",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 44,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Plata",
+    "deadline_tick": 535,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 4148,
+     "price": 68,
+     "tick": 522,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4160,
+     "price": 57,
+     "tick": 523,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 519,
+      "from": "Rival Plata",
+      "text": "I can do 52. Let's close it quickly.",
+      "price": 52,
+      "days": null
+     },
+     {
+      "tick": 519,
+      "from": "you",
+      "text": "Café en Goya is a carefully sourced, freshly roasted coffee with a rich, balanced cup, and I'm offering it at 72 P. That price reflects its quality and origin, and I'm glad to hear your thoughts.",
+      "price": 72,
+      "days": null
+     },
+     {
+      "tick": 520,
+      "from": "Rival Plata",
+      "text": "I can do 54. Let's close it quickly.",
+      "price": 54,
+      "days": null
+     },
+     {
+      "tick": 520,
+      "from": "you",
+      "text": "I've come down to 70 P as a real step toward you. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. If you can make a meaningfully bigger move, we can finish this quickly.",
+      "price": 70,
+      "days": null
+     },
+     {
+      "tick": 521,
+      "from": "Rival Plata",
+      "text": "I can do 55. Let's close it quickly.",
+      "price": 55,
+      "days": null
+     },
+     {
+      "tick": 521,
+      "from": "you",
+      "text": "I've moved to 69 P to meet you partway. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. A meaningfully larger move from you would let us finish this.",
+      "price": 69,
+      "days": null
+     },
+     {
+      "tick": 522,
+      "from": "Rival Plata",
+      "text": "I can do 56. Let's close it quickly.",
+      "price": 56,
+      "days": null
+     },
+     {
+      "tick": 522,
+      "from": "you",
+      "text": "I've taken another step to 68 P. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. Moves of one prima won't get us there quickly, so a materially larger step from you would help us finish.",
+      "price": 68,
+      "days": null
+     },
+     {
+      "tick": 523,
+      "from": "Rival Plata",
+      "text": "I can do 57. Let's close it quickly.",
+      "price": 57,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 523,
+   "raw": {
+    "duel": 2522,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Café en Goya",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 44,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Plata",
+    "deadline_tick": 535,
+    "decay_per_round": 0.06,
+    "rounds": 5,
+    "your_offer": {
+     "id": 4172,
+     "price": 67,
+     "tick": 523,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4160,
+     "price": 57,
+     "tick": 523,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 519,
+      "from": "Rival Plata",
+      "text": "I can do 52. Let's close it quickly.",
+      "price": 52,
+      "days": null
+     },
+     {
+      "tick": 519,
+      "from": "you",
+      "text": "Café en Goya is a carefully sourced, freshly roasted coffee with a rich, balanced cup, and I'm offering it at 72 P. That price reflects its quality and origin, and I'm glad to hear your thoughts.",
+      "price": 72,
+      "days": null
+     },
+     {
+      "tick": 520,
+      "from": "Rival Plata",
+      "text": "I can do 54. Let's close it quickly.",
+      "price": 54,
+      "days": null
+     },
+     {
+      "tick": 520,
+      "from": "you",
+      "text": "I've come down to 70 P as a real step toward you. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. If you can make a meaningfully bigger move, we can finish this quickly.",
+      "price": 70,
+      "days": null
+     },
+     {
+      "tick": 521,
+      "from": "Rival Plata",
+      "text": "I can do 55. Let's close it quickly.",
+      "price": 55,
+      "days": null
+     },
+     {
+      "tick": 521,
+      "from": "you",
+      "text": "I've moved to 69 P to meet you partway. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. A meaningfully larger move from you would let us finish this.",
+      "price": 69,
+      "days": null
+     },
+     {
+      "tick": 522,
+      "from": "Rival Plata",
+      "text": "I can do 56. Let's close it quickly.",
+      "price": 56,
+      "days": null
+     },
+     {
+      "tick": 522,
+      "from": "you",
+      "text": "I've taken another step to 68 P. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. Moves of one prima won't get us there quickly, so a materially larger step from you would help us finish.",
+      "price": 68,
+      "days": null
+     },
+     {
+      "tick": 523,
+      "from": "Rival Plata",
+      "text": "I can do 57. Let's close it quickly.",
+      "price": 57,
+      "days": null
+     },
+     {
+      "tick": 523,
+      "from": "you",
+      "text": "I'll step to 67 P, matching your pace. Café en Goya is freshly roasted with a rich, balanced cup, and a somewhat bigger move from you would let us wrap this up fast.",
+      "price": 67,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 524,
+   "raw": {
+    "duel": 2522,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Café en Goya",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 44,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Plata",
+    "deadline_tick": 535,
+    "decay_per_round": 0.06,
+    "rounds": 5,
+    "your_offer": {
+     "id": 4172,
+     "price": 67,
+     "tick": 523,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4190,
+     "price": 58,
+     "tick": 524,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 519,
+      "from": "Rival Plata",
+      "text": "I can do 52. Let's close it quickly.",
+      "price": 52,
+      "days": null
+     },
+     {
+      "tick": 519,
+      "from": "you",
+      "text": "Café en Goya is a carefully sourced, freshly roasted coffee with a rich, balanced cup, and I'm offering it at 72 P. That price reflects its quality and origin, and I'm glad to hear your thoughts.",
+      "price": 72,
+      "days": null
+     },
+     {
+      "tick": 520,
+      "from": "Rival Plata",
+      "text": "I can do 54. Let's close it quickly.",
+      "price": 54,
+      "days": null
+     },
+     {
+      "tick": 520,
+      "from": "you",
+      "text": "I've come down to 70 P as a real step toward you. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. If you can make a meaningfully bigger move, we can finish this quickly.",
+      "price": 70,
+      "days": null
+     },
+     {
+      "tick": 521,
+      "from": "Rival Plata",
+      "text": "I can do 55. Let's close it quickly.",
+      "price": 55,
+      "days": null
+     },
+     {
+      "tick": 521,
+      "from": "you",
+      "text": "I've moved to 69 P to meet you partway. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. A meaningfully larger move from you would let us finish this.",
+      "price": 69,
+      "days": null
+     },
+     {
+      "tick": 522,
+      "from": "Rival Plata",
+      "text": "I can do 56. Let's close it quickly.",
+      "price": 56,
+      "days": null
+     },
+     {
+      "tick": 522,
+      "from": "you",
+      "text": "I've taken another step to 68 P. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. Moves of one prima won't get us there quickly, so a materially larger step from you would help us finish.",
+      "price": 68,
+      "days": null
+     },
+     {
+      "tick": 523,
+      "from": "Rival Plata",
+      "text": "I can do 57. Let's close it quickly.",
+      "price": 57,
+      "days": null
+     },
+     {
+      "tick": 523,
+      "from": "you",
+      "text": "I'll step to 67 P, matching your pace. Café en Goya is freshly roasted with a rich, balanced cup, and a somewhat bigger move from you would let us wrap this up fast.",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 524,
+      "from": "Rival Plata",
+      "text": "I can do 58. Let's close it quickly.",
+      "price": 58,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 524,
+   "raw": {
+    "duel": 2522,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Café en Goya",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 44,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Plata",
+    "deadline_tick": 535,
+    "decay_per_round": 0.06,
+    "rounds": 6,
+    "your_offer": {
+     "id": 4199,
+     "price": 65,
+     "tick": 524,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4190,
+     "price": 58,
+     "tick": 524,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 519,
+      "from": "Rival Plata",
+      "text": "I can do 52. Let's close it quickly.",
+      "price": 52,
+      "days": null
+     },
+     {
+      "tick": 519,
+      "from": "you",
+      "text": "Café en Goya is a carefully sourced, freshly roasted coffee with a rich, balanced cup, and I'm offering it at 72 P. That price reflects its quality and origin, and I'm glad to hear your thoughts.",
+      "price": 72,
+      "days": null
+     },
+     {
+      "tick": 520,
+      "from": "Rival Plata",
+      "text": "I can do 54. Let's close it quickly.",
+      "price": 54,
+      "days": null
+     },
+     {
+      "tick": 520,
+      "from": "you",
+      "text": "I've come down to 70 P as a real step toward you. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. If you can make a meaningfully bigger move, we can finish this quickly.",
+      "price": 70,
+      "days": null
+     },
+     {
+      "tick": 521,
+      "from": "Rival Plata",
+      "text": "I can do 55. Let's close it quickly.",
+      "price": 55,
+      "days": null
+     },
+     {
+      "tick": 521,
+      "from": "you",
+      "text": "I've moved to 69 P to meet you partway. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. A meaningfully larger move from you would let us finish this.",
+      "price": 69,
+      "days": null
+     },
+     {
+      "tick": 522,
+      "from": "Rival Plata",
+      "text": "I can do 56. Let's close it quickly.",
+      "price": 56,
+      "days": null
+     },
+     {
+      "tick": 522,
+      "from": "you",
+      "text": "I've taken another step to 68 P. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. Moves of one prima won't get us there quickly, so a materially larger step from you would help us finish.",
+      "price": 68,
+      "days": null
+     },
+     {
+      "tick": 523,
+      "from": "Rival Plata",
+      "text": "I can do 57. Let's close it quickly.",
+      "price": 57,
+      "days": null
+     },
+     {
+      "tick": 523,
+      "from": "you",
+      "text": "I'll step to 67 P, matching your pace. Café en Goya is freshly roasted with a rich, balanced cup, and a somewhat bigger move from you would let us wrap this up fast.",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 524,
+      "from": "Rival Plata",
+      "text": "I can do 58. Let's close it quickly.",
+      "price": 58,
+      "days": null
+     },
+     {
+      "tick": 524,
+      "from": "you",
+      "text": "I'll make one clear step to 65 P. Café en Goya is freshly roasted with a rich, balanced cup, and I'd ask for a substantially larger move from you toward the middle so we can finish now.",
+      "price": 65,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 525,
+   "raw": {
+    "duel": 2522,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Café en Goya",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 44,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Plata",
+    "deadline_tick": 535,
+    "decay_per_round": 0.06,
+    "rounds": 6,
+    "your_offer": {
+     "id": 4199,
+     "price": 65,
+     "tick": 524,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4206,
+     "price": 59,
+     "tick": 525,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 519,
+      "from": "Rival Plata",
+      "text": "I can do 52. Let's close it quickly.",
+      "price": 52,
+      "days": null
+     },
+     {
+      "tick": 519,
+      "from": "you",
+      "text": "Café en Goya is a carefully sourced, freshly roasted coffee with a rich, balanced cup, and I'm offering it at 72 P. That price reflects its quality and origin, and I'm glad to hear your thoughts.",
+      "price": 72,
+      "days": null
+     },
+     {
+      "tick": 520,
+      "from": "Rival Plata",
+      "text": "I can do 54. Let's close it quickly.",
+      "price": 54,
+      "days": null
+     },
+     {
+      "tick": 520,
+      "from": "you",
+      "text": "I've come down to 70 P as a real step toward you. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. If you can make a meaningfully bigger move, we can finish this quickly.",
+      "price": 70,
+      "days": null
+     },
+     {
+      "tick": 521,
+      "from": "Rival Plata",
+      "text": "I can do 55. Let's close it quickly.",
+      "price": 55,
+      "days": null
+     },
+     {
+      "tick": 521,
+      "from": "you",
+      "text": "I've moved to 69 P to meet you partway. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. A meaningfully larger move from you would let us finish this.",
+      "price": 69,
+      "days": null
+     },
+     {
+      "tick": 522,
+      "from": "Rival Plata",
+      "text": "I can do 56. Let's close it quickly.",
+      "price": 56,
+      "days": null
+     },
+     {
+      "tick": 522,
+      "from": "you",
+      "text": "I've taken another step to 68 P. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. Moves of one prima won't get us there quickly, so a materially larger step from you would help us finish.",
+      "price": 68,
+      "days": null
+     },
+     {
+      "tick": 523,
+      "from": "Rival Plata",
+      "text": "I can do 57. Let's close it quickly.",
+      "price": 57,
+      "days": null
+     },
+     {
+      "tick": 523,
+      "from": "you",
+      "text": "I'll step to 67 P, matching your pace. Café en Goya is freshly roasted with a rich, balanced cup, and a somewhat bigger move from you would let us wrap this up fast.",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 524,
+      "from": "Rival Plata",
+      "text": "I can do 58. Let's close it quickly.",
+      "price": 58,
+      "days": null
+     },
+     {
+      "tick": 524,
+      "from": "you",
+      "text": "I'll make one clear step to 65 P. Café en Goya is freshly roasted with a rich, balanced cup, and I'd ask for a substantially larger move from you toward the middle so we can finish now.",
+      "price": 65,
+      "days": null
+     },
+     {
+      "tick": 525,
+      "from": "Rival Plata",
+      "text": "I can do 59. Let's close it quickly.",
+      "price": 59,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -852,6 +1521,588 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 522,
+   "took_s": 5.95,
+   "cost_usd": 0.00791,
+   "obs": {
+    "view": {
+     "duel_id": 2522,
+     "role": "seller",
+     "limit": 44,
+     "currency": "P",
+     "item": "Café en Goya",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "I can do 52. Let's close it quickly.",
+      "offer": {
+       "price": 52,
+       "days": null
+      },
+      "accept": false,
+      "tick": 519,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Café en Goya is a carefully sourced, freshly roasted coffee with a rich, balanced cup, and I'm offering it at 72 P. That price reflects its quality and origin, and I'm glad to hear your thoughts.",
+      "offer": {
+       "price": 72,
+       "days": null
+      },
+      "accept": false,
+      "tick": 519,
+      "decision": {
+       "action": "offer",
+       "price": 72,
+       "message": "Café en Goya is a carefully sourced, freshly roasted coffee with a rich, balanced cup, and I'm offering it at 72 P. That price reflects its quality and origin, and I'm glad to hear your thoughts."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I can do 54. Let's close it quickly.",
+      "offer": {
+       "price": 54,
+       "days": null
+      },
+      "accept": false,
+      "tick": 520,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've come down to 70 P as a real step toward you. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. If you can make a meaningfully bigger move, we can finish this quickly.",
+      "offer": {
+       "price": 70,
+       "days": null
+      },
+      "accept": false,
+      "tick": 520,
+      "decision": {
+       "action": "offer",
+       "price": 70,
+       "message": "I've come down to 70 P as a real step toward you. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. If you can make a meaningfully bigger move, we can finish this quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I can do 55. Let's close it quickly.",
+      "offer": {
+       "price": 55,
+       "days": null
+      },
+      "accept": false,
+      "tick": 521,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've moved to 69 P to meet you partway. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. A meaningfully larger move from you would let us finish this.",
+      "offer": {
+       "price": 69,
+       "days": null
+      },
+      "accept": false,
+      "tick": 521,
+      "decision": {
+       "action": "offer",
+       "price": 69,
+       "message": "I've moved to 69 P to meet you partway. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. A meaningfully larger move from you would let us finish this."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I can do 56. Let's close it quickly.",
+      "offer": {
+       "price": 56,
+       "days": null
+      },
+      "accept": false,
+      "tick": 522,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 56,
+     "days": null
+    },
+    "tick": 522,
+    "ticks_left": 13,
+    "rounds": 3
+   },
+   "move": {
+    "action": "offer",
+    "text": "I've taken another step to 68 P. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. Moves of one prima won't get us there quickly, so a materially larger step from you would help us finish.",
+    "price": 68,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 68,
+      "message": "I've taken another step to 68 P. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. Moves of one prima won't get us there quickly, so a materially larger step from you would help us finish."
+     },
+     "band": {
+      "worst": 67,
+      "target": 68,
+      "best": 68
+     },
+     "plan": {
+      "read": "They moved 1 P again, to 56, with the same scripted line. Their steps are steady but tiny, so treat 'close quickly' as pressure rather than a signal of flexibility.",
+      "target": 68,
+      "best": 68,
+      "worst": 67,
+      "days": null,
+      "angle": "Take one modest step to 68, stress the coffee's quality, and press them for a materially larger move if they want to close soon."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.77,
+       "in": 786,
+       "out": 131,
+       "cost_usd": 0.00576,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.18,
+       "in": 597,
+       "out": 96,
+       "cost_usd": 0.00215,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 523,
+   "took_s": 5.94,
+   "cost_usd": 0.00848,
+   "obs": {
+    "view": {
+     "duel_id": 2522,
+     "role": "seller",
+     "limit": 44,
+     "currency": "P",
+     "item": "Café en Goya",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "I can do 52. Let's close it quickly.",
+      "offer": {
+       "price": 52,
+       "days": null
+      },
+      "accept": false,
+      "tick": 519,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Café en Goya is a carefully sourced, freshly roasted coffee with a rich, balanced cup, and I'm offering it at 72 P. That price reflects its quality and origin, and I'm glad to hear your thoughts.",
+      "offer": {
+       "price": 72,
+       "days": null
+      },
+      "accept": false,
+      "tick": 519,
+      "decision": {
+       "action": "offer",
+       "price": 72,
+       "message": "Café en Goya is a carefully sourced, freshly roasted coffee with a rich, balanced cup, and I'm offering it at 72 P. That price reflects its quality and origin, and I'm glad to hear your thoughts."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I can do 54. Let's close it quickly.",
+      "offer": {
+       "price": 54,
+       "days": null
+      },
+      "accept": false,
+      "tick": 520,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've come down to 70 P as a real step toward you. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. If you can make a meaningfully bigger move, we can finish this quickly.",
+      "offer": {
+       "price": 70,
+       "days": null
+      },
+      "accept": false,
+      "tick": 520,
+      "decision": {
+       "action": "offer",
+       "price": 70,
+       "message": "I've come down to 70 P as a real step toward you. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. If you can make a meaningfully bigger move, we can finish this quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I can do 55. Let's close it quickly.",
+      "offer": {
+       "price": 55,
+       "days": null
+      },
+      "accept": false,
+      "tick": 521,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've moved to 69 P to meet you partway. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. A meaningfully larger move from you would let us finish this.",
+      "offer": {
+       "price": 69,
+       "days": null
+      },
+      "accept": false,
+      "tick": 521,
+      "decision": {
+       "action": "offer",
+       "price": 69,
+       "message": "I've moved to 69 P to meet you partway. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. A meaningfully larger move from you would let us finish this."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I can do 56. Let's close it quickly.",
+      "offer": {
+       "price": 56,
+       "days": null
+      },
+      "accept": false,
+      "tick": 522,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've taken another step to 68 P. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. Moves of one prima won't get us there quickly, so a materially larger step from you would help us finish.",
+      "offer": {
+       "price": 68,
+       "days": null
+      },
+      "accept": false,
+      "tick": 522,
+      "decision": {
+       "action": "offer",
+       "price": 68,
+       "message": "I've taken another step to 68 P. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. Moves of one prima won't get us there quickly, so a materially larger step from you would help us finish."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I can do 57. Let's close it quickly.",
+      "offer": {
+       "price": 57,
+       "days": null
+      },
+      "accept": false,
+      "tick": 523,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 57,
+     "days": null
+    },
+    "tick": 523,
+    "ticks_left": 12,
+    "rounds": 4
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'll step to 67 P, matching your pace. Café en Goya is freshly roasted with a rich, balanced cup, and a somewhat bigger move from you would let us wrap this up fast.",
+    "price": 67,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 67,
+      "message": "I'll step to 67 P, matching your pace. Café en Goya is freshly roasted with a rich, balanced cup, and a somewhat bigger move from you would let us wrap this up fast."
+     },
+     "band": {
+      "worst": 66,
+      "target": 67,
+      "best": 67
+     },
+     "plan": {
+      "read": "They are moving 1 P per tick (now 57), a steady mechanical concession pattern; their 'close quickly' line is boilerplate, not a real deadline signal.",
+      "target": 67,
+      "best": 67,
+      "worst": 66,
+      "days": null,
+      "angle": "Step to 67, match their pace rather than exceed it, and stress that a bigger jump from them would close this fast."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.84,
+       "in": 935,
+       "out": 124,
+       "cost_usd": 0.00622,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.1,
+       "in": 721,
+       "out": 82,
+       "cost_usd": 0.00226,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 524,
+   "took_s": 5.67,
+   "cost_usd": 0.00935,
+   "obs": {
+    "view": {
+     "duel_id": 2522,
+     "role": "seller",
+     "limit": 44,
+     "currency": "P",
+     "item": "Café en Goya",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "I can do 52. Let's close it quickly.",
+      "offer": {
+       "price": 52,
+       "days": null
+      },
+      "accept": false,
+      "tick": 519,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Café en Goya is a carefully sourced, freshly roasted coffee with a rich, balanced cup, and I'm offering it at 72 P. That price reflects its quality and origin, and I'm glad to hear your thoughts.",
+      "offer": {
+       "price": 72,
+       "days": null
+      },
+      "accept": false,
+      "tick": 519,
+      "decision": {
+       "action": "offer",
+       "price": 72,
+       "message": "Café en Goya is a carefully sourced, freshly roasted coffee with a rich, balanced cup, and I'm offering it at 72 P. That price reflects its quality and origin, and I'm glad to hear your thoughts."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I can do 54. Let's close it quickly.",
+      "offer": {
+       "price": 54,
+       "days": null
+      },
+      "accept": false,
+      "tick": 520,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've come down to 70 P as a real step toward you. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. If you can make a meaningfully bigger move, we can finish this quickly.",
+      "offer": {
+       "price": 70,
+       "days": null
+      },
+      "accept": false,
+      "tick": 520,
+      "decision": {
+       "action": "offer",
+       "price": 70,
+       "message": "I've come down to 70 P as a real step toward you. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. If you can make a meaningfully bigger move, we can finish this quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I can do 55. Let's close it quickly.",
+      "offer": {
+       "price": 55,
+       "days": null
+      },
+      "accept": false,
+      "tick": 521,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've moved to 69 P to meet you partway. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. A meaningfully larger move from you would let us finish this.",
+      "offer": {
+       "price": 69,
+       "days": null
+      },
+      "accept": false,
+      "tick": 521,
+      "decision": {
+       "action": "offer",
+       "price": 69,
+       "message": "I've moved to 69 P to meet you partway. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. A meaningfully larger move from you would let us finish this."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I can do 56. Let's close it quickly.",
+      "offer": {
+       "price": 56,
+       "days": null
+      },
+      "accept": false,
+      "tick": 522,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've taken another step to 68 P. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. Moves of one prima won't get us there quickly, so a materially larger step from you would help us finish.",
+      "offer": {
+       "price": 68,
+       "days": null
+      },
+      "accept": false,
+      "tick": 522,
+      "decision": {
+       "action": "offer",
+       "price": 68,
+       "message": "I've taken another step to 68 P. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. Moves of one prima won't get us there quickly, so a materially larger step from you would help us finish."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I can do 57. Let's close it quickly.",
+      "offer": {
+       "price": 57,
+       "days": null
+      },
+      "accept": false,
+      "tick": 523,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'll step to 67 P, matching your pace. Café en Goya is freshly roasted with a rich, balanced cup, and a somewhat bigger move from you would let us wrap this up fast.",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 523,
+      "decision": {
+       "action": "offer",
+       "price": 67,
+       "message": "I'll step to 67 P, matching your pace. Café en Goya is freshly roasted with a rich, balanced cup, and a somewhat bigger move from you would let us wrap this up fast."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I can do 58. Let's close it quickly.",
+      "offer": {
+       "price": 58,
+       "days": null
+      },
+      "accept": false,
+      "tick": 524,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 58,
+     "days": null
+    },
+    "tick": 524,
+    "ticks_left": 11,
+    "rounds": 5
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'll make one clear step to 65 P. Café en Goya is freshly roasted with a rich, balanced cup, and I'd ask for a substantially larger move from you toward the middle so we can finish now.",
+    "price": 65,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 65,
+      "message": "I'll make one clear step to 65 P. Café en Goya is freshly roasted with a rich, balanced cup, and I'd ask for a substantially larger move from you toward the middle so we can finish now."
+     },
+     "band": {
+      "worst": 64,
+      "target": 65,
+      "best": 66
+     },
+     "plan": {
+      "read": "They keep inching up by 1 P per tick (now 58) with a canned 'close quickly' line; they are moving steadily but slowly, so their real limit is likely well above 58.",
+      "target": 65,
+      "best": 66,
+      "worst": 64,
+      "days": null,
+      "angle": "Make one clear step to 65 to show good faith and ask for a substantially larger move toward the middle to finish now."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.62,
+       "in": 1070,
+       "out": 127,
+       "cost_usd": 0.00682,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.05,
+       "in": 841,
+       "out": 85,
+       "cost_usd": 0.00253,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1022,6 +2273,177 @@
      "id": 4123,
      "price": 69,
      "tick": 521,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 522,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I've taken another step to 68 P. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. Moves of one prima won't get us there quickly, so a materially larger step from you would help us finish.",
+    "price": 68,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 68,
+      "message": "I've taken another step to 68 P. Café en Goya is freshly roasted with a rich, balanced cup, and that price reflects its quality. Moves of one prima won't get us there quickly, so a materially larger step from you would help us finish."
+     },
+     "band": {
+      "worst": 67,
+      "target": 68,
+      "best": 68
+     },
+     "plan": {
+      "read": "They moved 1 P again, to 56, with the same scripted line. Their steps are steady but tiny, so treat 'close quickly' as pressure rather than a signal of flexibility.",
+      "target": 68,
+      "best": 68,
+      "worst": 67,
+      "days": null,
+      "angle": "Take one modest step to 68, stress the coffee's quality, and press them for a materially larger move if they want to close soon."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.77,
+       "in": 786,
+       "out": 131,
+       "cost_usd": 0.00576,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.18,
+       "in": 597,
+       "out": 96,
+       "cost_usd": 0.00215,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2522,
+    "offer": {
+     "id": 4148,
+     "price": 68,
+     "tick": 522,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 523,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'll step to 67 P, matching your pace. Café en Goya is freshly roasted with a rich, balanced cup, and a somewhat bigger move from you would let us wrap this up fast.",
+    "price": 67,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 67,
+      "message": "I'll step to 67 P, matching your pace. Café en Goya is freshly roasted with a rich, balanced cup, and a somewhat bigger move from you would let us wrap this up fast."
+     },
+     "band": {
+      "worst": 66,
+      "target": 67,
+      "best": 67
+     },
+     "plan": {
+      "read": "They are moving 1 P per tick (now 57), a steady mechanical concession pattern; their 'close quickly' line is boilerplate, not a real deadline signal.",
+      "target": 67,
+      "best": 67,
+      "worst": 66,
+      "days": null,
+      "angle": "Step to 67, match their pace rather than exceed it, and stress that a bigger jump from them would close this fast."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.84,
+       "in": 935,
+       "out": 124,
+       "cost_usd": 0.00622,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.1,
+       "in": 721,
+       "out": 82,
+       "cost_usd": 0.00226,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2522,
+    "offer": {
+     "id": 4172,
+     "price": 67,
+     "tick": 523,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 524,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'll make one clear step to 65 P. Café en Goya is freshly roasted with a rich, balanced cup, and I'd ask for a substantially larger move from you toward the middle so we can finish now.",
+    "price": 65,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 65,
+      "message": "I'll make one clear step to 65 P. Café en Goya is freshly roasted with a rich, balanced cup, and I'd ask for a substantially larger move from you toward the middle so we can finish now."
+     },
+     "band": {
+      "worst": 64,
+      "target": 65,
+      "best": 66
+     },
+     "plan": {
+      "read": "They keep inching up by 1 P per tick (now 58) with a canned 'close quickly' line; they are moving steadily but slowly, so their real limit is likely well above 58.",
+      "target": 65,
+      "best": 66,
+      "worst": 64,
+      "days": null,
+      "angle": "Make one clear step to 65 to show good faith and ask for a substantially larger move toward the middle to finish now."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.62,
+       "in": 1070,
+       "out": 127,
+       "cost_usd": 0.00682,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.05,
+       "in": 841,
+       "out": 85,
+       "cost_usd": 0.00253,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2522,
+    "offer": {
+     "id": 4199,
+     "price": 65,
+     "tick": 524,
      "days": 0
     }
    }
