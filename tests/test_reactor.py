@@ -115,7 +115,7 @@ def test_deny_and_hunt_for_a_watched_team_s_last_card(tmp_path):
     r, clock, sent, logs = make(tmp_path, {"RET-02": 12}, targets={"RET-02": [("t10", "RET")]})
     lines = r.handle(ask("t08", "RET-02", 20))
     assert lines[0].startswith("DENY ") and "last RET card t10 needs" in lines[0] and "within the 35 P cap" in lines[0]
-    assert any(s[0] == "operator" and "DENY" in s[1] for s in sent)
+    assert any(s[0] == "operator" and "DENY" in s[1] and s[2].startswith("→ ") for s in sent)   # no ^DENY echo
     assert "OVER the 35 P cap" in r.handle(ask("t08", "RET-02", 40))[0]
     hunt = r.handle(bid("t10", "RET-02", 30))
     assert hunt and hunt[0].startswith("HUNT ")

@@ -174,15 +174,23 @@ class Reactor:
         return self._targets
 
     def _targets_from_feed(self, watch: set) -> dict:
+        """Watched teams one card from a page that can still score (matchmaker.page_open: the server's
+        pages_complete beats the feed; Chief 21:45, t10's RET had closed at snapshot 1040)."""
         cat = mm.load_catalog()
         cards, pg = vr.card_index(cat), mm.pages(cat)
-        n, _, _ = mm.counts(vr.load_events(mm.FEED), cards)
-        prog = mm.progress(mm.apply_known(n, mm.load_known(), pg), pg)
+        known = mm.load_known()
+        n, last, _ = mm.counts(vr.load_events(mm.FEED), cards)
+        prog = mm.progress(mm.apply_known(n, known, pg), pg)
+        lb = {t["team"]: t for t in self.teams()} or None
         out: dict = {}
         for (team, st), have in prog.items():
             if team in watch and len(have) == len(pg[st]["cards"]) - 1:
                 card = next(c for c in pg[st]["cards"] if c not in have)
-                out.setdefault(card, []).append((team, st))
+                ok, why = mm.page_open(team, st, card, prog=prog, pg=pg, lb=lb, last=last, tick=self.tick, known=known)
+                if ok:
+                    out.setdefault(card, []).append((team, st))
+                else:
+                    self.log(f"reactor: no DENY watch on {card} for {team} {st}: {why}")
         return out
 
     def until(self, expires_tick) -> str:
@@ -271,8 +279,8 @@ class Reactor:
                 f"{value:g} → gain +{gain:g} (scores +{min(gain, SCORE_CAP):g}) · seller {maker} · cash {cash} → "
                 f"{None if cash is None else cash - need} (floor {self.cash_floor}) · until {self.until(o.get('expires_tick'))}")
         if fits and self.notifier:
-            self.notifier("operator", f"BUY {o['id']}: {'+'.join(refs)} at {price} (+{gain:g})", line, priority=4,
-                          tags=["moneybag"])
+            self.notifier("operator", f"BUY {o['id']}: {'+'.join(refs)} at {price} (+{gain:g})", "→ " + line,
+                          priority=4, tags=["moneybag"])     # "→ ": notify's stderr echo must not match ^BUY
         return self.emit(line)
 
     def deny(self, o, card, team, st, price, f, maker) -> str:
@@ -284,7 +292,8 @@ class Reactor:
                 f"{'?' if v is None else f'{v:g}'} (gain {'?' if gain is None else f'{gain:+g}'}) · until "
                 f"{self.until(o.get('expires_tick'))}")
         if self.notifier:
-            self.notifier("operator", f"DENY {o['id']}: {card} last for {team}", line, priority=4, tags=["no_entry"])
+            self.notifier("operator", f"DENY {o['id']}: {card} last for {team}", "→ " + line, priority=4,
+                          tags=["no_entry"])
         return self.emit(line)
 
     def v10_line(self, o: dict, maker) -> str:

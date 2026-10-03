@@ -61,6 +61,7 @@ TEAMS_MD, CATALOG_CACHE = ROOT / "intel" / "teams.md", ROOT / "run" / "catalog.j
 KNOWN = known_mod.KNOWN   # run/known_holdings.json: Lucas's facts from the teams themselves (tools/known.py)
 EVERY_S = 300
 NEAR = 8                   # flag a team with at least this many cards of a page seen
+RECENT_TICKS = 120         # a bid this recent for the missing card says the page is still open
 PAGE_BONUS = 0.25          # catalog values.page_bonus
 CAP = 50                   # a team trade scores at most +50 per side (GAME.md [V] for the buyer; the seller [L])
 RIVAL_GAIN_MAX = 10.0      # a rival on either side: its gain at our suggested price stays <= this (Chief 17:50)
@@ -96,6 +97,17 @@ def load_catalog(cache: Path = CATALOG_CACHE) -> dict:
             return json.loads(cache.read_text())
         except (OSError, ValueError):
             return {}
+
+
+def live_leaderboard() -> tuple[dict | None, int | None]:
+    """({team: row}, tick) from the public leaderboard: it carries pages_complete and album_filled, which the
+    collector's copy drops. (None, None) when the server doesn't answer."""
+    try:
+        with urllib.request.urlopen(URL.rstrip("/") + "/api/leaderboard", timeout=15) as r:
+            d = json.load(r)
+        return {t["team"]: t for t in d.get("teams") or []}, d.get("tick")
+    except Exception:  # noqa: BLE001
+        return None, None
 
 
 def load_teams(path: Path = LEADERBOARD) -> tuple[list, int | None]:
@@ -139,6 +151,28 @@ def progress(n: dict, pg: dict) -> dict:
         if k and st in pg and card in pg[st]["cards"]:
             out.setdefault((team, st), set()).add(card)
     return out
+
+
+def page_open(team: str, st: str, card: str, *, prog: dict, pg: dict, lb: dict | None, last: dict, tick=None,
+              known=None) -> tuple[bool, str]:
+    """Whether `team`'s page `st` can still score when it gets `card` (Chief 21:45: t10's RET page closed at snapshot
+    1040 from its starting hand, invisible to the feed). The server's pages_complete beats the feed: open when every
+    complete page it counts is one the feed already sees complete, or the team bid for `card` in the last RECENT_TICKS,
+    or it told us `card` is missing (run/known_holdings.json). lb None (no leaderboard read): open, as before."""
+    if known_mod.buys(known, team, card):
+        return True, f"{team} told us {card} is missing"
+    sig = last.get((team, card))
+    if sig and sig.get("kind") == "lack" and tick is not None and (sig.get("tick") or 0) >= tick - RECENT_TICKS:
+        return True, f"{team} bid for {card} at tick {sig.get('tick')}"
+    if lb is None:
+        return True, "no leaderboard read"
+    pc = (lb.get(team) or {}).get("pages_complete")
+    seen = sum(1 for (t, s), h in prog.items() if t == team and s in pg and len(h) == len(pg[s]["cards"]))
+    if pc is None:
+        return False, f"{team}'s pages_complete unknown"
+    if pc <= seen:
+        return True, f"the server's {pc} complete pages are all seen"
+    return False, f"may be complete: the server counts {pc} complete pages, the feed sees {seen}"
 
 
 def load_known(path: Path | None = None) -> dict:
@@ -260,7 +294,7 @@ def collects(team: str, st: str, *, coll: Collectors, prof: dict, wanted: bool =
 
 
 def matches(*, events, catalog, teams, wants=(), mult=None, coll: Collectors | None = None, known=None,
-            me=ME) -> tuple[list, list, dict, dict]:
+            lb: dict | None = None, tick=None, me=ME) -> tuple[list, list, dict, dict]:
     """(matches ranked best first, held back, progress, names). Hard rule (Chief 21:40): the giver shows a true
     duplicate or dumps the set; the receiver shows no copy and collects the set; both sides gain > 0 at the price at
     the conservative multipliers (the seller's high, the buyer's low), else no match."""
@@ -286,7 +320,12 @@ def matches(*, events, catalog, teams, wants=(), mult=None, coll: Collectors | N
         if not ok:
             continue
         have = prog.get((buyer, st), set())
-        closer = card in pg[st]["cards"] and len(have) == len(pg[st]["cards"]) - 1
+        near = card in pg[st]["cards"] and len(have) >= NEAR
+        is_open, why_open = page_open(buyer, st, card, prog=prog, pg=pg, lb=lb, last=last, tick=tick, known=known) \
+            if near else (True, "")
+        if near and not is_open and set(c["sources"]) <= {s for s in c["sources"] if s.startswith("page ")}:
+            continue                                   # only the feed's page count wants it, and that page may be done
+        closer = near and is_open and len(have) == len(pg[st]["cards"]) - 1
         sig = last.get((buyer, card))
         confirmed = wanted or bool(sig and sig["kind"] == "lack")
         if closer and buyer in riv:
@@ -375,7 +414,7 @@ def _flags(r: dict) -> str:
     return "rival " + "+".join(out) if out else ""
 
 
-def render(rows, held_back, prog, names, pg, *, tick=None, now=None, me=ME, riv=frozenset()) -> str:
+def render(rows, held_back, prog, names, pg, *, tick=None, now=None, me=ME, riv=frozenset(), lb=None) -> str:
     stamp = time.strftime("%H:%M", time.localtime(now or time.time()))
     lines = [
         "# v10 matchmaker: page finishers and first copies\n",
@@ -410,8 +449,12 @@ def render(rows, held_back, prog, names, pg, *, tick=None, now=None, me=ME, riv=
                    if st in pg and NEAR <= len(h) < len(pg[st]["cards"]) and team != me), reverse=True)
     for k, team, st in near:
         miss = [c for c in pg[st]["cards"] if c not in prog[(team, st)]]
+        pc = (lb or {}).get(team, {}).get("pages_complete")
+        seen = sum(1 for (t, s), h in prog.items() if t == team and s in pg and len(h) == len(pg[s]["cards"]))
         lines.append(f"- {names.get(team, team)} {st} {k}/{len(pg[st]['cards'])} · missing {', '.join(miss)}"
-                     + (" · rival" if team in riv else ""))
+                     + (" · rival" if team in riv else "")
+                     + (f" · **may be complete** (server: {pc} complete pages, feed sees {seen})"
+                        if pc is not None and pc > seen else ""))
     if not near:
         lines.append("None seen.")
     if held_back:
@@ -436,10 +479,11 @@ def run_once(*, dry=False, out: Path = OUT, wants_path: Path = WANTS, now=None) 
     mult = vr.load_mult(hub)
     if not wants_path.exists() and not dry:
         wants_path.write_text(WANTS_HEADER)
+    lb, lb_tick = live_leaderboard()
     rows, held_back, prog, names = matches(events=events, catalog=catalog, teams=teams, wants=load_wants(wants_path),
-                                           mult=mult, coll=coll, known=load_known())
+                                           mult=mult, coll=coll, known=load_known(), lb=lb, tick=lb_tick or tick)
     riv = policy.rivals(teams) | set(policy.RIVALS)
-    text = render(rows, held_back, prog, names, pages(catalog), tick=tick, now=now, riv=riv)
+    text = render(rows, held_back, prog, names, pages(catalog), tick=lb_tick or tick, now=now, riv=riv, lb=lb)
     if dry:
         print(text)
     else:

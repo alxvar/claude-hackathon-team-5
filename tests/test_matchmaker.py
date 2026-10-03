@@ -181,3 +181,33 @@ def test_a_known_team_buys_only_what_it_said_it_misses():
     coll = Collectors({}, from_feed(events))
     rows = mm.matches(events=events, catalog=CATALOG, teams=TEAMS, coll=coll, known=known)[0]
     assert [r["card"] for r in rows if r["buyer"] == "t09"] == ["RET-09"]
+
+
+def test_page_open_trusts_the_servers_pages_complete():
+    pg = mm.pages(CATALOG)
+    prog = {("t09", "RET"): {f"RET-{i:02d}" for i in range(1, 10)}}
+    kw = dict(prog=prog, pg=pg, last={})
+    assert mm.page_open("t09", "RET", "RET-10", lb=None, **kw)[0]                         # no leaderboard: as before
+    assert mm.page_open("t09", "RET", "RET-10", lb={"t09": {"pages_complete": 0}}, **kw)[0]
+    ok, why = mm.page_open("t09", "RET", "RET-10", lb={"t09": {"pages_complete": 1}}, **kw)
+    assert not ok and "may be complete" in why                                             # 1 complete, feed sees 0
+    assert not mm.page_open("t09", "RET", "RET-10", lb={}, **kw)[0]                        # unknown: not open
+    recent = {("t09", "RET-10"): {"kind": "lack", "tick": 900}}
+    assert mm.page_open("t09", "RET", "RET-10", lb={"t09": {"pages_complete": 1}}, prog=prog, pg=pg, last=recent,
+                        tick=950)[0]                                                       # it bid 50 ticks ago
+    assert not mm.page_open("t09", "RET", "RET-10", lb={"t09": {"pages_complete": 1}}, prog=prog, pg=pg,
+                            last=recent, tick=900 + mm.RECENT_TICKS + 1)[0]
+    known = {"t09": {"complete": set(), "missing": {"RET-10"}}}
+    assert mm.page_open("t09", "RET", "RET-10", lb={"t09": {"pages_complete": 1}}, known=known, **kw)[0]
+
+
+def test_a_page_the_server_may_have_closed_gets_no_closer(tmp_path):
+    events = page_but("t09", {"RET-09"}) + give("t08", "RET-09", "RET-09")
+    coll = Collectors({"t09": {"collects": {"RET"}, "dumps": set()}}, from_feed(events))
+    kw = dict(events=events, catalog=CATALOG, teams=TEAMS, coll=coll)
+    rows = mm.matches(**kw, lb={"t09": {"pages_complete": 0}}, tick=100)[0]
+    assert rows and rows[0]["closer"]
+    assert not mm.matches(**kw, lb={"t09": {"pages_complete": 1}}, tick=100)[0]           # may be done: no match
+    events += [bid("t09", "RET-09", 40, tick=95)]
+    rows = mm.matches(**{**kw, "events": events}, lb={"t09": {"pages_complete": 1}}, tick=100)[0]
+    assert rows and rows[0]["closer"]                                                     # a fresh bid: still open
