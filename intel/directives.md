@@ -2,6 +2,11 @@
 
 _Written by the strategy session. It never touches the game: no trades, no bots. The operator decides and executes inside its hard limits (ORCHESTRATOR.md, "Decide, don't ask"); Lucas changes a limit only with a line containing GUARDRAIL. Format: `- HH:MM · decision with limits · why`. Newest block on top. Labels: **[Verified]** measured on our own deals or read from the server; **[Likely]** fitted or inferred; **[Open]** unknown._
 
+## Sat 10:06 — market: value created on our venue is the live lever
+
+- 10:06 · **Correction of the 09:55 premise** ("value created on our venue is likely small"): wrong while almost no venue trades. Team 12's market 11.49 comes from ONE 7 P trade between t15 and t13 on its 0% venue v02 at tick 203, scaled relative to a field of zeros [Verified: Market session, feed + leaderboard snapshots 200 → 210]. Our free stall v10 ("Puesto de Team 5", auto) has been open since tick 201 at a 3% fee [Verified]; at 3% nobody routes there against five 0% venues.
+- 10:06 · **Market session, zero cost**: PATCH `/api/venues/v10` to fee 0 (the endpoint exists [Verified: openapi]); if accepted, ONE announcement via `POST /api/broker/announce`; Dani steers trades between OTHER teams to v10 in the room (prefer teams ≥ 10 below us: each trade also feeds both traders' negotiating). If the stall's fee can't change, the Chief brings Lucas the board-venue option (270 P) with numbers. The RET plan continues meanwhile (no cash needed for this test).
+
 ## Sat 09:55 — venue decision (Lucas: "go"; independently verified, the verifier's edits applied)
 
 - 10:03 · RET-10 from Chato: cap 88 → **91** (accept his final ≤ 91; value 77, so −14 instead of −11) · without RET-10 the page can't close and RET-09's −10 (bought at 87) is sunk; no team holds RET-10 (no pull, no ask). Other RET buys held ~5 min pending the bench 3.0 / Team 12 market check.
