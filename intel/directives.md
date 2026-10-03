@@ -4,6 +4,7 @@ _Written by the strategy session. It never touches the game: no trades, no bots.
 
 ## Sat 16:55 — desk answers [Verified: organisers via Lucas]
 
+- 17:15 · **Team 15: no MAL-09** (Lucas: a card that could reach Team 10 stays out of partners' hands; MAL-09 → Pilar at 17:30 ≥ 55 stands). Low-risk help only: approvals extended to 18:30, posted by the Operator in a t05 Bazaar thread (their tool needs a verifiable sender); commission 1 P per settled v10 sale, max 3, paid by us buying one t15 SAL/LAV spare at N P on El Rastro after 18:30 · no card, cash or info that lets a partner swing the top 5
 - 16:55 · (1) Judges: Sunday, the market closes 15:00, then 1 h to prepare; free format, **3 minutes** (5 for the top 3). (2) Final = game (0.5·Fri + Sat + Sun)/2.5 over 60 + judges over 40: confirmed. (3) **Duel accepts don't count against the market accept: all 6 duels can accept in the same tick** → no serialization of duel accepts (PLAN Aleks #22).
 
 ## Sat 16:43 — L4 head start: second SAL rare
