@@ -22,6 +22,9 @@ It reads /api/events/stream (SSE, keyless: it takes none of the team key's 6 str
    (top 6 or within 3 of us; Teams 13 and 17 pass otherwise, Chief 22:20) or a card that may close the bidder's page
    within 6 of us: `FLIP-HOLD`, log only. The Operator executes (team/lucas.md 22:13: dealer at <= list, cash >= 260 after the buy).
    intel/flips.md: every open team bid for a rare, epic or legendary of the last 2 h (the HUNT digest) and the flips.
+5. The ACT loop (Chief 23:40, with bargains off): every SWEEP_S, our open offers and holdings (two keyed reads) close
+   Dani's ACTs for opps and swaps: ✓ DONE when the offer filled, ✗ VOID when it expired or was cancelled
+   (alerts.sweep, as bargains did).
 When the stream drops it polls /api/feed every POLL_S and reconnects every RECONNECT_S; a reconnect backfills from
 /api/feed by event id, so nothing is handled twice or missed. Watch it: `tail -n 0 -F logs/reactor.log | grep
 --line-buffered -E '^(BUY|DENY) '`.
@@ -42,6 +45,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "bazaar-kit"))
 sys.path.insert(0, str(ROOT / "tools"))
 from bazaar_sdk import Bazaar, BazaarError, _Http  # noqa: E402
+import alerts  # noqa: E402
 import bargains  # noqa: E402
 import matchmaker as mm  # noqa: E402
 import opportunities as op  # noqa: E402
@@ -66,6 +70,7 @@ FLIPS_OUT, DIGEST_S, DEALERS_TTL_S = ROOT / "intel" / "flips.md", 7200, 600
 VALUE_TTL_S, VALUE_GAP_S, ME_TTL_S, VENUES_TTL_S, TEAMS_TTL_S, DENY_EVERY_S = 300, 1.0, 60, 300, 120, 300
 POLL_S, RECONNECT_S, READ_TIMEOUT_S = 10, 60, 120
 HEARTBEAT_TICKS = 10      # a `reactor: tick ...` line every 10 ticks: silence means no event, not a dead stream
+SWEEP_S = 60              # the ACT loop (alerts.sweep): one /api/me + one /api/me/offers a minute (Chief: <= 1 keyed/10 s)
 
 
 def sse(lines):
@@ -132,6 +137,7 @@ class Reactor:
         self.bids: dict = {}                         # offer id → open team bid for a rare+ (the HUNT digest)
         self.flips: list = []                        # FLIP lines today, newest last
         self._digest_at = 0.0
+        self._sweep_at = 0.0
         self.counts = {"listings": 0, "BUY": 0, "BUY-NOCASH": 0, "DENY": 0, "HUNT": 0, "V10": 0, "FLIP": 0,
                        "FLIP-HOLD": 0}
 
@@ -220,6 +226,30 @@ class Reactor:
                 else:
                     self.log(f"reactor: no DENY watch on {card} for {team} {st}: {why}")
         return out
+
+    def sweep(self) -> int:
+        """Close the opps / swaps ACTs whose offer left our open offers (alerts.sweep): at most once per SWEEP_S, two
+        keyed reads; the /api/me read refreshes the cash cache too. Returns how many it closed."""
+        if self.now() - self._sweep_at < SWEEP_S:
+            return 0
+        self._sweep_at = self.now()
+        try:
+            me = self.api.me()
+            mine = {o["id"] for o in self.api.my_offers().get("offers") or []
+                    if o.get("maker") == me.get("id") and o.get("status", "open") in ("open", "queued")}
+        except (BazaarError, OSError, AttributeError, KeyError, TypeError) as e:
+            self.log(f"reactor: ACT sweep skipped ({e!r:.120})")
+            return 0
+        self._me, self._me_at = me, self.now()
+        counts: dict = {}
+        for a in me.get("assets") or []:
+            counts[a.get("ref")] = counts.get(a.get("ref"), 0) + 1
+        try:
+            return alerts.sweep(open_offer_ids=mine, asset_ids={a.get("id") for a in me.get("assets") or []},
+                                counts=counts, notifier=self.notifier, log=self.log)
+        except OSError as e:
+            self.log(f"reactor: ACT sweep failed ({e!r:.120})")
+            return 0
 
     # -------------------------------------------------------------------------------------------- flips (Chief 22:10)
     def learn(self, events) -> None:
@@ -388,6 +418,7 @@ class Reactor:
         typ = e.get("type")
         if typ == "tick":
             self.tick_seconds = float(p.get("tick_seconds") or self.tick_seconds)
+            self.sweep()
             if self.tick is not None and self.tick % HEARTBEAT_TICKS == 0:
                 self.log(f"reactor: tick {self.tick} · last event {self.last_id} · "
                          + " · ".join(f"{k} {v}" for k, v in self.counts.items()))

@@ -231,3 +231,45 @@ def test_the_hunt_digest_lists_open_rare_bids(tmp_path):
     r.digest(force=True)
     text = rx.FLIPS_OUT.read_text()
     assert "| 207 | SAL-11 La Puerta (epic) | t09 |" in text and "| 70 | RET-09" in text and "FLIP " in text
+
+
+class SweepApi(Api):
+    """Our holdings and open offers, counting the keyed reads."""
+
+    def __init__(self, assets, open_ids):
+        super().__init__({}, cash=500)
+        self.assets, self.open_ids, self.reads = assets, open_ids, 0
+
+    def me(self):
+        self.reads += 1
+        return {"id": "t05", "cash": 500, "assets": [{"id": i, "ref": r} for i, r in self.assets]}
+
+    def my_offers(self):
+        self.reads += 1
+        return {"offers": [{"id": o, "maker": "t05", "status": "open"} for o in self.open_ids]
+                + [{"id": 999, "maker": "t09", "to": "t05", "status": "open"}]}
+
+
+def test_the_reactor_closes_opps_and_swaps_acts_once_a_minute(tmp_path):
+    import alerts
+    sent = []
+    note = lambda *a, **k: sent.append(a) or True  # noqa: E731
+    alerts.act("SELL RET-09 to Team 9", 700, 1e12, "-", source="opps", asset=11, notifier=note, now=1000.0)
+    alerts.act("swap LAV-02 for MAL-06", 701, 1e12, "-", source="swaps", asset=12, want="MAL-06", want_n=0,
+               notifier=note, now=1000.0)
+    alerts.act("v10 radar", 702, 1e12, "-", source="radar", notifier=note, now=1000.0)
+    api = SweepApi(assets=[(12, "LAV-02")], open_ids=[701])          # 700 is gone and asset 11 left us: filled
+    clock = Clock()
+    r = rx.Reactor(api, Pub(), notifier=note, log=lambda *a: None, now=clock.now, sleep=clock.sleep,
+                   v10_out=tmp_path / "v10.jsonl", targets_fn=lambda w: {})
+    tick = {"id": 1, "tick": 50, "type": "tick", "payload": {"tick": 50, "tick_seconds": 15.0}}
+    r.handle(tick)
+    assert [t for _, t, *_ in sent if t.startswith(("✓", "✗"))] == ["✓ DONE · SELL RET-09 to Team 9"]
+    assert api.reads == 2 and r._me["cash"] == 500                    # the cash cache reuses the /api/me read
+    r.handle({**tick, "id": 2, "tick": 51})
+    assert api.reads == 2                                             # not again within SWEEP_S
+    api.open_ids = []                                                 # the swap went without its card arriving
+    clock.t += rx.SWEEP_S
+    r.handle({**tick, "id": 3, "tick": 55})
+    closed = [t for _, t, *_ in sent if t.startswith(("✓", "✗"))]
+    assert closed[-1] == "✗ VOID · swap LAV-02 for MAL-06" and len(closed) == 2   # the radar's ACT is not ours
