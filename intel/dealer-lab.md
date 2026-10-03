@@ -196,4 +196,7 @@ The Operator reports the case to the Chief at 08:55. The order below starts at "
 7. 09:00: the Pícaros estampita thread, the Abuela cocido line, then the CHA dealer fallbacks per §2 when CHA releases.
 8. Club Castizo (directives 22:55) and ads: the v10 ad job with Sunday texts (club pairs among non-rivals, page
    finishers, 1 per 20 ticks), and the Market's rebate and club tally.
-9. Duels III ≈ 11:00 (Aleks): no rate-limit bursts (stagger restarts); the 5 req/s go to the duelist first.
+9. **Duel window** (directive 01:30): at T−5 min before Duels III and the Final (times from `/api/schedule` at 08:55),
+   `tools/daemons.sh stop trader swaps opps`; in the window no new dealer threads, no book.json edits, no restarts; on
+   `duels.finished` (`wait_duels_end.py`) restart in order with the floors. After each restart, check that no dealer script
+   died with a dealer thread open (close it). The 5 req/s go to the duelist first.
