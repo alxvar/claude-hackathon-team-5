@@ -24,6 +24,12 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 - **Market:** v14 stall, one trade all day (418); market 9.53 = 7.5 + VC ≈ 2.0 → room ≈ +3 to the cap.
 
 
+### Sat 19:11 · snapshot 1070
+- Board: **us 31.68 (#1)** · t06 31.60 · t10 31.58 · t14 31.28 · **t18 30.31 (+0.90: Pícaros LAT-09 at 55)** · t03 29.51 · t16 27.39.
+- t14 −0.48 since 1040: Pícaros SAL-10 56 (1044) → Pilar 87 (1052), a SAL-rare loop; its ladder erodes between deals.
+- t12 runs the same loop (Pícaros SAL-09 48 → Pilar 80). t08 bought LAV-11 (epic) from the Pícaros at 147.
+- Eggs at Abuela: us (1047), t16 (1049), t13 (1053). Eggs never score (RULES).
+
 ### Sat 18:56 · snapshot 1040: four-way tie at the top
 - Board: t14 31.76 · **us 31.68** · t06 31.68 · **t10 31.68 (+3.33)** · t03 29.61 · t18 29.43 · t16 27.48.
 - **t10 closed its RET page cheaply** [V feed]: Pícaros RET-09 59 (1024) + RET-10 53 (1028) (dealer, 0 neg), Abuela RET-04 10,
