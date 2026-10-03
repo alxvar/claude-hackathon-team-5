@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 16:05** · tick 701 (30 s/tick) · game hour 7.17 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 16:10** · tick 711 (30 s/tick) · game hour 7.25 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,25 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 12:12 · **dashboard: new "Duel monitor" tab** (http://127.0.0.1:8765/#duelmon), the current duel session live, read-only, from data the dashboard already reads (**no extra request**: the duelist shares the team's 5 rps) · session + field progress from the feed (`duels.scheduled`, `duel.closed`), our duels from `/api/duels`, `duel_points` from `/api/me` · tiles: our duels done/total + ETA, deals, result after decay and **P lost to rounds**, `duel_points` sparkline, P left on the table, field deal rate · alerts: CRITICAL (rival's standing offer inside our limit with ≤ 2 ticks left; our offer outside our limit; we silent ≥ 4 ticks after a rival price near the deadline), WATCH (acceptable now: +X P after decay), MISSED · live table (our offer vs theirs vs limit, gap, rounds, pie left, ticks left, accept-now value; days for Duels II) · finished table · negotiating Δ per team since the session began (board doesn't split duels out) · complements Lucas's `duelmon` (phone alerts + per-wave review), doesn't replace it · restarted 12:10 on this code, 0 errors, hub on · **Duels I at tick 483:** 4/34 done, 4 deals, 36.7 P of 50 P surplus (**13.3 P, 27 %, lost to rounds**; duel 2540: 7 rounds, 6.7 of 19 lost), field 36/39 deals · seen live: duel 2506 (buyer, limit 103): rival dropped to 96 at tick 480 and we sent 98 the same tick (step computed on their previous 104); it closed at 96 anyway (4.8 P, 6 rounds), so no cost; for Aleks's rounds spec: a same-tick drop can cross our next step · next: watch Duels I on the tab, desk Q6
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
-  - Sat 16:07 · operator · **trader STOPPED** (Chief, urgent): Team 10 (#4, 0.6 above us) offered us SAL-10 for MAL-09, which loop.py would have taken at +14 while it's likely t10's MAL page-closer (+50 for them) → MAL-09 still ours; trader stays down until the Builder puts the counterparty policy + a reserved-cards guard into loop.py
-  - Sat 16:05 · operator · Chief: don't idle on Pícaros → LAT-08 (pack, 12.5) → Chato offer-only now (ask 30, −2 steps, take a bid ≥ 15 or a final ≥ 14) for an empty L2 slot · book + MAL-03 → t09 and MAL-05 → t15 at 9 (floor 8); reserved: MAL-09, SAL-08, SAL-04, SAL-03, SAL-05
-  - Sat 15:57 · operator · counterparty policy (Chief): no trades with the live top 5 unless our gain ≥ 3× theirs; page-closers only to teams ≥ 6 below; never t13/t17 gaining more than us; Team 13's 'lending program' NO; safe now: t16, t15, t08, t03, t09, t07 → book re-addressed SAL-01 t06 → t16, LAV-03 t04 → t09 (old asks cancelled); book now 6 asks, all to safe teams
+  - Sat 16:15 · operator · **Workshop** (Chief): LAT-04 + SAL-01 + SAL-02 spares (5.6 P) → **MAL-06** (17.5): cv +11.8, neg and ladder unchanged (not a scored deal, not a level) → GAME.md · MAL-06 → book, t09 at 24 (floor 19) · swaps 9387/9389 expired unfilled at tick 688
+  - Sat 16:10 · operator · **trader restarted** on 2c12274 (counterparty policy tools/policy.py: no trade with a live top-5 team, never t13/t17, page-closers only ≥ 6 below; run/reserved.json: MAL-09, SAL-08, SAL-04, SAL-03, SAL-05); book + opps restarted on the same rules; --keep-page-cards left off (the value check covers complete pages)
+  - Sat 16:05 · Builder · trader stopped by Operator (t10 SAL-10↔MAL-09 swap) · shipped: counterparty policy tools/policy.py in every writer (5dbca1c: top 5 only at 3x, rivals t13/t17, page-closer gap 6; trader fails closed), reserved cards run/reserved.json = MAL-09 SAL-08 SAL-04 SAL-03 SAL-05 (2c12274), Dani deal desk routing with offer id + valid-until, arbitrage/suggestions review fixes (1da1bc3), swaps rework (af76831); 402 pass · Operator to restart trader/book/opps · final swaps+policy verify running
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 28.34 | 5 | 20.84 | 7.50 | 13.93 | 0.19 | 0.88 | 42 | 3 | 186 | 34/50 |
+| 28.53 | 5 | 21.03 | 7.50 | 13.93 | 0.20 | 0.88 | 43 | 3 | 200 | 34/50 |
 
-Leaderboard (snapshot at tick 700; refreshes every few minutes):
+Leaderboard (snapshot at tick 710; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 14 | 30.33 | 20.82 | 9.51 | 29 |
-| 2 | Team 12 | 29.79 | 17.29 | 12.50 | 42 |
-| 3 | Team 18 | 29.29 | 21.79 | 7.50 | 30 |
-| 4 | Team 10 | 28.65 | 16.64 | 12.01 | 30 |
-| 5 | Team 5 | 28.34 | 20.84 | 7.50 | 42 |
+| 1 | Team 14 | 30.27 | 20.76 | 9.51 | 29 |
+| 2 | Team 12 | 29.73 | 17.23 | 12.50 | 42 |
+| 3 | Team 18 | 29.25 | 21.75 | 7.50 | 30 |
+| 4 | Team 10 | 28.59 | 16.58 | 12.01 | 30 |
+| 5 | Team 5 | 28.53 | 21.03 | 7.50 | 43 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 9.00 | ~110 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.15 | ~119 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
-| 11.00 | ~230 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~239 min | persona_patch | The fever breaks |
-| 11.65 | ~269 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~350 min | bench | The Market Test: every venue gets the same synthetic book |
-| 14.08 | ~415 min (after today's close) | day_closes | Closed until Sunday 09:00 |
-| 14.08 | ~415 min (after today's close) | day_opens | Sunday opens |
+| 9.00 | ~105 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.15 | ~114 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
+| 11.00 | ~225 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~234 min | persona_patch | The fever breaks |
+| 11.65 | ~264 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~345 min | bench | The Market Test: every venue gets the same synthetic book |
+| 14.08 | ~410 min | day_closes | Closed until Sunday 09:00 |
+| 14.08 | ~410 min | day_opens | Sunday opens |
 
 ## Our dealer deals
 
@@ -103,14 +103,14 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | 832 | abuela | buy | SAL-06 | 29 | 16 | — | — | 9 | closed |  |
 | 868 | abuela | buy | SAL-06 | 29 | 21 | 23 | -21% | 5 | deal |  |
 | 873 | pilar | sell | 1 card(s) | 22 | 34 | 25 | +14% | 9 | deal |  |
-| 960 | chato | sell | 1 card(s) | 13 | 30 | — | — | 8 | open |  |
+| 960 | chato | sell | 1 card(s) | 13 | 30 | 14 | +8% | 13 | deal |  |
 
 ## Abuela benchmark: every team's deals with her (public feed)
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
 | common card | team buys | 66 | 9.00 | 7 | 12 | 5 | 9 |
-| common card | team sells | 77 | 6 | 2 | 23 | 5 | 5.40 |
+| common card | team sells | 79 | 6 | 2 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 42 | 22.00 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 72 | 23.00 | 17 | 29 | 5 | 24.20 |
 | uncommon card | team sells | 8 | 14.50 | 13 | 17 | 0 | — |
@@ -146,5 +146,5 @@ Live: 0 · finished: 68
 - El Chato: None — Better packs and rare singles; he buys uncommon and rare cards. Open a thread with him (with: chato).
 - Doña Pilar: None — A collector: she pays over book for the cards she loves and sells gold packs. Open a thread with her (with: pilar).
 - Los Pícaros: None — 
-- The Workshop: None — 
+- The Workshop: None — POST /api/taller {"assets": [a, b, c]}: three spare copies of one rarity (you keep at least one of each card) become one card of the next rarity. The pull is luck, shown and never scored.
 - Radio Rastro: None — News on air: GET /api/news (newest first; also news.posted on the live stream). Three sources: the Boletín del Bazar (the Bazaar bulletin), Radio Rastro and El Tablón, the notice board. Some items are true and the market moves as they say; some are rumours that never happen; some are just Madrid. Nothing tells you which is which.
