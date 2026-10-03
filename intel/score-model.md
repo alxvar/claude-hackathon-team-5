@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 17:43 (tick 895), snapshot 890: us #2 at 29.38; t14 30.75 (eroding); t06 29.37; t01 29.06; t03 28.75. Our ladder part looks capped (§2 table). Duels I post-mortem §1d; Duels II day rule §1e; Pícaros + flags §3c; standings: intel/standings.md._
+_Last update: Sat 17:55 (tick 915), snapshot 910: us #3 at 29.98; t14 31.43; t06 30.73; t03 28.75; t01 28.71; t12 fell to #9 (market 12.43 → 7.50). Ladder capped, trade part live (≈ 0.048 board/np). Duels I post-mortem §1d; Duels II day rule §1e; Pícaros + flags §3c; standings: intel/standings.md._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -235,6 +235,7 @@ t13 and t04 have dealer deals in the window). Full = 12 Saturday points = 8.0 bo
 | 880 | SELL MAL-09 → Pilar at 56 (worth 49 to us) | — | 0.373 → 0.394 (+0.021); cash 92 → 148 |
 | 887 | SELL SAL-04 (spare) → Pícaros at 5 (3rd L4 slot) | — | 0.394 → 0.437 (+0.043); neg 0 |
 | — | **Our negotiating was exactly 21.88 at snapshots 850-890** while the field drifted −0.1 to −0.2 per snapshot and our ladder rose +0.064 | | **ladder part capped [L, 2 clean tests]**: further ladder deals add 0 board; being capped also shields us from ladder erosion |
+| 904 | SWAP LAT-01 → t07 for SAL-07 (El Rastro, price 0) | — | neg_points 63.2 → 78.7 (+15.5); board negotiating +0.74 at 910 with the field median 0.00 → **trade part NOT capped: ≈ 0.048 board per neg_point [V]** |
 
 - **Same card, other teams [V feed]:** SAL-08 → Pilar: t04 25 (opened 40, 6 messages), t10 24, **us 23**; her opening 22.
   Uncommons (non-SAL): t14 LAT-08 20, **us MAL-07 19**, t08 MAL-08 18, t16/t08/t13 17; her opening 16. So a full share at L3

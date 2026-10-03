@@ -9,6 +9,15 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sat 17:54 · snapshots 900-910
+- Board at 910: t14 31.43 · t06 30.73 · **us 29.98 (#3)** · t03 28.75 · t01 28.71 · t10 27.74 · t18 27.04 · t16 26.23 · t12 26.06.
+- **t06 flipped a Pícaros rare** [V feed]: bought RET-09 from the Pícaros at 52 (887, L4 slot), sold it to t12 at 84 on El Rastro
+  (895). t12 +2.18 at 900 (likely its RET page), then **t12's market fell 12.43 → 7.50 at 910** (v02's value created below the
+  reference) → #9.
+- Copyable [L]: buy a rare below list from the Pícaros, sell it to a team collector at ~80-85: a dealer buy at ≤ our value
+  costs 0, the team sale scores price − our value. Only for sets where our value is below the resale price.
+- t13 bought LAV-09 from the Pícaros at 63; t07 sold LAV-10 to Chato at 75.
+
 ### Sat 17:42 · snapshot 890 (Los Pícaros open to all since ~17:35)
 - Board: t14 30.75 · **us 29.38 (#2)** · t06 29.37 · t01 29.06 · t03 28.75 · t12 27.98 · t10 27.81 · t18 27.04.
 - t14 erodes 0.1-0.2 per snapshot (its ladder below the field cap); we hold exactly flat (ours capped) [L].
