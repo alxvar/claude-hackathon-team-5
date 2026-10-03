@@ -1,15 +1,15 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 11:21** · tick 384 (30 s/tick) · game hour 4.53 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 11:26** · tick 394 (30 s/tick) · game hour 4.61 · running · today closes 23:00._
 
 ## Team: now and latest
 
 _From `team/<name>.md`; each person writes only their own file._
 
-**Aleks** — Duelist LIVE on the rounds fix (ab0f793 + d1fc873, 277/278 tests) since 09:54:56 (`supervise.sh`, detached, caffeinate), unchanged; full suite 279 pass. Duels I ≈ 11:59 (tick ≈ 459), Duels II ≈ 18:29 (tick ≈ 1239). PLAN.md Aleks block (09:58): #2 done, #3 decided (opener kept as is), #6 noted, spend limit OK, arbiter reviewed (log 10:20); open: #4 waits on Dani's Q6, #5 later (Duels II day reading, Sunday Sonnet strategist).
+**Aleks** — Duelist LIVE on the rounds fix (ab0f793 + d1fc873, 277/278 tests) since 09:54:56 (`supervise.sh`, detached, caffeinate), unchanged; full suite 279 pass. Duels I ≈ 11:59 (tick ≈ 459), Duels II ≈ 18:29 (tick ≈ 1239). PLAN.md Aleks block (09:58): #2 done, #3 decided (opener kept as is), #6 noted, spend limit OK, arbiter reviewed (log 10:20); #9a in code (ff9a66d, live after a restart), #9b kept; open: #4 waits on Dani's Q6, #5 later (Duels II day reading, Sunday Sonnet strategist).
+  - Sat 11:30 · PLAN.md #9 (Dani's 10:16 audit) · **(a) done** (ff9a66d): when the strategist's target is our standing offer and day, a negotiator offer a point or two off it is turned back into our standing offer (`agent.held`, rule "plan holds"), so the runner holds and sends nothing; an accept still goes through; test `test_a_plan_that_holds_sends_nothing_even_when_the_negotiator_drifts`, duelist suite 54 pass · **(b) kept** (failover budget unchanged) · next: restart the duelist (`supervise.sh`) before 11:40 so (a) is live for Duels I
+  - Sat 11:25 · market-making plan (for Lucas's Market session) · **sim (scratch, `broker/sim.py` traders, 1,500 sessions each):** holding the bench book and clearing it on the last 2 ticks beats the stall by +3.6 pp only if every trader stays to the end; it loses 5 pp with 10% early leavers, 14 pp with 20%, 56 pp on a hard-bench mix. Switching to the stall at the first departure still loses 3-8 pp. The kit says some traders "leave soon" (`bazaar-kit/starter_broker.py:7`), so waiting for better partners is a trap · **hub:** no public bid crosses a public ask on any venue (tick 390: 24 public bids, mostly lowballs), so trades on v10 have to be brokered; the model lists 70 holder → wanter pairs · our market 12.5 (#1): bench at the stall's half (7.5) + 5.0 from one v10 trade, which looks like the ceiling (when Team 10's venue got its first trade, Team 12 and Team 6 fell and we didn't) [L] · next: a matchmaker in the hub (safe pairs → radar text for v10 and for Dani); no board venue on Saturday; the Sunday venue gate needs Team 10's raw bench book
   - Sat 10:40 · PLAN.md #7 (accept sharing) checked against the running code (ab0f793, unchanged since 09:44) · **(a) done**: the server's code for a spent accept is `wait_for_tick` (429; there is no `accept_taken`), the SDK auto-wait is off (`__main__.bazaar`), and `runner.py:465` turns it into their own price or a retry next tick; the same goes for our own second accept in a tick (l.441), tests at `test_duelist.py:305,323` · **(b) done, in rounds-aware form**: `runner.their_price` sends the rival's standing price only when that adds no round (we have sent ≥ their messages) or on the last tick; the plan's "from ticks_left ≤ 4" unconditionally would cost a round each time (every message is a round, test l.719) · open: **(c)** report refused accepts after Duels I wave 1; **(d)** review the Builder's arbiter days fix (b2202a2) before 17:30
-  - Sat 10:21 · **red test fixed** (my 10:02 report): `tests/test_duel_monitor.py::test_duelist_tests_run_on_a_clean_copy_of_the_commit_not_the_working_tree` failed wherever `uv` is on PATH, not only on my Mac: it hands `run_duelist_tests` a toy git repo as `root`, which is also the uv project, and `uv run --project` refuses it ("No `project` table found"; an old `uv` on PATH doesn't know `--project`: my Mac's "try '--help'") · the tool is fine: `run_duelist_tests(HEAD)` on the real repo through uv → 53 passed · fix in the test only: the toy repo runs with the test's own interpreter (`shutil.which` → None) · still red if the runner tests the working tree instead of the commit (mutation-checked) · full suite 279 pass · **for Lucas:** your test; `tools/duel_monitor.py` untouched, no change needed · next: Duels I
-  - Sat 10:20 · decisions · **spend limit OK** ($98 left on my key) · **opener (PLAN #3): kept as is** (seller ~1.4-1.65× limit, buyer ~0.6-0.75×). 34 practice duels: 20 rivals spoke → 17 deals; the 3 no-deals were 103/104 (mutual hold) and 181 (missed accept), all now handled in code; no rival walked from our anchor; 13 of 17 deals landed on our side of the two openers' midpoint (the others: 257, 272 at the midpoint, 277/278 restating every tick, fixed by the rounds fix); softer openers did no better (228 at 0.76×, 269 at 1.38× among the weakest); softening the opener by δ costs ~δ/2 in price against ~6% of the surplus per round saved · tripwire: if after Duels I's first 2 waves the deal rate with rivals who speak < 70% or rounds per deal > 4, soften between waves · **arbiter review for Lucas** (`tools/arbiter.py`): OK for Duels I (holds on any in-limit rival offer or ≤ 3 ticks left, a superset of the duelist's accepts; the same-tick race costs ≤ 1 tick, since on `wait_for_tick` the duelist offers their own price or retries next tick); **before Duels II:** a days duel counts any standing offer as in-limit, so with 6 duels at once the bots freeze most of the session → value the package with `agents.duelist.days.read_days` + `guards.worth`, hold only when the weight can't be read · next: Duels I wave 1 on the monitor page
 
 **Dani** — Desk: Q6 (do duel threads count in the 6 open conversations? Duels II runs 6 at once); the stale `day_closes` at 10:49 did nothing (Lucas 10:50). Room: steer other teams' trades to our v10 (0% fee: one trade there took us #4 → #2 at 10:45); no sell pitches (the feeding rule blocks them all today; the top 4 moves every few minutes, so check the live board). Pitch draft with Lucas during Duels I (11:58-~13:34). Dashboard on my laptop (http://127.0.0.1:8765, read-only) rewrites `intel/teams.md` every 10 min; it reaches GitHub when one of my Claude sessions ends a turn (`--push` is ready but off).
   - Sat 11:08 · **why we reached #2** (hub snapshots + settlements + directives) · (1) ticks 270 → 280, #6 → #4, negotiating +4.66: RET-01 bought from Team 10 at 20 on El Rastro closed the RET page (2 pages), +50.0 neg_points; why: GUARDRAIL 10:25 (floor 97 for that one buy; Team 10 the only holder; Lucas messaged them), after the 09:55 venue decision put the cash into RET · (2) ticks 310 → 320, #4 → #2, market +4.99 over the field: Team 10 sold MAL-07 to Team 1 on OUR stall v10 at 14 P (tick 311); value created between other teams on our venue scores market for us; why: 10:06 (Team 12's lead came from one trade on its 0% venue) → v10 fee 0% from tick 230 (10:03) → reciprocal deal 10:18 (our maker book on Team 10's v07, theirs on our v10) · snapshot 340: #3 (27.95), field moving · **dashboard:** new Overview card "Big moves: what happened and why" (each big interval with its causes: our trades, pages completed, other teams' trades on our venue, plus the directive lines naming the same card or venue), "Why our score moved" split into our negotiating / our market / field drift, and a "Team decisions" card (today's directives, read from origin/main by `git fetch`, which never touches the working tree); restarted 11:02 · next: keep teams trading on v10 (room)
@@ -25,17 +25,17 @@ _From `team/<name>.md`; each person writes only their own file._
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 28.11 | 2 | 15.61 | 12.50 | 0.00 | 0.06 | 0.90 | 34 | 2 | 114 | 32/50 |
+| 27.40 | 2 | 14.90 | 12.50 | 0.00 | 0.06 | 0.90 | 34 | 2 | 114 | 32/50 |
 
-Leaderboard (snapshot at tick 380; refreshes every few minutes):
+Leaderboard (snapshot at tick 390; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 13 | 28.57 | 25.24 | 3.33 | 45 |
-| 2 | Team 5 | 28.11 | 15.61 | 12.50 | 34 |
-| 3 | Team 18 | 27.85 | 20.35 | 7.50 | 28 |
-| 4 | Team 12 | 25.40 | 13.01 | 12.39 | 31 |
-| 5 | Team 2 | 25.18 | 17.68 | 7.50 | 34 |
+| 1 | Team 13 | 27.66 | 24.33 | 3.33 | 45 |
+| 2 | Team 5 | 27.40 | 14.90 | 12.50 | 34 |
+| 3 | Team 18 | 26.68 | 19.18 | 7.50 | 28 |
+| 4 | Team 12 | 25.44 | 13.05 | 12.39 | 32 |
+| 5 | Team 10 | 24.24 | 12.40 | 11.84 | 25 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 5.00 | ~28 min | bench | The Market Test: every venue gets the same synthetic book |
-| 5.15 | ~38 min | duels | Duels I: price only, one round-robin |
-| 5.51 | ~59 min | persona_opens | Doña Pilar opens for everyone |
-| 7.00 | ~148 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.00 | ~268 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.15 | ~278 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
-| 11.00 | ~388 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~398 min | persona_patch | The fever breaks |
+| 5.00 | ~24 min | bench | The Market Test: every venue gets the same synthetic book |
+| 5.15 | ~33 min | duels | Duels I: price only, one round-robin |
+| 5.51 | ~54 min | persona_opens | Doña Pilar opens for everyone |
+| 7.00 | ~144 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.00 | ~264 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.15 | ~273 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
+| 11.00 | ~384 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~393 min | persona_patch | The fever breaks |
 
 ## Our dealer deals
 
@@ -103,7 +103,7 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | common card | team buys | 53 | 9 | 7 | 12 | 5 | 9 |
 | common card | team sells | 54 | 6.00 | 5 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 38 | 21.50 | 17 | 30 | 3 | 20.33 |
-| uncommon card | team buys | 61 | 23 | 17 | 29 | 4 | 24.50 |
+| uncommon card | team buys | 62 | 23.00 | 17 | 29 | 4 | 24.50 |
 | uncommon card | team sells | 7 | 14 | 13 | 17 | 0 | — |
 
 ## Duels
