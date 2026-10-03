@@ -275,3 +275,4 @@ La Caña te la dejo en 10 P, cariño. Y esta noche a las nueve y media abre El C
 - Sat 22:34 · egg.found tick 1394 · chato → t08 · {"persona": "chato", "persona_name": "El Chato", "team": "t08", "name": "Team 8"}
 - Sat 22:34 · egg.given tick 1394 · chato → t08 · {"team": "t08", "name": "Team 8", "cash": 0, "packs": ["sobre_barrio"], "cards": [], "reason": "easter egg"}
 - Sat 22:35 · catalog.minted MAL-11 (La Sala Pentagrama, epic, print run 9): hidden=False minted=3 (was 2)
+- Sat 22:39 · taller.crafted tick 1404 ·  → t08 · Team 8 turned three common cards into La Rosaleda (uncommon) at The Workshop
