@@ -38,3 +38,4 @@ the repo audit (item 9).
 21. [x] Me: intel/market-playbook.md, intel/brief-aleks.md, intel/brief-dani.md, sessions redesign (Chief of staff = Lucas's only session; Operator, Market, Builder), CLAUDE.md duelist rules
 22. [ ] Independent review of every diff, then commit + push
 23. [x] Market: staged decision; cash floor 100 (directive Sat 02:20)
+24. [~] W5 loop.py: offers addressed to us, swaps, all venues, leader-venue rule (Team 13 WhatsApp analysis)

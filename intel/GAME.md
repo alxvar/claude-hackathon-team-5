@@ -35,6 +35,10 @@
   negotiated Abuela deals [V].
 - **Venues** [V]: 4 team venues exist (v01 Team 6 0.5%→0%, v02 Team 12 0%, v03 Team 13 1%, v04 Team 2 0% auto), all with 0
   trades on Friday. All 46 team trades went through El Rastro.
+- **Addressed offers are private** [V Sat 02:30]: an offer with `to` doesn't appear on public boards; the addressee sees it
+  in `GET /api/me/offers`. Our addressed bids don't reveal our needs. **Card-for-card swaps** exist (give assets, want
+  cards). A venue's owner scores the value created between other teams on it: trading on a leader's venue feeds the leader
+  (Team 13 lobbied every team on Sat 02:00 to trade and swap on its venue v03).
 - **Clearing prices on El Rastro** [V]: common 9 (LAT 7.5), uncommon 24.5 (MAL 26, SAL 24.5, LAT 21.5), rare 70 (53-80).
   Only 5% of asks and 9% of bids filled; filled bids took a median 4 ticks.
 - **Duels** [V, 30 practice duels]: result = our surplus × (1 − decay)^rounds, rounds = min(our priced offers, theirs);

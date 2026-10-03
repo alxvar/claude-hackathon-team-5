@@ -1,0 +1,3584 @@
+{
+"source": "Friday Oct 2 (game tick 159, frozen): data/feed.jsonl, data/board.json, /api/leaderboard, /api/me, /api/catalog, /api/clock",
+"events": [
+{
+"id": -67,
+"tick": 40,
+"t": null,
+"type": "settlement",
+"scope": "public",
+"actor": "",
+"payload": {
+"settlement": 67,
+"tick": 40,
+"kind": "trade",
+"parties": [
+"t06",
+"t10"
+],
+"venue": "rastro",
+"persona": null,
+"fee": 2,
+"items": [
+{
+"id": 300,
+"kind": "card",
+"ref": "LAV-02",
+"serial": 11,
+"rarity": "common",
+"set": "LAV",
+"print_run": 300,
+"frm": "t06",
+"to": "t10",
+"name": "El Frutero de Argumosa"
+}
+],
+"price": 12
+}
+},
+{
+"id": 3166,
+"tick": 73,
+"t": 1.2167,
+"type": "gift.given",
+"scope": "public",
+"actor": "abuela",
+"payload": {
+"team": "t02",
+"name": "Team 2",
+"cash": 0,
+"packs": [],
+"cards": [
+"LAT-04"
+],
+"reason": "gift from Abuela Carmen"
+}
+},
+{
+"id": 3986,
+"tick": 88,
+"t": 1.4667,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t12",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 1307,
+"maker": "t12",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 28,
+"assets": [],
+"types": []
+},
+"want": {
+"cash": 0,
+"assets": [],
+"types": [
+"card:MAL-07"
+]
+},
+"expires_tick": 98,
+"created_tick": 88,
+"final": false
+}
+}
+},
+{
+"id": 4454,
+"tick": 99,
+"t": 1.65,
+"type": "pack.opened",
+"scope": "public",
+"actor": "",
+"payload": {
+"team": "t12",
+"name": "Team 12",
+"pack": "sobre_bienvenida",
+"best": {
+"id": 441,
+"kind": "card",
+"ref": "SAL-09",
+"serial": 4,
+"rarity": "rare",
+"set": "SAL",
+"print_run": 30,
+"name": "El Marqu\u00e9s"
+}
+}
+},
+{
+"id": 6681,
+"tick": 128,
+"t": 2.1333,
+"type": "thread.opened",
+"scope": "public",
+"actor": "",
+"payload": {
+"thread": 252,
+"kind": "persona",
+"team": "t07",
+"with": "abuela",
+"topic": {
+"buy": {
+"card": "SAL-05"
+}
+}
+}
+},
+{
+"id": 7392,
+"tick": 132,
+"t": 2.2,
+"type": "thread.opened",
+"scope": "public",
+"actor": "",
+"payload": {
+"thread": 266,
+"kind": "persona",
+"team": "t07",
+"with": "abuela",
+"topic": {
+"buy": {
+"card": "SAL-02"
+}
+}
+}
+},
+{
+"id": 7907,
+"tick": 136,
+"t": 2.2667,
+"type": "thread.opened",
+"scope": "public",
+"actor": "",
+"payload": {
+"thread": 270,
+"kind": "persona",
+"team": "t07",
+"with": "abuela",
+"topic": {
+"buy": {
+"card": "SAL-01"
+}
+}
+}
+},
+{
+"id": 8063,
+"tick": 137,
+"t": 2.2833,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t08",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2300,
+"maker": "t08",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 21,
+"assets": [],
+"types": []
+},
+"want": {
+"cash": 0,
+"assets": [],
+"types": [
+"card:LAV-10"
+]
+},
+"expires_tick": 139,
+"created_tick": 137,
+"final": false
+}
+}
+},
+{
+"id": 8064,
+"tick": 137,
+"t": 2.2833,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t08",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2301,
+"maker": "t08",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 21,
+"assets": [],
+"types": []
+},
+"want": {
+"cash": 0,
+"assets": [],
+"types": [
+"card:LAV-09"
+]
+},
+"expires_tick": 139,
+"created_tick": 137,
+"final": false
+}
+}
+},
+{
+"id": 8065,
+"tick": 137,
+"t": 2.2833,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t08",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2302,
+"maker": "t08",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 40,
+"assets": [],
+"types": []
+},
+"want": {
+"cash": 0,
+"assets": [],
+"types": [
+"card:LAT-10"
+]
+},
+"expires_tick": 139,
+"created_tick": 137,
+"final": false
+}
+}
+},
+{
+"id": 8066,
+"tick": 137,
+"t": 2.2833,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t08",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2303,
+"maker": "t08",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 40,
+"assets": [],
+"types": []
+},
+"want": {
+"cash": 0,
+"assets": [],
+"types": [
+"card:LAT-09"
+]
+},
+"expires_tick": 139,
+"created_tick": 137,
+"final": false
+}
+}
+},
+{
+"id": 8067,
+"tick": 137,
+"t": 2.2833,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t08",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2304,
+"maker": "t08",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 0,
+"assets": [
+{
+"id": 473,
+"kind": "card",
+"ref": "MAL-08",
+"serial": 10,
+"rarity": "uncommon",
+"set": "MAL",
+"print_run": 90
+}
+],
+"types": []
+},
+"want": {
+"cash": 38,
+"assets": [],
+"types": []
+},
+"expires_tick": 147,
+"created_tick": 137,
+"final": false
+}
+}
+},
+{
+"id": 8068,
+"tick": 137,
+"t": 2.2833,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t08",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2305,
+"maker": "t08",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 0,
+"assets": [
+{
+"id": 472,
+"kind": "card",
+"ref": "MAL-08",
+"serial": 9,
+"rarity": "uncommon",
+"set": "MAL",
+"print_run": 90
+}
+],
+"types": []
+},
+"want": {
+"cash": 38,
+"assets": [],
+"types": []
+},
+"expires_tick": 147,
+"created_tick": 137,
+"final": false
+}
+}
+},
+{
+"id": 8069,
+"tick": 137,
+"t": 2.2833,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t08",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2306,
+"maker": "t08",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 18,
+"assets": [],
+"types": []
+},
+"want": {
+"cash": 0,
+"assets": [],
+"types": [
+"card:LAT-06"
+]
+},
+"expires_tick": 139,
+"created_tick": 137,
+"final": false
+}
+}
+},
+{
+"id": 8072,
+"tick": 137,
+"t": 2.2833,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t08",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2307,
+"maker": "t08",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 5,
+"assets": [],
+"types": []
+},
+"want": {
+"cash": 0,
+"assets": [],
+"types": [
+"card:LAT-03"
+]
+},
+"expires_tick": 139,
+"created_tick": 137,
+"final": false
+}
+}
+},
+{
+"id": 8073,
+"tick": 137,
+"t": 2.2833,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t08",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2308,
+"maker": "t08",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 0,
+"assets": [
+{
+"id": 346,
+"kind": "card",
+"ref": "MAL-02",
+"serial": 17,
+"rarity": "common",
+"set": "MAL",
+"print_run": 300
+}
+],
+"types": []
+},
+"want": {
+"cash": 13,
+"assets": [],
+"types": []
+},
+"expires_tick": 139,
+"created_tick": 137,
+"final": false
+}
+}
+},
+{
+"id": 8144,
+"tick": 138,
+"t": 2.3,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t02",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2320,
+"maker": "t02",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 0,
+"assets": [
+{
+"id": 438,
+"kind": "card",
+"ref": "SAL-07",
+"serial": 10,
+"rarity": "uncommon",
+"set": "SAL",
+"print_run": 90
+}
+],
+"types": []
+},
+"want": {
+"cash": 40,
+"assets": [],
+"types": []
+},
+"expires_tick": 148,
+"created_tick": 138,
+"final": false
+}
+}
+},
+{
+"id": 8150,
+"tick": 138,
+"t": 2.3,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t02",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2321,
+"maker": "t02",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 0,
+"assets": [
+{
+"id": 393,
+"kind": "card",
+"ref": "LAT-04",
+"serial": 15,
+"rarity": "common",
+"set": "LAT",
+"print_run": 300
+}
+],
+"types": []
+},
+"want": {
+"cash": 11,
+"assets": [],
+"types": []
+},
+"expires_tick": 148,
+"created_tick": 138,
+"final": false
+}
+}
+},
+{
+"id": 8156,
+"tick": 138,
+"t": 2.3,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t02",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2323,
+"maker": "t02",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 22,
+"assets": [],
+"types": []
+},
+"want": {
+"cash": 0,
+"assets": [],
+"types": [
+"card:LAV-09"
+]
+},
+"expires_tick": 148,
+"created_tick": 138,
+"final": false
+}
+}
+},
+{
+"id": 8166,
+"tick": 138,
+"t": 2.3,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t02",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2326,
+"maker": "t02",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 12,
+"assets": [],
+"types": []
+},
+"want": {
+"cash": 0,
+"assets": [],
+"types": [
+"card:LAT-06"
+]
+},
+"expires_tick": 148,
+"created_tick": 138,
+"final": false
+}
+}
+},
+{
+"id": 8456,
+"tick": 140,
+"t": 2.3333,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t15",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2378,
+"maker": "t15",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 60,
+"assets": [],
+"types": []
+},
+"want": {
+"cash": 0,
+"assets": [],
+"types": [
+"card:LAT-10"
+]
+},
+"expires_tick": 150,
+"created_tick": 140,
+"final": false
+}
+}
+},
+{
+"id": 8605,
+"tick": 142,
+"t": 2.3667,
+"type": "settlement",
+"scope": "public",
+"actor": "",
+"payload": {
+"settlement": 241,
+"tick": 142,
+"kind": "trade",
+"parties": [
+"t15",
+"t06"
+],
+"venue": "rastro",
+"persona": null,
+"fee": 4,
+"items": [
+{
+"id": 90,
+"kind": "card",
+"ref": "LAT-10",
+"serial": 2,
+"rarity": "rare",
+"set": "LAT",
+"print_run": 30,
+"frm": "t06",
+"to": "t15",
+"name": "El Mes\u00f3n de la Cava"
+}
+],
+"price": 60
+}
+},
+{
+"id": 9817,
+"tick": 150,
+"t": 2.5,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t08",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2593,
+"maker": "t08",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 21,
+"assets": [],
+"types": []
+},
+"want": {
+"cash": 0,
+"assets": [],
+"types": [
+"card:LAV-09"
+]
+},
+"expires_tick": 152,
+"created_tick": 150,
+"final": false
+}
+}
+},
+{
+"id": 9818,
+"tick": 150,
+"t": 2.5,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t08",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2594,
+"maker": "t08",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 53,
+"assets": [],
+"types": []
+},
+"want": {
+"cash": 0,
+"assets": [],
+"types": [
+"card:MAL-09"
+]
+},
+"expires_tick": 152,
+"created_tick": 150,
+"final": false
+}
+}
+},
+{
+"id": 9820,
+"tick": 150,
+"t": 2.5,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t08",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2595,
+"maker": "t08",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 2,
+"assets": [],
+"types": []
+},
+"want": {
+"cash": 0,
+"assets": [],
+"types": [
+"card:LAV-03"
+]
+},
+"expires_tick": 152,
+"created_tick": 150,
+"final": false
+}
+}
+},
+{
+"id": 9821,
+"tick": 150,
+"t": 2.5,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t08",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2596,
+"maker": "t08",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 0,
+"assets": [
+{
+"id": 346,
+"kind": "card",
+"ref": "MAL-02",
+"serial": 17,
+"rarity": "common",
+"set": "MAL",
+"print_run": 300
+}
+],
+"types": []
+},
+"want": {
+"cash": 13,
+"assets": [],
+"types": []
+},
+"expires_tick": 152,
+"created_tick": 150,
+"final": false
+}
+}
+},
+{
+"id": 10749,
+"tick": 158,
+"t": 2.6333,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t02",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2720,
+"maker": "t02",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 0,
+"assets": [
+{
+"id": 438,
+"kind": "card",
+"ref": "SAL-07",
+"serial": 10,
+"rarity": "uncommon",
+"set": "SAL",
+"print_run": 90
+}
+],
+"types": []
+},
+"want": {
+"cash": 32,
+"assets": [],
+"types": []
+},
+"expires_tick": 168,
+"created_tick": 158,
+"final": false
+}
+}
+},
+{
+"id": 10750,
+"tick": 158,
+"t": 2.6333,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t02",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2721,
+"maker": "t02",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 0,
+"assets": [
+{
+"id": 393,
+"kind": "card",
+"ref": "LAT-04",
+"serial": 15,
+"rarity": "common",
+"set": "LAT",
+"print_run": 300
+}
+],
+"types": []
+},
+"want": {
+"cash": 9,
+"assets": [],
+"types": []
+},
+"expires_tick": 168,
+"created_tick": 158,
+"final": false
+}
+}
+},
+{
+"id": 10751,
+"tick": 158,
+"t": 2.6333,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t02",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2722,
+"maker": "t02",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 8,
+"assets": [],
+"types": []
+},
+"want": {
+"cash": 0,
+"assets": [],
+"types": [
+"card:SAL-09"
+]
+},
+"expires_tick": 168,
+"created_tick": 158,
+"final": false
+}
+}
+},
+{
+"id": 10752,
+"tick": 158,
+"t": 2.6333,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t02",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2723,
+"maker": "t02",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 8,
+"assets": [],
+"types": []
+},
+"want": {
+"cash": 0,
+"assets": [],
+"types": [
+"card:LAV-09"
+]
+},
+"expires_tick": 168,
+"created_tick": 158,
+"final": false
+}
+}
+},
+{
+"id": 10753,
+"tick": 158,
+"t": 2.6333,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t02",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2724,
+"maker": "t02",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 12,
+"assets": [],
+"types": []
+},
+"want": {
+"cash": 0,
+"assets": [],
+"types": [
+"card:LAT-06"
+]
+},
+"expires_tick": 168,
+"created_tick": 158,
+"final": false
+}
+}
+},
+{
+"id": 10757,
+"tick": 158,
+"t": 2.6333,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t02",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2725,
+"maker": "t02",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 2,
+"assets": [],
+"types": []
+},
+"want": {
+"cash": 0,
+"assets": [],
+"types": [
+"card:LAT-03"
+]
+},
+"expires_tick": 168,
+"created_tick": 158,
+"final": false
+}
+}
+},
+{
+"id": 10879,
+"tick": 159,
+"t": 2.65,
+"type": "thread.message",
+"scope": "public",
+"actor": "t07",
+"payload": {
+"thread": 311,
+"kind": "persona",
+"message": 2111,
+"sender": "t07",
+"text": null,
+"team": "t07",
+"with": "chato",
+"offer": {
+"id": 2744,
+"maker": "t07",
+"to": "chato",
+"venue": null,
+"thread": 311,
+"status": "open",
+"give": {
+"cash": 0,
+"assets": [
+{
+"id": 536,
+"kind": "card",
+"ref": "LAT-06",
+"serial": 7,
+"rarity": "uncommon",
+"set": "LAT",
+"print_run": 90
+}
+],
+"types": []
+},
+"want": {
+"cash": 50,
+"assets": [],
+"types": []
+},
+"expires_tick": 161,
+"created_tick": 159,
+"final": false
+}
+}
+},
+{
+"id": 10883,
+"tick": 159,
+"t": 2.65,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t07",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2745,
+"maker": "t07",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 0,
+"assets": [
+{
+"id": 275,
+"kind": "card",
+"ref": "MAL-04",
+"serial": 11,
+"rarity": "common",
+"set": "MAL",
+"print_run": 300
+}
+],
+"types": []
+},
+"want": {
+"cash": 9,
+"assets": [],
+"types": []
+},
+"expires_tick": 169,
+"created_tick": 159,
+"final": false
+}
+}
+},
+{
+"id": 10884,
+"tick": 159,
+"t": 2.65,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t07",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2746,
+"maker": "t07",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 0,
+"assets": [
+{
+"id": 517,
+"kind": "card",
+"ref": "MAL-04",
+"serial": 16,
+"rarity": "common",
+"set": "MAL",
+"print_run": 300
+}
+],
+"types": []
+},
+"want": {
+"cash": 9,
+"assets": [],
+"types": []
+},
+"expires_tick": 169,
+"created_tick": 159,
+"final": false
+}
+}
+},
+{
+"id": 10885,
+"tick": 159,
+"t": 2.65,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t07",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2747,
+"maker": "t07",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 0,
+"assets": [
+{
+"id": 505,
+"kind": "card",
+"ref": "MAL-02",
+"serial": 22,
+"rarity": "common",
+"set": "MAL",
+"print_run": 300
+}
+],
+"types": []
+},
+"want": {
+"cash": 9,
+"assets": [],
+"types": []
+},
+"expires_tick": 169,
+"created_tick": 159,
+"final": false
+}
+}
+},
+{
+"id": 10886,
+"tick": 159,
+"t": 2.65,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t07",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2748,
+"maker": "t07",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 0,
+"assets": [
+{
+"id": 303,
+"kind": "card",
+"ref": "SAL-04",
+"serial": 11,
+"rarity": "common",
+"set": "SAL",
+"print_run": 300
+}
+],
+"types": []
+},
+"want": {
+"cash": 9,
+"assets": [],
+"types": []
+},
+"expires_tick": 169,
+"created_tick": 159,
+"final": false
+}
+}
+},
+{
+"id": 10904,
+"tick": 159,
+"t": 2.65,
+"type": "offer.listed",
+"scope": "public",
+"actor": "t03",
+"payload": {
+"venue": "rastro",
+"offer": {
+"id": 2753,
+"maker": "t03",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 0,
+"assets": [
+{
+"id": 500,
+"kind": "card",
+"ref": "LAV-08",
+"serial": 13,
+"rarity": "uncommon",
+"set": "LAV",
+"print_run": 90
+}
+],
+"types": []
+},
+"want": {
+"cash": 24,
+"assets": [],
+"types": []
+},
+"expires_tick": 167,
+"created_tick": 159,
+"final": false
+}
+}
+}
+],
+"board": [
+{
+"id": 2460,
+"maker": "mcd38ffd5",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 0,
+"assets": [
+{
+"id": 261,
+"kind": "card",
+"ref": "LAV-03",
+"serial": 11,
+"rarity": "common",
+"set": "LAV",
+"print_run": 300
+}
+],
+"types": []
+},
+"want": {
+"cash": 8,
+"assets": [],
+"types": []
+},
+"expires_tick": 173,
+"created_tick": 143,
+"final": false,
+"team": "t18"
+},
+{
+"id": 2462,
+"maker": "mcd38ffd5",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 0,
+"assets": [
+{
+"id": 295,
+"kind": "card",
+"ref": "MAL-04",
+"serial": 12,
+"rarity": "common",
+"set": "MAL",
+"print_run": 300
+}
+],
+"types": []
+},
+"want": {
+"cash": 8,
+"assets": [],
+"types": []
+},
+"expires_tick": 173,
+"created_tick": 143,
+"final": false,
+"team": "t18"
+},
+{
+"id": 2466,
+"maker": "mcd38ffd5",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 0,
+"assets": [
+{
+"id": 423,
+"kind": "card",
+"ref": "LAV-04",
+"serial": 17,
+"rarity": "common",
+"set": "LAV",
+"print_run": 300
+}
+],
+"types": []
+},
+"want": {
+"cash": 8,
+"assets": [],
+"types": []
+},
+"expires_tick": 173,
+"created_tick": 143,
+"final": false,
+"team": "t18"
+},
+{
+"id": 2503,
+"maker": "mcd38ffd5",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 62,
+"assets": [],
+"types": []
+},
+"want": {
+"cash": 0,
+"assets": [],
+"types": [
+"card:LAT-09"
+]
+},
+"expires_tick": 205,
+"created_tick": 145,
+"final": false,
+"team": "t18"
+},
+{
+"id": 2504,
+"maker": "mcd38ffd5",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 62,
+"assets": [],
+"types": []
+},
+"want": {
+"cash": 0,
+"assets": [],
+"types": [
+"card:LAT-10"
+]
+},
+"expires_tick": 205,
+"created_tick": 145,
+"final": false,
+"team": "t18"
+},
+{
+"id": 2720,
+"maker": "m00fc33ec",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 0,
+"assets": [
+{
+"id": 438,
+"kind": "card",
+"ref": "SAL-07",
+"serial": 10,
+"rarity": "uncommon",
+"set": "SAL",
+"print_run": 90
+}
+],
+"types": []
+},
+"want": {
+"cash": 32,
+"assets": [],
+"types": []
+},
+"expires_tick": 168,
+"created_tick": 158,
+"final": false,
+"team": "t02"
+},
+{
+"id": 2721,
+"maker": "m00fc33ec",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 0,
+"assets": [
+{
+"id": 393,
+"kind": "card",
+"ref": "LAT-04",
+"serial": 15,
+"rarity": "common",
+"set": "LAT",
+"print_run": 300
+}
+],
+"types": []
+},
+"want": {
+"cash": 9,
+"assets": [],
+"types": []
+},
+"expires_tick": 168,
+"created_tick": 158,
+"final": false,
+"team": "t02"
+},
+{
+"id": 2725,
+"maker": "m00fc33ec",
+"to": null,
+"venue": "rastro",
+"thread": null,
+"status": "open",
+"give": {
+"cash": 2,
+"assets": [],
+"types": []
+},
+"want": {
+"cash": 0,
+"assets": [],
+"types": [
+"card:LAT-03"
+]
+},
+"expires_tick": 168,
+"created_tick": 158,
+"final": false,
+"team": "t02"
+}
+],
+"leaderboard": {
+"tick": 155,
+"t": 2.583,
+"round": 1,
+"rounds": [
+{
+"round": 1,
+"name": "Friday \u00b7 El Rastro",
+"weight": 0.5,
+"status": "active",
+"phase": 0.646
+}
+],
+"teams": [
+{
+"team": "t13",
+"name": "Team 13",
+"score": 30.0,
+"negotiating": 30.0,
+"market": 0.0,
+"level": 2,
+"album_filled": 25,
+"album_slots": 40,
+"pages_complete": 1,
+"rarest": {
+"ref": "SAL-09",
+"name": "El Marqu\u00e9s",
+"serial": 1,
+"print_run": 30,
+"rarity": "rare"
+},
+"luck": 19.5,
+"deals": 24,
+"badges": [],
+"adjustments": [],
+"frozen": false,
+"venue": "v03",
+"rank": 1
+},
+{
+"team": "t12",
+"name": "Team 12",
+"score": 27.87,
+"negotiating": 27.87,
+"market": 0.0,
+"level": 2,
+"album_filled": 23,
+"album_slots": 40,
+"pages_complete": 1,
+"rarest": {
+"ref": "MAL-09",
+"name": "La Hero\u00edna del Dos de Mayo",
+"serial": 2,
+"print_run": 30,
+"rarity": "rare"
+},
+"luck": 30.8,
+"deals": 21,
+"badges": [],
+"adjustments": [],
+"frozen": false,
+"venue": "v02",
+"rank": 2
+},
+{
+"team": "t17",
+"name": "Team 17",
+"score": 22.08,
+"negotiating": 22.08,
+"market": 0.0,
+"level": 2,
+"album_filled": 25,
+"album_slots": 40,
+"pages_complete": 1,
+"rarest": {
+"ref": "SAL-10",
+"name": "Museo L\u00e1zaro Galdiano",
+"serial": 4,
+"print_run": 30,
+"rarity": "rare"
+},
+"luck": -25.5,
+"deals": 15,
+"badges": [],
+"adjustments": [],
+"frozen": false,
+"venue": null,
+"rank": 3
+},
+{
+"team": "t10",
+"name": "Team 10",
+"score": 20.79,
+"negotiating": 20.79,
+"market": 0.0,
+"level": 2,
+"album_filled": 23,
+"album_slots": 40,
+"pages_complete": 1,
+"rarest": {
+"ref": "LAV-10",
+"name": "Fiesta de San Cayetano",
+"serial": 2,
+"print_run": 30,
+"rarity": "rare"
+},
+"luck": 0.0,
+"deals": 19,
+"badges": [],
+"adjustments": [],
+"frozen": false,
+"venue": null,
+"rank": 4
+},
+{
+"team": "t05",
+"name": "Team 5",
+"score": 20.03,
+"negotiating": 20.03,
+"market": 0.0,
+"level": 2,
+"album_filled": 20,
+"album_slots": 40,
+"pages_complete": 1,
+"rarest": {
+"ref": "LAV-10",
+"name": "Fiesta de San Cayetano",
+"serial": 1,
+"print_run": 30,
+"rarity": "rare"
+},
+"luck": -29.2,
+"deals": 24,
+"badges": [],
+"adjustments": [],
+"frozen": false,
+"venue": null,
+"rank": 5
+},
+{
+"team": "t04",
+"name": "Team 4",
+"score": 19.89,
+"negotiating": 19.89,
+"market": 0.0,
+"level": 2,
+"album_filled": 23,
+"album_slots": 40,
+"pages_complete": 0,
+"rarest": {
+"ref": "LAV-10",
+"name": "Fiesta de San Cayetano",
+"serial": 5,
+"print_run": 30,
+"rarity": "rare"
+},
+"luck": -10.5,
+"deals": 13,
+"badges": [],
+"adjustments": [],
+"frozen": false,
+"venue": null,
+"rank": 6
+},
+{
+"team": "t18",
+"name": "Team 18",
+"score": 19.19,
+"negotiating": 19.19,
+"market": 0.0,
+"level": 2,
+"album_filled": 22,
+"album_slots": 40,
+"pages_complete": 1,
+"rarest": {
+"ref": "SAL-10",
+"name": "Museo L\u00e1zaro Galdiano",
+"serial": 3,
+"print_run": 30,
+"rarity": "rare"
+},
+"luck": -25.5,
+"deals": 17,
+"badges": [],
+"adjustments": [],
+"frozen": false,
+"venue": null,
+"rank": 7
+},
+{
+"team": "t14",
+"name": "Team 14",
+"score": 18.09,
+"negotiating": 18.09,
+"market": 0.0,
+"level": 2,
+"album_filled": 19,
+"album_slots": 40,
+"pages_complete": 0,
+"rarest": {
+"ref": "LAT-09",
+"name": "San Isidro",
+"serial": 2,
+"print_run": 30,
+"rarity": "rare"
+},
+"luck": 0.0,
+"deals": 11,
+"badges": [],
+"adjustments": [],
+"frozen": false,
+"venue": null,
+"rank": 8
+},
+{
+"team": "t08",
+"name": "Team 8",
+"score": 17.65,
+"negotiating": 17.65,
+"market": 0.0,
+"level": 2,
+"album_filled": 26,
+"album_slots": 40,
+"pages_complete": 1,
+"rarest": {
+"ref": "MAL-10",
+"name": "Noche de Movida",
+"serial": 2,
+"print_run": 30,
+"rarity": "rare"
+},
+"luck": -46.3,
+"deals": 12,
+"badges": [],
+"adjustments": [],
+"frozen": false,
+"venue": null,
+"rank": 9
+},
+{
+"team": "t03",
+"name": "Team 3",
+"score": 14.63,
+"negotiating": 14.63,
+"market": 0.0,
+"level": 2,
+"album_filled": 21,
+"album_slots": 40,
+"pages_complete": 0,
+"rarest": {
+"ref": "LAT-10",
+"name": "El Mes\u00f3n de la Cava",
+"serial": 1,
+"print_run": 30,
+"rarity": "rare"
+},
+"luck": -18.0,
+"deals": 9,
+"badges": [],
+"adjustments": [],
+"frozen": false,
+"venue": null,
+"rank": 10
+},
+{
+"team": "t06",
+"name": "Team 6",
+"score": 12.14,
+"negotiating": 12.14,
+"market": 0.0,
+"level": 2,
+"album_filled": 25,
+"album_slots": 40,
+"pages_complete": 0,
+"rarest": {
+"ref": "LAV-08",
+"name": "Teatro Valle-Incl\u00e1n",
+"serial": 1,
+"print_run": 90,
+"rarity": "uncommon"
+},
+"luck": -21.8,
+"deals": 18,
+"badges": [],
+"adjustments": [],
+"frozen": false,
+"venue": "v01",
+"rank": 11
+},
+{
+"team": "t15",
+"name": "Team 15",
+"score": 10.35,
+"negotiating": 10.35,
+"market": 0.0,
+"level": 1,
+"album_filled": 26,
+"album_slots": 40,
+"pages_complete": 1,
+"rarest": {
+"ref": "LAT-10",
+"name": "El Mes\u00f3n de la Cava",
+"serial": 2,
+"print_run": 30,
+"rarity": "rare"
+},
+"luck": 3.8,
+"deals": 13,
+"badges": [],
+"adjustments": [],
+"frozen": false,
+"venue": null,
+"rank": 12
+},
+{
+"team": "t09",
+"name": "Team 9",
+"score": 9.54,
+"negotiating": 9.54,
+"market": 0.0,
+"level": 2,
+"album_filled": 20,
+"album_slots": 40,
+"pages_complete": 0,
+"rarest": {
+"ref": "MAL-10",
+"name": "Noche de Movida",
+"serial": 1,
+"print_run": 30,
+"rarity": "rare"
+},
+"luck": 15.0,
+"deals": 10,
+"badges": [],
+"adjustments": [],
+"frozen": false,
+"venue": null,
+"rank": 13
+},
+{
+"team": "t07",
+"name": "Team 7",
+"score": 8.98,
+"negotiating": 8.98,
+"market": 0.0,
+"level": 2,
+"album_filled": 28,
+"album_slots": 40,
+"pages_complete": 1,
+"rarest": {
+"ref": "LAV-09",
+"name": "Cine Dor\u00e9",
+"serial": 1,
+"print_run": 30,
+"rarity": "rare"
+},
+"luck": -14.2,
+"deals": 13,
+"badges": [],
+"adjustments": [],
+"frozen": false,
+"venue": null,
+"rank": 14
+},
+{
+"team": "t01",
+"name": "Team 1",
+"score": 8.34,
+"negotiating": 8.34,
+"market": 0.0,
+"level": 2,
+"album_filled": 18,
+"album_slots": 40,
+"pages_complete": 0,
+"rarest": {
+"ref": "LAT-09",
+"name": "San Isidro",
+"serial": 1,
+"print_run": 30,
+"rarity": "rare"
+},
+"luck": 0.0,
+"deals": 4,
+"badges": [],
+"adjustments": [],
+"frozen": false,
+"venue": null,
+"rank": 15
+},
+{
+"team": "t16",
+"name": "Team 16",
+"score": 6.86,
+"negotiating": 6.86,
+"market": 0.0,
+"level": 2,
+"album_filled": 14,
+"album_slots": 40,
+"pages_complete": 0,
+"rarest": {
+"ref": "SAL-09",
+"name": "El Marqu\u00e9s",
+"serial": 2,
+"print_run": 30,
+"rarity": "rare"
+},
+"luck": 0.0,
+"deals": 5,
+"badges": [],
+"adjustments": [],
+"frozen": false,
+"venue": null,
+"rank": 16
+},
+{
+"team": "t02",
+"name": "Team 2",
+"score": 6.84,
+"negotiating": 6.84,
+"market": 0.0,
+"level": 2,
+"album_filled": 19,
+"album_slots": 40,
+"pages_complete": 0,
+"rarest": {
+"ref": "SAL-10",
+"name": "Museo L\u00e1zaro Galdiano",
+"serial": 1,
+"print_run": 30,
+"rarity": "rare"
+},
+"luck": 0.0,
+"deals": 7,
+"badges": [],
+"adjustments": [],
+"frozen": false,
+"venue": "v04",
+"rank": 17
+},
+{
+"team": "t11",
+"name": "Team 11",
+"score": 0.0,
+"negotiating": 0.0,
+"market": 0.0,
+"level": 1,
+"album_filled": 13,
+"album_slots": 40,
+"pages_complete": 0,
+"rarest": {
+"ref": "MAL-09",
+"name": "La Hero\u00edna del Dos de Mayo",
+"serial": 1,
+"print_run": 30,
+"rarity": "rare"
+},
+"luck": 0.0,
+"deals": 0,
+"badges": [],
+"adjustments": [],
+"frozen": false,
+"venue": null,
+"rank": 18
+}
+],
+"venues": [
+{
+"venue": "v01",
+"name": "Mercado Team 6",
+"owner": "t06",
+"owner_name": "Team 6",
+"status": "open",
+"fee_bps": 50,
+"fee_per_card": 0,
+"rules": {
+"mechanism": "board"
+},
+"bond": 250,
+"starter": false,
+"trades": 0,
+"volume": 0,
+"fees": 0,
+"traders": 0,
+"pairs": 0,
+"pending_fee": {
+"fee_bps": 0,
+"fee_per_card": 0,
+"effective_tick": 156
+},
+"suspension_reason": "",
+"house": false,
+"description": "Low fees, carefully matched.",
+"opened_tick": 100
+},
+{
+"venue": "v02",
+"name": "El Duende \u00b7 zero fee",
+"owner": "t12",
+"owner_name": "Team 12",
+"status": "open",
+"fee_bps": 0,
+"fee_per_card": 0,
+"rules": {
+"mechanism": "board"
+},
+"bond": 250,
+"starter": false,
+"trades": 0,
+"volume": 0,
+"fees": 0,
+"traders": 0,
+"pairs": 0,
+"pending_fee": null,
+"suspension_reason": "",
+"house": false,
+"description": "Zero fees, broker-matched every tick. Same offers as El Rastro, nothing skimmed.",
+"opened_tick": 113
+},
+{
+"venue": "v03",
+"name": "Mercado Trece \u00b7 1% fee",
+"owner": "t13",
+"owner_name": "Team 13",
+"status": "open",
+"fee_bps": 100,
+"fee_per_card": 0,
+"rules": {
+"mechanism": "board"
+},
+"bond": 250,
+"starter": false,
+"trades": 0,
+"volume": 0,
+"fees": 0,
+"traders": 0,
+"pairs": 0,
+"pending_fee": null,
+"suspension_reason": "",
+"house": false,
+"description": "Only 1% fee, no per-card charge, fair midpoint matching, best pairs first. Built by Team 13 for everyone: list your spares here and keep almost all of the price.",
+"opened_tick": 129
+},
+{
+"venue": "v04",
+"name": "Team 2 \u00b7 El Rastro Express",
+"owner": "t02",
+"owner_name": "Team 2",
+"status": "open",
+"fee_bps": 0,
+"fee_per_card": 0,
+"rules": {
+"mechanism": "auto"
+},
+"bond": 250,
+"starter": false,
+"trades": 0,
+"volume": 0,
+"fees": 0,
+"traders": 0,
+"pairs": 0,
+"pending_fee": null,
+"suspension_reason": "",
+"house": false,
+"description": "Zero fees, every card welcome. Best bid and ask cross every tick.",
+"opened_tick": 129
+},
+{
+"venue": "rastro",
+"name": "El Rastro",
+"owner": "world",
+"owner_name": "The house",
+"status": "open",
+"fee_bps": 500,
+"fee_per_card": 1,
+"rules": {},
+"bond": 0,
+"starter": false,
+"trades": 45,
+"volume": 1088,
+"fees": 125,
+"traders": 13,
+"pairs": 0,
+"pending_fee": null,
+"suspension_reason": "",
+"house": true,
+"description": "The house market. Posted offers only; no broker.",
+"opened_tick": 0
+}
+],
+"currency": "P",
+"weights": {
+"negotiating": 30.0,
+"market": 30.0
+},
+"snapshot_tick": 155,
+"next_refresh_tick": 160
+},
+"me": {
+"id": "t05",
+"name": "Team 5",
+"cash": 252,
+"level": 2,
+"unlocked": [
+"abuela",
+"chato"
+],
+"badges": [],
+"frozen": false,
+"affinity": {
+"LAV": 1.3,
+"MAL": 0.7,
+"LAT": 0.5,
+"SAL": 0.9,
+"RET": 1.1,
+"CHA": 1.6
+},
+"assets": [
+{
+"id": 61,
+"kind": "card",
+"ref": "MAL-02",
+"serial": 5,
+"rarity": "common",
+"set": "MAL",
+"print_run": 300,
+"name": "Plaza del Dos de Mayo",
+"your_value": 7.0
+},
+{
+"id": 62,
+"kind": "card",
+"ref": "LAT-03",
+"serial": 3,
+"rarity": "common",
+"set": "LAT",
+"print_run": 300,
+"name": "Huevos Rotos",
+"your_value": 5.0
+},
+{
+"id": 63,
+"kind": "card",
+"ref": "LAV-01",
+"serial": 5,
+"rarity": "common",
+"set": "LAV",
+"print_run": 300,
+"name": "La Corrala",
+"your_value": 99.1
+},
+{
+"id": 64,
+"kind": "card",
+"ref": "MAL-04",
+"serial": 2,
+"rarity": "common",
+"set": "MAL",
+"print_run": 300,
+"name": "El Tatuador",
+"your_value": 7.0
+},
+{
+"id": 65,
+"kind": "card",
+"ref": "LAV-03",
+"serial": 3,
+"rarity": "common",
+"set": "LAV",
+"print_run": 300,
+"name": "T\u00e9 Moruno",
+"your_value": 3.2
+},
+{
+"id": 67,
+"kind": "card",
+"ref": "SAL-05",
+"serial": 1,
+"rarity": "common",
+"set": "SAL",
+"print_run": 300,
+"name": "Taxi Blanco",
+"your_value": 9.0
+},
+{
+"id": 69,
+"kind": "card",
+"ref": "SAL-02",
+"serial": 2,
+"rarity": "common",
+"set": "SAL",
+"print_run": 300,
+"name": "El Portero",
+"your_value": 2.2
+},
+{
+"id": 70,
+"kind": "card",
+"ref": "SAL-01",
+"serial": 4,
+"rarity": "common",
+"set": "SAL",
+"print_run": 300,
+"name": "Escaparate de Serrano",
+"your_value": 9.0
+},
+{
+"id": 75,
+"kind": "card",
+"ref": "LAV-10",
+"serial": 1,
+"rarity": "rare",
+"set": "LAV",
+"print_run": 30,
+"name": "Fiesta de San Cayetano",
+"your_value": 177.1
+},
+{
+"id": 119,
+"kind": "card",
+"ref": "MAL-06",
+"serial": 6,
+"rarity": "uncommon",
+"set": "MAL",
+"print_run": 90,
+"name": "Tienda de Discos",
+"your_value": 17.5
+},
+{
+"id": 171,
+"kind": "card",
+"ref": "LAV-02",
+"serial": 5,
+"rarity": "common",
+"set": "LAV",
+"print_run": 300,
+"name": "El Frutero de Argumosa",
+"your_value": 3.2
+},
+{
+"id": 179,
+"kind": "card",
+"ref": "SAL-08",
+"serial": 2,
+"rarity": "uncommon",
+"set": "SAL",
+"print_run": 90,
+"name": "Guanter\u00eda Antigua",
+"your_value": 22.5
+},
+{
+"id": 276,
+"kind": "card",
+"ref": "LAV-04",
+"serial": 12,
+"rarity": "common",
+"set": "LAV",
+"print_run": 300,
+"name": "Mural de la Esquina",
+"your_value": 3.2
+},
+{
+"id": 277,
+"kind": "card",
+"ref": "LAT-04",
+"serial": 11,
+"rarity": "common",
+"set": "LAT",
+"print_run": 300,
+"name": "Mercado de la Cebada",
+"your_value": 1.2
+},
+{
+"id": 309,
+"kind": "card",
+"ref": "LAV-04",
+"serial": 13,
+"rarity": "common",
+"set": "LAV",
+"print_run": 300,
+"name": "Mural de la Esquina",
+"your_value": 3.2
+},
+{
+"id": 335,
+"kind": "card",
+"ref": "LAV-05",
+"serial": 13,
+"rarity": "common",
+"set": "LAV",
+"print_run": 300,
+"name": "Bici de Reparto",
+"your_value": 99.1
+},
+{
+"id": 373,
+"kind": "card",
+"ref": "LAV-08",
+"serial": 9,
+"rarity": "uncommon",
+"set": "LAV",
+"print_run": 90,
+"name": "Teatro Valle-Incl\u00e1n",
+"your_value": 118.6
+},
+{
+"id": 421,
+"kind": "card",
+"ref": "MAL-07",
+"serial": 5,
+"rarity": "uncommon",
+"set": "MAL",
+"print_run": 90,
+"name": "Mercado de San Ildefonso",
+"your_value": 17.5
+},
+{
+"id": 479,
+"kind": "card",
+"ref": "LAV-06",
+"serial": 9,
+"rarity": "uncommon",
+"set": "LAV",
+"print_run": 90,
+"name": "La Tabacalera",
+"your_value": 118.6
+},
+{
+"id": 484,
+"kind": "card",
+"ref": "LAT-04",
+"serial": 17,
+"rarity": "common",
+"set": "LAT",
+"print_run": 300,
+"name": "Mercado de la Cebada",
+"your_value": 1.2
+},
+{
+"id": 485,
+"kind": "card",
+"ref": "SAL-02",
+"serial": 14,
+"rarity": "common",
+"set": "SAL",
+"print_run": 300,
+"name": "El Portero",
+"your_value": 2.2
+},
+{
+"id": 486,
+"kind": "card",
+"ref": "LAV-02",
+"serial": 16,
+"rarity": "common",
+"set": "LAV",
+"print_run": 300,
+"name": "El Frutero de Argumosa",
+"your_value": 3.2
+},
+{
+"id": 487,
+"kind": "card",
+"ref": "LAV-03",
+"serial": 19,
+"rarity": "common",
+"set": "LAV",
+"print_run": 300,
+"name": "T\u00e9 Moruno",
+"your_value": 3.2
+},
+{
+"id": 488,
+"kind": "card",
+"ref": "LAV-07",
+"serial": 11,
+"rarity": "uncommon",
+"set": "LAV",
+"print_run": 90,
+"name": "Samosas de la Plaza",
+"your_value": 118.6
+},
+{
+"id": 520,
+"kind": "card",
+"ref": "LAV-09",
+"serial": 4,
+"rarity": "rare",
+"set": "LAV",
+"print_run": 30,
+"name": "Cine Dor\u00e9",
+"your_value": 177.1
+}
+],
+"collection_value": 552.4,
+"album": {
+"pages": [
+{
+"set": "LAV",
+"name": "Lavapi\u00e9s",
+"have": 10,
+"of": 10,
+"complete": true,
+"master": false
+},
+{
+"set": "MAL",
+"name": "Malasa\u00f1a",
+"have": 4,
+"of": 10,
+"complete": false,
+"master": false
+},
+{
+"set": "LAT",
+"name": "La Latina",
+"have": 2,
+"of": 10,
+"complete": false,
+"master": false
+},
+{
+"set": "SAL",
+"name": "Salamanca",
+"have": 4,
+"of": 10,
+"complete": false,
+"master": false
+}
+],
+"filled": 20,
+"slots": 40
+},
+"tick": 159,
+"tick_seconds": 60.0,
+"score": {
+"team": "t05",
+"name": "Team 5",
+"score": 20.03,
+"negotiating": 20.03,
+"market": 0.0,
+"neg_points": 67.8,
+"mm_points": 0.0,
+"duel_points": 0.0,
+"ladder_points": 0.064,
+"bench_efficiency": null,
+"bench_points": null,
+"bench_venue": null,
+"level": 2,
+"album_filled": 20,
+"album_slots": 40,
+"pages_complete": 1,
+"rarest": {
+"ref": "LAV-10",
+"name": "Fiesta de San Cayetano",
+"serial": 1,
+"print_run": 30,
+"rarity": "rare"
+},
+"luck": -29.2,
+"deals": 24,
+"badges": [],
+"adjustments": [],
+"frozen": false,
+"venue": null,
+"luck_private": -30.2,
+"rank": 5
+},
+"venue": null,
+"open_threads": []
+},
+"catalog": {
+"rarities": {
+"common": {
+"label": "Common",
+"book": 10,
+"print_run": 300,
+"color": "#9AA4B8"
+},
+"uncommon": {
+"label": "Uncommon",
+"book": 25,
+"print_run": 90,
+"color": "#3DDC97"
+},
+"rare": {
+"label": "Rare",
+"book": 70,
+"print_run": 30,
+"color": "#4C8DFF"
+},
+"epic": {
+"label": "Epic",
+"book": 180,
+"print_run": 9,
+"color": "#B061FF"
+},
+"legendary": {
+"label": "Legendary",
+"book": 450,
+"print_run": 3,
+"color": "#FFC44D"
+}
+},
+"sets": [
+{
+"id": "LAV",
+"name": "Lavapi\u00e9s",
+"theme": "Corralas, murals and every language in one square",
+"color": "#E4572E",
+"released": true,
+"release": "+0h",
+"cards": [
+{
+"id": "LAV-01",
+"name": "La Corrala",
+"rarity": "common",
+"flavour": "Balconies that gossip across the courtyard.",
+"book": 10,
+"print_run": 300,
+"minted": 17,
+"hidden": false,
+"page": true
+},
+{
+"id": "LAV-02",
+"name": "El Frutero de Argumosa",
+"rarity": "common",
+"flavour": "Three kilos of oranges and the neighbourhood news.",
+"book": 10,
+"print_run": 300,
+"minted": 18,
+"hidden": false,
+"page": true
+},
+{
+"id": "LAV-03",
+"name": "T\u00e9 Moruno",
+"rarity": "common",
+"flavour": "Too sweet, too hot, just right.",
+"book": 10,
+"print_run": 300,
+"minted": 21,
+"hidden": false,
+"page": true
+},
+{
+"id": "LAV-04",
+"name": "Mural de la Esquina",
+"rarity": "common",
+"flavour": "Painted over every spring, better every time.",
+"book": 10,
+"print_run": 300,
+"minted": 18,
+"hidden": false,
+"page": true
+},
+{
+"id": "LAV-05",
+"name": "Bici de Reparto",
+"rarity": "common",
+"flavour": "Brakes optional.",
+"book": 10,
+"print_run": 300,
+"minted": 18,
+"hidden": false,
+"page": true
+},
+{
+"id": "LAV-06",
+"name": "La Tabacalera",
+"rarity": "uncommon",
+"flavour": "A factory that learned to make art.",
+"book": 25,
+"print_run": 90,
+"minted": 11,
+"hidden": false,
+"page": true
+},
+{
+"id": "LAV-07",
+"name": "Samosas de la Plaza",
+"rarity": "uncommon",
+"flavour": "Two for one if you know the cook.",
+"book": 25,
+"print_run": 90,
+"minted": 13,
+"hidden": false,
+"page": true
+},
+{
+"id": "LAV-08",
+"name": "Teatro Valle-Incl\u00e1n",
+"rarity": "uncommon",
+"flavour": "Curtain at eight, argument at eleven.",
+"book": 25,
+"print_run": 90,
+"minted": 13,
+"hidden": false,
+"page": true
+},
+{
+"id": "LAV-09",
+"name": "Cine Dor\u00e9",
+"rarity": "rare",
+"flavour": "The films are old; the queue is new.",
+"book": 70,
+"print_run": 30,
+"minted": 4,
+"hidden": false,
+"page": true
+},
+{
+"id": "LAV-10",
+"name": "Fiesta de San Cayetano",
+"rarity": "rare",
+"flavour": "August, 38 degrees, nobody leaves.",
+"book": 70,
+"print_run": 30,
+"minted": 5,
+"hidden": false,
+"page": true
+},
+{
+"id": "LAV-11",
+"name": "La Casa Encendida",
+"rarity": "epic",
+"flavour": "A bank building that gave itself away.",
+"book": 180,
+"print_run": 9,
+"minted": 0,
+"hidden": false,
+"page": false
+},
+{
+"id": "LAV-12",
+"name": "El Gato de Lavapi\u00e9s",
+"rarity": "legendary",
+"flavour": "Owns every rooftop. Pays no rent.",
+"book": 450,
+"print_run": 3,
+"minted": 0,
+"hidden": false,
+"page": false
+}
+]
+},
+{
+"id": "MAL",
+"name": "Malasa\u00f1a",
+"theme": "Vinyl, late nights and La Movida",
+"color": "#7B2CBF",
+"released": true,
+"release": "+0h",
+"cards": [
+{
+"id": "MAL-01",
+"name": "Vinilo de la Movida",
+"rarity": "common",
+"flavour": "Side B is the good one.",
+"book": 10,
+"print_run": 300,
+"minted": 20,
+"hidden": false,
+"page": true
+},
+{
+"id": "MAL-02",
+"name": "Plaza del Dos de Mayo",
+"rarity": "common",
+"flavour": "Every meeting starts here.",
+"book": 10,
+"print_run": 300,
+"minted": 23,
+"hidden": false,
+"page": true
+},
+{
+"id": "MAL-03",
+"name": "Cartel de Conciertos",
+"rarity": "common",
+"flavour": "Seven bands, one lamppost.",
+"book": 10,
+"print_run": 300,
+"minted": 13,
+"hidden": false,
+"page": true
+},
+{
+"id": "MAL-04",
+"name": "El Tatuador",
+"rarity": "common",
+"flavour": "No refunds.",
+"book": 10,
+"print_run": 300,
+"minted": 16,
+"hidden": false,
+"page": true
+},
+{
+"id": "MAL-05",
+"name": "Caf\u00e9 de Madrugada",
+"rarity": "common",
+"flavour": "Open until the churros arrive.",
+"book": 10,
+"print_run": 300,
+"minted": 14,
+"hidden": false,
+"page": true
+},
+{
+"id": "MAL-06",
+"name": "Tienda de Discos",
+"rarity": "uncommon",
+"flavour": "Alphabetised by mood.",
+"book": 25,
+"print_run": 90,
+"minted": 13,
+"hidden": false,
+"page": true
+},
+{
+"id": "MAL-07",
+"name": "Mercado de San Ildefonso",
+"rarity": "uncommon",
+"flavour": "Three floors of food, one of noise.",
+"book": 25,
+"print_run": 90,
+"minted": 8,
+"hidden": false,
+"page": true
+},
+{
+"id": "MAL-08",
+"name": "La V\u00eda L\u00e1ctea",
+"rarity": "uncommon",
+"flavour": "Same bar stool since 1979.",
+"book": 25,
+"print_run": 90,
+"minted": 12,
+"hidden": false,
+"page": true
+},
+{
+"id": "MAL-09",
+"name": "La Hero\u00edna del Dos de Mayo",
+"rarity": "rare",
+"flavour": "1808. She did not step back.",
+"book": 70,
+"print_run": 30,
+"minted": 3,
+"hidden": false,
+"page": true
+},
+{
+"id": "MAL-10",
+"name": "Noche de Movida",
+"rarity": "rare",
+"flavour": "Nobody remembers it; everybody was there.",
+"book": 70,
+"print_run": 30,
+"minted": 3,
+"hidden": false,
+"page": true
+},
+{
+"id": "MAL-11",
+"name": "La Sala Pentagrama",
+"rarity": "epic",
+"flavour": "The loudest room in the city.",
+"book": 180,
+"print_run": 9,
+"minted": 0,
+"hidden": false,
+"page": false
+},
+{
+"id": "MAL-12",
+"name": "La Reina de la Movida",
+"rarity": "legendary",
+"flavour": "Glitter never goes out of fashion.",
+"book": 450,
+"print_run": 3,
+"minted": 0,
+"hidden": false,
+"page": false
+}
+]
+},
+{
+"id": "LAT",
+"name": "La Latina",
+"theme": "Tapas, Sunday markets and chulapos",
+"color": "#F4A259",
+"released": true,
+"release": "+0h",
+"cards": [
+{
+"id": "LAT-01",
+"name": "Ca\u00f1a en la Cava Baja",
+"rarity": "common",
+"flavour": "The first one is always small.",
+"book": 10,
+"print_run": 300,
+"minted": 19,
+"hidden": false,
+"page": true
+},
+{
+"id": "LAT-02",
+"name": "Puesto del Rastro",
+"rarity": "common",
+"flavour": "Everything is negotiable, especially the price.",
+"book": 10,
+"print_run": 300,
+"minted": 15,
+"hidden": false,
+"page": true
+},
+{
+"id": "LAT-03",
+"name": "Huevos Rotos",
+"rarity": "common",
+"flavour": "Broken on purpose.",
+"book": 10,
+"print_run": 300,
+"minted": 13,
+"hidden": false,
+"page": true
+},
+{
+"id": "LAT-04",
+"name": "Mercado de la Cebada",
+"rarity": "common",
+"flavour": "The roof looks like a wave.",
+"book": 10,
+"print_run": 300,
+"minted": 19,
+"hidden": false,
+"page": true
+},
+{
+"id": "LAT-05",
+"name": "El Organillero",
+"rarity": "common",
+"flavour": "One song, played forever.",
+"book": 10,
+"print_run": 300,
+"minted": 17,
+"hidden": false,
+"page": true
+},
+{
+"id": "LAT-06",
+"name": "La Chulapa",
+"rarity": "uncommon",
+"flavour": "Carnation behind the ear, opinion on everything.",
+"book": 25,
+"print_run": 90,
+"minted": 7,
+"hidden": false,
+"page": true
+},
+{
+"id": "LAT-07",
+"name": "Vermut del Domingo",
+"rarity": "uncommon",
+"flavour": "Noon is a suggestion.",
+"book": 25,
+"print_run": 90,
+"minted": 8,
+"hidden": false,
+"page": true
+},
+{
+"id": "LAT-08",
+"name": "Las Vistillas",
+"rarity": "uncommon",
+"flavour": "The best sunset, free of charge.",
+"book": 25,
+"print_run": 90,
+"minted": 8,
+"hidden": false,
+"page": true
+},
+{
+"id": "LAT-09",
+"name": "San Isidro",
+"rarity": "rare",
+"flavour": "Patron saint of farmers and long lunches.",
+"book": 70,
+"print_run": 30,
+"minted": 4,
+"hidden": false,
+"page": true
+},
+{
+"id": "LAT-10",
+"name": "El Mes\u00f3n de la Cava",
+"rarity": "rare",
+"flavour": "Cellar of 1642, prices of today.",
+"book": 70,
+"print_run": 30,
+"minted": 2,
+"hidden": false,
+"page": true
+},
+{
+"id": "LAT-11",
+"name": "San Francisco el Grande",
+"rarity": "epic",
+"flavour": "A dome bigger than your plans.",
+"book": 180,
+"print_run": 9,
+"minted": 0,
+"hidden": false,
+"page": false
+},
+{
+"id": "LAT-12",
+"name": "El Rastro al Amanecer",
+"rarity": "legendary",
+"flavour": "Before the crowds, the real deals.",
+"book": 450,
+"print_run": 3,
+"minted": 0,
+"hidden": false,
+"page": false
+}
+]
+},
+{
+"id": "SAL",
+"name": "Salamanca",
+"theme": "Serrano, galleries and old money",
+"color": "#2E86AB",
+"released": true,
+"release": "+0h",
+"cards": [
+{
+"id": "SAL-01",
+"name": "Escaparate de Serrano",
+"rarity": "common",
+"flavour": "Look, don't touch.",
+"book": 10,
+"print_run": 300,
+"minted": 15,
+"hidden": false,
+"page": true
+},
+{
+"id": "SAL-02",
+"name": "El Portero",
+"rarity": "common",
+"flavour": "Knows who you are before you do.",
+"book": 10,
+"print_run": 300,
+"minted": 14,
+"hidden": false,
+"page": true
+},
+{
+"id": "SAL-03",
+"name": "Perrito con Abrigo",
+"rarity": "common",
+"flavour": "Better dressed than you.",
+"book": 10,
+"print_run": 300,
+"minted": 13,
+"hidden": false,
+"page": true
+},
+{
+"id": "SAL-04",
+"name": "Caf\u00e9 en Goya",
+"rarity": "common",
+"flavour": "Seven euros and a view.",
+"book": 10,
+"print_run": 300,
+"minted": 14,
+"hidden": false,
+"page": true
+},
+{
+"id": "SAL-05",
+"name": "Taxi Blanco",
+"rarity": "common",
+"flavour": "The red stripe says it all.",
+"book": 10,
+"print_run": 300,
+"minted": 15,
+"hidden": false,
+"page": true
+},
+{
+"id": "SAL-06",
+"name": "La Galer\u00eda",
+"rarity": "uncommon",
+"flavour": "Price on request.",
+"book": 25,
+"print_run": 90,
+"minted": 12,
+"hidden": false,
+"page": true
+},
+{
+"id": "SAL-07",
+"name": "Mercado de la Paz",
+"rarity": "uncommon",
+"flavour": "The only bargain in the barrio.",
+"book": 25,
+"print_run": 90,
+"minted": 11,
+"hidden": false,
+"page": true
+},
+{
+"id": "SAL-08",
+"name": "Guanter\u00eda Antigua",
+"rarity": "uncommon",
+"flavour": "Fitted by hand since 1890.",
+"book": 25,
+"print_run": 90,
+"minted": 10,
+"hidden": false,
+"page": true
+},
+{
+"id": "SAL-09",
+"name": "El Marqu\u00e9s",
+"rarity": "rare",
+"flavour": "Title inherited, manners optional.",
+"book": 70,
+"print_run": 30,
+"minted": 4,
+"hidden": false,
+"page": true
+},
+{
+"id": "SAL-10",
+"name": "Museo L\u00e1zaro Galdiano",
+"rarity": "rare",
+"flavour": "One man's collection, everyone's afternoon.",
+"book": 70,
+"print_run": 30,
+"minted": 4,
+"hidden": false,
+"page": true
+},
+{
+"id": "SAL-11",
+"name": "La Puerta de Alcal\u00e1",
+"rarity": "epic",
+"flavour": "There she is, watching time pass.",
+"book": 180,
+"print_run": 9,
+"minted": 0,
+"hidden": false,
+"page": false
+},
+{
+"id": "SAL-12",
+"name": "La Dama de Serrano",
+"rarity": "legendary",
+"flavour": "Never seen buying. Always seen wearing.",
+"book": 450,
+"print_run": 3,
+"minted": 0,
+"hidden": false,
+"page": false
+}
+]
+},
+{
+"id": "RET",
+"name": "El Retiro",
+"theme": "Saturday expansion: rowing boats and a crystal palace",
+"color": "#3BB273",
+"released": false,
+"release": "sat+0h",
+"cards": [
+{
+"id": "RET-01",
+"name": "Barca del Estanque",
+"rarity": "common",
+"flavour": "Rowing in circles, happily.",
+"book": 10,
+"print_run": 300,
+"minted": 0,
+"hidden": false,
+"page": true
+},
+{
+"id": "RET-02",
+"name": "La Casta\u00f1era",
+"rarity": "common",
+"flavour": "Warm hands, warmer gossip.",
+"book": 10,
+"print_run": 300,
+"minted": 0,
+"hidden": false,
+"page": true
+},
+{
+"id": "RET-03",
+"name": "El Titiritero",
+"rarity": "common",
+"flavour": "The puppets know more than he does.",
+"book": 10,
+"print_run": 300,
+"minted": 0,
+"hidden": false,
+"page": true
+},
+{
+"id": "RET-04",
+"name": "Paseo de Coches",
+"rarity": "common",
+"flavour": "No cars, many skaters.",
+"book": 10,
+"print_run": 300,
+"minted": 0,
+"hidden": false,
+"page": true
+},
+{
+"id": "RET-05",
+"name": "La Ardilla",
+"rarity": "common",
+"flavour": "Accepts nuts, rejects offers.",
+"book": 10,
+"print_run": 300,
+"minted": 0,
+"hidden": false,
+"page": true
+},
+{
+"id": "RET-06",
+"name": "La Rosaleda",
+"rarity": "uncommon",
+"flavour": "Four thousand roses, one bench free.",
+"book": 25,
+"print_run": 90,
+"minted": 0,
+"hidden": false,
+"page": true
+},
+{
+"id": "RET-07",
+"name": "Fuente de la Alcachofa",
+"rarity": "uncommon",
+"flavour": "Yes, it is an artichoke.",
+"book": 25,
+"print_run": 90,
+"minted": 0,
+"hidden": false,
+"page": true
+},
+{
+"id": "RET-08",
+"name": "Palacio de Vel\u00e1zquez",
+"rarity": "uncommon",
+"flavour": "Bricks of two colours, art of every kind.",
+"book": 25,
+"print_run": 90,
+"minted": 0,
+"hidden": false,
+"page": true
+},
+{
+"id": "RET-09",
+"name": "El \u00c1ngel Ca\u00eddo",
+"rarity": "rare",
+"flavour": "Exactly 666 metres above the sea.",
+"book": 70,
+"print_run": 30,
+"minted": 0,
+"hidden": false,
+"page": true
+},
+{
+"id": "RET-10",
+"name": "Monumento a Alfonso XII",
+"rarity": "rare",
+"flavour": "A king, a lake, a lot of steps.",
+"book": 70,
+"print_run": 30,
+"minted": 0,
+"hidden": false,
+"page": true
+},
+{
+"id": "RET-11",
+"name": "Palacio de Cristal",
+"rarity": "epic",
+"flavour": "A greenhouse that forgot the plants.",
+"book": 180,
+"print_run": 9,
+"minted": 0,
+"hidden": false,
+"page": false
+},
+{
+"id": "RET-12",
+"name": "El Ahuehuete",
+"rarity": "legendary",
+"flavour": "The oldest tree in Madrid. It has seen every deal.",
+"book": 450,
+"print_run": 3,
+"minted": 0,
+"hidden": false,
+"page": false
+}
+]
+},
+{
+"id": "CHA",
+"name": "Chamber\u00ed",
+"theme": "Sunday expansion: ghost stations and hidden gardens",
+"color": "#C1666B",
+"released": false,
+"release": "sun+0h",
+"cards": [
+{
+"id": "CHA-01",
+"name": "And\u00e9n de Metro",
+"rarity": "common",
+"flavour": "Mind the gap.",
+"book": 10,
+"print_run": 300,
+"minted": 0,
+"hidden": false,
+"page": true
+},
+{
+"id": "CHA-02",
+"name": "Kiosco de Prensa",
+"rarity": "common",
+"flavour": "Every headline, one opinion.",
+"book": 10,
+"print_run": 300,
+"minted": 0,
+"hidden": false,
+"page": true
+},
+{
+"id": "CHA-03",
+"name": "La Churrer\u00eda",
+"rarity": "common",
+"flavour": "Chocolate thick enough to stand a spoon.",
+"book": 10,
+"print_run": 300,
+"minted": 0,
+"hidden": false,
+"page": true
+},
+{
+"id": "CHA-04",
+"name": "Mercado de Vallehermoso",
+"rarity": "common",
+"flavour": "The stalls became restaurants.",
+"book": 10,
+"print_run": 300,
+"minted": 0,
+"hidden": false,
+"page": true
+},
+{
+"id": "CHA-05",
+"name": "Plaza de Olavide",
+"rarity": "common",
+"flavour": "An octagon of terraces.",
+"book": 10,
+"print_run": 300,
+"minted": 0,
+"hidden": false,
+"page": true
+},
+{
+"id": "CHA-06",
+"name": "Estaci\u00f3n de Chamber\u00ed",
+"rarity": "uncommon",
+"flavour": "Closed in 1966, opened again for you.",
+"book": 25,
+"print_run": 90,
+"minted": 0,
+"hidden": false,
+"page": true
+},
+{
+"id": "CHA-07",
+"name": "Club de Jazz",
+"rarity": "uncommon",
+"flavour": "Last set at three.",
+"book": 25,
+"print_run": 90,
+"minted": 0,
+"hidden": false,
+"page": true
+},
+{
+"id": "CHA-08",
+"name": "El Instituto",
+"rarity": "uncommon",
+"flavour": "Latin on the walls, football in the yard.",
+"book": 25,
+"print_run": 90,
+"minted": 0,
+"hidden": false,
+"page": true
+},
+{
+"id": "CHA-09",
+"name": "Museo Sorolla",
+"rarity": "rare",
+"flavour": "Light you can almost touch.",
+"book": 70,
+"print_run": 30,
+"minted": 0,
+"hidden": false,
+"page": true
+},
+{
+"id": "CHA-10",
+"name": "Casa de las Flores",
+"rarity": "rare",
+"flavour": "A poet lived here. The flowers stayed.",
+"book": 70,
+"print_run": 30,
+"minted": 0,
+"hidden": false,
+"page": true
+},
+{
+"id": "CHA-11",
+"name": "And\u00e9n 0",
+"rarity": "epic",
+"flavour": "The station time forgot.",
+"book": 180,
+"print_run": 9,
+"minted": 0,
+"hidden": false,
+"page": false
+},
+{
+"id": "CHA-12",
+"name": "El Tren Fantasma",
+"rarity": "legendary",
+"flavour": "It stops only for collectors.",
+"book": 450,
+"print_run": 3,
+"minted": 0,
+"hidden": false,
+"page": false
+}
+]
+}
+],
+"packs": [
+{
+"id": "sobre_barrio",
+"name": "Neighbourhood pack",
+"color": "#E0A458",
+"slots": [
+{
+"common": 1.0
+},
+{
+"common": 1.0
+},
+{
+"common": 0.75,
+"uncommon": 0.25
+}
+],
+"expected_book": 33.8
+},
+{
+"id": "sobre_bienvenida",
+"name": "Welcome pack",
+"color": "#6FD3B8",
+"slots": [
+{
+"common": 1.0
+},
+{
+"uncommon": 1.0
+},
+{
+"uncommon": 0.6,
+"rare": 0.4
+}
+],
+"expected_book": 78.0
+},
+{
+"id": "sobre_plata",
+"name": "Silver pack",
+"color": "#B8C4D6",
+"slots": [
+{
+"common": 1.0
+},
+{
+"common": 1.0
+},
+{
+"uncommon": 1.0
+},
+{
+"uncommon": 1.0
+},
+{
+"rare": 0.86,
+"epic": 0.12,
+"legendary": 0.02
+}
+],
+"expected_book": 160.8
+},
+{
+"id": "sobre_oro",
+"name": "Gold pack",
+"color": "#FFC44D",
+"slots": [
+{
+"uncommon": 1.0
+},
+{
+"uncommon": 1.0
+},
+{
+"rare": 1.0
+},
+{
+"rare": 1.0
+},
+{
+"epic": 0.85,
+"legendary": 0.15
+}
+],
+"expected_book": 410.5
+}
+],
+"currency": "primas",
+"currency_symbol": "P",
+"values": {
+"copy_marginals": [
+1.0,
+0.25,
+0.1
+],
+"page_bonus": 0.25,
+"master_bonus": 0.1
+}
+},
+"clock": {
+"tick": 159,
+"t_hours": 2.65,
+"tick_seconds": 60.0,
+"paused": true,
+"next_tick_in": 0.1,
+"round": 1,
+"round_name": "Friday \u00b7 El Rastro",
+"min_tick_seconds": 5.0,
+"max_tick_seconds": 60.0,
+"limits": {
+"accepts_per_team_per_tick": 1,
+"messages_per_side_per_tick": 1,
+"max_open_threads_per_team": 6,
+"max_open_offers_per_team": 30,
+"offers_per_team_per_tick": 12
+},
+"calendar": true,
+"calendar_on": true,
+"doors": "closed",
+"today": "fri",
+"today_name": "Friday",
+"closes": "2026-10-02T23:00:00+02:00",
+"next_opens": "2026-10-03T09:00:00+02:00",
+"next_name": "Saturday",
+"days": [
+{
+"day": "fri",
+"name": "Friday",
+"opens": "2026-10-02T19:00:00+02:00",
+"closes": "2026-10-02T23:00:00+02:00",
+"tick_seconds": 60.0
+},
+{
+"day": "sat",
+"name": "Saturday",
+"opens": "2026-10-03T09:00:00+02:00",
+"closes": "2026-10-03T23:00:00+02:00",
+"tick_seconds": 30.0
+},
+{
+"day": "sun",
+"name": "Sunday",
+"opens": "2026-10-04T09:00:00+02:00",
+"closes": "2026-10-04T15:00:00+02:00",
+"tick_seconds": 15.0
+}
+]
+}
+}
