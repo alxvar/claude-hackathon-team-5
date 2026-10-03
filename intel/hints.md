@@ -205,3 +205,4 @@ La Puerta de Alcalá, esa joya de Madrid... para tu tío, 187 P. Piedra noble, p
 - Sat 21:32 · catalog.minted LAV-11 (La Casa Encendida, epic, print run 9): hidden=False minted=4 (was 3)
 - Sat 21:32 · catalog.minted MAL-11 (La Sala Pentagrama, epic, print run 9): hidden=False minted=2 (was 1)
 - Sat 21:32 · catalog.minted SAL-11 (La Puerta de Alcalá, epic, print run 9): hidden=False minted=8 (was 7)
+- Sat 21:36 · message tick 1278 · banco → t04 · Buenas tardes. The card is clean, sí. But Carmen's words do not set terms here. Mine do: one hundred thirteen. Take your time deciding; I have plenty.

@@ -1,4 +1,4 @@
-# Metrics (auto, 21:34, game tick 1274)
+# Metrics (auto, 21:36, game tick 1278)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -22,8 +22,14 @@ score 30.96 · neg_points 119.1 (15 min ago 119.1) · ladder 0.483 · duel 18.08
 
 LAT-03 (common): 5; LAT-04 (common): 5; LAV-01 (common): 99.1; LAV-02 (common): 1.3 / 1.3 / 1.3; LAV-03 (common): 3.2 / 3.2; LAV-04 (common): 3.2 / 3.2; LAV-05 (common): 99.1; LAV-06 (uncommon): 118.6; LAV-07 (uncommon): 118.6; LAV-08 (uncommon): 118.6; LAV-09 (rare): 177.1; LAV-10 (rare): 177.1; MAL-01 (common): 7; MAL-02 (common): 7; MAL-03 (common): 7; MAL-04 (common): 7; MAL-05 (common): 7; MAL-08 (uncommon): 17.5; RET-01 (common): 83.9; RET-02 (common): 83.9; RET-03 (common): 83.9; RET-04 (common): 83.9; RET-05 (common): 83.9; RET-06 (uncommon): 100.4; RET-07 (uncommon): 100.4; RET-08 (uncommon): 100.4; RET-09 (rare): 149.9; RET-10 (rare): 149.9; RET-11 (epic): 198; SAL-01 (common): 68.6; SAL-02 (common): 68.6; SAL-03 (common): 68.6; SAL-04 (common): 68.6; SAL-05 (common): 68.6; SAL-06 (uncommon): 82.1; SAL-07 (uncommon): 82.1; SAL-08 (uncommon): 82.1; SAL-09 (rare): 122.6; SAL-10 (rare): 122.6; sobre_plata (pack): 72.4
 
-## Our open offers (0)
+## Our open offers (6)
 
+- 18605: bid 115 for SAL-11 · to t04 · expires tick 1305
+- 18606: sell LAV-03 for 6 · to t04 · expires tick 1315
+- 18607: sell MAL-03 for 9 · to t09 · expires tick 1315
+- 18608: sell LAV-04 for 6 · to t01 · expires tick 1315
+- 18609: sell MAL-08 for 20 · to t01 · expires tick 1315
+- 18616: sell MAL-04 for 27 · to t02 · expires tick 1297
 
 ## What each of our deals did to neg_points (measured, last 12)
 
@@ -72,19 +78,19 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 
 - abuela uncommon (team buys): median 23 over 1
 - banco epic (team sells): median 120 over 1
-- picaros epic (team buys): median 152 over 8
+- picaros epic (team buys): median 155 over 7
 - picaros rare (team buys): median 58 over 1
 
 ## El Rastro now: top bids by price (team, card, price)
 
 - t10: LAV-11 (epic) 205 P · offer 18361
-- t17: MAL-11 (epic) 150 P · offer 18379
+- t17: MAL-11 (epic) 150 P · offer 18613
 - t18: LAT-10 (rare) 72 P · offer 18535
 - t09: MAL-09 (rare) 56 P · offer 18511
 - t09: MAL-10 (rare) 56 P · offer 18523
 - t04: MAL-10 (rare) 55 P · offer 18439
 - t04: MAL-09 (rare) 45 P · offer 18493
-- t13: LAV-10 (rare) 42 P · offer 18593
+- t13: LAV-09 (rare) 42 P · offer 18614
 - t09: SAL-06 (uncommon) 23 P · offer 18499
 - t13: RET-07 (uncommon) 13 P · offer 18487
 - t13: RET-06 (uncommon) 13 P · offer 18526
