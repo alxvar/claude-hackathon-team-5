@@ -2,6 +2,12 @@
 
 _Written by the strategy session. It never touches the game: no trades, no bots. The operator decides and executes inside its hard limits (ORCHESTRATOR.md, "Decide, don't ask"); Lucas changes a limit only with a line containing GUARDRAIL. Format: `- HH:MM · decision with limits · why`. Newest block on top. Labels: **[Verified]** measured on our own deals or read from the server; **[Likely]** fitted or inferred; **[Open]** unknown._
 
+## Sat 11:35 — ladder program, Sunday CHA floor, Team 10
+
+- 11:35 · GUARDRAIL · **Sunday: cash floor 0 from doors-open for the Chamberí page buys only** (intel/cha-plan.md; Lucas: "ok"); every other bot keeps floor 100 until the 02:20 rule (0 by 14:00). Saturday close target: ≥ ~170 P cash · CHA rares are worth 112 to us vs Chato ~90, so dealer buys cost nothing and the page closes for +50 [Verified cap]; the plan was independently verified.
+- 11:35 · **Ladder program (after Duels I, ~13:30):** our L2 ladder is ~0. All 6 of our Chato deals were above his MENU list (26 uncommon / 77 rare) and never moved it. Team 13 bought LAV-06/07 from Chato at 26 = list and sold to him above his buy list, then unlocked Pilar early [Verified: feed ticks 120-262]. Step 1, test: one Chato buy at his menu list (an uncommon we'd hold anyway; ≤ −4 neg_points), alone in its window; measure ladder_points vs Abuela's +0.015/deal. If it moves materially, do 2 more on Chato and 3 with Pilar (L3 weighs more: sell spares at or above her list buy price) · the ladder is one of three Negotiating parts (RULES) and our biggest gap vs Team 13 (neg 24.3 vs our 14.9 at snapshot 390); weights [Open]: Dani asks the desk.
+- 11:35 · Team 10 is in the top 4 → no offers of ours on v07; no public asks anywhere (every set is hunted by a top-4 team).
+
 ## Sat 11:31 — value created can be negative
 
 - 11:31 · **Fact [Verified: /api/me mm_points −5.2; market 12.5 → 7.5 at snapshot 400]:** a trade on v10 where the buyer values the card less than the seller (t10 → t15, SAL-07 at 26, tick 398; t15 doesn't collect SAL) wiped our +5.0; the negative total looks floored at the bench part [Likely]. **Rule:** trades on our venue (and ours on v07) must be collector-buys (the buyer collects the set, the seller doesn't). Lucas asks Team 10 to post on v10 only addressed to collectors of that set; our v07 sales go only to collectors (already true for t03). Never close the stall (the bench needs it). Market logs the sign of every v10 trade.
