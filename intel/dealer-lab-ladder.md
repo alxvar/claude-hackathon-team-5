@@ -1,9 +1,9 @@
 # Dealer Lab: ladder scoring, how the five dealers price, and the Sunday playbook
 
-_Sat 23:55 · Dealer Lab (Lucas's machine), read-only analysis, checked by two independent passes (fixes applied). The Operator's
+_Sat 23:35 · Dealer Lab (Lucas's machine), read-only analysis, checked by two independent passes (fixes applied). The Operator's
 `intel/dealer-lab.md` is the operational plan; §5 lists where this file disagrees with it, for the Chief to settle. Sources:
 `data/feed.jsonl` up to tick 1376 (1,576 dealer threads, 621 dealer settlements, 530 linked to their thread), `data/me.jsonl` (our 18
-ladder moves), live keyless `GET /api/dealers` and `/api/schedule` (23:50), `intel/hints.md`, `intel/eggs.md`, `bazaar-kit/RULES.md`,
+ladder moves), live keyless `GET /api/dealers` and `/api/schedule` (23:25), `intel/hints.md`, `intel/eggs.md`, `bazaar-kit/RULES.md`,
 `intel/GAME.md`. The feed hides the teams' own words (`text: null`), so only dealer replies are visible. [V] verified in the data ·
 [L] likely (fits the data, not proven) · [?] open._
 
@@ -28,7 +28,7 @@ ladder moves), live keyless `GET /api/dealers` and `/api/schedule` (23:50), `int
    one: five by 1 P, plus Pícaros 147 vs 151 and Ernesto 120 vs 117. Pilar's final was never beaten (0 of 46). After a walk, the next
    thread for the same item had a better best price 191 times, worse 151 and the same 276; the opening price never changed. Each
    conversation draws a fresh secret limit, so **a bad final → walk and reopen**.
-5. **Timing [V schedule, 23:50]:** the server re-anchored Sunday. Round 3 (fresh ladder) and the Chamberí release come at the 09:00
+5. **Timing [V schedule, 23:25]:** the server re-anchored Sunday. Round 3 (fresh ladder) and the Chamberí release come at the 09:00
    opening, +150 P at ≈ 09:03 and Duels III at ≈ 11:00. The finale warning comes at ≈ 13:48, then **dealers close at ≈ 14:00, together
    with the Grand Final duel wave**, and scores freeze at 15:00. Game hours run with wall time, so a pause shifts every one of these.
    **All ladder deals settle by ≈ 13:45.**
@@ -223,7 +223,7 @@ Hitting the best-3 targets would be about 0.53 ladder points (L1 0.053, L2 0.080
 | Abuela caps | commons 9, uncommons 24 | target 8 / 20-21, accept 9 / 22 | 22-23 still score, but 20-21 is reachable with +1/+2 steps (7 rounds) |
 | Pilar RET-11 | her epic finals ≈ 187, likely a walk | possible: SAL-11 went 179-199, and she asks for the Palacio de Cristal by name | same floor 198, same advice: walk below it |
 | Ladder per deal | L1 ≈ 0.011 … L4 0.043-0.089 (observed jumps) | max per deal L/45: 0.022 / 0.044 / 0.067 / 0.089 / 0.111 | the observed jumps are slot upgrades; the formula gives the ceiling per slot |
-| Timing | Duels III ≈ 11:00 | adds: dealers close ≈ 14:00 with the Grand Final, warning ≈ 13:48 | the server's schedule as of 23:50 |
+| Timing | Duels III ≈ 11:00 | adds: dealers close ≈ 14:00 with the Grand Final, warning ≈ 13:48 | the server's schedule as of 23:25 |
 
 _Method: dealer threads rebuilt from `thread.opened` / `thread.message` / `thread.closed`; settlements linked to the thread with the same
 team, dealer and a matching price within the thread's ticks (530 of 621). Ladder shares come from `me.jsonl` jumps against our own deals
