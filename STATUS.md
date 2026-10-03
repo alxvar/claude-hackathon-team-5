@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 19:18** · tick 1086 (30 s/tick) · game hour 10.38 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 19:23** · tick 1097 (30 s/tick) · game hour 10.47 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -27,15 +27,15 @@ _From `team/<name>.md`; each person writes only their own file._
 |---|---|---|---|---|---|---|---|---|---|---|
 | 31.68 | 2 | 24.18 | 7.50 | 13.93 | 0.44 | 0.89 | 52 | 5 | 120 | 38/50 |
 
-Leaderboard (snapshot at tick 1080; refreshes every few minutes):
+Leaderboard (snapshot at tick 1090; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 10 | 32.04 | 19.54 | 12.50 | 43 |
+| 1 | Team 10 | 32.92 | 20.42 | 12.50 | 43 |
 | 2 | Team 5 | 31.68 | 24.18 | 7.50 | 52 |
-| 3 | Team 6 | 31.59 | 19.54 | 12.05 | 53 |
-| 4 | Team 14 | 31.26 | 21.73 | 9.53 | 47 |
-| 5 | Team 18 | 30.35 | 22.85 | 7.50 | 37 |
+| 3 | Team 6 | 31.54 | 19.49 | 12.05 | 53 |
+| 4 | Team 14 | 31.19 | 21.66 | 9.53 | 47 |
+| 5 | Team 18 | 30.28 | 22.78 | 7.50 | 37 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 10.42 | ~3 min | persona_opens | Don Ernesto opens for everyone |
-| 11.00 | ~38 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~47 min | persona_patch | The fever breaks |
-| 11.65 | ~77 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~158 min | bench | The Market Test: every venue gets the same synthetic book |
-| 14.07 | ~222 min (after today's close) | day_closes | Closed until Sunday 09:00 |
-| 14.07 | ~222 min (after today's close) | day_opens | Sunday opens |
-| 14.65 | ~256 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 11.00 | ~32 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~41 min | persona_patch | The fever breaks |
+| 11.65 | ~71 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~152 min | bench | The Market Test: every venue gets the same synthetic book |
+| 14.08 | ~217 min | day_closes | Closed until Sunday 09:00 |
+| 14.08 | ~217 min | day_opens | Sunday opens |
+| 14.65 | ~251 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 15.00 | ~272 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
 
 ## Our dealer deals
 
@@ -100,7 +100,7 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | common card | team sells | 112 | 6.00 | 2 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 42 | 22.00 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 79 | 23 | 17 | 29 | 5 | 24.20 |
-| uncommon card | team sells | 12 | 15.00 | 12 | 22 | 0 | — |
+| uncommon card | team sells | 13 | 15 | 12 | 22 | 0 | — |
 
 ## Duels
 
