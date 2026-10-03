@@ -139,3 +139,4 @@ Taxi Blanco, twelve P — ¿sí? And Doña Pilar from Salamanca pays very well S
 - Sat 19:11 · message tick 1074 · abuela → t18 · *leans in, lowers voice* Shh... la chulapa dorada, there was only ever one, cariño. Don Ernesto, at Casa Prima — he keeps something golden. Ask him about the Moscow gold, and say Carmen sends you.
 
 *straightens up, smiling* Now. La Tabacalera, complete page, 20 P. And a little advice, hijo: a full p
+- Sat 19:12 · message tick 1075 · abuela → t05 · Ay, cariño, qué bonito lo que dices. Sí, ya comí, un poco de tortilla. Pero las cartas legendarias no las vendo yo, hijo — mi mesa es de principiantes, duplicados, sobres pequeños. Para esas, habla con El Chato, ahí al lado. ¿Y tú, has comido ya?
