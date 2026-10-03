@@ -1,26 +1,33 @@
-# Opportunities (auto, 02:48, game tick 159, t 2.65 h) · DRY RUN: nothing posted, nobody notified
+# Opportunities (auto, 09:36, game tick 175, t 2.7833 h)
 
-Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min old · ≤ 3 alerts/h · team 45 min · team+card 2 h · sells only to teams ≥ 10 below us (20.03) and outside the top 4 (t10, t12, t13, t17). Data: collector.
+Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and ≤ 60 real min old · ≤ 3 alerts/h · team 45 min · team+card 2 h · sells only to teams ≥ 10 below us (17.81) and outside the top 4 (t04, t12, t13, t17). Data: collector.
 
-## Ranked now (9)
+## Ranked now (16)
 
-| # | side | team | card | price | our value | gain | signal | age (game min) | status |
+| # | side | team | card | price | our value | gain | signal | age (game / real min) | status |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | SELL | Team 7 (#14, 8.98) | SAL-02 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 132) | 27 | listed only: they also lack SAL-01, SAL-05, SAL-06, SAL-07: not their last or second-to-last SAL card |
-| 2 | SELL | Team 7 (#14, 8.98) | SAL-01 common | 40 | 9 | 31 | asked abuela to sell it (tick 136) | 23 | listed only: they also lack SAL-02, SAL-05, SAL-06, SAL-07: not their last or second-to-last SAL card |
-| 3 | SELL | Team 2 (#17, 6.84) | LAT-03 common | 19 | 5 | 14 | bids 2 P for it now (offer 2725) | 0 live | listed only: gain 14 < 20 |
-| 4 | SELL | Team 7 (#14, 8.98) | SAL-05 common | 40 | 9 | 31 | asked abuela to sell it (tick 128) | 31 | listed only: they also lack SAL-01, SAL-02, SAL-06, SAL-07: not their last or second-to-last SAL card |
-| 5 | SELL | Team 7 (#14, 8.98) | MAL-06 uncommon | 45 | 17.5 | 27.5 | asked abuela to sell it (tick 125) | 34 | listed only: they also lack MAL-07, MAL-08: not their last or second-to-last MAL card |
-| 6 | SELL | Team 7 (#14, 8.98) | MAL-07 uncommon | 45 | 17.5 | 27.5 | asked abuela to sell it (tick 122) | 37 | listed only: they also lack MAL-06, MAL-08: not their last or second-to-last MAL card |
-| 7 | SELL | Team 8 (#9, 17.65) | LAT-03 common | 27 | 5 | 22 | bid 5 P for it (tick 137) | 22 | no: only 2.38 below us (needs ≥ 10) |
-| 8 | SELL | Team 8 (#9, 17.65) | LAV-03 common | 19 | 3.2 | 15.8 | bid 2 P for it (tick 150) | 9 | no: only 2.38 below us (needs ≥ 10) |
-| 9 | SELL | Team 12 (#2, 27.87) | MAL-07 uncommon | 45 | 17.5 | 27.5 | bid 28 P for it (tick 88) | 71 | no: top 4; 7.84 above us |
+| 1 | BUY | Team 2 (#13, 9.4) | RET-08 uncommon | 24 | 27.5 | 3.5 | bought it at 31 P from chato (tick 166) | 5 / 4 | listed only: gain 3.5 < 20 |
+| 2 | BUY | Team 2 (#13, 9.4) | RET-06 uncommon | 24 | 27.5 | 3.5 | bought it at 24 P from abuela (tick 166) | 5 / 4 | listed only: gain 3.5 < 20 |
+| 3 | BUY | Team 2 (#13, 9.4) | RET-01 common | 8 | 11 | 3 | bought it at 10 P from abuela (tick 163) | 6 / 6 | listed only: gain 3 < 20 |
+| 4 | SELL | Team 3 (#10, 13.01) | SAL-01 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 165) | 5 / 5 | no: only 4.8 below us (needs ≥ 10) |
+| 5 | BUY | Team 12 (#2, 24.79) | RET-08 uncommon | 24 | 27.5 | 3.5 | bought it at 24 P from abuela (tick 174) | 0 / 0 | no: top 4 |
+| 6 | SELL | Team 2 (#13, 9.4) | LAV-02 common | 19 | 3.2 | 15.8 | bids 1 P for it now (offer 2978) | 0 live | no: only 8.41 below us (needs ≥ 10) |
+| 7 | SELL | Team 2 (#13, 9.4) | LAT-03 common | 19 | 5 | 14 | bid 3 P for it (tick 168) | 3 / 3 | no: only 8.41 below us (needs ≥ 10) |
+| 8 | SELL | Team 12 (#2, 24.79) | MAL-07 uncommon | 45 | 17.5 | 27.5 | bid 28 P for it (tick 88) | 79 / 706 | no: top 4; 6.98 above us |
+| 9 | SELL | Team 7 (#16, 7.99) | SAL-01 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 136) | 31 / 660 | no: only 9.82 below us (needs ≥ 10) |
+| 10 | SELL | Team 7 (#16, 7.99) | SAL-02 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 132) | 35 / 664 | no: only 9.82 below us (needs ≥ 10) |
+| 11 | SELL | Team 7 (#16, 7.99) | SAL-05 common | 40 | 9 | 31 | asked abuela to sell it (tick 128) | 39 / 667 | no: only 9.82 below us (needs ≥ 10) |
+| 12 | SELL | Team 8 (#9, 15.7) | SAL-03 common | 38 | 9 | 29 | bid 5 P for it (tick 142) | 25 / 655 | no: only 2.11 below us (needs ≥ 10) |
+| 13 | SELL | Team 7 (#16, 7.99) | MAL-06 uncommon | 45 | 17.5 | 27.5 | asked abuela to sell it (tick 125) | 42 / 671 | no: only 9.82 below us (needs ≥ 10) |
+| 14 | SELL | Team 7 (#16, 7.99) | MAL-07 uncommon | 45 | 17.5 | 27.5 | asked abuela to sell it (tick 122) | 45 / 675 | no: only 9.82 below us (needs ≥ 10) |
+| 15 | SELL | Team 8 (#9, 15.7) | LAT-03 common | 27 | 5 | 22 | bid 5 P for it (tick 137) | 30 / 660 | no: only 2.11 below us (needs ≥ 10) |
+| 16 | SELL | Team 8 (#9, 15.7) | LAV-03 common | 19 | 3.2 | 15.8 | bid 2 P for it (tick 150) | 17 / 646 | no: only 2.11 below us (needs ≥ 10) |
 
 ## Alerts (newest first)
 
 
 ## Our side
 
-Pages we build, cards missing: RET: RET-01, RET-02, RET-03, RET-04, RET-05, RET-06, RET-07, RET-08, RET-09, RET-10; CHA: CHA-01, CHA-02, CHA-03, CHA-04, CHA-05, CHA-06, CHA-07, CHA-08, CHA-09, CHA-10
-Value of missing cards looked up this run (only those some team holds): none
-Spares (sellable copies): LAT-03 ×1 (5), LAT-04 ×2 (1.2), LAV-02 ×2 (3.2), LAV-03 ×2 (3.2), LAV-04 ×2 (3.2), MAL-02 ×1 (7), MAL-04 ×1 (7), MAL-06 ×1 (17.5), MAL-07 ×1 (17.5), SAL-01 ×1 (9), SAL-02 ×2 (2.2), SAL-05 ×1 (9), SAL-08 ×1 (22.5)
+Pages we build, cards missing: RET: RET-01, RET-02, RET-03, RET-04, RET-06, RET-07, RET-08, RET-09, RET-10; CHA: CHA-01, CHA-02, CHA-03, CHA-04, CHA-05, CHA-06, CHA-07, CHA-08, CHA-09, CHA-10
+Value of missing cards looked up this run (only those some team holds): RET-01 11, RET-06 27.5, RET-08 27.5
+Spares (sellable copies): LAT-03 ×1 (5), LAT-04 ×2 (1.2), LAV-02 ×2 (3.2), LAV-03 ×2 (3.2), LAV-04 ×2 (3.2), MAL-02 ×1 (7), MAL-04 ×1 (7), MAL-06 ×1 (17.5), MAL-07 ×1 (17.5), SAL-01 ×2 (2.2), SAL-02 ×2 (2.2), SAL-03 ×1 (9), SAL-05 ×1 (9), SAL-08 ×1 (22.5)
