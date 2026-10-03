@@ -1582,5 +1582,91 @@
     "settles_at_tick": 1366
    }
   }
- ]
+ ],
+ "last_seen_tick": 1366,
+ "done": {
+  "duel": 6084,
+  "session": 3,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Fiesta de San Cayetano",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 3.78,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 126,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Plata",
+  "deadline_tick": 1369,
+  "decay_per_round": 0.08,
+  "rounds": 3,
+  "your_offer": {
+   "id": 10624,
+   "price": 98,
+   "tick": 1364,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 10619,
+   "price": 101,
+   "tick": 1364,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1355,
+    "from": "you",
+    "text": "I'll start at 78 P for delivery on day 0. I'd like to keep this quick and clean, so I hope we can close soon.",
+    "price": 78,
+    "days": 0
+   },
+   {
+    "tick": 1356,
+    "from": "Rival Plata",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 122,
+    "days": 0
+   },
+   {
+    "tick": 1358,
+    "from": "Rival Plata",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 116,
+    "days": 0
+   },
+   {
+    "tick": 1358,
+    "from": "you",
+    "text": "I can move up to 86 P for delivery on day 0. If you keep moving toward me, I'm ready to close quickly.",
+    "price": 86,
+    "days": 0
+   },
+   {
+    "tick": 1361,
+    "from": "you",
+    "text": "I can move to 92 P for delivery on day 0. That's a clear step from me, so I'd like to see a meaningful move from your side, and then we can close quickly.",
+    "price": 92,
+    "days": 0
+   },
+   {
+    "tick": 1364,
+    "from": "Rival Plata",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 101,
+    "days": 0
+   },
+   {
+    "tick": 1364,
+    "from": "you",
+    "text": "I can move to 98 P for delivery on day 0. That's a real step from me, and I'd like a real move back so we can close in the next exchange.",
+    "price": 98,
+    "days": 0
+   }
+  ],
+  "result": 19.5,
+  "price": 101,
+  "days": 0
+ }
 }

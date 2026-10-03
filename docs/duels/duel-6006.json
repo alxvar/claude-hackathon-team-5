@@ -1135,6 +1135,122 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 1366,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 6006,
+     "role": "seller",
+     "limit": 73,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.46,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm offering 115 P with delivery on day 10. I'd like to settle this quickly and fairly.",
+      "offer": {
+       "price": 115,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1353,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 105 P, delivery on day 10.",
+      "offer": {
+       "price": 105,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1359,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 94 P, delivery on day 10.",
+      "offer": {
+       "price": 94,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1360,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 84 P, delivery on day 10.",
+      "offer": {
+       "price": 84,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1361,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 73 P, delivery on day 10.",
+      "offer": {
+       "price": 73,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1362,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1366,
+    "ticks_left": 1,
+    "rounds": 0,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6,
+     70.6,
+     33.3
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "Let me think about that.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "blocked": {
+      "fallback": "past the limit despite the band",
+      "blocked": {
+       "rule": "silent rival",
+       "calls": []
+      },
+      "calls": []
+     }
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [

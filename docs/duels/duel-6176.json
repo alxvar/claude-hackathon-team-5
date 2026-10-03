@@ -1824,6 +1824,171 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1365,
+   "raw": {
+    "duel": 6176,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.45,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 92,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Verde",
+    "deadline_tick": 1368,
+    "decay_per_round": 0.08,
+    "rounds": 9,
+    "your_offer": {
+     "id": 10646,
+     "price": 104,
+     "tick": 1365,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 10626,
+     "price": 96,
+     "tick": 1364,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1352,
+      "from": "Rival Verde",
+      "text": "Propuesta justa para cerrar pronto: 66 P y 0 días.",
+      "price": 66,
+      "days": 0
+     },
+     {
+      "tick": 1352,
+      "from": "you",
+      "text": "I can do 155 P, delivery on day 0.",
+      "price": 155,
+      "days": 0
+     },
+     {
+      "tick": 1353,
+      "from": "Rival Verde",
+      "text": "Me muevo para acercarnos: 72 P con 0 días.",
+      "price": 72,
+      "days": 0
+     },
+     {
+      "tick": 1353,
+      "from": "you",
+      "text": "I can move to 146 P, delivery on day 0. A bigger step from you would help us close sooner.",
+      "price": 146,
+      "days": 0
+     },
+     {
+      "tick": 1354,
+      "from": "Rival Verde",
+      "text": "Yo ya me he movido. Propongo 76 P y 0 días.",
+      "price": 76,
+      "days": 0
+     },
+     {
+      "tick": 1355,
+      "from": "you",
+      "text": "I can do 140 P on day 0; or, if you prefer, 118 P on day 10. I'd need a much bigger move from you to close soon.",
+      "price": 140,
+      "days": 0
+     },
+     {
+      "tick": 1356,
+      "from": "Rival Verde",
+      "text": "Propuesta justa para cerrar pronto: 79 P y 0 días.",
+      "price": 79,
+      "days": 0
+     },
+     {
+      "tick": 1356,
+      "from": "you",
+      "text": "I can do 134 P on day 0; or, if you prefer, 112 P on day 10. Small steps won't close a gap this wide, so I'd need a much bigger move from you.",
+      "price": 134,
+      "days": 0
+     },
+     {
+      "tick": 1357,
+      "from": "Rival Verde",
+      "text": "Me muevo para acercarnos: 81 P con 0 días.",
+      "price": 81,
+      "days": 0
+     },
+     {
+      "tick": 1357,
+      "from": "you",
+      "text": "I can do 128 P on day 0; or, if you prefer, 106 P on day 10. Steps of two won't bridge this gap, but a real move from you will close it fast.",
+      "price": 128,
+      "days": 0
+     },
+     {
+      "tick": 1358,
+      "from": "Rival Verde",
+      "text": "Yo ya me he movido. Propongo 83 P y 0 días.",
+      "price": 83,
+      "days": 0
+     },
+     {
+      "tick": 1361,
+      "from": "you",
+      "text": "I can do 122 P on day 0; or, if you prefer, 100 P on day 10. A real step from you is what closes this in the few ticks left.",
+      "price": 122,
+      "days": 0
+     },
+     {
+      "tick": 1362,
+      "from": "Rival Verde",
+      "text": "Propuesta justa para cerrar pronto: 86 P y 0 días.",
+      "price": 86,
+      "days": 0
+     },
+     {
+      "tick": 1362,
+      "from": "you",
+      "text": "I can do 98 P on day 10; or, if you prefer, 119 P on day 0. Pick whichever suits you and we can close now.",
+      "price": 98,
+      "days": 10
+     },
+     {
+      "tick": 1363,
+      "from": "Rival Verde",
+      "text": "Me muevo para acercarnos: 87 P con 0 días.",
+      "price": 87,
+      "days": 0
+     },
+     {
+      "tick": 1364,
+      "from": "you",
+      "text": "I can do 123 P, delivery on day 0.",
+      "price": 123,
+      "days": 0
+     },
+     {
+      "tick": 1364,
+      "from": "Rival Verde",
+      "text": "Yo ya me he movido. Propongo 96 P y 0 días.",
+      "price": 96,
+      "days": 0
+     },
+     {
+      "tick": 1365,
+      "from": "you",
+      "text": "I can do 104 P, delivery on day 0.",
+      "price": 104,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -3837,6 +4002,592 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1365,
+   "took_s": 14.68,
+   "cost_usd": 0.02904,
+   "obs": {
+    "view": {
+     "duel_id": 6176,
+     "role": "seller",
+     "limit": 92,
+     "currency": "P",
+     "item": "La Vía Láctea",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.45,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 66 P y 0 días.",
+      "offer": {
+       "price": 66,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1352,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 155 P, delivery on day 0.",
+      "offer": {
+       "price": 155,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1352,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 72 P con 0 días.",
+      "offer": {
+       "price": 72,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1353,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 146 P, delivery on day 0. A bigger step from you would help us close sooner.",
+      "offer": {
+       "price": 146,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1353,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Yo ya me he movido. Propongo 76 P y 0 días.",
+      "offer": {
+       "price": 76,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1354,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 140 P on day 0; or, if you prefer, 118 P on day 10. I'd need a much bigger move from you to close soon.",
+      "offer": {
+       "price": 140,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1355,
+      "decision": {
+       "action": "offer",
+       "price": 140,
+       "message": "I can do 140 P on day 0; or, if you prefer, 118 P on day 10. I'd need a much bigger move from you to close soon."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 79 P y 0 días.",
+      "offer": {
+       "price": 79,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1356,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 134 P on day 0; or, if you prefer, 112 P on day 10. Small steps won't close a gap this wide, so I'd need a much bigger move from you.",
+      "offer": {
+       "price": 134,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1356,
+      "decision": {
+       "action": "offer",
+       "price": 134,
+       "message": "I can do 134 P on day 0; or, if you prefer, 112 P on day 10. Small steps won't close a gap this wide, so I'd need a much bigger move from you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 81 P con 0 días.",
+      "offer": {
+       "price": 81,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1357,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 128 P on day 0; or, if you prefer, 106 P on day 10. Steps of two won't bridge this gap, but a real move from you will close it fast.",
+      "offer": {
+       "price": 128,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1357,
+      "decision": {
+       "action": "offer",
+       "price": 128,
+       "message": "I can do 128 P on day 0; or, if you prefer, 106 P on day 10. Steps of two won't bridge this gap, but a real move from you will close it fast."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Yo ya me he movido. Propongo 83 P y 0 días.",
+      "offer": {
+       "price": 83,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1358,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 122 P on day 0; or, if you prefer, 100 P on day 10. A real step from you is what closes this in the few ticks left.",
+      "offer": {
+       "price": 122,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1361,
+      "decision": {
+       "action": "offer",
+       "price": 122,
+       "message": "I can do 122 P on day 0; or, if you prefer, 100 P on day 10. A real step from you is what closes this in the few ticks left."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 86 P y 0 días.",
+      "offer": {
+       "price": 86,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1362,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 98 P on day 10; or, if you prefer, 119 P on day 0. Pick whichever suits you and we can close now.",
+      "offer": {
+       "price": 98,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1362,
+      "decision": {
+       "action": "offer",
+       "price": 98,
+       "message": "I can do 98 P on day 10; or, if you prefer, 119 P on day 0. Pick whichever suits you and we can close now."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 87 P con 0 días.",
+      "offer": {
+       "price": 87,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1363,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 123 P, delivery on day 0.",
+      "offer": {
+       "price": 123,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1364,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Yo ya me he movido. Propongo 96 P y 0 días.",
+      "offer": {
+       "price": 96,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1364,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 96,
+     "days": 0
+    },
+    "tick": 1365,
+    "ticks_left": 3,
+    "rounds": 8,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 104 P, delivery on day 0.",
+    "price": 104,
+    "days": 0,
+    "meta": {
+     "repaired": true,
+     "vetoes": [
+      "the message mentions 82 P. Don't write those amounts, not even to reject them.",
+      "the message mentions 82 P. Don't write those amounts, not even to reject them."
+     ],
+     "rejected": {
+      "action": "offer",
+      "price": 104,
+      "message": "I can do 104 P on day 0; or, if you prefer, 82 P on day 10. A move from you toward this would close it right now."
+     },
+     "band": {
+      "worst": 96,
+      "target": 104,
+      "best": 106
+     },
+     "plan": {
+      "read": "They jumped 9 P to 96 P on day 0, their biggest move yet, and it is already within what we can accept. With 3 ticks left, one firm counter can still lift the price, but the deal must not be lost.",
+      "target": 104,
+      "best": 106,
+      "worst": 96,
+      "days": 0,
+      "angle": "Make one clear closing counter: 104 P on day 0, or 82 P on day 10 if they prefer. Keep the tone that this closes it now, and if they push back, accept their 96 P on day 0 rather than lose the deal."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 11.2,
+       "in": 1844,
+       "out": 796,
+       "cost_usd": 0.0233,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.94,
+       "in": 1094,
+       "out": 64,
+       "cost_usd": 0.00283,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.54,
+       "in": 1151,
+       "out": 61,
+       "cost_usd": 0.00291,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1366,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 6176,
+     "role": "seller",
+     "limit": 92,
+     "currency": "P",
+     "item": "La Vía Láctea",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.45,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 66 P y 0 días.",
+      "offer": {
+       "price": 66,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1352,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 155 P, delivery on day 0.",
+      "offer": {
+       "price": 155,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1352,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 72 P con 0 días.",
+      "offer": {
+       "price": 72,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1353,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 146 P, delivery on day 0. A bigger step from you would help us close sooner.",
+      "offer": {
+       "price": 146,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1353,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Yo ya me he movido. Propongo 76 P y 0 días.",
+      "offer": {
+       "price": 76,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1354,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 140 P on day 0; or, if you prefer, 118 P on day 10. I'd need a much bigger move from you to close soon.",
+      "offer": {
+       "price": 140,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1355,
+      "decision": {
+       "action": "offer",
+       "price": 140,
+       "message": "I can do 140 P on day 0; or, if you prefer, 118 P on day 10. I'd need a much bigger move from you to close soon."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 79 P y 0 días.",
+      "offer": {
+       "price": 79,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1356,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 134 P on day 0; or, if you prefer, 112 P on day 10. Small steps won't close a gap this wide, so I'd need a much bigger move from you.",
+      "offer": {
+       "price": 134,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1356,
+      "decision": {
+       "action": "offer",
+       "price": 134,
+       "message": "I can do 134 P on day 0; or, if you prefer, 112 P on day 10. Small steps won't close a gap this wide, so I'd need a much bigger move from you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 81 P con 0 días.",
+      "offer": {
+       "price": 81,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1357,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 128 P on day 0; or, if you prefer, 106 P on day 10. Steps of two won't bridge this gap, but a real move from you will close it fast.",
+      "offer": {
+       "price": 128,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1357,
+      "decision": {
+       "action": "offer",
+       "price": 128,
+       "message": "I can do 128 P on day 0; or, if you prefer, 106 P on day 10. Steps of two won't bridge this gap, but a real move from you will close it fast."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Yo ya me he movido. Propongo 83 P y 0 días.",
+      "offer": {
+       "price": 83,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1358,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 122 P on day 0; or, if you prefer, 100 P on day 10. A real step from you is what closes this in the few ticks left.",
+      "offer": {
+       "price": 122,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1361,
+      "decision": {
+       "action": "offer",
+       "price": 122,
+       "message": "I can do 122 P on day 0; or, if you prefer, 100 P on day 10. A real step from you is what closes this in the few ticks left."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 86 P y 0 días.",
+      "offer": {
+       "price": 86,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1362,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 98 P on day 10; or, if you prefer, 119 P on day 0. Pick whichever suits you and we can close now.",
+      "offer": {
+       "price": 98,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1362,
+      "decision": {
+       "action": "offer",
+       "price": 98,
+       "message": "I can do 98 P on day 10; or, if you prefer, 119 P on day 0. Pick whichever suits you and we can close now."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 87 P con 0 días.",
+      "offer": {
+       "price": 87,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1363,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 123 P, delivery on day 0.",
+      "offer": {
+       "price": 123,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1364,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Yo ya me he movido. Propongo 96 P y 0 días.",
+      "offer": {
+       "price": 96,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1364,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 104 P, delivery on day 0.",
+      "offer": {
+       "price": 104,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1365,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 96,
+     "days": 0
+    },
+    "tick": 1366,
+    "ticks_left": 2,
+    "rounds": 9,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6,
+     70.6,
+     33.3
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 96,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -4273,6 +5024,95 @@
      "tick": 1364,
      "days": 0
     }
+   }
+  },
+  {
+   "tick": 1365,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 104 P, delivery on day 0.",
+    "price": 104,
+    "days": 0,
+    "meta": {
+     "repaired": true,
+     "vetoes": [
+      "the message mentions 82 P. Don't write those amounts, not even to reject them.",
+      "the message mentions 82 P. Don't write those amounts, not even to reject them."
+     ],
+     "rejected": {
+      "action": "offer",
+      "price": 104,
+      "message": "I can do 104 P on day 0; or, if you prefer, 82 P on day 10. A move from you toward this would close it right now."
+     },
+     "band": {
+      "worst": 96,
+      "target": 104,
+      "best": 106
+     },
+     "plan": {
+      "read": "They jumped 9 P to 96 P on day 0, their biggest move yet, and it is already within what we can accept. With 3 ticks left, one firm counter can still lift the price, but the deal must not be lost.",
+      "target": 104,
+      "best": 106,
+      "worst": 96,
+      "days": 0,
+      "angle": "Make one clear closing counter: 104 P on day 0, or 82 P on day 10 if they prefer. Keep the tone that this closes it now, and if they push back, accept their 96 P on day 0 rather than lose the deal."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 11.2,
+       "in": 1844,
+       "out": 796,
+       "cost_usd": 0.0233,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.94,
+       "in": 1094,
+       "out": 64,
+       "cost_usd": 0.00283,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.54,
+       "in": 1151,
+       "out": 61,
+       "cost_usd": 0.00291,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 6176,
+    "offer": {
+     "id": 10646,
+     "price": 104,
+     "tick": 1365,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1366,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 96,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 96,
+    "settles_at_tick": 1367
    }
   }
  ]
