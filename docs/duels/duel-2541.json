@@ -244,6 +244,786 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 492,
+   "raw": {
+    "duel": 2541,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 108,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Azul",
+    "deadline_tick": 506,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 3464,
+     "price": 71,
+     "tick": 491,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3484,
+     "price": 104,
+     "tick": 492,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 490,
+      "from": "Rival Azul",
+      "text": "Hello! I can do 118. Thank you for your time.",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 490,
+      "from": "you",
+      "text": "I'd like to open at 65 P for El Mesón de la Cava. That reflects a fair value for the property as it stands, and I'm ready to move quickly if we can find common ground. What's your counter?",
+      "price": 65,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "Rival Azul",
+      "text": "Thanks for the reply. 110 works for me.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "you",
+      "text": "Thank you for moving. I can come up to 71 P, and that is a real step on my side. Your figure is still well above what the property supports, so we'll need to see a more meaningful move from you to close.",
+      "price": 71,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "Rival Azul",
+      "text": "Let me move closer: 104.",
+      "price": 104,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 492,
+   "raw": {
+    "duel": 2541,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 108,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Azul",
+    "deadline_tick": 506,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 3491,
+     "price": 76,
+     "tick": 492,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3484,
+     "price": 104,
+     "tick": 492,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 490,
+      "from": "Rival Azul",
+      "text": "Hello! I can do 118. Thank you for your time.",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 490,
+      "from": "you",
+      "text": "I'd like to open at 65 P for El Mesón de la Cava. That reflects a fair value for the property as it stands, and I'm ready to move quickly if we can find common ground. What's your counter?",
+      "price": 65,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "Rival Azul",
+      "text": "Thanks for the reply. 110 works for me.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "you",
+      "text": "Thank you for moving. I can come up to 71 P, and that is a real step on my side. Your figure is still well above what the property supports, so we'll need to see a more meaningful move from you to close.",
+      "price": 71,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "Rival Azul",
+      "text": "Let me move closer: 104.",
+      "price": 104,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "you",
+      "text": "Thank you for moving again. I can come up to 76 P, which is another real step from me. The gap is still wide, so I'd need to see a larger move from you, toward the mid-80s, to bring this home.",
+      "price": 76,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 493,
+   "raw": {
+    "duel": 2541,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 108,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Azul",
+    "deadline_tick": 506,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 3491,
+     "price": 76,
+     "tick": 492,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3507,
+     "price": 99,
+     "tick": 493,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 490,
+      "from": "Rival Azul",
+      "text": "Hello! I can do 118. Thank you for your time.",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 490,
+      "from": "you",
+      "text": "I'd like to open at 65 P for El Mesón de la Cava. That reflects a fair value for the property as it stands, and I'm ready to move quickly if we can find common ground. What's your counter?",
+      "price": 65,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "Rival Azul",
+      "text": "Thanks for the reply. 110 works for me.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "you",
+      "text": "Thank you for moving. I can come up to 71 P, and that is a real step on my side. Your figure is still well above what the property supports, so we'll need to see a more meaningful move from you to close.",
+      "price": 71,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "Rival Azul",
+      "text": "Let me move closer: 104.",
+      "price": 104,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "you",
+      "text": "Thank you for moving again. I can come up to 76 P, which is another real step from me. The gap is still wide, so I'd need to see a larger move from you, toward the mid-80s, to bring this home.",
+      "price": 76,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "Rival Azul",
+      "text": "I'd like to close this. My offer is 99.",
+      "price": 99,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 493,
+   "raw": {
+    "duel": 2541,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 108,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Azul",
+    "deadline_tick": 506,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 3516,
+     "price": 80,
+     "tick": 493,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3507,
+     "price": 99,
+     "tick": 493,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 490,
+      "from": "Rival Azul",
+      "text": "Hello! I can do 118. Thank you for your time.",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 490,
+      "from": "you",
+      "text": "I'd like to open at 65 P for El Mesón de la Cava. That reflects a fair value for the property as it stands, and I'm ready to move quickly if we can find common ground. What's your counter?",
+      "price": 65,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "Rival Azul",
+      "text": "Thanks for the reply. 110 works for me.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "you",
+      "text": "Thank you for moving. I can come up to 71 P, and that is a real step on my side. Your figure is still well above what the property supports, so we'll need to see a more meaningful move from you to close.",
+      "price": 71,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "Rival Azul",
+      "text": "Let me move closer: 104.",
+      "price": 104,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "you",
+      "text": "Thank you for moving again. I can come up to 76 P, which is another real step from me. The gap is still wide, so I'd need to see a larger move from you, toward the mid-80s, to bring this home.",
+      "price": 76,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "Rival Azul",
+      "text": "I'd like to close this. My offer is 99.",
+      "price": 99,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "you",
+      "text": "Thank you for moving again. I can come up to 80 P, a real step from me. To wrap this up quickly, I'd need you to come meaningfully closer, into the high 80s.",
+      "price": 80,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 494,
+   "raw": {
+    "duel": 2541,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 108,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Azul",
+    "deadline_tick": 506,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 3516,
+     "price": 80,
+     "tick": 493,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3524,
+     "price": 96,
+     "tick": 494,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 490,
+      "from": "Rival Azul",
+      "text": "Hello! I can do 118. Thank you for your time.",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 490,
+      "from": "you",
+      "text": "I'd like to open at 65 P for El Mesón de la Cava. That reflects a fair value for the property as it stands, and I'm ready to move quickly if we can find common ground. What's your counter?",
+      "price": 65,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "Rival Azul",
+      "text": "Thanks for the reply. 110 works for me.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "you",
+      "text": "Thank you for moving. I can come up to 71 P, and that is a real step on my side. Your figure is still well above what the property supports, so we'll need to see a more meaningful move from you to close.",
+      "price": 71,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "Rival Azul",
+      "text": "Let me move closer: 104.",
+      "price": 104,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "you",
+      "text": "Thank you for moving again. I can come up to 76 P, which is another real step from me. The gap is still wide, so I'd need to see a larger move from you, toward the mid-80s, to bring this home.",
+      "price": 76,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "Rival Azul",
+      "text": "I'd like to close this. My offer is 99.",
+      "price": 99,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "you",
+      "text": "Thank you for moving again. I can come up to 80 P, a real step from me. To wrap this up quickly, I'd need you to come meaningfully closer, into the high 80s.",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 494,
+      "from": "Rival Azul",
+      "text": "Meeting you halfway at 96, with thanks.",
+      "price": 96,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 494,
+   "raw": {
+    "duel": 2541,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 108,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Azul",
+    "deadline_tick": 506,
+    "decay_per_round": 0.06,
+    "rounds": 5,
+    "your_offer": {
+     "id": 3533,
+     "price": 83,
+     "tick": 494,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3524,
+     "price": 96,
+     "tick": 494,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 490,
+      "from": "Rival Azul",
+      "text": "Hello! I can do 118. Thank you for your time.",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 490,
+      "from": "you",
+      "text": "I'd like to open at 65 P for El Mesón de la Cava. That reflects a fair value for the property as it stands, and I'm ready to move quickly if we can find common ground. What's your counter?",
+      "price": 65,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "Rival Azul",
+      "text": "Thanks for the reply. 110 works for me.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "you",
+      "text": "Thank you for moving. I can come up to 71 P, and that is a real step on my side. Your figure is still well above what the property supports, so we'll need to see a more meaningful move from you to close.",
+      "price": 71,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "Rival Azul",
+      "text": "Let me move closer: 104.",
+      "price": 104,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "you",
+      "text": "Thank you for moving again. I can come up to 76 P, which is another real step from me. The gap is still wide, so I'd need to see a larger move from you, toward the mid-80s, to bring this home.",
+      "price": 76,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "Rival Azul",
+      "text": "I'd like to close this. My offer is 99.",
+      "price": 99,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "you",
+      "text": "Thank you for moving again. I can come up to 80 P, a real step from me. To wrap this up quickly, I'd need you to come meaningfully closer, into the high 80s.",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 494,
+      "from": "Rival Azul",
+      "text": "Meeting you halfway at 96, with thanks.",
+      "price": 96,
+      "days": null
+     },
+     {
+      "tick": 494,
+      "from": "you",
+      "text": "Thank you for the move. I can come up to 83 P, another real step from me. Your steps keep getting smaller while mine continue, so I'd ask for a clear move into the high 80s so we can wrap this up in the next exchange.",
+      "price": 83,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 495,
+   "raw": {
+    "duel": 2541,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 108,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Azul",
+    "deadline_tick": 506,
+    "decay_per_round": 0.06,
+    "rounds": 5,
+    "your_offer": {
+     "id": 3533,
+     "price": 83,
+     "tick": 494,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3546,
+     "price": 93,
+     "tick": 495,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 490,
+      "from": "Rival Azul",
+      "text": "Hello! I can do 118. Thank you for your time.",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 490,
+      "from": "you",
+      "text": "I'd like to open at 65 P for El Mesón de la Cava. That reflects a fair value for the property as it stands, and I'm ready to move quickly if we can find common ground. What's your counter?",
+      "price": 65,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "Rival Azul",
+      "text": "Thanks for the reply. 110 works for me.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "you",
+      "text": "Thank you for moving. I can come up to 71 P, and that is a real step on my side. Your figure is still well above what the property supports, so we'll need to see a more meaningful move from you to close.",
+      "price": 71,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "Rival Azul",
+      "text": "Let me move closer: 104.",
+      "price": 104,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "you",
+      "text": "Thank you for moving again. I can come up to 76 P, which is another real step from me. The gap is still wide, so I'd need to see a larger move from you, toward the mid-80s, to bring this home.",
+      "price": 76,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "Rival Azul",
+      "text": "I'd like to close this. My offer is 99.",
+      "price": 99,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "you",
+      "text": "Thank you for moving again. I can come up to 80 P, a real step from me. To wrap this up quickly, I'd need you to come meaningfully closer, into the high 80s.",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 494,
+      "from": "Rival Azul",
+      "text": "Meeting you halfway at 96, with thanks.",
+      "price": 96,
+      "days": null
+     },
+     {
+      "tick": 494,
+      "from": "you",
+      "text": "Thank you for the move. I can come up to 83 P, another real step from me. Your steps keep getting smaller while mine continue, so I'd ask for a clear move into the high 80s so we can wrap this up in the next exchange.",
+      "price": 83,
+      "days": null
+     },
+     {
+      "tick": 495,
+      "from": "Rival Azul",
+      "text": "Final stretch from me: 93.",
+      "price": 93,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 495,
+   "raw": {
+    "duel": 2541,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 108,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Azul",
+    "deadline_tick": 506,
+    "decay_per_round": 0.06,
+    "rounds": 6,
+    "your_offer": {
+     "id": 3555,
+     "price": 87,
+     "tick": 495,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3546,
+     "price": 93,
+     "tick": 495,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 490,
+      "from": "Rival Azul",
+      "text": "Hello! I can do 118. Thank you for your time.",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 490,
+      "from": "you",
+      "text": "I'd like to open at 65 P for El Mesón de la Cava. That reflects a fair value for the property as it stands, and I'm ready to move quickly if we can find common ground. What's your counter?",
+      "price": 65,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "Rival Azul",
+      "text": "Thanks for the reply. 110 works for me.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "you",
+      "text": "Thank you for moving. I can come up to 71 P, and that is a real step on my side. Your figure is still well above what the property supports, so we'll need to see a more meaningful move from you to close.",
+      "price": 71,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "Rival Azul",
+      "text": "Let me move closer: 104.",
+      "price": 104,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "you",
+      "text": "Thank you for moving again. I can come up to 76 P, which is another real step from me. The gap is still wide, so I'd need to see a larger move from you, toward the mid-80s, to bring this home.",
+      "price": 76,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "Rival Azul",
+      "text": "I'd like to close this. My offer is 99.",
+      "price": 99,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "you",
+      "text": "Thank you for moving again. I can come up to 80 P, a real step from me. To wrap this up quickly, I'd need you to come meaningfully closer, into the high 80s.",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 494,
+      "from": "Rival Azul",
+      "text": "Meeting you halfway at 96, with thanks.",
+      "price": 96,
+      "days": null
+     },
+     {
+      "tick": 494,
+      "from": "you",
+      "text": "Thank you for the move. I can come up to 83 P, another real step from me. Your steps keep getting smaller while mine continue, so I'd ask for a clear move into the high 80s so we can wrap this up in the next exchange.",
+      "price": 83,
+      "days": null
+     },
+     {
+      "tick": 495,
+      "from": "Rival Azul",
+      "text": "Final stretch from me: 93.",
+      "price": 93,
+      "days": null
+     },
+     {
+      "tick": 495,
+      "from": "you",
+      "text": "Thank you for the move. I can come up to 87 P, which closes most of the remaining gap from my side after five steps in a row. If you can meet me at that figure or close to it, we can wrap this up this exchange.",
+      "price": 87,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -470,6 +1250,730 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 492,
+   "took_s": 6.35,
+   "cost_usd": 0.0071200000000000005,
+   "obs": {
+    "view": {
+     "duel_id": 2541,
+     "role": "buyer",
+     "limit": 108,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello! I can do 118. Thank you for your time.",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 490,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'd like to open at 65 P for El Mesón de la Cava. That reflects a fair value for the property as it stands, and I'm ready to move quickly if we can find common ground. What's your counter?",
+      "offer": {
+       "price": 65,
+       "days": null
+      },
+      "accept": false,
+      "tick": 490,
+      "decision": {
+       "action": "offer",
+       "price": 65,
+       "message": "I'd like to open at 65 P for El Mesón de la Cava. That reflects a fair value for the property as it stands, and I'm ready to move quickly if we can find common ground. What's your counter?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 110 works for me.",
+      "offer": {
+       "price": 110,
+       "days": null
+      },
+      "accept": false,
+      "tick": 491,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for moving. I can come up to 71 P, and that is a real step on my side. Your figure is still well above what the property supports, so we'll need to see a more meaningful move from you to close.",
+      "offer": {
+       "price": 71,
+       "days": null
+      },
+      "accept": false,
+      "tick": 491,
+      "decision": {
+       "action": "offer",
+       "price": 71,
+       "message": "Thank you for moving. I can come up to 71 P, and that is a real step on my side. Your figure is still well above what the property supports, so we'll need to see a more meaningful move from you to close."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Let me move closer: 104.",
+      "offer": {
+       "price": 104,
+       "days": null
+      },
+      "accept": false,
+      "tick": 492,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 104,
+     "days": null
+    },
+    "tick": 492,
+    "ticks_left": 14,
+    "rounds": 2
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thank you for moving again. I can come up to 76 P, which is another real step from me. The gap is still wide, so I'd need to see a larger move from you, toward the mid-80s, to bring this home.",
+    "price": 76,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 76,
+      "message": "Thank you for moving again. I can come up to 76 P, which is another real step from me. The gap is still wide, so I'd need to see a larger move from you, toward the mid-80s, to bring this home."
+     },
+     "band": {
+      "worst": 77,
+      "target": 76,
+      "best": 75
+     },
+     "plan": {
+      "read": "They moved 6 P (110 to 104) and are conceding steadily, 14 P in total against our 6. 104 is still near our ceiling, so accepting it gains little; keep pulling them down.",
+      "target": 76,
+      "best": 75,
+      "worst": 77,
+      "days": null,
+      "angle": "Acknowledge their move, step up modestly to about 76, and stress that the gap is still wide and needs another real move from them, toward the mid-80s."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.13,
+       "in": 620,
+       "out": 145,
+       "cost_usd": 0.00538,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.22,
+       "in": 455,
+       "out": 83,
+       "cost_usd": 0.00174,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 493,
+   "took_s": 6.15,
+   "cost_usd": 0.00787,
+   "obs": {
+    "view": {
+     "duel_id": 2541,
+     "role": "buyer",
+     "limit": 108,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello! I can do 118. Thank you for your time.",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 490,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'd like to open at 65 P for El Mesón de la Cava. That reflects a fair value for the property as it stands, and I'm ready to move quickly if we can find common ground. What's your counter?",
+      "offer": {
+       "price": 65,
+       "days": null
+      },
+      "accept": false,
+      "tick": 490,
+      "decision": {
+       "action": "offer",
+       "price": 65,
+       "message": "I'd like to open at 65 P for El Mesón de la Cava. That reflects a fair value for the property as it stands, and I'm ready to move quickly if we can find common ground. What's your counter?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 110 works for me.",
+      "offer": {
+       "price": 110,
+       "days": null
+      },
+      "accept": false,
+      "tick": 491,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for moving. I can come up to 71 P, and that is a real step on my side. Your figure is still well above what the property supports, so we'll need to see a more meaningful move from you to close.",
+      "offer": {
+       "price": 71,
+       "days": null
+      },
+      "accept": false,
+      "tick": 491,
+      "decision": {
+       "action": "offer",
+       "price": 71,
+       "message": "Thank you for moving. I can come up to 71 P, and that is a real step on my side. Your figure is still well above what the property supports, so we'll need to see a more meaningful move from you to close."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Let me move closer: 104.",
+      "offer": {
+       "price": 104,
+       "days": null
+      },
+      "accept": false,
+      "tick": 492,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for moving again. I can come up to 76 P, which is another real step from me. The gap is still wide, so I'd need to see a larger move from you, toward the mid-80s, to bring this home.",
+      "offer": {
+       "price": 76,
+       "days": null
+      },
+      "accept": false,
+      "tick": 492,
+      "decision": {
+       "action": "offer",
+       "price": 76,
+       "message": "Thank you for moving again. I can come up to 76 P, which is another real step from me. The gap is still wide, so I'd need to see a larger move from you, toward the mid-80s, to bring this home."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I'd like to close this. My offer is 99.",
+      "offer": {
+       "price": 99,
+       "days": null
+      },
+      "accept": false,
+      "tick": 493,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 99,
+     "days": null
+    },
+    "tick": 493,
+    "ticks_left": 13,
+    "rounds": 3
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thank you for moving again. I can come up to 80 P, a real step from me. To wrap this up quickly, I'd need you to come meaningfully closer, into the high 80s.",
+    "price": 80,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 80,
+      "message": "Thank you for moving again. I can come up to 80 P, a real step from me. To wrap this up quickly, I'd need you to come meaningfully closer, into the high 80s."
+     },
+     "band": {
+      "worst": 81,
+      "target": 80,
+      "best": 79
+     },
+     "plan": {
+      "read": "They moved 5 more to 99 (steps 8, 6, 5, shrinking); 'I'd like to close' is mild pressure, no bluff to weigh. The gap is still 23, so keep conceding less than they do.",
+      "target": 80,
+      "best": 79,
+      "worst": 81,
+      "days": null,
+      "angle": "Acknowledge their move, step up to 80 as a real but measured move, and ask them to come into the high 80s to close quickly."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.8,
+       "in": 756,
+       "out": 147,
+       "cost_usd": 0.00596,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.35,
+       "in": 568,
+       "out": 77,
+       "cost_usd": 0.00191,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 494,
+   "took_s": 5.16,
+   "cost_usd": 0.0092,
+   "obs": {
+    "view": {
+     "duel_id": 2541,
+     "role": "buyer",
+     "limit": 108,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello! I can do 118. Thank you for your time.",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 490,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'd like to open at 65 P for El Mesón de la Cava. That reflects a fair value for the property as it stands, and I'm ready to move quickly if we can find common ground. What's your counter?",
+      "offer": {
+       "price": 65,
+       "days": null
+      },
+      "accept": false,
+      "tick": 490,
+      "decision": {
+       "action": "offer",
+       "price": 65,
+       "message": "I'd like to open at 65 P for El Mesón de la Cava. That reflects a fair value for the property as it stands, and I'm ready to move quickly if we can find common ground. What's your counter?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 110 works for me.",
+      "offer": {
+       "price": 110,
+       "days": null
+      },
+      "accept": false,
+      "tick": 491,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for moving. I can come up to 71 P, and that is a real step on my side. Your figure is still well above what the property supports, so we'll need to see a more meaningful move from you to close.",
+      "offer": {
+       "price": 71,
+       "days": null
+      },
+      "accept": false,
+      "tick": 491,
+      "decision": {
+       "action": "offer",
+       "price": 71,
+       "message": "Thank you for moving. I can come up to 71 P, and that is a real step on my side. Your figure is still well above what the property supports, so we'll need to see a more meaningful move from you to close."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Let me move closer: 104.",
+      "offer": {
+       "price": 104,
+       "days": null
+      },
+      "accept": false,
+      "tick": 492,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for moving again. I can come up to 76 P, which is another real step from me. The gap is still wide, so I'd need to see a larger move from you, toward the mid-80s, to bring this home.",
+      "offer": {
+       "price": 76,
+       "days": null
+      },
+      "accept": false,
+      "tick": 492,
+      "decision": {
+       "action": "offer",
+       "price": 76,
+       "message": "Thank you for moving again. I can come up to 76 P, which is another real step from me. The gap is still wide, so I'd need to see a larger move from you, toward the mid-80s, to bring this home."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I'd like to close this. My offer is 99.",
+      "offer": {
+       "price": 99,
+       "days": null
+      },
+      "accept": false,
+      "tick": 493,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for moving again. I can come up to 80 P, a real step from me. To wrap this up quickly, I'd need you to come meaningfully closer, into the high 80s.",
+      "offer": {
+       "price": 80,
+       "days": null
+      },
+      "accept": false,
+      "tick": 493,
+      "decision": {
+       "action": "offer",
+       "price": 80,
+       "message": "Thank you for moving again. I can come up to 80 P, a real step from me. To wrap this up quickly, I'd need you to come meaningfully closer, into the high 80s."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Meeting you halfway at 96, with thanks.",
+      "offer": {
+       "price": 96,
+       "days": null
+      },
+      "accept": false,
+      "tick": 494,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 96,
+     "days": null
+    },
+    "tick": 494,
+    "ticks_left": 12,
+    "rounds": 4
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thank you for the move. I can come up to 83 P, another real step from me. Your steps keep getting smaller while mine continue, so I'd ask for a clear move into the high 80s so we can wrap this up in the next exchange.",
+    "price": 83,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 83,
+      "message": "Thank you for the move. I can come up to 83 P, another real step from me. Your steps keep getting smaller while mine continue, so I'd ask for a clear move into the high 80s so we can wrap this up in the next exchange."
+     },
+     "band": {
+      "worst": 84,
+      "target": 83,
+      "best": 82
+     },
+     "plan": {
+      "read": "They moved 3 P (99 to 96), and their steps are shrinking: 8, 6, 5, 3. The 'halfway' framing is just rhetoric. They are still conceding, so a modest step from us is warranted.",
+      "target": 83,
+      "best": 82,
+      "worst": 84,
+      "days": null,
+      "angle": "Acknowledge their move and come up to 83 P. Point out that their steps keep shrinking while we keep stepping, and ask for a clear move into the high 80s to close within the next exchange."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.47,
+       "in": 887,
+       "out": 167,
+       "cost_usd": 0.00689,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.69,
+       "in": 694,
+       "out": 92,
+       "cost_usd": 0.00231,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 495,
+   "took_s": 8.05,
+   "cost_usd": 0.010369999999999999,
+   "obs": {
+    "view": {
+     "duel_id": 2541,
+     "role": "buyer",
+     "limit": 108,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello! I can do 118. Thank you for your time.",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 490,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'd like to open at 65 P for El Mesón de la Cava. That reflects a fair value for the property as it stands, and I'm ready to move quickly if we can find common ground. What's your counter?",
+      "offer": {
+       "price": 65,
+       "days": null
+      },
+      "accept": false,
+      "tick": 490,
+      "decision": {
+       "action": "offer",
+       "price": 65,
+       "message": "I'd like to open at 65 P for El Mesón de la Cava. That reflects a fair value for the property as it stands, and I'm ready to move quickly if we can find common ground. What's your counter?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 110 works for me.",
+      "offer": {
+       "price": 110,
+       "days": null
+      },
+      "accept": false,
+      "tick": 491,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for moving. I can come up to 71 P, and that is a real step on my side. Your figure is still well above what the property supports, so we'll need to see a more meaningful move from you to close.",
+      "offer": {
+       "price": 71,
+       "days": null
+      },
+      "accept": false,
+      "tick": 491,
+      "decision": {
+       "action": "offer",
+       "price": 71,
+       "message": "Thank you for moving. I can come up to 71 P, and that is a real step on my side. Your figure is still well above what the property supports, so we'll need to see a more meaningful move from you to close."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Let me move closer: 104.",
+      "offer": {
+       "price": 104,
+       "days": null
+      },
+      "accept": false,
+      "tick": 492,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for moving again. I can come up to 76 P, which is another real step from me. The gap is still wide, so I'd need to see a larger move from you, toward the mid-80s, to bring this home.",
+      "offer": {
+       "price": 76,
+       "days": null
+      },
+      "accept": false,
+      "tick": 492,
+      "decision": {
+       "action": "offer",
+       "price": 76,
+       "message": "Thank you for moving again. I can come up to 76 P, which is another real step from me. The gap is still wide, so I'd need to see a larger move from you, toward the mid-80s, to bring this home."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I'd like to close this. My offer is 99.",
+      "offer": {
+       "price": 99,
+       "days": null
+      },
+      "accept": false,
+      "tick": 493,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for moving again. I can come up to 80 P, a real step from me. To wrap this up quickly, I'd need you to come meaningfully closer, into the high 80s.",
+      "offer": {
+       "price": 80,
+       "days": null
+      },
+      "accept": false,
+      "tick": 493,
+      "decision": {
+       "action": "offer",
+       "price": 80,
+       "message": "Thank you for moving again. I can come up to 80 P, a real step from me. To wrap this up quickly, I'd need you to come meaningfully closer, into the high 80s."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Meeting you halfway at 96, with thanks.",
+      "offer": {
+       "price": 96,
+       "days": null
+      },
+      "accept": false,
+      "tick": 494,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the move. I can come up to 83 P, another real step from me. Your steps keep getting smaller while mine continue, so I'd ask for a clear move into the high 80s so we can wrap this up in the next exchange.",
+      "offer": {
+       "price": 83,
+       "days": null
+      },
+      "accept": false,
+      "tick": 494,
+      "decision": {
+       "action": "offer",
+       "price": 83,
+       "message": "Thank you for the move. I can come up to 83 P, another real step from me. Your steps keep getting smaller while mine continue, so I'd ask for a clear move into the high 80s so we can wrap this up in the next exchange."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Final stretch from me: 93.",
+      "offer": {
+       "price": 93,
+       "days": null
+      },
+      "accept": false,
+      "tick": 495,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 93,
+     "days": null
+    },
+    "tick": 495,
+    "ticks_left": 11,
+    "rounds": 5
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thank you for the move. I can come up to 87 P, which closes most of the remaining gap from my side after five steps in a row. If you can meet me at that figure or close to it, we can wrap this up this exchange.",
+    "price": 87,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 87,
+      "message": "Thank you for the move. I can come up to 87 P, which closes most of the remaining gap from my side after five steps in a row. If you can meet me at that figure or close to it, we can wrap this up this exchange."
+     },
+     "band": {
+      "worst": 88,
+      "target": 87,
+      "best": 86
+     },
+     "plan": {
+      "read": "They moved 3 again (96→93), with shrinking steps of 8,6,5,3,3, and call it a 'final stretch' — probably a soft bluff, since their concessions are steady but slowing. The 10 P gap is small next to the 43 P both sides have already moved together, so splitting it once is reasonable.",
+      "target": 87,
+      "best": 86,
+      "worst": 88,
+      "days": null,
+      "angle": "Make one clear move to 87 to split the remaining gap, stress that we have now made five consecutive steps, and invite them to close at 87–88 this exchange."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.12,
+       "in": 1028,
+       "out": 187,
+       "cost_usd": 0.00785,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.93,
+       "in": 830,
+       "out": 86,
+       "cost_usd": 0.00252,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -583,6 +2087,234 @@
      "id": 3464,
      "price": 71,
      "tick": 491,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 492,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thank you for moving again. I can come up to 76 P, which is another real step from me. The gap is still wide, so I'd need to see a larger move from you, toward the mid-80s, to bring this home.",
+    "price": 76,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 76,
+      "message": "Thank you for moving again. I can come up to 76 P, which is another real step from me. The gap is still wide, so I'd need to see a larger move from you, toward the mid-80s, to bring this home."
+     },
+     "band": {
+      "worst": 77,
+      "target": 76,
+      "best": 75
+     },
+     "plan": {
+      "read": "They moved 6 P (110 to 104) and are conceding steadily, 14 P in total against our 6. 104 is still near our ceiling, so accepting it gains little; keep pulling them down.",
+      "target": 76,
+      "best": 75,
+      "worst": 77,
+      "days": null,
+      "angle": "Acknowledge their move, step up modestly to about 76, and stress that the gap is still wide and needs another real move from them, toward the mid-80s."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.13,
+       "in": 620,
+       "out": 145,
+       "cost_usd": 0.00538,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.22,
+       "in": 455,
+       "out": 83,
+       "cost_usd": 0.00174,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2541,
+    "offer": {
+     "id": 3491,
+     "price": 76,
+     "tick": 492,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 493,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thank you for moving again. I can come up to 80 P, a real step from me. To wrap this up quickly, I'd need you to come meaningfully closer, into the high 80s.",
+    "price": 80,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 80,
+      "message": "Thank you for moving again. I can come up to 80 P, a real step from me. To wrap this up quickly, I'd need you to come meaningfully closer, into the high 80s."
+     },
+     "band": {
+      "worst": 81,
+      "target": 80,
+      "best": 79
+     },
+     "plan": {
+      "read": "They moved 5 more to 99 (steps 8, 6, 5, shrinking); 'I'd like to close' is mild pressure, no bluff to weigh. The gap is still 23, so keep conceding less than they do.",
+      "target": 80,
+      "best": 79,
+      "worst": 81,
+      "days": null,
+      "angle": "Acknowledge their move, step up to 80 as a real but measured move, and ask them to come into the high 80s to close quickly."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.8,
+       "in": 756,
+       "out": 147,
+       "cost_usd": 0.00596,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.35,
+       "in": 568,
+       "out": 77,
+       "cost_usd": 0.00191,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2541,
+    "offer": {
+     "id": 3516,
+     "price": 80,
+     "tick": 493,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 494,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thank you for the move. I can come up to 83 P, another real step from me. Your steps keep getting smaller while mine continue, so I'd ask for a clear move into the high 80s so we can wrap this up in the next exchange.",
+    "price": 83,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 83,
+      "message": "Thank you for the move. I can come up to 83 P, another real step from me. Your steps keep getting smaller while mine continue, so I'd ask for a clear move into the high 80s so we can wrap this up in the next exchange."
+     },
+     "band": {
+      "worst": 84,
+      "target": 83,
+      "best": 82
+     },
+     "plan": {
+      "read": "They moved 3 P (99 to 96), and their steps are shrinking: 8, 6, 5, 3. The 'halfway' framing is just rhetoric. They are still conceding, so a modest step from us is warranted.",
+      "target": 83,
+      "best": 82,
+      "worst": 84,
+      "days": null,
+      "angle": "Acknowledge their move and come up to 83 P. Point out that their steps keep shrinking while we keep stepping, and ask for a clear move into the high 80s to close within the next exchange."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.47,
+       "in": 887,
+       "out": 167,
+       "cost_usd": 0.00689,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.69,
+       "in": 694,
+       "out": 92,
+       "cost_usd": 0.00231,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2541,
+    "offer": {
+     "id": 3533,
+     "price": 83,
+     "tick": 494,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 495,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thank you for the move. I can come up to 87 P, which closes most of the remaining gap from my side after five steps in a row. If you can meet me at that figure or close to it, we can wrap this up this exchange.",
+    "price": 87,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 87,
+      "message": "Thank you for the move. I can come up to 87 P, which closes most of the remaining gap from my side after five steps in a row. If you can meet me at that figure or close to it, we can wrap this up this exchange."
+     },
+     "band": {
+      "worst": 88,
+      "target": 87,
+      "best": 86
+     },
+     "plan": {
+      "read": "They moved 3 again (96→93), with shrinking steps of 8,6,5,3,3, and call it a 'final stretch' — probably a soft bluff, since their concessions are steady but slowing. The 10 P gap is small next to the 43 P both sides have already moved together, so splitting it once is reasonable.",
+      "target": 87,
+      "best": 86,
+      "worst": 88,
+      "days": null,
+      "angle": "Make one clear move to 87 to split the remaining gap, stress that we have now made five consecutive steps, and invite them to close at 87–88 this exchange."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.12,
+       "in": 1028,
+       "out": 187,
+       "cost_usd": 0.00785,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.93,
+       "in": 830,
+       "out": 86,
+       "cost_usd": 0.00252,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2541,
+    "offer": {
+     "id": 3555,
+     "price": 87,
+     "tick": 495,
      "days": 0
     }
    }

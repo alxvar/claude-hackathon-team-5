@@ -151,6 +151,225 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 493,
+   "raw": {
+    "duel": 2367,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 72,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 507,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 3467,
+     "price": 44,
+     "tick": 491,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3495,
+     "price": 101,
+     "tick": 493,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 491,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "you",
+      "text": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}",
+      "price": 44,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 494,
+   "raw": {
+    "duel": 2367,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 72,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 507,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 3467,
+     "price": 44,
+     "tick": 491,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3518,
+     "price": 101,
+     "tick": 494,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 491,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "you",
+      "text": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}",
+      "price": 44,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 494,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 495,
+   "raw": {
+    "duel": 2367,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 72,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 507,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 3467,
+     "price": 44,
+     "tick": 491,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3536,
+     "price": 101,
+     "tick": 495,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 491,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "you",
+      "text": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}",
+      "price": 44,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 494,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 495,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -276,6 +495,144 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 494,
+   "took_s": 5.8,
+   "cost_usd": 0.005710000000000001,
+   "obs": {
+    "view": {
+     "duel_id": 2367,
+     "role": "buyer",
+     "limit": 72,
+     "currency": "P",
+     "item": "Palacio de Cristal",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 491,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}",
+      "offer": {
+       "price": 44,
+       "days": null
+      },
+      "accept": false,
+      "tick": 491,
+      "decision": {
+       "action": "offer",
+       "price": 44,
+       "message": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 492,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 493,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 494,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 101,
+     "days": null
+    },
+    "tick": 494,
+    "ticks_left": 13,
+    "rounds": 1
+   },
+   "move": {
+    "action": "message",
+    "text": "I'm holding my position for now.}",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "I'm holding my position for now.}"
+     },
+     "band": {
+      "worst": 44,
+      "target": 44,
+      "best": 44
+     },
+     "plan": {
+      "read": "They repeat 101 P with no movement or justification; it is a stubborn anchor, far past what we can pay. Neither side has moved for 3 ticks, but there is plenty of time left, so this isn't yet a standoff worth breaking.",
+      "target": 44,
+      "best": 44,
+      "worst": 44,
+      "days": null,
+      "angle": "Hold at 44 and send nothing; we only move when they move off 101."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.91,
+       "in": 521,
+       "out": 134,
+       "cost_usd": 0.00476,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.89,
+       "in": 327,
+       "out": 30,
+       "cost_usd": 0.00095,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [
