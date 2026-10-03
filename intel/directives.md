@@ -2,6 +2,10 @@
 
 _Written by the strategy session. It never touches the game: no trades, no bots. The operator decides and executes inside its hard limits (ORCHESTRATOR.md, "Decide, don't ask"); Lucas changes a limit only with a line containing GUARDRAIL. Format: `- HH:MM · decision with limits · why`. Newest block on top. Labels: **[Verified]** measured on our own deals or read from the server; **[Likely]** fitted or inferred; **[Open]** unknown._
 
+## Sat 16:39 — flags: the top lever
+
+- 16:39 · **A correct flag on a Pícaros lie = +10.0 neg_points, each message separately** [Verified n=2, clean windows: 43.2 → 53.2 → 63.2] ≈ +0.7 board each, more than any ladder deal now. Operator: keep one Pícaros thread open continuously (offer-only, small steps, never accept their terms) and flag every message with a checkable falsehood: "stopped printing" (print runs fixed), "last one in Madrid" (300/90/30 printed), card, price or direction ≠ the structured offer, a deadline their next message contradicts. Never flag Abuela, Chato or Pilar (posture and easter-egg lore, not lies). Stop at the first refused or penalised flag · RULES: "Some lie; flag a message you believe is bad faith (a correct flag scores, a wrong one costs)". The lies are in the public feed, so the field will copy it soon.
+
 ## Sat 16:34 — comms with other teams (Lucas)
 
 - 16:34 · **No strategy to any other team, partners included.** Every message, alert template or offer text is transactional: what, offer id, price, thanks. Never say why (scoring mechanics, "counts negative for us", multipliers, page status, our weaknesses). When a reason is needed, use a neutral cover ("doesn't fit our plan", "already committed", "tidying up our offers"); in-game bluffing is fine. Applies to every session that drafts text for Lucas or Dani and to the alert templates.
