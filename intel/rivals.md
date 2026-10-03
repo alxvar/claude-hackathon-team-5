@@ -9,6 +9,15 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sat 18:56 · snapshot 1040: four-way tie at the top
+- Board: t14 31.76 · **us 31.68** · t06 31.68 · **t10 31.68 (+3.33)** · t03 29.61 · t18 29.43 · t16 27.48.
+- **t10 closed its RET page cheaply** [V feed]: Pícaros RET-09 59 (1024) + RET-10 53 (1028) (dealer, 0 neg), Abuela RET-04 10,
+  then the closer RET-03 from **t06 at 12** (team trade, 1033). Copy for Sunday's CHA.
+- t14 +0.50 at 1020: Pícaros SAL-09 58 (1027), Pilar SAL-09 78 (1035): a SAL-rare cash loop plus L3/L4 slots.
+- t18 repeated the epic flip (Pícaros SAL-11 at 139, tick 1035). t17 buys rares from the Pícaros (SAL-09 56, LAV-09 58, LAV-10 56)
+  and sold SAL-09 to Pilar at 72.
+- t16 +0.71 at 1030: RET-08 and RET-07 from t15 at 13, RET-05 at 5 (team trades: RET collector).
+
 ### Sat 18:40 · snapshot 1010
 - Board: **us 32.00 (#1)** · t06 31.68 · t14 31.53 · t03 29.64 · t18 28.77 · t10 28.35 · t16 26.49.
 - **t18 epic flip** [V feed]: SAL-11 bought from the Pícaros at 139 (925) → sold to Pilar at **199** in the fever (994): +60 cash

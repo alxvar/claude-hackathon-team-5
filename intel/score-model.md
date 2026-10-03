@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 18:41 (tick 1014), snapshot 1010: **us #1 at 32.00** · t06 31.68 · t14 31.53 · t03 29.64 · t18 28.77 (+0.87: SAL-11 epic flip, Pícaros 139 → Pilar 199). Ladder capped, trade part live (≈ 0.0495 board/np). Duels I post-mortem §1d; Duels II day rule §1e; Duels II plan §1f; Pícaros + flags §3c; Don Ernesto §3d; standings: intel/standings.md._
+_Last update: Sat 18:58 (tick 1044), snapshot 1040: t14 31.76 · **us 31.68** · t06 31.68 · t10 31.68 (+3.33: RET page closed cheaply, §3e) · t18 29.43. Our ladder slipped below its cap. Trade part ≈ 0.0495 board/np. Duels II plan §1f (final 20:15)._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -249,6 +249,7 @@ t13 and t04 have dealer deals in the window). Full = 12 Saturday points = 8.0 bo
 | — | **Our negotiating was exactly 21.88 at snapshots 850-890** while the field drifted −0.1 to −0.2 per snapshot and our ladder rose +0.064 | | **ladder part capped [L, 2 clean tests]**: further ladder deals add 0 board; being capped also shields us from ladder erosion |
 | 904 | SWAP LAT-01 → t07 for SAL-07 (El Rastro, price 0) | — | neg_points 63.2 → 78.7 (+15.5); board negotiating +0.74 at 910 with the field median 0.00 → **trade part NOT capped: ≈ 0.048 board per neg_point [V]** |
 | 988 | **BUY SAL-06 ← t08 at 28 + 3 fee (taker, El Rastro): SAL PAGE CLOSED** | — | neg_points 78.7 → 119.1 (**+40.4**, under the cap; ΔV ≈ 71.4); board negotiating **+2.00** at 990 with the field median 0.00 → ≈ 0.0495 board per neg_point; **#1 at 31.97** |
+| — | Snapshots 1030-1040: our negotiating −0.28, −0.04 with no event of ours | | **ladder back below its cap [L]**: the field's Pícaros/Pilar flood lifted the reference; zero-neg ladder deals regain ≈ +0.1-0.3 board each |
 
 **Saturday negotiating decomposition at snapshot 910 [L, fits]:** 23.73 = duel part ≈ 9.1 + ladder 0.6 × 15 (capped) = 9.0
 + trades 0.6 × 15 × T/N with T = 78.7 and N ≈ 125 (from the 0.072 Saturday points per neg_point measured at 904). Implications:
@@ -353,6 +354,11 @@ the ladder can.
   Traits: patience 0.95, generosity 0.1, shrewdness 0.95, memory 1.0, strictness 1.0.
 - For us: no affordable deal (no epics/legendaries held; cash 151; dealer buys score no neg_points). Risk: epic holders (t16, t18 …)
   selling to him lift the ladder reference; our capped ladder part could slip [L].
+
+## 3e. Cheap page close (t10's RET page, ticks 1024-1033) [V feed, L scoring]
+Buy the expensive cards of a page from DEALERS at ≤ our value (0 neg: Pícaros rares at 53-59, Abuela commons at list), then make
+the LAST card a cheap TEAM trade (t10: RET-03 from t06 at 12): the page bonus scores through that trade (≈ +50 capped). t10 +3.33
+board in two snapshots. Use for Sunday's CHA page (bonus ≈ 106 at 1.6 → +50 capped): keep the closer for a team trade.
 
 ## 3b. Card-for-card swaps (a mechanic we haven't used) [V feed; scoring L]
 - t15 ↔ t07 swapped 3 times on El Rastro at price 0 (607 LAV-08 ↔ LAV-06, 613 LAV-03 ↔ MAL-08, 616 MAL-01 ↔ SAL-02).
