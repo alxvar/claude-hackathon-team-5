@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 13:30 (tick 630), snapshot 620. Duels I post-mortem: §1d. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
+_Last update: Sat 13:40 (game paused at tick ~632), snapshot 630. Duels I post-mortem §1d; Duels II day rule §1e. Duels I post-mortem: §1d. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -117,6 +117,44 @@ _Last update: Sat 13:30 (tick 630), snapshot 620. Duels I post-mortem: §1d. Ind
 | 2585 | buyer | Mercado de la Paz | 160 | r0 @96 S64 → 64.0 | deal 96, r1 → 60.2 | -3.8 |
 
 </details>
+
+## 1e. Duels II: the delivery-day rule (code-ready; Analyst 13:40) [L: from the organisers' deck p.7 + RULES; untested]
+
+**Why it pays.** Each side scores its price margin plus its own day value. With linear weights the pie is linear in the
+day, so **the efficient day is an extreme (0 or 10): the one the side that cares more prefers**. Deck example: seller +1/day
+later, buyer −4/day → pie 50 at day 0, 20 at day 10. Two agents that each hold their own day and meet at day 5 make a pie of
+35; the efficient day makes 50 (+43%). Our share of a bigger pie is the lever (≈ +1-1.5 board at our Duels I share).
+
+**Inputs.** `dv = read_days(your_days_weight, days_meaning)` (days.py; values per day, 0 at our best). `b_us = dv.best`.
+`w_us = (max(dv.values) − min(dv.values)) / 10` (P per day; linear case). `r0` = the `days` of the rival's FIRST priced
+message. Duels II decay d = 0.08 → break-even 8.7%.
+
+**Rule.**
+1. **Learn the rival's day before showing ours.** If the rival hasn't sent a price, wait up to 2 ticks: silence costs 0
+   rounds (rounds = min(ours, theirs)). A rival opens at its own best day; take `r0` as its preferred side.
+2. **No conflict** (`r0` on the same side as `b_us`, or `r0 == b_us`): settle the day there; negotiate price only, as in Duels I.
+3. **Conflict.** `Δ = |b_us − r0|`, our cost of taking their day `C = dv(b_us) − dv(r0)` (≥ 0).
+   Prior for the rival's weight: `w_r ≈ 2.5 P/day` (deck example 1 and 4; unknown).
+   - **We care less** (`w_us ≤ 1.5`, or `C ≤ 0.15 × S_exp`, where S_exp = half the gap between our limit and the rival's
+     first price): **give the day at once.** Send `days = r0` with price moved against the rival by a premium
+     `π = C + 0.5 × max(0, w_r·Δ − C)` (deck case: C = 10, w_r·Δ = 40 → π = 25; with the prior: π = 17.5).
+   - **We care more** (`w_us ≥ 3`): **hold `b_us`** and pay for it: concede price by up to `0.5 × C` over the next rounds,
+     never more than C.
+   - **In between:** hold `b_us` for the first priced round, then offer `r0` with premium π once. If the rival takes it or
+     moves price toward π, its weight is high: keep `r0`. If it moves its day toward ours instead, its weight is low:
+     take `b_us` and give price ≤ 0.5 × C.
+4. **Never a middle day** with linear weights (it shrinks the pie on both sides). A middle day is right only when a
+   weight is a best-day V-shape (`{"best_day": k}`); then the efficient day lies between the two best days.
+5. **Read the rival's weight from its replies**: rival keeps its day and concedes ≥ half our premium in price → high
+   weight (hold the premium; accept by the break-even rule). Rival moves its day and holds price → low weight (take
+   our day).
+6. **Guards (unchanged):** `guards.worth(package) = price margin − C(day) ≥ 0`; accept a rival package when its worth now ≥
+   our expected next-round worth × (1 − d) (8.7% rule). Answer every duel.
+7. **Check at the first wave:** `review`'s `pred` must equal the game's `points` on the first days deals; if not, the
+   day reading (or its sign) is off: fix `read_days` before the next wave.
+
+**Expected:** with half the duels in conflict and the rival's weight above ours half the time, giving the day with a premium
+lifts those deals' worth by ≈ `0.5 × (w_r − w_us) × Δ` each (deck case +15 P). ≈ +20-30% on Duels II results ≈ +1-1.5 board [L].
 
 ## 1c. Duels I (live; session 2 from tick 459, 306 duels, decay 0.06, ends ≈ 13:35)
 
