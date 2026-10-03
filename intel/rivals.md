@@ -24,6 +24,14 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 - **Market:** v14 stall, one trade all day (418); market 9.53 = 7.5 + VC ≈ 2.0 → room ≈ +3 to the cap.
 
 
+### Sat 19:27 · snapshot 1100
+- Board: **t10 33.13 (#1)** · t06 32.08 · **us 31.68 (#3)** · t14 31.19 · t18 30.28 · t03 29.42.
+- **t10 +0.46 (1080) and +0.88 (1090) with no settlement of its own** while the field was flat → matches ≈ 3 scored flags on
+  Pícaros lies (+10 neg_points each) [L]. Then +0.21 at 1100 (Pícaros SAL-09 54, Abuela MAL-07 19).
+- t06 +0.54 at 1100: MAL-04 → Pícaros 5 (L4); SAL-09 → Chato at 29 [? a loss on paper].
+- Don Ernesto open to all since 1091; t08 sold LAV-11 (epic) to him at 120 after buying it from the Pícaros at 147.
+- t12 and t14 keep the SAL-rare loop (Pícaros ~52 → Pilar 76-87).
+
 ### Sat 19:11 · snapshot 1070
 - Board: **us 31.68 (#1)** · t06 31.60 · t10 31.58 · t14 31.28 · **t18 30.31 (+0.90: Pícaros LAT-09 at 55)** · t03 29.51 · t16 27.39.
 - t14 −0.48 since 1040: Pícaros SAL-10 56 (1044) → Pilar 87 (1052), a SAL-rare loop; its ladder erodes between deals.
