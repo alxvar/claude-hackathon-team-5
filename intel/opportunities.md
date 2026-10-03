@@ -1,4 +1,4 @@
-# Opportunities (auto, 12:08, game tick 477, t 5.3 h)
+# Opportunities (auto, 12:09, game tick 479, t 5.3167 h)
 
 Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and ≤ 60 real min old · ≤ 3 alerts/h · team 45 min · team+card 2 h · never to the top 4 (t12, t13, t17, t18); a sale that closes their page (last or second-to-last known lack) only to teams ≥ 10 below us (23.61); page-closers on El Rastro, the rest on v07. Data: collector.
 
@@ -6,16 +6,16 @@ Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and �
 
 | # | side | team | card | price | our value | gain | signal | age (game / real min) | status |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | SELL | Team 3 (#16, 11.72) | SAL-02 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 208) | 135 / 135 | listed only: signal 135 real min old (game clock paused?) |
-| 2 | SELL | Team 7 (#17, 10.49) | SAL-02 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 132) | 186 / 816 | listed only: signal 816 real min old (game clock paused?) |
-| 3 | SELL | Team 3 (#16, 11.72) | SAL-05 common | 40 | 9 | 31 | bid 9 P for it (tick 182) | 147 / 148 | listed only: signal 148 real min old (game clock paused?) |
-| 4 | SELL | Team 7 (#17, 10.49) | SAL-05 common | 40 | 9 | 31 | asked abuela to sell it (tick 128) | 190 / 819 | listed only: signal 819 real min old (game clock paused?) |
-| 5 | SELL | Team 8 (#12, 21.2) | SAL-03 common | 38 | 9 | 29 | bid 5 P for it (tick 142) | 176 / 806 | listed only: signal 806 real min old (game clock paused?) |
-| 6 | SELL | Team 4 (#6, 23.68) | MAL-07 uncommon | 45 | 17.5 | 27.5 | asked chato to sell it (tick 427) | 25 / 25 | no: dumps MAL (teams.md): sell only to collectors; 0.07 above us |
-| 7 | SELL | Team 6 (#13, 17.11) | MAL-07 uncommon | 23 | 17.5 | 5.5 | bid 9 P for it (tick 465) | 6 / 6 | no: dumps MAL (teams.md): sell only to collectors |
-| 8 | SELL | Team 7 (#17, 10.49) | MAL-07 uncommon | 45 | 17.5 | 27.5 | asked abuela to sell it (tick 122) | 196 / 826 | no: dumps MAL (teams.md): sell only to collectors |
-| 9 | SELL | Team 12 (#1, 32.23) | MAL-07 uncommon | 45 | 17.5 | 27.5 | bid 28 P for it (tick 88) | 230 / 858 | no: top 4; 8.62 above us |
-| 10 | SELL | Team 10 (#10, 22.68) | SAL-03 common | 32 | 9 | 23 | bid 0 P for it (tick 336) | 70 / 70 | no: dumps SAL (teams.md): sell only to collectors; only 0.93 below us (needs ≥ 10) |
+| 1 | SELL | Team 3 (#16, 11.72) | SAL-02 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 208) | 136 / 136 | listed only: signal 136 real min old (game clock paused?) |
+| 2 | SELL | Team 7 (#17, 10.49) | SAL-02 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 132) | 187 / 817 | listed only: signal 817 real min old (game clock paused?) |
+| 3 | SELL | Team 3 (#16, 11.72) | SAL-05 common | 40 | 9 | 31 | bid 9 P for it (tick 182) | 148 / 149 | listed only: signal 149 real min old (game clock paused?) |
+| 4 | SELL | Team 7 (#17, 10.49) | SAL-05 common | 40 | 9 | 31 | asked abuela to sell it (tick 128) | 191 / 820 | listed only: signal 820 real min old (game clock paused?) |
+| 5 | SELL | Team 8 (#12, 21.2) | SAL-03 common | 38 | 9 | 29 | bid 5 P for it (tick 142) | 177 / 807 | listed only: signal 807 real min old (game clock paused?) |
+| 6 | SELL | Team 4 (#6, 23.68) | MAL-07 uncommon | 45 | 17.5 | 27.5 | asked chato to sell it (tick 427) | 26 / 26 | no: dumps MAL (teams.md): sell only to collectors; 0.07 above us |
+| 7 | SELL | Team 6 (#13, 17.11) | MAL-07 uncommon | 23 | 17.5 | 5.5 | bid 9 P for it (tick 465) | 7 / 7 | no: dumps MAL (teams.md): sell only to collectors |
+| 8 | SELL | Team 7 (#17, 10.49) | MAL-07 uncommon | 45 | 17.5 | 27.5 | asked abuela to sell it (tick 122) | 197 / 827 | no: dumps MAL (teams.md): sell only to collectors |
+| 9 | SELL | Team 12 (#1, 32.23) | MAL-07 uncommon | 45 | 17.5 | 27.5 | bid 28 P for it (tick 88) | 231 / 859 | no: top 4; 8.62 above us |
+| 10 | SELL | Team 10 (#10, 22.68) | SAL-03 common | 32 | 9 | 23 | bid 0 P for it (tick 336) | 72 / 71 | no: dumps SAL (teams.md): sell only to collectors; only 0.93 below us (needs ≥ 10) |
 
 ## Alerts (newest first)
 
