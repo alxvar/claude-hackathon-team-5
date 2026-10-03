@@ -1774,6 +1774,198 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 1332,
+   "took_s": 9.69,
+   "cost_usd": 0.01864,
+   "obs": {
+    "view": {
+     "duel_id": 6023,
+     "role": "seller",
+     "limit": 68,
+     "currency": "P",
+     "item": "La Dama de Serrano",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 0.84,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello, and thank you for meeting me. I would propose 78 P with delivery on day 0.",
+      "offer": {
+       "price": 78,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1321,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for opening. I'm happy to do day 0 as you proposed, and I can do 115 P on day 0.",
+      "offer": {
+       "price": 115,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1322,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I appreciate it, thank you. Could we close at 88 P, delivery on day 0, please?",
+      "offer": {
+       "price": 88,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1322,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you, I see you've moved and I appreciate it. I can come down to 111 P with delivery on day 0.",
+      "offer": {
+       "price": 111,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1323,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Fair enough, thank you. I will meet you partway: 92 P with delivery on day 0.",
+      "offer": {
+       "price": 92,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1323,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you, I appreciate you moving again. I can come down to 108 P with delivery on day 0.",
+      "offer": {
+       "price": 108,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1324,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Thank you, we are getting close. 95 P and delivery on day 0 works for me.",
+      "offer": {
+       "price": 95,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1324,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you, I appreciate you moving again. I can come down to 105 P with delivery on day 0, which I hope helps us close the remaining gap.",
+      "offer": {
+       "price": 105,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1328,
+      "decision": {
+       "action": "offer",
+       "price": 105,
+       "message": "Thank you, I appreciate you moving again. I can come down to 105 P with delivery on day 0, which I hope helps us close the remaining gap."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you for your offer. I can do 96 P with delivery on day 0.",
+      "offer": {
+       "price": 96,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1329,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 96,
+     "days": 0
+    },
+    "tick": 1332,
+    "ticks_left": 5,
+    "rounds": 4,
+    "day_swings": [
+     25.299999999999997,
+     22.0,
+     27.599999999999998,
+     77.4,
+     27.799999999999997,
+     8.4,
+     59.900000000000006
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Thank you, I'll take 96 P with delivery on day 0.",
+    "price": 96,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "accept",
+      "price": 96,
+      "message": "Thank you, I'll take 96 P with delivery on day 0."
+     },
+     "band": {
+      "worst": 96,
+      "target": 105,
+      "best": 105
+     },
+     "plan": {
+      "read": "They crept from 95 to 96 on day 0. It is a small, genuine move, and their offers have slowed to single points. Their 96 is within our limit, and the 9 P gap is small next to the 28 P both sides have moved, with only 5 ticks left.",
+      "target": 105,
+      "best": 105,
+      "worst": 96,
+      "days": 0,
+      "angle": "Keep day 0 and don't haggle further: accept their 96 P on day 0 to close now rather than spend rounds on the small remaining gap."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.75,
+       "in": 1324,
+       "out": 576,
+       "cost_usd": 0.01682,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.94,
+       "in": 706,
+       "out": 41,
+       "cost_usd": 0.00182,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -2003,6 +2195,59 @@
      "tick": 1328,
      "days": 0
     }
+   }
+  },
+  {
+   "tick": 1332,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Thank you, I'll take 96 P with delivery on day 0.",
+    "price": 96,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "accept",
+      "price": 96,
+      "message": "Thank you, I'll take 96 P with delivery on day 0."
+     },
+     "band": {
+      "worst": 96,
+      "target": 105,
+      "best": 105
+     },
+     "plan": {
+      "read": "They crept from 95 to 96 on day 0. It is a small, genuine move, and their offers have slowed to single points. Their 96 is within our limit, and the 9 P gap is small next to the 28 P both sides have moved, with only 5 ticks left.",
+      "target": 105,
+      "best": 105,
+      "worst": 96,
+      "days": 0,
+      "angle": "Keep day 0 and don't haggle further: accept their 96 P on day 0 to close now rather than spend rounds on the small remaining gap."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.75,
+       "in": 1324,
+       "out": 576,
+       "cost_usd": 0.01682,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.94,
+       "in": 706,
+       "out": 41,
+       "cost_usd": 0.00182,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 96,
+    "settles_at_tick": 1333
    }
   }
  ]

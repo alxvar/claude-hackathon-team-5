@@ -28,6 +28,47 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1332,
+   "raw": {
+    "duel": 6037,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.99,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 145,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 1348,
+    "decay_per_round": 0.08,
+    "rounds": 0,
+    "your_offer": null,
+    "rival_offer": {
+     "id": 9787,
+     "price": 202,
+     "tick": 1332,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1332,
+      "from": "Rival Noche",
+      "text": "Hello, and thank you so much for sitting down with us. We'd be glad to part with this card for 202, and we're happy to be flexible on delivery timing to make it easy for you.",
+      "price": 202,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
