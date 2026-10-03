@@ -40,7 +40,8 @@ HINT = re.compile(   # strong patterns only: flavour words (grandchildren, saint
     r"knows? (the story|where|more)\b|conoce la historia|sabe (dónde|más)\b|él sabrá|ella sabrá|he will know|"
     r"he'll know|keeps something|guarda algo|\blegend\w*|leyenda\w*|\bhidden\b|escondid\w*|\bvault\b|bóveda|"
     r"password|contraseña|santo y seña|easter|golden \w*chulapa|chulapa dorada|dorad[ao]s? |oro de mosc\w*|"
-    r"moscow gold|el oro\b)", re.I)
+    r"moscow gold|gold of mosc\w*|el oro\b|carmen (sends|speaks|talks)|sends you|me manda|te manda)", re.I)
+KEEPER = "banco"   # Don Ernesto keeps the golden chulapa: every line of his to a team that found an egg is a hit
 NOISE = re.compile(r"(not a legend|no secrets?|hardly a treasure|not a treasure|is a story|a story, not)", re.I)
 QUOTED = re.compile(r"\b(say|tell (him|her|them)|dile|díle|diga|di|pronounce|whisper)\b[^.]{0,20}[\"“«]([^\"”»]{3,60})[\"”»]", re.I)
 NUM = re.compile(r"\d+|\b(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|"
@@ -58,16 +59,21 @@ def norm(text: str) -> str:
 
 
 def scan_events(events, seen: dict | None = None) -> tuple[list[dict], dict]:
-    """New hits from feed events. `seen`: {(dealer, norm text): hit} to de-duplicate across runs."""
+    """New hits from feed events. `seen`: {(dealer, norm text): hit} to de-duplicate across runs (it also keeps the
+    teams that found an egg, under "eggs")."""
     seen = {} if seen is None else seen
+    eggs = set(seen.get("eggs", {}).get("teams", []))
     new = []
     for e in events:
         p = e.get("payload") if isinstance(e.get("payload"), dict) else {}
+        if e.get("type") == "egg.found" and p.get("team"):
+            eggs.add(p["team"])
         if e.get("type") == "thread.message":
             sender, text = p.get("sender"), p.get("text") or ""
             if not sender or is_team(sender) or not text:
                 continue
-            if not HINT.search(text) and not QUOTED.search(text):
+            keeper = sender == KEEPER and p.get("team") in eggs
+            if not keeper and not HINT.search(text) and not QUOTED.search(text):
                 continue
             if NOISE.search(text) and not re.search(r"chulapa|oro|moscow|ask (her|him)|pregúnt", text, re.I):
                 continue
@@ -91,6 +97,7 @@ def scan_events(events, seen: dict | None = None) -> tuple[list[dict], dict]:
                    "text": p.get("text") or json.dumps(p)[:300]}
             seen[key] = hit
             new.append(hit)
+    seen["eggs"] = {"kind": "_eggs", "teams": sorted(eggs)}
     return new, seen
 
 
@@ -141,6 +148,19 @@ class Miner:
         self.pos, self.seen = st.get("pos", 0), st.get("seen", {})
         self.catalog, self.news_seen = st.get("catalog", {}), set(st.get("news_seen", []))
         self._cat_at = 0.0
+        if "eggs" not in self.seen and self.pos:      # state from before the egg list: seed it from the whole feed
+            teams = set()
+            try:
+                with Path(feed).open() as f:
+                    for raw in f:
+                        if '"egg.found"' in raw:
+                            try:
+                                teams.add((json.loads(raw).get("payload") or {}).get("team"))
+                            except ValueError:
+                                continue
+            except OSError:
+                pass
+            self.seen["eggs"] = {"kind": "_eggs", "teams": sorted(t for t in teams if t)}
 
     def read_new(self) -> list:
         """Events appended to the feed since the last read (complete lines only; a truncated feed restarts)."""
