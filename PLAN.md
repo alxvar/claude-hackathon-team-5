@@ -83,6 +83,15 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    expected settle, not ~38 (≈ +0.3-0.5 board); (3) **break-even accept in code:** take an in-limit offer when its
    value now ≥ our expected next-round surplus × (1−d), with d = 8% (≈ +0.1-0.2). Check that your 13:24 change
    (6e53377, "hold after 4 priced offers") doesn't cap the haggling that paid.
+16. **13:28, the Duels II day rule, code-ready (Analyst, intel/score-model.md §1e, 5088af2), your call:** with linear day
+   weights the efficient day is an extreme (the one whoever cares more prefers; the deck's case is +43% pie vs meeting at
+   day 5). Read the rival's day from its first priced message (wait ≤ 2 ticks: silence is free). No conflict → settle the
+   day, price-only. Conflict: if our weight is low (≤ 1.5 P/day, or our cost of their day C ≤ 15% of the expected surplus)
+   → GIVE their day at once and ask a price premium π = C + 0.5 × max(0, w_r·Δ − C); if ours is high (≥ 3) → hold our day,
+   pay ≤ 0.5·C for it; in between → hold 1 round, then offer their day + π once and read how they answer. Never a middle
+   day with linear weights. Guards unchanged (worth ≥ 0; break-even accept at d = 8%). First wave: check `pred` = the
+   game's points on days deals before wave 2. If rivals never move days, it falls back to price-only. Duels II starts
+   5.07 game hours after the resume (the game is paused for lunch since 13:25).
 
 **Dani: the desk, the page-gap desk, the judges' story.**
 1. **09:00, organisers' desk**: the 8 questions in plan §3, answers in `team/dani.md` at once.
