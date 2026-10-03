@@ -1,108 +1,115 @@
-# Strategist (claude-opus-5-5, Sat 14:54)
+# Strategist (claude-opus-5-5, Sat 15:42)
 
 ## How the points really work
-- **Day weights.** The board now is (0.5·Fri + Sat)/1.5 [V]. The final score is (0.5·Fri + Sat + Sun)/2.5, so Saturday and Sunday weigh 40% each. Round 3 starts at game hour 16.65. Sunday from 14.736 to 16.65, including the 15.0 bench, still counts for round 2 [L, schedule].
-- **Saturday conversion rates:**
-  - 1 `neg_point` ≈ 0.094 board.
-  - +0.01 ladder ≈ 0.33 board.
-  - 1 market point ≈ 0.667 board (Saturday's weight).
-  - Sunday's rates are not in the data.
-- **Our parts:**
-  - neg 35.2 (≈3.3 board, flat since tick 404).
-  - ladder 0.181 (≈6 board, flat since 12:45).
-  - duel 13.93.
-  - Market is at the stall bench only: value created on v10 nets −5.2, floored at 0.
-- **Caps:** a team trade scores at most +50. Value created is capped at +5 market and floored at 0. The ladder counts the best 3 deals per level. Every part is relative to the leader.
-- **Gaps:** −0.8 to #3 (t10), −1.5 to #2, −2.7 to #1 (t14). t14's edge ≈ one value-created trade on its stall (+3.10 board).
+- **Board now** = (0.5·Fri + Sat)/1.5 [V]. **Final** = (0.5·Fri + Sat + Sun)/2.5, so Saturday and Sunday are 40% each. Judges (40) are not on the board.
+- **Negotiating** has three parts:
+  - Duels: 40% of Saturday Negotiating [V]. Ours is 13.93; the field's duel figure is not in the data.
+  - Team trades: 1 `neg_point` ≈ 0.094 board [V]. Capped at 50 per trade, so the best possible trade is ≈ +4.7 board.
+  - Ladder: +0.01 ≈ +0.33 board [V]. Best 3 deals per level count; higher levels weigh more.
+- **Market-making** has two parts:
+  - Bench: the free stall earns half; full points go to the top-3 mean. Every board venue scored below the stall today, so the bench is nearly flat across the field. No cheap edge on Saturday.
+  - **Value created on our venue:** net across trades, capped at +5.0 board, floored at 0 [V].
+    - Team 14's single trade on its stall gave +3.10. That trade is more than our 2.7 gap to #1.
+    - We are at −5.2 `mm_points`, which shows as 0 on the board. We need more than +5.2 net value created just to start counting.
+    - One page-closing trade between two other teams on our stall earned +4.99 [V tick 311]. This is the cheapest board point left.
+- **Round boundaries (from `/api/schedule`):**
+  - Round 3 fires at hour 16.65, Sunday 11:34, not at 09:00.
+  - Sunday 09:00-11:34 still counts for Saturday's round. That includes the hard Market Test (09:34) and the 09:55 bench, at 15 s ticks.
+  - Round 3 runs only ~3.4 h (to 15:00) but weighs exactly as much as Saturday's 14 h. Sunday points are worth about 4× per hour.
+  - Round 3 resets neg, ladder and value created (as round 2 did at tick 160). Its benches are 11:55 and 13:55; whether 21.0 runs after close is not in the data. Its only duel session is Duels III (13:34).
 - **Where the field is weak:**
-  1. **Value created.** Our single positive v10 trade moved market 7.5 → 12.5 (+5 ≈ +3.3 board), more than our whole gap to #1. Every board venue scored below the stall today, and Team 3 got 0.
-  2. **Level 4 (Pícaros).** Every team is at 0 there, and higher levels weigh more (L3 ≈ 3× L2).
-  3. **Bench.** All stalls tie, and nothing shows a broker beating it. Not a lever for us: cash 184 < the 270 bond.
+  - Value created on venues: only Team 14 shows a score from it.
+  - The L4 ladder (Pícaros): empty for everyone.
+  - Round 3's first hour: it opens to whoever is staged.
 
 ## Our winning strategy
-1. **Be a market maker with no broker:** pairmaking onto v10. One positive trade (seller with a low multiplier → buyer with a high one, both outside the top 5) lifts us off the floor and may hit the cap. Our two data points fit (buyer m − seller m) × book: MAL-07 +0.2×25 = +5; SAL-07 −0.4×25 = −10 [L]. We need net > +5.2, i.e. any uncommon or rare with Δm ≥ 0.4.
-2. **Sunday Chamberí at 1.6.** Team buys below our value score in full:
-   - common 16 vs clearing 9 → +7
-   - uncommon 40 vs 24.5 → +15.5
-   - rare 112 vs 70-84 → +28-42
-   - page closer +50
-   - Dealer buys at ≤ value cost 0 neg, and add ladder when below list.
-   - At those prices the page costs ≈ 279 P (5×9 + 3×24.5 + 2×80); cash 184 + the 150 grant covers it.
-3. **Ladder:** Pícaros (L4) today; rebuild every level from zero at round 3 if it resets.
-- **Stop:**
-  - Chato buys above 26.
-  - Treating the spares book as a lever (0 fills in 226 ticks).
-  - SAL-06 from Abuela, unless swap 9172 fails, and then only as fever stock at ≤ 25.
-  - Selling RET/LAV page cards (t04's 26/27 bids vs our 100.4 values).
-  - Packs.
-  - Any board venue.
+1. **Saturday: become a matchmaker, not a trader.**
+   - Dani steers mutually useful trades between other teams onto our stall, to get back above the −5.2 floor and toward +5.
+   - The **sellers** must be teams that dump the set, sold to collectors. A card moving to a lower-multiplier holder subtracts (t10 → t15 SAL-07 cost us 10.2).
+2. **MAL-09: the largest single trade we can still make.**
+   - Worth 49 to us; t17 bids 70-85 [scout].
+   - An ask at **99** as maker makes our gain (+50) ≥ t17's capped gain (≤ 50).
+   - At 85 we bank +36 (≈ +3.4 board → ~31.4). t17 would end at ≤ ~30.5, still below us, and the sale also passes Team 14 (30.7).
+   - The 85 floor breaks plan §4A's "≥ 10 below us" margin (t17 is 2.2 below). **Lucas decides the floor.** The Chief held MAL-09 for Pícaros; one ladder slot (~+1.65 board at L3 rates) is worth less than +3.4.
+3. **Sunday: win round 3 by being staged at 11:34.**
+   - Build the CHA page through dealers at or below list. Each deal fills a ladder slot and adds a page card; CHA values (16/40/112) are above dealer prices.
+   - Take the last card from a team (+50 cap).
+   - Carry a "ladder kit" over the reset: cards sellable at ≥ our value for each level, plus cash.
+   - Arrange one positive value-created trade on our stall in round 3 (it starts at 0).
+4. **Stop doing these:**
+   - Single-copy maker asks: 0 fills in 226 ticks.
+   - Abuela → Pilar round trips (break-even; L3 is near saturation).
+   - Any dealer buy above list.
+   - Any board-venue spend on Saturday.
 
 ## Levers nobody is using yet
-1. **Pairmaking onto v10.**
-   - Evidence: of 102 team trades, v10 hosted only t10's (one positive, one negative). Where t15↔t07 swapped is not in the data.
-   - Exploit: Lucas and Dani pick pairs from teams.md and multipliers.json, predict the value created, and pitch "settle it on v10".
-   - Candidate pairs:
-     - t08 (dumps LAV) → t09, t04 or t07.
-     - t16 or t03 (dump MAL) → t15 or t02.
-     - t07 (dumps SAL) → t09, t16 or t03.
-   - Never a pair where the buyer's multiplier is below the seller's.
-2. **Salamanca fever (game 9.15-11.15).** Pilar pays 25% over book: uncommon ≈ 31.25, rare 87.5, against team clearing of 24.5 and 74-80.
-   - Pilar never offers more than she can still pay this hour, so the first sales take her cash.
-   - SAL-07 from swap 9172 is our first fever sale.
-3. **The unopened silver pack is our only free Chamberí pull.**
-   - Sunday's grant is cash only. Saturday's pack, opened 5 ticks after RET's release, gave RET-05.
-   - Keep it closed until Chamberí is released, then open it before the first CHA buy (pack drag).
-4. **The Workshop, "Three spares".** Keep exactly 3 spares off the book: second copies of LAV-03, LAV-04 and SAL-02.
-5. **A Chamberí uncommon as the page closer.** If the cap is 5×book, an uncommon closer scores up to 121 against 50 (see H6).
+- **Value created by matchmaking between others.**
+  - Evidence: 109 team trades, almost all on El Rastro (nobody scores); only t14 shows the component.
+  - Use: Dani pairs teams below us and outside the top 4, in their own interest, on our stall:
+    - SAL dumpers t04, t07, t02 → SAL collectors t06, t08, t01.
+    - t13 (dumps RET) → t04's live RET-06/08 bids (26-27).
+    - t15 ↔ t07 swaps posted on our stall instead of El Rastro or v15.
+  - Never use a top-4 team as a party. Our stall's fee vs El Rastro's 5% + 1 is not in the data: Operator reads `/api/venues` for the pitch.
+- **Round 3's late start.**
+  - Evidence: nobody's plan in the data treats 09:00-11:34 as Saturday.
+  - Use: maker trades and the two benches Sunday morning bank into Saturday. At 11:34 we fire pre-queued dealer threads on all levels at once.
+- **Salamanca fever (18:03-20:03; Pilar pays 25% over book).**
+  - Use: SAL-08 (worth 22.5) at ~31 brings cash for CHA, plus a ladder-slot check against our weakest L3 slot.
+- **Pícaros L4.**
+  - Use: fill its 3 slots with commons and spares at ≥ value, not with MAL-09.
 
 ## Plan, anchored to the schedule
-**Now (paused, tick 630)**
-1. Operator: cancel 9101, 9136 and 9102 to keep the Workshop spares. Forgoes ≤ 0.4 board.
-2. Operator: re-post 9172/9173 at tick 650 with doubled `expires_in_ticks`; Dani nudges t15 and t07 in the room. +18.1 neg ≈ +1.7 board.
-3. Lucas and Dani: pitch 2 pairs for v10 with the predicted value. Up to +3.3 board.
-
-**Resume (tick 631+)**
-
-4. Operator: watch for Pícaros.
-   - First deal alone in its window: offer-only, at ≥ our value, never at their opening price.
-   - Read Δladder before a second deal.
-   - Upside: three empty slots on the highest level.
-5. Operator: Lucas's 12:58 plan A stands as written (Chato only at list 26, never higher).
-6. Benches 7.0 / 9.0 / 11.0 / 13.0 / 14.65: stay on the stall, no action.
-7. Game 9.15, operator: sell SAL-07 → Pilar, offer-only, steps of −2/−3, never jumping to her bid. It must beat our 0.019 L3 slot.
-8. Game 11.65, Duels II (Aleks): give away the days the rival values more for price; at most 3 rounds.
-9. All day: carry ≥ 184 cash into Sunday. Spend only on cash-neutral trades or the 13:15 bargain GUARDRAIL.
-
-**Sunday**
-
-10. 14.736, operator: fill the remaining round-2 Pícaros and ladder slots; pairmaking continues.
-11. 16.65, Chamberí release (operator, Dani pitches the teams that dump CHA):
-    - Open the silver pack.
-    - Chato CHA rares at ≤ his ~86-90 finals (0 neg).
-    - Maker bids to teams: rares ~80, uncommons ~25, commons ~9-10.
-    - The last card from a team, per H6.
-12. Round 3, if the ladder reset (operator):
-    - 3 Abuela CHA commons below her list.
-    - Chato sales above his opening bid.
-    - Pilar sales in small steps.
-    - Pícaros deals.
-13. Round 3, early: the first coached positive v10 trade (if value created resets, see H2).
-14. 18.65, Duels III (Aleks): fast closes, at most 3 rounds.
-15. Before 20.736: cash → 0 into buys that score ≥ 0.
-16. Judges (40%, Lucas and Dani): pitch the measured model (GAME.md, predicted vs measured); rehearse during Duels II.
+1. **Now-15:54 (Lucas, Operator).**
+   - Lucas decides the MAL-09 floor.
+   - Operator posts an ask at 99 addressed to t17 on El Rastro, then steps −3 every ~10 min to the floor.
+   - Expected +36 to +50 neg (+3.4 to +4.7 board).
+2. **15:40-18:00 (Dani, Operator).**
+   - Dani brokers the pairs above onto our stall. Operator logs `mm_points` per settlement.
+   - Target: net > +5.2, then up to +5 board.
+   - Swaps 9387/9389 stay live to tick 688.
+3. **15:54 bench (Market):** stay on the stall; recorder on.
+4. **Pícaros opens (Operator, armed watch).**
+   - Offer-only, small steps, sell at ≥ value: MAL-02/03/04/05 (7), LAT-03 (5), SAL-03/05 (9).
+   - Measure Δladder on the first deal and continue only if it moves.
+5. **~16:40, Abuela gift pack:** auto-open, alone in its window.
+6. **Workshop menu:** hold 3 spares (2nd LAV-02/03/04) until it is read. If it is worse, sell them as maker to t07 (+2-4 neg each).
+7. **18:03-20:03 fever (Operator).**
+   - SAL-08 → Pilar, opening ~34, steps −2/−3, floor 23.
+   - Keep it only if Δladder > 0; the cash goes to the CHA fund either way.
+8. **20:33 Duels II (Aleks).**
+   - Integrative play: give away days the rival values, take price, ≤ 3 rounds.
+   - The trader keeps running (Lucas 12:50).
+9. **21:00-23:00 (Operator).**
+   - Sell no CHA-fund cards below value; target cash ≥ 186.
+   - Keep the round-3 ladder kit: LAT-08 (Chato ≥ 14), commons and spares (Abuela/Pícaros ≥ value).
+10. **Sunday 09:00 (Operator, Dani).**
+    - Re-read `/api/schedule`.
+    - Maker book and matchmaking until 11:34 (Saturday credit).
+    - Hard test 09:34 on the stall.
+11. **Sunday 11:34-11:40 (Operator).**
+    - Open all dealer threads at once at 15 s ticks (Abuela 8/h, Chato 6/h, Pilar 6/h).
+    - Buy CHA below list; take rares from teams if ≤ 112.
+    - Leave the last CHA card for a team trade (+50).
+    - Dani lines up one positive trade between others on our stall.
+12. **Sunday 13:34 Duels III (Aleks):** the only duel session in round 3; close within ≤ 3 rounds at 10% decay.
+13. **Before 15:00:** cash to 0 into non-negative CHA buys. Lucas and Dani pitch the judges with the measured-facts table.
 
 ## Hypotheses to test
-1. **Value created = (buyer m − seller m) × the buyer's value, including the page bonus.**
-   - Experiment: the first coached v10 trade.
-   - Metric: predicted vs measured Δ`mm_points`.
-2. **Value created resets at round 3.** Metric: `mm_points` right after the 16.65 round event.
-3. **Pícaros unlock with 3 Pilar deals, and L4 weighs more than L3.**
-   - Experiment: read our unlock at activation; make one deal.
-   - Metric: Δladder vs the +0.050 of our best L3 deal.
-4. **A fever SAL sale at ~31 beats the 0.019 L3 slot.** Metric: Δladder on the SAL-07 sale.
-5. **The ladder resets at round 3.** Metric: `ladder_points` at the round event.
-6. **The cap is flat 50 vs 5×book.**
-   - Experiment: close Chamberí with an uncommon if a team ask for it is live; otherwise close with a common.
-   - Metric: Δneg = 50 means flat; ≈ 121 means 5×book.
-   - Downside if flat: ≈ −8.5 neg (57 vs 65.5).
-   - Upside if 5×book: ≈ +62.
+- **Our stall's value-created trades lift `mm_points` above the −5.2 floor.**
+  - Test: the first brokered pair.
+  - Metric: `mm_points` and `market` per settlement.
+- **Round 3 resets value created and the ladder.**
+  - Test: read `/api/me` at 11:35 Sunday.
+  - Metric: `mm_points`, `ladder_points` = 0.
+- **A Pilar fever sale counts on a fever-raised range.**
+  - Test: one SAL-08 sale, alone in its window.
+  - Metric: Δladder compared with our weakest L3 slot (+0.019).
+- **Pícaros' ladder weight exceeds L3 (+0.050 best).**
+  - Test: one common sale at ≥ value.
+  - Metric: Δladder.
+- **An Abuela SELL above her opening bid moves L1, as Chato's did.**
+  - Test: one 2nd-copy sale (value 1.2-3.2) on Sunday after the reset.
+  - Metric: Δladder.
+- **The MAL-09 floor.**
+  - Test: ask 99 → 85.
+  - Metric: the fill price, `neg_points` Δ, and t17's board change versus ours.
