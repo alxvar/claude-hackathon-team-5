@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 20:04** · tick 1178 (30 s/tick) · game hour 11.14 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 20:09** · tick 1188 (30 s/tick) · game hour 11.22 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -27,15 +27,15 @@ _From `team/<name>.md`; each person writes only their own file._
 |---|---|---|---|---|---|---|---|---|---|---|
 | 31.92 | 3 | 24.42 | 7.50 | 13.93 | 0.44 | 0.89 | 52 | 5 | 120 | 38/50 |
 
-Leaderboard (snapshot at tick 1170; refreshes every few minutes):
+Leaderboard (snapshot at tick 1180; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 10 | 34.21 | 21.71 | 12.50 | 50 |
-| 2 | Team 6 | 32.45 | 20.64 | 11.81 | 57 |
+| 1 | Team 10 | 34.21 | 21.71 | 12.50 | 52 |
+| 2 | Team 6 | 32.54 | 20.64 | 11.90 | 57 |
 | 3 | Team 5 | 31.92 | 24.42 | 7.50 | 52 |
 | 4 | Team 18 | 30.15 | 22.65 | 7.50 | 37 |
-| 5 | Team 14 | 30.01 | 20.68 | 9.33 | 50 |
+| 5 | Team 3 | 30.04 | 24.18 | 5.86 | 30 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 11.15 | ~0 min | persona_patch | The fever breaks |
-| 11.65 | ~30 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~111 min | bench | The Market Test: every venue gets the same synthetic book |
-| 14.07 | ~176 min (after today's close) | day_closes | Closed until Sunday 09:00 |
-| 14.07 | ~176 min (after today's close) | day_opens | Sunday opens |
-| 14.65 | ~210 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
-| 15.00 | ~231 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
-| 16.65 | ~330 min (after today's close) | set_release | Chamberí released |
+| 11.65 | ~26 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~107 min | bench | The Market Test: every venue gets the same synthetic book |
+| 14.07 | ~171 min | day_closes | Closed until Sunday 09:00 |
+| 14.07 | ~171 min | day_opens | Sunday opens |
+| 14.65 | ~206 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 15.00 | ~227 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 16.65 | ~325 min (after today's close) | set_release | Chamberí released |
+| 16.65 | ~325 min (after today's close) | round | Round 3 starts |
 
 ## Our dealer deals
 
@@ -124,7 +124,7 @@ Live: 0 · finished: 68
 |---|---|---|---|---|---|---|
 | abuela | active | 1 | True | sobre_barrio (26 P), common (10 P), uncommon (25 P) | common, uncommon | 8 |
 | chato | active | 2 | True | sobre_plata (150 P), uncommon (26 P), rare (77 P) | uncommon, rare | 6 |
-| pilar | active | 3 | True | sobre_oro (420 P) | uncommon, rare, epic, uncommon, rare, epic, uncommon, rare, epic | 6 |
+| pilar | active | 3 | True | sobre_oro (420 P) | uncommon, rare, epic, uncommon, rare, epic | 6 |
 | picaros | active | 4 | True | rare (63 P), epic (162 P) | common, uncommon | 6 |
 | banco | active | 5 | True | sobre_oro (420 P), legendary (585 P) | epic, legendary | 4 |
 
