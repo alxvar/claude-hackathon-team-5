@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 19:13** · tick 1076 (30 s/tick) · game hour 10.29 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 19:18** · tick 1086 (30 s/tick) · game hour 10.38 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,25 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 19:13 · operator · egg try 3 (Chato, 1589, LAT-12, text only): 'las legendarias no pasan por mi mesa… Busca en otro sitio' → decoy, no egg event; **egg hunting stopped for tonight** (Chief) unless the Builder relays a payout to another team
   - Sat 19:12 · operator · egg try 2 (Chief; LAT-12 'El Rastro al Amanecer', legendary, minted 0; text only): Abuela (1582) 'las cartas legendarias no las vendo yo… Para esas, habla con El Chato, ahí al lado' → no egg event, no assets; thread closed
   - Sat 19:10 · Builder · PLAN #24 for Aleks: branch duelist-days-read @ 552819d (--days-read auto|flip|unsure, env DAYS_READ; auto = today's reading, flip reverses, unsure = sure False), 439 pass, not merged; main + live duelist untouched · merge/restart commands sent to the Chief · Aleks decides
-  - Sat 19:09 · operator · Chief: t15 already holds MAL-08 (MAL 8/10, missing 09/10) → 15931 cancelled, **MAL-08 → t01 at 24** (16001, v15; t01 7.6 below us, not a rival) · LAV-04 → t04 (15963) live, job by6d1udbr switches it to t01 at 19:28 if unfilled
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 31.68 | 1 | 24.18 | 7.50 | 13.93 | 0.44 | 0.89 | 52 | 5 | 120 | 38/50 |
+| 31.68 | 2 | 24.18 | 7.50 | 13.93 | 0.44 | 0.89 | 52 | 5 | 120 | 38/50 |
 
-Leaderboard (snapshot at tick 1070; refreshes every few minutes):
+Leaderboard (snapshot at tick 1080; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 5 | 31.68 | 24.18 | 7.50 | 52 |
-| 2 | Team 6 | 31.60 | 19.55 | 12.05 | 53 |
-| 3 | Team 10 | 31.58 | 19.08 | 12.50 | 43 |
-| 4 | Team 14 | 31.28 | 21.75 | 9.53 | 47 |
-| 5 | Team 18 | 30.31 | 22.81 | 7.50 | 36 |
+| 1 | Team 10 | 32.04 | 19.54 | 12.50 | 43 |
+| 2 | Team 5 | 31.68 | 24.18 | 7.50 | 52 |
+| 3 | Team 6 | 31.59 | 19.54 | 12.05 | 53 |
+| 4 | Team 14 | 31.26 | 21.73 | 9.53 | 47 |
+| 5 | Team 18 | 30.35 | 22.85 | 7.50 | 37 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 10.42 | ~7 min | persona_opens | Don Ernesto opens for everyone |
-| 11.00 | ~42 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~51 min | persona_patch | The fever breaks |
-| 11.65 | ~81 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~162 min | bench | The Market Test: every venue gets the same synthetic book |
-| 14.07 | ~227 min (after today's close) | day_closes | Closed until Sunday 09:00 |
-| 14.07 | ~227 min (after today's close) | day_opens | Sunday opens |
-| 14.65 | ~261 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 10.42 | ~3 min | persona_opens | Don Ernesto opens for everyone |
+| 11.00 | ~38 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~47 min | persona_patch | The fever breaks |
+| 11.65 | ~77 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~158 min | bench | The Market Test: every venue gets the same synthetic book |
+| 14.07 | ~222 min (after today's close) | day_closes | Closed until Sunday 09:00 |
+| 14.07 | ~222 min (after today's close) | day_opens | Sunday opens |
+| 14.65 | ~256 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
 
 ## Our dealer deals
 
@@ -90,17 +90,17 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | 1544 | banco | buy | sobre_oro | 546 | — | — | — | 2 | closed |  |
 | 1554 | picaros | sell | 1 card(s) | 4 | 10 | — | — | 9 | closed |  |
 | 1582 | abuela | buy | LAT-12 | — | — | — | — | 2 | closed | not_traded |
-| 1589 | chato | buy | LAT-12 | — | — | — | — | 1 | open |  |
+| 1589 | chato | buy | LAT-12 | — | — | — | — | 2 | closed | not_traded |
 
 ## Abuela benchmark: every team's deals with her (public feed)
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
 | common card | team buys | 72 | 9.00 | 7 | 12 | 5 | 9 |
-| common card | team sells | 111 | 6 | 2 | 23 | 5 | 5.40 |
+| common card | team sells | 112 | 6.00 | 2 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 42 | 22.00 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 79 | 23 | 17 | 29 | 5 | 24.20 |
-| uncommon card | team sells | 11 | 15 | 12 | 20 | 0 | — |
+| uncommon card | team sells | 12 | 15.00 | 12 | 22 | 0 | — |
 
 ## Duels
 
