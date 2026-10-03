@@ -1,31 +1,16 @@
-# Scout (claude-sonnet-5-5, Sat 13:05)
+# Scout (claude-sonnet-5-5, Sat 13:10)
 
 ## Top 3 actions now
-1. **Ladder: buy SAL-06 (and SAL-07) from Chato at list 26, then resell to Pilar in the 16:00-18:00 Salamanca fever (Operator, `abuela_bot.py --dealer chato --ladder`, offer-only).**
-   - Evidence: Lucas's 12:58 move A. Our L2 ladder is ~0 and L3 gained +0.040 and +0.050 on single sells. Ladder is at 0.181. A thread on SAL-06 is already open (Chato 33 → 32, ours 26).
-   - Pace: step +2/+3 and hold at 26. Chato mirrors step size and finals after ~4-5 rounds.
-   - Effect: about −0.33 board (≈ −3.5 neg) each if it closes at ≤ 26. Directive estimate: ≈ +1.2 board each on the ladder. The ladder uncapped claim is [L].
-   - Confidence: med. The "at list moves the ladder" test has n=0 for Chato buys; the first deal is the measurement.
-
-2. **Stop feeding top-4 teams while selling spares (Operator, offers on El Rastro).**
-   - Evidence: our 9 open offers go to t07, t16, t15, t06, t09 and t03, none of them top-4. Each is small (+4 to +6 gain, e.g. SAL-01 at 11 → t06, MAL-04 and MAL-02 at 9 → t15).
-   - Do: keep them as maker, with no fee. Add LAT-04 → t07 at 9-10 (Dani's table: +6.3) and SAL-02 → t09 at 8.
-   - Effect: ≈ +3-6 neg per fill. Prior fills were +4.7 (SAL-01 at 7) and +2.0 (MAL-03 at 5).
-   - Confidence: med. Prices are estimates; the fills depend on the buyers.
-
-3. **Value created on v10 (Lucas DMs Team 15 and Team 10, per directive B).**
-   - Evidence: v10's mm_points swung +4.99 → −5.2 on a single SAL-07 t10 → t15 dump. Only positive-value trades help, such as a card moving to a higher-multiplier holder.
-   - Do: Lucas asks Team 15 to list its duplicates on v10. Team 10 posts SAL-10 → t06 (t06 bids SAL-09 at 68).
-   - Effect: market-making points, not negotiating. Value created is capped at +5.0 board [V]. Not in the data: how much we have now.
-   - Confidence: low-med.
+1. **Open Abuela thread 8762 (bid 18 for SAL-06) and step up slowly; stop chasing Chato.** Evidence: Chato's 33 → 32 held against our silent 26 (13:08 log, nothing spent). Abuela is at 29 → 27 against our 18, and every Abuela deal under her list has moved the ladder ("Ladder and early unlock count only below-list dealer deals" [L]). Executor: `abuela_bot.py --dealer abuela --ladder`, Operator. Effect: a level-1 slot, small ladder gain. Not worth more than ~22 per card. Confidence: med-low. Note SAL is worth only 0.9× to us, so any price above ~25 is a neg loss.
+2. **Sell Pilar uncommons offer-only at ≥ our value (0 neg cost), small steps.** Evidence: MAL-06 at 19 with small steps → ladder +0.040 (0.141 → 0.181); the jump to 23 on SAL-08 gave only +0.019. We hold no MAL or SAL uncommons now (MAL-06/07 and SAL-08 are sold). Not in the data: which spare uncommons we could still sell. Executor: Operator, only after a spare uncommon exists. Confidence: low. It would give ladder gains only if the cap hasn't been reached; the cap is unknown (Analyst guesses ~0.15 [L], but 0.181 has already passed it).
+3. **Sell the spare commons to non-top-4 teams as maker (already live).** Evidence: t14 (#1) is dumping RET commons at 9 (ticks 591-598), so RET is a liquid market. Our 10 offers are all addressed at 4-11 P. Targets from the page-gap desk: Team 7 (#17, 12.9 below us) for LAT-04, LAV-02/03/04 (est. 9.5 each), and Team 9 for SAL-02 (est. 8). Our own asks are 4-6, so reprice to 8-9 for Team 7. Executor: `trade.py`, Operator. Effect: +4 to +6 each, but small. Confidence: med.
 
 ## What the climbing teams are doing
-- Team 6 (+2.4 / +5.5): 18 team trades and 253 listings, the highest team-trade count among the climbers. It sold RET-09 to t02 at 84 (tick 504) and bids LAV-09 at 99 and SAL-09 at 68.
-- Team 18 (#2, +3.1/h): 16 dealer trades and 13 team trades. Its prices are c 9 / u 23 / r 75, near the clearing prices. It stays top-4 with steady volume.
-- Team 14 (#1) has few deals (23) but still leads: LAT-09 at 65, and 13 dealer trades. Quality over volume.
-- Rare trades are flowing at 70-76: MAL-10 t03 → t10 at 74 (tick 585), SAL-10 t12 → t08 at 76 (tick 556). Teams with RET/LAT/MAL spare rares are pricing at 74-84.
+- **Team 14 (#1, 31.2, −2.6/15 min, +2.2/60 min) is selling RET commons at 9 to t09, t04 and t15** (ticks 591-598, 5 trades) and collects LAV/RET/LAT. Its score fell 2.6 in 15 min even so, so we are not chasing it. RET commons clear at 9, matching our own prices.
+- **Team 6 (+5.2/60 min) and Team 10 (+4.2/60 min) are holding rare buys at 70-84.** RET-09 t06→t02 at 84 (tick 504); MAL-10 t03→t10 at 74 (tick 585). Teams are paying list-ish prices for rares, so our RET-09/10 (149.9 each) are priced far above the market and nothing is for sale.
+- **Team 18 (#2, +3.2/60 min) has 29 deals, 16 of them with dealers.** Team 8 sold LAV-11 to Pilar at 140 (tick 550), so dealers pay well above team bids for epics.
 
 ## Threats
-- Team 8 sold LAV-11 to Pilar at 140 (tick 550). Dealers outbid teams on epics, so do not chase epics.
-- Team 13 (51 deals, #6) keeps bidding 2 P on our RET commons (RET-01/02/03) and pushes trades onto its own v03. Do not trade on v03.
-- t06 bids LAV-09 at 99 and t04 bids LAT-09 at 64, so competition for page cards is rising. Our LAV-09 is worth 177 to us and is not for sale.
+- **Team 14 is #1 and 2.3 points above us** (31.2 vs 28.9). Don't sell it LAV/RET/LAT page cards. We feed t14 nothing now: our open offers go to t06, t09, t03, t15, t07 and t16 (none top-4).
+- **t04 bids 26-27 for RET-06/08 and 64 for LAT-09.** RET-06/08 are worth 100.4 to us as part of our own page: don't sell them.
+- **Our L3 and L2 ladder look capped:** 0.181, and Chato refuses list-26 buys. The gap to Team 14 is not closable by dealers alone.
