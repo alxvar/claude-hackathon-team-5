@@ -4050,5 +4050,154 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1352,
+ "done": {
+  "duel": 6171,
+  "session": 3,
+  "status": "deal",
+  "role": "buyer",
+  "item": "La Vía Láctea",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 7.75,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 74,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Sol",
+  "deadline_tick": 1353,
+  "decay_per_round": 0.08,
+  "rounds": 7,
+  "your_offer": {
+   "id": 10370,
+   "price": 68,
+   "tick": 1351,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 10332,
+   "price": 63,
+   "tick": 1350,
+   "days": 10
+  },
+  "messages": [
+   {
+    "tick": 1337,
+    "from": "Rival Sol",
+    "text": "61 with delivery on day 10. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+    "price": 61,
+    "days": 10
+   },
+   {
+    "tick": 1337,
+    "from": "you",
+    "text": "I can do 32 P with delivery on day 0. I'd rather not put a per-day number on it; if day 0 works for you, tell me what price you'd need for it.",
+    "price": 32,
+    "days": 0
+   },
+   {
+    "tick": 1338,
+    "from": "Rival Sol",
+    "text": "61 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 61,
+    "days": 10
+   },
+   {
+    "tick": 1339,
+    "from": "Rival Sol",
+    "text": "61 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 61,
+    "days": 10
+   },
+   {
+    "tick": 1340,
+    "from": "Rival Sol",
+    "text": "61 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 61,
+    "days": 10
+   },
+   {
+    "tick": 1340,
+    "from": "you",
+    "text": "I can move to 40 P with delivery on day 0. Can you move on price for day 0?",
+    "price": 40,
+    "days": 0
+   },
+   {
+    "tick": 1341,
+    "from": "Rival Sol",
+    "text": "74 with delivery on day 0. Fast deal before the pie shrinks?",
+    "price": 74,
+    "days": 0
+   },
+   {
+    "tick": 1341,
+    "from": "you",
+    "text": "I can do 47 P with delivery on day 0. Day 0 is settled on my side, so it comes down to price; I'd like to see a real move from your figure.",
+    "price": 47,
+    "days": 0
+   },
+   {
+    "tick": 1342,
+    "from": "Rival Sol",
+    "text": "72 with delivery on day 0. Fast deal before the pie shrinks?",
+    "price": 72,
+    "days": 0
+   },
+   {
+    "tick": 1342,
+    "from": "you",
+    "text": "I can do 50 P with delivery on day 0. That's a measured step against your small one; a real move on your price will close this quickly.",
+    "price": 50,
+    "days": 0
+   },
+   {
+    "tick": 1343,
+    "from": "Rival Sol",
+    "text": "71 with delivery on day 0. Fast deal before the pie shrinks?",
+    "price": 71,
+    "days": 0
+   },
+   {
+    "tick": 1345,
+    "from": "Rival Sol",
+    "text": "64 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 64,
+    "days": 10
+   },
+   {
+    "tick": 1345,
+    "from": "you",
+    "text": "I can do 55 P with delivery on day 0. Day 0 is fixed on my side, so a later day doesn't work; I need a real cut from your day-0 figure to close in the next exchange.",
+    "price": 55,
+    "days": 0
+   },
+   {
+    "tick": 1350,
+    "from": "Rival Sol",
+    "text": "63 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 63,
+    "days": 10
+   },
+   {
+    "tick": 1350,
+    "from": "you",
+    "text": "I can do 63 P with delivery on day 0. That's a big step from me and my closing figure; a later day doesn't work for me, so let's settle it on day 0.",
+    "price": 63,
+    "days": 0
+   },
+   {
+    "tick": 1351,
+    "from": "you",
+    "text": "I can do 68 P with delivery on day 0. Day 0 is the only day that fits on my side, so this can be closed right now.",
+    "price": 68,
+    "days": 0
+   }
+  ],
+  "result": 6.1,
+  "price": 63,
+  "days": 0
+ }
 }

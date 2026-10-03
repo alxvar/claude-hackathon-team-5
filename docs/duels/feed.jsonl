@@ -1100,3 +1100,14 @@
 {"id": 68991, "tick": 1349, "t": 12.5667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5994, "session": 3, "status": "deal", "item": "La Vía Láctea"}}
 {"id": 68994, "tick": 1349, "t": 12.5667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6010, "session": 3, "status": "deal", "item": "El Frutero de Argumosa"}}
 {"id": 68997, "tick": 1349, "t": 12.5667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6045, "session": 3, "status": "deal", "item": "Fiesta de San Cayetano"}}
+{"id": 69053, "tick": 1350, "t": 12.575, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5929, "session": 3, "status": "deal", "item": "La Dama de Serrano"}}
+{"id": 69056, "tick": 1350, "t": 12.575, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6086, "session": 3, "status": "deal", "item": "La Vía Láctea"}}
+{"id": 69134, "tick": 1351, "t": 12.5833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5761, "session": 3, "status": "no_deal", "item": "La Dama de Serrano"}}
+{"id": 69137, "tick": 1351, "t": 12.5833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5817, "session": 3, "status": "no_deal", "item": "El Frutero de Argumosa"}}
+{"id": 69140, "tick": 1351, "t": 12.5833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5921, "session": 3, "status": "no_deal", "item": "El Frutero de Argumosa"}}
+{"id": 69143, "tick": 1351, "t": 12.5833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5933, "session": 3, "status": "no_deal", "item": "La Vía Láctea"}}
+{"id": 69146, "tick": 1351, "t": 12.5833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5953, "session": 3, "status": "deal", "item": "La Dama de Serrano"}}
+{"id": 69149, "tick": 1351, "t": 12.5833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6050, "session": 3, "status": "no_deal", "item": "La Vía Láctea"}}
+{"id": 69152, "tick": 1351, "t": 12.5833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6051, "session": 3, "status": "no_deal", "item": "La Vía Láctea"}}
+{"id": 69155, "tick": 1351, "t": 12.5833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6060, "session": 3, "status": "deal", "item": "La Dama de Serrano"}}
+{"id": 69158, "tick": 1351, "t": 12.5833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6064, "session": 3, "status": "no_deal", "item": "La Vía Láctea"}}

@@ -5478,5 +5478,203 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1352,
+ "done": {
+  "duel": 6095,
+  "session": 3,
+  "status": "deal",
+  "role": "buyer",
+  "item": "La Sala Pentagrama",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 2.67,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 46,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Verde",
+  "deadline_tick": 1352,
+  "decay_per_round": 0.08,
+  "rounds": 7,
+  "your_offer": {
+   "id": 10340,
+   "price": 43,
+   "tick": 1350,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 10348,
+   "price": 43,
+   "tick": 1351,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1336,
+    "from": "Rival Verde",
+    "text": "Hello! I can do 30 with delivery on day 10.",
+    "price": 30,
+    "days": 10
+   },
+   {
+    "tick": 1336,
+    "from": "you",
+    "text": "Thanks for the opener. I can do 20 P with delivery on day 0; or, if you insist on day 10, I could only do 6 P.",
+    "price": 20,
+    "days": 0
+   },
+   {
+    "tick": 1337,
+    "from": "Rival Verde",
+    "text": "Thanks for the reply. 21, delivery day 10.",
+    "price": 21,
+    "days": 10
+   },
+   {
+    "tick": 1338,
+    "from": "Rival Verde",
+    "text": "Let me move closer: 21, day 10.",
+    "price": 21,
+    "days": 10
+   },
+   {
+    "tick": 1339,
+    "from": "Rival Verde",
+    "text": "I'd like to close this: 21 with day 10.",
+    "price": 21,
+    "days": 10
+   },
+   {
+    "tick": 1340,
+    "from": "Rival Verde",
+    "text": "Meeting you halfway: 21, delivered day 10.",
+    "price": 21,
+    "days": 10
+   },
+   {
+    "tick": 1341,
+    "from": "Rival Verde",
+    "text": "Final stretch from me: 21, day 10.",
+    "price": 21,
+    "days": 10
+   },
+   {
+    "tick": 1341,
+    "from": "you",
+    "text": "I can do 26 P, delivery on day 0.",
+    "price": 26,
+    "days": 0
+   },
+   {
+    "tick": 1342,
+    "from": "Rival Verde",
+    "text": "Hello! I can do 21 with delivery on day 10.",
+    "price": 21,
+    "days": 10
+   },
+   {
+    "tick": 1343,
+    "from": "Rival Verde",
+    "text": "Thanks for the reply. 21, delivery day 10.",
+    "price": 21,
+    "days": 10
+   },
+   {
+    "tick": 1344,
+    "from": "Rival Verde",
+    "text": "Let me move closer: 21, day 10.",
+    "price": 21,
+    "days": 10
+   },
+   {
+    "tick": 1344,
+    "from": "you",
+    "text": "That's a real step from me: 31 P with delivery on day 0. If you must have day 10, I could only do 14 P instead. I'd like a real answer to this move.",
+    "price": 31,
+    "days": 0
+   },
+   {
+    "tick": 1345,
+    "from": "Rival Verde",
+    "text": "I'd like to close this: 21 with day 10.",
+    "price": 21,
+    "days": 10
+   },
+   {
+    "tick": 1346,
+    "from": "Rival Verde",
+    "text": "Meeting you halfway: 21, delivered day 10.",
+    "price": 21,
+    "days": 10
+   },
+   {
+    "tick": 1347,
+    "from": "Rival Verde",
+    "text": "Final stretch from me: 21, day 10.",
+    "price": 21,
+    "days": 10
+   },
+   {
+    "tick": 1347,
+    "from": "you",
+    "text": "One clear step from me: 35 P with delivery on day 0; or, if you prefer, 15 P on day 10. I'll hold here unless you move.",
+    "price": 35,
+    "days": 0
+   },
+   {
+    "tick": 1348,
+    "from": "Rival Verde",
+    "text": "Hello! I can do 21 with delivery on day 10.",
+    "price": 21,
+    "days": 10
+   },
+   {
+    "tick": 1348,
+    "from": "you",
+    "text": "I can do 8 P, delivery on day 10.",
+    "price": 8,
+    "days": 10
+   },
+   {
+    "tick": 1349,
+    "from": "Rival Verde",
+    "text": "Thanks for the reply. 21, delivery day 10.",
+    "price": 21,
+    "days": 10
+   },
+   {
+    "tick": 1349,
+    "from": "you",
+    "text": "One firm closing move: 40 P with delivery on day 0. If you prefer day 10, the only alternative is 19 P. Please take it now.",
+    "price": 40,
+    "days": 0
+   },
+   {
+    "tick": 1350,
+    "from": "Rival Verde",
+    "text": "Let me move closer: 40, day 0.",
+    "price": 40,
+    "days": 0
+   },
+   {
+    "tick": 1350,
+    "from": "you",
+    "text": "I can do 43 P, delivery on day 0.",
+    "price": 43,
+    "days": 0
+   },
+   {
+    "tick": 1351,
+    "from": "Rival Verde",
+    "text": "I'd like to close this: 43 with day 0.",
+    "price": 43,
+    "days": 0
+   }
+  ],
+  "result": 1.7,
+  "price": 43,
+  "days": 0
+ }
 }
