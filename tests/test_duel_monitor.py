@@ -362,3 +362,12 @@ def test_duelist_tests_run_on_a_clean_copy_of_the_commit_not_the_working_tree(tm
     ok, failed, tail = dm.run_duelist_tests(sha, root=repo)
     assert ok, tail
     assert not dm.run_duelist_tests(None, root=repo)[0]                              # the working tree is broken
+
+
+def test_the_test_watch_covers_our_own_duelist_commits_too(tmp_path):
+    c = dm.latest_duelist_commit()
+    out = dm.git("log", "-1", "--format=%H", "--", *dm.WATCH_PATHS)
+    assert c is None or c[0] == out                                   # the newest, whoever wrote it
+    m = dm.Monitor(FakeApi([]), notify=Recorder(), state_path=tmp_path / "s.json", review_path=tmp_path / "r.md",
+                   me="Lucas Wiese", test_watch=False, records=lambda _id: None)
+    assert m.foreign_commit is dm.latest_duelist_commit
