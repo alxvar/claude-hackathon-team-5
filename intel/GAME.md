@@ -78,6 +78,8 @@
   all at 5.51 h): Team 13 unlocked her early at tick 262 by "3 deals with chato"; our 3 Chato deals today did not unlock it.
   Pilar: early unlock 3 Chato deals at level ≥ 2; sells gold packs (list 420); buys released uncommons/rares/epics and
   pays over book for SAL/RET; 6 deals/team/hour.
+- **Abuela gifts** [V, tick 261]: after our 5th Abuela deal of the day she gave us LAT-08 ("gift from Abuela Carmen",
+  `gift.given`); Team 7 got LAT-06 the same way on Friday (tick 157). Gifts never score, but the card is ours to sell.
 - **RET rares** [V, feed ticks 160-188]: no team pulled a RET rare from a grant pack (every sobre_barrio `best` = null);
   the only sources are Chato (rare list 77) and silver packs. Team 15 bids 59 and Team 2 9-12 for RET-09/10.
 
