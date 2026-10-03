@@ -35,19 +35,20 @@ def test_every_spec_names_a_real_constant_and_its_default_is_inside_its_bounds(p
         assert isinstance(params.defaults[k], (int, float))
     for a, b in CROSS:
         assert params.defaults[a] <= params.defaults[b]
-    assert params.defaults["MAX_STEP_SHARE"] == 0.18 and params.defaults["HOLD_TICKS"] == 3
+    assert params.defaults["MAX_STEP_SHARE"] == A.MAX_STEP_SHARE and params.defaults["HOLD_TICKS"] == R.HOLD_TICKS
 
 
 def test_a_good_file_applies_and_a_removed_key_or_file_reverts(params):
+    cap, hold, opener = (params.defaults[k] for k in ("MAX_STEP_SHARE", "HOLD_TICKS", "OPENER_SHARE"))
     put(params, {"_note": "wave 2", "MAX_STEP_SHARE": 0.12, "HOLD_TICKS": 5, "OPENER_SHARE": 0.5})
     r = params.reload()
-    assert r["changed"] == {"MAX_STEP_SHARE": [0.18, 0.12], "HOLD_TICKS": [3, 5], "OPENER_SHARE": [0.42, 0.5]}
+    assert r["changed"] == {"MAX_STEP_SHARE": [cap, 0.12], "HOLD_TICKS": [hold, 5], "OPENER_SHARE": [opener, 0.5]}
     assert A.MAX_STEP_SHARE == 0.12 and R.HOLD_TICKS == 5 and P.OPENER_SHARE == 0.5
     assert params.reload() == {}                                         # unchanged file: not even re-read
     put(params, {"MAX_STEP_SHARE": 0.12})
-    assert params.reload()["changed"] == {"HOLD_TICKS": [5, 3], "OPENER_SHARE": [0.5, 0.42]}
+    assert params.reload()["changed"] == {"HOLD_TICKS": [5, hold], "OPENER_SHARE": [0.5, opener]}
     params.path.unlink()
-    assert params.reload()["changed"] == {"MAX_STEP_SHARE": [0.12, 0.18]}
+    assert params.reload()["changed"] == {"MAX_STEP_SHARE": [0.12, cap]}
     assert params.overrides() == {}
 
 

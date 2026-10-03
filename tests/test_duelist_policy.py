@@ -4,7 +4,7 @@ import asyncio
 
 import pytest
 
-from agents.duelist import policy as P
+from agents.duelist import agent as A, policy as P
 from agents.duelist.agent import DuelAgent
 from agents.duelist.model import DuelView, Observation, Offer, Role, Turn
 from engine import LLMError, Reply
@@ -60,6 +60,7 @@ def test_a_step_below_min_step_is_held_and_a_big_share_is_cut(monkeypatch):
     m = P.code_move(a, obs(SELLER, ours=[52], theirs=[48]))   # gap 4: 0.6 < 3
     assert m.price == 52 and m.meta["rule"] == "code: small step"
     monkeypatch.setattr(P, "CODE_STEP_SHARE", 0.5)
+    monkeypatch.setattr(A, "MAX_STEP_SHARE", 0.18)
     m = P.code_move(a, obs(SELLER, ours=[70], theirs=[50]))   # 50% cut to MAX_STEP_SHARE 18%: 3.6 off
     assert m.price == 67
 
