@@ -6,6 +6,8 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sat 15:55 · Builder · Chief's 3 builds pushed (375 pass): swaps engine cfa654d (daemon `swaps`, on hold until verified; dry run 43 candidates, best +10.3/+9.7), v10 partner suggestions f1ce219 (radar, live, every 30 min), arbitrage in bargains 4c81dfc (live; ARB lines for the Operator) · 2 verifiers running
+- Sat 15:31 · Builder · cha-plan: pack 755 opened Saturday (Chief/Operator), CHA bids cover all 10 (4d3dd39)
 - Sat 15:39 · operator · swaps unfilled at tick 647 → reposted: 9387 (El Rastro → t15: LAT-04 2nd + MAL-04 for SAL-07) and 9389 (v15 → t07: LAV-02 2nd for MAL-01), until tick 688 · Chief: MAL-09 held for Pícaros (no sale to t17); L3 near saturation (no more Pilar round trips unless they clearly beat the weakest share) · NEWS #6: Abuela gift pack ~16:40 → auto-open job armed
 - Sat 15:36 · operator · **SAL-06 → Pilar at 25** (her 22 → 23 → 25): ladder 0.181 → **0.188** (+0.007), neg 32.5, cash 186 (round trip ≈ break-even) · **silver pack 755 opened** (Chief's change), alone in its window: neg unchanged, cv +0.5; pulls SAL-01 (2.2), MAL-05 (7), LAT-08 unc (12.5), SAL-08 unc (22.5), **MAL-09 rare (49)**, all held out of the book for Pícaros L4 / Pilar L3 · t17 bids 70-85 for MAL-09 (likely its closer; feeding rule says no) → Chief's call
 - Sat 15:31 · operator · game resumed 15:29 (new times: fever 18:03-20:03, Duels II ~20:33, CHA Sunday ~11:34) · **SAL-06 bought from Abuela at 23** (her 25; resumed thread 868): `neg_points` 35.2 → 32.5 (−2.7 vs −0.5: silver-pack drag 92.9 → 90.5, now [V] in GAME.md), ladder unchanged, cash 161 · SAL-06 → Pilar now (≥ 25), else the fever · swap repost at tick 647 and Pícaros watch armed
