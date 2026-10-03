@@ -72,6 +72,10 @@
   still never moves the ladder). Abuela RET-08 at 22 (her 29 → 22): `neg_points` 0, ladder +0.003 (a 4th level-1 deal).
 - **Offer life on Saturday** [V, probe tick 264]: the server halves `expires_in_ticks` (asked 60 → 30 ticks, 120 → 60,
   200 → 100): it counts in 60 s units (Friday's tick). Ask 2× the ticks you want.
+- **A dealer SALE above his opening bid moves the ladder** [V, n=1, Sat 12:10]: LAT-08 (worth 12.5) sold to Chato at
+  14, offer-only (we sent his standing 14 as our offer and he accepted): his bids 13 ×4, 14, 14; `ladder_points`
+  0.055 → 0.072 (+0.017), `neg_points` unchanged (gain clipped). His uncommon buy final is 14 (MAL-07 earlier: 13, 13,
+  14 FINAL vs our floor 15 → walked).
 - **Ladder and early unlock count only below-list dealer deals** [L, strong pattern]: every Abuela deal under her list
   (commons 9 vs 10, RET-08 22 vs 25) moved the ladder; none of our 6 Chato deals moved it, all above his list (RET-09 87 and
   RET-10 86 vs 77, RET-06 30 vs 26, Fri LAV-09 93, LAV-06 31, LAT-08 sale). Level 3 (Doña Pilar, active 3.51 h, open to
