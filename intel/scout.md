@@ -1,17 +1,22 @@
-# Scout (claude-sonnet-5-5, Sat 19:55)
+# Scout (claude-sonnet-5-5, Sat 20:00)
 
 ## Top 3 actions now
-1. **Keep the v10 rebate route live (Lucas GUARDRAIL 19:40).** Operator/Market: collect non-rival sales on v10 tonight (5 P per card, cap 30), and settle only on the Market's tally and the Chief's go. Evidence: our market is 7.5 vs 9.15-12.5. One collector sale on v10 moved ours 7.5 → ~12.5 (+5 board), and we gained +5 at tick 311. Our board gap to #2 (Team 6) is 32.6 − 31.9 = 0.7, and to #1 (Team 10) 2.1. Effect: market-making only, no neg_points. Settlement as a team buy scores ΔV − price − fee, so use v15 (fee 0) and a card worth ≥ the owed amount. Confidence: med.
-2. **Fill our open asks to non-rivals: 16928 MAL-03 at 9 → t09, 17010/17011 MAL-02/05 at 9 → t15, 17028 LAV-03 at 6 → t09, 17182 LAV-04 at 6 → t01, 17053 MAL-08 at 20 → t01.** Dani asks the buyers to accept. Evidence: t09 bids MAL-06 at 20 (offer 16942) and t15 buys RET×3/MAL×4 (collects RET/MAL). t16 bids 3-12 on LAV/RET cards (offers 17205-17209), but t16 is #13 and not a rival. Effect: roughly +2-3 neg_points per spare (similar to the +2.0/+2.5 maker sales on the log). The cards are worth 1.3-7 to us. Confidence: med.
-3. **Sell MAL-06-type uncommons into t09 (20) and t04 (19) bids.** We hold MAL-08 (value 17.5), and the same bids show demand. Route: El Rastro or v15 as maker, addressed to t09 at ≥ 20. Evidence: t09's bid 16942 at 20 and t04's 16604 at 19 against our value of 17.5. Effect: about +2.5 neg_points (the t14 sale of MAL-08 at 15 gave +2.5). It conflicts with the live ask 17053 (t01 at 20), so cancel one. Confidence: med-low.
+
+1. **Keep v10 offers as the live lever; Dani sells the rebate pitch to non-rivals.** Action: Dani asks t09, t04 and t01 (not top-4) to list or accept spares on v10. Our open asks 17028 (LAV-03 → t09 at 6) and 17182 (LAV-04 → t01 at 7) are already live. Evidence: board 31.9 (#3) vs T10 34.0 and T6 32.6; the 17:25 directive says market (7.5) is our gap, and one collector sale on v10 took it 7.5 → ~12.5 (+5 board). Effect: no neg_points, since the lever is mm_points. The 19:40 rebate (5 P/card, cap 30) applies. Confidence: med. Note that the t09 and t01 asks are on v15 or El Rastro, not v10, so I can't confirm they count for our venue.
+
+2. **Re-price MAL-08 (17053: 20 to t01) to ≤ 15 on El Rastro, or keep 24 on v15.** Operator executes. Evidence: t12 → t04 sold MAL-08 at 14 (tick 1142), and t09 bids MAL-06 at 20. Our MAL-08 is worth 17.5, so a sale at 20 gains 2.5 (we are the maker, no fee). Effect: ≈ +2.5 neg_points only if it fills. Confidence: low-med. A drop to 14 would lose value, so don't.
+
+3. **Do not use the Workshop or sell SAL/LAV/RET cards at ≤ 85.** Operator holds. Evidence: complete pages make the cards worth 68-177 to us (SAL-09/10 122.6, LAV-09/10 177.1). Pilar pays ~55-80 for rares and picaros pays 55, so any such sale books a loss. Effect: avoids −30 to −100 neg_points. Confidence: high.
+
+Not in the data: any open opportunity that passes the feeding rule. The Dani table says "no buyer passes the feeding rule above our value + 3".
 
 ## What the climbing teams are doing
-- **Team 10 (#1, 34.0, +2.3/h)** collects LAV/RET. It uses its own venue, and its SAL-07 sale on v10 at 398 wiped our market points. It is allied with t01.
-- **Team 12 (#7, +2.9/h, 64 deals)** buys cheap across LAT/MAL: LAT-09 at 55 from t15, LAT-07 at 14, and MAL-08 sold at 14 to t04. Volume at low prices is what is lifting it.
-- **Team 16 (+2.0 in ~30 ticks)** is a heavy RET buyer: RET×4 at 13/13/5, plus bids at 12 for uncommons.
-- **Team 7** bought RET-09 at 66 (tick 1125) and RET-08 at 24. It collects LAV/RET, with 7 purchases in each set.
+- **T10 (#1, 34.0, +2.3/h):** only 12 team trades but 38 dealer trades and 425 listings. It collects LAV/RET (t06 → t10 RET-03 at 12, tick 1033). Its gain comes mostly from the venue and the market (our own lesson from v10 tonight).
+- **T12 (#7, 28.5, +2.9/h):** the most active buyer in the last 60 ticks: LAT-09 from t15 at 55 (tick 1101), LAT-08 from t09 at 10, LAT-07 from t15 at 14 (tick 1145). It buys LAT in bulk (LAT ×6), and its MAL-08 went to t04 at 14.
+- **T15 (#8, +1.4/h):** sells whole sets to t12 and t16 (RET-05/07/08 to t16 at 5-13). It trades with team volume at low prices. t16 now bids 12 for uncommons.
+- **T7 and T4:** t04 → t07 RET-09 at 66 (tick 1125) beats the 82-90 Chato price. RET rares are available from teams at ~66.
 
 ## Threats
-- **Team 10 (34.0) and Team 6 (32.6)** are ahead of us. Team 10 leads by 2.1 and is gaining. Any trade on v07 or t10-linked venues feeds them.
-- **Team 18 (30.3) and Team 14 (30.1)** are 1.6 and 1.8 behind us. t14 is the denial-buy candidate, but no last-card page closer for the top-3 rivals appears in the data.
-- **Duels II (~20:25) shares our 5 req/s.** Bots are paused, so offers lapse. The ladder is capped and the 119.1 neg_points have been flat for 15 minutes.
+- **T10 at 34.0 (+2.3/h) is 2.1 ahead of us.** It buys RET (t06 → t10 at 12). A trade on our v10 that lowers its edge helps. Never route trades to its venue.
+- **T6 (#2, 32.6, 57 deals)** is 0.7 above us; T18 (30.3) and T14 (30.1) are 1.6-1.8 below and close. Leaving the flat ladder/neg_points alone, we have no new gains. We sit at 119.1 neg_points and 0.0 over 15 min.
+- **Rebate settlement (22:45):** buying a card at the owed price scores ΔV − price − fee for us, so it can cost ≈ −15 neg_points. Use v15 (fee 0) and a card worth ≥ the owed amount.
