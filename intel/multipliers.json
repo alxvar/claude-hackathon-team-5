@@ -1,6 +1,6 @@
 {
  "_meta": {
-  "updated": "Sat 12:30 snapshot 440",
+  "updated": "Sat 12:20 snapshot 480 (verifier fixes)",
   "source": "intel/score-model.md §4 (Analyst)",
   "fields": "m = midpoint estimate; lo/hi = range within {0.5,0.7,0.9,1.1,1.3,1.6}; conf V/L/?",
   "method": "implied dV from Saturday-only board jumps / 0.235 + price/book floors of bids and buys"
@@ -53,11 +53,11 @@
  },
  "t03": {
   "SAL": {
-   "m": 1.2,
-   "lo": 1.1,
+   "m": 1.1,
+   "lo": 0.9,
    "hi": 1.3,
-   "conf": "L",
-   "why": "SAL-01 buy on v07 reads 1.37; bid 1.06"
+   "conf": "?",
+   "why": "SAL-01 jump reads 1.37 but t10's v07 gap implies less; bid 1.06"
   },
   "LAV": {
    "m": 1.35,
@@ -124,11 +124,11 @@
    "why": "sold MAL-07 at 14, lost 9.9 (clean)"
   },
   "SAL": {
-   "m": 1.0,
+   "m": 0.9,
    "lo": 0.9,
-   "hi": 1.1,
+   "hi": 0.9,
    "conf": "L",
-   "why": "sold SAL-07 at 26, lost 26.3; v10 VC -10.2 vs t15 0.5"
+   "why": "v10 SAL-07 VC -10.19 with t15 0.5 => t10 0.9"
   }
  },
  "t12": {
@@ -204,11 +204,11 @@
  },
  "t16": {
   "LAV": {
-   "m": 0.7,
-   "lo": 0.7,
+   "m": 0.6,
+   "lo": 0.5,
    "hi": 0.7,
    "conf": "L",
-   "why": "sold LAV-10 at 82, lost 49.9 (clean)"
+   "why": "sold LAV-10 at 82; window also holds the ladder cut: loss 36-48"
   },
   "LAT": {
    "m": 1.2,
