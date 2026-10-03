@@ -31,6 +31,7 @@ sys.path.insert(0, str(ROOT / "bazaar-kit"))
 sys.path.insert(0, str(ROOT / "tools"))
 from bazaar_sdk import Bazaar, BazaarError  # noqa: E402
 from arbiter import should_hold_accept  # noqa: E402
+import narrator  # noqa: E402
 
 # A 429 (RULES: "too early ... wait for it rather than retrying"): wait for the next tick and decide again, so a
 # refused accept goes back through the duel arbiter instead of the SDK retrying it blind (wait_on_tick=False).
@@ -52,22 +53,18 @@ REOPEN_TICKS = 10    # never open a conversation with a dealer sooner than this 
 SILENT_TICKS = 4     # our word is the last and she hasn't said anything for this many ticks: close, pause her
 SILENT_PAUSE_S = 30 * 60
 
-TEXTS = {
-    "buy": [
-        "Hola, Abuela! What a lovely stall. Could you do {p} P?",
-        "Gracias, Abuela. I'm filling my album on a small budget: {p} P?",
-        "You're very kind. Let me stretch a little: {p} P.",
-        "I'd love to take it home today. Would {p} P work?",
-        "Almost there, Abuela! {p} P and it's a deal for me.",
-    ],
-    "sell": [
-        "Hola, Abuela! A spare one for your grandchildren's albums. {p} P?",
-        "It's in perfect shape, Abuela. Could you do {p} P?",
-        "You're very kind. I can come down a little: {p} P.",
-        "Let's meet nicely, Abuela. {p} P?",
-        "Almost there! {p} P and it's yours.",
-    ],
-}
+NARRATOR = True     # --narrator on|off: a model writes warm words around our price (narrator.py); off: templates
+
+
+def item_of(topic: dict, side: str) -> str:
+    """What the narrator says we trade, without digits (the guard allows our price as the only number)."""
+    t = topic.get(side) or {}
+    card = str(t.get("card") or "")
+    if card:
+        return f"a card from the {card.split('-')[0]} set"
+    if t.get("pack"):
+        return "a pack"
+    return "a spare card" if side == "sell" else "a card"
 
 
 class PacedBazaar(Bazaar):
@@ -290,7 +287,8 @@ def _haggle(b, tid, topic, side, cap, fast, resume, accepted):
             log({"event": "hold", "thread": tid, "her": price, "ours": ours})   # she hasn't answered our counter:
             b.wait_tick()                                                       # a new one would bid against us
             continue
-        text = TEXTS[side][min(turn, len(TEXTS[side]) - 1)].format(p=nxt)
+        her_text = next((m.get("text") or "" for m in reversed(msgs) if m.get("sender") == DEALER), "")
+        text = narrator.say_text(DEALER, side, item_of(topic, side), nxt, her_text, turn, log=log, enabled=NARRATOR)
         try:
             b.say(tid, text, price=nxt)
         except BazaarError as e:
@@ -340,7 +338,7 @@ def plan(b: Bazaar) -> tuple:
 
 
 def main(argv=None) -> None:
-    global DEALER, CASH_FLOOR
+    global DEALER, CASH_FLOOR, NARRATOR
     ap = argparse.ArgumentParser()
     ap.add_argument("--deals", type=int, default=3, help="stop after this many deals")
     ap.add_argument("--cash-floor", type=int, default=CASH_FLOOR, help="never let cash fall below this (GUARDRAIL)")
@@ -356,7 +354,10 @@ def main(argv=None) -> None:
     ap.add_argument("--no-buy", action="store_true",
                     help="sell only: a dealer deal never adds neg_points (gains 0, losses in full: GAME.md); buy from teams instead")
     ap.add_argument("--dry-run", action="store_true", help="print the plan, write nothing")
+    ap.add_argument("--narrator", choices=["on", "off"], default="on",
+                    help="warm words around our price by claude-sonnet-5-5 (narrator.py); off: templates")
     args = ap.parse_args(argv)
+    NARRATOR = args.narrator == "on"
     b = PacedBazaar(os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai"), os.environ["BAZAAR_KEY"],
                     min_gap=DRY_GAP_S if args.dry_run else GAP_S, wait_on_tick=False)
 

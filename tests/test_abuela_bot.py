@@ -64,6 +64,10 @@ class FakeGame:
 def bot(tmp_path, monkeypatch):
     monkeypatch.setattr(ab, "LOG", tmp_path / "abuela.jsonl")
     monkeypatch.setattr(ab, "STATE", tmp_path / "dealers.json")
+
+    async def no_model(system, user):                 # tests never call the API: the templates go out
+        raise RuntimeError("no model in tests")
+    monkeypatch.setattr(ab.narrator, "_ask", no_model)
     monkeypatch.setattr(ab, "should_hold_accept", lambda b, tick=None: (False, "no live duel"))
     monkeypatch.setenv("BAZAAR_KEY", "test-key-not-real")
     return ab
@@ -374,3 +378,20 @@ def test_no_new_counter_until_she_answers_the_last_one(bot):
     t = bot.negotiate(b, {"buy": {"card": "RET-01"}}, "buy", 15)
     assert b.said == [11]                                                 # one counter, then silence
     assert t["status"] == "closed" and b.closed == [42] and "silent_dealer" in events(bot)
+
+
+# ------------------------------------------------------------------------------------------------ narrator
+
+def test_the_narrator_never_changes_the_price_whatever_the_model_writes(bot, monkeypatch):
+    texts = iter(["Hola, Abuela! Could you do 99 P? It's my final word.",      # wrong number and pressure: refused
+                  "Gracias, Abuela, que puesto tan bonito. ¿Te parece bien 11 P?"])   # fine
+
+    async def model(system, user):
+        return next(texts), 0.0007, 2.0
+    monkeypatch.setattr(bot.narrator, "_ask", model)
+    b, sent = Unanswered(), []
+    b.say = lambda tid, text, price=None: (sent.append((text, price)), b.said.append(price))
+    bot.negotiate(b, {"buy": {"card": "RET-01"}}, "buy", 15)
+    assert [p for _, p in sent] == [11]                                  # the engine's price, untouched
+    assert sent[0][0] == bot.narrator.template("abuela", "buy", 11, 0)    # the bad text fell back to the template
+    assert "99" not in sent[0][0]
