@@ -1,5 +1,11 @@
 # Market log (Market session; newest first)
 
+## Sat 12:50 · reciprocal check (snapshots 520-560) [V]
+- No new trade on v10 or v07 since tick 404: v10 2 trades (40 P, both t10 selling) · ours on v07 2 (12 P). Ratio 1:1.
+- Market: us 7.5 (= stall teams, mm_points −5.2 unchanged) · t10 12.5 → 12.06 at snapshot 560 with no new trade on
+  v07, so the value-created part moves with the field (relative scoring) [L].
+- No alert conditions. Open: the desk's answer on mm_points vs value_created.
+
 ## Sat 12:00 · bench-h05.0 (ticks 441-458), on the stall v10 (auto, fee 0)
 - **Ours [V]:** bench_efficiency 0.933 (3.0: 0.899), bench_points 0.5, market 7.5 = the stall teams' number, unchanged.
 - **Field at snapshot 460 [V]:** t10 12.5 · t14 11.86 · t12 11.74 · t17 10.26 · t06 9.83 · stall teams 7.5 · t08 7.46 ·
