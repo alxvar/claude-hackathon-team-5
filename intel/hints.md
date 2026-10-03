@@ -174,3 +174,5 @@ Swap your duplicates, hijo — a full page is wort
 - Sat 19:49 · message tick 1149 · banco → t18 · Buenas. You arrive at a good hour. La Puerta de Alcalá — gold, from my own vault. My terms: one hundred twelve. I do not haggle over such a card.
 - Sat 19:50 · message tick 1151 · banco → t18 · Buenas tardes. I am not buying today. What I offer is La Puerta de Alcalá, from my vault, at one hundred twelve. Those are my terms.
 - Sat 19:51 · message tick 1152 · banco → t18 · Señor, you speak of buying. I speak of selling. La Puerta de Alcalá, gold, from my vault: one hundred thirteen. Take your time. The card does not move.
+- Sat 19:51 · message tick 1153 · banco → t18 · Usted insiste en vender; yo no compro. La Puerta de Alcalá, gold, mi cámara: ciento catorce. The card waits. I wait. Decide when you wish.
+- Sat 19:51 · message tick 1154 · banco → t18 · Señor, repito una sola vez más: no compro nada hoy. La Puerta de Alcalá, oro, de mi cámara: ciento dieciséis. Esas son mis condiciones. La carta no se mueve.
