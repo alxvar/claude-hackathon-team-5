@@ -2,6 +2,10 @@
 
 _Written by the strategy session. It never touches the game: no trades, no bots. The operator decides and executes inside its hard limits (ORCHESTRATOR.md, "Decide, don't ask"); Lucas changes a limit only with a line containing GUARDRAIL. Format: `- HH:MM · decision with limits · why`. Newest block on top. Labels: **[Verified]** measured on our own deals or read from the server; **[Likely]** fitted or inferred; **[Open]** unknown._
 
+## Sat 11:56 — the ladder is the cheapest board points left (Analyst's model)
+
+- 11:56 · **Facts [Analyst, intel/score-model.md]:** board = (0.5·Fri + Sat)/1.5 now (1 Saturday point = 0.667 board; Friday frozen) [Verified, exact fit on 11 snapshots]; value created is capped at +5.0 board and floored at 0 [Verified]; t13's lead = Friday +3.3 + Saturday ladder ~+4 + trades ~+2; **+0.01 ladder ≈ +0.54 board ≈ 3.5 neg_points** [Likely]; every dealer deal at or below the MENU list counted, none above [Likely, no counterexample]. **Action:** the L2 ladder (our Chato best 3 are all 0) via SELLS to Chato in offer-only mode now (MAL-07, MAL-06, LAT-08; loss ≤ 3 neg_points each, brings cash), then Pilar from ~12:21; measure Δladder on the first and continue only if it moves.
+
 ## Sat 11:55 — dealers during Duels I in offer-only mode (independently verified, edits applied)
 
 - 11:55 · **Replaces 10:35 "no dealer threads in scored sessions" and the "after Duels I" timing of the ladder program, for Duels I only:** dealer threads are allowed with `--offer-only` (the bot never calls accept; to close, it offers the dealer's own standing price so the DEALER accepts), at most 1 dealer thread and only if ≤ 2 threads are open; never a deal at the dealer's opening price (RULES:35); Pilar sales first (SAL-08, then spares at ≥ our value) for cash + L3 ladder; the Chato list-26 ladder test only once cash ≥ 126. **Duels II: zero dealer threads.** · dealers accept our offers without our accept [Likely: RULES:44/109; Chato took our 30, Abuela our 22]; 3 duels + 1 dealer thread = 4 ≤ 6 in either reading of desk Q6; 90 min of Duels I otherwise idle the ladder.
