@@ -4,7 +4,8 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sun 02:10 (tick 1445, doors closed; snapshot 1440): us #3 at 30.49. **Two corrections from the overnight audits: (1) game hour = wall hour at any tick length, so the B15/A15 rows were wrong: case J (jump, ≈ 80%) → Duels III ≈ 11:00; (2) the ladder-fodder pipeline (team uncommons ≤ value → Pilar/Chato) lifts Sunday ladder 0.27 → 0.42-0.50 and P(top 2) 19% → 31-36% (§4.4).**_
+_Last update: Sun 00:45 (tick 1445, doors closed; snapshot 1440): us #3 at 30.49. **Two corrections from the overnight audits: (1) game hour = wall hour at any tick length, so the B15/A15 rows were wrong: case J (jump, ≈ 80%) → Duels III ≈ 11:00; (2) the ladder-fodder pipeline (team uncommons ≤ value → Pilar/Chato) lifts Sunday ladder 0.27 → 0.42-0.50 and P(top 2) 19% → 31-36% (§4.4).**_
+_Note: the §4 version labels "00:05" to "02:10" are sequence markers written between Sat 23:50 and Sun 00:42 (my labels ran ahead of the wall clock); real times are in `git log`. The Sunday clock in §4.7 is unaffected._
 
 ## 1. Board = Friday × Saturday blend [V]
 
