@@ -560,3 +560,15 @@ def test_live_once_while_closed_does_nothing(monkeypatch):
     fake = ClockBazaar([])
     _, sleeps = run_main(monkeypatch, fake, argv=["--once"], clock=CLOSED)
     assert sleeps == [] and fake.me_calls == 0
+
+
+
+def test_cash_in_our_open_bids_counts_against_the_floor():
+    # Review 13:30 (M5): the book's CHA bids hold cash the trader must not spend.
+    ours = {"id": 90, "maker": ME, "to": None, "venue": "rastro", "status": "open",
+            "give": {"cash": 100, "assets": [], "types": []}, "want": {"cash": 0, "cards": ["CHA-09"], "types": []}}
+    b = FakeBazaar(boards={"rastro": [ask(60, "MAL-08", 5)]}, cash=300, mine=[ours])   # 300 - 100 - 7 < 200
+    assert run(b) is None and b.accepted == []
+    b = FakeBazaar(boards={"rastro": [ask(60, "MAL-08", 5)]}, cash=300)
+    run(b)
+    assert [a[0] for a in b.accepted] == [60]

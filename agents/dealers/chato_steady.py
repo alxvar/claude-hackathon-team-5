@@ -21,13 +21,28 @@ import abuela_bot as ab  # noqa: E402
 
 
 WARM = [  # same price logic, warm words (Chief/Lucas 10:08): greet, thank every move, a human detail; never value/cap/cash
-    "¡Hola, Chato! Buenos días. We're building our El Retiro page this morning: could you do {p} P for this one?",
-    "Gracias, Chato, that's kind of you. We're a small team counting every prima: {p} P?",
-    "Muy amable. This one would sit right next to our Ángel Caído on the Retiro page. {p} P, ¿qué te parece?",
+    "¡Hola, {name}! Buenos días. We're building our {page} page this morning: could you do {p} P for this one?",
+    "Gracias, {name}, that's kind of you. We're a small team counting every prima: {p} P?",
+    "Muy amable. This one would fill a gap on our {page} page. {p} P, ¿qué te parece?",
     "Thank you for working with us, de verdad. {p} P is what we can stretch to right now.",
-    "Ay, Chato, you drive a fair bargain. ¿{p} P y cerramos con una sonrisa?",
+    "Ay, {name}, you drive a fair bargain. ¿{p} P y cerramos con una sonrisa?",
     "We really appreciate the patience. {p} P? It would make our morning.",
 ]
+NAMES = {"chato": "Chato", "abuela": "Abuela", "pilar": "Doña Pilar"}
+PAGES = {"SAL": "Salamanca", "LAT": "La Latina", "LAV": "Lavapiés", "MAL": "Malasaña", "RET": "El Retiro",
+         "CHA": "Chamberí"}
+
+
+def words(turn, price, args):
+    return WARM[0 if turn == 0 else 1 + (turn - 1) % (len(WARM) - 1)].format(
+        p=price, name=NAMES.get(args.dealer, args.dealer.title()), page=PAGES.get(args.card[:3], args.card[:3]))
+
+
+def page_check(b, args, cards):
+    """(our hard cap, None) or (None, why not): never buy a page's last card from a dealer (its bonus scores only
+    in a team trade). Re-read before opening and before every accept or matching offer."""
+    _, hard, why = ab.check_buy(b, args.card, cards, b.me())
+    return hard, why
 
 
 def main(argv=None):
@@ -48,7 +63,11 @@ def main(argv=None):
     held = {a["ref"] for a in me["assets"] if a["kind"] == "card"}
     if args.card in held:
         sys.exit(f"already hold {args.card}")
-    cap = min(args.cap, me["cash"] - args.cash_floor)
+    cards = ab.card_index(b.catalog())
+    hard, why = page_check(b, args, cards)
+    if why:
+        sys.exit(f"refused: {why}")
+    cap = min(args.cap, me["cash"] - args.cash_floor, hard)
     if cap < args.open:
         sys.exit(f"cash {me['cash']} - floor {args.cash_floor} leaves cap {cap} < open {args.open}")
     if not args.resume and any(t["with"] == args.dealer and t["status"] == "open" for t in b.my_threads()["threads"]):
@@ -67,12 +86,12 @@ def main(argv=None):
     stuck_since, stuck_s = None, 8 * float(b.clock().get("tick_seconds") or 30)
     ab.log({"event": "open", "thread": tid, "card": args.card, "cap": cap, "open": args.open, "step": args.step})
     try:
-        _loop(b, args, tid, first, stuck, turn, ours, cap, before, stuck_since, stuck_s)
+        _loop(b, args, tid, first, stuck, turn, ours, cap, before, stuck_since, stuck_s, cards)
     finally:
         ab.watchdog_off()
 
 
-def _loop(b, args, tid, first, stuck, turn, ours, cap, before, stuck_since, stuck_s):
+def _loop(b, args, tid, first, stuck, turn, ours, cap, before, stuck_since, stuck_s, cards):
     idle, accepted = 0, False
     while True:
         ab.watchdog()
@@ -100,6 +119,11 @@ def _loop(b, args, tid, first, stuck, turn, ours, cap, before, stuck_since, stuc
         first = price if first is None else first
         ab.log({"event": "tick", "thread": tid, "his": price, "final": o.get("final"), "ours": ours})
         if price <= cap and ours is not None and (o.get("final") or price - ours <= 1):
+            _, why = page_check(b, args, cards)
+            if why:                               # another buy made this card the page's last one: teams only
+                b.close_thread(tid)
+                ab.log({"event": "walk", "thread": tid, "his": price, "ours": ours, "why": why})
+                continue
             if args.offer_only:                   # never our accept: offer his price and let him accept
                 if price == first:                # RULES: a deal at his OPENING price never counts: one notch below
                     price -= 1
@@ -107,7 +131,7 @@ def _loop(b, args, tid, first, stuck, turn, ours, cap, before, stuck_since, stuc
                     ab.log({"event": "offer_matched_waiting", "thread": tid, "price": price})
                     b.wait_tick()
                     continue
-                b.say(tid, WARM[0 if turn == 0 else 1 + (turn - 1) % (len(WARM) - 1)].format(p=price), price=price)
+                b.say(tid, words(turn, price, args), price=price)
                 turn += 1
                 ab.log({"event": "offer_his_price", "thread": tid, "price": price, "final": o.get("final")})
                 ours = price
@@ -140,7 +164,7 @@ def _loop(b, args, tid, first, stuck, turn, ours, cap, before, stuck_since, stuc
             b.wait_tick()
             continue
         stuck, stuck_since = 0, None
-        b.say(tid, WARM[0 if turn == 0 else 1 + (turn - 1) % (len(WARM) - 1)].format(p=nxt), price=nxt)
+        b.say(tid, words(turn, nxt, args), price=nxt)
         turn += 1
         ab.log({"event": "say", "thread": tid, "price": nxt})
         ours = nxt

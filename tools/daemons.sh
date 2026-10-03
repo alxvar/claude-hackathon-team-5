@@ -20,7 +20,7 @@ cmd_for() {
     radar)     echo "uv run --project $R python -u $R/tools/v10_radar.py" ;;  # read-only: buyers for asks on our v10 stall -> DM drafts to Lucas (uv: hub model)
     news)      echo "python3 -u $R/tools/news.py" ;;  # read-only: Radio Rastro -> intel/news.md, relevant items to Lucas
     bargains)  echo "python3 -u $R/tools/bargains.py" ;;  # read-only: pages Lucas when an ask is worth >= 20 to us after the fee
-    opps)      echo "env CASH_FLOOR=${CASH_FLOOR:-100} python3 -u $R/tools/opportunities.py --every 30" ;;  # posts addressed offers + alerts Dani: start after the 09:00 checks
+    opps)      echo "env CASH_FLOOR=${CASH_FLOOR:-100} python3 -u $R/tools/opportunities.py --every 30 --build ${OPPS_BUILD:-RET,CHA}" ;;  # OPPS_BUILD=RET: no CHA bids (Sunday dealer windows)  # posts addressed offers + alerts Dani: start after the 09:00 checks
     *) return 1 ;;
   esac
 }

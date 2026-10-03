@@ -472,7 +472,13 @@ def test_chato_steady_offer_only(monkeypatch, tmp_path):
             self.said, self.accepted = [], []
 
         def me(self):
-            return {"cash": 400, "assets": [], "score": {}}
+            return {"cash": 400, "assets": [], "score": {}, "affinity": {"RET": 1.6}}
+
+        def catalog(self):
+            return CATALOG
+
+        def value(self, card):
+            return {"your_value": 112.0}
 
         def my_threads(self):
             return {"threads": []}
@@ -564,7 +570,13 @@ def test_chato_steady_walks_after_8_ticks_of_wall_time_stuck(monkeypatch, tmp_pa
         closed = False
 
         def me(self):
-            return {"cash": 400, "assets": [], "score": {}}
+            return {"cash": 400, "assets": [], "score": {}, "affinity": {"SAL": 1.3}}
+
+        def catalog(self):
+            return CATALOG
+
+        def value(self, card):
+            return {"your_value": 30.0}
 
         def my_threads(self):
             return {"threads": []}
@@ -623,7 +635,9 @@ def test_chato_steady_walks_when_his_offer_expired_and_nobody_moves(monkeypatch,
     monkeypatch.setattr(ab, "CASH_FLOOR", ab.CASH_FLOOR)
     monkeypatch.setattr(ab, "watchdog", lambda *a: None)
     game = Expired()
-    game.me = lambda: {"cash": 400, "assets": [], "score": {}}
+    game.me = lambda: {"cash": 400, "assets": [], "score": {}, "affinity": {"SAL": 1.0}}
+    game.catalog = lambda: CATALOG
+    game.value = lambda card: {"your_value": 25.0}
     game.my_threads = lambda: {"threads": [{"with": "abuela", "status": "open"}]}
     game.say = lambda *a, **k: None
     monkeypatch.setattr(ab, "PacedBazaar", lambda *a, **k: game)
@@ -633,3 +647,92 @@ def test_chato_steady_walks_when_his_offer_expired_and_nobody_moves(monkeypatch,
     ev = [json.loads(x) for x in (tmp_path / "chato.jsonl").read_text().splitlines()]
     assert [e["event"] for e in ev].count("no_live_offer") == ab.NO_OFFER_TICKS and game.closed == [832]
     assert ev[-1]["event"] == "end" and "no live offer" in [e for e in ev if e["event"] == "walk"][0]["why"]
+
+
+
+CATALOG = {"sets": [{"id": st, "released": True, "cards": [
+    {"id": f"{st}-{i:02d}", "rarity": r, "book": bk} for i, r, bk in
+    ((1, "common", 10), (5, "common", 10), (6, "uncommon", 25), (8, "uncommon", 25), (9, "rare", 70), (10, "rare", 70))]}
+    for st in ("RET", "SAL", "CHA")]}
+
+
+class ChaDealer:
+    """Abuela sells CHA-09 at 76 (final). Our value of CHA-09 is 112 (one of many missing) or 218 (the page's last)."""
+
+    def __init__(self, value):
+        self.v, self.said, self.accepted, self.closed = value, [], [], []
+
+    def me(self):
+        return {"cash": 400, "assets": [], "score": {}, "affinity": {"CHA": 1.6}}
+
+    def catalog(self):
+        return CATALOG
+
+    def value(self, card):
+        return {"your_value": self.v}
+
+    def clock(self):
+        return {"tick": 1, "tick_seconds": 15}
+
+    def my_threads(self):
+        return {"threads": []}
+
+    def open_thread(self, with_, topic=None):
+        return {"id": 9}
+
+    def thread(self, tid):
+        if self.closed or self.accepted:
+            return {"id": tid, "status": "closed" if self.closed else "deal", "messages": []}
+        return {"id": tid, "status": "open", "messages": [], "standing_offers": [
+            {"id": 4, "maker": "abuela", "status": "open", "final": True, "want": {"cash": 76}}]}
+
+    def say(self, tid, text, price=None):
+        self.said.append((price, text))
+
+    def accept(self, oid):
+        self.accepted.append(oid)
+
+    def wait_tick(self):
+        return {}
+
+    def close_thread(self, tid):
+        self.closed.append(tid)
+
+
+def run_chato(monkeypatch, tmp_path, game, *extra):
+    import chato_steady as cs
+    monkeypatch.setattr(ab, "LOG", tmp_path / "c.jsonl")
+    monkeypatch.setattr(ab, "DEALER", ab.DEALER)
+    monkeypatch.setattr(ab, "CASH_FLOOR", ab.CASH_FLOOR)
+    monkeypatch.setattr(ab, "watchdog", lambda *a: None)
+    monkeypatch.setattr(ab, "should_hold_accept", lambda b, tick=None: (False, "test"))
+    monkeypatch.setattr(ab, "PacedBazaar", lambda *a, **k: game)
+    monkeypatch.setenv("BAZAAR_KEY", "test-key-not-real")
+    cs.main(["CHA-09", "--dealer", "abuela", "--cap", "77", "--open", "57", "--step", "3", "--cash-floor", "0", *extra])
+
+
+def test_chato_steady_refuses_a_page_s_last_card_from_a_dealer(monkeypatch, tmp_path):
+    # Review 13:30 (M1): with CHA-05/08 filled first, a rare can be the page's last card: +50 from a team, 0 here.
+    with pytest.raises(SystemExit, match="page bonus"):
+        run_chato(monkeypatch, tmp_path, ChaDealer(218.0))
+
+
+def test_chato_steady_walks_if_the_card_turns_last_mid_thread(monkeypatch, tmp_path):
+    game = ChaDealer(112.0)
+    real_value = game.value
+    calls = []
+
+    def value(card):                                    # a team bid filled the other missing card meanwhile
+        calls.append(card)
+        return {"your_value": 112.0 if len(calls) == 1 else 218.0}
+    game.value = value
+    run_chato(monkeypatch, tmp_path, game)
+    assert game.accepted == [] and game.closed == [9] and real_value("CHA-09")["your_value"] == 112.0
+
+
+def test_chato_steady_names_the_dealer_and_page_it_talks_to(monkeypatch, tmp_path):
+    game = ChaDealer(112.0)
+    run_chato(monkeypatch, tmp_path, game)
+    text = game.said[0][1]
+    assert "Abuela" in text and "Chamberí" in text and "Chato" not in text and "Retiro" not in text
+    assert game.accepted == [4]                          # her final 76 is inside cap 77: a normal buy

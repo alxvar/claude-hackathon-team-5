@@ -133,9 +133,12 @@ def test_a_bid_steps_up_to_its_cap_value_minus_3():
 
 
 def test_a_bid_respects_the_cash_floor():
-    g = Game(cash=230)
+    g = Game(cash=200)
     st, ev, _ = run(g, [{"card": "RET-07", "side": "buy", "price": 40, "floor": 55}], cash_floor=200)
-    assert g.posted == [] and ev[-1]["event"] == "skip" and "cash floor" in ev[-1]["why"]
+    assert g.posted == [] and ev[-1]["event"] == "skip" and "cash floor" in ev[-1]["why"]   # no room at all
+    g = Game(cash=230)                                                  # 30 of room: a 30 bid, never below the floor
+    run(g, [{"card": "RET-07", "side": "buy", "price": 40, "floor": 55}], cash_floor=200)
+    assert g.posted[0]["give"] == {"cash": 30}
 
 
 def test_a_sold_ask_is_done_and_an_expired_one_is_posted_again():
@@ -362,3 +365,34 @@ def test_a_bid_whose_card_arrived_another_way_is_cancelled_and_done():
     assert ev[-1]["event"] == "cancel_held"
     run(g, [BID], st, tick=302)
     assert len(g.posted) == 1                                  # done: never posted again
+
+
+
+# ------------------------------------------------------------------ review 13:30: cash and clamped edits
+
+def test_a_bid_cash_cannot_cover_goes_out_at_what_cash_allows_and_moves_up_when_cash_frees():
+    g = Game(cash=50)
+    st, ev, _ = run(g, [BID], cash_floor=20)                 # 50 - 20 = 30 of room for a 40 bid
+    assert g.posted[0]["give"] == {"cash": 30} and st["RET-07:buy"]["clamped"] is True
+    assert any(e["event"] == "cash_clamp" for e in ev)
+    g.cash = 200
+    st, _, _ = run(g, [BID], st, tick=300 + bk.VALUE_TICKS, cash_floor=20)
+    assert g.posted[-1]["give"] == {"cash": 40} and st["RET-07:buy"]["clamped"] is False
+
+
+def test_an_edit_the_value_cap_holds_back_lands_once_the_card_is_the_last_one():
+    # Review 13:30 (M2): the closer's price set to 72 while value - 3 is 13 must not be used up at 13.
+    g = Game(values={"CHA-05": 16.0})
+    e = {"card": "CHA-05", "side": "buy", "price": 9, "floor": 72, "page_closer": True}
+    st, _, _ = run(g, [e])
+    st, _, _ = run(g, [{**e, "price": 72}], st, tick=301)
+    assert g.posted[-1]["give"] == {"cash": 13} and st["CHA-05:buy"]["clamped"] is True
+    g.values["CHA-05"] = 122.0                                # the other missing card filled: CHA-05 is the last
+    st, _, _ = run(g, [{**e, "price": 72}], st, tick=301 + bk.VALUE_TICKS)
+    assert g.posted[-1]["give"] == {"cash": 72} and st["CHA-05:buy"]["clamped"] is False
+
+
+def test_a_file_without_an_offers_list_changes_nothing(tmp_path):
+    for text in ("{}", '{"offers": null}', '{"offer": []}'):
+        (tmp_path / "b.json").write_text(text)
+        assert bk.desired(tmp_path / "b.json") is None

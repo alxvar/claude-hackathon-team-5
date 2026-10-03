@@ -13,7 +13,10 @@ Each tick, per entry (one live offer per card and side):
 - not posted, expired or cancelled: post it (an ask whose copy left us, or a bid whose card arrived, is filled: done);
 - expiring within REFRESH_LEFT ticks: cancel and post again at the same price;
 - unfilled REPRICE_AFTER ticks at one price: cancel and post one step toward the floor (asks down, bids up);
-- its `price` edited in the file: cancel and post at the new price within a tick (clamped to the floor);
+- its `price` edited in the file: cancel and post at the new price within a tick (clamped to the floor). A bid held
+  below its file price (by the floor, value - 3 or cash) is re-checked every VALUE_TICKS and moves up once it can;
+- a bid that cash can't cover is posted at what cash allows (never dropped: a closer at any price <= value - 50 still
+  scores the capped +50), and moves up when cash frees;
 - its entry removed from the file: cancel the live offer (an unreadable or missing file changes nothing);
 - a bid whose card reached us another way (a dealer, the trader): cancel it, done (a second copy is worth 25%).
 An ask goes only to a team that collects the card's set (tools/collectors.py: teams.md "collects" or its bids /
@@ -81,7 +84,7 @@ def load(path: Path, default):
 def desired(path: Path) -> list | None:
     """The file's offers; None when it is missing or half-written (then nothing changes: never "cancel everything")."""
     d = load(path, None)
-    return (d.get("offers") or []) if isinstance(d, dict) else None
+    return d["offers"] if isinstance(d, dict) and isinstance(d.get("offers"), list) else None
 
 
 def save(path: Path, data) -> None:
@@ -260,8 +263,9 @@ class Book:
                 left = (o.get("expires_tick") or tick + LIFE_TICKS) - tick
                 if left <= REFRESH_LEFT:
                     due.append(((0, left), key, e, s, "refresh"))
-                elif int(e["price"]) != s.get("entry"):
-                    due.append(((2, -1), key, e, s, "move"))   # the Operator edited the price: now, not in 20 ticks
+                elif int(e["price"]) != s.get("entry") or (
+                        s.get("clamped") and tick - s.get("checked", tick) >= VALUE_TICKS):
+                    due.append(((2, -1), key, e, s, "move"))   # edited, or held below its file price: now
                 elif tick - s.get("since", tick) >= REPRICE_AFTER:
                     due.append(((2, 0), key, e, s, "reprice"))
                 else:
@@ -300,7 +304,7 @@ class Book:
         sell = e["side"] == "sell"
         card = e["card"]
         edited = s.get("entry") != int(e["price"])    # a new entry, or its price edited in the file: the file's price
-        price = int(e["price"]) if edited else int(s.get("price") or e["price"])
+        price = int(e["price"]) if edited or why == "move" else int(s.get("price") or e["price"])
         if sell:
             free = [a for a in copies.get(card, []) if a["id"] not in locked or a["id"] == s.get("asset")]
             free = [a for a in free if a.get("your_value") is not None]
@@ -310,7 +314,7 @@ class Book:
             asset = min(free, key=lambda a: a["your_value"])
             floor = max(int(e["floor"]), math.ceil(asset["your_value"] + self.min_gain_sell))
         else:
-            if why == "move":
+            if why == "move" or edited:
                 self.values.pop(card, None)           # an edit often follows a value jump (the page's last card)
             v = self.value(card)
             if v is None:
@@ -327,12 +331,17 @@ class Book:
         price = max(price, floor) if sell else min(price, floor)   # never past the floor, whatever the book says
         if why == "reprice" and price == old and s.get("offer"):
             return {**s, "since": tick}, False        # at the floor already: keep it, wait another round
-        if why == "move" and price == s.get("price") and s.get("offer"):
-            return {**s, "entry": int(e["price"])}, False   # the edit clamps to the live price: nothing to move
         mine_now = (s.get("price") or 0) if s.get("offer") else 0     # a replaced bid frees its cash
-        if not sell and me.get("cash", 0) - (bid_cash - mine_now) - price < self.cash_floor:
-            self.log({"event": "skip", "card": card, "side": "buy", "why": f"cash floor {self.cash_floor}"})
-            return None, False
+        room = me.get("cash", 0) - (bid_cash - mine_now) - self.cash_floor
+        if not sell and price > room:
+            if room < 1:
+                self.log({"event": "skip", "card": card, "side": "buy", "why": f"cash floor {self.cash_floor}"})
+                return None, False
+            self.log({"event": "cash_clamp", "card": card, "price": room, "wanted": price})
+            price = room                              # what cash allows; moves up when cash frees (clamped)
+        clamped = not sell and price < int(e["price"])
+        if why == "move" and price == s.get("price") and s.get("offer"):
+            return {**s, "entry": int(e["price"]), "clamped": clamped, "checked": tick}, False   # nothing to move
         venue = venue_for(e, self.venues, self.top4(tick) if (e.get("venue") or DEFAULT_VENUE) != HOUSE else set())
         give, want = ({"assets": [asset["id"]]}, {"cash": price}) if sell else ({"cash": price}, {"cards": [card]})
         ev = {"event": why, "card": card, "side": e["side"], "price": price, "was": old if price != old else None,
@@ -352,7 +361,7 @@ class Book:
         self.log({**ev, "offer": oid})
         since = s.get("since", tick) if price == s.get("price") else tick   # the reprice clock runs per price
         return {"offer": oid, "price": price, "since": since, "asset": asset["id"] if asset else None,
-                "held": len(copies.get(card, [])), "entry": int(e["price"])}, True
+                "held": len(copies.get(card, [])), "entry": int(e["price"]), "clamped": clamped, "checked": tick}, True
 
 
 def main(argv=None) -> None:

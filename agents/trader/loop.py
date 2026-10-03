@@ -84,6 +84,7 @@ class State:
         self.venues, self.top4, self.own_venues, self.scores = {}, set(), set(), {}
         self.venues_tick = self.lb_tick = None
         self.locked, self.offers_ok = set(), True        # asset ids in our open offers; did my_offers read this tick
+        self.bid_cash = 0                                # cash in our open bids (the book's CHA bids): kept above the floor
         self.board_teams, self.listed = {}, {}           # offer id -> team: board.json (fresh), feed offer.listed
         self.feed_pos, self.live_feed_tick = 0, "never"
         self.tick, self.closed = None, False
@@ -123,16 +124,17 @@ def refresh(b, st, me, tick):
 def gather(b, me_id, st):
     """Open offers we could take: addressed to us, then every open public board but our own venue's.
     Also sets st.locked (asset ids in our own open offers) and st.offers_ok (False: my_offers failed this tick)."""
-    own, found, locked = set(), [], set()
+    own, found, locked, bid_cash = set(), [], set(), 0
     try:
         for o in b.my_offers().get("offers") or []:
             if o.get("maker") == me_id:
                 own.add(o["id"])
                 if o.get("status", "open") not in TERMINAL:
                     locked |= {a["id"] for a in (o.get("give") or {}).get("assets") or [] if "id" in a}
+                    bid_cash += (o.get("give") or {}).get("cash") or 0
             elif o.get("to") == me_id:
                 found.append(o)
-        st.locked, st.offers_ok = locked, True
+        st.locked, st.offers_ok, st.bid_cash = locked, True, bid_cash
     except BazaarError as e:
         st.locked, st.offers_ok = set(), False
         log({"event": "error", "where": "my_offers", "code": e.code})
@@ -357,8 +359,8 @@ def evaluate(b, o, me, held, st, args):
     else:
         cost = wcash + fee(wcash, len(gassets) + (len(refs) if kind == "swap" else 0), bps, per_card)
         # [Uncertain] a swap's per-card fee counted on both legs
-        if me["cash"] - cost < args.cash_floor:
-            c["skip"] = f"cash floor ({me['cash']} - {cost} < {args.cash_floor})"
+        if me["cash"] - st.bid_cash - cost < args.cash_floor:
+            c["skip"] = f"cash floor ({me['cash']} - {st.bid_cash} in our bids - {cost} < {args.cash_floor})"
         if venue in st.own_venues or owner == me["id"]:
             c["skip"] = "our own venue"
         bound = value_bound(gassets, me, st)
