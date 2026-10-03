@@ -186,3 +186,26 @@ def test_the_best_ask_per_bid_and_never_an_unknown_seller():
     x = bg.arbitrage(asks, bids, makers={1: "t20", 3: "t03", 2: "t16"}, held={}, teams=ARB_TEAMS, me="t05")
     assert [a["ask"]["offer"] for a in x] == [3]
     assert bg.arbitrage(asks, bids, makers={2: "t16"}, held={}, teams=ARB_TEAMS, me="t05") == []
+
+
+# ------------------------------------------------------------------ underpriced asks (Chief 18:10)
+
+def test_underpriced_asks_ranked_rival_venues_out_and_strong_ones_acted(tmp_path, monkeypatch):
+    import alerts
+    acts = []
+    monkeypatch.setattr(alerts, "act", lambda *a, **k: acts.append((a, k)) or True)
+    venues = [{"venue": "v15", "owner": "t16", "status": "open", "fee_bps": 0, "fee_per_card": 0},
+              {"venue": "v12", "owner": "t12", "status": "open", "fee_bps": 0, "fee_per_card": 0}]   # t12: a rival
+    api = Api({"v15": [ask(1, "SAL-09", 30, "rare"), ask(2, "LAT-02", 1, "common")],
+               "v12": [ask(3, "RET-11", 60, "epic")]}, venues=venues, cash=200)
+    api.leaderboard = lambda: {"teams": ARB_TEAMS}
+    w, sent = watcher(tmp_path, api, min_gain=99)
+    w.underpriced_path, w.feed_path = tmp_path / "u.md", tmp_path / "feed.jsonl"
+    w.feed_path.write_text('{"type": "offer.listed", "payload": {"offer": {"id": 1, "maker": "t20"}}}\n'
+                           '{"type": "offer.listed", "payload": {"offer": {"id": 2, "maker": "t20"}}}\n')
+    w.scan()
+    md = (tmp_path / "u.md").read_text()
+    assert "SAL-09" in md and "LAT-02" in md and "RET-11" not in md       # v12 is a rival's venue
+    assert md.index("SAL-09") < md.index("LAT-02")                        # ranked by gain (+33 before +0)
+    assert [a[1] for a, k in acts] == [1]                                 # SAL-09: +33 >= 15, 30 <= 200 - 100
+    assert acts[0][0][0].startswith("BUY SAL-09 at 30 P on v15") and acts[0][1]["source"] == "underpriced"
