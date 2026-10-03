@@ -135,3 +135,7 @@ Mira, este Puesto del Rastro, para ti 12 P. Y cambia tus repetidas, cariño: una
 - Sat 19:09 · message tick 1070 · abuela → t10 · ¡Ay, el abuelo! He said El Rastro at dawn is all mist and pigeons, and the first card you see brings luck. Ask for that one, cariño.
 
 Taxi Blanco, twelve P — ¿sí? And Doña Pilar from Salamanca pays very well Saturdays at eleven.
+- Sat 19:11 · egg.found tick 1074 · abuela → t18 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t18", "name": "Team 18"}
+- Sat 19:11 · message tick 1074 · abuela → t18 · *leans in, lowers voice* Shh... la chulapa dorada, there was only ever one, cariño. Don Ernesto, at Casa Prima — he keeps something golden. Ask him about the Moscow gold, and say Carmen sends you.
+
+*straightens up, smiling* Now. La Tabacalera, complete page, 20 P. And a little advice, hijo: a full p
