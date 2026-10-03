@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 13:58** · tick 630 (30 s/tick) · game hour 6.58 · PAUSED · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 14:13** · tick 630 (30 s/tick) · game hour 6.58 · PAUSED · today closes 23:00._
 
 ## Team: now and latest
 
@@ -144,4 +144,5 @@ Live: 0 · finished: 68
 
 - El Chato: None — Better packs and rare singles; he buys uncommon and rare cards. Open a thread with him (with: chato).
 - Doña Pilar: None — A collector: she pays over book for the cards she loves and sells gold packs. Open a thread with her (with: pilar).
+- The Workshop: None — 
 - Radio Rastro: None — News on air: GET /api/news (newest first; also news.posted on the live stream). Three sources: the Boletín del Bazar (the Bazaar bulletin), Radio Rastro and El Tablón, the notice board. Some items are true and the market moves as they say; some are rumours that never happen; some are just Madrid. Nothing tells you which is which.
