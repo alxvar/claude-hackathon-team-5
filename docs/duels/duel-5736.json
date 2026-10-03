@@ -1956,5 +1956,91 @@
     "settles_at_tick": 1269
    }
   }
- ]
+ ],
+ "last_seen_tick": 1269,
+ "done": {
+  "duel": 5736,
+  "session": 3,
+  "status": "deal",
+  "role": "seller",
+  "item": "La Dama de Serrano",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 0.79,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 111,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Sol",
+  "deadline_tick": 1271,
+  "decay_per_round": 0.08,
+  "rounds": 3,
+  "your_offer": {
+   "id": 7328,
+   "price": 157,
+   "tick": 1267,
+   "days": 9
+  },
+  "rival_offer": {
+   "id": 7376,
+   "price": 165,
+   "tick": 1268,
+   "days": 2
+  },
+  "messages": [
+   {
+    "tick": 1256,
+    "from": "Rival Sol",
+    "text": "Rápido y justo: 128 P, día 3. ¿Qué día de entrega te va mejor? / Quick and fair: 128 P, day 3. Which delivery day suits you best?",
+    "price": 128,
+    "days": 3
+   },
+   {
+    "tick": 1256,
+    "from": "you",
+    "text": "Thanks for the quick opening. I can do 160 P with delivery on day 10; I'd like to see you move up on price.",
+    "price": 160,
+    "days": 10
+   },
+   {
+    "tick": 1257,
+    "from": "Rival Sol",
+    "text": "Parece que el día te importa: 138 P con día 7. / It seems the day matters to you: 138 P, day 7.",
+    "price": 138,
+    "days": 7
+   },
+   {
+    "tick": 1257,
+    "from": "you",
+    "text": "Thanks for moving on both price and day. I can come down to 156 P with delivery on day 10; I'd need to see you move up on price again to keep progressing.",
+    "price": 156,
+    "days": 10
+   },
+   {
+    "tick": 1258,
+    "from": "Rival Sol",
+    "text": "Parece que el día te importa: 143 P con día 9. / It seems the day matters to you: 143 P, day 9.",
+    "price": 143,
+    "days": 9
+   },
+   {
+    "tick": 1267,
+    "from": "you",
+    "text": "I can do 157 P, delivery on day 9.",
+    "price": 157,
+    "days": 9
+   },
+   {
+    "tick": 1268,
+    "from": "Rival Sol",
+    "text": "Mi mejor oferta: 165 P, día 2. / My best offer: 165 P, day 2.",
+    "price": 165,
+    "days": 2
+   }
+  ],
+  "result": 43.3,
+  "price": 165,
+  "days": 2
+ }
 }
