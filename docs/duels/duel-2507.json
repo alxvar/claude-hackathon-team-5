@@ -787,6 +787,651 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 586,
+   "raw": {
+    "duel": 2507,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 100,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 589,
+    "decay_per_round": 0.06,
+    "rounds": 5,
+    "your_offer": {
+     "id": 5222,
+     "price": 128,
+     "tick": 584,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 5235,
+     "price": 99,
+     "tick": 586,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 573,
+      "from": "you",
+      "text": "Palacio de Cristal is a one-of-a-kind landmark: a iconic glass-and-iron pavilion with enduring appeal and a prime setting. I'm offering it at 160 P, which reflects that rarity. I'd be glad to hear your counteroffer.",
+      "price": 160,
+      "days": null
+     },
+     {
+      "tick": 574,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 49,
+      "days": null
+     },
+     {
+      "tick": 574,
+      "from": "you",
+      "text": "Thanks for the reply, but your offer is far from what a landmark like this is worth. As a gesture of good faith I'll move to 152 P, given the rarity of an iron-and-glass pavilion in such a prime setting. I'd ask you to come back with a serious figure that reflects its real value.",
+      "price": 152,
+      "days": null
+     },
+     {
+      "tick": 577,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 60,
+      "days": null
+     },
+     {
+      "tick": 578,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 64,
+      "days": null
+     },
+     {
+      "tick": 578,
+      "from": "you",
+      "text": "I appreciate that you are moving, but the steps so far are small next to the distance still between us. I'll come down to 145 P, a real step on my side. To get anywhere near a realistic range for a landmark like this, I'd need to see much bigger moves from you.",
+      "price": 145,
+      "days": null
+     },
+     {
+      "tick": 581,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 76,
+      "days": null
+     },
+     {
+      "tick": 581,
+      "from": "you",
+      "text": "Thank you for the bigger step; I'm answering it with another move of my own, to 138 P. That is a meaningful reduction for a one-of-a-kind glass-and-iron landmark. I'd like to see another substantial move from you toward a realistic range.",
+      "price": 138,
+      "days": null
+     },
+     {
+      "tick": 584,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 87,
+      "days": null
+     },
+     {
+      "tick": 584,
+      "from": "you",
+      "text": "With the clock running down, I'm making another clear move to 128 P to show I want to get this done. For a unique glass-and-iron landmark, that is a fair place to land. I'd ask you now for a substantial step toward it so we can close before time runs out.",
+      "price": 128,
+      "days": null
+     },
+     {
+      "tick": 586,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 99,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 586,
+   "raw": {
+    "duel": 2507,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 100,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 589,
+    "decay_per_round": 0.06,
+    "rounds": 6,
+    "your_offer": {
+     "id": 5240,
+     "price": 114,
+     "tick": 586,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 5235,
+     "price": 99,
+     "tick": 586,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 573,
+      "from": "you",
+      "text": "Palacio de Cristal is a one-of-a-kind landmark: a iconic glass-and-iron pavilion with enduring appeal and a prime setting. I'm offering it at 160 P, which reflects that rarity. I'd be glad to hear your counteroffer.",
+      "price": 160,
+      "days": null
+     },
+     {
+      "tick": 574,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 49,
+      "days": null
+     },
+     {
+      "tick": 574,
+      "from": "you",
+      "text": "Thanks for the reply, but your offer is far from what a landmark like this is worth. As a gesture of good faith I'll move to 152 P, given the rarity of an iron-and-glass pavilion in such a prime setting. I'd ask you to come back with a serious figure that reflects its real value.",
+      "price": 152,
+      "days": null
+     },
+     {
+      "tick": 577,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 60,
+      "days": null
+     },
+     {
+      "tick": 578,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 64,
+      "days": null
+     },
+     {
+      "tick": 578,
+      "from": "you",
+      "text": "I appreciate that you are moving, but the steps so far are small next to the distance still between us. I'll come down to 145 P, a real step on my side. To get anywhere near a realistic range for a landmark like this, I'd need to see much bigger moves from you.",
+      "price": 145,
+      "days": null
+     },
+     {
+      "tick": 581,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 76,
+      "days": null
+     },
+     {
+      "tick": 581,
+      "from": "you",
+      "text": "Thank you for the bigger step; I'm answering it with another move of my own, to 138 P. That is a meaningful reduction for a one-of-a-kind glass-and-iron landmark. I'd like to see another substantial move from you toward a realistic range.",
+      "price": 138,
+      "days": null
+     },
+     {
+      "tick": 584,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 87,
+      "days": null
+     },
+     {
+      "tick": 584,
+      "from": "you",
+      "text": "With the clock running down, I'm making another clear move to 128 P to show I want to get this done. For a unique glass-and-iron landmark, that is a fair place to land. I'd ask you now for a substantial step toward it so we can close before time runs out.",
+      "price": 128,
+      "days": null
+     },
+     {
+      "tick": 586,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 99,
+      "days": null
+     },
+     {
+      "tick": 586,
+      "from": "you",
+      "text": "To close this out before time runs short, I'm making a decisive move to 114 P, a big step from where I started. For a unique glass-and-iron landmark that is a fair landing point. I'd ask you to meet it promptly with a figure close to it so we can finish.",
+      "price": 114,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 587,
+   "raw": {
+    "duel": 2507,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 100,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 589,
+    "decay_per_round": 0.06,
+    "rounds": 6,
+    "your_offer": {
+     "id": 5240,
+     "price": 114,
+     "tick": 586,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 5245,
+     "price": 99,
+     "tick": 587,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 573,
+      "from": "you",
+      "text": "Palacio de Cristal is a one-of-a-kind landmark: a iconic glass-and-iron pavilion with enduring appeal and a prime setting. I'm offering it at 160 P, which reflects that rarity. I'd be glad to hear your counteroffer.",
+      "price": 160,
+      "days": null
+     },
+     {
+      "tick": 574,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 49,
+      "days": null
+     },
+     {
+      "tick": 574,
+      "from": "you",
+      "text": "Thanks for the reply, but your offer is far from what a landmark like this is worth. As a gesture of good faith I'll move to 152 P, given the rarity of an iron-and-glass pavilion in such a prime setting. I'd ask you to come back with a serious figure that reflects its real value.",
+      "price": 152,
+      "days": null
+     },
+     {
+      "tick": 577,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 60,
+      "days": null
+     },
+     {
+      "tick": 578,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 64,
+      "days": null
+     },
+     {
+      "tick": 578,
+      "from": "you",
+      "text": "I appreciate that you are moving, but the steps so far are small next to the distance still between us. I'll come down to 145 P, a real step on my side. To get anywhere near a realistic range for a landmark like this, I'd need to see much bigger moves from you.",
+      "price": 145,
+      "days": null
+     },
+     {
+      "tick": 581,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 76,
+      "days": null
+     },
+     {
+      "tick": 581,
+      "from": "you",
+      "text": "Thank you for the bigger step; I'm answering it with another move of my own, to 138 P. That is a meaningful reduction for a one-of-a-kind glass-and-iron landmark. I'd like to see another substantial move from you toward a realistic range.",
+      "price": 138,
+      "days": null
+     },
+     {
+      "tick": 584,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 87,
+      "days": null
+     },
+     {
+      "tick": 584,
+      "from": "you",
+      "text": "With the clock running down, I'm making another clear move to 128 P to show I want to get this done. For a unique glass-and-iron landmark, that is a fair place to land. I'd ask you now for a substantial step toward it so we can close before time runs out.",
+      "price": 128,
+      "days": null
+     },
+     {
+      "tick": 586,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 99,
+      "days": null
+     },
+     {
+      "tick": 586,
+      "from": "you",
+      "text": "To close this out before time runs short, I'm making a decisive move to 114 P, a big step from where I started. For a unique glass-and-iron landmark that is a fair landing point. I'd ask you to meet it promptly with a figure close to it so we can finish.",
+      "price": 114,
+      "days": null
+     },
+     {
+      "tick": 587,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 99,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 587,
+   "raw": {
+    "duel": 2507,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 100,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 589,
+    "decay_per_round": 0.06,
+    "rounds": 7,
+    "your_offer": {
+     "id": 5251,
+     "price": 106,
+     "tick": 587,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 5245,
+     "price": 99,
+     "tick": 587,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 573,
+      "from": "you",
+      "text": "Palacio de Cristal is a one-of-a-kind landmark: a iconic glass-and-iron pavilion with enduring appeal and a prime setting. I'm offering it at 160 P, which reflects that rarity. I'd be glad to hear your counteroffer.",
+      "price": 160,
+      "days": null
+     },
+     {
+      "tick": 574,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 49,
+      "days": null
+     },
+     {
+      "tick": 574,
+      "from": "you",
+      "text": "Thanks for the reply, but your offer is far from what a landmark like this is worth. As a gesture of good faith I'll move to 152 P, given the rarity of an iron-and-glass pavilion in such a prime setting. I'd ask you to come back with a serious figure that reflects its real value.",
+      "price": 152,
+      "days": null
+     },
+     {
+      "tick": 577,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 60,
+      "days": null
+     },
+     {
+      "tick": 578,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 64,
+      "days": null
+     },
+     {
+      "tick": 578,
+      "from": "you",
+      "text": "I appreciate that you are moving, but the steps so far are small next to the distance still between us. I'll come down to 145 P, a real step on my side. To get anywhere near a realistic range for a landmark like this, I'd need to see much bigger moves from you.",
+      "price": 145,
+      "days": null
+     },
+     {
+      "tick": 581,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 76,
+      "days": null
+     },
+     {
+      "tick": 581,
+      "from": "you",
+      "text": "Thank you for the bigger step; I'm answering it with another move of my own, to 138 P. That is a meaningful reduction for a one-of-a-kind glass-and-iron landmark. I'd like to see another substantial move from you toward a realistic range.",
+      "price": 138,
+      "days": null
+     },
+     {
+      "tick": 584,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 87,
+      "days": null
+     },
+     {
+      "tick": 584,
+      "from": "you",
+      "text": "With the clock running down, I'm making another clear move to 128 P to show I want to get this done. For a unique glass-and-iron landmark, that is a fair place to land. I'd ask you now for a substantial step toward it so we can close before time runs out.",
+      "price": 128,
+      "days": null
+     },
+     {
+      "tick": 586,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 99,
+      "days": null
+     },
+     {
+      "tick": 586,
+      "from": "you",
+      "text": "To close this out before time runs short, I'm making a decisive move to 114 P, a big step from where I started. For a unique glass-and-iron landmark that is a fair landing point. I'd ask you to meet it promptly with a figure close to it so we can finish.",
+      "price": 114,
+      "days": null
+     },
+     {
+      "tick": 587,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 99,
+      "days": null
+     },
+     {
+      "tick": 587,
+      "from": "you",
+      "text": "Time is nearly out, so I'm putting forward 106 P as my closing figure, roughly the midpoint between us. If we don't settle now, both of us walk away with nothing. Please take it so we can finish.",
+      "price": 106,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 588,
+   "raw": {
+    "duel": 2507,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 100,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 589,
+    "decay_per_round": 0.06,
+    "rounds": 7,
+    "your_offer": {
+     "id": 5262,
+     "price": 101,
+     "tick": 588,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 5245,
+     "price": 99,
+     "tick": 587,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 573,
+      "from": "you",
+      "text": "Palacio de Cristal is a one-of-a-kind landmark: a iconic glass-and-iron pavilion with enduring appeal and a prime setting. I'm offering it at 160 P, which reflects that rarity. I'd be glad to hear your counteroffer.",
+      "price": 160,
+      "days": null
+     },
+     {
+      "tick": 574,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 49,
+      "days": null
+     },
+     {
+      "tick": 574,
+      "from": "you",
+      "text": "Thanks for the reply, but your offer is far from what a landmark like this is worth. As a gesture of good faith I'll move to 152 P, given the rarity of an iron-and-glass pavilion in such a prime setting. I'd ask you to come back with a serious figure that reflects its real value.",
+      "price": 152,
+      "days": null
+     },
+     {
+      "tick": 577,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 60,
+      "days": null
+     },
+     {
+      "tick": 578,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 64,
+      "days": null
+     },
+     {
+      "tick": 578,
+      "from": "you",
+      "text": "I appreciate that you are moving, but the steps so far are small next to the distance still between us. I'll come down to 145 P, a real step on my side. To get anywhere near a realistic range for a landmark like this, I'd need to see much bigger moves from you.",
+      "price": 145,
+      "days": null
+     },
+     {
+      "tick": 581,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 76,
+      "days": null
+     },
+     {
+      "tick": 581,
+      "from": "you",
+      "text": "Thank you for the bigger step; I'm answering it with another move of my own, to 138 P. That is a meaningful reduction for a one-of-a-kind glass-and-iron landmark. I'd like to see another substantial move from you toward a realistic range.",
+      "price": 138,
+      "days": null
+     },
+     {
+      "tick": 584,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 87,
+      "days": null
+     },
+     {
+      "tick": 584,
+      "from": "you",
+      "text": "With the clock running down, I'm making another clear move to 128 P to show I want to get this done. For a unique glass-and-iron landmark, that is a fair place to land. I'd ask you now for a substantial step toward it so we can close before time runs out.",
+      "price": 128,
+      "days": null
+     },
+     {
+      "tick": 586,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 99,
+      "days": null
+     },
+     {
+      "tick": 586,
+      "from": "you",
+      "text": "To close this out before time runs short, I'm making a decisive move to 114 P, a big step from where I started. For a unique glass-and-iron landmark that is a fair landing point. I'd ask you to meet it promptly with a figure close to it so we can finish.",
+      "price": 114,
+      "days": null
+     },
+     {
+      "tick": 587,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 99,
+      "days": null
+     },
+     {
+      "tick": 587,
+      "from": "you",
+      "text": "Time is nearly out, so I'm putting forward 106 P as my closing figure, roughly the midpoint between us. If we don't settle now, both of us walk away with nothing. Please take it so we can finish.",
+      "price": 106,
+      "days": null
+     },
+     {
+      "tick": 588,
+      "from": "you",
+      "text": "This is my last move: I'm coming down to 101 P, practically meeting your figure. It is a small gap to close, and if we settle now we both avoid walking away with nothing. Please take it so we can finish.",
+      "price": 101,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1615,6 +2260,931 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 585,
+   "took_s": 5.59,
+   "cost_usd": 0.00892,
+   "obs": {
+    "view": {
+     "duel_id": 2507,
+     "role": "seller",
+     "limit": 100,
+     "currency": "P",
+     "item": "Palacio de Cristal",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "Palacio de Cristal is a one-of-a-kind landmark: a iconic glass-and-iron pavilion with enduring appeal and a prime setting. I'm offering it at 160 P, which reflects that rarity. I'd be glad to hear your counteroffer.",
+      "offer": {
+       "price": 160,
+       "days": null
+      },
+      "accept": false,
+      "tick": 573,
+      "decision": {
+       "action": "offer",
+       "price": 160,
+       "message": "Palacio de Cristal is a one-of-a-kind landmark: a iconic glass-and-iron pavilion with enduring appeal and a prime setting. I'm offering it at 160 P, which reflects that rarity. I'd be glad to hear your counteroffer."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 49,
+       "days": null
+      },
+      "accept": false,
+      "tick": 574,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the reply, but your offer is far from what a landmark like this is worth. As a gesture of good faith I'll move to 152 P, given the rarity of an iron-and-glass pavilion in such a prime setting. I'd ask you to come back with a serious figure that reflects its real value.",
+      "offer": {
+       "price": 152,
+       "days": null
+      },
+      "accept": false,
+      "tick": 574,
+      "decision": {
+       "action": "offer",
+       "price": 152,
+       "message": "Thanks for the reply, but your offer is far from what a landmark like this is worth. As a gesture of good faith I'll move to 152 P, given the rarity of an iron-and-glass pavilion in such a prime setting. I'd ask you to come back with a serious figure that reflects its real value."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 60,
+       "days": null
+      },
+      "accept": false,
+      "tick": 577,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 64,
+       "days": null
+      },
+      "accept": false,
+      "tick": 578,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate that you are moving, but the steps so far are small next to the distance still between us. I'll come down to 145 P, a real step on my side. To get anywhere near a realistic range for a landmark like this, I'd need to see much bigger moves from you.",
+      "offer": {
+       "price": 145,
+       "days": null
+      },
+      "accept": false,
+      "tick": 578,
+      "decision": {
+       "action": "offer",
+       "price": 145,
+       "message": "I appreciate that you are moving, but the steps so far are small next to the distance still between us. I'll come down to 145 P, a real step on my side. To get anywhere near a realistic range for a landmark like this, I'd need to see much bigger moves from you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 76,
+       "days": null
+      },
+      "accept": false,
+      "tick": 581,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the bigger step; I'm answering it with another move of my own, to 138 P. That is a meaningful reduction for a one-of-a-kind glass-and-iron landmark. I'd like to see another substantial move from you toward a realistic range.",
+      "offer": {
+       "price": 138,
+       "days": null
+      },
+      "accept": false,
+      "tick": 581,
+      "decision": {
+       "action": "offer",
+       "price": 138,
+       "message": "Thank you for the bigger step; I'm answering it with another move of my own, to 138 P. That is a meaningful reduction for a one-of-a-kind glass-and-iron landmark. I'd like to see another substantial move from you toward a realistic range."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 87,
+       "days": null
+      },
+      "accept": false,
+      "tick": 584,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "With the clock running down, I'm making another clear move to 128 P to show I want to get this done. For a unique glass-and-iron landmark, that is a fair place to land. I'd ask you now for a substantial step toward it so we can close before time runs out.",
+      "offer": {
+       "price": 128,
+       "days": null
+      },
+      "accept": false,
+      "tick": 584,
+      "decision": {
+       "action": "offer",
+       "price": 128,
+       "message": "With the clock running down, I'm making another clear move to 128 P to show I want to get this done. For a unique glass-and-iron landmark, that is a fair place to land. I'd ask you now for a substantial step toward it so we can close before time runs out."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 87,
+     "days": null
+    },
+    "tick": 585,
+    "ticks_left": 4,
+    "rounds": 5
+   },
+   "move": {
+    "action": "message",
+    "text": "Holding my position for now.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "Holding my position for now."
+     },
+     "band": {
+      "worst": 128,
+      "target": 128,
+      "best": 128
+     },
+     "plan": {
+      "read": "Their 87 P (up from 76) is still below what we can accept, though they keep stepping up about 11 P per round and seem formulaic and steady; their generic message carries no information beyond the offer.",
+      "target": 128,
+      "best": 128,
+      "worst": 128,
+      "days": null,
+      "angle": "Hold at 128 and send nothing this tick; we already answered their last move, so wait for them to step up again."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.09,
+       "in": 1076,
+       "out": 130,
+       "cost_usd": 0.0069,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.5,
+       "in": 875,
+       "out": 27,
+       "cost_usd": 0.00202,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 586,
+   "took_s": 6.92,
+   "cost_usd": 0.01005,
+   "obs": {
+    "view": {
+     "duel_id": 2507,
+     "role": "seller",
+     "limit": 100,
+     "currency": "P",
+     "item": "Palacio de Cristal",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "Palacio de Cristal is a one-of-a-kind landmark: a iconic glass-and-iron pavilion with enduring appeal and a prime setting. I'm offering it at 160 P, which reflects that rarity. I'd be glad to hear your counteroffer.",
+      "offer": {
+       "price": 160,
+       "days": null
+      },
+      "accept": false,
+      "tick": 573,
+      "decision": {
+       "action": "offer",
+       "price": 160,
+       "message": "Palacio de Cristal is a one-of-a-kind landmark: a iconic glass-and-iron pavilion with enduring appeal and a prime setting. I'm offering it at 160 P, which reflects that rarity. I'd be glad to hear your counteroffer."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 49,
+       "days": null
+      },
+      "accept": false,
+      "tick": 574,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the reply, but your offer is far from what a landmark like this is worth. As a gesture of good faith I'll move to 152 P, given the rarity of an iron-and-glass pavilion in such a prime setting. I'd ask you to come back with a serious figure that reflects its real value.",
+      "offer": {
+       "price": 152,
+       "days": null
+      },
+      "accept": false,
+      "tick": 574,
+      "decision": {
+       "action": "offer",
+       "price": 152,
+       "message": "Thanks for the reply, but your offer is far from what a landmark like this is worth. As a gesture of good faith I'll move to 152 P, given the rarity of an iron-and-glass pavilion in such a prime setting. I'd ask you to come back with a serious figure that reflects its real value."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 60,
+       "days": null
+      },
+      "accept": false,
+      "tick": 577,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 64,
+       "days": null
+      },
+      "accept": false,
+      "tick": 578,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate that you are moving, but the steps so far are small next to the distance still between us. I'll come down to 145 P, a real step on my side. To get anywhere near a realistic range for a landmark like this, I'd need to see much bigger moves from you.",
+      "offer": {
+       "price": 145,
+       "days": null
+      },
+      "accept": false,
+      "tick": 578,
+      "decision": {
+       "action": "offer",
+       "price": 145,
+       "message": "I appreciate that you are moving, but the steps so far are small next to the distance still between us. I'll come down to 145 P, a real step on my side. To get anywhere near a realistic range for a landmark like this, I'd need to see much bigger moves from you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 76,
+       "days": null
+      },
+      "accept": false,
+      "tick": 581,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the bigger step; I'm answering it with another move of my own, to 138 P. That is a meaningful reduction for a one-of-a-kind glass-and-iron landmark. I'd like to see another substantial move from you toward a realistic range.",
+      "offer": {
+       "price": 138,
+       "days": null
+      },
+      "accept": false,
+      "tick": 581,
+      "decision": {
+       "action": "offer",
+       "price": 138,
+       "message": "Thank you for the bigger step; I'm answering it with another move of my own, to 138 P. That is a meaningful reduction for a one-of-a-kind glass-and-iron landmark. I'd like to see another substantial move from you toward a realistic range."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 87,
+       "days": null
+      },
+      "accept": false,
+      "tick": 584,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "With the clock running down, I'm making another clear move to 128 P to show I want to get this done. For a unique glass-and-iron landmark, that is a fair place to land. I'd ask you now for a substantial step toward it so we can close before time runs out.",
+      "offer": {
+       "price": 128,
+       "days": null
+      },
+      "accept": false,
+      "tick": 584,
+      "decision": {
+       "action": "offer",
+       "price": 128,
+       "message": "With the clock running down, I'm making another clear move to 128 P to show I want to get this done. For a unique glass-and-iron landmark, that is a fair place to land. I'd ask you now for a substantial step toward it so we can close before time runs out."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 87,
+     "days": null
+    },
+    "tick": 586,
+    "ticks_left": 3,
+    "rounds": 5
+   },
+   "move": {
+    "action": "offer",
+    "text": "To close this out before time runs short, I'm making a decisive move to 114 P, a big step from where I started. For a unique glass-and-iron landmark that is a fair landing point. I'd ask you to meet it promptly with a figure close to it so we can finish.",
+    "price": 114,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 114,
+      "message": "To close this out before time runs short, I'm making a decisive move to 114 P, a big step from where I started. For a unique glass-and-iron landmark that is a fair landing point. I'd ask you to meet it promptly with a figure close to it so we can finish."
+     },
+     "band": {
+      "worst": 110,
+      "target": 114,
+      "best": 118
+     },
+     "plan": {
+      "read": "They have climbed steadily (49→87) in larger steps than ours, but 87 is still below what we can accept, and with 3 ticks left time is short; their pattern suggests they move after each of our offers.",
+      "target": 114,
+      "best": 118,
+      "worst": 110,
+      "days": null,
+      "angle": "Make one clear, decisive move to signal we want to close now, and ask them to meet it promptly since only a couple of ticks remain."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.7,
+       "in": 1112,
+       "out": 140,
+       "cost_usd": 0.00725,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.22,
+       "in": 897,
+       "out": 101,
+       "cost_usd": 0.0028,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 587,
+   "took_s": 5.86,
+   "cost_usd": 0.01116,
+   "obs": {
+    "view": {
+     "duel_id": 2507,
+     "role": "seller",
+     "limit": 100,
+     "currency": "P",
+     "item": "Palacio de Cristal",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "Palacio de Cristal is a one-of-a-kind landmark: a iconic glass-and-iron pavilion with enduring appeal and a prime setting. I'm offering it at 160 P, which reflects that rarity. I'd be glad to hear your counteroffer.",
+      "offer": {
+       "price": 160,
+       "days": null
+      },
+      "accept": false,
+      "tick": 573,
+      "decision": {
+       "action": "offer",
+       "price": 160,
+       "message": "Palacio de Cristal is a one-of-a-kind landmark: a iconic glass-and-iron pavilion with enduring appeal and a prime setting. I'm offering it at 160 P, which reflects that rarity. I'd be glad to hear your counteroffer."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 49,
+       "days": null
+      },
+      "accept": false,
+      "tick": 574,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the reply, but your offer is far from what a landmark like this is worth. As a gesture of good faith I'll move to 152 P, given the rarity of an iron-and-glass pavilion in such a prime setting. I'd ask you to come back with a serious figure that reflects its real value.",
+      "offer": {
+       "price": 152,
+       "days": null
+      },
+      "accept": false,
+      "tick": 574,
+      "decision": {
+       "action": "offer",
+       "price": 152,
+       "message": "Thanks for the reply, but your offer is far from what a landmark like this is worth. As a gesture of good faith I'll move to 152 P, given the rarity of an iron-and-glass pavilion in such a prime setting. I'd ask you to come back with a serious figure that reflects its real value."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 60,
+       "days": null
+      },
+      "accept": false,
+      "tick": 577,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 64,
+       "days": null
+      },
+      "accept": false,
+      "tick": 578,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate that you are moving, but the steps so far are small next to the distance still between us. I'll come down to 145 P, a real step on my side. To get anywhere near a realistic range for a landmark like this, I'd need to see much bigger moves from you.",
+      "offer": {
+       "price": 145,
+       "days": null
+      },
+      "accept": false,
+      "tick": 578,
+      "decision": {
+       "action": "offer",
+       "price": 145,
+       "message": "I appreciate that you are moving, but the steps so far are small next to the distance still between us. I'll come down to 145 P, a real step on my side. To get anywhere near a realistic range for a landmark like this, I'd need to see much bigger moves from you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 76,
+       "days": null
+      },
+      "accept": false,
+      "tick": 581,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the bigger step; I'm answering it with another move of my own, to 138 P. That is a meaningful reduction for a one-of-a-kind glass-and-iron landmark. I'd like to see another substantial move from you toward a realistic range.",
+      "offer": {
+       "price": 138,
+       "days": null
+      },
+      "accept": false,
+      "tick": 581,
+      "decision": {
+       "action": "offer",
+       "price": 138,
+       "message": "Thank you for the bigger step; I'm answering it with another move of my own, to 138 P. That is a meaningful reduction for a one-of-a-kind glass-and-iron landmark. I'd like to see another substantial move from you toward a realistic range."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 87,
+       "days": null
+      },
+      "accept": false,
+      "tick": 584,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "With the clock running down, I'm making another clear move to 128 P to show I want to get this done. For a unique glass-and-iron landmark, that is a fair place to land. I'd ask you now for a substantial step toward it so we can close before time runs out.",
+      "offer": {
+       "price": 128,
+       "days": null
+      },
+      "accept": false,
+      "tick": 584,
+      "decision": {
+       "action": "offer",
+       "price": 128,
+       "message": "With the clock running down, I'm making another clear move to 128 P to show I want to get this done. For a unique glass-and-iron landmark, that is a fair place to land. I'd ask you now for a substantial step toward it so we can close before time runs out."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 99,
+       "days": null
+      },
+      "accept": false,
+      "tick": 586,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "To close this out before time runs short, I'm making a decisive move to 114 P, a big step from where I started. For a unique glass-and-iron landmark that is a fair landing point. I'd ask you to meet it promptly with a figure close to it so we can finish.",
+      "offer": {
+       "price": 114,
+       "days": null
+      },
+      "accept": false,
+      "tick": 586,
+      "decision": {
+       "action": "offer",
+       "price": 114,
+       "message": "To close this out before time runs short, I'm making a decisive move to 114 P, a big step from where I started. For a unique glass-and-iron landmark that is a fair landing point. I'd ask you to meet it promptly with a figure close to it so we can finish."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 99,
+       "days": null
+      },
+      "accept": false,
+      "tick": 587,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 99,
+     "days": null
+    },
+    "tick": 587,
+    "ticks_left": 2,
+    "rounds": 6
+   },
+   "move": {
+    "action": "offer",
+    "text": "Time is nearly out, so I'm putting forward 106 P as my closing figure, roughly the midpoint between us. If we don't settle now, both of us walk away with nothing. Please take it so we can finish.",
+    "price": 106,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 106,
+      "message": "Time is nearly out, so I'm putting forward 106 P as my closing figure, roughly the midpoint between us. If we don't settle now, both of us walk away with nothing. Please take it so we can finish."
+     },
+     "band": {
+      "worst": 104,
+      "target": 106,
+      "best": 108
+     },
+     "plan": {
+      "read": "They repeated 99 after we moved to 114, so they have not answered our last step. Their 99 is below what we can accept, and with 2 ticks left we need a price they can close at right now.",
+      "target": 106,
+      "best": 108,
+      "worst": 104,
+      "days": null,
+      "angle": "Last chance before time runs out: offer roughly the midpoint, around 106, as a final figure they can accept immediately, and stress that both sides walk away with nothing if we don't close now."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.09,
+       "in": 1284,
+       "out": 151,
+       "cost_usd": 0.00816,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.78,
+       "in": 1070,
+       "out": 86,
+       "cost_usd": 0.003,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 588,
+   "took_s": 7.08,
+   "cost_usd": 0.011869999999999999,
+   "obs": {
+    "view": {
+     "duel_id": 2507,
+     "role": "seller",
+     "limit": 100,
+     "currency": "P",
+     "item": "Palacio de Cristal",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "Palacio de Cristal is a one-of-a-kind landmark: a iconic glass-and-iron pavilion with enduring appeal and a prime setting. I'm offering it at 160 P, which reflects that rarity. I'd be glad to hear your counteroffer.",
+      "offer": {
+       "price": 160,
+       "days": null
+      },
+      "accept": false,
+      "tick": 573,
+      "decision": {
+       "action": "offer",
+       "price": 160,
+       "message": "Palacio de Cristal is a one-of-a-kind landmark: a iconic glass-and-iron pavilion with enduring appeal and a prime setting. I'm offering it at 160 P, which reflects that rarity. I'd be glad to hear your counteroffer."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 49,
+       "days": null
+      },
+      "accept": false,
+      "tick": 574,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the reply, but your offer is far from what a landmark like this is worth. As a gesture of good faith I'll move to 152 P, given the rarity of an iron-and-glass pavilion in such a prime setting. I'd ask you to come back with a serious figure that reflects its real value.",
+      "offer": {
+       "price": 152,
+       "days": null
+      },
+      "accept": false,
+      "tick": 574,
+      "decision": {
+       "action": "offer",
+       "price": 152,
+       "message": "Thanks for the reply, but your offer is far from what a landmark like this is worth. As a gesture of good faith I'll move to 152 P, given the rarity of an iron-and-glass pavilion in such a prime setting. I'd ask you to come back with a serious figure that reflects its real value."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 60,
+       "days": null
+      },
+      "accept": false,
+      "tick": 577,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 64,
+       "days": null
+      },
+      "accept": false,
+      "tick": 578,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate that you are moving, but the steps so far are small next to the distance still between us. I'll come down to 145 P, a real step on my side. To get anywhere near a realistic range for a landmark like this, I'd need to see much bigger moves from you.",
+      "offer": {
+       "price": 145,
+       "days": null
+      },
+      "accept": false,
+      "tick": 578,
+      "decision": {
+       "action": "offer",
+       "price": 145,
+       "message": "I appreciate that you are moving, but the steps so far are small next to the distance still between us. I'll come down to 145 P, a real step on my side. To get anywhere near a realistic range for a landmark like this, I'd need to see much bigger moves from you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 76,
+       "days": null
+      },
+      "accept": false,
+      "tick": 581,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the bigger step; I'm answering it with another move of my own, to 138 P. That is a meaningful reduction for a one-of-a-kind glass-and-iron landmark. I'd like to see another substantial move from you toward a realistic range.",
+      "offer": {
+       "price": 138,
+       "days": null
+      },
+      "accept": false,
+      "tick": 581,
+      "decision": {
+       "action": "offer",
+       "price": 138,
+       "message": "Thank you for the bigger step; I'm answering it with another move of my own, to 138 P. That is a meaningful reduction for a one-of-a-kind glass-and-iron landmark. I'd like to see another substantial move from you toward a realistic range."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 87,
+       "days": null
+      },
+      "accept": false,
+      "tick": 584,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "With the clock running down, I'm making another clear move to 128 P to show I want to get this done. For a unique glass-and-iron landmark, that is a fair place to land. I'd ask you now for a substantial step toward it so we can close before time runs out.",
+      "offer": {
+       "price": 128,
+       "days": null
+      },
+      "accept": false,
+      "tick": 584,
+      "decision": {
+       "action": "offer",
+       "price": 128,
+       "message": "With the clock running down, I'm making another clear move to 128 P to show I want to get this done. For a unique glass-and-iron landmark, that is a fair place to land. I'd ask you now for a substantial step toward it so we can close before time runs out."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 99,
+       "days": null
+      },
+      "accept": false,
+      "tick": 586,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "To close this out before time runs short, I'm making a decisive move to 114 P, a big step from where I started. For a unique glass-and-iron landmark that is a fair landing point. I'd ask you to meet it promptly with a figure close to it so we can finish.",
+      "offer": {
+       "price": 114,
+       "days": null
+      },
+      "accept": false,
+      "tick": 586,
+      "decision": {
+       "action": "offer",
+       "price": 114,
+       "message": "To close this out before time runs short, I'm making a decisive move to 114 P, a big step from where I started. For a unique glass-and-iron landmark that is a fair landing point. I'd ask you to meet it promptly with a figure close to it so we can finish."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 99,
+       "days": null
+      },
+      "accept": false,
+      "tick": 587,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Time is nearly out, so I'm putting forward 106 P as my closing figure, roughly the midpoint between us. If we don't settle now, both of us walk away with nothing. Please take it so we can finish.",
+      "offer": {
+       "price": 106,
+       "days": null
+      },
+      "accept": false,
+      "tick": 587,
+      "decision": {
+       "action": "offer",
+       "price": 106,
+       "message": "Time is nearly out, so I'm putting forward 106 P as my closing figure, roughly the midpoint between us. If we don't settle now, both of us walk away with nothing. Please take it so we can finish."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 99,
+     "days": null
+    },
+    "tick": 588,
+    "ticks_left": 1,
+    "rounds": 7
+   },
+   "move": {
+    "action": "offer",
+    "text": "This is my last move: I'm coming down to 101 P, practically meeting your figure. It is a small gap to close, and if we settle now we both avoid walking away with nothing. Please take it so we can finish.",
+    "price": 101,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 101,
+      "message": "This is my last move: I'm coming down to 101 P, practically meeting your figure. It is a small gap to close, and if we settle now we both avoid walking away with nothing. Please take it so we can finish."
+     },
+     "band": {
+      "worst": 101,
+      "target": 101,
+      "best": 103
+     },
+     "plan": {
+      "read": "Their standing offer of 99 P is below what we can accept, and this is the last tick, so any new offer may go unanswered. Their repeated 99 suggests they may be near their ceiling, but they have been moving steadily, so a final figure just above it could still close.",
+      "target": 101,
+      "best": 103,
+      "worst": 101,
+      "days": null,
+      "angle": "Make a final, minimal step down to 101 as a last chance to close, framed as essentially meeting their number; do not accept 99."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.42,
+       "in": 1380,
+       "out": 157,
+       "cost_usd": 0.00866,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.66,
+       "in": 1186,
+       "out": 84,
+       "cost_usd": 0.00321,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1899,6 +3469,177 @@
      "id": 5222,
      "price": 128,
      "tick": 584,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 586,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "To close this out before time runs short, I'm making a decisive move to 114 P, a big step from where I started. For a unique glass-and-iron landmark that is a fair landing point. I'd ask you to meet it promptly with a figure close to it so we can finish.",
+    "price": 114,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 114,
+      "message": "To close this out before time runs short, I'm making a decisive move to 114 P, a big step from where I started. For a unique glass-and-iron landmark that is a fair landing point. I'd ask you to meet it promptly with a figure close to it so we can finish."
+     },
+     "band": {
+      "worst": 110,
+      "target": 114,
+      "best": 118
+     },
+     "plan": {
+      "read": "They have climbed steadily (49→87) in larger steps than ours, but 87 is still below what we can accept, and with 3 ticks left time is short; their pattern suggests they move after each of our offers.",
+      "target": 114,
+      "best": 118,
+      "worst": 110,
+      "days": null,
+      "angle": "Make one clear, decisive move to signal we want to close now, and ask them to meet it promptly since only a couple of ticks remain."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.7,
+       "in": 1112,
+       "out": 140,
+       "cost_usd": 0.00725,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.22,
+       "in": 897,
+       "out": 101,
+       "cost_usd": 0.0028,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2507,
+    "offer": {
+     "id": 5240,
+     "price": 114,
+     "tick": 586,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 587,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Time is nearly out, so I'm putting forward 106 P as my closing figure, roughly the midpoint between us. If we don't settle now, both of us walk away with nothing. Please take it so we can finish.",
+    "price": 106,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 106,
+      "message": "Time is nearly out, so I'm putting forward 106 P as my closing figure, roughly the midpoint between us. If we don't settle now, both of us walk away with nothing. Please take it so we can finish."
+     },
+     "band": {
+      "worst": 104,
+      "target": 106,
+      "best": 108
+     },
+     "plan": {
+      "read": "They repeated 99 after we moved to 114, so they have not answered our last step. Their 99 is below what we can accept, and with 2 ticks left we need a price they can close at right now.",
+      "target": 106,
+      "best": 108,
+      "worst": 104,
+      "days": null,
+      "angle": "Last chance before time runs out: offer roughly the midpoint, around 106, as a final figure they can accept immediately, and stress that both sides walk away with nothing if we don't close now."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.09,
+       "in": 1284,
+       "out": 151,
+       "cost_usd": 0.00816,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.78,
+       "in": 1070,
+       "out": 86,
+       "cost_usd": 0.003,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2507,
+    "offer": {
+     "id": 5251,
+     "price": 106,
+     "tick": 587,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 588,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "This is my last move: I'm coming down to 101 P, practically meeting your figure. It is a small gap to close, and if we settle now we both avoid walking away with nothing. Please take it so we can finish.",
+    "price": 101,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 101,
+      "message": "This is my last move: I'm coming down to 101 P, practically meeting your figure. It is a small gap to close, and if we settle now we both avoid walking away with nothing. Please take it so we can finish."
+     },
+     "band": {
+      "worst": 101,
+      "target": 101,
+      "best": 103
+     },
+     "plan": {
+      "read": "Their standing offer of 99 P is below what we can accept, and this is the last tick, so any new offer may go unanswered. Their repeated 99 suggests they may be near their ceiling, but they have been moving steadily, so a final figure just above it could still close.",
+      "target": 101,
+      "best": 103,
+      "worst": 101,
+      "days": null,
+      "angle": "Make a final, minimal step down to 101 as a last chance to close, framed as essentially meeting their number; do not accept 99."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.42,
+       "in": 1380,
+       "out": 157,
+       "cost_usd": 0.00866,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.66,
+       "in": 1186,
+       "out": 84,
+       "cost_usd": 0.00321,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2507,
+    "offer": {
+     "id": 5262,
+     "price": 101,
+     "tick": 588,
      "days": 0
     }
    }
