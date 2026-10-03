@@ -121,7 +121,7 @@ flowchart LR
   G[("Bazaar game API")]
   GH[("GitHub repo:<br/>intel/, team/, STATUS.md")]
   N["ntfy: phone alerts"]
-  ARB{{"arbiter: our bots give up the accept<br/>when a scored duel has an in-limit<br/>offer or <= 3 ticks left"}}
+  ARB{{"arbiter: our bots give up the accept<br/>when a scored duel has an in-limit<br/>offer or ≤ 3 ticks left"}}
 
   L <--> C
   C -->|SendMessage| O & B & M
