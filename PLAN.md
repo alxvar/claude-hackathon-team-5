@@ -114,6 +114,12 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    every early-accept rule loses or is flat) [V]. Method [V]: duel points ≈ share × decay per deal, not P (2585's 60 P →
    +0.72; 2319's 3.4 P → +0.34), so judge variants by share. First-wave gates: pred = points on days deals; day reading ≠
    CAN'T READ; no concession > 18% of the gap outside the closing ticks. Caveat: one simulator, trust direction > size.
+21. **16:42, flags cut both ways (RULES: "Some lie; flag a message you believe is bad faith: a correct flag scores, a wrong
+   one costs"; measured today: ±10 neg_points per flag) [V].** If a rival flags one of OUR duel messages that states a
+   checkable falsehood, we may lose 10 per flag. Make sure the negotiator and strategist never state false FACTS: no
+   invented budget, limit, cost, other bids or deadlines; prices, days, posture and warmth only ("that's hard for me",
+   "I can do N"). A one-line prompt rule plus a regex guard on outgoing text (digits other than the price/day, words
+   like "budget", "limit", "cost me", "another buyer") would close it before Duels II.
 
 **Dani: deal desk from 15:52 (Lucas's call).** Your phone (ntfy, your channel) now gets every alert that needs a human to
 message another team: v10 radar DMs, v10 partner suggestions (Teams 15, 10, 3), opportunity SELL/BUY alerts, swap nudges.
