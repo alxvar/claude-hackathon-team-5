@@ -52,6 +52,8 @@ OUT, STATE, FEED = ROOT / "intel" / "v10-radar.md", ROOT / "run" / "v10_radar_st
 SUGGEST_OUT, SUGGEST_EVERY_S = ROOT / "intel" / "v10-suggestions.md", 1800
 PARTNER_TEAMS = ("t10", "t15", "t03")
 SUGGEST_VC, SUGGEST_LINES, SUGGEST_TOP = 5.0, 3, 5
+SUGGEST_ACTS, SUGGEST_KEY_EVERY_S = 3, 7200    # the top 3 pairs to Dani as ACTs, each pair at most once per 2 h
+RIVAL_VC_MIN, RIVAL_GAIN_MAX = 8.0, 10.0       # Chief 17:50: a rival seller only if value created >= 8 and its gain <= 10 P
 CLEARING = {"common": 9, "uncommon": 24.5, "rare": 70}   # GAME.md clearing prices: the price to suggest
 CLEARING_SET = {("LAT", "common"): 7.5, ("LAT", "uncommon"): 21.5, ("MAL", "uncommon"): 26}   # GAME.md, per set
 MULT_FILE = ROOT / "intel" / "multipliers.json"   # the Analyst's estimates: {team: {SET: {m, lo, hi, conf, why}}}
@@ -271,9 +273,16 @@ def addressed_match(o: dict, *, teams, mult, cards, held) -> dict | None:
             "expires_tick": o.get("expires_tick")}
 
 
-def suggestions(partner: str, *, teams, held, mult, cards, last, prof, collectors, ours) -> list[dict]:
-    """Up to SUGGEST_LINES {card, n, buyer, name, price, vc} for one partner: its 2+ copy cards, each with its best
-    buyer outside the top SUGGEST_TOP (buyers_for), est. value created > SUGGEST_VC."""
+def rival_seller_ok(vc: float, seller_gain: float) -> bool:
+    """A rival may sell on v10 only when the value created (our market) dwarfs its own gain (Chief 17:50)."""
+    return vc >= RIVAL_VC_MIN and seller_gain <= RIVAL_GAIN_MAX
+
+
+def suggestions(partner: str, *, teams, held, mult, cards, last, prof, collectors, ours, limit=SUGGEST_LINES,
+                riv=frozenset()) -> list[dict]:
+    """Up to `limit` {card, n, buyer, name, price, vc, seller_gain} for one seller: its 2+ copy cards, each with its
+    best buyer that is no rival (buyers_for), est. value created > SUGGEST_VC; a rival seller (`riv`) only where
+    rival_seller_ok."""
     top = policy.rivals(teams) | {"t13", "t17"}   # policy: top 6 or within 3 of us; rivals' gains vs ours unknown
     out = []
     for (team, card), ids in held.items():
@@ -288,10 +297,30 @@ def suggestions(partner: str, *, teams, held, mult, cards, last, prof, collector
             b = ranked[0]
             worth = cards[card]["book"] * b["m_buyer"] * b["c_buyer"]   # never suggest above the buyer's value
             price = max(1, round(min(CLEARING_SET.get((st, rarity), CLEARING[rarity]), worth)))
-            out.append({"card": card, "n": len(ids), "buyer": b["team"], "name": b["name"], "vc": b["vc"],
-                        "price": price})
+            seller_gain = round(price - cards[card]["book"] * b["m_seller"] * b["c_seller"], 1)
+            if partner in riv and not rival_seller_ok(b["vc"], seller_gain):
+                continue
+            out.append({"seller": partner, "card": card, "n": len(ids), "buyer": b["team"], "name": b["name"],
+                        "vc": b["vc"], "price": price, "seller_gain": seller_gain})
     out.sort(key=lambda x: -x["vc"])
-    return out[:SUGGEST_LINES]
+    return out[:limit] if limit else out
+
+
+def all_suggestions(*, teams, held, mult, cards, last, prof, collectors, ours, riv) -> list[dict]:
+    """Every seller with 2+ copies of a card (feed, a lower bound), its best pairs, ranked by est. value created."""
+    sellers = {team for (team, card), ids in held.items() if len(ids) >= 2 and team and team != ME and team.startswith("t")}
+    out = []
+    for s in sorted(sellers):
+        out += suggestions(s, teams=teams, held=held, mult=mult, cards=cards, last=last, prof=prof,
+                           collectors=collectors, ours=ours, limit=None, riv=riv)
+    out.sort(key=lambda x: -x["vc"])
+    return out
+
+
+def ask_text(x: dict, seller_name: str, cards: dict) -> str:
+    """The DM to a seller: transactional only (Lucas 17:20)."""
+    return (f"Hi {seller_name}! If you list your {cards.get(x['card'], {}).get('name', x['card'])} ({x['card']}) on v10 at "
+            f"~{x['price']} P, {x['name']} may take it. Thanks!")
 
 
 # Ready-to-send texts are transactional only (Lucas, Sat 17:20): what, offer id, price, thanks. Never why: no value
@@ -391,9 +420,14 @@ class Radar:
             return "?"
         return "~" + time.strftime("%H:%M", time.localtime(time.time() + max(0, expires_tick - tick) * secs))
 
-    def act(self, what: str, f: dict, tick, body: str, parties) -> None:
-        """An ACT for Dani through tools/alerts.py; never when a party is a rival (top 6 or within 3, re-read now)."""
+    def act(self, what: str, f: dict, tick, body: str, parties, seller=None) -> None:
+        """An ACT for Dani through tools/alerts.py; never when a party is a rival (top 6 or within 3, re-read now),
+        except a rival seller whose gain is small next to the value created (rival_seller_ok, Chief 17:50)."""
         riv = alerts.rivals(self._teams) & {p for p in parties if p}
+        if seller in riv and f.get("m_seller") is not None:
+            book = (self.cards.get(f["card"]) or {}).get("book", 0)
+            if rival_seller_ok(f["vc"], f["price"] - book * f["m_seller"] * f["c_seller"]):
+                riv.discard(seller)
         if riv:
             self.log(f"v10 radar: no ACT for offer {f['offer']}: {', '.join(sorted(riv))} rival (Chief 17:40)")
             return
@@ -433,7 +467,7 @@ class Radar:
         if not self.dry:
             self.act(f"v10 {f['card']} {f['price']} P → {f['name']}", f, tick,
                      f"Offer {f['offer']} on v10, valid until {self.until(f.get('expires_tick'), tick)}.\n"
-                     f"DM {f['name']}:\n{text}", parties=(f.get("seller"), f["team"]))
+                     f"DM {f['name']}:\n{text}", parties=(f.get("seller"), f["team"]), seller=f.get("seller"))
 
 
     def suggest(self, out: Path = None) -> dict:
@@ -451,25 +485,28 @@ class Radar:
         tick = events[-1]["tick"] if events else 0
         last, prof = op.read_signals(events, [], ME, op.GameTime(events), tick, self.cards)
         held, col = holdings(events), self.collectors.get()
-        riv = alerts.rivals(teams)                    # never help a rival partner (Team 3 at #3, Chief 17:40)
-        found = {p: [] if p in riv else suggestions(p, teams=teams, held=held, mult=self.mult, cards=self.cards,
-                                                    last=last, prof=prof, collectors=col, ours=ours)
-                 for p in PARTNER_TEAMS}
-        L = [f"# v10 partner suggestions ({time.strftime('%a %H:%M')}, tick {tick})", "",
-             "_Written every 30 min by `tools/v10_radar.py`: for Teams 10, 15 and 3, the cards each holds 2+ copies of "
-             "(feed, a lower bound) and the best buyer outside the top 5 (est. value created > +5, copy-weighted; no "
-             "page-closer to a team within 10 points of us). Est. [L]. Price: the rarity's clearing price._", ""]
-        for p in PARTNER_TEAMS:
-            lines = found[p]
-            L.append(f"## {names.get(p, p)} ({p})")
-            if not lines:
-                L += ["", "No pair clears +5 now.", ""]
-                continue
-            L += [""] + [f"- {x['card']} (holds {x['n']}) → {x['name']} ({x['buyer']}) at ~{x['price']} P · est. value "
-                         f"created +{x['vc']:g}" for x in lines]
-            text = suggestion_text(lines, self.cards)
-            L += ["", f"Message: \"{text}\"", ""]
-            # no push (Chief 17:40): suggestions aren't offers; Dani's phone gets ACT items only
+        riv = alerts.rivals(teams)                    # rivals: top 6 or within 3, re-read now (Chief 17:40/17:50)
+        pairs = all_suggestions(teams=teams, held=held, mult=self.mult, cards=self.cards, last=last, prof=prof,
+                                collectors=col, ours=ours, riv=riv)
+        found = {p: [x for x in pairs if x["seller"] == p] for p in PARTNER_TEAMS}
+        L = [f"# v10 suggestions ({time.strftime('%a %H:%M')}, tick {tick})", "",
+             "_Written every 30 min by `tools/v10_radar.py`: every team holding 2+ copies of a card (feed, a lower bound), "
+             "its best buyer that is no rival (est. value created > +5, copy-weighted; no page-closer to a team within "
+             "6 of us). A rival seller only at value created >= 8 and its own gain <= 10 P. Ranked; the top 3 go to "
+             "Dani as ACTs. Est. [L]. Price: the clearing price, capped at the buyer's value._", ""]
+        L += [f"- {names.get(x['seller'], x['seller'])} → {x['name']}: {x['card']} (holds {x['n']}) at ~{x['price']} P · "
+              f"est. value created +{x['vc']:g} · seller's gain {x['seller_gain']:+g}"
+              f"{' · rival seller' if x['seller'] in riv else ''}" for x in pairs[:10]] or ["No pair clears +5 now."]
+        until = time.time() + SUGGEST_EVERY_S
+        for x in pairs[:SUGGEST_ACTS]:
+            seller = names.get(x["seller"], x["seller"])
+            text = ask_text(x, seller, self.cards)
+            L += ["", f"ACT: ask {seller}: \"{text}\""]
+            if not self.dry:
+                alerts.act(f"ask {seller} to post {x['card']} → {x['name']} on v10 at ~{x['price']} P", "—", until,
+                           f"No offer yet: {seller} lists it on v10.\nDM {seller}:\n{text}", source="radar-suggest",
+                           key=f"suggest:{x['seller']}:{x['card']}:{x['buyer']}", key_every_s=SUGGEST_KEY_EVERY_S,
+                           notifier=self.notifier, log=self.log, quiet_close=True)
         if not self.dry:
             out.parent.mkdir(parents=True, exist_ok=True)
             out.write_text("\n".join(L) + "\n")
@@ -495,7 +532,8 @@ class Radar:
         if paged and not self.dry:
             self.act(f"v10 {f['maker_name']}'s {f['card']} {f['price']} P → {f['name']}", f, tick,
                      f"Offer {f['offer']} on v10, valid until {self.until(f.get('expires_tick'), tick)}.\n"
-                     f"DM {f['name']}:\n{text}", parties=(f["maker"], f["team"]))
+                     f"DM {f['name']}:\n{text}", parties=(f["maker"], f["team"]),
+                     seller=f["maker"] if f["side"] == "ask" else None)
 
 
 def main(argv=None) -> None:

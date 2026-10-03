@@ -72,7 +72,7 @@ def _state(path: Path | None):
 
 def act(what: str, offer, until: float | None, body: str, *, source: str, asset=None, want=None, want_n=None,
         key: str | None = None, key_every_s: float = 0, notifier=None, state: Path | None = None, now=None,
-        log=print) -> bool:
+        log=print, quiet_close: bool = False) -> bool:
     """One ACT to Dani. False when it isn't sent (cap, key window, expired, no channel)."""
     notifier = notifier if notifier is not None else _notify
     now = now or time.time()
@@ -90,7 +90,7 @@ def act(what: str, offer, until: float | None, body: str, *, source: str, asset=
         title = f"ACT · {what} · offer {offer} · until {hhmm(until) if until else '?'}"
         ok = bool(notifier and notifier("dani", title, body, priority=4, tags=["handshake"]))
         s["acts"].append({"offer": offer, "what": what, "until": until, "sent": now, "source": source,
-                          "asset": asset, "want": want, "want_n": want_n, "closed": None})
+                          "asset": asset, "want": want, "want_n": want_n, "closed": None, "quiet_close": quiet_close})
         s["acts"] = [a for a in s["acts"] if now - a.get("sent", 0) < 6 * 3600]
         if key:
             s["keys"][key] = now
@@ -107,7 +107,7 @@ def close(offer, done: bool, *, notifier=None, state: Path | None = None, now=No
             if a.get("offer") == offer and not a.get("closed"):
                 a["closed"] = {"done": done, "at": now}
                 title = f"{'✓ DONE' if done else '✗ VOID'} · {a['what']}"
-                if notifier:
+                if notifier and not a.get("quiet_close"):   # a suggestion just lapses: no VOID push
                     notifier("dani", title, f"Offer {offer}: {'filled' if done else 'expired or cancelled'}.",
                              priority=2, tags=["white_check_mark" if done else "x"])
                 log(f"alerts: {title} (offer {offer})")

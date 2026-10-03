@@ -220,7 +220,28 @@ def test_no_act_when_a_party_is_a_rival(tmp_path):
     r._teams = [{"team": f"t9{i}", "score": 40 - i} for i in range(5)] + [{"team": "t10", "score": 35},
                                                                          {"team": "t05", "score": 24},
                                                                          {"team": "t17", "score": 5}]
-    o = vr.open_addressed([listed(1, 10, 8031, "t10", "t17", *ASK_TO)], 12)[0]
-    good = vr.addressed_match(o, teams=r._teams, mult={"t17": {"SAL": 1.6}, "t10": {"SAL": 0.5}}, cards=r.cards, held={})
-    r.alert_addressed(good, 12)
-    assert notes == [] and any("rival" in x for x in logs)              # t10 is #6: no ACT
+    mult = {"t17": {"SAL": 1.6}, "t10": {"SAL": 0.5}}
+    big = vr.open_addressed([listed(1, 10, 8032, "t10", "t17", {"cash": 0, "assets": [{"id": 9, "ref": "SAL-03"}]},
+                                    {"cash": 30})], 12)[0]
+    r.alert_addressed(vr.addressed_match(big, teams=r._teams, mult=mult, cards=r.cards, held={}), 12)
+    assert notes == [] and any("rival" in x for x in logs)              # t10 (#6) gains 30 - 5 = 25 > 10: no ACT
+    small = vr.open_addressed([listed(1, 10, 8031, "t10", "t17", *ASK_TO)], 12)[0]
+    r.alert_addressed(vr.addressed_match(small, teams=r._teams, mult=mult, cards=r.cards, held={}), 12)
+    assert len(notes) == 1 and "offer 8031" in notes[0][1]              # value created 11 >= 8, its gain 8 <= 10 (17:50)
+
+
+
+def test_every_seller_with_2_copies_ranked_and_rival_sellers_only_at_small_margins():
+    teams = [{"team": f"t9{i}", "name": f"Team 9{i}", "score": 50 - i} for i in range(6)] + [
+        {"team": "t05", "score": 24}, {"team": "t16", "name": "Team 16", "score": 5},
+        {"team": "t20", "name": "Team 20", "score": 6}]
+    riv = {f"t9{i}" for i in range(6)}
+    lacks = {(t, f"SAL-0{i}"): {"kind": "lack"} for t in ("t16",) for i in (1, 2)}
+    held = {("t20", "SAL-06"): {1, 2}, ("t90", "SAL-03"): {3, 4}, ("t91", "SAL-07"): {5, 6}}
+    mult = {"t16": {"SAL": 1.6}, "t20": {"SAL": 0.5}, "t90": {"SAL": 0.5}, "t91": {"SAL": 1.6}}
+    pairs = vr.all_suggestions(teams=teams, held=held, mult=mult, cards=vr.card_index(CATALOG), last=lacks, prof={},
+                               collectors=AllCollect(), ours=24, riv=riv)
+    assert [(x["seller"], x["card"], x["buyer"]) for x in pairs] == [("t20", "SAL-06", "t16"), ("t90", "SAL-03", "t16")]
+    # t20 (no rival) first by value created; t90, a rival, sells a common at a small margin: allowed; t91, a rival,
+    # would gain 24 - 25 x 1.6 x 0.25 = +14 on its uncommon: refused
+    assert pairs[1]["seller_gain"] <= vr.RIVAL_GAIN_MAX and pairs[1]["vc"] >= vr.RIVAL_VC_MIN
