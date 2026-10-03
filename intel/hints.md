@@ -254,3 +254,6 @@ Nando: Setenta y tres,
 - Sat 22:19 · egg.found tick 1363 · chato → t10 · {"persona": "chato", "persona_name": "El Chato", "team": "t10", "name": "Team 10"}
 - Sat 22:19 · egg.given tick 1363 · chato → t10 · {"team": "t10", "name": "Team 10", "cash": 0, "packs": ["sobre_barrio"], "cards": [], "reason": "easter egg"}
 - Sat 22:19 · message tick 1363 · pilar → t04 · Then we agree on the essential, señor: he belongs in my album, not in a cold vault. But ninety-two is sentiment, not price. Sixty-three P, and El Marqués sees Sunday light this very week.
+- Sat 22:19 · egg.found tick 1364 · abuela → t10 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t10", "name": "Team 10"}
+- Sat 22:19 · egg.given tick 1364 · abuela → t10 · {"team": "t10", "name": "Team 10", "cash": 0, "packs": [], "cards": ["MAL-06"], "reason": "easter egg"}
+- Sat 22:20 · message tick 1365 · pilar → t10 · Salamanca, sin duda: Serrano, Velázquez, Lista. Esas láminas las guardo bajo llave desde los sesenta. El Lázaro Galdiano, qué buen recuerdo. Y el sobre dorado sigue en 491 P, cuando usted quiera. Ni más, ni menos.
