@@ -1757,6 +1757,343 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1307,
+   "raw": {
+    "duel": 5813,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.62,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 97,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 1309,
+    "decay_per_round": 0.08,
+    "rounds": 9,
+    "your_offer": {
+     "id": 8891,
+     "price": 55,
+     "tick": 1307,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 8919,
+     "price": 87,
+     "tick": 1307,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1293,
+      "from": "Rival Oro",
+      "text": "Thank you so much for meeting with us, it's a real pleasure to trade with your team. We'd be delighted to offer this card at 173, with delivery on the day we've proposed, and we hope it brings you great luck.",
+      "price": 173,
+      "days": 10
+     },
+     {
+      "tick": 1293,
+      "from": "you",
+      "text": "Thank you, it's a pleasure to be at the table with you. I can do 55 P with delivery on day 0; or, if you prefer day 10, 20 P.  That's where I'm comfortable starting.}",
+      "price": 55,
+      "days": 0
+     },
+     {
+      "tick": 1294,
+      "from": "Rival Oro",
+      "text": "Thank you for such a gracious reply, it truly is a pleasure sitting across from your team. We'd be happy to come down a little to 162 with delivery on our proposed day, and we'd love to find a price that feels fair to both of us.",
+      "price": 162,
+      "days": 10
+     },
+     {
+      "tick": 1294,
+      "from": "you",
+      "text": "Thank you, I appreciate the warm tone and the move. I can offer 28 P with delivery on day 10; or, if you prefer, 64 P on day 0. Both are real steps toward you.",
+      "price": 28,
+      "days": 10
+     },
+     {
+      "tick": 1295,
+      "from": "Rival Oro",
+      "text": "Thank you for those thoughtful steps, and for keeping things so friendly between us. To meet you warmly, we can come down to 134 with delivery on day 10. We'd be so glad to see this card go to a team as kind as yours.",
+      "price": 134,
+      "days": 10
+     },
+     {
+      "tick": 1295,
+      "from": "you",
+      "text": "Thank you, I appreciate the real movement from your side. I can move to 40 P with delivery on day 10, which I hope is a helpful step toward you.",
+      "price": 40,
+      "days": 10
+     },
+     {
+      "tick": 1296,
+      "from": "Rival Oro",
+      "text": "Thank you so much for that kind step toward us, we really do appreciate it. We can come down to 124 with delivery on day 10, and we'd be so happy to close something fair with a team as gracious as yours.",
+      "price": 124,
+      "days": 10
+     },
+     {
+      "tick": 1296,
+      "from": "you",
+      "text": "Thank you, I appreciate the continued movement. I can do 46 P with delivery on day 10; or, if you prefer, 82 P on day 0. I'd need you to keep coming down from here.",
+      "price": 46,
+      "days": 10
+     },
+     {
+      "tick": 1297,
+      "from": "Rival Oro",
+      "text": "Thank you for another generous step, and for being such lovely company at this table. We can ease down to 110 with delivery on day 10, and we'd be truly glad to settle on something that feels good for both of us.",
+      "price": 110,
+      "days": 10
+     },
+     {
+      "tick": 1297,
+      "from": "you",
+      "text": "Thank you, I appreciate the continued movement. I can do 51 P with delivery on day 10, and I'd hope the next steps can come mainly from your side.",
+      "price": 51,
+      "days": 10
+     },
+     {
+      "tick": 1298,
+      "from": "Rival Oro",
+      "text": "Thank you for that kind step, it's been such a pleasure working this out with your team. We can come down to 93 with the same delivery day, and we'd be so glad if that brings us close enough to shake hands.",
+      "price": 93,
+      "days": 10
+     },
+     {
+      "tick": 1298,
+      "from": "you",
+      "text": "Thank you, I appreciate the continued movement. I can do 55 P with delivery on day 10; or, if you prefer, 91 P on day 0. The remaining gap should close mostly from your side.",
+      "price": 55,
+      "days": 10
+     },
+     {
+      "tick": 1299,
+      "from": "Rival Oro",
+      "text": "Thank you so much for your patience and your kind words throughout; it's been a real pleasure. We'll gently ease to 90 with delivery on day 10, and we'd be truly grateful if you could meet us a little closer from your side too.",
+      "price": 90,
+      "days": 10
+     },
+     {
+      "tick": 1299,
+      "from": "you",
+      "text": "Thank you, I appreciate the kind words and the movement. I can do 58 P with delivery on day 10; or, if you prefer, 94 P on day 0. The remaining gap needs to close from your side.",
+      "price": 58,
+      "days": 10
+     },
+     {
+      "tick": 1300,
+      "from": "Rival Oro",
+      "text": "Thank you truly for your steady patience and generosity; it's been a real pleasure trading with you. We can gently ease to 88 with delivery on day 10, and we'd be so grateful if you could take a kind step closer to us as well.",
+      "price": 88,
+      "days": 10
+     },
+     {
+      "tick": 1306,
+      "from": "you",
+      "text": "Thank you, I appreciate the kind words and the steady movement. I can do 92 P with delivery on day 0 as a clear step toward you; or, if you prefer day 10, 59 P.",
+      "price": 92,
+      "days": 0
+     },
+     {
+      "tick": 1307,
+      "from": "you",
+      "text": "I can do 55 P, delivery on day 10.",
+      "price": 55,
+      "days": 10
+     },
+     {
+      "tick": 1307,
+      "from": "Rival Oro",
+      "text": "Thank you so much for staying at the table with us, it truly means a lot. We can ease gently to 87 with delivery on day 10, and since you kindly reached 59 a moment ago, we'd be so grateful if you could step back toward us.",
+      "price": 87,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1308,
+   "raw": {
+    "duel": 5813,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.62,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 97,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 1309,
+    "decay_per_round": 0.08,
+    "rounds": 9,
+    "your_offer": {
+     "id": 8964,
+     "price": 95,
+     "tick": 1308,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 8919,
+     "price": 87,
+     "tick": 1307,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1293,
+      "from": "Rival Oro",
+      "text": "Thank you so much for meeting with us, it's a real pleasure to trade with your team. We'd be delighted to offer this card at 173, with delivery on the day we've proposed, and we hope it brings you great luck.",
+      "price": 173,
+      "days": 10
+     },
+     {
+      "tick": 1293,
+      "from": "you",
+      "text": "Thank you, it's a pleasure to be at the table with you. I can do 55 P with delivery on day 0; or, if you prefer day 10, 20 P.  That's where I'm comfortable starting.}",
+      "price": 55,
+      "days": 0
+     },
+     {
+      "tick": 1294,
+      "from": "Rival Oro",
+      "text": "Thank you for such a gracious reply, it truly is a pleasure sitting across from your team. We'd be happy to come down a little to 162 with delivery on our proposed day, and we'd love to find a price that feels fair to both of us.",
+      "price": 162,
+      "days": 10
+     },
+     {
+      "tick": 1294,
+      "from": "you",
+      "text": "Thank you, I appreciate the warm tone and the move. I can offer 28 P with delivery on day 10; or, if you prefer, 64 P on day 0. Both are real steps toward you.",
+      "price": 28,
+      "days": 10
+     },
+     {
+      "tick": 1295,
+      "from": "Rival Oro",
+      "text": "Thank you for those thoughtful steps, and for keeping things so friendly between us. To meet you warmly, we can come down to 134 with delivery on day 10. We'd be so glad to see this card go to a team as kind as yours.",
+      "price": 134,
+      "days": 10
+     },
+     {
+      "tick": 1295,
+      "from": "you",
+      "text": "Thank you, I appreciate the real movement from your side. I can move to 40 P with delivery on day 10, which I hope is a helpful step toward you.",
+      "price": 40,
+      "days": 10
+     },
+     {
+      "tick": 1296,
+      "from": "Rival Oro",
+      "text": "Thank you so much for that kind step toward us, we really do appreciate it. We can come down to 124 with delivery on day 10, and we'd be so happy to close something fair with a team as gracious as yours.",
+      "price": 124,
+      "days": 10
+     },
+     {
+      "tick": 1296,
+      "from": "you",
+      "text": "Thank you, I appreciate the continued movement. I can do 46 P with delivery on day 10; or, if you prefer, 82 P on day 0. I'd need you to keep coming down from here.",
+      "price": 46,
+      "days": 10
+     },
+     {
+      "tick": 1297,
+      "from": "Rival Oro",
+      "text": "Thank you for another generous step, and for being such lovely company at this table. We can ease down to 110 with delivery on day 10, and we'd be truly glad to settle on something that feels good for both of us.",
+      "price": 110,
+      "days": 10
+     },
+     {
+      "tick": 1297,
+      "from": "you",
+      "text": "Thank you, I appreciate the continued movement. I can do 51 P with delivery on day 10, and I'd hope the next steps can come mainly from your side.",
+      "price": 51,
+      "days": 10
+     },
+     {
+      "tick": 1298,
+      "from": "Rival Oro",
+      "text": "Thank you for that kind step, it's been such a pleasure working this out with your team. We can come down to 93 with the same delivery day, and we'd be so glad if that brings us close enough to shake hands.",
+      "price": 93,
+      "days": 10
+     },
+     {
+      "tick": 1298,
+      "from": "you",
+      "text": "Thank you, I appreciate the continued movement. I can do 55 P with delivery on day 10; or, if you prefer, 91 P on day 0. The remaining gap should close mostly from your side.",
+      "price": 55,
+      "days": 10
+     },
+     {
+      "tick": 1299,
+      "from": "Rival Oro",
+      "text": "Thank you so much for your patience and your kind words throughout; it's been a real pleasure. We'll gently ease to 90 with delivery on day 10, and we'd be truly grateful if you could meet us a little closer from your side too.",
+      "price": 90,
+      "days": 10
+     },
+     {
+      "tick": 1299,
+      "from": "you",
+      "text": "Thank you, I appreciate the kind words and the movement. I can do 58 P with delivery on day 10; or, if you prefer, 94 P on day 0. The remaining gap needs to close from your side.",
+      "price": 58,
+      "days": 10
+     },
+     {
+      "tick": 1300,
+      "from": "Rival Oro",
+      "text": "Thank you truly for your steady patience and generosity; it's been a real pleasure trading with you. We can gently ease to 88 with delivery on day 10, and we'd be so grateful if you could take a kind step closer to us as well.",
+      "price": 88,
+      "days": 10
+     },
+     {
+      "tick": 1306,
+      "from": "you",
+      "text": "Thank you, I appreciate the kind words and the steady movement. I can do 92 P with delivery on day 0 as a clear step toward you; or, if you prefer day 10, 59 P.",
+      "price": 92,
+      "days": 0
+     },
+     {
+      "tick": 1307,
+      "from": "you",
+      "text": "I can do 55 P, delivery on day 10.",
+      "price": 55,
+      "days": 10
+     },
+     {
+      "tick": 1307,
+      "from": "Rival Oro",
+      "text": "Thank you so much for staying at the table with us, it truly means a lot. We can ease gently to 87 with delivery on day 10, and since you kindly reached 59 a moment ago, we'd be so grateful if you could step back toward us.",
+      "price": 87,
+      "days": 10
+     },
+     {
+      "tick": 1308,
+      "from": "you",
+      "text": "Thank you for staying with this to the end. My final offer is 95 P with delivery on day 0; or, if you prefer day 10, 60 P.",
+      "price": 95,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -4138,6 +4475,325 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1308,
+   "took_s": 10.12,
+   "cost_usd": 0.02555,
+   "obs": {
+    "view": {
+     "duel_id": 5813,
+     "role": "buyer",
+     "limit": 97,
+     "currency": "P",
+     "item": "La Vía Láctea",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.62,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Thank you so much for meeting with us, it's a real pleasure to trade with your team. We'd be delighted to offer this card at 173, with delivery on the day we've proposed, and we hope it brings you great luck.",
+      "offer": {
+       "price": 173,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1293,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you, it's a pleasure to be at the table with you. I can do 55 P with delivery on day 0; or, if you prefer day 10, 20 P.  That's where I'm comfortable starting.}",
+      "offer": {
+       "price": 55,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1293,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Thank you for such a gracious reply, it truly is a pleasure sitting across from your team. We'd be happy to come down a little to 162 with delivery on our proposed day, and we'd love to find a price that feels fair to both of us.",
+      "offer": {
+       "price": 162,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1294,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you, I appreciate the warm tone and the move. I can offer 28 P with delivery on day 10; or, if you prefer, 64 P on day 0. Both are real steps toward you.",
+      "offer": {
+       "price": 28,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1294,
+      "decision": {
+       "action": "offer",
+       "price": 28,
+       "message": "Thank you, I appreciate the warm tone and the move. I can offer 28 P with delivery on day 10; or, if you prefer, 64 P on day 0. Both are real steps toward you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you for those thoughtful steps, and for keeping things so friendly between us. To meet you warmly, we can come down to 134 with delivery on day 10. We'd be so glad to see this card go to a team as kind as yours.",
+      "offer": {
+       "price": 134,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1295,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you, I appreciate the real movement from your side. I can move to 40 P with delivery on day 10, which I hope is a helpful step toward you.",
+      "offer": {
+       "price": 40,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1295,
+      "decision": {
+       "action": "offer",
+       "price": 40,
+       "message": "Thank you, I appreciate the real movement from your side. I can move to 40 P with delivery on day 10, which I hope is a helpful step toward you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you so much for that kind step toward us, we really do appreciate it. We can come down to 124 with delivery on day 10, and we'd be so happy to close something fair with a team as gracious as yours.",
+      "offer": {
+       "price": 124,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1296,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you, I appreciate the continued movement. I can do 46 P with delivery on day 10; or, if you prefer, 82 P on day 0. I'd need you to keep coming down from here.",
+      "offer": {
+       "price": 46,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1296,
+      "decision": {
+       "action": "offer",
+       "price": 46,
+       "message": "Thank you, I appreciate the continued movement. I can do 46 P with delivery on day 10; or, if you prefer, 82 P on day 0. I'd need you to keep coming down from here."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you for another generous step, and for being such lovely company at this table. We can ease down to 110 with delivery on day 10, and we'd be truly glad to settle on something that feels good for both of us.",
+      "offer": {
+       "price": 110,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1297,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you, I appreciate the continued movement. I can do 51 P with delivery on day 10, and I'd hope the next steps can come mainly from your side.",
+      "offer": {
+       "price": 51,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1297,
+      "decision": {
+       "action": "offer",
+       "price": 51,
+       "message": "Thank you, I appreciate the continued movement. I can do 51 P with delivery on day 10, and I'd hope the next steps can come mainly from your side."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you for that kind step, it's been such a pleasure working this out with your team. We can come down to 93 with the same delivery day, and we'd be so glad if that brings us close enough to shake hands.",
+      "offer": {
+       "price": 93,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1298,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you, I appreciate the continued movement. I can do 55 P with delivery on day 10; or, if you prefer, 91 P on day 0. The remaining gap should close mostly from your side.",
+      "offer": {
+       "price": 55,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1298,
+      "decision": {
+       "action": "offer",
+       "price": 55,
+       "message": "Thank you, I appreciate the continued movement. I can do 55 P with delivery on day 10; or, if you prefer, 91 P on day 0. The remaining gap should close mostly from your side."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you so much for your patience and your kind words throughout; it's been a real pleasure. We'll gently ease to 90 with delivery on day 10, and we'd be truly grateful if you could meet us a little closer from your side too.",
+      "offer": {
+       "price": 90,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1299,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you, I appreciate the kind words and the movement. I can do 58 P with delivery on day 10; or, if you prefer, 94 P on day 0. The remaining gap needs to close from your side.",
+      "offer": {
+       "price": 58,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1299,
+      "decision": {
+       "action": "offer",
+       "price": 58,
+       "message": "Thank you, I appreciate the kind words and the movement. I can do 58 P with delivery on day 10; or, if you prefer, 94 P on day 0. The remaining gap needs to close from your side."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you truly for your steady patience and generosity; it's been a real pleasure trading with you. We can gently ease to 88 with delivery on day 10, and we'd be so grateful if you could take a kind step closer to us as well.",
+      "offer": {
+       "price": 88,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1300,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you, I appreciate the kind words and the steady movement. I can do 92 P with delivery on day 0 as a clear step toward you; or, if you prefer day 10, 59 P.",
+      "offer": {
+       "price": 92,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1306,
+      "decision": {
+       "action": "offer",
+       "price": 92,
+       "message": "Thank you, I appreciate the kind words and the steady movement. I can do 92 P with delivery on day 0 as a clear step toward you; or, if you prefer day 10, 59 P."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 55 P, delivery on day 10.",
+      "offer": {
+       "price": 55,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1307,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Thank you so much for staying at the table with us, it truly means a lot. We can ease gently to 87 with delivery on day 10, and since you kindly reached 59 a moment ago, we'd be so grateful if you could step back toward us.",
+      "offer": {
+       "price": 87,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1307,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 87,
+     "days": 10
+    },
+    "tick": 1308,
+    "ticks_left": 1,
+    "rounds": 9,
+    "day_swings": [
+     39.8,
+     55.199999999999996,
+     36.2,
+     18.6,
+     45.099999999999994,
+     33.4,
+     62.599999999999994,
+     25.9,
+     13.200000000000001,
+     23.3,
+     14.299999999999999
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thank you for staying with this to the end. My final offer is 95 P with delivery on day 0; or, if you prefer day 10, 60 P.",
+    "price": 95,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 95,
+      "message": "Thank you for staying with this to the end. My final offer is 95 P with delivery on day 0; or, if you prefer day 10, 60 P."
+     },
+     "band": {
+      "worst": 96,
+      "target": 95,
+      "best": 92
+     },
+     "plan": {
+      "read": "Last tick. Their 87 on day 10 still sits past what we can pay once day 10's cost is counted, so it cannot be accepted. They have stuck to day 10 throughout, and their note about our 59 is just pressure.",
+      "target": 95,
+      "best": 92,
+      "worst": 96,
+      "days": 0,
+      "angle": "Warm and brief as a final offer: name 95 P on day 0 as the package, and mention in words that 60 P on day 10 also works if they prefer that day."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.08,
+       "in": 2454,
+       "out": 581,
+       "cost_usd": 0.02144,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.03,
+       "in": 1723,
+       "out": 66,
+       "cost_usd": 0.00411,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -4628,6 +5284,63 @@
      "price": 55,
      "tick": 1307,
      "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1308,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thank you for staying with this to the end. My final offer is 95 P with delivery on day 0; or, if you prefer day 10, 60 P.",
+    "price": 95,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 95,
+      "message": "Thank you for staying with this to the end. My final offer is 95 P with delivery on day 0; or, if you prefer day 10, 60 P."
+     },
+     "band": {
+      "worst": 96,
+      "target": 95,
+      "best": 92
+     },
+     "plan": {
+      "read": "Last tick. Their 87 on day 10 still sits past what we can pay once day 10's cost is counted, so it cannot be accepted. They have stuck to day 10 throughout, and their note about our 59 is just pressure.",
+      "target": 95,
+      "best": 92,
+      "worst": 96,
+      "days": 0,
+      "angle": "Warm and brief as a final offer: name 95 P on day 0 as the package, and mention in words that 60 P on day 10 also works if they prefer that day."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.08,
+       "in": 2454,
+       "out": 581,
+       "cost_usd": 0.02144,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.03,
+       "in": 1723,
+       "out": 66,
+       "cost_usd": 0.00411,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5813,
+    "offer": {
+     "id": 8964,
+     "price": 95,
+     "tick": 1308,
+     "days": 0
     }
    }
   }
