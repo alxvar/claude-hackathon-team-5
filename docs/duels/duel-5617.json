@@ -1648,5 +1648,84 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1255,
+ "done": {
+  "duel": 5617,
+  "session": 3,
+  "status": "no_deal",
+  "role": "buyer",
+  "item": "Plaza del Dos de Mayo",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 4.63,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 88,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Verde",
+  "deadline_tick": 1255,
+  "decay_per_round": 0.08,
+  "rounds": 1,
+  "your_offer": {
+   "id": 6799,
+   "price": 64,
+   "tick": 1253,
+   "days": 5
+  },
+  "rival_offer": {
+   "id": 6455,
+   "price": 114,
+   "tick": 1244,
+   "days": 1
+  },
+  "messages": [
+   {
+    "tick": 1241,
+    "from": "you",
+    "text": "I can do 35 P with delivery on day 5. I'm keen to get this done quickly if we can meet near there.",
+    "price": 35,
+    "days": 5
+   },
+   {
+    "tick": 1244,
+    "from": "Rival Verde",
+    "text": "I can do 114 P with delivery in 1 days.",
+    "price": 114,
+    "days": 1
+   },
+   {
+    "tick": 1247,
+    "from": "you",
+    "text": "I can move up to 47 P with delivery on day 5. That figure of yours is far from where I can go, so I'd need to see you come down substantially.",
+    "price": 47,
+    "days": 5
+   },
+   {
+    "tick": 1250,
+    "from": "you",
+    "text": "I can do 53 P with delivery on day 5. That's a modest move from me, and I'd need to see you come down a long way before I go further.",
+    "price": 53,
+    "days": 5
+   },
+   {
+    "tick": 1252,
+    "from": "you",
+    "text": "I can do 60 P with delivery on day 5. That's a clear step from me, and I'd need you to come down substantially to meet it.",
+    "price": 60,
+    "days": 5
+   },
+   {
+    "tick": 1253,
+    "from": "you",
+    "text": "I can do 64 P with delivery on day 5. That's my firmest move, and I'd like to close it before time runs out if you can meet it.",
+    "price": 64,
+    "days": 5
+   }
+  ],
+  "result": 0.0,
+  "price": null,
+  "days": null
+ }
 }

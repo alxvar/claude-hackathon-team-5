@@ -1830,5 +1830,91 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1255,
+ "done": {
+  "duel": 5616,
+  "session": 3,
+  "status": "deal",
+  "role": "seller",
+  "item": "Plaza del Dos de Mayo",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 3.19,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 69,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Verde",
+  "deadline_tick": 1255,
+  "decay_per_round": 0.08,
+  "rounds": 1,
+  "your_offer": {
+   "id": 6837,
+   "price": 102,
+   "tick": 1254,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 6452,
+   "price": 97,
+   "tick": 1244,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1241,
+    "from": "you",
+    "text": "I'll start at 128 P with delivery on day 5, which I think is a fair opening point. I'd like to hear your proposal.",
+    "price": 128,
+    "days": 5
+   },
+   {
+    "tick": 1244,
+    "from": "Rival Verde",
+    "text": "I can do 97 P with delivery in 0 days.",
+    "price": 97,
+    "days": 0
+   },
+   {
+    "tick": 1244,
+    "from": "you",
+    "text": "I can move to 123 P with delivery on day 5. Day 0 doesn't work at prices like yours, so I'd like to see you come up meaningfully.",
+    "price": 123,
+    "days": 5
+   },
+   {
+    "tick": 1250,
+    "from": "you",
+    "text": "I'll make a real step to 116 P with delivery on day 5, to break the standoff. I'd ask you to come up meaningfully in return.",
+    "price": 116,
+    "days": 5
+   },
+   {
+    "tick": 1252,
+    "from": "you",
+    "text": "I can do 108 P with delivery on day 5, a serious move toward closing. If you prefer day 0, that would be 120 P instead; please pick one so we can settle now.",
+    "price": 108,
+    "days": 5
+   },
+   {
+    "tick": 1253,
+    "from": "you",
+    "text": "I can do 105 P with delivery on day 0. If you prefer day 5, I could do 98 P instead. Please pick one of the two this tick so we can close.",
+    "price": 105,
+    "days": 0
+   },
+   {
+    "tick": 1254,
+    "from": "you",
+    "text": "My last move: 102 P with delivery on day 0. That's the price I can close at right now.",
+    "price": 102,
+    "days": 0
+   }
+  ],
+  "result": 33.1,
+  "price": 105,
+  "days": 0
+ }
 }

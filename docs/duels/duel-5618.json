@@ -2216,5 +2216,105 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1255,
+ "done": {
+  "duel": 5618,
+  "session": 3,
+  "status": "no_deal",
+  "role": "buyer",
+  "item": "La Vía Láctea",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 5.01,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 50,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Azul",
+  "deadline_tick": 1255,
+  "decay_per_round": 0.08,
+  "rounds": 4,
+  "your_offer": {
+   "id": 6839,
+   "price": 24,
+   "tick": 1254,
+   "days": 5
+  },
+  "rival_offer": {
+   "id": 6793,
+   "price": 46,
+   "tick": 1253,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1241,
+    "from": "you",
+    "text": "I'll open at 12 P for delivery on day 5. Let me know your counter.",
+    "price": 12,
+    "days": 5
+   },
+   {
+    "tick": 1242,
+    "from": "Rival Azul",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 62,
+    "days": 0
+   },
+   {
+    "tick": 1244,
+    "from": "Rival Azul",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 59,
+    "days": 0
+   },
+   {
+    "tick": 1244,
+    "from": "you",
+    "text": "I can move to 16 P for delivery on day 5. A bigger move from me depends on a substantial step down from you.",
+    "price": 16,
+    "days": 5
+   },
+   {
+    "tick": 1247,
+    "from": "you",
+    "text": "I can step to 20 P for delivery on day 5, and day 5 is firm for me. Further movement depends on you coming well down from your current figure and moving off your current day.",
+    "price": 20,
+    "days": 5
+   },
+   {
+    "tick": 1252,
+    "from": "Rival Azul",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 46,
+    "days": 0
+   },
+   {
+    "tick": 1252,
+    "from": "you",
+    "text": "Thanks for coming down. I can move to 23 P for delivery on day 5, and day 5 is the only day I can do. A price close to this on day 5 closes it now.",
+    "price": 23,
+    "days": 5
+   },
+   {
+    "tick": 1253,
+    "from": "Rival Azul",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 46,
+    "days": 0
+   },
+   {
+    "tick": 1254,
+    "from": "you",
+    "text": "My last move is 24 P for delivery on day 5. If that works for you, please take it now.",
+    "price": 24,
+    "days": 5
+   }
+  ],
+  "result": 0.0,
+  "price": null,
+  "days": null
+ }
 }

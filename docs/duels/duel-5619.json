@@ -2984,5 +2984,126 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1255,
+ "done": {
+  "duel": 5619,
+  "session": 3,
+  "status": "no_deal",
+  "role": "seller",
+  "item": "La Vía Láctea",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 3.29,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 123,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Oro",
+  "deadline_tick": 1255,
+  "decay_per_round": 0.08,
+  "rounds": 5,
+  "your_offer": {
+   "id": 6842,
+   "price": 140,
+   "tick": 1254,
+   "days": 5
+  },
+  "rival_offer": {
+   "id": 6794,
+   "price": 122,
+   "tick": 1253,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1241,
+    "from": "you",
+    "text": "I'm opening at 182 P with delivery on day 5. I'm happy to hear your counteroffer.",
+    "price": 182,
+    "days": 5
+   },
+   {
+    "tick": 1242,
+    "from": "Rival Oro",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 69,
+    "days": 0
+   },
+   {
+    "tick": 1244,
+    "from": "Rival Oro",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 79,
+    "days": 0
+   },
+   {
+    "tick": 1244,
+    "from": "you",
+    "text": "I can move to 172 P with delivery on day 5. I'd need to see a much bigger step from you to keep closing the gap.",
+    "price": 172,
+    "days": 5
+   },
+   {
+    "tick": 1245,
+    "from": "Rival Oro",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 84,
+    "days": 0
+   },
+   {
+    "tick": 1245,
+    "from": "you",
+    "text": "I can move to 163 P with delivery on day 5. Your steps would need to get much bigger for us to close the gap.",
+    "price": 163,
+    "days": 5
+   },
+   {
+    "tick": 1248,
+    "from": "you",
+    "text": "I can move to 151 P with delivery on day 5. That's a real step from me, so I'd need a substantial jump from you.",
+    "price": 151,
+    "days": 5
+   },
+   {
+    "tick": 1251,
+    "from": "you",
+    "text": "I can move to 145 P with delivery on day 5. That's a clear step from me, and I need a real jump from you to close in the time left.",
+    "price": 145,
+    "days": 5
+   },
+   {
+    "tick": 1252,
+    "from": "Rival Oro",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 122,
+    "days": 0
+   },
+   {
+    "tick": 1252,
+    "from": "you",
+    "text": "Thanks for the bigger step. I can come to 142 P with delivery on day 5, and we can close right now at that number on day 5.",
+    "price": 142,
+    "days": 5
+   },
+   {
+    "tick": 1253,
+    "from": "Rival Oro",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 122,
+    "days": 0
+   },
+   {
+    "tick": 1254,
+    "from": "you",
+    "text": "My final offer is 140 P with delivery on day 5. I'm ready to close right now at that figure if you are.",
+    "price": 140,
+    "days": 5
+   }
+  ],
+  "result": 0.0,
+  "price": null,
+  "days": null
+ }
 }
