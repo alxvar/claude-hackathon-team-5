@@ -1,6 +1,6 @@
-# Market plan for Sunday (Market session) · written Sun 00:31
+# Market plan for Sunday (Market session) · written Sun 00:36
 
-_Sources: intel/matches.md (matchmaker run 00:28, tick 1440; its VC estimates move between runs, so re-read it before acting), leaderboard snapshot 1440 (us 30.49), intel/market-log.md, intel/directives.md (Club Castizo, Sat 22:55). Labels: [V] measured, [L] inferred, [?] unknown. An independent verifier audited the 22:52 draft; its ten flags are applied here._
+_Sources: intel/matches.md (matchmaker run 00:33, tick 1440; its VC estimates move between runs, so re-read it before acting), leaderboard snapshot 1440 (us 30.49), intel/market-log.md, intel/directives.md (Club Castizo, Sat 22:55). Labels: [V] measured, [L] inferred, [?] unknown. An independent verifier audited the 22:52 draft; its ten flags are applied here._
 
 ## 0. NEGOTIATION (Chief's overnight ask; read-only analysis of data/feed.jsonl to tick 1445; two independent verifier passes, their flags applied; the figures were not re-run by the verifier, which had no shell)
 
@@ -108,6 +108,13 @@ Spares [V, /api/me]: LAV-02 ×2, LAV-03 ×1, LAV-04 ×1. LAT-03 and LAT-04 are s
 - **Team 10's own trades, both days [V]:** 16 in all: Team 6 3, Team 8 2, Team 12 2, Team 13 2, Team 4 1, Team 5 1, Team 1 1, Team 15 1, Team 3 1, Team 9 1, Team 17 1. It trades little and with everyone; no partner dominates. Its two largest deals: MAL-11 bought from Team 8 at 195 P and SAL-11 sold to Team 17 at 207 P, both on El Rastro.
 - **Who fed its market v07 [V, §7]:** Team 6 (maker of 6 of 11 fills), us (4, stopped), Team 4 (1); takers Teams 12 and 14 (3 each); Team 8 is the heaviest lister there.
 - **Better terms first, in this order:** Team 8 (club candidate, heaviest v07 lister), Team 4 (club candidate, v07 maker), then Team 9 (it bids for the MAL rares Team 10 holds). Teams 6, 12, 13 and 14 are rivals: no terms. Team 1 is the reported ally.
+
+### 0.7 Open or addressed? (Chief, 01:30; against intel/audit-why-we-lost.md lesson 3)
+
+- **The audit is right about asks [V, Saturday episodes]:** open asks filled 67/1891 (3.5%), addressed asks 4/1187 (0.3%): about ten times less. Bids show no such gap (open 27/748 (3.6%), addressed 13/303 (4.3%)). Every one of our own ask quotes was addressed (1/195 (0.5%); open asks: 0). Team 6 listed everything open and filled 11/186 (5.9%) asks and 6/64 (9.4%) bids.
+- **Who takes open asks:** Team 12 9, Team 4 9, Team 9 7, Team 7 6, Team 1 6, Team 2 5, Team 14 5, Team 13 3; 42 of 67 takers were non-rivals.
+- **Rule:** (1) a pair agreed by WhatsApp stays ADDRESSED: it protects the intended buyer and the VC estimate. (2) Anything without an agreed buyer goes OPEN: our own spares on a non-rival member's market, and third parties' spares on v10. A spare sold to any first-copy buyer creates positive VC whoever takes it; the cost of a rival taking it is that rival's gain on one card.
+- **Heavy listers posting open on v10 (Teams 13, 8, 6, 16): yes.** Their open asks filled 23 times on Saturday (Team 6 11, Team 13 6, Team 8 4, Team 16 2); Team 10's market held full real-trades marks all day on 11 such fills. Half of that flow on v10 is worth up to the full real-trades score, **3.0 final points on Sunday** [L]. What it gives the rivals among them (Teams 6 and 13) is close to nothing extra: they sell at the same price wherever they list, so their trade points are the same; only the venue credit moves, away from their own or Team 10's market and to ours. The bound if v10 did hand them an extra fill: about 3-5 trade points, roughly 0.3-0.5 final per card [L, at ~0.1 final per trade point]. Risk: a bot selling a page card or an only copy on v10; one such fill wiped 3 of the ~10 venues that had trades on Saturday. Ask non-rivals first (Teams 8 and 16); do not chase Teams 6 and 13, but do not turn their listings away.
 
 ## 1. What Sunday is worth and what it takes (reconciled with intel/market-test-audit.md, Sun 00:40)
 
