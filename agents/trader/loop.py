@@ -225,7 +225,7 @@ def bidder(b, o, st):
     return st.listed.get(oid)
 
 
-def feeding_skip(b, o, me, st, price, book):
+def feeding_skip(b, o, me, st, price, book, page_cards=False):
     """Why giving these cards to this offer's maker would feed a rival ("" = fine), and who the maker is."""
     team = bidder(b, o, st)
     if not st.scores:
@@ -239,9 +239,10 @@ def feeding_skip(b, o, me, st, price, book):
         ours = (me.get("score") or {}).get("score") if isinstance(me.get("score"), dict) else None
     theirs = st.scores.get(team)
     near = team is None or ours is None or theirs is None or theirs > ours - FEED_GAP
-    if near and price >= CLOSER_X * book:
+    if near and (price >= CLOSER_X * book or page_cards):
         who = "an unknown team" if team is None else f"{team} ({theirs} vs our {ours})"
-        return f"{price} >= {CLOSER_X} x book {book} to {who}: likely a page-closer", team
+        return (f"a page card to {who}, within {FEED_GAP} of us: possibly its page-closer (review 17:15)" if page_cards
+                else f"{price} >= {CLOSER_X} x book {book} to {who}: likely a page-closer"), team
     return "", team
 
 
@@ -396,7 +397,8 @@ def evaluate(b, o, me, held, st, args):
     if c["ok"] and kind in ("sell", "swap"):  # who gets our card(s); only for offers that pass, it may cost a GET
         price = gcash if kind == "sell" else sum(RARITY_BOOK.get(a.get("rarity"), 0) for a in gassets)
         book = sum(RARITY_BOOK.get((held[r][0] or {}).get("rarity"), 0) for r in refs)
-        why, c["bidder"] = feeding_skip(b, o, me, st, price, book)
+        pages = any(1 <= int(r.split("-")[1]) <= 10 for r in refs if r.split("-")[-1].isdigit())
+        why, c["bidder"] = feeding_skip(b, o, me, st, price, book, page_cards=pages)
         if why:
             c.update(skip=why, ok=False)
     elif c["ok"] and kind == "buy":           # policy (16:20): never the top 5 nor a rival, their gain unknown

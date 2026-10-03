@@ -85,7 +85,7 @@ def book_refs(path: Path = BOOK, side: str = "sell") -> set:
         return set()
 
 
-def reserved_refs(path: Path = RESERVED, handoff: Path = HANDOFF) -> set:
+def reserved_refs(path: Path | None = None, handoff: Path | None = None) -> set:
     return policy.reserved_refs(path, handoff)
 
 
@@ -200,7 +200,7 @@ def is_swap(o: dict) -> bool:
 
 class Engine:
     def __init__(self, b, *, dry_run=False, mult_fn=vr.hub_mult, events_fn=vr.load_events, state=STATE, book=BOOK,
-                 reserved=RESERVED, handoff=HANDOFF, collectors=None, log=log, sleep=time.sleep, notifier=_notify):
+                 reserved=None, handoff=None, collectors=None, log=log, sleep=time.sleep, notifier=_notify):
         self.b, self.dry_run, self.mult_fn, self.events_fn, self.state_path = b, dry_run, mult_fn, events_fn, state
         self.book, self.reserved, self.handoff, self.log, self.sleep = book, reserved, handoff, log, sleep
         self.collectors = collectors or CachedCollectors()
@@ -227,6 +227,16 @@ class Engine:
         tmp = path.with_suffix(".tmp")
         tmp.write_text(json.dumps(self.state, indent=1))
         tmp.replace(path)
+
+    def save_gone(self, known, live_ids, mine_ids, have) -> None:
+        """Log our swaps gone since the last run (filled or expired) and save at once, so they aren't logged twice."""
+        gone = [x for x in known.values() if x["offer"] not in live_ids]
+        for x in gone:
+            filled = x.get("asset") not in mine_ids and x["want"] in have
+            self.emit({"event": "filled" if filled else "expired", **x})
+        if gone:
+            self.state["live"] = [x for x in self.state.get("live", []) if x.get("offer") in live_ids]
+            self.save()
 
     def our_value(self, card: str, tick: int):
         hit = self.values.get(card)
@@ -260,24 +270,30 @@ class Engine:
         have = {a["ref"] for a in me.get("assets") or [] if a.get("kind") == "card"}
         mine_ids = {a["id"] for a in me.get("assets") or []}
         known = {x["offer"]: x for x in self.state.get("live", []) if x.get("offer") is not None}
-        live = []
+        live, others = [], []                         # ours (posted by this engine) and hand-made swaps: busy only
         for o in mine:                                # live swaps from the server, not from our file
             if is_swap(o):
                 a = (o["give"]["assets"] or [None])[0]
                 asset = a.get("id") if isinstance(a, dict) else a
-                live.append({**known.get(o["id"], {}), "offer": o["id"], "asset": asset,
-                             "want": next(iter(wants_of([o]))), "to": o["to"], "venue": o["venue"]})
+                x = {**known.get(o["id"], {}), "offer": o["id"], "asset": asset, "want": next(iter(wants_of([o]))),
+                     "to": o["to"], "venue": o["venue"]}
+                (live if o["id"] in known else others).append(x)
         live_ids = {x["offer"] for x in live}
-        for x in known.values():                      # gone since last run: filled, or expired
-            if x["offer"] not in live_ids:
-                filled = x.get("asset") not in mine_ids and x["want"] in have
-                self.emit({"event": "filled" if filled else "expired", **x})
+        self.save_gone(known, live_ids, mine_ids, have)
         teams = sorted(self.b.leaderboard().get("teams") or [], key=lambda t: -(t.get("score") or 0))
         top = policy.top(teams)
         venues = None
+        no_spare = frozenset(book_refs(self.book, "sell") | reserved_refs(self.reserved, self.handoff))
         for x in list(live):                          # cancel what no longer passes
             ok, pwhy = policy.check(x["to"], teams=teams, our_gain=x.get("our_gain"), their_gain=x.get("their_est"))
-            why = ("its card reached us another way" if x["want"] in have else None if ok or not teams else pwhy)
+            ref = x.get("give") or next((a.get("ref") for a in me.get("assets") or [] if a["id"] == x["asset"]), None)
+            others_locked = locked - {x["asset"]}
+            spare_left = ref is not None and ref in our_spares(me, others_locked, no_spare) and \
+                our_spares(me, others_locked, no_spare)[ref]["id"] is not None
+            why = ("its card reached us another way" if x["want"] in have else
+                   f"{ref} is reserved or asked by the book now" if ref in no_spare else
+                   f"{ref} has no other free copy left" if not spare_left else
+                   None if ok or not teams else pwhy)
             if why is None and teams:
                 venues = venues or {v.get("venue"): v for v in self.b.venues().get("venues") or []}
                 if (venues.get(x["venue"]) or {}).get("owner") in top:
@@ -295,6 +311,7 @@ class Engine:
         self.save()
         if len(live) >= MAX_LIVE:
             return []
+        busy = live + others
         venues = venues or {v.get("venue"): v for v in self.b.venues().get("venues") or []}
         events = self.events_fn()
         last, _ = op.read_signals(events, [], ME, op.GameTime(events), tick, self.cards)
@@ -303,14 +320,13 @@ class Engine:
                            held=vr.holdings(events), mult=mult, cards=self.cards, last=last,
                            collectors=self.collectors.get(), venues=venues,
                            skip_want=frozenset(wants_of(mine) | book_refs(self.book, "buy")),
-                           no_spare=frozenset(book_refs(self.book, "sell") | reserved_refs(self.reserved, self.handoff)),
-                           busy=live, min_gain=MIN_OUR_GAIN + (PACK_DRAG if packs else 0))
+                           no_spare=no_spare, busy=busy, min_gain=MIN_OUR_GAIN + (PACK_DRAG if packs else 0))
         posted = []
         for c in cands:
             if len(self.state["live"]) >= MAX_LIVE or len(posted) >= POSTS_PER_RUN:
                 break
             if any(c["to"] == x["to"] or c["want"] == x["want"] or c["asset"] == x["asset"]
-                   for x in self.state["live"]):
+                   for x in self.state["live"] + others):
                 continue
             ev = {"event": "post", "tick": tick, **c}
             if self.dry_run:
@@ -346,7 +362,7 @@ class Engine:
         team = f"Team {int(c['to'][1:])}" if str(c["to"])[1:].isdigit() else c["to"]
         name = lambda r: (self.cards.get(r) or {}).get("name", r)   # noqa: E731
         dm = (f"Hi {team}! We offered you our {name(c['give'])} ({c['give']}) for your {name(c['want'])} ({c['want']}), "
-              f"a straight swap on {c['venue']} (0% fee), addressed to you: offer {oid}. Check it and accept if it works.")
+              f"a straight swap on {c['venue']}, addressed to you: offer {oid}. Check it and accept if it works.")
         for who in DESK:
             self.notifier(who, f"Swap to {team}: {c['give']} for {c['want']} (offer {oid})",
                           f"Offer {oid} on {c['venue']}, valid until {until}. Our est. gain +{c['our_gain']:g}, theirs "

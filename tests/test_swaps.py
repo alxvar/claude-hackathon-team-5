@@ -244,3 +244,25 @@ def test_a_complete_page_card_with_its_other_copy_committed_is_no_spare():
                                           {"id": 66, "kind": "card", "ref": "LAT-03", "your_value": 3.2}]}
     assert "LAT-03" not in sw.our_spares(me, {65})                    # one in a book ask: the other is the last
     assert "LAT-03" in sw.our_spares(me, set())
+
+
+def test_a_live_swap_is_cancelled_once_its_card_is_reserved(tmp_path, monkeypatch):
+    three = {**ME, "assets": ME["assets"] + [{"id": 487, "kind": "card", "ref": "SAL-02", "your_value": 0.9}]}
+    g = Game(three)
+    e = engine(tmp_path, g, monkeypatch)
+    e.run(644, 30.0)
+    oid = g.posted[0]["id"]
+    (tmp_path / "r.json").write_text('{"cards": ["SAL-02"]}')
+    e.run(646, 30.0)
+    assert g.cancelled == [oid] and any(x["event"] == "cancel" and "reserved" in x["why"] for x in events(tmp_path))
+
+
+def test_a_hand_made_swap_is_never_cancelled_but_counts_as_busy(tmp_path, monkeypatch):
+    three = {**ME, "assets": ME["assets"] + [{"id": 487, "kind": "card", "ref": "SAL-02", "your_value": 0.9}]}
+    g = Game(three)
+    g.offers[1] = {"id": 1, "maker": "t05", "status": "open", "venue": "v15", "to": "t02",   # the Operator's, to t02
+                   "give": {"cash": 0, "assets": [{"id": 700}]}, "want": {"cash": 0, "types": ["card:LAT-09"]}}
+    e = engine(tmp_path, g, monkeypatch)
+    e.run(644, 30.0)
+    assert g.cancelled == [] and g.posted == []                        # t02 is busy with the Operator's swap
+    assert not (tmp_path / "swaps.jsonl").exists()                     # nothing posted, nothing cancelled

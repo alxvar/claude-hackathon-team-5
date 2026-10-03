@@ -619,3 +619,13 @@ def test_never_the_last_copy_of_a_complete_page_when_the_other_is_committed():
     b = FakeBazaar(boards={"rastro": [bid(140, 30, "LAV-02")]}, listed={140: "t09"}, mine=[ours])
     run(b)
     assert b.accepted == []
+
+
+def test_a_page_card_to_a_team_within_6_is_a_possible_page_closer_at_any_price():
+    # Review 17:15: only prices >= 1.5x book counted as page-closers; t04 is 5 below us.
+    b = FakeBazaar(boards={"rastro": [bid(150, 12, "SAL-02")]}, listed={150: "t04"})
+    run(b)
+    assert b.accepted == []
+    b = FakeBazaar(boards={"rastro": [bid(151, 12, "SAL-02")]}, listed={151: "t09"})   # 20 below: fine
+    run(b)
+    assert [a[0] for a in b.accepted] == [151]

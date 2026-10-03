@@ -28,13 +28,20 @@ PAGE_CLOSER_GAP = 6
 RIVALS = frozenset({"t13", "t17"})
 
 
-def reserved_refs(path: Path = RESERVED, handoff: Path = HANDOFF) -> set:
-    """Cards no bot gives away: run/reserved.json {"cards": [...]}, else the cards named in the handoff's
-    "## Reserved" section."""
+def reserved_refs(path: Path | None = None, handoff: Path | None = None) -> set:
+    """Cards no bot gives away: run/reserved.json ({"cards": [...]} or a bare list of refs), else the cards named in
+    the handoff's "## Reserved" section. Paths resolve at call time (tests point RESERVED/HANDOFF at tmp files)."""
+    path, handoff = path or RESERVED, handoff or HANDOFF
     try:
-        return set(json.loads(Path(path).read_text()).get("cards") or [])
-    except (OSError, ValueError, AttributeError):
+        data = json.loads(Path(path).read_text())
+        refs = data.get("cards") if isinstance(data, dict) else data
+        if isinstance(refs, list):
+            return {r for r in refs if isinstance(r, str) and _CARD.fullmatch(r)}
+        print(f"policy: {path} has no list of cards: using the handoff", flush=True)
+    except OSError:
         pass
+    except ValueError as e:
+        print(f"policy: {path} unreadable ({e}): using the handoff", flush=True)
     try:
         text = Path(handoff).read_text()
     except OSError:

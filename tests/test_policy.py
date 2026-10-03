@@ -44,3 +44,14 @@ def test_never_the_last_copy_of_a_complete_page_counting_open_offers_as_gone():
     offers = [{"maker": "t05", "status": "open", "give": {"assets": [{"id": 65}]}},
               {"maker": "t09", "status": "open", "give": {"assets": [{"id": 1}]}}]
     assert policy.committed(offers) == {65}
+
+
+
+def test_the_reserved_list_takes_both_shapes_and_ignores_junk(tmp_path):
+    (tmp_path / "a.json").write_text('{"cards": ["MAL-09", 7, {"x": 1}, "nope"]}')
+    assert policy.reserved_refs(tmp_path / "a.json", tmp_path / "none.md") == {"MAL-09"}
+    (tmp_path / "b.json").write_text('["SAL-08", "SAL-04"]')
+    assert policy.reserved_refs(tmp_path / "b.json", tmp_path / "none.md") == {"SAL-08", "SAL-04"}
+    (tmp_path / "c.json").write_text('{"cards": ')                                   # half-written: the handoff
+    (tmp_path / "h.md").write_text("## Reserved\nLAT-08 · MAL-05\n## Next\nRET-01\n")
+    assert policy.reserved_refs(tmp_path / "c.json", tmp_path / "h.md") == {"LAT-08", "MAL-05"}

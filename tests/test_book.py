@@ -238,8 +238,24 @@ def test_a_venue_owner_entering_the_top_4_sends_the_next_post_to_el_rastro():
 def test_an_unknown_top_4_means_el_rastro():
     g = Game()
     g.lb_fails = True
-    run(g, [{"card": "SAL-08", "side": "sell", "to": "t16", "price": 30, "floor": 20}])
+    run(g, [{"card": "SAL-08", "side": "sell", "price": 30, "floor": 20}])          # public: the collectors' call
     assert g.posted[0]["venue"] == "rastro"
+
+
+def test_an_unread_leaderboard_posts_no_new_addressed_ask_but_keeps_a_live_one():
+    # Review 17:15: the policy failed open when the leaderboard read failed.
+    g = Game()
+    g.lb_fails = True
+    e = [{"card": "SAL-08", "side": "sell", "to": "t16", "price": 30, "floor": 20}]
+    st, ev, _ = run(g, e)
+    assert g.posted == [] and any("leaderboard unknown" in (x.get("why") or "") for x in ev)
+    g.lb_fails = False
+    g.teams = TOP + [{"team": "t16", "score": 8}]
+    st, _, _ = run(g, e)
+    oid = g.posted[0]["id"]
+    g.lb_fails = True
+    run(g, e, st, tick=301)
+    assert g.cancelled == [] and oid in g.offers                      # a read failure takes nothing down
 
 
 class Rule:
@@ -512,7 +528,7 @@ def test_never_asks_our_last_copy_of_a_complete_page_when_the_other_is_committed
                      "want": {"types": ["card:LAT-07"]}}
     g.teams = TOP + [{"team": "t16", "score": 8}]
     st, ev, _ = run(g, [{"card": "LAV-03", "side": "sell", "to": "t16", "price": 6, "floor": 5}])
-    assert g.posted == [] and any("last copy" in (x.get("why") or "") for x in ev)
+    assert g.posted == [] and any("last" in (x.get("why") or "") for x in ev)
     g.offers.clear()                                                    # nothing else committed: one may go
     run(g, [{"card": "LAV-03", "side": "sell", "to": "t16", "price": 6, "floor": 5}])
     assert len(g.posted) == 1

@@ -215,7 +215,12 @@ class Book:
             held = len(copies.get(e["card"], []))
             if sell:                                  # only to a team that collects the set (Chief 11:50)
                 ok, why = self.collectors.get().allows(e.get("to"), set_of(e["card"]))
-                if ok and self.teams and e.get("to"):  # and the counterparty policy (16:20); unread board: as before
+                if ok and e.get("to") and not self.teams:   # board unread: a live ask stays, nothing new goes out
+                    if s.get("offer") in mine:
+                        out[key] = s
+                        continue
+                    ok, why = False, "leaderboard unknown: no new addressed ask"
+                elif ok and e.get("to"):              # the counterparty policy (16:20)
                     ok, why = policy.check(e.get("to"), teams=self.teams, page_closer=bool(e.get("page_closer")))
                 if e["card"] in self.reserved():      # never a reserved card (run/reserved.json, Chief 16:45)
                     ok, why = False, f"{e['card']} is reserved (run/reserved.json)"
@@ -327,6 +332,11 @@ class Book:
                 self.log({"event": "skip", "card": card, "side": "sell", "why": "no free copy with a value"})
                 return None, False
             asset = min(free, key=lambda a: a["your_value"])
+            held_elsewhere = [a for a in copies.get(card, []) if a["id"] in locked and a["id"] != s.get("asset")]
+            if held_elsewhere and len(free) < 2:      # another offer of ours sells a copy: keep one (review 17:15)
+                self.log({"event": "skip", "card": card, "side": "sell",
+                          "why": f"another of our offers holds a {card}: keeping our last free copy"})
+                return None, False
             why_last = policy.last_copy(me, card, committed_ids=locked - {asset["id"]}, giving={asset["id"]})
             if why_last:                              # Chief 17:05: never our last copy of a complete page
                 self.log({"event": "skip", "card": card, "side": "sell", "why": why_last})
