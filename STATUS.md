@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 10:36** · tick 292 (30 s/tick) · game hour 3.76 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 10:46** · tick 313 (30 s/tick) · game hour 3.93 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,25 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 10:16 · **for Lucas** (repo audit 10:00-10:15, read-only, each checked in the code or the hub; by impact) · (1) `agents/trader/loop.py:139` accepts on every open rival venue (bar 3, or 15 for the top 4): each fill scores market for the venue's owner (your 10:06: one 7 P trade gave t12 its market lead) → El Rastro + venues of teams ≥ 10 below us only · (2) the feeding rule is written 4 ways: `PLAN.md:36` page-closers only; `opportunities.md`/`teams.md` every sale; `judge.md` page-closers to teams 6-9 below OK; `ORCHESTRATOR.md:75` other sales to the top 4 OK "if our gain clearly beats theirs"; and `loop.py:231` treats a sale as a page-closer only at ≥ 1.5× book (`CLOSER_X`, l.55) → one rule, one check · (3) directive 10:03 (RET-10 cap 91, value 77) lifts "never above value" without GUARDRAIL, on a false premise (t18 bought RET-10 from Chato at 86, tick 213; we got ours at 86, tick 232); `agents/dealers/chato_steady.py` takes the cap from `--cap` with no value check and checks the cash floor once, at start (l.47) · (4) cash floor: GUARDRAIL 09:55 = 100, `ORCHESTRATOR.md:34` 370 and `:65` 200, code defaults 200 (`loop.py:462`, `opportunities.py:343`, `abuela_bot.py:36`), `daemons.sh` 100 · (5) the venue bond is 250 (`bazaar-kit/RULES.md:70`, all 7 board venues in the feed), not 270 (ORCHESTRATOR, plan §4E, strategy) · (6) bot vs bot: `PacedBazaar` (`abuela_bot.py:73`) doesn't pass `wait_on_tick=False`; `trade.py accept` doesn't go through the arbiter (its docstring says it checks value) · (7) stale docs: `CLAUDE.md:47`, `saturday-plan.md:22`, `brief-aleks.md:20` and `tools/duel_monitor.py:15,48` say rounds = priced offers (GAME.md is fixed); `saturday-plan.md:174`/`brief-aleks.md:32` "send their own price from ticks_left ≤ 4" now costs a round; plan/brief-aleks times 11:30 / 18:00; `brief-dani.md:13` pitch window (Duels I is 11:58-~13:34); `market-playbook.md:4,8,49,59`: hard test at 14.65 ≈ 21:28 (not 16.0), Sunday has 3 benches (17, 19, 21; the first ≈ 09:21), not 2; `judge.md:13` "addressed offers visible only to the addressee" vs `GAME.md:38` [V] · next: Lucas triages
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 10:40 · operator · we hold **LAT-08**: Abuela's gift at tick 261 after our 5th deal with her (my 10:30 'we don't hold it' was wrong; the judge was right) → book: LAT-08 → t15 at 22 (floor 15, worth 12.5) · opps posted SAL-01 → t03 at 40 on El Rastro (offer 4322, +37.8 if filled; t03 #10, not top 4; their gain at most ~25): kept · GAME.md: Abuela gifts
   - Sat 10:37 · operator · opps restarted on bafa568 (§4A feeding scope) and trader on b2202a2 (arbiter days fix), both floor 100 · Duels I plan (directive 10:35): background job stops the trader at 11:50 and restarts it once /api/duels has been empty 4 min after 12:10; book.py keeps posting (maker only); dealer threads none after 11:40 · GAME.md: warm-vs-cold marked [Open] (confounded with step size)
-  - Sat 11:05 · Builder · vanished asks 10:00-10:17 = **expired**, not cancelled (feed: created 177, expires 237); server counts expires_in_ticks in Friday's 60 s ticks (Operator's probe) · **opps** 1ab8510: DEFAULT_VENUE=v07, page-closers + top-4 venues → El Rastro, expiry ×60/tick_s; bafa568: feeding rule = plan §4A (10-pt gap only for a page-closing sale; others addressed to anyone outside the top 4) · **book.py** 0fb5f11 (repricer: refresh ≤5 left, reprice after 20 ticks toward the floor, adopts hand-posted offers, maker ask floor value+1 d2a15ef, `MIN_GAIN_SELL=2 tools/daemons.sh start book`) · **arbiter** b2202a2: days duels hold only for a package worth ≥ 0 (Duels II) · every new test fails on the old code, suite 296 pass · restarts owed: opps, trader (arbiter) · next: Chief's queue
-  - Sat 10:32 · operator · **#4 (24.01)** after the RET close · directive 10:30 (asks stay addressed, wider buyer set) applied: book re-addressed by signal, never the top 4 (t02/t12/t14/t18): SAL-08 → t03 27, MAL-06 → t17 25, MAL-07 → t01 24, LAV-04 → t10 10, LAV-02 → t09, LAV-03 → t07, SAL-01 → t06, SAL-02 → t16 at 9, LAT-04 → t15 7, LAT-03 → t03 8, MAL-02 → t17, MAL-04 → t15 at 10 (13 old asks cancelled, book.py restarted clean) · server maintenance 10:31 (clock paused): all daemons up · Dani's audit item 1 (trader accepts on rival venues): loop.py already needs gain ≥ 15 on top-4 venues; left for Lucas's triage
+  - Sat 10:30 · Builder · vanished asks 10:00-10:17 = **expired**, not cancelled (feed: created 177, expires 237); server counts expires_in_ticks in Friday's 60 s ticks (Operator's probe) · **opps** 1ab8510: DEFAULT_VENUE=v07, page-closers + top-4 venues → El Rastro, expiry ×60/tick_s; bafa568: feeding rule = plan §4A (10-pt gap only for a page-closing sale; others addressed to anyone outside the top 4) · **book.py** 0fb5f11 (repricer: refresh ≤5 left, reprice after 20 ticks toward the floor, adopts hand-posted offers, maker ask floor value+1 d2a15ef, `MIN_GAIN_SELL=2 tools/daemons.sh start book`) · **arbiter** b2202a2: days duels hold only for a package worth ≥ 0 (Duels II) · every new test fails on the old code, suite 296 pass · restarts owed: opps, trader (arbiter) · next: Chief's queue
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 24.14 | 4 | 17.19 | 6.95 | 0.00 | 0.06 | 0.90 | 33 | 2 | 107 | 32/50 |
+| 24.36 | 4 | 17.04 | 7.32 | 0.00 | 0.06 | 0.90 | 33 | 2 | 107 | 32/50 |
 
-Leaderboard (snapshot at tick 290; refreshes every few minutes):
+Leaderboard (snapshot at tick 310; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 18 | 29.99 | 23.05 | 6.95 | 27 |
-| 2 | Team 12 | 27.74 | 16.16 | 11.58 | 30 |
-| 3 | Team 2 | 27.32 | 20.37 | 6.95 | 23 |
-| 4 | Team 5 | 24.14 | 17.19 | 6.95 | 33 |
-| 5 | Team 14 | 23.23 | 16.28 | 6.95 | 14 |
+| 1 | Team 18 | 30.58 | 23.25 | 7.32 | 27 |
+| 2 | Team 2 | 28.42 | 21.10 | 7.32 | 23 |
+| 3 | Team 12 | 27.73 | 15.53 | 12.20 | 30 |
+| 4 | Team 5 | 24.36 | 17.04 | 7.32 | 33 |
+| 5 | Team 14 | 23.50 | 16.18 | 7.32 | 14 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 5.00 | ~75 min | bench | The Market Test: every venue gets the same synthetic book |
-| 5.15 | ~84 min | duels | Duels I: price only, one round-robin |
-| 5.51 | ~105 min | persona_opens | Doña Pilar opens for everyone |
-| 7.00 | ~195 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.00 | ~315 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.15 | ~324 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
-| 11.00 | ~435 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~444 min | persona_patch | The fever breaks |
+| 5.00 | ~64 min | bench | The Market Test: every venue gets the same synthetic book |
+| 5.15 | ~73 min | duels | Duels I: price only, one round-robin |
+| 5.51 | ~95 min | persona_opens | Doña Pilar opens for everyone |
+| 7.00 | ~184 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.00 | ~304 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.15 | ~313 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
+| 11.00 | ~424 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~433 min | persona_patch | The fever breaks |
 
 ## Our dealer deals
 
