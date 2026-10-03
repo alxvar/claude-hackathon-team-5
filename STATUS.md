@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 18:01** · tick 934 (30 s/tick) · game hour 9.11 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 18:07** · tick 945 (30 s/tick) · game hour 9.20 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,25 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 12:12 · **dashboard: new "Duel monitor" tab** (http://127.0.0.1:8765/#duelmon), the current duel session live, read-only, from data the dashboard already reads (**no extra request**: the duelist shares the team's 5 rps) · session + field progress from the feed (`duels.scheduled`, `duel.closed`), our duels from `/api/duels`, `duel_points` from `/api/me` · tiles: our duels done/total + ETA, deals, result after decay and **P lost to rounds**, `duel_points` sparkline, P left on the table, field deal rate · alerts: CRITICAL (rival's standing offer inside our limit with ≤ 2 ticks left; our offer outside our limit; we silent ≥ 4 ticks after a rival price near the deadline), WATCH (acceptable now: +X P after decay), MISSED · live table (our offer vs theirs vs limit, gap, rounds, pie left, ticks left, accept-now value; days for Duels II) · finished table · negotiating Δ per team since the session began (board doesn't split duels out) · complements Lucas's `duelmon` (phone alerts + per-wave review), doesn't replace it · restarted 12:10 on this code, 0 errors, hub on · **Duels I at tick 483:** 4/34 done, 4 deals, 36.7 P of 50 P surplus (**13.3 P, 27 %, lost to rounds**; duel 2540: 7 rounds, 6.7 of 19 lost), field 36/39 deals · seen live: duel 2506 (buyer, limit 103): rival dropped to 96 at tick 480 and we sent 98 the same tick (step computed on their previous 104); it closed at 96 anyway (4.8 P, 6 rounds), so no cost; for Aleks's rounds spec: a same-tick drop can cross our next step · next: watch Duels I on the tab, desk Q6
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
-  - Sat 18:01 · operator · new level announced: **banco, Don Ernesto** ('Gold is not shown. It is negotiated.'); /api/dealers/banco has no menu, unlock or level yet (status announced) · ladder deals are off (capped), so nothing to do until a menu appears · SAL-06 bid 14040 still open
-  - Sat 17:52 · operator · **SAL-06 page-closer bid** (Chief spec): MAKER bid **14040**, give 35 P, want card:SAL-06, to **t02** on v15, expires tick 944 (~30 min) · /api/me/value SAL-06 = **82.1** (22.5 + page bonus) → at 35 the gain hits the +50 cap · policy t02 OK, cash 151 → 116 if filled · up to 45 on a t02 counter, above that ask the Chief · never unaddressed (t10 buys SAL-06), never from a dealer (no page bonus) · fallback at 18:20: t17, then t13, one at a time · watcher b5iy2i1mw cancels any other SAL-06 bid the moment we hold one
-  - Sat 17:50 · operator · board check: the t07 swap's +15.5 neg moved `negotiating` 21.74 → 22.48 and the board 29.24 → **29.98 (#3)** at tick 910 → team trades are not capped (≈ +0.05 board per neg point) → GAME.md · T14 31.4, T6 30.7 · scout's SAL-06 bid at 28 waits for the Chief's spec
+  - Sat 18:06 · operator · SAL-06: t02 told Dani they 'value it at 120' (an anchor); Dani counters at 50 in person; Chief ceiling **60** · watcher re-armed (bbmx2vwfi) with auto-accept of a t02 → t05 ask for exactly one SAL-06, cash only, ≤ 60, fee ≤ 3, cash ≥ 100 after · fees [V /api/venues]: v15 0 bps / 0 per card; El Rastro 500 bps + 1 per card (60 → fee 4, so auto only ≤ 40 there) · on the Chief's '50': cancel 14268, repost a maker bid of 50 → t02 on v15
+  - Sat 18:02 · operator · Chief (fever live: Pilar pays ~31 for SAL-06, so outbid her clearly): 14040 cancelled → new MAKER bid **14268**, give **42 P**, want card:SAL-06, to t02 on v15, expires tick 965 (~18:32) · gain ≈ 82.1 − 42 = +40 (no fee) · cash 151 → 109 if filled · watcher unchanged (counter ≤ 45, cancel on hold, t17 fallback 18:20)
+  - Sat 18:02 · operator · Chief: one defensive L5 deal with Don Ernesto (banco) once active and open to us (rivals' L5 deals could pull our capped ladder below 1) → watcher b2cqqhnz7 (20 s poll of /api/dealers/banco + /api/me unlocked; prints the menu when active) · plan: (a) one offer-only SELL of a non-page spare it buys (MAL-08 17.5 or LAT-04 5; never SAL, never a page card), above its opening and ≥ value; else (b) one BUY ≤ list and ≤ 30 P if cash stays ≥ 120 after SAL-06 · SAL-06 bid first
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 29.87 | 3 | 22.37 | 7.50 | 13.93 | 0.44 | 0.88 | 51 | 4 | 151 | 37/50 |
+| 29.87 | 3 | 22.37 | 7.50 | 13.93 | 0.44 | 0.89 | 51 | 4 | 151 | 37/50 |
 
-Leaderboard (snapshot at tick 930; refreshes every few minutes):
+Leaderboard (snapshot at tick 940; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 14 | 31.83 | 22.30 | 9.53 | 37 |
-| 2 | Team 6 | 30.61 | 18.72 | 11.89 | 51 |
+| 1 | Team 6 | 31.75 | 19.70 | 12.05 | 52 |
+| 2 | Team 14 | 31.50 | 21.97 | 9.53 | 39 |
 | 3 | Team 5 | 29.87 | 22.37 | 7.50 | 51 |
-| 4 | Team 3 | 28.56 | 23.81 | 4.75 | 28 |
-| 5 | Team 1 | 28.32 | 20.82 | 7.50 | 26 |
+| 4 | Team 3 | 29.21 | 23.75 | 5.46 | 28 |
+| 5 | Team 1 | 28.25 | 20.75 | 7.50 | 26 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 9.15 | ~3 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
-| 11.00 | ~114 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~123 min | persona_patch | The fever breaks |
-| 11.65 | ~153 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~234 min | bench | The Market Test: every venue gets the same synthetic book |
-| 14.08 | ~298 min | day_closes | Closed until Sunday 09:00 |
-| 14.08 | ~298 min | day_opens | Sunday opens |
-| 14.65 | ~333 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 11.00 | ~108 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~117 min | persona_patch | The fever breaks |
+| 11.65 | ~147 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~228 min | bench | The Market Test: every venue gets the same synthetic book |
+| 14.08 | ~293 min | day_closes | Closed until Sunday 09:00 |
+| 14.08 | ~293 min | day_opens | Sunday opens |
+| 14.65 | ~327 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 15.00 | ~348 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
 
 ## Our dealer deals
 
@@ -103,7 +103,7 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
-| common card | team buys | 69 | 9 | 7 | 12 | 5 | 9 |
+| common card | team buys | 70 | 9.00 | 7 | 12 | 5 | 9 |
 | common card | team sells | 107 | 6 | 2 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 42 | 22.00 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 76 | 23.00 | 17 | 29 | 5 | 24.20 |
@@ -132,7 +132,7 @@ Live: 0 · finished: 68
 |---|---|---|---|---|---|---|
 | abuela | active | 1 | True | sobre_barrio (26 P), common (10 P), uncommon (25 P) | common, uncommon | 8 |
 | chato | active | 2 | True | sobre_plata (150 P), uncommon (26 P), rare (77 P) | uncommon, rare | 6 |
-| pilar | active | 3 | True | sobre_oro (420 P) | uncommon, rare, epic, uncommon, rare, epic | 6 |
+| pilar | active | 3 | True | sobre_oro (420 P) | uncommon, rare, epic, uncommon, rare, epic, uncommon, rare, epic | 6 |
 | picaros | active | 4 | True | rare (63 P), epic (162 P) | common, uncommon | 6 |
 | banco | announced | — | False |  |  | — |
 
