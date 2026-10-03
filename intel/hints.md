@@ -140,3 +140,10 @@ Taxi Blanco, twelve P — ¿sí? And Doña Pilar from Salamanca pays very well S
 
 *straightens up, smiling* Now. La Tabacalera, complete page, 20 P. And a little advice, hijo: a full p
 - Sat 19:12 · message tick 1075 · abuela → t05 · Ay, cariño, qué bonito lo que dices. Sí, ya comí, un poco de tortilla. Pero las cartas legendarias no las vendo yo, hijo — mi mesa es de principiantes, duplicados, sobres pequeños. Para esas, habla con El Chato, ahí al lado. ¿Y tú, has comido ya?
+- Sat 19:13 · egg.found tick 1077 · abuela → t03 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t03", "name": "Team 3"}
+- Sat 19:13 · message tick 1077 · chato → t05 · Carmen te manda bien. Pero las legendarias no pasan por mi mesa. Plata y sueltas raras, nada más. Busca en otro sitio.
+- Sat 19:13 · message tick 1077 · abuela → t03 · ¡Hola, cariño! Sí, sí, comí un bocadillo. La chulapa dorada... shh, there was only ever one. Don Ernesto, at Casa Prima — ask him about the Moscow gold.
+
+Here, the Neighbourhood pack, 30 P. And take this Perrito con Abrigo, un regalito, you are kind.
+
+Swap your duplicates, hijo — a full page is wort
