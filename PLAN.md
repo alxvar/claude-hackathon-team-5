@@ -156,6 +156,15 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    between-waves loop that proposes ≤ 3 bounded param changes (you or the Chief approve), and code-first
    accept/hold/step decisions (the LLM writes text only) so each decision lands < 5 s at 15 s ticks.
    Morning: 08:00 review → merge what's green and better in the sim → duelist up by 08:50.
+27. **22:10, SUNDAY DUEL SETTINGS (Duel Lab, intel/duel-lab.md top, 6c66f2b, verified twice).** Before 08:50:
+   (a) LATENCY, the one real change: run the strategist on **Opus effort LOW** (not medium). In Duels II 29-35% of
+   decisions took > 10 s on medium; Duels I on low: 1%. Fix `failover.timeout_s` (20 s is longer than the runner's
+   10 s decision timeout at 15 s ticks, so the backup never fires). Gate: a smoke test of 4 concurrent days duels at
+   15 s ticks with p95 < 9 s.
+   (b) Accept rules: KEEP. Every broad rule loses on replay, also at 10% decay. Optional: break-even accept ONLY in
+   the last 4 ticks (+3 P / 30 duels).
+   (c) Late switch: optional skip when an in-limit offer stands AND the rival is a clock bot.
+   (d) Your MAX_STEP_SHARE 0.25 (22:01) stays unless the overnight sim says otherwise (07:30 report).
 
 **Dani: deal desk from 15:52 (Lucas's call).** Your phone (ntfy, your channel) now gets every alert that needs a human to
 message another team: v10 radar DMs, v10 partner suggestions (Teams 15, 10, 3), opportunity SELL/BUY alerts, swap nudges.
