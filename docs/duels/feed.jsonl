@@ -612,3 +612,5 @@
 {"id": 33756, "tick": 637, "t": 6.6333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2525, "session": 2, "status": "no_deal", "item": "Mercado de la Paz"}}
 {"id": 33759, "tick": 637, "t": 6.6333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2565, "session": 2, "status": "no_deal", "item": "La Heroína del Dos de Mayo"}}
 {"id": 33847, "tick": 640, "t": 6.6583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2583, "session": 2, "status": "no_deal", "item": "Palacio de Cristal"}}
+{"id": 34204, "tick": 651, "t": 6.75, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2591, "session": 2, "status": "no_deal", "item": "Café en Goya"}}
+{"id": 34207, "tick": 651, "t": 6.75, "type": "duels.finished", "scope": "public", "actor": "", "payload": {"session": 2, "name": "Duels I"}}
