@@ -679,6 +679,13 @@ flat while our raw L rose 0.373 → 0.437).
 - Algebra that holds for any top-3 mean: anyone at or above the mean is in the top 3, so **once we're capped, every +Δ we add raises
   the reference by Δ/3**. Each rival below the reference then loses p_i × (Δ/3)/(ref + Δ/3) of its part p_i.
 
+**Strength of (a) for the 06:41 review [scratchpad `reltest2.py`]:** a direct test needs a window with only team-team trades
+(no dealer deals, no duels) in which a CAPPED team trades. Saturday has exactly one trade-only window (1130 → 1140: t12 buys LAT-08
+from t09 at 10). Both teams rose (+0.22 / +0.06), so neither was capped, and idle teams moved 0.00: no test. So "past our trade cap
+lowers rivals" rests on (1) N being field-relative [V: the rate fell 3×], (2) the same top-3 shape being shown for real trades
+(market-test-audit: two venues at the cap at once, never three) and for the ladder (above), and (3) the algebra. Label: **[L], not [V]**.
+If the trade reference were a max of others or a median, the past-cap effect would shrink or vanish; MAL still costs 0 points.
+
 **(c) Consequences for Sunday [L]:**
 1. **MAL close past our trade cap is still worth doing.** +30 np → reference +10. Rivals below the cap with a trade part of 6-8 lose
    ≈ 0.4-1.1 Sunday pts each (N 60-125). That's the #2 race (t18, t12, t03), at 0 points to us (cash has no end value). t10 is
