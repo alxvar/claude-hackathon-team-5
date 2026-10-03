@@ -1,23 +1,24 @@
-# Opportunities (auto, 10:21, game tick 265, t 3.5333 h)
+# Opportunities (auto, 10:22, game tick 267, t 3.55 h)
 
 Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and ≤ 60 real min old · ≤ 3 alerts/h · team 45 min · team+card 2 h · sells only to teams ≥ 10 below us (19.04) and outside the top 4 (t02, t12, t13, t18). Data: collector.
 
-## Ranked now (12)
+## Ranked now (13)
 
 | # | side | team | card | price | our value | gain | signal | age (game / real min) | status |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | BUY | Team 15 (#14, 13.15) | RET-07 uncommon | 24 | 27.5 | 3.5 | bought it at 24 P from t02 (tick 234) | 15 / 15 | listed only: gain 3.5 < 20 |
-| 2 | BUY | Team 12 (#2, 27.13) | RET-01 common | 8 | 11 | 3 | bought it at 9 P from abuela (tick 217) | 24 / 24 | no: top 4 |
-| 3 | BUY | Team 18 (#1, 29.02) | RET-01 common | 8 | 11 | 3 | bought it at 9 P from abuela (tick 211) | 27 / 27 | no: top 4 |
-| 4 | SELL | Team 3 (#10, 16.97) | SAL-01 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 253) | 6 / 6 | no: only 2.07 below us (needs ≥ 10) |
-| 5 | SELL | Team 3 (#10, 16.97) | SAL-02 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 208) | 29 / 28 | no: only 2.07 below us (needs ≥ 10) |
-| 6 | BUY | Team 12 (#2, 27.13) | RET-07 uncommon | 24 | 27.5 | 3.5 | bought it at 22 P from abuela (tick 182) | 41 / 41 | no: top 4 |
-| 7 | BUY | Team 2 (#3, 25.21) | RET-01 common | 8 | 11 | 3 | bought it at 10 P from abuela (tick 163) | 51 / 51 | no: top 4 |
-| 8 | SELL | Team 7 (#17, 10.24) | SAL-01 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 136) | 76 / 705 | no: only 8.8 below us (needs ≥ 10) |
-| 9 | SELL | Team 7 (#17, 10.24) | SAL-02 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 132) | 80 / 709 | no: only 8.8 below us (needs ≥ 10) |
-| 10 | SELL | Team 3 (#10, 16.97) | SAL-05 common | 40 | 9 | 31 | bid 9 P for it (tick 182) | 41 / 41 | no: only 2.07 below us (needs ≥ 10) |
-| 11 | SELL | Team 7 (#17, 10.24) | SAL-05 common | 40 | 9 | 31 | asked abuela to sell it (tick 128) | 84 / 712 | no: only 8.8 below us (needs ≥ 10) |
-| 12 | SELL | Team 8 (#12, 14.91) | SAL-03 common | 38 | 9 | 29 | bid 5 P for it (tick 142) | 70 / 700 | no: only 4.13 below us (needs ≥ 10) |
+| 1 | BUY | Team 15 (#14, 13.15) | RET-07 uncommon | 24 | 27.5 | 3.5 | bought it at 24 P from t02 (tick 234) | 16 / 16 | listed only: gain 3.5 < 20 |
+| 2 | BUY | Team 10 (#9, 16.99) | RET-01 common | 8 | 11 | 3 | listed it at 40 P (tick 265) | 1 / 1 | listed only: gain 3 < 20 |
+| 3 | BUY | Team 12 (#2, 27.13) | RET-01 common | 8 | 11 | 3 | bought it at 9 P from abuela (tick 217) | 25 / 25 | no: top 4 |
+| 4 | BUY | Team 18 (#1, 29.02) | RET-01 common | 8 | 11 | 3 | bought it at 9 P from abuela (tick 211) | 28 / 28 | no: top 4 |
+| 5 | SELL | Team 3 (#10, 16.97) | SAL-01 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 253) | 7 / 7 | no: only 2.07 below us (needs ≥ 10) |
+| 6 | SELL | Team 3 (#10, 16.97) | SAL-02 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 208) | 30 / 29 | no: only 2.07 below us (needs ≥ 10) |
+| 7 | BUY | Team 12 (#2, 27.13) | RET-07 uncommon | 24 | 27.5 | 3.5 | bought it at 22 P from abuela (tick 182) | 42 / 42 | no: top 4 |
+| 8 | BUY | Team 2 (#3, 25.21) | RET-01 common | 8 | 11 | 3 | bought it at 10 P from abuela (tick 163) | 52 / 52 | no: top 4 |
+| 9 | SELL | Team 7 (#17, 10.24) | SAL-01 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 136) | 77 / 706 | no: only 8.8 below us (needs ≥ 10) |
+| 10 | SELL | Team 7 (#17, 10.24) | SAL-02 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 132) | 81 / 710 | no: only 8.8 below us (needs ≥ 10) |
+| 11 | SELL | Team 3 (#10, 16.97) | SAL-05 common | 40 | 9 | 31 | bid 9 P for it (tick 182) | 42 / 42 | no: only 2.07 below us (needs ≥ 10) |
+| 12 | SELL | Team 7 (#17, 10.24) | SAL-05 common | 40 | 9 | 31 | asked abuela to sell it (tick 128) | 85 / 713 | no: only 8.8 below us (needs ≥ 10) |
+| 13 | SELL | Team 8 (#12, 14.91) | SAL-03 common | 38 | 9 | 29 | bid 5 P for it (tick 142) | 71 / 701 | no: only 4.13 below us (needs ≥ 10) |
 
 ## Alerts (newest first)
 
