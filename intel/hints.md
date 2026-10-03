@@ -199,3 +199,6 @@ Paco: Say sí, the street is waiting.
 - Sat 21:18 · message tick 1241 · banco → t08 · Señora, mi cámara nunca ha estado sola. La Reina de la Movida sale en 761 P. Ni su corazón ni nada más mueve esa cifra. Usted dirá.
 - Sat 21:22 · catalog.minted LAV-11 (La Casa Encendida, epic, print run 9): hidden=False minted=3 (was 2)
 - Sat 21:22 · catalog.minted RET-11 (Palacio de Cristal, epic, print run 9): hidden=False minted=2 (was 1)
+- Sat 21:30 · message tick 1265 · picaros → t04 · ¡Primo! Mamá fuerte como un roble, le damos tu beso. —Y lloró tu mamá, dice Paco, ¡eso vale más que el oro!
+
+La Puerta de Alcalá, esa joya de Madrid... para tu tío, 187 P. Piedra noble, primo. ¿La envolvemos ya? Que el autobús no espera.
