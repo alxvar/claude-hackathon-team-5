@@ -1309,5 +1309,77 @@
     "settles_at_tick": 1372
    }
   }
- ]
+ ],
+ "last_seen_tick": 1372,
+ "done": {
+  "duel": 6101,
+  "session": 3,
+  "status": "deal",
+  "role": "seller",
+  "item": "Plaza del Dos de Mayo",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 1.76,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 56,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Plata",
+  "deadline_tick": 1373,
+  "decay_per_round": 0.08,
+  "rounds": 1,
+  "your_offer": {
+   "id": 10763,
+   "price": 75,
+   "tick": 1370,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 10595,
+   "price": 65,
+   "tick": 1363,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1359,
+    "from": "you",
+    "text": "I'm opening at 84 P with delivery on day 10. Send me a concrete counter with both a price and a day, and we can move quickly.",
+    "price": 84,
+    "days": 10
+   },
+   {
+    "tick": 1363,
+    "from": "Rival Plata",
+    "text": "Hola. I like it, and I can pay 65 P, delivery day 0.",
+    "price": 65,
+    "days": 0
+   },
+   {
+    "tick": 1363,
+    "from": "you",
+    "text": "I can come down to 77 P with delivery on day 10. If an earlier day matters more to you, I could do a higher price on day 0 instead; tell me which you prefer and we can settle quickly.",
+    "price": 77,
+    "days": 10
+   },
+   {
+    "tick": 1369,
+    "from": "you",
+    "text": "I can do 95 P, delivery on day 0.",
+    "price": 95,
+    "days": 0
+   },
+   {
+    "tick": 1370,
+    "from": "you",
+    "text": "I can do 75 P with delivery on day 0. That's a real move from me, so let's close it now.",
+    "price": 75,
+    "days": 0
+   }
+  ],
+  "result": 17.5,
+  "price": 75,
+  "days": 0
+ }
 }
