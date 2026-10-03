@@ -67,6 +67,53 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 560,
+   "raw": {
+    "duel": 2473,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 94,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Rojo",
+    "deadline_tick": 568,
+    "decay_per_round": 0.06,
+    "rounds": 0,
+    "your_offer": {
+     "id": 4855,
+     "price": 58,
+     "tick": 560,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 552,
+      "from": "you",
+      "text": "I'm interested in El Mesón de la Cava and I'm offering 55 P. That reflects a fair value for a business of this kind, and I'm ready to move quickly. What price do you have in mind?",
+      "price": 55,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "you",
+      "text": "I can do 58 P.",
+      "price": 58,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -177,6 +224,63 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 560,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 2473,
+     "role": "buyer",
+     "limit": 94,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm interested in El Mesón de la Cava and I'm offering 55 P. That reflects a fair value for a business of this kind, and I'm ready to move quickly. What price do you have in mind?",
+      "offer": {
+       "price": 55,
+       "days": null
+      },
+      "accept": false,
+      "tick": 552,
+      "decision": {
+       "action": "offer",
+       "price": 55,
+       "message": "I'm interested in El Mesón de la Cava and I'm offering 55 P. That reflects a fair value for a business of this kind, and I'm ready to move quickly. What price do you have in mind?"
+      }
+     }
+    ],
+    "rival_offer": null,
+    "tick": 560,
+    "ticks_left": 8,
+    "rounds": 0
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 58 P.",
+    "price": 58,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -233,6 +337,29 @@
      "id": 4709,
      "price": 55,
      "tick": 552,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 560,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 58 P.",
+    "price": 58,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 2473,
+    "offer": {
+     "id": 4855,
+     "price": 58,
+     "tick": 560,
      "days": 0
     }
    }
