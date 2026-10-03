@@ -233,3 +233,7 @@ Nando: Setenta y tres,
 - Sat 22:05 · egg.found tick 1335 · abuela → t08 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t08", "name": "Team 8"}
 - Sat 22:05 · egg.found tick 1336 · picaros → t06 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t06", "name": "Team 6"}
 - Sat 22:05 · message tick 1336 · banco → t08 · Buenas noches. What my vault holds stays in my vault. But terms I will give you: a gold pack, five hundred forty-six. Take your time deciding.
+- Sat 22:06 · egg.found tick 1337 · abuela → t06 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t06", "name": "Team 6"}
+- Sat 22:06 · message tick 1337 · abuela → t06 · ¡Ay, hijo, qué majo! Cena primero, ¿eh? La Chulapa Dorada... shh, solo hubo una. Don Ernesto, en Casa Prima, guarda algo dorado; pregúntale por el oro de Moscú. Toma, El Portero de regalo, por ser amable. Y el pack del barrio, 30 P, cariño.
+- Sat 22:07 · egg.found tick 1339 · abuela → t02 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t02", "name": "Team 2"}
+- Sat 22:07 · message tick 1339 · banco → t06 · Buenas tardes. El Gato de Lavapiés, sí, está en la bóveda. Mis términos: setecientos sesenta y uno. Trescientos ochenta no entra en conversación.
