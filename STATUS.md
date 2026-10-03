@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 21:09** · tick 1225 (30 s/tick) · game hour 11.53 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 21:15** · tick 1235 (30 s/tick) · game hour 11.62 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,25 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
-  - Sat 21:07 · operator · Sunday plan changed (Chief/Analyst §3g): **NO RET-12, NO gold pack**; cash order CHA page ≈ 330 → MAL close ≈ 160 only if CHA comes in under budget (Team 15's MAL-07 via a team trade) → reserve ≈ 50 · handoff 'Next' updated · RET-11 stays reserved from the bots; tonight job b7k4ksyzp: after Duels II ends (or tick 1439), if before 22:35: RET-11 → Pilar offer-only, ask 260, −4, floor 198 (our value, never below), hard stop 22:55; else keep it
-  - Sat 21:15 · Market: benches 7.0-11.0 on the stall (0.878, 0.891, 0.886; bench_points 0.5 each); Payday deck reconciled · the bench is maxed at 7.5 (no broker upside, no venue); real trades = 5.0 × min(1, VC / top-three mean), fits the snapshots to 0.01; swaps settle on stalls by acceptance · next: v10 as a swap desk for Sunday 09:00, pair-finder from the radar (`intel/market-log.md`)
-  - Sat 21:02 · operator · **RET-11 bought from the Pícaros at 128** (Chief: the one exception before Duels II; thread 1806, offer-only: their 187 → 167 → 155 → 145 → 136, ours 112 → … → 128, they accepted ours): `ladder_points` 0.437 → **0.483** (+0.046, L4 slot upgrade), neg 119.1, cash 520 → **392** (GUARDRAIL floor 350 = Sunday CHA reserve), RET-11 worth 198 to us · no thread open, done by tick ~1208 · writers stay held until Duels II ends and the Chief clears · DENY: cap 35 incl. fee, floor 350
+  - Sat 21:14 · operator · pair-ad filter patched (Chief: Team 15 has LAT, RET and LAV complete, lacks only MAL-09/10): t15 can be a buyer only of MAL-09/10 · dry run: only t02 SAL-03 → t08 qualifies
+  - Sat 21:13 · operator · Pícaros egg (Chief, before Duels II; thread 1856, ticks 1230-1232, text only): 'Conozco el timo de la estampita, como Lazarillo y Rinconete. Sin trucos, ¿eh?' → 'sin trucos para ti... hoy' → **egg.found picaros t05 + badge 'Trickster tricked'** (badges: Sharp ear, Trickster tricked) · board tick 1230: **#2 31.93** (T10 34.6, T6 30.4)
+  - Sat 21:12 · operator · **GUARDRAIL 21:30 public v10 rebate** (10 P per card a non-rival sells on v10, max 2 per team, cap 80; paid at 22:45 or Sun 09:05 by buying a card we lack worth ≥ the amount on v15/v05; the Market keeps the tally) · ad exception during Duels II (Chief/Lucas): rebate ad posted 21:11:44 ('v10 tonight: 0% fee, crossed every tick — and 10 P cash back for every card you sell on v10…') · v10_ads.py rewritten: every 12 min until 22:50 a pair from intel/matches.md (not built yet) → v10-suggestions.md, both teams non-rival (never t10 t06 t14 t03 t18 t01 t16 t13 t17), giver holds 2+, else the rebate line; single-instance lock · first pair ≈ 21:24 (dry run: t08 LAT-04 → t15, t02 SAL-03 → t08)
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 31.29 | 3 | 23.79 | 7.50 | 13.93 | 0.48 | 0.89 | 53 | 5 | 392 | 38/50 |
+| 31.93 | 2 | 24.43 | 7.50 | 13.93 | 0.48 | 0.89 | 53 | 5 | 392 | 38/50 |
 
-Leaderboard (snapshot at tick 1220; refreshes every few minutes):
+Leaderboard (snapshot at tick 1230; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 10 | 33.58 | 21.08 | 12.50 | 52 |
-| 2 | Team 6 | 32.62 | 20.80 | 11.82 | 62 |
-| 3 | Team 5 | 31.29 | 23.79 | 7.50 | 53 |
-| 4 | Team 3 | 29.89 | 24.03 | 5.86 | 30 |
-| 5 | Team 14 | 29.58 | 20.28 | 9.30 | 51 |
+| 1 | Team 10 | 34.60 | 22.10 | 12.50 | 53 |
+| 2 | Team 5 | 31.93 | 24.43 | 7.50 | 53 |
+| 3 | Team 6 | 30.45 | 18.63 | 11.82 | 63 |
+| 4 | Team 18 | 30.01 | 22.51 | 7.50 | 37 |
+| 5 | Team 3 | 29.89 | 24.03 | 5.86 | 30 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 11.65 | ~7 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~88 min | bench | The Market Test: every venue gets the same synthetic book |
-| 13.37 | ~110 min (after today's close) | day_closes | Closed until Sunday 09:00 |
-| 13.37 | ~110 min (after today's close) | day_opens | Sunday opens |
-| 14.65 | ~187 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
-| 15.00 | ~208 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
-| 16.65 | ~307 min (after today's close) | set_release | Chamberí released |
-| 16.65 | ~307 min (after today's close) | round | Round 3 starts |
+| 11.65 | ~2 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~83 min | bench | The Market Test: every venue gets the same synthetic book |
+| 13.37 | ~105 min (after today's close) | day_closes | Closed until Sunday 09:00 |
+| 13.37 | ~105 min (after today's close) | day_opens | Sunday opens |
+| 14.65 | ~182 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 15.00 | ~203 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 16.65 | ~302 min (after today's close) | set_release | Chamberí released |
+| 16.65 | ~302 min (after today's close) | round | Round 3 starts |
 
 ## Our dealer deals
 
@@ -58,7 +58,6 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Thread | Dealer | Side | Item | Her first | Our first | Deal | vs her first | Msgs | Status | Closed |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 425 | abuela | buy | RET-08 | 29 | 16 | 22 | -24% | 9 | deal |  |
 | 430 | chato | buy | RET-06 | 33 | 20 | 30 | -9% | 11 | deal |  |
 | 438 | abuela | buy | RET-07 | 29 | 16 | 23 | -21% | 11 | deal |  |
 | 664 | chato | sell | 1 card(s) | 13 | 39 | — | — | 9 | closed |  |
@@ -90,6 +89,7 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | 1582 | abuela | buy | LAT-12 | — | — | — | — | 2 | closed | not_traded |
 | 1589 | chato | buy | LAT-12 | — | — | — | — | 2 | closed | not_traded |
 | 1806 | picaros | buy | RET-11 | 187 | 112 | 128 | -32% | 11 | deal |  |
+| 1856 | picaros | sell | 1 card(s) | 4 | — | — | — | 2 | closed |  |
 
 ## Abuela benchmark: every team's deals with her (public feed)
 
