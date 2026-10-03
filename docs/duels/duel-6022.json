@@ -1681,5 +1681,84 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1321,
+ "done": {
+  "duel": 6022,
+  "session": 3,
+  "status": "deal",
+  "role": "buyer",
+  "item": "La Dama de Serrano",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 1.43,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 125,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Azul",
+  "deadline_tick": 1323,
+  "decay_per_round": 0.08,
+  "rounds": 3,
+  "your_offer": {
+   "id": 9404,
+   "price": 86,
+   "tick": 1320,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 9010,
+   "price": 90,
+   "tick": 1309,
+   "days": 10
+  },
+  "messages": [
+   {
+    "tick": 1307,
+    "from": "Rival Azul",
+    "text": "Hello, and thank you for meeting me. I would propose 107 P with delivery on day 10.",
+    "price": 107,
+    "days": 10
+   },
+   {
+    "tick": 1308,
+    "from": "you",
+    "text": "Thank you for the opening, I appreciate it. I can do 78 P with delivery on day 10; a gap like this is a normal place to start.",
+    "price": 78,
+    "days": 10
+   },
+   {
+    "tick": 1308,
+    "from": "Rival Azul",
+    "text": "I appreciate it, thank you. Could we close at 95 P, delivery on day 10, please?",
+    "price": 95,
+    "days": 10
+   },
+   {
+    "tick": 1309,
+    "from": "you",
+    "text": "Thank you, I appreciate the move. I can step up to 81 P with delivery on day 10, a real step toward meeting in the middle.",
+    "price": 81,
+    "days": 10
+   },
+   {
+    "tick": 1309,
+    "from": "Rival Azul",
+    "text": "Fair enough, thank you. I will meet you partway: 90 P with delivery on day 10.",
+    "price": 90,
+    "days": 10
+   },
+   {
+    "tick": 1320,
+    "from": "you",
+    "text": "Thank you for the move. I can come to 86 P with delivery on day 10, a firm step to close the gap from my side.",
+    "price": 86,
+    "days": 10
+   }
+  ],
+  "result": 19.3,
+  "price": 86,
+  "days": 10
+ }
 }
