@@ -119,6 +119,65 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 525,
+   "raw": {
+    "duel": 2494,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "La Heroína del Dos de Mayo",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 57,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 538,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 4221,
+     "price": 88,
+     "tick": 525,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4202,
+     "price": 64,
+     "tick": 525,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 522,
+      "from": "you",
+      "text": "La Heroína del Dos de Mayo is a rare, well-regarded vessel with real historical pedigree, and pieces of this quality seldom come to market. I'm offering it at 95 P and welcome a serious counteroffer.",
+      "price": 95,
+      "days": null
+     },
+     {
+      "tick": 525,
+      "from": "Rival Sol",
+      "text": "Thank you, that's kind. I could do 64 P and close it today.",
+      "price": 64,
+      "days": null
+     },
+     {
+      "tick": 525,
+      "from": "you",
+      "text": "I appreciate the quick response, but your offer sits well below what a vessel of this rarity and pedigree warrants. I'm willing to move to 88 P as a genuine step toward you, and I'd ask you to meet me with a meaningful move up.",
+      "price": 88,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -229,6 +288,111 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 525,
+   "took_s": 5.73,
+   "cost_usd": 0.00619,
+   "obs": {
+    "view": {
+     "duel_id": 2494,
+     "role": "seller",
+     "limit": 57,
+     "currency": "P",
+     "item": "La Heroína del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "La Heroína del Dos de Mayo is a rare, well-regarded vessel with real historical pedigree, and pieces of this quality seldom come to market. I'm offering it at 95 P and welcome a serious counteroffer.",
+      "offer": {
+       "price": 95,
+       "days": null
+      },
+      "accept": false,
+      "tick": 522,
+      "decision": {
+       "action": "offer",
+       "price": 95,
+       "message": "La Heroína del Dos de Mayo is a rare, well-regarded vessel with real historical pedigree, and pieces of this quality seldom come to market. I'm offering it at 95 P and welcome a serious counteroffer."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you, that's kind. I could do 64 P and close it today.",
+      "offer": {
+       "price": 64,
+       "days": null
+      },
+      "accept": false,
+      "tick": 525,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 64,
+     "days": null
+    },
+    "tick": 525,
+    "ticks_left": 13,
+    "rounds": 1
+   },
+   "move": {
+    "action": "offer",
+    "text": "I appreciate the quick response, but your offer sits well below what a vessel of this rarity and pedigree warrants. I'm willing to move to 88 P as a genuine step toward you, and I'd ask you to meet me with a meaningful move up.",
+    "price": 88,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 88,
+      "message": "I appreciate the quick response, but your offer sits well below what a vessel of this rarity and pedigree warrants. I'm willing to move to 88 P as a genuine step toward you, and I'd ask you to meet me with a meaningful move up."
+     },
+     "band": {
+      "worst": 86,
+      "target": 88,
+      "best": 90
+     },
+     "plan": {
+      "read": "They countered at 64 P after our 95 P opening, a normal first move; their 'close it today' is soft pressure with no real deadline behind it. Their true ceiling is likely well above 64.",
+      "target": 88,
+      "best": 90,
+      "worst": 86,
+      "days": null,
+      "angle": "Make a measured concession to 88 P, stress the vessel's rarity and pedigree, and invite them to move meaningfully up from 64."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.43,
+       "in": 428,
+       "out": 140,
+       "cost_usd": 0.00451,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.3,
+       "in": 349,
+       "out": 98,
+       "cost_usd": 0.00168,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -285,6 +449,63 @@
      "id": 4146,
      "price": 95,
      "tick": 522,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 525,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I appreciate the quick response, but your offer sits well below what a vessel of this rarity and pedigree warrants. I'm willing to move to 88 P as a genuine step toward you, and I'd ask you to meet me with a meaningful move up.",
+    "price": 88,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 88,
+      "message": "I appreciate the quick response, but your offer sits well below what a vessel of this rarity and pedigree warrants. I'm willing to move to 88 P as a genuine step toward you, and I'd ask you to meet me with a meaningful move up."
+     },
+     "band": {
+      "worst": 86,
+      "target": 88,
+      "best": 90
+     },
+     "plan": {
+      "read": "They countered at 64 P after our 95 P opening, a normal first move; their 'close it today' is soft pressure with no real deadline behind it. Their true ceiling is likely well above 64.",
+      "target": 88,
+      "best": 90,
+      "worst": 86,
+      "days": null,
+      "angle": "Make a measured concession to 88 P, stress the vessel's rarity and pedigree, and invite them to move meaningfully up from 64."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.43,
+       "in": 428,
+       "out": 140,
+       "cost_usd": 0.00451,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.3,
+       "in": 349,
+       "out": 98,
+       "cost_usd": 0.00168,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2494,
+    "offer": {
+     "id": 4221,
+     "price": 88,
+     "tick": 525,
      "days": 0
     }
    }

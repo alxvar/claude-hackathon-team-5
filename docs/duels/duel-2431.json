@@ -2067,5 +2067,97 @@
     "settles_at_tick": 526
    }
   }
- ]
+ ],
+ "last_seen_tick": 526,
+ "done": {
+  "duel": 2431,
+  "session": 2,
+  "status": "deal",
+  "role": "seller",
+  "item": "La Heroína del Dos de Mayo",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 125,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Verde",
+  "deadline_tick": 527,
+  "decay_per_round": 0.06,
+  "rounds": 3,
+  "your_offer": {
+   "id": 4198,
+   "price": 145,
+   "tick": 524,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 3932,
+   "price": 134,
+   "tick": 513,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 511,
+    "from": "Rival Verde",
+    "text": "I can do 113 for La Heroína del Dos de Mayo. Let's not let the value melt away.",
+    "price": 113,
+    "days": null
+   },
+   {
+    "tick": 511,
+    "from": "you",
+    "text": "Thanks for opening, but your offer is well short of what this piece merits. La Heroína del Dos de Mayo is a distinctive, sought-after work with real historical weight, and I'm asking 175. If you want to close quickly, come up meaningfully from your starting figure.",
+    "price": 175,
+    "days": null
+   },
+   {
+    "tick": 512,
+    "from": "Rival Verde",
+    "text": "I can do 124 for La Heroína del Dos de Mayo. Let's not let the value melt away.",
+    "price": 124,
+    "days": null
+   },
+   {
+    "tick": 512,
+    "from": "you",
+    "text": "I appreciate you moving up, and I've come down as well, to 168. The work carries real historical weight as an emblem of the 1808 uprising, and that is reflected in this figure. I'd ask you to close more of the remaining gap.",
+    "price": 168,
+    "days": null
+   },
+   {
+    "tick": 513,
+    "from": "Rival Verde",
+    "text": "I can do 134 for La Heroína del Dos de Mayo. Let's not let the value melt away.",
+    "price": 134,
+    "days": null
+   },
+   {
+    "tick": 513,
+    "from": "you",
+    "text": "Thank you for moving up again. I've come down to 162, which reflects the painting's historical weight as an emblem of the 1808 uprising. One more solid step from you and we can wrap this up quickly.",
+    "price": 162,
+    "days": null
+   },
+   {
+    "tick": 516,
+    "from": "you",
+    "text": "I'm making a clear move down to 156, in line with the steps you took earlier. That is a real concession on my side, and the painting's historical weight as an emblem of the 1808 uprising supports it. I'd ask you to come up to meet me so we can wrap this up.",
+    "price": 156,
+    "days": null
+   },
+   {
+    "tick": 524,
+    "from": "you",
+    "text": "I'm making one more clear move, down to 145, which brings us close to the middle of the remaining gap. The painting's standing as an emblem of the 1808 uprising supports it, and with time running short I'd ask you to meet me there so we can finish.",
+    "price": 145,
+    "days": null
+   }
+  ],
+  "result": 7.5,
+  "price": 134,
+  "days": 0
+ }
 }
