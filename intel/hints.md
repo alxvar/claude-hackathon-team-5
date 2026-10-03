@@ -157,3 +157,4 @@ Swap your duplicates, hijo — a full page is wort
 - Sat 19:19 · message tick 1089 · banco → t16 · Ciento trece, señor. That is my term for La Puerta de Alcalá, today and tomorrow. Your numbers move; mine does not. Sit, think, return when you are ready.
 - Sat 19:19 · taller.crafted tick 1090 ·  → t14 · Team 14 turned three common cards into La Galería (uncommon) at The Workshop
 - Sat 19:20 · catalog.minted LAT-11 (San Francisco el Grande, epic, print run 9): hidden=False minted=2 (was 1)
+- Sat 19:20 · persona.open_to_all tick 1091 · banco → ? · {"persona": "banco", "name": "Don Ernesto", "level": 5}
