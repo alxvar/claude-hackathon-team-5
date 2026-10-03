@@ -26,14 +26,15 @@ score**. There is no hidden 22.5 to unlock on v10.
 **Per session k** [V rules text + server fields; L for the shape below the stall]:
 - efficiency e = gains realised between the traders' true limits / possible gains (`bench_efficiency`; our stall
   0.899 · 0.933 · 0.878 · 0.891 · 0.886 · 0.854).
-- bench points: matching the stall = **0.5**; below the stall it looks proportional (t08 0.494 at session 1 ≈ 0.5 × e/e_stall)
-  [L]; above the stall, the rules say "the full points go to the mean of the top three" (never observed, §1c).
+- bench points: matching the stall = **0.5**; below the stall, continuous (t08 0.494, t06 0.381, t13 0.222 at session 1;
+  consistent with 0.5 × e/e_stall, unproven) [L]; above the stall, the rules say "the full points go to the mean of the top three" (never observed, §1c).
 
 **Per round** [L, strong]: a **weighted** mean of the session points, × 22.5. Equal weights are ruled out: t03 scored
 0.5 (stall) then its new board venue v20 scored 0 (no working broker, open since tick 269), and t03 showed 3.61 board,
 not the 3.75 an equal average gives. Fitting t13 and t03 (no real trades ever, so their market is all bench) gives
-session weights **1.00 : 1.07 : 0.86 : 1.04 : 0.93 : 0.81**. With those weights both teams land on 0.50 ± 0.005 in every
-later session, and every non-trading team's residual is 0.00 ± 0.01 at every snapshot. The weights track session size,
+session weights **1.00 : 1.07 : 0.86 : 1.04 : 0.93 : 0.81** (anchored on t13 = 0.5 after session 1). The independent
+check is t03: with those weights it lands on 0.500 · 0.498 · 0.505 · 0.494 in sessions 3-6, and t06/t08 land on 0.500 ±
+0.001 in sessions 2-3. Every team's residual market after the decomposition (§2) is 0.00 ± 0.01 at every snapshot. The weights track session size,
 probably each session's possible gains [L]. So **a 12-trader hard session likely weighs more than a 10-trader one** [L].
 
 **To board and final points** [V blend, fitted 11 snapshots by score-model §1]: board = (0.5·Fri + Sat)/1.5 for Market;
@@ -48,7 +49,7 @@ Per-session bench points (fitted; "≤0.5" = consistent with 0.5, can't exceed i
 
 | Team (venue) | s1 3.0 | s2 5.0 | s3 7.0 | s4 9.0 | s5 11.0 | s6 13.0 |
 |---|---|---|---|---|---|---|
-| t13 (v03→v24, board, own broker) | **0.222** | 0.50 | 0.50 | 0.50 | 0.50 | 0.49 |
+| t13 (v03→v24, board, own broker) | **0.222** | 0.5 (anchor) | 0.5 (anchor) | 0.5 (anchor) | 0.5 (anchor) | 0.5 (anchor) |
 | t06 (v01, board) | **0.381** | 0.50 | 0.50 | 0.50 | ≤0.5 | ≤0.5 |
 | t08 (v06, "matched on estimated limits") | **0.494** | 0.50 | 0.50 | ≤0.5 | ≤0.5 | ≤0.5 |
 | t03 (stall → v20 board) | 0.5 | **0.0** | 0.50 | 0.50 | 0.50 | 0.49 |
@@ -56,9 +57,11 @@ Per-session bench points (fitted; "≤0.5" = consistent with 0.5, can't exceed i
 | t10 (v07, board) | 0.5 | ≤0.5 | 0.5 | ≤0.5 | ≤0.5 | ≤0.5 |
 | t04 (v05), t01 (v19), t02 (v26) board | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 |
 
-- 51 board-venue sessions, **0 above the stall, 5 clearly below**. t10's market was 12.50 at every post-session snapshot
-  with its real-trades part at the cap, so its bench never exceeded 0.5; the highest market anyone ever showed is 12.50.
-- Starter-broker board venues (t04, t01, t02) score exactly the stall's 0.5. A board venue = stall + downtime risk.
+- 51 board-venue sessions, **0 above the stall, 5 clearly below**. Every deviation we can measure was downward (t13,
+  t06, t08 at session 1, t03 at 2, t12 at 6). t10 sat at 12.50 with its real-trades part at the cap after sessions 2, 4,
+  5 and 6 (a bench above 0.5 would have pushed it past 12.50), and its market didn't move at sessions 1 and 3. The
+  highest market anyone ever showed is 12.50.
+- Board venues that never deviated (t04, t01, t02) score exactly the stall's 0.5. A board venue = stall + downtime risk.
 - **One venue per team** [L]: every `bench.started` lists exactly 18 venues (one per team), and t13 closed each venue
   before opening the next. So a "safe clone + experimental" two-venue hedge is likely impossible.
 
@@ -82,7 +85,7 @@ points per session (×9 = final points over a Sunday round):
 - Costs not in the table: downtime (t03 lost a whole session; at 5% per session ≈ −0.2 final), and **270 P** (250 P bond
   locked until close + cooldown, 20 P fee). That's the MAL close (+0.6-1.2 final, score-model §3g) or part of CHA.
 - The real stall books we recorded are post-engine leftovers: every replay is degenerate (proxy 0 or 1). **We have zero
-  real-data evidence for any broker edge**, and the three rivals who ran their own brokers scored below the stall.
+  real-data evidence for any broker edge**, and every rival deviation from the stall we can measure was a loss (§1a).
 
 ### 1c. The hard Market Test (14.65) [L]
 - If the clock **resumes** at 13.367, 14.65 and 15.0 are sessions 7-8 of **Saturday's** round. Each is ≈ 1/8 of it, the hard
@@ -140,8 +143,8 @@ average loss in the staggered sims. Today only (1) is plausible, and it's untest
   verifier-checked). So (R1 + R2)/2 ≤ ~17 VC units; at 320-350 one MAL-07 trade capped us.
 - **Sunday target: ≈ 40-50 net VC by the close** (Saturday × 2-3 for 15 s ticks, +150 P and a field that now
   knows markets count), front-loaded, **zero negative trades** (a negative subtracts at the same rate; the net floors at 0).
-  `market-sunday.md`'s "170 at the close" assumes rival M ≈ 60-150, which the ≤ 15 Saturday bound contradicts. It
-  overstates the target 3-4× [L].
+  `market-sunday.md`'s "170 at the close" assumes a rival top-three mean of 59-213 (its §1 table), which the ≤ 15
+  Saturday bound contradicts. It overstates the target 3-4× [L].
 - Value per unit: at R1 + R2 ≈ 80, the first 20 VC ≈ +4.5 Sunday pts (+1.8 final), 40 caps it. One good page finisher
   (RET-09 t07 → t09, matchmaker low estimate +68) could cap v10 on its own if the estimate is in the same units [?].
 - Trades on rival venues raise their VC and M: keep routing club and swap deals to v10.
