@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 12:17** · tick 495 (30 s/tick) · game hour 5.45 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 12:22** · tick 505 (30 s/tick) · game hour 5.53 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -25,18 +25,17 @@ _From `team/<name>.md`; each person writes only their own file._
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 25.16 | 6 | 17.66 | 7.50 | 3.77 | 0.07 | 0.93 | 36 | 2 | 123 | 32/50 |
+| 26.39 | 5 | 18.89 | 7.50 | 4.37 | 0.07 | 0.93 | 36 | 3 | 123 | 32/50 |
 
-Leaderboard (snapshot at tick 490; refreshes every few minutes):
+Leaderboard (snapshot at tick 500; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
 | 1 | Team 12 | 32.19 | 20.45 | 11.74 | 37 |
-| 2 | Team 14 | 31.15 | 19.30 | 11.86 | 21 |
-| 3 | Team 13 | 29.81 | 24.32 | 5.49 | 49 |
-| 4 | Team 17 | 26.71 | 16.46 | 10.26 | 20 |
-| 5 | Team 18 | 26.58 | 19.08 | 7.50 | 28 |
-| 6 | Team 5 | 25.16 | 17.66 | 7.50 | 36 |
+| 2 | Team 14 | 29.70 | 17.85 | 11.86 | 21 |
+| 3 | Team 13 | 28.87 | 23.38 | 5.49 | 49 |
+| 4 | Team 18 | 26.61 | 19.11 | 7.50 | 28 |
+| 5 | Team 5 | 26.39 | 18.89 | 7.50 | 36 |
 
 ## Next on the schedule
 
@@ -44,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 5.51 | ~3 min | persona_opens | Doña Pilar opens for everyone |
-| 7.00 | ~93 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.00 | ~213 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.15 | ~222 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
-| 11.00 | ~333 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~342 min | persona_patch | The fever breaks |
-| 11.65 | ~372 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~453 min | bench | The Market Test: every venue gets the same synthetic book |
+| 7.00 | ~88 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.00 | ~208 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.15 | ~217 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
+| 11.00 | ~328 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~337 min | persona_patch | The fever breaks |
+| 11.65 | ~367 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~448 min | bench | The Market Test: every venue gets the same synthetic book |
+| 14.65 | ~547 min | bench | The hard Market Test: firmer and more impatient traders |
 
 ## Our dealer deals
 
@@ -98,6 +97,7 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | 438 | abuela | buy | RET-07 | 29 | 16 | 23 | -21% | 11 | deal |  |
 | 664 | chato | sell | 1 card(s) | 13 | 39 | — | — | 9 | closed |  |
 | 682 | chato | sell | 1 card(s) | 13 | 30 | 14 | +8% | 15 | deal |  |
+| 710 | pilar | sell | 1 card(s) | 16 | 30 | — | — | 6 | open |  |
 
 ## Abuela benchmark: every team's deals with her (public feed)
 
@@ -111,20 +111,20 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 ## Duels
 
-Live: 3 · finished: 45
+Live: 3 · finished: 46
 
-- {"duel": 278, "session": 1, "status": "deal", "role": "buyer", "item": "El Tren Fantasma", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 116, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "deadline_tick": 177, "decay_per_round": 0.06, "roun
 - {"duel": 2296, "session": 2, "status": "deal", "role": "seller", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 87, "limit_meaning": "never sell below your cost", "rival": "Rival Sol", "deadline_tick": 475, "decay_per_round": 0.
 - {"duel": 2297, "session": 2, "status": "deal", "role": "buyer", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 175, "limit_meaning": "never pay above your value", "rival": "Rival Plata", "deadline_tick": 475, "decay_per_round": 
 - {"duel": 2314, "session": 2, "status": "deal", "role": "buyer", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 75, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "deadline_tick": 475, "decay_per_round": 0.0
 - {"duel": 2315, "session": 2, "status": "deal", "role": "seller", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 64, "limit_meaning": "never sell below your cost", "rival": "Rival Oro", "deadline_tick": 491, "decay_per_round": 0.
 - {"duel": 2318, "session": 2, "status": "deal", "role": "seller", "item": "Palacio de Cristal", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 74, "limit_meaning": "never sell below your cost", "rival": "Rival Sol", "deadline_tick": 498, "decay_per_round": 0.06, "r
 - {"duel": 2319, "session": 2, "status": "live", "role": "buyer", "item": "Palacio de Cristal", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 97, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "deadline_tick": 511, "decay_per_round": 0.06, "ro
+- {"duel": 2356, "session": 2, "status": "live", "role": "seller", "item": "Caf\u00e9 en Goya", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 101, "limit_meaning": "never sell below your cost", "rival": "Rival Plata", "deadline_tick": 513, "decay_per_round": 0.06, 
 - {"duel": 2366, "session": 2, "status": "deal", "role": "seller", "item": "Palacio de Cristal", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 101, "limit_meaning": "never sell below your cost", "rival": "Rival Oro", "deadline_tick": 491, "decay_per_round": 0.06, "
 - {"duel": 2367, "session": 2, "status": "live", "role": "buyer", "item": "Palacio de Cristal", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 72, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "deadline_tick": 507, "decay_per_round": 0.06, "ro
 - {"duel": 2506, "session": 2, "status": "deal", "role": "buyer", "item": "Palacio de Cristal", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 103, "limit_meaning": "never pay above your value", "rival": "Rival Noche", "deadline_tick": 482, "decay_per_round": 0.06, 
 - {"duel": 2540, "session": 2, "status": "deal", "role": "seller", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 71, "limit_meaning": "never sell below your cost", "rival": "Rival Luna", "deadline_tick": 480, "decay_per_round": 0
-- {"duel": 2541, "session": 2, "status": "live", "role": "buyer", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 108, "limit_meaning": "never pay above your value", "rival": "Rival Azul", "deadline_tick": 506, "decay_per_round": 0
+- {"duel": 2541, "session": 2, "status": "deal", "role": "buyer", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 108, "limit_meaning": "never pay above your value", "rival": "Rival Azul", "deadline_tick": 506, "decay_per_round": 0
 
 ## Dealers
 
@@ -132,7 +132,7 @@ Live: 3 · finished: 45
 |---|---|---|---|---|---|---|
 | abuela | active | 1 | True | sobre_barrio (26 P), common (10 P), uncommon (25 P) | common, uncommon | 8 |
 | chato | active | 2 | True | sobre_plata (150 P), uncommon (26 P), rare (77 P) | uncommon, rare, rare | 6 |
-| pilar | active | 3 | False | sobre_oro (420 P) | uncommon, rare, epic, uncommon, rare, epic | 6 |
+| pilar | active | 3 | True | sobre_oro (420 P) | uncommon, rare, epic, uncommon, rare, epic | 6 |
 
 ## Levels
 
