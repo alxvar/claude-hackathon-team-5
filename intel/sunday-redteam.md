@@ -288,7 +288,7 @@ Tick = 15 s. "T0" = the first tick with `round` = 3.
 | 09:10 | Operator | **Chato:** sell fodder uncommon #1 (ask 36, −2, floor 15; slow, 8-10 rounds). Never buy from Chato at list |
 | 09:15 | Chief | Flags tally: did the first scored flag pay +10? Then the cap reset → keep going to 3 |
 | 09:15-09:20 | Operator | CHA-10 settles. **No CHA rare stock or walks above 57 twice** → re-add the CHA-09/10 book bids (70 → 90) and run Chato ≤ 77 → ≤ 100 |
-| 09:20 | Operator | Pícaros slot 3 placeholder: sell the LAV-04 spare at ≥ 5 (open 12, −1). The 4th spare stays for denial (never to t03) |
+| 09:20 | Operator | Pícaros slot 3 placeholder: sell the LAV-04 spare at ≥ 5 (open 12, −1). It is our last LAV spare after the Workshop |
 | 09:21 | — | Bench (stall), if re-anchored. Nothing to do |
 | 09:25 | Operator | Abuela: 3 CHA commons done by ≈ 09:30. Pilar: 2nd fodder or RET-11 |
 | 09:30 | Chief + Analyst | **Checkpoint 1:** CHA count (target 5-6/10), T so far (flags), L so far (target ≥ 0.25 by 09:45), cash, first VC fills, first round-3 snapshot (board every 10 ticks) |
@@ -331,7 +331,8 @@ Tick = 15 s. "T0" = the first tick with `round` = 3.
 3. **"Trick guard mandatory" is not implemented** [V code]. Directive 00:25 assumes it exists.
 4. **The ladder's L2/L3 gap is treated as structural** (score-model §4.5: "no spare rare/uncommon") **but it is a supply problem
    we can solve**: the pack, the Workshop, gifts and 11-12 P LAT uncommons → Pilar 19-20 / Chato 15-16 [V price history].
-   Saturday's 0.177 at L3 came from exactly this kind of selling.
+   Our Saturday L3 slots came from this kind of selling: MAL-07 19, MAL-06 19/20 (one from the Workshop), SAL-08 23 and MAL-09 56
+   to Pilar [V, score-model §2 table, STATUS dealer table].
 5. **dealer-lab §4.4 "the silver pack stays unopened"** contradicts cha-plan ("open after the release") and costs drag. Open it at
    T0 + 2 ticks, before any CHA buy.
 6. **The MAL close is gated on cash (≥ 150 P left), not on value.** Its +44 only counts while T < N. It also needs Pícaros MAL rares
@@ -361,7 +362,7 @@ Tick = 15 s. "T0" = the first tick with `round` = 3.
 |---|---|---|---|
 | 1 | **Pull flow off v07** | t10's VC (7.5 of its 10.6 lead) | Club members (t08: 204 v07 listings, t04: 55) list on v10. Ask the open-offer bots (t13, t08, t06, t16) to default to v10. t06 made 6 of v07's 11 fills as maker; an ad to t06 for v10 is neutral for t06 and moves VC from t10 to us. Never one offer of ours on v07 (we were maker on 4 of its 11 fills) |
 | 2 | Rival-seller pairs on v10 | t10 gets ≤ 10 np, we get VC ≥ 8 | t10's MAL dumps (MAL-09/10/11) into t15/t01 bids posted **on v10**; no message to t10 |
-| 3 | Never feed a rival's page | t12 (MAL-08), t03 (LAV-02/04), t06 (LAV-05/08), all rivals' CHA | Hold or route to dealers. Pilar sells only gold packs, so a card sold to her doesn't come back as a single [L]. No CHA dup ever to a rival; non-rivals only |
+| 3 | Never feed a rival's page | t12 (MAL-08), t03 (LAV-02/04), t06 (LAV-05/08), all rivals' CHA | Hold MAL-08 (GUARDRAIL 00:50). LAV spares go to the Workshop or the Pícaros, never to t03. No CHA dup ever to a rival; non-rivals only |
 | 4 | Win the CHA rare race | everyone | Our 2 rares at t+1 (§1.2). No denial buys of extra copies (a 2nd copy is worth 28: −24 np) |
 | 5 | Out-duel | t10, t18, t03 (duel-heavy) | Latency + params; keep the key free during waves |
 | 6 | Denial only at ≥ 0 | t12/t18/t03 | The Analyst's 9/10 alerts; a denial buy only when its own np ≥ 0 (deny-list: none today) |
