@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sun 00:05 (tick 1445, doors closed; snapshot 1440): us #3 at 30.49. §3h + §4 corrected after the independent verifier (duels ≈ 6.9 not 9; M ≤ 15; Saturday-tail trade headroom ≈ 6 np; Pilar non-SAL prices; B15). Overnight program §4 (due 07:30)._
+_Last update: Sun 00:35 (tick 1445, doors closed; snapshot 1440): us #3 at 30.49. New: §4.8 per-stage EV + cash split, §4.9 what #1 takes, §4.10 deny-list. §3h + §4 corrected after the independent verifier._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -560,6 +560,46 @@ round 3 at 16.65** · +150 P at 16.7 · Duels III 18.65 · Grand Final + dealers
 - **T+40 → 60:** MAL close if cash allows (dealers first, team MAL-07 last). **Duelist live with the 3 leak fixes before 09:55**:
   in case B15, Duels III starts at 10:00.
 - **Always:** never sell a page card; one accept per tick; ≤ 6 threads; re-read the schedule at every event.
+
+### 4.8 Per-stage EV for Sunday, both clock cases (Chief's ask, 00:30) [L; scratchpad `ev.py`, 20,000 draws]
+Round points (final game = × 0.4). Marginal = full plan minus the plan without that stage. Shared draws: trade reference
+N_sun U(40, 100), ladder reference M U(0.35, 0.65), dealer share U(0.6, 1). **Ladder rows overlap with CHA/MAL** (the CHA dealer buys
+are Abuela/Chato/Pícaros slots).
+| Stage | Case A (resume) | Case B (jump) | sd | P cost | Pts per 100 P | Note |
+|---|---|---|---|---|---|---|
+| Saturday tail: v10 pairs | **+2.0** (Sat) | 0 | 1.8 | rebates ≤ 60 | ≈ 3 | 0.33 board per VC; cap at +5 board incl. the flip |
+| FLIP (mm −5.2 → +2.2) | **+2.2** (Sat) | +1.1 [?] | 0.7 | 0 | ∞ | nothing to do but avoid negative v10 trades |
+| Market Test (stall) | 11.25 | 11.25 | 0 | 0 | — | keep v10 open all day; no board venue |
+| v10 real trades (Sunday VC) | **+2.6** | +2.6 | 2.8 | rebates | ≈ 3 [?] | field-normalised; pulls from v07 count double vs t10 |
+| **CHA page** (team closer + team buys + its dealer slots) | **+8.6** | +8.6 | 3.2 | ≈ 330 | **2.6** | includes ≈ 4.4 of ladder (rows below) |
+| MAL page (MAL-07 team closer + 1 Pícaros rare) | +1.0 | +1.0 | 1.2 | ≈ 140 | 0.7 | trade part mostly filled by CHA already; **conflicts with selling MAL-08** |
+| SAL-11 bid 20252 (115 to t04, +47 np) | +0.2 | +0.2 | 0.8 | 115 | 0.2 | **cancel at 09:00**: low value; in case A it fills in the tail (≈ 6 np headroom) |
+| Ladder: Abuela L1 (3 CHA commons ≤ 9) | +0.9 | +0.9 | 0.3 | in CHA | — | |
+| Ladder: Chato L2 (3 CHA uncommons at 26) | +1.7 | +1.7 | 0.5 | in CHA | — | |
+| Ladder: Pilar L3 (RET-11 ≥ 198, 20% chance; MAL-08 only without MAL) | +0.2 | +0.2 | 0.4 | cash + | — | no spare rare/uncommon besides MAL-08 |
+| Ladder: Pícaros L4 (2 CHA rares + MAL rare or a spare common) | +3.1 | +3.1 | 1.0 | in CHA/MAL | — | the biggest ladder slot set |
+| Ladder: Don Ernesto L5 | 0 | 0 | — | — | — | only epics (RET-11 at ≈ 120 = −78) or 420-585 P items: skip |
+| Duels III (2 rounds) | +4.7 | +4.7 | 1.0 | 0 | ∞ | ≈ 2/3 of the Sunday duel part [?] |
+| Grand Final (1 round) | +2.3 | +2.3 | 0.5 | 0 | ∞ | ≈ 1/3 [?] |
+| **Total** | **39.4** (35.2 Sun + 4.2 Sat) | **36.4** | 4.1 / 3.6 | | | |
+
+**Cash split of 542 P** (case A: 392 until game 16.7, then +150): **CHA ≈ 330 → v10 rebates ≤ 60 → MAL ≈ 140 only if ≥ 150 P is
+left after CHA, else MAL-08 → Pilar ≥ 20 → reserve ≈ 10.** Cancel the SAL-11 bid (frees 115). No denial reserve (intel/deny-list.md:
+no denial buy is ≥ 0 for us). No Ernesto, gold pack or legendary.
+
+### 4.9 What #1 takes (Chief's ask) [L; scratchpad `p1.py`]
+The game gap to t10 is 10.64. Our Saturday extras (flip ≈ 2.2, tail ≈ 2.0) minus t10's own tail (≈ 0.75) leave a **Sunday-round margin
+over t10 of ≈ +7.2 in case A, ≈ +9.9 in case B**. Our Sunday round is ≈ 35 against t10's repeat ≈ 46, so the expected gap is ≈ −11:
+**#1 needs an ≈ 18-point swing**, i.e. t10 falling to ≈ 28-30 (the median Sunday round we'd need if t10 repeats: 53, above the 48.75
+ceiling). P(#1) base 1.7%. Levers ranked by how much they move P(#1):
+1. **Our Sunday v10 VC at the cap** (+7.5): 1.7% → **7.4%**.
+2. **Pull v07's flow onto v10** (t10 −3.75, us +1.5): → **6.9%**. The only lever that cuts t10 directly.
+3. **Duels +2** (the 3 leak fixes) or the **Saturday tail at its cap**: → 3.3-3.4% each.
+Together, maybe 15-20% [L]. First place is a long shot; the same three levers also decide #2 (§4.4).
+
+### 4.10 Deny-list → `intel/deny-list.md` (Sun 00:30)
+No ≥ 0 denial buy exists at current asks. Free denials: never sell MAL-08 (t12 lacks it), LAV-02/03/04 spares (t03), or any page card or
+CHA card to a rival. The working denial is the market (§4.9 lever 2).
 
 ## 5. Buyer model (multiplier per team × set) for v10 steering
 
