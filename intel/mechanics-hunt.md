@@ -10,10 +10,10 @@ Labels: **[V]** read or measured · **[L]** fits the data, not proven · **[?]**
 
 | # | Lever | Mechanic (source) | Sunday EV | Cost | Risk | Used now? |
 |---|---|---|---|---|---|---|
-| 1 | **Don't stop at the cap: every part is graded against the field's top, so value past our cap lowers rivals** | Relative scoring (GAME.md:4); VC = top-3 mean (market-test-audit §2) [V rescaling]; trade part N and ladder M field-relative [L] | Relative, not ours: **t18 / t12 / t03 −0.3 to −0.8 each** per +30 np or +0.1 ladder past our cap; **t10 / t06 / t14 −0.7 to −2** per +45 VC past the 40-50 target | idle cash (no terminal value), 0 P for VC and fodder | a negative trade still subtracts; needs us in the top 3 of that part | **VC: partly** (Lucas 01:10 club split). **Trades and ladder: no** (red team §8 stop rules) |
+| 1 | **Don't stop at the cap: every part is graded against the field's top, so value past our cap lowers rivals** | Relative scoring (GAME.md:4); VC graded vs the top-3 mean (market-test-audit §2) [L, strong; the common-factor rescaling itself is V]; trade part N and ladder M field-relative [L] | Relative, not ours [L]: **t18 / t12 / t03 −0.45 to −0.8 each** per +30 np or +0.1 ladder past our cap; per +45 VC past the 40-50 target **t10 ≈ −2, t06 ≈ −1.4, t14 ≈ −0.5** | idle cash (no terminal value), 0 P for VC and fodder | a negative trade still subtracts; needs us in the top 3 of that part | **VC: partly** (Lucas 01:10 club split). **Trades and ladder: no** (red team §8 stop rules) |
 | 2 | **Probe `GET /api/cards/{id}` with the key, then sweep the ~1,190 asset ids** | SDK:168-170 "provenance chain"; RULES:19 "a history of every hand" | +0.3 to +1.0 if it names holders (CHA sourcing after pack buys, v10 pairs) [?] | 1 keyed GET to test; sweep ≈ 5 min at 4 req/s | shared 5 req/s: never during duel waves | **No** (holdings-audit open item 1) |
-| 3 | **The server takes listings and cancels while closed** | RULES:107 "offers stay open"; feed ids 73274 → 73299 [V] | +0.1 to +0.5 (no first-tick race on bid 20252; staged bids first in the 09:00 queue) | operator minutes | staged offers show in the feed overnight | **No** (directives say "at the first tick") |
-| 4 | **N-for-1 and cash-topped swaps** | RULES:62, 144 (≤ 50 items a side); `swaps.py:199-202, 344` posts 1:1 cash-free swaps only | +0.1 to +0.4 | Builder change | as today's swaps | **No** |
+| 3 | **N-for-1 and cash-topped swaps** | RULES:62, 144 (≤ 50 items a side); `swaps.py:199-202, 344` posts 1:1 cash-free swaps only | +0.1 to +0.4 | Builder change | as today's swaps | **No** |
+| 4 | **Stage the 09:00 bids tonight: the server takes listings and cancels while closed** | RULES:107; feed ids 73274 → 73299 [V] | +0.1 to +0.3 (staged bids first in the 09:00 queue) | operator minutes | staged offers show in the feed overnight | **Cancels: planned** (red team §4, 08:45 row) and done once (19980/19982 after the close). **Staging new bids: no** |
 | 5 | **Team threads for private terms (closer, club pairs)** | RULES:64-65; SDK:192-203 (`open_thread("t03", venue=...)`) | 0 to +0.5 [?] | one test thread | if public, nothing gained | **No** (0 team threads in the feed) |
 | 6 | **Re-topic a dealer thread instead of walk + reopen** | SDK:209-220 (`say(..., topic=...)`) | 0 to +0.3 [?] | one test on Abuela | spam or cool-off | **No** |
 
@@ -21,17 +21,19 @@ Everything else examined is either already in the plan (§2) or dropped (§3).
 
 ## 1. The levers
 
-### 1.1 Past the cap, value still counts against rivals [VC: V · trades, ladder: L]
+### 1.1 Past the cap, value still counts against rivals [L; only the VC rescaling is V]
 - **Mechanic.** Each part is scored as `min(1, ours / field reference)`. The reference for real trades is the **mean of the top three
   venues** (market-test-audit §2: "the top venue is always at the cap exactly", two venues at the cap at once in 6 windows,
   never three). RULES:82 uses the same "mean of the top three" for the Market Test. When our number is in the top three, raising
   it raises the reference by Δ/3 and shrinks every rival below the reference by the same factor.
 - **Evidence that it moves rivals.**
-  - [V] VC: at tick 556 one t06 trade on v01 cut every other VC venue's market gap by about 29% at once (t14 11.86 → 10.60,
-    t12 → 10.52, t10 → 12.06; score-model:30). 15 such common-factor moves are logged (score-model §3h).
+  - [V] VC: at tick 556 one trade on t06's venue v01 (t12 → t08, SAL-10 at 76) cut every other VC venue's market gap by about 29%
+    at once (t14 11.86 → 10.60, t12 → 10.52, t10 → 12.06; score-model:30). 15 such common-factor moves are logged (score-model §3h).
+    [L] v01 was below its cap then, so no case shows a venue already past its cap still lowering the others; that step rests on
+    the top-3-mean fit.
   - [L] Trades: at snapshot 350 every idle team rose together when t02, then a top trader, lost ~15 np (score-model:256).
-  - [L] Ladder: our negotiating sat flat at 21.88 over snapshots 850-890 while our ladder rose +0.064 and the field drifted
-    −0.1 to −0.2 per snapshot (score-model:286).
+  - [L, n = 1 window] Ladder: our negotiating sat flat at 21.88 over snapshots 850-890 while our ladder rose +0.064 and the field
+    drifted −0.1 to −0.2 per snapshot (score-model:286). It shows our ladder was capped; nothing ties the drift to our deals.
 - **What the plan does now.**
   - VC: Lucas's 01:10 directive already uses this ("concentrating VC on v10 raises the top-3 mean that v07 is scored against").
     But the 00:35 directive still caps the target at 40-50 net VC because "above the top-3 mean earns nothing", and
@@ -62,6 +64,9 @@ Everything else examined is either already in the plan (§2) or dropped (§3).
 - **Fair play.** Only value creation, with no transfer to anyone, so it is clean.
 - **Risks.**
   - [?] The trade and ladder references may be a max or a median instead of a top-3 mean. Then the effect is larger (max) or zero.
+  - [L] t10 ≈ 21 and t06 ≈ 14 are upper bounds (M ≤ 15), and whether VC resets each round is still open (market-test-audit §4).
+    The whole lever rests on these [L] inputs.
+  - t14 isn't computed above; it is ≈ −0.5 at the same 45 → 90 step.
   - The effect is zero whenever we're outside the top 3 of that part, but then we're under the cap and the value counts for
     us directly. Either way more positive value is never worse.
 
@@ -84,13 +89,15 @@ Everything else examined is either already in the plan (§2) or dropped (§3).
 ### 1.3 Writes are accepted while the doors are closed [V]
 - **Evidence.**
   - After `day.closed` (feed id 73274, tick 1445), the server accepted our own bid 20252 (id 73278, SAL-11 115 → t04 on v15).
-  - It also accepted t09's 8 listings, 11 cancels and v07's fee notice (ids 73279-73299).
-  - RULES:107: "offers stay open; the clock stops".
+  - It also accepted t09's 8 listings and 9 cancels, v07's fee notice (twice), and **two cancels of ours**: offers 19980 and 19982
+    on v15 (ids 73291-73292). So our own key's cancels already work while the doors are closed.
+  - RULES:107: "Outside these hours nothing ticks: offers stay open and nothing settles until the doors open again."
 - **Uses.**
-  1. **Bid 20252 is still live** as of the hub feed's last event (00:56): no cancel in either feed. The 00:21 GUARDRAIL cancels it "at the first tick",
-     which races t04's accept on that same tick (red team §6.7).
+  1. **Bid 20252 is still live** as of the hub feed's last event (00:56): no cancel in either feed. The 00:21 GUARDRAIL cancels it
+     "at the first tick", which races t04's accept on that same tick. Red team §4 (08:45 row) and §6.7 already plan the cancel at
+     08:45; the 19980/19982 cancels show it works.
      - It can be cancelled now.
-     - Or, under §1.1, Lucas may let it fill: +47 np at 115 P, if the CHA + MAL cash still fits in 542 (operator 00:46: CHA 242-282, "the full MAL fits in every case").
+     - Or, under §1.1, Lucas may let it fill: +47 np at 115 P, if the CHA + MAL cash still fits in 542 (team/lucas.md, operator 00:46: CHA 242-282, "the full MAL fits in every case").
      - Lucas's call either way.
   2. **Stage the 09:00 maker bids now** (fodder LAT-06/07/08 ≤ 12, our spare asks on member venues). The club partners can do the
      same for their v10 pair bids. Staged bids sit first in the book when the bots wake at tick 1446, and they don't use the first
@@ -125,7 +132,7 @@ Everything else examined is either already in the plan (§2) or dropped (§3).
 ### 1.6 Re-topic a dealer thread [?]
 - **Mechanic.** `say()` takes `topic` (SDK:209-220). Our bots only set topics at `open_thread` (`abuela_bot.py:271`,
   `chato_steady.py:82`).
-- **Why it might pay.** If a new topic draws a fresh secret limit (RULES:46 "every conversation has its own secret limit"), it's a
+- **Why it might pay.** If a new topic draws a fresh secret limit (RULES:45 "every conversation has its own secret limit"), it's a
   re-roll without the bots' 10-tick reopen gap or a new conversation against the hourly `persona_quota`.
 - **Risk.** Spam or cool-off; Abuela forgives, Ernesto doesn't. One test on Abuela only.
 
@@ -135,14 +142,14 @@ Everything else examined is either already in the plan (§2) or dropped (§3).
 |---|---|---|
 | Card-for-card swaps, want-cards bids | `agents/trader/swaps.py`, `book.py`, `run/cha_book.json` | 1:1 only (§1.4) |
 | Workshop | GAME.md:113; directive 00:44 fodder; red team §1.5 | 3 uncommons → rare also exists (t01 tick 1361) |
-| Flags | GAME.md:116-130; red team §E (test the cap reset) | Confirms dealer-lab-ladder: the Trickster badge does **not** stop the tricks [V, name match]. After its badge t10 got 5 bait-and-switch offers and 3 false-fact lines in 34 Pícaros messages, so flag material survives the egg |
+| Flags | GAME.md:116-130; red team §E (test the cap reset) | Confirms dealer-lab-ladder: the Trickster badge does **not** stop the tricks [L, name match]. After its badge t10 got 5 bait-and-switch offers and 3 false-fact lines in 34 Pícaros messages, so flag material survives the egg |
 | Gifts (kindness) | dealer-lab-ladder §2; `narrator.py`, `chato_steady.py` kindness lines | — |
 | Eggs | `intel/eggs.md`; dealer-lab §3 | The Chato pack line ("Plaza Mayor, con caña") is still unclaimed by us. No CHA hidden card in `/api/catalog` (12 cards) [V], so there is no CHA egg card to hunt |
 | Page close via a team closer; pack drag | GAME.md:34-39; score-model §3e; cha-plan | — |
 | Ladder slots, fodder, walk and reopen, offer-only | score-model §4.5/§4.12; dealer-lab-ladder §3; GAME.md:18 | — |
 | Expiry conversion | `book.py:77-79`, `opportunities.py:66` | Staged offers: see §1.3 hygiene |
 | Events stream, keyless reads | `tools/reactor.py` (keyless SSE), `broker/common.py`, `opportunities.py` | — |
-| News and dealer patches | `tools/news.py` | True items led patches: Chato MAL rares (403 → chato v2 at 463), Abuela uncommons (943 → abuela v2 at 979), Salamanca fever (850 → 939) [V] |
+| News and dealer patches | `tools/news.py` | True news items led patches: Chato MAL rares (403 → chato v2 at 463), Abuela uncommons (943 → abuela v2 at 979) [V]. The Salamanca fever came as an organiser `announcement` (850) and a scheduled patch (939), not a news item |
 | Market Test | market-test-audit.md (keep the stall) | — |
 | Broker announcements | `run/v10_announce2.py` | 1 per 20 ticks (GAME.md:147) |
 | VC normaliser on v10 | directive 01:10 (club split) | Extend to trades and ladder (§1.1) |
