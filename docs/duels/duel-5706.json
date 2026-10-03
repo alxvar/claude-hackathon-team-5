@@ -69,6 +69,59 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1261,
+   "raw": {
+    "duel": 5706,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Dama de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.6,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 122,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1271,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 6983,
+     "price": 80,
+     "tick": 1257,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 7120,
+     "price": 157,
+     "tick": 1261,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1257,
+      "from": "you",
+      "text": "I can do 80 P with delivery on day 0. Happy to hear your counter.",
+      "price": 80,
+      "days": 0
+     },
+     {
+      "tick": 1261,
+      "from": "Rival Rojo",
+      "text": "Hola. This one is in perfect condition. 157 P, delivery day 0.",
+      "price": 157,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
