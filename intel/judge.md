@@ -1,58 +1,62 @@
-# Judge (claude-opus-5-5, Sat 16:18)
+# Judge (claude-opus-5-5, Sat 16:35)
 
 ## Verdict
-**Gaining slowly, still #5.** We are at 28.6 (+0.5 over 60 min). Team 14 is at 30.1 (−0.6). The gap to #1 has narrowed from 1.94 (snapshot 680) to 1.5. We are still 0.5 behind Team 10, and Team 1 is climbing from below (+1.5/60 min, 2.2 under us).
+**Holding against the leaders but falling in rank.**
+- We are at 28.43 (+0.3 in 60 min), 1.5 behind #1. The gap was 1.94 at snapshot 680, and it narrowed because t14 lost 0.9.
+- We dropped #5 → #6 when t1 (+3.6/60) passed us. t16 (+4.5) is 1.5 below us and t03 (+5.6) is 2.3 below.
+- Since tick 632: neg_points 32.5 → 40.7, ladder 0.181 → 0.200.
 
 ## Our strategies: keep / kill / scale
-- **Dealer ladder sells at or above our value: SCALE.**
-  - LAT-08 → Chato at 14 moved ladder 0.188 → 0.200 at neg 0.
-  - Pilar sales: MAL-07 +0.050, MAL-06 +0.040, SAL-08 +0.019, SAL-06 +0.007.
-  - The ladder at 0.200 refutes the Analyst's "cap ≈ 0.15".
-- **Dealer buy-to-resell (Abuela SAL-06 at 23 → Pilar at 25): KILL outside the fever.**
-  - The buy cost −2.7 neg (pack drag), about −0.25 board.
-  - The resale added +0.007 ladder, about +0.23 board, so the round trip is roughly 0.
-- **Trading loop (`loop.py`): KEEP.**
-  - Its only accept today, the t08 swap SAL-04→RET-04, measured +6.2, equal to its prediction.
-  - No accepts since the 16:10 restart.
-  - The policy guard caught the t10 MAL-09 trap.
-- **Public bids on v07: KEEP, small.**
-  - MAL-01 at 5 filled for +2.0 measured.
-  - SAL-07 20, MAL-08 15 and LAT-02 3 are live to tick 772.
-  - Each is only 2-2.5 under our value, and pack drag (−2.4 on SAL-06) can wipe that out.
-- **Maker asks (7 live, addressed to t15/t16/t03/t09): KEEP, but KILL 10377 now.**
-  - 10377 sells SAL-01 at 6. Since the Workshop it is our last copy, worth 9, and `can-give` says NO: −3 if it fills.
-  - 10653 (SAL-02 at 11, also a last copy) has not been through `can-give`.
-  - No fills on any ask; fill time is not in the data.
-- **Workshop: KEEP.** It added +11.8 collection value and is not a scored deal. Repeat it whenever three same-rarity spares pile up.
-- **Duels: KEEP.** 68 finished; 9 of the last 10 closed as deals; duel score 13.93.
+- **Dealer sells (offer-only, price ≥ value): KEEP.**
+  - LAT-08 → Chato at 14 lifted the ladder 0.188 → 0.200 at 0 neg cost.
+  - The ladder kept rising past the ~0.15 "cap", so that [L] is wrong.
+- **Buying from a dealer to resell to Pilar: KILL.**
+  - SAL-06 bought from Abuela at 23 cost −2.7 neg (≈ −0.25 board).
+  - The resale to Pilar at 25 left the ladder at only 0.181 → 0.188 (≈ +0.23 board): break-even, with risk.
+- **Trading loop: KEEP.**
+  - One accept since 15:29: the t08 swap, predicted +6.2, measured +6.2.
+  - The errors in its log are from Friday night.
+- **Public bids at ≤ value (SAL-07 20, MAL-08 15, LAT-02 3): KEEP.**
+  - Their sibling bid (MAL-01 at 5) filled for +2.0 as maker.
+  - How long they sat unfilled is not in the data.
+- **Addressed spare asks (7 live): PRUNE.**
+  - None of these asks has filled; the last spare sale was SAL-01 at tick 351 (+4.7).
+  - MAL-02 and MAL-05 sit with t15, which has no cash (operator 16:31).
+  - LAT-03 → t03 expires at tick 761.
+- **Workshop: KEEP, but only when the output gets sold.** It added +11.8 collection value and 0 neg. MAL-06 has to sell at ≥ 17.5 to bank anything.
+- **In-room MAL-09: KEEP refusing t10** (#3, it would close their page). The t15 reservation is dead: they have no cash.
+- **Duels: KEEP.** Score 13.93; the last 10 show 9 deals and 1 no_deal (2523, buyer, limit 196).
 
 ## Check the scout
 - **Holds:**
-  - `can-give`: LAV-02 YES; LAV-03/04 and RET-04 NO.
-  - Ladder is 0.2 with the 2nd L2 slot filled.
-  - Team 1, Team 6 and Team 17 are climbing; Team 14 is falling (−0.2/−0.6).
-  - Live bids: t06 68 for SAL-09, t04 65 for RET-10.
-  - Team 13 bids 2 P on RET-01..05.
-  - Team 10 is barred from MAL-09.
-- **Wrong or stale:**
-  - "t03 bids 88 for LAT-09 (offer 10700)": that bid already filled (t16→t03 at 88, tick 724). The "ask at 135" is not in the data.
-  - "+4.3 per spare to t07": as maker we pay no fee, so the gain is about +6.3 at 9.5. The 9.5 price is an estimate; t07 paid 10 for RET-05 at tick 712.
-  - Dani's table predates the Workshop: LAT-04 and SAL-01/02 are single copies now, not spares.
-  - "+0.02 to +0.04 per good L3 deal" is overstated. L3 already holds 4 deals and only the best 3 count, so a new deal adds only its excess over the 3rd slot (+0.019).
-  - "Team 2 pays 84 for RET-09" is from tick 504 and is not evidence that RET rare demand is "rising".
+  - The can-give results (LAV-02 YES, LAV-04 NO).
+  - #1-#6 within 1.5.
+  - Ignore t04's RET-10 bid at 25.
+  - The ladder is past 0.15.
+- **Wrong, t16's LAT-09 trade:** the feed shows **t16 → t03**. t16 sold it and t03 bought it at 88, not the reverse.
+- **Wrong, the +6.2 credited to Pilar's SAL-06 at 25:** that +6.2 is the t08 swap. Dealer gains clip to 0.
+- **Wrong, "fill t16's bids with spares":**
+  - t16 bids LAV-03 at 3 (value 3.2) and MAL-03 at 1 (value 7), and we hold no spare RET-07 or LAV-06. Every fill would lose.
+  - The "+2.0 MAL-01" it cites as a past sale was a buy, not a sale.
+- **Stale:**
+  - Ask "10716" is now 11426.
+  - Pilar's uncommon median is 19 over 7, not 18 over 6.
+  - Dani's table still lists 2 copies of LAT-04 and RET-04 (the Workshop and the swap changed both).
+  - t07's 9.5 is an estimate, not a bid.
+- **Unverified:** t03's bid of 69 for LAV-10 (offer 11295) is not in the metrics bid list.
 
 ## The 3 changes with the highest expected gain
-1. **MAL-06 → Pilar now, then SAL-08 in the fever (18:03-20:03).**
-   - How: `abuela_bot.py --dealer pilar`, ask from ~30 in −2/−3 steps, offer-only close, alone in its window. MAL-06 floor ≥ 19.
-   - SAL-08 only if the price is ≥ 22.5. The Chief must first take it off `run/reserved.json`.
-   - Effect: replacing the +0.019 slot with a MAL-06-style +0.040 is about +0.021 ladder, roughly +0.7 board (at +0.01 ≈ +0.33). A fever SAL sale adds only if it beats +0.040.
-   - Risk: whether the fever lifts Pilar's price range (and so our share) is not in the data. Pilar allows 6 deals per team per hour.
-2. **Duels II, ≈ 20:33: adopt Duel Lab #1 (concede 15% of the gap per step, cap 18%).**
-   - Effect: +1.8 to +3.9 duel points over 68 duels (modelled). Converting duel points to board is not in the data.
-   - Risk: the model's out-of-sample miss. Aleks decides; the Builder codes it by 19:30.
-3. **Clean the maker book and sell the true spare.**
-   - Cancel 10377 (saves −3 neg).
-   - Run `can-give SAL-02` before 10653 can fill.
-   - Post LAV-02 at 10, addressed to t07 (#17, 11 below us; passes the gap-6 rule).
-   - Effect: about +6.8 neg, roughly +0.6 board, if it fills.
-   - Risk: it may close t07's LAV page (up to +4.7 board for them). That still leaves t07 far below us, so it is allowed.
+1. **Re-run the feeding check on every live ask to t16 and t03 now, and cancel what fails.**
+   - Asks at risk: SAL-01 and SAL-02 → t16; LAT-03 and LAV-04 → t03.
+   - Both teams were "safe" at 15:55, but they are now within 6 of us (1.5 and 2.3) and both collect SAL/LAT. One closer hands them up to +50 (≈ +4.7 board) for our +2.
+   - Readdress to t09/t08/t07, or use public El Rastro, after `policy.py can-give`.
+   - Risk: we give up about +2 per card.
+2. **MAL-09 (worth 49): Dani asks t02 and t04 in the room whether it closes their MAL page.**
+   - If it doesn't: post a maker ask at ~65 addressed to them. Expect ≈ +16 neg ≈ +1.5 board, the largest gain on our books.
+   - If no team takes it: sell to Pilar with the floor raised from 55 to ~65. Her rare median is 69 over 3, and a higher price means more ladder share.
+   - Risk: t02 and t04 are only ~5 below us, so a closer is barred under the gap-6 rule.
+3. **Salamanca fever (18:03-20:03): sell only what we hold.**
+   - Cards: reserved SAL-08 and SAL-03/04/05, plus SAL-07 if bid 10569 fills at 20.
+   - Sell to Pilar at ≥ value with −2/−3 steps, offer-only, one thread per window, and no dealer buy-to-resell.
+   - Expected: ladder +0.007 to +0.04 where a sale beats our weakest L3 slot, at 0 neg cost.
+   - Risk: L3's best-3 slots may be full (the last SAL resale added only +0.007). Stop after one sale that doesn't move the ladder.
