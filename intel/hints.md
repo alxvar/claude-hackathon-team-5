@@ -202,3 +202,6 @@ Paco: Say sí, the street is waiting.
 - Sat 21:30 · message tick 1265 · picaros → t04 · ¡Primo! Mamá fuerte como un roble, le damos tu beso. —Y lloró tu mamá, dice Paco, ¡eso vale más que el oro!
 
 La Puerta de Alcalá, esa joya de Madrid... para tu tío, 187 P. Piedra noble, primo. ¿La envolvemos ya? Que el autobús no espera.
+- Sat 21:32 · catalog.minted LAV-11 (La Casa Encendida, epic, print run 9): hidden=False minted=4 (was 3)
+- Sat 21:32 · catalog.minted MAL-11 (La Sala Pentagrama, epic, print run 9): hidden=False minted=2 (was 1)
+- Sat 21:32 · catalog.minted SAL-11 (La Puerta de Alcalá, epic, print run 9): hidden=False minted=8 (was 7)
