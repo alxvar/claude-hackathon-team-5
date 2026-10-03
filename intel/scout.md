@@ -1,36 +1,27 @@
-# Scout (claude-sonnet-5-5, Sat 13:36)
+# Scout (claude-sonnet-5-5, Sat 13:42)
 
 ## Top 3 actions now
-
-1. **Run the SAL-06 buy from Abuela (thread 868) once the clock resumes.**
-   - Executor: operator's background job. Cap 25, small steps. Then sell SAL-06 to Pilar at ≥ 25 with small steps, offer-only (playbook rules 1-2).
-   - Evidence: open bid 9168 is 21 for SAL-06. Abuela is at 29 (tick 629). Her earlier thread ended 25 against our 22. Pilar paid 23 for SAL-08 (her final) and Team 4 got 25.
-   - Effect: a Pilar sale at ≥ our value costs 0 neg_points. The best earlier L3 slot was +0.040 (MAL-06). Our L3 slots are +0.050, +0.040 and +0.019, so a new deal above +0.019 would replace the weakest.
-   - Confidence: med. Abuela held 25 against our 22 last time, and the game clock has been paused since tick 630.
-
-2. **Keep the 9 stall asks live; reprice the ones aimed at weak buyers.**
-   - Executor: operator's book daemon. Targets are listed asks 9100 LAV-02 → t09 at 7, 9101 LAV-04 → t03 at 7, 9136 LAV-03 → t04 at 7, 9102 SAL-02 → t16 at 6 and 9103 LAT-04 → t16 at 5.
-   - Evidence: these copies are worth 1.2-3.2 to us. The recent +4.7 (SAL-01 at 7 to t03) and +2.0 (MAL-03 at 5 from t04) were comparable small team-trade gains. Team 7 (#17) is the page-gap buyer for LAV/LAT, with an estimated 9.5 and a gain of +4.3 to +6.3.
-   - Effect: roughly +4 neg_points per sale, about 0.4 board at 0.094 per point.
-   - Feeding check: Team 7 is 11.3 below us, so it passes the rule. t03, t04, t09 and t16 are all outside the top 4 and below us, but I have no gap or page-closer data for them.
-   - Confidence: med.
-
-3. **Watch for a bargain-buy hit (13:15 GUARDRAIL).**
-   - Executor: operator, reading logs/bargains.log.
-   - Evidence: the best open bid is t04's 64 for LAT-09, and t04 also bids 27 and 26 for RET-08 and RET-06. We hold no LAT-09, so those bids are no use to us.
-   - Conditions to act: seller outside the live top 5, value − price − fee ≥ 50, total ≤ 100. No qualifying ask is visible in the El Rastro snapshot (cheapest asks are commons at 4-14).
-   - Effect: up to +50 neg_points (about +4.7 board) if a hit appears.
-   - Confidence: low.
+1. **Do not trade or step during the lunch pause (tick 630 onward). Prepare the SAL-06 → Pilar plan.** Executor: Operator, with the background job that resumes at unpause.
+   - Evidence: the clock paused at tick 630. Abuela thread 868 is open (her 29, our 21), and our bid 9168 for SAL-06 at 21 expires at tick 634.
+   - Cap is 25 (Chief). Abuela held 25 against our 22 in thread 832, so buy only if she reaches ≤ 25 in small steps, then sell to Pilar at ≥ 25.
+   - Effect: roughly +0.019 to +0.040 ladder if it closes (Pilar MAL-06 +0.040, SAL-08 +0.019). neg_points unchanged if bought at ≤ value. Confidence: med.
+2. **Pilar sells at ≥ our value with small steps (−2/−3), using offer-only mode, for the L3 ladder slots.** Executor: abuela_bot `--dealer pilar --ladder --offer-only`.
+   - Evidence: Pilar deals at 19 (+0.050), 19 (+0.040) and 23 (+0.019 after a jump). Ladder is 0.181, uncapped so far.
+   - Cards: only spares worth less than her price. Her price band is 16-19 for uncommons.
+   - Effect: replace the weakest L3 slot, about +0.01 to +0.02 ladder. Confidence: med.
+3. **Watch `logs/bargains.log` for the lunch GUARDRAIL buy.**
+   - Conditions: seller outside the top 5, not a dealer; value − price − fee ≥ 50; total ≤ 100; value re-read first.
+   - Evidence: the +50 cap measured twice (RET-01 at 20 from t10; LAV-05 at 8). Top bids now include t04 LAT-09 at 64.
+   - Effect: up to +50 neg_points (≈ +4.7 board). Confidence: low, because no hit is logged.
+   - Also keep our 5 asks on v15 and the t04 LAV-03 ask live. Gains are small (+4 to +6 each).
 
 ## What the climbing teams are doing
-- **Team 14 (#1, 30.8, +1.1/h)** sells commons on El Rastro. Its RET commons went at 9 P (ticks 591-598: RET-02, -03, -01, -04 to t04, t09, t15, t09). It also bought SAL-03 at 5 (t06 → t14, tick 600).
-- **Team 10 (#3, +4.1/h) and Team 6 (#9, +4.6/h)** are the 60-minute climbers.
-  - t10 bought MAL-10 at 74 (tick 585), and our venue's mm_points moved from SAL-07 → t15.
-  - t06's recent big trade was RET-09 sold to t02 at 84 (tick 504).
-- **Team 15** trades heavily (22 team trades) via 0-P swaps with t07 (ticks 607, 613, 616). Swaps cost no cash and score for both sides. Team 13 also stacks LAV-08 and MAL from t07/t04 at 5-20 P.
-- **Team 18 (#4, +2.2/h)** has 13 team and 16 dealer trades and collects RET/LAT. It paid 86 for RET-09 at tick 206.
+- **Team 14 (#1, 30.8, +1.1/60 min):** it sells RET commons at 9 to t04, t09 and t15 (ticks 591-598) and collects LAV/LAT. We have no evidence of a dealer edge, only volume.
+- **Team 10 (#3, +4.1/60 min):** it lists 197 offers, bought MAL-10 at 74 (tick 585) and runs 30 deals. Its score rose while trading on its own venue v10, where Team 15 and Team 10 trade (our v10 notes).
+- **Team 18 (#4, +2.2/60 min):** it collects RET/LAT and is a top-4 team, so we never feed it.
+- **Team 15 (#14, +1.4):** it ran swaps at 0 P with t07 (ticks 607, 613, 616: LAV-08↔LAV-06, LAT-03↔MAL-08, MAL-01↔SAL-02) and has 22 team trades. Card-for-card swaps score both sides without cash.
 
 ## Threats
-- **Team 14 (#1)** collects LAV/LAT and is already 2.7 points ahead of us. Never sell LAV or LAT to it; its LAT-09 purchase was at 65.
-- **t04 (#10)** has standing bids of 27 and 26 for RET-08/-06, and Team 2 collects RET. Both are below us, but our RET cards are not for sale: they are worth 100-150 to us.
-- **Team 13** keeps RET-01..03 bids at 2 P and has the most dealer activity (39 dealer trades) and listings (435). It is #7 at 25.5 but fell −3.3 in an hour, so it is not a feeding risk.
+- **Team 14 is ahead by 2.7 board and still gaining** while we fell 0.8 in 15 min. Do not sell it LAV/LAT cards; our spares are dumped only to teams ≥ 10 below us.
+- **LAV-11 was lost to Pilar.** Dealers pay about 140 for epics (Team 8 sold at 140), so team bids must beat that.
+- **Value created on our venue can go negative:** mm_points swung +4.99 → −5.2 when a card moved to a lower-multiplier holder. Do not steer trades onto v10 without checking this.
