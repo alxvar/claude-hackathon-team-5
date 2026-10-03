@@ -9,7 +9,7 @@ for that day: **Fri** = board at tick 160 (frozen; market was 0 for everyone), *
 
 **Headline:** board #3 at 30.49. On 0.5·Fri + Sat: t10 56.37 · t18 46.89 · **us 45.73** · t12 45.63 · t03 44.51 · t06 43.14.
 t10 is 10.6 ahead (its v07 value created at the cap is 7.5 of it); **#2 is a three-way race with t18 (+1.16) and t12 (−0.10)**.
-Our mm_points flipped −5.2 → +2.2 at the close (score-model §3h): ≈ +0.75-1.5 Saturday points at the next snapshot [L], and
+Our mm_points flipped −5.2 → +2.2 at the close (score-model §3h): ≥ +1.05 (up to +3.3) Saturday points if it lands [L], and
 Saturday's round may continue Sunday morning (score-model §4.7).
 
 ## 1. Round scores (snapshot 1440, sorted by 0.5·Fri + Sat)
@@ -41,8 +41,8 @@ Saturday's round may continue Sunday morning (score-model §4.7).
 | t01 | +1.46 | **−7.26** |
 
 Rule: we finish ahead of a rival when 0.5·ΔFri + ΔSat + ΔSun > 0 (Δ = us − them). Every Saturday point added in a Sunday-morning
-tail counts 1:1, and so does every Sunday point. Friday counts half. P(#1) ≈ 1-4%, P(top 2) ≈ 34-55% under the full plan
-(score-model §4.4; the high end needs the Saturday tail + v10 pairs).
+tail counts 1:1, and so does every Sunday point. Friday counts half. P(#1) ≤ 9% in every variant; P(top 2) ≈ 20-47% under the full plan
+(score-model §4.4: 21% with nothing extra, 35% if the flip lands, 45% with the flip + Saturday-tail v10 pairs).
 
 ## 3. Rivals' Sunday upside [L]
 
@@ -59,8 +59,8 @@ tail counts 1:1, and so does every Sunday point. Friday counts half. P(#1) ≈ 1
 | Lever | Sunday round pts | Cost |
 |---|---|---|
 | v10 value created (pairs: duplicates → first copies) | 0 → 7.5 (field-normalised, §3h) | 0 P |
-| Saturday tail, if the clock resumes at 13.367 (v10 + positive team trades) | up to ≈ +6 Saturday pts | 0 P |
-| Duels III + Grand Final | ≈ 9 → 10-11 | 0 P |
+| Saturday tail, if the clock resumes at 13.367 (v10 pairs only; trade part has ≈ 6 np headroom) | up to ≈ +4 Saturday pts | 0 P |
+| Duels III + Grand Final | ≈ 7 → 8-9 | 0 P |
 | CHA page (team closer +50) + CHA dealer buys ≤ list (ladder) | trades +5-9 · ladder +4-6 | ≈ 270-330 P |
-| Fresh ladder sells (RET-11 → Pilar ≥ 199, MAL-08 → Pilar ≈ 20, spare common → Pícaros 5) | +2-3 | cash + |
+| Fresh ladder sells (MAL-08 → Pilar ≥ 20, spare non-SAL rare → Pilar ≈ 55, spare common → Pícaros 5; RET-11 only ≥ 198) | +1.5-3 | cash + |
 | MAL close | +1-3 | ≈ 160 P |
