@@ -55,6 +55,7 @@
 - **Abuela on Saturday** [V, n=1]: our first deal of the day (RET-04 common) opened at 12 and closed negotiated at 9
   (worth 11): `neg_points` 0 → 0, `ladder_points` 0 → 0.014. No fixed welcome price today [L: the welcome price does not
   reset per day]. Menus Sat: Abuela common list 10, uncommon 25; Chato uncommon 26, rare 77, silver pack 150.
+<<<<<<< Updated upstream
 - **Dealer gains don't score** [V, n=2 clean windows, Sat 09:41-09:45]: Abuela RET-04 at 9 and RET-03 at 9 (worth 11
   each; collection value +22): `neg_points` 0 → 0 both times (predicted +2 each if gains counted). Dealer deals pay only
   through the ladder: Abuela commons +0.014, +0.018, +0.016 (3 deals, 12 → 9 each). The deck's Hint 1 "+4" is team trades.
@@ -86,6 +87,9 @@
   handed her a final (22, 22, 23f) → +0.019. Never jump to her bid; step −2/−3 and let her climb. Ladder 0.181 at 12:45.
 - **Dealers compete for epics** [V, feed settlement 565, tick 550]: Team 8 sold LAV-11 (epic, book 180) to Pilar at 140
   while our addressed bid stepped 100 → 110 → 120. A team bid for an epic must beat what a dealer pays (~140), or it loses.
+- **Dealer offers expire after 4 ticks** [V, Builder via /api/threads, Sat 13:25]: Chato's 32 (thread 805) and Abuela's 25
+  (thread 832) lapsed 4 ticks after we went silent at our cap, and neither re-offered. Holding silent ends the talk; to
+  keep it alive, move (never repeat a price) or walk. Drivers now walk after 4 ticks with no live dealer offer (e875b82).
 - **Ladder and early unlock count only below-list dealer deals** [L, strong pattern]: every Abuela deal under her list
   (commons 9 vs 10, RET-08 22 vs 25) moved the ladder; none of our 6 Chato deals moved it, all above his list (RET-09 87 and
   RET-10 86 vs 77, RET-06 30 vs 26, Fri LAV-09 93, LAV-06 31, LAT-08 sale). Level 3 (Doña Pilar, active 3.51 h, open to
@@ -98,6 +102,8 @@
   our `mm_points` +4.99 (market 7.5 → 12.5); tick 398 on v10, t10 → t15 SAL-07 at 26 (t15 dumps SAL): `mm_points`
   +4.99 → **−5.2**, market back to 7.5 (bench stall only), rank #3 → #7. [L] value created = buyer's value − seller's
   value: a card moving to a lower-multiplier holder subtracts from the venue owner.
+=======
+>>>>>>> Stashed changes
 - **RET rares** [V, feed ticks 160-188]: no team pulled a RET rare from a grant pack (every sobre_barrio `best` = null);
   the only sources are Chato (rare list 77) and silver packs. Team 15 bids 59 and Team 2 9-12 for RET-09/10.
 
