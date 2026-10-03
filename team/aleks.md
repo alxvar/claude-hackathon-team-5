@@ -1,6 +1,6 @@
 # Aleks — duels
 
-**Now:** Duels I done for us (13:13): 30 deals of 34, 13.93 duel points, 4.4 rounds per deal. Duelist still running (since 11:27:54, eb36ec8) and idle until Duels II ≈ 18:29 (tick ≈ 1239, 68 duels, 6 at once, 8% decay, price + days). Rounds fix on branch `rounds` (da9c45c) merges by itself at tick ≥ 640; **Aleks restarts the duelist on it before Duels II**, then checks the day reading at the first days duel.
+**Now:** Duels I done for us (13:13): 30 deals of 34, 13.93 duel points, 4.4 rounds per deal. Duelist running **6e53377 (rounds change: ¼-gap min step + 4-offer budget) since 13:24:30**, restarted by the monitoring session after the merge, tests green, no duels live; idle until Duels II ≈ 18:29 (tick ≈ 1239, 68 duels, 6 at once, 8% decay, price + days). Rounds fix on branch `rounds` (da9c45c) merges by itself at tick ≥ 640; **Aleks restarts the duelist on it before Duels II**, then checks the day reading at the first days duel.
 
 **Touches:** `agents/duelist/`, `docs/duels/`, duel endpoints only; `hub/` (shared Neon store + demand model: public reads, one `/api/me` read per 2 min, no game writes).
 
