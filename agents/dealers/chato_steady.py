@@ -17,6 +17,16 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import abuela_bot as ab  # noqa: E402
 
 
+WARM = [  # same price logic, warm words (Chief/Lucas 10:08): greet, thank every move, a human detail; never value/cap/cash
+    "¡Hola, Chato! Buenos días. We're building our El Retiro page this morning: could you do {p} P for this one?",
+    "Gracias, Chato, that's kind of you. We're a small team counting every prima: {p} P?",
+    "Muy amable. This one would sit right next to our Ángel Caído on the Retiro page. {p} P, ¿qué te parece?",
+    "Thank you for working with us, de verdad. {p} P is what we can stretch to right now.",
+    "Ay, Chato, you drive a fair bargain. ¿{p} P y cerramos con una sonrisa?",
+    "We really appreciate the patience. {p} P? It would make our morning.",
+]
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("card")
@@ -49,7 +59,7 @@ def main():
                 ours = int(o.get("give", {}).get("cash", 0))
     else:
         t = b.open_thread(args.dealer, topic={"buy": {"card": args.card}})
-    tid, first, stuck = t["id"], None, 0
+    tid, first, stuck, turn = t["id"], None, 0, 0 if ours is None else 1
     ab.log({"event": "open", "thread": tid, "card": args.card, "cap": cap, "open": args.open, "step": args.step})
     while True:
         t = b.thread(tid)
@@ -91,7 +101,8 @@ def main():
             b.wait_tick()
             continue
         stuck = 0
-        b.say(tid, f"I can do {nxt} P for it.", price=nxt)
+        b.say(tid, WARM[0 if turn == 0 else 1 + (turn - 1) % (len(WARM) - 1)].format(p=nxt), price=nxt)
+        turn += 1
         ab.log({"event": "say", "thread": tid, "price": nxt})
         ours = nxt
         b.wait_tick()
