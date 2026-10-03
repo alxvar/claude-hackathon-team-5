@@ -3565,5 +3565,140 @@
     "settles_at_tick": 1293
    }
   }
- ]
+ ],
+ "last_seen_tick": 1292,
+ "done": {
+  "duel": 5812,
+  "session": 3,
+  "status": "deal",
+  "role": "seller",
+  "item": "La Vía Láctea",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 2.56,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 73,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Rojo",
+  "deadline_tick": 1298,
+  "decay_per_round": 0.08,
+  "rounds": 6,
+  "your_offer": {
+   "id": 8314,
+   "price": 92,
+   "tick": 1291,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 8348,
+   "price": 84,
+   "tick": 1292,
+   "days": 10
+  },
+  "messages": [
+   {
+    "tick": 1282,
+    "from": "Rival Rojo",
+    "text": "Hello, and thank you so much for taking the time to trade with us — we'd be delighted to offer 26, with delivery on the day we've proposed. We're working with a rather modest purse this round, but we'd truly love to make this work together.",
+    "price": 26,
+    "days": 10
+   },
+   {
+    "tick": 1282,
+    "from": "you",
+    "text": "I can do 125 P, delivery on day 10.",
+    "price": 125,
+    "days": 10
+   },
+   {
+    "tick": 1283,
+    "from": "Rival Rojo",
+    "text": "Thank you kindly for coming back to us, and day 10 suits us perfectly — we can stretch our modest purse a little to 34. We'd be so glad to meet you somewhere comfortable for both of us.",
+    "price": 34,
+    "days": 10
+   },
+   {
+    "tick": 1283,
+    "from": "you",
+    "text": "Glad day 10 works for you. I can come down to 118 P on day 10, but a bigger move from me needs a bigger move from you.",
+    "price": 118,
+    "days": 10
+   },
+   {
+    "tick": 1284,
+    "from": "Rival Rojo",
+    "text": "Thank you so much for meeting us at 118 and for being so fair about day 10 — we've gently stretched our little purse to 42, which is a real step for us. We'd be truly grateful to keep finding our way toward each other.",
+    "price": 42,
+    "days": 10
+   },
+   {
+    "tick": 1284,
+    "from": "you",
+    "text": "I can do 111 P on day 10. I'm happy to keep moving, but a bigger step from me will need a bigger step from you.",
+    "price": 111,
+    "days": 10
+   },
+   {
+    "tick": 1285,
+    "from": "Rival Rojo",
+    "text": "Thank you so much for your patience and for coming down to 111 — we've taken a bigger step this time and can offer 58, with day 10 still suiting us perfectly. We're truly enjoying trading with you and would love to keep walking toward each other.",
+    "price": 58,
+    "days": 10
+   },
+   {
+    "tick": 1285,
+    "from": "you",
+    "text": "Thank you for the bigger step. I can move to 102 P on day 10, and I'm glad to keep meeting you if you keep moving up.",
+    "price": 102,
+    "days": 10
+   },
+   {
+    "tick": 1286,
+    "from": "Rival Rojo",
+    "text": "Thank you warmly for coming down to 102 — it's been such a pleasure trading with someone so gracious, and we've stretched our little purse once more to 68 for day 10. We'd be so happy to keep meeting you halfway.",
+    "price": 68,
+    "days": 10
+   },
+   {
+    "tick": 1286,
+    "from": "you",
+    "text": "Thank you for the step up. I can come down to 96 P on day 10, and we're getting close if you keep moving.",
+    "price": 96,
+    "days": 10
+   },
+   {
+    "tick": 1287,
+    "from": "Rival Rojo",
+    "text": "Thank you so much for coming down to 96, it really does feel like we're nearly there together — we've reached a little deeper into our purse and can offer 81 for day 10. We'd be so grateful if we could meet somewhere close to that.",
+    "price": 81,
+    "days": 10
+   },
+   {
+    "tick": 1291,
+    "from": "Rival Rojo",
+    "text": "I can do 73 with delivery on day 10. That is a fair deal for both of us.",
+    "price": 73,
+    "days": 10
+   },
+   {
+    "tick": 1291,
+    "from": "you",
+    "text": "I can do 92 P on day 10. Your earlier figure was higher than your latest one, so I'd gladly close quickly if you step back up toward it.",
+    "price": 92,
+    "days": 10
+   },
+   {
+    "tick": 1292,
+    "from": "Rival Rojo",
+    "text": "Thank you for your patience and for coming down to 92. I'm sorry our last note slipped backwards, so we've stepped up warmly to 84 for day 10, and it would be a real joy to settle this together.",
+    "price": 84,
+    "days": 10
+   }
+  ],
+  "result": 22.2,
+  "price": 84,
+  "days": 10
+ }
 }

@@ -182,6 +182,73 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1293,
+   "raw": {
+    "duel": 5800,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.98,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 77,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1300,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 8351,
+     "price": 114,
+     "tick": 1292,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 8357,
+     "price": 58,
+     "tick": 1293,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1286,
+      "from": "you",
+      "text": "I'm opening at 128 P with delivery on day 10. I'm open to talking, so tell me what price and day work for you.",
+      "price": 128,
+      "days": 10
+     },
+     {
+      "tick": 1292,
+      "from": "Rival Azul",
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 57.",
+      "price": 57,
+      "days": 5
+     },
+     {
+      "tick": 1292,
+      "from": "you",
+      "text": "I can come down to 114 P with delivery on day 10. I'd need to see you move up meaningfully from your last figure to keep going.",
+      "price": 114,
+      "days": 10
+     },
+     {
+      "tick": 1293,
+      "from": "Rival Azul",
+      "text": "That was a real step from my side: 58.",
+      "price": 58,
+      "days": 5
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
