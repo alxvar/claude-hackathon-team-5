@@ -886,6 +886,157 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 1264,
+   "took_s": 9.6,
+   "cost_usd": 0.01388,
+   "obs": {
+    "view": {
+     "duel_id": 5736,
+     "role": "seller",
+     "limit": 111,
+     "currency": "P",
+     "item": "La Dama de Serrano",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 0.79,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Rápido y justo: 128 P, día 3. ¿Qué día de entrega te va mejor? / Quick and fair: 128 P, day 3. Which delivery day suits you best?",
+      "offer": {
+       "price": 128,
+       "days": 3
+      },
+      "accept": false,
+      "tick": 1256,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the quick opening. I can do 160 P with delivery on day 10; I'd like to see you move up on price.",
+      "offer": {
+       "price": 160,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1256,
+      "decision": {
+       "action": "offer",
+       "price": 160,
+       "message": "Thanks for the quick opening. I can do 160 P with delivery on day 10; I'd like to see you move up on price."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Parece que el día te importa: 138 P con día 7. / It seems the day matters to you: 138 P, day 7.",
+      "offer": {
+       "price": 138,
+       "days": 7
+      },
+      "accept": false,
+      "tick": 1257,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for moving on both price and day. I can come down to 156 P with delivery on day 10; I'd need to see you move up on price again to keep progressing.",
+      "offer": {
+       "price": 156,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1257,
+      "decision": {
+       "action": "offer",
+       "price": 156,
+       "message": "Thanks for moving on both price and day. I can come down to 156 P with delivery on day 10; I'd need to see you move up on price again to keep progressing."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Parece que el día te importa: 143 P con día 9. / It seems the day matters to you: 143 P, day 9.",
+      "offer": {
+       "price": 143,
+       "days": 9
+      },
+      "accept": false,
+      "tick": 1258,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 143,
+     "days": 9
+    },
+    "tick": 1264,
+    "ticks_left": 7,
+    "rounds": 2,
+    "day_swings": [
+     27.5,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "I'll hold where I am for now and wait for your next move.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "I'll hold where I am for now and wait for your next move."
+     },
+     "band": {
+      "worst": 153,
+      "target": 156,
+      "best": 156
+     },
+     "plan": {
+      "read": "They have moved steadily, from 128 to 138 to 143, and are drifting toward our day (now day 9). Their standing 143 is within our limit, but they keep conceding about 5 a step, so there is likely more room.",
+      "target": 156,
+      "best": 156,
+      "worst": 153,
+      "days": 10,
+      "angle": "Hold at 156 on day 10 and send nothing this tick, so they make the next move."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.93,
+       "in": 1119,
+       "out": 347,
+       "cost_usd": 0.01142,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.67,
+       "in": 527,
+       "out": 141,
+       "cost_usd": 0.00246,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [

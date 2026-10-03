@@ -122,6 +122,66 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1264,
+   "raw": {
+    "duel": 5706,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Dama de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.6,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 122,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1271,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 7235,
+     "price": 93,
+     "tick": 1264,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 7120,
+     "price": 157,
+     "tick": 1261,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1257,
+      "from": "you",
+      "text": "I can do 80 P with delivery on day 0. Happy to hear your counter.",
+      "price": 80,
+      "days": 0
+     },
+     {
+      "tick": 1261,
+      "from": "Rival Rojo",
+      "text": "Hola. This one is in perfect condition. 157 P, delivery day 0.",
+      "price": 157,
+      "days": 0
+     },
+     {
+      "tick": 1264,
+      "from": "you",
+      "text": "I can move up to 93 P with delivery on day 0. That's a real step from me, so I'd like to see you come down meaningfully from your figure.",
+      "price": 93,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -357,6 +417,120 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 1264,
+   "took_s": 6.75,
+   "cost_usd": 0.0082,
+   "obs": {
+    "view": {
+     "duel_id": 5706,
+     "role": "buyer",
+     "limit": 122,
+     "currency": "P",
+     "item": "La Dama de Serrano",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.6,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I can do 80 P with delivery on day 0. Happy to hear your counter.",
+      "offer": {
+       "price": 80,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1257,
+      "decision": {
+       "action": "offer",
+       "price": 80,
+       "message": "I can do 80 P with delivery on day 0. Happy to hear your counter."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hola. This one is in perfect condition. 157 P, delivery day 0.",
+      "offer": {
+       "price": 157,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1261,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 157,
+     "days": 0
+    },
+    "tick": 1264,
+    "ticks_left": 7,
+    "rounds": 1,
+    "day_swings": [
+     27.5,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can move up to 93 P with delivery on day 0. That's a real step from me, so I'd like to see you come down meaningfully from your figure.",
+    "price": 93,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 93,
+      "message": "I can move up to 93 P with delivery on day 0. That's a real step from me, so I'd like to see you come down meaningfully from your figure."
+     },
+     "band": {
+      "worst": 93,
+      "target": 93,
+      "best": 90
+     },
+     "plan": {
+      "read": "They opened at 157 on day 0 with an unverifiable quality claim and haven't moved since. Their price is far above what we'll pay, and with 7 ticks left and both sides still, this is a standoff.",
+      "target": 93,
+      "best": 90,
+      "worst": 93,
+      "days": 0,
+      "angle": "Keep day 0, make one firm step up to about 93 to break the standoff, and ask them to come down meaningfully from 157 without debating the condition claim."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.73,
+       "in": 682,
+       "out": 208,
+       "cost_usd": 0.00689,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.02,
+       "in": 331,
+       "out": 65,
+       "cost_usd": 0.00131,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -413,6 +587,63 @@
      "id": 6983,
      "price": 80,
      "tick": 1257,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1264,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can move up to 93 P with delivery on day 0. That's a real step from me, so I'd like to see you come down meaningfully from your figure.",
+    "price": 93,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 93,
+      "message": "I can move up to 93 P with delivery on day 0. That's a real step from me, so I'd like to see you come down meaningfully from your figure."
+     },
+     "band": {
+      "worst": 93,
+      "target": 93,
+      "best": 90
+     },
+     "plan": {
+      "read": "They opened at 157 on day 0 with an unverifiable quality claim and haven't moved since. Their price is far above what we'll pay, and with 7 ticks left and both sides still, this is a standoff.",
+      "target": 93,
+      "best": 90,
+      "worst": 93,
+      "days": 0,
+      "angle": "Keep day 0, make one firm step up to about 93 to break the standoff, and ask them to come down meaningfully from 157 without debating the condition claim."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.73,
+       "in": 682,
+       "out": 208,
+       "cost_usd": 0.00689,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.02,
+       "in": 331,
+       "out": 65,
+       "cost_usd": 0.00131,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5706,
+    "offer": {
+     "id": 7235,
+     "price": 93,
+     "tick": 1264,
      "days": 0
     }
    }

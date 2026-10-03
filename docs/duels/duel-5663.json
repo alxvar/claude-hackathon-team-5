@@ -249,6 +249,80 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1263,
+   "raw": {
+    "duel": 5663,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.08,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 72,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 1271,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 7170,
+     "price": 55,
+     "tick": 1262,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 7200,
+     "price": 65,
+     "tick": 1263,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1255,
+      "from": "Rival Verde",
+      "text": "Propuesta justa para cerrar pronto: 68 P y 5 días.",
+      "price": 68,
+      "days": 5
+     },
+     {
+      "tick": 1255,
+      "from": "you",
+      "text": "I can do 52 P with delivery on day 0, a clean and quick close.",
+      "price": 52,
+      "days": 0
+     },
+     {
+      "tick": 1256,
+      "from": "Rival Verde",
+      "text": "Me muevo para acercarnos: 66 P con 5 días.",
+      "price": 66,
+      "days": 5
+     },
+     {
+      "tick": 1262,
+      "from": "you",
+      "text": "I'm moving up to 55 P with delivery on day 0, a real step to meet your move.",
+      "price": 55,
+      "days": 0
+     },
+     {
+      "tick": 1263,
+      "from": "Rival Verde",
+      "text": "Yo ya me he movido. Propongo 65 P y 5 días.",
+      "price": 65,
+      "days": 5
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -760,6 +834,157 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1263,
+   "took_s": 6.96,
+   "cost_usd": 0.01035,
+   "obs": {
+    "view": {
+     "duel_id": 5663,
+     "role": "buyer",
+     "limit": 72,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.08,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 68 P y 5 días.",
+      "offer": {
+       "price": 68,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1255,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 52 P with delivery on day 0, a clean and quick close.",
+      "offer": {
+       "price": 52,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1255,
+      "decision": {
+       "action": "offer",
+       "price": 52,
+       "message": "I can do 52 P with delivery on day 0, a clean and quick close."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 66 P con 5 días.",
+      "offer": {
+       "price": 66,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1256,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm moving up to 55 P with delivery on day 0, a real step to meet your move.",
+      "offer": {
+       "price": 55,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1262,
+      "decision": {
+       "action": "offer",
+       "price": 55,
+       "message": "I'm moving up to 55 P with delivery on day 0, a real step to meet your move."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Yo ya me he movido. Propongo 65 P y 5 días.",
+      "offer": {
+       "price": 65,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1263,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 65,
+     "days": 5
+    },
+    "tick": 1263,
+    "ticks_left": 8,
+    "rounds": 2,
+    "day_swings": [
+     27.5,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "I'm holding my position for now.\n",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "I'm holding my position for now.\n"
+     },
+     "band": {
+      "worst": 56,
+      "target": 55,
+      "best": 54
+     },
+     "plan": {
+      "read": "They have moved 3 P in small steps (68→66→65), still on day 5, a middle day. Their 'I've already moved' is pressure, not a reason to pay. Their standing offer is barely worth anything to us once the day is counted.",
+      "target": 55,
+      "best": 54,
+      "worst": 56,
+      "days": 0,
+      "angle": "Hold steady at 55 P with delivery on day 0 and send nothing this tick, letting them make the next move."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.98,
+       "in": 973,
+       "out": 264,
+       "cost_usd": 0.00917,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.98,
+       "in": 436,
+       "out": 31,
+       "cost_usd": 0.00118,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [

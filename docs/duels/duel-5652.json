@@ -798,6 +798,245 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1263,
+   "raw": {
+    "duel": 5652,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.75,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 63,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Verde",
+    "deadline_tick": 1271,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 7024,
+     "price": 100,
+     "tick": 1258,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 7178,
+     "price": 92,
+     "tick": 1263,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1255,
+      "from": "Rival Verde",
+      "text": "Te ofrezco 55 primas y entrega en 0 días; me cuesta subir más.",
+      "price": 55,
+      "days": 0
+     },
+     {
+      "tick": 1255,
+      "from": "you",
+      "text": "I can do 105 P, delivery on day 10.",
+      "price": 105,
+      "days": 10
+     },
+     {
+      "tick": 1256,
+      "from": "Rival Verde",
+      "text": "57 primas y entrega en 1 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 57,
+      "days": 1
+     },
+     {
+      "tick": 1257,
+      "from": "Rival Verde",
+      "text": "Mi propuesta: 58 primas y entrega en 10 días. Dame una cifra concreta y la miro.",
+      "price": 58,
+      "days": 10
+     },
+     {
+      "tick": 1258,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 72 primas y entrega en 10 días. Dime si cerramos.",
+      "price": 72,
+      "days": 10
+     },
+     {
+      "tick": 1258,
+      "from": "you",
+      "text": "I can come down to 100 P, delivery on day 10. That's about as far as I can move, so I need you to meet me much closer.}",
+      "price": 100,
+      "days": 10
+     },
+     {
+      "tick": 1259,
+      "from": "Rival Verde",
+      "text": "Te ofrezco 72 primas y entrega en 10 días; me cuesta subir más.",
+      "price": 72,
+      "days": 10
+     },
+     {
+      "tick": 1260,
+      "from": "Rival Verde",
+      "text": "72 primas y entrega en 10 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 72,
+      "days": 10
+     },
+     {
+      "tick": 1261,
+      "from": "Rival Verde",
+      "text": "Mi propuesta: 85 primas y entrega en 10 días. Dame una cifra concreta y la miro.",
+      "price": 85,
+      "days": 10
+     },
+     {
+      "tick": 1262,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 89 primas y entrega en 10 días. Dime si cerramos.",
+      "price": 89,
+      "days": 10
+     },
+     {
+      "tick": 1263,
+      "from": "Rival Verde",
+      "text": "Te ofrezco 92 primas y entrega en 10 días; me cuesta subir más.",
+      "price": 92,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1264,
+   "raw": {
+    "duel": 5652,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.75,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 63,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Verde",
+    "deadline_tick": 1271,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 7024,
+     "price": 100,
+     "tick": 1258,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 7227,
+     "price": 98,
+     "tick": 1264,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1255,
+      "from": "Rival Verde",
+      "text": "Te ofrezco 55 primas y entrega en 0 días; me cuesta subir más.",
+      "price": 55,
+      "days": 0
+     },
+     {
+      "tick": 1255,
+      "from": "you",
+      "text": "I can do 105 P, delivery on day 10.",
+      "price": 105,
+      "days": 10
+     },
+     {
+      "tick": 1256,
+      "from": "Rival Verde",
+      "text": "57 primas y entrega en 1 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 57,
+      "days": 1
+     },
+     {
+      "tick": 1257,
+      "from": "Rival Verde",
+      "text": "Mi propuesta: 58 primas y entrega en 10 días. Dame una cifra concreta y la miro.",
+      "price": 58,
+      "days": 10
+     },
+     {
+      "tick": 1258,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 72 primas y entrega en 10 días. Dime si cerramos.",
+      "price": 72,
+      "days": 10
+     },
+     {
+      "tick": 1258,
+      "from": "you",
+      "text": "I can come down to 100 P, delivery on day 10. That's about as far as I can move, so I need you to meet me much closer.}",
+      "price": 100,
+      "days": 10
+     },
+     {
+      "tick": 1259,
+      "from": "Rival Verde",
+      "text": "Te ofrezco 72 primas y entrega en 10 días; me cuesta subir más.",
+      "price": 72,
+      "days": 10
+     },
+     {
+      "tick": 1260,
+      "from": "Rival Verde",
+      "text": "72 primas y entrega en 10 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 72,
+      "days": 10
+     },
+     {
+      "tick": 1261,
+      "from": "Rival Verde",
+      "text": "Mi propuesta: 85 primas y entrega en 10 días. Dame una cifra concreta y la miro.",
+      "price": 85,
+      "days": 10
+     },
+     {
+      "tick": 1262,
+      "from": "Rival Verde",
+      "text": "Puedo llegar a 89 primas y entrega en 10 días. Dime si cerramos.",
+      "price": 89,
+      "days": 10
+     },
+     {
+      "tick": 1263,
+      "from": "Rival Verde",
+      "text": "Te ofrezco 92 primas y entrega en 10 días; me cuesta subir más.",
+      "price": 92,
+      "days": 10
+     },
+     {
+      "tick": 1264,
+      "from": "Rival Verde",
+      "text": "98 primas y entrega en 10 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 98,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1758,6 +1997,421 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 1263,
+   "took_s": 12.41,
+   "cost_usd": 0.0197,
+   "obs": {
+    "view": {
+     "duel_id": 5652,
+     "role": "seller",
+     "limit": 63,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.75,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Te ofrezco 55 primas y entrega en 0 días; me cuesta subir más.",
+      "offer": {
+       "price": 55,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1255,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 105 P, delivery on day 10.",
+      "offer": {
+       "price": 105,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1255,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "57 primas y entrega en 1 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "offer": {
+       "price": 57,
+       "days": 1
+      },
+      "accept": false,
+      "tick": 1256,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Mi propuesta: 58 primas y entrega en 10 días. Dame una cifra concreta y la miro.",
+      "offer": {
+       "price": 58,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1257,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 72 primas y entrega en 10 días. Dime si cerramos.",
+      "offer": {
+       "price": 72,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1258,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can come down to 100 P, delivery on day 10. That's about as far as I can move, so I need you to meet me much closer.}",
+      "offer": {
+       "price": 100,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1258,
+      "decision": {
+       "action": "offer",
+       "price": 100,
+       "message": "I can come down to 100 P, delivery on day 10. That's about as far as I can move, so I need you to meet me much closer.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Te ofrezco 72 primas y entrega en 10 días; me cuesta subir más.",
+      "offer": {
+       "price": 72,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1259,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "72 primas y entrega en 10 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "offer": {
+       "price": 72,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1260,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Mi propuesta: 85 primas y entrega en 10 días. Dame una cifra concreta y la miro.",
+      "offer": {
+       "price": 85,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1261,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 89 primas y entrega en 10 días. Dime si cerramos.",
+      "offer": {
+       "price": 89,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1262,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Te ofrezco 92 primas y entrega en 10 días; me cuesta subir más.",
+      "offer": {
+       "price": 92,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1263,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 92,
+     "days": 10
+    },
+    "tick": 1263,
+    "ticks_left": 8,
+    "rounds": 2,
+    "day_swings": [
+     27.5,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm holding at 100 P with delivery on day 10.",
+    "price": 100,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 100,
+      "message": "I'm holding at 100 P with delivery on day 10."
+     },
+     "vetoes": [
+      "the message mentions 10 P. Don't write those amounts, not even to reject them.",
+      "the message names 10: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "band": {
+      "worst": 97,
+      "target": 100,
+      "best": 100
+     },
+     "plan": {
+      "read": "They keep raising on their own (72, 85, 89, 92), all on day 10, without any move from us. Their 92 is acceptable, but the momentum suggests more is coming, and silence costs us nothing.",
+      "target": 100,
+      "best": 100,
+      "worst": 97,
+      "days": 10,
+      "angle": "Hold at 100 P on day 10 and send nothing this tick; let them keep coming up."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.28,
+       "in": 1393,
+       "out": 324,
+       "cost_usd": 0.01205,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.61,
+       "in": 753,
+       "out": 173,
+       "cost_usd": 0.00324,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 3.52,
+       "in": 840,
+       "out": 273,
+       "cost_usd": 0.00441,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 1264,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 5652,
+     "role": "seller",
+     "limit": 63,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.75,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Te ofrezco 55 primas y entrega en 0 días; me cuesta subir más.",
+      "offer": {
+       "price": 55,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1255,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 105 P, delivery on day 10.",
+      "offer": {
+       "price": 105,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1255,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "57 primas y entrega en 1 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "offer": {
+       "price": 57,
+       "days": 1
+      },
+      "accept": false,
+      "tick": 1256,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Mi propuesta: 58 primas y entrega en 10 días. Dame una cifra concreta y la miro.",
+      "offer": {
+       "price": 58,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1257,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 72 primas y entrega en 10 días. Dime si cerramos.",
+      "offer": {
+       "price": 72,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1258,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can come down to 100 P, delivery on day 10. That's about as far as I can move, so I need you to meet me much closer.}",
+      "offer": {
+       "price": 100,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1258,
+      "decision": {
+       "action": "offer",
+       "price": 100,
+       "message": "I can come down to 100 P, delivery on day 10. That's about as far as I can move, so I need you to meet me much closer.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Te ofrezco 72 primas y entrega en 10 días; me cuesta subir más.",
+      "offer": {
+       "price": 72,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1259,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "72 primas y entrega en 10 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "offer": {
+       "price": 72,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1260,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Mi propuesta: 85 primas y entrega en 10 días. Dame una cifra concreta y la miro.",
+      "offer": {
+       "price": 85,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1261,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 89 primas y entrega en 10 días. Dime si cerramos.",
+      "offer": {
+       "price": 89,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1262,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Te ofrezco 92 primas y entrega en 10 días; me cuesta subir más.",
+      "offer": {
+       "price": 92,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1263,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "98 primas y entrega en 10 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "offer": {
+       "price": 98,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1264,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 98,
+     "days": 10
+    },
+    "tick": 1264,
+    "ticks_left": 7,
+    "rounds": 2,
+    "day_swings": [
+     27.5,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 98,
+    "days": null,
+    "meta": {
+     "rule": "small gap",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1886,6 +2540,25 @@
      "tick": 1258,
      "days": 10
     }
+   }
+  },
+  {
+   "tick": 1264,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 98,
+    "days": null,
+    "meta": {
+     "rule": "small gap",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 98,
+    "settles_at_tick": 1265
    }
   }
  ]
