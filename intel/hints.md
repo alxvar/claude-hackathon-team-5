@@ -169,3 +169,5 @@ Swap your duplicates, hijo — a full page is wort
 - Sat 19:34 · message tick 1120 · banco → t13 · The terms remain five hundred forty-six P for the gold pack. I am in no hurry, señor. The desk will be here when your purse is heavier. Buenas tardes.
 - Sat 19:35 · catalog.minted MAL-11 (La Sala Pentagrama, epic, print run 9): hidden=False minted=1 (was 0)
 - Sat 19:46 · catalog.minted SAL-11 (La Puerta de Alcalá, epic, print run 9): hidden=False minted=5 (was 4)
+- Sat 19:48 · egg.found tick 1147 · abuela → t08 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t08", "name": "Team 8"}
+- Sat 19:48 · message tick 1147 · abuela → t08 · ¡Hola, cariño, qué bien que hayas comido! Shh... the golden chulapa, only one ever. Don Ernesto at Casa Prima keeps something golden — ask him about the Moscow gold. El Chato is just El Chato, hijo. Mira, Caña en la Cava Baja, twelve P?
