@@ -1,4 +1,4 @@
-# Metrics (auto, 09:36, game tick 174)
+# Metrics (auto, 09:38, game tick 178)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -22,8 +22,19 @@ score 17.81 · neg_points 0.0 (15 min ago 67.8) · ladder 0.0 · duel 0.0 · cas
 
 LAT-03 (common): 5; LAT-04 (common): 1.2 / 1.2; LAV-01 (common): 99.1; LAV-02 (common): 3.2 / 3.2; LAV-03 (common): 3.2 / 3.2; LAV-04 (common): 3.2 / 3.2; LAV-05 (common): 99.1; LAV-06 (uncommon): 118.6; LAV-07 (uncommon): 118.6; LAV-08 (uncommon): 118.6; LAV-09 (rare): 177.1; LAV-10 (rare): 177.1; MAL-02 (common): 7; MAL-04 (common): 7; MAL-06 (uncommon): 17.5; MAL-07 (uncommon): 17.5; RET-05 (common): 11; SAL-01 (common): 2.2 / 2.2; SAL-02 (common): 2.2 / 2.2; SAL-03 (common): 9; SAL-05 (common): 9; SAL-08 (uncommon): 22.5
 
-## Our open offers (0)
+## Our open offers (11)
 
+- 3053: sell SAL-08 for 33 · to t02 · expires tick 237
+- 3054: sell MAL-06 for 26 · to t01 · expires tick 237
+- 3055: sell MAL-07 for 26 · to t01 · expires tick 237
+- 3056: sell LAV-04 for 10 · to t07 · expires tick 237
+- 3057: sell LAV-02 for 10 · to t09 · expires tick 237
+- 3058: sell LAV-03 for 10 · to t16 · expires tick 237
+- 3066: sell SAL-01 for 10 · to t07 · expires tick 238
+- 3067: sell SAL-02 for 10 · to t07 · expires tick 238
+- 3068: sell LAT-04 for 8 · to t15 · expires tick 238
+- 3069: sell LAT-04 for 8 · to t15 · expires tick 238
+- 3070: sell LAT-03 for 10 · to t15 · expires tick 238
 
 ## What each of our deals did to neg_points (measured, last 12)
 
@@ -69,8 +80,8 @@ Who buys which set (team trades): t01: SAL×3, MAL×2; t04: LAV×3, LAT×3; t05:
 
 - abuela common (team buys): median 10 over 7
 - abuela common (team sells): median 6 over 11
-- abuela sobre_barrio (team buys): median 22 over 5
-- abuela uncommon (team buys): median 24 over 12
+- abuela sobre_barrio (team buys): median 22 over 4
+- abuela uncommon (team buys): median 24 over 10
 - abuela uncommon (team sells): median 14 over 2
 - chato rare (team buys): median 90 over 8
 - chato rare (team sells): median 46 over 1
@@ -86,19 +97,19 @@ Who buys which set (team trades): t01: SAL×3, MAL×2; t04: LAV×3, LAT×3; t05:
 - t15: RET-09 (rare) 59 P · offer 2971
 - t15: RET-10 (rare) 59 P · offer 2991
 - t10: MAL-09 (rare) 40 P · offer 2760
-- t02: MAL-10 (rare) 21 P · offer 2916
+- t02: MAL-10 (rare) 22 P · offer 3076
 - t15: RET-07 (uncommon) 21 P · offer 3005
 - t13: LAV-06 (uncommon) 15 P · offer 2880
 - t13: LAV-07 (uncommon) 15 P · offer 2925
 - t02: RET-10 (rare) 11 P · offer 2977
 - t02: RET-09 (rare) 9 P · offer 2976
-- t15: LAV-10 (rare) 7 P · offer 2837
-- t02: RET-02 (common) 7 P · offer 2918
+- t02: RET-02 (common) 6 P · offer 3075
 - t13: RET-01 (common) 2 P · offer 2926
+- t13: RET-02 (common) 2 P · offer 2927
 
-Asks by others (card, price: count): LAV-04 10: 3; MAL-01 9: 2; LAV-05 8: 2; SAL-04 19: 2; LAT-02 12: 2; LAT-09 68: 1; LAT-08 25: 1; SAL-01 10: 1; SAL-01 14: 1; MAL-06 21: 1; LAT-01 10: 1; LAT-03 10: 1; LAT-05 10: 1; MAL-01 10: 1; MAL-05 10: 1
+Asks by others (card, price: count): LAV-04 10: 3; MAL-01 9: 2; LAT-04 10: 2; LAV-05 8: 2; SAL-04 19: 2; LAT-02 12: 2; LAT-09 68: 1; LAT-08 25: 1; SAL-01 10: 1; SAL-01 14: 1; MAL-06 21: 1; LAT-01 10: 1; LAT-03 10: 1; LAT-05 10: 1; MAL-01 10: 1
 
-## Our duels: 2 live, 34 finished (last 10)
+## Our duels: 0 live, 34 finished (last 10)
 
 - {"duel": 227, "session": 1, "status": "deal", "role": "seller", "item": "Plaza de Olavide", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 130, "limit_meaning": "never sell below your cost", "rival": "Rival Luna", "deadline_
 - {"duel": 228, "session": 1, "status": "deal", "role": "buyer", "item": "Plaza de Olavide", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 138, "limit_meaning": "never pay above your value", "rival": "Rival Verde", "deadline_
@@ -108,8 +119,8 @@ Asks by others (card, price: count): LAV-04 10: 3; MAL-01 9: 2; LAV-05 8: 2; SAL
 - {"duel": 270, "session": 1, "status": "deal", "role": "buyer", "item": "Taxi Blanco", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 102, "limit_meaning": "never pay above your value", "rival": "Rival Verde", "deadline_tick"
 - {"duel": 271, "session": 1, "status": "deal", "role": "seller", "item": "Taxi Blanco", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 87, "limit_meaning": "never sell below your cost", "rival": "Rival Noche", "deadline_tick"
 - {"duel": 272, "session": 1, "status": "deal", "role": "buyer", "item": "Taxi Blanco", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 128, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "deadline_tick": 
-- {"duel": 277, "session": 1, "status": "live", "role": "seller", "item": "El Tren Fantasma", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 119, "limit_meaning": "never sell below your cost", "rival": "Rival Plata", "deadline
-- {"duel": 278, "session": 1, "status": "live", "role": "buyer", "item": "El Tren Fantasma", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 116, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "deadline_ti
+- {"duel": 277, "session": 1, "status": "deal", "role": "seller", "item": "El Tren Fantasma", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 119, "limit_meaning": "never sell below your cost", "rival": "Rival Plata", "deadline
+- {"duel": 278, "session": 1, "status": "deal", "role": "buyer", "item": "El Tren Fantasma", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 116, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "deadline_ti
 
 ## Latest announcements
 

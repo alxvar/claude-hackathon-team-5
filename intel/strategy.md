@@ -1,4 +1,3 @@
-# Strategist — no run yet on Saturday
+# Strategist (claude-opus-5-5, Sat 09:38)
 
-Friday's output is archived in `archive/fri/strategy-fri.md` and is stale (it predates the verified facts in
-`intel/GAME.md` and the plan in `intel/saturday-plan.md`). The strategist reruns after the operator's 09:00 checks.
+
