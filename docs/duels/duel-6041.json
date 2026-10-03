@@ -552,6 +552,101 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1346,
+   "raw": {
+    "duel": 6041,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Frutero de Argumosa",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.03,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 99,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Sol",
+    "deadline_tick": 1349,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 10217,
+     "price": 39,
+     "tick": 1345,
+     "days": 2
+    },
+    "rival_offer": {
+     "id": 10259,
+     "price": 44,
+     "tick": 1346,
+     "days": 2
+    },
+    "messages": [
+     {
+      "tick": 1333,
+      "from": "Rival Sol",
+      "text": "We can offer El Frutero de Argumosa at 54 primas with 10 delivery days, a fair deal for both of us.",
+      "price": 54,
+      "days": 10
+     },
+     {
+      "tick": 1334,
+      "from": "you",
+      "text": "I can do 45 P with delivery on day 0. That's a fair starting point for me, and I'm happy to keep talking from there.}",
+      "price": 45,
+      "days": 0
+     },
+     {
+      "tick": 1335,
+      "from": "Rival Sol",
+      "text": "I can come down to 52 P with delivery on day 8. That's a fair middle ground I'd be glad to sign.",
+      "price": 52,
+      "days": 8
+     },
+     {
+      "tick": 1341,
+      "from": "you",
+      "text": "I can move to 48 P with delivery on day 0. That's a clear step from me, and I'm glad to close on those terms.",
+      "price": 48,
+      "days": 0
+     },
+     {
+      "tick": 1342,
+      "from": "Rival Sol",
+      "text": "Let's meet close: 50 P with delivery on day 2, and we can sign right away.",
+      "price": 50,
+      "days": 2
+     },
+     {
+      "tick": 1345,
+      "from": "you",
+      "text": "I can do 39 P, delivery on day 2.",
+      "price": 39,
+      "days": 2
+     },
+     {
+      "tick": 1345,
+      "from": "Rival Sol",
+      "text": "You offered 48 P before, so let's close at 48 P with delivery on day 2.",
+      "price": 48,
+      "days": 2
+     },
+     {
+      "tick": 1346,
+      "from": "Rival Sol",
+      "text": "I can do 44 P with delivery in 2 days to close today.",
+      "price": 44,
+      "days": 2
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1695,5 +1790,98 @@
     "settles_at_tick": 1347
    }
   }
- ]
+ ],
+ "last_seen_tick": 1347,
+ "done": {
+  "duel": 6041,
+  "session": 3,
+  "status": "deal",
+  "role": "buyer",
+  "item": "El Frutero de Argumosa",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 4.03,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 99,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Sol",
+  "deadline_tick": 1349,
+  "decay_per_round": 0.08,
+  "rounds": 3,
+  "your_offer": {
+   "id": 10217,
+   "price": 39,
+   "tick": 1345,
+   "days": 2
+  },
+  "rival_offer": {
+   "id": 10259,
+   "price": 44,
+   "tick": 1346,
+   "days": 2
+  },
+  "messages": [
+   {
+    "tick": 1333,
+    "from": "Rival Sol",
+    "text": "We can offer El Frutero de Argumosa at 54 primas with 10 delivery days, a fair deal for both of us.",
+    "price": 54,
+    "days": 10
+   },
+   {
+    "tick": 1334,
+    "from": "you",
+    "text": "I can do 45 P with delivery on day 0. That's a fair starting point for me, and I'm happy to keep talking from there.}",
+    "price": 45,
+    "days": 0
+   },
+   {
+    "tick": 1335,
+    "from": "Rival Sol",
+    "text": "I can come down to 52 P with delivery on day 8. That's a fair middle ground I'd be glad to sign.",
+    "price": 52,
+    "days": 8
+   },
+   {
+    "tick": 1341,
+    "from": "you",
+    "text": "I can move to 48 P with delivery on day 0. That's a clear step from me, and I'm glad to close on those terms.",
+    "price": 48,
+    "days": 0
+   },
+   {
+    "tick": 1342,
+    "from": "Rival Sol",
+    "text": "Let's meet close: 50 P with delivery on day 2, and we can sign right away.",
+    "price": 50,
+    "days": 2
+   },
+   {
+    "tick": 1345,
+    "from": "you",
+    "text": "I can do 39 P, delivery on day 2.",
+    "price": 39,
+    "days": 2
+   },
+   {
+    "tick": 1345,
+    "from": "Rival Sol",
+    "text": "You offered 48 P before, so let's close at 48 P with delivery on day 2.",
+    "price": 48,
+    "days": 2
+   },
+   {
+    "tick": 1346,
+    "from": "Rival Sol",
+    "text": "I can do 44 P with delivery in 2 days to close today.",
+    "price": 44,
+    "days": 2
+   }
+  ],
+  "result": 33.4,
+  "price": 48,
+  "days": 2
+ }
 }
