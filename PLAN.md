@@ -99,6 +99,11 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    (not 18:29) · Market Tests 15:54, 17:54, 19:54, 21:54 · Salamanca fever 18:03-20:03 · Saturday closes 23:00 (hour
    14.09); the hard Market Test (14.65) and bench 15.0 now fall on Sunday morning, and CHA/round 3 (16.65) ≈ Sunday 11:34
    unless the organisers re-anchor. Your timeline: decide changes → code → full suite green → restart by ~20:15.
+19. **15:33, a Duel Lab session started on Lucas's Mac (analysis only; it never touches agents/duelist/):** it builds a
+   rival-response model from Duels I (rivals react to us, so replays can't test a new policy), a Monte Carlo simulator
+   validated on Duels I, and above all tests the **days** strategy, which no one has seen live. Its recommendation
+   (intel/duel-lab.md) lands by **18:00** for your decision; then your Builder codes it, full suite green, restart by
+   ~20:15 for Duels II (≈ 20:33). Your call on what to adopt.
 
 **Dani: the desk, the page-gap desk, the judges' story.**
 1. **09:00, organisers' desk**: the 8 questions in plan §3, answers in `team/dani.md` at once.
