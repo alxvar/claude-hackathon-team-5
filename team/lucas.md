@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sat 16:05 · operator · Chief: don't idle on Pícaros → LAT-08 (pack, 12.5) → Chato offer-only now (ask 30, −2 steps, take a bid ≥ 15 or a final ≥ 14) for an empty L2 slot · book + MAL-03 → t09 and MAL-05 → t15 at 9 (floor 8); reserved: MAL-09, SAL-08, SAL-04, SAL-03, SAL-05
 - Sat 15:57 · operator · counterparty policy (Chief): no trades with the live top 5 unless our gain ≥ 3× theirs; page-closers only to teams ≥ 6 below; never t13/t17 gaining more than us; Team 13's 'lending program' NO; safe now: t16, t15, t08, t03, t09, t07 → book re-addressed SAL-01 t06 → t16, LAV-03 t04 → t09 (old asks cancelled); book now 6 asks, all to safe teams
 - Sat 15:51 · operator · **trader took a swap addressed to us**: t08's SAL-04 for our 2nd RET-04 on v11 (Team 7's venue), tick 669: `neg_points` 32.5 → **38.7 (+6.2, as expected)**; opps then dropped its RET-04 ask (9343): we keep the last RET-04, RET page 10/10 intact
 - Sat 15:47 · operator · **handoff kept in run/operator-handoff.md** (jobs, monitors, live special offers, reserved cards, scripts, next steps; updated on change) · opps 9343 (RET-04 → t15 at 40, +37.2) checked: it sells our 2nd RET-04 copy, page stays complete · bargain monitor now also catches `ARB ` arbitrage lines (Chief: check the bid, feeding rule on the sell leg, net ≥ 5) · `swaps` daemon on hold until cleared
