@@ -28,6 +28,47 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1333,
+   "raw": {
+    "duel": 6040,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "El Frutero de Argumosa",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.12,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 87,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1349,
+    "decay_per_round": 0.08,
+    "rounds": 0,
+    "your_offer": null,
+    "rival_offer": {
+     "id": 9830,
+     "price": 108,
+     "tick": 1333,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1333,
+      "from": "Rival Azul",
+      "text": "I can do 108 P with delivery in 0 days. Every round costs us both, so let's close.",
+      "price": 108,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {

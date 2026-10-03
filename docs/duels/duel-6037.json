@@ -182,6 +182,73 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1333,
+   "raw": {
+    "duel": 6037,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.99,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 145,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 1348,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 9825,
+     "price": 104,
+     "tick": 1333,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 9818,
+     "price": 189,
+     "tick": 1333,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1332,
+      "from": "Rival Noche",
+      "text": "Hello, and thank you so much for sitting down with us. We'd be glad to part with this card for 202, and we're happy to be flexible on delivery timing to make it easy for you.",
+      "price": 202,
+      "days": 10
+     },
+     {
+      "tick": 1332,
+      "from": "you",
+      "text": "Thanks for the warm welcome and the flexibility on timing. I can do 95 P with delivery on day 0, which is what works best for us.\n\nI hope we can find a figure close to that.}",
+      "price": 95,
+      "days": 0
+     },
+     {
+      "tick": 1333,
+      "from": "Rival Noche",
+      "text": "Thank you kindly for your offer of 95, and I'm so glad the timing flexibility helps you. We'd be delighted to come down to 189 for you, and we're happy to work around your preferred delivery day if that makes things easier.",
+      "price": 189,
+      "days": 10
+     },
+     {
+      "tick": 1333,
+      "from": "you",
+      "text": "Thank you, I appreciate you coming down and being open on timing. I can move to 104 P with delivery on day 0, which is what makes this work for us.",
+      "price": 104,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -319,6 +386,134 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1333,
+   "took_s": 6.75,
+   "cost_usd": 0.00942,
+   "obs": {
+    "view": {
+     "duel_id": 6037,
+     "role": "buyer",
+     "limit": 145,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Noche",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.99,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello, and thank you so much for sitting down with us. We'd be glad to part with this card for 202, and we're happy to be flexible on delivery timing to make it easy for you.",
+      "offer": {
+       "price": 202,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1332,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the warm welcome and the flexibility on timing. I can do 95 P with delivery on day 0, which is what works best for us.\n\nI hope we can find a figure close to that.}",
+      "offer": {
+       "price": 95,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1332,
+      "decision": {
+       "action": "offer",
+       "price": 95,
+       "message": "Thanks for the warm welcome and the flexibility on timing. I can do 95 P with delivery on day 0, which is what works best for us.\n\nI hope we can find a figure close to that.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you kindly for your offer of 95, and I'm so glad the timing flexibility helps you. We'd be delighted to come down to 189 for you, and we're happy to work around your preferred delivery day if that makes things easier.",
+      "offer": {
+       "price": 189,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1333,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 189,
+     "days": 10
+    },
+    "tick": 1333,
+    "ticks_left": 15,
+    "rounds": 1,
+    "day_swings": [
+     25.299999999999997,
+     22.0,
+     27.599999999999998,
+     77.4,
+     27.799999999999997,
+     8.4,
+     59.900000000000006,
+     11.200000000000001,
+     40.300000000000004
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thank you, I appreciate you coming down and being open on timing. I can move to 104 P with delivery on day 0, which is what makes this work for us.",
+    "price": 104,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 104,
+      "message": "Thank you, I appreciate you coming down and being open on timing. I can move to 104 P with delivery on day 0, which is what makes this work for us."
+     },
+     "band": {
+      "worst": 106,
+      "target": 104,
+      "best": 103
+     },
+     "plan": {
+      "read": "They dropped 13 P to 189 but still name day 10, which is costly for us. Their warm talk of flexibility on timing hints they may give up day 10, but only their offers count.",
+      "target": 104,
+      "best": 103,
+      "worst": 106,
+      "days": 0,
+      "angle": "Warm and appreciative. Make one modest move to about 104 on day 0, welcome their offer to work around our timing, and say day 0 is what makes the deal work for us."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.59,
+       "in": 928,
+       "out": 205,
+       "cost_usd": 0.00781,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.15,
+       "in": 470,
+       "out": 67,
+       "cost_usd": 0.00161,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -375,6 +570,63 @@
      "id": 9795,
      "price": 95,
      "tick": 1332,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1333,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thank you, I appreciate you coming down and being open on timing. I can move to 104 P with delivery on day 0, which is what makes this work for us.",
+    "price": 104,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 104,
+      "message": "Thank you, I appreciate you coming down and being open on timing. I can move to 104 P with delivery on day 0, which is what makes this work for us."
+     },
+     "band": {
+      "worst": 106,
+      "target": 104,
+      "best": 103
+     },
+     "plan": {
+      "read": "They dropped 13 P to 189 but still name day 10, which is costly for us. Their warm talk of flexibility on timing hints they may give up day 10, but only their offers count.",
+      "target": 104,
+      "best": 103,
+      "worst": 106,
+      "days": 0,
+      "angle": "Warm and appreciative. Make one modest move to about 104 on day 0, welcome their offer to work around our timing, and say day 0 is what makes the deal work for us."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.59,
+       "in": 928,
+       "out": 205,
+       "cost_usd": 0.00781,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.15,
+       "in": 470,
+       "out": 67,
+       "cost_usd": 0.00161,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 6037,
+    "offer": {
+     "id": 9825,
+     "price": 104,
+     "tick": 1333,
      "days": 0
     }
    }

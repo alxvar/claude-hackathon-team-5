@@ -28,6 +28,47 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1333,
+   "raw": {
+    "duel": 6041,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Frutero de Argumosa",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.03,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 99,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Sol",
+    "deadline_tick": 1349,
+    "decay_per_round": 0.08,
+    "rounds": 0,
+    "your_offer": null,
+    "rival_offer": {
+     "id": 9831,
+     "price": 54,
+     "tick": 1333,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1333,
+      "from": "Rival Sol",
+      "text": "We can offer El Frutero de Argumosa at 54 primas with 10 delivery days, a fair deal for both of us.",
+      "price": 54,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
