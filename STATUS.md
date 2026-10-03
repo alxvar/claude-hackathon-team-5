@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 12:07** · tick 475 (30 s/tick) · game hour 5.28 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 12:12** · tick 485 (30 s/tick) · game hour 5.37 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,26 +17,26 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 10:38 · **judges (40%), first drafts:** `DECISIONS.md` (22 decisions Fri → Sat, each with who decided, evidence, measured outcome and lesson; open decisions) and `judges/demo.md` (6 slides with sources, an architecture diagram marking code / agent / human steps, "what we measured" table, cost ledger, round-close snapshot rows); PLAN.md calls it `docs/demo.md`, it lives in `judges/` · updated with the RET page close (10:27, +50.0, cap 50 [V, n=2]) · TBD: Duels I numbers, round-close screenshots, judging format (Q7) · **Lucas:** check entries 12, 19, 20 (cash floor, venue, RET-10 cap) for wording · dashboard code committed (it was blocking every pull: the hook doesn't pull over code edits) · next: desk, room, pitch with Lucas in Duels I
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 12:11 · operator · **LADDER TEST WORKED**: LAT-08 → Chato at 14 (offer-only, above his opening 13): `ladder_points` 0.055 → **0.072 (+0.017)**, `neg_points` 35.2 unchanged, cash 109 → 123 → GAME.md · next (Chief's rule ≥ +0.01): MAL-07 then MAL-06 → Chato at ≥ 14 (−3.5 each), both pulled from run/book.json; then SAL-08 → Pilar in her fever
+  - Sat 12:08 · Builder · collector logs mm_points, bench_points, venue_value_created/trades/traders/volume to data/me.jsonl (b8768bb, 3 tests, 326 pass), restarted; first row mm −5.2, value_created 9.0 · Analyst can fit the 14.2 hurdle; radar already on intel/multipliers.json (174f16c)
   - Sat 12:04 · operator · Duels I live (trader stopped; dealer threads allowed offer-only, directive 11:55) · ladder test 1: MAL-07 → Chato (sell, offer-only, ask 39 → 30 in steps of 3, floor 15): his 13, 13, FINAL 14 after 4 rounds → walked, no deal, nothing changed · finding: Chato's uncommon buy final = 14 (opening 13 + 1) · my new sell driver (scratchpad dealer_sell.py: offer-only, never at the opening bid, warm) greeted Chato as 'Doña Pilar' → texts now use the dealer's name · /api/me/value = value of ONE MORE copy (MAL-07 read 4.4; the held copy is 17.5) · next: LAT-08 → Chato at ≥ 14 (0 loss) at 12:06:40; SAL-08 to Pilar in her fever; MAL-07/SAL-08/LAT-08 out of run/book.json while dealer runs use them
-  - Sat 12:00 · Market: bench 5.0 on the stall · efficiency 0.933, bench_points 0.5, market 7.5 (stall teams' number); mm_points −5.2 while the venue detail shows value_created 9.0 (unexplained) · next: desk question on the value-created formula; bench 7.0 ~13:50 (`intel/market-log.md`)
-  - Sat 11:54 · operator · judge 11:52 #3 applied (feeding): t17 (#7, 23.4) and t01 (#8, 23.1) are now ABOVE us (#10, 22.66) → pulled MAL-06 → t17 and MAL-02 → t01, re-addressed both to t15 (MAL collector, #15): 6681 MAL-06 at 20, 6682 MAL-02 at 9 · book now: SAL-08/LAT-08/LAT-03 → t03, MAL-02/04/06/07 + LAT-04 → t15, LAV-02 → t09, LAV-03/04 → t07, SAL-01 → t06, SAL-02 → t16 (all collectors, all below us)
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 23.61 | 7 | 16.11 | 7.50 | 2.00 | 0.06 | 0.93 | 35 | 2 | 109 | 33/50 |
+| 24.76 | 6 | 17.26 | 7.50 | 2.27 | 0.07 | 0.93 | 36 | 2 | 123 | 32/50 |
 
-Leaderboard (snapshot at tick 470; refreshes every few minutes):
+Leaderboard (snapshot at tick 480; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 12 | 32.23 | 20.48 | 11.74 | 37 |
-| 2 | Team 13 | 29.02 | 23.53 | 5.49 | 48 |
-| 3 | Team 18 | 26.84 | 19.34 | 7.50 | 28 |
-| 4 | Team 17 | 25.68 | 15.43 | 10.26 | 20 |
-| 5 | Team 14 | 24.58 | 12.73 | 11.86 | 21 |
-| 7 | Team 5 | 23.61 | 16.11 | 7.50 | 35 |
+| 1 | Team 12 | 32.19 | 20.45 | 11.74 | 37 |
+| 2 | Team 14 | 31.16 | 19.31 | 11.86 | 21 |
+| 3 | Team 13 | 29.68 | 24.19 | 5.49 | 49 |
+| 4 | Team 17 | 26.77 | 16.52 | 10.26 | 20 |
+| 5 | Team 18 | 24.88 | 17.38 | 7.50 | 28 |
+| 6 | Team 5 | 24.76 | 17.26 | 7.50 | 35 |
 
 ## Next on the schedule
 
@@ -44,14 +44,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 5.51 | ~14 min | persona_opens | Doña Pilar opens for everyone |
-| 7.00 | ~103 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.00 | ~223 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.15 | ~232 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
-| 11.00 | ~343 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~352 min | persona_patch | The fever breaks |
-| 11.65 | ~382 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~463 min | bench | The Market Test: every venue gets the same synthetic book |
+| 5.51 | ~8 min | persona_opens | Doña Pilar opens for everyone |
+| 7.00 | ~98 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.00 | ~218 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.15 | ~227 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
+| 11.00 | ~338 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~347 min | persona_patch | The fever breaks |
+| 11.65 | ~377 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~458 min | bench | The Market Test: every venue gets the same synthetic book |
 
 ## Our dealer deals
 
@@ -97,23 +97,22 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | 430 | chato | buy | RET-06 | 33 | 20 | 30 | -9% | 11 | deal |  |
 | 438 | abuela | buy | RET-07 | 29 | 16 | 23 | -21% | 11 | deal |  |
 | 664 | chato | sell | 1 card(s) | 13 | 39 | — | — | 9 | closed |  |
-| 682 | chato | sell | 1 card(s) | 13 | 30 | — | — | 4 | open |  |
+| 682 | chato | sell | 1 card(s) | 13 | 30 | 14 | +8% | 15 | deal |  |
 
 ## Abuela benchmark: every team's deals with her (public feed)
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
 | common card | team buys | 60 | 9.00 | 7 | 12 | 5 | 9 |
-| common card | team sells | 55 | 6 | 5 | 23 | 5 | 5.40 |
-| sobre_barrio | team buys | 38 | 21.50 | 17 | 30 | 3 | 20.33 |
+| common card | team sells | 56 | 6.00 | 5 | 23 | 5 | 5.40 |
+| sobre_barrio | team buys | 39 | 22 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 66 | 23.00 | 17 | 29 | 4 | 24.50 |
 | uncommon card | team sells | 8 | 14.50 | 13 | 17 | 0 | — |
 
 ## Duels
 
-Live: 3 · finished: 41
+Live: 3 · finished: 42
 
-- {"duel": 270, "session": 1, "status": "deal", "role": "buyer", "item": "Taxi Blanco", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 102, "limit_meaning": "never pay above your value", "rival": "Rival Verde", "deadline_tick": 170, "decay_per_round": 0.06, "rounds"
 - {"duel": 271, "session": 1, "status": "deal", "role": "seller", "item": "Taxi Blanco", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 87, "limit_meaning": "never sell below your cost", "rival": "Rival Noche", "deadline_tick": 174, "decay_per_round": 0.06, "rounds"
 - {"duel": 272, "session": 1, "status": "deal", "role": "buyer", "item": "Taxi Blanco", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 128, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "deadline_tick": 180, "decay_per_round": 0.06, "rounds": 
 - {"duel": 277, "session": 1, "status": "deal", "role": "seller", "item": "El Tren Fantasma", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 119, "limit_meaning": "never sell below your cost", "rival": "Rival Plata", "deadline_tick": 175, "decay_per_round": 0.06, "r
@@ -122,8 +121,9 @@ Live: 3 · finished: 41
 - {"duel": 2297, "session": 2, "status": "deal", "role": "buyer", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 175, "limit_meaning": "never pay above your value", "rival": "Rival Plata", "deadline_tick": 475, "decay_per_round": 
 - {"duel": 2314, "session": 2, "status": "deal", "role": "buyer", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 75, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "deadline_tick": 475, "decay_per_round": 0.0
 - {"duel": 2315, "session": 2, "status": "live", "role": "seller", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 64, "limit_meaning": "never sell below your cost", "rival": "Rival Oro", "deadline_tick": 491, "decay_per_round": 0.
+- {"duel": 2318, "session": 2, "status": "live", "role": "seller", "item": "Palacio de Cristal", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 74, "limit_meaning": "never sell below your cost", "rival": "Rival Sol", "deadline_tick": 498, "decay_per_round": 0.06, "r
 - {"duel": 2366, "session": 2, "status": "live", "role": "seller", "item": "Palacio de Cristal", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 101, "limit_meaning": "never sell below your cost", "rival": "Rival Oro", "deadline_tick": 491, "decay_per_round": 0.06, "
-- {"duel": 2506, "session": 2, "status": "live", "role": "buyer", "item": "Palacio de Cristal", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 103, "limit_meaning": "never pay above your value", "rival": "Rival Noche", "deadline_tick": 482, "decay_per_round": 0.06, 
+- {"duel": 2506, "session": 2, "status": "deal", "role": "buyer", "item": "Palacio de Cristal", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 103, "limit_meaning": "never pay above your value", "rival": "Rival Noche", "deadline_tick": 482, "decay_per_round": 0.06, 
 - {"duel": 2540, "session": 2, "status": "deal", "role": "seller", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 71, "limit_meaning": "never sell below your cost", "rival": "Rival Luna", "deadline_tick": 480, "decay_per_round": 0
 
 ## Dealers
