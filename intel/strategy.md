@@ -1,85 +1,77 @@
-# Strategist (claude-opus-5-5, Sat 18:55)
+# Strategist (claude-opus-5-5, Sat 19:43)
 
 ## How the points really work
-- **Negotiating (30)** = duels + ladder + team-trade value. Team trade = min(50, ΔV − price − taker fee) [V cap 50, n=2 commons]. Dealer deal = min(0, ΔV − price). The ladder scores best 3 deals per level, higher levels weigh more.
-- Our ladder is spent for today [L: negotiating flat at 21.88 while ladder went 0.373 → 0.437]. Flags are spent too (≈3 scored per team). Today 1 neg_point ≈ 0.049 board (+40.4 → +1.99).
-- **Market (30)**: bench efficiency + value created on our venue. The stall earns half; the mean of the top 3 earns full.
-  - We sit at 7.5. The leaders sit at 9.15-12.5 [17:50], and no team is near 30.
-  - Market is the field's weakest component and our biggest gap.
-- **Judges (40)**: a 3-minute pitch, or 5 minutes for the top 3. It is the largest block, and the field has not yet competed on it.
-- **Relative and per round** [V]: at a round start, `neg_points` and the ladder reset for everyone.
-  - Round 3 runs from game hour 16.65 (Sun ≈11:34) to 20.08 (15:00), only 3.4 h, yet it carries 40% of the game.
-  - Its benches at 17.0 and 19.0 (Sun ≈11:55, ≈13:55) are each a large share of round 3's bench score. Saturday spread its bench score over ~8 sessions.
-- **Board now**: t14 31.8, us 31.7, t06 31.7, t10 29.7, t03 29.6. Our lead rests on the SAL close.
-- **Pack drag is real money.** The silver pack fell 87.1 → 76.7 on the SAL close, cutting it from ~+50 to +40.4.
+- **Negotiating 30** = duels + ladder + team-trade value. All of it is relative.
+  - Team trade: min(50, ΔV − price − taker fee). At ≈0.05 board per neg point [V, tick 910], a capped trade ≈ +2.4 board.
+  - Dealer deals: gains clip to 0, losses count in full.
+  - Ladder is spent for the board this round: `negotiating` stayed flat at 21.88 while ladder went 0.373 → 0.437.
+  - Flags are spent: ≈3 scored per team, net +20.
+  - Our neg has been flat at 119.1 since tick 988.
+- **Market 30** = bench efficiency (stall = half; full = mean of top 3) + NET value created on our venue.
+  - We are at 7.5 (stall only). Rivals are at 9.15-12.5. **This is the whole gap to #1.**
+  - One positive trade on v10 measured +4.99; a value-destroying one measured −5.2.
+- **Judges 40**: no scoring data.
+- **Rounds start at the `round` event, not when the doors open.** Round 2 fired at Sat tick 160 (hour 2.7), so Friday's round ran into Saturday morning [V].
+  - Round 3 fires at hour 16.65 ≈ **Sun 11:34**.
+  - So Sun 09:00-11:34 is still round 2 [L]. That includes the **hard bench (≈09:34)** and a bench at ≈09:55.
+  - Round 3 is only ≈3.4 h: CHA release, grant, 2 benches (≈11:55, ≈13:55; the 21.0 bench falls after close), Duels III.
+  - Round 3 has weight 1, the same as Saturday's 14 h. **An hour of Sunday afternoon outweighs several Saturday hours.**
+- **Cheapest points (field near zero):**
+  - Venue value created: few measured trades anywhere.
+  - L4/L5 ladder slots after the round-3 reset: Banco only 2 team sales and Picaros 3 common buys in the last 60 ticks.
+  - The `days` pie in Duels II/III.
 
 ## Our winning strategy
-**Own Round 3: the Chamberí page plus the Sunday benches.** Tonight, only cash and safety.
-- **CHA is 1.6× for us, the top multiplier.** Nobody values CHA more than we do (some teams may tie).
-  - Our values: CHA common 16, uncommon 40, rare 112, page bonus 106.
-  - Dealer prices sit below these values. The data shows Abuela commons at 9, uncommons at 22-23, Picaros rare buys at a median of 57, and Chato rare finals at 86-87.
-  - So every dealer buy builds the page at a zero loss and adds ladder points at a fresh round-3 ladder (we are level 5).
-  - The closing team trade then books the bonus: up to +50.
+- **Tonight (round 2):** market + Duels II + page-closer pricing of our LAV spares. Neg from small trades is noise: +2-3 neg ≈ 0.1 board.
+- **Sun 09:00-11:34 (still round 2):** hard bench and v10 value created; sell the spares we don't need tomorrow for cash.
+- **Round 3: be the CHA buyer.** Our 1.6 is the top multiplier, so we outbid any team with a lower CHA multiplier.
+  - Card values to us: common 16, uncommon 40, rare 112, bonus 106.
+  - Score sources: team buys below value (each scores value − price), one capped page close (+50), and a fresh ladder at L3-L5.
+  - Leaders' visible play is RET/LAV collecting (t10, t14). CHA is new for everyone, and nobody starts round 3 ahead.
 - **Stop:**
-  - ladder deals and flags today;
-  - addressed page-closer bids (four bids, 0 fills);
-  - the MAL and LAT pages;
-  - the Workshop (scores 0);
-  - any SAL, RET or LAV page card sale (all three pages are complete);
-  - packs from dealers;
-  - offers on rival venues;
-  - any feed to t14, t06, t03 or t10.
-- **Keep:**
-  - the bargains daemon plus a hand-checked taker accept (maker read from the feed's `offer.listed`);
-  - small maker asks above our value to non-rivals;
-  - getting v10 trades to positive value created.
+  - Spare sales at 6-9: 0 fills since tick 988, ≈+2 each.
+  - Dealer threads tonight: ladder spent, gains clip.
+  - Egg hunting: RULES say easter eggs never count.
+  - Any trade on v07 (t10's venue).
+  - Selling LAV/RET/SAL page cards.
 
 ## Levers nobody is using yet
-1. **Close CHA with an uncommon, not the cheapest common.**
-   - If the cap is flat 50, the score is the same: min(50, 40 + 106 − p − fee) = 50 for p ≤ ~90.
-   - If the cap is 5×book, it pays up to 146 − p (cap 125).
-   - Every close in our data was a common or fell below the cap, so the form is untested.
-2. **The sell-and-buy-back close (our verified LAV recipe, +50).**
-   - Sell one CHA card to a non-rival team before the page is full, finish the rest via dealers, then buy that card back.
-   - This makes sure a team holds the closer. CHA reaches teams only through packs; whether any team will hold the card we need is not in the data.
-3. **A fresh ladder at levels 1-4 on Sunday.** It resets per round [V]. L3 paid ~3× L2 (Pilar +0.050). Reserve the inventory now:
-   - LAT-03, LAT-04 and one LAV-02 spare for Picaros (L4, buys commons);
-   - MAL-08 for Pilar (L3).
-4. **Sunday 09:00-11:34 may still be round 2** (round 3 is scheduled at 16.65) [?]. If so, maker fills overnight and at the open still add to Saturday's round.
+1. **v10 trades don't need our key.** The auto venue crosses on its own, so Dani's room pairs keep scoring through Duels II after the 20:25 bot stop.
+   - Vet each pair: buyer's multiplier > seller's, and the seller holds ≥2 copies (the tick-398 lesson).
+2. **Our LAV spares are page-closers, not 6 P commons.** We hold LAV-02 ×2 extra (1.3), one extra LAV-03 (3.2) and one extra LAV-04 (3.2).
+   - t07 (21.8, 10.1 below us) bought LAV ×7. A close sold at 35 ≈ +32 neg ≈ +1.6 board.
+   - Asks 16601/16870 at 6 waste that.
+3. **Round-3 ladder reset.** Ladder reset to 0 at round 2 [V], and L3 paid +0.050 ≈ 3× L2 [V].
+   - Few teams trade at L4/L5. Keep spare commons/uncommons as ammunition: sales above the opening bid, at ≥ our value, in −2/−3 steps.
+4. **Pre-staging for a 3.4 h round.** Have cash, a bid list, dealer scripts and room sellers ready before 11:34.
+5. **Silver pack (77.4) held for CHA.** Saturday's grant pack opened after the RET release pulled RET-05.
 
 ## Plan, anchored to the schedule
-1. **Now (Operator).** Check 15513 (LAV-02 "for 0" to t01).
-   - t01 collects LAV and sits 7.5 below us, so the feeding rule fails.
-   - Keep it only if it is a swap gaining ≥3 for us and LAV-02 is not t01's closer; otherwise cancel.
-2. **Now (Operator, trade.py).** Post maker asks at 9 on El Rastro or v15 to t07/t09 for the other LAV spares (LAV-02 ×1, LAV-03, LAV-04).
-   - Keep the MAL commons asks.
-   - Reprice after 10 min.
-   - Expected ≈ +2 to +8 neg each, plus cash for CHA.
-   - Cash 120 + the 150 grant = 270. The CHA build plus close costs ≈ 254-314 at the dealer finals above, so every P helps.
-3. **Before 20:00 (game hour 11.0, bench).** Market lane confirms our venue is live. Dani lands one v10 pair from `v10-suggestions.md`: the buyer's multiplier above the seller's, no rival on either side. Expected mm 0 to +5 [L].
-4. **20:39 (Duels II).** Aleks picks `--days-read`; the Duel Lab calls the day reading the biggest swing (right 0.47 vs backwards −0.18 per duel). Lucas and Dani draft the pitch during the duels.
-5. **Tonight (Dani at the desk).** Ask two questions:
-   - Is the cap flat 50 or 5×book?
-   - Can a silver pack pull CHA after the release?
-6. **22:00 (bench).** Supervise. Before the close, the Market lane replays bench recordings: board broker vs stall, including the hard bench.
-7. **Sun 09:00.** Check `/api/clock` for the round and confirm `neg_points` has not reset (hypothesis B). Benches at 09:34 (hard) and 09:55 count for round 2.
-8. **Sun 11:34 (CHA release, round 3; grant at 11:37).**
-   - Open the silver pack before any CHA trade if it can pull CHA; if it can't, open it tonight to end the drag (after the Chief's OK).
-   - Operator posts CHA bids at once.
-   - Dealer buys at ≤ value with −2/−3 steps, never a first price: commons from Abuela, uncommons from Abuela/Chato, rares from Picaros/Chato.
-   - Leave one card (an uncommon if the cap is 5×book) for a team-trade close. Expected +50 neg, or more if the cap is 5×book.
-9. **Sun 11:34-12:30.** Ladder sales of the reserved items, only at ≥ our value:
-   - Picaros: LAT-03, LAT-04, LAV-02 spare;
-   - Pilar: MAL-08, only if she bids ≥17.5 after the fever breaks.
-10. **Sun 11:55 and 13:55 (benches).** The venue must be live and supervised; downtime scores 0. Use the board broker only if replays show ≥ stall, else the stall.
-11. **Sun 13:34 (Duels III, 10% decay, 12 ticks).** Close fast.
-12. **15:00-16:00.** Pitch prep. Story: what we measured and how we used it: the cap, pack drag, below-list ladder, the flag cap, masked makers, 4-tick offer expiry.
+| When | Who | Move | Impact |
+|---|---|---|---|
+| now | Operator | Cancel 16601 and 16870 (LAV at 6). Let the MAL asks to t15/t09 run. Keep MAL-01, MAL-04, LAT-03, LAT-04 for round 3 | frees page-closer pricing |
+| now | Dani → Operator | Ask t07 which LAV card it lacks. Maker ask addressed to t07 at 35 (El Rastro), only if t07 is still ≥10 below us | ≈+1.6 board per fill |
+| 19:45-22:10 | Dani + Market | v10 pairs vetted with the radar; rebate per GUARDRAIL (cap 30, settle 22:45) | up to ≈+5 board |
+| ≈19:55, ≈21:55 | Market | Record the benches; flag any rival bench above stall | evidence for Sunday's broker |
+| before ≈20:34 | Aleks | Dry `days` payload through PLAN #24. Set DAYS_READ from the first live `days_meaning`, not from "auto" | protects the 13.93 duel score |
+| 22:45 | Operator | Rebate settlement at fee 0 on v15, against a card worth ≥ the owed amount | ≈0 neg instead of ≈−15 |
+| 22:50 | Operator | One read of `/api/dealers/banco`. One test bid `want: cards ["CHA-01"]` (a refusal costs nothing) | tells us if CHA bids pre-stage |
+| Sun 09:00 | Operator | `/api/clock` round = 2? neg still 119.1? | confirms round-2 window |
+| Sun ≈09:34 | Market | Hard bench: a board broker only if it already beats the stall in replays, else stall | round-2 market |
+| 09:00-11:30 | Dani | Line up CHA sellers among low-multiplier teams (prices fixed by the Operator). Sell non-ammo spares | cash for CHA |
+| ≈11:34 | Operator | Open sobre_plata. Maker bids on every CHA card from teams (see bid rule below) | team buys score value − price |
+| 11:34-14:00 | Operator | Abuela commons/uncommons below list (score 0, may move the ladder); Chato rares only if teams fail (86-87 < 112). Cheapest common last, via a team: worth ≤ 50 + price | page close +50 ≈ +2.4 |
+| 11:34-14:00 | Operator | 3 deals each at L3 Pilar, L4 Picaros, L5 Banco (if Banco buys anything we hold) | fresh ladder |
+| ≈13:34 | Aleks | Duels III: 12 ticks, 10% decay; close within ≤3 exchanges | duel share |
+| 14:00 | Operator | Cash → 0 into non-negative CHA buys | — |
+
+Bid rule at ≈11:34: one copy each (a 2nd copy is worth 25%), each bid at ≤ value − 10. A rare at ≤62 scores ≈ +50.
 
 ## Hypotheses to test
-- **A. Cap = flat 50 vs 5×book.** Cheapest test: the desk question; otherwise the CHA uncommon close. Metric: Δ`neg_points` > 50 means 5×book.
-- **B. Sun 09:00-11:34 is still round 2.** Test: one maker fill at ~09:10. Metric: no `neg_points` reset before 16.65, and the board moves.
-- **C. Silver pack pulls CHA after the release.** Test: the desk or the pack catalog. Metric: the contents' sets.
-- **D. Picaros/Chato sell CHA rares below 112.** Test: open a thread at the release with a −2/−3 step protocol. Metric: the final price.
-- **E. Round-3 ladder moves the board again.** Test: negotiating before and after the first L3/L4 deal.
-- **F. Pilar after "the fever breaks" bids <17.5 for MAL-08.** Test: a probe thread on Sunday. Metric: her standing bid; walk if below value.
-- **G. Board broker ≥ stall on the hard bench.** Test: Market lane replay of the recorded bench. Metric: efficiency vs the auto stall.
+1. **Sun 09:00-11:34 is round 2.** Test: read `/api/clock` and `/api/me` at 09:00. Decides by: round = 2 and neg 119.1 unchanged.
+2. **The ladder counts again on the board in round 3.** Test: the first Pilar or Picaros sale after 11:34. Decides by: `ladder_points` and board `negotiating` both move.
+3. **Banco buys a card we hold.** Test: read `/api/dealers/banco` tonight. Decides by: its "how" text, or a thread topic it accepts.
+4. **A pack opened after the release can pull CHA.** Test: open sobre_plata after 11:34. Decides by: the pull contains CHA. Also, if a pack's `your_value` exceeds Abuela's haggled ≈19, it is worth buying.
+5. **CHA bids pre-stage before the release.** Test: one bid at 22:50. Decides by: refused or accepted.
+6. **Value created on v10 is cumulative per round, so a later dump erases it.** Test: compare `mm_points` before and after each v10 trade. Decides by: a negative trade lowers our total (tick 398 says yes). If confirmed, ask the desk whether the bench charges fees (§3 Q5) before considering a post-rebate fee raise to deter dumps.
+7. **t10's +5.7/60 min comes from market (v07).** Test: compare t10's leaderboard components across two snapshots. Decides by: which of market or negotiating rose. If market, no team of ours or any partner routes trades to v07.
