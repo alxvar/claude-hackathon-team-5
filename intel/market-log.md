@@ -1,5 +1,19 @@
 # Market log (Market session; newest first)
 
+## Partner audit · Sat 20:08 · tick 1187 · snapshot 1180: stall teams 7.5 · us 7.5 (+0.00)
+- **Team 15** (v15, market 7.5 = +0.00): on v10 0 open offers, 1 trades (26 P) · ours on v15: 4 open offers, 0 trades (0 P)
+  - v10 trade tick 398: [('SAL-07', 't10', '→', 't15')] at 26
+- **Team 10** (v07, market 12.5 = +5.00): on v10 0 open offers, 2 trades (40 P) · ours on v07: 0 open offers, 4 trades (32 P)
+  - v10 trade tick 311: [('MAL-07', 't10', '→', 't01')] at 14
+  - v10 trade tick 398: [('SAL-07', 't10', '→', 't15')] at 26
+  - our trade on v07 tick 351: [('SAL-01', 't05', '→', 't03')] at 7
+  - our trade on v07 tick 404: [('MAL-03', 't04', '→', 't05')] at 5
+  - our trade on v07 tick 714: [('MAL-01', 't06', '→', 't05')] at 5
+  - our trade on v07 tick 760: [('MAL-08', 't14', '→', 't05')] at 15
+- **Team 3** (v20): no deal yet, nothing on v10.
+- **Alerts:** Team 15: 0 offers and 0 trades on v10, 278 min after the deal; Team 15: no open offer on v10 now (1 trades so far); Team 10: no open offer on v10 now (2 trades so far)
+- **Rebates owed (5 P a card sold on v10, cap 30):** Team 8 0 P · Team 7 0 P · total 0 P
+
 ## Sat 20:08 · bench-h11.0, on the stall v10
 - **Ours [V]:** bench_efficiency 0.886 (0.899 · 0.933 · 0.878 · 0.891 before), bench_points 0.5, market 7.5 = stall teams.
 - **Field at snapshot 1180 [V]:** t10 12.5 · t06 11.9 · t09 10.94 · t14 9.33 · t07 9.17 · t17 8.66 · t16 8.63 · t08 8.52
