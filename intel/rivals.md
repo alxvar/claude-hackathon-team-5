@@ -9,6 +9,16 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sat 17:27 · snapshot 860
+- Board: **t14 31.15 (#1)** · us 29.38 · t03 29.09 · t01 28.69 · t12 28.51 · t10 27.98 · t06 27.42 · t18 27.13.
+- **t14 +1.47 in two snapshots, all ladder** [V feed]: Pilar SELL MAL-06 19 (842; its 2nd Pilar deal → Pícaros early unlock),
+  Chato SELL MAL-10 49 (845), Pícaros BUY RET-09 57 (852, below list 63). One deal per level, fresh slots.
+- **t03 +1.25**: a 5-card El Rastro bundle (844): RET-01, RET-02, MAL-01, MAL-04 → t07 for LAV-10 + 38 P (cash direction [?]).
+- Pícaros: t08 bought SAL-10 at 62 (835) and sold RET-06 at 12 (839); t04 sold LAV-08 12, MAL-01 5; **t16 bought SAL-11
+  (epic) at 167** (858, above list 162).
+- t15 is liquidating SAL commons to Abuela at 6 (SAL-01/02/03) and sold one RET-01 to Abuela at 6 (803).
+- Organisers (850): "Salamanca fever starting in 45 min" → 18:04 as mapped.
+
 ### Sat 17:11 · snapshot 830
 - Board: **us 29.73 (#1)** · t14 29.68 · t01 28.89 · t12 28.70 · t10 28.25 · t03 27.99 · t06 27.85 · t18 27.79. Quiet window:
   the field drifts −0.1 to −0.2 per snapshot; we held flat.
