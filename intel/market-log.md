@@ -1,5 +1,16 @@
 # Market log (Market session; newest first)
 
+## Sat 13:00 · who earns value created, and the broker verdict
+- **Trades on team venues since 11:30 [V]:** v14 (t14's stall) tick 418 LAT-07 t15 → t12 at 19 → t14 +4.36 · v17
+  (t17's stall) tick 433 LAT-01 t15 → t12 at 7 → t17 +2.76 · v01 (t06) tick 556 SAL-10 rare t12 → t08 at 76 →
+  t06 +2.33 → +4.14 and every other venue diluted ~25%. The part is relative to the best venues, top = 5.0 [L].
+- 10 team-venue trades all day, single cards; Team 15 is in 6, Team 12 in 5.
+- **Team 3's 7.5 → 3.61 is bench, not value created [L]:** it opened its own venue v20 and scored 0 on bench 5.0
+  (Team 1 opened v19). So negative mm_points still look floored at zero.
+- **Broker variants on the staggered sim (1,500 sessions) [L, model]:** overlap threshold 3/8/15: −0.7/−2.5/−6.5 pp;
+  wait for age 2/3: −3.7/−9.9; wait until quotes stop moving: −37; wait one tick: +0.04 (noise). **Nothing beats the
+  stall.** No board venue: the gate is not met and cannot be met with what we have.
+
 ## Sat 12:50 · reciprocal check (snapshots 520-560) [V]
 - No new trade on v10 or v07 since tick 404: v10 2 trades (40 P, both t10 selling) · ours on v07 2 (12 P). Ratio 1:1.
 - Market: us 7.5 (= stall teams, mm_points −5.2 unchanged) · t10 12.5 → 12.06 at snapshot 560 with no new trade on
