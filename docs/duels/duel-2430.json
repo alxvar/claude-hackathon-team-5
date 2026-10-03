@@ -457,6 +457,100 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 520,
+   "raw": {
+    "duel": 2430,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Heroína del Dos de Mayo",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 192,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 523,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 4098,
+     "price": 177,
+     "tick": 520,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3844,
+     "price": 184,
+     "tick": 509,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 507,
+      "from": "Rival Oro",
+      "text": "207 for La Heroína del Dos de Mayo. Every round costs us both: let's close it now.",
+      "price": 207,
+      "days": null
+     },
+     {
+      "tick": 507,
+      "from": "you",
+      "text": "Your figure is well above what this piece supports, and rushing doesn't change that. I can offer 150 P for La Heroína del Dos de Mayo. If you move meaningfully toward that, we can wrap this up quickly.",
+      "price": 150,
+      "days": null
+     },
+     {
+      "tick": 508,
+      "from": "Rival Oro",
+      "text": "195 for La Heroína del Dos de Mayo. Every round costs us both: let's close it now.",
+      "price": 195,
+      "days": null
+     },
+     {
+      "tick": 508,
+      "from": "you",
+      "text": "Thanks for moving; I've come up as well, to 158 P for La Heroína del Dos de Mayo. We're still some distance apart, so a further real cut from you is what will get this closed quickly.",
+      "price": 158,
+      "days": null
+     },
+     {
+      "tick": 509,
+      "from": "Rival Oro",
+      "text": "184 for La Heroína del Dos de Mayo. Every round costs us both: let's close it now.",
+      "price": 184,
+      "days": null
+     },
+     {
+      "tick": 509,
+      "from": "you",
+      "text": "Thanks for the further move. I'm stepping up to 164 P for La Heroína del Dos de Mayo. Another real cut from you and we can get this closed quickly.",
+      "price": 164,
+      "days": null
+     },
+     {
+      "tick": 512,
+      "from": "you",
+      "text": "We've both moved steadily, and I'm making one clear step to 171 P for La Heroína del Dos de Mayo. If you meet me near the middle from here, we can close this now.",
+      "price": 171,
+      "days": null
+     },
+     {
+      "tick": 520,
+      "from": "you",
+      "text": "I'm making another clear step to 177 P for La Heroína del Dos de Mayo, which splits the remaining gap. Meet me there and we can close right now.",
+      "price": 177,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1341,6 +1435,331 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 520,
+   "took_s": 5.73,
+   "cost_usd": 0.00882,
+   "obs": {
+    "view": {
+     "duel_id": 2430,
+     "role": "buyer",
+     "limit": 192,
+     "currency": "P",
+     "item": "La Heroína del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "207 for La Heroína del Dos de Mayo. Every round costs us both: let's close it now.",
+      "offer": {
+       "price": 207,
+       "days": null
+      },
+      "accept": false,
+      "tick": 507,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Your figure is well above what this piece supports, and rushing doesn't change that. I can offer 150 P for La Heroína del Dos de Mayo. If you move meaningfully toward that, we can wrap this up quickly.",
+      "offer": {
+       "price": 150,
+       "days": null
+      },
+      "accept": false,
+      "tick": 507,
+      "decision": {
+       "action": "offer",
+       "price": 150,
+       "message": "Your figure is well above what this piece supports, and rushing doesn't change that. I can offer 150 P for La Heroína del Dos de Mayo. If you move meaningfully toward that, we can wrap this up quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "195 for La Heroína del Dos de Mayo. Every round costs us both: let's close it now.",
+      "offer": {
+       "price": 195,
+       "days": null
+      },
+      "accept": false,
+      "tick": 508,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for moving; I've come up as well, to 158 P for La Heroína del Dos de Mayo. We're still some distance apart, so a further real cut from you is what will get this closed quickly.",
+      "offer": {
+       "price": 158,
+       "days": null
+      },
+      "accept": false,
+      "tick": 508,
+      "decision": {
+       "action": "offer",
+       "price": 158,
+       "message": "Thanks for moving; I've come up as well, to 158 P for La Heroína del Dos de Mayo. We're still some distance apart, so a further real cut from you is what will get this closed quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "184 for La Heroína del Dos de Mayo. Every round costs us both: let's close it now.",
+      "offer": {
+       "price": 184,
+       "days": null
+      },
+      "accept": false,
+      "tick": 509,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the further move. I'm stepping up to 164 P for La Heroína del Dos de Mayo. Another real cut from you and we can get this closed quickly.",
+      "offer": {
+       "price": 164,
+       "days": null
+      },
+      "accept": false,
+      "tick": 509,
+      "decision": {
+       "action": "offer",
+       "price": 164,
+       "message": "Thanks for the further move. I'm stepping up to 164 P for La Heroína del Dos de Mayo. Another real cut from you and we can get this closed quickly."
+      }
+     },
+     {
+      "mine": true,
+      "text": "We've both moved steadily, and I'm making one clear step to 171 P for La Heroína del Dos de Mayo. If you meet me near the middle from here, we can close this now.",
+      "offer": {
+       "price": 171,
+       "days": null
+      },
+      "accept": false,
+      "tick": 512,
+      "decision": {
+       "action": "offer",
+       "price": 171,
+       "message": "We've both moved steadily, and I'm making one clear step to 171 P for La Heroína del Dos de Mayo. If you meet me near the middle from here, we can close this now."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 184,
+     "days": null
+    },
+    "tick": 520,
+    "ticks_left": 3,
+    "rounds": 3
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm making another clear step to 177 P for La Heroína del Dos de Mayo, which splits the remaining gap. Meet me there and we can close right now.",
+    "price": 177,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 177,
+      "message": "I'm making another clear step to 177 P for La Heroína del Dos de Mayo, which splits the remaining gap. Meet me there and we can close right now."
+     },
+     "band": {
+      "worst": 184,
+      "target": 177,
+      "best": 175
+     },
+     "plan": {
+      "read": "They stand at 184 after moving 207→195→184, and they have not answered our step to 171. Their 'close now' line is boilerplate pressure, not a real deadline, but only 3 ticks remain, so the real risk is ending with no deal.",
+      "target": 177,
+      "best": 175,
+      "worst": 184,
+      "days": null,
+      "angle": "Make one clear step to 177 that splits the gap and say we're ready to close right now; if they insist on 184, accept it rather than lose the deal."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.04,
+       "in": 888,
+       "out": 159,
+       "cost_usd": 0.00673,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.69,
+       "in": 696,
+       "out": 70,
+       "cost_usd": 0.00209,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 521,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 2430,
+     "role": "buyer",
+     "limit": 192,
+     "currency": "P",
+     "item": "La Heroína del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "207 for La Heroína del Dos de Mayo. Every round costs us both: let's close it now.",
+      "offer": {
+       "price": 207,
+       "days": null
+      },
+      "accept": false,
+      "tick": 507,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Your figure is well above what this piece supports, and rushing doesn't change that. I can offer 150 P for La Heroína del Dos de Mayo. If you move meaningfully toward that, we can wrap this up quickly.",
+      "offer": {
+       "price": 150,
+       "days": null
+      },
+      "accept": false,
+      "tick": 507,
+      "decision": {
+       "action": "offer",
+       "price": 150,
+       "message": "Your figure is well above what this piece supports, and rushing doesn't change that. I can offer 150 P for La Heroína del Dos de Mayo. If you move meaningfully toward that, we can wrap this up quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "195 for La Heroína del Dos de Mayo. Every round costs us both: let's close it now.",
+      "offer": {
+       "price": 195,
+       "days": null
+      },
+      "accept": false,
+      "tick": 508,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for moving; I've come up as well, to 158 P for La Heroína del Dos de Mayo. We're still some distance apart, so a further real cut from you is what will get this closed quickly.",
+      "offer": {
+       "price": 158,
+       "days": null
+      },
+      "accept": false,
+      "tick": 508,
+      "decision": {
+       "action": "offer",
+       "price": 158,
+       "message": "Thanks for moving; I've come up as well, to 158 P for La Heroína del Dos de Mayo. We're still some distance apart, so a further real cut from you is what will get this closed quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "184 for La Heroína del Dos de Mayo. Every round costs us both: let's close it now.",
+      "offer": {
+       "price": 184,
+       "days": null
+      },
+      "accept": false,
+      "tick": 509,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the further move. I'm stepping up to 164 P for La Heroína del Dos de Mayo. Another real cut from you and we can get this closed quickly.",
+      "offer": {
+       "price": 164,
+       "days": null
+      },
+      "accept": false,
+      "tick": 509,
+      "decision": {
+       "action": "offer",
+       "price": 164,
+       "message": "Thanks for the further move. I'm stepping up to 164 P for La Heroína del Dos de Mayo. Another real cut from you and we can get this closed quickly."
+      }
+     },
+     {
+      "mine": true,
+      "text": "We've both moved steadily, and I'm making one clear step to 171 P for La Heroína del Dos de Mayo. If you meet me near the middle from here, we can close this now.",
+      "offer": {
+       "price": 171,
+       "days": null
+      },
+      "accept": false,
+      "tick": 512,
+      "decision": {
+       "action": "offer",
+       "price": 171,
+       "message": "We've both moved steadily, and I'm making one clear step to 171 P for La Heroína del Dos de Mayo. If you meet me near the middle from here, we can close this now."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I'm making another clear step to 177 P for La Heroína del Dos de Mayo, which splits the remaining gap. Meet me there and we can close right now.",
+      "offer": {
+       "price": 177,
+       "days": null
+      },
+      "accept": false,
+      "tick": 520,
+      "decision": {
+       "action": "offer",
+       "price": 177,
+       "message": "I'm making another clear step to 177 P for La Heroína del Dos de Mayo, which splits the remaining gap. Meet me there and we can close right now."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 184,
+     "days": null
+    },
+    "tick": 521,
+    "ticks_left": 2,
+    "rounds": 3
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 184,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1570,6 +1989,82 @@
      "tick": 512,
      "days": 0
     }
+   }
+  },
+  {
+   "tick": 520,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'm making another clear step to 177 P for La Heroína del Dos de Mayo, which splits the remaining gap. Meet me there and we can close right now.",
+    "price": 177,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 177,
+      "message": "I'm making another clear step to 177 P for La Heroína del Dos de Mayo, which splits the remaining gap. Meet me there and we can close right now."
+     },
+     "band": {
+      "worst": 184,
+      "target": 177,
+      "best": 175
+     },
+     "plan": {
+      "read": "They stand at 184 after moving 207→195→184, and they have not answered our step to 171. Their 'close now' line is boilerplate pressure, not a real deadline, but only 3 ticks remain, so the real risk is ending with no deal.",
+      "target": 177,
+      "best": 175,
+      "worst": 184,
+      "days": null,
+      "angle": "Make one clear step to 177 that splits the gap and say we're ready to close right now; if they insist on 184, accept it rather than lose the deal."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.04,
+       "in": 888,
+       "out": 159,
+       "cost_usd": 0.00673,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.69,
+       "in": 696,
+       "out": 70,
+       "cost_usd": 0.00209,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2430,
+    "offer": {
+     "id": 4098,
+     "price": 177,
+     "tick": 520,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 521,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 184,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 184,
+    "settles_at_tick": 522
    }
   }
  ]
