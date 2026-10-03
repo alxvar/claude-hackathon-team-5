@@ -142,6 +142,7 @@
   ti... hoy'); the Abuela egg gave badge 'Sharp ear'. Badges: score effect unknown.
 - **Payday** [V, Sat 20:37, game paused at tick 1201]: every team +400 P ('a second starting purse… Only deals score, never
   cash you hold'). Ours 120 → 520.
+- **Broker announcements: 1 per venue per 20 ticks** [V, Sat 21:48: `wait: one announcement per venue every 20 ticks`].
 - **Abuela gifts** [V, tick 261]: after our 5th Abuela deal of the day she gave us LAT-08 ("gift from Abuela Carmen",
   `gift.given`); Team 7 got LAT-06 the same way on Friday (tick 157). Gifts never score, but the card is ours to sell.
 - **Value created on our venue is NET and can go negative** [V, Sat 11:30]: tick 311 on v10, t10 → t01 MAL-07 at 14:
