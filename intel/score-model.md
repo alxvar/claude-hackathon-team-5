@@ -20,7 +20,7 @@ _Last update: Sat 12:15, snapshot 440._
 | Part | Our raw | → Saturday pts | → board | Label |
 |---|---|---|---|---|
 | Team trades (`neg_points`) | 35.2 | 0.235 per point → 8.3 | 0.157 per point → 5.5 | [V] rate: MAL-03 +2.0 → +0.47 Sat (tick 404, idle field) |
-| Ladder | 0.055 | **≈ 81 per 0.001… i.e. ≈ 4.5** | ≈ 3.0 | [L] remainder: 12.75 − 8.3 |
+| Ladder | 0.055 | **≈ 4.5** (≈ 82 Sat per 1.0 ladder point) | ≈ 3.0 | [L] remainder: 12.75 − 8.3 |
 | Duels | 0 | — | — | [?] weight unknown; starts with Duels I |
 
 - **Negative `neg_points` are floored at 0** [V]: RET-01 took us −21.5 → +28.5 (+50) but the board showed only +28.5 worth
@@ -87,10 +87,13 @@ Validation: our own MAL-03 buy reads 0.70 by this method — our true MAL multip
 | **SAL** | **t03 ~1.3** (SAL-01 jump 1.37, bid 1.06) · t06 1.3-1.6 · t16 ~1.3 (bid 1.11, paid 1.29) · t01 ≥1.1 (bought SAL-10, -07, -08) | **t15 ~0.5** (SAL-07 on v10: 13.8 = 0.55) · t10 ~0.9-1.1 · t12 dumps · us 0.9 |
 | **RET** | t18 high (RET-02 at 49, page) · t15 ~1.3 (RET-07 at 24) · t02 ~1.2 | t13 (sells RET at 10-20) |
 
-**Safest high-value pairs for v10** (buyer outside the top 4; seller a known low-multiplier holder of a dup):
-LAT dup from t15 → t16/t03 is NOT it (t15 is the high LAT holder; its dups are low-value to it, so t15 → any 0.7+ first-copy
-buyer is positive — that is exactly what fed v14/v17). Best: **t15's LAT dups → t16 (1.1-1.3)**; **t10's/our MAL → t17**;
-**t15's SAL → t03/t06/t16**; **t16's LAV → t06/t09/t03/t04**. Never route to t15 for SAL, t10/t02 for MAL, t16 for LAV.
+**Safest high-value pairs for v10** (buyer outside the top 4; seller holds a dup or a low-multiplier copy):
+- LAT: **t15's LAT dups → t16 (1.1-1.3) or t03 (~1.0)**. t15 collects LAT, so its 2nd/3rd copies are worth 25%/10% to it;
+  that pattern is exactly what fed v14 (+4.36) and v17 (+2.76) through t12.
+- MAL: **t10's or our MAL → t17 (≥1.3)**, then t09.
+- SAL: **t15's SAL → t03, t06 or t16**.
+- LAV: **t16's LAV → t06, t09, t03 or t04**.
+- Never as buyers: t15 for SAL, t10/t02 for MAL, t16 for LAV, t02 for LAT; t12 only for LAT dups, never a first copy from a ≥0.9 holder (value created goes negative, see v10 tick 398).
 
 Caveats: a team at the trade cap or floor shows no jump (t01 since ~380 [L], t09/t10 early); windows with ladder moves
 (380-390) inflate or deflate the implied values. The CHA multiplier is unknown for every team until Sunday.
