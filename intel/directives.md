@@ -2,6 +2,12 @@
 
 _Written by the strategy session. It never touches the game: no trades, no bots. The operator decides and executes inside its hard limits (ORCHESTRATOR.md, "Decide, don't ask"); Lucas changes a limit only with a line containing GUARDRAIL. Format: `- HH:MM · decision with limits · why`. Newest block on top. Labels: **[Verified]** measured on our own deals or read from the server; **[Likely]** fitted or inferred; **[Open]** unknown._
 
+## Sat 10:35 — duels first
+
+- 10:35 · **Scored duel sessions: no taker accepts from our bots.** Stop the trader (loop.py) from 11:50 until Duels I ends; dealer threads stop at 11:40; book.py keeps posting (maker, no accept). Same for Duels II (≈ 18:29), plus zero dealer threads (6 duels at once; desk Q6 open) · one accept per tick is shared by duels and deals [Verified: desk + /api/clock limits]. 102 duels today (34 + 68: every team twice per round, RULES "Duels"); a missed duel deal is 0, while the trader's accepts are small. The arbiter (b2202a2, days-aware) stays as the second line.
+- 10:35 · Correction: "warm words +1 P on Chato" is confounded (warm run +3 steps vs cold +1; Chato mirrors step size), and RULES says injection "changes what they say, never their prices". Narrator stays (harmless); its price effect is [Open].
+- 10:35 · Cold standby duelist on Lucas's Mac starts (`uv run python -m agents.duelist --help` OK, none running) [Verified]. Use it only after Aleks confirms his process is dead; never two on the key. duelmon gets a "rival unanswered ≥ 4 ticks" HIGH page (Builder, by 11:50).
+
 ## Sat 10:30 — sales: addressed, wider buyer set (independently verified)
 
 - 10:30 · **Maker asks stay ADDRESSED; public asks rejected** · verifier: no API shows other albums, so a public ask can hand a top-4 team an undetected page-closer (+50 for them vs +6-11 for us); rivals' public asks at clearing aren't filling either [Verified: metrics.md]. **Widen the addressees per plan §4A** (saturday-plan.md:118-121): the ≥ 10-below rule applies only to a card that is the buyer's known last or second-to-last lack in that set; any other spare may go to any team outside the top 4 that signals a lack; unknown lacks count as closing; never the top 4; page-closers on El Rastro. Maker ask floor = our copy value + 1 (no maker fee); `MIN_GAIN_SELL` for book.py · the book is our only positive neg_points source between pages; cash funds Sunday's CHA page (~300 P).
