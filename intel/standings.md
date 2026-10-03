@@ -42,7 +42,7 @@ Saturday's round may continue Sunday morning (score-model §4.7).
 
 Rule: we finish ahead of a rival when 0.5·ΔFri + ΔSat + ΔSun > 0 (Δ = us − them). Every Saturday point added in a Sunday-morning
 tail counts 1:1, and so does every Sunday point. Friday counts half. P(#1) ≤ 4% in every variant. P(top 2) in case J (round 3 at ≈ 09:00, the flip lands): **≈ 19% without
-ladder fodder, ≈ 27% with a realistic fodder yield** (ladder ≈ 0.38; score-model §4.12, 02:10).
+ladder fodder, ≈ 24-27% with the approved fodder** (ladder ≈ 0.34-0.38); 13-15% if the flip doesn't land (score-model §4.12).
 
 ## 3. Rivals' Sunday upside [L]
 
