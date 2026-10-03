@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 12:15, snapshot 440._
+_Last update: Sat 12:35, snapshot 440. Rival detail: intel/rivals.md (Analyst-owned since 12:30)._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -50,9 +50,13 @@ the ladder can.
 ### Ladder rule test ("at or below the dealer's MENU list counts, above doesn't") [L, holds on every case checked]
 - MENU (`/api/dealers`, keyless): Abuela sells common 10, uncommon 25, pack 26 (opening 30); Chato uncommon 26, rare 77, silver 150; Pilar gold 420. Buy-side lists are not published.
 - Ours: 5 Abuela buys ≤ list all moved `ladder_points`; 6 Chato buys > list (87, 86, 30, Fri 93/31) never did [V on us].
-- t13: Chato LAV-06 at 26 and LAV-07 at 26 (= list) + 2 Chato sells → `level.unlocked` Pilar "3 deals with chato" at tick 262 [V feed].
-  Our 3 Chato deals above list (RET-09/10/06) unlocked nothing [V]. Consistent with the rule; "= list" counts.
-- Dealer SELLS (a team selling to Abuela/Chato) counting toward the ladder: **[?]**. t13's +2.1 Sat at 350 (two Abuela sells at 6)
+- t13's Pilar unlock ("3 deals with chato", tick 262) does NOT fit cleanly [?]: before 262 t13 had 4 Chato deals, 2 buys at
+  exactly list (LAV-06/07 at 26, Chato accepted t13's number) and 2 sells at Chato's final above his opening (LAT-09 46 vs 39,
+  MAL-06 15 vs 13). "≤ list buys + above-opening sells" predicts 4, "below list only" 2; the server says 3. Our 3 Chato buys
+  above list unlocked nothing [V]. Friday Chato unlock counts (t98) are ambiguous on whether packs / the welcome price count.
+- Dealer SELLS: at the dealer's opening bid they never moved our ladder [V: Fri LAT-08 to Chato at 13, LAV-05 to Abuela at 5,
+  ladder stayed 0.064]. Above the opening bid: counts toward unlocks [L: t13's Friday "6 deals with abuela" = 5 buys + its LAT-04
+  sell at 6 vs her 5], ladder effect unmeasured **[?]**. Opening bids seen: Abuela 5 common / 12 uncommon; Chato 13 uncommon / 39 rare. t13's +2.1 Sat at 350 (two Abuela sells at 6)
   coincided with a field-wide +1.5 drift, so it proves nothing.
 
 ## 3. Market = bench + value created on our venue
