@@ -245,3 +245,28 @@ def test_every_seller_with_2_copies_ranked_and_rival_sellers_only_at_small_margi
     # t20 (no rival) first by value created; t90, a rival, sells a common at a small margin: allowed; t91, a rival,
     # would gain 24 - 25 x 1.6 x 0.25 = +14 on its uncommon: refused
     assert pairs[1]["seller_gain"] <= vr.RIVAL_GAIN_MAX and pairs[1]["vc"] >= vr.RIVAL_VC_MIN
+
+
+
+def test_one_act_per_buyer_and_the_exclusions():
+    pairs = [{"seller": "t17", "card": "LAV-02", "buyer": "t09", "vc": 13}, {"seller": "t18", "card": "LAV-03", "buyer": "t09", "vc": 12},
+             {"seller": "t17", "card": "LAV-04", "buyer": "t07", "vc": 11}, {"seller": "t02", "card": "SAL-03", "buyer": "t08", "vc": 10}]
+    assert [(x["buyer"], x["card"]) for x in vr.top_per_buyer(pairs, 3)] == [("t09", "LAV-02"), ("t07", "LAV-04"),
+                                                                            ("t08", "SAL-03")]
+
+
+def test_a_buyer_that_sold_the_card_before_counts_as_holding_one_and_excluded_pairs_go(tmp_path):
+    teams = [{"team": f"t9{i}", "name": f"Team 9{i}", "score": 50 - i} for i in range(6)] + [
+        {"team": "t05", "score": 24}, {"team": "t16", "name": "Team 16", "score": 5},
+        {"team": "t20", "name": "Team 20", "score": 6}, {"team": "t21", "name": "Team 21", "score": 4}]
+    lacks = {(t, f"SAL-0{i}"): {"kind": "lack"} for t in ("t16", "t21") for i in (1, 2)}
+    held = {("t20", "SAL-06"): {1, 2}}
+    mult = {"t16": {"SAL": 1.6}, "t21": {"SAL": 1.6}, "t20": {"SAL": 0.5}}
+    args = dict(teams=teams, held=held, mult=mult, cards=vr.card_index(CATALOG), last=lacks, prof={},
+                collectors=AllCollect(), ours=24, riv=set())
+    assert [x["buyer"] for x in vr.all_suggestions(**args)] == ["t16"]                     # the best buyer per card
+    assert vr.all_suggestions(**args, sold={("t16", "SAL-06")})[0]["buyer"] == "t21"      # t16 likely holds one
+    assert [x["buyer"] for x in vr.all_suggestions(**args, exclude={("t16", "SAL-06")})] == ["t21"]
+    (tmp_path / "x.json").write_text('{"pairs": [["t09", "LAV-01"], ["t09", "LAV-05"]]}')
+    assert vr.excluded_pairs(tmp_path / "x.json") == {("t09", "LAV-01"), ("t09", "LAV-05")}
+    assert vr.sold_before([{"type": "settlement", "payload": {"items": [{"frm": "t09", "ref": "LAV-03"}]}}]) == {("t09", "LAV-03")}

@@ -50,6 +50,7 @@ URL = os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai")
 VENUE, ME = "v10", "t05"
 OUT, STATE, FEED = ROOT / "intel" / "v10-radar.md", ROOT / "run" / "v10_radar_state.json", ROOT / "data" / "feed.jsonl"
 SUGGEST_OUT, SUGGEST_EVERY_S = ROOT / "intel" / "v10-suggestions.md", 1800
+EXCLUDE = ROOT / "run" / "suggest_exclude.json"   # {"pairs": [[buyer, card], ...]}: pairs Lucas pitches himself (Chief 18:00)
 PARTNER_TEAMS = ("t10", "t15", "t03")
 SUGGEST_VC, SUGGEST_LINES, SUGGEST_TOP = 5.0, 3, 5
 SUGGEST_ACTS, SUGGEST_KEY_EVERY_S = 3, 7200    # the top 3 pairs to Dani as ACTs, each pair at most once per 2 h
@@ -279,7 +280,7 @@ def rival_seller_ok(vc: float, seller_gain: float) -> bool:
 
 
 def suggestions(partner: str, *, teams, held, mult, cards, last, prof, collectors, ours, limit=SUGGEST_LINES,
-                riv=frozenset()) -> list[dict]:
+                riv=frozenset(), exclude=frozenset()) -> list[dict]:
     """Up to `limit` {card, n, buyer, name, price, vc, seller_gain} for one seller: its 2+ copy cards, each with its
     best buyer that is no rival (buyers_for), est. value created > SUGGEST_VC; a rival seller (`riv`) only where
     rival_seller_ok."""
@@ -291,7 +292,7 @@ def suggestions(partner: str, *, teams, held, mult, cards, last, prof, collector
         ask = {"give": {"assets": [{"ref": card}]}}
         ranked = [b for b in buyers_for(ask, seller=partner, teams=teams, top=top, ours=ours, last=last, prof=prof,
                                         mult=mult, collectors=collectors, cards=cards, held=held)
-                  if b["vc"] > SUGGEST_VC]
+                  if b["vc"] > SUGGEST_VC and (b["team"], card) not in exclude]
         rarity, st = cards[card]["rarity"], cards[card]["set"]
         if ranked and rarity in CLEARING:              # epics and legendaries: no clearing price, no suggestion
             b = ranked[0]
@@ -306,14 +307,47 @@ def suggestions(partner: str, *, teams, held, mult, cards, last, prof, collector
     return out[:limit] if limit else out
 
 
-def all_suggestions(*, teams, held, mult, cards, last, prof, collectors, ours, riv) -> list[dict]:
-    """Every seller with 2+ copies of a card (feed, a lower bound), its best pairs, ranked by est. value created."""
+def excluded_pairs(path: Path | None = None) -> set:
+    try:
+        return {tuple(p) for p in json.loads(Path(path or EXCLUDE).read_text()).get("pairs") or [] if len(p) == 2}
+    except (OSError, ValueError, AttributeError, TypeError):
+        return set()
+
+
+def sold_before(events) -> set:
+    """(team, card) a team gave away in a settlement: it held one, and with starting cards invisible it likely still
+    does (Chief 18:00: t09 sold a LAV-03 to Abuela at tick 347)."""
+    return {(i.get("frm"), i.get("ref")) for e in events if e.get("type") == "settlement"
+            for i in (e.get("payload") or {}).get("items") or [] if i.get("frm")}
+
+
+def all_suggestions(*, teams, held, mult, cards, last, prof, collectors, ours, riv, sold=frozenset(),
+                    exclude=frozenset()) -> list[dict]:
+    """Every seller with 2+ copies of a card (feed, a lower bound), its best pairs, ranked by est. value created
+    (ties: a non-rival seller first). A buyer that sold the card before counts as holding one; excluded (buyer, card)
+    pairs are skipped."""
+    held = dict(held)
+    for k in sold:                                # a seen sale: count one copy where the feed shows none
+        if not held.get(k):
+            held[k] = {f"sold:{k[1]}"}
     sellers = {team for (team, card), ids in held.items() if len(ids) >= 2 and team and team != ME and team.startswith("t")}
     out = []
     for s in sorted(sellers):
         out += suggestions(s, teams=teams, held=held, mult=mult, cards=cards, last=last, prof=prof,
-                           collectors=collectors, ours=ours, limit=None, riv=riv)
-    out.sort(key=lambda x: -x["vc"])
+                           collectors=collectors, ours=ours, limit=None, riv=riv, exclude=exclude)
+    out.sort(key=lambda x: (-x["vc"], x["seller"] in riv))
+    return out
+
+
+def top_per_buyer(pairs: list, n: int) -> list:
+    """The best `n` pairs with distinct buyers (Chief 18:00: don't depend on one team being active)."""
+    out, seen = [], set()
+    for x in pairs:
+        if x["buyer"] not in seen:
+            out.append(x)
+            seen.add(x["buyer"])
+        if len(out) == n:
+            break
     return out
 
 
@@ -487,7 +521,7 @@ class Radar:
         held, col = holdings(events), self.collectors.get()
         riv = alerts.rivals(teams)                    # rivals: top 6 or within 3, re-read now (Chief 17:40/17:50)
         pairs = all_suggestions(teams=teams, held=held, mult=self.mult, cards=self.cards, last=last, prof=prof,
-                                collectors=col, ours=ours, riv=riv)
+                                collectors=col, ours=ours, riv=riv, sold=sold_before(events), exclude=excluded_pairs())
         found = {p: [x for x in pairs if x["seller"] == p] for p in PARTNER_TEAMS}
         L = [f"# v10 suggestions ({time.strftime('%a %H:%M')}, tick {tick})", "",
              "_Written every 30 min by `tools/v10_radar.py`: every team holding 2+ copies of a card (feed, a lower bound), "
@@ -498,7 +532,7 @@ class Radar:
               f"est. value created +{x['vc']:g} · seller's gain {x['seller_gain']:+g}"
               f"{' · rival seller' if x['seller'] in riv else ''}" for x in pairs[:10]] or ["No pair clears +5 now."]
         until = time.time() + SUGGEST_EVERY_S
-        for x in pairs[:SUGGEST_ACTS]:
+        for x in top_per_buyer(pairs, SUGGEST_ACTS):
             seller = names.get(x["seller"], x["seller"])
             text = ask_text(x, seller, self.cards)
             L += ["", f"ACT: ask {seller}: \"{text}\""]
