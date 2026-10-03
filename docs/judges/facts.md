@@ -10,7 +10,7 @@ wrong and are kept on purpose. Drafted from the sources and checked row by row b
 |---|---|---|---|---|---|---|
 | | **Scoring & values** | | | | | |
 | 1 | Team-trade score = Δ our collection value − price − fee, and only the taker pays the fee (ceil(5% × price) + 1 P per card) | Fri 21:12; re-verified Sat 00:00-01:15 | Spare MAL-02 sold at 6 by accepting: `neg_points` −8.5 → −6.1 (+2.4) ≈ 6 − 2 fee − 1.75 value (LOG Fri 21:12) | "Be the maker" (LOG finding 1); maker ask floor = copy value + 1 (directive 10:30) | [V] | D2 |
-| 2 | Score is relative: idle teams fall when others gain | Fri 22:35 (ticks 90-125) | Ticks 115→120: idle t12 −0.43, t10 −0.46, t14 −0.41; our `neg_points` 26.3→30.1 while score 17.8→16.5 (dani.md 22:35). 1 `neg_point` ≈ 0.16 board (GAME.md) | — (Dani recommended "a steady flow of positive trades"; no adoption recorded) (dani.md 22:35) | [V]; 0.16 rate [L] for Saturday | D6 |
+| 2 | Score is relative: idle teams fall when others gain | Fri 22:35 (ticks 90-125) | Ticks 115→120: idle t12 −0.43, t10 −0.46, t14 −0.41; our `neg_points` 26.3→30.1 while score 17.8→16.5 (dani.md 22:35). 1 `neg_point` ≈ 0.16 board (GAME.md) | Plan marks it [V] (§1); target 20-30 live maker offers (§4A); 7 live at Sat 10:09 (DECISIONS D6) | [V]; 0.16 rate [L] for Saturday | D6 |
 | 3 | Unopened packs drag each trade's score by ~1-4 points | Fri ~22:42 | Explains SAL-08 +1.9, SAL-06 +6.0, LAV-06 −2.3 (GAME.md; lucas.md 22:42) | Open packs before trading: 2 packs opened Fri 22:42; Saturday's grant pack opened on arrival (lucas.md 22:42, Sat 09:37) | [L] | D8 |
 | 4 | Private multipliers: CHA 1.6, LAV 1.3, RET 1.1, SAL 0.9, MAL 0.7, LAT 0.5; every team has the same six, shuffled | Fri, by 21:18-21:34 | `GET /api/me` → `affinity` (lucas.md 21:34; LOG finding 9); LOG E1 already prices LAV uncommons at 32.5 | LAV chosen as Friday's page (32.5 per uncommon, LOG finding 0); cash kept for CHA (1.6, out Sunday) (lucas.md Sat 10:29) | Read from server (untagged in GAME.md) | — |
 | 5 | Round 2 fired at tick 160 (game hour ~2.7, not 4.0): `neg_points` and ladder reset to 0 for all; holdings carry over | Sat tick 160 (seen 09:37) | `neg_points` 67.8 → 0.0; tick 165 grant 150 P + pack (RET-05, SAL-01, SAL-03); cash 252 → 402 (GAME.md; lucas.md 09:37) | — | [V] | D11 |
@@ -40,27 +40,27 @@ wrong and are kept on purpose. Drafted from the sources and checked row by row b
 | 27 | No team holds a RET rare; only Chato and silver packs sell them | Sat 09:48-09:55 | Feed to tick ~198: no team listed, sold or bought one; no grant pack pulled one (ticks 160-188) (dani.md 09:48; GAME.md) | Team bid 70 for RET-10 cancelled; RET-10 bought from Chato, cap raised to 91 (lucas.md 09:55; directive 10:03) | Corrected by #28 (true only to tick ~198); grant-pack part [V] | D20 |
 | 28 | Rivals' RET status: t18 holds both rares and lacks only RET-07; t12 lacks only the two rares | Sat 10:08 (settlements to tick 234) | t18 bought RET-09 (tick 206) and RET-10 (213) from Chato; t12 holds RET-01..08, lacks only the rares, "which we hold" (dani.md 10:08) | Dani's rule: never sell t12 our RET-09/10 (dani.md 10:08) | Measured (settlements); shows directive 10:03's "no team holds RET-10" was false (dani.md 10:16) | D20 |
 | | **Market, venues & offers** | | | | | |
-| 29 | Few offers fill, on Friday and on Saturday | Fri (feed); Sat 09:55-10:10 | Fri: clearing common 9, uncommon 24.5, rare 70; 5% of asks, 9% of bids filled (GAME.md). Sat: 0 fills in 17 min (book), 25 min (swaps) (lucas.md 09:55, 10:10) | Book repriced "toward clearing" (lucas.md 10:24); `book.py` at min gain 2, since the default 6 held asks above clearing (10:29); swaps cancelled (10:10) | [V] (Friday); "rivals' public asks at clearing aren't filling either" [Verified] (directive 10:30) | D6 |
+| 29 | Few offers fill, on Friday and on Saturday | Fri (feed); Sat 09:55-10:10 | Fri: clearing common 9, uncommon 24.5, rare 70; 5% of asks, 9% of bids filled (GAME.md). Sat: 0 fills in 17 min (book), 25 min (swaps) (lucas.md 09:55, 10:10) | Book repriced "toward clearing" (lucas.md 10:24); `book.py` at min gain 2, since the default 6 held asks above clearing (10:29); swaps cancelled (10:10) | [V] (Friday); "rivals' public asks at clearing aren't filling either" [Verified] (directive 10:30) | — |
 | 30 | Our broker shows no edge over the free stall; at bench 3.0 no board venue beat the stall | Sat 09:55-10:00 (snapshot 220) | Broker v1 +0.00 to +0.03 pp over the stall on replays; bench 3.0: stall efficiency 0.899, market 4.8; t06 3.66, t13 2.13 (directive 09:55; lucas.md 10:00) | Replays drove GUARDRAIL 09:55: no venue, cash to RET page, floor 370 → 100; bench 3.0 confirmed it ("The 09:55 venue gate stays", 10:03) | [Verified] (directives 09:55, 10:03) | D19 |
 | 31 | Value created on a venue drives market points: one 7 P trade gave Team 12 the market lead | Sat 10:00-10:06 (trade at tick 203) | t12 market 11.49 from one t15↔t13 trade on its 0% venue v02 (snapshots 200 → 210); our stall v10 at 3% since tick 201 (lucas.md 10:00; directive 10:06) | v10 fee → 0% (API `effective_tick: 230`), promoted to all teams; reciprocal venue deal with Team 10 (directives 10:03, 10:18) | [V]; corrects the 09:55 premise "likely small" (Friday venues: 0 trades) | D21 |
 | 32 | The first trade on our v10 lifted our market score 4.99 above the other stall teams | Sat 10:50 (tick 311) | t10 → t01, MAL-07 at 14 P on v10: our market 7.32 → 12.47 vs stall teams 7.48, level with t12; board #2 (29.05) (lucas.md 10:50, 10:53) | Keep trades flowing on v10; hourly reciprocity count vs v07; cheap spares posted on t10's v07 (lucas.md 10:50, 10:53) | Measured (n=1) | D21 |
 | 33 | Addressed offers are not private: the public feed shows them in full | Sat 02:50 | `offer.listed` shows maker, `to`, give, want; 35 such events on Friday; Team 13's "only the addressee sees them" is false (GAME.md) | Page-critical bids kept ≤ 20 ticks (directive 09:46) | [V] | — |
 | 34 | The feed names the team behind "anonymous" offers and trades | Fri 21:45; Sat 07:20 | `offer.listed` carries the maker: 65 of 77 El Rastro offers matched (dani.md 21:45); settlements name `frm`/`to` per card (aleks.md 07:20) | Dani's dashboard (21:55) and `intel/teams.md` (22:27), built on the 21:45 find (dani.md) | Untagged (team logs) | D13 |
 | 35 | On Saturday an offer lives half its `expires_in_ticks`: the server counts in 60 s units | Sat 10:24 (probe tick 264) | Asked 60 → 30 ticks, 120 → 60, 200 → 100; 4 "vanished" asks had expired (created 177, expires 237) (GAME.md; lucas.md 10:24, 10:30) | "Ask 2× the ticks you want"; opps 1ab8510 scales expiry by tick length; `book.py` reposts before expiry (lucas.md 10:25, 10:29, 10:30) | [V]; first read as cancellations (lucas.md 10:20); recheck on Sunday | — |
-| 36 | The venue bond is 250 P, not 270 | Sat 10:16 | `bazaar-kit/RULES.md:70` and all 7 board venues in the feed; ORCHESTRATOR, plan §4E and strategy used 270 (dani.md 10:16) | — (left for Lucas's triage) | Untagged (Dani's audit); 270 used in directives 03:30-10:06 | D19 |
+| 36 | Opening a venue costs 270 P: a 250 P refundable bond + 20 P; several docs called the 270 a bond | Sat 10:16 | `bazaar-kit/RULES.md:70`; all 7 board venues in the feed; Dani's audit (dani.md 10:16) | — (left for Lucas's triage) | Untagged (Dani's audit); 270 used in directives 03:30-10:06 | D19 |
 | | **Duels** | | | | | |
-| 37 | Duel result = our surplus × (1 − decay)^rounds; no deal = 0 | Fri 22:39 | Duel 257 (seller, cost 78) closed at 103 after 3 rounds: 20.8 = 25 × 0.94³; `pred` = game points on all 19 recorded deals (aleks.md 22:39, Sat 09:50) | Duelist facts give rounds so far, what accepting is worth, what one more round costs (aleks.md 08:05) | [V] (30 practice duels) | D14 |
+| 37 | Duel result = our surplus × (1 − decay)^rounds; no deal = 0 | Fri 22:39 | Duel 257 (seller, cost 78) closed at 103 after 3 rounds: 20.8 = 25 × 0.94³; `pred` = game points on all 19 recorded deals (aleks.md 22:39, Sat 09:50) | Duelist facts give rounds so far, what accepting is worth, what one more round costs (aleks.md 08:05) | [V] (30 practice duels) | D14, D18 |
 | 38 | Rounds = min(our priced offers, theirs); no-price messages are free | Fri – Sat 09:48 | Written in GAME.md's duel fact, the duelist's prompts, ledger and `their_price`, and `duel_monitor.py` l.15/47/327 (aleks.md 09:48, 09:55) | Duelist sent no-price messages and restated prices as "holds" (duels 277, 278) | Corrected by #39 | D18 |
 | 39 | Every duel message counts as a round, priced or not; silence is the only free hold | Sat 09:48 | 277: 3 no-price messages each raised `rounds`; 11 rounds, 6.6 = 13 × 0.94^11. 278: restating every tick cost 10 rounds, 2.7 vs 4.7 (aleks.md 09:48) | Fix ab0f793 + d1fc873: holds send nothing, a repeated rival offer isn't a move; restarted 09:54:56; GAME.md corrected (aleks.md 09:55) | [V] (GAME.md "corrected Sat 09:48") | D18 |
 | 40 | Duelist missed in-limit offers at the deadline: duels close ON `deadline_tick`, so last-tick rules never ran | Fri 23:08; Sat 07:42 | 181: limit 85, rival stood at 73 (tick 141), no deal at our 67, +12 P lost; 114/181 showed 13 ticks left on 12-tick duels (dani.md 23:08; aleks.md 07:42) | bb6d8c1: ticks left = deadline − tick; code accepts in-limit offers by 2 ticks left; 181 replay accepts 73 on tick 142 | Measured (practice, unscored) | D14 |
-| 41 | Our extreme opener doesn't scare rivals off; deals land on our side | Fri 22:36 – Sat 10:20 | 34 practice duels: 20 rivals spoke → 17 deals; 13 of 17 on our side of the midpoint; softer openers no better (228, 269); field 96/206 (aleks.md 10:20; dani.md 23:08) | Opener kept; tripwire: soften if deal rate < 70% or > 4 rounds/deal after Duels I's first 2 waves (aleks.md 10:20) | Measured (practice, unscored) | D14 |
+| 41 | Our extreme opener doesn't scare rivals off; deals land on our side | Fri 22:36 – Sat 10:20 | 34 practice duels: 20 rivals spoke → 17 deals; 13 of 17 on our side of the midpoint; softer openers no better (228, 269); field 96/206 (aleks.md 10:20; dani.md 23:08) | Opener kept; tripwire: soften if deal rate < 70% or > 4 rounds/deal after Duels I's first 2 waves (aleks.md 10:20) | Measured (practice, unscored) | D18 |
 | 42 | Opus is too slow to negotiate at Sunday's 15 s ticks; a Sonnet negotiator was chosen | Fri 21:25-22:07; Sat 09:50 | Opus 6-10 s (21:25), later 3.8-4.4 s as strategist; Sonnet 5.5 2.6 s, Haiku 4.5 1.4 s; Sat live avg 3-8 s, max 14.2 s (aleks.md) | Sonnet negotiator with Opus strategist; backup model per role (aleks.md 22:07, 22:09, 22:20) | Measured (smoke + live); Sunday fit unproven (~10 s budget vs 14.2 s max) | — |
 | 43 | One accept per tick is shared by duels and deals; a spent accept returns `wait_for_tick` (429) | Sat 10:35-10:40 | Desk + `/api/clock` limits (directive 10:35); server returns `wait_for_tick`, no `accept_taken` (aleks.md 10:40) | No taker accepts from our bots in scored duels: trader stopped 11:50 to Duels I's end; `book.py` maker-only (directive 10:35; lucas.md 10:37) | [Verified] | D10 |
 | | **Clock & infrastructure** | | | | | |
 | 44 | Duels I at tick 309, ~75 min after unpause (60 ticks per game hour) | Sat 09:15-09:30 | Handoff and Aleks's log assumed 60 ticks/h; `duel_monitor` placed sessions at hours × 60 (lucas.md 09:30, 09:40; aleks.md 09:15) | Would have paged a false HIGH "no live duel" from ~10:53 (lucas.md 09:40) | Corrected by #45 (directive 09:37) | D15 |
 | 45 | Saturday: 30 s ticks, 120 per hour, game hour = wall hour | Sat 09:37 | Ticks 159 → 173 = 0.117 h (directive 09:37); tick 168 at hour 2.725 (aleks.md 09:48); hour 4.0 at 10:50, stale `day_closes` did nothing (lucas.md 10:53) | Duels I ≈ 11:59 (tick ≈ 459), Duels II ≈ 18:29 (≈ 1239); `status.py`, `duel_monitor` and dashboard ETAs fixed (lucas.md 09:40; dani.md 09:48) | [V] | D15 |
 | 46 | The public feed keeps only the last 500 events (~15 ticks) | Sat 07:20 | aleks.md 07:20 (592 events collected by then) | Dashboard reads the hub: "it matters on Sunday (15 s ticks, the feed holds only minutes)" (dani.md 09:40) | Measured | D13 |
-| 47 | The shared working tree plus auto-sync hooks discarded other sessions' work | Sat 09:44-09:52 | `pull --autostash` stashed a half-done code edit; the pull conflicted with Aleks's push; hooks then committed mid-rebase and aborted, 13 times in the reflog (lucas.md 09:57) | Fix 5b22cc1: no pull over tracked code edits, no git mid-rebase, failed pulls aborted; code edits only in git worktrees (lucas.md 09:57) | [V] (reflog) | D16 |
+| 47 | The shared working tree plus auto-sync hooks discarded other sessions' work | Sat 09:44-09:52 | `pull --autostash` stashed a half-done code edit; the pull conflicted with Aleks's push; hooks then committed mid-rebase and aborted, 13 times in the reflog (lucas.md 09:57) | Chief restored the lost work from the reflog (9716c03); fix 5b22cc1: no pull over tracked code edits, no git mid-rebase, failed pulls aborted; code edits only in git worktrees. The Operator still lost files twice (09:50, ~10:00) | Measured (reflog; lucas.md 09:57) | D16 |
 
 ## Method
 
@@ -72,9 +72,12 @@ wrong and are kept on purpose. Drafted from the sources and checked row by row b
 
 ## Architecture (Saturday)
 
-Three people, four Claude Code sessions on Lucas's Mac, a dozen deterministic daemons, two LLM agents that negotiate.
-One writer per job: the Operator for trades and dealers, the duelist for duels, the broker for our venue. Code edits
-happen in git worktrees; the shared folder only holds daemon output and team logs (since the 09:44-09:52 git incident).
+Three people, four Claude Code sessions on Lucas's Mac, eight deterministic daemons, three advisory LLM analysts, and
+one LLM negotiator (Aleks's duelist). Our dealer bots let a model write the words (abuela_bot's narrator) while the
+engine sets every price. One writer per job: the Operator for trades and dealers, the duelist for duels. The broker
+for a board venue of our own is built and staged, not running: our v10 is the free stall, which the engine matches.
+No code edits in the shared folder (the daemons run from it): code changes go through git worktrees since the
+09:44-09:52 git incident (row 47).
 
 ```mermaid
 flowchart LR
@@ -87,26 +90,28 @@ flowchart LR
   subgraph Sessions["Claude Code sessions (Lucas's Mac)"]
     C["Chief of staff<br/>(Opus 5.5): decisions,<br/>intel/directives.md"]
     O["Operator<br/>(Opus 5.5): the only game<br/>writer for trades + dealers"]
-    B["Builder<br/>(Opus 5.5): tools/, tests,<br/>daemon health"]
-    M["Market<br/>(Fable 5.1): broker,<br/>recorder, venue"]
+    B["Builder<br/>(Opus 5.5): tools/, bots' code,<br/>tests, daemon health"]
+    M["Market<br/>(Fable 5.1): recorder,<br/>venue analysis"]
   end
 
   subgraph Daemons["Daemons (tools/daemons.sh, supervised)"]
     T["trader: accepts offers<br/>that gain value"]
     OP["opps: addressed offers<br/>+ phone alerts"]
     BK["book: keeps our asks/bids<br/>posted and repriced"]
-    AN["scout / judge / strategist<br/>(Claude API): advice"]
+    AN["scout / judge / strategist<br/>(Claude API): advice only"]
     DM["duelmon: duel alerts,<br/>wave reviews"]
     CO["collector, status,<br/>archiver, recorder"]
-    BR["broker: matches our<br/>venue's book"]
+    BR["broker: staged, not running<br/>(no board venue)"]
   end
 
   subgraph Bots["Per-deal bots (Operator runs)"]
-    AB["abuela_bot / chato_steady<br/>+ narrator (Sonnet 5.5):<br/>engine sets the price,<br/>model writes the words"]
+    AB["abuela_bot + narrator<br/>(Sonnet 5.5): engine sets<br/>the price, model writes words"]
+    CH["chato_steady:<br/>warm templates"]
   end
 
   subgraph AleksMac["Aleks's Mac"]
     DU["duelist: Opus strategist +<br/>Sonnet negotiator,<br/>code guards the limit"]
+    HUB[("hub: shared copy of the<br/>game + demand model")]
   end
 
   subgraph DaniPC["Dani's laptop"]
@@ -116,20 +121,21 @@ flowchart LR
   G[("Bazaar game API")]
   GH[("GitHub repo:<br/>intel/, team/, STATUS.md")]
   N["ntfy: phone alerts"]
-  ARB{{"arbiter: duels get the<br/>team's one accept per tick"}}
+  ARB{{"arbiter: our bots give up the accept<br/>when a scored duel has an in-limit<br/>offer or <= 3 ticks left"}}
 
   L <--> C
   C -->|SendMessage| O & B & M
-  O --> AB
+  O --> AB & CH
   O -. starts .-> T & OP & BK
-  M --> BR
+  M -. staged .-> BR
   B -. builds + keeps up .-> DM & CO
-  T & OP & BK & AB & BR -->|writes| G
+  T & OP & BK & AB & CH -->|writes| G
   DU -->|duel messages| G
-  T & AB --> ARB
+  T & AB & CH --> ARB
   ARB -->|reads /api/duels| G
-  CO & DM & AN & DB -->|reads| G
-  CO & AN & DM & DB --> GH
+  CO & DM & AN & DB & HUB -->|reads| G
+  HUB --> DU & DB
+  C & O & CO & AN & DM & DB --> GH
   OP & DM --> N
   N --> L & D
   A --> DU
