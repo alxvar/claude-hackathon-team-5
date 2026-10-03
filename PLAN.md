@@ -178,6 +178,14 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    code decides accept/hold/step/day, one text call (Haiku ≈ 1.8 s) → ≈ 2 s per decision vs 9.2 s mean / 29% > 10 s
    today; sim +0.008-0.010/duel at 12 ticks/10%. Suggested: dry-run one live wave with `--policy code
    --negotiator-model claude-haiku-4-5`, then `git merge --no-ff origin/duelist-loop` if it looks right.
+30. **23:45, DUEL LAB FINAL for Duels III + Final (intel/duel-lab.md top, c0aadfd, verified twice).** Pick ONE:
+   **A (recommended)**: merge `duelist-loop` (guards on, `{"GUARDS": 0}` turns them off live) + write
+   run/duel_params.json = {"MIN_STEP_P": 5, "MAX_STEP_SHARE": 0.18, "LATE_SWITCH_LEFT": 2, "MONO_END_SHARE": 0.5}
+   → +0.038-0.040/duel vs today's main (worst world +0.034), ≈ +2.6 points in Duels III and +1.3 in the Final [L].
+   **B (no merge)**: change the same three constants in agent.py (l.50/52/54) → +0.032-0.034/duel.
+   Never negative in 17 simulated worlds. Opener: keep the LLM's. Same settings for the Final.
+   Live gates (tools/duel_gates.py, advisory): revert MIN_STEP_P to 3 if the deal rate < 0.75 over ≥ 8 duels; step to
+   6 if rounds/deal > 3.5 at deal rate ≥ 0.85. Expected: deal rate ≈ 0.94, ≈ 3.0 rounds/deal.
 
 **Dani: deal desk from 15:52 (Lucas's call).** Your phone (ntfy, your channel) now gets every alert that needs a human to
 message another team: v10 radar DMs, v10 partner suggestions (Teams 15, 10, 3), opportunity SELL/BUY alerts, swap nudges.
