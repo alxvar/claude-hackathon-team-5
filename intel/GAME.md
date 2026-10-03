@@ -80,6 +80,10 @@
   pays over book for SAL/RET; 6 deals/team/hour.
 - **Abuela gifts** [V, tick 261]: after our 5th Abuela deal of the day she gave us LAT-08 ("gift from Abuela Carmen",
   `gift.given`); Team 7 got LAT-06 the same way on Friday (tick 157). Gifts never score, but the card is ours to sell.
+- **Value created on our venue is NET and can go negative** [V, Sat 11:30]: tick 311 on v10, t10 → t01 MAL-07 at 14:
+  our `mm_points` +4.99 (market 7.5 → 12.5); tick 398 on v10, t10 → t15 SAL-07 at 26 (t15 dumps SAL): `mm_points`
+  +4.99 → **−5.2**, market back to 7.5 (bench stall only), rank #3 → #7. [L] value created = buyer's value − seller's
+  value: a card moving to a lower-multiplier holder subtracts from the venue owner.
 - **RET rares** [V, feed ticks 160-188]: no team pulled a RET rare from a grant pack (every sobre_barrio `best` = null);
   the only sources are Chato (rare list 77) and silver packs. Team 15 bids 59 and Team 2 9-12 for RET-09/10.
 
