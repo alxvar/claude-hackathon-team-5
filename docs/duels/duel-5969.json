@@ -1717,5 +1717,91 @@
     "settles_at_tick": 1314
    }
   }
- ]
+ ],
+ "last_seen_tick": 1314,
+ "done": {
+  "duel": 5969,
+  "session": 3,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Plaza del Dos de Mayo",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 2.59,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 68,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Plata",
+  "deadline_tick": 1316,
+  "decay_per_round": 0.08,
+  "rounds": 3,
+  "your_offer": {
+   "id": 9096,
+   "price": 37,
+   "tick": 1312,
+   "days": 2
+  },
+  "rival_offer": {
+   "id": 9131,
+   "price": 45,
+   "tick": 1313,
+   "days": 2
+  },
+  "messages": [
+   {
+    "tick": 1301,
+    "from": "Rival Plata",
+    "text": "Rápido y justo: 57 P, día 8. ¿Qué día de entrega te va mejor? / Quick and fair: 57 P, day 8. Which delivery day suits you best?",
+    "price": 57,
+    "days": 8
+   },
+   {
+    "tick": 1301,
+    "from": "you",
+    "text": "Day 0 suits me best, so I can do 40 P for delivery on day 0. That keeps things simple and quick for both of us.",
+    "price": 40,
+    "days": 0
+   },
+   {
+    "tick": 1302,
+    "from": "Rival Plata",
+    "text": "Parece que el día te importa: 52 P con día 4. / It seems the day matters to you: 52 P, day 4.",
+    "price": 52,
+    "days": 4
+   },
+   {
+    "tick": 1302,
+    "from": "you",
+    "text": "Thanks for moving. I can do 43 P with delivery on day 0, which keeps it simple and quick.",
+    "price": 43,
+    "days": 0
+   },
+   {
+    "tick": 1303,
+    "from": "Rival Plata",
+    "text": "Parece que el día te importa: 50 P con día 2. / It seems the day matters to you: 50 P, day 2.",
+    "price": 50,
+    "days": 2
+   },
+   {
+    "tick": 1312,
+    "from": "you",
+    "text": "I can do 37 P, delivery on day 2.",
+    "price": 37,
+    "days": 2
+   },
+   {
+    "tick": 1313,
+    "from": "Rival Plata",
+    "text": "Mi mejor oferta: 45 P, día 2. / My best offer: 45 P, day 2.",
+    "price": 45,
+    "days": 2
+   }
+  ],
+  "result": 13.9,
+  "price": 45,
+  "days": 2
+ }
 }

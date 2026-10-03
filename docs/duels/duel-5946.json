@@ -69,6 +69,59 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1314,
+   "raw": {
+    "duel": 5946,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.33,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 124,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1323,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 8996,
+     "price": 175,
+     "tick": 1309,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 9169,
+     "price": 112,
+     "tick": 1314,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1309,
+      "from": "you",
+      "text": "I'm opening at 175 P for delivery on day 10. Happy to hear your counter.",
+      "price": 175,
+      "days": 10
+     },
+     {
+      "tick": 1314,
+      "from": "Rival Rojo",
+      "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 112.",
+      "price": 112,
+      "days": 5
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
