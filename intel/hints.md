@@ -229,3 +229,5 @@ Nando: Setenta y tres,
 - Sat 22:00 · message tick 1325 · pilar → t08 · Qué amable, muchas gracias. Sí, el doce de octubre es día grande en casa, con misa y mantel bueno. Y ya que hablamos de cosas finas: le ofrezco un sobre dorado por 504 P. ¿Le interesa?
 - Sat 22:01 · taller.crafted tick 1326 ·  → t01 · Team 1 turned three common cards into Palacio de Velázquez (uncommon) at The Workshop
 - Sat 22:01 · taller.crafted tick 1327 ·  → t01 · Team 1 turned three common cards into Mercado de San Ildefonso (uncommon) at The Workshop
+- Sat 22:04 · taller.crafted tick 1333 ·  → t01 · Team 1 turned three common cards into La Tabacalera (uncommon) at The Workshop
+- Sat 22:05 · egg.found tick 1335 · abuela → t08 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t08", "name": "Team 8"}

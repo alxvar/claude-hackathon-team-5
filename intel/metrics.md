@@ -1,4 +1,4 @@
-# Metrics (auto, 22:02, game tick 1330)
+# Metrics (auto, 22:04, game tick 1334)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -16,7 +16,7 @@ Us: #4
 
 ## Us
 
-score 30.68 · neg_points 119.1 (15 min ago 119.1) · ladder 0.483 · duel 26.43 · cash 392 · level 5 · deals 53
+score 30.68 · neg_points 119.1 (15 min ago 119.1) · ladder 0.483 · duel 28.15 · cash 392 · level 5 · deals 53
 
 ## Our holdings (card (rarity): value of each copy; a sale gives up the cheapest copy)
 
@@ -56,9 +56,8 @@ LAT-03 (common): 5; LAT-04 (common): 5; LAV-01 (common): 99.1; LAV-02 (common): 
 - tick 1203 picaros buy RET-11: 187 → 136, ours 128 · deal
 - tick 1230 picaros sell Mercado de la Cebada: 4 → 4, ours - · closed
 
-## Trades between teams (173 so far; last 12)
+## Trades between teams (174 so far; last 12)
 
-- tick 1194: LAV-02 (common) t13→t16 for 3 P
 - tick 1202: MAL-02 (common) t13→t14, MAL-01 (common) t14→t13 for 0 P
 - tick 1203: MAL-02 (common) t06→t13 for 12 P
 - tick 1204: LAT-07 (uncommon) t13→t06 for 14 P
@@ -70,47 +69,48 @@ LAT-03 (common): 5; LAT-04 (common): 5; LAV-01 (common): 99.1; LAV-02 (common): 
 - tick 1296: SAL-11 (epic) t10→t17 for 207 P
 - tick 1303: LAT-06 (uncommon) t09→t12 for 20 P
 - tick 1304: LAT-10 (rare) t01→t12 for 86 P
+- tick 1332: LAT-10 (rare) t13→t18 for 72 P
 
-Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET×3, LAT×1; t03: SAL×2, LAT×2, LAV×1; t04: RET×6, MAL×5, LAV×4, LAT×3; t05: MAL×4, SAL×4, LAV×1, RET×1; t06: SAL×4, LAT×2, RET×2, LAV×1; t07: RET×8, LAV×7, LAT×4, MAL×3; t08: MAL×3, LAT×3, LAV×3, SAL×2, RET×1; t09: RET×5, MAL×4, SAL×4, LAV×1, LAT×1; t10: LAV×2, MAL×2, SAL×1, RET×1; t12: LAT×8, MAL×2, RET×2, LAV×1; t13: MAL×9, SAL×2, LAV×1; t14: LAT×4, RET×4, SAL×2, LAV×1, MAL×1; t15: LAT×6, MAL×4, RET×3, SAL×3, LAV×3; t16: RET×4, LAT×2, MAL×1, LAV×1; t17: MAL×5, SAL×4; t18: SAL×1, LAT×1, RET×1
+Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET×3, LAT×1; t03: SAL×2, LAT×2, LAV×1; t04: RET×6, MAL×5, LAV×4, LAT×3; t05: MAL×4, SAL×4, LAV×1, RET×1; t06: SAL×4, LAT×2, RET×2, LAV×1; t07: RET×8, LAV×7, LAT×4, MAL×3; t08: MAL×3, LAT×3, LAV×3, SAL×2, RET×1; t09: RET×5, MAL×4, SAL×4, LAV×1, LAT×1; t10: LAV×2, MAL×2, SAL×1, RET×1; t12: LAT×8, MAL×2, RET×2, LAV×1; t13: MAL×9, SAL×2, LAV×1; t14: LAT×4, RET×4, SAL×2, LAV×1, MAL×1; t15: LAT×6, MAL×4, RET×3, SAL×3, LAV×3; t16: RET×4, LAT×2, MAL×1, LAV×1; t17: MAL×5, SAL×4; t18: LAT×2, SAL×1, RET×1
 
 ## Dealer prices, last 60 ticks (median per item)
 
+- abuela uncommon (team buys): median 21 over 1
 - chato uncommon (team buys): median 30 over 1
 - picaros common (team sells): median 4 over 1
-- picaros epic (team buys): median 155 over 1
-- picaros rare (team buys): median 56 over 5
+- picaros rare (team buys): median 57 over 7
 - pilar rare (team sells): median 77 over 1
 
 ## El Rastro now: top bids by price (team, card, price)
 
 - t10: LAV-11 (epic) 205 P · offer 19081
 - t17: MAL-11 (epic) 150 P · offer 19048
-- t18: LAT-10 (rare) 72 P · offer 18535
 - t09: MAL-09 (rare) 56 P · offer 19105
 - t09: MAL-10 (rare) 56 P · offer 19129
 - t13: RET-09 (rare) 42 P · offer 19148
 - t13: RET-10 (rare) 42 P · offer 19177
 - t09: SAL-06 (uncommon) 24 P · offer 18645
-- t13: RET-08 (uncommon) 13 P · offer 18982
 - t13: RET-07 (uncommon) 13 P · offer 19131
 - t13: RET-06 (uncommon) 13 P · offer 19158
+- t13: RET-08 (uncommon) 13 P · offer 19209
 - t13: RET-05 (common) 4 P · offer 19068
 - t13: RET-02 (common) 4 P · offer 19108
 - t13: RET-03 (common) 4 P · offer 19145
 - t13: RET-01 (common) 4 P · offer 19194
+- t13: LAT-01 (common) 2 P · offer 19060
 
-Asks by others (card, price: count): LAT-02 8: 2; SAL-03 6: 1; RET-08 24: 1; sobre_plata 130: 1; LAT-01 7: 1; RET-09 84: 1; RET-01 8: 1; LAT-08 30: 1; LAT-06 30: 1; RET-06 30: 1; SAL-02 6: 1; RET-07 30: 1; RET-08 26: 1; MAL-03 12: 1; MAL-01 12: 1
+Asks by others (card, price: count): LAT-02 8: 2; RET-08 24: 1; sobre_plata 130: 1; RET-09 84: 1; RET-01 8: 1; LAT-08 30: 1; LAT-06 30: 1; RET-06 30: 1; SAL-02 6: 1; RET-07 30: 1; RET-08 26: 1; MAL-03 12: 1; MAL-01 12: 1; RET-02 12: 1; RET-04 12: 1
 
-## Our duels: 6 live, 112 finished (last 10)
+## Our duels: 6 live, 115 finished (last 10)
 
-- {"duel": 5947, "session": 3, "status": "live", "role": "buyer", "item": "Fiesta de San Cayetano", "issues": ["price", "days"], "your_days_weight": 7.74, "days_meaning": "each delivery day costs you this much cash", "your_limit": 94, "limit_meaning": "never pay
-- {"duel": 5964, "session": 3, "status": "deal", "role": "seller", "item": "La Dama de Serrano", "issues": ["price", "days"], "your_days_weight": 0.94, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 87, "limit_meaning": "neve
-- {"duel": 5965, "session": 3, "status": "live", "role": "buyer", "item": "La Dama de Serrano", "issues": ["price", "days"], "your_days_weight": 2.78, "days_meaning": "each delivery day costs you this much cash", "your_limit": 115, "limit_meaning": "never pay ab
 - {"duel": 5968, "session": 3, "status": "deal", "role": "seller", "item": "Plaza del Dos de Mayo", "issues": ["price", "days"], "your_days_weight": 2.1, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 78, "limit_meaning": "ne
 - {"duel": 5969, "session": 3, "status": "deal", "role": "buyer", "item": "Plaza del Dos de Mayo", "issues": ["price", "days"], "your_days_weight": 2.59, "days_meaning": "each delivery day costs you this much cash", "your_limit": 68, "limit_meaning": "never pay 
 - {"duel": 6022, "session": 3, "status": "deal", "role": "buyer", "item": "La Dama de Serrano", "issues": ["price", "days"], "your_days_weight": 1.43, "days_meaning": "each delivery day costs you this much cash", "your_limit": 125, "limit_meaning": "never pay ab
-- {"duel": 6023, "session": 3, "status": "live", "role": "seller", "item": "La Dama de Serrano", "issues": ["price", "days"], "your_days_weight": 0.84, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 68, "limit_meaning": "neve
+- {"duel": 6023, "session": 3, "status": "deal", "role": "seller", "item": "La Dama de Serrano", "issues": ["price", "days"], "your_days_weight": 0.84, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 68, "limit_meaning": "neve
 - {"duel": 6036, "session": 3, "status": "deal", "role": "seller", "item": "Fiesta de San Cayetano", "issues": ["price", "days"], "your_days_weight": 1.34, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 141, "limit_meaning": 
+- {"duel": 6037, "session": 3, "status": "live", "role": "buyer", "item": "Fiesta de San Cayetano", "issues": ["price", "days"], "your_days_weight": 5.99, "days_meaning": "each delivery day costs you this much cash", "your_limit": 145, "limit_meaning": "never pa
+- {"duel": 6040, "session": 3, "status": "live", "role": "seller", "item": "El Frutero de Argumosa", "issues": ["price", "days"], "your_days_weight": 1.12, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 87, "limit_meaning": "
+- {"duel": 6041, "session": 3, "status": "live", "role": "buyer", "item": "El Frutero de Argumosa", "issues": ["price", "days"], "your_days_weight": 4.03, "days_meaning": "each delivery day costs you this much cash", "your_limit": 99, "limit_meaning": "never pay
 - {"duel": 6094, "session": 3, "status": "deal", "role": "seller", "item": "La Sala Pentagrama", "issues": ["price", "days"], "your_days_weight": 5.11, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 34, "limit_meaning": "neve
 - {"duel": 6170, "session": 3, "status": "deal", "role": "seller", "item": "La V\u00eda L\u00e1ctea", "issues": ["price", "days"], "your_days_weight": 3.34, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 70, "limit_meaning": 
 
