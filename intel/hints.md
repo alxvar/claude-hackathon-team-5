@@ -243,3 +243,5 @@ Nando: Setenta y tres,
 - Sat 22:09 · message tick 1343 · pilar → t02 · Buenas tardes. Claro que sí, el astronauta de la Catedral Nueva, un capricho moderno en piedra vieja. Salamanca siempre sorprende. Y ya que hablamos de tesoros: le ofrezco un sobre dorado por 504 P. ¿Le interesa, señor?
 - Sat 22:09 · message tick 1344 · banco → t06 · Setecientos cincuenta y uno. Avanzo despacio, como usted. El Gato sigue en la bóveda, caballero, y la tarde es larga.
 - Sat 22:10 · message tick 1345 · banco → t06 · Setecientos cuarenta y seis. Bajo cinco, igual que usted sube cinco. Así podemos seguir hasta que cierren las tiendas; el Gato no se mueve de la bóveda.
+- Sat 22:10 · message tick 1346 · banco → t06 · Setecientos cuarenta y uno. Cinco menos, como corresponde. El Gato permanece en la bóveda, caballero, y la tarde aún no se acaba.
+- Sat 22:11 · message tick 1347 · banco → t06 · Setecientos treinta y seis. Cinco menos, como siempre. El Gato sigue en la bóveda, caballero. Yo no tengo prisa; usted tampoco, por lo visto.
