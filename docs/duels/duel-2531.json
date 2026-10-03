@@ -447,5 +447,55 @@
     "settles_at_tick": 596
    }
   }
- ]
+ ],
+ "last_seen_tick": 596,
+ "done": {
+  "duel": 2531,
+  "session": 2,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Mercado de la Paz",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 146,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Sol",
+  "deadline_tick": 609,
+  "decay_per_round": 0.06,
+  "rounds": 1,
+  "your_offer": {
+   "id": 5324,
+   "price": 95,
+   "tick": 593,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 5345,
+   "price": 101,
+   "tick": 595,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 593,
+    "from": "you",
+    "text": "I'd like to open at 95 P for Mercado de la Paz, which I think is a fair value given what is on offer. I'm keen to settle this quickly, so please let me know where you stand.}",
+    "price": 95,
+    "days": null
+   },
+   {
+    "tick": 595,
+    "from": "Rival Sol",
+    "text": "Hello! I can let it go for 101 P.",
+    "price": 101,
+    "days": null
+   }
+  ],
+  "result": 42.3,
+  "price": 101,
+  "days": 0
+ }
 }

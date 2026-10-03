@@ -393,6 +393,126 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 596,
+   "took_s": 5.39,
+   "cost_usd": 0.00543,
+   "obs": {
+    "view": {
+     "duel_id": 2530,
+     "role": "seller",
+     "limit": 87,
+     "currency": "P",
+     "item": "Mercado de la Paz",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "Welcome. Given the quality of what we offer at Mercado de la Paz and its prime location, I'm putting forward 125 P as a fair price. I'd be glad to hear your concrete counteroffer.",
+      "offer": {
+       "price": 125,
+       "days": null
+      },
+      "accept": false,
+      "tick": 591,
+      "decision": {
+       "action": "offer",
+       "price": 125,
+       "message": "Welcome. Given the quality of what we offer at Mercado de la Paz and its prime location, I'm putting forward 125 P as a fair price. I'd be glad to hear your concrete counteroffer."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hi there. 82 P from my side.",
+      "offer": {
+       "price": 82,
+       "days": null
+      },
+      "accept": false,
+      "tick": 593,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the counter, but your figure sits well below what this location and quality support. I'm moving to 118 P as a good-faith step; I'd ask you to come up substantially from your opening so we can meet in a sensible range.",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 593,
+      "decision": {
+       "action": "offer",
+       "price": 118,
+       "message": "Thanks for the counter, but your figure sits well below what this location and quality support. I'm moving to 118 P as a good-faith step; I'd ask you to come up substantially from your opening so we can meet in a sensible range."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 82,
+     "days": null
+    },
+    "tick": 596,
+    "ticks_left": 11,
+    "rounds": 1
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm holding at 118 P for now and will wait for your next move.",
+    "price": 118,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 118,
+      "message": "I'm holding at 118 P for now and will wait for your next move."
+     },
+     "band": {
+      "worst": 116,
+      "target": 118,
+      "best": 118
+     },
+     "plan": {
+      "read": "They opened at 82 and haven't answered our move to 118; we already conceded 7 without any movement from them, so the ball is in their court.",
+      "target": 118,
+      "best": 118,
+      "worst": 116,
+      "days": null,
+      "angle": "Hold at 118 and send nothing; wait for them to come up meaningfully before any further step."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.27,
+       "in": 526,
+       "out": 107,
+       "cost_usd": 0.00424,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.12,
+       "in": 388,
+       "out": 41,
+       "cost_usd": 0.00119,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [
