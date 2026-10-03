@@ -119,6 +119,131 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 491,
+   "raw": {
+    "duel": 2541,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 108,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Azul",
+    "deadline_tick": 506,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 3437,
+     "price": 65,
+     "tick": 490,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3448,
+     "price": 110,
+     "tick": 491,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 490,
+      "from": "Rival Azul",
+      "text": "Hello! I can do 118. Thank you for your time.",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 490,
+      "from": "you",
+      "text": "I'd like to open at 65 P for El Mesón de la Cava. That reflects a fair value for the property as it stands, and I'm ready to move quickly if we can find common ground. What's your counter?",
+      "price": 65,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "Rival Azul",
+      "text": "Thanks for the reply. 110 works for me.",
+      "price": 110,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 491,
+   "raw": {
+    "duel": 2541,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 108,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Azul",
+    "deadline_tick": 506,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 3464,
+     "price": 71,
+     "tick": 491,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3448,
+     "price": 110,
+     "tick": 491,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 490,
+      "from": "Rival Azul",
+      "text": "Hello! I can do 118. Thank you for your time.",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 490,
+      "from": "you",
+      "text": "I'd like to open at 65 P for El Mesón de la Cava. That reflects a fair value for the property as it stands, and I'm ready to move quickly if we can find common ground. What's your counter?",
+      "price": 65,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "Rival Azul",
+      "text": "Thanks for the reply. 110 works for me.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "you",
+      "text": "Thank you for moving. I can come up to 71 P, and that is a real step on my side. Your figure is still well above what the property supports, so we'll need to see a more meaningful move from you to close.",
+      "price": 71,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -229,6 +354,122 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 491,
+   "took_s": 5.64,
+   "cost_usd": 0.005679999999999999,
+   "obs": {
+    "view": {
+     "duel_id": 2541,
+     "role": "buyer",
+     "limit": 108,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello! I can do 118. Thank you for your time.",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 490,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'd like to open at 65 P for El Mesón de la Cava. That reflects a fair value for the property as it stands, and I'm ready to move quickly if we can find common ground. What's your counter?",
+      "offer": {
+       "price": 65,
+       "days": null
+      },
+      "accept": false,
+      "tick": 490,
+      "decision": {
+       "action": "offer",
+       "price": 65,
+       "message": "I'd like to open at 65 P for El Mesón de la Cava. That reflects a fair value for the property as it stands, and I'm ready to move quickly if we can find common ground. What's your counter?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 110 works for me.",
+      "offer": {
+       "price": 110,
+       "days": null
+      },
+      "accept": false,
+      "tick": 491,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 110,
+     "days": null
+    },
+    "tick": 491,
+    "ticks_left": 15,
+    "rounds": 1
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thank you for moving. I can come up to 71 P, and that is a real step on my side. Your figure is still well above what the property supports, so we'll need to see a more meaningful move from you to close.",
+    "price": 71,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 71,
+      "message": "Thank you for moving. I can come up to 71 P, and that is a real step on my side. Your figure is still well above what the property supports, so we'll need to see a more meaningful move from you to close."
+     },
+     "band": {
+      "worst": 72,
+      "target": 71,
+      "best": 70
+     },
+     "plan": {
+      "read": "They dropped 8 P from 118 to 110, a real but modest move; their standing offer is still above what we can pay, so they have more room to give.",
+      "target": 71,
+      "best": 70,
+      "worst": 72,
+      "days": null,
+      "angle": "Acknowledge their move with a smaller step of our own, and make clear that 110 is still far off and they need to come down meaningfully to close."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.32,
+       "in": 440,
+       "out": 123,
+       "cost_usd": 0.00422,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.32,
+       "in": 330,
+       "out": 80,
+       "cost_usd": 0.00146,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -285,6 +526,63 @@
      "id": 3437,
      "price": 65,
      "tick": 490,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 491,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thank you for moving. I can come up to 71 P, and that is a real step on my side. Your figure is still well above what the property supports, so we'll need to see a more meaningful move from you to close.",
+    "price": 71,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 71,
+      "message": "Thank you for moving. I can come up to 71 P, and that is a real step on my side. Your figure is still well above what the property supports, so we'll need to see a more meaningful move from you to close."
+     },
+     "band": {
+      "worst": 72,
+      "target": 71,
+      "best": 70
+     },
+     "plan": {
+      "read": "They dropped 8 P from 118 to 110, a real but modest move; their standing offer is still above what we can pay, so they have more room to give.",
+      "target": 71,
+      "best": 70,
+      "worst": 72,
+      "days": null,
+      "angle": "Acknowledge their move with a smaller step of our own, and make clear that 110 is still far off and they need to come down meaningfully to close."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.32,
+       "in": 440,
+       "out": 123,
+       "cost_usd": 0.00422,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.32,
+       "in": 330,
+       "out": 80,
+       "cost_usd": 0.00146,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2541,
+    "offer": {
+     "id": 3464,
+     "price": 71,
+     "tick": 491,
      "days": 0
     }
    }

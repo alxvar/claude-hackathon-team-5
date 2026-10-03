@@ -1739,6 +1739,170 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 491,
+   "raw": {
+    "duel": 2318,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 74,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 498,
+    "decay_per_round": 0.06,
+    "rounds": 8,
+    "your_offer": {
+     "id": 3438,
+     "price": 88,
+     "tick": 490,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3456,
+     "price": 83,
+     "tick": 491,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 482,
+      "from": "Rival Sol",
+      "text": "I can do 35. That is a fair deal for both of us.",
+      "price": 35,
+      "days": null
+     },
+     {
+      "tick": 482,
+      "from": "you",
+      "text": "Palacio de Cristal is a one-of-a-kind landmark: a glass-and-iron masterpiece in a prime park setting, and nothing comparable ever comes to market. I'm offering it at 115 P, a fair reflection of that rarity. I'd welcome a concrete counteroffer from you.",
+      "price": 115,
+      "days": null
+     },
+     {
+      "tick": 483,
+      "from": "Rival Sol",
+      "text": "I can do 38. That is a fair deal for both of us.",
+      "price": 38,
+      "days": null
+     },
+     {
+      "tick": 484,
+      "from": "Rival Sol",
+      "text": "I can do 43. That is a fair deal for both of us.",
+      "price": 43,
+      "days": null
+     },
+     {
+      "tick": 484,
+      "from": "you",
+      "text": "I've moved a little to meet your small step, and I can do 112 P. This is a unique glass-and-iron landmark in a prime park setting, with no true comparable anywhere. I'd welcome a much more serious counteroffer.",
+      "price": 112,
+      "days": null
+     },
+     {
+      "tick": 485,
+      "from": "Rival Sol",
+      "text": "I can do 48. That is a fair deal for both of us.",
+      "price": 48,
+      "days": null
+     },
+     {
+      "tick": 485,
+      "from": "you",
+      "text": "I appreciate that you're moving, but your latest figure is still very far from where this can close. I can come to 108 P for a one-of-a-kind glass-and-iron landmark in a prime park setting. Small steps won't bridge the gap, so I'd need to see a substantially higher offer.",
+      "price": 108,
+      "days": null
+     },
+     {
+      "tick": 486,
+      "from": "Rival Sol",
+      "text": "I can do 54. That is a fair deal for both of us.",
+      "price": 54,
+      "days": null
+     },
+     {
+      "tick": 486,
+      "from": "you",
+      "text": "Thank you for the steady movement. I can come down to 104 P for this one-of-a-kind glass-and-iron landmark in a prime park setting. To bridge the remaining gap I'll need a much larger step from you.",
+      "price": 104,
+      "days": null
+     },
+     {
+      "tick": 487,
+      "from": "Rival Sol",
+      "text": "I can do 61. That is a fair deal for both of us.",
+      "price": 61,
+      "days": null
+     },
+     {
+      "tick": 487,
+      "from": "you",
+      "text": "Thank you, I see your steps are growing. I can come to 100 P for this one-of-a-kind glass-and-iron landmark in a prime park setting. A similar or larger step from you would take us a long way toward closing the gap.",
+      "price": 100,
+      "days": null
+     },
+     {
+      "tick": 488,
+      "from": "Rival Sol",
+      "text": "I can do 68. That is a fair deal for both of us.",
+      "price": 68,
+      "days": null
+     },
+     {
+      "tick": 488,
+      "from": "you",
+      "text": "I appreciate the steady progress, and I can come to 96 P for this one-of-a-kind glass-and-iron landmark in a prime park setting. Another sizable step from you would show we're truly converging.",
+      "price": 96,
+      "days": null
+     },
+     {
+      "tick": 489,
+      "from": "Rival Sol",
+      "text": "I can do 76. That is a fair deal for both of us.",
+      "price": 76,
+      "days": null
+     },
+     {
+      "tick": 489,
+      "from": "you",
+      "text": "Thank you for the bigger step. I can come to 92 P for this one-of-a-kind glass-and-iron landmark in a prime park setting. One more solid move from you would put us within reach of closing.",
+      "price": 92,
+      "days": null
+     },
+     {
+      "tick": 490,
+      "from": "Rival Sol",
+      "text": "I can do 83. That is a fair deal for both of us.",
+      "price": 83,
+      "days": null
+     },
+     {
+      "tick": 490,
+      "from": "you",
+      "text": "We've both moved a long way, and I can come to 88 P, which is a real step down for this one-of-a-kind glass-and-iron landmark in a prime park setting. I'd like to close at this figure rather than spend more rounds on a small gap.",
+      "price": 88,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "Rival Sol",
+      "text": "I can do 83. That is a fair deal for both of us.",
+      "price": 83,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {

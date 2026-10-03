@@ -4137,5 +4137,181 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 491,
+ "done": {
+  "duel": 2366,
+  "session": 2,
+  "status": "deal",
+  "role": "seller",
+  "item": "Palacio de Cristal",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 101,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Oro",
+  "deadline_tick": 491,
+  "decay_per_round": 0.06,
+  "rounds": 5,
+  "your_offer": {
+   "id": 3412,
+   "price": 110,
+   "tick": 489,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 3392,
+   "price": 67,
+   "tick": 489,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 475,
+    "from": "Rival Oro",
+    "text": "67?",
+    "price": 67,
+    "days": null
+   },
+   {
+    "tick": 475,
+    "from": "you",
+    "text": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1",
+    "price": 165,
+    "days": null
+   },
+   {
+    "tick": 476,
+    "from": "Rival Oro",
+    "text": "67?",
+    "price": 67,
+    "days": null
+   },
+   {
+    "tick": 477,
+    "from": "Rival Oro",
+    "text": "67?",
+    "price": 67,
+    "days": null
+   },
+   {
+    "tick": 478,
+    "from": "Rival Oro",
+    "text": "67?",
+    "price": 67,
+    "days": null
+   },
+   {
+    "tick": 479,
+    "from": "Rival Oro",
+    "text": "67?",
+    "price": 67,
+    "days": null
+   },
+   {
+    "tick": 480,
+    "from": "Rival Oro",
+    "text": "67?",
+    "price": 67,
+    "days": null
+   },
+   {
+    "tick": 481,
+    "from": "Rival Oro",
+    "text": "67?",
+    "price": 67,
+    "days": null
+   },
+   {
+    "tick": 481,
+    "from": "you",
+    "text": "I'm willing to move: I can offer Palacio de Cristal at 148 P, a clear step down from where I began. Your repeated figure is far from a workable level, so please come up meaningfully to show you're serious about closing.",
+    "price": 148,
+    "days": null
+   },
+   {
+    "tick": 482,
+    "from": "Rival Oro",
+    "text": "67?",
+    "price": 67,
+    "days": null
+   },
+   {
+    "tick": 483,
+    "from": "Rival Oro",
+    "text": "67?",
+    "price": 67,
+    "days": null
+   },
+   {
+    "tick": 484,
+    "from": "Rival Oro",
+    "text": "67?",
+    "price": 67,
+    "days": null
+   },
+   {
+    "tick": 485,
+    "from": "Rival Oro",
+    "text": "67?",
+    "price": 67,
+    "days": null
+   },
+   {
+    "tick": 486,
+    "from": "Rival Oro",
+    "text": "67?",
+    "price": 67,
+    "days": null
+   },
+   {
+    "tick": 487,
+    "from": "Rival Oro",
+    "text": "67?",
+    "price": 67,
+    "days": null
+   },
+   {
+    "tick": 487,
+    "from": "you",
+    "text": "I'm making one clear move to 132 P for Palacio de Cristal, a substantial step down from my last figure. Time is nearly up, so a real move up from your current level is needed if we are going to close this.",
+    "price": 132,
+    "days": null
+   },
+   {
+    "tick": 488,
+    "from": "Rival Oro",
+    "text": "67?",
+    "price": 67,
+    "days": null
+   },
+   {
+    "tick": 488,
+    "from": "you",
+    "text": "I'm moving again to 118 P for Palacio de Cristal, a serious closing price well below where I started. With little time left, please meet it or name a real counter so we can finish this.",
+    "price": 118,
+    "days": null
+   },
+   {
+    "tick": 489,
+    "from": "Rival Oro",
+    "text": "67?",
+    "price": 67,
+    "days": null
+   },
+   {
+    "tick": 489,
+    "from": "you",
+    "text": "My last price for Palacio de Cristal is 110 P, a long way down from where I opened. Time is nearly gone, and if you don't meet it now we both walk away with nothing.",
+    "price": 110,
+    "days": null
+   }
+  ],
+  "result": 6.6,
+  "price": 110,
+  "days": 0
+ }
 }
