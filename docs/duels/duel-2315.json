@@ -178,6 +178,225 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 485,
+   "raw": {
+    "duel": 2315,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 64,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 491,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 3314,
+     "price": 84,
+     "tick": 485,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3137,
+     "price": 50,
+     "tick": 479,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 475,
+      "from": "you",
+      "text": "El Mesón de la Cava is an established tavern with steady trade, a prime location and a well-stocked cellar that draws regulars. I'm offering it at 96 P, and I'd welcome a serious counteroffer from you.",
+      "price": 96,
+      "days": null
+     },
+     {
+      "tick": 479,
+      "from": "Rival Oro",
+      "text": "Hola. I like it, and I can pay 50 P.",
+      "price": 50,
+      "days": null
+     },
+     {
+      "tick": 479,
+      "from": "you",
+      "text": "Thanks for your interest. The tavern's steady trade, prime location and well-stocked cellar make it worth far more than your offer, but I'm willing to come down to 90 P as a good-faith step. I'd ask you to move meaningfully closer from where you started.",
+      "price": 90,
+      "days": null
+     },
+     {
+      "tick": 485,
+      "from": "you",
+      "text": "I've now moved twice, from my opening figure down to 84 P, while your offer hasn't changed. The tavern's steady trade, location and cellar justify that price, so I'd ask you to come up substantially from your starting point.",
+      "price": 84,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 488,
+   "raw": {
+    "duel": 2315,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 64,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 491,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 3375,
+     "price": 76,
+     "tick": 488,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3137,
+     "price": 50,
+     "tick": 479,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 475,
+      "from": "you",
+      "text": "El Mesón de la Cava is an established tavern with steady trade, a prime location and a well-stocked cellar that draws regulars. I'm offering it at 96 P, and I'd welcome a serious counteroffer from you.",
+      "price": 96,
+      "days": null
+     },
+     {
+      "tick": 479,
+      "from": "Rival Oro",
+      "text": "Hola. I like it, and I can pay 50 P.",
+      "price": 50,
+      "days": null
+     },
+     {
+      "tick": 479,
+      "from": "you",
+      "text": "Thanks for your interest. The tavern's steady trade, prime location and well-stocked cellar make it worth far more than your offer, but I'm willing to come down to 90 P as a good-faith step. I'd ask you to move meaningfully closer from where you started.",
+      "price": 90,
+      "days": null
+     },
+     {
+      "tick": 485,
+      "from": "you",
+      "text": "I've now moved twice, from my opening figure down to 84 P, while your offer hasn't changed. The tavern's steady trade, location and cellar justify that price, so I'd ask you to come up substantially from your starting point.",
+      "price": 84,
+      "days": null
+     },
+     {
+      "tick": 488,
+      "from": "you",
+      "text": "I've moved a long way from my opening figure and I'm making one more clear step to 76 P. With time running short, a serious move up from your starting point would let us settle this now.",
+      "price": 76,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 489,
+   "raw": {
+    "duel": 2315,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 64,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 491,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 3409,
+     "price": 72,
+     "tick": 489,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3137,
+     "price": 50,
+     "tick": 479,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 475,
+      "from": "you",
+      "text": "El Mesón de la Cava is an established tavern with steady trade, a prime location and a well-stocked cellar that draws regulars. I'm offering it at 96 P, and I'd welcome a serious counteroffer from you.",
+      "price": 96,
+      "days": null
+     },
+     {
+      "tick": 479,
+      "from": "Rival Oro",
+      "text": "Hola. I like it, and I can pay 50 P.",
+      "price": 50,
+      "days": null
+     },
+     {
+      "tick": 479,
+      "from": "you",
+      "text": "Thanks for your interest. The tavern's steady trade, prime location and well-stocked cellar make it worth far more than your offer, but I'm willing to come down to 90 P as a good-faith step. I'd ask you to move meaningfully closer from where you started.",
+      "price": 90,
+      "days": null
+     },
+     {
+      "tick": 485,
+      "from": "you",
+      "text": "I've now moved twice, from my opening figure down to 84 P, while your offer hasn't changed. The tavern's steady trade, location and cellar justify that price, so I'd ask you to come up substantially from your starting point.",
+      "price": 84,
+      "days": null
+     },
+     {
+      "tick": 488,
+      "from": "you",
+      "text": "I've moved a long way from my opening figure and I'm making one more clear step to 76 P. With time running short, a serious move up from your starting point would let us settle this now.",
+      "price": 76,
+      "days": null
+     },
+     {
+      "tick": 489,
+      "from": "you",
+      "text": "I've come down a long way, and 72 P is my final clear offer for the tavern with its steady trade, location and cellar. With so little time left, this is the last chance to close, so I hope you can take it.",
+      "price": 72,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -513,6 +732,411 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 485,
+   "took_s": 8.05,
+   "cost_usd": 0.00932,
+   "obs": {
+    "view": {
+     "duel_id": 2315,
+     "role": "seller",
+     "limit": 64,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "El Mesón de la Cava is an established tavern with steady trade, a prime location and a well-stocked cellar that draws regulars. I'm offering it at 96 P, and I'd welcome a serious counteroffer from you.",
+      "offer": {
+       "price": 96,
+       "days": null
+      },
+      "accept": false,
+      "tick": 475,
+      "decision": {
+       "action": "offer",
+       "price": 96,
+       "message": "El Mesón de la Cava is an established tavern with steady trade, a prime location and a well-stocked cellar that draws regulars. I'm offering it at 96 P, and I'd welcome a serious counteroffer from you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hola. I like it, and I can pay 50 P.",
+      "offer": {
+       "price": 50,
+       "days": null
+      },
+      "accept": false,
+      "tick": 479,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for your interest. The tavern's steady trade, prime location and well-stocked cellar make it worth far more than your offer, but I'm willing to come down to 90 P as a good-faith step. I'd ask you to move meaningfully closer from where you started.",
+      "offer": {
+       "price": 90,
+       "days": null
+      },
+      "accept": false,
+      "tick": 479,
+      "decision": {
+       "action": "offer",
+       "price": 90,
+       "message": "Thanks for your interest. The tavern's steady trade, prime location and well-stocked cellar make it worth far more than your offer, but I'm willing to come down to 90 P as a good-faith step. I'd ask you to move meaningfully closer from where you started."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 50,
+     "days": null
+    },
+    "tick": 485,
+    "ticks_left": 6,
+    "rounds": 1
+   },
+   "move": {
+    "action": "offer",
+    "text": "I've now moved twice, from my opening figure down to 84 P, while your offer hasn't changed. The tavern's steady trade, location and cellar justify that price, so I'd ask you to come up substantially from your starting point.",
+    "price": 84,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 84,
+      "message": "I've now moved twice, from my opening figure down to 84 P, while your offer hasn't changed. The tavern's steady trade, location and cellar justify that price, so I'd ask you to come up substantially from your starting point."
+     },
+     "band": {
+      "worst": 83,
+      "target": 84,
+      "best": 85
+     },
+     "plan": {
+      "read": "They opened at 50 P and have not moved since, despite our step from 96 to 90. With six ticks of silence and only six ticks left, this is a standoff. A message from us now costs no extra round.",
+      "target": 84,
+      "best": 85,
+      "worst": 83,
+      "days": null,
+      "angle": "Make one clear move to show flexibility, then insist they come up substantially from 50 because we have now moved twice and they haven't moved at all."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.8,
+       "in": 550,
+       "out": 266,
+       "cost_usd": 0.00752,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.25,
+       "in": 450,
+       "out": 90,
+       "cost_usd": 0.0018,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 488,
+   "took_s": 7.12,
+   "cost_usd": 0.00728,
+   "obs": {
+    "view": {
+     "duel_id": 2315,
+     "role": "seller",
+     "limit": 64,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "El Mesón de la Cava is an established tavern with steady trade, a prime location and a well-stocked cellar that draws regulars. I'm offering it at 96 P, and I'd welcome a serious counteroffer from you.",
+      "offer": {
+       "price": 96,
+       "days": null
+      },
+      "accept": false,
+      "tick": 475,
+      "decision": {
+       "action": "offer",
+       "price": 96,
+       "message": "El Mesón de la Cava is an established tavern with steady trade, a prime location and a well-stocked cellar that draws regulars. I'm offering it at 96 P, and I'd welcome a serious counteroffer from you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hola. I like it, and I can pay 50 P.",
+      "offer": {
+       "price": 50,
+       "days": null
+      },
+      "accept": false,
+      "tick": 479,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for your interest. The tavern's steady trade, prime location and well-stocked cellar make it worth far more than your offer, but I'm willing to come down to 90 P as a good-faith step. I'd ask you to move meaningfully closer from where you started.",
+      "offer": {
+       "price": 90,
+       "days": null
+      },
+      "accept": false,
+      "tick": 479,
+      "decision": {
+       "action": "offer",
+       "price": 90,
+       "message": "Thanks for your interest. The tavern's steady trade, prime location and well-stocked cellar make it worth far more than your offer, but I'm willing to come down to 90 P as a good-faith step. I'd ask you to move meaningfully closer from where you started."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I've now moved twice, from my opening figure down to 84 P, while your offer hasn't changed. The tavern's steady trade, location and cellar justify that price, so I'd ask you to come up substantially from your starting point.",
+      "offer": {
+       "price": 84,
+       "days": null
+      },
+      "accept": false,
+      "tick": 485,
+      "decision": {
+       "action": "offer",
+       "price": 84,
+       "message": "I've now moved twice, from my opening figure down to 84 P, while your offer hasn't changed. The tavern's steady trade, location and cellar justify that price, so I'd ask you to come up substantially from your starting point."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 50,
+     "days": null
+    },
+    "tick": 488,
+    "ticks_left": 3,
+    "rounds": 1
+   },
+   "move": {
+    "action": "offer",
+    "text": "I've moved a long way from my opening figure and I'm making one more clear step to 76 P. With time running short, a serious move up from your starting point would let us settle this now.",
+    "price": 76,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 76,
+      "message": "I've moved a long way from my opening figure and I'm making one more clear step to 76 P. With time running short, a serious move up from your starting point would let us settle this now."
+     },
+     "band": {
+      "worst": 74,
+      "target": 76,
+      "best": 78
+     },
+     "plan": {
+      "read": "They opened at 50 P and haven't moved at all while we've conceded twice; their single short message gives no sign of flexibility, and their 50 P is well below anything acceptable to us.",
+      "target": 76,
+      "best": 78,
+      "worst": 74,
+      "days": null,
+      "angle": "With little time left, make one clear final step to a price they can close at now, stress that this is a real move and that they must come up substantially from 50 to get a deal before the deadline."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.72,
+       "in": 649,
+       "out": 144,
+       "cost_usd": 0.00548,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.4,
+       "in": 545,
+       "out": 71,
+       "cost_usd": 0.0018,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 489,
+   "took_s": 6.26,
+   "cost_usd": 0.00721,
+   "obs": {
+    "view": {
+     "duel_id": 2315,
+     "role": "seller",
+     "limit": 64,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "El Mesón de la Cava is an established tavern with steady trade, a prime location and a well-stocked cellar that draws regulars. I'm offering it at 96 P, and I'd welcome a serious counteroffer from you.",
+      "offer": {
+       "price": 96,
+       "days": null
+      },
+      "accept": false,
+      "tick": 475,
+      "decision": {
+       "action": "offer",
+       "price": 96,
+       "message": "El Mesón de la Cava is an established tavern with steady trade, a prime location and a well-stocked cellar that draws regulars. I'm offering it at 96 P, and I'd welcome a serious counteroffer from you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hola. I like it, and I can pay 50 P.",
+      "offer": {
+       "price": 50,
+       "days": null
+      },
+      "accept": false,
+      "tick": 479,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for your interest. The tavern's steady trade, prime location and well-stocked cellar make it worth far more than your offer, but I'm willing to come down to 90 P as a good-faith step. I'd ask you to move meaningfully closer from where you started.",
+      "offer": {
+       "price": 90,
+       "days": null
+      },
+      "accept": false,
+      "tick": 479,
+      "decision": {
+       "action": "offer",
+       "price": 90,
+       "message": "Thanks for your interest. The tavern's steady trade, prime location and well-stocked cellar make it worth far more than your offer, but I'm willing to come down to 90 P as a good-faith step. I'd ask you to move meaningfully closer from where you started."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I've now moved twice, from my opening figure down to 84 P, while your offer hasn't changed. The tavern's steady trade, location and cellar justify that price, so I'd ask you to come up substantially from your starting point.",
+      "offer": {
+       "price": 84,
+       "days": null
+      },
+      "accept": false,
+      "tick": 485,
+      "decision": {
+       "action": "offer",
+       "price": 84,
+       "message": "I've now moved twice, from my opening figure down to 84 P, while your offer hasn't changed. The tavern's steady trade, location and cellar justify that price, so I'd ask you to come up substantially from your starting point."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I've moved a long way from my opening figure and I'm making one more clear step to 76 P. With time running short, a serious move up from your starting point would let us settle this now.",
+      "offer": {
+       "price": 76,
+       "days": null
+      },
+      "accept": false,
+      "tick": 488,
+      "decision": {
+       "action": "offer",
+       "price": 76,
+       "message": "I've moved a long way from my opening figure and I'm making one more clear step to 76 P. With time running short, a serious move up from your starting point would let us settle this now."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 50,
+     "days": null
+    },
+    "tick": 489,
+    "ticks_left": 2,
+    "rounds": 1
+   },
+   "move": {
+    "action": "offer",
+    "text": "I've come down a long way, and 72 P is my final clear offer for the tavern with its steady trade, location and cellar. With so little time left, this is the last chance to close, so I hope you can take it.",
+    "price": 72,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 72,
+      "message": "I've come down a long way, and 72 P is my final clear offer for the tavern with its steady trade, location and cellar. With so little time left, this is the last chance to close, so I hope you can take it."
+     },
+     "band": {
+      "worst": 70,
+      "target": 72,
+      "best": 74
+     },
+     "plan": {
+      "read": "They opened at 50 P and have not moved or replied since, while we have stepped down three times; their offer sits below what we can accept, so there is nothing to take.",
+      "target": 72,
+      "best": 74,
+      "worst": 70,
+      "days": null,
+      "angle": "With two ticks left, make a final clear offer they can accept outright, and stress that it is the last chance to close before the deadline."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.34,
+       "in": 693,
+       "out": 122,
+       "cost_usd": 0.00521,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.91,
+       "in": 595,
+       "out": 81,
+       "cost_usd": 0.002,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -629,6 +1253,255 @@
      "days": 0
     }
    }
+  },
+  {
+   "tick": 485,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I've now moved twice, from my opening figure down to 84 P, while your offer hasn't changed. The tavern's steady trade, location and cellar justify that price, so I'd ask you to come up substantially from your starting point.",
+    "price": 84,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 84,
+      "message": "I've now moved twice, from my opening figure down to 84 P, while your offer hasn't changed. The tavern's steady trade, location and cellar justify that price, so I'd ask you to come up substantially from your starting point."
+     },
+     "band": {
+      "worst": 83,
+      "target": 84,
+      "best": 85
+     },
+     "plan": {
+      "read": "They opened at 50 P and have not moved since, despite our step from 96 to 90. With six ticks of silence and only six ticks left, this is a standoff. A message from us now costs no extra round.",
+      "target": 84,
+      "best": 85,
+      "worst": 83,
+      "days": null,
+      "angle": "Make one clear move to show flexibility, then insist they come up substantially from 50 because we have now moved twice and they haven't moved at all."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.8,
+       "in": 550,
+       "out": 266,
+       "cost_usd": 0.00752,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.25,
+       "in": 450,
+       "out": 90,
+       "cost_usd": 0.0018,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2315,
+    "offer": {
+     "id": 3314,
+     "price": 84,
+     "tick": 485,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 488,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I've moved a long way from my opening figure and I'm making one more clear step to 76 P. With time running short, a serious move up from your starting point would let us settle this now.",
+    "price": 76,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 76,
+      "message": "I've moved a long way from my opening figure and I'm making one more clear step to 76 P. With time running short, a serious move up from your starting point would let us settle this now."
+     },
+     "band": {
+      "worst": 74,
+      "target": 76,
+      "best": 78
+     },
+     "plan": {
+      "read": "They opened at 50 P and haven't moved at all while we've conceded twice; their single short message gives no sign of flexibility, and their 50 P is well below anything acceptable to us.",
+      "target": 76,
+      "best": 78,
+      "worst": 74,
+      "days": null,
+      "angle": "With little time left, make one clear final step to a price they can close at now, stress that this is a real move and that they must come up substantially from 50 to get a deal before the deadline."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.72,
+       "in": 649,
+       "out": 144,
+       "cost_usd": 0.00548,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.4,
+       "in": 545,
+       "out": 71,
+       "cost_usd": 0.0018,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2315,
+    "offer": {
+     "id": 3375,
+     "price": 76,
+     "tick": 488,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 489,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I've come down a long way, and 72 P is my final clear offer for the tavern with its steady trade, location and cellar. With so little time left, this is the last chance to close, so I hope you can take it.",
+    "price": 72,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 72,
+      "message": "I've come down a long way, and 72 P is my final clear offer for the tavern with its steady trade, location and cellar. With so little time left, this is the last chance to close, so I hope you can take it."
+     },
+     "band": {
+      "worst": 70,
+      "target": 72,
+      "best": 74
+     },
+     "plan": {
+      "read": "They opened at 50 P and have not moved or replied since, while we have stepped down three times; their offer sits below what we can accept, so there is nothing to take.",
+      "target": 72,
+      "best": 74,
+      "worst": 70,
+      "days": null,
+      "angle": "With two ticks left, make a final clear offer they can accept outright, and stress that it is the last chance to close before the deadline."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.34,
+       "in": 693,
+       "out": 122,
+       "cost_usd": 0.00521,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.91,
+       "in": 595,
+       "out": 81,
+       "cost_usd": 0.002,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2315,
+    "offer": {
+     "id": 3409,
+     "price": 72,
+     "tick": 489,
+     "days": 0
+    }
+   }
   }
- ]
+ ],
+ "last_seen_tick": 490,
+ "done": {
+  "duel": 2315,
+  "session": 2,
+  "status": "deal",
+  "role": "seller",
+  "item": "El Mesón de la Cava",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 64,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Oro",
+  "deadline_tick": 491,
+  "decay_per_round": 0.06,
+  "rounds": 1,
+  "your_offer": {
+   "id": 3409,
+   "price": 72,
+   "tick": 489,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 3137,
+   "price": 50,
+   "tick": 479,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 475,
+    "from": "you",
+    "text": "El Mesón de la Cava is an established tavern with steady trade, a prime location and a well-stocked cellar that draws regulars. I'm offering it at 96 P, and I'd welcome a serious counteroffer from you.",
+    "price": 96,
+    "days": null
+   },
+   {
+    "tick": 479,
+    "from": "Rival Oro",
+    "text": "Hola. I like it, and I can pay 50 P.",
+    "price": 50,
+    "days": null
+   },
+   {
+    "tick": 479,
+    "from": "you",
+    "text": "Thanks for your interest. The tavern's steady trade, prime location and well-stocked cellar make it worth far more than your offer, but I'm willing to come down to 90 P as a good-faith step. I'd ask you to move meaningfully closer from where you started.",
+    "price": 90,
+    "days": null
+   },
+   {
+    "tick": 485,
+    "from": "you",
+    "text": "I've now moved twice, from my opening figure down to 84 P, while your offer hasn't changed. The tavern's steady trade, location and cellar justify that price, so I'd ask you to come up substantially from your starting point.",
+    "price": 84,
+    "days": null
+   },
+   {
+    "tick": 488,
+    "from": "you",
+    "text": "I've moved a long way from my opening figure and I'm making one more clear step to 76 P. With time running short, a serious move up from your starting point would let us settle this now.",
+    "price": 76,
+    "days": null
+   },
+   {
+    "tick": 489,
+    "from": "you",
+    "text": "I've come down a long way, and 72 P is my final clear offer for the tavern with its steady trade, location and cellar. With so little time left, this is the last chance to close, so I hope you can take it.",
+    "price": 72,
+    "days": null
+   }
+  ],
+  "result": 7.5,
+  "price": 72,
+  "days": 0
+ }
 }

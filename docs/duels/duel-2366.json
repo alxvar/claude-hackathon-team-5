@@ -760,6 +760,1471 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 483,
+   "raw": {
+    "duel": 2366,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 101,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 491,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 3210,
+     "price": 148,
+     "tick": 481,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3255,
+     "price": 67,
+     "tick": 483,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 475,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 475,
+      "from": "you",
+      "text": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1",
+      "price": 165,
+      "days": null
+     },
+     {
+      "tick": 476,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 477,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 478,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 479,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 480,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 481,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 481,
+      "from": "you",
+      "text": "I'm willing to move: I can offer Palacio de Cristal at 148 P, a clear step down from where I began. Your repeated figure is far from a workable level, so please come up meaningfully to show you're serious about closing.",
+      "price": 148,
+      "days": null
+     },
+     {
+      "tick": 482,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 483,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 484,
+   "raw": {
+    "duel": 2366,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 101,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 491,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 3210,
+     "price": 148,
+     "tick": 481,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3269,
+     "price": 67,
+     "tick": 484,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 475,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 475,
+      "from": "you",
+      "text": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1",
+      "price": 165,
+      "days": null
+     },
+     {
+      "tick": 476,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 477,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 478,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 479,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 480,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 481,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 481,
+      "from": "you",
+      "text": "I'm willing to move: I can offer Palacio de Cristal at 148 P, a clear step down from where I began. Your repeated figure is far from a workable level, so please come up meaningfully to show you're serious about closing.",
+      "price": 148,
+      "days": null
+     },
+     {
+      "tick": 482,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 483,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 484,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 485,
+   "raw": {
+    "duel": 2366,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 101,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 491,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 3210,
+     "price": 148,
+     "tick": 481,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3302,
+     "price": 67,
+     "tick": 485,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 475,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 475,
+      "from": "you",
+      "text": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1",
+      "price": 165,
+      "days": null
+     },
+     {
+      "tick": 476,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 477,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 478,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 479,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 480,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 481,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 481,
+      "from": "you",
+      "text": "I'm willing to move: I can offer Palacio de Cristal at 148 P, a clear step down from where I began. Your repeated figure is far from a workable level, so please come up meaningfully to show you're serious about closing.",
+      "price": 148,
+      "days": null
+     },
+     {
+      "tick": 482,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 483,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 484,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 485,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 486,
+   "raw": {
+    "duel": 2366,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 101,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 491,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 3210,
+     "price": 148,
+     "tick": 481,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3315,
+     "price": 67,
+     "tick": 486,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 475,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 475,
+      "from": "you",
+      "text": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1",
+      "price": 165,
+      "days": null
+     },
+     {
+      "tick": 476,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 477,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 478,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 479,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 480,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 481,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 481,
+      "from": "you",
+      "text": "I'm willing to move: I can offer Palacio de Cristal at 148 P, a clear step down from where I began. Your repeated figure is far from a workable level, so please come up meaningfully to show you're serious about closing.",
+      "price": 148,
+      "days": null
+     },
+     {
+      "tick": 482,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 483,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 484,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 485,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 486,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 487,
+   "raw": {
+    "duel": 2366,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 101,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 491,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 3210,
+     "price": 148,
+     "tick": 481,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3337,
+     "price": 67,
+     "tick": 487,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 475,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 475,
+      "from": "you",
+      "text": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1",
+      "price": 165,
+      "days": null
+     },
+     {
+      "tick": 476,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 477,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 478,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 479,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 480,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 481,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 481,
+      "from": "you",
+      "text": "I'm willing to move: I can offer Palacio de Cristal at 148 P, a clear step down from where I began. Your repeated figure is far from a workable level, so please come up meaningfully to show you're serious about closing.",
+      "price": 148,
+      "days": null
+     },
+     {
+      "tick": 482,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 483,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 484,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 485,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 486,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 487,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 487,
+   "raw": {
+    "duel": 2366,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 101,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 491,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 3350,
+     "price": 132,
+     "tick": 487,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3337,
+     "price": 67,
+     "tick": 487,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 475,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 475,
+      "from": "you",
+      "text": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1",
+      "price": 165,
+      "days": null
+     },
+     {
+      "tick": 476,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 477,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 478,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 479,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 480,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 481,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 481,
+      "from": "you",
+      "text": "I'm willing to move: I can offer Palacio de Cristal at 148 P, a clear step down from where I began. Your repeated figure is far from a workable level, so please come up meaningfully to show you're serious about closing.",
+      "price": 148,
+      "days": null
+     },
+     {
+      "tick": 482,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 483,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 484,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 485,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 486,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 487,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 487,
+      "from": "you",
+      "text": "I'm making one clear move to 132 P for Palacio de Cristal, a substantial step down from my last figure. Time is nearly up, so a real move up from your current level is needed if we are going to close this.",
+      "price": 132,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 488,
+   "raw": {
+    "duel": 2366,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 101,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 491,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 3350,
+     "price": 132,
+     "tick": 487,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3359,
+     "price": 67,
+     "tick": 488,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 475,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 475,
+      "from": "you",
+      "text": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1",
+      "price": 165,
+      "days": null
+     },
+     {
+      "tick": 476,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 477,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 478,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 479,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 480,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 481,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 481,
+      "from": "you",
+      "text": "I'm willing to move: I can offer Palacio de Cristal at 148 P, a clear step down from where I began. Your repeated figure is far from a workable level, so please come up meaningfully to show you're serious about closing.",
+      "price": 148,
+      "days": null
+     },
+     {
+      "tick": 482,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 483,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 484,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 485,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 486,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 487,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 487,
+      "from": "you",
+      "text": "I'm making one clear move to 132 P for Palacio de Cristal, a substantial step down from my last figure. Time is nearly up, so a real move up from your current level is needed if we are going to close this.",
+      "price": 132,
+      "days": null
+     },
+     {
+      "tick": 488,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 488,
+   "raw": {
+    "duel": 2366,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 101,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 491,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 3374,
+     "price": 118,
+     "tick": 488,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3359,
+     "price": 67,
+     "tick": 488,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 475,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 475,
+      "from": "you",
+      "text": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1",
+      "price": 165,
+      "days": null
+     },
+     {
+      "tick": 476,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 477,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 478,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 479,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 480,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 481,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 481,
+      "from": "you",
+      "text": "I'm willing to move: I can offer Palacio de Cristal at 148 P, a clear step down from where I began. Your repeated figure is far from a workable level, so please come up meaningfully to show you're serious about closing.",
+      "price": 148,
+      "days": null
+     },
+     {
+      "tick": 482,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 483,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 484,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 485,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 486,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 487,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 487,
+      "from": "you",
+      "text": "I'm making one clear move to 132 P for Palacio de Cristal, a substantial step down from my last figure. Time is nearly up, so a real move up from your current level is needed if we are going to close this.",
+      "price": 132,
+      "days": null
+     },
+     {
+      "tick": 488,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 488,
+      "from": "you",
+      "text": "I'm moving again to 118 P for Palacio de Cristal, a serious closing price well below where I started. With little time left, please meet it or name a real counter so we can finish this.",
+      "price": 118,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 489,
+   "raw": {
+    "duel": 2366,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 101,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 491,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 3374,
+     "price": 118,
+     "tick": 488,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3392,
+     "price": 67,
+     "tick": 489,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 475,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 475,
+      "from": "you",
+      "text": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1",
+      "price": 165,
+      "days": null
+     },
+     {
+      "tick": 476,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 477,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 478,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 479,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 480,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 481,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 481,
+      "from": "you",
+      "text": "I'm willing to move: I can offer Palacio de Cristal at 148 P, a clear step down from where I began. Your repeated figure is far from a workable level, so please come up meaningfully to show you're serious about closing.",
+      "price": 148,
+      "days": null
+     },
+     {
+      "tick": 482,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 483,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 484,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 485,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 486,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 487,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 487,
+      "from": "you",
+      "text": "I'm making one clear move to 132 P for Palacio de Cristal, a substantial step down from my last figure. Time is nearly up, so a real move up from your current level is needed if we are going to close this.",
+      "price": 132,
+      "days": null
+     },
+     {
+      "tick": 488,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 488,
+      "from": "you",
+      "text": "I'm moving again to 118 P for Palacio de Cristal, a serious closing price well below where I started. With little time left, please meet it or name a real counter so we can finish this.",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 489,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 489,
+   "raw": {
+    "duel": 2366,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 101,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 491,
+    "decay_per_round": 0.06,
+    "rounds": 5,
+    "your_offer": {
+     "id": 3412,
+     "price": 110,
+     "tick": 489,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3392,
+     "price": 67,
+     "tick": 489,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 475,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 475,
+      "from": "you",
+      "text": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1",
+      "price": 165,
+      "days": null
+     },
+     {
+      "tick": 476,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 477,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 478,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 479,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 480,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 481,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 481,
+      "from": "you",
+      "text": "I'm willing to move: I can offer Palacio de Cristal at 148 P, a clear step down from where I began. Your repeated figure is far from a workable level, so please come up meaningfully to show you're serious about closing.",
+      "price": 148,
+      "days": null
+     },
+     {
+      "tick": 482,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 483,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 484,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 485,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 486,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 487,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 487,
+      "from": "you",
+      "text": "I'm making one clear move to 132 P for Palacio de Cristal, a substantial step down from my last figure. Time is nearly up, so a real move up from your current level is needed if we are going to close this.",
+      "price": 132,
+      "days": null
+     },
+     {
+      "tick": 488,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 488,
+      "from": "you",
+      "text": "I'm moving again to 118 P for Palacio de Cristal, a serious closing price well below where I started. With little time left, please meet it or name a real counter so we can finish this.",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 489,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 489,
+      "from": "you",
+      "text": "My last price for Palacio de Cristal is 110 P, a long way down from where I opened. Time is nearly gone, and if you don't meet it now we both walk away with nothing.",
+      "price": 110,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1023,6 +2488,1356 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 484,
+   "took_s": 6.81,
+   "cost_usd": 0.00829,
+   "obs": {
+    "view": {
+     "duel_id": 2366,
+     "role": "seller",
+     "limit": 101,
+     "currency": "P",
+     "item": "Palacio de Cristal",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 475,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1",
+      "offer": {
+       "price": 165,
+       "days": null
+      },
+      "accept": false,
+      "tick": 475,
+      "decision": {
+       "action": "offer",
+       "price": 165,
+       "message": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1"
+      }
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 476,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 477,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 478,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 479,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 480,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 481,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm willing to move: I can offer Palacio de Cristal at 148 P, a clear step down from where I began. Your repeated figure is far from a workable level, so please come up meaningfully to show you're serious about closing.",
+      "offer": {
+       "price": 148,
+       "days": null
+      },
+      "accept": false,
+      "tick": 481,
+      "decision": {
+       "action": "offer",
+       "price": 148,
+       "message": "I'm willing to move: I can offer Palacio de Cristal at 148 P, a clear step down from where I began. Your repeated figure is far from a workable level, so please come up meaningfully to show you're serious about closing."
+      }
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 482,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 483,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 484,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 67,
+     "days": null
+    },
+    "tick": 484,
+    "ticks_left": 7,
+    "rounds": 2
+   },
+   "move": {
+    "action": "offer",
+    "text": "My offer stays at 148 P for Palacio de Cristal. I'll wait for a meaningful move from your side.",
+    "price": 148,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 148,
+      "message": "My offer stays at 148 P for Palacio de Cristal. I'll wait for a meaningful move from your side."
+     },
+     "band": {
+      "worst": 148,
+      "target": 148,
+      "best": 148
+     },
+     "plan": {
+      "read": "They repeat 67 every tick and have not moved at all. That is a pure patience test, and 67 is unworkable for us. Their words carry no information.",
+      "target": 148,
+      "best": 148,
+      "worst": 148,
+      "days": null,
+      "angle": "Hold at 148 and send nothing; they have to move first."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.66,
+       "in": 818,
+       "out": 100,
+       "cost_usd": 0.00527,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 3.14,
+       "in": 448,
+       "out": 212,
+       "cost_usd": 0.00302,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 487,
+   "took_s": 6.92,
+   "cost_usd": 0.00869,
+   "obs": {
+    "view": {
+     "duel_id": 2366,
+     "role": "seller",
+     "limit": 101,
+     "currency": "P",
+     "item": "Palacio de Cristal",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 475,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1",
+      "offer": {
+       "price": 165,
+       "days": null
+      },
+      "accept": false,
+      "tick": 475,
+      "decision": {
+       "action": "offer",
+       "price": 165,
+       "message": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1"
+      }
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 476,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 477,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 478,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 479,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 480,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 481,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm willing to move: I can offer Palacio de Cristal at 148 P, a clear step down from where I began. Your repeated figure is far from a workable level, so please come up meaningfully to show you're serious about closing.",
+      "offer": {
+       "price": 148,
+       "days": null
+      },
+      "accept": false,
+      "tick": 481,
+      "decision": {
+       "action": "offer",
+       "price": 148,
+       "message": "I'm willing to move: I can offer Palacio de Cristal at 148 P, a clear step down from where I began. Your repeated figure is far from a workable level, so please come up meaningfully to show you're serious about closing."
+      }
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 482,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 483,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 484,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 485,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 486,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 67,
+     "days": null
+    },
+    "tick": 487,
+    "ticks_left": 4,
+    "rounds": 2
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm making one clear move to 132 P for Palacio de Cristal, a substantial step down from my last figure. Time is nearly up, so a real move up from your current level is needed if we are going to close this.",
+    "price": 132,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 132,
+      "message": "I'm making one clear move to 132 P for Palacio de Cristal, a substantial step down from my last figure. Time is nearly up, so a real move up from your current level is needed if we are going to close this."
+     },
+     "band": {
+      "worst": 130,
+      "target": 132,
+      "best": 135
+     },
+     "plan": {
+      "read": "They have repeated 67 P twelve times without moving at all. It is a pure patience tactic, and their offer is far below anything workable. With 4 ticks left and a standoff, one clear step can signal willingness to close, but chasing them would only reward the stubbornness.",
+      "target": 132,
+      "best": 135,
+      "worst": 130,
+      "days": null,
+      "angle": "Make one clear step down to show good faith, and stress that the deadline is near and they must come up substantially from 67 for any deal to happen."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.52,
+       "in": 882,
+       "out": 162,
+       "cost_usd": 0.00677,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.4,
+       "in": 546,
+       "out": 83,
+       "cost_usd": 0.00192,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 488,
+   "took_s": 6.21,
+   "cost_usd": 0.00867,
+   "obs": {
+    "view": {
+     "duel_id": 2366,
+     "role": "seller",
+     "limit": 101,
+     "currency": "P",
+     "item": "Palacio de Cristal",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 475,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1",
+      "offer": {
+       "price": 165,
+       "days": null
+      },
+      "accept": false,
+      "tick": 475,
+      "decision": {
+       "action": "offer",
+       "price": 165,
+       "message": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1"
+      }
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 476,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 477,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 478,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 479,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 480,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 481,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm willing to move: I can offer Palacio de Cristal at 148 P, a clear step down from where I began. Your repeated figure is far from a workable level, so please come up meaningfully to show you're serious about closing.",
+      "offer": {
+       "price": 148,
+       "days": null
+      },
+      "accept": false,
+      "tick": 481,
+      "decision": {
+       "action": "offer",
+       "price": 148,
+       "message": "I'm willing to move: I can offer Palacio de Cristal at 148 P, a clear step down from where I began. Your repeated figure is far from a workable level, so please come up meaningfully to show you're serious about closing."
+      }
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 482,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 483,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 484,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 485,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 486,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 487,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm making one clear move to 132 P for Palacio de Cristal, a substantial step down from my last figure. Time is nearly up, so a real move up from your current level is needed if we are going to close this.",
+      "offer": {
+       "price": 132,
+       "days": null
+      },
+      "accept": false,
+      "tick": 487,
+      "decision": {
+       "action": "offer",
+       "price": 132,
+       "message": "I'm making one clear move to 132 P for Palacio de Cristal, a substantial step down from my last figure. Time is nearly up, so a real move up from your current level is needed if we are going to close this."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 67,
+     "days": null
+    },
+    "tick": 488,
+    "ticks_left": 3,
+    "rounds": 3
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm moving again to 118 P for Palacio de Cristal, a serious closing price well below where I started. With little time left, please meet it or name a real counter so we can finish this.",
+    "price": 118,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 118,
+      "message": "I'm moving again to 118 P for Palacio de Cristal, a serious closing price well below where I started. With little time left, please meet it or name a real counter so we can finish this."
+     },
+     "band": {
+      "worst": 115,
+      "target": 118,
+      "best": 120
+     },
+     "plan": {
+      "read": "They have repeated 67 P thirteen times without moving at all, which is a pure patience tactic. Their standing offer is below what we can accept, so their words carry no weight and there is nothing to take.",
+      "target": 118,
+      "best": 120,
+      "worst": 115,
+      "days": null,
+      "angle": "With three ticks left, make one clear final-range move and stress that it is a serious closing price, then ask them to meet it now or name a real counter."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.13,
+       "in": 970,
+       "out": 140,
+       "cost_usd": 0.00668,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.08,
+       "in": 622,
+       "out": 75,
+       "cost_usd": 0.00199,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 489,
+   "took_s": 8.84,
+   "cost_usd": 0.01176,
+   "obs": {
+    "view": {
+     "duel_id": 2366,
+     "role": "seller",
+     "limit": 101,
+     "currency": "P",
+     "item": "Palacio de Cristal",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 475,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1",
+      "offer": {
+       "price": 165,
+       "days": null
+      },
+      "accept": false,
+      "tick": 475,
+      "decision": {
+       "action": "offer",
+       "price": 165,
+       "message": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1"
+      }
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 476,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 477,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 478,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 479,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 480,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 481,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm willing to move: I can offer Palacio de Cristal at 148 P, a clear step down from where I began. Your repeated figure is far from a workable level, so please come up meaningfully to show you're serious about closing.",
+      "offer": {
+       "price": 148,
+       "days": null
+      },
+      "accept": false,
+      "tick": 481,
+      "decision": {
+       "action": "offer",
+       "price": 148,
+       "message": "I'm willing to move: I can offer Palacio de Cristal at 148 P, a clear step down from where I began. Your repeated figure is far from a workable level, so please come up meaningfully to show you're serious about closing."
+      }
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 482,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 483,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 484,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 485,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 486,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 487,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm making one clear move to 132 P for Palacio de Cristal, a substantial step down from my last figure. Time is nearly up, so a real move up from your current level is needed if we are going to close this.",
+      "offer": {
+       "price": 132,
+       "days": null
+      },
+      "accept": false,
+      "tick": 487,
+      "decision": {
+       "action": "offer",
+       "price": 132,
+       "message": "I'm making one clear move to 132 P for Palacio de Cristal, a substantial step down from my last figure. Time is nearly up, so a real move up from your current level is needed if we are going to close this."
+      }
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 488,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm moving again to 118 P for Palacio de Cristal, a serious closing price well below where I started. With little time left, please meet it or name a real counter so we can finish this.",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 488,
+      "decision": {
+       "action": "offer",
+       "price": 118,
+       "message": "I'm moving again to 118 P for Palacio de Cristal, a serious closing price well below where I started. With little time left, please meet it or name a real counter so we can finish this."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 67,
+     "days": null
+    },
+    "tick": 489,
+    "ticks_left": 2,
+    "rounds": 4
+   },
+   "move": {
+    "action": "offer",
+    "text": "My last price for Palacio de Cristal is 110 P, a long way down from where I opened. Time is nearly gone, and if you don't meet it now we both walk away with nothing.",
+    "price": 110,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 110,
+      "message": "My last price for Palacio de Cristal is 110 P, a long way down from where I opened. Time is nearly gone, and if you don't meet it now we both walk away with nothing."
+     },
+     "vetoes": [
+      "the message could be read as accepting, but you are not accepting. Don't use words like 'deal', 'agree', 'accept', 'sounds good' or 'works for me' unless you accept."
+     ],
+     "band": {
+      "worst": 108,
+      "target": 110,
+      "best": 112
+     },
+     "plan": {
+      "read": "They have repeated 67 P fourteen times without moving at all; it's a pure stall, and that offer is unacceptable. With two ticks left, one last credible closing price gives them a chance to accept.",
+      "target": 110,
+      "best": 112,
+      "worst": 108,
+      "days": null,
+      "angle": "Make a final firm offer they can accept right now before time runs out, and stress that it is the last price and the deal ends with nothing otherwise."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.54,
+       "in": 1086,
+       "out": 141,
+       "cost_usd": 0.00716,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.23,
+       "in": 713,
+       "out": 80,
+       "cost_usd": 0.00223,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.07,
+       "in": 803,
+       "out": 76,
+       "cost_usd": 0.00237,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 490,
+   "took_s": 6.25,
+   "cost_usd": 0.00938,
+   "obs": {
+    "view": {
+     "duel_id": 2366,
+     "role": "seller",
+     "limit": 101,
+     "currency": "P",
+     "item": "Palacio de Cristal",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 475,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1",
+      "offer": {
+       "price": 165,
+       "days": null
+      },
+      "accept": false,
+      "tick": 475,
+      "decision": {
+       "action": "offer",
+       "price": 165,
+       "message": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1"
+      }
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 476,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 477,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 478,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 479,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 480,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 481,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm willing to move: I can offer Palacio de Cristal at 148 P, a clear step down from where I began. Your repeated figure is far from a workable level, so please come up meaningfully to show you're serious about closing.",
+      "offer": {
+       "price": 148,
+       "days": null
+      },
+      "accept": false,
+      "tick": 481,
+      "decision": {
+       "action": "offer",
+       "price": 148,
+       "message": "I'm willing to move: I can offer Palacio de Cristal at 148 P, a clear step down from where I began. Your repeated figure is far from a workable level, so please come up meaningfully to show you're serious about closing."
+      }
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 482,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 483,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 484,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 485,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 486,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 487,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm making one clear move to 132 P for Palacio de Cristal, a substantial step down from my last figure. Time is nearly up, so a real move up from your current level is needed if we are going to close this.",
+      "offer": {
+       "price": 132,
+       "days": null
+      },
+      "accept": false,
+      "tick": 487,
+      "decision": {
+       "action": "offer",
+       "price": 132,
+       "message": "I'm making one clear move to 132 P for Palacio de Cristal, a substantial step down from my last figure. Time is nearly up, so a real move up from your current level is needed if we are going to close this."
+      }
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 488,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm moving again to 118 P for Palacio de Cristal, a serious closing price well below where I started. With little time left, please meet it or name a real counter so we can finish this.",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 488,
+      "decision": {
+       "action": "offer",
+       "price": 118,
+       "message": "I'm moving again to 118 P for Palacio de Cristal, a serious closing price well below where I started. With little time left, please meet it or name a real counter so we can finish this."
+      }
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 489,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "My last price for Palacio de Cristal is 110 P, a long way down from where I opened. Time is nearly gone, and if you don't meet it now we both walk away with nothing.",
+      "offer": {
+       "price": 110,
+       "days": null
+      },
+      "accept": false,
+      "tick": 489,
+      "decision": {
+       "action": "offer",
+       "price": 110,
+       "message": "My last price for Palacio de Cristal is 110 P, a long way down from where I opened. Time is nearly gone, and if you don't meet it now we both walk away with nothing."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 67,
+     "days": null
+    },
+    "tick": 490,
+    "ticks_left": 1,
+    "rounds": 5
+   },
+   "move": {
+    "action": "offer",
+    "text": "My price for Palacio de Cristal stands at 110 P. It's a rare glass-and-iron landmark, and this is the figure I can close at if you're ready to meet it.",
+    "price": 110,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 110,
+      "message": "My price for Palacio de Cristal stands at 110 P. It's a rare glass-and-iron landmark, and this is the figure I can close at if you're ready to meet it."
+     },
+     "band": {
+      "worst": 110,
+      "target": 110,
+      "best": 110
+     },
+     "plan": {
+      "read": "They have repeated 67 P every tick without moving at all; their offer is below anything acceptable, and this is the last tick, so a new message likely goes unanswered.",
+      "target": 110,
+      "best": 110,
+      "worst": 110,
+      "days": null,
+      "angle": "Hold at the standing price and do not chase; their 67 P cannot be accepted."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.87,
+       "in": 1206,
+       "out": 112,
+       "cost_usd": 0.00706,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.38,
+       "in": 784,
+       "out": 75,
+       "cost_usd": 0.00232,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [
@@ -1136,6 +3951,188 @@
      "id": 3210,
      "price": 148,
      "tick": 481,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 487,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'm making one clear move to 132 P for Palacio de Cristal, a substantial step down from my last figure. Time is nearly up, so a real move up from your current level is needed if we are going to close this.",
+    "price": 132,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 132,
+      "message": "I'm making one clear move to 132 P for Palacio de Cristal, a substantial step down from my last figure. Time is nearly up, so a real move up from your current level is needed if we are going to close this."
+     },
+     "band": {
+      "worst": 130,
+      "target": 132,
+      "best": 135
+     },
+     "plan": {
+      "read": "They have repeated 67 P twelve times without moving at all. It is a pure patience tactic, and their offer is far below anything workable. With 4 ticks left and a standoff, one clear step can signal willingness to close, but chasing them would only reward the stubbornness.",
+      "target": 132,
+      "best": 135,
+      "worst": 130,
+      "days": null,
+      "angle": "Make one clear step down to show good faith, and stress that the deadline is near and they must come up substantially from 67 for any deal to happen."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.52,
+       "in": 882,
+       "out": 162,
+       "cost_usd": 0.00677,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.4,
+       "in": 546,
+       "out": 83,
+       "cost_usd": 0.00192,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2366,
+    "offer": {
+     "id": 3350,
+     "price": 132,
+     "tick": 487,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 488,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'm moving again to 118 P for Palacio de Cristal, a serious closing price well below where I started. With little time left, please meet it or name a real counter so we can finish this.",
+    "price": 118,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 118,
+      "message": "I'm moving again to 118 P for Palacio de Cristal, a serious closing price well below where I started. With little time left, please meet it or name a real counter so we can finish this."
+     },
+     "band": {
+      "worst": 115,
+      "target": 118,
+      "best": 120
+     },
+     "plan": {
+      "read": "They have repeated 67 P thirteen times without moving at all, which is a pure patience tactic. Their standing offer is below what we can accept, so their words carry no weight and there is nothing to take.",
+      "target": 118,
+      "best": 120,
+      "worst": 115,
+      "days": null,
+      "angle": "With three ticks left, make one clear final-range move and stress that it is a serious closing price, then ask them to meet it now or name a real counter."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.13,
+       "in": 970,
+       "out": 140,
+       "cost_usd": 0.00668,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.08,
+       "in": 622,
+       "out": 75,
+       "cost_usd": 0.00199,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2366,
+    "offer": {
+     "id": 3374,
+     "price": 118,
+     "tick": 488,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 489,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "My last price for Palacio de Cristal is 110 P, a long way down from where I opened. Time is nearly gone, and if you don't meet it now we both walk away with nothing.",
+    "price": 110,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 110,
+      "message": "My last price for Palacio de Cristal is 110 P, a long way down from where I opened. Time is nearly gone, and if you don't meet it now we both walk away with nothing."
+     },
+     "vetoes": [
+      "the message could be read as accepting, but you are not accepting. Don't use words like 'deal', 'agree', 'accept', 'sounds good' or 'works for me' unless you accept."
+     ],
+     "band": {
+      "worst": 108,
+      "target": 110,
+      "best": 112
+     },
+     "plan": {
+      "read": "They have repeated 67 P fourteen times without moving at all; it's a pure stall, and that offer is unacceptable. With two ticks left, one last credible closing price gives them a chance to accept.",
+      "target": 110,
+      "best": 112,
+      "worst": 108,
+      "days": null,
+      "angle": "Make a final firm offer they can accept right now before time runs out, and stress that it is the last price and the deal ends with nothing otherwise."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.54,
+       "in": 1086,
+       "out": 141,
+       "cost_usd": 0.00716,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.23,
+       "in": 713,
+       "out": 80,
+       "cost_usd": 0.00223,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.07,
+       "in": 803,
+       "out": 76,
+       "cost_usd": 0.00237,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2366,
+    "offer": {
+     "id": 3412,
+     "price": 110,
+     "tick": 489,
      "days": 0
     }
    }

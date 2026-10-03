@@ -346,3 +346,22 @@
 {"id": 24169, "tick": 477, "t": 5.3, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2478, "session": 2, "status": "deal", "item": "Café en Goya"}}
 {"id": 24241, "tick": 478, "t": 5.3083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2352, "session": 2, "status": "deal", "item": "La Heroína del Dos de Mayo"}}
 {"id": 24305, "tick": 479, "t": 5.3167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2338, "session": 2, "status": "deal", "item": "Café en Goya"}}
+{"id": 24493, "tick": 482, "t": 5.3417, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2305, "session": 2, "status": "deal", "item": "La Heroína del Dos de Mayo"}}
+{"id": 24496, "tick": 482, "t": 5.3417, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2311, "session": 2, "status": "deal", "item": "El Mesón de la Cava"}}
+{"id": 24499, "tick": 482, "t": 5.3417, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2504, "session": 2, "status": "deal", "item": "La Heroína del Dos de Mayo"}}
+{"id": 24502, "tick": 482, "t": 5.3417, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2506, "session": 2, "status": "deal", "item": "Palacio de Cristal"}}
+{"id": 24579, "tick": 483, "t": 5.35, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2321, "session": 2, "status": "deal", "item": "Palacio de Cristal"}}
+{"id": 24582, "tick": 483, "t": 5.35, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2339, "session": 2, "status": "deal", "item": "Café en Goya"}}
+{"id": 24658, "tick": 484, "t": 5.3583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2347, "session": 2, "status": "deal", "item": "El Mesón de la Cava"}}
+{"id": 24787, "tick": 486, "t": 5.375, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2341, "session": 2, "status": "deal", "item": "Palacio de Cristal"}}
+{"id": 24833, "tick": 487, "t": 5.3833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2378, "session": 2, "status": "deal", "item": "El Mesón de la Cava"}}
+{"id": 24836, "tick": 487, "t": 5.3833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2464, "session": 2, "status": "deal", "item": "El Mesón de la Cava"}}
+{"id": 24887, "tick": 488, "t": 5.3917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2336, "session": 2, "status": "deal", "item": "El Mesón de la Cava"}}
+{"id": 24890, "tick": 488, "t": 5.3917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2382, "session": 2, "status": "deal", "item": "Palacio de Cristal"}}
+{"id": 24893, "tick": 488, "t": 5.3917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2422, "session": 2, "status": "deal", "item": "Café en Goya"}}
+{"id": 24896, "tick": 488, "t": 5.3917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2448, "session": 2, "status": "deal", "item": "Mercado de la Paz"}}
+{"id": 24899, "tick": 488, "t": 5.3917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2462, "session": 2, "status": "deal", "item": "Palacio de Cristal"}}
+{"id": 24902, "tick": 488, "t": 5.3917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2600, "session": 2, "status": "deal", "item": "El Mesón de la Cava"}}
+{"id": 24969, "tick": 489, "t": 5.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2307, "session": 2, "status": "deal", "item": "Café en Goya"}}
+{"id": 24972, "tick": 489, "t": 5.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2412, "session": 2, "status": "deal", "item": "El Mesón de la Cava"}}
+{"id": 24975, "tick": 489, "t": 5.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2476, "session": 2, "status": "deal", "item": "El Mesón de la Cava"}}
