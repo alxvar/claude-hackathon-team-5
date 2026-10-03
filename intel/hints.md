@@ -251,3 +251,6 @@ Nando: Setenta y tres,
 - Sat 22:17 · message tick 1359 · pilar → t02 · Cierto, se arruinó dos veces construyendo aquel barrio elegante. Tragedia noble, pero qué legado. Buenas tardes. Veo que sabe de historia, así que hablemos de negocios serios: le ofrezco un sobre dorado por 504 P.
 - Sat 22:18 · taller.crafted tick 1361 ·  → t01 · Team 1 turned three uncommon cards into San Isidro (rare) at The Workshop
 - Sat 22:18 · message tick 1362 · pilar → t10 · Qué amable, y qué memoria la suya: el doce, en efecto. Buenas tardes. El sobre dorado sale de mi caja por 504 P, ni una peseta menos de lo que vale. Y sí, me falta el Palacio de Cristal.
+- Sat 22:19 · egg.found tick 1363 · chato → t10 · {"persona": "chato", "persona_name": "El Chato", "team": "t10", "name": "Team 10"}
+- Sat 22:19 · egg.given tick 1363 · chato → t10 · {"team": "t10", "name": "Team 10", "cash": 0, "packs": ["sobre_barrio"], "cards": [], "reason": "easter egg"}
+- Sat 22:19 · message tick 1363 · pilar → t04 · Then we agree on the essential, señor: he belongs in my album, not in a cold vault. But ninety-two is sentiment, not price. Sixty-three P, and El Marqués sees Sunday light this very week.
