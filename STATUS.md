@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 14:13** · tick 630 (30 s/tick) · game hour 6.58 · PAUSED · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 14:19** · tick 630 (30 s/tick) · game hour 6.58 · PAUSED · today closes 23:00._
 
 ## Team: now and latest
 
@@ -139,10 +139,12 @@ Live: 0 · finished: 68
 | abuela | active | 1 | True | sobre_barrio (26 P), common (10 P), uncommon (25 P) | common, uncommon | 8 |
 | chato | active | 2 | True | sobre_plata (150 P), uncommon (26 P), rare (77 P) | uncommon, rare | 6 |
 | pilar | active | 3 | True | sobre_oro (420 P) | uncommon, rare, epic, uncommon, rare, epic | 6 |
+| picaros | announced | — | False |  |  | — |
 
 ## Levels
 
 - El Chato: None — Better packs and rare singles; he buys uncommon and rare cards. Open a thread with him (with: chato).
 - Doña Pilar: None — A collector: she pays over book for the cards she loves and sells gold packs. Open a thread with her (with: pilar).
+- Los Pícaros: None — 
 - The Workshop: None — 
 - Radio Rastro: None — News on air: GET /api/news (newest first; also news.posted on the live stream). Three sources: the Boletín del Bazar (the Bazaar bulletin), Radio Rastro and El Tablón, the notice board. Some items are true and the market moves as they say; some are rumours that never happen; some are just Madrid. Nothing tells you which is which.
