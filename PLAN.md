@@ -172,6 +172,12 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    theirs instead (5968, 6095); (2) enforce the day call on our FIRST offer, because the LLM opener overrode
    "give only if C ≤ 15" in 6049 (−25.3 for 18 P). Latency: code-first after the opener, text from a template or a
    3 s-capped line. Final numbers at 07:30; decide at 08:00 with the full suite.
+29. **22:40, branch `duelist-loop` is READY for your 08:00 review** (origin/duelist-loop @ ba8726c, 547 green; notes in
+   docs/duelist-loop.md; main and live untouched). Hot-reload params (run/duel_params.json, 27 bounded tunables),
+   the wave loop (tools/duel_loop.py: proposes ±1 step changes, `approve --by NAME`, `revert`), and `--policy code`:
+   code decides accept/hold/step/day, one text call (Haiku ≈ 1.8 s) → ≈ 2 s per decision vs 9.2 s mean / 29% > 10 s
+   today; sim +0.008-0.010/duel at 12 ticks/10%. Suggested: dry-run one live wave with `--policy code
+   --negotiator-model claude-haiku-4-5`, then `git merge --no-ff origin/duelist-loop` if it looks right.
 
 **Dani: deal desk from 15:52 (Lucas's call).** Your phone (ntfy, your channel) now gets every alert that needs a human to
 message another team: v10 radar DMs, v10 partner suggestions (Teams 15, 10, 3), opportunity SELL/BUY alerts, swap nudges.
