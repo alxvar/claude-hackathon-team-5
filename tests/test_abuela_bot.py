@@ -439,6 +439,9 @@ def test_offer_only_offers_her_price_and_never_accepts(bot, monkeypatch):
 def test_chato_steady_offer_only(monkeypatch, tmp_path):
     import chato_steady as cs
     monkeypatch.setattr(ab, "LOG", tmp_path / "chato.jsonl")
+    monkeypatch.setattr(ab, "STATE", tmp_path / "dealers.json")
+    monkeypatch.setattr(ab, "DEALER", ab.DEALER)                         # main() sets these module globals:
+    monkeypatch.setattr(ab, "CASH_FLOOR", ab.CASH_FLOOR)                 # restore them for the other tests
 
     class Chato:
         def __init__(self):
