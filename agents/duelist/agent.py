@@ -722,6 +722,8 @@ class DuelAgent:
         if worth(self.view, their.price, their.days) >= keep:
             return None                               # theirs is already as good: accepting is for the closers
         price = toward_us(self.s, price_at(self.view, keep, their.days))
+        if price < 1:                                 # their day costs more than our whole offer (6171: -23 P)
+            return None
         text = f"I can do {money(price, self.view.currency)}, delivery on day {their.days}."
         return Move("offer", text, price=price, days=their.days, meta={"rule": "late switch"})
 
@@ -821,7 +823,7 @@ class DuelAgent:
         move.meta["calls"] = self.calls
         their = standing_offer(obs)
         no_day = self.view.has_days and (move.days is None or not 0 <= move.days <= 10)
-        bad = ((move.action == "offer" and (move.price is None or no_day
+        bad = ((move.action == "offer" and (move.price is None or move.price < 1 or no_day
                                             or past_limit(self.view, move.price, move.days)))
                or (move.action == "accept" and (their is None or past_limit(self.view, their.price, their.days)))
                or mentions_past_limit(self.view, move.text))

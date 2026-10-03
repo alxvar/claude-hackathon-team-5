@@ -1079,3 +1079,19 @@ def test_a_capped_step_never_offers_a_price_below_one():
     turns = [Turn(mine=True, offer=Offer(price=20, days=0), tick=1), theirs(21, 2, days=10)]
     move = drafted(view, turns, Offer(price=21, days=10), 11, days=10)
     assert move.price is not None and move.price >= 1 and move.days == 0
+
+
+def test_the_late_switch_never_offers_a_price_below_one():
+    # 6171: buyer, value 74, each day 7.75; our 55 on day 0, their 64 on day 10, 4 ticks left: day 10 costs 77.5,
+    # so 'the same worth on their day' was -23 P (refused: bad_price). Now no switch.
+    view = DAYS_BUYER.model_copy(update={"limit": 74, "days_weight": 7.75,
+                                         "days_meaning": "each delivery day costs you this much cash"})
+    agent = DuelAgent(view, FakeModel(plan(55, 54, 56)))
+    assert agent.late_switch(days_obs(view, (55, 0), (64, 10), left=4)) is None
+
+
+def test_final_never_sends_an_offer_below_one():
+    agent = DuelAgent(DAYS_BUYER, FakeModel(plan(60, 58, 62)))
+    obs = days_obs(DAYS_BUYER, (60, 0), (80, 0), left=8)
+    move = agent.final(Move("offer", "I can do 0 P, delivery on day 10.", price=0, days=10), obs)
+    assert move.action != "offer" or (move.price is not None and move.price >= 1)
