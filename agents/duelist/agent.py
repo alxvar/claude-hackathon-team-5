@@ -9,8 +9,9 @@ gap. Prices and when to accept stay with the models, with three exceptions:
 - code accepts a standing offer inside our limit when the runner says the acceptance can't wait (`close`);
 - code walks our offer toward a floor while the rival has said nothing at all since our opener (`silent_move`).
 
-Decay is per round, not per tick (Friday's 30 practice duels): result = our surplus x (1 - decay)^rounds, with
-rounds = min(our priced offers, theirs). Silence costs nothing but the deadline.
+Decay is per round, not per tick: result = our surplus x (1 - decay)^rounds, with rounds = min(our messages,
+theirs), priced or not (practice duel 277: our three no-price messages each added a round). Sending nothing is the
+only free hold, so the runner never sends a move that only holds our offer.
 
 With the delivery day (Duels II), every limit check is on the whole package: the price's margin over our limit
 plus what the day is worth to us (`guards.worth`, `days.read_days`). When we can't read the day weight, the
@@ -147,10 +148,20 @@ def last_tick(obs: Observation) -> bool:
     return obs.ticks_left is not None and obs.ticks_left <= 1
 
 
-def quiet_ticks(obs: Observation) -> int:
-    """Ticks since either side last sent anything; 0 when no message has a tick."""
-    ticks = [t.tick for t in obs.turns if t.tick is not None]
-    return max(obs.tick - max(ticks), 0) if ticks and obs.tick is not None else 0
+def offer_changed_tick(obs: Observation) -> int | None:
+    """The tick their standing offer took its current price and day: a message that repeats it is not a move."""
+    changed, last = None, None
+    for t in obs.theirs:
+        if t.offer is not None and (t.offer.price, t.offer.days) != last:
+            changed, last = t.tick, (t.offer.price, t.offer.days)
+    return changed
+
+
+def still_ticks(obs: Observation) -> int:
+    """Ticks since either side last moved: their offer changed, or our side sent something. 0 before their first
+    offer (a rival that hasn't offered is no standoff), or when the messages carry no ticks."""
+    moved = [t for t in (offer_changed_tick(obs), *(t.tick for t in obs.ours)) if t is not None]
+    return max(obs.tick - max(moved), 0) if moved and obs.tick is not None and their_offers(obs) else 0
 
 
 def ledger(obs: Observation) -> str:
@@ -168,9 +179,10 @@ def ledger(obs: Observation) -> str:
         moved = s * (theirs[-1].price - theirs[0].price)     # positive: they have moved toward us
         lines.append(f"- They have moved {f(abs(moved))} from their first offer"
                      + ("" if moved > 0 else " (not toward you)" if moved < 0 else "") + ".")
-    lines.append(f"- Messages sent so far: {len(obs.ours)} by your side, {len(obs.theirs)} by theirs.")
-    if theirs and (quiet := quiet_ticks(obs)) >= 2:
-        lines.append(f"- Neither side has sent anything for {quiet} ticks.")
+    lines.append(f"- Messages sent so far, priced or not: {len(obs.ours)} by your side, {len(obs.theirs)} by theirs.")
+    if (still := still_ticks(obs)) >= 2:
+        lines.append(f"- Neither side has moved for {still} ticks: their offer hasn't changed and your side has sent "
+                     "nothing.")
     if obs.ticks_left is None:
         lines.append("- The number of ticks left is unknown: the duel can end, with no deal, after any tick.")
     elif last_tick(obs):
@@ -178,14 +190,13 @@ def ledger(obs: Observation) -> str:
     else:
         total = f" of {v.duel_ticks}" if v.duel_ticks else ""
         lines.append(f"- Ticks left in the duel, including this one: {obs.ticks_left}{total}.")
-    rounds = obs.rounds if obs.rounds is not None else min(len(ours), len(theirs))
+    rounds = obs.rounds if obs.rounds is not None else min(len(obs.ours), len(obs.theirs))
     if v.decay:
-        lines.append(f"- Rounds so far: {rounds} (the smaller of your {len(ours)} priced offers and their "
-                     f"{len(theirs)}). Each round costs any deal about {v.decay:.0%} of its value; time alone "
-                     "costs nothing.")
-        lines.append("- Your next priced offer adds a round at once (they have made more priced offers than you)."
-                     if len(ours) < len(theirs) else
-                     "- Your next priced offer adds no round by itself; a priced reply from them would.")
+        lines.append(f"- Rounds so far: {rounds}, the smaller of the two sides' message counts. Each round costs any "
+                     f"deal about {v.decay:.0%} of its value; sending nothing costs nothing.")
+        lines.append("- Any message your side sends now adds a round (they have sent more messages than you)."
+                     if len(obs.ours) < len(obs.theirs) else
+                     "- A message from your side now adds no round by itself; any reply from them would.")
     standing = standing_offer(obs)
     their = standing.price if standing is not None else None
     dv = v.day_values
@@ -256,9 +267,10 @@ def brief(view: DuelView, *, strategist: bool) -> dict[str, str]:
              f"- The duel lasts {view.duel_ticks} ticks." if view.duel_ticks else
              "- The duel has a deadline; the facts each turn say how many ticks are left."]
     if view.decay:
-        rules.append(f"- Every round of offers shrinks the value of any deal by about {view.decay:.0%}. The rounds "
-                     "are the smaller of the two sides' numbers of priced offers, so time alone costs nothing and "
-                     "silence adds no round.")
+        rules.append(f"- Every round shrinks the value of any deal by about {view.decay:.0%}. The rounds are the "
+                     "smaller of the two sides' numbers of messages, priced or not: each message your side sends "
+                     "costs a round once the other side has sent as many, and sending nothing is free. When your "
+                     "side holds its offer, it sends nothing.")
     if view.has_days:
         rules.append("- The duel settles two issues: the price and a delivery day from 0 to 10. Every offer names both.")
     item = view.item or "an item"
@@ -413,6 +425,8 @@ class DuelAgent:
                 if not band.allows(self.s, d.price):
                     out.append(f"{f(d.price)} is outside the band for this turn ({f(band.worst)} to {f(band.best)}).")
                 out += standing_problems(self.view, d.price, their, days)
+        elif d.action == "message" and not our_offers(obs):
+            out.append("your side has no offer standing yet: make an offer.")
         elif d.action == "accept":
             if their is None:
                 out.append("there is no standing offer from the other side to accept.")

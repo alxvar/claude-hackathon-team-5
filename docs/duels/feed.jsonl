@@ -289,3 +289,5 @@
 {"id": 12584, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 276, "session": 1, "status": "no_deal", "item": "El Tren Fantasma"}}
 {"id": 12587, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 295, "session": 1, "status": "no_deal", "item": "Plaza de Olavide"}}
 {"id": 12590, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 296, "session": 1, "status": "no_deal", "item": "Plaza de Olavide"}}
+{"id": 12986, "tick": 187, "t": 2.8833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 289, "session": 1, "status": "no_deal", "item": "Andén 0"}}
+{"id": 13088, "tick": 189, "t": 2.9, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 290, "session": 1, "status": "no_deal", "item": "Andén 0"}}

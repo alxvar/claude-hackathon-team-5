@@ -28,7 +28,7 @@ from bazaar_sdk import Bazaar, BazaarError
 from engine import Model
 
 from .adapter import Snapshot, parse_duel
-from .agent import DuelAgent, Move, our_offers, quiet_ticks, silent, standing_offer, their_offers
+from .agent import DuelAgent, Move, our_offers, silent, standing_offer, still_ticks, their_offers
 from .guards import past_limit, worth
 from .model import DuelView, Observation, Offer, Turn
 from .prices import money
@@ -86,9 +86,23 @@ def by_code(v: DuelView) -> bool:
 
 
 def signature(snap: Snapshot) -> Any:
-    """The rival's state: what a new move from us answers."""
-    theirs = [t.model_dump() for t in (snap.messages or []) if not t.mine]
-    return json.dumps([theirs, snap.rival_offer.model_dump() if snap.rival_offer else None], sort_keys=True)
+    """The rival's state that a new move from us answers: its offers as they changed. A message that repeats its
+    standing offer (same price and day), or carries no price, is not a move (duel 278: Rival Oro sent 111 every
+    tick, we answered every tick, 10 rounds: 2.7 instead of 4.7)."""
+    offers: list[tuple[int, int | None]] = []
+    for o in [*(t.offer for t in (snap.messages or []) if not t.mine), snap.rival_offer]:
+        if o is not None and (not offers or offers[-1] != (o.price, o.days)):
+            offers.append((o.price, o.days))
+    return json.dumps(offers)
+
+
+def answered(msgs: list[Turn]) -> bool:
+    """Our side has sent something since the rival's current offer first appeared (its repeats don't count)."""
+    start, last = -1, None
+    for i, t in enumerate(msgs):
+        if not t.mine and t.offer is not None and (t.offer.price, t.offer.days) != last:
+            start, last = i, (t.offer.price, t.offer.days)
+    return any(t.mine for t in msgs[start + 1:])
 
 
 class DuelRunner:
@@ -231,7 +245,7 @@ class DuelRunner:
         mem.sent = [t.model_copy() for t in msgs if t.mine]
         if mem.sent:
             mem.sent_tick = mem.decided_tick = mem.sent[-1].tick
-            if msgs[-1].mine:
+            if answered(msgs):
                 mem.decided_on = signature(mem.snap)
 
     def check_ours(self, mem: Memory) -> None:
@@ -272,12 +286,16 @@ class DuelRunner:
         return bool(mem.sent) and mem.sent[-1].accept and signature(mem.snap) == mem.decided_on
 
     def standoff(self, mem: Memory) -> int:
-        """Ticks since either side last sent anything, once the rival has made an offer (a silent rival is not a
-        standoff); read from the duel's messages, so a restart doesn't reset it."""
+        """Ticks since anything moved, once the rival has made an offer: their offer changed, we sent something, or
+        we decided (a hold included, so a held standoff is asked again HOLD_TICKS later, not every tick). A rival
+        that repeats its offer every tick doesn't reset it (278). Read from the duel's messages, so a restart
+        doesn't reset it either."""
         if mem.snap.view is None:
             return 0
-        obs = self.observe(mem)
-        return quiet_ticks(obs) if their_offers(obs) else 0
+        still = still_ticks(self.observe(mem))
+        if still and mem.decided_tick is not None and self.tick is not None:
+            return min(still, self.tick - mem.decided_tick)
+        return still
 
     def silent_rival(self, mem: Memory) -> bool:
         """After our opener, a duel whose rival hasn't sent anything is code's (`agent.silent_move`); with days,
@@ -335,8 +353,8 @@ class DuelRunner:
 
     def their_price(self, mem: Memory, accept: Move) -> Move | None:
         """Our acceptance must wait (the team's one acceptance this tick is spent): offer the rival its own standing
-        price instead, so it accepts and spends its acceptance. Only when that adds no round (we have made at
-        least as many priced offers as they have, so rounds = min(ours, theirs) doesn't move), or on the last
+        price instead, so it accepts and spends its acceptance. Only when that adds no round (we have sent at least
+        as many messages as they have, priced or not, so rounds = min(ours, theirs) doesn't move), or on the last
         tick, where there is no next one to wait for. With days, their whole package: their price on their day."""
         v = mem.agent.view
         obs = self.observe(mem)
@@ -345,7 +363,7 @@ class DuelRunner:
                 or past_limit(v, their.price, their.days):
             return None
         last = mem.snap.ticks_left is not None and mem.snap.ticks_left <= 1
-        if len(our_offers(obs)) < len(their_offers(obs)) and not last:
+        if len(obs.ours) < len(obs.theirs) and not last:
             return None
         day = f", delivery on day {their.days}" if v.has_days else ""
         move = Move("offer", f"I can do {money(their.price, v.currency)}{day}: accept it and we're done.",
@@ -384,15 +402,30 @@ class DuelRunner:
         took = time.perf_counter() - start
         cost = sum(c["cost_usd"] for c in move.meta.get("calls", []))
         self.spent_usd += cost
+        hold = self.is_hold(mem, move, obs)
         self.log.write("decision", duel=mem.snap.id, tick=self.tick, took_s=round(took, 2), cost_usd=cost,
-                       obs=obs.model_dump(), move=move.__dict__)
+                       obs=obs.model_dump(), move=move.__dict__, hold=hold)
         self.record(mem.snap.id, decisions=[{"tick": self.tick, "took_s": round(took, 2), "cost_usd": cost,
-                                             "obs": obs.model_dump(), "move": move.__dict__}])
+                                             "obs": obs.model_dump(), "move": move.__dict__, "hold": hold}])
         if signature(mem.snap) != sig and move.action == "accept":
             say(f"duel {mem.snap.id}: their offer changed while deciding; deciding again")
             mem.force = True
             return
+        if hold:                                  # nothing sent: every message is a round (277, 278)
+            mem.decided_on = sig
+            say(f"[tick {self.tick}] duel {mem.snap.id}: hold, nothing sent ({move.action} "
+                f"{money(move.price) if move.price is not None else 'without a price'}) {took:.1f}s")
+            return
         await self.send(mem, move, sig, took)
+
+    def is_hold(self, mem: Memory, move: Move, obs: Observation) -> bool:
+        """A move that only holds our standing offer: a message without a price, or an offer at its price and day.
+        Every message is a round once they have sent as many (277: three no-price messages, three rounds), so a
+        hold sends nothing. Before our first offer a message is never a hold (`agent.check` asks for an offer)."""
+        ours = mem.snap.our_offer or next(reversed(our_offers(obs)), None)
+        if ours is None or move.action == "accept":
+            return False
+        return move.action == "message" or (move.price == ours.price and move.days == ours.days)
 
     async def send(self, mem: Memory, move: Move, sig: Any, took: float | None = None) -> None:
         did, v = mem.snap.id, mem.agent.view

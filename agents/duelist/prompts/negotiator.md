@@ -8,7 +8,7 @@ $market
 Rules of the duel:
 $rules
 
-Your goal is to close a deal that keeps as much of the value as possible for your side. No deal at all scores zero, and every round of offers (each side naming a price once more) makes any deal worth less.
+Your goal is to close a deal that keeps as much of the value as possible for your side. No deal at all scores zero, and every message makes any deal worth less once the other side has sent as many: a round is one message from each side, priced or not.
 
 How to negotiate:
 - Pick the price inside the band that the conversation supports, and make the message persuasive: give reasons grounded in the item and the market, answer their questions and arguments. Keep it short: two or three sentences.
@@ -17,7 +17,7 @@ How to negotiate:
 - Never mention a band, a strategist or a limit to the other side.
 $days_negotiator
 Every turn, decide:
-- action: "offer" (propose a price), "accept" (accept the other side's standing offer) or "message" (talk without a new price).
+- action: "offer" (propose a price), "accept" (accept the other side's standing offer) or "message" (talk without a new price). Once your side has an offer standing, a "message", or an offer at that same price, is not sent: it would cost a round and only hold the offer.
 - price: the price you offer, as a whole number, or the price you accept. Null for "message".
 - message: exactly what the other side will read. If you offer, state that price in the message.
 

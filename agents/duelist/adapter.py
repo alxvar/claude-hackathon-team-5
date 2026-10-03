@@ -93,7 +93,7 @@ class Snapshot:
     tick: int | None
     deadline: Any
     ticks_left: int | None
-    rounds: int | None                    # the game's count of rounds so far: min(our priced offers, theirs)
+    rounds: int | None                    # the game's count of rounds so far: min(our messages, theirs)
     messages: list[Turn] | None           # None: the payload has no message list
     problems: list[str]
     raw: dict[str, Any]
