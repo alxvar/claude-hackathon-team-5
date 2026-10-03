@@ -47,6 +47,20 @@ The branch already contains:
 _`intel/duel-sets/*.json` (main) hold the same values in `approve`'s proposal format; the branch's
 `docs/duel_sets.json` + `use` supersede them._
 
+**Ruling on the code opener (Sun 02:00, for the final sha; `v2/opener_code.out`) [L]:**
+- **The branch's `OPENER_SHARE_SELLER` 0.73 (a99f641) is not equivalent to 0.42.** `policy.py` applies it as a
+  **price** distance above the limit on our best day, so with the seller's day bonus a median seller opens at ≈ 1.0 ×
+  the limit in worth. 0.73 is the models' median in **worth**; in price their median is ≈ 0.63.
+- **Use `OPENER_SHARE_SELLER = 0.42` (price units, as the code reads it). Keep `OPENER_SHARE_BUYER = 0.37`:** a buyer's
+  best day (0) has no day cost, so price and worth agree.
+- **Set C, code-first, 12 ticks / 10%, past rivals + the fast closer, 10,000 duels per world, paired against a99f641
+  as is:**
+  - **Seller 0.42: +0.026 ± 0.001 per duel** (H1; H2 +0.025), ≈ +1.8 points over Duels III;
+  - **The curve:** seller 0.30 ≈ 0.42 (H1 +0.026, H2 +0.029), then 0.50 +0.020, 0.63 +0.008, 0.85 −0.008.
+  - **Buyer:** 0.30 would add +0.006 more (model-dependent: our openers are drawn independently of the pie), 0.42
+    loses. Keep 0.37.
+- **The re-audit's patch item 3 (seller 0.42) is right.**
+
 **Expected points per duel at 12 ticks / 10%** (past rivals in 5 role-aware worlds + the fast closer;
 `codefirst2.out`):
 
