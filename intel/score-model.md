@@ -166,17 +166,27 @@ message. Duels II decay d = 0.08 → break-even 8.7%.
 **Expected:** with half the duels in conflict and the rival's weight above ours half the time, giving the day with a premium
 lifts those deals' worth by ≈ `0.5 × (w_r − w_us) × Δ` each (deck case +15 P). ≈ +20-30% on Duels II results ≈ +1-1.5 board [L].
 
-## 1f. Duels II scoreboard plan (draft 18:45; final by 20:15) [L]
+## 1f. Duels II scoreboard plan (FINAL 19:35, snapshot 1100) [L]
 
-- Lead to defend (Saturday points, snapshot 990): **+0.43 vs t06, +0.67 vs t14** (board +0.29 / +0.45).
-- Pure Duels I duel parts (of 12 Saturday points), de-contaminated by subtracting each team's non-duel deals in 460-630 [L, ±1.5]:
-  us ≈ 8 (model fit at 910: 9.1) · t14 ≈ 7-10 (its 12.5 column includes a Pilar L3 sell and five RET common sales) · t06 ≈ 5-6.
-- Duels II = 68 duels vs Duels I's 34; if the duel part grades all Saturday duels together, Duels II carries ≈ 2/3 of it.
-- Break-even: we stay ahead of a rival that repeats its Duels I if
-  (34·D1_us + 68·D2_us)/102 ≥ D1_rival − lead. vs t06: D2_us ≥ ≈ 3.6 (loose). vs t14: D2_us ≥ 5.5 (if t14's D1 = 7) to
-  8.5 (if 10). **Safe target: match Duels I: ≥ 88% deals, ≥ 0.58 share per deal (≈ D2 ≥ 8).**
-- In our 4 duels each vs t06 and t14 the share is zero-sum: a point of pie we win there moves the race twice.
-- Days: if the score is the share of the best pie, a wrong-day deal caps BOTH shares; the day rule (§1e) protects ours.
+**Where we stand (Saturday points = 1.5 × board):** t10 +2.18 ahead of us · t06 +0.60 ahead · t14 −0.73 behind · t18 −2.10.
+Duels II (≈ 20:33): 68 duels per team (each rival 4×), 6 at once, decay 8% (break-even 8.7%), price + delivery day.
+
+**Unit values (our Duels I: 30/34 deals, ≈ 0.58 share per deal, duel_points 13.93) [L]:**
+- If the duel part grades all 102 Saturday duels together, one Duels II duel ≈ 1/102 of the 12-point duel part
+  ≈ 0.12 Saturday points at full share; at our 0.58 share ≈ **0.07 Saturday points ≈ 0.05 board per deal**.
+- **A no-deal costs ≈ 0.05 board.** +0.05 of share on every deal (68 duels) ≈ +0.4 Saturday points ≈ **+0.27 board**.
+
+**What each race needs from Duels II** (assuming each rival repeats its Duels I share):
+| Rival | Saturday gap | Duels II share edge needed per deal (≈) | Verdict |
+|---|---|---|---|
+| t14 | we lead by 0.73 | we may run ≈ 0.09 below it and still lead | defend: hold Duels I form |
+| t06 | it leads by 0.60 | ≈ +0.07 above t06 | reachable |
+| t10 | it leads by 2.18 | ≈ +0.27 above t10 | not on duels alone; needs Sunday |
+
+**Targets for the duelist:** deal rate **≥ 90%** (Duels I 88%); share per deal **≥ 0.58** (Duels I level); **days rule** (§1e):
+settle the day in the first two messages, give it when our weight is low and ask C + ~C, never a middle day. The days lever
+(+20-30% pie) is the only one big enough to move the t06 race by itself.
+**First-wave check (3 duels):** day reading ≠ CAN'T READ, `review` pred = points, share per deal vs 0.58.
 
 ## 1c. Duels I (live; session 2 from tick 459, 306 duels, decay 0.06, ends ≈ 13:35)
 
