@@ -142,6 +142,11 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    [L, Duel Lab red team: backwards = −0.18/duel]. Runbook at the first days duel: compare the console day line
    against `days_meaning` by eye. Reversed → restart with `flip`; ambiguous → restart with `unsure`. If it can't
    be done green by 19:45, skip it and keep the live code.
+25. **19:30, #24 is MERGED on main (Chief, on your call; 440 tests green on the merge).** To load it: `git pull`, run
+   the suite, then Ctrl-C supervise.sh and restart with your current flags plus `--days-read auto`, by 20:15. The
+   console must print `day reading: --days-read auto`. At the first days duel: day line reversed vs `days_meaning` →
+   restart with `--days-read flip`; unclear → `--days-read unsure`. From 20:25 Lucas's bots pause to free the 5 req/s
+   for you.
 
 **Dani: deal desk from 15:52 (Lucas's call).** Your phone (ntfy, your channel) now gets every alert that needs a human to
 message another team: v10 radar DMs, v10 partner suggestions (Teams 15, 10, 3), opportunity SELL/BUY alerts, swap nudges.
