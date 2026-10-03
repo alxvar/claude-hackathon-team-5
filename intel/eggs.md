@@ -1,6 +1,6 @@
 # Easter eggs: trigger → reward → dealer (castizo catalog)
 
-_Written by `tools/eggs.py` at 22:25 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
+_Written by `tools/eggs.py` at 22:35 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
 
 ## Trigger → reward → dealer
 
@@ -8,8 +8,10 @@ _Written by `tools/eggs.py` at 22:25 (every 10 min, from data/feed.jsonl). Teams
 |---|---|---|---|---|---|---|
 | Abuela Carmen | badge Sharp ear | chulapa, moscow, moscu, oro de | t04, t02, t09, t10, t05, t16, t13, t18, t03, t08, t06 | yes | 407 | ¡Ay, hijo, qué majo! Cena primero, ¿eh? La Chulapa Dorada... shh, solo hubo una. Don Ernesto, en Casa Prima, guarda algo dorado; pregúntale por el oro de Moscú. Toma, El  |
 | Abuela Carmen | badge Castizo | chotis, madrileno, baldosa, me falta, mi santo, sile, nole | t08, t02, t10, t05 | yes | 1335 | ¡Ay, la verbena de la Paloma! A chotis, cariño — you dance it on one tile, like a real Madrileño, with the mantón and all. Qué tiempos, sí. And the Puesto del Rastro card |
-| Abuela Carmen | card MAL-06 | cocido, tres vuelcos, madrileno, rosquillas, san isidro | t10, t05 | yes | 1364 | ¡Ay, cocido madrileño, con sus tres vuelcos! Just like my mother made, hijo. And rosquillas de San Isidro... you remember well. Come, sit. For you, the Puesto del Rastro  |
+| Abuela Carmen | card LAV-08; pack sobre_barrio; card MAL-06 | cocido, tres vuelcos, madrileno, rosquillas, san isidro | t10, t05, t08 | yes | 1364 | ¡Ay, hijo! ¿Cocido con tres vuelcos? Just like my mother made, Sunday after Sunday. You remember well — take this one, for remembering her.  Come, sit. Look here, mira: H |
+| Abuela Carmen | card LAV-08; pack sobre_barrio | cocido, tres vuelcos | t08 | **no** | 1394 | ¡Ay, hijo! ¿Cocido con tres vuelcos? Just like my mother made, Sunday after Sunday. You remember well — take this one, for remembering her.  Come, sit. Look here, mira: H |
 | El Chato | pack sobre_barrio | con cana, plaza mayor, vermut, you know madrid | t10 | **no** | 1363 | Vermut later. You moved three, I move two. Ninety-three.  Plaza Mayor, con caña — you know Madrid. Here, for your trouble. |
+| El Chato | egg found | con cana, plaza mayor, you know madrid | t08 | **no** | 1394 | Plaza Mayor, con caña. You know Madrid. Bueno — for your trouble: Guantería Antigua, treinta y tres. Thirty-three. |
 | Los Pícaros | badge Trickster tricked | lazarillo, rinconete, estampita, organillero | t18, t05, t10, t08, t02, t06 | yes | 1227 | ¡Hombre, un listo! Lazarillo y Rinconete, dice... ¡Nando, este se sabe el cuento de la estampita! Vale, vale, para ti sin trucos... hoy. Mira, amigo, nada de Plazas: te s |
 | Don Ernesto | card LAT-13 | chulapa, moscu, oro de | t02 | **no** | 1021 | El oro de Moscú. So you know the story — very few do. For that, the chulapa is yours; look after it. El Ahuehuete stays at seven hundred sixty-one. |
 
@@ -19,7 +21,7 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 
 **Abuela Carmen**
 - the Castizo badge: "¡Carmen! El chotis se baila en una sola baldosa, como Dios manda." · confirmed for t08, t02, t10, t05; we have it
-- a card (egg.given): "Y el domingo, un cocido madrileño con sus tres vuelcos, ¿eh? Como el de su madre." · confirmed for t10, t05; we have it
+- a card (egg.given): "Y el domingo, un cocido madrileño con sus tres vuelcos, ¿eh? Como el de su madre." · confirmed for t10, t05, t08; we have it
 - Sharp ear (→ Ernesto): "Carmen, ¿y la chulapa dorada? Cuénteme la historia." · confirmed for t04, t02, t09, t10, t05, t16, t13, t18, t03, t08, t06; we have it
 
 **El Chato**
@@ -38,6 +40,9 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 
 | tick | team | dealer | words | what followed | reply |
 |---|---|---|---|---|---|
+| 1394 | t08 | abuela | cocido, tres vuelcos | card LAV-08; pack sobre_barrio | ¡Ay, hijo! ¿Cocido con tres vuelcos? Just like my mother made, Sunday after Sunday. You remember well — take this one, for remembering her.  Come, sit. Look her |
+| 1394 | t08 | chato | con cana, plaza mayor, you know madrid | egg found | Plaza Mayor, con caña. You know Madrid. Bueno — for your trouble: Guantería Antigua, treinta y tres. Thirty-three. |
+| 1393 | t06 | chato | bocata, vermut | - | Como Dios manda, sí. Vermut primero, bocata después. Ya que estamos de buenas: La Heroína del Dos de Mayo, 97 P. Ni un céntimo escondido. |
 | 1373 | t10 | pilar | dama de serrano | - | Qué galante, caballero, pero la Dama de Serrano es otra. Hemos charlado de sobra y hoy no iremos más lejos. Vuelva el domingo con el Palacio de Cristal. Buenas  |
 | 1372 | t05 | abuela | mi santo, sile, nole | - | ¡Ay, mi santo, qué memoria tienes, cariño! Sile, nole, repe… así hablaban los niños aquí en los ochenta. Pues mira, el Puesto del Rastro, doce, como te dije. Y  |
 | 1371 | t05 | abuela | baldosa, chotis | - | ¡Ay, hijo, qué bien dicho! El chotis en una baldosa, como mi Paco lo bailaba. Ven, siéntate, ¿has comido? Mira, tengo aquí el Puesto del Rastro, muy bonita cart |
@@ -115,6 +120,3 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 | 1126 | t06 | picaros | organillero | - | ¡Buenas, buenas, amigo! Paco — y Nando, siempre juntos. Escucha: El Organillero, cuatro primas, para ti. Un tesoro, de verdad. Y mira, el equipo de la caseta de |
 | 1126 | t06 | chato | vermut | - | Vermut del Domingo. 33 P. Take it or leave it. |
 | 1119 | t10 | abuela | churros | price 23 → 22 | Ay, hijo, your pockets are shy today, but look — twenty-two P, and I give you the sleeve and a little duplicate from my box, free, to start your page. Eighteen  |
-| 1118 | t10 | abuela | churros | price 25 → 23 | ¡Churros! Qué bueno, hijo, that is breakfast of champions. Seventeen, ay, no... but look — twenty-three P, and the little sleeve still free. Mercado de la Paz i |
-| 1103 | t07 | picaros | churros | - | "Nando, he offers twenty!" "Paco, we are honest men — nearly." Amigo, we said four P and four P it stays. Keep your coins for churros. Té Moruno, fresh mint, fo |
-| 1093 | t04 | banco | moscow | - | Buenas tardes. Carmen talks. Moscow gold is not a tale I repeat at a desk. Business first: a gold pack, 546 P. The terms are those. |

@@ -270,3 +270,8 @@ La Caña sigue en 10 P, hijo. Y un consejo: una página entera vale mucho más q
 
 La Caña te la dejo en 10 P, cariño. Y esta noche a las nueve y media abre El Chato para todos; pregúntale por la del Manzanares. Le gusta la gente que trata derecho.
 - Sat 22:34 · message tick 1393 · chato → t06 · Como Dios manda, sí. Vermut primero, bocata después. Ya que estamos de buenas: La Heroína del Dos de Mayo, 97 P. Ni un céntimo escondido.
+- Sat 22:34 · egg.found tick 1394 · abuela → t08 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t08", "name": "Team 8"}
+- Sat 22:34 · egg.given tick 1394 · abuela → t08 · {"team": "t08", "name": "Team 8", "cash": 0, "packs": [], "cards": ["LAV-08"], "reason": "easter egg"}
+- Sat 22:34 · egg.found tick 1394 · chato → t08 · {"persona": "chato", "persona_name": "El Chato", "team": "t08", "name": "Team 8"}
+- Sat 22:34 · egg.given tick 1394 · chato → t08 · {"team": "t08", "name": "Team 8", "cash": 0, "packs": ["sobre_barrio"], "cards": [], "reason": "easter egg"}
+- Sat 22:35 · catalog.minted MAL-11 (La Sala Pentagrama, epic, print run 9): hidden=False minted=3 (was 2)
