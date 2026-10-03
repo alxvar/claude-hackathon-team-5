@@ -1,4 +1,4 @@
-# Opportunities (auto, 15:55, game tick 681, t 7.0 h)
+# Opportunities (auto, 15:55, game tick 683, t 7.0167 h)
 
 Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and ≤ 60 real min old · ≤ 3 alerts/h · team 45 min · team+card 2 h · never to the top 4 (t10, t12, t14, t18); a sale that closes their page (last or second-to-last known lack) only to teams ≥ 10 below us (28.34); page-closers on El Rastro, the rest on v07. Data: collector.
 
@@ -6,22 +6,22 @@ Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and �
 
 | # | side | team | card | price | our value | gain | signal | age (game / real min) | status |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | SELL | Team 10 (#4, 28.92) | MAL-09 rare | 73 | 49 | 24 | bid 0 P for it (tick 673) | 4 / 4 | no: top 4; dumps MAL (teams.md): sell only to collectors; 0.58 above us |
-| 2 | SELL | Team 12 (#2, 29.79) | SAL-01 common | 19 | 2.2 | 16.8 | bid 5 P for it (tick 634) | 24 / 24 | no: top 4; dumps SAL (teams.md): sell only to collectors; 1.45 above us |
-| 3 | SELL | Team 15 (#13, 21.88) | MAL-09 rare | 61 | 49 | 12 | bid 0 P for it (tick 651) | 15 / 15 | no: only 6.46 below us (needs ≥ 10) |
-| 4 | SELL | Team 10 (#4, 28.92) | SAL-04 common | 32 | 9 | 23 | asked abuela to sell it (tick 670) | 6 / 6 | no: top 4; dumps SAL (teams.md): sell only to collectors |
-| 5 | SELL | Team 10 (#4, 28.92) | SAL-05 common | 32 | 9 | 23 | asked abuela to sell it (tick 662) | 9 / 10 | no: top 4; dumps SAL (teams.md): sell only to collectors |
-| 6 | SELL | Team 6 (#9, 23.99) | MAL-05 common | 19 | 7 | 12 | bid 2 P for it (tick 672) | 5 / 5 | no: dumps MAL (teams.md): sell only to collectors |
-| 7 | SELL | Team 3 (#15, 21.36) | SAL-02 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 208) | 237 / 362 | no: only 6.98 below us (needs ≥ 10) |
-| 8 | SELL | Team 7 (#17, 19.39) | SAL-01 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 136) | 284 / 1039 | no: dumps SAL (teams.md): sell only to collectors; only 8.95 below us (needs ≥ 10) |
-| 9 | SELL | Team 10 (#4, 28.92) | LAT-08 uncommon | 45 | 12.5 | 32.5 | bid 0 P for it (tick 508) | 87 / 211 | no: top 4; dumps LAT (teams.md): sell only to collectors; 0.58 above us |
-| 10 | SELL | Team 3 (#15, 21.36) | SAL-05 common | 40 | 9 | 31 | bid 9 P for it (tick 182) | 249 / 375 | no: only 6.98 below us (needs ≥ 10) |
-| 11 | SELL | Team 8 (#14, 21.56) | SAL-03 common | 40 | 9 | 31 | bid 5 P for it (tick 142) | 278 / 1033 | no: only 6.78 below us (needs ≥ 10) |
-| 12 | SELL | Team 7 (#17, 19.39) | SAL-05 common | 40 | 9 | 31 | asked abuela to sell it (tick 128) | 292 / 1045 | no: dumps SAL (teams.md): sell only to collectors; only 8.95 below us (needs ≥ 10) |
-| 13 | SELL | Team 9 (#16, 20.83) | MAL-09 rare | 54 | 49 | 5 | asked chato to sell it (tick 418) | 132 / 256 | no: dumps MAL (teams.md): sell only to collectors; only 7.51 below us (needs ≥ 10) |
-| 14 | SELL | Team 13 (#6, 25.5) | LAT-08 uncommon | 23 | 12.5 | 10.5 | bid 0 P for it (tick 627) | 27 / 151 | no: dumps LAT (teams.md): sell only to collectors |
-| 15 | SELL | Team 9 (#16, 20.83) | LAT-08 uncommon | 23 | 12.5 | 10.5 | bid 10 P for it (tick 587) | 47 / 172 | no: dumps LAT (teams.md): sell only to collectors |
-| 16 | SELL | Team 6 (#9, 23.99) | MAL-09 rare | 52 | 49 | 3 | bid 31 P for it (tick 549) | 66 / 190 | no: dumps MAL (teams.md): sell only to collectors |
+| 1 | SELL | Team 10 (#4, 28.92) | MAL-09 rare | 73 | 49 | 24 | bid 0 P for it (tick 673) | 5 / 5 | no: top 4; dumps MAL (teams.md): sell only to collectors; 0.58 above us |
+| 2 | SELL | Team 12 (#2, 29.79) | SAL-01 common | 19 | 2.2 | 16.8 | bid 5 P for it (tick 634) | 25 / 24 | no: top 4; dumps SAL (teams.md): sell only to collectors; 1.45 above us |
+| 3 | SELL | Team 15 (#13, 21.88) | MAL-09 rare | 61 | 49 | 12 | bid 0 P for it (tick 651) | 16 / 16 | no: only 6.46 below us (needs ≥ 10) |
+| 4 | SELL | Team 10 (#4, 28.92) | SAL-04 common | 32 | 9 | 23 | asked abuela to sell it (tick 670) | 7 / 7 | no: top 4; dumps SAL (teams.md): sell only to collectors |
+| 5 | SELL | Team 10 (#4, 28.92) | SAL-05 common | 32 | 9 | 23 | asked abuela to sell it (tick 662) | 10 / 10 | no: top 4; dumps SAL (teams.md): sell only to collectors |
+| 6 | SELL | Team 6 (#9, 23.99) | MAL-05 common | 19 | 7 | 12 | bid 2 P for it (tick 672) | 6 / 6 | no: dumps MAL (teams.md): sell only to collectors |
+| 7 | SELL | Team 3 (#15, 21.36) | SAL-02 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 208) | 238 / 363 | no: only 6.98 below us (needs ≥ 10) |
+| 8 | SELL | Team 7 (#17, 19.39) | SAL-01 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 136) | 285 / 1039 | no: dumps SAL (teams.md): sell only to collectors; only 8.95 below us (needs ≥ 10) |
+| 9 | SELL | Team 10 (#4, 28.92) | LAT-08 uncommon | 45 | 12.5 | 32.5 | bid 0 P for it (tick 508) | 88 / 212 | no: top 4; dumps LAT (teams.md): sell only to collectors; 0.58 above us |
+| 10 | SELL | Team 3 (#15, 21.36) | SAL-05 common | 40 | 9 | 31 | bid 9 P for it (tick 182) | 251 / 376 | no: only 6.98 below us (needs ≥ 10) |
+| 11 | SELL | Team 8 (#14, 21.56) | SAL-03 common | 40 | 9 | 31 | bid 5 P for it (tick 142) | 279 / 1034 | no: only 6.78 below us (needs ≥ 10) |
+| 12 | SELL | Team 7 (#17, 19.39) | SAL-05 common | 40 | 9 | 31 | asked abuela to sell it (tick 128) | 293 / 1046 | no: dumps SAL (teams.md): sell only to collectors; only 8.95 below us (needs ≥ 10) |
+| 13 | SELL | Team 9 (#16, 20.83) | MAL-09 rare | 54 | 49 | 5 | asked chato to sell it (tick 418) | 133 / 257 | no: dumps MAL (teams.md): sell only to collectors; only 7.51 below us (needs ≥ 10) |
+| 14 | SELL | Team 13 (#6, 25.5) | LAT-08 uncommon | 23 | 12.5 | 10.5 | bid 0 P for it (tick 627) | 28 / 152 | no: dumps LAT (teams.md): sell only to collectors |
+| 15 | SELL | Team 9 (#16, 20.83) | LAT-08 uncommon | 23 | 12.5 | 10.5 | bid 10 P for it (tick 587) | 48 / 172 | no: dumps LAT (teams.md): sell only to collectors |
+| 16 | SELL | Team 6 (#9, 23.99) | MAL-09 rare | 52 | 49 | 3 | bid 31 P for it (tick 549) | 67 / 191 | no: dumps MAL (teams.md): sell only to collectors |
 
 ## Alerts (newest first)
 
