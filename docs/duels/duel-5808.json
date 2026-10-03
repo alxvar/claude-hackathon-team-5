@@ -587,6 +587,217 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1273,
+   "raw": {
+    "duel": 5808,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 6.7,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 195,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Luna",
+    "deadline_tick": 1285,
+    "decay_per_round": 0.08,
+    "rounds": 4,
+    "your_offer": {
+     "id": 7582,
+     "price": 132,
+     "tick": 1273,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 7614,
+     "price": 159,
+     "tick": 1273,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1269,
+      "from": "Rival Luna",
+      "text": "Hello, and thank you for meeting me. I would propose 180 P with delivery on day 10.",
+      "price": 180,
+      "days": 10
+     },
+     {
+      "tick": 1270,
+      "from": "you",
+      "text": "Thanks for opening. I can do 110 P with delivery on day 0, and I'd welcome a move toward that on price.",
+      "price": 110,
+      "days": 0
+     },
+     {
+      "tick": 1270,
+      "from": "Rival Luna",
+      "text": "I appreciate it, thank you. Could we close at 178 P, delivery on day 0, please?",
+      "price": 178,
+      "days": 0
+     },
+     {
+      "tick": 1271,
+      "from": "you",
+      "text": "Glad we're settled on day 0. I can move to 118 P on day 0, and I'd need to see a bigger move on price from you to go further.",
+      "price": 118,
+      "days": 0
+     },
+     {
+      "tick": 1271,
+      "from": "Rival Luna",
+      "text": "Fair enough, thank you. I will meet you partway: 168 P with delivery on day 0.",
+      "price": 168,
+      "days": 0
+     },
+     {
+      "tick": 1272,
+      "from": "you",
+      "text": "Thank you for moving; I appreciate the step. I can do 127 P with delivery on day 0, and I'd need another real step down from you to go further.",
+      "price": 127,
+      "days": 0
+     },
+     {
+      "tick": 1272,
+      "from": "Rival Luna",
+      "text": "Thank you, we are getting close. 160 P and delivery on day 0 works for me.",
+      "price": 160,
+      "days": 0
+     },
+     {
+      "tick": 1273,
+      "from": "you",
+      "text": "Thank you for the step. I can do 132 P with delivery on day 0, and I'd need another real step down from you to go further.",
+      "price": 132,
+      "days": 0
+     },
+     {
+      "tick": 1273,
+      "from": "Rival Luna",
+      "text": "Thank you for your offer. I can do 159 P with delivery on day 0.",
+      "price": 159,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1280,
+   "raw": {
+    "duel": 5808,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 6.7,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 195,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Luna",
+    "deadline_tick": 1285,
+    "decay_per_round": 0.08,
+    "rounds": 5,
+    "your_offer": {
+     "id": 7885,
+     "price": 136,
+     "tick": 1280,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 7614,
+     "price": 159,
+     "tick": 1273,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1269,
+      "from": "Rival Luna",
+      "text": "Hello, and thank you for meeting me. I would propose 180 P with delivery on day 10.",
+      "price": 180,
+      "days": 10
+     },
+     {
+      "tick": 1270,
+      "from": "you",
+      "text": "Thanks for opening. I can do 110 P with delivery on day 0, and I'd welcome a move toward that on price.",
+      "price": 110,
+      "days": 0
+     },
+     {
+      "tick": 1270,
+      "from": "Rival Luna",
+      "text": "I appreciate it, thank you. Could we close at 178 P, delivery on day 0, please?",
+      "price": 178,
+      "days": 0
+     },
+     {
+      "tick": 1271,
+      "from": "you",
+      "text": "Glad we're settled on day 0. I can move to 118 P on day 0, and I'd need to see a bigger move on price from you to go further.",
+      "price": 118,
+      "days": 0
+     },
+     {
+      "tick": 1271,
+      "from": "Rival Luna",
+      "text": "Fair enough, thank you. I will meet you partway: 168 P with delivery on day 0.",
+      "price": 168,
+      "days": 0
+     },
+     {
+      "tick": 1272,
+      "from": "you",
+      "text": "Thank you for moving; I appreciate the step. I can do 127 P with delivery on day 0, and I'd need another real step down from you to go further.",
+      "price": 127,
+      "days": 0
+     },
+     {
+      "tick": 1272,
+      "from": "Rival Luna",
+      "text": "Thank you, we are getting close. 160 P and delivery on day 0 works for me.",
+      "price": 160,
+      "days": 0
+     },
+     {
+      "tick": 1273,
+      "from": "you",
+      "text": "Thank you for the step. I can do 132 P with delivery on day 0, and I'd need another real step down from you to go further.",
+      "price": 132,
+      "days": 0
+     },
+     {
+      "tick": 1273,
+      "from": "Rival Luna",
+      "text": "Thank you for your offer. I can do 159 P with delivery on day 0.",
+      "price": 159,
+      "days": 0
+     },
+     {
+      "tick": 1280,
+      "from": "you",
+      "text": "Thank you. I can do 136 P with delivery on day 0, but your last step was very small, so I'd need a real move down on price to close soon.",
+      "price": 136,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1195,6 +1406,636 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1274,
+   "took_s": 7.01,
+   "cost_usd": 0.01326,
+   "obs": {
+    "view": {
+     "duel_id": 5808,
+     "role": "buyer",
+     "limit": 195,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 6.7,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello, and thank you for meeting me. I would propose 180 P with delivery on day 10.",
+      "offer": {
+       "price": 180,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1269,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for opening. I can do 110 P with delivery on day 0, and I'd welcome a move toward that on price.",
+      "offer": {
+       "price": 110,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1270,
+      "decision": {
+       "action": "offer",
+       "price": 110,
+       "message": "Thanks for opening. I can do 110 P with delivery on day 0, and I'd welcome a move toward that on price.\n\n"
+      }
+     },
+     {
+      "mine": false,
+      "text": "I appreciate it, thank you. Could we close at 178 P, delivery on day 0, please?",
+      "offer": {
+       "price": 178,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1270,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Glad we're settled on day 0. I can move to 118 P on day 0, and I'd need to see a bigger move on price from you to go further.",
+      "offer": {
+       "price": 118,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1271,
+      "decision": {
+       "action": "offer",
+       "price": 118,
+       "message": "Glad we're settled on day 0. I can move to 118 P on day 0, and I'd need to see a bigger move on price from you to go further."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Fair enough, thank you. I will meet you partway: 168 P with delivery on day 0.",
+      "offer": {
+       "price": 168,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1271,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for moving; I appreciate the step. I can do 127 P with delivery on day 0, and I'd need another real step down from you to go further.",
+      "offer": {
+       "price": 127,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1272,
+      "decision": {
+       "action": "offer",
+       "price": 127,
+       "message": "Thank you for moving; I appreciate the step. I can do 127 P with delivery on day 0, and I'd need another real step down from you to go further."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you, we are getting close. 160 P and delivery on day 0 works for me.",
+      "offer": {
+       "price": 160,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1272,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the step. I can do 132 P with delivery on day 0, and I'd need another real step down from you to go further.",
+      "offer": {
+       "price": 132,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": {
+       "action": "offer",
+       "price": 132,
+       "message": "Thank you for the step. I can do 132 P with delivery on day 0, and I'd need another real step down from you to go further."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you for your offer. I can do 159 P with delivery on day 0.",
+      "offer": {
+       "price": 159,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 159,
+     "days": 0
+    },
+    "tick": 1274,
+    "ticks_left": 11,
+    "rounds": 4,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "Holding.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "Holding."
+     },
+     "band": {
+      "worst": 134,
+      "target": 132,
+      "best": 130
+     },
+     "plan": {
+      "read": "They slowed sharply, moving only 1 P (160 to 159) after earlier steps of 10 and 8. That suggests they are testing whether we keep paying. Their 'getting close' language is not backed by the offers.",
+      "target": 132,
+      "best": 130,
+      "worst": 134,
+      "days": 0,
+      "angle": "Hold at 132 P on day 0 and send nothing this tick; a 1 P move does not earn a reply."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.25,
+       "in": 1259,
+       "out": 330,
+       "cost_usd": 0.01164,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.76,
+       "in": 701,
+       "out": 22,
+       "cost_usd": 0.00162,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 1277,
+   "took_s": 9.44,
+   "cost_usd": 0.017669999999999998,
+   "obs": {
+    "view": {
+     "duel_id": 5808,
+     "role": "buyer",
+     "limit": 195,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 6.7,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello, and thank you for meeting me. I would propose 180 P with delivery on day 10.",
+      "offer": {
+       "price": 180,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1269,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for opening. I can do 110 P with delivery on day 0, and I'd welcome a move toward that on price.",
+      "offer": {
+       "price": 110,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1270,
+      "decision": {
+       "action": "offer",
+       "price": 110,
+       "message": "Thanks for opening. I can do 110 P with delivery on day 0, and I'd welcome a move toward that on price.\n\n"
+      }
+     },
+     {
+      "mine": false,
+      "text": "I appreciate it, thank you. Could we close at 178 P, delivery on day 0, please?",
+      "offer": {
+       "price": 178,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1270,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Glad we're settled on day 0. I can move to 118 P on day 0, and I'd need to see a bigger move on price from you to go further.",
+      "offer": {
+       "price": 118,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1271,
+      "decision": {
+       "action": "offer",
+       "price": 118,
+       "message": "Glad we're settled on day 0. I can move to 118 P on day 0, and I'd need to see a bigger move on price from you to go further."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Fair enough, thank you. I will meet you partway: 168 P with delivery on day 0.",
+      "offer": {
+       "price": 168,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1271,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for moving; I appreciate the step. I can do 127 P with delivery on day 0, and I'd need another real step down from you to go further.",
+      "offer": {
+       "price": 127,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1272,
+      "decision": {
+       "action": "offer",
+       "price": 127,
+       "message": "Thank you for moving; I appreciate the step. I can do 127 P with delivery on day 0, and I'd need another real step down from you to go further."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you, we are getting close. 160 P and delivery on day 0 works for me.",
+      "offer": {
+       "price": 160,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1272,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the step. I can do 132 P with delivery on day 0, and I'd need another real step down from you to go further.",
+      "offer": {
+       "price": 132,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": {
+       "action": "offer",
+       "price": 132,
+       "message": "Thank you for the step. I can do 132 P with delivery on day 0, and I'd need another real step down from you to go further."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you for your offer. I can do 159 P with delivery on day 0.",
+      "offer": {
+       "price": 159,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 159,
+     "days": 0
+    },
+    "tick": 1277,
+    "ticks_left": 8,
+    "rounds": 4,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "I'll hold where my offer stands on day 0 and wait for your next move.\n\n",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "I'll hold where my offer stands on day 0 and wait for your next move.\n\n"
+     },
+     "band": {
+      "worst": 132,
+      "target": 132,
+      "best": 132
+     },
+     "plan": {
+      "read": "They moved only 1 P (160 to 159), a token step after 10 and 8, which signals they are slowing and testing whether we keep paying. Their 159 on day 0 is within reach, but the 27 P gap is still wide and 8 ticks remain, so a 1 P nudge does not earn a concession.",
+      "target": 132,
+      "best": 132,
+      "worst": 132,
+      "days": 0,
+      "angle": "Hold at 132 P on day 0 and send nothing this tick; let them make a real step first."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.55,
+       "in": 1295,
+       "out": 530,
+       "cost_usd": 0.01578,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.9,
+       "in": 712,
+       "out": 47,
+       "cost_usd": 0.00189,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 1280,
+   "took_s": 9.08,
+   "cost_usd": 0.01694,
+   "obs": {
+    "view": {
+     "duel_id": 5808,
+     "role": "buyer",
+     "limit": 195,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 6.7,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello, and thank you for meeting me. I would propose 180 P with delivery on day 10.",
+      "offer": {
+       "price": 180,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1269,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for opening. I can do 110 P with delivery on day 0, and I'd welcome a move toward that on price.",
+      "offer": {
+       "price": 110,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1270,
+      "decision": {
+       "action": "offer",
+       "price": 110,
+       "message": "Thanks for opening. I can do 110 P with delivery on day 0, and I'd welcome a move toward that on price.\n\n"
+      }
+     },
+     {
+      "mine": false,
+      "text": "I appreciate it, thank you. Could we close at 178 P, delivery on day 0, please?",
+      "offer": {
+       "price": 178,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1270,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Glad we're settled on day 0. I can move to 118 P on day 0, and I'd need to see a bigger move on price from you to go further.",
+      "offer": {
+       "price": 118,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1271,
+      "decision": {
+       "action": "offer",
+       "price": 118,
+       "message": "Glad we're settled on day 0. I can move to 118 P on day 0, and I'd need to see a bigger move on price from you to go further."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Fair enough, thank you. I will meet you partway: 168 P with delivery on day 0.",
+      "offer": {
+       "price": 168,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1271,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for moving; I appreciate the step. I can do 127 P with delivery on day 0, and I'd need another real step down from you to go further.",
+      "offer": {
+       "price": 127,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1272,
+      "decision": {
+       "action": "offer",
+       "price": 127,
+       "message": "Thank you for moving; I appreciate the step. I can do 127 P with delivery on day 0, and I'd need another real step down from you to go further."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you, we are getting close. 160 P and delivery on day 0 works for me.",
+      "offer": {
+       "price": 160,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1272,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the step. I can do 132 P with delivery on day 0, and I'd need another real step down from you to go further.",
+      "offer": {
+       "price": 132,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": {
+       "action": "offer",
+       "price": 132,
+       "message": "Thank you for the step. I can do 132 P with delivery on day 0, and I'd need another real step down from you to go further."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you for your offer. I can do 159 P with delivery on day 0.",
+      "offer": {
+       "price": 159,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 159,
+     "days": 0
+    },
+    "tick": 1280,
+    "ticks_left": 5,
+    "rounds": 4,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thank you. I can do 136 P with delivery on day 0, but your last step was very small, so I'd need a real move down on price to close soon.",
+    "price": 136,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 136,
+      "message": "Thank you. I can do 136 P with delivery on day 0, but your last step was very small, so I'd need a real move down on price to close soon."
+     },
+     "band": {
+      "worst": 136,
+      "target": 136,
+      "best": 135
+     },
+     "plan": {
+      "read": "They slowed to a 1 P step (160 to 159) on day 0, which suggests they are nearing their floor, but it is still a move. Their 'getting close' tone is just talk. With 5 ticks left, there is still room to push before the close.",
+      "target": 136,
+      "best": 135,
+      "worst": 136,
+      "days": 0,
+      "angle": "Stay friendly and firm. Offer 136 P on day 0, note that their last step was very small, and ask for a real move down on price to close soon."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.83,
+       "in": 1295,
+       "out": 484,
+       "cost_usd": 0.01486,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.25,
+       "in": 718,
+       "out": 64,
+       "cost_usd": 0.00208,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1422,6 +2263,63 @@
      "id": 7582,
      "price": 132,
      "tick": 1273,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1280,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thank you. I can do 136 P with delivery on day 0, but your last step was very small, so I'd need a real move down on price to close soon.",
+    "price": 136,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 136,
+      "message": "Thank you. I can do 136 P with delivery on day 0, but your last step was very small, so I'd need a real move down on price to close soon."
+     },
+     "band": {
+      "worst": 136,
+      "target": 136,
+      "best": 135
+     },
+     "plan": {
+      "read": "They slowed to a 1 P step (160 to 159) on day 0, which suggests they are nearing their floor, but it is still a move. Their 'getting close' tone is just talk. With 5 ticks left, there is still room to push before the close.",
+      "target": 136,
+      "best": 135,
+      "worst": 136,
+      "days": 0,
+      "angle": "Stay friendly and firm. Offer 136 P on day 0, note that their last step was very small, and ask for a real move down on price to close soon."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.83,
+       "in": 1295,
+       "out": 484,
+       "cost_usd": 0.01486,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.25,
+       "in": 718,
+       "out": 64,
+       "cost_usd": 0.00208,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5808,
+    "offer": {
+     "id": 7885,
+     "price": 136,
+     "tick": 1280,
      "days": 0
     }
    }

@@ -122,6 +122,682 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1274,
+   "raw": {
+    "duel": 6094,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.11,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 34,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 1289,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 7612,
+     "price": 58,
+     "tick": 1273,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 7639,
+     "price": 47,
+     "tick": 1274,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1273,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 41 with delivery on day 0.",
+      "price": 41,
+      "days": 0
+     },
+     {
+      "tick": 1273,
+      "from": "you",
+      "text": "Thanks for the opening. I can do 58 P with delivery on day 10.</br>",
+      "price": 58,
+      "days": 10
+     },
+     {
+      "tick": 1274,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 47, delivery day 0.",
+      "price": 47,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1275,
+   "raw": {
+    "duel": 6094,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.11,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 34,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 1289,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 7612,
+     "price": 58,
+     "tick": 1273,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 7682,
+     "price": 51,
+     "tick": 1275,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1273,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 41 with delivery on day 0.",
+      "price": 41,
+      "days": 0
+     },
+     {
+      "tick": 1273,
+      "from": "you",
+      "text": "Thanks for the opening. I can do 58 P with delivery on day 10.</br>",
+      "price": 58,
+      "days": 10
+     },
+     {
+      "tick": 1274,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 47, delivery day 0.",
+      "price": 47,
+      "days": 0
+     },
+     {
+      "tick": 1275,
+      "from": "Rival Luna",
+      "text": "Let me move closer: 51, day 0.",
+      "price": 51,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1276,
+   "raw": {
+    "duel": 6094,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.11,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 34,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 1289,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 7612,
+     "price": 58,
+     "tick": 1273,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 7708,
+     "price": 54,
+     "tick": 1276,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1273,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 41 with delivery on day 0.",
+      "price": 41,
+      "days": 0
+     },
+     {
+      "tick": 1273,
+      "from": "you",
+      "text": "Thanks for the opening. I can do 58 P with delivery on day 10.</br>",
+      "price": 58,
+      "days": 10
+     },
+     {
+      "tick": 1274,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 47, delivery day 0.",
+      "price": 47,
+      "days": 0
+     },
+     {
+      "tick": 1275,
+      "from": "Rival Luna",
+      "text": "Let me move closer: 51, day 0.",
+      "price": 51,
+      "days": 0
+     },
+     {
+      "tick": 1276,
+      "from": "Rival Luna",
+      "text": "I'd like to close this: 54 with day 0.",
+      "price": 54,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1277,
+   "raw": {
+    "duel": 6094,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.11,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 34,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 1289,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 7612,
+     "price": 58,
+     "tick": 1273,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 7752,
+     "price": 56,
+     "tick": 1277,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1273,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 41 with delivery on day 0.",
+      "price": 41,
+      "days": 0
+     },
+     {
+      "tick": 1273,
+      "from": "you",
+      "text": "Thanks for the opening. I can do 58 P with delivery on day 10.</br>",
+      "price": 58,
+      "days": 10
+     },
+     {
+      "tick": 1274,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 47, delivery day 0.",
+      "price": 47,
+      "days": 0
+     },
+     {
+      "tick": 1275,
+      "from": "Rival Luna",
+      "text": "Let me move closer: 51, day 0.",
+      "price": 51,
+      "days": 0
+     },
+     {
+      "tick": 1276,
+      "from": "Rival Luna",
+      "text": "I'd like to close this: 54 with day 0.",
+      "price": 54,
+      "days": 0
+     },
+     {
+      "tick": 1277,
+      "from": "Rival Luna",
+      "text": "Meeting you halfway: 56, delivered day 0.",
+      "price": 56,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1278,
+   "raw": {
+    "duel": 6094,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.11,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 34,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 1289,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 7612,
+     "price": 58,
+     "tick": 1273,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 7787,
+     "price": 58,
+     "tick": 1278,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1273,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 41 with delivery on day 0.",
+      "price": 41,
+      "days": 0
+     },
+     {
+      "tick": 1273,
+      "from": "you",
+      "text": "Thanks for the opening. I can do 58 P with delivery on day 10.</br>",
+      "price": 58,
+      "days": 10
+     },
+     {
+      "tick": 1274,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 47, delivery day 0.",
+      "price": 47,
+      "days": 0
+     },
+     {
+      "tick": 1275,
+      "from": "Rival Luna",
+      "text": "Let me move closer: 51, day 0.",
+      "price": 51,
+      "days": 0
+     },
+     {
+      "tick": 1276,
+      "from": "Rival Luna",
+      "text": "I'd like to close this: 54 with day 0.",
+      "price": 54,
+      "days": 0
+     },
+     {
+      "tick": 1277,
+      "from": "Rival Luna",
+      "text": "Meeting you halfway: 56, delivered day 0.",
+      "price": 56,
+      "days": 0
+     },
+     {
+      "tick": 1278,
+      "from": "Rival Luna",
+      "text": "Final stretch from me: 58, day 0.",
+      "price": 58,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1279,
+   "raw": {
+    "duel": 6094,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.11,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 34,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 1289,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 7612,
+     "price": 58,
+     "tick": 1273,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 7841,
+     "price": 59,
+     "tick": 1279,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1273,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 41 with delivery on day 0.",
+      "price": 41,
+      "days": 0
+     },
+     {
+      "tick": 1273,
+      "from": "you",
+      "text": "Thanks for the opening. I can do 58 P with delivery on day 10.</br>",
+      "price": 58,
+      "days": 10
+     },
+     {
+      "tick": 1274,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 47, delivery day 0.",
+      "price": 47,
+      "days": 0
+     },
+     {
+      "tick": 1275,
+      "from": "Rival Luna",
+      "text": "Let me move closer: 51, day 0.",
+      "price": 51,
+      "days": 0
+     },
+     {
+      "tick": 1276,
+      "from": "Rival Luna",
+      "text": "I'd like to close this: 54 with day 0.",
+      "price": 54,
+      "days": 0
+     },
+     {
+      "tick": 1277,
+      "from": "Rival Luna",
+      "text": "Meeting you halfway: 56, delivered day 0.",
+      "price": 56,
+      "days": 0
+     },
+     {
+      "tick": 1278,
+      "from": "Rival Luna",
+      "text": "Final stretch from me: 58, day 0.",
+      "price": 58,
+      "days": 0
+     },
+     {
+      "tick": 1279,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 59 with delivery on day 0.",
+      "price": 59,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1280,
+   "raw": {
+    "duel": 6094,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.11,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 34,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 1289,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 7612,
+     "price": 58,
+     "tick": 1273,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 7877,
+     "price": 60,
+     "tick": 1280,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1273,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 41 with delivery on day 0.",
+      "price": 41,
+      "days": 0
+     },
+     {
+      "tick": 1273,
+      "from": "you",
+      "text": "Thanks for the opening. I can do 58 P with delivery on day 10.</br>",
+      "price": 58,
+      "days": 10
+     },
+     {
+      "tick": 1274,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 47, delivery day 0.",
+      "price": 47,
+      "days": 0
+     },
+     {
+      "tick": 1275,
+      "from": "Rival Luna",
+      "text": "Let me move closer: 51, day 0.",
+      "price": 51,
+      "days": 0
+     },
+     {
+      "tick": 1276,
+      "from": "Rival Luna",
+      "text": "I'd like to close this: 54 with day 0.",
+      "price": 54,
+      "days": 0
+     },
+     {
+      "tick": 1277,
+      "from": "Rival Luna",
+      "text": "Meeting you halfway: 56, delivered day 0.",
+      "price": 56,
+      "days": 0
+     },
+     {
+      "tick": 1278,
+      "from": "Rival Luna",
+      "text": "Final stretch from me: 58, day 0.",
+      "price": 58,
+      "days": 0
+     },
+     {
+      "tick": 1279,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 59 with delivery on day 0.",
+      "price": 59,
+      "days": 0
+     },
+     {
+      "tick": 1280,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 60, delivery day 0.",
+      "price": 60,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1281,
+   "raw": {
+    "duel": 6094,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.11,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 34,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 1289,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 7612,
+     "price": 58,
+     "tick": 1273,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 7901,
+     "price": 61,
+     "tick": 1281,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1273,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 41 with delivery on day 0.",
+      "price": 41,
+      "days": 0
+     },
+     {
+      "tick": 1273,
+      "from": "you",
+      "text": "Thanks for the opening. I can do 58 P with delivery on day 10.</br>",
+      "price": 58,
+      "days": 10
+     },
+     {
+      "tick": 1274,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 47, delivery day 0.",
+      "price": 47,
+      "days": 0
+     },
+     {
+      "tick": 1275,
+      "from": "Rival Luna",
+      "text": "Let me move closer: 51, day 0.",
+      "price": 51,
+      "days": 0
+     },
+     {
+      "tick": 1276,
+      "from": "Rival Luna",
+      "text": "I'd like to close this: 54 with day 0.",
+      "price": 54,
+      "days": 0
+     },
+     {
+      "tick": 1277,
+      "from": "Rival Luna",
+      "text": "Meeting you halfway: 56, delivered day 0.",
+      "price": 56,
+      "days": 0
+     },
+     {
+      "tick": 1278,
+      "from": "Rival Luna",
+      "text": "Final stretch from me: 58, day 0.",
+      "price": 58,
+      "days": 0
+     },
+     {
+      "tick": 1279,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 59 with delivery on day 0.",
+      "price": 59,
+      "days": 0
+     },
+     {
+      "tick": 1280,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 60, delivery day 0.",
+      "price": 60,
+      "days": 0
+     },
+     {
+      "tick": 1281,
+      "from": "Rival Luna",
+      "text": "Let me move closer: 61, day 0.",
+      "price": 61,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -265,6 +941,1403 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1274,
+   "took_s": 9.81,
+   "cost_usd": 0.01538,
+   "obs": {
+    "view": {
+     "duel_id": 6094,
+     "role": "seller",
+     "limit": 34,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.11,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello! I can do 41 with delivery on day 0.",
+      "offer": {
+       "price": 41,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the opening. I can do 58 P with delivery on day 10.</br>",
+      "offer": {
+       "price": 58,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": {
+       "action": "offer",
+       "price": 58,
+       "message": "Thanks for the opening. I can do 58 P with delivery on day 10.</br>"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 47, delivery day 0.",
+      "offer": {
+       "price": 47,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1274,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 47,
+     "days": 0
+    },
+    "tick": 1274,
+    "ticks_left": 15,
+    "rounds": 1,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "I'm holding at 58 P with delivery on day 10.</br>",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "I'm holding at 58 P with delivery on day 10.</br>"
+     },
+     "band": {
+      "worst": 56,
+      "target": 58,
+      "best": 58
+     },
+     "plan": {
+      "read": "They moved from 41 to 47, still on day 0, a 6 P step that shows they are flexible on price. Their day sits at the far end from ours, and our day weight counts as high. The gap is under the size where a concession goes out before the final ticks, so we hold.",
+      "target": 58,
+      "best": 58,
+      "worst": 56,
+      "days": 10,
+      "angle": "Hold at 58 on day 10 and send nothing this tick; if a message is needed, keep it brief and firm, restating 58 with delivery on day 10."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.88,
+       "in": 835,
+       "out": 545,
+       "cost_usd": 0.01424,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.93,
+       "in": 364,
+       "out": 41,
+       "cost_usd": 0.00114,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 1275,
+   "took_s": 9.23,
+   "cost_usd": 0.01497,
+   "obs": {
+    "view": {
+     "duel_id": 6094,
+     "role": "seller",
+     "limit": 34,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.11,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello! I can do 41 with delivery on day 0.",
+      "offer": {
+       "price": 41,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the opening. I can do 58 P with delivery on day 10.</br>",
+      "offer": {
+       "price": 58,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": {
+       "action": "offer",
+       "price": 58,
+       "message": "Thanks for the opening. I can do 58 P with delivery on day 10.</br>"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 47, delivery day 0.",
+      "offer": {
+       "price": 47,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1274,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Let me move closer: 51, day 0.",
+      "offer": {
+       "price": 51,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1275,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 51,
+     "days": 0
+    },
+    "tick": 1275,
+    "ticks_left": 14,
+    "rounds": 1,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "Holding my offer.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "Holding my offer."
+     },
+     "band": {
+      "worst": 56,
+      "target": 58,
+      "best": 58
+     },
+     "plan": {
+      "read": "They have climbed steadily from 41 to 51 while keeping day 0, three messages to our one. They are conceding on price but have not yet engaged on the day.",
+      "target": 58,
+      "best": 58,
+      "worst": 56,
+      "days": 10,
+      "angle": "Hold at 58 on day 10 and send nothing this tick. Let them keep moving, since they are already coming toward us unprompted."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.11,
+       "in": 888,
+       "out": 523,
+       "cost_usd": 0.01401,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.12,
+       "in": 352,
+       "out": 26,
+       "cost_usd": 0.00096,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 1276,
+   "took_s": 10.82,
+   "cost_usd": 0.017750000000000002,
+   "obs": {
+    "view": {
+     "duel_id": 6094,
+     "role": "seller",
+     "limit": 34,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.11,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello! I can do 41 with delivery on day 0.",
+      "offer": {
+       "price": 41,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the opening. I can do 58 P with delivery on day 10.</br>",
+      "offer": {
+       "price": 58,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": {
+       "action": "offer",
+       "price": 58,
+       "message": "Thanks for the opening. I can do 58 P with delivery on day 10.</br>"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 47, delivery day 0.",
+      "offer": {
+       "price": 47,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1274,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Let me move closer: 51, day 0.",
+      "offer": {
+       "price": 51,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1275,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I'd like to close this: 54 with day 0.",
+      "offer": {
+       "price": 54,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1276,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 54,
+     "days": 0
+    },
+    "tick": 1276,
+    "ticks_left": 13,
+    "rounds": 1,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "I'm holding my current offer.</br>",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "I'm holding my current offer.</br>"
+     },
+     "band": {
+      "worst": 57,
+      "target": 58,
+      "best": 58
+     },
+     "plan": {
+      "read": "They have climbed steadily from 41 to 54 while still insisting on day 0, and they keep moving without any reply from us. Their eagerness to close is real, judging by their offers. Day 0 is far worse for us than day 10, so their 54 on day 0 is well below our 58 on day 10.",
+      "target": 58,
+      "best": 58,
+      "worst": 57,
+      "days": 10,
+      "angle": "Hold at 58 P with delivery on day 10 and send nothing new; let them keep coming toward us."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.73,
+       "in": 943,
+       "out": 641,
+       "cost_usd": 0.01659,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.09,
+       "in": 419,
+       "out": 32,
+       "cost_usd": 0.00116,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 1277,
+   "took_s": 14.54,
+   "cost_usd": 0.01996,
+   "obs": {
+    "view": {
+     "duel_id": 6094,
+     "role": "seller",
+     "limit": 34,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.11,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello! I can do 41 with delivery on day 0.",
+      "offer": {
+       "price": 41,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the opening. I can do 58 P with delivery on day 10.</br>",
+      "offer": {
+       "price": 58,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": {
+       "action": "offer",
+       "price": 58,
+       "message": "Thanks for the opening. I can do 58 P with delivery on day 10.</br>"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 47, delivery day 0.",
+      "offer": {
+       "price": 47,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1274,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Let me move closer: 51, day 0.",
+      "offer": {
+       "price": 51,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1275,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I'd like to close this: 54 with day 0.",
+      "offer": {
+       "price": 54,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1276,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Meeting you halfway: 56, delivered day 0.",
+      "offer": {
+       "price": 56,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1277,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 56,
+     "days": 0
+    },
+    "tick": 1277,
+    "ticks_left": 12,
+    "rounds": 1,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "Holding my offer as it stands.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "Holding my offer as it stands."
+     },
+     "band": {
+      "worst": 58,
+      "target": 58,
+      "best": 58
+     },
+     "plan": {
+      "read": "They have climbed steadily from 41 to 56, but always on day 0, which costs us heavily against our day 10. Their quick concessions suggest more room, so holding is free and likely to draw them further.",
+      "target": 58,
+      "best": 58,
+      "worst": 58,
+      "days": 10,
+      "angle": "Hold at 58 on day 10 and send nothing this tick. If a message must go out, restate 58 with day 10 calmly and don't accept day 0."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 12.58,
+       "in": 1001,
+       "out": 741,
+       "cost_usd": 0.01882,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.96,
+       "in": 425,
+       "out": 29,
+       "cost_usd": 0.00114,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 1278,
+   "took_s": 14.95,
+   "cost_usd": 0.023,
+   "obs": {
+    "view": {
+     "duel_id": 6094,
+     "role": "seller",
+     "limit": 34,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.11,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello! I can do 41 with delivery on day 0.",
+      "offer": {
+       "price": 41,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the opening. I can do 58 P with delivery on day 10.</br>",
+      "offer": {
+       "price": 58,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": {
+       "action": "offer",
+       "price": 58,
+       "message": "Thanks for the opening. I can do 58 P with delivery on day 10.</br>"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 47, delivery day 0.",
+      "offer": {
+       "price": 47,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1274,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Let me move closer: 51, day 0.",
+      "offer": {
+       "price": 51,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1275,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I'd like to close this: 54 with day 0.",
+      "offer": {
+       "price": 54,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1276,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Meeting you halfway: 56, delivered day 0.",
+      "offer": {
+       "price": 56,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1277,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Final stretch from me: 58, day 0.",
+      "offer": {
+       "price": 58,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1278,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 58,
+     "days": 0
+    },
+    "tick": 1278,
+    "ticks_left": 11,
+    "rounds": 1,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "My position holds at 58 P with delivery on day 10. I'm happy to keep talking if you want to move.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "My position holds at 58 P with delivery on day 10. I'm happy to keep talking if you want to move."
+     },
+     "band": {
+      "worst": 58,
+      "target": 58,
+      "best": 60
+     },
+     "plan": {
+      "read": "They have climbed steadily from 41 to 58 on day 0 without any reply from us, so their 'final stretch' line is unproven and they are still conceding for free. Their 58 on day 0 is acceptable, but it is worth far less to us than our standing 58 on day 10.",
+      "target": 58,
+      "best": 58,
+      "worst": 60,
+      "days": 10,
+      "angle": "Hold: send nothing this tick and let our 58 on day 10 stand while they keep moving; if a message is needed, restate 58 with delivery on day 10 calmly."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 10.93,
+       "in": 1055,
+       "out": 754,
+       "cost_usd": 0.0193,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 4.02,
+       "in": 499,
+       "out": 270,
+       "cost_usd": 0.0037,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 1279,
+   "took_s": 17.84,
+   "cost_usd": 0.0269,
+   "obs": {
+    "view": {
+     "duel_id": 6094,
+     "role": "seller",
+     "limit": 34,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.11,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello! I can do 41 with delivery on day 0.",
+      "offer": {
+       "price": 41,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the opening. I can do 58 P with delivery on day 10.</br>",
+      "offer": {
+       "price": 58,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": {
+       "action": "offer",
+       "price": 58,
+       "message": "Thanks for the opening. I can do 58 P with delivery on day 10.</br>"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 47, delivery day 0.",
+      "offer": {
+       "price": 47,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1274,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Let me move closer: 51, day 0.",
+      "offer": {
+       "price": 51,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1275,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I'd like to close this: 54 with day 0.",
+      "offer": {
+       "price": 54,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1276,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Meeting you halfway: 56, delivered day 0.",
+      "offer": {
+       "price": 56,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1277,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Final stretch from me: 58, day 0.",
+      "offer": {
+       "price": 58,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1278,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hello! I can do 59 with delivery on day 0.",
+      "offer": {
+       "price": 59,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1279,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 59,
+     "days": 0
+    },
+    "tick": 1279,
+    "ticks_left": 10,
+    "rounds": 1,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm holding at 58 P with delivery on day 10.</br>",
+    "price": 58,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 58,
+      "message": "I'm holding at 58 P with delivery on day 10.</br>"
+     },
+     "vetoes": [
+      "you may only accept an offer of 58 P or better for you, on day 10 or a day as good for you."
+     ],
+     "band": {
+      "worst": 58,
+      "target": 58,
+      "best": 58
+     },
+     "plan": {
+      "read": "They keep raising the price on their own each tick, now 59 on day 0, without any answer from us. That steady movement is real; the day-0 framing is just their preference.",
+      "target": 58,
+      "best": 58,
+      "worst": 58,
+      "days": 10,
+      "angle": "Hold and send nothing this tick; let them keep moving while our 58 on day 10 stands."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 10.69,
+       "in": 1116,
+       "out": 779,
+       "cost_usd": 0.02004,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 3.82,
+       "in": 458,
+       "out": 246,
+       "cost_usd": 0.00338,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 3.33,
+       "in": 520,
+       "out": 244,
+       "cost_usd": 0.00348,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 1280,
+   "took_s": 20.04,
+   "cost_usd": 0.03291,
+   "obs": {
+    "view": {
+     "duel_id": 6094,
+     "role": "seller",
+     "limit": 34,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.11,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello! I can do 41 with delivery on day 0.",
+      "offer": {
+       "price": 41,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the opening. I can do 58 P with delivery on day 10.</br>",
+      "offer": {
+       "price": 58,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": {
+       "action": "offer",
+       "price": 58,
+       "message": "Thanks for the opening. I can do 58 P with delivery on day 10.</br>"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 47, delivery day 0.",
+      "offer": {
+       "price": 47,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1274,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Let me move closer: 51, day 0.",
+      "offer": {
+       "price": 51,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1275,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I'd like to close this: 54 with day 0.",
+      "offer": {
+       "price": 54,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1276,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Meeting you halfway: 56, delivered day 0.",
+      "offer": {
+       "price": 56,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1277,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Final stretch from me: 58, day 0.",
+      "offer": {
+       "price": 58,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1278,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hello! I can do 59 with delivery on day 0.",
+      "offer": {
+       "price": 59,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1279,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 60, delivery day 0.",
+      "offer": {
+       "price": 60,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1280,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 60,
+     "days": 0
+    },
+    "tick": 1280,
+    "ticks_left": 9,
+    "rounds": 1,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "Holding my position for now.</br>",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "Holding my position for now.</br>"
+     },
+     "vetoes": [
+      "you may only accept an offer of 58 P or better for you, on day 10 or a day as good for you."
+     ],
+     "band": {
+      "worst": 58,
+      "target": 58,
+      "best": 58
+     },
+     "plan": {
+      "read": "They have raised their price every tick, from 41 to 60, without any reply from us, and they keep insisting on day 0. They are conceding on their own, so silence costs us nothing and keeps drawing them up.",
+      "target": 58,
+      "best": 58,
+      "worst": 58,
+      "days": 10,
+      "angle": "Hold: send nothing this tick and let their steady upward moves continue; our standing offer stays at 58 with delivery on day 10."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 14.12,
+       "in": 1174,
+       "out": 1102,
+       "cost_usd": 0.02674,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 3.1,
+       "in": 518,
+       "out": 179,
+       "cost_usd": 0.00283,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.81,
+       "in": 580,
+       "out": 218,
+       "cost_usd": 0.00334,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 1281,
+   "took_s": 13.9,
+   "cost_usd": 0.02207,
+   "obs": {
+    "view": {
+     "duel_id": 6094,
+     "role": "seller",
+     "limit": 34,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.11,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello! I can do 41 with delivery on day 0.",
+      "offer": {
+       "price": 41,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the opening. I can do 58 P with delivery on day 10.</br>",
+      "offer": {
+       "price": 58,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": {
+       "action": "offer",
+       "price": 58,
+       "message": "Thanks for the opening. I can do 58 P with delivery on day 10.</br>"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 47, delivery day 0.",
+      "offer": {
+       "price": 47,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1274,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Let me move closer: 51, day 0.",
+      "offer": {
+       "price": 51,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1275,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I'd like to close this: 54 with day 0.",
+      "offer": {
+       "price": 54,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1276,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Meeting you halfway: 56, delivered day 0.",
+      "offer": {
+       "price": 56,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1277,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Final stretch from me: 58, day 0.",
+      "offer": {
+       "price": 58,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1278,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hello! I can do 59 with delivery on day 0.",
+      "offer": {
+       "price": 59,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1279,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 60, delivery day 0.",
+      "offer": {
+       "price": 60,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1280,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Let me move closer: 61, day 0.",
+      "offer": {
+       "price": 61,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1281,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 61,
+     "days": 0
+    },
+    "tick": 1281,
+    "ticks_left": 8,
+    "rounds": 1,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm holding at 58 P with delivery on day 10.</br>",
+    "price": 58,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 58,
+      "message": "I'm holding at 58 P with delivery on day 10.</br>"
+     },
+     "vetoes": [
+      "you may only accept an offer of 58 P or better for you, on day 10 or a day as good for you."
+     ],
+     "band": {
+      "worst": 58,
+      "target": 58,
+      "best": 60
+     },
+     "plan": {
+      "read": "They have moved steadily from 41 to 61 but stay on day 0. Counting the day, their offer is still far below our 58 on day 10, and their steady one-point steps show patience is drawing them up.",
+      "target": 58,
+      "best": 60,
+      "worst": 58,
+      "days": 10,
+      "angle": "Hold and send nothing this tick; if a message must go out, restate 58 with delivery on day 10, calm and firm."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 10.07,
+       "in": 1227,
+       "out": 700,
+       "cost_usd": 0.01891,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.85,
+       "in": 554,
+       "out": 40,
+       "cost_usd": 0.00151,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.97,
+       "in": 616,
+       "out": 42,
+       "cost_usd": 0.00165,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [

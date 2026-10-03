@@ -122,6 +122,288 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1273,
+   "raw": {
+    "duel": 5707,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Dama de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 0.95,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 77,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1283,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 7617,
+     "price": 132,
+     "tick": 1273,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 7605,
+     "price": 64,
+     "tick": 1273,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1269,
+      "from": "you",
+      "text": "I'm offering 115 P with delivery on day 10. I think that's a fair place to start, and I'm happy to hear your response.",
+      "price": 115,
+      "days": 10
+     },
+     {
+      "tick": 1273,
+      "from": "Rival Azul",
+      "text": "Hola. I like it, and I can pay 64 P, delivery day 0.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1273,
+      "from": "you",
+      "text": "Thanks for the day 0 timing, I can do that. For delivery on day 0 my price is 132 P.",
+      "price": 132,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1279,
+   "raw": {
+    "duel": 5707,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Dama de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 0.95,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 77,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1283,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 7617,
+     "price": 132,
+     "tick": 1273,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 7823,
+     "price": 90,
+     "tick": 1279,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1269,
+      "from": "you",
+      "text": "I'm offering 115 P with delivery on day 10. I think that's a fair place to start, and I'm happy to hear your response.",
+      "price": 115,
+      "days": 10
+     },
+     {
+      "tick": 1273,
+      "from": "Rival Azul",
+      "text": "Hola. I like it, and I can pay 64 P, delivery day 0.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1273,
+      "from": "you",
+      "text": "Thanks for the day 0 timing, I can do that. For delivery on day 0 my price is 132 P.",
+      "price": 132,
+      "days": 0
+     },
+     {
+      "tick": 1279,
+      "from": "Rival Azul",
+      "text": "Last word from me: 90 P, delivery day 0.",
+      "price": 90,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1279,
+   "raw": {
+    "duel": 5707,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Dama de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 0.95,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 77,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1283,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 7843,
+     "price": 120,
+     "tick": 1279,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 7823,
+     "price": 90,
+     "tick": 1279,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1269,
+      "from": "you",
+      "text": "I'm offering 115 P with delivery on day 10. I think that's a fair place to start, and I'm happy to hear your response.",
+      "price": 115,
+      "days": 10
+     },
+     {
+      "tick": 1273,
+      "from": "Rival Azul",
+      "text": "Hola. I like it, and I can pay 64 P, delivery day 0.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1273,
+      "from": "you",
+      "text": "Thanks for the day 0 timing, I can do that. For delivery on day 0 my price is 132 P.",
+      "price": 132,
+      "days": 0
+     },
+     {
+      "tick": 1279,
+      "from": "Rival Azul",
+      "text": "Last word from me: 90 P, delivery day 0.",
+      "price": 90,
+      "days": 0
+     },
+     {
+      "tick": 1279,
+      "from": "you",
+      "text": "Let's break the silence: I'm stepping down to 120 P with delivery on day 0. I'd like to see you come up meaningfully from your last figure.",
+      "price": 120,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1280,
+   "raw": {
+    "duel": 5707,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Dama de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 0.95,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 77,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1283,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 7886,
+     "price": 103,
+     "tick": 1280,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 7823,
+     "price": 90,
+     "tick": 1279,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1269,
+      "from": "you",
+      "text": "I'm offering 115 P with delivery on day 10. I think that's a fair place to start, and I'm happy to hear your response.",
+      "price": 115,
+      "days": 10
+     },
+     {
+      "tick": 1273,
+      "from": "Rival Azul",
+      "text": "Hola. I like it, and I can pay 64 P, delivery day 0.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1273,
+      "from": "you",
+      "text": "Thanks for the day 0 timing, I can do that. For delivery on day 0 my price is 132 P.",
+      "price": 132,
+      "days": 0
+     },
+     {
+      "tick": 1279,
+      "from": "Rival Azul",
+      "text": "Last word from me: 90 P, delivery day 0.",
+      "price": 90,
+      "days": 0
+     },
+     {
+      "tick": 1279,
+      "from": "you",
+      "text": "Let's break the silence: I'm stepping down to 120 P with delivery on day 0. I'd like to see you come up meaningfully from your last figure.",
+      "price": 120,
+      "days": 0
+     },
+     {
+      "tick": 1280,
+      "from": "you",
+      "text": "I'm making a clear move to 103 P with delivery on day 0, which meets you most of the way. I invite you to come up to it so we can close.",
+      "price": 103,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -246,6 +528,726 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1273,
+   "took_s": 13.6,
+   "cost_usd": 0.01718,
+   "obs": {
+    "view": {
+     "duel_id": 5707,
+     "role": "seller",
+     "limit": 77,
+     "currency": "P",
+     "item": "La Dama de Serrano",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 0.95,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm offering 115 P with delivery on day 10. I think that's a fair place to start, and I'm happy to hear your response.",
+      "offer": {
+       "price": 115,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1269,
+      "decision": {
+       "action": "offer",
+       "price": 115,
+       "message": "I'm offering 115 P with delivery on day 10. I think that's a fair place to start, and I'm happy to hear your response."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hola. I like it, and I can pay 64 P, delivery day 0.",
+      "offer": {
+       "price": 64,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 64,
+     "days": 0
+    },
+    "tick": 1273,
+    "ticks_left": 10,
+    "rounds": 1,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thanks for the day 0 timing, I can do that. For delivery on day 0 my price is 132 P.",
+    "price": 132,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 132,
+      "message": "Thanks for the day 0 timing, I can do that. For delivery on day 0 my price is 132 P."
+     },
+     "vetoes": [
+      "the message could be read as accepting, but you are not accepting. Don't use words like 'deal', 'agree', 'accept', 'sounds good' or 'works for me' unless you accept."
+     ],
+     "band": {
+      "worst": 126,
+      "target": 132,
+      "best": 134
+     },
+     "plan": {
+      "read": "They opened at 64 P on day 0, a typical low anchor that also tells us day 0 matters to them. It is well past what we can accept, so trust it only as a floor.",
+      "target": 132,
+      "best": 134,
+      "worst": 126,
+      "days": 0,
+      "angle": "Accept their day 0 warmly as a goodwill move and frame the price around 132 P as the fair package for delivering on their schedule. Stay friendly but firm, and don't explain the price."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 9.84,
+       "in": 744,
+       "out": 574,
+       "cost_usd": 0.01446,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.07,
+       "in": 344,
+       "out": 62,
+       "cost_usd": 0.00131,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.69,
+       "in": 434,
+       "out": 54,
+       "cost_usd": 0.00141,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1276,
+   "took_s": 8.3,
+   "cost_usd": 0.01349,
+   "obs": {
+    "view": {
+     "duel_id": 5707,
+     "role": "seller",
+     "limit": 77,
+     "currency": "P",
+     "item": "La Dama de Serrano",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 0.95,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm offering 115 P with delivery on day 10. I think that's a fair place to start, and I'm happy to hear your response.",
+      "offer": {
+       "price": 115,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1269,
+      "decision": {
+       "action": "offer",
+       "price": 115,
+       "message": "I'm offering 115 P with delivery on day 10. I think that's a fair place to start, and I'm happy to hear your response."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hola. I like it, and I can pay 64 P, delivery day 0.",
+      "offer": {
+       "price": 64,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the day 0 timing, I can do that. For delivery on day 0 my price is 132 P.",
+      "offer": {
+       "price": 132,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": {
+       "action": "offer",
+       "price": 132,
+       "message": "Thanks for the day 0 timing, I can do that. For delivery on day 0 my price is 132 P."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 64,
+     "days": 0
+    },
+    "tick": 1276,
+    "ticks_left": 7,
+    "rounds": 1,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "I'm holding my offer as it stands.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "I'm holding my offer as it stands."
+     },
+     "band": {
+      "worst": 128,
+      "target": 132,
+      "best": 132
+     },
+     "plan": {
+      "read": "They opened at 64 P on day 0 and have not answered our 132 P day-0 offer. We have already sent the last message, so the next move is theirs. Their 64 P on day 0 is far below what we can accept.",
+      "target": 132,
+      "best": 132,
+      "worst": 128,
+      "days": 0,
+      "angle": "Hold at 132 P on day 0 and send nothing this tick; let them answer our last offer before we move."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.41,
+       "in": 837,
+       "out": 452,
+       "cost_usd": 0.01239,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.88,
+       "in": 388,
+       "out": 32,
+       "cost_usd": 0.0011,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 1279,
+   "took_s": 7.85,
+   "cost_usd": 0.01055,
+   "obs": {
+    "view": {
+     "duel_id": 5707,
+     "role": "seller",
+     "limit": 77,
+     "currency": "P",
+     "item": "La Dama de Serrano",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 0.95,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm offering 115 P with delivery on day 10. I think that's a fair place to start, and I'm happy to hear your response.",
+      "offer": {
+       "price": 115,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1269,
+      "decision": {
+       "action": "offer",
+       "price": 115,
+       "message": "I'm offering 115 P with delivery on day 10. I think that's a fair place to start, and I'm happy to hear your response."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hola. I like it, and I can pay 64 P, delivery day 0.",
+      "offer": {
+       "price": 64,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the day 0 timing, I can do that. For delivery on day 0 my price is 132 P.",
+      "offer": {
+       "price": 132,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": {
+       "action": "offer",
+       "price": 132,
+       "message": "Thanks for the day 0 timing, I can do that. For delivery on day 0 my price is 132 P."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 64,
+     "days": 0
+    },
+    "tick": 1279,
+    "ticks_left": 4,
+    "rounds": 1,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "Let's break the silence: I'm stepping down to 120 P with delivery on day 0. I'd like to see you come up meaningfully from your last figure.",
+    "price": 120,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 120,
+      "message": "Let's break the silence: I'm stepping down to 120 P with delivery on day 0. I'd like to see you come up meaningfully from your last figure."
+     },
+     "band": {
+      "worst": 120,
+      "target": 120,
+      "best": 122
+     },
+     "plan": {
+      "read": "They opened at 64 P on day 0 and have not moved since. Their offer is well short of what works for us on that day. Both sides have been silent for 6 ticks with 4 left, so this is a standoff.",
+      "target": 120,
+      "best": 122,
+      "worst": 120,
+      "days": 0,
+      "angle": "Make one clear, friendly step to 120 P on day 0 to break the silence. Keep day 0 as agreed, and invite them to come up meaningfully from 64."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.24,
+       "in": 837,
+       "out": 285,
+       "cost_usd": 0.00905,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.6,
+       "in": 405,
+       "out": 69,
+       "cost_usd": 0.0015,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1280,
+   "took_s": 10.67,
+   "cost_usd": 0.01659,
+   "obs": {
+    "view": {
+     "duel_id": 5707,
+     "role": "seller",
+     "limit": 77,
+     "currency": "P",
+     "item": "La Dama de Serrano",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 0.95,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm offering 115 P with delivery on day 10. I think that's a fair place to start, and I'm happy to hear your response.",
+      "offer": {
+       "price": 115,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1269,
+      "decision": {
+       "action": "offer",
+       "price": 115,
+       "message": "I'm offering 115 P with delivery on day 10. I think that's a fair place to start, and I'm happy to hear your response."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hola. I like it, and I can pay 64 P, delivery day 0.",
+      "offer": {
+       "price": 64,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the day 0 timing, I can do that. For delivery on day 0 my price is 132 P.",
+      "offer": {
+       "price": 132,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": {
+       "action": "offer",
+       "price": 132,
+       "message": "Thanks for the day 0 timing, I can do that. For delivery on day 0 my price is 132 P."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Last word from me: 90 P, delivery day 0.",
+      "offer": {
+       "price": 90,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1279,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Let's break the silence: I'm stepping down to 120 P with delivery on day 0. I'd like to see you come up meaningfully from your last figure.",
+      "offer": {
+       "price": 120,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1279,
+      "decision": {
+       "action": "offer",
+       "price": 120,
+       "message": "Let's break the silence: I'm stepping down to 120 P with delivery on day 0. I'd like to see you come up meaningfully from your last figure."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 90,
+     "days": 0
+    },
+    "tick": 1280,
+    "ticks_left": 3,
+    "rounds": 2,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm making a clear move to 103 P with delivery on day 0, which meets you most of the way. I invite you to come up to it so we can close.",
+    "price": 103,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 103,
+      "message": "I'm making a clear move to 103 P with delivery on day 0, which meets you most of the way. I invite you to come up to it so we can close."
+     },
+     "vetoes": [
+      "the message could be read as accepting, but you are not accepting. Don't use words like 'deal', 'agree', 'accept', 'sounds good' or 'works for me' unless you accept."
+     ],
+     "band": {
+      "worst": 100,
+      "target": 103,
+      "best": 106
+     },
+     "plan": {
+      "read": "They jumped from 64 to 90 on day 0 and called it their last word. Their 26 P move suggests there is more room, so I only partly trust the 'last word'. Their 90 is acceptable to us, and it stays on the table as a fallback for the final ticks.",
+      "target": 103,
+      "best": 106,
+      "worst": 100,
+      "days": 0,
+      "angle": "Make one clear, decisive move to about 103 P on day 0, framed as meeting them most of the way so we can close now, and invite them to accept or come up to it."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.96,
+       "in": 997,
+       "out": 449,
+       "cost_usd": 0.01297,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.02,
+       "in": 526,
+       "out": 70,
+       "cost_usd": 0.00175,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.69,
+       "in": 616,
+       "out": 64,
+       "cost_usd": 0.00187,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1281,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 5707,
+     "role": "seller",
+     "limit": 77,
+     "currency": "P",
+     "item": "La Dama de Serrano",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 0.95,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm offering 115 P with delivery on day 10. I think that's a fair place to start, and I'm happy to hear your response.",
+      "offer": {
+       "price": 115,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1269,
+      "decision": {
+       "action": "offer",
+       "price": 115,
+       "message": "I'm offering 115 P with delivery on day 10. I think that's a fair place to start, and I'm happy to hear your response."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hola. I like it, and I can pay 64 P, delivery day 0.",
+      "offer": {
+       "price": 64,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the day 0 timing, I can do that. For delivery on day 0 my price is 132 P.",
+      "offer": {
+       "price": 132,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1273,
+      "decision": {
+       "action": "offer",
+       "price": 132,
+       "message": "Thanks for the day 0 timing, I can do that. For delivery on day 0 my price is 132 P."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Last word from me: 90 P, delivery day 0.",
+      "offer": {
+       "price": 90,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1279,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Let's break the silence: I'm stepping down to 120 P with delivery on day 0. I'd like to see you come up meaningfully from your last figure.",
+      "offer": {
+       "price": 120,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1279,
+      "decision": {
+       "action": "offer",
+       "price": 120,
+       "message": "Let's break the silence: I'm stepping down to 120 P with delivery on day 0. I'd like to see you come up meaningfully from your last figure."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I'm making a clear move to 103 P with delivery on day 0, which meets you most of the way. I invite you to come up to it so we can close.",
+      "offer": {
+       "price": 103,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1280,
+      "decision": {
+       "action": "offer",
+       "price": 103,
+       "message": "I'm making a clear move to 103 P with delivery on day 0, which meets you most of the way. I invite you to come up to it so we can close."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 90,
+     "days": 0
+    },
+    "tick": 1281,
+    "ticks_left": 2,
+    "rounds": 2,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 90,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -304,6 +1306,218 @@
      "tick": 1269,
      "days": 10
     }
+   }
+  },
+  {
+   "tick": 1273,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thanks for the day 0 timing, I can do that. For delivery on day 0 my price is 132 P.",
+    "price": 132,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 132,
+      "message": "Thanks for the day 0 timing, I can do that. For delivery on day 0 my price is 132 P."
+     },
+     "vetoes": [
+      "the message could be read as accepting, but you are not accepting. Don't use words like 'deal', 'agree', 'accept', 'sounds good' or 'works for me' unless you accept."
+     ],
+     "band": {
+      "worst": 126,
+      "target": 132,
+      "best": 134
+     },
+     "plan": {
+      "read": "They opened at 64 P on day 0, a typical low anchor that also tells us day 0 matters to them. It is well past what we can accept, so trust it only as a floor.",
+      "target": 132,
+      "best": 134,
+      "worst": 126,
+      "days": 0,
+      "angle": "Accept their day 0 warmly as a goodwill move and frame the price around 132 P as the fair package for delivering on their schedule. Stay friendly but firm, and don't explain the price."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 9.84,
+       "in": 744,
+       "out": 574,
+       "cost_usd": 0.01446,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.07,
+       "in": 344,
+       "out": 62,
+       "cost_usd": 0.00131,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.69,
+       "in": 434,
+       "out": 54,
+       "cost_usd": 0.00141,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5707,
+    "offer": {
+     "id": 7617,
+     "price": 132,
+     "tick": 1273,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1279,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Let's break the silence: I'm stepping down to 120 P with delivery on day 0. I'd like to see you come up meaningfully from your last figure.",
+    "price": 120,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 120,
+      "message": "Let's break the silence: I'm stepping down to 120 P with delivery on day 0. I'd like to see you come up meaningfully from your last figure."
+     },
+     "band": {
+      "worst": 120,
+      "target": 120,
+      "best": 122
+     },
+     "plan": {
+      "read": "They opened at 64 P on day 0 and have not moved since. Their offer is well short of what works for us on that day. Both sides have been silent for 6 ticks with 4 left, so this is a standoff.",
+      "target": 120,
+      "best": 122,
+      "worst": 120,
+      "days": 0,
+      "angle": "Make one clear, friendly step to 120 P on day 0 to break the silence. Keep day 0 as agreed, and invite them to come up meaningfully from 64."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.24,
+       "in": 837,
+       "out": 285,
+       "cost_usd": 0.00905,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.6,
+       "in": 405,
+       "out": 69,
+       "cost_usd": 0.0015,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5707,
+    "offer": {
+     "id": 7843,
+     "price": 120,
+     "tick": 1279,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1280,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'm making a clear move to 103 P with delivery on day 0, which meets you most of the way. I invite you to come up to it so we can close.",
+    "price": 103,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 103,
+      "message": "I'm making a clear move to 103 P with delivery on day 0, which meets you most of the way. I invite you to come up to it so we can close."
+     },
+     "vetoes": [
+      "the message could be read as accepting, but you are not accepting. Don't use words like 'deal', 'agree', 'accept', 'sounds good' or 'works for me' unless you accept."
+     ],
+     "band": {
+      "worst": 100,
+      "target": 103,
+      "best": 106
+     },
+     "plan": {
+      "read": "They jumped from 64 to 90 on day 0 and called it their last word. Their 26 P move suggests there is more room, so I only partly trust the 'last word'. Their 90 is acceptable to us, and it stays on the table as a fallback for the final ticks.",
+      "target": 103,
+      "best": 106,
+      "worst": 100,
+      "days": 0,
+      "angle": "Make one clear, decisive move to about 103 P on day 0, framed as meeting them most of the way so we can close now, and invite them to accept or come up to it."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.96,
+       "in": 997,
+       "out": 449,
+       "cost_usd": 0.01297,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.02,
+       "in": 526,
+       "out": 70,
+       "cost_usd": 0.00175,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.69,
+       "in": 616,
+       "out": 64,
+       "cost_usd": 0.00187,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5707,
+    "offer": {
+     "id": 7886,
+     "price": 103,
+     "tick": 1280,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1281,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 90,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 90,
+    "settles_at_tick": 1282
    }
   }
  ]

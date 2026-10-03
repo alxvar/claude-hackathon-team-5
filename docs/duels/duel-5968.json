@@ -182,6 +182,411 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1274,
+   "raw": {
+    "duel": 5968,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Plaza del Dos de Mayo",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.1,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 78,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1285,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 7652,
+     "price": 104,
+     "tick": 1274,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 7528,
+     "price": 83,
+     "tick": 1271,
+     "days": 7
+    },
+    "messages": [
+     {
+      "tick": 1270,
+      "from": "Rival Azul",
+      "text": "Rápido y justo: 86 P, día 3. ¿Qué día de entrega te va mejor? / Quick and fair: 86 P, day 3. Which delivery day suits you best?",
+      "price": 86,
+      "days": 3
+     },
+     {
+      "tick": 1270,
+      "from": "you",
+      "text": "Day 10 suits me best, so I can do 108 P on day 10.",
+      "price": 108,
+      "days": 10
+     },
+     {
+      "tick": 1271,
+      "from": "Rival Azul",
+      "text": "Parece que el día te importa: 83 P con día 7. / It seems the day matters to you: 83 P, day 7.",
+      "price": 83,
+      "days": 7
+     },
+     {
+      "tick": 1274,
+      "from": "you",
+      "text": "I can come down to 104 P if we settle on day 10; holding day 10 is what lets me move on price. Can you meet me on day 10?",
+      "price": 104,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1275,
+   "raw": {
+    "duel": 5968,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Plaza del Dos de Mayo",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.1,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 78,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1285,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 7652,
+     "price": 104,
+     "tick": 1274,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 7660,
+     "price": 75,
+     "tick": 1275,
+     "days": 9
+    },
+    "messages": [
+     {
+      "tick": 1270,
+      "from": "Rival Azul",
+      "text": "Rápido y justo: 86 P, día 3. ¿Qué día de entrega te va mejor? / Quick and fair: 86 P, day 3. Which delivery day suits you best?",
+      "price": 86,
+      "days": 3
+     },
+     {
+      "tick": 1270,
+      "from": "you",
+      "text": "Day 10 suits me best, so I can do 108 P on day 10.",
+      "price": 108,
+      "days": 10
+     },
+     {
+      "tick": 1271,
+      "from": "Rival Azul",
+      "text": "Parece que el día te importa: 83 P con día 7. / It seems the day matters to you: 83 P, day 7.",
+      "price": 83,
+      "days": 7
+     },
+     {
+      "tick": 1274,
+      "from": "you",
+      "text": "I can come down to 104 P if we settle on day 10; holding day 10 is what lets me move on price. Can you meet me on day 10?",
+      "price": 104,
+      "days": 10
+     },
+     {
+      "tick": 1275,
+      "from": "Rival Azul",
+      "text": "Parece que el día te importa: 75 P con día 9. / It seems the day matters to you: 75 P, day 9.",
+      "price": 75,
+      "days": 9
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1275,
+   "raw": {
+    "duel": 5968,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Plaza del Dos de Mayo",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.1,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 78,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1285,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 7688,
+     "price": 100,
+     "tick": 1275,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 7660,
+     "price": 75,
+     "tick": 1275,
+     "days": 9
+    },
+    "messages": [
+     {
+      "tick": 1270,
+      "from": "Rival Azul",
+      "text": "Rápido y justo: 86 P, día 3. ¿Qué día de entrega te va mejor? / Quick and fair: 86 P, day 3. Which delivery day suits you best?",
+      "price": 86,
+      "days": 3
+     },
+     {
+      "tick": 1270,
+      "from": "you",
+      "text": "Day 10 suits me best, so I can do 108 P on day 10.",
+      "price": 108,
+      "days": 10
+     },
+     {
+      "tick": 1271,
+      "from": "Rival Azul",
+      "text": "Parece que el día te importa: 83 P con día 7. / It seems the day matters to you: 83 P, day 7.",
+      "price": 83,
+      "days": 7
+     },
+     {
+      "tick": 1274,
+      "from": "you",
+      "text": "I can come down to 104 P if we settle on day 10; holding day 10 is what lets me move on price. Can you meet me on day 10?",
+      "price": 104,
+      "days": 10
+     },
+     {
+      "tick": 1275,
+      "from": "Rival Azul",
+      "text": "Parece que el día te importa: 75 P con día 9. / It seems the day matters to you: 75 P, day 9.",
+      "price": 75,
+      "days": 9
+     },
+     {
+      "tick": 1275,
+      "from": "you",
+      "text": "Thanks for moving close to day 10. I can do 100 P on day 10, which is a real step from me. Can you go the last step to day 10?",
+      "price": 100,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1278,
+   "raw": {
+    "duel": 5968,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Plaza del Dos de Mayo",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.1,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 78,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1285,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 7805,
+     "price": 96,
+     "tick": 1278,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 7660,
+     "price": 75,
+     "tick": 1275,
+     "days": 9
+    },
+    "messages": [
+     {
+      "tick": 1270,
+      "from": "Rival Azul",
+      "text": "Rápido y justo: 86 P, día 3. ¿Qué día de entrega te va mejor? / Quick and fair: 86 P, day 3. Which delivery day suits you best?",
+      "price": 86,
+      "days": 3
+     },
+     {
+      "tick": 1270,
+      "from": "you",
+      "text": "Day 10 suits me best, so I can do 108 P on day 10.",
+      "price": 108,
+      "days": 10
+     },
+     {
+      "tick": 1271,
+      "from": "Rival Azul",
+      "text": "Parece que el día te importa: 83 P con día 7. / It seems the day matters to you: 83 P, day 7.",
+      "price": 83,
+      "days": 7
+     },
+     {
+      "tick": 1274,
+      "from": "you",
+      "text": "I can come down to 104 P if we settle on day 10; holding day 10 is what lets me move on price. Can you meet me on day 10?",
+      "price": 104,
+      "days": 10
+     },
+     {
+      "tick": 1275,
+      "from": "Rival Azul",
+      "text": "Parece que el día te importa: 75 P con día 9. / It seems the day matters to you: 75 P, day 9.",
+      "price": 75,
+      "days": 9
+     },
+     {
+      "tick": 1275,
+      "from": "you",
+      "text": "Thanks for moving close to day 10. I can do 100 P on day 10, which is a real step from me. Can you go the last step to day 10?",
+      "price": 100,
+      "days": 10
+     },
+     {
+      "tick": 1278,
+      "from": "you",
+      "text": "I can step to 96 P on day 10. Can you meet me on day 10 and come much closer on price?",
+      "price": 96,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1281,
+   "raw": {
+    "duel": 5968,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Plaza del Dos de Mayo",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.1,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 78,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1285,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 7894,
+     "price": 99,
+     "tick": 1281,
+     "days": 9
+    },
+    "rival_offer": {
+     "id": 7660,
+     "price": 75,
+     "tick": 1275,
+     "days": 9
+    },
+    "messages": [
+     {
+      "tick": 1270,
+      "from": "Rival Azul",
+      "text": "Rápido y justo: 86 P, día 3. ¿Qué día de entrega te va mejor? / Quick and fair: 86 P, day 3. Which delivery day suits you best?",
+      "price": 86,
+      "days": 3
+     },
+     {
+      "tick": 1270,
+      "from": "you",
+      "text": "Day 10 suits me best, so I can do 108 P on day 10.",
+      "price": 108,
+      "days": 10
+     },
+     {
+      "tick": 1271,
+      "from": "Rival Azul",
+      "text": "Parece que el día te importa: 83 P con día 7. / It seems the day matters to you: 83 P, day 7.",
+      "price": 83,
+      "days": 7
+     },
+     {
+      "tick": 1274,
+      "from": "you",
+      "text": "I can come down to 104 P if we settle on day 10; holding day 10 is what lets me move on price. Can you meet me on day 10?",
+      "price": 104,
+      "days": 10
+     },
+     {
+      "tick": 1275,
+      "from": "Rival Azul",
+      "text": "Parece que el día te importa: 75 P con día 9. / It seems the day matters to you: 75 P, day 9.",
+      "price": 75,
+      "days": 9
+     },
+     {
+      "tick": 1275,
+      "from": "you",
+      "text": "Thanks for moving close to day 10. I can do 100 P on day 10, which is a real step from me. Can you go the last step to day 10?",
+      "price": 100,
+      "days": 10
+     },
+     {
+      "tick": 1278,
+      "from": "you",
+      "text": "I can step to 96 P on day 10. Can you meet me on day 10 and come much closer on price?",
+      "price": 96,
+      "days": 10
+     },
+     {
+      "tick": 1281,
+      "from": "you",
+      "text": "I can do 99 P, delivery on day 9.",
+      "price": 99,
+      "days": 9
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -464,6 +869,623 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 1274,
+   "took_s": 9.79,
+   "cost_usd": 0.0166,
+   "obs": {
+    "view": {
+     "duel_id": 5968,
+     "role": "seller",
+     "limit": 78,
+     "currency": "P",
+     "item": "Plaza del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.1,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Rápido y justo: 86 P, día 3. ¿Qué día de entrega te va mejor? / Quick and fair: 86 P, day 3. Which delivery day suits you best?",
+      "offer": {
+       "price": 86,
+       "days": 3
+      },
+      "accept": false,
+      "tick": 1270,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Day 10 suits me best, so I can do 108 P on day 10.",
+      "offer": {
+       "price": 108,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1270,
+      "decision": {
+       "action": "offer",
+       "price": 108,
+       "message": "Day 10 suits me best, so I can do 108 P on day 10."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Parece que el día te importa: 83 P con día 7. / It seems the day matters to you: 83 P, day 7.",
+      "offer": {
+       "price": 83,
+       "days": 7
+      },
+      "accept": false,
+      "tick": 1271,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 83,
+     "days": 7
+    },
+    "tick": 1274,
+    "ticks_left": 11,
+    "rounds": 1,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can come down to 104 P if we settle on day 10; holding day 10 is what lets me move on price. Can you meet me on day 10?",
+    "price": 104,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 104,
+      "message": "I can come down to 104 P if we settle on day 10; holding day 10 is what lets me move on price. Can you meet me on day 10?"
+     },
+     "band": {
+      "worst": 103,
+      "target": 104,
+      "best": 105
+     },
+     "plan": {
+      "read": "They cut the price from 86 to 83 but moved the day from 3 to 7, closer to our end. Counting the day, that is a real step toward us of about 5 P. Their reading of our interest in the day is right, but day 7 is a middle day, so we keep day 10.",
+      "target": 104,
+      "best": 105,
+      "worst": 103,
+      "days": 10,
+      "angle": "Make one clear, modest move: 104 P on day 10. Note that holding day 10 is what lets us come down on price, and invite them to meet us on day 10."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.85,
+       "in": 928,
+       "out": 570,
+       "cost_usd": 0.01511,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.94,
+       "in": 424,
+       "out": 64,
+       "cost_usd": 0.00149,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1275,
+   "took_s": 10.69,
+   "cost_usd": 0.01843,
+   "obs": {
+    "view": {
+     "duel_id": 5968,
+     "role": "seller",
+     "limit": 78,
+     "currency": "P",
+     "item": "Plaza del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.1,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Rápido y justo: 86 P, día 3. ¿Qué día de entrega te va mejor? / Quick and fair: 86 P, day 3. Which delivery day suits you best?",
+      "offer": {
+       "price": 86,
+       "days": 3
+      },
+      "accept": false,
+      "tick": 1270,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Day 10 suits me best, so I can do 108 P on day 10.",
+      "offer": {
+       "price": 108,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1270,
+      "decision": {
+       "action": "offer",
+       "price": 108,
+       "message": "Day 10 suits me best, so I can do 108 P on day 10."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Parece que el día te importa: 83 P con día 7. / It seems the day matters to you: 83 P, day 7.",
+      "offer": {
+       "price": 83,
+       "days": 7
+      },
+      "accept": false,
+      "tick": 1271,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can come down to 104 P if we settle on day 10; holding day 10 is what lets me move on price. Can you meet me on day 10?",
+      "offer": {
+       "price": 104,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1274,
+      "decision": {
+       "action": "offer",
+       "price": 104,
+       "message": "I can come down to 104 P if we settle on day 10; holding day 10 is what lets me move on price. Can you meet me on day 10?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Parece que el día te importa: 75 P con día 9. / It seems the day matters to you: 75 P, day 9.",
+      "offer": {
+       "price": 75,
+       "days": 9
+      },
+      "accept": false,
+      "tick": 1275,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 75,
+     "days": 9
+    },
+    "tick": 1275,
+    "ticks_left": 10,
+    "rounds": 2,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thanks for moving close to day 10. I can do 100 P on day 10, which is a real step from me. Can you go the last step to day 10?",
+    "price": 100,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 100,
+      "message": "Thanks for moving close to day 10. I can do 100 P on day 10, which is a real step from me. Can you go the last step to day 10?"
+     },
+     "band": {
+      "worst": 99,
+      "target": 100,
+      "best": 101
+     },
+     "plan": {
+      "read": "Their price fell to 75 while their day moved from 3 to 9, close to our day 10. They are trading the day for price rather than conceding. Their 75 on day 9 is acceptable but far below what we can likely get, so treat their tone as positioning.",
+      "target": 100,
+      "best": 101,
+      "worst": 99,
+      "days": 10,
+      "angle": "Stay firm and friendly: thank them for coming nearly to day 10, ask them to go the last step to day 10, and offer 100 P on day 10 as a real move on our side."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.69,
+       "in": 1068,
+       "out": 621,
+       "cost_usd": 0.01669,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.0,
+       "in": 545,
+       "out": 65,
+       "cost_usd": 0.00174,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1278,
+   "took_s": 10.69,
+   "cost_usd": 0.018920000000000003,
+   "obs": {
+    "view": {
+     "duel_id": 5968,
+     "role": "seller",
+     "limit": 78,
+     "currency": "P",
+     "item": "Plaza del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.1,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Rápido y justo: 86 P, día 3. ¿Qué día de entrega te va mejor? / Quick and fair: 86 P, day 3. Which delivery day suits you best?",
+      "offer": {
+       "price": 86,
+       "days": 3
+      },
+      "accept": false,
+      "tick": 1270,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Day 10 suits me best, so I can do 108 P on day 10.",
+      "offer": {
+       "price": 108,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1270,
+      "decision": {
+       "action": "offer",
+       "price": 108,
+       "message": "Day 10 suits me best, so I can do 108 P on day 10."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Parece que el día te importa: 83 P con día 7. / It seems the day matters to you: 83 P, day 7.",
+      "offer": {
+       "price": 83,
+       "days": 7
+      },
+      "accept": false,
+      "tick": 1271,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can come down to 104 P if we settle on day 10; holding day 10 is what lets me move on price. Can you meet me on day 10?",
+      "offer": {
+       "price": 104,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1274,
+      "decision": {
+       "action": "offer",
+       "price": 104,
+       "message": "I can come down to 104 P if we settle on day 10; holding day 10 is what lets me move on price. Can you meet me on day 10?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Parece que el día te importa: 75 P con día 9. / It seems the day matters to you: 75 P, day 9.",
+      "offer": {
+       "price": 75,
+       "days": 9
+      },
+      "accept": false,
+      "tick": 1275,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for moving close to day 10. I can do 100 P on day 10, which is a real step from me. Can you go the last step to day 10?",
+      "offer": {
+       "price": 100,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1275,
+      "decision": {
+       "action": "offer",
+       "price": 100,
+       "message": "Thanks for moving close to day 10. I can do 100 P on day 10, which is a real step from me. Can you go the last step to day 10?"
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 75,
+     "days": 9
+    },
+    "tick": 1278,
+    "ticks_left": 7,
+    "rounds": 3,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can step to 96 P on day 10. Can you meet me on day 10 and come much closer on price?",
+    "price": 96,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 96,
+      "message": "I can step to 96 P on day 10. Can you meet me on day 10 and come much closer on price?"
+     },
+     "band": {
+      "worst": 95,
+      "target": 96,
+      "best": 97
+     },
+     "plan": {
+      "read": "Their price has dropped from 86 to 75 while their day moved from 3 to 9, toward our day 10. They seem to be trading price for day, and their offers have been flat for 3 ticks, so this is a standoff. Their 75 at day 9 is within our limit but well below what we can likely still get.",
+      "target": 96,
+      "best": 97,
+      "worst": 95,
+      "days": 10,
+      "angle": "Make one clear step to 96 P on day 10 and ask them to come to day 10 and meet us much closer on price; keep the tone calm and firm."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.81,
+       "in": 1185,
+       "out": 621,
+       "cost_usd": 0.01716,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.88,
+       "in": 620,
+       "out": 52,
+       "cost_usd": 0.00176,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1281,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 5968,
+     "role": "seller",
+     "limit": 78,
+     "currency": "P",
+     "item": "Plaza del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.1,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Rápido y justo: 86 P, día 3. ¿Qué día de entrega te va mejor? / Quick and fair: 86 P, day 3. Which delivery day suits you best?",
+      "offer": {
+       "price": 86,
+       "days": 3
+      },
+      "accept": false,
+      "tick": 1270,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Day 10 suits me best, so I can do 108 P on day 10.",
+      "offer": {
+       "price": 108,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1270,
+      "decision": {
+       "action": "offer",
+       "price": 108,
+       "message": "Day 10 suits me best, so I can do 108 P on day 10."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Parece que el día te importa: 83 P con día 7. / It seems the day matters to you: 83 P, day 7.",
+      "offer": {
+       "price": 83,
+       "days": 7
+      },
+      "accept": false,
+      "tick": 1271,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can come down to 104 P if we settle on day 10; holding day 10 is what lets me move on price. Can you meet me on day 10?",
+      "offer": {
+       "price": 104,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1274,
+      "decision": {
+       "action": "offer",
+       "price": 104,
+       "message": "I can come down to 104 P if we settle on day 10; holding day 10 is what lets me move on price. Can you meet me on day 10?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Parece que el día te importa: 75 P con día 9. / It seems the day matters to you: 75 P, day 9.",
+      "offer": {
+       "price": 75,
+       "days": 9
+      },
+      "accept": false,
+      "tick": 1275,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for moving close to day 10. I can do 100 P on day 10, which is a real step from me. Can you go the last step to day 10?",
+      "offer": {
+       "price": 100,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1275,
+      "decision": {
+       "action": "offer",
+       "price": 100,
+       "message": "Thanks for moving close to day 10. I can do 100 P on day 10, which is a real step from me. Can you go the last step to day 10?"
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can step to 96 P on day 10. Can you meet me on day 10 and come much closer on price?",
+      "offer": {
+       "price": 96,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1278,
+      "decision": {
+       "action": "offer",
+       "price": 96,
+       "message": "I can step to 96 P on day 10. Can you meet me on day 10 and come much closer on price?"
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 75,
+     "days": 9
+    },
+    "tick": 1281,
+    "ticks_left": 4,
+    "rounds": 3,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 99 P, delivery on day 9.",
+    "price": 99,
+    "days": 9,
+    "meta": {
+     "rule": "late switch",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -532,6 +1554,200 @@
      "price": 108,
      "tick": 1270,
      "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1274,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can come down to 104 P if we settle on day 10; holding day 10 is what lets me move on price. Can you meet me on day 10?",
+    "price": 104,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 104,
+      "message": "I can come down to 104 P if we settle on day 10; holding day 10 is what lets me move on price. Can you meet me on day 10?"
+     },
+     "band": {
+      "worst": 103,
+      "target": 104,
+      "best": 105
+     },
+     "plan": {
+      "read": "They cut the price from 86 to 83 but moved the day from 3 to 7, closer to our end. Counting the day, that is a real step toward us of about 5 P. Their reading of our interest in the day is right, but day 7 is a middle day, so we keep day 10.",
+      "target": 104,
+      "best": 105,
+      "worst": 103,
+      "days": 10,
+      "angle": "Make one clear, modest move: 104 P on day 10. Note that holding day 10 is what lets us come down on price, and invite them to meet us on day 10."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.85,
+       "in": 928,
+       "out": 570,
+       "cost_usd": 0.01511,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.94,
+       "in": 424,
+       "out": 64,
+       "cost_usd": 0.00149,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5968,
+    "offer": {
+     "id": 7652,
+     "price": 104,
+     "tick": 1274,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1275,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thanks for moving close to day 10. I can do 100 P on day 10, which is a real step from me. Can you go the last step to day 10?",
+    "price": 100,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 100,
+      "message": "Thanks for moving close to day 10. I can do 100 P on day 10, which is a real step from me. Can you go the last step to day 10?"
+     },
+     "band": {
+      "worst": 99,
+      "target": 100,
+      "best": 101
+     },
+     "plan": {
+      "read": "Their price fell to 75 while their day moved from 3 to 9, close to our day 10. They are trading the day for price rather than conceding. Their 75 on day 9 is acceptable but far below what we can likely get, so treat their tone as positioning.",
+      "target": 100,
+      "best": 101,
+      "worst": 99,
+      "days": 10,
+      "angle": "Stay firm and friendly: thank them for coming nearly to day 10, ask them to go the last step to day 10, and offer 100 P on day 10 as a real move on our side."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.69,
+       "in": 1068,
+       "out": 621,
+       "cost_usd": 0.01669,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.0,
+       "in": 545,
+       "out": 65,
+       "cost_usd": 0.00174,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5968,
+    "offer": {
+     "id": 7688,
+     "price": 100,
+     "tick": 1275,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1278,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can step to 96 P on day 10. Can you meet me on day 10 and come much closer on price?",
+    "price": 96,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 96,
+      "message": "I can step to 96 P on day 10. Can you meet me on day 10 and come much closer on price?"
+     },
+     "band": {
+      "worst": 95,
+      "target": 96,
+      "best": 97
+     },
+     "plan": {
+      "read": "Their price has dropped from 86 to 75 while their day moved from 3 to 9, toward our day 10. They seem to be trading price for day, and their offers have been flat for 3 ticks, so this is a standoff. Their 75 at day 9 is within our limit but well below what we can likely still get.",
+      "target": 96,
+      "best": 97,
+      "worst": 95,
+      "days": 10,
+      "angle": "Make one clear step to 96 P on day 10 and ask them to come to day 10 and meet us much closer on price; keep the tone calm and firm."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.81,
+       "in": 1185,
+       "out": 621,
+       "cost_usd": 0.01716,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.88,
+       "in": 620,
+       "out": 52,
+       "cost_usd": 0.00176,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5968,
+    "offer": {
+     "id": 7805,
+     "price": 96,
+     "tick": 1278,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1281,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 99 P, delivery on day 9.",
+    "price": 99,
+    "days": 9,
+    "meta": {
+     "rule": "late switch",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 5968,
+    "offer": {
+     "id": 7894,
+     "price": 99,
+     "tick": 1281,
+     "days": 9
     }
    }
   }
