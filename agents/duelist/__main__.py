@@ -52,7 +52,8 @@ def models(a: argparse.Namespace) -> tuple[Model, Model]:
     negotiator: Model = Claude(model=a.negotiator_model or a.model, effort=a.negotiator_effort or a.effort,
                                thinking_off=a.thinking_off)
     if not getattr(a, "no_failover", False):
-        wrap = lambda m: Failover(m, Claude(model=BACKUP[m.model], effort="low", timeout_s=20)) \
+        wrap = lambda m: Failover(m, Claude(model=BACKUP[m.model], effort="low", timeout_s=20),  # noqa: E731
+                                  timeout_s=getattr(a, "failover_s", 8.0)) \
             if m.model in BACKUP else m  # noqa: E731
         strategist, negotiator = wrap(strategist), wrap(negotiator)
     return strategist, negotiator
@@ -112,7 +113,8 @@ def run(a: argparse.Namespace) -> None:
     strategist, negotiator = models(a)
     params = None if a.no_params else Params(param_modules(), Path(a.params))
     runner = DuelRunner(bazaar(), strategist, negotiator, dry_run=a.dry_run, log=Log(LOGS), decay=a.decay,
-                        duel_ticks=a.duel_ticks, poll_s=a.poll, records=Records(), days_read=a.days_read,
+                        duel_ticks=a.duel_ticks, poll_s=a.poll,
+                        records=Records(Path(a.records)) if a.records else Records(), days_read=a.days_read,
                         params=params, policy=a.policy)
     print(f"day reading: --days-read {a.days_read}; policy: --policy {a.policy}; params: "
           f"{'off' if params is None else params.path}", flush=True)
@@ -148,6 +150,8 @@ def main() -> None:
         s.add_argument("--negotiator-model", help="e.g. claude-sonnet-5-5 or claude-haiku-4-5 for a faster turn")
         s.add_argument("--negotiator-effort", choices=["low", "medium", "high"])
         s.add_argument("--thinking-off", action="store_true", help="Sonnet 5.5 only: thinking between_tools")
+        s.add_argument("--failover-s", type=float, default=8.0,
+                       help="seconds the primary model gets before the backup is asked (keep it below the tick - 5)")
         s.add_argument("--policy", choices=["llm", "code"], default="llm",
                        help="llm = strategist + negotiator (default); code = code decides accept/hold/step and the "
                             "day, one capped model call writes the words (policy.py)")
@@ -166,6 +170,8 @@ def main() -> None:
             s.add_argument("--params", default=str(PARAMS_PATH),
                            help="tuning overrides re-read every tick (params.py; env DUEL_PARAMS)")
             s.add_argument("--no-params", action="store_true", help="ignore the params file: today's constants")
+            s.add_argument("--records", help="the duel records folder (default docs/duels of this checkout; "
+                                             "tools/duelist_sunday.sh points a worktree's duelist at the main checkout's)")
     sub.add_parser("review", help="every recorded duel in one table").set_defaults(fn=review)
     m = sub.add_parser("monitor", help="a local page following our duels and the field, live (read-only, no team key)")
     m.add_argument("--port", type=int, default=8766)
