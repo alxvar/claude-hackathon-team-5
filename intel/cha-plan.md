@@ -102,7 +102,8 @@ price ≤ 72 / 96**: a lower closer bid costs fill chance, not points.
 
 ## Order
 
-0. **At ≈ 09:32** · read `/api/me` cash = C and pick the degrade tier (Cash section). Tell the Chief which.
+0. **Pick the degrade tier** (Cash section) from C = Saturday close + 150 before the release; re-read `/api/me` cash
+   after the allowance (≈ 09:32) and adjust if it differs. Tell the Chief which tier.
 1. **At the release** (catalog `released`; not before, since refused posts retry every tick on the shared 5 req/s),
    **add** the 10 CHA bids below to run/book.json, **keeping the asks already there**: an entry removed from the file is
    cancelled within a tick (45ce829).
