@@ -249,3 +249,4 @@ Nando: Setenta y tres,
 - Sat 22:12 · taller.crafted tick 1349 ·  → t02 · Team 2 turned three common cards into La Vía Láctea (uncommon) at The Workshop
 - Sat 22:13 · egg.found tick 1351 · abuela → t10 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t10", "name": "Team 10"}
 - Sat 22:17 · message tick 1359 · pilar → t02 · Cierto, se arruinó dos veces construyendo aquel barrio elegante. Tragedia noble, pero qué legado. Buenas tardes. Veo que sabe de historia, así que hablemos de negocios serios: le ofrezco un sobre dorado por 504 P.
+- Sat 22:18 · taller.crafted tick 1361 ·  → t01 · Team 1 turned three uncommon cards into San Isidro (rare) at The Workshop
