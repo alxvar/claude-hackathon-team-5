@@ -65,3 +65,14 @@ def test_every_template_passes_the_guard():
         for turn in range(len(narrator.TEMPLATES[side])):
             for dealer in ("abuela", "chato"):
                 assert narrator.guard(narrator.template(dealer, side, 42, turn), 42) is None
+
+
+
+def test_no_text_says_why_we_want_the_card():
+    # Sat 17:30: dealer threads are public in the feed; "for a page of our album" told rivals our page status.
+    for side in ("buy", "sell"):
+        for row in narrator.TEMPLATES[side]:
+            assert narrator.guard(row.format(n="Chato", p=57), 57) is None
+    assert narrator.guard("It's for a page of our album, Chato. 57 P?", 57)
+    assert narrator.guard("Nos falta para la página, 57 P?", 57)
+    assert narrator.guard("Lovely stall, Chato. 57 P?", 57) is None

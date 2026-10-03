@@ -20,22 +20,20 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import abuela_bot as ab  # noqa: E402
 
 
-WARM = [  # same price logic, warm words (Chief/Lucas 10:08): greet, thank every move, a human detail; never value/cap/cash
-    "¡Hola, {name}! Buenos días. We're building our {page} page this morning: could you do {p} P for this one?",
+WARM = [  # warm words (Chief/Lucas 10:08); threads are public (17:30): never value/cap/cash, never page/album/set
+    "¡Hola, {name}! Buenos días. Could you do {p} P for this one?",
     "Gracias, {name}, that's kind of you. We're a small team counting every prima: {p} P?",
-    "Muy amable. This one would fill a gap on our {page} page. {p} P, ¿qué te parece?",
+    "Muy amable, {name}. Such a lovely card. {p} P, ¿qué te parece?",
     "Thank you for working with us, de verdad. {p} P is what we can stretch to right now.",
     "Ay, {name}, you drive a fair bargain. ¿{p} P y cerramos con una sonrisa?",
     "We really appreciate the patience. {p} P? It would make our morning.",
 ]
 NAMES = {"chato": "Chato", "abuela": "Abuela", "pilar": "Doña Pilar"}
-PAGES = {"SAL": "Salamanca", "LAT": "La Latina", "LAV": "Lavapiés", "MAL": "Malasaña", "RET": "El Retiro",
-         "CHA": "Chamberí"}
 
 
 def words(turn, price, args):
     return WARM[0 if turn == 0 else 1 + (turn - 1) % (len(WARM) - 1)].format(
-        p=price, name=NAMES.get(args.dealer, args.dealer.title()), page=PAGES.get(args.card[:3], args.card[:3]))
+        p=price, name=NAMES.get(args.dealer, args.dealer.title()))
 
 
 def page_check(b, args, cards):

@@ -734,7 +734,9 @@ def test_chato_steady_names_the_dealer_and_page_it_talks_to(monkeypatch, tmp_pat
     game = ChaDealer(112.0)
     run_chato(monkeypatch, tmp_path, game)
     text = game.said[0][1]
-    assert "Abuela" in text and "Chamberí" in text and "Chato" not in text and "Retiro" not in text
+    assert "Abuela" in text and "Chato" not in text
+    import chato_steady as cs                                          # threads are public (17:30): never why
+    assert not any(ab.narrator.REVEALS.search(row) for row in cs.WARM)
     assert game.accepted == [4]                          # her final 76 is inside cap 77: a normal buy
 
 
