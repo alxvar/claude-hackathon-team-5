@@ -29,7 +29,7 @@ status() {
   for d in "$WT" "$MAIN"; do
     [ -d "$d" ] && echo "$(basename "$d"): $(git -C "$d" log --oneline -1 2>/dev/null) [$(git -C "$d" rev-parse --abbrev-ref HEAD 2>/dev/null)]"
   done
-  echo "processes:"; procs | sed 's/^/  /' || echo "  none"
+  p="$(procs)"; echo "processes:"; if [ -n "$p" ]; then echo "$p" | sed 's/^/  /'; else echo "  none"; fi
   [ -f "$WT/run/duel_params.json" ] && { echo "params ($WT/run/duel_params.json):"; sed 's/^/  /' "$WT/run/duel_params.json"; }
   log="$(ls -t "$WT"/logs/duelist/supervise-*.log "$MAIN"/logs/duelist/supervise-*.log 2>/dev/null | head -1)"
   [ -n "$log" ] && { echo "last lines of $log:"; tail -8 "$log" | sed 's/^/  /'; }
