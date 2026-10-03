@@ -1,49 +1,69 @@
-# Judge (claude-opus-5-5, Sat 12:08)
+# Judge (claude-opus-5-5, Sat 12:25)
 
 ## Verdict
-**Falling behind.** We are #7 at 23.6: −5.3 over 60 min while #1 Team 12 gained +5.7 (now 32.2, 8.6 ahead). neg_points has been flat at 35.2 for 15 min, ladder 0.055, mm_points −5.2.
+Holding the pack, losing to the leader. We are #5 at 26.4 (+3.7 over 15 min, −1.7 over 60 min). Team 12 is at 32.2 (+6.8 over 60 min), so the gap to #1 is now 5.8. Team 18 (#4) is only 0.2 ahead, and #6-#7 are within 1.0 behind us.
 
 ## Our strategies: keep / kill / scale
-- **Dealer bot, Chato ladder sells (offer-only): keep, but get a measurement.**
-  - MAL-07 walked at his FINAL 14. That was correct: 14 − 17.5 = −3.5, over the ≤3 loss limit.
-  - The LAT-08 thread is live (ask 30 → 27, floor 14). Two tests and still no Δladder reading.
-- **loop.py: keep stopped until Duels I ends.**
-  - Its log has no Saturday fills (last entries 10:31-10:32 open/closed). The only measured fill today was a public bid (MAL-03 at 5, +2.0).
-- **book.py maker asks: keep, but fix addressing.**
-  - Two fills today (SAL-01 +4.7, MAL-03 +2.0). None in the ~70 ticks since tick 404.
-  - Only 11 live offers vs the plan's 20-30.
-  - LAV-02 is addressed to t09, which sits 0.6 below us and rising +8.2/h. That breaks the feeding rule.
-- **RET/LAV pages: done.** All 10 cards of each are held, and RET-01 scored the +50 cap. Hold the rares: t02 bids 53 for RET-10, which is worth 149.9 to us.
-- **In-room trades (Dani): no evidence in the logs today.** No sale or buy is attributed to the room since tick 276.
-- **Venue/stall: keep the stall.**
-  - Bench 5.0 efficiency was 0.933.
-  - The venue detail shows value_created 9.0, but mm_points is −5.2. That gap is unexplained; the desk question is right.
+- **Pilar sells, offer-only (dealer bot): KEEP.**
+  - Thread 710: her 16 → 17 → 18 against our 30 → 19.
+  - A close at ≥ 18 is at or above our value of 17.5, so it costs 0 neg.
+  - Precedent: the LAT-08 sale to Chato moved the ladder +0.017 with neg unchanged.
+  - Offer 7508 expires at tick 511. If she finals at 18, offer 18.
+- **Chato buys above his list: KILL (keep dead).**
+  - 6 deals never moved the ladder and cost −10.0, −9.0, −2.5 and −2.3 neg.
+- **Abuela below-list buys: DONE.**
+  - 4 deals moved L1 (+0.014, +0.018, +0.016, +0.003), and the best 3 are filled.
+  - More only if a deal beats those shares.
+- **Page-closer buys from teams: SCALE on Sunday.**
+  - RET-01 at 20 scored +50 (cap); LAV-05 scored +50 on Friday.
+  - The LAV and RET pages are both complete. The next one is CHA.
+- **Trading loop: stays stopped through Duels I.**
+  - Its log shows no fills or accepts, only open/close and Friday errors.
+  - No evidence that it adds anything.
+- **Maker book (11 offers): KEEP, small, needs a fix.**
+  - Only 2 team trades since round 2: SAL-01 +4.7 at tick 351 and MAL-03 +2.0 at tick 404. Nothing since tick 404.
+  - The field is slow too: one team trade since tick 433.
+  - 11 offers live against the plan's 20-30.
+  - Feeding issue: see change 2.
+- **Venue v10: KEEP the stall, collector-buys only.**
+  - `mm_points` is −5.2 after the SAL-07 trade from t10 to t15.
+  - The builder logs value_created 9.0, which is still unexplained (desk question).
+- **Unopened sobre_plata (86.8): FIX.**
+  - It breaks "open packs before trading" (drag of ~1-4 per trade [L]).
+  - Open it after Duels I, alone in its window, and log the before/after of `/api/me`.
+- **Duels:** duel score 4.37 after 47 finished, 1 no_deal visible. No baseline in the data to judge against.
 
 ## Check the scout
-- **Holds:**
-  - LAT-08 at 14 costs 0 neg_points (value 12.5; dealer gains clip to 0).
-  - SAL-01 +4.7 and MAL-03 +2.0 were clean.
-  - Selling RET-10 at 53 would lose ~97.
-  - t09 is +8.2/h and t17 is +7.6/h.
-- **Does not hold:**
-  - "Keep the six asks live" misses that LAV-02 → t09 now feeds a team right below us that collects LAV.
-  - "14 is his buy list, so it counts as at list": Chato's Saturday buy list is not in the data. Friday's was 13, and 13 is also his opening, which never counts.
-  - "Team 12's dealer count is 37": 37 is total deals. teams.md shows 12 team / 23 dealer.
-  - "Collector sales protect venue value": our asks are on El Rastro (forced at 11:37), so they don't touch v10's value created.
+**Holds:**
+- Pilar opens to everyone at tick 502 and opens her bids at 16.
+- Her uncommon sell median is 18 over 3 deals.
+- MAL-07 and SAL-08 values (17.5 and 22.5). Offer 7238 (SAL-08 to t03 at 25) exists.
+- We are level 3. `mm_points` is −5.2.
+- The rival notes hold: Team 12 +5.8, Team 17 SAL-09 at 75, t15's buys, t13's MAL×6/SAL×2.
+
+**Fails:**
+- "Offer 7376 MAL-07 at 30 open": stale. The live offer is 7508 at 19, and thread 710 is already mid-negotiation.
+- "RET page-completion path is [Open]": false. We hold RET-01 to 10, and the tick 276 +50.0 was the page close.
+- "Team 2 bids 59 for RET-10 (7262), plus a RET-02 bid": not in the metrics.
+  - GAME.md has 59 from Team 15 and 9-12 from Team 2.
+  - The only RET bids now are t13 at 2 (RET-01 to 05) and t04's RET-06 at 16.
+- "Team 12 collects RET": its team buys are LAT×3, MAL×2, LAV×1, none RET. The RET part rests on bids only.
+- "Team 14 took RET-08 from t13 at 20 (tick 370)": not in the data.
 
 ## The 3 changes with the highest expected gain
-1. **Epic hunt in the room (Lucas/Dani), under the 11:17 GUARDRAIL.**
-   - Target: RET-11 (198 to us), RET-12 (495) or LAV-11 (~234), from a team outside the top 4, off top-4 venues.
-   - Limits: price + fee ≤ 80 (cash 109 → floor 20). Re-read /api/me/value and accept via trade.py only if the gain is ≥ 40.
-   - Effect: up to +50 neg_points (cap [V]), the largest single move available.
-   - Risk: no holder exists. No epic ask appears in the data.
-2. **Finish the ladder test, then scale it.**
-   - When Chato FINALs 14 on LAT-08, offer 14 so he accepts. Measure ladder_points alone in its window.
-   - If it moves: next SAL-08 to Pilar from ~12:21, at ≥ 22.5 (her uncommon buy median was 18 over 2 sales; the set is not in the data). Never MAL-06/07 below 14.5.
-   - Effect: +0.01 ladder ≈ +0.54 board [L]. Sales also lift cash toward the ≥170 Saturday close for Sunday's CHA page.
-   - Risk: a sale near his opening may earn ~0 range share. Stop after one zero reading.
-3. **Pull 6605 (LAV-02 → t09) now; re-address it to t07 at 6-7.**
-   - t07 is #17, 13 below us, and collects LAV.
-   - Before reposting the t15, t03, t06 and t16 asks, read their current scores: none appear in the top-10 metrics. Keep only those ≥ 10 below us.
-   - Effect: protects against handing a climber a capped closer (+50 to them) for our +2.8.
-   - Risk: t07 already holds our LAV-03/04 asks, so the extra ask may not fill.
+1. **Finish the L3 trio today: MAL-07 now, then MAL-06, then SAL-08.**
+   - SAL-08 at ≥ 23, during Pilar's fever (~16:00-18:00). Cancel 7238 first.
+   - Run one thread at a time, offer-only. Close by offering her standing bid once it is ≥ our value.
+   - Effect: up to 3 L3 deals at 0 neg. At the LAT-08 rate (+0.017) that is ≈ +0.56 board each, since +0.01 ladder ≈ +0.33 board.
+   - L3 weighs more than L2, but the weight is [Open].
+   - Risk: sells to Pilar may not count (n=1 on Chato). Read Δladder after MAL-07 and stop if it is 0.
+2. **Fix the feeding breach in the book.**
+   - At 26.4, only t07 (14.9) is ≥ 10 below us. The other addressees are not: t09 21.9, t15 21.1, t06 18.9, t16 18.7, t03 17.2.
+   - Our gain per fill is ≤ ~5 neg (≈ 0.5 board). A page close for the buyer is up to +50 neg (≈ 4.7 board), enough to pass us.
+   - Keep the t07 offers (LAV-03/04). Let the others expire, or re-post them at the §4A page price (35-45), so that they fill only as closers that pay us.
+   - Risk: we lose ~0.3 board per small fill forgone. Page gaps are not in the data.
+3. **After Duels I, fill the 2 empty L2 slots before round 3.** The ladder reset at round 2 [V], so unused Saturday slots are lost.
+   - Use the 11:42 protocol: SAL-06 or SAL-07 from Chato, open 24 → 26, accept ≤ 26, walk on a final above 26.
+   - Effect: −3.5 neg (≈ −0.33 board) for ≈ +0.56 board of ladder.
+   - Risk: his uncommon finals today are 30-31, so we will likely walk.
+   - Fallback: none at ≥ value on Saturday. On Sunday, CHA buys at or below his list (worth 112 / 40 to us) cost 0.
