@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sun 01:33** · tick 1445 (30 s/tick) · game hour 13.37 · PAUSED · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sun 01:39** · tick 1445 (30 s/tick) · game hour 13.37 · PAUSED · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,9 +17,9 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Sun 08:45: run intel/dealer-lab.md §4 checklist, then intel/sunday-plan.md. (Sat history:) Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sun 01:35 · operator · directive 01:40: MAL close GO whenever ≥ 150 P is left after CHA (replaces the 10:30 M5 gate; relative scoring past our cap); RET-11 → Pilar only at ≥ 198 (the surplus option withdrawn); fodder stays on → run/mal_book.json + §FAST-START updated
   - Sun 01:33 · operator · **SAL-11 bid 20252 cancelled now** (the server accepts cancels while closed); 0 SAL-11 bids; the 08:58 job disarmed · probe GET /api/cards/{id} (3 reads): other teams' cards show owner 'a team' (holders masked; provenance shows pack # / Workshop / trade #) → no holder sweep · open overnight: LAV-03 → t04 (19979), LAV-04 → t01 (19981)
   - Sun 01:15 · Builder · shipped 3: (1) **dealer TRICK guard** main e461e3b (abuela_bot + chato_steady accept only an offer giving exactly the thread's card, else log TRICK, thread stays open) → Operator restarts the dealer bots to load it; (2) **duelist-loop a99f641**: _switch C → A only + `duelist_sunday.sh --stop` (576 green) → re-audit, Aleks pins; (3) **matchmaker holdings fix** main a08fabe (tools/album.py page arithmetic: 10 teams exact, 0 conflicts with intel/holdings-audit.md; crafts/eggs, Saturday-only bids, known-entry vetting, seller safety, addressed DMs) → matchmaker + collector restarted (read-only), matches.md: RET-09 t07 → t09 #1 page-closer · club venue rotation (directives 01:10/01:20) NOT built: club work paused after the auto-mode denial, needs Lucas's go
-  - Sun 01:05 · Duel Lab · **SUNDAY v2 → top of `intel/duel-lab.md`** (verified, aligned with duelist-loop 3a0f6f3) · 08:00: `duelist_sunday.sh` defaults (SET=C, POLICY=code), AUTOSWITCH=1 with only C → A (≥ 12 talking duels, deal rate < 0.60) · Builder asked to drop "A": "today" from `_switch` · code-first C 0.421 vs today 0.341/duel [L] · out-of-sample: talking duels +3% (not rejected); silent rivals 16% vs 3% modelled · per-opponent adaptation +0.0014/duel (not worth it) · fixed: duel_gates keeps duel_loop's API · next: 06:45 re-check of the branch, 07:30 confirmation
 
 ## Score
 
