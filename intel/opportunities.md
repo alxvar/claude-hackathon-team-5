@@ -6,9 +6,9 @@ Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and �
 
 | # | side | team | card | price | our value | gain | signal | age (game / real min) | status |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | SELL | Team 3 (#16, 20.48) | SAL-02 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 208) | 211 / 229 | no: only 7.67 below us (needs ≥ 10) |
-| 2 | SELL | Team 3 (#16, 20.48) | SAL-05 common | 40 | 9 | 31 | bid 9 P for it (tick 182) | 224 / 242 | no: only 7.67 below us (needs ≥ 10) |
-| 3 | SELL | Team 8 (#13, 21.55) | SAL-03 common | 40 | 9 | 31 | bid 5 P for it (tick 142) | 252 / 900 | no: only 6.6 below us (needs ≥ 10) |
+| 1 | SELL | Team 3 (#16, 20.48) | SAL-02 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 208) | 211 / 230 | no: only 7.67 below us (needs ≥ 10) |
+| 2 | SELL | Team 3 (#16, 20.48) | SAL-05 common | 40 | 9 | 31 | bid 9 P for it (tick 182) | 224 / 243 | no: only 7.67 below us (needs ≥ 10) |
+| 3 | SELL | Team 8 (#13, 21.55) | SAL-03 common | 40 | 9 | 31 | bid 5 P for it (tick 142) | 252 / 901 | no: only 6.6 below us (needs ≥ 10) |
 | 4 | SELL | Team 7 (#17, 17.59) | SAL-05 common | 40 | 9 | 31 | asked abuela to sell it (tick 128) | 267 / 913 | no: dumps SAL (teams.md): sell only to collectors |
 
 ## Alerts (newest first)
