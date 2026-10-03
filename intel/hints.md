@@ -207,3 +207,6 @@ La Puerta de Alcalá, esa joya de Madrid... para tu tío, 187 P. Piedra noble, p
 - Sat 21:32 · catalog.minted SAL-11 (La Puerta de Alcalá, epic, print run 9): hidden=False minted=8 (was 7)
 - Sat 21:36 · message tick 1278 · banco → t04 · Buenas tardes. The card is clean, sí. But Carmen's words do not set terms here. Mine do: one hundred thirteen. Take your time deciding; I have plenty.
 - Sat 21:38 · message tick 1281 · banco → t04 · Carmen may save you a chair; I save nothing but my terms. One hundred thirteen, señor. The card ages well in your pocket or my vault. Decide when you wish.
+- Sat 21:40 · message tick 1285 · banco → t04 · Sí. A legendary I waited eleven years for. The seller came back thinner each winter. I paid less the last time than the first.
+
+One hundred fourteen, señor.
