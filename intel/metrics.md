@@ -1,4 +1,4 @@
-# Metrics (auto, 08:59, game tick 159)
+# Metrics (auto, 09:07, game tick 159)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -110,9 +110,9 @@ Asks by others (card, price: count): LAT-04 9: 3; LAV-04 10: 3; MAL-08 40: 2; MA
 
 ## Latest announcements
 
-- tick 132 level.unlocked: {"team": "t16", "name": "Team 16", "persona": "chato", "persona_name": "El Chato", "level": 2, "why": "3 deals with abuela"}
 - tick 144 announcement: {"text": "We close at 23:00. Offers stay open; the clock stops."}
 - tick 158 level.unlocked: {"team": "t11", "name": "Team 11", "persona": "chato", "persona_name": "El Chato", "level": 2, "why": "open to everyone now"}
 - tick 158 level.unlocked: {"team": "t15", "name": "Team 15", "persona": "chato", "persona_name": "El Chato", "level": 2, "why": "open to everyone now"}
 - tick 159 announcement: {"text": "Closed until Saturday 09:00. Offers stay open; the clock stops."}
+- tick 159 announcement: {"text": "Good morning! The Bazaar is open again: Saturday until 23:00, one tick every 30 s."}
 
