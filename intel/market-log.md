@@ -1,5 +1,18 @@
 # Market log (Market session; newest first)
 
+## Sat 18:20 · who trades on team venues, and why (research for the Chief) [V from the feed]
+- 35 trades on team venues all day, single cards. v07 (t10) 10: 4 ours, 5 with Team 6 as maker, 1 RET-06 uncommon
+  t04 → t09 at 28. v01 (t06) 3: SAL-10 rare t12 → t08 at 76, LAT-06 uncommon at 20, LAT-05 at 5. v02 (t12) 10: Team 14's
+  RET commons at 9 (5 fills in 7 ticks) and Team 7's duplicates. v14 (t14) 1: LAT-07 uncommon at 19.
+- **Scores come from a handful of uncommon/rare trades, not volume.**
+- **30 of 35 fills were open offers; addressed offers rarely fill.** Takers are board-scanning bots (t12, t08, t04,
+  t09, t14, t06). Listings go where the maker's bot is configured: t08 ~470 listings over five venues, t15/t14/t13/t07
+  on v02. v10: 111 listings (73 from t10, mostly addressed), 2 fills.
+- **The cliff explained [L, Team 12's own announcement, tick 938]:** "two sales of page cards at 6-11 P destroyed value
+  on this venue"; v02's fee goes to 10% + 5 P a card. A seller selling a card out of a page carries the large negative.
+- **Actions sent:** (1) pitch v10 to v02's makers now (t14, t07, then t13, t15, t08); (2) open asks, not addressed,
+  duplicates only; (3) announcements naming a concrete pair, uncommons and rares first.
+
 ## Partner audit · Sat 18:06 · tick 942 · snapshot 940: stall teams 7.5 · us 7.5 (+0.00)
 - **Team 15** (v15, market 7.5 = +0.00): on v10 0 open offers, 1 trades (26 P) · ours on v15: 3 open offers, 0 trades (0 P)
   - v10 trade tick 398: [('SAL-07', 't10', '→', 't15')] at 26
