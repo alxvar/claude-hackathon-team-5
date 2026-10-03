@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sun 00:45 (tick 1445, doors closed; snapshot 1440): us #3 at 30.49. **Two corrections from the overnight audits: (1) game hour = wall hour at any tick length, so the B15/A15 rows were wrong: case J (jump, ≈ 80%) → Duels III ≈ 11:00; (2) the ladder-fodder pipeline (team uncommons ≤ value → Pilar/Chato) lifts Sunday ladder 0.27 → 0.42-0.50 and P(top 2) 19% → 31-36% (§4.4).**_
+_Last update: Sun 00:55 (tick 1445, doors closed; snapshot 1440): us #3 at 30.49. Fodder approved (directive 02:30): §4.12 buy cap = price + fee ≤ 12.5; odds by case in §4.4/§4.12 (case J with the flip: P(top 2) ≈ 24-27% with fodder, 19% without)._
 _Note: the §4 version labels "00:05" to "02:10" are sequence markers written between Sat 23:50 and Sun 00:42 (my labels ran ahead of the wall clock); real times are in `git log`. The Sunday clock in §4.7 is unaffected._
 
 ## 1. Board = Friday × Saturday blend [V]
@@ -488,18 +488,18 @@ venue, its duelist stays strong. **To finish #1, t10's Sunday round must be ≤ 
 ### 4.4 Monte Carlo (5,000 runs per cell; rivals' Sunday = their Saturday round × N(1, sd); ours by component) [L, crude; corrected 00:05]
 Scripts: scratchpad `montecarlo.py` (env `DUEL_MU`, `RIVAL_SD`), `montecarlo2.py` (adds the §3h flip and the case-A Saturday tail).
 Our Sunday duels now **7.0 ± 1.5** (measured Saturday ≈ 6.9; the first version used a stale 9.0: verifier). Plan "full" = CHA + ladder + v10 + MAL.
-| Scenario (t10 repeats its 46.0; rival sd 0.15; flip = the §3h mm flip lands) | ladder 0.29 (no fodder) | **ladder 0.42 (fodder, partial)** | ladder 0.50 (fodder, full) |
+| Scenario (t10 repeats its 46.0; rival sd 0.15; flip = the §3h mm flip lands) | ladder 0.29 (no fodder) | **ladder 0.34 (fodder, realistic)** | ladder 0.38 (fodder, good) |
 |---|---|---|---|
-| full plan, no flip | 9% | 18% | 22% |
-| **case J (≈ 80%): flip, no tail** | 19% | **31%** | 36% |
-| case A (≈ 15%): flip + Saturday-tail v10 pairs | 27% | 41% | 46% |
-P(top 2) shown; P(#1) ≤ 2% in every cell, ≤ 4% if t10 also loses its VC. Fodder = team uncommons/duplicates sold to Pilar (L3) and
+| case J, no flip | 9% | 13% | 15% |
+| **case J (≈ 80%): flip, no tail** | 19% | **24%** | 27% |
+| case A (≈ 15%): flip + Saturday-tail v10 pairs | 27% | 32% | 36% |
+P(top 2) shown (fodder columns revised 00:55 to the approved rules, §4.12); P(#1) ≤ 1% in every cell, ≤ 6.5% if t10 also loses its VC. Fodder = team uncommons/duplicates sold to Pilar (L3) and
 Chato (L2) (§4.5; sunday-redteam §1.5); one extra L3 slot ≈ +0.07 raw.
 _00:05 version (ladder 0.50, i.e. Chato slots at list): 21% / 35% / 45% P(top 2) for the first three rows. Chato buys at list don't
 score (intel/dealer-lab-ladder.md, n = 18), so those rows were too high._
 Sensitivity (00:05 version, ladder 0.50; full, no flip/tail): rival sd 0.10 / 0.20 → P(top 2) 29% / 20%; duels 8.5 → 30%.
-**Reading:** first place is out of reach in every variant (P(#1) ≤ 4%). **Second place: ≈ 19% without fodder, ≈ 31-36% with it**
-(case J). The ladder-fodder pipeline is the largest controllable lever (+12-17 points of P(top 2)), then v10 VC and duels. Caveats: v10 is the only lever modelled with a large
+**Reading:** first place is out of reach in every variant (P(#1) ≤ 4%). **Second place (case J, flip lands): ≈ 19% without fodder, ≈ 24-27% with the
+approved fodder**. The ladder-fodder pipeline is the largest controllable lever (+12-17 points of P(top 2)), then v10 VC and duels. Caveats: v10 is the only lever modelled with a large
 jump (50% × 3-7.5), so "v10 = biggest swing" is partly by construction; "CHA + ladder" scores *below* "baseline" because the
 component model draws trades/ladder well under Saturday's near-caps (conservative, not a reason to skip CHA).
 
@@ -632,9 +632,9 @@ Share = (price − opening)/(limit − opening), with the max seen as the limit 
 
 | # | Card / source | Sellers seen (Saturday) / live ask | Our value | Sell to (price) | Ladder per sale | Verdict |
 |---|---|---|---|---|---|---|
-| 1 | LAT-07 (unc) | t15 14, t14 13 (rival), t13 14, t05 21; ask t06 30 (rival) | 12.5 | Pilar 19-20 (share ≈ 0.6-0.8) or Chato 15 (≈ 0.67) | +0.040-0.054 (L3) / +0.030 (L2) | **buy ≤ 15** (bid as maker) |
-| 2 | LAT-08 (unc) | t12 10 (rival), 25; ask t06 30 | 12.5 | same | same | **buy ≤ 15** |
-| 3 | LAT-06 (unc) | 20, 20; ask t06 30 | 12.5 | same | same | buy ≤ 15 (bid; less likely) |
+| 1 | LAT-07 (unc) | t15 14, t14 13 (rival), t13 14, t05 21; ask t06 30 (rival) | 12.5 | Pilar 19-20 (share ≈ 0.6-0.8) or Chato 15 (≈ 0.67) | +0.040-0.054 (L3) / +0.030 (L2) | **buy at price + fee ≤ 12.5**: ≤ 12 as maker, ≤ 10 as a Rastro taker |
+| 2 | LAT-08 (unc) | t12 10 (rival), 25; ask t06 30 | 12.5 | same | same | **≤ 12 maker / ≤ 10 Rastro taker** |
+| 3 | LAT-06 (unc) | 20, 20; ask t06 30 | 12.5 | same | same | ≤ 12 maker / ≤ 10 taker (less likely) |
 | 4 | Silver pack (held, asset 1013): 2 unc + 2 com + 1 rare | ours | 25% copies | Pilar (rare SAL/RET ≈ 75, non-SAL 50-56; unc 18-30) / Chato | +0.03-0.05 each, 2-3 cards | **free**; open after the CHA rares, never at CHA 9/10 |
 | 5 | Workshop: 3 spare LAV commons → 1 random uncommon | ours (LAV-02 ×2, LAV-03, LAV-04 spare) | 25% copy | Pilar / Chato | +0.03-0.05 | free (if it isn't a CHA card) |
 | 6 | the same LAT card again after a sale | — | 12.5 again (we hold 0) | Pilar / Chato | as row 1 | each card can cycle; supply is the limit |
@@ -643,10 +643,17 @@ Share = (price − opening)/(limit − opening), with the max seen as the limit 
 | 9 | SAL/RET uncommon duplicates | team prices 14-30 | 5.6 / 6.9 | Pilar 25-28 (share ≈ 0.5) | +0.033 | no, except in surplus mode (live-tuning §3) |
 | 10 | RET-11 (epic) | ours | 198 | Pilar ≥ 198 (likely a walk) | +0.067 | surplus mode only, the Chief's OK per sale |
 
-**Break-even buy price for a LAT uncommon [L]:** each trade point is worth 9/N = 0.09-0.225 Sunday points; a Pilar slot at share
-0.6 is worth 9 × 0.04/M = 0.55-1.0 → buying at ≤ 15 is net positive in every draw (≤ 12.5 is ≥ 0 even on trades).
-**Realistic yield:** 2-4 fodder sales (Saturday had ≈ 4 LAT-uncommon team trades at ≤ 14 all day) plus pack/Workshop → ladder ≈
-**0.35-0.44** (not 0.42-0.50 as at 01:45). Case J, flip lands: **P(top 2) ≈ 27% at ladder 0.38** (19% without fodder, 31% at 0.42).
+**Approved (directive 02:30) with the verifier's corrections:** price + fee ≤ 12.5 (≥ 0 on trades, no tolerance above value);
+only cards we hold **0** copies of; never a page card; sell only **above the dealer's opening** (Pilar > 16, Chato > 13); the
+**silver pack first**; fodder only **after CHA**.
+**Realistic yield [L]:** pack 2-3 + Workshop 1 + 0-2 LAT buys (Saturday had one LAT-uncommon team trade at ≤ 12: LAT-08 at 10)
+→ ladder ≈ **0.34-0.38**.
+
+| P(top 2) by case (t10 repeats; P(#1) ≤ 1%, ≤ 6.5% if t10 also loses its VC) | ladder 0.29 (no fodder) | **0.34** (pack + Workshop + 0-1 LAT) | 0.38 (+ 2 LAT) |
+|---|---|---|---|
+| case J, the flip does NOT land | 9% | **13%** | 15% |
+| **case J, the flip lands** | 19% | **24%** | 27% |
+| case A (flip + Saturday-tail v10 pairs) | 27% | 32% | 36% |
 Rules: never a page card, CHA card or MAL-08; ≤ 3 sales per dealer level unless it upgrades a slot; rival sellers only if their gain
 is ≤ 10 P.
 
