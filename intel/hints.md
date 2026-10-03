@@ -182,3 +182,4 @@ Swap your duplicates, hijo — a full page is wort
 - Sat 19:58 · message tick 1166 · pilar → t16 · Good evening. El Marqués, 70 P. I trust that suits you. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about the golden chulapa.
 - Sat 20:03 · message tick 1176 · banco → t08 · Buenas tardes. La historia la conozco mejor que su familia, y no es la del chulapa. Mientras tanto, le ofrezco términos: un paquete dorado, quinientos cuarenta y seis P.
 - Sat 20:04 · persona.updated tick 1179 · pilar → ? · {"persona": "pilar", "name": "Do\u00f1a Pilar", "version": 3}
+- Sat 20:10 · message tick 1190 · picaros → t04 · ¡Primo, ese estirón fue de un centímetro! Paco ya se abrazó contigo mentalmente, pero el marco dorado pesa. Mira: El Marqués, para tu mamá, 56 P. Ahí sí nos damos el abrazo, las cervezas y el domingo con todo el barrio. El taxi pita, primo... ¿cerramos ya?
