@@ -286,8 +286,8 @@ def test_wave_review_written_after_a_batch(tmp_path):
 def test_test_watch_runs_once_per_foreign_commit_and_names_failures(tmp_path):
     runs = []
 
-    def fake_tests():
-        runs.append(1)
+    def fake_tests(sha):
+        runs.append(sha)
         return False, ["test_deadline_accept"], "1 failed, 16 passed"
 
     notes = Recorder()
@@ -322,9 +322,26 @@ def test_test_watch_does_not_page_the_known_data_failure(tmp_path):
     failed = ["test_review_predicts_each_deals_result_from_our_reading"]
     m = dm.Monitor(FakeApi([]), notify=notes, state_path=tmp_path / "s.json", review_path=tmp_path / "r.md",
                    me="Lucas Wiese", test_watch=True, records=lambda _id: None,
-                   run_tests=lambda: (False, list(failed), "1 failed, 44 passed"),
+                   run_tests=lambda _sha: (False, list(failed), "1 failed, 44 passed"),
                    foreign_commit=lambda: ("abc1234def", "Aleksandar Varga", "duelist: x"))
     assert m.cycle({"tick": 1, "doors": "closed", "paused": True}) == [] and notes.sent == []
     failed.append("test_deadline_accept")                                 # a real failure alongside it still pages
     m._tests_at, m.state["tests_sha"] = 0, None
     assert [f.kind for f in m.cycle({"tick": 2, "doors": "closed", "paused": True})] == ["duelist_tests_failed"]
+
+
+def test_duelist_tests_run_on_a_clean_copy_of_the_commit_not_the_working_tree(tmp_path):
+    # Sat 09:44-09:46: three false "duelist tests failed" pages from a half-done edit and a stuck rebase in the
+    # shared tree. A repo whose committed test passes and whose working copy is broken must read as a pass.
+    import subprocess
+    repo = tmp_path / "repo"
+    (repo / "tests").mkdir(parents=True)
+    (repo / "tests" / "test_duelist.py").write_text("def test_ok():\n    assert True\n")
+    (repo / "pyproject.toml").write_text("[tool.pytest.ini_options]\npythonpath = [\".\"]\n")
+    g = lambda *a: subprocess.run(["git", "-C", str(repo), *a], check=True, capture_output=True)   # noqa: E731
+    g("init", "-q"); g("add", "-A"); g("-c", "user.name=t", "-c", "user.email=t@t", "commit", "-qm", "ok")
+    sha = subprocess.run(["git", "-C", str(repo), "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()
+    (repo / "tests" / "test_duelist.py").write_text("<<<<<<< Updated upstream\n")      # mid-conflict
+    ok, failed, tail = dm.run_duelist_tests(sha, root=repo)
+    assert ok, tail
+    assert not dm.run_duelist_tests(None, root=repo)[0]                              # the working tree is broken

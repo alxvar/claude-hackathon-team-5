@@ -5,14 +5,27 @@
 #   push: when Claude finishes a turn, commits whatever changed (manual edits included; .env and logs/ are
 #         gitignored) and pushes it, so the others see your work within minutes.
 # Never blocks Claude: every failure is reported on stderr and the script exits 0.
+# Never touches work in progress (Sat 09:44-09:52: a half-done code edit was stashed and committed, the pull
+# conflicted with Aleks's push, and each hook run committed everything mid-rebase and aborted it, discarding other
+# sessions' work 13 times): nothing while run/git-paused exists or a rebase/merge is under way; with tracked code
+# edits in the tree (CODE), no pull, and push commits only what is not code, without pulling or pushing; a pull
+# that fails is aborted. Do code edits in a git worktree, not in this shared tree.
 cd "${CLAUDE_PROJECT_DIR:-$(dirname "$0")/..}" || exit 0
 mode="$1"
-[ -f run/git-paused ] && { echo "team_sync: paused (run/git-paused): no git" >&2; exit 0; }  # Sat 09:50 rescue
+[ -f run/git-paused ] && { echo "team_sync: paused (run/git-paused): no git" >&2; exit 0; }
+gitdir="$(git rev-parse --absolute-git-dir 2>/dev/null)" || exit 0
+if [ -d "$gitdir/rebase-merge" ] || [ -d "$gitdir/rebase-apply" ] || [ -f "$gitdir/MERGE_HEAD" ]; then
+  echo "team_sync: a rebase or merge is under way: no git until someone finishes it by hand" >&2; exit 0
+fi
+CODE='^"?(agents|tools|tests|engine|broker|dashboard|hub|bazaar-kit)/|^"?(pyproject\.toml|uv\.lock)"?$'
+wip="$(git status --porcelain | grep -v '^??' | cut -c4- | grep -E "$CODE" | head -3 | tr '\n' ' ')"
 state=".git/team_sync_seen"
 me="$(git config user.name)"
 
 if [ "$mode" = "pull" ]; then
-  git pull --rebase --autostash -q origin main >/dev/null 2>&1 || echo "team_sync: git pull failed, resolve by hand" >&2
+  if [ -n "$wip" ]; then echo "team_sync: code in progress ($wip): not pulling" >&2; exit 0; fi
+  git pull --rebase --autostash -q origin main >/dev/null 2>&1 || {
+    git rebase --abort >/dev/null 2>&1; echo "team_sync: git pull conflicted (aborted), resolve by hand" >&2; }
   head="$(git rev-parse HEAD)"
   seen="$(cat "$state" 2>/dev/null)"
   [ "$head" = "$seen" ] && exit 0
@@ -41,6 +54,13 @@ if [ "$mode" = "pull" ]; then
 fi
 
 if [ "$mode" = "push" ]; then
+  if [ -n "$wip" ]; then
+    git add -A -- . ':(exclude)agents' ':(exclude)tools' ':(exclude)tests' ':(exclude)engine' ':(exclude)broker' \
+      ':(exclude)dashboard' ':(exclude)hub' ':(exclude)bazaar-kit' ':(exclude)pyproject.toml' ':(exclude)uv.lock' \
+      >/dev/null 2>&1
+    git diff --cached --quiet || git commit -q -m "auto ($me): $(git diff --cached --name-only | head -6 | tr '\n' ' ')" >/dev/null 2>&1
+    echo "team_sync: code in progress ($wip): committed the rest, not pulled or pushed" >&2; exit 0
+  fi
   git add -A >/dev/null 2>&1
   if ! git diff --cached --quiet; then
     files="$(git diff --cached --name-only | head -6 | tr '\n' ' ')"

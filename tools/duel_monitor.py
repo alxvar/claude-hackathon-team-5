@@ -31,6 +31,7 @@ import shlex
 import shutil
 import subprocess
 import sys
+import tempfile
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -568,15 +569,25 @@ def parse_failures(output: str) -> list[str]:
     return [m.split("::")[-1] if "::" in m else m for m in FAILED_RE.findall(output)]
 
 
-def run_duelist_tests(root: Path = ROOT) -> tuple[bool, list[str], str]:
+def run_duelist_tests(sha: str | None = None, root: Path = ROOT) -> tuple[bool, list[str], str]:
+    """Aleks's tests on a clean copy of commit `sha`, never on the shared working tree: Sat 09:44-09:46 it paged three
+    false failures, from another session's half-done edit and a pull stuck mid-rebase. None: the working tree."""
     if shutil.which("uv"):
-        cmd = ["uv", "run", "--project", str(root), "pytest", "-q", "tests/test_duelist.py"]
+        cmd = ["uv", "run", "--project", str(root), "pytest", "-q", "-p", "no:cacheprovider", "tests/test_duelist.py"]
     else:
-        cmd = [sys.executable, "-m", "pytest", "-q", "tests/test_duelist.py"]
-    try:
-        p = subprocess.run(cmd, cwd=root, capture_output=True, text=True, timeout=300)
-    except (subprocess.TimeoutExpired, OSError) as e:
-        return False, [], f"could not run the tests: {e!r}"
+        cmd = [sys.executable, "-m", "pytest", "-q", "-p", "no:cacheprovider", "tests/test_duelist.py"]
+    with tempfile.TemporaryDirectory(prefix="duelist-tests-") as tmp:
+        cwd = root
+        if sha:
+            arch = subprocess.run(["git", "-C", str(root), "archive", sha], capture_output=True)
+            if arch.returncode != 0:
+                return False, [], f"could not copy {sha[:7]}: {arch.stderr.decode(errors='replace')[:120]}"
+            subprocess.run(["tar", "-x", "-C", tmp], input=arch.stdout, check=True)
+            cwd = Path(tmp)
+        try:
+            p = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, timeout=300)
+        except (subprocess.TimeoutExpired, OSError, subprocess.CalledProcessError) as e:
+            return False, [], f"could not run the tests: {e!r}"
     out = p.stdout + p.stderr
     tail = next((l for l in reversed(out.splitlines()) if l.strip()), "")
     return p.returncode == 0, parse_failures(out), tail
@@ -824,7 +835,7 @@ class Monitor:
         if self.state.get("tests_sha") == sha:
             return []
         self.state["tests_sha"] = sha
-        ok, failed, tail = self.run_tests()
+        ok, failed, tail = self.run_tests(sha)
         emit("DUELIST TESTS", f"{'pass' if ok else 'FAIL'} after {author} {sha[:7]} ({subject[:60]}): {tail[:120]}")
         if ok:
             return []

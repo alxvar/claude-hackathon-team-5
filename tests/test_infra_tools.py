@@ -206,3 +206,116 @@ def test_snapshot_writes_tar_leaderboard_me_and_skips_files_with_keys(tmp_path, 
 def test_status_eta_is_wall_minutes_at_any_pace():
     # Sat 09:37, tick 176, hour 2.7917, 30 s ticks: Duels I at 5.15 is ~141 min away (~11:59), not ~71.
     assert abs(status.eta_minutes(5.15, 2.7917) - 141.5) < 0.01
+
+
+# ------------------------------------------------------------------ gitsync never pulls over work in progress
+
+import gitsync  # noqa: E402
+
+
+def git_repo(tmp_path):
+    """A bare remote, our clone and a teammate's clone, each with STATUS.md and tools/x.py committed."""
+    def g(cwd, *a):
+        return subprocess.run(["git", "-C", str(cwd), "-c", "user.name=t", "-c", "user.email=t@t", *a],
+                              check=True, capture_output=True, text=True).stdout.strip()
+    remote, ours, theirs = tmp_path / "remote.git", tmp_path / "ours", tmp_path / "theirs"
+    subprocess.run(["git", "init", "-q", "--bare", "-b", "main", str(remote)], check=True)
+    subprocess.run(["git", "clone", "-q", str(remote), str(ours)], check=True, capture_output=True)
+    (ours / "tools").mkdir()
+    (ours / "tools" / "x.py").write_text("a = 1\n")
+    (ours / "STATUS.md").write_text("0\n")
+    g(ours, "checkout", "-q", "-b", "main"); g(ours, "add", "-A"); g(ours, "commit", "-qm", "init")
+    g(ours, "push", "-q", "origin", "main")
+    subprocess.run(["git", "clone", "-q", "-b", "main", str(remote), str(theirs)], check=True, capture_output=True)
+    for repo in (ours, theirs):
+        g(repo, "config", "user.name", "t"); g(repo, "config", "user.email", "t@t")
+    return g, ours, theirs
+
+
+def test_gitsync_does_not_pull_over_a_code_edit_in_progress(tmp_path, capsys):
+    g, ours, theirs = git_repo(tmp_path)
+    (theirs / "tools" / "x.py").write_text("a = 2\n")                     # Aleks pushes the same file
+    g(theirs, "commit", "-qam", "theirs"); g(theirs, "push", "-q", "origin", "main")
+    (ours / "tools" / "x.py").write_text("a = 3  # half-done\n")         # our session is mid-edit
+    (ours / "STATUS.md").write_text("1\n")
+    gitsync.push(["STATUS.md"], "status: 1", root=ours)
+    assert (ours / "tools" / "x.py").read_text() == "a = 3  # half-done\n"
+    assert "theirs" not in g(ours, "log", "--format=%s")                  # not pulled
+    assert g(ours, "log", "-1", "--format=%s") == "status: 1"            # committed locally
+    assert "work in progress in tools/x.py" in capsys.readouterr().err
+
+
+def test_gitsync_still_syncs_with_an_untracked_new_file(tmp_path):
+    g, ours, theirs = git_repo(tmp_path)
+    g(theirs, "commit", "-q", "--allow-empty", "-m", "theirs"); g(theirs, "push", "-q", "origin", "main")
+    (ours / "tools" / "new_bot.py").write_text("b = 1\n")              # the Operator's new script, not added yet
+    (ours / "STATUS.md").write_text("1\n")
+    gitsync.push(["STATUS.md"], "status: 1", root=ours)
+    assert "theirs" in g(ours, "log", "--format=%s") and (ours / "tools" / "new_bot.py").exists()
+
+
+def test_gitsync_aborts_a_conflicting_pull_instead_of_leaving_it_stuck(tmp_path):
+    g, ours, theirs = git_repo(tmp_path)
+    (theirs / "STATUS.md").write_text("theirs\n")
+    g(theirs, "commit", "-qam", "theirs"); g(theirs, "push", "-q", "origin", "main")
+    (ours / "STATUS.md").write_text("ours\n")
+    gitsync.push(["STATUS.md"], "status: ours", root=ours)
+    gitdir = Path(g(ours, "rev-parse", "--absolute-git-dir"))
+    assert not (gitdir / "rebase-merge").exists() and not (gitdir / "rebase-apply").exists()
+    assert g(ours, "status", "--porcelain") == ""
+
+
+def test_gitsync_does_nothing_while_a_rebase_is_under_way(tmp_path, capsys):
+    g, ours, _ = git_repo(tmp_path)
+    gitdir = Path(g(ours, "rev-parse", "--absolute-git-dir"))
+    (gitdir / "rebase-merge").mkdir()
+    (ours / "STATUS.md").write_text("2\n")
+    gitsync.push(["STATUS.md"], "status: 2", root=ours)
+    assert g(ours, "log", "-1", "--format=%s") == "init"
+    assert "rebase-merge is under way" in capsys.readouterr().err
+
+
+# ------------------------------------------------------------------ team_sync.sh (the Claude Code hooks) likewise
+
+def team_sync(repo, mode):
+    return subprocess.run(["bash", str(ROOT / "tools" / "team_sync.sh"), mode], capture_output=True, text=True,
+                          env={**os.environ, "CLAUDE_PROJECT_DIR": str(repo)})
+
+
+def test_team_sync_neither_pulls_nor_publishes_a_code_edit_in_progress(tmp_path):
+    g, ours, theirs = git_repo(tmp_path)
+    (theirs / "tools" / "x.py").write_text("a = 2\n")
+    g(theirs, "commit", "-qam", "theirs"); g(theirs, "push", "-q", "origin", "main")
+    (ours / "tools" / "x.py").write_text("a = 3  # half-done\n")
+    (ours / "STATUS.md").write_text("1\n")
+    assert "not pulling" in team_sync(ours, "pull").stderr
+    assert "theirs" not in g(ours, "log", "--format=%s")
+    assert "not pulled or pushed" in team_sync(ours, "push").stderr
+    assert g(ours, "show", "--name-only", "--format=", "HEAD") == "STATUS.md"     # the rest is committed
+    assert g(ours, "status", "--porcelain") == "M tools/x.py"                      # the code edit is untouched
+    assert (ours / "tools" / "x.py").read_text() == "a = 3  # half-done\n"
+
+
+def test_team_sync_aborts_a_conflicting_pull_and_does_nothing_mid_rebase(tmp_path):
+    g, ours, theirs = git_repo(tmp_path)
+    (theirs / "STATUS.md").write_text("theirs\n")
+    g(theirs, "commit", "-qam", "theirs"); g(theirs, "push", "-q", "origin", "main")
+    (ours / "STATUS.md").write_text("ours\n")
+    g(ours, "commit", "-qam", "ours")
+    assert "aborted" in team_sync(ours, "pull").stderr
+    gitdir = Path(g(ours, "rev-parse", "--absolute-git-dir"))
+    assert not (gitdir / "rebase-merge").exists() and g(ours, "status", "--porcelain") == ""
+    (gitdir / "rebase-merge").mkdir()                                               # someone else's, under way
+    (ours / "team").mkdir()
+    (ours / "team" / "lucas.md").write_text("log\n")
+    assert "under way" in team_sync(ours, "push").stderr
+    assert g(ours, "log", "-1", "--format=%s") == "ours"                            # nothing committed mid-rebase
+
+
+def test_team_sync_does_nothing_while_paused(tmp_path):
+    g, ours, _ = git_repo(tmp_path)
+    (ours / "run").mkdir()
+    (ours / "run" / "git-paused").write_text("09:52\n")
+    (ours / "STATUS.md").write_text("1\n")
+    assert "paused" in team_sync(ours, "push").stderr
+    assert g(ours, "log", "-1", "--format=%s") == "init"
