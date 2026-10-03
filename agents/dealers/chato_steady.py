@@ -25,6 +25,7 @@ def main():
     ap.add_argument("--step", type=int, required=True)
     ap.add_argument("--cash-floor", type=int, required=True)
     ap.add_argument("--dealer", default="chato")
+    ap.add_argument("--resume", type=int, default=0, help="pick up our open thread with this id (new cap)")
     args = ap.parse_args()
     ab.DEALER, ab.CASH_FLOOR = args.dealer, args.cash_floor
     b = ab.PacedBazaar(os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai"), os.environ["BAZAAR_KEY"],
@@ -36,11 +37,19 @@ def main():
     cap = min(args.cap, me["cash"] - args.cash_floor)
     if cap < args.open:
         sys.exit(f"cash {me['cash']} - floor {args.cash_floor} leaves cap {cap} < open {args.open}")
-    if any(t["with"] == args.dealer and t["status"] == "open" for t in b.my_threads()["threads"]):
+    if not args.resume and any(t["with"] == args.dealer and t["status"] == "open" for t in b.my_threads()["threads"]):
         sys.exit(f"{args.dealer} already has an open conversation with us")
     before = {k: (me.get("score") or {}).get(k) for k in ("neg_points", "ladder_points")}
-    t = b.open_thread(args.dealer, topic={"buy": {"card": args.card}})
-    tid, ours, first, stuck = t["id"], None, None, 0
+    ours = None
+    if args.resume:
+        t = b.thread(args.resume)
+        for m in t["messages"]:
+            o = m.get("offer") or {}
+            if o and m["sender"] != args.dealer:
+                ours = int(o.get("give", {}).get("cash", 0))
+    else:
+        t = b.open_thread(args.dealer, topic={"buy": {"card": args.card}})
+    tid, first, stuck = t["id"], None, 0
     ab.log({"event": "open", "thread": tid, "card": args.card, "cap": cap, "open": args.open, "step": args.step})
     while True:
         t = b.thread(tid)
