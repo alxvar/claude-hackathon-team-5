@@ -1,40 +1,42 @@
-# Judge (claude-opus-5-5, Sat 17:40)
+# Judge (claude-opus-5-5, Sat 17:56)
 
 ## Verdict
-Holding #2 and losing ground to the leader. We are 29.4 (+0.0 over 15 min, +0.8 over 60 min). Team 14 is 30.9 (+0.6 / +1.0), so the gap is 1.5 and widening. Team 1 is 29.2, only 0.2 behind, and gained +0.4 in 15 min. Our `neg_points` have been flat at 63.2 since tick 774.
+Holding #3 at 30.0 but losing ground on the top two over the hour: us −0.0/60 min, Team 6 +2.1 (30.7), Team 14 +0.9 (31.4); gap to #1 is 1.4.
 
 ## Our strategies: keep / kill / scale
-- **Ladder deals (Pícaros L4, Pilar L3): SCALE.** Ladder went 0.200 → 0.394 since 16:43 at 0 neg: SAL-09 +0.070, MAL-09 +0.021. This is our only climbing lever right now.
-- **MAL-08 → Chato job (thread 1278): KILL.** His uncommon buy final is 14 [V] (15-16 only with an open ≥ 39 and −2/−3 steps). Our floor is 18 and we step −1, which he mirrors. It will walk, and it holds a dealer slot until 18:06.
-- **Flag probe ≥ 17:42: KEEP, as a bounded probe.** Results so far: +30 (n=3), −10 (n=1), then three 0s at 16:53. Stop at the first 0 or −10.
-- **Maker book (6 offers): KEEP, but it is near-idle.**
-  - No team fill since tick 760 (MAL-08 buy, +2.5).
-  - MAL-02/05 to t15 at 9 are undercut by El Rastro asks at 7-8.
-  - Gains are ≤ +2 each. Let them expire at tick 896; don't reprice.
-- **Trading loop: KEEP, running.** Its last accept was 15:48 (swap, +6.2), nothing since. It costs nothing.
-- **SAL rares → Pilar fever (job b1iw7l644, accept ≥ 85): KEEP, but add a fallback** (change #2 below).
-- **v10 room plan (Dani): KEEP, per Lucas 17:40.** No current `mm_points` reading is in the data. The last measured v10 trade went +4.99 → −5.2.
+- **Dealer bot: kill, except card-for-cash where our value is lower.** `negotiating` stayed flat at 21.88 while ladder went 0.373 → 0.437 across 3 deals, and flags scored 0 on probe 8. In hindsight, selling SAL-06 to Pilar at 25 (tick 669) now costs us a 35-45 P buyback. Rule: no dealer sale of a card from a page we might finish.
+- **Trading loop: keep.** The t07 swap (SAL-07 for LAT-01) gave +15.5 neg and moved the board 29.24 → 29.98, our best move this hour. The t08 swap on v11 gave +6.2. Only 2 accepts since 15:29, so the loop is starved of offers to accept.
+- **Our bids and listings: scale.** We have 5 live offers against the plan's 20-30. The MAL-02/05 asks at 9 (value 7, +2 each) and LAV-03 at 6 (value 3.2) have been unfilled for a while with no fill data. Offer 14062 sells LAV-02 to t17 for 0 P: kill it unless it is a swap leg. As a pure gift it is −1.3 neg for us and value for t17.
+- **SAL-06 page bid 14040: keep, top priority.** Value 82.1 at 35 P as maker gives ≈ +47 neg ≈ +2.3 board, enough to pass Team 14 if they stay flat. It expires at tick 944, about 25 ticks from now.
+- **In-room trades (Dani): keep.** Both swaps above came from the room. The v10 room plan has no settlement yet.
 
 ## Check the scout
-- Holds: the fever window 18:04-20:04; Pilar rare median 56 (n=1); the flag tallies (53.2, 63.2, 73.2, then −10); the t14/t03/t01 rival warnings.
-- Wrong direction on Pícaros: "picaros uncommon (team sells) 12" means Pícaros buys at 12. "73 → 54-56" was Pícaros selling to us.
-- Wrong ladder history: 0.394 came from MAL-09 → Pilar (0.373 → 0.394), not from the Pícaros deals.
-- Wrong direction on MAL-08: we bought it from t14 (t14→t05 at 15) and scored +2.5. We did not sell to t14.
-- Wrong on Team 6: t06 sold MAL-08 (t06→t09); it did not buy it.
-- Unmeasured: "fever ~85, cash +170". The 85 is [L] from the directive. At the normal 65-70 the cash is +130-140.
-- Stale: "Team 7 is #17, safe". That comes from the 15:30 profile; recheck rank before any sale to t07.
-- Rolling-hour flag cap: a hypothesis only. A count cap (~3 per team) fits the data equally well.
+- Holds: team trades are uncapped on the board (+15.5 neg → +0.74 board ≈ 0.048/np).
+- Holds: Team 6 is +3.3 in 15 min, and the RET-09 t06→t12 trade at 84 happened.
+- Holds: t01 (1.3 below us) and t10 (2.3 below) are both within 3.0, so both are rivals.
+- Holds: t07 is the busiest buyer (LAV×7, RET×5, LAT×4).
+- Holds: LAV-02 at 0 is not a sale.
+- Wrong: "35 P hits the +50 cap". 82.1 − 35 = 47.1, so we are under the cap. The cap binds only at ≤ 32 P.
+- Wrong: "Team 14 paid us 15 for MAL-08". We bought MAL-08 from t14 at 15 (tick 760, +2.5).
+- Unverified: "2 trades ≈ the +5 cap" on v10 is [L]. The only measurements are +4.99 and −5.2, so the sign risk is real and measured.
+- Not in data: whether t02 holds SAL-06. The scout correctly flags this; its "med" confidence is not supported.
 
 ## The 3 changes with the highest expected gain
-1. **Cancel the MAL-08 Chato thread and move MAL-08 to Pilar before 18:06.**
-   - How: offer-only, ask ~30, steps of −2/−3, floor 18 (value 17.5). Pilar's uncommon buy median is 18 over 6 deals.
-   - Effect: 0 neg. It can replace our weakest L3 slot (≈0.019-0.021) with up to ~0.040; the small-step MAL-06 sale did that [V, n=1].
-   - Risk: Pilar's 6 deals per hour cap and a thread collision with the 18:06 fever job. It must finish or walk by 18:04.
-2. **Give the fever job a fallback.**
-   - How: if Pilar walks at ≥ 85, retry each SAL rare at a floor of 63 (our value) with −2 steps. Never jump to her bid: the jump gave SAL-08 +0.019, against +0.040 for small steps.
-   - Effect: 0 neg in every case. Cash +126-170 for Sunday's CHA page, plus a possible L3 slot upgrade.
-   - Risk: the fever price is unmeasured. A rigid ≥ 85 floor could strand both rares at 19:50.
-3. **Before each v10 room trade (Market Test ~17:55), Dani confirms in person that the buyer does not already hold the card.**
-   - Why: a 2nd copy makes value created negative. This is what happened at tick 398 (−5.2, rank #3 → #7) and is why SAL-10 → t08 was barred.
-   - Effect: Lucas's ≈ +3 board [L] instead of a possible drop.
-   - Risk: no API shows other teams' albums, so we rely on teams' own word. Skip any trade where the buyer is unsure.
+1. **Confirm the SAL-06 holder in person now.**
+   - Dani asks t02 whether it holds SAL-06 and to accept 14040. In parallel he asks t17 and t13 whether they hold it, so the 18:20 fallback bid goes to a confirmed holder.
+   - If 14040 lapses at tick 944, re-post to t02 immediately with expires doubled (60 → ask 120). Stay inside the 45 cap.
+   - Effect: +47 neg ≈ +2.3 board, the only lever that can pass Team 14 this hour.
+   - Risk: addressed bids are public on the feed, so t10 sees our interest and can outbid. Keep each bid short-lived.
+2. **v10 room plan, value-created check per pairing before Dani pushes.**
+   - Allow a pairing only if the buyer holds 0 copies and collects the set while the seller dumps it (per `teams.md`). That rule covers t02 SAL-03 → t08 (t08 collects SAL) and t02 RET-03 → t07 (t07 collects RET).
+   - Drop t07 RET-01 → t09: t07 collects RET, so the card moves away from a RET collector and value created can go negative, as with −5.2 on SAL-07.
+   - Never include t01, t10, t03 or t06.
+   - Effect: up to ≈ +3 board [L].
+   - Risk: one negative trade erases a positive one. Multipliers of other teams are not in the data.
+3. **Fill the maker book with true spares to non-rivals ≥ 10 below us.**
+   - LAT-03 and LAT-04 (value 5) at 8 to t15 (LAT×6).
+   - MAL-01, 03 and 04 (value 7; the MAL page is dead) at 9 to t15 or t13.
+   - LAV-04 second copy (3.2) at 6 to t09.
+   - Re-post anything unfilled after 10 min at 2× ticks.
+   - Effect: +2-3 neg each, ≈ +0.7 board for about 7 fills.
+   - Risk: low; a MAL or LAT card could complete someone's page. Keep to the ≥ 10-below rule, and t17 (5.1 below) is excluded.
