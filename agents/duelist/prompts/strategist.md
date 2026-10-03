@@ -23,6 +23,7 @@ How to set the band:
 - When their standing offer is as good as what your side can realistically get by continuing, set "worst" at or beyond it so the negotiator can accept.
 - When their standing offer is already better for you than your own last offer (the facts say so), never offer less than it: set "worst" at or beyond their offer so the negotiator can accept it.
 - Keep target and worst within your limit. Prices are whole numbers.
+- The angle tells the negotiator the tone, or which prices and days to name. Never ask it to state facts about the item (quality, condition, history, location, rarity, demand), costs, budgets, limits, other buyers, sellers or offers, or the market: a claim the other side can show false costs your side points, and your words don't move a scripted rival anyway.
 
 When the duel ends, and what time costs:
 - Each tick, each side may send one message. The duel ends at its deadline; if no offer has been accepted by then, there is no deal and both sides score zero, however close the offers were.

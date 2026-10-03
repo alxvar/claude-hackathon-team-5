@@ -46,7 +46,7 @@ def respond(view, o, fake):
 
 
 def test_offer_inside_the_band_goes_out_as_is():
-    fake = FakeModel(plan(70, 72, 68), Decision(action="offer", price=70, message="70 P, it's rare."))
+    fake = FakeModel(plan(70, 72, 68), Decision(action="offer", price=70, message="70 P is where I am."))
     move = respond(SELLER, obs(SELLER, rival=30), fake)
     assert (move.action, move.price, move.days) == ("offer", 70, None)
     assert "vetoes" not in move.meta
@@ -67,7 +67,7 @@ def test_offer_past_the_limit_is_repaired_inside_the_band():
 
 def test_writing_an_amount_past_the_limit_is_vetoed():
     leaky = Decision(action="offer", price=50, message="I won't go down to 30 P, but 50 P works.")
-    clean = Decision(action="offer", price=50, message="50 P is fair for a rare.")
+    clean = Decision(action="offer", price=50, message="50 P is fair.")
     move = respond(SELLER, obs(SELLER, rival=30), FakeModel(plan(50, 52, 45), leaky, clean))
     assert move.text == clean.message and move.meta["vetoes"]
 
@@ -302,34 +302,24 @@ def test_duel_181_accepts_their_offer_inside_our_limit_before_the_deadline(tmp_p
     assert not r.due(mem)
 
 
-def test_when_our_acceptance_must_wait_we_offer_their_price_if_that_adds_no_round(tmp_path: Path):
-    # 181 on 142: we have sent 6 messages, they 2, so offering their 73 leaves rounds = min at 2.
-    b = FakeBazaar()
-    r = runner(b, FakeModel(plan(67, 66, 68)), tmp_path)
-    raw = recorded(181, 141)
-    answered(r, raw, 141)
-    r.tick = 142
-    mem = r.update(raw)
-    r.accepted_tick = 142                               # another duel took the team's acceptance on 142
-    asyncio.run(r.decide(mem))
-    assert b.accepted == [] and b.said[-1][0] == 181 and b.said[-1][2] == 73 and not r.due(mem)
-    r.tick = 143                                        # they didn't take it: our acceptance is free again
-    mem = r.update(raw)
-    assert r.due(mem)
-    asyncio.run(r.decide(mem))
-    assert b.accepted == [181]                          # 143: the last tick it can still land on
+def test_an_accept_refused_for_the_tick_goes_again_on_the_next(tmp_path: Path):
+    # 200 on 157 (we sell at cost 68): their 87 then 102, our 104. Gap 2: code accepts 102; the game refuses it
+    # for this tick (`wait_for_tick`, `accept_taken` or a 429), so it waits for the next one.
+    from bazaar_sdk import BazaarError
+    for code, status in (("wait_for_tick", 429), ("accept_taken", 409), ("slow_down", 429)):
+        b = FakeBazaar()
+        refused = []
 
-
-def test_when_their_price_would_add_a_round_our_acceptance_waits_a_tick(tmp_path: Path):
-    # 200 on 157 (we sell at cost 68): their 87 then 102, our 104. Gap 2: code accepts 102. Offering 102
-    # instead would make it 2 priced offers each, 2 rounds: 34 x 0.94^2 = 30.0 instead of 32.0.
-    b = FakeBazaar()
-    r = runner(b, FakeModel(plan(104, 105, 103)), tmp_path)
-    mem = answered(r, recorded(200, 157), 157)
-    assert r.closing(mem) == "small gap"
-    r.accepted_tick = 157
-    asyncio.run(r.decide(mem))
-    assert b.accepted == b.said == [] and mem.pending and not r.due(mem)   # held, not retried on the same tick
+        def no(did, code=code, status=status):
+            refused.append(did)
+            raise BazaarError(code, "not this tick", status)
+        b.duel_accept, accept = no, b.duel_accept
+        r = runner(b, FakeModel(plan(104, 105, 103)), tmp_path)
+        mem = answered(r, recorded(200, 157), 157)
+        assert r.closing(mem) == "small gap"
+        asyncio.run(r.decide(mem))
+        assert refused == [200] and b.said == [] and mem.pending and not r.due(mem), code   # not on the same tick
+        b.duel_accept = accept
     r.tick = 158
     mem = r.update(recorded(200, 157))
     assert r.due(mem)
@@ -445,8 +435,8 @@ def test_a_standoff_is_broken_after_three_still_ticks(tmp_path: Path):
     assert "Neither side has moved for 3 ticks" in ledger(r.observe(mem))
 
 
-def test_offers_inside_our_limit_ending_together_are_accepted_one_per_tick_biggest_first(tmp_path: Path):
-    # Duels I runs 3 at a time and a wave ends together; the team accepts one offer per tick.
+def test_duels_ending_together_all_accept_in_the_same_tick(tmp_path: Path):
+    # Organisers, Sat 16:55: "the accept only limits markets, not duels: you can accept all 6 in the same tick."
     b = FakeBazaar()
     r = runner(b, FakeModel(plan(60, 58, 62)), tmp_path)
     raws = {did: {"duel": did, "status": "live", "role": "buyer", "your_limit": 100, "deadline_tick": 116,
@@ -456,16 +446,31 @@ def test_offers_inside_our_limit_ending_together_are_accepted_one_per_tick_bigge
             for did, price in ((1, 90), (2, 70), (3, 80))}
     for raw in raws.values():
         answered(r, raw, 111)
-    assert r.closer() is None                           # 5 ticks left: all three can still wait
     order = []
-    for tick in (112, 113, 114, 115):
+    for tick in (111, 112, 113, 114):
         r.tick = tick
-        for did, raw in raws.items():
-            r.update({**raw, "status": "deal"} if did in b.accepted else raw)
-        if (c := r.closer()) is not None:
-            asyncio.run(r.decide(c[0]))
-            order.append((tick, b.accepted[-1], c[1]))
-    assert order == [(112, 2, "deadline"), (113, 3, "deadline"), (114, 1, "deadline")]   # surplus 30, 20, 10
+        mems = [r.update({**raw, "status": "deal"} if did in b.accepted else raw) for did, raw in raws.items()]
+        for mem in mems:
+            if r.closing(mem) is not None:
+                asyncio.run(r.decide(mem))
+                order.append((tick, b.accepted[-1], r.duels[mem.snap.id].sent[-1].accept))
+    assert order == [(114, 1, True), (114, 2, True), (114, 3, True)]   # all three at 2 ticks left, none earlier
+
+
+def test_two_duels_in_limit_at_two_ticks_left_both_accept_in_the_same_tick(tmp_path: Path):
+    b = FakeBazaar()
+    fake = FakeModel(plan(60, 58, 62))
+    r = runner(b, fake, tmp_path)
+    for did, price in ((1, 90), (2, 70)):
+        raw = {"duel": did, "status": "live", "role": "buyer", "your_limit": 100, "deadline_tick": 116,
+               "rival_offer": {"price": price},
+               "messages": [{"tick": 100, "from": "you", "text": "60 P.", "price": 60},
+                            {"tick": 101, "from": "Rival", "text": "No.", "price": price}]}
+        answered(r, raw, 114)
+    for mem in list(r.duels.values()):
+        assert r.due(mem) and r.closing(mem) == "deadline"
+        asyncio.run(r.decide(mem))
+    assert b.accepted == [1, 2] and fake.seen == []
 
 
 def days_duel(*, weight=2, meaning="each day later costs you 2 P", rival=None, messages=(), deadline=116) -> dict:
@@ -481,8 +486,7 @@ OURS_ON_DAY_0 = [{"tick": 100, "from": "you", "text": "60 P, day 0.", "price": 6
 def test_code_accepts_a_days_duel_on_the_whole_package_never_on_price_alone(tmp_path: Path):
     # 95 is inside our 100 on price, but day 5 costs us 10: the package is worth -5.
     r = runner(FakeBazaar(), FakeModel(plan(60, 58, 62)), tmp_path)
-    answered(r, days_duel(rival={"price": 95, "days": 5}, messages=OURS_ON_DAY_0), 114)
-    assert r.closer() is None
+    assert r.closing(answered(r, days_duel(rival={"price": 95, "days": 5}, messages=OURS_ON_DAY_0), 114)) is None
     # 70 on day 3 is worth 30 - 6 = 24: accepted by the deadline rule, no model asked.
     b, fake = FakeBazaar(), FakeModel(plan(60, 58, 62))
     r = runner(b, fake, tmp_path)
@@ -492,17 +496,8 @@ def test_code_accepts_a_days_duel_on_the_whole_package_never_on_price_alone(tmp_
     assert b.accepted == [7] and fake.seen == []
     # A weight we can't read: the models keep it.
     r = runner(FakeBazaar(), FakeModel(plan(60, 58, 62)), tmp_path)
-    answered(r, days_duel(weight={"mystery": 1}, rival={"price": 70, "days": 3}, messages=OURS_ON_DAY_0), 114)
-    assert r.closer() is None
-
-
-def test_when_our_acceptance_must_wait_in_a_days_duel_we_offer_their_whole_package(tmp_path: Path):
-    b = FakeBazaar()
-    r = runner(b, FakeModel(plan(60, 58, 62)), tmp_path)
-    mem = answered(r, days_duel(rival={"price": 70, "days": 3}, messages=OURS_ON_DAY_0), 114)
-    r.accepted_tick = 114                               # another duel took the team's acceptance
-    asyncio.run(r.decide(mem))
-    assert b.accepted == [] and b.said[-1][2:] == (70, 3) and "day 3" in b.said[-1][1]
+    assert r.closing(answered(r, days_duel(weight={"mystery": 1}, rival={"price": 70, "days": 3},
+                                           messages=OURS_ON_DAY_0), 114)) is None
 
 
 def test_a_small_gap_in_a_days_duel_counts_the_day(tmp_path: Path):
@@ -717,16 +712,6 @@ def test_duel_278_does_not_answer_a_repeated_offer_every_tick(tmp_path: Path):
     assert b.accepted == [278] and r.tick == 175        # code took 111 with 2 ticks left
 
 
-def test_their_price_counts_every_message_as_a_round(tmp_path: Path):
-    r = runner(FakeBazaar(), FakeModel(plan(80, 78, 82)), tmp_path)
-    accept = Move("accept", "Agreed.", price=111)
-    base = recorded(278, 165)                           # one message each: offering 111 adds no round
-    assert r.their_price(answered(r, base, 165), accept).price == 111
-    chat = {**base, "messages": [*base["messages"], {"tick": 165, "from": "Rival Oro", "text": "Well?", "price": None}]}
-    r2 = runner(FakeBazaar(), FakeModel(plan(80, 78, 82)), tmp_path)
-    assert r2.their_price(answered(r2, chat, 165), accept) is None   # their no-price message counts: 1 < 2
-
-
 def test_a_plan_that_holds_sends_nothing_even_when_the_negotiator_drifts(tmp_path: Path):
     # Dani's 10:16 audit: the strategist holds (target = our standing 70) but the negotiator picks 68 from the
     # band; 68 would be sent and cost a round for 2 P (the 278 pattern). Code keeps our 70, so the runner holds.
@@ -754,7 +739,8 @@ def drafted(view, turns, rival, target, left=8, days=None, action="offer"):
     """Our move when the strategist targets `target` and the negotiator drafts exactly that."""
     o = Observation(view=view, turns=turns, rival_offer=rival, tick=10, ticks_left=left)
     s = 1 if view.role is Role.SELLER else -1
-    d = Decision(action=action, price=target if action == "offer" else rival.price, message=f"{target} P.")
+    d = Decision(action=action, price=target if action == "offer" else rival.price,
+                 message=f"{target} P." if action == "offer" else "Agreed.")
     return respond(view, o, FakeModel(plan(target, target + 2 * s, target - 2 * s, days=days), d))
 
 
@@ -792,8 +778,6 @@ def test_the_round_rules_leave_accepts_openers_and_code_moves_alone(tmp_path: Pa
     silent_obs = Observation(view=SELLER, turns=mine(70), tick=10, ticks_left=6)
     walk = DuelAgent(SELLER, FakeModel(plan(70, 72, 68))).silent_move(silent_obs)
     assert walk.action == "offer" and walk.price < 70 and walk.meta["rule"] == "silent rival"
-    r = runner(FakeBazaar(), FakeModel(plan(80, 78, 82)), tmp_path)
-    assert r.their_price(answered(r, recorded(278, 165), 165), Move("accept", "Agreed.", price=111)).price == 111
 
 
 def test_a_day_only_concession_is_a_step_in_worth():
@@ -895,7 +879,7 @@ def test_the_days_guide_and_the_negotiator_line():
     assert "Never settle on a middle day" in s and "at most 2 P" in s and "C/2" not in s
     assert "Don't pay to keep it" in s and "answer with your own end" in s and "4 ticks left" in s
     n = brief(LATE_SELLER, strategist=False)["days_negotiator"]
-    assert "second package" in n and "only the price and day of your offer bind" in n
+    assert "second package" in n and "Only the price and day of your offer bind" in n
 
 
 # Duel Lab 1a: a mid-duel concession is cut to 18% of the gap (intel/duel-lab.md)
@@ -972,6 +956,60 @@ def test_the_runner_decides_at_four_ticks_left_to_switch_the_day(tmp_path: Path)
     assert r.due(mem)
     asyncio.run(r.decide(mem))
     assert b.said == [(7, "I can do 105 P, delivery on day 0.", 105, 0)]
+
+
+# No flaggable claims in our words (PLAN #21, intel/GAME.md): a false fact earns the flagger +10
+
+def test_an_item_claim_is_asked_again_then_sent_as_plain_text():
+    praise = Decision(action="offer", price=70, message="70 P: a carefully sourced lot in fine condition.")
+    clean = Decision(action="offer", price=70, message="I can move to 70 P; that's a real step for me.")
+    move = respond(SELLER, obs(SELLER, rival=30), FakeModel(plan(70, 72, 68), praise, clean))
+    assert move.text == clean.message and "states facts" in move.meta["vetoes"][0]
+    move = respond(SELLER, obs(SELLER, rival=30), FakeModel(plan(70, 72, 68), praise, praise))
+    assert (move.price, move.text, move.meta["repaired"]) == (70, "I can do 70 P.", True)
+
+
+def test_a_stray_number_trips_and_a_menu_after_the_offer_passes():
+    from agents.duelist.guards import claims
+    assert claims(SELLER, "70 P, down from 90 P.", 70, None)                  # a number that isn't our offer
+    assert claims(SELLER, "The MAL-11 card at 70 P.", 70, None)
+    assert not claims(SELLER, "I can do 70 P. That's a big gap for me.", 70, None)
+    days = LATE_SELLER.model_copy(update={"limit": 60})
+    menu = "120 P on day 0; or, if you prefer, 105 P on day 10."
+    assert not claims(days, menu, 120, 0)
+    assert claims(days, "105 P on day 10, or 120 P on day 0.", 120, 0)      # the other package first
+    assert claims(days, "120 P on day 0; or 55 P on day 10.", 120, 0)       # the other package past our limit
+    assert claims(days, "120 P on day 0, or 110 P on day 5, or 100 P on day 10.", 120, 0)   # two others
+
+
+def test_code_texts_pass_and_the_last_line_replaces_a_claim():
+    from agents.duelist.guards import claims
+    for text, price, day in (("I can do 126 P.", 126, None), ("I can do 105 P, delivery on day 0.", 105, 0),
+                             ("Agreed.", 70, None), ("Let me think about that.", None, None)):
+        assert not claims(LATE_SELLER, text, price, day), text
+    agent = DuelAgent(SELLER, FakeModel(plan(70, 72, 68)))
+    agent.calls = []
+    o = obs(SELLER, rival=30, turns=mine(75))
+    move = agent.final(Move("offer", "70 P, a famous landmark piece; other buyers want it.", price=70), o)
+    assert move.text == "I can do 70 P." and "famous" in move.meta["plain_text"][0]
+    take = agent.final(Move("accept", "Done at 45 P, cheaper than the market.", price=45), obs(SELLER, rival=45))
+    assert take.text == "Agreed."
+
+
+# Days duels: wait up to OPEN_WAIT ticks for their day before opening (Duel Lab §4)
+
+def test_a_days_duel_waits_two_ticks_for_their_day_before_opening(tmp_path: Path):
+    def due_at(tick, rival=None, issues=True):
+        r = runner(FakeBazaar(), FakeModel(plan(60, 58, 62)), tmp_path, duel_ticks=16)
+        raw = days_duel(rival=rival, messages=[{"tick": 100, "from": "Rival Sol", "text": "Hi.", "price": rival["price"],
+                                                "days": rival["days"]}] if rival else ())
+        if not issues:
+            raw = {k: v for k, v in raw.items() if k not in ("issues", "your_days_weight", "days_meaning")}
+        r.tick = tick
+        return r.due(r.update(raw))
+    assert (due_at(100), due_at(101), due_at(102)) == (False, False, True)   # deadline 116: 16, 15, 14 left
+    assert due_at(100, rival={"price": 80, "days": 4}) and due_at(101, rival={"price": 80, "days": 4})
+    assert due_at(100, issues=False)                                          # price only: at once
 
 
 def test_the_opener_is_always_an_offer():

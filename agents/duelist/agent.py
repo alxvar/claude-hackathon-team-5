@@ -31,7 +31,8 @@ from pydantic import BaseModel, Field
 from engine import LLMError, Model, Reply
 
 from .days import DayValues
-from .guards import mentions_past_limit, past_limit, price_at, reads_as_agreement, standing_problems, worth
+from .guards import (claims, mentions_past_limit, past_limit, price_at, reads_as_agreement, standing_problems,
+                     worth)
 from .model import DuelView, Observation, Offer, Role, sign
 from .prices import money
 
@@ -71,7 +72,8 @@ class BandPlan(BaseModel):
                                    "them at least this good may be accepted")
     days: int | None = Field(description="the delivery day (0-10) your side proposes this turn; null when the "
                                          "duel is on price only")
-    angle: str = Field(description="one sentence for the negotiator: what to stress or ask this turn")
+    angle: str = Field(description="one sentence for the negotiator: the tone, or which prices and days to name; "
+                                   "never facts about the item, costs, the market or other offers")
 
 
 class Decision(BaseModel):
@@ -419,8 +421,9 @@ def brief(view: DuelView, *, strategist: bool) -> dict[str, str]:
         out["days_negotiator"] = ("- The duel also settles a delivery day (0 to 10). Your brief names the day your "
                                   "side proposes; when you offer, mention it in your message. If the angle names a "
                                   "second package (another day at another price), you may also offer it in words, "
-                                  "as a choice: only the price and day of your offer bind, and that second price is "
-                                  "the one price you may write outside the band.\n"
+                                  "as a choice, after your offer: \"120 P on day 0; or, if you prefer, 105 P on day "
+                                  "10\". Only the price and day of your offer bind, and that second price is the one "
+                                  "price you may write outside the band.\n"
                                   if view.has_days else "")
     return out
 
@@ -581,7 +584,27 @@ class DuelAgent:
                        "reject them.")
         if d.action != "accept" and reads_as_agreement(d.message):
             out.append(AGREEMENT_FEEDBACK)
+        out += claims(self.view, d.message, *self._named(d.action, d.price, days, obs))
         return out
+
+    def _named(self, action: str, price: int | None, days: int | None, obs: Observation) -> tuple[Any, Any]:
+        """The price and day a message of this kind may name: its offer's, the offer it accepts, or our standing
+        one."""
+        if action == "offer":
+            return price, days
+        o = standing_offer(obs) if action == "accept" else next(reversed(our_offers(obs)), None)
+        return (o.price, o.days) if o is not None else (None, None)
+
+    def plain(self, move: Move, obs: Observation) -> Move:
+        """Last line on the words: a text that could be flagged as a false claim (`guards.claims`) is replaced by
+        code's plain one, which names only the offer."""
+        if not (found := claims(self.view, move.text, *self._named(move.action, move.price, move.days, obs))):
+            return move
+        text = (f"I can do {money(move.price, self.view.currency)}"
+                + (f", delivery on day {move.days}." if move.days is not None else ".") if move.action == "offer"
+                else "Agreed." if move.action == "accept" else "Let me think about that.")
+        return Move(move.action, text, price=move.price, days=move.days,
+                    meta={**move.meta, "plain_text": found, "drafted_text": move.text})
 
     async def negotiate(self, obs: Observation, band: Band, plan: BandPlan, days: int | None,
                         feedback: str | None) -> Decision:
@@ -792,7 +815,7 @@ class DuelAgent:
                or (move.action == "accept" and (their is None or past_limit(self.view, their.price, their.days)))
                or mentions_past_limit(self.view, move.text))
         if not bad:
-            return move
+            return self.plain(move, obs)
         if move.meta.get("fallback"):                 # the fallback itself failed: say nothing binding
             return Move("message", "Let me think about that.", meta={"blocked": move.meta})
         return self.final(self.safe_move(obs, "past the limit despite the band", blocked=move.meta), obs)
