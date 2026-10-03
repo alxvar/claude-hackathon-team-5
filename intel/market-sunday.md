@@ -1,4 +1,4 @@
-# Market plan for Sunday (Market session) · written Sun 01:13
+# Market plan for Sunday (Market session) · written Sun 01:14
 
 _Sources: intel/matches.md (matchmaker run 01:12, tick 1440; its VC estimates move between runs, so re-read it before acting), leaderboard snapshot 1440 (us 30.49), intel/market-log.md, intel/directives.md (Club Castizo, Sat 22:55). Labels: [V] measured, [L] inferred, [?] unknown. An independent verifier audited the 22:52 draft; its ten flags are applied here._
 
@@ -120,8 +120,8 @@ Status per the Chief's 01:00 directive. Send in this order; when two rows go to 
 - Dani → Team 7: ES: "¡Hola Team 7! Team 9 puede publicarte El Portero (SAL-02) en v10 a ~9 P, dirigida a vos, 0 % de comisión. ¿Te sirve? Cuando aparezca, aceptala ahí." · EN: "Hi Team 7! Team 9 can post El Portero (SAL-02) for you on v10 at ~9 P, addressed to you, 0% fee. Does that work? When it shows up, accept it there."
 - When the listing appears, Dani → Team 7: ES: "Ya está publicada SAL-02 en v10 a tu nombre. ¡Aceptala!" · EN: "SAL-02 is posted for you on v10. Go ahead and accept it!"
 
-**3. Row #3 · SAL-01 · Team 4 → Team 7 at ~9 P · on v26 · FIRE at 08:30, but first confirm Team 4 still holds two**
-- Dani → Team 4: ES: "¡Hola Team 4! Team 7 busca Escaparate de Serrano (SAL-01). ¿La tenés repetida (te quedan dos)? Si sí, ¿la publicás en v26 a ~9 P, dirigida a Team 7? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 4! Team 7 is looking for Escaparate de Serrano (SAL-01). Do you still have a spare (two copies)? If so, could you post it on v26 at ~9 P, addressed to Team 7? 0% fee. Thanks!"
+**3. Row #3 · SAL-01 · Team 4 → Team 7 at ~9 P · on v26 · FIRE at 08:30 only if Team 4 says it is a spare (one copy traced)**
+- Dani → Team 4: ES: "¡Hola Team 4! Team 7 busca Escaparate de Serrano (SAL-01). ¿La tenés repetida? Si sí, ¿la publicás en v26 a ~9 P, dirigida a Team 7? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 4! Team 7 is looking for Escaparate de Serrano (SAL-01). Is yours a spare? If so, could you post it on v26 at ~9 P, addressed to Team 7? 0% fee. Thanks!"
 - Dani → Team 7: ES: "¡Hola Team 7! Team 4 puede publicarte Escaparate de Serrano (SAL-01) en v26 a ~9 P, dirigida a vos, 0 % de comisión. ¿Te sirve? Cuando aparezca, aceptala ahí." · EN: "Hi Team 7! Team 4 can post Escaparate de Serrano (SAL-01) for you on v26 at ~9 P, addressed to you, 0% fee. Does that work? When it shows up, accept it there."
 - When the listing appears, Dani → Team 7: ES: "Ya está publicada SAL-01 en v26 a tu nombre. ¡Aceptala!" · EN: "SAL-01 is posted for you on v26. Go ahead and accept it!"
 
@@ -136,22 +136,22 @@ Status per the Chief's 01:00 directive. Send in this order; when two rows go to 
 - When the listing appears, Dani → Team 16: ES: "Ya está publicada RET-03 en v10 a tu nombre. ¡Aceptala!" · EN: "RET-03 is posted for you on v10. Go ahead and accept it!"
 
 **6. Row #7 · RET-09 · Team 8 → Team 16 at ~70 P · on v10 · SELLER CHECK first (is it a spare?); outside the club: only on the Chief's OK**
-- Lucas → Team 8: ES: "¡Hola Team 8! Team 16 busca El Ángel Caído (RET-09). ¿La tenés repetida (te quedan dos)? Si sí, ¿la publicás en v10 a ~70 P, dirigida a Team 16? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 8! Team 16 is looking for El Ángel Caído (RET-09). Do you still have a spare (two copies)? If so, could you post it on v10 at ~70 P, addressed to Team 16? 0% fee. Thanks!"
+- Lucas → Team 8: ES: "¡Hola Team 8! Team 16 busca El Ángel Caído (RET-09). ¿La tenés repetida? Si sí, ¿la publicás en v10 a ~70 P, dirigida a Team 16? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 8! Team 16 is looking for El Ángel Caído (RET-09). Is yours a spare? If so, could you post it on v10 at ~70 P, addressed to Team 16? 0% fee. Thanks!"
 - Dani → Team 16: ES: "¡Hola Team 16! Team 8 puede publicarte El Ángel Caído (RET-09) en v10 a ~70 P, dirigida a vos, 0 % de comisión. ¿Te sirve? Cuando aparezca, aceptala ahí." · EN: "Hi Team 16! Team 8 can post El Ángel Caído (RET-09) for you on v10 at ~70 P, addressed to you, 0% fee. Does that work? When it shows up, accept it there."
 - When the listing appears, Dani → Team 16: ES: "Ya está publicada RET-09 en v10 a tu nombre. ¡Aceptala!" · EN: "RET-09 is posted for you on v10. Go ahead and accept it!"
 
 **7. Row #8 · RET-06 · Team 8 → Team 16 at ~24 P · on v10 · SELLER CHECK first (is it a spare?); outside the club: only on the Chief's OK**
-- Lucas → Team 8: ES: "¡Hola Team 8! Team 16 busca La Rosaleda (RET-06). ¿La tenés repetida (te quedan dos)? Si sí, ¿la publicás en v10 a ~24 P, dirigida a Team 16? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 8! Team 16 is looking for La Rosaleda (RET-06). Do you still have a spare (two copies)? If so, could you post it on v10 at ~24 P, addressed to Team 16? 0% fee. Thanks!"
+- Lucas → Team 8: ES: "¡Hola Team 8! Team 16 busca La Rosaleda (RET-06). ¿La tenés repetida? Si sí, ¿la publicás en v10 a ~24 P, dirigida a Team 16? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 8! Team 16 is looking for La Rosaleda (RET-06). Is yours a spare? If so, could you post it on v10 at ~24 P, addressed to Team 16? 0% fee. Thanks!"
 - Dani → Team 16: ES: "¡Hola Team 16! Team 8 puede publicarte La Rosaleda (RET-06) en v10 a ~24 P, dirigida a vos, 0 % de comisión. ¿Te sirve? Cuando aparezca, aceptala ahí." · EN: "Hi Team 16! Team 8 can post La Rosaleda (RET-06) for you on v10 at ~24 P, addressed to you, 0% fee. Does that work? When it shows up, accept it there."
 - When the listing appears, Dani → Team 16: ES: "Ya está publicada RET-06 en v10 a tu nombre. ¡Aceptala!" · EN: "RET-06 is posted for you on v10. Go ahead and accept it!"
 
 **8. Row #9 · RET-04 · Team 8 → Team 16 at ~9 P · on v10 · SELLER CHECK first (is it a spare?); outside the club: only on the Chief's OK**
-- Lucas → Team 8: ES: "¡Hola Team 8! Team 16 busca Paseo de Coches (RET-04). ¿La tenés repetida (te quedan dos)? Si sí, ¿la publicás en v10 a ~9 P, dirigida a Team 16? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 8! Team 16 is looking for Paseo de Coches (RET-04). Do you still have a spare (two copies)? If so, could you post it on v10 at ~9 P, addressed to Team 16? 0% fee. Thanks!"
+- Lucas → Team 8: ES: "¡Hola Team 8! Team 16 busca Paseo de Coches (RET-04). ¿La tenés repetida? Si sí, ¿la publicás en v10 a ~9 P, dirigida a Team 16? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 8! Team 16 is looking for Paseo de Coches (RET-04). Is yours a spare? If so, could you post it on v10 at ~9 P, addressed to Team 16? 0% fee. Thanks!"
 - Dani → Team 16: ES: "¡Hola Team 16! Team 8 puede publicarte Paseo de Coches (RET-04) en v10 a ~9 P, dirigida a vos, 0 % de comisión. ¿Te sirve? Cuando aparezca, aceptala ahí." · EN: "Hi Team 16! Team 8 can post Paseo de Coches (RET-04) for you on v10 at ~9 P, addressed to you, 0% fee. Does that work? When it shows up, accept it there."
 - When the listing appears, Dani → Team 16: ES: "Ya está publicada RET-04 en v10 a tu nombre. ¡Aceptala!" · EN: "RET-04 is posted for you on v10. Go ahead and accept it!"
 
 **9. Row #10 · RET-03 · Team 8 → Team 1 at ~9 P · on v10 · SELLER CHECK first (is it a spare?); outside the club: only on the Chief's OK**
-- Lucas → Team 8: ES: "¡Hola Team 8! Team 1 busca El Titiritero (RET-03). ¿La tenés repetida (te quedan dos)? Si sí, ¿la publicás en v10 a ~9 P, dirigida a Team 1? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 8! Team 1 is looking for El Titiritero (RET-03). Do you still have a spare (two copies)? If so, could you post it on v10 at ~9 P, addressed to Team 1? 0% fee. Thanks!"
+- Lucas → Team 8: ES: "¡Hola Team 8! Team 1 busca El Titiritero (RET-03). ¿La tenés repetida? Si sí, ¿la publicás en v10 a ~9 P, dirigida a Team 1? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 8! Team 1 is looking for El Titiritero (RET-03). Is yours a spare? If so, could you post it on v10 at ~9 P, addressed to Team 1? 0% fee. Thanks!"
 - Lucas → Team 1: ES: "¡Hola Team 1! Team 8 puede publicarte El Titiritero (RET-03) en v10 a ~9 P, dirigida a vos, 0 % de comisión. ¿Te sirve? Cuando aparezca, aceptala ahí." · EN: "Hi Team 1! Team 8 can post El Titiritero (RET-03) for you on v10 at ~9 P, addressed to you, 0% fee. Does that work? When it shows up, accept it there."
 - When the listing appears, Lucas → Team 1: ES: "Ya está publicada RET-03 en v10 a tu nombre. ¡Aceptala!" · EN: "RET-03 is posted for you on v10. Go ahead and accept it!"
 
