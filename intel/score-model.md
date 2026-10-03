@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 21:31 (tick 1262), snapshot 1250: Duels II live (§1g): wave 1 on the old day reading, 2/6 deals; fix live from tick 1256. Board: t10 · t06 · us #3. Sunday allocation §3g._
+_Last update: Sat 21:45 (tick 1295), snapshot 1280: **t10 38.02** · t06 33.20 · **us #3 30.75** · t03 30.26 · t18 29.80 · t12 29.60 · t14 29.54. Duels II §1g (strategist concedes opposite-side days: fix sent). Sunday allocation §3g._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -177,6 +177,13 @@ relative to the best day, so `guards.worth` under-reads seller deals by w × (10
 18.3 of a 22 margin → result 2.6 (≈ 15.8 at day 0). 5616 seller at day 0 → left +31.9 of day bonus. Missed: 5622 (rival offered
 99/106 at day 10 = worth 30/37; later "92 works, please accept" and the clock ran out), 5618 (rival 46 at day 0 = +4).
 Correct no-deals: 5619, 5617. Fix b7d91f3 (direction words) live from tick 1256.
+
+**Waves 2-3 (fixes live; reading now correct: seller best 10, buyer best 0) [V docs/duels]:** wave 2 11/11 deals, 251.4 P
+(22.9/deal), duel_points 14.75 → 18.08; field 76/87. **But the strategist accepts the rival's OPPOSITE-side opening day as
+"fine"**: 5653 buyer w 2.33 at day 10 (−23.3 on a 40 margin), 5796 / 5809 / 5968 sellers w ≈ 2.1 at day 0 (−21 each) ≈ 85 P
+forgone in 4 of 12 deals. Fix sent: hold our day unless w ≤ ~1.5; price a switch at ≥ C + ~C; code guard snapping an
+uncovered opposite day back. Board: our negotiating 24.43 → 23.25 (1230 → 1280) while duel_points rose 13.93 → 20.52;
+t10 +3.4 board in the same window: the field out-paces us on the relative duel part.
 
 ## 1f. Duels II scoreboard plan (FINAL 19:35, snapshot 1100) [L]
 
