@@ -143,15 +143,23 @@ def main():
                       f"\n\n# Our trading-loop actions (last 25)\n{tail('logs/trader.jsonl', 25)}"
                       f"\n\n# Our dealer/flip actions (last 25)\n{tail('logs/dealers/' + max((p.name for p in (ROOT / 'logs/dealers').glob('*.jsonl')), default='none'), 25)}")
         try:
-            resp = client.messages.create(
-                model=role["model"], max_tokens=16000, system=system,
+            with client.messages.stream(  # streamed: 32k output exceeds the SDK's non-streaming limit
+                model=role["model"], max_tokens=32000, system=system,
                 output_config={"effort": role["effort"]},
                 messages=[{"role": "user", "content": facts}],
-            )
+            ) as stream:
+                resp = stream.get_final_message()
             if resp.stop_reason == "refusal":
                 text = "_The model declined this run; next run in a few minutes._"
             else:
                 text = "".join(b.text for b in resp.content if b.type == "text").strip()
+            if not text:  # all output went to thinking (max_tokens): keep the previous file
+                print(time.strftime("%H:%M:%S"), args.role, "empty output, kept the previous file", resp.stop_reason,
+                      resp.usage.output_tokens, flush=True)
+                if not args.every:
+                    break
+                time.sleep(args.every)
+                continue
             out = INTEL / role["out"]
             out.write_text(f"# {args.role.capitalize()} ({role['model']}, {time.strftime('%a %H:%M')})\n\n{text}\n")
             gitsync.push([f"intel/{role['out']}", "intel/metrics.md"], f"intel: {args.role} {time.strftime('%H:%M')}")
