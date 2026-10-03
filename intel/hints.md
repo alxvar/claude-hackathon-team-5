@@ -266,3 +266,6 @@ Nando: Setenta y tres,
 - Sat 22:24 · message tick 1374 · abuela → t10 · ¡Ay, la del Manzanares! Sale en los sobres buenos, los que vende El Chato aquí al lado. Pregúntale, cariño, él sabe más que yo.
 
 La Caña sigue en 10 P, hijo. Y un consejo: una página entera vale mucho más que los cromos sueltos. ¡Cambia tus repetidos!
+- Sat 22:25 · message tick 1376 · abuela → t10 · ¡Ay, qué ilusión, tres páginas enteras! Mañana me las enseñas todas, hijo, con calma.
+
+La Caña te la dejo en 10 P, cariño. Y esta noche a las nueve y media abre El Chato para todos; pregúntale por la del Manzanares. Le gusta la gente que trata derecho.
