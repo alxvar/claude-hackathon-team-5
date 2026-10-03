@@ -76,6 +76,11 @@ tr:hover td { background: var(--surface-2); }
 .tag.warn { color: var(--critical); }
 .tag.info { color: var(--text-secondary); }
 .tag.watch { color: var(--warning); }
+.dgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 16px; }
+.dgrid .card { background: var(--surface-2); }
+.chartbox.mini { height: 190px; }
+.chat.mini { max-height: 210px; margin-top: 8px; }
+@media (max-width: 560px) { .dgrid { grid-template-columns: 1fr; } }
 .tag.missed { color: var(--serious); }
 .tag.up { color: var(--good); }
 .tag.down { color: var(--critical); }
@@ -129,6 +134,8 @@ tr.sel td { background: rgba(57,135,229,0.22) !important; }
     <button data-tab="convs">Conversations</button>
     <button data-tab="market">Market</button>
     <button data-tab="trades">Team trades</button>
+    <button data-tab="pulse">Market pulse</button>
+    <button data-tab="strat">Strategies</button>
     <button data-tab="more">Dealers · schedule</button>
   </div>
 </header>
@@ -248,6 +255,11 @@ tr.sel td { background: rgba(57,135,229,0.22) !important; }
   </div>
   <div class="tiles" id="dmTiles"></div>
   <div class="card">
+    <h2>Our duels, live</h2>
+    <p class="sub">One card per live duel, soonest deadline first: our offers (blue), the rival's (orange) and our limit (dashed) over the duel's ticks, the delivery day on each offer when the session has days, and the conversation. Updates every tick (30 s); the page refreshes every 15 s.</p>
+    <div class="dgrid" id="dmCards"></div>
+  </div>
+  <div class="card">
     <h2>Watch now</h2>
     <p class="sub">Read-only, from data the dashboard already reads (no extra request: the duelist shares the team's 5 requests per second). CRITICAL = tell Aleks now · WATCH = a deal we could take now · MISSED = it already cost us. Lucas's duelmon also sends the critical ones to your phone.</p>
     <ul class="ins" id="dmAlerts"></ul>
@@ -326,34 +338,112 @@ tr.sel td { background: rgba(57,135,229,0.22) !important; }
 
 <!-- ============================================================ TEAM TRADES -->
 <section class="tab" id="tab-trades">
+  <section class="card">
+    <h2>What is happening between teams</h2>
+    <p class="sub">Every card that changed hands between two teams, from the public feed (live, one tick behind). Dealers are not here: only team ↔ team.</p>
+    <ul class="ins" id="ttStory"></ul>
+  </section>
   <div class="tiles" id="ttTiles"></div>
   <section class="card">
-    <h2>Every trade between teams</h2>
-    <p class="sub">All settled team-to-team trades in the public feed we hold (El Rastro and every team's venue), newest first. <b>Value created</b> = buyer's value − seller's value of the cards, estimated as book × (buyer's set multiplier − seller's): ours exact, the others from <code>intel/multipliers.json</code> [L]; "—" when a multiplier is unknown. On <b>our</b> venue it is what scores our market part (a minus there costs us).</p>
-    <div class="filters">
+    <div class="filters" style="margin-bottom:0">
+      <b>Show</b>
       <label>Day <select id="tDay"></select></label>
       <label>Venue <select id="tVenue"></select></label>
       <label>Team <select id="tTeam"></select></label>
       <label>Set <select id="tSet"></select></label>
-      <label>Kind <select id="tKind"><option value="">all</option><option value="cash">cash</option><option value="swap">swap</option></select></label>
+      <label>Kind <select id="tKind"><option value="">all</option><option value="cash">sold for cash</option><option value="swap">card for card</option></select></label>
       <label><input type="checkbox" id="tOursVenue"> only our venue</label>
       <label><input type="checkbox" id="tNoTop4"> hide trades with a top-4 team</label>
       <span class="muted" id="tCount"></span>
     </div>
-    <div class="scroll" style="max-height:620px"><table id="ttT"></table></div>
   </section>
   <div class="grid2">
     <section class="card">
-      <h2>By venue</h2>
-      <p class="sub">Where teams trade. "Value created" sums only the trades whose two multipliers are known (n).</p>
-      <div class="scroll"><table id="ttVenues"></table></div>
+      <h2>Where teams trade</h2>
+      <p class="sub">Trades per venue for the filters above. <b style="color:var(--series-1)">■</b> our venue v10 · <b style="color:var(--other)">■</b> the others. El Rastro is the house market (5 % + 1 P fee); the rest are stalls that teams opened.</p>
+      <div class="chartbox"><canvas id="ttVenueChart"></canvas></div>
     </section>
     <section class="card">
-      <h2>By team</h2>
-      <p class="sub">Who buys and sells between teams (swaps counted apart), and the sets each one buys most.</p>
-      <div class="scroll"><table id="ttTeams"></table></div>
+      <h2>Who buys and who sells</h2>
+      <p class="sub">Cards each team sold (left) and bought (right) in cash trades, for the filters above; the 12 busiest teams. Card-for-card swaps are not counted here.</p>
+      <div class="chartbox tall"><canvas id="ttFlowChart"></canvas></div>
     </section>
   </div>
+  <section class="card">
+    <h2>Latest trades, in plain words</h2>
+    <p class="sub">Newest first, for the filters above (up to 40). The grey tags say why a trade matters: whether the buyer collects that set, whether the seller is getting rid of it, and the value it created (see "What the words mean").</p>
+    <ul class="ins" id="ttFeed"></ul>
+  </section>
+  <section class="card">
+    <h2>What the words mean</h2>
+    <dl class="gloss">
+      <dt>Venue</dt><dd>Where the trade happened: El Rastro (the house market) or a stall a team opened. ★ = ours (v10).</dd>
+      <dt>Sold for cash / card for card</dt><dd>One team gives cards and the other pays primas (P), or both give cards (a swap).</dd>
+      <dt>Fee</dt><dd>What the venue charged the team that accepted. El Rastro: 5 % + 1 P per card; most team stalls: 0.</dd>
+      <dt>× book</dt><dd>Price compared with the card's reference price for its rarity: 0.7× = 30 % below, 2× = double.</dd>
+      <dt>Collects / gets rid of</dt><dd>From each team's behaviour (Rivals tab): a team that buys or bids for a set collects it; one that mostly sells it gets rid of it.</dd>
+      <dt>Value created</dt><dd>How much more the buyer values the cards than the seller (book × the gap between their set multipliers). Ours is exact; the others are the Analyst's estimates in <code>intel/multipliers.json</code> [L], so "—" when unknown. <b>On our venue this is what scores our market part</b>: a minus there costs us.</dd>
+      <dt>Top 4</dt><dd>One of the teams is in the current top 4: the ones we never feed.</dd>
+    </dl>
+  </section>
+  <details class="card">
+    <summary>Full table, by venue and by team</summary>
+    <div class="scroll" style="max-height:620px;margin-top:10px"><table id="ttT"></table></div>
+    <div class="grid2" style="margin-top:16px">
+      <div><h2>By venue</h2><div class="scroll"><table id="ttVenues"></table></div></div>
+      <div><h2>By team</h2><div class="scroll"><table id="ttTeams"></table></div></div>
+    </div>
+  </details>
+</section>
+
+<!-- ============================================================ MARKET PULSE -->
+<section class="tab" id="tab-pulse">
+  <section class="card">
+    <h2 id="puTitle">The market since payday</h2>
+    <p class="sub">Every settled deal, with teams and with dealers, from the public feed (one tick behind). Payday = the organisers' 400 P grant to every team.</p>
+    <ul class="ins" id="puStory"></ul>
+  </section>
+  <section class="card">
+    <h2>Deals through the day</h2>
+    <p class="sub">Deals per 40 ticks (≈ 20 min at 30 s ticks): <b style="color:var(--series-1)">■</b> between teams · <b style="color:var(--series-2)">■</b> with dealers. ▼ marks the payday bucket. Hover a bar for the volume.</p>
+    <div class="chartbox"><canvas id="puChart"></canvas></div>
+  </section>
+  <div class="grid2">
+    <section class="card">
+      <h2>Who spends since payday</h2>
+      <p class="sub">Cash paid and received per team in cash deals since payday (swaps not counted), with teams and with dealers.</p>
+      <div class="scroll"><table id="puSpend"></table></div>
+    </section>
+    <section class="card">
+      <h2>Biggest deals since payday</h2>
+      <p class="sub">By price. Epics come from Los Pícaros and Don Ernesto's vault; dealers also buy (Pilar, the bank).</p>
+      <ul class="ins" id="puBig"></ul>
+    </section>
+  </div>
+  <section class="card">
+    <h2>Venue volume, team by team</h2>
+    <p class="sub">All-time volume of each team's venue (GET /api/venues): <b style="color:var(--series-1)">■</b> ours (v10) · <b style="color:var(--other)">■</b> the others. El Rastro, the house market, is in the table, not the chart (it dwarfs the rest). Value created between other teams on a venue scores its owner's market part.</p>
+    <div class="chartbox"><canvas id="puVenues"></canvas></div>
+    <div class="scroll" style="margin-top:12px"><table id="puVenueT"></table></div>
+  </section>
+  <section class="card">
+    <h2>Venue ads since payday</h2>
+    <p class="sub">What teams announce about their venues, newest first: their pitch to the field (and, for some, text aimed at other teams' bots).</p>
+    <ul class="ins" id="puAds"></ul>
+  </section>
+</section>
+
+<!-- ============================================================ STRATEGIES -->
+<section class="tab" id="tab-strat">
+  <section class="card">
+    <h2>What each team does, and what lifted it</h2>
+    <p class="sub"><b>Now</b> = the team's deals and moves in the last game hour (feed). <b>What lifted it</b> = its three biggest score jumps today between leaderboard snapshots, with the part that moved (negotiating or market) and the team's own deals in that window. A jump with no deal of its own came from duels, a Market Test or the field moving (the board is relative). Inferred from public data [L].</p>
+    <div class="filters" style="margin-bottom:0">
+      <label>Show <select id="sShow"><option value="8">top 8</option><option value="18">all teams</option></select></label>
+      <span class="muted" id="sNote"></span>
+    </div>
+  </section>
+  <div class="dgrid" id="sCards"></div>
 </section>
 
 <!-- ============================================================ MORE -->
@@ -746,29 +836,109 @@ function duelsTab(d) {
 let ttDayInit = false;
 function tradesTab(d) {
   const t = d.team_trades;
-  if (!t) { $("#ttTiles").innerHTML = `<span class="muted">Restart the dashboard server to load this tab.</span>`; return; }
-  const s = t.summary, tsec = d.clock.tick_seconds || 30, rows = t.rows;
-  const ago = s.last_tick != null && s.now != null ? s.now - s.last_tick : null;
+  if (!t) { $("#ttStory").innerHTML = `<li><span class="muted">Restart the dashboard server to load this tab.</span></li>`; return; }
+  const s = t.summary, tsec = d.clock.tick_seconds || 30, rows = t.rows, now = s.now ?? d.clock.tick;
+  const ago = tick => {
+    const min = Math.round((now - tick) * tsec / 60);
+    return now == null || tick == null ? "" : min < 1 ? "just now" : min <= 120 ? `${min} min ago` : `tick ${tick}`;
+  };
+  const tname = id => (id === d.us ? "★ " : "") + (d.names[id] || id || "?");
+  const rk = id => { const g = t.teams.find(x => x.team === id); return g && g.rank ? ` <span class="muted">#${g.rank}</span>` : ""; };
+  const sentence = r => r.kind === "swap"
+    ? `<b>${esc(tname(r.seller))}</b>${rk(r.seller)} and <b>${esc(tname(r.buyer))}</b>${rk(r.buyer)} swapped ${r.items.map(i => `<b>${esc(i.ref)}</b> (from ${esc(tname(i.frm))})`).join(" and ")}${r.price ? ` plus ${r.price} P` : ""} on ${esc(r.venue_name)}`
+    : `<b>${esc(tname(r.seller))}</b>${rk(r.seller)} sold <b>${esc(r.refs.join(", "))}</b> <span class="muted">${esc(r.card || "")} · ${esc(r.rarity || "")}</span> to <b>${esc(tname(r.buyer))}</b>${rk(r.buyer)} for <b>${r.price} P</b> on ${r.on_ours ? "★ " : ""}${esc(r.venue_name)}${r.fee ? ` <span class="muted">(fee ${r.fee})</span>` : ""}`;
+  const tags = r => [
+    r.on_ours ? "on our venue" : "",
+    r.buyer_collects ? `buyer collects ${r.sets.join("/")}` : "",
+    r.seller_dumps ? `seller gets rid of ${r.sets.join("/")}` : "",
+    r.created != null ? `value created ${sgn(r.created, 1)}` : "",
+    r.vs_book != null ? `${r.vs_book}× book` : "",
+    r.top4 ? "top 4" : "",
+  ].filter(Boolean).map(x => `<span class="chip">${esc(x)}</span>`).join("");
+
+  // the story: today, whatever the filters
+  const today = rows.filter(r => r.day === s.day), vol = today.reduce((a, r) => a + (r.price || 0), 0);
+  const tv = {}, tt = {};
+  today.forEach(r => {
+    if (r.venue !== "rastro") tv[r.venue_name] = (tv[r.venue_name] || 0) + 1;
+    [r.seller, r.buyer].forEach(x => { if (x) tt[x] = (tt[x] || 0) + 1; });
+  });
+  const top = (o, n) => Object.entries(o).sort((a, b) => b[1] - a[1]).slice(0, n);
+  const oursToday = today.filter(r => r.on_ours);
+  const story = [
+    `Today (${esc(s.day || "—")}) teams traded with each other <b>${today.length} times</b>, for <b>${vol} P</b> in total.`,
+    `<b>${s.rastro_today} of them (${today.length ? Math.round(100 * s.rastro_today / today.length) : 0} %) on El Rastro</b>, the house market. On team stalls: ${top(tv, 3).map(([k, v]) => `${esc(k)} ${v}`).join(", ") || "none"}.`,
+    `<b>Our venue v10: ${oursToday.length} trade${oursToday.length === 1 ? "" : "s"} today.</b> When two other teams trade there and the buyer values the card more than the seller, it scores our market part; the opposite costs us.`,
+    `Busiest teams today: ${top(tt, 3).map(([k, v]) => `${esc(tname(k))} (${v})`).join(", ") || "—"}.`,
+    rows.length ? `Latest, ${ago(rows[0].tick)}: ${sentence(rows[0])}.` : "No team trade recorded yet.",
+  ];
+  $("#ttStory").innerHTML = story.map(x => `<li><span>${x}</span></li>`).join("");
+
+  const last = rows[0];
   const T = [
-    [`Team trades today (${s.day || "—"})`, s.today, `<span class="d">${s.volume_today} P volume · ${s.swaps_today} swaps · ${s.n} recorded in all</span>`],
-    ["On El Rastro today", s.today ? Math.round(100 * s.rastro_today / s.today) + "%" : "—", `<span class="d">${s.rastro_today} there, ${s.today - s.rastro_today} on team venues</span>`],
-    ["On our venue (v10)", s.ours_venue, `<span class="d">est. value created ${sgn(s.ours_venue_created, 1)} (it scores our market part)</span>`],
-    ["Last team trade", s.last_tick != null ? "tick " + s.last_tick : "—", `<span class="d">${ago != null ? `${ago} ticks ago (≈ ${Math.round(ago * tsec / 60)} min)` : ""}</span>`],
+    ["Trades today", today.length, `<span class="d">${vol} P · ${s.swaps_today} card-for-card</span>`],
+    ["On El Rastro", today.length ? Math.round(100 * s.rastro_today / today.length) + " %" : "—", `<span class="d">${today.length - s.rastro_today} on team stalls</span>`],
+    ["On our venue (v10)", oursToday.length, `<span class="d">today · ${s.ours_venue} in all, est. value created ${sgn(s.ours_venue_created, 1)}</span>`],
+    ["Last trade", last ? ago(last.tick) : "—", `<span class="d">${last ? `${esc(tname(last.seller))} → ${esc(tname(last.buyer))}` : ""}</span>`],
   ];
   $("#ttTiles").innerHTML = T.map(([k, val, dl]) => `<div class="tile"><div class="k">${k}</div><div class="v">${val}</div>${dl}</div>`).join("");
 
+  // filters
   fillSelect($("#tDay"), [...new Set(rows.map(r => r.day))].map(x => [x, x]));
   if (!ttDayInit && s.day) { $("#tDay").value = s.day; ttDayInit = true; }
   fillSelect($("#tVenue"), t.venues.map(v => [v.venue, (v.ours ? "★ " : "") + v.name]));
-  fillSelect($("#tTeam"), t.teams.map(g => [g.team, `${g.name}${g.rank ? " #" + g.rank : ""}`]));
+  fillSelect($("#tTeam"), t.teams.map(g => [g.team, `${g.us ? "★ " : ""}${g.name}${g.rank ? " #" + g.rank : ""}`]));
   fillSelect($("#tSet"), [...new Set(rows.flatMap(r => r.sets))].sort().map(x => [x, x]));
   const day = $("#tDay").value, venue = $("#tVenue").value, team = $("#tTeam").value, set = $("#tSet").value,
         kind = $("#tKind").value, oursV = $("#tOursVenue").checked, noTop = $("#tNoTop4").checked;
   const shown = rows.filter(r => (!day || r.day === day) && (!venue || r.venue === venue)
     && (!team || r.buyer === team || r.seller === team) && (!set || r.sets.includes(set)) && (!kind || r.kind === kind)
     && (!oursV || r.on_ours) && (!noTop || !r.top4));
-  $("#tCount").textContent = `${shown.length} of ${rows.length} trades · ${shown.reduce((a, r) => a + (r.price || 0), 0)} P`;
+  $("#tCount").textContent = `→ ${shown.length} trades · ${shown.reduce((a, r) => a + (r.price || 0), 0)} P`;
 
+  // chart 1: where (emphasis: our venue in the accent, the rest grey)
+  const byV = {};
+  shown.forEach(r => {
+    byV[r.venue] = byV[r.venue] || { name: r.venue_name, ours: r.on_ours, n: 0, vol: 0 };
+    byV[r.venue].n++; byV[r.venue].vol += r.price || 0;
+  });
+  const vs = Object.values(byV).sort((a, b) => b.n - a.n);
+  const bar = { borderColor: css("--surface-1"), borderWidth: 2, borderRadius: 4, borderSkipped: "start", maxBarThickness: 24 };
+  chart("ttVenueChart", "bar", { labels: vs.map(v => `${v.ours ? "★ " : ""}${v.name.length > 26 ? v.name.slice(0, 25) + "…" : v.name} · ${v.n}`), datasets: [
+    { ...bar, label: "trades", data: vs.map(v => v.n), backgroundColor: vs.map(v => v.ours ? css("--series-1") : css("--other")) },
+  ] }, {
+    indexAxis: "y",
+    scales: { x: { ...axis("trades"), ticks: { color: css("--text-muted"), precision: 0 } },
+              y: { grid: { display: false }, ticks: { color: css("--text-secondary") } } },
+    plugins: { legend: { display: false },
+               tooltip: { callbacks: { label: c => `${vs[c.dataIndex].n} trades · ${vs[c.dataIndex].vol} P` } } },
+  });
+
+  // chart 2: who buys and who sells (sold to the left, bought to the right; cash trades only)
+  const flow = {};
+  shown.filter(r => r.kind === "cash").forEach(r => {
+    if (r.buyer) { flow[r.buyer] = flow[r.buyer] || { b: 0, s: 0 }; flow[r.buyer].b++; }
+    if (r.seller) { flow[r.seller] = flow[r.seller] || { b: 0, s: 0 }; flow[r.seller].s++; }
+  });
+  const fs = Object.entries(flow).sort((a, b) => (b[1].b + b[1].s) - (a[1].b + a[1].s)).slice(0, 12);
+  const lab = id => { const g = t.teams.find(x => x.team === id); return `${tname(id)}${g && g.rank ? " #" + g.rank : ""}`; };
+  chart("ttFlowChart", "bar", { labels: fs.map(([id]) => lab(id)), datasets: [
+    { ...bar, label: "sold", data: fs.map(([, v]) => -v.s), backgroundColor: css("--series-2") },
+    { ...bar, label: "bought", data: fs.map(([, v]) => v.b), backgroundColor: css("--series-1") },
+  ] }, {
+    indexAxis: "y",
+    scales: { x: { ...axis("← cards sold · cards bought →"), stacked: true, ticks: { color: css("--text-muted"), precision: 0, callback: v => Math.abs(v) } },
+              y: { stacked: true, grid: { display: false }, ticks: { color: css("--text-secondary") } } },
+    plugins: { legend: { labels: { color: css("--text-secondary"), boxWidth: 12 } },
+               tooltip: { mode: "index", intersect: false, callbacks: { label: c => `${c.dataset.label}: ${Math.abs(c.raw)}` } } },
+  });
+
+  // the feed, in words
+  $("#ttFeed").innerHTML = shown.length
+    ? shown.slice(0, 40).map(r => `<li${r.ours ? ` style="background:rgba(57,135,229,0.12)"` : ""}><span class="tag info">${esc(ago(r.tick))}</span><span>${sentence(r)}.<br>${tags(r)}</span></li>`).join("")
+    : `<li><span class="muted">No trade matches these filters.</span></li>`;
+
+  // the full table, folded
   const who = (id, name, rank) => `${id === d.us ? "★ " : ""}${esc(name || id || "?")}${rank ? ` <span class="muted">#${rank}</span>` : ""}`;
   const cards = r => r.kind === "swap"
     ? r.items.map(i => `${esc(d.names[i.frm] || i.frm)} gives <b>${esc(i.ref)}</b>`).join(" · ")
@@ -776,19 +946,16 @@ function tradesTab(d) {
   table($("#ttT"), "teamTrades", shown, [
     ["tick", "Tick", r => `${r.tick} <span class="muted">${esc(r.day)}</span>`, true],
     ["venue_name", "Venue", r => `${r.on_ours ? "★ " : ""}${esc(r.venue_name)}`],
-    ["kind", "Kind", r => `<span class="chip">${esc(r.kind)}</span>`],
+    ["kind", "Kind", r => r.kind === "swap" ? "card for card" : "cash"],
     ["seller_name", "Seller → buyer", r => `${who(r.seller, r.seller_name, r.seller_rank)} → ${who(r.buyer, r.buyer_name, r.buyer_rank)}`],
     ["refs", "Cards", cards],
-    ["rarity", "Rarity", r => esc(r.rarity || "")],
     ["price", "Price P", null, true],
     ["fee", "Fee", null, true],
     ["vs_book", "× book", r => r.vs_book != null ? r.vs_book + "×" : "—", true],
     ["buyer_collects", "Buyer collects", r => r.buyer_collects ? "✓" : ""],
-    ["seller_dumps", "Seller dumps", r => r.seller_dumps ? "✓" : ""],
+    ["seller_dumps", "Seller gets rid", r => r.seller_dumps ? "✓" : ""],
     ["created", "Value created", r => r.created == null ? "—" : `<span class="${r.created > 0 ? "up" : r.created < 0 ? "down" : ""}">${sgn(r.created, 1)}</span>`, true],
-    ["top4", "", r => (r.top4 ? `<span class="chip">top 4</span>` : "") + (r.ours ? `<span class="chip">ours</span>` : "")],
   ], r => r.ours ? "us" : "");
-
   table($("#ttVenues"), "ttVenues", t.venues, [
     ["name", "Venue", r => `${r.ours ? "★ " : ""}${esc(r.name)}`],
     ["owner_name", "Owner", r => r.venue === "rastro" ? `<span class="muted">the house</span>` : esc(r.owner_name)],
@@ -796,9 +963,7 @@ function tradesTab(d) {
     ["trades", "Trades", null, true],
     ["today", "Today", null, true],
     ["volume", "Volume P", null, true],
-    ["fees", "Fees P", null, true],
-    ["created", "Value created", r => r.created_n ? `<span class="${r.created > 0 ? "up" : r.created < 0 ? "down" : ""}">${sgn(r.created, 1)}</span> <span class="muted">(n ${r.created_n})</span>` : "—", true],
-    ["last", "Last tick", null, true],
+    ["created", "Value created", r => r.created_n ? `${sgn(r.created, 1)} <span class="muted">(n ${r.created_n})</span>` : "—", true],
   ], r => r.ours ? "us" : "");
   table($("#ttTeams"), "ttTeams", t.teams, [
     ["name", "Team", r => `${r.us ? "★ " : ""}${esc(r.name)}${r.rank ? ` <span class="muted">#${r.rank}</span>` : ""}`],
@@ -807,9 +972,146 @@ function tradesTab(d) {
     ["swaps", "Swaps", null, true],
     ["spent", "Spent P", null, true],
     ["received", "Received P", null, true],
-    ["today", "Today", null, true],
     ["sets_bought", "Buys most", r => esc(r.sets_bought)],
   ], r => r.us ? "us" : "");
+}
+
+// ------------------------------------------------------------------ market pulse
+function pulseTab(d) {
+  const p = d.pulse;
+  if (!p) { $("#puStory").innerHTML = `<li><span class="muted">Restart the dashboard server to load this tab.</span></li>`; return; }
+  const s = p.summary, tsec = d.clock.tick_seconds || 30;
+  const mins = t => Math.max(0, Math.round((p.now - t) * tsec / 60));
+  $("#puTitle").textContent = p.payday != null ? `The market since payday (tick ${p.payday}, ≈ ${mins(p.payday)} min ago)` : "The market in the last two hours";
+  const top = (p.spenders || []).filter(g => g.spent > 0).slice(0, 3).map(g => `${g.us ? "★ " : ""}${esc(g.name)} ${g.spent} P`).join(", ");
+  const pace = s.rate_now != null && s.rate_before != null ? `${s.rate_now} deals per 10 min now vs ${s.rate_before} earlier today` : "";
+  $("#puStory").innerHTML = [
+    `<b>${s.deals} deals</b> since then: <b>${s.team}</b> between teams and <b>${s.dealer}</b> with dealers, <b>${s.volume} P</b> in all${s.rares ? `, ${s.rares} rare or better` : ""}.`,
+    pace ? `Pace: ${pace}.` : "",
+    top ? `Biggest spenders: ${top}.` : "Nobody has spent yet.",
+    p.big && p.big.length ? `Biggest deal: ${esc(p.big[0].text)} for <b>${p.big[0].price} P</b>.` : "",
+    `Venue ads posted: <b>${p.ads.length}</b>${p.ads.length ? ` (most by ${esc(Object.entries(p.ads.reduce((a, x) => (a[x.owner_name] = (a[x.owner_name] || 0) + 1, a), {})).sort((a, b) => b[1] - a[1])[0][0])})` : ""}.`,
+  ].filter(Boolean).map(x => `<li><span>${x}</span></li>`).join("");
+
+  const tl = p.timeline || [];
+  const bar = { borderColor: css("--surface-1"), borderWidth: 2, borderRadius: 4, borderSkipped: "start", maxBarThickness: 24, stack: "s" };
+  const lab = t => `${p.payday != null && t <= p.payday && p.payday < t + p.step ? "▼ " : ""}${t}`;
+  chart("puChart", "bar", { labels: tl.map(b => lab(b.tick)), datasets: [
+    { ...bar, label: "between teams", data: tl.map(b => b.team), backgroundColor: css("--series-1") },
+    { ...bar, label: "with dealers", data: tl.map(b => b.dealer), backgroundColor: css("--series-2") },
+  ] }, {
+    scales: { x: { ...axis("tick (start of each 40-tick bucket)"), stacked: true, grid: { display: false } },
+              y: { ...axis("deals"), stacked: true, ticks: { color: css("--text-muted"), precision: 0 } } },
+    plugins: { legend: { labels: { color: css("--text-secondary"), boxWidth: 12 } },
+               tooltip: { mode: "index", intersect: false, callbacks: { footer: it => `${tl[it[0].dataIndex].volume} P volume` } } },
+  });
+
+  table($("#puSpend"), "puSpend", p.spenders || [], [
+    ["name", "Team", r => `${r.us ? "★ " : ""}${esc(r.name)}${r.rank ? ` <span class="muted">#${r.rank}</span>` : ""}`],
+    ["spent", "Spent P", null, true],
+    ["received", "Received P", null, true],
+    ["team_buys", "Buys (teams)", null, true],
+    ["team_sells", "Sells (teams)", null, true],
+    ["dealer_buys", "Buys (dealers)", null, true],
+    ["dealer_sells", "Sells (dealers)", null, true],
+  ], r => r.us ? "us" : "");
+  $("#puBig").innerHTML = (p.big || []).length
+    ? p.big.map(b => `<li${b.ours ? ` style="background:rgba(57,135,229,0.12)"` : ""}><span class="tag info">${b.price} P</span><span>${esc(b.text)} <span class="muted">· ${mins(b.tick)} min ago</span></span></li>`).join("")
+    : `<li><span class="muted">No deal since payday yet.</span></li>`;
+
+  const vt = (p.venues || []).filter(v => v.owner_name !== "the house" && v.volume > 0);
+  const house = (p.venues || []).find(v => v.owner_name === "the house");
+  chart("puVenues", "bar", { labels: vt.map(v => `${v.ours ? "★ " : ""}${v.owner_name}${v.rank ? " #" + v.rank : ""} · ${v.volume} P`), datasets: [
+    { ...bar, stack: undefined, label: "volume P", data: vt.map(v => v.volume), backgroundColor: vt.map(v => v.ours ? css("--series-1") : css("--other")) },
+  ] }, {
+    indexAxis: "y",
+    scales: { x: { ...axis("all-time volume P"), ticks: { color: css("--text-muted"), precision: 0 } },
+              y: { grid: { display: false }, ticks: { color: css("--text-secondary") } } },
+    plugins: { legend: { display: false },
+               tooltip: { callbacks: { label: c => `${vt[c.dataIndex].trades} trades · ${vt[c.dataIndex].volume} P · ${vt[c.dataIndex].traders} traders` } } },
+  });
+  table($("#puVenueT"), "puVenueT", p.venues || [], [
+    ["name", "Venue", r => `${r.ours ? "★ " : ""}${esc(r.name || r.venue)} <span class="muted">${esc(r.venue)}</span>`],
+    ["owner_name", "Owner", r => `${esc(r.owner_name)}${r.rank ? ` <span class="muted">#${r.rank}</span>` : ""}`],
+    ["fee_bps", "Fee", r => r.fee_bps == null ? "—" : `${r.fee_bps / 100} %`, true],
+    ["mechanism", "Matching", r => esc(r.mechanism || "—")],
+    ["trades", "Trades", null, true],
+    ["volume", "Volume P", null, true],
+    ["fees", "Fees P", null, true],
+    ["traders", "Traders", null, true],
+    ["since", "Since payday", null, true],
+    ["ads", "Ads", null, true],
+  ], r => r.ours ? "us" : "");
+  $("#puAds").innerHTML = (p.ads || []).length
+    ? p.ads.map(a => `<li><span class="tag info">${mins(a.tick)} min</span><span><b>${esc(a.owner_name)}</b> <span class="muted">${esc(a.venue || "")} · ${esc(a.name || "")}</span><br>${esc(a.text)}</span></li>`).join("")
+    : `<li><span class="muted">No venue ad since payday.</span></li>`;
+}
+
+// ------------------------------------------------------------------ strategies
+function stratTab(d) {
+  const st = d.strategies;
+  if (!st) { $("#sCards").innerHTML = `<p class="muted">Restart the dashboard server to load this tab.</p>`; return; }
+  const n = parseInt($("#sShow").value || "8");
+  const teams = st.teams.filter(t => t.rank <= n || t.us);
+  $("#sNote").textContent = `"Now" covers the last ${st.window_ticks} ticks (one game hour).`;
+  $("#sCards").innerHTML = teams.map(t => {
+    const chips = [`neg ${num(t.negotiating, 2)}`, `market ${num(t.market, 2)}`, t.pages != null ? `${t.pages} page(s)` : "",
+      t.level != null ? `level ${t.level}` : "", t.stall ? `stall ${t.stall}` : "no stall",
+      t.collects.length ? `collects ${t.collects.join("/")}` : "", t.dumps.length ? `gets rid of ${t.dumps.join("/")}` : ""]
+      .filter(Boolean).map(c => `<span class="chip">${esc(c)}</span>`).join("");
+    const moves = t.moves.length ? t.moves.map(m => `<li><span class="tag up">+${num(m.delta, 2)}</span><span><span class="muted">ticks ${m.from}→${m.to}</span> · ${m.why.map(esc).join(" · ")}</span></li>`).join("")
+      : `<li><span class="muted">No jump of +0.5 or more today.</span></li>`;
+    return `<div class="card"${t.us ? ` style="border-color:var(--series-1)"` : ""}>`
+      + `<h2>#${t.rank} ${t.us ? "★ " : ""}${esc(t.name)} · ${num(t.score, 2)}${t.delta != null ? ` <span class="${t.delta > 0 ? "up" : t.delta < 0 ? "down" : "muted"}" style="font-size:13px">${sgn(t.delta)}</span>` : ""}</h2>`
+      + `${spark(t.series)}<div style="margin:6px 0">${chips}</div>`
+      + `<p class="sub" style="margin:6px 0 4px"><b>Now:</b> ${t.now.map(esc).join(" · ")}</p>`
+      + `<p class="sub" style="margin:8px 0 4px"><b>What lifted it today:</b></p><ul class="ins">${moves}</ul></div>`;
+  }).join("");
+}
+
+// ------------------------------------------------------------------ live duel cards
+function liveDuelCards(d, m) {
+  const box = $("#dmCards"), tsec = d.clock.tick_seconds || 30, now = d.clock.tick;
+  const live = (d.duelview?.duels || []).filter(x => x.status === "live").sort((a, b) => (a.deadline || 0) - (b.deadline || 0));
+  const row = Object.fromEntries(((m && m.live) || []).map(r => [r.duel, r]));
+  const ids = live.map(x => x.duel).join(",");
+  if (box.dataset.ids !== ids) {  // rebuild only when the set of live duels changes, so the charts keep their canvas
+    Object.keys(charts).filter(k => k.startsWith("dl-")).forEach(k => { charts[k].destroy(); delete charts[k]; });
+    box.innerHTML = live.length ? live.map(x => `<div class="card"><h2 id="dlh-${x.duel}"></h2><p class="sub" id="dls-${x.duel}"></p>`
+      + `<div class="chartbox mini"><canvas id="dl-${x.duel}"></canvas></div><div id="dlf-${x.duel}"></div>`
+      + `<div class="chat mini" id="dlc-${x.duel}"></div></div>`).join("")
+      : `<p class="muted">No live duel right now${m && !m.finished ? "" : ": the next session starts on the schedule"}.</p>`;
+    box.dataset.ids = ids;
+  }
+  live.forEach(x => {
+    const r = row[x.duel] || {}, buyer = x.role === "buyer";
+    const span = (m && m.duel_ticks) || 16, start = x.deadline != null ? x.deadline - span : Math.min(...x.messages.map(q => q.tick));
+    const left = x.deadline != null && now != null ? x.deadline - now : null;
+    $(`#dlh-${x.duel}`).innerHTML = `Duel ${x.duel} · we <b>${buyer ? "buy" : "sell"}</b> · ${esc(x.rival || "?")}`;
+    $(`#dls-${x.duel}`).innerHTML = `${esc(x.item || "")} · our limit <b>${x.limit}</b> (${buyer ? "never pay above" : "never sell below"})`
+      + (x.days_weight != null ? ` · our day weight <b>${x.days_weight}</b> P/day` : "")
+      + ` · <b>${left ?? "—"}</b> ticks left (≈ ${left != null ? Math.max(0, Math.round(left * tsec / 60 * 10) / 10) : "—"} min) · ${x.rounds ?? 0} rounds · pie left ${r.pie ?? Math.round(100 * (1 - (x.decay || 0)) ** (x.rounds || 0))}%`;
+    const pts = who => x.messages.filter(q => q.us === who && q.price != null).map(q => ({ x: q.tick, y: q.price, d: q.days }));
+    const ds = [
+      { label: "us", data: pts(true), borderColor: css("--series-1"), backgroundColor: css("--series-1") },
+      { label: x.rival || "rival", data: pts(false), borderColor: css("--series-2"), backgroundColor: css("--series-2") },
+    ].map(s => ({ ...s, borderWidth: 2, stepped: true, pointRadius: 4, pointHoverRadius: 6, pointHitRadius: 10 }));
+    ds.push({ label: "our limit", data: [{ x: start, y: x.limit }, { x: x.deadline ?? now, y: x.limit }], borderColor: css("--text-muted"),
+              backgroundColor: css("--text-muted"), borderDash: [6, 4], borderWidth: 2, pointRadius: 0 });
+    chart(`dl-${x.duel}`, "line", { datasets: ds }, {
+      interaction: { mode: "nearest", intersect: false },
+      scales: { x: { type: "linear", min: start, max: x.deadline ?? undefined, ...axis(""), ticks: { color: css("--text-muted"), precision: 0 } },
+                y: { ...axis("P"), grace: "8%" } },
+      plugins: { legend: { labels: { color: css("--text-secondary"), boxWidth: 12, boxHeight: 3 } },
+                 tooltip: { callbacks: { title: it => `tick ${it[0].parsed.x}`,
+                   label: it => ` ${it.dataset.label}: ${it.parsed.y} P${it.raw && it.raw.d != null ? ` · day ${it.raw.d}` : ""}` } } },
+    });
+    const chips = [r.accept_now != null ? `accepting now: +${r.accept_now} P` : "", ...(r.flags || [])].filter(Boolean);
+    $(`#dlf-${x.duel}`).innerHTML = chips.map(c => `<span class="chip">${esc(c)}</span>`).join("");
+    const c = $(`#dlc-${x.duel}`), atBottom = c.scrollTop + c.clientHeight >= c.scrollHeight - 8;
+    c.innerHTML = chatHtml(x.messages.slice(-12), q => q.us ? "us (Team 5)" : q.who);
+    if (atBottom || !c.dataset.seen) { c.scrollTop = c.scrollHeight; c.dataset.seen = "1"; }
+  });
 }
 
 // ------------------------------------------------------------------ duel monitor
@@ -833,6 +1135,8 @@ function duelmonTab(d) {
     ["Whole field", `${m.field_closed}/${m.field_total}`, `<span class="d">duels closed · ${pct(m.field_deals, m.field_closed)} ended in a deal</span>`],
   ];
   $("#dmTiles").innerHTML = T.map(([k, val, dl]) => `<div class="tile"><div class="k">${k}</div><div class="v">${val}</div>${dl}</div>`).join("");
+  try { liveDuelCards(d, m); }
+  catch (e) { $("#dmCards").innerHTML = `<p class="err">live cards: ${esc(e.message)}</p>`; $("#dmCards").dataset.ids = ""; }
   $("#dmAlerts").innerHTML = m.alerts.length
     ? m.alerts.map(a => `<li><span class="tag ${DM_SEV[a.sev][0]}">${DM_SEV[a.sev][1]}</span><span>${esc(a.text)}</span></li>`).join("")
     : `<li><span class="muted">Nothing to act on right now.</span></li>`;
@@ -936,6 +1240,8 @@ function render() {
   if (tab === "convs") convsTab(d);
   if (tab === "market") { marketTable(d); holdersTable(d); pricesTables(d); }
   if (tab === "trades") tradesTab(d);
+  if (tab === "pulse") pulseTab(d);
+  if (tab === "strat") stratTab(d);
   if (tab === "more") moreTab(d);
 }
 
@@ -954,7 +1260,7 @@ async function refresh() {
   } catch (e) { $("#hdr").innerHTML = `<span class="err">dashboard server not reachable: ${esc(e.message)}</span>`; }
 }
 ["#fSide", "#fSet", "#fTeam", "#fOpp", "#fOurs", "#cTeam", "#cDealer", "#cOurs",
- "#tDay", "#tVenue", "#tTeam", "#tSet", "#tKind", "#tOursVenue", "#tNoTop4"].forEach(s => $(s).addEventListener("change", render));
+ "#tDay", "#tVenue", "#tTeam", "#tSet", "#tKind", "#tOursVenue", "#tNoTop4", "#sShow"].forEach(s => $(s).addEventListener("change", render));
 const TABS = [...document.querySelectorAll(".tabs button")].map(b => b.dataset.tab);
 const fromHash = location.hash.slice(1);
 showTab(TABS.includes(fromHash) ? fromHash : store.get("bz-tab", "overview"));

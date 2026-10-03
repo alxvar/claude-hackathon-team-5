@@ -36,6 +36,14 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "bazaar-kit"))
 from bazaar_sdk import Bazaar, BazaarError  # noqa: E402
 
+
+def _run(*args, **kwargs):
+    """subprocess.run without a console window on Windows. The dashboard runs under pythonw (start.bat), so every
+    git call would otherwise open a terminal window for a split second."""
+    if os.name == "nt":
+        kwargs.setdefault("creationflags", subprocess.CREATE_NO_WINDOW)
+    return subprocess.run(*args, **kwargs)
+
 HERE = Path(__file__).resolve().parent
 CACHE = ROOT / "logs" / "dashboard"
 TEAMS_MD = ROOT / "intel" / "teams.md"
@@ -257,8 +265,8 @@ class Collector:
         git = ["git", "-C", str(ROOT)]
         env = {**os.environ, "GIT_TERMINAL_PROMPT": "0"}
         try:
-            subprocess.run(git + ["fetch", "-q", "origin", "main"], capture_output=True, timeout=30, env=env)
-            r = subprocess.run(git + ["show", "origin/main:intel/directives.md"], capture_output=True, timeout=10, env=env)
+            _run(git + ["fetch", "-q", "origin", "main"], capture_output=True, timeout=30, env=env)
+            r = _run(git + ["show", "origin/main:intel/directives.md"], capture_output=True, timeout=10, env=env)
             if r.returncode == 0 and r.stdout:
                 self.directives = r.stdout.decode("utf-8", "replace")
                 self.directives_src = f"GitHub, read {time.strftime('%H:%M')}"
@@ -285,34 +293,34 @@ class Collector:
         # (Sat 09:44-09:52 a pull --autostash over a half-done edit discarded other sessions' work 13 times).
         if (ROOT / "run" / "git-paused").exists():
             return
-        gitdir = Path(subprocess.run(git + ["rev-parse", "--absolute-git-dir"], capture_output=True,
+        gitdir = Path(_run(git + ["rev-parse", "--absolute-git-dir"], capture_output=True,
                                      text=True).stdout.strip())
         if any((gitdir / d).exists() for d in ("rebase-merge", "rebase-apply", "MERGE_HEAD")):
             self.errors.appendleft(f"{time.strftime('%H:%M:%S')} teams.md: a rebase/merge is under way, not pushed")
             return
         code = ("agents/", "tools/", "tests/", "engine/", "broker/", "dashboard/", "hub/", "bazaar-kit/",
                 "pyproject.toml", "uv.lock")
-        wip = [ln[3:] for ln in subprocess.run(git + ["status", "--porcelain"], capture_output=True,
+        wip = [ln[3:] for ln in _run(git + ["status", "--porcelain"], capture_output=True,
                                                text=True).stdout.splitlines()
                if not ln.startswith("??") and ln[3:].strip('"').startswith(code)]
         for attempt in range(3):
-            subprocess.run(git + ["add", "--", rel], capture_output=True)
-            if subprocess.run(git + ["diff", "--cached", "--quiet", "--", rel]).returncode == 0:
+            _run(git + ["add", "--", rel], capture_output=True)
+            if _run(git + ["diff", "--cached", "--quiet", "--", rel]).returncode == 0:
                 return
-            c = subprocess.run(git + ["commit", "-q", "-m", f"intel: teams.md (Dani's dashboard, {time.strftime('%H:%M')})",
+            c = _run(git + ["commit", "-q", "-m", f"intel: teams.md (Dani's dashboard, {time.strftime('%H:%M')})",
                                       "--", rel], capture_output=True, text=True)
             if c.returncode == 0:
                 if wip:  # a code edit in the tree: keep the commit local, the next clean round pushes it
                     self.errors.appendleft(f"{time.strftime('%H:%M:%S')} teams.md: committed, not pushed "
                                            f"(work in progress in {', '.join(wip[:2])})")
                     return
-                if subprocess.run(git + ["pull", "--rebase", "--autostash", "-q", "origin", "main"],
+                if _run(git + ["pull", "--rebase", "--autostash", "-q", "origin", "main"],
                                   capture_output=True).returncode != 0:
-                    subprocess.run(git + ["rebase", "--abort"], capture_output=True)
+                    _run(git + ["rebase", "--abort"], capture_output=True)
                     self.errors.appendleft(f"{time.strftime('%H:%M:%S')} teams.md: pull conflicted (aborted), "
                                            "committed, not pushed")
                     return
-                p = subprocess.run(git + ["push", "-q", "origin", "HEAD:main"], capture_output=True, text=True)
+                p = _run(git + ["push", "-q", "origin", "HEAD:main"], capture_output=True, text=True)
                 if p.returncode == 0:
                     return
                 self.errors.appendleft(f"{time.strftime('%H:%M:%S')} teams.md push: {p.stderr.strip()[:150]}")
@@ -813,6 +821,229 @@ class Analysis:
                             "ours_venue_created": round(sum(r["created"] or 0 for r in rows if r["on_ours"]), 1),
                             "last_tick": rows[0]["tick"] if rows else None, "now": self.clock.get("tick"),
                             "mult_updated": (mult.get("_meta") or {}).get("updated")}}
+
+    def _day_open(self):
+        return max((e.get("tick") or 0 for e in self.events if e.get("type") == "day.opened"), default=0)
+
+    def _nm(self, x):
+        """A team or dealer name; dealers missing from the names map read 'Pilar', not 'pilar'."""
+        n = self.name(x)
+        return n if n != x else str(x or "?").capitalize()
+
+    def _deal_text(self, tr, tid):
+        """One settled deal, from team `tid`'s side: 'bought SAL-06 from Team 8 on El Rastro (28 P)'."""
+        nm = self._nm
+        items = tr["items"]
+        refs = ", ".join(i.get("ref") or "?" for i in items)
+        where = "El Rastro" if tr["venue"] == "rastro" else (tr["venue"] or "")
+        if len({i.get("frm") for i in items}) > 1:
+            other = next((p for p in tr["parties"] if p != tid), None)
+            return f"swapped {refs} with {nm(other)}" + (f" on {where}" if where else "")
+        frm, to = items[0].get("frm"), items[0].get("to")
+        if to == tid:
+            return f"bought {refs} from {nm(frm)}" + (f" on {where}" if where else "") + f" ({tr['price']} P)"
+        if frm == tid:
+            return f"sold {refs} to {nm(to)}" + (f" on {where}" if where else "") + f" ({tr['price']} P)"
+        return f"{nm(frm)} → {nm(to)}: {refs} on its stall {where} ({tr['price']} P)"
+
+    def market_pulse(self, prof):
+        """The market since payday (the organisers' 400 P grant), or the last two hours: every settled deal with a team
+        or a dealer, a timeline of the day in 40-tick buckets, who spends and on what, the biggest buys, the venue ads,
+        and each venue's volume (GET /api/venues, all-time) next to its trades since payday (feed)."""
+        tick = self.clock.get("tick") or 0
+        payday = next((e.get("tick") for e in reversed(self.events) if e.get("type") == "announcement"
+                       and "payday" in str((e.get("payload") or {}).get("text", "")).lower()), None)
+        since = payday if payday is not None else max(0, tick - 240)
+        opened = self._day_open()
+        byprof = {p["team"]: p for p in prof}
+        is_team = lambda x: bool(re.fullmatch(r"t\d{2}", str(x or "")))
+        step = 40
+        buckets = {}
+        for tr in self.trades:
+            t = tr["tick"] or 0
+            if t < opened:
+                continue
+            b = opened + (t - opened) // step * step
+            g = buckets.setdefault(b, {"tick": b, "team": 0, "dealer": 0, "volume": 0})
+            g["team" if tr["kind"] == "team" else "dealer"] += 1
+            g["volume"] += tr["price"] or 0
+        win = [tr for tr in self.trades if (tr["tick"] or 0) >= since]
+        acc, big = {}, []
+        for tr in win:
+            items = tr["items"]
+            if not items or len({i.get("frm") for i in items}) > 1:
+                continue
+            frm, to, price = items[0].get("frm"), items[0].get("to"), tr["price"] or 0
+            for tid, side in ((to, "buy"), (frm, "sell")):
+                if not is_team(tid):
+                    continue
+                g = acc.setdefault(tid, {"team": tid, "name": self.name(tid), "rank": (byprof.get(tid) or {}).get("rank"),
+                                         "us": tid == self.us, "spent": 0, "received": 0, "team_buys": 0, "team_sells": 0,
+                                         "dealer_buys": 0, "dealer_sells": 0})
+                kind = "team" if tr["kind"] == "team" else "dealer"
+                if side == "buy":
+                    g["spent"] += price
+                    g[f"{kind}_buys"] += 1
+                else:
+                    g["received"] += price
+                    g[f"{kind}_sells"] += 1
+            big.append({"tick": tr["tick"], "kind": tr["kind"], "buyer": to, "seller": frm,
+                        "text": f"{self._nm(to)} bought {', '.join(i.get('ref') or '?' for i in items)} "
+                                f"({items[0].get('rarity') or items[0].get('kind') or ''}) from {self._nm(frm)}"
+                                + (" on El Rastro" if tr["venue"] == "rastro" else f" on {tr['venue']}" if tr["venue"] else ""),
+                        "price": price, "rarity": items[0].get("rarity"), "ours": self.us in tr["parties"]})
+        big.sort(key=lambda r: -(r["price"] or 0))
+        vown = {v.get("venue"): v.get("owner") for v in self.venues}
+        ads = []
+        for e in self.events:
+            if e.get("type") != "venue.announcement" or (e.get("tick") or 0) < since:
+                continue
+            p = e.get("payload") or {}
+            own = vown.get(p.get("venue"))
+            ads.append({"tick": e.get("tick"), "venue": p.get("venue"), "name": p.get("name"), "owner": own,
+                        "owner_name": self.name(own) if own else "?", "text": str(p.get("text") or "")[:240]})
+        ads.reverse()
+        since_v = collections.Counter(tr["venue"] for tr in win if tr["kind"] == "team")
+        venues = []
+        for v in self.venues:
+            own = v.get("owner")
+            venues.append({"venue": v.get("venue"), "name": v.get("name"), "owner": own,
+                           "owner_name": "the house" if v.get("house") or v.get("venue") == "rastro" else self.name(own),
+                           "rank": (byprof.get(own) or {}).get("rank"), "ours": own == self.us, "status": v.get("status"),
+                           "fee_bps": v.get("fee_bps"), "mechanism": (v.get("rules") or {}).get("mechanism"),
+                           "trades": v.get("trades") or 0, "volume": v.get("volume") or 0, "fees": v.get("fees") or 0,
+                           "traders": v.get("traders") or 0, "since": since_v.get(v.get("venue"), 0),
+                           "ads": sum(1 for a in ads if a["venue"] == v.get("venue"))})
+        venues.sort(key=lambda r: -r["volume"])
+        before = [tr for tr in self.trades if opened <= (tr["tick"] or 0) < since]
+        rate = lambda xs, ticks: round(len(xs) / ticks * 20, 1) if ticks > 0 else None   # deals per 20 ticks (10 min)
+        return {"payday": payday, "since": since, "now": tick, "opened": opened, "step": step,
+                "timeline": [buckets[k] for k in sorted(buckets)],
+                "summary": {"deals": len(win), "team": sum(1 for t in win if t["kind"] == "team"),
+                            "dealer": sum(1 for t in win if t["kind"] != "team"),
+                            "volume": sum(t["price"] or 0 for t in win),
+                            "rares": sum(1 for t in win for i in t["items"] if i.get("rarity") in ("rare", "epic", "legendary")),
+                            "rate_now": rate(win, tick - since), "rate_before": rate(before, since - opened)},
+                "spenders": sorted(acc.values(), key=lambda g: -(g["spent"] + g["received"])),
+                "big": big[:12], "ads": ads[:25], "venues": venues}
+
+    def strategies(self, prof):
+        """What each team is doing now (its deals and moves in the last game hour) and what lifted it today: its three
+        biggest score jumps between leaderboard snapshots, each with that team's own deals in the window. A jump with no
+        deal of its own came from duels, ladder re-grading or the field (the board is relative)."""
+        tick = self.clock.get("tick") or 0
+        tps = self.clock.get("tick_seconds") or 30
+        hour = int(3600 / tps)
+        recent = tick - hour
+        opened = self._day_open()
+        vown = {v.get("venue"): v.get("owner") for v in self.venues}
+        sessions = []
+        for e in self.events:
+            p = e.get("payload") or {}
+            if e.get("type") == "duels.scheduled":
+                sessions.append([p.get("session"), p.get("name"), e.get("tick"), None])
+            elif e.get("type") == "duels.finished":
+                for s in sessions:
+                    if s[0] == p.get("session"):
+                        s[3] = e.get("tick")
+        act = collections.defaultdict(lambda: collections.Counter())
+        sets_bought = collections.defaultdict(collections.Counter)
+        dealers = collections.defaultdict(set)
+        for tr in self.trades:
+            if (tr["tick"] or 0) < recent:
+                continue
+            items = tr["items"]
+            if not items:
+                continue
+            if tr["kind"] == "team" and tr["venue"] in vown and vown[tr["venue"]] not in tr["parties"]:
+                act[vown[tr["venue"]]]["on_stall"] += 1
+            swap = len({i.get("frm") for i in items}) > 1
+            for tid in tr["parties"]:
+                c = act[tid]
+                if swap:
+                    c["swaps"] += 1
+                elif items[0].get("to") == tid:
+                    c["team_buys" if tr["kind"] == "team" else "dealer_buys"] += 1
+                    sets_bought[tid].update(set_of(i.get("ref")) for i in items if i.get("ref"))
+                else:
+                    c["team_sells" if tr["kind"] == "team" else "dealer_sells"] += 1
+                if tr["kind"] != "team":
+                    dealers[tid].add(self._nm(tr["dealer"]))
+        for e in self.events:
+            if (e.get("tick") or 0) < recent:
+                continue
+            p, ty = e.get("payload") or {}, e.get("type")
+            if ty == "pack.opened":
+                act[p.get("team")]["packs"] += 1
+            elif ty == "venue.announcement" and vown.get(p.get("venue")):
+                act[vown[p.get("venue")]]["ads"] += 1
+            elif ty == "taller.crafted":
+                act[p.get("team")]["crafts"] += 1
+            elif ty == "offer.listed":
+                act[e.get("actor") or (p.get("offer") or {}).get("maker")]["listings"] += 1
+            elif ty == "thread.opened" and p.get("kind") == "persona":
+                act[p.get("team")]["dealer_talks"] += 1
+
+        snaps = [h for h in self.lb_hist if h["tick"] >= opened] or self.lb_hist
+        out = []
+        for p in prof:
+            tid, c = p["team"], act.get(p["team"], collections.Counter())
+            now_parts = []
+            if c["dealer_buys"] + c["dealer_sells"] >= 2:
+                now_parts.append(f"dealer deals: {c['dealer_sells']} sells, {c['dealer_buys']} buys"
+                                 f" ({', '.join(sorted(dealers[tid]))})")
+            if c["on_stall"] or c["ads"] >= 2:
+                now_parts.append(f"market-making: {c['on_stall']} trade(s) by others on its stall, {c['ads']} ad(s)")
+            if c["team_buys"] >= 1:
+                sb = ", ".join(s for s, _ in sets_bought[tid].most_common(2))
+                now_parts.append(f"buying from teams: {c['team_buys']}" + (f" ({sb})" if sb else ""))
+            if c["team_sells"] >= 1:
+                now_parts.append(f"selling to teams: {c['team_sells']}")
+            if c["swaps"]:
+                now_parts.append(f"swaps: {c['swaps']}")
+            if c["packs"]:
+                now_parts.append(f"opened {c['packs']} pack(s)")
+            if c["crafts"]:
+                now_parts.append(f"{c['crafts']} Workshop craft(s)")
+            if not now_parts:
+                now_parts.append(f"no deal in the last hour ({c['listings']} listings, {c['dealer_talks']} dealer talks)"
+                                 if c["listings"] or c["dealer_talks"] else "quiet in the last hour")
+            moves = []
+            for a, b in zip(snaps, snaps[1:]):
+                ta, tb = a["teams"].get(tid), b["teams"].get(tid)
+                if not ta or not tb or ta.get("score") is None or tb.get("score") is None:
+                    continue
+                dlt = round(tb["score"] - ta["score"], 2)
+                if dlt < 0.5:
+                    continue
+                lo, hi = a["tick"] - 10, b["tick"]
+                own = [self._deal_text(tr, tid) for tr in self.trades
+                       if lo < (tr["tick"] or 0) <= hi and (tid in tr["parties"]
+                       or (tr["kind"] == "team" and vown.get(tr["venue"]) == tid))]
+                sess = [s[1] for s in sessions if s[2] is not None and s[2] <= hi and (s[3] is None or s[3] >= lo)]
+                dn = round((tb.get("negotiating") or 0) - (ta.get("negotiating") or 0), 2)
+                dm = round((tb.get("market") or 0) - (ta.get("market") or 0), 2)
+                stall = any(tr["kind"] == "team" and vown.get(tr["venue"]) == tid and lo < (tr["tick"] or 0) <= hi
+                            for tr in self.trades)
+                if abs(dm) > abs(dn):
+                    head = (f"market {dm:+.2f}: value created on its stall" if stall
+                            else f"market {dm:+.2f}: a Market Test scored or value created was re-graded")
+                else:
+                    head = (f"negotiating {dn:+.2f}" + (f" during {', '.join(sess)}" if sess else ""))
+                why = [head] + (own[:3] or ["no deal of its own in the window" + (" (duels)" if sess and abs(dn) >= abs(dm)
+                                                                                  else " (the board is relative)")])
+                if ta.get("pages") is not None and tb.get("pages") is not None and ta["pages"] < tb["pages"]:
+                    why.insert(1, f"completed a page ({ta['pages']} → {tb['pages']})")
+                moves.append({"from": a["tick"], "to": b["tick"], "delta": dlt, "neg": dn, "market": dm, "why": why})
+            moves.sort(key=lambda m: -m["delta"])
+            series = [h["teams"].get(tid, {}).get("score") for h in snaps]
+            stride = max(1, len(series) // 60)
+            out.append({"team": tid, "name": p["name"], "rank": p["rank"], "us": p["us"], "score": p["score"],
+                        "delta": p.get("delta"), "negotiating": p.get("negotiating"), "market": p.get("market"),
+                        "pages": p.get("pages"), "level": p.get("level"), "collects": p.get("wants") or [],
+                        "dumps": p.get("dumps") or [], "stall": next((v for v, o in vown.items() if o == tid), None),
+                        "now": now_parts, "activity": dict(c), "moves": moves[:3], "series": series[::stride]})
+        return {"window_ticks": hour, "teams": out}
 
     def tape(self, n=40):
         out = []
@@ -1438,6 +1669,8 @@ class Analysis:
             "prices": price_rows,
             "tape": self.tape(),
             "team_trades": self.team_trades(prof),
+            "pulse": self.market_pulse(prof),
+            "strategies": self.strategies(prof),
             "holders": self.holders(),
             "abuela": self.abuela(),
             "schedule": self.schedule(),
@@ -1466,7 +1699,7 @@ def last_seen(files, _cache={}):
             v = None
             for ref in ("origin/main", "HEAD"):
                 try:
-                    r = subprocess.run(["git", "-C", str(ROOT), "log", "-1", "--format=%cd", "--date=format:%a %H:%M",
+                    r = _run(["git", "-C", str(ROOT), "log", "-1", "--format=%cd", "--date=format:%a %H:%M",
                                         ref, "--", f], capture_output=True, text=True, timeout=5)
                 except (OSError, subprocess.SubprocessError):
                     continue
