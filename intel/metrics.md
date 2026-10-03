@@ -1,4 +1,4 @@
-# Metrics (auto, 11:26, game tick 392)
+# Metrics (auto, 11:28, game tick 396)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -86,13 +86,13 @@ Who buys which set (team trades): t01: MAL×4, SAL×4; t02: MAL×2, RET×2, LAT�
 ## Dealer prices, last 60 ticks (median per item)
 
 - abuela common (team buys): median 9 over 4
-- abuela common (team sells): median 6 over 15
+- abuela common (team sells): median 6 over 14
 - abuela sobre_barrio (team buys): median 20 over 1
 - abuela uncommon (team buys): median 24 over 6
 - abuela uncommon (team sells): median 17 over 1
-- chato rare (team buys): median 89 over 3
-- chato uncommon (team buys): median 32 over 3
-- chato uncommon (team sells): median 14 over 3
+- chato rare (team buys): median 86 over 2
+- chato uncommon (team buys): median 32 over 2
+- chato uncommon (team sells): median 14 over 1
 
 ## El Rastro now: top bids by price (team, card, price)
 
@@ -112,7 +112,7 @@ Who buys which set (team trades): t01: MAL×4, SAL×4; t02: MAL×2, RET×2, LAT�
 - t02: LAT-03 (common) 3 P · offer 5999
 - t13: RET-02 (common) 2 P · offer 5963
 
-Asks by others (card, price: count): LAT-04 6: 4; LAV-04 10: 4; LAT-04 9: 3; MAL-04 8: 2; LAT-01 9: 2; SAL-03 9: 2; LAT-02 7: 2; MAL-02 10: 2; LAV-03 9: 2; LAT-02 11: 1; LAT-03 11: 1; LAT-04 11: 1; LAT-06 25: 1; LAT-07 25: 1; LAT-08 25: 1
+Asks by others (card, price: count): LAV-04 10: 4; LAT-04 9: 3; LAT-02 7: 2; LAT-04 6: 2; MAL-02 10: 2; LAV-03 9: 2; LAT-01 9: 2; LAT-02 11: 1; LAT-03 11: 1; LAT-04 11: 1; LAT-06 25: 1; LAT-07 25: 1; LAT-08 25: 1; MAL-02 7: 1; MAL-08 26: 1
 
 ## Our duels: 0 live, 34 finished (last 10)
 
