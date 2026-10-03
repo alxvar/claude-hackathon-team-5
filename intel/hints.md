@@ -176,3 +176,4 @@ Swap your duplicates, hijo — a full page is wort
 - Sat 19:51 · message tick 1152 · banco → t18 · Señor, you speak of buying. I speak of selling. La Puerta de Alcalá, gold, from my vault: one hundred thirteen. Take your time. The card does not move.
 - Sat 19:51 · message tick 1153 · banco → t18 · Usted insiste en vender; yo no compro. La Puerta de Alcalá, gold, mi cámara: ciento catorce. The card waits. I wait. Decide when you wish.
 - Sat 19:51 · message tick 1154 · banco → t18 · Señor, repito una sola vez más: no compro nada hoy. La Puerta de Alcalá, oro, de mi cámara: ciento dieciséis. Esas son mis condiciones. La carta no se mueve.
+- Sat 19:54 · message tick 1160 · pilar → t08 · Buenas tardes. La Dama de Serrano es, me temo, un rumor elegante; yo colecciono cartas, no leyendas. Pero si viene en serio, tengo un sobre dorado para usted: 504 P. Nada más digno de Salamanca.
