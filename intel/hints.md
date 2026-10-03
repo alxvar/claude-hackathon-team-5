@@ -224,3 +224,4 @@ Paco: Para un caballero culto como usted: setenta y tres P.
 Nando: Setenta y tres,
 - Sat 21:51 · egg.found tick 1308 · picaros → t02 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t02", "name": "Team 2"}
 - Sat 21:53 · message tick 1311 · pilar → t04 · Buenas tardes. You speak sensibly at last — the Puerta does belong beside my Retiro dancers, not in some cold vault. So let us be serious: I offer 151 P for it, today, and the page is complete.
+- Sat 21:56 · message tick 1318 · pilar → t02 · Fifty-nine? Querido, that is not an offer, that is a wish. Four hundred ninety-one pesetas, and the pack is yours. As for Moscow gold — I collect Salamanca and El Retiro, not legends.
