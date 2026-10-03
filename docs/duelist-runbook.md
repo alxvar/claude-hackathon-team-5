@@ -4,7 +4,7 @@ The duel agent is `agents/duelist/`, running on the model engine in `engine/`: r
 
 ## Setup (once)
 
-1. Add `ANTHROPIC_API_KEY=...` to the repo's `.env`, next to `BAZAAR_KEY` (see `.env.template`).
+1. Copy `.env.example` to `.env` and fill in `BAZAAR_KEY` and `ANTHROPIC_API_KEY`.
 2. `uv sync` at the repo root (all commands below run from there)
 3. `uv run pytest`: offline tests, with a fake model and a fake game.
 4. `uv run python -m agents.duelist smoke`: one turn of a made-up duel through Claude. It prints the strategist's plan, the band, the move, and each call's latency and cost. It sends nothing to the game. Add `--days` to try a two-issue duel.
@@ -33,7 +33,7 @@ Ticks are 60 s on Friday, 30 s on Saturday and 15 s on Sunday. A decision that t
 
 `run` also writes one `docs/duels/duel-<id>.json` per duel: the session, how we read it, every raw payload, every decision (latency, cost, what the agent saw), what we sent and what the game answered, refusals, and the game's final payload. Once a minute it also sweeps the done list, so a duel that a crash or a restart missed is still saved (with the final payload only). Two timelines sit next to the records: `feed.jsonl` (the public feed's duel events, which may name the team behind an alias) and `scores.jsonl` (our duel points whenever they move).
 
-After each session: `uv run python -m agents.duelist review` writes `docs/duels/README.md`, one row per duel (rival, role, limit, our first and last offer, price, surplus, points, decision seconds, spend, fallbacks). Then commit and push `docs/duels/`, so the team and the next session learn from it. The field names for price and points are guesses until the practice shows the real ones; fix `summary()` in `agents/duelist/records.py` then.
+After each session: `uv run python -m agents.duelist review` writes `docs/duels/README.md`, one row per duel (rival, role, limit, our first and last offer, price, the day in days duels, surplus, points (the game's `result`), `pred` (the result our own reading gives: it should equal points), decision seconds, spend, fallbacks). Then commit and push `docs/duels/`, so the team and the next session learn from it.
 
 ## What to read in the log after the practice
 
@@ -53,7 +53,7 @@ Questions to answer from it, before the scored Duels I on Saturday (hour 6.5, 16
 1. What the duel payload's real field names are, and what `deadline` means (a tick number or ticks left). **Answered:** `deadline_tick` is a tick number, the tick the duel closes on.
 2. Whether there's a message list, and how our messages are marked. **Answered:** `messages`, ours `"from": "you"`.
 3. Whether a "round" of decay is a tick or a message. **Answered:** a round is a pair of priced offers: `result` = our surplus × (1 − `decay_per_round`)^`rounds`, `rounds` = min(our priced offers, theirs). Silence costs nothing.
-4. How the result is scored, and how the days weight looks (for Duels II, hour 13). Open: `your_days_weight` and `days_meaning` were null in the practice.
+4. How the result is scored, and how the days weight looks (for Duels II, hour 13). Open: `your_days_weight` and `days_meaning` were null in the practice. What we do until we see them: see "Duels II: the delivery day" below.
 
 ## Safety rails in code
 
@@ -70,6 +70,30 @@ Questions to answer from it, before the scored Duels I on Saturday (hour 6.5, 16
 - After a restart, our messages in the game count as sent: no re-sent offers (181 re-sent 50 and 54 on Friday).
 - Decay and rounds come from the duel itself (`decay_per_round`, `rounds`); the session's name and ticks from the feed's `duels.scheduled`, never from the schedule (which lists only sessions still to come).
 - Ticks left count the ticks we can still move on: the duel closes on its `deadline_tick`, so the last move is on the tick before.
+- Days duels: limits on the whole package (price and day), never a priced message without a day, and code's rules only when we can read the day weight (see below).
+## Duels II: the delivery day
+
+Duels II settles a price and a delivery day from 0 to 10. Each side has a private weight per day (`your_days_weight`, explained by `days_meaning`), and a priced message without a day is refused (`missing_days`). Nobody has seen either field filled in yet, so `agents/duelist/days.py` reads the likely shapes into what each day is worth to us:
+
+| The game sends | We read |
+|---|---|
+| a list of 11 numbers, or a dict keyed by day `"0"`..`"10"` | the value of each day |
+| a number `w` and words with a direction ("each day later costs you 2") | `w` per day toward the days the words prefer; a cost word turns the direction around |
+| a negative number | `w` × day: the early days are worth more |
+| a positive number and no direction | a guess: each day counts at the worse of the early and late readings (best day 5) |
+| `{"per_day": 2, "prefers": "early"}` or `{"best_day": 3, "per_day": 1.5}` | per day toward that direction, or away from that day |
+| anything else | can't read it: limits on price alone and the models play the duel (as before) |
+
+Every value is stated against our best day, so a day costs 0 or more. If the game counts the day as a cost, that is exact; if it counts it as a bonus, we are on the safe side by a constant.
+
+What changes when the weight can be read:
+- **Limits are on the whole package.** A deal's worth to us is the price's margin over our limit minus what its day costs us (`guards.worth`). The band is clamped to the limit on the strategist's day, `final` refuses any offer or acceptance worth less than nothing, and every priced move carries a day from 0 to 10.
+- **The code rules cover days duels.** Deadline accept, small-gap accept (the gap in worth, days included), offering the rival its own package when our accept must wait, and the silent-rival walk (on price, our day kept).
+- **The strategist sees the reading.** It gets the weight, the game's words, our reading, a table of what each day costs, and facts on what each side's day costs us. The negotiator sees none of it.
+- **Our default day is our best day,** not day 5.
+
+**At the first Duels II duel**, the console prints how we read the weight: `duel 7 vs ...: buyer, limit 100 P, ..., days: 2 per day (direction from the game's words): each day after day 0 costs you 2`. If it says `CAN'T READ`, or the direction looks wrong against `days_meaning` (in `logs/duelist/duels-*.jsonl`, `"event": "duel"`), fix `read_days` in `days.py`, add the payload to the tests, run them, restart. **After the first wave**, run `review`: for each deal, `pred` (our reading's result) should equal `points` (the game's `result`), as it does on all 11 of Friday's deals. A difference means the reading is off.
+
 ## Fallbacks, layer by layer
 
 1. **A model fails or is slow:** each role has a backup model (`engine/failover.py`): Opus → Sonnet, Sonnet → Haiku, Haiku → Sonnet. The primary gets 20 s; after 2 failures in a row it is skipped for 2 minutes. `--no-failover` turns this off.

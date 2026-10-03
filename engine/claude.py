@@ -20,7 +20,7 @@ def require_credentials() -> None:
     """Without a key every call fails and the agent only plays its fallback. Fail before playing."""
     profile = Path(os.environ.get("ANTHROPIC_CONFIG_DIR", Path.home() / ".config" / "anthropic"))
     if not (os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN") or profile.exists()):
-        raise SystemExit("No Claude credentials: set ANTHROPIC_API_KEY in the repo's .env (see .env.template).")
+        raise SystemExit("No Claude credentials: set ANTHROPIC_API_KEY in the repo's .env (see .env.example).")
 
 
 @dataclass

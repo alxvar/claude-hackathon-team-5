@@ -8,6 +8,7 @@ Friday's practice come first: `duel`, `session`, `deadline_tick`, `decay_per_rou
 """
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass
 from typing import Any
 
@@ -22,7 +23,7 @@ KNOWN = {"id", "duel_id", "duel", "status", "state", "done", "closed", "role", "
          "your_cost", "your_value", "cost", "value", "reservation", "rival_offer", "their_offer", "rival",
          "rival_alias", "opponent", "alias", "your_offer", "my_offer", "own_offer", "deadline", "deadline_tick",
          "ends_at_tick", "end_tick", "expires_tick", "ticks_left", "remaining_ticks", "issues",
-         "your_days_weight", "days_weight", "decay", "decay_per_round", "rounds", "duel_ticks", "item", "title",
+         "your_days_weight", "days_weight", "days_meaning", "decay", "decay_per_round", "rounds", "duel_ticks", "item", "title",
          "name", "scenario", "description", "brief", "story", "context", "market", "market_range",
          "reference_price", "tick", "session", "practice", "result", "score", "limit_meaning", "price", "days",
          *MESSAGE_KEYS}
@@ -61,6 +62,14 @@ def as_offer(x: Any) -> Offer | None:
         return None
     days = x.get("days") if isinstance(x, dict) else None
     return Offer(price=round(price), days=int(days) if isinstance(days, int | float) else None)
+
+
+def message_offer(m: dict[str, Any]) -> Offer | None:
+    """A message's offer with its day: `{"price", "days"}` at the top of the message or inside "offer" (the day
+    must come along, or a days duel's standing offer reads as a new one next to the same offer in the messages)."""
+    if isinstance(m.get("offer"), dict) or m.get("price") is not None:
+        return as_offer(m)
+    return as_offer(m.get("offer"))
 
 
 def as_role(x: Any) -> Role | None:
@@ -141,7 +150,7 @@ def read_messages(raw: dict[str, Any], role: Role, team: set[str], rival: str) -
             mine = False
         kind = str(first(m, "kind", "type", "action") or "").lower()
         out.append(Turn(mine=mine, text=str(first(m, "text", "message", "body") or ""),
-                        offer=as_offer(first(m, "offer", "price")) if kind not in ("accept", "accepted") else None,
+                        offer=message_offer(m) if kind not in ("accept", "accepted") else None,
                         accept=kind in ("accept", "accepted") or m.get("accept") is True,
                         tick=int(m["tick"]) if isinstance(m.get("tick"), int) else None))
     return out, unknown
@@ -180,12 +189,15 @@ def parse_duel(raw: dict[str, Any], *, team: set[str], tick: int | None, default
         if not isinstance(issues, list):
             issues = [str(issues)]
         weight = first(raw, "your_days_weight", "days_weight")
+        meaning = raw.get("days_meaning")
         if weight is not None and "days" not in issues:
             issues = [*issues, "days"]
         view = DuelView(
             duel_id=did, role=role, limit=round(limit), item=str(item or ""), context=str(context or "")[:600],
             rival=rival, market=str(market) if market is not None else None, issues=[str(i) for i in issues],
-            days_weight=weight, decay=as_number(first(raw, "decay_per_round", "decay")) or defaults.get("decay"),
+            days_weight=weight,
+            days_meaning=(meaning if isinstance(meaning, str) else json.dumps(meaning)) if meaning is not None else None,
+            decay=as_number(first(raw, "decay_per_round", "decay")) or defaults.get("decay"),
             duel_ticks=int(duel_ticks) if duel_ticks else None,
             extra={k: v for k, v in raw.items() if k not in KNOWN})
         messages, unknown = read_messages(raw, role, team, rival)

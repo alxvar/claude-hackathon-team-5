@@ -1,5 +1,7 @@
 # Plan: running Clock-Standing in The Bazaar
 
+> **History.** Written on Friday evening, before the practice duels; the code and [duelist-runbook.md](duelist-runbook.md) have moved on since (decay is per round, not per tick; the delivery day is handled as described there). Background, not instructions.
+
 As of Friday 2 October 2026, evening, after the rules were revealed ([bazaar-kit/RULES.md](../bazaar-kit/RULES.md)).
 
 Background: [how-the-leading-model-works.md](how-the-leading-model-works.md) and [what-we-tried-so-far.md](what-we-tried-so-far.md). The code is in `~/Workspaces/personal/regateo`: the agent is `agents/ranged/v4` with config `clock-standing`, written against `agent-sdk`, and it calls models through `engine/src/regateo/llm`.

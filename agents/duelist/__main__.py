@@ -71,7 +71,8 @@ def smoke(a: argparse.Namespace) -> None:
     """One turn of a made-up duel: we sell at a cost of 40; they bid 25 then 30; we asked 70."""
     view = DuelView(duel_id="smoke", role=Role.SELLER, limit=40, item="a Malasaña rare card (MAL-11)",
                     rival="Rival-7", issues=["price", "days"] if a.days else ["price"],
-                    days_weight=2 if a.days else None, decay=0.06, duel_ticks=12)
+                    days_weight=2 if a.days else None,
+                    days_meaning="each day earlier costs you 2 P" if a.days else None, decay=0.06, duel_ticks=12)
     d = (lambda p: Offer(price=p, days=4 if a.days else None))
     turns = [Turn(mine=True, text="70 P: it's a rare from a sought-after page.", offer=d(70), tick=1),
              Turn(mine=False, text="Way too much. 25.", offer=d(25), tick=1),
