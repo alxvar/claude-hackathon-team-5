@@ -592,3 +592,5 @@
 {"id": 32774, "tick": 610, "t": 6.4083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2545, "session": 2, "status": "deal", "item": "El Mesón de la Cava"}}
 {"id": 32777, "tick": 610, "t": 6.4083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2575, "session": 2, "status": "deal", "item": "El Mesón de la Cava"}}
 {"id": 32780, "tick": 610, "t": 6.4083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2592, "session": 2, "status": "no_deal", "item": "Palacio de Cristal"}}
+{"id": 32924, "tick": 613, "t": 6.4333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2557, "session": 2, "status": "no_deal", "item": "El Mesón de la Cava"}}
+{"id": 32961, "tick": 614, "t": 6.4417, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2593, "session": 2, "status": "no_deal", "item": "Palacio de Cristal"}}
