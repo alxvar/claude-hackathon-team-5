@@ -1,4 +1,4 @@
-# Metrics (auto, 10:30, game tick 281)
+# Metrics (auto, 10:32, game tick 284)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -22,21 +22,19 @@ score 24.01 · neg_points 28.5 (15 min ago -19.0) · ladder 0.055 · duel 0.0 ·
 
 LAT-03 (common): 5; LAT-04 (common): 1.2 / 1.2; LAT-08 (uncommon): 12.5; LAV-01 (common): 99.1; LAV-02 (common): 3.2 / 3.2; LAV-03 (common): 3.2 / 3.2; LAV-04 (common): 3.2 / 3.2; LAV-05 (common): 99.1; LAV-06 (uncommon): 118.6; LAV-07 (uncommon): 118.6; LAV-08 (uncommon): 118.6; LAV-09 (rare): 177.1; LAV-10 (rare): 177.1; MAL-02 (common): 7; MAL-04 (common): 7; MAL-06 (uncommon): 17.5; MAL-07 (uncommon): 17.5; RET-01 (common): 83.9; RET-02 (common): 83.9; RET-03 (common): 83.9; RET-04 (common): 83.9; RET-05 (common): 83.9; RET-06 (uncommon): 100.4; RET-07 (uncommon): 100.4; RET-08 (uncommon): 100.4; RET-09 (rare): 149.9; RET-10 (rare): 149.9; SAL-01 (common): 2.2 / 2.2; SAL-02 (common): 2.2 / 2.2; SAL-03 (common): 9; SAL-05 (common): 9; SAL-08 (uncommon): 22.5
 
-## Our open offers (13)
+## Our open offers (11)
 
-- 4068: sell LAV-04 for 9 · to t07 · expires tick 320
-- 4069: sell LAV-02 for 9 · to t09 · expires tick 320
-- 4070: sell LAV-03 for 9 · to t16 · expires tick 320
-- 4071: sell SAL-01 for 9 · to t07 · expires tick 320
-- 4072: sell SAL-02 for 9 · to t07 · expires tick 320
-- 4145: sell SAL-08 for 25 · to t16 · expires tick 325
-- 4146: sell LAT-03 for 7 · to t15 · expires tick 325
-- 4147: sell LAT-04 for 7 · to t15 · expires tick 325
-- 4148: sell LAT-04 for 7 · to t15 · expires tick 325
-- 4149: sell MAL-06 for 24 · to t01 · expires tick 325
-- 4150: sell MAL-07 for 24 · to t01 · expires tick 325
-- 4210: sell MAL-02 for 10 · to t07 · expires tick 319
-- 4211: sell MAL-04 for 10 · to t09 · expires tick 319
+- 4248: sell SAL-08 for 27 · to t03 · expires tick 323
+- 4249: sell MAL-06 for 25 · to t17 · expires tick 323
+- 4250: sell MAL-07 for 24 · to t01 · expires tick 323
+- 4251: sell LAV-02 for 9 · to t09 · expires tick 323
+- 4252: sell LAV-03 for 9 · to t07 · expires tick 323
+- 4253: sell SAL-01 for 9 · to t06 · expires tick 323
+- 4254: sell SAL-02 for 9 · to t16 · expires tick 324
+- 4255: sell LAT-04 for 7 · to t15 · expires tick 324
+- 4256: sell LAT-03 for 8 · to t03 · expires tick 324
+- 4257: sell MAL-02 for 10 · to t17 · expires tick 324
+- 4258: sell MAL-04 for 10 · to t15 · expires tick 324
 
 ## What each of our deals did to neg_points (measured, last 12)
 
@@ -83,7 +81,7 @@ Who buys which set (team trades): t01: SAL×3, MAL×2; t02: MAL×2, RET×1; t04:
 
 ## Dealer prices, last 60 ticks (median per item)
 
-- abuela common (team buys): median 9 over 4
+- abuela common (team buys): median 9 over 3
 - abuela sobre_barrio (team buys): median 21 over 1
 - abuela uncommon (team buys): median 23 over 6
 - chato rare (team buys): median 88 over 2
@@ -92,13 +90,13 @@ Who buys which set (team trades): t01: SAL×3, MAL×2; t02: MAL×2, RET×1; t04:
 
 ## El Rastro now: top bids by price (team, card, price)
 
-- t17: MAL-09 (rare) 70 P · offer 4045
+- t17: MAL-09 (rare) 70 P · offer 4267
 - t04: LAT-09 (rare) 52 P · offer 4169
 - t02: RET-10 (rare) 22 P · offer 4221
 - t02: RET-07 (uncommon) 19 P · offer 4222
-- t13: RET-02 (common) 2 P · offer 4084
-- t13: RET-01 (common) 2 P · offer 4107
 - t13: RET-03 (common) 2 P · offer 4219
+- t13: RET-02 (common) 2 P · offer 4231
+- t13: RET-01 (common) 2 P · offer 4244
 
 Asks by others (card, price: count): LAV-04 10: 3; MAL-05 9: 2; LAT-01 9: 2; LAV-03 9: 2; LAT-04 9: 2; LAT-04 7: 1; SAL-01 9: 1; LAT-02 6: 1; LAT-02 11: 1; LAT-03 11: 1; LAT-04 11: 1; LAT-06 25: 1; LAT-07 25: 1; LAT-08 25: 1; LAT-05 9: 1
 
@@ -117,9 +115,9 @@ Asks by others (card, price: count): LAV-04 10: 3; MAL-05 9: 2; LAT-01 9: 2; LAV
 
 ## Latest announcements
 
-- tick 159 announcement: {"text": "Good morning! The Bazaar is open again: Saturday until 23:00, one tick every 30 s."}
-- tick 252 level.announced: {"level": "pilar", "kind": "persona", "name": "Do\u00f1a Pilar", "teaser": "\u00abI collect what others throw away.\u00bb"}
-- tick 262 level.activated: {"level": "pilar", "kind": "persona", "name": "Do\u00f1a Pilar", "teaser": "\u00abI collect what others throw away.\u00bb", "how": "A collector: she pays over b
 - tick 262 level.unlocked: {"team": "t13", "name": "Team 13", "persona": "pilar", "persona_name": "Do\u00f1a Pilar", "level": 3, "why": "3 deals with chato"}
 - tick 272 level.announced: {"level": "radio", "kind": "radio", "name": "Radio Rastro", "teaser": "\u00abAt El Rastro you hear everything. Some of it is true.\u00bb"}
+- tick 282 level.activated: {"level": "radio", "kind": "radio", "name": "Radio Rastro", "teaser": "\u00abAt El Rastro you hear everything. Some of it is true.\u00bb", "how": "News on air: 
+- tick 282 announcement: {"text": "Short maintenance in 1 minute: the server restarts for a few seconds. Your cards, cash and offers are kept. If your agent stops on an error, start it 
+- tick 284 announcement: {"text": "We are back. Happy trading!"}
 
