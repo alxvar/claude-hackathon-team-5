@@ -118,6 +118,10 @@
   after us, nobody has one" (false: print runs are fixed) → `neg_points` 43.2 → 53.2, ladder unchanged. A wrong flag costs
   (amount unknown). Los Pícaros: L4, early unlock = 2 Pilar deals; buys commons/uncommons, sells rares (list 63) and epics
   (162); opens bids low (MAL-06 at 10).
+  Flag results [V, n=4, Sat 16:38-16:41]: +10 each for false FACTS: 7053, 7068 ('stopped printing yesterday'; a repeat in a
+  separate message pays again) and 7160 (bait and switch: words sell SAL-09 'El Marqués', structured offer gives card:SAL-06).
+  **−10** for 7170 (words 'final as a church bell', offer final:false, next offer lower): finality/urgency talk is posture,
+  not a flaggable lie. Net +20. Rule: flag only a wrong card/price in the structured offer vs the words, or a false factual claim.
 - **Abuela gifts** [V, tick 261]: after our 5th Abuela deal of the day she gave us LAT-08 ("gift from Abuela Carmen",
   `gift.given`); Team 7 got LAT-06 the same way on Friday (tick 157). Gifts never score, but the card is ours to sell.
 - **Value created on our venue is NET and can go negative** [V, Sat 11:30]: tick 311 on v10, t10 → t01 MAL-07 at 14:
