@@ -1,5 +1,19 @@
 # Market log (Market session; newest first)
 
+## Sat 21:15 · the Payday deck reconciled with our data (deck: "Market-making 30 = Market Test 7.5 + Real trades 22.5")
+- **Market Test = 7.5 = what every stall team already shows [L].** When the top three are the stall, "half" and "full"
+  coincide: the bench is maxed. A better broker has no upside. Board-venue question closed.
+- **Real trades formula [L, strong]: points = 5.0 × min(1, VC / mean VC of the top three venues).** Fit at snapshot 560
+  (Team 6's rare lands): predicted t14 3.11, t12 3.02, t17 1.97; observed 3.10, 3.02, 1.96. Full mark seen all day: 5.0,
+  never 22.5 [?: desk question].
+- **VC = the two teams' gains = buyer's value − seller's value** (price cancels). Our SAL-07 trade: 25 × (0.5 − 0.9) =
+  −10.0 vs the measured mm swing −10.19 [V swing, L cause].
+- **Swaps settle on stalls by acceptance [V]:** 13 card-for-card settlements today, two on Team 7's stall v11. Neither
+  the auto engine nor the starter broker pairs two mirror swap offers (cash ask × cash bid only).
+- **Payday [V]:** +400 P to every team at 20:37; Sunday +150 P at 09:00, new round. Re-score: keep the stall, no bond.
+- **Sunday design:** v10 = swap desk. Pair-finder (wants × duplicates) from the radar; hand the 3-5 best two-way
+  duplicate swaps their exact offers at 09:00; duplicates only; page-finishers only for teams well below us.
+
 ## Partner audit · Sat 20:08 · tick 1187 · snapshot 1180: stall teams 7.5 · us 7.5 (+0.00)
 - **Team 15** (v15, market 7.5 = +0.00): on v10 0 open offers, 1 trades (26 P) · ours on v15: 4 open offers, 0 trades (0 P)
   - v10 trade tick 398: [('SAL-07', 't10', '→', 't15')] at 26
