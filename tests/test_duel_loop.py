@@ -443,3 +443,11 @@ def test_watch_handles_each_closed_wave_once(tmp_path, src):
     assert dl.watch_once(state, records=folder(tmp_path, recs), **kw) is None
     recs = closed_wave(1, 100) + closed_wave(4, 116)
     assert "wave 3.2" in dl.watch_once(state, records=folder(tmp_path, recs), **kw)
+
+
+def test_a_blocked_move_shows_its_gain_but_is_never_proposed(fake_sim):
+    fake_sim.update({(("deadline_acc", 1),): (0.05, 0.002)})     # ACCEPT_BY 2 -> 1 wins big in the sim
+    found = search()
+    row = next(r for r in found["rows"] if r["name"] == "ACCEPT_BY" and r["to"] == 1)
+    assert row["mean"] == 0.05 and not row["kept"] and row["why"].startswith("CI above 0, but blocked")
+    assert "ACCEPT_BY" not in found["params"]

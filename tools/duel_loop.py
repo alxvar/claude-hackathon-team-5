@@ -84,6 +84,9 @@ CAVEATS = {
     ("HOLD_TICKS", "down"): "the sim forces a step when the hold breaks; the duelist asks the models again, which "
                             "costs a model call per duel and may still hold",
 }
+# Moves the simulator can't judge at all: shown with their simulated gain, never put in a proposal (Builder 22:40:
+# ACCEPT_BY 1 leaves no spare tick for an accept the game refuses, a failure the sim doesn't have).
+BLOCKED = {("ACCEPT_BY", "down")}
 
 
 def stamp(fmt: str = "%a %H:%M") -> str:
@@ -589,6 +592,9 @@ def search(defaults: dict, base_over: dict, *, world: str, base_runs: list, T: i
         row["kept"] = m - ci > 0
         row["why"] = ("CI above 0" if row["kept"] else "worse (CI below 0)" if m + ci < 0 else
                       "no clear effect (CI spans 0)")
+        way = "down" if row["to"] < row["from"] else "up"
+        if row["kept"] and (name, way) in BLOCKED:
+            row["kept"], row["why"] = False, "CI above 0, but blocked: " + CAVEATS.get((name, way), "the sim can't judge it")
     best: dict[str, dict] = {}
     for row in rows:
         if row["kept"] and (row["name"] not in best or row["mean"] > best[row["name"]]["mean"]):
