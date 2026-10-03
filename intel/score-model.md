@@ -166,6 +166,18 @@ message. Duels II decay d = 0.08 → break-even 8.7%.
 **Expected:** with half the duels in conflict and the rival's weight above ours half the time, giving the day with a premium
 lifts those deals' worth by ≈ `0.5 × (w_r − w_us) × Δ` each (deck case +15 P). ≈ +20-30% on Duels II results ≈ +1-1.5 board [L].
 
+## 1f. Duels II scoreboard plan (draft 18:45; final by 20:15) [L]
+
+- Lead to defend (Saturday points, snapshot 990): **+0.43 vs t06, +0.67 vs t14** (board +0.29 / +0.45).
+- Pure Duels I duel parts (of 12 Saturday points), de-contaminated by subtracting each team's non-duel deals in 460-630 [L, ±1.5]:
+  us ≈ 8 (model fit at 910: 9.1) · t14 ≈ 7-10 (its 12.5 column includes a Pilar L3 sell and five RET common sales) · t06 ≈ 5-6.
+- Duels II = 68 duels vs Duels I's 34; if the duel part grades all Saturday duels together, Duels II carries ≈ 2/3 of it.
+- Break-even: we stay ahead of a rival that repeats its Duels I if
+  (34·D1_us + 68·D2_us)/102 ≥ D1_rival − lead. vs t06: D2_us ≥ ≈ 3.6 (loose). vs t14: D2_us ≥ 5.5 (if t14's D1 = 7) to
+  8.5 (if 10). **Safe target: match Duels I: ≥ 88% deals, ≥ 0.58 share per deal (≈ D2 ≥ 8).**
+- In our 4 duels each vs t06 and t14 the share is zero-sum: a point of pie we win there moves the race twice.
+- Days: if the score is the share of the best pie, a wrong-day deal caps BOTH shares; the day rule (§1e) protects ours.
+
 ## 1c. Duels I (live; session 2 from tick 459, 306 duels, decay 0.06, ends ≈ 13:35)
 
 Duel part = Saturday Negotiating − 0.6 × the team's Saturday part at snapshot 460 (exact for teams with no non-duel events;
