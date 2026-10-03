@@ -25,6 +25,11 @@ out = {
         "negotiating": [next(t["negotiating"] for t in r["teams"] if t["team"] == "t05") for r in snaps],
         "market": [next(t["market"] for t in r["teams"] if t["team"] == "t05") for r in snaps],
     },
+    # the newest snapshot, best score first: [team, score, negotiating, market]
+    "latest": {
+        "tick": snaps[-1]["tick"],
+        "rows": [[t["team"], t["score"], t["negotiating"], t["market"]] for t in sorted(snaps[-1]["teams"], key=lambda t: -t["score"])],
+    },
 }
 (here / "race-data.js").write_text("window.RACE = " + json.dumps(out, separators=(",", ":")) + ";\n")
 print(f"race-data.js: {len(snaps)} snapshots, ticks {snaps[0]['tick']}-{snaps[-1]['tick']}, {len(teams)} teams")
