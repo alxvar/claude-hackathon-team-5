@@ -18,7 +18,7 @@ P(#1 final) ≤ 9%, P(top 2) 21-45% [Analyst, L].
 
 **Sunday facts:** +150 P at 09:00; Don Ernesto open to all since Sat tick 1091 (no neg-safe Ernesto deal for us: skip L5, dealer-lab-ladder §6); Sunday ticks 15 s [V]. The clock is paused at game 13.367
 in ROUND 2 (Saturday): if it RESUMES, ≈ 1.5-3 h of Saturday's round remain (hard Market Test 14.65, bench 15.0)
-before round 3 + the CHA release at 16.65; if it JUMPS, Duels III ≈ 10:00, Final ≈ 11:30, close ≈ 12:00 [L].
+before round 3 + the CHA release at 16.65; if it JUMPS (≈ 80%), Duels III ≈ 11:00, Final + dealers close ≈ 14:00, freeze 15:00 [L, Analyst 01:50: a game hour = a wall hour at any tick length]; duelist live by 10:30.
 The Operator reads /api/clock + /api/schedule at 08:55. Duels III/Final: 12 ticks, 10% decay, 4 at once [V].
 
 **Plan files:** intel/sunday-plan.md (timeline, cash, guardrails, Saturday-tail rules: v10 pairs first, no ladder

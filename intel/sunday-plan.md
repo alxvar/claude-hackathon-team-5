@@ -23,8 +23,7 @@ The clock is paused in round 2. Before round 3 + the CHA release (game 16.65) co
 4. CHA starts at round 3 (16.65). The CHA plan's clock starts then.
 
 ## ⚠ Timing (Analyst 00:05) [V server setting: Sunday ticks 15 s; L the wall times]
-If the clock JUMPS to round 3 (16.65) at 09:00 with 15 s ticks: **Duels III ≈ 10:00, Final ≈ 11:30, close ≈ 12:00**. The
-deck's 11:00 / 14:00 / 15:00 assume a slower clock. **The duelist must be live by 09:55 whatever happens**; the Operator
+CORRECTED 01:50 (Analyst): a game hour = a wall hour at any tick length, so if the clock JUMPS to round 3 at 09:00 (≈ 80%): **Duels III ≈ 11:00, Final + dealers close ≈ 14:00, freeze 15:00** (the deck's times). **The duelist must be live by 10:30**; the Operator
 confirms the real times at 08:55 from /api/clock + /api/schedule.
 
 ## Timeline (wall times [L]; re-read /api/schedule and /api/catalog at 09:00)
