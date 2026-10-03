@@ -29,3 +29,12 @@ the repo audit (item 9).
 14. [ ] Duels quality loop: Lucas's builder reviews Aleks's diff; after each wave a duel review (deal rate, in-limit offers not accepted, rounds, latency); parameter changes between Duels I and II.
 15. [ ] Market-making owner + learning loop: builder session owns it; record → score → replay variants offline → deploy the best before the next bench (every 2 h).
 16. [ ] Experiment lane: offline experiments run in parallel (sims, replays); online experiments go through the operator with a loss budget per test; results into GAME.md. Saturday list: cap, ladder, reset, Abuela welcome price, market variants, duel variants.
+
+## Build tonight (Sat 02:00, approved by Lucas) — agents in parallel, no game writes, no commits by agents
+17. [~] W1 tools/notify.py (ntfy) + tools/opportunities.py (page-gap engine: detect, post addressed offer within hard limits, alert Dani + Lucas; strategic thresholds, rate limits, ES+EN pitch)
+18. [~] W2 tools/duel_monitor.py (live flags + per-wave review in intel/duel-review.md + run duelist tests on Aleks's pushes; alerts)
+19. [~] W3 accept arbiter (loop.py, abuela_bot), operator PID lock, API preflight, round-close archiver
+20. [~] W4 broker/record_bench.py + broker/broker.py (auto-clone + one improvement) + replay harness, with fixtures
+21. [ ] Me: intel/market-playbook.md, intel/brief-aleks.md, intel/brief-dani.md, sessions redesign (Chief of staff = Lucas's only session; Operator, Market, Builder), CLAUDE.md duelist rules
+22. [ ] Independent review of every diff, then commit + push
+23. [ ] Lucas: market A/B + cash floor

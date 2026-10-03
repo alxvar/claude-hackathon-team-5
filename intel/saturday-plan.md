@@ -218,14 +218,11 @@ if Lucas picks option A). Everything else is built during Duels I, when our bots
 **Lucas** — decides, is the human channel, owns the story. Talks only to the strategy session. His leverage is what
 agents can't do: the desk, other teams' humans, spotting what doesn't add up, the judges' pitch.
 
-**Lucas's machine — three sessions, one role each, all started fresh at 08:45** in a VS Code window opened on the repo
-folder (explorer + Git panel + terminals all in the repo):
-1. **Operator** (unattended, Opus high): the only process that writes to the game. Runbook `intel/ORCHESTRATOR.md`.
-   Liveness: if `team/lucas.md` gets no operator line for 15 minutes, push Lucas. Planned fresh restart (with handoff)
-   during Duels I, when trading is quiet.
-2. **Strategy** (Lucas talks here): reads everything, writes decisions to `intel/directives.md`, and for urgent ones
-   also `SendMessage` to the operator (same machine: wakes it at once) [V docs].
-3. **Builder**: §5 fixes, then the market recorder → sim → broker v1. Commits code, never trades.
+**Lucas's machine — four sessions, one role each** (exact prompts, models and ownership: `intel/saturday-sessions.md`):
+the **Chief of staff** (the only one Lucas talks to; writes `intel/directives.md`), the **Operator** (the only game
+writer for trades and dealers; liveness: a push to Lucas if `team/lucas.md` gets no operator line for 15 min), the
+**Market** session (recorder, broker, venue; `intel/market-playbook.md`) and the **Builder** (tools and daemons). Nobody
+waits for Lucas: each decides inside its hard limits and reports to the Chief by `SendMessage`.
 
 **Aleks** — owns the duelist end to end (§4D fixes before 11:30, Duels II prep before 18:00), reviews the accept
 arbiter. His channel is `PLAN.md` "RIGHT NOW" (the team_sync hook injects PLAN.md and CLAUDE.md diffs, teammates' Now

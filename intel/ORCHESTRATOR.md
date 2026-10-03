@@ -15,8 +15,9 @@ All state lives in files; your context is disposable. When it gets heavy, write 
 | Lucas's decisions | Written by his strategy session (which never touches the game or the daemons itself) | `intel/directives.md` |
 | Humans | Lucas: big calls, strategy session. Dani: the room. Aleks: duels | `team/*.md` |
 
-There is exactly ONE operator (this session). Lucas talks only to his strategy session; it reaches you through
-`intel/directives.md`, and you reach Lucas through PushNotification plus your log in `team/lucas.md`.
+There is exactly ONE operator (this session; hold `run/operator.lock`). Lucas talks only to the **Chief of staff**
+session; it reaches you through `intel/directives.md` and `SendMessage`. You report to the Chief by `SendMessage` after
+anything important (find it with `ListAgents`) and log every action in `team/lucas.md`. Never wait for Lucas.
 
 ## Start of every session
 1. `tools/daemons.sh status`. Before the §2 checks start only `status` and `collector` if they are DOWN.

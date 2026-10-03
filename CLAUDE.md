@@ -39,3 +39,10 @@
 - **Scripts wait for the server's tick** (`b.wait_tick()`), never a fixed sleep: the tick goes 60 s → 30 s → 15 s and can move.
 - **Never start autoflip.** The trader and the analysts start only after the operator's 09:00 checks (plan §2). Only the operator session writes to the game.
 - **Budget:** the $100 of API credits each is for the agent runtime and simulations. Claude Code runs on personal plans.
+
+## If you work on `agents/duelist/` (Aleks's lane)
+
+- Never run two duelist processes on the team key; never accept or offer outside our limit (enforced in code, not in the prompt).
+- Run all duelist tests before every start; a red test means don't start, tell Lucas.
+- Decay is per exchange (rounds = min(our priced offers, theirs)), not per tick; silence costs no decay.
+- Read `intel/brief-aleks.md` first; the duel monitor's reviews land in `intel/duel-review.md`.
