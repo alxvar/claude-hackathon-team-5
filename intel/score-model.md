@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 13:40 (game paused at tick ~632), snapshot 630. Duels I post-mortem §1d; Duels II day rule §1e. Duels I post-mortem: §1d. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
+_Last update: Sat 13:42 (game paused at tick 630), snapshot 630. §1d levers 1-2 corrected by Aleks's replay (docs/duels-1-review.md). Duels I post-mortem §1d; Duels II day rule §1e. Duels I post-mortem: §1d. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -63,7 +63,7 @@ _Last update: Sat 13:40 (game paused at tick ~632), snapshot 630. Duels I post-m
   was 18 P from the final in 0-1-round deals vs **38 P in 7-12-round deals**.
 - Ceiling: the same final prices with ≤ 3 rounds would be 523.0 P (+44, +9%). That's an upper bound: a hard "max 3 rounds"
   cap would have forced thin offers (median S7) or no-deals in the long duels (2460: first in-limit S1 at r6, final S26 at
-  r10 → 14.0). **Use the break-even rule, not a round cap.**
+  r10 → 14.0). **No round cap; and the break-even accept also loses on replay (see levers).**
 - No-deals: 2367 (rival stuck at 101 vs our limit 72: correct); 2414, 2415, 2523 (silent rivals, rounds 0: unavoidable).
 - Field position [L]: our duel-part column (14.0 at 620) includes ~+5-6 Saturday points of ladder gains since 460, so our
   pure duel part ≈ 8-9.5 Saturday points vs clean teams t01 10.8, t15 ~11. Upper-mid, not top. duel_points 13.93
@@ -78,10 +78,11 @@ t09 6.1 · t04 5.8 · **t13 2.1** · t11 0. t13 fell from #2 (snapshot 480) to #
 eroded as the field copied the dealer-sell play.
 
 **Levers for Duels II (decay 0.08 → break-even 8.7%; price + days)**, expected board points [L]:
-1. **Anchor closer** (opener ≤ ~20 P from the expected settle, not ~38): fewer rounds where we lost most → +6-9% of
-   results ≈ **+0.3-0.5 board**. At 8% decay every round costs a third more than in Duels I.
-2. **Break-even accept rule in code**: accept a rival in-limit offer when its value now ≥ our expected next-round surplus × (1−d)
-   (8.7% threshold) → removes the ~17% of rounds that lost money ≈ **+0.1-0.2 board**.
+1. ~~Anchor closer~~ **REFUTED by Aleks's replay on actual rival offers** (`docs/duels-1-review.md` §2): opener at 60%/75%
+   of today's distance → −82.5 P / −42.9 P; the best deals came from rivals that met our ambitious opener. My +0.3-0.5
+   board estimate assumed the same final prices with fewer rounds, which the replay shows doesn't hold.
+2. ~~Break-even accept rule in code~~ **REFUTED by the same replay**: 447 P vs 479 (−31); rivals' steps are lumpy (a small
+   step is often followed by a big one: 2535 −25.8). The 17% "failed" rounds were not losses in practice.
 3. **Days (integrative)**: concede days where `your_days_weight` is low, ask price in return; the pie grows only when both
    trade on what each cares about. Largest unknown upside: a 20-30% bigger pie at our share ≈ **+1-1.5 board**.
 
