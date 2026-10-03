@@ -119,6 +119,566 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 543,
+   "raw": {
+    "duel": 2534,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Café en Goya",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 129,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 558,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 4533,
+     "price": 175,
+     "tick": 542,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4538,
+     "price": 91,
+     "tick": 543,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 542,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 90 primas. Dime si cerramos.",
+      "price": 90,
+      "days": null
+     },
+     {
+      "tick": 542,
+      "from": "you",
+      "text": "Café en Goya is a carefully sourced, premium-quality coffee with a rich, smooth profile, and I'm offering it at 175 P. That reflects its quality and consistency, and I'm happy to hear your counteroffer.}",
+      "price": 175,
+      "days": null
+     },
+     {
+      "tick": 543,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 91 primas. Dime si cerramos.",
+      "price": 91,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 544,
+   "raw": {
+    "duel": 2534,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Café en Goya",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 129,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 558,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 4533,
+     "price": 175,
+     "tick": 542,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4552,
+     "price": 93,
+     "tick": 544,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 542,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 90 primas. Dime si cerramos.",
+      "price": 90,
+      "days": null
+     },
+     {
+      "tick": 542,
+      "from": "you",
+      "text": "Café en Goya is a carefully sourced, premium-quality coffee with a rich, smooth profile, and I'm offering it at 175 P. That reflects its quality and consistency, and I'm happy to hear your counteroffer.}",
+      "price": 175,
+      "days": null
+     },
+     {
+      "tick": 543,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 91 primas. Dime si cerramos.",
+      "price": 91,
+      "days": null
+     },
+     {
+      "tick": 544,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 93 primas. Dime si cerramos.",
+      "price": 93,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 544,
+   "raw": {
+    "duel": 2534,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Café en Goya",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 129,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 558,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 4565,
+     "price": 172,
+     "tick": 544,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4552,
+     "price": 93,
+     "tick": 544,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 542,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 90 primas. Dime si cerramos.",
+      "price": 90,
+      "days": null
+     },
+     {
+      "tick": 542,
+      "from": "you",
+      "text": "Café en Goya is a carefully sourced, premium-quality coffee with a rich, smooth profile, and I'm offering it at 175 P. That reflects its quality and consistency, and I'm happy to hear your counteroffer.}",
+      "price": 175,
+      "days": null
+     },
+     {
+      "tick": 543,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 91 primas. Dime si cerramos.",
+      "price": 91,
+      "days": null
+     },
+     {
+      "tick": 544,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 93 primas. Dime si cerramos.",
+      "price": 93,
+      "days": null
+     },
+     {
+      "tick": 544,
+      "from": "you",
+      "text": "I can come down to 172 P, a real step on my side, given the quality of this coffee. Your increments are very small, so if you want to close, I need a meaningful move toward that figure.",
+      "price": 172,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 545,
+   "raw": {
+    "duel": 2534,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Café en Goya",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 129,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 558,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 4565,
+     "price": 172,
+     "tick": 544,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4568,
+     "price": 96,
+     "tick": 545,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 542,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 90 primas. Dime si cerramos.",
+      "price": 90,
+      "days": null
+     },
+     {
+      "tick": 542,
+      "from": "you",
+      "text": "Café en Goya is a carefully sourced, premium-quality coffee with a rich, smooth profile, and I'm offering it at 175 P. That reflects its quality and consistency, and I'm happy to hear your counteroffer.}",
+      "price": 175,
+      "days": null
+     },
+     {
+      "tick": 543,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 91 primas. Dime si cerramos.",
+      "price": 91,
+      "days": null
+     },
+     {
+      "tick": 544,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 93 primas. Dime si cerramos.",
+      "price": 93,
+      "days": null
+     },
+     {
+      "tick": 544,
+      "from": "you",
+      "text": "I can come down to 172 P, a real step on my side, given the quality of this coffee. Your increments are very small, so if you want to close, I need a meaningful move toward that figure.",
+      "price": 172,
+      "days": null
+     },
+     {
+      "tick": 545,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 96 primas. Dime si cerramos.",
+      "price": 96,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 545,
+   "raw": {
+    "duel": 2534,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Café en Goya",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 129,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 558,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 4581,
+     "price": 169,
+     "tick": 545,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4568,
+     "price": 96,
+     "tick": 545,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 542,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 90 primas. Dime si cerramos.",
+      "price": 90,
+      "days": null
+     },
+     {
+      "tick": 542,
+      "from": "you",
+      "text": "Café en Goya is a carefully sourced, premium-quality coffee with a rich, smooth profile, and I'm offering it at 175 P. That reflects its quality and consistency, and I'm happy to hear your counteroffer.}",
+      "price": 175,
+      "days": null
+     },
+     {
+      "tick": 543,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 91 primas. Dime si cerramos.",
+      "price": 91,
+      "days": null
+     },
+     {
+      "tick": 544,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 93 primas. Dime si cerramos.",
+      "price": 93,
+      "days": null
+     },
+     {
+      "tick": 544,
+      "from": "you",
+      "text": "I can come down to 172 P, a real step on my side, given the quality of this coffee. Your increments are very small, so if you want to close, I need a meaningful move toward that figure.",
+      "price": 172,
+      "days": null
+     },
+     {
+      "tick": 545,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 96 primas. Dime si cerramos.",
+      "price": 96,
+      "days": null
+     },
+     {
+      "tick": 545,
+      "from": "you",
+      "text": "I can move to 169 P, a further step from my side. Your increments are only a few primas at a time, so to close we need a substantially bigger move upward from you.",
+      "price": 169,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 546,
+   "raw": {
+    "duel": 2534,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Café en Goya",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 129,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 558,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 4581,
+     "price": 169,
+     "tick": 545,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4584,
+     "price": 99,
+     "tick": 546,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 542,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 90 primas. Dime si cerramos.",
+      "price": 90,
+      "days": null
+     },
+     {
+      "tick": 542,
+      "from": "you",
+      "text": "Café en Goya is a carefully sourced, premium-quality coffee with a rich, smooth profile, and I'm offering it at 175 P. That reflects its quality and consistency, and I'm happy to hear your counteroffer.}",
+      "price": 175,
+      "days": null
+     },
+     {
+      "tick": 543,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 91 primas. Dime si cerramos.",
+      "price": 91,
+      "days": null
+     },
+     {
+      "tick": 544,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 93 primas. Dime si cerramos.",
+      "price": 93,
+      "days": null
+     },
+     {
+      "tick": 544,
+      "from": "you",
+      "text": "I can come down to 172 P, a real step on my side, given the quality of this coffee. Your increments are very small, so if you want to close, I need a meaningful move toward that figure.",
+      "price": 172,
+      "days": null
+     },
+     {
+      "tick": 545,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 96 primas. Dime si cerramos.",
+      "price": 96,
+      "days": null
+     },
+     {
+      "tick": 545,
+      "from": "you",
+      "text": "I can move to 169 P, a further step from my side. Your increments are only a few primas at a time, so to close we need a substantially bigger move upward from you.",
+      "price": 169,
+      "days": null
+     },
+     {
+      "tick": 546,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 99 primas. Dime si cerramos.",
+      "price": 99,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 546,
+   "raw": {
+    "duel": 2534,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Café en Goya",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 129,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 558,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 4597,
+     "price": 167,
+     "tick": 546,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4584,
+     "price": 99,
+     "tick": 546,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 542,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 90 primas. Dime si cerramos.",
+      "price": 90,
+      "days": null
+     },
+     {
+      "tick": 542,
+      "from": "you",
+      "text": "Café en Goya is a carefully sourced, premium-quality coffee with a rich, smooth profile, and I'm offering it at 175 P. That reflects its quality and consistency, and I'm happy to hear your counteroffer.}",
+      "price": 175,
+      "days": null
+     },
+     {
+      "tick": 543,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 91 primas. Dime si cerramos.",
+      "price": 91,
+      "days": null
+     },
+     {
+      "tick": 544,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 93 primas. Dime si cerramos.",
+      "price": 93,
+      "days": null
+     },
+     {
+      "tick": 544,
+      "from": "you",
+      "text": "I can come down to 172 P, a real step on my side, given the quality of this coffee. Your increments are very small, so if you want to close, I need a meaningful move toward that figure.",
+      "price": 172,
+      "days": null
+     },
+     {
+      "tick": 545,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 96 primas. Dime si cerramos.",
+      "price": 96,
+      "days": null
+     },
+     {
+      "tick": 545,
+      "from": "you",
+      "text": "I can move to 169 P, a further step from my side. Your increments are only a few primas at a time, so to close we need a substantially bigger move upward from you.",
+      "price": 169,
+      "days": null
+     },
+     {
+      "tick": 546,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 99 primas. Dime si cerramos.",
+      "price": 99,
+      "days": null
+     },
+     {
+      "tick": 546,
+      "from": "you",
+      "text": "I'll move to 167 P, matching the pace you've set. Café en Goya is a quality coffee, and to close we need a much bigger jump upward from your side.",
+      "price": 167,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -229,6 +789,570 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 543,
+   "took_s": 4.43,
+   "cost_usd": 0.004710000000000001,
+   "obs": {
+    "view": {
+     "duel_id": 2534,
+     "role": "seller",
+     "limit": 129,
+     "currency": "P",
+     "item": "Café en Goya",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Puedo llegar a 90 primas. Dime si cerramos.",
+      "offer": {
+       "price": 90,
+       "days": null
+      },
+      "accept": false,
+      "tick": 542,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Café en Goya is a carefully sourced, premium-quality coffee with a rich, smooth profile, and I'm offering it at 175 P. That reflects its quality and consistency, and I'm happy to hear your counteroffer.}",
+      "offer": {
+       "price": 175,
+       "days": null
+      },
+      "accept": false,
+      "tick": 542,
+      "decision": {
+       "action": "offer",
+       "price": 175,
+       "message": "Café en Goya is a carefully sourced, premium-quality coffee with a rich, smooth profile, and I'm offering it at 175 P. That reflects its quality and consistency, and I'm happy to hear your counteroffer.}"
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 90,
+     "days": null
+    },
+    "tick": 543,
+    "ticks_left": 15,
+    "rounds": 1
+   },
+   "move": {
+    "action": "offer",
+    "text": "Holding my offer at 175 P; I'll wait for your move.}",
+    "price": 175,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 175,
+      "message": "Holding my offer at 175 P; I'll wait for your move.}"
+     },
+     "band": {
+      "worst": 173,
+      "target": 175,
+      "best": 175
+     },
+     "plan": {
+      "read": "They opened at 90 P and haven't moved since our 175 P counter; their opening is a floor-seeking anchor, not a limit.",
+      "target": 175,
+      "best": 175,
+      "worst": 173,
+      "days": null,
+      "angle": "Hold at our price and send nothing; wait for them to move meaningfully before we respond."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 2.76,
+       "in": 394,
+       "out": 105,
+       "cost_usd": 0.00368,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.67,
+       "in": 305,
+       "out": 42,
+       "cost_usd": 0.00103,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 544,
+   "took_s": 6.95,
+   "cost_usd": 0.0063999999999999994,
+   "obs": {
+    "view": {
+     "duel_id": 2534,
+     "role": "seller",
+     "limit": 129,
+     "currency": "P",
+     "item": "Café en Goya",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Puedo llegar a 90 primas. Dime si cerramos.",
+      "offer": {
+       "price": 90,
+       "days": null
+      },
+      "accept": false,
+      "tick": 542,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Café en Goya is a carefully sourced, premium-quality coffee with a rich, smooth profile, and I'm offering it at 175 P. That reflects its quality and consistency, and I'm happy to hear your counteroffer.}",
+      "offer": {
+       "price": 175,
+       "days": null
+      },
+      "accept": false,
+      "tick": 542,
+      "decision": {
+       "action": "offer",
+       "price": 175,
+       "message": "Café en Goya is a carefully sourced, premium-quality coffee with a rich, smooth profile, and I'm offering it at 175 P. That reflects its quality and consistency, and I'm happy to hear your counteroffer.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 91 primas. Dime si cerramos.",
+      "offer": {
+       "price": 91,
+       "days": null
+      },
+      "accept": false,
+      "tick": 543,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 93 primas. Dime si cerramos.",
+      "offer": {
+       "price": 93,
+       "days": null
+      },
+      "accept": false,
+      "tick": 544,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 93,
+     "days": null
+    },
+    "tick": 544,
+    "ticks_left": 14,
+    "rounds": 1
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can come down to 172 P, a real step on my side, given the quality of this coffee. Your increments are very small, so if you want to close, I need a meaningful move toward that figure.",
+    "price": 172,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 172,
+      "message": "I can come down to 172 P, a real step on my side, given the quality of this coffee. Your increments are very small, so if you want to close, I need a meaningful move toward that figure."
+     },
+     "band": {
+      "worst": 170,
+      "target": 172,
+      "best": 174
+     },
+     "plan": {
+      "read": "They creep up in tiny steps (90→91→93), a 3 P total move against our 175 opening; their offer is still far below what we can accept, so their pace signals patience-testing rather than real movement.",
+      "target": 172,
+      "best": 174,
+      "worst": 170,
+      "days": null,
+      "angle": "Make a small, firm step down and stress quality, asking them to make a meaningful jump rather than one-prima increments if they want to close."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.71,
+       "in": 516,
+       "out": 139,
+       "cost_usd": 0.00484,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.24,
+       "in": 405,
+       "out": 75,
+       "cost_usd": 0.00156,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 545,
+   "took_s": 5.64,
+   "cost_usd": 0.00717,
+   "obs": {
+    "view": {
+     "duel_id": 2534,
+     "role": "seller",
+     "limit": 129,
+     "currency": "P",
+     "item": "Café en Goya",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Puedo llegar a 90 primas. Dime si cerramos.",
+      "offer": {
+       "price": 90,
+       "days": null
+      },
+      "accept": false,
+      "tick": 542,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Café en Goya is a carefully sourced, premium-quality coffee with a rich, smooth profile, and I'm offering it at 175 P. That reflects its quality and consistency, and I'm happy to hear your counteroffer.}",
+      "offer": {
+       "price": 175,
+       "days": null
+      },
+      "accept": false,
+      "tick": 542,
+      "decision": {
+       "action": "offer",
+       "price": 175,
+       "message": "Café en Goya is a carefully sourced, premium-quality coffee with a rich, smooth profile, and I'm offering it at 175 P. That reflects its quality and consistency, and I'm happy to hear your counteroffer.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 91 primas. Dime si cerramos.",
+      "offer": {
+       "price": 91,
+       "days": null
+      },
+      "accept": false,
+      "tick": 543,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 93 primas. Dime si cerramos.",
+      "offer": {
+       "price": 93,
+       "days": null
+      },
+      "accept": false,
+      "tick": 544,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can come down to 172 P, a real step on my side, given the quality of this coffee. Your increments are very small, so if you want to close, I need a meaningful move toward that figure.",
+      "offer": {
+       "price": 172,
+       "days": null
+      },
+      "accept": false,
+      "tick": 544,
+      "decision": {
+       "action": "offer",
+       "price": 172,
+       "message": "I can come down to 172 P, a real step on my side, given the quality of this coffee. Your increments are very small, so if you want to close, I need a meaningful move toward that figure."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 96 primas. Dime si cerramos.",
+      "offer": {
+       "price": 96,
+       "days": null
+      },
+      "accept": false,
+      "tick": 545,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 96,
+     "days": null
+    },
+    "tick": 545,
+    "ticks_left": 13,
+    "rounds": 2
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can move to 169 P, a further step from my side. Your increments are only a few primas at a time, so to close we need a substantially bigger move upward from you.",
+    "price": 169,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 169,
+      "message": "I can move to 169 P, a further step from my side. Your increments are only a few primas at a time, so to close we need a substantially bigger move upward from you."
+     },
+     "band": {
+      "worst": 168,
+      "target": 169,
+      "best": 170
+     },
+     "plan": {
+      "read": "They moved from 93 to 96 since our last offer, small steps that are slowly accelerating (1, 2, 3); their 96 is still far below what we can accept, and their wording is just a repeated template.",
+      "target": 169,
+      "best": 170,
+      "worst": 168,
+      "days": null,
+      "angle": "Make a modest step to 169 and stress that real progress needs them to make substantially bigger moves upward, not a few primas at a time."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.57,
+       "in": 668,
+       "out": 140,
+       "cost_usd": 0.00547,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.06,
+       "in": 517,
+       "out": 67,
+       "cost_usd": 0.0017,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 546,
+   "took_s": 5.29,
+   "cost_usd": 0.00781,
+   "obs": {
+    "view": {
+     "duel_id": 2534,
+     "role": "seller",
+     "limit": 129,
+     "currency": "P",
+     "item": "Café en Goya",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Puedo llegar a 90 primas. Dime si cerramos.",
+      "offer": {
+       "price": 90,
+       "days": null
+      },
+      "accept": false,
+      "tick": 542,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Café en Goya is a carefully sourced, premium-quality coffee with a rich, smooth profile, and I'm offering it at 175 P. That reflects its quality and consistency, and I'm happy to hear your counteroffer.}",
+      "offer": {
+       "price": 175,
+       "days": null
+      },
+      "accept": false,
+      "tick": 542,
+      "decision": {
+       "action": "offer",
+       "price": 175,
+       "message": "Café en Goya is a carefully sourced, premium-quality coffee with a rich, smooth profile, and I'm offering it at 175 P. That reflects its quality and consistency, and I'm happy to hear your counteroffer.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 91 primas. Dime si cerramos.",
+      "offer": {
+       "price": 91,
+       "days": null
+      },
+      "accept": false,
+      "tick": 543,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 93 primas. Dime si cerramos.",
+      "offer": {
+       "price": 93,
+       "days": null
+      },
+      "accept": false,
+      "tick": 544,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can come down to 172 P, a real step on my side, given the quality of this coffee. Your increments are very small, so if you want to close, I need a meaningful move toward that figure.",
+      "offer": {
+       "price": 172,
+       "days": null
+      },
+      "accept": false,
+      "tick": 544,
+      "decision": {
+       "action": "offer",
+       "price": 172,
+       "message": "I can come down to 172 P, a real step on my side, given the quality of this coffee. Your increments are very small, so if you want to close, I need a meaningful move toward that figure."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 96 primas. Dime si cerramos.",
+      "offer": {
+       "price": 96,
+       "days": null
+      },
+      "accept": false,
+      "tick": 545,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 169 P, a further step from my side. Your increments are only a few primas at a time, so to close we need a substantially bigger move upward from you.",
+      "offer": {
+       "price": 169,
+       "days": null
+      },
+      "accept": false,
+      "tick": 545,
+      "decision": {
+       "action": "offer",
+       "price": 169,
+       "message": "I can move to 169 P, a further step from my side. Your increments are only a few primas at a time, so to close we need a substantially bigger move upward from you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 99 primas. Dime si cerramos.",
+      "offer": {
+       "price": 99,
+       "days": null
+      },
+      "accept": false,
+      "tick": 546,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 99,
+     "days": null
+    },
+    "tick": 546,
+    "ticks_left": 12,
+    "rounds": 3
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'll move to 167 P, matching the pace you've set. Café en Goya is a quality coffee, and to close we need a much bigger jump upward from your side.",
+    "price": 167,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 167,
+      "message": "I'll move to 167 P, matching the pace you've set. Café en Goya is a quality coffee, and to close we need a much bigger jump upward from your side."
+     },
+     "band": {
+      "worst": 166,
+      "target": 167,
+      "best": 168
+     },
+     "plan": {
+      "read": "They moved 3 P to 99 since our last offer and keep rising in small steady steps. Their stated readiness to close is just a script; trust only the offers, which still sit far below what we need.",
+      "target": 167,
+      "best": 168,
+      "worst": 166,
+      "days": null,
+      "angle": "Make a small step to 167 P and stress that it mirrors their own pace, so they need much bigger jumps upward to get a deal."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.47,
+       "in": 796,
+       "out": 135,
+       "cost_usd": 0.00588,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.82,
+       "in": 615,
+       "out": 70,
+       "cost_usd": 0.00193,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -288,6 +1412,276 @@
      "days": 0
     }
    }
+  },
+  {
+   "tick": 544,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can come down to 172 P, a real step on my side, given the quality of this coffee. Your increments are very small, so if you want to close, I need a meaningful move toward that figure.",
+    "price": 172,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 172,
+      "message": "I can come down to 172 P, a real step on my side, given the quality of this coffee. Your increments are very small, so if you want to close, I need a meaningful move toward that figure."
+     },
+     "band": {
+      "worst": 170,
+      "target": 172,
+      "best": 174
+     },
+     "plan": {
+      "read": "They creep up in tiny steps (90→91→93), a 3 P total move against our 175 opening; their offer is still far below what we can accept, so their pace signals patience-testing rather than real movement.",
+      "target": 172,
+      "best": 174,
+      "worst": 170,
+      "days": null,
+      "angle": "Make a small, firm step down and stress quality, asking them to make a meaningful jump rather than one-prima increments if they want to close."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.71,
+       "in": 516,
+       "out": 139,
+       "cost_usd": 0.00484,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.24,
+       "in": 405,
+       "out": 75,
+       "cost_usd": 0.00156,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2534,
+    "offer": {
+     "id": 4565,
+     "price": 172,
+     "tick": 544,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 545,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can move to 169 P, a further step from my side. Your increments are only a few primas at a time, so to close we need a substantially bigger move upward from you.",
+    "price": 169,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 169,
+      "message": "I can move to 169 P, a further step from my side. Your increments are only a few primas at a time, so to close we need a substantially bigger move upward from you."
+     },
+     "band": {
+      "worst": 168,
+      "target": 169,
+      "best": 170
+     },
+     "plan": {
+      "read": "They moved from 93 to 96 since our last offer, small steps that are slowly accelerating (1, 2, 3); their 96 is still far below what we can accept, and their wording is just a repeated template.",
+      "target": 169,
+      "best": 170,
+      "worst": 168,
+      "days": null,
+      "angle": "Make a modest step to 169 and stress that real progress needs them to make substantially bigger moves upward, not a few primas at a time."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.57,
+       "in": 668,
+       "out": 140,
+       "cost_usd": 0.00547,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.06,
+       "in": 517,
+       "out": 67,
+       "cost_usd": 0.0017,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2534,
+    "offer": {
+     "id": 4581,
+     "price": 169,
+     "tick": 545,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 546,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'll move to 167 P, matching the pace you've set. Café en Goya is a quality coffee, and to close we need a much bigger jump upward from your side.",
+    "price": 167,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 167,
+      "message": "I'll move to 167 P, matching the pace you've set. Café en Goya is a quality coffee, and to close we need a much bigger jump upward from your side."
+     },
+     "band": {
+      "worst": 166,
+      "target": 167,
+      "best": 168
+     },
+     "plan": {
+      "read": "They moved 3 P to 99 since our last offer and keep rising in small steady steps. Their stated readiness to close is just a script; trust only the offers, which still sit far below what we need.",
+      "target": 167,
+      "best": 168,
+      "worst": 166,
+      "days": null,
+      "angle": "Make a small step to 167 P and stress that it mirrors their own pace, so they need much bigger jumps upward to get a deal."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.47,
+       "in": 796,
+       "out": 135,
+       "cost_usd": 0.00588,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.82,
+       "in": 615,
+       "out": 70,
+       "cost_usd": 0.00193,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2534,
+    "offer": {
+     "id": 4597,
+     "price": 167,
+     "tick": 546,
+     "days": 0
+    }
+   }
   }
- ]
+ ],
+ "last_seen_tick": 548,
+ "done": {
+  "duel": 2534,
+  "session": 2,
+  "status": "deal",
+  "role": "seller",
+  "item": "Café en Goya",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 129,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Sol",
+  "deadline_tick": 558,
+  "decay_per_round": 0.06,
+  "rounds": 4,
+  "your_offer": {
+   "id": 4597,
+   "price": 167,
+   "tick": 546,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 4584,
+   "price": 99,
+   "tick": 546,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 542,
+    "from": "Rival Sol",
+    "text": "Puedo llegar a 90 primas. Dime si cerramos.",
+    "price": 90,
+    "days": null
+   },
+   {
+    "tick": 542,
+    "from": "you",
+    "text": "Café en Goya is a carefully sourced, premium-quality coffee with a rich, smooth profile, and I'm offering it at 175 P. That reflects its quality and consistency, and I'm happy to hear your counteroffer.}",
+    "price": 175,
+    "days": null
+   },
+   {
+    "tick": 543,
+    "from": "Rival Sol",
+    "text": "Puedo llegar a 91 primas. Dime si cerramos.",
+    "price": 91,
+    "days": null
+   },
+   {
+    "tick": 544,
+    "from": "Rival Sol",
+    "text": "Puedo llegar a 93 primas. Dime si cerramos.",
+    "price": 93,
+    "days": null
+   },
+   {
+    "tick": 544,
+    "from": "you",
+    "text": "I can come down to 172 P, a real step on my side, given the quality of this coffee. Your increments are very small, so if you want to close, I need a meaningful move toward that figure.",
+    "price": 172,
+    "days": null
+   },
+   {
+    "tick": 545,
+    "from": "Rival Sol",
+    "text": "Puedo llegar a 96 primas. Dime si cerramos.",
+    "price": 96,
+    "days": null
+   },
+   {
+    "tick": 545,
+    "from": "you",
+    "text": "I can move to 169 P, a further step from my side. Your increments are only a few primas at a time, so to close we need a substantially bigger move upward from you.",
+    "price": 169,
+    "days": null
+   },
+   {
+    "tick": 546,
+    "from": "Rival Sol",
+    "text": "Puedo llegar a 99 primas. Dime si cerramos.",
+    "price": 99,
+    "days": null
+   },
+   {
+    "tick": 546,
+    "from": "you",
+    "text": "I'll move to 167 P, matching the pace you've set. Café en Goya is a quality coffee, and to close we need a much bigger jump upward from your side.",
+    "price": 167,
+    "days": null
+   }
+  ],
+  "result": 29.7,
+  "price": 167,
+  "days": 0
+ }
 }

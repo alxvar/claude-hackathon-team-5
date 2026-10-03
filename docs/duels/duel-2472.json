@@ -67,6 +67,248 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 544,
+   "raw": {
+    "duel": 2472,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 80,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 552,
+    "decay_per_round": 0.06,
+    "rounds": 0,
+    "your_offer": {
+     "id": 4555,
+     "price": 125,
+     "tick": 544,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 536,
+      "from": "you",
+      "text": "El Mesón de la Cava is a distinctive, well-established property with real character and a loyal following, and I'm pricing it at 130 P. I'm happy to hear your thoughts and work toward a figure that reflects its quality.",
+      "price": 130,
+      "days": null
+     },
+     {
+      "tick": 544,
+      "from": "you",
+      "text": "I can do 125 P.",
+      "price": 125,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 545,
+   "raw": {
+    "duel": 2472,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 80,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 552,
+    "decay_per_round": 0.06,
+    "rounds": 0,
+    "your_offer": {
+     "id": 4570,
+     "price": 120,
+     "tick": 545,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 536,
+      "from": "you",
+      "text": "El Mesón de la Cava is a distinctive, well-established property with real character and a loyal following, and I'm pricing it at 130 P. I'm happy to hear your thoughts and work toward a figure that reflects its quality.",
+      "price": 130,
+      "days": null
+     },
+     {
+      "tick": 544,
+      "from": "you",
+      "text": "I can do 125 P.",
+      "price": 125,
+      "days": null
+     },
+     {
+      "tick": 545,
+      "from": "you",
+      "text": "I can do 120 P.",
+      "price": 120,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 546,
+   "raw": {
+    "duel": 2472,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 80,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 552,
+    "decay_per_round": 0.06,
+    "rounds": 0,
+    "your_offer": {
+     "id": 4589,
+     "price": 115,
+     "tick": 546,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 536,
+      "from": "you",
+      "text": "El Mesón de la Cava is a distinctive, well-established property with real character and a loyal following, and I'm pricing it at 130 P. I'm happy to hear your thoughts and work toward a figure that reflects its quality.",
+      "price": 130,
+      "days": null
+     },
+     {
+      "tick": 544,
+      "from": "you",
+      "text": "I can do 125 P.",
+      "price": 125,
+      "days": null
+     },
+     {
+      "tick": 545,
+      "from": "you",
+      "text": "I can do 120 P.",
+      "price": 120,
+      "days": null
+     },
+     {
+      "tick": 546,
+      "from": "you",
+      "text": "I can do 115 P.",
+      "price": 115,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 547,
+   "raw": {
+    "duel": 2472,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 80,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 552,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 4605,
+     "price": 110,
+     "tick": 547,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4604,
+     "price": 69,
+     "tick": 547,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 536,
+      "from": "you",
+      "text": "El Mesón de la Cava is a distinctive, well-established property with real character and a loyal following, and I'm pricing it at 130 P. I'm happy to hear your thoughts and work toward a figure that reflects its quality.",
+      "price": 130,
+      "days": null
+     },
+     {
+      "tick": 544,
+      "from": "you",
+      "text": "I can do 125 P.",
+      "price": 125,
+      "days": null
+     },
+     {
+      "tick": 545,
+      "from": "you",
+      "text": "I can do 120 P.",
+      "price": 120,
+      "days": null
+     },
+     {
+      "tick": 546,
+      "from": "you",
+      "text": "I can do 115 P.",
+      "price": 115,
+      "days": null
+     },
+     {
+      "tick": 547,
+      "from": "Rival Sol",
+      "text": "69 P y cerramos ahora.",
+      "price": 69,
+      "days": null
+     },
+     {
+      "tick": 547,
+      "from": "you",
+      "text": "I can do 110 P.",
+      "price": 110,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -177,6 +419,449 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 544,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 2472,
+     "role": "seller",
+     "limit": 80,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "El Mesón de la Cava is a distinctive, well-established property with real character and a loyal following, and I'm pricing it at 130 P. I'm happy to hear your thoughts and work toward a figure that reflects its quality.",
+      "offer": {
+       "price": 130,
+       "days": null
+      },
+      "accept": false,
+      "tick": 536,
+      "decision": {
+       "action": "offer",
+       "price": 130,
+       "message": "El Mesón de la Cava is a distinctive, well-established property with real character and a loyal following, and I'm pricing it at 130 P. I'm happy to hear your thoughts and work toward a figure that reflects its quality."
+      }
+     }
+    ],
+    "rival_offer": null,
+    "tick": 544,
+    "ticks_left": 8,
+    "rounds": 0
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 125 P.",
+    "price": 125,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 545,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 2472,
+     "role": "seller",
+     "limit": 80,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "El Mesón de la Cava is a distinctive, well-established property with real character and a loyal following, and I'm pricing it at 130 P. I'm happy to hear your thoughts and work toward a figure that reflects its quality.",
+      "offer": {
+       "price": 130,
+       "days": null
+      },
+      "accept": false,
+      "tick": 536,
+      "decision": {
+       "action": "offer",
+       "price": 130,
+       "message": "El Mesón de la Cava is a distinctive, well-established property with real character and a loyal following, and I'm pricing it at 130 P. I'm happy to hear your thoughts and work toward a figure that reflects its quality."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 125 P.",
+      "offer": {
+       "price": 125,
+       "days": null
+      },
+      "accept": false,
+      "tick": 544,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 545,
+    "ticks_left": 7,
+    "rounds": 0
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 120 P.",
+    "price": 120,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 546,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 2472,
+     "role": "seller",
+     "limit": 80,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "El Mesón de la Cava is a distinctive, well-established property with real character and a loyal following, and I'm pricing it at 130 P. I'm happy to hear your thoughts and work toward a figure that reflects its quality.",
+      "offer": {
+       "price": 130,
+       "days": null
+      },
+      "accept": false,
+      "tick": 536,
+      "decision": {
+       "action": "offer",
+       "price": 130,
+       "message": "El Mesón de la Cava is a distinctive, well-established property with real character and a loyal following, and I'm pricing it at 130 P. I'm happy to hear your thoughts and work toward a figure that reflects its quality."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 125 P.",
+      "offer": {
+       "price": 125,
+       "days": null
+      },
+      "accept": false,
+      "tick": 544,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 120 P.",
+      "offer": {
+       "price": 120,
+       "days": null
+      },
+      "accept": false,
+      "tick": 545,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 546,
+    "ticks_left": 6,
+    "rounds": 0
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 115 P.",
+    "price": 115,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 547,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 2472,
+     "role": "seller",
+     "limit": 80,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "El Mesón de la Cava is a distinctive, well-established property with real character and a loyal following, and I'm pricing it at 130 P. I'm happy to hear your thoughts and work toward a figure that reflects its quality.",
+      "offer": {
+       "price": 130,
+       "days": null
+      },
+      "accept": false,
+      "tick": 536,
+      "decision": {
+       "action": "offer",
+       "price": 130,
+       "message": "El Mesón de la Cava is a distinctive, well-established property with real character and a loyal following, and I'm pricing it at 130 P. I'm happy to hear your thoughts and work toward a figure that reflects its quality."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 125 P.",
+      "offer": {
+       "price": 125,
+       "days": null
+      },
+      "accept": false,
+      "tick": 544,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 120 P.",
+      "offer": {
+       "price": 120,
+       "days": null
+      },
+      "accept": false,
+      "tick": 545,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 115 P.",
+      "offer": {
+       "price": 115,
+       "days": null
+      },
+      "accept": false,
+      "tick": 546,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 547,
+    "ticks_left": 5,
+    "rounds": 0
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 110 P.",
+    "price": 110,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 548,
+   "took_s": 6.16,
+   "cost_usd": 0.00676,
+   "obs": {
+    "view": {
+     "duel_id": 2472,
+     "role": "seller",
+     "limit": 80,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "El Mesón de la Cava is a distinctive, well-established property with real character and a loyal following, and I'm pricing it at 130 P. I'm happy to hear your thoughts and work toward a figure that reflects its quality.",
+      "offer": {
+       "price": 130,
+       "days": null
+      },
+      "accept": false,
+      "tick": 536,
+      "decision": {
+       "action": "offer",
+       "price": 130,
+       "message": "El Mesón de la Cava is a distinctive, well-established property with real character and a loyal following, and I'm pricing it at 130 P. I'm happy to hear your thoughts and work toward a figure that reflects its quality."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 125 P.",
+      "offer": {
+       "price": 125,
+       "days": null
+      },
+      "accept": false,
+      "tick": 544,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 120 P.",
+      "offer": {
+       "price": 120,
+       "days": null
+      },
+      "accept": false,
+      "tick": 545,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 115 P.",
+      "offer": {
+       "price": 115,
+       "days": null
+      },
+      "accept": false,
+      "tick": 546,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "69 P y cerramos ahora.",
+      "offer": {
+       "price": 69,
+       "days": null
+      },
+      "accept": false,
+      "tick": 547,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 110 P.",
+      "offer": {
+       "price": 110,
+       "days": null
+      },
+      "accept": false,
+      "tick": 547,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 69,
+     "days": null
+    },
+    "tick": 548,
+    "ticks_left": 4,
+    "rounds": 1
+   },
+   "move": {
+    "action": "offer",
+    "text": "I've already moved a long way from where I started, and your figure is far from what this property is worth. I'm holding at 110 P for now; I'll gladly keep working with you once you come back with a real counteroffer.",
+    "price": 110,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 110,
+      "message": "I've already moved a long way from where I started, and your figure is far from what this property is worth. I'm holding at 110 P for now; I'll gladly keep working with you once you come back with a real counteroffer."
+     },
+     "band": {
+      "worst": 108,
+      "target": 110,
+      "best": 110
+     },
+     "plan": {
+      "read": "They opened at 69 P with a 'close now' push and haven't moved since; we've already conceded 20 P unanswered, so we should stop conceding until they move. With 4 ticks left, though, the clock matters soon.",
+      "target": 110,
+      "best": 110,
+      "worst": 108,
+      "days": null,
+      "angle": "Hold at 110 and make clear that further movement needs a real counteroffer from them, since 69 is far from the property's value."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.71,
+       "in": 541,
+       "out": 143,
+       "cost_usd": 0.00502,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.45,
+       "in": 455,
+       "out": 83,
+       "cost_usd": 0.00174,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [
@@ -233,6 +918,98 @@
      "id": 4418,
      "price": 130,
      "tick": 536,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 544,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 125 P.",
+    "price": 125,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 2472,
+    "offer": {
+     "id": 4555,
+     "price": 125,
+     "tick": 544,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 545,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 120 P.",
+    "price": 120,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 2472,
+    "offer": {
+     "id": 4570,
+     "price": 120,
+     "tick": 545,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 546,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 115 P.",
+    "price": 115,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 2472,
+    "offer": {
+     "id": 4589,
+     "price": 115,
+     "tick": 546,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 547,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 110 P.",
+    "price": 110,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 2472,
+    "offer": {
+     "id": 4605,
+     "price": 110,
+     "tick": 547,
      "days": 0
     }
    }
