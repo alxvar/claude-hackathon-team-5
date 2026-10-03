@@ -226,3 +226,5 @@ Nando: Setenta y tres,
 - Sat 21:53 · message tick 1311 · pilar → t04 · Buenas tardes. You speak sensibly at last — the Puerta does belong beside my Retiro dancers, not in some cold vault. So let us be serious: I offer 151 P for it, today, and the page is complete.
 - Sat 21:56 · message tick 1318 · pilar → t02 · Fifty-nine? Querido, that is not an offer, that is a wish. Four hundred ninety-one pesetas, and the pack is yours. As for Moscow gold — I collect Salamanca and El Retiro, not legends.
 - Sat 21:58 · message tick 1321 · pilar → t02 · Buenas tardes. La chulapa dorada… dicen que sólo se imprimió una. Carmen, en El Rastro, conoce la historia; pregúntele. Mientras tanto, usted me parece serio: le ofrezco un sobre dorado por 504 P.
+- Sat 22:00 · message tick 1325 · pilar → t08 · Qué amable, muchas gracias. Sí, el doce de octubre es día grande en casa, con misa y mantel bueno. Y ya que hablamos de cosas finas: le ofrezco un sobre dorado por 504 P. ¿Le interesa?
+- Sat 22:01 · taller.crafted tick 1326 ·  → t01 · Team 1 turned three common cards into Palacio de Velázquez (uncommon) at The Workshop
