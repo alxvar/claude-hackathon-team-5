@@ -16,7 +16,8 @@ BUY: team H (outside the top 4) holds X that a page we build misses. Bid = H's l
 value − 3 (they accept our bid, so no fee for us). Gain = value − price, capped at 50. Non-collectors rank first.
 
 Alert only if gain ≥ 20 or it completes our page, the signal is ≤ 30 game minutes old, ≤ 3 Dani alerts per hour,
-45 min per team, 2 h per (team, card). Everything goes to intel/opportunities.md with its status.
+45 min per team, 2 h per (team, card); a SELL also needs the buyer to lack ≤ 1 other card of that set (seen in the last
+2 game hours), i.e. ours is its last or second-to-last card (plan §4A): otherwise a 40 P ask won't fill. Everything goes to intel/opportunities.md with its status.
 Execution (not --dry-run): post the addressed offer (expires after ~20 min), record its id, THEN notify. At most 3
 live opportunity offers, cancelled after 20 min unfilled; cash floor env CASH_FLOOR (default 200).
 
@@ -49,6 +50,7 @@ MIN_GAIN, GAIN_CAP = 20, 50
 SCORE_GAP, TOP_N = 10, 4   # feeding rule: sell only to teams ≥ 10 below us and outside the top 4
 ALERTS_PER_H, TEAM_COOLDOWN_S, PAIR_COOLDOWN_S = 3, 45 * 60, 2 * 3600
 MAX_LIVE, OFFER_TTL_S, MAX_POSTS_PER_RUN = 3, 20 * 60, 2   # the team posts ≤ 12 listings/tick across all processes
+OTHER_LACK_H, MAX_OTHER_LACKS = 2.0, 1  # a sale is a page-closer only if the buyer lacks ≤ 1 other card of that set
 BUILD = ("RET", "CHA")     # pages we build (RET Saturday, CHA Sunday; GAME.md)
 BASE_ASK = {"common": 40, "uncommon": 45, "rare": 95}
 TEAM_RE = re.compile(r"^t\d+$")
@@ -170,7 +172,7 @@ def is_team(x):
     return bool(x) and bool(TEAM_RE.match(str(x)))
 
 
-def read_signals(events, board, me_id, gt, now_tick, cards):
+def read_signals(events, board, me_id, gt, now_tick, cards, now_h=None):
     """→ (latest signal per (team, card), profile per (team, set)). A signal: kind lack | hold | gone, game hours,
     source text, live flag, price. Profile: `ratios` (price/book the team paid or bid: a floor on its multiplier) and
     `collects` (it bid for, asked a dealer for, or bought a card of that set)."""
@@ -228,7 +230,7 @@ def read_signals(events, board, me_id, gt, now_tick, cards):
             for c in p.get("cards") or []:
                 put(p.get("team"), c, "hold", h, e["tick"], e["id"], f"got it as a gift (tick {e['tick']})")
 
-    now_h = gt.at(now_tick)
+    now_h = gt.at(now_tick) if now_h is None else now_h
     for o in board:
         team, give, want = o.get("team"), o.get("give") or {}, o.get("want") or {}
         for a in give.get("assets") or []:
@@ -281,7 +283,7 @@ def buy_price(book, value, live_ask=None):
 # ---------------------------------------------------------------------------------------------------- the engine
 
 def find_opportunities(*, events, board, lb, cat, me, value_of, build=BUILD, cash_floor=200, now_tick, gt,
-                       committed_cash=0):
+                       committed_cash=0, now_h=None, our_listed=()):
     """Every SELL / BUY pair the signals support, with hard-limit and feeding checks; status filled in later."""
     cards, sets = {}, {}
     for s in cat["sets"]:
@@ -291,8 +293,8 @@ def find_opportunities(*, events, board, lb, cat, me, value_of, build=BUILD, cas
         for c in s["cards"]:
             cards[c["id"]] = {"set": s["id"], "rarity": c["rarity"], "book": c["book"], "name": c.get("name", c["id"])}
     me_id = me["id"]
-    last, prof = read_signals(events, board, me_id, gt, now_tick, cards)
-    now_h = gt.at(now_tick)
+    now_h = gt.at(now_tick) if now_h is None else now_h  # game hours: the clock's t_hours when we have it
+    last, prof = read_signals(events, board, me_id, gt, now_tick, cards, now_h)
 
     teams = sorted(lb.get("teams", []), key=lambda t: -(t.get("score") or 0))
     info = {t["team"]: {**t, "rank": i + 1} for i, t in enumerate(teams)}
@@ -308,6 +310,7 @@ def find_opportunities(*, events, board, lb, cat, me, value_of, build=BUILD, cas
     complete = {p["set"] for p in (me.get("album") or {}).get("pages", []) if p.get("complete")}
     protected = set(build) | complete
     listed = {a["id"] for o in board if o.get("team") == me_id for a in (o.get("give") or {}).get("assets") or []}
+    listed |= set(our_listed)  # live mode: assets in our open offers per /api/me/offers (the board tags can miss some)
     missing = {s: [c for c in sets[s]["page"] if c not in held] for s in build if s in sets}
 
     opps = []
@@ -332,8 +335,10 @@ def find_opportunities(*, events, board, lb, cat, me, value_of, build=BUILD, cas
                                sig["price"] if sig["live"] else None)
             if price is None:
                 continue
+            others = sorted(k[1] for k, x in last.items() if k[0] == team and k[1] != card and x["kind"] == "lack"
+                            and cards[k[1]]["set"] == c["set"] and now_h - x["hours"] <= OTHER_LACK_H)
             o = {**base, "side": "SELL", "price": price, "our_value": v, "gain": round(price - v, 1), "asset": a["id"],
-                 "completes": False, "collects": p.get("collects", False), "m_est": m_est}
+                 "completes": False, "collects": p.get("collects", False), "m_est": m_est, "other_lacks": others}
             if team in top:
                 o["reasons"].append("top 4")
             if gap is None or gap < SCORE_GAP:
@@ -361,8 +366,8 @@ def find_opportunities(*, events, board, lb, cat, me, value_of, build=BUILD, cas
             if price and cash - price < cash_floor:
                 o["reasons"].append(f"cash floor {cash_floor} (cash {cash})")
             opps.append(o)
-    opps.sort(key=lambda o: (not o["reasons"], o["confident"], o["completes"], o["gain"], not o["collects"],
-                             -o["age_min"]), reverse=True)
+    opps.sort(key=lambda o: (not o["reasons"], o["confident"], len(o.get("other_lacks", ())) <= MAX_OTHER_LACKS,
+                             o["completes"], o["gain"], not o["collects"], -o["age_min"]), reverse=True)
     return opps, {"ours": ours, "top": top, "missing": missing, "held": held, "protected": protected, "me_id": me_id}
 
 
@@ -377,6 +382,9 @@ def choose_alerts(opps, state, now):
             o["status"] = "no: " + "; ".join(o["reasons"])
         elif not (o["gain"] >= MIN_GAIN or o["completes"]):
             o["status"] = f"listed only: gain {o['gain']:g} < {MIN_GAIN}"
+        elif len(o.get("other_lacks", ())) > MAX_OTHER_LACKS:
+            o["status"] = (f"listed only: they also lack {', '.join(o['other_lacks'])}: not their last or "
+                           f"second-to-last {o['set']} card")
         elif not o["confident"]:
             o["status"] = f"listed only: signal {o['age_min']} game-min old"
         elif any(x["team"] == o["team"] and x["card"] == o["card"] for x in live):
@@ -412,7 +420,8 @@ def message(o, offer_id=None):
     t, x, n, s, p = o["team_name"], o["card"], o["card_name"], o["set_name"], o["price"]
     if o["side"] == "SELL":
         why = (f"spare copy worth {o['our_value']:g} to us → +{o['gain']:g} at {p} P; {t} is #{o['rank']} at "
-               f"{o['their_score']}, {o['gap']:g} below us and outside the top 4 (feeding rule OK); they {o['src']}")
+               f"{o['their_score']}, {o['gap']:g} below us and outside the top 4 (feeding rule OK); they {o['src']}"
+               f"{'; other ' + o['set'] + ' cards they lack: ' + ', '.join(o['other_lacks']) if o.get('other_lacks') else ''}")
         es = (f"Che, les falta la {x} ({n}) para la página de {s}, ¿no? Se la dejamos publicada a su nombre en El Rastro a {p} P, "
               f"oferta {oid}. No tienen que creernos: la ven ustedes mismos, la aceptan y suman la carta; si es la "
               f"última, cierran la página y se llevan el bonus.")
@@ -459,8 +468,10 @@ def save_state(path, state, now):
 
 
 def reconcile(api, state, events, me_id, now):
-    """Live mode: drop tracked offers that closed (filled or expired), cancel ours unfilled after 20 min."""
-    open_ids = {o["id"] for o in api.my_offers().get("offers", []) if o.get("maker") == me_id and o.get("status") == "open"}
+    """Live mode: drop tracked offers that closed (filled or expired), cancel ours unfilled after 20 min. Returns the
+    asset ids in our open offers, so a copy listed by another process is never offered twice."""
+    mine = [o for o in api.my_offers().get("offers", []) if o.get("maker") == me_id and o.get("status") == "open"]
+    open_ids = {o["id"] for o in mine}
     for x in state.get("live", []):
         if x.get("status") != "live":
             continue
@@ -479,6 +490,8 @@ def reconcile(api, state, events, me_id, now):
         for a in state.get("alerts", []):
             if a.get("offer") == x["offer"]:
                 a["status"] = x["status"]
+    cancelled = {x["offer"] for x in state.get("live", []) if x.get("status", "").startswith("cancelled")}
+    return {a["id"] for o in mine if o["id"] not in cancelled for a in (o.get("give") or {}).get("assets") or []}
 
 
 def write_md(path, opps, state, ctx, *, dry_run, now, clock, src):
@@ -521,8 +534,7 @@ def run_once(api, *, dry_run, now=None, state_path=STATE, out_path=OUT, data_dir
     lb, cat, me = api.leaderboard(), api.catalog(), api.me()
     gt = GameTime(events, float(clock.get("tick_seconds") or 60))
     now_tick = clock.get("tick") or (events[-1]["tick"] if events else 0)
-    if not dry_run:
-        reconcile(api, state, events, me["id"], now)
+    our_listed = reconcile(api, state, events, me["id"], now) if not dry_run else set()
     committed = sum(x["price"] for x in state.get("live", []) if x.get("status") == "live" and x["side"] == "BUY")
 
     values = {}
@@ -537,7 +549,8 @@ def run_once(api, *, dry_run, now=None, state_path=STATE, out_path=OUT, data_dir
         return values[card]
 
     opps, ctx = find_opportunities(events=events, board=board, lb=lb, cat=cat, me=me, value_of=value_of, build=build,
-                                   cash_floor=cash_floor, now_tick=now_tick, gt=gt, committed_cash=committed)
+                                   cash_floor=cash_floor, now_tick=now_tick, gt=gt, committed_cash=committed,
+                                   now_h=clock.get("t_hours"), our_listed=our_listed)
     ctx["values"] = values
     picked = choose_alerts(opps, state, now)
     ttl_ticks = math.ceil(OFFER_TTL_S / float(clock.get("tick_seconds") or 60)) + 1
@@ -560,6 +573,10 @@ def run_once(api, *, dry_run, now=None, state_path=STATE, out_path=OUT, data_dir
             log(f"opportunities: post {o['side']} {o['card']} to {o['team']} failed: {e.code} {e.message[:100]}")
             break  # e.g. the team's 12 listings this tick are used up: try next run
         oid = r.get("id") or (r.get("offer") or {}).get("id")
+        if oid is None:  # posted, but we can't point anyone at it: no alert
+            o["status"] = "posted without an offer id in the response: check /api/me/offers"
+            log(f"opportunities: {o['status']} ({json.dumps(r)[:200]})")
+            break
         if o["side"] == "BUY":
             cash -= o["price"]
         rec = {"ts": now, "tick": now_tick, "side": o["side"], "team": o["team"], "card": o["card"], "price": o["price"],
@@ -591,8 +608,9 @@ def main(argv=None):
         try:
             opps, picked = run_once(api, dry_run=a.dry_run, build=build)
             ok = [o for o in opps if not o["reasons"]]
+            sent = len(picked) if a.dry_run else sum(o["status"].startswith("ALERTED") for o in picked)
             print(f"{time.strftime('%H:%M:%S')} opportunities: {len(opps)} found, {len(ok)} pass the hard rules, "
-                  f"{len(picked)} {'would alert' if a.dry_run else 'alerted'} → {OUT.relative_to(ROOT)}", flush=True)
+                  f"{sent} {'would alert' if a.dry_run else 'alerted'} → {OUT.relative_to(ROOT)}", flush=True)
         except BazaarError as e:
             print(time.strftime("%H:%M:%S"), "opportunities:", e.code, e.message[:120], flush=True)
         except Exception as e:  # a daemon keeps going through anything

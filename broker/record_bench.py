@@ -59,6 +59,7 @@ class BenchRecorder:
         self.empty: tuple | None = None         # (tick, wall) since bench_offers went empty mid-session
         self.closed: set[str] = set()           # sessions whose results are scheduled
         self.due: list[tuple[float, str, int]] = []
+        self.pause = time.sleep                  # between the three result reads (tests stub it)
 
     # ---------------------------------------------------------------- schedule
     def note_schedule(self, schedule: dict):
@@ -180,10 +181,10 @@ class BenchRecorder:
         s = me.get("score") or {}
         mine = {k: s.get(k) for k in ME_FIELDS}
         mine["venue_detail"] = me.get("venue")
-        time.sleep(0.3)
+        self.pause(0.3)
         lb = self.public.leaderboard()
         teams = [{k: t.get(k) for k in ("team", "name", "market", "venue", "rank", "score")} for t in lb.get("teams") or []]
-        time.sleep(0.3)
+        self.pause(0.3)
         venues = [{"venue": v.get("venue"), "owner": v.get("owner"), "status": v.get("status"),
                    "mechanism": (v.get("rules") or {}).get("mechanism"), "starter": v.get("starter"),
                    "fee_bps": v.get("fee_bps"), "fee_per_card": v.get("fee_per_card"), "pairs": v.get("pairs"),

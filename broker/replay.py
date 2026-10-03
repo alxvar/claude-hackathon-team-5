@@ -153,6 +153,45 @@ def possible(limits: dict[str, int], side: dict[str, str]) -> int:
     return sum(sim.possible_gains(ts) for ts in runs.values())
 
 
+def oracle(sess: Session) -> float | None:
+    """Headroom check: the best ANY quote-respecting broker could have done with hindsight, as a share of the possible
+    gains. = a max-weight matching over the pairs that crossed on quotes at some tick while both were in the book (each
+    such pair could have been crossed at that tick; the pairs are disjoint). None if a run is too big to solve exactly."""
+    limits, side, _ = limits_of(sess)
+    seen: dict[tuple[str, str], bool] = {}
+    for offers in sess.books.values():
+        asks = [(o["id"], quote_of(o)) for o in offers if side_of(o) == "sell"]
+        for b in (o for o in offers if side_of(o) == "buy"):
+            for a, q in asks:
+                if run_of(a) == run_of(b["id"]) and q <= quote_of(b):
+                    seen[a, b["id"]] = True
+    total = 0
+    for run in {run_of(i) for i in side}:
+        bs = [i for i in side if side[i] == "buy" and run_of(i) == run]
+        ss = [i for i in side if side[i] == "sell" and run_of(i) == run]
+        if min(len(bs), len(ss)) > 14:
+            return None
+        if len(ss) > len(bs):  # the bitmask runs over the smaller side
+            bs, ss = ss, bs
+        memo: dict[tuple[int, int], int] = {}
+
+        def best(i: int, used: int) -> int:
+            if i == len(bs):
+                return 0
+            if (i, used) not in memo:
+                r = best(i + 1, used)
+                for j, s in enumerate(ss):
+                    pair = (s, bs[i]) if side[bs[i]] == "buy" else (bs[i], s)
+                    if not used >> j & 1 and pair in seen:
+                        r = max(r, limits[pair[1]] - limits[pair[0]] + best(i + 1, used | 1 << j))
+                memo[i, used] = r
+            return memo[i, used]
+
+        total += best(0, 0)
+    best_all = possible(limits, side)
+    return total / best_all if best_all else 1.0
+
+
 # -------------------------------------------------------------------------------------------- replay
 
 def replay(sess: Session, strategy: str, censor: str = "leave", verbose: bool = False) -> dict:
@@ -225,6 +264,9 @@ def report(label: str, sessions: list[Session], strategies: list[str], censor: s
     for s in strategies:
         xs = r["eff"][s]
         print(f"  {s:<12}{summary(xs):>20}{sorted(xs)[len(xs) // 10]:>8.3f}{min(xs):>8.3f}{r['violations'][s]:>12}")
+    orc = [o for o in (oracle(s) for s in sessions) if o is not None]
+    if orc:
+        print(f"  {'quote-oracle':<12}{summary(orc):>20}   (hindsight ceiling for any broker that crosses quotes)")
     if len(strategies) == 2:
         a, b = strategies
         d = [y - x for x, y in zip(r["eff"][a], r["eff"][b])]

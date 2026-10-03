@@ -264,12 +264,35 @@ def test_never_more_than_three_live_offers():
     assert op.choose_alerts([o], {"alerts": [], "live": live}, NOW) == [] and o["status"].startswith("held: 3 opportunity")
 
 
-def test_real_friday_picks_one_alert():
+def test_real_friday_team_7_lacks_three_salamanca_cards_so_no_alert():
     opps, _ = engine()
     picked = op.choose_alerts(opps, {"alerts": [], "live": []}, NOW)
+    assert picked == []
+    o = find(opps, "SELL", "t07", "SAL-02")      # passes every hard rule, but SAL-01 and SAL-05 are missing too
+    assert o["reasons"] == [] and o["other_lacks"] == ["SAL-01", "SAL-05"]
+    assert o["status"].startswith("listed only: they also lack SAL-01, SAL-05")
+
+
+def single_gap_fixture():
+    """Real Friday data where Team 7 asked Abuela only for SAL-02 (its other two asks removed)."""
+    f = fx()
+    f["events"] = [e for e in f["events"] if e["id"] not in (6681, 7907)]
+    return f
+
+
+def test_page_closer_sale_is_alerted():
+    opps, _ = engine(single_gap_fixture())
+    picked = op.choose_alerts(opps, {"alerts": [], "live": []}, NOW)
     assert [(o["team"], o["card"], o["price"]) for o in picked] == [("t07", "SAL-02", 40)]
+
+
+def test_one_other_lack_is_still_a_second_to_last_card():
+    f = fx()
+    f["events"] = [e for e in f["events"] if e["id"] != 6681]          # Team 7 lacks SAL-02 and SAL-01
+    opps, _ = engine(f)
+    picked = op.choose_alerts(opps, {"alerts": [], "live": []}, NOW)
+    assert [(o["team"], o["card"]) for o in picked] == [("t07", "SAL-02")]
     assert find(opps, "SELL", "t07", "SAL-01")["status"].startswith("cooldown: team")
-    assert find(opps, "SELL", "t07", "SAL-05")["status"].startswith("listed only: signal")   # 31 game-min old
 
 
 # ------------------------------------------------------------------------------------------------ runs
@@ -349,7 +372,7 @@ def run(tmp_path, api, dry_run, **kw):
 
 
 def test_dry_run_never_calls_a_write_endpoint_or_notifies(tmp_path):
-    api, notes = FakeApi(), []
+    api, notes = FakeApi(single_gap_fixture()), []
     opps, picked = run(tmp_path, api, True, notifier=lambda *a, **k: notes.append(a))
     assert not WRITES & set(api.names())
     assert notes == []
@@ -377,7 +400,7 @@ def test_stale_collector_files_are_replaced_by_public_fetches(tmp_path):
 
 def test_live_run_posts_the_offer_then_notifies(tmp_path):
     log, notes = [], []
-    api = FakeApi(log=log)
+    api = FakeApi(single_gap_fixture(), log=log)
 
     def notifier(who, title, body, **k):
         log.append("notify")
@@ -395,13 +418,13 @@ def test_live_run_posts_the_offer_then_notifies(tmp_path):
     state = json.loads((tmp_path / "state.json").read_text())
     assert state["live"][0]["offer"] == 9001 and state["alerts"][0]["team"] == "t07"
     # the next run: same pair and team are in cooldown and the offer is live
-    api2 = FakeApi(open_offers=[{"id": 9001, "maker": "t05", "status": "open"}])
+    api2 = FakeApi(single_gap_fixture(), open_offers=[{"id": 9001, "maker": "t05", "status": "open"}])
     _, picked2 = run(tmp_path, api2, False, notifier=notifier, now=NOW + 60)
     assert picked2 == [] and "list_offer" not in api2.names()
 
 
 def test_a_failed_post_sends_no_alert(tmp_path):
-    api, notes = FakeApi(fail_post="rate_limited"), []
+    api, notes = FakeApi(single_gap_fixture(), fail_post="rate_limited"), []
     opps, _ = run(tmp_path, api, False, notifier=lambda *a, **k: notes.append(a))
     assert notes == [] and find(opps, "SELL", "t07", "SAL-02")["status"] == "post failed: rate_limited"
     assert json.loads((tmp_path / "state.json").read_text())["alerts"] == []

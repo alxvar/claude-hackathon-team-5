@@ -4,12 +4,16 @@ Strategies (--strategy):
   auto_clone  exactly what the free stall does on the Market Test (bazaar-kit/starter_broker.py `bench_plan`): in each
               bench run, the best bid against the best ask while they cross, at the midpoint; with a venue fee the
               midpoint is lowered until the buyer also covers the fee (identical to the stall at fee 0).
-  v1          auto_clone + one rule about who is about to leave. Traders whose quote relaxed over the last ticks
-              (fastest first: the impatient ones) are served first, each with the tightest counterpart it crosses;
-              then the rest best bid / best ask; in the last 2 ticks of a run, every pair that can cross is crossed
-              (most pairs). Never a pair whose quotes don't cross, and never fewer pairs in a tick than auto_clone
-              (if the rule would match fewer, that tick falls back to auto_clone).
-Both cross the venue's real offers card by card as the starter broker does (value created on our venue also scores).
+  v1          auto_clone + one rule about who is about to leave, built so it can only add: start from the stall's
+              pairs, then bring in traders whose quote relaxed over the last ticks (fastest first: the impatient
+              ones, likely to leave) through augmenting paths, i.e. by re-pairing the stall's traders, never by
+              dropping one; in the last 2 ticks of a run, bring in every trader that can cross (most pairs that
+              keep the stall's). Each tick it matches every trader the stall would, plus maybe some; never a pair
+              whose quotes don't cross.
+  v1_literal  experimental, for replays: the rule as first written, which may displace a stall trader: relaxing
+              traders first, each with the tightest counterpart, then the stall (falls back to the stall if that
+              matches fewer pairs). On the simulator it wins about as often as it loses.
+All strategies cross the venue's real offers card by card as the starter broker does.
 
     BROKER_KEY=bk_... python3 -m broker.broker --strategy auto_clone             # live, one heartbeat line per tick
     BROKER_KEY=bk_... python3 -m broker.broker --strategy v1 --dry-run           # print the matches, post nothing
@@ -33,11 +37,11 @@ if __package__ in (None, ""):  # run as a file: make `broker` the package, not t
 
 from broker.common import URL, BazaarError, Broker, Public, TickClock  # noqa: E402
 
-STRATEGIES = ("auto_clone", "v1")
+STRATEGIES = ("auto_clone", "v1", "v1_literal")
 RUN_TICKS = 16   # a bench run's length (GET /api/schedule → bench params.ticks)
 TAIL = 2         # v1 crosses everything in a run's last TAIL ticks
 WINDOW = 3       # ticks of quote history v1 uses to see who is relaxing fastest
-TAU = 0.0        # v1: "urgent" = relaxing by at least TAU of its quote per tick (set from the sweep below the README)
+TAU = 0.0        # v1: "urgent" = relaxing by more than TAU of its quote per tick (0: any relaxing trader)
 
 
 # ------------------------------------------------------------------------------------------------ pure planning
@@ -119,48 +123,61 @@ def relax_speed(hist: dict[int, int], tick: int, side: str, window: int = WINDOW
     return max(0.0, move / (tick - t0) / max(1, hist[tick]))
 
 
-def v1_pairs(asks: list[Quote], bids: list[Quote], fee, urgent: dict[str, float]) -> list[tuple[Quote, Quote]]:
-    """Urgent traders first (fastest relaxing first), each with an urgent counterpart if one crosses, else the
-    tightest one (a bid takes the dearest ask it covers, an ask the cheapest bid covering it: the counterpart other
-    traders could least use); then the rest best bid / best ask, as the stall."""
+def augment(asks: list[Quote], bids: list[Quote], fee, base: list[tuple[Quote, Quote]], speed: dict[str, float],
+            tau: float = TAU, everyone: bool = False) -> list[tuple[Quote, Quote]]:
+    """Grow the stall's matching `base` by augmenting paths (Kuhn): a path re-pairs matched traders and adds one
+    unmatched bid and one unmatched ask that cross, so every trader in `base` stays matched. Unmatched bids are tried
+    fastest-relaxing first; a new pair must bring in at least one urgent trader (relaxing by more than tau of its quote
+    per tick), or anyone when `everyone` (a run's last ticks). Asks are tried urgent first, then dearest first (the one
+    other bids could least use)."""
+    urgent = {q.id for q in asks + bids if speed.get(q.id, 0.0) > tau}
+    if not urgent and not everyone:
+        return base
+    covers = {(a.id, b.id) for a in asks for b in bids if cross_price(a.price, b.price, fee) is not None}
+    ask_of: dict[str, Quote] = {b.id: a for a, b in base}
+    bid_of: dict[str, Quote] = {a.id: b for a, b in base}
+    order = sorted(asks, key=lambda a: (a.id not in urgent, -a.price, a.pos))
+
+    def path(b: Quote, root: Quote, seen: set) -> bool:
+        for a in order:
+            if (a.id, b.id) not in covers or a.id in seen:
+                continue
+            seen.add(a.id)
+            if a.id not in bid_of:
+                if not (everyone or root.id in urgent or a.id in urgent):
+                    continue
+            elif not path(bid_of[a.id], root, seen):
+                continue
+            bid_of[a.id], ask_of[b.id] = b, a
+            return True
+        return False
+
+    for b in sorted((b for b in bids if b.id not in ask_of), key=lambda q: (-speed.get(q.id, 0.0), -q.price, q.pos)):
+        path(b, b, set())
+    return [(a, bid_of[a.id]) for a in asks if a.id in bid_of]
+
+
+def literal_pairs(asks: list[Quote], bids: list[Quote], fee, speed: dict[str, float]) -> list[tuple[Quote, Quote]]:
+    """v1_literal: relaxing traders first (fastest first), each with the tightest counterpart it crosses (a bid takes
+    the dearest ask it covers, an ask the cheapest bid covering it); then the rest best bid / best ask. May displace a
+    trader the stall would have matched."""
     free_a, free_b, out = list(asks), list(bids), []
-    for q in sorted((q for q in asks + bids if q.id in urgent), key=lambda q: (-urgent[q.id], q.pos)):
+    for q in sorted((q for q in asks + bids if speed.get(q.id, 0.0) > 0), key=lambda q: (-speed[q.id], q.pos)):
         if q.side == "buy" and q in free_b:
             fit = [a for a in free_a if cross_price(a.price, q.price, fee) is not None]
             if fit:
-                a = min(fit, key=lambda a: (a.id not in urgent, -a.price, a.pos))
+                a = max(fit, key=lambda a: (a.price, -a.pos))
                 free_a.remove(a)
                 free_b.remove(q)
                 out.append((a, q))
         elif q.side == "sell" and q in free_a:
             fit = [b for b in free_b if cross_price(q.price, b.price, fee) is not None]
             if fit:
-                b = min(fit, key=lambda b: (b.id not in urgent, b.price, b.pos))
+                b = min(fit, key=lambda b: (b.price, b.pos))
                 free_a.remove(q)
                 free_b.remove(b)
                 out.append((q, b))
     return out + stall_pairs(free_a, free_b, fee)
-
-
-def ids(pairs) -> set[str]:
-    return {q.id for pair in pairs for q in pair}
-
-
-def v1_tick(asks: list[Quote], bids: list[Quote], fee, speed: dict[str, float], tau: float) -> list[tuple[Quote, Quote]]:
-    """v1 for one run and one tick, guarded against the stall. Urgent = relaxing at >= tau of its quote per tick.
-    The urgent-first pairs replace the stall's only if they match at least as many pairs, every trader they add is
-    urgent, and every trader they leave out is relaxing but not urgent (it stays, and its quote keeps improving).
-    A firm trader (never relaxes, so never crosses anything new) or a newcomer is never displaced."""
-    base = stall_pairs(asks, bids, fee)
-    urgent = {q.id: speed[q.id] for q in asks + bids if speed.get(q.id, 0.0) > 0 and speed[q.id] >= tau}
-    if not urgent:
-        return base
-    cand = v1_pairs(asks, bids, fee, urgent)
-    added, dropped = ids(cand) - ids(base), ids(base) - ids(cand)
-    if (len(cand) >= len(base) and all(i in urgent for i in added)
-            and all(i not in urgent and speed.get(i, 0.0) > 0 for i in dropped)):
-        return cand
-    return base
 
 
 class Planner:
@@ -185,15 +202,15 @@ class Planner:
             for q in asks + bids:
                 self.hist.setdefault(q.id, {})[tick] = q.price
             base = stall_pairs(asks, bids, fee)
-            if self.strategy == "auto_clone":
-                pairs = base
-            elif tick - start >= self.run_ticks - self.tail:
-                pairs = most_pairs(asks, bids, fee)
-            else:
+            pairs, tail = base, tick - start >= self.run_ticks - self.tail
+            if self.strategy != "auto_clone":
                 speed = {q.id: relax_speed(self.hist[q.id], tick, q.side, self.window) for q in asks + bids}
-                pairs = v1_tick(asks, bids, fee, speed, self.tau)
-            if len(pairs) < len(base):
-                pairs = base
+                if self.strategy == "v1":
+                    pairs = augment(asks, bids, fee, base, speed, self.tau, everyone=tail)
+                else:
+                    pairs = most_pairs(asks, bids, fee) if tail else literal_pairs(asks, bids, fee, speed)
+                if len(pairs) < len(base):
+                    pairs = base
             plan += [(a.id, b.id, cross_price(a.price, b.price, fee)) for a, b in pairs]
         return plan
 
@@ -319,6 +336,8 @@ def main(argv=None) -> int:
     ap.add_argument("--run-ticks", type=int, default=RUN_TICKS)
     ap.add_argument("--no-bench-fee", action="store_true", help="ignore the venue fee on bench matches (as the "
                     "starter broker does); identical at fee 0")
+    ap.add_argument("--tau", type=float, default=TAU, help="v1: urgent = relaxing by more than this share of its "
+                    "quote per tick")
     ap.add_argument("--max-errors", type=int, default=20)
     ap.add_argument("--hz", type=float, default=2.0, help="book reads per second (the starter reads twice)")
     a = ap.parse_args(argv)
@@ -334,7 +353,7 @@ def main(argv=None) -> int:
         team = Bazaar(URL, os.environ["BAZAAR_KEY"], retries=2) if os.environ.get("BAZAAR_KEY") else None
         recorder = BenchRecorder(team=team)
     clock = TickClock(Public().clock)
-    planner = Planner(a.strategy, run_ticks=a.run_ticks, bench_fee=not a.no_bench_fee)
+    planner = Planner(a.strategy, run_ticks=a.run_ticks, bench_fee=not a.no_bench_fee, tau=a.tau)
     return run(client, clock, planner, dry_run=a.dry_run, max_errors=a.max_errors, hz=a.hz, recorder=recorder)
 
 
