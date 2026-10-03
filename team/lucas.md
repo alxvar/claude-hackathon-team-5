@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sat 12:25 · operator · **MAL-07 → Pilar at 19** (offer-only; her 16 → 18, she accepted our 19): `ladder_points` 0.072 → **0.122 (+0.050, L3 ≈ 3× L2)**, `neg_points` 35.2 unchanged, cash 142, level 3 → GAME.md · MAL-06 → Pilar next · #5 (26.39) during Duels I (duel points ~4.4)
 - Sat 12:35 · Builder · CHA plan verifier FLAG (1 blocker: a removed book entry left its bid live → 2nd copy on the dealer fallback) · fixed in code 45ce829 + a005145 (removal cancels, price edits move, bid cancelled once card held, opps skips book cards, daemons.sh restart works; 334 pass) and plan a4327c6 (Chato steady, per-rarity max-buy, CHA-05 closer, cash close ≥ ~230 for Chief) · re-verify running
 - Sat 12:16 · operator · MAL-07/06 → Chato at 14 STOPPED (Chief: Pilar's uncommon finals 18-19 cost 0 neg vs Chato's 14 at −3.5); nothing sold (the driver's floor-vs-value check had refused both) · queued: MAL-07 then MAL-06 → Pilar from the moment she unlocks (~12:21), offer-only, ask 30, steps of 3, floor 18 · SAL-08 back on the book (→ t03 at 25) until Pilar's SAL fever (hour 9.15-11.15 ≈ 16:00-18:00, 25 % over book ≈ 31)
 - Sat 12:11 · operator · **LADDER TEST WORKED**: LAT-08 → Chato at 14 (offer-only, above his opening 13): `ladder_points` 0.055 → **0.072 (+0.017)**, `neg_points` 35.2 unchanged, cash 109 → 123 → GAME.md · next (Chief's rule ≥ +0.01): MAL-07 then MAL-06 → Chato at ≥ 14 (−3.5 each), both pulled from run/book.json; then SAL-08 → Pilar in her fever

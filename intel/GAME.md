@@ -76,6 +76,8 @@
   14, offer-only (we sent his standing 14 as our offer and he accepted): his bids 13 ×4, 14, 14; `ladder_points`
   0.055 → 0.072 (+0.017), `neg_points` unchanged (gain clipped). His uncommon buy final is 14 (MAL-07 earlier: 13, 13,
   14 FINAL vs our floor 15 → walked).
+- **Level 3 (Pilar) ladder pays ~3× level 2** [V, n=1, Sat 12:24]: MAL-07 (worth 17.5) sold to Pilar at 19 (her bids 16,
+  16, 17, 17, 18; she accepted our 19): `ladder_points` 0.072 → 0.122 (**+0.050**), `neg_points` unchanged, cash +19.
 - **Ladder and early unlock count only below-list dealer deals** [L, strong pattern]: every Abuela deal under her list
   (commons 9 vs 10, RET-08 22 vs 25) moved the ladder; none of our 6 Chato deals moved it, all above his list (RET-09 87 and
   RET-10 86 vs 77, RET-06 30 vs 26, Fri LAV-09 93, LAV-06 31, LAT-08 sale). Level 3 (Doña Pilar, active 3.51 h, open to
