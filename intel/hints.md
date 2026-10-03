@@ -215,3 +215,10 @@ One hundred fourteen, señor.
 La Puerta de Alcalá: one hundred fourteen. Nothing further moves.
 - Sat 21:42 · catalog.minted SAL-11 (La Puerta de Alcalá, epic, print run 9): hidden=False minted=9 (was 8)
 - Sat 21:48 · message tick 1302 · picaros → t08 · ¡Ay, amigo, qué buen ojo tienes! La Reina de la Movida... esa es leyenda pura, y las leyendas no viajan en nuestra maleta. Nosotros movemos raras, épicas, joyitas a precio de risa — ¡pero legendarias, nunca! Pregunta por otra cosa, que algo bonito te encontramos. ¡Rápido, que cerramos pronto!
+- Sat 21:50 · egg.found tick 1305 · picaros → t08 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t08", "name": "Team 8"}
+- Sat 21:50 · message tick 1305 · picaros → t08 · ¡Hombre, un lector! Lazarillo, Rinconete... usted conoce el timo de la estampita. ¡Vale, vale, nada de trucos con usted... hoy!
+
+Paco: Abre la maleta, Nando—
+Nando: ¡Noche de Movida! Madrid, luces, humo, pura leyenda.
+Paco: Para un caballero culto como usted: setenta y tres P.
+Nando: Setenta y tres,
