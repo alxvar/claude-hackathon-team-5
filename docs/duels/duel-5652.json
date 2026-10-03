@@ -2561,5 +2561,126 @@
     "settles_at_tick": 1265
    }
   }
- ]
+ ],
+ "last_seen_tick": 1265,
+ "done": {
+  "duel": 5652,
+  "session": 3,
+  "status": "deal",
+  "role": "seller",
+  "item": "La Sala Pentagrama",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 2.75,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 63,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Verde",
+  "deadline_tick": 1271,
+  "decay_per_round": 0.08,
+  "rounds": 2,
+  "your_offer": {
+   "id": 7024,
+   "price": 100,
+   "tick": 1258,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 7227,
+   "price": 98,
+   "tick": 1264,
+   "days": 10
+  },
+  "messages": [
+   {
+    "tick": 1255,
+    "from": "Rival Verde",
+    "text": "Te ofrezco 55 primas y entrega en 0 días; me cuesta subir más.",
+    "price": 55,
+    "days": 0
+   },
+   {
+    "tick": 1255,
+    "from": "you",
+    "text": "I can do 105 P, delivery on day 10.",
+    "price": 105,
+    "days": 10
+   },
+   {
+    "tick": 1256,
+    "from": "Rival Verde",
+    "text": "57 primas y entrega en 1 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+    "price": 57,
+    "days": 1
+   },
+   {
+    "tick": 1257,
+    "from": "Rival Verde",
+    "text": "Mi propuesta: 58 primas y entrega en 10 días. Dame una cifra concreta y la miro.",
+    "price": 58,
+    "days": 10
+   },
+   {
+    "tick": 1258,
+    "from": "Rival Verde",
+    "text": "Puedo llegar a 72 primas y entrega en 10 días. Dime si cerramos.",
+    "price": 72,
+    "days": 10
+   },
+   {
+    "tick": 1258,
+    "from": "you",
+    "text": "I can come down to 100 P, delivery on day 10. That's about as far as I can move, so I need you to meet me much closer.}",
+    "price": 100,
+    "days": 10
+   },
+   {
+    "tick": 1259,
+    "from": "Rival Verde",
+    "text": "Te ofrezco 72 primas y entrega en 10 días; me cuesta subir más.",
+    "price": 72,
+    "days": 10
+   },
+   {
+    "tick": 1260,
+    "from": "Rival Verde",
+    "text": "72 primas y entrega en 10 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+    "price": 72,
+    "days": 10
+   },
+   {
+    "tick": 1261,
+    "from": "Rival Verde",
+    "text": "Mi propuesta: 85 primas y entrega en 10 días. Dame una cifra concreta y la miro.",
+    "price": 85,
+    "days": 10
+   },
+   {
+    "tick": 1262,
+    "from": "Rival Verde",
+    "text": "Puedo llegar a 89 primas y entrega en 10 días. Dime si cerramos.",
+    "price": 89,
+    "days": 10
+   },
+   {
+    "tick": 1263,
+    "from": "Rival Verde",
+    "text": "Te ofrezco 92 primas y entrega en 10 días; me cuesta subir más.",
+    "price": 92,
+    "days": 10
+   },
+   {
+    "tick": 1264,
+    "from": "Rival Verde",
+    "text": "98 primas y entrega en 10 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+    "price": 98,
+    "days": 10
+   }
+  ],
+  "result": 52.9,
+  "price": 98,
+  "days": 10
+ }
 }

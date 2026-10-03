@@ -323,6 +323,80 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1266,
+   "raw": {
+    "duel": 5737,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Dama de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.37,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 78,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 1271,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 6985,
+     "price": 47,
+     "tick": 1257,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 7004,
+     "price": 54,
+     "tick": 1258,
+     "days": 2
+    },
+    "messages": [
+     {
+      "tick": 1256,
+      "from": "Rival Oro",
+      "text": "Rápido y justo: 61 P, día 8. ¿Qué día de entrega te va mejor? / Quick and fair: 61 P, day 8. Which delivery day suits you best?",
+      "price": 61,
+      "days": 8
+     },
+     {
+      "tick": 1256,
+      "from": "you",
+      "text": "Thanks for the quick opener. I can do 44 P with delivery on day 0; I'd like you to move your price toward that.",
+      "price": 44,
+      "days": 0
+     },
+     {
+      "tick": 1257,
+      "from": "Rival Oro",
+      "text": "Parece que el día te importa: 56 P con día 4. / It seems the day matters to you: 56 P, day 4.",
+      "price": 56,
+      "days": 4
+     },
+     {
+      "tick": 1257,
+      "from": "you",
+      "text": "I appreciate you moving on both price and day. I can do 47 P with delivery on day 0, a clean, early close. I'd ask you to come down further on price.",
+      "price": 47,
+      "days": 0
+     },
+     {
+      "tick": 1258,
+      "from": "Rival Oro",
+      "text": "Parece que el día te importa: 54 P con día 2. / It seems the day matters to you: 54 P, day 2.",
+      "price": 54,
+      "days": 2
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -333,7 +407,7 @@
   "duel_ticks": 16,
   "decay": 0.08
  },
- "first_tick": 1255,
+ "first_tick": 1266,
  "view": {
   "duel_id": 5737,
   "role": "buyer",
@@ -1037,6 +1111,149 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 1266,
+   "took_s": 12.44,
+   "cost_usd": 0.02106,
+   "obs": {
+    "view": {
+     "duel_id": 5737,
+     "role": "buyer",
+     "limit": 78,
+     "currency": "P",
+     "item": "La Dama de Serrano",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.37,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Rápido y justo: 61 P, día 8. ¿Qué día de entrega te va mejor? / Quick and fair: 61 P, day 8. Which delivery day suits you best?",
+      "offer": {
+       "price": 61,
+       "days": 8
+      },
+      "accept": false,
+      "tick": 1256,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the quick opener. I can do 44 P with delivery on day 0; I'd like you to move your price toward that.",
+      "offer": {
+       "price": 44,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1256,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Parece que el día te importa: 56 P con día 4. / It seems the day matters to you: 56 P, day 4.",
+      "offer": {
+       "price": 56,
+       "days": 4
+      },
+      "accept": false,
+      "tick": 1257,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate you moving on both price and day. I can do 47 P with delivery on day 0, a clean, early close. I'd ask you to come down further on price.",
+      "offer": {
+       "price": 47,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1257,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Parece que el día te importa: 54 P con día 2. / It seems the day matters to you: 54 P, day 2.",
+      "offer": {
+       "price": 54,
+       "days": 2
+      },
+      "accept": false,
+      "tick": 1258,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 54,
+     "days": 2
+    },
+    "tick": 1266,
+    "ticks_left": 5,
+    "rounds": 2,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed: 54 P, delivery on day 2. Thanks for working with me on this.",
+    "price": 54,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "accept",
+      "price": 54,
+      "message": "Agreed: 54 P, delivery on day 2. Thanks for working with me on this."
+     },
+     "band": {
+      "worst": 54,
+      "target": 54,
+      "best": 53
+     },
+     "plan": {
+      "read": "They moved again, to 54 P on day 2, and have now come down 7 P against our 3. Their offer is well within our range: day 2 costs us about 4.7 P, so it is close to our 47 P on day 0. With 5 ticks left, the small remaining gap isn't worth more rounds or the deadline risk.",
+      "target": 54,
+      "best": 53,
+      "worst": 54,
+      "days": 2,
+      "angle": "Close now: accept their standing 54 P on day 2. If you write anything, keep it brief and friendly and confirm 54 P, day 2."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 10.63,
+       "in": 1125,
+       "out": 746,
+       "cost_usd": 0.01942,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.81,
+       "in": 578,
+       "out": 48,
+       "cost_usd": 0.00164,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1153,6 +1370,131 @@
      "days": 0
     }
    }
+  },
+  {
+   "tick": 1266,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed: 54 P, delivery on day 2. Thanks for working with me on this.",
+    "price": 54,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "accept",
+      "price": 54,
+      "message": "Agreed: 54 P, delivery on day 2. Thanks for working with me on this."
+     },
+     "band": {
+      "worst": 54,
+      "target": 54,
+      "best": 53
+     },
+     "plan": {
+      "read": "They moved again, to 54 P on day 2, and have now come down 7 P against our 3. Their offer is well within our range: day 2 costs us about 4.7 P, so it is close to our 47 P on day 0. With 5 ticks left, the small remaining gap isn't worth more rounds or the deadline risk.",
+      "target": 54,
+      "best": 53,
+      "worst": 54,
+      "days": 2,
+      "angle": "Close now: accept their standing 54 P on day 2. If you write anything, keep it brief and friendly and confirm 54 P, day 2."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 10.63,
+       "in": 1125,
+       "out": 746,
+       "cost_usd": 0.01942,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.81,
+       "in": 578,
+       "out": 48,
+       "cost_usd": 0.00164,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 54,
+    "settles_at_tick": 1267
+   }
   }
- ]
+ ],
+ "last_seen_tick": 1267,
+ "done": {
+  "duel": 5737,
+  "session": 3,
+  "status": "deal",
+  "role": "buyer",
+  "item": "La Dama de Serrano",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 2.37,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 78,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Oro",
+  "deadline_tick": 1271,
+  "decay_per_round": 0.08,
+  "rounds": 2,
+  "your_offer": {
+   "id": 6985,
+   "price": 47,
+   "tick": 1257,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 7004,
+   "price": 54,
+   "tick": 1258,
+   "days": 2
+  },
+  "messages": [
+   {
+    "tick": 1256,
+    "from": "Rival Oro",
+    "text": "Rápido y justo: 61 P, día 8. ¿Qué día de entrega te va mejor? / Quick and fair: 61 P, day 8. Which delivery day suits you best?",
+    "price": 61,
+    "days": 8
+   },
+   {
+    "tick": 1256,
+    "from": "you",
+    "text": "Thanks for the quick opener. I can do 44 P with delivery on day 0; I'd like you to move your price toward that.",
+    "price": 44,
+    "days": 0
+   },
+   {
+    "tick": 1257,
+    "from": "Rival Oro",
+    "text": "Parece que el día te importa: 56 P con día 4. / It seems the day matters to you: 56 P, day 4.",
+    "price": 56,
+    "days": 4
+   },
+   {
+    "tick": 1257,
+    "from": "you",
+    "text": "I appreciate you moving on both price and day. I can do 47 P with delivery on day 0, a clean, early close. I'd ask you to come down further on price.",
+    "price": 47,
+    "days": 0
+   },
+   {
+    "tick": 1258,
+    "from": "Rival Oro",
+    "text": "Parece que el día te importa: 54 P con día 2. / It seems the day matters to you: 54 P, day 2.",
+    "price": 54,
+    "days": 2
+   }
+  ],
+  "result": 16.3,
+  "price": 54,
+  "days": 2
+ }
 }
