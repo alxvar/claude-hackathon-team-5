@@ -1398,5 +1398,77 @@
     "settles_at_tick": 1382
    }
   }
- ]
+ ],
+ "last_seen_tick": 1381,
+ "done": {
+  "duel": 6191,
+  "session": 3,
+  "status": "deal",
+  "role": "seller",
+  "item": "El Frutero de Argumosa",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 1.15,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 83,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Luna",
+  "deadline_tick": 1386,
+  "decay_per_round": 0.08,
+  "rounds": 2,
+  "your_offer": {
+   "id": 10790,
+   "price": 151,
+   "tick": 1371,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 10793,
+   "price": 139,
+   "tick": 1372,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1370,
+    "from": "Rival Luna",
+    "text": "Hola, Rival Sol, voy con prisa: 121 por El Frutero de Argumosa y cerramos ya. Entrega inmediata.",
+    "price": 121,
+    "days": 0
+   },
+   {
+    "tick": 1370,
+    "from": "you",
+    "text": "Day 0 is fine for me. I can do 158 P on day 0, and I'm ready to close quickly at that number.",
+    "price": 158,
+    "days": 0
+   },
+   {
+    "tick": 1371,
+    "from": "Rival Luna",
+    "text": "130, último paso. Entrega inmediata.",
+    "price": 130,
+    "days": 0
+   },
+   {
+    "tick": 1371,
+    "from": "you",
+    "text": "I've made a real step here: 151 P on day 0. That's a fair move toward closing quickly.",
+    "price": 151,
+    "days": 0
+   },
+   {
+    "tick": 1372,
+    "from": "Rival Luna",
+    "text": "Venga, 139; no tengo mucho tiempo. Entrega inmediata.",
+    "price": 139,
+    "days": 0
+   }
+  ],
+  "result": 47.4,
+  "price": 139,
+  "days": 0
+ }
 }

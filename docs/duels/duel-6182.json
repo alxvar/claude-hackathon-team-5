@@ -2198,5 +2198,105 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1381,
+ "done": {
+  "duel": 6182,
+  "session": 3,
+  "status": "no_deal",
+  "role": "seller",
+  "item": "Plaza del Dos de Mayo",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 3.33,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 71,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Oro",
+  "deadline_tick": 1382,
+  "decay_per_round": 0.08,
+  "rounds": 1,
+  "your_offer": {
+   "id": 10940,
+   "price": 78,
+   "tick": 1381,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 10877,
+   "price": 71,
+   "tick": 1377,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1368,
+    "from": "you",
+    "text": "I'm offering 105 P with delivery on day 10. That's a fair figure from me, and I'm ready to hear your counter.",
+    "price": 105,
+    "days": 10
+   },
+   {
+    "tick": 1374,
+    "from": "you",
+    "text": "I can do 97 P, delivery on day 10.",
+    "price": 97,
+    "days": 10
+   },
+   {
+    "tick": 1375,
+    "from": "you",
+    "text": "I can do 89 P, delivery on day 10.",
+    "price": 89,
+    "days": 10
+   },
+   {
+    "tick": 1376,
+    "from": "you",
+    "text": "I can do 81 P, delivery on day 10.",
+    "price": 81,
+    "days": 10
+   },
+   {
+    "tick": 1377,
+    "from": "Rival Oro",
+    "text": "71 P con entrega el día 0 y cerramos ahora.",
+    "price": 71,
+    "days": 0
+   },
+   {
+    "tick": 1378,
+    "from": "you",
+    "text": "I can do 115 P, delivery on day 0.",
+    "price": 115,
+    "days": 0
+   },
+   {
+    "tick": 1379,
+    "from": "you",
+    "text": "I can do 107 P on day 0; or, if you prefer, 76 P on day 10. Pick whichever suits you and we can close now.",
+    "price": 107,
+    "days": 0
+   },
+   {
+    "tick": 1380,
+    "from": "you",
+    "text": "I can do 76 P with delivery on day 10, and we can sign right now. If you need day 0, the price would have to be around 107 P.",
+    "price": 76,
+    "days": 10
+   },
+   {
+    "tick": 1381,
+    "from": "you",
+    "text": "I can do 78 P with delivery on day 0, which gives you the day you asked for. It's one clean offer you can take right away.",
+    "price": 78,
+    "days": 0
+   }
+  ],
+  "result": 0.0,
+  "price": null,
+  "days": null
+ }
 }

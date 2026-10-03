@@ -3340,5 +3340,140 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1381,
+ "done": {
+  "duel": 6177,
+  "session": 3,
+  "status": "no_deal",
+  "role": "buyer",
+  "item": "La Vía Láctea",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 7.06,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 76,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Plata",
+  "deadline_tick": 1382,
+  "decay_per_round": 0.08,
+  "rounds": 7,
+  "your_offer": {
+   "id": 10941,
+   "price": 74,
+   "tick": 1381,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 10939,
+   "price": 70,
+   "tick": 1381,
+   "days": 10
+  },
+  "messages": [
+   {
+    "tick": 1366,
+    "from": "Rival Plata",
+    "text": "Propuesta justa para cerrar pronto: 97 P y 10 días.",
+    "price": 97,
+    "days": 10
+   },
+   {
+    "tick": 1366,
+    "from": "you",
+    "text": "I can do 45 P with delivery on day 0. Quick delivery matters to me, and the price is open to discussion from there.",
+    "price": 45,
+    "days": 0
+   },
+   {
+    "tick": 1367,
+    "from": "Rival Plata",
+    "text": "Me muevo para acercarnos: 91 P con 10 días.",
+    "price": 91,
+    "days": 10
+   },
+   {
+    "tick": 1367,
+    "from": "you",
+    "text": "I see you moved, and I appreciate it. I can do 52 P with delivery on day 0; I'll keep moving as you do.}",
+    "price": 52,
+    "days": 0
+   },
+   {
+    "tick": 1368,
+    "from": "Rival Plata",
+    "text": "Yo ya me he movido. Propongo 88 P y 10 días.",
+    "price": 88,
+    "days": 10
+   },
+   {
+    "tick": 1374,
+    "from": "you",
+    "text": "Thanks for the move. I can do 59 P with delivery on day 0; early delivery is fixed for me, so only the price is open.",
+    "price": 59,
+    "days": 0
+   },
+   {
+    "tick": 1375,
+    "from": "Rival Plata",
+    "text": "Propuesta justa para cerrar pronto: 85 P y 10 días.",
+    "price": 85,
+    "days": 10
+   },
+   {
+    "tick": 1378,
+    "from": "Rival Plata",
+    "text": "Me muevo para acercarnos: 72 P con 10 días.",
+    "price": 72,
+    "days": 10
+   },
+   {
+    "tick": 1378,
+    "from": "you",
+    "text": "That's a serious move from me: 67 P with delivery on day 0. There is little room left on my side, and day 0 stays firm for me.",
+    "price": 67,
+    "days": 0
+   },
+   {
+    "tick": 1379,
+    "from": "you",
+    "text": "I'll meet you at 72 P with delivery on day 0. That's a fair place to close right now.",
+    "price": 72,
+    "days": 0
+   },
+   {
+    "tick": 1379,
+    "from": "Rival Plata",
+    "text": "Yo ya me he movido. Propongo 71 P y 10 días.",
+    "price": 71,
+    "days": 10
+   },
+   {
+    "tick": 1380,
+    "from": "you",
+    "text": "I can do 1 P, delivery on day 10.",
+    "price": 1,
+    "days": 10
+   },
+   {
+    "tick": 1381,
+    "from": "Rival Plata",
+    "text": "Propuesta justa para cerrar pronto: 70 P y 10 días.",
+    "price": 70,
+    "days": 10
+   },
+   {
+    "tick": 1381,
+    "from": "you",
+    "text": "Here is my closing offer: 74 P with delivery on day 0. I'd be glad to finish on this.",
+    "price": 74,
+    "days": 0
+   }
+  ],
+  "result": 0.0,
+  "price": null,
+  "days": null
+ }
 }
