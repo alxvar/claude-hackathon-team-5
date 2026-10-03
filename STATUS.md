@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 15:49** · tick 671 (30 s/tick) · game hour 6.92 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 15:55** · tick 681 (30 s/tick) · game hour 7.00 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -27,14 +27,14 @@ _From `team/<name>.md`; each person writes only their own file._
 |---|---|---|---|---|---|---|---|---|---|---|
 | 28.34 | 5 | 20.84 | 7.50 | 13.93 | 0.19 | 0.93 | 42 | 3 | 186 | 34/50 |
 
-Leaderboard (snapshot at tick 670; refreshes every few minutes):
+Leaderboard (snapshot at tick 680; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 14 | 30.35 | 20.82 | 9.53 | 29 |
-| 2 | Team 12 | 29.54 | 17.29 | 12.25 | 42 |
+| 1 | Team 14 | 30.28 | 20.82 | 9.46 | 29 |
+| 2 | Team 12 | 29.79 | 17.29 | 12.50 | 42 |
 | 3 | Team 18 | 29.29 | 21.79 | 7.50 | 30 |
-| 4 | Team 10 | 29.10 | 16.64 | 12.46 | 30 |
+| 4 | Team 10 | 28.92 | 16.64 | 12.28 | 30 |
 | 5 | Team 5 | 28.34 | 20.84 | 7.50 | 42 |
 
 ## Next on the schedule
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 7.00 | ~5 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.00 | ~125 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.15 | ~134 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
-| 11.00 | ~245 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~254 min | persona_patch | The fever breaks |
-| 11.65 | ~284 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~365 min | bench | The Market Test: every venue gets the same synthetic book |
-| 14.08 | ~430 min | day_closes | Closed until Sunday 09:00 |
+| 9.00 | ~120 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.15 | ~129 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
+| 11.00 | ~240 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~249 min | persona_patch | The fever breaks |
+| 11.65 | ~279 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~360 min | bench | The Market Test: every venue gets the same synthetic book |
+| 14.08 | ~425 min | day_closes | Closed until Sunday 09:00 |
+| 14.08 | ~425 min | day_opens | Sunday opens |
 
 ## Our dealer deals
 
@@ -110,7 +110,7 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
 | common card | team buys | 65 | 9 | 7 | 12 | 5 | 9 |
-| common card | team sells | 74 | 6.00 | 2 | 23 | 5 | 5.40 |
+| common card | team sells | 76 | 6.00 | 2 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 41 | 22 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 71 | 23 | 17 | 29 | 5 | 24.20 |
 | uncommon card | team sells | 8 | 14.50 | 13 | 17 | 0 | — |
