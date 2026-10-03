@@ -135,6 +135,9 @@
 - **SAL page close via a team trade** [V, Sat 18:28]: t08's open El Rastro ask, SAL-06 at 28 (fee 3), value 82.1 to us →
   `neg_points` +40.4 (not the +50 cap: our unopened silver pack's EV fell, pack drag). **Public boards mask makers**
   (`/api/venues/{v}/offers` shows e.g. 'ma88927b8'); the feed's `offer.listed` names the real team.
+- **Easter egg (chulapa dorada)** [V feed, Sat]: ask Abuela about 'la chulapa dorada' (text only) → `egg.found` for the team
+  (t05 at tick 1047); she points to Don Ernesto + 'el oro de Moscú', which paid t02 LAT-13 (print run 1) at 1021, then no
+  more ('not mine today'). Score effect of egg.found alone: unknown.
 - **Abuela gifts** [V, tick 261]: after our 5th Abuela deal of the day she gave us LAT-08 ("gift from Abuela Carmen",
   `gift.given`); Team 7 got LAT-06 the same way on Friday (tick 157). Gifts never score, but the card is ours to sell.
 - **Value created on our venue is NET and can go negative** [V, Sat 11:30]: tick 311 on v10, t10 → t01 MAL-07 at 14:
