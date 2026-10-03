@@ -40,6 +40,13 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    offer, that is SENT and costs a round (the 278 pattern) → hold in code when the plan's target equals our standing
    price/day; (b) `engine/failover.py:21` gives the primary 20 s of a 25 s budget, so the backup model is rarely reached
    (never at Sunday's 15 s ticks). If you change code: full suite green and restart before 11:40; otherwise say "kept".
+10. **Duels I → Duels II learning loop (deadlines):** 13:30 Duels I ends → **14:30** your per-duel review of our 34
+   (`agents.duelist review`: deal rate, result vs pie, rounds per deal, opener → final, in-limit offers missed, silent
+   rivals, latency/fallbacks), top 3 changes with expected points → `team/aleks.md`; the Analyst adds the field side
+   (each team's negotiating jump during Duels I ≈ its duel score; deal rate per item; the feed's `duel.closed` has only
+   deal/no-deal + item) → `intel/score-model.md` · **15:30** you decide the changes · **17:00** coded + tests green
+   (your Builder) · **17:45** restart, before Duels II at ~18:29 (days: check the console's day reading on the first
+   duel) · no code changes while a scored session is live.
 
 **Dani: the desk, the page-gap desk, the judges' story.**
 1. **09:00, organisers' desk**: the 8 questions in plan §3, answers in `team/dani.md` at once.
