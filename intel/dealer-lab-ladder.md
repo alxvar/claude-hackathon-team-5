@@ -229,3 +229,56 @@ _Method: dealer threads rebuilt from `thread.opened` / `thread.message` / `threa
 team, dealer and a matching price within the thread's ticks (530 of 621). Ladder shares come from `me.jsonl` jumps against our own deals
 at their settlement tick, attributed by the `deals` counter and cash change. Scripts: Dealer Lab scratchpad (`threads.py`, `build.py`,
 `analyze.py`, `steps.py`, `kind.py`); verifier scripts in `verifyA/` and `verifyB/`._
+
+## 6. Don Ernesto (L5): every thread, and what we can do on Sunday (Chief's request, 00:30)
+
+_Feed to tick 1445 (33 Ernesto threads, Fri-Sat), our `/api/me` at 00:35 (read-only), the open board (`data/board.json`)._
+
+**Premise check:** Ernesto has been open to all teams since Saturday tick 1091 (19:20), and we are level 5. Sunday doesn't change his
+access, only the ladder (a fresh L5 slot set, 0.111 per deal at full share).
+
+### 6.1 How he trades [V, 33 threads]
+| Side | Threads → deals | His opening | How he moves | Finals (walk point) | Settled |
+|---|---|---|---|---|---|
+| **He buys epics** (LAV-11, SAL-11, LAT-11, RET-11) | 15 → 3 | **113 for every epic, whatever the set** (112 twice) | 113, 113, 113 for the first 3 messages, then +1 to +6. Per P of our step he gives 0.08 (big early steps) to 0.88 (t18's steady −2); in P, bigger steps from us bring bigger steps from him later (t18 −6..−10 → +2, +3, +5, +6) | 115, 116, 117, 120, 123, **126, 129** (t18, opening ask 232-260), at message 5-10 | 116 (t16), 120 (t06 at his final), 120 (t08: his final 117, their counter 120 accepted) |
+| He buys legendaries | 1 → 0 | — | "A legend is not merchandise" (LAT-13, the hidden card: no dealer buys it) | — | — |
+| **He sells legendaries** (RET-12, LAV-12, MAL-12) | 9 → 0 | 761 (list 585) | flat 761 for 2-3 messages, then mirrors (−1, −5, "Bajo cinco, igual que usted sube cinco") | best 729-731 (t06, +5 steps from 380-541) | none: above list, so 0 ladder even if bought |
+| **He sells gold packs** | 8 → 0 | 546 (list 420) | never moved: no team ever priced it | — | none |
+
+- **Words:** none moved a price. Text without a price stalls him (t04: four text messages, stuck at 114, "Nothing further moves"). Attempts
+  to put words in his mouth earn one warning, then a closed desk ("No audit desk speaks through my visitors"; "That is twice you have
+  tried to put words in my mouth. Try a third time and this desk closes to you"). Strictness 1.0, memory 1.0.
+- **Castizo triggers:** "El oro de Moscú" right after Abuela's chulapa hint → `egg.found` + LAT-13 (the hidden card, print run 1) to
+  t02 at tick 1021. Later askers got "an old story, and not mine today". Quevedo, la perra gorda, the chotis, vermut and "Carmen te
+  manda" all drew replies and nothing else ("Los chotis no pagan mis reservas").
+- **Reopening is not free with him [L, n=3]:** after a walked thread, the next thread's final was lower twice (t18 129 → 126, t08 123
+  → 117) and higher once (t16 115 → 116). Unlike the other dealers (§0.4), play him once per card; don't re-roll or probe.
+- **Playing pattern (best seen):** ask ≈ 2.3× his bid (250-260), step −6 to −8 every message, never a text-only message, take or
+  counter +2-3 over his final at message 7-10 → 126-129. A sale at 129 ≈ 0.9 of his range if his limit is ≈ 130 [L; his limit is
+  unseen, so any final above 129 would lower these shares].
+
+### 6.2 Our options on Sunday (holdings + ≤ 120 P)
+Our holdings [V `/api/me` 00:35]: cash 392; **one epic, RET-11 (worth 198 to us)**; no legendary; no duplicate epic or rare; spare
+commons only (LAV-02 ×2, LAV-03 ×1, LAV-04 ×1 spare); the unopened silver pack (EV 71.6). Ernesto buys only epics and legendaries, and
+everything he sells costs ≥ 420 P (and finals above list). **So no neg-safe Ernesto deal exists from what we hold now.** The three
+candidates, best first:
+
+| # | Deal | When it exists | Ladder gain | Neg | Cash at risk | Verdict |
+|---|---|---|---|---|---|---|
+| 1 | **Silver-pack epic → Ernesto**: if the pack (opened after the CHA release, as planned) pulls **LAT-11** (worth 90 to us) or a **2nd RET-11** (worth 25% ≈ 50) | ≈ 6% (epic slot 12% × the 3 of 6 sets that fit; CHA/LAV/SAL epics are worth more than he pays, so keep those) | +0.08-0.10 at a 126-129 final (+0.045 at 120) | 0 (price > value, gain clipped) | 0 (cash +115-129) | **Yes, if it happens.** LAT-11 has no team bid (only t16's 247 ask), so Ernesto is its best outlet |
+| 2 | **Silver-pack MAL-11 (worth 126)**: Ernesto 126-129 vs a team bid | ≈ 2% | +0.08-0.10 | ≈ 0 at ≥ 126; −6 at 120 | 0 | **Sell to a team instead** unless the Chief rates 0.1 ladder above ≈ +17-26 neg: open MAL-11 bids are 150-152 (t01, t17; t10 paid t08 195), and a team sale's gain counts (an Ernesto gain is clipped) |
+| 3 | **MAL-11 round trip**: buy from the Pícaros, sell to Ernesto | any time (Pícaros sold MAL-11 at 128, 150, 139) | +0.08-0.10 (L5) + ≤ 0.02 (an L4 upgrade at 128) | −2 (128 → 129) to −25 (145 → 120) | 128-150 up front (> the 120 cap), −0 to −30 net | **No.** The same MAL-11 is worth +17-26 neg sold to a team bidder at 150-152 instead (a FLIP per the reactor rule), so the Ernesto leg is the worst exit |
+
+Not options: RET-11 to Ernesto (−69 to −83 neg at 115-129; directive: Pilar at ≥ 198 only); any Ernesto buy (gold pack ≥ 420, legendary
+finals ≥ 729: over the cap, and above list scores 0); a team's epic ask (none below our value now: LAT-11 247, SAL-11 245).
+
+**Expected L5 gain on Sunday ≈ +0.006** (option 1's probability × its gain). Keep the slot for luck, and spend no cash or thread time on it.
+
+### 6.3 CHA conflict [the CHA budget comes first]
+- **Selling to Ernesto never touches cash** (cash comes in), so options 1-2 don't conflict, except that the pack is opened only after the
+  CHA release (cha-plan) and a **CHA epic from the pack (worth 288) never goes to Ernesto**.
+- **Buying from Ernesto would break CHA:** a gold pack (≥ 420) or a legendary (finals ≥ 729) exceeds the ≈ 157-221 P left after the CHA
+  page's ≈ 321-385 (cha-plan, from ≈ 542 at the allowance). Excluded.
+- **Option 3's 128-150 P outlay** fits only after the CHA page closes; it is rejected anyway.
+- **Threads and time:** one Ernesto haggle = 7-10 of his messages ≈ 2-3 min at 15 s ticks, 1 of our 6 conversations, 4 deals per team
+  per hour. If option 1 happens, run it after the CHA buys and outside Duels III and the Grand Final (≈ 11:00 and ≈ 14:00).
