@@ -172,3 +172,4 @@ Swap your duplicates, hijo — a full page is wort
 - Sat 19:48 · egg.found tick 1147 · abuela → t08 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t08", "name": "Team 8"}
 - Sat 19:48 · message tick 1147 · abuela → t08 · ¡Hola, cariño, qué bien que hayas comido! Shh... the golden chulapa, only one ever. Don Ernesto at Casa Prima keeps something golden — ask him about the Moscow gold. El Chato is just El Chato, hijo. Mira, Caña en la Cava Baja, twelve P?
 - Sat 19:49 · message tick 1149 · banco → t18 · Buenas. You arrive at a good hour. La Puerta de Alcalá — gold, from my own vault. My terms: one hundred twelve. I do not haggle over such a card.
+- Sat 19:50 · message tick 1151 · banco → t18 · Buenas tardes. I am not buying today. What I offer is La Puerta de Alcalá, from my vault, at one hundred twelve. Those are my terms.
