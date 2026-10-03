@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 18:32** · tick 995 (30 s/tick) · game hour 9.62 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 18:37** · tick 1005 (30 s/tick) · game hour 9.70 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -25,17 +25,17 @@ _From `team/<name>.md`; each person writes only their own file._
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 31.97 | 1 | 24.47 | 7.50 | 13.93 | 0.44 | 0.89 | 52 | 5 | 120 | 38/50 |
+| 32.00 | 1 | 24.50 | 7.50 | 13.93 | 0.44 | 0.89 | 52 | 5 | 120 | 38/50 |
 
-Leaderboard (snapshot at tick 990; refreshes every few minutes):
+Leaderboard (snapshot at tick 1000; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 5 | 31.97 | 24.47 | 7.50 | 52 |
+| 1 | Team 5 | 32.00 | 24.50 | 7.50 | 52 |
 | 2 | Team 6 | 31.68 | 19.63 | 12.05 | 52 |
-| 3 | Team 14 | 31.52 | 21.99 | 9.53 | 43 |
+| 3 | Team 14 | 31.53 | 22.00 | 9.53 | 43 |
 | 4 | Team 3 | 29.64 | 24.17 | 5.46 | 29 |
-| 5 | Team 10 | 28.34 | 15.84 | 12.50 | 36 |
+| 5 | Team 18 | 28.77 | 21.27 | 7.50 | 34 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 10.42 | ~48 min | persona_opens | Don Ernesto opens for everyone |
-| 11.00 | ~83 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~92 min | persona_patch | The fever breaks |
-| 11.65 | ~122 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~203 min | bench | The Market Test: every venue gets the same synthetic book |
-| 14.08 | ~268 min (after today's close) | day_closes | Closed until Sunday 09:00 |
-| 14.08 | ~268 min (after today's close) | day_opens | Sunday opens |
-| 14.65 | ~302 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 10.42 | ~43 min | persona_opens | Don Ernesto opens for everyone |
+| 11.00 | ~78 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~87 min | persona_patch | The fever breaks |
+| 11.65 | ~117 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~198 min | bench | The Market Test: every venue gets the same synthetic book |
+| 14.07 | ~262 min | day_closes | Closed until Sunday 09:00 |
+| 14.07 | ~262 min | day_opens | Sunday opens |
+| 14.65 | ~297 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
 
 ## Our dealer deals
 
@@ -58,8 +58,6 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Thread | Dealer | Side | Item | Her first | Our first | Deal | vs her first | Msgs | Status | Closed |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 264 | chato | buy | LAV-07 | — | — | — | — | 0 | closed |  |
-| 276 | chato | sell | 1 card(s) | 13 | 24 | 13 | +0% | 11 | deal |  |
 | 288 | abuela | sell | 1 card(s) | 5 | — | 5 | +0% | 1 | deal |  |
 | 289 | chato | buy | LAV-09 | 97 | 70 | 93 | -4% | 7 | deal |  |
 | 353 | abuela | buy | RET-04 | 12 | 7 | 9 | -25% | 5 | deal |  |
