@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 12:40, snapshot 460. Rival detail: intel/rivals.md (Analyst-owned since 12:30)._
+_Last update: Sat 12:50, snapshot 470. Rival detail: intel/rivals.md (Analyst-owned since 12:30)._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -14,6 +14,15 @@ _Last update: Sat 12:40, snapshot 460. Rival detail: intel/rivals.md (Analyst-ow
 - Fri = each team's board at tick 160 (frozen; Fri market = 0 for everyone). **1 Saturday point = 0.667 board.**
 - Gap to t13 from Friday alone: (29.94 − 19.99)/3 = **3.32 board, fixed**. Saturday-only Negotiating now (tick 440):
   t13 21.6 · t01 19.3 · t02 21.3 · t18 19.2 · t14 16.8 · t16 15.3 · t09 13.3 · **t05 12.75** · t04 12.6 · t17 8.8 · t10 8.1 · t12 8.0.
+
+## 1b. Duels are 40% of Saturday Negotiating [V, snapshot 470]
+
+- When the first Duels I deals scored, five teams with no duel yet had their Saturday part scaled by exactly **0.600-0.602**
+  (t03 8.09→4.86, t10 8.13→4.89, t14 16.76→10.06, t15 8.25→4.96, t16 15.27→9.17).
+  **Saturday Negotiating = 0.6 × (team trades + ladder) + duel part**, duel part ≤ 12 Saturday points (= 8.0 board);
+  t12 sits at exactly 12.01 → graded against the field's best (max or top-3 mean) [L].
+- **Rates after the re-weighting:** 1 neg_point ≈ **0.094 board**; +0.01 ladder ≈ **+0.33 board**; a +50 page close ≈ **+4.7 board**;
+  the full duel part = **8.0 board**. The §2 table below is pre-duel (multiply its Saturday points by 0.6).
 
 ## 2. Negotiating (Saturday part) = team trades + ladder (+ duels once Duels I scores)
 
