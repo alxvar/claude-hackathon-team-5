@@ -9,6 +9,13 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sat 12:56 · snapshot 570
+- Board: t14 31.76 · t18 29.98 · **us 29.57 (#3)** · t12 28.91 · t10 28.70 · t17 27.70 · t13 27.69.
+- **t14 market (10.6) is passive** [V]: one v14 trade (t15 → t12 LAT-07 at 19, tick 418), nothing since; it fell from 11.86
+  when t06's VC rose. t06 (v01, board): 2nd trade t12 → t08 SAL-10 at 76 (tick 556) → market 9.83 → 11.64.
+- t12 sells SAL rares (SAL-10 at 76 to t08): t12 dumps SAL [V]; t08 values SAL ≥ 1.1 [L].
+- Pilar sells keep coming: t09 MAL-08 21 / SAL-07 24, t04 RET-08 22, t12 RET-07 25, t08 LAV-11 (epic) at 140.
+
 ### Sat 12:42 · snapshot 540
 - Board: **t14 32.96 (#1)** · t12 30.53 · **t10 29.56 (#3, +3.6)** · t18 29.40 · t17 29.33 · t13 28.23 · **us 27.49 (#7)**.
 - **t14 back to #1:** duels (part 6.4 → ~12.6 incl. deals) + Pilar LAT-08 at 20 (best uncommon share seen) + Chato BUY LAT-10

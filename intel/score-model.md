@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 12:42 (tick 541), snapshot 540. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
+_Last update: Sat 12:58 (tick 574), snapshot 570. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -14,6 +14,22 @@ _Last update: Sat 12:42 (tick 541), snapshot 540. Independent verifier pass (12:
 - Fri = each team's board at tick 160 (frozen; Fri market = 0 for everyone). **1 Saturday point = 0.667 board.**
 - Gap to t13 from Friday alone: (29.94 − 19.99)/3 = **3.32 board, fixed**. Saturday-only Negotiating before Duels I (tick 440):
   t13 21.6 · t02 21.3 · t01 19.3 · t18 19.2 · t14 16.8 · t16 15.3 · t09 13.3 · **t05 12.75** · t04 12.6 · t17 8.8 · t15 8.2 · t03 8.1 · t10 8.1 · t12 8.0.
+
+## 0. Where we stand (snapshot 570, Sat 12:56) — board points [L where split]
+
+| | Friday (/3) | Sat trades+ladder at 460 (×0.6, /1.5) | since 460: duels + new deals | Market bench | Market VC | Total |
+|---|---|---|---|---|---|---|
+| **us (#3)** | 6.66 | 5.10 | 10.31 (ladder ≈ +4.4, duels ≈ +5.9) | 7.5 | 0 | 29.57 |
+| t14 (#1) | 6.02 | 6.71 | 8.44 (incl. Pilar LAT-08 ≈ +2) | 7.5 | 3.10 | 31.76 |
+| t18 (#2) | 6.39 | 7.67 | 8.43 (incl. MAL-10 sale ≈ +2) | 7.5 | 0 | 29.98 |
+
+- Gap to t14 (−2.19) = its one v14 trade (VC 3.10) + its pre-duel base (−1.61); we lead on duels + ladder (+1.87) and Friday (+0.64).
+- Ladder board rate measured in the 550→560 window (MAL-06 → Pilar, +0.040, +1.67 board vs ≈ +0.2 in duel-only windows):
+  **≈ 35 board per 1.0 ladder, still uncapped at 0.181** [L].
+- **Value-created grading is relative** [V]: at 570 every VC team fell (t14 11.86 → 10.60, t12 → 10.52, t10 → 12.06,
+  t17 → 9.46) when t06's v01 got its 2nd trade (t12 → t08 SAL-10 at 76, tick 556; t06 9.83 → 11.64). No trade on v14 since 418.
+- Clock map: game hour = wall − 6.83 h. Benches 13:51, 15:51, 17:51, 19:51, 21:30 (hard), 21:51 · Salamanca fever (Pilar
+  +25% over book on SAL) 16:00-18:00 · Duels II 18:30 · close 23:00.
 
 ## 1b. Duels are 40% of Saturday Negotiating [V, snapshot 470]
 
