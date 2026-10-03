@@ -20,6 +20,9 @@ propose a params diff for the duelist. It never applies anything itself: a human
 3. The proposal: one-parameter tweaks around today's values, paired against today's policy in that world. Only a
    tweak whose 95% CI is entirely above 0 and that passes `params.validate` and the CROSS checks is proposed;
    "no change proposed" is a valid outcome. Rule notes from the wave go next to it, never into the JSON.
+Only a session at the setting the Duel Lab simulated proposes anything (TARGET: Duels III and the Final, 12 ticks at
+10% decay; Chief 00:50): Duels III starts from the Duel Lab's file (docs/duels3-start.json), and a wave of another
+setting (Duels II: 16 / 8%) still gets its summary and the simulator's comparison, never a proposal.
 4. The Duel Lab's live gates (`tools/duel_gates.py`) on the session so far: REVERT MIN_STEP_P to 3 when the deal
    rate with rivals that spoke is below 0.75 over >= 8 duels; STEP UP MIN_STEP_P by 1 (max 6) when rounds per deal
    > 3.5 with a deal rate >= 0.85. A gate's diff joins the proposal (it wins over a sim tweak of the same name):
@@ -529,6 +532,7 @@ def sim_policy(eff: dict[str, Any], *, days: bool, code: bool) -> dict[str, Any]
 # ---------------------------------------------------------------------------------------------------- the simulator
 
 H = "H1"                     # the simulator's pie: the best day's (as the Duel Lab scores Duels II)
+TARGET = (12, 0.10)          # (duel ticks, decay) the Duel Lab simulated its file for: Duels III and the Final
 
 
 def predict(pol: dict, T: int, d: float, n: int = N_SIM, seed: int = SEED,
@@ -764,6 +768,11 @@ def render(wave: Wave, obs: dict, sess: dict, preds: dict, dist: dict, world: st
         L.append("Approve (on the duelist's machine; it plays from the next tick): "
                  "`python3 tools/duel_loop.py approve --by <name>` (or `--proposal intel/duel-loop.md` after a pull; "
                  "`--only NAME` for part of it). Undo: `python3 tools/duel_loop.py revert --by <name>`.")
+    elif ctx.get("off_target"):
+        t = ctx["off_target"]
+        L += [f"**Proposal:** none for this session: it plays {ctx['T']} ticks at {ctx['d']:.0%} decay, not the "
+              f"{t[0]} ticks at {t[1]:.0%} the Duel Lab simulated (Chief 00:50). Duels III starts from "
+              "docs/duels3-start.json; proposals count from its first wave."]
     else:
         L += ["**Proposal:** no change proposed (no tweak's CI is entirely above 0)."]
     return "\n".join(L) + "\n"
@@ -815,7 +824,8 @@ def session_params(book: Book, wave: Wave) -> tuple[int, float]:
 
 def run(*, records: Path = RECORDS, which: str = "latest", params_path: Path = pm.PATH, dry: bool = False,
         n: int = N_SIM, seed: int = SEED, policy: str = "llm", out: Path = OUT, proposal_path: Path = PROPOSAL,
-        src: Path = DUELIST, size: int | None = None, quiet: bool = False) -> dict[str, Any] | None:
+        src: Path = DUELIST, size: int | None = None, quiet: bool = False,
+        target: tuple[int, float] | None = TARGET) -> dict[str, Any] | None:
     """Steps 1-3 for one wave. Returns the proposal (also written unless `dry`), or None when there is no such
     closed wave."""
     book = load(records, size)
@@ -842,12 +852,16 @@ def run(*, records: Path = RECORDS, which: str = "latest", params_path: Path = p
                    seed=seed)
     notes = rule_notes(obs, eff)
     gates = gate(records, wave.session, eff)
+    off_target = target is not None and (T != target[0] or abs(d - target[1]) > 1e-9)
+    if off_target:                                     # Chief 00:50: proposals only at the simulated setting
+        found["params"], gates["diff"] = {}, {}
+        gates["reason"] = f"{gates['reason']} (not proposed: this session is not at {target[0]} ticks / {target[1]:.0%})"
     if gates["diff"]:                                  # a live gate wins over a sim tweak of the same name
         change = {**found["params"], **gates["diff"]}
         over_ok, why = candidate(over, defaults, change)
         found["params"] = change if over_ok is not None else gates["diff"]
     ctx = {"T": T, "d": d, "n": n, "policy": "code" if code else "llm", "eff": eff, "over": over, "errors": errors,
-           "gates": gates}
+           "gates": gates, "off_target": off_target and target}
     section = render(wave, obs, sess, preds, dist, world, found, notes, ctx)
     proposal = {
         "wave": wave.id, "label": f"{wave.name} wave {wave.n}", "made_at": stamp("%Y-%m-%dT%H:%M:%S"),

@@ -14,6 +14,17 @@ green on the branch: 559 tests._
 | 3 | **Code-first policy**: code decides accept / hold / step and the day; one capped model call writes the words | none (`--policy llm` stays the default) | `run --policy code --negotiator-model claude-haiku-4-5` |
 | 4 | **Guards on every offer** (6190): accept instead of offering worse; worth-monotonic steps; the day call on the first offer | **yes, once merged**: the last-ticks concession is capped at 25% of the gap | tune `MONO_END_SHARE` (0.5 = the simulator's preference); `{"GUARDS": 0}` turns all three off |
 
+## Before Duels III: one param set (Chief 00:50)
+
+- **Duels III starts with the Duel Lab's file**, simulated at its 12 ticks / 10% decay (intel/duel-lab.md, path A):
+  `MIN_STEP_P` 5, `MAX_STEP_SHARE` 0.18, `LATE_SWITCH_LEFT` 2, `MONO_END_SHARE` 0.5. It's shipped as
+  `docs/duels3-start.json`. Load it on the duelist's machine, validated and noted, with:
+  `python3 tools/duel_loop.py approve --proposal docs/duels3-start.json --by Aleks`
+- **The wave loop proposes only on sessions at 12 ticks / 10%.** Duels II's 16 / 8% waves get the summary and the
+  simulator's comparison, never a proposal. The first proposal comes after wave 1 of Duels III, and it starts from the
+  file above (the loop reads the params file as "today").
+- The v2 runs on Duels II waves below are for reference only.
+
 ## 1. Hot-reloaded params (`agents/duelist/params.py`)
 
 - `SPEC` lists every tuning constant: where it lives (agent / runner / policy), bounds, and the simulator's key.
@@ -73,7 +84,8 @@ python3 tools/duel_loop.py revert --by Aleks     # back to today's constants
   with the wave, time and approver.
 - **Blocked moves:** `ACCEPT_BY` down is shown with its gain but never proposed. The simulator never has an accept
   refused, and at 1 no spare tick is left.
-- **Latest real wave on v2** (Duels II wave 3.12, run at 00:40), closest world **R5** (more silent rivals and holders):
+- **Latest real wave on v2** (Duels II wave 3.12, run at 00:40; **reference only**: Duels II's 16 / 8% now proposes
+  nothing), closest world **R5** (more silent rivals and holders):
   - **The gate fired.** STEP UP: the session so far has 3.7 rounds per deal at a 0.89 deal rate, so `MIN_STEP_P`
     3 → 4. The simulator agrees: +0.006 ± 0.002.
   - **The combined proposal (+0.021 ± 0.003 a duel):** `MAX_STEP_SHARE` 0.22, `HOLD_TICKS` 2, `SILENT_KEEP` 0.2,

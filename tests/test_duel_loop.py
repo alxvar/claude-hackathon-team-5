@@ -418,7 +418,8 @@ def closed_wave(first_id, start):
 def test_run_writes_the_review_and_the_proposal(tmp_path, src):
     f = folder(tmp_path, closed_wave(1, 100) + three(4, 116, live=(6,)))
     out, prop = tmp_path / "intel" / "duel-loop.md", tmp_path / "run" / "proposal.json"
-    kw = dict(records=f, params_path=tmp_path / "none.json", n=200, out=out, proposal_path=prop, src=src, quiet=True)
+    kw = dict(records=f, params_path=tmp_path / "none.json", n=200, out=out, proposal_path=prop, src=src, quiet=True,
+              target=None)                                       # any session (the target filter: its own test)
     assert dl.run(dry=True, **kw)["wave"] == "3.1"
     assert not out.exists() and not prop.exists()                   # --dry writes nothing
     p = dl.run(**kw)
@@ -472,3 +473,23 @@ def test_the_live_gates_join_the_proposal_and_win_over_a_sim_tweak(tmp_path):
         gate_record(tmp_path, i, rounds=4)
     assert dl.gate(tmp_path, 4, {"MIN_STEP_P": 3})["diff"] == {"MIN_STEP_P": 4}
     assert dl.gate(tmp_path, 9, {"MIN_STEP_P": 3})["reason"].startswith("fewer than 8")
+
+
+def test_a_session_off_the_simulated_setting_proposes_nothing(tmp_path, src, monkeypatch):
+    f = folder(tmp_path, closed_wave(1, 100))                    # the folder's session: 16 ticks at D
+    monkeypatch.setattr(dl, "search", lambda *a, **k: {"rows": [], "combined": None,
+                                                      "params": {"MAX_STEP_SHARE": 0.15}})   # a tweak that would win
+    kw = dict(records=f, params_path=tmp_path / "none.json", n=50, out=tmp_path / "o.md",
+              proposal_path=tmp_path / "p.json", src=src, quiet=True, dry=True)
+    assert dl.run(**kw, target=(16, D))["params"] == {"MAX_STEP_SHARE": 0.15}
+    p = dl.run(**kw, target=(12, 0.10))
+    assert p["params"] == {} and "not proposed" in p["evidence"]["gates"]["reason"]
+
+
+def test_the_duels3_start_file_approves_cleanly(tmp_path):
+    params = tmp_path / "duel_params.json"
+    start = dl.ROOT / "docs" / "duels3-start.json"
+    assert dl.approve(proposal_path=start, params_path=params, by="Aleks") == 0
+    data = json.loads(params.read_text())
+    assert {k: v for k, v in data.items() if k != "_note"} == {"MIN_STEP_P": 5, "MAX_STEP_SHARE": 0.18,
+                                                               "LATE_SWITCH_LEFT": 2, "MONO_END_SHARE": 0.5}

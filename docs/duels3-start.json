@@ -1,0 +1,16 @@
+{
+ "wave": "duel-lab-start",
+ "label": "Duels III start (Duel Lab file, intel/duel-lab.md path A)",
+ "made_at": "2026-10-03T23:45:00",
+ "params": {
+  "MIN_STEP_P": 5,
+  "MAX_STEP_SHARE": 0.18,
+  "LATE_SWITCH_LEFT": 2,
+  "MONO_END_SHARE": 0.5
+ },
+ "evidence": {
+  "source": "intel/duel-lab.md (Duel Lab, Sat 23:45): simulated at Duels III's 12 ticks / 10% decay, +0.039 a duel vs main today with the guards (path A)",
+  "T": 12,
+  "d": 0.1
+ }
+}
