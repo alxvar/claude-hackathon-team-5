@@ -35,6 +35,11 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    (seller: just under the median buyer value; buyer: just above the median seller cost), clamped by your current band.
    Score = share of each pie captured, so this moves share, not deal rate. Don't change code mid-wave: decide between
    waves or for Duels II.
+9. **Before 11:40, your call (Dani's 10:16 audit, not answered in your log yet):** (a) when the strategist holds, the
+   negotiator still gets a band (`agent.py:99` make_band, `runner.py:421` is_hold): if it picks 1-2 P off our standing
+   offer, that is SENT and costs a round (the 278 pattern) → hold in code when the plan's target equals our standing
+   price/day; (b) `engine/failover.py:21` gives the primary 20 s of a 25 s budget, so the backup model is rarely reached
+   (never at Sunday's 15 s ticks). If you change code: full suite green and restart before 11:40; otherwise say "kept".
 
 **Dani: the desk, the page-gap desk, the judges' story.**
 1. **09:00, organisers' desk**: the 8 questions in plan §3, answers in `team/dani.md` at once.
