@@ -2,6 +2,11 @@
 
 _Written by the strategy session. It never touches the game: no trades, no bots. The operator decides and executes inside its hard limits (ORCHESTRATOR.md, "Decide, don't ask"); Lucas changes a limit only with a line containing GUARDRAIL. Format: `- HH:MM · decision with limits · why`. Newest block on top. Labels: **[Verified]** measured on our own deals or read from the server; **[Likely]** fitted or inferred; **[Open]** unknown._
 
+## Sat 10:30 — sales: addressed, wider buyer set (independently verified)
+
+- 10:30 · **Maker asks stay ADDRESSED; public asks rejected** · verifier: no API shows other albums, so a public ask can hand a top-4 team an undetected page-closer (+50 for them vs +6-11 for us); rivals' public asks at clearing aren't filling either [Verified: metrics.md]. **Widen the addressees per plan §4A** (saturday-plan.md:118-121): the ≥ 10-below rule applies only to a card that is the buyer's known last or second-to-last lack in that set; any other spare may go to any team outside the top 4 that signals a lack; unknown lacks count as closing; never the top 4; page-closers on El Rastro. Maker ask floor = our copy value + 1 (no maker fee); `MIN_GAIN_SELL` for book.py · the book is our only positive neg_points source between pages; cash funds Sunday's CHA page (~300 P).
+- 10:30 · Fact: **RET page complete** via RET-01 from t10 at 20 (maker): +50.0 exactly; cap is flat 50 or 5×book (5×(p+f) and 6×book ruled out) [Verified]. RET net today +28.5 neg_points.
+
 ## Sat 10:22 — level 3 lesson, Pilar plan
 
 - 10:25 · GUARDRAIL · **Cash floor 97 for the RET-01 page-closer only** (Lucas), up to 30 P, addressed to t10 on El Rastro (bid 4167 at 20 first, then 25, then 30); back to 100 right after · it closes the RET page (+50 if the cap holds) and runs the cap test; Team 10 is the only known holder; Lucas messaged them.
