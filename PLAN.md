@@ -104,6 +104,16 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    validated on Duels I, and above all tests the **days** strategy, which no one has seen live. Its recommendation
    (intel/duel-lab.md) lands by **18:00** for your decision; then your Builder codes it, full suite green, restart by
    ~20:15 for Duels II (≈ 20:33). Your call on what to adopt.
+20. **16:06, Duel Lab final (intel/duel-lab.md, c267cea, verified), for your 18:00 decision.** Δ = duel points over Duels II's
+   68 duels (merged-plan baseline ~20-25): (1) **step size:** every mid-duel concession = 15% of the gap in worth: **+1.8 to
+   +3.9**; cautious variant MAX_STEP_SHARE 0.18 (cap bigger steps, then your floor check): +0.9 to +4.0. A resized move
+   needs code-written text ("I can do N P."). Our LLM's steps are lumpy [V: median 16% of the gap, 27% ≥ ¼, up to 67%].
+   (2) **days, on top of your rule:** drop "pay ≤ C/2 to keep our day"; late switch (≈ 4 ticks left: offer their day at
+   +C); for a middle-day opener propose OUR corner, not 10 − best: ≈ +1.2 (to +3.1). (3) HOLD_TICKS 3 → 5: 0 to +0.8.
+   (4) SILENT_KEEP 0.3 → 0.15: +0.1-0.2. **Keep** the opener and the accept rules (the exact replay on real transcripts:
+   every early-accept rule loses or is flat) [V]. Method [V]: duel points ≈ share × decay per deal, not P (2585's 60 P →
+   +0.72; 2319's 3.4 P → +0.34), so judge variants by share. First-wave gates: pred = points on days deals; day reading ≠
+   CAN'T READ; no concession > 18% of the gap outside the closing ticks. Caveat: one simulator, trust direction > size.
 
 **Dani: deal desk from 15:52 (Lucas's call).** Your phone (ntfy, your channel) now gets every alert that needs a human to
 message another team: v10 radar DMs, v10 partner suggestions (Teams 15, 10, 3), opportunity SELL/BUY alerts, swap nudges.
