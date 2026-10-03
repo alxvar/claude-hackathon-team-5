@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 18:13 (tick 956), snapshot 950: t06 31.73 · t14 31.56 · us #3 29.97 · t03 29.20; **t01 −4.27 in one snapshot after selling a page card (SAL-07) to Pilar: dealer sales count the page-bonus loss in full**. Ladder capped, trade part live (≈ 0.048 board/np), SAL page 9/10. Duels I post-mortem §1d; Duels II day rule §1e; Pícaros + flags §3c; standings: intel/standings.md._
+_Last update: Sat 18:26 (tick 984), snapshot 980: t06 31.68 · t14 31.52 · us #3 29.97 (flat since 910) · t03 29.64 · t10 28.26. Ladder capped, trade part live (≈ 0.048 board/np), SAL page 9/10 (SAL-06 bids live). Duels I post-mortem §1d; Duels II day rule §1e; Pícaros + flags §3c; Don Ernesto §3d; standings: intel/standings.md._
 
 ## 1. Board = Friday × Saturday blend [V]
 

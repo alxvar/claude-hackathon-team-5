@@ -9,6 +9,13 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sat 18:25 · snapshot 980 (fever on; Don Ernesto live for early teams since 971)
+- Board: t06 31.68 · t14 31.52 · **us 29.97 (#3, flat)** · t03 29.64 · t18 27.90 · t10 28.26 (+0.59: Pícaros MAL-09 57 + Pilar SAL-10 74/75).
+- **t08 runs a SAL-rare cash loop** [V feed]: Pícaros SAL-10 at 53 → Pilar 78 (958 → 965); Pícaros SAL-09 at 52 (971); earlier
+  Pilar SAL-09 77. +25 cash per loop; neg 0 only for a team that values the rare between the two prices. Not for us (our SAL
+  rares are page cards; a 2nd SAL copy is worth 15.75 to us → −36 neg_points on the buy).
+- t07 sells LAT-06 / RET-06 / RET-01 to Chato, Pilar and the Pícaros; t03 sold LAV-06 to the Pícaros at 11.
+
 ### Sat 18:12 · snapshot 950 (Salamanca fever since ~18:04; Don Ernesto announced at 932)
 - Board: **t06 31.73 (#1)** · t14 31.56 · **us 29.97 (#3)** · t03 29.20 · t18 27.93 · t10 27.67 · t16 26.03 · t12 25.84 · **t01 23.98 (#12)**.
 - **t01 −4.27 at 950** [V board]: its only event was SELL SAL-07 → Pilar at 29 (948). Reading [L]: SAL-07 was a page card; a
