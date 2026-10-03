@@ -297,6 +297,81 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 538,
+   "raw": {
+    "duel": 2523,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Café en Goya",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 196,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 542,
+    "decay_per_round": 0.06,
+    "rounds": 0,
+    "your_offer": {
+     "id": 4452,
+     "price": 153,
+     "tick": 538,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 526,
+      "from": "you",
+      "text": "I'd like to open at 110 P for the Café en Goya. That reflects a fair price for a good everyday coffee, and I'm a serious buyer ready to move quickly. I'm happy to hear your counter.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 534,
+      "from": "you",
+      "text": "I can do 118 P.",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 535,
+      "from": "you",
+      "text": "I can do 127 P.",
+      "price": 127,
+      "days": null
+     },
+     {
+      "tick": 536,
+      "from": "you",
+      "text": "I can do 135 P.",
+      "price": 135,
+      "days": null
+     },
+     {
+      "tick": 537,
+      "from": "you",
+      "text": "I can do 144 P.",
+      "price": 144,
+      "days": null
+     },
+     {
+      "tick": 538,
+      "from": "you",
+      "text": "I can do 153 P.",
+      "price": 153,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -701,6 +776,107 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 538,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 2523,
+     "role": "buyer",
+     "limit": 196,
+     "currency": "P",
+     "item": "Café en Goya",
+     "context": "",
+     "rival": "Rival Noche",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 110 P for the Café en Goya. That reflects a fair price for a good everyday coffee, and I'm a serious buyer ready to move quickly. I'm happy to hear your counter.",
+      "offer": {
+       "price": 110,
+       "days": null
+      },
+      "accept": false,
+      "tick": 526,
+      "decision": {
+       "action": "offer",
+       "price": 110,
+       "message": "I'd like to open at 110 P for the Café en Goya. That reflects a fair price for a good everyday coffee, and I'm a serious buyer ready to move quickly. I'm happy to hear your counter."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 118 P.",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 534,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 127 P.",
+      "offer": {
+       "price": 127,
+       "days": null
+      },
+      "accept": false,
+      "tick": 535,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 135 P.",
+      "offer": {
+       "price": 135,
+       "days": null
+      },
+      "accept": false,
+      "tick": 536,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 144 P.",
+      "offer": {
+       "price": 144,
+       "days": null
+      },
+      "accept": false,
+      "tick": 537,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 538,
+    "ticks_left": 4,
+    "rounds": 0
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 153 P.",
+    "price": 153,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -849,6 +1025,29 @@
      "id": 4436,
      "price": 144,
      "tick": 537,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 538,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 153 P.",
+    "price": 153,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 2523,
+    "offer": {
+     "id": 4452,
+     "price": 153,
+     "tick": 538,
      "days": 0
     }
    }
