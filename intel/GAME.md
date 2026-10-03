@@ -12,8 +12,11 @@
   and the team's single accept per tick.
 - **Dealer deal**: score = min(0, ΔV − price). Losses count in full [V: MAL-07 at 29 (worth 17.5) −11.8; LAV-05 sold at 5
   (worth 13) −8.0; LAV-09 at 93 (worth 91) −2.0]. Gains are clipped to 0 [L]. A dealer deal never adds `neg_points`.
-- **Per-trade cap** [L, n=1]: our page-completing buy (value 99.1, paid 8 + 2) scored exactly +50.0, not 89.1. Forms that
-  still fit: flat 50 · gain ≤ 5×book · gain ≤ 5×(price+fee) · value ≤ 6×book. Test: plan §4B.
+- **Per-trade cap = 50** [V, n=2, Sat 10:27 cap test]: RET-01 (the RET page's last card, worth 83.9 with the page bonus)
+  bought from Team 10 at 20 as MAKER (no fee): `neg_points` −21.5 → +28.5 = **+50.0 exactly**; uncapped would be 63.9.
+  Rules out "gain ≤ 5×(price+fee)" (63.9) and "value ≤ 6×book" (40). Still open: flat 50 vs 5×book: both cases were
+  commons (book 10 → 50); only a capped uncommon/rare close (5×book = 125/350) would separate them. Friday: LAV-05 at
+  8 + 2 fee, value 99.1 → +50.0. Rule for pricing: a page-closer is worth at most 50 + price to us.
 - **Page bonus** [V]: 25% of the page's book (265) × our multiplier = 66.25 × m (LAV 86.1, RET 72.9, CHA 106), priced into the
   last missing card (LAV-09 read 177.1 when it was the only one missing). It scores only when a TEAM trade completes the
   page [L: Team 17 +6.25 board via a team trade; Team 10 +2.1, Team 7 +1.1, Team 12 +1.0 via Chato].
