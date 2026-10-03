@@ -131,7 +131,8 @@ price ≤ 72 / 96**: a lower closer bid costs fill chance, not points.
    --max-buy 25 --deals 1`), then set CHA-05's `price` to 72. CHA-05 is the closer because commons print 300 vs 90,
    so a team is likelier to hold a spare. If no team ever sells the last card, the bonus is lost: never close the page
    through a dealer (abuela_bot refuses to).
-5. Never a pack unless the Chief directs one (unopened packs drag trade scores [L]).
+5. Never a pack unless the Chief directs one (unopened packs drag trade scores [L]). The one exception so far: asset 755
+   (silver pack), opened at the release before the CHA bids (checklist step 3).
 
 ## run/book.json at the release (add to the asks already there; all on El Rastro)
 
@@ -179,7 +180,11 @@ Commands run from the repo root with the key loaded: `set -a; . ./.env; set +a; 
 2. **09:01** · `tools/daemons.sh status`. Book with floor 0 (its only bids are the CHA page's):
    `CASH_FLOOR=0 MIN_GAIN_SELL=2 tools/daemons.sh restart book`. Opps separately at 100:
    `CASH_FLOOR=100 tools/daemons.sh restart opps`. **Trader stays stopped until Duels III ends** (directive 10:35).
-3. **At the release** · add the 10 CHA bids to run/book.json (keep the asks), with the floors of the degrade tier.
+3. **At the release** · first **open asset 755** (sobre_plata, value 91.1 Sat 12:45), alone in its measurement window,
+   before any CHA bid goes out or any CHA buy (Operator 12:50, the Chief's decision: kept unopened until then; luck never
+   scores). Fallback: if the desk or the feed shows pack contents are fixed at grant time, open it Saturday evening
+   instead. Then add the CHA bids to run/book.json for the cards still missing (a CHA card from the pack: leave its
+   entry out; keep the asks), with the floors of the degrade tier.
    **≈ 09:32** · read `/api/me` cash = C after the allowance; adjust the tier if it differs from the expected (Saturday
    close + 150) and tell the Chief. Tier C: add CHA-01..04 only once both rares are in.
 4. **First bid out** · `/api/me` cash before and after (does the server hold bid cash?); `expires_tick − created_tick`
