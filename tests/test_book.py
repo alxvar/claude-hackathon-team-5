@@ -176,3 +176,19 @@ def test_an_offer_already_out_is_taken_over_not_duplicated():
     assert st["SAL-08:sell"]["offer"] == hand["id"] and ev[0]["event"] == "adopt" and len(g.posted) == 1
     st, ev, _ = run(g, e, st, tick=316)                                   # expires at 320: refreshed
     assert g.cancelled == [hand["id"]] and len(g.posted) == 2 and ev[-1]["event"] == "refresh"
+
+
+
+def test_a_bid_follows_our_value_when_the_card_becomes_the_last_of_a_page():
+    # CHA-08 reads 40 while other CHA cards are missing, 146 once it is the last one (+106 page bonus).
+    g = Game(values={"CHA-08": 40.0})
+    e = [{"card": "CHA-08", "side": "buy", "price": 60, "floor": 96}]
+    book = bk.Book(g, log=lambda ev: None)
+    st = book.step(e, {}, {**CLOCK, "tick": 300})
+    assert g.posted[-1]["give"] == {"cash": 37}                         # capped at value - 3
+    g.values["CHA-08"] = 146.0
+    for t in range(301, 341):
+        g.tick = t
+        st = book.step(e, st, {**CLOCK, "tick": t})
+    assert max(o["give"]["cash"] for o in g.posted) > 37                 # the new value lifted the cap
+    assert all(o["give"]["cash"] <= 96 for o in g.posted)               # never past the book's floor

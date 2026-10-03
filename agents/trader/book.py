@@ -45,6 +45,7 @@ REPRICE_AFTER = 20      # ticks unfilled at one price before one step toward the
 STEP_SHARE = 0.25       # default step: a quarter of the distance to the floor, at least 1 P
 NEW_SHARE = 0.5         # of the team's new offers per tick (12): the rest for the trader and opps
 OPEN_RESERVE = 5        # open offers left free for the other processes
+VALUE_TICKS = 10        # our value of a card is re-read this often
 MIN_GAIN_SELL, MIN_GAIN_BUY = 1.0, 3.0     # maker asks: value + 1 (no fee; +6 is the trader's taker bar); bids -3
 CASH_FLOOR = int(os.environ.get("CASH_FLOOR", 200))
 
@@ -112,7 +113,8 @@ class Book:
                  cash_floor=CASH_FLOOR):
         self.b, self.dry_run, self.log = b, dry_run, log
         self.min_gain_sell, self.min_gain_buy, self.cash_floor = min_gain_sell, min_gain_buy, cash_floor
-        self.values: dict[str, float] = {}
+        self.values: dict[str, tuple[float, int]] = {}   # card -> (our value, tick read): re-read every VALUE_TICKS
+        self.tick = 0
         self._ctx_tick: int | None = None
         self.venues: dict = {}
         self.top: set = set()
@@ -134,16 +136,20 @@ class Book:
             self.log({"event": "error", "where": "leaderboard", "code": e.code})
 
     def value(self, card: str) -> float | None:
-        if card not in self.values:
+        """Our value, re-read every VALUE_TICKS: it moves with our holdings (the last card of a page jumps by the
+        page bonus, CHA +106)."""
+        hit = self.values.get(card)
+        if hit is None or self.tick - hit[1] >= VALUE_TICKS:
             try:
-                self.values[card] = float(self.b.value(card)["your_value"])
+                self.values[card] = (float(self.b.value(card)["your_value"]), self.tick)
             except (BazaarError, KeyError, TypeError, ValueError):
-                return None
-        return self.values[card]
+                return None if hit is None else hit[0]
+        return self.values[card][0]
 
     def step(self, book: list[dict], st: dict, clock: dict) -> dict:
         """One tick. Returns the new state ({key: {offer, price, since, asset, held}})."""
         tick, secs = clock["tick"], float(clock.get("tick_seconds") or 30)
+        self.tick = tick
         limits = clock.get("limits") or {}
         self.context(tick)
         me = self.b.me()
