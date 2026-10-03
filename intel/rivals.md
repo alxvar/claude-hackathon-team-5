@@ -9,6 +9,14 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sat 16:57 · snapshot 800
+- Board: t14 29.85 · **us 29.73 (#2)** · t01 29.09 · t12 28.62 · t10 28.36 · t03 28.20 · t06 28.00 · t18 27.85.
+- **The whole field fell 0.6-0.7 board** this window (t14 −0.71, t18 −0.68, t06 −0.68, t17 −0.67, t01 −0.61): L4 deals by the
+  early teams (t01 MAL-10 59, t03 LAV-09 59, us SAL-10 54) lifted the ladder reference. Only t03 (+0.37: L4 slot) and t16
+  (+0.66) rose.
+- SAL rares are being hoarded before the fever: t06 bought SAL-09 from t15 at 68; t15 bought LAV-09 from Chato at 89.
+- t15 ↔ t07 keep swapping (LAV-08 ↔ LAV-07, tick 787).
+
 ### Sat 16:53 · snapshot 780
 - Board: **us 30.02 (#1)** · t14 29.83 · t12 29.12 · t01 29.04 · t10 28.98 · t18 28.61 · t03 27.79.
 - t01 +0.73 (LAV-09 from the Pícaros at 58, an L4 slot) → #4. t06 +0.54 (Pilar SAL-07 23, MAL-08 18). Everyone else drifted
