@@ -203,7 +203,8 @@ class FakeThread:
         if self.fail:
             raise self.fail
         return {"status": "open", "messages": [], "standing_offers": [
-            {"id": 5, "maker": "abuela", "status": "open", "final": True, "want": {"cash": 9}}]}
+            {"id": 5, "maker": "abuela", "status": "open", "final": True, "want": {"cash": 9},
+             "give": {"cash": 0, "assets": [], "types": ["card:RET-01"]}}]}
 
     def accept(self, oid):
         self.accepted.append(oid)
@@ -369,7 +370,7 @@ class Unanswered(FakeThread):
         msgs = [{"sender": "abuela", "offer": {"want": {"cash": 20}}}] + \
                [{"sender": "us", "offer": {"give": {"cash": p}}} for p in self.said]
         return {"status": "open", "messages": msgs, "standing_offers": [
-            {"id": 5, "maker": "abuela", "status": "open", "final": False, "want": {"cash": 20}}]}
+            {"id": 5, "maker": "abuela", "status": "open", "final": False, "want": {"cash": 20}, "give": {"types": ["card:RET-01"]}}]}
 
 
 def test_no_new_counter_until_she_answers_the_last_one(bot):
@@ -440,7 +441,7 @@ class Moved(Standing):
             return {"status": "deal", "messages": [], "standing_offers": []}
         price = 12 if self.reads == 1 else 9
         return {"status": "open", "messages": [], "standing_offers": [
-            {"id": 5, "maker": "abuela", "status": "open", "final": self.reads > 1, "want": {"cash": price}}]}
+            {"id": 5, "maker": "abuela", "status": "open", "final": self.reads > 1, "want": {"cash": price}, "give": {"types": ["card:RET-01"]}}]}
 
 
 def test_offer_only_offers_her_price_and_never_accepts(bot, monkeypatch):
@@ -493,7 +494,8 @@ def test_chato_steady_offer_only(monkeypatch, tmp_path):
             if any(p >= 79 for p in self.said):
                 return {"status": "deal", "messages": []}
             return {"status": "open", "messages": [], "standing_offers": [
-                {"id": 3, "maker": "chato", "status": "open", "final": True, "want": {"cash": 80}}]}
+                {"id": 3, "maker": "chato", "status": "open", "final": True, "want": {"cash": 80},
+                 "give": {"cash": 0, "assets": [], "types": ["card:RET-09"]}}]}
 
         def say(self, tid, text, price=None):
             self.said.append(price)
@@ -591,7 +593,7 @@ def test_chato_steady_walks_after_8_ticks_of_wall_time_stuck(monkeypatch, tmp_pa
             if self.closed:
                 return {"status": "closed", "messages": []}
             return {"status": "open", "messages": [], "standing_offers": [
-                {"id": 3, "maker": "chato", "status": "open", "final": False, "want": {"cash": 32}}]}
+                {"id": 3, "maker": "chato", "status": "open", "final": False, "want": {"cash": 32}, "give": {"types": ["card:SAL-06"]}}]}
 
         def say(self, tid, text, price=None):
             pass
@@ -618,7 +620,7 @@ class Expired(FakeThread):
             return {"status": "closed", "messages": []}
         return {"id": tid, "status": "open", "messages": [{"sender": "t05", "offer": {"give": {"cash": 22}}},
                                                {"sender": "abuela", "offer": {"want": {"cash": 25}}}],
-                "standing_offers": [{"id": 8798, "maker": "abuela", "status": "expired", "want": {"cash": 25}}]}
+                "standing_offers": [{"id": 8798, "maker": "abuela", "status": "expired", "want": {"cash": 25}, "give": {"types": ["card:SAL-06"]}}]}
 
 
 def test_abuela_walks_when_the_dealer_has_no_live_offer_for_4_ticks(bot):
@@ -684,7 +686,7 @@ class ChaDealer:
         if self.closed or self.accepted:
             return {"id": tid, "status": "closed" if self.closed else "deal", "messages": []}
         return {"id": tid, "status": "open", "messages": [], "standing_offers": [
-            {"id": 4, "maker": "abuela", "status": "open", "final": True, "want": {"cash": 76}}]}
+            {"id": 4, "maker": "abuela", "status": "open", "final": True, "want": {"cash": 76}, "give": {"types": ["card:CHA-09"]}}]}
 
     def say(self, tid, text, price=None):
         self.said.append((price, text))
@@ -747,3 +749,56 @@ def test_resume_is_not_read_as_resume_cap(monkeypatch, capsys):
         bot_main = __import__("abuela_bot").main
         bot_main(["--dealer", "abuela", "--resume", "868"])
     assert "unrecognized arguments: --resume" in capsys.readouterr().err
+
+
+
+# ------------------------------------------------------------------------------------------------ TRICK (red team, Sun 01:30)
+
+def test_offer_matches_the_threads_target_only():
+    buy = {"buy": {"card": "RET-01"}}
+    cards = {"RET-01": {"rarity": "common"}}
+    ok = {"give": {"cash": 0, "assets": [], "types": ["card:RET-01"]}, "want": {"cash": 9}}
+    assert ab.offer_matches(ok, buy, "buy", cards) == ""
+    assert "RET-02" in ab.offer_matches({**ok, "give": {"types": ["card:RET-02"]}}, buy, "buy", cards)
+    assert "more than cash" in ab.offer_matches({**ok, "want": {"cash": 9, "assets": [{"id": 1}]}}, buy, "buy", cards)
+    one = {"give": {"assets": [{"id": 7, "kind": "card", "ref": "RET-01", "rarity": "rare"}]}, "want": {"cash": 9}}
+    assert "rarity" in ab.offer_matches(one, buy, "buy", cards) or "rare" in ab.offer_matches(one, buy, "buy", cards)
+    assert ab.offer_matches({**one, "give": {"assets": [{"id": 7, "kind": "card", "ref": "RET-01",
+                                                         "rarity": "common"}]}}, buy, "buy", cards) == ""
+    pack = {"buy": {"pack": "sobre_barrio"}}
+    assert ab.offer_matches({"give": {"types": ["pack:sobre_barrio"]}, "want": {"cash": 24}}, pack, "buy") == ""
+    sell = {"sell": {"assets": [308]}}
+    mine = {"give": {"cash": 5}, "want": {"assets": [{"id": 308, "ref": "LAT-03"}]}}
+    assert ab.offer_matches(mine, sell, "sell") == ""
+    assert "wants assets" in ab.offer_matches({**mine, "want": {"assets": [{"id": 308}, {"id": 309}]}}, sell, "sell")
+
+
+class Trickster(FakeThread):
+    """Their standing offer swaps the card: inside our cap on price, the wrong card."""
+
+    def thread(self, tid):
+        if self.waits >= 3:
+            return {"status": "closed", "closed_reason": "expired", "messages": [], "standing_offers": []}
+        return {"status": "open", "messages": [{"sender": "abuela", "text": "here"}], "standing_offers": [
+            {"id": 9, "maker": "abuela", "status": "open", "final": True, "want": {"cash": 8},
+             "give": {"cash": 0, "assets": [], "types": ["card:RET-04"]}}]}
+
+    def __init__(self):
+        super().__init__()
+        self.waits, self.said = 0, []
+
+    def wait_tick(self):
+        self.waits += 1
+        return {}
+
+    def say(self, tid, text, price=None):
+        self.said.append(price)
+
+
+def test_a_tricked_offer_is_never_accepted_and_the_thread_stays_open(bot, monkeypatch):
+    monkeypatch.setattr(bot, "should_hold_accept", lambda b, tick=None: (False, "no live duel"))
+    b = Trickster()
+    t = bot.negotiate(b, {"buy": {"card": "RET-01"}}, "buy", 10)
+    assert b.accepted == [] and b.closed == [] and t["closed_reason"] == "expired"
+    assert events(bot).count("TRICK") == 1                       # logged once for that offer
+    assert b.said                                                # we kept haggling on our own topic

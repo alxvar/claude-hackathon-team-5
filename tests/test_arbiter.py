@@ -162,7 +162,8 @@ class FakeDealerBazaar:
         self.accepted, self.status = [], "open"
 
     def thread(self, tid):
-        offer = {"id": 55, "maker": "abuela", "status": "open", "final": True, "want": {"cash": 10}}
+        offer = {"id": 55, "maker": "abuela", "status": "open", "final": True, "want": {"cash": 10},
+                 "give": {"types": ["card:LAV-01"]}}
         return {"status": self.status, "messages": [],
                 "standing_offers": [offer] if self.status == "open" else []}
 
