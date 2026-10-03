@@ -333,6 +333,14 @@ the ladder can.
   from using the pulled card (team sale ≈ +5-12 neg_points, swap, or a dealer slot). Swaps of the same spares score directly
   (+4-6 each), so the Workshop is the fallback for spares nobody swaps.
 
+## 3d. Don Ernesto (L5, the vault): ACTIVE since tick 971 (18:15) [V /api/dealers, feed]
+- Early = 3 deals with **Pilar** at level ≥ 3 (we're in: "5 deals with pilar"; also t01, t02, t03, t08, t10, t14, t15). Open to all
+  at game 10.42 ≈ 19:19 wall.
+- Sells gold packs (list 420, opening 546, 1/team/hour) and legendaries (list 585); buys epics and legendaries; 4 deals/team/hour.
+  Traits: patience 0.95, generosity 0.1, shrewdness 0.95, memory 1.0, strictness 1.0.
+- For us: no affordable deal (no epics/legendaries held; cash 151; dealer buys score no neg_points). Risk: epic holders (t16, t18 …)
+  selling to him lift the ladder reference; our capped ladder part could slip [L].
+
 ## 3b. Card-for-card swaps (a mechanic we haven't used) [V feed; scoring L]
 - t15 ↔ t07 swapped 3 times on El Rastro at price 0 (607 LAV-08 ↔ LAV-06, 613 LAV-03 ↔ MAL-08, 616 MAL-01 ↔ SAL-02).
 - A swap is a team trade for both sides: each scores its value gained at private values; no cash; maker fee 0, taker
