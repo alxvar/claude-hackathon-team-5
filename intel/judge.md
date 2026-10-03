@@ -1,47 +1,50 @@
-# Judge (claude-opus-5-5, Sat 11:19)
+# Judge (claude-opus-5-5, Sat 11:35)
 
 ## Verdict
-Gaining: #3 at 29.5 (+10.4 in 60 min). The leaders are t13 at 30.4 (+7.0) and t18 at 30.2 (+1.6), so the gap to #1 is 0.9.
+**Falling behind.** We dropped from #3 (27.9, teams.md 11:02) to #7 (22.35). The gap to #1 grew from 0.9 to 5.3, and we lost 7.1 in 15 min. `neg_points` rose 33.2 → 35.2, but `mm_points` went +4.99 → −5.2 after the tick-398 trade on v10 and erased that gain.
 
 ## Our strategies: keep / kill / scale
-- **Chato buys: kill.** RET-09 cost −10.0, RET-10 −9.0 and RET-06 −2.5. All 6 of our Chato deals were above list and none moved the ladder. The RET page is complete, so no Chato need remains.
-- **Abuela via abuela_bot: kill unless a card is needed.** Below-list deals moved the ladder: +0.014 to +0.018 per common, and RET-07 only +0.004 as the 5th deal at level 1. Dealer gains never score.
-- **Trading loop (loop.py): no measured value.** Its log shows only errors and an open at tick 285, with no accept or fill attributed since. Keep it stopped from 11:50 per the directive.
-- **Addressed maker asks on v07: keep, but they don't fill by themselves.** There was 1 fill in ~95 ticks with 12-14 live offers: SAL-01 at 7, +4.7 (predicted +4.8). That fill came after Lucas's DM and t03's counter.
-- **In-room deals (Lucas DMs): scale.** They produced RET-01 from t10 (+50.0, page closed) and SAL-01 to t03 (+4.7). These are our only two positive `neg_points` events since round 2.
-- **Public bids 5590 (SAL-04 at 7, worth 9) and 5591 (MAL-03 at 5, worth 7): keep.** As maker the gain is +2 each, and cash stays at 102, above the floor.
-- **Reciprocal venues (v10/v07): keep.** One v10 trade moved our market score 7.3 → 12.5 (+4.99).
-- **Duels:** 34 practice duels all ended in a deal, and duel points are 0.0. Scored performance is not in the data yet; Duels I starts at 11:30.
+- **Chato buys: KILL.** Three Chato deals today cost −10 (RET-09), −9 (RET-10) and −2.5 (RET-06), −21.5 in total. All were above list, and the ladder moved 0 every time.
+- **Abuela dealer bot: KEEP, needed cards only.** Its returns are shrinking: the commons added +0.014-0.018 each, RET-08 +0.003, RET-07 +0.004 (ladder 0.051 → 0.055). Stop at 11:40 per directive.
+- **loop.py: KILL after Duels I unless it shows a fill.** Since its 10:32 restart the log has no accept, only open/close events and errors.
+- **book.py maker asks: KEEP, re-check addressees.** It has one fill (SAL-01 to t03, +4.7). Asks to t07 at 9 sat unfilled for 50 min. The 11:32 snapshot shows 0 open offers after the v07 cancel.
+- **Public bids on v07: KILL (done 11:37).** MAL-03 filled at 5 for +2.0, but v07 is t10's venue and t10 is now #4, so every trade there feeds a top-4 team's market score.
+- **v10 deal with Team 10: SCALE only collector-buys.** Its two trades netted about −10 mm in total (+4.99, then −10.2). The 11:31 rule stands.
+- **In-room page closers: KEEP.** RET-01 from t10 at 20 gave +50.0, our best trade of the day. The next one is the CHA close on Sunday.
+- **Epic GUARDRAIL buy: hold.** No epic or legendary asks on any of the 19 boards; the bargains daemon is watching.
 
 ## Check the scout
-- **Holds:**
-  - The gain arithmetic on every ask: LAT-08 +12.5, SAL-08 +2.5, LAV-02/03 at 3.2 each.
-  - t01 is ~7.0 below us, so it fails the ≥10 rule.
-  - No open bid exists for any spare (t02 bids 3 for LAT-03, which we value at 5).
-  - t10 is +4.5 in 15 min.
-- **Weak:**
-  - "Raise to 28 for t03" rests on an estimate built from 1 team trade.
-  - t03 countered our SAL-01 ask of 10 down to 7, so it bargains down, not up. Its cash is not in the data.
-  - LAV-03 at 8 would still undercut the public LAV-03 asks at 9 (×2), so that raise is the more plausible of the two.
-- **Wrong:**
-  - "t13 +8.5 in 15 min, #2": the metrics show +1.6 and #1. t18 is #2 at 30.2, not #1 at 30.6.
-  - "t02 bids 64 for SAL-09": the bid is 61.
-  - "t17 is top 4": it is #10.
-  - "Reposts must happen before 11:50": per directive 10:35, book.py keeps posting as maker during duels. Only accepts freeze.
-- **Missed:**
-  - t01 already bought MAL-07 at tick 311, so our offer 5440 (MAL-07 → t01) is a 2nd copy for them and is dead weight.
-  - MAL-02 at 9 → t17 is undercut by public MAL-02 asks at 6-7 (×4), so it won't fill.
+- **#1 (no accepts from 11:50): action holds, evidence wrong.** The 34 "finished" duels in the metrics are session-1 duels (277/278 are practice in GAME.md), and the duel score is 0.0. Duels I has not started. "40% of the duel part" is not in the data.
+- **#2 (MAL-06/07 to t17 at 26): REJECT.**
+  - 26 is t17's median uncommon price, not a bid.
+  - Offer 6112 is not in our logs.
+  - At 22.35, t17 (17.5 at 11:02) is about 5 below us. MAL lacks are unknown, so they count as closing, and t17 fails the ≥10 rule.
+  - Same problem for live 5813 (MAL-07 → t15 at 21): t15 (15.1) is about 7 below us.
+- **#3 (LAV spares at 9-10): partly holds.**
+  - t09 did buy LAV-04 at 9 at tick 353.
+  - But 4 LAV-04 asks at 10 and 2 LAV-03 asks at 9 are sitting unfilled, and ours at 9 to t07 never filled. Raising the price won't fill.
+  - The 11:02 public-LAV condition ("no top-4 team collects LAV") now fails: t10 is #4 and collects LAV.
+- **Climbers section: factually wrong.**
+  - t01 SOLD SAL-10 (to t06 at 76) and LAT-09 (to t16 at 68); it did not buy rares.
+  - t16 SOLD LAV-10 at 82 and BOUGHT LAT-09.
+  - "Cash 114" and "RET-10 bid 36" are stale or wrong: metrics show cash 109 and a bid of 38.
+- **teams.md "Who to sell to": stale.** Its gaps assume we are at 27.9. Now only t09 (~12), t07 (~10.5) and t11 (inactive) are ≥10 below us, and that needs a live check.
 
 ## The 3 changes with the highest expected gain
-1. **Dani/Lucas walk every live addressed ask to its addressee before 11:30, and keep going during Duels I.**
-   - Use only the file prices: t03 for LAT-08 at 25, SAL-08 at 25 and LAT-03 at 7; t17, t15, t07, t09, t06 and t16 for theirs.
-   - Fills use their accept, not ours, so the duel freeze doesn't block them.
-   - Effect: up to +37.2 `neg_points` if all 12 fill (LAT-08 alone +12.5), plus ~165 P cash toward Sunday's CHA page.
-   - Risk: an addressee's lacks are unknown. All addressees are ≥10 below us except t01; fix that per change 2.
-2. **Re-address MAL-07 (5440) from t01 to t15 at 20.** t15 collects MAL and is #12, 14.4 below us. Reprice MAL-02 (4988) to 6 or swap its addressee.
-   - Effect: +2.5 on MAL-07, and turns a dead offer into a live one. At 6, MAL-02 would score −1 (its value is 7), so a new addressee at 9 is the only positive option.
-   - Risk: none material; t15 is far below and not top 4.
-3. **After Duels I, if LAT-08, MAL-06, MAL-07 or SAL-08 are still unsold, sell up to 3 of them to Pilar at ≥ our copy value.**
-   - Pilar buys uncommons only, never commons. Level 3 currently holds 0 deals for us, and the ladder counts the best 3 per level.
-   - Effect: 0 `neg_points` (dealer sale), plus cash and ladder at a higher-weight level.
-   - Risk: whether Pilar sells move the ladder is not in the data (only "beat her list" [L]). A team sale scores +2.5 to +12.5 more, so Pilar is the fallback only.
+1. **Protect Duels I (34 duels; the duel score is 0.0 now).**
+   - Operator: abuela_bot threads down at 11:40, loop.py stopped at 11:50, book.py maker-only.
+   - Lucas: confirm in person that Aleks's duelist is running. Standby only if Aleks's process is dead.
+   - Effect: a missed duel deal scores 0, and duels are worth far more than the trader's +2 to +5 fills.
+   - Risk: the duelist is down or the accepts collide.
+2. **Recover market-making with collector-buys on v10 (10 mm points swung in 2 trades).**
+   - Dani and Lucas pitch non-top-4 pairs to trade on v10, addressed: t09 bids MAL-06 at 17 and SAL-06 at 20, and t06 bids SAL-09 at 68.
+   - Sellers to target are teams that dump that set: t16, t03 and t14 dump MAL; t15 dumps SAL. Never a top-4 seller.
+   - Team 10 posts on v10 only addressed to collectors (11:31 rule).
+   - Effect: each collector-buy is positive value created for us, and the first one gave +4.99 market.
+   - Risk: the holders are unknown, and the sign of each trade only shows after it settles. Market logs every trade.
+3. **Re-run the feeding check on every live ask against the live leaderboard, now.**
+   - Pull or re-address 5813 (MAL-07 → t15) and LAT-08 → t03 (t03 is about 6 below us and collects LAT).
+   - Post no public LAV asks while t10 sits in the top 4.
+   - Post MAL-06 to t09 at 20-21 (a known lack, +2.5 to +3.5 for us), but only if t09 is ≥10 below us.
+   - Effect: avoids handing a +50 closer to a team near us; the cost is a few small fills.
+   - Risk: the pool of eligible buyers shrinks to 2-3 teams, which slows cash toward the CHA target of 170. If we recover rank, re-widen the list.
