@@ -1,53 +1,62 @@
-# Judge (claude-opus-5-5, Sat 22:01)
+# Judge (claude-opus-5-5, Sat 22:17)
 
 ## Verdict
-**Falling behind.** We are #4 at 30.6, down 1.0 in 60 min, while t10 gained +4.5 to 38.5 (7.9 ahead) and t12 gained +2.5 and passed us. `neg_points` has sat at 119.1 since tick 988 (333 ticks with no scored deal); only duels are moving (13.93 at 21:17 → 25.75 now).
+Holding #3 (30.9) but falling behind the leader. Team 10 is at 38.3 and gained +3.7 in 60 min, while we lost −1.1. Team 6 (31.7), Team 12 (30.7) and Team 18 (30.1) sit within 1.2 of us. Our `neg_points` have been flat at 119.1 since tick 988, about 6 h of game time.
 
 ## Our strategies: keep / kill / scale
-- **Duelist (Duels II): keep.** It is our only rising component (+11.8 duel points in ~40 min; wave 2 closed 5/5 or 6/6 deals). Give it priority on accepts and rate limit.
-- **Dealer bot: keep off.**
-  - Last thread (19:01, LAV-04 at Pícaros) walked at 4 vs our floor 4. `neg_points` and ladder unchanged.
-  - Dealer gains clip to 0, and the ladder is flat for the board (Chief 17:45).
-  - The one good dealer deal was the RET-11 buy at 128 (value 198, 0 neg, L4).
-- **Trading loop (`loop.py`): keep, but it is idle.**
-  - Last accepts were 15:48 (+6.2) and 17:46 (+15.5); nothing in 4+ h.
-  - It hit rate limits at 21:50 on the shared 5 req/s.
-- **Our bids and listings: fix.**
-  - SAL-11 bid 18605 expired unfilled; it is re-posted as 18977.
-  - The four sells are small (+2 to +3 each).
-  - Two of them, MAL-03 (18963) and MAL-08 (18965), sell our **only copies**: MAL-01..05 + 08 are page progress for Sunday's MAL option (21:20, priority 3). Others ask MAL-01/03 at 12, so rebuying costs more than the 9 we would get.
-- **Bot-to-bot team chat pings: kill.** 0 of 4 replied (t09, t08, t04, t01); two closed the thread.
-- **v10 swap desk / matchmaking: scale, in person.**
-  - No v10 trade between other teams is visible since the 21:30 rebate.
-  - The big-screen ads have no measured fill yet.
-  - `mm_points` / real-trades value is not in the data.
-- **DENY reactor: keep with the `pages_complete` filter.** The 21:39 RET-02 target was stale and correctly not bought.
+- **Dealer bot**: keep it off, as the directive says.
+  - Last thread: LAV-04 at Pícaros (her 4, final) → walked, neg/ladder unchanged.
+  - Ladder 0.483 no longer moves the board (Chief 17:45).
+- **FLIP rule (22:13)**: keep the rule, but nothing qualifies now.
+  - MAL-11: t17 bids 150, but our value is 126, below the Pícaros epic list of 162.
+  - LAV-11: t10 bids 205, and t10 is excluded.
+  - MAL-09/10: t09 bids 56 against our value of 49 → est. score below +20.
+- **Trading loop**: keep running, but it is idle. The last accept was 17:46 (+15.5); since then the log shows only errors (a rate limit at 21:50).
+- **Maker book**: kill two offers, keep two.
+  - Only 5 offers are live; the plan calls for 20-30.
+  - MAL-03 (19328) is our only copy and MAL-08 (19331) our only MAL uncommon. Selling them for +2/+2.5 works against "MAL page → Sunday" (directive 21:00).
+  - LAV-03 and LAV-04 at 6 are true spares: keep.
+- **SAL-11 bid**: scale it.
+  - 18605 expired unfilled; 18977 (115 → t04) is unfilled, and t04 ignored the pings.
+  - The GUARDRAIL allows 125.
+- **Team-bot chat pings**: kill. t09, t08, t04 and t01 gave no reply or closed the thread; bots don't take chat.
+- **Reactor BUY/DENY**: keep. DENY 18669 was correctly refused (t10's RET page was already closed), and no bad buy went through.
+- **v10 ads / rebate / pair ads**: keep, but they are unmeasured.
+  - No v10 settlement and no `mm_points` appear in the data since 21:30.
+  - The 15-min change (+0.2) shows no market lift.
+- **Duels**: keep. Duel points are 31.57 with Duels II live (6 live, wave 2 at 5/5 deals per directive).
+- **RET-11 hold** (bought at 128 from Pícaros, value 198): keep per directive (Pilar only at ≥ 198).
 
 ## Check the scout
-- **Holds:**
-  - SAL-11 at ≤125 with t04 counters auto-accepted (log 21:45/21:53).
-  - Team 3 is ~0.6-0.7 behind us; t12 passed us (+1.1/15 min).
-  - RET-09 t08 → t09 is the matchmaker's #1 match, with no `neg_points` effect for us.
-- **Wrong:** "probably capped" for SAL-11. At 115 the gain is 162 − 115 = 47, under the 50 cap. That is ≈ +2.3 board at 0.05/point, minus some pack drag (sobre_plata, size not in the data).
-- **Missing risk on SAL-11:** Pilar paid ~140 for an epic (GAME.md). A 115-125 bid likely loses to the dealer.
-- **Wrong: "spare duplicates".** MAL-03 and MAL-08 are single copies. Only LAV-03 and LAV-04 (2 copies each) are true spares.
-- **Wrong: our sells "on v10" add venue value.** Venue value is created *between other teams*; our own fills score only as `neg_points`.
-- **Wrong: "don't route to t10's venue; one sale there wiped ours".** The wipe was t10's SAL-07 sale on **our** v10 (tick 398, t10 → t15). The routing lesson came from our SAL-01 on t10's v07.
-- **Not in the data:** Team 8 "+1.8/h" (Dani shows Δ +0.1).
-- **Minor:** t10's LAV-11 bid is now offer 19081, not 18361.
+- **Holds**:
+  - SAL-11 went t10 → t17 at 207.
+  - t10 bids 205 for LAV-11.
+  - t13 bids 42 for RET rares and 4 for RET commons.
+  - "Don't sell RET-09/10" is right: both are single copies on a complete page.
+  - t04 bids 5 for LAV-02.
+  - t12 bought LAT-10 at 86 from t01, and t10 bought MAL-11 at 195.
+- **Does not hold**:
+  - "SAL-11 ask at 245": not in the asks list.
+  - "RET-10 ask 84": only RET-09 has an 84 ask.
+- **Score changes are wrong**:
+  - Team 12 is −0.1/+2.5, not +1.7/+3.1.
+  - Team 1 is +0.8/+2.0, not +2.8/+2.2.
+  - Team 10 is +3.7/60 min, not +4.7.
+- **SAL-09 t12 → t09 at 70** was a t12 sale, not a buy.
+- **"Selling to Team 1 passes the feeding rule"**: false. Team 1 is 5.2 points below us, and the rule needs ≥ 10.
+- **"Spare commons" includes MAL-03**: it is a single copy, so not a spare. MAL-08 is not a spare either.
 
 ## The 3 changes with the highest expected gain
-1. **Broker the RET-09 t08 → t09 match face to face (Lucas or Dani).**
-   - Bot chat is dead (0/4 replies). Walk to both teams, point them at v10, and quote the 10 P rebate.
-   - Effect: matchmaker VC ≈ +134, which it says reaches the full real-trades mark (up to 5.0 on that component per the 21:20 model).
-   - Neither team is in the top 4: t09 #15, t08 #10.
-   - Risk: t08 sells to Pilar or to a top-4 RET collector (t10, t12) instead.
-2. **Cancel 18963 (MAL-03) and 18965 (MAL-08); list true spares instead.**
-   - List the 2nd LAV-02 (1.3), 3rd LAV-02 (1.3), 2nd LAV-03 and 2nd LAV-04 to non-rival LAV collectors (t01, t04, t17) at 5-6.
-   - Effect: protects the Sunday MAL page (the +50 counts in full in a fresh round) and costs ≤ +4.5 of forgone gain.
-   - Risk: none on score; cash stays ≥ 350.
-3. **SAL-11: keep 18977 to expiry (tick 1371) and look for other holders now.**
-   - Have the reactor/radar scan the feed for other SAL-11 holders. Bid ≤125 addressed to any non-rival holder.
-   - t17 just paid 207 and is a collector: skip it. Do not exceed the guardrail.
-   - Effect: +37 to +47 `neg_points` ≈ +1.9-2.3 board if filled.
-   - Risk: dealers outbid us (~140), so expect no fill. Free the 260 floor exception back to 350 at expiry.
+1. **Lucas/Dani close the RET-09 t08 → t09 match on v10 in person tonight**, the directive's top match, at about 100.
+   - Bots ignore chat, so humans are the only channel.
+   - The Builder adds our `mm_points`/market to metrics.md so the result is measured.
+   - Effect: VC ≈ +134, "enough for the full real-trades mark" of the 22.5 [L].
+   - Risk: t08 sells elsewhere first, or the trade lands off v10. Both teams are non-rivals, so no leader is fed.
+2. **Re-post the SAL-11 bid at 125 (the GUARDRAIL max), maker on v15, 240 ticks requested, and Dani asks t04's humans in the room.**
+   - Effect: up to +37 `neg_points` (162 − 125, minus pack drag) ≈ +1.8 board at the measured 0.05/pt.
+   - Risk: t04 may not hold or sell at that price; 0 if unfilled. The cash floor of 260 still holds (392 − 125 = 267).
+3. **Cancel 19328 (MAL-03) and 19331 (MAL-08). Replace them with true-spare maker asks addressed to non-top-4 teams that hold live bids:**
+   - LAV-02 at 5 → t04, against t04's bid of 5 (value 1.3, +3.7).
+   - Re-post LAV-03 and LAV-04 at 6 when they lapse (tick 1385).
+   - Effect: keeps Sunday's MAL page intact; the swap costs about −4.5 forgone `neg_points` and earns +3.7 back.
+   - Risk: negligible; these are small gains.
