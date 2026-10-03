@@ -7,6 +7,20 @@
 - Never counts: number of trades, fees earned, pack luck, gifts.
 
 ## Measured facts (operator-maintained; verified Sat 00:00-01:15 by independent agents; [V] verified, [L] likely, [?] open)
+**Dealer playbook (Sat 13:30, from today's measured deals; details in the entries below)**
+1. A dealer deal scores min(0, ΔV − price): gains clip to 0, losses count in full. Buy only at ≤ our value, sell only at
+   ≥ our value. Dealers pay only through the **ladder** (best 3 deals per level; L3 ≈ 3× L2: Pilar +0.050 vs Chato +0.017).
+2. Ladder share = how far the price moves toward us inside the dealer's range. Step −2/−3 and let the dealer climb (Pilar
+   MAL-06 +0.040); a jump to her bid triggers her final (SAL-08 +0.019). Our 6 Chato BUYS above his menu list never
+   counted; a Chato SALE above his opening bid did. Never a deal at the dealer's opening price (RULES:35).
+3. Dealers final after ~4-5 rounds and mirror our step size (Chato mocks +1/+2: "Two points is not moving").
+4. A dealer's offer expires after 4 ticks: holding silent at our cap ends the talk. Move (never repeat) or walk.
+5. `--offer-only` (send the dealer's own standing price as our offer) closes deals without our accept.
+6. Finals seen Sat: Chato sells uncommon 30-31, rare 86-87 (our +3 steps from ~57, final once we reach ~69); Chato buys
+   uncommon 14 (opening 13); Abuela sells common 9, uncommon 22-23, held 25 against our 22; Pilar buys uncommon 19 (MAL),
+   SAL 23 (Team 4 got 25), epic 140 (LAV-11 from Team 8). Abuela gave a gift card after our 5th deal.
+7. /api/me/value returns the value of ONE MORE copy; the held copy's value is in /api/me assets `your_value`.
+
 - **Team trade** [V]: score = Δ(our whole collection value, incl. page bonus and unopened packs) − price − fee if WE accept.
   `parties` = [maker, taker]; only the taker pays the fee, ceil(5% × price) + 1 P per card. Being the maker saves the fee
   and the team's single accept per tick.
@@ -33,7 +47,7 @@
 - **Abuela** (level 1, 8 deals/team/hour, 3 packs/hour) [V]: opens common 12, uncommon 29, pack 30; more rounds = lower
   (common 9-10, uncommon 21-24 after 5-7 rounds, pack 19 after 8). Each team's first deal was a fixed welcome price (17
   pack/uncommon, 7 common) [V; whether it resets each day: ?].
-- **Ladder** [?]: Abuela deals moved ours (0.054 → 0.064); our 3 Chato deals did not, and no variable explains which Chato
+- **Ladder** [superseded by the playbook above]: Abuela deals moved ours (0.054 → 0.064); our 3 Chato deals did not, and no variable explains which Chato
   deals count. A deal at the dealer's opening price never counts [V, RULES]. Level 2 opened early to teams with 3
   negotiated Abuela deals [V].
 - **Venues** [V]: 4 team venues exist (v01 Team 6 0.5%→0%, v02 Team 12 0%, v03 Team 13 1%, v04 Team 2 0% auto), all with 0
