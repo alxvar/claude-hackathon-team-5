@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 18:26 (tick 984), snapshot 980: t06 31.68 · t14 31.52 · us #3 29.97 (flat since 910) · t03 29.64 · t10 28.26. Ladder capped, trade part live (≈ 0.048 board/np), SAL page 9/10 (SAL-06 bids live). Duels I post-mortem §1d; Duels II day rule §1e; Pícaros + flags §3c; Don Ernesto §3d; standings: intel/standings.md._
+_Last update: Sat 18:32 (tick 994), snapshot 990: **us #1 at 31.97** (SAL page close +2.00) · t06 31.68 · t14 31.52 · t03 29.64 · t10 28.34. Ladder capped, trade part live (≈ 0.0495 board/np). Duels I post-mortem §1d; Duels II day rule §1e; Pícaros + flags §3c; Don Ernesto §3d; standings: intel/standings.md._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -236,6 +236,7 @@ t13 and t04 have dealer deals in the window). Full = 12 Saturday points = 8.0 bo
 | 887 | SELL SAL-04 (spare) → Pícaros at 5 (3rd L4 slot) | — | 0.394 → 0.437 (+0.043); neg 0 |
 | — | **Our negotiating was exactly 21.88 at snapshots 850-890** while the field drifted −0.1 to −0.2 per snapshot and our ladder rose +0.064 | | **ladder part capped [L, 2 clean tests]**: further ladder deals add 0 board; being capped also shields us from ladder erosion |
 | 904 | SWAP LAT-01 → t07 for SAL-07 (El Rastro, price 0) | — | neg_points 63.2 → 78.7 (+15.5); board negotiating +0.74 at 910 with the field median 0.00 → **trade part NOT capped: ≈ 0.048 board per neg_point [V]** |
+| 988 | **BUY SAL-06 ← t08 at 28 + 3 fee (taker, El Rastro): SAL PAGE CLOSED** | — | neg_points 78.7 → 119.1 (**+40.4**, under the cap; ΔV ≈ 71.4); board negotiating **+2.00** at 990 with the field median 0.00 → ≈ 0.0495 board per neg_point; **#1 at 31.97** |
 
 **Saturday negotiating decomposition at snapshot 910 [L, fits]:** 23.73 = duel part ≈ 9.1 + ladder 0.6 × 15 (capped) = 9.0
 + trades 0.6 × 15 × T/N with T = 78.7 and N ≈ 125 (from the 0.072 Saturday points per neg_point measured at 904). Implications:
