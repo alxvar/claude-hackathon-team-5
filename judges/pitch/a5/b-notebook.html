@@ -64,14 +64,14 @@ ol.proto{margin:0;padding-left:26px} ol.proto li{margin-bottom:9px;padding-left:
     <p class="hand" style="margin-top:26px"><span class="tilt">every number in here has a source →</span></p>
   </div><span class="no">cover</span></div>
   <div class="pg r"><div class="cover">
-    <p class="big">47 findings measured.<br>6 were wrong.<br><span style="color:var(--red)">We kept those on the page.</span></p>
+    <p class="big">47 findings logged.<br>6 were wrong.<br><span style="color:var(--red)">We kept those on the page.</span></p>
     <div class="slip" style="margin-top:22px"><div class="exp">LOG.md · “Findings history”, Friday</div>
       <p style="margin:4px 0 0"><b>0.</b> <s>MEASURED: neg_points only counts trades between teams… Dealer deals barely move it.</s></p>
       <p class="hand red" style="margin:2px 0 0">⚠ CORRECTED 22:00, see 13</p>
       <p style="margin:4px 0 0"><b>13.</b> Buying from a dealer ABOVE our value subtracts: neg_points 26.3 → 14.5.</p></div>
-    <div class="src">src: docs/judges/facts.md (47 rows as of Sat ~10:53; 6 marked “corrected by #N”, “kept on purpose”) · LOG.md findings 0, 13</div>
+    <div class="src">src: docs/judges/facts.md (47 rows as of Sat ~10:53; 6 marked “corrected by #N”, “kept on purpose”) · LOG.md findings 0, 13 (game clock started Fri ~20:10)</div>
   </div><span class="stamp bad" style="right:44px;top:40px">wrong · kept</span><span class="no">1</span></div>
-  <aside class="say" data-secs="10">This is our lab notebook. Forty-seven findings in a day and a half. Six of them were wrong. We left those on the page, crossed out. That is the pitch.</aside>
+  <aside class="say" data-secs="10">Our lab notebook. Forty-seven findings in our first fifteen hours. Six were wrong. We left those on the page, crossed out.</aside>
 </div></section>
 
 <!-- 2 · APPARATUS + PROTOCOL -->
@@ -87,7 +87,7 @@ ol.proto{margin:0;padding-left:26px} ol.proto li{margin-bottom:9px;padding-left:
       <rect class="a" x="6" y="90" width="118" height="30" rx="6"/><text x="65" y="111">Market</text>
       <rect class="a" x="6" y="128" width="118" height="30" rx="6"/><text x="65" y="149">Builder</text>
       <path d="M124,67 L146,84 M124,105 L146,96 M124,143 L146,110"/>
-      <rect x="6" y="172" width="118" height="44" rx="6"/><text x="65" y="192">17 daemons</text><text class="s" x="65" y="208">facts · no LLM</text>
+      <rect x="6" y="172" width="118" height="44" rx="6"/><text x="65" y="192">17 daemons</text><text class="s" x="65" y="208">14 code + 3 analysts</text>
       <line x1="260" y1="122" x2="260" y2="160"/><path d="M254,152 l6,8 l6,-8"/>
       <rect class="a" x="160" y="160" width="200" height="54" rx="6"/><text x="260" y="183">Operator</text><text class="s" x="260" y="201">the ONLY writer: trades, dealers</text>
       <rect class="a" x="398" y="130" width="112" height="28" rx="6"/><text x="454" y="150">Duel Lab</text>
@@ -101,14 +101,14 @@ ol.proto{margin:0;padding-left:26px} ol.proto li{margin-bottom:9px;padding-left:
     </svg>
     <p class="hand" style="margin:6px 0 0"><span class="tilt">the duel limit is guarded by code, not by a prompt</span></p>
     <div class="src">src: intel/saturday-sessions.md · intel/chief-handoff.md · tools/daemons.sh (17) · judges/demo.md slides 2, 4</div><span class="no">2</span></div>
-  <div class="pg r"><div class="exp">Protocol</div><h2>How anything gets onto these pages</h2>
+  <div class="pg r"><div class="exp">Protocol</div><h2>Protocol, written after Friday</h2>
     <ol class="proto">
       <li><b>One deal per measurement window.</b> Nothing else may move the score.</li>
       <li><b>Write the prediction first.</b> “Predict min(0, ΔV − p) = 0 vs ΔV − p &gt; 0.”</li>
       <li><b>Label every claim:</b> [V] verified · [L] likely · [?] open.</li>
       <li><b>An independent verifier</b> (a fresh agent) before any directive above 20 P or a rule change.</li>
       <li><b>Hard limits move only on a line that says GUARDRAIL:</b> 12 of them on Saturday. Inside the limits, agents decide and act.</li>
-      <li><b>A fix ships with a test that fails on the old code.</b> Duelist suite: 440 passing.</li>
+      <li><b>A fix ships with a test that fails on the old code.</b> Full suite: 440 passing.</li>
       <li><b>Wrong findings stay on the page,</b> crossed out.</li>
     </ol>
     <p class="hand" style="margin:12px 0 0"><span class="tilt">“I don't want things stopped by me not looking.” — Lucas</span></p>
@@ -141,8 +141,8 @@ ol.proto{margin:0;padding-left:26px} ol.proto li{margin-bottom:9px;padding-left:
     </dl>
     <p class="hand" style="margin:10px 0 0"><span class="tilt">#10 → #5 in one snapshot</span></p>
     <div class="src">src: intel/GAME.md “Page bonus” [L], “Per-trade cap” [V, n=2] · docs/judges/facts.md #22, #23 · intel/directives.md 18:32 [V] · data/leaderboard.jsonl ticks 150→155, 980→990</div>
-    <span class="stamp ok" style="right:40px;top:420px">confirmed ×3</span><span class="no">5</span></div>
-  <aside class="say" data-secs="35">Experiment. The organisers hinted that a good dealer buy scores. We predicted plus two, twice. Measured: zero, zero. A loss, predicted minus ten point zero, measured minus ten point zero. So dealers can only hurt you. Next page: maybe a page bonus only scores through a team trade. We sold our own card to a dealer and bought it back from a team for eight pesetas. Plus fifty. Tenth to fifth. Repeated Saturday: plus fifty point zero where sixty-four was due. A hidden cap. Third time: number one.</aside>
+    <span class="stamp ok" style="right:40px;top:420px">held 3 for 3</span><span class="no">5</span></div>
+  <aside class="say" data-secs="35">The organisers' deck hinted that buying below your value scores. For a dealer buy we predicted plus two, twice. Measured: zero, zero. A loss, predicted minus ten point zero, measured minus ten point zero. Dealers can only hurt you. Next page. Hypothesis: a page bonus only scores through a team trade. We sold our own card to a dealer and bought it back from a team for eight pesetas. Plus fifty. Tenth to fifth. Repeated Saturday: plus fifty point zero where sixty-four was due. A hidden cap. Third time: number one.</aside>
 </div></section>
 
 <!-- 4 · EXPERIMENTS: DUELS · LADDER -->
@@ -177,7 +177,7 @@ ol.proto{margin:0;padding-left:26px} ol.proto li{margin-bottom:9px;padding-left:
     <dl><dt>Read</dt><dd>Our negotiating score sat at exactly <b>21.88</b> for five snapshots while the ladder kept rising. 17:45: stop ladder-driven deals.</dd></dl>
     <div class="src">src: intel/score-model.md §0, §2 [L, 2 clean tests] · intel/directives.md 11:56, 17:45 · data/leaderboard.jsonl ticks 850–890</div>
     <span class="stamp cap" style="right:60px;top:316px">capped</span><span class="no">7</span></div>
-  <aside class="say" data-secs="30">Duels. Every message is a round, and every round burns six percent. We closed thirty of thirty-four, but lost nineteen percent to rounds. Two obvious fixes: we replayed them on real offers. Both lost. Crossed out, not shipped. The dealer ladder: each new level paid less. Thirty-five, twenty, ten, zero. Our score froze at twenty-one eighty-eight. Capped. Stop.</aside>
+  <aside class="say" data-secs="30">Duels. Every message is a round, and every round burns six percent. We closed thirty of thirty-four, but lost nineteen percent to rounds. Two obvious fixes: we replayed them on real offers. Both lost. Crossed out, not shipped. The dealer ladder: each deal paid less as the field piled in. Thirty-five, twenty, ten, zero. Our score froze at twenty-one eighty-eight. Capped. Stop.</aside>
 </div></section>
 
 <!-- 5 · WEIGHING DECISIONS · FIELD NOTES -->
@@ -191,21 +191,21 @@ ol.proto{margin:0;padding-left:26px} ol.proto li{margin-bottom:9px;padding-left:
     <table style="margin-top:6px"><tr><th>our reading of the day</th><th>points per duel</th></tr>
       <tr><td>read right</td><td>+0.47</td></tr><tr><td>direction unknown</td><td>+0.23</td></tr><tr><td>can't read</td><td>+0.15</td></tr>
       <tr><td>backwards</td><td><b>−0.18</b> · 30% of deals negative</td></tr></table>
-    <p style="margin:8px 0 0">No switch existed. So, <b>one</b> change after the 19:30 code freeze: <code>--days-read auto|flip|unsure</code>, default = today's code. Worth 0 if we read it right. Duels II: <span class="tbd">result TBD</span></p>
-    <div class="src">src: intel/GAME.md · intel/directives.md 09:55, 12:13, 17:58 · intel/score-model.md §2, §3 · judges/demo.md slide 5 · intel/duel-lab.md 18:30 [L] · PLAN.md Aleks #24 · team/aleks.md 18:18</div>
+    <p style="margin:8px 0 0">No switch existed. So, <b>one</b> last change before the 19:30 code freeze, exempt from our “show a simulated gain” rule: <code>--days-read auto|flip|unsure</code>, default = today's code. Worth 0 if we read it right. Duels II: <span class="tbd">result TBD</span></p>
+    <div class="src">src: intel/GAME.md · intel/directives.md 09:55, 10:30, 12:13, 17:58 · intel/score-model.md §2, §3 · judges/demo.md slide 5 · intel/duel-lab.md 18:30 [L] · PLAN.md Aleks #24 · team/aleks.md 18:18</div>
     <span class="stamp ins" style="right:40px;top:560px">insurance</span><span class="no">8</span></div>
   <div class="pg r"><div class="exp">Field notes</div><h2>Other teams' notebooks</h2>
     <dl>
-      <dt>Friday's leader</dt><dd>Built its lead on the dealer ladder: never paid a dealer above list. Our five El Chato buys had paid 44 P over list, for nothing. We copied the play. So did the field, and that lead eroded.</dd>
+      <dt>Friday's leader</dt><dd>Built its Saturday edge mostly on the dealer ladder: never paid a dealer above list. Our five El Chato buys had paid 44 P over list, for nothing. We copied the play. So did the field, and that edge eroded.</dd>
       <dt>Team 12 · Sat 10:00</dt><dd>The market lead from <b>one 7 P trade</b> on a 0% venue. We cut our stall's fee to 0% (effective tick 230).</dd>
       <dt>Team 10 · Sat 18:56</dt><dd>A page closed for the price of a common: rares from a dealer at ≤ value (no cost), the last card from a team at 12 P. <b>+3.33 board</b> in two snapshots. That is our recipe for Sunday's Chamberí page.</dd>
-      <dt>The fever loop</dt><dd>Several teams: a rare from one dealer at ~55, sold to another at 80–84. For us, −36 a buy (our SAL rares are page cards). We passed.</dd>
+      <dt>The fever loop</dt><dd>Several teams: a rare from one dealer at ~52–55, sold to another at 76–87. We had lined up the same resale, then cancelled it: those rares had become part of our third page.</dd>
       <dt>Duel rivals</dt><dd>16 of 17 rival agents scripted, 1 silent, 0 LLM.</dd>
     </dl>
     <p class="hand" style="margin:8px 0 0"><span class="tilt">a lever decays once it's public: do it early, then stop</span></p>
-    <div class="src">src: intel/rivals.md §1, §4.3; 18:25, 18:56, 19:10, 19:41 · intel/score-model.md §1d, §3e · intel/directives.md 10:03, 10:06</div>
+    <div class="src">src: intel/rivals.md §1, §4.3; 18:25, 18:56, 19:10, 19:27, 19:41 · intel/score-model.md §1d, §3e · intel/directives.md 10:03, 10:06, 16:43, 17:58</div>
     <span class="no">9</span></div>
-  <aside class="say" data-secs="30">How we weigh a decision: one currency, board points, re-priced all day as the field moved. Tonight's example: our duel agent must read a new field, the delivery day. Read right: plus zero point four seven a duel. Backwards: minus zero point one eight. So after the code freeze we shipped exactly one change: a switch. Worth nothing if we are right. Field notes: Team Ten closed a page for the price of a common. That is our Sunday plan.</aside>
+  <aside class="say" data-secs="30">How we weigh a decision: one currency, board points, re-priced all day as the field moved. Tonight's example: our duel agent must read a new field, the delivery day. Read right: plus zero point four seven a duel. Backwards: minus zero point one eight. So we let in exactly one last change before the code freeze: a switch. Worth nothing if we are right. Field notes: Team Ten closed a page for the price of a common. That is our Sunday plan.</aside>
 </div></section>
 
 <!-- 6 · ERRATA -->
@@ -213,38 +213,38 @@ ol.proto{margin:0;padding-left:26px} ol.proto li{margin-bottom:9px;padding-left:
   <div class="pg l"><div class="exp">Errata · Sat 10:18</div><h2 class="red">The venue swap with Team 10</h2>
     <dl><dt>We wrote</dt><dd>“Our standing offers default to Team 10's v07 …; theirs to our v10 … a balanced swap lifts both against the top 5.”</dd></dl>
     <table class="ev" style="margin-top:8px"><tr><th>tick</th><th>what happened</th><th>our rank</th></tr>
-      <tr><td>311</td><td>their sale on our venue: our market <b>+4.99</b></td><td>#2</td></tr>
-      <tr><td>351</td><td><b>our</b> sale on their venue (SAL-01, 7 P): their market up</td><td>—</td></tr>
-      <tr><td>398</td><td>their sale on ours, to a non-collector: +4.99 → <b>−5.2</b></td><td>#7</td></tr></table>
-    <p style="margin:10px 0 0">Tonight (tick <span data-live="tick">1200</span>): Team 10's market <b><span data-live="leadmkt">12.50</span></b>, ours <b><span data-live="mkt">7.50</span></b>. <span data-live="leader">Team 10</span> leads us by <b><span data-live="gap">2.29</span></b>.</p>
+      <tr><td>311</td><td>their sale on our venue: our market 7.32 → <b>12.47</b></td><td>#2</td></tr>
+      <tr><td>351</td><td><b>our</b> sale on their venue (SAL-01, 7 P): their market <b>+4.34</b></td><td>—</td></tr>
+      <tr><td>398</td><td>their sale on ours, to a non-collector: our market back to <b>7.5</b></td><td>#7</td></tr></table>
+    <p style="margin:10px 0 0">Now (tick <span data-live="tick">1200</span>): Team 10's market <b><span data-live="t10mkt">12.50</span></b>, ours <b><span data-live="mkt">7.50</span></b>. Team 10 is #<span data-live="t10rank">1</span>; we are #<span data-live="rank">3</span>.</p>
     <p class="hand red" style="margin:8px 0 0"><span class="tilt">we handed a rival the lever we had just discovered</span></p>
-    <dl style="margin-top:8px"><dt>Fix</dt><dd>Value created = buyer's value − seller's value. Collector-buys only (11:31). No offer of ours on a rival's venue (17:30). Code: <code>tools/v10_radar.py</code> scores every trade first.</dd></dl>
-    <div class="src">src: intel/directives.md 10:18, 11:31, 17:30, 19:40 · intel/market-log.md (tick 351) · intel/GAME.md [V, Sat 11:30] · data/leaderboard.jsonl ticks 320, 400</div>
+    <dl style="margin-top:8px"><dt>Fix</dt><dd>Value created = buyer's value − seller's value. Collector-buys only (11:31). No offer of ours on a rival's venue (17:30). Code: <code>tools/v10_radar.py</code> scores a trade before we nudge it.</dd></dl>
+    <div class="src">src: intel/directives.md 10:18, 11:31, 17:30, 19:40 · intel/market-log.md (tick 351: +4.34) · intel/GAME.md [V, Sat 11:30] · data/leaderboard.jsonl ticks 320, 400</div>
     <span class="no">10</span></div>
   <div class="pg r"><div class="exp">Errata · tick 522 → tick 1047 (Sat 19:01)</div><h2 class="red">The golden chulapa</h2>
     <div class="slip"><div class="exp">Doña Pilar, in our own deal thread · tick 522</div>
       <p style="margin:4px 0 0">“Very well. 23 P. A pleasure. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about the golden chulapa.”</p></div>
     <table class="ev"><tr><th>tick</th><th>what happened</th></tr>
-      <tr><td>522</td><td>the hint sits in our thread; nobody reads it</td></tr>
+      <tr><td>522</td><td>the hint sits in our own thread; we file it as lore</td></tr>
       <tr><td>1021</td><td>the one-of-one card (LAT-13, print run 1) goes to another team</td></tr>
       <tr><td>1047</td><td>we ask Carmen: egg found, card gone</td></tr></table>
     <dl style="margin-top:8px"><dt>Fix</dt><dd><code>tools/hints.py</code>, live Sat 19:00: a daemon that mines every dealer line. 126 hits backfilled.</dd>
       <dt>Also</dt><dd>Fri 22:00, autoflip: bought a card worth 17.5 at 29. <b>−11.8</b> (≈ −2.8 board). Archived, “never restart”. Rule: test by hand before automating.</dd></dl>
     <p class="hand red" style="margin:8px 0 0"><span class="tilt">every mistake became a rule, then code</span></p>
-    <div class="src">src: intel/hints.md (tick 522, pilar → t05) · intel/GAME.md “Easter egg” [V] · team/lucas.md Sat 19:00, 19:01 · DECISIONS.md #3</div>
+    <div class="src">src: intel/hints.md (tick 522, pilar → t05) · intel/directives.md 16:39 (“easter-egg lore”) · intel/GAME.md “Easter egg” [V] · team/lucas.md Sat 19:00, 19:01 · DECISIONS.md #3</div>
     <span class="no">11</span></div>
-  <aside class="say" data-secs="30">Errata, in red. At ten eighteen we swapped venues with Team Ten. Our seven-peseta sale on their venue fed their market score; a sale on ours wiped out our plus five. They lead tonight. New rule, new daemon. And a dealer told us about a one-of-one card at tick 522. Nobody read it. We asked at tick 1047; it was gone. That evening the Builder shipped a hint miner.</aside>
+  <aside class="say" data-secs="30">Errata, in red. At ten eighteen we swapped venues with Team Ten. Our seven-peseta sale on their venue handed them four market points; a sale on ours wiped out our plus five. Tonight they are number <span data-live="t10rank">one</span>. New rule, new daemon. And a dealer told us about a one-of-one card at tick 522. We filed it as lore. We asked at tick 1047; it was gone. That evening the Builder shipped a hint miner.</aside>
 </div></section>
 
 <!-- 7 · RESULTS -->
 <section data-title="Results"><div class="book">
   <div class="pg l"><div class="exp">Results · as of tick <span data-live="tick">1200</span></div><h2>Where it got us</h2>
     <table style="font-size:15px">
-      <tr><td>Friday close</td><td>#5 · 20.0</td></tr>
+      <tr><td>Friday, last snapshot</td><td>#5 · 20.0</td></tr>
       <tr><td>Saturday, now</td><td><b>#<span data-live="rank">3</span> of <span data-live="teams">18</span> · <span data-live="score">31.92</span></b></td></tr>
       <tr><td>Snapshots at #1</td><td><span data-live="first">8</span></td></tr>
       <tr><td>Negotiating</td><td><b>#<span data-live="negrank">1</span> of 18</b> · <span data-live="neg">24.42</span></td></tr>
-      <tr><td>Market</td><td><span data-live="mkt">7.50</span> · the leader's <span data-live="leadmkt">12.50</span></td></tr>
+      <tr><td>Market</td><td><span data-live="mkt">7.50</span> · <span data-live="leader">Team 10</span>: <span data-live="leadmkt">12.50</span></td></tr>
       <tr><td>Pages complete</td><td>3 · LAV, RET, SAL</td></tr>
       <tr><td>Duels I</td><td>30 / 34 deals · 88% (field 76%)</td></tr>
       <tr><td>Duels II</td><td><span class="tbd">TBD</span></td></tr>
@@ -261,7 +261,7 @@ ol.proto{margin:0;padding-left:26px} ol.proto li{margin-bottom:9px;padding-left:
       <li>Keep the wrong pages.</li></ol>
     <p class="hand" style="margin-top:14px"><span class="tilt">— Aleks, Dani, Lucas</span></p>
   </div><span class="no">13</span></div>
-  <aside class="say" data-secs="20">Results: number <span data-live="rank">three</span> of eighteen, the best negotiating score in the room, three pages complete, Sunday to come. What we would hand the next team is not a bot. It is this notebook: measure, predict, correct in public.</aside>
+  <aside class="say" data-secs="20">Results: number <span data-live="rank">three</span> of eighteen, number <span data-live="negrank">one</span> in negotiating, three pages complete, Sunday to come. What we would hand the next team is not a bot. It is this notebook: measure, predict, correct in public.</aside>
 </div></section>
 
 </div></div>

@@ -11,13 +11,15 @@
   // Live numbers: a [data-live] span keeps its static text unless race-data.js is loaded.
   const L = {};
   if (R && R.latest) {
-    const rows = R.latest.rows, us = rows.find(r => r[0] === 't05'), top = rows[0];
+    const rows = R.latest.rows, us = rows.find(r => r[0] === 't05'), t10 = rows.find(r => r[0] === 't10');
+    const top = rows.find(r => r[0] !== 't05');  // the best team that isn't us: every "leader" number below is theirs
     Object.assign(L, {
       tick: R.latest.tick, teams: rows.length, rank: rows.indexOf(us) + 1,
       score: us[1].toFixed(2), neg: us[2].toFixed(2), mkt: us[3].toFixed(2),
       negrank: [...rows].sort((a, b) => b[2] - a[2]).indexOf(us) + 1,
       leader: 'Team ' + Number(top[0].slice(1)), leadscore: top[1].toFixed(2), leadmkt: top[3].toFixed(2),
       gap: (top[1] - us[1]).toFixed(2), mktgap: (top[3] - us[3]).toFixed(2),
+      t10rank: rows.indexOf(t10) + 1, t10score: t10[1].toFixed(2), t10mkt: t10[3].toFixed(2),
       first: R.us.rank.filter(r => r === 1).length, snaps: R.ticks.length,
     });
   }
