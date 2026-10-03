@@ -257,3 +257,5 @@ Nando: Setenta y tres,
 - Sat 22:19 · egg.found tick 1364 · abuela → t10 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t10", "name": "Team 10"}
 - Sat 22:19 · egg.given tick 1364 · abuela → t10 · {"team": "t10", "name": "Team 10", "cash": 0, "packs": [], "cards": ["MAL-06"], "reason": "easter egg"}
 - Sat 22:20 · message tick 1365 · pilar → t10 · Salamanca, sin duda: Serrano, Velázquez, Lista. Esas láminas las guardo bajo llave desde los sesenta. El Lázaro Galdiano, qué buen recuerdo. Y el sobre dorado sigue en 491 P, cuando usted quiera. Ni más, ni menos.
+- Sat 22:21 · egg.found tick 1368 · abuela → t05 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t05", "name": "Team 5"}
+- Sat 22:21 · egg.given tick 1368 · abuela → t05 · {"team": "t05", "name": "Team 5", "cash": 0, "packs": [], "cards": ["MAL-06"], "reason": "easter egg"}
