@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 10:56** · tick 333 (30 s/tick) · game hour 4.10 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 11:01** · tick 343 (30 s/tick) · game hour 4.18 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -25,17 +25,17 @@ _From `team/<name>.md`; each person writes only their own file._
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 27.83 | 2 | 15.33 | 12.50 | 0.00 | 0.06 | 0.90 | 33 | 2 | 107 | 32/50 |
+| 27.95 | 3 | 15.45 | 12.50 | 0.00 | 0.06 | 0.90 | 33 | 2 | 107 | 32/50 |
 
-Leaderboard (snapshot at tick 330; refreshes every few minutes):
+Leaderboard (snapshot at tick 340; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 18 | 28.32 | 20.82 | 7.50 | 27 |
-| 2 | Team 5 | 27.83 | 15.33 | 12.50 | 33 |
-| 3 | Team 2 | 27.23 | 19.73 | 7.50 | 26 |
-| 4 | Team 12 | 26.47 | 13.97 | 12.50 | 30 |
-| 5 | Team 14 | 22.70 | 15.20 | 7.50 | 15 |
+| 1 | Team 13 | 28.82 | 25.50 | 3.33 | 41 |
+| 2 | Team 18 | 28.61 | 21.11 | 7.50 | 27 |
+| 3 | Team 5 | 27.95 | 15.45 | 12.50 | 33 |
+| 4 | Team 2 | 27.05 | 19.55 | 7.50 | 29 |
+| 5 | Team 12 | 26.38 | 13.88 | 12.50 | 30 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 5.00 | ~54 min | bench | The Market Test: every venue gets the same synthetic book |
-| 5.15 | ~63 min | duels | Duels I: price only, one round-robin |
-| 5.51 | ~84 min | persona_opens | Doña Pilar opens for everyone |
-| 7.00 | ~174 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.00 | ~294 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.15 | ~303 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
-| 11.00 | ~414 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~423 min | persona_patch | The fever breaks |
+| 5.00 | ~49 min | bench | The Market Test: every venue gets the same synthetic book |
+| 5.15 | ~58 min | duels | Duels I: price only, one round-robin |
+| 5.51 | ~80 min | persona_opens | Doña Pilar opens for everyone |
+| 7.00 | ~169 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.00 | ~289 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.15 | ~298 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
+| 11.00 | ~409 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~418 min | persona_patch | The fever breaks |
 
 ## Our dealer deals
 
@@ -100,10 +100,10 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
-| common card | team buys | 49 | 9 | 7 | 12 | 5 | 9 |
-| common card | team sells | 40 | 6.00 | 5 | 23 | 5 | 5.40 |
+| common card | team buys | 50 | 9.00 | 7 | 12 | 5 | 9 |
+| common card | team sells | 44 | 6.00 | 5 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 37 | 22 | 17 | 30 | 3 | 20.33 |
-| uncommon card | team buys | 56 | 22.50 | 17 | 29 | 4 | 24.50 |
+| uncommon card | team buys | 57 | 23 | 17 | 29 | 4 | 24.50 |
 | uncommon card | team sells | 6 | 14.00 | 13 | 16 | 0 | — |
 
 ## Duels
