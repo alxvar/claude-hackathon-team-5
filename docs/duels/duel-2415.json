@@ -67,6 +67,168 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 597,
+   "raw": {
+    "duel": 2415,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 95,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Rojo",
+    "deadline_tick": 605,
+    "decay_per_round": 0.06,
+    "rounds": 0,
+    "your_offer": {
+     "id": 5368,
+     "price": 59,
+     "tick": 597,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 589,
+      "from": "you",
+      "text": "I'm offering 55 P for El Mesón de la Cava. That reflects what a business like this can realistically earn once upkeep and running costs are taken into account, and I'm ready to look at a counter that is grounded in the same facts.Â",
+      "price": 55,
+      "days": null
+     },
+     {
+      "tick": 597,
+      "from": "you",
+      "text": "I can do 59 P.",
+      "price": 59,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 598,
+   "raw": {
+    "duel": 2415,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 95,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Rojo",
+    "deadline_tick": 605,
+    "decay_per_round": 0.06,
+    "rounds": 0,
+    "your_offer": {
+     "id": 5377,
+     "price": 63,
+     "tick": 598,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 589,
+      "from": "you",
+      "text": "I'm offering 55 P for El Mesón de la Cava. That reflects what a business like this can realistically earn once upkeep and running costs are taken into account, and I'm ready to look at a counter that is grounded in the same facts.Â",
+      "price": 55,
+      "days": null
+     },
+     {
+      "tick": 597,
+      "from": "you",
+      "text": "I can do 59 P.",
+      "price": 59,
+      "days": null
+     },
+     {
+      "tick": 598,
+      "from": "you",
+      "text": "I can do 63 P.",
+      "price": 63,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 599,
+   "raw": {
+    "duel": 2415,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 95,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Rojo",
+    "deadline_tick": 605,
+    "decay_per_round": 0.06,
+    "rounds": 0,
+    "your_offer": {
+     "id": 5390,
+     "price": 67,
+     "tick": 599,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 589,
+      "from": "you",
+      "text": "I'm offering 55 P for El Mesón de la Cava. That reflects what a business like this can realistically earn once upkeep and running costs are taken into account, and I'm ready to look at a counter that is grounded in the same facts.Â",
+      "price": 55,
+      "days": null
+     },
+     {
+      "tick": 597,
+      "from": "you",
+      "text": "I can do 59 P.",
+      "price": 59,
+      "days": null
+     },
+     {
+      "tick": 598,
+      "from": "you",
+      "text": "I can do 63 P.",
+      "price": 63,
+      "days": null
+     },
+     {
+      "tick": 599,
+      "from": "you",
+      "text": "I can do 67 P.",
+      "price": 67,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -177,6 +339,210 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 597,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 2415,
+     "role": "buyer",
+     "limit": 95,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm offering 55 P for El Mesón de la Cava. That reflects what a business like this can realistically earn once upkeep and running costs are taken into account, and I'm ready to look at a counter that is grounded in the same facts.Â",
+      "offer": {
+       "price": 55,
+       "days": null
+      },
+      "accept": false,
+      "tick": 589,
+      "decision": {
+       "action": "offer",
+       "price": 55,
+       "message": "I'm offering 55 P for El Mesón de la Cava. That reflects what a business like this can realistically earn once upkeep and running costs are taken into account, and I'm ready to look at a counter that is grounded in the same facts.Â"
+      }
+     }
+    ],
+    "rival_offer": null,
+    "tick": 597,
+    "ticks_left": 8,
+    "rounds": 0
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 59 P.",
+    "price": 59,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 598,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 2415,
+     "role": "buyer",
+     "limit": 95,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm offering 55 P for El Mesón de la Cava. That reflects what a business like this can realistically earn once upkeep and running costs are taken into account, and I'm ready to look at a counter that is grounded in the same facts.Â",
+      "offer": {
+       "price": 55,
+       "days": null
+      },
+      "accept": false,
+      "tick": 589,
+      "decision": {
+       "action": "offer",
+       "price": 55,
+       "message": "I'm offering 55 P for El Mesón de la Cava. That reflects what a business like this can realistically earn once upkeep and running costs are taken into account, and I'm ready to look at a counter that is grounded in the same facts.Â"
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 59 P.",
+      "offer": {
+       "price": 59,
+       "days": null
+      },
+      "accept": false,
+      "tick": 597,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 598,
+    "ticks_left": 7,
+    "rounds": 0
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 63 P.",
+    "price": 63,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 599,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 2415,
+     "role": "buyer",
+     "limit": 95,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm offering 55 P for El Mesón de la Cava. That reflects what a business like this can realistically earn once upkeep and running costs are taken into account, and I'm ready to look at a counter that is grounded in the same facts.Â",
+      "offer": {
+       "price": 55,
+       "days": null
+      },
+      "accept": false,
+      "tick": 589,
+      "decision": {
+       "action": "offer",
+       "price": 55,
+       "message": "I'm offering 55 P for El Mesón de la Cava. That reflects what a business like this can realistically earn once upkeep and running costs are taken into account, and I'm ready to look at a counter that is grounded in the same facts.Â"
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 59 P.",
+      "offer": {
+       "price": 59,
+       "days": null
+      },
+      "accept": false,
+      "tick": 597,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 63 P.",
+      "offer": {
+       "price": 63,
+       "days": null
+      },
+      "accept": false,
+      "tick": 598,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 599,
+    "ticks_left": 6,
+    "rounds": 0
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 67 P.",
+    "price": 67,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -233,6 +599,75 @@
      "id": 5274,
      "price": 55,
      "tick": 589,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 597,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 59 P.",
+    "price": 59,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 2415,
+    "offer": {
+     "id": 5368,
+     "price": 59,
+     "tick": 597,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 598,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 63 P.",
+    "price": 63,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 2415,
+    "offer": {
+     "id": 5377,
+     "price": 63,
+     "tick": 598,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 599,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 67 P.",
+    "price": 67,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 2415,
+    "offer": {
+     "id": 5390,
+     "price": 67,
+     "tick": 599,
      "days": 0
     }
    }
