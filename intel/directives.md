@@ -2,6 +2,10 @@
 
 _Written by the strategy session. It never touches the game: no trades, no bots. The operator decides and executes inside its hard limits (ORCHESTRATOR.md, "Decide, don't ask"); Lucas changes a limit only with a line containing GUARDRAIL. Format: `- HH:MM · decision with limits · why`. Newest block on top. Labels: **[Verified]** measured on our own deals or read from the server; **[Likely]** fitted or inferred; **[Open]** unknown._
 
+## Sat 11:31 — value created can be negative
+
+- 11:31 · **Fact [Verified: /api/me mm_points −5.2; market 12.5 → 7.5 at snapshot 400]:** a trade on v10 where the buyer values the card less than the seller (t10 → t15, SAL-07 at 26, tick 398; t15 doesn't collect SAL) wiped our +5.0; the negative total looks floored at the bench part [Likely]. **Rule:** trades on our venue (and ours on v07) must be collector-buys (the buyer collects the set, the seller doesn't). Lucas asks Team 10 to post on v10 only addressed to collectors of that set; our v07 sales go only to collectors (already true for t03). Never close the stall (the bench needs it). Market logs the sign of every v10 trade.
+
 ## Sat 11:17 — epic buy exception (Lucas: "ok"; independently verified, edits applied)
 
 - 11:17 · GUARDRAIL · **One manual epic/legendary buy from a TEAM may take cash down to 20**: total cost (price + fee) ≤ 80 P; the seller is a team id outside the top 4 and the offer is not on a top-4 venue; never a dealer (a vault dealer sells legendaries through the same accept endpoint); re-read `/api/me/value` right before accepting and accept only if value − price − fee ≥ 40; one trade via `trade.py`, every bot stays at floor 100, and the floor is back to 100 right after · one team buy scores up to the 50 cap [Verified] (RET-11 is worth 198 to us, RET-12 495, LAV-11 ~234 [Verified]); verifier: cash is 114, so ~120-150 P epics are unaffordable, and above ~78 P the CHA team buys on Sunday return more per P (≈ 0.64 neg/P). Anything above 80 P comes to Lucas with a funding plan (sell first).
