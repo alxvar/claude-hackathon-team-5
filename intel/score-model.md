@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 16:42 (tick ~774), snapshot 770; Los Pícaros active with our head start (§3c). Duels I post-mortem §1d; Duels II day rule §1e. Rival detail: intel/rivals.md (Analyst-owned)._
+_Last update: Sat 16:44 (tick 776), snapshot 770; flags score +10 neg_points each (§3c); us #2. Duels I post-mortem §1d; Duels II day rule §1e. Rival detail: intel/rivals.md (Analyst-owned)._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -301,9 +301,12 @@ the ladder can.
   - EV per deal [L]: full-share L4 deal ≈ +0.08 ladder ≈ +1.6 board (at ≈ 20 board per ladder point). Best plays: buy a SAL
     rare we lack at ≤ 63 (worth 63 to us → 0 neg) and resell to Pilar in the fever (≈ 87); sell the Workshop's MAL-06 and
     spare commons above their opening at ≥ our value. No epics (cash).
-  - **Flags** [?]: `POST /api/flags {"message_id", "reason"}` ("the offer is not what the words say"). RULES: a correct flag
-    scores, a wrong one costs; penalties are a % of the round score. No public flag events, no team `adjustments` yet.
-    Flag only an unmistakable words-vs-structure mismatch.
+  - **Flags SCORE +10.0 neg_points each [V, n=2]:** a correct flag on a Pícaros lie ("they stopped printing this one
+    yesterday"): `neg_points` 43.2 → 53.2 (tick 766), then a repeated lie in a separate message 53.2 → 63.2 (769). Board at
+    snapshot 770: our negotiating +0.95 with the field ≈ −0.2 → **≈ +0.57 board per flag** (≈ +0.058 per neg_point). We moved
+    to **#2 at 29.53, 0.53 behind t14**. Pícaros lies are public in the feed (t02 763, t08 765, t01 768 got the same lines);
+    t02's +0.54 net with no scoring event at 770 fits one flag [L]. Abuela/Chato/Pilar: 3,253 messages, no checkable false
+    facts (only "last word" posture and the golden-chulapa egg lore): don't flag them. A wrong flag costs (amount [?]).
 - **The Workshop: ACTIVE since tick 706 (16:00)** [V]: `POST /api/taller {"assets": [a, b, c]}`: three spare copies of one
   rarity (keep ≥ 1 of each card) → one card of the next rarity; "the pull is luck, shown and never scored". Value only comes
   from using the pulled card (team sale ≈ +5-12 neg_points, swap, or a dealer slot). Swaps of the same spares score directly

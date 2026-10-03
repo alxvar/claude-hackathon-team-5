@@ -9,6 +9,13 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sat 16:44 · snapshot 770 (Los Pícaros live since 16:35)
+- Board: t14 30.06 · **us 29.53 (#2)** · t12 29.33 · t10 29.24 · t18 28.75 · t01 28.31 · t03 27.86.
+- **Our two flags on Pícaros lies scored +10 neg_points each (≈ +0.57 board each).** t02 likely flagged too (+0.54 net, no
+  scoring event; it got "they stopped printing this one yesterday" at 763) [L].
+- Pícaros early access (tick 761): t02, t03, t04, t05, t08, t09, t10, t16. t02 bought SAL-09 from them at 67 (above list 63).
+- t17 +0.65 (Chato MAL-08 sell at 15, ladder); t06 +0.51 (RET-04 sold to t14 on v07 at 5).
+
 ### Sat 16:26 · snapshot 740
 - Board: **t12 29.90 (#1)** · t14 29.88 · t10 28.93 · t18 28.87 · **t01 28.55 (#5, surging)** · **us 28.43 (#6)** · t03 26.12.
 - **t01 +5.0 Saturday points in 3 snapshots** [V]: three Pilar sells into empty L3 slots, LAV-06 at 19 (718), MAL-08 at 20
