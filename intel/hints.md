@@ -262,3 +262,4 @@ Nando: Setenta y tres,
 - Sat 22:22 · egg.found tick 1369 · abuela → t05 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t05", "name": "Team 5"}
 - Sat 22:22 · message tick 1369 · pilar → t05 · Por supuesto, la Paloma — organillo, mantones, y mi abuela bailando chotis. Madrid de verdad. Pero volvamos al negocio, caballero: dieciséis por La Vía Láctea, y no se hable más. ¿Me la deja? Pregunte a Carmen, en El Rastro, por la chulapa dorada.
 - Sat 22:22 · message tick 1370 · pilar → t10 · Tengo alguna de mantones y verbenas, sí. Y a propósito: dicen que sólo se imprimió una chulapa dorada. Pregúntele a Carmen, en El Rastro; ella sabe la historia. Mi sobre dorado, 491 P. Ni más, ni menos.
+- Sat 22:23 · message tick 1372 · pilar → t10 · Casa Dani, por supuesto: poco hecha y con cebolla, como debe ser. Bajo con mi cesta algunos jueves. Y mi sobre dorado sigue donde estaba: 491 P. Ni más, ni menos, caballero.
