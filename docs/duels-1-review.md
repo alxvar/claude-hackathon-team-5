@@ -50,7 +50,7 @@ hub, and the Analyst's §1d in `intel/score-model.md`. Every counterfactual belo
 | Merged rule: a step < max(3 P, ¼ of the gap) is held | Holds 96 of our 171 follow-up offers, including the small steps that drew 5.5 P back | **Keep the 3 P floor, drop the ¼** (use 5%) |
 | Merged rule: after 4 priced offers, hold unless they move ¼ of the gap | 20 duels had more than 4 of our offers (162 P); in those worth 71 P the rival had no in-limit offer by our 4th offer | **Drop it**: the haggling after offer 4 is what paid |
 
-## 3. Plan for Duels II (18:29: 68 duels, 6 at once, 8% decay, price + delivery day)
+## 3. Plan for Duels II (≈ 20:33 after the lunch pause: 68 duels, 6 at once, 8% decay, price + delivery day)
 
 ### 3.1 Delivery days: the biggest lever
 The organisers' example: the seller gains +1 per day later, the buyer loses 4 per day later, so the pie is 50 at day 0
@@ -124,10 +124,10 @@ fact: what that team did there. Examples: "accepted our opener within 1 round", 
 our later steps moved nothing". Use: open higher against teams that met our opener; stop conceding after a
 quick-then-hold team's hold, and take their number at the end.
 
-## 4. Timeline (PLAN.md #10)
+## 4. Timeline (PLAN.md #18: new times after the lunch pause)
 | When | What | Who |
 |---|---|---|
-| 15:30 | Decide 3.1-3.4 (and 3.5 or not) | Aleks |
-| 17:00 | Coded, tests green, merged | Aleks's Builder |
-| 17:45 | Restart: `agents/duelist/supervise.sh --negotiator-model claude-sonnet-5-5 --effort medium`; check the log's first line | Aleks |
+| 15:35 | Decided: 3.1, 3.2 and 3.4 handed to the Builder; 3.5 only if time allows | Aleks |
+| ~19:30 | Coded, tests green, merged | Aleks's Builder |
+| by ~20:15 | Restart: `agents/duelist/supervise.sh --negotiator-model claude-sonnet-5-5 --effort medium`; check the log's first line | Aleks |
 | First Duels II wave | Day reading on the console matches `days_meaning`; `review`: `pred` = `points`; rounds per deal < 4.4; no new standoff no-deals | Aleks |
