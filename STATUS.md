@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 08:59** · tick 159 (60 s/tick) · game hour 2.65 · PAUSED · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 09:04** · tick 159 (30 s/tick) · game hour 2.65 · PAUSED · today closes 23:00._
 
 ## Team: now and latest
 
@@ -43,14 +43,14 @@ _ETA assumes the current tick length and no pause._
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 3.00 | ~21 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
-| 4.00 | ~81 min (after today's close) | round | Round 2 starts (holdings carry over) |
-| 4.00 | ~81 min (after today's close) | set_release | El Retiro released |
-| 4.00 | ~81 min (after today's close) | day_closes | Closed until Saturday 09:00 |
-| 4.00 | ~81 min (after today's close) | day_opens | Saturday opens |
-| 4.05 | ~84 min (after today's close) | grant_all | El Retiro has arrived: a pack and the Saturday allowance (150 primas) for everyone |
-| 5.00 | ~141 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
-| 6.50 | ~231 min (after today's close) | duels | Duels I: price only, one round-robin |
+| 2.65 | ~-0 min | set_release | El Retiro released |
+| 2.65 | ~0 min | round | Round 2 starts (holdings carry over) |
+| 2.70 | ~2 min | grant_all | El Retiro has arrived: a pack and the Saturday allowance (150 primas) for everyone |
+| 3.00 | ~11 min | bench | The Market Test: every venue gets the same synthetic book |
+| 4.00 | ~40 min | day_closes | Closed until Saturday 09:00 |
+| 5.00 | ~70 min | bench | The Market Test: every venue gets the same synthetic book |
+| 5.15 | ~75 min | duels | Duels I: price only, one round-robin |
+| 7.00 | ~130 min | bench | The Market Test: every venue gets the same synthetic book |
 
 ## Our dealer deals
 
