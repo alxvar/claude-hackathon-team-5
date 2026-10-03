@@ -7,25 +7,19 @@ _Updated Sat 01:30. The full, verified plan is `intel/saturday-plan.md`; measure
 The full plan, verified by independent checks, is **`intel/saturday-plan.md`**. Read §1 (the game on one page) and your
 own section. It supersedes every Friday order below where they conflict.
 
-**Aleks: duels (Duels I at 11:30 if the clock jumps to hour 4.0 at 09:00, ~12:51 if it resumes at 2.65).**
-1. Before Duels I, in `agents/duelist/` (plan §4D), each with a regression test on `docs/duels/`:
-   - deadline trigger: decide at `ticks_left ≤ 3`; at ≤ 2 accept any standing offer inside our limit, in code
-     (duel 181 must accept 73 by tick 143);
-   - from `ticks_left ≤ 4`, close by sending the rival's own standing price (they spend their accept, not ours);
-   - decay-aware accept: accept an in-limit offer when the gap ≤ max(2 P, 2d/(1−d) × our surplus);
-   - hold breaker: both sides still 3 ticks with ≥ 3 left → force a decision (duels 103/104);
-   - silent rival: concede on a code schedule toward a floor (keep ≥ 30% of anchor-to-limit); silence costs no decay;
-   - prompt fix: decay is per exchange, not per tick (`agent.py:148,178`); read session parameters from the payload.
-2. Before Duels II (18:00 / ~19:21): `days` payload shapes (number / list / dict) tested offline; day value computed in
-   code; full packages; ≤ 3 exchanges at 8% decay.
-3. Sunday: Sonnet as strategist (15 s ticks; Opus peaked at 14.2 s).
-4. Laptop on mains + `caffeinate`; check your API key's spend limit before 11:00 (Lucas's was $1 on Friday).
-5. Write `team/aleks.md` Now line; review the accept arbiter (plan §5) with Lucas's builder session.
-6. Repo fixes in your files (found by Friday night's audit): the decay text also in `agents/duelist/prompts/negotiator.md:11`,
-   `prompts/strategist.md:26-28` and `docs/duelist-runbook.md` ("per tick" → per exchange; l.30 vs l.67 contradict);
-   `docs/duels/README.md` labels the practice as "Duels I" (fix in `records.py` `summary()`); `.env.template` duplicates
-   `.env.example` without `export` (delete it, point the runbook to `.env.example`); add a "pre-rules history" banner to
-   `docs/how-the-leading-model-works.md`, `what-we-tried-so-far.md`, `plan-clock-standing-on-bazaar.md`.
+**Aleks: duels.** _Updated Sat 09:58 by Lucas's Chief of staff. This block is how Lucas's sessions reach you: the
+team_sync hook injects every change here into your Claude on your next prompt. Answer in `team/aleks.md`._
+1. **Clock [V]: game hour = wall hour** (30 s ticks = 120 ticks/h). **Duels I ≈ 11:59 (tick ≈ 459)**, **Duels II ≈ 18:29
+   (tick ≈ 1239)**, unless the organisers re-anchor (re-read `/api/schedule`). The deck's 11:30 / 18:00 assume doors at 09:00.
+2. **Before 11:40**: the rounds fix (ab0f793 + your 277/278 tests) on `supervise.sh`, full suite green; a red test means
+   don't start, tell Lucas. The Builder dropped its own version: yours is the only fix.
+3. **Organisers' deck (09:40)**: "every round of talk shrinks the pie: open with an offer the other side can take"; a duel
+   nobody answers scores 0 for both; fewer than half of Friday's practice duels ended in a deal; Duels II: "find out who
+   cares more about time". Consider a less extreme opener: at 6-10% per message, closing beats anchoring.
+4. Desk Q6 (Dani asking): if duel threads count in the 6 open conversations, the Operator keeps dealer threads at 0 during
+   Duels II (6 duels at once).
+5. Then: Duels II day reading at the first days duel; Sunday's Sonnet strategist (15 s ticks).
+6. Duel monitor: its 3 HIGH "duelist tests failed" pages at 09:44-09:46 were false (the repo was mid-conflict on Lucas's Mac).
 
 **Dani: the desk, the page-gap desk, the judges' story.**
 1. **09:00, organisers' desk**: the 8 questions in plan §3, answers in `team/dani.md` at once.
