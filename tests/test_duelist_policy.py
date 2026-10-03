@@ -44,7 +44,7 @@ def agent(view=SELLER, model=None):
 
 def test_the_opener_sits_opener_share_of_the_limit_away_rounded_toward_us():
     a, _ = agent()
-    assert P.code_move(a, obs(SELLER)).price == 70          # a seller: 40 + 0.73 x 40 = 69.2, up (per role, audit)
+    assert P.code_move(a, obs(SELLER)).price == 57          # a seller: 40 + 0.42 x 40 = 56.8, up (Duel Lab SUNDAY v2)
     b, _ = agent(BUYER)
     assert P.code_move(b, obs(BUYER)).price == 37           # a buyer: 60 - 0.37 x 60 = 37.8, down
 
@@ -132,7 +132,7 @@ def test_a_days_seller_opens_on_price_not_on_a_worth_that_carries_the_day_bonus(
     # Duel 6094 replay: worth-based, the opener came out at -2 P (day 10 adds 51.1 to a seller's worth)
     a, _ = agent(DAYS_SELLER)
     m = P.code_move(a, obs(DAYS_SELLER))
-    assert m.days == 10 and m.price == 59                   # 34 + 0.73 x 34 = 58.8, up
+    assert m.days == 10 and m.price == 49                   # 34 + 0.42 x 34 = 48.28, up
 
 
 def test_prices_never_go_below_the_floor_and_the_accept_ratio_is_tunable(monkeypatch):
@@ -283,3 +283,9 @@ def test_a_days_duel_whose_weight_code_cannot_read_goes_to_the_models(monkeypatc
     monkeypatch.setattr(d, "respond_code", code)
     with pytest.raises(AssertionError):
         asyncio.run(d.respond(obs(DAYS_SELLER)))
+
+
+def test_the_opener_shares_are_the_duel_labs():
+    """Duel Lab ruling (intel/duel-lab.md, Sun 02:00): seller 0.42 in price units, buyer 0.37. Change only with a
+    new ruling: 0.73 was the models' median in worth, which the code does not read."""
+    assert (P.OPENER_SHARE_SELLER, P.OPENER_SHARE_BUYER) == (0.42, 0.37)

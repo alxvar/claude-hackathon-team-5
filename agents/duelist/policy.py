@@ -45,7 +45,7 @@ from .prices import money
 if TYPE_CHECKING:
     from .agent import DuelAgent, Move
 
-OPENER_SHARE_SELLER = 0.73   # a seller's opener: this share of the limit above it (the models' Duels II median, audit)
+OPENER_SHARE_SELLER = 0.42   # a seller's opener, in PRICE on our best day (Duel Lab ruling Sun 02:00: 0.73 was the models' median in worth, not price; +0.026/duel)
 OPENER_SHARE_BUYER = 0.37    # a buyer's: this share below it (one share for both opened sellers far too low)
 CODE_STEP_SHARE = 0.12   # a mid-duel concession: this share of the gap (simulated vs today's 25% cap, below)
 END_STEP_SHARE = 0.5     # in the last CLOSING_TICKS ticks: this share (the simulator's end_alpha)

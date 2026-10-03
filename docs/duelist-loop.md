@@ -6,7 +6,7 @@
 2. **`--policy code`:**
    - A give is now worth-neutral and keeps the small-step hold. The audit's Duels II replay shows **0 give retreats**
      (it found 34 in 9 duels); the guards path is unchanged: 193 / 52 / 12 / 11 / 3.
-   - Openers are per role: a seller opens 0.73 × the limit above it, a buyer 0.37 × below.
+   - Openers are per role, in price on our best day: a seller opens 0.42 × the limit above it, a buyer 0.37 × below (Duel Lab ruling Sun 02:00).
    - An accept makes no text call.
 3. **Params:**
    - A missing `run/duel_params.json` plays the default set from `docs/duel_sets.json` (**A**), said loudly every
