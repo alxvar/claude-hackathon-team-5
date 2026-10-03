@@ -389,6 +389,25 @@ board in two snapshots. Use for Sunday's CHA page (bonus ≈ 106 at 1.6 → +50 
 - Our spares: LAV-02/03/04 (2nd copies, 3.2 each), SAL-02 (2.2), LAT-04 (1.2). Partners: LAV collectors outside the top 5
   (t09, t03, t04, t06).
 
+## 3g. Sunday allocation (Analyst 21:10; organisers' Payday deck facts [V], model [L])
+
+**Units:** Sunday is a new round worth as much as Saturday in the final: final = (0.5·Fri + Sat + Sun)/2.5, so **1 Sunday round
+point = 0.4 final points** (the same scale as 1.5 × today's board). Sunday negotiating presumably mirrors Saturday's: duels
+12 · team trades 9 · ladder 9 (0.6 × 15 each), all graded vs the field and **starting from 0** (neg_points and ladder reset).
+
+| Use | Cash | EV (Sunday round pts → final pts) | Why |
+|---|---|---|---|
+| **CHA page** (intel/cha-plan.md: teams first, dealers at ≤ value, LAST card from a team) | 280-330 P | **+8-14 → +3.2-5.6** | Page close +50; team buys below our value (rare 112, unc. 40, common 16) score in full on a FRESH trade part; dealer buys at ≤ list fill a fresh ladder |
+| **v10 matchmaking** (Lucas DMs at doors-open; duplicates → first copies) | 0 P | +2-4 → +0.8-1.6 (more if the deck's "real trades 22.5" means the +5 cap was a scale artefact [?]) | No cash; only market lever |
+| **MAL close on SUNDAY** (dealers MAL-09/10/06, team closer MAL-07 ~20) | ~160 P | +1.5-3 → +0.6-1.2 | Sunday's trade part is fresh; tonight ours sits near its cap (T 119 vs N ≈ 125), so a Saturday close is worth less |
+| L5 legendary RET-12 ≤ 470 (worth 593.5) | 470 P | +1-3 → +0.4-1.2 | 0 neg, one heavy ladder slot; crowds out CHA: **no** |
+| Duels III (≈ 11:00) + Grand Final (14:00) | 0 P | up to 12 → 4.8 | Field: 4 in 10 duels ended without a deal; our 88% deal rate is the edge |
+
+**Plan for ≈ 540 P (+150 at 09:00):** CHA ≈ 330 · MAL ≈ 160 if CHA closes under budget · reserve ≈ 50 for denial or a
+cheap team buy · no legendary, no gold pack (≈ 380 for an epic/legendary of a random set: a dealer buy above value loses in
+full). **Market:** max board market seen all day = 12.50 (7.5 + 5.0) for t10/t12/us [V]; the deck says real trades = 22.5
+of 30 → whether VC can exceed +5 board on Sunday: reconcile with the Market session [?].
+
 ## 4. Buyer model (multiplier per team × set) for v10 steering
 
 Method: implied ΔV of each team-trade side from its Saturday-part jump ÷ 0.235 (clean windows only) + price/book of bids and
