@@ -1,40 +1,48 @@
-# Judge (claude-opus-5-5, Sat 10:29)
+# Judge (claude-opus-5-5, Sat 10:46)
 
 ## Verdict
-Falling behind the top 3, holding the pack: #6 at 19.3 (−0.7/60 min) vs T18 29.3 (+10.1), T2 26.0 (+19.1), T12 27.1. The gap to #4 (T14 22.9) is 3.6. The board shows +0.4/15 min; whether that includes the tick-276 +50 is not in the data.
+**Falling behind the leaders' pace despite the rank gain.** We are #4 at 24.2. Over 60 min we gained +8.2, while Team 18 gained +14.7 and Team 2 +16.4. An hour ago we were 0.4 ahead of Team 18; now we are 6.1 behind. All of our +5.0 in the last 15 min came from one trade, the RET close (+50.0 neg_points). Outside page closes we are flat.
 
 ## Our strategies: keep / kill / scale
-- **Abuela bot (warm narrator): keep, needed cards only.** 5 below-list deals today. `neg_points` 0 each, ladder +0.014/+0.018/+0.016/+0.003/+0.004. Gains are shrinking (best 3 per level), so it is not worth running for the ladder alone.
-- **Chato buys: kill.** RET-09 −10, RET-10 −9, RET-06 −2.5 = −21.5. None moved the ladder and none unlocked Pilar.
-- **Trading loop (`loop.py`): idle or dead.** No event since Fri 23:23 (DNS errors), so no Saturday accepts. Confirm it is running.
-- **Maker book (11 addressed asks on v07): fix.** 0 fills Saturday, and 4 earlier asks expired unfilled. No bids exist for these cards on El Rastro. The asks are priced fine; the missing piece is buyers who know about them.
-- **RET page: done, keep the recipe.** Net +28.5 (rares −19, uncommons −2.5, close +50.0). The cap test is resolved: flat 50 or 5×book.
-- **In-room push: scale.** RET-01 filled only after Lucas messaged Team 10 (+50.0). It is our only Saturday team-trade fill.
-- **v07 reciprocity: no data yet.** Zero fills our side, so there is nothing to audit.
+- **In-room page-closer buys (Lucas → Team 10): SCALE.** RET-01 at 20 scored +50.0. Together with Friday's LAV-05 (+50.0), these two trades are our only large positive neg_points.
+- **Chato buys: KILL (already done).** RET-09 cost −10, RET-10 −9 and RET-06 −2.5, for −21.5 in total. None of the 6 deals moved the ladder, and none unlocked Pilar.
+- **Abuela bot: KEEP until 11:40.** Commons at 9 and uncommons at 22-23 are all below our value, so neg_points stay 0. The ladder rose to 0.055. One fix: the 10:23 score log put the −2.5 on RET-07, but that loss is RET-06's (30 paid vs 27.5 value). The deals overlapped, which breaks guardrail §7.1 (one deal per window).
+- **trader loop.py: HOLD, no evidence it helps.** It made 0 actions today; its log shows only Friday errors and the 10:31 pause. It stops at 11:50 per the directive.
+- **book.py maker asks: KEEP, but it isn't producing.** It has 13 addressed asks and 0 fills since 10:29 (~40 ticks). Only 64 team trades exist field-wide, and public asks at 9 aren't filling either. An addressed ask fills only if the addressee notices it.
+- **Venue reciprocity (v07/v10): no data.** The feed shows no trade on v07 or v10. The market session's hourly audit is owed.
 
 ## Check the scout
-- Holds:
-  - Do not sell RET-09/10 into t02's 21/19 bids.
-  - T18 bought RET-02 at 49; T2 sold RET-07 at 24 and bids 21/19.
-  - T14 bought LAT-03 at 8.
-  - T13 unlocked Pilar and fell 7.2/h.
-  - Chato deals lose points and don't move the ladder.
-- Stale: #1 (RET-01 bid, escalate to 25/30). It filled at 20 on tick 276; the guardrail is spent and the floor is back to 100.
-- Wrong: "sell spare RET cards after the page closes". We hold one copy of each RET card. Any sale breaks the page and gives up the 72.9 bonus.
-- Wrong: "the Sat sell at 9 earned +7.7". That was Friday, tick 106. Saturday's only team trade is the RET-01 buy.
-- Unsupported: "t13 holds RET". A 2 P bid shows want, not holdings.
+- **Wrong:** "metrics clock reads tick 305". It reads 309. Offer 4322 expires at tick 311, so it has about 2 ticks left.
+- **Wrong:** "we hold 2 copies of each of RET-09 and RET-10". Our holdings list one copy of each (149.9).
+- **Wrong:** "our 26 P bid on SAL-08 (4444)". Offer 4444 is a sell ask to t03, not a bid.
+- **Unsupported:** "reciprocal-venue deals are working". RET-01 went through El Rastro, and no v07/v10 trade appears in the data.
+- **Unsupported:** "Team 18's +14.7 is mostly dealer trades". Score attribution per team is not in the data.
+- **Conflicts with directive 10:30:**
+  - Re-posting SAL-01 → t03 at 40, and SAL-08 → t03. t03 is 17.3, only 6.9 below us, and its SAL lack is unknown, so the rule treats it as a closing card. If it closes their page they book up to +50 (≈ +8 board), which takes them past us.
+  - MAL-06 → t17. t17 is 6.3 below us, and its MAL-09 bid at 70 signals it is near the MAL page.
+- **Holds:**
+  - Maker-only from 11:50, as directed.
+  - MAL-06/07 at 23 against a value of 17.5 gives +5.5 each (only to buyers that pass the rule).
+  - Team 2 is a top-4 flipper (RET-02 bought at 12, sold at 49), so never feed it.
+  - Addressed offers are visible in the feed.
+- **Partly stale:** "LAV spares to t10". The live LAV offers go to t09 and t07, both more than 10 below us, so they are OK. No LAV-04 offer is live now.
 
 ## The 3 changes with the highest expected gain
-1. **Get the 11 live asks filled: Dani/Lucas message each addressee, as with Team 10.**
-   - Targets: t07, t09, t16, t15, t01.
-   - Add LAT-08 at 21.5 (worth 12.5) and MAL-02/04 at 9 (worth 7).
-   - Repost before ticks 320/325 with 2× the expiry ticks you want.
-   - Effect: if all fill at listed prices as maker (no fee), +60 `neg_points` (LAV spares +17.4, SAL spares +13.6, LAT-04 +11.6, MAL-06/07 +13, others +4.5). LAT-08 adds +9.
-   - Risk: a spare may close the buyer's page (they gain up to +50). All addressees are outside the top 4; never re-address to T18/T12/T2/T14.
-2. **No dealer buy above our value. Pilar after ~12:20 only for leftovers teams won't take.**
-   - Candidate: SAL-08 (worth 22.5; she pays over book for SAL), sold at ≥ our value and beating her list.
-   - Effect: 0 neg loss plus level-3 ladder (amount not in data). Each avoided Chato deal saves 2.5-10.
-   - Risk: the "below/beyond list counts" rule is only [L], so the ladder gain may be 0.
-3. **Restart and verify `loop.py` before Duels I ends, under the accept arbiter.**
-   - Effect: catches any ask below value − 3 − fee at no cost. This matters most on Sunday for CHA cards (worth 16/40/112).
-   - Risk: the shared key's 5 req/s limit (Friday 429s). Run reads keyless, and keep it from taking an accept during an in-limit duel tick.
+1. **Dani pitches the rule-compliant live offers before 11:50.**
+   - Targets, all more than 10 points below us at 10:22 (t15 13.2, t09 10.5, t07 10.2):
+     - LAT-08 → t15 at 22 (worth 12.5 to us, +9.5)
+     - LAT-04 → t15 (+4.8)
+     - MAL-04 → t15 (+2)
+     - LAV-02 → t09 (+4.8)
+     - LAV-03 → t07 (+4.8)
+   - Effect: about +26 neg_points if all fill, plus cash for the CHA page.
+   - Risk: a ≥10-below team closing its own page. That is permitted.
+2. **Bring the t03/t17 offers to Lucas now: either a GUARDRAIL exception or let them expire.**
+   - Offers affected: 4322, 4444, 4459 and 4446. Do not re-post them as the scout suggests.
+   - Effect: removes a possible +50 for a team 6.9 below us, against +37.8 for us. Lucas decides.
+   - Risk: we lose the +37.8 if t03 would have accepted.
+3. **Turn the in-room page-closer process into a Sunday CHA pipeline.**
+   - Lucas and Dani identify CHA holders by 13:05, in the Duels I window when they are least needed.
+   - Pre-agree each buy at ≤ our value, with the last cheap common taken from a team as maker.
+   - Effect: one more capped +50. Cash 107 is short of the ~300 P the CHA page needs, which is why change 1's cash matters.
+   - Risk: the cash shortfall itself; never buy CHA cards from Chato above his list.
