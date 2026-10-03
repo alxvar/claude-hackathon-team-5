@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sat 19:13 · operator · egg try 3 (Chato, 1589, LAT-12, text only): 'las legendarias no pasan por mi mesa… Busca en otro sitio' → decoy, no egg event; **egg hunting stopped for tonight** (Chief) unless the Builder relays a payout to another team
 - Sat 19:12 · operator · egg try 2 (Chief; LAT-12 'El Rastro al Amanecer', legendary, minted 0; text only): Abuela (1582) 'las cartas legendarias no las vendo yo… Para esas, habla con El Chato, ahí al lado' → no egg event, no assets; thread closed
 - Sat 19:10 · Builder · PLAN #24 for Aleks: branch duelist-days-read @ 552819d (--days-read auto|flip|unsure, env DAYS_READ; auto = today's reading, flip reverses, unsure = sure False), 439 pass, not merged; main + live duelist untouched · merge/restart commands sent to the Chief · Aleks decides
 - Sat 19:09 · operator · Chief: t15 already holds MAL-08 (MAL 8/10, missing 09/10) → 15931 cancelled, **MAL-08 → t01 at 24** (16001, v15; t01 7.6 below us, not a rival) · LAV-04 → t04 (15963) live, job by6d1udbr switches it to t01 at 19:28 if unfilled
