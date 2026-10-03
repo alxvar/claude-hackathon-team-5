@@ -1028,5 +1028,77 @@
     "settles_at_tick": 1348
    }
   }
- ]
+ ],
+ "last_seen_tick": 1348,
+ "done": {
+  "duel": 6048,
+  "session": 3,
+  "status": "deal",
+  "role": "seller",
+  "item": "La Dama de Serrano",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 1.07,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 83,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Rojo",
+  "deadline_tick": 1356,
+  "decay_per_round": 0.08,
+  "rounds": 2,
+  "your_offer": {
+   "id": 10210,
+   "price": 131,
+   "tick": 1344,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 10274,
+   "price": 125,
+   "tick": 1347,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1341,
+    "from": "Rival Rojo",
+    "text": "Hi there. 108 P from my side. Delivery on day 0.",
+    "price": 108,
+    "days": 0
+   },
+   {
+    "tick": 1341,
+    "from": "you",
+    "text": "Thanks for opening. I can do 138 P on day 0, and I'd like to keep things quick and simple.",
+    "price": 138,
+    "days": 0
+   },
+   {
+    "tick": 1344,
+    "from": "Rival Rojo",
+    "text": "How about 116 P? Delivery on day 0.",
+    "price": 116,
+    "days": 0
+   },
+   {
+    "tick": 1344,
+    "from": "you",
+    "text": "Let me make a clear step toward you: 131 P on day 0. I'm ready to close quickly if you meet me there.",
+    "price": 131,
+    "days": 0
+   },
+   {
+    "tick": 1347,
+    "from": "Rival Rojo",
+    "text": "125 P, then. Delivery on day 0.",
+    "price": 125,
+    "days": 0
+   }
+  ],
+  "result": 35.5,
+  "price": 125,
+  "days": 0
+ }
 }

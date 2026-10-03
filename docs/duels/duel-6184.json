@@ -1599,6 +1599,164 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1348,
+   "raw": {
+    "duel": 6184,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.21,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 60,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Plata",
+    "deadline_tick": 1354,
+    "decay_per_round": 0.08,
+    "rounds": 6,
+    "your_offer": {
+     "id": 10260,
+     "price": 70,
+     "tick": 1346,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 10292,
+     "price": 66,
+     "tick": 1348,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1338,
+      "from": "Rival Plata",
+      "text": "Te ofrezco 39 primas y entrega en 0 días; me cuesta subir más.",
+      "price": 39,
+      "days": 0
+     },
+     {
+      "tick": 1338,
+      "from": "you",
+      "text": "I can do 112 P, delivery on day 10.",
+      "price": 112,
+      "days": 10
+     },
+     {
+      "tick": 1339,
+      "from": "Rival Plata",
+      "text": "44 primas y entrega en 3 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 44,
+      "days": 3
+     },
+     {
+      "tick": 1339,
+      "from": "you",
+      "text": "I can move to 105 P with delivery on day 10; or, if you need it on day 0, 138 P. That is a real step from my side.",
+      "price": 105,
+      "days": 10
+     },
+     {
+      "tick": 1340,
+      "from": "Rival Plata",
+      "text": "Mi propuesta: 46 primas y entrega en 4 días. Dame una cifra concreta y la miro.",
+      "price": 46,
+      "days": 4
+     },
+     {
+      "tick": 1340,
+      "from": "you",
+      "text": "I can do 101 P, delivery on day 10.",
+      "price": 101,
+      "days": 10
+     },
+     {
+      "tick": 1341,
+      "from": "Rival Plata",
+      "text": "Puedo llegar a 46 primas y entrega en 3 días. Dime si cerramos.",
+      "price": 46,
+      "days": 3
+     },
+     {
+      "tick": 1342,
+      "from": "Rival Plata",
+      "text": "Te ofrezco 48 primas y entrega en 3 días; me cuesta subir más.",
+      "price": 48,
+      "days": 3
+     },
+     {
+      "tick": 1343,
+      "from": "Rival Plata",
+      "text": "57 primas y entrega en 1 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 57,
+      "days": 1
+     },
+     {
+      "tick": 1343,
+      "from": "you",
+      "text": "I can step to 90 P with delivery on day 10; or, if you prefer day 0, 122 P. That is a real move from my side, and I'm ready to close.",
+      "price": 90,
+      "days": 10
+     },
+     {
+      "tick": 1344,
+      "from": "Rival Plata",
+      "text": "Mi propuesta: 57 primas y entrega en 1 días. Dame una cifra concreta y la miro.",
+      "price": 57,
+      "days": 1
+     },
+     {
+      "tick": 1345,
+      "from": "Rival Plata",
+      "text": "Puedo llegar a 64 primas y entrega en 0 días. Dime si cerramos.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1345,
+      "from": "you",
+      "text": "I can come down to 78 P with delivery on day 10; or, if you prefer day 0, 110 P. That is a firm step from my side, and I'm ready to close.",
+      "price": 78,
+      "days": 10
+     },
+     {
+      "tick": 1346,
+      "from": "Rival Plata",
+      "text": "Te ofrezco 65 primas y entrega en 0 días; me cuesta subir más.",
+      "price": 65,
+      "days": 0
+     },
+     {
+      "tick": 1346,
+      "from": "you",
+      "text": "I can do 70 P with delivery on day 10; or, if you prefer day 0, 100 P. That is a firm step from my side and I'm ready to close today.",
+      "price": 70,
+      "days": 10
+     },
+     {
+      "tick": 1347,
+      "from": "Rival Plata",
+      "text": "66 primas y entrega en 0 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 66,
+      "days": 0
+     },
+     {
+      "tick": 1348,
+      "from": "Rival Plata",
+      "text": "Mi propuesta: 66 primas y entrega en 0 días. Dame una cifra concreta y la miro.",
+      "price": 66,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
