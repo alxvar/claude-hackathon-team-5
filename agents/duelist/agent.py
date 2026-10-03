@@ -49,7 +49,7 @@ SILENT_KEEP = 0.15                      # of the distance from our opener to our
 SILENT_BY = 2                           # the floor is reached with this many ticks left (the last one is spare)
 MIN_STEP_P = 3                          # a concession smaller than this (in worth) is not worth a round...
 MIN_STEP_SHARE = 0.05                   # ...nor one smaller than this share of the gap between the standing offers
-MAX_STEP_SHARE = 0.18                   # a mid-duel concession bigger than this share of the gap is cut to it
+MAX_STEP_SHARE = 0.25                   # a mid-duel concession bigger than this share of the gap is cut to it
 CLOSING_TICKS = 3                       # the last ticks, where code never holds or cuts a concession
 LATE_SWITCH_LEFT = 4                    # ticks left from which code offers their day once, worth the same to us
 # The delivery day (Duels II, docs/duels-1-review.md §3.1)

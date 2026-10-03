@@ -568,8 +568,8 @@ def test_the_strategist_sees_what_each_day_costs_and_the_negotiator_does_not():
                                                                           tick=2)]
     move = respond(v, Observation(view=v, turns=turns, rival_offer=Offer(price=95, days=6), tick=3, ticks_left=8),
                    fake)
-    # gap 47 in worth: the drafted 20-in-worth step is cut to 18% of it, 66 on day 1 (66 + 2 = 68 ≤ 100 - 31.5)
-    assert (move.action, move.price, move.days, move.meta["rule"]) == ("offer", 66, 1, "capped")
+    # gap 47 in worth: the drafted 20-in-worth step is cut to 25% of it, 69 on day 1 (69 + 2 = 71 ≤ 100 - 31.5)
+    assert (move.action, move.price, move.days, move.meta["rule"]) == ("offer", 69, 1, "capped")
     (_, s_system, s_msgs), (_, n_system, n_msgs) = fake.seen
     assert "day 0: 0 P, day 1: 2 P, day 2: 4 P" in s_system and "best day (day 0)" in s_system
     assert "each day later costs you 2 P" in s_system
@@ -888,26 +888,26 @@ def test_the_days_guide_and_the_negotiator_line():
 CAP_SELLER = SELLER.model_copy(update={"limit": 87, "duel_ticks": 16})
 
 
-def test_a_step_cut_to_18_percent_of_a_small_gap_is_held():
-    # 2296 on tick 462: our 114 against their 101 (gap 13); a drafted 108 is cut to 112, under the 3 P floor.
-    move = drafted(CAP_SELLER, [*mine(114), theirs(101, 2)], Offer(price=101), 108)
+def test_a_step_cut_to_25_percent_of_a_small_gap_is_held():
+    # our 114 against their 103 (gap 11); a drafted 108 is cut to 25% of the gap, 2.75 P, under the 3 P floor.
+    move = drafted(CAP_SELLER, [*mine(114), theirs(103, 2)], Offer(price=103), 108)
     assert (move.price, move.meta["rule"], move.meta["drafted"]) == (114, "small step", 108)
 
 
-def test_a_big_step_is_cut_to_18_percent_of_the_gap_with_codes_text():
-    turns = [*mine(135), theirs(83, 2)]                       # gap 52: at most 9.36, so 125.64, rounded up to 126
-    move = drafted(CAP_SELLER, turns, Offer(price=83), 122)
-    assert (move.action, move.price, move.text) == ("offer", 126, "I can do 126 P.")
-    assert (move.meta["rule"], move.meta["drafted"]) == ("capped", 122)
-    assert drafted(CAP_SELLER, turns, Offer(price=83), 122, left=3).price == 122    # the closing ticks: as drafted
-    assert drafted(CAP_SELLER, [*mine(127), theirs(87, 2)], Offer(price=87), 121).price == 121  # gap 40: 6 P is fine
+def test_a_big_step_is_cut_to_25_percent_of_the_gap_with_codes_text():
+    turns = [*mine(135), theirs(83, 2)]                       # gap 52: at most 13, so 122
+    move = drafted(CAP_SELLER, turns, Offer(price=83), 115)
+    assert (move.action, move.price, move.text) == ("offer", 122, "I can do 122 P.")
+    assert (move.meta["rule"], move.meta["drafted"]) == ("capped", 115)
+    assert drafted(CAP_SELLER, turns, Offer(price=83), 115, left=3).price == 115    # the closing ticks: as drafted
+    assert drafted(CAP_SELLER, [*mine(127), theirs(87, 2)], Offer(price=87), 117).price == 117  # gap 40: 10 P is fine
 
 
 def test_a_cut_step_in_a_days_duel_names_the_day_and_a_day_swap_is_never_cut():
     view = LATE_SELLER.model_copy(update={"limit": 87})
     turns = [Turn(mine=True, offer=Offer(price=135, days=10), tick=1), theirs(83, 2, days=10)]
-    move = drafted(view, turns, Offer(price=83, days=10), 122, days=10)
-    assert (move.price, move.days, move.text) == (126, 10, "I can do 126 P, delivery on day 10.")
+    move = drafted(view, turns, Offer(price=83, days=10), 115, days=10)
+    assert (move.price, move.days, move.text) == (122, 10, "I can do 122 P, delivery on day 10.")
     swap = drafted(view, [Turn(mine=True, offer=Offer(price=135, days=10), tick=1), theirs(83, 2, days=0)],
                    Offer(price=83, days=0), 145, days=0)       # day 0 costs us 10: worth the same
     assert (swap.price, swap.days) == (145, 0) and "rule" not in swap.meta
@@ -915,8 +915,8 @@ def test_a_cut_step_in_a_days_duel_names_the_day_and_a_day_swap_is_never_cut():
 
 def test_the_ledger_names_the_largest_step():
     text = ledger(obs(CAP_SELLER, rival=83, turns=[*mine(135), theirs(83, 2)]))
-    assert ("- The largest step that will go out now: 9 P (18% of the gap); a bigger one is cut to it, and under a "
-            "~17 P gap no concession goes out until the last 3 ticks.") in text
+    assert ("- The largest step that will go out now: 13 P (25% of the gap); a bigger one is cut to it, and under a "
+            "~12 P gap no concession goes out until the last 3 ticks.") in text
 
 
 # Duel Lab §4: the late day switch
