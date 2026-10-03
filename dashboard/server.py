@@ -1383,7 +1383,45 @@ class Analysis:
                 "duel_points": pts[-1][1] if pts else None, "duel_points_start": pts[0][1] if pts else None,
                 "duel_points_series": [p[1] for p in pts], "eta_min": eta_min,
                 "alerts": alerts, "live": rows, "done": sorted(fin_rows, key=lambda r: -(r["duel"] or 0)),
-                "neg": neg, "neg_span": neg_span}
+                "neg": neg, "neg_span": neg_span, "sessions": self.duel_sessions(view, sess, tick)}
+
+    def duel_sessions(self, view, current, tick):
+        """Average points per duel, session by session: our result in P per finished duel (a no-deal counts 0) and per
+        deal, and the `duel_points` /api/me gained over the session per finished duel (what the board sees)."""
+        info = {}
+        for e in self.duel_events:
+            p = e.get("payload") or {}
+            if e.get("type") == "duels.scheduled":
+                info[p.get("session")] = {"name": p.get("name"), "start": e.get("tick"), "end": None, "decay": p.get("decay")}
+            elif e.get("type") == "duels.finished" and p.get("session") in info:
+                info[p["session"]]["end"] = e.get("tick")
+
+        def dp_at(t):
+            v = None
+            for r in self.me_hist:   # sorted by tick
+                if (r.get("tick") or 0) > t:
+                    break
+                if r.get("duel_points") is not None:
+                    v = r["duel_points"]
+            return v
+
+        out = []
+        for sid, s in sorted(info.items(), key=lambda kv: kv[1]["start"] or 0):
+            done = [x for x in view["duels"] if x.get("session") == sid and x["status"] in ("deal", "no_deal")]
+            if not done and sid != current:
+                continue
+            deals = [x for x in done if x["status"] == "deal"]
+            res = round(sum(x["result"] or 0 for x in deals), 1)
+            a, b = dp_at((s["start"] or 0) - 1), dp_at(s["end"] if s["end"] else tick)
+            dp = round(b - a, 2) if a is not None and b is not None else None
+            n = len(done)
+            out.append({"session": sid, "name": s["name"], "current": sid == current, "finished": s["end"] is not None,
+                        "decay": s["decay"], "done": n, "deals": len(deals), "result": res,
+                        "per_duel": round(res / n, 1) if n else None,
+                        "per_deal": round(res / len(deals), 1) if deals else None,
+                        "dp": dp, "dp_per_duel": round(dp / n, 3) if dp is not None and n else None,
+                        "rounds": round(statistics.mean(x["rounds"] or 0 for x in deals), 1) if deals else None})
+        return out
 
     def conversations(self, n=60):
         """Public dealer conversations (every team's haggling, from the feed), newest first."""

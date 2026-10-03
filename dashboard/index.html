@@ -255,6 +255,11 @@ tr.sel td { background: rgba(57,135,229,0.22) !important; }
   </div>
   <div class="tiles" id="dmTiles"></div>
   <div class="card">
+    <h2>Average points per duel, by session</h2>
+    <p class="sub">Result = our surplus × (1 − decay)<sup>rounds</sup>, in P; a no-deal counts 0, so "per duel" is the average over every finished duel and "per deal" only over deals. <b>duel_points</b> = what /api/me gained over the session (what the board sees), divided by finished duels.</p>
+    <div class="scroll"><table id="dmSess"></table></div>
+  </div>
+  <div class="card">
     <h2>Our duels, live</h2>
     <p class="sub">One card per live duel, soonest deadline first: our offers (blue), the rival's (orange) and our limit (dashed) over the duel's ticks, the delivery day on each offer when the session has days, and the conversation. Updates every tick (30 s); the page refreshes every 15 s.</p>
     <div class="dgrid" id="dmCards"></div>
@@ -1131,10 +1136,24 @@ function duelmonTab(d) {
     ["Deals", `${m.deals}/${m.ours_done}`, `<span class="d">${pct(m.deals, m.talked)} when the rival talked · ${m.silent} silent rival(s)</span>`],
     ["Result after decay", `${m.points} P`, `<span class="d">of ${m.surplus} P surplus · <b>${m.decay_lost} P lost to rounds</b> (${pct(m.decay_lost, m.surplus)}) · ${m.avg_rounds ?? "—"} rounds per deal</span>`],
     ["duel_points (/api/me)", num(m.duel_points, 2), `<span class="d">${num(m.duel_points_start, 2)} at the start</span>${spark(m.duel_points_series)}`],
+    ...(() => { const c = (m.sessions || []).find(x => x.current), p = (m.sessions || []).filter(x => !x.current && x.done).slice(-1)[0];
+      return c ? [["Average per duel", c.per_duel != null ? `${c.per_duel} P` : "—",
+        `<span class="d">${c.per_deal != null ? `${c.per_deal} P per deal · ` : ""}<b>${c.dp_per_duel != null ? c.dp_per_duel.toFixed(2) : "—"}</b> duel_points per duel${p && p.dp_per_duel != null ? ` (${esc(p.name)}: ${p.per_duel} P, ${p.dp_per_duel.toFixed(2)})` : ""}</span>`]] : []; })(),
     ["Left on the table", `${m.missed_gain} P`, `<span class="d">in-limit rival offers that ended with no deal</span>`],
     ["Whole field", `${m.field_closed}/${m.field_total}`, `<span class="d">duels closed · ${pct(m.field_deals, m.field_closed)} ended in a deal</span>`],
   ];
   $("#dmTiles").innerHTML = T.map(([k, val, dl]) => `<div class="tile"><div class="k">${k}</div><div class="v">${val}</div>${dl}</div>`).join("");
+  table($("#dmSess"), "dmSess", m.sessions || [], [
+    ["name", "Session", r => `${esc(r.name)}${r.current ? ` <span class="chip">${r.finished ? "last" : "live"}</span>` : ""}`],
+    ["done", "Duels done", null, true],
+    ["deals", "Deals", r => `${r.deals}${r.done ? ` <span class="muted">(${Math.round(100 * r.deals / r.done)}%)</span>` : ""}`, true],
+    ["per_duel", "P per duel", r => r.per_duel != null ? `<b>${r.per_duel}</b>` : "—", true],
+    ["per_deal", "P per deal", null, true],
+    ["rounds", "Rounds per deal", null, true],
+    ["dp", "duel_points gained", r => r.dp != null ? r.dp.toFixed(2) : "—", true],
+    ["dp_per_duel", "duel_points per duel", r => r.dp_per_duel != null ? `<b>${r.dp_per_duel.toFixed(2)}</b>` : "—", true],
+    ["decay", "Decay", r => r.decay != null ? Math.round(r.decay * 100) + "%" : "—", true],
+  ], r => r.current ? "us" : "");
   try { liveDuelCards(d, m); }
   catch (e) { $("#dmCards").innerHTML = `<p class="err">live cards: ${esc(e.message)}</p>`; $("#dmCards").dataset.ids = ""; }
   $("#dmAlerts").innerHTML = m.alerts.length
