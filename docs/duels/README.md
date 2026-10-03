@@ -70,7 +70,75 @@ _Written by `uv run python -m agents.duelist review`. One `duel-<id>.json` per d
 | 278 | Practice duels | Rival Oro | buyer | 116 | 80 | 104 | 11 | deal | 111.0 |  | 5.0 | 2.7 | 2.7 | 5.7 | 8.79 | 0.0865 | 0 |
 | 31 | Practice duels | Rival Sol | seller | 111 | 165 | 165 | 1 | no_deal |  |  |  | 0.0 |  | 7.1 | 7.13 | 0.0043 | 0 |
 | 32 | Practice duels | Rival Verde | buyer | 160 | 95 | 95 | 1 | no_deal |  |  |  | 0.0 |  | 7.6 | 7.57 | 0.0041 | 0 |
+| 5616 | Duels II | Rival Verde | seller | 69 | 128 | 102 | 6 | deal | 105.0 | 0 | 36.0 | 33.1 | 33.1 | 9.6 | 14.5 | 0.0989 | 0 |
+| 5617 | Duels II | Rival Verde | buyer | 88 | 35 | 64 | 5 | no_deal |  |  |  | 0.0 |  | 8.5 | 9.71 | 0.0881 | 0 |
+| 5618 | Duels II | Rival Azul | buyer | 50 | 12 | 24 | 5 | no_deal |  |  |  | 0.0 |  | 9.2 | 11.48 | 0.108 | 0 |
+| 5619 | Duels II | Rival Oro | seller | 123 | 182 | 140 | 7 | no_deal |  |  |  | 0.0 |  | 8.9 | 11.57 | 0.1253 | 0 |
+| 5622 | Duels II | Rival Plata | seller | 83 | 135 | 92 | 6 | no_deal |  |  |  | 0.0 |  | 8.8 | 10.14 | 0.1259 | 0 |
+| 5623 | Duels II | Rival Azul | buyer | 119 | 70 | 91 | 6 | deal | 97.0 | 5 | 22.0 | 2.6 | 2.7 | 7.9 | 12.02 | 0.0912 | 0 |
+| 5652 | Duels II | Rival Verde | seller | 63 | 105 | 100 | 3 | deal | 98.0 | 10 | 35.0 | 52.9 | 52.9 | 8.7 | 12.41 | 0.0987 | 0 |
+| 5653 | Duels II | Rival Verde | buyer | 114 | 55 | 74 | 5 | deal | 74.0 | 10 | 40.0 | 11.0 | 11.0 | 9.7 | 11.06 | 0.0807 | 0 |
+| 5662 | Duels II | Rival Noche | seller | 79 | 145 | 110 | 8 | deal | 100.0 | 5 | 21.0 | 26.9 | 26.9 | 7.8 | 12.58 | 0.1295 | 0 |
+| 5663 | Duels II | Rival Verde | buyer | 72 | 52 | 57 | 5 | deal | 61.0 | 5 | 11.0 | 4.0 | 4.0 | 6.7 | 13.6 | 0.0851 | 0 |
+| 5706 | Duels II | Rival Rojo | buyer | 122 | 80 | 115 | 4 | deal | 115.0 | 0 | 7.0 | 6.4 | 6.4 | 7.3 | 9.18 | 0.058 | 0 |
+| 5707 | Duels II | Rival Azul | seller | 77 | 115 | 103 | 5 | deal | 90.0 | 0 | 13.0 | 11.0 | 11.0 | 7.9 | 13.6 | 0.0632 | 0 |
+| 5736 | Duels II | Rival Sol | seller | 111 | 160 | 157 | 4 | deal | 165.0 | 2 | 54.0 | 43.3 | 43.3 | 7.3 | 11.57 | 0.0783 | 0 |
+| 5737 | Duels II | Rival Oro | buyer | 78 | 44 | 47 | 3 | deal | 54.0 | 2 | 24.0 | 16.3 | 16.3 | 9.2 | 12.44 | 0.0899 | 0 |
+| 5796 | Duels II | Rival Luna | seller | 93 | 145 | 141 | 3 | deal | 141.0 | 0 | 48.0 | 40.6 | 40.6 | 7.1 | 12.04 | 0.0262 | 0 |
+| 5797 | Duels II | Rival Plata | buyer | 98 | 52 | 73 | 5 | deal | 73.0 | 0 | 25.0 | 17.9 | 17.9 | 8.2 | 14.15 | 0.1078 | 0 |
+| 5800 | Duels II | Rival Azul | seller | 77 | 128 | 88 | 7 | deal | 88.0 | 5 | 11.0 | 18.7 | 18.7 | 6.6 | 11.8 | 0.0843 | 0 |
+| 5801 | Duels II | Rival Noche | buyer | 86 | 50 | 82 | 9 | deal | 79.0 | 0 | 7.0 | 3.6 | 3.6 | 7.9 | 11.01 | 0.1305 | 0 |
+| 5808 | Duels II | Rival Luna | buyer | 195 | 110 | 136 | 6 | deal | 158.0 | 0 | 37.0 | 24.4 | 24.4 | 8.3 | 11.07 | 0.107 | 0 |
+| 5809 | Duels II | Rival Rojo | seller | 130 | 186 | 178 | 4 | deal | 167.0 | 0 | 37.0 | 28.8 | 28.8 | 9.4 | 13.28 | 0.0858 | 0 |
+| 5812 | Duels II | Rival Rojo | seller | 73 | 125 | 92 | 7 | deal | 84.0 | 10 | 11.0 | 22.2 | 22.2 | 8.2 | 10.64 | 0.1283 | 0 |
+| 5813 | Duels II | Rival Oro | buyer | 97 | 55 | 95 | 10 | no_deal |  |  |  | 0.0 |  | 9.1 | 13.07 | 0.2223 | 0 |
+| 5816 | Duels II | Rival Luna | seller | 72 | 115 | 74 | 5 | no_deal |  |  |  | 0.0 |  | 0.6 | 5.16 | 0.0041 | 0 |
+| 5817 | Duels II | Rival Sol | buyer | 110 | 70 | 104 | 8 | no_deal |  |  |  | 0.0 |  | 0.7 | 5.34 | 0.0034 | 0 |
+| 5822 | Duels II | Rival Rojo | seller | 72 | 118 | 111 | 3 | deal | 111.0 | 0 | 39.0 | 33.0 | 33.0 | 8.6 | 11.11 | 0.0663 | 0 |
+| 5823 | Duels II | Rival Sol | buyer | 61 | 30 | 57 | 6 | deal | 57.0 | 0 | 4.0 | 2.9 | 2.9 | 8.3 | 9.9 | 0.106 | 0 |
+| 5826 | Duels II | Rival Sol | seller | 72 | 145 | 90 | 4 | deal | 90.0 | 10 | 18.0 | 40.0 | 40.0 | 11.1 | 13.53 | 0.0697 | 0 |
+| 5827 | Duels II | Rival Plata | buyer | 109 | 48 | 48 | 2 | deal | 60.0 | 10 | 49.0 | 25.2 | 25.2 | 9.6 | 11.77 | 0.0753 | 0 |
+| 5860 | Duels II | Rival Azul | seller | 114 | 155 | 169 | 4 | deal | 161.0 | 0 | 47.0 | 36.6 | 36.6 | 7.0 | 10.48 | 0.0595 | 0 |
+| 5861 | Duels II | Rival Azul | buyer | 130 | 78 | 88 | 5 | deal | 95.0 | 0 | 35.0 | 25.1 | 25.1 | 7.9 | 10.22 | 0.0814 | 0 |
+| 5892 | Duels II | Rival Oro | buyer | 97 | 62 | 93 | 7 | deal | 89.0 | 0 | 8.0 | 5.7 | 5.7 | 7.7 | 11.51 | 0.1085 | 0 |
+| 5893 | Duels II | Rival Luna | seller | 65 | 140 | 92 | 6 | deal | 92.0 | 0 | 27.0 | 19.3 | 19.3 | 9.2 | 13.44 | 0.1156 | 0 |
+| 5898 | Duels II | Rival Noche | seller | 76 | 120 | 79 | 7 | deal | 86.0 | 10 | 10.0 | 23.2 | 23.2 | 0.8 | 5.41 | 0.0039 | 0 |
+| 5899 | Duels II | Rival Plata | buyer | 98 | 62 | 92 | 7 | no_deal |  |  |  | 0.0 |  | 0.6 | 5.15 | 0.0042 | 0 |
+| 5946 | Duels II | Rival Rojo | seller | 124 | 175 | 153 | 4 | deal | 153.0 | 10 | 29.0 | 37.5 | 37.5 | 9.5 | 12.03 | 0.0672 | 0 |
+| 5947 | Duels II | Rival Luna | buyer | 94 | 55 | 89 | 8 | deal | 84.0 | 0 | 10.0 | 7.8 | 7.8 | 2.9 | 9.3 | 0.0346 | 0 |
+| 5964 | Duels II | Rival Rojo | seller | 87 | 135 | 139 | 5 | deal | 129.0 | 0 | 42.0 | 30.1 | 30.1 | 8.2 | 12.88 | 0.0841 | 0 |
+| 5965 | Duels II | Rival Plata | buyer | 115 | 70 | 70 | 2 | deal | 76.0 | 0 | 39.0 | 35.9 | 35.9 | 5.9 | 8.51 | 0.0378 | 0 |
+| 5968 | Duels II | Rival Azul | seller | 78 | 108 | 88 | 7 | deal | 111.0 | 0 | 33.0 | 23.6 | 23.6 | 8.1 | 12.65 | 0.104 | 0 |
+| 5969 | Duels II | Rival Plata | buyer | 68 | 40 | 37 | 4 | deal | 45.0 | 2 | 23.0 | 13.9 | 13.9 | 7.3 | 9.58 | 0.0851 | 0 |
+| 6006 | Duels II | Rival Verde | seller | 73 | 115 | 73 | 5 | no_deal |  |  |  | 0.0 |  | 0.6 | 5.69 | 0.0057 | 0 |
+| 6007 | Duels II | Rival Plata | buyer | 48 | 30 | 45 | 8 | no_deal |  |  |  | 0.0 |  | 0.6 | 5.01 | 0.0039 | 0 |
+| 6022 | Duels II | Rival Azul | buyer | 125 | 78 | 86 | 3 | deal | 86.0 | 10 | 39.0 | 19.3 | 19.2 | 9.6 | 12.05 | 0.1033 | 0 |
+| 6023 | Duels II | Rival Azul | seller | 68 | 115 | 105 | 5 | deal | 96.0 | 0 | 28.0 | 20.1 | 20.1 | 8.3 | 9.69 | 0.094 | 0 |
+| 6036 | Duels II | Rival Sol | seller | 141 | 225 | 192 | 4 | deal | 199.0 | 10 | 58.0 | 51.1 | 51.2 | 6.7 | 7.54 | 0.0406 | 0 |
+| 6037 | Duels II | Rival Noche | buyer | 145 | 95 | 128 | 5 | deal | 120.0 | 0 | 25.0 | 16.5 | 16.5 | 7.4 | 8.5 | 0.0584 | 0 |
+| 6040 | Duels II | Rival Azul | seller | 87 | 145 | 134 | 3 | deal | 134.0 | 0 | 47.0 | 36.6 | 36.6 | 7.6 | 8.95 | 0.0321 | 0 |
+| 6041 | Duels II | Rival Sol | buyer | 99 | 45 | 39 | 4 | deal | 48.0 | 2 | 51.0 | 33.4 | 33.4 | 7.5 | 11.16 | 0.083 | 0 |
+| 6048 | Duels II | Rival Rojo | seller | 83 | 138 | 131 | 3 | deal | 125.0 | 0 | 42.0 | 35.5 | 35.5 | 6.6 | 9.51 | 0.0353 | 0 |
+| 6049 | Duels II | Rival Oro | buyer | 148 | 82 | 88 | 3 | deal | 96.0 | 10 | 52.0 | 22.6 | 22.6 | 8.9 | 10.73 | 0.0524 | 0 |
+| 6084 | Duels II | Rival Plata | buyer | 126 | 78 | 98 | 5 | deal | 101.0 | 0 | 25.0 | 19.5 | 19.5 | 6.9 | 9.15 | 0.0534 | 0 |
+| 6085 | Duels II | Rival Rojo | seller | 136 | 210 | 150 | 6 | deal | 158.0 | 0 | 22.0 | 17.1 | 17.1 | 10.1 | 21.91 | 0.1068 | 0 |
+| 6094 | Duels II | Rival Luna | seller | 34 | 58 | 65 | 4 | deal | 65.0 | 0 | 31.0 | 24.1 | 24.1 | 11.8 | 20.04 | 0.2849 | 0 |
+| 6095 | Duels II | Rival Verde | buyer | 46 | 20 | 43 | 8 | deal | 43.0 | 0 | 3.0 | 1.7 | 1.7 | 8.7 | 13.63 | 0.1308 | 1 |
+| 6100 | Duels II | Rival Rojo | buyer | 122 | 85 | 108 | 5 | deal | 108.0 | 0 | 14.0 | 11.8 | 11.8 | 7.5 | 11.91 | 0.053 | 0 |
+| 6101 | Duels II | Rival Plata | seller | 56 | 84 | 75 | 5 | deal | 75.0 | 0 | 19.0 | 17.5 | 17.5 | 7.3 | 14.22 | 0.0652 | 0 |
+| 6140 | Duels II | Rival Rojo | seller | 80 | 135 | 140 | 5 | deal | 125.0 | 0 | 45.0 | 41.4 | 41.4 | 7.6 | 11.92 | 0.063 | 0 |
+| 6141 | Duels II | Rival Noche | buyer | 147 | 95 | 104 | 3 | deal | 104.0 | 0 | 43.0 | 39.6 | 39.6 | 8.7 | 10.3 | 0.0441 | 0 |
+| 6170 | Duels II | Rival Azul | seller | 70 | 125 | 92 | 8 | deal | 82.0 | 0 | 12.0 | 6.7 | 6.7 | 9.9 | 13.34 | 0.2448 | 0 |
+| 6171 | Duels II | Rival Sol | buyer | 74 | 32 | 68 | 7 | deal | 63.0 | 0 | 11.0 | 6.1 | 6.1 | 8.8 | 14.87 | 0.1544 | 0 |
+| 6176 | Duels II | Rival Verde | seller | 92 | 155 | 104 | 10 | deal | 96.0 | 0 | 4.0 | 1.9 | 1.9 | 9.0 | 14.68 | 0.1876 | 0 |
+| 6177 | Duels II | Rival Plata | buyer | 76 | 45 | 74 | 7 | no_deal |  |  |  | 0.0 |  | 7.5 | 10.72 | 0.1168 | 0 |
+| 6182 | Duels II | Rival Oro | seller | 71 | 105 | 78 | 8 | no_deal |  |  |  | 0.0 |  | 5.3 | 11.29 | 0.0749 | 0 |
+| 6183 | Duels II | Rival Plata | buyer | 82 | 55 | 77 | 8 | deal | 77.0 | 0 | 5.0 | 5.0 | 5.0 | 0.7 | 5.47 | 0.0037 | 0 |
+| 6184 | Duels II | Rival Plata | seller | 60 | 112 | 68 | 9 | deal | 66.0 | 0 | 6.0 | 3.1 | 3.1 | 8.9 | 13.48 | 0.1928 | 0 |
+| 6185 | Duels II | Rival Sol | buyer | 54 | 34 | 45 | 5 | deal | 47.0 | 0 | 7.0 | 5.0 | 5.0 | 8.7 | 14.25 | 0.1266 | 0 |
+| 6190 | Duels II | Rival Oro | buyer | 143 | 95 | 122 | 7 | deal | 88.0 | 10 | 55.0 | 3.6 | 3.6 | 9.2 | 15.67 | 0.1196 | 0 |
+| 6191 | Duels II | Rival Luna | seller | 83 | 158 | 151 | 3 | deal | 139.0 | 0 | 56.0 | 47.4 | 47.4 | 10.5 | 13.56 | 0.0922 | 0 |
 | 83 | Practice duels | Rival Sol | seller | 86 | 125 | 125 | 1 | no_deal |  |  |  | 0.0 |  | 6.5 | 6.49 | 0.004 | 0 |
 | 84 | Practice duels | Rival Azul | buyer | 65 | 40 | 40 | 1 | no_deal |  |  |  | 0.0 |  | 5.7 | 5.69 | 0.0039 | 0 |
 
-68 duels · 49 with a price · mean surplus 22.1 · mean decision 5.3 s · model spend $2.385
+136 duels · 105 with a price · mean surplus 25.1 · mean decision 6.4 s · model spend $8.332
