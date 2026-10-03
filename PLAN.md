@@ -152,7 +152,7 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    (a) Duel Lab: rival models fitted on our ≈ 100 records; your redteam-sim extended with days (buyer −w·d, seller
    +w·d) and Duels III's shorter clock and harder decay; a policy search over opener, step cap, accept threshold,
    silent-keep, day give cap and late switch; a best-vs-current report with confidence → intel/duel-lab.md 07:30.
-   (b) Builder, branch : run/duel_params.json hot-reloaded each tick (defaults = today's constants), a
+   (b) Builder, branch `duelist-loop`: run/duel_params.json hot-reloaded each tick (defaults = today's constants), a
    between-waves loop that proposes ≤ 3 bounded param changes (you or the Chief approve), and code-first
    accept/hold/step decisions (the LLM writes text only) so each decision lands < 5 s at 15 s ticks.
    Morning: 08:00 review → merge what's green and better in the sim → duelist up by 08:50.
