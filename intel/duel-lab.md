@@ -49,8 +49,8 @@ from them. Labels: [V] measured on our records or code, [L] modelled or inferred
 | Opener | Rivals ask on median 1.4× the pie (beyond our limit); 4 of 18 open inside our limit ("We can do N P. Thank you for the talk.") [V] | Rival demand drawn from the 18 observed openers |
 | Concession | Two kinds [V transcripts, L classification]. **Fast, then hold** near a "fair" point: 2296/97, 2430/31, 2357, 2506. **Clockwork**: 1-15 P every tick, whatever we do: 2318/19, 2460/61, 2522, 2534/35, 2540/41, 2356 | A mix of fast (35-65% of the distance per move) and slow (2-8%) rivals, plus a "two moves then hold" type |
 | Reaction to us | Weak. Their step ≈ 0.24 × ours + 0.06 × gap + 1.4 (Aleks, R² 0.11) [V]. Our opener barely changes their total concession: corr 0.13, n 23 [V] | + 0.24 × our last step |
-| Acceptance | They take our offer when it leaves them about 0.2-0.45 of the pie [V]. Accepted at a rival share of 0.06-0.42; refused at 0.0-0.35 (2534 refused 0.12, 0.18, 0.23, then took 0.27). Laxer near the deadline: 2494 took 0.06 with 3 ticks left, 2495 took 0.19 at the deadline | Threshold τ drawn mid-duel, a lower τ in the last 3 ticks |
-| Talk | Silent, no deal: 3 of 34 (Team 11 + 2523). One message, then accept-only: about 6 of 34 (2314/15, 2472/73, 2446, 2495). The rest message most ticks [V] | The same mix |
+| Acceptance | They take our offer when it leaves them about 0.2-0.45 of the pie [L, from these points]. Accepted at a rival share of 0.06-0.42; refused at 0.0-0.35 (2534 refused 0.12, 0.18, 0.23, then took 0.27). Laxer near the deadline: 2494 took 0.06 with 3 ticks left, 2495 took 0.19 at the deadline | Threshold τ drawn mid-duel, a lower τ in the last 3 ticks |
+| Talk | Silent, no deal: 3 of 34 (Team 11 + 2523). At most one message, then accept-only: about 6 of 34 (2314/15, 2472/73, 2446, 2495). The rest message most ticks [V] | The same mix |
 | Teams | Rivals come in pairs with the same template; each team plays us 4 times in Duels II. Rival book in the appendix [L] | — |
 
 **Validation [V data / L sim].** No single parameter set fits every statistic, so I bracket with four calibrated worlds:
@@ -151,13 +151,16 @@ Sub-model in `days_sim.py` / `days.md`:
 
 | # | Change | Expected Δ, 68 duels | Evidence | Risk |
 |---|---|---|---|---|
-| 1 | **`MAX_STEP_SHARE = 0.18`** in `agent.held`: a mid-duel concession above 18% of the gap (in worth) is cut back to 18% of the gap, not held; closing ticks and day swaps exempt | **+0.9 to +4.0** (CI ±0.1 each) | [L] 4 worlds; [V] our lumpy steps, Aleks's ≥ 25% bucket | Rivals that answer big steps with big steps. In an earlier model version, fixed 15% steps at 2.5× the fitted reaction still gained +1.65 |
+| 1 | **`MAX_STEP_SHARE = 0.18`** in `agent.held`: a mid-duel concession above 18% of the gap (in worth) is cut back to 18% of the gap, not held; closing ticks and day swaps exempt. **The capped move must carry a code-written text** ("I can do N P.", as the silent walk does): the negotiator's draft names its own, bigger number | **+0.9 to +4.0** (CI ±0.1 each) | [L] 4 worlds; [V] our lumpy steps, Aleks's ≥ 25% bucket | Rivals that answer big steps with big steps. In an earlier model version, fixed 15% steps at 2.5× the fitted reaction still gained +1.65 |
 | 2 | **Days, on top of the merged rule:** no pre-pay; late switch at ~4 ticks left; middle-day opener → our corner | **≈ +1.2** (up to +3.1 if rivals open mid) | [L] modelled only; H1/H2 [?] | Rival day behaviour invented. Gate: first-wave `pred` = `points` |
 | 3 | **`HOLD_TICKS` 3 → 5** | 0 to +0.8 | [L] | More standoffs: the model's deal rate is unchanged (0.900 vs 0.899), but standoffs are exactly what 103/104 were |
 | 4 | **`SILENT_KEEP` 0.3 → 0.15** | +0.1 to +0.2 | [L] | ~0: share near our limit is small |
 | 5 | **Desk question: are duel accepts limited per duel or per team per tick?** | Accepting all code accepts 1 tick earlier costs 0.5-0.8 | [?] `/api/clock` lists only the trading limit (1 per team per tick); the deck says duel limits are separate | If per duel, `runner.closer`'s line-up (one accept per tick across 6 duels) forces needless early accepts |
 
 **Not changing:** the opener, the accept rules, no offer budget, the 3 P floor.
+
+**Optional (Aleks's §3.5 stretch):** give the strategist the appendix's rival book as facts when a first message
+matches a template. This is untested in the model.
 
 **How to read Δ.** Duels I gave us 13.93 duel points over 34 duels. The Analyst's §1b mapping (duel part ≤ 12 Saturday
 points = 8 board) suggests about 0.4 board per duel point, if Duels II feeds the same part [?].
