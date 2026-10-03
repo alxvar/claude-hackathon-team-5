@@ -5,6 +5,8 @@ sides have sat still for HOLD_TICKS ticks, when a rival that has said nothing is
 (`silent_rival`: code, no model), and when code should accept its standing offer (`closer`): the
 deadline can't wait, or the gap is smaller than what one more round risks. When our acceptance must wait for the
 team's one acceptance per tick, we offer the rival its own price instead, if that costs no round (`their_price`).
+With days, the code rules weigh whole packages (`guards.worth`); a days duel whose weight we can't read stays with
+the models (`by_code`).
 
 Rules it keeps (RULES.md): one message per duel per tick, one acceptance per team per tick, 5 requests a second
 per key. A poll is two reads (`clock`, `duels`) every `poll_s` seconds; each duel then costs one write per tick
@@ -25,9 +27,9 @@ from bazaar_sdk import Bazaar, BazaarError
 from engine import Model
 
 from .adapter import Snapshot, parse_duel
-from .agent import DuelAgent, Move, our_offers, quiet_ticks, silent, standing_price, their_offers
-from .guards import past_limit
-from .model import Observation, Offer, Turn, sign
+from .agent import DuelAgent, Move, our_offers, quiet_ticks, silent, standing_offer, their_offers
+from .guards import past_limit, worth
+from .model import DuelView, Observation, Offer, Turn
 from .prices import money
 from .records import Records, duel_key, sessions_in
 
@@ -73,6 +75,12 @@ class Memory:
     task: asyncio.Task | None = None
     pending: tuple[Move, Any, int | None] | None = None  # a move held back on its tick, for the next one
     force: bool = False                                  # decide again even if the rival hasn't moved
+
+
+def by_code(v: DuelView) -> bool:
+    """Code may play this duel's rules (accepts, their price, the silent walk): price only, or days with a weight
+    we can read, so every package has a worth."""
+    return not v.has_days or v.day_values is not None
 
 
 def signature(snap: Snapshot) -> Any:
@@ -186,12 +194,15 @@ class DuelRunner:
             mem = self.duels[key] = Memory(agent=agent, snap=snap)
             self.resume(mem)
             v = snap.view
+            days = (v.day_values.how if v.day_values else f"CAN'T READ the day weight {v.days_weight!r}, models "
+                    f"only") if v.has_days else None
             say(f"duel {key} vs {v.rival or '?'}: {v.role.value}, limit {money(v.limit)}, issues {v.issues}, "
-                f"{snap.ticks_left} ticks left" + (f" [{'; '.join(snap.problems)}]" if snap.problems else ""))
-            self.log.write("new_duel", duel=key, view=v.model_dump(), strategist_system=agent.strategist_system,
-                           negotiator_system=agent.negotiator_system)
+                f"{snap.ticks_left} ticks left" + (f", days: {days}" if days else "")
+                + (f" [{'; '.join(snap.problems)}]" if snap.problems else ""))
+            self.log.write("new_duel", duel=key, view=v.model_dump(), days=days,
+                           strategist_system=agent.strategist_system, negotiator_system=agent.negotiator_system)
             self.record(key, session=self.sessions.get(raw.get("session")) or {"session": raw.get("session")},
-                        first_tick=self.tick, view=v.model_dump(),
+                        first_tick=self.tick, view=v.model_dump(), days_reading=days,
                         models={"strategist": self.strategist.label, "negotiator": self.negotiator.label},
                         strategist_system=agent.strategist_system, negotiator_system=agent.negotiator_system)
         mem.snap = snap
@@ -260,9 +271,9 @@ class DuelRunner:
         return quiet_ticks(obs) if their_offers(obs) else 0
 
     def silent_rival(self, mem: Memory) -> bool:
-        """After our opener, a price-only duel whose rival hasn't sent anything is code's (`agent.silent_move`).
-        With days, the limit alone can't say how far to go, so the models keep it."""
-        return (mem.snap.view is not None and bool(mem.sent) and not mem.agent.view.has_days
+        """After our opener, a duel whose rival hasn't sent anything is code's (`agent.silent_move`); with days,
+        only when we can read the day weight (our day stays, the price walks)."""
+        return (mem.snap.view is not None and bool(mem.sent) and by_code(mem.agent.view)
                 and silent(self.observe(mem)))
 
     def closer(self) -> tuple[Memory, str] | None:
@@ -274,16 +285,17 @@ class DuelRunner:
         the first in line accepts now.
         "small gap": otherwise, the first in line whose gap to our standing offer is no more than one more round
         risks (`small_gap`).
-        Price-only duels: with days, the limit alone can't say what an offer is worth."""
+        With days, the surplus is the package's worth to us, day included; a days duel whose weight we can't
+        read is left to the models (`by_code`)."""
         if any(m.pending is not None and m.pending[0].action == "accept" for m in self.duels.values()):
             return None                           # an acceptance held from an earlier tick goes first
         line = []
         for mem in self.duels.values():
             v, left = mem.agent.view, mem.snap.ticks_left
-            if not mem.snap.live or v.has_days or left is None or mem.snap.view is None or self.accepted(mem):
+            if not mem.snap.live or not by_code(v) or left is None or mem.snap.view is None or self.accepted(mem):
                 continue
-            their = standing_price(self.observe(mem))
-            surplus = None if their is None else sign(v.role) * (their - v.limit)
+            their = standing_offer(self.observe(mem))
+            surplus = None if their is None else worth(v, their.price, their.days)
             if surplus is not None and surplus > 0:
                 line.append((left, -surplus, mem, their))
         line.sort(key=lambda x: x[:2])
@@ -298,34 +310,37 @@ class DuelRunner:
         c = self.closer()
         return c[1] if c is not None and c[0] is mem else None
 
-    def small_gap(self, mem: Memory, their: int, surplus: int) -> bool:
+    def small_gap(self, mem: Memory, their: Offer, surplus: float) -> bool:
         """Their offer is within max(2 P, 2d/(1-d) x our surplus at it) of our standing offer (plan §4D): one
         more round costs about d of the whole deal, and pressing for the gap usually takes two (our counter and
         their reply), so the gap isn't worth it. Only when their offer answers ours: when our offer is the latest
-        word, they get the tick to take it (time is free)."""
+        word, they get the tick to take it (time is free). With days, the gap is in worth to us, days included."""
         if mem.sent and signature(mem.snap) == mem.decided_on:
             return False
-        ours = mem.snap.our_offer.price if mem.snap.our_offer else \
-            next((o.price for o in reversed(our_offers(self.observe(mem)))), None)
+        ours = mem.snap.our_offer or next(reversed(our_offers(self.observe(mem))), None)
         if ours is None:
             return False
-        d = mem.agent.view.decay or 0.0
-        return sign(mem.agent.view.role) * (ours - their) <= max(2.0, 2 * d / (1 - d) * surplus)
+        v = mem.agent.view
+        d = v.decay or 0.0
+        return worth(v, ours.price, ours.days) - surplus <= max(2.0, 2 * d / (1 - d) * surplus)
 
     def their_price(self, mem: Memory, accept: Move) -> Move | None:
         """Our acceptance must wait (the team's one acceptance this tick is spent): offer the rival its own standing
         price instead, so it accepts and spends its acceptance. Only when that adds no round (we have made at
         least as many priced offers as they have, so rounds = min(ours, theirs) doesn't move), or on the last
-        tick, where there is no next one to wait for. Price-only duels."""
-        v, their = mem.agent.view, accept.price
-        if v.has_days or their is None or past_limit(v, their):
-            return None
+        tick, where there is no next one to wait for. With days, their whole package: their price on their day."""
+        v = mem.agent.view
         obs = self.observe(mem)
+        their = standing_offer(obs)
+        if not by_code(v) or their is None or their.price != accept.price or (v.has_days and their.days is None) \
+                or past_limit(v, their.price, their.days):
+            return None
         last = mem.snap.ticks_left is not None and mem.snap.ticks_left <= 1
         if len(our_offers(obs)) < len(their_offers(obs)) and not last:
             return None
-        move = Move("offer", f"I can do {money(their, v.currency)}: accept it and we're done.", price=their,
-                    meta={"rule": "their price"})
+        day = f", delivery on day {their.days}" if v.has_days else ""
+        move = Move("offer", f"I can do {money(their.price, v.currency)}{day}: accept it and we're done.",
+                    price=their.price, days=their.days if v.has_days else None, meta={"rule": "their price"})
         return mem.agent.final(move, obs)
 
     async def decide(self, mem: Memory) -> None:

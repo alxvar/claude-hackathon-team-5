@@ -4,7 +4,8 @@ import json
 from pathlib import Path
 
 from agents.duelist.adapter import parse_duel
-from agents.duelist.agent import BandPlan, Decision, DuelAgent, ledger, make_band
+from agents.duelist.agent import BandPlan, Decision, DuelAgent, Move, ledger, make_band, their_offers
+from agents.duelist.days import read_days
 from agents.duelist.model import DuelView, Observation, Offer, Role, Turn
 from agents.duelist.records import Records, summary
 from agents.duelist.runner import DuelRunner, Log
@@ -338,9 +339,10 @@ def play(r: DuelRunner, b: FakeBazaar, raw: dict, tick: int) -> dict:
     if r.due(mem):
         asyncio.run(r.decide(mem))
     if len(b.said) > sent:
-        _, text, price, _ = b.said[-1]
-        raw = {**raw, "messages": [*raw["messages"], {"tick": tick, "from": "you", "text": text, "price": price}],
-               "your_offer": {"price": price, "tick": tick}}
+        _, text, price, days = b.said[-1]
+        raw = {**raw, "messages": [*raw["messages"], {"tick": tick, "from": "you", "text": text, "price": price,
+                                                      "days": days}],
+               "your_offer": {"price": price, "tick": tick, "days": days}}
     return raw
 
 
@@ -367,9 +369,25 @@ def test_a_silent_rival_that_speaks_goes_back_to_the_models(tmp_path: Path):
     assert fake.seen and fake.seen[0][0] == "BandPlan"  # the strategist plays it again
 
 
-def test_a_silent_rival_in_a_days_duel_stays_with_the_models(tmp_path: Path):
+def test_a_silent_rival_in_a_days_duel_walks_on_price_and_keeps_our_day(tmp_path: Path):
+    # Duel 31 as a days duel: our opener 165 on day 4, each day later costing us 2, so day 4 costs 8 and our
+    # limit on it is 119: floor 119 + 0.3 x 46 = 132.8, rounded up to 133.
+    b, fake = FakeBazaar(), FakeModel(plan(150, 155, 145, days=4))
+    r = runner(b, fake, tmp_path, duel_ticks=12)
+    raw = recorded(31, 120)
+    raw = {**raw, "issues": ["price", "days"], "your_days_weight": 2, "days_meaning": "each day later costs you 2 P",
+           "messages": [{**raw["messages"][0], "days": 4}], "your_offer": {**raw["your_offer"], "days": 4}}
+    answered(r, raw, 120)
+    for tick in range(121, 132):
+        raw = play(r, b, raw, tick)
+    steps = [(m["tick"], m["price"], m["days"]) for m in raw["messages"][1:]]
+    assert steps == [(126, 159, 4), (127, 153, 4), (128, 146, 4), (129, 140, 4), (130, 133, 4)]
+    assert fake.seen == []
+
+
+def test_a_silent_rival_in_a_days_duel_we_cannot_read_stays_with_the_models(tmp_path: Path):
     r = runner(FakeBazaar(), FakeModel(plan(150, 155, 145, days=5)), tmp_path, duel_ticks=12)
-    raw = {**recorded(31, 120), "issues": ["price", "days"], "your_days_weight": 1}
+    raw = {**recorded(31, 120), "issues": ["price", "days"], "your_days_weight": {"mystery": 1}}
     mem = answered(r, raw, 120)
     assert not r.silent_rival(mem)
     r.tick = 126
@@ -414,18 +432,126 @@ def test_offers_inside_our_limit_ending_together_are_accepted_one_per_tick_bigge
     assert order == [(112, 2, "deadline"), (113, 3, "deadline"), (114, 1, "deadline")]   # surplus 30, 20, 10
 
 
-def test_code_never_accepts_a_days_duel_on_price_alone(tmp_path: Path):
+def days_duel(*, weight=2, meaning="each day later costs you 2 P", rival=None, messages=(), deadline=116) -> dict:
+    """A Duels II payload as RULES.md describes it (never seen yet): we buy at value 100, 8% per round."""
+    return {"duel": 7, "session": 3, "status": "live", "role": "buyer", "your_limit": 100, "deadline_tick": deadline,
+            "issues": ["price", "days"], "your_days_weight": weight, "days_meaning": meaning, "rival": "Rival Sol",
+            "decay_per_round": 0.08, "rival_offer": rival, "messages": list(messages)}
+
+
+OURS_ON_DAY_0 = [{"tick": 100, "from": "you", "text": "60 P, day 0.", "price": 60, "days": 0}]
+
+
+def test_code_accepts_a_days_duel_on_the_whole_package_never_on_price_alone(tmp_path: Path):
+    # 95 is inside our 100 on price, but day 5 costs us 10: the package is worth -5.
     r = runner(FakeBazaar(), FakeModel(plan(60, 58, 62)), tmp_path)
-    answered(r, {"duel": 7, "status": "live", "role": "buyer", "your_limit": 100, "deadline_tick": 116,
-                 "issues": ["price", "days"], "your_days_weight": 1, "rival_offer": {"price": 70, "days": 3},
-                 "messages": [{"tick": 100, "from": "you", "text": "60 P.", "price": 60, "days": 5}]}, 114)
+    answered(r, days_duel(rival={"price": 95, "days": 5}, messages=OURS_ON_DAY_0), 114)
     assert r.closer() is None
+    # 70 on day 3 is worth 30 - 6 = 24: accepted by the deadline rule, no model asked.
+    b, fake = FakeBazaar(), FakeModel(plan(60, 58, 62))
+    r = runner(b, fake, tmp_path)
+    mem = answered(r, days_duel(rival={"price": 70, "days": 3}, messages=OURS_ON_DAY_0), 114)
+    assert r.closing(mem) == "deadline"
+    asyncio.run(r.decide(mem))
+    assert b.accepted == [7] and fake.seen == []
+    # A weight we can't read: the models keep it.
+    r = runner(FakeBazaar(), FakeModel(plan(60, 58, 62)), tmp_path)
+    answered(r, days_duel(weight={"mystery": 1}, rival={"price": 70, "days": 3}, messages=OURS_ON_DAY_0), 114)
+    assert r.closer() is None
+
+
+def test_when_our_acceptance_must_wait_in_a_days_duel_we_offer_their_whole_package(tmp_path: Path):
+    b = FakeBazaar()
+    r = runner(b, FakeModel(plan(60, 58, 62)), tmp_path)
+    mem = answered(r, days_duel(rival={"price": 70, "days": 3}, messages=OURS_ON_DAY_0), 114)
+    r.accepted_tick = 114                               # another duel took the team's acceptance
+    asyncio.run(r.decide(mem))
+    assert b.accepted == [] and b.said[-1][2:] == (70, 3) and "day 3" in b.said[-1][1]
+
+
+def test_a_small_gap_in_a_days_duel_counts_the_day(tmp_path: Path):
+    def gap(their_day: int) -> str | None:
+        msgs = [{"tick": 112, "from": "you", "text": "70 P, day 0.", "price": 70, "days": 0},
+                {"tick": 113, "from": "Rival Sol", "text": "71.", "price": 71, "days": their_day}]
+        r = runner(FakeBazaar(), FakeModel(plan(60, 58, 62)), tmp_path)
+        return r.closing(answered(r, days_duel(deadline=130, rival={"price": 71, "days": their_day},
+                                               messages=msgs), 114))
+    assert gap(0) == "small gap"                        # 1 P apart on the same day
+    assert gap(4) is None                               # 1 P apart on price, but day 4 costs us 8 more
+
+
+def test_day_weights_are_read_as_a_number_a_list_or_a_dict():
+    later = read_days(2, "each day later costs you 2 P")
+    assert later.sure and later.best == 0 and later(3) == -6 and later(None) == -20
+    assert read_days(2, "each day earlier costs you 2 P").best == 10
+    assert read_days(2, "you prefer early delivery").best == 0
+    assert read_days(2, "Days run from 0 (soonest) to 10 (latest); you lose your weight per day of delay").best == 0
+    assert read_days(-1.5).best == 0 and read_days(-1.5)(2) == -3     # a negative weight per day: early is worth more
+    guess = read_days(2)                                # positive, no words: which way is a guess
+    assert not guess.sure and guess.best == 5 and guess(5) == -10 and guess(0) == guess(10) == -20
+    assert read_days(0)(7) == 0
+    assert read_days(list(range(11))).values == tuple(float(d - 10) for d in range(11))
+    assert read_days({str(d): 10 - d for d in range(11)}).best == 0
+    assert read_days({"per_day": 2, "prefers": "late"})(8) == -4
+    assert read_days({"cost_per_day": 2, "prefers": "early"})(1) == -2
+    assert read_days({"best_day": 3, "per_day": 1.5})(5) == -3
+    assert read_days("2 P per day later").best == 10
+    for unknown in ({"mystery": 1}, [1, 2], "soon", None, True):
+        assert read_days(unknown) is None
+
+
+def test_adapter_reads_a_days_payload_with_the_day_of_every_offer():
+    raw = days_duel(rival={"id": 5, "price": 80, "days": 2, "tick": 101},
+                    messages=[OURS_ON_DAY_0[0], {"tick": 101, "from": "Rival Sol", "text": "80, day 2.",
+                                                 "offer": {"price": 80, "days": 2}}])
+    s = parse_duel(raw, team=set(), tick=110, defaults={})
+    assert s.view.has_days and s.view.days_meaning == "each day later costs you 2 P" and s.view.day_values.best == 0
+    assert [t.offer for t in s.messages] == [Offer(price=60, days=0), Offer(price=80, days=2)]
+    o = Observation(view=s.view, turns=s.messages, rival_offer=s.rival_offer, tick=110, ticks_left=s.ticks_left)
+    assert their_offers(o) == [Offer(price=80, days=2)]   # the standing offer is not a second one
+
+
+DAYS_BUYER = BUYER.model_copy(update={"limit": 100, "decay": 0.08, "issues": ["price", "days"], "days_weight": 2,
+                                      "days_meaning": "each day later costs you 2 P"})
+
+
+def test_the_limit_is_checked_on_the_whole_package():
+    v = DAYS_BUYER
+    assert make_band(v, plan(95, 85, 99), days=5) == make_band(v, plan(90, 85, 90), days=5)   # day 5: limit 90
+    agent = DuelAgent(v, FakeModel(plan(60, 58, 62)))
+    o = Observation(view=v, turns=[Turn(mine=True, offer=Offer(price=60, days=5), tick=1)], tick=2, ticks_left=8)
+    move = agent.final(Move("offer", "95 P, day 5.", price=95, days=5), o)       # inside 100, but -5 with day 5
+    assert move.action == "offer" and move.price <= 90 and move.days == 5 and move.meta["fallback"]
+    move = agent.final(Move("offer", "70 P.", price=70), o)                      # no day: refused by the game
+    assert move.days == 5 and move.meta["fallback"]
+    bad = o.model_copy(update={"rival_offer": Offer(price=95, days=6)})
+    assert agent.final(Move("accept", "Done.", price=95), bad).action != "accept"
+    good = o.model_copy(update={"rival_offer": Offer(price=85, days=2)})
+    assert agent.final(Move("accept", "Done.", price=85), good).action == "accept"
+
+
+def test_the_strategist_sees_what_each_day_costs_and_the_negotiator_does_not():
+    v = DAYS_BUYER
+    fake = FakeModel(plan(80, 78, 85, days=1), Decision(action="offer", price=80, message="80 P, day 1."))
+    turns = [Turn(mine=True, offer=Offer(price=60, days=0), tick=1), Turn(mine=False, offer=Offer(price=95, days=6),
+                                                                          tick=2)]
+    move = respond(v, Observation(view=v, turns=turns, rival_offer=Offer(price=95, days=6), tick=3, ticks_left=8),
+                   fake)
+    assert (move.action, move.price, move.days) == ("offer", 80, 1)
+    (_, s_system, s_msgs), (_, n_system, n_msgs) = fake.seen
+    assert "day 0: 0 P, day 1: 2 P, day 2: 4 P" in s_system and "best day (day 0)" in s_system
+    assert "each day later costs you 2 P" in s_system
+    prompt = s_msgs[0]["content"]
+    assert "Their standing offer: 95 P (day 6) (past your limit, counting what the day costs you)." in prompt
+    assert "your last offer, day 0: 0 P; their standing offer, day 6: 12 P" in prompt
+    assert "100" not in n_system + json.dumps(n_msgs) and "day 1: 2 P" not in n_system
 
 
 def test_decay_and_rounds_come_from_the_duel_itself():
     s = parse_duel(recorded(181, 141), team=set(), tick=141, defaults={"decay": 0.08})
     assert s.view.decay == 0.06 and s.rounds == 2       # decay_per_round, not the next session's 8%
-    assert "decay_per_round" not in s.view.extra and "days_meaning" in s.view.extra
+    assert "decay_per_round" not in s.view.extra and "days_meaning" not in s.view.extra
+    assert s.view.days_meaning is None                 # read into the view, null on price only
 
 
 def test_session_params_come_from_the_feed_by_the_duels_own_session(tmp_path: Path):
@@ -439,6 +565,18 @@ def test_session_params_come_from_the_feed_by_the_duels_own_session(tmp_path: Pa
     assert mem.agent.view.duel_ticks == 16 and rec.load(181)["session"]["name"] == "Duels I"
     r.learn_sessions([{"id": 2, "type": "duels.scheduled", "payload": {"session": 3, "name": "Duels II"}}])
     assert r.sessions[3]["name"] == "Duels II"
+
+
+def test_review_predicts_each_deals_result_from_our_reading():
+    recs = Records(DUELS)
+    sessions = recs.sessions()
+    deals = [row for row in (summary(r, sessions) for r in recs.all()) if row["status"] == "deal"]
+    assert len(deals) == 11 and all(row["pred"] == row["points"] for row in deals)    # Friday: price only
+    # A days deal: bought at 70 on day 3 after 2 rounds at 8%, each day later costing 2: (30 - 6) x 0.92^2.
+    row = summary({"duel": 7, "view": DAYS_BUYER.model_dump(),
+                   "done": {"status": "deal", "issues": ["price", "days"], "price": 70, "days": 3, "rounds": 2,
+                            "decay_per_round": 0.08, "result": 20.3}})
+    assert (row["day"], row["points"], row["pred"]) == (3, 20.3, 20.3)
 
 
 def test_review_names_fridays_practice_from_the_feed():

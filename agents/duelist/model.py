@@ -6,6 +6,8 @@ from typing import Any
 
 from pydantic import BaseModel, Field
 
+from .days import DayValues, read_days
+
 
 class Role(StrEnum):
     BUYER = "buyer"
@@ -45,6 +47,7 @@ class DuelView(BaseModel):
     market: str | None = None               # whatever the game says about the market, as text
     issues: list[str] = Field(default_factory=lambda: ["price"])
     days_weight: Any = None                 # as the game gives it
+    days_meaning: str | None = None         # the game's words on the weight
     decay: float | None = None              # share of the deal's value lost per round of offers
     duel_ticks: int | None = None
     extra: dict[str, Any] = Field(default_factory=dict)   # unrecognised fields of the payload, for the strategist
@@ -52,6 +55,11 @@ class DuelView(BaseModel):
     @property
     def has_days(self) -> bool:
         return "days" in self.issues
+
+    @property
+    def day_values(self) -> DayValues | None:
+        """What each delivery day is worth to us (`days.read_days`); None on price only or a weight we can't read."""
+        return read_days(self.days_weight, self.days_meaning) if self.has_days else None
 
 
 class Observation(BaseModel):

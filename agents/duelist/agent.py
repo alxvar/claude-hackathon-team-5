@@ -11,6 +11,10 @@ gap. Prices and when to accept stay with the models, with three exceptions:
 
 Decay is per round, not per tick (Friday's 30 practice duels): result = our surplus x (1 - decay)^rounds, with
 rounds = min(our priced offers, theirs). Silence costs nothing but the deadline.
+
+With the delivery day (Duels II), every limit check is on the whole package: the price's margin over our limit
+plus what the day is worth to us (`guards.worth`, `days.read_days`). When we can't read the day weight, the
+checks fall back to price alone and the code rules above leave the duel to the models.
 """
 from __future__ import annotations
 
@@ -25,7 +29,7 @@ from pydantic import BaseModel, Field
 
 from engine import LLMError, Model, Reply
 
-from .guards import mentions_past_limit, past_limit, reads_as_agreement, standing_problems
+from .guards import mentions_past_limit, past_limit, price_at, reads_as_agreement, standing_problems, worth
 from .model import DuelView, Observation, Offer, Role, sign
 from .prices import money
 
@@ -91,12 +95,14 @@ def toward_us(s: int, price: float) -> int:
     return s * math.ceil(s * price - 1e-9)
 
 
-def make_band(view: DuelView, plan: BandPlan) -> Band:
+def make_band(view: DuelView, plan: BandPlan, days: int | None = None) -> Band:
+    """The plan's prices as a band that never crosses our limit; with days, the limit on `days` (the price at
+    which that day leaves us nothing)."""
     s = sign(view.role)
     lo, hi = sorted((s * plan.worst, s * plan.best))
     t = s * plan.target
     lo, hi = min(lo, t), max(hi, t)
-    lo = max(lo, s * view.limit)
+    lo = max(lo, s * price_at(view, 0, days))
     hi = max(hi, lo)
     t = min(max(t, lo), hi)
     return Band(worst=toward_us(s, s * lo), target=toward_us(s, s * t), best=toward_us(s, s * hi))
@@ -119,12 +125,17 @@ def their_offers(obs: Observation) -> list[Offer]:
     return out
 
 
-def standing_price(obs: Observation) -> int | None:
-    """Their standing offer's price: the game's field when it gives one, else their last structured offer."""
+def standing_offer(obs: Observation) -> Offer | None:
+    """Their standing offer: the game's field when it gives one, else their last structured offer."""
     if obs.rival_offer is not None:
-        return obs.rival_offer.price
+        return obs.rival_offer
     theirs = their_offers(obs)
-    return theirs[-1].price if theirs else None
+    return theirs[-1] if theirs else None
+
+
+def standing_price(obs: Observation) -> int | None:
+    o = standing_offer(obs)
+    return o.price if o is not None else None
 
 
 def silent(obs: Observation) -> bool:
@@ -175,20 +186,37 @@ def ledger(obs: Observation) -> str:
         lines.append("- Your next priced offer adds a round at once (they have made more priced offers than you)."
                      if len(ours) < len(theirs) else
                      "- Your next priced offer adds no round by itself; a priced reply from them would.")
-    their = standing_price(obs)
-    if their is not None:
-        lines.append(f"- Their standing offer: {fmt_offer(v, theirs[-1]) if theirs else f(their)}"
-                     + (" (within your limit)." if not past_limit(v, their) else " (past your limit)."))
-        if v.decay and not past_limit(v, their):
-            worth = s * (their - v.limit) * (1 - v.decay) ** rounds
-            lines.append(f"- Accepting it now is worth about {f(round(worth))} to you; each further round would "
-                         f"take about {f(round(worth * v.decay))} off any deal near it.")
-    if their is not None and ours:
+    standing = standing_offer(obs)
+    their = standing.price if standing is not None else None
+    dv = v.day_values
+    if standing is not None:
+        inside = not past_limit(v, standing.price, standing.days)
+        note = ", counting what the day costs you" if dv is not None else ""
+        lines.append(f"- Their standing offer: {fmt_offer(v, standing)}"
+                     + (f" (within your limit{note})." if inside else f" (past your limit{note})."))
+        if v.decay and inside:
+            now = worth(v, standing.price, standing.days) * (1 - v.decay) ** rounds
+            lines.append(f"- Accepting it now is worth about {f(round(now))} to you; each further round would "
+                         f"take about {f(round(now * v.decay))} off any deal near it.")
+    if v.has_days:
+        named = [(who, o.days) for who, o in (("your last offer", ours[-1] if ours else None),
+                                               ("their standing offer", standing)) if o is not None and o.days is not None]
+        if dv is None:
+            lines.append("- Your system can't read your day weight: judge what each day is worth to you from the "
+                         "weight and its meaning.")
+        elif named:
+            lines.append(f"- What the day costs you, against your best day (day {dv.best}): "
+                         + "; ".join(f"{who}, day {d}: {f(abs(dv(d)))}" for who, d in named) + ".")
+    if standing is not None and ours:
         gap = s * (ours[-1].price - their)                  # positive: our last offer is better for us
         lines.append(f"- Gap between your last offer ({f(ours[-1].price)}) and their standing offer ({f(their)}): "
                      f"{f(abs(gap))}." if gap >= 0 else
                      f"- Their standing offer ({f(their)}) is already better for you than your last offer "
                      f"({f(ours[-1].price)}), by {f(-gap)}.")
+        if dv is not None and ours[-1].days != standing.days:
+            more = worth(v, ours[-1].price, ours[-1].days) - worth(v, standing.price, standing.days)
+            lines.append(f"- Counting the days too, your last offer is worth {f(abs(round(more, 1)))} "
+                         f"{'more' if more >= 0 else 'less'} to you than theirs.")
     return "\n".join(lines)
 
 
@@ -196,6 +224,29 @@ def ledger(obs: Observation) -> str:
 
 def render(name: str, **values: object) -> str:
     return Template((PROMPTS / f"{name}.md").read_text()).substitute({k: str(x) for k, x in values.items()}).strip()
+
+
+def days_private(view: DuelView) -> str:
+    """The strategist's lines on the delivery day: the game's weight and words, and how our system reads them."""
+    if not view.has_days:
+        return ""
+    lines = [f"- Your weight on the delivery day, as the game gives it: {json.dumps(view.days_weight)}"
+             + (f"; what the game says it means: {json.dumps(view.days_meaning)}" if view.days_meaning else "")
+             + ". It is private: the other side has its own."]
+    dv = view.day_values
+    if dv is None:
+        lines.append("- Your system can't read that weight, so it checks your limit on price alone: make sure the "
+                     "day you set doesn't cost you more than the price leaves.")
+    else:
+        lines.append(f"- Your system reads it as {dv.how}. What each day costs you, against your best day "
+                     f"(day {dv.best}): {dv.table(view.currency)}.")
+        lines.append("- Your limit applies to the whole deal: a deal is past it when the price's margin over your "
+                     "limit doesn't cover what its day costs you. The band you set is checked on the day you set, "
+                     "and their offers on their own day.")
+        if not dv.sure:
+            lines.append("- Which days you prefer is a guess, so each day counts at the worse of the two readings; "
+                         "the game's words above may tell you more.")
+    return "\n".join(lines) + "\n"
 
 
 def brief(view: DuelView, *, strategist: bool) -> dict[str, str]:
@@ -224,9 +275,7 @@ def brief(view: DuelView, *, strategist: bool) -> dict[str, str]:
                            "It is what the item is worth to you: never pay more than it."),
             "extra": ("Other fields of the duel, as the game gives them:\n" + json.dumps(view.extra)[:1500] + "\n"
                       if view.extra else ""),
-            "days_private": (f"- Your weight on the delivery day, as the game gives it: "
-                             f"{json.dumps(view.days_weight)}. It is private: the other side has its own.\n"
-                             if view.has_days else ""),
+            "days_private": days_private(view),
             "days_guide": ("\nThe delivery day: set \"days\" (0 to 10) every turn. Each side cares about the day "
                            "differently, and the deal can be worth more to both when the side that cares more about "
                            "the day gets it. Read their offers for which days they push, give ground on the day where "
@@ -312,8 +361,9 @@ class DuelAgent:
     def _plan_problems(self, plan: BandPlan) -> list[str]:
         f = lambda p: money(p, self.view.currency)  # noqa: E731
         bad = [f"{name} {f(price)}" for name, price in (("target", plan.target), ("worst", plan.worst))
-               if past_limit(self.view, price)]
-        out = [f"{' and '.join(bad)} are past your limit. Set the band within it."] if bad else []
+               if past_limit(self.view, price, plan.days)]
+        on = f" on day {plan.days}, counting what that day costs you" if self.view.day_values is not None else ""
+        out = [f"{' and '.join(bad)} are past your limit{on}. Set the band within it."] if bad else []
         if self.view.has_days and (plan.days is None or not 0 <= plan.days <= 10):
             out.append("set \"days\" to a delivery day from 0 to 10.")
         return out
@@ -350,24 +400,25 @@ class DuelAgent:
         lines.append(f"- Angle: {plan.angle}")
         return "\n".join(lines)
 
-    def check(self, d: Decision, obs: Observation, band: Band) -> list[str]:
+    def check(self, d: Decision, obs: Observation, band: Band, days: int | None = None) -> list[str]:
         """What keeps a decision from being sent. Worded so a negotiator that doesn't know the limit learns
-        nothing about it beyond the band it was given."""
+        nothing about it beyond the band it was given. `days`: the day our offer names (days duels)."""
         f = lambda p: money(p, self.view.currency)  # noqa: E731
         out: list[str] = []
-        their = standing_price(obs)
+        their = standing_offer(obs)
         if d.action == "offer":
             if d.price is None:
                 out.append("an offer needs a price.")
             else:
                 if not band.allows(self.s, d.price):
                     out.append(f"{f(d.price)} is outside the band for this turn ({f(band.worst)} to {f(band.best)}).")
-                out += standing_problems(self.view, d.price, their)
+                out += standing_problems(self.view, d.price, their, days)
         elif d.action == "accept":
             if their is None:
                 out.append("there is no standing offer from the other side to accept.")
-            elif self.s * their < self.s * band.worst:
-                out.append(f"you may only accept an offer of {f(band.worst)} or better for you.")
+            elif worth(self.view, their.price, their.days) < worth(self.view, band.worst, days):
+                out.append(f"you may only accept an offer of {f(band.worst)} or better for you"
+                           + (f", on day {days} or a day as good for you." if self.view.has_days else "."))
         if bad := mentions_past_limit(self.view, d.message):
             out.append(f"the message mentions {', '.join(map(f, bad))}. Don't write those amounts, not even to "
                        "reject them.")
@@ -386,13 +437,17 @@ class DuelAgent:
         return r.parsed
 
     def _days(self, plan: BandPlan | None, obs: Observation) -> int | None:
-        """The day a priced message carries: the strategist's, else our last one, else the middle."""
+        """The day a priced message carries: the strategist's, else our last one, else our best (the middle
+        when we can't read the weight). A days duel refuses a priced message without one (`missing_days`)."""
         if not self.view.has_days:
             return None
         if plan is not None and plan.days is not None:
             return min(max(int(plan.days), 0), 10)
         ours = [o.days for o in our_offers(obs) if o.days is not None]
-        return ours[-1] if ours else 5
+        if ours:
+            return min(max(ours[-1], 0), 10)
+        dv = self.view.day_values
+        return dv.best if dv is not None else 5
 
     def to_move(self, d: Decision, obs: Observation, days: int | None, **meta: Any) -> Move:
         meta = {"decision": d.model_dump(), **meta}
@@ -406,25 +461,29 @@ class DuelAgent:
         """Code's move when the models fail, so a duel still closes without them: open far from our limit; then
         concede a share of the gap to the better of our limit and their standing offer, a larger share as the
         clock runs out; accept their standing offer once it is inside our limit and at least as good as that
-        concession (or within 2 P of it)."""
+        concession (or within 2 P of it). With days: our day stays, the limit is the one on our day, and their
+        offer counts as the price on our day that would be worth as much to us."""
         ours = our_offers(obs)
         days = self._days(None, obs)
         meta = {"fallback": reason, **meta}
+        limit = price_at(self.view, 0, days)
         if not ours:
-            price = toward_us(self.s, self.view.limit * (1.6 if self.s > 0 else 0.6))
+            price = toward_us(self.s, limit * (1.6 if self.s > 0 else 0.6))
         else:
             last = ours[-1].price
-            their = standing_price(obs)
-            floor = self.view.limit
-            if their is not None and not past_limit(self.view, their) and self.s * their > self.s * floor:
-                floor = their
+            their = standing_offer(obs)
+            ok = their is not None and not past_limit(self.view, their.price, their.days)
+            floor = limit
+            if ok and self.s * (same := price_at(self.view, worth(self.view, their.price, their.days), days)) > \
+                    self.s * floor:
+                floor = same
             left = obs.ticks_left if obs.ticks_left is not None else 4
             share = 1.0 if left <= 1 else min(0.5, 1 / max(left - 1, 2))
             price = toward_us(self.s, last - (last - floor) * share)
             if self.s * price < self.s * floor:
-                price = floor
-            if their is not None and not past_limit(self.view, their) and self.s * (price - their) <= 2:
-                return Move("accept", "Agreed.", price=their, meta=meta)
+                price = toward_us(self.s, floor)
+            if ok and worth(self.view, price, days) - worth(self.view, their.price, their.days) <= 2:
+                return Move("accept", "Agreed.", price=their.price, meta=meta)
         text = f"I can do {money(price, self.view.currency)}" + (f", delivery on day {days}." if
                                                                   days is not None else ".")
         return Move("offer", text, price=price, days=days, meta=meta)
@@ -444,7 +503,7 @@ class DuelAgent:
         so the steps cost price only, and the floor bounds what a rival that waits in silence can take. Friday:
         14 of 30 rivals never offered; two of them accepted our opener at once (164, 258), bots that take the
         first price good enough for them, and the rest scored 0. None when the rival isn't silent, it's too
-        early, or our offer is already at the step."""
+        early, or our offer is already at the step. With days, our day stays and the limit is the one on it."""
         ours = our_offers(obs)
         if not ours or not silent(obs) or obs.ticks_left is None:
             return None
@@ -452,14 +511,14 @@ class DuelAgent:
         start = max(round((self.view.duel_ticks or 16) * SILENT_FROM), SILENT_BY)
         if left > start:
             return None
-        anchor, limit = ours[0].price, self.view.limit
+        days = self._days(None, obs)
+        anchor, limit = ours[0].price, price_at(self.view, 0, days)
         floor = limit + SILENT_KEEP * (anchor - limit)
         step = min(1.0, (start - left + 1) / (start - SILENT_BY + 1))
         price = toward_us(self.s, anchor + (floor - anchor) * step)
         if self.s * price >= self.s * ours[-1].price:
             return None                               # never back away from what we already offered
         self.calls = []
-        days = self._days(None, obs)
         text = f"I can do {money(price, self.view.currency)}" + (f", delivery on day {days}." if days is not None
                                                                  else ".")
         return Move("offer", text, price=price, days=days, meta={"rule": "silent rival"})
@@ -467,9 +526,11 @@ class DuelAgent:
     def repair(self, d: Decision, obs: Observation, band: Band, days: int | None, /, **meta: Any) -> Move:
         """A decision that failed its checks twice: an offer clamped into the band with a plain message."""
         price = band.clamp(self.s, d.price) if d.action == "offer" and d.price is not None else band.target
-        their = standing_price(obs)
-        if their is not None and self.s * price < self.s * their:
-            price = band.clamp(self.s, their)       # never below their standing offer
+        their = standing_offer(obs)
+        if their is not None and worth(self.view, price, days) < worth(self.view, their.price, their.days):
+            # never worse for us than their standing offer: its worth as a price on our day
+            price = band.clamp(self.s, toward_us(self.s, price_at(self.view, worth(self.view, their.price,
+                                                                                   their.days), days)))
         text = f"I can do {money(price, self.view.currency)}" + (f", delivery on day {days}." if days is not None
                                                                  else ".")
         return Move("offer", text, price=price, days=days, meta={"repaired": True, **meta})
@@ -480,8 +541,8 @@ class DuelAgent:
             plan = await self.plan(obs)
         except LLMError as e:
             return self.final(self.safe_move(obs, f"strategist: {e}"), obs)
-        band = make_band(self.view, plan)
         days = self._days(plan, obs)
+        band = make_band(self.view, plan, days)
         meta: dict[str, Any] = {"band": {"worst": band.worst, "target": band.target, "best": band.best},
                                 "plan": plan.model_dump()}
         vetoes: list[str] = []
@@ -492,7 +553,7 @@ class DuelAgent:
                 d = await self.negotiate(obs, band, plan, days, feedback)
             except LLMError as e:
                 return self.final(self.safe_move(obs, f"negotiator: {e}", vetoes=vetoes, **meta), obs)
-            if not (found := self.check(d, obs, band)):
+            if not (found := self.check(d, obs, band, days)):
                 return self.final(self.to_move(d, obs, days, **({"vetoes": vetoes} if vetoes else {}), **meta), obs)
             vetoes += found
             feedback = f"{OWN_NOTE} Your previous draft was rejected: {' '.join(found)} Decide again."
@@ -500,12 +561,15 @@ class DuelAgent:
         return self.final(self.repair(d, obs, band, days, vetoes=vetoes, rejected=d.model_dump(), **meta), obs)
 
     def final(self, move: Move, obs: Observation) -> Move:
-        """Last line of defence: whatever happened before, never offer or accept past our limit, and never write
-        an amount past it."""
+        """Last line of defence: whatever happened before, never offer or accept past our limit (with days: the
+        whole package, our offer on its day and theirs on its own), never send a days duel's offer without a day
+        from 0 to 10, and never write an amount past the limit."""
         move.meta["calls"] = self.calls
-        bad = ((move.action == "offer" and (move.price is None or past_limit(self.view, move.price)))
-               or (move.action == "accept" and (standing_price(obs) is None
-                                                or past_limit(self.view, standing_price(obs))))
+        their = standing_offer(obs)
+        no_day = self.view.has_days and (move.days is None or not 0 <= move.days <= 10)
+        bad = ((move.action == "offer" and (move.price is None or no_day
+                                            or past_limit(self.view, move.price, move.days)))
+               or (move.action == "accept" and (their is None or past_limit(self.view, their.price, their.days)))
                or mentions_past_limit(self.view, move.text))
         if not bad:
             return move

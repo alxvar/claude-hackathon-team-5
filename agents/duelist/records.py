@@ -16,7 +16,8 @@ from pathlib import Path
 from typing import Any
 
 from .adapter import as_number, as_offer, as_role, first
-from .model import Role
+from .guards import worth
+from .model import DuelView, Role
 
 RECORDS = Path(__file__).resolve().parents[2] / "docs" / "duels"
 
@@ -136,6 +137,8 @@ def summary(rec: dict[str, Any], sessions: dict[Any, dict[str, Any]] | None = No
     surplus = None
     if price is not None and limit is not None and role is not None:
         surplus = price - limit if role is Role.SELLER else limit - price
+    days = "days" in (raw.get("issues") or view.get("issues") or [])
+    day = raw.get("days") if days else None
     decisions = rec.get("decisions") or []
     took = [d["took_s"] for d in decisions if d.get("took_s") is not None]
     return {
@@ -149,8 +152,10 @@ def summary(rec: dict[str, Any], sessions: dict[Any, dict[str, Any]] | None = No
         "moves": len(sent),
         "status": status if not isinstance(status, dict) else json.dumps(status),
         "price": price,
+        "day": day,
         "surplus": surplus,
-        "points": first(raw, "points", "score", "share", "pie_share", "captured"),
+        "points": first(raw, "result", "points", "score", "share", "pie_share", "captured"),
+        "pred": predicted(view, raw, price, day),
         "avg_s": round(sum(took) / len(took), 1) if took else None,
         "max_s": max(took) if took else None,
         "cost_usd": round(sum(d.get("cost_usd") or 0 for d in decisions), 4),
@@ -158,8 +163,22 @@ def summary(rec: dict[str, Any], sessions: dict[Any, dict[str, Any]] | None = No
     }
 
 
-COLUMNS = ["duel", "session", "rival", "role", "limit", "our_first", "our_last", "moves", "status", "price",
-           "surplus", "points", "avg_s", "max_s", "cost_usd", "fallbacks"]
+COLUMNS = ["duel", "session", "rival", "role", "limit", "our_first", "our_last", "moves", "status", "price", "day",
+           "surplus", "points", "pred", "avg_s", "max_s", "cost_usd", "fallbacks"]
+
+
+def predicted(view: dict[str, Any], raw: dict[str, Any], price: float | None, day: Any) -> float | None:
+    """The result our own reading of the deal gives: its worth to us (`guards.worth`, the day included) shrunk by
+    the decay per round. Next to the game's `result` (points), it checks the reading: equal on Friday's
+    price-only deals; on Duels II's first deals a difference means `days.read_days` reads the weight wrong."""
+    if price is None or not view or raw.get("rounds") is None:
+        return None
+    try:
+        v = DuelView(**view)
+    except Exception:
+        return None
+    decay = as_number(first(raw, "decay_per_round", "decay")) or v.decay or 0.0
+    return round(worth(v, price, day if isinstance(day, int) else None) * (1 - decay) ** int(raw["rounds"]), 1)
 
 
 def review(records: Records) -> str:

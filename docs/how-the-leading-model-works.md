@@ -1,5 +1,7 @@
 # How Regateo's leading model works
 
+> **Pre-rules history.** Written before The Bazaar's rules came out: background, not instructions. What the duelist does now is in [duelist-runbook.md](duelist-runbook.md).
+
 As of 2 October 2026.
 
 ## The short version
