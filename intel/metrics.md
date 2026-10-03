@@ -1,22 +1,22 @@
-# Metrics (auto, 22:36, game tick 1398)
+# Metrics (auto, 22:38, game tick 1402)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
-1. Team 10 37.8 (-0.5 / -0.2) deals 60
-2. Team 6 31.2 (-0.5 / -1.5) deals 67
-3. Team 5 30.5 (-0.3 / -0.4) deals 53 ← US
-4. Team 12 30.2 (-0.5 / +0.8) deals 68
-5. Team 18 30.2 (+0.1 / +0.7) deals 38
-6. Team 3 29.9 (-0.1 / -0.4) deals 32
-7. Team 14 27.9 (-0.4 / -1.6) deals 56
-8. Team 17 26.1 (-0.6 / -0.0) deals 32
-9. Team 1 26.0 (+0.2 / +3.2) deals 33
-10. Team 4 25.2 (+0.2 / -0.2) deals 76
-Us: #3
+1. Team 10 37.7 (-0.4 / -0.3) deals 61
+2. Team 18 31.0 (+0.9 / +1.2) deals 39
+3. Team 6 31.0 (-0.6 / -2.2) deals 68
+4. Team 5 30.4 (-0.6 / -0.4) deals 53 ← US
+5. Team 12 30.1 (-0.6 / +0.5) deals 69
+6. Team 3 29.6 (-0.4 / -0.7) deals 32
+7. Team 14 27.8 (-0.4 / -1.7) deals 56
+8. Team 17 25.9 (-0.6 / -0.7) deals 32
+9. Team 1 25.8 (-0.2 / +3.0) deals 33
+10. Team 4 25.1 (-0.1 / +0.5) deals 77
+Us: #4
 
 ## Us
 
-score 30.53 · neg_points 119.1 (15 min ago 119.1) · ladder 0.483 · duel 34.31 · cash 392 · level 5 · deals 53
+score 30.38 · neg_points 119.1 (15 min ago 119.1) · ladder 0.483 · duel 35.39 · cash 392 · level 5 · deals 53
 
 ## Our holdings (card (rarity): value of each copy; a sale gives up the cheapest copy)
 
@@ -76,7 +76,6 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 ## Dealer prices, last 60 ticks (median per item)
 
 - abuela common (team buys): median 10 over 1
-- abuela sobre_barrio (team buys): median 26 over 1
 - abuela uncommon (team buys): median 24 over 2
 - chato uncommon (team sells): median 13 over 1
 - picaros epic (team buys): median 139 over 1
@@ -88,14 +87,20 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 ## El Rastro now: top bids by price (team, card, price)
 
 - t10: LAV-11 (epic) 210 P · offer 19648
+- t16: RET-11 (epic) 99 P · offer 19835
+- t16: LAV-11 (epic) 79 P · offer 19838
 - t09: MAL-09 (rare) 56 P · offer 19686
 - t09: MAL-10 (rare) 56 P · offer 19719
+- t16: RET-09 (rare) 31 P · offer 19836
+- t16: RET-10 (rare) 31 P · offer 19837
+- t16: LAV-10 (rare) 28 P · offer 19839
 - t09: SAL-06 (uncommon) 24 P · offer 19298
+- t16: RET-06 (uncommon) 18 P · offer 19845
 - t06: RET-05 (common) 8 P · offer 19702
 
-Asks by others (card, price: count): LAT-02 8: 3; LAT-04 8: 2; RET-08 26: 2; LAV-05 5: 2; sobre_plata 130: 1; LAT-08 30: 1; LAT-06 30: 1; RET-06 30: 1; RET-07 30: 1; RET-03 10: 1; LAT-01 8: 1; LAT-03 8: 1; LAT-05 8: 1; SAL-02 7: 1; MAL-03 12: 1
+Asks by others (card, price: count): LAT-02 8: 3; LAT-04 8: 2; LAV-05 5: 2; sobre_plata 130: 1; LAT-08 30: 1; LAT-06 30: 1; RET-06 30: 1; RET-07 30: 1; RET-08 26: 1; RET-03 10: 1; LAT-01 8: 1; LAT-03 8: 1; LAT-05 8: 1; SAL-02 7: 1; MAL-03 12: 1
 
-## Our duels: 2 live, 136 finished (last 10)
+## Our duels: 0 live, 136 finished (last 10)
 
 - {"duel": 6170, "session": 3, "status": "deal", "role": "seller", "item": "La V\u00eda L\u00e1ctea", "issues": ["price", "days"], "your_days_weight": 3.34, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 70, "limit_meaning": 
 - {"duel": 6171, "session": 3, "status": "deal", "role": "buyer", "item": "La V\u00eda L\u00e1ctea", "issues": ["price", "days"], "your_days_weight": 7.75, "days_meaning": "each delivery day costs you this much cash", "your_limit": 74, "limit_meaning": "never pa
