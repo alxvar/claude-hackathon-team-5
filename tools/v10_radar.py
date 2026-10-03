@@ -14,6 +14,12 @@ Never the top 4, never the seller or us, and never a team within 10 points of us
 (it lacks at most one other card of the set). The conservative estimate (buyer's low multiplier, seller's high) must be above 0. A strong match pages Lucas once per (ask, buyer) with a ready WhatsApp DM
 and is logged to intel/v10-radar.md. Read-only: it never trades.
 
+Addressed offers (Chief 12:55): the public board hides offers on v10 made `to` one team, which are the trades that
+score for us (Team 10 → t03 LAV-04 at 13, → t17 MAL-02 at 6). So it also reads offer.listed events on v10 from
+data/feed.jsonl, keeps the open ones (not cancelled, not expired, no settlement of its card since), and for each one
+addressed to another team pages Lucas once with a DM to that team ("Team 10 has an offer for you on v10: ..."), when
+the estimated value created (midpoint) is above 0; otherwise it only logs it.
+
     python3 -u tools/v10_radar.py            # every tick (tools/daemons.sh start radar)
     python3 tools/v10_radar.py --once --dry  # print, send and write nothing
 """
@@ -194,6 +200,73 @@ def buyers_for(ask: dict, *, seller, teams, top, ours, last, prof, mult, collect
     return out
 
 
+def value_created(book, m_b, m_s, c_b, c_s) -> tuple[float, float]:
+    """(est., conservative) value created when the buyer (m_b, its next copy c_b) gets a card from the seller."""
+    (mb, lob, _), (ms, _, his) = _triple(m_b), _triple(m_s)
+    return round(book * (mb * c_b - ms * c_s), 1), round(book * (lob * c_b - his * c_s), 1)
+
+
+def open_addressed(events, tick) -> list[dict]:
+    """Offers on v10 made `to` one team that are still open as far as the feed shows: listed, not cancelled, not
+    expired, and no settlement of their card (an ask) or between the two teams on v10 (a bid) since they were listed."""
+    listed = {}
+    for e in events:
+        p = e.get("payload") if isinstance(e.get("payload"), dict) else {}
+        if e.get("type") == "offer.listed":
+            o = p.get("offer") or {}
+            if o.get("venue") == VENUE and o.get("to") and o.get("id") is not None:
+                maker = o.get("maker") if op.is_team(o.get("maker")) else e.get("actor")
+                listed[o["id"]] = {**o, "maker": maker, "_assets": {a.get("id") for a in (o.get("give") or {}).get(
+                    "assets") or [] if isinstance(a, dict)}}
+        elif e.get("type") == "offer.cancelled":
+            listed.pop(p.get("offer"), None)
+        elif e.get("type") == "settlement":
+            moved = {i.get("id") for i in p.get("items") or []}
+            parties = set(p.get("parties") or [])
+            for oid, o in list(listed.items()):
+                if e.get("tick", 0) >= (o.get("created_tick") or 0) and (
+                        o["_assets"] & moved or (p.get("venue") == VENUE and {o["maker"], o["to"]} <= parties)):
+                    listed.pop(oid)
+    return [o for o in listed.values() if (o.get("expires_tick") or 0) > tick and o["to"] != ME and o["maker"] != ME]
+
+
+def addressed_match(o: dict, *, teams, mult, cards, held) -> dict | None:
+    """One addressed offer as a radar row: who buys, who sells, the card, the estimated value created."""
+    give, want = o.get("give") or {}, o.get("want") or {}
+    assets = [a for a in give.get("assets") or [] if isinstance(a, dict)]
+    if len(assets) == 1 and want.get("cash") and not give.get("cash"):
+        card, price, buyer, seller = assets[0].get("ref"), want["cash"], o["to"], o["maker"]       # an ask to them
+    else:
+        wanted = list(want.get("cards") or []) + [t[5:] for t in want.get("types") or [] if t.startswith("card:")]
+        wanted += [a.get("ref") for a in want.get("assets") or [] if isinstance(a, dict)]
+        if len(wanted) != 1 or not give.get("cash"):
+            return None
+        card, price, buyer, seller = wanted[0], give["cash"], o["maker"], o["to"]                 # a bid to them
+    c = cards.get(card)
+    if not c:
+        return None
+    st = c["set"]
+    m_b, m_s = (mult.get(buyer) or {}).get(st, 1.0), (mult.get(seller) or {}).get(st, 1.0)
+    c_b = copy_weight(len(held.get((buyer, card), ())) + 1)
+    c_s = copy_weight(len(held.get((seller, card), ())) or 1)
+    vc, vc_low = value_created(c["book"], m_b, m_s, c_b, c_s)
+    names = {t["team"]: t.get("name", t["team"]) for t in teams}
+    rank = {t["team"]: t.get("rank") for t in teams}
+    return {"offer": o["id"], "addressed": True, "maker": o["maker"], "maker_name": names.get(o["maker"], o["maker"]),
+            "team": o["to"], "name": names.get(o["to"], o["to"]), "rank": rank.get(o["to"]), "card": card,
+            "price": price, "side": "ask" if buyer == o["to"] else "bid", "seller": seller, "vc": vc, "vc_low": vc_low,
+            "m_buyer": round(_triple(m_b)[0], 2), "m_seller": round(_triple(m_s)[0], 2), "c_buyer": c_b, "c_seller": c_s,
+            "expires_tick": o.get("expires_tick")}
+
+
+def dm_addressed(f: dict, card_name: str) -> str:
+    if f["side"] == "ask":
+        return (f"Hi {f['name']}! {f['maker_name']} has an offer for you on our v10 stall: {card_name} ({f['card']}) for "
+                f"{f['price']} P, 0% fee. It's in your offers if you want it.")
+    return (f"Hi {f['name']}! {f['maker_name']} offers you {f['price']} P for your {card_name} ({f['card']}) on our v10 "
+            f"stall, 0% fee. It's in your offers if you want to take it.")
+
+
 def dm(team_name: str, card_name: str, card: str, price, set_id: str) -> str:
     return (f"Hi {team_name}! There's {card_name} ({card}) for {price} P on the market v10 (0% fee), in case you need "
             f"it for your {SET_NAMES.get(set_id, set_id)} page.")
@@ -222,15 +295,16 @@ class Radar:
         board = self.pub._call("GET", f"/api/venues/{VENUE}/offers").get("offers") or []
         asks = [o for o in board if (o.get("give") or {}).get("assets") and (o.get("want") or {}).get("cash")
                 and not (o.get("give") or {}).get("cash") and not o.get("to")]
-        if not asks:
+        events = self.events_fn()
+        tick = self.pub._call("GET", "/api/clock").get("tick") or (events[-1]["tick"] if events else 0)
+        direct = open_addressed(events, tick)
+        if not asks and not direct:
             return []
         teams = sorted(self.pub._call("GET", "/api/leaderboard").get("teams") or [], key=lambda t: -(t.get("score") or 0))
         for i, t in enumerate(teams):
             t["rank"] = i + 1
         top = {t["team"] for t in teams[:4]}
         ours = next((t.get("score") for t in teams if t["team"] == ME), None)
-        events = self.events_fn()
-        tick = self.pub._call("GET", "/api/clock").get("tick") or (events[-1]["tick"] if events else 0)
         last, prof = op.read_signals(events, [], ME, op.GameTime(events), tick, self.cards)
         who = sellers(events)
         held = holdings(events)
@@ -243,11 +317,15 @@ class Radar:
             for b in ranked[:2]:
                 found.append({"offer": a["id"], "seller": seller, "price": (a.get("want") or {}).get("cash"),
                               "card": [x.get("ref") for x in a["give"]["assets"]][0], **b})
+        for o in direct:
+            m = addressed_match(o, teams=teams, mult=self.mult, cards=self.cards, held=held)
+            if m:
+                found.append(m)
         for f in found:
             key = f"{f['offer']}:{f['team']}"
             if self.dry or key in self.state["alerted"]:
                 continue
-            self.alert(f, tick)
+            (self.alert_addressed if f.get("addressed") else self.alert)(f, tick)
             self.state["alerted"].append(key)
         if not self.dry:
             self.state["alerted"] = self.state["alerted"][-500:]
@@ -273,6 +351,26 @@ class Radar:
                           f"{why}.\nDM to send:\n{text}", priority=4, tags=["handshake"])
 
 
+    def alert_addressed(self, f: dict, tick) -> None:
+        c = self.cards.get(f["card"], {})
+        text = dm_addressed(f, c.get("name", f["card"]))
+        left = (f.get("expires_tick") or tick) - tick
+        why = (f"{f['maker_name']} → {f['name']} (#{f['rank']}), {f['side']} {f['card']} at {f['price']} P, {left} ticks "
+               f"left; buyer {f['m_buyer']} × copy {f['c_buyer']:g} vs seller {f['m_seller']} × copy {f['c_seller']:g}: "
+               f"est. value created {f['vc']:+g} (at least {f['vc_low']:+g}) on v10")
+        paged = f["vc"] > 0 and self.notifier is not None
+        self.log(f"v10 radar: addressed offer {f['offer']} · {why} · {'paged' if paged else 'not paged (est. ≤ 0)'}")
+        if not self.out.exists():
+            self.out.parent.mkdir(parents=True, exist_ok=True)
+            self.out.write_text(HEADER)
+        with self.out.open("a") as fh:
+            fh.write(f"- {time.strftime('%a %H:%M')} · tick {tick} · addressed offer {f['offer']} · {why} · "
+                     f"{'DM' if paged else 'not paged, DM'}: \"{text}\"\n")
+        if paged:
+            self.notifier("lucas", f"v10: {f['maker_name']} has an offer for {f['name']} ({f['card']} {f['price']} P)",
+                          f"{why}.\nDM {f['name']} to accept:\n{text}", priority=5, tags=["handshake"])
+
+
 def main(argv=None) -> None:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--once", action="store_true")
@@ -284,7 +382,8 @@ def main(argv=None) -> None:
         try:
             found = r.scan()
             print(f"{time.strftime('%H:%M:%S')} v10 radar: {len(found)} match(es)"
-                  + "".join(f" · {f['card']} → {f['team']} (+{f['vc']:g})" for f in found[:3]), flush=True)
+                  + "".join(f" · {'addressed ' if f.get('addressed') else ''}{f['card']} → {f['team']} ({f['vc']:+g})"
+                            for f in found[:5]), flush=True)
             c = pub._call("GET", "/api/clock")
             wait = 30.0 if c.get("paused") or c.get("doors") not in (None, "open") else float(c.get("next_tick_in", 10))
         except Exception as e:  # noqa: BLE001  a watcher keeps watching

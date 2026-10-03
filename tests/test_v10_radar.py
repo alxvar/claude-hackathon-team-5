@@ -129,3 +129,48 @@ def test_the_analysts_multipliers_win_where_confident_and_the_conservative_estim
     assert b and b[0]["vc"] == 10.9 and b[0]["vc_low"] == 7.5
     # its only copy: value destroyed, no DM
     assert vr.buyers_for(ask, seller="t15", held={("t15", "LAT-07"): {1}}, **kw) == []
+
+
+# ------------------------------------------------------------ addressed offers on v10 (hidden from the public board)
+
+def listed(eid, tick, oid, maker, to, give, want, expires=30):
+    return ev(eid, tick, "offer.listed", maker, {"offer": {"id": oid, "maker": maker, "to": to, "venue": "v10",
+                                                           "give": give, "want": want, "created_tick": tick,
+                                                           "expires_tick": tick + expires}})
+
+
+ASK_TO = ({"cash": 0, "assets": [{"id": 366, "ref": "SAL-03"}]}, {"cash": 13})
+
+
+def test_open_addressed_drops_cancelled_expired_and_settled_offers():
+    events = [listed(1, 10, 7987, "t10", "t03", *ASK_TO), listed(2, 10, 7988, "t10", "t17", *ASK_TO),
+              listed(3, 10, 7989, "t10", "t06", *ASK_TO, expires=5), listed(4, 10, 7990, "t10", None, *ASK_TO),
+              listed(5, 10, 7991, "t10", "t05", *ASK_TO),
+              ev(6, 11, "offer.cancelled", "", {"offer": 7988, "venue": "v10"})]
+    assert [o["id"] for o in vr.open_addressed(events, 20)] == [7987]   # 7989 expired, 7990 public, 7991 is to us
+    events.append(ev(7, 12, "settlement", "", {"venue": "v10", "parties": ["t10", "t03"],
+                                               "items": [{"id": 366, "kind": "card", "ref": "SAL-03"}]}))
+    assert vr.open_addressed(events, 20) == []
+
+
+def test_an_addressed_ask_pages_lucas_with_a_dm_to_the_addressee_only_when_it_creates_value(tmp_path):
+    notes, logs = [], []
+    r = vr.Radar(None, notifier=lambda *a, **k: notes.append(a), out=tmp_path / "r.md", state=tmp_path / "s.json",
+                 log=logs.append, mult_file=tmp_path / "none.json")
+    r.cards = vr.card_index(CATALOG)
+    teams = [{"team": "t10", "name": "Team 10", "rank": 5}, {"team": "t17", "name": "Team 17", "rank": 9}]
+    o = vr.open_addressed([listed(1, 10, 8031, "t10", "t17", *ASK_TO)], 12)[0]
+    good = vr.addressed_match(o, teams=teams, mult={"t17": {"SAL": 1.6}, "t10": {"SAL": 0.5}}, cards=r.cards, held={})
+    assert good["side"] == "ask" and good["seller"] == "t10" and good["vc"] == 11.0
+    r.alert_addressed(good, 12)
+    assert len(notes) == 1 and "Team 10 has an offer for you on our v10 stall" in notes[0][2]
+    assert "Hi Team 17!" in notes[0][2] and "13 P" in notes[0][2]
+    bad = vr.addressed_match(o, teams=teams, mult={"t17": {"SAL": 0.5}, "t10": {"SAL": 1.6}}, cards=r.cards, held={})
+    r.alert_addressed(bad, 12)
+    assert len(notes) == 1 and "not paged" in logs[-1]                 # est. value created < 0: logged only
+
+
+def test_an_addressed_bid_reads_the_maker_as_buyer():
+    o = vr.open_addressed([listed(1, 10, 9000, "t06", "t10", {"cash": 24}, {"cards": ["SAL-07"]})], 12)[0]
+    m = vr.addressed_match(o, teams=[], mult={}, cards=vr.card_index(CATALOG), held={})
+    assert m["side"] == "bid" and m["seller"] == "t10" and m["team"] == "t10" and m["price"] == 24
