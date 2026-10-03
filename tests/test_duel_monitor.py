@@ -31,7 +31,7 @@ def test_duels_103_104_hold_deadlock():
         flags = kinds(dm.replay_record(record(n)), "hold_deadlock")
         assert flags, f"duel {n} sat still for 10 ticks"
         assert flags[0].severity == dm.MEDIUM
-        assert flags[0].tick == 149          # last move at 146, 3 still ticks, 8 left
+        assert flags[0].tick == 149          # last move at 146, 3 still ticks, 7 left
 
 
 def test_friday_replay_raises_no_spurious_critical_or_high():
@@ -52,9 +52,21 @@ def live_181_at(tick):
 
 def test_in_limit_flag_waits_for_the_last_two_ticks_and_respects_an_accept():
     raw, _ = live_181_at(141)
-    assert not kinds(dm.live_flags(raw, 141), "in_limit_not_accepted")   # 4 ticks left: not yet
+    assert not kinds(dm.live_flags(raw, 141), "in_limit_not_accepted")   # 3 ticks left: not yet
     assert kinds(dm.live_flags(raw, 143), "in_limit_not_accepted")
     assert not kinds(dm.live_flags(raw, 143, accepted=True), "in_limit_not_accepted")
+
+
+def test_ticks_left_matches_the_duelist_and_arbiter():
+    # The duel closes ON its deadline tick: deadline - 1 is the last tick to move on (1 left), as in
+    # agents/duelist/adapter.py and tools/arbiter.py. Duel 181's deadline is 144.
+    raw, _ = live_181_at(142)
+    assert dm.ticks_left(raw, 143) == 1 and dm.ticks_left(raw, 142) == 2
+    assert dm.ticks_left({**raw, "ticks_left": 5}, 142) == 5              # the payload's own count wins
+    # The critical alert fires with 2 ticks left (142), one tick before the last chance, not on it.
+    assert kinds(dm.live_flags(raw, 142), "in_limit_not_accepted")
+    first = kinds(dm.replay_record(record(181)), "in_limit_not_accepted")[0]
+    assert first.tick == 142
 
 
 def test_in_limit_flag_ignores_offers_past_or_at_our_limit():

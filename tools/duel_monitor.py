@@ -89,11 +89,15 @@ def surplus(raw: dict, price: float | None) -> float | None:
 
 
 def ticks_left(raw: dict, tick: int | None) -> int | None:
-    """Ticks left including the current one (as Aleks's adapter counts them): deadline_tick - tick + 1."""
+    """Ticks we can still move on, the current one included (1: the last), as Aleks's adapter and tools/arbiter.py
+    count them: the payload's ticks_left, else deadline_tick - tick (the duel closes ON its deadline tick)."""
+    left = raw.get("ticks_left", raw.get("remaining_ticks"))
+    if isinstance(left, (int, float)) and not isinstance(left, bool):
+        return max(int(left), 0)
     d = raw.get("deadline_tick", raw.get("deadline"))
     if not isinstance(d, (int, float)) or tick is None:
         return None
-    return int(d) - int(tick) + 1
+    return int(d) - int(tick)
 
 
 def decay_of(raw: dict, default: float = 0.06) -> float:
@@ -370,7 +374,7 @@ def analyse(raw: dict, rec: dict | None = None) -> DuelStats:
         marks = sorted(set(moves)) + [stop]
         for a, b in zip(marks, marks[1:]):
             hold = max(hold, b - 1 - a)
-            hold_flag = hold_flag or a + HOLD_TICKS <= min(b - 1, end + 1 - HOLD_LEFT)
+            hold_flag = hold_flag or a + HOLD_TICKS <= min(b - 1, end - HOLD_LEFT)
 
     took = [x["took_s"] for x in (rec or {}).get("decisions") or [] if isinstance(x.get("took_s"), (int, float))]
     return DuelStats(duel=rid(raw), rival=str(raw.get("rival") or "?"), role=role, limit=raw.get("your_limit"),
