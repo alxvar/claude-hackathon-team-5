@@ -50,6 +50,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 import opportunities as op  # noqa: E402
 import policy  # noqa: E402
 import v10_radar as vr  # noqa: E402
+import known as known_mod  # noqa: E402
 from collectors import Collectors, from_feed, parse_teams_md  # noqa: E402
 
 URL = os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai")
@@ -57,7 +58,7 @@ ME = "t05"
 OUT, WANTS = ROOT / "intel" / "matches.md", ROOT / "intel" / "wants.md"
 FEED, LEADERBOARD = ROOT / "data" / "feed.jsonl", ROOT / "data" / "leaderboard.jsonl"
 TEAMS_MD, CATALOG_CACHE = ROOT / "intel" / "teams.md", ROOT / "run" / "catalog.json"
-KNOWN = ROOT / "run" / "known_holdings.json"   # Lucas's facts from the teams themselves: {team: {complete, missing}}
+KNOWN = known_mod.KNOWN   # run/known_holdings.json: Lucas's facts from the teams themselves (tools/known.py)
 EVERY_S = 300
 NEAR = 8                   # flag a team with at least this many cards of a page seen
 PAGE_BONUS = 0.25          # catalog values.page_bonus
@@ -141,33 +142,12 @@ def progress(n: dict, pg: dict) -> dict:
 
 
 def load_known(path: Path | None = None) -> dict:
-    """{team: {"complete": {sets}, "missing": {cards}}} from run/known_holdings.json (Chief 21:50: what a team told
-    Lucas beats the feed's lower bound). Unreadable or absent: {}."""
-    try:
-        data = json.loads(Path(path or KNOWN).read_text())
-    except (OSError, ValueError):
-        return {}
-    out = {}
-    for team, k in (data.items() if isinstance(data, dict) else ()):
-        if op.is_team(team) and isinstance(k, dict):
-            out[team] = {"complete": {str(x).upper() for x in k.get("complete") or []},
-                         "missing": {c for c in k.get("missing") or [] if _CARD.fullmatch(str(c))}}
-    return out
+    """run/known_holdings.json (tools/known.py)."""
+    return known_mod.load(path or KNOWN)
 
 
 def apply_known(n: dict, known: dict, pg: dict) -> dict:
-    """Copies with the known facts on top: a complete set holds every page card (at least 1 copy each); a set with
-    missing cards holds all its other page cards and none of the missing ones."""
-    n = dict(n)
-    for team, k in known.items():
-        sets = set(k["complete"]) | {c.split("-")[0] for c in k["missing"]}
-        for st in sets & set(pg):
-            for card in pg[st]["cards"]:
-                if card in k["missing"]:
-                    n.pop((team, card), None)
-                else:
-                    n[(team, card)] = max(n.get((team, card), 0), 1)
-    return n
+    return known_mod.apply(n, known, {st: p["cards"] for st, p in pg.items()})
 
 
 def parse_wants(text: str) -> list[dict]:
