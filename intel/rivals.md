@@ -9,6 +9,14 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sat 13:10 · snapshot 600
+- Board: t14 30.42 · t12 29.88 · t10 29.51 · t18 29.21 · **us 28.96 (#5)** · t13 26.77 · t17 26.17.
+- **t14 sells RET commons on t12's v02** (5 at 9 as maker, ticks 591-598; buyers t09 ×3, t04, t15): t14 banks neg_points,
+  t12's market hits the 12.5 cap. RET collectors (live demand): t09, t04, t15 [L].
+- **t04 liquidates commons to Abuela at 5** (7 sales, 594-600): cash for Sunday's CHA? [L].
+- t10 bought MAL-10 at 74 from t03 (tick 585) despite reading ~0.5 on MAL [?]; t03's Saturday part +2.6 on the sale.
+- t06 bought LAV-09 from Chato at 84 (tick 593, above list 77).
+
 ### Sat 12:56 · snapshot 570
 - Board: t14 31.76 · t18 29.98 · **us 29.57 (#3)** · t12 28.91 · t10 28.70 · t17 27.70 · t13 27.69.
 - **t14 market (10.6) is passive** [V]: one v14 trade (t15 → t12 LAT-07 at 19, tick 418), nothing since; it fell from 11.86

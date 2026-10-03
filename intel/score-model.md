@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 12:58 (tick 574), snapshot 570. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
+_Last update: Sat 13:14 (tick 602), snapshot 600. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -30,6 +30,13 @@ _Last update: Sat 12:58 (tick 574), snapshot 570. Independent verifier pass (12:
   t17 → 9.46) when t06's v01 got its 2nd trade (t12 → t08 SAL-10 at 76, tick 556; t06 9.83 → 11.64). No trade on v14 since 418.
 - Clock map: game hour = wall − 6.83 h. Benches 13:51, 15:51, 17:51, 19:51, 21:30 (hard), 21:51 · Salamanca fever (Pilar
   +25% over book on SAL) 16:00-18:00 · Duels II 18:30 · close 23:00.
+
+### Update snapshot 600 (13:10): us #5 at 28.96 · t14 30.42 · t12 29.88 · t10 29.51 · t18 29.21
+- **t12 market → 12.50 cap** [V]: t14 sold RET-05/02/03/01/04 at 9 as maker on t12's v02 (ticks 591-598) to t09 ×3, t04, t15.
+- **Ladder erosion** [L]: snapshot 580, our board −1.07 with duel_points flat; the window's only events were rival Pilar sells
+  (t04 SAL-06 24, t09 LAV-06 19). Ladder-heavy t13 slid 5.4 → 4.0 (duel-part column) over four snapshots. Revised marginal
+  value of a full-share L2/L3 slot ≈ +0.6-0.9 board.
+- t04 sold 7 commons to Abuela at her opening bid 5 (ticks 594-600): cash raise, no ladder [V feed].
 
 ## 1b. Duels are 40% of Saturday Negotiating [V, snapshot 470]
 
