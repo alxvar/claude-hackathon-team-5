@@ -240,10 +240,10 @@ access, only the ladder (a fresh L5 slot set, 0.111 per deal at full share).
 ### 6.1 How he trades [V, 33 threads]
 | Side | Threads → deals | His opening | How he moves | Finals (walk point) | Settled |
 |---|---|---|---|---|---|
-| **He buys epics** (LAV-11, SAL-11, LAT-11, RET-11) | 15 → 3 | **113 for every epic, whatever the set** (112 twice) | 113, 113, 113 for the first 3 messages, then +1 to +6. Per P of our step he gives 0.08 (big early steps) to 0.88 (t18's steady −2); in P, bigger steps from us bring bigger steps from him later (t18 −6..−10 → +2, +3, +5, +6) | 115, 116, 117, 120, 123, **126, 129** (t18, opening ask 232-260), at message 5-10 | 116 (t16), 120 (t06 at his final), 120 (t08: his final 117, their counter 120 accepted) |
-| He buys legendaries | 1 → 0 | — | "A legend is not merchandise" (LAT-13, the hidden card: no dealer buys it) | — | — |
-| **He sells legendaries** (RET-12, LAV-12, MAL-12) | 9 → 0 | 761 (list 585) | flat 761 for 2-3 messages, then mirrors (−1, −5, "Bajo cinco, igual que usted sube cinco") | best 729-731 (t06, +5 steps from 380-541) | none: above list, so 0 ladder even if bought |
-| **He sells gold packs** | 8 → 0 | 546 (list 420) | never moved: no team ever priced it | — | none |
+| **He buys epics** (LAV-11, SAL-11, LAT-11, RET-11) | 12 → 3 | **113 for every epic, whatever the set** (112 twice) | 113, 113, 113 for the first 3 messages, then +1 to +6. Per P of our step he gives 0.08 (big early steps) to 0.88 (t18's steady −2); in P, bigger steps from us bring bigger steps from him later (t18 −6..−10 → +2, +3, +5, +6) | 115, 116, 117, 120, 123, **126, 129** (t18, opening ask 232-260), at message 5-10 | 116 (t16), 120 (t06 at his final), 120 (t08: his final 117, their counter 120 accepted) |
+| He buys the hidden card (LAT-13) | 1 → 0 | — | "A legend is not merchandise" (RULES: no dealer buys it); legendary buys untested | — | — |
+| **He sells legendaries** (RET-12, LAV-12, MAL-12) | 10 → 0 | 761 (list 585) | flat 761 for 2-3 messages, then mirrors (−1, −5, "Bajo cinco, igual que usted sube cinco") | best 729-731 (t06, +5 steps from 380-541) | none: above list, so 0 ladder even if bought |
+| **He sells gold packs** | 9 → 0 | 546 (list 420) | never moved: no team ever priced it | — | none |
 
 - **Words:** none moved a price. Text without a price stalls him (t04: four text messages, stuck at 114, "Nothing further moves"). Attempts
   to put words in his mouth earn one warning, then a closed desk ("No audit desk speaks through my visitors"; "That is twice you have
@@ -265,14 +265,14 @@ candidates, best first:
 
 | # | Deal | When it exists | Ladder gain | Neg | Cash at risk | Verdict |
 |---|---|---|---|---|---|---|
-| 1 | **Silver-pack epic → Ernesto**: if the pack (opened after the CHA release, as planned) pulls **LAT-11** (worth 90 to us) or a **2nd RET-11** (worth 25% ≈ 50) | ≈ 6% (epic slot 12% × the 3 of 6 sets that fit; CHA/LAV/SAL epics are worth more than he pays, so keep those) | +0.08-0.10 at a 126-129 final (+0.045 at 120) | 0 (price > value, gain clipped) | 0 (cash +115-129) | **Yes, if it happens.** LAT-11 has no team bid (only t16's 247 ask), so Ernesto is its best outlet |
+| 1 | **Silver-pack epic → Ernesto**: if the pack (opened after the CHA release, as planned) pulls **LAT-11** (worth 90 to us) or a **2nd RET-11** (worth 25% ≈ 50) | ≈ 4% (epic slot 12% × 2 of 6 sets, if the set is uniform [L]; CHA/LAV/SAL epics are worth more than he pays, so keep those) | +0.08-0.10 at a 126-129 final (+0.045 at 120) | 0 (price > value, gain clipped) | 0 (cash +115-129) | **Yes, if it happens.** LAT-11 has no team bid (only t16's 247 ask), so Ernesto is its best outlet |
 | 2 | **Silver-pack MAL-11 (worth 126)**: Ernesto 126-129 vs a team bid | ≈ 2% | +0.08-0.10 | ≈ 0 at ≥ 126; −6 at 120 | 0 | **Sell to a team instead** unless the Chief rates 0.1 ladder above ≈ +17-26 neg: open MAL-11 bids are 150-152 (t01, t17; t10 paid t08 195), and a team sale's gain counts (an Ernesto gain is clipped) |
 | 3 | **MAL-11 round trip**: buy from the Pícaros, sell to Ernesto | any time (Pícaros sold MAL-11 at 128, 150, 139) | +0.08-0.10 (L5) + ≤ 0.02 (an L4 upgrade at 128) | −2 (128 → 129) to −25 (145 → 120) | 128-150 up front (> the 120 cap), −0 to −30 net | **No.** The same MAL-11 is worth +17-26 neg sold to a team bidder at 150-152 instead (a FLIP per the reactor rule), so the Ernesto leg is the worst exit |
 
 Not options: RET-11 to Ernesto (−69 to −83 neg at 115-129; directive: Pilar at ≥ 198 only); any Ernesto buy (gold pack ≥ 420, legendary
 finals ≥ 729: over the cap, and above list scores 0); a team's epic ask (none below our value now: LAT-11 247, SAL-11 245).
 
-**Expected L5 gain on Sunday ≈ +0.006** (option 1's probability × its gain). Keep the slot for luck, and spend no cash or thread time on it.
+**Expected L5 gain on Sunday ≈ +0.004** (option 1's probability × its gain). Keep the slot for luck, and spend no cash or thread time on it.
 
 ### 6.3 CHA conflict [the CHA budget comes first]
 - **Selling to Ernesto never touches cash** (cash comes in), so options 1-2 don't conflict, except that the pack is opened only after the
