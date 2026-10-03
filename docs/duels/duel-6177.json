@@ -182,6 +182,147 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1367,
+   "raw": {
+    "duel": 6177,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 7.06,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 76,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1382,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 10686,
+     "price": 52,
+     "tick": 1367,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 10678,
+     "price": 91,
+     "tick": 1367,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1366,
+      "from": "Rival Plata",
+      "text": "Propuesta justa para cerrar pronto: 97 P y 10 días.",
+      "price": 97,
+      "days": 10
+     },
+     {
+      "tick": 1366,
+      "from": "you",
+      "text": "I can do 45 P with delivery on day 0. Quick delivery matters to me, and the price is open to discussion from there.",
+      "price": 45,
+      "days": 0
+     },
+     {
+      "tick": 1367,
+      "from": "Rival Plata",
+      "text": "Me muevo para acercarnos: 91 P con 10 días.",
+      "price": 91,
+      "days": 10
+     },
+     {
+      "tick": 1367,
+      "from": "you",
+      "text": "I see you moved, and I appreciate it. I can do 52 P with delivery on day 0; I'll keep moving as you do.}",
+      "price": 52,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1368,
+   "raw": {
+    "duel": 6177,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 7.06,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 76,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1382,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 10686,
+     "price": 52,
+     "tick": 1367,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 10709,
+     "price": 88,
+     "tick": 1368,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1366,
+      "from": "Rival Plata",
+      "text": "Propuesta justa para cerrar pronto: 97 P y 10 días.",
+      "price": 97,
+      "days": 10
+     },
+     {
+      "tick": 1366,
+      "from": "you",
+      "text": "I can do 45 P with delivery on day 0. Quick delivery matters to me, and the price is open to discussion from there.",
+      "price": 45,
+      "days": 0
+     },
+     {
+      "tick": 1367,
+      "from": "Rival Plata",
+      "text": "Me muevo para acercarnos: 91 P con 10 días.",
+      "price": 91,
+      "days": 10
+     },
+     {
+      "tick": 1367,
+      "from": "you",
+      "text": "I see you moved, and I appreciate it. I can do 52 P with delivery on day 0; I'll keep moving as you do.}",
+      "price": 52,
+      "days": 0
+     },
+     {
+      "tick": 1368,
+      "from": "Rival Plata",
+      "text": "Yo ya me he movido. Propongo 88 P y 10 días.",
+      "price": 88,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -322,6 +463,294 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1367,
+   "took_s": 6.22,
+   "cost_usd": 0.00878,
+   "obs": {
+    "view": {
+     "duel_id": 6177,
+     "role": "buyer",
+     "limit": 76,
+     "currency": "P",
+     "item": "La Vía Láctea",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 7.06,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 97 P y 10 días.",
+      "offer": {
+       "price": 97,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1366,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 45 P with delivery on day 0. Quick delivery matters to me, and the price is open to discussion from there.",
+      "offer": {
+       "price": 45,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1366,
+      "decision": {
+       "action": "offer",
+       "price": 45,
+       "message": "I can do 45 P with delivery on day 0. Quick delivery matters to me, and the price is open to discussion from there."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 91 P con 10 días.",
+      "offer": {
+       "price": 91,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1367,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 91,
+     "days": 10
+    },
+    "tick": 1367,
+    "ticks_left": 15,
+    "rounds": 1,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6,
+     70.6,
+     33.3,
+     20.7,
+     50.0
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I see you moved, and I appreciate it. I can do 52 P with delivery on day 0; I'll keep moving as you do.}",
+    "price": 52,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 52,
+      "message": "I see you moved, and I appreciate it. I can do 52 P with delivery on day 0; I'll keep moving as you do.}"
+     },
+     "band": {
+      "worst": 54,
+      "target": 52,
+      "best": 51
+     },
+     "plan": {
+      "read": "They stepped from 97 to 91 but still insist on day 10, which costs us heavily; a real 6 P move earns a measured reply, not a chase.",
+      "target": 52,
+      "best": 51,
+      "worst": 54,
+      "days": 0,
+      "angle": "Acknowledge their move and answer with 52 P on day 0, firm on quick delivery and calm in tone, signalling we'll keep moving only as they do."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.09,
+       "in": 820,
+       "out": 209,
+       "cost_usd": 0.00746,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.13,
+       "in": 350,
+       "out": 62,
+       "cost_usd": 0.00132,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1368,
+   "took_s": 8.03,
+   "cost_usd": 0.013090000000000001,
+   "obs": {
+    "view": {
+     "duel_id": 6177,
+     "role": "buyer",
+     "limit": 76,
+     "currency": "P",
+     "item": "La Vía Láctea",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 7.06,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 97 P y 10 días.",
+      "offer": {
+       "price": 97,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1366,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 45 P with delivery on day 0. Quick delivery matters to me, and the price is open to discussion from there.",
+      "offer": {
+       "price": 45,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1366,
+      "decision": {
+       "action": "offer",
+       "price": 45,
+       "message": "I can do 45 P with delivery on day 0. Quick delivery matters to me, and the price is open to discussion from there."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 91 P con 10 días.",
+      "offer": {
+       "price": 91,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1367,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I see you moved, and I appreciate it. I can do 52 P with delivery on day 0; I'll keep moving as you do.}",
+      "offer": {
+       "price": 52,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1367,
+      "decision": {
+       "action": "offer",
+       "price": 52,
+       "message": "I see you moved, and I appreciate it. I can do 52 P with delivery on day 0; I'll keep moving as you do.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Yo ya me he movido. Propongo 88 P y 10 días.",
+      "offer": {
+       "price": 88,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1368,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 88,
+     "days": 10
+    },
+    "tick": 1368,
+    "ticks_left": 14,
+    "rounds": 2,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6,
+     70.6,
+     33.3,
+     20.7,
+     50.0
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "I'm holding my offer where it stands, with delivery on day 0.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "I'm holding my offer where it stands, with delivery on day 0."
+     },
+     "band": {
+      "worst": 52,
+      "target": 52,
+      "best": 52
+     },
+     "plan": {
+      "read": "They came down 3 to 88 P but still insist on day 10, which costs us far too much at any price near theirs. Their step is small, and we have already moved nearly as much as they have in total.",
+      "target": 52,
+      "best": 52,
+      "worst": 52,
+      "days": 0,
+      "angle": "Hold at 52 P with day 0 and send nothing this tick; let them come further on price and the day first."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.08,
+       "in": 979,
+       "out": 395,
+       "cost_usd": 0.01182,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.95,
+       "in": 433,
+       "out": 40,
+       "cost_usd": 0.00127,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [
@@ -378,6 +807,63 @@
      "id": 10665,
      "price": 45,
      "tick": 1366,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1367,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I see you moved, and I appreciate it. I can do 52 P with delivery on day 0; I'll keep moving as you do.}",
+    "price": 52,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 52,
+      "message": "I see you moved, and I appreciate it. I can do 52 P with delivery on day 0; I'll keep moving as you do.}"
+     },
+     "band": {
+      "worst": 54,
+      "target": 52,
+      "best": 51
+     },
+     "plan": {
+      "read": "They stepped from 97 to 91 but still insist on day 10, which costs us heavily; a real 6 P move earns a measured reply, not a chase.",
+      "target": 52,
+      "best": 51,
+      "worst": 54,
+      "days": 0,
+      "angle": "Acknowledge their move and answer with 52 P on day 0, firm on quick delivery and calm in tone, signalling we'll keep moving only as they do."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.09,
+       "in": 820,
+       "out": 209,
+       "cost_usd": 0.00746,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.13,
+       "in": 350,
+       "out": 62,
+       "cost_usd": 0.00132,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 6177,
+    "offer": {
+     "id": 10686,
+     "price": 52,
+     "tick": 1367,
      "days": 0
     }
    }
