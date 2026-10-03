@@ -14,7 +14,8 @@ Each tick, per entry (one live offer per card and side):
 - expiring within REFRESH_LEFT ticks: cancel and post again at the same price;
 - unfilled REPRICE_AFTER ticks at one price: cancel and post one step toward the floor (asks down, bids up);
 - its `price` edited in the file: cancel and post at the new price within a tick (clamped to the floor);
-- its entry removed from the file: cancel the live offer (an unreadable or missing file changes nothing).
+- its entry removed from the file: cancel the live offer (an unreadable or missing file changes nothing);
+- a bid whose card reached us another way (a dealer, the trader): cancel it, done (a second copy is worth 25%).
 An ask goes only to a team that collects the card's set (tools/collectors.py: teams.md "collects" or its bids /
 dealer asks; "dumps" or unknown: no; a public ask, with no `to`, never): a live one that stops qualifying is
 cancelled. Never past the floor, nor past what scores: an ask at least our copy's value + --min-gain-sell (1: as maker we pay
@@ -241,6 +242,20 @@ class Book:
                     out[key] = {**s, "done": True, "offer": None}
                     continue
                 s["offer"] = None
+            if o is not None and not sell and held > s.get("held", held):
+                ev = {"event": "cancel_held", "card": e["card"], "offer": s["offer"], "held": held}
+                if self.dry_run:
+                    self.log({**ev, "dry_run": True})
+                    out[key] = s
+                    continue
+                try:
+                    self.b.cancel(s["offer"])
+                    self.log(ev)
+                    out[key] = {**s, "done": True, "offer": None}
+                except BazaarError as err:
+                    self.log({**ev, "event": "cancel_failed", "code": err.code})
+                    out[key] = s
+                continue
             if o is not None:
                 left = (o.get("expires_tick") or tick + LIFE_TICKS) - tick
                 if left <= REFRESH_LEFT:
@@ -295,6 +310,8 @@ class Book:
             asset = min(free, key=lambda a: a["your_value"])
             floor = max(int(e["floor"]), math.ceil(asset["your_value"] + self.min_gain_sell))
         else:
+            if why == "move":
+                self.values.pop(card, None)           # an edit often follows a value jump (the page's last card)
             v = self.value(card)
             if v is None:
                 self.log({"event": "skip", "card": card, "side": "buy", "why": "our value unavailable"})

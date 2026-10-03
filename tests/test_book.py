@@ -337,3 +337,28 @@ def test_state_from_before_price_edits_does_not_jump_back_to_the_file_price():
     g.offers[st["RET-07:buy"]["offer"]]["give"] = {"cash": 44}
     st, _, _ = run(g, [BID], st, tick=301)
     assert len(g.posted) == 1 and st["RET-07:buy"]["entry"] == 40 and st["RET-07:buy"]["price"] == 44
+
+
+def test_a_price_edit_reads_our_value_again_so_a_page_closer_moves_to_its_new_floor():
+    # CHA-08 filled at 12:05, so CHA-05 is the last card (16 -> 122); the Operator sets its price to 72 at 12:06, inside
+    # the 10-tick value cache: the move must not clamp to the old cap of 13.
+    g = Game(values={"CHA-05": 16.0})
+    e = {"card": "CHA-05", "side": "buy", "price": 9, "floor": 72, "page_closer": True}
+    st, _, _ = run(g, [e])
+    book = bk.Book(g, log=lambda x: None, collectors=AllowAll())
+    st = book.step([e], st, {**CLOCK, "tick": 301})
+    g.values["CHA-05"] = 122.0
+    st = book.step([{**e, "price": 72}], st, {**CLOCK, "tick": 303})
+    assert g.posted[-1]["give"] == {"cash": 72} and st["CHA-05:buy"]["price"] == 72
+
+
+def test_a_bid_whose_card_arrived_another_way_is_cancelled_and_done():
+    # The dealer fallback bought CHA-09 while its team bid was still up: take the bid down before a team fills it too.
+    g = Game()
+    st, _, _ = run(g, [BID])
+    g.assets.append({"id": 900, "kind": "card", "ref": "RET-07", "your_value": 60})
+    st, ev, _ = run(g, [BID], st, tick=301)
+    assert g.cancelled == [g.posted[0]["id"]] and st["RET-07:buy"]["done"] is True
+    assert ev[-1]["event"] == "cancel_held"
+    run(g, [BID], st, tick=302)
+    assert len(g.posted) == 1                                  # done: never posted again
