@@ -1,56 +1,53 @@
-# Judge (claude-opus-5-5, Sat 20:39)
+# Judge (claude-opus-5-5, Sat 20:55)
 
 ## Verdict
-**Falling behind the top two.** We are #3 at 31.6 with 0.0 over 60 min. T10 is at 34.0 (+1.9) and T6 at 32.6 (+1.1). At tick 1100 the gaps were 1.42 to T10 and 0.42 to T6; now they are 2.4 and 1.0. `neg_points` has sat at 119.1 since tick 988 (213 ticks). Our lead over #4 T3 is 1.6.
+Falling behind the top 2 and holding #3. We are at 31.64 (−0.0 over 60 min) against t10 34.0 (+1.9) and t6 32.6 (+1.1), so the gap to #1 is now 2.4. Behind us, t3 (30.0), t14 and t18 (29.9) sit 1.6-1.7 back. `neg_points` has been flat at 119.1 since tick 988 (~213 ticks without a scoring deal).
 
 ## Our strategies: keep / kill / scale
-- **In-room team trades: SCALE.** SAL close +40.4 (tick 988), swaps +6.2 and +15.5. These are the only sizeable positive `neg` moves since the flags.
-- **Trading loop: KEEP; restart once hold-writes clears.** Last fills were 15:48 and 17:46; there have been none since. It costs nothing while idle.
-- **Maker asks: RETARGET.**
-  - 5 asks are live and none has filled since 19:29. MAL-08 → t01 has gone unfilled for over an hour (24 → 20).
-  - MAL-02 → t08 at 40 for a card worth 7 to us will not fill: t08 *dumps* MAL.
-  - The best case is about +3 `neg` per spare.
-  - LAV-04 → t01 (LAV collector, 7.9 below us) breaks the plan's ≥10-below feeding rule if it closes t01's page.
-- **Dealer bot on spares: KILL.** LAV-04 → Pícaros walked at the final of 4, with 0 `neg` and 0 ladder. The ladder is capped for us (17:45).
-- **Flags: KILLED.** Net +20; the 17:43 probe scored 0.
-- **Egg hunt: stays stopped.** 3 tries, 0 events.
-- **v10 market-making + rebate: KEEP.** Our current mm score is not in the data. The past record is +4.99, then −5.2 from a single t10 trade. T10's +1.9/h is consistent with market, but that is [L].
-- **DENY line: KEEP dormant.** No trigger has fired.
+- **Dealer bot: KILL** (except DENY or a non-closer card we need). Ladder is capped (0.437, negotiating flat), dealer gains clip to 0, and the last thread (Pícaros LAV-04) walked with 0 change.
+- **Trading loop: KEEP.** It made 2 accepts today (+6.2 at 15:48, +15.5 at 17:46), both clean, and it is idle now only because of the pause.
+- **Maker asks (5 open): KEEP the LAV spares, KILL the MAL ones.**
+  - LAV-04 → t01 at 6 and LAV-03 → t04 at 6: each is ≈ +2.8 if filled, but LAV-04 has gone unfilled since 19:29. Reprice per plan §4A.
+  - MAL-02 (→ t08 at 40), MAL-03 (→ t09 at 9) and MAL-08 (→ t01 at 20, unfilled since before 19:29) are single copies of a 6/10 page. See change 1.
+- **In-room page closes: SCALE.** The SAL close (t08, SAL-06 at 28) was +40.4, the only big mover of the evening. RET, LAV and SAL are complete; MAL is the only page left within reach.
+- **Flags: DONE.** Net +20, and the probe at 17:43 scored 0.
+- **v10 market push: KEEP.** It is the directives' decisive lever. Our current `mm_points` is not in the data, so no fill evidence can be judged.
 
 ## Check the scout
 - **Holds:**
-  - Pause and hold-writes are set (tick 1201).
-  - The 18:40 contingency applies to Payday.
-  - Recent RET-rare prices are right (t04 → t07 at 66, t06 → t07 at 77).
-  - Don't sell LAV-06/07 into t13's 15 bids (they are worth 118.6 to us).
-  - T2 is +2.6 over 15 min.
-  - T7's volume is not lifting its score (21.2).
-- **Does not hold:**
-  - "LAV-02 ×3 priced at about 6": none of our open offers is LAV-02. Only LAV-03 and LAV-04 are listed at 6.
-  - "T3 holds top Negotiating 24.49": that figure is from tick 850 and is stale.
-  - "T10 relies on market-making": inference, not in the metrics.
-- **Misses:**
-  - Payday put our cash at **520** (floor 100). This is the main new lever and the scout ignores it.
-  - The widening gap to T10 and T6.
-  - The announcement is truncated ("Only deals sc…"). Its scoring condition is not in the data.
+  - Leaderboard gaps: 2.4 to #1, 1.6-1.7 over t3, t14 and t18.
+  - The 5 asks go to non-top-4 teams.
+  - t2 climbed +2.6 in 15 min, including MAL-10 from t13 at 30.
+  - t7 collects RET×8 and LAV×7.
+  - t6's RET sales at 77 and 84.
+  - t10's LAV-11 bid at 205.
+  - Ladder capped, and payday lets rivals afford page closers.
+- **Fails:**
+  - #2: t09's bid is for MAL-06 specifically, and El Rastro bids are per card, so MAL-08 cannot fill it. Selling MAL-08 also gives up a MAL page card.
+  - #3: t13's 2 P bids are for RET and LAT commons, not LAV-02. The only LAV-02 price signal is one trade at 3 (tick 1194).
+- **Missed:**
+  - t10 is pulling away (+1.9/60 min).
+  - Our 213 ticks without a scoring deal.
+  - MAL-10 changed hands at 30, which makes a MAL page close affordable.
 
 ## The 3 changes with the highest expected gain
-1. **Close the MAL page via team trades tonight.**
-   - Situation: we hold 6/10. Missing are MAL-06 and MAL-07 (worth 17.5 each) and MAL-09 and MAL-10 (worth 49 each). The page bonus of 46.4 lands on the last card.
-   - Buy from non-top-4 MAL dumpers (t13, t04, t12, t14), as a maker bid on v15, addressed to the seller.
-   - Ceilings: uncommon ≤ 20 (Pilar's outside price), rare ≤ 56. Buy the cheapest card last.
-   - Recent comparables: MAL-10 at 30 (t13 → t02), MAL-08 at 14 (t12 → t04).
-   - Effect [L]: about +40–55 `neg` after roughly 10 of pack drag, ≈ +2–2.7 board. Cost ≈ 130 P, leaving ~290 P for CHA on Sunday.
-   - Risks:
-     - t09 is bidding 20 for MAL-06.
-     - An overpaid rare is a −7 loss if the page never closes, so cap the total buy at the four cards and stop if a rare isn't secured by ~22:00.
-   - Needs verifier sign-off (it moves >20 P).
-2. **Swap spares for MAL cards with t04 (Dani, in person).**
-   - t04 collects LAV and dumps MAL, sits 8.0 below us and is not a rival. Offer our LAV-02/03/04 spares (1.3–3.2 to us) for their MAL-06/07.
-   - Effect: saves cash and gives ≈ +15 each against 1–3 given up. Both sides gain.
-   - Risk: a LAV spare closes t04's LAV page. That adds roughly +2.5 board to a team 8 below us, and it does not pass us.
-3. **Before any spend, get the full Payday text and re-score.**
-   - Dani reads it at the front; the Market and the Analyst re-score per the 18:40 contingency.
-   - Until then, skip the "vault and epics": dealer gains score 0, our ladder is capped and packs are never bought.
-   - Cancel MAL-02 → t08. Move the remaining asks to the ≥10-below buyers (t09, t07, t16).
-   - Risk: a scoring change the announcement implies is not in the data, so hold until it is known.
+1. **Close the MAL page with payday cash (520 P).**
+   - **What we need:** MAL-06, 07, 09 and 10. Values: uncommon 17.5, rare 49, bonus 46.4; the last card is worth ≈ 95 to us.
+   - **Hold the cards:** cancel the MAL asks 17650, 17696 and 17392 to keep MAL-02, 03 and 08.
+   - **Buy the first three at ≤ our value as maker bids:**
+     - addressed to non-rival holders, on v15 or El Rastro;
+     - sellers: t13 dumps MAL, t12 sold MAL-08 at 14, t02 holds MAL-10;
+     - Dani finds the holders via the feed's `offer.listed` and the room.
+   - **The last card must be a team trade** (a dealer close loses the bonus). Any price ≤ 45 hits the +50 cap.
+   - **Effect:** ≈ +20 to +50 neg ≈ +1 to +2.4 board at ~0.05/np, enough to pass t6.
+   - **Risk:** t09 bids 20 and 56 for the same cards, so it races us. Overpaying the non-closers, or ending with a partial page, costs (price − value). Stop if a rare goes above ~55.
+2. **Arm DENY now that every team has +400 P.**
+   - A single close by t3, t14 or t18 (≈ +2.4 board) takes our #3.
+   - Analyst page alerts at 9/10 go to the Chief's DENY line (cap 35 P, team seller, never a rival's venue).
+   - **Risk:** each denial is ≈ −1 board. Only act on a confirmed last card.
+3. **Resume the maker book and v10 the moment the pause lifts** (Chief clears `run/hold-writes`).
+   - Reprice asks unfilled for 10+ min (LAV-04, LAV-03).
+   - Add the LAV-02 spares (×3, worth 1.3 each) as maker asks at ~3 to non-rivals.
+   - Re-post the v10 ads to non-rivals, using the rebate guardrail.
+   - **Effect:** a few neg points, plus up to +5 market if one positive-value-created trade lands on v10.
+   - **Risk:** a trade that moves a card to a lower-multiplier holder makes v10's value created negative (tick 398: −5.2). Keep the radar's rival test.
