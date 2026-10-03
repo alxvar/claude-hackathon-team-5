@@ -18,20 +18,19 @@ body{background:#000;color:var(--ink);font-family:system-ui,-apple-system,"Segoe
 .edge.read{stroke-dasharray:2 5;opacity:.45}
 .edge.lit{stroke:var(--accent);stroke-width:2;opacity:1;stroke-dasharray:7 6;animation:flow .9s linear infinite}
 @keyframes flow{to{stroke-dashoffset:-13}}
-.node{opacity:.34;transition:opacity .4s}
-.node rect{fill:var(--surface);stroke:var(--line);stroke-width:1.5}
-.node.agent rect{stroke:#2b5c9c}
-.node.human rect{fill:#c3c2b7;stroke:#c3c2b7}
+.node rect{fill:#141413;stroke:#2a2a28;stroke-width:1.5}
+.node.human rect{fill:#3a3a37;stroke:#3a3a37}
 .node.game rect{fill:#10233d;stroke:var(--accent)}
 .node.code rect{stroke-dasharray:4 3}
-.node text{font:700 12px var(--mono);letter-spacing:.06em;fill:var(--ink);text-anchor:middle}
-.node text.s{font:10.5px system-ui,sans-serif;letter-spacing:0;fill:var(--ink2)}
-.node.human text{fill:#0d0d0d} .node.human text.s{fill:#3a3a37}
-.node.lit{opacity:1}
+.node text{font:700 12px var(--mono);letter-spacing:.06em;fill:#5c5b56;text-anchor:middle}
+.node text.s{font:10.5px system-ui,sans-serif;letter-spacing:0;fill:#52514e}
+.node.human text,.node.human text.s{fill:#898781}
+.node.game text,.node.lit text,.node.born text{fill:var(--ink)} .node.game text.s,.node.lit text.s{fill:var(--ink2)}
+.node.lit.human text{fill:#0d0d0d} .node.lit.human text.s{fill:#3a3a37}
+.node.lit rect{fill:var(--surface)}
 .node.lit.agent rect,.node.lit.code rect{stroke:var(--accent);stroke-width:2;filter:drop-shadow(0 0 6px rgba(57,135,229,.55))}
 .node.lit.human rect{fill:#fff;stroke:#fff}
 .node.born rect{stroke:var(--good);stroke-width:2;stroke-dasharray:none;filter:drop-shadow(0 0 8px rgba(12,163,12,.7));animation:pop .7s ease-out both}
-.node.born{opacity:1}
 @keyframes pop{0%{transform:scale(.6);opacity:0}60%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
 .node{transform-box:fill-box;transform-origin:center}
 .graph.boot .node{animation:boot .5s both}
@@ -154,7 +153,7 @@ table.board tr.us td{background:#10233d;color:#fff;font-weight:700}
     <div class="keys"><span><i class="k1"></i>logged, to the minute</span><span><i class="k2"></i>only a human moves a limit</span><span><i class="k3"></i>the limit, scoped to one trade</span><span><i class="k4"></i>expected value, stated first</span><span><i class="k5"></i>what we learn either way</span><span>labels: [V] verified · [L] likely · [?] open</span></div>
     <div class="res"><div class="kpi g"><div class="v">+50.0</div><div class="l">measured, exactly: filled at 20 P [V]</div></div><div class="kpi n"><div class="v">&gt; 20 P</div><div class="l">an independent verifier agent goes first</div></div></div>
     <div class="when2" style="margin-top:4px">One currency, re-priced as the field moves</div>
-    <div class="fx">1 neg_point = <b>0.16</b> Fri → <b>0.094</b> 12:13 → <b>0.068</b> tick 669 → <b>0.048</b> tick 904 board points</div>
+    <div class="fx">board points per neg_point: <b>0.16</b> Fri → <b>0.094</b> Sat 12:13 → <b>0.068</b> tick 669 → <b>0.048</b> tick 904</div>
     <div class="src">intel/directives.md 10:25 (quoted, shortened), 12:13 · docs/judges/facts.md #23 · intel/saturday-sessions.md (Chief prompt) · intel/GAME.md · intel/score-model.md §2, §3</div>
   </div>
   <aside class="say" data-secs="25">Every decision has the same anatomy. A time. A hard limit, scoped to one trade. An expected value, stated before the trade. And what we learn either way. This one said: plus fifty if the cap holds. It measured plus fifty point zero. And everything converts to one currency, board points, re-priced all day as the field moves.</aside>
@@ -207,21 +206,21 @@ const N = {
   operator: {x: 385, y: 275, w: 170, h: 54, t: 'agent', l: 'OPERATOR', s: 'only writer: trades, dealers'},
   analyst:  {x: 552, y: 275, w: 124, h: 46, t: 'agent', l: 'ANALYST', s: 'score model'},
   duelist:  {x: 694, y: 275, w: 136, h: 54, t: 'agent', l: 'DUELIST', s: '2 models, code-guarded'},
-  hints:    {x: 70,  y: 395, w: 104, h: 32, t: 'code', l: 'hints'},
-  radar:    {x: 186, y: 395, w: 104, h: 32, t: 'code', l: 'radar'},
-  bargains: {x: 302, y: 395, w: 104, h: 32, t: 'code', l: 'bargains'},
-  book:     {x: 418, y: 395, w: 104, h: 32, t: 'code', l: 'book·trader'},
-  collector:{x: 534, y: 395, w: 104, h: 32, t: 'code', l: 'collector'},
-  duelmon:  {x: 650, y: 395, w: 104, h: 32, t: 'code', l: 'duel monitor'},
+  hints:    {x: 61,  y: 395, w: 98, h: 32, t: 'code', l: 'hints'},
+  radar:    {x: 169, y: 395, w: 98, h: 32, t: 'code', l: 'radar'},
+  bargains: {x: 277, y: 395, w: 98, h: 32, t: 'code', l: 'bargains'},
+  book:     {x: 385, y: 395, w: 98, h: 32, t: 'code', l: 'book·trader'},
+  collector:{x: 493, y: 395, w: 98, h: 32, t: 'code', l: 'collector'},
+  duelmon:  {x: 601, y: 395, w: 98, h: 32, t: 'code', l: 'duel mon.'},
   game:     {x: 385, y: 505, w: 650, h: 50, t: 'game', l: 'THE BAZAAR · GAME API', s: '18 teams · one key each · 1 accept per tick'},
 };
 const E = ['lucas-chief', 'chief-verifier', 'chief-builder', 'chief-market', 'chief-operator', 'chief-analyst', 'chief-duellab', 'duellab-aleks', 'aleks-duelist',
-  'operator-game', 'duelist-game', 'bargains-operator', 'builder-hints', 'builder-radar', 'market-radar', 'collector-analyst', 'book-operator'];
+  'operator-game', 'duelist-game', 'bargains-operator', 'builder-hints', 'builder-radar', 'market-radar', 'collector-analyst'];
 const READ = ['hints', 'radar', 'bargains', 'book', 'collector', 'duelmon'];
 const g = document.getElementById('graph');
 g.innerHTML =
   READ.map(a => `<line class="edge read" x1="${N[a].x}" y1="${N[a].y}" x2="${N[a].x}" y2="${N.game.y}"/>`).join('') +
-  E.map(e => { const [a, b] = e.split('-'); return `<line class="edge" data-e="${e}" x1="${N[a].x}" y1="${N[a].y}" x2="${N[b].x}" y2="${N[b].y}"/>`; }).join('') +
+  E.map(e => { const [a, b] = e.split('-'); return `<line class="edge" data-e="${e}" x1="${N[a].x}" y1="${N[a].y}" x2="${b === 'game' ? N[a].x : N[b].x}" y2="${N[b].y}"/>`; }).join('') +
   `<text class="glabel" x="18" y="362">DAEMONS · 17 DEFINED · FACTS, NO LLM</text><text class="glabel" x="18" y="566">GIT IS THE SHARED MEMORY: ONE FILE PER OWNER, EVERY DECISION LOGGED WITH ITS EVIDENCE</text>
    <text class="glabel" x="18" y="592">■ HUMAN   ▢ CLAUDE AGENT   ┄ CODE</text>` +
   Object.entries(N).map(([id, n], i) => `<g class="node ${n.t}" data-n="${id}" style="animation-delay:${i * 70}ms"><rect x="${n.x - n.w / 2}" y="${n.y - n.h / 2}" width="${n.w}" height="${n.h}" rx="7"/>

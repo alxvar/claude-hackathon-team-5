@@ -17,7 +17,7 @@ h1 mark{background:none;color:inherit;box-shadow:inset 0 -.3em 0 rgba(42,120,214
 .row{flex:1;display:flex;gap:24px;margin-top:16px;min-height:0}
 .chart{flex:1;position:relative;min-width:0;background:var(--surface);border:1px solid var(--border);border-radius:10px}
 .chart svg{display:block}
-.legend{position:absolute;left:44px;top:9px;display:flex;gap:16px;font-size:12px;color:var(--ink2)}
+.legend{position:absolute;right:16px;top:9px;display:flex;gap:16px;font-size:12px;color:var(--ink2)}
 .legend i{display:inline-block;width:14px;height:0;border-top:2.5px solid;vertical-align:middle;margin-right:6px}
 .legend i.o{width:9px;height:9px;border:2px solid var(--us);border-radius:50%;box-sizing:border-box}
 .tip{position:absolute;pointer-events:none;display:none;padding:6px 9px;border-radius:6px;font-size:12px;line-height:1.4;background:var(--ink);color:#fff;white-space:nowrap;z-index:2}
@@ -53,14 +53,15 @@ h1 mark{background:none;color:inherit;box-shadow:inset 0 -.3em 0 rgba(42,120,214
 .stagecol h3{margin:0 0 2px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .stagecol.wide{flex:1.25}
 .arrow{width:30px;display:flex;align-items:center;justify-content:center;color:var(--axis);font-size:22px}
-.n{border-radius:8px;padding:8px 10px;font-size:14.5px;line-height:1.25;font-weight:650;border:1.5px solid var(--border);background:#fff}
-.n small{display:block;font-weight:400;font-size:12.5px;color:var(--ink2);margin-top:2px}
+.n{border-radius:8px;padding:11px 12px;font-size:16.5px;line-height:1.25;font-weight:650;border:1.5px solid var(--border);background:#fff}
+.n small{display:block;font-weight:400;font-size:14px;line-height:1.3;color:var(--ink2);margin-top:2px}
 .n.agent{border-color:var(--us)}
 .n.human{background:var(--ink);color:#fff;border-color:var(--ink)}
 .n.human small{color:#c3c2b7}
 .n.game{background:var(--us);border-color:var(--us);color:#fff;flex:1;display:flex;flex-direction:column;justify-content:center;text-align:center;font-size:19px}
 .n.game small{color:#e3eefb}
 .key{display:flex;gap:18px;font-size:12px;color:var(--ink2);margin-top:10px;align-items:center}
+.key>span:not(.src){white-space:nowrap}
 .key b{display:inline-block;width:12px;height:12px;border-radius:3px;border:1.5px solid var(--border);background:#fff;vertical-align:-2px;margin-right:5px}
 .key b.a{border-color:var(--us)} .key b.h{background:var(--ink);border-color:var(--ink)}
 .rules{display:flex;gap:12px;margin-top:12px}
@@ -89,7 +90,7 @@ h1 mark{background:none;color:inherit;box-shadow:inset 0 -.3em 0 rgba(42,120,214
 <!-- 2 · THE SYSTEM -->
 <section data-title="The system">
   <div class="kicker">Who draws the line</div>
-  <h1>Code collects facts. Agents advise. One agent decides. <mark>One agent acts.</mark></h1>
+  <h1>Code collects facts. Agents advise. One decides. <mark>One acts.</mark></h1>
   <div class="pipe">
     <div class="stagecol"><h3>Facts · no LLM</h3>
       <div class="n">17 daemons<small>collector, status, hints, radar, bargains, duel monitor, book, trader…</small></div>
@@ -240,7 +241,7 @@ let uid = 0;
 function race(box) {
   if (!R) { box.textContent = 'race-data.js is missing: run python3 judges/pitch/a5/race_data.py'; return; }
   const o = JSON.parse(box.dataset.cfg), T = R.ticks, x1 = o.x1 || T[T.length - 1], hi = o.hi || ['t05'];
-  const W = box.clientWidth, H = box.clientHeight, m = {l: 38, r: 118, t: 34, b: 30}, id = 'clip' + (++uid);
+  const W = box.clientWidth, H = box.clientHeight, m = {l: 38, r: o.x1 ? 24 : 150, t: 34, b: 30}, id = 'clip' + (++uid);
   const X = t => m.l + (t - o.x0) / (x1 - o.x0) * (W - m.l - m.r);
   const Y = v => H - m.b - (v - o.y0) / (o.y1 - o.y0) * (H - m.t - m.b);
   const near = t => T.reduce((b, v, k) => Math.abs(v - t) < Math.abs(T[b] - t) ? k : b, 0);
@@ -251,7 +252,7 @@ function race(box) {
   for (let v = Math.ceil(o.y0 / 5) * 5; v <= o.y1; v += 5) s += `<line class="grid" x1="${m.l}" x2="${W - m.r}" y1="${Y(v)}" y2="${Y(v)}"/><text class="ax" x="${m.l - 8}" y="${Y(v) + 4}" text-anchor="end">${v}</text>`;
   const step = x1 - o.x0 > 600 ? 200 : 50;
   for (let t = Math.ceil(o.x0 / step) * step; t <= x1; t += step) s += `<text class="ax" x="${X(t)}" y="${H - 9}" text-anchor="middle">${t}</text>`;
-  s += `<text class="ax" x="${W - m.r + 10}" y="${H - 9}">game tick</text>`;
+  s += `<text class="ax" x="${m.l}" y="${m.t - 12}">board score, by game tick</text>`;
   (o.bands || []).forEach(b => { s += `<rect class="band" x="${X(b.a)}" y="${m.t}" width="${X(b.b) - X(b.a)}" height="${H - m.t - m.b}"/><text class="note" x="${(X(b.a) + X(b.b)) / 2}" y="${H - m.b - 12}" text-anchor="middle">${b.text}</text>`; });
   (o.marks || []).forEach(k => { s += `<line class="vmark" x1="${X(k.tick)}" x2="${X(k.tick)}" y1="${m.t}" y2="${H - m.b}"/><text class="ax" x="${X(k.tick) + 6}" y="${m.t + 10}">${k.text}</text>`; });
   s += `<g clip-path="url(#${id})">`;
@@ -259,7 +260,7 @@ function race(box) {
   hi.forEach(t => { s += `<path class="hl ${t === 't05' ? 'us' : ''} ${o.reveal && t === 't05' ? 'draw' : ''}" pathLength="1" style="stroke:${COLOR[t]}" d="${d(t)}"/>`; });
   if (o.firsts) T.forEach((t, k) => { if (R.us.rank[k] === 1 && t <= x1) s += `<circle cx="${X(t)}" cy="${Y(R.score.t05[k])}" r="7" fill="none" stroke="var(--us)" stroke-width="2"/>`; });
   s += '</g>';
-  hi.forEach(t => {
+  if (!o.x1) hi.forEach(t => {
     const v = R.score[t][last];
     s += `<circle cx="${X(T[last])}" cy="${Y(v)}" r="5" fill="${COLOR[t]}" stroke="var(--surface)" stroke-width="2"/><text class="end ${t === 't05' ? 'us' : ''}" x="${X(T[last]) + 10}" y="${Y(v) + 4}">${nm(t)} · #${rank(t, last)} · ${v.toFixed(2)}</text>`;
   });

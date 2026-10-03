@@ -12,7 +12,7 @@ body{background:#12100e;color:var(--ink);font-family:var(--typed)}
 .book{position:absolute;inset:24px 58px 24px 34px;display:flex;border-radius:8px;box-shadow:0 18px 50px rgba(0,0,0,.55)}
 .pg{flex:1;position:relative;box-sizing:border-box;padding:24px 32px 20px;background-color:var(--paper);
   background-image:linear-gradient(var(--rule) 1px,transparent 1px),linear-gradient(90deg,var(--rule) 1px,transparent 1px);background-size:22px 22px;
-  font-size:14.5px;line-height:1.42;overflow:hidden}
+  font-size:15.5px;line-height:1.42;overflow:hidden}
 .pg.l{border-radius:8px 0 0 8px;box-shadow:inset -22px 0 26px -18px rgba(60,40,20,.35)}
 .pg.r{border-radius:0 8px 8px 0;box-shadow:inset 22px 0 26px -18px rgba(60,40,20,.35)}
 .no{position:absolute;bottom:8px;font-size:11px;color:var(--muted)} .pg.l .no{left:32px} .pg.r .no{right:32px}
@@ -27,7 +27,8 @@ b{font-weight:700}
 .hand.red{color:var(--red)}
 .tilt{display:inline-block;transform:rotate(-2deg)}
 s{text-decoration-color:var(--red);text-decoration-thickness:2px;color:var(--ink2)}
-table{border-collapse:collapse;width:100%;font-size:13.5px;margin:2px 0}
+table{border-collapse:collapse;width:100%;font-size:14.5px;margin:2px 0}
+table.ev td:nth-child(2),table.ev th:nth-child(2){text-align:left}
 th{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;text-align:right;padding:2px 6px;border-bottom:1.5px solid var(--ink2)}
 td{padding:3px 6px;text-align:right;border-bottom:1px dotted var(--muted)}
 th:first-child,td:first-child{text-align:left;padding-left:0}
@@ -75,7 +76,7 @@ ol.proto{margin:0;padding-left:26px} ol.proto li{margin-bottom:9px;padding-left:
 
 <!-- 2 · APPARATUS + PROTOCOL -->
 <section data-title="The system"><div class="book">
-  <div class="pg l"><div class="exp">Apparatus</div><h2>Three humans, six Claude sessions, 17 daemons</h2>
+  <div class="pg l"><div class="exp">Apparatus</div><h2>3 humans · 6 Claude sessions · 17 daemons</h2>
     <svg class="sk" viewBox="0 0 520 418" width="520" height="418" role="img" aria-label="System sketch: Lucas talks to the Chief of staff, which directs the Operator, the only writer to the game; Analyst, Market and Builder sessions and 17 daemons feed the Chief; Aleks runs the duelist; Dani covers the room">
       <rect class="h" x="200" y="4" width="120" height="36" rx="6"/><text class="w" x="260" y="28">Lucas</text>
       <line x1="260" y1="40" x2="260" y2="66"/><path d="M254,58 l6,8 l6,-8"/>
@@ -98,7 +99,7 @@ ol.proto{margin:0;padding-left:26px} ol.proto li{margin-bottom:9px;padding-left:
       <rect x="150" y="304" width="364" height="44" rx="6" style="fill:#dbe8fa"/><text x="332" y="332">THE BAZAAR · 18 teams, one key each</text>
       <rect class="d" x="6" y="366" width="508" height="40" rx="6"/><text x="260" y="384">git = shared memory</text><text class="s" x="260" y="399">one file per owner · every decision logged with its evidence</text>
     </svg>
-    <p class="hand" style="position:absolute;left:36px;top:356px;font-size:16px;width:130px;transform:rotate(-4deg)">code guards the duel limit, not the prompt →</p>
+    <p class="hand" style="margin:6px 0 0"><span class="tilt">the duel limit is guarded by code, not by a prompt</span></p>
     <div class="src">src: intel/saturday-sessions.md · intel/chief-handoff.md · tools/daemons.sh (17) · judges/demo.md slides 2, 4</div><span class="no">2</span></div>
   <div class="pg r"><div class="exp">Protocol</div><h2>How anything gets onto these pages</h2>
     <ol class="proto">
@@ -130,7 +131,7 @@ ol.proto{margin:0;padding-left:26px} ol.proto li{margin-bottom:9px;padding-left:
     <dl style="margin-top:10px"><dt>Rule</dt><dd>A dealer can only cost us points. Dealers pay through the <b>ladder</b> alone; the hint's “+4” is about team trades.</dd></dl>
     <p class="hand" style="margin:14px 0 0"><span class="tilt">losses count in full, to the decimal</span></p>
     <div class="src">src: intel/directives.md 09:46, 09:58 · docs/judges/facts.md #9 [V, n=2], #10 [V]</div>
-    <span class="stamp bad" style="right:26px;top:236px">gains: refuted</span><span class="no">4</span></div>
+    <span class="stamp bad" style="right:34px;top:420px">gains: refuted</span><span class="no">4</span></div>
   <div class="pg r"><div class="exp">Experiment · Fri 22:47–22:54 · repeated Sat 10:27 and 18:28</div><h2>Close a page through a team trade</h2>
     <dl>
       <dt>Hypothesis</dt><dd>The page bonus scores only when a <b>team trade</b> completes the page. (Team 17: +6.25 board that way; three teams closing through a dealer: +2.1, +1.1, +1.0.)</dd>
@@ -140,7 +141,7 @@ ol.proto{margin:0;padding-left:26px} ol.proto li{margin-bottom:9px;padding-left:
     </dl>
     <p class="hand" style="margin:10px 0 0"><span class="tilt">#10 → #5 in one snapshot</span></p>
     <div class="src">src: intel/GAME.md “Page bonus” [L], “Per-trade cap” [V, n=2] · docs/judges/facts.md #22, #23 · intel/directives.md 18:32 [V] · data/leaderboard.jsonl ticks 150→155, 980→990</div>
-    <span class="stamp ok" style="right:24px;top:20px">confirmed ×3</span><span class="no">5</span></div>
+    <span class="stamp ok" style="right:40px;top:420px">confirmed ×3</span><span class="no">5</span></div>
   <aside class="say" data-secs="35">Experiment. The organisers hinted that a good dealer buy scores. We predicted plus two, twice. Measured: zero, zero. A loss, predicted minus ten point zero, measured minus ten point zero. So dealers can only hurt you. Next page: maybe a page bonus only scores through a team trade. We sold our own card to a dealer and bought it back from a team for eight pesetas. Plus fifty. Tenth to fifth. Repeated Saturday: plus fifty point zero where sixty-four was due. A hidden cap. Third time: number one.</aside>
 </div></section>
 
@@ -175,7 +176,7 @@ ol.proto{margin:0;padding-left:26px} ol.proto li{margin-bottom:9px;padding-left:
     </svg>
     <dl><dt>Read</dt><dd>Our negotiating score sat at exactly <b>21.88</b> for five snapshots while the ladder kept rising. 17:45: stop ladder-driven deals.</dd></dl>
     <div class="src">src: intel/score-model.md §0, §2 [L, 2 clean tests] · intel/directives.md 11:56, 17:45 · data/leaderboard.jsonl ticks 850–890</div>
-    <span class="stamp cap" style="right:30px;top:22px">capped</span><span class="no">7</span></div>
+    <span class="stamp cap" style="right:60px;top:316px">capped</span><span class="no">7</span></div>
   <aside class="say" data-secs="30">Duels. Every message is a round, and every round burns six percent. We closed thirty of thirty-four, but lost nineteen percent to rounds. Two obvious fixes: we replayed them on real offers. Both lost. Crossed out, not shipped. The dealer ladder: each new level paid less. Thirty-five, twenty, ten, zero. Our score froze at twenty-one eighty-eight. Capped. Stop.</aside>
 </div></section>
 
@@ -192,7 +193,7 @@ ol.proto{margin:0;padding-left:26px} ol.proto li{margin-bottom:9px;padding-left:
       <tr><td>backwards</td><td><b>−0.18</b> · 30% of deals negative</td></tr></table>
     <p style="margin:8px 0 0">No switch existed. So, <b>one</b> change after the 19:30 code freeze: <code>--days-read auto|flip|unsure</code>, default = today's code. Worth 0 if we read it right. Duels II: <span class="tbd">result TBD</span></p>
     <div class="src">src: intel/GAME.md · intel/directives.md 09:55, 12:13, 17:58 · intel/score-model.md §2, §3 · judges/demo.md slide 5 · intel/duel-lab.md 18:30 [L] · PLAN.md Aleks #24 · team/aleks.md 18:18</div>
-    <span class="stamp ins" style="right:22px;top:300px">insurance</span><span class="no">8</span></div>
+    <span class="stamp ins" style="right:40px;top:560px">insurance</span><span class="no">8</span></div>
   <div class="pg r"><div class="exp">Field notes</div><h2>Other teams' notebooks</h2>
     <dl>
       <dt>Friday's leader</dt><dd>Built its lead on the dealer ladder: never paid a dealer above list. Our five El Chato buys had paid 44 P over list, for nothing. We copied the play. So did the field, and that lead eroded.</dd>
@@ -211,7 +212,7 @@ ol.proto{margin:0;padding-left:26px} ol.proto li{margin-bottom:9px;padding-left:
 <section data-title="Errata"><div class="book">
   <div class="pg l"><div class="exp">Errata · Sat 10:18</div><h2 class="red">The venue swap with Team 10</h2>
     <dl><dt>We wrote</dt><dd>“Our standing offers default to Team 10's v07 …; theirs to our v10 … a balanced swap lifts both against the top 5.”</dd></dl>
-    <table style="margin-top:8px"><tr><th>tick</th><th>what happened</th><th>our rank</th></tr>
+    <table class="ev" style="margin-top:8px"><tr><th>tick</th><th>what happened</th><th>our rank</th></tr>
       <tr><td>311</td><td>their sale on our venue: our market <b>+4.99</b></td><td>#2</td></tr>
       <tr><td>351</td><td><b>our</b> sale on their venue (SAL-01, 7 P): their market up</td><td>—</td></tr>
       <tr><td>398</td><td>their sale on ours, to a non-collector: +4.99 → <b>−5.2</b></td><td>#7</td></tr></table>
@@ -223,7 +224,7 @@ ol.proto{margin:0;padding-left:26px} ol.proto li{margin-bottom:9px;padding-left:
   <div class="pg r"><div class="exp">Errata · tick 522 → tick 1047 (Sat 19:01)</div><h2 class="red">The golden chulapa</h2>
     <div class="slip"><div class="exp">Doña Pilar, in our own deal thread · tick 522</div>
       <p style="margin:4px 0 0">“Very well. 23 P. A pleasure. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about the golden chulapa.”</p></div>
-    <table><tr><th>tick</th><th>what happened</th></tr>
+    <table class="ev"><tr><th>tick</th><th>what happened</th></tr>
       <tr><td>522</td><td>the hint sits in our thread; nobody reads it</td></tr>
       <tr><td>1021</td><td>the one-of-one card (LAT-13, print run 1) goes to another team</td></tr>
       <tr><td>1047</td><td>we ask Carmen: egg found, card gone</td></tr></table>
