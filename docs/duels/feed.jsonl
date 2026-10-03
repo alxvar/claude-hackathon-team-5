@@ -614,3 +614,4 @@
 {"id": 33847, "tick": 640, "t": 6.6583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2583, "session": 2, "status": "no_deal", "item": "Palacio de Cristal"}}
 {"id": 34204, "tick": 651, "t": 6.75, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2591, "session": 2, "status": "no_deal", "item": "Café en Goya"}}
 {"id": 34207, "tick": 651, "t": 6.75, "type": "duels.finished", "scope": "public", "actor": "", "payload": {"session": 2, "name": "Duels I"}}
+{"id": 58918, "tick": 1239, "t": 11.65, "type": "duels.scheduled", "scope": "public", "actor": "", "payload": {"session": 3, "name": "Duels II", "duels": 612, "rounds": 2, "duel_ticks": 16, "decay": 0.08}}
