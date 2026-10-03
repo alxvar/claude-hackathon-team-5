@@ -729,6 +729,164 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1306,
+   "took_s": 8.14,
+   "cost_usd": 0.01187,
+   "obs": {
+    "view": {
+     "duel_id": 5823,
+     "role": "buyer",
+     "limit": 61,
+     "currency": "P",
+     "item": "Plaza del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 6.26,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "We can deliver the Plaza del Dos de Mayo for 103 primas with 10 delivery days. A fair deal we're ready to sign.",
+      "offer": {
+       "price": 103,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1299,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 30 P with delivery on day 0. That's a serious starting offer from me, and early delivery matters to me.}",
+      "offer": {
+       "price": 30,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1299,
+      "decision": {
+       "action": "offer",
+       "price": 30,
+       "message": "I can do 30 P with delivery on day 0. That's a serious starting offer from me, and early delivery matters to me.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Happy to move toward early delivery: 100 P with delivery on day 4.",
+      "offer": {
+       "price": 100,
+       "days": 4
+      },
+      "accept": false,
+      "tick": 1300,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for moving on timing. I can do 36 P with delivery on day 0, and your price needs to come down a lot before we're close.",
+      "offer": {
+       "price": 36,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1300,
+      "decision": {
+       "action": "offer",
+       "price": 36,
+       "message": "Thanks for moving on timing. I can do 36 P with delivery on day 0, and your price needs to come down a lot before we're close."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can step to 42 P with delivery on day 0. That's a clear move from me, and day 0 is how I want it; your price still needs to come down a long way.",
+      "offer": {
+       "price": 42,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1303,
+      "decision": {
+       "action": "offer",
+       "price": 42,
+       "message": "I can step to 42 P with delivery on day 0. That's a clear move from me, and day 0 is how I want it; your price still needs to come down a long way."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 100,
+     "days": 4
+    },
+    "tick": 1306,
+    "ticks_left": 9,
+    "rounds": 2,
+    "day_swings": [
+     39.8,
+     55.199999999999996,
+     36.2,
+     18.6,
+     45.099999999999994,
+     33.4,
+     62.599999999999994,
+     25.9,
+     13.200000000000001
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "I'm holding at my current offer on day 0 and will wait for your move on price.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "I'm holding at my current offer on day 0 and will wait for your move on price."
+     },
+     "band": {
+      "worst": 42,
+      "target": 42,
+      "best": 42
+     },
+     "plan": {
+      "read": "They have not moved since 100 P on day 4, while we have already stepped twice to 42 P on day 0. Their price is far past what works for us, and their earlier move to day 4 was only a small trade on timing, not a real price concession.",
+      "target": 42,
+      "best": 42,
+      "worst": 42,
+      "days": 0,
+      "angle": "Hold at 42 P with day 0 and send nothing; the next move on price has to come from them."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.25,
+       "in": 1054,
+       "out": 311,
+       "cost_usd": 0.01044,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.89,
+       "in": 500,
+       "out": 43,
+       "cost_usd": 0.00143,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [

@@ -1640,6 +1640,164 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1306,
+   "raw": {
+    "duel": 5801,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.52,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 86,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 1307,
+    "decay_per_round": 0.08,
+    "rounds": 8,
+    "your_offer": {
+     "id": 8882,
+     "price": 82,
+     "tick": 1306,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 8813,
+     "price": 81,
+     "tick": 1305,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1293,
+      "from": "you",
+      "text": "I can do 50 P with delivery on day 0. What price and day work for you?",
+      "price": 50,
+      "days": 0
+     },
+     {
+      "tick": 1298,
+      "from": "Rival Noche",
+      "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 112.",
+      "price": 112,
+      "days": 5
+     },
+     {
+      "tick": 1299,
+      "from": "Rival Noche",
+      "text": "I just moved for you. 111, your turn to meet me.",
+      "price": 111,
+      "days": 5
+     },
+     {
+      "tick": 1299,
+      "from": "you",
+      "text": "I can move to 56 P with delivery on day 0. I'd need to see you come down meaningfully on price and to an earlier day before I move again.",
+      "price": 56,
+      "days": 0
+     },
+     {
+      "tick": 1300,
+      "from": "Rival Noche",
+      "text": "That was a real step from my side: 109.",
+      "price": 109,
+      "days": 5
+     },
+     {
+      "tick": 1300,
+      "from": "you",
+      "text": "I've moved again: 63 P with delivery on day 0. I'd like to see your steps be larger than a couple of primas, and an earlier day too.",
+      "price": 63,
+      "days": 0
+     },
+     {
+      "tick": 1301,
+      "from": "Rival Noche",
+      "text": "I just moved for you. 106, your turn to meet me.",
+      "price": 106,
+      "days": 5
+     },
+     {
+      "tick": 1301,
+      "from": "you",
+      "text": "I can do 68 P with delivery on day 0. Any further move from me depends on a real cut in price and an earlier day from you, not a couple of primas.",
+      "price": 68,
+      "days": 0
+     },
+     {
+      "tick": 1302,
+      "from": "Rival Noche",
+      "text": "That was a real step from my side: 101.",
+      "price": 101,
+      "days": 5
+     },
+     {
+      "tick": 1302,
+      "from": "you",
+      "text": "I can do 75 P with delivery on day 0. That's a sizeable move in answer to yours, so I'd like to see you come well down on price and to an earlier day so we can close soon.",
+      "price": 75,
+      "days": 0
+     },
+     {
+      "tick": 1303,
+      "from": "Rival Noche",
+      "text": "I just moved for you. 94, your turn to meet me.",
+      "price": 94,
+      "days": 5
+     },
+     {
+      "tick": 1303,
+      "from": "you",
+      "text": "I can do 47 P, delivery on day 5.",
+      "price": 47,
+      "days": 5
+     },
+     {
+      "tick": 1304,
+      "from": "Rival Noche",
+      "text": "That was a real step from my side: 88.",
+      "price": 88,
+      "days": 5
+     },
+     {
+      "tick": 1304,
+      "from": "you",
+      "text": "I can do 55 P with delivery on day 5, keeping your day. That's a serious step toward closing now, so I'd ask you to meet it rather than trade small cuts.",
+      "price": 55,
+      "days": 5
+     },
+     {
+      "tick": 1305,
+      "from": "Rival Noche",
+      "text": "I just moved for you. 81, your turn to meet me.",
+      "price": 81,
+      "days": 5
+     },
+     {
+      "tick": 1305,
+      "from": "you",
+      "text": "I can do 79 P with delivery on day 0. That's a big move from me, and it's the number that lets us finish this tick if you take it.",
+      "price": 79,
+      "days": 0
+     },
+     {
+      "tick": 1306,
+      "from": "you",
+      "text": "82 P with delivery on day 0 is my number to close on right now.",
+      "price": 82,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -3262,6 +3420,297 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1306,
+   "took_s": 10.14,
+   "cost_usd": 0.01946,
+   "obs": {
+    "view": {
+     "duel_id": 5801,
+     "role": "buyer",
+     "limit": 86,
+     "currency": "P",
+     "item": "La Vía Láctea",
+     "context": "",
+     "rival": "Rival Noche",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.52,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I can do 50 P with delivery on day 0. What price and day work for you?",
+      "offer": {
+       "price": 50,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1293,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 112.",
+      "offer": {
+       "price": 112,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1298,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I just moved for you. 111, your turn to meet me.",
+      "offer": {
+       "price": 111,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1299,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 56 P with delivery on day 0. I'd need to see you come down meaningfully on price and to an earlier day before I move again.",
+      "offer": {
+       "price": 56,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1299,
+      "decision": {
+       "action": "offer",
+       "price": 56,
+       "message": "I can move to 56 P with delivery on day 0. I'd need to see you come down meaningfully on price and to an earlier day before I move again."
+      }
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 109.",
+      "offer": {
+       "price": 109,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1300,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've moved again: 63 P with delivery on day 0. I'd like to see your steps be larger than a couple of primas, and an earlier day too.",
+      "offer": {
+       "price": 63,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1300,
+      "decision": {
+       "action": "offer",
+       "price": 63,
+       "message": "I've moved again: 63 P with delivery on day 0. I'd like to see your steps be larger than a couple of primas, and an earlier day too."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I just moved for you. 106, your turn to meet me.",
+      "offer": {
+       "price": 106,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1301,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 68 P with delivery on day 0. Any further move from me depends on a real cut in price and an earlier day from you, not a couple of primas.",
+      "offer": {
+       "price": 68,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1301,
+      "decision": {
+       "action": "offer",
+       "price": 68,
+       "message": "I can do 68 P with delivery on day 0. Any further move from me depends on a real cut in price and an earlier day from you, not a couple of primas."
+      }
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 101.",
+      "offer": {
+       "price": 101,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1302,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 75 P with delivery on day 0. That's a sizeable move in answer to yours, so I'd like to see you come well down on price and to an earlier day so we can close soon.",
+      "offer": {
+       "price": 75,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1302,
+      "decision": {
+       "action": "offer",
+       "price": 75,
+       "message": "I can do 75 P with delivery on day 0. That's a sizeable move in answer to yours, so I'd like to see you come well down on price and to an earlier day so we can close soon."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I just moved for you. 94, your turn to meet me.",
+      "offer": {
+       "price": 94,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1303,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 47 P, delivery on day 5.",
+      "offer": {
+       "price": 47,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1303,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 88.",
+      "offer": {
+       "price": 88,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1304,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 55 P with delivery on day 5, keeping your day. That's a serious step toward closing now, so I'd ask you to meet it rather than trade small cuts.",
+      "offer": {
+       "price": 55,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1304,
+      "decision": {
+       "action": "offer",
+       "price": 55,
+       "message": "I can do 55 P with delivery on day 5, keeping your day. That's a serious step toward closing now, so I'd ask you to meet it rather than trade small cuts."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I just moved for you. 81, your turn to meet me.",
+      "offer": {
+       "price": 81,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1305,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 79 P with delivery on day 0. That's a big move from me, and it's the number that lets us finish this tick if you take it.",
+      "offer": {
+       "price": 79,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1305,
+      "decision": {
+       "action": "offer",
+       "price": 79,
+       "message": "I can do 79 P with delivery on day 0. That's a big move from me, and it's the number that lets us finish this tick if you take it."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 81,
+     "days": 5
+    },
+    "tick": 1306,
+    "ticks_left": 1,
+    "rounds": 8,
+    "day_swings": [
+     39.8,
+     55.199999999999996,
+     36.2,
+     18.6,
+     45.099999999999994,
+     33.4,
+     62.599999999999994,
+     25.9,
+     13.200000000000001
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "82 P with delivery on day 0 is my number to close on right now.",
+    "price": 82,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 82,
+      "message": "82 P with delivery on day 0 is my number to close on right now."
+     },
+     "band": {
+      "worst": 83,
+      "target": 82,
+      "best": 81
+     },
+     "plan": {
+      "read": "They keep stepping down (now 81 at day 5) but always on day 5, which costs us too much: their standing offer is past our limit, so it cannot be accepted. This is the last tick, so only a price they can take right away counts.",
+      "target": 82,
+      "best": 81,
+      "worst": 83,
+      "days": 0,
+      "angle": "Short and final: name 82 on day 0 as the number to close on right now, with no more back-and-forth."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.34,
+       "in": 1712,
+       "out": 508,
+       "cost_usd": 0.01701,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.8,
+       "in": 1024,
+       "out": 40,
+       "cost_usd": 0.00245,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -3694,6 +4143,63 @@
      "id": 8842,
      "price": 79,
      "tick": 1305,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1306,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "82 P with delivery on day 0 is my number to close on right now.",
+    "price": 82,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 82,
+      "message": "82 P with delivery on day 0 is my number to close on right now."
+     },
+     "band": {
+      "worst": 83,
+      "target": 82,
+      "best": 81
+     },
+     "plan": {
+      "read": "They keep stepping down (now 81 at day 5) but always on day 5, which costs us too much: their standing offer is past our limit, so it cannot be accepted. This is the last tick, so only a price they can take right away counts.",
+      "target": 82,
+      "best": 81,
+      "worst": 83,
+      "days": 0,
+      "angle": "Short and final: name 82 on day 0 as the number to close on right now, with no more back-and-forth."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.34,
+       "in": 1712,
+       "out": 508,
+       "cost_usd": 0.01701,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.8,
+       "in": 1024,
+       "out": 40,
+       "cost_usd": 0.00245,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5801,
+    "offer": {
+     "id": 8882,
+     "price": 82,
+     "tick": 1306,
      "days": 0
     }
    }
