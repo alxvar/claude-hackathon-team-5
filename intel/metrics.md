@@ -1,22 +1,22 @@
-# Metrics (auto, 10:23, game tick 269)
+# Metrics (auto, 10:25, game tick 273)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
-1. Team 18 29.0 (+8.0 / +9.8) deals 27
-2. Team 12 27.1 (-0.5 / -0.7) deals 29
-3. Team 2 25.2 (+5.1 / +18.4) deals 23
-4. Team 13 23.1 (-1.6 / -6.9) deals 36
-5. Team 14 22.4 (+0.4 / +4.3) deals 13
-6. Team 5 19.0 (-0.3 / -1.0) deals 31 ← US
-7. Team 4 18.8 (-0.6 / -1.1) deals 17
-8. Team 17 18.4 (-1.0 / -3.6) deals 16
-9. Team 10 17.0 (+0.3 / -3.8) deals 21
-10. Team 3 17.0 (+1.4 / +2.3) deals 12
+1. Team 18 29.3 (+1.3 / +10.1) deals 27
+2. Team 12 27.1 (-0.1 / -0.8) deals 29
+3. Team 2 26.0 (+2.6 / +19.1) deals 23
+4. Team 14 22.9 (+0.9 / +4.8) deals 14
+5. Team 13 22.8 (-1.0 / -7.2) deals 36
+6. Team 5 19.3 (+0.4 / -0.7) deals 32 ← US
+7. Team 4 18.7 (-0.3 / -1.2) deals 17
+8. Team 17 18.2 (-0.6 / -3.8) deals 16
+9. Team 3 17.1 (+0.3 / +2.4) deals 12
+10. Team 10 16.8 (+0.8 / -4.0) deals 21
 Us: #6
 
 ## Us
 
-score 19.04 · neg_points -21.5 (15 min ago -19.0) · ladder 0.055 · duel 0.0 · cash 127 · level 2 · deals 32
+score 19.29 · neg_points -21.5 (15 min ago -19.0) · ladder 0.055 · duel 0.0 · cash 127 · level 2 · deals 32
 
 ## Our holdings (card (rarity): value of each copy; a sale gives up the cheapest copy)
 
@@ -35,7 +35,7 @@ LAT-03 (common): 5; LAT-04 (common): 1.2 / 1.2; LAT-08 (uncommon): 12.5; LAV-01 
 - 4148: sell LAT-04 for 7 · to t15 · expires tick 325
 - 4149: sell MAL-06 for 24 · to t01 · expires tick 325
 - 4150: sell MAL-07 for 24 · to t01 · expires tick 325
-- 4166: bid 10 for RET-01 · to t10 · expires tick 289
+- 4167: bid 20 for RET-01 · to t10 · expires tick 290
 
 ## What each of our deals did to neg_points (measured, last 12)
 
@@ -82,7 +82,7 @@ Who buys which set (team trades): t01: SAL×3, MAL×2; t02: MAL×2, RET×1; t04:
 
 ## Dealer prices, last 60 ticks (median per item)
 
-- abuela common (team buys): median 9 over 11
+- abuela common (team buys): median 9 over 8
 - abuela sobre_barrio (team buys): median 21 over 1
 - abuela uncommon (team buys): median 23 over 5
 - chato rare (team buys): median 86 over 3
@@ -92,12 +92,12 @@ Who buys which set (team trades): t01: SAL×3, MAL×2; t02: MAL×2, RET×1; t04:
 ## El Rastro now: top bids by price (team, card, price)
 
 - t17: MAL-09 (rare) 70 P · offer 4045
-- t02: RET-10 (rare) 20 P · offer 4092
-- t02: RET-09 (rare) 18 P · offer 4093
+- t04: LAT-09 (rare) 52 P · offer 4169
+- t02: RET-10 (rare) 21 P · offer 4173
+- t02: RET-09 (rare) 19 P · offer 4174
 - t13: RET-03 (common) 2 P · offer 4063
 - t13: RET-02 (common) 2 P · offer 4084
 - t13: RET-01 (common) 2 P · offer 4107
-- t02: LAV-04 (common) 1 P · offer 3984
 
 Asks by others (card, price: count): LAV-04 10: 3; LAT-04 9: 3; MAL-05 9: 2; LAT-01 9: 2; LAV-03 9: 2; LAT-04 7: 1; SAL-01 9: 1; LAT-02 6: 1; LAT-02 11: 1; LAT-03 11: 1; LAT-04 11: 1; LAT-06 25: 1; LAT-07 25: 1; LAT-08 25: 1; LAT-05 9: 1
 
@@ -116,9 +116,9 @@ Asks by others (card, price: count): LAV-04 10: 3; LAT-04 9: 3; MAL-05 9: 2; LAT
 
 ## Latest announcements
 
-- tick 159 announcement: {"text": "Closed until Saturday 09:00. Offers stay open; the clock stops."}
 - tick 159 announcement: {"text": "Good morning! The Bazaar is open again: Saturday until 23:00, one tick every 30 s."}
 - tick 252 level.announced: {"level": "pilar", "kind": "persona", "name": "Do\u00f1a Pilar", "teaser": "\u00abI collect what others throw away.\u00bb"}
 - tick 262 level.activated: {"level": "pilar", "kind": "persona", "name": "Do\u00f1a Pilar", "teaser": "\u00abI collect what others throw away.\u00bb", "how": "A collector: she pays over b
 - tick 262 level.unlocked: {"team": "t13", "name": "Team 13", "persona": "pilar", "persona_name": "Do\u00f1a Pilar", "level": 3, "why": "3 deals with chato"}
+- tick 272 level.announced: {"level": "radio", "kind": "radio", "name": "Radio Rastro", "teaser": "\u00abAt El Rastro you hear everything. Some of it is true.\u00bb"}
 

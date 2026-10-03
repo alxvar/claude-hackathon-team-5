@@ -1,32 +1,26 @@
-# Scout (claude-sonnet-5-5, Sat 10:22)
+# Scout (claude-sonnet-5-5, Sat 10:27)
 
 ## Top 3 actions now
-
-1. **Close RET-07 from Abuela (bid 4124 at 21, expires tick 268; her last 24, ours 21).** Operator: step 21→22→23 with warm words, cap 24 (value 27.5).
-   - Evidence: RET-08 closed at 22 from her 29→23, and RET-07 sits at her 24 with our bid at 21.
-   - Effect: `neg_points` stays 0 (dealer gain), ladder about +0.003. It is a prerequisite for the RET page.
-   - Confidence: high. Re-post the bid if it expires at tick 268.
-
-2. **Buy RET-01 on El Rastro, the cap test card.** Operator posts a public bid at 20 and does not address it to t13, so the card goes to whichever team holds it.
-   - Evidence: t13 bids 2 P for RET-01, -02 and -03, so it is a junk bidder, not a holder. The metrics show no RET-01 ask or trade, so a holder is not in the data.
-   - Effect: it completes the page (value 72.9 bonus). Expected +50 if the cap is flat, +62 if 5×(p+f), +38 if value ≤ 6×book. The result goes into GAME.md.
-   - Confidence: med. Fallback: Dani asks the room who holds RET-01, and the Operator raises to 30.
-   - Check first: the page completes only if no RET card is missing, and RET-07 is still open.
-
-3. **Open a Chato deal for level 3 only if the Pilar menu is worth it.** Level 3 Doña Pilar activated at tick 262 and Team 13 already holds it ("3 deals with chato"). Her terms are cut off in the data ("a collector: she pays over b…").
-   - Evidence: we have 3 negotiated Chato deals today (87, 86, 30). Check `GET /api/me` to see whether level 3 is unlocked for us.
-   - Action: the Operator reads Pilar's menu. Her "pays over book" language suggests she buys, so the Operator offers spares she may take, such as LAV-02/03/04 worth 3.2 each and SAL-01/02 worth 2.2 each.
-   - Confidence: low. Her price list is not in the data. Do not sell anything below its value until the menu is read.
+1. **RET-01 page-closer: bid 4167 (20 P, to t10, live to tick 290).** The Operator escalates to 25, then 30, inside the GUARDRAIL (cash floor 97, ≤30 P). Lucas/Dani keep pushing Team 10 to accept.
+   - Evidence: RET is 9/10 and RET-01 is worth 83.9. Team 10 lists RET-01 at 40 on our v10, where we can't buy. The only El Rastro RET-01 bids are t13's at 2.
+   - Effect: closes the page and runs the cap test. Expected score is +50 (flat cap or 5×book), ~64 (5×(p+f)), or ~40 (6×book).
+   - Confidence: med. Whether t10 accepts below its 40 ask is not in the data.
+2. **Sell spare RET rares or commons only after the page closes. Do not sell RET-09/10.** Team 2 bids 21/19 for RET-10/09, far below our 77 value. Teams 2, 15 and 18 buy RET, but 2 and 18 are top 4, so don't feed them.
+   - Evidence: t02 paid 49 for RET-02 (tick 230, to t18); t15 bought RET-07 for 24.
+   - Effect: none now; this only prevents a loss.
+   - Confidence: high.
+3. **Keep the maker book on v07 and reprice to the clearing prices.** The current asks are LAV/SAL commons at 9, SAL-08 25, MAL-06/07 24 and LAT at 7.
+   - Evidence: clearing prices are common 9 and uncommon 24.5. Buyers are t15 (LAT×6, MAL×3), t01 (SAL/MAL) and t16. Other asks to t07/t09/t16 sit at 9.
+   - Effect: small cash and a few neg_points from sells (the Sat sell at 9 earned +7.7). Cash also funds the RET-01 bid.
+   - Confidence: med. Four earlier asks expired unfilled.
 
 ## What the climbing teams are doing
-
-- **Team 18 (#1, 29.0, +8.0 in 15 min)** is buying RET. It paid 49 P for RET-02 from t02 at tick 230, against a clearing price of about 11, so it is a page-completer buyer and a competitor for our RET cards.
-- **Team 2 (#3, +5.1 in 15 min, +18.4 in 60 min)** is trading RET with t15 (RET-07 at 24 at tick 234) and sold RET-02 to t18 at 49. It also bids 20 and 18 for RET-10/09. It is positioned as a RET intermediary.
-- **Team 15** is buying LAT×6, MAL×3, RET×2 from teams, mostly at ≤10 P. It also took RET-07 and RET-02, so it is a RET competitor on cheap cards.
-- **Team 13 (#4)** reached level 3 first. It also lobbied traders onto its own venue, which feeds it market points.
+- **Team 18 (#1, 29.3, +10.1/h)** bought RET-02 from t02 at 49 (tick 230) and has 16 dealer trades. It collects RET/LAT. It is the one team likely racing us for RET cards.
+- **Team 2 (#3, +19.1/h)** has 83 listings. It is trading RET (sold RET-07 to t15 at 24, sold RET-02 at 49) and bidding 21/19 for RET-10/09. It is the biggest climber.
+- **Team 14 (#4, +4.8/h)** collects LAV/LAT. It bought LAT-03 from t15 at 8 (tick 261) with just 14 deals, so it gains from few trades.
+- **Team 13** unlocked Pilar early with 3 Chato deals (tick 262) but is falling (−7.2/h), so Pilar did not bring it points yet.
 
 ## Threats
-
-- **Team 18 and Team 2 both buy RET.** If one holds RET-01 and the other is a RET collector, our last common may cost more than the 20 we bid. Stay on El Rastro and do not use v07.
-- **Level 3 already opened for Team 13.** If Pilar's early-bird prices move, they will have first pick.
-- **Our maker book moved to v07 (Team 10, #9).** Four of our asks vanished on 10:00-10:17 and the cause is unknown. A page-completing sale must never go on a venue.
+- **Feeding leaders:** t12 collects RET and t18 collects RET/LAT. Any RET sale to them is a feed. A RET-01 trade on El Rastro is fine, but never on v02 (t12) or v03 (t13).
+- **RET-01 competition:** t10 asks 40 against our 20. t13 bids 2 on RET-01/02/03, so it also holds or wants RET cards. If another team takes RET-01 first, our page closer is gone.
+- **Chato prices vs value:** our RET-09/10 cost 87/86 against a value of 77. Further Chato deals lose points and don't move the ladder, so stop them.
