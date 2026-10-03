@@ -42,7 +42,8 @@ HINT = re.compile(   # strong patterns only: flavour words (grandchildren, saint
     r"password|contraseña|santo y seña|easter|golden \w*chulapa|chulapa dorada|dorad[ao]s? |oro de mosc\w*|"
     r"moscow gold|gold of mosc\w*|el oro\b|carmen (sends|speaks|talks)|sends you|me manda|te manda)", re.I)
 KEEPER = "banco"   # Don Ernesto keeps the golden chulapa: his lines to a team that found an egg, on the egg's topic
-EGG_WORDS = re.compile(r"(vault|bóveda|chulapa|carmen|mosc|story|stories|historia|\boro\b|gold|legend|leyenda|sends|manda)", re.I)
+EGG_WORDS = re.compile(r"(vault|bóveda|chulapa|carmen|mosc|story|stories|historia|\boro\b(?! pack)|"
+                       r"gold(?:en)?\b(?! pack)|legend|leyenda|sends|manda)", re.I)   # "gold pack" is his menu
 NOISE = re.compile(r"(not a legend|no secrets?|hardly a treasure|not a treasure|is a story|a story, not)", re.I)
 QUOTED = re.compile(r"\b(say|tell (him|her|them)|dile|díle|diga|di|pronounce|whisper)\b[^.]{0,20}[\"“«]([^\"”»]{3,60})[\"”»]", re.I)
 NUM = re.compile(r"\d+|\b(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|"

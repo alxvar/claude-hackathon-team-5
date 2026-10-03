@@ -70,3 +70,12 @@ def test_the_keepers_answer_to_an_egg_team_is_always_a_hit():
                                                                     ("message", "banco", ["t05"])]
     later, _ = hints.scan_events([msg(5, 1090, "banco", "t18", "Carmen sends you? Then the vault opens.")], seen)
     assert later and later[0]["teams"] == ["t18"]                    # the egg teams survive across runs
+
+
+
+def test_his_gold_pack_menu_is_not_the_egg():
+    events = [{"id": 1, "tick": 1074, "type": "egg.found", "payload": {"persona": "abuela", "team": "t13"}},
+              msg(2, 1119, "banco", "t13", "My desk is open. A gold pack today, terms are five hundred forty-six P."),
+              msg(3, 1120, "banco", "t13", "Carmen's regards are noted; the gold chulapa stays in the vault today.")]
+    hits, _ = hints.scan_events(events)
+    assert [h["first"] for h in hits if h["kind"] == "message"] == [1120]
