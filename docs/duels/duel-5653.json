@@ -770,6 +770,122 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1270,
+   "raw": {
+    "duel": 5653,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.33,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 114,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 1281,
+    "decay_per_round": 0.08,
+    "rounds": 5,
+    "your_offer": {
+     "id": 7489,
+     "price": 74,
+     "tick": 1270,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 7449,
+     "price": 93,
+     "tick": 1270,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1265,
+      "from": "Rival Verde",
+      "text": "Te la dejo en 107 primas y entrega en 10 días; me cuesta bajar más.",
+      "price": 107,
+      "days": 10
+     },
+     {
+      "tick": 1265,
+      "from": "you",
+      "text": "Day 10 for delivery is fine by me. I can do 55 P on day 10.",
+      "price": 55,
+      "days": 10
+     },
+     {
+      "tick": 1266,
+      "from": "Rival Verde",
+      "text": "105 primas y entrega en 10 días. Me muevo poco ya, pero si tú te mueves, cerramos.",
+      "price": 105,
+      "days": 10
+     },
+     {
+      "tick": 1267,
+      "from": "Rival Verde",
+      "text": "Mi propuesta: 103 primas y entrega en 10 días. Dime una cifra concreta y la miro.",
+      "price": 103,
+      "days": 10
+     },
+     {
+      "tick": 1267,
+      "from": "you",
+      "text": "I see you've moved, and I appreciate it. I can do 62 P on day 10; further movement from me depends on you coming down meaningfully more.",
+      "price": 62,
+      "days": 10
+     },
+     {
+      "tick": 1268,
+      "from": "Rival Verde",
+      "text": "Es una pieza que merece su precio: 101 primas y entrega en 10 días.",
+      "price": 101,
+      "days": 10
+     },
+     {
+      "tick": 1268,
+      "from": "you",
+      "text": "Small steps from you get small steps from me: I can do 66 P on day 10. A real jump on your side would bring us together much faster.",
+      "price": 66,
+      "days": 10
+     },
+     {
+      "tick": 1269,
+      "from": "Rival Verde",
+      "text": "Te la dejo en 98 primas y entrega en 10 días; me cuesta bajar más.",
+      "price": 98,
+      "days": 10
+     },
+     {
+      "tick": 1269,
+      "from": "you",
+      "text": "I can do 70 P on day 10. That's a step up from me; a bigger move from you is what will close the gap.",
+      "price": 70,
+      "days": 10
+     },
+     {
+      "tick": 1270,
+      "from": "Rival Verde",
+      "text": "93 primas y entrega en 10 días. Me muevo poco ya, pero si tú te mueves, cerramos.",
+      "price": 93,
+      "days": 10
+     },
+     {
+      "tick": 1270,
+      "from": "you",
+      "text": "That was a bigger step from you, and I'll answer it: I can do 74 P on day 10. Another real move from you would help us close.",
+      "price": 74,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1529,6 +1645,221 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1270,
+   "took_s": 8.35,
+   "cost_usd": 0.01321,
+   "obs": {
+    "view": {
+     "duel_id": 5653,
+     "role": "buyer",
+     "limit": 114,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.33,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Te la dejo en 107 primas y entrega en 10 días; me cuesta bajar más.",
+      "offer": {
+       "price": 107,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1265,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Day 10 for delivery is fine by me. I can do 55 P on day 10.",
+      "offer": {
+       "price": 55,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1265,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "105 primas y entrega en 10 días. Me muevo poco ya, pero si tú te mueves, cerramos.",
+      "offer": {
+       "price": 105,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1266,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Mi propuesta: 103 primas y entrega en 10 días. Dime una cifra concreta y la miro.",
+      "offer": {
+       "price": 103,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1267,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I see you've moved, and I appreciate it. I can do 62 P on day 10; further movement from me depends on you coming down meaningfully more.",
+      "offer": {
+       "price": 62,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1267,
+      "decision": {
+       "action": "offer",
+       "price": 62,
+       "message": "I see you've moved, and I appreciate it. I can do 62 P on day 10; further movement from me depends on you coming down meaningfully more."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Es una pieza que merece su precio: 101 primas y entrega en 10 días.",
+      "offer": {
+       "price": 101,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1268,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Small steps from you get small steps from me: I can do 66 P on day 10. A real jump on your side would bring us together much faster.",
+      "offer": {
+       "price": 66,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1268,
+      "decision": {
+       "action": "offer",
+       "price": 66,
+       "message": "Small steps from you get small steps from me: I can do 66 P on day 10. A real jump on your side would bring us together much faster."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Te la dejo en 98 primas y entrega en 10 días; me cuesta bajar más.",
+      "offer": {
+       "price": 98,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1269,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 70 P on day 10. That's a step up from me; a bigger move from you is what will close the gap.",
+      "offer": {
+       "price": 70,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1269,
+      "decision": {
+       "action": "offer",
+       "price": 70,
+       "message": "I can do 70 P on day 10. That's a step up from me; a bigger move from you is what will close the gap."
+      }
+     },
+     {
+      "mine": false,
+      "text": "93 primas y entrega en 10 días. Me muevo poco ya, pero si tú te mueves, cerramos.",
+      "offer": {
+       "price": 93,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1270,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 93,
+     "days": 10
+    },
+    "tick": 1270,
+    "ticks_left": 11,
+    "rounds": 4,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "That was a bigger step from you, and I'll answer it: I can do 74 P on day 10. Another real move from you would help us close.",
+    "price": 74,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 74,
+      "message": "That was a bigger step from you, and I'll answer it: I can do 74 P on day 10. Another real move from you would help us close."
+     },
+     "band": {
+      "worst": 74,
+      "target": 74,
+      "best": 73
+     },
+     "plan": {
+      "read": "They came down 5 (98 to 93) on day 10, a real move, though 93 on day 10 is still too high for us; their 'cerramos' talk is cheap, and their offers keep dropping steadily.",
+      "target": 74,
+      "best": 73,
+      "worst": 74,
+      "days": 10,
+      "angle": "Acknowledge their bigger step and answer with a firm 74 P on day 10, signalling that further movement depends on another real drop from them."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.03,
+       "in": 1370,
+       "out": 281,
+       "cost_usd": 0.0111,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.32,
+       "in": 756,
+       "out": 60,
+       "cost_usd": 0.00211,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1767,6 +2098,63 @@
      "id": 7444,
      "price": 70,
      "tick": 1269,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1270,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "That was a bigger step from you, and I'll answer it: I can do 74 P on day 10. Another real move from you would help us close.",
+    "price": 74,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 74,
+      "message": "That was a bigger step from you, and I'll answer it: I can do 74 P on day 10. Another real move from you would help us close."
+     },
+     "band": {
+      "worst": 74,
+      "target": 74,
+      "best": 73
+     },
+     "plan": {
+      "read": "They came down 5 (98 to 93) on day 10, a real move, though 93 on day 10 is still too high for us; their 'cerramos' talk is cheap, and their offers keep dropping steadily.",
+      "target": 74,
+      "best": 73,
+      "worst": 74,
+      "days": 10,
+      "angle": "Acknowledge their bigger step and answer with a firm 74 P on day 10, signalling that further movement depends on another real drop from them."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.03,
+       "in": 1370,
+       "out": 281,
+       "cost_usd": 0.0111,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.32,
+       "in": 756,
+       "out": 60,
+       "cost_usd": 0.00211,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5653,
+    "offer": {
+     "id": 7489,
+     "price": 74,
+     "tick": 1270,
      "days": 10
     }
    }

@@ -122,6 +122,66 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1270,
+   "raw": {
+    "duel": 5808,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 6.7,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 195,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Luna",
+    "deadline_tick": 1285,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 7448,
+     "price": 110,
+     "tick": 1270,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 7498,
+     "price": 178,
+     "tick": 1270,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1269,
+      "from": "Rival Luna",
+      "text": "Hello, and thank you for meeting me. I would propose 180 P with delivery on day 10.",
+      "price": 180,
+      "days": 10
+     },
+     {
+      "tick": 1270,
+      "from": "you",
+      "text": "Thanks for opening. I can do 110 P with delivery on day 0, and I'd welcome a move toward that on price.",
+      "price": 110,
+      "days": 0
+     },
+     {
+      "tick": 1270,
+      "from": "Rival Luna",
+      "text": "I appreciate it, thank you. Could we close at 178 P, delivery on day 0, please?",
+      "price": 178,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
