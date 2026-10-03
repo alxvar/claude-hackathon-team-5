@@ -86,6 +86,20 @@ def test_we_are_silent_after_a_rival_offer():
     assert f and f[0].severity == dm.HIGH
 
 
+def test_a_rival_repeating_its_price_while_we_hold_is_not_silence_but_a_new_move_is():
+    # Sat 278: Rival Oro sent 111 every tick; since the rounds fix our duelist holds by sending nothing.
+    msgs = [{"tick": 165, "from": "Rival Oro", "price": 111}, {"tick": 165, "from": "you", "price": 80}]
+    msgs += [{"tick": t, "from": "Rival Oro", "price": 111} for t in range(166, 172)]
+    raw = {"duel": 9, "status": "live", "role": "buyer", "your_limit": 116, "deadline_tick": 185, "rival": "Rival Oro",
+           "rival_offer": {"price": 111}, "messages": msgs}
+    assert not kinds(dm.live_flags(raw, 171), "we_are_silent")          # 6 ticks of repeats: alive, holding
+    raw["messages"] = msgs + [{"tick": 172, "from": "Rival Oro", "price": 109}]   # a real move
+    assert not kinds(dm.live_flags(raw, 175), "we_are_silent")
+    f = kinds(dm.live_flags(raw, 176), "we_are_silent")
+    assert f and f[0].severity == dm.HIGH and "uv run python -m agents.duelist run" in f[0].text
+    assert "Only if Aleks confirms" in f[0].text
+
+
 def test_never_opened():
     raw = copy.deepcopy(record(181)["payloads"][0]["raw"])               # no messages yet
     assert not kinds(dm.live_flags(raw, 134, first_seen=132), "never_opened")

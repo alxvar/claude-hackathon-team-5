@@ -54,7 +54,9 @@ TAGS = {CRITICAL: ["rotating_light", "crossed_swords"], HIGH: ["warning", "cross
 
 # Thresholds, as the plan states them (intel/saturday-plan.md §4D).
 ACCEPT_TICKS_LEFT = 2       # an in-limit standing offer with <= this many ticks left (including the current) must go
-SILENT_TICKS = 4            # our side silent this long after a rival offer
+SILENT_TICKS = 4            # our side silent this long after a rival MOVE (a changed offer, not a repeat)
+STANDBY = ("Only if Aleks confirms his duelist process is dead (never two duelists on the team key): start the cold "
+           "standby on Lucas's Mac, `uv run python -m agents.duelist run`.")
 OPEN_TICKS = 3              # no message from us this many ticks into a duel
 HOLD_TICKS, HOLD_LEFT = 3, 3
 NO_LIVE_TICKS = 2           # consecutive evaluated ticks without a live duel in a running session
@@ -198,13 +200,21 @@ def live_flags(raw: dict, tick: int, *, first_seen: int | None = None, duel_tick
                         f"left and we haven't accepted (we're at {mine if mine is None else f'{mine:g}'}). "
                         f"Accept it now or it ends at 0."))
 
+    # Silence after a rival MOVE. Since the rounds fix our duelist holds by sending nothing, so a rival repeating its
+    # price every tick (278) gets no answer by design; a changed offer is what it decides on at once.
     last_ours = max((i for i, m in enumerate(msgs) if is_ours(m)), default=-1)
-    unanswered = [m for i, m in enumerate(msgs) if i > last_ours and not is_ours(m) and priced(m)]
-    if unanswered and isinstance(unanswered[0].get("tick"), int) and tick - unanswered[0]["tick"] >= SILENT_TICKS:
-        t0 = unanswered[0]["tick"]
+    seen = [m for i, m in enumerate(msgs) if i <= last_ours and not is_ours(m) and priced(m)]
+    prev = (seen[-1]["price"], seen[-1].get("days")) if seen else None
+    moves = []
+    for i, m in enumerate(msgs):
+        if i > last_ours and not is_ours(m) and priced(m) and (m["price"], m.get("days")) != prev:
+            moves.append(m)
+            prev = (m["price"], m.get("days"))
+    if moves and isinstance(moves[0].get("tick"), int) and tick - moves[0]["tick"] >= SILENT_TICKS:
+        t0 = moves[0]["tick"]
         out.append(Flag(did, "we_are_silent", HIGH, tick,
-                        f"{rival} offered {unanswered[-1]['price']:g} at tick {t0} and we haven't answered for "
-                        f"{tick - t0} ticks ({left} left): the duelist may be down."))
+                        f"{rival} moved to {moves[-1]['price']:g} at tick {t0} and we haven't sent anything for "
+                        f"{tick - t0} ticks ({left} left): the duelist may be down. {STANDBY}"))
 
     if not any(is_ours(m) for m in msgs):
         # The duel started at deadline - duel_ticks, or when we first saw it, whichever is later.
