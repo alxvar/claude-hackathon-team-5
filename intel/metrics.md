@@ -1,4 +1,4 @@
-# Metrics (auto, 08:20, game tick 159)
+# Metrics (auto, 08:59, game tick 159)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
