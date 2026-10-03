@@ -438,5 +438,62 @@
     "settles_at_tick": 593
    }
   }
- ]
+ ],
+ "last_seen_tick": 593,
+ "done": {
+  "duel": 2585,
+  "session": 2,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Mercado de la Paz",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 160,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Rojo",
+  "deadline_tick": 607,
+  "decay_per_round": 0.06,
+  "rounds": 1,
+  "your_offer": {
+   "id": 5294,
+   "price": 95,
+   "tick": 591,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 5308,
+   "price": 101,
+   "tick": 592,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 591,
+    "from": "Rival Rojo",
+    "text": "We can do 96 P. Thank you for the talk.",
+    "price": 96,
+    "days": null
+   },
+   {
+    "tick": 591,
+    "from": "you",
+    "text": "I'm offering 95 P for the Mercado de la Paz lot. It's a fair opening given the condition of the market and the cost of carrying stock, and I'd like to settle quickly. What price do you have in mind?",
+    "price": 95,
+    "days": null
+   },
+   {
+    "tick": 592,
+    "from": "Rival Rojo",
+    "text": "101 P works well for us.",
+    "price": 101,
+    "days": null
+   }
+  ],
+  "result": 60.2,
+  "price": 96,
+  "days": 0
+ }
 }

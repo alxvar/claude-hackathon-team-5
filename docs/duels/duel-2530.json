@@ -67,6 +67,58 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 593,
+   "raw": {
+    "duel": 2530,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Mercado de la Paz",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 87,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 607,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 5295,
+     "price": 125,
+     "tick": 591,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 5322,
+     "price": 82,
+     "tick": 593,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 591,
+      "from": "you",
+      "text": "Welcome. Given the quality of what we offer at Mercado de la Paz and its prime location, I'm putting forward 125 P as a fair price. I'd be glad to hear your concrete counteroffer.",
+      "price": 125,
+      "days": null
+     },
+     {
+      "tick": 593,
+      "from": "Rival Azul",
+      "text": "Hi there. 82 P from my side.",
+      "price": 82,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
