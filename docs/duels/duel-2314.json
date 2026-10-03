@@ -67,6 +67,117 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 463,
+   "raw": {
+    "duel": 2314,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 75,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 475,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 2632,
+     "price": 45,
+     "tick": 459,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2729,
+     "price": 100,
+     "tick": 463,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 459,
+      "from": "you",
+      "text": "I'm a serious buyer and ready to close quickly. For El Mesón de la Cava, I offer 45 P, which I think is a fair price. I'd be glad to hear your counter.",
+      "price": 45,
+      "days": null
+     },
+     {
+      "tick": 463,
+      "from": "Rival Oro",
+      "text": "Hola. This one is in perfect condition. 100 P.",
+      "price": 100,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 463,
+   "raw": {
+    "duel": 2314,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 75,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 475,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 2755,
+     "price": 50,
+     "tick": 463,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2729,
+     "price": 100,
+     "tick": 463,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 459,
+      "from": "you",
+      "text": "I'm a serious buyer and ready to close quickly. For El Mesón de la Cava, I offer 45 P, which I think is a fair price. I'd be glad to hear your counter.",
+      "price": 45,
+      "days": null
+     },
+     {
+      "tick": 463,
+      "from": "Rival Oro",
+      "text": "Hola. This one is in perfect condition. 100 P.",
+      "price": 100,
+      "days": null
+     },
+     {
+      "tick": 463,
+      "from": "you",
+      "text": "Thanks for the reply. I've moved up to 50 P as a show of good faith. Could you tell me what justifies a figure double that? I'm ready to close quickly if we can meet closer to the middle.",
+      "price": 50,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -177,6 +288,111 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 463,
+   "took_s": 6.52,
+   "cost_usd": 0.005520000000000001,
+   "obs": {
+    "view": {
+     "duel_id": 2314,
+     "role": "buyer",
+     "limit": 75,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm a serious buyer and ready to close quickly. For El Mesón de la Cava, I offer 45 P, which I think is a fair price. I'd be glad to hear your counter.",
+      "offer": {
+       "price": 45,
+       "days": null
+      },
+      "accept": false,
+      "tick": 459,
+      "decision": {
+       "action": "offer",
+       "price": 45,
+       "message": "I'm a serious buyer and ready to close quickly. For El Mesón de la Cava, I offer 45 P, which I think is a fair price. I'd be glad to hear your counter."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hola. This one is in perfect condition. 100 P.",
+      "offer": {
+       "price": 100,
+       "days": null
+      },
+      "accept": false,
+      "tick": 463,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 100,
+     "days": null
+    },
+    "tick": 463,
+    "ticks_left": 12,
+    "rounds": 1
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thanks for the reply. I've moved up to 50 P as a show of good faith. Could you tell me what justifies a figure double that? I'm ready to close quickly if we can meet closer to the middle.",
+    "price": 50,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 50,
+      "message": "Thanks for the reply. I've moved up to 50 P as a show of good faith. Could you tell me what justifies a figure double that? I'm ready to close quickly if we can meet closer to the middle."
+     },
+     "band": {
+      "worst": 52,
+      "target": 50,
+      "best": 48
+     },
+     "plan": {
+      "read": "They countered at 100 P with no justification beyond condition, a typical extreme opener. Their first offer only shows their floor is somewhere below 100, likely well below.",
+      "target": 50,
+      "best": 48,
+      "worst": 52,
+      "days": null,
+      "angle": "Make a modest move to show good faith, ask what justifies 100, and signal that real movement from them is needed to meet in the middle."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.26,
+       "in": 374,
+       "out": 127,
+       "cost_usd": 0.00404,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.26,
+       "in": 319,
+       "out": 84,
+       "cost_usd": 0.00148,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -233,6 +449,63 @@
      "id": 2632,
      "price": 45,
      "tick": 459,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 463,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thanks for the reply. I've moved up to 50 P as a show of good faith. Could you tell me what justifies a figure double that? I'm ready to close quickly if we can meet closer to the middle.",
+    "price": 50,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 50,
+      "message": "Thanks for the reply. I've moved up to 50 P as a show of good faith. Could you tell me what justifies a figure double that? I'm ready to close quickly if we can meet closer to the middle."
+     },
+     "band": {
+      "worst": 52,
+      "target": 50,
+      "best": 48
+     },
+     "plan": {
+      "read": "They countered at 100 P with no justification beyond condition, a typical extreme opener. Their first offer only shows their floor is somewhere below 100, likely well below.",
+      "target": 50,
+      "best": 48,
+      "worst": 52,
+      "days": null,
+      "angle": "Make a modest move to show good faith, ask what justifies 100, and signal that real movement from them is needed to meet in the middle."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.26,
+       "in": 374,
+       "out": 127,
+       "cost_usd": 0.00404,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.26,
+       "in": 319,
+       "out": 84,
+       "cost_usd": 0.00148,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2314,
+    "offer": {
+     "id": 2755,
+     "price": 50,
+     "tick": 463,
      "days": 0
     }
    }

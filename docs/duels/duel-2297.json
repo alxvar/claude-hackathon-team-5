@@ -551,6 +551,107 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 463,
+   "raw": {
+    "duel": 2297,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 175,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 475,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 2726,
+     "price": 157,
+     "tick": 462,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2740,
+     "price": 161,
+     "tick": 463,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 459,
+      "from": "Rival Plata",
+      "text": "Thank you for meeting me. I can do 216 P.",
+      "price": 216,
+      "days": null
+     },
+     {
+      "tick": 459,
+      "from": "you",
+      "text": "Thanks for opening. Your figure is well out of line with what this is worth to us, so I'm offering 130 P, which I think is a fair price for El Mesón de la Cava. I'd welcome a substantially lower number from you.",
+      "price": 130,
+      "days": null
+     },
+     {
+      "tick": 460,
+      "from": "Rival Plata",
+      "text": "I appreciate your move. 182 P is where I can be.",
+      "price": 182,
+      "days": null
+     },
+     {
+      "tick": 460,
+      "from": "you",
+      "text": "Thank you for coming down; I can see you're moving. That figure is still well above what this property supports for us, so I'm raising to 145 P and would ask you to come down substantially again.",
+      "price": 145,
+      "days": null
+     },
+     {
+      "tick": 461,
+      "from": "Rival Plata",
+      "text": "Let us close quickly: 167 P.",
+      "price": 167,
+      "days": null
+     },
+     {
+      "tick": 461,
+      "from": "you",
+      "text": "Thank you, I can see you're working toward a number. I'm moving up to 153 P, and another real step from you would let us close this quickly.",
+      "price": 153,
+      "days": null
+     },
+     {
+      "tick": 462,
+      "from": "Rival Plata",
+      "text": "A real step towards you: 162 P.",
+      "price": 162,
+      "days": null
+     },
+     {
+      "tick": 462,
+      "from": "you",
+      "text": "Thank you for the step. I'm moving to 157 P, which meets you most of the way, and I'd like that to be our closing figure so we can wrap this up without more rounds.",
+      "price": 157,
+      "days": null
+     },
+     {
+      "tick": 463,
+      "from": "Rival Plata",
+      "text": "I think 161 P is fair for both of us.",
+      "price": 161,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1102,6 +1203,200 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 463,
+   "took_s": 5.71,
+   "cost_usd": 0.00792,
+   "obs": {
+    "view": {
+     "duel_id": 2297,
+     "role": "buyer",
+     "limit": 175,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Thank you for meeting me. I can do 216 P.",
+      "offer": {
+       "price": 216,
+       "days": null
+      },
+      "accept": false,
+      "tick": 459,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for opening. Your figure is well out of line with what this is worth to us, so I'm offering 130 P, which I think is a fair price for El Mesón de la Cava. I'd welcome a substantially lower number from you.",
+      "offer": {
+       "price": 130,
+       "days": null
+      },
+      "accept": false,
+      "tick": 459,
+      "decision": {
+       "action": "offer",
+       "price": 130,
+       "message": "Thanks for opening. Your figure is well out of line with what this is worth to us, so I'm offering 130 P, which I think is a fair price for El Mesón de la Cava. I'd welcome a substantially lower number from you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I appreciate your move. 182 P is where I can be.",
+      "offer": {
+       "price": 182,
+       "days": null
+      },
+      "accept": false,
+      "tick": 460,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for coming down; I can see you're moving. That figure is still well above what this property supports for us, so I'm raising to 145 P and would ask you to come down substantially again.",
+      "offer": {
+       "price": 145,
+       "days": null
+      },
+      "accept": false,
+      "tick": 460,
+      "decision": {
+       "action": "offer",
+       "price": 145,
+       "message": "Thank you for coming down; I can see you're moving. That figure is still well above what this property supports for us, so I'm raising to 145 P and would ask you to come down substantially again."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Let us close quickly: 167 P.",
+      "offer": {
+       "price": 167,
+       "days": null
+      },
+      "accept": false,
+      "tick": 461,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you, I can see you're working toward a number. I'm moving up to 153 P, and another real step from you would let us close this quickly.",
+      "offer": {
+       "price": 153,
+       "days": null
+      },
+      "accept": false,
+      "tick": 461,
+      "decision": {
+       "action": "offer",
+       "price": 153,
+       "message": "Thank you, I can see you're working toward a number. I'm moving up to 153 P, and another real step from you would let us close this quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "A real step towards you: 162 P.",
+      "offer": {
+       "price": 162,
+       "days": null
+      },
+      "accept": false,
+      "tick": 462,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the step. I'm moving to 157 P, which meets you most of the way, and I'd like that to be our closing figure so we can wrap this up without more rounds.",
+      "offer": {
+       "price": 157,
+       "days": null
+      },
+      "accept": false,
+      "tick": 462,
+      "decision": {
+       "action": "offer",
+       "price": 157,
+       "message": "Thank you for the step. I'm moving to 157 P, which meets you most of the way, and I'd like that to be our closing figure so we can wrap this up without more rounds."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I think 161 P is fair for both of us.",
+      "offer": {
+       "price": 161,
+       "days": null
+      },
+      "accept": false,
+      "tick": 463,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 161,
+     "days": null
+    },
+    "tick": 463,
+    "ticks_left": 12,
+    "rounds": 4
+   },
+   "move": {
+    "action": "accept",
+    "text": "Thank you for working with me. I'm taking your offer as it stands so we can close this now.",
+    "price": 161,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "accept",
+      "price": 161,
+      "message": "Thank you for working with me. I'm taking your offer as it stands so we can close this now."
+     },
+     "band": {
+      "worst": 161,
+      "target": 159,
+      "best": 158
+     },
+     "plan": {
+      "read": "They moved only 1 P (162 to 161), signalling they are near their floor; the 4 P gap is small next to how far both sides have already moved (55 P and 27 P).",
+      "target": 159,
+      "best": 158,
+      "worst": 161,
+      "days": null,
+      "angle": "Close now: accept their 161 P, or propose 159 P as a final split only if it can close this tick, since another round costs more than the gap is worth."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.89,
+       "in": 867,
+       "out": 135,
+       "cost_usd": 0.00617,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.81,
+       "in": 641,
+       "out": 47,
+       "cost_usd": 0.00175,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1331,6 +1626,59 @@
      "tick": 462,
      "days": 0
     }
+   }
+  },
+  {
+   "tick": 463,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Thank you for working with me. I'm taking your offer as it stands so we can close this now.",
+    "price": 161,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "accept",
+      "price": 161,
+      "message": "Thank you for working with me. I'm taking your offer as it stands so we can close this now."
+     },
+     "band": {
+      "worst": 161,
+      "target": 159,
+      "best": 158
+     },
+     "plan": {
+      "read": "They moved only 1 P (162 to 161), signalling they are near their floor; the 4 P gap is small next to how far both sides have already moved (55 P and 27 P).",
+      "target": 159,
+      "best": 158,
+      "worst": 161,
+      "days": null,
+      "angle": "Close now: accept their 161 P, or propose 159 P as a final split only if it can close this tick, since another round costs more than the gap is worth."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.89,
+       "in": 867,
+       "out": 135,
+       "cost_usd": 0.00617,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.81,
+       "in": 641,
+       "out": 47,
+       "cost_usd": 0.00175,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 161,
+    "settles_at_tick": 464
    }
   }
  ]

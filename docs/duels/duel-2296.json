@@ -551,6 +551,215 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 463,
+   "raw": {
+    "duel": 2296,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 87,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 475,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 2722,
+     "price": 108,
+     "tick": 462,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2738,
+     "price": 100,
+     "tick": 463,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 459,
+      "from": "Rival Sol",
+      "text": "Thank you for meeting me. I can do 58 P.",
+      "price": 58,
+      "days": null
+     },
+     {
+      "tick": 459,
+      "from": "you",
+      "text": "Thanks for opening. El Mesón de la Cava is a well-established house with real quality and a strong reputation, and your figure is far from what it is worth. I can offer it at 135 P, and I think that is a fair price for what you get.}",
+      "price": 135,
+      "days": null
+     },
+     {
+      "tick": 460,
+      "from": "Rival Sol",
+      "text": "I appreciate your move. 83 P is where I can be.",
+      "price": 83,
+      "days": null
+     },
+     {
+      "tick": 460,
+      "from": "you",
+      "text": "I appreciate you moving up, and I'm coming down as well. Given the quality and reputation of El Mesón de la Cava, I can offer it at 122 P, but we'll need a meaningful step up from your side to close.",
+      "price": 122,
+      "days": null
+     },
+     {
+      "tick": 461,
+      "from": "Rival Sol",
+      "text": "Let us close quickly: 93 P.",
+      "price": 93,
+      "days": null
+     },
+     {
+      "tick": 461,
+      "from": "you",
+      "text": "Thank you for moving up again; I can see you want to close quickly. To meet you, I can come down to 114 P, which reflects the real quality and reputation of El Mesón de la Cava. If you meet me closer to the middle, we can wrap this up.",
+      "price": 114,
+      "days": null
+     },
+     {
+      "tick": 462,
+      "from": "Rival Sol",
+      "text": "A real step towards you: 101 P.",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 462,
+      "from": "you",
+      "text": "Thank you for the real step. I can come to 108 P, which nearly splits what remains between us. If you meet me there, we can close right away.",
+      "price": 108,
+      "days": null
+     },
+     {
+      "tick": 463,
+      "from": "Rival Sol",
+      "text": "I think 100 P is fair for both of us.",
+      "price": 100,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 463,
+   "raw": {
+    "duel": 2296,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 87,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 475,
+    "decay_per_round": 0.06,
+    "rounds": 5,
+    "your_offer": {
+     "id": 2756,
+     "price": 104,
+     "tick": 463,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2738,
+     "price": 100,
+     "tick": 463,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 459,
+      "from": "Rival Sol",
+      "text": "Thank you for meeting me. I can do 58 P.",
+      "price": 58,
+      "days": null
+     },
+     {
+      "tick": 459,
+      "from": "you",
+      "text": "Thanks for opening. El Mesón de la Cava is a well-established house with real quality and a strong reputation, and your figure is far from what it is worth. I can offer it at 135 P, and I think that is a fair price for what you get.}",
+      "price": 135,
+      "days": null
+     },
+     {
+      "tick": 460,
+      "from": "Rival Sol",
+      "text": "I appreciate your move. 83 P is where I can be.",
+      "price": 83,
+      "days": null
+     },
+     {
+      "tick": 460,
+      "from": "you",
+      "text": "I appreciate you moving up, and I'm coming down as well. Given the quality and reputation of El Mesón de la Cava, I can offer it at 122 P, but we'll need a meaningful step up from your side to close.",
+      "price": 122,
+      "days": null
+     },
+     {
+      "tick": 461,
+      "from": "Rival Sol",
+      "text": "Let us close quickly: 93 P.",
+      "price": 93,
+      "days": null
+     },
+     {
+      "tick": 461,
+      "from": "you",
+      "text": "Thank you for moving up again; I can see you want to close quickly. To meet you, I can come down to 114 P, which reflects the real quality and reputation of El Mesón de la Cava. If you meet me closer to the middle, we can wrap this up.",
+      "price": 114,
+      "days": null
+     },
+     {
+      "tick": 462,
+      "from": "Rival Sol",
+      "text": "A real step towards you: 101 P.",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 462,
+      "from": "you",
+      "text": "Thank you for the real step. I can come to 108 P, which nearly splits what remains between us. If you meet me there, we can close right away.",
+      "price": 108,
+      "days": null
+     },
+     {
+      "tick": 463,
+      "from": "Rival Sol",
+      "text": "I think 100 P is fair for both of us.",
+      "price": 100,
+      "days": null
+     },
+     {
+      "tick": 463,
+      "from": "you",
+      "text": "You were at 101 a moment ago, so that last move went backwards. The gap is small now, so I can come to 104 P to wrap this up without dragging it out further.",
+      "price": 104,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1102,6 +1311,200 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 463,
+   "took_s": 6.6,
+   "cost_usd": 0.0089,
+   "obs": {
+    "view": {
+     "duel_id": 2296,
+     "role": "seller",
+     "limit": 87,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Thank you for meeting me. I can do 58 P.",
+      "offer": {
+       "price": 58,
+       "days": null
+      },
+      "accept": false,
+      "tick": 459,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for opening. El Mesón de la Cava is a well-established house with real quality and a strong reputation, and your figure is far from what it is worth. I can offer it at 135 P, and I think that is a fair price for what you get.}",
+      "offer": {
+       "price": 135,
+       "days": null
+      },
+      "accept": false,
+      "tick": 459,
+      "decision": {
+       "action": "offer",
+       "price": 135,
+       "message": "Thanks for opening. El Mesón de la Cava is a well-established house with real quality and a strong reputation, and your figure is far from what it is worth. I can offer it at 135 P, and I think that is a fair price for what you get.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "I appreciate your move. 83 P is where I can be.",
+      "offer": {
+       "price": 83,
+       "days": null
+      },
+      "accept": false,
+      "tick": 460,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate you moving up, and I'm coming down as well. Given the quality and reputation of El Mesón de la Cava, I can offer it at 122 P, but we'll need a meaningful step up from your side to close.",
+      "offer": {
+       "price": 122,
+       "days": null
+      },
+      "accept": false,
+      "tick": 460,
+      "decision": {
+       "action": "offer",
+       "price": 122,
+       "message": "I appreciate you moving up, and I'm coming down as well. Given the quality and reputation of El Mesón de la Cava, I can offer it at 122 P, but we'll need a meaningful step up from your side to close."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Let us close quickly: 93 P.",
+      "offer": {
+       "price": 93,
+       "days": null
+      },
+      "accept": false,
+      "tick": 461,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for moving up again; I can see you want to close quickly. To meet you, I can come down to 114 P, which reflects the real quality and reputation of El Mesón de la Cava. If you meet me closer to the middle, we can wrap this up.",
+      "offer": {
+       "price": 114,
+       "days": null
+      },
+      "accept": false,
+      "tick": 461,
+      "decision": {
+       "action": "offer",
+       "price": 114,
+       "message": "Thank you for moving up again; I can see you want to close quickly. To meet you, I can come down to 114 P, which reflects the real quality and reputation of El Mesón de la Cava. If you meet me closer to the middle, we can wrap this up."
+      }
+     },
+     {
+      "mine": false,
+      "text": "A real step towards you: 101 P.",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 462,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the real step. I can come to 108 P, which nearly splits what remains between us. If you meet me there, we can close right away.",
+      "offer": {
+       "price": 108,
+       "days": null
+      },
+      "accept": false,
+      "tick": 462,
+      "decision": {
+       "action": "offer",
+       "price": 108,
+       "message": "Thank you for the real step. I can come to 108 P, which nearly splits what remains between us. If you meet me there, we can close right away."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I think 100 P is fair for both of us.",
+      "offer": {
+       "price": 100,
+       "days": null
+      },
+      "accept": false,
+      "tick": 463,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 100,
+     "days": null
+    },
+    "tick": 463,
+    "ticks_left": 12,
+    "rounds": 4
+   },
+   "move": {
+    "action": "offer",
+    "text": "You were at 101 a moment ago, so that last move went backwards. The gap is small now, so I can come to 104 P to wrap this up without dragging it out further.",
+    "price": 104,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 104,
+      "message": "You were at 101 a moment ago, so that last move went backwards. The gap is small now, so I can come to 104 P to wrap this up without dragging it out further."
+     },
+     "band": {
+      "worst": 100,
+      "target": 104,
+      "best": 105
+     },
+     "plan": {
+      "read": "They stepped back from 101 to 100 P, signalling a soft ceiling near 100. Their 'fair for both' line reads as a stall rather than a hard final, but the gap is now small next to how far both sides have already moved.",
+      "target": 104,
+      "best": 105,
+      "worst": 100,
+      "days": null,
+      "angle": "Point out they went backwards from their own 101, then offer to split the small remaining gap at 104 to close now, accepting their 100 rather than letting this drag on."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.57,
+       "in": 908,
+       "out": 157,
+       "cost_usd": 0.00677,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.02,
+       "in": 715,
+       "out": 70,
+       "cost_usd": 0.00213,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1329,6 +1732,63 @@
      "id": 2722,
      "price": 108,
      "tick": 462,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 463,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "You were at 101 a moment ago, so that last move went backwards. The gap is small now, so I can come to 104 P to wrap this up without dragging it out further.",
+    "price": 104,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 104,
+      "message": "You were at 101 a moment ago, so that last move went backwards. The gap is small now, so I can come to 104 P to wrap this up without dragging it out further."
+     },
+     "band": {
+      "worst": 100,
+      "target": 104,
+      "best": 105
+     },
+     "plan": {
+      "read": "They stepped back from 101 to 100 P, signalling a soft ceiling near 100. Their 'fair for both' line reads as a stall rather than a hard final, but the gap is now small next to how far both sides have already moved.",
+      "target": 104,
+      "best": 105,
+      "worst": 100,
+      "days": null,
+      "angle": "Point out they went backwards from their own 101, then offer to split the small remaining gap at 104 to close now, accepting their 100 rather than letting this drag on."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.57,
+       "in": 908,
+       "out": 157,
+       "cost_usd": 0.00677,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.02,
+       "in": 715,
+       "out": 70,
+       "cost_usd": 0.00213,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2296,
+    "offer": {
+     "id": 2756,
+     "price": 104,
+     "tick": 463,
      "days": 0
     }
    }
