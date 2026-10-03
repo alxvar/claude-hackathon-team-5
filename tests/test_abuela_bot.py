@@ -406,3 +406,73 @@ def test_cards_names_which_cards_to_buy_and_in_what_order(bot, monkeypatch):
     assert cards_bought(run_main(bot, monkeypatch, FakeGame(), "--deals", "5", "--cards", "RET-01")) == ["RET-01"]
     run_main(bot, monkeypatch, FakeGame(), "--deals", "5", "--cards", "RET-02,RET-01")   # RET-02 closes a page
     assert "cards_not_buyable" in events(bot)
+
+
+
+# ------------------------------------------------------------------------------------------------ --offer-only
+
+class Standing(FakeThread):
+    """Her FINAL 9 stands; she accepts once we offer exactly that."""
+
+    def __init__(self, **kw):
+        super().__init__(**kw)
+        self.said = []
+
+    def say(self, tid, text, price=None):
+        self.said.append(price)
+
+    def thread(self, tid):
+        if 9 in self.said:
+            return {"status": "deal", "messages": [], "standing_offers": []}
+        return super().thread(tid)
+
+
+def test_offer_only_offers_her_price_and_never_accepts(bot, monkeypatch):
+    monkeypatch.setattr(bot, "OFFER_ONLY", True)
+    monkeypatch.setattr(bot, "should_hold_accept", lambda b, tick=None: (_ for _ in ()).throw(AssertionError("asked")))
+    b = Standing()
+    t = bot.negotiate(b, {"buy": {"card": "RET-01"}}, "buy", 10)
+    assert t["status"] == "deal" and b.said == [9] and b.accepted == []
+    assert "offer_her_price" in events(bot)
+
+
+def test_chato_steady_offer_only(monkeypatch, tmp_path):
+    import chato_steady as cs
+    monkeypatch.setattr(ab, "LOG", tmp_path / "chato.jsonl")
+
+    class Chato:
+        def __init__(self):
+            self.said, self.accepted = [], []
+
+        def me(self):
+            return {"cash": 400, "assets": [], "score": {}}
+
+        def my_threads(self):
+            return {"threads": []}
+
+        def open_thread(self, with_, topic=None):
+            return {"id": 7}
+
+        def thread(self, tid):
+            if 80 in self.said:
+                return {"status": "deal", "messages": []}
+            return {"status": "open", "messages": [], "standing_offers": [
+                {"id": 3, "maker": "chato", "status": "open", "final": True, "want": {"cash": 80}}]}
+
+        def say(self, tid, text, price=None):
+            self.said.append(price)
+
+        def accept(self, oid):
+            self.accepted.append(oid)
+
+        def wait_tick(self):
+            return {}
+
+        def close_thread(self, tid):
+            raise AssertionError("walked")
+
+    game = Chato()
+    monkeypatch.setattr(ab, "PacedBazaar", lambda *a, **k: game)
+    monkeypatch.setenv("BAZAAR_KEY", "test-key-not-real")
+    cs.main(["RET-09", "--cap", "90", "--open", "57", "--step", "3", "--cash-floor", "100", "--offer-only"])
+    assert game.said == [57, 80] and game.accepted == []                  # opened, then offered his final

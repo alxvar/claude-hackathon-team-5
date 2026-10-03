@@ -6,7 +6,8 @@ Rares: open 55-60, constant +2 to +4 (never +1: early final 91-93; never jumps),
 Uncommons: open 13-20, +1 per round, bid one under his standing offer (final 28-29).
 Accepts his offer when it is within the cap and (final, or within 1 of ours). Stuck (next would repeat): stays silent
 that tick instead of re-sending; walks after 8 stuck ticks or on a final above the cap. Holds the accept during scored
-duels (the dealer bot's arbiter).
+duels (the dealer bot's arbiter). --offer-only: never accepts; offers his standing price instead, so he accepts and
+spends the accept (dealer deals during scored duels without touching the team's one accept per tick).
 """
 import argparse
 import os
@@ -27,7 +28,7 @@ WARM = [  # same price logic, warm words (Chief/Lucas 10:08): greet, thank every
 ]
 
 
-def main():
+def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("card")
     ap.add_argument("--cap", type=int, required=True)
@@ -36,7 +37,8 @@ def main():
     ap.add_argument("--cash-floor", type=int, required=True)
     ap.add_argument("--dealer", default="chato")
     ap.add_argument("--resume", type=int, default=0, help="pick up our open thread with this id (new cap)")
-    args = ap.parse_args()
+    ap.add_argument("--offer-only", action="store_true", help="never accept: offer his standing price instead")
+    args = ap.parse_args(argv)
     ab.DEALER, ab.CASH_FLOOR = args.dealer, args.cash_floor
     b = ab.PacedBazaar(os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai"), os.environ["BAZAAR_KEY"],
                        min_gap=ab.GAP_S)
@@ -78,6 +80,17 @@ def main():
         first = price if first is None else first
         ab.log({"event": "tick", "thread": tid, "his": price, "final": o.get("final"), "ours": ours})
         if price <= cap and ours is not None and (o.get("final") or price - ours <= 1):
+            if args.offer_only:                   # never our accept: offer his price and let him accept
+                if ours == price:
+                    ab.log({"event": "offer_matched_waiting", "thread": tid, "price": price})
+                    b.wait_tick()
+                    continue
+                b.say(tid, WARM[0 if turn == 0 else 1 + (turn - 1) % (len(WARM) - 1)].format(p=price), price=price)
+                turn += 1
+                ab.log({"event": "offer_his_price", "thread": tid, "price": price, "final": o.get("final")})
+                ours = price
+                b.wait_tick()
+                continue
             hold, why = ab.should_hold_accept(b)
             if hold:
                 ab.log({"event": "hold_accept_duel", "why": why})

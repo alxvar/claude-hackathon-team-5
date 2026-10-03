@@ -53,6 +53,8 @@ REOPEN_TICKS = 10    # never open a conversation with a dealer sooner than this 
 SILENT_TICKS = 4     # our word is the last and she hasn't said anything for this many ticks: close, pause her
 SILENT_PAUSE_S = 30 * 60
 
+OFFER_ONLY = False  # --offer-only: never call accept; offer the dealer's own price so the dealer accepts (and
+                    # spends its accept, not the team's one per tick: dealer deals during scored duels)
 NARRATOR = True     # --narrator on|off: a model writes warm words around our price (narrator.py); off: templates
 
 
@@ -262,6 +264,26 @@ def _haggle(b, tid, topic, side, cap, fast, resume, accepted):
         log({"event": "tick", "thread": tid, "her": price, "final": o.get("final"), "ours": ours, "next": nxt})
 
         if within_cap and (o.get("final") or crosses or close or fast):  # fast: take her price now (a flip)
+            if OFFER_ONLY:                        # never our accept: offer her own price and let her accept
+                if ours == price:
+                    log({"event": "offer_matched_waiting", "thread": tid, "price": price})
+                    b.wait_tick()
+                    continue
+                her_text = next((m.get("text") or "" for m in reversed(msgs) if m.get("sender") == DEALER), "")
+                text = narrator.say_text(DEALER, side, item_of(topic, side), price, her_text, turn, log=log,
+                                         enabled=NARRATOR)
+                try:
+                    b.say(tid, text, price=price)
+                except BazaarError as e:
+                    if e.code not in TICK_WAIT:
+                        raise
+                    log({"event": "say_waits", "thread": tid, "code": e.code})
+                    b.wait_tick()
+                    continue
+                log({"event": "offer_her_price", "thread": tid, "price": price, "final": o.get("final")})
+                ours, turn = price, turn + 1
+                b.wait_tick()
+                continue
             hold, why = should_hold_accept(b)
             if hold:  # a final offer too: a scored duel's accept is worth more than one dealer deal
                 log({"event": "hold_accept_duel", "thread": tid, "final": o.get("final"), "why": why})
@@ -338,7 +360,7 @@ def plan(b: Bazaar) -> tuple:
 
 
 def main(argv=None) -> None:
-    global DEALER, CASH_FLOOR, NARRATOR
+    global DEALER, CASH_FLOOR, NARRATOR, OFFER_ONLY
     ap = argparse.ArgumentParser()
     ap.add_argument("--deals", type=int, default=3, help="stop after this many deals")
     ap.add_argument("--cash-floor", type=int, default=CASH_FLOOR, help="never let cash fall below this (GUARDRAIL)")
@@ -356,10 +378,13 @@ def main(argv=None) -> None:
     ap.add_argument("--dry-run", action="store_true", help="print the plan, write nothing")
     ap.add_argument("--cards", default="",
                     help="buy only these cards, in this order (e.g. CHA-09,CHA-10): a card left out stays for a team")
+    ap.add_argument("--offer-only", action="store_true",
+                    help="never accept: offer the dealer's standing price instead, so the dealer accepts (scored duels)")
     ap.add_argument("--narrator", choices=["on", "off"], default="on",
                     help="warm words around our price by claude-sonnet-5-5 (narrator.py); off: templates")
     args = ap.parse_args(argv)
     NARRATOR = args.narrator == "on"
+    OFFER_ONLY = args.offer_only
     b = PacedBazaar(os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai"), os.environ["BAZAAR_KEY"],
                     min_gap=DRY_GAP_S if args.dry_run else GAP_S, wait_on_tick=False)
 
