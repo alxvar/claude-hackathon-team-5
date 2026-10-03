@@ -244,6 +244,1194 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 466,
+   "raw": {
+    "duel": 2540,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 71,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 480,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 2837,
+     "price": 106,
+     "tick": 466,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2823,
+     "price": 77,
+     "tick": 466,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 464,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 68. Thank you for your time.",
+      "price": 68,
+      "days": null
+     },
+     {
+      "tick": 464,
+      "from": "you",
+      "text": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 465,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 73 works for me.",
+      "price": 73,
+      "days": null
+     },
+     {
+      "tick": 466,
+      "from": "Rival Luna",
+      "text": "Let me move closer: 77.",
+      "price": 77,
+      "days": null
+     },
+     {
+      "tick": 466,
+      "from": "you",
+      "text": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure.",
+      "price": 106,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 467,
+   "raw": {
+    "duel": 2540,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 71,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 480,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 2837,
+     "price": 106,
+     "tick": 466,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2862,
+     "price": 80,
+     "tick": 467,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 464,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 68. Thank you for your time.",
+      "price": 68,
+      "days": null
+     },
+     {
+      "tick": 464,
+      "from": "you",
+      "text": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 465,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 73 works for me.",
+      "price": 73,
+      "days": null
+     },
+     {
+      "tick": 466,
+      "from": "Rival Luna",
+      "text": "Let me move closer: 77.",
+      "price": 77,
+      "days": null
+     },
+     {
+      "tick": 466,
+      "from": "you",
+      "text": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure.",
+      "price": 106,
+      "days": null
+     },
+     {
+      "tick": 467,
+      "from": "Rival Luna",
+      "text": "I'd like to close this. My offer is 80.",
+      "price": 80,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 468,
+   "raw": {
+    "duel": 2540,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 71,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 480,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 2837,
+     "price": 106,
+     "tick": 466,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2877,
+     "price": 82,
+     "tick": 468,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 464,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 68. Thank you for your time.",
+      "price": 68,
+      "days": null
+     },
+     {
+      "tick": 464,
+      "from": "you",
+      "text": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 465,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 73 works for me.",
+      "price": 73,
+      "days": null
+     },
+     {
+      "tick": 466,
+      "from": "Rival Luna",
+      "text": "Let me move closer: 77.",
+      "price": 77,
+      "days": null
+     },
+     {
+      "tick": 466,
+      "from": "you",
+      "text": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure.",
+      "price": 106,
+      "days": null
+     },
+     {
+      "tick": 467,
+      "from": "Rival Luna",
+      "text": "I'd like to close this. My offer is 80.",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 468,
+      "from": "Rival Luna",
+      "text": "Meeting you halfway at 82, with thanks.",
+      "price": 82,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 468,
+   "raw": {
+    "duel": 2540,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 71,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 480,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 2880,
+     "price": 102,
+     "tick": 468,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2877,
+     "price": 82,
+     "tick": 468,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 464,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 68. Thank you for your time.",
+      "price": 68,
+      "days": null
+     },
+     {
+      "tick": 464,
+      "from": "you",
+      "text": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 465,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 73 works for me.",
+      "price": 73,
+      "days": null
+     },
+     {
+      "tick": 466,
+      "from": "Rival Luna",
+      "text": "Let me move closer: 77.",
+      "price": 77,
+      "days": null
+     },
+     {
+      "tick": 466,
+      "from": "you",
+      "text": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure.",
+      "price": 106,
+      "days": null
+     },
+     {
+      "tick": 467,
+      "from": "Rival Luna",
+      "text": "I'd like to close this. My offer is 80.",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 468,
+      "from": "Rival Luna",
+      "text": "Meeting you halfway at 82, with thanks.",
+      "price": 82,
+      "days": null
+     },
+     {
+      "tick": 468,
+      "from": "you",
+      "text": "I appreciate you moving again. El Mesón de la Cava is a rare property with an established following, and I can come down to 102 P to meet you partway. I'd like to see a larger step from you so we can close the remaining gap.",
+      "price": 102,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 469,
+   "raw": {
+    "duel": 2540,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 71,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 480,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 2880,
+     "price": 102,
+     "tick": 468,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2899,
+     "price": 84,
+     "tick": 469,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 464,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 68. Thank you for your time.",
+      "price": 68,
+      "days": null
+     },
+     {
+      "tick": 464,
+      "from": "you",
+      "text": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 465,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 73 works for me.",
+      "price": 73,
+      "days": null
+     },
+     {
+      "tick": 466,
+      "from": "Rival Luna",
+      "text": "Let me move closer: 77.",
+      "price": 77,
+      "days": null
+     },
+     {
+      "tick": 466,
+      "from": "you",
+      "text": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure.",
+      "price": 106,
+      "days": null
+     },
+     {
+      "tick": 467,
+      "from": "Rival Luna",
+      "text": "I'd like to close this. My offer is 80.",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 468,
+      "from": "Rival Luna",
+      "text": "Meeting you halfway at 82, with thanks.",
+      "price": 82,
+      "days": null
+     },
+     {
+      "tick": 468,
+      "from": "you",
+      "text": "I appreciate you moving again. El Mesón de la Cava is a rare property with an established following, and I can come down to 102 P to meet you partway. I'd like to see a larger step from you so we can close the remaining gap.",
+      "price": 102,
+      "days": null
+     },
+     {
+      "tick": 469,
+      "from": "Rival Luna",
+      "text": "Final stretch from me: 84.",
+      "price": 84,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 469,
+   "raw": {
+    "duel": 2540,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 71,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 480,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 2904,
+     "price": 99,
+     "tick": 469,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2899,
+     "price": 84,
+     "tick": 469,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 464,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 68. Thank you for your time.",
+      "price": 68,
+      "days": null
+     },
+     {
+      "tick": 464,
+      "from": "you",
+      "text": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 465,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 73 works for me.",
+      "price": 73,
+      "days": null
+     },
+     {
+      "tick": 466,
+      "from": "Rival Luna",
+      "text": "Let me move closer: 77.",
+      "price": 77,
+      "days": null
+     },
+     {
+      "tick": 466,
+      "from": "you",
+      "text": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure.",
+      "price": 106,
+      "days": null
+     },
+     {
+      "tick": 467,
+      "from": "Rival Luna",
+      "text": "I'd like to close this. My offer is 80.",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 468,
+      "from": "Rival Luna",
+      "text": "Meeting you halfway at 82, with thanks.",
+      "price": 82,
+      "days": null
+     },
+     {
+      "tick": 468,
+      "from": "you",
+      "text": "I appreciate you moving again. El Mesón de la Cava is a rare property with an established following, and I can come down to 102 P to meet you partway. I'd like to see a larger step from you so we can close the remaining gap.",
+      "price": 102,
+      "days": null
+     },
+     {
+      "tick": 469,
+      "from": "Rival Luna",
+      "text": "Final stretch from me: 84.",
+      "price": 84,
+      "days": null
+     },
+     {
+      "tick": 469,
+      "from": "you",
+      "text": "Thank you for the steady movement. Given the rarity of El Mesón de la Cava and its established following, I can step to 99 P. I'd like to see a substantive move into the 90s from you so we can close this quickly.",
+      "price": 99,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 470,
+   "raw": {
+    "duel": 2540,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 71,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 480,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 2904,
+     "price": 99,
+     "tick": 469,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2921,
+     "price": 85,
+     "tick": 470,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 464,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 68. Thank you for your time.",
+      "price": 68,
+      "days": null
+     },
+     {
+      "tick": 464,
+      "from": "you",
+      "text": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 465,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 73 works for me.",
+      "price": 73,
+      "days": null
+     },
+     {
+      "tick": 466,
+      "from": "Rival Luna",
+      "text": "Let me move closer: 77.",
+      "price": 77,
+      "days": null
+     },
+     {
+      "tick": 466,
+      "from": "you",
+      "text": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure.",
+      "price": 106,
+      "days": null
+     },
+     {
+      "tick": 467,
+      "from": "Rival Luna",
+      "text": "I'd like to close this. My offer is 80.",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 468,
+      "from": "Rival Luna",
+      "text": "Meeting you halfway at 82, with thanks.",
+      "price": 82,
+      "days": null
+     },
+     {
+      "tick": 468,
+      "from": "you",
+      "text": "I appreciate you moving again. El Mesón de la Cava is a rare property with an established following, and I can come down to 102 P to meet you partway. I'd like to see a larger step from you so we can close the remaining gap.",
+      "price": 102,
+      "days": null
+     },
+     {
+      "tick": 469,
+      "from": "Rival Luna",
+      "text": "Final stretch from me: 84.",
+      "price": 84,
+      "days": null
+     },
+     {
+      "tick": 469,
+      "from": "you",
+      "text": "Thank you for the steady movement. Given the rarity of El Mesón de la Cava and its established following, I can step to 99 P. I'd like to see a substantive move into the 90s from you so we can close this quickly.",
+      "price": 99,
+      "days": null
+     },
+     {
+      "tick": 470,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 85. Thank you for your time.",
+      "price": 85,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 471,
+   "raw": {
+    "duel": 2540,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 71,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 480,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 2904,
+     "price": 99,
+     "tick": 469,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2949,
+     "price": 86,
+     "tick": 471,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 464,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 68. Thank you for your time.",
+      "price": 68,
+      "days": null
+     },
+     {
+      "tick": 464,
+      "from": "you",
+      "text": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 465,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 73 works for me.",
+      "price": 73,
+      "days": null
+     },
+     {
+      "tick": 466,
+      "from": "Rival Luna",
+      "text": "Let me move closer: 77.",
+      "price": 77,
+      "days": null
+     },
+     {
+      "tick": 466,
+      "from": "you",
+      "text": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure.",
+      "price": 106,
+      "days": null
+     },
+     {
+      "tick": 467,
+      "from": "Rival Luna",
+      "text": "I'd like to close this. My offer is 80.",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 468,
+      "from": "Rival Luna",
+      "text": "Meeting you halfway at 82, with thanks.",
+      "price": 82,
+      "days": null
+     },
+     {
+      "tick": 468,
+      "from": "you",
+      "text": "I appreciate you moving again. El Mesón de la Cava is a rare property with an established following, and I can come down to 102 P to meet you partway. I'd like to see a larger step from you so we can close the remaining gap.",
+      "price": 102,
+      "days": null
+     },
+     {
+      "tick": 469,
+      "from": "Rival Luna",
+      "text": "Final stretch from me: 84.",
+      "price": 84,
+      "days": null
+     },
+     {
+      "tick": 469,
+      "from": "you",
+      "text": "Thank you for the steady movement. Given the rarity of El Mesón de la Cava and its established following, I can step to 99 P. I'd like to see a substantive move into the 90s from you so we can close this quickly.",
+      "price": 99,
+      "days": null
+     },
+     {
+      "tick": 470,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 85. Thank you for your time.",
+      "price": 85,
+      "days": null
+     },
+     {
+      "tick": 471,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 86 works for me.",
+      "price": 86,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 471,
+   "raw": {
+    "duel": 2540,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 71,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 480,
+    "decay_per_round": 0.06,
+    "rounds": 5,
+    "your_offer": {
+     "id": 2951,
+     "price": 95,
+     "tick": 471,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2949,
+     "price": 86,
+     "tick": 471,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 464,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 68. Thank you for your time.",
+      "price": 68,
+      "days": null
+     },
+     {
+      "tick": 464,
+      "from": "you",
+      "text": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 465,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 73 works for me.",
+      "price": 73,
+      "days": null
+     },
+     {
+      "tick": 466,
+      "from": "Rival Luna",
+      "text": "Let me move closer: 77.",
+      "price": 77,
+      "days": null
+     },
+     {
+      "tick": 466,
+      "from": "you",
+      "text": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure.",
+      "price": 106,
+      "days": null
+     },
+     {
+      "tick": 467,
+      "from": "Rival Luna",
+      "text": "I'd like to close this. My offer is 80.",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 468,
+      "from": "Rival Luna",
+      "text": "Meeting you halfway at 82, with thanks.",
+      "price": 82,
+      "days": null
+     },
+     {
+      "tick": 468,
+      "from": "you",
+      "text": "I appreciate you moving again. El Mesón de la Cava is a rare property with an established following, and I can come down to 102 P to meet you partway. I'd like to see a larger step from you so we can close the remaining gap.",
+      "price": 102,
+      "days": null
+     },
+     {
+      "tick": 469,
+      "from": "Rival Luna",
+      "text": "Final stretch from me: 84.",
+      "price": 84,
+      "days": null
+     },
+     {
+      "tick": 469,
+      "from": "you",
+      "text": "Thank you for the steady movement. Given the rarity of El Mesón de la Cava and its established following, I can step to 99 P. I'd like to see a substantive move into the 90s from you so we can close this quickly.",
+      "price": 99,
+      "days": null
+     },
+     {
+      "tick": 470,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 85. Thank you for your time.",
+      "price": 85,
+      "days": null
+     },
+     {
+      "tick": 471,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 86 works for me.",
+      "price": 86,
+      "days": null
+     },
+     {
+      "tick": 471,
+      "from": "you",
+      "text": "I've made a meaningful step to 95 P, reflecting the rarity and established following of El Mesón de la Cava. Your latest move was very small, so I'd ask for a real jump toward the low 90s so we can wrap this up quickly.",
+      "price": 95,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 472,
+   "raw": {
+    "duel": 2540,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 71,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 480,
+    "decay_per_round": 0.06,
+    "rounds": 5,
+    "your_offer": {
+     "id": 2951,
+     "price": 95,
+     "tick": 471,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2978,
+     "price": 87,
+     "tick": 472,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 464,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 68. Thank you for your time.",
+      "price": 68,
+      "days": null
+     },
+     {
+      "tick": 464,
+      "from": "you",
+      "text": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 465,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 73 works for me.",
+      "price": 73,
+      "days": null
+     },
+     {
+      "tick": 466,
+      "from": "Rival Luna",
+      "text": "Let me move closer: 77.",
+      "price": 77,
+      "days": null
+     },
+     {
+      "tick": 466,
+      "from": "you",
+      "text": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure.",
+      "price": 106,
+      "days": null
+     },
+     {
+      "tick": 467,
+      "from": "Rival Luna",
+      "text": "I'd like to close this. My offer is 80.",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 468,
+      "from": "Rival Luna",
+      "text": "Meeting you halfway at 82, with thanks.",
+      "price": 82,
+      "days": null
+     },
+     {
+      "tick": 468,
+      "from": "you",
+      "text": "I appreciate you moving again. El Mesón de la Cava is a rare property with an established following, and I can come down to 102 P to meet you partway. I'd like to see a larger step from you so we can close the remaining gap.",
+      "price": 102,
+      "days": null
+     },
+     {
+      "tick": 469,
+      "from": "Rival Luna",
+      "text": "Final stretch from me: 84.",
+      "price": 84,
+      "days": null
+     },
+     {
+      "tick": 469,
+      "from": "you",
+      "text": "Thank you for the steady movement. Given the rarity of El Mesón de la Cava and its established following, I can step to 99 P. I'd like to see a substantive move into the 90s from you so we can close this quickly.",
+      "price": 99,
+      "days": null
+     },
+     {
+      "tick": 470,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 85. Thank you for your time.",
+      "price": 85,
+      "days": null
+     },
+     {
+      "tick": 471,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 86 works for me.",
+      "price": 86,
+      "days": null
+     },
+     {
+      "tick": 471,
+      "from": "you",
+      "text": "I've made a meaningful step to 95 P, reflecting the rarity and established following of El Mesón de la Cava. Your latest move was very small, so I'd ask for a real jump toward the low 90s so we can wrap this up quickly.",
+      "price": 95,
+      "days": null
+     },
+     {
+      "tick": 472,
+      "from": "Rival Luna",
+      "text": "Let me move closer: 87.",
+      "price": 87,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 472,
+   "raw": {
+    "duel": 2540,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 71,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 480,
+    "decay_per_round": 0.06,
+    "rounds": 6,
+    "your_offer": {
+     "id": 2981,
+     "price": 92,
+     "tick": 472,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2978,
+     "price": 87,
+     "tick": 472,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 464,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 68. Thank you for your time.",
+      "price": 68,
+      "days": null
+     },
+     {
+      "tick": 464,
+      "from": "you",
+      "text": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 465,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 73 works for me.",
+      "price": 73,
+      "days": null
+     },
+     {
+      "tick": 466,
+      "from": "Rival Luna",
+      "text": "Let me move closer: 77.",
+      "price": 77,
+      "days": null
+     },
+     {
+      "tick": 466,
+      "from": "you",
+      "text": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure.",
+      "price": 106,
+      "days": null
+     },
+     {
+      "tick": 467,
+      "from": "Rival Luna",
+      "text": "I'd like to close this. My offer is 80.",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 468,
+      "from": "Rival Luna",
+      "text": "Meeting you halfway at 82, with thanks.",
+      "price": 82,
+      "days": null
+     },
+     {
+      "tick": 468,
+      "from": "you",
+      "text": "I appreciate you moving again. El Mesón de la Cava is a rare property with an established following, and I can come down to 102 P to meet you partway. I'd like to see a larger step from you so we can close the remaining gap.",
+      "price": 102,
+      "days": null
+     },
+     {
+      "tick": 469,
+      "from": "Rival Luna",
+      "text": "Final stretch from me: 84.",
+      "price": 84,
+      "days": null
+     },
+     {
+      "tick": 469,
+      "from": "you",
+      "text": "Thank you for the steady movement. Given the rarity of El Mesón de la Cava and its established following, I can step to 99 P. I'd like to see a substantive move into the 90s from you so we can close this quickly.",
+      "price": 99,
+      "days": null
+     },
+     {
+      "tick": 470,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 85. Thank you for your time.",
+      "price": 85,
+      "days": null
+     },
+     {
+      "tick": 471,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 86 works for me.",
+      "price": 86,
+      "days": null
+     },
+     {
+      "tick": 471,
+      "from": "you",
+      "text": "I've made a meaningful step to 95 P, reflecting the rarity and established following of El Mesón de la Cava. Your latest move was very small, so I'd ask for a real jump toward the low 90s so we can wrap this up quickly.",
+      "price": 95,
+      "days": null
+     },
+     {
+      "tick": 472,
+      "from": "Rival Luna",
+      "text": "Let me move closer: 87.",
+      "price": 87,
+      "days": null
+     },
+     {
+      "tick": 472,
+      "from": "you",
+      "text": "I'm making one clear step to 92 P, which is close to my final position on El Mesón de la Cava given its rarity and loyal following. If you can meet me around 90 we can close this now rather than keep inching along.",
+      "price": 92,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -459,6 +1647,1259 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 466,
+   "took_s": 8.96,
+   "cost_usd": 0.005869999999999999,
+   "obs": {
+    "view": {
+     "duel_id": 2540,
+     "role": "seller",
+     "limit": 71,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello! I can do 68. Thank you for your time.",
+      "offer": {
+       "price": 68,
+       "days": null
+      },
+      "accept": false,
+      "tick": 464,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts.",
+      "offer": {
+       "price": 110,
+       "days": null
+      },
+      "accept": false,
+      "tick": 464,
+      "decision": {
+       "action": "offer",
+       "price": 110,
+       "message": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 73 works for me.",
+      "offer": {
+       "price": 73,
+       "days": null
+      },
+      "accept": false,
+      "tick": 465,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 73,
+     "days": null
+    },
+    "tick": 466,
+    "ticks_left": 14,
+    "rounds": 1
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure.",
+    "price": 106,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 106,
+      "message": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure."
+     },
+     "band": {
+      "worst": 104,
+      "target": 106,
+      "best": 107
+     },
+     "plan": {
+      "read": "They moved from 68 to 73, a 5 P step, with polite but uninformative words; their true ceiling is likely well above this.",
+      "target": 106,
+      "best": 107,
+      "worst": 104,
+      "days": null,
+      "angle": "Acknowledge their move with a modest concession, stress the property's rarity and loyal clientele, and invite a more serious step toward our price."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.01,
+       "in": 488,
+       "out": 119,
+       "cost_usd": 0.00433,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.96,
+       "in": 337,
+       "out": 87,
+       "cost_usd": 0.00154,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 467,
+   "took_s": 14.53,
+   "cost_usd": 0.00819,
+   "obs": {
+    "view": {
+     "duel_id": 2540,
+     "role": "seller",
+     "limit": 71,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello! I can do 68. Thank you for your time.",
+      "offer": {
+       "price": 68,
+       "days": null
+      },
+      "accept": false,
+      "tick": 464,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts.",
+      "offer": {
+       "price": 110,
+       "days": null
+      },
+      "accept": false,
+      "tick": 464,
+      "decision": {
+       "action": "offer",
+       "price": 110,
+       "message": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 73 works for me.",
+      "offer": {
+       "price": 73,
+       "days": null
+      },
+      "accept": false,
+      "tick": 465,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Let me move closer: 77.",
+      "offer": {
+       "price": 77,
+       "days": null
+      },
+      "accept": false,
+      "tick": 466,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure.",
+      "offer": {
+       "price": 106,
+       "days": null
+      },
+      "accept": false,
+      "tick": 466,
+      "decision": {
+       "action": "offer",
+       "price": 106,
+       "message": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 77,
+     "days": null
+    },
+    "tick": 467,
+    "ticks_left": 13,
+    "rounds": 2
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm holding at 106 P for El Mesón de la Cava, given its character and loyal clientele. I'll gladly consider a move from you.",
+    "price": 106,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 106,
+      "message": "I'm holding at 106 P for El Mesón de la Cava, given its character and loyal clientele. I'll gladly consider a move from you."
+     },
+     "band": {
+      "worst": 106,
+      "target": 106,
+      "best": 106
+     },
+     "plan": {
+      "read": "They have not moved since our 106 offer; their standing offer is still 77, though they have climbed steadily, 68 to 73 to 77. Their pattern suggests more room, so I trust their movement more than their words.",
+      "target": 106,
+      "best": 106,
+      "worst": 106,
+      "days": null,
+      "angle": "Hold at 106 and send nothing; wait for them to move again before conceding."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 11.3,
+       "in": 639,
+       "out": 126,
+       "cost_usd": 0.00508,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 3.23,
+       "in": 447,
+       "out": 222,
+       "cost_usd": 0.00311,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 468,
+   "took_s": 6.38,
+   "cost_usd": 0.00726,
+   "obs": {
+    "view": {
+     "duel_id": 2540,
+     "role": "seller",
+     "limit": 71,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello! I can do 68. Thank you for your time.",
+      "offer": {
+       "price": 68,
+       "days": null
+      },
+      "accept": false,
+      "tick": 464,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts.",
+      "offer": {
+       "price": 110,
+       "days": null
+      },
+      "accept": false,
+      "tick": 464,
+      "decision": {
+       "action": "offer",
+       "price": 110,
+       "message": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 73 works for me.",
+      "offer": {
+       "price": 73,
+       "days": null
+      },
+      "accept": false,
+      "tick": 465,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Let me move closer: 77.",
+      "offer": {
+       "price": 77,
+       "days": null
+      },
+      "accept": false,
+      "tick": 466,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure.",
+      "offer": {
+       "price": 106,
+       "days": null
+      },
+      "accept": false,
+      "tick": 466,
+      "decision": {
+       "action": "offer",
+       "price": 106,
+       "message": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I'd like to close this. My offer is 80.",
+      "offer": {
+       "price": 80,
+       "days": null
+      },
+      "accept": false,
+      "tick": 467,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 80,
+     "days": null
+    },
+    "tick": 468,
+    "ticks_left": 12,
+    "rounds": 2
+   },
+   "move": {
+    "action": "offer",
+    "text": "I appreciate you moving again. El Mesón de la Cava is a rare property with an established following, and I can come down to 102 P to meet you partway. I'd like to see a larger step from you so we can close the remaining gap.",
+    "price": 102,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 102,
+      "message": "I appreciate you moving again. El Mesón de la Cava is a rare property with an established following, and I can come down to 102 P to meet you partway. I'd like to see a larger step from you so we can close the remaining gap."
+     },
+     "band": {
+      "worst": 101,
+      "target": 102,
+      "best": 103
+     },
+     "plan": {
+      "read": "They keep moving in steady steps (77 to 80 since our last offer, 12 P total) and their talk of wanting to close is cheap. Their limit is likely well above 80.",
+      "target": 102,
+      "best": 103,
+      "worst": 101,
+      "days": null,
+      "angle": "Acknowledge their movement and come down modestly to 102, stressing the property's rarity and asking for a bigger step to close the gap."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.02,
+       "in": 683,
+       "out": 133,
+       "cost_usd": 0.00539,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.36,
+       "in": 491,
+       "out": 89,
+       "cost_usd": 0.00187,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 469,
+   "took_s": 6.64,
+   "cost_usd": 0.00883,
+   "obs": {
+    "view": {
+     "duel_id": 2540,
+     "role": "seller",
+     "limit": 71,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello! I can do 68. Thank you for your time.",
+      "offer": {
+       "price": 68,
+       "days": null
+      },
+      "accept": false,
+      "tick": 464,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts.",
+      "offer": {
+       "price": 110,
+       "days": null
+      },
+      "accept": false,
+      "tick": 464,
+      "decision": {
+       "action": "offer",
+       "price": 110,
+       "message": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 73 works for me.",
+      "offer": {
+       "price": 73,
+       "days": null
+      },
+      "accept": false,
+      "tick": 465,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Let me move closer: 77.",
+      "offer": {
+       "price": 77,
+       "days": null
+      },
+      "accept": false,
+      "tick": 466,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure.",
+      "offer": {
+       "price": 106,
+       "days": null
+      },
+      "accept": false,
+      "tick": 466,
+      "decision": {
+       "action": "offer",
+       "price": 106,
+       "message": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I'd like to close this. My offer is 80.",
+      "offer": {
+       "price": 80,
+       "days": null
+      },
+      "accept": false,
+      "tick": 467,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Meeting you halfway at 82, with thanks.",
+      "offer": {
+       "price": 82,
+       "days": null
+      },
+      "accept": false,
+      "tick": 468,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate you moving again. El Mesón de la Cava is a rare property with an established following, and I can come down to 102 P to meet you partway. I'd like to see a larger step from you so we can close the remaining gap.",
+      "offer": {
+       "price": 102,
+       "days": null
+      },
+      "accept": false,
+      "tick": 468,
+      "decision": {
+       "action": "offer",
+       "price": 102,
+       "message": "I appreciate you moving again. El Mesón de la Cava is a rare property with an established following, and I can come down to 102 P to meet you partway. I'd like to see a larger step from you so we can close the remaining gap."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 82,
+     "days": null
+    },
+    "tick": 469,
+    "ticks_left": 11,
+    "rounds": 3
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thank you for the steady movement. Given the rarity of El Mesón de la Cava and its established following, I can step to 99 P. I'd like to see a substantive move into the 90s from you so we can close this quickly.",
+    "price": 99,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 99,
+      "message": "Thank you for the steady movement. Given the rarity of El Mesón de la Cava and its established following, I can step to 99 P. I'd like to see a substantive move into the 90s from you so we can close this quickly."
+     },
+     "band": {
+      "worst": 98,
+      "target": 99,
+      "best": 100
+     },
+     "plan": {
+      "read": "They moved from 80 to 82 since our 102, a small step after steady moves; their concessions are shrinking (5,4,3,2), suggesting their limit may not be far above the mid-80s. Their polite 'halfway' wording is not literally true; judge by offers.",
+      "target": 99,
+      "best": 100,
+      "worst": 98,
+      "days": null,
+      "angle": "Acknowledge their movement, step to around 99 while stressing the property's rarity, and ask for a substantive move into the 90s to close quickly."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.66,
+       "in": 827,
+       "out": 167,
+       "cost_usd": 0.00665,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.98,
+       "in": 649,
+       "out": 88,
+       "cost_usd": 0.00218,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 470,
+   "took_s": 5.99,
+   "cost_usd": 0.00847,
+   "obs": {
+    "view": {
+     "duel_id": 2540,
+     "role": "seller",
+     "limit": 71,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello! I can do 68. Thank you for your time.",
+      "offer": {
+       "price": 68,
+       "days": null
+      },
+      "accept": false,
+      "tick": 464,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts.",
+      "offer": {
+       "price": 110,
+       "days": null
+      },
+      "accept": false,
+      "tick": 464,
+      "decision": {
+       "action": "offer",
+       "price": 110,
+       "message": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 73 works for me.",
+      "offer": {
+       "price": 73,
+       "days": null
+      },
+      "accept": false,
+      "tick": 465,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Let me move closer: 77.",
+      "offer": {
+       "price": 77,
+       "days": null
+      },
+      "accept": false,
+      "tick": 466,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure.",
+      "offer": {
+       "price": 106,
+       "days": null
+      },
+      "accept": false,
+      "tick": 466,
+      "decision": {
+       "action": "offer",
+       "price": 106,
+       "message": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I'd like to close this. My offer is 80.",
+      "offer": {
+       "price": 80,
+       "days": null
+      },
+      "accept": false,
+      "tick": 467,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Meeting you halfway at 82, with thanks.",
+      "offer": {
+       "price": 82,
+       "days": null
+      },
+      "accept": false,
+      "tick": 468,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate you moving again. El Mesón de la Cava is a rare property with an established following, and I can come down to 102 P to meet you partway. I'd like to see a larger step from you so we can close the remaining gap.",
+      "offer": {
+       "price": 102,
+       "days": null
+      },
+      "accept": false,
+      "tick": 468,
+      "decision": {
+       "action": "offer",
+       "price": 102,
+       "message": "I appreciate you moving again. El Mesón de la Cava is a rare property with an established following, and I can come down to 102 P to meet you partway. I'd like to see a larger step from you so we can close the remaining gap."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Final stretch from me: 84.",
+      "offer": {
+       "price": 84,
+       "days": null
+      },
+      "accept": false,
+      "tick": 469,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the steady movement. Given the rarity of El Mesón de la Cava and its established following, I can step to 99 P. I'd like to see a substantive move into the 90s from you so we can close this quickly.",
+      "offer": {
+       "price": 99,
+       "days": null
+      },
+      "accept": false,
+      "tick": 469,
+      "decision": {
+       "action": "offer",
+       "price": 99,
+       "message": "Thank you for the steady movement. Given the rarity of El Mesón de la Cava and its established following, I can step to 99 P. I'd like to see a substantive move into the 90s from you so we can close this quickly."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 84,
+     "days": null
+    },
+    "tick": 470,
+    "ticks_left": 10,
+    "rounds": 4
+   },
+   "move": {
+    "action": "message",
+    "text": "Holding at my current price for now.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "Holding at my current price for now."
+     },
+     "band": {
+      "worst": 97,
+      "target": 99,
+      "best": 99
+     },
+     "plan": {
+      "read": "They have not moved since our 99; their standing offer is still 84, and the 'final stretch' wording is likely posturing given their steady steps of 2-3. No new movement, so we hold and send nothing.",
+      "target": 99,
+      "best": 99,
+      "worst": 97,
+      "days": null,
+      "angle": "Hold at 99 and send nothing this tick; if a message is needed, stress that a move into the 90s from them is what closes this quickly."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.09,
+       "in": 964,
+       "out": 142,
+       "cost_usd": 0.0067,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.9,
+       "in": 741,
+       "out": 29,
+       "cost_usd": 0.00177,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 471,
+   "took_s": 6.29,
+   "cost_usd": 0.009729999999999999,
+   "obs": {
+    "view": {
+     "duel_id": 2540,
+     "role": "seller",
+     "limit": 71,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello! I can do 68. Thank you for your time.",
+      "offer": {
+       "price": 68,
+       "days": null
+      },
+      "accept": false,
+      "tick": 464,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts.",
+      "offer": {
+       "price": 110,
+       "days": null
+      },
+      "accept": false,
+      "tick": 464,
+      "decision": {
+       "action": "offer",
+       "price": 110,
+       "message": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 73 works for me.",
+      "offer": {
+       "price": 73,
+       "days": null
+      },
+      "accept": false,
+      "tick": 465,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Let me move closer: 77.",
+      "offer": {
+       "price": 77,
+       "days": null
+      },
+      "accept": false,
+      "tick": 466,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure.",
+      "offer": {
+       "price": 106,
+       "days": null
+      },
+      "accept": false,
+      "tick": 466,
+      "decision": {
+       "action": "offer",
+       "price": 106,
+       "message": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I'd like to close this. My offer is 80.",
+      "offer": {
+       "price": 80,
+       "days": null
+      },
+      "accept": false,
+      "tick": 467,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Meeting you halfway at 82, with thanks.",
+      "offer": {
+       "price": 82,
+       "days": null
+      },
+      "accept": false,
+      "tick": 468,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate you moving again. El Mesón de la Cava is a rare property with an established following, and I can come down to 102 P to meet you partway. I'd like to see a larger step from you so we can close the remaining gap.",
+      "offer": {
+       "price": 102,
+       "days": null
+      },
+      "accept": false,
+      "tick": 468,
+      "decision": {
+       "action": "offer",
+       "price": 102,
+       "message": "I appreciate you moving again. El Mesón de la Cava is a rare property with an established following, and I can come down to 102 P to meet you partway. I'd like to see a larger step from you so we can close the remaining gap."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Final stretch from me: 84.",
+      "offer": {
+       "price": 84,
+       "days": null
+      },
+      "accept": false,
+      "tick": 469,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the steady movement. Given the rarity of El Mesón de la Cava and its established following, I can step to 99 P. I'd like to see a substantive move into the 90s from you so we can close this quickly.",
+      "offer": {
+       "price": 99,
+       "days": null
+      },
+      "accept": false,
+      "tick": 469,
+      "decision": {
+       "action": "offer",
+       "price": 99,
+       "message": "Thank you for the steady movement. Given the rarity of El Mesón de la Cava and its established following, I can step to 99 P. I'd like to see a substantive move into the 90s from you so we can close this quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hello! I can do 85. Thank you for your time.",
+      "offer": {
+       "price": 85,
+       "days": null
+      },
+      "accept": false,
+      "tick": 470,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 85,
+     "days": null
+    },
+    "tick": 471,
+    "ticks_left": 9,
+    "rounds": 4
+   },
+   "move": {
+    "action": "offer",
+    "text": "I've made a meaningful step to 95 P, reflecting the rarity and established following of El Mesón de la Cava. Your latest move was very small, so I'd ask for a real jump toward the low 90s so we can wrap this up quickly.",
+    "price": 95,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 95,
+      "message": "I've made a meaningful step to 95 P, reflecting the rarity and established following of El Mesón de la Cava. Your latest move was very small, so I'd ask for a real jump toward the low 90s so we can wrap this up quickly."
+     },
+     "band": {
+      "worst": 93,
+      "target": 95,
+      "best": 96
+     },
+     "plan": {
+      "read": "They moved 1 P (84 to 85) since our 99. Their steps keep shrinking, 4, 3, 2, 2, 1, which suggests they are nearing their ceiling. Their words carry no information beyond the offer.",
+      "target": 95,
+      "best": 96,
+      "worst": 93,
+      "days": null,
+      "angle": "Make one meaningful step to 95 and stress that their latest 1 P move is too small; ask for a real jump toward the low 90s so we can close quickly."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.19,
+       "in": 1011,
+       "out": 158,
+       "cost_usd": 0.0072,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.1,
+       "in": 785,
+       "out": 96,
+       "cost_usd": 0.00253,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 472,
+   "took_s": 5.6,
+   "cost_usd": 0.01009,
+   "obs": {
+    "view": {
+     "duel_id": 2540,
+     "role": "seller",
+     "limit": 71,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello! I can do 68. Thank you for your time.",
+      "offer": {
+       "price": 68,
+       "days": null
+      },
+      "accept": false,
+      "tick": 464,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts.",
+      "offer": {
+       "price": 110,
+       "days": null
+      },
+      "accept": false,
+      "tick": 464,
+      "decision": {
+       "action": "offer",
+       "price": 110,
+       "message": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 73 works for me.",
+      "offer": {
+       "price": 73,
+       "days": null
+      },
+      "accept": false,
+      "tick": 465,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Let me move closer: 77.",
+      "offer": {
+       "price": 77,
+       "days": null
+      },
+      "accept": false,
+      "tick": 466,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure.",
+      "offer": {
+       "price": 106,
+       "days": null
+      },
+      "accept": false,
+      "tick": 466,
+      "decision": {
+       "action": "offer",
+       "price": 106,
+       "message": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I'd like to close this. My offer is 80.",
+      "offer": {
+       "price": 80,
+       "days": null
+      },
+      "accept": false,
+      "tick": 467,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Meeting you halfway at 82, with thanks.",
+      "offer": {
+       "price": 82,
+       "days": null
+      },
+      "accept": false,
+      "tick": 468,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate you moving again. El Mesón de la Cava is a rare property with an established following, and I can come down to 102 P to meet you partway. I'd like to see a larger step from you so we can close the remaining gap.",
+      "offer": {
+       "price": 102,
+       "days": null
+      },
+      "accept": false,
+      "tick": 468,
+      "decision": {
+       "action": "offer",
+       "price": 102,
+       "message": "I appreciate you moving again. El Mesón de la Cava is a rare property with an established following, and I can come down to 102 P to meet you partway. I'd like to see a larger step from you so we can close the remaining gap."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Final stretch from me: 84.",
+      "offer": {
+       "price": 84,
+       "days": null
+      },
+      "accept": false,
+      "tick": 469,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the steady movement. Given the rarity of El Mesón de la Cava and its established following, I can step to 99 P. I'd like to see a substantive move into the 90s from you so we can close this quickly.",
+      "offer": {
+       "price": 99,
+       "days": null
+      },
+      "accept": false,
+      "tick": 469,
+      "decision": {
+       "action": "offer",
+       "price": 99,
+       "message": "Thank you for the steady movement. Given the rarity of El Mesón de la Cava and its established following, I can step to 99 P. I'd like to see a substantive move into the 90s from you so we can close this quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hello! I can do 85. Thank you for your time.",
+      "offer": {
+       "price": 85,
+       "days": null
+      },
+      "accept": false,
+      "tick": 470,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 86 works for me.",
+      "offer": {
+       "price": 86,
+       "days": null
+      },
+      "accept": false,
+      "tick": 471,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've made a meaningful step to 95 P, reflecting the rarity and established following of El Mesón de la Cava. Your latest move was very small, so I'd ask for a real jump toward the low 90s so we can wrap this up quickly.",
+      "offer": {
+       "price": 95,
+       "days": null
+      },
+      "accept": false,
+      "tick": 471,
+      "decision": {
+       "action": "offer",
+       "price": 95,
+       "message": "I've made a meaningful step to 95 P, reflecting the rarity and established following of El Mesón de la Cava. Your latest move was very small, so I'd ask for a real jump toward the low 90s so we can wrap this up quickly."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 86,
+     "days": null
+    },
+    "tick": 472,
+    "ticks_left": 8,
+    "rounds": 5
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm making one clear step to 92 P, which is close to my final position on El Mesón de la Cava given its rarity and loyal following. If you can meet me around 90 we can close this now rather than keep inching along.",
+    "price": 92,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 92,
+      "message": "I'm making one clear step to 92 P, which is close to my final position on El Mesón de la Cava given its rarity and loyal following. If you can meet me around 90 we can close this now rather than keep inching along."
+     },
+     "band": {
+      "worst": 88,
+      "target": 92,
+      "best": 93
+     },
+     "plan": {
+      "read": "They keep inching up by 1-2 P per tick (now 86) without waiting for replies, so they are clearly still moving; their step sizes are shrinking, which suggests they're nearing their ceiling.",
+      "target": 92,
+      "best": 93,
+      "worst": 88,
+      "days": null,
+      "angle": "Make one clear step to 92 and frame it as near-final, asking them to meet at around 90 to close now rather than keep inching."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.24,
+       "in": 1161,
+       "out": 140,
+       "cost_usd": 0.00744,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.36,
+       "in": 897,
+       "out": 86,
+       "cost_usd": 0.00265,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -515,6 +2956,291 @@
      "id": 2778,
      "price": 110,
      "tick": 464,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 466,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure.",
+    "price": 106,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 106,
+      "message": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure."
+     },
+     "band": {
+      "worst": 104,
+      "target": 106,
+      "best": 107
+     },
+     "plan": {
+      "read": "They moved from 68 to 73, a 5 P step, with polite but uninformative words; their true ceiling is likely well above this.",
+      "target": 106,
+      "best": 107,
+      "worst": 104,
+      "days": null,
+      "angle": "Acknowledge their move with a modest concession, stress the property's rarity and loyal clientele, and invite a more serious step toward our price."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.01,
+       "in": 488,
+       "out": 119,
+       "cost_usd": 0.00433,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.96,
+       "in": 337,
+       "out": 87,
+       "cost_usd": 0.00154,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2540,
+    "offer": {
+     "id": 2837,
+     "price": 106,
+     "tick": 466,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 468,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I appreciate you moving again. El Mesón de la Cava is a rare property with an established following, and I can come down to 102 P to meet you partway. I'd like to see a larger step from you so we can close the remaining gap.",
+    "price": 102,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 102,
+      "message": "I appreciate you moving again. El Mesón de la Cava is a rare property with an established following, and I can come down to 102 P to meet you partway. I'd like to see a larger step from you so we can close the remaining gap."
+     },
+     "band": {
+      "worst": 101,
+      "target": 102,
+      "best": 103
+     },
+     "plan": {
+      "read": "They keep moving in steady steps (77 to 80 since our last offer, 12 P total) and their talk of wanting to close is cheap. Their limit is likely well above 80.",
+      "target": 102,
+      "best": 103,
+      "worst": 101,
+      "days": null,
+      "angle": "Acknowledge their movement and come down modestly to 102, stressing the property's rarity and asking for a bigger step to close the gap."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.02,
+       "in": 683,
+       "out": 133,
+       "cost_usd": 0.00539,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.36,
+       "in": 491,
+       "out": 89,
+       "cost_usd": 0.00187,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2540,
+    "offer": {
+     "id": 2880,
+     "price": 102,
+     "tick": 468,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 469,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thank you for the steady movement. Given the rarity of El Mesón de la Cava and its established following, I can step to 99 P. I'd like to see a substantive move into the 90s from you so we can close this quickly.",
+    "price": 99,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 99,
+      "message": "Thank you for the steady movement. Given the rarity of El Mesón de la Cava and its established following, I can step to 99 P. I'd like to see a substantive move into the 90s from you so we can close this quickly."
+     },
+     "band": {
+      "worst": 98,
+      "target": 99,
+      "best": 100
+     },
+     "plan": {
+      "read": "They moved from 80 to 82 since our 102, a small step after steady moves; their concessions are shrinking (5,4,3,2), suggesting their limit may not be far above the mid-80s. Their polite 'halfway' wording is not literally true; judge by offers.",
+      "target": 99,
+      "best": 100,
+      "worst": 98,
+      "days": null,
+      "angle": "Acknowledge their movement, step to around 99 while stressing the property's rarity, and ask for a substantive move into the 90s to close quickly."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.66,
+       "in": 827,
+       "out": 167,
+       "cost_usd": 0.00665,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.98,
+       "in": 649,
+       "out": 88,
+       "cost_usd": 0.00218,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2540,
+    "offer": {
+     "id": 2904,
+     "price": 99,
+     "tick": 469,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 471,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I've made a meaningful step to 95 P, reflecting the rarity and established following of El Mesón de la Cava. Your latest move was very small, so I'd ask for a real jump toward the low 90s so we can wrap this up quickly.",
+    "price": 95,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 95,
+      "message": "I've made a meaningful step to 95 P, reflecting the rarity and established following of El Mesón de la Cava. Your latest move was very small, so I'd ask for a real jump toward the low 90s so we can wrap this up quickly."
+     },
+     "band": {
+      "worst": 93,
+      "target": 95,
+      "best": 96
+     },
+     "plan": {
+      "read": "They moved 1 P (84 to 85) since our 99. Their steps keep shrinking, 4, 3, 2, 2, 1, which suggests they are nearing their ceiling. Their words carry no information beyond the offer.",
+      "target": 95,
+      "best": 96,
+      "worst": 93,
+      "days": null,
+      "angle": "Make one meaningful step to 95 and stress that their latest 1 P move is too small; ask for a real jump toward the low 90s so we can close quickly."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.19,
+       "in": 1011,
+       "out": 158,
+       "cost_usd": 0.0072,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.1,
+       "in": 785,
+       "out": 96,
+       "cost_usd": 0.00253,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2540,
+    "offer": {
+     "id": 2951,
+     "price": 95,
+     "tick": 471,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 472,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'm making one clear step to 92 P, which is close to my final position on El Mesón de la Cava given its rarity and loyal following. If you can meet me around 90 we can close this now rather than keep inching along.",
+    "price": 92,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 92,
+      "message": "I'm making one clear step to 92 P, which is close to my final position on El Mesón de la Cava given its rarity and loyal following. If you can meet me around 90 we can close this now rather than keep inching along."
+     },
+     "band": {
+      "worst": 88,
+      "target": 92,
+      "best": 93
+     },
+     "plan": {
+      "read": "They keep inching up by 1-2 P per tick (now 86) without waiting for replies, so they are clearly still moving; their step sizes are shrinking, which suggests they're nearing their ceiling.",
+      "target": 92,
+      "best": 93,
+      "worst": 88,
+      "days": null,
+      "angle": "Make one clear step to 92 and frame it as near-final, asking them to meet at around 90 to close now rather than keep inching."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.24,
+       "in": 1161,
+       "out": 140,
+       "cost_usd": 0.00744,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.36,
+       "in": 897,
+       "out": 86,
+       "cost_usd": 0.00265,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2540,
+    "offer": {
+     "id": 2981,
+     "price": 92,
+     "tick": 472,
      "days": 0
     }
    }
