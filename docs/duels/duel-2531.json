@@ -67,6 +67,58 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 595,
+   "raw": {
+    "duel": 2531,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Mercado de la Paz",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 146,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Sol",
+    "deadline_tick": 609,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 5324,
+     "price": 95,
+     "tick": 593,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 5345,
+     "price": 101,
+     "tick": 595,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 593,
+      "from": "you",
+      "text": "I'd like to open at 95 P for Mercado de la Paz, which I think is a fair value given what is on offer. I'm keen to settle this quickly, so please let me know where you stand.}",
+      "price": 95,
+      "days": null
+     },
+     {
+      "tick": 595,
+      "from": "Rival Sol",
+      "text": "Hello! I can let it go for 101 P.",
+      "price": 101,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -177,6 +229,111 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 595,
+   "took_s": 5.47,
+   "cost_usd": 0.00503,
+   "obs": {
+    "view": {
+     "duel_id": 2531,
+     "role": "buyer",
+     "limit": 146,
+     "currency": "P",
+     "item": "Mercado de la Paz",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 95 P for Mercado de la Paz, which I think is a fair value given what is on offer. I'm keen to settle this quickly, so please let me know where you stand.}",
+      "offer": {
+       "price": 95,
+       "days": null
+      },
+      "accept": false,
+      "tick": 593,
+      "decision": {
+       "action": "offer",
+       "price": 95,
+       "message": "I'd like to open at 95 P for Mercado de la Paz, which I think is a fair value given what is on offer. I'm keen to settle this quickly, so please let me know where you stand.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hello! I can let it go for 101 P.",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 595,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 101,
+     "days": null
+    },
+    "tick": 595,
+    "ticks_left": 14,
+    "rounds": 1
+   },
+   "move": {
+    "action": "accept",
+    "text": "Thank you, I'm glad we could settle this quickly. I accept 101 P.",
+    "price": 101,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "accept",
+      "price": 101,
+      "message": "Thank you, I'm glad we could settle this quickly. I accept 101 P."
+     },
+     "band": {
+      "worst": 101,
+      "target": 101,
+      "best": 98
+     },
+     "plan": {
+      "read": "They opened at 101 P, just 6 P above our 95 P. That is already a very favourable price for us, so any extra rounds would cost more than the small gap we could still win.",
+      "target": 101,
+      "best": 98,
+      "worst": 101,
+      "days": null,
+      "angle": "Accept their 101 P now and close the deal quickly rather than haggle over a few primas."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.31,
+       "in": 407,
+       "out": 117,
+       "cost_usd": 0.00397,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.15,
+       "in": 302,
+       "out": 46,
+       "cost_usd": 0.00106,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -235,6 +392,59 @@
      "tick": 593,
      "days": 0
     }
+   }
+  },
+  {
+   "tick": 595,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Thank you, I'm glad we could settle this quickly. I accept 101 P.",
+    "price": 101,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "accept",
+      "price": 101,
+      "message": "Thank you, I'm glad we could settle this quickly. I accept 101 P."
+     },
+     "band": {
+      "worst": 101,
+      "target": 101,
+      "best": 98
+     },
+     "plan": {
+      "read": "They opened at 101 P, just 6 P above our 95 P. That is already a very favourable price for us, so any extra rounds would cost more than the small gap we could still win.",
+      "target": 101,
+      "best": 98,
+      "worst": 101,
+      "days": null,
+      "angle": "Accept their 101 P now and close the deal quickly rather than haggle over a few primas."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.31,
+       "in": 407,
+       "out": 117,
+       "cost_usd": 0.00397,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.15,
+       "in": 302,
+       "out": 46,
+       "cost_usd": 0.00106,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 101,
+    "settles_at_tick": 596
    }
   }
  ]

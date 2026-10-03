@@ -563,3 +563,8 @@
 {"id": 31488, "tick": 589, "t": 6.2333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2507, "session": 2, "status": "deal", "item": "Palacio de Cristal"}}
 {"id": 31601, "tick": 591, "t": 6.25, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2536, "session": 2, "status": "deal", "item": "Palacio de Cristal"}}
 {"id": 31604, "tick": 591, "t": 6.25, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2559, "session": 2, "status": "deal", "item": "El Mesón de la Cava"}}
+{"id": 31670, "tick": 592, "t": 6.2583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2515, "session": 2, "status": "no_deal", "item": "Palacio de Cristal"}}
+{"id": 31718, "tick": 593, "t": 6.2667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2537, "session": 2, "status": "deal", "item": "Palacio de Cristal"}}
+{"id": 31721, "tick": 593, "t": 6.2667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2553, "session": 2, "status": "deal", "item": "La Heroína del Dos de Mayo"}}
+{"id": 31724, "tick": 593, "t": 6.2667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2585, "session": 2, "status": "deal", "item": "Mercado de la Paz"}}
+{"id": 31788, "tick": 594, "t": 6.275, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2437, "session": 2, "status": "deal", "item": "Mercado de la Paz"}}
