@@ -2,8 +2,7 @@
  "_note": "The approved complete param sets (Duel Lab SUNDAY v2, Sun 00:45; intel/duel-lab.md). Every set lists the same keys, so `tools/duel_loop.py use <set>` replaces the whole file and nothing of the old set remains. _default plays when run/duel_params.json is missing (loudly); _switch is the Duel Lab's one-way rule (tools/duel_gates.py: >= 12 closed duels with a rival that spoke, deal rate < 0.60), applied by `tools/duel_loop.py switch`. Aleks: set _default to the set you pick at 08:00.",
  "_default": "A",
  "_switch": {
-  "C": "A",
-  "A": "today"
+  "C": "A"
  },
  "today": {
   "MIN_STEP_P": 3,

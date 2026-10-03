@@ -27,7 +27,7 @@ Only a session at the setting the Duel Lab simulated proposes anything (TARGET: 
 setting (Duels II: 16 / 8%) still gets its summary and the simulator's comparison, never a proposal.
 4. The Duel Lab's switch rule (`tools/duel_gates.py`, SUNDAY v2) on the session so far, shown with its counts: at
    least 12 closed duels with a rival that spoke and a deal rate below 0.60 → the pre-approved fallback set (C → A,
-   A → today; docs/duel_sets.json), once, never back. `run` only reports it; `switch` applies it.
+   docs/duel_sets.json; Lab SUNDAY v2: C → A only), once, never back. `run` only reports it; `switch` applies it.
 
 Sets (audit, Sun 01:00): `use SET` writes one approved set from docs/duel_sets.json as the WHOLE params file (every
 set lists the same keys, so nothing of the previous set remains), with `_set` naming it; `switch` watches the
@@ -1099,10 +1099,12 @@ def switch_once(*, records: Path = RECORDS, sets_path: Path = pm.SETS, params_pa
         now = json.loads(Path(params_path).read_text()).get("_set")
     except (OSError, ValueError, AttributeError):
         now = None
-    _, _, fallback, errors = pm.load_sets(sets_path)
+    sets, _, fallback, errors = pm.load_sets(sets_path)
     if errors or now not in fallback:
+        last = not errors and now in sets
         return (f"{stamp('%H:%M')} wave {wave.id}: switch rule SWITCH, but the params file plays "
-                f"{now or 'no approved set'}: nothing written (a human decides)")
+                f"{now or 'no approved set'}{', the last step of the switch' if last else ''}: nothing written "
+                f"(a human decides)")
     if now in state.get("switched_from", []):
         return None                                   # once per set: never again, never back
     new = fallback[now]

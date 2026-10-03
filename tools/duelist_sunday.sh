@@ -2,6 +2,7 @@
 # Sunday's duelist in one command (Chief, Sun 01:30; for Aleks). Run it from your normal checkout, no merge needed:
 #   bash <(git show origin/duelist-loop:tools/duelist_sunday.sh)              # start
 #   bash <(git show origin/duelist-loop:tools/duelist_sunday.sh) --rollback   # back to Saturday's duelist on main
+#   bash <(git show origin/duelist-loop:tools/duelist_sunday.sh) --stop       # stop every duelist, start nothing
 #   bash <(git show origin/duelist-loop:tools/duelist_sunday.sh) --status     # one screen
 #   bash <(git show origin/duelist-loop:tools/duelist_sunday.sh) --check      # steps 1-4 only: never starts
 # The approved code runs from its own worktree ($WT), never from your checkout: your checkout's auto-sync pushes
@@ -12,7 +13,7 @@ COMMIT="${COMMIT:-origin/duelist-loop}"     # the approved commit (pin the sha t
 SET="${SET:-C}"                             # docs/duel_sets.json: C (robust), A (SAFE) or today
 POLICY="${POLICY:-code}"                    # code: code decides, Haiku writes the words; llm: the models decide
 FLAGS="${FLAGS:---model claude-opus-5-5 --effort low --negotiator-model claude-haiku-4-5 --failover-s 8}"
-AUTOSWITCH="${AUTOSWITCH:-0}"               # 1: also run the Duel Lab's one-way switch rule (C → A, A → today)
+AUTOSWITCH="${AUTOSWITCH:-0}"               # 1: also run the Duel Lab's one-way switch rule (C → A, once)
 BY="${BY:-Aleks}"
 OLD_FLAGS="${OLD_FLAGS:---negotiator-model claude-sonnet-5-5 --effort medium --negotiator-effort low}"   # Saturday's
 # ------------------------------------------------------------------------------------------------------------------
@@ -55,6 +56,7 @@ start_in() {   # dir, records, flags...
 
 case "${1:-start}" in
   --status) status; exit 0 ;;
+  --stop) say "STOP: stopping every duelist and the switch on this machine; starting nothing"; stop_all; status; exit 0 ;;
   --rollback)
     say "ROLLBACK: stopping every duelist on this machine"; stop_all
     git -C "$MAIN" diff --quiet HEAD -- agents engine || die "uncommitted code in $MAIN: commit or stash it by hand first"
@@ -65,7 +67,7 @@ case "${1:-start}" in
     start_in "$MAIN" "$MAIN/docs/duels" $OLD_FLAGS
     sleep 8; status; exit 0 ;;
   start|""|--check) ;;
-  *) echo "usage: duelist_sunday.sh [--status | --check | --rollback]"; exit 2 ;;
+  *) echo "usage: duelist_sunday.sh [--status | --check | --stop | --rollback]"; exit 2 ;;
 esac
 
 say "1/6 fetch and check out $COMMIT in $WT"

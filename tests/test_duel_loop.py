@@ -1,6 +1,7 @@
 """Offline tests for tools/duel_loop.py on small synthetic records (never the live docs/duels, which keep growing).
 The simulator is faked where the logic is the point (fast), and real with a few hundred duels end to end."""
 import json
+from pathlib import Path
 
 import pytest
 
@@ -495,7 +496,7 @@ def test_use_writes_a_whole_set_and_nothing_of_the_old_one_remains(tmp_path, src
 
 def test_the_repo_sets_file_is_valid_and_its_sets_list_the_same_keys():
     sets, default, switch, errors = dl.pm.load_sets(dl.pm.SETS)
-    assert errors == [] and default in sets and set(sets) == {"today", "A", "C"} and switch == {"C": "A", "A": "today"}
+    assert errors == [] and default in sets and set(sets) == {"today", "A", "C"} and switch == {"C": "A"}   # Lab SUNDAY v2: one step
 
 
 def test_switch_applies_the_fallback_once_and_never_back(tmp_path, src, monkeypatch):
@@ -518,6 +519,27 @@ def test_switch_applies_the_fallback_once_and_never_back(tmp_path, src, monkeypa
     (tmp_path / "off").unlink()
     params.write_text(json.dumps({"MIN_STEP_P": 6}))              # not an approved set: a human decides
     assert "nothing written" in dl.switch_once(**kw)
+
+
+def test_the_switch_stops_at_a(tmp_path, src, monkeypatch):
+    """Lab SUNDAY v2: C → A is the only step; on A a SWITCH verdict writes nothing."""
+    sets, params, state = tmp_path / "sets.json", tmp_path / "duel_params.json", tmp_path / "state.json"
+    sets.write_text(json.dumps({**SETS, "_switch": {"C": "A"}}))
+    dl.use("A", sets_path=sets, params_path=params, by="Aleks", src=src)
+    monkeypatch.setattr(dl, "load", lambda *a, **k: dl.Book([], [], {}))
+    monkeypatch.setattr(dl, "pick", lambda w, which: type("W", (), {"id": "4.3", "closed": True, "session": 4})())
+    monkeypatch.setattr(dl, "session_params", lambda book, wave: (12, 0.10))
+    monkeypatch.setattr(dl, "gate", lambda rec, s, eff=None: {"verdict": "SWITCH", "reason": "deal rate 0.50",
+                                                              "evidence": {"n": 12}, "diff": {}})
+    line = dl.switch_once(records=tmp_path, sets_path=sets, params_path=params, state_path=state,
+                          off=tmp_path / "off", src=src, log=tmp_path / "loop.md")
+    assert "last step" in line and "nothing written" in line and json.loads(params.read_text())["_set"] == "A"
+
+
+def test_the_sunday_script_stop_starts_nothing():
+    text = (Path(dl.__file__).parent / "duelist_sunday.sh").read_text()
+    branch = [ln for ln in text.splitlines() if ln.strip().startswith("--stop)")]
+    assert len(branch) == 1 and "stop_all" in branch[0] and "exit 0" in branch[0] and "start_in" not in branch[0]
 
 
 def test_a_session_off_the_simulated_setting_proposes_nothing(tmp_path, src, monkeypatch):

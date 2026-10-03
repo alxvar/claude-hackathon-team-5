@@ -11,7 +11,7 @@
 3. **Params:**
    - A missing `run/duel_params.json` plays the default set from `docs/duel_sets.json` (**A**), said loudly every
      20 ticks.
-   - `use SET` replaces the whole file; `switch` is the Lab's one-way C → A → today rule (opt-in).
+   - `use SET` replaces the whole file; `switch` is the Lab's one-way C → A rule (opt-in; A is the last step).
    - Every decision records the set it was made under. The prompt names no late-switch tick count, and drops the
      line at 0.
 4. **Failover:** the primary model's budget is 8 s (`--failover-s`), and the runner's cancellation counts as a
@@ -25,6 +25,7 @@
 bash <(git show origin/duelist-loop:tools/duelist_sunday.sh) --check      # steps 1-4 only, never starts: try it first
 bash <(git show origin/duelist-loop:tools/duelist_sunday.sh)              # start
 bash <(git show origin/duelist-loop:tools/duelist_sunday.sh) --status     # one screen
+bash <(git show origin/duelist-loop:tools/duelist_sunday.sh) --stop       # stop every duelist, start nothing
 bash <(git show origin/duelist-loop:tools/duelist_sunday.sh) --rollback   # back to Saturday's duelist on main
 ```
 
@@ -40,6 +41,9 @@ bash <(git show origin/duelist-loop:tools/duelist_sunday.sh) --rollback   # back
 
 **Settings** (env vars at the top: `COMMIT`, `SET`, `POLICY`, `FLAGS`, `AUTOSWITCH`, `BY`): the defaults are the
 Duel Lab's. Pin `COMMIT` to the re-audited sha.
+
+**`--stop`:** stops every duelist and the switch, starts nothing, prints the status. A re-run of the script
+without a flag starts again (and reinstalls `SET`).
 
 **`--rollback`:** it stops every duelist and the switch, checks your checkout out to main, runs the duelist tests,
 and starts with Saturday's flags (`OLD_FLAGS`, from the runbook).
@@ -65,7 +69,7 @@ previous set behind:
 | **today** | 3 | 0.25 | 4 | 2 | 0.25 |
 
 - **The switch rule** (`tools/duel_gates.py`): once at least 12 closed duels with a rival that spoke show a deal rate
-  below 0.60, C → A (or A → today). Once, never back.
+  below 0.60, C → A. Once, never back; on A it writes nothing (Lab SUNDAY v2: today scores below A everywhere).
   - `python3 tools/duel_loop.py switch` applies it on your machine.
   - `AUTOSWITCH=1` in the script runs it alongside the duelist.
   - `touch run/duel_switch.off` stops it.
