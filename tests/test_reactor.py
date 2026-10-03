@@ -188,7 +188,6 @@ class PubD(Pub):
 def flipper(tmp_path, values, cash=500, prog=None):
     r, clock, sent, logs = make(tmp_path, values, cash)
     r.pub, r._cards, r._prog = PubD(), dict(CARDS), dict(prog or {})
-    rx.FLIPS_OUT = tmp_path / "flips.md"
     return r, sent, logs
 
 
@@ -230,5 +229,5 @@ def test_the_hunt_digest_lists_open_rare_bids(tmp_path):
     r.handle(bid_to("t09", "SAL-11", 207))
     r.handle(bid_to("t08", "RET-09", 70))
     r.digest(force=True)
-    text = (tmp_path / "flips.md").read_text()
+    text = rx.FLIPS_OUT.read_text()
     assert "| 207 | SAL-11 La Puerta (epic) | t09 |" in text and "| 70 | RET-09" in text and "FLIP " in text
