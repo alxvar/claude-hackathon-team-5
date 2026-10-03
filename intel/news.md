@@ -6,3 +6,4 @@ _Every item from GET /api/news (sources: boletin, radio, tablon), oldest first, 
 - Sat 11:13 · tick 331 (hour 4.0833) · Radio Rastro · **Atleti win 2-1 and Madrid goes out to celebrate** · Car horns on Gran Vía until late. · Names: none
 - Sat 11:31 · tick 403 (hour 4.6833) · Radio Rastro · **El Chato is looking for rare Malasaña cards** · They say he pays above the usual price today. One hour, no more. · Names: dealer chato, dealer el chato, set MAL, event price
 - Sat 12:19 · tick 499 (hour 5.4833) · El Tablón · **El Chato gives a legendary to anyone who says hello!** · My cousin saw it. I swear. · Names: dealer chato, dealer el chato
+- Sat 13:01 · tick 583 (hour 6.1833) · Radio Rastro · **Metro line 5 is closed between Ópera and Callao** ·  · Names: none
