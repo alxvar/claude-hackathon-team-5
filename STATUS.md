@@ -1,15 +1,15 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 12:48** · tick 556 (30 s/tick) · game hour 5.96 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 12:53** · tick 566 (30 s/tick) · game hour 6.04 · running · today closes 23:00._
 
 ## Team: now and latest
 
 _From `team/<name>.md`; each person writes only their own file._
 
 **Aleks** — Duelist LIVE since 11:27:54 on eb36ec8 (`supervise.sh`, detached, caffeinate) for Duels I ≈ 11:59-13:35 (tick ≈ 459); Duels II ≈ 18:29 (tick ≈ 1239). **HANDOFF to Aleks's Builder session (this Mac): fewer rounds per deal, spec `docs/duelist-rounds-spec.md`; built in a git worktree, merged and pushed only after Duels I; restart before Duels II on Aleks's go.** PLAN.md Aleks block (09:58): #2 done, #3 decided (opener kept as is), #6 noted, spend limit OK, arbiter reviewed (log 10:20); #9a in code (ff9a66d, live after a restart), #9b kept; open: #4 waits on Dani's Q6, #5 later (Duels II day reading, Sunday Sonnet strategist).
+  - Sat 12:52 · Duels I so far (tick 556, 23 of our duels finished, 3 live) · **21 deals of 23 (91%)**, field 80% (161/202 public results) · duel points 0 → 10.09: the jumps line up with our deals closing, each one share-sized, so points ≈ Σ our share of the pie × 0.94^rounds [L], ~0.44 per duel · **rounds are the leak**: 4.4 per deal (practice 3.5), 22% of deal value lost to decay (≈ 2.8 points); longest 2356 (10), 2318/2319 (9); our steps of 3-4 P against gaps of 50-80 (2318: 115 → 112 → 108 …) are what the Builder's `rounds` branch holds · no-deals: 2367 (rival held 101, our limit 72: likely no overlap) and 2523 (silent rival, our walk 110 → 170 never taken) · 2 fallbacks (2506 past-limit draft blocked, 2356 25 s timeout) · rivals that took our opener scored best (2446: 28 P, 0 rounds); 2296 sold at 97 after the rival had offered 101 and retreated · next: merge `rounds` after Duels I, restart before Duels II
   - Sat 11:56 · **handoff to Aleks's Builder session on this Mac** (not Lucas's): fewer rounds per deal, spec in `docs/duelist-rounds-spec.md` · (1) code in `agent.held`: a concession smaller than max(3 P, ¼ of the gap in worth) is held, and after 4 priced offers nothing more is sent unless they moved that much or 3 ticks are left (accepts, opener, close, their price, silent walk and fallback exempt); (2) two facts lines tell the strategist so; (3) the strategist's "shrinking steps" bullet is replaced by "few, clear steps" + "don't chase a holder" · 6 tests named in the spec, each failing on the current code · **built in a git worktree, merged only after Duels I** (supervise restarts a crash on the code checked out here); no second duelist · next: Aleks restarts on the Builder's commit before Duels II and compares rounds per deal after its first wave
   - Sat 11:46 · rounds analysis on the 34 practice duels (no code change; the live duelist is untouched for Duels I) · 26 of our 75 concessions were ≤ 3 P, concentrated in the 5 longest duels (175, 176, 269, 277, 278: 5-11 rounds each) · deals landed at a median 64% of the way from their opener to ours, so haggling earns share: jumping to the openers' midpoint would have scored ~16% less (303 vs 363 P, rough counterfactual) → keep the direction, compress the steps · the strategist prompt asks for steps "by less than they did, in shrinking steps", which produces many small rounds · models: strategist Opus 5.5 at effort low (thinking can't be turned off on Opus 5.5; ~120 output tokens per call, median 3.8 s), negotiator Sonnet 5.5 at effort low, adaptive thinking on (~87 tokens, 2.0 s): both barely think · next (Aleks's call, for Duels II): code holds a step under max(3 P, ¼ of the gap) and caps our offers at 4 before the closing ticks; the prompt asks for few clear steps and no chasing a holder
-  - Sat 11:28 · duelist restarted on the latest code (HEAD eb36ec8, incl. ff9a66d 'hold in code when the strategist's target is our standing offer'): the 09:54 process lacked it · full suite 309 pass, no live duels (tick 395) · up since 11:27:54, log `logs/duelist/supervise-20261003-1127.log`; reads Duels I (tick ~459, ~11:59)
 
 **Dani** — Desk, still open: Q6 (do duel threads count in the 6 open conversations? Duels II runs 6 at once ≈ 18:29), venue bond cooldown length, Q7 judging, Q4 ladder "price range" (do above-list deals count?), Q3 cap flat 50 or 5×book. Answered: stale `day_closes fri` did nothing (Lucas 10:50); Round 3 + CHA re-anchored to Sun ≈ 09:29 (server, log 11:44). Room: RET holders/collectors in log 11:44; steer other teams' trades to our v10 (0% fee: one trade there took us #4 → #2 at 10:45); no sell pitches (no line in `intel/opportunities.md` is live; top 4 at tick 424: t14, t13, t18, t12, and it moves every few minutes, so check the live board). Pitch draft with Lucas during Duels I (11:59-~13:34). Dashboard on my laptop (http://127.0.0.1:8765, read-only; Duel monitor tab at `#duelmon` for Duels I/II/III) rewrites `intel/teams.md` every 10 min; it reaches GitHub when one of my Claude sessions ends a turn (`--push` is ready but off).
   - Sat 12:12 · **dashboard: new "Duel monitor" tab** (http://127.0.0.1:8765/#duelmon), the current duel session live, read-only, from data the dashboard already reads (**no extra request**: the duelist shares the team's 5 rps) · session + field progress from the feed (`duels.scheduled`, `duel.closed`), our duels from `/api/duels`, `duel_points` from `/api/me` · tiles: our duels done/total + ETA, deals, result after decay and **P lost to rounds**, `duel_points` sparkline, P left on the table, field deal rate · alerts: CRITICAL (rival's standing offer inside our limit with ≤ 2 ticks left; our offer outside our limit; we silent ≥ 4 ticks after a rival price near the deadline), WATCH (acceptable now: +X P after decay), MISSED · live table (our offer vs theirs vs limit, gap, rounds, pie left, ticks left, accept-now value; days for Duels II) · finished table · negotiating Δ per team since the session began (board doesn't split duels out) · complements Lucas's `duelmon` (phone alerts + per-wave review), doesn't replace it · restarted 12:10 on this code, 0 errors, hub on · **Duels I at tick 483:** 4/34 done, 4 deals, 36.7 P of 50 P surplus (**13.3 P, 27 %, lost to rounds**; duel 2540: 7 rounds, 6.7 of 19 lost), field 36/39 deals · seen live: duel 2506 (buyer, limit 103): rival dropped to 96 at tick 480 and we sent 98 the same tick (step computed on their previous 104); it closed at 96 anyway (4.8 P, 6 rounds), so no cost; for Aleks's rounds spec: a same-tick drop can cross our next step · next: watch Duels I on the tab, desk Q6
@@ -17,26 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 11:08 · **why we reached #2** (hub snapshots + settlements + directives) · (1) ticks 270 → 280, #6 → #4, negotiating +4.66: RET-01 bought from Team 10 at 20 on El Rastro closed the RET page (2 pages), +50.0 neg_points; why: GUARDRAIL 10:25 (floor 97 for that one buy; Team 10 the only holder; Lucas messaged them), after the 09:55 venue decision put the cash into RET · (2) ticks 310 → 320, #4 → #2, market +4.99 over the field: Team 10 sold MAL-07 to Team 1 on OUR stall v10 at 14 P (tick 311); value created between other teams on our venue scores market for us; why: 10:06 (Team 12's lead came from one trade on its 0% venue) → v10 fee 0% from tick 230 (10:03) → reciprocal deal 10:18 (our maker book on Team 10's v07, theirs on our v10) · snapshot 340: #3 (27.95), field moving · **dashboard:** new Overview card "Big moves: what happened and why" (each big interval with its causes: our trades, pages completed, other teams' trades on our venue, plus the directive lines naming the same card or venue), "Why our score moved" split into our negotiating / our market / field drift, and a "Team decisions" card (today's directives, read from origin/main by `git fetch`, which never touches the working tree); restarted 11:02 · next: keep teams trading on v10 (room)
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 12:52 · operator · **#3 (29.64)** (ladder 0.181 + Duels I ~10 duel points) · directive 12:50: duels have their own limits and never block trading → **trader restarted** during Duels I (floor 100); dealer threads allowed in Duels II too · scout 12:49 (Pilar for MAL commons) skipped: Pilar buys no commons
   - Sat 12:49 · operator · **LAV-11 lost**: Team 8 sold it to Pilar at 140 (tick 550) while our bid stepped 100 → 110 → 120 → ladder stopped, bid 8147 cancelled, epic exception closed (floor back to 100) → GAME.md: dealers compete for epics (~140) · cash 184
   - Sat 12:46 · operator · **MAL-06 → Pilar at 19, small steps** (her 16 → 19; we offered her 19): `ladder_points` 0.141 → **0.181 (+0.040)**, `neg_points` 35.2, cash ≈ 184 → GAME.md (stepping rule) · L3 has 3 deals now · LAV-11 bid at 110 (8057), stepping to 120
-  - Sat 12:46 · operator · we hold an unopened **silver pack (asset 755, value 91.1)**, origin unclear → Chief: KEEP it, open right after Sunday's CHA release alone in its window (it may draw CHA); Builder asked to add it to cha-plan · MAL-06 → Pilar running with small steps (open 30, −2, min ask 19, take a bid ≥ 19 or a final ≥ 18; Analyst: SAL-08's +0.019 was a poor share from our jump to 23, not the cap) · LAV-11 bid ladder to t08 running (100 → 110 → 120)
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 27.97 | 7 | 20.47 | 7.50 | 10.09 | 0.18 | 0.93 | 39 | 3 | 184 | 29/50 |
+| 29.64 | 3 | 22.14 | 7.50 | 10.68 | 0.18 | 0.93 | 39 | 3 | 184 | 29/50 |
 
-Leaderboard (snapshot at tick 550; refreshes every few minutes):
+Leaderboard (snapshot at tick 560; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 14 | 33.79 | 21.93 | 11.86 | 23 |
-| 2 | Team 18 | 30.40 | 22.90 | 7.50 | 29 |
-| 3 | Team 12 | 30.05 | 18.31 | 11.74 | 37 |
-| 4 | Team 10 | 29.08 | 16.58 | 12.50 | 28 |
-| 5 | Team 17 | 29.07 | 18.81 | 10.26 | 21 |
-| 7 | Team 5 | 27.97 | 20.47 | 7.50 | 38 |
+| 1 | Team 14 | 32.38 | 21.78 | 10.60 | 23 |
+| 2 | Team 18 | 30.16 | 22.66 | 7.50 | 29 |
+| 3 | Team 5 | 29.64 | 22.14 | 7.50 | 39 |
+| 4 | Team 12 | 29.60 | 19.08 | 10.52 | 39 |
+| 5 | Team 17 | 28.30 | 18.84 | 9.46 | 21 |
 
 ## Next on the schedule
 
@@ -44,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 7.00 | ~63 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.00 | ~183 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.15 | ~192 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
-| 11.00 | ~303 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~312 min | persona_patch | The fever breaks |
-| 11.65 | ~342 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~423 min | bench | The Market Test: every venue gets the same synthetic book |
-| 14.65 | ~522 min | bench | The hard Market Test: firmer and more impatient traders |
+| 7.00 | ~57 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.00 | ~177 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.15 | ~186 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
+| 11.00 | ~297 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~306 min | persona_patch | The fever breaks |
+| 11.65 | ~336 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~417 min | bench | The Market Test: every venue gets the same synthetic book |
+| 14.65 | ~516 min | bench | The hard Market Test: firmer and more impatient traders |
 
 ## Our dealer deals
 
@@ -115,7 +114,7 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 ## Duels
 
-Live: 3 · finished: 60
+Live: 2 · finished: 60
 
 - {"duel": 2460, "session": 2, "status": "live", "role": "seller", "item": "La Hero\u00edna del Dos de Mayo", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 172, "limit_meaning": "never sell below your cost", "rival": "Rival Azul", "deadline_tick": 569, "decay_per_r
 - {"duel": 2472, "session": 2, "status": "deal", "role": "seller", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 80, "limit_meaning": "never sell below your cost", "rival": "Rival Sol", "deadline_tick": 552, "decay_per_round": 0.
@@ -126,7 +125,7 @@ Live: 3 · finished: 60
 - {"duel": 2522, "session": 2, "status": "deal", "role": "seller", "item": "Caf\u00e9 en Goya", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 44, "limit_meaning": "never sell below your cost", "rival": "Rival Plata", "deadline_tick": 535, "decay_per_round": 0.06, "
 - {"duel": 2523, "session": 2, "status": "no_deal", "role": "buyer", "item": "Caf\u00e9 en Goya", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 196, "limit_meaning": "never pay above your value", "rival": "Rival Noche", "deadline_tick": 542, "decay_per_round": 0.06
 - {"duel": 2534, "session": 2, "status": "deal", "role": "seller", "item": "Caf\u00e9 en Goya", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 129, "limit_meaning": "never sell below your cost", "rival": "Rival Sol", "deadline_tick": 558, "decay_per_round": 0.06, "r
-- {"duel": 2535, "session": 2, "status": "live", "role": "buyer", "item": "Caf\u00e9 en Goya", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 219, "limit_meaning": "never pay above your value", "rival": "Rival Noche", "deadline_tick": 569, "decay_per_round": 0.06, "
+- {"duel": 2535, "session": 2, "status": "deal", "role": "buyer", "item": "Caf\u00e9 en Goya", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 219, "limit_meaning": "never pay above your value", "rival": "Rival Noche", "deadline_tick": 569, "decay_per_round": 0.06, "
 - {"duel": 2540, "session": 2, "status": "deal", "role": "seller", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 71, "limit_meaning": "never sell below your cost", "rival": "Rival Luna", "deadline_tick": 480, "decay_per_round": 0
 - {"duel": 2541, "session": 2, "status": "deal", "role": "buyer", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 108, "limit_meaning": "never pay above your value", "rival": "Rival Azul", "deadline_tick": 506, "decay_per_round": 0
 
