@@ -122,6 +122,66 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1292,
+   "raw": {
+    "duel": 5800,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.98,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 77,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1300,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 8351,
+     "price": 114,
+     "tick": 1292,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 8325,
+     "price": 57,
+     "tick": 1292,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1286,
+      "from": "you",
+      "text": "I'm opening at 128 P with delivery on day 10. I'm open to talking, so tell me what price and day work for you.",
+      "price": 128,
+      "days": 10
+     },
+     {
+      "tick": 1292,
+      "from": "Rival Azul",
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 57.",
+      "price": 57,
+      "days": 5
+     },
+     {
+      "tick": 1292,
+      "from": "you",
+      "text": "I can come down to 114 P with delivery on day 10. I'd need to see you move up meaningfully from your last figure to keep going.",
+      "price": 114,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -255,6 +315,135 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1292,
+   "took_s": 7.83,
+   "cost_usd": 0.01055,
+   "obs": {
+    "view": {
+     "duel_id": 5800,
+     "role": "seller",
+     "limit": 77,
+     "currency": "P",
+     "item": "La Vía Láctea",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.98,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm opening at 128 P with delivery on day 10. I'm open to talking, so tell me what price and day work for you.",
+      "offer": {
+       "price": 128,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1286,
+      "decision": {
+       "action": "offer",
+       "price": 128,
+       "message": "I'm opening at 128 P with delivery on day 10. I'm open to talking, so tell me what price and day work for you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 57.",
+      "offer": {
+       "price": 57,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1292,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 57,
+     "days": 5
+    },
+    "tick": 1292,
+    "ticks_left": 8,
+    "rounds": 1,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1,
+     25.6,
+     37.9,
+     11.6,
+     21.6,
+     39.8,
+     18.6,
+     55.199999999999996,
+     33.4
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can come down to 114 P with delivery on day 10. I'd need to see you move up meaningfully from your last figure to keep going.",
+    "price": 114,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 114,
+      "message": "I can come down to 114 P with delivery on day 10. I'd need to see you move up meaningfully from your last figure to keep going."
+     },
+     "band": {
+      "worst": 112,
+      "target": 114,
+      "best": 116
+     },
+     "plan": {
+      "read": "They opened at 57 P on day 5 with small talk and no reasoning. It is a lowball first offer, well below anything workable, and the chatter carries no information about what they would accept.",
+      "target": 114,
+      "best": 116,
+      "worst": 112,
+      "days": 10,
+      "angle": "Stay friendly but brief and ignore the coffee chat. Make one clear move down to 114 P with delivery on day 10, and invite them to come up meaningfully from 57."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.55,
+       "in": 729,
+       "out": 316,
+       "cost_usd": 0.00924,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.27,
+       "in": 344,
+       "out": 62,
+       "cost_usd": 0.00131,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -311,6 +500,63 @@
      "id": 8113,
      "price": 128,
      "tick": 1286,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1292,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can come down to 114 P with delivery on day 10. I'd need to see you move up meaningfully from your last figure to keep going.",
+    "price": 114,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 114,
+      "message": "I can come down to 114 P with delivery on day 10. I'd need to see you move up meaningfully from your last figure to keep going."
+     },
+     "band": {
+      "worst": 112,
+      "target": 114,
+      "best": 116
+     },
+     "plan": {
+      "read": "They opened at 57 P on day 5 with small talk and no reasoning. It is a lowball first offer, well below anything workable, and the chatter carries no information about what they would accept.",
+      "target": 114,
+      "best": 116,
+      "worst": 112,
+      "days": 10,
+      "angle": "Stay friendly but brief and ignore the coffee chat. Make one clear move down to 114 P with delivery on day 10, and invite them to come up meaningfully from 57."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.55,
+       "in": 729,
+       "out": 316,
+       "cost_usd": 0.00924,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.27,
+       "in": 344,
+       "out": 62,
+       "cost_usd": 0.00131,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5800,
+    "offer": {
+     "id": 8351,
+     "price": 114,
+     "tick": 1292,
      "days": 10
     }
    }

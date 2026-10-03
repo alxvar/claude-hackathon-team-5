@@ -249,6 +249,80 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1292,
+   "raw": {
+    "duel": 5822,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Plaza del Dos de Mayo",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.86,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 72,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1304,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 8349,
+     "price": 111,
+     "tick": 1292,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 8230,
+     "price": 93,
+     "tick": 1289,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1288,
+      "from": "Rival Rojo",
+      "text": "Happy to close quickly: 84 primas with delivery in 0 days.",
+      "price": 84,
+      "days": 0
+     },
+     {
+      "tick": 1288,
+      "from": "you",
+      "text": "Thanks for the opener. I can do 118 P with delivery on day 0, which keeps your preferred timing.This is where I'm comfortable starting.Let me know your move.Z",
+      "price": 118,
+      "days": 0
+     },
+     {
+      "tick": 1289,
+      "from": "Rival Rojo",
+      "text": "Thanks! I can move to 93 P with delivery on day 0.",
+      "price": 93,
+      "days": 0
+     },
+     {
+      "tick": 1289,
+      "from": "you",
+      "text": "Thanks for moving; I can come down to 114 P with delivery on day 0. The price still needs to come up meaningfully from your last figure.",
+      "price": 114,
+      "days": 0
+     },
+     {
+      "tick": 1292,
+      "from": "you",
+      "text": "I can step to 111 P with delivery on day 0. I've made a clear move, so I'd need to see real movement from you next.",
+      "price": 111,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -547,6 +621,161 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1292,
+   "took_s": 7.65,
+   "cost_usd": 0.01235,
+   "obs": {
+    "view": {
+     "duel_id": 5822,
+     "role": "seller",
+     "limit": 72,
+     "currency": "P",
+     "item": "Plaza del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.86,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Happy to close quickly: 84 primas with delivery in 0 days.",
+      "offer": {
+       "price": 84,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1288,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the opener. I can do 118 P with delivery on day 0, which keeps your preferred timing.This is where I'm comfortable starting.Let me know your move.Z",
+      "offer": {
+       "price": 118,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1288,
+      "decision": {
+       "action": "offer",
+       "price": 118,
+       "message": "Thanks for the opener. I can do 118 P with delivery on day 0, which keeps your preferred timing.This is where I'm comfortable starting.Let me know your move.Z"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks! I can move to 93 P with delivery on day 0.",
+      "offer": {
+       "price": 93,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1289,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for moving; I can come down to 114 P with delivery on day 0. The price still needs to come up meaningfully from your last figure.",
+      "offer": {
+       "price": 114,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1289,
+      "decision": {
+       "action": "offer",
+       "price": 114,
+       "message": "Thanks for moving; I can come down to 114 P with delivery on day 0. The price still needs to come up meaningfully from your last figure."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 93,
+     "days": 0
+    },
+    "tick": 1292,
+    "ticks_left": 12,
+    "rounds": 2,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1,
+     25.6,
+     37.9,
+     11.6,
+     21.6,
+     39.8,
+     18.6,
+     55.199999999999996,
+     33.4
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can step to 111 P with delivery on day 0. I've made a clear move, so I'd need to see real movement from you next.",
+    "price": 111,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 111,
+      "message": "I can step to 111 P with delivery on day 0. I've made a clear move, so I'd need to see real movement from you next."
+     },
+     "band": {
+      "worst": 111,
+      "target": 111,
+      "best": 112
+     },
+     "plan": {
+      "read": "They moved 84 to 93 on day 0 and have now sat still for 3 ticks, as have we, so this is a standoff. Their offer is just inside what works for us at day 0, but the gap is still wide, so we should not accept yet.",
+      "target": 111,
+      "best": 112,
+      "worst": 111,
+      "days": 0,
+      "angle": "Make one clear, calm step to 111 P on day 0, keeping their preferred timing, and signal that real movement from them is needed next."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.58,
+       "in": 976,
+       "out": 348,
+       "cost_usd": 0.01086,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.07,
+       "in": 454,
+       "out": 58,
+       "cost_usd": 0.00149,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -671,6 +900,63 @@
      "id": 8236,
      "price": 114,
      "tick": 1289,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1292,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can step to 111 P with delivery on day 0. I've made a clear move, so I'd need to see real movement from you next.",
+    "price": 111,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 111,
+      "message": "I can step to 111 P with delivery on day 0. I've made a clear move, so I'd need to see real movement from you next."
+     },
+     "band": {
+      "worst": 111,
+      "target": 111,
+      "best": 112
+     },
+     "plan": {
+      "read": "They moved 84 to 93 on day 0 and have now sat still for 3 ticks, as have we, so this is a standoff. Their offer is just inside what works for us at day 0, but the gap is still wide, so we should not accept yet.",
+      "target": 111,
+      "best": 112,
+      "worst": 111,
+      "days": 0,
+      "angle": "Make one clear, calm step to 111 P on day 0, keeping their preferred timing, and signal that real movement from them is needed next."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.58,
+       "in": 976,
+       "out": 348,
+       "cost_usd": 0.01086,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.07,
+       "in": 454,
+       "out": 58,
+       "cost_usd": 0.00149,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5822,
+    "offer": {
+     "id": 8349,
+     "price": 111,
+     "tick": 1292,
      "days": 0
     }
    }
