@@ -241,3 +241,5 @@ Nando: Setenta y tres,
 - Sat 22:07 · message tick 1340 · pilar → t06 · Buenas noches. Sí, dicen que sólo existe una Chulapa Dorada. Carmen, en El Rastro, conoce la historia mejor que nadie; pregúntele a ella. Mientras tanto, si usted va en serio: un sobre dorado, 504 P.
 - Sat 22:08 · message tick 1342 · banco → t06 · Setecientos cincuenta y seis. Ahí está mi término de hoy. El Gato sigue en la bóveda, y yo sigo sin prisa alguna, caballero.
 - Sat 22:09 · message tick 1343 · pilar → t02 · Buenas tardes. Claro que sí, el astronauta de la Catedral Nueva, un capricho moderno en piedra vieja. Salamanca siempre sorprende. Y ya que hablamos de tesoros: le ofrezco un sobre dorado por 504 P. ¿Le interesa, señor?
+- Sat 22:09 · message tick 1344 · banco → t06 · Setecientos cincuenta y uno. Avanzo despacio, como usted. El Gato sigue en la bóveda, caballero, y la tarde es larga.
+- Sat 22:10 · message tick 1345 · banco → t06 · Setecientos cuarenta y seis. Bajo cinco, igual que usted sube cinco. Así podemos seguir hasta que cierren las tiendas; el Gato no se mueve de la bóveda.
