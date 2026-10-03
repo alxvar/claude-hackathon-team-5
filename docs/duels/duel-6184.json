@@ -587,6 +587,723 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1343,
+   "raw": {
+    "duel": 6184,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.21,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 60,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Plata",
+    "deadline_tick": 1354,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 10089,
+     "price": 101,
+     "tick": 1340,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 10158,
+     "price": 57,
+     "tick": 1343,
+     "days": 1
+    },
+    "messages": [
+     {
+      "tick": 1338,
+      "from": "Rival Plata",
+      "text": "Te ofrezco 39 primas y entrega en 0 días; me cuesta subir más.",
+      "price": 39,
+      "days": 0
+     },
+     {
+      "tick": 1338,
+      "from": "you",
+      "text": "I can do 112 P, delivery on day 10.",
+      "price": 112,
+      "days": 10
+     },
+     {
+      "tick": 1339,
+      "from": "Rival Plata",
+      "text": "44 primas y entrega en 3 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 44,
+      "days": 3
+     },
+     {
+      "tick": 1339,
+      "from": "you",
+      "text": "I can move to 105 P with delivery on day 10; or, if you need it on day 0, 138 P. That is a real step from my side.",
+      "price": 105,
+      "days": 10
+     },
+     {
+      "tick": 1340,
+      "from": "Rival Plata",
+      "text": "Mi propuesta: 46 primas y entrega en 4 días. Dame una cifra concreta y la miro.",
+      "price": 46,
+      "days": 4
+     },
+     {
+      "tick": 1340,
+      "from": "you",
+      "text": "I can do 101 P, delivery on day 10.",
+      "price": 101,
+      "days": 10
+     },
+     {
+      "tick": 1341,
+      "from": "Rival Plata",
+      "text": "Puedo llegar a 46 primas y entrega en 3 días. Dime si cerramos.",
+      "price": 46,
+      "days": 3
+     },
+     {
+      "tick": 1342,
+      "from": "Rival Plata",
+      "text": "Te ofrezco 48 primas y entrega en 3 días; me cuesta subir más.",
+      "price": 48,
+      "days": 3
+     },
+     {
+      "tick": 1343,
+      "from": "Rival Plata",
+      "text": "57 primas y entrega en 1 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 57,
+      "days": 1
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1343,
+   "raw": {
+    "duel": 6184,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.21,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 60,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Plata",
+    "deadline_tick": 1354,
+    "decay_per_round": 0.08,
+    "rounds": 4,
+    "your_offer": {
+     "id": 10177,
+     "price": 90,
+     "tick": 1343,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 10158,
+     "price": 57,
+     "tick": 1343,
+     "days": 1
+    },
+    "messages": [
+     {
+      "tick": 1338,
+      "from": "Rival Plata",
+      "text": "Te ofrezco 39 primas y entrega en 0 días; me cuesta subir más.",
+      "price": 39,
+      "days": 0
+     },
+     {
+      "tick": 1338,
+      "from": "you",
+      "text": "I can do 112 P, delivery on day 10.",
+      "price": 112,
+      "days": 10
+     },
+     {
+      "tick": 1339,
+      "from": "Rival Plata",
+      "text": "44 primas y entrega en 3 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 44,
+      "days": 3
+     },
+     {
+      "tick": 1339,
+      "from": "you",
+      "text": "I can move to 105 P with delivery on day 10; or, if you need it on day 0, 138 P. That is a real step from my side.",
+      "price": 105,
+      "days": 10
+     },
+     {
+      "tick": 1340,
+      "from": "Rival Plata",
+      "text": "Mi propuesta: 46 primas y entrega en 4 días. Dame una cifra concreta y la miro.",
+      "price": 46,
+      "days": 4
+     },
+     {
+      "tick": 1340,
+      "from": "you",
+      "text": "I can do 101 P, delivery on day 10.",
+      "price": 101,
+      "days": 10
+     },
+     {
+      "tick": 1341,
+      "from": "Rival Plata",
+      "text": "Puedo llegar a 46 primas y entrega en 3 días. Dime si cerramos.",
+      "price": 46,
+      "days": 3
+     },
+     {
+      "tick": 1342,
+      "from": "Rival Plata",
+      "text": "Te ofrezco 48 primas y entrega en 3 días; me cuesta subir más.",
+      "price": 48,
+      "days": 3
+     },
+     {
+      "tick": 1343,
+      "from": "Rival Plata",
+      "text": "57 primas y entrega en 1 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 57,
+      "days": 1
+     },
+     {
+      "tick": 1343,
+      "from": "you",
+      "text": "I can step to 90 P with delivery on day 10; or, if you prefer day 0, 122 P. That is a real move from my side, and I'm ready to close.",
+      "price": 90,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1344,
+   "raw": {
+    "duel": 6184,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.21,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 60,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Plata",
+    "deadline_tick": 1354,
+    "decay_per_round": 0.08,
+    "rounds": 4,
+    "your_offer": {
+     "id": 10177,
+     "price": 90,
+     "tick": 1343,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 10189,
+     "price": 57,
+     "tick": 1344,
+     "days": 1
+    },
+    "messages": [
+     {
+      "tick": 1338,
+      "from": "Rival Plata",
+      "text": "Te ofrezco 39 primas y entrega en 0 días; me cuesta subir más.",
+      "price": 39,
+      "days": 0
+     },
+     {
+      "tick": 1338,
+      "from": "you",
+      "text": "I can do 112 P, delivery on day 10.",
+      "price": 112,
+      "days": 10
+     },
+     {
+      "tick": 1339,
+      "from": "Rival Plata",
+      "text": "44 primas y entrega en 3 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 44,
+      "days": 3
+     },
+     {
+      "tick": 1339,
+      "from": "you",
+      "text": "I can move to 105 P with delivery on day 10; or, if you need it on day 0, 138 P. That is a real step from my side.",
+      "price": 105,
+      "days": 10
+     },
+     {
+      "tick": 1340,
+      "from": "Rival Plata",
+      "text": "Mi propuesta: 46 primas y entrega en 4 días. Dame una cifra concreta y la miro.",
+      "price": 46,
+      "days": 4
+     },
+     {
+      "tick": 1340,
+      "from": "you",
+      "text": "I can do 101 P, delivery on day 10.",
+      "price": 101,
+      "days": 10
+     },
+     {
+      "tick": 1341,
+      "from": "Rival Plata",
+      "text": "Puedo llegar a 46 primas y entrega en 3 días. Dime si cerramos.",
+      "price": 46,
+      "days": 3
+     },
+     {
+      "tick": 1342,
+      "from": "Rival Plata",
+      "text": "Te ofrezco 48 primas y entrega en 3 días; me cuesta subir más.",
+      "price": 48,
+      "days": 3
+     },
+     {
+      "tick": 1343,
+      "from": "Rival Plata",
+      "text": "57 primas y entrega en 1 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 57,
+      "days": 1
+     },
+     {
+      "tick": 1343,
+      "from": "you",
+      "text": "I can step to 90 P with delivery on day 10; or, if you prefer day 0, 122 P. That is a real move from my side, and I'm ready to close.",
+      "price": 90,
+      "days": 10
+     },
+     {
+      "tick": 1344,
+      "from": "Rival Plata",
+      "text": "Mi propuesta: 57 primas y entrega en 1 días. Dame una cifra concreta y la miro.",
+      "price": 57,
+      "days": 1
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1345,
+   "raw": {
+    "duel": 6184,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.21,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 60,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Plata",
+    "deadline_tick": 1354,
+    "decay_per_round": 0.08,
+    "rounds": 4,
+    "your_offer": {
+     "id": 10177,
+     "price": 90,
+     "tick": 1343,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 10218,
+     "price": 64,
+     "tick": 1345,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1338,
+      "from": "Rival Plata",
+      "text": "Te ofrezco 39 primas y entrega en 0 días; me cuesta subir más.",
+      "price": 39,
+      "days": 0
+     },
+     {
+      "tick": 1338,
+      "from": "you",
+      "text": "I can do 112 P, delivery on day 10.",
+      "price": 112,
+      "days": 10
+     },
+     {
+      "tick": 1339,
+      "from": "Rival Plata",
+      "text": "44 primas y entrega en 3 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 44,
+      "days": 3
+     },
+     {
+      "tick": 1339,
+      "from": "you",
+      "text": "I can move to 105 P with delivery on day 10; or, if you need it on day 0, 138 P. That is a real step from my side.",
+      "price": 105,
+      "days": 10
+     },
+     {
+      "tick": 1340,
+      "from": "Rival Plata",
+      "text": "Mi propuesta: 46 primas y entrega en 4 días. Dame una cifra concreta y la miro.",
+      "price": 46,
+      "days": 4
+     },
+     {
+      "tick": 1340,
+      "from": "you",
+      "text": "I can do 101 P, delivery on day 10.",
+      "price": 101,
+      "days": 10
+     },
+     {
+      "tick": 1341,
+      "from": "Rival Plata",
+      "text": "Puedo llegar a 46 primas y entrega en 3 días. Dime si cerramos.",
+      "price": 46,
+      "days": 3
+     },
+     {
+      "tick": 1342,
+      "from": "Rival Plata",
+      "text": "Te ofrezco 48 primas y entrega en 3 días; me cuesta subir más.",
+      "price": 48,
+      "days": 3
+     },
+     {
+      "tick": 1343,
+      "from": "Rival Plata",
+      "text": "57 primas y entrega en 1 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 57,
+      "days": 1
+     },
+     {
+      "tick": 1343,
+      "from": "you",
+      "text": "I can step to 90 P with delivery on day 10; or, if you prefer day 0, 122 P. That is a real move from my side, and I'm ready to close.",
+      "price": 90,
+      "days": 10
+     },
+     {
+      "tick": 1344,
+      "from": "Rival Plata",
+      "text": "Mi propuesta: 57 primas y entrega en 1 días. Dame una cifra concreta y la miro.",
+      "price": 57,
+      "days": 1
+     },
+     {
+      "tick": 1345,
+      "from": "Rival Plata",
+      "text": "Puedo llegar a 64 primas y entrega en 0 días. Dime si cerramos.",
+      "price": 64,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1345,
+   "raw": {
+    "duel": 6184,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.21,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 60,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Plata",
+    "deadline_tick": 1354,
+    "decay_per_round": 0.08,
+    "rounds": 5,
+    "your_offer": {
+     "id": 10236,
+     "price": 78,
+     "tick": 1345,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 10218,
+     "price": 64,
+     "tick": 1345,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1338,
+      "from": "Rival Plata",
+      "text": "Te ofrezco 39 primas y entrega en 0 días; me cuesta subir más.",
+      "price": 39,
+      "days": 0
+     },
+     {
+      "tick": 1338,
+      "from": "you",
+      "text": "I can do 112 P, delivery on day 10.",
+      "price": 112,
+      "days": 10
+     },
+     {
+      "tick": 1339,
+      "from": "Rival Plata",
+      "text": "44 primas y entrega en 3 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 44,
+      "days": 3
+     },
+     {
+      "tick": 1339,
+      "from": "you",
+      "text": "I can move to 105 P with delivery on day 10; or, if you need it on day 0, 138 P. That is a real step from my side.",
+      "price": 105,
+      "days": 10
+     },
+     {
+      "tick": 1340,
+      "from": "Rival Plata",
+      "text": "Mi propuesta: 46 primas y entrega en 4 días. Dame una cifra concreta y la miro.",
+      "price": 46,
+      "days": 4
+     },
+     {
+      "tick": 1340,
+      "from": "you",
+      "text": "I can do 101 P, delivery on day 10.",
+      "price": 101,
+      "days": 10
+     },
+     {
+      "tick": 1341,
+      "from": "Rival Plata",
+      "text": "Puedo llegar a 46 primas y entrega en 3 días. Dime si cerramos.",
+      "price": 46,
+      "days": 3
+     },
+     {
+      "tick": 1342,
+      "from": "Rival Plata",
+      "text": "Te ofrezco 48 primas y entrega en 3 días; me cuesta subir más.",
+      "price": 48,
+      "days": 3
+     },
+     {
+      "tick": 1343,
+      "from": "Rival Plata",
+      "text": "57 primas y entrega en 1 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 57,
+      "days": 1
+     },
+     {
+      "tick": 1343,
+      "from": "you",
+      "text": "I can step to 90 P with delivery on day 10; or, if you prefer day 0, 122 P. That is a real move from my side, and I'm ready to close.",
+      "price": 90,
+      "days": 10
+     },
+     {
+      "tick": 1344,
+      "from": "Rival Plata",
+      "text": "Mi propuesta: 57 primas y entrega en 1 días. Dame una cifra concreta y la miro.",
+      "price": 57,
+      "days": 1
+     },
+     {
+      "tick": 1345,
+      "from": "Rival Plata",
+      "text": "Puedo llegar a 64 primas y entrega en 0 días. Dime si cerramos.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1345,
+      "from": "you",
+      "text": "I can come down to 78 P with delivery on day 10; or, if you prefer day 0, 110 P. That is a firm step from my side, and I'm ready to close.",
+      "price": 78,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1346,
+   "raw": {
+    "duel": 6184,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.21,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 60,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Plata",
+    "deadline_tick": 1354,
+    "decay_per_round": 0.08,
+    "rounds": 5,
+    "your_offer": {
+     "id": 10236,
+     "price": 78,
+     "tick": 1345,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 10255,
+     "price": 65,
+     "tick": 1346,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1338,
+      "from": "Rival Plata",
+      "text": "Te ofrezco 39 primas y entrega en 0 días; me cuesta subir más.",
+      "price": 39,
+      "days": 0
+     },
+     {
+      "tick": 1338,
+      "from": "you",
+      "text": "I can do 112 P, delivery on day 10.",
+      "price": 112,
+      "days": 10
+     },
+     {
+      "tick": 1339,
+      "from": "Rival Plata",
+      "text": "44 primas y entrega en 3 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 44,
+      "days": 3
+     },
+     {
+      "tick": 1339,
+      "from": "you",
+      "text": "I can move to 105 P with delivery on day 10; or, if you need it on day 0, 138 P. That is a real step from my side.",
+      "price": 105,
+      "days": 10
+     },
+     {
+      "tick": 1340,
+      "from": "Rival Plata",
+      "text": "Mi propuesta: 46 primas y entrega en 4 días. Dame una cifra concreta y la miro.",
+      "price": 46,
+      "days": 4
+     },
+     {
+      "tick": 1340,
+      "from": "you",
+      "text": "I can do 101 P, delivery on day 10.",
+      "price": 101,
+      "days": 10
+     },
+     {
+      "tick": 1341,
+      "from": "Rival Plata",
+      "text": "Puedo llegar a 46 primas y entrega en 3 días. Dime si cerramos.",
+      "price": 46,
+      "days": 3
+     },
+     {
+      "tick": 1342,
+      "from": "Rival Plata",
+      "text": "Te ofrezco 48 primas y entrega en 3 días; me cuesta subir más.",
+      "price": 48,
+      "days": 3
+     },
+     {
+      "tick": 1343,
+      "from": "Rival Plata",
+      "text": "57 primas y entrega en 1 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 57,
+      "days": 1
+     },
+     {
+      "tick": 1343,
+      "from": "you",
+      "text": "I can step to 90 P with delivery on day 10; or, if you prefer day 0, 122 P. That is a real move from my side, and I'm ready to close.",
+      "price": 90,
+      "days": 10
+     },
+     {
+      "tick": 1344,
+      "from": "Rival Plata",
+      "text": "Mi propuesta: 57 primas y entrega en 1 días. Dame una cifra concreta y la miro.",
+      "price": 57,
+      "days": 1
+     },
+     {
+      "tick": 1345,
+      "from": "Rival Plata",
+      "text": "Puedo llegar a 64 primas y entrega en 0 días. Dime si cerramos.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1345,
+      "from": "you",
+      "text": "I can come down to 78 P with delivery on day 10; or, if you prefer day 0, 110 P. That is a firm step from my side, and I'm ready to close.",
+      "price": 78,
+      "days": 10
+     },
+     {
+      "tick": 1346,
+      "from": "Rival Plata",
+      "text": "Te ofrezco 65 primas y entrega en 0 días; me cuesta subir más.",
+      "price": 65,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1380,6 +2097,417 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 1343,
+   "took_s": 10.58,
+   "cost_usd": 0.01964,
+   "obs": {
+    "view": {
+     "duel_id": 6184,
+     "role": "seller",
+     "limit": 60,
+     "currency": "P",
+     "item": "La Vía Láctea",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.21,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Te ofrezco 39 primas y entrega en 0 días; me cuesta subir más.",
+      "offer": {
+       "price": 39,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1338,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 112 P, delivery on day 10.",
+      "offer": {
+       "price": 112,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1338,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "44 primas y entrega en 3 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "offer": {
+       "price": 44,
+       "days": 3
+      },
+      "accept": false,
+      "tick": 1339,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 105 P with delivery on day 10; or, if you need it on day 0, 138 P. That is a real step from my side.",
+      "offer": {
+       "price": 105,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1339,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Mi propuesta: 46 primas y entrega en 4 días. Dame una cifra concreta y la miro.",
+      "offer": {
+       "price": 46,
+       "days": 4
+      },
+      "accept": false,
+      "tick": 1340,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 101 P, delivery on day 10.",
+      "offer": {
+       "price": 101,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1340,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 46 primas y entrega en 3 días. Dime si cerramos.",
+      "offer": {
+       "price": 46,
+       "days": 3
+      },
+      "accept": false,
+      "tick": 1341,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Te ofrezco 48 primas y entrega en 3 días; me cuesta subir más.",
+      "offer": {
+       "price": 48,
+       "days": 3
+      },
+      "accept": false,
+      "tick": 1342,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "57 primas y entrega en 1 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "offer": {
+       "price": 57,
+       "days": 1
+      },
+      "accept": false,
+      "tick": 1343,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 57,
+     "days": 1
+    },
+    "tick": 1343,
+    "ticks_left": 11,
+    "rounds": 3,
+    "day_swings": [
+     36.800000000000004,
+     40.300000000000004,
+     10.700000000000001,
+     26.7,
+     77.5,
+     32.1
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can step to 90 P with delivery on day 10; or, if you prefer day 0, 122 P. That is a real move from my side, and I'm ready to close.",
+    "price": 90,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 90,
+      "message": "I can step to 90 P with delivery on day 10; or, if you prefer day 0, 122 P. That is a real move from my side, and I'm ready to close."
+     },
+     "band": {
+      "worst": 88,
+      "target": 90,
+      "best": 92
+     },
+     "plan": {
+      "read": "They jumped from 48 to 57 on day 1, a real move, but on that day 57 leaves us essentially nothing. Their 'if you drop, we close' is a nudge rather than a binding commitment.",
+      "target": 90,
+      "best": 92,
+      "worst": 88,
+      "days": 10,
+      "angle": "Make one clear step to 90 P with delivery on day 10, and keep the tone friendly and ready to close; if they insist on early delivery, mention day 0 at 122 P as the alternative."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.62,
+       "in": 1297,
+       "out": 620,
+       "cost_usd": 0.01759,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.96,
+       "in": 677,
+       "out": 70,
+       "cost_usd": 0.00205,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1345,
+   "took_s": 13.48,
+   "cost_usd": 0.0258,
+   "obs": {
+    "view": {
+     "duel_id": 6184,
+     "role": "seller",
+     "limit": 60,
+     "currency": "P",
+     "item": "La Vía Láctea",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.21,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Te ofrezco 39 primas y entrega en 0 días; me cuesta subir más.",
+      "offer": {
+       "price": 39,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1338,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 112 P, delivery on day 10.",
+      "offer": {
+       "price": 112,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1338,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "44 primas y entrega en 3 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "offer": {
+       "price": 44,
+       "days": 3
+      },
+      "accept": false,
+      "tick": 1339,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 105 P with delivery on day 10; or, if you need it on day 0, 138 P. That is a real step from my side.",
+      "offer": {
+       "price": 105,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1339,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Mi propuesta: 46 primas y entrega en 4 días. Dame una cifra concreta y la miro.",
+      "offer": {
+       "price": 46,
+       "days": 4
+      },
+      "accept": false,
+      "tick": 1340,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 101 P, delivery on day 10.",
+      "offer": {
+       "price": 101,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1340,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 46 primas y entrega en 3 días. Dime si cerramos.",
+      "offer": {
+       "price": 46,
+       "days": 3
+      },
+      "accept": false,
+      "tick": 1341,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Te ofrezco 48 primas y entrega en 3 días; me cuesta subir más.",
+      "offer": {
+       "price": 48,
+       "days": 3
+      },
+      "accept": false,
+      "tick": 1342,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "57 primas y entrega en 1 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "offer": {
+       "price": 57,
+       "days": 1
+      },
+      "accept": false,
+      "tick": 1343,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can step to 90 P with delivery on day 10; or, if you prefer day 0, 122 P. That is a real move from my side, and I'm ready to close.",
+      "offer": {
+       "price": 90,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1343,
+      "decision": {
+       "action": "offer",
+       "price": 90,
+       "message": "I can step to 90 P with delivery on day 10; or, if you prefer day 0, 122 P. That is a real move from my side, and I'm ready to close."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Mi propuesta: 57 primas y entrega en 1 días. Dame una cifra concreta y la miro.",
+      "offer": {
+       "price": 57,
+       "days": 1
+      },
+      "accept": false,
+      "tick": 1344,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 64 primas y entrega en 0 días. Dime si cerramos.",
+      "offer": {
+       "price": 64,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1345,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 64,
+     "days": 0
+    },
+    "tick": 1345,
+    "ticks_left": 9,
+    "rounds": 4,
+    "day_swings": [
+     36.800000000000004,
+     40.300000000000004,
+     10.700000000000001,
+     26.7,
+     77.5,
+     32.1
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can come down to 78 P with delivery on day 10; or, if you prefer day 0, 110 P. That is a firm step from my side, and I'm ready to close.",
+    "price": 78,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 78,
+      "message": "I can come down to 78 P with delivery on day 10; or, if you prefer day 0, 110 P. That is a firm step from my side, and I'm ready to close."
+     },
+     "band": {
+      "worst": 76,
+      "target": 78,
+      "best": 80
+     },
+     "plan": {
+      "read": "They moved from 57 to 64 P and keep pulling the day back to 0, which suggests day 0 matters to them. At day 0, 64 P barely clears our floor, so it is not worth accepting yet. Their steady climb is real movement, so one clear step is earned.",
+      "target": 78,
+      "best": 80,
+      "worst": 76,
+      "days": 10,
+      "angle": "Make one firm, closing-minded step to 78 P on day 10, and offer in words the alternative of day 0 at 110 P; sound ready to close but not eager."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 11.42,
+       "in": 1561,
+       "out": 856,
+       "cost_usd": 0.02336,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.06,
+       "in": 862,
+       "out": 72,
+       "cost_usd": 0.00244,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1576,6 +2704,120 @@
      "id": 10089,
      "price": 101,
      "tick": 1340,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1343,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can step to 90 P with delivery on day 10; or, if you prefer day 0, 122 P. That is a real move from my side, and I'm ready to close.",
+    "price": 90,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 90,
+      "message": "I can step to 90 P with delivery on day 10; or, if you prefer day 0, 122 P. That is a real move from my side, and I'm ready to close."
+     },
+     "band": {
+      "worst": 88,
+      "target": 90,
+      "best": 92
+     },
+     "plan": {
+      "read": "They jumped from 48 to 57 on day 1, a real move, but on that day 57 leaves us essentially nothing. Their 'if you drop, we close' is a nudge rather than a binding commitment.",
+      "target": 90,
+      "best": 92,
+      "worst": 88,
+      "days": 10,
+      "angle": "Make one clear step to 90 P with delivery on day 10, and keep the tone friendly and ready to close; if they insist on early delivery, mention day 0 at 122 P as the alternative."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.62,
+       "in": 1297,
+       "out": 620,
+       "cost_usd": 0.01759,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.96,
+       "in": 677,
+       "out": 70,
+       "cost_usd": 0.00205,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 6184,
+    "offer": {
+     "id": 10177,
+     "price": 90,
+     "tick": 1343,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1345,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can come down to 78 P with delivery on day 10; or, if you prefer day 0, 110 P. That is a firm step from my side, and I'm ready to close.",
+    "price": 78,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 78,
+      "message": "I can come down to 78 P with delivery on day 10; or, if you prefer day 0, 110 P. That is a firm step from my side, and I'm ready to close."
+     },
+     "band": {
+      "worst": 76,
+      "target": 78,
+      "best": 80
+     },
+     "plan": {
+      "read": "They moved from 57 to 64 P and keep pulling the day back to 0, which suggests day 0 matters to them. At day 0, 64 P barely clears our floor, so it is not worth accepting yet. Their steady climb is real movement, so one clear step is earned.",
+      "target": 78,
+      "best": 80,
+      "worst": 76,
+      "days": 10,
+      "angle": "Make one firm, closing-minded step to 78 P on day 10, and offer in words the alternative of day 0 at 110 P; sound ready to close but not eager."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 11.42,
+       "in": 1561,
+       "out": 856,
+       "cost_usd": 0.02336,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.06,
+       "in": 862,
+       "out": 72,
+       "cost_usd": 0.00244,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 6184,
+    "offer": {
+     "id": 10236,
+     "price": 78,
+     "tick": 1345,
      "days": 10
     }
    }

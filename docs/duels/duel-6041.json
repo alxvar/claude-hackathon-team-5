@@ -383,6 +383,175 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1345,
+   "raw": {
+    "duel": 6041,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Frutero de Argumosa",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.03,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 99,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Sol",
+    "deadline_tick": 1349,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 10217,
+     "price": 39,
+     "tick": 1345,
+     "days": 2
+    },
+    "rival_offer": {
+     "id": 10144,
+     "price": 50,
+     "tick": 1342,
+     "days": 2
+    },
+    "messages": [
+     {
+      "tick": 1333,
+      "from": "Rival Sol",
+      "text": "We can offer El Frutero de Argumosa at 54 primas with 10 delivery days, a fair deal for both of us.",
+      "price": 54,
+      "days": 10
+     },
+     {
+      "tick": 1334,
+      "from": "you",
+      "text": "I can do 45 P with delivery on day 0. That's a fair starting point for me, and I'm happy to keep talking from there.}",
+      "price": 45,
+      "days": 0
+     },
+     {
+      "tick": 1335,
+      "from": "Rival Sol",
+      "text": "I can come down to 52 P with delivery on day 8. That's a fair middle ground I'd be glad to sign.",
+      "price": 52,
+      "days": 8
+     },
+     {
+      "tick": 1341,
+      "from": "you",
+      "text": "I can move to 48 P with delivery on day 0. That's a clear step from me, and I'm glad to close on those terms.",
+      "price": 48,
+      "days": 0
+     },
+     {
+      "tick": 1342,
+      "from": "Rival Sol",
+      "text": "Let's meet close: 50 P with delivery on day 2, and we can sign right away.",
+      "price": 50,
+      "days": 2
+     },
+     {
+      "tick": 1345,
+      "from": "you",
+      "text": "I can do 39 P, delivery on day 2.",
+      "price": 39,
+      "days": 2
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1345,
+   "raw": {
+    "duel": 6041,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Frutero de Argumosa",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.03,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 99,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Sol",
+    "deadline_tick": 1349,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 10217,
+     "price": 39,
+     "tick": 1345,
+     "days": 2
+    },
+    "rival_offer": {
+     "id": 10235,
+     "price": 48,
+     "tick": 1345,
+     "days": 2
+    },
+    "messages": [
+     {
+      "tick": 1333,
+      "from": "Rival Sol",
+      "text": "We can offer El Frutero de Argumosa at 54 primas with 10 delivery days, a fair deal for both of us.",
+      "price": 54,
+      "days": 10
+     },
+     {
+      "tick": 1334,
+      "from": "you",
+      "text": "I can do 45 P with delivery on day 0. That's a fair starting point for me, and I'm happy to keep talking from there.}",
+      "price": 45,
+      "days": 0
+     },
+     {
+      "tick": 1335,
+      "from": "Rival Sol",
+      "text": "I can come down to 52 P with delivery on day 8. That's a fair middle ground I'd be glad to sign.",
+      "price": 52,
+      "days": 8
+     },
+     {
+      "tick": 1341,
+      "from": "you",
+      "text": "I can move to 48 P with delivery on day 0. That's a clear step from me, and I'm glad to close on those terms.",
+      "price": 48,
+      "days": 0
+     },
+     {
+      "tick": 1342,
+      "from": "Rival Sol",
+      "text": "Let's meet close: 50 P with delivery on day 2, and we can sign right away.",
+      "price": 50,
+      "days": 2
+     },
+     {
+      "tick": 1345,
+      "from": "you",
+      "text": "I can do 39 P, delivery on day 2.",
+      "price": 39,
+      "days": 2
+     },
+     {
+      "tick": 1345,
+      "from": "Rival Sol",
+      "text": "You offered 48 P before, so let's close at 48 P with delivery on day 2.",
+      "price": 48,
+      "days": 2
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -904,6 +1073,435 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1342,
+   "took_s": 11.16,
+   "cost_usd": 0.017939999999999998,
+   "obs": {
+    "view": {
+     "duel_id": 6041,
+     "role": "buyer",
+     "limit": 99,
+     "currency": "P",
+     "item": "El Frutero de Argumosa",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.03,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "We can offer El Frutero de Argumosa at 54 primas with 10 delivery days, a fair deal for both of us.",
+      "offer": {
+       "price": 54,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1333,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 45 P with delivery on day 0. That's a fair starting point for me, and I'm happy to keep talking from there.}",
+      "offer": {
+       "price": 45,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1334,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can come down to 52 P with delivery on day 8. That's a fair middle ground I'd be glad to sign.",
+      "offer": {
+       "price": 52,
+       "days": 8
+      },
+      "accept": false,
+      "tick": 1335,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 48 P with delivery on day 0. That's a clear step from me, and I'm glad to close on those terms.",
+      "offer": {
+       "price": 48,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1341,
+      "decision": {
+       "action": "offer",
+       "price": 48,
+       "message": "I can move to 48 P with delivery on day 0. That's a clear step from me, and I'm glad to close on those terms."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Let's meet close: 50 P with delivery on day 2, and we can sign right away.",
+      "offer": {
+       "price": 50,
+       "days": 2
+      },
+      "accept": false,
+      "tick": 1342,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 50,
+     "days": 2
+    },
+    "tick": 1342,
+    "ticks_left": 7,
+    "rounds": 2,
+    "day_swings": [
+     36.800000000000004,
+     40.300000000000004,
+     10.700000000000001,
+     26.7,
+     77.5,
+     32.1
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm holding at 48 P with delivery on day 0.",
+    "price": 48,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 48,
+      "message": "I'm holding at 48 P with delivery on day 0."
+     },
+     "band": {
+      "worst": 50,
+      "target": 48,
+      "best": 48
+     },
+     "plan": {
+      "read": "They have moved steadily on both price and day (54@10, 52@8, now 50@2). Their talk of signing right away is ordinary pressure. With the gap small and them still moving toward day 0, holding costs nothing and may draw a day-0 offer.",
+      "target": 48,
+      "best": 48,
+      "worst": 50,
+      "days": 0,
+      "angle": "Hold at 48 P on day 0 and send nothing this tick. If they come back with day 0 at 50 P or better, accept it."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.74,
+       "in": 1044,
+       "out": 503,
+       "cost_usd": 0.01424,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 3.42,
+       "in": 511,
+       "out": 268,
+       "cost_usd": 0.0037,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 1345,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 6041,
+     "role": "buyer",
+     "limit": 99,
+     "currency": "P",
+     "item": "El Frutero de Argumosa",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.03,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "We can offer El Frutero de Argumosa at 54 primas with 10 delivery days, a fair deal for both of us.",
+      "offer": {
+       "price": 54,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1333,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 45 P with delivery on day 0. That's a fair starting point for me, and I'm happy to keep talking from there.}",
+      "offer": {
+       "price": 45,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1334,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can come down to 52 P with delivery on day 8. That's a fair middle ground I'd be glad to sign.",
+      "offer": {
+       "price": 52,
+       "days": 8
+      },
+      "accept": false,
+      "tick": 1335,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 48 P with delivery on day 0. That's a clear step from me, and I'm glad to close on those terms.",
+      "offer": {
+       "price": 48,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1341,
+      "decision": {
+       "action": "offer",
+       "price": 48,
+       "message": "I can move to 48 P with delivery on day 0. That's a clear step from me, and I'm glad to close on those terms."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Let's meet close: 50 P with delivery on day 2, and we can sign right away.",
+      "offer": {
+       "price": 50,
+       "days": 2
+      },
+      "accept": false,
+      "tick": 1342,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 50,
+     "days": 2
+    },
+    "tick": 1345,
+    "ticks_left": 4,
+    "rounds": 2,
+    "day_swings": [
+     36.800000000000004,
+     40.300000000000004,
+     10.700000000000001,
+     26.7,
+     77.5,
+     32.1
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 39 P, delivery on day 2.",
+    "price": 39,
+    "days": 2,
+    "meta": {
+     "rule": "late switch",
+     "calls": []
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1346,
+   "took_s": 7.26,
+   "cost_usd": 0.011420000000000001,
+   "obs": {
+    "view": {
+     "duel_id": 6041,
+     "role": "buyer",
+     "limit": 99,
+     "currency": "P",
+     "item": "El Frutero de Argumosa",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.03,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "We can offer El Frutero de Argumosa at 54 primas with 10 delivery days, a fair deal for both of us.",
+      "offer": {
+       "price": 54,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1333,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 45 P with delivery on day 0. That's a fair starting point for me, and I'm happy to keep talking from there.}",
+      "offer": {
+       "price": 45,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1334,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can come down to 52 P with delivery on day 8. That's a fair middle ground I'd be glad to sign.",
+      "offer": {
+       "price": 52,
+       "days": 8
+      },
+      "accept": false,
+      "tick": 1335,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 48 P with delivery on day 0. That's a clear step from me, and I'm glad to close on those terms.",
+      "offer": {
+       "price": 48,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1341,
+      "decision": {
+       "action": "offer",
+       "price": 48,
+       "message": "I can move to 48 P with delivery on day 0. That's a clear step from me, and I'm glad to close on those terms."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Let's meet close: 50 P with delivery on day 2, and we can sign right away.",
+      "offer": {
+       "price": 50,
+       "days": 2
+      },
+      "accept": false,
+      "tick": 1342,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 39 P, delivery on day 2.",
+      "offer": {
+       "price": 39,
+       "days": 2
+      },
+      "accept": false,
+      "tick": 1345,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "You offered 48 P before, so let's close at 48 P with delivery on day 2.",
+      "offer": {
+       "price": 48,
+       "days": 2
+      },
+      "accept": false,
+      "tick": 1345,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 48,
+     "days": 2
+    },
+    "tick": 1346,
+    "ticks_left": 3,
+    "rounds": 3,
+    "day_swings": [
+     36.800000000000004,
+     40.300000000000004,
+     10.700000000000001,
+     26.7,
+     77.5,
+     32.1
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Accepted: 48 P with delivery on day 2. Thank you.",
+    "price": 48,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "accept",
+      "price": 48,
+      "message": "Accepted: 48 P with delivery on day 2. Thank you."
+     },
+     "band": {
+      "worst": 48,
+      "target": 48,
+      "best": 46
+     },
+     "plan": {
+      "read": "They dropped to 48 P on day 2, matching our earlier 48 P price, and are offering to close now. Including the day-2 cost, that is comfortably within our limit. With 3 ticks left and each round costing about 3 P, accepting beats haggling over the last few primas.",
+      "target": 48,
+      "best": 46,
+      "worst": 48,
+      "days": 2,
+      "angle": "Accept their 48 P on day 2 now and confirm warmly that we have a deal; don't counter."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.36,
+       "in": 1136,
+       "out": 264,
+       "cost_usd": 0.00982,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.91,
+       "in": 589,
+       "out": 42,
+       "cost_usd": 0.0016,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1019,6 +1617,82 @@
      "tick": 1341,
      "days": 0
     }
+   }
+  },
+  {
+   "tick": 1345,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 39 P, delivery on day 2.",
+    "price": 39,
+    "days": 2,
+    "meta": {
+     "rule": "late switch",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 6041,
+    "offer": {
+     "id": 10217,
+     "price": 39,
+     "tick": 1345,
+     "days": 2
+    }
+   }
+  },
+  {
+   "tick": 1346,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Accepted: 48 P with delivery on day 2. Thank you.",
+    "price": 48,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "accept",
+      "price": 48,
+      "message": "Accepted: 48 P with delivery on day 2. Thank you."
+     },
+     "band": {
+      "worst": 48,
+      "target": 48,
+      "best": 46
+     },
+     "plan": {
+      "read": "They dropped to 48 P on day 2, matching our earlier 48 P price, and are offering to close now. Including the day-2 cost, that is comfortably within our limit. With 3 ticks left and each round costing about 3 P, accepting beats haggling over the last few primas.",
+      "target": 48,
+      "best": 46,
+      "worst": 48,
+      "days": 2,
+      "angle": "Accept their 48 P on day 2 now and confirm warmly that we have a deal; don't counter."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.36,
+       "in": 1136,
+       "out": 264,
+       "cost_usd": 0.00982,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.91,
+       "in": 589,
+       "out": 42,
+       "cost_usd": 0.0016,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 48,
+    "settles_at_tick": 1347
    }
   }
  ]
