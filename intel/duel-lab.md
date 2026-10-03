@@ -23,7 +23,7 @@ checkpoints below are the history; this section supersedes them where they diffe
 | Path | What | Expected vs main today [L] |
 |---|---|---|
 | **A. Merge `duelist-loop` (a1d679e) and write the params file** | the three guards (accept instead of offering worse; worth-monotonic steps; the day call on the first offer) + the file below | **+0.039 per duel** (worst world +0.034; H2 +0.038) ≈ **+2.6 points over Duels III, +1.3 in the Final** (`nomerge.out`) |
-| B. No merge: edit three constants on main | `agent.py`: `MIN_STEP_P` 3→5 (l.50), `MAX_STEP_SHARE` 0.25→0.18 (l.52), `LATE_SWITCH_LEFT` 4→2 (l.54) | +0.033 per duel (worst +0.029) ≈ +2.2 points |
+| B. No merge: edit three constants on main | `agent.py`: `MIN_STEP_P` 3→5 (l.50), `MAX_STEP_SHARE` 0.25→0.18 (l.52), `LATE_SWITCH_LEFT` 4→2 (l.54) | +0.033 per duel (worst world +0.027) ≈ +2.2 points |
 
 `run/duel_params.json` for path A (passes `params.validate()` on duelist-loop, no errors):
 
@@ -43,7 +43,7 @@ are the current ones.)_
 
 **What it does.** We stop conceding mid-duel while the gap is narrow (under ~28 P with a 5 P floor and an 18% cap), and
 let the last 3 ticks and the deadline accept close it. The late day-switch moves from 4 ticks left to 2.
-- The gain is the hold itself: sending a 5 P step instead scores ≈ 0.
+- The gain is the hold itself: sending a 5 P step instead scores ≈ 0 (role-blind model, `final5.out`).
 - `LATE_SWITCH_LEFT` 4→2 is the largest single piece (+0.018 to +0.021).
 
 **Robustness [L]:**
@@ -56,7 +56,7 @@ let the last 3 ticks and the deadline accept close it. The late day-switch moves
 ### Live gates (first two waves of Duels III)
 
 - **Expected under the file** (`file_expect.out`): deal rate ≈ 0.93-0.95 with rivals that speak, **≈ 3.0 rounds per
-  deal** (today ≈ 0.90-0.92 and 3.6-4.0).
+  deal** (today ≈ 0.89-0.92 and 3.6-4.0).
 - **After wave 1:**
   - **Deal rate (rivals that spoke) < 0.80:** revert `MIN_STEP_P` to 3 (the hold is costing deals).
   - **Rounds per deal > 3.5 with deal rate ≥ 0.85:** step `MIN_STEP_P` to 6. The model gives 6 another ≈ +0.005 per
@@ -72,7 +72,8 @@ let the last 3 ticks and the deadline accept close it. The late day-switch moves
 1. **Per-cluster overrides: not worth building [L]** (`cluster_oracle.out`). With the rival type known from the start
    (an oracle), the best settings per cluster are nearly the same single global set: `MIN_STEP_P` 8, cap 0.12, late
    switch off. So the +0.017 oracle gain is that global set's gain, not specialisation, and a classifier adds ≈ 0. That
-   aggressive global set is ≈ +0.008 above the file, but it holds every mid-duel step under a ~67 P gap, which is far
+   aggressive global set is ≈ +0.008 (`MIN_STEP_P` 8 alone, `final_role.out`) to +0.017 (the oracle's in-sample
+   maximum) above the file, but it holds every mid-duel step under a ~67 P gap, which is far
    from anything played. Use the live loop to move toward it only if wave data agree.
 2. **The opener: keep the LLM's [V weak, L].**
    - Scaling it ±15-30% per role loses or is flat (`opener_role.out`).
