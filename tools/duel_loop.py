@@ -5,6 +5,8 @@ propose a params diff for the duelist. It never applies anything itself: a human
     python3 tools/duel_loop.py approve [--proposal run/duel_loop_proposal.json] [--params ...] [--only A,B] [--by NAME]
     python3 tools/duel_loop.py revert [--params ...] [--by NAME]
     python3 tools/duel_loop.py watch [--every 60]
+    python3 tools/duel_loop.py use SET --by NAME            # write one approved set (docs/duel_sets.json), whole
+    python3 tools/duel_loop.py switch [--every 60] [--dry]  # the Duel Lab's one-way switch rule, on the duelist's machine
 
 `run`, step by step:
 1. The wave. Our duels of a session, in the order they started, cut into chunks of the session's `max_concurrent`
@@ -23,10 +25,14 @@ propose a params diff for the duelist. It never applies anything itself: a human
 Only a session at the setting the Duel Lab simulated proposes anything (TARGET: Duels III and the Final, 12 ticks at
 10% decay; Chief 00:50): Duels III starts from the Duel Lab's file (docs/duels3-start.json), and a wave of another
 setting (Duels II: 16 / 8%) still gets its summary and the simulator's comparison, never a proposal.
-4. The Duel Lab's live gates (`tools/duel_gates.py`) on the session so far: REVERT MIN_STEP_P to 3 when the deal
-   rate with rivals that spoke is below 0.75 over >= 8 duels; STEP UP MIN_STEP_P by 1 (max 6) when rounds per deal
-   > 3.5 with a deal rate >= 0.85. A gate's diff joins the proposal (it wins over a sim tweak of the same name):
-   still a proposal, applied only by a human's `approve`.
+4. The Duel Lab's switch rule (`tools/duel_gates.py`, SUNDAY v2) on the session so far, shown with its counts: at
+   least 12 closed duels with a rival that spoke and a deal rate below 0.60 → the pre-approved fallback set (C → A,
+   A → today; docs/duel_sets.json), once, never back. `run` only reports it; `switch` applies it.
+
+Sets (audit, Sun 01:00): `use SET` writes one approved set from docs/duel_sets.json as the WHOLE params file (every
+set lists the same keys, so nothing of the previous set remains), with `_set` naming it; `switch` watches the
+records on the duelist's machine and, when the rule fires, writes the fallback set the same way (once per set, never
+back, never from a file that isn't an approved set; run/duel_switch.off or --dry stops it).
 
 Writes intel/duel-loop.md (newest wave on top), run/duel_loop_proposal.json and, for `watch`, run/duel_loop_state.json.
 `approve` and `revert` write the params file the duelist re-reads every tick (agents/duelist/params.py). No network,
@@ -756,9 +762,9 @@ def render(wave: Wave, obs: dict, sess: dict, preds: dict, dist: dict, world: st
     L.append("")
     g = ctx.get("gates") or {}
     if g:
-        L += [f"**Live gates** (`tools/duel_gates.py`, session so far): {g['reason']}"
-              + (f" → **{json.dumps(g['diff'])}** (in the proposal)" if g["diff"] else "")
-              + (f" · evidence {json.dumps(g['evidence'])}" if g.get("evidence") else ""), ""]
+        L += [f"**Switch rule** (`tools/duel_gates.py`, session so far): **{g.get('verdict', 'HOLD')}**: {g['reason']}"
+              + (f" · evidence {json.dumps(g['evidence'])}" if g.get("evidence") else "")
+              + (" · `tools/duel_loop.py switch` applies it" if g.get("verdict") == "SWITCH" else ""), ""]
     if notes:
         L += ["**Rule notes** (from the wave; not in the proposal):"] + [f"- {n}" for n in notes] + [""]
     if found["params"]:
@@ -804,13 +810,13 @@ def gate_duels(records: Path, session: Any) -> list[dict]:
     return sorted(out, key=lambda D: D.get("deadline_tick") or 0)
 
 
-def gate(records: Path, session: Any, eff: dict[str, Any]) -> dict[str, Any]:
-    """tools/duel_gates.gates on the session so far: {"diff", "reason", "evidence"}; never applied here."""
+def gate(records: Path, session: Any, eff: dict[str, Any] | None = None) -> dict[str, Any]:
+    """tools/duel_gates.rule on the session so far: {"verdict": HOLD | SWITCH, "reason", "evidence", "diff": {}}."""
     try:
-        diff, reason, ev = dg.gates(gate_duels(records, session), eff.get("MIN_STEP_P", dg.TODAY_MIN_STEP_P))
-    except (KeyError, TypeError, ValueError) as e:
-        return {"diff": {}, "reason": f"gates not evaluated ({e!r:.80})", "evidence": {}}
-    return {"diff": diff, "reason": reason, "evidence": ev}
+        verdict, reason, ev = dg.rule(gate_duels(records, session))
+    except (KeyError, TypeError, ValueError, ZeroDivisionError) as e:
+        return {"verdict": "HOLD", "diff": {}, "reason": f"rule not evaluated ({e!r:.80})", "evidence": {}}
+    return {"verdict": verdict, "diff": {}, "reason": reason, "evidence": ev}
 
 
 # ---------------------------------------------------------------------------------------------------- run
@@ -856,10 +862,6 @@ def run(*, records: Path = RECORDS, which: str = "latest", params_path: Path = p
     if off_target:                                     # Chief 00:50: proposals only at the simulated setting
         found["params"], gates["diff"] = {}, {}
         gates["reason"] = f"{gates['reason']} (not proposed: this session is not at {target[0]} ticks / {target[1]:.0%})"
-    if gates["diff"]:                                  # a live gate wins over a sim tweak of the same name
-        change = {**found["params"], **gates["diff"]}
-        over_ok, why = candidate(over, defaults, change)
-        found["params"] = change if over_ok is not None else gates["diff"]
     ctx = {"T": T, "d": d, "n": n, "policy": "code" if code else "llm", "eff": eff, "over": over, "errors": errors,
            "gates": gates, "off_target": off_target and target}
     section = render(wave, obs, sess, preds, dist, world, found, notes, ctx)
@@ -920,7 +922,7 @@ def was(name: str, existing: dict[str, Any], defaults: dict[str, Any]) -> str:
 
 
 def approve(*, proposal_path: Path = PROPOSAL, params_path: Path = pm.PATH, only: list[str] | None = None,
-            by: str | None = None, src: Path = DUELIST) -> int:
+            by: str | None = None, src: Path = DUELIST, force: bool = False) -> int:
     """Merges the proposal into the params file, keeping its other keys. Refuses, writing nothing, on a broken file,
     a value `params.validate` rejects, or a CROSS violation. Writes atomically, with a `_note` (wave, time,
     approver). Returns the exit code."""
@@ -953,8 +955,11 @@ def approve(*, proposal_path: Path = PROPOSAL, params_path: Path = pm.PATH, only
     base = prop.get("evidence", {}).get("base_overrides")
     now = {k: v for k, v in existing.items() if not k.startswith("_")}
     if base is not None and base != now:
-        print(f"warning: the params file changed since the proposal was made (then {json.dumps(base)}, now "
-              f"{json.dumps(now)}); its evidence was against the old set")
+        print(f"{'warning' if force else 'refused'}: the params file changed since the proposal was made (then "
+              f"{json.dumps(base)}, now {json.dumps(now)}); its evidence was against another set (audit S2: a loop "
+              f"run elsewhere could lower a value){'' if force else '. Re-run the loop here, or --force'}")
+        if not force:
+            return 1
     merged = {**existing, **chosen}
     over, errors = pm.validate(merged)
     if not errors:
@@ -1033,6 +1038,98 @@ def watch(every: float, **kw: Any) -> None:
         time.sleep(every)
 
 
+# ---------------------------------------------------------------------------------------------------- sets
+
+SWITCH_STATE, SWITCH_OFF = ROOT / "run" / "duel_switch_state.json", ROOT / "run" / "duel_switch.off"
+
+
+def use(name: str, *, sets_path: Path = pm.SETS, params_path: Path = pm.PATH, by: str | None = None,
+        src: Path = DUELIST, why: str = "") -> int:
+    """Writes the approved set `name` as the WHOLE params file (every set lists the same keys), validated and
+    cross-checked, atomically, with `_set` and a `_note`. Refuses, writing nothing, on any error."""
+    sets, _, _, errors = pm.load_sets(sets_path)
+    if errors:
+        print("refused: the sets file has errors:\n" + "\n".join(f"  - {e}" for e in errors))
+        return 1
+    if name not in sets:
+        print(f"refused: no set {name!r} in {sets_path} (sets: {', '.join(sets)})")
+        return 1
+    if bad := cross_errors(effective(module_defaults(src), sets[name])):
+        print("refused: " + "; ".join(bad))
+        return 1
+    path = Path(params_path)
+    try:
+        before = json.loads(path.read_text()) if path.exists() else {}
+    except (OSError, ValueError):
+        before = {}
+    who = by or me()
+    data = {"_set": name, "_note": f"set {name} from {Path(sets_path).name}, by {who} {stamp('%a %H:%M')}"
+                                   + (f" ({why})" if why else ""), **sets[name]}
+    write_atomic(path, json.dumps(data, indent=1) + "\n")
+    print(f"set {name} written by {who}: {path} (was {before.get('_set') or ('custom' if before else 'no file')})")
+    for k, v in sets[name].items():
+        print(f"  {k}: {before.get(k, 'default')} → {v}")
+    return 0
+
+
+def switch_once(*, records: Path = RECORDS, sets_path: Path = pm.SETS, params_path: Path = pm.PATH,
+                state_path: Path = SWITCH_STATE, off: Path = SWITCH_OFF, dry: bool = False,
+                target: tuple[int, float] | None = TARGET, size: int | None = None, src: Path = DUELIST,
+                log: Path = OUT) -> str | None:
+    """One look, on the duelist's machine: on a newly closed wave of a session at `target`, the Duel Lab's rule on the
+    session so far; when it says SWITCH and the params file plays an approved set with a fallback, that fallback is
+    written whole (`use`), once per set, never back. A line when something happened, else None."""
+    try:
+        state = json.loads(Path(state_path).read_text())
+    except (OSError, ValueError):
+        state = {}
+    book = load(records, size)
+    wave = pick(book.waves, "latest")
+    if wave is None or not wave.closed or wave.id == state.get("last_wave"):
+        return None
+    T, d = session_params(book, wave)
+    state["last_wave"] = wave.id
+    write_atomic(Path(state_path), json.dumps(state, indent=1) + "\n")
+    if target is not None and (T != target[0] or abs(d - target[1]) > 1e-9):
+        return None
+    g = gate(records, wave.session)
+    if g["verdict"] != "SWITCH":
+        return f"{stamp('%H:%M')} wave {wave.id}: switch rule HOLD ({g['reason']})"
+    try:
+        now = json.loads(Path(params_path).read_text()).get("_set")
+    except (OSError, ValueError, AttributeError):
+        now = None
+    _, _, fallback, errors = pm.load_sets(sets_path)
+    if errors or now not in fallback:
+        return (f"{stamp('%H:%M')} wave {wave.id}: switch rule SWITCH, but the params file plays "
+                f"{now or 'no approved set'}: nothing written (a human decides)")
+    if now in state.get("switched_from", []):
+        return None                                   # once per set: never again, never back
+    new = fallback[now]
+    if dry or Path(off).exists():
+        return f"{stamp('%H:%M')} wave {wave.id}: switch rule SWITCH {now} → {new} NOT applied ({'--dry' if dry else off})"
+    if use(new, sets_path=sets_path, params_path=params_path, by="switch rule", src=src,
+           why=f"wave {wave.id}: {g['reason']}") != 0:
+        return f"{stamp('%H:%M')} wave {wave.id}: switch {now} → {new} refused (see above)"
+    state.setdefault("switched_from", []).append(now)
+    write_atomic(Path(state_path), json.dumps(state, indent=1) + "\n")
+    line = f"{stamp('%H:%M')} wave {wave.id}: SWITCHED {now} → {new} ({g['reason']}; {json.dumps(g['evidence'])})"
+    prepend(f"## Switch at wave {wave.id} <!-- wave switch-{wave.id} -->\n\n{line}\n", f"switch-{wave.id}", log)
+    return line
+
+
+def switch(every: float, **kw: Any) -> None:
+    while True:
+        try:
+            if line := switch_once(**kw):
+                print(line, flush=True)
+        except KeyboardInterrupt:
+            raise
+        except Exception as e:  # noqa: BLE001
+            print(f"{stamp('%H:%M')} switch error: {e!r}"[:300], flush=True)
+        time.sleep(every)
+
+
 # ---------------------------------------------------------------------------------------------------- main
 
 def main(argv: list[str] | None = None) -> int:
@@ -1058,13 +1155,30 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--params", type=Path, default=pm.PATH)
     p.add_argument("--only", help="comma-separated names: approve only these")
     p.add_argument("--by", help="who approves (default: git user.name)")
+    p.add_argument("--force", action="store_true", help="approve although the params file changed since the run")
     p = sub.add_parser("revert")
     p.add_argument("--params", type=Path, default=pm.PATH)
     p.add_argument("--by")
+    p = sub.add_parser("use", help="write one approved set (docs/duel_sets.json) as the whole params file")
+    p.add_argument("set")
+    p.add_argument("--sets", type=Path, default=pm.SETS)
+    p.add_argument("--params", type=Path, default=pm.PATH)
+    p.add_argument("--by")
+    p = sub.add_parser("switch", help="the Duel Lab's one-way switch rule, applied on the duelist's machine")
+    p.add_argument("--records", type=Path, default=RECORDS)
+    p.add_argument("--sets", type=Path, default=pm.SETS)
+    p.add_argument("--params", type=Path, default=pm.PATH)
+    p.add_argument("--every", type=float, default=60.0)
+    p.add_argument("--dry", action="store_true", help="report, never write")
     a = ap.parse_args(argv)
+    if a.cmd == "use":
+        return use(a.set, sets_path=a.sets, params_path=a.params, by=a.by)
+    if a.cmd == "switch":
+        switch(a.every, records=a.records, sets_path=a.sets, params_path=a.params, dry=a.dry)
+        return 0
     if a.cmd == "approve":
         only = [s.strip() for s in a.only.split(",") if s.strip()] if a.only else None
-        return approve(proposal_path=a.proposal, params_path=a.params, only=only, by=a.by)
+        return approve(proposal_path=a.proposal, params_path=a.params, only=only, by=a.by, force=a.force)
     if a.cmd == "revert":
         return revert(params_path=a.params, by=a.by)
     kw = dict(records=a.records, params_path=a.params, n=a.n, seed=a.seed, policy=a.policy, size=a.size)

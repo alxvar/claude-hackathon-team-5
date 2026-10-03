@@ -185,10 +185,10 @@ def test_this_checkouts_constants_parse():
 
 def test_params_map_onto_the_sim_policy(src, tmp_path):
     p = tmp_path / "duel_params.json"
-    p.write_text(json.dumps({"_note": "x", "MAX_STEP_SHARE": 0.25, "OPENER_SHARE": 0.5}))
+    p.write_text(json.dumps({"_note": "x", "MAX_STEP_SHARE": 0.25, "OPENER_SHARE_SELLER": 0.5}))
     _, over, errors = dl.read_params(p)
     eff = dl.effective(dl.module_defaults(src), over)
-    assert errors == [] and eff["MAX_STEP_SHARE"] == 0.25 and "OPENER_SHARE" not in eff   # no policy.py: ignored
+    assert errors == [] and eff["MAX_STEP_SHARE"] == 0.25 and "OPENER_SHARE_SELLER" not in eff   # no policy.py
     pol = dl.sim_policy(eff, days=False, code=False)
     assert {k: pol[k] for k in ("smin", "smin_share", "cap", "end_ticks", "silent_keep", "accept_by", "hold_break",
                                 "open_wait")} == {
@@ -201,7 +201,7 @@ def test_params_map_onto_the_sim_policy(src, tmp_path):
     off = dl.sim_policy({**eff, "GUARDS": 0, "MONO_END_SHARE": 0.25}, days=True, code=False)
     assert not off["guard_worse"] and off["mono_end"] is None
 
-    (src / "policy.py").write_text("OPENER_SHARE = 0.43\nCODE_STEP_SHARE = 0.12\nEND_STEP_SHARE = 0.5\n")
+    (src / "policy.py").write_text("OPENER_SHARE_SELLER = 0.73\nCODE_STEP_SHARE = 0.12\nEND_STEP_SHARE = 0.5\n")
     eff = dl.effective(dl.module_defaults(src), over)
     code = dl.sim_policy(eff, days=False, code=True)
     assert (code["step"], code["alpha"], code["end_alpha"], code["end_emp"]) == ("code", 0.12, 0.5, False)
@@ -304,7 +304,7 @@ def test_tweaks_build_on_the_files_overrides(fake_sim):
 def write_proposal(tmp_path, params, base=None):
     p = tmp_path / "proposal.json"
     p.write_text(json.dumps({"wave": "3.6", "made_at": "2026-10-03T22:00:00", "params": params,
-                             "evidence": {"base_overrides": base or {}}}))
+                             "evidence": {} if base is None else {"base_overrides": base}}))
     return p
 
 
@@ -462,17 +462,62 @@ def gate_record(folder, n, *, session=4, status="deal", rounds=2, spoke=True):
     (folder / f"duel-{n}.json").write_text(json.dumps({"duel": n, "done": D}))
 
 
-def test_the_live_gates_join_the_proposal_and_win_over_a_sim_tweak(tmp_path):
-    for i in range(8):                                          # 5 deals of 8 rivals that spoke: 0.62 < 0.75
-        gate_record(tmp_path, i, status="deal" if i < 5 else "no_deal")
+def test_the_switch_rule_reports_hold_and_switch(tmp_path):
+    for i in range(12):                                         # 7 deals of 12 rivals that spoke: 0.58 < 0.60
+        gate_record(tmp_path, i, status="deal" if i < 7 else "no_deal")
     gate_record(tmp_path, 50, session=3)                        # another session: not counted
-    g = dl.gate(tmp_path, 4, {"MIN_STEP_P": 5})
-    assert g["diff"] == {"MIN_STEP_P": 3} and g["reason"].startswith("REVERT") and g["evidence"]["rival_spoke"] == 8
-    assert dl.gate(tmp_path, 4, {"MIN_STEP_P": 3})["diff"] == {}            # already today's value
-    for i in range(8):                                          # 8 of 8 deals at 4 rounds: step up
-        gate_record(tmp_path, i, rounds=4)
-    assert dl.gate(tmp_path, 4, {"MIN_STEP_P": 3})["diff"] == {"MIN_STEP_P": 4}
-    assert dl.gate(tmp_path, 9, {"MIN_STEP_P": 3})["reason"].startswith("fewer than 8")
+    g = dl.gate(tmp_path, 4)
+    assert g["verdict"] == "SWITCH" and g["evidence"]["rival_spoke"] == 12 and g["diff"] == {}
+    gate_record(tmp_path, 11)                                   # 8 of 12: 0.67
+    assert dl.gate(tmp_path, 4)["verdict"] == "HOLD"
+    assert dl.gate(tmp_path, 9)["reason"].startswith("fewer than 12")
+
+
+SETS = {"_default": "A", "_switch": {"C": "A", "A": "today"},
+        "today": {"MIN_STEP_P": 3, "MAX_STEP_SHARE": 0.25, "LATE_SWITCH_LEFT": 4, "OPEN_WAIT": 2, "MONO_END_SHARE": 0.25},
+        "A": {"MIN_STEP_P": 5, "MAX_STEP_SHARE": 0.18, "LATE_SWITCH_LEFT": 2, "OPEN_WAIT": 2, "MONO_END_SHARE": 0.25},
+        "C": {"MIN_STEP_P": 8, "MAX_STEP_SHARE": 0.12, "LATE_SWITCH_LEFT": 0, "OPEN_WAIT": 0, "MONO_END_SHARE": 0.25}}
+
+
+def test_use_writes_a_whole_set_and_nothing_of_the_old_one_remains(tmp_path, src):
+    sets, params = tmp_path / "sets.json", tmp_path / "duel_params.json"
+    sets.write_text(json.dumps(SETS))
+    assert dl.use("C", sets_path=sets, params_path=params, by="Aleks", src=src) == 0
+    assert json.loads(params.read_text())["OPEN_WAIT"] == 0
+    assert dl.use("A", sets_path=sets, params_path=params, by="Aleks", src=src) == 0
+    data = json.loads(params.read_text())
+    assert data["_set"] == "A" and {k: v for k, v in data.items() if not k.startswith("_")} == SETS["A"]
+    assert dl.use("B", sets_path=sets, params_path=params, src=src) == 1           # no such set
+    sets.write_text(json.dumps({**SETS, "bad": {"MIN_STEP_P": 99}}))
+    assert dl.use("A", sets_path=sets, params_path=params, src=src) == 1           # a broken sets file: nothing
+    assert json.loads(params.read_text())["_set"] == "A"
+
+
+def test_the_repo_sets_file_is_valid_and_its_sets_list_the_same_keys():
+    sets, default, switch, errors = dl.pm.load_sets(dl.pm.SETS)
+    assert errors == [] and default in sets and set(sets) == {"today", "A", "C"} and switch == {"C": "A", "A": "today"}
+
+
+def test_switch_applies_the_fallback_once_and_never_back(tmp_path, src, monkeypatch):
+    sets, params, state = tmp_path / "sets.json", tmp_path / "duel_params.json", tmp_path / "state.json"
+    sets.write_text(json.dumps(SETS))
+    dl.use("C", sets_path=sets, params_path=params, by="Aleks", src=src)
+    waves = iter(["4.3", "4.4", "4.5"])
+    monkeypatch.setattr(dl, "load", lambda *a, **k: dl.Book([], [], {}))
+    monkeypatch.setattr(dl, "pick", lambda w, which: type("W", (), {"id": next(waves), "closed": True, "session": 4})())
+    monkeypatch.setattr(dl, "session_params", lambda book, wave: (12, 0.10))
+    verdict = {"v": "SWITCH"}
+    monkeypatch.setattr(dl, "gate", lambda rec, s, eff=None: {"verdict": verdict["v"], "reason": "deal rate 0.50",
+                                                              "evidence": {"n": 12}, "diff": {}})
+    kw = dict(records=tmp_path, sets_path=sets, params_path=params, state_path=state, off=tmp_path / "off",
+              src=src, log=tmp_path / "loop.md")
+    line = dl.switch_once(**kw)
+    assert "SWITCHED C → A" in line and json.loads(params.read_text())["_set"] == "A"
+    (tmp_path / "off").write_text("")                             # the kill switch: reported, not applied
+    assert "NOT applied" in dl.switch_once(**kw) and json.loads(params.read_text())["_set"] == "A"
+    (tmp_path / "off").unlink()
+    params.write_text(json.dumps({"MIN_STEP_P": 6}))              # not an approved set: a human decides
+    assert "nothing written" in dl.switch_once(**kw)
 
 
 def test_a_session_off_the_simulated_setting_proposes_nothing(tmp_path, src, monkeypatch):
