@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sun 01:05 (tick 1445, doors closed; snapshot 1440): us #3 at 30.49. **Ladder correction: Chato buys at list never score (dealer-lab, n = 18), and we have no spare rares for Pilar → Sunday ladder ≈ 0.27, not 0.50; P(top 2) ≈ 10-27% (§4.4).** §4.8-4.10 EV/#1/deny; live-tuning design in intel/live-tuning.md._
+_Last update: Sun 01:20 (tick 1445, doors closed; snapshot 1440): us #3 at 30.49. **Ladder correction: Chato buys at list never score (dealer-lab, n = 18), and we have no spare rares for Pilar → Sunday ladder ≈ 0.27, not 0.50; P(top 2) ≈ 10-27% (§4.4).** §4.8-4.10 EV/#1/deny; live-tuning design in intel/live-tuning.md._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -461,8 +461,8 @@ of 30 → whether VC can exceed +5 board on Sunday: reconcile with the Market se
 | **Team trades** | 9 (= 0.6 × 15) | 9 × min(1, T/N); N ≈ 125 at Saturday's end (from 0.072 Sat-pts per neg_point at 904 and 988); negatives floored at 0 | 9 | [L] |
 | **Ladder** | 9 (= 0.6 × 15) | raw = **Σ_dealer level × Σ(best-3 shares)/45** (5 dealers, levels 1-5; max 1.0) — **exact on our 17 deals** (0.055 + 0.029 + 0.177 + 0.222 = 0.483); board part = 9 × min(1, L/M), M a field reference | 9 | [V] raw · [L] grading |
 | Share of a deal | — | buy: (opening − price)/(opening − limit); sell: (price − opening)/(limit − opening); each conversation has its own secret limit; buys above MENU list never count | 1 per slot | [V] fits |
-| **Bench** (Market Test) | 22.5 of Market's 30 | the free stall = half = 11.25 every session; no board broker beat it all day | 22.5 | [V] |
-| **Value created** | 7.5 | board gap ≈ 5 × mm/M capped at 5 (M a field reference, gaps scale together §3h); net negative floors at 0 | 7.5 (the deck says real trades 22.5 [?]) | [V] cap, proportional · [L] form |
+| **Bench** (Market Test) | 22.5 of Market's 30 [V deck] | the free stall = half = 11.25 every session; no board venue beat it in 51 sessions | 22.5 | [V] |
+| **Value created** | 7.5 | board gap ≈ 5 × mm/M capped at 5 (M a field reference, gaps scale together §3h); net negative floors at 0 | 7.5 = the full real-trades score (deck: Market Test 22.5 + real trades 7.5, directive 01:15) | [V] cap, split, proportional · [L] form |
 
 A stall team at every cap scores 12 + 9 + 9 + 11.25 + 7.5 = **48.75** per round. **t10's Saturday round was 45.99** — it is
 almost at that ceiling.
