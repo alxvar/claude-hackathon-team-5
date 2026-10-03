@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 12:30 (tick ~509), snapshot 500. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
+_Last update: Sat 12:30 (tick 513), snapshot 510. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -33,7 +33,17 @@ t13 and t04 have dealer deals in the window). Full = 12 Saturday points = 8.0 bo
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 470 | 12.0 | 0 | 0 | 10.5 | 7.4 | 0 | **6.5** | 10.2 | 5.9 | 6.3 | 6.5 | 0 | 7.9 | 7.9 | 0 | 0.4 | 0 |
 | 480 | 12.0 | 10.3 | 9.9 | 8.8 | 8.3 | 8.3 | **8.2** | 7.8 | 7.5 | 7.3 | 6.8 | 6.6 | 6.5 | 5.0 | 4.2 | 3.1 | 2.0 |
+| 510 | 11.5 | 11.2 | 6.4 | 7.8 | 5.4* | 10.6 | **11.7*** | 10.9* | 11.3* | 7.0* | 4.9* | 8.0* | 11.9 | 8.9* | 7.9* | 7.0* | 5.0* |
 
+- `*` = the team also had dealer/team deals since 460, so its number includes 0.6 × those (ours: +0.067 ladder from the LAT-08
+  Chato and MAL-07 Pilar sells; t17: MAL-10 page close bought from t18 at 70 + 5, pages 1 → 2; t18: that sale).
+  Clean teams at 510: t01 11.9, t12 11.5, t15 11.2, t03 10.6, t09 7.8. Nobody sits at exactly 12 now, so the scale is not
+  "leader = 12" [L]; it may be absolute (pie share) or graded vs a moving reference [?].
+- Deal rate at 510 [V feed]: field 98/111 = 88%; **ours 11/12** (one correct no-deal: 2367, buyer limit 72 vs the rival's
+  last 101). Field by item: Mesón 93% · Café en Goya 90% · Mercado de la Paz 88% · Palacio de Cristal 85% · Heroína 82%.
+- Our decay bill: 5.75 rounds per duel on average → 0.94^5.75 ≈ 0.70, i.e. **~30% of our surplus lost to decay**.
+  Worst: 2318 (9 rounds, 11 → 6.3), 2319 (9 rounds, 6 → 3.4), 2356 (10 rounds, 16 → 8.6). Best: 2541 (6 rounds, 21 → 14.5),
+  2315 and 2314 (1 round each).
 - The part is relative [V]: t09 10.5 → 8.8 and t08 10.2 → 7.8 while the field closed more deals. Our `duel_points` 0.78 → 2.0
   mapped to 6.5 → 8.2 (not linear) → graded against the leader / top 3 [L].
 - Deal rate [V feed]: field 36/39 = 92%; ours 4/4. By item: Mercado de la Paz 11/13, Café en Goya 6/7, the rest 100%.

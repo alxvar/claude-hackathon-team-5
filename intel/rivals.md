@@ -9,6 +9,16 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sat 12:30 · snapshot 510 (Duels I running)
+- Board: t12 31.91 · **t17 29.29 (#2, +2.5)** · t14 28.85 · t13 27.71 · t18 27.48 · **us 27.03 (#6)** · t10 25.98 · t01 25.97.
+- **t17 closed its MAL page** [V: pages 1 → 2]: bought MAL-10 from **t18** at 70 + 5 fee as taker on El Rastro (tick 508).
+  Saturday part +4.7 in that window (page close ≈ 0.6 × 0.235 × 50 ≈ 7 minus duel slippage). t18 (#5) sold a page-closer to a
+  top-3 rival for ~+20 neg_points.
+- **The field is copying the dealer-sell ladder play** [V feed, 509-513]: t08 MAL-06 → Pilar 17, t16 LAT-07 → Pilar 17,
+  t14 LAT-08 → Pilar 20, t10 SAL-08 → Pilar 24, t06 LAV-08 → Chato 13, t07 LAT-10 ← Chato 89. All teams are level 3 now.
+  If the ladder part is graded against the field, every rival's deal lowers what ours is worth: do ours early.
+- t13 is the weakest top team in duels (duel part 8.3 → 5.4); t14 9.9 → 6.4. t12 and t01 lead the duel part (~11.5-11.9).
+
 ### Sat 12:12 · snapshot 480 (Duels I running)
 - Board: **t12 32.19** · t14 31.16 · t13 29.68 · t17 26.77 · t18 24.88 · **us 24.76 (#6)** · t10 24.0 · t04 23.9.
 - Duels now carry 40% of Saturday Negotiating (intel/score-model.md §1b); the moves since 460 are mostly duels. Duel part
