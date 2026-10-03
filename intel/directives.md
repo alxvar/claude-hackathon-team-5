@@ -4,6 +4,7 @@ _Written by the strategy session. It never touches the game: no trades, no bots.
 
 ## Sat 17:25 — rivals and alerts
 
+- 17:30 · **No offer of ours on a rival-owned venue** (value created there lifts the owner's market; Team 3's v20 is at 4.75, below the stall): v15 for all buyers, El Rastro for t15 · policy TOP_N 6 + rival = within 3.0 board of us (t10 #6 passed the daemons) · swaps PARTNERS → v15 only; book/opps DEFAULT_VENUE v07 → v15 (Builder) · MAL-02/05 → t15 moved off v20 (Operator)
 - 17:25 · **Team 3 is a top rival** (#3 at tick 850: 29.24, 0.14 behind us, negotiating 24.49 the highest) [V leaderboard]: no new offers, swaps or v10 suggestions to t03 or t10; open asks to the live top 5 must pass policy.check or get cancelled · **Rival = live top 6 or within 3.0 board of us**: no alert ever nudges a third team to accept a rival's offer (t10's SAL-10 → t08 at 160 on v10 could give t10 up to +50 neg) · **Phone alerts**: Dani gets only "ACT · … · until HH:MM" plus DONE/VOID follow-ups; swaps push once per pair per 2 h and only at gain ≥ 10; Lucas gets CRITICAL only (Builder) · Team 16's LAT-11: pass (epic, 1 minted, page:false [V catalog])
 
 ## Sat 16:55 — desk answers [Verified: organisers via Lucas]
