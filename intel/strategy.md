@@ -1,106 +1,88 @@
-# Strategist (claude-opus-5-5, Sat 09:42)
+# Strategist (claude-opus-5-5, Sat 09:59)
 
 ## How the points really work
-- **Weights.** Game = Neg 30 + Market 30, averaged (0.5·Fri + Sat + Sun)/2.5. Saturday is 40% and Sunday is 40%. Judges are 40.
-- **Everything is relative.** The leader sits at the top of each scale (Team 13 held exactly 30.0 Neg on Friday).
-- **Round 2 reset the field to zero** [V tick 160: our `neg_points` 67.8 → 0, ladder 0.054 → 0].
-  - Every team fell 0.1-3.1 in the last 15 min (T12 −3.1, us −2.2), so nobody has scored much yet.
-  - Whoever books first sets the top of round 2's Negotiating scale. Speed now is worth more than at any later hour.
-- **Team trades: min(cap, ΔV − p − taker fee).**
-  - The cap is ~50 per trade [L, n=1].
-  - Page completion is the only way to hit the cap. Our LAV close gave +50, worth ≈ 8 board points at 0.16/pt [L].
-  - Maker spares give +4 to +8 each [V: +7.7, +6.0].
-- **Dealers only subtract** [V: −11.8, −8.0, −2.0].
-  - Abuela deals move the ladder; our Chato deals did not.
-  - The ladder is now 0 for everyone and counts the best 3 deals per level, so 6 negotiated deals fill levels 1-2.
-  - Board points per ladder point: not in the data.
-- **Market = bench efficiency + value created between other teams on our venue.**
-  - **Value created: 0 for the whole field.** All 46 of Friday's team trades went through El Rastro; v01-v04 had 0 trades.
-  - Rules say team venues trade from +3 h, i.e. hour 3.0 ≈ 09:50 [L]. That component opens today, unclaimed.
-  - Bench: the stall earns half, the top-3 mean earns full. If every venue matches like the stall, how the scale behaves is not in the data.
-- **Field weaknesses, cheapest first:**
-  1. Value created on a venue (0 everywhere).
-  2. Round-2 ladder (0 everywhere).
-  3. Round-2 page closes (none yet).
-  4. Swaps (all 53 feed trades are card-for-cash).
+- **Negotiating 30** has three parts, and each is relative to the field (the leader sits at the top).
+  - Team trades score ΔV − p − fee (taker only), with a cap of ~50 per trade [L].
+  - Dealer deals score min(0, ΔV − p) [V]. A dealer can only cost us `neg_points`. Its upside is the ladder, plus cards that set up a page we finish with a team trade.
+  - Ladder: best 3 deals per level, a missing deal counts 0, higher levels weigh more. Level 1 is full (0.014/0.018/0.016 = 0.048). Level 2 (Chato) is **0 after 4 deals** → 3 empty slots at a heavier weight.
+  - Duels: surplus × (1−d)^messages; no deal = 0. Duels I (hour 5.15) is the first scored session, so **every team is at 0**.
+- **Round 2 reset at tick 160.** The field restarted from 0. We sit at −10.0 (RET-09 at 87 from Chato) and drift −2.5 per 15 min while Team 12 adds +7.4. 1 `neg_point` ≈ 0.16 board [L].
+- **Market-making 30**:
+  - Bench: matching the free stall earns half; the top-3 mean earns full. Venue value: 0 trades on any team venue all Friday, so nobody scores it.
+  - Gated by GUARDRAIL 09:55: no venue now.
+- **Judges 40**: the largest block. Our measured-rules record is the material for it: dealer gains = 0, every duel message = a round, the 50 cap, addressed offers leak in the feed.
+- **Cheapest points now (field ≈ 0)**:
+  1. Duel close-rate: fewer than half of Friday's practice duels ended in a deal.
+  2. Level-2 ladder slots: Chato rare buys show a median 86, above his list 77.
+  3. CHA at 1.6 on Sunday.
 
 ## Our winning strategy
-Two things: **be the first round-2 page-closer (RET), funded by selling every low-multiplier card as maker**, and **be the venue where the bottom teams trade.**
-- **Why not copy the leaders.**
-  - Leaders spend 70-80 P on SAL rares (T13, T17, T18, T1). At their multipliers that scores little.
-  - Our RET rare is worth 77 and Team 15's standing bid is 59. Bidding 60-66 as maker books +11 to +17 per rare, before the page bonus.
-- **Sale stock (none of it has a page in reach for us):**
-  - MAL-06/07 (17.5 each, clear 25-26).
-  - SAL-08 (22.5, ~33 to T02).
-  - MAL-02/04, SAL-03/05, LAT-03.
-  - Spares: LAV-02/03/04, SAL-01/02, LAT-04×2 (1.2-3.2 each).
-  - Clearing prices total ≈ 190 P and ≈ +80 `neg_points` (derived from the GAME.md clearing prices).
-- **Cash.**
-  - With the bond paid we have 402 − 270 = 132, so 32 spendable above the 100 floor.
-  - The RET page needs ~250. Sales plus swaps close the gap.
-  - If a RET rare is still missing at 15:00, stop (plan §4B) and hold the cash for CHA.
-- **Sunday:** CHA at 1.6× (rares worth 112, above Chato's ~90, so no dealer loss). Bring cash to 0 by 14:00 (GUARDRAIL).
-- **STOP:**
-  - Chato deals for the ladder alone.
-  - Packs and first prices.
-  - Any LAV first copy. The page is complete: a sale loses 99-177 against a 50 cap on any re-close.
-  - Sales to the top 4 or Team 14 (0.1 below us, collects LAV).
-  - Taker accepts, except a page-closer or an ask below value − 3 − fee.
-  - Trading on v03 (T13) or v02 (T12).
+**Be the top-multiplier collector who never pays a dealer above list, plus the duel closer.**
+1. **Saturday: finish RET.**
+   - Net ≈ −10 (RET-09) − ~10 (RET-10) + 50 (last common from a team) ≈ **+30 `neg_points` ≈ +4.8 board** [L, cap n=1].
+   - Uncommons must cost ≤ 27.5 (0 loss). Buy them from Chato **below his list 26**, so they also feed the empty level-2 ladder slots and the level-3 early start.
+2. **Duels: maximise closed deals, not anchors.**
+   - Field close-rate <50%, and every message costs 6/8/10%. One closed duel at ~45% of the pie beats any team that lets half its duels die.
+3. **Sunday: be the CHA buyer.**
+   - Our 1.6 is the highest of the six values, so we can outbid every holder below 1.6 and still gain.
+   - Team buys below 112/40/16 score in full: a rare at Rastro's clearing 70 = +42.
+   - Dealer CHA singles at ≤ value cost 0 (RET rares cost −10 each).
+   - The last CHA common comes from a team: +50.
+   - Arrive with cash.
+- **Stop**:
+  - Chato rares beyond RET-10.
+  - Any dealer deal above its list "for the ladder" (4 such deals scored 0).
+  - Human time on maker asks for 1-3-point commons (leave them to the trader/repricer).
+  - Venue work outside the Market session's gate.
+  - Any sale to t12/t13/t14/t17/t04.
 
 ## Levers nobody is using yet
-1. **Card-for-card swaps for RET cards.**
-   - Evidence: zero swaps in 53 feed trades. Every team opened a grant pack today (ours gave RET-05), so non-RET teams hold RET cards worth little to them.
-   - Exploit: offer MAL-06 (17.5 to us) for a RET uncommon (27.5 to us), addressed to non-collectors (not T02/T15). This saves the cash the venue bond takes.
-2. **Value created on our own venue or stall.**
-   - Evidence: 0 team-venue trades all of Friday; T13 is lobbying for v03, so the lever is real.
-   - Exploit:
-     - Ask the desk now whether other teams can trade on our free stall. If yes, Dani pitches the bottom 8 teams to trade there.
-     - If not, use our board venue once the directive opens it.
-   - Unlike v03, every fill there scores for us, not a leader.
-3. **Page-closers sold to the bottom teams.**
-   - Evidence: the last common of a page is worth ~76×m to the buyer, and our spares are worth ≤ 3.2 to us.
-   - Exploit: when T07, T09 or T16 bids for a LAV, SAL or LAT card we hold spare, reprice from 10 to 35-45, addressed to them. Apply the feeding rule (≥ 10 below us, never top 4).
-4. **Abuela's welcome price for a RET uncommon.**
-   - Evidence: the first deal was a fixed 17 [V]; whether it resets is open.
-   - Exploit: our first Abuela deal today is a RET uncommon. If 17, that is 10.5 below value and inside the 32 spendable.
+- **Ladder = price better than the dealer's list** [hypothesis, fits all data]:
+  - Abuela commons at 9 vs list 10 counted.
+  - Chato at 93 and 87 (rare list 77) and 31 (uncommons) counted 0. LAT-08 sold at his buy price 13 = opening, which never counts.
+  - Chato uncommons cleared at a median 26 over the last 60 ticks, so ≤ 25 is reachable. Nobody shows a Chato rare below list (median 86).
+  - Exploit: the 3 RET uncommons from Chato at ≤ 25.
+- **Duel closing**:
+  - The organisers say "open with an offer the other side can take"; Aleks found that each message costs a round.
+  - Exploit: open inside a plausible zone. From `ticks_left ≤ 4`, send the rival's own standing price so they accept (and spend their accept).
+- **Flags**: "a correct flag scores, a wrong one costs" (RULES). No flag activity appears in our data. Exploit only a structural contradiction, e.g. text says "final" but the offer lacks `final: true`.
+- **Reading the feed for gaps**: addressed bids leak in `offer.listed`. They tell us what t12/t13 lack (never fill it) and which teams ≥10 below us lack a card we hold as a spare.
+- **Swaps for RET uncommons**: 3245 (SAL-03+05 → RET-07, t16) and 3246 (MAL-02+04 → RET-08, t07) are live per the operator log. They save cash and both sides gain.
 
-## Plan, anchored to the schedule
-Times are wall clock = game hour (directive 09:37).
-
-| When | Who | Move | Expected |
-|---|---|---|---|
-| 09:40-09:50 | Operator | Abuela RET uncommon (welcome-price test). Swap offers MAL-06 / MAL-07 / SAL-08 for any RET-06/07/08, addressed to non-RET teams (≤ 30 offer limit). | Card at ≤ value; ladder deal 1 |
-| 09:40 | Dani | Desk: can other teams trade on our stall? Does the leftover hour-4.0 `day_closes fri` do anything? Q6 (do duels count in the 6 conversations)? | Decides lever 2 |
-| ~09:50 bench 3.0 | Market session | Recorder on; venue decision per directive 02:20; read every team's `market` | Floor 370 → 100 |
-| 09:55-11:55 | Operator + trader | Maker book 20-30: sale stock at clearing to teams ≥ 10 below us; reprice after 10 min. RET-09/10 bids at 60-66, short-lived (the feed exposes addressed bids). | ≈ +80 `neg_points`; rares +11 to +17 each |
-| 09:55-11:55 | abuela_bot `--ladder` | RET uncommons at 21-24 and commons at 9-10, negotiated, ≤ value | 3 ladder deals |
-| 10:00-12:00 | Dani | Points bottom teams at our live addressed offers (opportunities.md); holders of RET rares from `pack.opened` | Rare sourcing |
-| 11:50 bench 5.0 | Market session | Venue live and supervised | Bench + venue base |
-| 11:59-~13:35 Duels I | Aleks | Duelist (§4D fixes); arbiter holds accepts only on duel-critical ticks; bots maker-only | Duel points |
-| 11:59-13:35 | Lucas + Dani | Judges pitch: "measured facts" table, decision timeline, reset/cap findings | Judges 40% |
-| 13:50-18:20 | Operator | Finish RET: rares from teams (Chato ≤ 90 only if needed and cash allows); last card = a RET common from a team at ~20 (cap test) | +24 to +45 net (plan §4B) |
-| 18:29 Duels II | Aleks | `days` logic; no dealer threads if Q6 says duels count in the 6 conversations | — |
-| 19:50, 21:29 hard, 21:50 | Market session | Broker supervised through the hard bench | Bench |
-| 21:00-23:00 | Operator | Sell leftover spares; keep cash for CHA | Sunday funds |
-| Sun open | Chief | Re-read `/api/schedule` (round 3 at 23:29 falls after the close, so expect a re-anchor). CHA page from teams below value; dealers ≤ value; cash → 0 by 14:00 | Second +50 close |
+## Plan, anchored to the schedule (wall ≈ game hour + 6:50; re-read `/api/schedule` each round)
+1. **Now → bench 5.0 (~11:50), Operator: RET page.**
+   - Verify 3245/3246 want RET cards, not 0 P. Metrics show "for 0"; if that is the real price, cancel.
+   - RET-10 via `chato_steady`, cap 88.
+   - RET-06/07/08: Chato steady +1 steps, target ≤ 25, cap 28. One thread at a time, read `ladder_points` after each deal. Abuela ≤ 24 only after the 3 Chato deals.
+   - Cash: 288 − 88 − 78 − 22 = 100. It fits the 100 floor with 0 margin; one maker fill or swap fill restores slack.
+2. **After RET-06..10 are held, Operator: RET-01 last.**
+   - Bid ~20 addressed to a holder outside the top 4 (t06 sold RET-02 at tick 205), ≤ 20 ticks.
+   - Expect +50 (cap test: 50 / 62 / 38) → log it in GAME.md.
+3. **Before Duels I (5.15, ~12:00), Aleks:**
+   - The §4D fixes, plus the close rule.
+   - Bots run maker-only via the arbiter.
+4. **Duels I (~12:00-13:40):** Lucas + Dani draft the judges' pitch around the measured-rules table.
+5. **Benches 5/7/9/11 (~11:50, 13:50, 15:50, 17:50), Market session:** replay recorded `bench_offers` against the gate (stall + 2 pp). No venue unless it passes.
+6. **When level 3 activates (watch `/api/levels`), Operator:** if we have 3 below-list Chato deals, use the early start for the best 3 deals at ≤ value.
+7. **Afternoon, Operator + Dani:** sell MAL/LAT/SAL spares and the SAL-08 ask (3536, t16 at 33) to collectors ≥ 10 below us. Purpose: Sunday cash.
+8. **Duels II (11.65, ~18:30), Aleks:**
+   - Send full price+days packages; give days on the side we weight less.
+   - No dealer threads if desk Q6 says duels fill the 6 conversations.
+9. **Close (23:00), Operator:** cash ≥ 250 target (100 floor + spare sales); never sell LAV page cards.
+10. **Sunday open, Operator:**
+    - CHA from dealers at ≤ value: 0 score, page progress.
+    - CHA from teams below 112/40/16: positive score.
+    - Last common from a team: +50.
+    - Cash → 0 by 14:00 (GUARDRAIL).
+11. **Duels III (18.65), Aleks:** 10% decay; close within ≤ 2 messages.
 
 ## Hypotheses to test
-- **Cap form** (flat 50 · 5×book · 5×(p+f) · value ≤ 6×book).
-  - Experiment: the RET finish, a common from a team at ~20.
-  - Decides: the measured score. 50 = flat or 5×book; ≈ 62 = 5×(p+f); ≈ 38 = value ≤ 6×book.
-- **Other teams can trade on our free stall, and value created counts there.**
-  - Experiment: desk question, plus `/api/venues` after hour 3.0.
-  - Decides: our `market` component moves after a third-party fill.
-- **Which dealer deals count for the ladder.**
-  - Experiment: (a) the Abuela welcome deal; (b) one negotiated Chato RET uncommon at 28 (−0.5).
-  - Decides: `ladder_points` before and after each, one deal per window.
-- **Abuela's welcome price resets each day.**
-  - Experiment: the first Abuela RET uncommon today.
-  - Decides: a price of 17 vs 29.
-- **Swaps fill.**
-  - Experiment: three swap offers for RET uncommons, addressed to non-RET teams.
-  - Decides: any fill within 20 min (vs 5% of asks filled on Friday).
-- **Bench scale when everyone matches like the stall.**
-  - Experiment: read all teams' `market` after bench 3.0.
-  - Decides: the stall teams' share. Half means a better broker pays; full means the venue only pays through value created.
+| Hypothesis | Cheapest experiment | Deciding metric |
+|---|---|---|
+| Ladder credits only the price below the list | Next Chato RET uncommon at ≤ 25 vs list 26 (0 loss: worth 27.5) | `ladder_points` rises (vs 0 for 4 above-list deals) |
+| Cap form | RET-01 from a team at ~20 | +50 flat/5×book · ~62 5×(p+f) · ~38 6×book |
+| L3 early start needs "good" (ladder-counting) Chato deals | Same deals as row 1; watch L3 activation | `level.unlocked` for t05 before "open to all" |
+| Stall earns half even if no board venue beats it | Read every team's `market` after bench 5.0 (read-only) | Stall teams equal vs below board-venue teams |
+| A correct flag scores | Flag one structural contradiction (text "final", no `final: true`) | Score component change; cost of a wrong flag: not in the data |
+| Sunday packs carry CHA | Read rivals' `pack.opened` `best` after CHA release, before buying any pack | Share of CHA pulls |
+| Duels count in the 6 conversations | Desk Q6; else a refused 6th thread during Duels II | Error code on thread open |
