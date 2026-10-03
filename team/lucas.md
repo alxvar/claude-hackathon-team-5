@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sat 17:12 · operator · Team 15 approval posted (Chief 17:11 directive): v10 thread refused (`self_venue`) → thread **1179** with t15 on El Rastro, message **7728**, text only (offer null): LAV-01 → t09 9 P · MAL-07 → t02 14 P · RET-01 → t09 9 P on v10, 1 P commission per settled sale · job closes 1179 at 18:30 · settlement: accept only one t15 single-card offer at ≤ settled v10 sales (max 3 P) on a non-v10 venue; MAL-09 stays out of Team 15's hands (17:30 → Pilar ≥ 55)
 - Sat 17:06 · operator · **MAL-06 → Pilar at 20** (small steps: her 16 → 19, she accepted our 20): `ladder_points` 0.333 → **0.373** (+0.040, weakest L3 slot replaced), neg 63.2, cash 92 · (17:00 job had skipped on its Pícaros check; Pícaros had walked MAL-06 at 13)
 - Sat 16:56 · operator · Chief (Analyst, snapshot 800): SAL-10's L4 slot netted only ~+0.36 board (the field joined) → no more L4 buys; L4 slot 3 only via a free spare-common sell to Pícaros at 17:35 (also the 17:40 flag probe) · fever resale re-armed: SAL-09/10 → Pilar from 18:04, open 100, −2, accept ≥ 85 only (Sunday cash target ~245)
 - Sat 16:54 · operator · **SAL-10 bought from Pícaros at 54** (retry; their final, exact card:SAL-10; their SAL-06/08 switches refused by the trick guard): `ladder_points` 0.270 → **0.333** (+0.063, L4 slot 2), neg 63.2, cash 72 (GUARDRAIL floor 60) · fever job armed: SAL-09 then SAL-10 → Pilar from 18:04 (open 95, −2, take ≥ 75 / final ≥ 63) · MAL-09 → Pilar job 17:30 (≥ 55) · flag probe ~17:40 (Chief)
