@@ -6,6 +6,9 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sat 13:00 · Builder · ARBITER_HOLDS (default off: never hold, log would-have-held to logs/arbiter.jsonl) 71b7c6a, both modes tested, 339 pass · Operator restarts trader/book/opps
+- Sat 12:52 · Builder · radar reads addressed v10 offers from the feed (424931b), restarted · found t10→t17 MAL-02 at 6 (est. +0.2, paged) and t10→t03 LAV-04 at 13 (est. −1.9, not paged) · Chief told
+- Sat 12:45 · Builder · cha-plan degrade path for a 200 P close (Chief): pair first, rares never; pack 755 opened at the CHA release (Operator) · re-verify after the 13:10 API reset
 - Sat 12:52 · operator · **#3 (29.64)** (ladder 0.181 + Duels I ~10 duel points) · directive 12:50: duels have their own limits and never block trading → **trader restarted** during Duels I (floor 100); dealer threads allowed in Duels II too · scout 12:49 (Pilar for MAL commons) skipped: Pilar buys no commons
 - Sat 12:49 · operator · **LAV-11 lost**: Team 8 sold it to Pilar at 140 (tick 550) while our bid stepped 100 → 110 → 120 → ladder stopped, bid 8147 cancelled, epic exception closed (floor back to 100) → GAME.md: dealers compete for epics (~140) · cash 184
 - Sat 12:46 · operator · **MAL-06 → Pilar at 19, small steps** (her 16 → 19; we offered her 19): `ladder_points` 0.141 → **0.181 (+0.040)**, `neg_points` 35.2, cash ≈ 184 → GAME.md (stepping rule) · L3 has 3 deals now · LAV-11 bid at 110 (8057), stepping to 120
