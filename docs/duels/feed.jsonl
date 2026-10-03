@@ -1208,3 +1208,4 @@
 {"id": 71534, "tick": 1390, "t": 12.9083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6216, "session": 3, "status": "no_deal", "item": "Fiesta de San Cayetano"}}
 {"id": 71620, "tick": 1392, "t": 12.925, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6217, "session": 3, "status": "no_deal", "item": "Fiesta de San Cayetano"}}
 {"id": 71658, "tick": 1393, "t": 12.9333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6181, "session": 3, "status": "deal", "item": "Fiesta de San Cayetano"}}
+{"id": 71758, "tick": 1395, "t": 12.95, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6156, "session": 3, "status": "deal", "item": "La Sala Pentagrama"}}
