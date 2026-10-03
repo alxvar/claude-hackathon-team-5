@@ -1,17 +1,21 @@
-# Scout (claude-sonnet-5-5, Sat 21:20)
+# Scout (claude-sonnet-5-5, Sat 21:25)
 
 ## Top 3 actions now
-1. **Broker RET-09 t08 → t09 on v10 at ~100 (Lucas/Dani DM both sides; matchmaker #1).** Evidence: t09 buys RET×5 and has the RET page at 9/10 per the matchmaker; t08 "dumps LAV/RET/LAT" and sits #12 (24.3). The El Rastro ask for RET-09 is 84, so the price band is 84-100. Our neg_points are unchanged because it is not our card. It earns mm_points via value created on v10 (VC ≈ +134 in the matchmaker, per the 21:40 directive), and t09 is #16, so we do not feed a leader. Confidence: med.
-2. **Run the public v10 rebate (10 P per card a non-rival sells, max 2 per team, cap 80) with the pair ads (operator job, every 12 min).** Evidence: Market says real trades = 5.0 × min(1, VC/top-3 mean) and the stall bench is maxed at 7.5. Targets: t12 buys MAL (t04 MAL-08 → t12 and t08 MAL-03 → t12 are queued) and t08 is a seller. Effect: market-making only, no neg_points; pay at 22:45 by buying a card we lack. Confidence: med.
-3. **Hold RET-11 (198 to us) and cash 392; no new dealer buys.** Evidence: the Pícaros deal at 128 earned ladder +0.046 with neg_points flat at 119.1, and Picaros epic buys run at a median of 138, so a sale only works at ≥198 (the Sunday job to Pilar has floor 198). The 350 floor is the Sunday CHA reserve. Effect: protects the +3.2-5.6 CHA page [L]. Confidence: high.
+1. **RET-09 t08 → t09 at ~100 on v10 (matchmaker #1).** Lucas DMs both sides now, and the Operator's pair-ad is already posted (~21:24). Our part is to confirm that t08 and t09 are non-rivals and that the trade lands on v10, not v15.
+   - Evidence: Lucas's 21:40 directive says t09 has RET 9/10 and t08 dumps RET, with VC ≈ +134. t08 asks RET-10 84 and sells RET at median 70.
+   - Effect: 0 neg_points for us. It adds market-making "real trades" value (22.5 scale, currently +5.0), and the 10 P rebate to t08 is capped at 80 total.
+   - Confidence: med.
+2. **Sell nothing to t12 at RET-11 value, and keep RET-11 (198 to us).** t12 just paid 216 for RET-11 (t06 → t12, tick 1245), and Pícaros pay a median 142 for epics. Only the 22:35 Pilar offer at ≥198 is allowed (Operator job b7k4ksyzp, ask 260, −4 steps, floor 198). The 216 print says ask high.
+   - Effect: a dealer sale clips gains to 0 and never scores neg_points. The value is cash for the Sunday CHA reserve. Confidence: low-med.
+3. **Prepare the Sunday MAL close: Team 15's spare MAL-07 by team trade, as maker, addressed offer.** Hold the bid until 09:00, when the new round makes the +50 count in full (price ceiling per our value; bid short-lived because the feed shows addressed offers). Today t09 bids 56 for MAL-09/10, and t13 sold MAL-10 to t02 at 30, so rare MAL prices vary from 30 to 56. Watch for a cheaper MAL-10 and MAL-09 from t13 and t10.
+   - Effect: up to +50 neg in the Sunday round. Confidence: med.
 
 ## What the climbing teams are doing
-- Team 10 (#1, 34.6, +1.0/15 min) is a collector of LAV/RET with 435 listings. It bids 205 for LAV-11 and 112 for SAL-11, and just sold MAL-06 to t09 at 20 (tick 1230). It is also the likeliest seller of MAL-09/10.
-- Team 12 (#7, +1.3/15 min, 65 deals) is the busiest dealer-to-team seller. It sold SAL-09 to t09 at 70 (tick 1231) and LAT-08 to t09 at 10. It also bought LAT-07 from t15 at 14 (tick 1145).
-- Team 13 sells cheap volume (MAL-02 ↔ MAL-01 swap with t14, tick 1202; MAL-10 → t02 at 30; SAL-07 → t09 at 18). Its bids are below value: RET commons at 4 and RET uncommons at 13.
-- Team 6 (#3) fell by 2.0 in 15 min, yet still moves rares (RET-10 → t07 at 77, tick 1186).
+- **t12 (+1.6 / +1.2 in 15/60 min, #7)** buys premium cards from teams. It took RET-11 from t06 at 216 and sold SAL-09 to t09 at 70, so it moves epics and rares as a dealer-style intermediary.
+- **t10 (#1, +1.7)** has only 13 team trades and 40 dealer trades. It posts 440 listings and bids 205 for LAV-11 and 112 for SAL-11, so its gains come from its venue v10 and from epics. We never route to it.
+- **t17 (+1.2) and t09 (+1.1)** are buying the pages they collect: t17 bids 150 for MAL-11, t09 bids 56 for MAL-09/10 and 22 for SAL-06, and t09 also bought MAL-06 from t10 at 20.
 
 ## Threats
-- Team 10 leads us by 2.7 points. Its 53 deals match our 53, and any venue trade routed through t10's own venue feeds it, so we keep v10 traffic to non-rivals.
-- t09 bids 56 each for MAL-09 and MAL-10, and also bids 22 for SAL-06. It is a competing buyer for the MAL pieces we need for the Sunday MAL close, and it is also the buyer in action 1.
-- Team 6 (-2.0) and others behind us (t18 +0.6, t3 flat) are within 2 points, so any loss from a dealer buy above value would cost us rank.
+- **t09 and t15 bid on MAL-09/10** (56 each, our CHA/MAL plan). Rising prices raise our Sunday close cost, and t10 (the likeliest seller) is a top-4 rival.
+- **t10 leads at 35.3 (+1.7)** and gains from every trade on its own venue. A bid at 205 on LAV-11 suggests it is hunting epics. Never feed it.
+- **Rebate settlement:** the 80 P cap, plus the 350 floor and cash 392, leaves only ~42 P of slack tonight. Don't spend below the floor.
