@@ -1,21 +1,21 @@
 # v10 matchmaker: page finishers and first copies
 
-_Written by `tools/matchmaker.py` at 22:42 (tick 1400). Read-only. Holdings are a feed lower bound (~80% recall on our own album): a missing card may already be held unless the team bid for it or put it on a want-list (✓). Giver: a true duplicate or a set it dumps; receiver: no copy, collects the set; both gain > 0 at the price (conservative multipliers). Want-lists: `intel/wants.md`. Never a page-closer for a rival or a team < 6 below us; a rival on either side gains <= 10 P at our price._
+_Written by `tools/matchmaker.py` at 22:47 (tick 1410). Read-only. Holdings are a feed lower bound (~80% recall on our own album): a missing card may already be held unless the team bid for it or put it on a want-list (✓). Giver: a true duplicate or a set it dumps; receiver: no copy, collects the set; both gain > 0 at the price (conservative multipliers). Want-lists: `intel/wants.md`. Never a page-closer for a rival or a team < 6 below us; a rival on either side gains <= 10 P at our price._
 
 ## Matches (best first)
 
 | # | Buyer | Card | Seller | Price | Value created | Closer | Rival | Why |
 |---|---|---|---|---|---|---|---|---|
-| 1 | Team 9 | RET-09 El Ángel Caído | Team 7 | ~70 | +68.4 (low +68.4) |  |  | page 9/10 · bid ✓ · seller holds 2 · also t08 |
+| 1 | Team 9 | RET-09 El Ángel Caído | Team 7 | ~70 | +67.6 (low +67.6) |  |  | page 9/10 · bid ✓ · seller holds 2 · also t08 |
 | 2 | Team 15 | MAL-09 La Heroína del Dos de Mayo | Team 10 | ~45 | +42.4 (low +42.4) |  | rival seller | page 8/10 · known want ✓ · seller dumps MAL |
 | 3 | Team 15 | MAL-10 Noche de Movida | Team 10 | ~45 | +42.4 (low +42.4) |  | rival seller | page 8/10 · known want ✓ · seller dumps MAL |
-| 4 | Team 16 | RET-09 El Ángel Caído | Team 8 | ~70 | +24.3 (low +24.3) |  |  | bid ✓ · seller dumps RET · also t07 |
-| 5 | Team 1 | RET-08 Palacio de Velázquez | Team 7 | ~23 | +14.3 (low +14.3) |  |  | bid ✓ · seller holds 2 |
+| 4 | Team 16 | RET-09 El Ángel Caído | Team 8 | ~70 | +23.9 (low +23.9) |  |  | bid ✓ · seller dumps RET · also t07 |
+| 5 | Team 1 | RET-08 Palacio de Velázquez | Team 7 | ~23 | +14 (low +14) |  |  | bid ✓ · seller holds 2 |
 | 6 | Team 8 | SAL-03 Perrito con Abrigo | Team 1 | ~9 | +13.2 (low +12.9) |  |  | bid ✓ · seller holds 3 · also t15, t02, t12 |
 | 7 | Team 9 | LAV-02 El Frutero de Argumosa | Team 16 | ~9 | +13 (low +11.2) |  |  | bid ✓ · seller holds 2 · also t18 |
 | 8 | Team 17 | LAV-06 La Tabacalera | Team 16 | ~24 | +12 (low +9.5) |  | rival buyer | bid ✓ · seller dumps LAV |
 | 9 | Team 14 | LAV-01 La Corrala | Team 16 | ~9 | +8.5 (low +6) |  | rival buyer | page 8/10 · bid ✓ · seller dumps LAV |
-| 10 | Team 7 | SAL-01 Escaparate de Serrano | Team 1 | ~9 | +8.1 (low +7.8) |  |  | bid ✓ · seller holds 3 · also t04 |
+| 10 | Team 7 | SAL-01 Escaparate de Serrano | Team 1 | ~9 | +8 (low +7.8) |  |  | bid ✓ · seller holds 3 · also t04 |
 | 11 | Team 7 | SAL-05 Taxi Blanco | Team 8 | ~9 | +7.9 (low +7.9) |  |  | bid ✓ · seller holds 4 · also t16, t12 |
 | 12 | Team 16 | RET-01 Barca del Estanque | Team 2 | ~9 | +7.7 (low +7.4) |  |  | bid ✓ · seller holds 2 · also t09 |
 | 13 | Team 8 | MAL-02 Plaza del Dos de Mayo | Team 7 | ~9 | +7.2 (low +7.2) |  |  | bid ✓ · seller dumps MAL · also t16, t04, t10 |
@@ -24,7 +24,7 @@ _Written by `tools/matchmaker.py` at 22:42 (tick 1400). Read-only. Holdings are 
 | 16 | Team 13 | RET-01 Barca del Estanque | Team 9 | ~9 | +5.7 (low +5.7) |  | rival buyer | bid ✓ · seller holds 2 · also t02 |
 | 17 | Team 3 | LAT-05 El Organillero | Team 2 | ~8 | +5 (low +4) |  | rival buyer | bid ✓ · seller dumps LAT · also t09 |
 | 18 | Team 2 | MAL-04 El Tatuador | Team 1 | ~4 | +3.8 (low +2.8) |  |  | bid ✓ · seller holds 2 |
-| 19 | Team 16 | RET-04 Paseo de Coches | Team 8 | ~9 | +3.5 (low +3.5) |  |  | bid ✓ · seller dumps RET |
+| 19 | Team 16 | RET-04 Paseo de Coches | Team 8 | ~9 | +3.4 (low +3.4) |  |  | bid ✓ · seller dumps RET |
 | 20 | Team 1 | RET-03 El Titiritero | Team 8 | ~9 | +2.1 (low +2.1) |  |  | bid ✓ · seller dumps RET · also t04 |
 
 ## Ready DMs
@@ -63,19 +63,19 @@ _Written by `tools/matchmaker.py` at 22:42 (tick 1400). Read-only. Holdings are 
 
 ## Teams one or two cards from a page (feed lower bound)
 
-- Team 18 RET 9/10 · missing RET-07 · rival · **may be complete** (server: 3 complete pages, feed sees 1)
 - Team 16 SAL 9/10 · missing SAL-07 · **may be complete** (server: 2 complete pages, feed sees 0)
 - Team 16 LAT 9/10 · missing LAT-08 · **may be complete** (server: 2 complete pages, feed sees 0)
 - Team 12 LAT 9/10 · missing LAT-08 · rival · **may be complete** (server: 3 complete pages, feed sees 0)
 - Team 10 RET 9/10 · missing RET-02 · rival · **may be complete** (server: 3 complete pages, feed sees 0)
 - Team 9 RET 9/10 · missing RET-09 · **may be complete** (server: 1 complete pages, feed sees 0)
 - Team 7 LAV 9/10 · missing LAV-04 · **may be complete** (server: 2 complete pages, feed sees 1)
-- Team 6 LAV 9/10 · missing LAV-05 · rival · **may be complete** (server: 2 complete pages, feed sees 1)
+- Team 6 LAV 9/10 · missing LAV-05 · rival · **may be complete** (server: 3 complete pages, feed sees 1)
 - Team 4 LAT 9/10 · missing LAT-02 · **may be complete** (server: 3 complete pages, feed sees 1)
 - Team 15 MAL 8/10 · missing MAL-09, MAL-10 · **may be complete** (server: 4 complete pages, feed sees 3)
 - Team 14 LAV 8/10 · missing LAV-01, LAV-08 · rival · **may be complete** (server: 4 complete pages, feed sees 2)
 - Team 14 LAT 8/10 · missing LAT-06, LAT-07 · rival · **may be complete** (server: 4 complete pages, feed sees 2)
 - Team 12 MAL 8/10 · missing MAL-03, MAL-08 · rival · **may be complete** (server: 3 complete pages, feed sees 0)
+- Team 7 RET 8/10 · missing RET-03, RET-07 · **may be complete** (server: 2 complete pages, feed sees 1)
 - Team 3 SAL 8/10 · missing SAL-03, SAL-10 · rival · **may be complete** (server: 2 complete pages, feed sees 0)
 - Team 3 LAV 8/10 · missing LAV-02, LAV-04 · rival · **may be complete** (server: 2 complete pages, feed sees 0)
 - Team 1 SAL 8/10 · missing SAL-04, SAL-06 · **may be complete** (server: 3 complete pages, feed sees 0)

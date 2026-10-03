@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team 5 · Errata (leave-behind)</title>
+<style>
+:root{color-scheme:light;--paper:#f7f2e4;--rule:rgba(42,120,214,.11);--ink:#25221c;--ink2:#5b5548;--muted:#8a8373;--pen:#1c4fa0;--red:#c0322b;--ok:#1f7a34;
+  --typed:"American Typewriter","Courier New",ui-monospace,monospace;--hand:"Bradley Hand","Noteworthy","Segoe Print","Comic Sans MS",cursive}
+html,body{margin:0;height:100%}
+body{background:radial-gradient(120% 120% at 50% 0%,#4a3b30,#211a15);color:var(--ink);font-family:var(--typed);overflow:hidden}
+.wrap{position:fixed;left:50%;top:50%;width:1200px;height:700px;transform:translate(-50%,-50%) scale(var(--k,1))}
+.book{position:absolute;inset:0;display:flex;border-radius:8px;box-shadow:0 18px 50px rgba(0,0,0,.55)}
+.pg{flex:1;position:relative;box-sizing:border-box;padding:20px 30px 18px;background-color:var(--paper);
+  background-image:linear-gradient(var(--rule) 1px,transparent 1px),linear-gradient(90deg,var(--rule) 1px,transparent 1px);background-size:22px 22px;
+  font-size:13.5px;line-height:1.38;overflow:hidden}
+.pg.l{border-radius:8px 0 0 8px;box-shadow:inset -22px 0 26px -18px rgba(60,40,20,.35)}
+.pg.r{border-radius:0 8px 8px 0;box-shadow:inset 22px 0 26px -18px rgba(60,40,20,.35)}
+.exp{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--hand);font-size:31px;line-height:1.05;margin:0 0 2px;color:var(--red);font-weight:700}
+h2{font-family:var(--hand);font-size:24px;line-height:1.08;margin:1px 0 6px;color:var(--red);font-weight:700}
+.entry{margin-top:12px;padding-top:10px;border-top:1.5px solid var(--ink2)}
+.entry:first-of-type{border-top:none;padding-top:0}
+dl{margin:0;display:grid;grid-template-columns:92px 1fr;gap:4px 10px}
+dt{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+dd{margin:0}
+b{font-weight:700}
+s{text-decoration-color:var(--red);text-decoration-thickness:2px;color:var(--ink2)}
+code{font:12.5px ui-monospace,Menlo,monospace}
+.became dt{color:var(--ok)} .became dd{color:var(--ink)}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:2px 0}
+td{padding:2px 6px;border-bottom:1px dotted var(--muted)} td:first-child{padding-left:0;white-space:nowrap;color:var(--ink2)} td:last-child{text-align:right;white-space:nowrap}
+.slip{position:relative;background:#fffdf6;padding:8px 12px;margin:6px 0 8px;box-shadow:0 2px 6px rgba(60,40,20,.25);transform:rotate(-.5deg)}
+.slip::before{content:"";position:absolute;top:-8px;left:42%;width:70px;height:16px;background:rgba(224,176,74,.55);transform:rotate(-3deg)}
+.hand{font-family:var(--hand);color:var(--red);font-size:19px;line-height:1.2;font-weight:700}
+.tilt{display:inline-block;transform:rotate(-2deg)}
+.src{font:9.5px/1.35 ui-monospace,Menlo,monospace;color:var(--muted);margin-top:5px}
+.tbd{border:1.5px dashed var(--muted);border-radius:5px;padding:0 6px;color:var(--ink2);white-space:nowrap}
+.no{position:absolute;bottom:7px;font-size:10.5px;color:var(--muted)} .pg.l .no{left:30px} .pg.r .no{right:30px}
+@page{size:A4 landscape;margin:8mm}
+@media print{body{background:#fff;overflow:visible}.wrap{position:static;transform:none;zoom:.88}.book{position:relative;height:700px;box-shadow:none}.pg{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<div class="wrap"><div class="book">
+  <div class="pg l">
+    <div class="exp">Team 5 · The Bazaar · Causa Prima, Madrid, 2–4 Oct · a page from our lab notebook</div>
+    <h1>Errata: what we got wrong, and what it became</h1>
+    <p style="margin:2px 0 0">Six of our first 47 logged findings were wrong. They stay in the repo, marked “corrected by”. These four cost the most.</p>
+
+    <div class="entry"><div class="exp">1 · Fri 22:00</div><h2>The auto-flipper</h2>
+      <dl><dt>We believed</dt><dd><s>“dealer purchases neither score nor subtract”</s></dd>
+        <dt>What happened</dt><dd>Our bot bought a card worth 17.5 to us at 29. Our private score went 26.3 → 14.5: <b>−11.8</b> (≈ −2.8 on the board).</dd></dl>
+      <dl class="became" style="margin-top:4px"><dt>It became</dt><dd>A rule: never buy from a dealer above our value, and test a lever by hand before automating it. The bot is archived: “never restart”.</dd></dl>
+      <div class="src">LOG.md findings 11, 13 · DECISIONS.md #3</div></div>
+
+    <div class="entry"><div class="exp">2 · Sat 10:18</div><h2>The venue swap with Team 10</h2>
+      <dl><dt>We believed</dt><dd>“a balanced swap lifts both against the top 5”</dd></dl>
+      <table><tr><td>tick 311</td><td>their sale on our venue: our market 7.32 → <b>12.47</b></td><td>#2</td></tr>
+        <tr><td>tick 351</td><td><b>our</b> 7 P sale on their venue: their market <b>+4.34</b></td><td></td></tr>
+        <tr><td>tick 398</td><td>a sale on ours, to a non-collector: our market back to <b>7.5</b></td><td>#7</td></tr></table>
+      <dl class="became" style="margin-top:4px"><dt>It became</dt><dd>A formula: value created = buyer's value − seller's value. Two rules: collector-buys only; no offers on a rival's venue. A radar daemon that scores a trade before we nudge it. And, once the organisers said real trades are 22.5 of the 30 market points, a matchmaker daemon and a five-team club for Sunday <span class="tbd">result TBD</span></dd></dl>
+      <div class="src">intel/directives.md 10:18, 11:31, 17:30, 21:10, 22:55 · intel/market-log.md (tick 351: +4.34) · intel/GAME.md [V, Sat 11:30] · data/leaderboard.jsonl ticks 320, 400 · team/lucas.md Sat 21:21</div></div>
+    <span class="no">errata · 1</span></div>
+
+  <div class="pg r">
+    <div class="entry"><div class="exp">3 · Sat, tick 522 → tick 1047</div><h2>The golden chulapa</h2>
+      <div class="slip"><div class="exp">Doña Pilar, in our own deal thread · tick 522</div>
+        <p style="margin:3px 0 0">“Very well. 23 P. A pleasure. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about the golden chulapa.”</p></div>
+      <dl><dt>We believed</dt><dd>It was “easter-egg lore, not lies”: nothing to act on.</dd>
+        <dt>What happened</dt><dd>Tick 1021: the one-of-one card (LAT-13) went to another team. Tick 1047: we asked. Egg found, card gone.</dd></dl>
+      <dl class="became" style="margin-top:4px"><dt>It became</dt><dd><code>tools/hints.py</code>, a daemon that mines every dealer line (126 hits backfilled), then an egg catalog: trigger → reward → dealer. A rival's egg at tick 1227 was relayed; ours followed at tick 1231. Sat 22:23: a gift card and the “Castizo” badge from Abuela.</dd></dl>
+      <div class="src">intel/hints.md (tick 522, pilar → t05) · intel/directives.md 16:39 · intel/GAME.md “Easter egg” [V] · team/lucas.md Sat 19:00, 19:01, 21:13, 21:21, 22:23 · intel/eggs.md</div></div>
+
+    <div class="entry"><div class="exp">4 · Sat 21:17 · Duels II</div><h2>The delivery day</h2>
+      <dl><dt>We believed</dt><dd>Our red team had named the risk at 18:18: misreading the new delivery-day field. We prepared for reading it backwards.</dd>
+        <dt>What happened</dt><dd>Wave 1 read every day weight as “direction unknown”: <b>2 deals of 6</b>, 35.7 P.</dd></dl>
+      <dl class="became" style="margin-top:4px"><dt>It became</dt><dd>A fix live at 21:25 (<code>b7d91f3</code>), as wave 2 opened. Four bugs fixed mid-session, five restarts, no lost duels: <b>54 deals of 62</b> after the fixes. Overnight: a simulator calibrated on those duels, staged for Sunday <span class="tbd">result TBD</span></dd></dl>
+      <div class="src">team/aleks.md Sat 18:18, 21:31, 22:38 · PLAN.md Aleks #24 · team/lucas.md Sat 22:30, 22:48</div></div>
+
+    <p class="hand" style="margin:12px 0 0"><span class="tilt">every mistake became a rule, then code</span></p>
+    <p style="margin:6px 0 0;font-size:12.5px;color:var(--ink2)">Every number here is in the team's repo: <code>docs/judges/facts.md</code> (47 findings, each with its evidence), <code>DECISIONS.md</code> and <code>intel/directives.md</code> (every decision, with its limits, to the minute).</p>
+    <span class="no">errata · 2</span></div>
+</div></div>
+<script>
+const fit = () => document.querySelector('.wrap').style.setProperty('--k', Math.min(innerWidth / 1240, innerHeight / 730));
+addEventListener('resize', fit); fit();
+</script>
+</body>
+</html>
