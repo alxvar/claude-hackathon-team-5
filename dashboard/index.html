@@ -166,9 +166,9 @@ tr.sel td { background: rgba(57,135,229,0.22) !important; }
       <dt>neg_points</dt><dd>Value our trades created at our private values (price vs what the card is worth to us, minus fees). Absolute.</dd>
       <dt>Field drift</dt><dd>The score change of teams that made no trade in an interval: the cost of standing still.</dd>
       <dt>Affinity</dt><dd>How much each neighbourhood (set) is worth to us: a card's value = its book value × our affinity for its set.</dd>
-      <dt>Collects / sells off</dt><dd>Sets a team buys or bids for / sets it sells or asks for, inferred from the feed.</dd>
+      <dt>Collects / sells off</dt><dd>Sets a team buys or bids for / sets it sells or asks for, inferred from the feed. Token bids (under half the card's book price) don't count.</dd>
       <dt>Edge</dt><dd>What accepting an offer would gain us at our private values, after the fee.</dd>
-      <dt>Leader</dt><dd>Top 3: every trade also scores for the other side, so selling to them pushes them further ahead.</dd>
+      <dt>Top 4 (never feed)</dt><dd>Every trade also scores for the other side, so selling to the top 4 pushes them further ahead. Cards that can close a page go only to teams at least 10 points below us. The top 4 changes every few minutes: check the live board before any pitch.</dd>
     </dl>
   </details>
 </section>
