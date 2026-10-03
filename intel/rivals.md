@@ -9,6 +9,21 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### t14 deep dive (Sat 19:10; Chief's ask: "Team 14 says it is 100% sure to win")
+- **Pages [V leaderboard, L feed]:** pages_complete 3 since snapshot 950. Feed-visible: RET 10/10; LAV 8/10 (missing LAV-01,
+  LAV-08); LAT 8/10 (missing LAT-06, LAT-07); SAL 4/10; MAL 1/10. With 3 complete pages, LAV and LAT are most likely complete
+  through unseen starting cards → **no near-complete page left; a page close by t14 tonight is unlikely**. No t14 bid for
+  LAT-06/LAV-01/LAV-08 seen; t10's addressed LAT-07 offer to t14 (993) never settled.
+- **Recent play:** dumps commons as asks at 9-12 on El Rastro/v01 (ticks 705-769); swap offers SAL-05/03/02 for LAV-05/LAT-05/LAV-03
+  (955); ladder at every level while below the cap (Pilar ×7, Chato ×3, Pícaros ×4 incl. RET-09 57, RET-10 57, SAL-09 58);
+  fever cash: SAL-09 → Pilar 78, SAL-08 → Pilar 27/29, MAL-10 → Chato 49.
+- **Duels:** aliases hide team ids; Aleks's book: 16/17 rival teams scripted, 1 silent, 0 LLM in Duels I. t14's pure Duels I
+  part ≈ 7-10 of 12 [L].
+- **Eggs/hints:** none for t14 (2 Abuela gifts, 3 Workshop crafts). No visible hidden edge.
+- **Sunday:** cash not public; it raised cash in the fever. CHA multiplier unknown (if 1.6, its CHA page is worth the same +50 as ours).
+- **Market:** v14 stall, one trade all day (418); market 9.53 = 7.5 + VC ≈ 2.0 → room ≈ +3 to the cap.
+
+
 ### Sat 18:56 · snapshot 1040: four-way tie at the top
 - Board: t14 31.76 · **us 31.68** · t06 31.68 · **t10 31.68 (+3.33)** · t03 29.61 · t18 29.43 · t16 27.48.
 - **t10 closed its RET page cheaply** [V feed]: Pícaros RET-09 59 (1024) + RET-10 53 (1028) (dealer, 0 neg), Abuela RET-04 10,
