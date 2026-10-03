@@ -1,28 +1,16 @@
-# Scout (claude-sonnet-5-5, Sat 09:51)
+# Scout (claude-sonnet-5-5, Sat 09:55)
 
 ## Top 3 actions now
-1. **Sell SAL-08 to a buyer other than t02, and re-check the other addressed asks (Operator, trader.py).**
-   - Offer 3053 (SAL-08 → t02 at 33) is aimed at a team that collects RET/LAT and has 3 team trades. Its stated prices are "c 6 u 55 r 12", so it is not a SAL buyer.
-   - The profile table lists Team 16 (#17, 10.5 below us) as the SAL buyer. Our SAL-08 is worth 22.5 to us, so a sale at 33 gains about +10.5 (+12 if t16 accepts as taker, who pays the fee).
-   - Re-address offer 3053 to t16 at 33, or hold it for a SAL page-completer. Do this only after checking that t16 is not one card from a SAL page.
-   - Effect: roughly +10 `neg_points`, about 1.6 board points at 0.16 each. Confidence: low-med.
-2. **Fix the two 0 P offers, 3245 (SAL-03+SAL-05 → t16) and 3246 (MAL-02+MAL-04 → t07) (Operator).**
-   - Both ask 0 P for cards we value at 9+9 (SAL) and 7+7 (MAL), so a fill loses about 18 and 14.
-   - Cancel them, or re-post at ≥ our value plus 1: SAL at 10 each, MAL at 8 each.
-   - Evidence: the clearing prices are common 9 (MAL 26 uncommon), t16 is at #17 and t07 at #16. A 0 P price looks like a typo or a bundle-parsing bug.
-   - Effect: avoids −14 to −18 `neg_points`. Confidence: high that it is a loss risk, med that it is a bug.
-3. **Bid for RET commons from teams at ≤ 9 (Operator, `trade.py`).**
-   - Cards: RET-01, RET-02, RET-06 and RET-07, which we do not hold. RET-03, RET-04 and RET-05 we have.
-   - Evidence: Abuela's last RET-02 deal closed at 10 against our 9, and RET-08 sat at 29 against our 14. Team 2 bids only 3-7 for RET commons, so the market sits at 2-7 and sellers are cheap.
-   - Make each bid short-lived (≤ 20 ticks) and address it to the holder. Open the bid at 6. The RET common is worth 11 to us, so a fill at 6-9 gains 2-5 each.
-   - Effect: a cheaper RET page than the Abuela route, plus a position for the last-card cap test. Confidence: med.
+1. **Keep the Chato RET-10 steady-step running (cap 88) and accept only at ≤ 88.** Nobody else bids on RET-10 except t02 at 15 (offer 3533), and no team holds a RET rare, so Chato is the only source. His 97 → 87 path on RET-09 ended at −10.0 neg_points. Expect −5 to −11 on RET-10 (value 77, so a deal at 88 is −11). That is the price of the RET page. Executor: `chato_steady.py`. The earlier bid 3531 (57, expires 215) is not a live team route. Confidence: med.
+2. **Reprice the maker book to the clearing levels.** 14 open offers and 0 fills in 17 min (Lucas's log). Every asks is addressed to a single team, and the table shows no buyer passes the feeding rule. Offer 3536, SAL-08 → t16 at 33, is above the uncommon clearing price of 24.5 (SAL). Cut it to ~25 (value 22.5, gain ≈ +2.5). Likewise MAL-06 and MAL-07 → t01 at 26: market is 26 for MAL, OK, but t01 (#13, 9.3 points) is not in the top 4, so it is safe to leave. Re-address the spare LAV and SAL commons at 9-10, the standing ask level (LAV-04 10 ×3, LAV-03 9 ×2). Executor: operator via `trade.py`. Effect: team-sale gains of +1 to +8 each, as with LAV-04 at 9 (+7.7 at tick 106). Confidence: med.
+3. **Finish the RET page via the cap test.** We hold RET-02/03/04/05 and RET-09. Still missing RET-01, RET-10 and the uncommons. Plan: RET-01 from a team at ~20 as the cap test (t06 sold RET-02 to t02 at 12, tick 205, so t06 may hold RET commons). Place an addressed bid to t06 at ≤ 15, short-lived (≤ 20 ticks, feed is public). Then take the RET uncommons from Chato at ≤ 28 (−0.5 each) per the 09:46 directive. Expect +24 to +45 neg_points if the cap and page bonus hold. Executor: operator. Confidence: low-med. Both the cap and the page bonus are [L, n=1].
 
 ## What the climbing teams are doing
-- **Team 2 (+6.3 in 15 min, the only climber).** It sold SAL-10 (rare) to t01 for 72 at tick 163 and LAV-07 to t14 for 55 at tick 161. It buys RET and LAT commons cheap (RET-04 at 7, RET-02 at 6). It sells high-value rares and uncommons, then re-bids low.
-- **Teams 13 and 12 (leaders, both falling about 4-5).** Team 13 shows 30 deals and 5 MAL buys. Both are still on top on volume, so we cannot beat them by volume alone.
-- **Rare trades at 70-80 are where the points are.** Examples: t16 bids 78 for SAL-10, and t02→t01 SAL-10 at 72. Smaller commons at 3-9 move the score by almost nothing.
+- **Team 12 (#1, 32.2, +7.4/15 min)** collects MAL/RET, has 27 deals, and sells SAL-10 at 80 (tick 72). It is a heavy RET collector, so it is a rival for RET cards. It is a top-4 team: never feed it.
+- **Team 2 (#7, 14.7, +5.3/15 min; +7.9/60 min)** is the only other climber. Its trades are RET-02 from t06 at 12 (tick 205), MAL-05 from t04, SAL-10 (72) and SAL-02 to t01. It bids RET-10 at 15, RET-09 at 13 and RET-04 at 7, i.e. it is collecting RET cheaply. It probably holds RET cards from the grant packs, and could be a RET-01 or RET-10 seller; we have no data on that.
+- Everyone else is falling (Team 13 −4.9, Team 17 −4.8, Team 10 −5.7), so the relative reset left only teams that traded in the last 15 min rising.
 
 ## Threats
-- **Team 2 is bidding on RET-09/10 at 11-13 and RET commons at 3-7.** Team 15 also bids 5 on RET-05. They compete for the same RET cards we need, at lower prices than Abuela charges. Team 2 is also the target of our SAL-08 ask.
-- **Our ladder is only 0.032, and the 15-minute change is −4.6.** Everyone fell, so we stay #6 on relative position, but idle time costs us. Our maker book has gone unfilled for ~5 min.
-- **Cash is 384 against a 370 floor.** The RET page needs about 280 P and the venue bond 270 P. Both do not fit, so the cap test and the venue decision compete for the same cash.
+- **Team 2** bids on the same RET rares (RET-09 and RET-10 at 13-15). Its bids are low, so it is not outbidding us yet, but it is competing for any team that holds a RET card.
+- **Team 12 (#1) collects RET**, so it may take RET cards that sit with teams and could outbid us for them.
+- **Team 14 (#3)** is a high-ranked buyer of LAV (LAV-07 from t02 at 55, tick 161). We hold the LAV spares (second LAV-02/03/04). Do not sell them to t14 or any top-4 team. The current addressees t07, t09 and t16 are fine.
