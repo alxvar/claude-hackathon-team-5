@@ -29,6 +29,8 @@ its offer to a dealer, or a pack's `best`.
 I then list every album that fits the server's `album_filled` (distinct page cards 01-10 held; `album_slots` is
 50 = 5 sets × 10, and it was 40 with 4 sets on Friday [Verified]) and `pages_complete`. Each album must also respect
 supply: a card with `minted` = copies already traced (LAT-03, LAV-09, MAL-10, RET-09, RET-10) has no hidden copy left.
+Albums are checked one team at a time; supply is not cross-checked between teams. Even so, the 56 hidden copies these
+albums need never exceed any card's untraced supply.
 A card that every fitting album contains counts as held. One that no fitting album can contain counts as proven lacking.
 
 | Team | Rank | Album (server) | Pages (server) | Known held | % of album | Proven lacking | Undecided (held among them) | Status |
@@ -97,7 +99,7 @@ LAV-01 02 03 06 07 08 10, MAL-02 05 06 08, RET-01 02 07 08 · t09 LAT-06 07 09 1
 
 **Live bids at close** (feed, not cancelled, expired or filled): t01 MAL-11 144; t06 SAL-12 450, MAL-09 31, MAL-02 2,
 MAL-05 2; t09 MAL-09 56, MAL-10 56, SAL-06 24; t16 RET-11 103, MAL-11 63, RET-09 32, RET-10 32, LAV-10 28, RET-06 18.
-All 8 that land on a decided page card land on a proven gap.
+All 7 that land on a decided page card land on a proven gap. The other 3 (t06 MAL-02, t09 MAL-09, t09 SAL-06) are undecided.
 
 ## 2. Which signals to trust, and where the matchmaker goes wrong
 
