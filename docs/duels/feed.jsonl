@@ -306,3 +306,4 @@
 {"id": 13318, "tick": 192, "t": 2.925, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 305, "session": 1, "status": "no_deal", "item": "Mercado de Vallehermoso"}}
 {"id": 13321, "tick": 192, "t": 2.925, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 306, "session": 1, "status": "no_deal", "item": "Mercado de Vallehermoso"}}
 {"id": 13324, "tick": 192, "t": 2.925, "type": "duels.finished", "scope": "public", "actor": "", "payload": {"session": 1, "name": "Practice duels"}}
+{"id": 22872, "tick": 459, "t": 5.15, "type": "duels.scheduled", "scope": "public", "actor": "", "payload": {"session": 2, "name": "Duels I", "duels": 306, "rounds": 1, "duel_ticks": 16, "decay": 0.06}}
