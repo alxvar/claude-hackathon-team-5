@@ -1304,6 +1304,301 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1347,
+   "raw": {
+    "duel": 6095,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.67,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 46,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 1352,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 10209,
+     "price": 31,
+     "tick": 1344,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 10280,
+     "price": 21,
+     "tick": 1347,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1336,
+      "from": "Rival Verde",
+      "text": "Hello! I can do 30 with delivery on day 10.",
+      "price": 30,
+      "days": 10
+     },
+     {
+      "tick": 1336,
+      "from": "you",
+      "text": "Thanks for the opener. I can do 20 P with delivery on day 0; or, if you insist on day 10, I could only do 6 P.",
+      "price": 20,
+      "days": 0
+     },
+     {
+      "tick": 1337,
+      "from": "Rival Verde",
+      "text": "Thanks for the reply. 21, delivery day 10.",
+      "price": 21,
+      "days": 10
+     },
+     {
+      "tick": 1338,
+      "from": "Rival Verde",
+      "text": "Let me move closer: 21, day 10.",
+      "price": 21,
+      "days": 10
+     },
+     {
+      "tick": 1339,
+      "from": "Rival Verde",
+      "text": "I'd like to close this: 21 with day 10.",
+      "price": 21,
+      "days": 10
+     },
+     {
+      "tick": 1340,
+      "from": "Rival Verde",
+      "text": "Meeting you halfway: 21, delivered day 10.",
+      "price": 21,
+      "days": 10
+     },
+     {
+      "tick": 1341,
+      "from": "Rival Verde",
+      "text": "Final stretch from me: 21, day 10.",
+      "price": 21,
+      "days": 10
+     },
+     {
+      "tick": 1341,
+      "from": "you",
+      "text": "I can do 26 P, delivery on day 0.",
+      "price": 26,
+      "days": 0
+     },
+     {
+      "tick": 1342,
+      "from": "Rival Verde",
+      "text": "Hello! I can do 21 with delivery on day 10.",
+      "price": 21,
+      "days": 10
+     },
+     {
+      "tick": 1343,
+      "from": "Rival Verde",
+      "text": "Thanks for the reply. 21, delivery day 10.",
+      "price": 21,
+      "days": 10
+     },
+     {
+      "tick": 1344,
+      "from": "Rival Verde",
+      "text": "Let me move closer: 21, day 10.",
+      "price": 21,
+      "days": 10
+     },
+     {
+      "tick": 1344,
+      "from": "you",
+      "text": "That's a real step from me: 31 P with delivery on day 0. If you must have day 10, I could only do 14 P instead. I'd like a real answer to this move.",
+      "price": 31,
+      "days": 0
+     },
+     {
+      "tick": 1345,
+      "from": "Rival Verde",
+      "text": "I'd like to close this: 21 with day 10.",
+      "price": 21,
+      "days": 10
+     },
+     {
+      "tick": 1346,
+      "from": "Rival Verde",
+      "text": "Meeting you halfway: 21, delivered day 10.",
+      "price": 21,
+      "days": 10
+     },
+     {
+      "tick": 1347,
+      "from": "Rival Verde",
+      "text": "Final stretch from me: 21, day 10.",
+      "price": 21,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1347,
+   "raw": {
+    "duel": 6095,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.67,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 46,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 1352,
+    "decay_per_round": 0.08,
+    "rounds": 4,
+    "your_offer": {
+     "id": 10284,
+     "price": 35,
+     "tick": 1347,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 10280,
+     "price": 21,
+     "tick": 1347,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1336,
+      "from": "Rival Verde",
+      "text": "Hello! I can do 30 with delivery on day 10.",
+      "price": 30,
+      "days": 10
+     },
+     {
+      "tick": 1336,
+      "from": "you",
+      "text": "Thanks for the opener. I can do 20 P with delivery on day 0; or, if you insist on day 10, I could only do 6 P.",
+      "price": 20,
+      "days": 0
+     },
+     {
+      "tick": 1337,
+      "from": "Rival Verde",
+      "text": "Thanks for the reply. 21, delivery day 10.",
+      "price": 21,
+      "days": 10
+     },
+     {
+      "tick": 1338,
+      "from": "Rival Verde",
+      "text": "Let me move closer: 21, day 10.",
+      "price": 21,
+      "days": 10
+     },
+     {
+      "tick": 1339,
+      "from": "Rival Verde",
+      "text": "I'd like to close this: 21 with day 10.",
+      "price": 21,
+      "days": 10
+     },
+     {
+      "tick": 1340,
+      "from": "Rival Verde",
+      "text": "Meeting you halfway: 21, delivered day 10.",
+      "price": 21,
+      "days": 10
+     },
+     {
+      "tick": 1341,
+      "from": "Rival Verde",
+      "text": "Final stretch from me: 21, day 10.",
+      "price": 21,
+      "days": 10
+     },
+     {
+      "tick": 1341,
+      "from": "you",
+      "text": "I can do 26 P, delivery on day 0.",
+      "price": 26,
+      "days": 0
+     },
+     {
+      "tick": 1342,
+      "from": "Rival Verde",
+      "text": "Hello! I can do 21 with delivery on day 10.",
+      "price": 21,
+      "days": 10
+     },
+     {
+      "tick": 1343,
+      "from": "Rival Verde",
+      "text": "Thanks for the reply. 21, delivery day 10.",
+      "price": 21,
+      "days": 10
+     },
+     {
+      "tick": 1344,
+      "from": "Rival Verde",
+      "text": "Let me move closer: 21, day 10.",
+      "price": 21,
+      "days": 10
+     },
+     {
+      "tick": 1344,
+      "from": "you",
+      "text": "That's a real step from me: 31 P with delivery on day 0. If you must have day 10, I could only do 14 P instead. I'd like a real answer to this move.",
+      "price": 31,
+      "days": 0
+     },
+     {
+      "tick": 1345,
+      "from": "Rival Verde",
+      "text": "I'd like to close this: 21 with day 10.",
+      "price": 21,
+      "days": 10
+     },
+     {
+      "tick": 1346,
+      "from": "Rival Verde",
+      "text": "Meeting you halfway: 21, delivered day 10.",
+      "price": 21,
+      "days": 10
+     },
+     {
+      "tick": 1347,
+      "from": "Rival Verde",
+      "text": "Final stretch from me: 21, day 10.",
+      "price": 21,
+      "days": 10
+     },
+     {
+      "tick": 1347,
+      "from": "you",
+      "text": "One clear step from me: 35 P with delivery on day 0; or, if you prefer, 15 P on day 10. I'll hold here unless you move.",
+      "price": 35,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -2090,6 +2385,257 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1347,
+   "took_s": 10.73,
+   "cost_usd": 0.02058,
+   "obs": {
+    "view": {
+     "duel_id": 6095,
+     "role": "buyer",
+     "limit": 46,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.67,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello! I can do 30 with delivery on day 10.",
+      "offer": {
+       "price": 30,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1336,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the opener. I can do 20 P with delivery on day 0; or, if you insist on day 10, I could only do 6 P.",
+      "offer": {
+       "price": 20,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1336,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 21, delivery day 10.",
+      "offer": {
+       "price": 21,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1337,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Let me move closer: 21, day 10.",
+      "offer": {
+       "price": 21,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1338,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I'd like to close this: 21 with day 10.",
+      "offer": {
+       "price": 21,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1339,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Meeting you halfway: 21, delivered day 10.",
+      "offer": {
+       "price": 21,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1340,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Final stretch from me: 21, day 10.",
+      "offer": {
+       "price": 21,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1341,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 26 P, delivery on day 0.",
+      "offer": {
+       "price": 26,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1341,
+      "decision": {
+       "action": "offer",
+       "price": 14,
+       "message": "I'll move onto your day: 14 P with delivery on day 10. If you prefer day 0, I could do that at 24 P instead."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hello! I can do 21 with delivery on day 10.",
+      "offer": {
+       "price": 21,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1342,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 21, delivery day 10.",
+      "offer": {
+       "price": 21,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1343,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Let me move closer: 21, day 10.",
+      "offer": {
+       "price": 21,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1344,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "That's a real step from me: 31 P with delivery on day 0. If you must have day 10, I could only do 14 P instead. I'd like a real answer to this move.",
+      "offer": {
+       "price": 31,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1344,
+      "decision": {
+       "action": "offer",
+       "price": 31,
+       "message": "That's a real step from me: 31 P with delivery on day 0. If you must have day 10, I could only do 14 P instead. I'd like a real answer to this move."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I'd like to close this: 21 with day 10.",
+      "offer": {
+       "price": 21,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1345,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Meeting you halfway: 21, delivered day 10.",
+      "offer": {
+       "price": 21,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1346,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 21,
+     "days": 10
+    },
+    "tick": 1347,
+    "ticks_left": 5,
+    "rounds": 3,
+    "day_swings": [
+     36.800000000000004,
+     40.300000000000004,
+     10.700000000000001,
+     26.7,
+     77.5,
+     32.1,
+     25.299999999999997
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "One clear step from me: 35 P with delivery on day 0; or, if you prefer, 15 P on day 10. I'll hold here unless you move.",
+    "price": 35,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 35,
+      "message": "One clear step from me: 35 P with delivery on day 0; or, if you prefer, 15 P on day 10. I'll hold here unless you move."
+     },
+     "band": {
+      "worst": 35,
+      "target": 35,
+      "best": 34
+     },
+     "plan": {
+      "read": "They have repeated 21 P on day 10 for many ticks and ignored our day-0 offers. Their words claim movement, but their offers have not changed. With the day cost counted, 21 P on day 10 is past what we can pay, so it can't be accepted. Neither side has moved for 3 ticks, so this is a standoff, and one clear step is warranted.",
+      "target": 35,
+      "best": 34,
+      "worst": 35,
+      "days": 0,
+      "angle": "Make one clear, final-sounding step: 35 P with delivery on day 0. As an alternative in words, offer day 10 at 15 P. Then hold and send nothing further unless they move."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.61,
+       "in": 1540,
+       "out": 603,
+       "cost_usd": 0.01822,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.11,
+       "in": 847,
+       "out": 67,
+       "cost_usd": 0.00236,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -2262,6 +2808,63 @@
      "id": 10209,
      "price": 31,
      "tick": 1344,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1347,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "One clear step from me: 35 P with delivery on day 0; or, if you prefer, 15 P on day 10. I'll hold here unless you move.",
+    "price": 35,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 35,
+      "message": "One clear step from me: 35 P with delivery on day 0; or, if you prefer, 15 P on day 10. I'll hold here unless you move."
+     },
+     "band": {
+      "worst": 35,
+      "target": 35,
+      "best": 34
+     },
+     "plan": {
+      "read": "They have repeated 21 P on day 10 for many ticks and ignored our day-0 offers. Their words claim movement, but their offers have not changed. With the day cost counted, 21 P on day 10 is past what we can pay, so it can't be accepted. Neither side has moved for 3 ticks, so this is a standoff, and one clear step is warranted.",
+      "target": 35,
+      "best": 34,
+      "worst": 35,
+      "days": 0,
+      "angle": "Make one clear, final-sounding step: 35 P with delivery on day 0. As an alternative in words, offer day 10 at 15 P. Then hold and send nothing further unless they move."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.61,
+       "in": 1540,
+       "out": 603,
+       "cost_usd": 0.01822,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.11,
+       "in": 847,
+       "out": 67,
+       "cost_usd": 0.00236,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 6095,
+    "offer": {
+     "id": 10284,
+     "price": 35,
+     "tick": 1347,
      "days": 0
     }
    }

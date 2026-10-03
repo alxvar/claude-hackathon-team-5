@@ -277,6 +277,80 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1347,
+   "raw": {
+    "duel": 6048,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Dama de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.07,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 83,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1356,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 10210,
+     "price": 131,
+     "tick": 1344,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 10274,
+     "price": 125,
+     "tick": 1347,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1341,
+      "from": "Rival Rojo",
+      "text": "Hi there. 108 P from my side. Delivery on day 0.",
+      "price": 108,
+      "days": 0
+     },
+     {
+      "tick": 1341,
+      "from": "you",
+      "text": "Thanks for opening. I can do 138 P on day 0, and I'd like to keep things quick and simple.",
+      "price": 138,
+      "days": 0
+     },
+     {
+      "tick": 1344,
+      "from": "Rival Rojo",
+      "text": "How about 116 P? Delivery on day 0.",
+      "price": 116,
+      "days": 0
+     },
+     {
+      "tick": 1344,
+      "from": "you",
+      "text": "Let me make a clear step toward you: 131 P on day 0. I'm ready to close quickly if you meet me there.",
+      "price": 131,
+      "days": 0
+     },
+     {
+      "tick": 1347,
+      "from": "Rival Rojo",
+      "text": "125 P, then. Delivery on day 0.",
+      "price": 125,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -689,6 +763,124 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 1347,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 6048,
+     "role": "seller",
+     "limit": 83,
+     "currency": "P",
+     "item": "La Dama de Serrano",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.07,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hi there. 108 P from my side. Delivery on day 0.",
+      "offer": {
+       "price": 108,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1341,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for opening. I can do 138 P on day 0, and I'd like to keep things quick and simple.",
+      "offer": {
+       "price": 138,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1341,
+      "decision": {
+       "action": "offer",
+       "price": 138,
+       "message": "Thanks for opening. I can do 138 P on day 0, and I'd like to keep things quick and simple."
+      }
+     },
+     {
+      "mine": false,
+      "text": "How about 116 P? Delivery on day 0.",
+      "offer": {
+       "price": 116,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1344,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Let me make a clear step toward you: 131 P on day 0. I'm ready to close quickly if you meet me there.",
+      "offer": {
+       "price": 131,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1344,
+      "decision": {
+       "action": "offer",
+       "price": 131,
+       "message": "Let me make a clear step toward you: 131 P on day 0. I'm ready to close quickly if you meet me there."
+      }
+     },
+     {
+      "mine": false,
+      "text": "125 P, then. Delivery on day 0.",
+      "offer": {
+       "price": 125,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1347,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 125,
+     "days": 0
+    },
+    "tick": 1347,
+    "ticks_left": 9,
+    "rounds": 2,
+    "day_swings": [
+     36.800000000000004,
+     40.300000000000004,
+     10.700000000000001,
+     26.7,
+     77.5,
+     32.1,
+     25.299999999999997
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 125,
+    "days": null,
+    "meta": {
+     "rule": "small gap",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -815,6 +1007,25 @@
      "tick": 1344,
      "days": 0
     }
+   }
+  },
+  {
+   "tick": 1347,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 125,
+    "days": null,
+    "meta": {
+     "rule": "small gap",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 125,
+    "settles_at_tick": 1348
    }
   }
  ]
