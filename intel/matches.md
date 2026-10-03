@@ -1,13 +1,13 @@
 # v10 matchmaker: page finishers and first copies
 
-_Written by `tools/matchmaker.py` at 22:22 (tick 1360). Read-only. Holdings are a feed lower bound (~80% recall on our own album): a missing card may already be held unless the team bid for it or put it on a want-list (✓). Giver: a true duplicate or a set it dumps; receiver: no copy, collects the set; both gain > 0 at the price (conservative multipliers). Want-lists: `intel/wants.md`. Never a page-closer for a rival or a team < 6 below us; a rival on either side gains <= 10 P at our price._
+_Written by `tools/matchmaker.py` at 22:27 (tick 1370). Read-only. Holdings are a feed lower bound (~80% recall on our own album): a missing card may already be held unless the team bid for it or put it on a want-list (✓). Giver: a true duplicate or a set it dumps; receiver: no copy, collects the set; both gain > 0 at the price (conservative multipliers). Want-lists: `intel/wants.md`. Never a page-closer for a rival or a team < 6 below us; a rival on either side gains <= 10 P at our price._
 
 ## Matches (best first)
 
 | # | Buyer | Card | Seller | Price | Value created | Closer | Rival | Why |
 |---|---|---|---|---|---|---|---|---|
 | 1 | Team 9 | RET-09 El Ángel Caído | Team 7 | ~70 | +68.4 (low +68.4) |  |  | page 9/10 · bid ✓ · seller holds 2 · also t08 |
-| 2 | Team 9 | SAL-10 Museo Lázaro Galdiano | Team 18 | ~30 | +60.5 (low +60.5) |  | rival seller | bid ✓ · seller holds 2 · also t14 |
+| 2 | Team 9 | SAL-10 Museo Lázaro Galdiano | Team 18 | ~30 | +60.5 (low +60.5) |  | rival seller | bid ✓ · seller holds 2 |
 | 3 | Team 15 | MAL-09 La Heroína del Dos de Mayo | Team 10 | ~45 | +42.4 (low +42.4) |  | rival seller | page 8/10 · known want ✓ · seller dumps MAL |
 | 4 | Team 15 | MAL-10 Noche de Movida | Team 10 | ~45 | +42.4 (low +42.4) |  | rival seller | page 8/10 · known want ✓ · seller dumps MAL |
 | 5 | Team 1 | RET-09 El Ángel Caído | Team 8 | ~65 | +14.9 (low +14.9) |  |  | bid ✓ · seller dumps RET · also t07 |
@@ -66,7 +66,6 @@ _Written by `tools/matchmaker.py` at 22:22 (tick 1360). Read-only. Holdings are 
 - Team 18 RET 9/10 · missing RET-07 · rival · **may be complete** (server: 3 complete pages, feed sees 1)
 - Team 16 SAL 9/10 · missing SAL-07 · **may be complete** (server: 2 complete pages, feed sees 0)
 - Team 16 LAT 9/10 · missing LAT-08 · **may be complete** (server: 2 complete pages, feed sees 0)
-- Team 14 SAL 9/10 · missing SAL-06 · rival · **may be complete** (server: 3 complete pages, feed sees 1)
 - Team 12 LAT 9/10 · missing LAT-08 · rival · **may be complete** (server: 3 complete pages, feed sees 0)
 - Team 10 RET 9/10 · missing RET-02 · rival · **may be complete** (server: 3 complete pages, feed sees 0)
 - Team 9 RET 9/10 · missing RET-09 · **may be complete** (server: 1 complete pages, feed sees 0)
@@ -74,8 +73,8 @@ _Written by `tools/matchmaker.py` at 22:22 (tick 1360). Read-only. Holdings are 
 - Team 6 LAV 9/10 · missing LAV-05 · rival · **may be complete** (server: 2 complete pages, feed sees 0)
 - Team 4 LAT 9/10 · missing LAT-02 · **may be complete** (server: 3 complete pages, feed sees 1)
 - Team 15 MAL 8/10 · missing MAL-09, MAL-10 · **may be complete** (server: 4 complete pages, feed sees 3)
-- Team 14 LAV 8/10 · missing LAV-01, LAV-08 · rival · **may be complete** (server: 3 complete pages, feed sees 1)
-- Team 14 LAT 8/10 · missing LAT-06, LAT-07 · rival · **may be complete** (server: 3 complete pages, feed sees 1)
+- Team 14 LAV 8/10 · missing LAV-01, LAV-08 · rival · **may be complete** (server: 3 complete pages, feed sees 2)
+- Team 14 LAT 8/10 · missing LAT-06, LAT-07 · rival · **may be complete** (server: 3 complete pages, feed sees 2)
 - Team 12 MAL 8/10 · missing MAL-03, MAL-08 · rival · **may be complete** (server: 3 complete pages, feed sees 0)
 - Team 6 RET 8/10 · missing RET-03, RET-05 · rival · **may be complete** (server: 2 complete pages, feed sees 0)
 - Team 3 SAL 8/10 · missing SAL-03, SAL-10 · rival · **may be complete** (server: 2 complete pages, feed sees 0)
