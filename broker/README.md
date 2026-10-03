@@ -13,7 +13,7 @@ half the points; full points go to the mean of the top three. Rules: `bazaar-kit
 | `replay.py` | Replays recorded or simulated sessions through any strategy → realised share of possible gains, `--compare`, quote-oracle ceiling |
 | `sim.py` | Offline trader model (all guesses are `Model` parameters): calibrate it on recorded sessions |
 | `common.py` | Keyless reads, tick clock, broker-key lookup, key scrubbing |
-| `../tests/test_broker.py` | 21 offline tests: `uv run pytest tests/test_broker.py -s` |
+| `../tests/test_broker.py` | 23 offline tests: `uv run pytest tests/test_broker.py -s` |
 
 Run everything from the repo root after `source .env`. Keys never get printed or written: every file line goes through
 `scrub()`, which drops any field whose name contains "key".
@@ -44,16 +44,20 @@ BROKER_KEY=bk_... python3 -m broker.broker --strategy auto_clone --record    # l
 BROKER_KEY=bk_... python3 -m broker.broker --strategy v1 --record
 ```
 - One heartbeat line per tick: `tick N · strategy · bench offers/runs · public · planned · posted · refused · errors`.
-- Exits 1 after `--max-errors` (20) consecutive API failures, 2 if the key is rejected, so the supervisor restarts it.
+- Exits 1 after `--max-errors` (20) consecutive failures of one kind (book/clock reads, planning, 5xx/network match
+  errors), 2 if the key is missing or rejected, so the supervisor restarts it. Nothing else stops the loop (odd book
+  shapes and recorder errors are logged and skipped).
 - Also crosses our venue's real offers card by card (as the starter broker does): value created on our venue scores.
-- Never re-posts a pair (posted ids are excluded until they leave the book); plans once per book state.
+- Never re-posts a pair (posted ids are excluded until they leave the book); plans once per book state. A run absent
+  for 2 ticks is forgotten (quote history, start tick), so a later session reusing the same ids starts clean.
 - Bench matches ignore the venue fee, as `starter_broker.bench_plan` does (`--bench-fee` to change). Open the venue at fee 0.
 - Supervision: `tools/daemons.sh` is Lucas's file; the lines to add to `cmd_for` (run from any cwd):
   ```
   recorder) echo "python3 -u $R/broker/record_bench.py --loop" ;;           # stall phase
   broker)   echo "python3 -u $R/broker/broker.py --strategy auto_clone --record" ;;   # once our venue is open
   ```
-  With `broker --record` running, switch the recorder to `--no-book` (both on one key = double the reads).
+  With `broker --record` running, stop the recorder or run it `--no-book` (both reading one key's book = double the
+  reads). The broker's recording also saves the results; a `--no-book` recorder skips sessions already on disk.
 
 ### Replay
 ```bash
@@ -72,27 +76,30 @@ python3 -m broker.replay --sim hard-12 --seeds 3 --write data/bench/sim       # 
 - `--censor leave` (default): a recorded trader is matchable only while it was in the book. `hold`: a trader the
   recording shows as matched stays at its last quote until the run ends (optimistic for variants).
 
-## Offline results (Fri night, `broker/sim.py` traders, true limits, seeds 0-199)
+## Offline results (Fri night, `broker/sim.py` traders, true limits)
 
-| Model | auto_clone | v1 | v1 − auto_clone | quote-oracle |
+Seeds 0-199 (the test set). Efficiencies are shares of the possible gains; differences are in percentage points.
+
+| Model | auto_clone | v1 | v1 − auto_clone | quote-oracle (− auto_clone) |
 |---|---|---|---|---|
-| default (10 traders) | 0.9461 ± 0.126 | 0.9461 ± 0.126 | +0.0000 (200 equal) | 0.983 |
-| hard-12 (12, impatient 0.7, firm 0.4: our guess) | 0.9283 ± 0.128 | 0.9285 ± 0.128 | +0.0003 ± 0.004 (1 better, 0 worse) | 0.980 |
+| default (10 traders) | 0.9461 ± 0.126 | 0.9461 ± 0.126 | +0.00 pp (200 equal) | 0.983 (+3.7 pp) |
+| hard-12 (12, impatient 0.7, firm 0.4: our guess) | 0.9283 ± 0.128 | 0.9285 ± 0.128 | +0.03 ± 0.40 pp (1 better, 0 worse) | 0.980 (+5.2 pp) |
 
-Held out (seeds 1000-2999, all 9 models): v1 − auto_clone is −0.006 to +0.013 pp, and v1 differs in at most 6 of 2,000
-sessions per model (worse in at most 2). What we learned:
+Held out (seeds 1000-2999, 2,000 sessions per model, all 9 models): v1 − auto_clone is −0.006 to +0.013 pp, and v1
+differs in at most 6 of 2,000 sessions per model (worse in at most 2). What we learned:
 - **v1 is safe but nearly inert on these traders.** Each tick it matches every trader the stall would, plus maybe some
   (an augmenting path re-pairs the stall's traders to bring in a fast-relaxing one). Per session it can still differ
   either way, since the extra pair changes who is left later. After the stall's greedy pass the leftover book never
-  crosses, and new crossings appear one at a time, so there is rarely anything to add. The last-2-ticks rule never fired.
+  crosses, and new crossings appear one at a time, so there is rarely anything to add. The last-2-ticks rule never
+  changed a session's outcome.
 - **The rule as first written (`v1_literal`: urgent first, may displace a stall trader) is a coin flip**: −0.10 to
   +0.03 pp held out, losing about as often as it wins (seeds 0-199: worst session −17.6 pp). Relax speed mixes shade
   size and patience, and quotes alone can't separate the two in this model.
 - **Crossing as many pairs as possible loses**: sim.py's `most_pairs` is −3 pp on default; even keeping every stall pair
   and adding every possible one each tick is −0.02 to −8.3 pp in 7 of 9 models. Matching more pairs early uses up
   traders who had better partners later.
-- **The headroom is real: +3.4 pp (default), +4.8 pp (hard-12)** between the stall and the quote-oracle (1,000 held-out
-  seeds), in 36-48 % of sessions. It sits mostly in tick-0 pairing (which bid gets the cheap ask: e.g. leave a cheap
+- **The headroom is real: +3.4 pp (default), +4.8 pp (hard-12)** between the stall and the quote-oracle (seeds
+  1000-1999; +3.7 / +5.2 pp on the test seeds above), present in 36-48 % of sessions. It sits mostly in tick-0 pairing (which bid gets the cheap ask: e.g. leave a cheap
   impatient seller to a patient buyer who will cross it next tick, and give the high bid the firm seller only it can
   reach). Capturing it needs a signal about limits or departures that the sim's quotes don't carry. **Look for one in
   the real book.**

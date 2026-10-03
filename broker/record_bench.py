@@ -73,9 +73,14 @@ class BenchRecorder:
 
     # ---------------------------------------------------------------- schedule
     def note_schedule(self, schedule: dict):
-        self.benches.update(bench_entries(schedule))
+        """Cache the bench entries. A cached entry still in the future but no longer listed was re-timed or cancelled:
+        drop it. Past entries leave `upcoming` when they fire: keep them (they name the session)."""
         if schedule.get("now_hours") is not None:
             self.now_hours = float(schedule["now_hours"])
+        fresh = bench_entries(schedule)
+        if self.now_hours is not None:
+            self.benches = {a: e for a, e in self.benches.items() if a <= self.now_hours}
+        self.benches.update(fresh)
         self.sched_at = self.now()
 
     def refresh_schedule(self, every: float = 600):
@@ -167,8 +172,10 @@ class BenchRecorder:
         for at, e in self.benches.items():
             name = f"bench-h{at:04.1f}"
             ticks = int((e.get("params") or {}).get("ticks") or 16)
-            if name not in self.closed and name != self.session and at <= h and h >= at + (ticks + 2) * secs / 3600:
-                if h - at < 1.0:  # only benches that just finished, not ones we slept through
+            if name not in self.closed and name != self.session and h >= at + (ticks + 2) * secs / 3600:
+                if self.path(name).exists():  # recorded with its book (by us or by broker.py --record): its results too
+                    self.closed.add(name)
+                elif h - at < 1.0:  # only benches that just finished, not ones we slept through
                     self.write(name, "meta", t_hours=h, schedule=e, note="no book recorded (no broker key or --no-book)")
                     self.schedule_results(name)
                 else:
@@ -233,7 +240,7 @@ def once(team: Bazaar | None, public: Public, out_dir: Path) -> int:
         v = scrub(me.get("venue"))
         if isinstance(v, dict):
             v = {k: x for k, x in v.items() if k in ("venue", "name", "rules", "fee_bps", "status")}
-        print("our bench fields:", {k: s.get(k) for k in ME_FIELDS}, "· venue:", v)
+        print("our bench fields:", scrub({k: s.get(k) for k in ME_FIELDS}), "· venue:", v)
     time.sleep(1.0)
     lb = public.leaderboard()
     mk = sorted(((t.get("market") or 0, t.get("team")) for t in lb.get("teams") or []), reverse=True)[:5]

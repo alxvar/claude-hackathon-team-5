@@ -14,11 +14,13 @@ cmd_for() {
     strategist) echo "uv run --project $R python -u $R/agents/analyst/analyst.py --role strategist --every 2700" ;;
     archiver)  echo "python3 -u $R/tools/archive_round.py --every 60" ;;  # read-only: snapshots at round close
     duelmon)   echo "python3 -u $R/tools/duel_monitor.py --every 15" ;;  # read-only: duel alerts + per-wave review
+    recorder)  echo "cd $R && python3 -u -m broker.record_bench --loop" ;;  # read-only: records every Market Test (Market session)
+    broker)    echo "cd $R && python3 -u -m broker.broker --strategy ${BROKER_STRATEGY:-auto_clone}" ;;  # needs BROKER_KEY: only after OUR venue is open (Market session)
     opps)      echo "env CASH_FLOOR=${CASH_FLOOR:-100} python3 -u $R/tools/opportunities.py --every 30" ;;  # posts addressed offers + alerts Dani: start after the 09:00 checks
     *) return 1 ;;
   esac
 }
-ALL="status collector trader scout judge strategist archiver duelmon opps"  # autoflip is DEAD (dealer buys above value subtract): never add it back
+ALL="status collector trader scout judge strategist archiver duelmon opps recorder"  # broker: started by the Market session only  # autoflip is DEAD (dealer buys above value subtract): never add it back
 alive() { [ -f "$R/run/$1.pid" ] && kill -0 "$(cat "$R/run/$1.pid")" 2>/dev/null; }
 action="$1"; shift; names="${*:-$ALL}"
 for n in $names; do

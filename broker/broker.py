@@ -193,12 +193,25 @@ class Planner:
         self.tau = tau
         self.hist: dict[str, dict[int, int]] = {}
         self.run_start: dict[str, int] = {}
+        self.run_seen: dict[str, int] = {}
+
+    def forget(self, tick: int, gone_for: int = 2):
+        """Drop runs absent from the book for `gone_for` ticks (and their quote history), so a later session that
+        reuses the same ids starts clean."""
+        for run in [r for r, t in self.run_seen.items() if tick - t >= gone_for]:
+            del self.run_seen[run], self.run_start[run]
+            for i in [i for i in self.hist if run_of(i) == run]:
+                del self.hist[i]
 
     def bench_plan(self, book: dict, tick: int) -> list[tuple[str, str, int]]:
         """[(sell id, buy id, price)] for this tick's bench offers."""
         fee = make_fee(book.get("fee_bps") or 0, book.get("fee_per_card") or 0) if self.bench_fee else NO_FEE
         plan = []
-        for run, (asks, bids) in bench_runs(book.get("bench_offers") or []).items():
+        runs = bench_runs(book.get("bench_offers") or [])
+        for run in runs:
+            self.run_seen[run] = tick
+        self.forget(tick)
+        for run, (asks, bids) in runs.items():
             start = self.run_start.setdefault(run, tick)
             for q in asks + bids:
                 self.hist.setdefault(q.id, {})[tick] = q.price
@@ -250,28 +263,42 @@ class Stats:
 
 def run(client, clock: TickClock, planner: Planner, *, dry_run: bool = False, max_errors: int = 20,
         hz: float = 2.0, recorder=None, out=print, sleep=time.sleep, max_loops: int | None = None) -> int:
-    """The broker loop. Returns (or exits with) a non-zero code after `max_errors` consecutive API failures."""
-    seen, posted, st, beat_tick, failures, loops = None, set(), Stats(), None, 0, 0
+    """The broker loop. Returns 1 after `max_errors` consecutive failures of one kind (reads, plans, or 5xx/network
+    match errors; each counter resets on that kind's next success), 2 if the key is rejected. Nothing else stops it."""
+    seen, posted, st, beat_tick, loops = None, set(), Stats(), None, 0
+    fails = {"read": 0, "plan": 0, "match": 0}
     mode = planner.strategy + (" DRY-RUN" if dry_run else "")
     out(f"{time.strftime('%H:%M:%S')} broker up · {mode} · run_ticks {planner.run_ticks} · bench fee "
         f"{'venue fee' if planner.bench_fee else 'none'}", flush=True)
+
+    def failed(kind: str, why: str) -> bool:
+        fails[kind] += 1
+        st.errors += 1
+        out(f"{time.strftime('%H:%M:%S')} {kind} failed ({why[:120]}) {fails[kind]}/{max_errors}", flush=True)
+        if fails[kind] >= max_errors:
+            out(f"{max_errors} consecutive {kind} failures: exiting for the supervisor to restart", flush=True)
+            return True
+        return False
+
     while max_loops is None or loops < max_loops:
         loops += 1
         try:
             c = clock.read()
             tick = int(c["tick"])
             book = client.book()
-            failures = 0
+            if not isinstance(book, dict):
+                raise TypeError(f"book is a {type(book).__name__}")
+            fails["read"] = 0
         except BazaarError as e:
-            failures += 1
-            st.errors += 1
-            out(f"{time.strftime('%H:%M:%S')} read failed ({e.code}: {str(e.message)[:100]}) {failures}/{max_errors}",
-                flush=True)
             if e.status in (401, 403) or e.code in ("bad_key", "unauthorized"):
                 out("broker key rejected: exiting (check BROKER_KEY / the venue)", flush=True)
                 return 2
-            if failures >= max_errors:
-                out("too many consecutive API failures: exiting for the supervisor to restart", flush=True)
+            if failed("read", f"{e.code}: {e.message}"):
+                return 1
+            sleep(1.0)
+            continue
+        except (KeyError, TypeError, ValueError) as e:  # a clock or book shape we don't know
+            if failed("read", repr(e)):
                 return 1
             sleep(1.0)
             continue
@@ -287,43 +314,46 @@ def run(client, clock: TickClock, planner: Planner, *, dry_run: bool = False, ma
                 recorder.poll_results()
             except Exception as e:  # noqa: BLE001 - recording never stops the broker
                 out(f"recorder: {e!r}"[:200], flush=True)
-        bench = [o for o in (book.get("bench_offers") or []) if o.get("id") not in posted]
-        public = [o for o in (book.get("offers") or []) if o.get("id") not in posted]
-        st.bench, st.public = len(bench), len(public)
-        st.runs = len({run_of(o["id"]) for o in bench})
-        state = (tick, tuple((o["id"], (o.get("want") or {}).get("cash"), (o.get("give") or {}).get("cash"))
-                             for o in bench), tuple(o.get("id") for o in public))
-        if state != seen:  # plan once per state of the book, so a refused match is not retried every read
-            seen = state
-            view = {**book, "bench_offers": bench, "offers": public}
+        try:
+            raw_bench = [o for o in (book.get("bench_offers") or []) if isinstance(o, dict) and o.get("id")]
+            raw_public = [o for o in (book.get("offers") or []) if isinstance(o, dict) and o.get("id") is not None]
+            posted &= {o["id"] for o in raw_bench + raw_public}  # matched offers leave the book; ids may come back
+            bench = [o for o in raw_bench if o["id"] not in posted]
+            public = [o for o in raw_public if o["id"] not in posted]
+            st.bench, st.public, st.runs = len(bench), len(public), len({run_of(o["id"]) for o in bench})
+            state = (tick, tuple((o["id"], (o.get("want") or {}).get("cash"), (o.get("give") or {}).get("cash"))
+                                 for o in bench), tuple(o["id"] for o in public))
+            plan = []
+            if state != seen:  # plan once per state of the book, so a refused match is not retried every read
+                seen = state
+                plan = planner.bench_plan({**book, "bench_offers": bench, "offers": public}, tick) + public_plan(
+                    {**book, "bench_offers": bench, "offers": public})
+                st.planned += len(plan)
+            fails["plan"] = 0
+        except Exception as e:  # noqa: BLE001 - an unexpected book shape: log, count, keep going
+            plan = []
+            if failed("plan", repr(e)):
+                return 1
+        for sell, buy, price in plan:
+            if dry_run:
+                out(f"  tick {tick} DRY {sell} x {buy} at {price}", flush=True)
+                continue
             try:
-                plan = planner.bench_plan(view, tick) + public_plan(view)
-            except Exception as e:  # noqa: BLE001 - an unexpected book shape: log, count, keep going
-                plan = []
-                failures += 1
-                st.errors += 1
-                out(f"plan failed: {e!r}"[:200], flush=True)
-                if failures >= max_errors:
+                client.match(sell, buy, price)
+                posted.update((sell, buy))
+                st.posted += 1
+                fails["match"] = 0
+            except BazaarError as e:  # taken since the read, a shape the venue cannot cross, a fee we missed
+                st.refused += 1
+                out(f"  tick {tick}: {sell} x {buy} at {price} refused ({e.code}: {str(e.message)[:80]})", flush=True)
+                if (e.status == 0 or e.status >= 500) and failed("match", f"{e.code}: {e.message}"):
                     return 1
-            st.planned += len(plan)
-            for sell, buy, price in plan:
-                if dry_run:
-                    out(f"  tick {tick} DRY {sell} x {buy} at {price}", flush=True)
-                    continue
+                continue
+            if recorder is not None:
                 try:
-                    client.match(sell, buy, price)
-                    posted.update((sell, buy))
-                    st.posted += 1
-                    if recorder is not None:
-                        recorder.note_match(tick, sell, buy, price)
-                except BazaarError as e:  # taken since the read, a shape the venue cannot cross, a fee we missed
-                    st.refused += 1
-                    out(f"  tick {tick}: {sell} x {buy} at {price} refused ({e.code}: {str(e.message)[:80]})",
-                        flush=True)
-                    if e.status == 0 or e.status >= 500:
-                        failures += 1
-                        if failures >= max_errors:
-                            return 1
+                    recorder.note_match(tick, sell, buy, price)
+                except Exception as e:  # noqa: BLE001 - recording never stops the broker
+                    out(f"recorder: {e!r}"[:200], flush=True)
         sleep(5.0 if c.get("paused") else 1.0 / hz)  # doors closed: nothing ticks
     return 0
 

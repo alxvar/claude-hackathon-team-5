@@ -113,10 +113,13 @@ def test_no_crossing_violations_with_fees_and_many_runs(strategy):
     rnd = random.Random(7)
     for _ in range(1500):
         fee_bps, per_card = rnd.choice(((0, 0), (500, 1), (1000, 5), (150, 0)))
-        book = random_book(rnd, runs=("b1", "b2", "b3"), fee_bps=fee_bps, fee_per_card=per_card)
+        start = random_book(rnd, runs=("b1", "b2", "b3"), fee_bps=fee_bps, fee_per_card=per_card)
         fee = B.make_fee(fee_bps, per_card)
-        planner = B.Planner(strategy, run_ticks=4, bench_fee=True)
-        for tick in range(4):  # the same book over a run's ticks, the last two being v1's tail
+        planner = B.Planner(strategy, run_ticks=6, bench_fee=True)
+        steps = {o["id"]: rnd.choice((0, 0, 1, 3, 8)) for o in start["bench_offers"]}  # firm, slow and fast relaxers
+        for tick in range(6):  # quotes relax tick by tick (v1's urgent path), the last two ticks are its tail
+            book = {**start, "bench_offers": [R.bench_offer(o["id"], R.side_of(o), max(1, R.quote_of(o) + (
+                1 if R.side_of(o) == "buy" else -1) * steps[o["id"]] * tick)) for o in start["bench_offers"]]}
             used = set()
             by_id = {o["id"]: o for o in book["bench_offers"]}
             for sell, buy, price in planner.bench_plan(book, tick):
@@ -322,3 +325,32 @@ def test_live_loop_on_a_simulated_bench_equals_the_replay(strategy):
         B.run(fake, fake, B.Planner(strategy), sleep=lambda s: None, out=lambda *a, **k: None,
               max_loops=fake.k * len(sess.books))
         assert fake.matches == R.replay(sess, strategy)["matches"], seed
+
+
+def test_ids_reused_by_a_later_session_start_clean():
+    o = R.bench_offer
+    planner = B.Planner("v1", run_ticks=16)
+    for t in range(4):
+        planner.bench_plan({"bench_offers": [o("b1-0", "buy", 40 + t), o("b1-1", "sell", 60)]}, t)
+    planner.bench_plan({"bench_offers": []}, 10)                     # the session is over
+    assert "b1" not in planner.run_start and "b1-0" not in planner.hist
+    planner.bench_plan({"bench_offers": [o("b1-0", "buy", 40), o("b1-1", "sell", 60)]}, 50)
+    assert planner.run_start["b1"] == 50                             # the tail rule counts from the new start
+    empty = {"bench_offers": [], "offers": [], "fee_bps": 0}
+    fake = FakeBroker([crossing_book(), crossing_book(), empty, empty, crossing_book(), crossing_book()])
+    B.run(fake, FakeClock([1, 1, 2, 3, 20, 20]), B.Planner("auto_clone"), sleep=lambda s: None,
+          out=lambda *a, **k: None, max_loops=6)
+    assert fake.matches == [("b3-1", "b3-0", 60)] * 2               # same ids, next session: matched again
+
+
+def test_broker_survives_odd_shapes_and_exits_on_repeated_match_errors():
+    out = []
+
+    class Odd(FakeBroker):
+        def match(self, sell, buy, price):
+            raise BazaarError("http_502", "bad gateway", 502)
+
+    odd = {"bench_offers": [{"id": "b9-0"}, "junk", {"no": "id"}, *crossing_book()["bench_offers"]], "offers": None}
+    code = B.run(Odd([odd]), FakeClock(list(range(1, 50))), B.Planner("v1"), max_errors=3, sleep=lambda s: None,
+                 out=lambda *a, **k: out.append(a[0]), max_loops=40)
+    assert code == 1 and any("3 consecutive match failures" in x for x in out)
