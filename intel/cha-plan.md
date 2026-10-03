@@ -1,11 +1,12 @@
-# Sunday: the Chamberí (CHA) page (Builder, Sat 11:40; live API facts at 11:13; independently verified)
+# Sunday: the Chamberí (CHA) page (Builder, Sat 11:40, reworked 12:10 for team bids; independently verified)
 
-**Goal:** complete the CHA page on Sunday morning. Eight cards come from dealers at ≤ our value (each scores 0 and loses
-nothing). The last two come from teams; the one that closes the page scores +50 (the per-trade cap). CHA carries our highest multiplier (1.6), so
-dealer prices sit well below our values.
+**Goal:** complete the CHA page Sunday morning, **buying from teams first** (Chief 12:05, from intel/rivals.md play 1).
+A dealer buy below our value scores 0 (gains clipped, GAME.md). A team buy scores value − price (cap 50). As maker at
+clearing (9 / 24.5 / 70) that is **+7 / +15.5 / +42** per common / uncommon / rare. Dealers are a per-card timed
+fallback at ≤ list. The closing card still comes from a team (+50, capped). CHA carries our highest multiplier (1.6).
 
-**Decision needed from Lucas (GUARDRAIL):** the Sunday-morning cash floor. The plan spends ≈ 264 P by ~11:20, out of ≈ 264-320 P. Today's floor is 100. The 02:20 GUARDRAIL only says "0 by Sunday 14:00". Proposed: **floor 0 from 09:00 Sunday for the CHA page buys only.**
-
+**Decision needed from Lucas (GUARDRAIL):** the Sunday-morning cash floor (proposed: 0 from 09:00 for the CHA page
+buys only). Today's floor is 100; the 02:20 GUARDRAIL says "0 by Sunday 14:00".
 ## The set [V, /api/catalog + /api/me/value]
 
 | Cards | Rarity | Book | Print run | Our value | On the page |
@@ -34,21 +35,25 @@ There are 18 teams [V, leaderboard].
 
 ## Sources and expected prices
 
-| Cards | Source | Menu [V, /api/dealers] | Expected price [GAME.md, Saturday] | Score |
+| Cards | **First: teams** (our bids, as maker) | Gain vs dealer | **Fallback ~10:30: dealers at ≤ list** [V menus] | Dealer score |
 |---|---|---|---|---|
-| CHA-01..05 | Abuela | commons of released sets, list 10; 8 deals/team/hour | opens ~12, ends **9-10** after 5-7 rounds | 0 each (price < 16) |
-| CHA-06..08 | Abuela (Chato as backup) | uncommons, list 25 (Chato 26); Chato 6 deals/team/hour | Abuela opens ~29, ends **21-24**; Chato finals ~31 | 0 each (< 40) |
-| CHA-09, 10 | Chato | rares of released sets, list 77 | opens 97, +2-4 per round; finals **82-93**, seven of eight at **89-93** | 0 each (< 112) |
-| The last card | a team | a page-closer bid on El Rastro | see "Order" | **+50** (cap) |
+| CHA-01..05 | bid 9 → up to 12 | +7 → +4 each | Abuela, list 10 (ends 9-10 after 5-7 rounds) | 0 |
+| CHA-06..08 | bid 24 → up to 30 | +16 → +10 each | Abuela, list 25 (ends 21-24); Chato list 26 | 0 |
+| CHA-09, 10 | bid 70 → up to 90 | +42 → +22 each | Chato, list 77 (finals 82-93 Saturday: bid at list first) | 0, or a loss above 112 |
+| The last card | a team, on El Rastro | **+50** (cap) | never from a dealer (the page bonus scores only in a team trade) | — |
 
-[?] Unknown: whether Abuela and Chato have CHA stock at release, and how much (rares print 30 for 18 teams). Teams
-may also pull CHA from packs; which sets a pack draws from isn't in the catalog. **Doña Pilar** sells no CHA singles:
-she buys uncommons, rares and epics, and sells gold packs at list 420 (whether they carry CHA [?]; never bought).
+- Who sells [?]: teams that pulled CHA from packs or bought from dealers and value CHA low. No team's CHA multiplier is
+  known yet (intel/multipliers.json has only ours; none can be deduced), so the bids are **public** (no `to`). A
+  top-4 team can fill one and gain price − its value; at near-clearing prices that is small [L].
+- [?] Unknown: whether Abuela and Chato have CHA stock at release, and how much (rares print 30 for 18 teams).
+  **Doña Pilar** sells no CHA singles: she buys uncommons, rares and epics, and sells gold packs at list 420 (whether
+  they carry CHA [?]; never bought).
 
 ## Cash [V now; L ahead]
 
 - Now (11:13): **114 P**. Sunday allowance: **+150 P** at ≈ 09:32, a few minutes after the release.
-- **Need by ~11:20 (dealer part):** rares 2 × ~90 = 180, CHA-06/07 2 × ~23 = 46, CHA-01..04 4 × ~9.5 = 38, **≈ 264 P**.
+- **Need by ~11:20:** about the same whether teams or dealers sell (≈ 264 P at near-list prices); team fills at
+  clearing cost a little less. Open bids lock cash while they stand.
 - **Need later:** CHA-05 and CHA-08 from teams (one at ≤ 13 or 37, the closer at 40-96): **total ≈ 315-365 P**.
 - **Hold cash on Saturday evening: ≥ ~170 P at the 23:00 close** (with the 150 allowance: ~320).
   - Saturday income still to come: the maker book on v07.
@@ -59,44 +64,49 @@ she buys uncommons, rares and epics, and sells gold packs at list 420 (whether t
 
 ## Order
 
-1. **Rares first** (print 30, scarcest), from Chato at release: CHA-09, then CHA-10, cap 100 each (value 112; never
-   above value, since dealer losses count in full).
-2. **Uncommons CHA-06 and CHA-07, then commons CHA-01..04**, from Abuela; caps at value − 3 (37 / 13).
-3. **Keep CHA-05 (a common) and CHA-08 (an uncommon) missing** after the dealer runs, and bid for both from teams on
-   El Rastro (book.json below):
-   - While both are missing, neither closes the page. `book.py` caps each bid at our value − 3 (CHA-05 13, CHA-08
-     37), so a team fill of either is an ordinary buy.
-   - **The other one is then the last card.** Its value jumps by 106 (CHA-08 to 146, CHA-05 to 122) and `book.py`
-     re-reads values every 10 ticks, so its cap rises to the entry's floor.
-   - The closing team trade scores the full **+50** as maker at any price ≤ 96 (CHA-08) or ≤ 72 (CHA-05), if the cap is
-     a flat 50. **CHA-08 closing at ≤ ~90 also tests flat-50 against 5×book (125)**, GAME.md's open question; above ~90
-     both read 50 and pack drag (±1-4 [L]) blurs it. CHA-05 closing gives no test (5×10 = 50).
-4. **12:30, after Duels III: if neither has filled, buy one from Abuela** so the other is last. Prefer
-   `--cards CHA-05`, so the uncommon CHA-08 closes and runs the cap test. `abuela_bot` refuses a card that would close
-   the page from a dealer, so it can't buy the last one by mistake. If the last card never comes from a team, the page
-   bonus is lost: never close the page through a dealer.
-5. Rares as team bids: **only if Chato has no CHA rares**, and then sequentially. Never post them while a Chato
-   conversation can still sell one: a team filling a bid after Chato has sold us the card buys a 2nd copy worth 28 at
-   ~100 (about −70). `book.py` doesn't cancel a bid when the card arrives from elsewhere.
-6. Never a pack unless the Chief directs one (unopened packs drag trade scores [L]).
+1. **At doors-open (09:00) or the release**, pre-load team bids for **all 10 CHA cards** in run/book.json (below).
+   - All on **El Rastro** (`page_closer: true`): any of them can turn out to be the card that closes the page, and page
+     closers stay off team venues (directives 10:18, 10:30).
+   - `life: 20` (directive 09:46).
+   - Our bids lock cash: the start prices total 257 P, so they fit in ~264 (Saturday close ~114 + 150 allowance) only
+     with the GUARDRAIL floor at 0.
+   - `book.py` caps each bid at value − 3 (13 / 37 / 109), steps it up every 20 ticks to the entry's floor (12 / 30 /
+     90), and re-reads our values every 10 ticks.
+2. **~10:00 · rares.** If a CHA rare hasn't filled from a team, remove its bid and buy it from Chato at **list (77)**
+   first (`abuela_bot --dealer chato --cards CHA-09` or `CHA-10`, cap 100). Never keep a team bid and a Chato thread
+   for the same rare at once: a second copy is worth 28.
+3. **~10:30 · the rest.** Remove the bids for the cards still missing **except CHA-05 and CHA-08**, and buy those from
+   Abuela at ≤ list (`abuela_bot --dealer abuela --cards <those>`). Done by **~11:20**, before Duels III (≈ 11:29):
+   no dealer threads during scored duels (directive 10:35).
+4. **CHA-05 and CHA-08 stay as team bids.** Whichever fills second closes the page: its value jumps by 106, so its
+   cap rises to its floor (72 / 90 in the closing entries below), for **+50** as maker.
+   **12:30, after Duels III:** if neither has filled, buy CHA-05 from Abuela (`--cards CHA-05 --deals 1`) so CHA-08
+   closes. If no team ever sells the last card, the bonus is lost: never close the page through a dealer.
+5. Never a pack unless the Chief directs one (unopened packs drag trade scores [L]).
 
-## run/book.json from ~11:20 (after the dealer runs)
+## run/book.json at doors-open (team bids, all on El Rastro)
 
 ```json
 {"offers": [
-  {"card": "CHA-08", "side": "buy", "price": 30, "floor": 90, "page_closer": true, "life": 20},
-  {"card": "CHA-05", "side": "buy", "price": 10, "floor": 72, "page_closer": true, "life": 20}
+  {"card": "CHA-09", "side": "buy", "price": 70, "floor": 90, "page_closer": true, "life": 20},
+  {"card": "CHA-10", "side": "buy", "price": 70, "floor": 90, "page_closer": true, "life": 20},
+  {"card": "CHA-06", "side": "buy", "price": 24, "floor": 30, "page_closer": true, "life": 20},
+  {"card": "CHA-07", "side": "buy", "price": 24, "floor": 30, "page_closer": true, "life": 20},
+  {"card": "CHA-08", "side": "buy", "price": 24, "floor": 90, "page_closer": true, "life": 20},
+  {"card": "CHA-01", "side": "buy", "price": 9, "floor": 12, "page_closer": true, "life": 20},
+  {"card": "CHA-02", "side": "buy", "price": 9, "floor": 12, "page_closer": true, "life": 20},
+  {"card": "CHA-03", "side": "buy", "price": 9, "floor": 12, "page_closer": true, "life": 20},
+  {"card": "CHA-04", "side": "buy", "price": 9, "floor": 12, "page_closer": true, "life": 20},
+  {"card": "CHA-05", "side": "buy", "price": 9, "floor": 72, "page_closer": true, "life": 20}
 ]}
 ```
 
-- `page_closer: true` puts both on El Rastro: one of them will close the page (directives 10:18, 10:30). `life: 20`
-  keeps each ≤ 20 real ticks (directive 09:46).
-- `book.py` (eb36ec8) caps every bid at our value − 3 and re-reads our values every 10 ticks (e07a8c4). While both
-  cards are missing the caps are 37 and 13. When one arrives, the other's value jumps and its floor binds (90 / 72);
-  the book steps the bid up a quarter of the gap every 20 ticks (5 min at 15 s: ~45-60 min from 37 to 90). To move
-  faster once one card has filled, raise the remaining entry's `price` (e.g. CHA-08 to 70); the book re-reads the file
-  every tick and never passes the floor.
-- Remove the filled card's entry (the book marks it done).
+- CHA-05 and CHA-08 carry their closing floors (72 / 90). The value − 3 cap holds them at 13 / 37 until one of them
+  is the last card; then the cap is 119 / 143 and the floor binds.
+- Remove an entry when its card has filled (the book marks it done) or when its dealer fallback starts.
+- [?] Whether the server accepts a bid before CHA is released: if refused at 09:00, the book retries every tick; it
+  goes out at the release.
+- To move a bid faster, raise its `price`: the book re-reads the file every tick and never passes the floor.
 
 ## 15 s ticks [?]
 
@@ -107,19 +117,17 @@ she buys uncommons, rares and epics, and sells gold packs at list 420 (whether t
   (2.5 min) between two conversations with the same dealer. Six open conversations per team: run Abuela and Chato in
   parallel. Eight deals ≈ 35-45 min, which fits 09:29 → ~10:15 for Abuela.
 
-## Operator checklist, Sunday 09:00-09:35
+## Operator checklist, Sunday 09:00-12:30
 
 1. **09:00** · `GET /api/clock` (open? `tick_seconds` 15?), `/api/schedule` (release and allowance hours),
    `/api/catalog` (CHA `released`?), `/api/news`, `/api/me` (cash; our CHA values 16/40/112).
-2. **09:01** · `tools/daemons.sh status`. Restart `book` (`MIN_GAIN_SELL=2`, with the Sunday `CASH_FLOOR` set by
-   GUARDRAIL) and `opps`. **Keep the trader stopped until Duels III ends** (directive 10:35).
-3. **09:02** · Cancel Saturday asks that hold cash or cards we need. Expect cash ≈ Saturday close; +150 at ≈ 09:32.
-4. **At release**, two runs in parallel (both under `uv run`, so the narrator works):
-   - **Chato:** `uv run python agents/dealers/abuela_bot.py --dealer chato --cards CHA-09,CHA-10 --deals 2 --cash-floor <GUARDRAIL floor>`
-   - **Abuela:** `uv run python agents/dealers/abuela_bot.py --dealer abuela --cards CHA-06,CHA-07,CHA-01,CHA-02,CHA-03,CHA-04 --deals 6 --cash-floor <GUARDRAIL floor>`
-5. **First offer posted** · check `expires_tick − created_tick` (×4?).
-6. **By ~11:20** · all dealer threads closed before Duels III (≈ 11:29). Log `neg_points` before and after each deal in
-   team/lucas.md: expect 0 on every dealer buy.
-7. **~11:20** · load the CHA-05 / CHA-08 bids into run/book.json (El Rastro, life 20).
-8. **12:30** (Duels III over) · if neither has filled, buy CHA-05 from Abuela (`--cards CHA-05 --deals 1`) so CHA-08
-   closes. `bargains` pages Lucas if an ask is worth ≥ 20 to us after the fee; expect **+50** on the closing team trade.
+2. **09:01** · `tools/daemons.sh status`; restart `book` (`MIN_GAIN_SELL=2`, Sunday `CASH_FLOOR` per GUARDRAIL) and
+   `opps`. **Trader stays stopped until Duels III ends** (directive 10:35).
+3. **09:02** · Cancel Saturday asks that hold cash we need. Write the 10 CHA bids into run/book.json.
+4. **First bid out** · check `expires_tick − created_tick` (×4?); check it sits on El Rastro.
+5. **~10:00** · rares not filled: remove the bid, then `uv run python agents/dealers/abuela_bot.py --dealer chato --cards CHA-09 --deals 1 --cash-floor <floor>` (and CHA-10).
+6. **~10:30** · cards still missing except CHA-05/08: remove the bids, then `uv run python agents/dealers/abuela_bot.py --dealer abuela --cards <them> --deals <n> --cash-floor <floor>`.
+7. **By ~11:20** · every dealer thread closed (Duels III ≈ 11:29). Log `neg_points` before and after each deal:
+   expect value − price on team buys, 0 on dealer buys.
+8. **12:30** · CHA-05/08: if neither filled, `--cards CHA-05 --deals 1` with Abuela so CHA-08 closes. Expect
+   **+50** on the closing team trade.
