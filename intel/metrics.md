@@ -1,4 +1,4 @@
-# Metrics (auto, 20:05, game tick 1182)
+# Metrics (auto, 20:08, game tick 1186)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -57,9 +57,8 @@ LAT-03 (common): 5; LAT-04 (common): 5; LAV-01 (common): 99.1; LAV-02 (common): 
 - tick 1074 abuela buy LAT-12: ? → ?, ours - · closed (not_traded)
 - tick 1076 chato buy LAT-12: ? → ?, ours - · closed (not_traded)
 
-## Trades between teams (158 so far; last 12)
+## Trades between teams (159 so far; last 12)
 
-- tick 946: RET-03 (common) t02→t14 for 7 P
 - tick 988: SAL-06 (uncommon) t08→t05 for 28 P
 - tick 1022: RET-08 (uncommon) t15→t16 for 13 P
 - tick 1023: RET-05 (common) t15→t16 for 5 P
@@ -71,8 +70,9 @@ LAT-03 (common): 5; LAT-04 (common): 5; LAV-01 (common): 99.1; LAV-02 (common): 
 - tick 1133: LAT-08 (uncommon) t12→t09 for 10 P
 - tick 1142: MAL-08 (uncommon) t12→t04 for 14 P
 - tick 1145: LAT-07 (uncommon) t15→t12 for 14 P
+- tick 1186: RET-10 (rare) t06→t07 for 77 P
 
-Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: RET×3, MAL×2, LAT×1; t03: SAL×2, LAT×2, LAV×1; t04: RET×5, MAL×5, LAV×4, LAT×3; t05: MAL×4, SAL×4, LAV×1, RET×1; t06: SAL×4, RET×2, LAV×1, LAT×1; t07: LAV×7, RET×7, LAT×4, MAL×3; t08: MAL×3, LAT×3, LAV×3, SAL×2, RET×1; t09: RET×5, MAL×3, SAL×2, LAV×1, LAT×1; t10: LAV×2, MAL×1, SAL×1, RET×1; t12: LAT×6, MAL×2, LAV×1, RET×1; t13: MAL×7, SAL×2, LAV×1; t14: LAT×4, RET×4, SAL×2, LAV×1; t15: LAT×6, MAL×4, RET×3, SAL×3, LAV×3; t16: RET×4, LAT×2, MAL×1; t17: MAL×5, SAL×3; t18: SAL×1, LAT×1, RET×1
+Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: RET×3, MAL×2, LAT×1; t03: SAL×2, LAT×2, LAV×1; t04: RET×5, MAL×5, LAV×4, LAT×3; t05: MAL×4, SAL×4, LAV×1, RET×1; t06: SAL×4, RET×2, LAV×1, LAT×1; t07: RET×8, LAV×7, LAT×4, MAL×3; t08: MAL×3, LAT×3, LAV×3, SAL×2, RET×1; t09: RET×5, MAL×3, SAL×2, LAV×1, LAT×1; t10: LAV×2, MAL×1, SAL×1, RET×1; t12: LAT×6, MAL×2, LAV×1, RET×1; t13: MAL×7, SAL×2, LAV×1; t14: LAT×4, RET×4, SAL×2, LAV×1; t15: LAT×6, MAL×4, RET×3, SAL×3, LAV×3; t16: RET×4, LAT×2, MAL×1; t17: MAL×5, SAL×3; t18: SAL×1, LAT×1, RET×1
 
 ## Dealer prices, last 60 ticks (median per item)
 
@@ -91,14 +91,18 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: RET×3, MAL�
 - t16: RET-06 (uncommon) 12 P · offer 17435
 - t16: LAV-07 (uncommon) 12 P · offer 17438
 - t16: LAV-08 (uncommon) 12 P · offer 17439
-- t16: RET-01 (common) 5 P · offer 17319
-- t16: RET-02 (common) 5 P · offer 17320
-- t16: LAV-02 (common) 3 P · offer 17331
+- t16: RET-01 (common) 5 P · offer 17445
+- t16: RET-02 (common) 5 P · offer 17446
+- t16: RET-04 (common) 5 P · offer 17447
+- t16: LAV-02 (common) 3 P · offer 17469
 - t13: RET-01 (common) 2 P · offer 17304
 - t13: RET-03 (common) 2 P · offer 17306
 - t13: RET-02 (common) 2 P · offer 17322
+- t13: LAT-01 (common) 2 P · offer 17455
+- t13: LAT-04 (common) 2 P · offer 17458
+- t13: LAT-02 (common) 2 P · offer 17465
 
-Asks by others (card, price: count): LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAT-06 20: 1; SAL-02 7: 1; SAL-02 6: 1; RET-09 84: 1; LAT-08 30: 1; LAT-03 6: 1; SAL-03 6: 1; MAL-03 14: 1; MAL-05 14: 1; RET-10 84: 1
+Asks by others (card, price: count): LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAT-06 20: 1; SAL-02 7: 1; RET-09 84: 1; LAT-08 30: 1; LAT-03 6: 1; SAL-03 6: 1; RET-10 84: 1; RET-06 30: 1; LAT-06 21: 1; RET-07 30: 1
 
 ## Our duels: 0 live, 68 finished (last 10)
 

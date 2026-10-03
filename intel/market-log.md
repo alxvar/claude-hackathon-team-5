@@ -1,5 +1,15 @@
 # Market log (Market session; newest first)
 
+## Sat 20:08 · bench-h11.0, on the stall v10
+- **Ours [V]:** bench_efficiency 0.886 (0.899 · 0.933 · 0.878 · 0.891 before), bench_points 0.5, market 7.5 = stall teams.
+- **Field at snapshot 1180 [V]:** t10 12.5 · t06 11.9 · t09 10.94 · t14 9.33 · t07 9.17 · t17 8.66 · t16 8.63 · t08 8.52
+  · stall teams 7.5. No market above 12.5 has ever appeared: nobody beats the stall on the bench. Stay on the stall.
+- **Bench split of rivals [L, from snapshots at bench ends; bench part = 15 × average bench points]:** t10 = stall level
+  every session (its market never moves at a bench end); t06 ≈ 0.38 at 3.0, then ≈ 0.5 (its market creeps up at each
+  bench end). All of t10's 5.0 above the stall is value created at the cap.
+- v10: empty since tick 941, no fill since tick 398; mm −5.2. Rebates owed: 0 P.
+- Next: bench 13.0 (~21:55), the hard bench at 14.65 (~23:34 if the clock runs on), then 15.0.
+
 ## Partner audit · Sat 19:38 · tick 1126 · snapshot 1120: stall teams 7.5 · us 7.5 (+0.00)
 - **Team 15** (v15, market 7.5 = +0.00): on v10 0 open offers, 1 trades (26 P) · ours on v15: 4 open offers, 0 trades (0 P)
   - v10 trade tick 398: [('SAL-07', 't10', '→', 't15')] at 26
