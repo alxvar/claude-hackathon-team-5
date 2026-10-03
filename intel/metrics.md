@@ -1,4 +1,4 @@
-# Metrics (auto, 16:05, game tick 703)
+# Metrics (auto, 16:08, game tick 707)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -16,22 +16,21 @@ Us: #5
 
 ## Us
 
-score 28.34 · neg_points 38.7 (15 min ago 32.5) · ladder 0.188 · duel 13.93 · cash 186 · level 3 · deals 42
+score 28.34 · neg_points 38.7 (15 min ago 38.7) · ladder 0.2 · duel 13.93 · cash 200 · level 3 · deals 43
 
 ## Our holdings (card (rarity): value of each copy; a sale gives up the cheapest copy)
 
-LAT-03 (common): 5; LAT-04 (common): 1.2 / 1.2; LAT-08 (uncommon): 12.5; LAV-01 (common): 99.1; LAV-02 (common): 3.2 / 3.2; LAV-03 (common): 3.2 / 3.2; LAV-04 (common): 3.2 / 3.2; LAV-05 (common): 99.1; LAV-06 (uncommon): 118.6; LAV-07 (uncommon): 118.6; LAV-08 (uncommon): 118.6; LAV-09 (rare): 177.1; LAV-10 (rare): 177.1; MAL-02 (common): 7; MAL-03 (common): 7; MAL-04 (common): 7; MAL-05 (common): 7; MAL-09 (rare): 49; RET-01 (common): 83.9; RET-02 (common): 83.9; RET-03 (common): 83.9; RET-04 (common): 83.9; RET-05 (common): 83.9; RET-06 (uncommon): 100.4; RET-07 (uncommon): 100.4; RET-08 (uncommon): 100.4; RET-09 (rare): 149.9; RET-10 (rare): 149.9; SAL-01 (common): 2.2 / 2.2; SAL-02 (common): 2.2 / 2.2; SAL-03 (common): 9; SAL-04 (common): 9; SAL-05 (common): 9; SAL-08 (uncommon): 22.5
+LAT-03 (common): 5; LAT-04 (common): 1.2 / 1.2; LAV-01 (common): 99.1; LAV-02 (common): 3.2 / 3.2; LAV-03 (common): 3.2 / 3.2; LAV-04 (common): 3.2 / 3.2; LAV-05 (common): 99.1; LAV-06 (uncommon): 118.6; LAV-07 (uncommon): 118.6; LAV-08 (uncommon): 118.6; LAV-09 (rare): 177.1; LAV-10 (rare): 177.1; MAL-02 (common): 7; MAL-03 (common): 7; MAL-04 (common): 7; MAL-05 (common): 7; MAL-09 (rare): 49; RET-01 (common): 83.9; RET-02 (common): 83.9; RET-03 (common): 83.9; RET-04 (common): 83.9; RET-05 (common): 83.9; RET-06 (uncommon): 100.4; RET-07 (uncommon): 100.4; RET-08 (uncommon): 100.4; RET-09 (rare): 149.9; RET-10 (rare): 149.9; SAL-01 (common): 2.2 / 2.2; SAL-02 (common): 2.2 / 2.2; SAL-03 (common): 9; SAL-04 (common): 9; SAL-05 (common): 9; SAL-08 (uncommon): 22.5
 
-## Our open offers (8)
+## Our open offers (7)
 
 - 9862: sell LAV-04 for 6 · to t03 · expires tick 720
 - 9863: sell SAL-02 for 5 · to t16 · expires tick 720
 - 9926: sell LAV-03 for 6 · to t09 · expires tick 723
-- 9962: sell SAL-01 for 7 · to t16 · expires tick 725
 - 9972: sell LAT-03 for 7 · to t03 · expires tick 726
 - 10095: sell MAL-02 for 9 · to t15 · expires tick 733
 - 10215: sell MAL-05 for 9 · to t15 · expires tick 738
-- 10327: sell LAT-08 for 14 · to chato · expires tick 707
+- 10377: sell SAL-01 for 6 · to t16 · expires tick 745
 
 ## What each of our deals did to neg_points (measured, last 12)
 
@@ -57,7 +56,7 @@ LAT-03 (common): 5; LAT-04 (common): 1.2 / 1.2; LAT-08 (uncommon): 12.5; LAV-01 
 - tick 596 abuela buy SAL-06: 29 → 25, ours 22 · closed
 - tick 629 abuela buy SAL-06: 29 → 25, ours 23 · deal
 - tick 634 pilar sell La Galería: 22 → 25, ours 25 · deal
-- tick 697 chato sell Las Vistillas: 13 → 14, ours 14 · open
+- tick 697 chato sell Las Vistillas: 13 → 14, ours 14 · deal
 
 ## Trades between teams (118 so far; last 12)
 
@@ -79,29 +78,32 @@ Who buys which set (team trades): t01: MAL×4, SAL×4; t02: RET×3, MAL×2, LAT�
 ## Dealer prices, last 60 ticks (median per item)
 
 - abuela common (team buys): median 10 over 3
-- abuela common (team sells): median 6 over 7
+- abuela common (team sells): median 6 over 8
 - abuela sobre_barrio (team buys): median 21 over 1
 - abuela uncommon (team buys): median 21 over 1
 - chato rare (team buys): median 81 over 1
-- chato uncommon (team sells): median 13 over 1
+- chato uncommon (team sells): median 14 over 2
 - pilar rare (team sells): median 50 over 1
 - pilar uncommon (team sells): median 19 over 5
 
 ## El Rastro now: top bids by price (team, card, price)
 
 - t03: LAT-09 (rare) 88 P · offer 10326
-- t02: SAL-09 (rare) 69 P · offer 9979
-- t06: SAL-09 (rare) 68 P · offer 9971
 - t04: RET-10 (rare) 65 P · offer 9866
-- t17: LAV-09 (rare) 47 P · offer 9874
-- t17: LAV-06 (uncommon) 15 P · offer 9873
+- t02: SAL-09 (rare) 63 P · offer 10412
+- t17: LAV-06 (uncommon) 15 P · offer 10409
 - t16: RET-06 (uncommon) 14 P · offer 10309
 - t16: RET-07 (uncommon) 14 P · offer 10328
+- t08: MAL-06 (uncommon) 5 P · offer 10431
+- t08: RET-04 (common) 5 P · offer 10441
+- t08: RET-01 (common) 5 P · offer 10442
+- t08: RET-02 (common) 5 P · offer 10445
 - t13: RET-01 (common) 2 P · offer 10099
 - t13: RET-02 (common) 2 P · offer 10100
 - t13: RET-03 (common) 2 P · offer 10103
+- t16: SAL-12 (legendary) 1 P · offer 10354
 
-Asks by others (card, price: count): LAV-04 10: 3; LAV-05 5: 3; SAL-04 12: 3; LAT-05 9: 2; LAT-03 11: 2; LAT-01 10: 2; LAT-04 12: 2; MAL-04 5: 2; LAT-03 8: 2; MAL-05 9: 1; LAV-03 9: 1; LAT-01 9: 1; MAL-04 9: 1; LAT-02 11: 1; LAT-04 11: 1
+Asks by others (card, price: count): LAT-04 11: 3; LAV-04 10: 3; LAV-05 5: 3; SAL-04 12: 3; LAT-05 9: 2; LAT-02 11: 2; LAT-03 11: 2; MAL-01 10: 2; MAL-04 5: 2; LAT-03 8: 2; LAT-04 7: 2; LAT-01 10: 2; MAL-05 9: 1; LAV-03 9: 1; LAT-01 9: 1
 
 ## Our duels: 0 live, 68 finished (last 10)
 
@@ -118,9 +120,9 @@ Asks by others (card, price: count): LAV-04 10: 3; LAV-05 5: 3; SAL-04 12: 3; LA
 
 ## Latest announcements
 
-- tick 502 level.unlocked: {"team": "t16", "name": "Team 16", "persona": "pilar", "persona_name": "Do\u00f1a Pilar", "level": 3, "why": "open to everyone now"}
 - tick 502 level.unlocked: {"team": "t17", "name": "Team 17", "persona": "pilar", "persona_name": "Do\u00f1a Pilar", "level": 3, "why": "open to everyone now"}
 - tick 502 level.unlocked: {"team": "t18", "name": "Team 18", "persona": "pilar", "persona_name": "Do\u00f1a Pilar", "level": 3, "why": "open to everyone now"}
 - tick 630 level.announced: {"level": "taller", "kind": "taller", "name": "The Workshop", "teaser": "\u00abThree spares. One surprise.\u00bb"}
 - tick 630 level.announced: {"level": "picaros", "kind": "persona", "name": "Los P\u00edcaros", "teaser": "\u00abQuick deals. Few questions.\u00bb"}
+- tick 706 level.activated: {"level": "taller", "kind": "taller", "name": "The Workshop", "teaser": "\u00abThree spares. One surprise.\u00bb", "how": "POST /api/taller {\"assets\": [a, b, 
 
