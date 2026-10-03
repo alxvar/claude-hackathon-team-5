@@ -54,7 +54,7 @@ FRESH_S = 120              # collector files younger than this are used instead 
 CONF_H = 0.5               # a signal older than 30 game minutes is low confidence: listed, never alerted
 WALL_STALE_S = 3600        # ... or older than 60 real minutes, whatever the game clock says (it pauses overnight)
 MIN_GAIN, GAIN_CAP = 20, 50
-SCORE_GAP, TOP_N = 10, 4   # feeding rule: sell only to teams ≥ 10 below us and outside the top 4
+SCORE_GAP, TOP_N = 10, 4   # feeding rule (plan §4A): never the top 4; a page-closing sale only to teams ≥ 10 below us
 ALERTS_PER_H, TEAM_COOLDOWN_S, PAIR_COOLDOWN_S = 3, 45 * 60, 2 * 3600
 MAX_LIVE, MAX_POSTS_PER_RUN = 3, 2   # the team posts ≤ 12 listings/tick across all processes
 OFFER_TTL_TICKS = 20   # in ticks, not minutes: 10 min at Saturday's 30 s, 5 at Sunday's 15 s (page-critical bids)
@@ -65,7 +65,8 @@ def expires_param(real_ticks, tick_seconds):
     60 s ticks: on Saturday (30 s) 60 → 30, 120 → 60, 200 → 100 real ticks (Operator's probe [V]). Sunday's 15 s
     should be x4: check the first post's expires_tick."""
     return math.ceil(real_ticks * 60 / float(tick_seconds or 60))
-OTHER_LACK_H, MAX_OTHER_LACKS = 2.0, 1  # a sale is a page-closer only if the buyer lacks ≤ 1 other card of that set
+OTHER_LACK_H, MAX_OTHER_LACKS = 2.0, 1  # a sale closes a page when the buyer lacks ≤ 1 other card of that set
+                                         # (its last or second-to-last); no other lack known counts as closing
 BUILD = ("RET", "CHA")     # pages we build (RET Saturday, CHA Sunday; GAME.md)
 PROTECT = ("LAV",)         # completed: only 2nd/3rd copies are ever for sale (also any page /api/me says is complete)
 BASE_ASK = {"common": 40, "uncommon": 45, "rare": 95}
@@ -413,11 +414,13 @@ def find_opportunities(*, events, board, lb, cat, me, value_of, build=BUILD, cas
                 continue
             others = sorted(k[1] for k, x in last.items() if k[0] == team and k[1] != card and x["kind"] == "lack"
                             and cards[k[1]]["set"] == c["set"] and now_h - x["hours"] <= OTHER_LACK_H)
+            closing = len(others) <= MAX_OTHER_LACKS
             o = {**base, "side": "SELL", "price": price, "our_value": v, "gain": round(price - v, 1), "asset": a["id"],
-                 "completes": False, "collects": p.get("collects", False), "m_est": m_est, "other_lacks": others}
+                 "completes": False, "collects": p.get("collects", False), "m_est": m_est, "other_lacks": others,
+                 "closing": closing}
             if team in top:
                 o["reasons"].append("top 4")
-            if gap is None or gap < SCORE_GAP:
+            if closing and (gap is None or gap < SCORE_GAP):   # plan §4A: only a page-closer needs the 10-point gap
                 o["reasons"].append("not on the leaderboard" if gap is None else f"{-gap:g} above us" if gap < 0
                                     else f"only {gap:g} below us (needs ≥ {SCORE_GAP})")
             if price < v + 3:
@@ -444,7 +447,7 @@ def find_opportunities(*, events, board, lb, cat, me, value_of, build=BUILD, cas
             if price and cash - price < cash_floor:
                 o["reasons"].append(f"cash floor {cash_floor} (cash {cash})")
             opps.append(o)
-    opps.sort(key=lambda o: (not o["reasons"], o["confident"], len(o.get("other_lacks", ())) <= (MAX_OTHER_LACKS or 99),
+    opps.sort(key=lambda o: (not o["reasons"], o["confident"], o.get("closing", False),
                              o["completes"], o["gain"], not o["collects"], -o["age_min"]), reverse=True)
     return opps, {"ours": ours, "top": top, "missing": missing, "held": held, "protected": protected, "me_id": me_id}
 
@@ -460,9 +463,6 @@ def choose_alerts(opps, state, now):
             o["status"] = "no: " + "; ".join(o["reasons"])
         elif not (o["gain"] >= MIN_GAIN or o["completes"]):
             o["status"] = f"listed only: gain {o['gain']:g} < {MIN_GAIN}"
-        elif MAX_OTHER_LACKS is not None and len(o.get("other_lacks", ())) > MAX_OTHER_LACKS:
-            o["status"] = (f"listed only: they also lack {', '.join(o['other_lacks'])}: not their last or "
-                           f"second-to-last {o['set']} card")
         elif not o["confident"]:
             o["status"] = (f"listed only: signal {o['wall_age_min']} real min old (game clock paused?)"
                            if o.get("wall_stale") else f"listed only: signal {o['age_min']} game-min old")
@@ -619,8 +619,9 @@ def write_md(path, opps, state, ctx, *, dry_run, now, clock, src):
          f"t {clock.get('t_hours')} h){' · DRY RUN: nothing posted, nobody notified' if dry_run else ''}", "",
          f"Alert rule: gain ≥ {MIN_GAIN} or it completes our page · signal ≤ {int(CONF_H * 60)} game min and "
          f"≤ {WALL_STALE_S // 60} real min old · "
-         f"≤ {ALERTS_PER_H} alerts/h · team 45 min · team+card 2 h · sells only to teams ≥ {SCORE_GAP} below us "
-         f"({ctx['ours']}) and outside the top 4 ({', '.join(sorted(ctx['top']))}). Data: {src}.", "",
+         f"≤ {ALERTS_PER_H} alerts/h · team 45 min · team+card 2 h · never to the top 4 ({', '.join(sorted(ctx['top']))}); "
+         f"a sale that closes their page (last or second-to-last known lack) only to teams ≥ {SCORE_GAP} below us "
+         f"({ctx['ours']}); page-closers on El Rastro, the rest on {DEFAULT_VENUE}. Data: {src}.", "",
          f"## Ranked now ({len(opps)})", "",
          "| # | side | team | card | price | our value | gain | signal | age (game / real min) | status |",
          "|---|---|---|---|---|---|---|---|---|---|"]
@@ -735,12 +736,7 @@ def main(argv=None):
     ap.add_argument("--every", type=int, default=30, help="seconds between runs (then waits for the server's tick)")
     ap.add_argument("--dry-run", action="store_true", help="compute + print; no offers, no cancels, no notifications")
     ap.add_argument("--build", default=",".join(BUILD), help="sets whose pages we build (default RET,CHA)")
-    ap.add_argument("--any-gap", action="store_true",
-                    help="alert SELLs even when the buyer lacks 2+ other cards of that set (off: page-closers only)")
     a = ap.parse_args(argv)
-    if a.any_gap:
-        global MAX_OTHER_LACKS
-        MAX_OTHER_LACKS = None
     api = Api(URL, os.environ.get("BAZAAR_KEY", ""), a.dry_run)
     build = tuple(s.strip().upper() for s in a.build.split(",") if s.strip())
     while True:

@@ -136,8 +136,8 @@ def test_feeding_filter_on_the_real_leaderboard():
     assert ctx["ours"] == 20.03 and ctx["top"] == {"t13", "t12", "t17", "t10"}
     t07 = find(opps, "SELL", "t07", "SAL-02")             # Team 7 at 8.98: 11.05 below us
     assert t07["reasons"] == [] and t07["gap"] == pytest.approx(11.05)
-    t08 = find(opps, "SELL", "t08", "LAV-03")             # Team 8 at 17.65: too close
-    assert any("only 2.38 below us" in r for r in t08["reasons"])
+    t08 = find(opps, "SELL", "t08", "LAV-03")             # Team 8 at 17.65: close, but it lacks LAV-09/10 too
+    assert t08["reasons"] == [] and not t08["closing"]     # plan §4A: not a page-closer, so no 10-point rule
     t12 = find(opps, "SELL", "t12", "MAL-07")             # Team 12: top 4 and above us
     assert "top 4" in t12["reasons"] and any("above us" in r for r in t12["reasons"])
 
@@ -264,19 +264,22 @@ def test_never_more_than_three_live_offers():
     assert op.choose_alerts([o], {"alerts": [], "live": live}, NOW) == [] and o["status"].startswith("held: 3 opportunity")
 
 
-def test_real_friday_team_7_lacks_three_salamanca_cards_so_no_alert():
+def test_real_friday_team_7_lacks_three_salamanca_cards_so_its_sale_goes_out_addressed():
+    # Plan §4A: only a page-closer (their last or second-to-last card) needs the 10-point gap; this one closes no page.
     opps, _ = engine()
+    o = find(opps, "SELL", "t07", "SAL-02")
+    assert o["reasons"] == [] and o["other_lacks"] == ["SAL-01", "SAL-05"] and not o["closing"]
     picked = op.choose_alerts(opps, {"alerts": [], "live": []}, NOW)
-    assert picked == []
-    o = find(opps, "SELL", "t07", "SAL-02")      # passes every hard rule, but SAL-01 and SAL-05 are missing too
-    assert o["reasons"] == [] and o["other_lacks"] == ["SAL-01", "SAL-05"]
-    assert o["status"].startswith("listed only: they also lack SAL-01, SAL-05")
+    assert ("t07", "SAL-02") in [(x["team"], x["card"]) for x in picked]
+
+
+T08_BIDS = (8072, 9820)   # Team 8's bids for LAT-03 and LAV-03, the cards we could sell it
 
 
 def single_gap_fixture():
-    """Real Friday data where Team 7 asked Abuela only for SAL-02 (its other two asks removed)."""
+    """Real Friday data where Team 7 asked Abuela only for SAL-02 (its other two asks removed), Team 8 not buying."""
     f = fx()
-    f["events"] = [e for e in f["events"] if e["id"] not in (6681, 7907)]
+    f["events"] = [e for e in f["events"] if e["id"] not in (6681, 7907, *T08_BIDS)]
     return f
 
 
@@ -288,7 +291,7 @@ def test_page_closer_sale_is_alerted():
 
 def test_one_other_lack_is_still_a_second_to_last_card():
     f = fx()
-    f["events"] = [e for e in f["events"] if e["id"] != 6681]          # Team 7 lacks SAL-02 and SAL-01
+    f["events"] = [e for e in f["events"] if e["id"] not in (6681, *T08_BIDS)]   # Team 7 lacks SAL-02, SAL-01
     opps, _ = engine(f)
     picked = op.choose_alerts(opps, {"alerts": [], "live": []}, NOW)
     assert [(o["team"], o["card"]) for o in picked] == [("t07", "SAL-02")]
@@ -490,11 +493,23 @@ def test_no_offer_id_no_alert(tmp_path, monkeypatch):
     assert notes == [] and find(opps, "SELL", "t07", "SAL-02")["status"].startswith("posted without an offer id")
 
 
-def test_any_gap_switch_restores_the_plain_filter(monkeypatch):
-    monkeypatch.setattr(op, "MAX_OTHER_LACKS", None)
+def test_a_mid_table_team_lacking_4_cards_of_a_set_gets_an_addressed_offer():
+    # Team 8, 2.38 below us (not 10), bid for LAT-03, -06, -09 and -10: our LAT-03 closes no page of theirs.
     opps, _ = engine()
+    o = find(opps, "SELL", "t08", "LAT-03")
+    assert o["other_lacks"] == ["LAT-06", "LAT-09", "LAT-10"] and not o["closing"] and o["reasons"] == []
     picked = op.choose_alerts(opps, {"alerts": [], "live": []}, NOW)
-    assert [(o["team"], o["card"], o["price"]) for o in picked] == [("t07", "SAL-02", 40)]
+    assert ("t08", "LAT-03") in [(x["team"], x["card"]) for x in picked]
+
+
+def test_a_mid_table_team_lacking_2_cards_of_a_set_does_not():
+    f = fx()
+    f["events"] = [e for e in f["events"] if e["id"] not in (8065, 8066)]   # no LAT-09/10 bids: LAT-03 + LAT-06 left
+    opps, _ = engine(f)
+    o = find(opps, "SELL", "t08", "LAT-03")
+    assert o["closing"] and any("only 2.38 below us" in r for r in o["reasons"])
+    picked = op.choose_alerts(opps, {"alerts": [], "live": []}, NOW)
+    assert ("t08", "LAT-03") not in [(x["team"], x["card"]) for x in picked]
 
 
 def test_one_live_bid_per_card_whoever_holds_it(tmp_path):
@@ -638,7 +653,7 @@ def test_cash_floor_counts_bids_posted_by_other_processes(tmp_path):
     for status in ("open", "queued"):                         # 252 − 100 locked − 70 < 100
         api, o = ret_buy_run(tmp_path / status, [{**other, "status": status}])
         assert any("cash floor 100 (cash 152)" in r for r in o["reasons"])
-        assert "list_offer" not in api.names()
+        assert not any(c[0] == "list_offer" and c[1][1] == {"cards": ["RET-10"]} for c in api.calls)   # the bid
 
 
 def test_offers_live_20_ticks_whatever_the_tick_length():
