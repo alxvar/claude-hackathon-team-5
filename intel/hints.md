@@ -167,3 +167,4 @@ Swap your duplicates, hijo — a full page is wort
 - Sat 19:32 · taller.crafted tick 1114 ·  → t12 · Team 12 turned three common cards into Las Vistillas (uncommon) at The Workshop
 - Sat 19:34 · message tick 1119 · banco → t13 · Buenas tardes. My desk is open. A gold pack today, terms are five hundred forty-six P. Nothing else moves this afternoon.
 - Sat 19:34 · message tick 1120 · banco → t13 · The terms remain five hundred forty-six P for the gold pack. I am in no hurry, señor. The desk will be here when your purse is heavier. Buenas tardes.
+- Sat 19:35 · catalog.minted MAL-11 (La Sala Pentagrama, epic, print run 9): hidden=False minted=1 (was 0)
