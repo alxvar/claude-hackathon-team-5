@@ -81,6 +81,9 @@
 - **Ladder total Sat 12:31: 0.141** [V]: Abuela L1 ×5 → 0.055; Chato LAT-08 at 14 (L2) +0.017; Pilar MAL-07 at 19 +0.050,
   SAL-08 at 23 (her 22, 22, 23-final) +0.019 (L3). Diminishing (Analyst: cap near ~0.15 [L]). Pilar's MAL-06 thread: 16,
   16, 17, FINAL 17 in round 4 (walked at floor 18): her finals land around round 4, lower in a second thread.
+- **Dealer ladder share depends on how we step** [V, n=2 at Pilar, Sat 12:45]: MAL-06 at 19 with small steps (asks
+  30 → 28 → 26 → 24; her 16, 16, 17, 18, 19; we offered her 19) → +0.040; SAL-08 at 23 after our jump 34 → 31 → 28
+  handed her a final (22, 22, 23f) → +0.019. Never jump to her bid; step −2/−3 and let her climb. Ladder 0.181 at 12:45.
 - **Ladder and early unlock count only below-list dealer deals** [L, strong pattern]: every Abuela deal under her list
   (commons 9 vs 10, RET-08 22 vs 25) moved the ladder; none of our 6 Chato deals moved it, all above his list (RET-09 87 and
   RET-10 86 vs 77, RET-06 30 vs 26, Fri LAV-09 93, LAV-06 31, LAT-08 sale). Level 3 (Doña Pilar, active 3.51 h, open to
