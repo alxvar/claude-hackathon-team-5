@@ -330,10 +330,13 @@ def test_test_watch_does_not_page_the_known_data_failure(tmp_path):
     assert [f.kind for f in m.cycle({"tick": 2, "doors": "closed", "paused": True})] == ["duelist_tests_failed"]
 
 
-def test_duelist_tests_run_on_a_clean_copy_of_the_commit_not_the_working_tree(tmp_path):
+def test_duelist_tests_run_on_a_clean_copy_of_the_commit_not_the_working_tree(tmp_path, monkeypatch):
     # Sat 09:44-09:46: three false "duelist tests failed" pages from a half-done edit and a stuck rebase in the
     # shared tree. A repo whose committed test passes and whose working copy is broken must read as a pass.
+    # The toy repo is no uv project (`uv run --project` refuses it: "No `project` table found"), and an old `uv`
+    # on PATH may not know `--project` (Aleks's Mac): run it with this interpreter, which has pytest.
     import subprocess
+    monkeypatch.setattr(dm.shutil, "which", lambda _name: None)
     repo = tmp_path / "repo"
     (repo / "tests").mkdir(parents=True)
     (repo / "tests" / "test_duelist.py").write_text("def test_ok():\n    assert True\n")
