@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 10:10** · tick 243 (30 s/tick) · game hour 3.35 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 10:15** · tick 253 (30 s/tick) · game hour 3.43 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,26 +17,26 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 09:48 · Chief 09:55 #2 + #4 (feed part) · **dashboard ETAs fixed:** `schedule()` multiplied hours by `tick_seconds` (right on Friday by chance, half on Saturday); now ticks per game hour measured on the feed's last 20 ticks × tick length (Fri 60 × 60 s, Sat 120 × 30 s: both 60 min per game hour, so it holds on Sunday at 15 s whatever the rate) · restarted 09:46: Market Tests 09:49/11:49/13:49…, Duels I 11:58, Duels II 18:28, hard test 21:28 (matches the Chief) · **El Retiro, public feed to tick ~198 (facts, no prices):** rares RET-09/10 (30 printed each), RET-11 epic (9), RET-12 legendary (3) · **holders:** no team has listed, sold or bought any RET rare; the only known holder is **El Chato, who sells RET-09** (t18 asked for it at tick 190, no deal); no pack pull shows RET · **collectors:** t12 (#2, top 4) bought 4 RET from Abuela (RET-05..08) and asked her for RET-04..08; t15 (#14) bids for RET-09/10/07/05, the highest RET bids, and asked Abuela 4× for RET-06; t02 (#10) bought RET-01/06/08 and bids for RET-02/03/04/09/10; t18 (#8) asked Chato for RET-09 and Abuela for RET-06; t10 (#7) swap offers asking RET-02/03/06; t13 (#1) and t03 (#11) token bids on RET commons · top 4 now t13, t12, t14, t17 (t04 #5, t14 #3: the Chief's list is stale; it moves) · next: the room confirms who holds RET rares (packs are invisible), desk 3a-e
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 10:35 · Builder: **dealer narrator** e444ecf: `agents/dealers/narrator.py` (claude-sonnet-5-5 via engine.claude, 5 s cap) writes 1-2 warm sentences around the engine's price; guard = our exact price once, no other digit, no pressure, else a warm template; live ~$0.0007 + 2-3 s a message, 4/4 passed the guard · abuela_bot `--narrator on|off` (default on); **the model only runs under `uv run`** (Homebrew python3 has no anthropic: templates) · abuela also holds until the dealer answers (83a8899; thread 394 shows Chato replies every tick, "Three P from you. One from me") · chato_steady hook sent to the Operator · suite 279 pass · next: Chief's queue, Aleks's arbiter review
   - Sat 10:10 · operator · Chato RET-06 (+1 steps from 18, cap 28): he mocked the +1 and finalled 31 after 4 rounds → walked; finding → GAME.md (he mirrors our step, finals after ~4-5 rounds) · swaps 3245/3246 cancelled (0 fills in 25 min) · Abuela bot started for RET-06/07/08 (non-ladder, cap 24, worth 27.5) · opps restarted on eb28af1 (offers live 20 ticks) · warm dealer texts now in the Chato driver (Chief/Lucas 10:20 directive) · score 18.9 (market 5.61) · next: RET-01 from a team at ~20 once 06/07/08 are held (cap test)
   - Sat 10:10 · Builder: **429 audit**: no daemon crashes or hot-retries (SDK waits next_tick_in; trader/opps/duelist/dashboard wait_on_tick=False; reads catch all); abuela retried a refused accept past the duel arbiter → fixed 2978d3f (chato_steady has the same pattern: Operator's) · **opps** offers live 20 ticks, not 20 min (was 41 ticks at 30 s, 81 at 15 s) eb28af1, takes effect when the Operator restarts `opps` · **abuela** ≥10 ticks before re-opening a dealer, silent dealer (4 ticks) closed + paused 30 min, state in run/dealers.json 61f0cf4 · every new test fails on the old code, suite 271 pass · next: Chief's queue
-  - Sat 10:05 · operator · **RET-10 from Chato at 86** (retry, cap 91 per Chief; his final 86 when our +3 steps reached 69): `neg_points` −10 → **−19.0** exactly (77 − 86), ladder unchanged · RET held: 02/03/04/05/09/10; missing 06/07/08 (uncommons) + 01 (cap-test card) · cash 202 · RET-06 from Chato started (open 18, +1 steps, cap 28: tests whether a below-list Chato deal moves the ladder) · next: RET-07/08 (swaps 3245/3246 until ~10:10, then Abuela ≤ 24), RET-01 from a team at ~20 last
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 18.90 | 7 | 13.30 | 5.61 | 0.00 | 0.05 | 0.90 | 29 | 2 | 202 | 27/50 |
+| 19.08 | 6 | 13.14 | 5.94 | 0.00 | 0.05 | 0.90 | 31 | 2 | 150 | 29/50 |
 
-Leaderboard (snapshot at tick 240; refreshes every few minutes):
+Leaderboard (snapshot at tick 250; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 18 | 28.03 | 22.42 | 5.61 | 27 |
-| 2 | Team 12 | 27.21 | 17.86 | 9.35 | 29 |
-| 3 | Team 13 | 23.76 | 21.28 | 2.49 | 36 |
-| 4 | Team 2 | 23.37 | 17.76 | 5.61 | 23 |
-| 5 | Team 14 | 21.94 | 16.33 | 5.61 | 13 |
-| 7 | Team 5 | 18.90 | 13.30 | 5.61 | 29 |
+| 1 | Team 18 | 28.55 | 22.61 | 5.94 | 27 |
+| 2 | Team 12 | 27.17 | 17.27 | 9.90 | 29 |
+| 3 | Team 2 | 24.35 | 18.41 | 5.94 | 23 |
+| 4 | Team 13 | 23.40 | 20.76 | 2.63 | 36 |
+| 5 | Team 14 | 22.16 | 16.22 | 5.94 | 13 |
+| 6 | Team 5 | 19.08 | 13.14 | 5.94 | 30 |
 
 ## Next on the schedule
 
@@ -44,14 +44,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 4.00 | ~39 min | day_closes | Closed until Saturday 09:00 |
-| 5.00 | ~99 min | bench | The Market Test: every venue gets the same synthetic book |
-| 5.15 | ~108 min | duels | Duels I: price only, one round-robin |
-| 7.00 | ~219 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.00 | ~339 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.00 | ~459 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.65 | ~498 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~579 min | bench | The Market Test: every venue gets the same synthetic book |
+| 4.00 | ~34 min | day_closes | Closed until Saturday 09:00 |
+| 5.00 | ~94 min | bench | The Market Test: every venue gets the same synthetic book |
+| 5.15 | ~103 min | duels | Duels I: price only, one round-robin |
+| 7.00 | ~214 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.00 | ~334 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.00 | ~454 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.65 | ~493 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~574 min | bench | The Market Test: every venue gets the same synthetic book |
 
 ## Our dealer deals
 
@@ -93,7 +93,8 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | 394 | chato | buy | RET-10 | 97 | 57 | — | — | 9 | closed |  |
 | 412 | chato | buy | RET-10 | 97 | 57 | 86 | -11% | 11 | deal |  |
 | 418 | chato | buy | RET-06 | 33 | 18 | — | — | 9 | closed |  |
-| 425 | abuela | buy | RET-08 | 29 | 16 | — | — | 2 | open |  |
+| 425 | abuela | buy | RET-08 | 29 | 16 | 22 | -24% | 9 | deal |  |
+| 430 | chato | buy | RET-06 | 33 | 20 | 30 | -9% | 11 | deal |  |
 
 ## Abuela benchmark: every team's deals with her (public feed)
 
@@ -102,7 +103,7 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | common card | team buys | 49 | 9 | 7 | 12 | 5 | 9 |
 | common card | team sells | 37 | 6 | 5 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 36 | 22.00 | 17 | 30 | 3 | 20.33 |
-| uncommon card | team buys | 50 | 22.00 | 17 | 29 | 2 | 26.50 |
+| uncommon card | team buys | 52 | 22.00 | 17 | 29 | 3 | 25 |
 | uncommon card | team sells | 6 | 14.00 | 13 | 16 | 0 | — |
 
 ## Duels
@@ -128,7 +129,9 @@ Live: 0 · finished: 34
 |---|---|---|---|---|---|---|
 | abuela | active | 1 | True | sobre_barrio (26 P), common (10 P), uncommon (25 P) | common, uncommon | 8 |
 | chato | active | 2 | True | sobre_plata (150 P), uncommon (26 P), rare (77 P) | uncommon, rare | 6 |
+| pilar | announced | — | False |  |  | — |
 
 ## Levels
 
 - El Chato: None — Better packs and rare singles; he buys uncommon and rare cards. Open a thread with him (with: chato).
+- Doña Pilar: None — 
