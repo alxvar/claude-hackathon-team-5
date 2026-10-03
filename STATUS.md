@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 22:31** · tick 1387 (30 s/tick) · game hour 12.88 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 22:36** · tick 1397 (30 s/tick) · game hour 12.97 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,25 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 22:35 · operator · RET-11 → Pilar job ended at its 22:35 cutoff without running: Duels II still live (no duels.finished in the feed) → RET-11 kept (reserved, 198) · bug owned: the job's duels.finished detector used `tail -n +$(wc -l)`, and macOS pads wc output (illegal offset), so it could never fire; same result today · ads: 22:16 'Selling to Team 6 or Team 8?…', 22:27 'Bidding for an epic?…' · SAL-11 bid 19620 live (≈ 22:53)
   - Sat 22:48 · builder · **branch `duelist-loop` pushed for Aleks** (ba8726c, 547 green; main untouched): hot-reloaded run/duel_params.json, wave loop tools/duel_loop.py (run/watch/approve/revert, Duel Lab sim copied in), opt-in `--policy code` (code decides, one capped text call: Haiku 1.8 s) · notes docs/duelist-loop.md · also live tonight: egg catalog intel/eggs.md (9a34086; Chato's Plaza-Mayor-con-caña pack still ours to get) · next: watch daemons overnight
   - Sat 22:30 · Duel Lab · **overnight checkpoint 1 → top of `intel/duel-lab.md`** (verified, flags fixed): days-aware code-only simulator calibrated + validated on Duels II (50 post-fix duels: total result within +7/−3/+4%) · **Duels III (12 ticks, 10%): MIN_STEP_P 3→5, MAX_STEP_SHARE 0.25→0.18, LATE_SWITCH_LEFT 4→2 ≈ +0.027/duel (+1.85 pts over 68), robust across 5 rival worlds, both scoring readings and rival reciprocity** · 2 code guards from the records (never offer worse than their standing offer; enforce the day call on the opener: 6049) · thin-margin accept rules: no gain (±1%) · latency: code-first design · tuner script (safe, advisory) · next: 01:00 re-run on the full Duels II set
-  - Sat 22:23 · operator · Madrid eggs (Chief; parallel text-only threads with all 5 dealers, castizo references, no price): **Abuela → egg.given MAL-06 (value 17.5) + badge 'Castizo'** (ticks 1368-1369; 'cocido… tres vuelcos… rosquillas tontas y listas') · Chato, Pícaros, Pilar, Ernesto: replies only, no gift (Chato's exact calamares line: no pack for us) · Abuela round 2 (chotis, 'sile, nole, repe'): no new gift · badges: Sharp ear, Trickster tricked, Castizo · MAL now 01-06 + 08 · log logs/egg-madrid.log · duel_points 33.19
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 30.70 | 3 | 23.20 | 7.50 | 34.13 | 0.48 | 0.89 | 53 | 5 | 392 | 39/50 |
+| 30.53 | 3 | 23.03 | 7.50 | 34.31 | 0.48 | 0.89 | 53 | 5 | 392 | 39/50 |
 
-Leaderboard (snapshot at tick 1380; refreshes every few minutes):
+Leaderboard (snapshot at tick 1390; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 10 | 38.02 | 25.52 | 12.50 | 59 |
-| 2 | Team 6 | 31.33 | 19.51 | 11.82 | 67 |
-| 3 | Team 5 | 30.70 | 23.20 | 7.50 | 53 |
-| 4 | Team 12 | 30.43 | 22.93 | 7.50 | 68 |
-| 5 | Team 18 | 30.07 | 22.57 | 7.50 | 38 |
+| 1 | Team 10 | 37.81 | 25.31 | 12.50 | 60 |
+| 2 | Team 6 | 31.25 | 19.43 | 11.82 | 67 |
+| 3 | Team 5 | 30.53 | 23.03 | 7.50 | 53 |
+| 4 | Team 12 | 30.19 | 22.69 | 7.50 | 68 |
+| 5 | Team 18 | 30.16 | 22.66 | 7.50 | 38 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 13.00 | ~7 min | bench | The Market Test: every venue gets the same synthetic book |
-| 13.36 | ~29 min | day_closes | Closed until Sunday 09:00 |
-| 13.36 | ~29 min | day_opens | Sunday opens |
-| 14.65 | ~106 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
-| 15.00 | ~127 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
-| 16.65 | ~226 min (after today's close) | set_release | Chamberí released |
-| 16.65 | ~226 min (after today's close) | round | Round 3 starts |
-| 16.70 | ~229 min (after today's close) | grant_all | The Sunday allowance: 150 primas for everyone |
+| 13.00 | ~2 min | bench | The Market Test: every venue gets the same synthetic book |
+| 13.36 | ~24 min | day_closes | Closed until Sunday 09:00 |
+| 13.36 | ~24 min | day_opens | Sunday opens |
+| 14.65 | ~101 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 15.00 | ~122 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 16.65 | ~221 min (after today's close) | set_release | Chamberí released |
+| 16.65 | ~221 min (after today's close) | round | Round 3 starts |
+| 16.70 | ~224 min (after today's close) | grant_all | The Sunday allowance: 150 primas for everyone |
 
 ## Our dealer deals
 
@@ -100,7 +100,7 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 ## Duels
 
-Live: 3 · finished: 136
+Live: 2 · finished: 136
 
 - {"duel": 6140, "session": 3, "status": "live", "role": "seller", "item": "El Frutero de Argumosa", "issues": ["price", "days"], "your_days_weight": 2.33, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 80, "limit_meaning": "never sell below your cost", "rival": "R
 - {"duel": 6141, "session": 3, "status": "live", "role": "buyer", "item": "El Frutero de Argumosa", "issues": ["price", "days"], "your_days_weight": 3.36, "days_meaning": "each delivery day costs you this much cash", "your_limit": 147, "limit_meaning": "never pay above your value", "rival": "Rival Noc
@@ -109,7 +109,7 @@ Live: 3 · finished: 136
 - {"duel": 6176, "session": 3, "status": "deal", "role": "seller", "item": "La V\u00eda L\u00e1ctea", "issues": ["price", "days"], "your_days_weight": 2.45, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 92, "limit_meaning": "never sell below your cost", "rival": "
 - {"duel": 6177, "session": 3, "status": "no_deal", "role": "buyer", "item": "La V\u00eda L\u00e1ctea", "issues": ["price", "days"], "your_days_weight": 7.06, "days_meaning": "each delivery day costs you this much cash", "your_limit": 76, "limit_meaning": "never pay above your value", "rival": "Rival 
 - {"duel": 6182, "session": 3, "status": "no_deal", "role": "seller", "item": "Plaza del Dos de Mayo", "issues": ["price", "days"], "your_days_weight": 3.33, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 71, "limit_meaning": "never sell below your cost", "rival": 
-- {"duel": 6183, "session": 3, "status": "live", "role": "buyer", "item": "Plaza del Dos de Mayo", "issues": ["price", "days"], "your_days_weight": 4.03, "days_meaning": "each delivery day costs you this much cash", "your_limit": 82, "limit_meaning": "never pay above your value", "rival": "Rival Plata
+- {"duel": 6183, "session": 3, "status": "deal", "role": "buyer", "item": "Plaza del Dos de Mayo", "issues": ["price", "days"], "your_days_weight": 4.03, "days_meaning": "each delivery day costs you this much cash", "your_limit": 82, "limit_meaning": "never pay above your value", "rival": "Rival Plata
 - {"duel": 6184, "session": 3, "status": "deal", "role": "seller", "item": "La V\u00eda L\u00e1ctea", "issues": ["price", "days"], "your_days_weight": 3.21, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 60, "limit_meaning": "never sell below your cost", "rival": "
 - {"duel": 6185, "session": 3, "status": "deal", "role": "buyer", "item": "La V\u00eda L\u00e1ctea", "issues": ["price", "days"], "your_days_weight": 3.68, "days_meaning": "each delivery day costs you this much cash", "your_limit": 54, "limit_meaning": "never pay above your value", "rival": "Rival Sol
 - {"duel": 6190, "session": 3, "status": "deal", "role": "buyer", "item": "El Frutero de Argumosa", "issues": ["price", "days"], "your_days_weight": 5.0, "days_meaning": "each delivery day costs you this much cash", "your_limit": 143, "limit_meaning": "never pay above your value", "rival": "Rival Oro"
