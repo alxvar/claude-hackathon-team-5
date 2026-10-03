@@ -1,4 +1,4 @@
-# Market plan for Sunday (Market session) · written Sun 00:17
+# Market plan for Sunday (Market session) · written Sun 00:18
 
 _Sources: intel/matches.md (matchmaker run 00:13, tick 1440; its VC estimates move between runs, so re-read it before acting), leaderboard snapshot 1440 (us 30.49), intel/market-log.md, intel/directives.md (Club Castizo, Sat 22:55). Labels: [V] measured, [L] inferred, [?] unknown. An independent verifier audited the 22:52 draft; its ten flags are applied here._
 
@@ -104,7 +104,7 @@ Spares [V, /api/me]: LAV-02 ×2, LAV-03 ×1, LAV-04 ×1; LAT-03 and LAT-04 are s
 | 9 | Team 16 | Team 2 | RET-01 | ~9 | +7.4 | YES: Team 16: outside the club, Chief's OK |
 | 10 | Team 16 | Team 4 | RET-03 | ~9 | +7.1 | YES: Team 16: outside the club, Chief's OK |
 
-Every buyer on the list is a slow or manual accepter, so **all ten need the WhatsApp first**; the seller then posts an OPEN ask on v10 at the agreed price and the buyer accepts (or posts the matching bid: the stall crosses them in that tick).
+8 of the 10 buyers are slow or manual accepters, and the others sit outside the club, so **every row needs a WhatsApp (or the Chief's OK) first**; the seller then posts an OPEN ask on v10 at the agreed price and the buyer accepts (or posts the matching bid: the stall crosses them in that tick).
 
 ### 0.6 Who Team 10 trades with (to offer them better terms first)
 
