@@ -468,8 +468,8 @@ A stall team at every cap scores 12 + 9 + 9 + 11.25 + 7.5 = **48.75** per round.
 almost at that ceiling.
 
 ### 4.2 Team 10's lead (game total 0.5·Fri + Sat: t10 56.37 vs us 45.73 = **10.64**) [V decomposition]
-Friday ½ +0.38 · Saturday negotiating +2.76 [V] (split [L]: duels ≈ +2.3 Sat pts (t10 ≈ 9.2 vs us ≈ 6.9), trades ≈ +0.4
-(our T/N ≈ 0.95), ladder 0 (both capped)) ·
+Friday ½ +0.38 · Saturday negotiating +2.76 [V] (split [L]: duels **+2.3 to +4.5** Sat pts (t10 ≥ 9.2 vs us ≈ 6.9; the upper end
+fits the 1240-1260 window, audit-why-we-lost §2.1), so trades + ladder ≈ −1.7 to +0.4 for t10: we may have been ahead there) ·
 **Saturday market +7.50** (v07 value created at the cap vs our 0). Repeatable Sunday: all of it — a fresh round, v07 stays its
 venue, its duelist stays strong. **To finish #1, t10's Sunday round must be ≤ our Sunday round − 10.64; even at our ceiling
 (48.75) that needs t10 ≤ 38.1, i.e. t10 losing ≈ 7.9 points vs its Saturday.**
@@ -608,6 +608,14 @@ Together, maybe 8-12% [L]. First place is a long shot; the same three levers als
 ### 4.10 Deny-list → `intel/deny-list.md` (Sun 00:30)
 No ≥ 0 denial buy exists at current asks. Free denials: never sell MAL-08 (t12 lacks it), LAV-02/03/04 spares (t03), or any page card or
 CHA card to a rival. The working denial is the market (§4.9 lever 2).
+
+### 4.11 Overnight audits reconciled (Sun 01:50)
+| Audit | Agrees with this model | Contradicts it → fixed here |
+|---|---|---|
+| market-test-audit.md | Market Test 22.5 (stall 0.5 = 11.25) + real trades 7.5; RT = 7.5 × min(1, mm/M), M = top-3 mean, `mm_points` is the scored number (§3h) | — (its "Sunday ≈ 40-50 net VC" target matches §3h) |
+| audit-why-we-lost.md | t10 lead 10.64 = 7.50 + 2.76 + 0.38; our duel part ≈ 6.9; we were #5 on Saturday alone | §4.2 duel gap 2.3 → **2.3-4.5** (fixed) |
+| sunday-redteam.md | ceiling 48.75; CHA, v10 and duel EVs within ranges; SAL-11 cancel | **§4.7 clock: game hour = wall hour** (B15/A15 removed; case J Duels III ≈ 11:00) · **ladder fodder** lifts the ladder 0.27 → 0.42-0.50 (§4.4/§4.5/§4.8) |
+| duelist-audit.md | day reading reproduces all 56 Duels II deals | — (duelist code: Aleks's lane) |
 
 ## 5. Buyer model (multiplier per team × set) for v10 steering
 
