@@ -23,6 +23,39 @@ _For Aleks's Sunday morning. Duels III and the Final: 12 ticks, 10% decay, 4 at 
   against a baseline whose late switch fires like the live code._
 - _**Labels:** [V] measured on records or code, [L] modelled, [?] unknown._
 
+### Params file for Duels III (Chief's 23:00 ask) [L]
+
+**`MONO_END_SHARE` 0.5, not 0.25** (`night/mono.out`; 12 ticks / 10%, 5 worlds, 20,000 duels each).
+
+- **How it's modelled:** our last-ticks concessions are drawn from our real ones (Duels I + II, n = 69: median 32% of
+  the gap, 30% of them above half; `endsteps.out`), then capped. The accept-instead-of-worse guard (a1d679e) is on.
+
+| `MONO_END_SHARE` | Live constants: Δ vs no cap | Proposed constants: Δ vs no cap | Deal rate |
+|---|---|---|---|
+| 0.25 | −0.0015 (worst −0.0022) | +0.0016 (worst +0.0001) | 0.884 |
+| **0.5** | **+0.0023** (all worlds +0.0020 to +0.0026) | **+0.0044** (+0.0042 to +0.0047) | **0.903** |
+| off (1.0) | 0 | 0 | 0.907-0.908 |
+
+- **0.5 wins in every combination tested:** both scoring readings (H2 +0.0024 / +0.0042) and with rival reciprocity
+  0.5 (+0.0017 / +0.0041).
+- **0.25 costs 0.004 per duel against 0.5,** and 2 points of deal rate. That agrees with the Builder's price-only
+  result.
+
+**`run/duel_params.json`**, validated with the duelist-loop branch's own `params.validate()`: no errors.
+
+```json
+{
+ "_note": "Duel Lab overnight proposal for Duels III / Final (12 ticks, 10% decay): MIN_STEP_P 5, MAX_STEP_SHARE 0.18, LATE_SWITCH_LEFT 2 (+0.027/duel in the days simulator, 5 rival worlds) and MONO_END_SHARE 0.5 (+0.004 vs off, 0.25 is worse). Evidence: intel/duel-lab.md. Aleks approves before it goes live.",
+ "MIN_STEP_P": 5,
+ "MAX_STEP_SHARE": 0.18,
+ "LATE_SWITCH_LEFT": 2,
+ "MONO_END_SHARE": 0.5
+}
+```
+
+Everything else stays at today's constants: `MIN_STEP_SHARE` 0.05 (≤ 0.18, the cross-check holds), `OPEN_WAIT` 2,
+`ACCEPT_BY` 2, `HOLD_TICKS` 3, `SILENT_KEEP` 0.15, `GIVE_COST_P` 15.
+
 ### Recommendation: three constants, ≈ +1.85 duel points over Duels III [L]
 
 **Baseline = the live code:** `MIN_STEP_P` 3, `MIN_STEP_SHARE` 0.05, `MAX_STEP_SHARE` 0.25, `LATE_SWITCH_LEFT` 4 (fires
