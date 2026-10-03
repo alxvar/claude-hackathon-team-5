@@ -1,4 +1,4 @@
-# Opportunities (auto, 11:31, game tick 403, t 4.6833 h)
+# Opportunities (auto, 11:33, game tick 407, t 4.7167 h)
 
 Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and ≤ 60 real min old · ≤ 3 alerts/h · team 45 min · team+card 2 h · never to the top 4 (t10, t12, t13, t18); a sale that closes their page (last or second-to-last known lack) only to teams ≥ 10 below us (22.35); page-closers on El Rastro, the rest on v07. Data: collector.
 
@@ -6,12 +6,12 @@ Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and �
 
 | # | side | team | card | price | our value | gain | signal | age (game / real min) | status |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | SELL | Team 7 (#17, 10.49) | SAL-02 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 132) | 149 / 779 | listed only: signal 779 real min old (game clock paused?) |
-| 2 | SELL | Team 7 (#17, 10.49) | SAL-05 common | 40 | 9 | 31 | asked abuela to sell it (tick 128) | 153 / 782 | listed only: signal 782 real min old (game clock paused?) |
-| 3 | SELL | Team 3 (#14, 17.78) | SAL-02 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 208) | 98 / 98 | listed only: signal 98 real min old (game clock paused?) |
-| 4 | SELL | Team 3 (#14, 17.78) | SAL-05 common | 40 | 9 | 31 | bid 9 P for it (tick 182) | 110 / 111 | listed only: signal 111 real min old (game clock paused?) |
-| 5 | SELL | Team 8 (#16, 14.04) | SAL-03 common | 38 | 9 | 29 | bid 5 P for it (tick 142) | 139 / 769 | listed only: signal 769 real min old (game clock paused?) |
-| 6 | SELL | Team 10 (#4, 24.85) | SAL-03 common | 32 | 9 | 23 | bid 0 P for it (tick 336) | 33 / 33 | no: top 4; 2.5 above us |
+| 1 | SELL | Team 7 (#17, 10.49) | SAL-02 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 132) | 151 / 781 | listed only: signal 781 real min old (game clock paused?) |
+| 2 | SELL | Team 7 (#17, 10.49) | SAL-05 common | 40 | 9 | 31 | asked abuela to sell it (tick 128) | 155 / 784 | listed only: signal 784 real min old (game clock paused?) |
+| 3 | SELL | Team 3 (#14, 17.78) | SAL-02 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 208) | 100 / 100 | listed only: signal 100 real min old (game clock paused?) |
+| 4 | SELL | Team 3 (#14, 17.78) | SAL-05 common | 40 | 9 | 31 | bid 9 P for it (tick 182) | 113 / 113 | listed only: signal 113 real min old (game clock paused?) |
+| 5 | SELL | Team 8 (#16, 14.04) | SAL-03 common | 38 | 9 | 29 | bid 5 P for it (tick 142) | 141 / 771 | listed only: signal 771 real min old (game clock paused?) |
+| 6 | SELL | Team 10 (#4, 24.85) | SAL-03 common | 32 | 9 | 23 | bid 0 P for it (tick 336) | 36 / 35 | no: top 4; 2.5 above us |
 
 ## Alerts (newest first)
 
@@ -23,4 +23,4 @@ Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and �
 
 Pages we build, cards missing: RET: none; CHA: CHA-01, CHA-02, CHA-03, CHA-04, CHA-05, CHA-06, CHA-07, CHA-08, CHA-09, CHA-10
 Value of missing cards looked up this run (only those some team holds): none
-Spares (sellable copies): LAT-03 ×1 (5), LAT-04 ×2 (1.2), LAT-08 ×1 (12.5), LAV-02 ×2 (3.2), LAV-03 ×2 (3.2), LAV-04 ×2 (3.2), MAL-02 ×1 (7), MAL-04 ×1 (7), MAL-06 ×1 (17.5), MAL-07 ×1 (17.5), SAL-01 ×1 (9), SAL-02 ×2 (2.2), SAL-03 ×1 (9), SAL-05 ×1 (9), SAL-08 ×1 (22.5)
+Spares (sellable copies): LAT-03 ×1 (5), LAT-04 ×2 (1.2), LAT-08 ×1 (12.5), LAV-02 ×2 (3.2), LAV-03 ×2 (3.2), LAV-04 ×2 (3.2), MAL-02 ×1 (7), MAL-03 ×1 (7), MAL-04 ×1 (7), MAL-06 ×1 (17.5), MAL-07 ×1 (17.5), SAL-01 ×1 (9), SAL-02 ×2 (2.2), SAL-03 ×1 (9), SAL-05 ×1 (9), SAL-08 ×1 (22.5)
