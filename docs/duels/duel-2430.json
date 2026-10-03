@@ -2067,5 +2067,97 @@
     "settles_at_tick": 522
    }
   }
- ]
+ ],
+ "last_seen_tick": 522,
+ "done": {
+  "duel": 2430,
+  "session": 2,
+  "status": "deal",
+  "role": "buyer",
+  "item": "La Heroína del Dos de Mayo",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 192,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Oro",
+  "deadline_tick": 523,
+  "decay_per_round": 0.06,
+  "rounds": 3,
+  "your_offer": {
+   "id": 4098,
+   "price": 177,
+   "tick": 520,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 3844,
+   "price": 184,
+   "tick": 509,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 507,
+    "from": "Rival Oro",
+    "text": "207 for La Heroína del Dos de Mayo. Every round costs us both: let's close it now.",
+    "price": 207,
+    "days": null
+   },
+   {
+    "tick": 507,
+    "from": "you",
+    "text": "Your figure is well above what this piece supports, and rushing doesn't change that. I can offer 150 P for La Heroína del Dos de Mayo. If you move meaningfully toward that, we can wrap this up quickly.",
+    "price": 150,
+    "days": null
+   },
+   {
+    "tick": 508,
+    "from": "Rival Oro",
+    "text": "195 for La Heroína del Dos de Mayo. Every round costs us both: let's close it now.",
+    "price": 195,
+    "days": null
+   },
+   {
+    "tick": 508,
+    "from": "you",
+    "text": "Thanks for moving; I've come up as well, to 158 P for La Heroína del Dos de Mayo. We're still some distance apart, so a further real cut from you is what will get this closed quickly.",
+    "price": 158,
+    "days": null
+   },
+   {
+    "tick": 509,
+    "from": "Rival Oro",
+    "text": "184 for La Heroína del Dos de Mayo. Every round costs us both: let's close it now.",
+    "price": 184,
+    "days": null
+   },
+   {
+    "tick": 509,
+    "from": "you",
+    "text": "Thanks for the further move. I'm stepping up to 164 P for La Heroína del Dos de Mayo. Another real cut from you and we can get this closed quickly.",
+    "price": 164,
+    "days": null
+   },
+   {
+    "tick": 512,
+    "from": "you",
+    "text": "We've both moved steadily, and I'm making one clear step to 171 P for La Heroína del Dos de Mayo. If you meet me near the middle from here, we can close this now.",
+    "price": 171,
+    "days": null
+   },
+   {
+    "tick": 520,
+    "from": "you",
+    "text": "I'm making another clear step to 177 P for La Heroína del Dos de Mayo, which splits the remaining gap. Meet me there and we can close right now.",
+    "price": 177,
+    "days": null
+   }
+  ],
+  "result": 6.6,
+  "price": 184,
+  "days": 0
+ }
 }
