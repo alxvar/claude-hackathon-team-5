@@ -35,6 +35,7 @@ _EARLY = re.compile(r"\b(?:earl(?:y|ier|iest)|soon(?:er|est)?|fast(?:er|est)?|qu
 _LATE = re.compile(r"\b(?:lat(?:e|er|est)|delay\w*|slow(?:er)?|more time|higher days?|more days)\b", re.IGNORECASE)
 _COST = re.compile(r"\b(?:costs?|costing|los(?:e|es|t|ing)|penalt\w*|subtract\w*|minus|deduct\w*|reduc\w*)\b",
                    re.IGNORECASE)
+_ADDS = re.compile(r"\b(?:adds?|adding|added|earns?|gains?|to your side|in your favou?r)\b", re.IGNORECASE)
 _PREFER = re.compile(r"\b(?:prefer\w*|want\w*|better|rather|like\w*|favou?r\w*)\b", re.IGNORECASE)
 _NUMBER = re.compile(r"-?\d+(?:\.\d+)?")
 PER_DAY_KEYS = ("per_day", "weight", "value", "w", "slope", "points_per_day", "value_per_day", "cost_per_day",
@@ -89,6 +90,14 @@ def direction(text: str) -> str | None:
     text = re.sub(r"\([^)]*\)", " ", text.replace("_", " "))
     early, late = bool(_EARLY.search(text)), bool(_LATE.search(text))
     if early == late:
+        if early:
+            return None
+        # Duels II's own words name no direction (Sat 21:20, live payloads): "each delivery day adds this much cash
+        # to your side" (seller: more days, more for us → late) and "each delivery day costs you this much cash"
+        # (buyer: more days, more cost → early).
+        adds, costs = bool(_ADDS.search(text)), bool(_COST.search(text))
+        if adds != costs:
+            return "late" if adds else "early"
         return None
     named = "early" if early else "late"
     if _COST.search(text) and not _PREFER.search(text):
