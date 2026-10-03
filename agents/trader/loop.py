@@ -29,6 +29,7 @@ can't clear the bar.
 """
 import argparse
 import json
+from fnmatch import fnmatch
 import os
 import sys
 import time
@@ -361,6 +362,9 @@ def evaluate(b, o, me, held, st, args):
          "to_us": o.get("to") == me["id"], "ok": False, "skip": "", "bidder": None}
     got = [a["ref"] for a in gassets]
     c["what"] = {"sell": f"sell {refs} for {gcash}", "buy": f"buy {got} for {wcash}", "swap": f"swap {got} for {refs}"}[kind]
+    if kind in ("buy", "swap") and (hit := [r for r in got if any(fnmatch(r, p) for p in args.exclude)]):
+        c.update(skip=f"excluded: never buy {', '.join(hit)} (--exclude {','.join(args.exclude)})", gain=None)
+        return c                                     # Market 08:00: CHA rares bought at ~109 on a +3 gain
     loss = 0.0
     if kind in ("sell", "swap"):
         ids, loss, why = pick_copies(refs, held, me, args.protect_missing, KEEP_SETS | set(args.build),
@@ -385,7 +389,14 @@ def evaluate(b, o, me, held, st, args):
         if c["skip"] or (bound is not None and bound - cost - loss < bar):
             c.update(skip=c["skip"] or f"can't clear the bar: worth at most {bound:.1f} to us", gain=None)
             return c  # no b.value lookup for an offer that can't pass
-        c["gain"] = received_value(b, gassets, st) - cost - loss
+        ratio = args.max_ratio if kind == "buy" else None
+        if ratio is not None and bound is not None and cost > ratio * bound:
+            c.update(skip=f"price {cost} > {ratio:g} x our value (at most {bound:.1f})", gain=None)
+            return c
+        value = received_value(b, gassets, st)
+        c["gain"] = value - cost - loss
+        if ratio is not None and cost > ratio * value:   # a cap per card, not just the gain (Market 08:00)
+            c["skip"] = f"price {cost} > {ratio:g} x our value {value:.1f}"
     if venue in st.own_venues or owner == me["id"]:
         c["skip"] = "our own venue"
     c["gain"] = round(c["gain"], 2)
@@ -493,6 +504,10 @@ def parse_args(argv=None):
     ap.add_argument("--min-gain-sell", type=float, default=6.0,
                     help="sells into bids: higher bar, every sale also scores for the buyer (LOG finding 7)")
     ap.add_argument("--cash-floor", type=int, default=200)
+    ap.add_argument("--max-ratio", type=float, default=None,
+                    help="buys: only when price + fee <= this share of our value (e.g. 0.8); off by default")
+    ap.add_argument("--exclude", type=lambda s: [x.strip().upper() for x in s.split(",") if x.strip()], default=[],
+                    help="never buy or swap for these cards: comma-separated patterns, e.g. 'CHA-*,MAL-*'")
     ap.add_argument("--keep-page-cards", action="store_true",
                     help="never give the last free copy of any page card (01-10) (Operator 16:40: opt-in)")
     ap.add_argument("--protect-missing", type=int, default=2,

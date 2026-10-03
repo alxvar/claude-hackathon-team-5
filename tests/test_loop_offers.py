@@ -629,3 +629,34 @@ def test_a_page_card_to_a_team_within_6_is_a_possible_page_closer_at_any_price()
     b = FakeBazaar(boards={"rastro": [bid(151, 12, "SAL-02")]}, listed={151: "t09"})   # 20 below: fine
     run(b)
     assert [a[0] for a in b.accepted] == [151]
+
+
+# ------------------------------------------------------------------ a price cap per card and an exclude list (Market, Sun 08:00)
+
+def test_max_ratio_caps_a_buy_at_a_share_of_our_value():
+    album = {"pages": [{"set": "MAL", "have": 9, "of": 10, "complete": False}]}
+    def board():
+        return FakeBazaar(boards={"rastro": [ask(132, "MAL-08", 100)]}, album=album, cash=500, values={"MAL-08": 120.0})
+    b = board()
+    run(b)
+    assert b.accepted == [(132, None)]                               # +14 clears the +3 bar: bought
+    b = board()
+    assert run(b, "--max-ratio", "0.8") is None and b.accepted == []  # 106 > 0.8 x 120 = 96
+    assert b.value_calls == ["MAL-08"]
+    b = board()
+    run(b, "--max-ratio", "0.9")
+    assert b.accepted == [(132, None)]                               # 106 <= 108
+
+
+def test_max_ratio_needs_no_value_lookup_when_the_bound_already_fails():
+    b = FakeBazaar(boards={"rastro": [ask(134, "MAL-01", 6)]}, values={"MAL-01": 7.0}, cash=500)
+    run(b, "--max-ratio", "0.5", "--min-gain", "-100")              # 6 + fee > 0.5 x the common's bound
+    assert b.value_calls == [] and b.accepted == []
+
+
+def test_exclude_never_buys_or_swaps_for_a_matching_card():
+    album = {"pages": [{"set": "MAL", "have": 9, "of": 10, "complete": False}]}
+    b = FakeBazaar(boards={"rastro": [ask(135, "MAL-08", 100)]}, album=album, cash=500, values={"MAL-08": 120.0})
+    assert run(b, "--exclude", "cha-*,MAL-*") is None and b.accepted == [] and b.value_calls == []
+    args = loop.parse_args(["--exclude", "cha-*, MAL-*"])
+    assert args.exclude == ["CHA-*", "MAL-*"]
