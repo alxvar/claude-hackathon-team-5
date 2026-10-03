@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 11:06** · tick 353 (30 s/tick) · game hour 4.27 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 11:11** · tick 363 (30 s/tick) · game hour 4.35 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -11,31 +11,31 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 10:21 · **red test fixed** (my 10:02 report): `tests/test_duel_monitor.py::test_duelist_tests_run_on_a_clean_copy_of_the_commit_not_the_working_tree` failed wherever `uv` is on PATH, not only on my Mac: it hands `run_duelist_tests` a toy git repo as `root`, which is also the uv project, and `uv run --project` refuses it ("No `project` table found"; an old `uv` on PATH doesn't know `--project`: my Mac's "try '--help'") · the tool is fine: `run_duelist_tests(HEAD)` on the real repo through uv → 53 passed · fix in the test only: the toy repo runs with the test's own interpreter (`shutil.which` → None) · still red if the runner tests the working tree instead of the commit (mutation-checked) · full suite 279 pass · **for Lucas:** your test; `tools/duel_monitor.py` untouched, no change needed · next: Duels I
   - Sat 10:20 · decisions · **spend limit OK** ($98 left on my key) · **opener (PLAN #3): kept as is** (seller ~1.4-1.65× limit, buyer ~0.6-0.75×). 34 practice duels: 20 rivals spoke → 17 deals; the 3 no-deals were 103/104 (mutual hold) and 181 (missed accept), all now handled in code; no rival walked from our anchor; 13 of 17 deals landed on our side of the two openers' midpoint (the others: 257, 272 at the midpoint, 277/278 restating every tick, fixed by the rounds fix); softer openers did no better (228 at 0.76×, 269 at 1.38× among the weakest); softening the opener by δ costs ~δ/2 in price against ~6% of the surplus per round saved · tripwire: if after Duels I's first 2 waves the deal rate with rivals who speak < 70% or rounds per deal > 4, soften between waves · **arbiter review for Lucas** (`tools/arbiter.py`): OK for Duels I (holds on any in-limit rival offer or ≤ 3 ticks left, a superset of the duelist's accepts; the same-tick race costs ≤ 1 tick, since on `wait_for_tick` the duelist offers their own price or retries next tick); **before Duels II:** a days duel counts any standing offer as in-limit, so with 6 duels at once the bots freeze most of the session → value the package with `agents.duelist.days.read_days` + `guards.worth`, hold only when the weight can't be read · next: Duels I wave 1 on the monitor page
 
-**Dani** — Desk first: the live schedule still has `day_closes` "Closed until Saturday 09:00" at hour 4.0 ≈ 10:49, and Q6 (do duel threads count in the 6 open conversations? Duels II runs 6 at once). Then the room: steer other teams' trades to our v10 (0% fee, directive 10:06); no sell pitches (the feeding rule blocks them all today; the top 4 moves every few minutes, so check the live board). Pitch draft with Lucas during Duels I (11:58-~13:34). Dashboard on my laptop (http://127.0.0.1:8765, read-only) rewrites `intel/teams.md` every 10 min; it reaches GitHub when one of my Claude sessions ends a turn (`--push` is ready but off).
+**Dani** — Desk: Q6 (do duel threads count in the 6 open conversations? Duels II runs 6 at once); the stale `day_closes` at 10:49 did nothing (Lucas 10:50). Room: steer other teams' trades to our v10 (0% fee: one trade there took us #4 → #2 at 10:45); no sell pitches (the feeding rule blocks them all today; the top 4 moves every few minutes, so check the live board). Pitch draft with Lucas during Duels I (11:58-~13:34). Dashboard on my laptop (http://127.0.0.1:8765, read-only) rewrites `intel/teams.md` every 10 min; it reaches GitHub when one of my Claude sessions ends a turn (`--push` is ready but off).
+  - Sat 11:08 · **why we reached #2** (hub snapshots + settlements + directives) · (1) ticks 270 → 280, #6 → #4, negotiating +4.66: RET-01 bought from Team 10 at 20 on El Rastro closed the RET page (2 pages), +50.0 neg_points; why: GUARDRAIL 10:25 (floor 97 for that one buy; Team 10 the only holder; Lucas messaged them), after the 09:55 venue decision put the cash into RET · (2) ticks 310 → 320, #4 → #2, market +4.99 over the field: Team 10 sold MAL-07 to Team 1 on OUR stall v10 at 14 P (tick 311); value created between other teams on our venue scores market for us; why: 10:06 (Team 12's lead came from one trade on its 0% venue) → v10 fee 0% from tick 230 (10:03) → reciprocal deal 10:18 (our maker book on Team 10's v07, theirs on our v10) · snapshot 340: #3 (27.95), field moving · **dashboard:** new Overview card "Big moves: what happened and why" (each big interval with its causes: our trades, pages completed, other teams' trades on our venue, plus the directive lines naming the same card or venue), "Why our score moved" split into our negotiating / our market / field drift, and a "Team decisions" card (today's directives, read from origin/main by `git fetch`, which never touches the working tree); restarted 11:02 · next: keep teams trading on v10 (room)
   - Sat 10:38 · **judges (40%), first drafts:** `DECISIONS.md` (22 decisions Fri → Sat, each with who decided, evidence, measured outcome and lesson; open decisions) and `judges/demo.md` (6 slides with sources, an architecture diagram marking code / agent / human steps, "what we measured" table, cost ledger, round-close snapshot rows); PLAN.md calls it `docs/demo.md`, it lives in `judges/` · updated with the RET page close (10:27, +50.0, cap 50 [V, n=2]) · TBD: Duels I numbers, round-close screenshots, judging format (Q7) · **Lucas:** check entries 12, 19, 20 (cash floor, venue, RET-10 cap) for wording · dashboard code committed (it was blocking every pull: the hook doesn't pull over code edits) · next: desk, room, pitch with Lucas in Duels I
   - Sat 10:16 · **for Aleks** (repo audit 10:00-10:15, read-only, each checked in the code) · (a) the negotiator still gets a band when the strategist holds (`agents/duelist/agent.py:99` `make_band`, `runner.py:421` `is_hold`): if it picks 1-2 P off our standing offer, that is sent and costs a round (the 278 pattern) → when the plan's target equals our standing price and day, hold in code without asking the negotiator; before 11:58 if you agree · (b) `engine/failover.py:21` gives the primary 20 s, but the whole decision (strategist + negotiator) has max(8, tick − 5) = 25 s (`runner.py:385`): the backup is rarely reached today and never at Sunday's 15 s ticks → primary budget ≈ 40% of the tick · (c) `docs/duelist-runbook.md:61,66` say hour 6.5 / 13 (live: 5.15 ≈ 11:58, 11.65 ≈ 18:28) · (d) `hub/import_files.py`: a `me` row with `tick: null` aborts the file; "new" overcounts repeated ids; files open without utf-8 (Windows) · next: Aleks decides (a)
-  - Sat 10:16 · **for Lucas** (repo audit 10:00-10:15, read-only, each checked in the code or the hub; by impact) · (1) `agents/trader/loop.py:139` accepts on every open rival venue (bar 3, or 15 for the top 4): each fill scores market for the venue's owner (your 10:06: one 7 P trade gave t12 its market lead) → El Rastro + venues of teams ≥ 10 below us only · (2) the feeding rule is written 4 ways: `PLAN.md:36` page-closers only; `opportunities.md`/`teams.md` every sale; `judge.md` page-closers to teams 6-9 below OK; `ORCHESTRATOR.md:75` other sales to the top 4 OK "if our gain clearly beats theirs"; and `loop.py:231` treats a sale as a page-closer only at ≥ 1.5× book (`CLOSER_X`, l.55) → one rule, one check · (3) directive 10:03 (RET-10 cap 91, value 77) lifts "never above value" without GUARDRAIL, on a false premise (t18 bought RET-10 from Chato at 86, tick 213; we got ours at 86, tick 232); `agents/dealers/chato_steady.py` takes the cap from `--cap` with no value check and checks the cash floor once, at start (l.47) · (4) cash floor: GUARDRAIL 09:55 = 100, `ORCHESTRATOR.md:34` 370 and `:65` 200, code defaults 200 (`loop.py:462`, `opportunities.py:343`, `abuela_bot.py:36`), `daemons.sh` 100 · (5) the venue bond is 250 (`bazaar-kit/RULES.md:70`, all 7 board venues in the feed), not 270 (ORCHESTRATOR, plan §4E, strategy) · (6) bot vs bot: `PacedBazaar` (`abuela_bot.py:73`) doesn't pass `wait_on_tick=False`; `trade.py accept` doesn't go through the arbiter (its docstring says it checks value) · (7) stale docs: `CLAUDE.md:47`, `saturday-plan.md:22`, `brief-aleks.md:20` and `tools/duel_monitor.py:15,48` say rounds = priced offers (GAME.md is fixed); `saturday-plan.md:174`/`brief-aleks.md:32` "send their own price from ticks_left ≤ 4" now costs a round; plan/brief-aleks times 11:30 / 18:00; `brief-dani.md:13` pitch window (Duels I is 11:58-~13:34); `market-playbook.md:4,8,49,59`: hard test at 14.65 ≈ 21:28 (not 16.0), Sunday has 3 benches (17, 19, 21; the first ≈ 09:21), not 2; `judge.md:13` "addressed offers visible only to the addressee" vs `GAME.md:38` [V] · next: Lucas triages
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 11:10 · operator · scout 11:09 applied: LAT-08 (worth 12.5) re-addressed from t15 (book had stepped it to 17) to **t03 at 25** on v07 (offer 5425, until tick 421; t03 collects LAT, est. bid 28); removed from run/book.json, posted by hand
+  - Sat 11:07 · Builder · **SAL page scan** (intel/sal-page.md, verified): not buildable today, ≥ 209 P vs cash 107, no SAL rare ever below 70; our v07 asks sell SAL-08 (only copy) and both SAL-01 · **duelmon** 7741585: "we are silent" counts from a rival's move (holds send nothing), page carries the failover line (cold standby `uv run python -m agents.duelist run` only after Aleks confirms; never two); restarted 10:41 · **docs/judges/facts.md** 902683e: 47 measured findings × DECISIONS.md D1-D22 + Mermaid architecture, two verifier passes · next: Chief's queue
   - Sat 11:06 · operator · **SAL-01 sold to Team 3 at 7** (offer 5205 on v07, after Lucas's DM; their counter of 7 accepted): `neg_points` 28.5 → **33.2** (+4.7, predicted +4.8), cash 114, value created on v07 for Team 10 · the other SAL-01 copy is still worth 2.2 (server value), so book.py's 5081 → t06 at 6 stays (+3.8) · #3 (28.95), top 4 t18/t13/us/t12
-  - Sat 11:05 · operator · public LAV asks (Chief 11:02) checked and SKIPPED: t02 (top 4) bid for LAV-02 ×4 and LAV-04 ×2, t12 (1.6 below us) bid for LAV-04 → every set is blocked for public asks right now (SAL/MAL: t13 #1; LAT: t18; LAV: t02/t12 lack 02/04) · Team 10's value created comes only from our addressed v07 asks (4745, 4746, 4747, 4879 + book.py)
-  - Sat 11:03 · operator · SAL-01 → t03 at 10 on v07 (offer 4879, Team 3 values it 13; 4322 at 40 had expired) · **directive 11:02 (public SAL asks on v07) NOT executed: stale premise**: at the 11:00 snapshot t13 is back in the top 4 (#1) and collects MAL/SAL (teams.md) → flagged to the Chief with a counter (2nd-copy LAV public, no top-4 LAV collector now); SAL-03/05 at 9 would score 0 anyway (first copies, worth 9) · rank #3 (27.95)
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 28.95 | 3 | 16.45 | 12.50 | 0.00 | 0.06 | 0.90 | 34 | 2 | 114 | 32/50 |
+| 29.72 | 3 | 17.22 | 12.50 | 0.00 | 0.06 | 0.90 | 34 | 2 | 114 | 32/50 |
 
-Leaderboard (snapshot at tick 350; refreshes every few minutes):
+Leaderboard (snapshot at tick 360; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 18 | 30.47 | 22.97 | 7.50 | 27 |
-| 2 | Team 13 | 30.24 | 26.91 | 3.33 | 43 |
-| 3 | Team 5 | 28.95 | 16.45 | 12.50 | 33 |
-| 4 | Team 12 | 26.52 | 14.02 | 12.50 | 30 |
-| 5 | Team 2 | 25.18 | 17.68 | 7.50 | 31 |
+| 1 | Team 18 | 30.55 | 23.05 | 7.50 | 28 |
+| 2 | Team 13 | 30.13 | 26.81 | 3.33 | 43 |
+| 3 | Team 5 | 29.72 | 17.22 | 12.50 | 34 |
+| 4 | Team 12 | 26.24 | 13.85 | 12.39 | 30 |
+| 5 | Team 2 | 25.84 | 18.34 | 7.50 | 33 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 5.00 | ~44 min | bench | The Market Test: every venue gets the same synthetic book |
-| 5.15 | ~53 min | duels | Duels I: price only, one round-robin |
-| 5.51 | ~74 min | persona_opens | Doña Pilar opens for everyone |
-| 7.00 | ~164 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.00 | ~284 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.15 | ~293 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
-| 11.00 | ~404 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~413 min | persona_patch | The fever breaks |
+| 5.00 | ~39 min | bench | The Market Test: every venue gets the same synthetic book |
+| 5.15 | ~48 min | duels | Duels I: price only, one round-robin |
+| 5.51 | ~69 min | persona_opens | Doña Pilar opens for everyone |
+| 7.00 | ~159 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.00 | ~279 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.15 | ~288 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
+| 11.00 | ~399 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~408 min | persona_patch | The fever breaks |
 
 ## Our dealer deals
 
@@ -100,11 +100,11 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
-| common card | team buys | 50 | 9.00 | 7 | 12 | 5 | 9 |
-| common card | team sells | 47 | 6 | 5 | 23 | 5 | 5.40 |
+| common card | team buys | 51 | 9 | 7 | 12 | 5 | 9 |
+| common card | team sells | 50 | 6.00 | 5 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 37 | 22 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 58 | 23.00 | 17 | 29 | 4 | 24.50 |
-| uncommon card | team sells | 6 | 14.00 | 13 | 16 | 0 | — |
+| uncommon card | team sells | 7 | 14 | 13 | 17 | 0 | — |
 
 ## Duels
 
