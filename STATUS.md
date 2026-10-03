@@ -1,15 +1,15 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 09:55** · tick 213 (30 s/tick) · game hour 3.10 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 10:00** · tick 223 (30 s/tick) · game hour 3.18 · running · today closes 23:00._
 
 ## Team: now and latest
 
 _From `team/<name>.md`; each person writes only their own file._
 
-**Aleks** — Duelist LIVE on current code since 09:15 (`supervise.sh`, detached, caffeinate); Claude Code monitors it and reports. Duels I: hour 5.15 = **tick ~459, ~11:58** at 30 s ticks (2 ticks per game minute; my 09:15 'tick 309 / 75 min' was wrong, Lucas's builder caught it), 3 at once, 16 ticks, 6%; Duels II hour 11.65 = tick ~1239. Open: Aleks's spend limit check, arbiter review with Lucas.
-  - Sat 09:55 · duelist fix for Duels I, **every message is a round** (277/278): (1) a hold sends nothing: a model move that is a no-price message, or an offer at our standing price and day, is logged as a hold, not sent (`runner.is_hold`); the opener is always an offer; (2) a rival repeating its standing offer (or sending no price) has not moved (`runner.signature`); the hold breaker counts ticks since their offer changed, we sent, or we decided, so against a repeater it fires every 3 ticks; (3) rounds = min(our messages, theirs), priced or not, in the facts, the brief, both prompts, `their_price`, the runbook · 278 replayed: no message after the opener, models asked on 168/171/174 (holds), code takes 111 on 175: rounds 1, 4.7 instead of 2.7 · 6 new/updated tests fail on the old code; 49 duelist, 255 in all pass · pushed (ab0f793 + d1fc873 by the auto-sync, mid-work) · **not restarted** (Aleks restarts) · **for Lucas:** `tools/duel_monitor.py` l.15, 47, 327 and `intel/GAME.md`'s duel fact say rounds = min(priced offers): it is min(messages), priced or not
-  - Sat 09:50 · practice replay on the new code (10 practice duels, ticks 160-180): **8 deals, 151 points-equivalent (unscored)**; code rules fired live: silent walk (116 85→123, 182 95→70, 271 125→115; 116/182 no deal: Rival Oro never answered), deadline accept (278: 111 on tick 175); `pred` = `points` on all 19 recorded deals; decisions avg 3-8 s, max 14.2 s (budget 25 s) · **finding:** vs a rival that repeats one price every tick (277 Plata, 278 Oro) we stepped 9-11 times, each a priced offer, so rounds climbed to ~11: 277 surplus 13 → 6.6, 278 surplus 5 → 2.7; per the 09:48 finding every message counts as a round, so silence is the only free hold (Builder fixing) · fixed my `test_review_predicts...` (asserted exactly 11 deals; the records grew): ≥ 11, all pred = points · full suite 251 pass · next: Aleks's call on fewer, bigger steps vs a repeater before Duels I (~11:58)
-  - Sat 09:48 · practice replay at unpause, then rounds finding · the 6 frozen practice duels: 4 deals (270 28.2, 228 17.4, 227 17.2, 269 9.7 after 6 rounds), 116/182 silent Rival Oro 0; no errors, no fallbacks, decisions 5-8 s, $0.16 · **found [V]: the game counts EVERY duel message as a round, priced or not**: in 277 our 3 no-price messages (ticks 166-168) each raised `rounds` with priced offers flat at 3; final rounds 11 = min(our 12 messages, their 11), priced only 9, result 6.6 = 13 × 0.94^11. 278: Rival Oro repeated 111 (inside our 116) every tick, we answered every tick (incl. two same-price restatements), 10 rounds, took 111 anyway: 2.7 vs 4.7 at round 1. So silence is the only free hold. GAME.md, our prompts/ledger/their_price and duel_monitor.py all say "priced offers" · confirmed game hour = wall hour (tick 168 at 2.725) · handed the fix to Lucas's **Builder** on Aleks's call: holds send nothing, a repeated rival offer isn't a move, the hold-breaker counts ticks since the rival's offer changed, all messages counted as rounds, tests from 277/278, duel_monitor wording; **Operator:** GAME.md duel fact needs the same correction · next: pull the Builder's push, test, restart before Duels I
+**Aleks** — Duelist LIVE on the rounds fix (ab0f793 + d1fc873, 277/278 tests) since 09:54:56 (`supervise.sh`, detached, caffeinate), full suite 255 pass. Duels I ≈ 11:59 (tick ≈ 459), Duels II ≈ 18:29 (tick ≈ 1239). PLAN.md Aleks block (09:58): #2 done, #6 noted; open: #3 opener (Aleks's call), #4 waits on Dani's Q6, #5 later, spend-limit check, arbiter review with Lucas.
+  - Sat 10:02 · **duel monitor page** (`python -m agents.duelist monitor` → http://127.0.0.1:8766, read-only, keyless, no load on the team key): our live duels message by message with our decision under each (band, latency, strategist read, code-rule tags, holds), finished duels with result, a notice on each deal; the field from the public feed (the game shows other teams' duels only as they close: item, deal or not); duelist status and the next session's ETA · 5 tests, 53 duelist pass · **for Lucas:** `tests/test_duel_monitor.py::test_duelist_tests_run_on_a_clean_copy_of_the_commit_not_the_working_tree` fails on a clean HEAD on Aleks's Mac (`run_duelist_tests` → "For more information, try '--help'", likely a uv flag or the broken pyenv `uv` shim here)
+  - Sat 10:05 · PLAN.md Aleks block (09:58) checked · **#2 done**: duelist restarted 09:54:56 on ab0f793 + d1fc873 (277/278 tests), no duelist code change since (only monitor.py/html), full suite 255 pass; **#1** noted (11:59 / 18:29, re-read `/api/schedule`); **#6** noted (09:44-09:46 test alerts false) · open: **#3** less extreme opener (Aleks's call), **#4** Q6 (Dani), **#5** Duels II day reading + Sunday Sonnet strategist · next: Aleks decides on the opener before 11:40
+  - Sat 09:55 · duelist restarted on the Builder-done rounds fix (HEAD 1b5e5db, ab0f793 + tests): full suite 255 pass, no live duels (tick 211); up since 09:54:57, log `logs/duelist/supervise-20261003-0954.log`; reads Duels I (hour 5.15, ~11:59, tick ~459) · Claude Code watching it · next: Aleks's call on a softer opener (PLAN item 3) before 11:40
 
 **Dani** — Dashboard runs on my laptop as a standalone process (http://127.0.0.1:8765, read-only; anyone can run their own with `dashboard/start.bat` or `python dashboard/server.py`). It rewrites `intel/teams.md` every 10 min. Next: the room (buyers for SAL/LAT below us) and the organisers' desk.
   - Sat 09:48 · Chief 09:55 #2 + #4 (feed part) · **dashboard ETAs fixed:** `schedule()` multiplied hours by `tick_seconds` (right on Friday by chance, half on Saturday); now ticks per game hour measured on the feed's last 20 ticks × tick length (Fri 60 × 60 s, Sat 120 × 30 s: both 60 min per game hour, so it holds on Sunday at 15 s whatever the rate) · restarted 09:46: Market Tests 09:49/11:49/13:49…, Duels I 11:58, Duels II 18:28, hard test 21:28 (matches the Chief) · **El Retiro, public feed to tick ~198 (facts, no prices):** rares RET-09/10 (30 printed each), RET-11 epic (9), RET-12 legendary (3) · **holders:** no team has listed, sold or bought any RET rare; the only known holder is **El Chato, who sells RET-09** (t18 asked for it at tick 190, no deal); no pack pull shows RET · **collectors:** t12 (#2, top 4) bought 4 RET from Abuela (RET-05..08) and asked her for RET-04..08; t15 (#14) bids for RET-09/10/07/05, the highest RET bids, and asked Abuela 4× for RET-06; t02 (#10) bought RET-01/06/08 and bids for RET-02/03/04/09/10; t18 (#8) asked Chato for RET-09 and Abuela for RET-06; t10 (#7) swap offers asking RET-02/03/06; t13 (#1) and t03 (#11) token bids on RET commons · top 4 now t13, t12, t14, t17 (t04 #5, t14 #3: the Chief's list is stale; it moves) · next: the room confirms who holds RET rares (packs are invisible), desk 3a-e
@@ -17,26 +17,26 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 09:41 · Team 12 label fixed (Aleks's model: MAL 1.6; my profile said "dumps MAL"): the dashboard counted every relisting as one more sale, and t12 relisted one spare MAL-02 ~23 times (6-10 P) while buying 6 MAL cards (rares MAL-09/10 from Chato at 90/89) → `dashboard/server.py` now counts bids/asks once per distinct card · `intel/teams.md` 09:39: t12 collects MAL/RET, dumps SAL/LAT/LAV (still "leader, never feed"); t15 collects LAT/MAL/RET; t18 collects LAT; t17 no longer "dumps LAV" · dashboard restarted 09:39 on the new code, which also turns on the hub read (+89 events, no errors) · next: desk, room, judges
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
-  - Sat 09:55 · operator · **floor 100 live** (GUARDRAIL 09:55, no venue now): trader + opps restarted with CASH_FLOOR=100 · **RET page: have RET-02/03/04/05 + RET-09** · RET-09 from Chato at 87 (steady-step +3 from 57; his 97→96→95→90→final 87): `neg_points` 0 → **−10.0** exactly as predicted, ladder unchanged · RET-02 from Abuela at 9 (3rd ladder deal, ladder 0.048) · RET-10: team bid 70 unfilled (no team holds a RET rare: no pack pull, no ask; Chato is the only source) → cancelled, Chato steady-step RET-10 running (cap 88) · RET-01 stays for the team-buy cap test · new `agents/dealers/chato_steady.py` (fixed step, never a repeated price, walks after 8 stuck ticks, `--resume`) · t03 bids 64 for our LAV-09 (worth 177): ignored · **dealer gains don't score [V, n=2]** (RET-04, RET-03 at 9, worth 11: `neg_points` 0 → 0) → GAME.md · the Builder's git fix wiped my uncommitted files twice (09:50, ~10:00): running dealer scripts from scratchpad until git stays clean · next: RET-10, then 3 RET uncommons from Chato at cap 28 (level-3 early start), reprice the unfilled maker book (0 fills in 17 min)
-  - Sat 09:49 · operator · dealer gains measured (see 09:55) · bot walked RET-02 at her 10 vs our 9, then opened a futile RET-08 at cap 14 (budget 14 above floor 370) → killed + thread closed (anti-spam directive 09:46) · swap tests posted: SAL-03 + SAL-05 → RET-07 to t16 (3245), MAL-02 + MAL-04 → RET-08 to t07 (3246) · GAME.md: duel rounds = every message, round-2 reset + grant, Abuela Sat, RET rare supply
-  - Sat 09:49 · operator · **dealer gains don't score [V, n=2]**: Abuela RET-04 at 9 and RET-03 at 9 (worth 11 each, collection value +22): `neg_points` 0 → 0 both times, ladder 0 → 0.014 → 0.032 · bot walked RET-02 (her 10 vs our cap 9), then opened a futile RET-08 at cap 14 (budget 14 above floor 370) → killed + thread closed (anti-spam directive 09:46) · swap tests posted: SAL-03 + SAL-05 → RET-07 to t16 (3245), MAL-02 + MAL-04 → RET-08 to t07 (3246) · GAME.md: duel rounds = every message, round-2 reset + grant, Abuela Sat, RET rare supply (no team pulled one; Chato list 77) · **git stuck mid-rebase** (gitsync autostash vs the Builder's uncommitted duelist edits; WIP saved in stash@{0}/{1} and run/builder-wip-*.patch) → handed to the Builder via the Chief · next: 3rd Abuela ladder deal at ~09:52, venue decision after bench 3.0
+  - Sat 10:00 · Market: bench 3.0 on the stall v10 · efficiency 0.899, bench_points 0.5, market 4.8 = every stall team; no board venue beat the stall (t06 3.66, t13 2.13 worse); t12 8.01 from one 7 P trade on v02 (value created); the stall book shows only leftovers, so replays cannot measure an edge; fee PATCH on v10 blocked by permissions · next: sim calibration, bench 5.0 ~11:50 (`intel/market-log.md`)
+  - Sat 09:59 · operator · RET-10: Chato FINAL 91 > cap 88 after 4 rounds (97 → 94 → 91f vs our 57 → 66) → walked; Chief raised the cap to 91 (directive 10:03); retry scheduled 10:01:45 (anti-spam: 10 ticks after the walk) · judge 09:57 applied: 6 spare asks repriced 10 → 9 (LAV-04/SAL-01/SAL-02 → t07, LAV-02 → t09, LAV-03 → t16, LAT-03 → t15); SAL-08 re-addressed t02 → t16 at 33 (scout: t16 is the SAL buyer, bids 78 for SAL-10); swaps kept (scout 09:51 misread them as 0 P asks) · bench 3.0: `bench_efficiency` 0.899 · other RET buys held ~5 min (Chief: bench / Team 12 market check) · next: RET-10 retry
+  - Sat 09:57 · Builder: **rounds fix = Aleks's** (ab0f793 + his 277/278 tests); mine dropped · **git incident 09:44-09:52**: `pull --autostash` stashed my half-done duelist edit in the shared tree, conflicted with Aleks's push, then every hook run committed everything mid-rebase and `rebase --abort`ed it (reflog: 13×), discarding the Operator's and Chief's work (restored by the Chief from the reflog) · fixed in 5b22cc1: gitsync + team_sync never pull over tracked code edits, never git mid-rebase, abort a failed pull, honour `run/git-paused`; duelmon tests a `git archive` copy of the commit (it paged 3 false "tests failed" 09:44-09:46) · 7 new tests fail on the old scripts, suite 263 pass · status, duelmon, scout, judge, strategist restarted 09:55; duelmon: Aleks's 49 tests pass on 6d69d18 · **rule: code edits in a git worktree, never in the shared tree** · next: 429 handling audit
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 15.29 | 6 | 15.29 | 0.00 | 0.00 | 0.05 | — | 28 | 2 | 288 | 26/50 |
+| 19.31 | 8 | 14.51 | 4.80 | 0.00 | 0.05 | 0.90 | 28 | 2 | 288 | 26/50 |
 
-Leaderboard (snapshot at tick 210; refreshes every few minutes):
+Leaderboard (snapshot at tick 220; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 12 | 32.19 | 20.70 | 11.49 | 27 |
-| 2 | Team 13 | 23.30 | 23.30 | 0.00 | 34 |
-| 3 | Team 14 | 17.23 | 17.23 | 0.00 | 13 |
-| 4 | Team 17 | 15.40 | 15.40 | 0.00 | 16 |
-| 5 | Team 4 | 15.38 | 15.38 | 0.00 | 17 |
-| 6 | Team 5 | 15.29 | 15.29 | 0.00 | 28 |
+| 1 | Team 12 | 27.60 | 19.59 | 8.01 | 29 |
+| 2 | Team 13 | 24.66 | 22.53 | 2.13 | 34 |
+| 3 | Team 14 | 21.94 | 17.13 | 4.80 | 13 |
+| 4 | Team 18 | 21.06 | 16.25 | 4.80 | 24 |
+| 5 | Team 2 | 20.12 | 15.32 | 4.80 | 17 |
+| 8 | Team 5 | 19.31 | 14.51 | 4.80 | 28 |
 
 ## Next on the schedule
 
@@ -44,14 +44,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 4.00 | ~54 min | day_closes | Closed until Saturday 09:00 |
-| 5.00 | ~114 min | bench | The Market Test: every venue gets the same synthetic book |
-| 5.15 | ~123 min | duels | Duels I: price only, one round-robin |
-| 7.00 | ~234 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.00 | ~354 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.00 | ~474 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.65 | ~513 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~594 min | bench | The Market Test: every venue gets the same synthetic book |
+| 4.00 | ~49 min | day_closes | Closed until Saturday 09:00 |
+| 5.00 | ~109 min | bench | The Market Test: every venue gets the same synthetic book |
+| 5.15 | ~118 min | duels | Duels I: price only, one round-robin |
+| 7.00 | ~229 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.00 | ~349 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.00 | ~469 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.65 | ~508 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~589 min | bench | The Market Test: every venue gets the same synthetic book |
 
 ## Our dealer deals
 
@@ -90,15 +90,15 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | 373 | abuela | buy | RET-08 | 29 | 14 | — | — | 2 | closed |  |
 | 384 | chato | buy | RET-09 | 97 | 57 | 87 | -10% | 11 | deal |  |
 | 389 | abuela | buy | RET-02 | 12 | 7 | 9 | -25% | 7 | deal |  |
-| 394 | chato | buy | RET-10 | 97 | 57 | — | — | 6 | open |  |
+| 394 | chato | buy | RET-10 | 97 | 57 | — | — | 9 | closed |  |
 
 ## Abuela benchmark: every team's deals with her (public feed)
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
-| common card | team buys | 41 | 9 | 7 | 12 | 5 | 9 |
+| common card | team buys | 46 | 9.00 | 7 | 12 | 5 | 9 |
 | common card | team sells | 37 | 6 | 5 | 23 | 5 | 5.40 |
-| sobre_barrio | team buys | 35 | 22 | 17 | 30 | 3 | 20.33 |
+| sobre_barrio | team buys | 36 | 22.00 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 48 | 22.00 | 17 | 29 | 2 | 26.50 |
 | uncommon card | team sells | 6 | 14.00 | 13 | 16 | 0 | — |
 
