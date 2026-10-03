@@ -1,5 +1,14 @@
 # Market log (Market session; newest first)
 
+## Sat 10:20 · reciprocal venue deal with Team 10 (Chief): tracking started
+- Their standing offers → our v10, ours → their v07, both 0%. Page-closing trades stay on El Rastro.
+- **Baseline [V, snapshot 260]:** stall teams 6.23 · us 6.23 (+0.0) · t10 6.23 (+0.0) · t12 10.39. The market number
+  drifts up every snapshot for everyone (round growth: 4.8 → 5.23 → 5.61 → 5.94 → 6.23), so attribution = our gap to
+  the stall teams' number.
+- v10: fee 0 since tick 230; 0 trades. Team 13 listed asks at tick 233-234 (LAV-01 5, LAT-02 6, SAL-03 9). v07: 0 trades.
+- Alerts armed: ratio > 2:1 against us · no t10 trade on v10 within 30 min of their switch · crossing offers on v07
+  unmatched > 3 ticks · our gap disappearing.
+
 ## Sat 10:03 · sim with staggered arrivals (first calibration, hand-set from the bench 3.0 trace) [L, model]
 - `staggered-20` (20 traders, arrivals over ticks 0-10, limits 20-110, shade 0.1-0.4, short lives), 300 seeds:
   auto_clone 0.883 (real stall: 0.899), **v1 0.871 = −1.2 pp vs the stall** (worse in 52, better in 26, worst −28 pp),
