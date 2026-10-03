@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sat 15:47 · operator · **handoff kept in run/operator-handoff.md** (jobs, monitors, live special offers, reserved cards, scripts, next steps; updated on change) · opps 9343 (RET-04 → t15 at 40, +37.2) checked: it sells our 2nd RET-04 copy, page stays complete · bargain monitor now also catches `ARB ` arbitrage lines (Chief: check the bid, feeding rule on the sell leg, net ≥ 5) · `swaps` daemon on hold until cleared
 - Sat 15:55 · Builder · Chief's 3 builds pushed (375 pass): swaps engine cfa654d (daemon `swaps`, on hold until verified; dry run 43 candidates, best +10.3/+9.7), v10 partner suggestions f1ce219 (radar, live, every 30 min), arbitrage in bargains 4c81dfc (live; ARB lines for the Operator) · 2 verifiers running
 - Sat 15:31 · Builder · cha-plan: pack 755 opened Saturday (Chief/Operator), CHA bids cover all 10 (4d3dd39)
 - Sat 15:39 · operator · swaps unfilled at tick 647 → reposted: 9387 (El Rastro → t15: LAT-04 2nd + MAL-04 for SAL-07) and 9389 (v15 → t07: LAV-02 2nd for MAL-01), until tick 688 · Chief: MAL-09 held for Pícaros (no sale to t17); L3 near saturation (no more Pilar round trips unless they clearly beat the weakest share) · NEWS #6: Abuela gift pack ~16:40 → auto-open job armed
