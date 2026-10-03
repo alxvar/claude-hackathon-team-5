@@ -101,15 +101,14 @@ to sell an uncommon or a rare that cheap.
 0. **Pick the degrade tier** from C = Saturday close + 150 before the release; re-read `/api/me` cash after the
    allowance (≈ 09:32) and adjust if it differs. Tell the Chief which tier.
 1. **At the release** (catalog `released`; not before, since refused posts retry every tick on the shared 5 req/s),
-   right after opening pack 755 (checklist step 3), **add** the CHA bids below to run/book.json for the cards still
-   missing, **keeping the asks already there**.
+   **add** all 10 CHA bids below to run/book.json, **keeping the asks already there**.
    - All on **El Rastro** (`page_closer: true`): any of them can turn out to be the card that closes the page, and page
      closers stay off team venues (directives 10:18, 10:30). `life: 20` (directive 09:46).
    - `book.py` caps each bid at value − 3 (13 / 37 / 109). Unfilled 20 ticks (5 min at 15 s) at one price, it steps up
      ¼ of the gap to the entry's floor (12 / 30 / 90), if cash allows: rares reach ~85 by 10:00, commons 12 in ~15 min.
    - `last_card: true` (2a465dc): every 10 ticks the book re-reads our value; once a card is the page's last missing
      one, its bid jumps to value − 50 (72 / 96 / 168), cash permitting. **No Operator edit is needed for the closer.**
-   - The book cancels a bid by itself once that card reaches us another way (a dealer, the trader, the pack: a005145).
+   - The book cancels a bid by itself once that card reaches us another way (a dealer, the trader: a005145).
      opps never bids for a card the book bids for (45ce829); run it with `OPPS_BUILD=RET` all morning anyway, so it
      can't bid CHA when an entry is removed for a dealer buy.
 **Before any dealer run (steps 2-4): never send the page's last missing card to a dealer.** Count the CHA cards still
@@ -133,8 +132,9 @@ This is the one allowed remove-and-re-add.
    because commons print 300 vs 90, so a team is likelier to hold a spare. More than two missing at 12:30: buy all but
    one common the same way. If no team ever sells the last card, the bonus is lost: never close the page through a
    dealer (both dealer bots refuse to).
-5. Never a pack unless the Chief directs one (unopened packs drag trade scores [L]). The one exception so far: asset 755
-   (silver pack), opened at the release before the CHA bids (checklist step 3).
+5. Never a pack unless the Chief directs one (unopened packs drag trade scores [L]). The silver pack (asset 755) is
+   opened Saturday ~15:35 (the Chief's change, Operator 15:30: its drag measured −2.2 on one buy, and its cards feed
+   today's ladder sells), so no pack is held on Sunday.
 
 ## run/book.json at the release (add to the asks already there; all on El Rastro)
 
@@ -191,13 +191,8 @@ Commands run from the repo root with the key loaded: `set -a; . ./.env; set +a; 
    `CASH_FLOOR=0 MIN_GAIN_SELL=2 tools/daemons.sh restart book`. Opps at 100 without CHA:
    `CASH_FLOOR=100 OPPS_BUILD=RET tools/daemons.sh restart opps`. The trader may run (directive 12:50) at its floor
    100 and counts our open bids against it (227140e): `tools/daemons.sh restart trader` (no CASH_FLOOR prefix).
-3. **At the release** · first **open asset 755** (sobre_plata, value 91.1 Sat 12:45) alone in its measurement window:
-   `tools/daemons.sh stop book opps trader` (the book's live asks stay up), open it, read `/api/me`, then start them
-   again with the step 2 commands
-   (Operator 12:50, the Chief's decision: kept unopened until then; luck never scores). Fallback: if the desk or the
-   feed shows pack contents are fixed at grant time, open it Saturday evening instead. Then add the CHA bids to
-   run/book.json for the cards still missing (a CHA card from the pack: leave its entry out; keep the asks), with the
-   floors of the degrade tier, in one write.
+3. **At the release** · add all 10 CHA bids to run/book.json (keep the asks), with the floors of the degrade tier, in
+   one write.
    **≈ 09:32** · read `/api/me` cash = C after the allowance; adjust the tier if it differs from the expected and tell
    the Chief. Tier C: add CHA-01..04 only once both rares are in.
 4. **First bid out** · `/api/me` cash before and after (does the server hold bid cash?); `expires_tick − created_tick`
