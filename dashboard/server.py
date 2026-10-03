@@ -93,6 +93,7 @@ class Collector:
         self.teams_every = 0
         self.teams_push = False
         self.teams_last = 0.0
+        self.directives, self.directives_src = "", None   # intel/directives.md: the team's decisions and their why
         CACHE.mkdir(parents=True, exist_ok=True)
         self._load()
 
@@ -153,7 +154,8 @@ class Collector:
             return
         snap = {"tick": tick, "t": lb.get("t"),
                 "teams": {t["team"]: {"name": t.get("name"), "score": t.get("score"), "negotiating": t.get("negotiating"),
-                                      "market": t.get("market"), "deals": t.get("deals")} for t in lb.get("teams", [])}}
+                                      "market": t.get("market"), "deals": t.get("deals"),
+                                      "pages": t.get("pages_complete")} for t in lb.get("teams", [])}}
         with self.lock:
             self.lb_hist[tick] = snap
         self._append("leaderboard.jsonl", [snap])
@@ -199,10 +201,16 @@ class Collector:
                     cur.execute(cols)
                 events = [{"id": i, "tick": tk, "t": t, "type": ty, "scope": sc, "actor": ac, "payload": p}
                           for i, tk, t, ty, sc, ac, p in cur.fetchall()]
-                cur.execute("""select s.snapshot_tick, l.t_hours, s.team, s.name, s.score, s.negotiating, s.market, s.deals
+                cur.execute("""select s.snapshot_tick, l.t_hours, s.team, s.name, s.score, s.negotiating, s.market, s.deals,
+                                      s.pages_complete
                                from hub.team_snapshots s left join hub.leaderboard l using (snapshot_tick)
                                where not (s.snapshot_tick = any(%s))""", (known_lb or [-1],))
                 lb_rows = cur.fetchall()
+                pages = []
+                if self.hub_since is None:  # first pass: page counts for the snapshots we had (older caches lack them)
+                    cur.execute("select snapshot_tick, team, pages_complete from hub.team_snapshots "
+                                "where snapshot_tick = any(%s)", (known_lb or [-1],))
+                    pages = cur.fetchall()
                 cur.execute("""select distinct on (tick) tick, data from hub.me_snapshots
                                where not (tick = any(%s)) order by tick, source""", (known_me or [-1],))
                 me_rows = cur.fetchall()
@@ -212,9 +220,10 @@ class Collector:
             self.errors.appendleft(f"{time.strftime('%H:%M:%S')} hub: {redact(e)}"[:200])
             return
         snaps = {}
-        for tick, t, team, name, score, neg, market, deals in lb_rows:
+        for tick, t, team, name, score, neg, market, deals, pages_complete in lb_rows:
             s = snaps.setdefault(tick, {"tick": tick, "t": t, "teams": {}})
-            s["teams"][team] = {"name": name, "score": score, "negotiating": neg, "market": market, "deals": deals}
+            s["teams"][team] = {"name": name, "score": score, "negotiating": neg, "market": market, "deals": deals,
+                                "pages": pages_complete}
         me_keys = ("score", "rank", "neg_points", "negotiating", "market", "cash", "ladder_points", "duel_points")
         with self.lock:
             new_ev = [e for e in events if e["id"] not in self.events]
@@ -223,6 +232,10 @@ class Collector:
             new_lb = [s for k, s in sorted(snaps.items()) if k not in self.lb_hist]
             for s in new_lb:
                 self.lb_hist[s["tick"]] = s
+            for tick, team, pg in pages:
+                row = (self.lb_hist.get(tick) or {}).get("teams", {}).get(team)
+                if row is not None and row.get("pages") is None:
+                    row["pages"] = pg
             have = {r["tick"] for r in self.me_hist}
             new_me = [{"tick": tick, **{k: (d or {}).get(k) for k in me_keys}} for tick, d in me_rows if tick not in have]
             if new_me:
@@ -233,6 +246,24 @@ class Collector:
         self._append("feed.jsonl", sorted(new_ev, key=lambda e: e["id"]))
         self._append("leaderboard.jsonl", new_lb)
         self._append("me.jsonl", new_me)
+
+    def read_directives(self):
+        """The team's decisions (intel/directives.md) as they are on GitHub. `git fetch` only moves the remote refs,
+        never the working tree, so it can't disturb the sync hook or anyone's edits; the local copy is the fallback."""
+        git = ["git", "-C", str(ROOT)]
+        env = {**os.environ, "GIT_TERMINAL_PROMPT": "0"}
+        try:
+            subprocess.run(git + ["fetch", "-q", "origin", "main"], capture_output=True, timeout=30, env=env)
+            r = subprocess.run(git + ["show", "origin/main:intel/directives.md"], capture_output=True, timeout=10, env=env)
+            if r.returncode == 0 and r.stdout:
+                self.directives = r.stdout.decode("utf-8", "replace")
+                self.directives_src = f"GitHub, read {time.strftime('%H:%M')}"
+                return
+        except (OSError, subprocess.SubprocessError):
+            pass
+        f = ROOT / "intel" / "directives.md"
+        if f.exists():
+            self.directives, self.directives_src = f.read_text(encoding="utf-8"), "local copy"
 
     def write_teams(self):
         """Rewrite intel/teams.md and, with --push, commit and push that one file (retries on a busy git)."""
@@ -312,6 +343,7 @@ class Collector:
                                  ("levels", self.pub.levels), ("dealers", self.pub.dealers),
                                  ("venues", self.pub.venues)):
                     self._get(name, fn)
+                self.read_directives()
             self.updated = time.time()
             if self.teams_every and time.time() - self.teams_last >= self.teams_every and self.team:
                 self.teams_last = time.time()
@@ -912,29 +944,88 @@ class Analysis:
             order = sorted(snap["teams"], key=lambda k: -(snap["teams"][k].get("score") or 0))
             return order.index(self.us) + 1 if self.us in order else None
 
+        def change(a, b, tid, key):
+            x, y = a["teams"].get(tid, {}).get(key), b["teams"].get(tid, {}).get(key)
+            return y - x if x is not None and y is not None else None
+
+        venues = {v.get("venue") for v in self.venues if v.get("owner") == self.us}
         out = []
         for a, b in zip(self.lb_hist, self.lb_hist[1:]):
             ta, tb = a["tick"], b["tick"]
-            active, ours = set(), []
+            active, ours, hosted = set(), [], []
             for tr in self.trades:
                 if ta < (tr["tick"] or 0) <= tb:
                     active.update(tr["parties"])
                     if self.us in tr["parties"]:
                         ours.append(tr)
-            idle = [b["teams"][k]["score"] - a["teams"][k]["score"] for k in b["teams"]
-                    if k in a["teams"] and k not in active and k != self.us
-                    and b["teams"][k].get("score") is not None and a["teams"][k].get("score") is not None]
+                    elif tr.get("venue") in venues:
+                        hosted.append(tr)  # other teams trading on our venue: the value they create scores market for us
+            idle_ids = [k for k in b["teams"] if k in a["teams"] and k not in active and k != self.us]
+            idle = [d for k in idle_ids if (d := change(a, b, k, "score")) is not None]
             usa, usb = a["teams"].get(self.us, {}).get("score"), b["teams"].get(self.us, {}).get("score")
             if usa is None or usb is None:
                 continue
             drift = median(idle) if idle else 0.0
             delta = usb - usa
+            # the same split for each part of the score: what the idle teams got is drift, the rest is ours
+            parts = {}
+            for key in ("negotiating", "market"):
+                d_us = change(a, b, self.us, key)
+                d_idle = [d for k in idle_ids if (d := change(a, b, k, key)) is not None]
+                parts[key] = round(d_us - (median(d_idle) if d_idle else 0.0), 2) if d_us is not None else None
+            pa, pb = a["teams"].get(self.us, {}).get("pages"), b["teams"].get(self.us, {}).get("pages")
+            pages_up = pb - pa if pa is not None and pb is not None else None
             na, nb = neg_at(ta), neg_at(tb)
-            out.append({"from": ta, "to": tb, "score": usb, "rank": rank_in(b), "delta": round(delta, 2),
-                        "drift": round(drift, 2), "ours": round(delta - drift, 2),
-                        "neg_points": nb, "neg_delta": round(nb - na, 1) if na is not None and nb is not None else None,
-                        "trades": [self.our_trade_text(t) for t in ours], "idle_teams": len(idle)})
+            neg_delta = round(nb - na, 1) if na is not None and nb is not None else None
+            causes = [self.our_trade_text(t) for t in ours]
+            if pages_up:
+                causes.append(f"page complete: {pb} complete page{'s' if pb != 1 else ''} now (the page bonus)")
+            elif pages_up is None and (neg_delta or 0) >= 40:
+                causes.append(f"likely a page complete (neg_points {neg_delta:+g})")
+            causes += [f"on our venue {t.get('venue')}: {self.trade_text(t)} (value created on our venue scores "
+                       f"market for us)" for t in hosted]
+            if parts["market"] is not None and abs(parts["market"]) >= 0.5 and not hosted:
+                causes.append(f"market {parts['market']:+.2f} vs the field (a Market Test or trades on our venue)")
+            out.append({"from": ta, "to": tb, "score": usb, "rank_from": rank_in(a), "rank": rank_in(b),
+                        "delta": round(delta, 2), "drift": round(drift, 2), "ours": round(delta - drift, 2),
+                        "ours_neg": parts["negotiating"], "ours_market": parts["market"], "pages_up": pages_up,
+                        "neg_points": nb, "neg_delta": neg_delta,
+                        "trades": [self.our_trade_text(t) for t in ours], "causes": causes, "idle_teams": len(idle)})
         return out
+
+    def directive_lines(self):
+        """The team's decisions as dated lines (`- HH:MM · text` under `## Sat …` headings), newest first: today's from
+        intel/directives.md as on GitHub, then Friday's archive."""
+        fri = ROOT / "archive" / "fri" / "directives-fri.md"
+        out = []
+        for text, day in ((self.c.directives, "Sat"), (fri.read_text(encoding="utf-8") if fri.exists() else "", "Fri")):
+            for ln in text.splitlines():
+                if m := re.match(r"##\s+(\w{3})\b", ln):
+                    day = m.group(1)
+                elif m := re.match(r"-\s+(\d{1,2}:\d{2})\s+·\s+(.*)", ln):
+                    t = re.sub(r"\*\*|`", "", m.group(2)).strip()
+                    out.append({"day": day, "time": m.group(1), "text": t, "guardrail": "GUARDRAIL" in t})
+        return out
+
+    def moves(self, story):
+        """The intervals that moved us most (our part after drift ≥ 1.5, or two places), newest first, each with its
+        causes and the team decisions that name the same card or venue: the why behind the move."""
+        lines = self.directive_lines()
+        out = []
+        for x in story:
+            places = (x["rank_from"] - x["rank"]) if x.get("rank_from") and x.get("rank") else 0
+            if abs(x["ours"]) < 1.5 and abs(places) < 2:
+                continue
+            keys = {k for c in x["causes"] for k in re.findall(r"\b(?:[A-Z]{3}-\d{2}|v\d{2})\b", c)}
+            why = [ln for ln in lines if any(re.search(rf"\b{re.escape(k)}\b", ln["text"]) for k in keys)][:2]
+            out.append({**{k: x.get(k) for k in ("from", "to", "rank_from", "rank", "score", "delta", "ours",
+                                                 "ours_neg", "ours_market", "causes")}, "why": why})
+        return out[::-1][:8]
+
+    def decisions(self):
+        """Today's newest team decisions (intel/directives.md)."""
+        lines = self.directive_lines()
+        return [ln for ln in lines if lines and ln["day"] == lines[0]["day"]][:10]
 
     # -------------------------------------------------------------------------------------- intel/teams.md
     def team_prices(self, tid, market):
@@ -1056,6 +1147,7 @@ class Analysis:
         self.scan()
         prof = self.profiles()
         market = self.market()
+        story = self.story()
         price_rows, last_price = self.prices()
         s = self.me.get("score") or {}
         us = next((p for p in prof if p["us"]), None)
@@ -1067,7 +1159,10 @@ class Analysis:
         return {
             "duelview": self.duel_view(),
             "conversations": self.conversations(),
-            "story": self.story(),
+            "story": story,
+            "moves": self.moves(story),
+            "decisions": self.decisions(),
+            "decisions_src": self.c.directives_src,
             "neighbours": neighbours,
             "above": {"name": above["name"], "score": above["score"], "rank": above["rank"]} if above else None,
             "below": {"name": below["name"], "score": below["score"], "rank": below["rank"]} if below else None,

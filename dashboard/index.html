@@ -75,6 +75,14 @@ tr:hover td { background: var(--surface-2); }
 .tag.mover { color: var(--warning); }
 .tag.warn { color: var(--critical); }
 .tag.info { color: var(--text-secondary); }
+.tag.up { color: var(--good); }
+.tag.down { color: var(--critical); }
+.moves li { flex-direction: row; }
+.moves .what { display: block; font-weight: 600; }
+.moves .cause { display: block; color: var(--text-secondary); }
+.moves .why { display: block; margin-top: 4px; padding-left: 8px; border-left: 2px solid var(--series-1); color: var(--text-secondary); font-size: 12.5px; }
+.decs .time { flex: 0 0 74px; font-size: 11px; font-weight: 700; color: var(--text-secondary); }
+.decs .guard { color: var(--warning); font-weight: 700; }
 .filters { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; margin-bottom: 10px; font-size: 13px; color: var(--text-secondary); }
 select { background: var(--surface-2); color: var(--text-primary); border: 1px solid var(--border); border-radius: 6px; padding: 3px 6px; font: inherit; }
 .edge-pos { color: var(--good); font-weight: 600; }
@@ -127,8 +135,14 @@ tr.sel td { background: rgba(57,135,229,0.22) !important; }
   <div class="tiles" id="tiles"></div>
 
   <section class="card">
+    <h2>Big moves: what happened and why</h2>
+    <p class="sub">Every leaderboard interval where our own part (after field drift) moved ≥ 1.5 points or we changed two places, newest first. <b>What</b>: our trades, a page completed, or other teams trading on our venue (that value scores market points for us). <b>Why</b>: the team decisions in <code>intel/directives.md</code> that name the same card or venue.</p>
+    <ul class="ins moves" id="moves"></ul>
+  </section>
+
+  <section class="card">
     <h2>Why our score moved</h2>
-    <p class="sub">One bar per leaderboard refresh (about every 5 ticks). <b>Blue: our own trades.</b> <b>Orange: field drift</b>, what happens to a team that does nothing in that interval (the median change of the teams that made no trade). The score is relative, so when others gain, everyone who stands still loses points.</p>
+    <p class="sub">One bar per leaderboard refresh (about every 5-10 ticks). <b>Blue: our negotiating</b> (our trades, pages, dealers). <b>Green: our market</b> (Market Tests and trades between other teams on our venue). <b>Orange: field drift</b>, what happens to a team that does nothing in that interval (the median change of the teams that made no trade). The score is relative, so when others gain, everyone who stands still loses points.</p>
     <div class="chartbox"><canvas id="storyChart"></canvas></div>
     <p class="read" id="storyRead"></p>
   </section>
@@ -157,6 +171,12 @@ tr.sel td { background: rgba(57,135,229,0.22) !important; }
     <h2>What to do now</h2>
     <p class="sub">Computed every refresh from the public feed and our private values. Edges are after El Rastro's fee (the side that accepts pays it). Nothing here trades: Lucas's bots decide.</p>
     <ul class="ins" id="ins"></ul>
+  </section>
+
+  <section class="card">
+    <h2>Team decisions</h2>
+    <p class="sub">Today's newest lines of <code>intel/directives.md</code>, where Lucas's Chief of staff writes each decision with its reason; <span class="guard">GUARDRAIL</span> lines change a hard limit. <span id="decSrc"></span></p>
+    <ul class="ins decs" id="decisions"></ul>
   </section>
 
   <details class="card">
@@ -363,8 +383,11 @@ function storyChart(d) {
   const st = d.story || [];
   const labels = st.map(x => `t${x.to}`);
   const base = { borderColor: css("--surface-1"), borderWidth: 2, borderRadius: 4, borderSkipped: false, barPercentage: 0.75, stack: "s" };
+  // our part split into negotiating and market when the snapshots carry both (older ones: all of it as negotiating)
+  const split = x => x.ours_neg != null && x.ours_market != null ? [x.ours_neg, x.ours_market] : [x.ours, 0];
   chart("storyChart", "bar", { labels, datasets: [
-    { ...base, label: "Our trades", data: st.map(x => x.ours), backgroundColor: css("--series-1") },
+    { ...base, label: "Our negotiating", data: st.map(x => split(x)[0]), backgroundColor: css("--series-1") },
+    { ...base, label: "Our market", data: st.map(x => split(x)[1]), backgroundColor: css("--series-3") },
     { ...base, label: "Field drift", data: st.map(x => x.drift), backgroundColor: css("--series-2") },
   ] }, {
     interaction: { mode: "index", intersect: false },
@@ -375,18 +398,41 @@ function storyChart(d) {
       tooltip: { callbacks: {
         title: it => { const x = st[it[0].dataIndex]; return `ticks ${x.from} → ${x.to}: score ${sgn(x.delta)} (rank #${x.rank})`; },
         label: it => ` ${it.dataset.label}: ${sgn(it.parsed.y)}`,
-        afterBody: it => { const x = st[it[0].dataIndex]; return [
+        afterBody: it => { const x = st[it[0].dataIndex], c = x.causes || x.trades; return [
           x.neg_delta != null ? `neg_points ${sgn(x.neg_delta, 1)}` : "",
-          ...(x.trades.length ? x.trades.map(t => "• " + t) : ["• no trade of ours"])].filter(Boolean); } } },
+          ...(c.length ? c.map(t => "• " + t) : ["• nothing of ours"])].filter(Boolean); } } },
     },
   });
   const ours = st.reduce((a, x) => a + x.ours, 0), drift = st.reduce((a, x) => a + x.drift, 0);
   const worst = [...st].sort((a, b) => a.ours - b.ours)[0];
   const best = [...st].sort((a, b) => b.ours - a.ours)[0];
+  const why = x => esc((x.causes || x.trades).join("; ") || "nothing of ours");
   $("#storyRead").innerHTML = st.length < 2 ? "Collecting history: this fills in as the leaderboard refreshes."
-    : `Since tick ${st[0].from}: <b>our trades ${sgn(ours)}</b>, <b>field drift ${sgn(drift)}</b>, net ${sgn(ours + drift)}. `
-      + (worst && worst.ours < -0.5 ? `Worst interval: ticks ${worst.from}→${worst.to} (${sgn(worst.ours)}: ${esc(worst.trades.join("; ") || "no trade of ours")}). ` : "")
-      + (best && best.ours > 0.5 ? `Best: ticks ${best.from}→${best.to} (${sgn(best.ours)}: ${esc(best.trades.join("; ") || "—")}).` : "");
+    : `Since tick ${st[0].from}: <b>our part ${sgn(ours)}</b>, <b>field drift ${sgn(drift)}</b>, net ${sgn(ours + drift)}. `
+      + (worst && worst.ours < -0.5 ? `Worst interval: ticks ${worst.from}→${worst.to} (${sgn(worst.ours)}: ${why(worst)}). ` : "")
+      + (best && best.ours > 0.5 ? `Best: ticks ${best.from}→${best.to} (${sgn(best.ours)}: ${why(best)}).` : "");
+}
+
+function moves(d) {
+  const xs = d.moves || [];
+  $("#moves").innerHTML = xs.length ? xs.map(m => {
+    const places = m.rank_from && m.rank ? m.rank_from - m.rank : 0;
+    const tag = places ? `<span class="tag ${places > 0 ? "up" : "down"}">#${m.rank_from} → #${m.rank}</span>`
+                       : `<span class="tag ${m.ours >= 0 ? "up" : "down"}">#${m.rank ?? "—"}</span>`;
+    const split = m.ours_neg != null && m.ours_market != null ? ` (negotiating ${sgn(m.ours_neg)} · market ${sgn(m.ours_market)})` : "";
+    const causes = (m.causes || []).length ? m.causes.map(c => `<span class="cause">• ${esc(c)}</span>`).join("")
+      : `<span class="cause">• nothing of ours: the other teams moved (field drift)</span>`;
+    const why = (m.why || []).length ? m.why.map(w => `<span class="why" title="${esc(w.text)}"><b>${esc(w.day)} ${esc(w.time)}</b>${w.guardrail ? ' <span class="guard">GUARDRAIL</span>' : ""} · ${esc(w.text.length > 280 ? w.text.slice(0, 280) + "…" : w.text)}</span>`).join("")
+      : `<span class="why">No team decision names this card or venue.</span>`;
+    return `<li>${tag}<span><span class="what">Ticks ${m.from} → ${m.to}: our part ${sgn(m.ours)}${split}</span>${causes}${why}</span></li>`;
+  }).join("") : `<li><span class="muted">No big move yet: this fills in as the leaderboard refreshes.</span></li>`;
+}
+
+function decisions(d) {
+  const xs = d.decisions || [];
+  $("#decSrc").textContent = d.decisions_src ? `Source: ${d.decisions_src}.` : "";
+  $("#decisions").innerHTML = xs.length ? xs.map(x => `<li><span class="time">${esc(x.day)} ${esc(x.time)}</span><span title="${esc(x.text)}">${x.guardrail ? '<span class="guard">GUARDRAIL</span> ' : ""}${esc(x.text.length > 320 ? x.text.slice(0, 320) + "…" : x.text)}</span></li>`).join("")
+    : `<li><span class="muted">Reading intel/directives.md…</span></li>`;
 }
 
 function ourCharts(d) {
@@ -679,7 +725,7 @@ function render() {
   if (d.fatal) { $("#hdr").innerHTML = `<span class="err">server error: ${esc(d.fatal)}</span>`; return; }
   header(d);
   const tab = document.querySelector(".tabs button.on").dataset.tab;
-  if (tab === "overview") { tiles(d); storyChart(d); ourCharts(d); raceChart(d); insights(d); }
+  if (tab === "overview") { tiles(d); moves(d); storyChart(d); ourCharts(d); raceChart(d); insights(d); decisions(d); }
   if (tab === "rivals") { teamsTable(d); leaderboardChart(d); activityChart(d); }
   if (tab === "duels") duelsTab(d);
   if (tab === "convs") convsTab(d);
