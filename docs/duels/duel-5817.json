@@ -503,6 +503,96 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1349,
+   "raw": {
+    "duel": 5817,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Frutero de Argumosa",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.68,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 110,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Sol",
+    "deadline_tick": 1351,
+    "decay_per_round": 0.08,
+    "rounds": 0,
+    "your_offer": {
+     "id": 10316,
+     "price": 104,
+     "tick": 1349,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1337,
+      "from": "you",
+      "text": "I can do 70 P with delivery on day 0. Happy to talk from there.",
+      "price": 70,
+      "days": 0
+     },
+     {
+      "tick": 1343,
+      "from": "you",
+      "text": "I can do 74 P, delivery on day 0.",
+      "price": 74,
+      "days": 0
+     },
+     {
+      "tick": 1344,
+      "from": "you",
+      "text": "I can do 79 P, delivery on day 0.",
+      "price": 79,
+      "days": 0
+     },
+     {
+      "tick": 1345,
+      "from": "you",
+      "text": "I can do 84 P, delivery on day 0.",
+      "price": 84,
+      "days": 0
+     },
+     {
+      "tick": 1346,
+      "from": "you",
+      "text": "I can do 89 P, delivery on day 0.",
+      "price": 89,
+      "days": 0
+     },
+     {
+      "tick": 1347,
+      "from": "you",
+      "text": "I can do 94 P, delivery on day 0.",
+      "price": 94,
+      "days": 0
+     },
+     {
+      "tick": 1348,
+      "from": "you",
+      "text": "I can do 99 P, delivery on day 0.",
+      "price": 99,
+      "days": 0
+     },
+     {
+      "tick": 1349,
+      "from": "you",
+      "text": "I can do 104 P, delivery on day 0.",
+      "price": 104,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1170,6 +1260,136 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1349,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 5817,
+     "role": "buyer",
+     "limit": 110,
+     "currency": "P",
+     "item": "El Frutero de Argumosa",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.68,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I can do 70 P with delivery on day 0. Happy to talk from there.",
+      "offer": {
+       "price": 70,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1337,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 74 P, delivery on day 0.",
+      "offer": {
+       "price": 74,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1343,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 79 P, delivery on day 0.",
+      "offer": {
+       "price": 79,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1344,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 84 P, delivery on day 0.",
+      "offer": {
+       "price": 84,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1345,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 89 P, delivery on day 0.",
+      "offer": {
+       "price": 89,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1346,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 94 P, delivery on day 0.",
+      "offer": {
+       "price": 94,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1347,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 99 P, delivery on day 0.",
+      "offer": {
+       "price": 99,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1348,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1349,
+    "ticks_left": 2,
+    "rounds": 0,
+    "day_swings": [
+     36.800000000000004,
+     40.300000000000004,
+     10.700000000000001,
+     26.7,
+     77.5,
+     32.1,
+     25.299999999999997,
+     36.800000000000004
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 104 P, delivery on day 0.",
+    "price": 104,
+    "days": 0,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1367,6 +1587,117 @@
      "days": 0
     }
    }
+  },
+  {
+   "tick": 1349,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 104 P, delivery on day 0.",
+    "price": 104,
+    "days": 0,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 5817,
+    "offer": {
+     "id": 10316,
+     "price": 104,
+     "tick": 1349,
+     "days": 0
+    }
+   }
   }
- ]
+ ],
+ "last_seen_tick": 1351,
+ "done": {
+  "duel": 5817,
+  "session": 3,
+  "status": "no_deal",
+  "role": "buyer",
+  "item": "El Frutero de Argumosa",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 3.68,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 110,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Sol",
+  "deadline_tick": 1351,
+  "decay_per_round": 0.08,
+  "rounds": 0,
+  "your_offer": {
+   "id": 10316,
+   "price": 104,
+   "tick": 1349,
+   "days": 0
+  },
+  "rival_offer": null,
+  "messages": [
+   {
+    "tick": 1337,
+    "from": "you",
+    "text": "I can do 70 P with delivery on day 0. Happy to talk from there.",
+    "price": 70,
+    "days": 0
+   },
+   {
+    "tick": 1343,
+    "from": "you",
+    "text": "I can do 74 P, delivery on day 0.",
+    "price": 74,
+    "days": 0
+   },
+   {
+    "tick": 1344,
+    "from": "you",
+    "text": "I can do 79 P, delivery on day 0.",
+    "price": 79,
+    "days": 0
+   },
+   {
+    "tick": 1345,
+    "from": "you",
+    "text": "I can do 84 P, delivery on day 0.",
+    "price": 84,
+    "days": 0
+   },
+   {
+    "tick": 1346,
+    "from": "you",
+    "text": "I can do 89 P, delivery on day 0.",
+    "price": 89,
+    "days": 0
+   },
+   {
+    "tick": 1347,
+    "from": "you",
+    "text": "I can do 94 P, delivery on day 0.",
+    "price": 94,
+    "days": 0
+   },
+   {
+    "tick": 1348,
+    "from": "you",
+    "text": "I can do 99 P, delivery on day 0.",
+    "price": 99,
+    "days": 0
+   },
+   {
+    "tick": 1349,
+    "from": "you",
+    "text": "I can do 104 P, delivery on day 0.",
+    "price": 104,
+    "days": 0
+   }
+  ],
+  "result": 0.0,
+  "price": null,
+  "days": null
+ }
 }
