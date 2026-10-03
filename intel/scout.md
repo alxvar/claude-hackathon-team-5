@@ -1,17 +1,17 @@
-# Scout (claude-sonnet-5-5, Sat 18:36)
+# Scout (claude-sonnet-5-5, Sat 18:41)
 
 ## Top 3 actions now
-1. **Stop spending and protect the #1 spot (32.0 vs T6 31.7, T14 31.5).** Operator and Chief hold the SAL cards reserved, and the silver pack (value 76.4) stays unopened until the Chief clears it. The SAL close gave +40.4 neg, and the board moved only about +1.99, roughly 0.049 per neg point. Effect on neg: none. Confidence: high.
-2. **v10 value created is the remaining market lever (lead is 0.3 over T6).** The Operator's ad job posts every 15 min. Our open asks are MAL-03 → t09 at 9, MAL-02 and MAL-05 → t15 at 9, and LAV-03 → t09 at 6. They sell spares worth 7 or 1.3 to us, so the sale costs us nothing. Check that none of the four buyers is a rival (t09 is 19.4, t15 is 24.0, both far below us). Value created is net and can go negative, so only list cards where the buyer's value is higher than ours. Effect on neg: about 0. Confidence: med.
-3. **Team trades are the only live neg lever (ladder and flags are spent).** t16 holds standing bids of RET-07 13, RET-02 5 and RET-03 5. Our RET copies are worth 83.9 to us, so don't sell them. Our true spares are LAV-02 (1.3 ×3) and LAV-03/04 (3.2 ×2): the Operator can fill t16's LAV-02 and LAV-03 bids at 3 as maker. That is +1 to +2 neg each and no fee for us. Confidence: low, because the gain is tiny.
+1. **Open the silver pack (asset 1013) only after Chief OK, then run the Workshop.** The SAL page is closed (SAL 10/10, settlement tick 988, neg_points 78.7 → 119.1). The 18:20 hold ("until SAL-06 settles, then ask the Chief") has lapsed. Evidence: the pack is valued 76.5 in the holdings table, and the unopened-pack drag cost us 2.4 on SAL-06. A pull adds a duplicate card at 25% value, so the pack's value is realised without a trade. Workshop spares: LAV-02 ×3 and LAV-03/04 ×2 each are worth 1.3-3.2 each; LAT-03 and LAT-04 stand at 5 each. Executor: Operator via `POST /api/taller` with three same-rarity spares. Effect: collection value rises, with no neg_points or ladder change [V Sat 16:15, +11.8 value]. Confidence: med, since the Chief must confirm and the pack gain is not in the data.
+2. **Keep the v10 ads and the two low-priced maker offers live to the non-rival buyers.** Offers 15180 and 15181 are MAL-02/05 → t15 at 9, and 15055 and 15196 go to t09 at 9 and 6. Evidence: our market gap was the decisive lever (mm 7.5 vs 9.15-12.5). Value created on our venue is net and can go negative, so only send a card to a buyer who values it more than we do. Team 15 and Team 9 are listed as buyers (t15 collects RET/LAT/MAL, t09 RET/SAL). Their board ranks are #12 and #17, so they are not rivals and the feeding rule is fine. Executor: Operator and the ad job; Dani asks t09 and t15 to accept in the room. Effect: this lifts mm_points only, not neg_points. Confidence: low-med.
+3. **Do not chase any more ladder or flag points, and do not sell reserved cards.** Evidence: negotiating stayed flat at 21.88 while the ladder went 0.373 → 0.437, and flag 8 scored 0. Selling any SAL card now books the page bonus as a loss (t01 −4.27). Executor: Operator, by keeping the reserved list as it is. Effect: protects the +40.4. Confidence: high.
 
 ## What the climbing teams are doing
-- We moved up from #4 to #1 through one page-closing team trade: SAL-06 from t08 at 28, +40.4 neg, board 29.2 → 32.0 (+2.0 in 15 min).
-- T6 sits at 31.7 (+4.3 over 60 min) and is the main chaser. It sold RET-09 to t12 at 84 (tick 895) and collects SAL. Its rank comes from market and trade volume (52 deals), not the ladder.
-- T18 is up +1.7 over 60 min, to 28.8. It collects RET/SAL and has made 34 deals.
-- Level-5 Don Ernesto unlocked for t05/t08/t10/t14/t15 on "5 deals with pilar". Ernesto buys only epics and legendaries, so it is not a lever for us.
+- **Team 18** (+0.9 in 15 min, now #5, collects RET) is buying RET commons and rares. t18 → t07 LAT-01 at 8 (tick 904) is the sort of cheap flow that adds up.
+- **Team 6** (#2, 31.7, 0.3 behind us) sold RET-09 at 84 to t12 (tick 895) and RET-03 at 6 to t12 (tick 905). It cashes in the rares dealers sell and trades heavily (52 deals, 593 listings).
+- **Team 16** (+0.5, 26.5) has just unlocked L5 and posts RET bids at 13 and 5. It is vacuuming up RET uncommons and commons and could compete with us for RET cards.
+- **Team 12** (53 deals, −2.9 in 60 min) trades heavily without gaining. Volume alone doesn't pay.
 
 ## Threats
-- **T6 (31.7) and T14 (31.5)** are within 0.5 of us. Never sell them SAL/RET/LAV page cards. T14 collects LAV/RET and needs any card we could feed it.
-- **T10 (28.4, +0.7)** is allied with t01 (Lucas, 17:45). Any t01 ↔ t10 trade on t01's venue could lift their market. Watch for it.
-- **Our market is behind** (7.5 vs 9.15-12.5 for others, per the 17:50 directive). A negative v10 trade, such as a card moving to a lower-multiplier holder, subtracts from us. Don't push those.
+- **Team 6 and Team 14** are 0.3 and 0.5 behind us (31.7, 31.5), so any v10 or team trade that helps them hurts us. Never send them value.
+- **Team 10** has a live bid on RET-09 at 30 (offer 15314) and sits at #6 (28.4) and allied with t01. Stay clear of it.
+- **Team 3** is #4 (29.6) with the highest negotiating score, and Team 13's v20-v24 venues give its owner market-making points whenever others trade there. No offer of ours goes on a rival venue.
