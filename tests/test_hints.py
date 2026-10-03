@@ -86,3 +86,11 @@ def test_a_reprint_shows_as_a_print_run_change():
     _, snap = hints.scan_catalog({"sets": [{"cards": [{"id": "LAV-03", "rarity": "common", "print_run": 300}]}]}, {})
     new, _ = hints.scan_catalog({"sets": [{"cards": [{"id": "LAV-03", "rarity": "common", "print_run": 600}]}]}, snap)
     assert [(h["kind"], h["card"], h["was"], h["print_run"]) for h in new] == [("catalog.print_run", "LAV-03", 300, 600)]
+
+
+
+def test_his_vault_card_pitch_is_not_the_egg_but_the_vault_alone_is():
+    assert not hints.egg_topic("La Puerta de Alcalá, gold, from my own vault: one hundred thirteen.")
+    assert hints.egg_topic("The vault opens for those Carmen sends.")
+    assert hints.egg_topic("Gold sleeps in my vault; it waits for the right words.")
+    assert hints.egg_topic("The gold of Moscow — an old story, and not mine today.")
