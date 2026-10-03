@@ -9,6 +9,14 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sat 14:10 · paused since 13:26 (tick 630)
+- **Swap offers are now common** [V feed, 183 since tick 160]: t13 56, t15 45, t08 28, t10 22, t06 19, t04 5, t05 4, t12 4.
+- **t13 is hunting RET commons by swap** (ticks 626-627, addressed on t03's v20): LAV-05 or MAL-02 for RET-01..05, to t04, t15,
+  t08, t10, t06; plus LAT-07/LAT-08 from t02/t12. Reading [L]: t13 is assembling a RET page; a page close by team trade or swap is
+  worth up to +50 neg_points (≈ +4.7 board). Known RET-common holders: t09, t04, t15 (bought from t14 at 9).
+  t13 also posted a public swap on our v10 (606: LAV-05 for RET-01).
+- Our first swap offers went out at 630 (LAT-04 + MAL-04 for SAL-07 to t15; LAV-02 for MAL-01 to t07 on v15).
+
 ### Sat 13:40 · snapshot 630 (game paused since ~13:26)
 - Board: t14 30.77 · t12 29.60 · t10 28.88 · t18 28.81 · **us 28.15 (#5)** · t17 25.79 · t13 25.54 · t01 24.97.
 - **Card-for-card swaps on El Rastro** [V feed]: t15 ↔ t07 swapped three times at price 0 (607 LAV-08 ↔ LAV-06, 613 LAV-03 ↔
