@@ -1219,3 +1219,12 @@
 {"id": 71870, "tick": 1399, "t": 12.9833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6152, "session": 3, "status": "no_deal", "item": "Plaza del Dos de Mayo"}}
 {"id": 71936, "tick": 1401, "t": 13.0, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6140, "session": 3, "status": "deal", "item": "El Frutero de Argumosa"}}
 {"id": 72021, "tick": 1404, "t": 13.025, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6193, "session": 3, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 72368, "tick": 1415, "t": 13.1167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6153, "session": 3, "status": "no_deal", "item": "Plaza del Dos de Mayo"}}
+{"id": 72371, "tick": 1415, "t": 13.1167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6158, "session": 3, "status": "no_deal", "item": "La Dama de Serrano"}}
+{"id": 72374, "tick": 1415, "t": 13.1167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6159, "session": 3, "status": "no_deal", "item": "La Dama de Serrano"}}
+{"id": 72377, "tick": 1415, "t": 13.1167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6207, "session": 3, "status": "no_deal", "item": "Fiesta de San Cayetano"}}
+{"id": 72380, "tick": 1415, "t": 13.1167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6208, "session": 3, "status": "no_deal", "item": "Plaza del Dos de Mayo"}}
+{"id": 72383, "tick": 1415, "t": 13.1167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6209, "session": 3, "status": "no_deal", "item": "Plaza del Dos de Mayo"}}
+{"id": 73086, "tick": 1431, "t": 13.25, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6212, "session": 3, "status": "no_deal", "item": "Fiesta de San Cayetano"}}
+{"id": 73089, "tick": 1431, "t": 13.25, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6213, "session": 3, "status": "no_deal", "item": "Fiesta de San Cayetano"}}
+{"id": 73092, "tick": 1431, "t": 13.25, "type": "duels.finished", "scope": "public", "actor": "", "payload": {"session": 3, "name": "Duels II"}}
