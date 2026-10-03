@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 19:57 (tick 1164), snapshot 1160: t10 34.02 · t06 32.56 · **us #3 31.92** · t14 30.12 · t18 30.26 · t03 29.75. Quiet before Duels II; market regrades (t06 12.05 → 11.81, t14 9.53 → 9.33) from v16/v21 trades. Duels II plan §1f (final)._
+_Last update: Sat 20:11 (tick 1192), snapshot 1190: t10 34.11 · t06 32.54 · **us #3 31.80** (−0.12, ladder erosion) · t03 30.04 (bench 5: market 5.46 → 5.86) · t18 30.03 · t14 29.96. Fever ended (tick 1179). Duels II ≈ 20:33 (tick ≈ 1239); plan §1f._
 
 ## 1. Board = Friday × Saturday blend [V]
 
