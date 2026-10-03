@@ -9,6 +9,15 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sat 13:40 · snapshot 630 (game paused since ~13:26)
+- Board: t14 30.77 · t12 29.60 · t10 28.88 · t18 28.81 · **us 28.15 (#5)** · t17 25.79 · t13 25.54 · t01 24.97.
+- **Card-for-card swaps on El Rastro** [V feed]: t15 ↔ t07 swapped three times at price 0 (607 LAV-08 ↔ LAV-06, 613 LAV-03 ↔
+  MAL-08, 616 MAL-01 ↔ SAL-02). A swap of duplicates for lacks scores for both sides (value gained at private values, no cash);
+  on a 0% venue, the venue owner books both sides' gains as value created. We haven't made a swap yet.
+- **t13 keeps looping uncommons through Pilar** [V feed]: LAV-07 → Pilar 17 (601), LAV-08 → Pilar 18 (610), rebuys LAV-08 from t07 at
+  20 (611) and LAV-07 from Abuela at 22 (612). It still slid to #7: its ladder-heavy score erodes as everyone sells to Pilar.
+- t12 bought RET-10 from Chato at 90 (626, above list 77); t08 bought a silver pack at 162 (613).
+
 ### Sat 13:10 · snapshot 600
 - Board: t14 30.42 · t12 29.88 · t10 29.51 · t18 29.21 · **us 28.96 (#5)** · t13 26.77 · t17 26.17.
 - **t14 sells RET commons on t12's v02** (5 at 9 as maker, ticks 591-598; buyers t09 ×3, t04, t15): t14 banks neg_points,

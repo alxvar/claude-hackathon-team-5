@@ -69,6 +69,14 @@ _Last update: Sat 13:40 (game paused at tick ~632), snapshot 630. Duels I post-m
   pure duel part ≈ 8-9.5 Saturday points vs clean teams t01 10.8, t15 ~11. Upper-mid, not top. duel_points 13.93
   (≈ 0.41 per duel, 0.46 per deal).
 
+**Field ranking at the end of Duels I** (snapshot 630; Saturday points gained since 460 net of the 0.6 re-weighting =
+duel part + every other deal since 460; full duel part = 12). Only t01 had no other deals, so this ranks Saturday momentum,
+not duels alone [V numbers, L reading]:
+t05 13.3 (ladder +0.126 inside) · t03 13.1 (MAL-10 sale) · t14 12.5 (Pilar, LAT page, RET sales) · t15 10.9 · t18 10.9
+(MAL-10 sale) · t08 10.8 · t07 10.7 · **t01 10.4 (clean)** · t10 10.0 · t16 9.9 · t17 8.1 · t06 8.0 · t02 7.2 · t12 6.9 ·
+t09 6.1 · t04 5.8 · **t13 2.1** · t11 0. t13 fell from #2 (snapshot 480) to #7: weak duels plus a ladder-heavy score
+eroded as the field copied the dealer-sell play.
+
 **Levers for Duels II (decay 0.08 → break-even 8.7%; price + days)**, expected board points [L]:
 1. **Anchor closer** (opener ≤ ~20 P from the expected settle, not ~38): fewer rounds where we lost most → +6-9% of
    results ≈ **+0.3-0.5 board**. At 8% decay every round costs a third more than in Duels I.
