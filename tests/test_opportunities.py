@@ -410,7 +410,7 @@ def test_live_run_posts_the_offer_then_notifies(tmp_path):
     post = next(c for c in api.calls if c[0] == "list_offer")
     sal02 = [a["id"] for a in api.f["me"]["assets"] if a["ref"] == "SAL-02"]
     give, want, to, ttl = post[1]
-    assert give["assets"][0] in sal02 and want == {"cash": 40} and to == "t07" and ttl == math.ceil(1200 / 60) + 1
+    assert give["assets"][0] in sal02 and want == {"cash": 40} and to == "t07" and ttl == op.OFFER_TTL_TICKS == 20
     assert log.index("list_offer") < log.index("notify")
     assert [n[0] for n in notes] == ["dani", "lucas"]
     body = notes[0][2]
@@ -430,11 +430,11 @@ def test_a_failed_post_sends_no_alert(tmp_path):
     assert json.loads((tmp_path / "state.json").read_text())["alerts"] == []
 
 
-def test_live_offers_are_cancelled_after_20_minutes(tmp_path):
+def test_live_offers_are_cancelled_after_20_ticks(tmp_path):
     state = {"alerts": [], "live": [
-        {"ts": NOW - 21 * 60, "tick": 150, "side": "SELL", "team": "t16", "card": "MAL-02", "price": 30, "offer": 1,
-         "asset": 61, "status": "live"},
-        {"ts": NOW - 5 * 60, "tick": 155, "side": "SELL", "team": "t01", "card": "LAV-02", "price": 40, "offer": 2,
+        {"ts": NOW - 5 * 60, "tick": TICK - 21, "side": "SELL", "team": "t16", "card": "MAL-02", "price": 30,
+         "offer": 1, "asset": 61, "status": "live"},
+        {"ts": NOW - 21 * 60, "tick": TICK - 5, "side": "SELL", "team": "t01", "card": "LAV-02", "price": 40, "offer": 2,
          "asset": 300, "status": "live"},
         {"ts": NOW - 10 * 60, "tick": 152, "side": "BUY", "team": "t09", "card": "RET-10", "price": 70, "offer": 3,
          "status": "live"}]}
@@ -634,3 +634,15 @@ def test_cash_floor_counts_bids_posted_by_other_processes(tmp_path):
         api, o = ret_buy_run(tmp_path / status, [{**other, "status": status}])
         assert any("cash floor 100 (cash 152)" in r for r in o["reasons"])
         assert "list_offer" not in api.names()
+
+
+def test_offers_live_20_ticks_whatever_the_tick_length():
+    # Page-critical bids can't sit 20 wall minutes: that was 41 ticks at Saturday's 30 s and 81 at Sunday's 15 s.
+    api = FakeApi(single_gap_fixture())
+    api.open_offers = [{"id": 9001, "maker": "t05", "status": "open", "give": {"cash": 30}}]
+    state = {"live": [{"offer": 9001, "status": "live", "ts": NOW, "tick": 100, "side": "BUY", "card": "SAL-02",
+                       "team": "t07"}]}
+    op.reconcile(api, state, [], "t05", NOW, now_tick=120)                 # 20 ticks old: still live
+    assert "cancel" not in api.names() and state["live"][0]["status"] == "live"
+    op.reconcile(api, state, [], "t05", NOW, now_tick=121)                 # same wall time, 21 ticks: cancelled
+    assert "cancel" in api.names() and state["live"][0]["status"] == "cancelled: unfilled 20 ticks"

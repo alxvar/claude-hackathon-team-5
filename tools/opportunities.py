@@ -54,7 +54,8 @@ WALL_STALE_S = 3600        # ... or older than 60 real minutes, whatever the gam
 MIN_GAIN, GAIN_CAP = 20, 50
 SCORE_GAP, TOP_N = 10, 4   # feeding rule: sell only to teams ≥ 10 below us and outside the top 4
 ALERTS_PER_H, TEAM_COOLDOWN_S, PAIR_COOLDOWN_S = 3, 45 * 60, 2 * 3600
-MAX_LIVE, OFFER_TTL_S, MAX_POSTS_PER_RUN = 3, 20 * 60, 2   # the team posts ≤ 12 listings/tick across all processes
+MAX_LIVE, MAX_POSTS_PER_RUN = 3, 2   # the team posts ≤ 12 listings/tick across all processes
+OFFER_TTL_TICKS = 20   # in ticks, not minutes: 10 min at Saturday's 30 s, 5 at Sunday's 15 s (page-critical bids)
 OTHER_LACK_H, MAX_OTHER_LACKS = 2.0, 1  # a sale is a page-closer only if the buyer lacks ≤ 1 other card of that set
 BUILD = ("RET", "CHA")     # pages we build (RET Saturday, CHA Sunday; GAME.md)
 PROTECT = ("LAV",)         # completed: only 2nd/3rd copies are ever for sale (also any page /api/me says is complete)
@@ -553,8 +554,9 @@ def save_state(path, state, now):
     os.replace(tmp, path)  # atomic: a crash never leaves half a file
 
 
-def reconcile(api, state, events, me_id, now, held_refs=()):
-    """Live mode: drop tracked offers that closed (filled or expired), cancel ours unfilled after 20 min and any bid for
+def reconcile(api, state, events, me_id, now, held_refs=(), now_tick=None):
+    """Live mode: drop tracked offers that closed (filled or expired), cancel ours unfilled after OFFER_TTL_TICKS (the
+    game expires them then too; this is the backstop) and any bid for
     a card we now hold (e.g. the trader bought it). Returns (asset ids in our open offers, so a copy listed by another
     process is never offered twice; cash in ALL our open bids, from every process, for the cash floor)."""
     mine = [o for o in api.my_offers().get("offers", []) if o.get("maker") == me_id
@@ -569,8 +571,9 @@ def reconcile(api, state, events, me_id, now, held_refs=()):
                 (x["side"] == "BUY" and i.get("ref") == x["card"] and i.get("frm") == x["team"] and i.get("to") == me_id)
                 for i in e["payload"].get("items", [])) for e in events)
             x["status"] = "filled" if filled else "closed (expired or cancelled)"
-        elif now - x["ts"] > OFFER_TTL_S or (x["side"] == "BUY" and x["card"] in held_refs):
-            why = "unfilled 20 min" if now - x["ts"] > OFFER_TTL_S else "we hold the card now"
+        elif (stale := now_tick is not None and now_tick - x.get("tick", now_tick) > OFFER_TTL_TICKS) or \
+                (x["side"] == "BUY" and x["card"] in held_refs):
+            why = f"unfilled {OFFER_TTL_TICKS} ticks" if stale else "we hold the card now"
             try:
                 api.cancel(x["offer"])
                 x["status"] = f"cancelled: {why}"
@@ -629,7 +632,7 @@ def run_once(api, *, dry_run, now=None, state_path=STATE, out_path=OUT, data_dir
     now_tick = clock.get("tick") or (events[-1]["tick"] if events else 0)
     wall = WallClock.from_files(data_dir, now, now_tick, float(clock.get("tick_seconds") or 60))
     held_refs = {a["ref"] for a in me.get("assets", []) if a.get("kind") == "card"}
-    our_listed, open_bid_cash = reconcile(api, state, events, me["id"], now, held_refs) if not dry_run else (set(), 0)
+    our_listed, open_bid_cash = reconcile(api, state, events, me["id"], now, held_refs, now_tick) if not dry_run else (set(), 0)
     committed = max(open_bid_cash, sum(x["price"] for x in state.get("live", [])
                                        if x.get("status") == "live" and x["side"] == "BUY"))
 
@@ -649,7 +652,7 @@ def run_once(api, *, dry_run, now=None, state_path=STATE, out_path=OUT, data_dir
                                    now_h=clock.get("t_hours"), our_listed=our_listed, wall=wall)
     ctx["values"] = values
     picked = choose_alerts(opps, state, now)
-    ttl_ticks = math.ceil(OFFER_TTL_S / float(clock.get("tick_seconds") or 60)) + 1
+    ttl_ticks = OFFER_TTL_TICKS
     cash = me.get("cash", 0) - committed
     for o in picked:
         if dry_run:
