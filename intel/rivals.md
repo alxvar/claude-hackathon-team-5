@@ -9,6 +9,14 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sat 17:11 · snapshot 830
+- Board: **us 29.73 (#1)** · t14 29.68 · t01 28.89 · t12 28.70 · t10 28.25 · t03 27.99 · t06 27.85 · t18 27.79. Quiet window:
+  the field drifts −0.1 to −0.2 per snapshot; we held flat.
+- **t15 is selling SAL to Pilar before the fever** (SAL-07 24, SAL-08 25) and sold one RET-01 to Abuela at 6 (tick 803):
+  one of the duplicates planned for v10 is gone. t08 sold SAL-09 to Pilar at 70 (812) and SAL-07 at 24 (821).
+- t13 keeps looping LAV uncommons through Pilar (LAV-06 17, LAV-07 18).
+- No v10 trades yet.
+
 ### Sat 16:57 · snapshot 800
 - Board: t14 29.85 · **us 29.73 (#2)** · t01 29.09 · t12 28.62 · t10 28.36 · t03 28.20 · t06 28.00 · t18 27.85.
 - **The whole field fell 0.6-0.7 board** this window (t14 −0.71, t18 −0.68, t06 −0.68, t17 −0.67, t01 −0.61): L4 deals by the
