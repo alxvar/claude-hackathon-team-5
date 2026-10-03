@@ -2,6 +2,10 @@
 
 _Written by the strategy session. It never touches the game: no trades, no bots. The operator decides and executes inside its hard limits (ORCHESTRATOR.md, "Decide, don't ask"); Lucas changes a limit only with a line containing GUARDRAIL. Format: `- HH:MM · decision with limits · why`. Newest block on top. Labels: **[Verified]** measured on our own deals or read from the server; **[Likely]** fitted or inferred; **[Open]** unknown._
 
+## Sat 17:25 — rivals and alerts
+
+- 17:25 · **Team 3 is a top rival** (#3 at tick 850: 29.24, 0.14 behind us, negotiating 24.49 the highest) [V leaderboard]: no new offers, swaps or v10 suggestions to t03 or t10; open asks to the live top 5 must pass policy.check or get cancelled · **Rival = live top 6 or within 3.0 board of us**: no alert ever nudges a third team to accept a rival's offer (t10's SAL-10 → t08 at 160 on v10 could give t10 up to +50 neg) · **Phone alerts**: Dani gets only "ACT · … · until HH:MM" plus DONE/VOID follow-ups; swaps push once per pair per 2 h and only at gain ≥ 10; Lucas gets CRITICAL only (Builder) · Team 16's LAT-11: pass (epic, 1 minted, page:false [V catalog])
+
 ## Sat 16:55 — desk answers [Verified: organisers via Lucas]
 
 - 17:15 · **Team 15: no MAL-09** (Lucas: a card that could reach Team 10 stays out of partners' hands; MAL-09 → Pilar at 17:30 ≥ 55 stands). Low-risk help only: approvals extended to 18:30, posted by the Operator in a t05 Bazaar thread (their tool needs a verifiable sender); commission 1 P per settled v10 sale, max 3, paid by us buying one t15 SAL/LAV spare at N P on El Rastro after 18:30 · no card, cash or info that lets a partner swing the top 5
