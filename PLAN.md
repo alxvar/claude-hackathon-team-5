@@ -26,6 +26,15 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    429) is retried next tick or turned into "send their own price"; (b) from `ticks_left ≤ 4` close by sending the
    rival's standing price so THEY spend their accept; (c) after Duels I wave 1, report any refused accept in
    `team/aleks.md`; (d) review the Builder's arbiter days fix for Duels II (`read_days` + `guards.worth`) before 17:30.
+8. **Opportunity, your call (data from docs/duels, 34 practice duels) [L]:** the same items recur, and our own limits on
+   an item sample the rivals' limits. Taxi Blanco: our seller costs 80/81/87, buyer values 102/107/128. El Tren
+   Fantasma: costs 53/74/119, values 116/130/180. Plaza de Olavide: costs 69/74/130, values 96/129/138. A ratio opener
+   (seller 1.4-1.65 × cost) leaves pie on the table when our limit sits far from the item's other side: seller at cost
+   53 on Tren Fantasma opens 74-87, while buyers held 116-180. Idea: when ≥ 2 of our limits on the same item in the
+   other role are known (this session's /api/duels, or practice records if the items repeat), anchor near their median
+   (seller: just under the median buyer value; buyer: just above the median seller cost), clamped by your current band.
+   Score = share of each pie captured, so this moves share, not deal rate. Don't change code mid-wave: decide between
+   waves or for Duels II.
 
 **Dani: the desk, the page-gap desk, the judges' story.**
 1. **09:00, organisers' desk**: the 8 questions in plan §3, answers in `team/dani.md` at once.
