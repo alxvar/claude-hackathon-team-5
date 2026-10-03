@@ -34,8 +34,9 @@
 - **Page bonus** [V]: 25% of the page's book (265) × our multiplier = 66.25 × m (LAV 86.1, RET 72.9, CHA 106), priced into the
   last missing card (LAV-09 read 177.1 when it was the only one missing). It scores only when a TEAM trade completes the
   page [L: Team 17 +6.25 board via a team trade; Team 10 +2.1, Team 7 +1.1, Team 12 +1.0 via Chato].
-- **Unopened packs drag** [L]: each new card lowers an unopened pack's expected value, shifting a trade's score by ~1-4
-  points (explains SAL-08 +1.9, SAL-06 +6.0, LAV-06 −2.3). Open packs before trading.
+- **Unopened packs drag** [V, Sat 15:30]: each new card lowers an unopened pack's expected value. SAL-06 bought from Abuela
+  at 23 (worth 22.5): `neg_points` −2.7 instead of −0.5, while our unopened silver pack fell 92.9 → 90.5 (−2.4). Friday
+  fits too (SAL-08 +1.9, SAL-06 +6.0, LAV-06 −2.3). Open packs before trading (ours is kept for the CHA release).
 - **Relative score** [V]: the leader sits at the top of the scale; idle teams fall 0.07-1.7 per snapshot when others gain.
   1 `neg_point` ≈ 0.16 board points (Friday's marginal rate; [L] for Saturday).
 - **El Chato** (level 2, 6 deals/team/hour) [V]:
