@@ -2,6 +2,10 @@
 
 _Written by the strategy session. It never touches the game: no trades, no bots. The operator decides and executes inside its hard limits (ORCHESTRATOR.md, "Decide, don't ask"); Lucas changes a limit only with a line containing GUARDRAIL. Format: `- HH:MM · decision with limits · why`. Newest block on top. Labels: **[Verified]** measured on our own deals or read from the server; **[Likely]** fitted or inferred; **[Open]** unknown._
 
+## Sat 10:20 — dealers: warm words, the engine still sets the price
+
+- 10:20 · **Dealer messages go warm** (Lucas, after Dani read our threads: price-only, cold). Same price logic and caps; the words change: greet by name, thank every move, a light question or human detail, mirror their language; never reveal value/cap/cash, no ultimatums. Operator now by hand and in chato_steady; Builder ships `agents/dealers/narrator.py` (Sonnet 5.5, 5 s timeout, number guard + warm template fallback) into abuela_bot before the first dealer run after Duels I and before any level-3 dealer opens · our research says "the LLM talks, the engine decides; warmth wins" (research/02-offense.md:14, 01-evidence.md:26) and El Chato's teaser is "friendly prices. If I like you." [Verified]; we built the dealer bots price-only on Friday night for safety and never added the narrator: a gap, not a broken LLM. Effect on dealer prices is [Open]: the Operator logs rounds-to-close and final vs the cold baseline.
+
 ## Sat 10:06 — market: value created on our venue is the live lever
 
 - 10:03 · **v10 fee → 0% from tick 230 (Lucas ran it; announcement posted ok)** [Verified: API response `effective_tick: 230`]. Bench 3.0 [Verified, snapshot 220]: every stall incl. ours 4.8 market, no rival board broker beat the stall, t12 8.01 = 4.8 + ~3.2 from one 7 P trade between other teams on its venue. So: v10 is promoted in the event WhatsApp group (Lucas posts; Dani does NOT pitch teams in person: his job is the ntfy alerts on when to negotiate with a team); Market attributes every v10 settlement to our `market` and logs it in intel/market-log.md. The 09:55 venue gate stays: no 270 P venue unless the stall's lever fails.
