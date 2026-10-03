@@ -1,4 +1,4 @@
-# Metrics (auto, 10:36, game tick 292)
+# Metrics (auto, 10:38, game tick 297)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -84,9 +84,8 @@ Who buys which set (team trades): t01: SAL×3, MAL×2; t02: MAL×2, RET×1; t04:
 
 - abuela sobre_barrio (team buys): median 21 over 1
 - abuela uncommon (team buys): median 23 over 5
-- chato rare (team buys): median 88 over 2
+- chato rare (team buys): median 90 over 1
 - chato uncommon (team buys): median 30 over 1
-- chato uncommon (team sells): median 15 over 1
 
 ## El Rastro now: top bids by price (team, card, price)
 
@@ -101,7 +100,7 @@ Who buys which set (team trades): t01: SAL×3, MAL×2; t02: MAL×2, RET×1; t04:
 - t13: RET-01 (common) 2 P · offer 4244
 - t13: RET-04 (common) 2 P · offer 4315
 
-Asks by others (card, price: count): LAV-04 10: 3; LAT-04 11: 2; MAL-02 10: 2; LAT-04 7: 1; SAL-01 9: 1; LAT-02 6: 1; LAT-02 11: 1; LAT-03 11: 1; LAT-06 25: 1; LAT-07 25: 1; LAT-08 25: 1; MAL-05 9: 1; LAT-01 9: 1; LAT-05 9: 1; MAL-04 9: 1
+Asks by others (card, price: count): LAV-04 10: 3; LAT-04 6: 3; MAL-05 9: 2; LAT-01 9: 2; LAV-03 9: 2; MAL-02 10: 2; LAT-04 9: 2; SAL-03 10: 2; LAT-02 10: 2; LAT-02 11: 1; LAT-03 11: 1; LAT-04 11: 1; LAT-06 25: 1; LAT-07 25: 1; LAT-08 25: 1
 
 ## Our duels: 0 live, 34 finished (last 10)
 
