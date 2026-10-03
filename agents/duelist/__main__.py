@@ -24,6 +24,7 @@ from engine import Model
 from engine.claude import Claude, require_credentials
 from engine.failover import Failover
 
+from .days import MODE, MODES
 from .agent import DuelAgent
 from .model import DuelView, Observation, Offer, Role, Turn
 from .records import Records, review as review_table
@@ -109,7 +110,8 @@ def run(a: argparse.Namespace) -> None:
     lock = None if a.dry_run else single_instance()  # noqa: F841  (held for the life of the process)
     strategist, negotiator = models(a)
     runner = DuelRunner(bazaar(), strategist, negotiator, dry_run=a.dry_run, log=Log(LOGS), decay=a.decay,
-                        duel_ticks=a.duel_ticks, poll_s=a.poll, records=Records())
+                        duel_ticks=a.duel_ticks, poll_s=a.poll, records=Records(), days_read=a.days_read)
+    print(f"day reading: --days-read {a.days_read}", flush=True)
     try:
         asyncio.run(runner.run())
     except KeyboardInterrupt:
@@ -151,6 +153,9 @@ def main() -> None:
             s.add_argument("--decay", type=float, help="decay per round, when the duel doesn't state it")
             s.add_argument("--duel-ticks", type=int, help="ticks per duel, when the feed doesn't say")
             s.add_argument("--poll", type=float, default=2.0, help="seconds between polls (two reads each)")
+            s.add_argument("--days-read", choices=MODES, default=MODE,
+                           help="day reading override (PLAN #24): auto = as read (default), flip = direction "
+                                "reversed, unsure = sure=False safe mode; env DAYS_READ sets the default")
     sub.add_parser("review", help="every recorded duel in one table").set_defaults(fn=review)
     m = sub.add_parser("monitor", help="a local page following our duels and the field, live (read-only, no team key)")
     m.add_argument("--port", type=int, default=8766)

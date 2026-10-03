@@ -19,11 +19,17 @@ game's (`records.summary`). If they differ, fix the reading here.
 from __future__ import annotations
 
 import json
+import os
 import re
 from dataclasses import dataclass
 from typing import Any
 
 DAYS = range(11)
+# PLAN #24 (Duel Lab 18:30): an override for the day reading, set at start (--days-read or env DAYS_READ).
+#   auto: as read (the default, unchanged); flip: the reading's direction reversed (day d takes day 10 - d's value,
+#   `sure` kept); unsure: each day at the worse of the reading and its mirror, sure=False (the safe mode).
+MODES = ("auto", "flip", "unsure")
+MODE = os.environ.get("DAYS_READ", "auto") if os.environ.get("DAYS_READ", "auto") in MODES else "auto"
 _EARLY = re.compile(r"\b(?:earl(?:y|ier|iest)|soon(?:er|est)?|fast(?:er|est)?|quick(?:er|ly)?|urgent\w*|asap|"
                     r"lower days?|fewer days)\b", re.IGNORECASE)
 _LATE = re.compile(r"\b(?:lat(?:e|er|est)|delay\w*|slow(?:er)?|more time|higher days?|more days)\b", re.IGNORECASE)
@@ -110,7 +116,33 @@ def _per_day(w: float, prefer: str | None, how: str) -> DayValues:
                      f"({_amount(w)} per day)")
 
 
-def read_days(weight: Any, meaning: str | None = None) -> DayValues | None:
+def set_mode(mode: str) -> None:
+    """The day-reading override for this process (PLAN #24)."""
+    global MODE
+    if mode not in MODES:
+        raise ValueError(f"--days-read must be one of {', '.join(MODES)}, not {mode!r}")
+    MODE = mode
+
+
+def apply_mode(v: DayValues | None, mode: str) -> DayValues | None:
+    """The reading `v` under `mode`; auto returns `v` itself."""
+    if v is None or mode == "auto":
+        return v
+    if mode == "flip":
+        return DayValues(tuple(v.values[10 - d] for d in DAYS), v.sure, f"{v.how} [flipped: --days-read flip]")
+    if mode == "unsure":
+        return DayValues(tuple(min(v.values[d], v.values[10 - d]) for d in DAYS), False,
+                         f"{v.how} [direction distrusted: --days-read unsure]")
+    raise ValueError(f"unknown --days-read mode {mode!r}")
+
+
+def read_days(weight: Any, meaning: str | None = None, mode: str | None = None) -> DayValues | None:
+    """Our value of each day from the game's weight and its explanation, under the --days-read mode (default: this
+    process's MODE, auto unless set); None when the shape isn't one we know."""
+    return apply_mode(_read_days(weight, meaning), mode or MODE)
+
+
+def _read_days(weight: Any, meaning: str | None = None) -> DayValues | None:
     """Our value of each day from the game's weight and its explanation; None when the shape isn't one we know."""
     text = meaning or ""
     if isinstance(weight, str):

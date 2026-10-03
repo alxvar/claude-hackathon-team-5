@@ -29,6 +29,7 @@ from typing import Any
 from bazaar_sdk import Bazaar, BazaarError
 from engine import Model
 
+from .days import set_mode as set_days_mode
 from .adapter import Snapshot, parse_duel
 from .agent import DuelAgent, Move, our_offers, silent, standing_offer, still_ticks, swing, their_offers
 from .guards import past_limit, worth
@@ -112,8 +113,11 @@ def answered(msgs: list[Turn]) -> bool:
 
 class DuelRunner:
     def __init__(self, b: Bazaar, strategist: Model, negotiator: Model, *, dry_run: bool, log: Log,
-                 decay: float | None, duel_ticks: int | None, poll_s: float, records: Records | None = None):
+                 decay: float | None, duel_ticks: int | None, poll_s: float, records: Records | None = None,
+                 days_read: str = "auto"):
         self.b = b
+        set_days_mode(days_read)                   # PLAN #24: auto (as read), flip or unsure, for every duel
+        self.days_read = days_read
         self.strategist, self.negotiator = strategist, negotiator
         self.dry_run = dry_run
         self.log = log
