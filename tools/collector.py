@@ -1,7 +1,7 @@
 """Collector: the single source of truth every agent reads. Read-only, no LLM.
 
-Every ~15 s: appends new feed events to data/feed.jsonl (by id), our state to data/me.jsonl and each new
-leaderboard snapshot to data/leaderboard.jsonl when they change, and rewrites data/board.json (El Rastro's open
+Every ~15 s: appends new feed events to data/feed.jsonl (by id), our state to data/me.jsonl (cash, score parts incl.
+mm_points and bench_points, and our venue's value_created/trades/traders) and each new leaderboard snapshot to data/leaderboard.jsonl when they change, and rewrites data/board.json (El Rastro's open
 offers, each tagged with the team behind it via the feed's offer.listed events). Every 2 minutes it rebuilds
 intel/metrics.md (tools/metrics.py).
 
@@ -28,6 +28,25 @@ def append(path, obj):
         f.write(json.dumps(obj) + "\n")
 
 
+ME_SCORE = ("score", "rank", "negotiating", "market", "neg_points", "mm_points", "ladder_points", "duel_points",
+            "bench_efficiency", "bench_points", "deals")
+ME_VENUE = ("value_created", "trades", "traders", "volume")
+
+
+def me_row(me, t=None):
+    """One data/me.jsonl row from GET /api/me: score parts plus our venue's numbers (venue_value_created, ...)."""
+    s, v = me.get("score") or {}, me.get("venue") if isinstance(me.get("venue"), dict) else {}
+    return {"t": time.time() if t is None else t, "tick": me.get("tick"), "cash": me.get("cash"),
+            "level": me.get("level"), **{k: s.get(k) for k in ME_SCORE},
+            **{f"venue_{k}": v.get(k) for k in ME_VENUE}}
+
+
+def changed(row, last):
+    """True when anything but the time and tick moved (a row is logged only then)."""
+    return last is None or {k: v for k, v in row.items() if k not in ("t", "tick")} != \
+        {k: v for k, v in last.items() if k not in ("t", "tick")}
+
+
 def last_id(path):
     if not path.exists():
         return 0
@@ -52,12 +71,8 @@ def main():
                 if e["type"] == "offer.listed":
                     makers[e["payload"]["offer"]["id"]] = e["actor"]
             me = b.me()
-            s = me.get("score") or {}
-            mine = {"t": time.time(), "tick": me.get("tick"), "cash": me.get("cash"), "level": me.get("level"),
-                    **{k: s.get(k) for k in ("score", "rank", "negotiating", "market", "neg_points", "ladder_points",
-                                             "duel_points", "bench_efficiency", "deals")}}
-            if last_me is None or {k: v for k, v in mine.items() if k not in ("t", "tick")} != \
-                    {k: v for k, v in last_me.items() if k not in ("t", "tick")}:
+            mine = me_row(me)
+            if changed(mine, last_me):
                 append(DATA / "me.jsonl", mine)
                 last_me = mine
             lb = b.leaderboard()

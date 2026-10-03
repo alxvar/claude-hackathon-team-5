@@ -43,8 +43,9 @@ FEED_GAP = 10         # a page-closing card only to teams at least this far belo
 SET_NAMES = {"SAL": "Salamanca", "LAT": "La Latina", "LAV": "Lavapiés", "MAL": "Malasaña", "RET": "El Retiro",
              "CHA": "Chamberí"}
 HEADER = ("# v10 radar: buyers for the asks on our stall\n\n_Written by `tools/v10_radar.py`. Each line: an ask on v10, "
-          "the likely buyer, why, and the DM sent to Lucas. Est. value created = book × (buyer's multiplier − "
-          "seller's), multipliers from the hub's model [L]._\n\n")
+          "the likely buyer, why, and the DM sent to Lucas. Est. value created = book × (buyer's multiplier × "
+          "copy weight − seller's), multipliers from intel/multipliers.json (the Analyst, conf V/L), else the hub's "
+          "model [L]._\n\n")
 
 try:
     from notify import notify as _notify
