@@ -1,17 +1,20 @@
-# Scout (claude-sonnet-5-5, Sat 18:52)
+# Scout (claude-sonnet-5-5, Sat 18:57)
 
 ## Top 3 actions now
-1. **Hold the lead: do not feed Team 6 or Team 14.** We are #2 at 31.7, Team 6 is at 31.7 and Team 14 at 31.8, so the gap is 0.1. Operator keeps every ask to the top 6 behind policy.check. Evidence: SAL close +40.4 neg moved us only about +1.99 board (≈0.049/np); the ladder is flat. Effect: avoids handing a leader more than we gain. Confidence: high.
-2. **Sell spare commons to non-rival buyers on v10 or v15 (Operator + Dani).** This lifts our market score, which is the gap lever per the 17:50 note (our 7.5 vs 9.15-12.5). Open asks now: MAL-03 at 9 to t09, MAL-02 and MAL-05 at 9 to t15, LAV-03 at 6 to t09. Offer 15513 (LAV-02 at 0 to t01) expires at tick 1036. Check its sign first: t01 is #11 at 24.2, but 0 P is a give-away, and the policy cap says value created must stay positive. Dani asks t09 and t15 in person to accept. Expected effect: mm_points up (1 trade ≈ 0 to +5, cap ≈ +5), neg_points unchanged. Confidence: med.
-3. **Hold RET cards and do not sell the RET page spares.** RET-09/10 are worth 149.9 to us, and RET-01 to RET-08 are worth 83.9 to 100.4. t16, t18, t10 and t15 are all buying RET (t16 bids 4 for the commons and 13 for the uncommon). Do not sell any RET card to a buyer who would close a page. Operator should also ask the Chief before opening the silver pack (sobre_plata, 76.7). Opening it is a pure luck draw, and a duplicate would score as drag. Confidence: med.
+
+1. **Ladder sells, one at a time, offer-only, never at the first price (Operator, job bxpdvaqj5).** MAL-08 → Pilar (ask 30, −1 steps, floor 18; value 17.5). Then LAT-04 → Pícaros (ask 12, floor 5) and LAV-04 spare → Pícaros (ask 10, floor 4; value 3.2). Evidence: ladder 0.437, dropped 0.28 at tick 1030, so 0-neg ladder sells pay again. Earlier Pilar sells gave +0.050 and +0.040 (step −2/−3, let her climb). Effect: ladder up by about 0.02-0.05 per deal, with neg_points unchanged (gains clip to 0). Do not start after 20:00. Confidence: med. The 17:45 note said the ladder was flat for the board (negotiating 21.88 unchanged), so the board effect is low.
+
+2. **Keep v10 value-created pushes going (Operator ad job bv1vj5hwu, Dani in the room).** Post only non-rival pairs where value created is ≥ +8 and the seller's gain is ≤ 10. Evidence: board is #3 at 31.68, level with Team 14 (31.8) and Team 6 (31.7), so market is the gap (v10 7.5 vs 9.15-12.5). Risk: a card moving to a lower-multiplier holder subtracts (mm +4.99 → −5.2 at tick 398). Check the holder's multiplier before each push. Effect: up to +5 mm, about +3 board. Confidence: med.
+
+3. **Cash-neutral team-trade bargains (the bargains daemon, accept by hand as taker).** Watch for open asks on cards we need, with gain ≥ 3 after fee. The SAL-06 close at 28 gave +40.4 neg (+1.99 board) from a public ask whose maker was masked; the feed names the real team. Our pages are now LAV, RET and SAL (3 complete); what remains is MAL (MAL-09/10 missing) and LAT (LAT-01, LAT-02 and others). Current asks to check: LAT-02 at 8 (2 offers), LAV-05 at 5 (spare worth 99.1 only as our single copy, so it is a duplicate; skip). Expected effect: not in the data until a closer appears. Confidence: low.
 
 ## What the climbing teams are doing
-- **Team 14 (#1, +0.4/h):** collects LAV/RET and dumps MAL/SAL. It bought RET-03 from t02 at 7 (tick 946) and swapped SAL-04 for MAL-05 with t16 (tick 939). It has 292 listings and 44 deals, so it wins through steady cheap volume.
-- **Team 10 (#4, +1.3 in 15 min, +1.9/h):** it buys RET-03 from t06 at 12 (tick 1033). It has Level-5 access and 39 deals. It is also allied with t01 (Lucas note).
-- **Team 16 (#7, +1.0 in 15 min):** it took RET-08, RET-05 and RET-07 from t15 at 13, 5 and 13 (ticks 1022-1023). That is three RET trades in about 20 ticks, and the cheap commons at 5 are the volume play.
-- **Team 18 (#6):** it collects RET and its price table is c 9 / u 25 / r 75.
+- **Team 10 (+3.3 in 15 min, +3.9 in 60) is the fastest climber.** It reached L5 via 5 deals with Pilar, holds MAL-10 (bought from Team 3 at 74), and bought RET-03 from Team 6 at 12 (tick 1033). It is allying with Team 1.
+- **Team 18 (+0.7 / +2.4) is a RET-only buyer.** It dumps MAL/LAV, and its listed prices are c 9, u 25, r 75.
+- **Team 16 (+1.0) is stripping Team 15's RET cards.** Ticks 1022-1023: RET-08 at 13, RET-05 at 5 and RET-07 at 13. It also bought LAT-11 (epic) from Team 4 at 160. Cheap RET uncommons at 13 are a market floor to watch.
+- **Teams 14 and 6 hold the top two spots.** Both are 45-53 deals in and trade on low-priced team swaps (e.g. SAL-04 ↔ MAL-05 at 0, tick 939).
 
 ## Threats
-- **Team 6 and Team 14 are tied with us:** Team 6 matches our 31.7 and Team 14 leads at 31.8. Any value we create on their venues lifts their market scores. We stay on v15 and El Rastro.
-- **RET competition:** t16, t10 and t18 are all buying RET. RET-10 is on offer at 84 on El Rastro, and a rival closing a RET page via a team trade scores the page bonus. We do not have a trade that helps there, so do not sell RET.
-- **Rule changes:** Lucas heard that the organisers may change alliance or market incentives (18:40 contingency). Market re-scores v10 against the stall within 10 min of any announcement, and writes pause until the Chief confirms.
+- Team 10 (31.7, +3.3) is now level with us and rising. Never feed it: its MAL-09 route via Team 15 is already blocked.
+- Team 16 and Team 18 are collecting RET and may bid up RET cards we sell. Our RET cards are reserved anyway.
+- Selling any card from a completed page (LAV, RET, SAL) books the page bonus as a loss (t01 −4.27). Do not sell SAL/LAV/RET cards to the ladder or to teams.
