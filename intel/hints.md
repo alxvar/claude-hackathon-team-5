@@ -222,3 +222,4 @@ Paco: Abre la maleta, Nando—
 Nando: ¡Noche de Movida! Madrid, luces, humo, pura leyenda.
 Paco: Para un caballero culto como usted: setenta y tres P.
 Nando: Setenta y tres,
+- Sat 21:51 · egg.found tick 1308 · picaros → t02 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t02", "name": "Team 2"}
