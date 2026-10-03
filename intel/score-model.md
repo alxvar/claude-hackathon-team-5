@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 23:55 (tick 1445, doors closed; snapshot 1440): us #3 at 30.49. **Market VC part is field-normalised [V] and our mm_points flipped −5.2 → +2.2 at the close (§3h).** Overnight program §4 (due 07:30)._
+_Last update: Sun 00:05 (tick 1445, doors closed; snapshot 1440): us #3 at 30.49. §3h + §4 corrected after the independent verifier (duels ≈ 6.9 not 9; M ≤ 15; Saturday-tail trade headroom ≈ 6 np; Pilar non-SAL prices; B15). Overnight program §4 (due 07:30)._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -436,16 +436,19 @@ full). **Market:** max board market seen all day = 12.50 (7.5 + 5.0) for t10/t12
 of 30 → whether VC can exceed +5 board on Sunday: reconcile with the Market session [?].
 
 ## 3h. Market value-created part is FIELD-NORMALISED; our mm_points flipped at the close (Sat 23:50) [V data · L model]
-- **Proportional moves [V, 12 change points]:** whenever the board's market gaps move without a team's own trade, they all
+- **Proportional moves [V, 15 change points]:** whenever the board's market gaps move without a team's own trade, they all
   scale by one common factor: t14 vs t17 ×0.711/0.710 (tick 560), ×0.716/0.714 (600), ×0.964/0.964 (640), ×1.230/1.231
   (910, when t12's gap fell to 0), ×0.901/0.906 (1150); t10/t12/t06 move with them when not trading. So **board gap_i ≈
-  5 × mm_i / M, capped at 5** [L], M a field reference (like the trade part's N). Ours: mm +4.99 → gap 4.97 at tick 320
-  (M ≈ 5 then, us near the top); since tick 420, M has grown ≈ 2.4× (t14 4.36 → 1.80 with no new v14 trade) → **M ≈ 12+ now** [L].
+  5 × mm_i / M, capped at 5** [L], M a field reference (like the trade part's N). Ours: mm +4.99 → gap 5.00 de-blended at tick 320
+  (the cap, so only M_320 ≤ 4.99); chaining the clean factors (t06 ×0.917 at 360, t12 constant 360-420, t14 4.36 → 1.80 ≈ ×2.42
+  since 420 with no new v14/v25 trade) bounds **M_now ≤ ≈ 15** [L, verifier]; no useful lower bound.
 - **Our mm_points −5.2 (ticks 474-1417, constant) → +2.2 at tick 1445** (day close), with `venue_value_created` 9.0 and
   `venue_trades` 2 unchanged [V data/me.jsonl]. Cause [?]: a hurdle reset at the close, or the trade values recomputed from
-  current holdings (copy numbers). Board effect at the next snapshot (1450, only after the resume) [L]: ≈ 5 × 2.2/M ≈
-  **+0.5-1.0 board** (market 7.5 → 8.0-8.5): #2 vs t18 (31.26) a coin flip. If the shift was field-wide, t14/t17/t06/t12 move too.
-- **Consequence:** our v10 VC already counts above zero → any positive v10 trade adds ≈ 5/M ≈ +0.4 board per +1 of VC [L];
+  current holdings (copy numbers). Board effect [L]: 5 × 2.2/M ≥ **+0.7 board**, up to the
+  full +2.2 if M ≤ 5 (+1.05-3.3 Saturday points): board ≈ 31.2-32.7 vs t18 31.26 → #2 more likely than not if it lands. Risks:
+  if the shift was field-wide, t14/t17/t06/t12 move too; if the clock jumps to round 3 (case B), round 2 may close without a
+  post-resume snapshot, and whether its final score uses this live state is [?].
+- **Consequence:** our v10 VC already counts above zero → any positive v10 trade adds 5/M ≥ +0.33 board per +1 of VC [L];
   a negative one subtracts. The §3 "need 14.2 first" hurdle is stale (GAME.md line 150 too).
 
 ## 4. OVERNIGHT PROGRAM (Analyst, Sat 23:30 → Sun 07:30; final Saturday snapshot 1440)
@@ -454,7 +457,7 @@ of 30 → whether VC can exceed +5 board on Sunday: reconcile with the Market se
 | Component | Weight per round | Fit | Ceiling | Label |
 |---|---|---|---|---|
 | Board blend | — | board = (0.5·Fri + w·Sat)/(0.5 + w), w = (tick − 160)/161, full since 321 | — | [V] 11 snapshots |
-| **Duels** | 12 of Negotiating's 30 | the other parts scaled ×0.600 the moment duels scored (5 teams exact) | 12, graded vs the field | [V] weight · [L] grading |
+| **Duels** | 12 of Negotiating's 30 | the other parts scaled ×0.600 the moment duels scored (5 teams exact); **our Saturday duel part ≈ 6.9** (24.49 − ladder 9 − trades 9 × 119.1/125) | 12, graded vs the field | [V] weight · [L] grading, part |
 | **Team trades** | 9 (= 0.6 × 15) | 9 × min(1, T/N); N ≈ 125 at Saturday's end (from 0.072 Sat-pts per neg_point at 904 and 988); negatives floored at 0 | 9 | [L] |
 | **Ladder** | 9 (= 0.6 × 15) | raw = **Σ_dealer level × Σ(best-3 shares)/45** (5 dealers, levels 1-5; max 1.0) — **exact on our 17 deals** (0.055 + 0.029 + 0.177 + 0.222 = 0.483); board part = 9 × min(1, L/M), M a field reference | 9 | [V] raw · [L] grading |
 | Share of a deal | — | buy: (opening − price)/(opening − limit); sell: (price − opening)/(limit − opening); each conversation has its own secret limit; buys above MENU list never count | 1 per slot | [V] fits |
@@ -465,57 +468,63 @@ A stall team at every cap scores 12 + 9 + 9 + 11.25 + 7.5 = **48.75** per round.
 almost at that ceiling.
 
 ### 4.2 Team 10's lead (game total 0.5·Fri + Sat: t10 56.37 vs us 45.73 = **10.64**) [V decomposition]
-Friday ½ +0.38 · Saturday negotiating +2.76 (duels ≈ +2.3-3 board on the board scale; trades/ladder ≈ at caps for both) ·
+Friday ½ +0.38 · Saturday negotiating +2.76 [V] (split [L]: duels ≈ +2.3 Sat pts (t10 ≈ 9.2 vs us ≈ 6.9), trades ≈ +0.4
+(our T/N ≈ 0.95), ladder 0 (both capped)) ·
 **Saturday market +7.50** (v07 value created at the cap vs our 0). Repeatable Sunday: all of it — a fresh round, v07 stays its
 venue, its duelist stays strong. **To finish #1, t10's Sunday round must be ≤ our Sunday round − 10.64; even at our ceiling
-(48.75) that needs t10 ≤ 38.1, i.e. t10 losing ≈ 8 points vs its Saturday.**
+(48.75) that needs t10 ≤ 38.1, i.e. t10 losing ≈ 7.9 points vs its Saturday.**
 
 ### 4.3 Sunday allocation (points per P and per hour; Sunday round points, 0.4 final pts each) [L]
 | Move | Sunday pts | Cost | Per P | When |
 |---|---|---|---|---|
 | **v10 value created** (Lucas DMs: duplicates → first-copy collectors, trades ON v10) | 0 → up to **+7.5** | 0 P | ∞ | from doors-open, all day |
-| **Duels III + Grand Final** (fix the 3 leaks, §1g) | 9 → 10-11 (+1-2) | 0 P | ∞ | ≈ 2 game-h and ≈ 5 game-h after round 3 starts |
+| **Duels III + Grand Final** (fix the 3 leaks, §1g) | ≈ 7 → 8-9 (+1-2) | 0 P | ∞ | ≈ 2 game-h and ≈ 5 game-h after round 3 starts |
 | **CHA page** (dealers ≤ list for 8 cards → ladder slots; team closer → +50) | trades +5-9 · ladder +4-6 | ≈ 270 P | ≈ 0.04 pts/P | from the CHA release |
-| Ladder sells (RET-11 epic → Pilar ≥ 198; spare commons → Pícaros at 5; MAL-08 → Pilar ~20) | ladder +2-3 | 0 P (cash +) | ∞ | early (fresh slots) |
+| Ladder sells (MAL-08 → Pilar ≥ 20; spare non-SAL rare → Pilar ≈ 55; spare common → Pícaros 5; RET-11 → Pilar only ≥ 198, likely a walk §4.5) | ladder +1.5-3 | 0 P (cash +) | ∞ | early (fresh slots) |
 | MAL close (dealers MAL-09/10/06 + team MAL-07) | trades +1-3 | ≈ 160 P | ≈ 0.012/P | after CHA, if cash |
 | L5 legendary / gold pack | ladder +1-2 | 420-585 P | ≈ 0.003/P | **no** |
 
-### 4.4 Monte Carlo (5,000 runs per cell; rivals' Sunday = their Saturday round × N(1, 0.15); ours by component) [L, crude]
-| t10 Sunday | Our plan | Our Sunday (mean) | P(#1) | P(top 2) | P(top 3) |
-|---|---|---|---|---|---|
-| repeats Saturday (46.0) | baseline | 35.8 | 0.3% | 17% | 41% |
-| repeats | CHA + ladder | 35.7 | 0.0% | 12% | 39% |
-| repeats | CHA + ladder + **v10** | 38.4 | 0.8% | 31% | 60% |
-| repeats | **full** (+ MAL) | 39.1 | 0.8% | **35%** | **66%** |
-| loses its VC (38.5) | full | 39.1 | 4.5% | 37% | 67% |
-| collapses (35.5) | full | 39.1 | 8.2% | 39% | 68% |
-**Reading:** first place is out of reach unless t10 collapses (≤ 8%); **second place is live (≈ 35-39%)**: t18 46.89 · us
-45.73 · t12 45.63 · t03 44.51 · t06 43.14. v10 value created is the largest single swing (+15-20 pts of P(top 2)).
+### 4.4 Monte Carlo (5,000 runs per cell; rivals' Sunday = their Saturday round × N(1, sd); ours by component) [L, crude; corrected 00:05]
+Scripts: scratchpad `montecarlo.py` (env `DUEL_MU`, `RIVAL_SD`), `montecarlo2.py` (adds the §3h flip and the case-A Saturday tail).
+Our Sunday duels now **7.0 ± 1.5** (measured Saturday ≈ 6.9; the first version used a stale 9.0: verifier). Plan "full" = CHA + ladder + v10 + MAL.
+| Scenario (t10 repeats its 46.0 unless noted; rival sd 0.15) | P(#1) | P(top 2) | P(top 3) |
+|---|---|---|---|
+| full plan, no flip, no tail | 0.2% | 21% | 50% |
+| + the §3h flip lands (+1.05-3.3 Sat pts) | 1.0% | 35% | 67% |
+| + flip + case-A tail with v10 pairs (60% land) | 1.9% | **45%** | **75%** |
+| same, if the close shifted rivals' venues too | 2.0% | 44% | 72% |
+| t10 loses its VC (38.5) + flip + tail | 9.0% | 47% | 76% |
+| full plan without v10 (no flip, no tail) | 0.0% | 7% | 26% |
+Sensitivity (full, no flip/tail): rival sd 0.10 / 0.20 → P(top 2) 29% / 20%; duels 8.5 → 30%.
+**Reading:** first place is out of reach in every variant (P(#1) ≤ 9%). **Second place is a 20-47% race** decided by three
+0-P items: the flip landing, v10 pairs (Saturday tail and Sunday), and duels. Caveats: v10 is the only lever modelled with a large
+jump (50% × 3-7.5), so "v10 = biggest swing" is partly by construction; "CHA + ladder" scores *below* "baseline" because the
+component model draws trades/ladder well under Saturday's near-caps (conservative, not a reason to skip CHA).
 
 ### 4.5 Ladder playbook for Sunday's fresh ladder (best 3 per dealer; one full-share slot = level/45) [V prices from every team's Saturday deals; L targets]
 | Dealer (level, max per slot) | Side | Saturday prices (min / median / max) · dealer opening | Target (≈ full share) | Our Sunday use |
 |---|---|---|---|---|
-| Abuela (1, 0.022) | buy common | 8 / 9 / 15 · open 12 | **9**, patient (5-7 rounds) | 3 CHA commons (worth 16) |
+| Abuela (1, 0.022) | buy common | 8 / 9 / 15 · open 12 | **9**, patient (5-7 rounds) | 3 CHA commons (worth 16 each) |
 |  | buy uncommon | 20 / 23 / 29 · open 29 | 21-23 (≤ list 25) | CHA uncommon if Chato is short |
-| Chato (2, 0.044) | buy uncommon | 26 / 31 / 61 · open 33 | **26 = list** (above list never counts) | 2 CHA uncommons (worth 40) |
+| Chato (2, 0.044) | buy uncommon | 26 / 31 / 61 · open 33 | **26 = list** (above list never counts) | 2 CHA uncommons (worth 40 each) |
 |  | buy rare | 75 / 87 / 96 · open 97 | **≤ 77 = list** (best seen 75) | backup for a CHA rare |
-| Pilar (3, 0.067) | sell uncommon | 14 / 19 / 30 · open 16 | **20** non-SAL (best 20 = full share) | MAL-08 (worth 17.5) |
-|  | sell rare | 50 / 74.5 / 87 · open 70 | 85+ | a spare rare at ≥ value |
-|  | sell epic | 140 / 187 / 199 · open 172 | **≥ 199** | RET-11 (worth 198) |
-| Pícaros (4, 0.089) | buy rare | 48 / 57 / 67 · open 73 | **48-55** (list 63) | 2 CHA rares (worth 112): ladder + page |
+| Pilar (3, 0.067) | sell uncommon | 14 / 19 / 30 · open 16 | **20** non-SAL (best 20 = full share); RET uncommons sold 22-26 | MAL-08 (worth 17.5) |
+|  | sell rare | **SAL** 84-87 · **non-SAL 50-56** (one RET 78) · opening median 61, non-SAL ≈ 47 | **≈ 55 non-SAL** (85 only for SAL) | a spare non-SAL rare |
+|  | sell epic | SAL-11 179-199 · the one non-SAL epic (LAV-11) 140, opening 122 · no RET-11 data | ask ≥ 198 (our value) only: **likely a walk** [L] | RET-11 (worth 198): try once, never below value |
+| Pícaros (4, 0.089) | buy rare | 48 / 56.5 / 67 · open 73 | **48-55** (list 63) | 2 CHA rares (worth 112 each): ladder + page |
 |  | sell common | 4 / 5 / 5 · open 4 | 5-6 | a spare LAV common (worth 1.3-3.2) |
 | Don Ernesto (5, 0.111) | buys epics low (113-120), sells legendaries (list 585) | — | none at 0 neg | skip |
-Expected raw ladder ≈ 0.05 (Abuela) + 0.12 (Chato) + 0.13 (Pilar) + 0.23 (Pícaros) ≈ **0.53** — above a typical field reference →
-≈ full 9 points. Pícaros: read every structured offer (they bait-and-switch the card); flag only words-vs-structure mismatches
+Expected raw ladder ≈ 0.05 (Abuela) + 0.09 (Chato, 2 uncommons; 0.12 only with the backup rare) + 0.13 (Pilar) + 0.23 (Pícaros)
+≈ **0.50** → ≈ full 9 points against a typical field reference [L]. Openings in this table are medians unless noted. Pícaros: read every structured offer (they bait-and-switch the card); flag only words-vs-structure mismatches
 or "stopped printing"-type facts — **test one flag early on Sunday: if the cap was per round, flags score again (+10 each)** [?].
 
 ### 4.6 CHA price list (Saturday prices, all sets) [V feed]
 | Rarity | Team trades (p10 / median / p90) | Team bids (median) | Dealer | Our CHA value | Bid band for a positive team buy |
 |---|---|---|---|---|---|
 | common | 4 / 7 / 10 | 4 | Abuela 8-9 (list 10) | 16 | **9-12** (+4-7) |
-| uncommon | 13 / 20 / 28 | 14 | Abuela 20-23, Chato 26 | 40 | **22-28** (+12-18) |
-| rare | 65 / 73 / 86 | 42 | Pícaros 48-63, Chato 75-77 | 112 | **70-86** (+26-42) |
-| epic | 160 / 201 / 216 | 120 | Pícaros 128-167 | 288 | n/a (not a page card) |
+| uncommon | 14 / 20 / 28 | 14 | Abuela 20-23, Chato 26 | 40 | **22-28** (+12-18) |
+| rare | 65 / 73 / 84 | 42 | Pícaros 48-63, Chato 75-77 | 112 | **70-86** (+26-42) |
+| epic (n = 4) | 160 / 201 / 216 | 120 | Pícaros 128-167 | 288 | n/a (not a page card) |
 The LAST card (the closer) carries the page bonus on top of its value, and a team trade scores min(50, ΔV − price − fee):
 any closer bought from a team at ≤ value + bonus − 50 scores the full +50 (the closer bid caps 72 / 96 / 168 in intel/cha-plan.md
 keep that margin). Prefer a cheap common or uncommon as the closer. CHA is scarce early (print runs 300 / 90 / 30; packs and dealers).
@@ -529,13 +538,14 @@ round 3 at 16.65** · +150 P at 16.7 · Duels III 18.65 · Grand Final + dealers
 |---|---|---|---|---|---|
 | **A15**: resumes at 13.367, 15 s ticks | 98 min | ≈ 10:38 | ≈ 11:38 | ≈ 13:08 | ≈ 13:38 |
 | A30: resumes, 30 s until 16.65 | 197 min | ≈ 12:17 | ≈ 13:17 | ≈ 14:47 | 15:17 (after the close: expect a re-anchor) |
-| **B30**: jumps to 16.65, 30 s ticks | none | 09:00 | 11:00 | 14:00 | 15:00 (the sunday-plan timeline) |
-| B15: jumps, 15 s ticks | none | 09:00 | 10:00 | 11:30 | 12:00 |
+| B30: jumps to 16.65, 30 s ticks | none | 09:00 | 11:00 | 14:00 | 15:00 (fits the wall anchors; the sunday-plan timeline) |
+| **B15**: jumps, 15 s ticks | none | 09:00 | **10:00** | 11:30 | 12:00 (the server's Sunday setting: `days.sun.tick_seconds` 15) |
 
 **Case A (Saturday tail): everything counts for SATURDAY. Cash 392 (the +150 comes at 16.7).**
 - **T+0:** fire the pre-agreed v10 pairs (duplicates → first-copy collectors, buyers' bids first). Our mm is +2.2 and the VC part
-  is field-normalised (§3h): ≈ +0.4 board per +1 of value created [L]. A negative v10 trade subtracts.
-- **T+0 → tail end:** positive team trades and swaps (Saturday trade part ≈ 0.074 Sat-pts per neg_point). **No ladder deals**
+  is field-normalised (§3h): ≥ +0.33 board per +1 of value created [L]. A negative v10 trade subtracts.
+- **T+0 → tail end:** **no cash on Saturday team trades**: our trade part is ≈ 0.95 of its reference (T 119.1 vs N ≈ 125), so only
+  ≈ 6 neg_points (≈ 0.4 Sat pts) of headroom are left; keep the 392 P for CHA. 0-cash swaps that also land on v10 are fine. **No ladder deals**
   (the Saturday ladder is capped: keep RET-11, MAL-08 and the spare commons for Sunday's fresh ladder). No CHA yet.
 - **Last 10 min of the tail:** stage the CHA book (bid bands §4.6) and the dealer threads, ready to post at the release tick.
 - Then run the Case B sequence from round 3.
@@ -547,8 +557,8 @@ round 3 at 16.65** · +150 P at 16.7 · Duels III 18.65 · Grand Final + dealers
 - **T+10 → 20:** Pilar: RET-11 ≥ 199, MAL-08 ≥ 20; Pícaros: one spare LAV common at 5-6. One test flag on a clear Pícaros lie
   (words ≠ structure) to learn whether the flag cap reset with the round [?].
 - **T+20 → 40:** fill CHA gaps from team asks; keep the **last** card for a team trade (a cheap common/uncommon closer: +50).
-- **T+40 → 60:** MAL close if cash allows (dealers first, team MAL-07 last); confirm the duelist is up with the 3 leak fixes
-  before Duels III.
+- **T+40 → 60:** MAL close if cash allows (dealers first, team MAL-07 last). **Duelist live with the 3 leak fixes before 09:55**:
+  in case B15, Duels III starts at 10:00.
 - **Always:** never sell a page card; one accept per tick; ≤ 6 threads; re-read the schedule at every event.
 
 ## 5. Buyer model (multiplier per team × set) for v10 steering
