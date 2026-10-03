@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 22:46** · tick 1417 (30 s/tick) · game hour 13.13 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 22:51** · tick 1428 (30 s/tick) · game hour 13.22 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,9 +17,9 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 22:47 · operator · Chief: re-post the SAL-11 bid to stay open overnight (if t04 fills at Sunday's open: +47 on Sunday's trade part; cash 427 still covers CHA ≈ 330; the MAL close now needs only MAL-07/09/10) → job bz665n6tg posts 115 → t04 on v15 the moment 19620 lapses (asks 400 ticks, falls back to 200/120) · counter cap ≤ 125 stays for Sunday · before 09:00: restart everything on HEAD per the handoff
+  - Sat 22:46 · operator · organisers 22:45: 'We close at 23:00. Offers stay open; the clock stops.' · state at tick 1418: **#4 30.49** (negotiating 22.99, market 7.5), neg_points 119.1, duel 35.39, ladder 0.483, pages 3, cash 392 · open: SAL-11 bid 19620 (lapses at tick 1432, before the close; asked the Chief about an overnight re-post), book asks LAV-03 → t04 6, MAL-03 → t09 9, LAV-04 → t01 6, MAL-08 → t01 20 (exp 1455, they survive the night)
   - Sat 22:36 · operator · RET-11 kept for Sunday (Chief) · duels-end detector fixed: scratchpad wait_duels_end.py (byte-offset feed reader; exit 0 finished, 2 fallback) · handoff 'Next': Club Castizo (directives 22:55; hourly bonuses via a direct team trade; Market tally), intel/sunday-plan.md (the Chief updates it at 07:30)
-  - Sat 22:35 · operator · RET-11 → Pilar job ended at its 22:35 cutoff without running: Duels II still live (no duels.finished in the feed) → RET-11 kept (reserved, 198) · bug owned: the job's duels.finished detector used `tail -n +$(wc -l)`, and macOS pads wc output (illegal offset), so it could never fire; same result today · ads: 22:16 'Selling to Team 6 or Team 8?…', 22:27 'Bidding for an epic?…' · SAL-11 bid 19620 live (≈ 22:53)
-  - Sat 22:48 · builder · **branch `duelist-loop` pushed for Aleks** (ba8726c, 547 green; main untouched): hot-reloaded run/duel_params.json, wave loop tools/duel_loop.py (run/watch/approve/revert, Duel Lab sim copied in), opt-in `--policy code` (code decides, one capped text call: Haiku 1.8 s) · notes docs/duelist-loop.md · also live tonight: egg catalog intel/eggs.md (9a34086; Chato's Plaza-Mayor-con-caña pack still ours to get) · next: watch daemons overnight
 
 ## Score
 
@@ -27,15 +27,15 @@ _From `team/<name>.md`; each person writes only their own file._
 |---|---|---|---|---|---|---|---|---|---|---|
 | 30.49 | 4 | 22.99 | 7.50 | 35.39 | 0.48 | 0.85 | 53 | 5 | 392 | 39/50 |
 
-Leaderboard (snapshot at tick 1410; refreshes every few minutes):
+Leaderboard (snapshot at tick 1420; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
 | 1 | Team 10 | 37.74 | 25.24 | 12.50 | 62 |
 | 2 | Team 18 | 30.98 | 23.48 | 7.50 | 39 |
-| 3 | Team 6 | 30.98 | 19.16 | 11.82 | 69 |
+| 3 | Team 12 | 30.56 | 23.31 | 7.25 | 70 |
 | 4 | Team 5 | 30.49 | 22.99 | 7.50 | 53 |
-| 5 | Team 12 | 30.08 | 22.58 | 7.50 | 69 |
+| 5 | Team 3 | 29.81 | 23.73 | 6.08 | 32 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 13.36 | ~14 min | day_closes | Closed until Sunday 09:00 |
-| 13.36 | ~14 min | day_opens | Sunday opens |
-| 14.65 | ~91 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
-| 15.00 | ~112 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
-| 16.65 | ~211 min (after today's close) | set_release | Chamberí released |
-| 16.65 | ~211 min (after today's close) | round | Round 3 starts |
-| 16.70 | ~214 min (after today's close) | grant_all | The Sunday allowance: 150 primas for everyone |
-| 17.00 | ~232 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 13.37 | ~9 min (after today's close) | day_closes | Closed until Sunday 09:00 |
+| 13.37 | ~9 min (after today's close) | day_opens | Sunday opens |
+| 14.65 | ~86 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 15.00 | ~107 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 16.65 | ~205 min (after today's close) | set_release | Chamberí released |
+| 16.65 | ~205 min (after today's close) | round | Round 3 starts |
+| 16.70 | ~208 min (after today's close) | grant_all | The Sunday allowance: 150 primas for everyone |
+| 17.00 | ~227 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
 
 ## Our dealer deals
 
@@ -58,8 +58,6 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Thread | Dealer | Side | Item | Her first | Our first | Deal | vs her first | Msgs | Status | Closed |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 868 | abuela | buy | SAL-06 | 29 | 21 | 23 | -21% | 5 | deal |  |
-| 873 | pilar | sell | 1 card(s) | 22 | 34 | 25 | +14% | 9 | deal |  |
 | 960 | chato | sell | 1 card(s) | 13 | 30 | 14 | +8% | 13 | deal |  |
 | 1062 | picaros | sell | 1 card(s) | 10 | 32 | — | — | 7 | closed |  |
 | 1075 | picaros | buy | SAL-09 | 73 | 45 | 54 | -26% | 9 | deal |  |
