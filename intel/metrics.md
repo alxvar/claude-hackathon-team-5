@@ -1,4 +1,4 @@
-# Metrics (auto, 20:37, game tick 1201)
+# Metrics (auto, 20:39, game tick 1201)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -85,8 +85,9 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 
 ## El Rastro now: top bids by price (team, card, price)
 
-- t09: SAL-09 (rare) 68 P · offer 17770
-- t09: SAL-10 (rare) 68 P · offer 17771
+- t10: LAV-11 (epic) 205 P · offer 17778
+- t09: MAL-09 (rare) 56 P · offer 17776
+- t09: MAL-10 (rare) 56 P · offer 17777
 - t18: LAT-10 (rare) 47 P · offer 17066
 - t09: SAL-06 (uncommon) 20 P · offer 17769
 - t09: MAL-06 (uncommon) 20 P · offer 17772
@@ -99,7 +100,6 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 - t13: RET-02 (common) 2 P · offer 17648
 - t13: LAT-02 (common) 2 P · offer 17665
 - t13: LAT-05 (common) 2 P · offer 17667
-- t13: LAT-04 (common) 2 P · offer 17681
 
 Asks by others (card, price: count): LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAT-06 20: 1; SAL-02 7: 1; SAL-01 6: 1; RET-09 84: 1; LAT-08 30: 1; SAL-11 245: 1; RET-06 30: 1; LAT-06 21: 1; SAL-03 7: 1; SAL-04 10: 1
 
