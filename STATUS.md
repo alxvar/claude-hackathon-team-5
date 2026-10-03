@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 23:32** · tick 1445 (30 s/tick) · game hour 13.37 · PAUSED · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 23:37** · tick 1445 (30 s/tick) · game hour 13.37 · PAUSED · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,9 +17,9 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 23:50 · builder · pack refs never reach a value lookup (918f823: policy.is_card in trader/book/swaps/trade.py/bargains/reactor/opps; trader/book/swaps/opps pick it up at the Operator's next restart) · the ACT DONE/VOID sweep moved into the reactor (c4fa3f4; 2 keyed reads/min, from 09:00 ticks) · duelist-loop rebased + GUARDS off switch (b10f9cc, 558 green) · **Red Castiza club engine paused**: the auto-mode classifier denied its build/tests; needs Lucas's explicit go in the Builder session · next: daemons overnight
   - Sat 23:35 · Market: Saturday closed at market 7.5 (stall number; top 12.5); bench 13.0 0.854, six benches and nobody above the stall; `intel/market-sunday.md` written and verified by an independent pass (10 flags applied) · club pairs on the match list +89 VC, 68 of it one page-finishing trade (RET-09 t07 → t09); sim: +89 on v10 at the close ≈ 3.9-4.8 of 5 · next: 07:00 refresh with the want-lists, 07:30 summary to the Chief, live watch from 09:00
   - Sat 23:33 · Dealer Lab · **`intel/dealer-lab-ladder.md`** (feed to tick 1376, 621 dealer deals, 2 independent checks, fixes applied): ladder ≈ Σ (L/15) × best-3 mean share [L] → max per deal Abuela 0.022 · Chato 0.044 · Pilar 0.067 · Pícaros 0.089 · Ernesto 0.111; buy range top = LIST (our 5 Chato buys above list scored 0); words never move prices, kindness only buys Abuela gifts; Pícaros egg doesn't stop tricks; walk+reopen is free (fresh limit); dealers close ≈ 14:00 with the Grand Final · §5 = 6 differences vs the Operator's dealer-lab.md (Pícaros rare accept ≤ 54 not 62, egg, Abuela caps, RET-11) · next: Chief settles §5 before 09:00
-  - Sat 23:26 · operator · **network outage on this machine ≈ 22:50-23:24** (DNS errors in the watcher, trader and jobs) · game closed at tick 1445 (paused; opens Sun 09:00) · **overnight SAL-11 bid 20252** (115 → t04 on v15, exp tick 1565) posted after the outage; the server accepts posts while closed · trader: 5 'unknown_card sobre_bienvenida' errors 22:41-22:45 (a pack ref looked up as a card) → Builder guard · overnight: dealer lab → intel/dealer-lab.md by 07:30 (read-only)
 
 ## Score
 
