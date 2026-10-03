@@ -1,4 +1,4 @@
-# Market plan for Sunday (Market session) · written Sat 23:31
+# Market plan for Sunday (Market session) · written Sat 23:32
 
 _Sources: intel/matches.md (matchmaker run 23:28, tick 1440; its VC estimates move between runs, so re-read it before acting), leaderboard snapshot 1440 (us 30.49), intel/market-log.md, intel/directives.md (Club Castizo, Sat 22:55). Labels: [V] measured, [L] inferred, [?] unknown. An independent verifier audited the 22:52 draft; its ten flags are applied here._
 
@@ -133,7 +133,7 @@ Inputs: the club pairs in §2 (+89.2 VC in all, +67.6 in the one big trade) and 
 | Club pairs + the outside pairs of §2, all on v10 | +150 | **5.0 / 4.8** |
 
 - **By time, directive case:** if the big trade lands in the first hour, v10 holds +68, above the 50 needed after 1 h; by 12:00 the bar is about 100 and by the close 170 (2× case), so the +89.2 on the list is not enough by itself to stay at full marks all day: the want-lists have to add pairs.
-- **A rotation over members' venues by count gives v10 under 1 point** unless the big trade settles on v10. The 22:55 directive (all club deals on v10) avoids that. If a rotation comes back, rotate by VC, not by count.
+- **A rotation over members' venues by count gives v10 about 1 point or less** unless the big trade settles on v10. The 22:55 directive (all club deals on v10) avoids that. If a rotation comes back, rotate by VC, not by count.
 - **The big trade is a page finisher for Team 9** (-7.3 board vs us): the Chief's call.
 - **Team 10** keeps full marks only while its VC is at least the top-three mean; it had 11 fills on Saturday and loses the 4 we made (§7).
 
