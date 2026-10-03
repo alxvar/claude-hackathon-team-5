@@ -38,9 +38,10 @@ The branch already contains:
 |---|---|
 | **Run** | `bash <(git show origin/duelist-loop:tools/duelist_sunday.sh)` with its defaults: `SET=C`, `POLICY=code`, `FLAGS="--model claude-opus-5-5 --effort low --negotiator-model claude-haiku-4-5 --failover-s 8"`. Pin `COMMIT` to the sha the re-audit approves |
 | **Param set** | **C** = `MIN_STEP_P` 8, `MAX_STEP_SHARE` 0.12, `LATE_SWITCH_LEFT` 0, `OPEN_WAIT` 0, `MONO_END_SHARE` 0.25 |
-| **Policy** | **code** (code decides, Haiku writes the words). If the code policy misbehaves live, `POLICY=llm` with the same flags (Opus low, Haiku negotiator) |
-| **Switch rule** | `AUTOSWITCH=1`, **but first drop `"A": "today"` from `_switch` in `docs/duel_sets.json`** so the only step is C → A. Today's defaults score below A in every simulated group, so a second step can only cost. The rule: ≥ 12 closed duels with a rival that spoke, deal rate < 0.60 → `use A`, once, never back. **While it runs, don't approve any `duel_loop run` tweak:** a merged key makes the file match no set, and the switch then never applies |
+| **Policy** | **code** (code decides, Haiku writes the words). **If it misbehaves live, the tested way back is `--rollback`:** it stops every duelist and starts Saturday's (main, LLM policy, Saturday's constants). The script has no stop-only mode, so switching to `POLICY=llm` mid-session means stopping the running duelist first and re-running with `SET=<the set now live>`. A plain re-run reinstalls `SET` (default C) and, after a switch, would bring C back with the rule spent. Ask the Builder for a `--stop` if you want this path |
+| **Switch rule** | `AUTOSWITCH=1`, with the only step C → A. Today's defaults score below A in every simulated group, so a second step (A → today) can only cost. **How:** the Builder pushes a commit to duelist-loop that removes `"A": "today"` from `_switch` in `docs/duel_sets.json`, and Aleks pins `COMMIT` to that sha. Don't edit `$WT` by hand: the script aborts on local changes. **Fallback if that commit isn't there:** once A is live, `touch $WT/run/duel_switch.off` (the switch's kill switch). The rule: ≥ 12 closed duels with a rival that spoke, deal rate < 0.60 → `use A`, once per set, never back. **A loop tweak approved mid-session doesn't block the switch** (it reads the file's `_set`), **but a switch to A overwrites it** |
 | **If C is rejected** | `SET=A`, with `AUTOSWITCH=0` (no lower set worth switching to) |
+| **`_default`** | Keep `"A"`. It plays only if `run/duel_params.json` goes missing; A is the safer fallback |
 | **The Final** | Session 5 (Duels III is session 4; `docs/duels/feed.jsonl` `duels.scheduled`; confirm at the start). Start on the set Duels III ended on; the rule's count restarts. The switch was simulated over 68-duel sessions; over the Final's 34 it fires even less often |
 
 _`intel/duel-sets/*.json` (main) hold the same values in `approve`'s proposal format; the branch's
@@ -100,7 +101,7 @@ _`intel/duel-sets/*.json` (main) hold the same values in `approve`'s proposal fo
   - **So the bargaining model is not rejected out of sample** (a weak test at n = 25, with some leakage). What it
     got clearly wrong is the share of silent rivals, which score 0 under any set and which the switch rule ignores.
 - **Per-opponent adaptation (`adapt.out`).** Knowing each rival's profile at duel start (price kind, accept-threshold
-  band, concession band, day behaviour: 120 profiles) and playing the best of 24 configs for it, chosen on one seed
+  band, concession band, day behaviour: 120 profiles) and playing the best of 36 configs for it, chosen on one seed
   set and scored on a held-out set:
   - **+0.0014 per duel, 95% CI [+0.0001, +0.0027], ≈ +0.1 points over Duels III.**
   - In-sample it looks like +0.0056: winner's curse.
@@ -161,12 +162,13 @@ _`intel/duel-sets/*.json` (main) hold the same values in `approve`'s proposal fo
   - there's no quiet moment between waves;
   - `approve` merges, so every set lists the same five keys (A replaces C completely; tested on a scratch params file);
   - the prompt must not state `LATE_SWITCH_LEFT` (otherwise C2, where it's 2 in both sets).
-- **"Once" is enforced twice:** `duel_loop.py switch` applies each `_switch` entry once, and `tools/duel_gates.py` (run
-  by hand with `--params`) prints `DONE` once A is live.
-- **The old gate is retired.** `tools/duel_gates.py` keeps the `gates()` / `TODAY_MIN_STEP_P` interface that
-  `tools/duel_loop.py` imports; `gates()` now proposes no `MIN_STEP_P` change (the old one had EV −0.06). Tested
-  through `duel_loop.gate()` with main's version.
-- **Auto-apply is built** (branch 1999f1a, `duel_loop.py switch`, started by `duelist_sunday.sh` when `AUTOSWITCH=1`).
+- **"Once":** `duel_loop.py switch` applies each `_switch` entry once and never back. `tools/duel_gates.py` only advises
+  (run by hand with `--params`, it prints `DONE` once A is live).
+- **The old gate is retired.** `tools/duel_loop.py` at 3a0f6f3 calls `dg.rule`. Main's `tools/duel_gates.py` also
+  keeps `gates()` / `TODAY_MIN_STEP_P` for older copies; `gates()` now proposes no `MIN_STEP_P` change (the old gate
+  had EV −0.06).
+- **Auto-apply is built** (duelist-loop 3a0f6f3: `duel_loop.py switch`, started by `duelist_sunday.sh` when
+  `AUTOSWITCH=1`).
   It applies `_switch` once per set and never back, so the A → today entry must go for a single C → A step.
 
 ## FINAL for Sunday (overnight program, Sat 23:45): Duels III (≈ 11:00) and the Final (≈ 14:00)

@@ -63,7 +63,7 @@ def rule(duels, eff=None):
         if eff is not None and live_set(eff) != 'C':
             return 'HOLD', 'rule fired (deal rate %.2f < %.2f) but the live params are not set C: no switch' % (
                 deals / len(spoke), THR), ev
-        return 'SWITCH', 'deal rate %.2f < %.2f over %d duels: approve intel/duel-sets/A.json (once)' % (
+        return 'SWITCH', 'deal rate %.2f < %.2f over %d duels: switch to set A once (duel_loop.py use A, or AUTOSWITCH applies it)' % (
             deals / len(spoke), THR, len(spoke)), ev
     return 'HOLD', 'deal rate %.2f >= %.2f: keep the current set' % (deals / len(spoke), THR), ev
 
