@@ -1,6 +1,6 @@
 # v10 matchmaker: page finishers and first copies
 
-_Written by `tools/matchmaker.py` at 21:20 (tick 1240). Read-only. Holdings are a feed lower bound (~80% recall on our own album): a missing card may already be held unless the team bid for it or put it on a want-list (✓). Giver: a true duplicate or a set it dumps; receiver: no copy, collects the set; both gain > 0 at the price (conservative multipliers). Want-lists: `intel/wants.md`. Never a page-closer for a rival or a team < 6 below us; a rival on either side gains <= 10 P at our price._
+_Written by `tools/matchmaker.py` at 21:25 (tick 1250). Read-only. Holdings are a feed lower bound (~80% recall on our own album): a missing card may already be held unless the team bid for it or put it on a want-list (✓). Giver: a true duplicate or a set it dumps; receiver: no copy, collects the set; both gain > 0 at the price (conservative multipliers). Want-lists: `intel/wants.md`. Never a page-closer for a rival or a team < 6 below us; a rival on either side gains <= 10 P at our price._
 
 ## Matches (best first)
 
@@ -25,7 +25,7 @@ _Written by `tools/matchmaker.py` at 21:20 (tick 1240). Read-only. Holdings are 
 | 17 | Team 6 | RET-03 El Titiritero | Team 4 | ~9 | +7.6 (low +7.6) |  | rival buyer | page 8/10 · bid ✓ · seller holds 2 · also t08 |
 | 18 | Team 8 | MAL-02 Plaza del Dos de Mayo | Team 7 | ~9 | +7.2 (low +7.2) |  |  | bid ✓ · seller dumps MAL · also t16, t04, t10 |
 | 19 | Team 16 | RET-01 Barca del Estanque | Team 9 | ~9 | +7.2 (low +7.2) |  |  | bid ✓ · seller holds 2 |
-| 20 | Team 3 | SAL-09 El Marqués | Team 2 | ~91 | +6.9 (low +6.9) |  | rival buyer | bid ✓ · seller dumps SAL |
+| 20 | Team 3 | SAL-09 El Marqués | Team 2 | ~91 | +6.6 (low +6.6) |  | rival buyer | bid ✓ · seller dumps SAL |
 
 ## Ready DMs
 
