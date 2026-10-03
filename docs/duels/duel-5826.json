@@ -328,6 +328,153 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1283,
+   "took_s": 13.53,
+   "cost_usd": 0.02021,
+   "obs": {
+    "view": {
+     "duel_id": 5826,
+     "role": "seller",
+     "limit": 72,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.79,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "93 with delivery on day 0. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "offer": {
+       "price": 93,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1282,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 145 P on day 0; or, if you prefer, 110 P on day 10. I'll keep my per-day numbers to myself, but your pick between the two will tell us both where the day matters more.",
+      "offer": {
+       "price": 145,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1282,
+      "decision": {
+       "action": "offer",
+       "price": 145,
+       "message": "I can do 145 P on day 0; or, if you prefer, 110 P on day 10. I'll keep my per-day numbers to myself, but your pick between the two will tell us both where the day matters more."
+      }
+     },
+     {
+      "mine": false,
+      "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 47,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1283,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 47,
+     "days": 10
+    },
+    "tick": 1283,
+    "ticks_left": 15,
+    "rounds": 1,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1,
+     25.6,
+     37.9,
+     11.6,
+     21.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "110 P with delivery on day 10. Your last offer moved backwards in value, so I'm holding here and would like to see a serious counter.",
+    "price": 110,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 110,
+      "message": "110 P with delivery on day 10. Your last offer moved backwards in value, so I'm holding here and would like to see a serious counter."
+     },
+     "vetoes": [
+      "the message could be read as accepting, but you are not accepting. Don't use words like 'deal', 'agree', 'accept', 'sounds good' or 'works for me' unless you accept."
+     ],
+     "band": {
+      "worst": 106,
+      "target": 110,
+      "best": 112
+     },
+     "plan": {
+      "read": "They switched to day 10 and dropped their price to 47 P. In value terms that is a move away from us, not a concession. Day 10 suits us best, so we take it and haggle only on price.",
+      "target": 110,
+      "best": 112,
+      "worst": 106,
+      "days": 10,
+      "angle": "Accept their day 10 and restate our day-10 price of 110 firmly as the matching package (no real concession). Note calmly that their latest offer went backwards, and invite a serious counter."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 9.6,
+       "in": 879,
+       "out": 672,
+       "cost_usd": 0.01696,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.11,
+       "in": 424,
+       "out": 75,
+       "cost_usd": 0.0016,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.83,
+       "in": 514,
+       "out": 62,
+       "cost_usd": 0.00165,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -385,6 +532,74 @@
      "price": 145,
      "tick": 1282,
      "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1283,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "110 P with delivery on day 10. Your last offer moved backwards in value, so I'm holding here and would like to see a serious counter.",
+    "price": 110,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 110,
+      "message": "110 P with delivery on day 10. Your last offer moved backwards in value, so I'm holding here and would like to see a serious counter."
+     },
+     "vetoes": [
+      "the message could be read as accepting, but you are not accepting. Don't use words like 'deal', 'agree', 'accept', 'sounds good' or 'works for me' unless you accept."
+     ],
+     "band": {
+      "worst": 106,
+      "target": 110,
+      "best": 112
+     },
+     "plan": {
+      "read": "They switched to day 10 and dropped their price to 47 P. In value terms that is a move away from us, not a concession. Day 10 suits us best, so we take it and haggle only on price.",
+      "target": 110,
+      "best": 112,
+      "worst": 106,
+      "days": 10,
+      "angle": "Accept their day 10 and restate our day-10 price of 110 firmly as the matching package (no real concession). Note calmly that their latest offer went backwards, and invite a serious counter."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 9.6,
+       "in": 879,
+       "out": 672,
+       "cost_usd": 0.01696,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.11,
+       "in": 424,
+       "out": 75,
+       "cost_usd": 0.0016,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.83,
+       "in": 514,
+       "out": 62,
+       "cost_usd": 0.00165,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5826,
+    "offer": {
+     "id": 7999,
+     "price": 110,
+     "tick": 1283,
+     "days": 10
     }
    }
   }

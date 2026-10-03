@@ -122,6 +122,66 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1283,
+   "raw": {
+    "duel": 5812,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.56,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 73,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1298,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 7968,
+     "price": 125,
+     "tick": 1282,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 7994,
+     "price": 34,
+     "tick": 1283,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1282,
+      "from": "Rival Rojo",
+      "text": "Hello, and thank you so much for taking the time to trade with us — we'd be delighted to offer 26, with delivery on the day we've proposed. We're working with a rather modest purse this round, but we'd truly love to make this work together.",
+      "price": 26,
+      "days": 10
+     },
+     {
+      "tick": 1282,
+      "from": "you",
+      "text": "I can do 125 P, delivery on day 10.",
+      "price": 125,
+      "days": 10
+     },
+     {
+      "tick": 1283,
+      "from": "Rival Rojo",
+      "text": "Thank you kindly for coming back to us, and day 10 suits us perfectly — we can stretch our modest purse a little to 34. We'd be so glad to meet you somewhere comfortable for both of us.",
+      "price": 34,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
