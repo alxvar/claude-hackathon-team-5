@@ -132,6 +132,9 @@
 - **Team trades still move the board** [V, Sat 17:46-17:49]: the trader's swap (t07's SAL-07 for our LAT-01, +15.5 `neg_points`)
   → at the tick-910 refresh `negotiating` 21.74 → 22.48, board 29.24 → 29.98 (#4 → #3): ≈ +0.05 board per neg point. The
   board refreshes every ~10 ticks (5 min on Saturday). Ladder and flags are spent; team trades and v10 are the live levers.
+- **SAL page close via a team trade** [V, Sat 18:28]: t08's open El Rastro ask, SAL-06 at 28 (fee 3), value 82.1 to us →
+  `neg_points` +40.4 (not the +50 cap: our unopened silver pack's EV fell, pack drag). **Public boards mask makers**
+  (`/api/venues/{v}/offers` shows e.g. 'ma88927b8'); the feed's `offer.listed` names the real team.
 - **Abuela gifts** [V, tick 261]: after our 5th Abuela deal of the day she gave us LAT-08 ("gift from Abuela Carmen",
   `gift.given`); Team 7 got LAT-06 the same way on Friday (tick 157). Gifts never score, but the card is ours to sell.
 - **Value created on our venue is NET and can go negative** [V, Sat 11:30]: tick 311 on v10, t10 → t01 MAL-07 at 14:
