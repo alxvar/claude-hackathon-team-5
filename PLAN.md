@@ -53,6 +53,9 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    decay took ~22-31% of each surplus [L, n=2]. Field: t12 12.0 · t09 10.5 · t08 10.2 · t18/t01 7.9 · t13 7.4 · us 6.5.
    Your tripwire (rounds per deal > 4) is already tripped on n=2. Your call: soften the opener / take in-limit offers
    sooner between waves, or wait for 2 more waves. A no-deal is now a full share of an 8-board component lost.
+12. **12:24, your tripwire is tripped on both counts** (duel-review wave 3): 2/3 deals (67% < 70%), 7.5 rounds per deal
+   (> 4), 35% of the surplus lost to decay, **1 rival offer never answered** (check why: hold rule or a bug?). Waves 1-3:
+   9/10 deals, rounds 4.5 → 4.0 → 7.5. Your "soften between waves" option is on the table now; your call.
 
 **Dani: the desk, the page-gap desk, the judges' story.**
 1. **09:00, organisers' desk**: the 8 questions in plan §3, answers in `team/dani.md` at once.
