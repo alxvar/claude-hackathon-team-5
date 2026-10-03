@@ -56,7 +56,7 @@ Watch t14 at 17:35 (L4 opens to it) and every trade on v14; watch t01's Duels II
 
 | Lever | Expected | Cost / risk | Owner |
 |---|---|---|---|
-| Flags on Pícaros lies (safe classes) | **+0.55 each** | a wrong flag −10 neg_points (≈ −0.55) | Operator |
+| Flags on Pícaros lies (safe classes) | **0 now** (scored flags capped at ≈ 3; hourly reset probe ≥ 17:42), +0.55 each if it resets | a wrong flag −10 neg_points (≈ −0.55) | Operator |
 | Duels II (days rule, current engine) | +0.5-1.5 | relative to the field | Aleks |
 | v10 value created (1-2 good trades or swaps) | +3-5 if they land; EV ≈ +1 | Lucas's DMs | Lucas |
 | Fever resale SAL-09/10 → Pilar (18:04-20:04, ≥ 85) | +0.1-0.3 (L3 upgrade) + cash +60 each | none at ≥ 63 | Operator |

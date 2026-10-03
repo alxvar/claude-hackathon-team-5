@@ -310,6 +310,9 @@ the ladder can.
     to **#2 at 29.53, 0.53 behind t14**. Pícaros lies are public in the feed (t02 763, t08 765, t01 768 got the same lines);
     t02's +0.54 net with no scoring event at 770 fits one flag [L]. Abuela/Chato/Pilar: 3,253 messages, no checkable false
     facts (only "last word" posture and the golden-chulapa egg lore): don't flag them.
+    **Scored flags look capped [L, Chief/Operator]:** flags 5-7 at 16:53 (msgs 7225, 7344, 7356; same safe lie types)
+    scored 0, i.e. ≈ 3 scored flags per team (per dealer or per hour [?]); the Operator probes the hourly reset at ≥ 17:42.
+    Value flags at 0 until a probe scores.
     **A wrong flag costs −10.0 [V]:** flag #3 +10 (tick 773), then 73.2 → 63.2 (774). Safe classes: words ≠ structure (msg 7160:
     words sell "El Marqués" = SAL-09 at 65, structure gives `card:SAL-06`) and checkable false facts ("stopped printing").
     Not lies: "final" / "last offer" price posture, deadline theatre.
