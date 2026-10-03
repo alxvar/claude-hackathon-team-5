@@ -1,4 +1,4 @@
-# Metrics (auto, 13:21, game tick 623)
+# Metrics (auto, 13:24, game tick 628)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -20,19 +20,19 @@ score 28.6 · neg_points 35.2 (15 min ago 35.2) · ladder 0.181 · duel 13.93 ·
 
 ## Our holdings (card (rarity): value of each copy; a sale gives up the cheapest copy)
 
-LAT-03 (common): 5; LAT-04 (common): 1.2 / 1.2; LAV-01 (common): 99.1; LAV-02 (common): 3.2 / 3.2; LAV-03 (common): 3.2 / 3.2; LAV-04 (common): 3.2 / 3.2; LAV-05 (common): 99.1; LAV-06 (uncommon): 118.6; LAV-07 (uncommon): 118.6; LAV-08 (uncommon): 118.6; LAV-09 (rare): 177.1; LAV-10 (rare): 177.1; MAL-02 (common): 7; MAL-03 (common): 7; MAL-04 (common): 7; RET-01 (common): 83.9; RET-02 (common): 83.9; RET-03 (common): 83.9; RET-04 (common): 83.9; RET-05 (common): 83.9; RET-06 (uncommon): 100.4; RET-07 (uncommon): 100.4; RET-08 (uncommon): 100.4; RET-09 (rare): 149.9; RET-10 (rare): 149.9; SAL-01 (common): 9; SAL-02 (common): 2.2 / 2.2; SAL-03 (common): 9; SAL-05 (common): 9; sobre_plata (pack): 92.8
+LAT-03 (common): 5; LAT-04 (common): 1.2 / 1.2; LAV-01 (common): 99.1; LAV-02 (common): 3.2 / 3.2; LAV-03 (common): 3.2 / 3.2; LAV-04 (common): 3.2 / 3.2; LAV-05 (common): 99.1; LAV-06 (uncommon): 118.6; LAV-07 (uncommon): 118.6; LAV-08 (uncommon): 118.6; LAV-09 (rare): 177.1; LAV-10 (rare): 177.1; MAL-02 (common): 7; MAL-03 (common): 7; MAL-04 (common): 7; RET-01 (common): 83.9; RET-02 (common): 83.9; RET-03 (common): 83.9; RET-04 (common): 83.9; RET-05 (common): 83.9; RET-06 (uncommon): 100.4; RET-07 (uncommon): 100.4; RET-08 (uncommon): 100.4; RET-09 (rare): 149.9; RET-10 (rare): 149.9; SAL-01 (common): 9; SAL-02 (common): 2.2 / 2.2; SAL-03 (common): 9; SAL-05 (common): 9; sobre_plata (pack): 92.9
 
 ## Our open offers (9)
 
 - 8776: sell SAL-01 for 11 · to t06 · expires tick 639
-- 8867: sell LAV-02 for 8 · to t09 · expires tick 645
-- 8868: sell LAV-04 for 8 · to t03 · expires tick 645
-- 8869: sell SAL-02 for 7 · to t16 · expires tick 645
-- 8871: sell LAT-04 for 6 · to t16 · expires tick 645
-- 8919: sell LAV-03 for 8 · to t04 · expires tick 647
 - 9025: sell LAT-03 for 7 · to t03 · expires tick 656
 - 9032: sell MAL-04 for 9 · to t15 · expires tick 657
 - 9087: sell MAL-02 for 9 · to t15 · expires tick 663
+- 9100: sell LAV-02 for 7 · to t09 · expires tick 665
+- 9101: sell LAV-04 for 7 · to t03 · expires tick 665
+- 9102: sell SAL-02 for 6 · to t16 · expires tick 665
+- 9103: sell LAT-04 for 5 · to t16 · expires tick 665
+- 9136: sell LAV-03 for 7 · to t04 · expires tick 667
 
 ## What each of our deals did to neg_points (measured, last 12)
 
@@ -79,24 +79,21 @@ Who buys which set (team trades): t01: MAL×4, SAL×4; t02: RET×3, MAL×2, LAT�
 
 ## Dealer prices, last 60 ticks (median per item)
 
-- abuela common (team buys): median 10 over 1
+- abuela common (team buys): median 10 over 2
 - abuela common (team sells): median 5 over 10
-- abuela uncommon (team buys): median 22 over 2
-- chato rare (team buys): median 84 over 1
+- abuela uncommon (team buys): median 22 over 1
+- chato rare (team buys): median 87 over 2
 - chato sobre_plata (team buys): median 162 over 1
 - chato uncommon (team sells): median 11 over 1
-- pilar uncommon (team sells): median 19 over 7
+- pilar uncommon (team sells): median 18 over 6
 
 ## El Rastro now: top bids by price (team, card, price)
 
 - t04: LAT-09 (rare) 64 P · offer 8626
 - t04: RET-08 (uncommon) 27 P · offer 8723
 - t04: RET-06 (uncommon) 26 P · offer 8729
-- t13: RET-01 (common) 2 P · offer 8925
-- t13: RET-02 (common) 2 P · offer 8927
-- t13: RET-03 (common) 2 P · offer 8928
 
-Asks by others (card, price: count): LAV-04 10: 3; MAL-02 8: 2; MAL-04 7: 2; LAT-01 10: 2; LAT-03 10: 2; MAL-01 14: 2; LAT-02 9: 2; RET-08 30: 1; LAV-06 24: 1; LAV-03 7: 1; MAL-05 4: 1; LAT-01 5: 1; LAT-05 5: 1; SAL-02 11: 1; SAL-03 10: 1
+Asks by others (card, price: count): MAL-04 7: 2; MAL-01 14: 2; MAL-05 6: 2; LAV-04 10: 2; LAV-03 7: 1; MAL-05 4: 1; LAT-01 5: 1; LAT-05 5: 1; SAL-02 11: 1; SAL-03 10: 1; LAT-02 11: 1; LAT-03 11: 1; LAT-04 11: 1; LAT-06 25: 1; LAT-08 25: 1
 
 ## Our duels: 0 live, 68 finished (last 10)
 
