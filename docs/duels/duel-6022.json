@@ -122,6 +122,133 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1308,
+   "raw": {
+    "duel": 6022,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Dama de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.43,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 125,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Azul",
+    "deadline_tick": 1323,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 8957,
+     "price": 78,
+     "tick": 1308,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 8969,
+     "price": 95,
+     "tick": 1308,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1307,
+      "from": "Rival Azul",
+      "text": "Hello, and thank you for meeting me. I would propose 107 P with delivery on day 10.",
+      "price": 107,
+      "days": 10
+     },
+     {
+      "tick": 1308,
+      "from": "you",
+      "text": "Thank you for the opening, I appreciate it. I can do 78 P with delivery on day 10; a gap like this is a normal place to start.",
+      "price": 78,
+      "days": 10
+     },
+     {
+      "tick": 1308,
+      "from": "Rival Azul",
+      "text": "I appreciate it, thank you. Could we close at 95 P, delivery on day 10, please?",
+      "price": 95,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1309,
+   "raw": {
+    "duel": 6022,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Dama de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.43,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 125,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Azul",
+    "deadline_tick": 1323,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 8998,
+     "price": 81,
+     "tick": 1309,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 8969,
+     "price": 95,
+     "tick": 1308,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1307,
+      "from": "Rival Azul",
+      "text": "Hello, and thank you for meeting me. I would propose 107 P with delivery on day 10.",
+      "price": 107,
+      "days": 10
+     },
+     {
+      "tick": 1308,
+      "from": "you",
+      "text": "Thank you for the opening, I appreciate it. I can do 78 P with delivery on day 10; a gap like this is a normal place to start.",
+      "price": 78,
+      "days": 10
+     },
+     {
+      "tick": 1308,
+      "from": "Rival Azul",
+      "text": "I appreciate it, thank you. Could we close at 95 P, delivery on day 10, please?",
+      "price": 95,
+      "days": 10
+     },
+     {
+      "tick": 1309,
+      "from": "you",
+      "text": "Thank you, I appreciate the move. I can step up to 81 P with delivery on day 10, a real step toward meeting in the middle.",
+      "price": 81,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -274,6 +401,137 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1309,
+   "took_s": 8.04,
+   "cost_usd": 0.01236,
+   "obs": {
+    "view": {
+     "duel_id": 6022,
+     "role": "buyer",
+     "limit": 125,
+     "currency": "P",
+     "item": "La Dama de Serrano",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.43,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello, and thank you for meeting me. I would propose 107 P with delivery on day 10.",
+      "offer": {
+       "price": 107,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1307,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the opening, I appreciate it. I can do 78 P with delivery on day 10; a gap like this is a normal place to start.",
+      "offer": {
+       "price": 78,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1308,
+      "decision": {
+       "action": "offer",
+       "price": 78,
+       "message": "Thank you for the opening, I appreciate it. I can do 78 P with delivery on day 10; a gap like this is a normal place to start."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I appreciate it, thank you. Could we close at 95 P, delivery on day 10, please?",
+      "offer": {
+       "price": 95,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1308,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 95,
+     "days": 10
+    },
+    "tick": 1309,
+    "ticks_left": 14,
+    "rounds": 1,
+    "day_swings": [
+     39.8,
+     55.199999999999996,
+     36.2,
+     18.6,
+     45.099999999999994,
+     33.4,
+     62.599999999999994,
+     25.9,
+     13.200000000000001,
+     23.3,
+     14.299999999999999,
+     64.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thank you, I appreciate the move. I can step up to 81 P with delivery on day 10, a real step toward meeting in the middle.",
+    "price": 81,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 81,
+      "message": "Thank you, I appreciate the move. I can step up to 81 P with delivery on day 10, a real step toward meeting in the middle."
+     },
+     "band": {
+      "worst": 81,
+      "target": 81,
+      "best": 80
+     },
+     "plan": {
+      "read": "They dropped a solid 12 P, from 107 to 95, on day 10, which we already matched. Their pace says there is more room below 95, so their 'close at 95' is a request, not a floor.",
+      "target": 81,
+      "best": 80,
+      "worst": 81,
+      "days": 10,
+      "angle": "Stay warm and appreciative, keep day 10, and make one modest move to 81 P, framing it as a real step toward meeting in the middle rather than a quick split."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.18,
+       "in": 846,
+       "out": 379,
+       "cost_usd": 0.01096,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.85,
+       "in": 385,
+       "out": 63,
+       "cost_usd": 0.0014,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -341,6 +599,63 @@
      "id": 8957,
      "price": 78,
      "tick": 1308,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1309,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thank you, I appreciate the move. I can step up to 81 P with delivery on day 10, a real step toward meeting in the middle.",
+    "price": 81,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 81,
+      "message": "Thank you, I appreciate the move. I can step up to 81 P with delivery on day 10, a real step toward meeting in the middle."
+     },
+     "band": {
+      "worst": 81,
+      "target": 81,
+      "best": 80
+     },
+     "plan": {
+      "read": "They dropped a solid 12 P, from 107 to 95, on day 10, which we already matched. Their pace says there is more room below 95, so their 'close at 95' is a request, not a floor.",
+      "target": 81,
+      "best": 80,
+      "worst": 81,
+      "days": 10,
+      "angle": "Stay warm and appreciative, keep day 10, and make one modest move to 81 P, framing it as a real step toward meeting in the middle rather than a quick split."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.18,
+       "in": 846,
+       "out": 379,
+       "cost_usd": 0.01096,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.85,
+       "in": 385,
+       "out": 63,
+       "cost_usd": 0.0014,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 6022,
+    "offer": {
+     "id": 8998,
+     "price": 81,
+     "tick": 1309,
      "days": 10
     }
    }
