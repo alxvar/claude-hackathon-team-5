@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 13:42 (game paused at tick 630), snapshot 630. §1d levers 1-2 corrected by Aleks's replay (docs/duels-1-review.md). Duels I post-mortem §1d; Duels II day rule §1e. Duels I post-mortem: §1d. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
+_Last update: Sat 13:56 (game paused at tick 630), snapshot 630. §1d levers 1-2 corrected by Aleks's replay (docs/duels-1-review.md). Duels I post-mortem §1d; Duels II day rule §1e. Duels I post-mortem: §1d. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -282,6 +282,15 @@ the ladder can.
   LAT-01 at 7 (t15 selling duplicates into t12's first copies: [L], holdings are not public); t10 = v07: t05 → t03 SAL-01 (351, we sold), t04 → t05 MAL-03 (404, no visible change: t10 already at 12.5);
   t12 = v02: t13 → t15 MAL-03 (203), RET-02 (234).
 - To pin the hurdle: log `score.mm_points`, `bench_points`, `venue.value_created` in `data/me.jsonl` on every change.
+
+## 3b. Card-for-card swaps (a mechanic we haven't used) [V feed; scoring L]
+- t15 ↔ t07 swapped 3 times on El Rastro at price 0 (607 LAV-08 ↔ LAV-06, 613 LAV-03 ↔ MAL-08, 616 MAL-01 ↔ SAL-02).
+- A swap is a team trade for both sides: each scores its value gained at private values; no cash; maker fee 0, taker
+  1 P per card on El Rastro, 0 on a 0% venue.
+- On a team venue, value created = buyer gain + seller gain, so an accepted swap of spares for lacks is positive for the
+  venue owner by construction (+5 to +25 raw each). Whether an auto stall crosses swaps by itself: [?].
+- Our spares: LAV-02/03/04 (2nd copies, 3.2 each), SAL-02 (2.2), LAT-04 (1.2). Partners: LAV collectors outside the top 5
+  (t09, t03, t04, t06).
 
 ## 4. Buyer model (multiplier per team × set) for v10 steering
 
