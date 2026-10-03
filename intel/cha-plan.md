@@ -105,7 +105,8 @@ price ≤ 72 / 96**: a lower closer bid costs fill chance, not points.
 0. **Pick the degrade tier** (Cash section) from C = Saturday close + 150 before the release; re-read `/api/me` cash
    after the allowance (≈ 09:32) and adjust if it differs. Tell the Chief which tier.
 1. **At the release** (catalog `released`; not before, since refused posts retry every tick on the shared 5 req/s),
-   **add** the 10 CHA bids below to run/book.json, **keeping the asks already there**: an entry removed from the file is
+   right after opening pack 755 (checklist step 3), **add** the CHA bids below to run/book.json for the cards still
+   missing, **keeping the asks already there**: an entry removed from the file is
    cancelled within a tick (45ce829).
    - All on **El Rastro** (`page_closer: true`): any of them can turn out to be the card that closes the page, and page
      closers stay off team venues (directives 10:18, 10:30).
