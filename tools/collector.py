@@ -78,7 +78,8 @@ def main():
             lb = b.leaderboard()
             if lb.get("snapshot_tick") != last_snap:
                 append(DATA / "leaderboard.jsonl", {"t": time.time(), "tick": lb.get("snapshot_tick"),
-                       "teams": [{k: t.get(k) for k in ("team", "name", "score", "negotiating", "market", "deals")}
+                       "teams": [{k: t.get(k) for k in ("team", "name", "score", "negotiating", "market", "deals",
+                                                    "album_filled", "album_slots", "pages_complete", "rarest")}
                                  for t in lb.get("teams", [])]})
                 last_snap = lb.get("snapshot_tick")
             board = b.board("rastro").get("offers", [])

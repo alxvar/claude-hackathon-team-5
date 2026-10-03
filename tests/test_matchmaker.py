@@ -211,3 +211,74 @@ def test_a_page_the_server_may_have_closed_gets_no_closer(tmp_path):
     events += [bid("t09", "RET-09", 40, tick=95)]
     rows = mm.matches(**{**kw, "events": events}, lb={"t09": {"pages_complete": 1}}, tick=100)[0]
     assert rows and rows[0]["closer"]                                                     # a fresh bid: still open
+
+
+# ---- Market 01:00 (intel/holdings-audit.md): page arithmetic, bid expiry, known-entry vetting, seller safety, DMs
+
+def lbrow(filled, pages):
+    return {"album_filled": filled, "pages_complete": pages, "album_slots": 10}
+
+
+def test_a_friday_bid_proves_nothing():
+    sat = ev(159, "day.opened", "", {"day": "sat"})
+    events = give("t08", "RET-06", "RET-06") + [bid("t01", "RET-06", 30, tick=100), sat]
+    events.sort(key=lambda e: (e["tick"], e["id"]))
+    assert mm.bids_since(events) == 159
+    assert not run(events)[0]
+    events += [bid("t01", "RET-06", 30, tick=200)]                        # a Saturday bid does
+    assert [(r["buyer"], r["card"]) for r in run(events)[0]] == [("t01", "RET-06")]
+
+
+def test_a_bid_expires_when_the_bidder_gets_the_card_another_way():
+    events = give("t08", "RET-06", "RET-06") + [bid("t01", "RET-06", 30, tick=50),
+                                                ev(60, "egg.given", "banco", {"team": "t01", "cards": ["RET-06"]})]
+    assert not run(events)[0]
+    crafted = give("t08", "RET-06", "RET-06") + [bid("t01", "RET-06", 30, tick=50),
+                                                 ev(60, "taller.crafted", "", {"team": "t01", "from": "common",
+                                                                               "to": "uncommon", "card": "Ret 6"})]
+    assert not run(crafted)[0]
+
+
+def test_page_arithmetic_beats_the_feed_on_both_sides():
+    # t09 shows 8 RET cards; the server says 10 held, 1 page: RET-09/10 are held, the page is done, no match
+    events = page_but("t09", {"RET-09", "RET-10"}) + give("t08", "RET-09", "RET-09") + [bid("t09", "RET-09", 40)]
+    coll = Collectors({}, from_feed(events))
+    kw = dict(events=events, catalog=CATALOG, teams=TEAMS, coll=coll)
+    assert not mm.matches(**kw, lb={"t09": lbrow(10, 1)}, tick=60)[0]
+    # the server says 8 held, 0 pages: RET-09 is a proven gap; with one more held it's a page-closer
+    info = {}
+    rows = mm.matches(**kw, lb={"t09": lbrow(8, 0), "t08": lbrow(1, 0)}, tick=60, info=info)[0]
+    r = rows[0]
+    assert (r["buyer"], r["card"], r["holding"], r["confirmed"]) == ("t09", "RET-09", "gap", True)
+    assert info["albums"]["t09"]["status"] == "exact" and "RET-10" in info["albums"]["t09"]["gap"]
+
+
+def test_a_known_entry_the_feed_contradicts_is_ignored_and_reported():
+    known = {"t15": {"complete": set(), "missing": {"RET-09"}}}
+    events = give("t15", "RET-09") + give("t08", "RET-09", "RET-09")
+    coll = Collectors({"t15": {"collects": {"RET"}, "dumps": set()}}, from_feed(events))
+    info = {}
+    rows = mm.matches(events=events, catalog=CATALOG, teams=TEAMS, coll=coll, known=known, info=info)[0]
+    assert not [r for r in rows if r["buyer"] == "t15"] and "RET-09" in info["rejected"]["t15"]
+    text = mm.render(rows, [], {}, {"t15": "Team 15"}, mm.pages(CATALOG), rejected=info["rejected"])
+    assert "entry for Team 15 ignored" in text
+
+
+def test_a_seller_whose_page_is_complete_and_crafted_since_is_held_back():
+    craft = ev(30, "taller.crafted", "", {"team": "t08", "from": "rare", "to": "epic", "card": "Ret 11"})
+    events = give("t08", *[f"RET-{i:02d}" for i in range(1, 11)], tick=10) + give("t08", "RET-09", tick=20) \
+        + [craft] + page_but("t09", {"RET-09"}) + [bid("t09", "RET-09", 40)]
+    rows, held, _ = run(events)
+    assert not [r for r in rows if r["seller"] == "t08"]
+    assert any("seller safety" in h["why"] and h["card"] == "RET-09" for h in held)
+    later = events + [ev(40, "offer.listed", "t08", {"offer": {"id": 1, "maker": "t08", "give": {"assets": [
+        {"id": 9001, "ref": "RET-09"}, {"id": 9002, "ref": "RET-09"}]}, "want": {"cash": 90}}})]
+    rows = run(later)[0]                                                   # two copies seen after the craft: fine
+    assert [(r["seller"], r["card"]) for r in rows if r["buyer"] == "t09"] == [("t08", "RET-09")]
+
+
+def test_dms_are_addressed_to_the_other_side():
+    events = page_but("t09", {"RET-09"}) + give("t08", "RET-09", "RET-09") + [bid("t09", "RET-09", 40)]
+    r = run(events)[0][0]
+    assert "addressed to Team 9" in r["dm_seller"] and "addressed to Team 9" in r["dm_buyer"]
+    assert "Team 8" in r["dm_buyer"] and "open" not in (r["dm_seller"] + r["dm_buyer"]).lower()

@@ -4,8 +4,10 @@ The organisers' deck: a market scores when two OTHER teams gain on it, and the b
 of a page ("take want-lists and match them with teams holding duplicates"). Every run this:
 1. estimates each team's page cards (01-10) from the feed: card ids received, listed or offered to a dealer, minus
    those sent, plus pack pulls and gifts (opportunities.read_signals: the latest hold/lack/gone per team and card).
-   A lower bound: on our own album (Sat 21:25) it had no false card and ~80% recall (LAV 7 of 10 seen, SAL 8, RET 8),
-   so a "9/10" team may already be complete. A bid or dealer ask for the missing card ("bid") confirms it;
+   Then (Market 01:00, intel/holdings-audit.md) gifts, eggs and Workshop crafts as id-less copies, and the page
+   arithmetic (tools/album.py): the leaderboard's album_filled/pages_complete and the catalog's minted supply prove
+   most cards held or missing (10 teams exact at Sat close, 0 conflicts with the audit). A bid or dealer ask for the
+   missing card ("bid", from Saturday on, until the bidder gets the card) confirms a gap too;
 2. for each missing card of a team at 8/10 or 9/10, finds a giver: a true duplicate (2+ distinct copies seen) or the
    only copy of a set it dumps (intel/teams.md; never the only copy of a page the feed shows complete);
 3. reads want-lists from intel/wants.md (Lucas, from WhatsApp: `- t07 RET-05 40` = team, card, max price in P; the
@@ -51,6 +53,7 @@ import opportunities as op  # noqa: E402
 import policy  # noqa: E402
 import v10_radar as vr  # noqa: E402
 import known as known_mod  # noqa: E402
+import album as al  # noqa: E402
 from collectors import Collectors, from_feed, parse_teams_md  # noqa: E402
 
 URL = os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai")
@@ -62,6 +65,7 @@ KNOWN = known_mod.KNOWN   # run/known_holdings.json: Lucas's facts from the team
 EVERY_S = 300
 NEAR = 8                   # flag a team with at least this many cards of a page seen
 RECENT_TICKS = 120         # a bid this recent for the missing card says the page is still open
+BIDS_FROM_DAY = "sat"      # Market 01:00: a bid proves a gap only when posted; Friday's bids are never used
 PAGE_BONUS = 0.25          # catalog values.page_bonus
 CAP = 50                   # a team trade scores at most +50 per side (GAME.md [V] for the buyer; the seller [L])
 RIVAL_GAIN_MAX = 10.0      # a rival on either side: its gain at our suggested price stays <= this (Chief 17:50)
@@ -130,12 +134,29 @@ def pages(catalog: dict) -> dict:
     return out
 
 
+def bids_since(events) -> int:
+    """The tick from which a bid counts: when Saturday opened (Market 01:00: never use Friday bids; tick 159 in the
+    feed); 0 when the feed doesn't show it."""
+    for e in events:
+        if e.get("type") == "day.opened" and (e.get("payload") or {}).get("day") == BIDS_FROM_DAY:
+            return e["tick"]
+    return 0
+
+
 def counts(events, cards: dict) -> tuple[dict, dict, dict]:
     """((team, card) → copies seen, (team, card) → latest signal, (team, set) → profile). Copies: the distinct asset
-    ids v10_radar.holdings sees, or 1 when the latest signal is a hold the ids miss (a gift, a pack pull, an offer to a
-    dealer); 0 after a sale."""
+    ids v10_radar.holdings sees, or 1 when the latest signal is a hold the ids miss (a gift, an egg, a Workshop craft,
+    a pack pull, an offer to a dealer); 0 after a sale. A bid (lack) counts only from Saturday on, and only until the
+    bidder gets the card (a settlement, a craft, an egg or a gift is a later hold)."""
     held = vr.holdings(events)
     last, prof = op.read_signals(events, [], ME, _Order(), 0, cards, now_h=0)
+    for tick, team, card, src in al.receipts(events, cards):
+        sig = last.get((team, card))
+        if team != ME and (sig is None or (sig.get("tick") or 0) <= tick):
+            last[(team, card)] = {"team": team, "card": card, "kind": "hold", "hours": None, "tick": tick, "src": src,
+                                  "live": False, "price": None, "order": (False, tick, 0)}
+    since = bids_since(events)
+    last = {k: s for k, s in last.items() if not (s["kind"] == "lack" and (s.get("tick") or 0) < since)}
     n = {k: len(v) for k, v in held.items() if v}
     for k, sig in last.items():
         if sig["kind"] == "hold":
@@ -154,11 +175,17 @@ def progress(n: dict, pg: dict) -> dict:
 
 
 def page_open(team: str, st: str, card: str, *, prog: dict, pg: dict, lb: dict | None, last: dict, tick=None,
-              known=None) -> tuple[bool, str]:
+              known=None, alb=None) -> tuple[bool, str]:
     """Whether `team`'s page `st` can still score when it gets `card` (Chief 21:45: t10's RET page closed at snapshot
     1040 from its starting hand, invisible to the feed). The server's pages_complete beats the feed: open when every
     complete page it counts is one the feed already sees complete, or the team bid for `card` in the last RECENT_TICKS,
-    or it told us `card` is missing (run/known_holdings.json). lb None (no leaderboard read): open, as before."""
+    or it told us `card` is missing (run/known_holdings.json). lb None (no leaderboard read): open, as before.
+    `alb` (tools/album.py, the page arithmetic) beats all of it: a held card never opens, a proven gap always does."""
+    st_alb = al.status(alb, team, card)
+    if st_alb == "held":
+        return False, f"{team} holds {card} (page arithmetic)"
+    if st_alb == "gap":
+        return True, f"{card} is a proven gap for {team} (page arithmetic)"
     if known_mod.buys(known, team, card):
         return True, f"{team} told us {card} is missing"
     sig = last.get((team, card))
@@ -182,6 +209,29 @@ def load_known(path: Path | None = None) -> dict:
 
 def apply_known(n: dict, known: dict, pg: dict) -> dict:
     return known_mod.apply(n, known, {st: p["cards"] for st, p in pg.items()})
+
+
+def vet_known(known: dict, n: dict, pg: dict, catalog: dict, lb: dict | None, gone: set) -> tuple[dict, dict]:
+    """(entries that may override the feed, {team: why not}) (Market 01:00, after t15's wrong entry and our stale
+    one): an entry counts only while it fits the public data at the current snapshot: no card it calls missing is one
+    the feed shows the team holding, and with it applied some album still matches the server's album_filled and
+    pages_complete (when it covers every set, that is Σ have = album_filled)."""
+    ok, bad = {}, {}
+    sets = al.released(catalog, pg)
+    for team, k in (known or {}).items():
+        held = sorted(c for c in k["missing"] if n.get((team, c)))
+        if held:
+            bad[team] = f"the feed shows {', '.join(held)} held"
+            continue
+        row = (lb or {}).get(team)
+        was = al.team_album(team, n, pg, sets, row, gone)["status"] if row else None
+        now = al.team_album(team, apply_known(n, {team: k}, pg), pg, sets, row, gone)["status"] if row else None
+        if now == "inconsistent" or (now == "repaired" and was in ("exact", "partial")):
+            bad[team] = (f"no album with it fits the server's {row.get('album_filled')} cards and "
+                         f"{row.get('pages_complete')} complete pages")
+            continue
+        ok[team] = k
+    return ok, bad
 
 
 def parse_wants(text: str) -> list[dict]:
@@ -245,15 +295,17 @@ def sellers_for(card: str, buyer: str, *, n: dict, prog: dict, pg: dict, dumps: 
     return out
 
 
-def candidates(*, n, last, prog, pg, wants, cards, known=None) -> dict:
+def candidates(*, n, last, prog, pg, wants, cards, known=None, alb=None) -> dict:
     """(buyer, card) → {sources, max}: the missing cards of teams at NEAR+ of a page, want-lists, bids and known
     wants, each only where the buyer shows no copy of the card (Chief 21:40, hard rule). A team in run/
-    known_holdings.json buys only the cards it said it misses (Chief 21:50)."""
+    known_holdings.json buys only the cards it said it misses (Chief 21:50). With the page arithmetic (`alb`): never a
+    card it proves held, and a page's missing card only when it is a proven gap (an undecided one may be held)."""
     out: dict = {}
     known = known or {}
 
     def add(team, card, source, mx=None):
-        if team == ME or not op.is_team(team) or card not in cards or n.get((team, card)):
+        if team == ME or not op.is_team(team) or card not in cards or n.get((team, card)) \
+                or al.status(alb, team, card) == "held":
             return
         if team in known and card not in known[team]["missing"]:
             return
@@ -265,7 +317,7 @@ def candidates(*, n, last, prog, pg, wants, cards, known=None) -> dict:
     for (team, st), have in prog.items():
         if len(have) >= NEAR and len(have) < len(pg[st]["cards"]):
             for card in pg[st]["cards"]:
-                if card not in have:
+                if card not in have and al.status(alb, team, card) != "undecided":
                     add(team, card, f"page {len(have)}/{len(pg[st]['cards'])}")
     for w in wants:
         add(w["team"], w["card"], "want-list", w["max"])
@@ -294,22 +346,39 @@ def collects(team: str, st: str, *, coll: Collectors, prof: dict, wanted: bool =
 
 
 def matches(*, events, catalog, teams, wants=(), mult=None, coll: Collectors | None = None, known=None,
-            lb: dict | None = None, tick=None, me=ME) -> tuple[list, list, dict, dict]:
+            lb: dict | None = None, tick=None, me=ME, info: dict | None = None) -> tuple[list, list, dict, dict]:
     """(matches ranked best first, held back, progress, names). Hard rule (Chief 21:40): the giver shows a true
     duplicate or dumps the set; the receiver shows no copy and collects the set; both sides gain > 0 at the price at
-    the conservative multipliers (the seller's high, the buyer's low), else no match."""
+    the conservative multipliers (the seller's high, the buyer's low), else no match.
+    Holdings (Market 01:00, intel/holdings-audit.md): the feed's copies plus id-less ones (gifts, eggs, crafts), then
+    the page arithmetic on the leaderboard (tools/album.py). Seller safety: a "holds 2+" whose page is complete and
+    shows fewer than two copies after its last Workshop craft of that rarity is held back (that sale can wipe the
+    page). `info`, when given, gets {"albums", "rejected"} for the render."""
     mult = mult or {}
     cards = vr.card_index(catalog)
     pg = pages(catalog)
-    known = known or {}
     n, last, prof = counts(events, cards)
+    tr = al.trace(events, cards)
+    for k, v in al.copies(tr).items():
+        if k[0] != me and v > n.get(k, 0):
+            n[k] = v
+    gone = al.exhausted(tr, catalog)
+    known, rejected = vet_known(known or {}, n, pg, catalog, lb, gone)
     n = apply_known(n, known, pg)
+    alb = al.albums(n, pg, catalog, lb, gone)
+    for team, a in alb.items():
+        if team != me and a["status"] in ("exact", "partial", "repaired"):
+            for c in a["held"]:
+                n[(team, c)] = max(n.get((team, c), 0), 1)
+    cr = al.crafts(events)
+    if info is not None:
+        info.update(albums=alb, rejected=rejected)
     coll = coll or Collectors({}, from_feed(events))
     dumps = {t: p.get("dumps", set()) for t, p in coll.teams.items()}
     prog = progress(n, pg)
     riv = policy.rivals(teams, me) | set(policy.RIVALS)
     names = {t["team"]: t.get("name", t["team"]) for t in teams}
-    cand = candidates(n=n, last=last, prog=prog, pg=pg, wants=list(wants), cards=cards, known=known)
+    cand = candidates(n=n, last=last, prog=prog, pg=pg, wants=list(wants), cards=cards, known=known, alb=alb)
     out, held_back, groups = [], [], []
     for (buyer, card), c in cand.items():
         st, book = cards[card]["set"], cards[card]["book"]
@@ -321,13 +390,14 @@ def matches(*, events, catalog, teams, wants=(), mult=None, coll: Collectors | N
             continue
         have = prog.get((buyer, st), set())
         near = card in pg[st]["cards"] and len(have) >= NEAR
-        is_open, why_open = page_open(buyer, st, card, prog=prog, pg=pg, lb=lb, last=last, tick=tick, known=known) \
-            if near else (True, "")
+        is_open, why_open = page_open(buyer, st, card, prog=prog, pg=pg, lb=lb, last=last, tick=tick, known=known,
+                                      alb=alb) if near else (True, "")
         if near and not is_open and set(c["sources"]) <= {s for s in c["sources"] if s.startswith("page ")}:
             continue                                   # only the feed's page count wants it, and that page may be done
         closer = near and is_open and len(have) == len(pg[st]["cards"]) - 1
         sig = last.get((buyer, card))
-        confirmed = wanted or bool(sig and sig["kind"] == "lack")
+        holding = al.status(alb, buyer, card)               # gap | undecided | None (no arithmetic for the buyer)
+        confirmed = wanted or bool(sig and sig["kind"] == "lack") or holding == "gap"
         if closer and buyer in riv:
             held_back.append({"buyer": buyer, "card": card, "why": "page-closer for a rival"})
             continue
@@ -344,6 +414,21 @@ def matches(*, events, catalog, teams, wants=(), mult=None, coll: Collectors | N
         for seller, k, why in sellers_for(card, buyer, n=n, prog=prog, pg=pg, dumps=dumps):
             if seller in riv and buyer in riv:
                 continue
+            safety, rar = "", cards[card]["rarity"]
+            lc = al.last_craft(cr, seller, rar)
+            if why.startswith("holds") and lc is not None and al.copies_after(tr, seller, card, lc) < 2:
+                after = al.copies_after(tr, seller, card, lc)
+                full = (alb.get(seller) or {}).get("complete", {}).get(st)
+                full = True if len(prog.get((seller, st), ())) == len(pg[st]["cards"]) else full
+                if full:
+                    held_back.append({"buyer": buyer, "card": card,
+                                      "why": f"seller safety: {names.get(seller, seller)}'s {st} page is complete "
+                                             f"and only {after} "
+                                             f"cop{'y' if after == 1 else 'ies'} of it seen after its last {rar} "
+                                             f"craft (tick {lc})"})
+                    continue
+                safety = f"spare unverified: {after} seen after its {rar} craft at tick {lc}" + \
+                    (f", its {st} page may be complete" if full is None else "")
             m_s, _, hi_s = _m(mult, seller, st)
             lo, lo_cons = value(book, m_s, k), value(book, hi_s, k)
             clearing = vr.CLEARING_SET.get((st, cards[card]["rarity"]), vr.CLEARING.get(cards[card]["rarity"]))
@@ -366,7 +451,8 @@ def matches(*, events, catalog, teams, wants=(), mult=None, coll: Collectors | N
                          "seller_value": round(lo, 1), "buyer_value": round(hi, 1), "closer": closer,
                          "confirmed": confirmed, "have": len(have), "page_size": len(pg[st]["cards"]),
                          "sources": c["sources"], "max": c["max"], "rival_buyer": buyer in riv,
-                         "rival_seller": seller in riv, "note": note,
+                         "rival_seller": seller in riv, "note": "; ".join(x for x in (note, safety) if x),
+                         "holding": holding,
                          "bid": sig.get("src") if sig and sig["kind"] == "lack" else None})
         if rows:
             rows.sort(key=lambda r: (r["rival_seller"], -r["vc"], -r["spare"]))
@@ -395,14 +481,15 @@ SPARE_LINE = "Only if it's a spare for you, keep one copy."   # Chief 21:40: in 
 
 
 def dm_seller(r: dict) -> str:
-    """Transactional only (Lucas 17:20): what, where, price, thanks. Never why."""
-    return (f"Hi {r['seller_name']}! Could you post your {r['card_name']} ({r['card']}) on v10 as an open ask at "
-            f"~{r['price']} P? There's a buyer for it. {SPARE_LINE} Thanks!")
+    """Transactional only (Lucas 17:20): what, where, price, thanks. Never why. Addressed to the buyer (directive
+    01:15: pairs are pre-agreed and addressed, never an open ask)."""
+    return (f"Hi {r['seller_name']}! Could you post your {r['card_name']} ({r['card']}) on v10 as an ask addressed to "
+            f"{r['buyer_name']}, at ~{r['price']} P? They're ready to take it. {SPARE_LINE} Thanks!")
 
 
 def dm_buyer(r: dict) -> str:
-    return (f"Hi {r['buyer_name']}! {r['card_name']} ({r['card']}) can be on v10 soon: post an open bid there at "
-            f"~{r['price']} P and it crosses. Thanks!")
+    return (f"Hi {r['buyer_name']}! {r['seller_name']} can post {r['card_name']} ({r['card']}) on v10 as an ask "
+            f"addressed to {r['buyer_name']}, at ~{r['price']} P: accept it there once it's up. Thanks!")
 
 
 def _flags(r: dict) -> str:
@@ -414,14 +501,17 @@ def _flags(r: dict) -> str:
     return "rival " + "+".join(out) if out else ""
 
 
-def render(rows, held_back, prog, names, pg, *, tick=None, now=None, me=ME, riv=frozenset(), lb=None) -> str:
+def render(rows, held_back, prog, names, pg, *, tick=None, now=None, me=ME, riv=frozenset(), lb=None,
+           albums=None, rejected=None) -> str:
     stamp = time.strftime("%H:%M", time.localtime(now or time.time()))
     lines = [
         "# v10 matchmaker: page finishers and first copies\n",
-        f"_Written by `tools/matchmaker.py` at {stamp} (tick {tick}). Read-only. Holdings are a feed lower bound "
-        "(~80% recall on our own album): a missing card may already be held unless the team bid for it or put it on "
-        "a want-list (✓). Giver: a true duplicate or a set it dumps; receiver: no copy, collects the set; both gain > 0 "
-        "at the price (conservative multipliers). Want-lists: `intel/wants.md`. "
+        f"_Written by `tools/matchmaker.py` at {stamp} (tick {tick}). Read-only. Holdings: the feed's copies (gifts, "
+        "eggs and Workshop crafts included) plus the page arithmetic on the leaderboard's album_filled/pages_complete "
+        "and minted supply (`tools/album.py`; 0 conflicts with intel/holdings-audit.md). ✓ = a proven gap, a bid since "
+        "Saturday, or a want-list; \"undecided\" = the buyer may hold it. Giver: a true duplicate or a set it dumps "
+        "(held back when its page is complete and under two copies are seen after its last craft); receiver: no copy, "
+        "collects the set; both gain > 0 at the price (conservative multipliers). Want-lists: `intel/wants.md`. "
         "Never a page-closer for a rival or a team < "
         f"{policy.PAGE_CLOSER_GAP} below us; a rival on either side gains <= {RIVAL_GAIN_MAX:g} P at our price._\n",
         "## Matches (best first)\n",
@@ -431,6 +521,7 @@ def render(rows, held_back, prog, names, pg, *, tick=None, now=None, me=ME, riv=
                   "|---|---|---|---|---|---|---|---|---|"]
         for i, r in enumerate(rows[:TABLE_LINES], 1):
             why = " · ".join(r["sources"]) + (" ✓" if r["confirmed"] else "")
+            why += {"gap": " · gap proven", "undecided": " · undecided"}.get(r.get("holding"), "")
             why += f" · seller {r['seller_why']}" + (f" · also {', '.join(r['also'][:3])}" if r["also"] else "")
             why += f" · {r['note']}" if r["note"] else ""
             lines.append(f"| {i} | {r['buyer_name']} | {r['card']} {r['card_name']} | {r['seller_name']} | "
@@ -444,11 +535,20 @@ def render(rows, held_back, prog, names, pg, *, tick=None, now=None, me=ME, riv=
                       f"- To {r['buyer_name']}: \"{r['dm_buyer']}\"\n"]
     else:
         lines.append("No match yet.\n")
-    lines.append("## Teams one or two cards from a page (feed lower bound)\n")
+    lines.append("## Teams one or two cards from a page\n")
+    usable = {t for t, a in (albums or {}).items() if a["status"] in ("exact", "partial", "repaired")}
     near = sorted(((len(h), team, st) for (team, st), h in prog.items()
-                   if st in pg and NEAR <= len(h) < len(pg[st]["cards"]) and team != me), reverse=True)
+                   if st in pg and NEAR <= len(h) < len(pg[st]["cards"]) and team != me
+                   and not (team in usable and albums[team]["complete"].get(st) is True)), reverse=True)
     for k, team, st in near:
         miss = [c for c in pg[st]["cards"] if c not in prog[(team, st)]]
+        if team in usable:
+            a = albums[team]
+            tag = lambda c: c + ("" if c in a["gap"] else " (undecided)")
+            lines.append(f"- {names.get(team, team)} {st} {k}/{len(pg[st]['cards'])} · missing "
+                         f"{', '.join(tag(c) for c in miss)}" + (" · rival" if team in riv else "")
+                         + ("" if a["complete"].get(st) is False else " · **may be complete**"))
+            continue
         pc = (lb or {}).get(team, {}).get("pages_complete")
         seen = sum(1 for (t, s), h in prog.items() if t == team and s in pg and len(h) == len(pg[s]["cards"]))
         lines.append(f"- {names.get(team, team)} {st} {k}/{len(pg[st]['cards'])} · missing {', '.join(miss)}"
@@ -461,6 +561,16 @@ def render(rows, held_back, prog, names, pg, *, tick=None, now=None, me=ME, riv=
         lines.append("\n## Held back (never suggested)\n")
         for h in held_back[:15]:
             lines.append(f"- {h['card']} for {names.get(h['buyer'], h['buyer'])}: {h['why']}")
+    if albums:
+        lines += ["\n## Holdings (page arithmetic)\n", "| Team | Status | Held | Proven gaps | Undecided |",
+                  "|---|---|---|---|---|"]
+        for t in sorted(x for x in albums if x != me):
+            a = albums[t]
+            lines.append(f"| {names.get(t, t)} | {a['status']}{' (' + a['why'] + ')' if a['status'] == 'unknown' else ''}"
+                         f" | {len(a['held'])}/{(lb or {}).get(t, {}).get('album_filled', '?')} | {len(a['gap'])} | "
+                         f"{len(a['undecided'])} |")
+    for t, why in sorted((rejected or {}).items()):
+        lines.append(f"\n- run/known_holdings.json entry for {names.get(t, t)} ignored: {why}.")
     return "\n".join(lines) + "\n"
 
 
@@ -480,10 +590,15 @@ def run_once(*, dry=False, out: Path = OUT, wants_path: Path = WANTS, now=None) 
     if not wants_path.exists() and not dry:
         wants_path.write_text(WANTS_HEADER)
     lb, lb_tick = live_leaderboard()
+    if lb is None:             # the collector's copy keeps album_filled/pages_complete too (since Sun 01:00)
+        lb = {t["team"]: t for t in teams if t.get("album_filled") is not None} or None
+    info: dict = {}
     rows, held_back, prog, names = matches(events=events, catalog=catalog, teams=teams, wants=load_wants(wants_path),
-                                           mult=mult, coll=coll, known=load_known(), lb=lb, tick=lb_tick or tick)
+                                           mult=mult, coll=coll, known=load_known(), lb=lb, tick=lb_tick or tick,
+                                           info=info)
     riv = policy.rivals(teams) | set(policy.RIVALS)
-    text = render(rows, held_back, prog, names, pages(catalog), tick=lb_tick or tick, now=now, riv=riv, lb=lb)
+    text = render(rows, held_back, prog, names, pages(catalog), tick=lb_tick or tick, now=now, riv=riv, lb=lb,
+                  albums=info.get("albums"), rejected=info.get("rejected"))
     if dry:
         print(text)
     else:
