@@ -24,6 +24,12 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 - **Market:** v14 stall, one trade all day (418); market 9.53 = 7.5 + VC ≈ 2.0 → room ≈ +3 to the cap.
 
 
+### Sat 22:10 · snapshot 1340
+- Board: t10 38.29 · t06 32.63 · **t12 31.02** · **us 30.95 (#4)** · t18 30.05 · t03 29.97 · t14 28.37.
+- Game total so far (0.5·Fri + Sat): t10 57.44 · t06 48.95 · t12 46.53 · **us 46.42** · t18 45.08 · t03 44.95 · t14 42.55.
+- t12 +1.55 at 1310 with no team trade (Duels II or dealer deals) [L]; t18 +1.92 at 1340: LAT-10 bought from t13 at 72 (1332),
+  likely its LAT page close.
+
 ### Sat 21:58 · snapshot 1300 (Duels II running since 1239)
 - Board: **t10 38.36** · t06 32.55 · **us 30.85 (#3)** · t14 28.63. On 0.5·Fri + Sat (= 1.5 × board): **t10 57.54 · t06 48.82 ·
   us 46.28** · t14 42.95. To finish #1 we'd need to beat t10 by > 11.3 points of Sunday's 60-point round; t06 by > 2.5.
