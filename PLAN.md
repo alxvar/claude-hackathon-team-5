@@ -105,6 +105,13 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    (intel/duel-lab.md) lands by **18:00** for your decision; then your Builder codes it, full suite green, restart by
    ~20:15 for Duels II (≈ 20:33). Your call on what to adopt.
 
+**Dani: deal desk from 15:52 (Lucas's call).** Your phone (ntfy, your channel) now gets every alert that needs a human to
+message another team: v10 radar DMs, v10 partner suggestions (Teams 15, 10, 3), opportunity SELL/BUY alerts, swap nudges.
+Each one carries the offer id and "valid until ~HH:MM". What to do: forward the ready text to that team (WhatsApp DM),
+nothing else; never invent a price; skip any alert past its expiry. Why it matters: one good trade between OTHER teams
+on our v10 is worth up to +5 board, and the market is our whole gap to #1 (7.5 vs 9.5-12.5). Our swaps/offers addressed
+to a team: a nudge ("we left you offer N, just accept it") gets them filled. Duelist failover pages stay with Lucas.
+
 **Dani: the desk, the page-gap desk, the judges' story.**
 1. **09:00, organisers' desk**: the 8 questions in plan §3, answers in `team/dani.md` at once.
 2. **From ~10:00, page-gap desk** (plan §6b): `intel/opportunities.md` (+ the ntfy alerts) lists, one line each, which team lacks a card we have
