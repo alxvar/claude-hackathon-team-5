@@ -1,31 +1,26 @@
-# Scout (claude-sonnet-5-5, Sat 20:16)
+# Scout (claude-sonnet-5-5, Sat 20:22)
 
 ## Top 3 actions now
+1. **Hold all writes until the Chief clears the 20:16 pause (tick 1201, ~10 min).**
+   - Owner: Operator; the restart job waits on `duels.finished` or tick ≥ 1439.
+   - Evidence: the standing asks stay posted. MAL-08→t01 at 20 (17392) expires at tick 1217 and MAL-02→t08 at 40 (17650) at 1214. They may lapse during the pause, since the server counts ticks.
+   - Effect: none by itself. Confidence: high.
+2. **On resume, re-post MAL-08 → t01 at 20 as maker (v15).**
+   - Evidence: our value is 17.5, so the gain is +2.5 (offer 17392). t01 is #11 at 23.8, so selling feeds no rival. t12 sold MAL-08 to t04 at 14 (tick 1142), so 20 is above the recent clearing price.
+   - Effect: ≈ +2.5 neg, before pack drag. Confidence: med.
+3. **Offer our two spare LAV-02 copies (1.3 each) to t16 at 3 P, addressed, as maker on v15.**
+   - Evidence: t13→t16 LAV-02 at 3 P (tick 1194), so t16 may lack it. t16 is #15 at 22.5, well below us and far from page closing.
+   - Effect: ≈ +1.7 neg per copy. It is small, and whether t16 still lacks LAV-02 is not in the data. Confidence: low.
 
-1. **Hold writes until the Chief clears the pause.** The game paused at tick 1201 (the organisers' announcement). Our 5 open asks expire between ticks 1214 and 1237.
-   - Re-check 17392 (MAL-08 → t01 at 20, expires 1217) and 17650 (MAL-02 → t08 at 40, expires 1214) when play resumes.
-   - Whether the pause freezes tick-based expiry is not in the data. Operator action only, and only after the Chief lifts the hold.
-   - Effect: avoids stale or duplicate writes. Confidence: high.
-
-2. **Sell MAL-08 (worth 17.5) at ≥ 20 to t01 or t04, as maker via the Operator.** Our ask 17392 is at 20.
-   - Evidence: t12 sold MAL-08 to t04 at 14 (tick 1142), so t04 is a live MAL buyer (MAL×5). t01 has MAL×4.
-   - The fee is paid by the taker, and our gain is only +2.5 at best.
-   - Expected effect: about +2 neg_points, which is ≈ 0.1 board. Confidence: low. Skip if t01/t04 sit below 17.5.
-
-3. **Bid for RET-09/RET-10 only if the price is below 77 and the holder is not a top-4 team.** We already hold both, and their cost is sunk.
-   - Instead, sell a spare RET common to a RET collector. RET-01..05 are each worth 83.9 to us with the page bonus, so a sale books the bonus as a loss. **Do not sell them.**
-   - Real third action: keep the LAV and RET pages reserved and wait for the v10 rebate settlement at 22:45.
-   - Rebate cap: 30 P, with a cash floor of 85. Cash is 120.
-   - Settle with a v15 (fee 0) trade for a card we lack, worth at least the amount owed.
-   - Effect: ≈ 0 neg_points. Confidence: med.
+The metrics show no buyer above our value + 3 who passes the feeding rule. Nothing bigger is open.
 
 ## What the climbing teams are doing
-- **Team 10 (#1, 34.1, +2.5 in 60 min)** collects LAV/RET and has only 12 team trades. Its last hour of gains is market-making on its venue plus our old swap. Its prices are c 11, u 26, r 70.
-- **Team 7 (#16)** is the heaviest RET buyer in the metrics (RET×8, LAV×7). It took RET-09 from t04 at 66 (tick 1125) and RET-10 from t06 at 77 (tick 1186). It is climbing the RET page through team trades, not dealers.
-- **Team 12 (#7, +1.1 in 60 min)** buys LAT×6 and trades often (64 deals). Examples: LAT-09 at 55 from t15 (tick 1101) and LAT-07 at 14 (tick 1145).
-- **Team 6 (#2, 32.5)** sells RET rares to teams at 77 (tick 1186) and has the most listings (740). It is a seller to climbers, not a buyer.
+- **Team 2 (+2.6 in 15 min, +2.5 in 60 min)**: bought MAL-10 (rare) from t13 at 30 P (tick 1191), far below the rare clearing price of ~70. It also buys RET×3 and MAL×3. The gain comes from taking cheap cards from a dumper.
+- **Team 13 dumps** LAT/LAV/MAL widely: SAL-07 to t09 at 18, LAV-02 to t16 at 3, MAL-10 to t02 at 30. Its bids sit at 2 P for commons and 15 P for LAV-06/07 uncommons. Selling to it at 2 P is not worth it.
+- **Team 10 (#1, 34.0, +1.9 in 60 min)** collects LAV/RET and bought RET-03 from t06 at 12 (tick 1033). t06→t07 sold RET-10 at 77 (tick 1186), a market price for a rare.
+- **Teams 12 and 15 (+1.0 and +1.1 in 60 min)** trade volume in LAT: t15→t12 LAT-09 at 55 and LAT-07 at 14, t12→t09 LAT-08 at 10. Their gains are small and steady.
 
 ## Threats
-- **Team 10 (34.1) leads us by 2.3.** Any trade of ours on v10 or t10's venue lifts its market. We make no offers to t10.
-- **Team 3 (30.0, +0.3 / +0.5)** is 1.8 behind us and rising. It prices uncommons at 28 and rares at 81, so it will pay for page cards. Nothing goes to t03.
-- **Team 6 is 0.7 ahead of us.** We make no sales to t06 or t14 (RET/LAV buyers) of any card that closes a page for them.
+- **Team 10 leads by 2.4 and Team 6 by 1.0** (34.0 / 32.6 vs our 31.6). Team 3 (30.0) is 1.6 behind us, with the highest negotiating score earlier (24.49).
+- **Our ladder is capped** (0.437, board flat). We have 119.1 neg_points with no new lever: flags and the ladder are spent. The live levers are team trades, v10 value created and Duels II.
+- **Team 14 is #5 (29.9) and Team 18 is #6 (29.9)**, 1.7 below us. Under the DENY rule, Dani and the Chief watch for a last page card to either of them, via t18's RET bids and t14's LAV/RET buying. No single card is identified in the data.
