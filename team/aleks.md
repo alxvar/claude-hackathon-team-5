@@ -2,9 +2,11 @@
 
 **Now:** Duels: Clock-Standing (`agents/duelist/`) goes live in the practice duels (game hour 2.0, ~22:20; 12 ticks, 6% decay, 6 at once) with Opus as strategist and Sonnet 5.5 as negotiator (backups + supervisor: `agents/duelist/supervise.sh`), every duel recorded in `docs/duels/`; after it: `review`, read `intel/judge.md`, push.
 
-**Touches:** `agents/duelist/`, `docs/duels/`, duel endpoints only.
+**Touches:** `agents/duelist/`, `docs/duels/`, duel endpoints only; `hub/` (shared Neon store + demand model: public reads, one `/api/me` read per 2 min, no game writes).
 
 ## Log (newest on top: `time · what · result · next`)
+
+- Sat 07:20 · **hub live** (`hub/README.md`): Neon Postgres with every public feed event (keyed by id), offers on every venue, leaderboard incl. `album_filled`/`pages_complete`, state docs; keyless collector on this Mac (`hub/supervise.sh collect`); demand model v0 (`hub/demand.py`: exact posterior over each team's 720 multiplier orders + holdings + sell/buy/match prices) every 2 min · 592 events in so far (feed keeps only the last 500, ~15 ticks); 18 hub tests + full suite 217 pass · **found:** settlements name `frm`/`to` per card, so holders of traded cards are visible; the leaderboard has every team's `album_filled` and `pages_complete` · next: **Lucas** runs the second collector and imports `data/feed.jsonl data/leaderboard.jsonl data/me.jsonl`; **Dani** imports `logs/dashboard/*.jsonl`; hub URLs from Aleks (private)
 
 - Fri 22:39 · **first duel deal**: 257 (seller, cost 78) vs Rival Oro closed at 103 after 3 rounds (us 115→110→106→103, them 96→100→101, they accepted) · `result` 20.8 = (103−78) × 0.94³: score = surplus × (1−decay)^rounds · reverted the silent-rival concessions on Aleks's call (a silent rival may be a trap: we would bid against ourselves) · next: last wave before 23:00, then `review`
 - Fri 22:36 · practice duels: wave 1 (6 duels, ticks 120-132) all no_deal, rivals never spoke; payload id is `duel` (adapter fixed); practice runs in waves of 6 (34 duels each), so wave 2 started 22:32 · Rival Oro is the first live rival (duel 257: they 96 → 100, us 115 → 110 → 106, our cost 78) · new: silent rival for 2 ticks → code concedes one step (`safe_move`), our limit on the last tick (18 tests) · next: watch for the first deal and its closing payload, then `review`

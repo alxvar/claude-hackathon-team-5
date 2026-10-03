@@ -48,3 +48,29 @@ select * from hub.gaps order by at desc;   -- a full feed window whose oldest ev
 | `hub.team_mult`, `hub.team_card_value`, `hub.opportunities`, `hub.evidence`, `hub.model_runs` | Demand model outputs |
 
 Schema changes: edit `hub/schema.sql`, then `uv run python -m hub.setup --schema` (owner URL, Aleks).
+
+## Demand model (`hub/demand.py`, no LLM)
+
+For every team and card: what one more copy is worth to that team, the chance it lacks the card, and the chance the
+card completes one of its pages.
+
+- **Multipliers:** every team's six multipliers are ours in another order, so the model keeps an exact posterior over
+  the 720 orders. Evidence: trades (a buyer's cost bounds its value from below, a seller's price from above; fees
+  counted for the taker), the best standing bid / ask per card, bids to dealers, and net buying / dumping per set.
+  Teams aren't fully rational, so every observation has a noise floor (`PARAMS`).
+- **Holdings:** the last known holder of every card that was traded or listed. Starting hands and most pack pulls are
+  invisible, so "lacks" is a probability (signal from a bid or a dealer request, fading with a 2-hour half-life, else a
+  prior from `album_filled`).
+- **Opportunities:** `sell` (our copy, the price that maximises (price − our loss) × P(the buyer's value ≥ price +
+  fee), capped near the dealer's price unless the card closes their page), `buy` (a known holder, the bid that
+  maximises min(cap 50, our value − price) × P(their loss ≤ price − fee)), `match` (two other teams that should swap,
+  for our venue). `feeding` flags page closers to teams within 10 points of us and the top 4.
+- **What it can and can't tell:** buys only bound values from below, so low multipliers show up through sells and
+  dumping. On synthetic rational teams it sorts sets into the high and low groups reliably and ranks the true order
+  in the top ~2 % of 720; separating 1.6 from 1.3 needs more trades. **Self-test:** every run scores the posterior
+  for our own true order from our public behaviour only (`hub.model_runs.summary->'selftest'`).
+
+```sql
+select team, set, top, round(p_top::numeric, 2), n_obs from hub.team_mult order by team, e_mult desc;
+select * from hub.opportunities order by exp_gain desc limit 20;
+```
