@@ -286,6 +286,10 @@ def _haggle(b, tid, topic, side, cap, fast, resume, accepted):
             b.close_thread(tid)
             log({"event": "walk", "thread": tid, "her": price, "ours": ours, "final": o.get("final")})
             continue
+        if ours is not None and msgs and msgs[-1].get("sender") != DEALER:
+            log({"event": "hold", "thread": tid, "her": price, "ours": ours})   # she hasn't answered our counter:
+            b.wait_tick()                                                       # a new one would bid against us
+            continue
         text = TEXTS[side][min(turn, len(TEXTS[side]) - 1)].format(p=nxt)
         try:
             b.say(tid, text, price=nxt)

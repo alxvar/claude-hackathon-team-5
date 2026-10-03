@@ -349,3 +349,28 @@ def test_a_silent_dealer_is_closed_and_paused_30_minutes(bot):
     b2 = FakeThread(tick=b.tick + 10)
     t2 = bot.negotiate(b2, {"buy": {"card": "RET-02"}}, "buy", 10)        # still paused: no new conversation
     assert t2["status"] == "error" and "paused" in t2["error"] and b2.opened == []
+
+
+class Unanswered(FakeThread):
+    """Her ask of 20 stands (not final) and she never answers our counters."""
+
+    def __init__(self, **kw):
+        super().__init__(**kw)
+        self.said = []
+
+    def say(self, tid, text, price=None):
+        self.said.append(price)
+
+    def thread(self, tid):
+        msgs = [{"sender": "abuela", "offer": {"want": {"cash": 20}}}] + \
+               [{"sender": "us", "offer": {"give": {"cash": p}}} for p in self.said]
+        return {"status": "open", "messages": msgs, "standing_offers": [
+            {"id": 5, "maker": "abuela", "status": "open", "final": False, "want": {"cash": 20}}]}
+
+
+def test_no_new_counter_until_she_answers_the_last_one(bot):
+    # Before: 11, then 14, then 15 against her unmoved 20, bidding against ourselves while she said nothing.
+    b = Unanswered()
+    t = bot.negotiate(b, {"buy": {"card": "RET-01"}}, "buy", 15)
+    assert b.said == [11]                                                 # one counter, then silence
+    assert t["status"] == "closed" and b.closed == [42] and "silent_dealer" in events(bot)
