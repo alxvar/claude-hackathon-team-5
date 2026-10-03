@@ -1,0 +1,101 @@
+# Score model (Analyst; read-only; updated every ~15 min)
+
+How each component maps to board points, from `data/leaderboard.jsonl` × `data/feed.jsonl` × our `data/me.jsonl`.
+Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
+Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
+
+_Last update: Sat 12:15, snapshot 440._
+
+## 1. Board = Friday × Saturday blend [V]
+
+- **board = (0.5·Fri + w·Sat) / (0.5 + w)**, w = min(1, (tick − 160)/161), for Negotiating and Market separately.
+  Fit on the stall teams' market (11 snapshots, ticks 220-320): the implied w gives (tick − 160)/w = 161.0 ± 0.2 every time.
+  Saturday has counted in full since **tick 321**: today the board is **(0.5·Fri + Sat)/1.5**.
+- Fri = each team's board at tick 160 (frozen; Fri market = 0 for everyone). **1 Saturday point = 0.667 board.**
+- Gap to t13 from Friday alone: (29.94 − 19.99)/3 = **3.32 board, fixed**. Saturday-only Negotiating now (tick 440):
+  t13 21.6 · t01 19.3 · t02 21.3 · t18 19.2 · t14 16.8 · t16 15.3 · t09 13.3 · **t05 12.75** · t04 12.6 · t17 8.8 · t10 8.1 · t12 8.0.
+
+## 2. Negotiating (Saturday part) = team trades + ladder (+ duels once Duels I scores)
+
+| Part | Our raw | → Saturday pts | → board | Label |
+|---|---|---|---|---|
+| Team trades (`neg_points`) | 35.2 | 0.235 per point → 8.3 | 0.157 per point → 5.5 | [V] rate: MAL-03 +2.0 → +0.47 Sat (tick 404, idle field) |
+| Ladder | 0.055 | **≈ 81 per 0.001… i.e. ≈ 4.5** | ≈ 3.0 | [L] remainder: 12.75 − 8.3 |
+| Duels | 0 | — | — | [?] weight unknown; starts with Duels I |
+
+- **Negative `neg_points` are floored at 0** [V]: RET-01 took us −21.5 → +28.5 (+50) but the board showed only +28.5 worth
+  (+7.94 Sat at 0.279 then). Same signature on t13 before 340 and t07/t09/t10/t11 early Saturday (Saturday part ≈ 0).
+- **Both parts are relative to the field** [L]: the trade rate fell 0.279 → 0.245 → 0.235 Sat/point (ticks 280 → 360 → 410)
+  as others' trade totals rose; at 350 everyone idle rose together when t02 (then a top trader) lost ~15 points on Chato
+  buys above list → consistent with a top-3-mean normaliser, capped at 1. Not proven.
+- **The ladder normaliser jumped ~70% at snapshots 380-390** [L]: our `ladder_points` stayed 0.055, yet our ladder part fell
+  ≈ 7.7 → 4.5 Saturday points (−2.1 board) while the trade rate moved only −4%. Every team with ladder fell (t13 −4.1 Sat,
+  t18 −5.3, t14 −5.0, us −3.2); t01/t09 (≈ no ladder) did not. **Which deals raised the normaliser: [?]** (no Pilar settlement
+  in 361-392; candidates: t17's Abuela commons at 8, t15's RET uncommons at 23/25).
+- **Marginal value of the ladder now** [L]: 4.5 Sat for 0.055 → **+0.01 ladder ≈ +0.8 Sat ≈ +0.54 board ≈ 3.5 neg_points**.
+  Our Abuela commons at 9 gave +0.014-0.018 each (≈ +0.8-1.0 board at today's rate) **if they still beat our best three
+  at that level** (only the best 3 per level count; RULES).
+
+### t13's lead over us (24.39 vs 15.16 = 9.23 board)
+| Source | board | Evidence |
+|---|---|---|
+| Friday (frozen) | **+3.3** | Fri 29.94 vs 19.99 [V] |
+| Saturday team trades | **≈ +1.5-2.1** | t13 Saturday part flat at 12.5 from 220 to 330 through every normaliser move that hit traders → t13 trades ≤ 0 (floored) until MAL-10 (tick 331, from t09 at 65 + 5 fee, +10.76 Sat ≈ +46 pts, a near-cap page/rare buy). Est. t13 trades ≈ 46-50 vs our 35.2 [L] |
+| Saturday ladder | **≈ +3.7-4.4** | t13 = 12.5 Sat **from the ladder alone** at 330 (vs our 7.5 then); after the 380-390 cut ≈ 10 vs our 4.5 [L]. t13 never pays a dealer above list; it is the only level-3 team (Pilar since tick 262) |
+| Market | t13 3.33 (bench below stall), ours 7.5 | t13 has no value-created and a bad broker [V] |
+
+**Read:** of t13's Saturday edge, roughly 2/3 is the ladder and 1/3 one page-closing trade. The Friday 3.3 can't be recovered;
+the ladder can.
+
+### Ladder rule test ("at or below the dealer's MENU list counts, above doesn't") [L, holds on every case checked]
+- MENU (`/api/dealers`, keyless): Abuela sells common 10, uncommon 25, pack 26 (opening 30); Chato uncommon 26, rare 77, silver 150; Pilar gold 420. Buy-side lists are not published.
+- Ours: 5 Abuela buys ≤ list all moved `ladder_points`; 6 Chato buys > list (87, 86, 30, Fri 93/31) never did [V on us].
+- t13: Chato LAV-06 at 26 and LAV-07 at 26 (= list) + 2 Chato sells → `level.unlocked` Pilar "3 deals with chato" at tick 262 [V feed].
+  Our 3 Chato deals above list (RET-09/10/06) unlocked nothing [V]. Consistent with the rule; "= list" counts.
+- Dealer SELLS (a team selling to Abuela/Chato) counting toward the ladder: **[?]**. t13's +2.1 Sat at 350 (two Abuela sells at 6)
+  coincided with a field-wide +1.5 drift, so it proves nothing.
+
+## 3. Market = bench + value created on our venue
+
+- **Bench** [V]: the free auto stall scores 7.5 board (= Saturday 11.25 / 1.5). No board broker beat it (t13 3.33, t08 7.41).
+- **Value created** [L]: graded, **capped at +5.0 board** (t10, t12, us all sat at exactly 12.50 with different trades), and
+  **floored at 0 when net negative** [V: our raw −5.2 → market exactly 7.5]. The grading fits a **mean-of-top-3 normaliser**
+  (like the bench): at 400, with our raw gone negative, the model predicts t06 10.05 vs 9.99 observed and t10/t12 → 12.5 ✓.
+  Practical meaning: +5 needs raw value created ≥ the mean of the top three venues' raw (now ≈ 6+; rising as venues trade).
+- **Raw value created = buyer's ΔV − seller's ΔV at private values** [V on v10: +4.99 (MAL-07, t10 0.5 → t01 ~0.7-0.9),
+  then −10.2 (SAL-07, t10 ~1.1 → t15 ~0.5 = 25 × −0.4)]. Price and fee don't matter. A seller's 2nd copy is worth 25%
+  (3rd 10%), so **dup sales into a first-copy buyer create the most**.
+- Where the field's gaps came from [V feed]:
+  - t14 +4.36: one trade on v14, tick 418, t15 → t12 LAT-07 at 19 (t15 sells a LAT duplicate; t12's first copy).
+  - t17 +2.76 (new, snapshot 440): v17 tick 433, t15 → t12 LAT-01 at 7 (same pattern). t17 and t18 just cut stall fees to 0.
+  - t10 12.5: v07 trades t05 ← t03 SAL-01 at 7 (tick 351) and t05 ← t04 MAL-03 at 5 (tick 404, t04's dup → our 1st copy).
+  - t12 11.74: v02 trades t13 → t15 MAL-03 at 7 (203) and RET-02 at 10 (234).
+- **Our recovery need**: raw −5.2 → need ≈ +11 more raw on v10 for the full +5 (≈ one dup-common to a 1.3-1.6 collector
+  is +10-14; one uncommon is +20-35).
+
+## 4. Buyer model (multiplier per team × set) for v10 steering
+
+Method: implied ΔV of each team-trade side from its Saturday-part jump ÷ 0.235 (clean windows only) + price/book of bids and
+buys (a floor). Every team has the same six multipliers {1.6, 1.3, 1.1, 0.9, 0.7, 0.5} shuffled over CHA/LAV/RET/SAL/MAL/LAT.
+Validation: our own MAL-03 buy reads 0.70 by this method — our true MAL multiplier is 0.7 [V].
+
+| Set | High (buy from us / on v10) | Low (sellers, avoid as buyers) |
+|---|---|---|
+| **LAV** | t06 1.3-1.6 (bid 1.19, paid 1.17, LAV-10+SAL-10 jump) · t09 ≥1.3 (LAV-09 at 89, LAV-04 jump) · t12 ≥1.3 (LAV-06 at 31) · t03 ≥1.1 (bid 1.01) · t04 ~1.2 (paid 1.23) · t14 high (top-4) | **t16 0.7** (sold LAV-10 at 82, clean: lost 49.9) · t02 ≤0.5 |
+| **MAL** | t13 1.6 (MAL-10 jump, top-4) · **t17 ≥1.3** (bid MAL-09 85 = 1.21, paid 1.24) · t09 ~1.1 (MAL-07 jump) · t01 ~0.9 (MAL-06 jump) | **t10 ~0.5** (sold MAL-07 at 14, lost 9.9) · t02 ≤0.6 · t15 0.7 · us 0.7 |
+| **LAT** | **t15 1.3-1.6** (buys LAT×6; its LAT dups read as 25%/10% copies of 1.3-1.6) · t16 1.1-1.3 (LAT-10 at 91, LAT-09 jump) · t14 1.1-1.3 (LAT-03 jump 1.22; top-4) · t03 ~0.9-1.1 (bid 0.93) | t02 0.5 (bids 0.52) · **t12 0.7-0.9** (LAT-05 9.0, LAT-07 18.7, LAT-01 7.0: it *buys* LAT, but as a ~0.7-0.9 set) · us 0.5 |
+| **SAL** | **t03 ~1.3** (SAL-01 jump 1.37, bid 1.06) · t06 1.3-1.6 · t16 ~1.3 (bid 1.11, paid 1.29) · t01 ≥1.1 (bought SAL-10, -07, -08) | **t15 ~0.5** (SAL-07 on v10: 13.8 = 0.55) · t10 ~0.9-1.1 · t12 dumps · us 0.9 |
+| **RET** | t18 high (RET-02 at 49, page) · t15 ~1.3 (RET-07 at 24) · t02 ~1.2 | t13 (sells RET at 10-20) |
+
+**Safest high-value pairs for v10** (buyer outside the top 4; seller a known low-multiplier holder of a dup):
+LAT dup from t15 → t16/t03 is NOT it (t15 is the high LAT holder; its dups are low-value to it, so t15 → any 0.7+ first-copy
+buyer is positive — that is exactly what fed v14/v17). Best: **t15's LAT dups → t16 (1.1-1.3)**; **t10's/our MAL → t17**;
+**t15's SAL → t03/t06/t16**; **t16's LAV → t06/t09/t03/t04**. Never route to t15 for SAL, t10/t02 for MAL, t16 for LAV.
+
+Caveats: a team at the trade cap or floor shows no jump (t01 since ~380 [L], t09/t10 early); windows with ladder moves
+(380-390) inflate or deflate the implied values. The CHA multiplier is unknown for every team until Sunday.
+
+## 5. Open questions (next runs)
+- What raised the ladder normaliser at 380-390? Per-team ladder estimates from ladder-only teams.
+- Do dealer SELLS count for the ladder? Need one clean window.
+- Duels: weight in Negotiating; compare our Duels I outcomes with the field's `duel.closed`.
