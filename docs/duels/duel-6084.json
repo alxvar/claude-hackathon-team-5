@@ -97,6 +97,59 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1356,
+   "raw": {
+    "duel": 6084,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.78,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 126,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1369,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 10442,
+     "price": 78,
+     "tick": 1355,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 10465,
+     "price": 122,
+     "tick": 1356,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1355,
+      "from": "you",
+      "text": "I'll start at 78 P for delivery on day 0. I'd like to keep this quick and clean, so I hope we can close soon.",
+      "price": 78,
+      "days": 0
+     },
+     {
+      "tick": 1356,
+      "from": "Rival Plata",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 122,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -219,6 +272,121 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1356,
+   "took_s": 8.49,
+   "cost_usd": 0.01204,
+   "obs": {
+    "view": {
+     "duel_id": 6084,
+     "role": "buyer",
+     "limit": 126,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.78,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'll start at 78 P for delivery on day 0. I'd like to keep this quick and clean, so I hope we can close soon.",
+      "offer": {
+       "price": 78,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1355,
+      "decision": {
+       "action": "offer",
+       "price": 78,
+       "message": "I'll start at 78 P for delivery on day 0. I'd like to keep this quick and clean, so I hope we can close soon."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 122,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1356,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 122,
+     "days": 0
+    },
+    "tick": 1356,
+    "ticks_left": 13,
+    "rounds": 1,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm holding at 78 P on day 0.”}",
+    "price": 78,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 78,
+      "message": "I'm holding at 78 P on day 0.”}"
+     },
+     "band": {
+      "worst": 78,
+      "target": 78,
+      "best": 76
+     },
+     "plan": {
+      "read": "Their opening of 122 P on day 0 sits close to our ceiling, a typical extreme anchor. It is their first price, so they have not moved yet, and their claim that it is fair carries no weight.",
+      "target": 78,
+      "best": 76,
+      "worst": 78,
+      "days": 0,
+      "angle": "Hold at 78 P on day 0 and send nothing; let them make the first move down from their anchor."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.12,
+       "in": 692,
+       "out": 413,
+       "cost_usd": 0.01103,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.36,
+       "in": 320,
+       "out": 37,
+       "cost_usd": 0.00101,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [

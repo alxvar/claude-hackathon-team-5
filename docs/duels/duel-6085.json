@@ -122,6 +122,133 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1356,
+   "raw": {
+    "duel": 6085,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.28,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 136,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1371,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 10455,
+     "price": 210,
+     "tick": 1355,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 10466,
+     "price": 87,
+     "tick": 1356,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1355,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 80,
+      "days": 0
+     },
+     {
+      "tick": 1355,
+      "from": "you",
+      "text": "Day 0 is fine for me, so only the price is left. My price for day 0 is 210 P, and that is a firm figure for me.}",
+      "price": 210,
+      "days": 0
+     },
+     {
+      "tick": 1356,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 87,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1356,
+   "raw": {
+    "duel": 6085,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.28,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 136,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1371,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 10470,
+     "price": 203,
+     "tick": 1356,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 10466,
+     "price": 87,
+     "tick": 1356,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1355,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 80,
+      "days": 0
+     },
+     {
+      "tick": 1355,
+      "from": "you",
+      "text": "Day 0 is fine for me, so only the price is left. My price for day 0 is 210 P, and that is a firm figure for me.}",
+      "price": 210,
+      "days": 0
+     },
+     {
+      "tick": 1356,
+      "from": "Rival Rojo",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 87,
+      "days": 0
+     },
+     {
+      "tick": 1356,
+      "from": "you",
+      "text": "I can move to 203 P on day 0. Bigger steps from me will need bigger steps from you.",
+      "price": 203,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -270,6 +397,132 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1356,
+   "took_s": 9.31,
+   "cost_usd": 0.01194,
+   "obs": {
+    "view": {
+     "duel_id": 6085,
+     "role": "seller",
+     "limit": 136,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.28,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 80,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1355,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Day 0 is fine for me, so only the price is left. My price for day 0 is 210 P, and that is a firm figure for me.}",
+      "offer": {
+       "price": 210,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1355,
+      "decision": {
+       "action": "offer",
+       "price": 210,
+       "message": "Day 0 is fine for me, so only the price is left. My price for day 0 is 210 P, and that is a firm figure for me.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 87,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1356,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 87,
+     "days": 0
+    },
+    "tick": 1356,
+    "ticks_left": 15,
+    "rounds": 1,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can move to 203 P on day 0. Bigger steps from me will need bigger steps from you.",
+    "price": 203,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 203,
+      "message": "I can move to 203 P on day 0. Bigger steps from me will need bigger steps from you."
+     },
+     "band": {
+      "worst": 201,
+      "target": 203,
+      "best": 203
+     },
+     "plan": {
+      "read": "They moved from 80 to 87 on day 0, a small 7 P step that repeats the same 'fair for both' line. It is a real but modest move and they are still far below anything workable.",
+      "target": 203,
+      "best": 203,
+      "worst": 201,
+      "days": 0,
+      "angle": "Keep day 0 agreed and make a small, firm move to 203, signalling that bigger steps from us will only follow bigger steps from them."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.69,
+       "in": 784,
+       "out": 380,
+       "cost_usd": 0.01074,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.62,
+       "in": 347,
+       "out": 51,
+       "cost_usd": 0.0012,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -337,6 +590,63 @@
      "id": 10455,
      "price": 210,
      "tick": 1355,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1356,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can move to 203 P on day 0. Bigger steps from me will need bigger steps from you.",
+    "price": 203,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 203,
+      "message": "I can move to 203 P on day 0. Bigger steps from me will need bigger steps from you."
+     },
+     "band": {
+      "worst": 201,
+      "target": 203,
+      "best": 203
+     },
+     "plan": {
+      "read": "They moved from 80 to 87 on day 0, a small 7 P step that repeats the same 'fair for both' line. It is a real but modest move and they are still far below anything workable.",
+      "target": 203,
+      "best": 203,
+      "worst": 201,
+      "days": 0,
+      "angle": "Keep day 0 agreed and make a small, firm move to 203, signalling that bigger steps from us will only follow bigger steps from them."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.69,
+       "in": 784,
+       "out": 380,
+       "cost_usd": 0.01074,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.62,
+       "in": 347,
+       "out": 51,
+       "cost_usd": 0.0012,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 6085,
+    "offer": {
+     "id": 10470,
+     "price": 203,
+     "tick": 1356,
      "days": 0
     }
    }
