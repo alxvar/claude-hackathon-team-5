@@ -300,8 +300,9 @@ def test_one_other_lack_is_still_a_second_to_last_card():
 class FakeApi:
     """The game from the fixture. Records every call; list_offer answers with an id but nothing is sent anywhere."""
 
-    def __init__(self, f=None, open_offers=None, fail_post=None, log=None):
+    def __init__(self, f=None, open_offers=None, fail_post=None, log=None, venues=None):
         self.f, self.calls, self.open_offers, self.fail_post = f or fx(), [], open_offers or [], fail_post
+        self._venues = venues or []
         self.log = log if log is not None else []
 
     def _c(self, name, *a):
@@ -340,8 +341,12 @@ class FakeApi:
         self._c("my_offers")
         return {"offers": self.open_offers}
 
-    def list_offer(self, give, want, to, expires_in_ticks):
-        self._c("list_offer", give, want, to, expires_in_ticks)
+    def venues(self):
+        self._c("venues")
+        return {"venues": self._venues}
+
+    def list_offer(self, give, want, to, expires_in_ticks, venue="rastro"):
+        self._c("list_offer", give, want, to, expires_in_ticks, venue)
         if self.fail_post:
             raise BazaarError(self.fail_post, "refused", 429)
         return {"id": 9001, "maker": "t05", "to": to, "give": give, "want": want}
@@ -409,7 +414,7 @@ def test_live_run_posts_the_offer_then_notifies(tmp_path):
     opps, picked = run(tmp_path, api, False, notifier=notifier)
     post = next(c for c in api.calls if c[0] == "list_offer")
     sal02 = [a["id"] for a in api.f["me"]["assets"] if a["ref"] == "SAL-02"]
-    give, want, to, ttl = post[1]
+    give, want, to, ttl, venue = post[1]
     assert give["assets"][0] in sal02 and want == {"cash": 40} and to == "t07" and ttl == op.OFFER_TTL_TICKS == 20
     assert log.index("list_offer") < log.index("notify")
     assert [n[0] for n in notes] == ["dani", "lucas"]
@@ -646,3 +651,43 @@ def test_offers_live_20_ticks_whatever_the_tick_length():
     assert "cancel" not in api.names() and state["live"][0]["status"] == "live"
     op.reconcile(api, state, [], "t05", NOW, now_tick=121)                 # same wall time, 21 ticks: cancelled
     assert "cancel" in api.names() and state["live"][0]["status"] == "cancelled: unfilled 20 ticks"
+
+
+
+# ------------------------------------------------------------------ venue: DEFAULT_VENUE, page-closers on El Rastro
+
+V07 = {"venue": "v07", "owner": "t10", "status": "open", "name": "Mercado del 10"}
+
+
+def test_venue_rules():
+    vs, top = {"v07": V07}, {"t13", "t12", "t18", "t02"}
+    sale = {"side": "SELL", "other_lacks": ["SAL-03"], "completes": False}
+    assert op.venue_for(sale, vs, top) == ("v07", "Mercado del 10")              # an ordinary sale: Team 10's venue
+    assert op.venue_for({**sale, "other_lacks": []}, vs, top)[0] == "rastro"     # closes their page (or unknown)
+    assert op.venue_for({"side": "BUY", "completes": True}, vs, top)[0] == "rastro"   # closes ours
+    assert op.venue_for({"side": "BUY", "completes": False}, vs, top)[0] == "v07"
+    assert op.venue_for(sale, {"v07": {**V07, "owner": "t13"}}, top)[0] == "rastro"  # a top-4 team's venue: never
+    assert op.venue_for(sale, {"v07": {**V07, "status": "closed"}}, top)[0] == "rastro"
+    assert op.venue_for(sale, {}, top)[0] == "rastro"                            # can't see it: El Rastro
+
+
+def test_a_page_closing_sale_is_posted_on_el_rastro_even_with_v07_open(tmp_path):
+    api = FakeApi(single_gap_fixture(), venues=[V07])                           # Team 7 lacks only SAL-02
+    run(tmp_path, api, False, notifier=lambda *a, **k: None)
+    post = next(c for c in api.calls if c[0] == "list_offer")
+    assert post[1][4] == "rastro"
+    assert json.loads((tmp_path / "state.json").read_text())["live"][0]["venue"] == "rastro"
+
+
+def test_the_alert_names_the_venue_the_offer_is_on():
+    o = find(engine()[0], "SELL", "t07", "SAL-02")
+    title, body = op.message({**o, "venue_name": "Mercado del 10"}, 1234)
+    assert 'Their agent: "Accept offer 1234 on Mercado del 10"' in body and "El Rastro" not in body
+
+
+
+def test_expires_in_ticks_is_sent_in_fridays_60_s_units():
+    # Sat [V]: the server halved what we sent (60 -> 30, 120 -> 60, 200 -> 100 real ticks at 30 s).
+    assert op.expires_param(20, 60) == 20
+    assert op.expires_param(20, 30) == 40                                  # 20 real ticks on Saturday
+    assert op.expires_param(20, 15) == 80                                  # Sunday, if the rule holds: verify

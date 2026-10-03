@@ -47,6 +47,8 @@ from notify import notify  # noqa: E402
 
 DATA, STATE, OUT = ROOT / "data", ROOT / "run" / "opportunities_state.json", ROOT / "intel" / "opportunities.md"
 URL = os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai")
+HOUSE = "rastro"
+DEFAULT_VENUE = os.environ.get("DEFAULT_VENUE", "v07")   # Team 10's venue at 0% (directive 10:18, reciprocal deal)
 
 FRESH_S = 120              # collector files younger than this are used instead of fetching
 CONF_H = 0.5               # a signal older than 30 game minutes is low confidence: listed, never alerted
@@ -56,6 +58,13 @@ SCORE_GAP, TOP_N = 10, 4   # feeding rule: sell only to teams ≥ 10 below us an
 ALERTS_PER_H, TEAM_COOLDOWN_S, PAIR_COOLDOWN_S = 3, 45 * 60, 2 * 3600
 MAX_LIVE, MAX_POSTS_PER_RUN = 3, 2   # the team posts ≤ 12 listings/tick across all processes
 OFFER_TTL_TICKS = 20   # in ticks, not minutes: 10 min at Saturday's 30 s, 5 at Sunday's 15 s (page-critical bids)
+
+
+def expires_param(real_ticks, tick_seconds):
+    """`expires_in_ticks` to send for an offer that should live `real_ticks` ticks. The server counts it in Friday's
+    60 s ticks: on Saturday (30 s) 60 → 30, 120 → 60, 200 → 100 real ticks (Operator's probe [V]). Sunday's 15 s
+    should be x4: check the first post's expires_tick."""
+    return math.ceil(real_ticks * 60 / float(tick_seconds or 60))
 OTHER_LACK_H, MAX_OTHER_LACKS = 2.0, 1  # a sale is a page-closer only if the buyer lacks ≤ 1 other card of that set
 BUILD = ("RET", "CHA")     # pages we build (RET Saturday, CHA Sunday; GAME.md)
 PROTECT = ("LAV",)         # completed: only 2nd/3rd copies are ever for sale (also any page /api/me says is complete)
@@ -96,6 +105,9 @@ class Api:
     def board(self, venue="rastro"):
         return self._paced(self.pub._call, "GET", f"/api/venues/{venue}/offers")
 
+    def venues(self):
+        return self._paced(self.pub._call, "GET", "/api/venues")
+
     def leaderboard(self):
         return self._paced(self.pub._call, "GET", "/api/leaderboard")
 
@@ -111,8 +123,8 @@ class Api:
     def my_offers(self):  # a read, but only live mode needs it (tonight: team key for /api/me and /api/me/value only)
         return self._live(self.team.my_offers)
 
-    def list_offer(self, give, want, to, expires_in_ticks):
-        return self._live(self.team.list_offer, give, want, venue="rastro", to=to, expires_in_ticks=expires_in_ticks)
+    def list_offer(self, give, want, to, expires_in_ticks, venue=HOUSE):
+        return self._live(self.team.list_offer, give, want, venue=venue, to=to, expires_in_ticks=expires_in_ticks)
 
     def cancel(self, offer_id):
         return self._live(self.team.cancel, offer_id)
@@ -485,37 +497,51 @@ def within_hard_limits(o, cash, cash_floor):
     return o["price"] is not None and o["price"] <= o["our_value"] - 3 and cash - o["price"] >= cash_floor
 
 
+def venue_for(o, venues, top):
+    """(venue id, name) to post `o` on. El Rastro for a trade that completes a page, ours (a BUY that completes) or
+    theirs (a SELL to a team with no other known lack in that set: unknown counts as closing): the page bonus's value
+    created must not land on a team's venue. Otherwise DEFAULT_VENUE while it is open and its owner is not in the top
+    4; otherwise El Rastro."""
+    house = (HOUSE, "El Rastro")
+    if o.get("completes") or (o["side"] == "SELL" and not o.get("other_lacks")):
+        return house
+    v = venues.get(DEFAULT_VENUE)
+    if DEFAULT_VENUE == HOUSE or not v or v.get("status") != "open" or v.get("owner") in top:
+        return house
+    return DEFAULT_VENUE, v.get("name") or DEFAULT_VENUE
+
+
 # ---------------------------------------------------------------------------------------------------- messages
 
 def message(o, offer_id=None):
-    oid = offer_id or "????"
+    oid, w = offer_id or "????", o.get("venue_name") or "El Rastro"
     t, x, n, s, p = o["team_name"], o["card"], o["card_name"], o["set_name"], o["price"]
     if o["side"] == "SELL":
         why = (f"spare copy worth {o['our_value']:g} to us → +{o['gain']:g} at {p} P; {t} is #{o['rank']} at "
                f"{o['their_score']}, {o['gap']:g} below us and outside the top 4 (feeding rule OK); they {o['src']}"
                f"{'; other ' + o['set'] + ' cards they lack: ' + ', '.join(o['other_lacks']) if o.get('other_lacks') else ''}")
-        es = (f"Che, les falta la {x} ({n}) para la página de {s}, ¿no? Se la dejamos publicada a su nombre en El Rastro a {p} P, "
+        es = (f"Che, les falta la {x} ({n}) para la página de {s}, ¿no? Se la dejamos publicada a su nombre en {w} a {p} P, "
               f"oferta {oid}. No tienen que creernos: la ven ustedes mismos, la aceptan y la suman a la página; si es "
               f"la última, la cierran y se llevan el bonus.")
-        en = (f"You're missing {x} ({n}) for your {s} page, right? It's on El Rastro addressed to {t} at {p} P, offer {oid}. "
+        en = (f"You're missing {x} ({n}) for your {s} page, right? It's on {w} addressed to {t} at {p} P, offer {oid}. "
               f"No need to trust us: check it yourselves and accept. If it's your last one, you close the page and "
               f"get the bonus.")
-        line = f"Accept offer {oid} on El Rastro"
+        line = f"Accept offer {oid} on {w}"
     else:
         why = (f"{x} is worth {o['our_value']:g} to us{' and COMPLETES our ' + s + ' page' if o['completes'] else ''}"
                f" → +{o['gain']:g} at {p} P (limit {o['max_price']}); {t} #{o['rank']} "
                f"{'collects ' + s if o['collects'] else 'never bid for ' + s}; they {o['src']}")
         if o["collects"]:
-            es = (f"Les compramos la {x} a {p} P: la oferta ya está a su nombre en El Rastro (oferta {oid}). "
+            es = (f"Les compramos la {x} a {p} P: la oferta ya está a su nombre en {w} (oferta {oid}). "
                   f"La revisan ustedes y, si les cierra, la aceptan.")
-            en = (f"We'll buy your {x} for {p} P: the offer is already on El Rastro addressed to {t} (offer {oid}). "
+            en = (f"We'll buy your {x} for {p} P: the offer is already on {w} addressed to {t} (offer {oid}). "
                   f"Check it and accept if it works for you.")
         else:
             es = (f"¿Ustedes juntan {s}? Si no, la {x} les sirve poco: les ofrecemos {p} P y ya está la oferta a su "
-                  f"nombre en El Rastro (oferta {oid}). Revísenla antes de aceptar: son {p} P por una carta que no usan.")
-            en = (f"Do you collect {s}? If not, {x} does little for you: we're offering {p} P, already on El Rastro "
+                  f"nombre en {w} (oferta {oid}). Revísenla antes de aceptar: son {p} P por una carta que no usan.")
+            en = (f"Do you collect {s}? If not, {x} does little for you: we're offering {p} P, already on {w} "
                   f"addressed to {t} (offer {oid}). Check it before accepting: {p} P for a card you don't use.")
-        line = f"Accept offer {oid} on El Rastro (you hand over one {x} for {p} P)"
+        line = f"Accept offer {oid} on {w} (you hand over one {x} for {p} P)"
     title = f"{o['side']} {x} {'to' if o['side'] == 'SELL' else 'from'} {t} at {p} P (+{o['gain']:g})"
     body = (f"{o['side']} {x} ({o['rarity']}, {s}) · {t} · offer {oid} at {p} P"
             f"{'' if offer_id else ' [dry run: not posted]'}\nWhy: {why}\n\nES: {es}\n\nEN: {en}\n\n"
@@ -652,8 +678,9 @@ def run_once(api, *, dry_run, now=None, state_path=STATE, out_path=OUT, data_dir
                                    now_h=clock.get("t_hours"), our_listed=our_listed, wall=wall)
     ctx["values"] = values
     picked = choose_alerts(opps, state, now)
-    ttl_ticks = OFFER_TTL_TICKS
+    ttl_ticks = expires_param(OFFER_TTL_TICKS, clock.get("tick_seconds"))
     cash = me.get("cash", 0) - committed
+    venues = None
     for o in picked:
         if dry_run:
             o["status"] = "would alert (dry run)"
@@ -665,8 +692,15 @@ def run_once(api, *, dry_run, now=None, state_path=STATE, out_path=OUT, data_dir
             continue
         give, want = ({"assets": [o["asset"]]}, {"cash": o["price"]}) if o["side"] == "SELL" else \
             ({"cash": o["price"]}, {"cards": [o["card"]]})
+        if venues is None:                    # read once, only when something goes out
+            try:
+                venues = {v.get("venue"): v for v in api.venues().get("venues") or []}
+            except Exception as e:            # can't see the venues: El Rastro
+                log(f"opportunities: venues unavailable ({e!r}): posting on El Rastro")
+                venues = {}
+        o["venue"], o["venue_name"] = venue_for(o, venues, ctx["top"])
         try:
-            r = api.list_offer(give, want, o["team"], ttl_ticks)
+            r = api.list_offer(give, want, o["team"], ttl_ticks, o["venue"])
         except BazaarError as e:
             o["status"] = f"post failed: {e.code}"
             log(f"opportunities: post {o['side']} {o['card']} to {o['team']} failed: {e.code} {e.message[:100]}")
@@ -680,7 +714,7 @@ def run_once(api, *, dry_run, now=None, state_path=STATE, out_path=OUT, data_dir
         if o["side"] == "BUY":
             cash -= o["price"]
         rec = {"ts": now, "tick": now_tick, "side": o["side"], "team": o["team"], "card": o["card"], "price": o["price"],
-               "offer": oid, "asset": o.get("asset"), "status": "live"}
+               "offer": oid, "asset": o.get("asset"), "venue": o["venue"], "status": "live"}
         state.setdefault("live", []).append(dict(rec))
         state.setdefault("alerts", []).append(dict(rec))
         save_state(state_path, state, now)  # recorded before anyone is told: a crash can't lose a live offer
