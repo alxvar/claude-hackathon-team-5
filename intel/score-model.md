@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 12:35, snapshot 440. Rival detail: intel/rivals.md (Analyst-owned since 12:30)._
+_Last update: Sat 12:40, snapshot 460. Rival detail: intel/rivals.md (Analyst-owned since 12:30)._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -61,21 +61,24 @@ the ladder can.
 
 ## 3. Market = bench + value created on our venue
 
-- **Bench** [V]: the free auto stall scores 7.5 board (= Saturday 11.25 / 1.5). No board broker beat it (t13 3.33, t08 7.41).
-- **Value created** [L]: graded, **capped at +5.0 board** (t10, t12, us all sat at exactly 12.50 with different trades), and
-  **floored at 0 when net negative** [V: our raw −5.2 → market exactly 7.5]. The grading fits a **mean-of-top-3 normaliser**
-  (like the bench): at 400, with our raw gone negative, the model predicts t06 10.05 vs 9.99 observed and t10/t12 → 12.5 ✓.
-  Practical meaning: +5 needs raw value created ≥ the mean of the top three venues' raw (now ≈ 6+; rising as venues trade).
-- **Raw value created = buyer's ΔV − seller's ΔV at private values** [V on v10: +4.99 (MAL-07, t10 0.5 → t01 ~0.7-0.9),
-  then −10.2 (SAL-07, t10 ~1.1 → t15 ~0.5 = 25 × −0.4)]. Price and fee don't matter. A seller's 2nd copy is worth 25%
-  (3rd 10%), so **dup sales into a first-copy buyer create the most**.
-- Where the field's gaps came from [V feed]:
-  - t14 +4.36: one trade on v14, tick 418, t15 → t12 LAT-07 at 19 (t15 sells a LAT duplicate; t12's first copy).
-  - t17 +2.76 (new, snapshot 440): v17 tick 433, t15 → t12 LAT-01 at 7 (same pattern). t17 and t18 just cut stall fees to 0.
-  - t10 12.5: v07 trades t05 ← t03 SAL-01 at 7 (tick 351) and t05 ← t04 MAL-03 at 5 (tick 404, t04's dup → our 1st copy).
-  - t12 11.74: v02 trades t13 → t15 MAL-03 at 7 (203) and RET-02 at 10 (234).
-- **Our recovery need**: raw −5.2 → need ≈ +11 more raw on v10 for the full +5 (≈ one dup-common to a 1.3-1.6 collector
-  is +10-14; one uncommon is +20-35).
+- **Bench** [V]: the free auto stall scores exactly 7.5 board whatever its efficiency (ours 0.899 → 0.933 in session 2, still
+  7.5). Board venues are graded against it: at snapshot 460 (session 2 averaged in) t03 7.5 → 3.61 (replaced its stall by board
+  venue v20 "La Celestina"), t13 3.33 → 5.49, t06 8.90 → 9.83. Closing/replacing a venue mid-round is risky.
+- **Value created (VC) per trade = buyer's value − seller's value at private values, copy number included** [L+].
+  `/api/me` (12:35): `venue.value_created` 9.0 for v10's two trades; `score.mm_points` −5.2.
+- **mm_points = value_created − 14.2** [L+: fits both our readings; implies MAL-07 (tick 311) +19.19 and SAL-07 (tick 398)
+  −10.19, matching independent estimates +19.4 (t10's duplicate ≈ 3.1 → t01's first copy 22.5) and −10.0 (SAL 0.9 → 0.5)].
+  Whether the 14.2 hurdle is fixed or field-relative: **[?]**. Other venues' gaps move without their own trades (t10/t12 → 5.0
+  at snapshot 400 when our VC fell), so field-relative is likely [L].
+- **Board gap = clamp(mm_points, 0, +5)** [L: +4.99 → market 12.47; −5.2 → exactly 7.5]. Several teams sat at exactly 12.50
+  (cap) [V]; negative floors at 0 [V].
+- **What v10 needs:** value_created ≥ 14.2 to score at all, ≈ 19.2 for the full +5. Now 9.0 → **+10.2 more**: one
+  duplicate → first-copy trade (+15-20) or one uncommon from a 0.5-0.7 holder into a 1.3-1.6 first-copy buyer (+15-27).
+  +5 board ≈ 32 neg_points of team trades. A trade where the buyer values the card less than the seller subtracts in full.
+- Field gaps' sources [V feed]: t14 +4.36 = v14 tick 418, t15 → t12 LAT-07 at 19; t17 +2.76 = v17 tick 433, t15 → t12
+  LAT-01 at 7 (t15 sells LAT duplicates into t12's first copies); t10 = v07: t05 → t03 SAL-01 (351), t04 → t05 MAL-03 (404);
+  t12 = v02: t13 → t15 MAL-03 (203), RET-02 (234).
+- To pin the hurdle: log `score.mm_points`, `bench_points`, `venue.value_created` in `data/me.jsonl` on every change.
 
 ## 4. Buyer model (multiplier per team × set) for v10 steering
 
