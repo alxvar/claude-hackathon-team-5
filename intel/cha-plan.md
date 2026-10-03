@@ -56,13 +56,15 @@ There are 18 teams [V, leaderboard].
 
 ## Cash [V now; L ahead]
 
-- Now (12:07): **109 P**. Sunday allowance: **+150 P** at ≈ 09:32, a few minutes after the release.
+- Now (12:40): **123 P**. Sunday allowance: **+150 P** at ≈ 09:32, a few minutes after the release.
 - **Peak need by ~11:20 ≈ 295-340 P:** the 8 cards bought by then (244 if all at dealer lists, 288 if all at our bid
   floors, 224 if teams fill at the start bids) plus the CHA-05 and CHA-08 bids standing all morning (13 + 37 = 50).
 - **Total by ~12:30 ≈ 340-385 P:** add CHA-08 from Abuela (~23) and CHA-05 as the closer (72), less the 50 those two
-  bids already held.
-- **Hold cash on Saturday evening: ≥ ~230 P at the 23:00 close** (with the 150 allowance: ~380, the worst case). The
-  11:35 directive says ≥ ~170; that figure left out the standing CHA-05/08 bids and the bid floors. **Chief to confirm.**
+  bids already held. Rares are counted at 90 (team floor; Chato's Saturday finals were 82-93): two Chato deals at the
+  `--cap 100` retry would add up to 20.
+- **Saturday close target (Chief 12:40): ≥ 200 P, stretch 230** (with the 150 allowance: 350 / 380). Projected
+  ~200-215: Pilar buys MAL-06/07 (~36), SAL-08 in her fever (~31), the book's asks. No new spend today beyond the
+  verified epic exception (≤ 80). Below the full plan's 385, the degrade path below applies.
   - Saturday income still to come: the maker book's asks.
   - SAL-08 to Doña Pilar in her "Salamanca fever": 25% over book ≈ 31 P (worth 22.5 to us, so it scores 0). The schedule
     puts the fever at hour 9.15-11.15 (≈ 15:58-17:58 [L]), but its own note says "until 17:30": **sell before 17:30.**
@@ -73,10 +75,34 @@ There are 18 teams [V, leaderboard].
 - **abuela_bot and chato_steady don't count open bids:** pass `--cash-floor` = the cash in our open CHA bids (≥ 50 for
   the CHA-05/08 pair), so a dealer deal never spends the cash behind a team bid.
 - Before the allowance (≈ 09:32), cash won't cover all 10 start bids (257). The book posts in file order and skips what
-  doesn't fit, retrying every tick: the rares are listed first.
+  doesn't fit, retrying every tick: the rares are listed first, CHA-08 and CHA-05 last.
+
+### Degrade path: cash C at the allowance (Saturday close + 150), read at ≈ 09:32
+
+The rares never degrade: 70 → 90 from teams, then Chato at ≤ 77 and ≤ 100. They are worth 112 each and the most from a
+team (+42 → +22). What gives first is the CHA-05/08 pair, because the last card scores the same capped **+50 at any
+price ≤ 72 / 96**: a lower closer bid costs fill chance, not points.
+
+| C (close) | Apply | Peak by 11:20 (worst) | Left for the closer (worst) |
+|---|---|---|---|
+| ≥ 385 (≥ 235) | the full plan | 338 | 72 |
+| 340-385 (190-235; the 200 target = 350) | **A** | 321 | C − 313: 37 at 350, 67 at 380 |
+| 310-340 (160-190) | **A + B** | 303 | C − 295: 15-45 |
+| < 310 (< 160) | **A + B + C**, and tell the Chief | ≤ 303 | < 15: a team may not sell the last card that cheap |
+
+- **A · the pair waits.** CHA-08 and CHA-05 bid flat until one of them is the last card:
+  `{"card": "CHA-08", "side": "buy", "price": 24, "floor": 24, ...}` and `{"card": "CHA-05", "side": "buy", "price": 9,
+  "floor": 9, ...}` (last in the file). When one fills, or after CHA-08 is bought from Abuela at 12:30, set the other's
+  **`price` and `floor`** to min(72 for CHA-05 / 90 for CHA-08, free cash), where free cash = `/api/me` cash − our other open
+  bids. The move clamps to the floor, so both fields must change.
+- **B · commons and uncommons at list.** Floors 10 (CHA-01..04) and 25 (CHA-06/07) instead of 12 / 30. A team fill at 10
+  still scores +6; the dealer fallback costs the same.
+- **C · rares first.** Post the CHA-01..04 bids only after both rares are in (filled or bought); the uncommons and the
+  pair stay as above.
 
 ## Order
 
+0. **At ≈ 09:32** · read `/api/me` cash = C and pick the degrade tier (Cash section). Tell the Chief which.
 1. **At the release** (catalog `released`; not before, since refused posts retry every tick on the shared 5 req/s),
    **add** the 10 CHA bids below to run/book.json, **keeping the asks already there**: an entry removed from the file is
    cancelled within a tick (45ce829).
@@ -97,7 +123,7 @@ There are 18 teams [V, leaderboard].
    Abuela per rarity at ≤ list: `--cards <commons> --max-buy 10` and `--cards <uncommons> --max-buy 25`. Done by
    **~11:20**, before Duels III (≈ 11:29): no dealer threads during scored duels (directive 10:35).
 4. **CHA-05 and CHA-08 stay as team bids.** The moment one fills, the other is the last card (value +106): **set its
-   `price` to its floor (72 / 90) in run/book.json**. The book re-reads our value and moves the bid within a tick, for
+   `price` to its floor (72 / 90) in run/book.json** (degrade tier A: `price` and `floor` to min(72 / 90, free cash)). The book re-reads our value and moves the bid within a tick, for
    **+50** as maker (any price ≤ 72 / 96 scores the same capped +50, so waiting only costs fill chance). Left alone, it
    climbs ¼ of the gap every 20 ticks: about an hour to the floor.
    **12:30, after Duels III:** if neither has filled, remove the CHA-08 entry and buy it from Abuela (`--cards CHA-08
@@ -113,13 +139,16 @@ There are 18 teams [V, leaderboard].
   {"card": "CHA-10", "side": "buy", "price": 70, "floor": 90, "page_closer": true, "life": 20},
   {"card": "CHA-06", "side": "buy", "price": 24, "floor": 30, "page_closer": true, "life": 20},
   {"card": "CHA-07", "side": "buy", "price": 24, "floor": 30, "page_closer": true, "life": 20},
-  {"card": "CHA-08", "side": "buy", "price": 24, "floor": 90, "page_closer": true, "life": 20},
   {"card": "CHA-01", "side": "buy", "price": 9, "floor": 12, "page_closer": true, "life": 20},
   {"card": "CHA-02", "side": "buy", "price": 9, "floor": 12, "page_closer": true, "life": 20},
   {"card": "CHA-03", "side": "buy", "price": 9, "floor": 12, "page_closer": true, "life": 20},
   {"card": "CHA-04", "side": "buy", "price": 9, "floor": 12, "page_closer": true, "life": 20},
+  {"card": "CHA-08", "side": "buy", "price": 24, "floor": 90, "page_closer": true, "life": 20},
   {"card": "CHA-05", "side": "buy", "price": 9, "floor": 72, "page_closer": true, "life": 20}
 ```
+
+The full plan (C ≥ 385). Below that, change the floors per the degrade path: A sets CHA-08 to floor 24 and CHA-05 to
+floor 9; B sets CHA-01..04 to floor 10 and CHA-06/07 to 25.
 
 - CHA-05 and CHA-08 carry their closing floors (72 / 90). The value − 3 cap holds them at 13 / 37 until one of them
   is the last card; then the cap is 119 / 143 and the floor binds.
