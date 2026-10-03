@@ -2435,5 +2435,112 @@
     "settles_at_tick": 1284
    }
   }
- ]
+ ],
+ "last_seen_tick": 1284,
+ "done": {
+  "duel": 5968,
+  "session": 3,
+  "status": "deal",
+  "role": "seller",
+  "item": "Plaza del Dos de Mayo",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 2.1,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 78,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Azul",
+  "deadline_tick": 1285,
+  "decay_per_round": 0.08,
+  "rounds": 4,
+  "your_offer": {
+   "id": 7965,
+   "price": 88,
+   "tick": 1282,
+   "days": 9
+  },
+  "rival_offer": {
+   "id": 7958,
+   "price": 111,
+   "tick": 1282,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1270,
+    "from": "Rival Azul",
+    "text": "Rápido y justo: 86 P, día 3. ¿Qué día de entrega te va mejor? / Quick and fair: 86 P, day 3. Which delivery day suits you best?",
+    "price": 86,
+    "days": 3
+   },
+   {
+    "tick": 1270,
+    "from": "you",
+    "text": "Day 10 suits me best, so I can do 108 P on day 10.",
+    "price": 108,
+    "days": 10
+   },
+   {
+    "tick": 1271,
+    "from": "Rival Azul",
+    "text": "Parece que el día te importa: 83 P con día 7. / It seems the day matters to you: 83 P, day 7.",
+    "price": 83,
+    "days": 7
+   },
+   {
+    "tick": 1274,
+    "from": "you",
+    "text": "I can come down to 104 P if we settle on day 10; holding day 10 is what lets me move on price. Can you meet me on day 10?",
+    "price": 104,
+    "days": 10
+   },
+   {
+    "tick": 1275,
+    "from": "Rival Azul",
+    "text": "Parece que el día te importa: 75 P con día 9. / It seems the day matters to you: 75 P, day 9.",
+    "price": 75,
+    "days": 9
+   },
+   {
+    "tick": 1275,
+    "from": "you",
+    "text": "Thanks for moving close to day 10. I can do 100 P on day 10, which is a real step from me. Can you go the last step to day 10?",
+    "price": 100,
+    "days": 10
+   },
+   {
+    "tick": 1278,
+    "from": "you",
+    "text": "I can step to 96 P on day 10. Can you meet me on day 10 and come much closer on price?",
+    "price": 96,
+    "days": 10
+   },
+   {
+    "tick": 1281,
+    "from": "you",
+    "text": "I can do 99 P, delivery on day 9.",
+    "price": 99,
+    "days": 9
+   },
+   {
+    "tick": 1282,
+    "from": "Rival Azul",
+    "text": "Mi mejor oferta: 111 P, día 0. / My best offer: 111 P, day 0.",
+    "price": 111,
+    "days": 0
+   },
+   {
+    "tick": 1282,
+    "from": "you",
+    "text": "I can do 88 P on day 9, which is a clear step from me. Can you meet me there?",
+    "price": 88,
+    "days": 9
+   }
+  ],
+  "result": 23.6,
+  "price": 111,
+  "days": 0
+ }
 }

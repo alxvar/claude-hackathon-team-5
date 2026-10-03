@@ -182,6 +182,73 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1283,
+   "raw": {
+    "duel": 5812,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.56,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 73,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1298,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 8000,
+     "price": 118,
+     "tick": 1283,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 7994,
+     "price": 34,
+     "tick": 1283,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1282,
+      "from": "Rival Rojo",
+      "text": "Hello, and thank you so much for taking the time to trade with us — we'd be delighted to offer 26, with delivery on the day we've proposed. We're working with a rather modest purse this round, but we'd truly love to make this work together.",
+      "price": 26,
+      "days": 10
+     },
+     {
+      "tick": 1282,
+      "from": "you",
+      "text": "I can do 125 P, delivery on day 10.",
+      "price": 125,
+      "days": 10
+     },
+     {
+      "tick": 1283,
+      "from": "Rival Rojo",
+      "text": "Thank you kindly for coming back to us, and day 10 suits us perfectly — we can stretch our modest purse a little to 34. We'd be so glad to meet you somewhere comfortable for both of us.",
+      "price": 34,
+      "days": 10
+     },
+     {
+      "tick": 1283,
+      "from": "you",
+      "text": "Glad day 10 works for you. I can come down to 118 P on day 10, but a bigger move from me needs a bigger move from you.",
+      "price": 118,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -342,6 +409,138 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1283,
+   "took_s": 6.16,
+   "cost_usd": 0.008709999999999999,
+   "obs": {
+    "view": {
+     "duel_id": 5812,
+     "role": "seller",
+     "limit": 73,
+     "currency": "P",
+     "item": "La Vía Láctea",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.56,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello, and thank you so much for taking the time to trade with us — we'd be delighted to offer 26, with delivery on the day we've proposed. We're working with a rather modest purse this round, but we'd truly love to make this work together.",
+      "offer": {
+       "price": 26,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1282,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 125 P, delivery on day 10.",
+      "offer": {
+       "price": 125,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1282,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Thank you kindly for coming back to us, and day 10 suits us perfectly — we can stretch our modest purse a little to 34. We'd be so glad to meet you somewhere comfortable for both of us.",
+      "offer": {
+       "price": 34,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1283,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 34,
+     "days": 10
+    },
+    "tick": 1283,
+    "ticks_left": 15,
+    "rounds": 1,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1,
+     25.6,
+     37.9,
+     11.6,
+     21.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "Glad day 10 works for you. I can come down to 118 P on day 10, but a bigger move from me needs a bigger move from you.",
+    "price": 118,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 118,
+      "message": "Glad day 10 works for you. I can come down to 118 P on day 10, but a bigger move from me needs a bigger move from you."
+     },
+     "band": {
+      "worst": 117,
+      "target": 118,
+      "best": 120
+     },
+     "plan": {
+      "read": "They have come up 8 P, from 26 to 34, and accepted day 10. The 'modest purse' line is a standard plea and shouldn't be trusted. Their offer is still far below anything workable.",
+      "target": 118,
+      "best": 120,
+      "worst": 117,
+      "days": 10,
+      "angle": "Confirm day 10 warmly and come down modestly to 118 P, signalling that bigger moves need bigger moves from them."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.2,
+       "in": 810,
+       "out": 200,
+       "cost_usd": 0.00724,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.96,
+       "in": 425,
+       "out": 62,
+       "cost_usd": 0.00147,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -412,6 +611,63 @@
      "id": 7968,
      "price": 125,
      "tick": 1282,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1283,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Glad day 10 works for you. I can come down to 118 P on day 10, but a bigger move from me needs a bigger move from you.",
+    "price": 118,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 118,
+      "message": "Glad day 10 works for you. I can come down to 118 P on day 10, but a bigger move from me needs a bigger move from you."
+     },
+     "band": {
+      "worst": 117,
+      "target": 118,
+      "best": 120
+     },
+     "plan": {
+      "read": "They have come up 8 P, from 26 to 34, and accepted day 10. The 'modest purse' line is a standard plea and shouldn't be trusted. Their offer is still far below anything workable.",
+      "target": 118,
+      "best": 120,
+      "worst": 117,
+      "days": 10,
+      "angle": "Confirm day 10 warmly and come down modestly to 118 P, signalling that bigger moves need bigger moves from them."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.2,
+       "in": 810,
+       "out": 200,
+       "cost_usd": 0.00724,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.96,
+       "in": 425,
+       "out": 62,
+       "cost_usd": 0.00147,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5812,
+    "offer": {
+     "id": 8000,
+     "price": 118,
+     "tick": 1283,
      "days": 10
     }
    }
