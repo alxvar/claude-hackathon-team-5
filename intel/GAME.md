@@ -125,6 +125,10 @@
   Then 0 [V, Sat 16:53]: flag 5 (7225 'last one in all of Madrid', a thread we had closed), flag 6 (7344 bait and switch, live
   thread) and flag 7 (7356 'stopped printing', live thread) all scored 0. Same lie types as the +10 ones → [L] scored flags
   are capped (≈ 3 correct per team, per dealer or per hour?). Final: 7 flags, net +20.
+  Probe [V, Sat 17:43, 62 min after the last scored flag]: flag 8 on 8507, an unmistakable bait and switch (words: 'Noche de
+  Movida, that exact card, no other' = MAL-10; structured offer: card:MAL-07 at 73) → `{"flagged": true}`, `neg_points` 63.2
+  → 63.2 after 90 s (0, not −10). So the cap does NOT reset after an hour: **flags are done for us (≈ 3 scored per team)**.
+  Ladder also flat for the board [L, Chief 17:45]: `negotiating` 21.88 unchanged across ladder 0.373 → 0.437.
 - **Abuela gifts** [V, tick 261]: after our 5th Abuela deal of the day she gave us LAT-08 ("gift from Abuela Carmen",
   `gift.given`); Team 7 got LAT-06 the same way on Friday (tick 157). Gifts never score, but the card is ours to sell.
 - **Value created on our venue is NET and can go negative** [V, Sat 11:30]: tick 311 on v10, t10 → t01 MAL-07 at 14:
