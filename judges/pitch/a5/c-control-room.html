@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team 5 · Control room (pitch concept C)</title>
+<style>
+:root{color-scheme:dark;--plane:#0d0d0d;--surface:#1a1a19;--line:#383835;--ink:#fff;--ink2:#c3c2b7;--muted:#898781;--accent:#3987e5;--good:#0ca30c;--warn:#fab219;--crit:#e66767;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;--hud-accent:#3987e5}
+body{background:#000;color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.stage{background:var(--plane)}
+/* persistent chrome */
+.bar{position:absolute;left:0;right:0;top:0;height:52px;display:flex;align-items:center;gap:18px;padding:0 24px;box-sizing:border-box;border-bottom:1px solid var(--line);font:12px var(--mono);letter-spacing:.08em;color:var(--ink2)}
+.bar b{color:var(--ink)} .bar .dot{width:8px;height:8px;border-radius:50%;background:var(--good);box-shadow:0 0 8px var(--good)}
+.bar .when{color:var(--accent)} .bar .spark{margin-left:auto;display:flex;align-items:center;gap:10px}
+.graph{position:absolute;left:24px;top:62px}
+.edge{stroke:var(--line);stroke-width:1.5;fill:none;opacity:.7}
+.edge.read{stroke-dasharray:2 5;opacity:.45}
+.edge.lit{stroke:var(--accent);stroke-width:2;opacity:1;stroke-dasharray:7 6;animation:flow .9s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-13}}
+.node{opacity:.34;transition:opacity .4s}
+.node rect{fill:var(--surface);stroke:var(--line);stroke-width:1.5}
+.node.agent rect{stroke:#2b5c9c}
+.node.human rect{fill:#c3c2b7;stroke:#c3c2b7}
+.node.game rect{fill:#10233d;stroke:var(--accent)}
+.node.code rect{stroke-dasharray:4 3}
+.node text{font:700 12px var(--mono);letter-spacing:.06em;fill:var(--ink);text-anchor:middle}
+.node text.s{font:10.5px system-ui,sans-serif;letter-spacing:0;fill:var(--ink2)}
+.node.human text{fill:#0d0d0d} .node.human text.s{fill:#3a3a37}
+.node.lit{opacity:1}
+.node.lit.agent rect,.node.lit.code rect{stroke:var(--accent);stroke-width:2;filter:drop-shadow(0 0 6px rgba(57,135,229,.55))}
+.node.lit.human rect{fill:#fff;stroke:#fff}
+.node.born rect{stroke:var(--good);stroke-width:2;stroke-dasharray:none;filter:drop-shadow(0 0 8px rgba(12,163,12,.7));animation:pop .7s ease-out both}
+.node.born{opacity:1}
+@keyframes pop{0%{transform:scale(.6);opacity:0}60%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
+.node{transform-box:fill-box;transform-origin:center}
+.graph.boot .node{animation:boot .5s both}
+@keyframes boot{from{opacity:0}to{opacity:1}}
+.glabel{font:10.5px var(--mono);letter-spacing:.12em;fill:var(--muted)}
+/* per-screen panel */
+section{pointer-events:none}
+.panel{position:absolute;right:24px;top:64px;bottom:18px;width:448px;box-sizing:border-box;display:flex;flex-direction:column;gap:10px;pointer-events:auto}
+.when2{font:12px var(--mono);letter-spacing:.1em;color:var(--accent);text-transform:uppercase}
+h1{font-size:29px;line-height:1.12;letter-spacing:-.01em;margin:0;font-weight:700}
+.tape{display:flex;flex-direction:column;gap:6px}
+.ln{display:grid;grid-template-columns:52px 1fr;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:14px;line-height:1.3}
+.ln time{font:12px var(--mono);color:var(--muted);padding-top:2px}
+.who{font:700 11px var(--mono);letter-spacing:.06em;color:var(--accent)}
+.who.h{color:#fff} .who.c{color:var(--ink2)} .who.bad{color:var(--crit)} .who.new{color:var(--good)}
+.ln b{color:#fff}
+.res{display:flex;gap:10px}
+.kpi{flex:1;background:#10233d;border:1px solid var(--accent);border-radius:8px;padding:8px 12px}
+.kpi .v{font-size:27px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.kpi .l{font-size:12px;color:var(--ink2);line-height:1.25;margin-top:2px}
+.kpi.g{background:#0f2a12;border-color:var(--good)} .kpi.r{background:#2e1616;border-color:var(--crit)} .kpi.n{background:var(--surface);border-color:var(--line)}
+.src{font:10px/1.35 var(--mono);color:var(--muted);margin-top:auto}
+.tbd{border:1.5px dashed var(--muted);border-radius:5px;padding:0 6px;color:var(--ink2);white-space:nowrap}
+.bigs{display:flex;flex-direction:column;gap:2px;margin-top:6px}
+.bigs div{font-size:40px;font-weight:700;letter-spacing:-.02em;line-height:1.12}
+.bigs div span{font-size:20px;font-weight:500;color:var(--ink2);letter-spacing:0}
+.lede{font-size:19px;line-height:1.35;color:var(--ink2);margin:0}
+.dir{font:13.5px/1.75 var(--mono);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.dir span{border-bottom:2px solid;padding-bottom:1px}
+.k1{border-color:var(--muted)!important} .k2{border-color:var(--crit)!important} .k3{border-color:var(--warn)!important} .k4{border-color:var(--good)!important} .k5{border-color:var(--accent)!important}
+.keys{display:grid;grid-template-columns:1fr 1fr;gap:5px 14px;font-size:13px;color:var(--ink2)}
+.keys i{display:inline-block;width:14px;border-bottom:2px solid;margin-right:7px;vertical-align:4px}
+.fx{display:flex;align-items:center;gap:8px;font:13px var(--mono);color:var(--ink2);flex-wrap:wrap}
+.fx b{color:#fff;font-size:16px}
+table.board{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+table.board th{font:11px var(--mono);letter-spacing:.08em;color:var(--muted);text-align:right;padding:4px 8px;border-bottom:1px solid var(--line);font-weight:400}
+table.board td{padding:6px 8px;text-align:right;border-bottom:1px solid var(--line)}
+table.board th:nth-child(2),table.board td:nth-child(2){text-align:left}
+table.board tr.us td{background:#10233d;color:#fff;font-weight:700}
+.closing{font-size:23px;font-weight:700;line-height:1.25;margin:4px 0 0}
+</style>
+</head>
+<body>
+<div class="viewport"><div class="stage">
+
+<div class="bar"><span class="dot"></span><b>TEAM 5 // CONTROL ROOM</b><span class="when" id="when"></span>
+  <span class="spark"><span>OUR SCORE, TICKS 90–<span data-live="tick">1200</span></span><svg id="spark" width="250" height="30" viewBox="0 0 250 30"></svg><b>#<span data-live="rank">3</span> · <span data-live="score">31.92</span></b></span></div>
+<svg class="graph" id="graph" width="770" height="610" viewBox="0 0 770 610" role="img" aria-label="The team's system: three humans, six Claude Code sessions, daemons, the duelist and the game"></svg>
+
+<!-- 1 · HOOK -->
+<section data-title="Hook" data-when="BOOT" data-boot="1">
+  <div class="panel">
+    <div class="when2">Causa Prima · The Bazaar · Madrid, 2–4 Oct</div>
+    <div class="bigs"><div>3 <span>humans</span></div><div>6 <span>Claude Code sessions</span></div><div>17 <span>daemons</span></div><div>1 <span>writer to the game, per job</span></div></div>
+    <h1 style="margin-top:14px">Lucas talks to <span style="color:var(--accent)">one</span> of them.</h1>
+    <p class="lede">This is that machine, replayed: what it decided, what it measured, and what it got wrong.</p>
+    <div class="src">intel/saturday-sessions.md (4 sessions, one writer per job) · intel/chief-handoff.md (+ Analyst, Duel Lab) · tools/daemons.sh (17 defined)</div>
+  </div>
+  <aside class="say" data-secs="10">Three humans. Six Claude sessions. Seventeen daemons. For each job, exactly one of them may write to the game. And Lucas talks to only one. This is that machine, replayed.</aside>
+</section>
+
+<!-- 2 · THE SYSTEM -->
+<section data-title="The system" data-when="ARCHITECTURE" data-nodes="*" data-edges="lucas-chief chief-verifier chief-builder chief-market chief-operator chief-analyst chief-duellab duellab-aleks aleks-duelist operator-game duelist-game">
+  <div class="panel">
+    <div class="when2">Four rules keep them off each other's toes</div>
+    <h1>The Chief decides and never acts. The Operator acts.</h1>
+    <div class="tape">
+      <div class="ln"><time>01</time><div><span class="who">ONE VOICE</span><br>Lucas talks to the Chief of staff only. It writes every decision, with limits and evidence, to one file.</div></div>
+      <div class="ln"><time>02</time><div><span class="who">ONE WRITER PER JOB</span><br>The Operator holds a lock: the only writer for trades and dealers. The duelist owns duels: its strategist knows our limit, its negotiator never sees it, and code blocks any price past it.</div></div>
+      <div class="ln"><time>03</time><div><span class="who">ADVISORS NEVER ACT</span><br>Analyst, Market, Duel Lab and the API analysts are read-only. The Builder ships tools with tests (440 passing).</div></div>
+      <div class="ln"><time>04</time><div><span class="who h">HUMANS OWN THE LIMITS</span><br>A hard limit moves only on a line that says GUARDRAIL: 12 on Saturday. Inside them: “Decide, don't ask.”</div></div>
+    </div>
+    <div class="src">intel/saturday-sessions.md · judges/demo.md slides 2, 4 · DECISIONS.md #5 · grep GUARDRAIL intel/directives.md (12) · team/aleks.md Sat 19:26 (440)</div>
+  </div>
+  <aside class="say" data-secs="25">The Chief of staff decides and never acts. The Operator acts, and holds a lock: one writer to the game. The Builder ships tools with tests. Analyst and Market sessions model the score. Aleks's duelist is two models inside code that guards the limit. Advisors never trade. And humans own the limits, on purpose: “I don't want things stopped by me not looking.”</aside>
+</section>
+
+<!-- 3 · REPLAY: THE THIRD PAGE -->
+<section data-title="Replay · the page that made us #1" data-when="REPLAY · SAT 18:28 · TICK 988" data-tick="988" data-nodes="lucas chief verifier bargains operator game" data-edges="chief-verifier lucas-chief chief-operator bargains-operator operator-game">
+  <div class="panel">
+    <div class="when2">Hypothesis → experiment → result</div>
+    <h1>A page bonus only scores through a team trade.</h1>
+    <div class="tape">
+      <div class="ln"><time>Fri 22:54</time><div><span class="who">TEST 1</span> Sell our own card to a dealer, buy it back from a team for 8 P: <b>+50.0</b>. #10 → #5.</div></div>
+      <div class="ln"><time>Sat 10:27</time><div><span class="who">TEST 2</span> Again, 20 P: <b>+50.0 exactly</b>, where 63.9 was due. A hidden per-trade cap.</div></div>
+      <div class="ln"><time>17:58</time><div><span class="who">CHIEF + VERIFIER</span> Third page priced: team-trade close only, ≈ <b>+2.2 board</b> [L].</div></div>
+      <div class="ln"><time>18:10</time><div><span class="who h">LUCAS</span> “GUARDRAIL · Cash floor 85 for the SAL-06 page close only”</div></div>
+      <div class="ln"><time>18:28</time><div><span class="who c">BARGAINS DAEMON → OPERATOR</span> An open ask at 28 P. The board masks the seller; the feed names it: not a rival. Accept.</div></div>
+    </div>
+    <div class="res"><div class="kpi g"><div class="v">+2.00</div><div class="l">board points measured (+40.4 neg_points)</div></div><div class="kpi g"><div class="v">#1 · 31.97</div><div class="l">at the next snapshot, tick 990</div></div></div>
+    <div class="src">docs/judges/facts.md #22, #23 [V, n=2] · intel/directives.md 17:58, 18:10, 18:32 [V] · team/lucas.md Sat 18:29 · intel/score-model.md §2 (tick 988) · data/leaderboard.jsonl</div>
+  </div>
+  <aside class="say" data-secs="35">Replay, eighteen twenty-eight. Our hypothesis since Friday: a page bonus only scores through a team trade. Twice it paid plus fifty, exactly, which is how we found the cap. Now the Chief prices the third page at plus two point two board points, verified. Lucas lowers one guardrail. A daemon spots the missing card at twenty-eight pesetas; the board hides the seller; the feed shows it is no rival. The Operator accepts. Plus two point zero. Number one.</aside>
+</section>
+
+<!-- 4 · REPLAY: KNOWING WHEN TO STOP -->
+<section data-title="Replay · knowing when to stop" data-when="REPLAY · SAT 11:56 → 18:30" data-tick="850" data-nodes="analyst chief operator game duellab aleks duelist" data-edges="chief-analyst chief-operator operator-game chief-duellab duellab-aleks aleks-duelist duelist-game">
+  <div class="panel">
+    <div class="when2">Hypothesis → experiment → result</div>
+    <h1>Price a lever. Use it. Notice when it dies.</h1>
+    <div class="tape">
+      <div class="ln"><time>11:56</time><div><span class="who">ANALYST → CHIEF</span> The dealer ladder is the cheapest board points left: +0.01 ladder ≈ +0.54 board [L].</div></div>
+      <div class="ln"><time>12:10 – 16:43</time><div><span class="who">OPERATOR</span> One clean deal per new dealer level: <b>+0.017</b> (L2), <b>+0.050</b> (L3), <b>+0.070</b> (L4).</div></div>
+      <div class="ln"><time>17:45</time><div><span class="who">CHIEF</span> “Ladder capped for us: stop ladder-driven deals.” Negotiating flat at 21.88 across 3 deals.</div></div>
+      <div class="ln"><time>13:40</time><div><span class="who h">ALEKS</span> Duels I: 30 of 34 deals; 19% of value lost to rounds. Two “obvious” fixes lose on replay (−82.5 P, −31 P): not shipped.</div></div>
+      <div class="ln"><time>18:30</time><div><span class="who">DUEL LAB → ALEKS</span> One change after the code freeze, as insurance: a switch for the delivery-day reading (right +0.47 a duel, backwards −0.18).</div></div>
+    </div>
+    <div class="res"><div class="kpi"><div class="v">35→20→10→0</div><div class="l">board points per ladder point</div></div><div class="kpi"><div class="v">88% <span style="font-size:15px;font-weight:500">vs 76%</span></div><div class="l">Duels I deals, us vs field · Duels II <span class="tbd">TBD</span></div></div></div>
+    <div class="src">intel/directives.md 11:56, 17:45 · intel/GAME.md [V, Sat 12:10, 12:24] · intel/score-model.md §1d, §2 · docs/duels-1-review.md §1, §2 · intel/duel-lab.md 18:30 [L] · PLAN.md Aleks #24</div>
+  </div>
+  <aside class="say" data-secs="30">Replay two: knowing when to stop. The Analyst prices the dealer ladder at thirty-five board points per unit; the Operator sells into every new level; the price falls to twenty, ten, zero. Chief: stop. Duels: eighty-eight percent closed, nineteen percent lost to rounds; two fixes refuted on replay. And for tonight's new duel format, the Duel Lab asked for one change after the freeze: an insurance switch.</aside>
+</section>
+
+<!-- 5 · ANATOMY OF A DECISION -->
+<section data-title="Anatomy of a decision" data-when="DIRECTIVE · SAT 10:25" data-tick="280" data-nodes="lucas chief verifier operator game" data-edges="lucas-chief chief-verifier chief-operator operator-game">
+  <div class="panel">
+    <div class="when2">How we weigh decisions</div>
+    <h1>Every decision has the same anatomy.</h1>
+    <div class="dir"><span class="k1">10:25</span> · <span class="k2">GUARDRAIL</span> · <span class="k3">Cash floor 97 for the RET-01 page-closer only (Lucas), up to 30 P … back to 100 right after</span> · it closes the RET page (<span class="k4">+50 if the cap holds</span>) and <span class="k5">runs the cap test</span></div>
+    <div class="keys"><span><i class="k1"></i>logged, to the minute</span><span><i class="k2"></i>only a human moves a limit</span><span><i class="k3"></i>the limit, scoped to one trade</span><span><i class="k4"></i>expected value, stated first</span><span><i class="k5"></i>what we learn either way</span><span>labels: [V] verified · [L] likely · [?] open</span></div>
+    <div class="res"><div class="kpi g"><div class="v">+50.0</div><div class="l">measured, exactly: filled at 20 P [V]</div></div><div class="kpi n"><div class="v">&gt; 20 P</div><div class="l">an independent verifier agent goes first</div></div></div>
+    <div class="when2" style="margin-top:4px">One currency, re-priced as the field moves</div>
+    <div class="fx">1 neg_point = <b>0.16</b> Fri → <b>0.094</b> 12:13 → <b>0.068</b> tick 669 → <b>0.048</b> tick 904 board points</div>
+    <div class="src">intel/directives.md 10:25 (quoted, shortened), 12:13 · docs/judges/facts.md #23 · intel/saturday-sessions.md (Chief prompt) · intel/GAME.md · intel/score-model.md §2, §3</div>
+  </div>
+  <aside class="say" data-secs="25">Every decision has the same anatomy. A time. A hard limit, scoped to one trade. An expected value in board points. And what we learn either way. This one said: plus fifty if the cap holds. It measured plus fifty point zero. The currency itself is re-priced as the field moves: four times so far.</aside>
+</section>
+
+<!-- 6 · INCIDENTS AND RIVALS -->
+<section data-title="Incidents → new nodes" data-when="INCIDENT LOG" data-tick="400" data-nodes="builder chief market lucas game" data-born="radar hints" data-edges="builder-radar builder-hints market-radar chief-builder">
+  <div class="panel">
+    <div class="when2">What went wrong · what rivals taught us</div>
+    <h1>Every mistake becomes a new node.</h1>
+    <div class="tape">
+      <div class="ln"><time>Sat 10:18</time><div><span class="who bad">VENUE SWAP WITH TEAM 10</span> Our 7 P sale on their venue fed their market; a sale on ours wiped our +4.99 (→ −5.2, #2 → #7). Tonight: <b><span data-live="leadmkt">12.50</span></b> vs our <b><span data-live="mkt">7.50</span></b>.<br><span class="who new">+ RADAR DAEMON</span> scores each trade first; no offers on a rival's venue.</div></div>
+      <div class="ln"><time>tick 522</time><div><span class="who bad">A HINT NOBODY READ</span> A dealer named a one-of-one card in our own thread. We asked at tick 1047; it left at 1021.<br><span class="who new">+ HINTS DAEMON</span> live 19:00, 126 hits backfilled.</div></div>
+      <div class="ln"><time>Fri 22:00</time><div><span class="who bad">AUTOFLIP</span> Bought a card worth 17.5 at 29: <b>−11.8</b>. Archived, “never restart”.</div></div>
+      <div class="ln"><time>rivals</time><div><span class="who">TEAM 10</span> closed a page for the price of a common: <b>+3.33</b> board. Our Sunday recipe.<br><span class="who">FRIDAY'S LEADER</span> lived on the ladder; the field copied it; the lead eroded.</div></div>
+    </div>
+    <div class="src">intel/directives.md 10:18, 11:31, 17:30, 19:40 · intel/GAME.md [V] · intel/hints.md (tick 522) · team/lucas.md Sat 19:00, 19:01 · DECISIONS.md #3 · intel/score-model.md §1d, §3e · data/leaderboard.jsonl</div>
+  </div>
+  <aside class="say" data-secs="35">What went wrong becomes a new node. Ten eighteen: we swapped venues with Team Ten; it fed their market and wiped ours. They lead tonight. New rule, and a radar daemon scores every trade. A dealer hinted at a one-of-one card at tick 522; we heard it at tick 1047. New daemon: it reads every dealer line. Friday: an auto-flipper lost eleven point eight; archived, never restart. Rivals teach too: Team Ten's cheap page close is our Sunday plan.</aside>
+</section>
+
+<!-- 7 · STATUS -->
+<section data-title="Status" data-when="STATUS" data-nodes="*" data-edges="lucas-chief chief-operator operator-game duelist-game aleks-duelist">
+  <div class="panel">
+    <div class="when2">Leaderboard · tick <span data-live="tick">1200</span></div>
+    <h1>#<span data-live="rank">3</span> of <span data-live="teams">18</span>. #<span data-live="negrank">1</span> in Negotiating.</h1>
+    <table class="board" id="board"><tr><th>#</th><th>TEAM</th><th>SCORE</th><th>NEGOTIATING</th><th>MARKET</th></tr></table>
+    <div class="res"><div class="kpi n"><div class="v">3 pages</div><div class="l">LAV, RET, SAL: each closed through a team trade</div></div><div class="kpi n"><div class="v"><span data-live="first">8</span>×</div><div class="l">snapshots at #1 so far</div></div><div class="kpi n"><div class="v"><span class="tbd" style="font-size:16px">TBD</span></div><div class="l">Sunday close: fill after 15:00</div></div></div>
+    <p class="closing">Humans set limits. Agents act.<br><span style="color:var(--good)">Mistakes become daemons.</span></p>
+    <div class="src">data/leaderboard.jsonl (latest snapshot) · intel/directives.md 18:32 · STATUS.md (album 38/50)</div>
+  </div>
+  <aside class="say" data-secs="20">Status: number <span data-live="rank">three</span> of eighteen. The best negotiating score in the room. Sunday still to play. Humans set limits. Agents act. Mistakes become daemons.</aside>
+</section>
+
+</div></div>
+
+<script src="race-data.js"></script>
+<script>
+const R = window.RACE;
+// The system graph: nodes by type, edges from → to. Sections light subsets of it.
+const N = {
+  dani:     {x: 110, y: 40,  w: 150, h: 40, t: 'human', l: 'DANI',   s: 'desk · room · rivals'},
+  lucas:    {x: 385, y: 40,  w: 150, h: 40, t: 'human', l: 'LUCAS',  s: 'sets the limits'},
+  aleks:    {x: 660, y: 40,  w: 150, h: 40, t: 'human', l: 'ALEKS',  s: 'duels · shared hub'},
+  verifier: {x: 160, y: 150, w: 150, h: 44, t: 'agent', l: 'VERIFIER', s: 'fresh agent, > 20 P'},
+  chief:    {x: 385, y: 150, w: 200, h: 54, t: 'agent', l: 'CHIEF OF STAFF', s: 'decides · never acts'},
+  duellab:  {x: 560, y: 150, w: 130, h: 44, t: 'agent', l: 'DUEL LAB', s: 'simulations'},
+  builder:  {x: 78,  y: 275, w: 124, h: 46, t: 'agent', l: 'BUILDER', s: 'tools + tests'},
+  market:   {x: 218, y: 275, w: 124, h: 46, t: 'agent', l: 'MARKET',  s: 'venue · Market Tests'},
+  operator: {x: 385, y: 275, w: 170, h: 54, t: 'agent', l: 'OPERATOR', s: 'only writer: trades, dealers'},
+  analyst:  {x: 552, y: 275, w: 124, h: 46, t: 'agent', l: 'ANALYST', s: 'score model'},
+  duelist:  {x: 694, y: 275, w: 136, h: 54, t: 'agent', l: 'DUELIST', s: '2 models, code-guarded'},
+  hints:    {x: 70,  y: 395, w: 104, h: 32, t: 'code', l: 'hints'},
+  radar:    {x: 186, y: 395, w: 104, h: 32, t: 'code', l: 'radar'},
+  bargains: {x: 302, y: 395, w: 104, h: 32, t: 'code', l: 'bargains'},
+  book:     {x: 418, y: 395, w: 104, h: 32, t: 'code', l: 'book·trader'},
+  collector:{x: 534, y: 395, w: 104, h: 32, t: 'code', l: 'collector'},
+  duelmon:  {x: 650, y: 395, w: 104, h: 32, t: 'code', l: 'duel monitor'},
+  game:     {x: 385, y: 505, w: 650, h: 50, t: 'game', l: 'THE BAZAAR · GAME API', s: '18 teams · one key each · 1 accept per tick'},
+};
+const E = ['lucas-chief', 'chief-verifier', 'chief-builder', 'chief-market', 'chief-operator', 'chief-analyst', 'chief-duellab', 'duellab-aleks', 'aleks-duelist',
+  'operator-game', 'duelist-game', 'bargains-operator', 'builder-hints', 'builder-radar', 'market-radar', 'collector-analyst', 'book-operator'];
+const READ = ['hints', 'radar', 'bargains', 'book', 'collector', 'duelmon'];
+const g = document.getElementById('graph');
+g.innerHTML =
+  READ.map(a => `<line class="edge read" x1="${N[a].x}" y1="${N[a].y}" x2="${N[a].x}" y2="${N.game.y}"/>`).join('') +
+  E.map(e => { const [a, b] = e.split('-'); return `<line class="edge" data-e="${e}" x1="${N[a].x}" y1="${N[a].y}" x2="${N[b].x}" y2="${N[b].y}"/>`; }).join('') +
+  `<text class="glabel" x="18" y="362">DAEMONS · 17 DEFINED · FACTS, NO LLM</text><text class="glabel" x="18" y="566">GIT IS THE SHARED MEMORY: ONE FILE PER OWNER, EVERY DECISION LOGGED WITH ITS EVIDENCE</text>
+   <text class="glabel" x="18" y="592">■ HUMAN   ▢ CLAUDE AGENT   ┄ CODE</text>` +
+  Object.entries(N).map(([id, n], i) => `<g class="node ${n.t}" data-n="${id}" style="animation-delay:${i * 70}ms"><rect x="${n.x - n.w / 2}" y="${n.y - n.h / 2}" width="${n.w}" height="${n.h}" rx="7"/>
+    <text x="${n.x}" y="${n.y + (n.s ? -3 : 4)}">${n.l}</text>${n.s ? `<text class="s" x="${n.x}" y="${n.y + 12}">${n.s.replace('>', '&gt;')}</text>` : ''}</g>`).join('');
+
+// Our score as a sparkline in the top bar, with a cursor at the replayed tick.
+function spark(tick) {
+  const el = document.getElementById('spark'); if (!R) return;
+  const T = R.ticks, S = R.score.t05, x = t => 4 + (t - T[0]) / (T[T.length - 1] - T[0]) * 242, y = v => 27 - (v - 10) / 26 * 24;
+  let s = `<path d="M${T.map((t, k) => x(t).toFixed(1) + ',' + y(S[k]).toFixed(1)).join('L')}" fill="none" stroke="#3987e5" stroke-width="2" stroke-linejoin="round"/>`;
+  if (tick) { const k = T.reduce((b, v, i) => Math.abs(v - tick) < Math.abs(T[b] - tick) ? i : b, 0); s += `<line x1="${x(T[k])}" x2="${x(T[k])}" y1="1" y2="29" stroke="#898781"/><circle cx="${x(T[k])}" cy="${y(S[k])}" r="4" fill="#3987e5" stroke="#0d0d0d" stroke-width="2"/>`; }
+  el.innerHTML = s;
+}
+if (R) {
+  const rows = R.latest.rows, top = rows.slice(0, 5), me = rows.findIndex(r => r[0] === 't05');
+  if (me > 4) top.push(rows[me]);
+  document.getElementById('board').insertAdjacentHTML('beforeend', top.map(r => `<tr class="${r[0] === 't05' ? 'us' : ''}"><td>${rows.indexOf(r) + 1}</td><td>Team ${Number(r[0].slice(1))}</td><td>${r[1].toFixed(2)}</td><td>${r[2].toFixed(2)}</td><td>${r[3].toFixed(2)}</td></tr>`).join(''));
+}
+document.addEventListener('deck:show', e => {
+  const d = e.detail.section.dataset, nodes = (d.nodes || '').split(' '), edges = (d.edges || '').split(' '), born = (d.born || '').split(' ');
+  g.classList.toggle('boot', !!d.boot);
+  g.querySelectorAll('.node').forEach(n => { n.classList.toggle('lit', d.boot ? true : nodes[0] === '*' || nodes.includes(n.dataset.n)); n.classList.toggle('born', born.includes(n.dataset.n)); });
+  g.querySelectorAll('.edge[data-e]').forEach(l => l.classList.toggle('lit', edges.includes(l.dataset.e)));
+  document.getElementById('when').textContent = d.when || '';
+  spark(Number(d.tick) || 0);
+});
+</script>
+<script src="deck.js"></script>
+</body>
+</html>
