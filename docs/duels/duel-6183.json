@@ -1653,5 +1653,93 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1388,
+ "done": {
+  "duel": 6183,
+  "session": 3,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Plaza del Dos de Mayo",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 4.03,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 82,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Plata",
+  "deadline_tick": 1388,
+  "decay_per_round": 0.08,
+  "rounds": 0,
+  "your_offer": {
+   "id": 10969,
+   "price": 77,
+   "tick": 1386,
+   "days": 0
+  },
+  "rival_offer": null,
+  "messages": [
+   {
+    "tick": 1374,
+    "from": "you",
+    "text": "I can do 55 P with delivery on day 0. I'm ready to close quickly if your side meets me reasonably.",
+    "price": 55,
+    "days": 0
+   },
+   {
+    "tick": 1380,
+    "from": "you",
+    "text": "I can do 58 P, delivery on day 0.",
+    "price": 58,
+    "days": 0
+   },
+   {
+    "tick": 1381,
+    "from": "you",
+    "text": "I can do 61 P, delivery on day 0.",
+    "price": 61,
+    "days": 0
+   },
+   {
+    "tick": 1382,
+    "from": "you",
+    "text": "I can do 64 P, delivery on day 0.",
+    "price": 64,
+    "days": 0
+   },
+   {
+    "tick": 1383,
+    "from": "you",
+    "text": "I can do 68 P, delivery on day 0.",
+    "price": 68,
+    "days": 0
+   },
+   {
+    "tick": 1384,
+    "from": "you",
+    "text": "I can do 71 P, delivery on day 0.",
+    "price": 71,
+    "days": 0
+   },
+   {
+    "tick": 1385,
+    "from": "you",
+    "text": "I can do 74 P, delivery on day 0.",
+    "price": 74,
+    "days": 0
+   },
+   {
+    "tick": 1386,
+    "from": "you",
+    "text": "I can do 77 P, delivery on day 0.",
+    "price": 77,
+    "days": 0
+   }
+  ],
+  "result": 5.0,
+  "price": 77,
+  "days": 0
+ }
 }
