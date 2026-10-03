@@ -1,15 +1,15 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 13:13** · tick 607 (30 s/tick) · game hour 6.38 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 13:18** · tick 617 (30 s/tick) · game hour 6.47 · running · today closes 23:00._
 
 ## Team: now and latest
 
 _From `team/<name>.md`; each person writes only their own file._
 
-**Aleks** — Duelist LIVE since 11:27:54 on eb36ec8 (`supervise.sh`, detached, caffeinate) for Duels I ≈ 11:59-13:35 (tick ≈ 459); Duels II ≈ 18:29 (tick ≈ 1239). **HANDOFF to Aleks's Builder session (this Mac): fewer rounds per deal, spec `docs/duelist-rounds-spec.md`; built in a git worktree, merged and pushed only after Duels I; restart before Duels II on Aleks's go.** PLAN.md Aleks block (09:58): #2 done, #3 decided (opener kept as is), #6 noted, spend limit OK, arbiter reviewed (log 10:20); #9a in code (ff9a66d, live after a restart), #9b kept; open: #4 waits on Dani's Q6, #5 later (Duels II day reading, Sunday Sonnet strategist).
+**Aleks** — Duels I done for us (13:13): 30 deals of 34, 13.93 duel points, 4.4 rounds per deal. Duelist still running (since 11:27:54, eb36ec8) and idle until Duels II ≈ 18:29 (tick ≈ 1239, 68 duels, 6 at once, 8% decay, price + days). Rounds fix on branch `rounds` (da9c45c) merges by itself at tick ≥ 640; **Aleks restarts the duelist on it before Duels II**, then checks the day reading at the first days duel.
+  - Sat 13:20 · **Duels I final** (34 duels) · 30 deals (88%), field 77% (220 of 286 closed) · duel points 13.93 (≈ 0.41 per duel; the jumps match each deal's share of the pie × 0.94^rounds [L]) · negotiating 15.16 → 21.12 from tick 450 to 610: +5.96, the most among the top 8 (t14 +3.86, t18 +2.59, t12 +2.51, t13 −4.43); 2nd in negotiating, 5th overall (market 7.5 is the gap) · **rounds**: 4.4 per deal, 19% of deal value lost (112 of 591 P); deals in 0-1 rounds kept 95% (mean 25.4 P), 7+ rounds kept 57% (mean 8.5 P); the new rule would have held 96 of our 171 follow-up offers · deals landed at the openers' midpoint (median 0.51; practice 0.64): tougher rivals; we conceded 944 P, they 655 · no-deals: 2367 (rival held 101 above our value 72: no overlap) and 3 silent rivals (walks to 170/196, 71/60, 83/95 never taken: likely no agent) · 4 deals below an earlier in-limit rival offer (≈10 P) · $1.62 model spend, decision 5.1 s mean, 25 s max (1 timeout) · next: restart on `rounds` before Duels II; watch the first wave for standoffs (more holds) and the day reading
   - Sat 12:52 · Duels I so far (tick 556, 23 of our duels finished, 3 live) · **21 deals of 23 (91%)**, field 80% (161/202 public results) · duel points 0 → 10.09: the jumps line up with our deals closing, each one share-sized, so points ≈ Σ our share of the pie × 0.94^rounds [L], ~0.44 per duel · **rounds are the leak**: 4.4 per deal (practice 3.5), 22% of deal value lost to decay (≈ 2.8 points); longest 2356 (10), 2318/2319 (9); our steps of 3-4 P against gaps of 50-80 (2318: 115 → 112 → 108 …) are what the Builder's `rounds` branch holds · no-deals: 2367 (rival held 101, our limit 72: likely no overlap) and 2523 (silent rival, our walk 110 → 170 never taken) · 2 fallbacks (2506 past-limit draft blocked, 2356 25 s timeout) · rivals that took our opener scored best (2446: 28 P, 0 rounds); 2296 sold at 97 after the rival had offered 101 and retreated · next: merge `rounds` after Duels I, restart before Duels II
   - Sat 11:56 · **handoff to Aleks's Builder session on this Mac** (not Lucas's): fewer rounds per deal, spec in `docs/duelist-rounds-spec.md` · (1) code in `agent.held`: a concession smaller than max(3 P, ¼ of the gap in worth) is held, and after 4 priced offers nothing more is sent unless they moved that much or 3 ticks are left (accepts, opener, close, their price, silent walk and fallback exempt); (2) two facts lines tell the strategist so; (3) the strategist's "shrinking steps" bullet is replaced by "few, clear steps" + "don't chase a holder" · 6 tests named in the spec, each failing on the current code · **built in a git worktree, merged only after Duels I** (supervise restarts a crash on the code checked out here); no second duelist · next: Aleks restarts on the Builder's commit before Duels II and compares rounds per deal after its first wave
-  - Sat 11:46 · rounds analysis on the 34 practice duels (no code change; the live duelist is untouched for Duels I) · 26 of our 75 concessions were ≤ 3 P, concentrated in the 5 longest duels (175, 176, 269, 277, 278: 5-11 rounds each) · deals landed at a median 64% of the way from their opener to ours, so haggling earns share: jumping to the openers' midpoint would have scored ~16% less (303 vs 363 P, rough counterfactual) → keep the direction, compress the steps · the strategist prompt asks for steps "by less than they did, in shrinking steps", which produces many small rounds · models: strategist Opus 5.5 at effort low (thinking can't be turned off on Opus 5.5; ~120 output tokens per call, median 3.8 s), negotiator Sonnet 5.5 at effort low, adaptive thinking on (~87 tokens, 2.0 s): both barely think · next (Aleks's call, for Duels II): code holds a step under max(3 P, ¼ of the gap) and caps our offers at 4 before the closing ticks; the prompt asks for few clear steps and no chasing a holder
 
 **Dani** — Desk, still open: Q6 (do duel threads count in the 6 open conversations? Duels II runs 6 at once ≈ 18:29), venue bond cooldown length, Q7 judging, Q4 ladder "price range" (do above-list deals count?), Q3 cap flat 50 or 5×book. Answered: stale `day_closes fri` did nothing (Lucas 10:50); Round 3 + CHA re-anchored to Sun ≈ 09:29 (server, log 11:44). Room: RET holders/collectors in log 11:44; steer other teams' trades to our v10 (0% fee: one trade there took us #4 → #2 at 10:45); no sell pitches (no line in `intel/opportunities.md` is live; top 4 at tick 424: t14, t13, t18, t12, and it moves every few minutes, so check the live board). Pitch draft with Lucas during Duels I (11:59-~13:34). Dashboard on my laptop (http://127.0.0.1:8765, read-only; Duel monitor tab at `#duelmon` for Duels I/II/III) rewrites `intel/teams.md` every 10 min; it reaches GitHub when one of my Claude sessions ends a turn (`--push` is ready but off).
   - Sat 12:57 · **why we reached #3** (our `/api/me` per tick + leaderboard snapshots 450 → 570 + `intel/score-model.md`) · 22.66 #10 → **29.57 #3** (+6.91, the biggest rise in the top 8: t14 +2.71, t18 +3.32, t12 +2.55, t10 +3.86, t17 +3.18, t13 −0.03) · market flat (7.5) and `neg_points` flat (35.2): **all of it is Negotiating, 15.16 → 22.07** · since Duels I scored, Saturday Negotiating = 0.6 × (team trades + ladder) + duel part (≤ 12 Saturday points) [V, score-model 1b]; 1 Saturday point = 0.667 board · approx. split [L, score-model rates]: **(1) duels ≈ +6 board**: `duel_points` 0 → 10-11; Aleks 12:52: 21 deals of 23 (91 %) vs the field 80 %; **(2) ladder ≈ +4 board**: 4 dealer sells at no `neg_points` cost, `ladder_points` 0.055 → 0.181: LAT-08 → Chato (tick 481), MAL-07, SAL-08, MAL-06 → Pilar (508, 522, 551; Pilar is level 3, higher levels weigh more); the 11:35 ladder program copied what Team 13 did (deals at list, then Pilar); **(3) the 40 % re-weighting ≈ −3.4 board** for us, but it hurt more the teams whose Saturday came from trades: t13 (Saturday Negotiating 21.6, the highest, weak duels) 27.72 → 27.69 and #2 → #7; t02 (21.3) out of the top 8; ours was 12.75 (#8), so the cut cost us little · the jump to #3 at snapshot 560: MAL-06 → Pilar (+0.040 ladder, tick 551) + `duel_points` 8.23 → 10.09 (ticks 552-553) · fragile: Duels I runs to ≈ 13:35 and the duel part looks graded against the field [L] (snapshot 520: −0.8 with no event of ours) · pitch material: duelist 91 % deals; ladder program learned from a rival's measured path · next: watch Duels I on the Duel monitor tab, desk Q6
@@ -25,17 +25,17 @@ _From `team/<name>.md`; each person writes only their own file._
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 28.96 | 5 | 21.46 | 7.50 | 13.93 | 0.18 | 0.93 | 39 | 3 | 184 | 29/50 |
+| 28.62 | 5 | 21.12 | 7.50 | 13.93 | 0.18 | 0.93 | 39 | 3 | 184 | 29/50 |
 
-Leaderboard (snapshot at tick 600; refreshes every few minutes):
+Leaderboard (snapshot at tick 610; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 14 | 30.42 | 20.70 | 9.72 | 29 |
-| 2 | Team 12 | 29.88 | 17.38 | 12.50 | 39 |
-| 3 | Team 10 | 29.51 | 17.44 | 12.07 | 30 |
-| 4 | Team 18 | 29.21 | 21.71 | 7.50 | 29 |
-| 5 | Team 5 | 28.96 | 21.46 | 7.50 | 39 |
+| 1 | Team 14 | 30.77 | 21.05 | 9.72 | 29 |
+| 2 | Team 12 | 29.62 | 17.12 | 12.50 | 39 |
+| 3 | Team 18 | 29.25 | 21.75 | 7.50 | 29 |
+| 4 | Team 10 | 29.21 | 17.14 | 12.07 | 30 |
+| 5 | Team 5 | 28.62 | 21.12 | 7.50 | 39 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 7.00 | ~37 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.00 | ~157 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.15 | ~166 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
-| 11.00 | ~277 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~286 min | persona_patch | The fever breaks |
-| 11.65 | ~316 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~397 min | bench | The Market Test: every venue gets the same synthetic book |
-| 14.65 | ~496 min | bench | The hard Market Test: firmer and more impatient traders |
+| 7.00 | ~32 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.00 | ~152 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.15 | ~161 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
+| 11.00 | ~272 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~281 min | persona_patch | The fever breaks |
+| 11.65 | ~311 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~392 min | bench | The Market Test: every venue gets the same synthetic book |
+| 14.65 | ~491 min | bench | The hard Market Test: firmer and more impatient traders |
 
 ## Our dealer deals
 
@@ -108,10 +108,10 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
-| common card | team buys | 61 | 9 | 7 | 12 | 5 | 9 |
+| common card | team buys | 62 | 9.00 | 7 | 12 | 5 | 9 |
 | common card | team sells | 68 | 6.00 | 5 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 41 | 22 | 17 | 30 | 3 | 20.33 |
-| uncommon card | team buys | 69 | 23 | 17 | 29 | 4 | 24.50 |
+| uncommon card | team buys | 70 | 23.00 | 17 | 29 | 4 | 24.50 |
 | uncommon card | team sells | 8 | 14.50 | 13 | 17 | 0 | — |
 
 ## Duels
