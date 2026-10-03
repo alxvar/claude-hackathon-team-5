@@ -1,4 +1,4 @@
-# Opportunities (auto, 13:08, game tick 597, t 6.3 h)
+# Opportunities (auto, 13:09, game tick 599, t 6.3167 h)
 
 Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and ≤ 60 real min old · ≤ 3 alerts/h · team 45 min · team+card 2 h · never to the top 4 (t05, t10, t14, t18); a sale that closes their page (last or second-to-last known lack) only to teams ≥ 10 below us (28.88); page-closers on El Rastro, the rest on v07. Data: collector.
 
@@ -6,11 +6,11 @@ Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and �
 
 | # | side | team | card | price | our value | gain | signal | age (game / real min) | status |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | SELL | Team 7 (#17, 16.97) | SAL-02 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 132) | 246 / 876 | listed only: signal 876 real min old (game clock paused?) |
-| 2 | SELL | Team 7 (#17, 16.97) | SAL-05 common | 40 | 9 | 31 | asked abuela to sell it (tick 128) | 250 / 879 | listed only: signal 879 real min old (game clock paused?) |
-| 3 | SELL | Team 3 (#16, 20.48) | SAL-02 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 208) | 195 / 195 | no: only 8.4 below us (needs ≥ 10) |
-| 4 | SELL | Team 3 (#16, 20.48) | SAL-05 common | 40 | 9 | 31 | bid 9 P for it (tick 182) | 207 / 208 | no: only 8.4 below us (needs ≥ 10) |
-| 5 | SELL | Team 8 (#12, 22.55) | SAL-03 common | 40 | 9 | 31 | bid 5 P for it (tick 142) | 236 / 866 | no: only 6.33 below us (needs ≥ 10) |
+| 1 | SELL | Team 7 (#17, 16.97) | SAL-02 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 132) | 247 / 877 | listed only: signal 877 real min old (game clock paused?) |
+| 2 | SELL | Team 7 (#17, 16.97) | SAL-05 common | 40 | 9 | 31 | asked abuela to sell it (tick 128) | 251 / 880 | listed only: signal 880 real min old (game clock paused?) |
+| 3 | SELL | Team 3 (#16, 20.48) | SAL-02 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 208) | 196 / 196 | no: only 8.4 below us (needs ≥ 10) |
+| 4 | SELL | Team 3 (#16, 20.48) | SAL-05 common | 40 | 9 | 31 | bid 9 P for it (tick 182) | 208 / 209 | no: only 8.4 below us (needs ≥ 10) |
+| 5 | SELL | Team 8 (#12, 22.55) | SAL-03 common | 40 | 9 | 31 | bid 5 P for it (tick 142) | 237 / 867 | no: only 6.33 below us (needs ≥ 10) |
 
 ## Alerts (newest first)
 
