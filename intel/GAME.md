@@ -43,8 +43,17 @@
   (Team 13 lobbied every team on Sat 02:00 to trade and swap on its venue v03).
 - **Clearing prices on El Rastro** [V]: common 9 (LAT 7.5), uncommon 24.5 (MAL 26, SAL 24.5, LAT 21.5), rare 70 (53-80).
   Only 5% of asks and 9% of bids filled; filled bids took a median 4 ticks.
-- **Duels** [V, 30 practice duels]: result = our surplus × (1 − decay)^rounds, rounds = min(our priced offers, theirs);
-  silence costs no decay; no deal = 0.
+- **Duels** [V, 30 practice duels; corrected Sat 09:48]: result = our surplus × (1 − decay)^rounds, rounds = min(our
+  messages, theirs): **every duel message counts as a round, priced or not** (duel 277: 3 no-price messages each raised
+  `rounds`; 278: restating the same price every tick cost 10 rounds). Silence is the only free hold; no deal = 0.
+- **Round 2 (Sat)** [V]: fired at tick 160 (game hour ~2.7, not 4.0): `neg_points` 67.8 → 0 and `ladder_points` → 0 for
+  every team; holdings carry over. Tick 165: grant = 150 P + a sobre_barrio pack for everyone (ours: RET-05, SAL-01,
+  SAL-03). Saturday clock: game hour = wall hour (30 s ticks, 120 ticks/h).
+- **Abuela on Saturday** [V, n=1]: our first deal of the day (RET-04 common) opened at 12 and closed negotiated at 9
+  (worth 11): `neg_points` 0 → 0, `ladder_points` 0 → 0.014. No fixed welcome price today [L: the welcome price does not
+  reset per day]. Menus Sat: Abuela common list 10, uncommon 25; Chato uncommon 26, rare 77, silver pack 150.
+- **RET rares** [V, feed ticks 160-188]: no team pulled a RET rare from a grant pack (every sobre_barrio `best` = null);
+  the only sources are Chato (rare list 77) and silver packs. Team 15 bids 59 and Team 2 9-12 for RET-09/10.
 
 ## Our private values (`/api/me` → affinity; every team has the same six numbers, shuffled)
 Chamberí (CHA) 1.6 (released Sunday) · Lavapiés (LAV) 1.3 · El Retiro (RET) 1.1 (released Saturday) · Salamanca (SAL) 0.9 · Malasaña (MAL) 0.7 · La Latina (LAT) 0.5.

@@ -7,6 +7,7 @@
 # Never blocks Claude: every failure is reported on stderr and the script exits 0.
 cd "${CLAUDE_PROJECT_DIR:-$(dirname "$0")/..}" || exit 0
 mode="$1"
+[ -f run/git-paused ] && { echo "team_sync: paused (run/git-paused): no git" >&2; exit 0; }  # Sat 09:50 rescue
 state=".git/team_sync_seen"
 me="$(git config user.name)"
 

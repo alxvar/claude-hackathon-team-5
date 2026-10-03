@@ -8,6 +8,8 @@ LOCK = ROOT / ".git" / "team_gitsync.lock"
 
 
 def push(paths, message):
+    if (ROOT / "run" / "git-paused").exists():   # Sat 09:50 rescue: no automatic git while the tree is repaired
+        return
     git = ["git", "-C", str(ROOT)]
     with open(LOCK, "w") as lock:
         fcntl.flock(lock, fcntl.LOCK_EX)
