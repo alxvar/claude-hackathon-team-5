@@ -57,7 +57,9 @@
   through the ladder: Abuela commons +0.014, +0.018, +0.016 (3 deals, 12 → 9 each). The deck's Hint 1 "+4" is team trades.
 - **Dealer losses score in full** [V, Sat 09:53]: RET-09 from Chato at 87 (worth 77): `neg_points` 0 → −10.0 exactly;
   ladder unchanged (4th Chato deal of ours that never moved it). His path: 97, 96, 95, 90, then FINAL 87 against our
-  57 → 69 (+3 steps); Team 18 paid 86 for RET-09 at tick 206.
+  57 → 69 (+3 steps); Team 18 paid 86 for RET-09 at tick 206. RET-10 [V, 10:04]: first try his FINAL 91 came when our
+  bid was 66 (walked, cap 88); retry: 97, 96, …, 89, FINAL 86 when our bid reached 69 → `neg_points` −10 → −19.0 (77 − 86).
+  Pattern [L, n=3]: his rare final lands when our +3 steps reach ~69 (≈ 0.9 × list 77) → 86-87; at 66 it was 91.
 - **RET rares** [V, feed ticks 160-188]: no team pulled a RET rare from a grant pack (every sobre_barrio `best` = null);
   the only sources are Chato (rare list 77) and silver packs. Team 15 bids 59 and Team 2 9-12 for RET-09/10.
 
