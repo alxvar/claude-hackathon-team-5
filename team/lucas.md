@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sat 13:13 · Builder · chato_steady hang (thread 805, 4+ min silent at cap, server fine): bounded wait_tick, 8 s timeout, slow-call log, stack watchdog → logs/dealers/hang-<pid>.txt, wall-time stuck walk (2559725, 343 pass); cause not pinned (no stack) · Operator reruns on HEAD; CHA plan re-verify running
 - Sat 13:08 · operator · daemons restarted on HEAD (trader, book MIN_GAIN_SELL=2, opps; ARBITER_HOLDS off by default); trader verified alive (loop.py logs only actions to trader.jsonl) · **L2 buy SAL-06 from Chato at list 26 FAILED**: his 33 ('Two points is not moving… Thirty-three'), 32, held 32 for 4+ min vs our silent 26; chato_steady hung in its tick wait → killed, thread 805 closed; nothing spent · options to the Chief (skip / accept ~30 / bold open 26 for SAL-07); default skip · #4 (28.88), duel points 13.25, cash 184, ladder 0.181
 - Sat 13:00 · Builder · ARBITER_HOLDS (default off: never hold, log would-have-held to logs/arbiter.jsonl) 71b7c6a, both modes tested, 339 pass · Operator restarts trader/book/opps
 - Sat 12:52 · Builder · radar reads addressed v10 offers from the feed (424931b), restarted · found t10→t17 MAL-02 at 6 (est. +0.2, paged) and t10→t03 LAV-04 at 13 (est. −1.9, not paged) · Chief told
