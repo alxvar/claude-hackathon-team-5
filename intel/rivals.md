@@ -9,6 +9,14 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sat 18:12 · snapshot 950 (Salamanca fever since ~18:04; Don Ernesto announced at 932)
+- Board: **t06 31.73 (#1)** · t14 31.56 · **us 29.97 (#3)** · t03 29.20 · t18 27.93 · t10 27.67 · t16 26.03 · t12 25.84 · **t01 23.98 (#12)**.
+- **t01 −4.27 at 950** [V board]: its only event was SELL SAL-07 → Pilar at 29 (948). Reading [L]: SAL-07 was a page card; a
+  dealer sale counts the page-bonus loss in full (≈ −90 neg_points). Guardrail for us: never sell a page card to a dealer.
+- t06 +1.14 at 940: Pícaros BUY RET-10 at 55 (935, L4). t18 +0.83 at 930: Pícaros BUY SAL-11 (epic) at 139 (below list 162).
+- t14 is buying RET commons at 9 from Abuela (RET-01/02/05) and RET-03 from t02 at 7; pages 2 → 3.
+- Fever prices to Pilar: SAL-08 27-28 (t04, t14, t17, t10), SAL-07 29-30 (t01, t07), SAL-09 77 (t08).
+
 ### Sat 17:57 · snapshot 920 (bench 4 started 17:55)
 - Board: **t14 31.89** · t06 30.62 · **us 29.98 (#3)** · t03 28.57 · t01 28.52 · t10 27.65 · t18 26.99.
 - t14 +0.46: Pícaros BUY RET-10 at 57 (920), after RET-09 at 57 (852): t14 keeps filling L4 below list, and its RET set grows.
