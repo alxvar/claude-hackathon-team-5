@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 23:43** · tick 1445 (30 s/tick) · game hour 13.37 · PAUSED · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 23:48** · tick 1445 (30 s/tick) · game hour 13.37 · PAUSED · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,9 +17,9 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Sun 08:45: run intel/dealer-lab.md §4 checklist, then intel/sunday-plan.md. (Sat history:) Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 23:43 · operator · Chief decisions: (a) CHA rares from the Pícaros (target 48-52, ≤ 54), Chato only as a fallback, team bids first, last card from a team; (b) RET-11 → Pilar ≥ 198 only once round 3 has started; (c) **MAL close stays** → cancelled 19980 (MAL-03 → t09) and 19982 (MAL-08 → t01), MAL-01..06 + 08 added to run/reserved.json (can-give → NO), MAL entries dropped from run/book.json; (d) trick guard on · open now: LAV-03 → t04 (19979), LAV-04 → t01 (19981), SAL-11 bid 20252
   - Sat 23:42 · operator · **intel/dealer-lab.md done + verified** (1,627 threads, 547 deals rebuilt; independent verifier recomputed ≈ 40 cells, 9 minor flags fixed; converged with the Dealer Lab's dealer-lab-ladder.md targets) · calls for the Chief: CHA rares from the Pícaros (target 48-52, ≤ 54) not Chato; RET-11 → Pilar live (she asks for the Palacio de Cristal, floor 198); cancel overnight asks MAL-03 → t09 (19980) and MAL-08 → t01 (19982) at 09:00 if the MAL close stays; trick guard always (the estampita badge doesn't stop tricks) · next: 08:45 checklist (dealer-lab.md §4)
   - Sat 23:50 · builder · pack refs never reach a value lookup (918f823: policy.is_card in trader/book/swaps/trade.py/bargains/reactor/opps; trader/book/swaps/opps pick it up at the Operator's next restart) · the ACT DONE/VOID sweep moved into the reactor (c4fa3f4; 2 keyed reads/min, from 09:00 ticks) · duelist-loop rebased + GUARDS off switch (b10f9cc, 558 green) · **Red Castiza club engine paused**: the auto-mode classifier denied its build/tests; needs Lucas's explicit go in the Builder session · next: daemons overnight
-  - Sat 23:35 · Market: Saturday closed at market 7.5 (stall number; top 12.5); bench 13.0 0.854, six benches and nobody above the stall; `intel/market-sunday.md` written and verified by an independent pass (10 flags applied) · club pairs on the match list +89 VC, 68 of it one page-finishing trade (RET-09 t07 → t09); sim: +89 on v10 at the close ≈ 3.9-4.8 of 5 · next: 07:00 refresh with the want-lists, 07:30 summary to the Chief, live watch from 09:00
 
 ## Score
 
