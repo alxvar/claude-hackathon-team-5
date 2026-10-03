@@ -1209,3 +1209,11 @@
 {"id": 71620, "tick": 1392, "t": 12.925, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6217, "session": 3, "status": "no_deal", "item": "Fiesta de San Cayetano"}}
 {"id": 71658, "tick": 1393, "t": 12.9333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6181, "session": 3, "status": "deal", "item": "Fiesta de San Cayetano"}}
 {"id": 71758, "tick": 1395, "t": 12.95, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6156, "session": 3, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 71820, "tick": 1398, "t": 12.975, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6157, "session": 3, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 71852, "tick": 1399, "t": 12.9833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6031, "session": 3, "status": "no_deal", "item": "El Frutero de Argumosa"}}
+{"id": 71855, "tick": 1399, "t": 12.9833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6130, "session": 3, "status": "no_deal", "item": "Fiesta de San Cayetano"}}
+{"id": 71858, "tick": 1399, "t": 12.9833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6131, "session": 3, "status": "no_deal", "item": "Fiesta de San Cayetano"}}
+{"id": 71861, "tick": 1399, "t": 12.9833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6134, "session": 3, "status": "no_deal", "item": "La Sala Pentagrama"}}
+{"id": 71864, "tick": 1399, "t": 12.9833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6135, "session": 3, "status": "no_deal", "item": "La Sala Pentagrama"}}
+{"id": 71867, "tick": 1399, "t": 12.9833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6141, "session": 3, "status": "deal", "item": "El Frutero de Argumosa"}}
+{"id": 71870, "tick": 1399, "t": 12.9833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6152, "session": 3, "status": "no_deal", "item": "Plaza del Dos de Mayo"}}
