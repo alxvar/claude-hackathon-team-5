@@ -1,4 +1,4 @@
-# SAL page: can we finish it today? (Builder, Sat 11:05, tick ~300; independently verified)
+# SAL page: can we finish it today? (Builder, Sat 10:42, tick ~300; independently verified)
 
 _Scan of `data/feed.jsonl` (ticks 2-~300: settlements `frm`/`to`, pack.opened `best`, listings, bids, dealer threads),
 El Rastro's live board (`data/board.json`, 10:45), `intel/teams.md` (Dani, 10:22) and our `/api/me` (10:42). Holders are
