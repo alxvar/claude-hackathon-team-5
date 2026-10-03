@@ -1,5 +1,19 @@
 # Market log (Market session; newest first)
 
+## Partner audit · Sat 16:29 · tick 750 · snapshot 750: stall teams 7.5 · us 7.5 (+0.00)
+- **Team 15** (v15, market 7.5 = +0.00): on v10 0 open offers, 1 trades (26 P) · ours on v15: 3 open offers, 0 trades (0 P)
+  - v10 trade tick 398: [('SAL-07', 't10', '→', 't15')] at 26
+- **Team 10** (v07, market 12.5 = +5.00): on v10 2 open offers, 2 trades (40 P) · ours on v07: 3 open offers, 3 trades (17 P)
+  - 10819 sells LAV-04 at 6 → Team 13 (est -2.8 NEGATIVE)
+  - 11182 sells SAL-08 at 28 → Team 3 (est -13.8 NEGATIVE)
+  - v10 trade tick 311: [('MAL-07', 't10', '→', 't01')] at 14
+  - v10 trade tick 398: [('SAL-07', 't10', '→', 't15')] at 26
+  - our trade on v07 tick 351: [('SAL-01', 't05', '→', 't03')] at 7
+  - our trade on v07 tick 404: [('MAL-03', 't04', '→', 't05')] at 5
+  - our trade on v07 tick 714: [('MAL-01', 't06', '→', 't05')] at 5
+- **Team 3** (v20): no deal yet, nothing on v10.
+- **Alerts:** Team 15: 0 offers and 0 trades on v10, 60 min after the deal; Team 15: no open offer on v10 now (1 trades so far); Team 10: offers on v10 with negative estimated value: [10819, 11182]
+
 ## Sat 16:05 · bench-h07.0 (ticks 680-697, after the lunch pause 13:25-15:29), on the stall v10
 - **Ours [V]:** bench_efficiency 0.878 (3.0: 0.899, 5.0: 0.933), bench_points 0.5, market 7.5 = stall teams, unchanged.
 - **Field at snapshot 700 [V]:** t12 12.5 · t10 12.01 · t06 11.89 · t14 9.51 · t07 9.33 · t09 8.84 · t17 8.77 · stall
