@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 13:56 (game paused at tick 630), snapshot 630. §1d levers 1-2 corrected by Aleks's replay (docs/duels-1-review.md). Duels I post-mortem §1d; Duels II day rule §1e. Duels I post-mortem: §1d. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
+_Last update: Sat 14:27 (game paused at tick 630), snapshot 630. §1d levers 1-2 corrected by Aleks's replay (docs/duels-1-review.md). Duels I post-mortem §1d; Duels II day rule §1e. Duels I post-mortem: §1d. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -282,6 +282,14 @@ the ladder can.
   LAT-01 at 7 (t15 selling duplicates into t12's first copies: [L], holdings are not public); t10 = v07: t05 → t03 SAL-01 (351, we sold), t04 → t05 MAL-03 (404, no visible change: t10 already at 12.5);
   t12 = v02: t13 → t15 MAL-03 (203), RET-02 (234).
 - To pin the hurdle: log `score.mm_points`, `bench_points`, `venue.value_created` in `data/me.jsonl` on every change.
+
+## 3c. New levels announced at tick 630 (during the pause) [V /api/levels, /api/dealers; reading L]
+- **Los Pícaros** (persona, "Quick deals. Few questions."): announced, not active. Unlock pattern from `/api/dealers`:
+  Chato early = 3 deals with Abuela; Pilar early = 3 deals with Chato at level ≥ 2 → Pícaros early ≈ 3 deals with Pilar at
+  level ≥ 3 [L]. We hold 3 negotiated Pilar sells (MAL-07 19, SAL-08 23, MAL-06 19) at level 3. Other teams with ≥ 3 Pilar
+  deals: t13, t08, t04, t09. A new (higher) level = fresh, heavier ladder slots; a full-share L4 deal ≈ +0.08 ladder [L].
+- **The Workshop** (kind `taller`, "Three spares. One surprise."): likely 3 duplicates → 1 random card [?]. Not a team
+  trade → no direct score expected (luck never counts); only converts spares into something tradeable.
 
 ## 3b. Card-for-card swaps (a mechanic we haven't used) [V feed; scoring L]
 - t15 ↔ t07 swapped 3 times on El Rastro at price 0 (607 LAV-08 ↔ LAV-06, 613 LAV-03 ↔ MAL-08, 616 MAL-01 ↔ SAL-02).
