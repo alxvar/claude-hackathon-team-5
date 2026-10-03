@@ -2,7 +2,8 @@
 
 _Source: `data/feed.jsonl` up to Saturday's close (tick 1445): 1,627 dealer threads rebuilt from `thread.opened`/`thread.message`,
 547 of 630 dealer settlements matched one-to-one to their thread (team + dealer + tick window). Script and data:
-Operator scratchpad `dealer_lab.py`, `dealer_threads2.json`. Team texts are private in the feed (null), so "what made
+Operator scratchpad `dealer_lab.py`, `dealer_threads2.json`. Companion analysis: `intel/dealer-lab-ladder.md` (ladder formula,
+best-step study); this file adopts its tighter targets (§2). Independently verified (≈ 40 table cells recomputed; fixes applied). Team texts are private in the feed (null), so "what made
 them move" is read from the price sequences plus the dealers' own words. [V] = measured, [L] = likely, [?] = untested.
 "Our" deals come from team/lucas.md._
 
@@ -16,14 +17,14 @@ move" = how many P the dealer gives back per P we just conceded (0 = he only wai
 | Abuela (L1) | buys from her | common | 113 → 53 | 12 | 9 | 0.75 (0.75-0.83) | 3 (3-4) | 0.67 | 0.50 |
 | | | uncommon | 173 → 66 | 29 | 23 | 0.79 (0.76-0.83) | 4 (3-6) | 0.67 | 0.45 |
 | | | sobre_barrio | 76 → 25 | 30 | 22 | 0.73 | 5 | 0.67 | 0.40 |
-| | sells to her | common | 225 → 90 | 5 | 6 | 1.20 (1.0-1.2) | 5 (4-6) | 0 | 2.2 |
+| | sells to her | common | 225 → 97 | 5 | 6 | 1.20 (1.0-1.2) | 5 (4-6) | 0 | 2.2 |
 | | | uncommon | 30 → 10 | 12 | 16 | 1.17 | 5 | 0 | 1.7 |
 | Chato (L2) | buys from him | rare | 110 → 32 | 97 | 89 | 0.92 (0.89-0.94) | 6 (5-7) | 0.33 | 0.62 |
 | | | uncommon | 156 → 20 | 33 | 30 | 0.91 | 5 (4-7) | 0.33 | 0.61 |
 | | sells to him | uncommon | 77 → 26 | 13 | 14 | 1.08 | 5 | 0 | 2.0 |
 | Pilar (L3) | sells to her | uncommon | 151 → 82 | 16 | 19 | 1.12 (1.06-1.19) | 5 (4-6) | 0.5 | 1.64 |
 | | | rare | 60 → 28 | 61 | 74.5 | 1.14 (1.09-1.18) | 4 (4-6) | 0.5 | 1.49 |
-| | | epic | 10 → 4 | 151 | 187 | 1.15 | 7 | 0.5 | 1.35 |
+| | | epic | 10 → 4 | 151 | 187 | 1.14 | 5.5 (n=4: noise) | 0.5 | 1.35 |
 | Pícaros (L4) | buys from them | rare | 128 → 45 | 73 | 57 | 0.78 (0.74-0.81) | 4 (3-4) | **1.67** | 0.62 |
 | | | epic | 41 → 17 | 187 | 143 | 0.76 (0.74-0.83) | 4 (3-5) | **1.67** | 0.51 |
 | | sells to them | common | 105 → 15 | 4 | 5 | 1.25 | 4 | 0 | 2.5 |
@@ -44,13 +45,14 @@ remembers (0.9); Ernesto is patient (0.95), strict (1.0) and has perfect memory;
   She opens buys above list (commons 12 vs list 10, uncommons 29 vs 25), so a deal **below list** needs ≥ 3 rounds. When
   she buys from us she barely moves (0): her final ≈ 1.2× her opening, and we come down to her. Kindness pays: she gave
   48 routine gifts to 16 teams ("meeting in the middle", tools/eggs.py), 2 to us, plus the castizo egg (MAL-06).
-- **Chato: stubborn and precise.** He moves ⅓ of our step ("You moved three, I move two" [t10's thread]). Deals sit at
-  ~0.92 of his opening, after 5-7 rounds. Rare finals are 82-93 against a **list of 77**, so his deals are almost always
-  above list. Our 6 Chato buys above list never moved the ladder [L, GAME.md]. As a buyer he pays 1.08× his opening, with
+- **Chato: stubborn and precise. He holds, then mirrors.** He holds 1-2 rounds, then gives back ~½-1× our step ("You moved
+  four, I move two" [eggs.md]; the 0.33 per-step median includes the holds). Deals sit at ~0.92 of his opening, after 5-7 rounds. Rare finals are 82-93 against a **list of 77**, so his deals are almost always
+  above list. Our 5 Chato buys above list (plus 1 sale) never moved the ladder [L, GAME.md]. As a buyer he pays 1.08× his opening, with
   finals around round 5.
 - **Pilar: half-step reciprocity on purchases.** She climbs ~½ of each step we come down. Her finals land at ~1.12-1.15
-  of her opening, around round 4-5. Small steps get the better share: in our two MAL-06 sales, −2 steps gave +0.040,
-  while a jump handed her a final and gave +0.019 [V, GAME.md]. "Final" from her is real ~60-75% of the time (her deal
+  of her opening, around round 4-5. Small steps get the better share: MAL-06 with −2 steps gave +0.040, while the SAL-08 jump (34 → 31 → 28) handed
+  her a final and gave +0.019 [V, GAME.md]. She asks for **RET-11 (Palacio de Cristal) by name** ("me falta el Palacio de
+  Cristal", to t10, tick 1373) [V, dealer-lab-ladder.md]. "Final" from her is real ~60-75% of the time (her deal
   rate after a final is 0.60-0.75).
 - **Pícaros: fast droppers, tricky.** They drop **1.67 P per 1 P we raise** (fastest of all) and close in 3-4 rounds at
   ~0.76-0.78 of their opening, which is **below list** for rares (57 vs 63) and epics (143 vs 162). Hence ladder-eligible:
@@ -62,11 +64,13 @@ remembers (0.9); Ernesto is patient (0.95), strict (1.0) and has perfect memory;
   of our step. As a buyer of epics he pays ~1.06× his opening after 7 rounds.
 
 ### Cross-cutting rules [V]
-- Dealer offers expire after **4 ticks** of silence. Never hold silent: move or walk. Our scripts walk after 6 empty ticks.
+- Dealer offers expire after **4 ticks** of silence. Never hold silent: move or walk. dealer_sell.py walks after 6 empty
+  ticks, the repo drivers (abuela_bot, chato_steady) after 4.
 - A deal at the dealer's **opening price never counts** for the ladder (RULES:35). For buys, only deals **below list**
   moved our ladder [L, strong pattern: every Abuela deal under list moved it, none of 6 Chato deals above list did].
-- Ladder per deal grows with the level: L1 ≈ 0.011 (5 Abuela deals = 0.055), L2 0.012-0.017, L3 0.019-0.050,
-  L4 0.043-0.089 [V, ours]. Inside a level, small steps that let the dealer move beat jumps (MAL-06 +0.040 vs SAL-08 +0.019).
+- Ladder per deal grows with the level: L1 +0.014/+0.018/+0.016 (our first three Abuela deals), L2 0.012-0.017,
+  L3 0.019-0.050, L4 0.043-0.089 (slot upgrades included) [V, ours]. The Dealer Lab's formula: max per deal ≈ level/45 ×
+  our share of the range (0.022 / 0.044 / 0.067 / 0.089 / 0.111) [L, intel/dealer-lab-ladder.md]. Inside a level, small steps that let the dealer move beat jumps (MAL-06 +0.040 vs SAL-08 +0.019).
 - The Saturday ladder stopped moving the board after ~0.37 [L, Chief 17:45]. Sunday's ladder is fresh (a new round).
 
 ## 2. Sunday ladder plan: 3 deals per dealer (CHA cards first, then spares)
@@ -78,15 +82,15 @@ commons 16, uncommons 40, rares 112.
 
 | # | Dealer | Deal | Opener | Step | Cap / floor | Expected final [L, from §1] | Why |
 |---|---|---|---|---|---|---|---|
-| 1 | **Pícaros (L4)** | buy CHA-09 (rare) | 45 | +3 | cap **62** (below list 63; value 112) | ≈ 57 in 3-4 rounds | the highest level; below list is their normal; saves ~30 vs Chato |
-| 2 | Pícaros | buy CHA-10 (rare) | 45 | +3 | cap 62 | ≈ 57 | same; if only one rare comes from a dealer, keep CHA-10 for a team |
-| 3 | Pícaros | sell a LAV-02 spare (common) | 12 | −1 | floor 4, take their final ≥ 5 | 5 | a free 0-neg L4 slot (Sat: SAL-04 at 5 gave +0.043) |
-| 4 | **Pilar (L3)** | sell RET-11 (epic, RET premium) | 260 | −4 | floor **198** (our value) | her epic finals are ~187, so likely a walk | only if she reaches 198; else keep |
-| 5 | Pilar | sell a spare uncommon | open ~1.6× her bid | −2 | floor ≥ our value | 1.12× her opening | **none held now**: MAL-08 is a MAL page card (see note) |
-| 6 | **Abuela (L1)** | buy CHA-06/07 (uncommons) | 13 | +2 | cap **24** (below list 25; value 40) | ≈ 23 in 4 rounds | the CHA plan's dealer fallback; L1 ladder |
-| 7 | Abuela | buy CHA-01..04 (commons) | 6 | +1 | cap **9** (below list 10; value 16) | ≈ 9 in 3 rounds | same |
+| 1 | **Pícaros (L4)** | buy CHA-09 (rare) | 42 | +2 | target **48-52**, accept ≤ 54; walk on a final ≥ 57 and reopen | ≈ 52 (reopens beat walked threads) | the highest level; below list 63 is normal for them; value 112 |
+| 2 | Pícaros | buy CHA-10 (rare) | 42 | +2 | same | ≈ 52 | if only one rare comes from a dealer, keep CHA-10 for a team (the last card) |
+| 3 | Pícaros | sell a LAV-02 spare (common) | 12 | −1 | floor **5** (4 is their opening: never counts) | 5 | a free 0-neg L4 slot (Sat: SAL-04 at 5 gave +0.043) |
+| 4 | **Pilar (L3)** | sell RET-11 (epic, RET premium) | 260 | −4 | floor **198** (our value) | possible: she asks for the Palacio de Cristal by name; SAL-11 went 179-199 | walk below 198 and keep it |
+| 5 | Pilar | sell a spare uncommon | ~1.6-1.8× her bid | −1/−2 | floor ≥ our value | 1.12× her opening | **none held now**: MAL-08 is a MAL page card (see note) |
+| 6 | **Abuela (L1)** | buy CHA-06/07 (uncommons) | 12 | +1/+2 | target **20-21**, accept ≤ 22 (list 25; value 40) | 20-22 in ~7 rounds | the CHA plan's dealer fallback; L1 ladder |
+| 7 | Abuela | buy CHA-01..04 (commons) | 5 | +1 | target **8**, accept ≤ 9 (list 10; value 16) | 8-9 after 12, 10, 9, 9 | same |
 | 8 | Abuela | sell a LAV-03/04 spare (common) | 10 | −1 | take her final ≥ 6 | 6 (1.2× her 5) | 0 neg, L1 slot, if a spare isn't sold on v10 |
-| 9 | **Chato (L2)** | buy a CHA rare **below list 77** | 60 | +2 | cap 76 | his finals are 82-93, so a walk is likely | only if Pícaros have no CHA rare; above list neither scores nor ladders |
+| 9 | **Chato (L2)** | buy a CHA rare | — | — | **cha-plan.md's runbook** (chato_steady cap 77, retry 100) | finals 82-93: above list neither ladders nor scores | only if the Pícaros have no CHA rare (Chief to settle cha-plan vs this) |
 | — | Ernesto (L5) | skip | | | | 0 of 19 buys closed | no legendary or gold pack (Chief) |
 
 **Note: MAL-03 and MAL-08 are page cards for the Sunday MAL close** (we hold MAL-01..06 + 08; missing 07/09/10). Tonight's
@@ -98,7 +102,8 @@ stays in the plan, cancel both at 09:00 and drop them from run/book.json (Chief'
 From `intel/eggs.md` and our Saturday results. Rewards may reset with the day [?]: Pícaros said "sin trucos… hoy".
 
 - **Pícaros** (first thread of the day, before any price): "Conozco el timo de la estampita, como Lazarillo y Rinconete.
-  Sin trucos, ¿eh?" → Trickster tricked [V t05 Sat 1231]; then trade with the trick guard on anyway.
+  Sin trucos, ¿eh?" → Trickster tricked [V t05 Sat 1231]. It's a badge, not protection: bait and switch ran 18-22% after
+  the egg vs 15% otherwise [L, dealer-lab-ladder.md]. **The trick guard is what protects us.**
 - **Abuela**: "¡Hola, Carmen! ¿Ha comido? Hoy toca cocido madrileño con sus tres vuelcos, y unas rosquillas tontas y
   listas de San Isidro." → Saturday's card gift (MAL-06) [V t05 1368]. If the gift resets: one more card. Then "El chotis
   se baila en una sola baldosa, como Dios manda." (Castizo, already ours).
@@ -106,8 +111,9 @@ From `intel/eggs.md` and our Saturday results. Rewards may reset with the day [?
   I move two. Ninety-three. Plaza Mayor, con caña — you know Madrid. Here, for your trouble") [V eggs.md]. Our text-only
   try got nothing. So send the line **together with a price step**: "Un bocata de calamares en la Plaza Mayor, con una
   caña: eso es Madrid." [L]
-- **Pilar**: the Marqués de Salamanca story landed in words but gave no reward [V]. Untested: "Doña Pilar, felicidades
-  por el Pilar, el doce de octubre." [?]
+- **Pilar**: the Marqués de Salamanca story landed in words but gave no reward [V, logs/egg-madrid.log, thread 2102,
+  22:21: "arruinado por su propia elegancia… dieciséis por su Vía Láctea"]. "Felicidades por el Pilar, el doce de
+  octubre" was tried by t08 at tick 1325: no reward [V, eggs.md]. Best lever with her: bring RET-11 (she asks for it).
 - **Ernesto**: "el oro de Moscú" is spent (LAT-13 minted out). Skip.
 
 ## 4. 08:45 readiness checklist (Operator)
