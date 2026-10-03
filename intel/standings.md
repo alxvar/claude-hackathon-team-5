@@ -41,8 +41,8 @@ Saturday's round may continue Sunday morning (score-model §4.7).
 | t01 | +1.46 | **−7.26** |
 
 Rule: we finish ahead of a rival when 0.5·ΔFri + ΔSat + ΔSun > 0 (Δ = us − them). Every Saturday point added in a Sunday-morning
-tail counts 1:1, and so does every Sunday point. Friday counts half. P(#1) ≤ 9% in every variant; P(top 2) ≈ 20-47% under the full plan
-(score-model §4.4: 21% with nothing extra, 35% if the flip lands, 45% with the flip + Saturday-tail v10 pairs).
+tail counts 1:1, and so does every Sunday point. Friday counts half. P(#1) ≤ 4% in every variant; P(top 2) ≈ 9-34% under the full plan (score-model §4.4, ladder-corrected
+01:05: 9% with nothing extra, 19% if the flip lands, 27% with the flip + Saturday-tail v10 pairs, 34% with one more L3 ladder slot).
 
 ## 3. Rivals' Sunday upside [L]
 
@@ -61,6 +61,6 @@ tail counts 1:1, and so does every Sunday point. Friday counts half. P(#1) ≤ 9
 | v10 value created (pairs: duplicates → first copies) | 0 → 7.5 (field-normalised, §3h) | 0 P |
 | Saturday tail, if the clock resumes at 13.367 (v10 pairs only; trade part has ≈ 6 np headroom) | up to ≈ +4 Saturday pts | 0 P |
 | Duels III + Grand Final | ≈ 7 → 8-9 | 0 P |
-| CHA page (team closer +50) + CHA dealer buys ≤ list (ladder) | trades +5-9 · ladder +4-6 | ≈ 270-330 P |
+| CHA page (team closer +50) + CHA dealer buys ≤ list (ladder: Abuela + Pícaros) | ≈ +7 (incl. ladder ≈ 2.8) | ≈ 330 P |
 | Fresh ladder sells (MAL-08 → Pilar ≥ 20, spare non-SAL rare → Pilar ≈ 55, spare common → Pícaros 5; RET-11 only ≥ 198) | +1.5-3 | cash + |
 | MAL close | +1-3 | ≈ 160 P |
