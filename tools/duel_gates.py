@@ -1,25 +1,24 @@
-"""Duel Lab live gates for Duels III / the Final (advisory only: it NEVER writes the params file).
+"""Duel Lab switch rule for Duels III / the Final (advisory: it NEVER writes the params file).
 
-Reads the closed duel records of one session from docs/duels/ and the duelist's flat params file
-(run/duel_params.json, the duelist-loop format: {"_note": ..., "MIN_STEP_P": 5, ...}), evaluates two gates on the
-session so far, and prints a proposed flat diff. Applying it is `tools/duel_loop.py approve` (the Builder's tool, the
-only writer of the params file), on Aleks's call.
+Pre-approved plan (intel/duel-lab.md, SUNDAY v2): play set C (run/duel_params.json); after every closed wave, evaluate
+ONE rule on all closed duels of the session so far; if it fires, the pre-approved fallback set replaces C, once, and
+nothing ever switches back. Applying is the params writer's job (tools/duel_loop.py, on Aleks's 08:00 approval); this
+script only evaluates and prints SWITCH or HOLD with the counts.
 
-Gates (the simulator expects, under the Duel Lab params file at 12 ticks / 10%: deal rate ~0.93-0.95 with rivals that
-spoke, ~3.0 rounds per deal; night/file_expect.out). Both need >= 8 closed duels with a rival that spoke (two waves),
-because one wave of 4 is too noisy (a single no-deal makes 0.75):
-  * REVERT  MIN_STEP_P -> 3 when the deal rate (rivals that spoke) is below 0.75 (with 8 duels: 5 deals or fewer)
-            (false-alarm chance 3.8% if the true rate is 0.90, 7.4% at 0.87: binomial);
-  * STEP UP MIN_STEP_P +1 (max 6) when rounds per deal > 3.5 over >= 6 deals and the deal rate >= 0.85.
-Everything else (MAX_STEP_SHARE, LATE_SWITCH_LEFT, MONO_END_SHARE, ...) is left as it is in the file.
+The rule: at least 12 closed duels whose rival sent at least one message, and a deal rate among them below 0.60
+(i.e. 7 or fewer deals of 12). Why so strict: with 4-8 duels nothing distinguishes the sets (per-duel points SD 0.31,
+so the standard error of a mean is 0.16 over 4 duels and 0.11 over 8, against set differences of 0.02-0.06); only a
+collapse of the deal rate is visible. In simulation (v2/switch_final.out) this rule fires in ~1% of benign sessions and
+~18-21% of sessions against rivals that never soften; its expected value is about +0.0 to +0.02 points per 68 duels.
+It is insurance against the model being wrong, not an optimiser.
 
-Usage: python3 tools/duel_gates.py --session 4 [--params run/duel_params.json]
+Usage: python3 tools/duel_gates.py --session 4
 """
-import argparse, json, glob, os, statistics as st
+import argparse, json, glob
 from pathlib import Path
 
 R = str(Path(__file__).resolve().parents[1] / 'docs' / 'duels') + '/'
-TODAY_MIN_STEP_P = 3
+MIN_N, THR = 12, 0.60
 
 
 def load(session):
@@ -31,34 +30,23 @@ def load(session):
     return sorted(out, key=lambda D: D['deadline_tick'])
 
 
-def gates(duels, cur_min_step):
+def rule(duels):
     spoke = [D for D in duels if any(m['from'].startswith('Rival') for m in D['messages'])]
-    deals = [D for D in spoke if D['status'] == 'deal']
-    ev = {'closed': len(duels), 'rival_spoke': len(spoke), 'deals': len(deals),
-          'deal_rate': round(len(deals) / len(spoke), 3) if spoke else None,
-          'rounds_per_deal': round(st.mean(D['rounds'] for D in deals), 2) if deals else None,
-          'result_per_duel': round(st.mean((D['result'] or 0) for D in duels), 2) if duels else None}
-    if len(spoke) < 8:
-        return {}, 'fewer than 8 closed duels with a rival that spoke: no gate yet', ev
-    if len(deals) < 0.75 * len(spoke) - 1e-9:          # strictly below 0.75: with 8 duels, 5 deals or fewer
-        if cur_min_step != TODAY_MIN_STEP_P:
-            return {'MIN_STEP_P': TODAY_MIN_STEP_P}, 'REVERT: deal rate %.2f < 0.75: the hold may be costing deals' % ev['deal_rate'], ev
-        return {}, "deal rate low, but MIN_STEP_P is already today's value", ev
-    if len(deals) >= 6 and ev['rounds_per_deal'] > 3.5 and ev['deal_rate'] >= 0.85 and cur_min_step < 6:
-        return {'MIN_STEP_P': cur_min_step + 1}, 'STEP UP: %.1f rounds per deal > 3.5 with deal rate %.2f' % (
-            ev['rounds_per_deal'], ev['deal_rate']), ev
-    return {}, 'no gate fired: keep the file', ev
+    deals = sum(D['status'] == 'deal' for D in spoke)
+    ev = {'closed': len(duels), 'rival_spoke': len(spoke), 'deals': deals,
+          'deal_rate': round(deals / len(spoke), 3) if spoke else None,
+          'rounds_per_deal': round(sum(D['rounds'] for D in spoke if D['status'] == 'deal') / deals, 2) if deals else None}
+    if len(spoke) < MIN_N:
+        return 'HOLD', 'fewer than %d closed duels with a rival that spoke' % MIN_N, ev
+    if deals < THR * len(spoke):
+        return 'SWITCH', 'deal rate %.2f < %.2f over %d duels: apply the pre-approved fallback set (once)' % (
+            deals / len(spoke), THR, len(spoke)), ev
+    return 'HOLD', 'deal rate %.2f >= %.2f: keep the current set' % (deals / len(spoke), THR), ev
 
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     ap.add_argument('--session', type=int, required=True)
-    ap.add_argument('--params', help="the duelist's flat params file (read only)")
     a = ap.parse_args()
-    cur = json.load(open(a.params)) if a.params and os.path.exists(a.params) else {}
-    cur_min = cur.get('MIN_STEP_P', TODAY_MIN_STEP_P)
-    diff, reason, ev = gates(load(a.session), cur_min)
-    print(json.dumps({'current_MIN_STEP_P': cur_min, 'proposed_diff': diff, 'reason': reason, 'evidence': ev}, indent=1))
-    if diff:
-        print('To apply (Aleks): merge this diff into run/duel_params.json with tools/duel_loop.py approve; '
-              'every other key in the file stays as it is.')
+    verdict, reason, ev = rule(load(a.session))
+    print(json.dumps({'verdict': verdict, 'reason': reason, 'evidence': ev, 'rule': {'min_n': MIN_N, 'threshold': THR}}, indent=1))
