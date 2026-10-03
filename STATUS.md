@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 18:47** · tick 1026 (30 s/tick) · game hour 9.88 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 18:52** · tick 1036 (30 s/tick) · game hour 9.96 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -25,17 +25,17 @@ _From `team/<name>.md`; each person writes only their own file._
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 32.00 | 2 | 24.50 | 7.50 | 13.93 | 0.44 | 0.89 | 52 | 5 | 120 | 38/50 |
+| 31.72 | 2 | 24.22 | 7.50 | 13.93 | 0.44 | 0.89 | 52 | 5 | 120 | 38/50 |
 
-Leaderboard (snapshot at tick 1020; refreshes every few minutes):
+Leaderboard (snapshot at tick 1030; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 14 | 32.03 | 22.50 | 9.53 | 43 |
-| 2 | Team 5 | 32.00 | 24.50 | 7.50 | 52 |
+| 1 | Team 14 | 31.78 | 22.25 | 9.53 | 44 |
+| 2 | Team 5 | 31.72 | 24.22 | 7.50 | 52 |
 | 3 | Team 6 | 31.68 | 19.63 | 12.05 | 52 |
-| 4 | Team 3 | 29.64 | 24.17 | 5.46 | 29 |
-| 5 | Team 18 | 28.77 | 21.27 | 7.50 | 34 |
+| 4 | Team 10 | 29.68 | 17.18 | 12.50 | 39 |
+| 5 | Team 3 | 29.64 | 24.17 | 5.46 | 29 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 10.42 | ~33 min | persona_opens | Don Ernesto opens for everyone |
-| 11.00 | ~68 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~77 min | persona_patch | The fever breaks |
-| 11.65 | ~107 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~188 min | bench | The Market Test: every venue gets the same synthetic book |
-| 14.08 | ~252 min (after today's close) | day_closes | Closed until Sunday 09:00 |
-| 14.08 | ~252 min (after today's close) | day_opens | Sunday opens |
-| 14.65 | ~286 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 10.42 | ~28 min | persona_opens | Don Ernesto opens for everyone |
+| 11.00 | ~63 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~72 min | persona_patch | The fever breaks |
+| 11.65 | ~102 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~183 min | bench | The Market Test: every venue gets the same synthetic book |
+| 14.08 | ~247 min (after today's close) | day_closes | Closed until Sunday 09:00 |
+| 14.08 | ~247 min (after today's close) | day_opens | Sunday opens |
+| 14.65 | ~282 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
 
 ## Our dealer deals
 
@@ -58,7 +58,6 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Thread | Dealer | Side | Item | Her first | Our first | Deal | vs her first | Msgs | Status | Closed |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 289 | chato | buy | LAV-09 | 97 | 70 | 93 | -4% | 7 | deal |  |
 | 353 | abuela | buy | RET-04 | 12 | 7 | 9 | -25% | 5 | deal |  |
 | 359 | abuela | buy | RET-03 | 12 | 7 | 9 | -25% | 7 | deal |  |
 | 367 | abuela | buy | RET-02 | 12 | 7 | — | — | 7 | closed |  |
@@ -97,8 +96,8 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
-| common card | team buys | 70 | 9.00 | 7 | 12 | 5 | 9 |
-| common card | team sells | 109 | 6 | 2 | 23 | 5 | 5.40 |
+| common card | team buys | 72 | 9.00 | 7 | 12 | 5 | 9 |
+| common card | team sells | 110 | 6.00 | 2 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 42 | 22.00 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 77 | 23 | 17 | 29 | 5 | 24.20 |
 | uncommon card | team sells | 11 | 15 | 12 | 20 | 0 | — |
