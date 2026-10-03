@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sat 19:36 · operator · El Tablón posted a false 'all of Lavapiés reprinted tonight… sell spares now' (print runs are fixed) → one extra starter-broker ad (Chief), no reprint claim: 'Selling Lavapiés spares tonight? Post them on v10: 0% fee, no per-card charge, crossed every tick.' · our LAV page stays held
 - Sat 19:32 · operator · GUARDRAIL 19:40 v10 rebate noted (5 P per card a non-rival sells on v10 tonight, cap 30; settle at 22:45 by buying one of their cards at the owed amount, floor 85; only on the Market's tally + the Chief's go) · flagged to the Chief: the settlement trade scores ΔV − price − fee for us, so a cheap card at 15 on El Rastro ≈ −15 neg (−0.7 board); keep it ≈ 0 with v15 (fee 0) and a card we lack worth ≥ the owed amount
 - Sat 19:29 · operator · LAV-04 unfilled at t04 (the book had stepped it 9 → 7) → switched to **t01 at 7** (16654, v15, floor 6) · MAL-08 → t01 at 24 (16001) still open
 - Sat 19:26 · operator · Duels II protocol (Chief; ~20:33-22:10, the duelist shares our 5 req/s): job by05m2zep at **20:25** stops the v10 ad job, swaps, book, opps, trader and bargains (bargains does team-key value lookups and has no keyless mode); collector, status, duelmon and news stay · 20:15 watchdog closes any dealer thread · DENY is the only writer during Duels II, and only on the Chief's line · restart when the feed shows `duels.finished` for Duels II, or at 22:15 (ads too if before 22:40) · board tick 1100: #3 31.68 (T10 33.1, T6 32.1)
