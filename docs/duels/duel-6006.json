@@ -1403,5 +1403,72 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1367,
+ "done": {
+  "duel": 6006,
+  "session": 3,
+  "status": "no_deal",
+  "role": "seller",
+  "item": "La Sala Pentagrama",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 4.46,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 73,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Verde",
+  "deadline_tick": 1367,
+  "decay_per_round": 0.08,
+  "rounds": 0,
+  "your_offer": {
+   "id": 10568,
+   "price": 73,
+   "tick": 1362,
+   "days": 10
+  },
+  "rival_offer": null,
+  "messages": [
+   {
+    "tick": 1353,
+    "from": "you",
+    "text": "I'm offering 115 P with delivery on day 10. I'd like to settle this quickly and fairly.",
+    "price": 115,
+    "days": 10
+   },
+   {
+    "tick": 1359,
+    "from": "you",
+    "text": "I can do 105 P, delivery on day 10.",
+    "price": 105,
+    "days": 10
+   },
+   {
+    "tick": 1360,
+    "from": "you",
+    "text": "I can do 94 P, delivery on day 10.",
+    "price": 94,
+    "days": 10
+   },
+   {
+    "tick": 1361,
+    "from": "you",
+    "text": "I can do 84 P, delivery on day 10.",
+    "price": 84,
+    "days": 10
+   },
+   {
+    "tick": 1362,
+    "from": "you",
+    "text": "I can do 73 P, delivery on day 10.",
+    "price": 73,
+    "days": 10
+   }
+  ],
+  "result": 0.0,
+  "price": null,
+  "days": null
+ }
 }
