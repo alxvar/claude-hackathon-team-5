@@ -1,4 +1,7 @@
-"""The duel loop: poll the game, let the agent decide for each live duel whose rival has moved, send the move.
+"""The duel loop: poll the game, let the agent decide for each live duel that needs a move, send the move.
+
+A duel needs a move when the rival has moved, in its last DECIDE_LEFT ticks whatever the rival does, when both
+sides have sat still for HOLD_TICKS ticks, and when the acceptance of its standing offer can't wait (`closer`).
 
 Rules it keeps (RULES.md): one message per duel per tick, one acceptance per team per tick, 5 requests a second
 per key. A poll is two reads (`clock`, `duels`) every `poll_s` seconds; each duel then costs one write per tick
@@ -19,10 +22,14 @@ from bazaar_sdk import Bazaar, BazaarError
 from engine import Model
 
 from .adapter import Snapshot, parse_duel
-from .agent import DuelAgent, Move
-from .model import Observation, Offer, Turn
+from .agent import DuelAgent, Move, quiet_ticks, standing_price, their_offers
+from .model import Observation, Offer, Turn, sign
 from .prices import money
 from .records import Records, duel_key
+
+DECIDE_LEFT = 3     # ticks left at or below which we decide every tick, whether or not the rival has moved
+ACCEPT_BY = 2       # every standing offer inside our limit is accepted by this many ticks left (1, the last, is spare)
+HOLD_TICKS = 3      # both sides still this long, once the rival has offered: decide again (duels 103/104)
 
 
 class Log:
@@ -58,8 +65,9 @@ class Memory:
     seen: list[Turn] = field(default_factory=list)       # their offers as we saw them change (no message list)
     decided_on: Any = None                               # the rival's state our last move answered
     sent_tick: int | None = None
+    decided_tick: int | None = None                      # the tick of our last decision: one per tick
     task: asyncio.Task | None = None
-    pending: tuple[Move, Any] | None = None              # a move refused with wait_for_tick, for the next tick
+    pending: tuple[Move, Any, int | None] | None = None  # a move held back on its tick, for the next one
     force: bool = False                                  # decide again even if the rival hasn't moved
 
 
@@ -172,31 +180,83 @@ class DuelRunner:
     # Deciding and sending
 
     def due(self, mem: Memory) -> bool:
+        """Decide now? At most once per tick (a decision whose send was refused waits for the next one)."""
         if mem.task is not None or mem.sent_tick == self.tick or not mem.snap.live:
             return False
-        if mem.pending is not None or mem.force:
+        if mem.pending is not None:
+            return mem.pending[2] != self.tick
+        if mem.force:
             return True
-        return not mem.sent or signature(mem.snap) != mem.decided_on
+        if mem.decided_tick == self.tick or self.accepted(mem):
+            return False
+        if not mem.sent or signature(mem.snap) != mem.decided_on:
+            return True                           # the rival has moved
+        left = mem.snap.ticks_left
+        return ((left is not None and left <= DECIDE_LEFT)        # the clock alone is a reason (duel 181)
+                or self.closer() is mem
+                or self.standoff(mem) >= HOLD_TICKS)               # both sides still (duels 103/104)
+
+    def accepted(self, mem: Memory) -> bool:
+        """Our acceptance of their standing offer is out and they haven't changed it: it settles at the next tick."""
+        return bool(mem.sent) and mem.sent[-1].accept and signature(mem.snap) == mem.decided_on
+
+    def standoff(self, mem: Memory) -> int:
+        """Ticks since either side last sent anything, once the rival has made an offer (a silent rival is not a
+        standoff); read from the duel's messages, so a restart doesn't reset it."""
+        if mem.snap.view is None:
+            return 0
+        obs = self.observe(mem)
+        return quiet_ticks(obs) if their_offers(obs) else 0
+
+    def closer(self) -> Memory | None:
+        """The duel whose standing offer code accepts this tick, or None while every one can still wait.
+
+        The team accepts one offer per tick and the duels of a wave end together, so an offer inside our limit
+        can't wait for the last tick: the one in the i-th place (earliest deadline first, then the bigger
+        surplus) gets the i-th tick from now, and once that would land later than ACCEPT_BY ticks left, the
+        first in line accepts now. Price-only duels: with days, the limit alone can't say what an offer is
+        worth."""
+        if any(m.pending is not None and m.pending[0].action == "accept" for m in self.duels.values()):
+            return None                           # an acceptance held from an earlier tick goes first
+        line = []
+        for mem in self.duels.values():
+            v, left = mem.agent.view, mem.snap.ticks_left
+            if not mem.snap.live or v.has_days or left is None or mem.snap.view is None or self.accepted(mem):
+                continue
+            their = standing_price(self.observe(mem))
+            surplus = None if their is None else sign(v.role) * (their - v.limit)
+            if surplus is not None and surplus > 0:
+                line.append((left, -surplus, mem))
+        line.sort(key=lambda x: x[:2])
+        if not any(left - i <= ACCEPT_BY for i, (left, _, _) in enumerate(line)):
+            return None
+        return next((mem for _, _, mem in line if mem.sent_tick != self.tick), None)
 
     async def decide(self, mem: Memory) -> None:
         sig = signature(mem.snap)
         if mem.pending is not None:
-            move, pending_sig = mem.pending
+            move, pending_sig, _ = mem.pending
             mem.pending = None
-            if pending_sig == sig:                # nothing changed: send what we decided last tick
-                await self.send(mem, move, sig)
+            if pending_sig == sig and (move.action == "accept" or self.closer() is not mem):
+                await self.send(mem, move, sig)   # nothing changed: send what we decided last tick
                 return
         mem.force = False
+        mem.decided_tick = self.tick
         obs = self.observe(mem)
         start = time.perf_counter()
         timeout = max(8.0, self.tick_seconds - 5.0)
-        try:
-            move = await asyncio.wait_for(mem.agent.respond(obs), timeout)
-        except TimeoutError:
-            move = mem.agent.final(mem.agent.safe_move(obs, f"timeout after {timeout:.0f} s"), obs)
-        except Exception as e:                    # never let one duel's bug stop the loop
-            self.log.write("error", where="respond", duel=mem.snap.id, error=repr(e))
-            move = mem.agent.final(mem.agent.safe_move(obs, f"error: {e!r}"), obs)
+        if self.closer() is mem:
+            move = mem.agent.final(mem.agent.close(obs), obs)
+        else:
+            try:
+                move = await asyncio.wait_for(mem.agent.respond(obs), timeout)
+            except TimeoutError:
+                move = mem.agent.final(mem.agent.safe_move(obs, f"timeout after {timeout:.0f} s"), obs)
+            except Exception as e:                # never let one duel's bug stop the loop
+                self.log.write("error", where="respond", duel=mem.snap.id, error=repr(e))
+                move = mem.agent.final(mem.agent.safe_move(obs, f"error: {e!r}"), obs)
+            if move.action != "accept" and self.closer() is mem:   # the clock caught up while the models thought
+                move = mem.agent.final(mem.agent.close(obs), obs)
         took = time.perf_counter() - start
         cost = sum(c["cost_usd"] for c in move.meta.get("calls", []))
         self.spent_usd += cost
@@ -219,11 +279,15 @@ class DuelRunner:
                 "message")
         note = (f" band {band.get('worst')}..{band.get('best')}" if band else "") + \
                (f" FALLBACK({move.meta['fallback']})" if move.meta.get("fallback") else "") + \
-               (" repaired" if move.meta.get("repaired") else "") + (f" {took:.1f}s" if took else "")
-        if move.action == "accept" and self.accepted_tick == self.tick:
-            mem.pending = (move, sig)             # one acceptance per team per tick: try next tick
+               (" repaired" if move.meta.get("repaired") else "") + \
+               (f" [{move.meta['rule']}]" if move.meta.get("rule") else "") + (f" {took:.1f}s" if took else "")
+        accepting = move.action == "accept"
+        if accepting and self.accepted_tick == self.tick:
+            mem.pending = (move, sig, self.tick)  # one acceptance per team per tick: try next tick
             say(f"duel {did}: {what} waits for the next tick (another acceptance this tick)")
             return
+        if accepting:
+            self.accepted_tick = self.tick        # taken before the call, so two duels can't both send one
         say(f"{'DRY ' if self.dry_run else ''}[tick {self.tick}] duel {did} ({v.role.value}, limit {v.limit}): "
             f"{what}{note} :: {move.text[:140]}")
         result: Any = "dry-run"
@@ -239,8 +303,10 @@ class DuelRunner:
                 self.record(did, errors=[{"tick": self.tick, "code": e.code, "message": e.message,
                                           "move": move.__dict__}])
                 if e.code == "wait_for_tick":
-                    mem.pending = (move, sig)
+                    mem.pending = (move, sig, self.tick)
                     return
+                if accepting and e.code != "network":       # refused, so not spent (a network error may have landed)
+                    self.accepted_tick = None
                 if e.code == "missing_days" and "days" not in v.issues:
                     v.issues.append("days")
                     mem.agent = DuelAgent(v, self.strategist, self.negotiator)
@@ -249,8 +315,6 @@ class DuelRunner:
                 return
         self.log.write("sent", duel=did, tick=self.tick, move=move.__dict__, result=result)
         self.record(did, sent=[{"tick": self.tick, "dry_run": self.dry_run, "move": move.__dict__, "result": result}])
-        if move.action == "accept":
-            self.accepted_tick = self.tick
         mem.sent.append(Turn(mine=True, text=move.text, accept=move.action == "accept", tick=self.tick,
                              offer=Offer(price=move.price, days=move.days) if move.action == "offer" else None,
                              decision=move.meta.get("decision")))
@@ -318,7 +382,7 @@ class DuelRunner:
                 say(f"poll failed: {e!r}")
                 await asyncio.sleep(self.poll_s * 2)
                 continue
-            keys = set()
+            keys, polled = set(), []
             for raw in live:
                 try:
                     mem = self.update(raw)
@@ -331,6 +395,8 @@ class DuelRunner:
                 if mem is None:
                     continue
                 keys.add(mem.snap.id)
+                polled.append(mem)
+            for mem in polled:                    # after every duel is read: `closer` weighs them all
                 if self.due(mem):
                     mem.task = asyncio.create_task(self._decide(mem))
             if gone := [k for k in self.duels if k not in keys and self.duels[k].task is None]:

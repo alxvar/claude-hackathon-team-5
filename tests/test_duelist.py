@@ -6,9 +6,10 @@ from pathlib import Path
 from agents.duelist.adapter import parse_duel
 from agents.duelist.agent import BandPlan, Decision, DuelAgent, ledger, make_band
 from agents.duelist.model import DuelView, Observation, Offer, Role, Turn
-from agents.duelist.runner import DuelRunner, Log
+from agents.duelist.runner import DuelRunner, Log, signature
 from engine import LLMError, Reply
 
+DUELS = Path(__file__).resolve().parents[1] / "docs" / "duels"
 SELLER = DuelView(duel_id=1, role=Role.SELLER, limit=40, item="a card", decay=0.06, duel_ticks=12)
 BUYER = DuelView(duel_id=2, role=Role.BUYER, limit=60, item="a card", decay=0.06, duel_ticks=12)
 
@@ -155,7 +156,7 @@ def test_adapter_reads_a_plausible_payload():
                         {"from": "Lynx", "text": "30", "offer": {"price": 30}, "tick": 102}]}
     s = parse_duel(raw, team={"t05", "Team 5"}, tick=105, defaults={"decay": 0.06, "duel_ticks": 12})
     assert s.live and s.view.role is Role.SELLER and s.view.limit == 40 and s.view.item == "a mug"
-    assert s.rival_offer == Offer(price=30) and s.ticks_left == 8
+    assert s.rival_offer == Offer(price=30) and s.ticks_left == 7
     assert [(t.mine, t.offer.price) for t in s.messages] == [(True, 70), (False, 30)]
     assert s.view.extra == {"mystery": 1} and s.view.decay == 0.06 and not s.problems
 
@@ -163,6 +164,19 @@ def test_adapter_reads_a_plausible_payload():
 def test_adapter_reports_what_it_cannot_read():
     s = parse_duel({"id": 3, "status": "live"}, team=set(), tick=1, defaults={})
     assert s.view is None and s.problems
+
+
+def recorded(duel: int, tick: int) -> dict:
+    """The game's payload of one of Friday's practice duels, as we last saw it on or before `tick`."""
+    d = json.loads((DUELS / f"duel-{duel}.json").read_text())
+    return next(p["raw"] for p in reversed(d["payloads"]) if p["tick"] <= tick)
+
+
+def test_ticks_left_counts_the_ticks_we_can_still_move_on():
+    # Duel 114 opened on tick 144 in a 12-tick session; its deadline_tick is 156, the tick it closed on.
+    raw = recorded(114, 144)
+    left = lambda tick: parse_duel(raw, team=set(), tick=tick, defaults={}).ticks_left  # noqa: E731
+    assert (left(144), left(155)) == (12, 1)
 
 
 class FakeBazaar:
@@ -221,3 +235,107 @@ def test_records_keep_the_whole_duel_and_review_reads_it(tmp_path: Path):
     assert "| 9 |" in review(rec)
     assert rec.add_feed([{"id": 1, "type": "duel.deal"}, {"id": 2, "type": "offer.listed"}]) == 1
     assert rec.add_feed([{"id": 1, "type": "duel.deal"}]) == 0
+
+
+def runner(b, model, tmp_path: Path) -> DuelRunner:
+    return DuelRunner(b, model, model, dry_run=False, log=Log(tmp_path), decay=None, duel_ticks=None, poll_s=1)
+
+
+def answered(r: DuelRunner, raw: dict, tick: int):
+    """The runner as it was live on `tick`: the duel read, and our messages in the payload sent by us."""
+    r.tick = tick
+    mem = r.update(raw)
+    ours = [m for m in raw["messages"] if m["from"] == "you"]
+    mem.sent = [Turn(mine=True, text=m["text"], offer=Offer(price=m["price"]), tick=m["tick"]) for m in ours]
+    mem.sent_tick = mem.decided_tick = ours[-1]["tick"]
+    mem.decided_on = signature(mem.snap)
+    return mem
+
+
+def test_duel_181_accepts_their_offer_inside_our_limit_before_the_deadline(tmp_path: Path):
+    # Fri: buyer, value 85. Their 73 stood from tick 141, we sat at 67, nobody moved again, and the duel closed
+    # on tick 144 with no deal: 12 x 0.94^2 = 10.6 points lost.
+    b = FakeBazaar()
+    fake = FakeModel(plan(67, 66, 68))                 # no decisions: a negotiator call would fail
+    r = runner(b, fake, tmp_path)
+    raw = recorded(181, 141)
+    mem = answered(r, raw, 141)
+    assert mem.snap.ticks_left == 3 and not r.due(mem)  # we answered on 141
+    r.tick = 142
+    mem = r.update(raw)                                 # they haven't moved
+    assert r.due(mem)
+    asyncio.run(r.decide(mem))
+    assert b.accepted == [181] and fake.seen == []      # code accepted 73 on 142, no model asked
+    assert not r.due(mem)
+
+
+def test_an_acceptance_held_by_another_waits_for_the_next_tick(tmp_path: Path):
+    b = FakeBazaar()
+    r = runner(b, FakeModel(plan(67, 66, 68)), tmp_path)
+    raw = recorded(181, 141)
+    answered(r, raw, 141)
+    r.tick = 142
+    mem = r.update(raw)
+    r.accepted_tick = 142                               # another duel took the team's acceptance on 142
+    asyncio.run(r.decide(mem))
+    assert b.accepted == [] and mem.pending and not r.due(mem)   # held, and not retried on the same tick
+    r.tick = 143
+    mem = r.update(raw)
+    assert r.due(mem)
+    asyncio.run(r.decide(mem))
+    assert b.accepted == [181]                          # 143: the last tick it can still land on
+
+
+def test_near_the_deadline_we_decide_every_tick_even_with_a_silent_rival(tmp_path: Path):
+    # Duel 31: our opener on tick 120, the rival never spoke, deadline 132. Silence is no standoff, but the
+    # clock is.
+    r = runner(FakeBazaar(), FakeModel(plan(150, 155, 145)), tmp_path)
+    raw = recorded(31, 120)
+    answered(r, raw, 120)
+    for tick, due in ((125, False), (128, False), (129, True)):
+        r.tick = tick
+        assert r.due(r.update(raw)) is due, tick
+
+
+def test_a_standoff_is_broken_after_three_still_ticks(tmp_path: Path):
+    # Fri: duels 103/104 sat still from tick 146 to their deadline on 156, each side waiting for the other.
+    r = runner(FakeBazaar(), FakeModel(plan(90, 92, 89)), tmp_path)
+    raw = recorded(103, 146)
+    answered(r, raw, 146)
+    r.tick = 148
+    assert not r.due(r.update(raw))
+    r.tick = 149
+    mem = r.update(raw)
+    assert r.due(mem) and mem.snap.ticks_left == 7
+    assert "Neither side has sent anything for 3 ticks." in ledger(r.observe(mem))
+
+
+def test_offers_inside_our_limit_ending_together_are_accepted_one_per_tick_biggest_first(tmp_path: Path):
+    # Duels I runs 3 at a time and a wave ends together; the team accepts one offer per tick.
+    b = FakeBazaar()
+    r = runner(b, FakeModel(plan(60, 58, 62)), tmp_path)
+    raws = {did: {"duel": did, "status": "live", "role": "buyer", "your_limit": 100, "deadline_tick": 116,
+                  "rival_offer": {"price": price},
+                  "messages": [{"tick": 100, "from": "you", "text": "60 P.", "price": 60},
+                               {"tick": 101, "from": "Rival", "text": "No.", "price": price}]}
+            for did, price in ((1, 90), (2, 70), (3, 80))}
+    for raw in raws.values():
+        answered(r, raw, 111)
+    assert r.closer() is None                           # 5 ticks left: all three can still wait
+    order = []
+    for tick in (112, 113, 114, 115):
+        r.tick = tick
+        for did, raw in raws.items():
+            r.update({**raw, "status": "deal"} if did in b.accepted else raw)
+        if (mem := r.closer()) is not None:
+            asyncio.run(r.decide(mem))
+            order.append((tick, b.accepted[-1]))
+    assert order == [(112, 2), (113, 3), (114, 1)]      # surplus 30, 20, 10: all by 2 ticks left
+
+
+def test_code_never_accepts_a_days_duel_on_price_alone(tmp_path: Path):
+    r = runner(FakeBazaar(), FakeModel(plan(60, 58, 62)), tmp_path)
+    answered(r, {"duel": 7, "status": "live", "role": "buyer", "your_limit": 100, "deadline_tick": 116,
+                 "issues": ["price", "days"], "your_days_weight": 1, "rival_offer": {"price": 70, "days": 3},
+                 "messages": [{"tick": 100, "from": "you", "text": "60 P.", "price": 60, "days": 5}]}, 114)
+    assert r.closer() is None

@@ -3,8 +3,9 @@ the move to the band and the hard limits (regateo agents/ranged/v4, config clock
 and `clock` on, the negotiator never told our limit).
 
 Code states facts only: offers so far, how far each side has moved, ticks left, the decay, the gap. Prices and
-when to accept stay with the models. The one exception is the fallback when both models fail (`safe_move`): it
-concedes on a schedule and accepts once their offer meets it, so a duel still closes.
+when to accept stay with the models, with two exceptions. The fallback when both models fail (`safe_move`)
+concedes on a schedule and accepts once their offer meets it, so a duel still closes. And near the deadline,
+code accepts a standing offer inside our limit when the runner says the acceptance can't wait (`close`).
 """
 from __future__ import annotations
 
@@ -121,6 +122,12 @@ def last_tick(obs: Observation) -> bool:
     return obs.ticks_left is not None and obs.ticks_left <= 1
 
 
+def quiet_ticks(obs: Observation) -> int:
+    """Ticks since either side last sent anything; 0 when no message has a tick."""
+    ticks = [t.tick for t in obs.turns if t.tick is not None]
+    return max(obs.tick - max(ticks), 0) if ticks and obs.tick is not None else 0
+
+
 def ledger(obs: Observation) -> str:
     """Facts for the strategist, computed from the duel. No advice."""
     v = obs.view
@@ -137,6 +144,8 @@ def ledger(obs: Observation) -> str:
         lines.append(f"- They have moved {f(abs(moved))} from their first offer"
                      + ("" if moved > 0 else " (not toward you)" if moved < 0 else "") + ".")
     lines.append(f"- Messages sent so far: {len(obs.ours)} by your side, {len(obs.theirs)} by theirs.")
+    if theirs and (quiet := quiet_ticks(obs)) >= 2:
+        lines.append(f"- Neither side has sent anything for {quiet} ticks.")
     if obs.ticks_left is None:
         lines.append("- The number of ticks left is unknown: the duel can end, with no deal, after any tick.")
     elif last_tick(obs):
@@ -396,6 +405,13 @@ class DuelAgent:
         text = f"I can do {money(price, self.view.currency)}" + (f", delivery on day {days}." if
                                                                   days is not None else ".")
         return Move("offer", text, price=price, days=days, meta=meta)
+
+    def close(self, obs: Observation) -> Move:
+        """Code's acceptance of their standing offer, no model asked: the runner calls it when the offer is inside
+        our limit and the acceptance can't wait for the deadline (duel 181: their 73 sat inside our 85 for the
+        last three ticks and the duel ended with no deal). `final` still checks the limit."""
+        self.calls = []
+        return Move("accept", "Agreed.", price=standing_price(obs), meta={"rule": "deadline"})
 
     def repair(self, d: Decision, obs: Observation, band: Band, days: int | None, /, **meta: Any) -> Move:
         """A decision that failed its checks twice: an offer clamped into the band with a plain message."""

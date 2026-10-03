@@ -14,7 +14,7 @@ The duel agent is `agents/duelist/`, running on the model engine in `engine/`: r
 The schedule says the practice duels last 12 ticks, lose 6% per tick, run 6 at a time, are price only, and don't score.
 
 1. A few minutes before, run `uv run python -m agents.duelist probe`. It shows the clock, the duel sessions, and any live duels as raw JSON, and saves them to `logs/duelist/`.
-2. When duels appear, start `uv run python -m agents.duelist run` and leave it running. It polls every 2 s, makes one decision per duel whenever the rival has moved, and sends at most one message per duel per tick. Every move is printed on one line: tick, duel, role, limit, the move, the band, and how long the decision took.
+2. When duels appear, start `uv run python -m agents.duelist run` and leave it running. It polls every 2 s and decides for a duel (at most once per tick) when the rival has moved, on each of the last 3 ticks whatever the rival does, and when both sides have sat still for 3 ticks after the rival's first offer. It sends at most one message per duel per tick. Every move is printed on one line: tick, duel, role, limit, the move, the band, and how long the decision took.
 3. If the console says `can't read it` for a duel, the payload uses field names the adapter doesn't know. Open `logs/duelist/duels-*.jsonl`, find the `"event": "duel"` lines, and add the names to `agents/duelist/adapter.py` (`first(raw, ...)` lists). Ctrl-C and restart. Duels resume from the game's state.
 4. Use `run --dry-run` to watch decisions without sending anything.
 
@@ -61,6 +61,8 @@ Questions to answer from it, before the scored Duels I on Saturday (hour 6.5, 16
 - We never write an amount past our limit in a message.
 - An acceptance is dropped if the rival's offer changed while we were deciding.
 - One acceptance per team per tick: a second one waits for the next tick.
+- Near the deadline, code accepts a standing offer inside our limit without asking the models (`runner.closer`): one per tick, earliest deadline first, then the bigger surplus, so every such offer is accepted by 2 ticks left (duel 181 lost 10.6 points by not accepting). Price-only duels; a duel with days is left to the models.
+- Ticks left count the ticks we can still move on: the duel closes on its `deadline_tick`, so the last move is on the tick before.
 ## Fallbacks, layer by layer
 
 1. **A model fails or is slow:** each role has a backup model (`engine/failover.py`): Opus → Sonnet, Sonnet → Haiku, Haiku → Sonnet. The primary gets 20 s; after 2 failures in a row it is skipped for 2 minutes. `--no-failover` turns this off.

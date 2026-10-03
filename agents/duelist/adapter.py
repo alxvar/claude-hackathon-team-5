@@ -88,7 +88,9 @@ class Snapshot:
 
 
 def ticks_left(raw: dict[str, Any], tick: int | None, duel_ticks: int | None) -> tuple[int | None, Any]:
-    """Ticks left including the current one, from `ticks_left` or from a deadline tick."""
+    """Ticks we can still move on, the current one included (1: the last), from `ticks_left` or from a deadline
+    tick. The duel closes ON its deadline tick (every practice no-deal closed exactly then; a 12-tick duel opened
+    at 120 had deadline 132), so the last tick to move on is the one before it."""
     left = as_number(first(raw, "ticks_left", "remaining_ticks"))
     deadline = first(raw, "deadline", "deadline_tick", "ends_at_tick", "end_tick", "expires_tick")
     if left is not None:
@@ -97,7 +99,7 @@ def ticks_left(raw: dict[str, Any], tick: int | None, duel_ticks: int | None) ->
     if d is None or tick is None:
         return None, deadline
     if d >= tick:
-        return int(d - tick) + 1, deadline            # a tick number
+        return int(d - tick), deadline                # a tick number
     if duel_ticks and d <= duel_ticks:
         return int(d), deadline                       # already a count
     return None, deadline
