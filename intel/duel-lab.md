@@ -3,7 +3,8 @@
 _Lucas's Duel Lab session. It never writes to the game or to `agents/duelist/`. Inputs: our 68 records in `docs/duels/`
 (Duels I = session 2, the practice round = session 1), `docs/duels/scores.jsonl`, `docs/duels-1-review.md`,
 `intel/score-model.md` §1d-1e, the organisers' Duels deck, and the merged duelist (4699673). Code and raw outputs are in
-the session scratchpad (`lab/sim.py`, `final.out`, `replay.py`, `days_sim.py`, `days.md`); the numbers below are copied
+the session scratchpad (`lab/`: `sim.py`, `validate.out`, `final.out`, `search3.out`, `replay.out`, `fit.out`,
+`days_sim.py`, `days.md`, `r1m_out.txt`); the numbers below are copied
 from them. Labels: [V] measured on our records or code, [L] modelled or inferred, [?] unknown._
 
 ## Bottom line
@@ -56,13 +57,13 @@ from them. Labels: [V] measured on our records or code, [L] modelled or inferred
 
 | | Duels I actual | W1 base | W2 fast/slow mix | W3 tough accept | W4 lumpy steps |
 |---|---|---|---|---|---|
-| Deal rate | 0.88 | 0.90 | 0.91 | 0.90 | 0.91 |
-| Rounds per deal | 4.4 | 4.29 | 4.23 | 4.47 | 4.10 |
-| Deals in ≤ 1 round / ≥ 7 rounds | 0.30 / 0.27 | 0.29 / 0.24 | 0.25 / 0.24 | 0.21 / 0.26 | 0.22 / 0.18 |
-| Points per duel (share × decay) | 0.41 | 0.395 | 0.376 | 0.321 | 0.314 |
-| Deals closed on our accept | ≈ 0.40 | 0.14 | 0.22 | 0.31 | 0.20 |
-| Out-of-sample: "accept first in-limit" ÷ actual | 0.65 | 0.87 | 0.78 | 0.75 | 0.80 |
-| Deals closing ≥ 75% of our opener's distance | 0.17 | 0.18 | — | — | — |
+| Deal rate | 0.88 | 0.90 | 0.90 | 0.90 | 0.90 |
+| Rounds per deal | 4.4 | 4.28 | 4.20 | 4.45 | 4.08 |
+| Deals in ≤ 1 round / ≥ 7 rounds | 0.30 / 0.27 | 0.29 / 0.24 | 0.25 / 0.23 | 0.21 / 0.25 | 0.22 / 0.18 |
+| Points per duel (share × decay) | 0.41 | 0.394 | 0.374 | 0.319 | 0.310 |
+| Deals closed on our accept | ≈ 0.4 | 0.13 | 0.22 | 0.31 | 0.19 |
+| Out-of-sample: "accept first in-limit" ÷ actual | 0.65 | 0.87 | 0.79 | 0.75 | 0.79 |
+| Deals closing ≥ 75% of our opener's distance | 0.17 | 0.17 | 0.11 | 0.05 | 0.04 |
 
 - **Where it fits:** deal rate, rounds and points per duel are fitted, not predictions.
 - **Known bias:** the model's rivals make too few thin early in-limit offers. So it **undervalues haggling**: every world
