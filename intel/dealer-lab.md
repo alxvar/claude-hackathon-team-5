@@ -163,6 +163,20 @@ The Operator reports the case to the Chief at 08:55. The order below starts at "
 **Cash** (392 + 150 = 542): after CHA A 300 / B 254 / C 158. The MAL gate is ≥ 150 P left, so the full MAL runs in A and B; in C
 only a partial (one Pícaros rare at ≤ 49). SAL-11 20252 is cancelled at the first tick (directive 00:50), so it no longer competes.
 
+### Phase 3, after CHA/MAL: ladder fodder (directive 02:30; team → dealer only)
+
+- **Buy** LAT uncommons we hold 0 copies of (LAT-06/07/08), at price + fee ≤ 12.5: ≤ 12 as maker (bid on v15) or ≤ 10 as an
+  El Rastro taker (fee 1-2). Never a page card. As a team buy at ≤ our value (12.5) it scores ≥ 0.
+- **Sell** each one above the dealer's opening: **Pilar first, bid > 16** (target 19-21: open ~30, −2 steps, never her first
+  price), then **Chato > 13** (target 15-16: he holds 13 for 5-7 rounds, then 14, 15, 16 final; −1/−2 steady). Dealer gain
+  clips to 0, the ladder slot is the point, and cash nets ≈ +7.
+- **≤ 3 deals per dealer level** (best 3 count). Upgrade a weak high-level slot before a 4th low one (directive 00:25).
+- **Silver pack 1013:** open it after the CHA rares are in, and only while **≥ 2 CHA cards are still missing or the page is
+  done**. A pack pull of the *last* missing CHA card would close the page as luck, with no bonus. Its pulls feed the fodder.
+- **Workshop:** 3 spare LAV commons → 1 uncommon. LAV-02 ×2 spares + LAV-03 or LAV-04: pull that ask from the book first, and
+  `policy.py can-give` must say YES for each. The same luck caveat applies: run it after the CHA page is done, or while ≥ 2
+  CHA uncommons are missing. The uncommon goes to Pilar/Chato as fodder.
+
 ## 4. 08:45 readiness checklist (Operator)
 
 1. `python3 tools/operator_lock.py heartbeat`; `git pull` on a clean tree (no stash); HEAD has the Builder's overnight fixes
