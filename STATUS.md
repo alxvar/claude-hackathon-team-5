@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 22:41** · tick 1407 (30 s/tick) · game hour 13.05 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 22:46** · tick 1417 (30 s/tick) · game hour 13.13 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -25,17 +25,17 @@ _From `team/<name>.md`; each person writes only their own file._
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 30.38 | 4 | 22.88 | 7.50 | 35.39 | 0.48 | 0.89 | 53 | 5 | 392 | 39/50 |
+| 30.49 | 4 | 22.99 | 7.50 | 35.39 | 0.48 | 0.85 | 53 | 5 | 392 | 39/50 |
 
-Leaderboard (snapshot at tick 1400; refreshes every few minutes):
+Leaderboard (snapshot at tick 1410; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 10 | 37.74 | 25.24 | 12.50 | 61 |
+| 1 | Team 10 | 37.74 | 25.24 | 12.50 | 62 |
 | 2 | Team 18 | 30.98 | 23.48 | 7.50 | 39 |
-| 3 | Team 6 | 30.98 | 19.16 | 11.82 | 68 |
-| 4 | Team 5 | 30.38 | 22.88 | 7.50 | 53 |
-| 5 | Team 12 | 30.07 | 22.57 | 7.50 | 69 |
+| 3 | Team 6 | 30.98 | 19.16 | 11.82 | 69 |
+| 4 | Team 5 | 30.49 | 22.99 | 7.50 | 53 |
+| 5 | Team 12 | 30.08 | 22.58 | 7.50 | 69 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 13.36 | ~19 min | day_closes | Closed until Sunday 09:00 |
-| 13.36 | ~19 min | day_opens | Sunday opens |
-| 14.65 | ~96 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
-| 15.00 | ~117 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
-| 16.65 | ~216 min (after today's close) | set_release | Chamberí released |
-| 16.65 | ~216 min (after today's close) | round | Round 3 starts |
-| 16.70 | ~219 min (after today's close) | grant_all | The Sunday allowance: 150 primas for everyone |
-| 17.00 | ~237 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 13.36 | ~14 min | day_closes | Closed until Sunday 09:00 |
+| 13.36 | ~14 min | day_opens | Sunday opens |
+| 14.65 | ~91 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 15.00 | ~112 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 16.65 | ~211 min (after today's close) | set_release | Chamberí released |
+| 16.65 | ~211 min (after today's close) | round | Round 3 starts |
+| 16.70 | ~214 min (after today's close) | grant_all | The Sunday allowance: 150 primas for everyone |
+| 17.00 | ~232 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
 
 ## Our dealer deals
 
