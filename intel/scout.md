@@ -1,16 +1,28 @@
-# Scout (claude-sonnet-5-5, Sat 09:46)
+# Scout (claude-sonnet-5-5, Sat 09:51)
 
 ## Top 3 actions now
-1. **Buy RET rares from teams, not Chato.** Place short-lived (≤20 ticks) bids addressed `to` Team 15 (RET collector, bid 59 per GAME.md) and Team 2 (collects RET, bids 10-12 for RET-09/10, so it probably holds none to sell). Start at ≤70, ceiling 74 (our value is 77). Executor: operator via `trade.py` bid. Evidence: Chato's rare list is 77 with 82-93 finals, which is −5 to −13 each against our 77. Team 13 and Team 12 both collect RET and are top 4, so we cannot feed them. Effect: each rare bought at ≤74 is ≥ 0 neg_points; from Chato it costs 5-13. Confidence: low-med, since the metrics show no RET rare listed by any team.
-2. **Finish cheap RET commons and uncommons through Abuela, then use that to reach level 3.** Bid 9 for RET-03 is open (offer 3256, expires tick 195; the ladder bot's last Abuela quote was 10, ours 9). RET-04 closed at 9 (worth 11). Keep patience to the `final`, never repeat the same price (directive 09:46), and keep at most 2 dealer threads. Evidence: Abuela deals are the only ones that moved our ladder (0 → 0.014). Effect: about 0 neg_points per deal, small ladder gain, progress to the 3 negotiated deals for the level-3 early start. Confidence: med-high.
-3. **Re-price or retarget the maker book so it fills before tick 237.** Our 14 offers sit at 8-10 for commons and 26-33 for uncommons. Only two buyers show real demand: Team 16 for the SAL-03/05 and Team 7 for the MAL-02/04 packages (both addressed at price 0, which is wrong). Fix: reprice 3245/3246 to ~9 each card (clearing price for common is 9). Cancel SAL-08 → t02 at 33 (uncommon clears at 24.5) or drop it to 26. Do not touch t14: it is a LAV/LAT buyer and rank #3 on the board, so it is a leader. Evidence: previous sales scored +7.7 (LAV-04 at 9) and +6.0 (SAL-06 at 26). Effect: each spare that fills is about +2 to +8 neg_points. Confidence: med.
+1. **Sell SAL-08 to a buyer other than t02, and re-check the other addressed asks (Operator, trader.py).**
+   - Offer 3053 (SAL-08 → t02 at 33) is aimed at a team that collects RET/LAT and has 3 team trades. Its stated prices are "c 6 u 55 r 12", so it is not a SAL buyer.
+   - The profile table lists Team 16 (#17, 10.5 below us) as the SAL buyer. Our SAL-08 is worth 22.5 to us, so a sale at 33 gains about +10.5 (+12 if t16 accepts as taker, who pays the fee).
+   - Re-address offer 3053 to t16 at 33, or hold it for a SAL page-completer. Do this only after checking that t16 is not one card from a SAL page.
+   - Effect: roughly +10 `neg_points`, about 1.6 board points at 0.16 each. Confidence: low-med.
+2. **Fix the two 0 P offers, 3245 (SAL-03+SAL-05 → t16) and 3246 (MAL-02+MAL-04 → t07) (Operator).**
+   - Both ask 0 P for cards we value at 9+9 (SAL) and 7+7 (MAL), so a fill loses about 18 and 14.
+   - Cancel them, or re-post at ≥ our value plus 1: SAL at 10 each, MAL at 8 each.
+   - Evidence: the clearing prices are common 9 (MAL 26 uncommon), t16 is at #17 and t07 at #16. A 0 P price looks like a typo or a bundle-parsing bug.
+   - Effect: avoids −14 to −18 `neg_points`. Confidence: high that it is a loss risk, med that it is a bug.
+3. **Bid for RET commons from teams at ≤ 9 (Operator, `trade.py`).**
+   - Cards: RET-01, RET-02, RET-06 and RET-07, which we do not hold. RET-03, RET-04 and RET-05 we have.
+   - Evidence: Abuela's last RET-02 deal closed at 10 against our 9, and RET-08 sat at 29 against our 14. Team 2 bids only 3-7 for RET commons, so the market sits at 2-7 and sellers are cheap.
+   - Make each bid short-lived (≤ 20 ticks) and address it to the holder. Open the bid at 6. The RET common is worth 11 to us, so a fill at 6-9 gains 2-5 each.
+   - Effect: a cheaper RET page than the Abuela route, plus a position for the last-card cap test. Confidence: med.
 
 ## What the climbing teams are doing
-- **Team 2 (+6.3 in 15 min, the only mover up):** sold SAL-10 at 72 to t01 (tick 163), LAV-07 at 55 to t14 (tick 161) and SAL-02 at 9 to t01. It sells rares and uncommons to others while bidding low (10-12) for RET rares. Its 12 dealer trades are the most among the climbers.
-- **Team 13 (#1, 30 deals):** buys MAL×5 and SAL×2 from teams (tick 166: MAL-07 from t17 at 25) and lists 47 offers. It is also lobbying to move trades onto its venue v03.
-- **Team 14 (#3, steady -0.5 while the field falls about -4.5):** it holds its position by buying LAT×3 and LAV, e.g. LAT-08 from t01 at 25 (tick 182). It is the team to watch for LAV competition.
+- **Team 2 (+6.3 in 15 min, the only climber).** It sold SAL-10 (rare) to t01 for 72 at tick 163 and LAV-07 to t14 for 55 at tick 161. It buys RET and LAT commons cheap (RET-04 at 7, RET-02 at 6). It sells high-value rares and uncommons, then re-bids low.
+- **Teams 13 and 12 (leaders, both falling about 4-5).** Team 13 shows 30 deals and 5 MAL buys. Both are still on top on volume, so we cannot beat them by volume alone.
+- **Rare trades at 70-80 are where the points are.** Examples: t16 bids 78 for SAL-10, and t02→t01 SAL-10 at 72. Smaller commons at 3-9 move the score by almost nothing.
 
 ## Threats
-- **Our neg_points reset to 0 while the field also reset.** We are #6 (15.4), only 0.2 behind Team 10 (15.2) and 1.7 behind Team 4 (17.1). Any +6 trade moves us.
-- **Cash:** 393 P against the 370 floor. The venue bond (270) and the RET page (~280) cannot both be funded until the floor drops to 100.
-- **Public feed leak:** our addressed RET bids are visible. Team 15 (RET collector, 59 bid) can see them and outbid us, so keep page-critical bids short-lived.
+- **Team 2 is bidding on RET-09/10 at 11-13 and RET commons at 3-7.** Team 15 also bids 5 on RET-05. They compete for the same RET cards we need, at lower prices than Abuela charges. Team 2 is also the target of our SAL-08 ask.
+- **Our ladder is only 0.032, and the 15-minute change is −4.6.** Everyone fell, so we stay #6 on relative position, but idle time costs us. Our maker book has gone unfilled for ~5 min.
+- **Cash is 384 against a 370 floor.** The RET page needs about 280 P and the venue bond 270 P. Both do not fit, so the cap test and the venue decision compete for the same cash.
