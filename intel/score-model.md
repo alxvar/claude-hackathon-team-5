@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sun 01:45 (tick 1445, doors closed; snapshot 1440): us #3 at 30.49. **Two corrections from the overnight audits: (1) game hour = wall hour at any tick length, so the B15/A15 rows were wrong: case J (jump, ≈ 80%) → Duels III ≈ 11:00; (2) the ladder-fodder pipeline (team uncommons ≤ value → Pilar/Chato) lifts Sunday ladder 0.27 → 0.42-0.50 and P(top 2) 19% → 31-36% (§4.4).**_
+_Last update: Sun 02:10 (tick 1445, doors closed; snapshot 1440): us #3 at 30.49. **Two corrections from the overnight audits: (1) game hour = wall hour at any tick length, so the B15/A15 rows were wrong: case J (jump, ≈ 80%) → Duels III ≈ 11:00; (2) the ladder-fodder pipeline (team uncommons ≤ value → Pilar/Chato) lifts Sunday ladder 0.27 → 0.42-0.50 and P(top 2) 19% → 31-36% (§4.4).**_
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -616,6 +616,38 @@ CHA card to a rival. The working denial is the market (§4.9 lever 2).
 | audit-why-we-lost.md | t10 lead 10.64 = 7.50 + 2.76 + 0.38; our duel part ≈ 6.9; we were #5 on Saturday alone | §4.2 duel gap 2.3 → **2.3-4.5** (fixed) |
 | sunday-redteam.md | ceiling 48.75; CHA, v10 and duel EVs within ranges; SAL-11 cancel | **§4.7 clock: game hour = wall hour** (B15/A15 removed; case J Duels III ≈ 11:00) · **ladder fodder** lifts the ladder 0.27 → 0.42-0.50 (§4.4/§4.5/§4.8) |
 | duelist-audit.md | day reading reproduces all 56 Duels II deals | — (duelist code: Aleks's lane) |
+
+### 4.12 Ladder fodder: candidate cards (Chief's ask, 02:10) [V prices from the feed · L shares; scratchpad `fodder.py`, `fodder_prices.py`]
+**Which value counts:** a sale gives up our **cheapest copy**, and a dealer sale scores min(0, price − that copy's value). A card we
+hold once (or bought as our only copy) is valued as a **first copy**: LAT uncommon 12.5, LAT rare 35. A duplicate of a complete page
+is valued at 25% (2nd copy) or 10% (3rd+): LAV uncommon 8.1, RET 6.9, SAL 5.6, MAL 4.4. The TEAM buy scores (value of the copy
+received − price). So only cards we lack are cheap enough to buy: buying a duplicate costs trade points at every price teams paid.
+**Dealer BUY side, Saturday (team → dealer) [V]:**
+- Pilar, non-SAL/RET uncommons: n = 50, min 14, median 18, p90 20, max 21; opening 16 (n = 98).
+- Chato, non-SAL/RET uncommons: n = 21, median 14, p90 16, one at 26; opening 13 (n = 58).
+- Pilar, SAL/RET uncommons: n = 33, median 25, max 30; opening 22.
+- Pilar, non-SAL rares: n = 4, 50-56; opening 47.
+Share = (price − opening)/(limit − opening), with the max seen as the limit proxy [L].
+
+| # | Card / source | Sellers seen (Saturday) / live ask | Our value | Sell to (price) | Ladder per sale | Verdict |
+|---|---|---|---|---|---|---|
+| 1 | LAT-07 (unc) | t15 14, t14 13 (rival), t13 14, t05 21; ask t06 30 (rival) | 12.5 | Pilar 19-20 (share ≈ 0.6-0.8) or Chato 15 (≈ 0.67) | +0.040-0.054 (L3) / +0.030 (L2) | **buy ≤ 15** (bid as maker) |
+| 2 | LAT-08 (unc) | t12 10 (rival), 25; ask t06 30 | 12.5 | same | same | **buy ≤ 15** |
+| 3 | LAT-06 (unc) | 20, 20; ask t06 30 | 12.5 | same | same | buy ≤ 15 (bid; less likely) |
+| 4 | Silver pack (held, asset 1013): 2 unc + 2 com + 1 rare | ours | 25% copies | Pilar (rare SAL/RET ≈ 75, non-SAL 50-56; unc 18-30) / Chato | +0.03-0.05 each, 2-3 cards | **free**; open after the CHA rares, never at CHA 9/10 |
+| 5 | Workshop: 3 spare LAV commons → 1 random uncommon | ours (LAV-02 ×2, LAV-03, LAV-04 spare) | 25% copy | Pilar / Chato | +0.03-0.05 | free (if it isn't a CHA card) |
+| 6 | the same LAT card again after a sale | — | 12.5 again (we hold 0) | Pilar / Chato | as row 1 | each card can cycle; supply is the limit |
+| 7 | LAT-09 / LAT-10 (rare) | team prices 55-88 | 35 | Pilar 50-56 (≈ 0.67) | +0.044 | only at ≤ 40: unlikely |
+| 8 | LAV-06/07/08 duplicates | team prices 14-55; ask t16 45 | 8.1 | Pilar 18-20 | +0.040 | no (a loss at every seen price) |
+| 9 | SAL/RET uncommon duplicates | team prices 14-30 | 5.6 / 6.9 | Pilar 25-28 (share ≈ 0.5) | +0.033 | no, except in surplus mode (live-tuning §3) |
+| 10 | RET-11 (epic) | ours | 198 | Pilar ≥ 198 (likely a walk) | +0.067 | surplus mode only, the Chief's OK per sale |
+
+**Break-even buy price for a LAT uncommon [L]:** each trade point is worth 9/N = 0.09-0.225 Sunday points; a Pilar slot at share
+0.6 is worth 9 × 0.04/M = 0.55-1.0 → buying at ≤ 15 is net positive in every draw (≤ 12.5 is ≥ 0 even on trades).
+**Realistic yield:** 2-4 fodder sales (Saturday had ≈ 4 LAT-uncommon team trades at ≤ 14 all day) plus pack/Workshop → ladder ≈
+**0.35-0.44** (not 0.42-0.50 as at 01:45). Case J, flip lands: **P(top 2) ≈ 27% at ladder 0.38** (19% without fodder, 31% at 0.42).
+Rules: never a page card, CHA card or MAL-08; ≤ 3 sales per dealer level unless it upgrades a slot; rival sellers only if their gain
+is ≤ 10 P.
 
 ## 5. Buyer model (multiplier per team × set) for v10 steering
 
