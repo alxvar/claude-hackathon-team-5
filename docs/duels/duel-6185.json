@@ -914,6 +914,129 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1355,
+   "raw": {
+    "duel": 6185,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.68,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 54,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Sol",
+    "deadline_tick": 1364,
+    "decay_per_round": 0.08,
+    "rounds": 4,
+    "your_offer": {
+     "id": 10386,
+     "price": 45,
+     "tick": 1352,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 10431,
+     "price": 49,
+     "tick": 1355,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1348,
+      "from": "Rival Sol",
+      "text": "Te la dejo en 64 primas y entrega en 10 días; me cuesta bajar más.",
+      "price": 64,
+      "days": 10
+     },
+     {
+      "tick": 1348,
+      "from": "you",
+      "text": "Te ofrezco 34 P con entrega el día 0. Si prefieres otra fecha, el precio tendría que bajar mucho más.}",
+      "price": 34,
+      "days": 0
+     },
+     {
+      "tick": 1349,
+      "from": "Rival Sol",
+      "text": "64 primas y entrega en 9 días. Me muevo poco ya, pero si tú te mueves, cerramos.",
+      "price": 64,
+      "days": 9
+     },
+     {
+      "tick": 1349,
+      "from": "you",
+      "text": "I can do 38 P, delivery on day 0.",
+      "price": 38,
+      "days": 0
+     },
+     {
+      "tick": 1350,
+      "from": "Rival Sol",
+      "text": "Mi propuesta: 64 primas y entrega en 8 días. Dime una cifra concreta y la miro.",
+      "price": 64,
+      "days": 8
+     },
+     {
+      "tick": 1351,
+      "from": "Rival Sol",
+      "text": "Es una pieza que merece su precio: 60 primas y entrega en 7 días.",
+      "price": 60,
+      "days": 7
+     },
+     {
+      "tick": 1351,
+      "from": "you",
+      "text": "Thanks for the move on both price and day. I can do 42 P with delivery on day 0; the early day is what makes that figure work for me.",
+      "price": 42,
+      "days": 0
+     },
+     {
+      "tick": 1352,
+      "from": "Rival Sol",
+      "text": "Te la dejo en 59 primas y entrega en 6 días; me cuesta bajar más.",
+      "price": 59,
+      "days": 6
+     },
+     {
+      "tick": 1352,
+      "from": "you",
+      "text": "I see you moved again on price and day, thanks. I can do 45 P with delivery on day 0; the early day is what makes that figure work for me.",
+      "price": 45,
+      "days": 0
+     },
+     {
+      "tick": 1353,
+      "from": "Rival Sol",
+      "text": "55 primas y entrega en 4 días. Me muevo poco ya, pero si tú te mueves, cerramos.",
+      "price": 55,
+      "days": 4
+     },
+     {
+      "tick": 1354,
+      "from": "Rival Sol",
+      "text": "Mi propuesta: 52 primas y entrega en 2 días. Dime una cifra concreta y la miro.",
+      "price": 52,
+      "days": 2
+     },
+     {
+      "tick": 1355,
+      "from": "Rival Sol",
+      "text": "Es una pieza que merece su precio: 49 primas y entrega en 0 días.",
+      "price": 49,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {

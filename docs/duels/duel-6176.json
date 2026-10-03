@@ -390,6 +390,87 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1355,
+   "raw": {
+    "duel": 6176,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.45,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 92,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Verde",
+    "deadline_tick": 1368,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 10433,
+     "price": 140,
+     "tick": 1355,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 10426,
+     "price": 76,
+     "tick": 1354,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1352,
+      "from": "Rival Verde",
+      "text": "Propuesta justa para cerrar pronto: 66 P y 0 días.",
+      "price": 66,
+      "days": 0
+     },
+     {
+      "tick": 1352,
+      "from": "you",
+      "text": "I can do 155 P, delivery on day 0.",
+      "price": 155,
+      "days": 0
+     },
+     {
+      "tick": 1353,
+      "from": "Rival Verde",
+      "text": "Me muevo para acercarnos: 72 P con 0 días.",
+      "price": 72,
+      "days": 0
+     },
+     {
+      "tick": 1353,
+      "from": "you",
+      "text": "I can move to 146 P, delivery on day 0. A bigger step from you would help us close sooner.",
+      "price": 146,
+      "days": 0
+     },
+     {
+      "tick": 1354,
+      "from": "Rival Verde",
+      "text": "Yo ya me he movido. Propongo 76 P y 0 días.",
+      "price": 76,
+      "days": 0
+     },
+     {
+      "tick": 1355,
+      "from": "you",
+      "text": "I can do 140 P on day 0; or, if you prefer, 118 P on day 10. I'd need a much bigger move from you to close soon.",
+      "price": 140,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -671,6 +752,149 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1355,
+   "took_s": 9.54,
+   "cost_usd": 0.01545,
+   "obs": {
+    "view": {
+     "duel_id": 6176,
+     "role": "seller",
+     "limit": 92,
+     "currency": "P",
+     "item": "La Vía Láctea",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.45,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 66 P y 0 días.",
+      "offer": {
+       "price": 66,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1352,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 155 P, delivery on day 0.",
+      "offer": {
+       "price": 155,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1352,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 72 P con 0 días.",
+      "offer": {
+       "price": 72,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1353,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 146 P, delivery on day 0. A bigger step from you would help us close sooner.",
+      "offer": {
+       "price": 146,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1353,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Yo ya me he movido. Propongo 76 P y 0 días.",
+      "offer": {
+       "price": 76,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1354,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 76,
+     "days": 0
+    },
+    "tick": 1354,
+    "ticks_left": 14,
+    "rounds": 2,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 140 P on day 0; or, if you prefer, 118 P on day 10. I'd need a much bigger move from you to close soon.",
+    "price": 140,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 140,
+      "message": "I can do 140 P on day 0; or, if you prefer, 118 P on day 10. I'd need a much bigger move from you to close soon."
+     },
+     "band": {
+      "worst": 138,
+      "target": 140,
+      "best": 142
+     },
+     "plan": {
+      "read": "They crept up from 72 to 76 P on day 0, a small step that is still far below anything workable on day 0. Their 'I already moved' line is just pressure, not a real limit.",
+      "target": 140,
+      "best": 142,
+      "worst": 138,
+      "days": 0,
+      "angle": "Make a modest, firm step to 140 P on day 0, and offer a menu in words: day 0 at 140, or day 10 at 118. Invite a much bigger move from them."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.58,
+       "in": 937,
+       "out": 509,
+       "cost_usd": 0.01393,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.96,
+       "in": 434,
+       "out": 65,
+       "cost_usd": 0.00152,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -797,6 +1021,63 @@
      "id": 10407,
      "price": 146,
      "tick": 1353,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1355,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 140 P on day 0; or, if you prefer, 118 P on day 10. I'd need a much bigger move from you to close soon.",
+    "price": 140,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 140,
+      "message": "I can do 140 P on day 0; or, if you prefer, 118 P on day 10. I'd need a much bigger move from you to close soon."
+     },
+     "band": {
+      "worst": 138,
+      "target": 140,
+      "best": 142
+     },
+     "plan": {
+      "read": "They crept up from 72 to 76 P on day 0, a small step that is still far below anything workable on day 0. Their 'I already moved' line is just pressure, not a real limit.",
+      "target": 140,
+      "best": 142,
+      "worst": 138,
+      "days": 0,
+      "angle": "Make a modest, firm step to 140 P on day 0, and offer a menu in words: day 0 at 140, or day 10 at 118. Invite a much bigger move from them."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.58,
+       "in": 937,
+       "out": 509,
+       "cost_usd": 0.01393,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.96,
+       "in": 434,
+       "out": 65,
+       "cost_usd": 0.00152,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 6176,
+    "offer": {
+     "id": 10433,
+     "price": 140,
+     "tick": 1355,
      "days": 0
     }
    }

@@ -976,5 +976,77 @@
     "settles_at_tick": 1355
    }
   }
- ]
+ ],
+ "last_seen_tick": 1355,
+ "done": {
+  "duel": 6049,
+  "session": 3,
+  "status": "deal",
+  "role": "buyer",
+  "item": "La Dama de Serrano",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 2.53,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 148,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Oro",
+  "deadline_tick": 1363,
+  "decay_per_round": 0.08,
+  "rounds": 2,
+  "your_offer": {
+   "id": 10365,
+   "price": 88,
+   "tick": 1351,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 10415,
+   "price": 96,
+   "tick": 1354,
+   "days": 10
+  },
+  "messages": [
+   {
+    "tick": 1348,
+    "from": "Rival Oro",
+    "text": "Hi there. 106 P and it is yours. Delivery on day 10.",
+    "price": 106,
+    "days": 10
+   },
+   {
+    "tick": 1348,
+    "from": "you",
+    "text": "Happy to meet you on delivery: 82 P on day 10. Or, if you prefer, 100 P on day 0.",
+    "price": 82,
+    "days": 10
+   },
+   {
+    "tick": 1351,
+    "from": "Rival Oro",
+    "text": "How about 101 P? Delivery on day 10.",
+    "price": 101,
+    "days": 10
+   },
+   {
+    "tick": 1351,
+    "from": "you",
+    "text": "I'm moving toward you with 88 P on day 10. I'd like to meet you here and get this settled quickly.",
+    "price": 88,
+    "days": 10
+   },
+   {
+    "tick": 1354,
+    "from": "Rival Oro",
+    "text": "96 P, then. Delivery on day 10.",
+    "price": 96,
+    "days": 10
+   }
+  ],
+  "result": 22.6,
+  "price": 96,
+  "days": 10
+ }
 }
