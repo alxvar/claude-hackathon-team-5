@@ -1,17 +1,27 @@
-# Scout (claude-sonnet-5-5, Sat 10:11)
+# Scout (claude-sonnet-5-5, Sat 10:17)
 
 ## Top 3 actions now
-1. **RET-08 and RET-07 from Abuela (Operator, abuela_bot, cap 24).** Our RET-08 thread is open (Abuela 29 → 25, ours 19; bid 3904 at 19 expires tick 248). Evidence: uncommons were 21-24 after 5-7 rounds (GAME.md); the last 60 ticks show a median of 22 over 7 deals. Both are worth 27.5 to us. Keep bidding, with warm text and steps of +2/+3, and accept at ≤ 24. Effect: a gain scores 0 on neg_points, but each deal moves the ladder (+0.014-0.018 per Abuela deal). It also builds toward the RET page. Confidence: high.
-2. **RET-07 from Team 2 is gone, so use the swap or Abuela instead.** Team 2 sold RET-07 to Team 15 at 24 (tick 234). Team 2 also bids only 16-18 for RET-09/10. We hold both, worth 77 each, so do NOT sell them. Instead, the Operator should cancel the stale swap offers and post a bid for RET-01 at ~20 to a team once 06/07/08 are held. That is the cap test (GAME.md, plan §4B). Expected result: ≈ +50, or ≈ 38 or ≈ 62 if the cap is a different form. Confidence: med.
-3. **RET-06 from Abuela instead of Chato (Operator).** Chato finalled at 31 against our cap of 28 and walked (tick 232; 33 → 31 against our 21). Abuela is cheaper for uncommons (25 at tick 242). Run the warm-text Abuela bot on RET-06 with cap 24-25. Confidence: med. A Chato deal for the level-3 early start remains Lucas's directive at cap 31 (≤ −3.5), so run it only if Abuela stalls before 11:40.
+1. **RET-07 (uncommon) from Abuela, cap 24. Operator's abuela_bot under `uv run`, reopens ~tick 259.**
+   - Evidence: RET-08 closed at 22 (`neg_points` 0, ladder 0.048 → 0.051). RET-07 is worth 27.5 to us, so a deal ≤ 24 never loses. t15 bought RET-07 at 24 (tick 234) and is the only visible holder.
+   - Effect: ladder about +0.003 and no `neg_points` cost. It leaves RET-01 as the only missing card, once the RET-06 deal at 30 (log 10:16) is confirmed in `/api/me`.
+   - Confidence: high.
+2. **RET-01 (common): public El Rastro bid at 20, from a team. Operator, `trade.py bid`, after action 1.**
+   - Evidence: t13 bids 2 for RET-01 (offer 3856), so it lacks the card too. Holder and ask price: not in the data. The bonus scores only via a team trade [L], and 72.9 + 11 − 22 far exceeds the ~50 cap.
+   - Effect: +50 predicted (flat 50 or 5×book), ~62 if 5×(p+f), ~38 if value ≤ 6×book. Log the result in GAME.md at once.
+   - If unfilled in ~10 ticks, raise by +2 steps toward ~25 (value with bonus ≈ 84). Keep it short-lived: the feed shows addressed offers.
+   - Confidence: med (cap form open, n=1).
+3. **Check the level-3 unlock now: `GET /api/me` level, then `/api/schedule`. Operator, 2 min.**
+   - Evidence: we have 3 negotiated Chato deals today (87, 86, 30). Level 2 opened early on Friday for 3 negotiated deals [V]. The metrics still show "level 2" and bid 3989 (30 for RET-06) as open.
+   - Effect: opens the level-3 ladder. Tell the Chief before any level-3 dealer opens. Do not buy a pack.
+   - Confidence: low-med (the level-3 rule is unpublished [L]).
 
 ## What the climbing teams are doing
-- **Team 18 (#1, +14.0 over 15 min):** bought RET-02 from Team 2 at 49 P (tick 230), so it pays a premium for RET cards. It collects RET/LAT per intel/teams.md. Do not feed it.
-- **Team 2 (#4, +8.6 / +16.5 over 60 min):** is active as both buyer and seller: RET-07 to Team 15 at 24, MAL-01 from Team 13 at 5, RET-02 to Team 18 at 49. It lists 83 offers. Volume on cheap trades plus a high-priced RET sale is what moved it.
-- **Team 12 (#2):** its market score of 11.49 comes from one 7 P trade on its 0% venue v02 (Lucas's 10:06 note). Our v10 went to 0% fee at tick 230.
-- **Team 15 (#14, +4.3 / 15 min):** collects LAT/RET/MAL, bought RET-07 and RET-02 (10 P from Team 13, tick 234), and has 76 listings. It is also bidding on RET (59 for RET-09/10 per GAME.md).
+- **Team 18 (#1, +14.6/15 min)** collects RET/LAT. It paid 49 P for RET-02 from t02 (tick 230), well above the 9-10 clearing price. It looks like a team pushing a page. RET page progress per team: not in the data.
+- **Team 2 (#3, +9.6/15 min)** trades RET at both ends: sold RET-02 at 49 and RET-07 at 24 (ticks 230, 234), bought MAL-01 (tick 235). It also bids only 17-19 for RET-09/10 (offers 3983/3982). It is selling RET-type cards at a premium to a top-4 rival.
+- **Team 3 (#9, +5.5/15 min)** has 1 team trade and 11 dealer trades, with an Abuela discount of −22.8%. It climbs on dealers and ladder, not on team trades.
+- **Team 14 (#5, +4.9/15 min)** has 13 deals, collects LAV/LAT, and its median uncommon price is 40.
 
 ## Threats
-- **Team 15 and Team 18 are competing for RET commons and uncommons.** Team 15 took RET-07 and Team 18 took RET-02. Both are buying RET cards from teams, so team supply is thinning. RET-06/07/08 are now only available from the dealers.
-- **Our maker book is idle.** The 6 spare asks at 9 have had no fills, and there is no buyer above our value + 3 that passes the feeding rule. Feeding rule: never sell to the top 4, only to teams ≥ 10 below us.
-- **Leader feeding via venues:** Team 13 is pushing trades onto v03 and Team 12 owns v02. Trade there only for gains ≥ 15.
+- Team 18 (#1) and Team 2 (#3) both collect RET and could finish the RET page before us. Never sell them RET cards, and do not feed t18/t2/t12/t13 any card.
+- t15 (#14) collects RET and holds RET-07. If it sees our bid it can raise the price. t13 bidding on RET commons (2 P) shows competition for RET-01.
+- v10 at 0% lets other teams' trades score for the venue owner. Team 12's market 11.49 came from one 7 P trade on its own venue. We are fine on the stall (4.8), but do not route anything via v02/v03.
