@@ -899,7 +899,9 @@ def test_a_big_step_is_cut_to_25_percent_of_the_gap_with_codes_text():
     move = drafted(CAP_SELLER, turns, Offer(price=83), 115)
     assert (move.action, move.price, move.text) == ("offer", 122, "I can do 122 P.")
     assert (move.meta["rule"], move.meta["drafted"]) == ("capped", 115)
-    assert drafted(CAP_SELLER, turns, Offer(price=83), 115, left=3).price == 115    # the closing ticks: as drafted
+    # the closing ticks: no "capped" cut, but the worth floor (Chief 22:50, duel 6190): at most MONO_END_SHARE of the gap
+    assert drafted(CAP_SELLER, turns, Offer(price=83), 115, left=3).price == 122
+    assert drafted(CAP_SELLER, turns, Offer(price=83), 125, left=3).price == 125    # a step inside the floor: as drafted
     assert drafted(CAP_SELLER, [*mine(127), theirs(87, 2)], Offer(price=87), 117).price == 117  # gap 40: 10 P is fine
 
 

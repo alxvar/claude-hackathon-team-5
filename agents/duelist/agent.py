@@ -52,6 +52,8 @@ MIN_STEP_SHARE = 0.05                   # ...nor one smaller than this share of 
 MAX_STEP_SHARE = 0.25                   # a mid-duel concession bigger than this share of the gap is cut to it
 CLOSING_TICKS = 3                       # the last ticks, where code never holds or cuts a concession
 LATE_SWITCH_LEFT = 4                    # ticks left from which code offers their day once, worth the same to us
+MONO_END_SHARE = 0.25                   # worth floor in the last CLOSING_TICKS: a concession takes at most this share
+                                        # of the gap, days included (Chief 22:50, duel 6190; mid-duel: MAX_STEP_SHARE)
 # The delivery day (Duels II, docs/duels-1-review.md §3.1)
 DAY_SAME_SIDE_P = 2                     # their day costs us at most this: it is on our side, take it
 RANK_SAMPLES = 3                        # weights seen this session before our weight is ranked among them
@@ -755,6 +757,7 @@ class DuelAgent:
             plan = await self.plan(obs)
         except LLMError as e:
             return self.final(self.safe_move(obs, f"strategist: {e}"), obs)
+        plan = self.first_day(plan, obs)
         days = self._days(plan, obs)
         band = make_band(self.view, plan, days)
         meta: dict[str, Any] = {"band": {"worst": band.worst, "target": band.target, "best": band.best},
@@ -831,11 +834,59 @@ class DuelAgent:
             return hold("small step")
         return move
 
+    def guarded(self, move: Move, obs: Observation) -> Move:
+        """Two code guards on every offer, from any path (models, code policy, fallback, late switch):
+        - never offer worse than their standing offer: accept it instead (Duel Lab: when theirs is already worth as
+          much to us, another offer is a round for nothing);
+        - worth-monotonic concessions (Chief 22:50, duel 6190): a package is never worth less to us than our last
+          sent one minus the normal step, days included: MAX_STEP_SHARE of the gap mid-duel, MONO_END_SHARE in the
+          last CLOSING_TICKS (never less than MIN_STEP_P, never past their offer). 6190: after the late switch to
+          their day (116 on day 0 → 66 on day 10, worth 27 both), the model offered 88 on day 10, worth 5, as if the
+          day were free; the rival took it. The guard sends the floor's price on that day, with code's plain text."""
+        if move.action != "offer" or move.price is None:
+            return move
+        v, their = self.view, standing_offer(obs)
+        if their is not None and not past_limit(v, their.price, their.days) and \
+                worth(v, their.price, their.days) >= worth(v, move.price, move.days):
+            return Move("accept", "Agreed.", price=their.price,
+                        meta={**move.meta, "rule": "theirs is as good as our offer", "drafted": move.price})
+        ours = next(reversed(our_offers(obs)), None)
+        if ours is None or their is None or move.meta.get("fallback"):
+            return move                               # the fallback keeps its own schedule: it closes when models fail
+        now, theirs = worth(v, ours.price, ours.days), worth(v, their.price, their.days)
+        gap = now - theirs
+        if gap <= 0:
+            return move
+        closing = obs.ticks_left is not None and obs.ticks_left <= CLOSING_TICKS
+        floor = max(now - max((MONO_END_SHARE if closing else MAX_STEP_SHARE) * gap, min(MIN_STEP_P, gap)), 0.0)
+        if worth(v, move.price, move.days) >= floor - 1e-9:
+            return move
+        price = toward_us(self.s, price_at(v, floor, move.days))
+        text = f"I can do {money(price, v.currency)}" + (f", delivery on day {move.days}." if move.days is not None
+                                                          else ".")
+        return Move("offer", text, price=price, days=move.days,
+                    meta={**move.meta, "rule": "worth floor", "drafted": move.price, "floor": round(floor, 1)})
+
+    def first_day(self, plan: BandPlan, obs: Observation) -> BandPlan:
+        """Our FIRST offer follows the day rules' call (Duel Lab: enforce it on the opener, not just suggest it):
+        take or give → their day (give: worth up by what their day costs us, the premium), hold or menu → our best
+        day. The plan's prices move to keep their worth to us on that day."""
+        if our_offers(obs) or plan.days is None or (r := day_read(obs)) is None:
+            return plan
+        day = r.their_day if r.call in ("take", "give") else r.best_day
+        if day == plan.days:
+            return plan
+        extra = r.cost if r.call == "give" else 0.0
+        move = lambda p: toward_us(self.s, price_at(self.view, worth(self.view, p, plan.days) + extra, day))  # noqa: E731
+        return plan.model_copy(update={"target": move(plan.target), "best": move(plan.best),
+                                       "worst": move(plan.worst), "days": day})
+
     def final(self, move: Move, obs: Observation) -> Move:
         """Last line of defence: whatever happened before, never offer or accept past our limit (with days: the
         whole package, our offer on its day and theirs on its own), never send a days duel's offer without a day
         from 0 to 10, and never write an amount past the limit."""
         move.meta["calls"] = self.calls
+        move = self.guarded(move, obs)
         their = standing_offer(obs)
         no_day = self.view.has_days and (move.days is None or not 0 <= move.days <= 10)
         bad = ((move.action == "offer" and (move.price is None or move.price < 1 or no_day

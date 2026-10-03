@@ -1,8 +1,8 @@
 # Branch `duelist-loop`: hot-reloaded params, the wave loop, a code-first policy (for Aleks, Sun 08:00)
 
-_Builder, Sat night, on the Chief's brief. Nothing here changes a live duel until you choose it: with no
+_Builder, Sat night, on the Chief's brief. Items 1–3 change nothing until you choose them: with no
 `run/duel_params.json` the duelist plays today's constants, and `--policy llm` (the default) is today's agent.
-Full suite green on the branch._
+**Item 4 (the guards) is live once merged.** Full suite green on the branch._
 
 ## TL;DR
 
@@ -11,6 +11,7 @@ Full suite green on the branch._
 | 1 | **Hot-reloaded params**: `run/duel_params.json`, re-read every tick, bounds-checked, logged | none (no file = today's constants) | write the file, or `tools/duel_loop.py approve` |
 | 2 | **Wave loop**: `tools/duel_loop.py` summarises each closed wave, compares it with the Duel Lab simulator, proposes a params diff | none (read-only; never applies) | `python3 tools/duel_loop.py watch` on any machine with the records |
 | 3 | **Code-first policy**: code decides accept / hold / step and the day; one capped model call writes the words | none (`--policy llm` stays the default) | `run --policy code --negotiator-model claude-haiku-4-5` |
+| 4 | **Guards on every offer** (6190): accept instead of offering worse; worth-monotonic steps; the day call on the first offer | **yes, once merged**: the last-ticks concession is capped at 25% of the gap | tune `MONO_END_SHARE` (0.5 = the simulator's preference) |
 
 ## 1. Hot-reloaded params (`agents/duelist/params.py`)
 
@@ -159,6 +160,42 @@ prefers lower.
 **First check if you try it:**
 1. `uv run python -m agents.duelist run --dry-run --policy code --negotiator-model claude-haiku-4-5` on a live wave.
 2. Watch `took_s` and the `text` meta (how often plain words replace the model's).
+
+## 4. Guards on every offer (Chief 22:50, duel 6190): both policies
+
+**What went wrong in 6190** (buyer, limit 143, each delivery day costs us 5 P):
+- We stood at 116 on day 0 (worth 27).
+- The late switch moved to their day: 66 on day 10, also worth 27.
+- The model then offered **88 on day 10, worth 5**, as if the day were free: 22 P of worth in one step, 52% of the gap.
+- The rival, standing at 108 on day 10 (worth −15), took it.
+- It got through because the last `CLOSING_TICKS` are never cut.
+
+**In `agent.guarded`, run by `final` on every offer from any path:**
+1. **Accept instead of offering worse than theirs.** An offer worth no more to us than their standing offer (whole
+   packages, days included, inside our limit) becomes an accept.
+2. **Worth-monotonic concessions.** A package may never be worth less than our last sent one minus the normal step:
+   `MAX_STEP_SHARE` of the gap mid-duel, and **`MONO_END_SHARE` (0.25) in the last ticks** (never less than
+   `MIN_STEP_P`, never past their offer, never below our limit). The floor's price goes out on the drafted day, with
+   code's plain text.
+   - In 6190 the 88 on day 10 becomes **76 on day 10** (worth 17).
+   - The fallback keeps its own schedule (exempt), so a duel still closes when the models fail.
+3. **The day call on our first offer.** Take or give → their day (give adds what their day costs us); hold or menu →
+   our best day. The strategist's band moves to keep its worth (`first_day`), and the code opener does the same.
+
+**The cost, for your decision:** the guard caps the last-ticks concession at 25% of the gap. The simulator (Sunday's
+12 ticks at 10%) finds big closing steps close deals:
+
+| Capped at 25% in the last ticks | W1 | W2 | W3 | W4 | Deal rate |
+|---|---|---|---|---|---|
+| Code policy (its own last step is 0.5) | −0.004 | −0.012 | −0.012 | −0.010 | 0.90 → 0.87 |
+| Today's model | +0.002 | −0.005 | −0.007 | −0.002 | |
+
+Score per duel, against the same policy uncapped. The simulator is price-only, so it can't see 6190's day-accounting
+error, which is what the guard is for. If you trust the simulator more, raise the cap from the params file:
+`{"MONO_END_SHARE": 0.5}`. That keeps the guard against day errors while allowing half-gap closes.
+
+Tests: `tests/test_duelist_policy.py`. They cover 6190's exact sequence on both paths, accept-instead (price and days),
+and the first-offer day call. `tests/test_duelist.py`'s closing-tick case now expects the floor (122, not 115).
 
 ## Merge
 

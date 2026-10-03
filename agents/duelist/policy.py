@@ -86,7 +86,9 @@ def code_move(agent: "DuelAgent", obs: Observation) -> "Move":
     day, call, premium = code_day(agent, obs)
     meta: dict[str, Any] = {"policy": "code", "day_call": call}
     if not ours:
-        price = A.toward_us(s, v.limit + s * OPENER_SHARE * v.limit)
+        best = v.day_values.best if v.day_values is not None else day
+        anchor = v.limit + s * OPENER_SHARE * v.limit   # in price, on our best day; moved to the call's day at its worth
+        price = A.toward_us(s, price_at(v, worth(v, anchor, best) + premium, day))
         if past_limit(v, price, day):                  # the day costs more than the margin: our limit on that day
             price = A.toward_us(s, price_at(v, 0.0, day))
         return A.Move("offer", "", price=max(price, MIN_PRICE), days=day, meta={**meta, "rule": "code opener"})
