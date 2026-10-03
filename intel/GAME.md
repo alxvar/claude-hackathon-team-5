@@ -113,6 +113,11 @@
 - **The Workshop** [V, Sat 16:15]: `POST /api/taller {"assets": [a, b, c]}`, three spare copies of one rarity (≥ 1 of each
   card kept) → one card of the next rarity. Ours: LAT-04 + SAL-01 + SAL-02 spares (5.6 P of value) → MAL-06 (worth 17.5):
   collection value +11.8, `neg_points` and `ladder_points` unchanged (not a scored deal, not a ladder level).
+- **A correct flag = +10.0 neg_points** [V, Sat 16:38, clean window]: `POST /api/flags {"message_id": 7053, "reason": ...}` on a
+  Los Pícaros message (L4 dealer, "bad faith: read every offer, flag a trick") claiming a card "stopped printing yesterday…
+  after us, nobody has one" (false: print runs are fixed) → `neg_points` 43.2 → 53.2, ladder unchanged. A wrong flag costs
+  (amount unknown). Los Pícaros: L4, early unlock = 2 Pilar deals; buys commons/uncommons, sells rares (list 63) and epics
+  (162); opens bids low (MAL-06 at 10).
 - **Abuela gifts** [V, tick 261]: after our 5th Abuela deal of the day she gave us LAT-08 ("gift from Abuela Carmen",
   `gift.given`); Team 7 got LAT-06 the same way on Friday (tick 157). Gifts never score, but the card is ours to sell.
 - **Value created on our venue is NET and can go negative** [V, Sat 11:30]: tick 311 on v10, t10 → t01 MAL-07 at 14:
