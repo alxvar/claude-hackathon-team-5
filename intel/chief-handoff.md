@@ -1,35 +1,40 @@
-# Chief of staff handoff (Sat 15:45). Read this first if you are a new Chief session
+# Chief of staff handoff (Sun 00:10). A new Chief session reads this first
 
-**Role:** the only session Lucas talks to. Decides inside the limits, writes `intel/directives.md` (newest on top), routes by
-SendMessage, never writes to the game. Replies in Lucas's language, brief, with labels [V]/[L]/[?]; independent verifier
-before any directive that moves > 20 P or changes a rule. Lucas wants #1 today: proactive, precise, prioritised.
+**Role:** the only session Lucas talks to; decides inside the limits; writes `intel/directives.md` (newest on top);
+routes by SendMessage; never writes to the game (the Operator does). Reply in Lucas's language (rioplatense), brief,
+[V]/[L]/[?] labels; an independent verifier before any directive that moves > 20 P or changes a rule. Lucas wants #1.
+Messages to other teams: transactional only, never our strategy (memory: no-strategy-leaks-to-rivals).
 
-**Sessions (ListAgents names):** Operator `-3d` (only game writer; background jobs: Pícaros watch, gift-pack opener,
-swap reposts, bargains watch) · Builder `-ce` (tools; building: swap engine → v10 partner suggestions → arbitrage
-detector) · Market `-27` (bench, partner audit every 30 min, v10 value-created tracking) · Analyst `-6c` (score model
-every 15 min: `intel/score-model.md`) · Duel Lab `-38` (Duels II policy; interim 17:00, final 17:45 → `intel/duel-lab.md`).
-Aleks (own Mac) reads `PLAN.md` "Aleks" block (items 1-19); Dani reads `team/dani.md` asks via Lucas.
+**Sessions (ListAgents):** Operator `-3d` (only game writer; overnight Dealer Lab → intel/dealer-lab.md; 08:45
+checklist) · Builder `-ce` (reactor/FLIP/matchmaker/hints/eggs; branch `duelist-loop` for Aleks; Red Castiza build
+PAUSED until Lucas approves in its session) · Market `-27` (intel/market-sunday.md, club forecast) · Analyst `-6c`
+(intel/score-model.md §4: scoring fit, t10 decomposition, Sunday Monte Carlo) · Duel Lab `-38` (intel/duel-lab.md:
+FINAL params for Duels III) · pitch `-a1`/`-a5` (judges/pitch/final/) · Aleks on his Mac (reads PLAN.md block #1-31).
 
-**Schedule (resumed 15:29 after a 2 h lunch pause):** Market Tests 15:55 / 17:55 / 19:55 / 21:55 · Salamanca fever
-18:03-20:03 (Pilar +25% on SAL) · **Duels II ≈ 20:33** (68 duels, 8%, price + day; Aleks restarts by ~20:15) · close 23:00 ·
-on the current schedule the hard Market Test and CHA/round 3 fall on Sunday (re-read `/api/schedule` at 09:00).
+**Standing (Sat close, tick 1445, paused):** t10 37.74 · t18 30.98 · t12 30.56 · **us 30.49 (#4)** · t03 29.81. Game total
+(0.5·Fri + Sat): t10 leads us by ≈ 9-10.6 [L]. 70% of t10's lead = market value created on its v07 (our 10:18
+venue deal fed it). Our mm turned +2.2 at the close (field-relative) → ≈ +0.7-2.2 board at the next snapshot [L].
+P(#1 final) ≤ 9%, P(top 2) 21-45% [Analyst, L].
 
-**Score model (Analyst, [L] unless noted):** board = (0.5·Fri + Sat)/1.5; duels = 40% of Saturday negotiating (max 8
-board); 1 neg_point ≈ 0.094 board; +0.01 ladder ≈ 0.3-0.5 board, graded vs the field (erodes); value created on our
-venue = buyer value − seller value (copy-weighted), board gap = clamp(mm_points, 0, 5) relative; we're at mm −5.2 (0).
+**Sunday facts:** +150 P at 09:00; Don Ernesto open to all; Sunday ticks 15 s [V]. The clock is paused at game 13.367
+in ROUND 2 (Saturday): if it RESUMES, ≈ 1.5-3 h of Saturday's round remain (hard Market Test 14.65, bench 15.0)
+before round 3 + the CHA release at 16.65; if it JUMPS, Duels III ≈ 10:00, Final ≈ 11:30, close ≈ 12:00 [L].
+The Operator reads /api/clock + /api/schedule at 08:55. Duels III/Final: 12 ticks, 10% decay, 4 at once [V].
 
-**Standing at 15:40:** #5 at 27.92 (t14 30.35, t12 29.54, t18 29.29, t10 29.10). Our negotiating is top-tier (20.4);
-**the gap is market** (7.5 vs 9.5-12.5).
+**Plan files:** intel/sunday-plan.md (timeline, cash, guardrails, Saturday-tail rules: v10 pairs first, no ladder
+until round 3, no cash team trades in the tail) · intel/cha-plan.md (team bids first; CHA rares from Pícaros 48-52;
+last card from a TEAM for +50) · intel/dealer-lab.md (per-dealer playbook, castizo scripts, ladder plan) ·
+intel/duel-lab.md (Duels III params) · intel/market-sunday.md (club pairs, test plan) · score-model §4 (Analyst).
+Ladder fit [L]: Σ dealers level × (best-3 share sum)/45 → Ernesto counts 5×, Abuela 1×.
 
-**Open levers, by value:** (1) Los Pícaros (likely L4; our 3 Pilar deals may give the head start): Operator acts on
-activation; MAL-09 rare + LAT-08 + SAL-08 reserved for it; (2) Duels II (Duel Lab → Aleks 18:00 decision); (3) market:
-1-2 positive trades on v10 (partners Team 15 pilot, Team 10, Team 3; Lucas forwards the v10 suggestions); (4) swaps /
-arbitrage (code); (5) SAL-08 → Pilar in the fever (cash). Cash 186, Saturday close target ≥ 200 for Sunday's CHA plan
-(`intel/cha-plan.md`, team bids first, floor 0 for CHA only).
+**Cash:** 392 + 150. CHA ≈ 330 (floor 0 for CHA only) · MAL close (we hold MAL-01..06, 08; need 07/09/10; Team 15's
+spare MAL-07 = the last card) · ≤ 75 club bonuses (if approved) · 50 reserve. Open: SAL-11 bid 20252 (115 → t04),
+LAV-03 → t04, LAV-04 → t01. Reserved: all SAL, LAV, RET page cards, RET-11, MAL-01..06/08.
 
-**Live GUARDRAILs:** floor 100; one autonomous bargain buy (team outside top 5, gain ≥ 50, cost ≤ 100, floor 60);
-Sunday floor 0 for CHA page buys only; no sale to a top-5 team of a card that may close its page; sales only to
-collectors; dealer sells only at ≥ our value; no hold-silent with dealers (their offers expire after 4 ticks).
+**Club Castizo / Red Castiza:** 6 members t07, t09, t08, t15, t04, t02 (+ maybe t13); page
+https://claude.ai/artifact/9HVLftiHAKMwgPwTQbLff1 (private: Lucas shares). Bonus tiers 1/2/3/5 P (+3 page close),
+cap 15/team/day (directive 22:55) — Chief's advice: cash bonuses OFF until the desk confirms fair play ("volume and
+friends count for nothing"). Venue rotation by value: big deals on v10 (≥ 75% of club VC). Want-lists empty.
 
-**Lucas's pending/valid DMs** are tracked in the latest chat summary; offers expire ~30 min, so always check the feed
-before telling him to push one.
+**Do not:** sell page cards; dealer-to-dealer flips; ladder deals in the Saturday tail; trade on rival venues (v07
+etc.); help t10. Eggs/badges don't score (we have Sharp ear, Trickster tricked, Castizo + MAL-06 gift).
