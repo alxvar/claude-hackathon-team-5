@@ -1,46 +1,50 @@
-# Judge (claude-opus-5-5, Sun 01:10)
+# Judge (claude-opus-5-5, Sun 01:41)
 
 ## Verdict
-Holding #3 but slipping. 30.49 (−0.4/60 min) vs Team 10 at 37.6 (gap 7.1) and Team 18 at 31.3 (+1.2/60 min, gap 0.8). Team 12 is 0.1 behind at 30.4. Our neg_points have been flat at 119.1 since tick 988 (≈ 457 ticks without a scoring deal).
+Holding at #3 with 30.49, 7.1 behind Team 10 (37.6) and 0.8 behind Team 18. Team 12 is 0.1 behind at 30.4. `neg_points` has been flat at 119.1 since tick 988, about 450 ticks with no scoring deal.
 
 ## Our strategies: keep / kill / scale
-- **Team trades (page closers, in-room swaps): SCALE.** They are the only deals that moved neg_points Saturday: RET-01 +50.0, swap +15.5, SAL-06 from t08 +40.4. They also moved the board (≈ +0.05 per neg point, tick 910). LAV, RET and SAL are complete. MAL lacks MAL-07, MAL-09 and MAL-10, and CHA starts Sunday: those are the remaining levers.
-- **Dealer bot / ladder: KEEP, as fodder only, after the CHA buys** (directive 00:44). Ladder rose 0.437 → 0.483. Board effect of the ladder was flat at 17:45 [L]. The bot behaved correctly: the Pícaros LAV-04 sale was walked at final 4 = opening, neg unchanged. The 8 threads at ticks 1367-1370 were all first = last with no price from us, so no ladder gain.
-- **Trading loop: KEEP sells-only (cash floor 9999) until the cap patch is tested.**
-  - It made only 2 accepts all Saturday (+6.2, +15.5).
-  - Its log is mostly errors: `sobre_bienvenida` unknown_card ×5, and DNS failures 22:55-23:24. Check connectivity before 09:00.
-- **Addressed asks 19979 / 19981 (LAV-03 / LAV-04 at 6): KILL.**
-  - Addressed asks fill at 0.3% vs 3.5% for open asks (directive 00:37). These have no fill.
-  - The gain is at most 2.8 P each, and the cards are better used as Workshop input.
-- **SAL-11 bid 20252 (115): KILL at the first tick, as ordered.** It has not filled: the ask is 245 and the last trade was 207.
-- **v10 venue VC: KEEP, zero negatives.** Saturday netted +4.99 then −5.2 (t15 dumping SAL). The target is 40-50 net by the close.
-- **Duelist (Aleks): KEEP.** The last 10 session-3 duels gave 8 deals and 2 no-deals. Duel points are 35.39.
+- **Team trades (Rastro asks and bids)**: SCALE. They are our only Saturday scorers after the flags: t07 swap +15.5 (tick 904), t08 SAL-06 close +40.4 (tick 988), worth about +0.05 board per point. After 414 listings, only 2 addressed asks are live (19979, 19981), and addressed asks fill 0.3% vs 3.5% for open asks.
+- **Trading loop**: KEEP, but fix it before 09:00.
+  - It made 2 accepts all Saturday (6.2 and 15.5).
+  - Its log ends in an `unknown_card sobre_bienvenida` error every minute (22:41-22:45) and repeated DNS failures (22:55-23:24).
+- **Dealer bot, CHA buys and fodder sales**: KEEP within the directives.
+  - Ladder rose 0.437 → 0.483, but `negotiating` did not move across ladder 0.373 → 0.437 [L, Chief 17:45]. Log the board after each fodder sale.
+- **Pícaros spare sales**: KILL. The LAV-04 thread ended with her final 4 = her opening (no ladder) against our value 3.2, and she was walked from.
+- **Idle dealer threads**: KILL. The 1367-1370 threads all closed at the dealer's first price with no price from us. They are no gain and use thread slots.
+- **Flags**: DONE. Net +20, and the cap was confirmed at 17:43.
+- **In-room / club trades on v10**: KEEP per directive 01:10. There are no negatives so far (directive 01:40).
 
 ## Check the scout
-- **Holds:**
-  - SAL-11 cancel facts (ask 245, last trade 207).
-  - RET-09 t07 → t09 is approved, and t07 is at 20.2.
-  - t08 is only 5.4 below us, so we do not fill its bids.
-  - Team 18 bought LAT-10 from t13 at 72.
-  - Team 12 bought LAV-08 at 14 from t08.
-- **Fails:**
-  - "Team 10's venue v10 hosts the club deals" is wrong. v10 is OUR venue: the tick 311 and 398 trades on v10 moved our mm_points.
-  - Team 12's LAT-06 came from t09, not t08.
-  - "Team 12 racing us (+0.4)" is stale: the metrics show −0.1/15 min and −0.1/60 min. The real climber is Team 18.
-  - "CHA needs 242-384 P" is stale. The current figures are A 242 / B 250 / C 282 (Lucas log 00:46).
-  - Workshop "at 09:00" conflicts with the directive, which runs the Workshop and fodder AFTER the CHA buys.
-- **Holds with a caveat:** the Workshop input LAV-02 ×2 + LAV-03 keeps at least 1 copy of each card. It is legal, and its neg effect is 0 [V].
+- **Holds**:
+  - Offers 19979/19981 at 6 vs value 3.2, expiring at tick 1455.
+  - Round-2 reset precedent (67.8 → 0).
+  - CHA rare value 112.
+  - Cash 392 below the 464 floor, so the trader is sells-only.
+  - Open-vs-addressed fill rates.
+  - t16's 18 bid for RET-06 is below our 100.4.
+  - The SAL close at +40.4.
+- **Wrong: Team 10 and epics.** "Team 10 sells epics… MAL-11 to t10 at 195". t10 BOUGHT MAL-11 from t08; it sold SAL-11 at 207.
+- **Wrong: v10.** "Don't route club trades through v10… Team 10's venue" confuses our venue v10 with Team 10. Our `mm_points` moved on v10 trades (ticks 311 and 398), and directive 01:10 puts 2 of 3 club deals there.
+- **Weak: Team 18 "below the ~86 others paid".** That rests on one trade (t12 at 86).
+- **Conflict: sell LAV-02 spares.** Directive 00:44 sends 3 spare LAV commons to the Workshop. Saturday's Workshop gave +11.8 collection value, against about 3.9 total for selling 3 × 1.3. Sell only the LAV spares left after the Workshop.
+- **Missed: MAL cash gap.** Cash 392 − CHA case-B 288 = 104, below the ≥150 P MAL GO threshold (directive 01:40). The Sunday grant size is not in the data.
 
 ## The 3 changes with the highest expected gain
-1. **CHA page at round 3's first tick, closed by a team trade.**
-   - How: Pícaros rares at ≤ 54, in parallel with capped public bids. Leave the last (cheapest) card for one addressed, agreed post from a non-rival, as maker.
-   - Effect: up to +50 neg (the cap) on the closer. That is ≈ +2.5 board at the 17:46 rate [L].
-   - Risk: print runs running out (SAL-11 was 9/9), or a rival flip of the last card.
-2. **v10 row #1 (RET-09 t07 → t09) as the first trade of the day.**
-   - How: WhatsApp-confirmed and addressed; then rows #5 and #6 after the 08:30 rival check.
-   - Effect: +67.6 VC. It likely fills v10's real-trades target (full real trades = +5.0 board).
-   - Risk: t07 or t09 not confirming. Any negative-VC trade on v10, like Saturday's −5.2, wipes the gain.
-3. **MAL close, go/no-go at 10:30 on the M5 line.**
-   - How: rares (value 49) only at ≤ 49 from Pícaros or teams. MAL-07 last, from a team.
-   - Effect: the page bonus is 46.4 (66.25 × 0.7). The neg gain on the closer is capped at 50. The exact net is not in the data until the prices are known.
-   - Risk: cash, since CHA comes first. A rare above 49 is a full dealer loss.
+1. **Fund the MAL close before CHA spending locks cash (Operator, 09:00).**
+   - Post every non-page spare as an OPEN ask on a non-rival member venue: LAT-03/04 at value 5; leftover LAV commons after the Workshop.
+   - RET-11 to Pilar only at ≥198.
+   - Re-check cash against 150 + CHA cost after the grant.
+   - Effect: makes the +30 np MAL close possible (directive 01:40).
+   - Risk: thin fills (3.5%); the grant may already cover the gap.
+2. **Fix and verify the trader before the restart (Builder).**
+   - Remove the stale `sobre_bienvenida` reference.
+   - Run one dry tick with `CASH_FLOOR=464 --max-ratio 0.8 --exclude 'CHA-*,MAL-*'`.
+   - Confirm no errors for 5 minutes.
+   - Effect: the only auto-capture of below-value asks, which was worth +21.7 on Saturday.
+   - Risk: a bad restart burns accepts during the CHA fast start, so run it after the first CHA tick.
+3. **Treat the round-3 reset check as the gate for every sale (Operator, first tick).**
+   - If `neg_points` resets, Saturday's 119.1 is banked and every CHA card bought at ≤ value scores from zero, so run CHA first, fodder after.
+   - If it carries, also post the 2 LAV asks as open, not addressed.
+   - Effect: avoids misallocating the first accepts.
+   - Risk: none beyond a few ticks of delay.
