@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 20:54** · tick 1201 (30 s/tick) · game hour 11.33 · PAUSED · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 20:59** · tick 1204 (30 s/tick) · game hour 11.36 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,9 +17,9 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 20:58 · operator · organisers 20:57: 'Play resumes now. Duels II starts in about 20 minutes' (≈ 21:17, ~tick 1239) · writers stay stopped through Duels II (run/hold-writes, restart job br3fwf6zd) · cash 520
   - Sat 20:38 · operator · **PAYDAY** (organisers 20:37): 'every team gets 400 primas, a second starting purse. Don Ernesto's vault and Los Pícaros' epics are within reach. Only deals score, never cash you hold' → **cash 120 → 520** [V] · game still paused at tick 1201 · writers stopped, run/hold-writes in place until the Chief's plan · facts sent: dealer buys clip at 0, team page closes cap at +50, MAL is missing 06/07/09/10, rivals can now afford their closers (DENY), caps and floors need resetting
   - Sat 20:16 · operator · **game paused at tick 1201** (organisers' announcement) → Chief: hold all new writes now · stopped the v10 ad job, swaps, book, opps, trader and bargains (collector, status and duelmon stay); flag file run/hold-writes · restart job br3fwf6zd: on `duels.finished` Duels II or tick ≥ 1439 (1239 + 200), and only once run/hold-writes is removed (on the Chief's clearance) · standing maker asks remain posted
-  - Sat 20:12 · operator · Team 4 deal (Chief/Lucas): t04 lists spares on v10; our NEW asks go to t04's **v05 'Gacela'** (0 bps, 0 per card, owner t04, not a rival [V]), except asks addressed to t04 (v15) · LAV-03 re-addressed → **t04 at 6** (17660, v15; t09 doesn't collect LAV) · MAL-02/MAL-05 → t15 cancelled (17300/17301; Team 15 holds both) and dropped from the book · kept: LAV-04 → t01 at 6 (17586), MAL-08 → t01 at 20 (17392), MAL-03 → t09 (17228) · swaps' venue list is code (PARTNERS → v15): Builder · 20:12 organisers: 'the game pauses in 2 minutes for a short announcement, about 10 minutes'
 
 ## Score
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 11.65 | ~19 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~100 min | bench | The Market Test: every venue gets the same synthetic book |
-| 13.42 | ~125 min (after today's close) | day_closes | Closed until Sunday 09:00 |
-| 13.42 | ~125 min (after today's close) | day_opens | Sunday opens |
-| 14.65 | ~199 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
-| 15.00 | ~220 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
-| 16.65 | ~319 min (after today's close) | set_release | Chamberí released |
-| 16.65 | ~319 min (after today's close) | round | Round 3 starts |
+| 11.65 | ~18 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~99 min | bench | The Market Test: every venue gets the same synthetic book |
+| 13.36 | ~120 min (after today's close) | day_closes | Closed until Sunday 09:00 |
+| 13.36 | ~120 min (after today's close) | day_opens | Sunday opens |
+| 14.65 | ~198 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 15.00 | ~219 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 16.65 | ~318 min (after today's close) | set_release | Chamberí released |
+| 16.65 | ~318 min (after today's close) | round | Round 3 starts |
 
 ## Our dealer deals
 
@@ -58,7 +58,6 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Thread | Dealer | Side | Item | Her first | Our first | Deal | vs her first | Msgs | Status | Closed |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 418 | chato | buy | RET-06 | 33 | 18 | — | — | 9 | closed |  |
 | 425 | abuela | buy | RET-08 | 29 | 16 | 22 | -24% | 9 | deal |  |
 | 430 | chato | buy | RET-06 | 33 | 20 | 30 | -9% | 11 | deal |  |
 | 438 | abuela | buy | RET-07 | 29 | 16 | 23 | -21% | 11 | deal |  |
@@ -90,6 +89,7 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | 1554 | picaros | sell | 1 card(s) | 4 | 10 | — | — | 9 | closed |  |
 | 1582 | abuela | buy | LAT-12 | — | — | — | — | 2 | closed | not_traded |
 | 1589 | chato | buy | LAT-12 | — | — | — | — | 2 | closed | not_traded |
+| 1806 | picaros | buy | RET-11 | 187 | 112 | — | — | 2 | open |  |
 
 ## Abuela benchmark: every team's deals with her (public feed)
 
