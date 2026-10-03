@@ -468,3 +468,13 @@
 {"id": 28523, "tick": 537, "t": 5.8, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2433, "session": 2, "status": "deal", "item": "La Heroína del Dos de Mayo"}}
 {"id": 28526, "tick": 537, "t": 5.8, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2494, "session": 2, "status": "deal", "item": "La Heroína del Dos de Mayo"}}
 {"id": 28581, "tick": 538, "t": 5.8083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2532, "session": 2, "status": "no_deal", "item": "Palacio de Cristal"}}
+{"id": 28625, "tick": 539, "t": 5.8167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2375, "session": 2, "status": "no_deal", "item": "La Heroína del Dos de Mayo"}}
+{"id": 28628, "tick": 539, "t": 5.8167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2439, "session": 2, "status": "deal", "item": "El Mesón de la Cava"}}
+{"id": 28631, "tick": 539, "t": 5.8167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2441, "session": 2, "status": "deal", "item": "Palacio de Cristal"}}
+{"id": 28634, "tick": 539, "t": 5.8167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2445, "session": 2, "status": "no_deal", "item": "Café en Goya"}}
+{"id": 28703, "tick": 541, "t": 5.8333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2349, "session": 2, "status": "no_deal", "item": "Palacio de Cristal"}}
+{"id": 28706, "tick": 541, "t": 5.8333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2516, "session": 2, "status": "deal", "item": "Mercado de la Paz"}}
+{"id": 28709, "tick": 541, "t": 5.8333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2526, "session": 2, "status": "no_deal", "item": "El Mesón de la Cava"}}
+{"id": 28746, "tick": 542, "t": 5.8417, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2485, "session": 2, "status": "no_deal", "item": "La Heroína del Dos de Mayo"}}
+{"id": 28749, "tick": 542, "t": 5.8417, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2523, "session": 2, "status": "no_deal", "item": "Café en Goya"}}
+{"id": 28752, "tick": 542, "t": 5.8417, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2538, "session": 2, "status": "no_deal", "item": "Café en Goya"}}
