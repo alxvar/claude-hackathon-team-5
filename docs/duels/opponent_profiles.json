@@ -36,7 +36,7 @@
     "points_MAE_P": 10.4,
     "points_bias_P": -3.9
    },
-   "share_calibration": "LLM-proxy of the policy played in Duels II, simulated at Duels II settings: 0.30 share/duel vs 0.316 actual (21.46 duel points / 68 duels)"
+   "share_calibration": "LLM-proxy of the Duels II policy simulated at Duels II settings: 0.30 share/duel vs 0.316 actual (21.46 duel points / 68 duels); scratchpad out/ablation_share.out"
   },
   "adaptation_value": {
    "metric": "share of pie x 0.9^rounds per duel",
@@ -56,7 +56,13 @@
     "cross_fit_se_teams": 1.01
    },
    "verdict": "not worth building: per-team best responses are listed for reference only"
-  }
+  },
+  "how_to_use": [
+   "Identify the rival from its first message with identify.signature_regex (aliases are random); no message by tick ~3 suggests E/H/O/Q/P.",
+   "Profiles are for monitoring and simulation. Do not switch parameters per team: the cross-fit value of that is <= 0 (meta.adaptation_value).",
+   "robust_policy.recommended is the policy for every opponent; robust_policy.this_model_optimum documents this model's optimum (sim_params use this simulator's names)."
+  ],
+  "zone_share_claimed": "D_median/(u0_mean+D_median): the share of the zone [our limit, rival reservation R] the rival claims with its opener; >1 means it opens beyond our limit"
  },
  "pooled": {
   "p_silent": 0.1538,
@@ -82,46 +88,48 @@
   "team": "POOLED"
  },
  "robust_policy": {
-  "name": "XC anchor-and-hold (code-decided moves)",
-  "recommended_variant": "Lab openers (seller 0.73, buyer 0.37 of limit, in price): robust in BOTH simulators",
-  "rules": [
-   "tick 0: open at once (no OPEN_WAIT). Seller: price = cost*(1+0.73) on day 10. Buyer: price = value*(1-0.37) on day 0.",
-   "mid-duel: send nothing (no concessions, no re-sends). Silence adds no round; clock/periodic rivals keep conceding.",
-   "accept their standing offer at any tick if its worth to us >= 0.9 x the worth of our standing offer.",
-   "silent rival (no offer yet) from half-time: walk our price in equal steps from the opener to 0.08 x limit by 2 ticks left (free: rounds stay 0).",
-   "ticks_left == 3: ONE final offer, on our day, worth = theirs + 0.45 x (ours - theirs) (concede 55% of the gap), never below 0.03 x limit.",
-   "ticks_left == 1 (last tick): accept their standing offer if its worth > 0. Do not accept at ticks_left 2 (it pre-empts their acceptance of our final).",
-   "day: seller always day 10, buyer always day 0 (no late switch)."
-  ],
-  "sim_params": {
-   "open_u": 0.73,
-   "open_u_buyer": 0.37,
-   "cadence": "never",
-   "acc_ratio": 0.9,
-   "walk": true,
-   "walk_floor": 0.08,
-   "walk_from": 0.5,
-   "final_left": 2,
-   "final_phi": 0.45,
-   "late": 0,
-   "day_s": 10,
-   "day_b": 0,
-   "min_margin": 0.03,
-   "open_wait": 0
+  "recommended": "Duel Lab set C, code-first, with the Sun 02:00 openers (OPENER_SHARE_SELLER 0.42 price, OPENER_SHARE_BUYER 0.37): MIN_STEP_P 8, MAX_STEP_SHARE 0.12, LATE_SWITCH_LEFT 0, OPEN_WAIT 0, MONO_END_SHARE 0.25. Best in the Duel Lab simulator; in this model 0.31 share/duel vs 0.35-0.38 for XC and 0.28 for the FINAL params file.",
+  "this_model_optimum": {
+   "name": "XC anchor-and-hold (code-decided)",
+   "rules": [
+    "tick 0: open at once (no OPEN_WAIT); seller price = cost*(1+s) on day 10, buyer price = value*(1-b) on day 0 (this model: s 0.9, b 0.6; with the Lab openers s 0.42, b 0.37 it scores 0.35 instead of 0.38).",
+    "mid-duel: send nothing (no concessions, no re-sends).",
+    "accept their standing offer at any tick if its worth to us >= 0.9 x the worth of our standing offer.",
+    "silent rival (no offer yet) from half-time: walk our price in equal steps toward a price that leaves us 8% of our limit, reaching it with 2 ticks left; stop as soon as it speaks.",
+    "ticks_left == 3: ONE final offer on our day, worth = theirs + 0.45 x (ours - theirs) (concede 55% of the gap), never below 3% of our limit.",
+    "ticks_left == 1: accept their standing offer if its worth > 0 (accepting at ticks_left 2 pre-empts their acceptance of our final).",
+    "day: seller day 10, buyer day 0."
+   ],
+   "sim_params": {
+    "open_u": 0.9,
+    "open_u_buyer": 0.6,
+    "cadence": "never",
+    "acc_ratio": 0.9,
+    "walk": true,
+    "walk_floor": 0.08,
+    "walk_from": 0.5,
+    "final_left": 2,
+    "final_phi": 0.45,
+    "late": 0,
+    "day_s": 10,
+    "day_b": 0,
+    "min_margin": 0.03,
+    "open_wait": 0
+   },
+   "status": "NOT recommended for Sunday: like-for-like (openers 0.42/0.37) it beats set C by +0.040 +/- 0.010 share/duel in this model but loses in 14 of 15 Duel Lab simulator cells (by 0.001-0.030; wins one by 0.007)"
   },
-  "alt_higher_anchor": {
-   "open_u": 0.9,
-   "open_u_buyer": 0.6,
-   "note": "+0.02 share/duel in this model, -0.018 in the Duel Lab simulator: not adopted"
+  "expected_share_per_duel_this_model": {
+   "XC_open_0p9_0p6": 0.38,
+   "XC_open_0p42_0p37": 0.35,
+   "lab_C_open_0p42": 0.31,
+   "lab_FINAL_file_llm_proxy": 0.28,
+   "lab_today_llm_proxy": 0.28
   },
-  "expected_share_per_duel": {
-   "this_model": 0.36,
-   "this_model_alt": 0.38,
-   "lab_C_this_model": 0.31,
-   "lab_sim_R1_lab_mix": 0.42,
-   "lab_C_lab_sim_R1": 0.434,
-   "lab_sim_R1_measured_mix": 0.435,
-   "lab_C_lab_sim_R1_measured_mix": 0.426
+  "expected_share_per_duel_lab_sim_R1_lab_mix": {
+   "lab_C_open_0p42": 0.468,
+   "XC_open_0p42": 0.449,
+   "lab_C_open_0p73": 0.434,
+   "lab_FINAL_file_llm": 0.405
   }
  },
  "teams": {
@@ -233,8 +241,7 @@
      "walk": true
     },
     "expected_share": 0.49,
-    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only",
-    "recommended_policy_share": 0.444
+    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only"
    }
   },
   "B": {
@@ -348,8 +355,7 @@
      "walk": true
     },
     "expected_share": 0.62,
-    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only",
-    "recommended_policy_share": 0.442
+    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only"
    }
   },
   "C": {
@@ -467,8 +473,7 @@
      "walk": true
     },
     "expected_share": 0.593,
-    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only",
-    "recommended_policy_share": 0.563
+    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only"
    }
   },
   "D": {
@@ -584,8 +589,7 @@
      "walk": true
     },
     "expected_share": 0.41,
-    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only",
-    "recommended_policy_share": 0.418
+    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only"
    }
   },
   "E": {
@@ -697,8 +701,7 @@
      "walk": true
     },
     "expected_share": 0.394,
-    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only",
-    "recommended_policy_share": 0.344
+    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only"
    }
   },
   "F": {
@@ -813,8 +816,7 @@
      "walk": true
     },
     "expected_share": 0.363,
-    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only",
-    "recommended_policy_share": 0.305
+    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only"
    }
   },
   "G": {
@@ -927,8 +929,7 @@
      "walk": true
     },
     "expected_share": 0.455,
-    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only",
-    "recommended_policy_share": 0.37
+    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only"
    }
   },
   "H": {
@@ -1045,8 +1046,7 @@
      "walk": true
     },
     "expected_share": 0.335,
-    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only",
-    "recommended_policy_share": 0.296
+    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only"
    }
   },
   "I": {
@@ -1161,8 +1161,7 @@
      "walk": true
     },
     "expected_share": 0.564,
-    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only",
-    "recommended_policy_share": 0.412
+    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only"
    }
   },
   "J": {
@@ -1274,8 +1273,7 @@
      "walk": true
     },
     "expected_share": 0.429,
-    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only",
-    "recommended_policy_share": 0.335
+    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only"
    }
   },
   "K": {
@@ -1388,8 +1386,7 @@
      "walk": true
     },
     "expected_share": 0.346,
-    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only",
-    "recommended_policy_share": 0.287
+    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only"
    }
   },
   "L": {
@@ -1503,8 +1500,7 @@
      "walk": true
     },
     "expected_share": 0.327,
-    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only",
-    "recommended_policy_share": 0.256
+    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only"
    }
   },
   "M": {
@@ -1618,8 +1614,7 @@
      "walk": true
     },
     "expected_share": 0.682,
-    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only",
-    "recommended_policy_share": 0.593
+    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only"
    }
   },
   "N": {
@@ -1732,8 +1727,7 @@
      "walk": true
     },
     "expected_share": 0.377,
-    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only",
-    "recommended_policy_share": 0.292
+    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only"
    }
   },
   "O": {
@@ -1847,8 +1841,7 @@
      "walk": true
     },
     "expected_share": 0.431,
-    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only",
-    "recommended_policy_share": 0.414
+    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only"
    }
   },
   "P": {
@@ -1878,13 +1871,13 @@
    },
    "tempo": {
     "cls": "silent",
-    "p_msg_after_our_msg": 0.72,
-    "p_msg_when_we_are_silent": 0.31,
+    "p_msg_after_our_msg": 0.0,
+    "p_msg_when_we_are_silent": 0.0,
     "max_msgs_per_duel": 0
    },
    "opening": {
-    "u0_mean": -0.051,
-    "u0_sd": 0.283,
+    "u0_mean": null,
+    "u0_sd": null,
     "zone_share_claimed": null
    },
    "concession": {
@@ -1907,7 +1900,8 @@
     "deadline_window_ticks": 0,
     "rule": "accepts our offer if (day-adjusted) u <= their_current + alpha*(R - their_current); in the last deadline_window_ticks+1 ticks accepts any u <= R",
     "observed_accepts": 0,
-    "observed_late_share": null
+    "observed_late_share": null,
+    "note": "never accepted any offer in 6 duels (we walked down to our limit twice)"
    },
    "days": {
     "kappa": 0.0,
@@ -1957,8 +1951,7 @@
      "walk": true
     },
     "expected_share": 0.0,
-    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only",
-    "recommended_policy_share": 0.0
+    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only"
    }
   },
   "Q": {
@@ -2070,69 +2063,8 @@
      "walk": true
     },
     "expected_share": 0.356,
-    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only",
-    "recommended_policy_share": 0.361
+    "note": "in-model best of 176 candidates; NOT validated (cross-fit gain <= 0): reference only"
    }
-  }
- },
- "robust_policy_share_by_team": {
-  "metric": "share of pie x 0.9^rounds, this model (fit on all 136 duels), 3000 draws per team, 12 ticks / 10% decay",
-  "recommended": {
-   "A": 0.444,
-   "B": 0.442,
-   "C": 0.563,
-   "D": 0.418,
-   "E": 0.344,
-   "F": 0.305,
-   "G": 0.37,
-   "H": 0.296,
-   "I": 0.412,
-   "J": 0.335,
-   "K": 0.287,
-   "L": 0.256,
-   "M": 0.593,
-   "N": 0.292,
-   "O": 0.414,
-   "P": 0.0,
-   "Q": 0.361
-  },
-  "lab_C": {
-   "A": 0.39,
-   "B": 0.397,
-   "C": 0.391,
-   "D": 0.378,
-   "E": 0.331,
-   "F": 0.246,
-   "G": 0.294,
-   "H": 0.212,
-   "I": 0.364,
-   "J": 0.29,
-   "K": 0.252,
-   "L": 0.225,
-   "M": 0.485,
-   "N": 0.277,
-   "O": 0.321,
-   "P": 0.0,
-   "Q": 0.33
-  },
-  "alt_higher_anchor": {
-   "A": 0.477,
-   "B": 0.504,
-   "C": 0.581,
-   "D": 0.405,
-   "E": 0.37,
-   "F": 0.336,
-   "G": 0.402,
-   "H": 0.303,
-   "I": 0.454,
-   "J": 0.333,
-   "K": 0.311,
-   "L": 0.27,
-   "M": 0.633,
-   "N": 0.316,
-   "O": 0.404,
-   "P": 0.0,
-   "Q": 0.362
   }
  }
 }
