@@ -67,6 +67,117 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 479,
+   "raw": {
+    "duel": 2315,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 64,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 491,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 3061,
+     "price": 96,
+     "tick": 475,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3137,
+     "price": 50,
+     "tick": 479,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 475,
+      "from": "you",
+      "text": "El Mesón de la Cava is an established tavern with steady trade, a prime location and a well-stocked cellar that draws regulars. I'm offering it at 96 P, and I'd welcome a serious counteroffer from you.",
+      "price": 96,
+      "days": null
+     },
+     {
+      "tick": 479,
+      "from": "Rival Oro",
+      "text": "Hola. I like it, and I can pay 50 P.",
+      "price": 50,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 479,
+   "raw": {
+    "duel": 2315,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 64,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 491,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 3158,
+     "price": 90,
+     "tick": 479,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3137,
+     "price": 50,
+     "tick": 479,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 475,
+      "from": "you",
+      "text": "El Mesón de la Cava is an established tavern with steady trade, a prime location and a well-stocked cellar that draws regulars. I'm offering it at 96 P, and I'd welcome a serious counteroffer from you.",
+      "price": 96,
+      "days": null
+     },
+     {
+      "tick": 479,
+      "from": "Rival Oro",
+      "text": "Hola. I like it, and I can pay 50 P.",
+      "price": 50,
+      "days": null
+     },
+     {
+      "tick": 479,
+      "from": "you",
+      "text": "Thanks for your interest. The tavern's steady trade, prime location and well-stocked cellar make it worth far more than your offer, but I'm willing to come down to 90 P as a good-faith step. I'd ask you to move meaningfully closer from where you started.",
+      "price": 90,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -177,6 +288,111 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 479,
+   "took_s": 6.34,
+   "cost_usd": 0.00639,
+   "obs": {
+    "view": {
+     "duel_id": 2315,
+     "role": "seller",
+     "limit": 64,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "El Mesón de la Cava is an established tavern with steady trade, a prime location and a well-stocked cellar that draws regulars. I'm offering it at 96 P, and I'd welcome a serious counteroffer from you.",
+      "offer": {
+       "price": 96,
+       "days": null
+      },
+      "accept": false,
+      "tick": 475,
+      "decision": {
+       "action": "offer",
+       "price": 96,
+       "message": "El Mesón de la Cava is an established tavern with steady trade, a prime location and a well-stocked cellar that draws regulars. I'm offering it at 96 P, and I'd welcome a serious counteroffer from you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hola. I like it, and I can pay 50 P.",
+      "offer": {
+       "price": 50,
+       "days": null
+      },
+      "accept": false,
+      "tick": 479,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 50,
+     "days": null
+    },
+    "tick": 479,
+    "ticks_left": 12,
+    "rounds": 1
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thanks for your interest. The tavern's steady trade, prime location and well-stocked cellar make it worth far more than your offer, but I'm willing to come down to 90 P as a good-faith step. I'd ask you to move meaningfully closer from where you started.",
+    "price": 90,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 90,
+      "message": "Thanks for your interest. The tavern's steady trade, prime location and well-stocked cellar make it worth far more than your offer, but I'm willing to come down to 90 P as a good-faith step. I'd ask you to move meaningfully closer from where you started."
+     },
+     "band": {
+      "worst": 88,
+      "target": 90,
+      "best": 92
+     },
+     "plan": {
+      "read": "They opened at 50 P against our 96 P, a low anchor that only marks the least they'd pay; their real ceiling is likely well above it. This is their first offer, so there is no movement yet to match beyond the opening exchange.",
+      "target": 90,
+      "best": 92,
+      "worst": 88,
+      "days": null,
+      "angle": "Make a modest first step to show good faith, stress the tavern's steady trade, prime location and cellar, and ask them to come up meaningfully from 50."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.07,
+       "in": 386,
+       "out": 155,
+       "cost_usd": 0.00464,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.27,
+       "in": 359,
+       "out": 103,
+       "cost_usd": 0.00175,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -233,6 +449,63 @@
      "id": 3061,
      "price": 96,
      "tick": 475,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 479,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thanks for your interest. The tavern's steady trade, prime location and well-stocked cellar make it worth far more than your offer, but I'm willing to come down to 90 P as a good-faith step. I'd ask you to move meaningfully closer from where you started.",
+    "price": 90,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 90,
+      "message": "Thanks for your interest. The tavern's steady trade, prime location and well-stocked cellar make it worth far more than your offer, but I'm willing to come down to 90 P as a good-faith step. I'd ask you to move meaningfully closer from where you started."
+     },
+     "band": {
+      "worst": 88,
+      "target": 90,
+      "best": 92
+     },
+     "plan": {
+      "read": "They opened at 50 P against our 96 P, a low anchor that only marks the least they'd pay; their real ceiling is likely well above it. This is their first offer, so there is no movement yet to match beyond the opening exchange.",
+      "target": 90,
+      "best": 92,
+      "worst": 88,
+      "days": null,
+      "angle": "Make a modest first step to show good faith, stress the tavern's steady trade, prime location and cellar, and ask them to come up meaningfully from 50."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.07,
+       "in": 386,
+       "out": 155,
+       "cost_usd": 0.00464,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.27,
+       "in": 359,
+       "out": 103,
+       "cost_usd": 0.00175,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2315,
+    "offer": {
+     "id": 3158,
+     "price": 90,
+     "tick": 479,
      "days": 0
     }
    }

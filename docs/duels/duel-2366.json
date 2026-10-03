@@ -290,6 +290,267 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 479,
+   "raw": {
+    "duel": 2366,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 101,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 491,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 3062,
+     "price": 165,
+     "tick": 475,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3136,
+     "price": 67,
+     "tick": 479,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 475,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 475,
+      "from": "you",
+      "text": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1",
+      "price": 165,
+      "days": null
+     },
+     {
+      "tick": 476,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 477,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 478,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 479,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 480,
+   "raw": {
+    "duel": 2366,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 101,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 491,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 3062,
+     "price": 165,
+     "tick": 475,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3162,
+     "price": 67,
+     "tick": 480,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 475,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 475,
+      "from": "you",
+      "text": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1",
+      "price": 165,
+      "days": null
+     },
+     {
+      "tick": 476,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 477,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 478,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 479,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 480,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 481,
+   "raw": {
+    "duel": 2366,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 101,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 491,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 3062,
+     "price": 165,
+     "tick": 475,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3205,
+     "price": 67,
+     "tick": 481,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 475,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 475,
+      "from": "you",
+      "text": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1",
+      "price": 165,
+      "days": null
+     },
+     {
+      "tick": 476,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 477,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 478,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 479,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 480,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 481,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
