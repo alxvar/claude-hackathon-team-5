@@ -1,5 +1,13 @@
 # Market log (Market session; newest first)
 
+## Sat 10:03 · sim with staggered arrivals (first calibration, hand-set from the bench 3.0 trace) [L, model]
+- `staggered-20` (20 traders, arrivals over ticks 0-10, limits 20-110, shade 0.1-0.4, short lives), 300 seeds:
+  auto_clone 0.883 (real stall: 0.899), **v1 0.871 = −1.2 pp vs the stall** (worse in 52, better in 26, worst −28 pp),
+  quote-oracle 0.969 (**+8.6 pp of room**). `staggered-20-firm`: 0.825 / 0.818 / 0.925.
+- **Reading:** with arrivals over time, v1's extra pairs use up traders that later arrivals needed. v1 fails the gate;
+  do not deploy it. The room is large, and it sits in waiting for better partners, not in matching more.
+- **10:02** v10 fee → 0 from tick 230 (Lucas ran `set_fee`), announcement posted. Watching v10 trades and our market.
+
 ## Sat 10:00 · bench-h03.0 (ticks 201-217), on the free stall v10 (auto, fee 3%)
 - **Ours [V]:** bench_efficiency 0.899, bench_points 0.5, market 4.8 at snapshot 220.
 - **Field at snapshot 220 [V]:** all 11 stall teams 4.8. Board venues: t02 (v04), t04 (v05), t10 (v07) 4.8; t08 (v06) 4.75;
