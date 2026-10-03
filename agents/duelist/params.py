@@ -72,6 +72,7 @@ SPEC: dict[str, Spec] = {
     "CODE_STEP_SHARE": Spec("policy", 0.03, 0.6, float, "alpha", "a mid-duel concession: this share of the gap"),
     "END_STEP_SHARE": Spec("policy", 0.1, 1.0, float, "end_alpha", "in the last CLOSING_TICKS: this share"),
     "ACCEPT_NEAR_P": Spec("policy", 0, 10, float, None, "their offer within this of our step's landing: take it"),
+    "ACCEPT_RATIO": Spec("policy", 0.5, 1.0, float, "acc_ratio", "take their offer at this share of ours (1.0: off)"),
     "TEXT_TIMEOUT_S": Spec("policy", 0.5, 8.0, float, None, "the text model's budget; then code's plain text"),
 }
 CROSS = [("MIN_STEP_SHARE", "MAX_STEP_SHARE"), ("SWING_LOW_P", "SWING_HIGH_P"), ("RANK_LOW", "RANK_HIGH"),

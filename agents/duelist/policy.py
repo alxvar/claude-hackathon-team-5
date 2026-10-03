@@ -10,13 +10,19 @@ when they fail, so a decision takes at most about TEXT_TIMEOUT_S plus code time.
 
 The moves follow the Duel Lab's simulated policy (intel/duel-lab.md, tools/duel_sim.py), with the duelist's code
 rules unchanged around them (the runner's deadline / small-gap accepts, the silent walk, the late day switch):
-- opener: OPENER_SHARE of our limit away from it, in worth (Duels I openers: median 0.42, the simulator's U);
+- opener: OPENER_SHARE of our limit away from it, in PRICE, on our day (Duels I openers: median 0.42 of the limit,
+  the simulator's U; Duels II's model opened at 0.51). Not in worth: since the seller's day bonus counts from day 0
+  (DayValues.offset), worth at day 10 carries up to ~50 P the rival never sees, and a worth-based opener came out at
+  67 on a 69 limit, or -2 P (replay of Duels II's 287 model decisions, Sat 22:30);
 - each move after: concede CODE_STEP_SHARE of the gap between the standing offers, in worth, cut to MAX_STEP_SHARE
   and held when below `min_step`, as `agent.held` does for the models. Simulated (tools/duel_sim.py, Sunday's 12
   ticks at 10% decay, 6,000 duels a world, paired against today's model steps capped at 25%): 12% wins in all four
   rival worlds (+0.008 to +0.010 a duel, every CI above 0); 15% +0.005 to +0.013; 20% and 25% lose in one or two;
   in the last CLOSING_TICKS: END_STEP_SHARE of the gap, never held or cut;
-- accept their standing offer when it is worth at least our own, or within ACCEPT_NEAR_P of where our step lands;
+- accept their standing offer when it is worth ACCEPT_RATIO of our own (1.0: as good), or within ACCEPT_NEAR_P of
+  where our step lands. The replay: the model accepted 10 offers worth 62-93% of ours with 3-7 ticks left (all
+  closed); the simulator finds an accept ratio neutral at 0.85+ and slightly worse at 0.75, so it stays off by
+  default, tunable in run/duel_params.json;
 - the day: the day rules' call (`agent.day_read`): take their day, give it (worth up by its cost: the premium), or
   hold ours (a menu holds ours too; the words may name the other package);
 - never past our limit: the step stops at our limit on the day offered, and `agent.final` checks the move again.
@@ -43,6 +49,8 @@ OPENER_SHARE = 0.42      # our opener's distance from our limit, as a share of t
 CODE_STEP_SHARE = 0.12   # a mid-duel concession: this share of the gap (simulated vs today's 25% cap, below)
 END_STEP_SHARE = 0.5     # in the last CLOSING_TICKS ticks: this share (the simulator's end_alpha)
 ACCEPT_NEAR_P = 2.0      # their offer within this of where our step lands: take it instead of another round
+ACCEPT_RATIO = 1.0       # take their offer once it is worth this share of our standing one (1.0: only as good)
+MIN_PRICE = 1            # never offer a price below this (a seller's day bonus can make worth-0 prices negative)
 TEXT_TIMEOUT_S = 3.5     # the text model's budget; after it, code's plain words
 
 
@@ -78,16 +86,19 @@ def code_move(agent: "DuelAgent", obs: Observation) -> "Move":
     day, call, premium = code_day(agent, obs)
     meta: dict[str, Any] = {"policy": "code", "day_call": call}
     if not ours:
-        price = A.toward_us(s, price_at(v, OPENER_SHARE * v.limit + premium, day))
-        return A.Move("offer", "", price=price, days=day, meta={**meta, "rule": "code opener"})
+        price = A.toward_us(s, v.limit + s * OPENER_SHARE * v.limit)
+        if past_limit(v, price, day):                  # the day costs more than the margin: our limit on that day
+            price = A.toward_us(s, price_at(v, 0.0, day))
+        return A.Move("offer", "", price=max(price, MIN_PRICE), days=day, meta={**meta, "rule": "code opener"})
     last = ours[-1]
     hold = lambda why: A.Move("offer", "", price=last.price, days=last.days,  # noqa: E731
                               meta={**meta, "rule": why})
     if theirs is None:
         return hold("code: nothing of theirs to answer")
     now, their_w = worth(v, last.price, last.days), worth(v, theirs.price, theirs.days)
-    if their_w >= now and not past_limit(v, theirs.price, theirs.days):
-        return A.Move("accept", "", price=theirs.price, meta={**meta, "rule": "code: theirs is as good as ours"})
+    if their_w >= ACCEPT_RATIO * now and their_w >= 0 and not past_limit(v, theirs.price, theirs.days):
+        return A.Move("accept", "", price=theirs.price, meta={**meta, "rule": "code: theirs is as good as ours"
+                                                              if their_w >= now else f"code: theirs is {their_w / now:.0%} of ours"})
     gap = now - their_w
     left = obs.ticks_left
     closing = left is not None and left <= A.CLOSING_TICKS
@@ -102,6 +113,7 @@ def code_move(agent: "DuelAgent", obs: Observation) -> "Move":
     price = A.toward_us(s, price_at(v, target + premium, day))
     if past_limit(v, price, day):
         price = A.toward_us(s, price_at(v, 0.0, day))
+    price = max(price, MIN_PRICE)
     if (price, day) == (last.price, last.days):
         return hold("code: same offer")
     return A.Move("offer", "", price=price, days=day, meta={**meta, "rule": "code step", "step": round(step, 2),

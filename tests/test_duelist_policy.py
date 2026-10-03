@@ -120,3 +120,29 @@ def test_an_accept_gets_words_that_may_agree():
 def test_the_llm_policy_is_untouched():
     a = DuelAgent(SELLER, Words(), Words())
     assert a.policy == "llm" and "Words" not in a.strategist_system
+
+
+DAYS_SELLER = DuelView(duel_id=6094, role=Role.SELLER, limit=34, item="a card", decay=0.08, duel_ticks=16,
+                       issues=["price", "days"], days_weight=5.11,
+                       days_meaning="each delivery day adds this much cash to your side")
+
+
+def test_a_days_seller_opens_on_price_not_on_a_worth_that_carries_the_day_bonus():
+    # Duel 6094 replay: worth-based, the opener came out at -2 P (day 10 adds 51.1 to a seller's worth)
+    a, _ = agent(DAYS_SELLER)
+    m = P.code_move(a, obs(DAYS_SELLER))
+    assert m.days == 10 and m.price == 49                   # 34 + 0.42 x 34 = 48.3, up
+
+
+def test_prices_never_go_below_the_floor_and_the_accept_ratio_is_tunable(monkeypatch):
+    a, _ = agent(DAYS_SELLER)
+    o = Observation(view=DAYS_SELLER, turns=[Turn(mine=True, text="", offer=Offer(price=5, days=10), tick=1),
+                                            Turn(mine=False, text="", offer=Offer(price=0, days=0), tick=1)],
+                    rival_offer=Offer(price=0, days=0), tick=9, ticks_left=2)
+    m = P.code_move(a, o)
+    assert m.action == "offer" and m.price >= P.MIN_PRICE
+    b, _ = agent()
+    assert P.code_move(b, obs(SELLER, ours=[80], theirs=[75])).action == "offer"   # 35 of 40: below 1.0
+    monkeypatch.setattr(P, "ACCEPT_RATIO", 0.85)
+    m = P.code_move(b, obs(SELLER, ours=[80], theirs=[75]))
+    assert m.action == "accept" and "88%" in m.meta["rule"]
