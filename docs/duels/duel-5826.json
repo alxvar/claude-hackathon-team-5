@@ -249,6 +249,344 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1284,
+   "raw": {
+    "duel": 5826,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.79,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 72,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 1298,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 7999,
+     "price": 110,
+     "tick": 1283,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 8031,
+     "price": 47,
+     "tick": 1284,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1282,
+      "from": "Rival Sol",
+      "text": "93 with delivery on day 0. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "price": 93,
+      "days": 0
+     },
+     {
+      "tick": 1282,
+      "from": "you",
+      "text": "I can do 145 P on day 0; or, if you prefer, 110 P on day 10. I'll keep my per-day numbers to myself, but your pick between the two will tell us both where the day matters more.",
+      "price": 145,
+      "days": 0
+     },
+     {
+      "tick": 1283,
+      "from": "Rival Sol",
+      "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 47,
+      "days": 10
+     },
+     {
+      "tick": 1283,
+      "from": "you",
+      "text": "110 P with delivery on day 10. Your last offer moved backwards in value, so I'm holding here and would like to see a serious counter.",
+      "price": 110,
+      "days": 10
+     },
+     {
+      "tick": 1284,
+      "from": "Rival Sol",
+      "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 47,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1285,
+   "raw": {
+    "duel": 5826,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.79,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 72,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 1298,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 7999,
+     "price": 110,
+     "tick": 1283,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 8051,
+     "price": 47,
+     "tick": 1285,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1282,
+      "from": "Rival Sol",
+      "text": "93 with delivery on day 0. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "price": 93,
+      "days": 0
+     },
+     {
+      "tick": 1282,
+      "from": "you",
+      "text": "I can do 145 P on day 0; or, if you prefer, 110 P on day 10. I'll keep my per-day numbers to myself, but your pick between the two will tell us both where the day matters more.",
+      "price": 145,
+      "days": 0
+     },
+     {
+      "tick": 1283,
+      "from": "Rival Sol",
+      "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 47,
+      "days": 10
+     },
+     {
+      "tick": 1283,
+      "from": "you",
+      "text": "110 P with delivery on day 10. Your last offer moved backwards in value, so I'm holding here and would like to see a serious counter.",
+      "price": 110,
+      "days": 10
+     },
+     {
+      "tick": 1284,
+      "from": "Rival Sol",
+      "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 47,
+      "days": 10
+     },
+     {
+      "tick": 1285,
+      "from": "Rival Sol",
+      "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 47,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1286,
+   "raw": {
+    "duel": 5826,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.79,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 72,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 1298,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 7999,
+     "price": 110,
+     "tick": 1283,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 8090,
+     "price": 47,
+     "tick": 1286,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1282,
+      "from": "Rival Sol",
+      "text": "93 with delivery on day 0. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "price": 93,
+      "days": 0
+     },
+     {
+      "tick": 1282,
+      "from": "you",
+      "text": "I can do 145 P on day 0; or, if you prefer, 110 P on day 10. I'll keep my per-day numbers to myself, but your pick between the two will tell us both where the day matters more.",
+      "price": 145,
+      "days": 0
+     },
+     {
+      "tick": 1283,
+      "from": "Rival Sol",
+      "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 47,
+      "days": 10
+     },
+     {
+      "tick": 1283,
+      "from": "you",
+      "text": "110 P with delivery on day 10. Your last offer moved backwards in value, so I'm holding here and would like to see a serious counter.",
+      "price": 110,
+      "days": 10
+     },
+     {
+      "tick": 1284,
+      "from": "Rival Sol",
+      "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 47,
+      "days": 10
+     },
+     {
+      "tick": 1285,
+      "from": "Rival Sol",
+      "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 47,
+      "days": 10
+     },
+     {
+      "tick": 1286,
+      "from": "Rival Sol",
+      "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 47,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1286,
+   "raw": {
+    "duel": 5826,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.79,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 72,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 1298,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 8116,
+     "price": 99,
+     "tick": 1286,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 8090,
+     "price": 47,
+     "tick": 1286,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1282,
+      "from": "Rival Sol",
+      "text": "93 with delivery on day 0. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "price": 93,
+      "days": 0
+     },
+     {
+      "tick": 1282,
+      "from": "you",
+      "text": "I can do 145 P on day 0; or, if you prefer, 110 P on day 10. I'll keep my per-day numbers to myself, but your pick between the two will tell us both where the day matters more.",
+      "price": 145,
+      "days": 0
+     },
+     {
+      "tick": 1283,
+      "from": "Rival Sol",
+      "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 47,
+      "days": 10
+     },
+     {
+      "tick": 1283,
+      "from": "you",
+      "text": "110 P with delivery on day 10. Your last offer moved backwards in value, so I'm holding here and would like to see a serious counter.",
+      "price": 110,
+      "days": 10
+     },
+     {
+      "tick": 1284,
+      "from": "Rival Sol",
+      "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 47,
+      "days": 10
+     },
+     {
+      "tick": 1285,
+      "from": "Rival Sol",
+      "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 47,
+      "days": 10
+     },
+     {
+      "tick": 1286,
+      "from": "Rival Sol",
+      "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 47,
+      "days": 10
+     },
+     {
+      "tick": 1286,
+      "from": "you",
+      "text": "I'll make a clear step to 99 P with delivery on day 10. That's a real move from me, so the next move is yours.} ```",
+      "price": 99,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -542,6 +880,191 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1286,
+   "took_s": 8.48,
+   "cost_usd": 0.01336,
+   "obs": {
+    "view": {
+     "duel_id": 5826,
+     "role": "seller",
+     "limit": 72,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.79,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "93 with delivery on day 0. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "offer": {
+       "price": 93,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1282,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 145 P on day 0; or, if you prefer, 110 P on day 10. I'll keep my per-day numbers to myself, but your pick between the two will tell us both where the day matters more.",
+      "offer": {
+       "price": 145,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1282,
+      "decision": {
+       "action": "offer",
+       "price": 145,
+       "message": "I can do 145 P on day 0; or, if you prefer, 110 P on day 10. I'll keep my per-day numbers to myself, but your pick between the two will tell us both where the day matters more."
+      }
+     },
+     {
+      "mine": false,
+      "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 47,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1283,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "110 P with delivery on day 10. Your last offer moved backwards in value, so I'm holding here and would like to see a serious counter.",
+      "offer": {
+       "price": 110,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1283,
+      "decision": {
+       "action": "offer",
+       "price": 110,
+       "message": "110 P with delivery on day 10. Your last offer moved backwards in value, so I'm holding here and would like to see a serious counter."
+      }
+     },
+     {
+      "mine": false,
+      "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 47,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1284,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 47,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1285,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "47 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 47,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1286,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 47,
+     "days": 10
+    },
+    "tick": 1286,
+    "ticks_left": 12,
+    "rounds": 2,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1,
+     25.6,
+     37.9,
+     11.6,
+     21.6,
+     39.8
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'll make a clear step to 99 P with delivery on day 10. That's a real move from me, so the next move is yours.} ```",
+    "price": 99,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 99,
+      "message": "I'll make a clear step to 99 P with delivery on day 10. That's a real move from me, so the next move is yours.} ```"
+     },
+     "band": {
+      "worst": 97,
+      "target": 99,
+      "best": 101
+     },
+     "plan": {
+      "read": "They have repeated 47 P on day 10 for three ticks, which is pure holding. Their 'fast deal' line is pressure, not movement. Day 10 suits us, so only the price is open, and neither side has moved for several ticks.",
+      "target": 99,
+      "best": 101,
+      "worst": 97,
+      "days": 10,
+      "angle": "Make one clear step to 99 P on day 10, firm and calm, and say plainly that the next move is theirs."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.96,
+       "in": 1177,
+       "out": 342,
+       "cost_usd": 0.01155,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.52,
+       "in": 601,
+       "out": 61,
+       "cost_usd": 0.00181,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -666,6 +1189,63 @@
      "id": 7999,
      "price": 110,
      "tick": 1283,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1286,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'll make a clear step to 99 P with delivery on day 10. That's a real move from me, so the next move is yours.} ```",
+    "price": 99,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 99,
+      "message": "I'll make a clear step to 99 P with delivery on day 10. That's a real move from me, so the next move is yours.} ```"
+     },
+     "band": {
+      "worst": 97,
+      "target": 99,
+      "best": 101
+     },
+     "plan": {
+      "read": "They have repeated 47 P on day 10 for three ticks, which is pure holding. Their 'fast deal' line is pressure, not movement. Day 10 suits us, so only the price is open, and neither side has moved for several ticks.",
+      "target": 99,
+      "best": 101,
+      "worst": 97,
+      "days": 10,
+      "angle": "Make one clear step to 99 P on day 10, firm and calm, and say plainly that the next move is theirs."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.96,
+       "in": 1177,
+       "out": 342,
+       "cost_usd": 0.01155,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.52,
+       "in": 601,
+       "out": 61,
+       "cost_usd": 0.00181,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5826,
+    "offer": {
+     "id": 8116,
+     "price": 99,
+     "tick": 1286,
      "days": 10
     }
    }

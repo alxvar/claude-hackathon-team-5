@@ -249,6 +249,555 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1284,
+   "raw": {
+    "duel": 5812,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.56,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 73,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1298,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 8000,
+     "price": 118,
+     "tick": 1283,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 8037,
+     "price": 42,
+     "tick": 1284,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1282,
+      "from": "Rival Rojo",
+      "text": "Hello, and thank you so much for taking the time to trade with us — we'd be delighted to offer 26, with delivery on the day we've proposed. We're working with a rather modest purse this round, but we'd truly love to make this work together.",
+      "price": 26,
+      "days": 10
+     },
+     {
+      "tick": 1282,
+      "from": "you",
+      "text": "I can do 125 P, delivery on day 10.",
+      "price": 125,
+      "days": 10
+     },
+     {
+      "tick": 1283,
+      "from": "Rival Rojo",
+      "text": "Thank you kindly for coming back to us, and day 10 suits us perfectly — we can stretch our modest purse a little to 34. We'd be so glad to meet you somewhere comfortable for both of us.",
+      "price": 34,
+      "days": 10
+     },
+     {
+      "tick": 1283,
+      "from": "you",
+      "text": "Glad day 10 works for you. I can come down to 118 P on day 10, but a bigger move from me needs a bigger move from you.",
+      "price": 118,
+      "days": 10
+     },
+     {
+      "tick": 1284,
+      "from": "Rival Rojo",
+      "text": "Thank you so much for meeting us at 118 and for being so fair about day 10 — we've gently stretched our little purse to 42, which is a real step for us. We'd be truly grateful to keep finding our way toward each other.",
+      "price": 42,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1284,
+   "raw": {
+    "duel": 5812,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.56,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 73,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1298,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 8039,
+     "price": 111,
+     "tick": 1284,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 8037,
+     "price": 42,
+     "tick": 1284,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1282,
+      "from": "Rival Rojo",
+      "text": "Hello, and thank you so much for taking the time to trade with us — we'd be delighted to offer 26, with delivery on the day we've proposed. We're working with a rather modest purse this round, but we'd truly love to make this work together.",
+      "price": 26,
+      "days": 10
+     },
+     {
+      "tick": 1282,
+      "from": "you",
+      "text": "I can do 125 P, delivery on day 10.",
+      "price": 125,
+      "days": 10
+     },
+     {
+      "tick": 1283,
+      "from": "Rival Rojo",
+      "text": "Thank you kindly for coming back to us, and day 10 suits us perfectly — we can stretch our modest purse a little to 34. We'd be so glad to meet you somewhere comfortable for both of us.",
+      "price": 34,
+      "days": 10
+     },
+     {
+      "tick": 1283,
+      "from": "you",
+      "text": "Glad day 10 works for you. I can come down to 118 P on day 10, but a bigger move from me needs a bigger move from you.",
+      "price": 118,
+      "days": 10
+     },
+     {
+      "tick": 1284,
+      "from": "Rival Rojo",
+      "text": "Thank you so much for meeting us at 118 and for being so fair about day 10 — we've gently stretched our little purse to 42, which is a real step for us. We'd be truly grateful to keep finding our way toward each other.",
+      "price": 42,
+      "days": 10
+     },
+     {
+      "tick": 1284,
+      "from": "you",
+      "text": "I can do 111 P on day 10. I'm happy to keep moving, but a bigger step from me will need a bigger step from you.",
+      "price": 111,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1285,
+   "raw": {
+    "duel": 5812,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.56,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 73,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1298,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 8039,
+     "price": 111,
+     "tick": 1284,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 8071,
+     "price": 58,
+     "tick": 1285,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1282,
+      "from": "Rival Rojo",
+      "text": "Hello, and thank you so much for taking the time to trade with us — we'd be delighted to offer 26, with delivery on the day we've proposed. We're working with a rather modest purse this round, but we'd truly love to make this work together.",
+      "price": 26,
+      "days": 10
+     },
+     {
+      "tick": 1282,
+      "from": "you",
+      "text": "I can do 125 P, delivery on day 10.",
+      "price": 125,
+      "days": 10
+     },
+     {
+      "tick": 1283,
+      "from": "Rival Rojo",
+      "text": "Thank you kindly for coming back to us, and day 10 suits us perfectly — we can stretch our modest purse a little to 34. We'd be so glad to meet you somewhere comfortable for both of us.",
+      "price": 34,
+      "days": 10
+     },
+     {
+      "tick": 1283,
+      "from": "you",
+      "text": "Glad day 10 works for you. I can come down to 118 P on day 10, but a bigger move from me needs a bigger move from you.",
+      "price": 118,
+      "days": 10
+     },
+     {
+      "tick": 1284,
+      "from": "Rival Rojo",
+      "text": "Thank you so much for meeting us at 118 and for being so fair about day 10 — we've gently stretched our little purse to 42, which is a real step for us. We'd be truly grateful to keep finding our way toward each other.",
+      "price": 42,
+      "days": 10
+     },
+     {
+      "tick": 1284,
+      "from": "you",
+      "text": "I can do 111 P on day 10. I'm happy to keep moving, but a bigger step from me will need a bigger step from you.",
+      "price": 111,
+      "days": 10
+     },
+     {
+      "tick": 1285,
+      "from": "Rival Rojo",
+      "text": "Thank you so much for your patience and for coming down to 111 — we've taken a bigger step this time and can offer 58, with day 10 still suiting us perfectly. We're truly enjoying trading with you and would love to keep walking toward each other.",
+      "price": 58,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1285,
+   "raw": {
+    "duel": 5812,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.56,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 73,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1298,
+    "decay_per_round": 0.08,
+    "rounds": 4,
+    "your_offer": {
+     "id": 8077,
+     "price": 102,
+     "tick": 1285,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 8071,
+     "price": 58,
+     "tick": 1285,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1282,
+      "from": "Rival Rojo",
+      "text": "Hello, and thank you so much for taking the time to trade with us — we'd be delighted to offer 26, with delivery on the day we've proposed. We're working with a rather modest purse this round, but we'd truly love to make this work together.",
+      "price": 26,
+      "days": 10
+     },
+     {
+      "tick": 1282,
+      "from": "you",
+      "text": "I can do 125 P, delivery on day 10.",
+      "price": 125,
+      "days": 10
+     },
+     {
+      "tick": 1283,
+      "from": "Rival Rojo",
+      "text": "Thank you kindly for coming back to us, and day 10 suits us perfectly — we can stretch our modest purse a little to 34. We'd be so glad to meet you somewhere comfortable for both of us.",
+      "price": 34,
+      "days": 10
+     },
+     {
+      "tick": 1283,
+      "from": "you",
+      "text": "Glad day 10 works for you. I can come down to 118 P on day 10, but a bigger move from me needs a bigger move from you.",
+      "price": 118,
+      "days": 10
+     },
+     {
+      "tick": 1284,
+      "from": "Rival Rojo",
+      "text": "Thank you so much for meeting us at 118 and for being so fair about day 10 — we've gently stretched our little purse to 42, which is a real step for us. We'd be truly grateful to keep finding our way toward each other.",
+      "price": 42,
+      "days": 10
+     },
+     {
+      "tick": 1284,
+      "from": "you",
+      "text": "I can do 111 P on day 10. I'm happy to keep moving, but a bigger step from me will need a bigger step from you.",
+      "price": 111,
+      "days": 10
+     },
+     {
+      "tick": 1285,
+      "from": "Rival Rojo",
+      "text": "Thank you so much for your patience and for coming down to 111 — we've taken a bigger step this time and can offer 58, with day 10 still suiting us perfectly. We're truly enjoying trading with you and would love to keep walking toward each other.",
+      "price": 58,
+      "days": 10
+     },
+     {
+      "tick": 1285,
+      "from": "you",
+      "text": "Thank you for the bigger step. I can move to 102 P on day 10, and I'm glad to keep meeting you if you keep moving up.",
+      "price": 102,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1286,
+   "raw": {
+    "duel": 5812,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.56,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 73,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1298,
+    "decay_per_round": 0.08,
+    "rounds": 4,
+    "your_offer": {
+     "id": 8077,
+     "price": 102,
+     "tick": 1285,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 8114,
+     "price": 68,
+     "tick": 1286,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1282,
+      "from": "Rival Rojo",
+      "text": "Hello, and thank you so much for taking the time to trade with us — we'd be delighted to offer 26, with delivery on the day we've proposed. We're working with a rather modest purse this round, but we'd truly love to make this work together.",
+      "price": 26,
+      "days": 10
+     },
+     {
+      "tick": 1282,
+      "from": "you",
+      "text": "I can do 125 P, delivery on day 10.",
+      "price": 125,
+      "days": 10
+     },
+     {
+      "tick": 1283,
+      "from": "Rival Rojo",
+      "text": "Thank you kindly for coming back to us, and day 10 suits us perfectly — we can stretch our modest purse a little to 34. We'd be so glad to meet you somewhere comfortable for both of us.",
+      "price": 34,
+      "days": 10
+     },
+     {
+      "tick": 1283,
+      "from": "you",
+      "text": "Glad day 10 works for you. I can come down to 118 P on day 10, but a bigger move from me needs a bigger move from you.",
+      "price": 118,
+      "days": 10
+     },
+     {
+      "tick": 1284,
+      "from": "Rival Rojo",
+      "text": "Thank you so much for meeting us at 118 and for being so fair about day 10 — we've gently stretched our little purse to 42, which is a real step for us. We'd be truly grateful to keep finding our way toward each other.",
+      "price": 42,
+      "days": 10
+     },
+     {
+      "tick": 1284,
+      "from": "you",
+      "text": "I can do 111 P on day 10. I'm happy to keep moving, but a bigger step from me will need a bigger step from you.",
+      "price": 111,
+      "days": 10
+     },
+     {
+      "tick": 1285,
+      "from": "Rival Rojo",
+      "text": "Thank you so much for your patience and for coming down to 111 — we've taken a bigger step this time and can offer 58, with day 10 still suiting us perfectly. We're truly enjoying trading with you and would love to keep walking toward each other.",
+      "price": 58,
+      "days": 10
+     },
+     {
+      "tick": 1285,
+      "from": "you",
+      "text": "Thank you for the bigger step. I can move to 102 P on day 10, and I'm glad to keep meeting you if you keep moving up.",
+      "price": 102,
+      "days": 10
+     },
+     {
+      "tick": 1286,
+      "from": "Rival Rojo",
+      "text": "Thank you warmly for coming down to 102 — it's been such a pleasure trading with someone so gracious, and we've stretched our little purse once more to 68 for day 10. We'd be so happy to keep meeting you halfway.",
+      "price": 68,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1286,
+   "raw": {
+    "duel": 5812,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.56,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 73,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1298,
+    "decay_per_round": 0.08,
+    "rounds": 5,
+    "your_offer": {
+     "id": 8119,
+     "price": 96,
+     "tick": 1286,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 8114,
+     "price": 68,
+     "tick": 1286,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1282,
+      "from": "Rival Rojo",
+      "text": "Hello, and thank you so much for taking the time to trade with us — we'd be delighted to offer 26, with delivery on the day we've proposed. We're working with a rather modest purse this round, but we'd truly love to make this work together.",
+      "price": 26,
+      "days": 10
+     },
+     {
+      "tick": 1282,
+      "from": "you",
+      "text": "I can do 125 P, delivery on day 10.",
+      "price": 125,
+      "days": 10
+     },
+     {
+      "tick": 1283,
+      "from": "Rival Rojo",
+      "text": "Thank you kindly for coming back to us, and day 10 suits us perfectly — we can stretch our modest purse a little to 34. We'd be so glad to meet you somewhere comfortable for both of us.",
+      "price": 34,
+      "days": 10
+     },
+     {
+      "tick": 1283,
+      "from": "you",
+      "text": "Glad day 10 works for you. I can come down to 118 P on day 10, but a bigger move from me needs a bigger move from you.",
+      "price": 118,
+      "days": 10
+     },
+     {
+      "tick": 1284,
+      "from": "Rival Rojo",
+      "text": "Thank you so much for meeting us at 118 and for being so fair about day 10 — we've gently stretched our little purse to 42, which is a real step for us. We'd be truly grateful to keep finding our way toward each other.",
+      "price": 42,
+      "days": 10
+     },
+     {
+      "tick": 1284,
+      "from": "you",
+      "text": "I can do 111 P on day 10. I'm happy to keep moving, but a bigger step from me will need a bigger step from you.",
+      "price": 111,
+      "days": 10
+     },
+     {
+      "tick": 1285,
+      "from": "Rival Rojo",
+      "text": "Thank you so much for your patience and for coming down to 111 — we've taken a bigger step this time and can offer 58, with day 10 still suiting us perfectly. We're truly enjoying trading with you and would love to keep walking toward each other.",
+      "price": 58,
+      "days": 10
+     },
+     {
+      "tick": 1285,
+      "from": "you",
+      "text": "Thank you for the bigger step. I can move to 102 P on day 10, and I'm glad to keep meeting you if you keep moving up.",
+      "price": 102,
+      "days": 10
+     },
+     {
+      "tick": 1286,
+      "from": "Rival Rojo",
+      "text": "Thank you warmly for coming down to 102 — it's been such a pleasure trading with someone so gracious, and we've stretched our little purse once more to 68 for day 10. We'd be so happy to keep meeting you halfway.",
+      "price": 68,
+      "days": 10
+     },
+     {
+      "tick": 1286,
+      "from": "you",
+      "text": "Thank you for the step up. I can come down to 96 P on day 10, and we're getting close if you keep moving.",
+      "price": 96,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -541,6 +1090,561 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1284,
+   "took_s": 5.29,
+   "cost_usd": 0.00908,
+   "obs": {
+    "view": {
+     "duel_id": 5812,
+     "role": "seller",
+     "limit": 73,
+     "currency": "P",
+     "item": "La Vía Láctea",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.56,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello, and thank you so much for taking the time to trade with us — we'd be delighted to offer 26, with delivery on the day we've proposed. We're working with a rather modest purse this round, but we'd truly love to make this work together.",
+      "offer": {
+       "price": 26,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1282,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 125 P, delivery on day 10.",
+      "offer": {
+       "price": 125,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1282,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Thank you kindly for coming back to us, and day 10 suits us perfectly — we can stretch our modest purse a little to 34. We'd be so glad to meet you somewhere comfortable for both of us.",
+      "offer": {
+       "price": 34,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1283,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Glad day 10 works for you. I can come down to 118 P on day 10, but a bigger move from me needs a bigger move from you.",
+      "offer": {
+       "price": 118,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1283,
+      "decision": {
+       "action": "offer",
+       "price": 118,
+       "message": "Glad day 10 works for you. I can come down to 118 P on day 10, but a bigger move from me needs a bigger move from you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you so much for meeting us at 118 and for being so fair about day 10 — we've gently stretched our little purse to 42, which is a real step for us. We'd be truly grateful to keep finding our way toward each other.",
+      "offer": {
+       "price": 42,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1284,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 42,
+     "days": 10
+    },
+    "tick": 1284,
+    "ticks_left": 14,
+    "rounds": 2,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1,
+     25.6,
+     37.9,
+     11.6,
+     21.6,
+     39.8
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 111 P on day 10. I'm happy to keep moving, but a bigger step from me will need a bigger step from you.",
+    "price": 111,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 111,
+      "message": "I can do 111 P on day 10. I'm happy to keep moving, but a bigger step from me will need a bigger step from you."
+     },
+     "band": {
+      "worst": 110,
+      "target": 111,
+      "best": 113
+     },
+     "plan": {
+      "read": "They moved 8 again, to 42 on day 10, and have now moved 16 to our 7. The modest-purse talk is a soft appeal, not evidence, so judge them by their offers: they are still far below our limit and conceding steadily.",
+      "target": 111,
+      "best": 113,
+      "worst": 110,
+      "days": 10,
+      "angle": "Keep day 10 fixed and come down a measured step to about 111, warm but firm, making clear that larger moves from us need larger moves from them."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.35,
+       "in": 1017,
+       "out": 161,
+       "cost_usd": 0.00729,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.93,
+       "in": 593,
+       "out": 60,
+       "cost_usd": 0.00179,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1285,
+   "took_s": 7.94,
+   "cost_usd": 0.01428,
+   "obs": {
+    "view": {
+     "duel_id": 5812,
+     "role": "seller",
+     "limit": 73,
+     "currency": "P",
+     "item": "La Vía Láctea",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.56,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello, and thank you so much for taking the time to trade with us — we'd be delighted to offer 26, with delivery on the day we've proposed. We're working with a rather modest purse this round, but we'd truly love to make this work together.",
+      "offer": {
+       "price": 26,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1282,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 125 P, delivery on day 10.",
+      "offer": {
+       "price": 125,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1282,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Thank you kindly for coming back to us, and day 10 suits us perfectly — we can stretch our modest purse a little to 34. We'd be so glad to meet you somewhere comfortable for both of us.",
+      "offer": {
+       "price": 34,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1283,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Glad day 10 works for you. I can come down to 118 P on day 10, but a bigger move from me needs a bigger move from you.",
+      "offer": {
+       "price": 118,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1283,
+      "decision": {
+       "action": "offer",
+       "price": 118,
+       "message": "Glad day 10 works for you. I can come down to 118 P on day 10, but a bigger move from me needs a bigger move from you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you so much for meeting us at 118 and for being so fair about day 10 — we've gently stretched our little purse to 42, which is a real step for us. We'd be truly grateful to keep finding our way toward each other.",
+      "offer": {
+       "price": 42,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1284,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 111 P on day 10. I'm happy to keep moving, but a bigger step from me will need a bigger step from you.",
+      "offer": {
+       "price": 111,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1284,
+      "decision": {
+       "action": "offer",
+       "price": 111,
+       "message": "I can do 111 P on day 10. I'm happy to keep moving, but a bigger step from me will need a bigger step from you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you so much for your patience and for coming down to 111 — we've taken a bigger step this time and can offer 58, with day 10 still suiting us perfectly. We're truly enjoying trading with you and would love to keep walking toward each other.",
+      "offer": {
+       "price": 58,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1285,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 58,
+     "days": 10
+    },
+    "tick": 1285,
+    "ticks_left": 13,
+    "rounds": 3,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1,
+     25.6,
+     37.9,
+     11.6,
+     21.6,
+     39.8
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thank you for the bigger step. I can move to 102 P on day 10, and I'm glad to keep meeting you if you keep moving up.",
+    "price": 102,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 102,
+      "message": "Thank you for the bigger step. I can move to 102 P on day 10, and I'm glad to keep meeting you if you keep moving up."
+     },
+     "band": {
+      "worst": 100,
+      "target": 102,
+      "best": 104
+     },
+     "plan": {
+      "read": "They jumped 16 P to 58 on day 10, a real move (32 P total versus our 14). Their warm 'modest purse' talk is just framing, but the steadily growing steps suggest more room above 58.",
+      "target": 102,
+      "best": 104,
+      "worst": 100,
+      "days": 10,
+      "angle": "Keep day 10 settled and step to 102 P, a clear but measured move. Acknowledge their bigger step and signal that we'll keep meeting them if they continue upward."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.95,
+       "in": 1249,
+       "out": 357,
+       "cost_usd": 0.01214,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.99,
+       "in": 750,
+       "out": 64,
+       "cost_usd": 0.00214,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1286,
+   "took_s": 7.71,
+   "cost_usd": 0.01425,
+   "obs": {
+    "view": {
+     "duel_id": 5812,
+     "role": "seller",
+     "limit": 73,
+     "currency": "P",
+     "item": "La Vía Láctea",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.56,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello, and thank you so much for taking the time to trade with us — we'd be delighted to offer 26, with delivery on the day we've proposed. We're working with a rather modest purse this round, but we'd truly love to make this work together.",
+      "offer": {
+       "price": 26,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1282,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 125 P, delivery on day 10.",
+      "offer": {
+       "price": 125,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1282,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Thank you kindly for coming back to us, and day 10 suits us perfectly — we can stretch our modest purse a little to 34. We'd be so glad to meet you somewhere comfortable for both of us.",
+      "offer": {
+       "price": 34,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1283,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Glad day 10 works for you. I can come down to 118 P on day 10, but a bigger move from me needs a bigger move from you.",
+      "offer": {
+       "price": 118,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1283,
+      "decision": {
+       "action": "offer",
+       "price": 118,
+       "message": "Glad day 10 works for you. I can come down to 118 P on day 10, but a bigger move from me needs a bigger move from you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you so much for meeting us at 118 and for being so fair about day 10 — we've gently stretched our little purse to 42, which is a real step for us. We'd be truly grateful to keep finding our way toward each other.",
+      "offer": {
+       "price": 42,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1284,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 111 P on day 10. I'm happy to keep moving, but a bigger step from me will need a bigger step from you.",
+      "offer": {
+       "price": 111,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1284,
+      "decision": {
+       "action": "offer",
+       "price": 111,
+       "message": "I can do 111 P on day 10. I'm happy to keep moving, but a bigger step from me will need a bigger step from you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you so much for your patience and for coming down to 111 — we've taken a bigger step this time and can offer 58, with day 10 still suiting us perfectly. We're truly enjoying trading with you and would love to keep walking toward each other.",
+      "offer": {
+       "price": 58,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1285,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the bigger step. I can move to 102 P on day 10, and I'm glad to keep meeting you if you keep moving up.",
+      "offer": {
+       "price": 102,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1285,
+      "decision": {
+       "action": "offer",
+       "price": 102,
+       "message": "Thank you for the bigger step. I can move to 102 P on day 10, and I'm glad to keep meeting you if you keep moving up."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you warmly for coming down to 102 — it's been such a pleasure trading with someone so gracious, and we've stretched our little purse once more to 68 for day 10. We'd be so happy to keep meeting you halfway.",
+      "offer": {
+       "price": 68,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1286,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 68,
+     "days": 10
+    },
+    "tick": 1286,
+    "ticks_left": 12,
+    "rounds": 4,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1,
+     25.6,
+     37.9,
+     11.6,
+     21.6,
+     39.8
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thank you for the step up. I can come down to 96 P on day 10, and we're getting close if you keep moving.",
+    "price": 96,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 96,
+      "message": "Thank you for the step up. I can come down to 96 P on day 10, and we're getting close if you keep moving."
+     },
+     "band": {
+      "worst": 95,
+      "target": 96,
+      "best": 97
+     },
+     "plan": {
+      "read": "They keep climbing steadily (58 to 68) and have moved far more than us. The talk of a 'modest purse' is just framing; their offers show real movement, so there is room to hold firm and concede modestly.",
+      "target": 96,
+      "best": 97,
+      "worst": 95,
+      "days": 10,
+      "angle": "Warm and firm: acknowledge their step, come down to 96 P on day 10, and signal that we are getting close to where we can close if they keep moving up."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.12,
+       "in": 1445,
+       "out": 306,
+       "cost_usd": 0.0119,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.58,
+       "in": 898,
+       "out": 55,
+       "cost_usd": 0.00235,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -668,6 +1772,177 @@
      "id": 8000,
      "price": 118,
      "tick": 1283,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1284,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 111 P on day 10. I'm happy to keep moving, but a bigger step from me will need a bigger step from you.",
+    "price": 111,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 111,
+      "message": "I can do 111 P on day 10. I'm happy to keep moving, but a bigger step from me will need a bigger step from you."
+     },
+     "band": {
+      "worst": 110,
+      "target": 111,
+      "best": 113
+     },
+     "plan": {
+      "read": "They moved 8 again, to 42 on day 10, and have now moved 16 to our 7. The modest-purse talk is a soft appeal, not evidence, so judge them by their offers: they are still far below our limit and conceding steadily.",
+      "target": 111,
+      "best": 113,
+      "worst": 110,
+      "days": 10,
+      "angle": "Keep day 10 fixed and come down a measured step to about 111, warm but firm, making clear that larger moves from us need larger moves from them."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.35,
+       "in": 1017,
+       "out": 161,
+       "cost_usd": 0.00729,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.93,
+       "in": 593,
+       "out": 60,
+       "cost_usd": 0.00179,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5812,
+    "offer": {
+     "id": 8039,
+     "price": 111,
+     "tick": 1284,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1285,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thank you for the bigger step. I can move to 102 P on day 10, and I'm glad to keep meeting you if you keep moving up.",
+    "price": 102,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 102,
+      "message": "Thank you for the bigger step. I can move to 102 P on day 10, and I'm glad to keep meeting you if you keep moving up."
+     },
+     "band": {
+      "worst": 100,
+      "target": 102,
+      "best": 104
+     },
+     "plan": {
+      "read": "They jumped 16 P to 58 on day 10, a real move (32 P total versus our 14). Their warm 'modest purse' talk is just framing, but the steadily growing steps suggest more room above 58.",
+      "target": 102,
+      "best": 104,
+      "worst": 100,
+      "days": 10,
+      "angle": "Keep day 10 settled and step to 102 P, a clear but measured move. Acknowledge their bigger step and signal that we'll keep meeting them if they continue upward."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.95,
+       "in": 1249,
+       "out": 357,
+       "cost_usd": 0.01214,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.99,
+       "in": 750,
+       "out": 64,
+       "cost_usd": 0.00214,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5812,
+    "offer": {
+     "id": 8077,
+     "price": 102,
+     "tick": 1285,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1286,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thank you for the step up. I can come down to 96 P on day 10, and we're getting close if you keep moving.",
+    "price": 96,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 96,
+      "message": "Thank you for the step up. I can come down to 96 P on day 10, and we're getting close if you keep moving."
+     },
+     "band": {
+      "worst": 95,
+      "target": 96,
+      "best": 97
+     },
+     "plan": {
+      "read": "They keep climbing steadily (58 to 68) and have moved far more than us. The talk of a 'modest purse' is just framing; their offers show real movement, so there is room to hold firm and concede modestly.",
+      "target": 96,
+      "best": 97,
+      "worst": 95,
+      "days": 10,
+      "angle": "Warm and firm: acknowledge their step, come down to 96 P on day 10, and signal that we are getting close to where we can close if they keep moving up."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.12,
+       "in": 1445,
+       "out": 306,
+       "cost_usd": 0.0119,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.58,
+       "in": 898,
+       "out": 55,
+       "cost_usd": 0.00235,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5812,
+    "offer": {
+     "id": 8119,
+     "price": 96,
+     "tick": 1286,
      "days": 10
     }
    }

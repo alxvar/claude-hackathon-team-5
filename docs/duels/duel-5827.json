@@ -122,6 +122,207 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1284,
+   "raw": {
+    "duel": 5827,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.16,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 109,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1299,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 7997,
+     "price": 48,
+     "tick": 1283,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 8032,
+     "price": 60,
+     "tick": 1284,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1283,
+      "from": "Rival Plata",
+      "text": "63 with delivery on day 10. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "price": 63,
+      "days": 10
+     },
+     {
+      "tick": 1283,
+      "from": "you",
+      "text": "I'll take day 10 as you propose. My offer is 48 P on day 10, a quick and clean close on your preferred day.}",
+      "price": 48,
+      "days": 10
+     },
+     {
+      "tick": 1284,
+      "from": "Rival Plata",
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 60,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1285,
+   "raw": {
+    "duel": 5827,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.16,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 109,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1299,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 7997,
+     "price": 48,
+     "tick": 1283,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 8053,
+     "price": 60,
+     "tick": 1285,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1283,
+      "from": "Rival Plata",
+      "text": "63 with delivery on day 10. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "price": 63,
+      "days": 10
+     },
+     {
+      "tick": 1283,
+      "from": "you",
+      "text": "I'll take day 10 as you propose. My offer is 48 P on day 10, a quick and clean close on your preferred day.}",
+      "price": 48,
+      "days": 10
+     },
+     {
+      "tick": 1284,
+      "from": "Rival Plata",
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 60,
+      "days": 10
+     },
+     {
+      "tick": 1285,
+      "from": "Rival Plata",
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 60,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1286,
+   "raw": {
+    "duel": 5827,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.16,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 109,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1299,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 7997,
+     "price": 48,
+     "tick": 1283,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 8094,
+     "price": 60,
+     "tick": 1286,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1283,
+      "from": "Rival Plata",
+      "text": "63 with delivery on day 10. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "price": 63,
+      "days": 10
+     },
+     {
+      "tick": 1283,
+      "from": "you",
+      "text": "I'll take day 10 as you propose. My offer is 48 P on day 10, a quick and clean close on your preferred day.}",
+      "price": 48,
+      "days": 10
+     },
+     {
+      "tick": 1284,
+      "from": "Rival Plata",
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 60,
+      "days": 10
+     },
+     {
+      "tick": 1285,
+      "from": "Rival Plata",
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 60,
+      "days": 10
+     },
+     {
+      "tick": 1286,
+      "from": "Rival Plata",
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 60,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -269,6 +470,143 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1284,
+   "took_s": 8.04,
+   "cost_usd": 0.0122,
+   "obs": {
+    "view": {
+     "duel_id": 5827,
+     "role": "buyer",
+     "limit": 109,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.16,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "63 with delivery on day 10. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "offer": {
+       "price": 63,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1283,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'll take day 10 as you propose. My offer is 48 P on day 10, a quick and clean close on your preferred day.}",
+      "offer": {
+       "price": 48,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1283,
+      "decision": {
+       "action": "offer",
+       "price": 48,
+       "message": "I'll take day 10 as you propose. My offer is 48 P on day 10, a quick and clean close on your preferred day.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 60,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1284,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 60,
+     "days": 10
+    },
+    "tick": 1284,
+    "ticks_left": 15,
+    "rounds": 1,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1,
+     25.6,
+     37.9,
+     11.6,
+     21.6,
+     39.8
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "I'm holding my current offer on day 10 for now.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "I'm holding my current offer on day 10 for now."
+     },
+     "band": {
+      "worst": 49,
+      "target": 48,
+      "best": 47
+     },
+     "plan": {
+      "read": "They came down 3 P, from 63 to 60, and stayed on day 10, which we already granted. The gap is 12 P and they are moving in small steps, so their 'fast deal' line is ordinary pressure, not a deadline.",
+      "target": 48,
+      "best": 47,
+      "worst": 49,
+      "days": 10,
+      "angle": "Hold at 48 P on day 10 and send nothing this tick; let their small concessions keep coming without answering each one."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.07,
+       "in": 860,
+       "out": 381,
+       "cost_usd": 0.01106,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.96,
+       "in": 395,
+       "out": 35,
+       "cost_usd": 0.00114,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [
