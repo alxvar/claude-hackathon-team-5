@@ -28,6 +28,7 @@ from .days import MODE, MODES
 from .agent import DuelAgent
 from .model import DuelView, Observation, Offer, Role, Turn
 from .records import Records, review as review_table
+from .params import PATH as PARAMS_PATH, Params, modules as param_modules
 from .runner import DuelRunner, Log
 
 LOGS = Path(__file__).resolve().parents[2] / "logs" / "duelist"
@@ -109,9 +110,12 @@ def single_instance(folder: Path = LOGS) -> IO[str]:
 def run(a: argparse.Namespace) -> None:
     lock = None if a.dry_run else single_instance()  # noqa: F841  (held for the life of the process)
     strategist, negotiator = models(a)
+    params = None if a.no_params else Params(param_modules(), Path(a.params))
     runner = DuelRunner(bazaar(), strategist, negotiator, dry_run=a.dry_run, log=Log(LOGS), decay=a.decay,
-                        duel_ticks=a.duel_ticks, poll_s=a.poll, records=Records(), days_read=a.days_read)
-    print(f"day reading: --days-read {a.days_read}", flush=True)
+                        duel_ticks=a.duel_ticks, poll_s=a.poll, records=Records(), days_read=a.days_read,
+                        params=params, policy=a.policy)
+    print(f"day reading: --days-read {a.days_read}; policy: --policy {a.policy}; params: "
+          f"{'off' if params is None else params.path}", flush=True)
     try:
         asyncio.run(runner.run())
     except KeyboardInterrupt:
@@ -156,6 +160,12 @@ def main() -> None:
             s.add_argument("--days-read", choices=MODES, default=MODE,
                            help="day reading override (PLAN #24): auto = as read (default), flip = direction "
                                 "reversed, unsure = sure=False safe mode; env DAYS_READ sets the default")
+            s.add_argument("--policy", choices=["llm", "code"], default="llm",
+                           help="llm = strategist + negotiator (default); code = code decides accept/hold/step and "
+                                "the day, one capped model call writes the words (policy.py)")
+            s.add_argument("--params", default=str(PARAMS_PATH),
+                           help="tuning overrides re-read every tick (params.py; env DUEL_PARAMS)")
+            s.add_argument("--no-params", action="store_true", help="ignore the params file: today's constants")
     sub.add_parser("review", help="every recorded duel in one table").set_defaults(fn=review)
     m = sub.add_parser("monitor", help="a local page following our duels and the field, live (read-only, no team key)")
     m.add_argument("--port", type=int, default=8766)

@@ -506,14 +506,16 @@ def with_note(messages: list[dict[str, str]], note: str) -> list[dict[str, str]]
 # The agent
 
 class DuelAgent:
-    def __init__(self, view: DuelView, strategist: Model, negotiator: Model | None = None):
+    def __init__(self, view: DuelView, strategist: Model, negotiator: Model | None = None, policy: str = "llm"):
         self.view = view
+        self.policy = policy                          # "llm" (strategist + negotiator) or "code" (policy.py)
         self.s = sign(view.role)
         self.strategist = strategist
         self.negotiator = negotiator or strategist
         self.strategist_system = render("strategist", **brief(view, strategist=True))
         self.switched = False                     # the late day switch went out (`late_switch`)
         self.negotiator_system = render("negotiator", **brief(view, strategist=False))
+        self.text_system = render("text", **brief(view, strategist=False))   # --policy code: the words only
         self.calls: list[dict[str, Any]] = []         # per turn: stage, latency, tokens, cost
 
     def _record(self, stage: str, r: Reply) -> None:
@@ -746,6 +748,8 @@ class DuelAgent:
         return Move("offer", text, price=price, days=days, meta={"repaired": True, **meta})
 
     async def respond(self, obs: Observation) -> Move:
+        if self.policy == "code":
+            return await self.respond_code(obs)
         self.calls = []
         try:
             plan = await self.plan(obs)
@@ -771,6 +775,17 @@ class DuelAgent:
         assert d is not None
         move = self.repair(d, obs, band, days, vetoes=vetoes, rejected=d.model_dump(), **meta)
         return self.final(self.held(move, plan, obs, days), obs)
+
+    async def respond_code(self, obs: Observation) -> Move:
+        """`--policy code` (policy.py): code decides accept / hold / step and the day, one capped model call writes
+        the words. A hold needs no words: the runner sends nothing for it."""
+        from . import policy
+        self.calls = []
+        move = policy.code_move(self, obs)
+        ours = next(reversed(our_offers(obs)), None)
+        if move.action == "offer" and ours is not None and (move.price, move.days) == (ours.price, ours.days):
+            return self.final(move, obs)
+        return self.final(await policy.write(self, move, obs), obs)
 
     def held(self, move: Move, plan: BandPlan, obs: Observation, days: int | None) -> Move:
         """The model's offer, or our standing offer again when the offer isn't worth a round; the runner sends

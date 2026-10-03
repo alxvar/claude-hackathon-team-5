@@ -30,6 +30,7 @@ from bazaar_sdk import Bazaar, BazaarError
 from engine import Model
 
 from .days import set_mode as set_days_mode
+from .params import Params
 from .adapter import Snapshot, parse_duel
 from .agent import DuelAgent, Move, our_offers, silent, standing_offer, still_ticks, swing, their_offers
 from .guards import past_limit, worth
@@ -43,6 +44,8 @@ OPEN_WAIT = 2       # a days duel with no offer from the rival yet: ticks we wai
 RETRY_CODES = {"wait_for_tick", "accept_taken", "rate_limited", "too_many_requests"}   # and any 429: next tick
 HOLD_TICKS = 3      # both sides still this long, once the rival has offered: decide again (duels 103/104)
 IDLE_POLL_S = 10.0  # no duel live: poll this often, or every third of a tick if that is shorter
+SMALL_GAP_P = 2.0       # `small_gap`: accept when the gap to our offer is at most this (P, in worth)...
+SMALL_GAP_ROUNDS = 2.0  # ...or at most what this many rounds of decay take from the surplus (counter + reply)
 
 
 class Log:
@@ -114,8 +117,10 @@ def answered(msgs: list[Turn]) -> bool:
 class DuelRunner:
     def __init__(self, b: Bazaar, strategist: Model, negotiator: Model, *, dry_run: bool, log: Log,
                  decay: float | None, duel_ticks: int | None, poll_s: float, records: Records | None = None,
-                 days_read: str = "auto"):
+                 days_read: str = "auto", params: Params | None = None, policy: str = "llm"):
         self.b = b
+        self.params = params                       # run/duel_params.json, re-read every tick (params.py)
+        self.policy = policy                       # "llm" or "code" (policy.py)
         set_days_mode(days_read)                   # PLAN #24: auto (as read), flip or unsure, for every duel
         self.days_read = days_read
         self.strategist, self.negotiator = strategist, negotiator
@@ -223,7 +228,7 @@ class DuelRunner:
                 if self.log.changed(f"unreadable:{key}", snap.problems):
                     say(f"duel {key}: can't read it ({'; '.join(snap.problems)}); see {self.log.path}")
                 return None
-            agent = DuelAgent(snap.view, self.strategist, self.negotiator)
+            agent = DuelAgent(snap.view, self.strategist, self.negotiator, policy=self.policy)
             mem = self.duels[key] = Memory(agent=agent, snap=snap, first_tick=self.tick)
             if (dv := snap.view.day_values) is not None:
                 self.swings.setdefault(raw.get("session"), {})[key] = swing(dv)
@@ -239,6 +244,7 @@ class DuelRunner:
             self.record(key, session=self.sessions.get(raw.get("session")) or {"session": raw.get("session")},
                         first_tick=self.tick, view=v.model_dump(), days_reading=days,
                         models={"strategist": self.strategist.label, "negotiator": self.negotiator.label},
+                        policy=self.policy, params=self.params.overrides() if self.params else None,
                         strategist_system=agent.strategist_system, negotiator_system=agent.negotiator_system)
         mem.snap = snap
         self.check_ours(mem)
@@ -364,7 +370,7 @@ class DuelRunner:
             return False
         v = mem.agent.view
         d = v.decay or 0.0
-        return worth(v, ours.price, ours.days) - surplus <= max(2.0, 2 * d / (1 - d) * surplus)
+        return worth(v, ours.price, ours.days) - surplus <= max(SMALL_GAP_P, SMALL_GAP_ROUNDS * d / (1 - d) * surplus)
 
     async def decide(self, mem: Memory) -> None:
         sig = signature(mem.snap)
@@ -456,7 +462,7 @@ class DuelRunner:
                     return
                 if e.code == "missing_days" and "days" not in v.issues:
                     v.issues.append("days")
-                    mem.agent = DuelAgent(v, self.strategist, self.negotiator)
+                    mem.agent = DuelAgent(v, self.strategist, self.negotiator, policy=self.policy)
                     mem.force = True
                 say(f"duel {did}: refused: {e.code}: {e.message}")
                 return
@@ -502,6 +508,28 @@ class DuelRunner:
         except Exception as e:
             self.log.write("error", where="sweep", error=repr(e))
 
+    # Tuning
+
+    def reload_params(self) -> dict[str, Any]:
+        """Re-read run/duel_params.json (once a tick): log every change, and a refused file (the last good set
+        stays). Never raises: a bad params file must not stop a duel."""
+        if self.params is None:
+            return {}
+        try:
+            r = self.params.reload()
+        except Exception as e:
+            self.log.write("error", where="params", error=repr(e))
+            return {}
+        if not r:
+            return r
+        if r.get("errors"):
+            say(f"params: {self.params.path} NOT applied ({'; '.join(r['errors'])}); the last good set stays")
+        for k, (old, new) in r.get("changed", {}).items():
+            say(f"params: {k} {old} -> {new}")
+        self.log.write("params", tick=self.tick, path=str(self.params.path), changed=r.get("changed"),
+                       errors=r.get("errors"), overrides=self.params.overrides())
+        return r
+
     # The loop
 
     async def run(self) -> None:
@@ -509,6 +537,7 @@ class DuelRunner:
         self.team = {str(me.get("id")), str(me.get("name"))}
         say(f"{me.get('name')} ({me.get('id')}): {'DRY RUN, ' if self.dry_run else ''}strategist "
             f"{self.strategist.label}, negotiator {self.negotiator.label}; log {self.log.path}")
+        self.reload_params()
         await self.refresh_session()
         await self.sweep()
         last_schedule = time.monotonic()
@@ -518,6 +547,7 @@ class DuelRunner:
                 if clock.get("tick") != self.tick:
                     self.tick = clock.get("tick")
                     self.tick_seconds = float(clock.get("tick_seconds") or self.tick_seconds)
+                    self.reload_params()
                 if time.monotonic() - last_schedule > 60:
                     await self.refresh_session(clock.get("t_hours"))
                     await self.sweep()
