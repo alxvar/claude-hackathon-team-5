@@ -246,6 +246,20 @@ class Collector:
             return
         git = ["git", "-C", str(ROOT)]
         rel = str(TEAMS_MD.relative_to(ROOT)).replace("\\", "/")
+        # The same guards as tools/gitsync.py (which needs fcntl, so not on Windows): never pull over work in progress
+        # (Sat 09:44-09:52 a pull --autostash over a half-done edit discarded other sessions' work 13 times).
+        if (ROOT / "run" / "git-paused").exists():
+            return
+        gitdir = Path(subprocess.run(git + ["rev-parse", "--absolute-git-dir"], capture_output=True,
+                                     text=True).stdout.strip())
+        if any((gitdir / d).exists() for d in ("rebase-merge", "rebase-apply", "MERGE_HEAD")):
+            self.errors.appendleft(f"{time.strftime('%H:%M:%S')} teams.md: a rebase/merge is under way, not pushed")
+            return
+        code = ("agents/", "tools/", "tests/", "engine/", "broker/", "dashboard/", "hub/", "bazaar-kit/",
+                "pyproject.toml", "uv.lock")
+        wip = [ln[3:] for ln in subprocess.run(git + ["status", "--porcelain"], capture_output=True,
+                                               text=True).stdout.splitlines()
+               if not ln.startswith("??") and ln[3:].strip('"').startswith(code)]
         for attempt in range(3):
             subprocess.run(git + ["add", "--", rel], capture_output=True)
             if subprocess.run(git + ["diff", "--cached", "--quiet", "--", rel]).returncode == 0:
@@ -253,7 +267,16 @@ class Collector:
             c = subprocess.run(git + ["commit", "-q", "-m", f"intel: teams.md (Dani's dashboard, {time.strftime('%H:%M')})",
                                       "--", rel], capture_output=True, text=True)
             if c.returncode == 0:
-                subprocess.run(git + ["pull", "--rebase", "--autostash", "-q", "origin", "main"], capture_output=True)
+                if wip:  # a code edit in the tree: keep the commit local, the next clean round pushes it
+                    self.errors.appendleft(f"{time.strftime('%H:%M:%S')} teams.md: committed, not pushed "
+                                           f"(work in progress in {', '.join(wip[:2])})")
+                    return
+                if subprocess.run(git + ["pull", "--rebase", "--autostash", "-q", "origin", "main"],
+                                  capture_output=True).returncode != 0:
+                    subprocess.run(git + ["rebase", "--abort"], capture_output=True)
+                    self.errors.appendleft(f"{time.strftime('%H:%M:%S')} teams.md: pull conflicted (aborted), "
+                                           "committed, not pushed")
+                    return
                 p = subprocess.run(git + ["push", "-q", "origin", "HEAD:main"], capture_output=True, text=True)
                 if p.returncode == 0:
                     return
@@ -389,6 +412,11 @@ class Analysis:
         v = self.held_value.get(ref)
         return min(v) if v else None
 
+    def token_bid(self, ref, price):
+        """A bid under half the card's book price (Team 13's 2 P bids on RET commons): no sign the team collects it."""
+        book = self.book.get(self.rarity(ref))
+        return bool(book) and price < book / 2
+
     def feeding_block(self, p, us_score):
         """Why the feeding rule forbids selling team profile `p` a card that can close its page, or None if allowed."""
         if p["rank"] <= TOP_NEVER:
@@ -422,8 +450,10 @@ class Analysis:
                 self.maker[o.get("id")] = who
                 self.listings[who] += 1
                 if cash_of(o.get("give")) and refs_of(o.get("want")):
+                    each = cash_of(o.get("give")) / len(refs_of(o.get("want")))
                     for r in refs_of(o.get("want")):
-                        self.bids[who][set_of(r)].add(r)
+                        if not self.token_bid(r, each):
+                            self.bids[who][set_of(r)].add(r)
                 elif refs_of(o.get("give")) and cash_of(o.get("want")):
                     for r in refs_of(o.get("give")):
                         self.asks[who][set_of(r)].add(r)
