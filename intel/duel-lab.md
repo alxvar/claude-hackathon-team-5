@@ -44,6 +44,9 @@ C ≤ 15. **Cells:** 12 ticks, 10% decay, 5 rival worlds, 20,000 duels each (`fi
   nothing. **The lever is fewer mid-duel messages in narrow gaps**, which matches the Chief's thin-margin duels
   (6095, 6171, 6184: 7-8 rounds for 3-11 P of worth).
 - **Stronger:** `MIN_STEP_P` 6 (Q5): +0.031, worst +0.022. **Gentler:** `MIN_STEP_P` 4: +0.022.
+- **Robust to reciprocity** (`night/react.out`). If rivals answer each P of our step with 0.25-1.0 P of extra
+  concession (the data hints big steps draw bigger replies), Q4's gain grows slightly: +0.028 / +0.029 / +0.030, worst
+  world ≥ +0.022. Q5: up to +0.034.
 - **Conflict to know about:** the earlier days model (`lab/days.md`) found the late switch slightly positive
   (+0.004; +0.013 against rivals that never move their day). That model wasn't calibrated on Duels II. In the real
   records, one exact case shows it costing (6094) and one possibly saving a deal (5801). Moving it to 2 ticks left keeps
