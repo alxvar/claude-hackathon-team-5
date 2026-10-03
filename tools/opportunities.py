@@ -46,6 +46,7 @@ from bazaar_sdk import Bazaar, BazaarError, _Http  # noqa: E402
 from notify import notify  # noqa: E402
 
 DATA, STATE, OUT = ROOT / "data", ROOT / "run" / "opportunities_state.json", ROOT / "intel" / "opportunities.md"
+BOOK = ROOT / "run" / "book.json"   # the maker book's desired offers (agents/trader/book.py)
 URL = os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai")
 HOUSE = "rastro"
 DEFAULT_VENUE = os.environ.get("DEFAULT_VENUE", "v07")   # Team 10's venue at 0% (directive 10:18, reciprocal deal)
@@ -557,6 +558,14 @@ def message(o, offer_id=None):
 
 # ---------------------------------------------------------------------------------------------------- state, output
 
+def book_buys(path=BOOK):
+    """Cards the maker book bids for: opps never posts a second bid for one (both could fill: two copies)."""
+    try:
+        return {e["card"] for e in json.loads(Path(path).read_text()).get("offers") or [] if e.get("side") == "buy"}
+    except (OSError, ValueError, AttributeError, KeyError, TypeError):
+        return set()
+
+
 def load_state(path, strict=False):
     """Cooldowns and live offers. A missing file is a fresh start; an unreadable one is refused in live mode (strict),
     because an empty state would silently lift every cap."""
@@ -654,7 +663,7 @@ def write_md(path, opps, state, ctx, *, dry_run, now, clock, src):
 # ---------------------------------------------------------------------------------------------------- one run
 
 def run_once(api, *, dry_run, now=None, state_path=STATE, out_path=OUT, data_dir=DATA, build=BUILD,
-             cash_floor=None, notifier=notify, log=print, collectors=None):
+             cash_floor=None, notifier=notify, log=print, collectors=None, book_path=BOOK):
     now = time.time() if now is None else now
     cash_floor = int(os.environ.get("CASH_FLOOR", 200)) if cash_floor is None else cash_floor
     state = load_state(state_path, strict=not dry_run)
@@ -685,7 +694,11 @@ def run_once(api, *, dry_run, now=None, state_path=STATE, out_path=OUT, data_dir
                                    now_h=clock.get("t_hours"), our_listed=our_listed, wall=wall,
                                    collectors=collectors)
     ctx["values"] = values
-    picked = choose_alerts(opps, state, now)
+    owned = book_buys(book_path)
+    for o in opps:
+        if o["side"] == "BUY" and o["card"] in owned:
+            o["status"] = "the book bids for it (run/book.json): not posted here"
+    picked = choose_alerts([o for o in opps if not (o["side"] == "BUY" and o["card"] in owned)], state, now)
     ttl_ticks = expires_param(OFFER_TTL_TICKS, clock.get("tick_seconds"))
     cash = me.get("cash", 0) - committed
     venues = None

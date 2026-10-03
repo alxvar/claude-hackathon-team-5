@@ -27,6 +27,11 @@ cmd_for() {
 ALL="status collector trader scout judge strategist archiver duelmon opps recorder book bargains news radar"  # broker: started by the Market session only  # autoflip is DEAD (dealer buys above value subtract): never add it back
 alive() { [ -f "$R/run/$1.pid" ] && kill -0 "$(cat "$R/run/$1.pid")" 2>/dev/null; }
 action="$1"; shift
+case "$action" in start|stop|status) ;;
+  restart) [ $# -gt 0 ] || { echo "restart needs explicit names"; exit 1; }
+    "$0" stop "$@"; exec "$0" start "$@" ;;   # env (CASH_FLOOR, MIN_GAIN_SELL, ...) passes through to start
+  *) echo "usage: $0 start|stop|restart|status [names]"; exit 1 ;;
+esac
 if [ "$action" = start ] && [ $# -eq 0 ]; then echo "start needs explicit names (safe at once: status collector archiver duelmon recorder bargains news radar; after the 09:00 checks: trader opps book scout judge strategist)"; exit 1; fi
 names="${*:-$ALL}"
 for n in $names; do

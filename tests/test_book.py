@@ -277,3 +277,63 @@ def test_a_dry_run_never_cancels():
     st, _, _ = run(g, e, collectors=Rule({("t16", "SAL")}))
     st, ev, _ = run(g, e, st, tick=301, collectors=Rule(set()), dry_run=True)
     assert g.cancelled == [] and ev[-1]["event"] == "cancel_not_collector" and ev[-1]["dry_run"]
+
+
+# ------------------------------------------------------------------ the file is the book: edits and removals act now
+
+BID = {"card": "RET-07", "side": "buy", "price": 40, "floor": 55}
+
+
+def test_removing_an_entry_cancels_its_live_offer():
+    # Sunday's plan removes a CHA bid before buying that card from a dealer: a bid left up could fill too (2 copies).
+    g = Game()
+    st, _, _ = run(g, [BID, {"card": "SAL-08", "side": "sell", "price": 30, "floor": 20}])
+    bid = st["RET-07:buy"]["offer"]
+    st, ev, _ = run(g, [{"card": "SAL-08", "side": "sell", "price": 30, "floor": 20}], st, tick=301)
+    assert g.cancelled == [bid] and "RET-07:buy" not in st and bid not in g.offers
+    assert [e["event"] for e in ev] == ["cancel_removed"] and "SAL-08:sell" in st
+
+
+def test_a_removed_entry_whose_cancel_fails_is_tried_again_and_a_dry_run_cancels_nothing():
+    g = Game()
+    st, _, _ = run(g, [BID])
+
+    def refuse(oid):
+        raise BazaarError("conflict", "busy")
+    g.cancel = refuse
+    st2, ev, _ = run(g, [], st, tick=301)
+    assert ev[-1]["event"] == "cancel_failed" and st2["RET-07:buy"]["offer"] == st["RET-07:buy"]["offer"]
+    g = Game()
+    st, _, _ = run(g, [BID])
+    _, ev, _ = run(g, [], st, tick=301, dry_run=True)
+    assert g.cancelled == [] and ev[-1]["dry_run"] is True
+
+
+def test_a_missing_or_half_written_book_file_changes_nothing(tmp_path):
+    assert bk.desired(tmp_path / "none.json") is None
+    (tmp_path / "half.json").write_text('{"offers": [{"card": "CHA-0')
+    assert bk.desired(tmp_path / "half.json") is None
+    (tmp_path / "empty.json").write_text('{"offers": []}')
+    assert bk.desired(tmp_path / "empty.json") == []          # an empty book on purpose: everything comes down
+
+
+def test_editing_the_price_moves_the_live_offer_within_a_tick():
+    g = Game()
+    st, _, _ = run(g, [BID])
+    st, ev, _ = run(g, [{**BID, "price": 50}], st, tick=301)
+    assert g.cancelled == [g.posted[0]["id"]] and g.posted[-1]["give"] == {"cash": 50}
+    assert ev[-1]["event"] == "move" and ev[-1]["was"] == 40 and st["RET-07:buy"]["since"] == 301
+    st, _, _ = run(g, [{**BID, "price": 50}], st, tick=302)
+    assert len(g.posted) == 2                                  # moved once, not every tick
+    run(g, [{**BID, "price": 90}], st, tick=303)
+    assert g.posted[-1]["give"] == {"cash": 55}                # never past the floor
+
+
+def test_state_from_before_price_edits_does_not_jump_back_to_the_file_price():
+    g = Game()
+    st, _, _ = run(g, [BID])
+    st["RET-07:buy"].pop("entry")
+    st["RET-07:buy"]["price"] = 44                             # repriced up by the old book
+    g.offers[st["RET-07:buy"]["offer"]]["give"] = {"cash": 44}
+    st, _, _ = run(g, [BID], st, tick=301)
+    assert len(g.posted) == 1 and st["RET-07:buy"]["entry"] == 40 and st["RET-07:buy"]["price"] == 44

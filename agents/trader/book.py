@@ -12,7 +12,9 @@ The Operator writes the desired book in run/book.json and runs this; it re-reads
 Each tick, per entry (one live offer per card and side):
 - not posted, expired or cancelled: post it (an ask whose copy left us, or a bid whose card arrived, is filled: done);
 - expiring within REFRESH_LEFT ticks: cancel and post again at the same price;
-- unfilled REPRICE_AFTER ticks at one price: cancel and post one step toward the floor (asks down, bids up).
+- unfilled REPRICE_AFTER ticks at one price: cancel and post one step toward the floor (asks down, bids up);
+- its `price` edited in the file: cancel and post at the new price within a tick (clamped to the floor);
+- its entry removed from the file: cancel the live offer (an unreadable or missing file changes nothing).
 An ask goes only to a team that collects the card's set (tools/collectors.py: teams.md "collects" or its bids /
 dealer asks; "dumps" or unknown: no; a public ask, with no `to`, never): a live one that stops qualifying is
 cancelled. Never past the floor, nor past what scores: an ask at least our copy's value + --min-gain-sell (1: as maker we pay
@@ -73,6 +75,12 @@ def load(path: Path, default):
         return json.loads(path.read_text())
     except (OSError, ValueError):
         return default
+
+
+def desired(path: Path) -> list | None:
+    """The file's offers; None when it is missing or half-written (then nothing changes: never "cancel everything")."""
+    d = load(path, None)
+    return (d.get("offers") or []) if isinstance(d, dict) else None
 
 
 def save(path: Path, data) -> None:
@@ -221,6 +229,8 @@ class Book:
                         adopted.add(oid)
                         self.log({"event": "adopt", "card": e["card"], "side": e["side"], "offer": oid, "price": p})
                         break
+            if s.get("price") is not None and "entry" not in s:
+                s["entry"] = int(e["price"])            # state from before price edits moved offers: no move now
             o = mine.get(s.get("offer"))
             if s.get("offer") and o is None:         # gone since last tick: filled, or expired / cancelled
                 filled = (s.get("asset") not in {a["id"] for a in copies.get(e["card"], [])} if sell
@@ -235,6 +245,8 @@ class Book:
                 left = (o.get("expires_tick") or tick + LIFE_TICKS) - tick
                 if left <= REFRESH_LEFT:
                     due.append(((0, left), key, e, s, "refresh"))
+                elif int(e["price"]) != s.get("entry"):
+                    due.append(((2, -1), key, e, s, "move"))   # the Operator edited the price: now, not in 20 ticks
                 elif tick - s.get("since", tick) >= REPRICE_AFTER:
                     due.append(((2, 0), key, e, s, "reprice"))
                 else:
@@ -252,13 +264,28 @@ class Book:
                 open_left -= not s.get("offer")
                 if e["side"] == "buy":
                     bid_cash += r["price"] - (s.get("price") or 0 if s.get("offer") else 0)
+        keys = {f"{e['card']}:{e['side']}" for e in book}
+        for key, s in st.items():                     # removed from the file: take its offer down
+            if key in keys or s.get("done") or s.get("offer") not in mine:
+                continue
+            ev = {"event": "cancel_removed", "key": key, "offer": s["offer"], "price": s.get("price")}
+            if self.dry_run:
+                self.log({**ev, "dry_run": True})
+                continue
+            try:
+                self.b.cancel(s["offer"])
+                self.log(ev)
+            except BazaarError as err:
+                self.log({**ev, "event": "cancel_failed", "code": err.code})
+                out[key] = s                          # try again next tick
         return out
 
     def place(self, e, s, why, tick, secs, copies, locked, me, bid_cash) -> tuple[dict | None, bool]:
         """Cancel the live one (refresh, reprice) and post at the right price: (new state or None, posted)."""
         sell = e["side"] == "sell"
         card = e["card"]
-        price = int(s.get("price") or e["price"])
+        edited = s.get("entry") != int(e["price"])    # a new entry, or its price edited in the file: the file's price
+        price = int(e["price"]) if edited else int(s.get("price") or e["price"])
         if sell:
             free = [a for a in copies.get(card, []) if a["id"] not in locked or a["id"] == s.get("asset")]
             free = [a for a in free if a.get("your_value") is not None]
@@ -277,12 +304,14 @@ class Book:
             if floor < 1:
                 self.log({"event": "skip", "card": card, "side": "buy", "why": f"worth {v:g} to us"})
                 return None, False
-        old = price
+        old = int(s.get("price") or price) if why == "move" else price
         if why == "reprice":
             price = toward(price, floor, sell, e.get("step"))
         price = max(price, floor) if sell else min(price, floor)   # never past the floor, whatever the book says
         if why == "reprice" and price == old and s.get("offer"):
             return {**s, "since": tick}, False        # at the floor already: keep it, wait another round
+        if why == "move" and price == s.get("price") and s.get("offer"):
+            return {**s, "entry": int(e["price"])}, False   # the edit clamps to the live price: nothing to move
         mine_now = (s.get("price") or 0) if s.get("offer") else 0     # a replaced bid frees its cash
         if not sell and me.get("cash", 0) - (bid_cash - mine_now) - price < self.cash_floor:
             self.log({"event": "skip", "card": card, "side": "buy", "why": f"cash floor {self.cash_floor}"})
@@ -306,7 +335,7 @@ class Book:
         self.log({**ev, "offer": oid})
         since = s.get("since", tick) if price == s.get("price") else tick   # the reprice clock runs per price
         return {"offer": oid, "price": price, "since": since, "asset": asset["id"] if asset else None,
-                "held": len(copies.get(card, []))}, True
+                "held": len(copies.get(card, [])), "entry": int(e["price"])}, True
 
 
 def main(argv=None) -> None:
@@ -332,8 +361,11 @@ def main(argv=None) -> None:
                     return
                 time.sleep(30)
                 continue
-            st = book.step(load(args.book, {}).get("offers") or [], load(args.state, {}), clock)
-            if not args.dry_run:
+            want = desired(args.book)
+            if want is None:
+                log({"event": "error", "where": "book", "error": f"{args.book} missing or unreadable: nothing changed"})
+            st = None if want is None else book.step(want, load(args.state, {}), clock)
+            if not args.dry_run and st is not None:
                 save(args.state, st)
         except Exception as e:                       # never die, never spin
             log({"event": "error", "where": "loop", "error": repr(e)[:200]})

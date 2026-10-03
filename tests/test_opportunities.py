@@ -376,7 +376,7 @@ def data_dir(tmp_path, f, board_age=5.0):
 def run(tmp_path, api, dry_run, **kw):
     return op.run_once(api, dry_run=dry_run, now=kw.pop("now", NOW), state_path=tmp_path / "state.json",
                        out_path=tmp_path / "opportunities.md", data_dir=kw.pop("data", None) or data_dir(tmp_path, api.f),
-                       cash_floor=200, log=lambda *a: None, **kw)
+                       cash_floor=200, log=lambda *a: None, book_path=kw.pop("book_path", tmp_path / "book.json"), **kw)
 
 
 def test_dry_run_never_calls_a_write_endpoint_or_notifies(tmp_path):
@@ -636,14 +636,26 @@ class ValueApi(FakeApi):
         return {"card": card, "your_value": self.values.get(card, 11.0)}
 
 
-def ret_buy_run(tmp_path, open_offers):
+def ret_buy_run(tmp_path, open_offers, book=None):
     tmp_path.mkdir(parents=True, exist_ok=True)
     f = ret_page_fixture()
     api = ValueApi({"RET-10": 149.9}, f=f, open_offers=open_offers)
+    if book is not None:
+        (tmp_path / "book.json").write_text(json.dumps(book))
     opps, _ = op.run_once(api, dry_run=False, now=NOW, state_path=tmp_path / "state.json",
                           out_path=tmp_path / "opportunities.md", data_dir=data_dir(tmp_path, f), cash_floor=100,
-                          notifier=lambda *a, **k: None, log=lambda *a: None)
+                          notifier=lambda *a, **k: None, log=lambda *a: None, book_path=tmp_path / "book.json")
     return api, find(opps, "BUY", "t09", "RET-10")
+
+
+def test_a_card_the_book_bids_for_gets_no_second_bid_from_opps(tmp_path):
+    # Sunday's CHA bids live in run/book.json: an addressed opps bid next to the book's public one could fill too.
+    api, o = ret_buy_run(tmp_path, [], book={"offers": [{"card": "RET-10", "side": "buy", "price": 70, "floor": 90}]})
+    assert "book bids for it" in o["status"]
+    assert not any(c[0] == "list_offer" and c[1][1] == {"cards": ["RET-10"]} for c in api.calls)
+    api, o = ret_buy_run(tmp_path / "ask", [], book={"offers": [{"card": "RET-10", "side": "sell", "price": 99,
+                                                                  "floor": 90}]})
+    assert any(c[0] == "list_offer" and c[1][1] == {"cards": ["RET-10"]} for c in api.calls)   # an ask: no clash
 
 
 def test_cash_floor_counts_bids_posted_by_other_processes(tmp_path):
