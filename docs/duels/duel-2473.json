@@ -114,6 +114,274 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 561,
+   "raw": {
+    "duel": 2473,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 94,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Rojo",
+    "deadline_tick": 568,
+    "decay_per_round": 0.06,
+    "rounds": 0,
+    "your_offer": {
+     "id": 4869,
+     "price": 62,
+     "tick": 561,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 552,
+      "from": "you",
+      "text": "I'm interested in El Mesón de la Cava and I'm offering 55 P. That reflects a fair value for a business of this kind, and I'm ready to move quickly. What price do you have in mind?",
+      "price": 55,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "you",
+      "text": "I can do 58 P.",
+      "price": 58,
+      "days": null
+     },
+     {
+      "tick": 561,
+      "from": "you",
+      "text": "I can do 62 P.",
+      "price": 62,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 562,
+   "raw": {
+    "duel": 2473,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 94,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Rojo",
+    "deadline_tick": 568,
+    "decay_per_round": 0.06,
+    "rounds": 0,
+    "your_offer": {
+     "id": 4890,
+     "price": 66,
+     "tick": 562,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 552,
+      "from": "you",
+      "text": "I'm interested in El Mesón de la Cava and I'm offering 55 P. That reflects a fair value for a business of this kind, and I'm ready to move quickly. What price do you have in mind?",
+      "price": 55,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "you",
+      "text": "I can do 58 P.",
+      "price": 58,
+      "days": null
+     },
+     {
+      "tick": 561,
+      "from": "you",
+      "text": "I can do 62 P.",
+      "price": 62,
+      "days": null
+     },
+     {
+      "tick": 562,
+      "from": "you",
+      "text": "I can do 66 P.",
+      "price": 66,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 563,
+   "raw": {
+    "duel": 2473,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 94,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Rojo",
+    "deadline_tick": 568,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 4890,
+     "price": 66,
+     "tick": 562,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4914,
+     "price": 100,
+     "tick": 563,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 552,
+      "from": "you",
+      "text": "I'm interested in El Mesón de la Cava and I'm offering 55 P. That reflects a fair value for a business of this kind, and I'm ready to move quickly. What price do you have in mind?",
+      "price": 55,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "you",
+      "text": "I can do 58 P.",
+      "price": 58,
+      "days": null
+     },
+     {
+      "tick": 561,
+      "from": "you",
+      "text": "I can do 62 P.",
+      "price": 62,
+      "days": null
+     },
+     {
+      "tick": 562,
+      "from": "you",
+      "text": "I can do 66 P.",
+      "price": 66,
+      "days": null
+     },
+     {
+      "tick": 563,
+      "from": "Rival Rojo",
+      "text": "100 P y cerramos ahora.",
+      "price": 100,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 565,
+   "raw": {
+    "duel": 2473,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 94,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Rojo",
+    "deadline_tick": 568,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 4955,
+     "price": 80,
+     "tick": 565,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4914,
+     "price": 100,
+     "tick": 563,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 552,
+      "from": "you",
+      "text": "I'm interested in El Mesón de la Cava and I'm offering 55 P. That reflects a fair value for a business of this kind, and I'm ready to move quickly. What price do you have in mind?",
+      "price": 55,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "you",
+      "text": "I can do 58 P.",
+      "price": 58,
+      "days": null
+     },
+     {
+      "tick": 561,
+      "from": "you",
+      "text": "I can do 62 P.",
+      "price": 62,
+      "days": null
+     },
+     {
+      "tick": 562,
+      "from": "you",
+      "text": "I can do 66 P.",
+      "price": 66,
+      "days": null
+     },
+     {
+      "tick": 563,
+      "from": "Rival Rojo",
+      "text": "100 P y cerramos ahora.",
+      "price": 100,
+      "days": null
+     },
+     {
+      "tick": 565,
+      "from": "you",
+      "text": "We've already moved several times while you've made a single offer, so I'm making one clear, substantial step to 80 P. That's a serious price for El Mesón de la Cava, and with little time left I'd ask you to meet me so we can close.",
+      "price": 80,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -281,6 +549,429 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 561,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 2473,
+     "role": "buyer",
+     "limit": 94,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm interested in El Mesón de la Cava and I'm offering 55 P. That reflects a fair value for a business of this kind, and I'm ready to move quickly. What price do you have in mind?",
+      "offer": {
+       "price": 55,
+       "days": null
+      },
+      "accept": false,
+      "tick": 552,
+      "decision": {
+       "action": "offer",
+       "price": 55,
+       "message": "I'm interested in El Mesón de la Cava and I'm offering 55 P. That reflects a fair value for a business of this kind, and I'm ready to move quickly. What price do you have in mind?"
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 58 P.",
+      "offer": {
+       "price": 58,
+       "days": null
+      },
+      "accept": false,
+      "tick": 560,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 561,
+    "ticks_left": 7,
+    "rounds": 0
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 62 P.",
+    "price": 62,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 562,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 2473,
+     "role": "buyer",
+     "limit": 94,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm interested in El Mesón de la Cava and I'm offering 55 P. That reflects a fair value for a business of this kind, and I'm ready to move quickly. What price do you have in mind?",
+      "offer": {
+       "price": 55,
+       "days": null
+      },
+      "accept": false,
+      "tick": 552,
+      "decision": {
+       "action": "offer",
+       "price": 55,
+       "message": "I'm interested in El Mesón de la Cava and I'm offering 55 P. That reflects a fair value for a business of this kind, and I'm ready to move quickly. What price do you have in mind?"
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 58 P.",
+      "offer": {
+       "price": 58,
+       "days": null
+      },
+      "accept": false,
+      "tick": 560,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 62 P.",
+      "offer": {
+       "price": 62,
+       "days": null
+      },
+      "accept": false,
+      "tick": 561,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 562,
+    "ticks_left": 6,
+    "rounds": 0
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 66 P.",
+    "price": 66,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 563,
+   "took_s": 6.32,
+   "cost_usd": 0.00617,
+   "obs": {
+    "view": {
+     "duel_id": 2473,
+     "role": "buyer",
+     "limit": 94,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm interested in El Mesón de la Cava and I'm offering 55 P. That reflects a fair value for a business of this kind, and I'm ready to move quickly. What price do you have in mind?",
+      "offer": {
+       "price": 55,
+       "days": null
+      },
+      "accept": false,
+      "tick": 552,
+      "decision": {
+       "action": "offer",
+       "price": 55,
+       "message": "I'm interested in El Mesón de la Cava and I'm offering 55 P. That reflects a fair value for a business of this kind, and I'm ready to move quickly. What price do you have in mind?"
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 58 P.",
+      "offer": {
+       "price": 58,
+       "days": null
+      },
+      "accept": false,
+      "tick": 560,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 62 P.",
+      "offer": {
+       "price": 62,
+       "days": null
+      },
+      "accept": false,
+      "tick": 561,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 66 P.",
+      "offer": {
+       "price": 66,
+       "days": null
+      },
+      "accept": false,
+      "tick": 562,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "100 P y cerramos ahora.",
+      "offer": {
+       "price": 100,
+       "days": null
+      },
+      "accept": false,
+      "tick": 563,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 100,
+     "days": null
+    },
+    "tick": 563,
+    "ticks_left": 5,
+    "rounds": 1
+   },
+   "move": {
+    "action": "offer",
+    "text": "I've already moved several times and your side hasn't moved from its opening figure. I'm holding at 66 P, which is a fair value for this business. If you come down meaningfully from your starting point, we can close quickly.",
+    "price": 66,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 66,
+      "message": "I've already moved several times and your side hasn't moved from its opening figure. I'm holding at 66 P, which is a fair value for this business. If you come down meaningfully from your starting point, we can close quickly."
+     },
+     "band": {
+      "worst": 68,
+      "target": 66,
+      "best": 66
+     },
+     "plan": {
+      "read": "They opened at 100 P and want to close now. That is an anchor, not a limit, and they have made only one offer while we have already moved 11 P with no reply.",
+      "target": 66,
+      "best": 66,
+      "worst": 68,
+      "days": null,
+      "angle": "Hold at 66 P and ask them to come down meaningfully. We have already moved several times without any movement from them, so the next step is theirs."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.81,
+       "in": 496,
+       "out": 127,
+       "cost_usd": 0.00452,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.52,
+       "in": 401,
+       "out": 85,
+       "cost_usd": 0.00165,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 565,
+   "took_s": 6.06,
+   "cost_usd": 0.00685,
+   "obs": {
+    "view": {
+     "duel_id": 2473,
+     "role": "buyer",
+     "limit": 94,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm interested in El Mesón de la Cava and I'm offering 55 P. That reflects a fair value for a business of this kind, and I'm ready to move quickly. What price do you have in mind?",
+      "offer": {
+       "price": 55,
+       "days": null
+      },
+      "accept": false,
+      "tick": 552,
+      "decision": {
+       "action": "offer",
+       "price": 55,
+       "message": "I'm interested in El Mesón de la Cava and I'm offering 55 P. That reflects a fair value for a business of this kind, and I'm ready to move quickly. What price do you have in mind?"
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 58 P.",
+      "offer": {
+       "price": 58,
+       "days": null
+      },
+      "accept": false,
+      "tick": 560,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 62 P.",
+      "offer": {
+       "price": 62,
+       "days": null
+      },
+      "accept": false,
+      "tick": 561,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 66 P.",
+      "offer": {
+       "price": 66,
+       "days": null
+      },
+      "accept": false,
+      "tick": 562,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "100 P y cerramos ahora.",
+      "offer": {
+       "price": 100,
+       "days": null
+      },
+      "accept": false,
+      "tick": 563,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 100,
+     "days": null
+    },
+    "tick": 565,
+    "ticks_left": 3,
+    "rounds": 1
+   },
+   "move": {
+    "action": "offer",
+    "text": "We've already moved several times while you've made a single offer, so I'm making one clear, substantial step to 80 P. That's a serious price for El Mesón de la Cava, and with little time left I'd ask you to meet me so we can close.",
+    "price": 80,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 80,
+      "message": "We've already moved several times while you've made a single offer, so I'm making one clear, substantial step to 80 P. That's a serious price for El Mesón de la Cava, and with little time left I'd ask you to meet me so we can close."
+     },
+     "band": {
+      "worst": 82,
+      "target": 80,
+      "best": 78
+     },
+     "plan": {
+      "read": "They opened at 100 P with a 'close now' push after we already moved 11 P unanswered; 100 is past what we can pay, and with only 3 ticks left they likely have room below it.",
+      "target": 80,
+      "best": 78,
+      "worst": 82,
+      "days": null,
+      "angle": "Make one clear, substantial step to show seriousness, stress that we moved repeatedly while they made a single offer, and ask them to meet us so we can close in the remaining time."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.73,
+       "in": 532,
+       "out": 148,
+       "cost_usd": 0.00509,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.33,
+       "in": 422,
+       "out": 92,
+       "cost_usd": 0.00176,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -360,6 +1051,109 @@
      "id": 4855,
      "price": 58,
      "tick": 560,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 561,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 62 P.",
+    "price": 62,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 2473,
+    "offer": {
+     "id": 4869,
+     "price": 62,
+     "tick": 561,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 562,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 66 P.",
+    "price": 66,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 2473,
+    "offer": {
+     "id": 4890,
+     "price": 66,
+     "tick": 562,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 565,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "We've already moved several times while you've made a single offer, so I'm making one clear, substantial step to 80 P. That's a serious price for El Mesón de la Cava, and with little time left I'd ask you to meet me so we can close.",
+    "price": 80,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 80,
+      "message": "We've already moved several times while you've made a single offer, so I'm making one clear, substantial step to 80 P. That's a serious price for El Mesón de la Cava, and with little time left I'd ask you to meet me so we can close."
+     },
+     "band": {
+      "worst": 82,
+      "target": 80,
+      "best": 78
+     },
+     "plan": {
+      "read": "They opened at 100 P with a 'close now' push after we already moved 11 P unanswered; 100 is past what we can pay, and with only 3 ticks left they likely have room below it.",
+      "target": 80,
+      "best": 78,
+      "worst": 82,
+      "days": null,
+      "angle": "Make one clear, substantial step to show seriousness, stress that we moved repeatedly while they made a single offer, and ask them to meet us so we can close in the remaining time."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.73,
+       "in": 532,
+       "out": 148,
+       "cost_usd": 0.00509,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.33,
+       "in": 422,
+       "out": 92,
+       "cost_usd": 0.00176,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2473,
+    "offer": {
+     "id": 4955,
+     "price": 80,
+     "tick": 565,
      "days": 0
     }
    }

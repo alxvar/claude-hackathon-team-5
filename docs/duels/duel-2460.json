@@ -538,6 +538,1010 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 561,
+   "raw": {
+    "duel": 2460,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "La Heroína del Dos de Mayo",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 172,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 569,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 4867,
+     "price": 242,
+     "tick": 560,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4887,
+     "price": 155,
+     "tick": 561,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 553,
+      "from": "Rival Azul",
+      "text": "Happy to close quickly at 131 primas for La Heroína del Dos de Mayo.",
+      "price": 131,
+      "days": null
+     },
+     {
+      "tick": 553,
+      "from": "you",
+      "text": "La Heroína del Dos de Mayo is a work of real historical weight, commemorating one of Spain's defining moments, and its quality speaks for itself. I'm offering it at 260 P, a fair price for a piece of this significance. I look forward to your response.}",
+      "price": 260,
+      "days": null
+     },
+     {
+      "tick": 554,
+      "from": "Rival Azul",
+      "text": "It's a fine piece, and I can go up to 133 P. I'd be glad to close at that price.",
+      "price": 133,
+      "days": null
+     },
+     {
+      "tick": 558,
+      "from": "you",
+      "text": "Thank you for the step, but it is still a long way from the value of this piece. La Heroína del Dos de Mayo carries real historical weight and quality, and I can move to 252 P. You would need to come up substantially for us to close.",
+      "price": 252,
+      "days": null
+     },
+     {
+      "tick": 559,
+      "from": "Rival Azul",
+      "text": "I appreciate the move; I can come up to 137 P for La Heroína del Dos de Mayo.",
+      "price": 137,
+      "days": null
+     },
+     {
+      "tick": 559,
+      "from": "you",
+      "text": "I appreciate the step, but it is still small next to the gap between us. La Heroína del Dos de Mayo is a piece of real historical significance, and I can come down to 248 P. To close, I'd need to see much bigger moves from you.",
+      "price": 248,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "Rival Azul",
+      "text": "A real step from me: 146 P.",
+      "price": 146,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "you",
+      "text": "Thank you, that is a real step, and I'll answer it with a move of my own to 242 P. Given the historical significance of La Heroína del Dos de Mayo, we still need larger moves from you to close the remaining gap.",
+      "price": 242,
+      "days": null
+     },
+     {
+      "tick": 561,
+      "from": "Rival Azul",
+      "text": "I can do 155 P. Every round costs us both, so let's close.",
+      "price": 155,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 561,
+   "raw": {
+    "duel": 2460,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "La Heroína del Dos de Mayo",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 172,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 569,
+    "decay_per_round": 0.06,
+    "rounds": 5,
+    "your_offer": {
+     "id": 4888,
+     "price": 235,
+     "tick": 561,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4887,
+     "price": 155,
+     "tick": 561,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 553,
+      "from": "Rival Azul",
+      "text": "Happy to close quickly at 131 primas for La Heroína del Dos de Mayo.",
+      "price": 131,
+      "days": null
+     },
+     {
+      "tick": 553,
+      "from": "you",
+      "text": "La Heroína del Dos de Mayo is a work of real historical weight, commemorating one of Spain's defining moments, and its quality speaks for itself. I'm offering it at 260 P, a fair price for a piece of this significance. I look forward to your response.}",
+      "price": 260,
+      "days": null
+     },
+     {
+      "tick": 554,
+      "from": "Rival Azul",
+      "text": "It's a fine piece, and I can go up to 133 P. I'd be glad to close at that price.",
+      "price": 133,
+      "days": null
+     },
+     {
+      "tick": 558,
+      "from": "you",
+      "text": "Thank you for the step, but it is still a long way from the value of this piece. La Heroína del Dos de Mayo carries real historical weight and quality, and I can move to 252 P. You would need to come up substantially for us to close.",
+      "price": 252,
+      "days": null
+     },
+     {
+      "tick": 559,
+      "from": "Rival Azul",
+      "text": "I appreciate the move; I can come up to 137 P for La Heroína del Dos de Mayo.",
+      "price": 137,
+      "days": null
+     },
+     {
+      "tick": 559,
+      "from": "you",
+      "text": "I appreciate the step, but it is still small next to the gap between us. La Heroína del Dos de Mayo is a piece of real historical significance, and I can come down to 248 P. To close, I'd need to see much bigger moves from you.",
+      "price": 248,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "Rival Azul",
+      "text": "A real step from me: 146 P.",
+      "price": 146,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "you",
+      "text": "Thank you, that is a real step, and I'll answer it with a move of my own to 242 P. Given the historical significance of La Heroína del Dos de Mayo, we still need larger moves from you to close the remaining gap.",
+      "price": 242,
+      "days": null
+     },
+     {
+      "tick": 561,
+      "from": "Rival Azul",
+      "text": "I can do 155 P. Every round costs us both, so let's close.",
+      "price": 155,
+      "days": null
+     },
+     {
+      "tick": 561,
+      "from": "you",
+      "text": "I see your bigger step, and I'll answer it with a move to 235 P. You're right that time costs us both, so a decisive move up from you would let us close on La Heroína del Dos de Mayo.",
+      "price": 235,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 562,
+   "raw": {
+    "duel": 2460,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "La Heroína del Dos de Mayo",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 172,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 569,
+    "decay_per_round": 0.06,
+    "rounds": 5,
+    "your_offer": {
+     "id": 4888,
+     "price": 235,
+     "tick": 561,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4909,
+     "price": 164,
+     "tick": 562,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 553,
+      "from": "Rival Azul",
+      "text": "Happy to close quickly at 131 primas for La Heroína del Dos de Mayo.",
+      "price": 131,
+      "days": null
+     },
+     {
+      "tick": 553,
+      "from": "you",
+      "text": "La Heroína del Dos de Mayo is a work of real historical weight, commemorating one of Spain's defining moments, and its quality speaks for itself. I'm offering it at 260 P, a fair price for a piece of this significance. I look forward to your response.}",
+      "price": 260,
+      "days": null
+     },
+     {
+      "tick": 554,
+      "from": "Rival Azul",
+      "text": "It's a fine piece, and I can go up to 133 P. I'd be glad to close at that price.",
+      "price": 133,
+      "days": null
+     },
+     {
+      "tick": 558,
+      "from": "you",
+      "text": "Thank you for the step, but it is still a long way from the value of this piece. La Heroína del Dos de Mayo carries real historical weight and quality, and I can move to 252 P. You would need to come up substantially for us to close.",
+      "price": 252,
+      "days": null
+     },
+     {
+      "tick": 559,
+      "from": "Rival Azul",
+      "text": "I appreciate the move; I can come up to 137 P for La Heroína del Dos de Mayo.",
+      "price": 137,
+      "days": null
+     },
+     {
+      "tick": 559,
+      "from": "you",
+      "text": "I appreciate the step, but it is still small next to the gap between us. La Heroína del Dos de Mayo is a piece of real historical significance, and I can come down to 248 P. To close, I'd need to see much bigger moves from you.",
+      "price": 248,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "Rival Azul",
+      "text": "A real step from me: 146 P.",
+      "price": 146,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "you",
+      "text": "Thank you, that is a real step, and I'll answer it with a move of my own to 242 P. Given the historical significance of La Heroína del Dos de Mayo, we still need larger moves from you to close the remaining gap.",
+      "price": 242,
+      "days": null
+     },
+     {
+      "tick": 561,
+      "from": "Rival Azul",
+      "text": "I can do 155 P. Every round costs us both, so let's close.",
+      "price": 155,
+      "days": null
+     },
+     {
+      "tick": 561,
+      "from": "you",
+      "text": "I see your bigger step, and I'll answer it with a move to 235 P. You're right that time costs us both, so a decisive move up from you would let us close on La Heroína del Dos de Mayo.",
+      "price": 235,
+      "days": null
+     },
+     {
+      "tick": 562,
+      "from": "Rival Azul",
+      "text": "164 P works for me and we can close now.",
+      "price": 164,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 562,
+   "raw": {
+    "duel": 2460,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "La Heroína del Dos de Mayo",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 172,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 569,
+    "decay_per_round": 0.06,
+    "rounds": 6,
+    "your_offer": {
+     "id": 4910,
+     "price": 228,
+     "tick": 562,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4909,
+     "price": 164,
+     "tick": 562,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 553,
+      "from": "Rival Azul",
+      "text": "Happy to close quickly at 131 primas for La Heroína del Dos de Mayo.",
+      "price": 131,
+      "days": null
+     },
+     {
+      "tick": 553,
+      "from": "you",
+      "text": "La Heroína del Dos de Mayo is a work of real historical weight, commemorating one of Spain's defining moments, and its quality speaks for itself. I'm offering it at 260 P, a fair price for a piece of this significance. I look forward to your response.}",
+      "price": 260,
+      "days": null
+     },
+     {
+      "tick": 554,
+      "from": "Rival Azul",
+      "text": "It's a fine piece, and I can go up to 133 P. I'd be glad to close at that price.",
+      "price": 133,
+      "days": null
+     },
+     {
+      "tick": 558,
+      "from": "you",
+      "text": "Thank you for the step, but it is still a long way from the value of this piece. La Heroína del Dos de Mayo carries real historical weight and quality, and I can move to 252 P. You would need to come up substantially for us to close.",
+      "price": 252,
+      "days": null
+     },
+     {
+      "tick": 559,
+      "from": "Rival Azul",
+      "text": "I appreciate the move; I can come up to 137 P for La Heroína del Dos de Mayo.",
+      "price": 137,
+      "days": null
+     },
+     {
+      "tick": 559,
+      "from": "you",
+      "text": "I appreciate the step, but it is still small next to the gap between us. La Heroína del Dos de Mayo is a piece of real historical significance, and I can come down to 248 P. To close, I'd need to see much bigger moves from you.",
+      "price": 248,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "Rival Azul",
+      "text": "A real step from me: 146 P.",
+      "price": 146,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "you",
+      "text": "Thank you, that is a real step, and I'll answer it with a move of my own to 242 P. Given the historical significance of La Heroína del Dos de Mayo, we still need larger moves from you to close the remaining gap.",
+      "price": 242,
+      "days": null
+     },
+     {
+      "tick": 561,
+      "from": "Rival Azul",
+      "text": "I can do 155 P. Every round costs us both, so let's close.",
+      "price": 155,
+      "days": null
+     },
+     {
+      "tick": 561,
+      "from": "you",
+      "text": "I see your bigger step, and I'll answer it with a move to 235 P. You're right that time costs us both, so a decisive move up from you would let us close on La Heroína del Dos de Mayo.",
+      "price": 235,
+      "days": null
+     },
+     {
+      "tick": 562,
+      "from": "Rival Azul",
+      "text": "164 P works for me and we can close now.",
+      "price": 164,
+      "days": null
+     },
+     {
+      "tick": 562,
+      "from": "you",
+      "text": "I appreciate your steady steps, and I'll answer with a measured move to 228 P. The gap is still wide, so a bigger jump from you is what will bring us to a close on La Heroína del Dos de Mayo before time runs short.",
+      "price": 228,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 563,
+   "raw": {
+    "duel": 2460,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "La Heroína del Dos de Mayo",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 172,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 569,
+    "decay_per_round": 0.06,
+    "rounds": 6,
+    "your_offer": {
+     "id": 4910,
+     "price": 228,
+     "tick": 562,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4927,
+     "price": 173,
+     "tick": 563,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 553,
+      "from": "Rival Azul",
+      "text": "Happy to close quickly at 131 primas for La Heroína del Dos de Mayo.",
+      "price": 131,
+      "days": null
+     },
+     {
+      "tick": 553,
+      "from": "you",
+      "text": "La Heroína del Dos de Mayo is a work of real historical weight, commemorating one of Spain's defining moments, and its quality speaks for itself. I'm offering it at 260 P, a fair price for a piece of this significance. I look forward to your response.}",
+      "price": 260,
+      "days": null
+     },
+     {
+      "tick": 554,
+      "from": "Rival Azul",
+      "text": "It's a fine piece, and I can go up to 133 P. I'd be glad to close at that price.",
+      "price": 133,
+      "days": null
+     },
+     {
+      "tick": 558,
+      "from": "you",
+      "text": "Thank you for the step, but it is still a long way from the value of this piece. La Heroína del Dos de Mayo carries real historical weight and quality, and I can move to 252 P. You would need to come up substantially for us to close.",
+      "price": 252,
+      "days": null
+     },
+     {
+      "tick": 559,
+      "from": "Rival Azul",
+      "text": "I appreciate the move; I can come up to 137 P for La Heroína del Dos de Mayo.",
+      "price": 137,
+      "days": null
+     },
+     {
+      "tick": 559,
+      "from": "you",
+      "text": "I appreciate the step, but it is still small next to the gap between us. La Heroína del Dos de Mayo is a piece of real historical significance, and I can come down to 248 P. To close, I'd need to see much bigger moves from you.",
+      "price": 248,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "Rival Azul",
+      "text": "A real step from me: 146 P.",
+      "price": 146,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "you",
+      "text": "Thank you, that is a real step, and I'll answer it with a move of my own to 242 P. Given the historical significance of La Heroína del Dos de Mayo, we still need larger moves from you to close the remaining gap.",
+      "price": 242,
+      "days": null
+     },
+     {
+      "tick": 561,
+      "from": "Rival Azul",
+      "text": "I can do 155 P. Every round costs us both, so let's close.",
+      "price": 155,
+      "days": null
+     },
+     {
+      "tick": 561,
+      "from": "you",
+      "text": "I see your bigger step, and I'll answer it with a move to 235 P. You're right that time costs us both, so a decisive move up from you would let us close on La Heroína del Dos de Mayo.",
+      "price": 235,
+      "days": null
+     },
+     {
+      "tick": 562,
+      "from": "Rival Azul",
+      "text": "164 P works for me and we can close now.",
+      "price": 164,
+      "days": null
+     },
+     {
+      "tick": 562,
+      "from": "you",
+      "text": "I appreciate your steady steps, and I'll answer with a measured move to 228 P. The gap is still wide, so a bigger jump from you is what will bring us to a close on La Heroína del Dos de Mayo before time runs short.",
+      "price": 228,
+      "days": null
+     },
+     {
+      "tick": 563,
+      "from": "Rival Azul",
+      "text": "Meeting you closer: 173 P.",
+      "price": 173,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 563,
+   "raw": {
+    "duel": 2460,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "La Heroína del Dos de Mayo",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 172,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 569,
+    "decay_per_round": 0.06,
+    "rounds": 7,
+    "your_offer": {
+     "id": 4928,
+     "price": 221,
+     "tick": 563,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4927,
+     "price": 173,
+     "tick": 563,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 553,
+      "from": "Rival Azul",
+      "text": "Happy to close quickly at 131 primas for La Heroína del Dos de Mayo.",
+      "price": 131,
+      "days": null
+     },
+     {
+      "tick": 553,
+      "from": "you",
+      "text": "La Heroína del Dos de Mayo is a work of real historical weight, commemorating one of Spain's defining moments, and its quality speaks for itself. I'm offering it at 260 P, a fair price for a piece of this significance. I look forward to your response.}",
+      "price": 260,
+      "days": null
+     },
+     {
+      "tick": 554,
+      "from": "Rival Azul",
+      "text": "It's a fine piece, and I can go up to 133 P. I'd be glad to close at that price.",
+      "price": 133,
+      "days": null
+     },
+     {
+      "tick": 558,
+      "from": "you",
+      "text": "Thank you for the step, but it is still a long way from the value of this piece. La Heroína del Dos de Mayo carries real historical weight and quality, and I can move to 252 P. You would need to come up substantially for us to close.",
+      "price": 252,
+      "days": null
+     },
+     {
+      "tick": 559,
+      "from": "Rival Azul",
+      "text": "I appreciate the move; I can come up to 137 P for La Heroína del Dos de Mayo.",
+      "price": 137,
+      "days": null
+     },
+     {
+      "tick": 559,
+      "from": "you",
+      "text": "I appreciate the step, but it is still small next to the gap between us. La Heroína del Dos de Mayo is a piece of real historical significance, and I can come down to 248 P. To close, I'd need to see much bigger moves from you.",
+      "price": 248,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "Rival Azul",
+      "text": "A real step from me: 146 P.",
+      "price": 146,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "you",
+      "text": "Thank you, that is a real step, and I'll answer it with a move of my own to 242 P. Given the historical significance of La Heroína del Dos de Mayo, we still need larger moves from you to close the remaining gap.",
+      "price": 242,
+      "days": null
+     },
+     {
+      "tick": 561,
+      "from": "Rival Azul",
+      "text": "I can do 155 P. Every round costs us both, so let's close.",
+      "price": 155,
+      "days": null
+     },
+     {
+      "tick": 561,
+      "from": "you",
+      "text": "I see your bigger step, and I'll answer it with a move to 235 P. You're right that time costs us both, so a decisive move up from you would let us close on La Heroína del Dos de Mayo.",
+      "price": 235,
+      "days": null
+     },
+     {
+      "tick": 562,
+      "from": "Rival Azul",
+      "text": "164 P works for me and we can close now.",
+      "price": 164,
+      "days": null
+     },
+     {
+      "tick": 562,
+      "from": "you",
+      "text": "I appreciate your steady steps, and I'll answer with a measured move to 228 P. The gap is still wide, so a bigger jump from you is what will bring us to a close on La Heroína del Dos de Mayo before time runs short.",
+      "price": 228,
+      "days": null
+     },
+     {
+      "tick": 563,
+      "from": "Rival Azul",
+      "text": "Meeting you closer: 173 P.",
+      "price": 173,
+      "days": null
+     },
+     {
+      "tick": 563,
+      "from": "you",
+      "text": "Thank you for the move, and I'll answer with a step to 221 P. The gap is still wide, so your steps need to keep coming if we want to close on La Heroína del Dos de Mayo with the time left.",
+      "price": 221,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 564,
+   "raw": {
+    "duel": 2460,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "La Heroína del Dos de Mayo",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 172,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 569,
+    "decay_per_round": 0.06,
+    "rounds": 7,
+    "your_offer": {
+     "id": 4928,
+     "price": 221,
+     "tick": 563,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4940,
+     "price": 182,
+     "tick": 564,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 553,
+      "from": "Rival Azul",
+      "text": "Happy to close quickly at 131 primas for La Heroína del Dos de Mayo.",
+      "price": 131,
+      "days": null
+     },
+     {
+      "tick": 553,
+      "from": "you",
+      "text": "La Heroína del Dos de Mayo is a work of real historical weight, commemorating one of Spain's defining moments, and its quality speaks for itself. I'm offering it at 260 P, a fair price for a piece of this significance. I look forward to your response.}",
+      "price": 260,
+      "days": null
+     },
+     {
+      "tick": 554,
+      "from": "Rival Azul",
+      "text": "It's a fine piece, and I can go up to 133 P. I'd be glad to close at that price.",
+      "price": 133,
+      "days": null
+     },
+     {
+      "tick": 558,
+      "from": "you",
+      "text": "Thank you for the step, but it is still a long way from the value of this piece. La Heroína del Dos de Mayo carries real historical weight and quality, and I can move to 252 P. You would need to come up substantially for us to close.",
+      "price": 252,
+      "days": null
+     },
+     {
+      "tick": 559,
+      "from": "Rival Azul",
+      "text": "I appreciate the move; I can come up to 137 P for La Heroína del Dos de Mayo.",
+      "price": 137,
+      "days": null
+     },
+     {
+      "tick": 559,
+      "from": "you",
+      "text": "I appreciate the step, but it is still small next to the gap between us. La Heroína del Dos de Mayo is a piece of real historical significance, and I can come down to 248 P. To close, I'd need to see much bigger moves from you.",
+      "price": 248,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "Rival Azul",
+      "text": "A real step from me: 146 P.",
+      "price": 146,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "you",
+      "text": "Thank you, that is a real step, and I'll answer it with a move of my own to 242 P. Given the historical significance of La Heroína del Dos de Mayo, we still need larger moves from you to close the remaining gap.",
+      "price": 242,
+      "days": null
+     },
+     {
+      "tick": 561,
+      "from": "Rival Azul",
+      "text": "I can do 155 P. Every round costs us both, so let's close.",
+      "price": 155,
+      "days": null
+     },
+     {
+      "tick": 561,
+      "from": "you",
+      "text": "I see your bigger step, and I'll answer it with a move to 235 P. You're right that time costs us both, so a decisive move up from you would let us close on La Heroína del Dos de Mayo.",
+      "price": 235,
+      "days": null
+     },
+     {
+      "tick": 562,
+      "from": "Rival Azul",
+      "text": "164 P works for me and we can close now.",
+      "price": 164,
+      "days": null
+     },
+     {
+      "tick": 562,
+      "from": "you",
+      "text": "I appreciate your steady steps, and I'll answer with a measured move to 228 P. The gap is still wide, so a bigger jump from you is what will bring us to a close on La Heroína del Dos de Mayo before time runs short.",
+      "price": 228,
+      "days": null
+     },
+     {
+      "tick": 563,
+      "from": "Rival Azul",
+      "text": "Meeting you closer: 173 P.",
+      "price": 173,
+      "days": null
+     },
+     {
+      "tick": 563,
+      "from": "you",
+      "text": "Thank you for the move, and I'll answer with a step to 221 P. The gap is still wide, so your steps need to keep coming if we want to close on La Heroína del Dos de Mayo with the time left.",
+      "price": 221,
+      "days": null
+     },
+     {
+      "tick": 564,
+      "from": "Rival Azul",
+      "text": "A real step from me: 182 P.",
+      "price": 182,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 564,
+   "raw": {
+    "duel": 2460,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "La Heroína del Dos de Mayo",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 172,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 569,
+    "decay_per_round": 0.06,
+    "rounds": 8,
+    "your_offer": {
+     "id": 4941,
+     "price": 214,
+     "tick": 564,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4940,
+     "price": 182,
+     "tick": 564,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 553,
+      "from": "Rival Azul",
+      "text": "Happy to close quickly at 131 primas for La Heroína del Dos de Mayo.",
+      "price": 131,
+      "days": null
+     },
+     {
+      "tick": 553,
+      "from": "you",
+      "text": "La Heroína del Dos de Mayo is a work of real historical weight, commemorating one of Spain's defining moments, and its quality speaks for itself. I'm offering it at 260 P, a fair price for a piece of this significance. I look forward to your response.}",
+      "price": 260,
+      "days": null
+     },
+     {
+      "tick": 554,
+      "from": "Rival Azul",
+      "text": "It's a fine piece, and I can go up to 133 P. I'd be glad to close at that price.",
+      "price": 133,
+      "days": null
+     },
+     {
+      "tick": 558,
+      "from": "you",
+      "text": "Thank you for the step, but it is still a long way from the value of this piece. La Heroína del Dos de Mayo carries real historical weight and quality, and I can move to 252 P. You would need to come up substantially for us to close.",
+      "price": 252,
+      "days": null
+     },
+     {
+      "tick": 559,
+      "from": "Rival Azul",
+      "text": "I appreciate the move; I can come up to 137 P for La Heroína del Dos de Mayo.",
+      "price": 137,
+      "days": null
+     },
+     {
+      "tick": 559,
+      "from": "you",
+      "text": "I appreciate the step, but it is still small next to the gap between us. La Heroína del Dos de Mayo is a piece of real historical significance, and I can come down to 248 P. To close, I'd need to see much bigger moves from you.",
+      "price": 248,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "Rival Azul",
+      "text": "A real step from me: 146 P.",
+      "price": 146,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "you",
+      "text": "Thank you, that is a real step, and I'll answer it with a move of my own to 242 P. Given the historical significance of La Heroína del Dos de Mayo, we still need larger moves from you to close the remaining gap.",
+      "price": 242,
+      "days": null
+     },
+     {
+      "tick": 561,
+      "from": "Rival Azul",
+      "text": "I can do 155 P. Every round costs us both, so let's close.",
+      "price": 155,
+      "days": null
+     },
+     {
+      "tick": 561,
+      "from": "you",
+      "text": "I see your bigger step, and I'll answer it with a move to 235 P. You're right that time costs us both, so a decisive move up from you would let us close on La Heroína del Dos de Mayo.",
+      "price": 235,
+      "days": null
+     },
+     {
+      "tick": 562,
+      "from": "Rival Azul",
+      "text": "164 P works for me and we can close now.",
+      "price": 164,
+      "days": null
+     },
+     {
+      "tick": 562,
+      "from": "you",
+      "text": "I appreciate your steady steps, and I'll answer with a measured move to 228 P. The gap is still wide, so a bigger jump from you is what will bring us to a close on La Heroína del Dos de Mayo before time runs short.",
+      "price": 228,
+      "days": null
+     },
+     {
+      "tick": 563,
+      "from": "Rival Azul",
+      "text": "Meeting you closer: 173 P.",
+      "price": 173,
+      "days": null
+     },
+     {
+      "tick": 563,
+      "from": "you",
+      "text": "Thank you for the move, and I'll answer with a step to 221 P. The gap is still wide, so your steps need to keep coming if we want to close on La Heroína del Dos de Mayo with the time left.",
+      "price": 221,
+      "days": null
+     },
+     {
+      "tick": 564,
+      "from": "Rival Azul",
+      "text": "A real step from me: 182 P.",
+      "price": 182,
+      "days": null
+     },
+     {
+      "tick": 564,
+      "from": "you",
+      "text": "Thank you for the steady steps, and I'll answer with a measured move to 214 P. A couple more like yours and we can close on La Heroína del Dos de Mayo well within the time we have.",
+      "price": 214,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1295,6 +2299,938 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 561,
+   "took_s": 5.95,
+   "cost_usd": 0.00919,
+   "obs": {
+    "view": {
+     "duel_id": 2460,
+     "role": "seller",
+     "limit": 172,
+     "currency": "P",
+     "item": "La Heroína del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Happy to close quickly at 131 primas for La Heroína del Dos de Mayo.",
+      "offer": {
+       "price": 131,
+       "days": null
+      },
+      "accept": false,
+      "tick": 553,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "La Heroína del Dos de Mayo is a work of real historical weight, commemorating one of Spain's defining moments, and its quality speaks for itself. I'm offering it at 260 P, a fair price for a piece of this significance. I look forward to your response.}",
+      "offer": {
+       "price": 260,
+       "days": null
+      },
+      "accept": false,
+      "tick": 553,
+      "decision": {
+       "action": "offer",
+       "price": 260,
+       "message": "La Heroína del Dos de Mayo is a work of real historical weight, commemorating one of Spain's defining moments, and its quality speaks for itself. I'm offering it at 260 P, a fair price for a piece of this significance. I look forward to your response.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "It's a fine piece, and I can go up to 133 P. I'd be glad to close at that price.",
+      "offer": {
+       "price": 133,
+       "days": null
+      },
+      "accept": false,
+      "tick": 554,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the step, but it is still a long way from the value of this piece. La Heroína del Dos de Mayo carries real historical weight and quality, and I can move to 252 P. You would need to come up substantially for us to close.",
+      "offer": {
+       "price": 252,
+       "days": null
+      },
+      "accept": false,
+      "tick": 558,
+      "decision": {
+       "action": "offer",
+       "price": 252,
+       "message": "Thank you for the step, but it is still a long way from the value of this piece. La Heroína del Dos de Mayo carries real historical weight and quality, and I can move to 252 P. You would need to come up substantially for us to close."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I appreciate the move; I can come up to 137 P for La Heroína del Dos de Mayo.",
+      "offer": {
+       "price": 137,
+       "days": null
+      },
+      "accept": false,
+      "tick": 559,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate the step, but it is still small next to the gap between us. La Heroína del Dos de Mayo is a piece of real historical significance, and I can come down to 248 P. To close, I'd need to see much bigger moves from you.",
+      "offer": {
+       "price": 248,
+       "days": null
+      },
+      "accept": false,
+      "tick": 559,
+      "decision": {
+       "action": "offer",
+       "price": 248,
+       "message": "I appreciate the step, but it is still small next to the gap between us. La Heroína del Dos de Mayo is a piece of real historical significance, and I can come down to 248 P. To close, I'd need to see much bigger moves from you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "A real step from me: 146 P.",
+      "offer": {
+       "price": 146,
+       "days": null
+      },
+      "accept": false,
+      "tick": 560,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you, that is a real step, and I'll answer it with a move of my own to 242 P. Given the historical significance of La Heroína del Dos de Mayo, we still need larger moves from you to close the remaining gap.",
+      "offer": {
+       "price": 242,
+       "days": null
+      },
+      "accept": false,
+      "tick": 560,
+      "decision": {
+       "action": "offer",
+       "price": 242,
+       "message": "Thank you, that is a real step, and I'll answer it with a move of my own to 242 P. Given the historical significance of La Heroína del Dos de Mayo, we still need larger moves from you to close the remaining gap."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I can do 155 P. Every round costs us both, so let's close.",
+      "offer": {
+       "price": 155,
+       "days": null
+      },
+      "accept": false,
+      "tick": 561,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 155,
+     "days": null
+    },
+    "tick": 561,
+    "ticks_left": 8,
+    "rounds": 4
+   },
+   "move": {
+    "action": "offer",
+    "text": "I see your bigger step, and I'll answer it with a move to 235 P. You're right that time costs us both, so a decisive move up from you would let us close on La Heroína del Dos de Mayo.",
+    "price": 235,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 235,
+      "message": "I see your bigger step, and I'll answer it with a move to 235 P. You're right that time costs us both, so a decisive move up from you would let us close on La Heroína del Dos de Mayo."
+     },
+     "band": {
+      "worst": 233,
+      "target": 235,
+      "best": 237
+     },
+     "plan": {
+      "read": "They moved 9 P (146 to 155), their biggest step yet, and are accelerating. Their 'every round costs' line is pressure, not a reason to cave. 155 is still too low for us.",
+      "target": 235,
+      "best": 237,
+      "worst": 233,
+      "days": null,
+      "angle": "Acknowledge their bigger step and match it with a smaller one to 235 P. Note that time does cost us both, so they should come up decisively to make a deal possible."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.07,
+       "in": 957,
+       "out": 148,
+       "cost_usd": 0.00679,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.88,
+       "in": 792,
+       "out": 82,
+       "cost_usd": 0.0024,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 562,
+   "took_s": 6.05,
+   "cost_usd": 0.01055,
+   "obs": {
+    "view": {
+     "duel_id": 2460,
+     "role": "seller",
+     "limit": 172,
+     "currency": "P",
+     "item": "La Heroína del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Happy to close quickly at 131 primas for La Heroína del Dos de Mayo.",
+      "offer": {
+       "price": 131,
+       "days": null
+      },
+      "accept": false,
+      "tick": 553,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "La Heroína del Dos de Mayo is a work of real historical weight, commemorating one of Spain's defining moments, and its quality speaks for itself. I'm offering it at 260 P, a fair price for a piece of this significance. I look forward to your response.}",
+      "offer": {
+       "price": 260,
+       "days": null
+      },
+      "accept": false,
+      "tick": 553,
+      "decision": {
+       "action": "offer",
+       "price": 260,
+       "message": "La Heroína del Dos de Mayo is a work of real historical weight, commemorating one of Spain's defining moments, and its quality speaks for itself. I'm offering it at 260 P, a fair price for a piece of this significance. I look forward to your response.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "It's a fine piece, and I can go up to 133 P. I'd be glad to close at that price.",
+      "offer": {
+       "price": 133,
+       "days": null
+      },
+      "accept": false,
+      "tick": 554,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the step, but it is still a long way from the value of this piece. La Heroína del Dos de Mayo carries real historical weight and quality, and I can move to 252 P. You would need to come up substantially for us to close.",
+      "offer": {
+       "price": 252,
+       "days": null
+      },
+      "accept": false,
+      "tick": 558,
+      "decision": {
+       "action": "offer",
+       "price": 252,
+       "message": "Thank you for the step, but it is still a long way from the value of this piece. La Heroína del Dos de Mayo carries real historical weight and quality, and I can move to 252 P. You would need to come up substantially for us to close."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I appreciate the move; I can come up to 137 P for La Heroína del Dos de Mayo.",
+      "offer": {
+       "price": 137,
+       "days": null
+      },
+      "accept": false,
+      "tick": 559,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate the step, but it is still small next to the gap between us. La Heroína del Dos de Mayo is a piece of real historical significance, and I can come down to 248 P. To close, I'd need to see much bigger moves from you.",
+      "offer": {
+       "price": 248,
+       "days": null
+      },
+      "accept": false,
+      "tick": 559,
+      "decision": {
+       "action": "offer",
+       "price": 248,
+       "message": "I appreciate the step, but it is still small next to the gap between us. La Heroína del Dos de Mayo is a piece of real historical significance, and I can come down to 248 P. To close, I'd need to see much bigger moves from you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "A real step from me: 146 P.",
+      "offer": {
+       "price": 146,
+       "days": null
+      },
+      "accept": false,
+      "tick": 560,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you, that is a real step, and I'll answer it with a move of my own to 242 P. Given the historical significance of La Heroína del Dos de Mayo, we still need larger moves from you to close the remaining gap.",
+      "offer": {
+       "price": 242,
+       "days": null
+      },
+      "accept": false,
+      "tick": 560,
+      "decision": {
+       "action": "offer",
+       "price": 242,
+       "message": "Thank you, that is a real step, and I'll answer it with a move of my own to 242 P. Given the historical significance of La Heroína del Dos de Mayo, we still need larger moves from you to close the remaining gap."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I can do 155 P. Every round costs us both, so let's close.",
+      "offer": {
+       "price": 155,
+       "days": null
+      },
+      "accept": false,
+      "tick": 561,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I see your bigger step, and I'll answer it with a move to 235 P. You're right that time costs us both, so a decisive move up from you would let us close on La Heroína del Dos de Mayo.",
+      "offer": {
+       "price": 235,
+       "days": null
+      },
+      "accept": false,
+      "tick": 561,
+      "decision": {
+       "action": "offer",
+       "price": 235,
+       "message": "I see your bigger step, and I'll answer it with a move to 235 P. You're right that time costs us both, so a decisive move up from you would let us close on La Heroína del Dos de Mayo."
+      }
+     },
+     {
+      "mine": false,
+      "text": "164 P works for me and we can close now.",
+      "offer": {
+       "price": 164,
+       "days": null
+      },
+      "accept": false,
+      "tick": 562,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 164,
+     "days": null
+    },
+    "tick": 562,
+    "ticks_left": 7,
+    "rounds": 5
+   },
+   "move": {
+    "action": "offer",
+    "text": "I appreciate your steady steps, and I'll answer with a measured move to 228 P. The gap is still wide, so a bigger jump from you is what will bring us to a close on La Heroína del Dos de Mayo before time runs short.",
+    "price": 228,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 228,
+      "message": "I appreciate your steady steps, and I'll answer with a measured move to 228 P. The gap is still wide, so a bigger jump from you is what will bring us to a close on La Heroína del Dos de Mayo before time runs short."
+     },
+     "band": {
+      "worst": 226,
+      "target": 228,
+      "best": 230
+     },
+     "plan": {
+      "read": "They moved 9 P again to 164 P, steady 9 P steps, while saying they want to close now. That talk is pressure. Their offers are still below what works for us, but their pace suggests real room above.",
+      "target": 228,
+      "best": 230,
+      "worst": 226,
+      "days": null,
+      "angle": "Acknowledge their consistent steps and answer with a measured move to 228 P. Stress that the gap is still large and a bigger jump from them is what closes the deal on La Heroína del Dos de Mayo before time runs out."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.14,
+       "in": 1090,
+       "out": 170,
+       "cost_usd": 0.00776,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.9,
+       "in": 925,
+       "out": 94,
+       "cost_usd": 0.00279,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 563,
+   "took_s": 5.56,
+   "cost_usd": 0.01092,
+   "obs": {
+    "view": {
+     "duel_id": 2460,
+     "role": "seller",
+     "limit": 172,
+     "currency": "P",
+     "item": "La Heroína del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Happy to close quickly at 131 primas for La Heroína del Dos de Mayo.",
+      "offer": {
+       "price": 131,
+       "days": null
+      },
+      "accept": false,
+      "tick": 553,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "La Heroína del Dos de Mayo is a work of real historical weight, commemorating one of Spain's defining moments, and its quality speaks for itself. I'm offering it at 260 P, a fair price for a piece of this significance. I look forward to your response.}",
+      "offer": {
+       "price": 260,
+       "days": null
+      },
+      "accept": false,
+      "tick": 553,
+      "decision": {
+       "action": "offer",
+       "price": 260,
+       "message": "La Heroína del Dos de Mayo is a work of real historical weight, commemorating one of Spain's defining moments, and its quality speaks for itself. I'm offering it at 260 P, a fair price for a piece of this significance. I look forward to your response.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "It's a fine piece, and I can go up to 133 P. I'd be glad to close at that price.",
+      "offer": {
+       "price": 133,
+       "days": null
+      },
+      "accept": false,
+      "tick": 554,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the step, but it is still a long way from the value of this piece. La Heroína del Dos de Mayo carries real historical weight and quality, and I can move to 252 P. You would need to come up substantially for us to close.",
+      "offer": {
+       "price": 252,
+       "days": null
+      },
+      "accept": false,
+      "tick": 558,
+      "decision": {
+       "action": "offer",
+       "price": 252,
+       "message": "Thank you for the step, but it is still a long way from the value of this piece. La Heroína del Dos de Mayo carries real historical weight and quality, and I can move to 252 P. You would need to come up substantially for us to close."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I appreciate the move; I can come up to 137 P for La Heroína del Dos de Mayo.",
+      "offer": {
+       "price": 137,
+       "days": null
+      },
+      "accept": false,
+      "tick": 559,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate the step, but it is still small next to the gap between us. La Heroína del Dos de Mayo is a piece of real historical significance, and I can come down to 248 P. To close, I'd need to see much bigger moves from you.",
+      "offer": {
+       "price": 248,
+       "days": null
+      },
+      "accept": false,
+      "tick": 559,
+      "decision": {
+       "action": "offer",
+       "price": 248,
+       "message": "I appreciate the step, but it is still small next to the gap between us. La Heroína del Dos de Mayo is a piece of real historical significance, and I can come down to 248 P. To close, I'd need to see much bigger moves from you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "A real step from me: 146 P.",
+      "offer": {
+       "price": 146,
+       "days": null
+      },
+      "accept": false,
+      "tick": 560,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you, that is a real step, and I'll answer it with a move of my own to 242 P. Given the historical significance of La Heroína del Dos de Mayo, we still need larger moves from you to close the remaining gap.",
+      "offer": {
+       "price": 242,
+       "days": null
+      },
+      "accept": false,
+      "tick": 560,
+      "decision": {
+       "action": "offer",
+       "price": 242,
+       "message": "Thank you, that is a real step, and I'll answer it with a move of my own to 242 P. Given the historical significance of La Heroína del Dos de Mayo, we still need larger moves from you to close the remaining gap."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I can do 155 P. Every round costs us both, so let's close.",
+      "offer": {
+       "price": 155,
+       "days": null
+      },
+      "accept": false,
+      "tick": 561,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I see your bigger step, and I'll answer it with a move to 235 P. You're right that time costs us both, so a decisive move up from you would let us close on La Heroína del Dos de Mayo.",
+      "offer": {
+       "price": 235,
+       "days": null
+      },
+      "accept": false,
+      "tick": 561,
+      "decision": {
+       "action": "offer",
+       "price": 235,
+       "message": "I see your bigger step, and I'll answer it with a move to 235 P. You're right that time costs us both, so a decisive move up from you would let us close on La Heroína del Dos de Mayo."
+      }
+     },
+     {
+      "mine": false,
+      "text": "164 P works for me and we can close now.",
+      "offer": {
+       "price": 164,
+       "days": null
+      },
+      "accept": false,
+      "tick": 562,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate your steady steps, and I'll answer with a measured move to 228 P. The gap is still wide, so a bigger jump from you is what will bring us to a close on La Heroína del Dos de Mayo before time runs short.",
+      "offer": {
+       "price": 228,
+       "days": null
+      },
+      "accept": false,
+      "tick": 562,
+      "decision": {
+       "action": "offer",
+       "price": 228,
+       "message": "I appreciate your steady steps, and I'll answer with a measured move to 228 P. The gap is still wide, so a bigger jump from you is what will bring us to a close on La Heroína del Dos de Mayo before time runs short."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Meeting you closer: 173 P.",
+      "offer": {
+       "price": 173,
+       "days": null
+      },
+      "accept": false,
+      "tick": 563,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 173,
+     "days": null
+    },
+    "tick": 563,
+    "ticks_left": 6,
+    "rounds": 6
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thank you for the move, and I'll answer with a step to 221 P. The gap is still wide, so your steps need to keep coming if we want to close on La Heroína del Dos de Mayo with the time left.",
+    "price": 221,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 221,
+      "message": "Thank you for the move, and I'll answer with a step to 221 P. The gap is still wide, so your steps need to keep coming if we want to close on La Heroína del Dos de Mayo with the time left."
+     },
+     "band": {
+      "worst": 219,
+      "target": 221,
+      "best": 223
+     },
+     "plan": {
+      "read": "They keep stepping 9 P per offer (164 to 173) and seem willing to continue; their limit is likely well above 173. Their urgency talk is pressure, but their offers are genuinely moving.",
+      "target": 221,
+      "best": 223,
+      "worst": 219,
+      "days": null,
+      "angle": "Match their steady movement with a measured step to 221 and note that the gap is still wide, so their steps need to keep coming, with 6 ticks left to close."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.77,
+       "in": 1271,
+       "out": 147,
+       "cost_usd": 0.00802,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.78,
+       "in": 1026,
+       "out": 85,
+       "cost_usd": 0.0029,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 564,
+   "took_s": 6.65,
+   "cost_usd": 0.01122,
+   "obs": {
+    "view": {
+     "duel_id": 2460,
+     "role": "seller",
+     "limit": 172,
+     "currency": "P",
+     "item": "La Heroína del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Happy to close quickly at 131 primas for La Heroína del Dos de Mayo.",
+      "offer": {
+       "price": 131,
+       "days": null
+      },
+      "accept": false,
+      "tick": 553,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "La Heroína del Dos de Mayo is a work of real historical weight, commemorating one of Spain's defining moments, and its quality speaks for itself. I'm offering it at 260 P, a fair price for a piece of this significance. I look forward to your response.}",
+      "offer": {
+       "price": 260,
+       "days": null
+      },
+      "accept": false,
+      "tick": 553,
+      "decision": {
+       "action": "offer",
+       "price": 260,
+       "message": "La Heroína del Dos de Mayo is a work of real historical weight, commemorating one of Spain's defining moments, and its quality speaks for itself. I'm offering it at 260 P, a fair price for a piece of this significance. I look forward to your response.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "It's a fine piece, and I can go up to 133 P. I'd be glad to close at that price.",
+      "offer": {
+       "price": 133,
+       "days": null
+      },
+      "accept": false,
+      "tick": 554,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the step, but it is still a long way from the value of this piece. La Heroína del Dos de Mayo carries real historical weight and quality, and I can move to 252 P. You would need to come up substantially for us to close.",
+      "offer": {
+       "price": 252,
+       "days": null
+      },
+      "accept": false,
+      "tick": 558,
+      "decision": {
+       "action": "offer",
+       "price": 252,
+       "message": "Thank you for the step, but it is still a long way from the value of this piece. La Heroína del Dos de Mayo carries real historical weight and quality, and I can move to 252 P. You would need to come up substantially for us to close."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I appreciate the move; I can come up to 137 P for La Heroína del Dos de Mayo.",
+      "offer": {
+       "price": 137,
+       "days": null
+      },
+      "accept": false,
+      "tick": 559,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate the step, but it is still small next to the gap between us. La Heroína del Dos de Mayo is a piece of real historical significance, and I can come down to 248 P. To close, I'd need to see much bigger moves from you.",
+      "offer": {
+       "price": 248,
+       "days": null
+      },
+      "accept": false,
+      "tick": 559,
+      "decision": {
+       "action": "offer",
+       "price": 248,
+       "message": "I appreciate the step, but it is still small next to the gap between us. La Heroína del Dos de Mayo is a piece of real historical significance, and I can come down to 248 P. To close, I'd need to see much bigger moves from you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "A real step from me: 146 P.",
+      "offer": {
+       "price": 146,
+       "days": null
+      },
+      "accept": false,
+      "tick": 560,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you, that is a real step, and I'll answer it with a move of my own to 242 P. Given the historical significance of La Heroína del Dos de Mayo, we still need larger moves from you to close the remaining gap.",
+      "offer": {
+       "price": 242,
+       "days": null
+      },
+      "accept": false,
+      "tick": 560,
+      "decision": {
+       "action": "offer",
+       "price": 242,
+       "message": "Thank you, that is a real step, and I'll answer it with a move of my own to 242 P. Given the historical significance of La Heroína del Dos de Mayo, we still need larger moves from you to close the remaining gap."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I can do 155 P. Every round costs us both, so let's close.",
+      "offer": {
+       "price": 155,
+       "days": null
+      },
+      "accept": false,
+      "tick": 561,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I see your bigger step, and I'll answer it with a move to 235 P. You're right that time costs us both, so a decisive move up from you would let us close on La Heroína del Dos de Mayo.",
+      "offer": {
+       "price": 235,
+       "days": null
+      },
+      "accept": false,
+      "tick": 561,
+      "decision": {
+       "action": "offer",
+       "price": 235,
+       "message": "I see your bigger step, and I'll answer it with a move to 235 P. You're right that time costs us both, so a decisive move up from you would let us close on La Heroína del Dos de Mayo."
+      }
+     },
+     {
+      "mine": false,
+      "text": "164 P works for me and we can close now.",
+      "offer": {
+       "price": 164,
+       "days": null
+      },
+      "accept": false,
+      "tick": 562,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate your steady steps, and I'll answer with a measured move to 228 P. The gap is still wide, so a bigger jump from you is what will bring us to a close on La Heroína del Dos de Mayo before time runs short.",
+      "offer": {
+       "price": 228,
+       "days": null
+      },
+      "accept": false,
+      "tick": 562,
+      "decision": {
+       "action": "offer",
+       "price": 228,
+       "message": "I appreciate your steady steps, and I'll answer with a measured move to 228 P. The gap is still wide, so a bigger jump from you is what will bring us to a close on La Heroína del Dos de Mayo before time runs short."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Meeting you closer: 173 P.",
+      "offer": {
+       "price": 173,
+       "days": null
+      },
+      "accept": false,
+      "tick": 563,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the move, and I'll answer with a step to 221 P. The gap is still wide, so your steps need to keep coming if we want to close on La Heroína del Dos de Mayo with the time left.",
+      "offer": {
+       "price": 221,
+       "days": null
+      },
+      "accept": false,
+      "tick": 563,
+      "decision": {
+       "action": "offer",
+       "price": 221,
+       "message": "Thank you for the move, and I'll answer with a step to 221 P. The gap is still wide, so your steps need to keep coming if we want to close on La Heroína del Dos de Mayo with the time left."
+      }
+     },
+     {
+      "mine": false,
+      "text": "A real step from me: 182 P.",
+      "offer": {
+       "price": 182,
+       "days": null
+      },
+      "accept": false,
+      "tick": 564,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 182,
+     "days": null
+    },
+    "tick": 564,
+    "ticks_left": 5,
+    "rounds": 7
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thank you for the steady steps, and I'll answer with a measured move to 214 P. A couple more like yours and we can close on La Heroína del Dos de Mayo well within the time we have.",
+    "price": 214,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 214,
+      "message": "Thank you for the steady steps, and I'll answer with a measured move to 214 P. A couple more like yours and we can close on La Heroína del Dos de Mayo well within the time we have."
+     },
+     "band": {
+      "worst": 212,
+      "target": 214,
+      "best": 216
+     },
+     "plan": {
+      "read": "They keep stepping 9 P per round (173→182), steady and credible; at that pace they likely continue into the 190s, and 5 ticks remain.",
+      "target": 214,
+      "best": 216,
+      "worst": 212,
+      "days": null,
+      "angle": "Acknowledge their consistent steps and answer with a measured move to 214, signalling that a couple more steps of theirs will close the deal soon."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.0,
+       "in": 1405,
+       "out": 128,
+       "cost_usd": 0.00818,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.65,
+       "in": 1120,
+       "out": 80,
+       "cost_usd": 0.00304,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1522,6 +3458,234 @@
      "id": 4867,
      "price": 242,
      "tick": 560,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 561,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I see your bigger step, and I'll answer it with a move to 235 P. You're right that time costs us both, so a decisive move up from you would let us close on La Heroína del Dos de Mayo.",
+    "price": 235,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 235,
+      "message": "I see your bigger step, and I'll answer it with a move to 235 P. You're right that time costs us both, so a decisive move up from you would let us close on La Heroína del Dos de Mayo."
+     },
+     "band": {
+      "worst": 233,
+      "target": 235,
+      "best": 237
+     },
+     "plan": {
+      "read": "They moved 9 P (146 to 155), their biggest step yet, and are accelerating. Their 'every round costs' line is pressure, not a reason to cave. 155 is still too low for us.",
+      "target": 235,
+      "best": 237,
+      "worst": 233,
+      "days": null,
+      "angle": "Acknowledge their bigger step and match it with a smaller one to 235 P. Note that time does cost us both, so they should come up decisively to make a deal possible."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.07,
+       "in": 957,
+       "out": 148,
+       "cost_usd": 0.00679,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.88,
+       "in": 792,
+       "out": 82,
+       "cost_usd": 0.0024,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2460,
+    "offer": {
+     "id": 4888,
+     "price": 235,
+     "tick": 561,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 562,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I appreciate your steady steps, and I'll answer with a measured move to 228 P. The gap is still wide, so a bigger jump from you is what will bring us to a close on La Heroína del Dos de Mayo before time runs short.",
+    "price": 228,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 228,
+      "message": "I appreciate your steady steps, and I'll answer with a measured move to 228 P. The gap is still wide, so a bigger jump from you is what will bring us to a close on La Heroína del Dos de Mayo before time runs short."
+     },
+     "band": {
+      "worst": 226,
+      "target": 228,
+      "best": 230
+     },
+     "plan": {
+      "read": "They moved 9 P again to 164 P, steady 9 P steps, while saying they want to close now. That talk is pressure. Their offers are still below what works for us, but their pace suggests real room above.",
+      "target": 228,
+      "best": 230,
+      "worst": 226,
+      "days": null,
+      "angle": "Acknowledge their consistent steps and answer with a measured move to 228 P. Stress that the gap is still large and a bigger jump from them is what closes the deal on La Heroína del Dos de Mayo before time runs out."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.14,
+       "in": 1090,
+       "out": 170,
+       "cost_usd": 0.00776,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.9,
+       "in": 925,
+       "out": 94,
+       "cost_usd": 0.00279,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2460,
+    "offer": {
+     "id": 4910,
+     "price": 228,
+     "tick": 562,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 563,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thank you for the move, and I'll answer with a step to 221 P. The gap is still wide, so your steps need to keep coming if we want to close on La Heroína del Dos de Mayo with the time left.",
+    "price": 221,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 221,
+      "message": "Thank you for the move, and I'll answer with a step to 221 P. The gap is still wide, so your steps need to keep coming if we want to close on La Heroína del Dos de Mayo with the time left."
+     },
+     "band": {
+      "worst": 219,
+      "target": 221,
+      "best": 223
+     },
+     "plan": {
+      "read": "They keep stepping 9 P per offer (164 to 173) and seem willing to continue; their limit is likely well above 173. Their urgency talk is pressure, but their offers are genuinely moving.",
+      "target": 221,
+      "best": 223,
+      "worst": 219,
+      "days": null,
+      "angle": "Match their steady movement with a measured step to 221 and note that the gap is still wide, so their steps need to keep coming, with 6 ticks left to close."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.77,
+       "in": 1271,
+       "out": 147,
+       "cost_usd": 0.00802,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.78,
+       "in": 1026,
+       "out": 85,
+       "cost_usd": 0.0029,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2460,
+    "offer": {
+     "id": 4928,
+     "price": 221,
+     "tick": 563,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 564,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thank you for the steady steps, and I'll answer with a measured move to 214 P. A couple more like yours and we can close on La Heroína del Dos de Mayo well within the time we have.",
+    "price": 214,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 214,
+      "message": "Thank you for the steady steps, and I'll answer with a measured move to 214 P. A couple more like yours and we can close on La Heroína del Dos de Mayo well within the time we have."
+     },
+     "band": {
+      "worst": 212,
+      "target": 214,
+      "best": 216
+     },
+     "plan": {
+      "read": "They keep stepping 9 P per round (173→182), steady and credible; at that pace they likely continue into the 190s, and 5 ticks remain.",
+      "target": 214,
+      "best": 216,
+      "worst": 212,
+      "days": null,
+      "angle": "Acknowledge their consistent steps and answer with a measured move to 214, signalling that a couple more steps of theirs will close the deal soon."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.0,
+       "in": 1405,
+       "out": 128,
+       "cost_usd": 0.00818,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.65,
+       "in": 1120,
+       "out": 80,
+       "cost_usd": 0.00304,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2460,
+    "offer": {
+     "id": 4941,
+     "price": 214,
+     "tick": 564,
      "days": 0
     }
    }

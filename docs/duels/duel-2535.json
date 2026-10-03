@@ -875,6 +875,536 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 561,
+   "raw": {
+    "duel": 2535,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Café en Goya",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 219,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 569,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 4844,
+     "price": 168,
+     "tick": 559,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4871,
+     "price": 219,
+     "tick": 561,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 553,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 243 primas. Pienso que es justo.",
+      "price": 243,
+      "days": null
+     },
+     {
+      "tick": 553,
+      "from": "you",
+      "text": "Gracias por la propuesta, pero ese precio me parece alto para un café de este tipo. Le ofrezco 150 primas, que creo que refleja bien su valor; si puede acercarse sustancialmente, podemos avanzar rápido.",
+      "price": 150,
+      "days": null
+     },
+     {
+      "tick": 554,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 242 primas. Pienso que es justo.",
+      "price": 242,
+      "days": null
+     },
+     {
+      "tick": 555,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 241 primas. Pienso que es justo.",
+      "price": 241,
+      "days": null
+     },
+     {
+      "tick": 556,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 231 primas. Pienso que es justo.",
+      "price": 231,
+      "days": null
+     },
+     {
+      "tick": 556,
+      "from": "you",
+      "text": "Aprecio que haya bajado su precio; es un paso real y por eso subo mi oferta a 158 primas. Su cifra sigue lejos de un nivel realista para este café, así que si se acerca más podremos cerrar pronto.",
+      "price": 158,
+      "days": null
+     },
+     {
+      "tick": 557,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 231 primas. Pienso que es justo.",
+      "price": 231,
+      "days": null
+     },
+     {
+      "tick": 558,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 231 primas. Pienso que es justo.",
+      "price": 231,
+      "days": null
+     },
+     {
+      "tick": 559,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 219 primas. Pienso que es justo.",
+      "price": 219,
+      "days": null
+     },
+     {
+      "tick": 559,
+      "from": "you",
+      "text": "Hago un movimiento real: subo mi oferta a 168 primas. Repetir la misma cifra no nos acerca; para cerrar necesito que baje de forma sustancial desde su precio actual.",
+      "price": 168,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 219 primas. Pienso que es justo.",
+      "price": 219,
+      "days": null
+     },
+     {
+      "tick": 561,
+      "from": "Rival Noche",
+      "text": "Te la dejo en 219 primas; me cuesta bajar más.",
+      "price": 219,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 562,
+   "raw": {
+    "duel": 2535,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Café en Goya",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 219,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 569,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 4844,
+     "price": 168,
+     "tick": 559,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4894,
+     "price": 209,
+     "tick": 562,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 553,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 243 primas. Pienso que es justo.",
+      "price": 243,
+      "days": null
+     },
+     {
+      "tick": 553,
+      "from": "you",
+      "text": "Gracias por la propuesta, pero ese precio me parece alto para un café de este tipo. Le ofrezco 150 primas, que creo que refleja bien su valor; si puede acercarse sustancialmente, podemos avanzar rápido.",
+      "price": 150,
+      "days": null
+     },
+     {
+      "tick": 554,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 242 primas. Pienso que es justo.",
+      "price": 242,
+      "days": null
+     },
+     {
+      "tick": 555,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 241 primas. Pienso que es justo.",
+      "price": 241,
+      "days": null
+     },
+     {
+      "tick": 556,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 231 primas. Pienso que es justo.",
+      "price": 231,
+      "days": null
+     },
+     {
+      "tick": 556,
+      "from": "you",
+      "text": "Aprecio que haya bajado su precio; es un paso real y por eso subo mi oferta a 158 primas. Su cifra sigue lejos de un nivel realista para este café, así que si se acerca más podremos cerrar pronto.",
+      "price": 158,
+      "days": null
+     },
+     {
+      "tick": 557,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 231 primas. Pienso que es justo.",
+      "price": 231,
+      "days": null
+     },
+     {
+      "tick": 558,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 231 primas. Pienso que es justo.",
+      "price": 231,
+      "days": null
+     },
+     {
+      "tick": 559,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 219 primas. Pienso que es justo.",
+      "price": 219,
+      "days": null
+     },
+     {
+      "tick": 559,
+      "from": "you",
+      "text": "Hago un movimiento real: subo mi oferta a 168 primas. Repetir la misma cifra no nos acerca; para cerrar necesito que baje de forma sustancial desde su precio actual.",
+      "price": 168,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 219 primas. Pienso que es justo.",
+      "price": 219,
+      "days": null
+     },
+     {
+      "tick": 561,
+      "from": "Rival Noche",
+      "text": "Te la dejo en 219 primas; me cuesta bajar más.",
+      "price": 219,
+      "days": null
+     },
+     {
+      "tick": 562,
+      "from": "Rival Noche",
+      "text": "209 primas. Me muevo poco ya, pero si tú te mueves, cerramos.",
+      "price": 209,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 562,
+   "raw": {
+    "duel": 2535,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Café en Goya",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 219,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 569,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 4906,
+     "price": 176,
+     "tick": 562,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4894,
+     "price": 209,
+     "tick": 562,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 553,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 243 primas. Pienso que es justo.",
+      "price": 243,
+      "days": null
+     },
+     {
+      "tick": 553,
+      "from": "you",
+      "text": "Gracias por la propuesta, pero ese precio me parece alto para un café de este tipo. Le ofrezco 150 primas, que creo que refleja bien su valor; si puede acercarse sustancialmente, podemos avanzar rápido.",
+      "price": 150,
+      "days": null
+     },
+     {
+      "tick": 554,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 242 primas. Pienso que es justo.",
+      "price": 242,
+      "days": null
+     },
+     {
+      "tick": 555,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 241 primas. Pienso que es justo.",
+      "price": 241,
+      "days": null
+     },
+     {
+      "tick": 556,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 231 primas. Pienso que es justo.",
+      "price": 231,
+      "days": null
+     },
+     {
+      "tick": 556,
+      "from": "you",
+      "text": "Aprecio que haya bajado su precio; es un paso real y por eso subo mi oferta a 158 primas. Su cifra sigue lejos de un nivel realista para este café, así que si se acerca más podremos cerrar pronto.",
+      "price": 158,
+      "days": null
+     },
+     {
+      "tick": 557,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 231 primas. Pienso que es justo.",
+      "price": 231,
+      "days": null
+     },
+     {
+      "tick": 558,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 231 primas. Pienso que es justo.",
+      "price": 231,
+      "days": null
+     },
+     {
+      "tick": 559,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 219 primas. Pienso que es justo.",
+      "price": 219,
+      "days": null
+     },
+     {
+      "tick": 559,
+      "from": "you",
+      "text": "Hago un movimiento real: subo mi oferta a 168 primas. Repetir la misma cifra no nos acerca; para cerrar necesito que baje de forma sustancial desde su precio actual.",
+      "price": 168,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 219 primas. Pienso que es justo.",
+      "price": 219,
+      "days": null
+     },
+     {
+      "tick": 561,
+      "from": "Rival Noche",
+      "text": "Te la dejo en 219 primas; me cuesta bajar más.",
+      "price": 219,
+      "days": null
+     },
+     {
+      "tick": 562,
+      "from": "Rival Noche",
+      "text": "209 primas. Me muevo poco ya, pero si tú te mueves, cerramos.",
+      "price": 209,
+      "days": null
+     },
+     {
+      "tick": 562,
+      "from": "you",
+      "text": "Gracias por acercarse; reconozco su movimiento. Subo mi oferta a 176 primas, y con un paso más real de su parte podemos cerrar rápido.",
+      "price": 176,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 563,
+   "raw": {
+    "duel": 2535,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Café en Goya",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 219,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 569,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 4906,
+     "price": 176,
+     "tick": 562,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4917,
+     "price": 209,
+     "tick": 563,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 553,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 243 primas. Pienso que es justo.",
+      "price": 243,
+      "days": null
+     },
+     {
+      "tick": 553,
+      "from": "you",
+      "text": "Gracias por la propuesta, pero ese precio me parece alto para un café de este tipo. Le ofrezco 150 primas, que creo que refleja bien su valor; si puede acercarse sustancialmente, podemos avanzar rápido.",
+      "price": 150,
+      "days": null
+     },
+     {
+      "tick": 554,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 242 primas. Pienso que es justo.",
+      "price": 242,
+      "days": null
+     },
+     {
+      "tick": 555,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 241 primas. Pienso que es justo.",
+      "price": 241,
+      "days": null
+     },
+     {
+      "tick": 556,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 231 primas. Pienso que es justo.",
+      "price": 231,
+      "days": null
+     },
+     {
+      "tick": 556,
+      "from": "you",
+      "text": "Aprecio que haya bajado su precio; es un paso real y por eso subo mi oferta a 158 primas. Su cifra sigue lejos de un nivel realista para este café, así que si se acerca más podremos cerrar pronto.",
+      "price": 158,
+      "days": null
+     },
+     {
+      "tick": 557,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 231 primas. Pienso que es justo.",
+      "price": 231,
+      "days": null
+     },
+     {
+      "tick": 558,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 231 primas. Pienso que es justo.",
+      "price": 231,
+      "days": null
+     },
+     {
+      "tick": 559,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 219 primas. Pienso que es justo.",
+      "price": 219,
+      "days": null
+     },
+     {
+      "tick": 559,
+      "from": "you",
+      "text": "Hago un movimiento real: subo mi oferta a 168 primas. Repetir la misma cifra no nos acerca; para cerrar necesito que baje de forma sustancial desde su precio actual.",
+      "price": 168,
+      "days": null
+     },
+     {
+      "tick": 560,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 219 primas. Pienso que es justo.",
+      "price": 219,
+      "days": null
+     },
+     {
+      "tick": 561,
+      "from": "Rival Noche",
+      "text": "Te la dejo en 219 primas; me cuesta bajar más.",
+      "price": 219,
+      "days": null
+     },
+     {
+      "tick": 562,
+      "from": "Rival Noche",
+      "text": "209 primas. Me muevo poco ya, pero si tú te mueves, cerramos.",
+      "price": 209,
+      "days": null
+     },
+     {
+      "tick": 562,
+      "from": "you",
+      "text": "Gracias por acercarse; reconozco su movimiento. Subo mi oferta a 176 primas, y con un paso más real de su parte podemos cerrar rápido.",
+      "price": 176,
+      "days": null
+     },
+     {
+      "tick": 563,
+      "from": "Rival Noche",
+      "text": "Mi propuesta: 209 primas. Dime una cifra concreta y la miro.",
+      "price": 209,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1757,6 +2287,240 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 562,
+   "took_s": 6.29,
+   "cost_usd": 0.01045,
+   "obs": {
+    "view": {
+     "duel_id": 2535,
+     "role": "buyer",
+     "limit": 219,
+     "currency": "P",
+     "item": "Café en Goya",
+     "context": "",
+     "rival": "Rival Noche",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Es una pieza que merece su precio: 243 primas. Pienso que es justo.",
+      "offer": {
+       "price": 243,
+       "days": null
+      },
+      "accept": false,
+      "tick": 553,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Gracias por la propuesta, pero ese precio me parece alto para un café de este tipo. Le ofrezco 150 primas, que creo que refleja bien su valor; si puede acercarse sustancialmente, podemos avanzar rápido.",
+      "offer": {
+       "price": 150,
+       "days": null
+      },
+      "accept": false,
+      "tick": 553,
+      "decision": {
+       "action": "offer",
+       "price": 150,
+       "message": "Gracias por la propuesta, pero ese precio me parece alto para un café de este tipo. Le ofrezco 150 primas, que creo que refleja bien su valor; si puede acercarse sustancialmente, podemos avanzar rápido."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Es una pieza que merece su precio: 242 primas. Pienso que es justo.",
+      "offer": {
+       "price": 242,
+       "days": null
+      },
+      "accept": false,
+      "tick": 554,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Es una pieza que merece su precio: 241 primas. Pienso que es justo.",
+      "offer": {
+       "price": 241,
+       "days": null
+      },
+      "accept": false,
+      "tick": 555,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Es una pieza que merece su precio: 231 primas. Pienso que es justo.",
+      "offer": {
+       "price": 231,
+       "days": null
+      },
+      "accept": false,
+      "tick": 556,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Aprecio que haya bajado su precio; es un paso real y por eso subo mi oferta a 158 primas. Su cifra sigue lejos de un nivel realista para este café, así que si se acerca más podremos cerrar pronto.",
+      "offer": {
+       "price": 158,
+       "days": null
+      },
+      "accept": false,
+      "tick": 556,
+      "decision": {
+       "action": "offer",
+       "price": 158,
+       "message": "Aprecio que haya bajado su precio; es un paso real y por eso subo mi oferta a 158 primas. Su cifra sigue lejos de un nivel realista para este café, así que si se acerca más podremos cerrar pronto."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Es una pieza que merece su precio: 231 primas. Pienso que es justo.",
+      "offer": {
+       "price": 231,
+       "days": null
+      },
+      "accept": false,
+      "tick": 557,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Es una pieza que merece su precio: 231 primas. Pienso que es justo.",
+      "offer": {
+       "price": 231,
+       "days": null
+      },
+      "accept": false,
+      "tick": 558,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Es una pieza que merece su precio: 219 primas. Pienso que es justo.",
+      "offer": {
+       "price": 219,
+       "days": null
+      },
+      "accept": false,
+      "tick": 559,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Hago un movimiento real: subo mi oferta a 168 primas. Repetir la misma cifra no nos acerca; para cerrar necesito que baje de forma sustancial desde su precio actual.",
+      "offer": {
+       "price": 168,
+       "days": null
+      },
+      "accept": false,
+      "tick": 559,
+      "decision": {
+       "action": "offer",
+       "price": 168,
+       "message": "Hago un movimiento real: subo mi oferta a 168 primas. Repetir la misma cifra no nos acerca; para cerrar necesito que baje de forma sustancial desde su precio actual."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Es una pieza que merece su precio: 219 primas. Pienso que es justo.",
+      "offer": {
+       "price": 219,
+       "days": null
+      },
+      "accept": false,
+      "tick": 560,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Te la dejo en 219 primas; me cuesta bajar más.",
+      "offer": {
+       "price": 219,
+       "days": null
+      },
+      "accept": false,
+      "tick": 561,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "209 primas. Me muevo poco ya, pero si tú te mueves, cerramos.",
+      "offer": {
+       "price": 209,
+       "days": null
+      },
+      "accept": false,
+      "tick": 562,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 209,
+     "days": null
+    },
+    "tick": 562,
+    "ticks_left": 7,
+    "rounds": 3
+   },
+   "move": {
+    "action": "offer",
+    "text": "Gracias por acercarse; reconozco su movimiento. Subo mi oferta a 176 primas, y con un paso más real de su parte podemos cerrar rápido.",
+    "price": 176,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 176,
+      "message": "Gracias por acercarse; reconozco su movimiento. Subo mi oferta a 176 primas, y con un paso más real de su parte podemos cerrar rápido."
+     },
+     "band": {
+      "worst": 178,
+      "target": 176,
+      "best": 174
+     },
+     "plan": {
+      "read": "They moved 10 P since our last offer, to 209, and their steps are roughly 10 every few ticks; the 'me muevo poco ya' line is a soft signal, not binding. With 7 ticks left there is still room to press for a better price.",
+      "target": 176,
+      "best": 174,
+      "worst": 178,
+      "days": null,
+      "angle": "Acknowledge their move to 209 and answer with a smaller step to 176, stressing that one more real move from them gets this closed quickly."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.03,
+       "in": 1188,
+       "out": 155,
+       "cost_usd": 0.00785,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.26,
+       "in": 916,
+       "out": 77,
+       "cost_usd": 0.0026,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1930,6 +2694,204 @@
      "days": 0
     }
    }
+  },
+  {
+   "tick": 562,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Gracias por acercarse; reconozco su movimiento. Subo mi oferta a 176 primas, y con un paso más real de su parte podemos cerrar rápido.",
+    "price": 176,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 176,
+      "message": "Gracias por acercarse; reconozco su movimiento. Subo mi oferta a 176 primas, y con un paso más real de su parte podemos cerrar rápido."
+     },
+     "band": {
+      "worst": 178,
+      "target": 176,
+      "best": 174
+     },
+     "plan": {
+      "read": "They moved 10 P since our last offer, to 209, and their steps are roughly 10 every few ticks; the 'me muevo poco ya' line is a soft signal, not binding. With 7 ticks left there is still room to press for a better price.",
+      "target": 176,
+      "best": 174,
+      "worst": 178,
+      "days": null,
+      "angle": "Acknowledge their move to 209 and answer with a smaller step to 176, stressing that one more real move from them gets this closed quickly."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.03,
+       "in": 1188,
+       "out": 155,
+       "cost_usd": 0.00785,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.26,
+       "in": 916,
+       "out": 77,
+       "cost_usd": 0.0026,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2535,
+    "offer": {
+     "id": 4906,
+     "price": 176,
+     "tick": 562,
+     "days": 0
+    }
+   }
   }
- ]
+ ],
+ "last_seen_tick": 565,
+ "done": {
+  "duel": 2535,
+  "session": 2,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Café en Goya",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 219,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Noche",
+  "deadline_tick": 569,
+  "decay_per_round": 0.06,
+  "rounds": 4,
+  "your_offer": {
+   "id": 4906,
+   "price": 176,
+   "tick": 562,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 4917,
+   "price": 209,
+   "tick": 563,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 553,
+    "from": "Rival Noche",
+    "text": "Es una pieza que merece su precio: 243 primas. Pienso que es justo.",
+    "price": 243,
+    "days": null
+   },
+   {
+    "tick": 553,
+    "from": "you",
+    "text": "Gracias por la propuesta, pero ese precio me parece alto para un café de este tipo. Le ofrezco 150 primas, que creo que refleja bien su valor; si puede acercarse sustancialmente, podemos avanzar rápido.",
+    "price": 150,
+    "days": null
+   },
+   {
+    "tick": 554,
+    "from": "Rival Noche",
+    "text": "Es una pieza que merece su precio: 242 primas. Pienso que es justo.",
+    "price": 242,
+    "days": null
+   },
+   {
+    "tick": 555,
+    "from": "Rival Noche",
+    "text": "Es una pieza que merece su precio: 241 primas. Pienso que es justo.",
+    "price": 241,
+    "days": null
+   },
+   {
+    "tick": 556,
+    "from": "Rival Noche",
+    "text": "Es una pieza que merece su precio: 231 primas. Pienso que es justo.",
+    "price": 231,
+    "days": null
+   },
+   {
+    "tick": 556,
+    "from": "you",
+    "text": "Aprecio que haya bajado su precio; es un paso real y por eso subo mi oferta a 158 primas. Su cifra sigue lejos de un nivel realista para este café, así que si se acerca más podremos cerrar pronto.",
+    "price": 158,
+    "days": null
+   },
+   {
+    "tick": 557,
+    "from": "Rival Noche",
+    "text": "Es una pieza que merece su precio: 231 primas. Pienso que es justo.",
+    "price": 231,
+    "days": null
+   },
+   {
+    "tick": 558,
+    "from": "Rival Noche",
+    "text": "Es una pieza que merece su precio: 231 primas. Pienso que es justo.",
+    "price": 231,
+    "days": null
+   },
+   {
+    "tick": 559,
+    "from": "Rival Noche",
+    "text": "Es una pieza que merece su precio: 219 primas. Pienso que es justo.",
+    "price": 219,
+    "days": null
+   },
+   {
+    "tick": 559,
+    "from": "you",
+    "text": "Hago un movimiento real: subo mi oferta a 168 primas. Repetir la misma cifra no nos acerca; para cerrar necesito que baje de forma sustancial desde su precio actual.",
+    "price": 168,
+    "days": null
+   },
+   {
+    "tick": 560,
+    "from": "Rival Noche",
+    "text": "Es una pieza que merece su precio: 219 primas. Pienso que es justo.",
+    "price": 219,
+    "days": null
+   },
+   {
+    "tick": 561,
+    "from": "Rival Noche",
+    "text": "Te la dejo en 219 primas; me cuesta bajar más.",
+    "price": 219,
+    "days": null
+   },
+   {
+    "tick": 562,
+    "from": "Rival Noche",
+    "text": "209 primas. Me muevo poco ya, pero si tú te mueves, cerramos.",
+    "price": 209,
+    "days": null
+   },
+   {
+    "tick": 562,
+    "from": "you",
+    "text": "Gracias por acercarse; reconozco su movimiento. Subo mi oferta a 176 primas, y con un paso más real de su parte podemos cerrar rápido.",
+    "price": 176,
+    "days": null
+   },
+   {
+    "tick": 563,
+    "from": "Rival Noche",
+    "text": "Mi propuesta: 209 primas. Dime una cifra concreta y la miro.",
+    "price": 209,
+    "days": null
+   }
+  ],
+  "result": 33.6,
+  "price": 176,
+  "days": 0
+ }
 }
