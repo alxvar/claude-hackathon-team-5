@@ -1,4 +1,4 @@
-# Metrics (auto, 16:55, game tick 801)
+# Metrics (auto, 16:57, game tick 805)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -57,9 +57,8 @@ LAT-01 (common): 5; LAT-03 (common): 5; LAT-04 (common): 5; LAV-01 (common): 99.
 - tick 779 picaros buy SAL-10: 73 → 60, ours 50 · closed
 - tick 793 picaros buy SAL-10: 73 → 54, ours 54 · deal
 
-## Trades between teams (132 so far; last 12)
+## Trades between teams (133 so far; last 12)
 
-- tick 711: RET-06 (uncommon) t12→t16 for 14 P
 - tick 712: RET-05 (common) t08→t07 for 10 P
 - tick 712: LAV-05 (common) t16→t08 for 4 P
 - tick 714: MAL-01 (common) t06→t05 for 5 P
@@ -71,37 +70,35 @@ LAT-01 (common): 5; LAT-03 (common): 5; LAT-04 (common): 5; LAV-01 (common): 99.
 - tick 782: SAL-05 (common) t15→t03 for 8 P
 - tick 787: LAV-08 (uncommon) t15→t07, LAV-07 (uncommon) t07→t15 for 0 P
 - tick 796: LAV-07 (uncommon) t16→t07 for 44 P
+- tick 804: LAV-01 (common) t07→t08 for 4 P
 
-Who buys which set (team trades): t01: MAL×4, SAL×4; t02: RET×3, MAL×2, LAT×1; t03: SAL×2, LAT×2; t04: RET×5, MAL×4, LAV×3, LAT×3; t05: MAL×4, SAL×2, LAV×1, RET×1; t06: SAL×4, LAV×1, LAT×1; t07: LAV×7, RET×3, LAT×2, MAL×1; t08: MAL×3, SAL×2, LAT×2, LAV×2, RET×1; t09: RET×5, MAL×2, SAL×2, LAV×1; t10: LAV×2, MAL×1, SAL×1; t12: LAT×4, MAL×2, LAV×1; t13: MAL×6, SAL×2, LAV×1; t14: LAT×4, RET×3, LAV×1, SAL×1; t15: LAT×6, MAL×4, RET×3, SAL×3, LAV×3; t16: LAT×2, RET×1; t17: MAL×4, SAL×3; t18: SAL×1, LAT×1, RET×1
+Who buys which set (team trades): t01: MAL×4, SAL×4; t02: RET×3, MAL×2, LAT×1; t03: SAL×2, LAT×2; t04: RET×5, MAL×4, LAV×3, LAT×3; t05: MAL×4, SAL×2, LAV×1, RET×1; t06: SAL×4, LAV×1, LAT×1; t07: LAV×7, RET×3, LAT×2, MAL×1; t08: MAL×3, LAV×3, SAL×2, LAT×2, RET×1; t09: RET×5, MAL×2, SAL×2, LAV×1; t10: LAV×2, MAL×1, SAL×1; t12: LAT×4, MAL×2, LAV×1; t13: MAL×6, SAL×2, LAV×1; t14: LAT×4, RET×3, LAV×1, SAL×1; t15: LAT×6, MAL×4, RET×3, SAL×3, LAV×3; t16: LAT×2, RET×1; t17: MAL×4, SAL×3; t18: SAL×1, LAT×1, RET×1
 
 ## Dealer prices, last 60 ticks (median per item)
 
 - abuela common (team buys): median 9 over 1
-- abuela common (team sells): median 6 over 3
+- abuela common (team sells): median 6 over 4
 - abuela uncommon (team buys): median 20 over 2
 - abuela uncommon (team sells): median 12 over 1
 - chato rare (team buys): median 89 over 3
 - chato uncommon (team sells): median 14 over 2
 - picaros rare (team buys): median 58 over 6
-- pilar uncommon (team sells): median 19 over 13
+- pilar uncommon (team sells): median 19 over 12
 
 ## El Rastro now: top bids by price (team, card, price)
 
 - t03: LAV-10 (rare) 38 P · offer 12161
 - t04: RET-10 (rare) 25 P · offer 11366
-- t16: RET-07 (uncommon) 15 P · offer 12093
-- t16: LAV-06 (uncommon) 12 P · offer 12112
+- t16: RET-07 (uncommon) 15 P · offer 12234
+- t16: LAV-06 (uncommon) 12 P · offer 12257
 - t13: RET-06 (uncommon) 11 P · offer 12011
 - t16: RET-01 (common) 5 P · offer 12129
 - t16: RET-02 (common) 5 P · offer 12144
-- t13: RET-01 (common) 2 P · offer 11986
-- t13: RET-02 (common) 2 P · offer 11987
-- t13: RET-03 (common) 2 P · offer 11988
 - t13: RET-04 (common) 2 P · offer 12008
 - t13: RET-05 (common) 2 P · offer 12009
 - t16: MAL-03 (common) 1 P · offer 12155
 
-Asks by others (card, price: count): LAT-01 9: 3; LAT-05 9: 2; MAL-02 3: 2; LAT-08 25: 2; MAL-02 9: 1; SAL-03 10: 1; MAL-01 9: 1; LAT-02 10: 1; LAV-02 9: 1; LAV-05 9: 1; LAV-06 25: 1; LAT-07 25: 1; SAL-01 6: 1; RET-07 30: 1; RET-06 30: 1
+Asks by others (card, price: count): LAT-05 9: 2; MAL-02 3: 2; LAT-01 9: 2; LAT-08 25: 2; LAT-02 9: 2; MAL-02 9: 1; MAL-01 9: 1; LAV-02 9: 1; LAV-05 9: 1; LAV-06 25: 1; LAT-07 25: 1; SAL-01 6: 1; MAL-05 9: 1; LAV-03 9: 1; LAT-05 11: 1
 
 ## Our duels: 0 live, 68 finished (last 10)
 
@@ -118,9 +115,9 @@ Asks by others (card, price: count): LAT-01 9: 3; LAT-05 9: 2; MAL-02 3: 2; LAT-
 
 ## Latest announcements
 
-- tick 761 level.unlocked: {"team": "t08", "name": "Team 8", "persona": "picaros", "persona_name": "Los P\u00edcaros", "level": 4, "why": "3 deals with pilar"}
 - tick 761 level.unlocked: {"team": "t09", "name": "Team 9", "persona": "picaros", "persona_name": "Los P\u00edcaros", "level": 4, "why": "2 deals with pilar"}
 - tick 761 level.unlocked: {"team": "t10", "name": "Team 10", "persona": "picaros", "persona_name": "Los P\u00edcaros", "level": 4, "why": "3 deals with pilar"}
 - tick 761 level.unlocked: {"team": "t16", "name": "Team 16", "persona": "picaros", "persona_name": "Los P\u00edcaros", "level": 4, "why": "2 deals with pilar"}
 - tick 781 level.unlocked: {"team": "t14", "name": "Team 14", "persona": "picaros", "persona_name": "Los P\u00edcaros", "level": 4, "why": "2 deals with pilar"}
+- tick 802 level.unlocked: {"team": "t15", "name": "Team 15", "persona": "picaros", "persona_name": "Los P\u00edcaros", "level": 4, "why": "2 deals with pilar"}
 
