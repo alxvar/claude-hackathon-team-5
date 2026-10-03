@@ -1,42 +1,52 @@
-# Judge (claude-opus-5-5, Sat 17:56)
+# Judge (claude-opus-5-5, Sat 18:12)
 
 ## Verdict
-Holding #3 at 30.0 but losing ground on the top two over the hour: us −0.0/60 min, Team 6 +2.1 (30.7), Team 14 +0.9 (31.4); gap to #1 is 1.4.
+**We are falling behind.** Over 60 min we gained +0.2 (30.0, #3). Team 6 gained +3.9 (31.7), Team 14 +1.9 (31.6) and Team 3 +1.2 (29.2, 0.8 behind us). Our `neg_points` stayed at 78.7 for the last 15 min.
 
 ## Our strategies: keep / kill / scale
-- **Dealer bot: kill, except card-for-cash where our value is lower.** `negotiating` stayed flat at 21.88 while ladder went 0.373 → 0.437 across 3 deals, and flags scored 0 on probe 8. In hindsight, selling SAL-06 to Pilar at 25 (tick 669) now costs us a 35-45 P buyback. Rule: no dealer sale of a card from a page we might finish.
-- **Trading loop: keep.** The t07 swap (SAL-07 for LAT-01) gave +15.5 neg and moved the board 29.24 → 29.98, our best move this hour. The t08 swap on v11 gave +6.2. Only 2 accepts since 15:29, so the loop is starved of offers to accept.
-- **Our bids and listings: scale.** We have 5 live offers against the plan's 20-30. The MAL-02/05 asks at 9 (value 7, +2 each) and LAV-03 at 6 (value 3.2) have been unfilled for a while with no fill data. Offer 14062 sells LAV-02 to t17 for 0 P: kill it unless it is a swap leg. As a pure gift it is −1.3 neg for us and value for t17.
-- **SAL-06 page bid 14040: keep, top priority.** Value 82.1 at 35 P as maker gives ≈ +47 neg ≈ +2.3 board, enough to pass Team 14 if they stay flat. It expires at tick 944, about 25 ticks from now.
-- **In-room trades (Dani): keep.** Both swaps above came from the room. The v10 room plan has no settlement yet.
+- **Dealer bot (ladder deals): kill**, except the Chief's single defensive L5 deal.
+  - Ladder 0.373 → 0.437 left `negotiating` flat at 21.88.
+  - The MAL-08 → Chato thread fell 24 → 19 in −1 steps while his bid only went 13 → 14 (he mirrors step size). No deal.
+- **Trading loop: keep.** Two accepts today, both positive: +6.2 (15:48) and +15.5 (17:46). The second moved the board 29.24 → 29.98. It costs nothing while idle.
+- **SAL-06 page-close bid: scale. It is our biggest live lever.**
+  - Value 82.1, so 50 P gives +32 and 60 P gives +22.
+  - Only 14557 (50 → t13, expires 973) is live. Team 2's bid 14268 is gone from our open offers.
+  - The auto-accept watcher only matches a **t02** ask.
+- **Small maker asks (MAL-02/05 → t15 at 9, MAL-03 → t09 at 9, LAV-03 → t09 at 6): hold to expiry.**
+  - Each would gain +2 to +2.8 if filled; all are still unfilled. Don't reprice; they are not worth accepts or attention.
+- **14397 (LAV-02 at 0 → t09): kill.** It is −1.3 `neg_points` and earns no market points, because our own sale is not value created between other teams.
+- **In-room trades (Dani): scale.**
+  - SAL-06 talks with t02: anchor 120, counter 50, ceiling 60.
+  - v10 room plan (t02 → t08/t07, t07 → t09): no settlement on v10 is visible. The venue is not in the trade feed (not in the data).
+  - t02's RET-03 went to t14 (top 2) at 7 (tick 946) instead of t07 as planned.
 
 ## Check the scout
-- Holds: team trades are uncapped on the board (+15.5 neg → +0.74 board ≈ 0.048/np).
-- Holds: Team 6 is +3.3 in 15 min, and the RET-09 t06→t12 trade at 84 happened.
-- Holds: t01 (1.3 below us) and t10 (2.3 below) are both within 3.0, so both are rivals.
-- Holds: t07 is the busiest buyer (LAV×7, RET×5, LAT×4).
-- Holds: LAV-02 at 0 is not a sale.
-- Wrong: "35 P hits the +50 cap". 82.1 − 35 = 47.1, so we are under the cap. The cap binds only at ≤ 32 P.
-- Wrong: "Team 14 paid us 15 for MAL-08". We bought MAL-08 from t14 at 15 (tick 760, +2.5).
-- Unverified: "2 trades ≈ the +5 cap" on v10 is [L]. The only measurements are +4.99 and −5.2, so the sign risk is real and measured.
-- Not in data: whether t02 holds SAL-06. The scout correctly flags this; its "med" confidence is not supported.
+- **Holds:** the GUARDRAIL terms (≤ 60, floor 85, fee ≤ 4), the 1.6 gap to Team 14, the t14 swap with t16 and its RET-03 buy at 7, t03 selling MAL-02 to t17 at 3, and t06's 540 listings.
+- **Fails: "14268 is live, 42 → t02."** At 18:11 the only SAL-06 bid is 14557, 50 → t13. Its step plan 42 → 46 → 50 is already overtaken.
+- **Fails: the cap math.** The +50 cap binds only at price ≤ 32.1. At 35 the gain is +47.1, at 42 it is +40.1. The Operator's "at 35 hits the cap" is wrong too.
+- **Fails: action 2.** Our own asks to t09 do not score market-making; only trades between other teams on our venue do.
+- **Fails, and goes against the 17:58 directive: action 3** (sell SAL-09/10 to Pilar at ≥ 85 after the close).
+  - After SAL-06 lands they read ~122 each, so a sale at 85 is about −37 each, counted.
+  - It also undoes the page we just paid for. This is a stale premise from 17:45.
+- **Fails: "Team 6 sold RET-02/03 to t06".** The trades were t12 → t06; Team 6 bought them.
+- **Unsupported: "listing volume is Team 6's engine".** Team 8 has 1,034 listings and sits at #14.
+- **Data conflict:** `teams.md` (18:08) has Team 1 at #5 with 28.2, but the 18:11 top 10 does not list it. Re-check before any rival test that names Team 1.
 
 ## The 3 changes with the highest expected gain
-1. **Confirm the SAL-06 holder in person now.**
-   - Dani asks t02 whether it holds SAL-06 and to accept 14040. In parallel he asks t17 and t13 whether they hold it, so the 18:20 fallback bid goes to a confirmed holder.
-   - If 14040 lapses at tick 944, re-post to t02 immediately with expires doubled (60 → ask 120). Stay inside the 45 cap.
-   - Effect: +47 neg ≈ +2.3 board, the only lever that can pass Team 14 this hour.
-   - Risk: addressed bids are public on the feed, so t10 sees our interest and can outbid. Keep each bid short-lived.
-2. **v10 room plan, value-created check per pairing before Dani pushes.**
-   - Allow a pairing only if the buyer holds 0 copies and collects the set while the seller dumps it (per `teams.md`). That rule covers t02 SAL-03 → t08 (t08 collects SAL) and t02 RET-03 → t07 (t07 collects RET).
-   - Drop t07 RET-01 → t09: t07 collects RET, so the card moves away from a RET collector and value created can go negative, as with −5.2 on SAL-07.
-   - Never include t01, t10, t03 or t06.
-   - Effect: up to ≈ +3 board [L].
-   - Risk: one negative trade erases a positive one. Multipliers of other teams are not in the data.
-3. **Fill the maker book with true spares to non-rivals ≥ 10 below us.**
-   - LAT-03 and LAT-04 (value 5) at 8 to t15 (LAT×6).
-   - MAL-01, 03 and 04 (value 7; the MAL page is dead) at 9 to t15 or t13.
-   - LAV-04 second copy (3.2) at 6 to t09.
-   - Re-post anything unfilled after 10 min at 2× ticks.
-   - Effect: +2-3 neg each, ≈ +0.7 board for about 7 fills.
-   - Risk: low; a MAL or LAT card could complete someone's page. Keep to the ≥ 10-below rule, and t17 (5.1 below) is excluded.
+1. **Close SAL-06 with exactly one copy.**
+   - Dani asks t02 to post an ask ≤ 60 addressed to t05 on v15 (0 fee). The watcher accepts it.
+   - Keep 14557 to t13 as the single bid. Patch the watcher to cancel 14557 and re-read holdings before it accepts.
+   - Expected: +22 to +32 `neg_points`, about +1.1 to +1.6 board at 0.05 per point.
+   - Main risk: two fills in the same tick. A second copy is worth 5.6, so paying 50-60 for it costs about −45 to −55.
+2. **Get one or two v10 trades between other teams settled.**
+   - Use the room plan: t02 SAL-03 → t08, t07 RET-01 → t09, at ~9. Buyers must collect the set and not already hold the card, so value created stays positive.
+   - Read our `market` after each settlement.
+   - Expected: about +3 board [L, Chief], the only lever sized to close the 1.6-1.7 gap.
+   - Main risks: value created turning negative (as with SAL-07 → t15 at −5.2), and any trade that gives t10, t03, t14 or t06 a gain.
+3. **Rebuild cash for Sunday's CHA page with non-page spares, sold as maker.**
+   - Spares: MAL-08 (17.5), LAT-03/04 (5), LAV-02 ×2, LAV-03 and LAV-04 extras (1.3-3.2).
+   - Sell to non-rival teams at ≥ value + 3, on v15 or El Rastro.
+   - Never sell SAL or other page cards. Leave SAL-09/10 alone.
+   - Why: after SAL-06 at 50-60, cash drops to 91-101, which is below the 120 that the L5 buy needs and thin for CHA. CHA team buys below value score uncapped.
+   - Expected: small `neg_points` now, and Sunday room to buy.
+   - Main risk: a spare closes a page for a top-6 team. Check the buyer's progress in that set first.
