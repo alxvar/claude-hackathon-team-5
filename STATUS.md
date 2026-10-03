@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 11:11** · tick 363 (30 s/tick) · game hour 4.35 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 11:16** · tick 373 (30 s/tick) · game hour 4.43 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,25 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 10:16 · **for Aleks** (repo audit 10:00-10:15, read-only, each checked in the code) · (a) the negotiator still gets a band when the strategist holds (`agents/duelist/agent.py:99` `make_band`, `runner.py:421` `is_hold`): if it picks 1-2 P off our standing offer, that is sent and costs a round (the 278 pattern) → when the plan's target equals our standing price and day, hold in code without asking the negotiator; before 11:58 if you agree · (b) `engine/failover.py:21` gives the primary 20 s, but the whole decision (strategist + negotiator) has max(8, tick − 5) = 25 s (`runner.py:385`): the backup is rarely reached today and never at Sunday's 15 s ticks → primary budget ≈ 40% of the tick · (c) `docs/duelist-runbook.md:61,66` say hour 6.5 / 13 (live: 5.15 ≈ 11:58, 11.65 ≈ 18:28) · (d) `hub/import_files.py`: a `me` row with `tick: null` aborts the file; "new" overcounts repeated ids; files open without utf-8 (Windows) · next: Aleks decides (a)
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 11:16 · operator · Team 10 goodwill (Chief): PUBLIC bids on v07 (bids can't feed a closer), until tick 430: 5590 SAL-04 at 7 (worth 9), 5591 MAL-03 at 5 (worth 7); LAT-02 at 3 skipped (cash room 2 above floor 100) · scout 11:14 'raise LAT-08/SAL-08 to 28' skipped (estimate, LAT-08 posted at 25 four minutes earlier) · Radio Rastro (/api/news): never act on an item without API confirmation (Chief)
   - Sat 11:10 · operator · scout 11:09 applied: LAT-08 (worth 12.5) re-addressed from t15 (book had stepped it to 17) to **t03 at 25** on v07 (offer 5425, until tick 421; t03 collects LAT, est. bid 28); removed from run/book.json, posted by hand
   - Sat 11:07 · Builder · **SAL page scan** (intel/sal-page.md, verified): not buildable today, ≥ 209 P vs cash 107, no SAL rare ever below 70; our v07 asks sell SAL-08 (only copy) and both SAL-01 · **duelmon** 7741585: "we are silent" counts from a rival's move (holds send nothing), page carries the failover line (cold standby `uv run python -m agents.duelist run` only after Aleks confirms; never two); restarted 10:41 · **docs/judges/facts.md** 902683e: 47 measured findings × DECISIONS.md D1-D22 + Mermaid architecture, two verifier passes · next: Chief's queue
-  - Sat 11:06 · operator · **SAL-01 sold to Team 3 at 7** (offer 5205 on v07, after Lucas's DM; their counter of 7 accepted): `neg_points` 28.5 → **33.2** (+4.7, predicted +4.8), cash 114, value created on v07 for Team 10 · the other SAL-01 copy is still worth 2.2 (server value), so book.py's 5081 → t06 at 6 stays (+3.8) · #3 (28.95), top 4 t18/t13/us/t12
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 29.72 | 3 | 17.22 | 12.50 | 0.00 | 0.06 | 0.90 | 34 | 2 | 114 | 32/50 |
+| 29.50 | 3 | 17.00 | 12.50 | 0.00 | 0.06 | 0.90 | 34 | 2 | 114 | 32/50 |
 
-Leaderboard (snapshot at tick 360; refreshes every few minutes):
+Leaderboard (snapshot at tick 370; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 18 | 30.55 | 23.05 | 7.50 | 28 |
-| 2 | Team 13 | 30.13 | 26.81 | 3.33 | 43 |
-| 3 | Team 5 | 29.72 | 17.22 | 12.50 | 34 |
-| 4 | Team 12 | 26.24 | 13.85 | 12.39 | 30 |
-| 5 | Team 2 | 25.84 | 18.34 | 7.50 | 33 |
+| 1 | Team 13 | 30.37 | 27.04 | 3.33 | 45 |
+| 2 | Team 18 | 30.18 | 22.68 | 7.50 | 28 |
+| 3 | Team 5 | 29.50 | 17.00 | 12.50 | 34 |
+| 4 | Team 12 | 26.21 | 13.82 | 12.39 | 30 |
+| 5 | Team 2 | 25.53 | 18.03 | 7.50 | 33 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 5.00 | ~39 min | bench | The Market Test: every venue gets the same synthetic book |
-| 5.15 | ~48 min | duels | Duels I: price only, one round-robin |
-| 5.51 | ~69 min | persona_opens | Doña Pilar opens for everyone |
-| 7.00 | ~159 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.00 | ~279 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.15 | ~288 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
-| 11.00 | ~399 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~408 min | persona_patch | The fever breaks |
+| 5.00 | ~34 min | bench | The Market Test: every venue gets the same synthetic book |
+| 5.15 | ~43 min | duels | Duels I: price only, one round-robin |
+| 5.51 | ~65 min | persona_opens | Doña Pilar opens for everyone |
+| 7.00 | ~154 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.00 | ~274 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.15 | ~283 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
+| 11.00 | ~394 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~403 min | persona_patch | The fever breaks |
 
 ## Our dealer deals
 
@@ -100,10 +100,10 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
-| common card | team buys | 51 | 9 | 7 | 12 | 5 | 9 |
-| common card | team sells | 50 | 6.00 | 5 | 23 | 5 | 5.40 |
+| common card | team buys | 52 | 9.00 | 7 | 12 | 5 | 9 |
+| common card | team sells | 54 | 6.00 | 5 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 37 | 22 | 17 | 30 | 3 | 20.33 |
-| uncommon card | team buys | 58 | 23.00 | 17 | 29 | 4 | 24.50 |
+| uncommon card | team buys | 59 | 23 | 17 | 29 | 4 | 24.50 |
 | uncommon card | team sells | 7 | 14 | 13 | 17 | 0 | — |
 
 ## Duels
