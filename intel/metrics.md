@@ -1,17 +1,17 @@
-# Metrics (auto, 17:14, game tick 839)
+# Metrics (auto, 17:16, game tick 843)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
-1. Team 5 29.7 (-0.3 / +1.4) deals 48 ← US
-2. Team 14 29.7 (-0.9 / -0.6) deals 32
-3. Team 1 28.9 (-0.8 / +3.7) deals 23
-4. Team 12 28.7 (-0.3 / -1.1) deals 44
-5. Team 10 28.2 (-0.6 / -0.4) deals 31
-6. Team 3 28.0 (+0.2 / +4.7) deals 25
-7. Team 6 27.9 (-0.8 / +2.9) deals 45
-8. Team 18 27.8 (-0.7 / -1.5) deals 31
-9. Team 16 26.8 (+0.5 / +4.5) deals 33
-10. Team 17 25.2 (-0.8 / -0.2) deals 24
+1. Team 5 29.7 (+0.0 / +1.1) deals 48 ← US
+2. Team 14 29.7 (-0.2 / -0.5) deals 32
+3. Team 1 28.9 (-0.2 / +2.5) deals 23
+4. Team 12 28.7 (+0.1 / -1.3) deals 44
+5. Team 10 28.2 (-0.1 / -0.8) deals 31
+6. Team 3 28.0 (-0.2 / +4.8) deals 25
+7. Team 6 27.9 (-0.1 / +2.6) deals 45
+8. Team 18 27.8 (-0.1 / -1.5) deals 31
+9. Team 16 26.8 (-0.1 / +4.0) deals 33
+10. Team 17 25.2 (-0.1 / -1.0) deals 24
 Us: #1
 
 ## Us
@@ -78,8 +78,8 @@ Who buys which set (team trades): t01: MAL×4, SAL×4; t02: RET×3, MAL×2, LAT�
 ## Dealer prices, last 60 ticks (median per item)
 
 - abuela common (team buys): median 9 over 1
-- abuela common (team sells): median 6 over 12
-- abuela uncommon (team buys): median 23 over 1
+- abuela common (team sells): median 6 over 13
+- abuela uncommon (team buys): median 23 over 2
 - abuela uncommon (team sells): median 12 over 1
 - chato rare (team buys): median 89 over 1
 - picaros rare (team buys): median 59 over 4
@@ -89,18 +89,22 @@ Who buys which set (team trades): t01: MAL×4, SAL×4; t02: RET×3, MAL×2, LAT�
 
 ## El Rastro now: top bids by price (team, card, price)
 
-- t03: LAV-10 (rare) 38 P · offer 12823
 - t16: RET-07 (uncommon) 15 P · offer 12776
-- t16: LAV-07 (uncommon) 12 P · offer 12674
+- t07: RET-08 (uncommon) 14 P · offer 12841
 - t16: LAV-06 (uncommon) 12 P · offer 12802
+- t16: LAV-07 (uncommon) 12 P · offer 12871
 - t13: LAT-06 (uncommon) 6 P · offer 12733
-- t16: RET-02 (common) 5 P · offer 12640
 - t16: RET-01 (common) 5 P · offer 12819
+- t16: RET-02 (common) 5 P · offer 12840
+- t16: RET-03 (common) 5 P · offer 12885
 - t13: RET-05 (common) 2 P · offer 12711
-- t16: MAL-03 (common) 1 P · offer 12655
-- t16: MAL-05 (common) 1 P · offer 12686
+- t13: RET-01 (common) 2 P · offer 12846
+- t13: RET-02 (common) 2 P · offer 12892
+- t13: RET-03 (common) 2 P · offer 12893
+- t16: MAL-03 (common) 1 P · offer 12856
+- t16: MAL-05 (common) 1 P · offer 12887
 
-Asks by others (card, price: count): LAT-01 9: 3; LAT-03 11: 2; LAT-08 25: 2; LAT-04 9: 2; LAT-02 9: 2; LAT-03 8: 2; LAT-04 8: 2; LAT-01 8: 2; LAT-05 12: 2; MAL-05 9: 1; LAV-03 9: 1; LAT-05 11: 1; MAL-04 9: 1; LAT-02 11: 1; LAT-04 11: 1
+Asks by others (card, price: count): LAT-01 9: 3; LAT-08 25: 2; LAT-04 9: 2; LAT-02 9: 2; LAT-03 8: 2; LAT-04 8: 2; LAT-05 9: 2; MAL-05 9: 1; LAV-03 9: 1; LAT-05 11: 1; MAL-04 9: 1; LAT-02 11: 1; LAT-03 11: 1; LAT-04 11: 1; LAT-06 25: 1
 
 ## Our duels: 0 live, 68 finished (last 10)
 
