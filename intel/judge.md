@@ -1,50 +1,48 @@
-# Judge (claude-opus-5-5, Sat 13:16)
+# Judge (claude-opus-5-5, Sat 13:32)
 
 ## Verdict
-Closing on #1 but losing rank. The gap to t14 shrank from 2.19 (12:58) to 1.44 (30.4 vs 28.96). We fell from #3 (12:52) to #5 as t10 (+6.8/60 min) and t18 passed us. `neg_points` has been flat at 35.2 since tick 404, about 200 ticks with no trade gain.
+Mixed. Over 60 min we closed on #1 (we +1.8, t14 +1.1; gap 3.35 → 2.65). Over 15 min we lost 1.1 to t14 (we −0.8, t14 +0.3). neg_points has been flat at 35.2 since tick 404 and the ladder flat at 0.181 since 12:45, so we score nothing new while t10 (+4.1) and t6 (+4.6) climb.
 
 ## Our strategies: keep / kill / scale
-- **Pilar sells, small steps (L3 ladder): KEEP.** MAL-06 at 19 added +0.040 (0.141 → 0.181) at 0 `neg_points` cost. The SAL-08 jump gave only +0.019, so that slot is the one to replace.
-- **Chato buys at list 26 (L2): KILL.** He held 32 for 4+ minutes against our 26. chato_steady hung and nothing was spent. L2 still has only LAT-08's +0.017.
-- **Abuela SAL-06 thread 832: KEEP at cap 22, silent.** Her price went 29 → 25 and has held 25 for 5+ ticks against our 22. Silence is free. SAL-06 is worth 22.5 to us, so 22 costs 0. It only pays as stock for a Pilar resale (see change 3). Our L1 best 3 are already filled: the 4th Abuela deal, RET-08, moved the ladder only +0.003.
-- **Trading loop (`loop.py`): KEEP running, but it produces nothing.** No logged action since its 10:32 restart, and no auto-accept gain since tick 404.
-- **Our maker book: SCALE and FIX.**
-  - Only 8 live offers against the plan's 20-30. Last fill was tick 351.
-  - 8619 (MAL-02 → t15 at 9) is dead: t15 itself sold MAL-02 to t04 at 5 at tick 602.
-  - MAL and SAL commons clear at 5 (ticks 595, 600, 602), below our value of 7-9. Those single copies won't sell at ≥ value; stop listing them.
-  - LAV-03's spare has no live offer at all.
-- **In-room / v10 value created (directive B): SCALE.** Directive 12:58 traces most of t14's lead to one value-created trade on its stall (+3.10, cap +5). Whether Lucas's DMs to t15 and t10 produced any trade is not in the data. Our current v10 `mm_points` are not in the data (last read −5.2 at 11:30).
-- **Duels: keep, Aleks's lane.** Duel points 13.25 → 13.93. The Duels II integrative decision is due 15:30.
+- **Pilar L3 sells (dealer bot):** **scale**. Ladder went 0.122 → 0.181 at 0 neg cost (MAL-07 +0.050, MAL-06 +0.040, SAL-08 +0.019). The +0.019 slot is the one to replace.
+- **Chato L2 buy at list 26:** **kill**. He held 33 → 32 against our 26 (thread 805), and our 6 Chato buys above list never moved the ladder. A buy at his 30-31 final costs about −5 to −8.5 neg for 0 ladder.
+- **Abuela SAL-06 at cap 25:** **change the cap**. Three threads (her 29 → 25) produced nothing. At 25 we pay −2.5 neg (value 22.5), and L1 is saturated: the 4th Abuela deal added only +0.003. Cap at 22.
+- **Trading loop (`loop.py`):** **keep; it costs nothing**. It has made 0 accepts all Saturday, and the El Rastro asks hold nothing near our value + 3.
+- **Spare-ask book (9 asks, 5-11 P):** **keep, but re-address**. No fill since tick 404 (~1.9 h), and commons now clear at 5 (ticks 595-610). Most addressees fail the feeding rule (≥ 10 below us): t04 is 4.8 below and collects LAV, t03 7.6, t09 6.4, t06 4.2, t15 6.2, t16 5.7. Only t07 (#17, 10.8 below) passes.
+- **Earlier team trades:** these scored best. RET-01 from t10 at 20 gave +50 (cap), SAL-01 to t03 at 7 gave +4.7, MAL-03 from t04 at 5 gave +2.0.
+- **v10 venue (Lucas plan B):** **keep, positive-only**. It has measured +4.99 and then −5.2 (SAL-07 t10→t15), so it is net negative so far.
+- **Lunch bargain watch:** **keep**. No ask qualifies: the best is LAT-08 at 24-25, worth 12.5 to us.
 
 ## Check the scout
 - **Holds:**
-  - Chato refuses list-26 buys.
-  - We hold no MAL or SAL uncommons.
-  - t14 dumped RET commons at 9 (ticks 591-598).
-  - Don't sell RET-06/08 to t04's 26-27 bids: they are worth 100.4 each to us.
-  - The Analyst's ~0.15 ladder cap is falsified (0.181).
-- **Fails:**
-  - "Our 10 offers… asks are 4-6": we have 8 offers at 6-11.
-  - "Ladder looks capped": L3 moved +0.040 at 12:46. L2 is empty because Chato won't deal, not because it is capped.
-  - "t06 holding rare buys": t06 *sold* RET-09 to t02 at 84.
-  - t14 numbers are stale: it reads 31.2 / −2.6; metrics say 30.4 / −2.0 / +5.8.
-  - "Abuela 27 vs our 18" is stale: now 25 vs 22.
-- **Unsupported:** Team 7's 9.5 is an estimate, not a live bid. t07 has no bids on El Rastro.
+  - sobre_plata is unopened (92.9).
+  - RET and LAV pages are complete.
+  - No bargain target exists.
+  - Pilar paid 140 for LAV-11.
+  - The t15↔t07 0 P swaps happened (ticks 607/613/616).
+  - t14 sold RET commons at 9 (591-598).
+  - t4 bids 26/27 for RET-06/08.
+  - We have no ask to t07.
+- **Stale:**
+  - The gaps. It says "t14 leads by 2.2, t18/t10 at 29.2"; the metrics show 2.65, with t18 at 28.8 and t10 at 28.9.
+  - "t12 +1.3/15 min": the metrics show −0.3/15 and −2.6/60.
+  - "t15 17 team trades": teams.md shows 22.
+  - "Pilar median 18 over 6": the metrics show 5 deals.
+- **Wrong:**
+  - "Team 6 is buying SAL": it sold SAL-03 to t14 (tick 600).
+  - "Sell any spare uncommon to Pilar": we hold no spare uncommon. Every uncommon is a page card worth 100-118, so this applies only to what the pack yields.
 
 ## The 3 changes with the highest expected gain
-1. **Rebuild the maker book now (Operator, `trade.py`).**
-   - Cancel 8619.
-   - List one spare copy each of LAV-03 (and keep LAV-02, LAV-04) at 7-8, addressed to LAV collectors outside the top 4: t07, t09, t04, t03. Never t10, now #3.
-   - Keep LAT-04 and SAL-02 at 6-7 to t16, t09 and t07.
-   - Reprice anything unfilled after 10 minutes. Sell only one copy of each card, the cheapest.
-   - Effect: up to ~+26 `neg_points` ≈ +2.4 board (0.094 per point) if all fill; realistically a fraction.
-   - Risk: few fills (5% of asks filled on Friday). Never price below our value.
-2. **v10 value created (Lucas/Dani in the room).** Pitch our 0% venue to non-leading teams for trades that move cards to the set's collector. Live example: t04 bids 26-27 for RET-06/08 and 64 for LAT-09; any holder selling to t04 on v10 instead of El Rastro creates value for us.
-   - Effect: up to +5 board (the cap); one t14-size trade is +3.1.
-   - Risk: dumps to low-multiplier buyers subtract (we went to −5.2 at 11:30). Page Dani only on positive trades.
-3. **SAL-06 buy at Abuela, resold to Pilar in small steps (directive A, adapted).**
-   - Close at ≤ 22: costs 0 `neg_points`.
-   - If she holds 25, accepting costs −2.5 `neg_points` ≈ −0.24 board.
-   - Resell to Pilar at ≥ 23 offer-only, stepping −2/−3, in the 16:00-18:00 Salamanca window. This replaces the SAL-08 slot (+0.019).
-   - Effect: ~+0.02 ladder ≈ +0.66 board (0.33 per 0.01).
-   - Risk: Pilar finals land lower in a second thread (MAL-06 retry: final 17). Walk below 23.
+1. **Open sobre_plata now, then route its contents to the empty ladder slots (Operator, offer-only).**
+   - Selling to Chato above his opening bid at ≥ our value refilled an L2 slot before: LAT-08 at 14 gave +0.017 at 0 neg, and our L2 slots are empty.
+   - Uncommons go to Pilar with −2/−3 steps to replace the +0.019 slot.
+   - It also removes the 1-4 point pack drag [L].
+   - Effect: up to ~+1.2 board per filled L2 slot (directive A estimate). Risk: the contents are not in the data, and a MAL uncommon (17.5) is below Chato's 14-16 bid, so it goes to Pilar only.
+2. **SAL-06 from Abuela at ≤ 22, then to Pilar at ≥ 23 in small steps (16:00-18:00 per plan A).**
+   - 0 neg on both legs. It replaces the SAL-08 slot (+0.019) with a +0.040-0.050-type deal, ≈ +0.7-1.0 board.
+   - Risk: Abuela may not go below 25. Then walk, never pay 25.
+3. **Re-address the spares (Operator).**
+   - LAV-02/03/04 and LAT-04 go to t07 at 7-8, the only buyer that collects LAV/LAT and passes the ≥ 10 rule.
+   - Hold MAL-02/04, SAL-01 and LAT-03 at value + 2. Drop any ask below our value.
+   - Effect: ~+2 to +4 neg per fill (≈ 0.2-0.4 board each), and it removes the risk of handing t04, t03 or t09 a +50 page close (≈ +4.7 board, enough to put t04 level with us).
+   - Risk: t07 may not buy. Then the asks expire, which is still better than feeding a team close behind us.
