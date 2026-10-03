@@ -372,6 +372,177 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 550,
+   "raw": {
+    "duel": 2495,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Heroína del Dos de Mayo",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 124,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Rojo",
+    "deadline_tick": 553,
+    "decay_per_round": 0.06,
+    "rounds": 0,
+    "your_offer": {
+     "id": 4658,
+     "price": 102,
+     "tick": 550,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 537,
+      "from": "you",
+      "text": "I'd like to open at 70 P for La Heroína del Dos de Mayo. That reflects a fair value for the piece as it stands, and I'm ready to move quickly if we can find common ground. What figure do you have in mind?",
+      "price": 70,
+      "days": null
+     },
+     {
+      "tick": 545,
+      "from": "you",
+      "text": "I can do 75 P.",
+      "price": 75,
+      "days": null
+     },
+     {
+      "tick": 546,
+      "from": "you",
+      "text": "I can do 80 P.",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 547,
+      "from": "you",
+      "text": "I can do 86 P.",
+      "price": 86,
+      "days": null
+     },
+     {
+      "tick": 548,
+      "from": "you",
+      "text": "I can do 91 P.",
+      "price": 91,
+      "days": null
+     },
+     {
+      "tick": 549,
+      "from": "you",
+      "text": "I can do 97 P.",
+      "price": 97,
+      "days": null
+     },
+     {
+      "tick": 550,
+      "from": "you",
+      "text": "I can do 102 P.",
+      "price": 102,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 551,
+   "raw": {
+    "duel": 2495,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Heroína del Dos de Mayo",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 124,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Rojo",
+    "deadline_tick": 553,
+    "decay_per_round": 0.06,
+    "rounds": 0,
+    "your_offer": {
+     "id": 4677,
+     "price": 107,
+     "tick": 551,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 537,
+      "from": "you",
+      "text": "I'd like to open at 70 P for La Heroína del Dos de Mayo. That reflects a fair value for the piece as it stands, and I'm ready to move quickly if we can find common ground. What figure do you have in mind?",
+      "price": 70,
+      "days": null
+     },
+     {
+      "tick": 545,
+      "from": "you",
+      "text": "I can do 75 P.",
+      "price": 75,
+      "days": null
+     },
+     {
+      "tick": 546,
+      "from": "you",
+      "text": "I can do 80 P.",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 547,
+      "from": "you",
+      "text": "I can do 86 P.",
+      "price": 86,
+      "days": null
+     },
+     {
+      "tick": 548,
+      "from": "you",
+      "text": "I can do 91 P.",
+      "price": 91,
+      "days": null
+     },
+     {
+      "tick": 549,
+      "from": "you",
+      "text": "I can do 97 P.",
+      "price": 97,
+      "days": null
+     },
+     {
+      "tick": 550,
+      "from": "you",
+      "text": "I can do 102 P.",
+      "price": 102,
+      "days": null
+     },
+     {
+      "tick": 551,
+      "from": "you",
+      "text": "I can do 107 P.",
+      "price": 107,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -877,6 +1048,241 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 550,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 2495,
+     "role": "buyer",
+     "limit": 124,
+     "currency": "P",
+     "item": "La Heroína del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 70 P for La Heroína del Dos de Mayo. That reflects a fair value for the piece as it stands, and I'm ready to move quickly if we can find common ground. What figure do you have in mind?",
+      "offer": {
+       "price": 70,
+       "days": null
+      },
+      "accept": false,
+      "tick": 537,
+      "decision": {
+       "action": "offer",
+       "price": 70,
+       "message": "I'd like to open at 70 P for La Heroína del Dos de Mayo. That reflects a fair value for the piece as it stands, and I'm ready to move quickly if we can find common ground. What figure do you have in mind?"
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 75 P.",
+      "offer": {
+       "price": 75,
+       "days": null
+      },
+      "accept": false,
+      "tick": 545,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 80 P.",
+      "offer": {
+       "price": 80,
+       "days": null
+      },
+      "accept": false,
+      "tick": 546,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 86 P.",
+      "offer": {
+       "price": 86,
+       "days": null
+      },
+      "accept": false,
+      "tick": 547,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 91 P.",
+      "offer": {
+       "price": 91,
+       "days": null
+      },
+      "accept": false,
+      "tick": 548,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 97 P.",
+      "offer": {
+       "price": 97,
+       "days": null
+      },
+      "accept": false,
+      "tick": 549,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 550,
+    "ticks_left": 3,
+    "rounds": 0
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 102 P.",
+    "price": 102,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 551,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 2495,
+     "role": "buyer",
+     "limit": 124,
+     "currency": "P",
+     "item": "La Heroína del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 70 P for La Heroína del Dos de Mayo. That reflects a fair value for the piece as it stands, and I'm ready to move quickly if we can find common ground. What figure do you have in mind?",
+      "offer": {
+       "price": 70,
+       "days": null
+      },
+      "accept": false,
+      "tick": 537,
+      "decision": {
+       "action": "offer",
+       "price": 70,
+       "message": "I'd like to open at 70 P for La Heroína del Dos de Mayo. That reflects a fair value for the piece as it stands, and I'm ready to move quickly if we can find common ground. What figure do you have in mind?"
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 75 P.",
+      "offer": {
+       "price": 75,
+       "days": null
+      },
+      "accept": false,
+      "tick": 545,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 80 P.",
+      "offer": {
+       "price": 80,
+       "days": null
+      },
+      "accept": false,
+      "tick": 546,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 86 P.",
+      "offer": {
+       "price": 86,
+       "days": null
+      },
+      "accept": false,
+      "tick": 547,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 91 P.",
+      "offer": {
+       "price": 91,
+       "days": null
+      },
+      "accept": false,
+      "tick": 548,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 97 P.",
+      "offer": {
+       "price": 97,
+       "days": null
+      },
+      "accept": false,
+      "tick": 549,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 102 P.",
+      "offer": {
+       "price": 102,
+       "days": null
+      },
+      "accept": false,
+      "tick": 550,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 551,
+    "ticks_left": 2,
+    "rounds": 0
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 107 P.",
+    "price": 107,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1048,6 +1454,52 @@
      "id": 4644,
      "price": 97,
      "tick": 549,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 550,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 102 P.",
+    "price": 102,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 2495,
+    "offer": {
+     "id": 4658,
+     "price": 102,
+     "tick": 550,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 551,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 107 P.",
+    "price": 107,
+    "days": null,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 2495,
+    "offer": {
+     "id": 4677,
+     "price": 107,
+     "tick": 551,
      "days": 0
     }
    }

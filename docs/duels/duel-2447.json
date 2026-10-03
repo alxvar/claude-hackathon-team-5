@@ -119,6 +119,131 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 550,
+   "raw": {
+    "duel": 2447,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Mercado de la Paz",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 86,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Verde",
+    "deadline_tick": 565,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 4665,
+     "price": 122,
+     "tick": 550,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4652,
+     "price": 98,
+     "tick": 549,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 549,
+      "from": "you",
+      "text": "Thanks for engaging. Given the quality of what Mercado de la Paz offers and its prime location, I'm proposing 130 P. I'm open to a serious counteroffer from you.}",
+      "price": 130,
+      "days": null
+     },
+     {
+      "tick": 549,
+      "from": "Rival Verde",
+      "text": "Hello, and thank you for meeting me. I would propose 98 P for this one.",
+      "price": 98,
+      "days": null
+     },
+     {
+      "tick": 550,
+      "from": "you",
+      "text": "Thank you for the counter. I'm willing to make a measured step down to 122 P in good faith, given the quality and the location of Mercado de la Paz. I'd ask you to come up meaningfully from your current figure so we can close this quickly.",
+      "price": 122,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 550,
+   "raw": {
+    "duel": 2447,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Mercado de la Paz",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 86,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Verde",
+    "deadline_tick": 565,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 4665,
+     "price": 122,
+     "tick": 550,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4671,
+     "price": 118,
+     "tick": 550,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 549,
+      "from": "you",
+      "text": "Thanks for engaging. Given the quality of what Mercado de la Paz offers and its prime location, I'm proposing 130 P. I'm open to a serious counteroffer from you.}",
+      "price": 130,
+      "days": null
+     },
+     {
+      "tick": 549,
+      "from": "Rival Verde",
+      "text": "Hello, and thank you for meeting me. I would propose 98 P for this one.",
+      "price": 98,
+      "days": null
+     },
+     {
+      "tick": 550,
+      "from": "you",
+      "text": "Thank you for the counter. I'm willing to make a measured step down to 122 P in good faith, given the quality and the location of Mercado de la Paz. I'd ask you to come up meaningfully from your current figure so we can close this quickly.",
+      "price": 122,
+      "days": null
+     },
+     {
+      "tick": 550,
+      "from": "Rival Verde",
+      "text": "I appreciate it, thank you. Could we close at 118 P, please?",
+      "price": 118,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -229,6 +354,208 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 550,
+   "took_s": 5.19,
+   "cost_usd": 0.00562,
+   "obs": {
+    "view": {
+     "duel_id": 2447,
+     "role": "seller",
+     "limit": 86,
+     "currency": "P",
+     "item": "Mercado de la Paz",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "Thanks for engaging. Given the quality of what Mercado de la Paz offers and its prime location, I'm proposing 130 P. I'm open to a serious counteroffer from you.}",
+      "offer": {
+       "price": 130,
+       "days": null
+      },
+      "accept": false,
+      "tick": 549,
+      "decision": {
+       "action": "offer",
+       "price": 130,
+       "message": "Thanks for engaging. Given the quality of what Mercado de la Paz offers and its prime location, I'm proposing 130 P. I'm open to a serious counteroffer from you.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hello, and thank you for meeting me. I would propose 98 P for this one.",
+      "offer": {
+       "price": 98,
+       "days": null
+      },
+      "accept": false,
+      "tick": 549,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 98,
+     "days": null
+    },
+    "tick": 550,
+    "ticks_left": 15,
+    "rounds": 1
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thank you for the counter. I'm willing to make a measured step down to 122 P in good faith, given the quality and the location of Mercado de la Paz. I'd ask you to come up meaningfully from your current figure so we can close this quickly.",
+    "price": 122,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 122,
+      "message": "Thank you for the counter. I'm willing to make a measured step down to 122 P in good faith, given the quality and the location of Mercado de la Paz. I'd ask you to come up meaningfully from your current figure so we can close this quickly."
+     },
+     "band": {
+      "worst": 120,
+      "target": 122,
+      "best": 124
+     },
+     "plan": {
+      "read": "They opened at 98 P against our 130 P, a normal counter with a plain message and no pressure claims; their real ceiling is likely well above 98.",
+      "target": 122,
+      "best": 124,
+      "worst": 120,
+      "days": null,
+      "angle": "Make one measured step down to show good faith, stress the location and quality, and ask them to come up meaningfully from 98."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.4,
+       "in": 418,
+       "out": 118,
+       "cost_usd": 0.00403,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.79,
+       "in": 314,
+       "out": 96,
+       "cost_usd": 0.00159,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 551,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 2447,
+     "role": "seller",
+     "limit": 86,
+     "currency": "P",
+     "item": "Mercado de la Paz",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "Thanks for engaging. Given the quality of what Mercado de la Paz offers and its prime location, I'm proposing 130 P. I'm open to a serious counteroffer from you.}",
+      "offer": {
+       "price": 130,
+       "days": null
+      },
+      "accept": false,
+      "tick": 549,
+      "decision": {
+       "action": "offer",
+       "price": 130,
+       "message": "Thanks for engaging. Given the quality of what Mercado de la Paz offers and its prime location, I'm proposing 130 P. I'm open to a serious counteroffer from you.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hello, and thank you for meeting me. I would propose 98 P for this one.",
+      "offer": {
+       "price": 98,
+       "days": null
+      },
+      "accept": false,
+      "tick": 549,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the counter. I'm willing to make a measured step down to 122 P in good faith, given the quality and the location of Mercado de la Paz. I'd ask you to come up meaningfully from your current figure so we can close this quickly.",
+      "offer": {
+       "price": 122,
+       "days": null
+      },
+      "accept": false,
+      "tick": 550,
+      "decision": {
+       "action": "offer",
+       "price": 122,
+       "message": "Thank you for the counter. I'm willing to make a measured step down to 122 P in good faith, given the quality and the location of Mercado de la Paz. I'd ask you to come up meaningfully from your current figure so we can close this quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I appreciate it, thank you. Could we close at 118 P, please?",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 550,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 118,
+     "days": null
+    },
+    "tick": 551,
+    "ticks_left": 14,
+    "rounds": 2
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 118,
+    "days": null,
+    "meta": {
+     "rule": "small gap",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -287,6 +614,82 @@
      "tick": 549,
      "days": 0
     }
+   }
+  },
+  {
+   "tick": 550,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thank you for the counter. I'm willing to make a measured step down to 122 P in good faith, given the quality and the location of Mercado de la Paz. I'd ask you to come up meaningfully from your current figure so we can close this quickly.",
+    "price": 122,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 122,
+      "message": "Thank you for the counter. I'm willing to make a measured step down to 122 P in good faith, given the quality and the location of Mercado de la Paz. I'd ask you to come up meaningfully from your current figure so we can close this quickly."
+     },
+     "band": {
+      "worst": 120,
+      "target": 122,
+      "best": 124
+     },
+     "plan": {
+      "read": "They opened at 98 P against our 130 P, a normal counter with a plain message and no pressure claims; their real ceiling is likely well above 98.",
+      "target": 122,
+      "best": 124,
+      "worst": 120,
+      "days": null,
+      "angle": "Make one measured step down to show good faith, stress the location and quality, and ask them to come up meaningfully from 98."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.4,
+       "in": 418,
+       "out": 118,
+       "cost_usd": 0.00403,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.79,
+       "in": 314,
+       "out": 96,
+       "cost_usd": 0.00159,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2447,
+    "offer": {
+     "id": 4665,
+     "price": 122,
+     "tick": 550,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 551,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 118,
+    "days": null,
+    "meta": {
+     "rule": "small gap",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 118,
+    "settles_at_tick": 552
    }
   }
  ]
