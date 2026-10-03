@@ -120,6 +120,12 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    invented budget, limit, cost, other bids or deadlines; prices, days, posture and warmth only ("that's hard for me",
    "I can do N"). A one-line prompt rule plus a regex guard on outgoing text (digits other than the price/day, words
    like "budget", "limit", "cost me", "another buyer") would close it before Duels II.
+22. **16:55, DESK ANSWER [V, organisers]: "the accept only limits markets, not duels: you can accept all 6 in the same
+   tick."** So any serialization of duel accepts (runner.closer's one-per-tick line-up across live duels, the arbiter
+   logic for duels) is unnecessary and costs us: the Duel Lab estimated 0.5-0.8 duel points from forced early accepts.
+   Remove it before the ~20:15 restart if it's in the code (test: two duels accept in the same tick).
+   Also confirmed: final = game (0.5·Fri + Sat + Sun)/2.5 over 60 + judges over 40; the judges' pitch is Sunday after the
+   15:00 close, 1 h to prepare, free format, 3 min (5 min for the top 3).
 
 **Dani: deal desk from 15:52 (Lucas's call).** Your phone (ntfy, your channel) now gets every alert that needs a human to
 message another team: v10 radar DMs, v10 partner suggestions (Teams 15, 10, 3), opportunity SELL/BUY alerts, swap nudges.

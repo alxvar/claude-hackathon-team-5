@@ -2,6 +2,10 @@
 
 _Written by the strategy session. It never touches the game: no trades, no bots. The operator decides and executes inside its hard limits (ORCHESTRATOR.md, "Decide, don't ask"); Lucas changes a limit only with a line containing GUARDRAIL. Format: `- HH:MM · decision with limits · why`. Newest block on top. Labels: **[Verified]** measured on our own deals or read from the server; **[Likely]** fitted or inferred; **[Open]** unknown._
 
+## Sat 16:55 — desk answers [Verified: organisers via Lucas]
+
+- 16:55 · (1) Judges: Sunday, the market closes 15:00, then 1 h to prepare; free format, **3 minutes** (5 for the top 3). (2) Final = game (0.5·Fri + Sat + Sun)/2.5 over 60 + judges over 40: confirmed. (3) **Duel accepts don't count against the market accept: all 6 duels can accept in the same tick** → no serialization of duel accepts (PLAN Aleks #22).
+
 ## Sat 16:43 — L4 head start: second SAL rare
 
 - 16:43 · GUARDRAIL · **Cash floor 70 for one Pícaros SAL-10 buy at ≤ 63** (structure check: exactly card:SAL-10, cash only); back to 100 once the fever resales land; no other buys meanwhile (bargain exception paused) · SAL-09 bought at 54 lifted the ladder 0.200 → 0.270 (+0.070, first L4 slot, 0 neg) [Verified]; a second ≤-list L4 buy ≈ +1.4 board; both rares resell to Pilar in the Salamanca fever (18:04-20:04, ~85; normal 65-70 ≥ our value 63 → 0 neg in any case), so cash ends ≈ 240 ≥ the Sunday target.
