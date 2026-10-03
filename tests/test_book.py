@@ -430,3 +430,38 @@ def test_a_rare_that_turns_last_bids_up_to_its_value_minus_50():
     g = Game(values={"CHA-09": 218.0})
     run(g, [{"card": "CHA-09", "side": "buy", "price": 70, "floor": 90, "page_closer": True, "last_card": True}])
     assert g.posted[0]["give"] == {"cash": 168}
+
+
+
+# ------------------------------------------------------------------ review 3 (13:55)
+
+def test_a_cash_clamped_bid_is_not_reposted_every_tick_once_its_reprice_is_due():
+    g = Game(cash=50)
+    st, _, _ = run(g, [BID], cash_floor=20)                            # 30 of room: bid 30 (wants 40)
+    for t in (300 + bk.REPRICE_AFTER, 301 + bk.REPRICE_AFTER, 302 + bk.REPRICE_AFTER):
+        st, _, _ = run(g, [BID], st, tick=t, cash_floor=20)
+    assert len(g.posted) == 1 and g.cancelled == []                    # the reprice lands on the live 30: no churn
+
+
+def test_a_climbed_bid_cut_by_cash_recovers_its_climb_not_its_file_price():
+    g = Game(cash=400)
+    st, _, _ = run(g, [BID])                                           # 40, floor 55
+    st, _, _ = run(g, [BID], st, tick=300 + bk.REPRICE_AFTER)          # climbs to 44
+    climbed = g.posted[-1]["give"]["cash"]
+    assert climbed > 40
+    g.cash = 230                                                       # a dealer buy took cash: room 30
+    st, _, _ = run(g, [BID], st, tick=301 + bk.REPRICE_AFTER + bk.REFRESH_LEFT + bk.LIFE_TICKS, cash_floor=200)
+    assert g.posted[-1]["give"] == {"cash": 30} and st["RET-07:buy"]["want"] >= climbed
+    g.cash = 400
+    st, _, _ = run(g, [BID], st, tick=301 + bk.REPRICE_AFTER + bk.REFRESH_LEFT + bk.LIFE_TICKS + bk.VALUE_TICKS,
+                   cash_floor=200)
+    assert g.posted[-1]["give"]["cash"] >= climbed
+
+
+def test_a_closing_bid_stays_at_value_minus_50_when_only_its_reprice_is_due():
+    g = Game(values={"CHA-05": 122.0})
+    st, _, _ = run(g, [CHA])
+    assert g.posted[-1]["give"] == {"cash": 72}
+    st, _, _ = run(g, [CHA], st, tick=300 + bk.REPRICE_AFTER + 1)      # checked at 300 + 20 + 1 > VALUE_TICKS: recheck
+    st, _, _ = run(g, [CHA], st, tick=300 + 2 * bk.REPRICE_AFTER + 2)
+    assert {o["give"]["cash"] for o in g.posted} == {72}

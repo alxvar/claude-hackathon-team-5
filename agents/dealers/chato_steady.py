@@ -46,7 +46,7 @@ def page_check(b, args, cards):
 
 
 def main(argv=None):
-    ap = argparse.ArgumentParser()
+    ap = argparse.ArgumentParser(allow_abbrev=False)
     ap.add_argument("card")
     ap.add_argument("--cap", type=int, required=True)
     ap.add_argument("--open", type=int, required=True)

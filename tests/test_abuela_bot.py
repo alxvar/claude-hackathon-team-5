@@ -736,3 +736,12 @@ def test_chato_steady_names_the_dealer_and_page_it_talks_to(monkeypatch, tmp_pat
     text = game.said[0][1]
     assert "Abuela" in text and "Chamberí" in text and "Chato" not in text and "Retiro" not in text
     assert game.accepted == [4]                          # her final 76 is inside cap 77: a normal buy
+
+
+
+def test_resume_is_not_read_as_resume_cap(monkeypatch, capsys):
+    # Review 3: argparse abbreviations read `--resume 868` as --resume-cap 868 (a cap of 868 P).
+    with pytest.raises(SystemExit):
+        bot_main = __import__("abuela_bot").main
+        bot_main(["--dealer", "abuela", "--resume", "868"])
+    assert "unrecognized arguments: --resume" in capsys.readouterr().err

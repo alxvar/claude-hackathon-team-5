@@ -308,7 +308,7 @@ class Book:
     def place(self, e, s, why, tick, secs, copies, locked, me, bid_cash) -> tuple[dict | None, bool]:
         """Cancel the live one (refresh, reprice) and post at the right price: (new state or None, posted)."""
         sell = e["side"] == "sell"
-        card = e["card"]
+        card, closing = e["card"], False
         edited = s.get("entry") != int(e["price"])    # a new entry, or its price edited in the file: the file's price
         price = int(e["price"]) if edited or why == "move" else int(s.get("price") or e["price"])
         if sell:
@@ -320,7 +320,7 @@ class Book:
             asset = min(free, key=lambda a: a["your_value"])
             floor = max(int(e["floor"]), math.ceil(asset["your_value"] + self.min_gain_sell))
         else:
-            if why in ("move", "recheck") or edited:
+            if why in ("move", "recheck") or (edited and s.get("entry") is not None):
                 self.values.pop(card, None)           # an edit often follows a value jump (the page's last card)
             v = self.value(card)
             if v is None:
@@ -337,7 +337,7 @@ class Book:
             if why == "recheck" and not closing and not s.get("clamped"):
                 return {**s, "checked": tick}, False  # not the last card, nothing held back: as is
             if closing or why == "recheck":
-                price = floor if closing else int(e["price"])
+                price = floor if closing else int(s.get("want") or e["price"])   # back to what it wanted, climb kept
         old = int(s.get("price") or price) if why in ("move", "recheck") else price
         if why == "reprice":
             price = toward(price, floor, sell, e.get("step"))
@@ -351,10 +351,15 @@ class Book:
                 self.log({"event": "skip", "card": card, "side": "buy", "why": f"cash floor {self.cash_floor}"})
                 return None, False
             self.log({"event": "cash_clamp", "card": card, "price": room, "wanted": price})
-            price = room                              # what cash allows; moves up when cash frees (clamped)
-        clamped = not sell and price < (floor if e.get("last_card") and floor > int(e["floor"]) else int(e["price"]))
-        if why in ("move", "recheck") and price == s.get("price") and s.get("offer"):
-            return {**s, "entry": int(e["price"]), "clamped": clamped, "checked": tick}, False   # nothing to move
+        wanted = price
+        price = price if sell else min(price, max(room, 0))   # what cash allows; moves up when cash frees (clamped)
+        target = wanted if sell or closing else max(wanted, int(e["price"]))
+        clamped = not sell and price < target
+        if why in ("move", "recheck", "reprice") and price == s.get("price") and s.get("offer"):
+            # nothing to move. A reprice the cash clamp pulls back to the live price lands here too: without it the
+            # bid was cancelled and reposted at the same price every tick (review 3, 13:55)
+            return {**s, "entry": int(e["price"]), "clamped": clamped, "want": target, "checked": tick,
+                    "since": tick if why == "reprice" else s.get("since", tick)}, False
         venue = venue_for(e, self.venues, self.top4(tick) if (e.get("venue") or DEFAULT_VENUE) != HOUSE else set())
         give, want = ({"assets": [asset["id"]]}, {"cash": price}) if sell else ({"cash": price}, {"cards": [card]})
         ev = {"event": why, "card": card, "side": e["side"], "price": price, "was": old if price != old else None,
@@ -374,7 +379,8 @@ class Book:
         self.log({**ev, "offer": oid})
         since = s.get("since", tick) if price == s.get("price") else tick   # the reprice clock runs per price
         return {"offer": oid, "price": price, "since": since, "asset": asset["id"] if asset else None,
-                "held": len(copies.get(card, [])), "entry": int(e["price"]), "clamped": clamped, "checked": tick}, True
+                "held": len(copies.get(card, [])), "entry": int(e["price"]), "clamped": clamped, "want": target,
+                "checked": tick}, True
 
 
 def main(argv=None) -> None:

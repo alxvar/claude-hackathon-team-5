@@ -422,7 +422,8 @@ def plan(b: Bazaar) -> tuple:
 
 def main(argv=None) -> None:
     global DEALER, CASH_FLOOR, NARRATOR, OFFER_ONLY
-    ap = argparse.ArgumentParser()
+    ap = argparse.ArgumentParser(allow_abbrev=False,  # `--resume 868` must not be read as --resume-cap 868 (review 3)
+                                 )
     ap.add_argument("--deals", type=int, default=3, help="stop after this many deals")
     ap.add_argument("--cash-floor", type=int, default=CASH_FLOOR, help="never let cash fall below this (GUARDRAIL)")
     ap.add_argument("--dealer", default="abuela", help="dealer id, as GET /api/dealers lists it")
