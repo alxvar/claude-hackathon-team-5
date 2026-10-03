@@ -1,5 +1,12 @@
 # Market log (Market session; newest first)
 
+## Sat 16:05 · bench-h07.0 (ticks 680-697, after the lunch pause 13:25-15:29), on the stall v10
+- **Ours [V]:** bench_efficiency 0.878 (3.0: 0.899, 5.0: 0.933), bench_points 0.5, market 7.5 = stall teams, unchanged.
+- **Field at snapshot 700 [V]:** t12 12.5 · t10 12.01 · t06 11.89 · t14 9.51 · t07 9.33 · t09 8.84 · t17 8.77 · stall
+  teams 7.5 · t08 7.47 · t13 6.08 (5.49) · t03 4.75 (3.61). Seven venues now carry value created; t07 and t09 are new.
+  The stall teams' number did not move, so no venue pulled the top-three bench mean above the stall [L].
+- Recording: leftovers only (22 states, 13 ids). No replay evidence. Decision: stay on the stall.
+
 ## Partner audit · Sat 15:59 · tick 690 · snapshot 690: stall teams 7.5 · us 7.5 (+0.00)
 - **Team 15** (v15, market 7.5 = +0.00): on v10 0 open offers, 1 trades (26 P) · ours on v15: 3 open offers, 0 trades (0 P)
   - v10 trade tick 398: [('SAL-07', 't10', '→', 't15')] at 26
