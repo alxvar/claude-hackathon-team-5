@@ -1,15 +1,15 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 22:36** · tick 1397 (30 s/tick) · game hour 12.97 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 22:41** · tick 1407 (30 s/tick) · game hour 13.05 · running · today closes 23:00._
 
 ## Team: now and latest
 
 _From `team/<name>.md`; each person writes only their own file._
 
-**Aleks** — Duels I done (30/34 deals, 13.93 duel points). **Duels II ≈ 20:33** (PLAN #18). **Duelist LIVE on f92fe34 (cap 25%, decay emphasis, no offer below 1 P) since 22:14:24** (Duels II days + rounds rollback + Duel Lab + per-duel accepts + no claims, Opus medium + Sonnet low). The Duel Lab picks are in that code (69ef465): **no restart needed** (Lucas 17:3x). Until the **19:30 code freeze**: offline red-team sims only (no server, no team key, no 2nd process; a change goes in only with the suite green AND a clear sim gain). **20:25** check one live process, no errors; on screen **20:33** until wave 1 ends. First wave: no step > 18% of the gap outside the last 3 ticks, day reading ≠ CAN'T READ, `review` pred = points, share per deal vs 0.58.
+**Aleks** — Duels I + II done. **Duels II (22:38): 56 deals of 68, 1210.1 P** (Duels I: 30/34, 478.9 P). Duelist still running on f92fe34 (idle; next session Duels III Sun ≈ 11:29, 12 ticks, 10%). Sunday before 08:50 (PLAN #27): Opus effort LOW, fix failover timeout_s vs the 10 s budget, smoke 4 concurrent days duels p95 < 9 s; Duel Lab picks for Duels III (cap 0.18, MIN_STEP_P 5, LATE_SWITCH_LEFT 2) and branch `duelist-loop` are Aleks's 08:00 call.
+  - Sat 22:38 · **Duels II done: 56 deals of 68, 1210.1 P**; median 3 rounds; 77% of the 1565.5 P surplus kept (Duels I: median 4, 81% at 6%) · wave 1 on the old day reading: 2 of 6, 35.7 P; after the fixes: 54 of 62, 1174.4 P · 12 no-deals: 4 in wave 1 (5618 the bug), the rest no overlap (5813 Oro and 6177 Plata held day 10; 6182 their offer = our cost) or silent rivals (5816 Luna, 6006 Verde, 6007 Plata, 5899, 5817): 6006 walked to our cost on day 10 and Verde still said nothing → a further silent walk would not have helped there · bugs found live and fixed: day words (b7d91f3, Lucas), seller bonus from day 0 (6a2d2f9, Lucas), capped price < 1 (fac6661), late switch < 1 / final guard (f92fe34); 5 mid-session restarts, each with every duel ≥ 5 ticks from its deadline, no errors, no lost duels · on Aleks's call: cap 0.25 (a40ced6), decay emphasis in the strategist rules (614b2df) · `review` table refreshed in docs/duels/README.md
   - Sat 22:14 · second bad price live: 6171 (buyer, value 74, 7.75/day) **late switch** offered -23 P on day 10 (their day cost 77.5, more than our whole 55) → f92fe34: late switch skips itself below 1 P, and `final` treats any offer below 1 as invalid (every path) · 2 regression tests fail on the old code, 483 pass · restarted 22:14:24 once 6095/6171/6184 closed (all 6 live ≥ 9 ticks out) · both bad-price duels still closed (6095, 6171 deals)
   - Sat 22:08 · on Aleks's call: the strategist's rules spell out the decay (614b2df: 'THE DECAY IS THE BIGGEST COST', kept after 2/4/6/8 rounds 85/72/61/51% at 8%, a concession that closes one round sooner pays if < d of the deal's worth) · **bug found live:** 6095 (buyer, value 46, 2.67/day) sent 0 P on day 10 (the 25% cap measured in worth turned into a non-positive price on a costly day; server refused bad_price, one tick lost) → fac6661: a cut price < 1 keeps our day, else holds; regression test fails on the old code · 481 pass; restarted 22:08:00, nearest duel 9 ticks out · also: 5816 (seller, cost 72) no deal: silent Rival Luna, our walk 115 → 74 on day 10 stopped at the SILENT_KEEP floor while day 10 alone was worth +25.3 to us
-  - Sat 22:01 · on Aleks's call (close faster): `MAX_STEP_SHARE` 0.18 → 0.25 (a40ced6; 5 tests repinned to the 25% numbers; 479 pass) · restarted 22:01:25 with every live duel ≥ 7 ticks from its deadline · also live since 21:44: c18d5c5 (give the day only when it costs ≤ 15 P) · Duels II at 21:59: 33 deals of 38, ~726 P before the last few; median 4 rounds; 25% of surplus lost to decay; since the day fix 31 deals of 32 (5813: Oro held day 10, no overlap) · not done: small-gap threshold 2d/(1−d) → 4d/(1−d) (proposed, not chosen)
 
 **Dani** — Desk, still open: Q6 (do duel threads count in the 6 open conversations? Duels II runs 6 at once ≈ 18:29), venue bond cooldown length, Q7 judging, Q4 ladder "price range" (do above-list deals count?), Q3 cap flat 50 or 5×book. Answered: stale `day_closes fri` did nothing (Lucas 10:50); Round 3 + CHA re-anchored to Sun ≈ 09:29 (server, log 11:44). Room: RET holders/collectors in log 11:44; steer other teams' trades to our v10 (0% fee: one trade there took us #4 → #2 at 10:45); no sell pitches (no line in `intel/opportunities.md` is live; top 4 at tick 424: t14, t13, t18, t12, and it moves every few minutes, so check the live board). Pitch draft with Lucas during Duels I (11:59-~13:34). Dashboard on my laptop (http://127.0.0.1:8765, read-only; Duel monitor tab at `#duelmon` for Duels I/II/III) rewrites `intel/teams.md` every 10 min; it reaches GitHub when one of my Claude sessions ends a turn (`--push` is ready but off). Judges' showcase: http://127.0.0.1:8765/show (texts in `judges/show.json`).
   - Sat 18:20 · **dashboard: new "Team trades" tab** (http://127.0.0.1:8765/#trades): every settled team-to-team trade in the feed we hold (El Rastro + every team venue), newest first, with venue, seller → buyer (with ranks), cards (swaps both ways), price, fee, × book, buyer collects / seller dumps, **est. value created** (book × (buyer's − seller's set multiplier), ours exact, others from `intel/multipliers.json` [L]), top-4 and ours flags; filters day/venue/team/set/kind, only our venue, hide top 4; tables by venue and by team · no extra game request · first read (tick 965): 147 team trades recorded, **102 today, 2,121 P**, 66 on El Rastro (65 %), 10 swaps; team venues: v02 11, v07 10, v21 5, the rest ≤ 3; our v10 only 2 trades all day (ticks 311, 398: est. +10 / −10) · **git:** the 16:00 showcase session had left `/show` code uncommitted, so the hook pushed nothing of mine since 16:00; committed it (fd269ad), the pull conflicted on `intel/teams.md` only (Aleks's machine also commits it: 18:08), resolved with the newest copy (my dashboard's 18:11) with Dani's OK · next: who writes `intel/teams.md` (one machine only?), desk Q6/Q7
@@ -17,25 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 22:36 · operator · RET-11 kept for Sunday (Chief) · duels-end detector fixed: scratchpad wait_duels_end.py (byte-offset feed reader; exit 0 finished, 2 fallback) · handoff 'Next': Club Castizo (directives 22:55; hourly bonuses via a direct team trade; Market tally), intel/sunday-plan.md (the Chief updates it at 07:30)
   - Sat 22:35 · operator · RET-11 → Pilar job ended at its 22:35 cutoff without running: Duels II still live (no duels.finished in the feed) → RET-11 kept (reserved, 198) · bug owned: the job's duels.finished detector used `tail -n +$(wc -l)`, and macOS pads wc output (illegal offset), so it could never fire; same result today · ads: 22:16 'Selling to Team 6 or Team 8?…', 22:27 'Bidding for an epic?…' · SAL-11 bid 19620 live (≈ 22:53)
   - Sat 22:48 · builder · **branch `duelist-loop` pushed for Aleks** (ba8726c, 547 green; main untouched): hot-reloaded run/duel_params.json, wave loop tools/duel_loop.py (run/watch/approve/revert, Duel Lab sim copied in), opt-in `--policy code` (code decides, one capped text call: Haiku 1.8 s) · notes docs/duelist-loop.md · also live tonight: egg catalog intel/eggs.md (9a34086; Chato's Plaza-Mayor-con-caña pack still ours to get) · next: watch daemons overnight
-  - Sat 22:30 · Duel Lab · **overnight checkpoint 1 → top of `intel/duel-lab.md`** (verified, flags fixed): days-aware code-only simulator calibrated + validated on Duels II (50 post-fix duels: total result within +7/−3/+4%) · **Duels III (12 ticks, 10%): MIN_STEP_P 3→5, MAX_STEP_SHARE 0.25→0.18, LATE_SWITCH_LEFT 4→2 ≈ +0.027/duel (+1.85 pts over 68), robust across 5 rival worlds, both scoring readings and rival reciprocity** · 2 code guards from the records (never offer worse than their standing offer; enforce the day call on the opener: 6049) · thin-margin accept rules: no gain (±1%) · latency: code-first design · tuner script (safe, advisory) · next: 01:00 re-run on the full Duels II set
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 30.53 | 3 | 23.03 | 7.50 | 34.31 | 0.48 | 0.89 | 53 | 5 | 392 | 39/50 |
+| 30.38 | 4 | 22.88 | 7.50 | 35.39 | 0.48 | 0.89 | 53 | 5 | 392 | 39/50 |
 
-Leaderboard (snapshot at tick 1390; refreshes every few minutes):
+Leaderboard (snapshot at tick 1400; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 10 | 37.81 | 25.31 | 12.50 | 60 |
-| 2 | Team 6 | 31.25 | 19.43 | 11.82 | 67 |
-| 3 | Team 5 | 30.53 | 23.03 | 7.50 | 53 |
-| 4 | Team 12 | 30.19 | 22.69 | 7.50 | 68 |
-| 5 | Team 18 | 30.16 | 22.66 | 7.50 | 38 |
+| 1 | Team 10 | 37.74 | 25.24 | 12.50 | 61 |
+| 2 | Team 18 | 30.98 | 23.48 | 7.50 | 39 |
+| 3 | Team 6 | 30.98 | 19.16 | 11.82 | 68 |
+| 4 | Team 5 | 30.38 | 22.88 | 7.50 | 53 |
+| 5 | Team 12 | 30.07 | 22.57 | 7.50 | 69 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 13.00 | ~2 min | bench | The Market Test: every venue gets the same synthetic book |
-| 13.36 | ~24 min | day_closes | Closed until Sunday 09:00 |
-| 13.36 | ~24 min | day_opens | Sunday opens |
-| 14.65 | ~101 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
-| 15.00 | ~122 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
-| 16.65 | ~221 min (after today's close) | set_release | Chamberí released |
-| 16.65 | ~221 min (after today's close) | round | Round 3 starts |
-| 16.70 | ~224 min (after today's close) | grant_all | The Sunday allowance: 150 primas for everyone |
+| 13.36 | ~19 min | day_closes | Closed until Sunday 09:00 |
+| 13.36 | ~19 min | day_opens | Sunday opens |
+| 14.65 | ~96 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 15.00 | ~117 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 16.65 | ~216 min (after today's close) | set_release | Chamberí released |
+| 16.65 | ~216 min (after today's close) | round | Round 3 starts |
+| 16.70 | ~219 min (after today's close) | grant_all | The Sunday allowance: 150 primas for everyone |
+| 17.00 | ~237 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
 
 ## Our dealer deals
 
@@ -92,7 +92,7 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
-| common card | team buys | 73 | 9 | 7 | 12 | 5 | 9 |
+| common card | team buys | 74 | 9.00 | 7 | 15 | 5 | 9 |
 | common card | team sells | 113 | 6 | 2 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 43 | 22 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 83 | 23 | 17 | 29 | 5 | 24.20 |
@@ -100,10 +100,10 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 ## Duels
 
-Live: 2 · finished: 136
+Live: 0 · finished: 136
 
-- {"duel": 6140, "session": 3, "status": "live", "role": "seller", "item": "El Frutero de Argumosa", "issues": ["price", "days"], "your_days_weight": 2.33, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 80, "limit_meaning": "never sell below your cost", "rival": "R
-- {"duel": 6141, "session": 3, "status": "live", "role": "buyer", "item": "El Frutero de Argumosa", "issues": ["price", "days"], "your_days_weight": 3.36, "days_meaning": "each delivery day costs you this much cash", "your_limit": 147, "limit_meaning": "never pay above your value", "rival": "Rival Noc
+- {"duel": 6140, "session": 3, "status": "deal", "role": "seller", "item": "El Frutero de Argumosa", "issues": ["price", "days"], "your_days_weight": 2.33, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 80, "limit_meaning": "never sell below your cost", "rival": "R
+- {"duel": 6141, "session": 3, "status": "deal", "role": "buyer", "item": "El Frutero de Argumosa", "issues": ["price", "days"], "your_days_weight": 3.36, "days_meaning": "each delivery day costs you this much cash", "your_limit": 147, "limit_meaning": "never pay above your value", "rival": "Rival Noc
 - {"duel": 6170, "session": 3, "status": "deal", "role": "seller", "item": "La V\u00eda L\u00e1ctea", "issues": ["price", "days"], "your_days_weight": 3.34, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 70, "limit_meaning": "never sell below your cost", "rival": "
 - {"duel": 6171, "session": 3, "status": "deal", "role": "buyer", "item": "La V\u00eda L\u00e1ctea", "issues": ["price", "days"], "your_days_weight": 7.75, "days_meaning": "each delivery day costs you this much cash", "your_limit": 74, "limit_meaning": "never pay above your value", "rival": "Rival Sol
 - {"duel": 6176, "session": 3, "status": "deal", "role": "seller", "item": "La V\u00eda L\u00e1ctea", "issues": ["price", "days"], "your_days_weight": 2.45, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 92, "limit_meaning": "never sell below your cost", "rival": "
