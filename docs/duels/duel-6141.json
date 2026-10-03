@@ -69,6 +69,119 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1391,
+   "raw": {
+    "duel": 6141,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Frutero de Argumosa",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.36,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 147,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 1402,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 10984,
+     "price": 95,
+     "tick": 1388,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 11001,
+     "price": 118,
+     "tick": 1391,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1388,
+      "from": "you",
+      "text": "I can do 95 P with delivery on day 0. I'd like to close this quickly if the terms work for you.}",
+      "price": 95,
+      "days": 0
+     },
+     {
+      "tick": 1391,
+      "from": "Rival Noche",
+      "text": "I can do 118 P with delivery in 0 days.",
+      "price": 118,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1391,
+   "raw": {
+    "duel": 6141,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Frutero de Argumosa",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.36,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 147,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 1402,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 11004,
+     "price": 100,
+     "tick": 1391,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 11001,
+     "price": 118,
+     "tick": 1391,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1388,
+      "from": "you",
+      "text": "I can do 95 P with delivery on day 0. I'd like to close this quickly if the terms work for you.}",
+      "price": 95,
+      "days": 0
+     },
+     {
+      "tick": 1391,
+      "from": "Rival Noche",
+      "text": "I can do 118 P with delivery in 0 days.",
+      "price": 118,
+      "days": 0
+     },
+     {
+      "tick": 1391,
+      "from": "you",
+      "text": "I can do 100 P with delivery on day 0. That's a clear step from me, and I'd like to close this quickly.",
+      "price": 100,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -200,6 +313,130 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1391,
+   "took_s": 10.02,
+   "cost_usd": 0.01369,
+   "obs": {
+    "view": {
+     "duel_id": 6141,
+     "role": "buyer",
+     "limit": 147,
+     "currency": "P",
+     "item": "El Frutero de Argumosa",
+     "context": "",
+     "rival": "Rival Noche",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.36,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I can do 95 P with delivery on day 0. I'd like to close this quickly if the terms work for you.}",
+      "offer": {
+       "price": 95,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1388,
+      "decision": {
+       "action": "offer",
+       "price": 95,
+       "message": "I can do 95 P with delivery on day 0. I'd like to close this quickly if the terms work for you.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "I can do 118 P with delivery in 0 days.",
+      "offer": {
+       "price": 118,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1391,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 118,
+     "days": 0
+    },
+    "tick": 1391,
+    "ticks_left": 11,
+    "rounds": 1,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6,
+     70.6,
+     33.3,
+     20.7,
+     50.0,
+     11.5,
+     40.300000000000004,
+     23.3,
+     33.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 100 P with delivery on day 0. That's a clear step from me, and I'd like to close this quickly.",
+    "price": 100,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 100,
+      "message": "I can do 100 P with delivery on day 0. That's a clear step from me, and I'd like to close this quickly."
+     },
+     "band": {
+      "worst": 102,
+      "target": 100,
+      "best": 98
+     },
+     "plan": {
+      "read": "They answered our 95 with a 118 opening on day 0, which is our best day too. That is an opening anchor, not a concession, and there is no reason yet to treat it as their floor.",
+      "target": 100,
+      "best": 98,
+      "worst": 102,
+      "days": 0,
+      "angle": "Keep it friendly and brisk: confirm day 0 delivery and move to 100 P as a clear, deliberate step that shows we want to close soon, without hinting at more room."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.1,
+       "in": 684,
+       "out": 486,
+       "cost_usd": 0.01246,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.92,
+       "in": 330,
+       "out": 57,
+       "cost_usd": 0.00123,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -256,6 +493,63 @@
      "id": 10984,
      "price": 95,
      "tick": 1388,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1391,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 100 P with delivery on day 0. That's a clear step from me, and I'd like to close this quickly.",
+    "price": 100,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 100,
+      "message": "I can do 100 P with delivery on day 0. That's a clear step from me, and I'd like to close this quickly."
+     },
+     "band": {
+      "worst": 102,
+      "target": 100,
+      "best": 98
+     },
+     "plan": {
+      "read": "They answered our 95 with a 118 opening on day 0, which is our best day too. That is an opening anchor, not a concession, and there is no reason yet to treat it as their floor.",
+      "target": 100,
+      "best": 98,
+      "worst": 102,
+      "days": 0,
+      "angle": "Keep it friendly and brisk: confirm day 0 delivery and move to 100 P as a clear, deliberate step that shows we want to close soon, without hinting at more room."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.1,
+       "in": 684,
+       "out": 486,
+       "cost_usd": 0.01246,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.92,
+       "in": 330,
+       "out": 57,
+       "cost_usd": 0.00123,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 6141,
+    "offer": {
+     "id": 11004,
+     "price": 100,
+     "tick": 1391,
      "days": 0
     }
    }
