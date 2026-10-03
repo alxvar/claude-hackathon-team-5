@@ -1,17 +1,17 @@
-# Metrics (auto, 18:24, game tick 979)
+# Metrics (auto, 18:26, game tick 983)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
-1. Team 6 31.7 (-0.1 / +4.4) deals 52
-2. Team 14 31.5 (+0.0 / +1.2) deals 43
+1. Team 6 31.7 (-0.1 / +4.3) deals 52
+2. Team 14 31.5 (+0.0 / +0.4) deals 43
 3. Team 5 30.0 (+0.1 / +0.6) deals 51 ← US
-4. Team 3 29.6 (+0.4 / +0.4) deals 29
-5. Team 10 28.3 (+0.7 / +0.2) deals 34
-6. Team 18 27.9 (+0.1 / +0.7) deals 33
-7. Team 16 26.0 (+0.1 / -0.2) deals 35
-8. Team 12 25.3 (-0.5 / -3.3) deals 52
-9. Team 17 25.1 (+0.4 / +0.2) deals 27
-10. Team 13 24.8 (-0.1 / +0.4) deals 71
+4. Team 3 29.6 (+0.4 / +0.6) deals 29
+5. Team 10 28.3 (+0.7 / +0.3) deals 35
+6. Team 18 27.9 (+0.1 / +0.8) deals 33
+7. Team 16 26.0 (+0.1 / -0.8) deals 35
+8. Team 12 25.3 (-0.5 / -3.2) deals 52
+9. Team 17 25.1 (+0.4 / +0.3) deals 27
+10. Team 13 24.8 (-0.1 / +0.5) deals 71
 Us: #3
 
 ## Us
@@ -20,15 +20,14 @@ score 29.97 · neg_points 78.7 (15 min ago 78.7) · ladder 0.437 · duel 13.93 �
 
 ## Our holdings (card (rarity): value of each copy; a sale gives up the cheapest copy)
 
-LAT-03 (common): 5; LAT-04 (common): 5; LAV-01 (common): 99.1; LAV-02 (common): 1.3 / 1.3 / 1.3; LAV-03 (common): 3.2 / 3.2; LAV-04 (common): 3.2 / 3.2; LAV-05 (common): 99.1; LAV-06 (uncommon): 118.6; LAV-07 (uncommon): 118.6; LAV-08 (uncommon): 118.6; LAV-09 (rare): 177.1; LAV-10 (rare): 177.1; MAL-01 (common): 7; MAL-02 (common): 7; MAL-03 (common): 7; MAL-04 (common): 7; MAL-05 (common): 7; MAL-08 (uncommon): 17.5; RET-01 (common): 83.9; RET-02 (common): 83.9; RET-03 (common): 83.9; RET-04 (common): 83.9; RET-05 (common): 83.9; RET-06 (uncommon): 100.4; RET-07 (uncommon): 100.4; RET-08 (uncommon): 100.4; RET-09 (rare): 149.9; RET-10 (rare): 149.9; SAL-01 (common): 9; SAL-02 (common): 9; SAL-03 (common): 9; SAL-04 (common): 9; SAL-05 (common): 9; SAL-07 (uncommon): 22.5; SAL-08 (uncommon): 22.5; SAL-09 (rare): 63; SAL-10 (rare): 63; sobre_plata (pack): 87.2
+LAT-03 (common): 5; LAT-04 (common): 5; LAV-01 (common): 99.1; LAV-02 (common): 1.3 / 1.3 / 1.3; LAV-03 (common): 3.2 / 3.2; LAV-04 (common): 3.2 / 3.2; LAV-05 (common): 99.1; LAV-06 (uncommon): 118.6; LAV-07 (uncommon): 118.6; LAV-08 (uncommon): 118.6; LAV-09 (rare): 177.1; LAV-10 (rare): 177.1; MAL-01 (common): 7; MAL-02 (common): 7; MAL-03 (common): 7; MAL-04 (common): 7; MAL-05 (common): 7; MAL-08 (uncommon): 17.5; RET-01 (common): 83.9; RET-02 (common): 83.9; RET-03 (common): 83.9; RET-04 (common): 83.9; RET-05 (common): 83.9; RET-06 (uncommon): 100.4; RET-07 (uncommon): 100.4; RET-08 (uncommon): 100.4; RET-09 (rare): 149.9; RET-10 (rare): 149.9; SAL-01 (common): 9; SAL-02 (common): 9; SAL-03 (common): 9; SAL-04 (common): 9; SAL-05 (common): 9; SAL-07 (uncommon): 22.5; SAL-08 (uncommon): 22.5; SAL-09 (rare): 63; SAL-10 (rare): 63; sobre_plata (pack): 87.1
 
-## Our open offers (6)
+## Our open offers (5)
 
 - 14534: sell MAL-03 for 9 · to t09 · expires tick 992
 - 14696: sell MAL-02 for 9 · to t15 · expires tick 1001
 - 14698: sell MAL-05 for 9 · to t15 · expires tick 1001
 - 14733: sell LAV-03 for 6 · to t09 · expires tick 1003
-- 14841: sell LAV-04 for 0 · to t07 · expires tick 980
 - 14889: bid 50 for SAL-06 · to t17 · expires tick 993
 
 ## What each of our deals did to neg_points (measured, last 12)
@@ -77,20 +76,20 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: RET×3, MAL�
 ## Dealer prices, last 60 ticks (median per item)
 
 - abuela common (team buys): median 9 over 3
-- abuela common (team sells): median 6 over 3
+- abuela common (team sells): median 6 over 2
 - abuela uncommon (team buys): median 21 over 1
 - chato uncommon (team buys): median 26 over 1
 - chato uncommon (team sells): median 14 over 1
 - picaros common (team sells): median 5 over 1
 - picaros epic (team buys): median 139 over 1
-- picaros rare (team buys): median 56 over 8
+- picaros rare (team buys): median 56 over 6
 - picaros uncommon (team sells): median 11 over 1
-- pilar rare (team sells): median 77 over 3
-- pilar uncommon (team sells): median 28 over 8
+- pilar rare (team sells): median 76 over 4
+- pilar uncommon (team sells): median 28 over 9
 
 ## El Rastro now: top bids by price (team, card, price)
 
-- t16: LAV-06 (uncommon) 12 P · offer 14869
+- t16: LAV-06 (uncommon) 12 P · offer 14995
 - t16: RET-01 (common) 5 P · offer 14898
 - t16: RET-02 (common) 5 P · offer 14909
 - t16: RET-03 (common) 5 P · offer 14917
@@ -100,7 +99,7 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: RET×3, MAL�
 - t16: RET-12 (legendary) 1 P · offer 14924
 - t16: SAL-12 (legendary) 1 P · offer 14938
 
-Asks by others (card, price: count): SAL-01 10: 2; SAL-02 7: 1; RET-01 7: 1; RET-08 28: 1; LAT-06 22: 1; LAT-01 12: 1; RET-08 27: 1; SAL-04 10: 1; MAL-01 12: 1; LAT-04 12: 1; LAT-02 12: 1; RET-02 12: 1; LAT-08 30: 1; RET-04 12: 1; SAL-04 13: 1
+Asks by others (card, price: count): SAL-01 10: 2; SAL-02 7: 1; RET-01 7: 1; RET-08 28: 1; LAT-06 22: 1; LAT-01 12: 1; SAL-04 10: 1; LAT-02 12: 1; RET-02 12: 1; LAT-08 30: 1; RET-04 12: 1; SAL-04 13: 1; RET-03 12: 1; SAL-03 6: 1; LAT-02 6: 1
 
 ## Our duels: 0 live, 68 finished (last 10)
 
