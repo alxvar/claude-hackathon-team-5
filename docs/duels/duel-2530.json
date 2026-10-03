@@ -178,6 +178,312 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 599,
+   "raw": {
+    "duel": 2530,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Mercado de la Paz",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 87,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 607,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 5392,
+     "price": 112,
+     "tick": 599,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 5322,
+     "price": 82,
+     "tick": 593,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 591,
+      "from": "you",
+      "text": "Welcome. Given the quality of what we offer at Mercado de la Paz and its prime location, I'm putting forward 125 P as a fair price. I'd be glad to hear your concrete counteroffer.",
+      "price": 125,
+      "days": null
+     },
+     {
+      "tick": 593,
+      "from": "Rival Azul",
+      "text": "Hi there. 82 P from my side.",
+      "price": 82,
+      "days": null
+     },
+     {
+      "tick": 593,
+      "from": "you",
+      "text": "Thanks for the counter, but your figure sits well below what this location and quality support. I'm moving to 118 P as a good-faith step; I'd ask you to come up substantially from your opening so we can meet in a sensible range.",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 599,
+      "from": "you",
+      "text": "To break the silence I'm making one clear step down to 112 P, which reflects the quality and location here. Any further movement from me depends on you putting a real counteroffer well above your opening figure.",
+      "price": 112,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 601,
+   "raw": {
+    "duel": 2530,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Mercado de la Paz",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 87,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 607,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 5392,
+     "price": 112,
+     "tick": 599,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 5409,
+     "price": 97,
+     "tick": 601,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 591,
+      "from": "you",
+      "text": "Welcome. Given the quality of what we offer at Mercado de la Paz and its prime location, I'm putting forward 125 P as a fair price. I'd be glad to hear your concrete counteroffer.",
+      "price": 125,
+      "days": null
+     },
+     {
+      "tick": 593,
+      "from": "Rival Azul",
+      "text": "Hi there. 82 P from my side.",
+      "price": 82,
+      "days": null
+     },
+     {
+      "tick": 593,
+      "from": "you",
+      "text": "Thanks for the counter, but your figure sits well below what this location and quality support. I'm moving to 118 P as a good-faith step; I'd ask you to come up substantially from your opening so we can meet in a sensible range.",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 599,
+      "from": "you",
+      "text": "To break the silence I'm making one clear step down to 112 P, which reflects the quality and location here. Any further movement from me depends on you putting a real counteroffer well above your opening figure.",
+      "price": 112,
+      "days": null
+     },
+     {
+      "tick": 601,
+      "from": "Rival Azul",
+      "text": "Meeting you partway: 97 P.",
+      "price": 97,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 601,
+   "raw": {
+    "duel": 2530,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Mercado de la Paz",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 87,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 607,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 5412,
+     "price": 106,
+     "tick": 601,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 5409,
+     "price": 97,
+     "tick": 601,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 591,
+      "from": "you",
+      "text": "Welcome. Given the quality of what we offer at Mercado de la Paz and its prime location, I'm putting forward 125 P as a fair price. I'd be glad to hear your concrete counteroffer.",
+      "price": 125,
+      "days": null
+     },
+     {
+      "tick": 593,
+      "from": "Rival Azul",
+      "text": "Hi there. 82 P from my side.",
+      "price": 82,
+      "days": null
+     },
+     {
+      "tick": 593,
+      "from": "you",
+      "text": "Thanks for the counter, but your figure sits well below what this location and quality support. I'm moving to 118 P as a good-faith step; I'd ask you to come up substantially from your opening so we can meet in a sensible range.",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 599,
+      "from": "you",
+      "text": "To break the silence I'm making one clear step down to 112 P, which reflects the quality and location here. Any further movement from me depends on you putting a real counteroffer well above your opening figure.",
+      "price": 112,
+      "days": null
+     },
+     {
+      "tick": 601,
+      "from": "Rival Azul",
+      "text": "Meeting you partway: 97 P.",
+      "price": 97,
+      "days": null
+     },
+     {
+      "tick": 601,
+      "from": "you",
+      "text": "Thank you for the real move, I appreciate it. I'm stepping down to 106 P, which brings us close; if you can meet me a little higher, we can wrap this up quickly.",
+      "price": 106,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 604,
+   "raw": {
+    "duel": 2530,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Mercado de la Paz",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 87,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 607,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 5432,
+     "price": 101,
+     "tick": 604,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 5409,
+     "price": 97,
+     "tick": 601,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 591,
+      "from": "you",
+      "text": "Welcome. Given the quality of what we offer at Mercado de la Paz and its prime location, I'm putting forward 125 P as a fair price. I'd be glad to hear your concrete counteroffer.",
+      "price": 125,
+      "days": null
+     },
+     {
+      "tick": 593,
+      "from": "Rival Azul",
+      "text": "Hi there. 82 P from my side.",
+      "price": 82,
+      "days": null
+     },
+     {
+      "tick": 593,
+      "from": "you",
+      "text": "Thanks for the counter, but your figure sits well below what this location and quality support. I'm moving to 118 P as a good-faith step; I'd ask you to come up substantially from your opening so we can meet in a sensible range.",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 599,
+      "from": "you",
+      "text": "To break the silence I'm making one clear step down to 112 P, which reflects the quality and location here. Any further movement from me depends on you putting a real counteroffer well above your opening figure.",
+      "price": 112,
+      "days": null
+     },
+     {
+      "tick": 601,
+      "from": "Rival Azul",
+      "text": "Meeting you partway: 97 P.",
+      "price": 97,
+      "days": null
+     },
+     {
+      "tick": 601,
+      "from": "you",
+      "text": "Thank you for the real move, I appreciate it. I'm stepping down to 106 P, which brings us close; if you can meet me a little higher, we can wrap this up quickly.",
+      "price": 106,
+      "days": null
+     },
+     {
+      "tick": 604,
+      "from": "you",
+      "text": "We've both moved a long way, and I'd like to finish this now. I'm making one last step to 101 P, which is close to your level and fair for the quality and location. If you can meet me there, we can close right away.",
+      "price": 101,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -513,6 +819,575 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 599,
+   "took_s": 6.87,
+   "cost_usd": 0.0091,
+   "obs": {
+    "view": {
+     "duel_id": 2530,
+     "role": "seller",
+     "limit": 87,
+     "currency": "P",
+     "item": "Mercado de la Paz",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "Welcome. Given the quality of what we offer at Mercado de la Paz and its prime location, I'm putting forward 125 P as a fair price. I'd be glad to hear your concrete counteroffer.",
+      "offer": {
+       "price": 125,
+       "days": null
+      },
+      "accept": false,
+      "tick": 591,
+      "decision": {
+       "action": "offer",
+       "price": 125,
+       "message": "Welcome. Given the quality of what we offer at Mercado de la Paz and its prime location, I'm putting forward 125 P as a fair price. I'd be glad to hear your concrete counteroffer."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hi there. 82 P from my side.",
+      "offer": {
+       "price": 82,
+       "days": null
+      },
+      "accept": false,
+      "tick": 593,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the counter, but your figure sits well below what this location and quality support. I'm moving to 118 P as a good-faith step; I'd ask you to come up substantially from your opening so we can meet in a sensible range.",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 593,
+      "decision": {
+       "action": "offer",
+       "price": 118,
+       "message": "Thanks for the counter, but your figure sits well below what this location and quality support. I'm moving to 118 P as a good-faith step; I'd ask you to come up substantially from your opening so we can meet in a sensible range."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 82,
+     "days": null
+    },
+    "tick": 599,
+    "ticks_left": 8,
+    "rounds": 1
+   },
+   "move": {
+    "action": "offer",
+    "text": "To break the silence I'm making one clear step down to 112 P, which reflects the quality and location here. Any further movement from me depends on you putting a real counteroffer well above your opening figure.",
+    "price": 112,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 112,
+      "message": "To break the silence I'm making one clear step down to 112 P, which reflects the quality and location here. Any further movement from me depends on you putting a real counteroffer well above your opening figure."
+     },
+     "band": {
+      "worst": 110,
+      "target": 112,
+      "best": 114
+     },
+     "plan": {
+      "read": "They opened at 82 P, below what we can accept, and have not moved since. We already stepped down once without any reply, and after 6 quiet ticks with 8 left this is a standoff.",
+      "target": 112,
+      "best": 114,
+      "worst": 110,
+      "days": null,
+      "angle": "Make one clear step to break the silence, and say plainly that further movement depends on them putting a real counteroffer well above 82."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.36,
+       "in": 526,
+       "out": 270,
+       "cost_usd": 0.0075,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.51,
+       "in": 412,
+       "out": 78,
+       "cost_usd": 0.0016,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 601,
+   "took_s": 6.06,
+   "cost_usd": 0.00689,
+   "obs": {
+    "view": {
+     "duel_id": 2530,
+     "role": "seller",
+     "limit": 87,
+     "currency": "P",
+     "item": "Mercado de la Paz",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "Welcome. Given the quality of what we offer at Mercado de la Paz and its prime location, I'm putting forward 125 P as a fair price. I'd be glad to hear your concrete counteroffer.",
+      "offer": {
+       "price": 125,
+       "days": null
+      },
+      "accept": false,
+      "tick": 591,
+      "decision": {
+       "action": "offer",
+       "price": 125,
+       "message": "Welcome. Given the quality of what we offer at Mercado de la Paz and its prime location, I'm putting forward 125 P as a fair price. I'd be glad to hear your concrete counteroffer."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hi there. 82 P from my side.",
+      "offer": {
+       "price": 82,
+       "days": null
+      },
+      "accept": false,
+      "tick": 593,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the counter, but your figure sits well below what this location and quality support. I'm moving to 118 P as a good-faith step; I'd ask you to come up substantially from your opening so we can meet in a sensible range.",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 593,
+      "decision": {
+       "action": "offer",
+       "price": 118,
+       "message": "Thanks for the counter, but your figure sits well below what this location and quality support. I'm moving to 118 P as a good-faith step; I'd ask you to come up substantially from your opening so we can meet in a sensible range."
+      }
+     },
+     {
+      "mine": true,
+      "text": "To break the silence I'm making one clear step down to 112 P, which reflects the quality and location here. Any further movement from me depends on you putting a real counteroffer well above your opening figure.",
+      "offer": {
+       "price": 112,
+       "days": null
+      },
+      "accept": false,
+      "tick": 599,
+      "decision": {
+       "action": "offer",
+       "price": 112,
+       "message": "To break the silence I'm making one clear step down to 112 P, which reflects the quality and location here. Any further movement from me depends on you putting a real counteroffer well above your opening figure."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Meeting you partway: 97 P.",
+      "offer": {
+       "price": 97,
+       "days": null
+      },
+      "accept": false,
+      "tick": 601,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 97,
+     "days": null
+    },
+    "tick": 601,
+    "ticks_left": 6,
+    "rounds": 2
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thank you for the real move, I appreciate it. I'm stepping down to 106 P, which brings us close; if you can meet me a little higher, we can wrap this up quickly.",
+    "price": 106,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 106,
+      "message": "Thank you for the real move, I appreciate it. I'm stepping down to 106 P, which brings us close; if you can meet me a little higher, we can wrap this up quickly."
+     },
+     "band": {
+      "worst": 104,
+      "target": 106,
+      "best": 107
+     },
+     "plan": {
+      "read": "They moved 15 P to 97, a real step; the gap is 15 P with 6 ticks left, so their words are mild and their movement credible.",
+      "target": 106,
+      "best": 107,
+      "worst": 104,
+      "days": null,
+      "angle": "Acknowledge their real move and answer with a meaningful step to around 106, signalling we're close to a deal if they come up to meet it."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.33,
+       "in": 671,
+       "out": 122,
+       "cost_usd": 0.00512,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.73,
+       "in": 505,
+       "out": 76,
+       "cost_usd": 0.00177,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 604,
+   "took_s": 6.45,
+   "cost_usd": 0.00793,
+   "obs": {
+    "view": {
+     "duel_id": 2530,
+     "role": "seller",
+     "limit": 87,
+     "currency": "P",
+     "item": "Mercado de la Paz",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "Welcome. Given the quality of what we offer at Mercado de la Paz and its prime location, I'm putting forward 125 P as a fair price. I'd be glad to hear your concrete counteroffer.",
+      "offer": {
+       "price": 125,
+       "days": null
+      },
+      "accept": false,
+      "tick": 591,
+      "decision": {
+       "action": "offer",
+       "price": 125,
+       "message": "Welcome. Given the quality of what we offer at Mercado de la Paz and its prime location, I'm putting forward 125 P as a fair price. I'd be glad to hear your concrete counteroffer."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hi there. 82 P from my side.",
+      "offer": {
+       "price": 82,
+       "days": null
+      },
+      "accept": false,
+      "tick": 593,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the counter, but your figure sits well below what this location and quality support. I'm moving to 118 P as a good-faith step; I'd ask you to come up substantially from your opening so we can meet in a sensible range.",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 593,
+      "decision": {
+       "action": "offer",
+       "price": 118,
+       "message": "Thanks for the counter, but your figure sits well below what this location and quality support. I'm moving to 118 P as a good-faith step; I'd ask you to come up substantially from your opening so we can meet in a sensible range."
+      }
+     },
+     {
+      "mine": true,
+      "text": "To break the silence I'm making one clear step down to 112 P, which reflects the quality and location here. Any further movement from me depends on you putting a real counteroffer well above your opening figure.",
+      "offer": {
+       "price": 112,
+       "days": null
+      },
+      "accept": false,
+      "tick": 599,
+      "decision": {
+       "action": "offer",
+       "price": 112,
+       "message": "To break the silence I'm making one clear step down to 112 P, which reflects the quality and location here. Any further movement from me depends on you putting a real counteroffer well above your opening figure."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Meeting you partway: 97 P.",
+      "offer": {
+       "price": 97,
+       "days": null
+      },
+      "accept": false,
+      "tick": 601,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the real move, I appreciate it. I'm stepping down to 106 P, which brings us close; if you can meet me a little higher, we can wrap this up quickly.",
+      "offer": {
+       "price": 106,
+       "days": null
+      },
+      "accept": false,
+      "tick": 601,
+      "decision": {
+       "action": "offer",
+       "price": 106,
+       "message": "Thank you for the real move, I appreciate it. I'm stepping down to 106 P, which brings us close; if you can meet me a little higher, we can wrap this up quickly."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 97,
+     "days": null
+    },
+    "tick": 604,
+    "ticks_left": 3,
+    "rounds": 2
+   },
+   "move": {
+    "action": "offer",
+    "text": "We've both moved a long way, and I'd like to finish this now. I'm making one last step to 101 P, which is close to your level and fair for the quality and location. If you can meet me there, we can close right away.",
+    "price": 101,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 101,
+      "message": "We've both moved a long way, and I'd like to finish this now. I'm making one last step to 101 P, which is close to your level and fair for the quality and location. If you can meet me there, we can close right away."
+     },
+     "band": {
+      "worst": 97,
+      "target": 101,
+      "best": 102
+     },
+     "plan": {
+      "read": "They jumped 15 P to 97 and have gone quiet since our 106. With only 3 ticks left, their 97 is a real, within-range offer, and the 9 P gap is small next to how far both sides have moved.",
+      "target": 101,
+      "best": 102,
+      "worst": 97,
+      "days": null,
+      "angle": "Make one final split at 101 to close now, and if they hold at 97, accept rather than risk the deadline."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.71,
+       "in": 792,
+       "out": 137,
+       "cost_usd": 0.00591,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.73,
+       "in": 599,
+       "out": 82,
+       "cost_usd": 0.00202,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 605,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 2530,
+     "role": "seller",
+     "limit": 87,
+     "currency": "P",
+     "item": "Mercado de la Paz",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "Welcome. Given the quality of what we offer at Mercado de la Paz and its prime location, I'm putting forward 125 P as a fair price. I'd be glad to hear your concrete counteroffer.",
+      "offer": {
+       "price": 125,
+       "days": null
+      },
+      "accept": false,
+      "tick": 591,
+      "decision": {
+       "action": "offer",
+       "price": 125,
+       "message": "Welcome. Given the quality of what we offer at Mercado de la Paz and its prime location, I'm putting forward 125 P as a fair price. I'd be glad to hear your concrete counteroffer."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hi there. 82 P from my side.",
+      "offer": {
+       "price": 82,
+       "days": null
+      },
+      "accept": false,
+      "tick": 593,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the counter, but your figure sits well below what this location and quality support. I'm moving to 118 P as a good-faith step; I'd ask you to come up substantially from your opening so we can meet in a sensible range.",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 593,
+      "decision": {
+       "action": "offer",
+       "price": 118,
+       "message": "Thanks for the counter, but your figure sits well below what this location and quality support. I'm moving to 118 P as a good-faith step; I'd ask you to come up substantially from your opening so we can meet in a sensible range."
+      }
+     },
+     {
+      "mine": true,
+      "text": "To break the silence I'm making one clear step down to 112 P, which reflects the quality and location here. Any further movement from me depends on you putting a real counteroffer well above your opening figure.",
+      "offer": {
+       "price": 112,
+       "days": null
+      },
+      "accept": false,
+      "tick": 599,
+      "decision": {
+       "action": "offer",
+       "price": 112,
+       "message": "To break the silence I'm making one clear step down to 112 P, which reflects the quality and location here. Any further movement from me depends on you putting a real counteroffer well above your opening figure."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Meeting you partway: 97 P.",
+      "offer": {
+       "price": 97,
+       "days": null
+      },
+      "accept": false,
+      "tick": 601,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the real move, I appreciate it. I'm stepping down to 106 P, which brings us close; if you can meet me a little higher, we can wrap this up quickly.",
+      "offer": {
+       "price": 106,
+       "days": null
+      },
+      "accept": false,
+      "tick": 601,
+      "decision": {
+       "action": "offer",
+       "price": 106,
+       "message": "Thank you for the real move, I appreciate it. I'm stepping down to 106 P, which brings us close; if you can meet me a little higher, we can wrap this up quickly."
+      }
+     },
+     {
+      "mine": true,
+      "text": "We've both moved a long way, and I'd like to finish this now. I'm making one last step to 101 P, which is close to your level and fair for the quality and location. If you can meet me there, we can close right away.",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 604,
+      "decision": {
+       "action": "offer",
+       "price": 101,
+       "message": "We've both moved a long way, and I'd like to finish this now. I'm making one last step to 101 P, which is close to your level and fair for the quality and location. If you can meet me there, we can close right away."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 97,
+     "days": null
+    },
+    "tick": 605,
+    "ticks_left": 2,
+    "rounds": 2
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 97,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -628,6 +1503,196 @@
      "tick": 593,
      "days": 0
     }
+   }
+  },
+  {
+   "tick": 599,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "To break the silence I'm making one clear step down to 112 P, which reflects the quality and location here. Any further movement from me depends on you putting a real counteroffer well above your opening figure.",
+    "price": 112,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 112,
+      "message": "To break the silence I'm making one clear step down to 112 P, which reflects the quality and location here. Any further movement from me depends on you putting a real counteroffer well above your opening figure."
+     },
+     "band": {
+      "worst": 110,
+      "target": 112,
+      "best": 114
+     },
+     "plan": {
+      "read": "They opened at 82 P, below what we can accept, and have not moved since. We already stepped down once without any reply, and after 6 quiet ticks with 8 left this is a standoff.",
+      "target": 112,
+      "best": 114,
+      "worst": 110,
+      "days": null,
+      "angle": "Make one clear step to break the silence, and say plainly that further movement depends on them putting a real counteroffer well above 82."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.36,
+       "in": 526,
+       "out": 270,
+       "cost_usd": 0.0075,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.51,
+       "in": 412,
+       "out": 78,
+       "cost_usd": 0.0016,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2530,
+    "offer": {
+     "id": 5392,
+     "price": 112,
+     "tick": 599,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 601,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thank you for the real move, I appreciate it. I'm stepping down to 106 P, which brings us close; if you can meet me a little higher, we can wrap this up quickly.",
+    "price": 106,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 106,
+      "message": "Thank you for the real move, I appreciate it. I'm stepping down to 106 P, which brings us close; if you can meet me a little higher, we can wrap this up quickly."
+     },
+     "band": {
+      "worst": 104,
+      "target": 106,
+      "best": 107
+     },
+     "plan": {
+      "read": "They moved 15 P to 97, a real step; the gap is 15 P with 6 ticks left, so their words are mild and their movement credible.",
+      "target": 106,
+      "best": 107,
+      "worst": 104,
+      "days": null,
+      "angle": "Acknowledge their real move and answer with a meaningful step to around 106, signalling we're close to a deal if they come up to meet it."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.33,
+       "in": 671,
+       "out": 122,
+       "cost_usd": 0.00512,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.73,
+       "in": 505,
+       "out": 76,
+       "cost_usd": 0.00177,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2530,
+    "offer": {
+     "id": 5412,
+     "price": 106,
+     "tick": 601,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 604,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "We've both moved a long way, and I'd like to finish this now. I'm making one last step to 101 P, which is close to your level and fair for the quality and location. If you can meet me there, we can close right away.",
+    "price": 101,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 101,
+      "message": "We've both moved a long way, and I'd like to finish this now. I'm making one last step to 101 P, which is close to your level and fair for the quality and location. If you can meet me there, we can close right away."
+     },
+     "band": {
+      "worst": 97,
+      "target": 101,
+      "best": 102
+     },
+     "plan": {
+      "read": "They jumped 15 P to 97 and have gone quiet since our 106. With only 3 ticks left, their 97 is a real, within-range offer, and the 9 P gap is small next to how far both sides have moved.",
+      "target": 101,
+      "best": 102,
+      "worst": 97,
+      "days": null,
+      "angle": "Make one final split at 101 to close now, and if they hold at 97, accept rather than risk the deadline."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.71,
+       "in": 792,
+       "out": 137,
+       "cost_usd": 0.00591,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.73,
+       "in": 599,
+       "out": 82,
+       "cost_usd": 0.00202,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2530,
+    "offer": {
+     "id": 5432,
+     "price": 101,
+     "tick": 604,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 605,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 97,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 97,
+    "settles_at_tick": 606
    }
   }
  ]
