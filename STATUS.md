@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 16:45** · tick 782 (30 s/tick) · game hour 7.84 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 16:50** · tick 793 (30 s/tick) · game hour 7.93 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,25 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 12:12 · **dashboard: new "Duel monitor" tab** (http://127.0.0.1:8765/#duelmon), the current duel session live, read-only, from data the dashboard already reads (**no extra request**: the duelist shares the team's 5 rps) · session + field progress from the feed (`duels.scheduled`, `duel.closed`), our duels from `/api/duels`, `duel_points` from `/api/me` · tiles: our duels done/total + ETA, deals, result after decay and **P lost to rounds**, `duel_points` sparkline, P left on the table, field deal rate · alerts: CRITICAL (rival's standing offer inside our limit with ≤ 2 ticks left; our offer outside our limit; we silent ≥ 4 ticks after a rival price near the deadline), WATCH (acceptable now: +X P after decay), MISSED · live table (our offer vs theirs vs limit, gap, rounds, pie left, ticks left, accept-now value; days for Duels II) · finished table · negotiating Δ per team since the session began (board doesn't split duels out) · complements Lucas's `duelmon` (phone alerts + per-wave review), doesn't replace it · restarted 12:10 on this code, 0 errors, hub on · **Duels I at tick 483:** 4/34 done, 4 deals, 36.7 P of 50 P surplus (**13.3 P, 27 %, lost to rounds**; duel 2540: 7 rounds, 6.7 of 19 lost), field 36/39 deals · seen live: duel 2506 (buyer, limit 103): rival dropped to 96 at tick 480 and we sent 98 the same tick (step computed on their previous 104); it closed at 96 anyway (4.8 P, 6 rounds), so no cost; for Aleks's rounds spec: a same-tick drop can cross our next step · next: watch Duels I on the tab, desk Q6
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 16:46 · operator · SAL-10 from Pícaros walked: their 73 → 67 → 63 → 60-FINAL vs our cap 56 (floor 70 bound) · GUARDRAIL corrected (Chief): floor 60 for this one buy at ≤ 63 → retry scheduled 16:51 (open 44, +3, offer-only, structure check)
   - Sat 16:45 · operator · **#1 (30.02)** at snapshot 780 · flag 5 (7225 'last one in all of Madrid… nobody else has it', SAL-05 thread I had closed) = 0 so far → tally 5 flags: +30 / −10 / 0 = net +20 ([?] flags on a closed thread may not count: flag while the thread is open) · SAL-10 buy from Pícaros running (GUARDRAIL floor 70 → cap 56; offer gives card:SAL-10, verified) · message monitor now prints give/want types (bait-and-switch check)
   - Sat 16:42 · operator · **SAL-09 bought from Pícaros at 54** (their 73 → 56, accepted our 54; offer-only + trick guard; their SAL-06 switch flagged): `ladder_points` 0.200 → **0.270 (+0.070, L4 slot 1)**, `neg_points` 63.2 unchanged, cash 126 · plan: SAL-09 → Pilar in the fever (18:04, ~85) · asked the Chief for a floor exception to buy SAL-10 (L4 slot 2) before ~17:33 · (fix for the line below: '( 43.2 → 63.2)' is `neg_points`)
-  - Sat 16:42 · operator · **flags: 4 sent, net +20.0** ( 43.2 → 63.2): +10 ×3 for false facts (7053/7068 'stopped printing', 7160 bait and switch SAL-09 → card:SAL-06), **−10** for 7170 ('final as a church bell' with final:false) → flagging STOPPED pending the Chief (rule: only card/price mismatches or false facts) → GAME.md · SAL-09 buy from Pícaros running (his 73 → 56, ours 45 → 54, cap 63, offer-only, trick guard on give.types) · #2 (29.53)
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 30.02 | 1 | 22.52 | 7.50 | 13.93 | 0.27 | 0.88 | 46 | 4 | 126 | 38/50 |
+| 30.02 | 2 | 22.52 | 7.50 | 13.93 | 0.27 | 0.88 | 46 | 4 | 126 | 38/50 |
 
-Leaderboard (snapshot at tick 780; refreshes every few minutes):
+Leaderboard (snapshot at tick 790; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 5 | 30.02 | 22.52 | 7.50 | 46 |
-| 2 | Team 14 | 29.83 | 20.56 | 9.26 | 31 |
-| 3 | Team 12 | 29.12 | 16.99 | 12.12 | 43 |
-| 4 | Team 1 | 29.04 | 21.54 | 7.50 | 22 |
-| 5 | Team 10 | 28.98 | 16.48 | 12.50 | 31 |
+| 1 | Team 14 | 30.55 | 21.29 | 9.26 | 32 |
+| 2 | Team 5 | 30.02 | 22.52 | 7.50 | 46 |
+| 3 | Team 1 | 29.70 | 22.20 | 7.50 | 23 |
+| 4 | Team 12 | 28.99 | 16.86 | 12.12 | 44 |
+| 5 | Team 10 | 28.83 | 16.33 | 12.50 | 31 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 8.67 | ~49 min | persona_opens | Los Pícaros opens for everyone |
-| 9.00 | ~69 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.15 | ~78 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
-| 11.00 | ~189 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~198 min | persona_patch | The fever breaks |
-| 11.65 | ~228 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~309 min | bench | The Market Test: every venue gets the same synthetic book |
-| 14.08 | ~374 min (after today's close) | day_closes | Closed until Sunday 09:00 |
+| 8.67 | ~44 min | persona_opens | Los Pícaros opens for everyone |
+| 9.00 | ~64 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.15 | ~73 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
+| 11.00 | ~184 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~193 min | persona_patch | The fever breaks |
+| 11.65 | ~223 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~304 min | bench | The Market Test: every venue gets the same synthetic book |
+| 14.09 | ~369 min (after today's close) | day_closes | Closed until Sunday 09:00 |
 
 ## Our dealer deals
 
@@ -102,17 +102,17 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | 1062 | picaros | sell | 1 card(s) | 10 | 32 | — | — | 7 | closed |  |
 | 1075 | picaros | buy | SAL-09 | 73 | 45 | 54 | -26% | 9 | deal |  |
 | 1092 | picaros | sell | 1 card(s) | 4 | 20 | — | — | 2 | closed |  |
-| 1097 | picaros | buy | SAL-10 | 73 | 44 | — | — | 6 | open |  |
+| 1097 | picaros | buy | SAL-10 | 73 | 44 | — | — | 7 | closed |  |
 
 ## Abuela benchmark: every team's deals with her (public feed)
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
-| common card | team buys | 66 | 9.00 | 7 | 12 | 5 | 9 |
-| common card | team sells | 85 | 6 | 2 | 23 | 5 | 5.40 |
+| common card | team buys | 67 | 9 | 7 | 12 | 5 | 9 |
+| common card | team sells | 87 | 6 | 2 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 42 | 22.00 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 74 | 22.50 | 17 | 29 | 5 | 24.20 |
-| uncommon card | team sells | 8 | 14.50 | 13 | 17 | 0 | — |
+| uncommon card | team sells | 9 | 14 | 12 | 17 | 0 | — |
 
 ## Duels
 
