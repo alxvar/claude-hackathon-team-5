@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 17:46** · tick 904 (30 s/tick) · game hour 8.86 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 17:51** · tick 914 (30 s/tick) · game hour 8.94 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,25 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 12:12 · **dashboard: new "Duel monitor" tab** (http://127.0.0.1:8765/#duelmon), the current duel session live, read-only, from data the dashboard already reads (**no extra request**: the duelist shares the team's 5 rps) · session + field progress from the feed (`duels.scheduled`, `duel.closed`), our duels from `/api/duels`, `duel_points` from `/api/me` · tiles: our duels done/total + ETA, deals, result after decay and **P lost to rounds**, `duel_points` sparkline, P left on the table, field deal rate · alerts: CRITICAL (rival's standing offer inside our limit with ≤ 2 ticks left; our offer outside our limit; we silent ≥ 4 ticks after a rival price near the deadline), WATCH (acceptable now: +X P after decay), MISSED · live table (our offer vs theirs vs limit, gap, rounds, pie left, ticks left, accept-now value; days for Duels II) · finished table · negotiating Δ per team since the session began (board doesn't split duels out) · complements Lucas's `duelmon` (phone alerts + per-wave review), doesn't replace it · restarted 12:10 on this code, 0 errors, hub on · **Duels I at tick 483:** 4/34 done, 4 deals, 36.7 P of 50 P surplus (**13.3 P, 27 %, lost to rounds**; duel 2540: 7 rounds, 6.7 of 19 lost), field 36/39 deals · seen live: duel 2506 (buyer, limit 103): rival dropped to 96 at tick 480 and we sent 98 the same tick (step computed on their previous 104); it closed at 96 anyway (4.8 P, 6 rounds), so no cost; for Aleks's rounds spec: a same-tick drop can cross our next step · next: watch Duels I on the tab, desk Q6
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
-  - Sat 17:46 · operator · **flag probe = 0**: flag 8 on Pícaros 8507 (words 'Noche de Movida, that exact card, no other' = MAL-10, structured card:MAL-07 at 73) → flagged: true, neg_points 63.2 → 63.2 after 90 s → the cap does not reset hourly, flags are done (GAME.md) · probe thread 1294 closed (text only, no price sent) · board tick 900: #4 29.24 (negotiating 21.88 → 21.74 as others rose), T14 30.6 T12 30.2 T6 30.0 · open: MAL-02/05 → t15 on El Rastro, LAV-03 → t09 at 6 and two LAV-02 swaps (t07/t09) on v15; the scout's 'on v10' is wrong (we can't post on our own venue) · t10's RET-08 at 31 to us ignored (partnership ended, RET page complete)
-  - Sat 17:41 · operator · Chief 17:45 **ladder looks capped for us** [L]: negotiating stayed flat at 21.88 across MAL-06/MAL-09/SAL-04 (ladder 0.373 → 0.437) → MAL-08 → Chato stopped mid-thread (1278: his 14, ours 24 → 19), thread closed, **MAL-08 kept** · no more Pícaros/Chato/Pilar slot deals · fever SAL-09/10 → Pilar stays, for cash only (≥ 85) · flag probe stays (does +10 neg still move the board?) · thread 1179 (t15 approval) found closed early with message 7728 intact (not closed by us)
-  - Sat 17:39 · operator · **SAL-04 (2nd copy) → Pícaros at 5** (thread 1264, offer-only: their 4 → 5 final, ours 12 → 9, we offered their 5): `ladder_points` 0.394 → **0.437** (+0.043, L4 slot 3), neg 63.2, cash 153 · their texts: 'another team offered more', 'we leave in one minute' (deadline talk, not flagged) · Pícaros menu [V]: sells rares (63) and epics (162) only, buys commons/uncommons, **6 deals per team per hour** · MAL-08 → Chato started 17:38 · flag probe 17:42: text-only Pícaros BUY thread for MAL-10 (no price is ever sent, so no deal is possible), flag only an unmistakable card-vs-words mismatch
+  - Sat 17:50 · operator · board check: the t07 swap's +15.5 neg moved `negotiating` 21.74 → 22.48 and the board 29.24 → **29.98 (#3)** at tick 910 → team trades are not capped (≈ +0.05 board per neg point) → GAME.md · T14 31.4, T6 30.7 · scout's SAL-06 bid at 28 waits for the Chief's spec
+  - Sat 17:49 · operator · **SAL page 9/10 (only SAL-06 missing)** (Chief, urgent): run/reserved.json = SAL-01, 02, 03, 04, 05, 07, 08, 09, 10 (the trader's sell/swap accepts, book, swaps and opps all read it on every check; can-give SAL-07/SAL-09 → NO) · SAL-01/SAL-02 → t16 removed from run/book.json · **18:06 fever job cancelled** (SAL-09/10 stay: selling them would drop the page to 7/10) · t13's 13957 (29 P for SAL-07) and every SAL bid: no · no SAL-06 buy until the Chief's spec · correction: SAL-08 was never sold (I wrongly took it off reserved at 17:34)
+  - Sat 17:47 · operator · **trader took t07's swap**: their SAL-07 for our LAT-01 on El Rastro (13923, tick ~902): `neg_points` 63.2 → **78.7 (+15.5, as expected)**, cash 153 → 151 (taker fee), SAL page now missing only SAL-06 · board check: `negotiating` still 21.74 at 17:47 (the board seems to refresh every ~10 ticks; recheck 17:50)
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 29.24 | 4 | 21.74 | 7.50 | 13.93 | 0.44 | 0.88 | 51 | 4 | 151 | 37/50 |
+| 29.98 | 3 | 22.48 | 7.50 | 13.93 | 0.44 | 0.88 | 51 | 4 | 151 | 37/50 |
 
-Leaderboard (snapshot at tick 900; refreshes every few minutes):
+Leaderboard (snapshot at tick 910; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 14 | 30.57 | 21.43 | 9.15 | 35 |
-| 2 | Team 12 | 30.16 | 17.73 | 12.43 | 50 |
-| 3 | Team 6 | 30.01 | 18.84 | 11.18 | 50 |
-| 4 | Team 5 | 29.24 | 21.74 | 7.50 | 50 |
-| 5 | Team 1 | 28.76 | 21.26 | 7.50 | 26 |
+| 1 | Team 14 | 31.43 | 21.90 | 9.53 | 35 |
+| 2 | Team 6 | 30.73 | 18.84 | 11.89 | 51 |
+| 3 | Team 5 | 29.98 | 22.48 | 7.50 | 51 |
+| 4 | Team 3 | 28.75 | 24.01 | 4.75 | 27 |
+| 5 | Team 1 | 28.71 | 21.21 | 7.50 | 26 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 9.00 | ~9 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.15 | ~18 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
-| 11.00 | ~129 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~138 min | persona_patch | The fever breaks |
-| 11.65 | ~168 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~249 min | bench | The Market Test: every venue gets the same synthetic book |
-| 14.08 | ~313 min | day_closes | Closed until Sunday 09:00 |
-| 14.08 | ~313 min | day_opens | Sunday opens |
+| 9.00 | ~3 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.15 | ~12 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
+| 11.00 | ~123 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~132 min | persona_patch | The fever breaks |
+| 11.65 | ~162 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~243 min | bench | The Market Test: every venue gets the same synthetic book |
+| 14.08 | ~308 min (after today's close) | day_closes | Closed until Sunday 09:00 |
+| 14.08 | ~308 min (after today's close) | day_opens | Sunday opens |
 
 ## Our dealer deals
 
@@ -105,7 +105,7 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
 | common card | team buys | 67 | 9 | 7 | 12 | 5 | 9 |
-| common card | team sells | 104 | 6.00 | 2 | 23 | 5 | 5.40 |
+| common card | team sells | 105 | 6 | 2 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 42 | 22.00 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 76 | 23.00 | 17 | 29 | 5 | 24.20 |
 | uncommon card | team sells | 9 | 14 | 12 | 17 | 0 | — |
