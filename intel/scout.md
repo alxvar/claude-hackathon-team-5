@@ -1,25 +1,31 @@
-# Scout (claude-sonnet-5-5, Sat 17:49)
+# Scout (claude-sonnet-5-5, Sat 17:54)
 
 ## Top 3 actions now
-1. **Close the SAL page: bid for SAL-06 on El Rastro (Operator, `trade.py` bid, maker, not addressed).** Bid 28 P, un-addressed so the feed does not reveal a target, re-posted short-lived.
-   - Evidence: our SAL-07 swap with t07 at tick 904 left SAL-06 as the only missing card (+15.5 neg to 78.7). SAL-06 is not in the asks list, so the holder is not in the data.
-   - Teams that buy SAL: t01 ×4, t06 ×4, t17 ×3, t05 ×3, t15 ×3.
-   - Effect: the page bonus is 0.9 × 66.25 ≈ 59.6, priced into the last card. A team trade that completes the page caps at +50 neg. At 28 P as maker that is about +50 neg ≈ +8 board at 0.16 per point [L].
-   - Open the pack first, if any is unopened. Confidence: med (holder unknown, bonus counts only via a team trade).
-2. **Sell the spare LAV-04 to t07 at 9 P (Operator/book, El Rastro, as maker).** Our LAV-04 spare is worth 3.2.
-   - Evidence: t07 has bought LAV ×7 and is a top buyer (LAT-01 t18→t07 at 8, tick 904). Spare-card asks are 6-9, with our LAV-03 at 6 to t09 and two LAV-02 spares at 1.3.
-   - Effect: about +4 neg and cash. Confidence: med. Not on v10 (we can't post on our own venue).
-3. **Room plan for the v10 market lever (Dani): sellers t02 (SAL-03→t08, RET-03→t07) and t07 (RET-01→t09) list at ~9 on v10; buyers accept.**
-   - Evidence: the gap to #3 (t06) is 0.8 and to #1 (t14) 1.4 (board 29.24 vs 30.0 and 30.6). Directives name value created on v10 as the decisive lever (about +3 board; 2 trades hit the +5 cap).
-   - Effect: market-making points, not neg. Confidence: low/med. Check each trade has positive value created: no second-copy buyers and no cards moving to a lower-multiplier holder.
+
+1. **SAL-06 page-closer (bid 14040, 35 P → t02 on v15, expires tick 944).** Operator keeps it live and countersigns up to 45 if t02 counters.
+   - Evidence: /api/me/value SAL-06 = 82.1, page 9/10, so a 35 P close hits the +50 cap. Team trades are not capped: +15.5 neg moved `negotiating` 21.74 → 22.48 and the board 29.24 → 29.98.
+   - Effect: about +47 neg, roughly +2.2 board (the directive's upper estimate; the measured rate is ~0.05/np, so ~+2.4).
+   - Risk: expiry is at tick 944, about 25 ticks from tick 919. The ask must be 2× the ticks we want, and fallback is t17, then t13 at 18:20. If t02 does not hold SAL-06, the bid goes nowhere. Not in the data: whether t02 holds it.
+   - Confidence: med.
+
+2. **Room plan via Dani on v10: t02 SAL-03 → t08 and RET-03 → t07, t07 RET-01 → t09, all at ~9.**
+   - Evidence: our `mm_points` moved +4.99 on a positive trade (t10 → t01 MAL-07 at 14), and the Market note says 2 trades ≈ the +5 cap. A trade to a holder with a lower multiplier or a 2nd copy goes negative (−5.2 on t15's SAL-07).
+   - Effect: value created on v10 closes our market gap (7.5 vs 9.15–12.5), worth ≈ +3 board [L].
+   - Dani asks the buyers to accept only after the sellers post. We never push SAL to a buyer holding a 2nd copy, and never to a rival.
+   - Confidence: low-med.
+
+3. **Spare LAV/MAL commons as maker.**
+   - Offers: LAV-03 → t09 at 6 (13764, tick 933), MAL-02/05 → t15 at 9 (13715/13718, tick 931), and the LAV-02 spares (we hold three).
+   - Evidence: the profile table shows t07 (#17, 10.6 below us) buying LAV ×7, RET ×5 and LAT ×4. The LAV-02 offer to t17 at 0 is not a sale (cash 0).
+   - Effect: each team sale scored +2 to +4.7 neg. Re-post expiring offers at 2× ticks. Confirm t07 is still ≥ 10 below us before sending it a LAV spare.
+   - Confidence: med.
 
 ## What the climbing teams are doing
-- **t06 (+2.6 in 15 min, +4.3 in 60):** buys RET commons cheap from t12 (RET-02 at 6, tick 861; RET-03 at 6, tick 905) and sold RET-09 for 84 (tick 895). Small volume trades, 50 deals.
-- **t12 (+1.9 in 15 min, 50 deals):** buys RET-09 at 84 (tick 895) while dumping RET commons at 6. It collects RET and dumps SAL/LAV.
-- **t03 and t07:** t03 sent RET-01, RET-02, MAL-01, MAL-04 and received LAV-10 from t07 (tick 844, 38 P). t03's negotiating is the highest (24.49) and it is within 0.45 of us (28.8 vs our 29.2).
-- **Pattern:** the climbers stack many cheap 4-8 P trades and swaps, not dealer deals. Our ladder deals added 0 board (negotiating flat at 21.88 across ladder 0.373 → 0.437).
+- **Team 6 (#2, +3.3 in 15 min, 51 deals):** it moves RET cards among teams: RET-09 to t12 at 84 P (tick 895), RET-02 and RET-03 t12 → t06 at 6 P each (ticks 861 and 905). It also sold MAL-08 to t09 at 18 P (tick 853). That is high volume with cheap commons plus one rare flip.
+- **Team 14 (#1, 31.4):** only 35 deals but the top score. It collects LAV/LAT and paid us 15 for MAL-08. Its lead comes from quality trades, not volume.
+- **Team 7:** it is the busiest trader (t07: LAV ×7, RET ×5, LAT ×4). It sold RET-04 to t01, swapped with us, and bought RET/MAL commons from t03 plus LAV-10 (rare) for 38 P. It is the most active counterparty for our spares.
 
 ## Threats
-- **t14 (#1, collects LAV/LAT)** is 1.4 above us and t06 is 0.8 above. t06's +4.3 in 60 min is the fastest rise; t03 and t01 (both 28.8) sit just behind us.
-- **t18 bids LAT-09 at 40 P and t16 bids RET-01/02/03 at 5.** Do not feed them: our RET commons are worth 83.9 each to us, so selling at 5 is a loss.
-- **t10 and t01 are allying** (directives, 17:45). Any t01↔t10 trade on t01's venue could lift t01's market. Report it, and make no offers to either.
+- **Team 6 (30.7, #2) is 0.7 above us and rising** (+3.3 in 15 min); Team 14 is at 31.4. The board gap to #1 is 1.4.
+- **t01 ↔ t10 alliance:** watch for trades on t01's venue that lift its market. t10 is at 27.7 and t01 at 28.7, both within 3.0 of us, so both count as rivals.
+- **SAL-06 competition:** t10 buys SAL-06 (directive). A bid above 45 from them beats ours, and t02 may sell elsewhere. The offer expires at tick 944.
