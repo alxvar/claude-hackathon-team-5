@@ -1,25 +1,17 @@
-# Scout (claude-sonnet-5-5, Sun 00:38)
+# Scout (claude-sonnet-5-5, Sun 00:53)
 
 ## Top 3 actions now
-
-1. **Do nothing new in the game until Sun 09:00 (game closed; offers stay open). At the first live tick the Operator cancels SAL-11 bid 20252 (115 → t04).**
-   - Evidence: the 00:50 GUARDRAIL says to cancel in both clock cases. SAL-11 is worth ≈ +0.2 pts per 115 P against ≈ 0.7 per 100 P for MAL. Cash is 392.
-   - Effect: keeps cash for CHA and then MAL. 0 neg_points now. Confidence: high.
-
-2. **Trader stays on `--cash-floor 9999` (sells only) until the Builder's buy-cap patch lands. CHA and MAL are bought only via run/cha_book.json and run/mal_book.json.**
-   - Evidence: the 01:15 directive says CHA/MAL buys above the book's take prices must be blocked. Our CHA value is 1.6× (page bonus ≈ 106). The score is #3 at 30.5 with neg_points 119.1, and the +40.4 SAL-06 page close shows what a close is worth.
-   - Effect: protects the CHA page from overpaying. Dealer losses count in full. Confidence: high.
-
-3. **Sunday open: buy the CHA rares from the Pícaros at 48-52 (accept ≤ 54), with the per-offer card check on every offer. Last card from a team.**
-   - Evidence: dealer-lab-ladder §5 and the 00:25 directive. Our CHA rare value is 112 (book 70 × 1.6), so a 54 price is no loss. The Pícaros traded rares at 55 (median over 1 deal). Flags for tricks are spent: ~3 scored per team, and the 8th flag scored 0.
-   - Effect: a CHA page close should score up to the +50 cap per trade, as a team trade (+40.4 on the SAL-06 close). Confidence: med.
+1. **Cancel SAL-11 bid 20252 (115 → t04) at the first live tick (Operator, trader.py).** Evidence: the Sat 00:21 directive (GUARDRAIL) orders this cancel in both clock cases. It would expire at tick 1565 anyway, and it is worth about +0.2 pts per 115 P against about 0.7 per 100 P for MAL. Effect: frees 115 P for CHA and MAL, no neg_points change. Confidence: high.
+2. **Round 3 first tick: CHA-09 and CHA-10 from the Pícaros, target 48-52, accept ≤ 54 (Operator, simple_buy.py with --offer-only and the trick guard).** Evidence: the book says a CHA rare is worth 112 to us against the Pícaros' 48-54. The Pícaros are the only dealer that sells below our value, and print runs are short (SAL-09 at 29/30, SAL-11 at 9/9). Their 4 flagged tricks (bait and switch) make the card check mandatory before each accept. Effect: dealer buys below value are clipped to 0 neg_points, so the gain comes from the page (CHA page bonus 106) and from the later team trade that completes it. The last card should come from a non-rival team trade, which scores up to +50. Confidence: med.
+3. **Sell the RET-11 epic to Pilar at ≥ 198, in round 3 only (Operator, dealer script).** Evidence: our RET-11 is valued at 198 and Team 12 paid 216 for RET-11 from Team 6 at tick 1245. Team 8 got 140 from Pilar for a LAV-11 epic. Effect: neg_points stay at 0 or clip. A sale above value only moves the ladder (0.483 now, L3 weights ≈ 3× L2). Do not sell it to Team 12 (#4), it is a top-4 team. Confidence: low-med. It depends on Pilar's floor holding and on our ladder still counting, since Chief 17:45 noted the board is flat on it.
 
 ## What the climbing teams are doing
-- **Team 18 (#2, +1.2 over 60 min)**: trades the low sets. It bought LAT-10 from t13 at 72 (tick 1332) and collects RET/LAT. The profiles list it as a dumper of LAV/MAL.
-- **Team 12 (#4)**: buys epics and rares. RET-11 from t06 at 216 (tick 1245), LAT-10 from t01 at 86 (1304), LAT-06 from t09 at 20 (1303), and LAV-08 from t08 at 14 (1420). It has the most team trades of the top group (29 in the profiles, 70 deals).
-- **Team 10 (#1, 37.6)**: sells SAL-11 to t17 at 207 (tick 1296) and MAL-06 to t09 at 20 (1230). It is the leader and its score is flat to slightly down (-0.3 over 60 min), so nobody is catching it yet.
+- **Team 18 (#2, 31.3, +1.2 per hour):** collects RET and LAT. It bought LAT-10 from Team 13 at 72 (tick 1332). It is the only top-5 team rising, so a competitor for the LAT and RET rares.
+- **Team 12 (#4, 30.4, 70 deals):** the busiest buyer of LAT (×8) and a regular epic buyer. It paid 216 for RET-11 (tick 1245), 86 for LAT-10 from Team 1 (1304), 20 for LAT-06 (1303) and 14 for LAV-08 (1420). High volume at or below book is working for it.
+- **Team 10 (#1, 37.6, 62 deals):** sells epics at 195-207 (MAL-11 to us 195? no, to t10 at 195; SAL-11 to t17 at 207), 467 listings, and it buys RET/LAV. It scores through breadth of listings and epic sales.
+- **Team 6 (#6, 971 listings, 71 deals):** it is falling (−2.7 per hour) despite its trade volume, so listing volume alone doesn't hold a score.
 
 ## Threats
-- **Team 9 is bidding 56 for MAL-09 and MAL-10 (offers 19719, 20251).** It is a RET/SAL/MAL collector and already bought MAL-06 (tick 1230) and SAL-09 (tick 1231). It competes with our MAL close, and Pícaros MAL rares at ≤ 49 are our cheaper route.
-- **Team 12 and Team 18 are #2 and #4 and are growing**, and Team 12 bought RET-11 at 216. Our RET-11 floor is 198 at Pilar, and a team sale of it would feed a top-4 rival. Never sell them page-closers.
-- **Team 6 sold RET-10 to t04 at 84 (tick 1257).** RET-10 and the other RET rares keep moving to RET collectors (t04, t07), so a 100 P RET-09 t08 → t09 on v10 is a Club Castizo item, not ours.
+- **We are #3 at 30.5, with Team 12 (30.4) and Team 18 (31.3) within 1 point.** Team 18 gained +1.2 per hour while we lost 0.4. A pause leaves us exposed, so Sunday's first trades matter.
+- **Team 12 and Team 6 trade epics and RET-11 among themselves at 216.** If we sell RET-11 below 198 to a dealer we lose against that price. Don't sell cheap.
+- **CHA competition:** t09 bids 56 for MAL-09 and MAL-10 (offers 20251, 19719). That is the MAL rare demand we face at the MAL close, so our MAL buy must come in at or below the 49 cap or be skipped.
