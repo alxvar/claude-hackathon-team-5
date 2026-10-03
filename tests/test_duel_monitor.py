@@ -1,11 +1,11 @@
-"""Offline tests for tools/duel_monitor.py on Friday's recorded duels (docs/duels/). No network, no real notifications."""
+"""Offline tests for tools/duel_monitor.py on Friday's recorded duels (a frozen copy in tests/fixtures/duels/). No network, no real notifications."""
 import copy
 import json
 from pathlib import Path
 
 from tools import duel_monitor as dm
 
-DUELS = Path(__file__).resolve().parents[1] / "docs" / "duels"
+DUELS = Path(__file__).resolve().parent / "fixtures" / "duels"   # docs/duels as of Sat 08:03 (Friday + practice); docs/duels keeps growing
 
 
 def record(n):
@@ -230,11 +230,32 @@ def test_no_live_duel_in_a_scored_session(tmp_path):
     notes = Recorder()
     m = monitor(tmp_path, FakeApi([], schedule=DUELS_I), notes)
     m.learn_sessions(DUELS_I, None)
-    assert m.cycle({"tick": 380, "doors": "open", "paused": False}) == []     # before the session (tick 390)
-    assert m.cycle({"tick": 395, "doors": "open", "paused": False}) == []     # first tick without a duel
-    new = m.cycle({"tick": 396, "doors": "open", "paused": False})
+    clk = lambda t: {"tick": t, "t_hours": 6.5 + (t - 390) / 60, "tick_seconds": 60,   # noqa: E731  (60 s ticks)
+                     "doors": "open", "paused": False}
+    assert m.cycle(clk(380)) == []     # before the session (tick 390)
+    assert m.cycle(clk(395)) == []     # first tick without a duel
+    new = m.cycle(clk(396))
     assert [f.kind for f in new] == ["no_live_duel"] and new[0].severity == dm.HIGH
     assert sorted(ch for ch, _, _ in notes.sent) == ["dani", "lucas"]
+
+
+def test_session_start_follows_the_clock_pace(tmp_path):
+    # Sat: 30 s ticks, a tick advances 30 s of game time. At tick 176 / hour 2.7917, Duels I at 5.15 starts at tick
+    # 459, not 309 (= 5.15 x 60, Friday's 60 s pace): no "no live duel" page at 310-312.
+    sched = {"upcoming": [{**DUELS_I["upcoming"][0], "at_hours": 5.15}]}
+    notes = Recorder()
+    m = monitor(tmp_path, FakeApi([], schedule=sched), notes)
+    m.learn_sessions(sched, None)
+
+    def clk(tick):
+        return {"tick": tick, "t_hours": 2.7917 + (tick - 176) * 30 / 3600, "tick_seconds": 30, "doors": "open",
+                "paused": False}
+
+    for t in (310, 311, 312):
+        assert m.cycle(clk(t)) == []
+    assert m.tick_at(5.15) == 459
+    assert m.cycle(clk(460)) == [] and m.cycle(clk(461)) == []
+    assert [f.kind for f in m.cycle(clk(462))] == ["no_live_duel"]
 
 
 def test_no_live_duel_is_quiet_in_practice(tmp_path):

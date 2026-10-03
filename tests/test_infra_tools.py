@@ -16,6 +16,7 @@ sys.path.insert(0, str(ROOT / "bazaar-kit"))
 import archive_round  # noqa: E402
 import operator_lock  # noqa: E402
 import preflight  # noqa: E402
+import status  # noqa: E402
 from bazaar_sdk import BazaarError  # noqa: E402
 
 
@@ -200,3 +201,8 @@ def test_snapshot_writes_tar_leaderboard_me_and_skips_files_with_keys(tmp_path, 
     assert json.loads(next(out.glob("leaderboard-*.json")).read_text())["teams"][0]["team"] == "t05"
     entry = json.loads((out / "index.jsonl").read_text())
     assert entry["reason"] == "test" and entry["skipped_files"] == ["logs/oops.log"]
+
+
+def test_status_eta_is_wall_minutes_at_any_pace():
+    # Sat 09:37, tick 176, hour 2.7917, 30 s ticks: Duels I at 5.15 is ~141 min away (~11:59), not ~71.
+    assert abs(status.eta_minutes(5.15, 2.7917) - 141.5) < 0.01

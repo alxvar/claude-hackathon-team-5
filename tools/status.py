@@ -29,6 +29,11 @@ def fmt(x, nd=2):
     return "—" if x is None else (f"{x:.{nd}f}" if isinstance(x, float) else str(x))
 
 
+def eta_minutes(at_hours, t_hours):
+    """Wall minutes until a schedule hour: each tick advances tick_seconds of game time (30 s ticks: 120 a game hour)."""
+    return (at_hours - t_hours) * 60
+
+
 def table(head, rows):
     out = ["| " + " | ".join(head) + " |", "|" + "---|" * len(head)]
     out += ["| " + " | ".join(fmt(c) for c in r) + " |" for r in rows]
@@ -93,15 +98,15 @@ def build(b):
     L += table(["#", "Team", "Score", "Negotiating", "Market", "Deals"], top)
 
     L += ["", "## Next on the schedule", "",
-          "_ETA assumes the current tick length and no pause._", ""]
-    t_now, secs = clock["t_hours"], clock["tick_seconds"]
+          "_ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour is a wall hour at any pace)._", ""]
+    t_now = clock["t_hours"]
     try:
         to_close = (datetime.fromisoformat(clock["closes"]) - datetime.now().astimezone()).total_seconds() / 60
     except (KeyError, ValueError):
         to_close = None
     rows = []
     for e in sched.get("upcoming", [])[:8]:
-        eta = (e["at_hours"] - t_now) * secs  # 60 ticks per game hour → minutes
+        eta = eta_minutes(e["at_hours"], t_now)
         when = f"~{eta:.0f} min" + (" (after today's close)" if to_close is not None and eta > to_close else "")
         rows.append([fmt(e["at_hours"], 2), when, e["action"], e.get("note", "")])
     L += table(["Game hour", "ETA", "Action", "Note"], rows)

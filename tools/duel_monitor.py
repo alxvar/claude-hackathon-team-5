@@ -717,12 +717,21 @@ class Monitor:
                 cur.setdefault("params", {}).update({k: v for k, v in p.items() if v is not None})
                 cur["start_tick"] = e.get("tick")
 
+    def tick_at(self, at_hours: float) -> int | None:
+        """The tick a schedule hour falls on, at the current pace: each tick advances tick_seconds of game time (30 s
+        ticks: 120 a game hour; Friday's 60 s: 60). Measured Sat: ticks 159 → 175 took t_hours 2.65 → 2.7833."""
+        c = self.last_clock or {}
+        h, secs, now = c.get("t_hours"), c.get("tick_seconds"), c.get("tick")
+        if not isinstance(h, (int, float)) or not isinstance(secs, (int, float)) or secs <= 0 or now is None:
+            return None
+        return int(now) + round((at_hours - h) * 3600 / secs)
+
     def current_session(self, tick: int) -> tuple[str, dict] | None:
         started = []
         for name, s in self.state.get("sessions", {}).items():
-            start = s.get("start_tick")
+            start = s.get("start_tick")                  # from the feed's duels.scheduled: exact
             if start is None and isinstance(s.get("at_hours"), (int, float)):
-                start = round(s["at_hours"] * 60)        # 60 ticks per game hour (t_hours = tick / 60)
+                start = self.tick_at(s["at_hours"])
             if start is not None and start <= tick:
                 started.append((start, name, {**s, "start_tick": start}))
         if not started:
