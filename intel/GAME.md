@@ -60,6 +60,9 @@
   57 → 69 (+3 steps); Team 18 paid 86 for RET-09 at tick 206. RET-10 [V, 10:04]: first try his FINAL 91 came when our
   bid was 66 (walked, cap 88); retry: 97, 96, …, 89, FINAL 86 when our bid reached 69 → `neg_points` −10 → −19.0 (77 − 86).
   Pattern [L, n=3]: his rare final lands when our +3 steps reach ~69 (≈ 0.9 × list 77) → 86-87; at 66 it was 91.
+- **Chato mirrors our step size** [V, Sat 10:07, RET-06 uncommon]: our 18 → 21 in +1 steps; his 33, 33, 32, FINAL 31
+  after 4 rounds ("One peseta. That's your big move? … You moved one, I moved one. That's the last number I say").
+  Friday's +1 → 28-29 protocol fails today; he finals after ~4-5 rounds whatever we do. RET uncommons go to Abuela.
 - **RET rares** [V, feed ticks 160-188]: no team pulled a RET rare from a grant pack (every sobre_barrio `best` = null);
   the only sources are Chato (rare list 77) and silver packs. Team 15 bids 59 and Team 2 9-12 for RET-09/10.
 
