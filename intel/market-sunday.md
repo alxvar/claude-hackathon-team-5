@@ -1,93 +1,87 @@
-# Market plan for Sunday (Market session) · written Sun 00:18
+# Market plan for Sunday (Market session) · written Sun 00:24
 
-_Sources: intel/matches.md (matchmaker run 00:13, tick 1440; its VC estimates move between runs, so re-read it before acting), leaderboard snapshot 1440 (us 30.49), intel/market-log.md, intel/directives.md (Club Castizo, Sat 22:55). Labels: [V] measured, [L] inferred, [?] unknown. An independent verifier audited the 22:52 draft; its ten flags are applied here._
+_Sources: intel/matches.md (matchmaker run 00:23, tick 1440; its VC estimates move between runs, so re-read it before acting), leaderboard snapshot 1440 (us 30.49), intel/market-log.md, intel/directives.md (Club Castizo, Sat 22:55). Labels: [V] measured, [L] inferred, [?] unknown. An independent verifier audited the 22:52 draft; its ten flags are applied here._
 
-## 0. NEGOTIATION (Chief's overnight ask; read-only analysis of data/feed.jsonl to tick 1445)
+## 0. NEGOTIATION (Chief's overnight ask; read-only analysis of data/feed.jsonl to tick 1445; audited by an independent verifier, 11 flags applied)
 
-**Data and its limits [V]:** 7608 cash offers (asks and bids) and 176 team-to-team settlements over Friday and Saturday; 149 fills could be tied to their offer. The feed has NO team-to-team threads or counter messages (threads exist only with dealers), so a 'counter' can only be seen as a new offer in the opposite direction. Per team there are 2 to 22 accepts: the per-team rows are counts, not fitted curves. Ratios are price ÷ book (common 10, uncommon 25, rare 70, epic 180). Ticks were 60 s on Friday and 30 s on Saturday; Sunday is 15 s, so a bot that acts once per tick keeps its latency in ticks and a human-driven team doubles it.
+**Data and its limits [V]:** 7608 cash listings (asks and bids) and 176 team-to-team settlements over Friday and Saturday. Bots renew the same quote every few ticks, so listings are chained into **4484 quote episodes** (same maker, card, side, venue, addressee and price); 145 fills are tied to an episode, and the wait is counted from the quote's first appearance. The feed has NO team-to-team threads, so a 'counter' is only visible as a new offer in the opposite direction. Each team has 2 to 22 accepts: the per-team rows are counts, not fitted curves. Ratios are price ÷ book (common 10, uncommon 25, rare 70, epic 180). Ticks were 60 s on Friday, 30 s on Saturday, 15 s on Sunday: a bot that acts once per tick keeps its wait in ticks, a human-driven team doubles it.
 
-### 0.1 How the market answers an offer (all teams, Saturday, open offers)
+### 0.1 How the market answers a quote (Saturday)
 
-| Offer | price ÷ book | listed | filled | filled within 2 ticks |
-|---|---|---|---|---|
-| bid | 0-0.7 | 1305 | 12 (0.9%) | 4 (0.3%) |
-| bid | 0.7-1.0 | 149 | 9 (6.0%) | 3 (2.0%) |
-| bid | 1-1.3 | 46 | 5 (10.9%) | 1 (2.2%) |
-| bid | 1.3-∞ | 5 | 1 (20.0%) | 1 (20.0%) |
-| ask | 0-0.7 | 401 | 20 (5.0%) | 12 (3.0%) |
-| ask | 0.7-1.0 | 1373 | 25 (1.8%) | 9 (0.7%) |
-| ask | 1-1.3 | 1424 | 24 (1.7%) | 11 (0.8%) |
-| ask | 1.3-∞ | 535 | 1 (0.2%) | 0 (0.0%) |
+| Quote | price ÷ book | open: episodes | filled | within 2 ticks | addressed: episodes | filled | within 2 ticks |
+|---|---|---|---|---|---|---|---|
+| bid | 0-0.7 | 613 | 12 (2.0%) | 4 (0.7%) | 154 | 7 (4.5%) | 6 (3.9%) |
+| bid | 0.7-1.0 | 105 | 9 (8.6%) | 2 (1.9%) | 80 | 3 (3.8%) | 2 (2.5%) |
+| bid | 1-1.3 | 28 | 5 (17.9%) | 1 (3.6%) | 57 | 2 (3.5%) | 0 (0.0%) |
+| bid | 1.3-∞ | 2 | 1 (50.0%) | 1 (50.0%) | 12 | 1 (8.3%) | 0 (0.0%) |
+| ask | 0-0.7 | 274 | 20 (7.3%) | 12 (4.4%) | 126 | 1 (0.8%) | 0 (0.0%) |
+| ask | 0.7-1.0 | 702 | 24 (3.4%) | 9 (1.3%) | 313 | 1 (0.3%) | 1 (0.3%) |
+| ask | 1-1.3 | 630 | 22 (3.5%) | 8 (1.3%) | 443 | 2 (0.5%) | 1 (0.2%) |
+| ask | 1.3-∞ | 285 | 1 (0.4%) | 0 (0.0%) | 302 | 0 (0.0%) | 0 (0.0%) |
 
-- **Price does not buy speed.** An open bid at or above book was filled within 2 ticks 2 times out of 51; a cheap ask (≤ 0.7 book) within 2 ticks 12 times out of 401. About 2% of all offers ever fill.
-- **Addressed offers are almost never accepted:** 20 of 1881 (1.1%); when accepted, median 4 ticks, 10 of 20 within 2 ticks. The fast ones were pairs that had clearly agreed first (Team 8's four bids on v21 at tick 707-714, all taken in 1-2 ticks).
-- **A second, better offer does not help:** first listings of a card filled 47/580 (8.1%); re-listings 68/6506 (1.0%); re-listings at an improved price 33/1581 (2.1%). Bots do not chase a rising bid.
-- **What buyers pay against their own value** (asks taken, 49 cases where the Analyst has the buyer's multiplier): median 0.75 of value, 90% at or under 1.12. Clearing prices on Saturday (filled, price ÷ book): commons asks 0.5-0.9 (median 0.7), uncommons 0.76-1.04 (0.96), rares 1.0-1.2 (1.07); filled bids sit lower (commons and uncommons 0.6, rares 1.0).
-- **Cheap asks get sniped:** of the 20 asks at ≤ 0.7 book that filled, 12 went within 2 ticks.
+- **A better price raises the chance of a fill, but not to anything like certainty, and hardly within 2 ticks.** Open bids: 12/613 filled under 0.7 book, 9/105 at 0.7-1.0, 6/30 at book or above; within 2 ticks only 4, 2 and 2 of those. Open asks: 20/274 filled at ≤ 0.7 book (12 within 2 ticks), about 3.5% between 0.7 and 1.3, almost none above 1.3.
+- **Addressed quotes are rarely accepted:** 19 of 1518 episodes (1.3%); when accepted, median wait 2 ticks, 10 of 19 within 2 ticks. Nothing in the feed shows which of those were agreed beforehand. The denominator is swollen by bots that spray addressed bids at many teams (Team 8 sent about 40 in ticks 700-719; four were taken, by Teams 13, 16 and 2).
+- **Re-pricing:** a maker's first quote for a card filled 49/578 (8.5%); a later quote at a BETTER price 38/1548 (2.5%); a later quote at the same or a worse price 22/1965 (1.1%). Improving the price helps against standing still, but a card that did not sell at first is mostly one nobody was looking for (a selection effect, not proof that raising is useless).
+- **What buyers pay against their own value** (asks taken, 47 cases where the Analyst has the buyer's multiplier): median 0.75 of value, 90% at or under 1.12.
+- **Clearing prices, Saturday (filled quotes, price ÷ book; n, quartile-median-quartile):** common asks n 36: 0.50-0.70-0.90 · common bids n 16: 0.40-0.60-0.80 · uncommon asks n 21: 0.76-0.92-1.04 · uncommon bids n 15: 0.52-0.60-0.80 · rare asks n 13: 1.00-1.09-1.20 · rare bids n 6: 0.94-1.00-1.10.
+- **Cheap asks go fast:** of the 20 open asks at ≤ 0.7 book that filled, 12 went within 2 ticks of first appearing.
 
-### 0.2 Per team (counts over both days; 'fast' = at least 5 accepts and half of them within 2 ticks)
+### 0.2 Per team (counts over both days; wait = ticks from the quote's first appearance to the accept)
 
-| Team | Asks it took (n · median ÷ book · max) | Bids it hit (n · median · min) | Accept latency (median ticks · ≤ 2 ticks) | Addressed to it: accepted | Counters | Type |
+| Team | Asks it took (n · median ÷ book · max) | Bids it hit (n · median · min) | Wait (median ticks · within 2) | Addressed to it: accepted | Counters | Type |
 |---|---|---|---|---|---|---|
-| Team 1 | 9 · 0.80 · 1.03 | 0 · — · — | 6 · 3/9 | 0/109 | 2/109 | slow or manual |
-| Team 2 | 5 · 0.80 · 1.20 | 4 · 1.50 · 0.40 | 1 · 9/9 | 1/147 | 3/146 | fast bot taker |
-| Team 3 | 2 · 0.65 · 0.70 | 0 · — · — | 4.5 · 1/2 | 1/219 | 0/218 | few accepts |
-| Team 4 | 12 · 0.65 · 1.20 | 3 · 0.89 · 0.50 | 4 · 6/15 | 2/93 | 0/91 | slow or manual |
-| Team 5 | 2 · 0.96 · 1.12 | 0 · — · — | 7.5 · 0/2 | 0/52 | 1/52 | few accepts |
-| Team 6 | 3 · 1.09 · 1.17 | 8 · 0.70 · 0.50 | 2 · 6/11 | 1/163 | 0/162 | fast bot taker |
-| Team 7 | 10 · 1.00 · 1.76 | 1 · 0.84 · 0.84 | 8 · 2/11 | 0/102 | 0/102 | slow or manual |
-| Team 8 | 3 · 0.60 · 1.09 | 3 · 0.80 · 0.56 | 11.0 · 0/6 | 3/65 | 2/62 | slow or manual |
-| Team 9 | 8 · 0.90 · 1.12 | 1 · 1.04 · 1.04 | 8 · 3/9 | 1/156 | 18/155 | slow or manual, counters |
-| Team 10 | 3 · 1.06 · 1.20 | 6 · 0.90 · 0.60 | 6 · 2/9 | 2/44 | 0/42 | slow or manual |
-| Team 12 | 12 · 0.79 · 1.23 | 10 · 0.66 · 0.40 | 4.0 · 8/22 | 1/59 | 3/58 | slow or manual |
-| Team 13 | 5 · 1.00 · 1.20 | 5 · 0.56 · 0.40 | 2.0 · 6/10 | 4/187 | 0/183 | fast bot taker |
-| Team 14 | 7 · 0.70 · 1.00 | 3 · 0.60 · 0.52 | 1.0 · 8/10 | 0/61 | 0/61 | fast bot taker |
-| Team 15 | 5 · 0.90 · 1.04 | 5 · 0.80 · 0.52 | 7.0 · 2/10 | 1/145 | 2/144 | slow or manual |
-| Team 16 | 3 · 0.50 · 0.97 | 3 · 0.40 · 0.40 | 3.5 · 3/6 | 2/130 | 0/128 | fast bot taker |
-| Team 17 | 5 · 1.04 · 1.12 | 0 · — · — | 5 · 0/5 | 1/119 | 1/118 | slow or manual |
-| Team 18 | 0 · — · — | 3 · 1.00 · 0.92 | 4 · 1/3 | 0/27 | 0/27 | few accepts |
+| Team 1 | 9 · 0.80 · 1.03 | 0 · — · — | 6 · 3/9 | 0/56 | 1/56 | slow or manual |
+| Team 2 | 5 · 0.80 · 1.20 | 4 · 1.50 · 0.40 | 1 · 9/9 | 1/136 | 1/135 | fast bot taker |
+| Team 3 | 2 · 0.65 · 0.70 | 0 · — · — | 4.5 · 1/2 | 1/161 | 0/160 | too few accepts to say |
+| Team 4 | 12 · 0.65 · 1.20 | 3 · 0.89 · 0.50 | 4 · 6/15 | 2/70 | 0/68 | slow or manual |
+| Team 5 | 1 · 1.12 · 1.12 | 0 · — · — | 4 · 0/1 | 0/39 | 1/39 | too few accepts to say |
+| Team 6 | 3 · 1.09 · 1.17 | 8 · 0.70 · 0.50 | 2 · 6/11 | 1/128 | 0/127 | fast bot taker |
+| Team 7 | 10 · 1.00 · 1.76 | 0 · — · — | 20.5 · 1/10 | 0/91 | 0/91 | slow or manual |
+| Team 8 | 3 · 0.60 · 1.09 | 3 · 0.80 · 0.56 | 18.5 · 0/6 | 3/59 | 2/56 | slow or manual |
+| Team 9 | 8 · 0.90 · 1.12 | 1 · 1.04 · 1.04 | 8 · 3/9 | 1/122 | 16/121 | slow or manual, counters |
+| Team 10 | 3 · 1.06 · 1.20 | 6 · 0.90 · 0.60 | 8 · 0/9 | 2/29 | 0/27 | slow or manual |
+| Team 12 | 12 · 0.79 · 1.23 | 10 · 0.66 · 0.40 | 4.0 · 8/22 | 1/56 | 3/55 | slow or manual |
+| Team 13 | 4 · 1.06 · 1.20 | 5 · 0.56 · 0.40 | 2 · 5/9 | 3/164 | 0/161 | fast bot taker |
+| Team 14 | 6 · 0.68 · 1.00 | 3 · 0.60 · 0.52 | 1 · 7/9 | 0/60 | 0/60 | fast bot taker |
+| Team 15 | 5 · 0.90 · 1.04 | 5 · 0.80 · 0.52 | 7.0 · 2/10 | 1/100 | 0/99 | slow or manual |
+| Team 16 | 3 · 0.50 · 0.97 | 3 · 0.40 · 0.40 | 3.5 · 3/6 | 2/111 | 0/109 | borderline (half within 2 ticks) |
+| Team 17 | 5 · 1.04 · 1.12 | 0 · — · — | 5 · 0/5 | 1/107 | 1/106 | slow or manual |
+| Team 18 | 0 · — · — | 3 · 1.00 · 0.92 | 28 · 0/3 | 0/26 | 0/26 | too few accepts to say |
 
-- **Fast bot takers: Team 2, Team 6, Team 13, Team 14, Team 16.** They accept a priced-right open offer within 1-2 ticks; an open ask or bid is enough for them. Everyone else needs a WhatsApp agreement first.
-- **Only Team 9 counters** (18 of 155 unfilled addressed offers answered with its own price, e.g. our LAV-02 ask at 8 → its bid at 2; a MAL-10 bid at 70 → its ask at 81). Its counter is its real price: accept it or leave it.
-- **Reaction to a 2nd bid, per team:** not measurable (too few cases per team). Market-wide a better re-listing fills no more often than the first (above).
-- **Sellers that hit bids below book:** Team 12 (10 bids hit, median 0.66), Team 6 (8, 0.70), Team 13 (5, 0.56; it sold MAL-10 into a 30 P bid), Team 16 (3, 0.40). Sellers that hold out for book or more: Team 18, Team 2, Team 9.
+- **Fast bot takers (more than half of ≥ 5 accepts within 2 ticks): Team 2, Team 6 (rival), Team 13 (rival), Team 14 (rival).** For these an open quote at a fair price can be enough. Every other team needs an agreement first.
+- **Team 9 is the only team that counters regularly** (16 of 121 unfilled addressed quotes answered with its own price within 8 ticks); others did it 1-3 times (Team 1 1, Team 2 1, Team 5 1, Team 8 2, Team 12 3, Team 17 1).
+- **Reaction to a 2nd bid, per team:** not measurable: no team has more than a handful of cases. See the market-wide re-pricing line above.
+- **Teams that have sold into bids (n ≥ 3; median and lowest price ÷ book):** Team 12 (rival) 10 · 0.66 · 0.40; Team 6 (rival) 8 · 0.70 · 0.50; Team 10 (rival) 6 · 0.90 · 0.60; Team 13 (rival) 5 · 0.56 · 0.40; Team 15 5 · 0.80 · 0.52; Team 2 4 · 1.50 · 0.40; Team 4 3 · 0.89 · 0.50; Team 8 3 · 0.80 · 0.56; Team 14 (rival) 3 · 0.60 · 0.52; Team 16 3 · 0.40 · 0.40; Team 18 (rival) 3 · 1.00 · 0.92.
 
 ### 0.3 Our Sunday buys: what closes within 2 ticks
 
-Simulation [L]: a posted open bid, raised every 2 ticks, against the Saturday fill table (it assumes Sunday's bots answer per tick as Saturday's did).
+**No bid, opening price, step or max closes within 2 ticks with any reliability [V]:** on Saturday 8 of 748 open bid quotes were hit within 2 ticks, and at book or above 2 of 30 (too few to put a percentage on). Over its whole life a bid at book or above was hit 6/30 times, median wait 49.5 ticks. What closes in the same tick is our own accept. So the answer is a procedure, not a price:
 
-| Ladder (price ÷ book) | closes within 2 ticks | within 10 ticks |
-|---|---|---|
-| open 0.8, step +0.1, max 1 | 2% | 10% |
-| open 1, step +0.1, max 1.3 | 2% | 40% |
-| open 1, step +0.15, max 1.6 | 2% | 40% |
-| open 1.3, step +0, max 1.3 | 20% | 67% |
-| open 1.6, step +0, max 1.6 | 20% | 67% |
+1. **A standing ask at or under our max: accept it the tick it appears** (one accept per tick; the trader's auto-accept). Nobody can snipe that.
+2. **No ask: agree by WhatsApp first**, then the seller posts the ask ADDRESSED to us on a 0% venue and we accept in that tick. Addressed, so no rival bot can take it.
+3. **Fallback: one open bid at the max, left standing**, no ladder. It is a slow tool (see the waits above), useful only if the seller's bot sells into bids.
 
-**No bid ladder closes within 2 ticks with any reliability** (the ≥ 1.3 row rests on 5 bids). What does close in the same tick is our own accept. So the rule is a procedure, not a price:
+Price rule used below: max = 0.8 × our value, rounded down (every buy keeps at least 20% of value as points); 'take' = the lower of 1.2 × book and that max.
 
-1. **A standing ask at or under our max: accept it the tick it appears** (one accept per tick; the trader's auto-accept does this). That is the only move nobody can snipe.
-2. **No ask: agree by WhatsApp first**, then the seller posts an ask addressed to us and we accept in the same tick. Addressed offers without that agreement fill 1% of the time.
-3. **Fallback bid** only for fast bot sellers (Teams 12, 6, 13, 16 hit bids): one bid at the max, not a ladder; raising it does not raise the odds.
+| Buy | Book | Our value | Take any team ask up to | Fallback bid (= max) | Note |
+|---|---|---|---|---|---|
+| CHA common | 10 | 16 | 12 | 12 | A team buy scores value − price; a dealer buy scores nothing but costs less (directive 00:25: Abuela commons accept 9). |
+| CHA uncommon | 25 | 40 | 30 | 32 | Directive 00:25: Abuela uncommons accept 22. |
+| CHA rare | 70 | 112 | 84 | 89 | **Directive 00:25 sets the dealer price: Pícaros CHA rare accept ≤ 54 (57 after one walk).** A team ask above that is only worth it for the points it scores (value − price) and if cash stays above the floor; the Operator decides per the 00:50 priority (CHA first). |
+| MAL-07 (uncommon) | 25 | 17.5; 64 as the card that closes the page | 14; 51 as the closer | 14 | **WhatsApp: Team 15** holds a spare (on Saturday it listed MAL-07 at 14 P on v10, addressed to Team 2; unfilled). Fills so far: 14, 17, 25, 26 P. Ask for an ask addressed to us on a 0% venue that is not v10 (we cannot trade on our own stall). |
+| MAL-09, MAL-10 (rares) | 70 | 49 each | 39 | 39 | **Not from teams at market prices.** MAL-10 fills: 30, 53, 65, 70, 74 P (the 30 was Team 2's bid addressed to Team 13). Live bids at the close: Team 9 56 P for MAL-10 (expires tick 1447), Team 9 56 P for MAL-09 (expires tick 1505), Team 6 31 P for MAL-09 (expires tick 1488). Team 9's are above our max, so a bid of ours would not be the best on the board. Directive 00:50: a Pícaros MAL rare at ≤ 49 is the route. |
 
-| Buy | Book | Our value | Take any ask up to | Fallback bid | Max | Note |
-|---|---|---|---|---|---|---|
-| CHA common | 10 | 16 | 12 | 10 | 13 | Saturday's new set (RET) cleared at 0.8-1.2 book for commons in the first hours, rares at 1.2 (84 P). Max = 0.8 × our value, so every buy keeps at least 20% of value as points. |
-| CHA uncommon | 25 | 40 | 30 | 25 | 32 | Saturday's new set (RET) cleared at 0.8-1.2 book for commons in the first hours, rares at 1.2 (84 P). Max = 0.8 × our value, so every buy keeps at least 20% of value as points. |
-| CHA rare | 70 | 112 | 84 | 70 | 90 | Saturday's new set (RET) cleared at 0.8-1.2 book for commons in the first hours, rares at 1.2 (84 P). Max = 0.8 × our value, so every buy keeps at least 20% of value as points. |
-| MAL-07 (uncommon) | 25 | 17.5 (+46 only as the card that closes the page) | 17 | none | 17; about 40 as the page closer | **WhatsApp: Team 15** holds the spare and listed it at 14 P on v10 on Saturday. History: 14, 17, 25, 26 P. Ask for an addressed ask at 14-16 P on a 0% venue (not v10: we cannot trade on our own stall). No live ask or bid at the close. |
-| MAL-09, MAL-10 (rares) | 70 | 49 each | 49 | none | 49 | **Do not chase from teams.** Team 9 has standing bids at 56 P for both, above our value; MAL-10's fills were 65, 70, 74 P, with one 30 P dump by Team 13 into a bid. From teams they cost more than they are worth to us; the directive's route (dealers first) stands. Take a team ask only at ≤ 49. |
-
-Our MAL page still lacks MAL-07, MAL-09 and MAL-10 [V, /api/me at 00:20]: MAL-07 is the closer only after both rares are in.
+Our MAL page lacks MAL-07, MAL-09, MAL-10 [V, /api/me, 00:20]; MAL-07 is the closer only once both rares are in. Cash 392 P at the close; the directives' floor and the +150 P at 09:00 govern what can be spent.
 
 ### 0.4 Our Sunday sells (spares only)
 
-Spares [V, /api/me]: LAV-02 ×2, LAV-03 ×1, LAV-04 ×1; LAT-03 and LAT-04 are single cards of a set we do not collect (LAT 0.5, 2 of 10 held).
+Spares [V, /api/me]: LAV-02 ×2, LAV-03 ×1, LAV-04 ×1. LAT-03 and LAT-04 are single cards of a set we hold 2 of 10 in (LAT 0.5). MAL-08 is never sold (directive 00:50).
 
-- **Our asks do not sell:** 1 of 328 asks filled on Saturday, against 4 of 22 bids. Market-wide an ask at ≤ 0.7 book fills 5% of the time and above that under 2%. Lowering the price is not the lever.
-- **What sells:** hitting a standing bid (immediate), or a pre-agreed buyer. No bid is live for any of our spares at the close; Saturday's LAV common fills were 3 to 10 P and the LAV buyers were Team 8 (3 buys), then Teams 9, 7, 4, 6, 13.
-- **Prices:** LAV commons: ask 7 (0.7 book) open on a member's 0% venue, floor 4 (our spare is worth 3.25 to us as a 2nd copy); LAT-03/04: ask 6, floor 5 (our value). One ask per card, no re-listing ladder: re-listings fill 1%.
-- **Best use of the LAV-02 spares:** Team 9 has asked for LAV-02 (matchmaker) and Team 9 counters with its own price: offer it by WhatsApp, expect a counter near 2-8 P, accept anything ≥ 4. The trade has to sit on another member's venue, so its VC goes to that member: a club favour, not v10 points.
+- **Our asks barely sold:** 1 of 195 ask quotes filled on Saturday. Our bids did better (4 of 21), but most of those were deals agreed beforehand, so the two are not like for like.
+- **Price matters for asks, within limits:** market-wide an open ask at ≤ 0.7 book filled 7% of the time, against 3% between 0.7 and 1.3. Even the cheap ones mostly do not sell: a buyer who wants the card has to exist.
+- **What sells for sure:** hitting a standing bid (immediate), or a buyer agreed by WhatsApp. No bid is live for any of our spares at the close. Saturday's LAV common fills: 3, 4, 4, 4, 6, 9 P; buyers: Team 8 3, Team 9 1, Team 4 1, Team 16 1.
+- **Prices:** LAV commons: one open ask at 7 (0.7 book) on a member's 0% venue, floor 4 (a 2nd copy is worth 3.25 to us). LAT-03/04: ask 6, floor 5 (our value 5). If unsold after 20 ticks, re-price once to the floor.
+- **LAV-02:** the matchmaker shows Team 9 looking for it, and Team 9 answers addressed quotes with its own price: offer by WhatsApp, accept a counter at ≥ 4. It has to sit on another member's venue, so its VC goes to that member, not to v10.
 
 ### 0.5 The 09:00 v10 list, in order, and who needs a WhatsApp first
 
@@ -101,16 +95,16 @@ Spares [V, /api/me]: LAV-02 ×2, LAV-03 ×1, LAV-04 ×1; LAT-03 and LAT-04 are s
 | 6 | Team 8 | Team 1 | SAL-03 | ~9 | +12.9 | YES: Team 8 (slow or manual); Team 1: outside the club, Chief's OK |
 | 7 | Team 9 | Team 16 | LAV-02 | ~9 | +11.2 | YES: Team 9 (slow or manual, counters); Team 16: outside the club, Chief's OK |
 | 8 | Team 7 | Team 1 | SAL-01 | ~9 | +7.8 | YES: Team 7 (slow or manual); Team 1: outside the club, Chief's OK |
-| 9 | Team 16 | Team 2 | RET-01 | ~9 | +7.4 | YES: Team 16: outside the club, Chief's OK |
-| 10 | Team 16 | Team 4 | RET-03 | ~9 | +7.1 | YES: Team 16: outside the club, Chief's OK |
+| 9 | Team 16 | Team 2 | RET-01 | ~9 | +7.4 | YES: Team 16 (borderline (half within 2 ticks)); Team 16: outside the club, Chief's OK |
+| 10 | Team 16 | Team 4 | RET-03 | ~9 | +7.1 | YES: Team 16 (borderline (half within 2 ticks)); Team 16: outside the club, Chief's OK |
 
-8 of the 10 buyers are slow or manual accepters, and the others sit outside the club, so **every row needs a WhatsApp (or the Chief's OK) first**; the seller then posts an OPEN ask on v10 at the agreed price and the buyer accepts (or posts the matching bid: the stall crosses them in that tick).
+**Every row needs a WhatsApp (or the Chief's OK) first.** Then the seller posts the ask on v10 ADDRESSED to the buyer at the agreed price (directive 21:20) and the buyer accepts. Addressed, because an open ask on v10 can be taken by a rival's fast bot (Teams 6, 13, 14 are fast takers), which would move the card to the wrong team and can turn the VC negative.
 
 ### 0.6 Who Team 10 trades with (to offer them better terms first)
 
-- **Team 10's own trades, both days [V]:** 16 in all: Team 6 3, Team 8 2, Team 12 2, Team 13 2, Team 4 1, Team 5 1, Team 1 1, Team 15 1, Team 3 1, Team 9 1, Team 17 1. It trades little and with everyone; no single partner dominates. Its two largest deals were with Team 8 (MAL-11 at 195) and Team 17 (SAL-11 at 207), both on El Rastro.
+- **Team 10's own trades, both days [V]:** 16 in all: Team 6 3, Team 8 2, Team 12 2, Team 13 2, Team 4 1, Team 5 1, Team 1 1, Team 15 1, Team 3 1, Team 9 1, Team 17 1. It trades little and with everyone; no partner dominates. Its two largest deals: MAL-11 bought from Team 8 at 195 P and SAL-11 sold to Team 17 at 207 P, both on El Rastro.
 - **Who fed its market v07 [V, §7]:** Team 6 (maker of 6 of 11 fills), us (4, stopped), Team 4 (1); takers Teams 12 and 14 (3 each); Team 8 is the heaviest lister there.
-- **Better terms first, in this order:** Team 8 (club candidate, heaviest v07 lister, already sold Team 10 its epic), Team 4 (club candidate, v07 maker), then Team 9 (it holds bids for the MAL rares Team 10 sells). Teams 6, 12, 13 and 14 are rivals: no terms, they follow listings. Team 1 is the reported ally.
+- **Better terms first, in this order:** Team 8 (club candidate, heaviest v07 lister), Team 4 (club candidate, v07 maker), then Team 9 (it bids for the MAL rares Team 10 holds). Teams 6, 12, 13 and 14 are rivals: no terms. Team 1 is the reported ally.
 
 ## 1. What Sunday is worth and what it takes
 
@@ -215,7 +209,7 @@ Incentive is fixed by the directive (Club Castizo, Sat 22:55): seller's bonus pe
 - **Metrics (the Market session logs them from the feed):** minutes from DM to listing · listing to fill · fills per arm by 09:30 · VC sign of each fill (mm before → after).
 - **09:30 decision:** the arm with more fills becomes the default. If neither has a fill, price is not the problem (Saturday: a 10 P rebate got zero listings in 105 minutes): move to swaps (no cash, both sides gain) and to asking in person in the room.
 - **Stop rule:** any fill that lowers mm: pause that seller's pitches and ask what it sold (a page card or an only copy).
-- **Prior [V, Saturday]:** 30 of 35 fills on team venues were open offers taken by board-scanning bots; 5 were addressed. On an auto stall a bid and an ask for the same card cross in the same tick whichever comes first [L].
+- **Prior [V, Saturday]:** 30 of 35 fills on team venues were open offers taken by board-scanning bots; 5 were addressed. On an auto stall a bid and an ask for the same card cross in the same tick whichever comes first [L]. In both arms the pair is agreed by WhatsApp and the quote is addressed (§0.5); the test is only who is asked to post first.
 
 ## 4. Desk question for Dani (in writing)
 
@@ -223,7 +217,7 @@ Incentive is fixed by the directive (Club Castizo, Sat 22:55): seller's bonus pe
 
 ## 5. Standing rules for v10 on Sunday
 
-- Open offers for cash trades (on Saturday 30 of 35 venue fills were open offers); swaps are addressed and accepted.
+- Pre-agreed pairs: the ask is ADDRESSED to the buyer on v10 (directive 21:20), so no rival bot can take it. Open offers only for inventory with no agreed buyer (on Saturday 30 of 35 venue fills were open offers taken by scanning bots, several of them rivals). Swaps are addressed and accepted.
 - Spares only on the giving side: the SAL-07 sale on v10 and the MAL swap on Team 7's stall each cost that venue its whole real-trades score (up to 5 points).
 - No rival buyers; page finishers only for teams more than 5 board below us.
 - Club deals on v10, none on v07 (directive 22:55).
