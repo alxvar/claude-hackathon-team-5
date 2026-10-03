@@ -220,7 +220,8 @@ def test_no_flip_for_t10_small_spreads_or_scores_and_rivals_are_held(tmp_path):
     assert r.handle(bid_to("t09", "RET-09", 75)) == []                # spread 12 to the Pícaros' 63
     held = r.handle(bid_to("t06", "SAL-11", 230))                     # t06: top 6
     assert held and held[0].startswith("FLIP-HOLD ") and "held:" in held[0]
-    assert r.handle(bid_to("t17", "SAL-11", 207))[0].startswith("FLIP-HOLD ")   # t17: a named rival (policy)
+    assert r.handle(bid_to("t17", "SAL-11", 207))[0].startswith("FLIP ")        # t17: > 5 below us, passes (22:20)
+    assert r.handle(bid_to("t13", "SAL-11", 207))[0].startswith("FLIP ")
     assert not any("FLIP-HOLD" in s[1] for s in sent)
 
 

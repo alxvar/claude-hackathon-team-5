@@ -18,9 +18,9 @@ It reads /api/events/stream (SSE, keyless: it takes none of the team key's 6 str
    the dealer menus (/api/dealers: list price per rarity) and what that dealer settled at lately (the median of the
    last 2 h, capped at list), only while the card has unminted copies (catalog print_run − minted) →
    `FLIP <bid> ...` when our score clears FLIP_MIN: the dealer leg scores min(0, our value − dealer price), the sale
-   min(50, bid − 1 − our value) (our ask addressed to them at bid − 1, as maker: no fee). A rival bidder
-   (policy.check: their gain unknown) or a card that may close the bidder's page within 6 of us: `FLIP-HOLD`, log
-   only. The Operator executes (team/lucas.md 22:13: dealer at <= list, cash >= 260 after the buy).
+   min(50, bid − 1 − our value) (our ask addressed to them at bid − 1, as maker: no fee). A live rival bidder
+   (top 6 or within 3 of us; Teams 13 and 17 pass otherwise, Chief 22:20) or a card that may close the bidder's page
+   within 6 of us: `FLIP-HOLD`, log only. The Operator executes (team/lucas.md 22:13: dealer at <= list, cash >= 260 after the buy).
    intel/flips.md: every open team bid for a rare, epic or legendary of the last 2 h (the HUNT digest) and the flips.
 When the stream drops it polls /api/feed every POLL_S and reconnects every RECONNECT_S; a reconnect backfills from
 /api/feed by event id, so nothing is handled twice or missed. Watch it: `tail -n 0 -F logs/reactor.log | grep
@@ -305,7 +305,7 @@ class Reactor:
         st = info.get("set")
         closer = (st is not None and 1 <= int(card.split("-")[1]) <= 10
                   and len(self._prog.get((bidder, st), ())) == 9 and card not in self._prog.get((bidder, st), ()))
-        ok, why = policy.check(bidder, teams=self.teams(), our_gain=sell, their_gain=None, page_closer=closer)
+        ok, why = self.flip_ok(bidder, closer)
         cash = self.cash()
         tag = "FLIP" if ok else "FLIP-HOLD"
         line = (f"{tag} {o['id']} · {card} {info.get('name', '')} ({info.get('rarity')}) · {bidder} bids {price} P on "
@@ -319,6 +319,20 @@ class Reactor:
             self.notifier("operator", f"FLIP {o['id']}: {card} {dealer} {est:g} → {bidder} {price}", "→ " + line,
                           priority=4, tags=["arrows_counterclockwise"])
         return self.emit(line)
+
+    def flip_ok(self, bidder: str, closer: bool) -> tuple[bool, str]:
+        """FLIP's counterparty rule (Chief 22:20): hold a live rival (top 6 or within 3 of us) and a page-closer for a
+        team < PAGE_CLOSER_GAP below us; Teams 13 and 17 pass when they are neither (the 15:55 fixed-rival rule dates
+        from when they were close: their gain is at most their own bid surplus, ours +20-50, the 3x test in practice)."""
+        teams = self.teams()
+        if not teams:
+            return False, "leaderboard unknown"
+        if bidder in policy.rivals(teams, ME):
+            return False, f"{bidder} is a live rival (top {policy.TOP_N} or within {policy.RIVAL_WITHIN:g} of us)"
+        g = policy.gap(bidder, teams, ME)
+        if closer and (g is None or g < policy.PAGE_CLOSER_GAP):
+            return False, f"page-closer for {bidder}: needs >= {policy.PAGE_CLOSER_GAP} below us (gap {g})"
+        return True, ""
 
     def digest(self, force: bool = False) -> None:
         """intel/flips.md: the open team bids for rare+ cards of the last 2 h, and today's flips (once a minute)."""
