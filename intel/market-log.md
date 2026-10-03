@@ -1,5 +1,13 @@
 # Market log (Market session; newest first)
 
+## Sat 11:10 · reciprocal check (snapshot 360) [V]
+- **Market: us 12.5 (#1 in market) · t12 12.39 · t10 11.84 · t06 9.39 · stall teams 7.5 · t08 7.41 · t13 3.33.**
+- v10: 1 trade (t10 → t01, MAL-07, 14 P, tick 311). v07: 1 trade, ours (t05 ↔ t03, SAL-01, 7 P, tick 351). **Ratio 1:1.**
+- Our trade on v07 gave Team 10 +4.34 at the next snapshot (7.5 → 11.84); our gap stays +5.0.
+- The stall teams' number has been flat at 7.5 since snapshot 330 (it grew 4.8 → 7.5 before): the bench part looks
+  fully grown; our +5.0 has not moved since the first trade [L: capped, or we set the top].
+- Gaps differ by venue (+5.0 us, +4.89 t12, +4.34 t10, +1.89 t06), so value created is graded, not all-or-nothing [L].
+
 ## Sat 10:50 · FIRST TRADE ON v10: +4.99 market points [V]
 - Tick 311 (10:45): Team 10 sold MAL-07 to Team 1 on v10 at 14 P (fee 0). Team 10's first offer on v10 was tick 263.
 - **Our market: 7.32 (snapshot 310, = stall teams) → 12.47 (snapshot 320); stall teams 7.48. Gap +4.99 from one trade.**
