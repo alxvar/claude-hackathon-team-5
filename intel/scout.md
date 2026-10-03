@@ -1,17 +1,17 @@
-# Scout (claude-sonnet-5-5, Sat 19:29)
+# Scout (claude-sonnet-5-5, Sat 19:34)
 
 ## Top 3 actions now
-1. **Sell the RET-09/RET-10 market: do NOT sell, but check demand.** Open bids are t07 RET-09 at 59 (offer 16658) and t09 at 51 (16212). Our RET-09/10 are worth 149.9 each, so any sale at 59 is a loss of about 91. Action: nobody sells. Operator keeps RET-09/10 reserved. Effect: protects the RET page bonus. Confidence: high.
-2. **Keep the spare-card book alive on non-rival buyers.** Our 7 open offers (16379, 16545, 16554, 16555, 16575, 16601, 16654) are all spares worth 1.3-7 each (MAL-08 17.5), to t09, t02, t15, t01. Operator (trader/book job) reprices any offer unfilled at expiry (16545 expires tick 1120; MAL-04 27 to t02 is above the 24.5 uncommon clearing level for a common-priced card, so cut it to ~9-12). Effect: small positive neg_points (+2 to +5 per team sale, e.g. tick 404 +2.0, tick 714 +2.0). Confidence: med.
-3. **Wait for the Duels II protocol (20:25) and keep the DENY line armed.** Rivals: t10 33.1, t6 32.1, t14 31.2. Per the 19:05 GUARDRAIL, Operator buys only on the Chief's "DENY <card> <offer id>" line (≤35 P incl. fee, cash ≥ 85, team seller). Cash is 120, so it is feasible. Effect: stops a rival's close of about +2.4 board at a cost of about −1 board. Confidence: med. The metrics show no live trigger yet.
+1. **Sell MAL-04 (offer 16545, 27 to t02) is stale; reprice via Operator.** It expires at tick 1120 and the book shows MAL-04 value 7 to us. Our other MAL asks sit at 9 (t15) and MAL-08 at 22 (t01). Evidence: t04 bids 19 P for MAL-06 (offer 16604), and Abuela buys uncommon at a median of 23. Action: Operator re-lists MAL-08 (17.5) at ~22 to t01 and asks t04 for MAL-06 at 19. The effect is a small gain of about +3 to +5 neg_points per sale, and it feeds no top-4 team (t01 is #12). Confidence: med.
+2. **Sell RET-09/RET-10 only to a non-rival, for a gain.** Bids: t07 59 P (16758) and t09 51 P (16212). Our held copies are worth 149.9 each with the page bonus, so selling at 59 would book a large loss. Do not sell. Confidence: high. This is a "don't" that protects roughly 90 neg_points.
+3. **Do not sell SAL-09/10, LAV-09/10 or RET-06/07/08 (page cards).** The SAL page is complete, so a sale books the bonus as a loss (t01 −4.27). Hold. Our spare copies are the only sellable stock: LAV-02 ×3 (1.3), LAV-03 ×2, LAV-04 ×2 (3.2), LAT-03/04 (5), MAL-01 to 05 (7). Operator lists spares as maker (no fee) on v15 or El Rastro to the lowest-ranked buyers: LAV-03 → t09 at 6 (16601) and LAV-04 → t01 at 7 (16654) are already live. Add LAV-02 spares at ~4 on v15 to t01 (LAV collector). Expected effect: +1 to +3 neg_points each, so about +0.1 board. Confidence: low-med.
 
 ## What the climbing teams are doing
-- **Team 10 (#1, 33.1, +1.6/15 min, +4.9/60 min)** has only 45 deals and 12 team trades. It bought RET-03 from t06 at 12 (tick 1033) and collects LAV/RET. Its climb comes from team trades and the t10-t01 alliance (per Lucas), not from dealers.
-- **Team 18 (+2.4/60 min)** buys RET/SAL. It is 37 deals, 22 dealer trades; the metrics show no big trade in the window. Cause is not in the data.
-- **Team 12 (+2.1/60 min, +1.6 per Dani's Δ)** has 59 deals and bought LAT-09 from t15 at 55 (tick 1101). It collects RET/MAL.
-- **Team 16 (+1.3/60 min)** bought RET-05, RET-07 and RET-08 from t15 at 5-13 (ticks 1022-1023) and RET-08 appears again at 24 (t09→t07, tick 1057). It is cheap RET buying from t15.
+- **Team 10 (#1, 33.8, +5.4 in 60 min):** it collects LAV/RET and prices c 11 u 26 r 70. It bought RET-03 from t06 at 12 (tick 1033). Its own venue v10 also scored from the trades we routed there (see directives 19:40).
+- **Team 18 (#5, +2.5/60 min):** it collects RET/SAL, bids LAT-10 at 47 (offer 16562), and has only 37 deals. It climbs on few, selective trades.
+- **Team 12 (#7, +2.7/60 min):** it collects RET/MAL and bought LAT-09 from t15 at 55 (tick 1101). It also had 61 deals, so it wins on volume plus one rare.
+- **Team 15 (#8, +2.0/60 min):** it sold RET-05/07/08 to t16 at 5/13/13 (tick 1022-23) and LAT-09 at 55. It is a seller of cheap cards with 59 deals.
 
 ## Threats
-- **t10 (#1, 33.1)** is the leader and collects LAV/RET. Their RET-09 bids are the same cards we hold. Never feed their venue or their t01 ally.
-- **Our own lead is thin.** We are #3 at 31.7 with flat 15-min change, 1.4 behind t10 and 0.5 ahead of t14. Our ladder and flags are spent and neg_points is flat at 119.1 since tick 988.
-- **Chato rare "median 29"** and Pilar rare 82 are dealer prices that rivals can use. If t07 or t09 get RET-09 via a dealer, they gain on us. Not in the data: who holds the RET rares.
+- **Team 10 (33.8) leads us by 1.9** and rose +1.7 in 15 minutes. Our v10 rebate (19:40) feeds its rival venue only if partners sell there. Keep partners off its venue (rule since 17:30).
+- **Team 14 and Team 18 are at 30.4, 1.5 behind us** (t14 −0.8 in 15 minutes, t18 +2.5 in 60). Do not sell them page closers. Per profiles, t18 collects RET/SAL.
+- **Duels II shares our 5 req/s limit** (Operator pause at 20:25). A mistimed accept during Duels II risks losing a duel deal. Our duel score is 13.93 with 68 finished.
