@@ -1,5 +1,16 @@
 # Market log (Market session; newest first)
 
+## Partner audit · Sat 13:11 · tick 603 · snapshot 600: stall teams 7.5 · us 7.5 (+0.00)
+- **Team 15** (v15, market 7.5 = +0.00): on v10 0 open offers, 1 trades (26 P) · ours on v15: 0 open offers, 0 trades (0 P)
+  - v10 trade tick 398: [('SAL-07', 't10', '→', 't15')] at 26
+- **Team 10** (v07, market 12.07 = +4.57): on v10 0 open offers, 2 trades (40 P) · ours on v07: 5 open offers, 2 trades (12 P)
+  - v10 trade tick 311: [('MAL-07', 't10', '→', 't01')] at 14
+  - v10 trade tick 398: [('SAL-07', 't10', '→', 't15')] at 26
+  - our trade on v07 tick 351: [('SAL-01', 't05', '→', 't03')] at 7
+  - our trade on v07 tick 404: [('MAL-03', 't04', '→', 't05')] at 5
+- **Team 3** (v20): no deal yet, nothing on v10.
+- **Alerts:** Team 10: no open offer on v10 now (2 trades so far); Team 10: offer imbalance, ours on v07 5 vs theirs on v10 0
+
 ## Sat 13:00 · who earns value created, and the broker verdict
 - **Trades on team venues since 11:30 [V]:** v14 (t14's stall) tick 418 LAT-07 t15 → t12 at 19 → t14 +4.36 · v17
   (t17's stall) tick 433 LAT-01 t15 → t12 at 7 → t17 +2.76 · v01 (t06) tick 556 SAL-10 rare t12 → t08 at 76 →
