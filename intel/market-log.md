@@ -1,5 +1,13 @@
 # Market log (Market session; newest first)
 
+## Sat 11:31 · v10 gap LOST: a value-destroying trade [V]
+- Tick 398 (11:29): Team 10 sold SAL-07 to Team 15 on v10 at 26 P. **Our mm_points: −5.2 (/api/me); market 12.5 → 7.5**
+  at snapshot 400 (= stall teams; a negative total looks floored at zero [L]). t10 12.5, t12 12.5, t06 9.99.
+- **Value created can be negative**: buyer's private value minus seller's. t15 does not collect SAL [L, Dani's profiles].
+- An auto stall crosses any crossing pair, so we cannot filter. Recovery needs > 5.2 of positive value on v10: sales
+  from a non-collector to a collector of that set; a page-completing buy is the largest.
+- Count: v10 2 trades (40 P, both with t10) · ours on v07 1 (7 P).
+
 ## Sat 11:10 · reciprocal check (snapshot 360) [V]
 - **Market: us 12.5 (#1 in market) · t12 12.39 · t10 11.84 · t06 9.39 · stall teams 7.5 · t08 7.41 · t13 3.33.**
 - v10: 1 trade (t10 → t01, MAL-07, 14 P, tick 311). v07: 1 trade, ours (t05 ↔ t03, SAL-01, 7 P, tick 351). **Ratio 1:1.**
