@@ -921,6 +921,171 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 1316,
+   "took_s": 8.98,
+   "cost_usd": 0.01521,
+   "obs": {
+    "view": {
+     "duel_id": 6022,
+     "role": "buyer",
+     "limit": 125,
+     "currency": "P",
+     "item": "La Dama de Serrano",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.43,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello, and thank you for meeting me. I would propose 107 P with delivery on day 10.",
+      "offer": {
+       "price": 107,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1307,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the opening, I appreciate it. I can do 78 P with delivery on day 10; a gap like this is a normal place to start.",
+      "offer": {
+       "price": 78,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1308,
+      "decision": {
+       "action": "offer",
+       "price": 78,
+       "message": "Thank you for the opening, I appreciate it. I can do 78 P with delivery on day 10; a gap like this is a normal place to start."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I appreciate it, thank you. Could we close at 95 P, delivery on day 10, please?",
+      "offer": {
+       "price": 95,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1308,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you, I appreciate the move. I can step up to 81 P with delivery on day 10, a real step toward meeting in the middle.",
+      "offer": {
+       "price": 81,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1309,
+      "decision": {
+       "action": "offer",
+       "price": 81,
+       "message": "Thank you, I appreciate the move. I can step up to 81 P with delivery on day 10, a real step toward meeting in the middle."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Fair enough, thank you. I will meet you partway: 90 P with delivery on day 10.",
+      "offer": {
+       "price": 90,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1309,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 90,
+     "days": 10
+    },
+    "tick": 1316,
+    "ticks_left": 7,
+    "rounds": 2,
+    "day_swings": [
+     39.8,
+     55.199999999999996,
+     36.2,
+     18.6,
+     45.099999999999994,
+     33.4,
+     62.599999999999994,
+     25.9,
+     13.200000000000001,
+     23.3,
+     14.299999999999999,
+     64.6,
+     9.399999999999999,
+     13.4
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 81 P, delivery on day 10.",
+    "price": 81,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 85,
+      "message": "Thank you, I appreciate the move. I can do 85 P with delivery on day 10, a fair step toward closing now."
+     },
+     "band": {
+      "worst": 90,
+      "target": 85,
+      "best": 84
+     },
+     "plan": {
+      "read": "They have come down steadily from 107 to 90 on day 10, a 17 P move against our 3, and have now held at 90 for several ticks. Their 90 is well within what works for us, and the 9 P gap is small next to how far both sides have already moved.",
+      "target": 85,
+      "best": 84,
+      "worst": 90,
+      "days": 10,
+      "angle": "Warm and decisive: propose 85 P on day 10 as a fair split toward closing now. If they would rather settle at their 90 P on day 10, accept it rather than drag this out."
+     },
+     "rule": "small step",
+     "drafted": 85,
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.14,
+       "in": 1050,
+       "out": 468,
+       "cost_usd": 0.01356,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.84,
+       "in": 521,
+       "out": 61,
+       "cost_usd": 0.00165,
+       "model": "claude-sonnet-5-5"
+      }
+     ],
+     "plain_text": [
+      "the message names 85: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "Thank you, I appreciate the move. I can do 85 P with delivery on day 10, a fair step toward closing now."
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [

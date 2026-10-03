@@ -956,3 +956,20 @@
 {"id": 65888, "tick": 1313, "t": 12.2667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5823, "session": 3, "status": "deal", "item": "Plaza del Dos de Mayo"}}
 {"id": 65891, "tick": 1313, "t": 12.2667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6005, "session": 3, "status": "deal", "item": "La Vía Láctea"}}
 {"id": 65894, "tick": 1313, "t": 12.2667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6196, "session": 3, "status": "deal", "item": "El Frutero de Argumosa"}}
+{"id": 65982, "tick": 1314, "t": 12.275, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5877, "session": 3, "status": "deal", "item": "La Vía Láctea"}}
+{"id": 65985, "tick": 1314, "t": 12.275, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5969, "session": 3, "status": "deal", "item": "Plaza del Dos de Mayo"}}
+{"id": 65988, "tick": 1314, "t": 12.275, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5996, "session": 3, "status": "deal", "item": "Plaza del Dos de Mayo"}}
+{"id": 65991, "tick": 1314, "t": 12.275, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6046, "session": 3, "status": "deal", "item": "Fiesta de San Cayetano"}}
+{"id": 66079, "tick": 1315, "t": 12.2833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5758, "session": 3, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 66082, "tick": 1315, "t": 12.2833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5882, "session": 3, "status": "no_deal", "item": "Plaza del Dos de Mayo"}}
+{"id": 66085, "tick": 1315, "t": 12.2833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6016, "session": 3, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 66088, "tick": 1315, "t": 12.2833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6197, "session": 3, "status": "deal", "item": "El Frutero de Argumosa"}}
+{"id": 66091, "tick": 1315, "t": 12.2833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6204, "session": 3, "status": "deal", "item": "Plaza del Dos de Mayo"}}
+{"id": 66170, "tick": 1316, "t": 12.2917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5894, "session": 3, "status": "deal", "item": "El Frutero de Argumosa"}}
+{"id": 66173, "tick": 1316, "t": 12.2917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5972, "session": 3, "status": "deal", "item": "El Frutero de Argumosa"}}
+{"id": 66176, "tick": 1316, "t": 12.2917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6000, "session": 3, "status": "deal", "item": "El Frutero de Argumosa"}}
+{"id": 66179, "tick": 1316, "t": 12.2917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6001, "session": 3, "status": "deal", "item": "El Frutero de Argumosa"}}
+{"id": 66182, "tick": 1316, "t": 12.2917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6029, "session": 3, "status": "no_deal", "item": "Plaza del Dos de Mayo"}}
+{"id": 66185, "tick": 1316, "t": 12.2917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6059, "session": 3, "status": "deal", "item": "Fiesta de San Cayetano"}}
+{"id": 66257, "tick": 1317, "t": 12.3, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5854, "session": 3, "status": "deal", "item": "El Frutero de Argumosa"}}
+{"id": 66260, "tick": 1317, "t": 12.3, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5895, "session": 3, "status": "deal", "item": "El Frutero de Argumosa"}}

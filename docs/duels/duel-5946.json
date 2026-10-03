@@ -122,6 +122,471 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1314,
+   "raw": {
+    "duel": 5946,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.33,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 124,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1323,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 9195,
+     "price": 164,
+     "tick": 1314,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 9169,
+     "price": 112,
+     "tick": 1314,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1309,
+      "from": "you",
+      "text": "I'm opening at 175 P for delivery on day 10. Happy to hear your counter.",
+      "price": 175,
+      "days": 10
+     },
+     {
+      "tick": 1314,
+      "from": "Rival Rojo",
+      "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 112.",
+      "price": 112,
+      "days": 5
+     },
+     {
+      "tick": 1314,
+      "from": "you",
+      "text": "I can come down to 164 P for delivery on day 10. I'd need to see real movement from your side to keep going.",
+      "price": 164,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1315,
+   "raw": {
+    "duel": 5946,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.33,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 124,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1323,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 9195,
+     "price": 164,
+     "tick": 1314,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 9204,
+     "price": 114,
+     "tick": 1315,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1309,
+      "from": "you",
+      "text": "I'm opening at 175 P for delivery on day 10. Happy to hear your counter.",
+      "price": 175,
+      "days": 10
+     },
+     {
+      "tick": 1314,
+      "from": "Rival Rojo",
+      "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 112.",
+      "price": 112,
+      "days": 5
+     },
+     {
+      "tick": 1314,
+      "from": "you",
+      "text": "I can come down to 164 P for delivery on day 10. I'd need to see real movement from your side to keep going.",
+      "price": 164,
+      "days": 10
+     },
+     {
+      "tick": 1315,
+      "from": "Rival Rojo",
+      "text": "I just moved for you. 114, your turn to meet me.",
+      "price": 114,
+      "days": 5
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1316,
+   "raw": {
+    "duel": 5946,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.33,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 124,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1323,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 9195,
+     "price": 164,
+     "tick": 1314,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 9237,
+     "price": 119,
+     "tick": 1316,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1309,
+      "from": "you",
+      "text": "I'm opening at 175 P for delivery on day 10. Happy to hear your counter.",
+      "price": 175,
+      "days": 10
+     },
+     {
+      "tick": 1314,
+      "from": "Rival Rojo",
+      "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 112.",
+      "price": 112,
+      "days": 5
+     },
+     {
+      "tick": 1314,
+      "from": "you",
+      "text": "I can come down to 164 P for delivery on day 10. I'd need to see real movement from your side to keep going.",
+      "price": 164,
+      "days": 10
+     },
+     {
+      "tick": 1315,
+      "from": "Rival Rojo",
+      "text": "I just moved for you. 114, your turn to meet me.",
+      "price": 114,
+      "days": 5
+     },
+     {
+      "tick": 1316,
+      "from": "Rival Rojo",
+      "text": "That was a real step from my side: 119.",
+      "price": 119,
+      "days": 5
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1316,
+   "raw": {
+    "duel": 5946,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.33,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 124,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1323,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 9264,
+     "price": 156,
+     "tick": 1316,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 9237,
+     "price": 119,
+     "tick": 1316,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1309,
+      "from": "you",
+      "text": "I'm opening at 175 P for delivery on day 10. Happy to hear your counter.",
+      "price": 175,
+      "days": 10
+     },
+     {
+      "tick": 1314,
+      "from": "Rival Rojo",
+      "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 112.",
+      "price": 112,
+      "days": 5
+     },
+     {
+      "tick": 1314,
+      "from": "you",
+      "text": "I can come down to 164 P for delivery on day 10. I'd need to see real movement from your side to keep going.",
+      "price": 164,
+      "days": 10
+     },
+     {
+      "tick": 1315,
+      "from": "Rival Rojo",
+      "text": "I just moved for you. 114, your turn to meet me.",
+      "price": 114,
+      "days": 5
+     },
+     {
+      "tick": 1316,
+      "from": "Rival Rojo",
+      "text": "That was a real step from my side: 119.",
+      "price": 119,
+      "days": 5
+     },
+     {
+      "tick": 1316,
+      "from": "you",
+      "text": "Thanks for the step; I can move to 156 P for delivery on day 10. Please keep moving toward me.",
+      "price": 156,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1317,
+   "raw": {
+    "duel": 5946,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.33,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 124,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1323,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 9264,
+     "price": 156,
+     "tick": 1316,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 9273,
+     "price": 146,
+     "tick": 1317,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1309,
+      "from": "you",
+      "text": "I'm opening at 175 P for delivery on day 10. Happy to hear your counter.",
+      "price": 175,
+      "days": 10
+     },
+     {
+      "tick": 1314,
+      "from": "Rival Rojo",
+      "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 112.",
+      "price": 112,
+      "days": 5
+     },
+     {
+      "tick": 1314,
+      "from": "you",
+      "text": "I can come down to 164 P for delivery on day 10. I'd need to see real movement from your side to keep going.",
+      "price": 164,
+      "days": 10
+     },
+     {
+      "tick": 1315,
+      "from": "Rival Rojo",
+      "text": "I just moved for you. 114, your turn to meet me.",
+      "price": 114,
+      "days": 5
+     },
+     {
+      "tick": 1316,
+      "from": "Rival Rojo",
+      "text": "That was a real step from my side: 119.",
+      "price": 119,
+      "days": 5
+     },
+     {
+      "tick": 1316,
+      "from": "you",
+      "text": "Thanks for the step; I can move to 156 P for delivery on day 10. Please keep moving toward me.",
+      "price": 156,
+      "days": 10
+     },
+     {
+      "tick": 1317,
+      "from": "Rival Rojo",
+      "text": "Happy to close at 146.",
+      "price": 146,
+      "days": 5
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1317,
+   "raw": {
+    "duel": 5946,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.33,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 124,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1323,
+    "decay_per_round": 0.08,
+    "rounds": 4,
+    "your_offer": {
+     "id": 9303,
+     "price": 153,
+     "tick": 1317,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 9273,
+     "price": 146,
+     "tick": 1317,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1309,
+      "from": "you",
+      "text": "I'm opening at 175 P for delivery on day 10. Happy to hear your counter.",
+      "price": 175,
+      "days": 10
+     },
+     {
+      "tick": 1314,
+      "from": "Rival Rojo",
+      "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 112.",
+      "price": 112,
+      "days": 5
+     },
+     {
+      "tick": 1314,
+      "from": "you",
+      "text": "I can come down to 164 P for delivery on day 10. I'd need to see real movement from your side to keep going.",
+      "price": 164,
+      "days": 10
+     },
+     {
+      "tick": 1315,
+      "from": "Rival Rojo",
+      "text": "I just moved for you. 114, your turn to meet me.",
+      "price": 114,
+      "days": 5
+     },
+     {
+      "tick": 1316,
+      "from": "Rival Rojo",
+      "text": "That was a real step from my side: 119.",
+      "price": 119,
+      "days": 5
+     },
+     {
+      "tick": 1316,
+      "from": "you",
+      "text": "Thanks for the step; I can move to 156 P for delivery on day 10. Please keep moving toward me.",
+      "price": 156,
+      "days": 10
+     },
+     {
+      "tick": 1317,
+      "from": "Rival Rojo",
+      "text": "Happy to close at 146.",
+      "price": 146,
+      "days": 5
+     },
+     {
+      "tick": 1317,
+      "from": "you",
+      "text": "Thank you, that was a big step. I can do 153 P for delivery on day 10, and I'd be glad to close it quickly on that.",
+      "price": 153,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -249,6 +714,631 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1314,
+   "took_s": 9.71,
+   "cost_usd": 0.01174,
+   "obs": {
+    "view": {
+     "duel_id": 5946,
+     "role": "seller",
+     "limit": 124,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.33,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm opening at 175 P for delivery on day 10. Happy to hear your counter.",
+      "offer": {
+       "price": 175,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1309,
+      "decision": {
+       "action": "offer",
+       "price": 175,
+       "message": "I'm opening at 175 P for delivery on day 10. Happy to hear your counter."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 112.",
+      "offer": {
+       "price": 112,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1314,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 112,
+     "days": 5
+    },
+    "tick": 1314,
+    "ticks_left": 9,
+    "rounds": 1,
+    "day_swings": [
+     39.8,
+     55.199999999999996,
+     36.2,
+     18.6,
+     45.099999999999994,
+     33.4,
+     62.599999999999994,
+     25.9,
+     13.200000000000001,
+     23.3,
+     14.299999999999999,
+     64.6,
+     9.399999999999999,
+     13.4
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can come down to 164 P for delivery on day 10. I'd need to see real movement from your side to keep going.",
+    "price": 164,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 164,
+      "message": "I can come down to 164 P for delivery on day 10. I'd need to see real movement from your side to keep going."
+     },
+     "vetoes": [
+      "the message could be read as accepting, but you are not accepting. Don't use words like 'deal', 'agree', 'accept', 'sounds good' or 'works for me' unless you accept."
+     ],
+     "band": {
+      "worst": 162,
+      "target": 164,
+      "best": 167
+     },
+     "plan": {
+      "read": "Their opening of 112 P on day 5 is well below what works for us, and the small talk is just a distraction. A middle day tells us nothing about which end of the delivery range they prefer, so this is an anchor to test, not a firm floor.",
+      "target": 164,
+      "best": 167,
+      "worst": 162,
+      "days": 10,
+      "angle": "Stay friendly and brief, skip the side chat, and counter at 164 P for delivery on day 10, signalling that a fair deal needs real movement from their side."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.38,
+       "in": 723,
+       "out": 306,
+       "cost_usd": 0.00901,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.33,
+       "in": 351,
+       "out": 61,
+       "cost_usd": 0.00131,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.0,
+       "in": 441,
+       "out": 54,
+       "cost_usd": 0.00142,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1315,
+   "took_s": 9.38,
+   "cost_usd": 0.01573,
+   "obs": {
+    "view": {
+     "duel_id": 5946,
+     "role": "seller",
+     "limit": 124,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.33,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm opening at 175 P for delivery on day 10. Happy to hear your counter.",
+      "offer": {
+       "price": 175,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1309,
+      "decision": {
+       "action": "offer",
+       "price": 175,
+       "message": "I'm opening at 175 P for delivery on day 10. Happy to hear your counter."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 112.",
+      "offer": {
+       "price": 112,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1314,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can come down to 164 P for delivery on day 10. I'd need to see real movement from your side to keep going.",
+      "offer": {
+       "price": 164,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1314,
+      "decision": {
+       "action": "offer",
+       "price": 164,
+       "message": "I can come down to 164 P for delivery on day 10. I'd need to see real movement from your side to keep going."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I just moved for you. 114, your turn to meet me.",
+      "offer": {
+       "price": 114,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1315,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 114,
+     "days": 5
+    },
+    "tick": 1315,
+    "ticks_left": 8,
+    "rounds": 2,
+    "day_swings": [
+     39.8,
+     55.199999999999996,
+     36.2,
+     18.6,
+     45.099999999999994,
+     33.4,
+     62.599999999999994,
+     25.9,
+     13.200000000000001,
+     23.3,
+     14.299999999999999,
+     64.6,
+     9.399999999999999,
+     13.4
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm holding at 164 P for delivery on day 10. I've already made a sizeable move, and I'd need a much bigger step from you before I move again.}",
+    "price": 164,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 164,
+      "message": "I'm holding at 164 P for delivery on day 10. I've already made a sizeable move, and I'd need a much bigger step from you before I move again.}"
+     },
+     "band": {
+      "worst": 160,
+      "target": 164,
+      "best": 164
+     },
+     "plan": {
+      "read": "They inched from 112 to 114 on day 5 and claim that is real movement. A 2 P step against our 11 is token, so treat their 'your turn' framing as pressure, not progress.",
+      "target": 164,
+      "best": 164,
+      "worst": 160,
+      "days": 10,
+      "angle": "Hold firm at 164 for day 10. Note calmly that we have already moved substantially, and that a much bigger step from them is needed before we move again."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.78,
+       "in": 921,
+       "out": 526,
+       "cost_usd": 0.0142,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.59,
+       "in": 421,
+       "out": 69,
+       "cost_usd": 0.00153,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 1316,
+   "took_s": 9.54,
+   "cost_usd": 0.0147,
+   "obs": {
+    "view": {
+     "duel_id": 5946,
+     "role": "seller",
+     "limit": 124,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.33,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm opening at 175 P for delivery on day 10. Happy to hear your counter.",
+      "offer": {
+       "price": 175,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1309,
+      "decision": {
+       "action": "offer",
+       "price": 175,
+       "message": "I'm opening at 175 P for delivery on day 10. Happy to hear your counter."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 112.",
+      "offer": {
+       "price": 112,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1314,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can come down to 164 P for delivery on day 10. I'd need to see real movement from your side to keep going.",
+      "offer": {
+       "price": 164,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1314,
+      "decision": {
+       "action": "offer",
+       "price": 164,
+       "message": "I can come down to 164 P for delivery on day 10. I'd need to see real movement from your side to keep going."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I just moved for you. 114, your turn to meet me.",
+      "offer": {
+       "price": 114,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1315,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 119.",
+      "offer": {
+       "price": 119,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1316,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 119,
+     "days": 5
+    },
+    "tick": 1316,
+    "ticks_left": 7,
+    "rounds": 2,
+    "day_swings": [
+     39.8,
+     55.199999999999996,
+     36.2,
+     18.6,
+     45.099999999999994,
+     33.4,
+     62.599999999999994,
+     25.9,
+     13.200000000000001,
+     23.3,
+     14.299999999999999,
+     64.6,
+     9.399999999999999,
+     13.4
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thanks for the step; I can move to 156 P for delivery on day 10. Please keep moving toward me.",
+    "price": 156,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 156,
+      "message": "Thanks for the step; I can move to 156 P for delivery on day 10. Please keep moving toward me."
+     },
+     "band": {
+      "worst": 154,
+      "target": 156,
+      "best": 158
+     },
+     "plan": {
+      "read": "They have moved from 112 to 119 on day 5, a real but modest step. Their middle day says nothing about their preferred end. Their offer is barely worth anything to us, so it is far from acceptable.",
+      "target": 156,
+      "best": 158,
+      "worst": 154,
+      "days": 10,
+      "angle": "Acknowledge their step and answer with one clear move to 156 P for day 10. Keep a firm, friendly tone and ask them to keep moving."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.51,
+       "in": 974,
+       "out": 467,
+       "cost_usd": 0.01324,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.03,
+       "in": 453,
+       "out": 55,
+       "cost_usd": 0.00146,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1317,
+   "took_s": 12.03,
+   "cost_usd": 0.0196,
+   "obs": {
+    "view": {
+     "duel_id": 5946,
+     "role": "seller",
+     "limit": 124,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.33,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm opening at 175 P for delivery on day 10. Happy to hear your counter.",
+      "offer": {
+       "price": 175,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1309,
+      "decision": {
+       "action": "offer",
+       "price": 175,
+       "message": "I'm opening at 175 P for delivery on day 10. Happy to hear your counter."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 112.",
+      "offer": {
+       "price": 112,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1314,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can come down to 164 P for delivery on day 10. I'd need to see real movement from your side to keep going.",
+      "offer": {
+       "price": 164,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1314,
+      "decision": {
+       "action": "offer",
+       "price": 164,
+       "message": "I can come down to 164 P for delivery on day 10. I'd need to see real movement from your side to keep going."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I just moved for you. 114, your turn to meet me.",
+      "offer": {
+       "price": 114,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1315,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 119.",
+      "offer": {
+       "price": 119,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1316,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the step; I can move to 156 P for delivery on day 10. Please keep moving toward me.",
+      "offer": {
+       "price": 156,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1316,
+      "decision": {
+       "action": "offer",
+       "price": 156,
+       "message": "Thanks for the step; I can move to 156 P for delivery on day 10. Please keep moving toward me."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Happy to close at 146.",
+      "offer": {
+       "price": 146,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1317,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 146,
+     "days": 5
+    },
+    "tick": 1317,
+    "ticks_left": 6,
+    "rounds": 3,
+    "day_swings": [
+     39.8,
+     55.199999999999996,
+     36.2,
+     18.6,
+     45.099999999999994,
+     33.4,
+     62.599999999999994,
+     25.9,
+     13.200000000000001,
+     23.3,
+     14.299999999999999,
+     64.6,
+     9.399999999999999,
+     13.4
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thank you, that was a big step. I can do 153 P for delivery on day 10, and I'd be glad to close it quickly on that.",
+    "price": 153,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 153,
+      "message": "Thank you, that was a big step. I can do 153 P for delivery on day 10, and I'd be glad to close it quickly on that."
+     },
+     "band": {
+      "worst": 153,
+      "target": 153,
+      "best": 154
+     },
+     "plan": {
+      "read": "They jumped from 119 to 146, still on day 5. That is a real concession and within our limit, but day 5 costs us a lot against day 10. Their \"happy to close\" talk only signals they want to finish; it is not a final position.",
+      "target": 153,
+      "best": 154,
+      "worst": 153,
+      "days": 10,
+      "angle": "Acknowledge their big step warmly and offer 153 for day 10 as a quick close, keeping the tone friendly and decisive."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 10.11,
+       "in": 1095,
+       "out": 676,
+       "cost_usd": 0.0179,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.91,
+       "in": 537,
+       "out": 63,
+       "cost_usd": 0.0017,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -305,6 +1395,188 @@
      "id": 8996,
      "price": 175,
      "tick": 1309,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1314,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can come down to 164 P for delivery on day 10. I'd need to see real movement from your side to keep going.",
+    "price": 164,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 164,
+      "message": "I can come down to 164 P for delivery on day 10. I'd need to see real movement from your side to keep going."
+     },
+     "vetoes": [
+      "the message could be read as accepting, but you are not accepting. Don't use words like 'deal', 'agree', 'accept', 'sounds good' or 'works for me' unless you accept."
+     ],
+     "band": {
+      "worst": 162,
+      "target": 164,
+      "best": 167
+     },
+     "plan": {
+      "read": "Their opening of 112 P on day 5 is well below what works for us, and the small talk is just a distraction. A middle day tells us nothing about which end of the delivery range they prefer, so this is an anchor to test, not a firm floor.",
+      "target": 164,
+      "best": 167,
+      "worst": 162,
+      "days": 10,
+      "angle": "Stay friendly and brief, skip the side chat, and counter at 164 P for delivery on day 10, signalling that a fair deal needs real movement from their side."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.38,
+       "in": 723,
+       "out": 306,
+       "cost_usd": 0.00901,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.33,
+       "in": 351,
+       "out": 61,
+       "cost_usd": 0.00131,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.0,
+       "in": 441,
+       "out": 54,
+       "cost_usd": 0.00142,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5946,
+    "offer": {
+     "id": 9195,
+     "price": 164,
+     "tick": 1314,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1316,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thanks for the step; I can move to 156 P for delivery on day 10. Please keep moving toward me.",
+    "price": 156,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 156,
+      "message": "Thanks for the step; I can move to 156 P for delivery on day 10. Please keep moving toward me."
+     },
+     "band": {
+      "worst": 154,
+      "target": 156,
+      "best": 158
+     },
+     "plan": {
+      "read": "They have moved from 112 to 119 on day 5, a real but modest step. Their middle day says nothing about their preferred end. Their offer is barely worth anything to us, so it is far from acceptable.",
+      "target": 156,
+      "best": 158,
+      "worst": 154,
+      "days": 10,
+      "angle": "Acknowledge their step and answer with one clear move to 156 P for day 10. Keep a firm, friendly tone and ask them to keep moving."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.51,
+       "in": 974,
+       "out": 467,
+       "cost_usd": 0.01324,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.03,
+       "in": 453,
+       "out": 55,
+       "cost_usd": 0.00146,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5946,
+    "offer": {
+     "id": 9264,
+     "price": 156,
+     "tick": 1316,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1317,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thank you, that was a big step. I can do 153 P for delivery on day 10, and I'd be glad to close it quickly on that.",
+    "price": 153,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 153,
+      "message": "Thank you, that was a big step. I can do 153 P for delivery on day 10, and I'd be glad to close it quickly on that."
+     },
+     "band": {
+      "worst": 153,
+      "target": 153,
+      "best": 154
+     },
+     "plan": {
+      "read": "They jumped from 119 to 146, still on day 5. That is a real concession and within our limit, but day 5 costs us a lot against day 10. Their \"happy to close\" talk only signals they want to finish; it is not a final position.",
+      "target": 153,
+      "best": 154,
+      "worst": 153,
+      "days": 10,
+      "angle": "Acknowledge their big step warmly and offer 153 for day 10 as a quick close, keeping the tone friendly and decisive."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 10.11,
+       "in": 1095,
+       "out": 676,
+       "cost_usd": 0.0179,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.91,
+       "in": 537,
+       "out": 63,
+       "cost_usd": 0.0017,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5946,
+    "offer": {
+     "id": 9303,
+     "price": 153,
+     "tick": 1317,
      "days": 10
     }
    }

@@ -834,6 +834,354 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1314,
+   "took_s": 10.04,
+   "cost_usd": 0.01508,
+   "obs": {
+    "view": {
+     "duel_id": 5892,
+     "role": "buyer",
+     "limit": 97,
+     "currency": "P",
+     "item": "Plaza del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 6.46,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hola, Rival Luna, voy con prisa: Plaza del Dos de Mayo por 106 y cerramos ya. Entrega en 10 días.",
+      "offer": {
+       "price": 106,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1309,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Hola, I can do 62 P with delivery on day 0. That's how we'd like it, and I think it's a fair place to start.",
+      "offer": {
+       "price": 62,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1309,
+      "decision": {
+       "action": "offer",
+       "price": 62,
+       "message": "Hola, I can do 62 P with delivery on day 0. That's how we'd like it, and I think it's a fair place to start."
+      }
+     },
+     {
+      "mine": false,
+      "text": "97 y lo cerramos ahora. Entrega en 10 días.",
+      "offer": {
+       "price": 97,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1310,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 69 P, with delivery on day 0. Day 0 is part of this offer for us.",
+      "offer": {
+       "price": 69,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1310,
+      "decision": {
+       "action": "offer",
+       "price": 69,
+       "message": "I can move to 69 P, with delivery on day 0. Day 0 is part of this offer for us."
+      }
+     },
+     {
+      "mine": false,
+      "text": "88, último paso. Entrega en 10 días.",
+      "offer": {
+       "price": 88,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1311,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 75 P, with delivery on day 0. Day 0 is fixed for us, so the price is what we can still discuss.",
+      "offer": {
+       "price": 75,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1311,
+      "decision": {
+       "action": "offer",
+       "price": 75,
+       "message": "I can move to 75 P, with delivery on day 0. Day 0 is fixed for us, so the price is what we can still discuss."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 88,
+     "days": 10
+    },
+    "tick": 1314,
+    "ticks_left": 11,
+    "rounds": 3,
+    "day_swings": [
+     39.8,
+     55.199999999999996,
+     36.2,
+     18.6,
+     45.099999999999994,
+     33.4,
+     62.599999999999994,
+     25.9,
+     13.200000000000001,
+     23.3,
+     14.299999999999999,
+     64.6,
+     9.399999999999999,
+     13.4
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "I'm staying where I am on price, with delivery on day 0. Let me know if you can move.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "I'm staying where I am on price, with delivery on day 0. Let me know if you can move."
+     },
+     "band": {
+      "worst": 75,
+      "target": 75,
+      "best": 74
+     },
+     "plan": {
+      "read": "They have sat at 88 P on day 10 for several ticks, calling it their last step; that is unproven. On day 10 that offer is far past what works for us, so it cannot be accepted. The price gap is 13 P, and this close no concession goes out yet.",
+      "target": 75,
+      "best": 74,
+      "worst": 75,
+      "days": 0,
+      "angle": "Hold quietly at 75 P with delivery on day 0 and send nothing new; if a message is needed, restate 75 on day 0 calmly and without new concessions."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.25,
+       "in": 1107,
+       "out": 452,
+       "cost_usd": 0.01347,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.78,
+       "in": 564,
+       "out": 48,
+       "cost_usd": 0.00161,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 1317,
+   "took_s": 11.37,
+   "cost_usd": 0.01786,
+   "obs": {
+    "view": {
+     "duel_id": 5892,
+     "role": "buyer",
+     "limit": 97,
+     "currency": "P",
+     "item": "Plaza del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 6.46,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hola, Rival Luna, voy con prisa: Plaza del Dos de Mayo por 106 y cerramos ya. Entrega en 10 días.",
+      "offer": {
+       "price": 106,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1309,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Hola, I can do 62 P with delivery on day 0. That's how we'd like it, and I think it's a fair place to start.",
+      "offer": {
+       "price": 62,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1309,
+      "decision": {
+       "action": "offer",
+       "price": 62,
+       "message": "Hola, I can do 62 P with delivery on day 0. That's how we'd like it, and I think it's a fair place to start."
+      }
+     },
+     {
+      "mine": false,
+      "text": "97 y lo cerramos ahora. Entrega en 10 días.",
+      "offer": {
+       "price": 97,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1310,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 69 P, with delivery on day 0. Day 0 is part of this offer for us.",
+      "offer": {
+       "price": 69,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1310,
+      "decision": {
+       "action": "offer",
+       "price": 69,
+       "message": "I can move to 69 P, with delivery on day 0. Day 0 is part of this offer for us."
+      }
+     },
+     {
+      "mine": false,
+      "text": "88, último paso. Entrega en 10 días.",
+      "offer": {
+       "price": 88,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1311,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 75 P, with delivery on day 0. Day 0 is fixed for us, so the price is what we can still discuss.",
+      "offer": {
+       "price": 75,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1311,
+      "decision": {
+       "action": "offer",
+       "price": 75,
+       "message": "I can move to 75 P, with delivery on day 0. Day 0 is fixed for us, so the price is what we can still discuss."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 88,
+     "days": 10
+    },
+    "tick": 1317,
+    "ticks_left": 8,
+    "rounds": 3,
+    "day_swings": [
+     39.8,
+     55.199999999999996,
+     36.2,
+     18.6,
+     45.099999999999994,
+     33.4,
+     62.599999999999994,
+     25.9,
+     13.200000000000001,
+     23.3,
+     14.299999999999999,
+     64.6,
+     9.399999999999999,
+     13.4
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm staying at 75 P with delivery on day 0. Day 0 is fixed for us, so price is the open question.",
+    "price": 75,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 75,
+      "message": "I'm staying at 75 P with delivery on day 0. Day 0 is fixed for us, so price is the open question."
+     },
+     "band": {
+      "worst": 75,
+      "target": 75,
+      "best": 75
+     },
+     "plan": {
+      "read": "They have come down 18 P (106 to 88) but have stayed on day 10 throughout. Day 10 costs us far too much for 88 to work, and their 'último paso' is unverified. They have been silent since our 75, which counts as a standoff, but a step this small would not go out before the final ticks anyway.",
+      "target": 75,
+      "best": 75,
+      "worst": 75,
+      "days": 0,
+      "angle": "Hold at 75 P with delivery on day 0 and send nothing new; if you do write, restate calmly that day 0 is fixed and that price is the open question."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.06,
+       "in": 1107,
+       "out": 517,
+       "cost_usd": 0.01477,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 3.31,
+       "in": 566,
+       "out": 196,
+       "cost_usd": 0.00309,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [
