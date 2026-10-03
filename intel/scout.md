@@ -1,17 +1,30 @@
-# Scout (claude-sonnet-5-5, Sat 12:17)
+# Scout (claude-sonnet-5-5, Sat 12:23)
 
 ## Top 3 actions now
-1. **Sell MAL-07 and MAL-06 to Doña Pilar (offer-only, ask 30, steps of 3, floor 18), Operator via `abuela_bot.py --dealer pilar`, as soon as she unlocks (~12:21).** Metrics show "pilar uncommon (team sells): median 18 over 2". Our MAL uncommons are worth 17.5 each, so the cost is 0 neg_points. The ladder test worked at Chato: LAT-08 sold at 14 moved the ladder 0.055 → 0.072 (+0.017). Per the 11:56 directive, +0.01 ladder ≈ +0.33 board points, so one Pilar sale could be worth about +0.5 board. Confidence: med. L3 weighting is [?], and whether Pilar's sells count above her opening bid is [L].
-2. **Hold SAL-08 on 7238 (to t03 at 25, expires tick 530) and take Pilar's SAL fever (~16:00-18:00, ≈31) if t03 doesn't fill it. Operator.** SAL-08 is worth 22.5 to us and the ask is 25, so a fill gains ≈ +2.5. Team 3 (#16, 17.2) passes the feeding rule. Pilar at ≈31 would give ≈ +8.5, and the sale is a dealer sale, so it also feeds the ladder. Confidence: low-med. The fever price comes from the operator log and is unverified.
-3. **Do not buy RET-09/10 or more RET cards at a loss; keep the RET page as is.** We hold RET-01 to RET-10 (cards worth 83.9 to 149.9 each). The RET page is incomplete (missing RET-11/12 epic and legendary). Team 2's bid of 59 on RET-10 (offer 7262) is below our 149.9 value, so decline it. Keep our two RET rares. Confidence: high. This protects value and costs nothing.
+
+1. **Pilar sells: MAL-07 then MAL-06, offer-only, ask 30, steps of 3, floor 18, Operator via `abuela_bot.py --dealer pilar --offer-only`.**
+   - Evidence: Pilar is open to all at tick 502, and her uncommon final is 18-19 (metrics: "pilar uncommon (team sells): median 18 over 3"). Offer 7376 (MAL-07 at 30 to pilar) is still open and expires at tick 507, so re-post it with a longer life: ask 2× the ticks wanted. MAL-07 and MAL-06 are each worth 17.5 to us, so a close at ≥18 costs 0 neg.
+   - Effect: a sell above her opening bid (16) should move the L3 ladder. The Chato LAT-08 precedent moved it +0.017 (≈ +0.33 board per 0.01). Our level is 3.
+   - Confidence: med (n=1 for sells moving the ladder; the Pilar rate is unmeasured).
+   - Measure the ladder delta after the first deal and stop if it does not move. The thread must be alone in its window and the offer-only rule applies.
+
+2. **Sell SAL-08 to Pilar only at ≥ 23 (our value is 22.5).** Operator, offer-only.
+   - Evidence: the t03 offer 7238 at 25 is still open. The directive 12:13 says SAL-08 → Pilar. Her SAL fever is not yet confirmed by the metrics.
+   - Effect: a possible second ladder deal at no neg cost. If t03 accepts at 25, we gain +2.5 over value with no neg effect. Cancel 7238 before opening the Pilar thread.
+   - Confidence: low-med.
+
+3. **Hold the RET page: do not sell RET-09/10 or RET-06/07/08.** We hold all of RET 01-10 (RET-01 to 05, RET-06/07/08, RET-09/10). Team 2 bids 59 for RET-10 (offer 7262), well below our value of 149.9. Decline it.
+   - Evidence: the metrics list RET holdings at 83.9-149.9 per card. Selling at 59 would be a large loss.
+   - Effect: protects the value of the collection. Our LAV page is complete (LAV-01 to 10 held), so check whether our extra RET cards close the RET page via a team trade, which scores up to +50 per trade.
+   - Confidence: high on "no sale". The RET page-completion path is [Open]: its gaps are not in the data.
 
 ## What the climbing teams are doing
-- **Team 12 (#1, 32.2, +5.8/15 min):** 24 dealer trades, with Abuela at −23.1% (best in the field). It collects RET/MAL and prices commons at 8 and uncommons at 23. It bought SAL-05 at 8 at tick 383 and LAT-07 at 19 at tick 418. It buys cheap sets from the low-ranked teams.
-- **Team 17 (#4, +7.5/60 min):** it collects MAL/SAL/LAV, with 3 MAL and 3 SAL buys. It is below us in volume (20 deals) but climbing, so it is converting dealer deals into ladder points.
-- **Team 14 (#2, +5.9/60 min):** it collects LAV/RET/LAT. It took RET-08 from Team 13 at 20 at tick 370, and has 21 deals against our 36.
-- **Team 13** unlocked Pilar early (tick 262, "3 deals with chato") and has 49 deals, the most in the field. Its ladder lead is the gap we are working on.
+- **Team 12 (#1, +5.8 in 15 min)** collects RET/MAL and dumps SAL/LAV. It has 24 dealer trades with Abuela at −23.1%, and the feed shows trades such as SAL-05 to t09. It is ahead of us and is not to be fed.
+- **Team 17 (#6, +1.7 / +6.4 over 60 min)** buys MAL×3 and SAL×3 from teams and earlier took SAL-09 at 75. It is on the page path for MAL/SAL.
+- **Team 14 (#2)** collects LAV/RET/LAT. It bought LAT×4 and RET×2 and took RET-08 from t13 at 20 (tick 370).
+- **Team 15 (#12 in rivals, +4.7)** has 17 team trades, buys LAT×6, MAL×3 and RET×2, and is the main MAL/LAT sink for our spares.
 
 ## Threats
-- **Team 13 and Team 12 sit above us (#3 and #1), and any trade on v03 or v02 feeds them.** Do not trade on their venues. Our v10 also went negative (mm_points −5.2) from a t10 → t15 SAL-07 trade, so collector-only sales matter.
-- **We are #6 (25.2) with Team 18 at 26.6 and Team 2 at 24.4 close behind.** A ±1 swing can change our rank, and Team 18 collects RET, the same set as our bids.
-- **Team 2 bids RET-10 at 59 and SAL-09 at 66.** It wants RET rares, the same cards we hold. Never sell RET-09/10 to it: the 149.9 values dwarf the bid.
+- **Team 2 and Team 18 buy RET** (Team 18 collects RET/LAT). They may compete for the RET cards we hold, and Team 2 has bids on RET-02 and RET-10.
+- **Team 13 (#3) keeps feeding on venue trades** (MAL×6 and SAL×2 buys). Avoid selling it MAL/SAL, and do not trade on v03.
+- **Our `mm_points` is −5.2.** A sale to a lower-multiplier buyer on v10 reduces it. Only collector-buys should happen on our venue.
