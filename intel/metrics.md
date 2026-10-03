@@ -1,4 +1,4 @@
-# Metrics (auto, 14:15, game tick 630)
+# Metrics (auto, 14:17, game tick 630)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -113,9 +113,9 @@ Asks by others (card, price: count): MAL-01 14: 2; MAL-05 6: 2; LAV-04 10: 2; MA
 
 ## Latest announcements
 
-- tick 502 level.unlocked: {"team": "t15", "name": "Team 15", "persona": "pilar", "persona_name": "Do\u00f1a Pilar", "level": 3, "why": "open to everyone now"}
 - tick 502 level.unlocked: {"team": "t16", "name": "Team 16", "persona": "pilar", "persona_name": "Do\u00f1a Pilar", "level": 3, "why": "open to everyone now"}
 - tick 502 level.unlocked: {"team": "t17", "name": "Team 17", "persona": "pilar", "persona_name": "Do\u00f1a Pilar", "level": 3, "why": "open to everyone now"}
 - tick 502 level.unlocked: {"team": "t18", "name": "Team 18", "persona": "pilar", "persona_name": "Do\u00f1a Pilar", "level": 3, "why": "open to everyone now"}
 - tick 630 level.announced: {"level": "taller", "kind": "taller", "name": "The Workshop", "teaser": "\u00abThree spares. One surprise.\u00bb"}
+- tick 630 level.announced: {"level": "picaros", "kind": "persona", "name": "Los P\u00edcaros", "teaser": "\u00abQuick deals. Few questions.\u00bb"}
 

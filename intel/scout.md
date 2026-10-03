@@ -1,17 +1,29 @@
-# Scout (claude-sonnet-5-5, Sat 14:14)
+# Scout (claude-sonnet-5-5, Sat 14:19)
 
 ## Top 3 actions now
-1. **Keep swaps 9172 (t15) and 9173 (t07) live, and re-time them for the unpause.** The clock has been paused since tick 630, so both offers expire at tick 650 unrefreshed. The Operator (trade.py) re-posts them at 2× the ticks wanted, since the server halves `expires_in_ticks`. Evidence: t15↔t07 swapped 3× at ticks 607-616 for 0 P, and the Operator's log shows 9172 at +14.3 and 9173 at +3.8 for us. Effect: up to ~+18 neg_points (≈ +1.7 board at 0.094) as maker, no fee. Confidence: med. Neither team is in the top 4 (t15 21.9, t07 17.3).
-2. **Finish SAL-06 from Abuela (thread 868, cap 25), then sell it to Pilar at ≥ 25 with small steps.** Evidence: her 29 → 25 earlier, we held at 22 and the offer expired; the current thread is at 29, ours 21. Pilar uncommon finals are 18-19, and her SAL-08 deal closed at 23 (+0.019). Move by −2/−3 steps and never repeat a price; she mirrors step size. Effect: the buy is loss-capped (value 9×? SAL is 0.9, so 22.5; at 25 that is ≈ −2.5 neg), and the Pilar resale gives about +0.02-0.04 ladder (≈ +0.7-1.3 board). Confidence: low-med. Whether SAL-06 sells to Pilar at ≥ 25 is not in the data; her measured uncommon range is 18-23.
-3. **Hold the one lunch-bargain buy slot (≥ 50 gain, ≤ 100 total) on the bargain watch.** Lucas's guardrail applies: seller outside the top 5, value re-read first. Evidence: a page-closer scored the +50 cap twice (LAV-05, RET-01). The LAV-11-style buy is the use case; LAV-11 itself (Team 8, #13) is outside the top 5. Effect: up to +50 neg (≈ +4.7 board). Confidence: low; nothing has hit `logs/bargains.log` yet.
+
+1. **Close the two swaps already on the book (offers 9172 → t15, 9173 → t07, both expire tick 650). Executor: Operator, via `trade.py`; Lucas can nudge t15 and t07 in the room.**
+   - Evidence: t15↔t07 swapped 3× at ticks 607-616 (0 P each). 9172 gives LAT-04 (2nd) + MAL-04 for SAL-07, about +14.3 for us. 9173 gives LAV-02 (2nd) for MAL-01, about +3.8.
+   - Effect: about +18 neg_points if both fill, with no fee as maker. Both counterparties are #14 and #17, far below us.
+   - Confidence: med. The game clock is paused at tick 630, so expiries may slip.
+
+2. **Hold the SAL-06 Abuela thread 868 (her 29, our 21) only up to cap 25, and don't chase it with a Chato buy.**
+   - Evidence: Abuela's SAL-06 offer went 29 → 27 → 25 and stopped at 25 against our 22. Chato offered 32 against our 26. Pilar's uncommon sale median is 18, and the Chief's plan has us re-selling to Pilar at ≥25.
+   - Expected effect: a buy at ≤25 costs 0 neg_points if SAL-06 is worth ≥25 to us. Its ladder value comes only from the Pilar resale, which is uncertain. Resale at 25 vs her 18 median is not in the data as achievable.
+   - Confidence: low. The resale price is unverified, and her finals land around 18-19 for uncommons.
+
+3. **Pilar sells: move spare uncommons to her with small steps (−2/−3) and offer-only, to lift the L3 ladder (now 0.181).**
+   - Evidence: MAL-06 at 19 with small steps gave +0.040, while SAL-08 after a jump gave +0.019. Pilar's median uncommon sale is 18 over 5 deals in the last 60 ticks.
+   - Effect: roughly +0.02 to +0.04 ladder per sale, replacing our weakest L3 slot. Only sell at ≥ our value. This needs a spare uncommon, and our holdings list shows none outside the page sets (the SAL-07 from action 1 would be one).
+   - Executor: the Operator with `abuela_bot.py --dealer pilar --ladder --offer-only`.
+   - Confidence: med.
 
 ## What the climbing teams are doing
-- **Team 14 (#1, 30.8)** is a high-volume common seller: RET-01/02/03/04 sold to t15/t04/t09 at 9 each (ticks 591-598). It collects LAV/LAT and dumps MAL/RET.
-- **Team 10 (#3, 28.9, +4.1 in 60 min)** bought MAL-10 from Team 3 for 74 P (tick 585). The profile shows a 197-listing book, and it is the team that sells us RET-01.
-- **Team 18 (#4, 28.8, +2.2 in 60 min)** is climbing while holding steady at 29 deals. It collects RET/LAT and dumps MAL/LAV. Its +2.2 is not explained by any trade in the metrics.
-- **Team 6 (#9) gained +4.6 in 60 min** and sells MAL/LAT/LAV. The trade that drove it is not in the data.
+- **Team 14 (#1, 30.8)** sells RET commons at 9 to t04, t09 and t15 (ticks 591-598) while it collects LAV/LAT. It also buys SAL-03 at 5. It is a steady volume seller of dumps.
+- **Team 15 and Team 7** swap card-for-card at 0 P (ticks 607-616, LAV-08↔LAV-06, LAT-03↔MAL-08, MAL-01↔SAL-02). Each side moves a dump for a collected card.
+- **Team 10 (#3, +4.1 per hour)** bought MAL-10 at 74 (tick 585) and sells SAL (SAL-10 → t06, per Lucas's plan). Team 6 (+4.6 per hour) lists 296 offers.
 
 ## Threats
-- **Team 12 (#2) and Team 14 (#1) both collect LAT/RET.** Any RET or LAT card we sell to them feeds a top-4 team; avoid it (the feeding rule).
-- **Our score is falling:** −0.8 over 15 min while the game is paused. The relative scale is moving against us. The gap to Team 14 is 2.7 points.
-- **Team 13 (#7, 57 deals, −1.2) is pushing trades onto its venue v03**, and trades there feed it. We accept there only for gains ≥ 15.
+- **Team 13 (#7, 57 deals)** is bidding 2 P for our RET commons (RET-01/02/03). It is a lowball and nothing to fill; it also runs the v03 venue.
+- **Team 4** bids 27 and 26 for RET-08 and RET-06 and 64 for LAT-09. It competes for RET uncommons, and we hold RET-06/07/08 for our page.
+- **Our score is slipping:** −0.8 in 15 min, with Team 10 (+4.1) and Team 18 (+2.2) rising within 1-2 points of us. The lunch pause freezes this, but anything that feeds #1-#4 is a threat.
