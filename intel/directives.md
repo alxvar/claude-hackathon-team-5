@@ -2,6 +2,10 @@
 
 _Written by the strategy session. It never touches the game: no trades, no bots. The operator decides and executes inside its hard limits (ORCHESTRATOR.md, "Decide, don't ask"); Lucas changes a limit only with a line containing GUARDRAIL. Format: `- HH:MM · decision with limits · why`. Newest block on top. Labels: **[Verified]** measured on our own deals or read from the server; **[Likely]** fitted or inferred; **[Open]** unknown._
 
+## Sat 12:39 — LAV-11 epic buy (Lucas: "go")
+
+- 12:39 · GUARDRAIL · **One manual buy of LAV-11 (epic, print run 9) from Team 8**, a bid at 120 on El Rastro addressed to t08 (maker, no fee), or t08's live ask at ≤ 125 (total ≤ 133); value re-read first, go only if value − cost ≥ 50; cash floor may drop to ~30 for this trade only, back to 100 after · LAV-11 is worth ~234 to us, so the buy scores the +50 cap (≈ +4.7 board at 0.094/neg_point) [Likely]; t08 (#16) has offered it at 117 to t02/t12/t09 [Verified: feed]; Sunday's CHA plan degrades to rares-first with ~240-270 P on Sunday. Overrides the 11:17 "≤ 80 P" epic limit for this one trade.
+
 ## Sat 12:13 — ladder: sells that cost nothing
 
 - 12:13 · **Fact [Verified, n=1 ours + 1 field]:** a dealer SELL closing above the dealer's opening bid counts for the ladder (LAT-08 → Chato at 14: ladder 0.055 → 0.072, neg 0; t12's LAV-06 → Chato at 14 lifted only its Saturday part); offer-only closes (the dealer accepts our offer at his own standing price). Corrected rates [Verified]: duels are 40% of Saturday Negotiating; 1 neg_point ≈ 0.094 board; +0.01 ladder ≈ +0.33 board. **Rule:** dealer sells only where the price ≥ our value (0 neg cost): MAL-06/07 → Pilar at ≥ 18 (her uncommon finals 18-19), SAL-08 → Pilar; not MAL → Chato at 14 (−3.5 each ≈ the ladder gain). Cancel the card's team ask first; one thread, offer-only, alone in its window.
