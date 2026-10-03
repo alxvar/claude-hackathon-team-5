@@ -1,0 +1,120 @@
+{
+  "_about": "Story texts for the judges' showcase (http://127.0.0.1:8765/show). Dani edits this file; the page re-reads it every minute, no restart needed. Live numbers come from the dashboard's /api/data. In headlines, {name} is replaced by a live value: {rank}, {score}, {teams}, {session}, {ours_total}, {deal_pct}, {field_pct}, {lost_pct}. Never put a price we might use in the room, our cash floor or anything from .env here. Design: Figma file 'Team 5 · Judges showcase' (https://www.figma.com/design/picVx0KcLHR9uY0ctMuVTu).",
+  "title": "Team 5 · The Bazaar",
+  "event": "Causa Prima hackathon · Madrid, Oct 2–4 · showcase for the judges",
+  "credits": "Team 5 · Aleks, Dani, Lucas",
+
+  "hero": {
+    "eyebrow": "01 · Who we are",
+    "headline": "Three humans, many agents, one shared brain.",
+    "pages_note": "LAV and RET",
+    "market_note": "the bench stall, 0 % fee",
+    "since_tick": 459,
+    "since_label": "Duels I"
+  },
+
+  "race": {
+    "eyebrow": "02 · The race",
+    "headline": "The score is relative: standing still is falling. Every jump on the blue line has a cause.",
+    "days": [{"tick": 160, "label": "Saturday →"}],
+    "first_day": "Fri",
+    "max_moves": 4,
+    "move_labels": {"155": "LAV page", "280": "RET page", "320": "Trade on our 0 % venue", "560": "Duels I + ladder"}
+  },
+
+  "waterfall": {
+    "eyebrow": "03 · Why we moved (Duels I)",
+    "headline": "Duels and the dealer ladder added ten points; the new weights took back 3.4.",
+    "start_tick": 459,
+    "end_tick": null,
+    "parts": [
+      {"label": "Duels", "value": 5.9, "evidence": "L", "cause": "30 deals of 34; duel points 0 → 13.93"},
+      {"label": "Ladder", "value": 4.4, "evidence": "L", "cause": "four dealer sells at no neg_points cost (ladder 0.055 → 0.181)"},
+      {"label": "Weights", "value": -3.4, "evidence": "L", "cause": "duels became 40 % of Saturday Negotiating, so trades count × 0.6"}
+    ],
+    "rest": {"label": "Field", "evidence": "?", "cause": "the rest: rivals copied the dealer-sell play; the score is relative"},
+    "source": "Start and end: GET /api/me [V] · split: intel/score-model.md §0, §1b [L] · field = the remainder"
+  },
+
+  "duels": {
+    "eyebrow": "04 · {session} ({ours_total} scored duels)",
+    "headline": "Our duel agent closed {deal_pct} % of its duels; the field closed {field_pct} %. Rounds are the cost we cut next.",
+    "extra_tile": {"label": "Short deals keep more", "value": "95 % vs 57 %", "delta": "kept in 0–1 rounds vs 7+ rounds", "source": "team/aleks.md 13:20 · intel/score-model.md §1d", "evidence": "V"},
+    "transcript_duel": 2447,
+    "transcript_title": "Duel 2447 · we sell a stall at Mercado de la Paz",
+    "transcript_fallback": [
+      {"us": true, "price": 130, "text": "Given the quality of what Mercado de la Paz offers and its prime location, I'm proposing 130 P."},
+      {"us": false, "price": 98, "text": "Hello, and thank you for meeting me. I would propose 98 P for this one."},
+      {"us": true, "price": 122, "text": "I'm willing to make a measured step down to 122 P in good faith."},
+      {"us": false, "price": 118, "text": "I appreciate it, thank you. Could we close at 118 P, please?"}
+    ],
+    "transcript_result": "Deal at 118 P · 2 rounds · 28.3 points kept"
+  },
+
+  "how": {
+    "eyebrow": "05 · How it works",
+    "headline": "Code collects the facts, LLMs advise, a single Operator acts, and humans only set the limits.",
+    "columns": [
+      {"name": "Facts", "nodes": [
+        {"kind": "code", "name": "Collector", "detail": "tools/collector.py · every ~15 s · no LLM"},
+        {"kind": "code", "name": "Metrics", "detail": "tools/metrics.py → intel/metrics.md", "file": "intel/metrics.md"},
+        {"kind": "code", "name": "Team hub", "detail": "Neon · two collectors on two machines"},
+        {"kind": "code", "name": "Rival dashboard", "detail": "Dani's laptop → intel/teams.md", "file": "intel/teams.md"}
+      ]},
+      {"name": "Advice", "nodes": [
+        {"kind": "agent", "name": "Scout", "detail": "Sonnet · every 5 min → intel/scout.md", "file": "intel/scout.md"},
+        {"kind": "agent", "name": "Judge", "detail": "Opus · every 15 min → intel/judge.md", "file": "intel/judge.md"},
+        {"kind": "agent", "name": "Strategist", "detail": "Opus · every 45 min → intel/strategy.md", "file": "intel/strategy.md"}
+      ]},
+      {"name": "Decisions", "nodes": [
+        {"kind": "agent", "name": "Chief of staff", "detail": "one Claude Code session → intel/directives.md", "file": "intel/directives.md"},
+        {"kind": "human", "name": "Lucas", "detail": "GUARDRAIL lines: limits, cash floor, venue", "file": "team/lucas.md"}
+      ]},
+      {"name": "Actions", "nodes": [
+        {"kind": "agent", "name": "Operator", "detail": "the only game writer for trades and dealers", "file": "intel/opportunities.md"},
+        {"kind": "agent", "name": "Duelist", "detail": "Opus strategist + Sonnet negotiator inside code guards", "file": "team/aleks.md"},
+        {"kind": "code", "name": "Accept arbiter", "detail": "1 accept per tick; a scored duel goes first"},
+        {"kind": "human", "name": "Dani", "detail": "points teams at offers already live in the room"}
+      ]}
+    ],
+    "git_title": "Everything logs to git",
+    "git_text": "team/*.md · intel/*.md · docs/duels/ · each person writes only their own file; a hook pulls on every prompt and pushes at the end of each turn",
+    "source": "judges/demo.md slide 2 · last seen = last commit of that file on GitHub (git log origin/main)"
+  },
+
+  "loop": {
+    "eyebrow": "06 · The learning loop",
+    "headline": "Every loss we measured became a rule, and most rules became code with a test.",
+    "cards": [
+      {"title": "Autoflip overpaid a dealer", "measured": "MAL-07 bought at 29, worth 17.5 to us: −11.8 neg_points", "rule": "Never buy from a dealer above our value", "enforced": "Code: autoflip retired; the ladder mode never pays above value", "source": "LOG.md F13 · team/lucas.md Fri 22:01", "evidence": "V"},
+      {"title": "We fed a rival", "measured": "Sold SAL-06 to a team that collects SAL: it went 15.5 → 23.7 and passed us", "rule": "Page-closing cards only to teams ≥ 10 points below us, never to the top 4", "enforced": "Code: the SELL filter in tools/opportunities.py and the dashboard's sell table", "source": "team/dani.md Fri 22:35 · PLAN.md rule 5", "evidence": "L"},
+      {"title": "A trade on our venue destroyed value", "measured": "A buyer who doesn't collect the set traded on our 0 % venue: market points +4.99 → −5.2, #3 → #7", "rule": "Trades on our venue must be buys by collectors", "enforced": "The Operator: our asks go only to collectors of the set", "source": "intel/directives.md 11:31 · intel/GAME.md", "evidence": "V"},
+      {"title": "A duel left points on the table", "measured": "Duel 181: the rival's offer was inside our limit and no deal closed: ≈ 10.6 P lost", "rule": "Accept any in-limit offer before the deadline", "enforced": "Code: the duelist accepts an in-limit offer by 2 ticks left, with a test", "source": "intel/duel-review.md · docs/duelist-runbook.md", "evidence": "V"}
+    ]
+  },
+
+  "facts": {
+    "eyebrow": "07 · What we measured",
+    "headline": "We learn the rules by measuring them, and label every finding.",
+    "items": [
+      {"fact": "Per-trade cap", "value": "+50 per trade, flat (or 5× book)", "source": "our two page-closing trades · intel/GAME.md · n = 2", "evidence": "V"},
+      {"fact": "Dealer gains", "value": "don't score: neg_points 0 → 0", "source": "two clean windows, Sat 09:41–09:45 · intel/GAME.md · n = 2", "evidence": "V"},
+      {"fact": "Duel result", "value": "surplus × (1 − decay)^rounds", "source": "30 practice duels; duels 277, 278 · intel/GAME.md", "evidence": "V"},
+      {"fact": "Saturday Negotiating", "value": "0.6 × (trades + ladder) + duel part", "source": "five teams scaled by exactly 0.600 · intel/score-model.md §1b", "evidence": "V"},
+      {"fact": "Page bonus", "value": "66.25 × the set's multiplier", "source": "/api/me/value before and after · intel/GAME.md", "evidence": "V"},
+      {"fact": "Game clock", "value": "one game hour = one wall hour", "source": "ticks 159 → 173 · intel/directives.md 09:37", "evidence": "V"}
+    ]
+  },
+
+  "cost": {
+    "eyebrow": "08 · Cost",
+    "headline": "Duels I cost $1.62 in model calls: about five cents a duel.",
+    "tiles": [
+      {"label": "Duelist (Opus + Sonnet)", "value": "$1.62", "delta": "34 scored duels · ≈ $0.05 each", "source": "team/aleks.md 13:20"},
+      {"label": "Dealer narrator (Sonnet)", "value": "$0.0007", "delta": "per message", "source": "team/lucas.md 10:35"},
+      {"label": "Analysts (Sonnet, Opus)", "value": "TBD", "delta": "being tallied", "source": "judges/show.json"},
+      {"label": "Facts layer and dashboards", "value": "$0", "delta": "plain code, no LLM", "source": "tools/ · dashboard/ · hub/"},
+      {"label": "Claude Code sessions", "value": "$0 API", "delta": "they run on personal plans", "source": "CLAUDE.md"}
+    ]
+  }
+}
