@@ -1,4 +1,4 @@
-# Opportunities (auto, 13:18, game tick 617, t 6.4667 h)
+# Opportunities (auto, 13:19, game tick 619, t 6.4833 h)
 
 Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and ≤ 60 real min old · ≤ 3 alerts/h · team 45 min · team+card 2 h · never to the top 4 (t10, t12, t14, t18); a sale that closes their page (last or second-to-last known lack) only to teams ≥ 10 below us (28.62); page-closers on El Rastro, the rest on v07. Data: collector.
 
@@ -6,10 +6,10 @@ Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and �
 
 | # | side | team | card | price | our value | gain | signal | age (game / real min) | status |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | SELL | Team 7 (#17, 17.01) | SAL-05 common | 40 | 9 | 31 | asked abuela to sell it (tick 128) | 260 / 889 | listed only: signal 889 real min old (game clock paused?) |
-| 2 | SELL | Team 3 (#16, 20.48) | SAL-02 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 208) | 205 / 205 | no: only 8.14 below us (needs ≥ 10) |
-| 3 | SELL | Team 3 (#16, 20.48) | SAL-05 common | 40 | 9 | 31 | bid 9 P for it (tick 182) | 218 / 218 | no: only 8.14 below us (needs ≥ 10) |
-| 4 | SELL | Team 8 (#12, 22.32) | SAL-03 common | 40 | 9 | 31 | bid 5 P for it (tick 142) | 246 / 876 | no: only 6.3 below us (needs ≥ 10) |
+| 1 | SELL | Team 7 (#17, 17.01) | SAL-05 common | 40 | 9 | 31 | asked abuela to sell it (tick 128) | 261 / 890 | listed only: signal 890 real min old (game clock paused?) |
+| 2 | SELL | Team 3 (#16, 20.48) | SAL-02 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 208) | 206 / 206 | no: only 8.14 below us (needs ≥ 10) |
+| 3 | SELL | Team 3 (#16, 20.48) | SAL-05 common | 40 | 9 | 31 | bid 9 P for it (tick 182) | 218 / 219 | no: only 8.14 below us (needs ≥ 10) |
+| 4 | SELL | Team 8 (#12, 22.32) | SAL-03 common | 40 | 9 | 31 | bid 5 P for it (tick 142) | 247 / 877 | no: only 6.3 below us (needs ≥ 10) |
 
 ## Alerts (newest first)
 
