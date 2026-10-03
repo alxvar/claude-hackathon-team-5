@@ -269,3 +269,4 @@ La Caña sigue en 10 P, hijo. Y un consejo: una página entera vale mucho más q
 - Sat 22:25 · message tick 1376 · abuela → t10 · ¡Ay, qué ilusión, tres páginas enteras! Mañana me las enseñas todas, hijo, con calma.
 
 La Caña te la dejo en 10 P, cariño. Y esta noche a las nueve y media abre El Chato para todos; pregúntale por la del Manzanares. Le gusta la gente que trata derecho.
+- Sat 22:34 · message tick 1393 · chato → t06 · Como Dios manda, sí. Vermut primero, bocata después. Ya que estamos de buenas: La Heroína del Dos de Mayo, 97 P. Ni un céntimo escondido.
