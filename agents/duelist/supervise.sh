@@ -2,6 +2,7 @@
 # Keep the duelist alive: if the process dies (crash, network, server restart), start it again after 5 s.
 # The duel records live in docs/duels/ and the game keeps each duel's messages, so a restart picks the duels up.
 #   agents/duelist/supervise.sh --negotiator-model claude-sonnet-5-5      (any `run` flags)
+#   agents/duelist/supervise.sh ... --days-read auto|flip|unsure           (PLAN #24: day-reading override, default auto)
 # Ctrl-C stops both the run and the loop. The laptop stays awake while it runs (caffeinate on macOS).
 cd "$(dirname "$0")/../.." || exit 1
 UV="$HOME/.local/bin/uv"; [ -x "$UV" ] || UV="$(command -v uv)"   # pyenv shims can shadow a working uv
