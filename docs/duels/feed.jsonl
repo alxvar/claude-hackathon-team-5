@@ -309,3 +309,4 @@
 {"id": 22872, "tick": 459, "t": 5.15, "type": "duels.scheduled", "scope": "public", "actor": "", "payload": {"session": 2, "name": "Duels I", "duels": 306, "rounds": 1, "duel_ticks": 16, "decay": 0.06}}
 {"id": 23076, "tick": 461, "t": 5.1667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2390, "session": 2, "status": "deal", "item": "Mercado de la Paz"}}
 {"id": 23158, "tick": 462, "t": 5.175, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2391, "session": 2, "status": "deal", "item": "Mercado de la Paz"}}
+{"id": 23284, "tick": 464, "t": 5.1917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2297, "session": 2, "status": "deal", "item": "El Mesón de la Cava"}}

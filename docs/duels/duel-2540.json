@@ -67,6 +67,58 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 464,
+   "raw": {
+    "duel": 2540,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 71,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 480,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 2778,
+     "price": 110,
+     "tick": 464,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2777,
+     "price": 68,
+     "tick": 464,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 464,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 68. Thank you for your time.",
+      "price": 68,
+      "days": null
+     },
+     {
+      "tick": 464,
+      "from": "you",
+      "text": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts.",
+      "price": 110,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -177,6 +229,65 @@
     }
    },
    "hold": false
+  }
+ ],
+ "sent": [
+  {
+   "tick": 464,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts.",
+    "price": 110,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 110,
+      "message": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts."
+     },
+     "band": {
+      "worst": 106,
+      "target": 110,
+      "best": 112
+     },
+     "plan": {
+      "read": "No messages yet; we open. No market info, so we open ambitiously with room to concede.",
+      "target": 110,
+      "best": 112,
+      "worst": 106,
+      "days": null,
+      "angle": "Open confidently, stressing the quality and uniqueness of El Mesón de la Cava, and invite their offer."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 2.99,
+       "in": 210,
+       "out": 102,
+       "cost_usd": 0.00288,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.18,
+       "in": 174,
+       "out": 95,
+       "cost_usd": 0.0013,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2540,
+    "offer": {
+     "id": 2778,
+     "price": 110,
+     "tick": 464,
+     "days": 0
+    }
+   }
   }
  ]
 }
