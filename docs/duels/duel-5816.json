@@ -968,6 +968,130 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1332,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 5816,
+     "role": "seller",
+     "limit": 72,
+     "currency": "P",
+     "item": "El Frutero de Argumosa",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.53,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm opening at 115 P with delivery on day 10. I think that's a fair starting point, and I'm happy to hear your response.",
+      "offer": {
+       "price": 115,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1321,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 107 P, delivery on day 10.",
+      "offer": {
+       "price": 107,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1327,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 99 P, delivery on day 10.",
+      "offer": {
+       "price": 99,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1328,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 91 P, delivery on day 10.",
+      "offer": {
+       "price": 91,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1329,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 82 P, delivery on day 10.",
+      "offer": {
+       "price": 82,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1330,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 74 P, delivery on day 10.",
+      "offer": {
+       "price": 74,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1331,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1332,
+    "ticks_left": 3,
+    "rounds": 0,
+    "day_swings": [
+     25.299999999999997,
+     22.0,
+     27.599999999999998,
+     77.4,
+     27.799999999999997,
+     8.4,
+     59.900000000000006
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "Let me think about that.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "blocked": {
+      "fallback": "past the limit despite the band",
+      "blocked": {
+       "rule": "silent rival",
+       "calls": []
+      },
+      "calls": []
+     }
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [

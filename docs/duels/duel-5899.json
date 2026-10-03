@@ -303,6 +303,82 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1332,
+   "raw": {
+    "duel": 5899,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Dama de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.76,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 98,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1336,
+    "decay_per_round": 0.08,
+    "rounds": 0,
+    "your_offer": {
+     "id": 9777,
+     "price": 83,
+     "tick": 1332,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1322,
+      "from": "you",
+      "text": "I can do 62 P with delivery on day 0. I'm open to talking if you come back with a reasonable counter.",
+      "price": 62,
+      "days": 0
+     },
+     {
+      "tick": 1328,
+      "from": "you",
+      "text": "I can do 66 P, delivery on day 0.",
+      "price": 66,
+      "days": 0
+     },
+     {
+      "tick": 1329,
+      "from": "you",
+      "text": "I can do 70 P, delivery on day 0.",
+      "price": 70,
+      "days": 0
+     },
+     {
+      "tick": 1330,
+      "from": "you",
+      "text": "I can do 75 P, delivery on day 0.",
+      "price": 75,
+      "days": 0
+     },
+     {
+      "tick": 1331,
+      "from": "you",
+      "text": "I can do 79 P, delivery on day 0.",
+      "price": 79,
+      "days": 0
+     },
+     {
+      "tick": 1332,
+      "from": "you",
+      "text": "I can do 83 P, delivery on day 0.",
+      "price": 83,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -768,6 +844,113 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1332,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 5899,
+     "role": "buyer",
+     "limit": 98,
+     "currency": "P",
+     "item": "La Dama de Serrano",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.76,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I can do 62 P with delivery on day 0. I'm open to talking if you come back with a reasonable counter.",
+      "offer": {
+       "price": 62,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1322,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 66 P, delivery on day 0.",
+      "offer": {
+       "price": 66,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1328,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 70 P, delivery on day 0.",
+      "offer": {
+       "price": 70,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1329,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 75 P, delivery on day 0.",
+      "offer": {
+       "price": 75,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1330,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 79 P, delivery on day 0.",
+      "offer": {
+       "price": 79,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1331,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1332,
+    "ticks_left": 4,
+    "rounds": 0,
+    "day_swings": [
+     25.299999999999997,
+     22.0,
+     27.599999999999998,
+     77.4,
+     27.799999999999997,
+     8.4,
+     59.900000000000006
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 83 P, delivery on day 0.",
+    "price": 83,
+    "days": 0,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -893,6 +1076,29 @@
      "id": 9736,
      "price": 79,
      "tick": 1331,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1332,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 83 P, delivery on day 0.",
+    "price": 83,
+    "days": 0,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 5899,
+    "offer": {
+     "id": 9777,
+     "price": 83,
+     "tick": 1332,
      "days": 0
     }
    }

@@ -1046,5 +1046,77 @@
     "settles_at_tick": 1332
    }
   }
- ]
+ ],
+ "last_seen_tick": 1332,
+ "done": {
+  "duel": 5965,
+  "session": 3,
+  "status": "deal",
+  "role": "buyer",
+  "item": "La Dama de Serrano",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 2.78,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 115,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Plata",
+  "deadline_tick": 1340,
+  "decay_per_round": 0.08,
+  "rounds": 1,
+  "your_offer": {
+   "id": 9610,
+   "price": 70,
+   "tick": 1326,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 9761,
+   "price": 76,
+   "tick": 1331,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1326,
+    "from": "you",
+    "text": "Happy to get started: I can do 70 P with delivery on day 0. Curious to hear where you land.",
+    "price": 70,
+    "days": 0
+   },
+   {
+    "tick": 1326,
+    "from": "Rival Plata",
+    "text": "We can do 85 P, delivery on day 0. Thank you for the talk.",
+    "price": 85,
+    "days": 0
+   },
+   {
+    "tick": 1327,
+    "from": "Rival Plata",
+    "text": "80 P, delivery on day 0 works well for us.",
+    "price": 80,
+    "days": 0
+   },
+   {
+    "tick": 1329,
+    "from": "Rival Plata",
+    "text": "Our offer is 77 P, delivery on day 0.",
+    "price": 77,
+    "days": 0
+   },
+   {
+    "tick": 1331,
+    "from": "Rival Plata",
+    "text": "Let's meet at 76 P, delivery on day 0, fair for both.",
+    "price": 76,
+    "days": 0
+   }
+  ],
+  "result": 35.9,
+  "price": 76,
+  "days": 0
+ }
 }

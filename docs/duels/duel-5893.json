@@ -675,6 +675,108 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1331,
+   "raw": {
+    "duel": 5893,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Plaza del Dos de Mayo",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.2,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 65,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 1334,
+    "decay_per_round": 0.08,
+    "rounds": 4,
+    "your_offer": {
+     "id": 9764,
+     "price": 92,
+     "tick": 1331,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 9734,
+     "price": 84,
+     "tick": 1331,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1318,
+      "from": "Rival Luna",
+      "text": "Hola, Rival Sol, voy con prisa: 58 por Plaza del Dos de Mayo y cerramos ya. Entrega inmediata.",
+      "price": 58,
+      "days": 0
+     },
+     {
+      "tick": 1318,
+      "from": "you",
+      "text": "I can do 140 P, delivery on day 0.",
+      "price": 140,
+      "days": 0
+     },
+     {
+      "tick": 1319,
+      "from": "Rival Luna",
+      "text": "67 y lo cerramos ahora. Entrega inmediata.",
+      "price": 67,
+      "days": 0
+     },
+     {
+      "tick": 1319,
+      "from": "you",
+      "text": "I appreciate the move, and I'm making a real one back: 128 P, delivery on day 0.",
+      "price": 128,
+      "days": 0
+     },
+     {
+      "tick": 1320,
+      "from": "Rival Luna",
+      "text": "Venga, 76; no tengo mucho tiempo. Entrega inmediata.",
+      "price": 76,
+      "days": 0
+     },
+     {
+      "tick": 1320,
+      "from": "you",
+      "text": "I see you moving up, thanks. I can come down to 120 P on day 0, but I'd need bigger steps from you to go further.",
+      "price": 120,
+      "days": 0
+     },
+     {
+      "tick": 1323,
+      "from": "you",
+      "text": "Let's break the standoff: I can move to 113 P, delivery on day 0. I'd need a real step up from you to go further.",
+      "price": 113,
+      "days": 0
+     },
+     {
+      "tick": 1331,
+      "from": "Rival Luna",
+      "text": "84, último paso. Entrega inmediata.",
+      "price": 84,
+      "days": 0
+     },
+     {
+      "tick": 1331,
+      "from": "you",
+      "text": "I'm making a big move here: 92 P, delivery on day 0. That meets you most of the way, so let's wrap this up.",
+      "price": 92,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1828,6 +1930,164 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1332,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 5893,
+     "role": "seller",
+     "limit": 65,
+     "currency": "P",
+     "item": "Plaza del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.2,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hola, Rival Sol, voy con prisa: 58 por Plaza del Dos de Mayo y cerramos ya. Entrega inmediata.",
+      "offer": {
+       "price": 58,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1318,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 140 P, delivery on day 0.",
+      "offer": {
+       "price": 140,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1318,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67 y lo cerramos ahora. Entrega inmediata.",
+      "offer": {
+       "price": 67,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1319,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate the move, and I'm making a real one back: 128 P, delivery on day 0.",
+      "offer": {
+       "price": 128,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1319,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Venga, 76; no tengo mucho tiempo. Entrega inmediata.",
+      "offer": {
+       "price": 76,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1320,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I see you moving up, thanks. I can come down to 120 P on day 0, but I'd need bigger steps from you to go further.",
+      "offer": {
+       "price": 120,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1320,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Let's break the standoff: I can move to 113 P, delivery on day 0. I'd need a real step up from you to go further.",
+      "offer": {
+       "price": 113,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1323,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "84, último paso. Entrega inmediata.",
+      "offer": {
+       "price": 84,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1331,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm making a big move here: 92 P, delivery on day 0. That meets you most of the way, so let's wrap this up.",
+      "offer": {
+       "price": 92,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1331,
+      "decision": {
+       "action": "offer",
+       "price": 92,
+       "message": "I'm making a big move here: 92 P, delivery on day 0. That meets you most of the way, so let's wrap this up."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 84,
+     "days": 0
+    },
+    "tick": 1332,
+    "ticks_left": 2,
+    "rounds": 4,
+    "day_swings": [
+     25.299999999999997,
+     22.0,
+     27.599999999999998,
+     77.4,
+     27.799999999999997,
+     8.4,
+     59.900000000000006
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 84,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -2127,6 +2387,25 @@
      "tick": 1331,
      "days": 0
     }
+   }
+  },
+  {
+   "tick": 1332,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 84,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 84,
+    "settles_at_tick": 1333
    }
   }
  ]
