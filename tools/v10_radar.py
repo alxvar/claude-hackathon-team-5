@@ -1,0 +1,235 @@
+"""v10 radar: find the team that should buy each ask on our stall, and hand Lucas a ready DM (Chief, Sat 11:55).
+
+Value created on our stall v10 (buyer's value − seller's value, when two OTHER teams trade there) scores market
+points for us; one good trade ≈ +5 board, a bad one (−10.2) cost us. Every tick this reads v10's public board and,
+for each ask (cards for cash), ranks the likely buyers with the bots' buyer model:
+- collects the set (tools/collectors.py: teams.md "collects", feed bids ≥ half book, dealer asks; "dumps" vetoes);
+- lacks that card (opportunities.read_signals: a bid or dealer ask for it not followed by getting one), and doesn't
+  hold it (a 2nd copy is worth 25%);
+- values the set above the seller: est. value created = book × (buyer's multiplier − seller's), multipliers from the
+  hub's demand model (hub.team_mult) when reachable, else 1.0 [L].
+Never the top 4, never the seller or us, and never a team within 10 points of us for a card that may close its page
+(it lacks at most one other card of the set). A strong match pages Lucas once per (ask, buyer) with a ready WhatsApp DM
+and is logged to intel/v10-radar.md. Read-only: it never trades.
+
+    python3 -u tools/v10_radar.py            # every tick (tools/daemons.sh start radar)
+    python3 tools/v10_radar.py --once --dry  # print, send and write nothing
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import sys
+import time
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "bazaar-kit"))
+sys.path.insert(0, str(ROOT / "tools"))
+from bazaar_sdk import _Http  # noqa: E402
+from collectors import CachedCollectors, set_of  # noqa: E402
+import opportunities as op  # noqa: E402
+
+URL = os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai")
+VENUE, ME = "v10", "t05"
+OUT, STATE, FEED = ROOT / "intel" / "v10-radar.md", ROOT / "run" / "v10_radar_state.json", ROOT / "data" / "feed.jsonl"
+MIN_VC = 5.0          # est. value created for a buyer that hasn't shown it lacks the card
+FEED_GAP = 10         # a page-closing card only to teams at least this far below us
+SET_NAMES = {"SAL": "Salamanca", "LAT": "La Latina", "LAV": "Lavapiés", "MAL": "Malasaña", "RET": "El Retiro",
+             "CHA": "Chamberí"}
+HEADER = ("# v10 radar: buyers for the asks on our stall\n\n_Written by `tools/v10_radar.py`. Each line: an ask on v10, "
+          "the likely buyer, why, and the DM sent to Lucas. Est. value created = book × (buyer's multiplier − "
+          "seller's), multipliers from the hub's model [L]._\n\n")
+
+try:
+    from notify import notify as _notify
+except Exception:  # noqa: BLE001
+    _notify = None
+
+
+def hub_mult() -> dict:
+    """{team: {set: e_mult}} from the hub's latest model run; {} when the hub isn't reachable."""
+    try:
+        sys.path.insert(0, str(ROOT))
+        from hub.db import connect
+        with connect("reader") as c:
+            cur = c.cursor()
+            cur.execute("select team, set, e_mult from hub.team_mult where run_id = (select max(run_id) from hub.team_mult)")
+            out: dict = {}
+            for team, s, e in cur.fetchall():
+                out.setdefault(team, {})[s] = float(e)
+            return out
+    except Exception:  # noqa: BLE001
+        return {}
+
+
+def load_events(path: Path = FEED) -> list:
+    events = []
+    try:
+        with path.open() as f:
+            for line in f:
+                try:
+                    events.append(json.loads(line))
+                except ValueError:
+                    continue
+    except OSError:
+        pass
+    return sorted((e for e in events if isinstance(e.get("tick"), int) and e.get("id") is not None),
+                  key=lambda e: (e["tick"], e["id"]))
+
+
+def card_index(catalog: dict) -> dict:
+    return {c["id"]: {"set": s["id"], "rarity": c["rarity"], "book": c["book"], "name": c.get("name", c["id"])}
+            for s in catalog.get("sets", []) for c in s.get("cards", [])}
+
+
+def sellers(events) -> dict:
+    """offer id → the team that listed it (the board shows a pseudonym; the feed names the maker)."""
+    out = {}
+    for e in events:
+        if e.get("type") == "offer.listed":
+            o = (e.get("payload") or {}).get("offer") or {}
+            if o.get("id") is not None:
+                out[o["id"]] = o.get("maker") if op.is_team(o.get("maker")) else e.get("actor")
+    return out
+
+
+def buyers_for(ask: dict, *, seller, teams, top, ours, last, prof, mult, collectors, cards) -> list[dict]:
+    """Ranked likely buyers for one ask: [{team, rank, m_buyer, m_seller, vc, lacks, why}]."""
+    refs = [a.get("ref") for a in (ask.get("give") or {}).get("assets") or [] if isinstance(a, dict)]
+    if len(refs) != 1 or refs[0] not in cards:
+        return []
+    card = refs[0]
+    c = cards[card]
+    st, book = c["set"], c["book"]
+    m_s = (mult.get(seller) or {}).get(st, 1.0) if seller else 1.0
+    out = []
+    for t in teams:
+        team = t["team"]
+        if team in (ME, seller) or team in top:
+            continue
+        ok, why = collectors.allows(team, st)
+        p = prof.get((team, st), {})
+        if not ok and not p.get("collects"):
+            continue
+        if "dumps" in why:
+            continue
+        sig = last.get((team, card))
+        if sig and sig["kind"] == "hold":
+            continue                                   # a 2nd copy is worth 25% to them
+        lacks = bool(sig and sig["kind"] == "lack")
+        m_b = (mult.get(team) or {}).get(st, 1.0)
+        vc = round(book * (m_b - m_s), 1)
+        if vc <= 0 or (not lacks and vc < MIN_VC):
+            continue
+        others = [k for k, x in last.items() if k[0] == team and k[1] != card and x["kind"] == "lack"
+                  and cards.get(k[1], {}).get("set") == st]
+        gap = None if t.get("score") is None or ours is None else ours - t["score"]
+        if len(others) <= 1 and (gap is None or gap < FEED_GAP):
+            continue                                   # may close its page and it's within 10 points of us
+        out.append({"team": team, "name": t.get("name", team), "rank": t.get("rank"), "m_buyer": round(m_b, 2),
+                    "m_seller": round(m_s, 2), "vc": vc, "lacks": lacks, "why": why if ok else "bought or bid for the set"})
+    out.sort(key=lambda b: (not b["lacks"], -b["vc"]))
+    return out
+
+
+def dm(team_name: str, card_name: str, card: str, price, set_id: str) -> str:
+    return (f"Hi {team_name}! There's {card_name} ({card}) for {price} P on the market v10 (0% fee), in case you need "
+            f"it for your {SET_NAMES.get(set_id, set_id)} page.")
+
+
+class Radar:
+    def __init__(self, pub, *, events_fn=load_events, mult_fn=hub_mult, collectors=None, notifier=_notify,
+                 out: Path = OUT, state: Path = STATE, log=print, dry=False):
+        self.pub, self.events_fn, self.mult_fn, self.notifier = pub, events_fn, mult_fn, notifier
+        self.collectors = collectors or CachedCollectors()
+        self.out, self.state_path, self.log, self.dry = out, state, log, dry
+        try:
+            self.state = json.loads(state.read_text())
+        except (OSError, ValueError):
+            self.state = {"alerted": []}
+        self.cards, self._cat_at, self.mult, self._mult_at = {}, 0.0, {}, 0.0
+
+    def scan(self) -> list[dict]:
+        now = time.time()
+        if not self.cards or now - self._cat_at > 600:
+            self.cards, self._cat_at = card_index(self.pub._call("GET", "/api/catalog")), now
+        if now - self._mult_at > 600:
+            self.mult, self._mult_at = self.mult_fn() or self.mult, now
+        board = self.pub._call("GET", f"/api/venues/{VENUE}/offers").get("offers") or []
+        asks = [o for o in board if (o.get("give") or {}).get("assets") and (o.get("want") or {}).get("cash")
+                and not (o.get("give") or {}).get("cash") and not o.get("to")]
+        if not asks:
+            return []
+        teams = sorted(self.pub._call("GET", "/api/leaderboard").get("teams") or [], key=lambda t: -(t.get("score") or 0))
+        for i, t in enumerate(teams):
+            t["rank"] = i + 1
+        top = {t["team"] for t in teams[:4]}
+        ours = next((t.get("score") for t in teams if t["team"] == ME), None)
+        events = self.events_fn()
+        tick = self.pub._call("GET", "/api/clock").get("tick") or (events[-1]["tick"] if events else 0)
+        last, prof = op.read_signals(events, [], ME, op.GameTime(events), tick, self.cards)
+        who = sellers(events)
+        col = self.collectors.get()
+        found = []
+        for a in asks:
+            seller = who.get(a["id"])
+            ranked = buyers_for(a, seller=seller, teams=teams, top=top, ours=ours, last=last, prof=prof, mult=self.mult,
+                                collectors=col, cards=self.cards)
+            for b in ranked[:2]:
+                found.append({"offer": a["id"], "seller": seller, "price": (a.get("want") or {}).get("cash"),
+                              "card": [x.get("ref") for x in a["give"]["assets"]][0], **b})
+        for f in found:
+            key = f"{f['offer']}:{f['team']}"
+            if self.dry or key in self.state["alerted"]:
+                continue
+            self.alert(f, tick)
+            self.state["alerted"].append(key)
+        if not self.dry:
+            self.state["alerted"] = self.state["alerted"][-500:]
+            self.state_path.parent.mkdir(parents=True, exist_ok=True)
+            self.state_path.write_text(json.dumps(self.state))
+        return found
+
+    def alert(self, f: dict, tick) -> None:
+        c = self.cards.get(f["card"], {})
+        text = dm(f["name"], c.get("name", f["card"]), f["card"], f["price"], c.get("set", set_of(f["card"])))
+        why = (f"{'lacks it' if f['lacks'] else 'collects ' + c.get('set', '')}, multiplier {f['m_buyer']} vs seller "
+               f"{f['seller'] or '?'} {f['m_seller']}: est. value created +{f['vc']:g} on v10")
+        self.log(f"v10 radar: offer {f['offer']} {f['card']} at {f['price']} → {f['team']} (#{f['rank']}) · {why}")
+        if not self.out.exists():
+            self.out.parent.mkdir(parents=True, exist_ok=True)
+            self.out.write_text(HEADER)
+        with self.out.open("a") as fh:
+            fh.write(f"- {time.strftime('%a %H:%M')} · tick {tick} · offer {f['offer']} · {f['card']} at {f['price']} P "
+                     f"(seller {f['seller'] or '?'}) → **{f['name']}** (#{f['rank']}) · {why} · DM: \"{text}\"\n")
+        if self.notifier:
+            self.notifier("lucas", f"v10: DM {f['name']} about {f['card']} ({f['price']} P)",
+                          f"{why}.\nDM to send:\n{text}", priority=4, tags=["handshake"])
+
+
+def main(argv=None) -> None:
+    ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    ap.add_argument("--once", action="store_true")
+    ap.add_argument("--dry", action="store_true", help="print, send and write nothing")
+    args = ap.parse_args(argv)
+    pub = _Http(URL, {}, 15.0, False, 0)
+    r = Radar(pub, dry=args.dry)
+    while True:
+        try:
+            found = r.scan()
+            print(f"{time.strftime('%H:%M:%S')} v10 radar: {len(found)} match(es)"
+                  + "".join(f" · {f['card']} → {f['team']} (+{f['vc']:g})" for f in found[:3]), flush=True)
+            c = pub._call("GET", "/api/clock")
+            wait = 30.0 if c.get("paused") or c.get("doors") not in (None, "open") else float(c.get("next_tick_in", 10))
+        except Exception as e:  # noqa: BLE001  a watcher keeps watching
+            print(time.strftime("%H:%M:%S"), "v10 radar error:", repr(e)[:200], flush=True)
+            wait = 15.0
+        if args.once:
+            return
+        time.sleep(max(2.0, wait + 1.0))
+
+
+if __name__ == "__main__":
+    main()
