@@ -57,6 +57,8 @@ CLOSED_SLEEP = 30   # seconds between clock checks while paused or closed
 ERROR_SLEEP = 5     # seconds after an unexpected error
 TERMINAL = {"cancelled", "canceled", "expired", "settled", "filled", "closed", "done", "withdrawn", "rejected"}
 TRANSIENT = {"wait_for_tick", "rate_limited", "network", "bad_response", "too_many_failures", "http_429"}
+CONTENTION = {"wait_for_tick", "rate_limited", "http_429"}  # always retried; other transient ones MAX_RETRIES times
+MAX_RETRIES = 3
 
 
 def log(event):
@@ -78,7 +80,7 @@ def transient(code):
 
 class State:
     def __init__(self):
-        self.values, self.tried = {}, set()
+        self.values, self.tried, self.retries = {}, set(), {}
         self.venues, self.top4, self.own_venues, self.scores = {}, set(), set(), {}
         self.venues_tick = self.lb_tick = None
         self.locked, self.offers_ok = set(), True        # asset ids in our open offers; did my_offers read this tick
@@ -163,15 +165,18 @@ def read_board_teams(st, now=None):
         d = json.loads(BOARD.read_text())
         if (now or time.time()) - float(d.get("t") or 0) < BOARD_FRESH:
             st.board_teams = {o["id"]: o["team"] for o in d.get("offers") or [] if o.get("team") not in (None, "?")}
-    except (OSError, ValueError, KeyError, TypeError):
+    except (OSError, ValueError, KeyError, TypeError, AttributeError):
         pass  # missing, stale or half-written: the feed answers instead
 
 
 def _note_listed(st, e):
-    if e.get("type") == "offer.listed":
-        oid = ((e.get("payload") or {}).get("offer") or {}).get("id")
-        if oid is not None and e.get("actor"):
-            st.listed[oid] = e["actor"]
+    try:
+        if e.get("type") == "offer.listed":
+            oid = ((e.get("payload") or {}).get("offer") or {}).get("id")
+            if oid is not None and e.get("actor"):
+                st.listed[oid] = e["actor"]
+    except (AttributeError, TypeError):
+        pass  # an event of another shape: ignore it
 
 
 def read_local_feed(st):
@@ -190,7 +195,7 @@ def read_local_feed(st):
         if b'"offer.listed"' in line:
             try:
                 _note_listed(st, json.loads(line))
-            except ValueError:
+            except ValueError:  # includes a bad UTF-8 or JSON line
                 pass
     st.feed_pos += end
 
@@ -378,8 +383,9 @@ def step(b, args, st):
     """One tick: read, evaluate, accept the best candidate (or log it, in --dry-run). Returns the best candidate."""
     me = b.me()
     tick = st.tick = me.get("tick")
-    if st.values.get("_cash") != me["cash"] or st.values.get("_n") != len(me["assets"]):
-        st.values = {"_cash": me["cash"], "_n": len(me["assets"])}  # holdings changed: values changed too
+    holdings = (me["cash"], tuple(sorted(a["id"] for a in me["assets"])))
+    if st.values.get("_holdings") != holdings:
+        st.values = {"_holdings": holdings}  # any card in or out (a 1-for-1 swap too): values changed
     refresh(b, st, me, tick)
     offers = gather(b, me["id"], st)
     held = {}  # our cards, minus the copies already promised in our own open offers
@@ -423,9 +429,10 @@ def step(b, args, st):
             st.tried.add(best["offer"])
             log({"event": "accept", **info, "expected_gain": round(best["gain"], 1)})
         except BazaarError as e:
-            retry = transient(e.code)
+            n = st.retries[best["offer"]] = st.retries.get(best["offer"], 0) + 1
+            retry = transient(e.code) and (e.code in CONTENTION or n < MAX_RETRIES)
             if not retry:
-                st.tried.add(best["offer"])  # gone, not found, insufficient...: it won't clear by itself
+                st.tried.add(best["offer"])  # gone, not found, insufficient, or failing again and again
             log({"event": "refused", **info, "code": e.code, "retry": retry})
     return best
 

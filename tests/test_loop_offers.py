@@ -411,6 +411,34 @@ def test_accepted_offer_is_not_taken_twice():
     assert b.accepted == [(121, None)]
 
 
+def test_server_errors_on_one_offer_stop_after_three_tries():
+    st, args = loop.State(), loop.parse_args([])
+    b = FakeBazaar(boards={"rastro": [ask(122, "MAL-08", 5)]})
+    b.refuse = "http_502"
+    for _ in range(4):
+        loop.step(b, args, st)
+    assert len(b.accepted) == 3 and 122 in st.tried          # it no longer blocks every other accept
+
+
+def test_addressed_offer_from_a_top4_team_is_refused_by_its_maker_id():
+    b = FakeBazaar(mine=[bid(111, 30, "MAL-06", to=ME, maker="t12")], listed={})
+    assert run(b) is None and b.accepted == [] and b.feed_calls == 0
+
+
+def test_no_sales_while_the_leaderboard_is_unknown():
+    b = FakeBazaar(boards={"rastro": [bid(112, 30, "MAL-06"), ask(113, "MAL-08", 5)]})
+    b.leaderboard = lambda: (_ for _ in ()).throw(loop.BazaarError("network"))
+    run(b)
+    assert b.accepted == [(113, None)]                       # the buy goes, the sale doesn't
+
+
+def test_odd_feed_lines_do_not_break_the_tick(tmp_path):
+    (tmp_path / "feed.jsonl").write_text('[1, 2]\n{"type": "offer.listed", "payload": 5}\nnot json "offer.listed"\n')
+    b = FakeBazaar(boards={"rastro": [bid(114, 30, "MAL-06")]})
+    run(b)
+    assert b.accepted == [(114, [119])]
+
+
 # ------------------------------------------------------------------ 6. value lookups
 
 def test_no_value_lookup_for_a_buy_that_cannot_clear_the_bar():
@@ -424,6 +452,20 @@ def test_last_missing_card_of_a_page_is_always_looked_up():
     b = FakeBazaar(boards={"rastro": [ask(132, "MAL-08", 100)]}, album=album, cash=500, values={"MAL-08": 120.0})
     run(b)
     assert b.value_calls == ["MAL-08"] and b.accepted == [(132, None)]   # 120 - 100 - 6 = 14
+
+
+def test_value_cache_resets_after_a_one_for_one_swap():
+    st, args = loop.State(), loop.parse_args([])
+    b = FakeBazaar(boards={"rastro": [ask(133, "MAL-01", 1)]}, values={"MAL-01": 7.0})
+    b.refuse = "wait_for_tick"
+    loop.step(b, args, st)
+    assert st.values["MAL-01"] == 7.0
+    b._me["assets"] = [*ASSETS[:-1], card(999, "MAL-01", "common", 7.0)]  # SAL-01 out, MAL-01 in: same count, same cash
+    b.values["MAL-01"] = 1.75
+    b.refuse = None
+    loop.step(b, args, st)
+    assert st.values.get("MAL-01") != 7.0      # the stale 7.0 is gone: now a 2nd copy, worth at most 25%
+    assert len(b.accepted) == 1                 # so the buy (1 + 2 fee for 1.75 of value) is not taken
 
 
 # ------------------------------------------------------------------ 4. the main loop: clock, errors, SDK settings
