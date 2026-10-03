@@ -1,26 +1,29 @@
-# Scout (claude-sonnet-5-5, Sat 18:15)
+# Scout (claude-sonnet-5-5, Sat 18:21)
 
 ## Top 3 actions now
-1. **SAL-06 page close (Operator, bid 14557, 50 P to t13 on v15, expires tick 973).**
-   - Evidence: /api/me/value reads SAL-06 at 82.1, so 82.1 − 50 = +32, below the +50 cap. Team 2 anchors at 120 and the ceiling is 60 (Chief). The Operator's job at 18:21 swaps to t17 if the bid is unfilled.
-   - Effect: about +32 neg_points, roughly +1.5 board at 0.048/np [L]. We are #3 (30.0), 1.7 behind t06 (31.7) and 1.6 behind t14 (31.6).
-   - Confidence: med. A bid to t13 is an unproven channel. t13 may not hold the card, and the card holder is unknown ("not in the data"). Dani should ask t02, t17 and t13 in person which of them holds SAL-06.
-2. **Market push on v10 (Dani in person, Operator posts).** Sellers t02 (SAL-03 → t08, RET-03 → t07) and t07 (RET-01 → t09) list at ~9, then the buyers accept.
-   - Evidence: Chief says our gap is market and v10 value created is the decisive lever, about +3 board [L]. Value created is net and can go negative, so only list trades where the buyer holds fewer copies than the seller. The RET-03 t02→t14 trade at 7 (tick 946) went elsewhere, so t02's RET-03 may already be gone.
-   - Effect: mm_points up to the +5 cap (an earlier v10 trade gave +4.99).
+1. **Close the SAL page with SAL-06 (team trade only).**
+   - Action: keep maker bid 14557 (50 P, to t13, expires tick 973). The Operator's job at 18:21 cancels it and posts 50 → t17. The t02 ask watcher stays armed (≤ 60, floor 85). Dani keeps pushing t02 at 50 in person.
+   - Evidence: /api/me/value SAL-06 = 82.1, page 9/10. Bid 14557 expires at tick 973 and the metrics are at tick 971. Cash is 151 and the GUARDRAIL floor is 85 for this close only.
+   - Effect: about +32 neg_points at 50 P (82.1 − 50), with the cap at 50. Board ≈ +0.05 per np (Sat 17:46 measure, [V]), so ≈ +1.6 board.
+   - Confidence: med. t02 anchors at 120 and t13 has not answered.
+   - Re-post the bid now so it does not lapse at tick 973. Ask for 2× the ticks, because the server halves `expires_in_ticks`.
+2. **Push the v10 market lever to catch t06 and t14 (we are #3 at 30.0; t06 is 31.7).**
+   - Action: Dani asks t09 to accept our posted sells (MAL-03 at 9, LAV-03 at 6), and the Operator posts the MAL/RET spares for t15 only where t15 holds 2 copies. All of it goes on v10 or v15, never on a rival's venue.
+   - Evidence: 17:40 directive, "1 trade ≈ mm 0 to +5, 2 ≈ the +5 cap". Our gap is market, not negotiating. A card moving to a lower-multiplier holder subtracts, so the 2nd-copy rule applies.
+   - Effect: up to +5 mm_points, ≈ +3 board [L].
+   - Confidence: low-med.
+3. **Do nothing with the free-LAV-02 and LAV-04 asks, and let the three 0-price offers expire (ticks 976-980).**
+   - Action: no re-post. Those spares are worth 1.3-3.2 to us. They fed the swap/page-completion pitches, but the feeding-rule table shows no buyer that passes (≥ 10 below us).
+   - Evidence: "no buyer passes the feeding rule". Value created is net and can go negative.
+   - Effect: avoids feeding rivals.
    - Confidence: med.
-3. **Defensive Don Ernesto (banco, L5) deal once a menu appears (Operator watcher b2cqqhnz7).** Make one offer-only SELL of MAL-08 (17.5) or LAT-04 (5), never SAL and never a page card.
-   - Evidence: banco was announced at tick 932 with no menu yet. Ladder 0.437 is flat for the board (negotiating 21.88 unchanged).
-   - Effect: about 0 neg_points. Purpose is to protect against rivals' L5 deals pulling the ladder below 1. The ladder is probably capped for us, so treat the upside as unproven.
-   - Confidence: low.
 
 ## What the climbing teams are doing
-- **t06 (#1, 31.7, +3.9/h)** collects SAL and dumps commons at 6. Its recent trades are RET-02, RET-03 (6 P) and RET-09 sold to t12 at 84 P (tick 895). That is high-volume small trades plus a rare sold at a good price.
-- **t14 (#2, 31.6)** collects LAV/RET and buys cheap commons: RET-03 from t02 at 7 (tick 946), and LAV-03 at 6 by team 4 at tick 904. It also swaps card for card (SAL-04 for MAL-05 with t16, tick 939).
-- **t03 (#4, 29.2, +1.2/h)** has the highest negotiating score (24.49) with only 28 deals. Its big buys were LAT-09 at 88 P and MAL-10 at 74 P. That is selective buying of valuable cards, not volume.
-- **t18 (#5, 27.9, +0.9)** collects RET/SAL and trades at tick 861 and tick 904.
+- **Team 6 (#1, 31.7, +4.4 per hour):** collects SAL and sells MAL/LAV/LAT. It has 555 listings and 52 deals. It sold RET-09 to t12 at 84 (tick 895) and RET-03 for 6 (tick 905). Volume as a maker plus rare sales is working.
+- **Team 14 (#2, 31.5):** collects LAV and RET, and buys LAT cheaply. At tick 946 it bought RET-03 from t02 for 7 P, and at tick 939 it swapped SAL-04 for MAL-05 with t16. Small swaps and low-price commons.
+- **Team 3 (#4, 29.6, +0.4):** its negotiating score is the highest. It sold LAV-03 to t04 at 6 (tick 904) and MAL-02 to t17 at 3 (tick 929). Its sells are cheap and it is not at the bottom for dealers (Abuela −23.2%).
 
 ## Threats
-- **t03** is 0.8 behind us and rising (+0.6 per 15 min) with the best negotiating score. We must not feed it: our LAV-03 offer 14168 goes to t09, which is fine. The t03 → t17 MAL-02 sale (tick 929) shows t03 and t17 trading, so t17 is a risky fallback for the SAL-06 bid.
-- **t06/t14 are pulling away.** t06 gained +3.9 over 60 min against our +0.2. Only the SAL-06 close and the v10 market lever can close a 1.7 gap.
-- **t13 runs two "MAD RUSH 0%" venues (v23, v24).** Trading there would feed it, which is why the bid sits on v15.
+- **t02's anchor at 120 for SAL-06, plus Pilar's fever price of ~31 for SAL.** If the rivals are slow, the page close stays open.
+- **Team 3 (29.6) and Team 10 (28.3) are 0.4 and 1.7 behind us.** Do not feed either of them. t10 is allied with t01 and must get nothing.
+- **Team 6 and Team 14 are 1.7 and 1.5 ahead.** Any v10 trade that helps t09 or t15 is fine, but never trades that lift their venues or their page closes.
