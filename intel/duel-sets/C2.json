@@ -1,0 +1,17 @@
+{
+ "wave": "duel-lab-set-C2",
+ "label": "Set C2 = C with LATE_SWITCH_LEFT 2 (no prompt fix needed).",
+ "made_at": "2026-10-04T01:00:00",
+ "params": {
+  "MIN_STEP_P": 8,
+  "MAX_STEP_SHARE": 0.12,
+  "LATE_SWITCH_LEFT": 2,
+  "OPEN_WAIT": 0,
+  "MONO_END_SHARE": 0.25
+ },
+ "evidence": {
+  "source": "intel/duel-lab.md, SUNDAY v2 (Duel Lab, Sun 01:00): simulated at Duels III's 12 ticks / 10% decay",
+  "T": 12,
+  "d": 0.1
+ }
+}

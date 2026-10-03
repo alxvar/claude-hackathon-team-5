@@ -1,0 +1,17 @@
+{
+ "wave": "duel-lab-set-A",
+ "label": "Set A (SAFE): the switch rule's one fallback from C/C2, or the starting set if C is rejected.",
+ "made_at": "2026-10-04T01:00:00",
+ "params": {
+  "MIN_STEP_P": 5,
+  "MAX_STEP_SHARE": 0.18,
+  "LATE_SWITCH_LEFT": 2,
+  "OPEN_WAIT": 2,
+  "MONO_END_SHARE": 0.25
+ },
+ "evidence": {
+  "source": "intel/duel-lab.md, SUNDAY v2 (Duel Lab, Sun 01:00): simulated at Duels III's 12 ticks / 10% decay",
+  "T": 12,
+  "d": 0.1
+ }
+}
