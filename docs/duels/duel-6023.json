@@ -249,6 +249,80 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1323,
+   "raw": {
+    "duel": 6023,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Dama de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 0.84,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 68,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1337,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 9496,
+     "price": 111,
+     "tick": 1323,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 9525,
+     "price": 92,
+     "tick": 1323,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1321,
+      "from": "Rival Azul",
+      "text": "Hello, and thank you for meeting me. I would propose 78 P with delivery on day 0.",
+      "price": 78,
+      "days": 0
+     },
+     {
+      "tick": 1322,
+      "from": "you",
+      "text": "Thanks for opening. I'm happy to do day 0 as you proposed, and I can do 115 P on day 0.",
+      "price": 115,
+      "days": 0
+     },
+     {
+      "tick": 1322,
+      "from": "Rival Azul",
+      "text": "I appreciate it, thank you. Could we close at 88 P, delivery on day 0, please?",
+      "price": 88,
+      "days": 0
+     },
+     {
+      "tick": 1323,
+      "from": "you",
+      "text": "Thank you, I see you've moved and I appreciate it. I can come down to 111 P with delivery on day 0.",
+      "price": 111,
+      "days": 0
+     },
+     {
+      "tick": 1323,
+      "from": "Rival Azul",
+      "text": "Fair enough, thank you. I will meet you partway: 92 P with delivery on day 0.",
+      "price": 92,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {

@@ -2753,5 +2753,119 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1324,
+ "done": {
+  "duel": 5892,
+  "session": 3,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Plaza del Dos de Mayo",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 6.46,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 97,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Oro",
+  "deadline_tick": 1325,
+  "decay_per_round": 0.08,
+  "rounds": 4,
+  "your_offer": {
+   "id": 9521,
+   "price": 93,
+   "tick": 1323,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 9453,
+   "price": 80,
+   "tick": 1322,
+   "days": 10
+  },
+  "messages": [
+   {
+    "tick": 1309,
+    "from": "Rival Oro",
+    "text": "Hola, Rival Luna, voy con prisa: Plaza del Dos de Mayo por 106 y cerramos ya. Entrega en 10 días.",
+    "price": 106,
+    "days": 10
+   },
+   {
+    "tick": 1309,
+    "from": "you",
+    "text": "Hola, I can do 62 P with delivery on day 0. That's how we'd like it, and I think it's a fair place to start.",
+    "price": 62,
+    "days": 0
+   },
+   {
+    "tick": 1310,
+    "from": "Rival Oro",
+    "text": "97 y lo cerramos ahora. Entrega en 10 días.",
+    "price": 97,
+    "days": 10
+   },
+   {
+    "tick": 1310,
+    "from": "you",
+    "text": "I can move to 69 P, with delivery on day 0. Day 0 is part of this offer for us.",
+    "price": 69,
+    "days": 0
+   },
+   {
+    "tick": 1311,
+    "from": "Rival Oro",
+    "text": "88, último paso. Entrega en 10 días.",
+    "price": 88,
+    "days": 10
+   },
+   {
+    "tick": 1311,
+    "from": "you",
+    "text": "I can move to 75 P, with delivery on day 0. Day 0 is fixed for us, so the price is what we can still discuss.",
+    "price": 75,
+    "days": 0
+   },
+   {
+    "tick": 1320,
+    "from": "you",
+    "text": "Let's break the standoff: I can move to 81 P, with delivery on day 0. That's a real step from me, and day 0 is how we want it.",
+    "price": 81,
+    "days": 0
+   },
+   {
+    "tick": 1321,
+    "from": "you",
+    "text": "I can do 16 P, delivery on day 10.",
+    "price": 16,
+    "days": 10
+   },
+   {
+    "tick": 1322,
+    "from": "Rival Oro",
+    "text": "Venga, 80. Entrega en 10 días.",
+    "price": 80,
+    "days": 10
+   },
+   {
+    "tick": 1322,
+    "from": "you",
+    "text": "Gracias por el movimiento. I can do 89 P with delivery on day 0, and I'm ready to shake on it this tick.",
+    "price": 89,
+    "days": 0
+   },
+   {
+    "tick": 1323,
+    "from": "you",
+    "text": "I can do 93 P with delivery on day 0. That's my closing step, and day 0 is the only day that works for us.",
+    "price": 93,
+    "days": 0
+   }
+  ],
+  "result": 5.7,
+  "price": 89,
+  "days": 0
+ }
 }

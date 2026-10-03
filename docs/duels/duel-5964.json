@@ -2149,5 +2149,105 @@
     "settles_at_tick": 1324
    }
   }
- ]
+ ],
+ "last_seen_tick": 1324,
+ "done": {
+  "duel": 5964,
+  "session": 3,
+  "status": "deal",
+  "role": "seller",
+  "item": "La Dama de Serrano",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 0.94,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 87,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Rojo",
+  "deadline_tick": 1329,
+  "decay_per_round": 0.08,
+  "rounds": 4,
+  "your_offer": {
+   "id": 9374,
+   "price": 139,
+   "tick": 1319,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 9472,
+   "price": 129,
+   "tick": 1322,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1315,
+    "from": "Rival Rojo",
+    "text": "We can do 105 P, delivery on day 0. Thank you for the talk.",
+    "price": 105,
+    "days": 0
+   },
+   {
+    "tick": 1315,
+    "from": "you",
+    "text": "I'm opening at 135 P with delivery on day 10. Please let me know your price and which delivery day works best for you.",
+    "price": 135,
+    "days": 10
+   },
+   {
+    "tick": 1316,
+    "from": "Rival Rojo",
+    "text": "116 P, delivery on day 0 works well for us.",
+    "price": 116,
+    "days": 0
+   },
+   {
+    "tick": 1316,
+    "from": "you",
+    "text": "I'll match your timing on day 0, and I can do 146 P with delivery on day 0. I'd welcome a real counter on price from you.",
+    "price": 146,
+    "days": 0
+   },
+   {
+    "tick": 1317,
+    "from": "Rival Rojo",
+    "text": "Our offer is 118 P, delivery on day 0.",
+    "price": 118,
+    "days": 0
+   },
+   {
+    "tick": 1318,
+    "from": "you",
+    "text": "I can move to 142 P, delivery on day 0. A bigger step from me would need a bigger step from you.",
+    "price": 142,
+    "days": 0
+   },
+   {
+    "tick": 1319,
+    "from": "Rival Rojo",
+    "text": "Let's meet at 123 P, delivery on day 0, fair for both.",
+    "price": 123,
+    "days": 0
+   },
+   {
+    "tick": 1319,
+    "from": "you",
+    "text": "Thanks for the move. I can come to 139 P, delivery on day 0; going further would need a clear step up from you.",
+    "price": 139,
+    "days": 0
+   },
+   {
+    "tick": 1322,
+    "from": "Rival Rojo",
+    "text": "129 P, delivery on day 0, and we close now.",
+    "price": 129,
+    "days": 0
+   }
+  ],
+  "result": 30.1,
+  "price": 129,
+  "days": 0
+ }
 }
