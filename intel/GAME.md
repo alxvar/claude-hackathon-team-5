@@ -63,6 +63,10 @@
 - **Chato mirrors our step size** [V, Sat 10:07, RET-06 uncommon]: our 18 → 21 in +1 steps; his 33, 33, 32, FINAL 31
   after 4 rounds ("One peseta. That's your big move? … You moved one, I moved one. That's the last number I say").
   Friday's +1 → 28-29 protocol fails today; he finals after ~4-5 rounds whatever we do. RET uncommons go to Abuela.
+- **Warm vs cold with Chato** [V, n=1 each, same card RET-06]: cold (open 18, +1, price-only text) → his 33, 33, 32, FINAL 31
+  in 4 rounds, walked. Warm (open 20, +3, greeting/thanks/"for our Retiro page", Spanish mix) → his 33, 33, 33, 32, 31, then
+  he ACCEPTED our 30 ("Done. 30 P.") in 5 rounds: `neg_points` −19 → −21.5 (27.5 − 30), ladder unchanged (Chato deal 5,
+  still never moves the ladder). Abuela RET-08 at 22 (her 29 → 22): `neg_points` 0, ladder +0.003 (a 4th level-1 deal).
 - **RET rares** [V, feed ticks 160-188]: no team pulled a RET rare from a grant pack (every sobre_barrio `best` = null);
   the only sources are Chato (rare list 77) and silver packs. Team 15 bids 59 and Team 2 9-12 for RET-09/10.
 
