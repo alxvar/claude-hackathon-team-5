@@ -16,7 +16,7 @@ cmd_for() {
     duelmon)   echo "python3 -u $R/tools/duel_monitor.py --every 15" ;;  # read-only: duel alerts + per-wave review
     recorder)  echo "cd $R && python3 -u -m broker.record_bench --loop" ;;  # read-only: records every Market Test (Market session)
     broker)    echo "cd $R && python3 -u -m broker.broker --strategy ${BROKER_STRATEGY:-auto_clone}" ;;  # needs BROKER_KEY: only after OUR venue is open (Market session)
-    book)      echo "uv run --project $R python -u $R/agents/trader/book.py --cash-floor ${CASH_FLOOR:-100}" ;;  # the maker book (run/book.json): the Operator starts it
+    book)      echo "uv run --project $R python -u $R/agents/trader/book.py --cash-floor ${CASH_FLOOR:-100} --min-gain-sell ${MIN_GAIN_SELL:-1}" ;;  # the maker book (run/book.json): the Operator starts it
     opps)      echo "env CASH_FLOOR=${CASH_FLOOR:-100} python3 -u $R/tools/opportunities.py --every 30" ;;  # posts addressed offers + alerts Dani: start after the 09:00 checks
     *) return 1 ;;
   esac
