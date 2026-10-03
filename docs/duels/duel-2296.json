@@ -760,6 +760,121 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 464,
+   "raw": {
+    "duel": 2296,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 87,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 475,
+    "decay_per_round": 0.06,
+    "rounds": 5,
+    "your_offer": {
+     "id": 2756,
+     "price": 104,
+     "tick": 463,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2767,
+     "price": 99,
+     "tick": 464,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 459,
+      "from": "Rival Sol",
+      "text": "Thank you for meeting me. I can do 58 P.",
+      "price": 58,
+      "days": null
+     },
+     {
+      "tick": 459,
+      "from": "you",
+      "text": "Thanks for opening. El Mesón de la Cava is a well-established house with real quality and a strong reputation, and your figure is far from what it is worth. I can offer it at 135 P, and I think that is a fair price for what you get.}",
+      "price": 135,
+      "days": null
+     },
+     {
+      "tick": 460,
+      "from": "Rival Sol",
+      "text": "I appreciate your move. 83 P is where I can be.",
+      "price": 83,
+      "days": null
+     },
+     {
+      "tick": 460,
+      "from": "you",
+      "text": "I appreciate you moving up, and I'm coming down as well. Given the quality and reputation of El Mesón de la Cava, I can offer it at 122 P, but we'll need a meaningful step up from your side to close.",
+      "price": 122,
+      "days": null
+     },
+     {
+      "tick": 461,
+      "from": "Rival Sol",
+      "text": "Let us close quickly: 93 P.",
+      "price": 93,
+      "days": null
+     },
+     {
+      "tick": 461,
+      "from": "you",
+      "text": "Thank you for moving up again; I can see you want to close quickly. To meet you, I can come down to 114 P, which reflects the real quality and reputation of El Mesón de la Cava. If you meet me closer to the middle, we can wrap this up.",
+      "price": 114,
+      "days": null
+     },
+     {
+      "tick": 462,
+      "from": "Rival Sol",
+      "text": "A real step towards you: 101 P.",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 462,
+      "from": "you",
+      "text": "Thank you for the real step. I can come to 108 P, which nearly splits what remains between us. If you meet me there, we can close right away.",
+      "price": 108,
+      "days": null
+     },
+     {
+      "tick": 463,
+      "from": "Rival Sol",
+      "text": "I think 100 P is fair for both of us.",
+      "price": 100,
+      "days": null
+     },
+     {
+      "tick": 463,
+      "from": "you",
+      "text": "You were at 101 a moment ago, so that last move went backwards. The gap is small now, so I can come to 104 P to wrap this up without dragging it out further.",
+      "price": 104,
+      "days": null
+     },
+     {
+      "tick": 464,
+      "from": "Rival Sol",
+      "text": "Thank you for meeting me. I can do 99 P.",
+      "price": 99,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {

@@ -1681,5 +1681,104 @@
     "settles_at_tick": 464
    }
   }
- ]
+ ],
+ "last_seen_tick": 464,
+ "done": {
+  "duel": 2297,
+  "session": 2,
+  "status": "deal",
+  "role": "buyer",
+  "item": "El Mesón de la Cava",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 175,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Plata",
+  "deadline_tick": 475,
+  "decay_per_round": 0.06,
+  "rounds": 4,
+  "your_offer": {
+   "id": 2726,
+   "price": 157,
+   "tick": 462,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 2740,
+   "price": 161,
+   "tick": 463,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 459,
+    "from": "Rival Plata",
+    "text": "Thank you for meeting me. I can do 216 P.",
+    "price": 216,
+    "days": null
+   },
+   {
+    "tick": 459,
+    "from": "you",
+    "text": "Thanks for opening. Your figure is well out of line with what this is worth to us, so I'm offering 130 P, which I think is a fair price for El Mesón de la Cava. I'd welcome a substantially lower number from you.",
+    "price": 130,
+    "days": null
+   },
+   {
+    "tick": 460,
+    "from": "Rival Plata",
+    "text": "I appreciate your move. 182 P is where I can be.",
+    "price": 182,
+    "days": null
+   },
+   {
+    "tick": 460,
+    "from": "you",
+    "text": "Thank you for coming down; I can see you're moving. That figure is still well above what this property supports for us, so I'm raising to 145 P and would ask you to come down substantially again.",
+    "price": 145,
+    "days": null
+   },
+   {
+    "tick": 461,
+    "from": "Rival Plata",
+    "text": "Let us close quickly: 167 P.",
+    "price": 167,
+    "days": null
+   },
+   {
+    "tick": 461,
+    "from": "you",
+    "text": "Thank you, I can see you're working toward a number. I'm moving up to 153 P, and another real step from you would let us close this quickly.",
+    "price": 153,
+    "days": null
+   },
+   {
+    "tick": 462,
+    "from": "Rival Plata",
+    "text": "A real step towards you: 162 P.",
+    "price": 162,
+    "days": null
+   },
+   {
+    "tick": 462,
+    "from": "you",
+    "text": "Thank you for the step. I'm moving to 157 P, which meets you most of the way, and I'd like that to be our closing figure so we can wrap this up without more rounds.",
+    "price": 157,
+    "days": null
+   },
+   {
+    "tick": 463,
+    "from": "Rival Plata",
+    "text": "I think 161 P is fair for both of us.",
+    "price": 161,
+    "days": null
+   }
+  ],
+  "result": 10.9,
+  "price": 161,
+  "days": 0
+ }
 }
