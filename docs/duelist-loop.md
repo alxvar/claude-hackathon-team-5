@@ -3,7 +3,7 @@
 _Builder, Sat night, on the Chief's brief. Items 1–3 change nothing until you choose them: with no
 `run/duel_params.json` the duelist plays today's constants, and `--policy llm` (the default) is today's agent.
 **Item 4 (the guards) is live once merged**, with an off switch (`{"GUARDS": 0}` in the params file). Full suite
-green on the branch: 558 tests._
+green on the branch: 559 tests._
 
 ## TL;DR
 
@@ -35,10 +35,15 @@ green on the branch: 558 tests._
 - The strategist prompt names some constants (`LATE_SWITCH_LEFT`, `DAY_SAME_SIDE_P`). A new value reaches the prompt
   of duels that start after it, and code rules at once.
 
-## 2. The wave loop (`tools/duel_loop.py`, `tools/duel_sim.py`)
+## 2. The wave loop (`tools/duel_loop.py`, on the Duel Lab's `tools/duel_sim_v2.py` and `tools/duel_gates.py`)
 
 Plain `python3`, stdlib only. It reads the duelist's constants from the source files, so the checkout it runs in
-defines "today". The Duel Lab simulator is copied in unchanged as `tools/duel_sim.py`.
+defines "today". **Since 00:40 it runs on the Duel Lab's final simulator, `tools/duel_sim_v2.py`.** That simulator is
+role-aware, models price plus delivery day, and is fitted on Duels II, with its five role-aware worlds `RW` and its
+`POLICY_KEYS` mapping. The first, price-only copy is gone from the branch.
+- The live duelist is modelled as the Duel Lab models it: the models' real closing steps, `switch_any`, and the 6190
+  guards (`guard_worse`, `mono_end`) while `GUARDS` is on.
+- With `--policy code` it models the code step instead.
 
 ```bash
 python3 tools/duel_loop.py run --dry            # the latest closed wave: print only
@@ -59,11 +64,24 @@ python3 tools/duel_loop.py revert --by Aleks     # back to today's constants
     and `OPENER_SHARE`. Each is paired against today.
   - It keeps only tweaks whose 95% CI is above 0 and that pass `params.validate` plus the cross-checks.
   - The best ones are proposed together if the set also wins.
+- **The Duel Lab's live gates** (`tools/duel_gates.py`) on the session so far:
+  - **REVERT** `MIN_STEP_P` → 3 when the deal rate with rivals that spoke is below 0.75 over ≥ 8 duels.
+  - **STEP UP** `MIN_STEP_P` +1 (max 6) when rounds per deal > 3.5 with a deal rate ≥ 0.85.
+  - A gate's diff joins the proposal and wins over a simulator tweak of the same name. It is still only applied by
+    `approve`.
 - **Never applied by itself.** `approve` validates, refuses on any error, writes atomically, and leaves a `_note`
   with the wave, time and approver.
 - **Blocked moves:** `ACCEPT_BY` down is shown with its gain but never proposed. The simulator never has an accept
   refused, and at 1 no spare tick is left.
-- **Latest real wave** (Duels II wave 3.10, run tonight):
+- **Latest real wave on v2** (Duels II wave 3.12, run at 00:40), closest world **R5** (more silent rivals and holders):
+  - **The gate fired.** STEP UP: the session so far has 3.7 rounds per deal at a 0.89 deal rate, so `MIN_STEP_P`
+    3 → 4. The simulator agrees: +0.006 ± 0.002.
+  - **The combined proposal (+0.021 ± 0.003 a duel):** `MAX_STEP_SHARE` 0.22, `HOLD_TICKS` 2, `SILENT_KEEP` 0.2,
+    `MIN_STEP_P` 4, `MONO_END_SHARE` 0.35, `LATE_SWITCH_LEFT` 3.
+  - **Six changes at once is a lot.** 16 tweaks are tested at 95%, so expect about 0.8 false positives.
+    `approve --only MIN_STEP_P` takes the one the live data supports, and you can add the rest after the next wave.
+  - `ACCEPT_BY` 2 → 1 (+0.002) stays blocked.
+- **Earlier, on the price-only v1 simulator** (Duels II wave 3.10, run tonight):
 
   | | Deal rate | Rounds | Score per duel |
   |---|---|---|---|
@@ -215,6 +233,6 @@ Nothing on this branch touches a running process. After a merge and a restart:
 - `agents/duelist/agent.py`: `respond_code`, `guarded`, `first_day`, constants.
 - `agents/duelist/runner.py`: `reload_params`, the policy plumbing, `SMALL_GAP_*`.
 - `agents/duelist/__main__.py`: `--policy`, `--params`, `--no-params`.
-- `tools/duel_loop.py` and `tools/duel_sim.py` (new).
+- `tools/duel_loop.py` (new), on main's `tools/duel_sim_v2.py` and `tools/duel_gates.py` (the Duel Lab's).
 - Tests: `tests/test_duelist_params.py`, `tests/test_duelist_policy.py` and `tests/test_duel_loop.py` (new), plus one
   changed case in `tests/test_duelist.py`.

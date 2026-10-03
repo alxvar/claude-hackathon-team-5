@@ -190,19 +190,21 @@ def test_params_map_onto_the_sim_policy(src, tmp_path):
     eff = dl.effective(dl.module_defaults(src), over)
     assert errors == [] and eff["MAX_STEP_SHARE"] == 0.25 and "OPENER_SHARE" not in eff   # no policy.py: ignored
     pol = dl.sim_policy(eff, days=False, code=False)
-    base = dl.sim.default_policy()
-    assert {k: pol[k] for k in ("smin", "smin_share", "cap_share", "end_ticks", "walk_floor", "deadline_acc",
-                                "hold_break", "wait_first")} == {
-        "smin": 3, "smin_share": 0.05, "cap_share": 0.25, "end_ticks": 3, "walk_floor": 0.15, "deadline_acc": 2,
-        "hold_break": 3, "wait_first": 0}                          # price only: the opener doesn't wait
-    assert (pol["u_scale"], pol["alpha"], pol["end_alpha"]) == (base["u_scale"], base["alpha"], base["end_alpha"])
-    assert dl.sim_policy(eff, days=True, code=False)["wait_first"] == 2
+    assert {k: pol[k] for k in ("smin", "smin_share", "cap", "end_ticks", "silent_keep", "accept_by", "hold_break",
+                                "open_wait")} == {
+        "smin": 3, "smin_share": 0.05, "cap": 0.25, "end_ticks": 3, "silent_keep": 0.15, "accept_by": 2,
+        "hold_break": 3, "open_wait": 0}                            # price only: the opener doesn't wait
+    assert pol["step"] == "llm" and pol["end_emp"] and pol["switch_any"]   # the models, as the Duel Lab models them
+    assert pol["guard_worse"] and pol["mono_end"] is None         # GUARDS on by default; no MONO_END_SHARE here
+    assert dl.sim_policy(eff, days=True, code=False)["open_wait"] == 2
+    assert dl.sim_policy({**eff, "MONO_END_SHARE": 0.25}, days=True, code=False)["mono_end"] == 0.25
+    off = dl.sim_policy({**eff, "GUARDS": 0, "MONO_END_SHARE": 0.25}, days=True, code=False)
+    assert not off["guard_worse"] and off["mono_end"] is None
 
-    (src / "policy.py").write_text("OPENER_SHARE = 0.43\nCODE_STEP_SHARE = 0.15\nEND_STEP_SHARE = 0.5\n")
+    (src / "policy.py").write_text("OPENER_SHARE = 0.43\nCODE_STEP_SHARE = 0.12\nEND_STEP_SHARE = 0.5\n")
     eff = dl.effective(dl.module_defaults(src), over)
     code = dl.sim_policy(eff, days=False, code=True)
-    assert code["u_scale"] == pytest.approx(0.5 / dl.mean(dl.sim.U)) and code["alpha"] == 0.15
-    assert dl.sim_policy(eff, days=False, code=False)["alpha"] is None     # the models play: the LLM step model
+    assert (code["step"], code["alpha"], code["end_alpha"], code["end_emp"]) == ("code", 0.12, 0.5, False)
 
 
 def test_a_bad_params_file_counts_as_no_overrides(tmp_path):
@@ -234,7 +236,7 @@ def fake_sim(monkeypatch):
     ci)."""
     gains = {}
 
-    def evaluate(policy, P=None, n=0, seed=0, T=16, d=D):
+    def evaluate(policy, P=None, n=0, seed=0, T=16, d=D, H="H1"):
         return [dict(policy)]
 
     def paired(a, b):
@@ -243,7 +245,7 @@ def fake_sim(monkeypatch):
 
     monkeypatch.setattr(dl.sim, "evaluate", evaluate)
     monkeypatch.setattr(dl.sim, "paired", paired)
-    monkeypatch.setattr(dl.sim, "WORLDS", {"W": {}})
+    monkeypatch.setattr(dl.sim, "RW", {"W": {}})
     return gains
 
 
@@ -255,14 +257,14 @@ def search(defaults=DEF, over=None):
 
 def test_only_tweaks_with_ci_above_zero_that_validate_are_proposed(fake_sim):
     fake_sim.update({
-        (("cap_share", 0.21),): (0.01, 0.002),       # kept
-        (("cap_share", 0.15),): (-0.01, 0.002),      # worse
+        (("cap", 0.21),): (0.01, 0.002),       # kept
+        (("cap", 0.15),): (-0.01, 0.002),      # worse
         (("smin_share", 0.08),): (0.004, 0.006),     # CI spans 0
         (("hold_break", 9),): (0.5, 0.001),          # HOLD_TICKS 9 is past its bound: never run
         (("hold_break", 7),): (0.002, 0.001),        # kept
-        (("walk_floor", 0.1),): (0.006, 0.002),      # kept
-        (("deadline_acc", 3),): (0.5, 0.001),        # ACCEPT_BY 3 > DECIDE_LEFT 2: never run
-        (("cap_share", 0.21), ("hold_break", 7), ("walk_floor", 0.1)): (0.02, 0.003),
+        (("silent_keep", 0.1),): (0.006, 0.002),      # kept
+        (("accept_by", 3),): (0.5, 0.001),        # ACCEPT_BY 3 > DECIDE_LEFT 2: never run
+        (("cap", 0.21), ("hold_break", 7), ("silent_keep", 0.1)): (0.02, 0.003),
     })
     found = search()
     rows = {(r["name"], r["to"]): r for r in found["rows"]}
@@ -272,7 +274,7 @@ def test_only_tweaks_with_ci_above_zero_that_validate_are_proposed(fake_sim):
     assert "ACCEPT_BY 3 > DECIDE_LEFT 2" in rows[("ACCEPT_BY", 3)]["why"]
     assert rows[("MIN_STEP_SHARE", 0.08)]["why"] == "no clear effect (CI spans 0)"
     assert rows[("MAX_STEP_SHARE", 0.15)]["why"] == "worse (CI below 0)"
-    assert rows[("OPENER_SHARE", None)]["why"].startswith("no default")
+    assert rows[("MONO_END_SHARE", None)]["why"].startswith("no default")    # not in this checkout
     assert found["params"] == {"MAX_STEP_SHARE": 0.21, "HOLD_TICKS": 7, "SILENT_KEEP": 0.1}
     assert found["combined"]["kept"]
     for name, value in found["params"].items():
@@ -280,8 +282,8 @@ def test_only_tweaks_with_ci_above_zero_that_validate_are_proposed(fake_sim):
 
 
 def test_a_combination_that_isnt_better_falls_back_to_the_best_single_tweak(fake_sim):
-    fake_sim.update({(("cap_share", 0.21),): (0.01, 0.002), (("walk_floor", 0.1),): (0.006, 0.002),
-                     (("cap_share", 0.21), ("walk_floor", 0.1)): (0.008, 0.003)})
+    fake_sim.update({(("cap", 0.21),): (0.01, 0.002), (("silent_keep", 0.1),): (0.006, 0.002),
+                     (("cap", 0.21), ("silent_keep", 0.1)): (0.008, 0.003)})
     found = search()
     assert found["params"] == {"MAX_STEP_SHARE": 0.21} and not found["combined"]["kept"]
 
@@ -292,7 +294,7 @@ def test_no_change_when_nothing_clears_zero(fake_sim):
 
 
 def test_tweaks_build_on_the_files_overrides(fake_sim):
-    fake_sim.update({(("cap_share", 0.28),): (0.01, 0.002)})
+    fake_sim.update({(("cap", 0.28),): (0.01, 0.002)})
     found = search(over={"MAX_STEP_SHARE": 0.25})
     assert found["params"] == {"MAX_STEP_SHARE": 0.28}
 
@@ -421,7 +423,7 @@ def test_run_writes_the_review_and_the_proposal(tmp_path, src):
     assert not out.exists() and not prop.exists()                   # --dry writes nothing
     p = dl.run(**kw)
     assert p["wave"] == "3.1" and set(p) == {"wave", "label", "made_at", "params", "evidence"}
-    assert p["evidence"]["world"] in dl.sim.WORLDS and p["evidence"]["observed"]["deals"] == 3
+    assert p["evidence"]["world"] in dl.sim.RW and p["evidence"]["observed"]["deals"] == 3
     assert json.loads(prop.read_text())["wave"] == "3.1"
     for name, value in p["params"].items():
         assert pm.validate({name: value})[1] == []
@@ -446,8 +448,27 @@ def test_watch_handles_each_closed_wave_once(tmp_path, src):
 
 
 def test_a_blocked_move_shows_its_gain_but_is_never_proposed(fake_sim):
-    fake_sim.update({(("deadline_acc", 1),): (0.05, 0.002)})     # ACCEPT_BY 2 -> 1 wins big in the sim
+    fake_sim.update({(("accept_by", 1),): (0.05, 0.002)})     # ACCEPT_BY 2 -> 1 wins big in the sim
     found = search()
     row = next(r for r in found["rows"] if r["name"] == "ACCEPT_BY" and r["to"] == 1)
     assert row["mean"] == 0.05 and not row["kept"] and row["why"].startswith("CI above 0, but blocked")
     assert "ACCEPT_BY" not in found["params"]
+
+
+def gate_record(folder, n, *, session=4, status="deal", rounds=2, spoke=True):
+    D = {"id": n, "session": session, "status": status, "deadline_tick": 100 + n, "rounds": rounds, "result": 3.0,
+         "messages": [{"from": "Rival Luna" if spoke else "Team 5", "text": "x"}]}
+    (folder / f"duel-{n}.json").write_text(json.dumps({"duel": n, "done": D}))
+
+
+def test_the_live_gates_join_the_proposal_and_win_over_a_sim_tweak(tmp_path):
+    for i in range(8):                                          # 5 deals of 8 rivals that spoke: 0.62 < 0.75
+        gate_record(tmp_path, i, status="deal" if i < 5 else "no_deal")
+    gate_record(tmp_path, 50, session=3)                        # another session: not counted
+    g = dl.gate(tmp_path, 4, {"MIN_STEP_P": 5})
+    assert g["diff"] == {"MIN_STEP_P": 3} and g["reason"].startswith("REVERT") and g["evidence"]["rival_spoke"] == 8
+    assert dl.gate(tmp_path, 4, {"MIN_STEP_P": 3})["diff"] == {}            # already today's value
+    for i in range(8):                                          # 8 of 8 deals at 4 rounds: step up
+        gate_record(tmp_path, i, rounds=4)
+    assert dl.gate(tmp_path, 4, {"MIN_STEP_P": 3})["diff"] == {"MIN_STEP_P": 4}
+    assert dl.gate(tmp_path, 9, {"MIN_STEP_P": 3})["reason"].startswith("fewer than 8")

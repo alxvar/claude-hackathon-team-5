@@ -8,14 +8,14 @@ into fallbacks. Here a decision is one text call, capped, and never a retry: the
 (no claims, no stray or past-limit numbers, no agreement words unless accepting) and replaced by code's plain text
 when they fail, so a decision takes at most about TEXT_TIMEOUT_S plus code time.
 
-The moves follow the Duel Lab's simulated policy (intel/duel-lab.md, tools/duel_sim.py), with the duelist's code
+The moves follow the Duel Lab's simulated policy (intel/duel-lab.md; v1 simulator, Sat 15:50), with the duelist's code
 rules unchanged around them (the runner's deadline / small-gap accepts, the silent walk, the late day switch):
 - opener: OPENER_SHARE of our limit away from it, in PRICE, on our day (Duels I openers: median 0.42 of the limit,
   the simulator's U; Duels II's model opened at 0.51). Not in worth: since the seller's day bonus counts from day 0
   (DayValues.offset), worth at day 10 carries up to ~50 P the rival never sees, and a worth-based opener came out at
   67 on a 69 limit, or -2 P (replay of Duels II's 287 model decisions, Sat 22:30);
 - each move after: concede CODE_STEP_SHARE of the gap between the standing offers, in worth, cut to MAX_STEP_SHARE
-  and held when below `min_step`, as `agent.held` does for the models. Simulated (tools/duel_sim.py, Sunday's 12
+  and held when below `min_step`, as `agent.held` does for the models. Simulated (the v1 simulator, Sunday's 12
   ticks at 10% decay, 6,000 duels a world, paired against today's model steps capped at 25%): 12% wins in all four
   rival worlds (+0.008 to +0.010 a duel, every CI above 0); 15% +0.005 to +0.013; 20% and 25% lose in one or two;
   in the last CLOSING_TICKS: END_STEP_SHARE of the gap, never held or cut;

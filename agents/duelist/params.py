@@ -37,7 +37,7 @@ class Spec:
     lo: float
     hi: float
     kind: type = float
-    sim: str | None = None       # the Duel Lab simulator's policy key, when it models it (tools/duel_sim.py)
+    sim: str | None = None       # the v1 simulator's key (Sat 15:50); tools/duel_loop.py now maps via duel_sim_v2.POLICY_KEYS
     what: str = ""
 
 

@@ -13,12 +13,17 @@ propose a params diff for the duelist. It never applies anything itself: a human
    duel: the result, the surplus (the game's result undone from the decay), what the rounds cost
    (surplus x (1 - (1 - d)^rounds)), the settled day against our best one, the rival's best in-limit offer when
    it beat what we got, and the share of the pie where our duel points (`scores.jsonl`) jumped for that deal alone.
-2. The simulator (`tools/duel_sim.py`, price only): today's effective params (the constants in agents/duelist/, read
-   from the source, plus the overrides in run/duel_params.json) mapped to a sim policy, run with the session's ticks
-   and decay in every rival world, and the world closest to the wave named.
+2. The simulator (`tools/duel_sim_v2.py`, the Duel Lab's final: role-aware, price + delivery day; Chief 00:30):
+   today's effective params (the constants in agents/duelist/, read from the source, plus the overrides in
+   run/duel_params.json) mapped to a sim policy through its POLICY_KEYS, run with the session's ticks and decay in
+   every role-aware world (RW), and the world closest to the wave named.
 3. The proposal: one-parameter tweaks around today's values, paired against today's policy in that world. Only a
    tweak whose 95% CI is entirely above 0 and that passes `params.validate` and the CROSS checks is proposed;
    "no change proposed" is a valid outcome. Rule notes from the wave go next to it, never into the JSON.
+4. The Duel Lab's live gates (`tools/duel_gates.py`) on the session so far: REVERT MIN_STEP_P to 3 when the deal
+   rate with rivals that spoke is below 0.75 over >= 8 duels; STEP UP MIN_STEP_P by 1 (max 6) when rounds per deal
+   > 3.5 with a deal rate >= 0.85. A gate's diff joins the proposal (it wins over a sim tweak of the same name):
+   still a proposal, applied only by a human's `approve`.
 
 Writes intel/duel-loop.md (newest wave on top), run/duel_loop_proposal.json and, for `watch`, run/duel_loop_state.json.
 `approve` and `revert` write the params file the duelist re-reads every tick (agents/duelist/params.py). No network,
@@ -46,7 +51,8 @@ sys.path.insert(0, str(ROOT))
 from agents.duelist import params as pm  # noqa: E402  (stdlib only; never imports the agent itself)
 from agents.duelist.days import DayValues, read_days  # noqa: E402
 from tools import duel_monitor as dm  # noqa: E402
-from tools import duel_sim as sim  # noqa: E402
+from tools import duel_gates as dg  # noqa: E402
+from tools import duel_sim_v2 as sim  # noqa: E402
 
 RECORDS = ROOT / "docs" / "duels"
 DUELIST = ROOT / "agents" / "duelist"            # where the constants live (SPEC's modules)
@@ -56,7 +62,7 @@ STATE = ROOT / "run" / "duel_loop_state.json"
 OUT_HEADER = (
     "# Duel loop\n\n"
     "_Written by `tools/duel_loop.py` after each closed wave of our duels, newest first: the wave set against the Duel "
-    "Lab simulator (`tools/duel_sim.py`) and a params proposal for `run/duel_params.json`. Nothing here plays until a "
+    "Lab simulator (`tools/duel_sim_v2.py`) and its live gates, and a params proposal for `run/duel_params.json`. Nothing here plays until a "
     "human runs the approve command. Score = share of the pie × (1 − decay)^rounds, i.e. duel points per duel._\n")
 
 N_SIM = 4000                 # duels per world and per tweak: 0.1-0.2 s each, a CI of about ±0.006 on a level
@@ -74,7 +80,9 @@ TWEAKS = [("MAX_STEP_SHARE", "+", 0.03), ("MAX_STEP_SHARE", "+", -0.03),
           ("HOLD_TICKS", "+", 1), ("HOLD_TICKS", "+", -1),
           ("SILENT_KEEP", "+", 0.05), ("SILENT_KEEP", "+", -0.05),
           ("ACCEPT_BY", "+", 1), ("ACCEPT_BY", "+", -1),
-          ("OPENER_SHARE", "x", 1.1), ("OPENER_SHARE", "x", 0.9)]
+          ("MIN_STEP_P", "+", 1), ("MIN_STEP_P", "+", -1),
+          ("MONO_END_SHARE", "+", 0.1), ("MONO_END_SHARE", "+", -0.1),
+          ("LATE_SWITCH_LEFT", "+", 1), ("LATE_SWITCH_LEFT", "+", -1)]
 # What the simulator can't see, printed next to a proposal that moves a name that way. It never blocks a proposal.
 CAVEATS = {
     ("ACCEPT_BY", "down"): "the sim never has an accept refused or late; below 2 no spare tick is left for an accept "
@@ -498,32 +506,36 @@ def cross_errors(eff: dict[str, Any]) -> list[str]:
 
 
 def sim_policy(eff: dict[str, Any], *, days: bool, code: bool) -> dict[str, Any]:
-    """The simulator's policy for the effective params, through each SPEC's `sim` key. Names the sim doesn't model,
-    or that have no value here, keep the sim's defaults. OPEN_WAIT waits only in days duels, so a price-only session
-    opens at once; the code policy's names (policy.py) play only with --policy code, else the sim's LLM step model
-    (alpha None, end_alpha 0.5) and its empirical openers (u_scale 1) stand for the models. OPENER_SHARE is a share
-    of our limit, the sim's opener a draw from our Duels I openers scaled by u_scale: u_scale = OPENER_SHARE / their
-    mean."""
-    pol = sim.default_policy()
-    for name, spec in pm.SPEC.items():
-        if spec.sim is None or name not in eff or (spec.module == "policy" and not code):
-            continue
-        v = eff[name]
-        if spec.sim == "u_scale":
-            v = v / mean(sim.U)
-        elif spec.sim == "wait_first" and not days:
-            v = 0
-        pol[spec.sim] = v
+    """The simulator's policy for the effective params: the live duelist as the Duel Lab models it
+    (default_policy() + switch_any, the models' real closing steps end_emp, and the 6190 guards guard_worse +
+    mono_end while GUARDS is on), each name in sim.POLICY_KEYS set from `eff`. --policy code: the code step
+    (CODE_STEP_SHARE, END_STEP_SHARE) instead of the models'. OPEN_WAIT waits only in days duels."""
+    pol = dict(sim.default_policy(), switch_any=True, end_emp=not code)
+    for name, key in sim.POLICY_KEYS.items():
+        if name in eff:
+            pol[key] = eff[name]
+    guards = bool(eff.get("GUARDS", 1))
+    pol["guard_worse"], pol["mono_end"] = guards, (eff.get("MONO_END_SHARE") if guards else None)
+    if code:
+        pol["step"] = "code"
+        for name, key in (("CODE_STEP_SHARE", "alpha"), ("END_STEP_SHARE", "end_alpha")):
+            if name in eff:
+                pol[key] = eff[name]
+    if not days:
+        pol["open_wait"] = 0
     return pol
 
 
 # ---------------------------------------------------------------------------------------------------- the simulator
 
+H = "H1"                     # the simulator's pie: the best day's (as the Duel Lab scores Duels II)
+
+
 def predict(pol: dict, T: int, d: float, n: int = N_SIM, seed: int = SEED,
             worlds: dict | None = None) -> tuple[dict[str, dict], dict[str, list]]:
     """Every world's summary for `pol` at this session's ticks and decay, and the raw results (for pairing)."""
-    worlds = sim.WORLDS if worlds is None else worlds
-    runs = {name: sim.evaluate(pol, P=P, n=n, seed=seed, T=T, d=d) for name, P in worlds.items()}
+    worlds = sim.RW if worlds is None else worlds
+    runs = {name: sim.evaluate(pol, P=P, n=n, seed=seed, T=T, d=d, H=H) for name, P in worlds.items()}
     return {name: sim.summary(r) for name, r in runs.items()}, runs
 
 
@@ -569,7 +581,7 @@ def search(defaults: dict, base_over: dict, *, world: str, base_runs: list, T: i
     together when the set also passes the CI test and beats the best single one, else the best single one."""
     eff = effective(defaults, base_over)
     base_pol = sim_policy(eff, days=days, code=code)
-    P = sim.WORLDS[world]
+    P = sim.RW[world]
     rows = []
     for name, op, amount in TWEAKS:
         row = {"name": name, "op": op, "amount": amount, "from": eff.get(name), "to": None,
@@ -587,7 +599,7 @@ def search(defaults: dict, base_over: dict, *, world: str, base_runs: list, T: i
         if pol == base_pol:
             row["why"] = "not modelled here" + ("" if code else " (code-policy name; the models play)")
             continue
-        m, ci = sim.paired(base_runs, sim.evaluate(pol, P=P, n=n, seed=seed, T=T, d=d))
+        m, ci = sim.paired(base_runs, sim.evaluate(pol, P=P, n=n, seed=seed, T=T, d=d, H=H))
         row["mean"], row["ci"] = round(m, 4), round(ci, 4)
         row["kept"] = m - ci > 0
         row["why"] = ("CI above 0" if row["kept"] else "worse (CI below 0)" if m + ci < 0 else
@@ -609,7 +621,7 @@ def search(defaults: dict, base_over: dict, *, world: str, base_runs: list, T: i
             combined = {"params": change, "mean": None, "ci": None, "kept": False, "why": why and f"invalid: {why}"}
             if over is not None:
                 pol = sim_policy(effective(defaults, over), days=days, code=code)
-                m, ci = sim.paired(base_runs, sim.evaluate(pol, P=P, n=n, seed=seed, T=T, d=d))
+                m, ci = sim.paired(base_runs, sim.evaluate(pol, P=P, n=n, seed=seed, T=T, d=d, H=H))
                 better = m - ci > 0 and m >= top["mean"]
                 combined.update(mean=round(m, 4), ci=round(ci, 4), kept=better, why=(
                     "beats the best single tweak" if better else "not better than the best single tweak"))
@@ -718,12 +730,12 @@ def render(wave: Wave, obs: dict, sess: dict, preds: dict, dist: dict, world: st
               "day (vs best, cost) | best in-limit offer missed | rival |", "|" + "---|" * 13]
     L += [duel_row(x) for x in wave.duels]
     L += ["", f"**Simulator vs observed** (T {ctx['T']}, d {ctx['d']}, n {ctx['n']} per world, policy "
-              f"{ctx['policy']}; the sim is price-only):", "",
+              f"{ctx['policy']}; role-aware worlds, price + day):", "",
           "| | deal rate | rounds/deal | share | score/duel | distance |", "|---|---|---|---|---|---|",
           sim_row("observed (this wave)", obs), sim_row("observed (session so far)", sess)]
     L += [sim_row(name, p, dist[name], "**→** " if name == world else "") for name, p in preds.items()]
     L += ["", f"Closest world: **{world}**. Params played (sim mapping): "
-              + ", ".join(f"{k} {v}" for k, v in sorted(ctx["eff"].items()) if pm.SPEC[k].sim)
+              + ", ".join(f"{k} {v}" for k, v in sorted(ctx["eff"].items()) if k in sim.POLICY_KEYS)
               + (f"; overrides from the params file: {json.dumps(ctx['over'])}" if ctx["over"] else
                  "; no overrides (defaults)") + (f" **(params file ignored: {'; '.join(ctx['errors'])})**"
                                                  if ctx["errors"] else "") + ".", ""]
@@ -738,6 +750,11 @@ def render(wave: Wave, obs: dict, sess: dict, preds: dict, dist: dict, world: st
         delta = f"{c['mean']:+.4f} ± {c['ci']:.4f}" if c["mean"] is not None else "—"
         L.append(f"| together: {json.dumps(c['params'])} | {delta} | {'**kept**' if c['kept'] else c['why']} |")
     L.append("")
+    g = ctx.get("gates") or {}
+    if g:
+        L += [f"**Live gates** (`tools/duel_gates.py`, session so far): {g['reason']}"
+              + (f" → **{json.dumps(g['diff'])}** (in the proposal)" if g["diff"] else "")
+              + (f" · evidence {json.dumps(g['evidence'])}" if g.get("evidence") else ""), ""]
     if notes:
         L += ["**Rule notes** (from the wave; not in the proposal):"] + [f"- {n}" for n in notes] + [""]
     if found["params"]:
@@ -760,6 +777,31 @@ def prepend(section: str, wave_id: str, path: Path = OUT) -> None:
     head, *sections = body.split("\n## ")
     keep = [s for s in sections if f"<!-- wave {wave_id} -->" not in s]
     write_atomic(path, head.rstrip() + "\n\n" + section.rstrip() + "\n" + "".join("\n## " + s for s in keep))
+
+
+# ---------------------------------------------------------------------------------------------------- the live gates
+
+def gate_duels(records: Path, session: Any) -> list[dict]:
+    """The session's closed duels as tools/duel_gates.load reads them (the game's final payload), from `records`."""
+    out = []
+    for f in sorted(Path(records).glob("duel-*.json")):
+        try:
+            d = json.loads(f.read_text())
+        except (OSError, ValueError):
+            continue
+        D = d.get("done") or ((d.get("payloads") or [{}])[-1].get("raw") if d.get("payloads") else None)
+        if isinstance(D, dict) and D.get("session") == session and D.get("status") in ("deal", "no_deal"):
+            out.append(D)
+    return sorted(out, key=lambda D: D.get("deadline_tick") or 0)
+
+
+def gate(records: Path, session: Any, eff: dict[str, Any]) -> dict[str, Any]:
+    """tools/duel_gates.gates on the session so far: {"diff", "reason", "evidence"}; never applied here."""
+    try:
+        diff, reason, ev = dg.gates(gate_duels(records, session), eff.get("MIN_STEP_P", dg.TODAY_MIN_STEP_P))
+    except (KeyError, TypeError, ValueError) as e:
+        return {"diff": {}, "reason": f"gates not evaluated ({e!r:.80})", "evidence": {}}
+    return {"diff": diff, "reason": reason, "evidence": ev}
 
 
 # ---------------------------------------------------------------------------------------------------- run
@@ -799,7 +841,13 @@ def run(*, records: Path = RECORDS, which: str = "latest", params_path: Path = p
     found = search(defaults, over, world=world, base_runs=runs[world], T=T, d=d, days=days, code=code, n=n,
                    seed=seed)
     notes = rule_notes(obs, eff)
-    ctx = {"T": T, "d": d, "n": n, "policy": "code" if code else "llm", "eff": eff, "over": over, "errors": errors}
+    gates = gate(records, wave.session, eff)
+    if gates["diff"]:                                  # a live gate wins over a sim tweak of the same name
+        change = {**found["params"], **gates["diff"]}
+        over_ok, why = candidate(over, defaults, change)
+        found["params"] = change if over_ok is not None else gates["diff"]
+    ctx = {"T": T, "d": d, "n": n, "policy": "code" if code else "llm", "eff": eff, "over": over, "errors": errors,
+           "gates": gates}
     section = render(wave, obs, sess, preds, dist, world, found, notes, ctx)
     proposal = {
         "wave": wave.id, "label": f"{wave.name} wave {wave.n}", "made_at": stamp("%Y-%m-%dT%H:%M:%S"),
@@ -810,7 +858,7 @@ def run(*, records: Path = RECORDS, which: str = "latest", params_path: Path = p
             "missed": {str(x.id): x.missed for x in obs["missed"]},
             "predicted": {k: {**v, "distance": dist[k]} for k, v in preds.items()}, "world": world,
             "base_params": eff, "base_overrides": over, "params_file_errors": errors, "sim_policy": base,
-            "tweaks": found["rows"], "combined": found["combined"], "notes": notes,
+            "tweaks": found["rows"], "combined": found["combined"], "notes": notes, "gates": gates,
             "caveats": caveats(found["params"], eff),
         },
     }
