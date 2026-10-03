@@ -195,3 +195,4 @@ Paco: Say sí, the street is waiting.
 - Sat 21:12 · catalog.minted SAL-11 (La Puerta de Alcalá, epic, print run 9): hidden=False minted=7 (was 5)
 - Sat 21:13 · egg.found tick 1231 · picaros → t05 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t05", "name": "Team 5"}
 - Sat 21:13 · egg.found tick 1231 · picaros → t10 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t10", "name": "Team 10"}
+- Sat 21:16 · message tick 1238 · banco → t08 · Buenas tardes, señora. La Reina de la Movida sale de mi cámara en 761 P. Galantería es una cosa; mis términos son otra. No las confundo nunca.
