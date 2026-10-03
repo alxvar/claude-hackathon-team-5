@@ -1,33 +1,32 @@
-# Scout (claude-sonnet-5-5, Sat 21:09)
+# Scout (claude-sonnet-5-5, Sat 21:14)
 
 ## Top 3 actions now
 
-1. **Do not sell RET-11 below 198; keep the Pilar offer-only job (ask 260, −4, floor 198, run after Duels II).**
-   - Evidence: t10 bids 205 P for LAV-11 (offer 17778) and t17 bids 150 for MAL-11. These are epics, not RET-11. RET-11 is worth 198 to us, and Pilar's epic sell median is 179.
-   - Effect: 0 neg_points at or above 198; any lower price is a counted loss. The ladder is already capped for us.
-   - Confidence: med.
-   - Executor: Operator, job b7k4ksyzp.
+1. **Hold the line through Duels II (starts ≈ tick 1239). No dealer buys, no trades with top-4 teams.**
+   - Evidence: we are #2 at 31.9, 2.7 behind Team 10 (34.6). Team 6 fell −2.2 over 15 min. Directives hold writers until Duels II ends.
+   - Executor: Operator and Aleks's duelist.
+   - Effect: protects the lead over #3 Team 6 (30.4) and #4 Team 18 (30.0). Duels are the only live scoring lever now (duel 13.93).
+   - Confidence: high.
 
-2. **Use the v10 swap desk for the 22.5 real-trades lever.** Lucas/Dani broker two-way duplicate swaps, addressed on v10, and these should not involve the top-4 rivals.
-   - Evidence: the market is maxed at 7.5. Directive: real trades = 5.0 × min(1, VC / top-3 mean). Last-12 team trades include 0-P swaps (t13↔t14 MAL-01/MAL-02 at tick 1202) that show swaps settle.
-   - Candidate pair, to be verified in `intel/matches.md`: t13 holds MAL cards and has bids on RET-02/03 at 4 P. We hold RET-02/03 at 83.9 each as singletons, so do not give them away. Use only true duplicates (LAV-02 ×3, LAV-03/04 ×2).
-   - Expected effect: +0.8-1.6 final market points [L] and 0 P. Not in the data: whether any pair exists today.
-   - Confidence: low-med.
-   - Executor: Builder/Lucas/Dani.
-
-3. **Place Sunday's CHA budget (≈330 P) and the optional MAL close.**
-   - Evidence: cash 392 against the 350 floor. t09 bids MAL-09/10 at 56, so MAL rares trade around 56-58 (Picaros rare buy median 58). Team 15 lists MAL-07 and is #8 (25.5), not a top-4 team.
-   - Action: at 09:00 Sunday, buy the MAL closer from t15 as maker via a team trade only if CHA is under budget. Our MAL cards are 07 and 08 only held partially, so check which MAL cards are missing (06/07/09/10).
-   - Effect: +50 cap if it closes the page in a fresh round [L].
+2. **Offer our spare MAL-03 (offer 17696 at 9 to t09) and other spare commons only to non-rivals.**
+   - Evidence: t09 bids 56 for MAL-09/10 and 21 for SAL-06, and is #16 at 21.2, so the feeding rule is met. t13 bids 4 for RET commons and 13 for RET uncommons. Asks on the board sit at LAT 6-8.
+   - Executor: Operator, maker only, spares only, on v10 or El Rastro.
+   - Effect: small, ≈ +1 to +2 neg each. The v10 rebate (10 P, cap 80) can also pull non-rival trades onto our venue. The Market's rule is real trades = 5.0 × min(1, VC / top-3 mean).
    - Confidence: med.
-   - Executor: Operator.
+
+3. **Sunday 09:00: buy the CHA page and finish MAL. Chief and Analyst to hand the Operator a list of the cheapest team-side sellers tonight.**
+   - Evidence: the SAL close was +40.4 (tick 988). Team 15 holds a spare MAL-07, the likely MAL closer. Sunday is a fresh round (40% weight). Cash is 392 against the floor of 350.
+   - Executor: Operator via a team trade, as maker.
+   - Effect: a close scores up to +50 per page (cap) if made by a team trade. Dealer closes lose the bonus.
+   - Confidence: med.
 
 ## What the climbing teams are doing
-- **t02 (#9, +1.6 over 60 min):** trades heavily in RET (×3) and MAL (×3) and bought MAL-10 from t13 at 30 P (tick 1191). It is buying rares below the 56 bid level.
-- **t07 (#17) and t12 (#7):** RET collectors paying 66-77 P for rares (t07: RET-09 at 66, RET-10 at 77; t12: LAT-09 at 55).
-- **t13:** very active, 9 MAL buys. It runs the 0-P swap pattern (MAL-01/MAL-02 with t14), the same no-cash swaps the market lever rewards.
+- **Team 9 (#16, 21.2):** buying rare and uncommon page cards from teams. SAL-09 from t12 at 70 (tick 1231), MAL-06 from t10 at 20 (tick 1230), bids 56 each on MAL-09/10.
+- **Team 13 (#11):** the most active seller. It sells MAL-10 at 30, SAL-07 at 18 and LAV-02 at 3, and swaps MAL-01 for MAL-02 at 0 P.
+- **Team 10 (#1):** bids 205 for LAV-11 and 112 for SAL-11. It is building epics and holds the lead through them, and it has a venue (v10).
+- **Team 6 (#3):** active on both sides, with 32 team trades and 782 listings, but −2.2 in 15 min. It sold RET-10 to t07 at 77.
 
 ## Threats
-- **t10 (#1, 33.6) bids 205 for an epic (LAV-11).** Team 10 is the leader, and its venue v07 gets value from trades routed there. Never route trades to it.
-- **t06 (#2, 32.6)** is flat at +0.1 and 1.0 ahead of us. If our 31.3 keeps falling (−0.4 per 15 min), it pulls away; the gap is market and duels, so the swap desk is the lever.
-- **Rivals' Payday cash** lets them afford page closers. Keep the DENY rule: cap 35 incl. fee, floor 350, and only when the Chief names the card.
+- **Team 10 is bidding 205 for LAV-11.** It also has the ladder and a market lead. It leads by 2.7, and any team trade that helps it hurts us.
+- **Market-making is still at +5.0 of 22.5.** A rival venue still pulls volume. Our v10 rebate and pair ads must not touch t10, t06, t14, t03 or t18.
+- **Duels II is on a harder clock.** Ours is 13.93 so far. A crashed duelist costs points directly, so the machine must stay on mains power.
