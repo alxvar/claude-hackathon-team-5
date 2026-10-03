@@ -1,17 +1,17 @@
-# Scout (claude-sonnet-5-5, Sat 12:49)
+# Scout (claude-sonnet-5-5, Sat 12:54)
 
 ## Top 3 actions now
-1. **Pilar ladder: one more L3 sell with small steps** (Operator, `abuela_bot.py --dealer pilar --ladder --offer-only`; open 30, step −2/−3, floor ≥ our value). Candidate: MAL-05, MAL-02 or MAL-03 (7 each to us; she paid 19 for uncommon MAL). The commons on offer are cheap to us (MAL-02/03/04 at 7), but whether Pilar buys commons is not in the data. Cancel the card's team ask first (8130 MAL-02, 8050 MAL-04 → t15). Evidence: MAL-06 at 19 with small steps gave +0.040, while SAL-08 after a jump gave only +0.019; ladder 0.181. Effect: +0.01–0.04 ladder, 0 neg. Confidence: med. The L3 best-3 slots may already be full (3 deals), so the gain depends on a new deal beating the weakest one; this is not in the data.
-2. **Keep the 10 maker offers live, and reprice the cheap ones to the top asks/bids** (Operator, `trade.py`). Bids on the board: t06 LAV-09 99, t13 RET-01..05 at 2 (pointless). Our asks are 4–11 P, which is near the clearing price (common 9, uncommon 24.5). The last team trades gave +4.7 (SAL-01 at 7) and +2.0 (MAL-03 at 5). Effect: about +2–5 neg_points each, as maker with no fee. Confidence: med.
-3. **Hold cash ≥ 184 for Sunday's CHA page; keep the silver pack (92.8) unopened until CHA is released** (Operator, per the Chief). The LAV-11 buy failed because Pilar paid 140. Do not chase epics above 120. Effect: protects the +50 page-close on CHA. Confidence: high.
+1. **Close the RET page with the last missing cards (check `value?card` first).** We hold RET-01..05 (commons), 06-08 (uncommons) and 09-10 (rares), but the page bonus is not yet counted. RET-01 to RET-10 each read 83.9, 100.4 or 149.9, which is the bonus already priced in, and RET-01's cap test already booked +50. Not in the data: which RET card, if any, is still missing. Check before spending. Operator, manual. Effect: at most +50 neg_points, and only if a team trade completes it. Confidence: low.
+2. **Keep ladder sells to Pilar, small steps, offer-only.** Evidence: MAL-07 at 19 gave +0.050, MAL-06 at 19 gave +0.040, and SAL-08 at 23 after a jump gave only +0.019. Pilar median is 22 over 15 trades (uncommon). Next cards: none left in our holdings that qualify (no MAL/SAL uncommons held), so use the next uncommon we hold only at a price ≥ our value and Pilar's final ≥ 18. Her limit is 6 deals/team/hour. L3 has 3 deals already, and the cap is [L] ~0.15, with ladder now 0.181. Expected effect: ≈ 0, since we are past the cap [L]. Confidence: low. Skip unless the first deal moves the ladder.
+3. **Sell spare commons as maker, only to teams more than 10 points below us.** The nine open offers are 4-11 P (e.g. 8247 SAL-01 at 11 to t06, 8050 MAL-04 at 9 to t15). Evidence: t04 bids RET-02 at 10, and RET-05 asks sit at 12. Our RET-01..05 are page cards, so do not sell them. Executor: `trade.py`, keeping the asks addressed to t15, t16 and t06. Effect: cash for Sunday's CHA page. Our value gain is about +2 to +4.7 per trade, as with SAL-01 at 7 (+4.7). Confidence: med.
 
 ## What the climbing teams are doing
-- Team 17 (+8.4 in 60 min, 21 deals) buys MAL×4 and SAL×3. Its last trade was MAL-10 (rare) from t18 at 70 (tick 508). It is concentrating on two sets and closing pages.
-- Team 14 (#1, +4.7 in 60 min, only 23 deals) is a high-multiplier collector (LAV/RET/LAT) whose last big buy was LAT-09 from t13 at 65 (tick 47). Few deals, big gains.
-- Team 10 and Team 18 (+2.0 and +2.4 in 15 min) both bid for RET and LAV. t06 sold RET-09 to t02 at 84 (tick 504), the same card we paid Chato 87 for. Teams are paying about 84 for rares.
-- Team 8 sold the epic LAV-11 to Pilar at 140 and left our 120 bid unfilled.
+- **Team 14 (#1, +3.3/h)** has only 23 deals. It collects LAV/RET/LAT and bought LAV-10 at 82 from Team 16 (tick 375, Team 6 as buyer). Fewer deals, bigger value per deal.
+- **Team 6 (+6.4/h)** has 31 deals and bid LAV-09 at 99 and SAL-09 at 68. It bought RET-09 at 84 (t06→t02, tick 504). It is paying near-book prices for page cards.
+- **Team 12 (#4)** sold SAL-10 at 76 to t08 (tick 556) and bought LAT-07 at 19 and LAT-01 at 7. It sells rares to buyers at book and buys cheap uncommons and commons.
+- **Dealers are competing for epics.** Team 8 sold LAV-11 to Pilar at 140.
 
 ## Threats
-- Team 13 (#6, 50 deals, 328 listings) dominates volume and trades on its own venue v03. Every v03 trade we make feeds it, so avoid v03.
-- t06 bids 99 for LAV-09, but we hold two LAV-09/10 (value 177.1 each). Selling either one would break our LAV page, so never.
-- Pilar's price is moving: her uncommon bids are 16 → 19, and the 60-tick median is 20. Waiting does not lower her price.
+- **Team 6 bids LAV-09 at 99 and RET-09 at 84.** It is racing us for LAV/RET rares. Our LAV-09/10 and RET-09/10 are page cards, so do not sell them.
+- **Team 13 (#7) bids 2 P for RET-01 to RET-05.** It is a lowball sweep and no threat, but never sell to it. Its venue v03 feeds it value created.
+- **A team trade on our venue v10 can go negative (−5.2 earlier).** Avoid mm exposure from SAL/MAL dumps to teams that value them less.
