@@ -30,11 +30,13 @@ bash <(git show origin/duelist-loop:tools/duelist_sunday.sh) --rollback   # back
 ```
 
 **What it does:**
-1. Fetches and checks out `COMMIT` in its own worktree, `../team5-duelist-sunday`. Never in your checkout: your
-   auto-sync pushes HEAD to main, so a detached branch there would merge it unreviewed.
-2. Runs the full test suite and aborts on red.
-3. Installs `SET` as the whole params file (`duel_loop.py use`).
-4. Refuses if any duelist runs on this machine.
+1. Refuses if any duelist runs on this machine, before touching anything (re-audit R2: the live duelist reads the
+   worktree and its params file).
+2. Fetches and checks out `COMMIT` in its own worktree, `../team5-duelist-sunday`. Never in your checkout: your
+   auto-sync pushes HEAD to main, so a detached branch there would merge it unreviewed. A failed fetch is tolerated
+   when `COMMIT` is a sha already here.
+3. Runs the full test suite and aborts on red.
+4. Installs `SET` as the whole params file (`duel_loop.py use`).
 5. Starts `supervise.sh` with `--policy POLICY FLAGS`. The records go to your checkout's `docs/duels`, so your
    auto-sync pushes them as before.
 6. Prints a one-screen status.
@@ -45,8 +47,11 @@ Duel Lab's. Pin `COMMIT` to the re-audited sha.
 **`--stop`:** stops every duelist and the switch, starts nothing, prints the status. A re-run of the script
 without a flag starts again (and reinstalls `SET`).
 
-**`--rollback`:** it stops every duelist and the switch, checks your checkout out to main, runs the duelist tests,
-and starts with Saturday's flags (`OLD_FLAGS`, from the runbook).
+**`--rollback`** (re-audit R1): it checks first (your checkout is on main, no edits in `agents/` or `engine/`, the
+duelist identical to origin/main, the duelist tests green, `.env` present) and stops nothing if a check fails. Then it
+stops every duelist and the switch and starts main's duelist with Saturday's flags (`OLD_FLAGS`, from the runbook)
+and no `--records` (main's `run` has none: with it, supervise.sh restarted forever). It never pulls: if main is
+behind, pull by hand first.
 
 ## TL;DR
 

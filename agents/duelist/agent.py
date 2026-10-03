@@ -762,7 +762,7 @@ class DuelAgent:
         return Move("offer", text, price=price, days=days, meta={"repaired": True, **meta})
 
     async def respond(self, obs: Observation) -> Move:
-        if self.policy == "code":
+        if self.policy == "code" and not (self.view.has_days and self.view.day_values is None):
             return await self.respond_code(obs)
         self.calls = []
         try:

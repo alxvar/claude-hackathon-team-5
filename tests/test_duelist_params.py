@@ -106,7 +106,6 @@ def test_a_missing_file_plays_the_default_set_loudly_never_the_code_constants(tm
     sets.write_text(json.dumps({"_default": "A", "A": {"MIN_STEP_P": 5, "MAX_STEP_SHARE": 0.18}}))
     p = Params(modules(), tmp_path / "duel_params.json", sets=sets)
     try:
-        p._stamp = "?"                                                # force the first read
         r = p.reload()
         assert r["missing"] and A.MIN_STEP_P == 5 and A.MAX_STEP_SHARE == 0.18 and p.set_name.startswith("A ")
         put(p, {"_set": "C", "MIN_STEP_P": 8})                      # the file arrives: it wins, named
@@ -115,7 +114,6 @@ def test_a_missing_file_plays_the_default_set_loudly_never_the_code_constants(tm
         logs = tmp_path / "logs"
         runner = DuelRunner(None, None, None, dry_run=True, log=Log(logs), decay=None, duel_ticks=None, poll_s=0.1,
                             params=Params(modules(), tmp_path / "gone.json", sets=sets))
-        runner.params._stamp = "?"
         assert runner.reload_params()["missing"]
         assert any(json.loads(x)["event"] == "params_missing" for x in runner.log.path.read_text().splitlines())
     finally:

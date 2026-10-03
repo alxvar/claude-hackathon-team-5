@@ -153,7 +153,7 @@ class Params:
         self.modules, self.path, self.sets_path = modules, Path(path or PATH), Path(sets or SETS)
         self.defaults = {k: getattr(modules[s.module], k) for k, s in SPEC.items() if s.module in modules}
         self.current = dict(self.defaults)
-        self._stamp: Any = None
+        self._stamp: Any = object()            # never equal to a stamp: the first reload always reads
         self.last_error: list[str] = []
         self.missing = False                           # the file is missing: the fallback set plays (loudly)
         self.set_name = "code defaults"                # what plays: a set's name, "custom", or the code defaults

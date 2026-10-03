@@ -551,3 +551,14 @@ def test_a_session_off_the_simulated_setting_proposes_nothing(tmp_path, src, mon
     assert dl.run(**kw, target=(16, D))["params"] == {"MAX_STEP_SHARE": 0.15}
     p = dl.run(**kw, target=(12, 0.10))
     assert p["params"] == {} and "not proposed" in p["evidence"]["gates"]["reason"]
+
+
+def test_the_sunday_script_refuses_before_touching_anything_and_rollback_checks_before_stopping():
+    """Re-audit R1/R2: the one-duelist check runs before the checkout and the params rewrite; --rollback checks main
+    first, stops only then, and starts main's duelist without --records (main's `run` has no such flag)."""
+    text = (Path(dl.__file__).parent / "duelist_sunday.sh").read_text()
+    body = text[text.index('case "${1:-start}" in'):]
+    assert body.index("1/6 one duelist per machine") < body.index("git -C \"$WT\" checkout") < body.index('use "$SET"')
+    rb = body[body.index("--rollback)"):body.index("start|\"\"|--check)")]
+    assert rb.index("diff --quiet origin/main") < rb.index("pytest") < rb.index("stop_all") < rb.index("start_in")
+    assert 'start_in "$MAIN" "" $OLD_FLAGS' in rb and "pull -q" not in rb and "--records" not in rb.split("start_in")[-1]

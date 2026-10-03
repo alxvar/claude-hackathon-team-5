@@ -4,7 +4,7 @@
 #   bash <(git show origin/duelist-loop:tools/duelist_sunday.sh) --rollback   # back to Saturday's duelist on main
 #   bash <(git show origin/duelist-loop:tools/duelist_sunday.sh) --stop       # stop every duelist, start nothing
 #   bash <(git show origin/duelist-loop:tools/duelist_sunday.sh) --status     # one screen
-#   bash <(git show origin/duelist-loop:tools/duelist_sunday.sh) --check      # steps 1-4 only: never starts
+#   bash <(git show origin/duelist-loop:tools/duelist_sunday.sh) --check      # steps 1-4 only: never starts (refuses while a duelist runs)
 # The approved code runs from its own worktree ($WT), never from your checkout: your checkout's auto-sync pushes
 # HEAD to main, so a detached branch there would merge it unreviewed. Its duel records still go to your checkout's
 # docs/duels (--records), which your auto-sync pushes as before. Never writes to the game itself.
@@ -45,34 +45,45 @@ stop_all() {
   die "a duelist process is still running: $(procs | tr '\n' ' ')"
 }
 
-start_in() {   # dir, records, flags...
+start_in() {   # dir, records ("" = none: main's `run` has no --records), flags...
   local dir="$1" rec="$2"; shift 2
+  [ -f "$MAIN/.env" ] || die "no $MAIN/.env: not starting"
+  local extra=(); [ -n "$rec" ] && extra=(--records "$rec")
   mkdir -p "$dir/logs/duelist"
   local log="$dir/logs/duelist/supervise-$(date +%Y%m%d-%H%M%S).log"
   (cd "$dir" && set -a && . "$MAIN/.env" && set +a && \
-    nohup agents/duelist/supervise.sh "$@" --records "$rec" >"$log" 2>&1 </dev/null &)
-  say "started in $dir: supervise.sh $* --records $rec (log $log)"
+    nohup agents/duelist/supervise.sh "$@" ${extra[@]+"${extra[@]}"} >"$log" 2>&1 </dev/null &)
+  say "started in $dir: supervise.sh $* ${extra[*]:-} (log $log)"
 }
 
 case "${1:-start}" in
   --status) status; exit 0 ;;
   --stop) say "STOP: stopping every duelist and the switch on this machine; starting nothing"; stop_all; status; exit 0 ;;
   --rollback)
-    say "ROLLBACK: stopping every duelist on this machine"; stop_all
+    say "ROLLBACK: check main first, then stop and start (nothing is stopped if a check fails)"
     git -C "$MAIN" diff --quiet HEAD -- agents engine || die "uncommitted code in $MAIN: commit or stash it by hand first"
-    git -C "$MAIN" fetch -q origin && git -C "$MAIN" checkout -q main && git -C "$MAIN" pull -q --rebase origin main \
-      || die "could not bring $MAIN to origin/main"
+    [ "$(git -C "$MAIN" rev-parse --abbrev-ref HEAD)" = main ] || die "$MAIN is not on main: check out main by hand first"
+    git -C "$MAIN" fetch -q origin || say "   git fetch failed: comparing with the last fetched origin/main"
+    git -C "$MAIN" diff --quiet origin/main -- agents/duelist engine || die "$MAIN's duelist differs from origin/main: pull by hand"
     (cd "$MAIN" && "$UV" run python -m pytest -q tests/test_duelist.py >/dev/null 2>&1) || die "duelist tests red on main"
-    # main has no params file support: Saturday's constants, Saturday's flags (docs/duelist-runbook.md)
-    start_in "$MAIN" "$MAIN/docs/duels" $OLD_FLAGS
+    [ -f "$MAIN/.env" ] || die "no $MAIN/.env: not stopping anything"
+    say "   main is ready: stopping every duelist on this machine"; stop_all
+    # main has no params file support and no --records: Saturday's constants, Saturday's flags (docs/duelist-runbook.md)
+    start_in "$MAIN" "" $OLD_FLAGS
     sleep 8; status; exit 0 ;;
   start|""|--check) ;;
   *) echo "usage: duelist_sunday.sh [--status | --check | --stop | --rollback]"; exit 2 ;;
 esac
 
-say "1/6 fetch and check out $COMMIT in $WT"
-git -C "$MAIN" fetch -q origin || die "git fetch failed"
-sha="$(git -C "$MAIN" rev-parse --verify -q "$COMMIT^{commit}")" || die "no commit $COMMIT"
+say "1/6 one duelist per machine (before anything is touched: a live duelist reads $WT and its params file)"
+if procs >/dev/null; then die "a duelist is already running here: $(procs | tr '\n' ' '). Stop it, or use --rollback"; fi
+
+say "2/6 fetch and check out $COMMIT in $WT"
+if ! git -C "$MAIN" fetch -q origin; then
+  [[ "$COMMIT" =~ ^[0-9a-f]{7,40}$ ]] || die "git fetch failed (and $COMMIT is not a pinned sha)"
+  say "   git fetch failed: using the local copy of the pinned $COMMIT"
+fi
+sha="$(git -C "$MAIN" rev-parse --verify -q "$COMMIT^{commit}")" || die "no commit $COMMIT (fetch it first)"
 if [ -d "$WT/.git" ] || [ -f "$WT/.git" ]; then
   git -C "$WT" diff --quiet HEAD || die "$WT has local changes: remove the worktree or commit them"
   git -C "$WT" checkout -q --detach "$sha" || die "checkout failed in $WT"
@@ -81,16 +92,13 @@ else
 fi
 say "   $WT at $(git -C "$WT" log --oneline -1)"
 
-say "2/6 the full test suite"
+say "3/6 the full test suite"
 out="$(cd "$WT" && "$UV" run --project "$WT" python -m pytest -q tests 2>&1)"; code=$?
 echo "$out" | tail -1
 [ $code -eq 0 ] || { echo "$out" | grep -E '^(FAILED|ERROR)' | head; die "tests red: not starting"; }
 
-say "3/6 install the approved set $SET as the whole params file"
+say "4/6 install the approved set $SET as the whole params file"
 (cd "$WT" && python3 tools/duel_loop.py use "$SET" --by "$BY") || die "set $SET refused"
-
-say "4/6 one duelist per machine"
-if procs >/dev/null; then die "a duelist is already running here: $(procs | tr '\n' ' '). Stop it, or use --rollback"; fi
 
 if [ "${1:-}" = "--check" ]; then say "--check: steps 1-4 passed; not starting"; status; exit 0; fi
 

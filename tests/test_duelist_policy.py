@@ -263,3 +263,23 @@ def test_a_seller_may_name_its_own_price_below_the_nominal_limit_on_a_bonus_day(
                     rival_offer=None, tick=2, ticks_left=6)
     m = a.final(A.Move("offer", "I can do 70 P, delivery on day 10.", price=70, days=10), o)
     assert (m.action, m.price) == ("offer", 70)                       # worth +41.6: not "Let me think about that."
+
+
+def test_a_days_duel_whose_weight_code_cannot_read_goes_to_the_models(monkeypatch):
+    """Re-audit R5: --policy code hands a days duel with an unreadable weight to the models (code can't price days)."""
+    blind = DuelView(duel_id=7, role=Role.SELLER, limit=34, item="a card", decay=0.08, duel_ticks=16,
+                     issues=["price", "days"], days_weight=None, days_meaning="")
+    assert blind.has_days and blind.day_values is None
+    a, m = agent(blind, Words(error=LLMError("down")))
+    called = []
+
+    async def code(o):
+        called.append(o)
+        raise AssertionError("respond_code on an unreadable days duel")
+    monkeypatch.setattr(a, "respond_code", code)
+    move = asyncio.run(a.respond(obs(blind)))
+    assert called == [] and move is not None and m.seen                 # the models were asked
+    d, _ = agent(DAYS_SELLER)                                    # a readable weight stays with code
+    monkeypatch.setattr(d, "respond_code", code)
+    with pytest.raises(AssertionError):
+        asyncio.run(d.respond(obs(DAYS_SELLER)))
