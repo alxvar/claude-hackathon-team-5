@@ -45,6 +45,8 @@ def scheduled(session, name):
 @pytest.fixture(autouse=True)
 def clean(tmp_path, monkeypatch):
     monkeypatch.setattr(arbiter, "FEED", tmp_path / "feed.jsonl")  # hermetic: no real feed
+    monkeypatch.setattr(arbiter, "LOG", tmp_path / "arbiter.jsonl")
+    monkeypatch.setenv("ARBITER_HOLDS", "1")                         # the decision rules below; off mode at the end
     arbiter.reset()
     yield
     arbiter.reset()
@@ -183,3 +185,28 @@ def test_abuela_holds_a_final_offer_until_the_duel_no_longer_needs_the_accept(tm
     assert t["status"] == "deal" and b.accepted == [55]
     events = [json.loads(x)["event"] for x in (tmp_path / "abuela.jsonl").read_text().splitlines()]
     assert events.index("hold_accept_duel") < events.index("accept")
+
+
+# ------------------------------------------------------------------ ARBITER_HOLDS off (the default since 13:00)
+
+def test_off_by_default_never_holds_but_logs_what_it_would_have_held(monkeypatch, tmp_path):
+    monkeypatch.delenv("ARBITER_HOLDS")
+    b = FakeBazaar([duel(rival=80, limit=100)])
+    hold, why = arbiter.should_hold_accept(b, 100)
+    assert hold is False and why.startswith("would have held: duel 7: rival offer 80 inside our limit")
+    arbiter.should_hold_accept(b, 100)                               # same tick, same reason: one line
+    arbiter.should_hold_accept(b, 101)
+    lines = [json.loads(x) for x in (tmp_path / "arbiter.jsonl").read_text().splitlines()]
+    assert [(x["tick"], x["event"]) for x in lines] == [(100, "would_have_held"), (101, "would_have_held")]
+    assert arbiter.should_hold_accept(FakeBazaar([]), 102) == (False, "no live duel")   # nothing to hold: no line
+    assert len((tmp_path / "arbiter.jsonl").read_text().splitlines()) == 2
+
+
+def test_on_holds_and_logs_nothing(monkeypatch, tmp_path):
+    for v in ("1", "on", "true"):
+        monkeypatch.setenv("ARBITER_HOLDS", v)
+        arbiter.reset()
+        assert arbiter.should_hold_accept(FakeBazaar([duel(rival=80, limit=100)]), 100)[0] is True
+    assert not (tmp_path / "arbiter.jsonl").exists()
+    monkeypatch.setenv("ARBITER_HOLDS", "0")
+    assert arbiter.should_hold_accept(FakeBazaar([duel(rival=80, limit=100)]), 101)[0] is False

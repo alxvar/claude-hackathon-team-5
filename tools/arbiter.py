@@ -11,6 +11,10 @@ Hold only when BOTH hold true:
   day weight can't be read counts any standing offer (Aleks's review 10:20: else 6 duels at once freeze our bots).
 GET /api/duels is read at most once per tick (cached by tick).
 
+ARBITER_HOLDS (env, default off; Chief 13:00 from the organisers' Duels deck [V]: duel messages and accepts have their
+own limits and never block trading): off, it decides as above but never holds; each tick it would have held goes to
+logs/arbiter.jsonl ("would have held"), so Duels II can show no duel accept ever failed. ARBITER_HOLDS=1 holds again.
+
     from arbiter import should_hold_accept
     hold, why = should_hold_accept(b, tick)      # tick: the current tick if the caller has it (saves a clock read)
     source .env && python3 tools/arbiter.py      # what it decides right now
@@ -18,6 +22,7 @@ GET /api/duels is read at most once per tick (cached by tick).
 import json
 import os
 import sys
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -25,6 +30,7 @@ sys.path.insert(0, str(ROOT / "bazaar-kit"))
 from bazaar_sdk import Bazaar, BazaarError  # noqa: E402
 
 FEED = ROOT / "data" / "feed.jsonl"
+LOG = ROOT / "logs" / "arbiter.jsonl"
 SOON = 3  # ticks_left at or below this: the duel may need the accept now
 DONE = {"deal", "no_deal", "closed", "expired", "settled", "done", "walked", "cancelled", "failed"}
 UNSCORED_WORDS = ("practice", "not scored", "unscored")
@@ -32,12 +38,14 @@ UNSCORED_WORDS = ("practice", "not scored", "unscored")
 _cache = {"tick": None, "duels": None}  # the last GET /api/duels, by tick
 _sessions = {}                           # session number -> scored? (True/False)
 _last = {"scored_live": False}           # last known state, for when the read fails
+_logged = {"key": None}                  # the last (tick, reason) written to LOG
 
 
 def reset():
     """Forget every cache (tests)."""
     _cache.update(tick=None, duels=None)
     _sessions.clear()
+    _logged["key"] = None
     _last["scored_live"] = False
 
 
@@ -106,8 +114,31 @@ def _duels(b, tick):
     return _cache["duels"]
 
 
+def holds_enabled() -> bool:
+    return os.environ.get("ARBITER_HOLDS", "").strip().lower() in ("1", "true", "on", "yes")
+
+
 def should_hold_accept(b, tick=None):
-    """(hold, reason). hold=True: leave this tick's accept to the duels."""
+    """(hold, reason). hold=True: leave this tick's accept to the duels. With ARBITER_HOLDS off, never True: a tick it
+    would have held is logged to LOG and the reason says "would have held"."""
+    hold, why = decide(b, tick)
+    if not hold or holds_enabled():
+        return hold, why
+    key = (_cache["tick"] if tick is None else tick, why)
+    if _logged["key"] != key:
+        _logged["key"] = key
+        try:
+            LOG.parent.mkdir(parents=True, exist_ok=True)
+            with LOG.open("a") as f:
+                f.write(json.dumps({"t": time.strftime("%H:%M:%S"), "tick": key[0], "pid": os.getpid(),
+                                    "caller": Path(sys.argv[0]).name, "event": "would_have_held", "why": why}) + "\n")
+        except OSError:
+            pass
+    return False, f"would have held: {why} (ARBITER_HOLDS off)"
+
+
+def decide(b, tick=None):
+    """(hold, reason) by the duel rules above, whatever ARBITER_HOLDS says."""
     try:
         if tick is None:
             tick = b.clock()["tick"]
