@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 16:13 (tick 714), snapshot 710. §1d levers 1-2 corrected by Aleks's replay (docs/duels-1-review.md). Duels I post-mortem §1d; Duels II day rule §1e. Duels I post-mortem: §1d. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
+_Last update: Sat 16:27 (tick 744), snapshot 740 (us #6 at 28.43; t12 29.90, t14 29.88, t10 28.93, t18 28.87, t01 28.55)._ §1d levers 1-2 corrected by Aleks's replay (docs/duels-1-review.md). Duels I post-mortem §1d; Duels II day rule §1e. Duels I post-mortem: §1d. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
 
 ## 1. Board = Friday × Saturday blend [V]
 

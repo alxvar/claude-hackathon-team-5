@@ -9,6 +9,17 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sat 16:26 · snapshot 740
+- Board: **t12 29.90 (#1)** · t14 29.88 · t10 28.93 · t18 28.87 · **t01 28.55 (#5, surging)** · **us 28.43 (#6)** · t03 26.12.
+- **t01 +5.0 Saturday points in 3 snapshots** [V]: three Pilar sells into empty L3 slots, LAV-06 at 19 (718), MAL-08 at 20
+  (726) and **SAL-10 at 70** (737). A team with ~no ladder gains most from fresh slots; t01 also made no other deals.
+- **Pilar buys SAL rares at 65-70 before the fever** [V]: t08 SAL-10 69 (722), SAL-09 65 (731); t01 SAL-10 70. During the fever
+  (18:04-20:04, +25% over book) a SAL rare should fetch ≈ 87.
+- Field-wide drift at 730 (t14 −0.41, t18 −0.57, t10 −0.21, us −0.33 Saturday points): the ladder reference rising with
+  t01's and t08's Pilar deals [L].
+- Workshop crafts: t18 (La Chulapa), t16 (Vermut del Domingo), t08 (Teatro Valle-Inclán), t10 (La Vía Láctea).
+- Ours: bought MAL-01 from t06 at 5 on v07 (714): neg_points +2.0.
+
 ### Sat 16:12 · snapshot 710 (bench 3 scored)
 - Board: t14 30.27 · t12 29.73 · t18 29.25 · t10 28.59 · **us 28.53 (#5, 1.74 behind)** · t13 26.09 · t17 25.43.
 - Bench 3 moved board venues up: t13 5.49 → 6.08, t03 3.61 → 4.75, t06 11.64 → 11.89; stalls stay 7.5 (our efficiency
