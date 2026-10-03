@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 22:26 (tick 1376), snapshot 1370: t10 37.91 · t06 31.42 · **us #3 30.87** · t12 30.57 · t18 30.11 · t03 30.03 · t14 28.20. t10's lead on the game total (10.6) is 70% market value created (v07 capped) [V decomposition]. Duels II (§1g): 50 deals / 59 duels, duel_points 33.19. Sunday allocation §3g; overnight program §4 due 07:30._points 13.93 → 28.44. Sunday allocation §3g._points 13.93 → 22.96; t10's duel part ≈ 2.3-3.0 board above ours [L]. Sunday allocation §3g._
+_Last update: Sat 22:42 (tick 1406), snapshot 1400: us #4 at 30.38. Duels II done for us: 56/68 deals, duel_points 35.39 (§1g). Overnight program §4 due 07:30._points 33.19. Sunday allocation §3g; overnight program §4 due 07:30._points 13.93 → 28.44. Sunday allocation §3g._points 13.93 → 22.96; t10's duel part ≈ 2.3-3.0 board above ours [L]. Sunday allocation §3g._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -184,6 +184,13 @@ Correct no-deals: 5619, 5617. Fix b7d91f3 (direction words) live from tick 1256.
 forgone in 4 of 12 deals. Fix sent: hold our day unless w ≤ ~1.5; price a switch at ≥ C + ~C; code guard snapping an
 uncovered opposite day back. Board: our negotiating 24.43 → 23.25 (1230 → 1280) while duel_points rose 13.93 → 20.52;
 t10 +3.4 board in the same window: the field out-paces us on the relative duel part.
+
+**Duels II final (our 68 closed by tick 1399) [V docs/duels + feed]:** **56 deals / 68 (82%) vs field 475/604 (78.6%);
+duel_points 13.93 → 35.39 (+21.5).** Wave 1 (old reading) 3/7; waves 2-10 53/61 (87%); every no-deal after wave 2 had 0-1
+rounds (silent or one-move rivals). Open leaks for Duels III (decay 10%, shorter clock): (a) the rival's day conceded without
+pricing it (5653, 5796, 5809, 6176); (b) 7-9 rounds on thin margins (6095, 6171, 6184, 6176: worth < 11); (c) worth drift after a
+late switch (6190: 88 at day 10 = worth 5 vs our standing 116 at day 0 = worth 27). Despite +21.5 duel_points our board
+negotiating fell (graded vs a field rising faster; t10's duel part ≈ 2.3-3 board above ours) [L].
 
 ## 1f. Duels II scoreboard plan (FINAL 19:35, snapshot 1100) [L]
 
