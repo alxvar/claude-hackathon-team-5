@@ -228,3 +228,4 @@ Nando: Setenta y tres,
 - Sat 21:58 · message tick 1321 · pilar → t02 · Buenas tardes. La chulapa dorada… dicen que sólo se imprimió una. Carmen, en El Rastro, conoce la historia; pregúntele. Mientras tanto, usted me parece serio: le ofrezco un sobre dorado por 504 P.
 - Sat 22:00 · message tick 1325 · pilar → t08 · Qué amable, muchas gracias. Sí, el doce de octubre es día grande en casa, con misa y mantel bueno. Y ya que hablamos de cosas finas: le ofrezco un sobre dorado por 504 P. ¿Le interesa?
 - Sat 22:01 · taller.crafted tick 1326 ·  → t01 · Team 1 turned three common cards into Palacio de Velázquez (uncommon) at The Workshop
+- Sat 22:01 · taller.crafted tick 1327 ·  → t01 · Team 1 turned three common cards into Mercado de San Ildefonso (uncommon) at The Workshop
