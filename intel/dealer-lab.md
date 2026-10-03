@@ -140,15 +140,18 @@ The Operator reports the case to the Chief at 08:55. The order below starts at "
 | When | Action | Requests |
 |---|---|---|
 | t+0 | merge `book_cha_entries.json` into run/book.json; book.py posts 10 **public** bids on El Rastro, **capped at the dealer accept price** (Chief 02:45, adversary-t10: no flip into our bid): rares 48 → 54, uncommons 20 → 22, commons 8 → 9, CHA-08 flat 22, CHA-05 flat 9; **no `last_card`** | ~10 over 2 ticks (book.py throttles itself) |
-| t+1 | open the Pícaros thread with the estampita line, no price, then close it; open the Abuela thread with the cocido line, no price, then close it | 4 |
+| **t+0 (same tick)** | **Pícaros CHA-09 thread** (red team 00:55: print runs run out): `simple_buy.py CHA-09 --dealer picaros --open 42 --step 2 --cap 54 --floor-cash 0 --offer-only --first-text '<estampita line> {p} P por la carta.'`. The egg line goes **inside the priced message**. Our script carries the trick guard (exact card; the repo dealer code checks cash only). Flag verified lies if the flag cap reset | thread 1 of 6 |
+| t+0 | fodder maker bids: LAT-06/07/08 at ≤ 12 on v15 (we hold 0 of each) | 3 offers |
+| right after CHA's release | **open the silver pack 1013** if ≥ 2 CHA cards are still missing (the gate); log the pulls | 1 |
+| when CHA-09's thread closes | **Pícaros CHA-10**, same terms (one Pícaros thread at a time); a walk at a final ≥ 57 → reopen once with --cap 57 | thread 1 of 6 |
+| t+1 | Abuela thread: the cocido line inside a priced CHA buy (or text, then close if no CHA need yet) | thread 2 of 6 |
 | every REPRICE_AFTER ticks | book.py steps each bid toward its cap (rares +2 to 54, uncommons +1 to 22, commons +1 to 9) | 1 each |
-| t+120 (30 min) | CHA-09 not filled → **Pícaros** buy: open 42, +2, target 48-52, accept ≤ 54, walk on a final ≥ 57 and reopen once, then ≤ 57; trick guard | 1 thread |
-| after CHA-09's thread closes (≈ t+180) | CHA-10 → Pícaros, same terms | 1 thread |
 | t+240 / 300 | CHA-06 then CHA-07 → **Abuela**: open 12, +1/+2, target 20-21, accept ≤ 22 | 1 thread at a time |
 | t+360 … 480 | CHA-01..04 → Abuela: open 5, +1, target 8, accept ≤ 9 | 1 thread at a time |
 | t+840 | CHA-08 → Abuela ≤ 22, only if CHA-08 and CHA-05 are both still missing | 1 |
 | when one CHA card is the last missing | **never public**: ONE agreed, addressed post from a NON-rival (pre-agreed by Lucas/Dani), up to value-when-last − 50 (common 72 / uncommon 96 / rare 168): +50 | 1 |
-| once CHA is in or on budget | **MAL**: MAL-09 then MAL-10 → Pícaros (open 40, +2, target 44-48, accept ≤ 49 = our value); then MAL-07 **last** from Team 15 by team trade (addressed bid on El Rastro, start 20, up to value-when-last − 50) | 1 thread + 1 bid |
+| after the CHA threads | fodder **dealer sales** (Pilar > 16 first, then Chato > 13), ≤ 3 per level | ≤ 2 threads |
+| **10:30 go/no-go on the Analyst's M5 line** (directive 00:55; not on cash) | **MAL**: MAL-09 then MAL-10 → Pícaros (open 40, +2, target 44-48, accept ≤ 49 = our value); then MAL-07 **last** from Team 15 by team trade (addressed bid on El Rastro, start 20, up to value-when-last − 50) | 1 thread + 1 bid |
 
 **Expected P and score (CHA)** [L, from §1 medians and cha-plan values 16/40/112, page bonus 106]:
 
