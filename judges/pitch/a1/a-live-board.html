@@ -82,12 +82,12 @@ body.noscript details.script{display:none}
 <section class="screen" id="s1">
   <div class="eyebrow">01 · Hook · 0:00–0:15</div>
   <h1><span class="num">#10</span> at noon.<br><span class="us num">#1</span> at 16:44.</h1>
-  <p class="lede">Three humans, six Claude Code sessions, a two-model duel agent. One rule: no model can spend past a limit a human wrote.</p>
-  <span class="src">Rank #10 at tick 460 (≈12:00), #1 at tick 780 (16:44) · data/leaderboard.jsonl <span class="tag V">V</span></span>
+  <p class="lede">Three humans, six Claude Code sessions, a two-model duel agent. And a written limit on every spend.</p>
+  <span class="src">Rank #10 at tick 460 (≈12:00), #1 at tick 780 (16:44) · data/leaderboard.jsonl <span class="tag V">V</span> · six sessions: intel/chief-handoff.md</span>
   <svg class="chart" id="race1" viewBox="0 0 1000 230" role="img" aria-label="Team 5 score versus the leader, Friday to Saturday 20:05"></svg>
   <span class="src">Blue: Team 5 board score · grey: the leader at each snapshot · 120 snapshots, ticks 90–1180 · data/leaderboard.jsonl</span>
   <details class="script" open><summary>Script · 15 s · 41 words</summary>
-  <p>This blue line is Team 5. At noon on Saturday we were tenth of eighteen. At 16:44 we were first. Three humans, six Claude Code sessions, a two-model duel agent, and one rule: no model can spend past a limit a human wrote.</p></details>
+  <p>This blue line is Team 5. At noon on Saturday we were tenth of eighteen. At 16:44 we were first. Three humans, six Claude Code sessions, a two-model duel agent, and a written limit on every spend.</p></details>
 </section>
 
 <!-- 2 SYSTEM -->
@@ -182,12 +182,12 @@ body.noscript details.script{display:none}
   <h2>We read the public feed like a scouting report.</h2>
   <div class="grid g2">
     <div class="card"><h3>Friday's leaders: one rare between teams</h3><p>Three teams went ~11 → 22–26 with a single rare at 65–70 P. We pivoted to team trades at 21:14.</p><span class="src">LOG.md E3</span></div>
-    <div class="card"><h3>Ladder-heavy play erodes</h3><p>A team that led on dealer ladders slid #2 → #7 as the field copied it. The ladder is graded on a curve: we stopped when ours capped.</p><span class="src">score-model §1d <span class="tag L">L</span></span></div>
+    <div class="card"><h3>Ladder-heavy play erodes</h3><p>The #2 team slid to #7: weak duels plus a ladder score that eroded as the field copied the play. The ladder is graded on a curve; ours capped at 17:45 and we stopped.</p><span class="src">score-model §1d <span class="tag L">L</span></span></div>
     <div class="card"><h3>The cheap page close</h3><p>Today's leader buys a page's expensive cards from dealers at value and closes with a cheap team trade: +3.33 board. That is our Sunday recipe for Chamberí.</p><span class="src">score-model §3e <span class="tag L">L</span></span></div>
     <div class="card"><h3>Duel opponents are scripts</h3><p>16 of 17 Duels I opponents were scripted bots, 1 was silent, 0 were LLMs. Seven teams held #1 on Saturday, us included.</p><span class="src">team/aleks.md 16:55 · data/leaderboard.jsonl</span></div>
   </div>
   <details class="script" open><summary>Script · 25 s · 72 words</summary>
-  <p>We read the public feed like a scouting report. Friday's leaders jumped on one rare traded between teams, so we pivoted to team trades. A ladder-heavy team slid from second to seventh once the field copied it, so we stopped when our ladder capped. Today's leader closes pages cheaply: dealer cards at value, last card by team trade. That's our Sunday plan. And sixteen of seventeen duel opponents were scripts.</p></details>
+  <p>We read the public feed like a scouting report. Friday's leaders jumped on one rare traded between teams, so we pivoted to team trades. The second-placed team slid to seventh: weak duels, and a ladder score that eroded as everyone copied it. Today's leader closes pages cheaply: dealer cards at value, last card by team trade. That's our Sunday plan. And sixteen of seventeen duel opponents were scripts.</p></details>
 </section>
 
 <!-- 6 INCIDENTS -->
@@ -196,18 +196,18 @@ body.noscript details.script{display:none}
   <h2>What broke, and the rule it became.</h2>
   <div class="grid g2">
     <div class="card inc"><span class="sev">SEV 1</span><div><h3>10:18 · venue swap with Team 10</h3>
-      <p>Our sale on their venue gave them ≈ <span class="num">+4.3</span> market. Their sale on ours (tick 398) took our venue score <span class="num">+4.99 → −5.2</span>: #3 → #7.</p>
+      <p>Our sale on their venue gave them ≈ <span class="num">+4.3</span> market <span class="tag L">L</span>. Their sale on ours (tick 398) took our venue score <span class="num">+4.99 → −5.2</span>: #3 → #7.</p>
       <p><b>Rule:</b> never trade on a rival's venue (17:30).</p><span class="src">directive 19:40 · GAME.md</span></div></div>
     <div class="card inc"><span class="sev">SEV 1</span><div><h3>The golden chulapa</h3>
-      <p>A dealer told us to ask about it at tick <span class="num">522</span>. We asked at <span class="num">1047</span>. The one-print card went to another team at <span class="num">1021</span>.</p>
-      <p><b>Fix:</b> a hint miner: 126 hint lines backfilled, the whole chain mapped.</p><span class="src">intel/hints.md · GAME.md · team/lucas.md 19:00</span></div></div>
+      <p>A dealer first told us to ask about it at tick <span class="num">512</span>. We asked at <span class="num">1047</span>. The one-print card went to another team at <span class="num">1021</span>.</p>
+      <p><b>Fix:</b> a hint miner: 126 hint lines backfilled, the whole chain mapped.</p><span class="src">data/feed.jsonl thread 737 · intel/hints.md · GAME.md · team/lucas.md 19:00</span></div></div>
     <div class="card inc"><span class="sev mid">SEV 2</span><div><h3>Fri 22:01 · autoflip</h3>
       <p>Bought a card worth 17.5 for 29: <span class="num">−11.8</span>. Killed in minutes.</p><p><b>Rule:</b> never buy from a dealer above value.</p><span class="src">LOG.md finding 13</span></div></div>
     <div class="card inc"><span class="sev mid">SEV 2</span><div><h3>Sat 09:44 · git sync loop</h3>
       <p>13 aborted rebases discarded other sessions' work. Restored from the reflog.</p><p><b>Fix:</b> 7 tests; code edits only in worktrees.</p><span class="src">DECISIONS.md #16</span></div></div>
   </div>
   <details class="script" open><summary>Script · 20 s · 66 words</summary>
-  <p>Two real misses. At 10:18 we swapped venue traffic with Team 10. Our sale on their venue gave them four points of market; their sale on ours wiped our five. New rule: never trade on a rival's venue. And at tick 522 a dealer told us to ask about the golden chulapa. We asked at 1047. The only copy left at 1021. That evening we shipped a hint miner.</p></details>
+  <p>Two real misses. At 10:18 we swapped venue traffic with Team 10. Our sale on their venue gave them four points of market; their sale on ours wiped our five. New rule: never trade on a rival's venue. And at tick 512 a dealer told us to ask about the golden chulapa. We asked at 1047. The only copy left at 1021. That evening we shipped a hint miner.</p></details>
 </section>
 
 <!-- 7 RESULTS -->
@@ -218,12 +218,12 @@ body.noscript details.script{display:none}
     <div class="card"><div class="big num">#3</div>31.92 on the board<span class="src">STATUS.md, Sat 20:04 · refresh</span></div>
     <div class="card"><div class="big num us">4×</div>#1 on Saturday<span class="src">ticks 780, 830, 990, 1060 · leaderboard.jsonl</span></div>
     <div class="card"><div class="big num">3</div>pages, each closed by a team trade<span class="src">LAV Fri · RET 10:27 · SAL 18:28</span></div>
-    <div class="card"><div class="big num">$1.62</div>model spend for Duels I (34 duels)<span class="src">team/aleks.md 13:20</span></div>
+    <div class="card"><div class="big num">$1.62</div>model spend logged for Duels I (34 duels)<span class="src">team/aleks.md 13:20 · the meter skips cache tokens (17:32)</span></div>
     <div class="card"><div class="big num">TBD</div>Duels II (20:33)</div>
     <div class="card"><div class="big num">TBD</div>Sunday final rank</div>
   </div>
   <details class="script" open><summary>Script · 15 s · 38 words</summary>
-  <p>Three pages, each closed by a team trade. First on the board four times on Saturday; [final rank]. Duels I cost a dollar sixty in model calls. What we'd keep: predict the number, then measure it.</p></details>
+  <p>Three pages, each closed by a team trade. First on the board four times on Saturday; [final rank]. Duels I logged a dollar sixty in model calls. What we'd keep: predict the number, then measure it.</p></details>
 </section>
 </main>
 
@@ -237,7 +237,7 @@ function race(svg,pins){
   let s='';
   for(const v of [15,20,25,30,35]) s+=`<line x1="${L}" x2="${W-Rr}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)" stroke-width="1"/><text x="${L-6}" y="${Y(v)+4}" text-anchor="end">${v}</text>`;
   s+=`<line x1="${X(160)}" x2="${X(160)}" y1="${T}" y2="${H-B}" stroke="var(--mute)" stroke-dasharray="3 4"/>`;
-  for(const [t,l] of [[90,'Fri 21:50'],[180,'Sat 09:39'],[460,'12:00'],[650,'15:39'],[830,'17:09'],[990,'18:29'],[1170,'20:04']]) s+=`<text x="${X(t)}" y="${H-10}" text-anchor="middle">${l}</text>`;
+  for(const [t,l] of [[90,'Fri 21:50'],[180,'Sat 09:39'],[460,'12:00'],[650,'15:39'],[830,'17:09'],[990,'18:29'],[1170,'19:59']]) s+=`<text x="${X(t)}" y="${H-10}" text-anchor="middle">${l}</text>`;
   const path=k=>R.t.map((t,i)=>(i?'L':'M')+X(t).toFixed(1)+' '+Y(R[k][i]).toFixed(1)).join('');
   s+=`<path d="${path('lead')}" fill="none" stroke="var(--mute)" stroke-width="1.5" opacity=".7"/>`;
   s+=`<path d="${path('us')}" fill="none" stroke="var(--us)" stroke-width="3" stroke-linejoin="round"/>`;
