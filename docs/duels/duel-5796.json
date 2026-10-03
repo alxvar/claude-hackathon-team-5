@@ -847,5 +847,77 @@
     "settles_at_tick": 1273
    }
   }
- ]
+ ],
+ "last_seen_tick": 1273,
+ "done": {
+  "duel": 5796,
+  "session": 3,
+  "status": "deal",
+  "role": "seller",
+  "item": "El Frutero de Argumosa",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 2.1,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 93,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Luna",
+  "deadline_tick": 1286,
+  "decay_per_round": 0.08,
+  "rounds": 2,
+  "your_offer": {
+   "id": 7538,
+   "price": 141,
+   "tick": 1271,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 7564,
+   "price": 141,
+   "tick": 1272,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1270,
+    "from": "Rival Luna",
+    "text": "Hello! I can do 105 with delivery on day 0.",
+    "price": 105,
+    "days": 0
+   },
+   {
+    "tick": 1270,
+    "from": "you",
+    "text": "Day 0 is fine by me, so let's focus on price. I can do 145 P with delivery on day 0.",
+    "price": 145,
+    "days": 0
+   },
+   {
+    "tick": 1271,
+    "from": "Rival Luna",
+    "text": "Thanks for the reply. 121, delivery day 0.",
+    "price": 121,
+    "days": 0
+   },
+   {
+    "tick": 1271,
+    "from": "you",
+    "text": "Thanks for moving. I can come down to 141 P with delivery on day 0, which is a real step from my side.",
+    "price": 141,
+    "days": 0
+   },
+   {
+    "tick": 1272,
+    "from": "Rival Luna",
+    "text": "Let me move closer: 141, day 0.",
+    "price": 141,
+    "days": 0
+   }
+  ],
+  "result": 40.6,
+  "price": 141,
+  "days": 0
+ }
 }
