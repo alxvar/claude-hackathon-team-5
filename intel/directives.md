@@ -2,6 +2,10 @@
 
 _Written by the strategy session. It never touches the game: no trades, no bots. The operator decides and executes inside its hard limits (ORCHESTRATOR.md, "Decide, don't ask"); Lucas changes a limit only with a line containing GUARDRAIL. Format: `- HH:MM · decision with limits · why`. Newest block on top. Labels: **[Verified]** measured on our own deals or read from the server; **[Likely]** fitted or inferred; **[Open]** unknown._
 
+## Sat 11:55 — dealers during Duels I in offer-only mode (independently verified, edits applied)
+
+- 11:55 · **Replaces 10:35 "no dealer threads in scored sessions" and the "after Duels I" timing of the ladder program, for Duels I only:** dealer threads are allowed with `--offer-only` (the bot never calls accept; to close, it offers the dealer's own standing price so the DEALER accepts), at most 1 dealer thread and only if ≤ 2 threads are open; never a deal at the dealer's opening price (RULES:35); Pilar sales first (SAL-08, then spares at ≥ our value) for cash + L3 ladder; the Chato list-26 ladder test only once cash ≥ 126. **Duels II: zero dealer threads.** · dealers accept our offers without our accept [Likely: RULES:44/109; Chato took our 30, Abuela our 22]; 3 duels + 1 dealer thread = 4 ≤ 6 in either reading of desk Q6; 90 min of Duels I otherwise idle the ladder.
+
 ## Sat 11:35 — ladder program, Sunday CHA floor, Team 10
 
 - 11:35 · GUARDRAIL · **Sunday: cash floor 0 from doors-open for the Chamberí page buys only** (intel/cha-plan.md; Lucas: "ok"); every other bot keeps floor 100 until the 02:20 rule (0 by 14:00). Saturday close target: ≥ ~170 P cash · CHA rares are worth 112 to us vs Chato ~90, so dealer buys cost nothing and the page closes for +50 [Verified cap]; the plan was independently verified.
