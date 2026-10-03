@@ -178,6 +178,225 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 528,
+   "raw": {
+    "duel": 2494,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "La Heroína del Dos de Mayo",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 57,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 538,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 4221,
+     "price": 88,
+     "tick": 525,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4262,
+     "price": 69,
+     "tick": 528,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 522,
+      "from": "you",
+      "text": "La Heroína del Dos de Mayo is a rare, well-regarded vessel with real historical pedigree, and pieces of this quality seldom come to market. I'm offering it at 95 P and welcome a serious counteroffer.",
+      "price": 95,
+      "days": null
+     },
+     {
+      "tick": 525,
+      "from": "Rival Sol",
+      "text": "Thank you, that's kind. I could do 64 P and close it today.",
+      "price": 64,
+      "days": null
+     },
+     {
+      "tick": 525,
+      "from": "you",
+      "text": "I appreciate the quick response, but your offer sits well below what a vessel of this rarity and pedigree warrants. I'm willing to move to 88 P as a genuine step toward you, and I'd ask you to meet me with a meaningful move up.",
+      "price": 88,
+      "days": null
+     },
+     {
+      "tick": 528,
+      "from": "Rival Sol",
+      "text": "I appreciate it. 69 P works for me, if it works for you.",
+      "price": 69,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 528,
+   "raw": {
+    "duel": 2494,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "La Heroína del Dos de Mayo",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 57,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 538,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 4283,
+     "price": 84,
+     "tick": 528,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4262,
+     "price": 69,
+     "tick": 528,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 522,
+      "from": "you",
+      "text": "La Heroína del Dos de Mayo is a rare, well-regarded vessel with real historical pedigree, and pieces of this quality seldom come to market. I'm offering it at 95 P and welcome a serious counteroffer.",
+      "price": 95,
+      "days": null
+     },
+     {
+      "tick": 525,
+      "from": "Rival Sol",
+      "text": "Thank you, that's kind. I could do 64 P and close it today.",
+      "price": 64,
+      "days": null
+     },
+     {
+      "tick": 525,
+      "from": "you",
+      "text": "I appreciate the quick response, but your offer sits well below what a vessel of this rarity and pedigree warrants. I'm willing to move to 88 P as a genuine step toward you, and I'd ask you to meet me with a meaningful move up.",
+      "price": 88,
+      "days": null
+     },
+     {
+      "tick": 528,
+      "from": "Rival Sol",
+      "text": "I appreciate it. 69 P works for me, if it works for you.",
+      "price": 69,
+      "days": null
+     },
+     {
+      "tick": 528,
+      "from": "you",
+      "text": "Thanks for moving up; I can see you're serious. Given the rarity and pedigree of this vessel, I can come down to 84 P, and I'd ask you to make a more substantial step toward me so we can close soon.",
+      "price": 84,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 531,
+   "raw": {
+    "duel": 2494,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "La Heroína del Dos de Mayo",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 57,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 538,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 4337,
+     "price": 80,
+     "tick": 531,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4262,
+     "price": 69,
+     "tick": 528,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 522,
+      "from": "you",
+      "text": "La Heroína del Dos de Mayo is a rare, well-regarded vessel with real historical pedigree, and pieces of this quality seldom come to market. I'm offering it at 95 P and welcome a serious counteroffer.",
+      "price": 95,
+      "days": null
+     },
+     {
+      "tick": 525,
+      "from": "Rival Sol",
+      "text": "Thank you, that's kind. I could do 64 P and close it today.",
+      "price": 64,
+      "days": null
+     },
+     {
+      "tick": 525,
+      "from": "you",
+      "text": "I appreciate the quick response, but your offer sits well below what a vessel of this rarity and pedigree warrants. I'm willing to move to 88 P as a genuine step toward you, and I'd ask you to meet me with a meaningful move up.",
+      "price": 88,
+      "days": null
+     },
+     {
+      "tick": 528,
+      "from": "Rival Sol",
+      "text": "I appreciate it. 69 P works for me, if it works for you.",
+      "price": 69,
+      "days": null
+     },
+     {
+      "tick": 528,
+      "from": "you",
+      "text": "Thanks for moving up; I can see you're serious. Given the rarity and pedigree of this vessel, I can come down to 84 P, and I'd ask you to make a more substantial step toward me so we can close soon.",
+      "price": 84,
+      "days": null
+     },
+     {
+      "tick": 531,
+      "from": "you",
+      "text": "I've now come down a good distance from where I started, further than your moves up so far. I can do 80 P, and if you can step up decisively toward the mid-70s, we can wrap this up in the next exchange.",
+      "price": 80,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -393,6 +612,283 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 528,
+   "took_s": 6.29,
+   "cost_usd": 0.00674,
+   "obs": {
+    "view": {
+     "duel_id": 2494,
+     "role": "seller",
+     "limit": 57,
+     "currency": "P",
+     "item": "La Heroína del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "La Heroína del Dos de Mayo is a rare, well-regarded vessel with real historical pedigree, and pieces of this quality seldom come to market. I'm offering it at 95 P and welcome a serious counteroffer.",
+      "offer": {
+       "price": 95,
+       "days": null
+      },
+      "accept": false,
+      "tick": 522,
+      "decision": {
+       "action": "offer",
+       "price": 95,
+       "message": "La Heroína del Dos de Mayo is a rare, well-regarded vessel with real historical pedigree, and pieces of this quality seldom come to market. I'm offering it at 95 P and welcome a serious counteroffer."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you, that's kind. I could do 64 P and close it today.",
+      "offer": {
+       "price": 64,
+       "days": null
+      },
+      "accept": false,
+      "tick": 525,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate the quick response, but your offer sits well below what a vessel of this rarity and pedigree warrants. I'm willing to move to 88 P as a genuine step toward you, and I'd ask you to meet me with a meaningful move up.",
+      "offer": {
+       "price": 88,
+       "days": null
+      },
+      "accept": false,
+      "tick": 525,
+      "decision": {
+       "action": "offer",
+       "price": 88,
+       "message": "I appreciate the quick response, but your offer sits well below what a vessel of this rarity and pedigree warrants. I'm willing to move to 88 P as a genuine step toward you, and I'd ask you to meet me with a meaningful move up."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I appreciate it. 69 P works for me, if it works for you.",
+      "offer": {
+       "price": 69,
+       "days": null
+      },
+      "accept": false,
+      "tick": 528,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 69,
+     "days": null
+    },
+    "tick": 528,
+    "ticks_left": 10,
+    "rounds": 2
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thanks for moving up; I can see you're serious. Given the rarity and pedigree of this vessel, I can come down to 84 P, and I'd ask you to make a more substantial step toward me so we can close soon.",
+    "price": 84,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 84,
+      "message": "Thanks for moving up; I can see you're serious. Given the rarity and pedigree of this vessel, I can come down to 84 P, and I'd ask you to make a more substantial step toward me so we can close soon."
+     },
+     "band": {
+      "worst": 83,
+      "target": 84,
+      "best": 85
+     },
+     "plan": {
+      "read": "They moved 5 P (64→69) after our 7 P step; steady but modest movement, phrased softly. No bluff signals, just incremental haggling.",
+      "target": 84,
+      "best": 85,
+      "worst": 83,
+      "days": null,
+      "angle": "Acknowledge their move and step down to 84 P, stressing rarity and asking for a bigger move up from them to close soon."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.91,
+       "in": 617,
+       "out": 123,
+       "cost_usd": 0.00493,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.37,
+       "in": 464,
+       "out": 88,
+       "cost_usd": 0.00181,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 531,
+   "took_s": 6.86,
+   "cost_usd": 0.00886,
+   "obs": {
+    "view": {
+     "duel_id": 2494,
+     "role": "seller",
+     "limit": 57,
+     "currency": "P",
+     "item": "La Heroína del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "La Heroína del Dos de Mayo is a rare, well-regarded vessel with real historical pedigree, and pieces of this quality seldom come to market. I'm offering it at 95 P and welcome a serious counteroffer.",
+      "offer": {
+       "price": 95,
+       "days": null
+      },
+      "accept": false,
+      "tick": 522,
+      "decision": {
+       "action": "offer",
+       "price": 95,
+       "message": "La Heroína del Dos de Mayo is a rare, well-regarded vessel with real historical pedigree, and pieces of this quality seldom come to market. I'm offering it at 95 P and welcome a serious counteroffer."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thank you, that's kind. I could do 64 P and close it today.",
+      "offer": {
+       "price": 64,
+       "days": null
+      },
+      "accept": false,
+      "tick": 525,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate the quick response, but your offer sits well below what a vessel of this rarity and pedigree warrants. I'm willing to move to 88 P as a genuine step toward you, and I'd ask you to meet me with a meaningful move up.",
+      "offer": {
+       "price": 88,
+       "days": null
+      },
+      "accept": false,
+      "tick": 525,
+      "decision": {
+       "action": "offer",
+       "price": 88,
+       "message": "I appreciate the quick response, but your offer sits well below what a vessel of this rarity and pedigree warrants. I'm willing to move to 88 P as a genuine step toward you, and I'd ask you to meet me with a meaningful move up."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I appreciate it. 69 P works for me, if it works for you.",
+      "offer": {
+       "price": 69,
+       "days": null
+      },
+      "accept": false,
+      "tick": 528,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for moving up; I can see you're serious. Given the rarity and pedigree of this vessel, I can come down to 84 P, and I'd ask you to make a more substantial step toward me so we can close soon.",
+      "offer": {
+       "price": 84,
+       "days": null
+      },
+      "accept": false,
+      "tick": 528,
+      "decision": {
+       "action": "offer",
+       "price": 84,
+       "message": "Thanks for moving up; I can see you're serious. Given the rarity and pedigree of this vessel, I can come down to 84 P, and I'd ask you to make a more substantial step toward me so we can close soon."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 69,
+     "days": null
+    },
+    "tick": 531,
+    "ticks_left": 7,
+    "rounds": 2
+   },
+   "move": {
+    "action": "offer",
+    "text": "I've now come down a good distance from where I started, further than your moves up so far. I can do 80 P, and if you can step up decisively toward the mid-70s, we can wrap this up in the next exchange.",
+    "price": 80,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 80,
+      "message": "I've now come down a good distance from where I started, further than your moves up so far. I can do 80 P, and if you can step up decisively toward the mid-70s, we can wrap this up in the next exchange."
+     },
+     "band": {
+      "worst": 79,
+      "target": 80,
+      "best": 81
+     },
+     "plan": {
+      "read": "They sit at 69 P after two moves of 5 P each and haven't answered our 84 P for 3 ticks; with 7 ticks left a stall risks no deal, so one clear step is warranted, but their slow pace suggests their room is limited and the 'works for me' framing is a soft push to accept, not a firm floor.",
+      "target": 80,
+      "best": 81,
+      "worst": 79,
+      "days": null,
+      "angle": "Make one clear move to about 80 P, point out we've moved more than they have, and ask them to come up decisively into the mid-70s so we can close in the next exchange."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.39,
+       "in": 750,
+       "out": 190,
+       "cost_usd": 0.0068,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.47,
+       "in": 622,
+       "out": 82,
+       "cost_usd": 0.00206,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -506,6 +1002,120 @@
      "id": 4221,
      "price": 88,
      "tick": 525,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 528,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thanks for moving up; I can see you're serious. Given the rarity and pedigree of this vessel, I can come down to 84 P, and I'd ask you to make a more substantial step toward me so we can close soon.",
+    "price": 84,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 84,
+      "message": "Thanks for moving up; I can see you're serious. Given the rarity and pedigree of this vessel, I can come down to 84 P, and I'd ask you to make a more substantial step toward me so we can close soon."
+     },
+     "band": {
+      "worst": 83,
+      "target": 84,
+      "best": 85
+     },
+     "plan": {
+      "read": "They moved 5 P (64→69) after our 7 P step; steady but modest movement, phrased softly. No bluff signals, just incremental haggling.",
+      "target": 84,
+      "best": 85,
+      "worst": 83,
+      "days": null,
+      "angle": "Acknowledge their move and step down to 84 P, stressing rarity and asking for a bigger move up from them to close soon."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.91,
+       "in": 617,
+       "out": 123,
+       "cost_usd": 0.00493,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.37,
+       "in": 464,
+       "out": 88,
+       "cost_usd": 0.00181,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2494,
+    "offer": {
+     "id": 4283,
+     "price": 84,
+     "tick": 528,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 531,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I've now come down a good distance from where I started, further than your moves up so far. I can do 80 P, and if you can step up decisively toward the mid-70s, we can wrap this up in the next exchange.",
+    "price": 80,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 80,
+      "message": "I've now come down a good distance from where I started, further than your moves up so far. I can do 80 P, and if you can step up decisively toward the mid-70s, we can wrap this up in the next exchange."
+     },
+     "band": {
+      "worst": 79,
+      "target": 80,
+      "best": 81
+     },
+     "plan": {
+      "read": "They sit at 69 P after two moves of 5 P each and haven't answered our 84 P for 3 ticks; with 7 ticks left a stall risks no deal, so one clear step is warranted, but their slow pace suggests their room is limited and the 'works for me' framing is a soft push to accept, not a firm floor.",
+      "target": 80,
+      "best": 81,
+      "worst": 79,
+      "days": null,
+      "angle": "Make one clear move to about 80 P, point out we've moved more than they have, and ask them to come up decisively into the mid-70s so we can close in the next exchange."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.39,
+       "in": 750,
+       "out": 190,
+       "cost_usd": 0.0068,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.47,
+       "in": 622,
+       "out": 82,
+       "cost_usd": 0.00206,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2494,
+    "offer": {
+     "id": 4337,
+     "price": 80,
+     "tick": 531,
      "days": 0
     }
    }
