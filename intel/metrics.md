@@ -1,4 +1,4 @@
-# Metrics (auto, 22:43, game tick 1411)
+# Metrics (auto, 22:45, game tick 1415)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -25,10 +25,10 @@ LAT-03 (common): 5; LAT-04 (common): 5; LAV-01 (common): 99.1; LAV-02 (common): 
 ## Our open offers (5)
 
 - 19620: bid 115 for SAL-11 · to t04 · expires tick 1432
-- 19655: sell LAV-03 for 6 · to t04 · expires tick 1420
-- 19656: sell MAL-03 for 9 · to t09 · expires tick 1420
-- 19657: sell LAV-04 for 6 · to t01 · expires tick 1420
-- 19658: sell MAL-08 for 20 · to t01 · expires tick 1420
+- 19979: sell LAV-03 for 6 · to t04 · expires tick 1455
+- 19980: sell MAL-03 for 9 · to t09 · expires tick 1455
+- 19981: sell LAV-04 for 6 · to t01 · expires tick 1455
+- 19982: sell MAL-08 for 20 · to t01 · expires tick 1455
 
 ## What each of our deals did to neg_points (measured, last 12)
 
@@ -87,17 +87,18 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 ## El Rastro now: top bids by price (team, card, price)
 
 - t10: LAV-11 (epic) 210 P · offer 19648
-- t16: RET-11 (epic) 99 P · offer 19835
-- t16: LAV-11 (epic) 79 P · offer 19838
+- t16: RET-11 (epic) 99 P · offer 19955
+- t16: LAV-11 (epic) 79 P · offer 19958
 - t09: MAL-09 (rare) 56 P · offer 19686
 - t09: MAL-10 (rare) 56 P · offer 19719
-- t16: RET-09 (rare) 31 P · offer 19836
-- t16: RET-10 (rare) 31 P · offer 19837
-- t16: LAV-10 (rare) 28 P · offer 19839
+- t16: RET-09 (rare) 31 P · offer 19956
+- t16: RET-10 (rare) 31 P · offer 19957
+- t16: LAV-10 (rare) 28 P · offer 19970
 - t09: SAL-06 (uncommon) 24 P · offer 19855
-- t16: RET-06 (uncommon) 18 P · offer 19845
+- t16: RET-06 (uncommon) 18 P · offer 19971
+- t08: RET-01 (common) 5 P · offer 19989
 
-Asks by others (card, price: count): LAT-02 8: 3; LAV-05 5: 2; sobre_plata 130: 1; RET-03 10: 1; LAT-01 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; SAL-02 7: 1; RET-03 11: 1; LAT-07 30: 1; RET-01 8: 1; RET-09 84: 1; MAL-03 16: 1; MAL-04 16: 1
+Asks by others (card, price: count): LAT-02 8: 2; LAV-05 5: 2; sobre_plata 130: 1; RET-03 10: 1; LAT-01 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; SAL-02 7: 1; RET-01 8: 1; RET-09 84: 1; LAT-08 30: 1; RET-08 45: 1; MAL-01 16: 1; LAT-06 30: 1
 
 ## Our duels: 0 live, 136 finished (last 10)
 

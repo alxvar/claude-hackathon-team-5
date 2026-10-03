@@ -1,6 +1,6 @@
 # Easter eggs: trigger → reward → dealer (castizo catalog)
 
-_Written by `tools/eggs.py` at 22:35 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
+_Written by `tools/eggs.py` at 22:45 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
 
 ## Trigger → reward → dealer
 
@@ -40,6 +40,11 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 
 | tick | team | dealer | words | what followed | reply |
 |---|---|---|---|---|---|
+| 1413 | t04 | pilar | chulapa | - | Good evening. El Marqués, 61 P. I trust that suits you. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about th |
+| 1409 | t06 | picaros | lazarillo, organillero | - | —¡Ay, el Lazarillo! Buen regateo, pero cuatro primas es cuatro primas, hermano. El Organillero se va contigo ahora mismo.  —Nando, dile lo del coche.  —Eso, que |
+| 1407 | t10 | picaros | cascorro, gallinejas | - | ¡Hombre, un paisano con buen gusto! Gallinejas en Cascorro, ¡eso es Madrid puro! —Y caracoles, Paco, no olvides los caracoles. Mira, amigo: La Cebada, joya rara |
+| 1407 | t06 | abuela | cocido, tres vuelcos | - | ¡Ay, qué bien, hijo, un cocido con los tres vuelcos! Así da gusto. Pues mira, quince primas por La Ardilla, hecho, trato cerrado. Toma, llévatela con cuidado en |
+| 1407 | t06 | picaros | cortadillo, estampita, organillero, rinconete | - | ¡Hombre, un lector! Rinconete y Cortadillo, ¡nuestros abuelos! —Nuestros primos, Nando. —Eso. Mira, nada de estampitas: te ponemos El Organillero, pieza fina, s |
 | 1394 | t08 | abuela | cocido, tres vuelcos | card LAV-08; pack sobre_barrio | ¡Ay, hijo! ¿Cocido con tres vuelcos? Just like my mother made, Sunday after Sunday. You remember well — take this one, for remembering her.  Come, sit. Look her |
 | 1394 | t08 | chato | con cana, plaza mayor, you know madrid | egg found | Plaza Mayor, con caña. You know Madrid. Bueno — for your trouble: Guantería Antigua, treinta y tres. Thirty-three. |
 | 1393 | t06 | chato | bocata, vermut | - | Como Dios manda, sí. Vermut primero, bocata después. Ya que estamos de buenas: La Heroína del Dos de Mayo, 97 P. Ni un céntimo escondido. |
@@ -115,8 +120,3 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 | 1166 | t16 | pilar | chulapa | - | Good evening. El Marqués, 70 P. I trust that suits you. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about th |
 | 1164 | t10 | pilar | chulapa | price 70 → 71 | Caballero, we are still far apart, and I do not haggle like a fishmonger. Seventy-one, and said with respect. El Marqués deserves my safe, not a long argument.  |
 | 1160 | t08 | pilar | dama de serrano | - | Buenas tardes. La Dama de Serrano es, me temo, un rumor elegante; yo colecciono cartas, no leyendas. Pero si viene en serio, tengo un sobre dorado para usted: 5 |
-| 1147 | t08 | abuela | chulapa, moscow | badge Sharp ear | ¡Hola, cariño, qué bien que hayas comido! Shh... the golden chulapa, only one ever. Don Ernesto at Casa Prima keeps something golden — ask him about the Moscow  |
-| 1128 | t06 | picaros | organillero | - | ¡Eh, amigo, cinco no hace falta! Cuatro primas, El Organillero, y cerramos ahora mismo. Nando, diles... —Sí, los de la caseta de al lado ya vienen con el dinero |
-| 1126 | t06 | picaros | organillero | - | ¡Buenas, buenas, amigo! Paco — y Nando, siempre juntos. Escucha: El Organillero, cuatro primas, para ti. Un tesoro, de verdad. Y mira, el equipo de la caseta de |
-| 1126 | t06 | chato | vermut | - | Vermut del Domingo. 33 P. Take it or leave it. |
-| 1119 | t10 | abuela | churros | price 23 → 22 | Ay, hijo, your pockets are shy today, but look — twenty-two P, and I give you the sleeve and a little duplicate from my box, free, to start your page. Eighteen  |
