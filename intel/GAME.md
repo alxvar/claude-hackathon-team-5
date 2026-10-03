@@ -84,6 +84,8 @@
 - **Dealer ladder share depends on how we step** [V, n=2 at Pilar, Sat 12:45]: MAL-06 at 19 with small steps (asks
   30 → 28 → 26 → 24; her 16, 16, 17, 18, 19; we offered her 19) → +0.040; SAL-08 at 23 after our jump 34 → 31 → 28
   handed her a final (22, 22, 23f) → +0.019. Never jump to her bid; step −2/−3 and let her climb. Ladder 0.181 at 12:45.
+- **Dealers compete for epics** [V, feed settlement 565, tick 550]: Team 8 sold LAV-11 (epic, book 180) to Pilar at 140
+  while our addressed bid stepped 100 → 110 → 120. A team bid for an epic must beat what a dealer pays (~140), or it loses.
 - **Ladder and early unlock count only below-list dealer deals** [L, strong pattern]: every Abuela deal under her list
   (commons 9 vs 10, RET-08 22 vs 25) moved the ladder; none of our 6 Chato deals moved it, all above his list (RET-09 87 and
   RET-10 86 vs 77, RET-06 30 vs 26, Fri LAV-09 93, LAV-06 31, LAT-08 sale). Level 3 (Doña Pilar, active 3.51 h, open to

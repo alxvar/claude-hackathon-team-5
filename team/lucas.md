@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sat 12:49 · operator · **LAV-11 lost**: Team 8 sold it to Pilar at 140 (tick 550) while our bid stepped 100 → 110 → 120 → ladder stopped, bid 8147 cancelled, epic exception closed (floor back to 100) → GAME.md: dealers compete for epics (~140) · cash 184
 - Sat 12:46 · operator · **MAL-06 → Pilar at 19, small steps** (her 16 → 19; we offered her 19): `ladder_points` 0.141 → **0.181 (+0.040)**, `neg_points` 35.2, cash ≈ 184 → GAME.md (stepping rule) · L3 has 3 deals now · LAV-11 bid at 110 (8057), stepping to 120
 - Sat 12:46 · operator · we hold an unopened **silver pack (asset 755, value 91.1)**, origin unclear → Chief: KEEP it, open right after Sunday's CHA release alone in its window (it may draw CHA); Builder asked to add it to cha-plan · MAL-06 → Pilar running with small steps (open 30, −2, min ask 19, take a bid ≥ 19 or a final ≥ 18; Analyst: SAL-08's +0.019 was a poor share from our jump to 23, not the cap) · LAV-11 bid ladder to t08 running (100 → 110 → 120)
 - Sat 12:42 · operator · **LAV-11 epic buy** (GUARDRAIL 12:39, Lucas 'go'; value 234): maker bid on El Rastro addressed to t08, verifier's ladder 100 → 110 → 120 (auto-steps; 7983 at 100 until tick 546); first post 7979 at 120 cancelled after ~1 min; t08's public ask at 125 (7953) expired at tick 540, not taken (would use our accept mid-duel, 133 with fee) · cash 165, exception floor ~30 for this trade only · fill also tests the cap on an epic (flat 50 vs 5×book)
