@@ -1695,5 +1695,90 @@
     "settles_at_tick": 606
    }
   }
- ]
+ ],
+ "last_seen_tick": 606,
+ "done": {
+  "duel": 2530,
+  "session": 2,
+  "status": "deal",
+  "role": "seller",
+  "item": "Mercado de la Paz",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 87,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Azul",
+  "deadline_tick": 607,
+  "decay_per_round": 0.06,
+  "rounds": 2,
+  "your_offer": {
+   "id": 5432,
+   "price": 101,
+   "tick": 604,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 5409,
+   "price": 97,
+   "tick": 601,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 591,
+    "from": "you",
+    "text": "Welcome. Given the quality of what we offer at Mercado de la Paz and its prime location, I'm putting forward 125 P as a fair price. I'd be glad to hear your concrete counteroffer.",
+    "price": 125,
+    "days": null
+   },
+   {
+    "tick": 593,
+    "from": "Rival Azul",
+    "text": "Hi there. 82 P from my side.",
+    "price": 82,
+    "days": null
+   },
+   {
+    "tick": 593,
+    "from": "you",
+    "text": "Thanks for the counter, but your figure sits well below what this location and quality support. I'm moving to 118 P as a good-faith step; I'd ask you to come up substantially from your opening so we can meet in a sensible range.",
+    "price": 118,
+    "days": null
+   },
+   {
+    "tick": 599,
+    "from": "you",
+    "text": "To break the silence I'm making one clear step down to 112 P, which reflects the quality and location here. Any further movement from me depends on you putting a real counteroffer well above your opening figure.",
+    "price": 112,
+    "days": null
+   },
+   {
+    "tick": 601,
+    "from": "Rival Azul",
+    "text": "Meeting you partway: 97 P.",
+    "price": 97,
+    "days": null
+   },
+   {
+    "tick": 601,
+    "from": "you",
+    "text": "Thank you for the real move, I appreciate it. I'm stepping down to 106 P, which brings us close; if you can meet me a little higher, we can wrap this up quickly.",
+    "price": 106,
+    "days": null
+   },
+   {
+    "tick": 604,
+    "from": "you",
+    "text": "We've both moved a long way, and I'd like to finish this now. I'm making one last step to 101 P, which is close to your level and fair for the quality and location. If you can meet me there, we can close right away.",
+    "price": 101,
+    "days": null
+   }
+  ],
+  "result": 8.8,
+  "price": 97,
+  "days": 0
+ }
 }
