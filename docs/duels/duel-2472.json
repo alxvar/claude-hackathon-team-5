@@ -309,6 +309,93 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 549,
+   "raw": {
+    "duel": 2472,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 80,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 552,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 4651,
+     "price": 98,
+     "tick": 549,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4604,
+     "price": 69,
+     "tick": 547,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 536,
+      "from": "you",
+      "text": "El Mesón de la Cava is a distinctive, well-established property with real character and a loyal following, and I'm pricing it at 130 P. I'm happy to hear your thoughts and work toward a figure that reflects its quality.",
+      "price": 130,
+      "days": null
+     },
+     {
+      "tick": 544,
+      "from": "you",
+      "text": "I can do 125 P.",
+      "price": 125,
+      "days": null
+     },
+     {
+      "tick": 545,
+      "from": "you",
+      "text": "I can do 120 P.",
+      "price": 120,
+      "days": null
+     },
+     {
+      "tick": 546,
+      "from": "you",
+      "text": "I can do 115 P.",
+      "price": 115,
+      "days": null
+     },
+     {
+      "tick": 547,
+      "from": "Rival Sol",
+      "text": "69 P y cerramos ahora.",
+      "price": 69,
+      "days": null
+     },
+     {
+      "tick": 547,
+      "from": "you",
+      "text": "I can do 110 P.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 549,
+      "from": "you",
+      "text": "I've moved a long way from where I started, while your figure hasn't budged. I'm now at 98 P, a clear step toward you that reflects the property's real character and track record. With time running short, I'd ask you to come up meaningfully so we can settle this.",
+      "price": 98,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -862,6 +949,155 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 549,
+   "took_s": 6.61,
+   "cost_usd": 0.00737,
+   "obs": {
+    "view": {
+     "duel_id": 2472,
+     "role": "seller",
+     "limit": 80,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "El Mesón de la Cava is a distinctive, well-established property with real character and a loyal following, and I'm pricing it at 130 P. I'm happy to hear your thoughts and work toward a figure that reflects its quality.",
+      "offer": {
+       "price": 130,
+       "days": null
+      },
+      "accept": false,
+      "tick": 536,
+      "decision": {
+       "action": "offer",
+       "price": 130,
+       "message": "El Mesón de la Cava is a distinctive, well-established property with real character and a loyal following, and I'm pricing it at 130 P. I'm happy to hear your thoughts and work toward a figure that reflects its quality."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 125 P.",
+      "offer": {
+       "price": 125,
+       "days": null
+      },
+      "accept": false,
+      "tick": 544,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 120 P.",
+      "offer": {
+       "price": 120,
+       "days": null
+      },
+      "accept": false,
+      "tick": 545,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 115 P.",
+      "offer": {
+       "price": 115,
+       "days": null
+      },
+      "accept": false,
+      "tick": 546,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "69 P y cerramos ahora.",
+      "offer": {
+       "price": 69,
+       "days": null
+      },
+      "accept": false,
+      "tick": 547,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 110 P.",
+      "offer": {
+       "price": 110,
+       "days": null
+      },
+      "accept": false,
+      "tick": 547,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 69,
+     "days": null
+    },
+    "tick": 549,
+    "ticks_left": 3,
+    "rounds": 1
+   },
+   "move": {
+    "action": "offer",
+    "text": "I've moved a long way from where I started, while your figure hasn't budged. I'm now at 98 P, a clear step toward you that reflects the property's real character and track record. With time running short, I'd ask you to come up meaningfully so we can settle this.",
+    "price": 98,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 98,
+      "message": "I've moved a long way from where I started, while your figure hasn't budged. I'm now at 98 P, a clear step toward you that reflects the property's real character and track record. With time running short, I'd ask you to come up meaningfully so we can settle this."
+     },
+     "band": {
+      "worst": 96,
+      "target": 98,
+      "best": 100
+     },
+     "plan": {
+      "read": "They opened at 69 with a 'close now' push and haven't moved since; we've already conceded 20 alone. With 3 ticks left there's a standoff, so one clear step is justified, but their 69 is unacceptable.",
+      "target": 98,
+      "best": 100,
+      "worst": 96,
+      "days": null,
+      "angle": "Make one clear, substantial step to show good faith, stress that we've moved repeatedly while they haven't, and ask them to come up meaningfully before time runs out."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.44,
+       "in": 577,
+       "out": 157,
+       "cost_usd": 0.00545,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.17,
+       "in": 469,
+       "out": 98,
+       "cost_usd": 0.00192,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1010,6 +1246,63 @@
      "id": 4605,
      "price": 110,
      "tick": 547,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 549,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I've moved a long way from where I started, while your figure hasn't budged. I'm now at 98 P, a clear step toward you that reflects the property's real character and track record. With time running short, I'd ask you to come up meaningfully so we can settle this.",
+    "price": 98,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 98,
+      "message": "I've moved a long way from where I started, while your figure hasn't budged. I'm now at 98 P, a clear step toward you that reflects the property's real character and track record. With time running short, I'd ask you to come up meaningfully so we can settle this."
+     },
+     "band": {
+      "worst": 96,
+      "target": 98,
+      "best": 100
+     },
+     "plan": {
+      "read": "They opened at 69 with a 'close now' push and haven't moved since; we've already conceded 20 alone. With 3 ticks left there's a standoff, so one clear step is justified, but their 69 is unacceptable.",
+      "target": 98,
+      "best": 100,
+      "worst": 96,
+      "days": null,
+      "angle": "Make one clear, substantial step to show good faith, stress that we've moved repeatedly while they haven't, and ask them to come up meaningfully before time runs out."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.44,
+       "in": 577,
+       "out": 157,
+       "cost_usd": 0.00545,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.17,
+       "in": 469,
+       "out": 98,
+       "cost_usd": 0.00192,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2472,
+    "offer": {
+     "id": 4651,
+     "price": 98,
+     "tick": 549,
      "days": 0
     }
    }

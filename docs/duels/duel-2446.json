@@ -237,5 +237,43 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 549,
+ "done": {
+  "duel": 2446,
+  "session": 2,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Mercado de la Paz",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 73,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Oro",
+  "deadline_tick": 564,
+  "decay_per_round": 0.06,
+  "rounds": 0,
+  "your_offer": {
+   "id": 4630,
+   "price": 45,
+   "tick": 548,
+   "days": 0
+  },
+  "rival_offer": null,
+  "messages": [
+   {
+    "tick": 548,
+    "from": "you",
+    "text": "I'm opening at 45 P for Mercado de la Paz. That reflects a fair price for a straightforward transaction with no extras, and I'm ready to close quickly. What figure do you have in mind?",
+    "price": 45,
+    "days": null
+   }
+  ],
+  "result": 28.0,
+  "price": 45,
+  "days": 0
+ }
 }
