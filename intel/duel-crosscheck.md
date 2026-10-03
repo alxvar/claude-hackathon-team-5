@@ -13,8 +13,8 @@ which is temporary._
   adaptation isn't worth building**.
 - **Where we disagree: how far to push the hold.** My model says drop mid-duel concessions entirely and close with
   **one** final offer at 3 ticks left. That beats set C by **+0.056 ± 0.010 share per duel** (better against 16 of 17
-  teams; +3.3 P per duel) [L]. In the Lab's own simulator the same policy **ties** C: −0.014 to +0.009, depending on
-  how many rivals keep conceding while we're silent [L]. The data favour my rival mix (§4), so the expected edge is
+  teams; +3.3 P per duel) [L]. In the Lab's own simulator the same policy **ties** C: −0.025 to +0.009, depending on
+  the world and on how many rivals keep conceding while we're silent [L]. The data favour my rival mix (§4), so the expected edge is
   between 0 and +0.056.
 - **Best robust params ("XC"), code-decided:**
   - open at once with the Lab's openers;
@@ -40,13 +40,14 @@ which is temporary._
   I report **share × 0.9^rounds** first and P second. Share needs the pie, so in my simulator the pie is the rival's
   reservation (the most it will concede; §2).
 - **Aliases are random per duel.** "Rival Oro" appears 7–11 times in one session, and the two duels of the same pair
-  carry different aliases.
+  usually carry different aliases.
   - Each opponent plays us in a **pair**: ids n and n+1, the same item, one duel per role.
   - Teams are fingerprinted by message templates: **17 teams (A–Q)**. In Duels II each has exactly 2 pairs.
-  - The links back to Duels I and the practice round are high-confidence for most teams; low for J, P and K; F and N
-    are unlinked before Duels II.
-  - Regexes for each team are in the JSON (`identify.signature_regex`). 13 teams speak by tick 1; E speaks at about
-    t6, O at t5, Q at t11 or never, P never.
+  - The links back to Duels I and the practice round are high-confidence for most teams; medium for K, O and Q; low
+    for J and P. P and Q are split by behaviour only (P never accepts, Q accepts late). F and N are unlinked before
+    Duels II.
+  - Regexes for each team are in the JSON (`identify.signature_regex`). 10 teams speak by tick 1, M by t2, A by t3.
+    In Duels II, H opened at t7–8, E at about t6, O at t5, Q at t11 or never, and P never spoke.
 - **Latency (Duels II LLM decisions):** median 9.1 s, p90 12.4 s. 7% take over 13 s and 1.2% over 15 s. Code-only
   moves take under 1 s.
 
@@ -121,19 +122,19 @@ one pair per team). The differences are team model − pooled model, paired:
 
 | Component | Effect (share per duel, base model) |
 |---|---|
-| **No mid-duel concessions** (silence is free; clocked and periodic rivals keep moving) | 3 small steps cost ≈ −0.04 |
-| **One final offer at ticks_left 3**, conceding ≈ 55% of the gap (final = theirs + 0.45 × (ours − theirs)) | 30% / 55% / 40% conceded: 0.37 / 0.38 / 0.37 |
+| **No mid-duel concessions** (silence is free; clocked and periodic rivals keep moving) | 3 small steps (12% of the gap, in reply) cost −0.03 |
+| **One final offer at ticks_left 3**, conceding ≈ 55% of the gap (final = theirs + 0.45 × (ours − theirs)) | 70% / 55% / 40% conceded: 0.37 / 0.38 / 0.37 |
 | **Accept their offer on the last tick only** (ticks_left 1) | accepting from ticks_left 2 pre-empts their acceptance of our final: −0.03 to −0.05 |
 | **Seller asks day 10, buyer day 0** | seller day 0: −0.04. A tie even if every rival is day-aware (0.33 vs 0.33) |
-| **Silent rival: walk the price down from half-time** (rounds stay 0) | +0.01, from P and Q |
+| **Silent rival: walk the price down from half-time** (rounds stay 0) | +0.01 overall: Q +0.15, H −0.03 (H opens late, after the walk has started) |
 | Accept mid-duel at ≥ 0.9 × our standing offer | flat from 0.7 to 1.0 |
 
 **Expected share per duel [L]** (my model; 3,000 draws per team; paired SE of a difference ≈ 0.01):
 
 | Policy | Base | 10% missed | 25% missed | Pooled rivals | No deadline accepts | Earlier-data fit | All day-aware | Deal rate |
 |---|---|---|---|---|---|---|---|---|
-| **XC, Lab openers 0.73 / 0.37 (recommended)** | **0.36** | 0.36 | 0.35 | 0.27 | 0.24 | 0.36 | 0.30 | 0.82 |
-| XC, higher anchors 0.9 / 0.6 | 0.38 | 0.37 | 0.36 | 0.29 | 0.26 | 0.38 | 0.33 | 0.80 |
+| **XC, Lab openers 0.73 / 0.37 (recommended)** | **0.36** | 0.36 | 0.35 | 0.27 | 0.24 | 0.36 | 0.30 | 0.82–0.83 |
+| XC, higher anchors 0.9 / 0.6 | 0.38 | 0.37 | 0.36 | 0.29 | 0.26 | 0.38 | 0.33 | 0.81 |
 | Lab set C (code) | 0.30–0.31 | 0.31 | 0.31 | 0.24 | 0.21 | 0.30 | 0.27 | 0.83 |
 | Lab FINAL file (LLM proxy) | 0.28 | 0.28 | 0.29 | 0.23 | 0.22 | 0.27 | 0.24 | 0.84 |
 
@@ -155,7 +156,7 @@ one pair per team). The differences are team model − pooled model, paired:
 
 **The Lab's sets in my simulator.** Its code policy, re-implemented from `origin/duelist-loop` (`policy.py` + the
 runner's closing rules):
-- **The ranking matches the Lab's:** C 17.2 P > A 16.7 > today 16.3 > FINAL file (LLM proxy) 15.8 > today LLM 15.6.
+- **The ranking matches the Lab's:** C 17.1 P > A 16.7 > today 16.3 > FINAL file (LLM proxy) 15.8 > today LLM 15.6.
 - **`MONO_END_SHARE` 0.5 on C:** 16.0 P, below 0.25. Same direction as the Lab.
 
 **My policy inside the Lab's simulator.** `tools/duel_sim_v2.py`, imported read-only, its RW worlds, share scoring H1:
@@ -207,7 +208,7 @@ runner's closing rules):
   - XC ≥ the FINAL file in every world tested;
   - C ≥ A ≥ today;
   - code ≥ LLM.
-- **XC vs C:** +0.05 in my model, −0.01 to +0.01 in theirs. The tie-breaker is the rival-tempo evidence above, which
+- **XC vs C:** +0.05 in my model, −0.025 to +0.009 in theirs. The tie-breaker is the rival-tempo evidence above, which
   favours XC.
 - **Low-risk path:** the first wave on XC with the gates below; fall back to C if they trip.
 
