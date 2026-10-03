@@ -862,6 +862,128 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 518,
+   "raw": {
+    "duel": 2357,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Café en Goya",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 92,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 525,
+    "decay_per_round": 0.06,
+    "rounds": 6,
+    "your_offer": {
+     "id": 4036,
+     "price": 77,
+     "tick": 517,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 4056,
+     "price": 78,
+     "tick": 518,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 509,
+      "from": "you",
+      "text": "I'd like to settle this quickly. For this Café en Goya, I'm offering 55 P, a fair price for a good product. If you have a different figure in mind, tell me and we can close fast.",
+      "price": 55,
+      "days": null
+     },
+     {
+      "tick": 509,
+      "from": "Rival Noche",
+      "text": "Propuesta justa para cerrar pronto y que ganemos los dos: 96 P.",
+      "price": 96,
+      "days": null
+     },
+     {
+      "tick": 513,
+      "from": "you",
+      "text": "I've moved up to 63 P to show good faith. Your figure is far out of range for this coffee, so I'd ask you to come down meaningfully if you want to wrap this up quickly.",
+      "price": 63,
+      "days": null
+     },
+     {
+      "tick": 514,
+      "from": "Rival Noche",
+      "text": "Me muevo para acercarnos: 87 P.",
+      "price": 87,
+      "days": null
+     },
+     {
+      "tick": 514,
+      "from": "you",
+      "text": "Thanks for moving; I've come up to 70 P as well. We're still some distance apart, so a further real cut from your side would let us meet in the middle soon.",
+      "price": 70,
+      "days": null
+     },
+     {
+      "tick": 515,
+      "from": "Rival Noche",
+      "text": "Yo ya me he movido. ¿Qué puedes hacer tú? Propongo 84 P.",
+      "price": 84,
+      "days": null
+     },
+     {
+      "tick": 515,
+      "from": "you",
+      "text": "I've moved up to 72 P, and over the course of this conversation I've covered more ground than you have. A small step from you now would let us close this quickly.",
+      "price": 72,
+      "days": null
+     },
+     {
+      "tick": 516,
+      "from": "Rival Noche",
+      "text": "Cerremos hoy: 82 P.",
+      "price": 82,
+      "days": null
+     },
+     {
+      "tick": 516,
+      "from": "you",
+      "text": "I've come up to 75 P, which is a real step on my side, and overall I've moved more than you have. If you meet me near the middle, we can wrap this up today.",
+      "price": 75,
+      "days": null
+     },
+     {
+      "tick": 517,
+      "from": "Rival Noche",
+      "text": "Propuesta justa para cerrar pronto y que ganemos los dos: 80 P.",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 517,
+      "from": "you",
+      "text": "We're now very close, and each extra round costs us both. I'll offer 77 P as a quick way to wrap this up today.",
+      "price": 77,
+      "days": null
+     },
+     {
+      "tick": 518,
+      "from": "Rival Noche",
+      "text": "Me muevo para acercarnos: 78 P.",
+      "price": 78,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1862,6 +1984,207 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 518,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 2357,
+     "role": "buyer",
+     "limit": 92,
+     "currency": "P",
+     "item": "Café en Goya",
+     "context": "",
+     "rival": "Rival Noche",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to settle this quickly. For this Café en Goya, I'm offering 55 P, a fair price for a good product. If you have a different figure in mind, tell me and we can close fast.",
+      "offer": {
+       "price": 55,
+       "days": null
+      },
+      "accept": false,
+      "tick": 509,
+      "decision": {
+       "action": "offer",
+       "price": 55,
+       "message": "I'd like to settle this quickly. For this Café en Goya, I'm offering 55 P, a fair price for a good product. If you have a different figure in mind, tell me and we can close fast."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto y que ganemos los dos: 96 P.",
+      "offer": {
+       "price": 96,
+       "days": null
+      },
+      "accept": false,
+      "tick": 509,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've moved up to 63 P to show good faith. Your figure is far out of range for this coffee, so I'd ask you to come down meaningfully if you want to wrap this up quickly.",
+      "offer": {
+       "price": 63,
+       "days": null
+      },
+      "accept": false,
+      "tick": 513,
+      "decision": {
+       "action": "offer",
+       "price": 63,
+       "message": "I've moved up to 63 P to show good faith. Your figure is far out of range for this coffee, so I'd ask you to come down meaningfully if you want to wrap this up quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 87 P.",
+      "offer": {
+       "price": 87,
+       "days": null
+      },
+      "accept": false,
+      "tick": 514,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for moving; I've come up to 70 P as well. We're still some distance apart, so a further real cut from your side would let us meet in the middle soon.",
+      "offer": {
+       "price": 70,
+       "days": null
+      },
+      "accept": false,
+      "tick": 514,
+      "decision": {
+       "action": "offer",
+       "price": 70,
+       "message": "Thanks for moving; I've come up to 70 P as well. We're still some distance apart, so a further real cut from your side would let us meet in the middle soon."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Yo ya me he movido. ¿Qué puedes hacer tú? Propongo 84 P.",
+      "offer": {
+       "price": 84,
+       "days": null
+      },
+      "accept": false,
+      "tick": 515,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've moved up to 72 P, and over the course of this conversation I've covered more ground than you have. A small step from you now would let us close this quickly.",
+      "offer": {
+       "price": 72,
+       "days": null
+      },
+      "accept": false,
+      "tick": 515,
+      "decision": {
+       "action": "offer",
+       "price": 72,
+       "message": "I've moved up to 72 P, and over the course of this conversation I've covered more ground than you have. A small step from you now would let us close this quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Cerremos hoy: 82 P.",
+      "offer": {
+       "price": 82,
+       "days": null
+      },
+      "accept": false,
+      "tick": 516,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've come up to 75 P, which is a real step on my side, and overall I've moved more than you have. If you meet me near the middle, we can wrap this up today.",
+      "offer": {
+       "price": 75,
+       "days": null
+      },
+      "accept": false,
+      "tick": 516,
+      "decision": {
+       "action": "offer",
+       "price": 75,
+       "message": "I've come up to 75 P, which is a real step on my side, and overall I've moved more than you have. If you meet me near the middle, we can wrap this up today."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto y que ganemos los dos: 80 P.",
+      "offer": {
+       "price": 80,
+       "days": null
+      },
+      "accept": false,
+      "tick": 517,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "We're now very close, and each extra round costs us both. I'll offer 77 P as a quick way to wrap this up today.",
+      "offer": {
+       "price": 77,
+       "days": null
+      },
+      "accept": false,
+      "tick": 517,
+      "decision": {
+       "action": "offer",
+       "price": 77,
+       "message": "We're now very close, and each extra round costs us both. I'll offer 77 P as a quick way to wrap this up today."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 78 P.",
+      "offer": {
+       "price": 78,
+       "days": null
+      },
+      "accept": false,
+      "tick": 518,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 78,
+     "days": null
+    },
+    "tick": 518,
+    "ticks_left": 7,
+    "rounds": 6
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 78,
+    "days": null,
+    "meta": {
+     "rule": "small gap",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -2205,6 +2528,25 @@
      "tick": 517,
      "days": 0
     }
+   }
+  },
+  {
+   "tick": 518,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 78,
+    "days": null,
+    "meta": {
+     "rule": "small gap",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 78,
+    "settles_at_tick": 519
    }
   }
  ]

@@ -1169,6 +1169,178 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 518,
+   "took_s": 8.95,
+   "cost_usd": 0.01198,
+   "obs": {
+    "view": {
+     "duel_id": 2430,
+     "role": "buyer",
+     "limit": 192,
+     "currency": "P",
+     "item": "La Heroína del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "207 for La Heroína del Dos de Mayo. Every round costs us both: let's close it now.",
+      "offer": {
+       "price": 207,
+       "days": null
+      },
+      "accept": false,
+      "tick": 507,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Your figure is well above what this piece supports, and rushing doesn't change that. I can offer 150 P for La Heroína del Dos de Mayo. If you move meaningfully toward that, we can wrap this up quickly.",
+      "offer": {
+       "price": 150,
+       "days": null
+      },
+      "accept": false,
+      "tick": 507,
+      "decision": {
+       "action": "offer",
+       "price": 150,
+       "message": "Your figure is well above what this piece supports, and rushing doesn't change that. I can offer 150 P for La Heroína del Dos de Mayo. If you move meaningfully toward that, we can wrap this up quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "195 for La Heroína del Dos de Mayo. Every round costs us both: let's close it now.",
+      "offer": {
+       "price": 195,
+       "days": null
+      },
+      "accept": false,
+      "tick": 508,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for moving; I've come up as well, to 158 P for La Heroína del Dos de Mayo. We're still some distance apart, so a further real cut from you is what will get this closed quickly.",
+      "offer": {
+       "price": 158,
+       "days": null
+      },
+      "accept": false,
+      "tick": 508,
+      "decision": {
+       "action": "offer",
+       "price": 158,
+       "message": "Thanks for moving; I've come up as well, to 158 P for La Heroína del Dos de Mayo. We're still some distance apart, so a further real cut from you is what will get this closed quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "184 for La Heroína del Dos de Mayo. Every round costs us both: let's close it now.",
+      "offer": {
+       "price": 184,
+       "days": null
+      },
+      "accept": false,
+      "tick": 509,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the further move. I'm stepping up to 164 P for La Heroína del Dos de Mayo. Another real cut from you and we can get this closed quickly.",
+      "offer": {
+       "price": 164,
+       "days": null
+      },
+      "accept": false,
+      "tick": 509,
+      "decision": {
+       "action": "offer",
+       "price": 164,
+       "message": "Thanks for the further move. I'm stepping up to 164 P for La Heroína del Dos de Mayo. Another real cut from you and we can get this closed quickly."
+      }
+     },
+     {
+      "mine": true,
+      "text": "We've both moved steadily, and I'm making one clear step to 171 P for La Heroína del Dos de Mayo. If you meet me near the middle from here, we can close this now.",
+      "offer": {
+       "price": 171,
+       "days": null
+      },
+      "accept": false,
+      "tick": 512,
+      "decision": {
+       "action": "offer",
+       "price": 171,
+       "message": "We've both moved steadily, and I'm making one clear step to 171 P for La Heroína del Dos de Mayo. If you meet me near the middle from here, we can close this now."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 184,
+     "days": null
+    },
+    "tick": 518,
+    "ticks_left": 5,
+    "rounds": 3
+   },
+   "move": {
+    "action": "message",
+    "text": "Holding at my current position.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "Holding at my current position."
+     },
+     "band": {
+      "worst": 184,
+      "target": 171,
+      "best": 171
+     },
+     "plan": {
+      "read": "They stopped at 184 after steady moves (207→195→184), and they have not answered our step to 171, so they are waiting us out. Their 'close it now' line is boilerplate pressure, not a real deadline.",
+      "target": 171,
+      "best": 171,
+      "worst": 184,
+      "days": null,
+      "angle": "Hold at 171 and send nothing unless they move; if they come down, accept anything at or below 184, and treat a reply near the middle (about 177) as the deal to close."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.08,
+       "in": 888,
+       "out": 155,
+       "cost_usd": 0.00665,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 4.87,
+       "in": 692,
+       "out": 395,
+       "cost_usd": 0.00533,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [
