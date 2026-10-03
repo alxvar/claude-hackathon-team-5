@@ -370,6 +370,16 @@ Buy the expensive cards of a page from DEALERS at ≤ our value (0 neg: Pícaros
 the LAST card a cheap TEAM trade (t10: RET-03 from t06 at 12): the page bonus scores through that trade (≈ +50 capped). t10 +3.33
 board in two snapshots. Use for Sunday's CHA page (bonus ≈ 106 at 1.6 → +50 capped): keep the closer for a team trade.
 
+## 3f. Payday (tick 1201: +400 P per team; "only deals score, never cash you hold") — ranking [L]
+1. **MAL page with a cheap TEAM closer** (≈ +0.5-1.2 board, ≈ 160 P): dealer buys MAL-09/10 (Pícaros ~57-61, −8 to −12 each)
+   and MAL-06 (Abuela ~19-23, −2 to −5.5), then MAL-07 from a team at ~18-20 (ΔV ≈ 17.5 + bonus 46.4 → ≈ +44). Net ≈ +20-26
+   neg_points + 3 ladder slots. Risk: our trade part may be near its cap (T 119.1 vs N ≈ 125 inferred).
+2. **Pícaros epic for a complete page** (RET-11 198 / LAV-11 234 to us at ≤ 162): 0 neg, L4 slot upgrade; RET-11 resale to Pilar
+   at ≥ 198 for an L3 upgrade and cash (≈ +0.3-0.6 board).
+3. Hold the rest for Sunday's CHA (≥ 200 P reserve).
+4. **Not Don Ernesto**: legendary unaffordable; a gold pack is a dealer buy far above its value (loss in full); selling him an
+   epic sells below value (generosity 0.1).
+
 ## 3b. Card-for-card swaps (a mechanic we haven't used) [V feed; scoring L]
 - t15 ↔ t07 swapped 3 times on El Rastro at price 0 (607 LAV-08 ↔ LAV-06, 613 LAV-03 ↔ MAL-08, 616 MAL-01 ↔ SAL-02).
 - A swap is a team trade for both sides: each scores its value gained at private values; no cash; maker fee 0, taker
