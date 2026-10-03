@@ -30,6 +30,7 @@ from pydantic import BaseModel, Field
 
 from engine import LLMError, Model, Reply
 
+from .days import DayValues
 from .guards import mentions_past_limit, past_limit, price_at, reads_as_agreement, standing_problems, worth
 from .model import DuelView, Observation, Offer, Role, sign
 from .prices import money
@@ -45,9 +46,16 @@ SILENT_FROM = 0.5                       # starts once this share of the duel's t
 SILENT_KEEP = 0.3                       # of the distance from our opener to our limit, never conceded
 SILENT_BY = 2                           # the floor is reached with this many ticks left (the last one is spare)
 MIN_STEP_P = 3                          # a concession smaller than this (in worth) is not worth a round...
-MIN_STEP_SHARE = 0.25                   # ...nor one smaller than this share of the gap between the standing offers
-OFFER_BUDGET = 4                        # priced offers per duel, opener included, before code holds unless they move
+MIN_STEP_SHARE = 0.05                   # ...nor one smaller than this share of the gap between the standing offers
 CLOSING_TICKS = 3                       # the last ticks, where code never holds a concession
+# The delivery day (Duels II, docs/duels-1-review.md §3.1)
+DAY_SAME_SIDE_P = 2                     # their day costs us at most this: it is on our side, take it
+RANK_SAMPLES = 3                        # weights seen this session before our weight is ranked among them
+SWING_LOW_P = 15                        # before that: a 10-day swing up to this is a low weight...
+SWING_HIGH_P = 30                       # ...and from this a high one
+GIVE_COST_P = 15                        # before that, too: their day costing at most this is cheap to give
+RANK_LOW = 0.5                          # ranked: below this share of the weights seen, our weight is low...
+RANK_HIGH = 0.75                        # ...and from this share, high
 
 
 class BandPlan(BaseModel):
@@ -175,19 +183,100 @@ def min_step(view: DuelView, ours: Offer, theirs: Offer) -> float:
     return max(MIN_STEP_P, MIN_STEP_SHARE * gap)
 
 
-def theirs_at_our_last(obs: Observation) -> Offer | None:
-    """Their offer as it stood when we sent our last priced offer."""
-    standing, at = None, None
-    for t in obs.turns:
-        if t.mine and t.offer is not None:
-            at = standing
-        elif not t.mine and t.offer is not None:
-            standing = t.offer
-    return at
+def swing(dv: DayValues) -> float:
+    """What the worst day costs us against our best: the size of our weight on the day."""
+    return -min(dv.values)
+
+
+@dataclass(frozen=True)
+class DayRead:
+    """Their day against ours, and the call the strategist's day rules make on it (§3.1)."""
+    their_day: int
+    first_day: int | None           # the day of their first priced offer
+    best_day: int
+    our_day: int                    # our last offer's day, else our best
+    cost: float                     # C: what their day costs us against our best day
+    give_day: int                   # the day we would give: theirs, or the end on their side for a middle day
+    ask: float                      # what giving it costs us against our last offer's day: ask at least this more
+    premium: float                  # about this much more on top when we give (what the given day costs us)
+    swing: float
+    rank: int | None                # among the weights seen this session, 1 = the lowest; None: too few seen
+    seen: int
+    level: Literal["low", "middle", "high"]
+    call: Literal["take", "give", "hold", "menu"]
+
+
+def weight_level(ours: float, seen: list[float]) -> tuple[Literal["low", "middle", "high"], int | None]:
+    """How our weight on the day compares: ranked among the weights seen this session once there are
+    RANK_SAMPLES, else by its size alone. Returns the level and the rank (1 = the lowest)."""
+    if len(seen) < RANK_SAMPLES:
+        return ("low" if ours <= SWING_LOW_P else "high" if ours >= SWING_HIGH_P else "middle"), None
+    below, equal = sum(x < ours for x in seen), sum(x == ours for x in seen)
+    share = (below + (equal - 1) / 2) / (len(seen) - 1)   # 0: the lowest, 1: the highest (ties share the middle)
+    return ("low" if share < RANK_LOW else "high" if share >= RANK_HIGH else "middle"), below + 1
+
+
+def day_read(obs: Observation) -> DayRead | None:
+    """Their standing day read against our day table, once they have offered a day and we can read our weight;
+    None otherwise."""
+    v, standing = obs.view, standing_offer(obs)
+    dv = v.day_values
+    if dv is None or standing is None or standing.days is None:
+        return None
+    ours = our_offers(obs)
+    our_day = ours[-1].days if ours and ours[-1].days is not None else dv.best
+    first = next((o.days for o in their_offers(obs)), None)
+    cost = -dv(standing.days)
+    linear = dv.sure and dv.best in (0, 10)
+    give = standing.days if not linear or standing.days in (0, 10) else 10 - dv.best   # never a middle day (rule 4)
+    size = swing(dv)
+    seen = obs.day_swings if size in obs.day_swings else [*obs.day_swings, size]
+    level, rank = weight_level(size, seen)
+    if cost <= DAY_SAME_SIDE_P:
+        call = "take"
+    elif not dv.sure:
+        call = "hold"                                 # the direction is a guess: never give the day first
+    elif level == "low" or (rank is None and cost <= GIVE_COST_P):
+        call = "give"
+    else:
+        call = "hold" if level == "high" else "menu"
+    return DayRead(standing.days, first, dv.best, our_day, cost, give, max(dv(our_day) - dv(give), 0.0), -dv(give),
+                   size, rank, len(seen), level, call)
+
+
+def day_lines(obs: Observation) -> list[str]:
+    r = day_read(obs)
+    if r is None:
+        return []
+    f = lambda p: money(round(p, 1), obs.view.currency)  # noqa: E731
+    first = f" (their first offer named day {r.first_day})" if r.first_day not in (None, r.their_day) else ""
+    lines = [f"- Their day: day {r.their_day}{first}. Against your best day ({r.best_day}) it costs you {f(r.cost)}: "
+             + ("it is on your side." if r.cost <= DAY_SAME_SIDE_P else "it is on the other side from yours.")]
+    ranked = (f"rank {r.rank} of {r.seen} among the day weights seen this session (1 = the lowest)"
+              if r.rank is not None else
+              f"fewer than {RANK_SAMPLES} day weights seen this session, so judged by size: low up to "
+              f"{f(SWING_LOW_P)}, high from {f(SWING_HIGH_P)}")
+    lines.append(f"- Your day weight: the worst day costs you {f(r.swing)} against your best; {ranked}. It counts "
+                 f"as {'in between' if r.level == 'middle' else r.level}.")
+    if r.cost > DAY_SAME_SIDE_P:
+        lines.append(f"- If you give them day {r.give_day}, ask at least {f(r.ask)} more in price than your offer on "
+                     f"day {r.our_day}" + (" (a middle day throws away pie, so the end on their side)"
+                                           if r.give_day != r.their_day else "") + ".")
+    way = "up" if obs.view.role is Role.SELLER else "down"
+    call = {"take": f"take their day {r.their_day} now and haggle the price only",
+            "give": f"give them day {r.give_day}, with your price {way} by {f(r.ask)} plus about {f(r.premium)} "
+                    f"more",
+            "hold": f"hold your day {r.our_day}; offer up to about {f(r.cost / 2)} in price to keep it"
+                    + ("" if obs.view.day_values.sure else " (which days you prefer is a guess: don't give first)"),
+            "menu": f"offer a menu: one package in the offer, the other in words (your day {r.our_day} at one "
+                    f"price, day {r.give_day} at {f(r.ask)} plus about {f(r.premium)} more)"}[r.call]
+    lines.append(f"- By your day rules: {call}.")
+    return lines
 
 
 def ledger(obs: Observation) -> str:
-    """Facts for the strategist, computed from the duel. No advice."""
+    """Facts for the strategist, computed from the duel. No advice, except the day call its own day rules make
+    (`day_read`)."""
     v = obs.view
     f = lambda p: money(p, v.currency)  # noqa: E731
     s = sign(v.role)
@@ -251,11 +340,9 @@ def ledger(obs: Observation) -> str:
             lines.append(f"- Counting the days too, your last offer is worth {f(abs(round(more, 1)))} "
                          f"{'more' if more >= 0 else 'less'} to you than theirs.")
         step = f(math.ceil(min_step(v, ours[-1], standing) - 1e-9))
-        lines.append(f"- Offers your side has sent: {len(ours)}. Plan on at most {OFFER_BUDGET} in the whole duel; "
-                     f"after the fourth, nothing more is sent until the last {CLOSING_TICKS} ticks unless they move "
-                     f"at least {step}.")
-        lines.append(f"- The smallest step worth sending now: {step} (a quarter of the gap, at least "
+        lines.append(f"- The smallest step worth sending now: {step} ({MIN_STEP_SHARE:.0%} of the gap, at least "
                      f"{f(MIN_STEP_P)}). A smaller step is not sent.")
+    lines += day_lines(obs)
     return "\n".join(lines)
 
 
@@ -316,17 +403,33 @@ def brief(view: DuelView, *, strategist: bool) -> dict[str, str]:
             "extra": ("Other fields of the duel, as the game gives them:\n" + json.dumps(view.extra)[:1500] + "\n"
                       if view.extra else ""),
             "days_private": days_private(view),
-            "days_guide": ("\nThe delivery day: set \"days\" (0 to 10) every turn. Each side cares about the day "
-                           "differently, and the deal can be worth more to both when the side that cares more about "
-                           "the day gets it. Read their offers for which days they push, give ground on the day where "
-                           "it costs you little, and ask for price in return; hold the day where it matters to you.\n"
-                           if view.has_days else ""),
+            "days_guide": days_guide(view.currency) if view.has_days else "",
         }
     else:
         out["days_negotiator"] = ("- The duel also settles a delivery day (0 to 10). Your brief names the day your "
-                                  "side proposes; when you offer, mention it in your message.\n"
+                                  "side proposes; when you offer, mention it in your message. If the angle names a "
+                                  "second package (another day at another price), you may also offer it in words, "
+                                  "as a choice: only the price and day of your offer bind, and that second price is "
+                                  "the one price you may write outside the band.\n"
                                   if view.has_days else "")
     return out
+
+
+def days_guide(currency: str = "P") -> str:
+    """The strategist's day rules (docs/duels-1-review.md §3.1); the facts give the call they make each turn."""
+    f = lambda p: money(p, currency)  # noqa: E731
+    return f"""
+The delivery day: set "days" (0 to 10) every turn. Each side values the day privately, and the pie is biggest on the day that suits the side that cares more about it. The facts below the conversation read their day against yours and give the call these rules make:
+1. Their first priced offer names their day: most rivals open on their own best day.
+2. If their day costs you at most {f(DAY_SAME_SIDE_P)} (the facts say it is on your side), take it at once and haggle the price only.
+3. If it is on the other side, C is what their day costs you (the facts give it):
+   - Your day weight is low (the facts say how it ranks among this session's weights): give them their day in your first or second offer, with the price moved by C plus a premium of about C (a seller asks more, a buyer offers less). The deal is worth no less to you, and the bigger pie is shared.
+   - Your day weight is high: hold your day, and offer up to about C/2 in price to keep it.
+   - In between: offer one package and name the other in the angle as a menu in words ("day 0 at 120, or day 10 at 105"). It costs no extra round, and their next offer shows which they value.
+4. Never settle on a middle day when each day costs you the same (your best day is 0 or 10): the pie is biggest at one end, and a middle day throws away half the gain.
+5. Settle the day within your first two messages, then keep it: at this decay, haggling over two issues is expensive.
+6. If your system says which days you prefer is a guess, don't give the day first; follow their day only if it costs you at most {f(DAY_SAME_SIDE_P)} at the worse reading.
+"""
 
 
 def quoted(text: str) -> str:
@@ -609,10 +712,10 @@ class DuelAgent:
         nothing for the latter (`runner.is_hold`), since every message is a round (278). Held:
         - "plan holds": the strategist holds (its target is our standing offer, on our day) and the negotiator
           drafted a point or two off it;
-        - "small step": a concession smaller than `min_step` (277: 175 → 173 → 160 → 158 → 156, 11 rounds);
-        - "offer budget": a concession past OFFER_BUDGET priced offers while their offer hasn't moved `min_step`
-          toward us since our last one.
-        Accepts, the opener (no standing offers yet), non-concessions and the last CLOSING_TICKS ticks go out."""
+        - "small step": a concession smaller than `min_step` (277: 175 → 173 → 160 → 158 → 156, 11 rounds).
+        Accepts, the opener (no standing offers yet), non-concessions (a day swap that keeps our worth among them)
+        and the last CLOSING_TICKS ticks go out. Duels I: the haggling after our 4th offer paid (71 P), so there is
+        no cap on the number of offers (docs/duels-1-review.md §3.2)."""
         ours = next(reversed(our_offers(obs)), None)
         if move.action != "offer" or ours is None or move.price is None or (move.price, days) == (ours.price,
                                                                                                     ours.days):
@@ -625,14 +728,8 @@ class DuelAgent:
         step = worth(self.view, ours.price, ours.days) - worth(self.view, move.price, days)
         if theirs is None or step <= 0 or (obs.ticks_left is not None and obs.ticks_left <= CLOSING_TICKS):
             return move
-        least = min_step(self.view, ours, theirs)
-        if step < least:
+        if step < min_step(self.view, ours, theirs):
             return hold("small step")
-        before = theirs_at_our_last(obs)
-        moved = None if before is None else (worth(self.view, theirs.price, theirs.days)
-                                             - worth(self.view, before.price, before.days))
-        if len(our_offers(obs)) >= OFFER_BUDGET and moved is not None and moved < least:
-            return hold("offer budget")
         return move
 
     def final(self, move: Move, obs: Observation) -> Move:

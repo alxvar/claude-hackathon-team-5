@@ -69,6 +69,7 @@ class Observation(BaseModel):
     tick: int | None = None
     ticks_left: int | None = None           # ticks left including the current one; None: unknown
     rounds: int | None = None               # the game's count of rounds so far; None: not given
+    day_swings: list[float] = Field(default_factory=list)   # our day weights' sizes seen this session (`agent.swing`)
 
     @property
     def ours(self) -> list[Turn]:

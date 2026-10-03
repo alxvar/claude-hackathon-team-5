@@ -28,7 +28,7 @@ from bazaar_sdk import Bazaar, BazaarError
 from engine import Model
 
 from .adapter import Snapshot, parse_duel
-from .agent import DuelAgent, Move, our_offers, silent, standing_offer, still_ticks, their_offers
+from .agent import DuelAgent, Move, our_offers, silent, standing_offer, still_ticks, swing, their_offers
 from .guards import past_limit, worth
 from .model import DuelView, Observation, Offer, Turn
 from .prices import money
@@ -123,6 +123,7 @@ class DuelRunner:
         self.tick_seconds = 60.0
         self.accepted_tick: int | None = None   # one acceptance per team per tick
         self.spent_usd = 0.0
+        self.swings: dict[Any, dict[Any, float]] = {}   # session -> duel -> our day weight's size, for its rank
         self.records = records
 
     def record(self, key: Any, **fields: Any) -> None:
@@ -199,7 +200,8 @@ class DuelRunner:
             turns = sorted([*mem.sent, *mem.seen], key=lambda t: (t.tick if t.tick is not None else -1, not t.mine))
         assert snap.view is not None
         return Observation(view=snap.view, turns=turns, rival_offer=snap.rival_offer, tick=self.tick,
-                           ticks_left=snap.ticks_left, rounds=snap.rounds)
+                           ticks_left=snap.ticks_left, rounds=snap.rounds,
+                           day_swings=list(self.swings.get(snap.raw.get("session"), {}).values()))
 
     def update(self, raw: dict[str, Any]) -> Memory | None:
         snap = parse_duel(raw, team=self.team, tick=self.tick, defaults=self.defaults(raw))
@@ -215,6 +217,8 @@ class DuelRunner:
                 return None
             agent = DuelAgent(snap.view, self.strategist, self.negotiator)
             mem = self.duels[key] = Memory(agent=agent, snap=snap)
+            if (dv := snap.view.day_values) is not None:
+                self.swings.setdefault(raw.get("session"), {})[key] = swing(dv)
             self.resume(mem)
             v = snap.view
             days = (v.day_values.how if v.day_values else f"CAN'T READ the day weight {v.days_weight!r}, models "
