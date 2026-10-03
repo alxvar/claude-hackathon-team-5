@@ -132,3 +132,6 @@ Mira, este Puesto del Rastro, para ti 12 P. Y cambia tus repetidas, cariño: una
 - Sat 19:01 · message tick 1053 · abuela → t13 · Ay, hijo, qué recuerdos... la chulapa dorada. Shh... there was only ever one. Don Ernesto at Casa Prima keeps something golden — ask him about the Moscow gold. And the Tienda de Discos, twenty-nine primas for you. Swap your duplicates, cariño, a full page is worth much more.
 - Sat 19:04 · message tick 1060 · pilar → t10 · Buenas tardes. Charming question. My Retiro album still wants two plates, and yes — they say a single golden chulapa was ever printed; ask Carmen at El Rastro, she knows the tale. Meanwhile, a gold pack: 504 pesetas.
 - Sat 19:07 · message tick 1065 · pilar → t12 · Señor, eighty-two is still a dream wearing a nice hat. Seventy-nine pesetas — and not a céntimo hidden in my glove. El Marqués deserves my album, not another afternoon of pigeons. Your hand, por favor.
+- Sat 19:09 · message tick 1070 · abuela → t10 · ¡Ay, el abuelo! He said El Rastro at dawn is all mist and pigeons, and the first card you see brings luck. Ask for that one, cariño.
+
+Taxi Blanco, twelve P — ¿sí? And Doña Pilar from Salamanca pays very well Saturdays at eleven.
