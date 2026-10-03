@@ -139,15 +139,15 @@ The Operator reports the case to the Chief at 08:55. The order below starts at "
 
 | When | Action | Requests |
 |---|---|---|
-| t+0 | merge `book_cha_entries.json` into run/book.json; book.py posts 10 public bids on El Rastro (rares 70, uncommons 24, commons 9, CHA-08 flat 24, CHA-05 flat 9, `last_card` on all) | ~10 over 2 ticks (book.py throttles itself) |
+| t+0 | merge `book_cha_entries.json` into run/book.json; book.py posts 10 **public** bids on El Rastro, **capped at the dealer accept price** (Chief 02:45, adversary-t10: no flip into our bid): rares 48 → 54, uncommons 20 → 22, commons 8 → 9, CHA-08 flat 22, CHA-05 flat 9; **no `last_card`** | ~10 over 2 ticks (book.py throttles itself) |
 | t+1 | open the Pícaros thread with the estampita line, no price, then close it; open the Abuela thread with the cocido line, no price, then close it | 4 |
-| t+40 / 80 / 120 / 160 (every 10 min) | book.py steps each bid toward its floor (rares 70 → 90, uncommons 24 → 30, commons 9 → 12) | 1 each |
+| every REPRICE_AFTER ticks | book.py steps each bid toward its cap (rares +2 to 54, uncommons +1 to 22, commons +1 to 9) | 1 each |
 | t+120 (30 min) | CHA-09 not filled → **Pícaros** buy: open 42, +2, target 48-52, accept ≤ 54, walk on a final ≥ 57 and reopen once, then ≤ 57; trick guard | 1 thread |
 | after CHA-09's thread closes (≈ t+180) | CHA-10 → Pícaros, same terms | 1 thread |
 | t+240 / 300 | CHA-06 then CHA-07 → **Abuela**: open 12, +1/+2, target 20-21, accept ≤ 22 | 1 thread at a time |
 | t+360 … 480 | CHA-01..04 → Abuela: open 5, +1, target 8, accept ≤ 9 | 1 thread at a time |
 | t+840 | CHA-08 → Abuela ≤ 22, only if CHA-08 and CHA-05 are both still missing | 1 |
-| any time CHA-05 is the last missing card | its bid jumps 9 → value − 50 = 72 cap (book.py `last_card`): +50 | auto |
+| when one CHA card is the last missing | **never public**: ONE agreed, addressed post from a NON-rival (pre-agreed by Lucas/Dani), up to value-when-last − 50 (common 72 / uncommon 96 / rare 168): +50 | 1 |
 | once CHA is in or on budget | **MAL**: MAL-09 then MAL-10 → Pícaros (open 40, +2, target 44-48, accept ≤ 49 = our value); then MAL-07 **last** from Team 15 by team trade (addressed bid on El Rastro, start 20, up to value-when-last − 50) | 1 thread + 1 bid |
 
 **Expected P and score (CHA)** [L, from §1 medians and cha-plan values 16/40/112, page bonus 106]:
@@ -155,13 +155,12 @@ The Operator reports the case to the Chief at 08:55. The order below starts at "
 | Case | CHA cash | neg_points | Ladder |
 |---|---|---|---|
 | A. dealers at targets, CHA-08/05 from teams | **242** | ≈ +66 (CHA-08 +16, last card +50) | L4 ×2, L1 ×6 |
-| B. teams fill at the start bids | **288** | ≈ +210 (rares +42 each, unc +16, commons +7, last +50) | none |
-| C. worst case, every team bid at its max | **384** | ≈ +146 | none |
+| B. teams fill our public bids (at the caps) | **250** | ≈ +232 (rares +50 cap each, unc +18, commons +7, last +50) | none |
+| C. worst case = B (public bids can't go above the caps); the last card at 72 | **282** | ≈ +232 | none |
 
 **MAL:** ≈ **126** P (MAL-09/10 at ~48 = 0 neg + L4; MAL-07 at ~30 = **+50**, page close).
 
-**Cash** (392 + 150 = 542): after CHA A 300 / B 254 / C 158. The MAL gate is ≥ 150 P left, so the full MAL runs in A and B; in C
-only a partial (one Pícaros rare at ≤ 49). SAL-11 20252 is cancelled at the first tick (directive 00:50), so it no longer competes.
+**Cash** (392 + 150 = 542): after CHA A 300 / B 292 / C 260. The MAL gate is ≥ 150 P left, so the full MAL runs in every case now. SAL-11 20252 is cancelled at the first tick (directive 00:50), so it no longer competes.
 
 ### Phase 3, after CHA/MAL: ladder fodder (directive 02:30; team → dealer only)
 
