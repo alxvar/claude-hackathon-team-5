@@ -2,6 +2,10 @@
 
 _Written by the strategy session. It never touches the game: no trades, no bots. The operator decides and executes inside its hard limits (ORCHESTRATOR.md, "Decide, don't ask"); Lucas changes a limit only with a line containing GUARDRAIL. Format: `- HH:MM · decision with limits · why`. Newest block on top. Labels: **[Verified]** measured on our own deals or read from the server; **[Likely]** fitted or inferred; **[Open]** unknown._
 
+## Sat 15:55 — counterparty policy (board compressed: #1-#4 within 2 of us)
+
+- 15:55 · **Who we trade with** [snapshot 680: t14 30.28, t12 29.79, t18 29.29, t10 28.92, us 28.34, t13 25.5, t17 25.43, t01 25.22]: no trades with the live top 5 unless our gain ≥ 3× theirs; page-closer sales (their gain up to +50 ≈ +4.7 board) only to teams ≥ 6 below us (PAGE_CLOSER_GAP 6, was 10); never a trade where t13/t17 gain more than we do; safe counterparties now: t16, t15, t08, t03, t09, t07. Partners: Team 15 and Team 3 (safe); Team 10 is #4 but its market sits at the cap, so our trades on v07 add ~0 to it while its trades on v10 help us: keep it, but no direct trades that give t10 neg gains · **Team 13's lending program: NO** (sell for X, buy back at 1.1X: −10% of X minus taker fees for us, +10% for t13 #6).
+
 ## Sat 15:30 — new times after the lunch pause
 
 - 15:30 · Resumed 15:29 at hour 6.58 [Verified]. Market Tests 15:54 / 17:54 / 19:54 / 21:54; Salamanca fever 18:03-20:03 (Pilar +25% over book: the SAL resale window); **Duels II ≈ 20:33**; Saturday closes 23:00 (hour 14.09). On the current schedule the hard Market Test (14.65) and bench 15.0 land Sunday ~09:34 / 09:55 and CHA + round 3 ≈ Sunday 11:34, after the 09:00 open: re-read `/api/schedule` at 09:00 (cha-plan assumes the release at the open).
