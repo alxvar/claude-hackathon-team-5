@@ -7,8 +7,8 @@ first. Start the four at 08:45, in this order: Chief, Operator, Builder, Market.
 |---|---|---|---|---|
 | 1 | **Chief of staff** | Opus 5.5 xhigh | `intel/directives.md`; decisions; the summary for Lucas | **Yes, the only one** |
 | 2 | **Operator** | Opus 5.5 high | All game writes (trades, dealers, offers); `team/lucas.md` log; trading daemons | No: reports to the Chief |
-| 3 | **Market** | Fable 5.1 high | `broker/`, `intel/market-playbook.md`, `intel/market-log.md`, the broker + recorder daemons, the venue | No: reports to the Chief |
-| 4 | **Builder** | Opus 5.5 high | `tools/`, code fixes, the opportunity engine + duel monitor + archiver daemons | No: reports to the Chief |
+| 4 | **Market** | Fable 5.1 high | `broker/`, `intel/market-playbook.md`, `intel/market-log.md`, the broker + recorder daemons, the venue | No: reports to the Chief |
+| 3 | **Builder** | Opus 5.5 high | `tools/` and the code of the opportunity engine, duel monitor and archiver (the Operator STARTS `opps` and `trader`) | No: reports to the Chief |
 
 ## The rules that keep them from stepping on each other
 1. **Nobody waits for Lucas.** Each session decides inside its hard limits (`intel/ORCHESTRATOR.md`, "Decide, don't ask")
@@ -41,7 +41,8 @@ first. Start the four at 08:45, in this order: Chief, Operator, Builder, Market.
 
 **3. Builder:**
 > You are Team 5's Builder. Read intel/saturday-sessions.md, intel/saturday-plan.md §5 and §6b, and CLAUDE.md. Your job:
-> keep the daemons you own healthy (opportunity engine, duel monitor, archiver), fix bugs with a test and a small commit,
+> keep the read-only daemons healthy (duel monitor, archiver, recorder). Never start `opps` or `trader`: the Operator starts
+> them after the plan's §2 checks; you own their code and restart them only if they die after the Operator started them; fix bugs with a test and a small commit,
 > and build what the Chief asks. Never write to the game. Report to the Chief by SendMessage.
 
 **4. Market:**

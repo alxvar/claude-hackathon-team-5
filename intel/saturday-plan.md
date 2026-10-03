@@ -113,7 +113,7 @@ re-read `/api/schedule` at every round start.
   low-multiplier buyer won't pay 45. Known gaps
   [L, field report]: t14 (LAV, missing one of 01/02/07/08), t04 (LAV-09: we can't), t02 (SAL-09), t08 (SAL rares),
   t18 (LAT-09/10), t17 (MAL-09). No API shows other teams' albums (only `album_filled`, `pages_complete`): the best
-  signal that a team lacks card X is that it **bids for X or asks a dealer for X**. `intel/sellable.md` (builder,
+  signal that a team lacks card X is that it **bids for X or asks a dealer for X**. `intel/opportunities.md` (+ the ntfy alerts) (builder,
   §5) turns that into one line per opportunity for Dani.
 - **Feeding rule.** Before any sale read the buyer's progress in that set (feed + `intel/teams.md`). A page-completing
   card (second-to-last or last) goes only to a team **≥ 10 points below us** and never to the top 4: the buyer books up
@@ -208,7 +208,7 @@ if Lucas picks option A). Everything else is built during Duels I, when our bots
 
 | Fix | Why | Owner |
 |---|---|---|
-| `intel/sellable.md` generator: cross teams' bids and dealer threads (what they lack) with our spares and the feeding rule → one line per opportunity with price, buyer, pitch text; the watcher alerts Dani on a new line | Turns the room into targeted page-completion sales | builder, by 10:00 |
+| `intel/opportunities.md` (+ the ntfy alerts) generator: cross teams' bids and dealer threads (what they lack) with our spares and the feeding rule → one line per opportunity with price, buyer, pitch text; the watcher alerts Dani on a new line | Turns the room into targeted page-completion sales | builder, by 10:00 |
 | Repricer daemon (no LLM) that owns our maker book within the hard limits: keeps 20-30 offers live, reprices after 10 min unfilled | The operator's context can fill or its Monitor expire; standing still = falling | builder |
 | Read-only daemons (collector, watcher, metrics, dashboard) on **keyless** public routes | Keyless reads get 60/s per IP; the team key's 5/s is shared and we hit 429s at 21:50 and 21:54 | builder session |
 | Watcher on `/api/events/stream` (SSE) | Instant reaction, fewer requests | builder |
@@ -239,8 +239,8 @@ itself. He writes `team/aleks.md`.
 **Dani** — three jobs with clear outputs, none of them in our critical path:
 1. **Desk (09:00)**: the §3 questions, answers in `team/dani.md` within minutes; the strategy session turns them into
    directives.
-2. **Page-completion broker in the room.** The operator publishes `intel/sellable.md` (our spares and asks, approved
-   buyers, floor prices) and `intel/wanted.md` (cards we need, max prices). Dani uses his dashboard to find teams one
+2. **Page-completion broker in the room.** The operator publishes `intel/opportunities.md` (+ the ntfy alerts) (our spares and asks, approved
+   buyers, floor prices). Dani uses his dashboard to find teams one
    card from a page and pitches with a concrete offer: *"You need LAV-02 to finish Lavapiés. It's on El Rastro
    addressed to you at 40; accept it and your page is done."* For buying: *"We pay 12 for RET-0x right now, bid is
    up."* He never improvises prices; he only points teams at offers that already exist.
@@ -254,7 +254,7 @@ itself. He writes `team/aleks.md`.
 **bought X** (settlement `to`) or **pulled X** (`pack.opened` shows each pack's best card) holds X; `album_filled` and
 `pages_complete` per team (leaderboard). Our side: holdings and per-copy values (`/api/me`), the cards our pages need.
 
-**Output** `intel/sellable.md`, rebuilt every 2 minutes by the collector, newest first, one line per opportunity:
+**Output** `intel/opportunities.md` (+ the ntfy alerts), rebuilt every 2 minutes by the collector, newest first, one line per opportunity:
 - *SELL*: `Team 7 bids for LAV-02 (lacks it) · we hold a spare worth 3.25 · offer 1234 at 40 addressed to t07 is LIVE ·
   t07 is 11.2 points below us: OK · say: "You're missing LAV-02 for Lavapiés. It's on El Rastro addressed to you at 40:
   accept it and the page is yours."`
@@ -267,7 +267,7 @@ itself. He writes `team/aleks.md`.
 names a price that isn't in the file. Sells only to teams that pass the feeding rule (§4A).
 
 **Alert path** (Dani's Claude doesn't get real-time pushes from git): (1) his dashboard panel `git pull`s every 60 s,
-renders `intel/sellable.md` and flags new lines; (2) for each new line worth ≥ 10 points the operator also pushes
+renders `intel/opportunities.md` (+ the ntfy alerts) and flags new lines; (2) for each new line worth ≥ 10 points the operator also pushes
 Lucas a notification, and Lucas tells Dani in the room. Target latency ≤ 2 minutes.
 
 **Sync** [V docs]: same machine → `SendMessage` (instant) + files; across machines → git (hooks pull on every prompt,
@@ -284,6 +284,10 @@ matters goes into a file.
 4. **One fact store**: `intel/GAME.md`, each fact labelled [V]/[L]/[?] with its source.
 5. **Independent verification** (fresh agent) before any directive that moves > 20 P or changes a rule.
 6. **Stale premises die**: a recommendation whose facts are older than the latest measurement is dropped.
+7. **Experiment lane**: offline experiments (replays, simulations) run in parallel freely; experiments that touch the game
+   go through the Operator with a loss budget (≤ 10 P each) and their result goes to GAME.md. Saturday's list: the cap
+   (RET finish), what moves the ladder, the round reset, Abuela's welcome price, market variants, duel variants.
+8. **Never buy to resell** unless the buyer's high bid is live and Dani confirmed it in person (Friday's MAL-07: −11.8).
 
 ---
 

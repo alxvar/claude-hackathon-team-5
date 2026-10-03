@@ -31,7 +31,9 @@ anything important (find it with `ListAgents`) and log every action in `team/luc
    timeout 1800000. Re-arm it every time it expires.
 3. **Saturday:** read `intel/saturday-plan.md` first and run its §2 decision tree before anything else (clock check →
    open the grant pack → reset check). Only then start the daemons that trade, with the cash floor of the latest
-   GUARDRAIL directive: `CASH_FLOOR=100 tools/daemons.sh start trader opps scout judge strategist`. The plan supersedes
+   GUARDRAIL directive: `CASH_FLOOR=370 tools/daemons.sh start trader opps scout judge strategist` (370 keeps the 270 P
+   venue bond until the Market session's venue decision after the first Market Test; then restart both with 100). If
+   the clock RESUMED, the grant pack arrives at the round event (~10:21): stop `trader opps`, open the pack, restart them. The plan supersedes
    directive blocks written before Sat 00:45 where they conflict.
 4. Read `intel/directives.md`, `intel/strategy.md`, `intel/judge.md`, then the top of `intel/metrics.md` (it now has our
    holdings with per-copy values, our open offers with `to`, what each of our deals did to `neg_points`, and our dealer
@@ -48,7 +50,8 @@ anything important (find it with `ListAgents`) and log every action in `team/luc
 - `LEADERBOARD` (only when our rank moves 2+ or the top 4 changes): re-check our open offers addressed `to` a team that is
   now in the top 4, and cancel them.
 - `LEVELS/DEALERS` (a new dealer opens): read its menu (`/api/dealers/<id>`) and run
-  `python3 agents/dealers/abuela_bot.py --dealer <id> --dry-run`. Deal only on cards we need at ≤ our value (plan §4C);
+  `set -a; . ./.env; set +a; python3 agents/dealers/abuela_bot.py --dealer <id> --dry-run` (never `--sell-spares`: dealer
+  gains score 0 and it can sell a copy we listed). Deal only on cards we need at ≤ our value (plan §4C);
   three negotiated deals with it likely unlock the next level early [L]. Never buy packs.
 - `DUELS`: nothing. Aleks owns duels. Bots hold accepts only during SCORED duel sessions (plan §5 accept arbiter).
 - `TEAMMATE PUSH`: read only if it touches `team/` or `PLAN.md`.

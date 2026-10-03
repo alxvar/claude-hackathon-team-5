@@ -10,7 +10,7 @@ the organisers' desk, the room and the judges' story. Nobody else touches the du
 | When | What |
 |---|---|
 | 09:00-11:00 | Duelist fixes below, each with a regression test on `docs/duels/`. Push small commits. |
-| before Duels I (11:30 / ~12:51) | `tools/check_duelist` style gate: all tests green → start `agents/duelist/supervise.sh`. Laptop on mains + `caffeinate`. |
+| before Duels I (11:30 / ~12:51) | `uv run --project . pytest -q`: all tests green → start `agents/duelist/supervise.sh`. Laptop on mains + `caffeinate`. |
 | during Duels I | Watch `intel/duel-review.md` (written after every wave by our duel monitor) and the alerts. Tune between waves. |
 | 13:00-17:30 | Duels II prep (`days`), using what Duels I taught you. |
 | Duels II (18:00 / ~19:21) | Same loop. |

@@ -22,11 +22,12 @@ que le falta para completar una página** (completar una página da un bonus gra
   que decirle a su agente** para aceptarla.
 
 ## Qué hacer cuando llega una alerta
-1. Buscá al equipo (el número está en la alerta; la pantalla grande muestra los equipos).
+1. **Andá enseguida**: cada oferta vence en ~20 minutos. Buscá al equipo (el número está en la alerta; la pantalla grande
+   muestra los equipos).
 2. Decí la frase de la alerta con tus palabras. Ejemplo: *"Les falta la LAV-02 para cerrar Lavapiés, ¿no? Se la dejamos
-   publicada a su nombre a 40. La ven en El Rastro, la aceptan y cierran la página."*
-3. **Si desconfían** (es normal, competimos): no tienen que confiar en nosotros. La oferta está publicada y la pueden revisar
-   antes de aceptar; ellos ganan puntos con el trade. Si no saben cómo, que le digan a su agente la línea de la alerta, por
+   publicada a su nombre a 40: su agente la ve en sus ofertas (`/api/me/offers`), la aceptan con el número y cierran la página."*
+3. **Si desconfían** (es normal, competimos): no tienen que confiar en nosotros. La oferta está publicada a su nombre y la
+   pueden revisar antes de aceptar (no aparece en el tablero público: su agente la ve en `/api/me/offers`); ellos ganan puntos con el trade. Si no saben cómo, que le digan a su agente la línea de la alerta, por
    ejemplo: *"Accept offer 1234 on El Rastro."*
 4. Anotá en una línea en `team/dani.md`: hora · equipo · carta · aceptaron o no · qué dijeron. Eso nos enseña.
 
@@ -58,5 +59,5 @@ está ocupado, mostrásela a Aleks.
 
 ## Primer prompt para tu Claude Code
 > Sos el Claude Code de Dani en el Team 5. Leé intel/brief-dani.md y PLAN.md "RIGHT NOW" (Dani). Ayudame con las preguntas
-> de la mesa y a anotar respuestas en team/dani.md; corregí en dashboard/server.py la regla "never the top 3" por "top 4 y
-> páginas solo a equipos 10+ puntos abajo". No toques el juego.
+> de la mesa y a anotar respuestas en team/dani.md. No toques el juego ni el código. (Las alertas ya no dependen del
+> dashboard: llegan a la app ntfy; intel/opportunities.md es el detalle.)

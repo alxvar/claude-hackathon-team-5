@@ -29,7 +29,7 @@ own section. It supersedes every Friday order below where they conflict.
 
 **Dani: the desk, the page-gap desk, the judges' story.**
 1. **09:00, organisers' desk**: the 8 questions in plan §3, answers in `team/dani.md` at once.
-2. **From ~10:00, page-gap desk** (plan §6b): `intel/sellable.md` lists, one line each, which team lacks a card we have
+2. **From ~10:00, page-gap desk** (plan §6b): `intel/opportunities.md` (+ the ntfy alerts) lists, one line each, which team lacks a card we have
    spare (and what to say), and which team holds a card we need (and our live bid). Only point teams at offers already
    live; never name a price that isn't in the file. Lucas will also tell you in person when a big one appears.
 3. **Judges (40%)**: the judging format by 09:30; `docs/demo.md` skeleton; screenshot the big screen at each round close;
@@ -38,7 +38,7 @@ own section. It supersedes every Friday order below where they conflict.
    now top 4, plus page-completing cards only to teams ≥ 10 points below us. Move `judges/team-messages.md` (Friday chat
    drafts, incl. "buy LAV-09 from Chato") to `archive/fri/`. Your "Touches" line: the dashboard also writes `intel/teams.md`.
 
-**Lucas (+ 3 Claude Code sessions: operator, strategy, builder)**: decides, is the human channel, owns the story. Only the
+**Lucas (+ 4 Claude Code sessions: Chief of staff, Operator, Builder, Market)**: decides, is the human channel, owns the story. Only the
 operator writes to the game. Never buy from a dealer above our value; page-completing cards only to teams ≥ 10 points
 below us, never to the top 4.
 
@@ -61,8 +61,8 @@ address for reads without a key.
 | Owner | Job | Writes with the team key? |
 |---|---|---|
 | **Aleks** | Duels: the live duel agent | Yes, duel endpoints only |
-| **Lucas** (+ 3 Claude Code sessions) | Operator (the only writer to the game: trades, dealers, venue), strategy, builder | Yes, operator session only |
-| **Dani** | Organisers' desk, page-gap desk (`intel/sellable.md`), judges' story (40%) | No |
+| **Lucas** (+ 4 Claude Code sessions) | Chief of staff (Lucas talks here), Operator (the only writer for trades and dealers), Builder (tools), Market (recorder, broker, venue) | Yes, operator session only |
+| **Dani** | Organisers' desk, page-gap desk (`intel/opportunities.md` (+ the ntfy alerts)), judges' story (40%) | No |
 
 ## Team rules
 
