@@ -1,25 +1,29 @@
-# Scout (claude-sonnet-5-5, Sat 22:43)
+# Scout (claude-sonnet-5-5, Sat 22:49)
 
 ## Top 3 actions now
-1. **Keep SAL-11 bid 19620 (115 → t04) live; raise to ≤125 only if t04 doesn't fill by ~tick 1425.** Executor: operator via trade.py (maker bid, no fee).
-   - Evidence: the 21:45 GUARDRAIL allows ≤125 (our value 162, first copy). t04 dumps SAL and has 77 deals. The bid expires at tick 1432. Cash is 392 against a floor of 260 for this buy.
-   - Effect: ≈ +2.3 board per the directive. Our gain is 162 − 125 = 37 before pack drag.
+
+1. **Keep SAL-11 bid 19620 alive overnight (115 → t04, v15, maker).**
+   - Evidence: our value is 162 (first copy). The guardrail allows ≤125 and the bid sits at 115. The operator job re-posts it when it lapses at tick 1432. t04 "dumps SAL". Cash is 392, so we still cover the CHA reserve of ≈330.
+   - Effect: the chief estimates ≈ +47 on Sunday's trade part and ≈ +2.3 board. Maker means no fee. Pack drag is possible (the SAL-06 close came in under +50).
    - Confidence: med.
-2. **Accept t09's MAL-09/10 bids (56 each) only with a MAL-09/10 we hold.** We hold neither. Instead, sell our spare commons to t09 at their live asks.
-   - Evidence: t09 is #15 (23.4), well below us, and bids MAL-09/10 at 56 and SAL-06 at 24. Our offers 19656 (MAL-03 at 9 → t09) and 19657/19658 (→ t01) are already live. Dani or the operator pitches t09 in the room.
-   - Effect: small. The cards are worth 7 each to us (MAL commons) and 1.3-3.2 (LAV spares), so the gain is ≈ +2 to +6 total. These deals build Club Castizo goodwill on v10.
+
+2. **Sell our spare commons and uncommons to non-top-4 teams, as maker on v10.**
+   - Evidence: the open asks already exist: LAV-03 → t04 at 6, LAV-04 → t01 at 6, MAL-03 → t09 at 9, MAL-08 → t01 at 20. They expire at tick 1455, so they survive the night.
+   - Effect: small neg gain, since the spares are worth only 1.3-3.2 to us. The main value is the v10 market-making "real trades" credit (22.5 weight) and feeding no leader. t01, t04 and t09 are all ≥10 below us.
    - Confidence: low-med.
-3. **Route the t16 / t09 flow to v10 and run the FLIP reactor.** Executor: operator, then Lucas or Dani in the room.
-   - Evidence: t16 bids RET-11 at 99 (our held RET-11 is worth 198, so do not sell). t16 bids RET-09/10 at 31 (our value 149.9, so no). The RET-09 ask is 84, from another team. Rare price levels are thin below our value.
-   - Action: the real lever is v10 "real trades" (Market 22.5). Pair the bottom-table sellers with buyers. Example: RET-09 t08 → t09 at ~100 (the 21:40 top match). Use only non-rival teams.
-   - Confidence: low-med. Whether the Market scale pays is open.
+   - Note: MAL-08 is a single held copy worth 17.5 to us (MAL-06 and MAL-08 are our only uncommons), so selling at 20 is thin. Skip it if the MAL close is still planned.
+
+3. **Sunday: pursue the MAL page close via Team 15's spare MAL-07, bought as a team trade, with a maker bid.**
+   - Evidence: we hold MAL-01 to 06 and 08. We are missing MAL-07, 09 and 10 (the bids t09 has out at 56 for MAL-09/10 show how rare they are). The directive says the close counts in full in a fresh round.
+   - Effect: up to +50 (cap) on a new round, but only if CHA is under budget (≈330 P).
+   - Confidence: low. Needing three cards makes it a long chain, and the 56 bids are competition.
 
 ## What the climbing teams are doing
-- **Team 18 (#2, +0.9 / 15 min, +1.3 / 60 min, 39 deals):** it buys RET/LAT. It took LAT-10 at 72 from t13 (tick 1332), a rare under book 70 × the multiplier. It is a buyer of cheap rares from teams, not a dealer buyer.
-- **Team 12 (#5, +0.4 / 60 min):** it is the heaviest rare buyer. It bought RET-11 at 216 from t6 (tick 1245), LAT-10 at 86 (1304), LAT-06 at 20 (1303) and SAL-09 70 → t09 (1231). t12 is also in the top 4, so we should not feed it.
-- **Team 1 (#9, +3.0 / 60 min):** it jumped on 33 deals. It bought LAT-10 rare at 86 from t01 → t12 and holds MAL/SAL asks. It is not in any top-4 flow, but it is a cheap target for our spares (offers 19657/19658).
+- **Team 18 (#2, +0.9 / +1.3):** a RET/LAT buyer. It took LAT-10 from t13 at 72 (tick 1332), which is below the clearing price of ~86 that t12 paid at tick 1304. Cheap rare buys from teams are working.
+- **Team 12 (#3, +0.9 / 60 min):** 70 deals, collects RET/MAL/LAT. It bought RET-11 from t06 at 216 (tick 1245), LAT-10 at 86 and LAT-06 at 20. It buys epics from teams and pairs them with page-card buys.
+- **Team 1 (+3.0 / 60 min):** it is in the pack of buyers for LAV/SAL/MAL, and sold LAT-10 at 86 to t12 (tick 1304). It is now a target for our sells (LAV-04, MAL-08).
 
 ## Threats
-- **Team 10 (#1, 37.7)** is 7.2 above us. It bids 210 for LAV-11 and trades epics: it bought MAL-11 at 195 and sold SAL-11 at 207 (tick 1296). Our v10 market fell when t10 dumped SAL on v10. Never route to its venue v07.
-- **t10/t06 trade RET-03** at 8 (tick 1392): the RET commons are cheap among rivals. Our SAL-11 purchase competes with t04 and t17 on SAL (t17 holds SAL-11).
-- **Our score is slipping:** −0.7 in 60 min, with neg_points flat at 119.1 for 15 min. Ladder and flags are spent (0.483, 8 flags). Only team trades and v10 move the board. Idle ticks cost points.
+- **Team 10 (#1, 37.7):** its bid of 210 for LAV-11 is the best on the book. Never route trades to v07 or help it. Its SAL-07 dump on v10 once wiped our market points.
+- **Team 6 (#6) and Team 12:** both are buying epics (RET-11 at 216). Team 16 and Team 7 are bidding 99-100 for RET-11, so our RET-11 (value 198) is only worth selling at ≥198.
+- **Team 9:** bids 56 for MAL-09/10, so it competes with us for the same MAL rares. Sunday's page-close is therefore contested.
