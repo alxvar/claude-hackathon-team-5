@@ -245,3 +245,5 @@ Nando: Setenta y tres,
 - Sat 22:10 · message tick 1345 · banco → t06 · Setecientos cuarenta y seis. Bajo cinco, igual que usted sube cinco. Así podemos seguir hasta que cierren las tiendas; el Gato no se mueve de la bóveda.
 - Sat 22:10 · message tick 1346 · banco → t06 · Setecientos cuarenta y uno. Cinco menos, como corresponde. El Gato permanece en la bóveda, caballero, y la tarde aún no se acaba.
 - Sat 22:11 · message tick 1347 · banco → t06 · Setecientos treinta y seis. Cinco menos, como siempre. El Gato sigue en la bóveda, caballero. Yo no tengo prisa; usted tampoco, por lo visto.
+- Sat 22:11 · message tick 1348 · banco → t06 · Setecientos treinta y uno. Es mi última palabra, caballero. Si la rechaza, cierro el trato y el Gato se queda en mi bóveda para siempre.
+- Sat 22:12 · taller.crafted tick 1349 ·  → t02 · Team 2 turned three common cards into La Vía Láctea (uncommon) at The Workshop
