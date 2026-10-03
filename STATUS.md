@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 21:25** · tick 1255 (30 s/tick) · game hour 11.78 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 21:30** · tick 1265 (30 s/tick) · game hour 11.87 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -25,17 +25,17 @@ _From `team/<name>.md`; each person writes only their own file._
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 31.63 | 3 | 24.13 | 7.50 | 14.75 | 0.48 | 0.89 | 53 | 5 | 392 | 38/50 |
+| 30.89 | 3 | 23.39 | 7.50 | 15.59 | 0.48 | 0.89 | 53 | 5 | 392 | 38/50 |
 
-Leaderboard (snapshot at tick 1250; refreshes every few minutes):
+Leaderboard (snapshot at tick 1260; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 10 | 35.29 | 22.79 | 12.50 | 53 |
-| 2 | Team 6 | 32.17 | 20.35 | 11.82 | 65 |
-| 3 | Team 5 | 31.63 | 24.13 | 7.50 | 53 |
+| 1 | Team 10 | 36.05 | 23.55 | 12.50 | 53 |
+| 2 | Team 6 | 32.81 | 20.99 | 11.82 | 66 |
+| 3 | Team 5 | 30.89 | 23.39 | 7.50 | 53 |
 | 4 | Team 3 | 30.31 | 24.45 | 5.86 | 31 |
-| 5 | Team 18 | 30.12 | 22.62 | 7.50 | 37 |
+| 5 | Team 18 | 29.94 | 22.44 | 7.50 | 37 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 13.00 | ~73 min | bench | The Market Test: every venue gets the same synthetic book |
-| 13.37 | ~95 min (after today's close) | day_closes | Closed until Sunday 09:00 |
-| 13.37 | ~95 min (after today's close) | day_opens | Sunday opens |
-| 14.65 | ~172 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
-| 15.00 | ~193 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
-| 16.65 | ~292 min (after today's close) | set_release | Chamberí released |
-| 16.65 | ~292 min (after today's close) | round | Round 3 starts |
-| 16.70 | ~295 min (after today's close) | grant_all | The Sunday allowance: 150 primas for everyone |
+| 13.00 | ~68 min | bench | The Market Test: every venue gets the same synthetic book |
+| 13.36 | ~90 min (after today's close) | day_closes | Closed until Sunday 09:00 |
+| 13.36 | ~90 min (after today's close) | day_opens | Sunday opens |
+| 14.65 | ~167 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 15.00 | ~188 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 16.65 | ~287 min (after today's close) | set_release | Chamberí released |
+| 16.65 | ~287 min (after today's close) | round | Round 3 starts |
+| 16.70 | ~290 min (after today's close) | grant_all | The Sunday allowance: 150 primas for everyone |
 
 ## Our dealer deals
 
@@ -103,15 +103,15 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 ## Duels
 
-Live: 6 · finished: 80
+Live: 6 · finished: 81
 
-- {"duel": 5616, "session": 3, "status": "deal", "role": "seller", "item": "Plaza del Dos de Mayo", "issues": ["price", "days"], "your_days_weight": 3.19, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 69, "limit_meaning": "never sell below your cost", "rival": "Ri
 - {"duel": 5617, "session": 3, "status": "no_deal", "role": "buyer", "item": "Plaza del Dos de Mayo", "issues": ["price", "days"], "your_days_weight": 4.63, "days_meaning": "each delivery day costs you this much cash", "your_limit": 88, "limit_meaning": "never pay above your value", "rival": "Rival Ve
 - {"duel": 5618, "session": 3, "status": "no_deal", "role": "buyer", "item": "La V\u00eda L\u00e1ctea", "issues": ["price", "days"], "your_days_weight": 5.01, "days_meaning": "each delivery day costs you this much cash", "your_limit": 50, "limit_meaning": "never pay above your value", "rival": "Rival 
 - {"duel": 5619, "session": 3, "status": "no_deal", "role": "seller", "item": "La V\u00eda L\u00e1ctea", "issues": ["price", "days"], "your_days_weight": 3.29, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 123, "limit_meaning": "never sell below your cost", "rival
 - {"duel": 5622, "session": 3, "status": "no_deal", "role": "seller", "item": "Fiesta de San Cayetano", "issues": ["price", "days"], "your_days_weight": 1.42, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 83, "limit_meaning": "never sell below your cost", "rival":
 - {"duel": 5623, "session": 3, "status": "deal", "role": "buyer", "item": "Fiesta de San Cayetano", "issues": ["price", "days"], "your_days_weight": 3.66, "days_meaning": "each delivery day costs you this much cash", "your_limit": 119, "limit_meaning": "never pay above your value", "rival": "Rival Azu
-- {"duel": 5652, "session": 3, "status": "live", "role": "seller", "item": "La Sala Pentagrama", "issues": ["price", "days"], "your_days_weight": 2.75, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 63, "limit_meaning": "never sell below your cost", "rival": "Rival
+- {"duel": 5652, "session": 3, "status": "deal", "role": "seller", "item": "La Sala Pentagrama", "issues": ["price", "days"], "your_days_weight": 2.75, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 63, "limit_meaning": "never sell below your cost", "rival": "Rival
+- {"duel": 5653, "session": 3, "status": "live", "role": "buyer", "item": "La Sala Pentagrama", "issues": ["price", "days"], "your_days_weight": 2.33, "days_meaning": "each delivery day costs you this much cash", "your_limit": 114, "limit_meaning": "never pay above your value", "rival": "Rival Verde",
 - {"duel": 5662, "session": 3, "status": "live", "role": "seller", "item": "La Sala Pentagrama", "issues": ["price", "days"], "your_days_weight": 5.45, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 79, "limit_meaning": "never sell below your cost", "rival": "Rival
 - {"duel": 5663, "session": 3, "status": "live", "role": "buyer", "item": "La Sala Pentagrama", "issues": ["price", "days"], "your_days_weight": 1.08, "days_meaning": "each delivery day costs you this much cash", "your_limit": 72, "limit_meaning": "never pay above your value", "rival": "Rival Verde", 
 - {"duel": 5706, "session": 3, "status": "live", "role": "buyer", "item": "La Dama de Serrano", "issues": ["price", "days"], "your_days_weight": 2.6, "days_meaning": "each delivery day costs you this much cash", "your_limit": 122, "limit_meaning": "never pay above your value", "rival": "Rival Rojo", "
