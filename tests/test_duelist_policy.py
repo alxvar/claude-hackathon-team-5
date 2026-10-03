@@ -51,8 +51,8 @@ def test_the_opener_sits_opener_share_of_the_limit_away_rounded_toward_us():
 
 def test_a_mid_duel_step_is_code_step_share_of_the_gap():
     a, _ = agent()
-    m = P.code_move(a, obs(SELLER, ours=[70], theirs=[50]))   # worth 30 vs 10: gap 20, step 3
-    assert (m.action, m.price, m.meta["rule"]) == ("offer", 67, "code step")
+    m = P.code_move(a, obs(SELLER, ours=[80], theirs=[40]))   # worth 40 vs 0: gap 40, step 4.8
+    assert (m.action, m.price, m.meta["rule"]) == ("offer", 76, "code step")
 
 
 def test_a_step_below_min_step_is_held_and_a_big_share_is_cut(monkeypatch):
@@ -80,9 +80,9 @@ def test_their_offer_as_good_as_ours_is_accepted_and_the_limit_is_never_crossed(
 
 
 def test_one_text_call_no_strategist_and_the_words_go_out():
-    a, m = agent(model=Words("I can do 67 P."))
-    move = asyncio.run(a.respond(obs(SELLER, ours=[70], theirs=[50])))
-    assert (move.action, move.price, move.text) == ("offer", 67, "I can do 67 P.")
+    a, m = agent(model=Words("I can do 76 P."))
+    move = asyncio.run(a.respond(obs(SELLER, ours=[80], theirs=[40])))
+    assert (move.action, move.price, move.text) == ("offer", 76, "I can do 76 P.")
     assert [s for s, *_ in m.seen] == ["Words"] and [c["stage"] for c in move.meta["calls"]] == ["text"]
 
 
@@ -93,22 +93,22 @@ def test_a_hold_costs_no_model_call():
 
 
 @pytest.mark.parametrize("model,why", [
-    (Words("It's a rare card: 67 P."), "rejected"),        # a claim
-    (Words("Deal at 67 P?"), "rejected"),                  # agreement words on an offer
-    (Words("I can do 67 P, not 30."), "rejected"),         # a number past our limit
+    (Words("It's a rare card: 76 P."), "rejected"),        # a claim
+    (Words("Deal at 76 P?"), "rejected"),                  # agreement words on an offer
+    (Words("I can do 76 P, not 30."), "rejected"),         # a number past our limit
     (Words(error=LLMError("down")), "model error"),
 ])
 def test_bad_or_failed_words_become_plain_ones(model, why):
     a, _ = agent(model=model)
-    move = asyncio.run(a.respond(obs(SELLER, ours=[70], theirs=[50])))
-    assert move.text == "I can do 67 P." and why in move.meta["text"]
+    move = asyncio.run(a.respond(obs(SELLER, ours=[80], theirs=[40])))
+    assert move.text == "I can do 76 P." and why in move.meta["text"]
 
 
 def test_a_slow_text_model_is_cut_at_the_budget(monkeypatch):
     monkeypatch.setattr(P, "TEXT_TIMEOUT_S", 0.05)
-    a, _ = agent(model=Words("I can do 67 P.", delay=1.0))
-    move = asyncio.run(a.respond(obs(SELLER, ours=[70], theirs=[50])))
-    assert move.text == "I can do 67 P." and "timeout" in move.meta["text"]
+    a, _ = agent(model=Words("I can do 76 P.", delay=1.0))
+    move = asyncio.run(a.respond(obs(SELLER, ours=[80], theirs=[40])))
+    assert move.text == "I can do 76 P." and "timeout" in move.meta["text"]
 
 
 def test_an_accept_gets_words_that_may_agree():

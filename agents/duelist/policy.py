@@ -11,8 +11,10 @@ when they fail, so a decision takes at most about TEXT_TIMEOUT_S plus code time.
 The moves follow the Duel Lab's simulated policy (intel/duel-lab.md, tools/duel_sim.py), with the duelist's code
 rules unchanged around them (the runner's deadline / small-gap accepts, the silent walk, the late day switch):
 - opener: OPENER_SHARE of our limit away from it, in worth (Duels I openers: median 0.42, the simulator's U);
-- each move after: concede CODE_STEP_SHARE of the gap between the standing offers, in worth (Duel Lab 1d: a fixed
-  15%), cut to MAX_STEP_SHARE and held when below `min_step`, as `agent.held` does for the models;
+- each move after: concede CODE_STEP_SHARE of the gap between the standing offers, in worth, cut to MAX_STEP_SHARE
+  and held when below `min_step`, as `agent.held` does for the models. Simulated (tools/duel_sim.py, Sunday's 12
+  ticks at 10% decay, 6,000 duels a world, paired against today's model steps capped at 25%): 12% wins in all four
+  rival worlds (+0.008 to +0.010 a duel, every CI above 0); 15% +0.005 to +0.013; 20% and 25% lose in one or two;
   in the last CLOSING_TICKS: END_STEP_SHARE of the gap, never held or cut;
 - accept their standing offer when it is worth at least our own, or within ACCEPT_NEAR_P of where our step lands;
 - the day: the day rules' call (`agent.day_read`): take their day, give it (worth up by its cost: the premium), or
@@ -38,7 +40,7 @@ if TYPE_CHECKING:
     from .agent import DuelAgent, Move
 
 OPENER_SHARE = 0.42      # our opener's distance from our limit, as a share of the limit (Duels I median, Duel Lab U)
-CODE_STEP_SHARE = 0.15   # a mid-duel concession: this share of the gap (Duel Lab 1d)
+CODE_STEP_SHARE = 0.12   # a mid-duel concession: this share of the gap (simulated vs today's 25% cap, below)
 END_STEP_SHARE = 0.5     # in the last CLOSING_TICKS ticks: this share (the simulator's end_alpha)
 ACCEPT_NEAR_P = 2.0      # their offer within this of where our step lands: take it instead of another round
 TEXT_TIMEOUT_S = 3.5     # the text model's budget; after it, code's plain words
