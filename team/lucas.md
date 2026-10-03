@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sat 15:51 · operator · **trader took a swap addressed to us**: t08's SAL-04 for our 2nd RET-04 on v11 (Team 7's venue), tick 669: `neg_points` 32.5 → **38.7 (+6.2, as expected)**; opps then dropped its RET-04 ask (9343): we keep the last RET-04, RET page 10/10 intact
 - Sat 15:47 · operator · **handoff kept in run/operator-handoff.md** (jobs, monitors, live special offers, reserved cards, scripts, next steps; updated on change) · opps 9343 (RET-04 → t15 at 40, +37.2) checked: it sells our 2nd RET-04 copy, page stays complete · bargain monitor now also catches `ARB ` arbitrage lines (Chief: check the bid, feeding rule on the sell leg, net ≥ 5) · `swaps` daemon on hold until cleared
 - Sat 15:55 · Builder · Chief's 3 builds pushed (375 pass): swaps engine cfa654d (daemon `swaps`, on hold until verified; dry run 43 candidates, best +10.3/+9.7), v10 partner suggestions f1ce219 (radar, live, every 30 min), arbitrage in bargains 4c81dfc (live; ARB lines for the Operator) · 2 verifiers running
 - Sat 15:31 · Builder · cha-plan: pack 755 opened Saturday (Chief/Operator), CHA bids cover all 10 (4d3dd39)
