@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sat 16:53 · operator · flags 6 (7344 bait and switch SAL-10 → card:SAL-06) and 7 (7356 'stopped printing') on live thread 1118 = 0, like flag 5 → flags capped [L]; PAUSED, tally 7 flags net +20 → GAME.md · SAL-10 retry running (his 73 → 64 → 59, ours 44 → 50; offers keep switching to SAL-06/SAL-08, trick guard holds)
 - Sat 16:46 · operator · SAL-10 from Pícaros walked: their 73 → 67 → 63 → 60-FINAL vs our cap 56 (floor 70 bound) · GUARDRAIL corrected (Chief): floor 60 for this one buy at ≤ 63 → retry scheduled 16:51 (open 44, +3, offer-only, structure check)
 - Sat 16:45 · operator · **#1 (30.02)** at snapshot 780 · flag 5 (7225 'last one in all of Madrid… nobody else has it', SAL-05 thread I had closed) = 0 so far → tally 5 flags: +30 / −10 / 0 = net +20 ([?] flags on a closed thread may not count: flag while the thread is open) · SAL-10 buy from Pícaros running (GUARDRAIL floor 70 → cap 56; offer gives card:SAL-10, verified) · message monitor now prints give/want types (bait-and-switch check)
 - Sat 16:42 · operator · **SAL-09 bought from Pícaros at 54** (their 73 → 56, accepted our 54; offer-only + trick guard; their SAL-06 switch flagged): `ladder_points` 0.200 → **0.270 (+0.070, L4 slot 1)**, `neg_points` 63.2 unchanged, cash 126 · plan: SAL-09 → Pilar in the fever (18:04, ~85) · asked the Chief for a floor exception to buy SAL-10 (L4 slot 2) before ~17:33 · (fix for the line below: '( 43.2 → 63.2)' is `neg_points`)

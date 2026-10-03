@@ -122,6 +122,9 @@
   separate message pays again) and 7160 (bait and switch: words sell SAL-09 'El Marqués', structured offer gives card:SAL-06).
   **−10** for 7170 (words 'final as a church bell', offer final:false, next offer lower): finality/urgency talk is posture,
   not a flaggable lie. Net +20. Rule: flag only a wrong card/price in the structured offer vs the words, or a false factual claim.
+  Then 0 [V, Sat 16:53]: flag 5 (7225 'last one in all of Madrid', a thread we had closed), flag 6 (7344 bait and switch, live
+  thread) and flag 7 (7356 'stopped printing', live thread) all scored 0. Same lie types as the +10 ones → [L] scored flags
+  are capped (≈ 3 correct per team, per dealer or per hour?). Final: 7 flags, net +20.
 - **Abuela gifts** [V, tick 261]: after our 5th Abuela deal of the day she gave us LAT-08 ("gift from Abuela Carmen",
   `gift.given`); Team 7 got LAT-06 the same way on Friday (tick 157). Gifts never score, but the card is ours to sell.
 - **Value created on our venue is NET and can go negative** [V, Sat 11:30]: tick 311 on v10, t10 → t01 MAL-07 at 14:
