@@ -92,6 +92,204 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 476,
+   "raw": {
+    "duel": 2366,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 101,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 491,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 3062,
+     "price": 165,
+     "tick": 475,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3071,
+     "price": 67,
+     "tick": 476,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 475,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 475,
+      "from": "you",
+      "text": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1",
+      "price": 165,
+      "days": null
+     },
+     {
+      "tick": 476,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 477,
+   "raw": {
+    "duel": 2366,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 101,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 491,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 3062,
+     "price": 165,
+     "tick": 475,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3100,
+     "price": 67,
+     "tick": 477,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 475,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 475,
+      "from": "you",
+      "text": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1",
+      "price": 165,
+      "days": null
+     },
+     {
+      "tick": 476,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 477,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 478,
+   "raw": {
+    "duel": 2366,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 101,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 491,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 3062,
+     "price": 165,
+     "tick": 475,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3113,
+     "price": 67,
+     "tick": 478,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 475,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 475,
+      "from": "you",
+      "text": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1",
+      "price": 165,
+      "days": null
+     },
+     {
+      "tick": 476,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 477,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 478,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -217,6 +415,144 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 478,
+   "took_s": 5.69,
+   "cost_usd": 0.005350000000000001,
+   "obs": {
+    "view": {
+     "duel_id": 2366,
+     "role": "seller",
+     "limit": 101,
+     "currency": "P",
+     "item": "Palacio de Cristal",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 475,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1",
+      "offer": {
+       "price": 165,
+       "days": null
+      },
+      "accept": false,
+      "tick": 475,
+      "decision": {
+       "action": "offer",
+       "price": 165,
+       "message": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1"
+      }
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 476,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 477,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67?",
+      "offer": {
+       "price": 67,
+       "days": null
+      },
+      "accept": false,
+      "tick": 478,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 67,
+     "days": null
+    },
+    "tick": 478,
+    "ticks_left": 13,
+    "rounds": 1
+   },
+   "move": {
+    "action": "message",
+    "text": "Holding my offer where it stands.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "Holding my offer where it stands."
+     },
+     "band": {
+      "worst": 165,
+      "target": 165,
+      "best": 165
+     },
+     "plan": {
+      "read": "They repeat 67 with no movement and no argument. They are testing whether we will concede to their patience. A standoff of 3 ticks has formed, but 13 ticks remain, so there is no urgency yet.",
+      "target": 165,
+      "best": 165,
+      "worst": 165,
+      "days": null,
+      "angle": "Hold at 165 and send nothing; we only move once they do."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.73,
+       "in": 511,
+       "out": 120,
+       "cost_usd": 0.00444,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.96,
+       "in": 303,
+       "out": 30,
+       "cost_usd": 0.00091,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [
