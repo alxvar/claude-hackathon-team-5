@@ -4,7 +4,8 @@ _Independent audit, Sun 00:45. Read-only, no keyed calls (two unkeyed GETs: `/ap
 Data: `data/feed.jsonl` + `data/hub/feed-lucas.jsonl` (27,162 public events, ticks 2-1445), `run/catalog.json` (00:23),
 the tick-1440 leaderboard (`archive/2026-10-03-round2/leaderboard-232426.json`), `data/board.json`, and the saved
 `/api/me` in `tests/fixtures/opportunities_friday.json` (for field names). The doors are shut until Sun 09:00, so these
-holdings are still current. Scripts: session scratchpad (`recon.py`, `worlds.py`, `report.py`); method below._
+holdings are still current. The leaderboard snapshot is tick 1440 and the feed runs to 1445. One settlement falls in that
+gap (t04 sells SAL-09 #1176 to Pilar at t1443), and it changes nothing: t04 still holds SAL-09 #1186. Scripts: session scratchpad (`recon.py`, `worlds.py`, `report.py`); method below._
 
 ## Short answer
 
@@ -14,7 +15,8 @@ holdings are still current. Scripts: session scratchpad (`recon.py`, `worlds.py`
   and the catalog's `minted` per card. We can then name **588 of the 641 page cards the 18 teams hold (91.7 %)**.
   **10 teams resolve to a single album that fits every public number:** t01, t05, t07, t10, t12, t13, t15, t16, t17, t18.
   On our own album (t05) the reconstruction matches the truth card for card: 39 held and 11 lacking, 0 errors.
-  The feed alone gives 82.5 %, and today's matchmaker gets 81.7 % (524 cards).
+  Before the arithmetic, a pure feed tracker (asset ids plus gift/egg/Workshop events, no leaderboard) reaches 529
+  (82.5 %). Today's matchmaker claims 524 (81.7 %): 511 are proven held, 0 are proven wrong, and the other 13 sit on t06/t14.
 - **Starting albums are not shown anywhere, but they can be partly decoded.** Asset ids 1-270 are the starting deal:
   15 per team in team order (t01 = 1-15 … t18 = 256-270). Slots 1-11 are commons, 12-14 uncommons, slot 15 the rare.
   179 of the 270 slots have since surfaced in the feed. 91 never have, including all 15 of t11's.
@@ -114,7 +116,7 @@ All 7 that land on a decided page card land on a proven gap. The other 3 (t06 MA
 | `pack.opened.best` | Only rare or better | All 61 neighbourhood packs and 11 of 17 welcome packs show nothing |
 | Bid (want cards) | Lacked it **when posted** | 2,607 bids on 344 (team, card) pairs. 1.7 % came from a team the feed already showed holding the card (a lower bound). 55 % were under half book (bargain hunting). Bids outlive the need |
 
-**Matchmaker (`intel/matches.md` at 00:23)**
+**Matchmaker (`intel/matches.md`: the 20 match rows are identical at 00:23 and 00:48)**
 
 - **Holdings:** 524 cards claimed, **0 proven wrong**, but it misses 77 cards that are proven held. The causes: it
   ignores `album_filled` and minted supply; it never parses `taller.crafted` (34 crafted cards) or `egg.given`; and it
@@ -127,10 +129,14 @@ All 7 that land on a decided page card land on a proven gap. The other 3 (t06 MA
   - #9: t17 LAV-06 (from the Workshop, t929).
   - #10: t14 LAV-01 (held in every repaired album).
 
+  Confidence differs. #3, #4, #6 and #9 rest on direct events (settlements or a Workshop craft). #7 and #10 come from
+  page arithmetic, and #10 is on a team flagged inconsistent.
+
   Four buyers are undecided (#8, #14, #18, #19). Nine are confirmed gaps (#2, #5, #11, #12, #13, #15, #16, #17, #20).
   #1 is an epic.
-- **"One or two cards from a page":** 11 of its 15 lines are pages that are already complete. Only t09 RET-09
-  (a proven gap: all 14 copies are traced) and t03 SAL-03/SAL-10 are open; t14's two lines are complete in every repaired album.
+- **"One or two cards from a page"** (the 00:48 version, 17 lines): 14 are pages that are already complete. Two of
+  those are t14's, which are complete in every repaired album. Only 3 are open: t09 RET-09 (a proven gap: all 14
+  copies are traced), t03 SAL-03/SAL-10 and t03 LAV-02/LAV-04.
 - **The source of #3/#4:** `run/known_holdings.json` overrides the feed. Its t15 entry contradicts both the feed and the
   server, and its t05 entry is stale: we got MAL-06 from an egg at tick 1368.
 - **Sellers:** "holds 2+" ignores the Workshop. t01 (4 crafts) and t08 (5 crafts) had their duplicates in #7, #11, #12
@@ -158,6 +164,8 @@ Output, tested on our saved Friday `/api/me`:
 - [Uncertain] whether `album` changed shape since Friday. If it did, the command fails with a KeyError and prints
   nothing private.
 - To hide spares, delete `+("x%d"%n[r] if n[r]>1 else "")`.
+- HELD also lists the set's epic and legendary (11/12). To hide them, change `r.startswith(p["set"]+"-")` to
+  `r.startswith(p["set"]+"-") and int(r[4:])<=10`.
 
 **Check before we trust it:**
 - Σ`have` must equal their leaderboard `album_filled`, and the count of `have`=`of` pages must equal `pages_complete`,
