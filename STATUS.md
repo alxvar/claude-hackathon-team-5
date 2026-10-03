@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 10:26** · tick 273 (30 s/tick) · game hour 3.60 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 10:31** · tick 284 (30 s/tick) · game hour 3.69 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,26 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 09:48 · Chief 09:55 #2 + #4 (feed part) · **dashboard ETAs fixed:** `schedule()` multiplied hours by `tick_seconds` (right on Friday by chance, half on Saturday); now ticks per game hour measured on the feed's last 20 ticks × tick length (Fri 60 × 60 s, Sat 120 × 30 s: both 60 min per game hour, so it holds on Sunday at 15 s whatever the rate) · restarted 09:46: Market Tests 09:49/11:49/13:49…, Duels I 11:58, Duels II 18:28, hard test 21:28 (matches the Chief) · **El Retiro, public feed to tick ~198 (facts, no prices):** rares RET-09/10 (30 printed each), RET-11 epic (9), RET-12 legendary (3) · **holders:** no team has listed, sold or bought any RET rare; the only known holder is **El Chato, who sells RET-09** (t18 asked for it at tick 190, no deal); no pack pull shows RET · **collectors:** t12 (#2, top 4) bought 4 RET from Abuela (RET-05..08) and asked her for RET-04..08; t15 (#14) bids for RET-09/10/07/05, the highest RET bids, and asked Abuela 4× for RET-06; t02 (#10) bought RET-01/06/08 and bids for RET-02/03/04/09/10; t18 (#8) asked Chato for RET-09 and Abuela for RET-06; t10 (#7) swap offers asking RET-02/03/06; t13 (#1) and t03 (#11) token bids on RET commons · top 4 now t13, t12, t14, t17 (t04 #5, t14 #3: the Chief's list is stale; it moves) · next: the room confirms who holds RET rares (packs are invisible), desk 3a-e
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 10:29 · operator · **book.py live** (Builder's repricer; supervised, pid run/book.pid, log logs/book.log): reads run/book.json every tick, reposts before expiry, steps toward the floor after 20 unfilled ticks, v07 by default · started with `--min-gain-sell 2` (daemons.sh's default 6 would hold SAL-08 ≥ 29 and spares ≥ 10, above clearing; as maker we pay no fee) and floor 100 · book: SAL-08 → t16 25 (floor 24), MAL-06/07 → t01 24 (20), LAV-02/03/04 spares 9 (6), SAL-01/02 spares → t07 9 (5), LAT-04 → t15 7 (4), LAT-03 → t15 8 (7), MAL-02 → t07, MAL-04 → t09 10 (9) · it adopted the 10 live offers · goal: CHA cash for Sunday (~300 P; book ≈ +160 P if all fills)
+  - Sat 10:27 · operator · **RET PAGE COMPLETE** (2 pages now): RET-01 from Team 10 at 20 (bid 4167 on El Rastro, they accepted after Lucas messaged them): `neg_points` −21.5 → **+28.5 (+50.0 exactly)**, collection value +83.9 · **cap test: 50 measured vs 63.9 uncapped → cap is flat 50 or 5×book** (not 5×(p+f), not value ≤ 6×book) → GAME.md · RET page net today: rares −19, uncommons −2.5, page close +50 = **+28.5** · cash 107; floor back to 100 (GUARDRAIL 10:25 was RET-01 only) · next: maker book on v07, Pilar after Duels I, CHA cash for Sunday
   - Sat 10:25 · operator · **RET-07 from Abuela at 23** (narrator live; `neg_points` unchanged −21.5, ladder 0.055) → **RET page 9/10**, RET-01 worth 83.9 · cash 127 · seller: Team 10 lists RET-01 at 40 on OUR stall v10 (we can't buy there) → bid 4167 on El Rastro, 20 P addressed to t10, until tick 290 (replaced opps' auto-bid 4166 at 10: one channel; 20 gives the cap test 50 / 63.9 / 40) · asked Lucas/Dani (push + Chief) to have Team 10 accept · opps restarted on 1ab8510 (default venue v07, page-closers on El Rastro, expiry in 60 s units) · top 4: t02/t12/t14/t18
-  - Sat 10:24 · operator · **offer life is halved on Saturday** [V probe]: `expires_in_ticks` 60 → 30, 120 → 60, 200 → 100 (the 4 'vanished' asks had expired) · book repriced toward clearing + reposted on v07 at 120: SAL-08 → t16 25, MAL-06/07 → t01 24, LAT-03/04×2 → t15 7, commons 9 · **Pilar (L3) active**: Team 13 unlocked early at tick 262 (3 Chato deals); we didn't, with 3 Chato deals today → likely only below-list deals count (ladder pattern) → GAME.md; no more Chato deals to chase it (opens to all ~12:20) · RET-07 at Abuela in progress
-  - Sat 10:20 · operator · **maker book moved to Team 10's v07** (reciprocal deal, directive 10:18): 11 addressed asks, 120 ticks (4067-4077), El Rastro copies cancelled; page-closers (RET-01 bid) stay on El Rastro · 4 asks (MAL-06/07 → t01, LAT-04 ×2 → t15) had vanished unfilled between 10:00 and 10:17 → reposted, asked the Builder what cancels them · Level 3 Doña Pilar announced (no menu yet) · RET-07 at Abuela (her 26, ours 16) · next: RET-01 public bid at 20 on El Rastro once RET-07 lands
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 19.29 | 6 | 12.79 | 6.50 | 0.00 | 0.06 | 0.90 | 32 | 2 | 127 | 31/50 |
+| 24.01 | 4 | 17.28 | 6.73 | 0.00 | 0.06 | 0.90 | 33 | 2 | 107 | 32/50 |
 
-Leaderboard (snapshot at tick 270; refreshes every few minutes):
+Leaderboard (snapshot at tick 280; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 18 | 29.29 | 22.80 | 6.50 | 27 |
-| 2 | Team 12 | 27.10 | 16.28 | 10.83 | 29 |
-| 3 | Team 2 | 25.99 | 19.49 | 6.50 | 23 |
-| 4 | Team 14 | 22.89 | 16.40 | 6.50 | 14 |
-| 5 | Team 13 | 22.78 | 19.90 | 2.88 | 36 |
-| 6 | Team 5 | 19.29 | 12.79 | 6.50 | 32 |
+| 1 | Team 18 | 29.66 | 22.93 | 6.73 | 27 |
+| 2 | Team 12 | 27.07 | 15.85 | 11.22 | 29 |
+| 3 | Team 2 | 26.69 | 19.96 | 6.73 | 23 |
+| 4 | Team 5 | 24.01 | 17.28 | 6.73 | 33 |
+| 5 | Team 14 | 23.07 | 16.33 | 6.73 | 14 |
 
 ## Next on the schedule
 
@@ -44,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 4.00 | ~24 min | day_closes | Closed until Saturday 09:00 |
-| 5.00 | ~84 min | bench | The Market Test: every venue gets the same synthetic book |
-| 5.15 | ~93 min | duels | Duels I: price only, one round-robin |
-| 5.51 | ~114 min | persona_opens | Doña Pilar opens for everyone |
-| 7.00 | ~204 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.00 | ~324 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.15 | ~333 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
-| 11.00 | ~444 min | bench | The Market Test: every venue gets the same synthetic book |
+| 4.00 | ~18 min | day_closes | Closed until Saturday 09:00 |
+| 5.00 | ~78 min | bench | The Market Test: every venue gets the same synthetic book |
+| 5.15 | ~87 min | duels | Duels I: price only, one round-robin |
+| 5.51 | ~109 min | persona_opens | Doña Pilar opens for everyone |
+| 7.00 | ~198 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.00 | ~318 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.15 | ~327 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
+| 11.00 | ~438 min | bench | The Market Test: every venue gets the same synthetic book |
 
 ## Our dealer deals
 
@@ -103,8 +102,8 @@ _Her first = her first price in the conversation. A deal at her first price prob
 |---|---|---|---|---|---|---|---|
 | common card | team buys | 49 | 9 | 7 | 12 | 5 | 9 |
 | common card | team sells | 37 | 6 | 5 | 23 | 5 | 5.40 |
-| sobre_barrio | team buys | 36 | 22.00 | 17 | 30 | 3 | 20.33 |
-| uncommon card | team buys | 53 | 22 | 17 | 29 | 4 | 24.50 |
+| sobre_barrio | team buys | 37 | 22 | 17 | 30 | 3 | 20.33 |
+| uncommon card | team buys | 54 | 22.50 | 17 | 29 | 4 | 24.50 |
 | uncommon card | team sells | 6 | 14.00 | 13 | 16 | 0 | — |
 
 ## Duels
@@ -136,4 +135,4 @@ Live: 0 · finished: 34
 
 - El Chato: None — Better packs and rare singles; he buys uncommon and rare cards. Open a thread with him (with: chato).
 - Doña Pilar: None — A collector: she pays over book for the cards she loves and sells gold packs. Open a thread with her (with: pilar).
-- Radio Rastro: None — 
+- Radio Rastro: None — News on air: GET /api/news (newest first; also news.posted on the live stream). Three sources: the Boletín del Bazar (the Bazaar bulletin), Radio Rastro and El Tablón, the notice board. Some items are true and the market moves as they say; some are rumours that never happen; some are just Madrid. Nothing tells you which is which.
