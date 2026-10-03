@@ -1,4 +1,4 @@
-# Opportunities (auto, 12:16, game tick 494, t 5.4417 h)
+# Opportunities (auto, 12:17, game tick 496, t 5.4583 h)
 
 Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and ≤ 60 real min old · ≤ 3 alerts/h · team 45 min · team+card 2 h · never to the top 4 (t12, t13, t14, t17); a sale that closes their page (last or second-to-last known lack) only to teams ≥ 10 below us (25.16); page-closers on El Rastro, the rest on v07. Data: collector.
 
@@ -6,19 +6,19 @@ Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and �
 
 | # | side | team | card | price | our value | gain | signal | age (game / real min) | status |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | SELL | Team 7 (#17, 13.51) | SAL-02 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 132) | 195 / 824 | listed only: signal 824 real min old (game clock paused?) |
-| 2 | SELL | Team 7 (#17, 13.51) | SAL-05 common | 40 | 9 | 31 | asked abuela to sell it (tick 128) | 199 / 827 | listed only: signal 827 real min old (game clock paused?) |
-| 3 | SELL | Team 8 (#13, 20.39) | SAL-03 common | 38 | 9 | 29 | bid 5 P for it (tick 142) | 184 / 815 | listed only: signal 815 real min old (game clock paused?) |
-| 4 | SELL | Team 6 (#16, 18.82) | MAL-07 uncommon | 23 | 17.5 | 5.5 | bid 9 P for it (tick 465) | 15 / 14 | no: dumps MAL (teams.md): sell only to collectors |
-| 5 | SELL | Team 6 (#16, 18.82) | MAL-06 uncommon | 23 | 17.5 | 5.5 | bid 9 P for it (tick 463) | 16 / 15 | no: dumps MAL (teams.md): sell only to collectors |
-| 6 | SELL | Team 3 (#15, 19.69) | SAL-02 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 208) | 143 / 144 | no: only 5.47 below us (needs ≥ 10) |
-| 7 | SELL | Team 3 (#15, 19.69) | SAL-05 common | 40 | 9 | 31 | bid 9 P for it (tick 182) | 156 / 157 | no: only 5.47 below us (needs ≥ 10) |
-| 8 | SELL | Team 4 (#10, 23.46) | MAL-07 uncommon | 45 | 17.5 | 27.5 | asked chato to sell it (tick 427) | 34 / 33 | no: dumps MAL (teams.md): sell only to collectors; only 1.7 below us (needs ≥ 10) |
-| 9 | SELL | Team 7 (#17, 13.51) | MAL-06 uncommon | 45 | 17.5 | 27.5 | asked abuela to sell it (tick 125) | 202 / 831 | no: dumps MAL (teams.md): sell only to collectors |
-| 10 | SELL | Team 7 (#17, 13.51) | MAL-07 uncommon | 45 | 17.5 | 27.5 | asked abuela to sell it (tick 122) | 205 / 835 | no: dumps MAL (teams.md): sell only to collectors |
-| 11 | SELL | Team 12 (#1, 32.19) | MAL-07 uncommon | 45 | 17.5 | 27.5 | bid 28 P for it (tick 88) | 238 / 866 | no: top 4; 7.03 above us |
-| 12 | SELL | Team 10 (#9, 24.07) | SAL-03 common | 32 | 9 | 23 | bid 0 P for it (tick 336) | 79 / 79 | no: dumps SAL (teams.md): sell only to collectors; only 1.09 below us (needs ≥ 10) |
-| 13 | SELL | Team 9 (#11, 22.51) | MAL-06 uncommon | 36 | 17.5 | 18.5 | bid 17 P for it (tick 378) | 58 / 58 | no: dumps MAL (teams.md): sell only to collectors; only 2.65 below us (needs ≥ 10) |
+| 1 | SELL | Team 7 (#17, 13.51) | SAL-02 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 132) | 195 / 825 | listed only: signal 825 real min old (game clock paused?) |
+| 2 | SELL | Team 7 (#17, 13.51) | SAL-05 common | 40 | 9 | 31 | asked abuela to sell it (tick 128) | 200 / 828 | listed only: signal 828 real min old (game clock paused?) |
+| 3 | SELL | Team 8 (#13, 20.39) | SAL-03 common | 38 | 9 | 29 | bid 5 P for it (tick 142) | 185 / 816 | listed only: signal 816 real min old (game clock paused?) |
+| 4 | SELL | Team 6 (#16, 18.82) | MAL-07 uncommon | 23 | 17.5 | 5.5 | bid 9 P for it (tick 465) | 15 / 15 | no: dumps MAL (teams.md): sell only to collectors |
+| 5 | SELL | Team 6 (#16, 18.82) | MAL-06 uncommon | 23 | 17.5 | 5.5 | bid 9 P for it (tick 463) | 17 / 16 | no: dumps MAL (teams.md): sell only to collectors |
+| 6 | SELL | Team 3 (#15, 19.69) | SAL-02 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 208) | 144 / 145 | no: only 5.47 below us (needs ≥ 10) |
+| 7 | SELL | Team 3 (#15, 19.69) | SAL-05 common | 40 | 9 | 31 | bid 9 P for it (tick 182) | 157 / 158 | no: only 5.47 below us (needs ≥ 10) |
+| 8 | SELL | Team 4 (#10, 23.46) | MAL-07 uncommon | 45 | 17.5 | 27.5 | asked chato to sell it (tick 427) | 35 / 34 | no: dumps MAL (teams.md): sell only to collectors; only 1.7 below us (needs ≥ 10) |
+| 9 | SELL | Team 7 (#17, 13.51) | MAL-06 uncommon | 45 | 17.5 | 27.5 | asked abuela to sell it (tick 125) | 203 / 832 | no: dumps MAL (teams.md): sell only to collectors |
+| 10 | SELL | Team 7 (#17, 13.51) | MAL-07 uncommon | 45 | 17.5 | 27.5 | asked abuela to sell it (tick 122) | 206 / 836 | no: dumps MAL (teams.md): sell only to collectors |
+| 11 | SELL | Team 12 (#1, 32.19) | MAL-07 uncommon | 45 | 17.5 | 27.5 | bid 28 P for it (tick 88) | 239 / 867 | no: top 4; 7.03 above us |
+| 12 | SELL | Team 10 (#9, 24.07) | SAL-03 common | 32 | 9 | 23 | bid 0 P for it (tick 336) | 80 / 80 | no: dumps SAL (teams.md): sell only to collectors; only 1.09 below us (needs ≥ 10) |
+| 13 | SELL | Team 9 (#11, 22.51) | MAL-06 uncommon | 36 | 17.5 | 18.5 | bid 17 P for it (tick 378) | 59 / 59 | no: dumps MAL (teams.md): sell only to collectors; only 2.65 below us (needs ≥ 10) |
 
 ## Alerts (newest first)
 
