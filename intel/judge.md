@@ -1,48 +1,51 @@
-# Judge (claude-opus-5-5, Sat 13:32)
+# Judge (claude-opus-5-5, Sat 13:49)
 
 ## Verdict
-Mixed. Over 60 min we closed on #1 (we +1.8, t14 +1.1; gap 3.35 → 2.65). Over 15 min we lost 1.1 to t14 (we −0.8, t14 +0.3). neg_points has been flat at 35.2 since tick 404 and the ladder flat at 0.181 since 12:45, so we score nothing new while t10 (+4.1) and t6 (+4.6) climb.
+Holding #5 at 28.1 and 2.7 behind Team 14. Over 60 min we gained more than the leader (+1.8 vs +1.1), but Team 10 (+4.1) and Team 18 (+2.2) gained more than us, and we lost 0.8 in the last 15 min.
 
 ## Our strategies: keep / kill / scale
-- **Pilar L3 sells (dealer bot):** **scale**. Ladder went 0.122 → 0.181 at 0 neg cost (MAL-07 +0.050, MAL-06 +0.040, SAL-08 +0.019). The +0.019 slot is the one to replace.
-- **Chato L2 buy at list 26:** **kill**. He held 33 → 32 against our 26 (thread 805), and our 6 Chato buys above list never moved the ladder. A buy at his 30-31 final costs about −5 to −8.5 neg for 0 ladder.
-- **Abuela SAL-06 at cap 25:** **change the cap**. Three threads (her 29 → 25) produced nothing. At 25 we pay −2.5 neg (value 22.5), and L1 is saturated: the 4th Abuela deal added only +0.003. Cap at 22.
-- **Trading loop (`loop.py`):** **keep; it costs nothing**. It has made 0 accepts all Saturday, and the El Rastro asks hold nothing near our value + 3.
-- **Spare-ask book (9 asks, 5-11 P):** **keep, but re-address**. No fill since tick 404 (~1.9 h), and commons now clear at 5 (ticks 595-610). Most addressees fail the feeding rule (≥ 10 below us): t04 is 4.8 below and collects LAV, t03 7.6, t09 6.4, t06 4.2, t15 6.2, t16 5.7. Only t07 (#17, 10.8 below) passes.
-- **Earlier team trades:** these scored best. RET-01 from t10 at 20 gave +50 (cap), SAL-01 to t03 at 7 gave +4.7, MAL-03 from t04 at 5 gave +2.0.
-- **v10 venue (Lucas plan B):** **keep, positive-only**. It has measured +4.99 and then −5.2 (SAL-07 t10→t15), so it is net negative so far.
-- **Lunch bargain watch:** **keep**. No ask qualifies: the best is LAT-08 at 24-25, worth 12.5 to us.
+- **Pilar sells (dealer bot, offer-only, small steps): SCALE.** Ladder rose 0.055 → 0.181 today: MAL-07 +0.050, MAL-06 +0.040, SAL-08 +0.019 (that one after a jump), with 0 neg cost. Our L3 slot is the cheapest lever we have.
+- **Chato L2 buy at list 26: KILL.** Two threads failed (805 and the one at tick 577: his 33 → 32 vs our 26). None of our above-list Chato buys ever moved the ladder. The only L2 that counted was a sale (LAT-08 at 14, +0.017).
+- **SAL-06 from Abuela (cap 25): KEEP, but tied to the Pilar resale only.**
+  - Three threads so far, no deal (29 → 25, held).
+  - At 25 the buy costs −2.5 neg (our value is 22.5).
+- **Trading loop: KEEP, no evidence.** trader.jsonl shows 0 buys or sells on Saturday, only open/closed events. Its thresholds (+3 / +6) never triggered.
+- **Maker book (9 asks): KEEP but REPRICE.**
+  - The last fill was at tick 404 (MAL-03 +2.0). The last sale was tick 351 (SAL-01 +4.7).
+  - 226 ticks since then with no neg movement.
+  - Team-to-team commons now clear at 5 (ticks 595-610); our asks sit at 7-9.
+- **In-room / addressed team buys: KEEP.** RET-01 from t10 at 20 hit the +50 cap (tick 276). The lunch bargain watch has logged 0 hits, and no ask on El Rastro qualifies (the highest is LAT-06 at 25).
+- **Duels (Aleks): KEEP.** 9 deals in the last 10, 13.93 duel points. The Duels II integrative change is Aleks's call at 15:30.
 
 ## Check the scout
 - **Holds:**
-  - sobre_plata is unopened (92.9).
-  - RET and LAV pages are complete.
-  - No bargain target exists.
-  - Pilar paid 140 for LAV-11.
-  - The t15↔t07 0 P swaps happened (ticks 607/613/616).
-  - t14 sold RET commons at 9 (591-598).
-  - t4 bids 26/27 for RET-06/08.
-  - We have no ask to t07.
-- **Stale:**
-  - The gaps. It says "t14 leads by 2.2, t18/t10 at 29.2"; the metrics show 2.65, with t18 at 28.8 and t10 at 28.9.
-  - "t12 +1.3/15 min": the metrics show −0.3/15 and −2.6/60.
-  - "t15 17 team trades": teams.md shows 22.
-  - "Pilar median 18 over 6": the metrics show 5 deals.
-- **Wrong:**
-  - "Team 6 is buying SAL": it sold SAL-03 to t14 (tick 600).
-  - "Sell any spare uncommon to Pilar": we hold no spare uncommon. Every uncommon is a page card worth 100-118, so this applies only to what the pack yields.
+  - Pilar's uncommon band 16-19 (median 18 over 5).
+  - The ladder figures +0.050 / +0.040 / +0.019.
+  - LAV-11 lost to Pilar at 140.
+  - Team 14 selling RET commons at 9 (ticks 591-598).
+  - Team 15's 0-P swaps with t07.
+  - The 2.7 gap to #1.
+  - The mm_points swing from +4.99 to −5.2.
+- **Wrong: "neg_points unchanged if bought at ≤ value".** The cap is 25 but SAL-06 is worth 22.5 to us, so a buy at 23-25 costs −0.5 to −2.5.
+- **Wrong: "sell to Pilar at ≥ 25".** Her SAL final was 23. Team 4 got 25 once; that is not our base case.
+- **Wrong: "Team 10 rose trading on its own venue v10".** GAME.md shows v10 trades moving OUR mm_points.
+- **Wrong card in the swap list.** Tick 613 was LAV-03↔MAL-08, not LAT-03.
+- **Gap: "Pilar sells of spares".** We hold no spare uncommons; every LAV and RET uncommon is a page card worth 100+. Any L3 sale needs a card we buy or pull first.
+- **Irrelevant evidence for the bargain watch.** "t04 LAT-09 bid 64" is a bid, not an ask we could buy.
 
 ## The 3 changes with the highest expected gain
-1. **Open sobre_plata now, then route its contents to the empty ladder slots (Operator, offer-only).**
-   - Selling to Chato above his opening bid at ≥ our value refilled an L2 slot before: LAT-08 at 14 gave +0.017 at 0 neg, and our L2 slots are empty.
-   - Uncommons go to Pilar with −2/−3 steps to replace the +0.019 slot.
-   - It also removes the 1-4 point pack drag [L].
-   - Effect: up to ~+1.2 board per filled L2 slot (directive A estimate). Risk: the contents are not in the data, and a MAL uncommon (17.5) is below Chato's 14-16 bid, so it goes to Pilar only.
-2. **SAL-06 from Abuela at ≤ 22, then to Pilar at ≥ 23 in small steps (16:00-18:00 per plan A).**
-   - 0 neg on both legs. It replaces the SAL-08 slot (+0.019) with a +0.040-0.050-type deal, ≈ +0.7-1.0 board.
-   - Risk: Abuela may not go below 25. Then walk, never pay 25.
-3. **Re-address the spares (Operator).**
-   - LAV-02/03/04 and LAT-04 go to t07 at 7-8, the only buyer that collects LAV/LAT and passes the ≥ 10 rule.
-   - Hold MAL-02/04, SAL-01 and LAT-03 at value + 2. Drop any ask below our value.
-   - Effect: ~+2 to +4 neg per fill (≈ 0.2-0.4 board each), and it removes the risk of handing t04, t03 or t09 a +50 page close (≈ +4.7 board, enough to put t04 level with us).
-   - Risk: t07 may not buy. Then the asks expire, which is still better than feeding a team close behind us.
+1. **Open the sobre_plata pack (worth 92.9 unopened) as soon as the API allows. Operator.**
+   - Any pulled uncommon or rare outside our complete LAV/RET pages becomes a free Pilar L3 candidate (offer-only, steps of −2/−3, close only at ≥ our value).
+   - Effect: removes the unopened-pack drag (~1-4 per trade [L]). It may replace the weak SAL-08 slot (+0.019) without a −2.5 buy: ≈ +0.02 ladder ≈ +0.7 board at 0.33 per 0.01.
+   - Risk: the contents are unknown; opening itself scores nothing.
+2. **SAL-06 chain, with tighter limits. Operator.**
+   - Buy from Abuela at ≤ 23 instead of 25: cost ≤ −0.5 neg.
+   - Resell to Pilar opening ~30 and stepping −2/−3; floor 23 (her SAL final).
+   - Skip this chain if the pack (change 1) yields a Pilar candidate.
+   - Effect: replaces the +0.019 slot with up to +0.040 ≈ +0.7 board for about −0.05 board of neg.
+   - Risk: her second-thread finals run lower (MAL-06 second thread ended at 17). Then we hold SAL-06 at no extra loss.
+3. **Reprice the spare book toward clearing. Operator via book/trade.py.**
+   - Spares to 5-6: LAV-02/03/04 seconds (worth 3.2), SAL-02 (2.2), LAT-04 (1.2). Gain +1.8 to +4.8 each, ≈ +12-15 neg ≈ +1.1-1.4 board if all fill.
+   - Retarget to buyers who collect the set: LAV → t04/t07/t09; LAT → t16/t15.
+   - Pull MAL-02 and MAL-04 → t15: t15 dumps MAL at 5, and our single copies are worth 7, so never sell them below 8.
+   - Risk: still no fills (asks have taken a median of 4 ticks only 5% of the time). Reprice again after 10 min.
