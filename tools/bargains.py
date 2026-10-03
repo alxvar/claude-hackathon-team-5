@@ -7,6 +7,13 @@ ceil(5%) + 1 P per card. Epics and legendaries outside pages count too (RET-11 i
 score a trade can add is capped at 50 [V, n=2], so the alert gives the gain and the capped gain, the cash it needs and
 whether that keeps cash >= CASH_FLOOR. Once per offer, to ntfy `lucas`. It never buys and never writes to the game.
 
+Arbitrage (Chief, Sat 15:50): an ask for card X at P1 on one venue below a LIVE bid for X at P2 on another, with
+P2 - P1 - both fees (we take both legs) >= ARB_MIN. A team-to-team flip scores the spread whatever our value (buy:
+V - P1, sell: P2 - V). The sell leg follows the feeding rule: the bidder outside the top 5, and a card that may close
+its page (it holds >= 8 of the 10 page cards, feed) only to a team >= 10 points below us. No speculative inventory:
+only while the bid is live. Once per (ask, bid): an `ARB ...` line in logs/bargains.log, intel/arbitrage.md, and
+notify("operator") (stderr unless NTFY_OPERATOR is set). The Operator executes both legs (2 accepts, 2 ticks).
+
     source .env && python3 -u tools/bargains.py            # every tick (tools/daemons.sh start bargains)
     source .env && python3 tools/bargains.py --once --dry  # print what it would send
 """
@@ -27,6 +34,8 @@ from bazaar_sdk import Bazaar, BazaarError, _Http  # noqa: E402
 
 URL = os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai")
 STATE = ROOT / "run" / "bargains_state.json"
+FEED, ARB_OUT = ROOT / "data" / "feed.jsonl", ROOT / "intel" / "arbitrage.md"
+ARB_MIN, ARB_TOP, ARB_GAP = 5, 5, 10      # min net spread; bidders outside the top 5; page-closers >= 10 points below"
 HOUSE, HOUSE_FEE = "rastro", (500, 1)     # El Rastro: 5% + 1 P per card
 MIN_GAIN = 20
 SCORE_CAP = 50                            # per trade [V, n=2: LAV-05 and RET-01 closes, +50.0 each]
@@ -41,6 +50,69 @@ except Exception:  # noqa: BLE001
 
 def fee(price: int, cards: int, bps: int = HOUSE_FEE[0], per_card: int = HOUSE_FEE[1]) -> int:
     return math.ceil(int(price) * int(bps) / 10000) + int(per_card) * cards
+
+
+def wanted_card(want: dict) -> str | None:
+    """The one card type a bid wants, or None."""
+    cards = list(want.get("cards") or []) + [t[5:] for t in want.get("types") or [] if str(t).startswith("card:")]
+    cards += [a.get("ref") for a in want.get("assets") or [] if isinstance(a, dict)]
+    return cards[0] if len(cards) == 1 else None
+
+
+def feed_view(path: Path = FEED) -> tuple[dict, dict]:
+    """({offer id: maker}, {(team, card): asset ids}) from the collector's feed (holdings are a lower bound)."""
+    makers, held = {}, {}
+    try:
+        lines = path.read_text().splitlines()
+    except OSError:
+        return makers, held
+    for line in lines:
+        try:
+            e = json.loads(line)
+        except ValueError:
+            continue
+        p = e.get("payload") if isinstance(e.get("payload"), dict) else {}
+        if e.get("type") == "offer.listed":
+            o = p.get("offer") or {}
+            makers[o.get("id")] = o.get("maker") or e.get("actor")
+            for a in (o.get("give") or {}).get("assets") or []:
+                if isinstance(a, dict) and a.get("ref"):
+                    held.setdefault((makers[o.get("id")], a["ref"]), set()).add(a.get("id"))
+        elif e.get("type") == "settlement":
+            for i in p.get("items") or []:
+                if i.get("kind") == "card":
+                    held.setdefault((i.get("to"), i.get("ref")), set()).add(i.get("id"))
+                    held.get((i.get("frm"), i.get("ref")), set()).discard(i.get("id"))
+    return makers, held
+
+
+def arbitrage(asks: dict, bids: dict, *, makers: dict, held: dict, teams: list, me: str) -> list[dict]:
+    """Every (ask, bid) pair for the same card on different venues with net spread >= ARB_MIN, best first.
+    asks/bids: {card: [{offer, venue, price, fee}]} (fee: what we pay taking that leg)."""
+    top = {t["team"] for t in teams[:ARB_TOP]}
+    score = {t["team"]: t.get("score") for t in teams}
+    ours = score.get(me)
+    out = []
+    for card, bl in bids.items():
+        st = card.split("-")[0]
+        for b in bl:
+            bidder = makers.get(b["offer"])
+            if not bidder or bidder == me or bidder in top:
+                continue
+            in_set = sum(1 for (t, c), ids in held.items() if t == bidder and ids and c.split("-")[0] == st
+                         and c[-2:].isdigit() and 1 <= int(c[-2:]) <= 10)
+            if in_set >= 8 and (ours is None or score.get(bidder) is None or ours - score[bidder] < ARB_GAP):
+                continue                              # may close its page and it is within 10 points of us
+            for a in asks.get(card, []):
+                seller = makers.get(a["offer"])
+                if a["venue"] == b["venue"] or seller == bidder or seller == me:
+                    continue
+                net = b["price"] - a["price"] - a["fee"] - b["fee"]
+                if net >= ARB_MIN:
+                    out.append({"card": card, "ask": a, "bid": b, "seller": seller, "bidder": bidder, "net": net,
+                                "need": a["price"] + a["fee"]})
+    out.sort(key=lambda x: -x["net"])
+    return out
 
 
 def venue_fee(v: dict | None) -> tuple[int, int]:
@@ -113,6 +185,8 @@ class Watcher:
         self.cash_floor, self.min_gain, self.log, self.now = cash_floor, min_gain, log, now
         self.values: dict[str, tuple[float, float]] = {}
         self.state = load_state(state_path)
+        self.state.setdefault("arbs", [])
+        self.feed_path, self.arb_out, self._feed, self._feed_at = FEED, ARB_OUT, ({}, {}), 0.0
 
     def value(self, ref: str) -> float | None:
         hit = self.values.get(ref)
@@ -134,6 +208,7 @@ class Watcher:
         teams = sorted(self.api.leaderboard().get("teams") or [], key=lambda t: -(t.get("score") or 0))
         top = {t["team"] for t in teams[:4]}
         found = []
+        asks, bids = {}, {}
         for vid, v in venues.items():
             try:
                 offers = self.api.board(vid).get("offers") or []
@@ -143,6 +218,17 @@ class Watcher:
             for o in offers:
                 give, want = o.get("give") or {}, o.get("want") or {}
                 cards = [a for a in give.get("assets") or [] if isinstance(a, dict) and a.get("kind", "card") == "card"]
+                bps, per = venue_fee(v) if vid != HOUSE else HOUSE_FEE
+                if o["id"] not in mine and o.get("to") in (None, me["id"]):
+                    if give.get("cash") and not give.get("assets") and wanted_card(want) and not want.get("cash"):
+                        bids.setdefault(wanted_card(want), []).append(
+                            {"offer": o["id"], "venue": vid, "price": int(give["cash"]),
+                             "fee": fee(int(give["cash"]), 1, bps, per)})
+                    elif len(cards) == 1 and len(give.get("assets") or []) == 1 and want.get("cash") \
+                            and not give.get("cash") and not want.get("assets") and not want.get("types"):
+                        asks.setdefault(cards[0].get("ref"), []).append(
+                            {"offer": o["id"], "venue": vid, "price": int(want["cash"]),
+                             "fee": fee(int(want["cash"]), 1, bps, per)})
                 if (o["id"] in mine or not cards or give.get("cash") or len(cards) != len(give.get("assets") or [])
                         or not want.get("cash") or want.get("assets") or want.get("types")
                         or o.get("to") not in (None, me["id"])):
@@ -170,6 +256,15 @@ class Watcher:
                 continue
             self.alert(b)
             self.state["alerted"].append(b["offer"])
+        if bids and asks:
+            if self.now() - self._feed_at > 60:
+                self._feed, self._feed_at = feed_view(self.feed_path), self.now()
+            for x in arbitrage(asks, bids, makers=self._feed[0], held=self._feed[1], teams=teams, me=me["id"]):
+                key = f"{x['ask']['offer']}:{x['bid']['offer']}"
+                if not dry and key not in self.state["arbs"]:
+                    self.alert_arb(x, venues, me)
+                    self.state["arbs"].append(key)
+            self.state["arbs"] = self.state["arbs"][-500:]
         if not dry:
             save_state(self.state_path, self.state)
         return found
@@ -191,6 +286,34 @@ class Watcher:
         self.log(f"bargains: {title} | {body}")
         if self.notifier:
             self.notifier("lucas", title, body, priority=5 if b["score"] >= 40 else 4, tags=["moneybag", "eyes"])
+
+
+    def alert_arb(self, x: dict, venues: dict, me: dict) -> None:
+        a, b = x["ask"], x["bid"]
+        def how(leg, side):
+            auto = ((venues.get(leg["venue"]) or {}).get("rules") or {}).get("mechanism") == "auto"
+            if auto:
+                return (f"post a {'bid' if side == 'buy' else 'ask'} at {leg['price']} P on {leg['venue']} (auto stall: "
+                        f"the engine crosses it)")
+            return f"accept offer {leg['offer']} on {leg['venue']}"
+        title = f"ARB {x['card']}: buy {a['price']} ({a['venue']}) → sell {b['price']} ({b['venue']}): +{x['net']} net"
+        body = (f"1) BUY: {how(a, 'buy')} (seller {x['seller'] or '?'}, fee {a['fee']}). "
+                f"2) next tick, SELL: {how(b, 'sell')} (bidder {x['bidder']}, fee {b['fee']}). "
+                f"Needs {x['need']} P now (cash {me.get('cash', 0)}, floor {self.cash_floor}). Spread "
+                f"{b['price']} - {a['price']} - fees {a['fee'] + b['fee']} = +{x['net']}. Check the bid is still live "
+                f"before buying; no speculative inventory.")
+        self.log(f"{title} | {body}")
+        try:
+            new = not self.arb_out.exists()
+            with self.arb_out.open("a") as f:
+                if new:
+                    f.write("# Arbitrage: asks below live bids (tools/bargains.py)\n\n_Each line: buy leg, sell leg, net "
+                            "after both fees. The Operator executes both legs (2 accepts, 2 ticks)._\n\n")
+                f.write(f"- {time.strftime('%a %H:%M')} · {title} · {body}\n")
+        except OSError:
+            pass
+        if self.notifier:
+            self.notifier("operator", title, body, priority=4, tags=["arrows_counterclockwise"])
 
 
 def main(argv=None) -> None:
