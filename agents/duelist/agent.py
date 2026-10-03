@@ -52,6 +52,7 @@ MIN_STEP_SHARE = 0.05                   # ...nor one smaller than this share of 
 MAX_STEP_SHARE = 0.25                   # a mid-duel concession bigger than this share of the gap is cut to it
 CLOSING_TICKS = 3                       # the last ticks, where code never holds or cuts a concession
 LATE_SWITCH_LEFT = 4                    # ticks left from which code offers their day once, worth the same to us
+GUARDS = 1                              # 1: the 6190 guards on (accept-instead, worth floor, first-offer day); 0: off
 MONO_END_SHARE = 0.25                   # worth floor in the last CLOSING_TICKS: a concession takes at most this share
                                         # of the gap, days included (Chief 22:50, duel 6190; mid-duel: MAX_STEP_SHARE)
 # The delivery day (Duels II, docs/duels-1-review.md §3.1)
@@ -843,7 +844,7 @@ class DuelAgent:
           last CLOSING_TICKS (never less than MIN_STEP_P, never past their offer). 6190: after the late switch to
           their day (116 on day 0 → 66 on day 10, worth 27 both), the model offered 88 on day 10, worth 5, as if the
           day were free; the rival took it. The guard sends the floor's price on that day, with code's plain text."""
-        if move.action != "offer" or move.price is None:
+        if not GUARDS or move.action != "offer" or move.price is None:
             return move
         v, their = self.view, standing_offer(obs)
         if their is not None and not past_limit(v, their.price, their.days) and \
@@ -871,7 +872,7 @@ class DuelAgent:
         """Our FIRST offer follows the day rules' call (Duel Lab: enforce it on the opener, not just suggest it):
         take or give → their day (give: worth up by what their day costs us, the premium), hold or menu → our best
         day. The plan's prices move to keep their worth to us on that day."""
-        if our_offers(obs) or plan.days is None or (r := day_read(obs)) is None:
+        if not GUARDS or our_offers(obs) or plan.days is None or (r := day_read(obs)) is None:
             return plan
         day = r.their_day if r.call in ("take", "give") else r.best_day
         if day == plan.days:

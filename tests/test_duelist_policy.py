@@ -208,3 +208,10 @@ def test_the_first_offer_follows_the_day_call():
     assert a.first_day(plan, later) is plan                                        # only the first offer
     c, _ = agent(D6190)
     assert P.code_move(c, o).days == 0                                             # the code opener follows it too
+
+
+def test_guards_off_switch(monkeypatch):
+    monkeypatch.setattr(A, "GUARDS", 0)                               # {"GUARDS": 0} in run/duel_params.json
+    a = DuelAgent(D6190, Words(), Words())
+    m = a.final(A.Move("offer", "I can do 88 P, delivery on day 10.", price=88, days=10), obs_6190())
+    assert (m.price, m.meta.get("rule")) == (88, None)

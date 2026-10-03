@@ -2,7 +2,8 @@
 
 _Builder, Sat night, on the Chief's brief. Items 1–3 change nothing until you choose them: with no
 `run/duel_params.json` the duelist plays today's constants, and `--policy llm` (the default) is today's agent.
-**Item 4 (the guards) is live once merged.** Full suite green on the branch._
+**Item 4 (the guards) is live once merged**, with an off switch (`{"GUARDS": 0}` in the params file). Full suite
+green on the branch: 558 tests._
 
 ## TL;DR
 
@@ -11,7 +12,7 @@ _Builder, Sat night, on the Chief's brief. Items 1–3 change nothing until you 
 | 1 | **Hot-reloaded params**: `run/duel_params.json`, re-read every tick, bounds-checked, logged | none (no file = today's constants) | write the file, or `tools/duel_loop.py approve` |
 | 2 | **Wave loop**: `tools/duel_loop.py` summarises each closed wave, compares it with the Duel Lab simulator, proposes a params diff | none (read-only; never applies) | `python3 tools/duel_loop.py watch` on any machine with the records |
 | 3 | **Code-first policy**: code decides accept / hold / step and the day; one capped model call writes the words | none (`--policy llm` stays the default) | `run --policy code --negotiator-model claude-haiku-4-5` |
-| 4 | **Guards on every offer** (6190): accept instead of offering worse; worth-monotonic steps; the day call on the first offer | **yes, once merged**: the last-ticks concession is capped at 25% of the gap | tune `MONO_END_SHARE` (0.5 = the simulator's preference) |
+| 4 | **Guards on every offer** (6190): accept instead of offering worse; worth-monotonic steps; the day call on the first offer | **yes, once merged**: the last-ticks concession is capped at 25% of the gap | tune `MONO_END_SHARE` (0.5 = the simulator's preference); `{"GUARDS": 0}` turns all three off |
 
 ## 1. Hot-reloaded params (`agents/duelist/params.py`)
 
@@ -139,8 +140,8 @@ prefers lower.
   |---|---|---|---|---|
   | 12% (the default) | +0.008 | +0.010 | +0.010 | +0.009 |
   | 15% | +0.013 | +0.009 | +0.008 | +0.005 |
-  | 20% | | | | loses |
-  | 25% | | | loses | loses |
+  | 20% | +0.015 | +0.008 | +0.004 | −0.002 |
+  | 25% | +0.010 | +0.003 | −0.001 | −0.008 |
 
   The deal rate is unchanged and rounds fall about 0.1. `ACCEPT_RATIO` is neutral at 0.85+ and slightly worse at 0.75.
 - **Replay of Duels II's 287 model decisions** through `code_move`:
@@ -203,5 +204,17 @@ and the first-offer day call. `tests/test_duelist.py`'s closing-tick case now ex
 git fetch && git checkout main && git merge --no-ff origin/duelist-loop   # after review; run all duelist tests first
 ```
 
-Nothing on this branch touches a running process. A merged checkout behaves exactly as today until a params file
-exists or `--policy code` is passed.
+Nothing on this branch touches a running process. After a merge and a restart:
+- Items 1–3 behave exactly as today until a params file exists or `--policy code` is passed.
+- Item 4's guards are on. `{"GUARDS": 0}` in `run/duel_params.json` turns them off within a tick, with no restart.
+
+**Files** (11 commits on top of main):
+- `agents/duelist/params.py` (new): the registry and the hot-reload.
+- `agents/duelist/policy.py` (new): the code-first policy.
+- `agents/duelist/prompts/text.md` (new): its text prompt.
+- `agents/duelist/agent.py`: `respond_code`, `guarded`, `first_day`, constants.
+- `agents/duelist/runner.py`: `reload_params`, the policy plumbing, `SMALL_GAP_*`.
+- `agents/duelist/__main__.py`: `--policy`, `--params`, `--no-params`.
+- `tools/duel_loop.py` and `tools/duel_sim.py` (new).
+- Tests: `tests/test_duelist_params.py`, `tests/test_duelist_policy.py` and `tests/test_duel_loop.py` (new), plus one
+  changed case in `tests/test_duelist.py`.
