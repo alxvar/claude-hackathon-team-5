@@ -167,11 +167,11 @@ ol.proto{margin:0;padding-left:26px} ol.proto li{margin-bottom:9px;padding-left:
       <tr><td>704 · LAT-08 → Chato at 14</td><td>+0.012</td><td>≈ 20</td></tr>
       <tr><td>775 · SAL-09 ← Pícaros at 54</td><td>+0.070</td><td>≈ 10</td></tr>
       <tr><td>850–890 · ladder 0.373 → 0.437</td><td>+0.064</td><td><b>0</b></td></tr></table>
-    <svg class="bars" viewBox="0 0 520 64" width="520" height="64" role="img" aria-label="Board points per ladder point fell from about 35 to 20 to 10 to 0">
-      <path d="M0,10 h276 a4,4 0 0 1 4,4 v10 a4,4 0 0 1 -4,4 h-276 z"><title>tick 551: ≈ 35 board per 1.0 ladder</title></path><text x="288" y="24">≈ 35</text>
-      <path d="M0,34 h156 a4,4 0 0 1 4,4 v10 a4,4 0 0 1 -4,4 h-156 z" transform="translate(0,-4)"><title>tick 704: ≈ 20</title></path><text x="168" y="44">≈ 20</text>
-      <path d="M340,10 h76 a4,4 0 0 1 4,4 v10 a4,4 0 0 1 -4,4 h-76 z"><title>tick 775: ≈ 10</title></path><text x="428" y="24">≈ 10</text>
-      <text x="340" y="44"><tspan font-weight="700">0</tspan> · capped</text>
+    <svg class="bars" viewBox="0 0 520 84" width="520" height="84" role="img" aria-label="Board points per ladder point fell from about 35 to 20 to 10 to 0">
+      <text x="0" y="14">tick 551</text><path d="M96,2 h276 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-276 z"><title>tick 551: ≈ 35 board points per 1.0 ladder</title></path><text x="386" y="14">≈ 35</text>
+      <text x="0" y="36">tick 704</text><path d="M96,24 h156 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-156 z"><title>tick 704: ≈ 20</title></path><text x="266" y="36">≈ 20</text>
+      <text x="0" y="58">tick 775</text><path d="M96,46 h76 a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-76 z"><title>tick 775: ≈ 10</title></path><text x="186" y="58">≈ 10</text>
+      <text x="0" y="80">850–890</text><text x="100" y="80"><tspan font-weight="700">0</tspan> · capped</text>
     </svg>
     <dl><dt>Read</dt><dd>Our negotiating score sat at exactly <b>21.88</b> for five snapshots while the ladder kept rising. 17:45: stop ladder-driven deals.</dd></dl>
     <div class="src">src: intel/score-model.md §0, §2 [L, 2 clean tests] · intel/directives.md 11:56, 17:45 · data/leaderboard.jsonl ticks 850–890</div>
@@ -184,7 +184,7 @@ ol.proto{margin:0;padding-left:26px} ol.proto li{margin-bottom:9px;padding-left:
   <div class="pg l"><div class="exp">Method</div><h2>How we weigh a decision</h2>
     <dl>
       <dt>Currency</dt><dd>Everything is priced in <b>board points</b>, and re-priced as the field moves. One neg_point was worth 0.16 (Fri) → 0.094 (Sat 12:13) → 0.068 (tick 669) → <b>0.048</b> (tick 904).</dd>
-      <dt>Priced, then measured</dt><dd>RET page: expected +24 to +45 → <b>+28.5</b>.<br>SAL close: ≈ +2.2 board → <b>+2.00</b>.</dd>
+      <dt>Priced, then measured</dt><dd>RET page: expected +24 to +45 neg_points → <b>+28.5</b>.<br>SAL close: ≈ +2.2 board → <b>+2.00</b>.</dd>
       <dt>Insurance · Sat 18:30</dt><dd>Tonight's duels add a delivery day. The red team simulated 2,940 of them:</dd>
     </dl>
     <table style="margin-top:6px"><tr><th>our reading of the day</th><th>points per duel</th></tr>
@@ -196,7 +196,7 @@ ol.proto{margin:0;padding-left:26px} ol.proto li{margin-bottom:9px;padding-left:
   <div class="pg r"><div class="exp">Field notes</div><h2>Other teams' notebooks</h2>
     <dl>
       <dt>Friday's leader</dt><dd>Built its lead on the dealer ladder: never paid a dealer above list. Our five El Chato buys had paid 44 P over list, for nothing. We copied the play. So did the field, and that lead eroded.</dd>
-      <dt>Team 12 · Sat 10:00</dt><dd>The market lead from <b>one 7 P trade</b> on a 0% venue. We cut our stall's fee to 0% within minutes.</dd>
+      <dt>Team 12 · Sat 10:00</dt><dd>The market lead from <b>one 7 P trade</b> on a 0% venue. We cut our stall's fee to 0% (effective tick 230).</dd>
       <dt>Team 10 · Sat 18:56</dt><dd>A page closed for the price of a common: rares from a dealer at ≤ value (no cost), the last card from a team at 12 P. <b>+3.33 board</b> in two snapshots. That is our recipe for Sunday's Chamberí page.</dd>
       <dt>The fever loop</dt><dd>Several teams: a rare from one dealer at ~55, sold to another at 80–84. For us, −36 a buy (our SAL rares are page cards). We passed.</dd>
       <dt>Duel rivals</dt><dd>16 of 17 rival agents scripted, 1 silent, 0 LLM.</dd>
@@ -204,13 +204,13 @@ ol.proto{margin:0;padding-left:26px} ol.proto li{margin-bottom:9px;padding-left:
     <p class="hand" style="margin:8px 0 0"><span class="tilt">a lever decays once it's public: do it early, then stop</span></p>
     <div class="src">src: intel/rivals.md §1, §4.3; 18:25, 18:56, 19:10, 19:41 · intel/score-model.md §1d, §3e · intel/directives.md 10:03, 10:06</div>
     <span class="no">9</span></div>
-  <aside class="say" data-secs="30">How we weigh a decision: one currency, board points, re-priced four times as the field moved. Tonight's example: our duel agent must read a new field, the delivery day. Read right: plus zero point four seven a duel. Backwards: minus zero point one eight. So after the code freeze we shipped exactly one change: a switch. Worth nothing if we are right. Field notes: Team Ten closed a page for the price of a common. That is our Sunday plan.</aside>
+  <aside class="say" data-secs="30">How we weigh a decision: one currency, board points, re-priced all day as the field moved. Tonight's example: our duel agent must read a new field, the delivery day. Read right: plus zero point four seven a duel. Backwards: minus zero point one eight. So after the code freeze we shipped exactly one change: a switch. Worth nothing if we are right. Field notes: Team Ten closed a page for the price of a common. That is our Sunday plan.</aside>
 </div></section>
 
 <!-- 6 · ERRATA -->
 <section data-title="Errata"><div class="book">
   <div class="pg l"><div class="exp">Errata · Sat 10:18</div><h2 class="red">The venue swap with Team 10</h2>
-    <dl><dt>We wrote</dt><dd>“Our standing offers default to Team 10's v07; theirs to our v10 … a balanced swap lifts both against the top 5.”</dd></dl>
+    <dl><dt>We wrote</dt><dd>“Our standing offers default to Team 10's v07 …; theirs to our v10 … a balanced swap lifts both against the top 5.”</dd></dl>
     <table style="margin-top:8px"><tr><th>tick</th><th>what happened</th><th>our rank</th></tr>
       <tr><td>311</td><td>their sale on our venue: our market <b>+4.99</b></td><td>#2</td></tr>
       <tr><td>351</td><td><b>our</b> sale on their venue (SAL-01, 7 P): their market up</td><td>—</td></tr>
@@ -220,7 +220,7 @@ ol.proto{margin:0;padding-left:26px} ol.proto li{margin-bottom:9px;padding-left:
     <dl style="margin-top:8px"><dt>Fix</dt><dd>Value created = buyer's value − seller's value. Collector-buys only (11:31). No offer of ours on a rival's venue (17:30). Code: <code>tools/v10_radar.py</code> scores every trade first.</dd></dl>
     <div class="src">src: intel/directives.md 10:18, 11:31, 17:30, 19:40 · intel/market-log.md (tick 351) · intel/GAME.md [V, Sat 11:30] · data/leaderboard.jsonl ticks 320, 400</div>
     <span class="no">10</span></div>
-  <div class="pg r"><div class="exp">Errata · Sat 12:31 → 19:01</div><h2 class="red">The golden chulapa</h2>
+  <div class="pg r"><div class="exp">Errata · tick 522 → tick 1047 (Sat 19:01)</div><h2 class="red">The golden chulapa</h2>
     <div class="slip"><div class="exp">Doña Pilar, in our own deal thread · tick 522</div>
       <p style="margin:4px 0 0">“Very well. 23 P. A pleasure. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about the golden chulapa.”</p></div>
     <table><tr><th>tick</th><th>what happened</th></tr>
