@@ -1,26 +1,35 @@
-# Scout (claude-sonnet-5-5, Sat 15:48)
+# Scout (claude-sonnet-5-5, Sat 15:54)
 
 ## Top 3 actions now
-1. **Pícaros (L4) watch: first deals with SAL-01/03/05, MAL-02/03, LAT-03 (Operator, armed 20 s poll).**
-   - Evidence: announced tick 630 ("Quick deals. Few questions."). We hold 3 Pilar deals (MAL-07 19, MAL-06 19, SAL-08 23). Ladder is 0.188, and Level 3 is near saturation (SAL-06 round trip +0.007).
-   - Effect: a new level has empty top-3 slots. Level 3 paid +0.050 per sale, about 3× level 2. Sell only at or above our value (0 neg cost). The sale price must also be at or above the dealer's opening bid.
-   - Confidence: med. The Pícaros menu is not in the data.
-2. **Buy MAL-09 (rare, worth 49) back into use only at the dealer's price; do not sell it to t17.**
-   - Evidence: t17 bids 70-85 for it and is #6, 25.8 (2.3 below us). Our metrics file lists LAV-09 bid 47 from t17. The feeding rule says no.
-   - Effect: keeps MAL-09 for the Pícaros or Pilar rare slot. Pilar rare sells median 50 over 1 deal, so a sale ≥ 49 costs 0 neg_points.
-   - Confidence: low-med. A t17 sale at ≥ 70 would gain +21, but the feeding rule blocks it.
-3. **Keep the swap offers 9387 (→ t15) and 9389 (→ t07) live. Re-post both at expiry (tick 688), Operator.**
-   - Evidence: t15↔t07 swapped 3× at ticks 613, 616, 661, all at 0 P. 9387 gives LAT-04 (2nd, worth 1.2) and MAL-04 for SAL-07. 9389 gives LAV-02 (2nd, worth 3.2) for MAL-01.
-   - Effect: swaps are cash-free. The planned gain is +14.3 and +3.8 against our cheapest copies. t15 is #14 (21.5) and t07 is #17, so neither is a leader.
-   - Confidence: med. Neither offer has filled yet.
+
+1. **Run the Pícaros watch, then sell spares to it in offer-only mode (Operator, `abuela_bot.py --dealer picaros --offer-only`).**
+   - Evidence: Pícaros was announced at tick 630 ("Quick deals. Few questions."). Our 3 Pilar deals (MAL-07 19, MAL-06 19, SAL-08 23) may unlock it early. Our ladder is 0.188, and L3 is near saturation (+0.007 on the last Pilar trade).
+   - Spares to offer: SAL-01/03/05, MAL-02/03, LAT-03, and second copies, each worth ≤ 9 to us. Sell only at ≥ our value.
+   - Expected effect: a new level's best 3 slots start empty. Playbook: a dealer sale above his opening bid counts, Pilar's L3 paid +0.050, and +0.01 ladder is about +0.33 board.
+   - Never a deal at the opening price. Step −2/−3 and let the dealer climb.
+   - Confidence: med. No menu is in the data yet.
+
+2. **Pull the offer-only swap trades through, and keep the trader accepting swaps (Operator, `trade.py` plus the `swaps` daemon once verified).**
+   - Evidence: tick 669, t08's SAL-04 for our second RET-04 gave neg_points 32.5 → 38.7 (+6.2). The swaps dry run found 43 candidates, best +10.3/+9.7.
+   - Open: 9387 (to t15) and 9389 (to t07) expire at ticks 688. Repost them at 2× the ticks wanted (the server halves expiry).
+   - Check before each: the counterparty is outside the top 4 (not t14, t12, t18, t10), and the RET page stays 10/10.
+   - Expected effect: +2 to +6 neg_points per swap, about +0.2 to +0.6 board.
+   - Confidence: med-high.
+
+3. **Fill t07's page bids with spares as maker (Operator).**
+   - Evidence: the rival profile lists t07 (#17, 10.6 below us) as the buyer for LAT-04 9.5 (+6.3), RET-04 9.5 (+4.7), and LAV-02/03/04 9.5 (+4.3 each).
+   - Our LAV-02 is already offered to t07 at 0 as a swap for MAL-01. Re-ask the others at ~9, not 0. Our LAV-03/04 asks (6, to t04/t03) are too low; others ask 10 for LAV-04.
+   - Feeding rule: t07 is #17, so this is fine. Do not touch t17/t01 closers without the Chief.
+   - Expected effect: about +4 each, so +10 to +20 neg_points in total, capped by actual fills.
+   - Confidence: med. The prices are estimates.
 
 ## What the climbing teams are doing
-- **Team 18 (#3, +0.5):** the gain comes from RET. It sold RET-08 to t04 at 27 (tick 645), and its profile says it collects RET/LAT. It is racing us on RET sales.
-- **Team 10 (#4, +0.2):** it holds a LAV collection and dumps SAL/LAT/MAL. Its MAL-10 purchase at 74 (tick 585) shows it pays near book for rares.
-- **Team 15 (#14, +1.2):** the biggest mover, with 22 team trades (LAT×6, MAL×4, RET×3). It swaps cards at 0 P, for example t15→t07 RET-02 ↔ LAV-04 at tick 661. Its dumping is a swap partner for us.
-- **Team 4 (#10):** it bought RET-07 at 25, RET-08 at 27 and RET-06 at 26 (ticks 636-656), and sold LAT-11 at 160 to t16. It is the only team paying near list for RET uncommons, so our RET spares are a possible sale to it.
+- **t04** (#10, +0.2) is buying RET uncommons from four sellers: RET-07 at 25 (t08), RET-08 at 27 (t18), RET-06 at 26 (t09), plus LAT-11 epic at 160 to t16. This is a RET page build at roughly uncommon list price.
+- **t07** (#17, +0.3) is trading cards for cards at 0 P: RET-02 ↔ LAV-04 with t15, and MAL-01 ↔ SAL-02, plus RET-04 at 10 from t08. Swaps save cash and score for both sides.
+- **t15** (+1.2 over 30 ticks, 22 team trades) is the most active swap partner. Its MAL/LAT/RET swaps give it moves without paying fees.
+- **t18** (#3, +0.5) is selling RET-08 to t04 at 27 and collecting RET/LAT. It is a top-4 team, so we do not feed it.
 
 ## Threats
-- **Team 14 (#1, 30.4) and Team 12 (#2, 29.5):** both are top 4, so never feed them. Their lead over us is 2.5 and 1.6. Team 12 collects RET/MAL/LAT, and our MAL/RET spares must not go to it.
-- **Team 17 (#6):** it bids on MAL-09 and LAV-09 and buys MAL×4 and SAL×3. A page-closer sale to it would feed a team 2.3 below us.
-- **Neg_points drift:** 35.2 → 32.5 over 15 minutes, and the −2.7 came from the silver-pack drag. Every new card we buy lowers the unopened-pack value, so open packs before trading. The Abuela gift pack expected around 16:40 is armed to auto-open.
+- **t17** bids LAV-09 47 and LAV-06 15, and 70-85 for our MAL-09. It looks like a MAL page closer, and t17 is #7 (25.5), 2.8 behind us. The Chief has already refused the MAL-09 sale, so keep holding it.
+- **t13** (#6, 25.5, 57 deals, 454 listings) is lobbying everyone to trade on v03. Its venue earns value created, so keep our trades off v03.
+- **Gap at the top:** t14 leads at 30.4 (we are at 28.3). Do not sell page-closers to t14, t12, t10 or t18. We gained +0.2 over 15 min while t18 gained +0.5.
