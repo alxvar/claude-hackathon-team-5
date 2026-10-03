@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 17:51** · tick 914 (30 s/tick) · game hour 8.94 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 17:56** · tick 924 (30 s/tick) · game hour 9.03 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,9 +17,9 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 12:12 · **dashboard: new "Duel monitor" tab** (http://127.0.0.1:8765/#duelmon), the current duel session live, read-only, from data the dashboard already reads (**no extra request**: the duelist shares the team's 5 rps) · session + field progress from the feed (`duels.scheduled`, `duel.closed`), our duels from `/api/duels`, `duel_points` from `/api/me` · tiles: our duels done/total + ETA, deals, result after decay and **P lost to rounds**, `duel_points` sparkline, P left on the table, field deal rate · alerts: CRITICAL (rival's standing offer inside our limit with ≤ 2 ticks left; our offer outside our limit; we silent ≥ 4 ticks after a rival price near the deadline), WATCH (acceptable now: +X P after decay), MISSED · live table (our offer vs theirs vs limit, gap, rounds, pie left, ticks left, accept-now value; days for Duels II) · finished table · negotiating Δ per team since the session began (board doesn't split duels out) · complements Lucas's `duelmon` (phone alerts + per-wave review), doesn't replace it · restarted 12:10 on this code, 0 errors, hub on · **Duels I at tick 483:** 4/34 done, 4 deals, 36.7 P of 50 P surplus (**13.3 P, 27 %, lost to rounds**; duel 2540: 7 rounds, 6.7 of 19 lost), field 36/39 deals · seen live: duel 2506 (buyer, limit 103): rival dropped to 96 at tick 480 and we sent 98 the same tick (step computed on their previous 104); it closed at 96 anyway (4.8 P, 6 rounds), so no cost; for Aleks's rounds spec: a same-tick drop can cross our next step · next: watch Duels I on the tab, desk Q6
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 17:52 · operator · **SAL-06 page-closer bid** (Chief spec): MAKER bid **14040**, give 35 P, want card:SAL-06, to **t02** on v15, expires tick 944 (~30 min) · /api/me/value SAL-06 = **82.1** (22.5 + page bonus) → at 35 the gain hits the +50 cap · policy t02 OK, cash 151 → 116 if filled · up to 45 on a t02 counter, above that ask the Chief · never unaddressed (t10 buys SAL-06), never from a dealer (no page bonus) · fallback at 18:20: t17, then t13, one at a time · watcher b5iy2i1mw cancels any other SAL-06 bid the moment we hold one
   - Sat 17:50 · operator · board check: the t07 swap's +15.5 neg moved `negotiating` 21.74 → 22.48 and the board 29.24 → **29.98 (#3)** at tick 910 → team trades are not capped (≈ +0.05 board per neg point) → GAME.md · T14 31.4, T6 30.7 · scout's SAL-06 bid at 28 waits for the Chief's spec
   - Sat 17:49 · operator · **SAL page 9/10 (only SAL-06 missing)** (Chief, urgent): run/reserved.json = SAL-01, 02, 03, 04, 05, 07, 08, 09, 10 (the trader's sell/swap accepts, book, swaps and opps all read it on every check; can-give SAL-07/SAL-09 → NO) · SAL-01/SAL-02 → t16 removed from run/book.json · **18:06 fever job cancelled** (SAL-09/10 stay: selling them would drop the page to 7/10) · t13's 13957 (29 P for SAL-07) and every SAL bid: no · no SAL-06 buy until the Chief's spec · correction: SAL-08 was never sold (I wrongly took it off reserved at 17:34)
-  - Sat 17:47 · operator · **trader took t07's swap**: their SAL-07 for our LAT-01 on El Rastro (13923, tick ~902): `neg_points` 63.2 → **78.7 (+15.5, as expected)**, cash 153 → 151 (taker fee), SAL page now missing only SAL-06 · board check: `negotiating` still 21.74 at 17:47 (the board seems to refresh every ~10 ticks; recheck 17:50)
 
 ## Score
 
@@ -27,15 +27,15 @@ _From `team/<name>.md`; each person writes only their own file._
 |---|---|---|---|---|---|---|---|---|---|---|
 | 29.98 | 3 | 22.48 | 7.50 | 13.93 | 0.44 | 0.88 | 51 | 4 | 151 | 37/50 |
 
-Leaderboard (snapshot at tick 910; refreshes every few minutes):
+Leaderboard (snapshot at tick 920; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 14 | 31.43 | 21.90 | 9.53 | 35 |
-| 2 | Team 6 | 30.73 | 18.84 | 11.89 | 51 |
+| 1 | Team 14 | 31.89 | 22.36 | 9.53 | 36 |
+| 2 | Team 6 | 30.62 | 18.73 | 11.89 | 51 |
 | 3 | Team 5 | 29.98 | 22.48 | 7.50 | 51 |
-| 4 | Team 3 | 28.75 | 24.01 | 4.75 | 27 |
-| 5 | Team 1 | 28.71 | 21.21 | 7.50 | 26 |
+| 4 | Team 3 | 28.57 | 23.83 | 4.75 | 27 |
+| 5 | Team 1 | 28.52 | 21.02 | 7.50 | 26 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 9.00 | ~3 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.15 | ~12 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
-| 11.00 | ~123 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~132 min | persona_patch | The fever breaks |
-| 11.65 | ~162 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~243 min | bench | The Market Test: every venue gets the same synthetic book |
-| 14.08 | ~308 min (after today's close) | day_closes | Closed until Sunday 09:00 |
-| 14.08 | ~308 min (after today's close) | day_opens | Sunday opens |
+| 9.15 | ~8 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
+| 11.00 | ~118 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~128 min | persona_patch | The fever breaks |
+| 11.65 | ~158 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~238 min | bench | The Market Test: every venue gets the same synthetic book |
+| 14.08 | ~303 min | day_closes | Closed until Sunday 09:00 |
+| 14.08 | ~303 min | day_opens | Sunday opens |
+| 14.65 | ~338 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
 
 ## Our dealer deals
 
@@ -105,7 +105,7 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
 | common card | team buys | 67 | 9 | 7 | 12 | 5 | 9 |
-| common card | team sells | 105 | 6 | 2 | 23 | 5 | 5.40 |
+| common card | team sells | 106 | 6.00 | 2 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 42 | 22.00 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 76 | 23.00 | 17 | 29 | 5 | 24.20 |
 | uncommon card | team sells | 9 | 14 | 12 | 17 | 0 | — |
