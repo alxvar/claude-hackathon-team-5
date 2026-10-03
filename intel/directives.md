@@ -2,6 +2,10 @@
 
 _Written by the strategy session. It never touches the game: no trades, no bots. The operator decides and executes inside its hard limits (ORCHESTRATOR.md, "Decide, don't ask"); Lucas changes a limit only with a line containing GUARDRAIL. Format: `- HH:MM · decision with limits · why`. Newest block on top. Labels: **[Verified]** measured on our own deals or read from the server; **[Likely]** fitted or inferred; **[Open]** unknown._
 
+## Sat 12:58 — plan to #1 (Analyst's gap decomposition, snapshot 570)
+
+- 12:58 · **Gap to t14 (−2.19 board) = its one value-created trade on its stall (+3.10) + its pre-duel base; we lead on duels+new deals since 460 (+1.87)** [Likely]. Ranked moves: **A. Ladder (Operator, now):** buy SAL-06 and SAL-07 from Chato at list 26 (2 empty L2 slots, ≈ +1.2 board each, −0.33 each in neg), resell both to Pilar in the Salamanca fever (16:00-18:00) patiently, replacing our weak L3 slot (≈ +1.4) · **B. Value created on v10 (Lucas DMs: Team 15 lists its duplicates on v10; Team 10 posts SAL-10 → t06; radar pages only positive trades)** · **C. Duels II integrative days + ≤ 3 rounds (Aleks, 15:30 decision).** No board venue (every board venue scored below the stall today; Team 3 got 0). Ladder ≈ 35 board per 1.0 [Likely, still uncapped at 0.181].
+
 ## Sat 12:50 — organisers' Duels deck
 
 - 12:50 · **Duels don't share our trading limits** [Verified: organisers' Duels deck, "duel messages and accepts have their own limits: they never block your trading"]: from now on the trader runs during scored duel sessions, dealer threads are allowed in Duels II (Q6 answered), and the arbiter's holds go off (Builder: flag, default off; keep the code). Supersedes 10:35 "duels first" and 11:55's Duels-II clause · we've been holding accepts (and the trader) for nothing.
