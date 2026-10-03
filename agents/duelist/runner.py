@@ -1,7 +1,9 @@
 """The duel loop: poll the game, let the agent decide for each live duel that needs a move, send the move.
 
 A duel needs a move when the rival has moved, in its last DECIDE_LEFT ticks whatever the rival does, when both
-sides have sat still for HOLD_TICKS ticks, and when the acceptance of its standing offer can't wait (`closer`).
+sides have sat still for HOLD_TICKS ticks, and when code should accept its standing offer (`closer`): the
+deadline can't wait, or the gap is smaller than what one more round risks. When our acceptance must wait for the
+team's one acceptance per tick, we offer the rival its own price instead, if that costs no round (`their_price`).
 
 Rules it keeps (RULES.md): one message per duel per tick, one acceptance per team per tick, 5 requests a second
 per key. A poll is two reads (`clock`, `duels`) every `poll_s` seconds; each duel then costs one write per tick
@@ -22,10 +24,11 @@ from bazaar_sdk import Bazaar, BazaarError
 from engine import Model
 
 from .adapter import Snapshot, parse_duel
-from .agent import DuelAgent, Move, quiet_ticks, standing_price, their_offers
+from .agent import DuelAgent, Move, our_offers, quiet_ticks, standing_price, their_offers
+from .guards import past_limit
 from .model import Observation, Offer, Turn, sign
 from .prices import money
-from .records import Records, duel_key
+from .records import Records, duel_key, sessions_in
 
 DECIDE_LEFT = 3     # ticks left at or below which we decide every tick, whether or not the rival has moved
 ACCEPT_BY = 2       # every standing offer inside our limit is accepted by this many ticks left (1, the last, is spare)
@@ -85,7 +88,9 @@ class DuelRunner:
         self.dry_run = dry_run
         self.log = log
         self.overrides = {k: v for k, v in (("decay", decay), ("duel_ticks", duel_ticks)) if v is not None}
-        self.session: dict[str, Any] = {}       # the current duel session's params from the schedule
+        self.upcoming: dict[str, Any] = {}      # the next duel session on the schedule, for the console
+        self.sessions: dict[Any, dict[str, Any]] = records.sessions() if records else {}   # by number, from the feed
+        self.sessions_read = 0.0                # when we last read the feed for them
         self.poll_s = poll_s
         self.team: set[str] = set()
         self.duels: dict[Any, Memory] = {}
@@ -110,26 +115,43 @@ class DuelRunner:
     # The session's params
 
     async def refresh_session(self, now_hours: float | None = None) -> None:
-        """The duel session in play (or the next one) from the schedule: its decay and ticks per duel."""
+        """The next duel session on the schedule, for the console. Never a live duel's params: the schedule lists
+        only sessions still to come, so once one starts it shows the one after (Friday's practice records say
+        "Duels I" for that reason)."""
         try:
             sched = await self.call(self.b.schedule)
         except BazaarError as e:
             self.log.write("error", where="schedule", error=str(e))
             return
-        now = sched.get("now_hours", now_hours) or 0
-        sessions = [u for u in sched.get("upcoming", []) if u.get("action") == "duels"]
-        started = [u for u in sessions if u.get("at_hours", 0) <= now + 0.02]
-        nxt = started[-1] if started else (sessions[0] if sessions else None)
-        if nxt and (not self.session or nxt.get("at_hours", 0) <= now + 0.02):
-            if nxt.get("params") != self.session:
-                self.session = dict(nxt.get("params") or {})
-                self.log.write("session", at_hours=nxt.get("at_hours"), params=self.session)
-                say(f"duel session: {self.session.get('name')} at hour {nxt.get('at_hours')}, "
-                    f"{self.session.get('duel_ticks')} ticks, decay {self.session.get('decay')}, "
-                    f"issues {self.session.get('issues', ['price'])}")
+        nxt = next((u for u in sched.get("upcoming", []) if u.get("action") == "duels"), None)
+        if nxt and nxt != self.upcoming:
+            self.upcoming = nxt
+            p = nxt.get("params") or {}
+            self.log.write("upcoming_session", at_hours=nxt.get("at_hours"), params=p)
+            say(f"next duel session: {p.get('name')} at hour {nxt.get('at_hours')}, {p.get('duel_ticks')} ticks, "
+                f"decay {p.get('decay')}, {p.get('max_concurrent')} at once, issues {p.get('issues', ['price'])}")
 
-    def defaults(self) -> dict[str, Any]:
-        return {"decay": self.session.get("decay"), "duel_ticks": self.session.get("duel_ticks"), **self.overrides}
+    def learn_sessions(self, events: list[dict[str, Any]]) -> None:
+        for num, params in sessions_in(events).items():
+            if num not in self.sessions:
+                self.sessions[num] = params
+                self.log.write("session", params=params)
+                say(f"duel session {num}: {params.get('name')}, {params.get('duel_ticks')} ticks, "
+                    f"decay {params.get('decay')}")
+
+    async def read_sessions(self) -> None:
+        """A live duel's session we don't know yet: its `duels.scheduled` event is on the feed (the feed keeps
+        only the last few hundred events, so this runs as soon as the duel shows up)."""
+        self.sessions_read = time.monotonic()
+        try:
+            self.learn_sessions((await self.call(self.b.feed, 500)).get("events", []))
+        except Exception as e:
+            self.log.write("error", where="sessions", error=repr(e))
+
+    def defaults(self, raw: dict[str, Any]) -> dict[str, Any]:
+        """The duel's session params (the duel's own `decay_per_round` wins), then --decay / --duel-ticks."""
+        s = self.sessions.get(raw.get("session")) or {}
+        return {"decay": s.get("decay"), "duel_ticks": s.get("duel_ticks"), **self.overrides}
 
     # Observations
 
@@ -145,10 +167,10 @@ class DuelRunner:
             turns = sorted([*mem.sent, *mem.seen], key=lambda t: (t.tick if t.tick is not None else -1, not t.mine))
         assert snap.view is not None
         return Observation(view=snap.view, turns=turns, rival_offer=snap.rival_offer, tick=self.tick,
-                           ticks_left=snap.ticks_left)
+                           ticks_left=snap.ticks_left, rounds=snap.rounds)
 
     def update(self, raw: dict[str, Any]) -> Memory | None:
-        snap = parse_duel(raw, team=self.team, tick=self.tick, defaults=self.defaults())
+        snap = parse_duel(raw, team=self.team, tick=self.tick, defaults=self.defaults(raw))
         key = snap.id
         if self.log.changed(f"duel:{key}", raw):
             self.log.write("duel", tick=self.tick, raw=raw, problems=snap.problems)
@@ -161,21 +183,47 @@ class DuelRunner:
                 return None
             agent = DuelAgent(snap.view, self.strategist, self.negotiator)
             mem = self.duels[key] = Memory(agent=agent, snap=snap)
+            self.resume(mem)
             v = snap.view
             say(f"duel {key} vs {v.rival or '?'}: {v.role.value}, limit {money(v.limit)}, issues {v.issues}, "
                 f"{snap.ticks_left} ticks left" + (f" [{'; '.join(snap.problems)}]" if snap.problems else ""))
             self.log.write("new_duel", duel=key, view=v.model_dump(), strategist_system=agent.strategist_system,
                            negotiator_system=agent.negotiator_system)
-            self.record(key, session=self.session, first_tick=self.tick, view=v.model_dump(),
+            self.record(key, session=self.sessions.get(raw.get("session")) or {"session": raw.get("session")},
+                        first_tick=self.tick, view=v.model_dump(),
                         models={"strategist": self.strategist.label, "negotiator": self.negotiator.label},
                         strategist_system=agent.strategist_system, negotiator_system=agent.negotiator_system)
         mem.snap = snap
+        self.check_ours(mem)
         if snap.messages is None and snap.rival_offer is not None:
             last = next((t.offer for t in reversed(mem.seen)), None)
             if last != snap.rival_offer:
                 text = str(raw.get("rival_text") or raw.get("rival_message") or "")
                 mem.seen.append(Turn(mine=False, text=text, offer=snap.rival_offer, tick=self.tick))
         return mem
+
+    def resume(self, mem: Memory) -> None:
+        """A duel already under way when this process first sees it (after a restart): our messages so far count
+        as sent, and when ours is the last word we wait as before. Friday's restarts re-sent our standing offer in
+        duel 181 (50 on tick 134, 54 on 137) because a fresh process saw nothing sent."""
+        msgs = mem.snap.messages or []
+        mem.sent = [t.model_copy() for t in msgs if t.mine]
+        if mem.sent:
+            mem.sent_tick = mem.decided_tick = mem.sent[-1].tick
+            if msgs[-1].mine:
+                mem.decided_on = signature(mem.snap)
+
+    def check_ours(self, mem: Memory) -> None:
+        """More priced messages from our side in the game than this process sent: another duelist is running on
+        the team key (the one guard across machines). Says so loudly, once per duel."""
+        if mem.task is not None or mem.snap.messages is None or self.dry_run:
+            return
+        in_game = sum(1 for t in mem.snap.messages if t.mine and t.offer is not None)
+        if in_game > sum(1 for t in mem.sent if t.offer is not None) and \
+                self.log.changed(f"foreign:{mem.snap.id}", in_game):
+            self.log.write("foreign_message", duel=mem.snap.id, tick=self.tick)
+            say(f"WARNING duel {mem.snap.id}: a message from our side that this process didn't send. Is another "
+                f"duelist running on the team key? Stop one of them.")
 
     # Deciding and sending
 
@@ -193,7 +241,7 @@ class DuelRunner:
             return True                           # the rival has moved
         left = mem.snap.ticks_left
         return ((left is not None and left <= DECIDE_LEFT)        # the clock alone is a reason (duel 181)
-                or self.closer() is mem
+                or self.closing(mem) is not None
                 or self.standoff(mem) >= HOLD_TICKS)               # both sides still (duels 103/104)
 
     def accepted(self, mem: Memory) -> bool:
@@ -208,14 +256,16 @@ class DuelRunner:
         obs = self.observe(mem)
         return quiet_ticks(obs) if their_offers(obs) else 0
 
-    def closer(self) -> Memory | None:
-        """The duel whose standing offer code accepts this tick, or None while every one can still wait.
+    def closer(self) -> tuple[Memory, str] | None:
+        """The duel whose standing offer code accepts this tick, and why; None when none should.
 
-        The team accepts one offer per tick and the duels of a wave end together, so an offer inside our limit
-        can't wait for the last tick: the one in the i-th place (earliest deadline first, then the bigger
-        surplus) gets the i-th tick from now, and once that would land later than ACCEPT_BY ticks left, the
-        first in line accepts now. Price-only duels: with days, the limit alone can't say what an offer is
-        worth."""
+        "deadline": the team accepts one offer per tick and the duels of a wave end together, so an offer inside
+        our limit can't wait for the last tick. The one in the i-th place (earliest deadline first, then the
+        bigger surplus) gets the i-th tick from now, and once that would land later than ACCEPT_BY ticks left,
+        the first in line accepts now.
+        "small gap": otherwise, the first in line whose gap to our standing offer is no more than one more round
+        risks (`small_gap`).
+        Price-only duels: with days, the limit alone can't say what an offer is worth."""
         if any(m.pending is not None and m.pending[0].action == "accept" for m in self.duels.values()):
             return None                           # an acceptance held from an earlier tick goes first
         line = []
@@ -226,18 +276,55 @@ class DuelRunner:
             their = standing_price(self.observe(mem))
             surplus = None if their is None else sign(v.role) * (their - v.limit)
             if surplus is not None and surplus > 0:
-                line.append((left, -surplus, mem))
+                line.append((left, -surplus, mem, their))
         line.sort(key=lambda x: x[:2])
-        if not any(left - i <= ACCEPT_BY for i, (left, _, _) in enumerate(line)):
+        ready = [(mem, their, -neg) for _, neg, mem, their in line if mem.sent_tick != self.tick]
+        if any(left - i <= ACCEPT_BY for i, (left, *_) in enumerate(line)):
+            return (ready[0][0], "deadline") if ready else None
+        return next(((mem, "small gap") for mem, their, surplus in ready if self.small_gap(mem, their, surplus)),
+                    None)
+
+    def closing(self, mem: Memory) -> str | None:
+        """Why code accepts this duel's standing offer this tick, if it does."""
+        c = self.closer()
+        return c[1] if c is not None and c[0] is mem else None
+
+    def small_gap(self, mem: Memory, their: int, surplus: int) -> bool:
+        """Their offer is within max(2 P, 2d/(1-d) x our surplus at it) of our standing offer (plan §4D): one
+        more round costs about d of the whole deal, and pressing for the gap usually takes two (our counter and
+        their reply), so the gap isn't worth it. Only when their offer answers ours: when our offer is the latest
+        word, they get the tick to take it (time is free)."""
+        if mem.sent and signature(mem.snap) == mem.decided_on:
+            return False
+        ours = mem.snap.our_offer.price if mem.snap.our_offer else \
+            next((o.price for o in reversed(our_offers(self.observe(mem)))), None)
+        if ours is None:
+            return False
+        d = mem.agent.view.decay or 0.0
+        return sign(mem.agent.view.role) * (ours - their) <= max(2.0, 2 * d / (1 - d) * surplus)
+
+    def their_price(self, mem: Memory, accept: Move) -> Move | None:
+        """Our acceptance must wait (the team's one acceptance this tick is spent): offer the rival its own standing
+        price instead, so it accepts and spends its acceptance. Only when that adds no round (we have made at
+        least as many priced offers as they have, so rounds = min(ours, theirs) doesn't move), or on the last
+        tick, where there is no next one to wait for. Price-only duels."""
+        v, their = mem.agent.view, accept.price
+        if v.has_days or their is None or past_limit(v, their):
             return None
-        return next((mem for _, _, mem in line if mem.sent_tick != self.tick), None)
+        obs = self.observe(mem)
+        last = mem.snap.ticks_left is not None and mem.snap.ticks_left <= 1
+        if len(our_offers(obs)) < len(their_offers(obs)) and not last:
+            return None
+        move = Move("offer", f"I can do {money(their, v.currency)}: accept it and we're done.", price=their,
+                    meta={"rule": "their price"})
+        return mem.agent.final(move, obs)
 
     async def decide(self, mem: Memory) -> None:
         sig = signature(mem.snap)
         if mem.pending is not None:
             move, pending_sig, _ = mem.pending
             mem.pending = None
-            if pending_sig == sig and (move.action == "accept" or self.closer() is not mem):
+            if pending_sig == sig and (move.action == "accept" or self.closing(mem) is None):
                 await self.send(mem, move, sig)   # nothing changed: send what we decided last tick
                 return
         mem.force = False
@@ -245,8 +332,8 @@ class DuelRunner:
         obs = self.observe(mem)
         start = time.perf_counter()
         timeout = max(8.0, self.tick_seconds - 5.0)
-        if self.closer() is mem:
-            move = mem.agent.final(mem.agent.close(obs), obs)
+        if why := self.closing(mem):
+            move = mem.agent.final(mem.agent.close(obs, why), obs)
         else:
             try:
                 move = await asyncio.wait_for(mem.agent.respond(obs), timeout)
@@ -255,8 +342,8 @@ class DuelRunner:
             except Exception as e:                # never let one duel's bug stop the loop
                 self.log.write("error", where="respond", duel=mem.snap.id, error=repr(e))
                 move = mem.agent.final(mem.agent.safe_move(obs, f"error: {e!r}"), obs)
-            if move.action != "accept" and self.closer() is mem:   # the clock caught up while the models thought
-                move = mem.agent.final(mem.agent.close(obs), obs)
+            if move.action != "accept" and (why := self.closing(mem)):   # things moved while the models thought
+                move = mem.agent.final(mem.agent.close(obs, why), obs)
         took = time.perf_counter() - start
         cost = sum(c["cost_usd"] for c in move.meta.get("calls", []))
         self.spent_usd += cost
@@ -283,6 +370,9 @@ class DuelRunner:
                (f" [{move.meta['rule']}]" if move.meta.get("rule") else "") + (f" {took:.1f}s" if took else "")
         accepting = move.action == "accept"
         if accepting and self.accepted_tick == self.tick:
+            if (alt := self.their_price(mem, move)) is not None:
+                say(f"duel {did}: our acceptance is spent this tick; offering their own price so they accept")
+                return await self.send(mem, alt, sig, took)
             mem.pending = (move, sig, self.tick)  # one acceptance per team per tick: try next tick
             say(f"duel {did}: {what} waits for the next tick (another acceptance this tick)")
             return
@@ -303,6 +393,8 @@ class DuelRunner:
                 self.record(did, errors=[{"tick": self.tick, "code": e.code, "message": e.message,
                                           "move": move.__dict__}])
                 if e.code == "wait_for_tick":
+                    if accepting and (alt := self.their_price(mem, move)) is not None:
+                        return await self.send(mem, alt, sig, took)
                     mem.pending = (move, sig, self.tick)
                     return
                 if accepting and e.code != "network":       # refused, so not spent (a network error may have landed)
@@ -348,7 +440,9 @@ class DuelRunner:
                 if key is not None and key not in self.duels and not self.records.finished(key):
                     self.record(key, done=raw)
                     self.log.write("recorded", duel=key)
-            self.records.add_feed((await self.call(self.b.feed, 200)).get("events", []))
+            events = (await self.call(self.b.feed, 200)).get("events", [])
+            self.records.add_feed(events)
+            self.learn_sessions(events)
             self.records.add_score(self.tick, (await self.call(self.b.me)).get("score") or {})
         except Exception as e:
             self.log.write("error", where="sweep", error=repr(e))
@@ -377,6 +471,9 @@ class DuelRunner:
                     await asyncio.sleep(max(self.poll_s, 10))
                     continue
                 live = (await self.call(self.b.duels)).get("duels", [])
+                unknown = {raw.get("session") for raw in live} - set(self.sessions) - {None}
+                if unknown and time.monotonic() - self.sessions_read > 10:
+                    await self.read_sessions()
             except Exception as e:                # never let a bad read stop the loop
                 self.log.write("error", where="poll", error=repr(e))
                 say(f"poll failed: {e!r}")

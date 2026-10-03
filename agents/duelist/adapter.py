@@ -2,8 +2,9 @@
 
 The duel payload is not documented beyond `GET /api/duels` "role, your_limit, rival_offer, deadline" (the SDK
 docstring) and `your_days_weight` (RULES.md). So every field is looked up under a few likely names, and what we
-can't place goes to `DuelView.extra` for the strategist (never the negotiator) and into the log. Check the log of
-the first practice duel and tighten the names here.
+can't place goes to `DuelView.extra` for the strategist (never the negotiator) and into the log. The names seen in
+Friday's practice come first: `duel`, `session`, `deadline_tick`, `decay_per_round`, `rounds`, `your_offer`,
+`rival_offer`, `messages` (each with `tick`, `from`, `price`, `days`).
 """
 from __future__ import annotations
 
@@ -21,9 +22,10 @@ KNOWN = {"id", "duel_id", "duel", "status", "state", "done", "closed", "role", "
          "your_cost", "your_value", "cost", "value", "reservation", "rival_offer", "their_offer", "rival",
          "rival_alias", "opponent", "alias", "your_offer", "my_offer", "own_offer", "deadline", "deadline_tick",
          "ends_at_tick", "end_tick", "expires_tick", "ticks_left", "remaining_ticks", "issues",
-         "your_days_weight", "days_weight", "decay", "duel_ticks", "item", "title", "name", "scenario",
-         "description", "brief", "story", "context", "market", "market_range", "reference_price", "tick",
-         "session", "practice", "result", "score", *MESSAGE_KEYS}
+         "your_days_weight", "days_weight", "decay", "decay_per_round", "rounds", "duel_ticks", "item", "title",
+         "name", "scenario", "description", "brief", "story", "context", "market", "market_range",
+         "reference_price", "tick", "session", "practice", "result", "score", "limit_meaning", "price", "days",
+         *MESSAGE_KEYS}
 
 
 def first(d: dict[str, Any], *keys: str) -> Any:
@@ -82,6 +84,7 @@ class Snapshot:
     tick: int | None
     deadline: Any
     ticks_left: int | None
+    rounds: int | None                    # the game's count of rounds so far: min(our priced offers, theirs)
     messages: list[Turn] | None           # None: the payload has no message list
     problems: list[str]
     raw: dict[str, Any]
@@ -146,7 +149,7 @@ def read_messages(raw: dict[str, Any], role: Role, team: set[str], rival: str) -
 
 def parse_duel(raw: dict[str, Any], *, team: set[str], tick: int | None, defaults: dict[str, Any]) -> Snapshot:
     """`team`: our team's id and name, to recognise our own messages. `defaults`: the session's `decay` and
-    `duel_ticks` from the schedule, used when the duel doesn't state them."""
+    `duel_ticks`, used when the duel doesn't state them."""
     problems: list[str] = []
     did = first(raw, "id", "duel_id", "duel")
     status = str(first(raw, "status", "state") or "")
@@ -182,13 +185,19 @@ def parse_duel(raw: dict[str, Any], *, team: set[str], tick: int | None, default
         view = DuelView(
             duel_id=did, role=role, limit=round(limit), item=str(item or ""), context=str(context or "")[:600],
             rival=rival, market=str(market) if market is not None else None, issues=[str(i) for i in issues],
-            days_weight=weight, decay=as_number(raw.get("decay")) or defaults.get("decay"),
+            days_weight=weight, decay=as_number(first(raw, "decay_per_round", "decay")) or defaults.get("decay"),
             duel_ticks=int(duel_ticks) if duel_ticks else None,
             extra={k: v for k, v in raw.items() if k not in KNOWN})
         messages, unknown = read_messages(raw, role, team, rival)
         if unknown:
             problems.append(f"{unknown} messages with an unknown sender (taken as theirs)")
-    return Snapshot(id=did, live=live, status=status, view=view,
-                    rival_offer=as_offer(first(raw, "rival_offer", "their_offer")),
-                    our_offer=as_offer(first(raw, "your_offer", "my_offer", "own_offer")),
-                    tick=tick, deadline=deadline, ticks_left=left, messages=messages, problems=problems, raw=raw)
+    rival_offer = as_offer(first(raw, "rival_offer", "their_offer"))
+    our_offer = as_offer(first(raw, "your_offer", "my_offer", "own_offer"))
+    if view is not None and not view.has_days:
+        # A price-only duel's standing offers still say "days": 0 while its messages say null: drop the day, or
+        # their latest offer reads as a new one (counted twice in the facts).
+        rival_offer, our_offer = (o.model_copy(update={"days": None}) if o else o for o in (rival_offer, our_offer))
+    return Snapshot(id=did, live=live, status=status, view=view, rival_offer=rival_offer, our_offer=our_offer,
+                    tick=tick, deadline=deadline, ticks_left=left,
+                    rounds=int(r) if (r := as_number(raw.get("rounds"))) is not None else None,
+                    messages=messages, problems=problems, raw=raw)

@@ -8,7 +8,7 @@ $market
 Rules of the duel:
 $rules
 
-Your goal is to close a deal that keeps as much of the value as possible for your side. No deal at all scores zero, and every tick of talk makes any deal worth less.
+Your goal is to close a deal that keeps as much of the value as possible for your side. No deal at all scores zero, and every round of offers (each side naming a price once more) makes any deal worth less.
 
 How to negotiate:
 - Pick the price inside the band that the conversation supports, and make the message persuasive: give reasons grounded in the item and the market, answer their questions and arguments. Keep it short: two or three sentences.

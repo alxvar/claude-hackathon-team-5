@@ -73,6 +73,10 @@ class Records:
                 f.write(json.dumps({"tick": tick, **{k: score.get(k) for k in
                                     ("duel_points", "negotiating", "score", "rank")}}) + "\n")
 
+    def sessions(self) -> dict[Any, dict[str, Any]]:
+        """Each duel session's params (name, duel_ticks, decay) by number, from the feed's `duels.scheduled`."""
+        return sessions_in(self._read_jsonl(self.feed_path))
+
     def add_feed(self, events: list[dict[str, Any]]) -> int:
         """Keeps the feed's duel events (new ones only). Returns how many were new."""
         fresh = [e for e in events if str(e.get("type", "")).startswith("duel") and e.get("id") not in self._feed_ids]
@@ -105,10 +109,16 @@ class Records:
         return out
 
 
+def sessions_in(events: list[dict[str, Any]]) -> dict[Any, dict[str, Any]]:
+    return {e["payload"]["session"]: e["payload"] for e in events
+            if e.get("type") == "duels.scheduled" and "session" in (e.get("payload") or {})}
+
+
 # The review
 
-def summary(rec: dict[str, Any]) -> dict[str, Any]:
-    """One row per duel. Field names of the final payload are guesses until the practice shows them."""
+def summary(rec: dict[str, Any], sessions: dict[Any, dict[str, Any]] | None = None) -> dict[str, Any]:
+    """One row per duel. The session's name comes from the feed by the duel's own session number: Friday's
+    records carry the schedule's next session ("Duels I") for the practice."""
     done = rec.get("done") or {}
     last = (rec.get("payloads") or [{}])[-1].get("raw") or {} if rec.get("payloads") else {}
     raw = {**last, **done}
@@ -130,7 +140,7 @@ def summary(rec: dict[str, Any]) -> dict[str, Any]:
     took = [d["took_s"] for d in decisions if d.get("took_s") is not None]
     return {
         "duel": rec.get("duel"),
-        "session": (rec.get("session") or {}).get("name"),
+        "session": ((sessions or {}).get(raw.get("session")) or rec.get("session") or {}).get("name"),
         "rival": view.get("rival") or first(raw, "rival", "rival_alias", "opponent", "alias"),
         "role": role.value if role else None,
         "limit": limit,
@@ -153,7 +163,8 @@ COLUMNS = ["duel", "session", "rival", "role", "limit", "our_first", "our_last",
 
 
 def review(records: Records) -> str:
-    rows = [summary(r) for r in records.all()]
+    sessions = records.sessions()
+    rows = [summary(r, sessions) for r in records.all()]
     cell = (lambda v: "" if v is None else str(v).replace("|", "/"))
     lines = ["# Duel records", "",
              "_Written by `uv run python -m agents.duelist review`. One `duel-<id>.json` per duel holds everything; "

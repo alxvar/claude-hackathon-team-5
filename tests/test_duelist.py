@@ -6,7 +6,8 @@ from pathlib import Path
 from agents.duelist.adapter import parse_duel
 from agents.duelist.agent import BandPlan, Decision, DuelAgent, ledger, make_band
 from agents.duelist.model import DuelView, Observation, Offer, Role, Turn
-from agents.duelist.runner import DuelRunner, Log, signature
+from agents.duelist.records import Records, summary
+from agents.duelist.runner import DuelRunner, Log
 from engine import LLMError, Reply
 
 DUELS = Path(__file__).resolve().parents[1] / "docs" / "duels"
@@ -242,14 +243,9 @@ def runner(b, model, tmp_path: Path) -> DuelRunner:
 
 
 def answered(r: DuelRunner, raw: dict, tick: int):
-    """The runner as it was live on `tick`: the duel read, and our messages in the payload sent by us."""
+    """The runner first reading a duel on `tick`, as after a restart: our messages in the payload count as sent."""
     r.tick = tick
-    mem = r.update(raw)
-    ours = [m for m in raw["messages"] if m["from"] == "you"]
-    mem.sent = [Turn(mine=True, text=m["text"], offer=Offer(price=m["price"]), tick=m["tick"]) for m in ours]
-    mem.sent_tick = mem.decided_tick = ours[-1]["tick"]
-    mem.decided_on = signature(mem.snap)
-    return mem
+    return r.update(raw)
 
 
 def test_duel_181_accepts_their_offer_inside_our_limit_before_the_deadline(tmp_path: Path):
@@ -269,7 +265,8 @@ def test_duel_181_accepts_their_offer_inside_our_limit_before_the_deadline(tmp_p
     assert not r.due(mem)
 
 
-def test_an_acceptance_held_by_another_waits_for_the_next_tick(tmp_path: Path):
+def test_when_our_acceptance_must_wait_we_offer_their_price_if_that_adds_no_round(tmp_path: Path):
+    # 181 on 142: we have made 6 priced offers, they 2, so offering their 73 leaves rounds = min at 2.
     b = FakeBazaar()
     r = runner(b, FakeModel(plan(67, 66, 68)), tmp_path)
     raw = recorded(181, 141)
@@ -278,12 +275,51 @@ def test_an_acceptance_held_by_another_waits_for_the_next_tick(tmp_path: Path):
     mem = r.update(raw)
     r.accepted_tick = 142                               # another duel took the team's acceptance on 142
     asyncio.run(r.decide(mem))
-    assert b.accepted == [] and mem.pending and not r.due(mem)   # held, and not retried on the same tick
-    r.tick = 143
+    assert b.accepted == [] and b.said[-1][0] == 181 and b.said[-1][2] == 73 and not r.due(mem)
+    r.tick = 143                                        # they didn't take it: our acceptance is free again
     mem = r.update(raw)
     assert r.due(mem)
     asyncio.run(r.decide(mem))
     assert b.accepted == [181]                          # 143: the last tick it can still land on
+
+
+def test_when_their_price_would_add_a_round_our_acceptance_waits_a_tick(tmp_path: Path):
+    # 200 on 157 (we sell at cost 68): their 87 then 102, our 104. Gap 2: code accepts 102. Offering 102
+    # instead would make it 2 priced offers each, 2 rounds: 34 x 0.94^2 = 30.0 instead of 32.0.
+    b = FakeBazaar()
+    r = runner(b, FakeModel(plan(104, 105, 103)), tmp_path)
+    mem = answered(r, recorded(200, 157), 157)
+    assert r.closing(mem) == "small gap"
+    r.accepted_tick = 157
+    asyncio.run(r.decide(mem))
+    assert b.accepted == b.said == [] and mem.pending and not r.due(mem)   # held, not retried on the same tick
+    r.tick = 158
+    mem = r.update(recorded(200, 157))
+    assert r.due(mem)
+    asyncio.run(r.decide(mem))
+    assert b.accepted == [200]
+
+
+def test_a_gap_smaller_than_one_more_round_is_closed_by_accepting(tmp_path: Path):
+    # 199 on 156 (we buy, value 150): their 97 against our 96, surplus 53: one more round risks ~3 P, the gap
+    # is 1. Friday's models accepted too; now code does it without asking them.
+    b = FakeBazaar()
+    fake = FakeModel(plan(96, 95, 97))
+    r = runner(b, fake, tmp_path)
+    mem = answered(r, recorded(199, 156), 156)
+    assert r.due(mem) and r.closing(mem) == "small gap"
+    asyncio.run(r.decide(mem))
+    assert b.accepted == [199] and fake.seen == []
+    # Had our 96 come after their 97, they'd get the tick to take it.
+    raw = recorded(199, 156)
+    r1 = runner(FakeBazaar(), fake, tmp_path)
+    mem = answered(r1, {**raw, "messages": [*raw["messages"][:-2], raw["messages"][-1], raw["messages"][-2]]}, 156)
+    assert r1.closing(mem) is None
+    # 227 on 159 (we sell at cost 130): their 152 against our 156, surplus 22: a gap of 4 is worth more than
+    # a round (~2.8 P), so the models keep it.
+    r2 = runner(FakeBazaar(), fake, tmp_path)
+    mem = answered(r2, recorded(227, 159), 159)
+    assert r2.closing(mem) is None
 
 
 def test_near_the_deadline_we_decide_every_tick_even_with_a_silent_rival(tmp_path: Path):
@@ -327,10 +363,10 @@ def test_offers_inside_our_limit_ending_together_are_accepted_one_per_tick_bigge
         r.tick = tick
         for did, raw in raws.items():
             r.update({**raw, "status": "deal"} if did in b.accepted else raw)
-        if (mem := r.closer()) is not None:
-            asyncio.run(r.decide(mem))
-            order.append((tick, b.accepted[-1]))
-    assert order == [(112, 2), (113, 3), (114, 1)]      # surplus 30, 20, 10: all by 2 ticks left
+        if (c := r.closer()) is not None:
+            asyncio.run(r.decide(c[0]))
+            order.append((tick, b.accepted[-1], c[1]))
+    assert order == [(112, 2, "deadline"), (113, 3, "deadline"), (114, 1, "deadline")]   # surplus 30, 20, 10
 
 
 def test_code_never_accepts_a_days_duel_on_price_alone(tmp_path: Path):
@@ -339,3 +375,66 @@ def test_code_never_accepts_a_days_duel_on_price_alone(tmp_path: Path):
                  "issues": ["price", "days"], "your_days_weight": 1, "rival_offer": {"price": 70, "days": 3},
                  "messages": [{"tick": 100, "from": "you", "text": "60 P.", "price": 60, "days": 5}]}, 114)
     assert r.closer() is None
+
+
+def test_decay_and_rounds_come_from_the_duel_itself():
+    s = parse_duel(recorded(181, 141), team=set(), tick=141, defaults={"decay": 0.08})
+    assert s.view.decay == 0.06 and s.rounds == 2       # decay_per_round, not the next session's 8%
+    assert "decay_per_round" not in s.view.extra and "days_meaning" in s.view.extra
+
+
+def test_session_params_come_from_the_feed_by_the_duels_own_session(tmp_path: Path):
+    rec = Records(tmp_path / "duels")
+    rec.add_feed([{"id": 1, "type": "duels.scheduled", "payload": {"session": 2, "name": "Duels I",
+                                                                   "duel_ticks": 16, "decay": 0.06}}])
+    r = DuelRunner(FakeBazaar(), FakeModel(plan(60, 58, 62)), FakeModel(plan(60, 58, 62)), dry_run=False,
+                   log=Log(tmp_path), decay=None, duel_ticks=None, poll_s=1, records=rec)
+    r.tick = 141
+    mem = r.update({**recorded(181, 141), "session": 2})
+    assert mem.agent.view.duel_ticks == 16 and rec.load(181)["session"]["name"] == "Duels I"
+    r.learn_sessions([{"id": 2, "type": "duels.scheduled", "payload": {"session": 3, "name": "Duels II"}}])
+    assert r.sessions[3]["name"] == "Duels II"
+
+
+def test_review_names_fridays_practice_from_the_feed():
+    recs = Records(DUELS)
+    row = summary(recs.load(181), recs.sessions())
+    assert row["session"] == "Practice duels"            # the record itself says "Duels I"
+
+
+def test_a_restart_waits_like_before_instead_of_resending(tmp_path: Path):
+    # Duel 181, tick 137: a restart re-sent our standing 54 because a fresh process saw nothing sent.
+    raw = recorded(181, 137)
+    raw = {**raw, "messages": [m for m in raw["messages"] if m["tick"] < 137]}   # as read before we spoke on 137
+    r = runner(FakeBazaar(), FakeModel(plan(54, 53, 55)), tmp_path)
+    mem = answered(r, raw, 137)
+    assert [t.offer.price for t in mem.sent] == [50, 50, 54] and not r.due(mem)
+
+
+def test_a_message_we_did_not_send_is_flagged(tmp_path: Path, capsys):
+    r = runner(FakeBazaar(), FakeModel(plan(67, 66, 68)), tmp_path)
+    raw = recorded(181, 141)
+    answered(r, {**raw, "messages": raw["messages"][:-1]}, 141)
+    r.update(raw)                                        # our 67 on 141 came from somewhere else
+    assert "another duelist" in capsys.readouterr().out
+
+
+def test_ledger_counts_rounds_and_prices_one_more(tmp_path: Path):
+    r = runner(FakeBazaar(), FakeModel(plan(67, 66, 68)), tmp_path)
+    text = ledger(r.observe(answered(r, recorded(181, 141), 141)))
+    assert "Their offers so far: 81 P, 73 P\n" in text                  # the standing offer is not a third one
+    assert "Rounds so far: 2 (the smaller of your 6 priced offers and their 2)" in text
+    assert "adds no round by itself" in text and "worth about 11 P" in text   # 12 x 0.94^2
+    text = ledger(r.observe(answered(r, recorded(200, 157), 157)))      # 87, our 104, their 102
+    assert "Your next priced offer adds a round at once" in text
+
+
+def test_a_second_duelist_on_one_machine_refuses_to_start(tmp_path: Path):
+    import pytest
+    from agents.duelist.__main__ import ALREADY_RUNNING, single_instance
+    held = single_instance(tmp_path)
+    with pytest.raises(SystemExit) as e:
+        single_instance(tmp_path)
+    assert e.value.code == ALREADY_RUNNING
+    held.close()
+    single_instance(tmp_path).close()                   # free again once the first one is gone

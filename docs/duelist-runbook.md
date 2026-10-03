@@ -11,7 +11,7 @@ The duel agent is `agents/duelist/`, running on the model engine in `engine/`: r
 
 ## The first duel (practice session, Friday at hour 2.0, about 21:00)
 
-The schedule says the practice duels last 12 ticks, lose 6% per tick, run 6 at a time, are price only, and don't score.
+The schedule says the practice duels last 12 ticks, lose 6% per round, run 6 at a time, are price only, and don't score.
 
 1. A few minutes before, run `uv run python -m agents.duelist probe`. It shows the clock, the duel sessions, and any live duels as raw JSON, and saves them to `logs/duelist/`.
 2. When duels appear, start `uv run python -m agents.duelist run` and leave it running. It polls every 2 s and decides for a duel (at most once per tick) when the rival has moved, on each of the last 3 ticks whatever the rival does, and when both sides have sat still for 3 ticks after the rival's first offer. It sends at most one message per duel per tick. Every move is printed on one line: tick, duel, role, limit, the move, the band, and how long the decision took.
@@ -27,7 +27,7 @@ The schedule says the practice duels last 12 ticks, lose 6% per tick, run 6 at a
 | `--negotiator-model` | same as `--model` | `claude-sonnet-5-5` or `claude-haiku-4-5` for a faster second call |
 | `--thinking-off` | off | Sonnet 5.5 only: no thinking at all (`between_tools`) |
 
-Ticks are 60 s on Friday, 30 s on Saturday and 15 s on Sunday. A decision that takes longer than the tick minus 5 s is replaced by restating our last offer. Check the decision times printed in the practice session before Sunday.
+Ticks are 60 s on Friday, 30 s on Saturday and 15 s on Sunday. A decision that takes longer than the tick minus 5 s is replaced by code's move (`agent.safe_move`, see Fallbacks). Check the decision times printed in the practice session before Sunday.
 
 ## Records: every duel, kept in the repo
 
@@ -50,10 +50,10 @@ After each session: `uv run python -m agents.duelist review` writes `docs/duels/
 
 Questions to answer from it, before the scored Duels I on Saturday (hour 6.5, 16 ticks):
 
-1. What the duel payload's real field names are, and what `deadline` means (a tick number or ticks left).
-2. Whether there's a message list, and how our messages are marked.
-3. Whether a "round" of decay is a tick or a message.
-4. How the result is scored, and how the days weight looks (for Duels II, hour 13).
+1. What the duel payload's real field names are, and what `deadline` means (a tick number or ticks left). **Answered:** `deadline_tick` is a tick number, the tick the duel closes on.
+2. Whether there's a message list, and how our messages are marked. **Answered:** `messages`, ours `"from": "you"`.
+3. Whether a "round" of decay is a tick or a message. **Answered:** a round is a pair of priced offers: `result` = our surplus × (1 − `decay_per_round`)^`rounds`, `rounds` = min(our priced offers, theirs). Silence costs nothing.
+4. How the result is scored, and how the days weight looks (for Duels II, hour 13). Open: `your_days_weight` and `days_meaning` were null in the practice.
 
 ## Safety rails in code
 
@@ -61,7 +61,13 @@ Questions to answer from it, before the scored Duels I on Saturday (hour 6.5, 16
 - We never write an amount past our limit in a message.
 - An acceptance is dropped if the rival's offer changed while we were deciding.
 - One acceptance per team per tick: a second one waits for the next tick.
-- Near the deadline, code accepts a standing offer inside our limit without asking the models (`runner.closer`): one per tick, earliest deadline first, then the bigger surplus, so every such offer is accepted by 2 ticks left (duel 181 lost 10.6 points by not accepting). Price-only duels; a duel with days is left to the models.
+- Code accepts a standing offer inside our limit without asking the models (`runner.closer`), price-only duels:
+  - **deadline:** one per tick, earliest deadline first, then the bigger surplus, so every such offer is accepted by 2 ticks left (duel 181 lost 10.6 points by not accepting);
+  - **small gap:** when their offer answers ours and the gap is at most max(2 P, 2d/(1−d) × our surplus), what one more round risks (duel 199: 97 against our 96).
+- When our acceptance must wait (the team's one acceptance this tick is spent), we offer the rival its own price instead, so it accepts, but only when that adds no round (we have made at least as many priced offers) or on the last tick (`runner.their_price`).
+- One duelist per machine: `run` takes a lock (`logs/duelist/run.lock`); a second one exits with code 3 and `supervise.sh` stops. Across machines, the console prints `WARNING ... another duelist` when the game shows a priced message from our side this process didn't send.
+- After a restart, our messages in the game count as sent: no re-sent offers (181 re-sent 50 and 54 on Friday).
+- Decay and rounds come from the duel itself (`decay_per_round`, `rounds`); the session's name and ticks from the feed's `duels.scheduled`, never from the schedule (which lists only sessions still to come).
 - Ticks left count the ticks we can still move on: the duel closes on its `deadline_tick`, so the last move is on the tick before.
 ## Fallbacks, layer by layer
 

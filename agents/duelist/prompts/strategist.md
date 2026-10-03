@@ -9,7 +9,7 @@ $extra
 Rules of the duel:
 $rules
 
-The goal is a deal that keeps as much of the value as possible for your side. Your score is the share of the gap between the two limits that the deal gives you, shrunk by the time it took. A deal at your limit is worth nothing to you, and no deal at all scores zero. So the aim is the best deal that can realistically close soon, and your limit is where you stop, not where you head.
+The goal is a deal that keeps as much of the value as possible for your side. Your score is the share of the gap between the two limits that the deal gives you, shrunk by the rounds of offers it took. A deal at your limit is worth nothing to you, and no deal at all scores zero. So the aim is the best deal that can realistically close soon, and your limit is where you stop, not where you head.
 
 Where the deal can land: your limit and theirs bound the range of possible deals, and you only know yours. Their limit is somewhere beyond their own offers, probably well beyond. Each of their offers tells you the least they would accept, never the most. Opponents often open extreme and sit still to see whether you will pay for their patience. Moving toward your limit answers a stubborn opponent by rewarding it.
 
@@ -25,8 +25,8 @@ How to set the band:
 
 When the duel ends, and what time costs:
 - Each tick, each side may send one message. The duel ends at its deadline; if no offer has been accepted by then, there is no deal and both sides score zero, however close the offers were.
-- Time is not free: the value of any deal shrinks with every tick of talk (the facts say by how much). Holding firm costs both sides every tick. Prefer fewer, meaningful concessions to many tiny ones, and once the two offers are close, close the gap at once rather than haggle over the rest.
-- Hold firm while the offers are far apart, as above. But once their standing offer is within your limit and the gap between the two offers is small next to how far the two sides have already moved, don't spend ticks on the rest: what you can still win is the small gap, and what you lose is a share of the whole deal every tick, and the deal itself if time runs out. Then set "worst" at or beyond their offer so the negotiator can accept it, or split the small gap once at most.
+- Rounds are not free: every round of offers (each side naming a price once more) shrinks any deal by the decay, and the facts say what one more round would cost. Time alone and silence cost nothing but the risk of the deadline, so a step of a point or two is rarely worth a round. Prefer fewer, meaningful concessions to many tiny ones, and once the two offers are close, close the gap at once rather than haggle over the rest.
+- Hold firm while the offers are far apart, as above. But once their standing offer is within your limit and the gap between the two offers is small next to how far the two sides have already moved, don't spend rounds on the rest: what you can still win is the small gap, and what you lose is a share of the whole deal every round, and the deal itself if time runs out. Then set "worst" at or beyond their offer so the negotiator can accept it, or split the small gap once at most.
 - In the last two ticks, move to a price they can close at, but still stay clear of your limit unless nothing else would close.
 - If the facts say this is the last tick, an offer in it may never be answered. If their standing offer is within your limit, set "worst" at or beyond it so the negotiator can accept it.
 $days_guide

@@ -10,9 +10,11 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import fcntl
 import json
 import os
 from pathlib import Path
+from typing import IO
 
 from dotenv import find_dotenv, load_dotenv
 
@@ -27,6 +29,7 @@ from .records import Records, review as review_table
 from .runner import DuelRunner, Log
 
 LOGS = Path(__file__).resolve().parents[2] / "logs" / "duelist"
+ALREADY_RUNNING = 3     # exit code: another duelist holds the lock (supervise.sh stops on it)
 
 
 def bazaar(wait_on_tick: bool = False) -> Bazaar:
@@ -81,7 +84,27 @@ def smoke(a: argparse.Namespace) -> None:
                       **move.meta}, indent=2, default=str))
 
 
+def single_instance(folder: Path = LOGS) -> IO[str]:
+    """Never two duelists on one machine: an exclusive lock, held until the process exits. Across machines, the
+    runner warns when the game shows a message from our side it didn't send."""
+    folder.mkdir(parents=True, exist_ok=True)
+    f = (folder / "run.lock").open("a+")
+    try:
+        fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except BlockingIOError:
+        f.seek(0)
+        print(f"another duelist is already running on this machine ({f.read().strip() or 'pid unknown'}); "
+              "not starting a second one on the team key")
+        raise SystemExit(ALREADY_RUNNING) from None
+    f.seek(0)
+    f.truncate()
+    f.write(f"pid {os.getpid()}\n")
+    f.flush()
+    return f
+
+
 def run(a: argparse.Namespace) -> None:
+    lock = None if a.dry_run else single_instance()  # noqa: F841  (held for the life of the process)
     strategist, negotiator = models(a)
     runner = DuelRunner(bazaar(), strategist, negotiator, dry_run=a.dry_run, log=Log(LOGS), decay=a.decay,
                         duel_ticks=a.duel_ticks, poll_s=a.poll, records=Records())
@@ -118,8 +141,8 @@ def main() -> None:
             s.add_argument("--days", action="store_true", help="a two-issue duel (price and delivery day)")
         else:
             s.add_argument("--dry-run", action="store_true", help="decide and print, but send nothing")
-            s.add_argument("--decay", type=float, help="override the session's decay per tick")
-            s.add_argument("--duel-ticks", type=int, help="override the session's ticks per duel")
+            s.add_argument("--decay", type=float, help="decay per round, when the duel doesn't state it")
+            s.add_argument("--duel-ticks", type=int, help="ticks per duel, when the feed doesn't say")
             s.add_argument("--poll", type=float, default=2.0, help="seconds between polls (two reads each)")
     sub.add_parser("review", help="every recorded duel in one table").set_defaults(fn=review)
     sub.choices["probe"].set_defaults(fn=probe)

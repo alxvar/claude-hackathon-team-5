@@ -5,7 +5,7 @@ picks the price inside it and writes the message; code only holds the move to th
 
 Changes from regateo's v4 for the duels (docs/plan-clock-standing-on-bazaar.md §4.2):
 - offers are read from the structured fields, not from the text ("words persuade, structure binds");
-- the clock is in ticks, and the strategist is told that a deal loses value with every tick (`decay`);
+- the clock is in ticks, and the strategist is told that a deal loses value with every round of offers (`decay`);
 - with the `days` issue, the strategist also picks a delivery day and every priced message carries one;
 - prices are whole primas, rounded toward our side so rounding can never cross the limit.
 

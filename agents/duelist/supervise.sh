@@ -8,6 +8,10 @@ trap 'echo "supervisor stopped"; exit 0' INT TERM
 while true; do
   uv run python -m agents.duelist run "$@"
   code=$?
+  if [ "$code" -eq 3 ]; then
+    echo "$(date +%H:%M:%S) another duelist holds the lock on this machine; not restarting"
+    exit 3
+  fi
   echo "$(date +%H:%M:%S) duelist exited ($code); restarting in 5 s (Ctrl-C to stop)"
   sleep 5
 done

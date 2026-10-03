@@ -2,10 +2,14 @@
 the move to the band and the hard limits (regateo agents/ranged/v4, config clock-standing: `hold`, `standing`
 and `clock` on, the negotiator never told our limit).
 
-Code states facts only: offers so far, how far each side has moved, ticks left, the decay, the gap. Prices and
+Code states facts only: offers so far, how far each side has moved, ticks left, rounds and what one more costs, the
+gap. Prices and
 when to accept stay with the models, with two exceptions. The fallback when both models fail (`safe_move`)
-concedes on a schedule and accepts once their offer meets it, so a duel still closes. And near the deadline,
-code accepts a standing offer inside our limit when the runner says the acceptance can't wait (`close`).
+concedes on a schedule and accepts once their offer meets it, so a duel still closes. And code accepts a standing
+offer inside our limit when the runner says the acceptance can't wait (`close`).
+
+Decay is per round, not per tick (Friday's 30 practice duels): result = our surplus x (1 - decay)^rounds, with
+rounds = min(our priced offers, theirs). Silence costs nothing but the deadline.
 """
 from __future__ import annotations
 
@@ -153,15 +157,22 @@ def ledger(obs: Observation) -> str:
     else:
         total = f" of {v.duel_ticks}" if v.duel_ticks else ""
         lines.append(f"- Ticks left in the duel, including this one: {obs.ticks_left}{total}.")
+    rounds = obs.rounds if obs.rounds is not None else min(len(ours), len(theirs))
     if v.decay:
-        lines.append(f"- Every tick, any deal loses about {v.decay:.0%} of its value"
-                     + (f"; one closed {obs.ticks_left - 1} ticks from now would be worth about "
-                        f"{(1 - v.decay) ** max(obs.ticks_left - 1, 0):.0%} of a deal closed now."
-                        if obs.ticks_left and obs.ticks_left > 2 else "."))
+        lines.append(f"- Rounds so far: {rounds} (the smaller of your {len(ours)} priced offers and their "
+                     f"{len(theirs)}). Each round costs any deal about {v.decay:.0%} of its value; time alone "
+                     "costs nothing.")
+        lines.append("- Your next priced offer adds a round at once (they have made more priced offers than you)."
+                     if len(ours) < len(theirs) else
+                     "- Your next priced offer adds no round by itself; a priced reply from them would.")
     their = standing_price(obs)
     if their is not None:
         lines.append(f"- Their standing offer: {fmt_offer(v, theirs[-1]) if theirs else f(their)}"
                      + (" (within your limit)." if not past_limit(v, their) else " (past your limit)."))
+        if v.decay and not past_limit(v, their):
+            worth = s * (their - v.limit) * (1 - v.decay) ** rounds
+            lines.append(f"- Accepting it now is worth about {f(round(worth))} to you; each further round would "
+                         f"take about {f(round(worth * v.decay))} off any deal near it.")
     if their is not None and ours:
         gap = s * (ours[-1].price - their)                  # positive: our last offer is better for us
         lines.append(f"- Gap between your last offer ({f(ours[-1].price)}) and their standing offer ({f(their)}): "
@@ -184,7 +195,9 @@ def brief(view: DuelView, *, strategist: bool) -> dict[str, str]:
              f"- The duel lasts {view.duel_ticks} ticks." if view.duel_ticks else
              "- The duel has a deadline; the facts each turn say how many ticks are left."]
     if view.decay:
-        rules.append(f"- The value of any deal shrinks by about {view.decay:.0%} with every tick of talk.")
+        rules.append(f"- Every round of offers shrinks the value of any deal by about {view.decay:.0%}. The rounds "
+                     "are the smaller of the two sides' numbers of priced offers, so time alone costs nothing and "
+                     "silence adds no round.")
     if view.has_days:
         rules.append("- The duel settles two issues: the price and a delivery day from 0 to 10. Every offer names both.")
     item = view.item or "an item"
@@ -406,12 +419,13 @@ class DuelAgent:
                                                                   days is not None else ".")
         return Move("offer", text, price=price, days=days, meta=meta)
 
-    def close(self, obs: Observation) -> Move:
+    def close(self, obs: Observation, why: str) -> Move:
         """Code's acceptance of their standing offer, no model asked: the runner calls it when the offer is inside
-        our limit and the acceptance can't wait for the deadline (duel 181: their 73 sat inside our 85 for the
-        last three ticks and the duel ended with no deal). `final` still checks the limit."""
+        our limit and either the acceptance can't wait for the deadline (duel 181: their 73 sat inside our 85 for
+        the last three ticks and the duel ended with no deal) or the gap is smaller than what one more round
+        risks. `final` still checks the limit."""
         self.calls = []
-        return Move("accept", "Agreed.", price=standing_price(obs), meta={"rule": "deadline"})
+        return Move("accept", "Agreed.", price=standing_price(obs), meta={"rule": why})
 
     def repair(self, d: Decision, obs: Observation, band: Band, days: int | None, /, **meta: Any) -> Move:
         """A decision that failed its checks twice: an offer clamped into the band with a plain message."""

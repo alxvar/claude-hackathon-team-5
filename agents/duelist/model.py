@@ -45,7 +45,7 @@ class DuelView(BaseModel):
     market: str | None = None               # whatever the game says about the market, as text
     issues: list[str] = Field(default_factory=lambda: ["price"])
     days_weight: Any = None                 # as the game gives it
-    decay: float | None = None              # share of the deal's value lost per tick
+    decay: float | None = None              # share of the deal's value lost per round of offers
     duel_ticks: int | None = None
     extra: dict[str, Any] = Field(default_factory=dict)   # unrecognised fields of the payload, for the strategist
 
@@ -60,6 +60,7 @@ class Observation(BaseModel):
     rival_offer: Offer | None = None        # their standing offer, as the game states it
     tick: int | None = None
     ticks_left: int | None = None           # ticks left including the current one; None: unknown
+    rounds: int | None = None               # the game's count of rounds so far; None: not given
 
     @property
     def ours(self) -> list[Turn]:
