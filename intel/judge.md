@@ -1,48 +1,58 @@
-# Judge (claude-opus-5-5, Sat 20:06)
+# Judge (claude-opus-5-5, Sat 20:22)
 
 ## Verdict
-**Holding #3 but falling behind the leader.** We are 31.92 (+0.2/60 min), Team 10 is 34.2 (+2.5) and Team 6 is 32.5 (+0.8). Our gap to Team 10 grew from 1.42 (tick 1100) to 2.3. Team 12 is climbing fastest (+2.7/60, 3.5 behind). `neg_points` has been flat at 119.1 since tick 988 (~190 ticks).
+**Falling behind the leaders.** We are #3 at 31.6 (−0.0 over 60 min). Team 10 is at 34.0 (+1.9) and Team 6 at 32.6 (+1.1). `neg_points` has been flat at 119.1 since tick 988, which is 213 ticks without a scored deal. The gap to #1 is 2.4.
 
 ## Our strategies: keep / kill / scale
-- **Dealer bot: kill.** Picaros LAV-04 walked at 19:04 with 0 change. The last 8 dealer threads closed with no trade. The ladder is capped (17:45), flags are done and egg hunting has stopped.
-- **Trading loop: keep, low yield.** Its last accepts were +6.2 (15:48) and +15.5 (17:46), with nothing since. It is paused from 20:25 for Duels II.
-- **Our asks (6 open): keep as maker, but they are marginal.**
-  - Each gains ≤2.8: LAV-03/04 at 6 vs 3.2, MAL at 9 vs 7, MAL-08 at 20 vs 17.5.
-  - The whole book is ≤ ~12 neg (≈0.6 board at the 0.05/np rate measured at 17:46).
-  - LAV-04 has gone unfilled since ~19:09 across t04 and t01.
-  - **Risk:** LAV-04 → t01. t01 collects LAV, is 8.0 below us (the feeding rule needs ≥10) and is allied with t10 (17:45). Whether it closes t01's LAV page is not in the data. Check that before it fills.
-- **In-room page trades: these were our best lever, now spent.** SAL-06 → +40.4 (tick 988). LAV, RET and SAL are complete. Dani's table shows no sale that passes the feeding rule.
-- **v10 venue: scale.** It is the only lever still worth whole board points (+4.99 at tick 311 [V]). Our current asks sit on v15 and El Rastro, so they add nothing to v10.
+- **In-room page closes: scale.** SAL-06 from t08 at 28 gave +40.4 `neg_points` (tick 988), and the board went #4 → #3. That one trade is about 1/3 of our total `neg_points`.
+- **Dealer bot: kill.**
+  - The ladder is capped, flat at 0.437 since 17:45.
+  - The last 8 threads (ticks 1044-1076) were all closed with no deal.
+  - Picaros LAV-04 walked at her final of 4 (worth 3.2), with 0 effect.
+- **Trading loop (auto-accept): keep. Restart only on the Chief's clearance.**
+  - It made 2 accepts today: SAL-04/RET-04 swap +6.2 and SAL-07/LAT-01 swap +15.5. That is our best non-page source.
+  - Its log has no event between the 17:46 accept and the 20:15 pause.
+- **Maker book: shrink to fillable asks.** 0 fills since tick 988.
+  - MAL-08: unfilled since 19:29 (24 → 20).
+  - LAV-04: unfilled since 19:29 (9 → 7 → 6).
+  - MAL-02 → t08 at 40: worth 7 to us, no fill. The buyer is #13 (23.5, 8.1 below us; not a rival, but the ask won't fill at 40).
+  - Best case for the whole book is about +2.5 each.
+- **v10 / market lever: unmeasured.** Our current `mm_points` and the v10 fills tonight are not in the data. Report them before spending more effort.
+- **Duels II: keep.** The last 10 shown are 9 deals and 1 no-deal (`duel` 13.93). Per-duel surplus is not in the data.
+- **Flags: done** (net +20, cap reached [V]).
 
 ## Check the scout
-- **Holds:**
-  - Board numbers.
-  - The v10 +5 precedent [V tick 311].
-  - The rebate settlement risk (≈ −15 if we pay a fee on a cheap card).
-  - Never sell SAL/LAV/RET cards. But the right threshold is each card's value (68.6–177.1), not "≤ 85". Pilar's ~80 for rares is a loss at any price.
-- **Wrong:**
-  - #2 contradicts itself. Repricing MAL-08 to ≤15 sells below its value of 17.5, which is a loss.
-  - The IDs are stale: the live offers are 17392 (MAL-08 at 20, not 24) and 17330 (LAV-03), not 17053/17028.
-- **Unsupported:** "T10's gain comes mostly from venue/market". No component breakdown exists in the data.
-- **Missed:**
-  - Team 12 (+2.7/60) is the real climber.
-  - Team 14 is falling (−1.3/60), not "close".
+**Holds:**
+- Team 7's RET×8 and LAV×7.
+- RET-09 t04→t07 at 66 and RET-10 t06→t07 at 77.
+- Team 12's LAT×6, 64 deals, LAT-09 at 55.
+- Team 3 sits 1.6-1.8 behind us and is rising.
+- MAL-08's best gain is +2.5.
+
+**Wrong:**
+- **"Any trade on v10 lifts Team 10's market."** v10 is OUR venue. Team 10's venue is v07. Following this would kill our only market lever.
+- **"t04 is a live MAL-08 buyer."** t04 bought MAL-08 from t12 at 14 (tick 1142), so it now holds one. A second copy is worth 25% to them.
+- **Team 10's "+2.5 in 60 min".** Metrics say +1.9. "Market-making plus our old swap" is not in the data, and that swap was at 10:18.
+- **Team 12's "+1.1/60".** Metrics say +1.0 (+1.1 is Team 15).
+- **"Team 6 is a seller, not a buyer".** It bought SAL×4 and RET×2.
+
+**Incoherent:** Action 3 says "bid for RET-09/10" while we hold both. Drop it.
 
 ## The 3 changes with the highest expected gain
-1. **Before 20:25, Dani brokers one positive value-created trade between non-rivals on v10.**
-   - Buyer: t16 (#15, a RET collector) has live El Rastro bids: RET-06 at 13, LAV-07/08 at 12, RET-01/02 at 5.
-   - Sellers: t13 or t08 (both dump RET/LAV) list those cards on v10 at t16's bid, and t16 accepts there. The 19:40 rebate applies.
-   - Expected: mm up to +5 board [V precedent].
-   - Risks:
-     - Value created is negative if the buyer's multiplier is below the seller's (−5.2 at tick 398). Only proceed if t16 collects the set more than the seller does.
-     - Never involve t10 or Team 3.
-2. **Settle the 22:45 rebate with a MAL card we lack, bought as maker on v15 (fee 0).**
-   - Rares MAL-09/10 are worth 49 each. At the 30 P cap that is about +19 neg, instead of about −15 for a cheap El Rastro card.
-   - Fallback: MAL-06/07 (worth 17.5) at ≤ 17.5 scores ≥ 0.
-   - The Operator reads `/api/me/value` first and bids addressed to the partner (t07 dumps MAL).
-   - Risk: the partner lacks the card. Then settle at the owed amount on whatever MAL card it holds, at ≤ its value.
-3. **Duels II: Aleks picks the `days` mode now.**
-   - Merging the Builder's branch duelist-days-read @552819d is his call.
-   - Pre-load the decay-aware close: we have ≤3 exchanges at 8%.
-   - Duels II is the last scored event tonight. Its expected size is not in the data.
-   - Risk: misreading `days` flips the value of every package. Use `unsure` mode if the first payload is ambiguous.
+1. **After resume, fill v10 with 1-2 positive value-created trades between non-rivals (Dani in the room).**
+   - Pairs: a seller with a spare in a set it dumps, a buyer that collects that set and lacks the card. Examples: t13 (dumps LAT/LAV/MAL) → t07, t09 or t16 (RET/LAV collectors), each 4+ points below us.
+   - Never t10, t06, t03 or t14.
+   - Effect: ≈ +5 board per directive 17:40/19:40 [L]. That alone closes the 2.4 gap.
+   - Main risk: negative value created when a card moves to a lower-multiplier or second-copy holder (t15 SAL-07 at tick 398 took us +4.99 → −5.2). Only pass trades where the buyer collects the set and lacks the card.
+2. **Settle the 22:45 rebate as a ≥ 0 trade, not a gift.**
+   - Buy, on v15 at fee 0, one card we lack from the partner at the owed amount (≤ 30 P). MAL-06 or MAL-07 is worth 17.5 to us. Partner holdings are not in the data, so Dani must confirm one in person.
+   - Effect: about 0 to +3 `neg_points` instead of about −15 (the Operator's own estimate for a cheap card on El Rastro).
+   - Risk: no partner holds such a card. Then cap the price at our value and settle the remainder per Lucas.
+3. **Re-target the maker book. Executable by the Operator on resume.**
+   - Cancel MAL-02 at 40 → t08.
+   - Stop pitching MAL-08 to t04. Keep it → t01 at 20, or re-address it to a non-rival MAL buyer passing the feeding rule (t17 MAL×5 or t13 MAL×7) at 20, as maker.
+   - Keep LAV-03 and LAV-04 at 6 (+2.8 each).
+   - Effect: +2 to +8 `neg_points` (≈ 0.1-0.4 board at 0.05/np).
+   - Risk: near-zero cost. Fills are rare (5% of asks filled on Friday).
+
+Not recommended: re-buying the MAL page (4 cards missing; cash 120 vs floor 100) and dealer deals of any kind.
