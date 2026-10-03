@@ -1,4 +1,4 @@
-# Market plan for Sunday (Market session) · written Sun 00:24
+# Market plan for Sunday (Market session) · written Sun 00:28
 
 _Sources: intel/matches.md (matchmaker run 00:23, tick 1440; its VC estimates move between runs, so re-read it before acting), leaderboard snapshot 1440 (us 30.49), intel/market-log.md, intel/directives.md (Club Castizo, Sat 22:55). Labels: [V] measured, [L] inferred, [?] unknown. An independent verifier audited the 22:52 draft; its ten flags are applied here._
 
@@ -85,18 +85,21 @@ Spares [V, /api/me]: LAV-02 ×2, LAV-03 ×1, LAV-04 ×1. LAT-03 and LAT-04 are s
 
 ### 0.5 The 09:00 v10 list, in order, and who needs a WhatsApp first
 
-| # | Buyer | Seller | Card | Price | Expected VC (low) | Pre-agree by WhatsApp? |
-|---|---|---|---|---|---|---|
-| 1 | Team 9 | Team 7 | RET-09 | ~70 | +67.6 | YES: Team 9 (slow or manual, counters); page finisher: Chief's OK first |
-| 2 | Team 7 | Team 8 | SAL-05 | ~9 | +7.9 | YES: Team 7 (slow or manual) |
-| 3 | Team 7 | Team 9 | SAL-02 | ~9 | +6.5 | YES: Team 7 (slow or manual) |
-| 4 | Team 8 | Team 7 | MAL-02 | ~9 | +7.2 | YES: Team 8 (slow or manual); Team 7: confirm it is a spare |
-| 5 | Team 1 | Team 7 | RET-08 | ~22 | +13.7 | YES: Team 1 (slow or manual); Team 1: outside the club, Chief's OK |
-| 6 | Team 8 | Team 1 | SAL-03 | ~9 | +12.9 | YES: Team 8 (slow or manual); Team 1: outside the club, Chief's OK |
-| 7 | Team 9 | Team 16 | LAV-02 | ~9 | +11.2 | YES: Team 9 (slow or manual, counters); Team 16: outside the club, Chief's OK |
-| 8 | Team 7 | Team 1 | SAL-01 | ~9 | +7.8 | YES: Team 7 (slow or manual); Team 1: outside the club, Chief's OK |
-| 9 | Team 16 | Team 2 | RET-01 | ~9 | +7.4 | YES: Team 16 (borderline (half within 2 ticks)); Team 16: outside the club, Chief's OK |
-| 10 | Team 16 | Team 4 | RET-03 | ~9 | +7.1 | YES: Team 16 (borderline (half within 2 ticks)); Team 16: outside the club, Chief's OK |
+| # | Buyer | Seller | Card | Price | Expected VC (low) | Pre-agree by WhatsApp? | Who sends (08:30) |
+|---|---|---|---|---|---|---|---|
+| 1 | Team 9 | Team 7 | RET-09 | ~70 | +67.6 | YES: Team 9 (slow or manual, counters); page finisher: Chief's OK first | Dani → Team 7 (seller); Lucas → Team 9 (buyer) · HOLD until the Chief's OK |
+| 2 | Team 7 | Team 8 | SAL-05 | ~9 | +7.9 | YES: Team 7 (slow or manual) | Lucas → Team 8 (seller); Dani → Team 7 (buyer) |
+| 3 | Team 7 | Team 9 | SAL-02 | ~9 | +6.5 | YES: Team 7 (slow or manual) | Lucas → Team 9 (seller); Dani → Team 7 (buyer) |
+| 4 | Team 8 | Team 7 | MAL-02 | ~9 | +7.2 | YES: Team 8 (slow or manual); Team 7: confirm it is a spare | Dani → Team 7 (seller); Lucas → Team 8 (buyer) |
+| 5 | Team 1 | Team 7 | RET-08 | ~22 | +13.7 | YES: Team 1 (slow or manual); Team 1: outside the club, Chief's OK | Dani → Team 7 (seller); Lucas → Team 1 (buyer) · HOLD until the Chief's OK |
+| 6 | Team 8 | Team 1 | SAL-03 | ~9 | +12.9 | YES: Team 8 (slow or manual); Team 1: outside the club, Chief's OK | Lucas → Team 1 (seller); Lucas → Team 8 (buyer) · HOLD until the Chief's OK |
+| 7 | Team 9 | Team 16 | LAV-02 | ~9 | +11.2 | YES: Team 9 (slow or manual, counters); Team 16: outside the club, Chief's OK | Dani → Team 16 (seller); Lucas → Team 9 (buyer) · HOLD until the Chief's OK |
+| 8 | Team 7 | Team 1 | SAL-01 | ~9 | +7.8 | YES: Team 7 (slow or manual); Team 1: outside the club, Chief's OK | Lucas → Team 1 (seller); Dani → Team 7 (buyer) · HOLD until the Chief's OK |
+| 9 | Team 16 | Team 2 | RET-01 | ~9 | +7.4 | YES: Team 16 (borderline (half within 2 ticks)); Team 16: outside the club, Chief's OK | Dani → Team 2 (seller); Dani → Team 16 (buyer) · HOLD until the Chief's OK |
+| 10 | Team 16 | Team 4 | RET-03 | ~9 | +7.1 | YES: Team 16 (borderline (half within 2 ticks)); Team 16: outside the club, Chief's OK | Dani → Team 4 (seller); Dani → Team 16 (buyer) · HOLD until the Chief's OK |
+
+**Who sends [proposal, not a record]:** the repo holds no list of who has which team's WhatsApp. The split follows the directives: Lucas already messages Team 15 and brokered Team 8 ↔ Team 9 (21:40), so he keeps Teams 15, 8 and 9, plus Team 1; Dani takes Teams 7, 4, 2 and 16. Swap any name if the other holds the contact. **Dani:** Team 7 (rows 1, 2, 3, 4, 5, 8); Team 16 (rows 7, 9, 10); Team 2 (rows 9); Team 4 (rows 10) · **Lucas:** Team 9 (rows 1, 3, 7); Team 8 (rows 2, 4, 6); Team 1 (rows 5, 6, 8). The ready texts are in §2 (per pair) and in intel/club-pitch.md §4 (per team, Spanish and English).
+
 
 **Every row needs a WhatsApp (or the Chief's OK) first.** Then the seller posts the ask on v10 ADDRESSED to the buyer at the agreed price (directive 21:20) and the buyer accepts. Addressed, because an open ask on v10 can be taken by a rival's fast bot (Teams 6, 13, 14 are fast takers), which would move the card to the wrong team and can turn the VC negative.
 
@@ -106,21 +109,22 @@ Spares [V, /api/me]: LAV-02 ×2, LAV-03 ×1, LAV-04 ×1. LAT-03 and LAT-04 are s
 - **Who fed its market v07 [V, §7]:** Team 6 (maker of 6 of 11 fills), us (4, stopped), Team 4 (1); takers Teams 12 and 14 (3 each); Team 8 is the heaviest lister there.
 - **Better terms first, in this order:** Team 8 (club candidate, heaviest v07 lister), Team 4 (club candidate, v07 maker), then Team 9 (it bids for the MAL rares Team 10 holds). Teams 6, 12, 13 and 14 are rivals: no terms. Team 1 is the reported ally.
 
-## 1. What Sunday is worth and what it takes
+## 1. What Sunday is worth and what it takes (reconciled with intel/market-test-audit.md, Sun 00:40)
 
-- **Market Test: nothing to do [L].** The deck says Market Test = 7.5. After six benches every stall team shows 7.5 and no team has ever shown a market above 12.5 [V, all snapshots]. Keep the free stall v10 (auto, 0%). No board venue: it adds only the broker-down risk.
-- **Real trades [L]: points = 5.0 × min(1, our VC / mean VC of the top three venues).** An inference: it reproduced one event (snapshot 560, Team 6's rare trade) for three teams to 0.01, and nothing has contradicted it. VC = buyer's value − seller's value, summed over the round's trades on v10. A negative total looks floored at zero (we sat at exactly 7.5 with mm −5.2) [L]; §4 asks the desk. Sunday is a new round, so our −5.2 should be gone [L].
+- **Correction [V, the audit read the Payday slide as an image]: Market-making 30 = Market Test 22.5 + Real trades 7.5.** The 21:10 directive had the two numbers swapped, and the first version of this plan repeated it. The stall's 7.5 on the board is HALF the Market Test (11.25 of 22.5 round points, shown × 2/3 because Friday counts half), and +5.0 on the board is the FULL real-trades score (7.5 round points). 1 Sunday round point = 0.4 final points.
+- **Market Test: keep the free stall v10 (auto, 0%).** The other half (11.25 round points = up to +4.5 final on Sunday) is unclaimed by every team: in 51 board-venue sessions nobody beat the stall and 5 fell below it [V/L, audit §1a]. We have no broker that beats it either: in the staggered-arrival sims our variants lose more often than they win, and the stall's recordings cannot replay a broker. A board venue costs 270 P and risks a zero per session. Revisit only if the desk confirms the top-three rule pays full points for a small edge (§4).
+- **Real trades [L, strong; same fit here and in the audit]: round points = 7.5 × min(1, max(0, VC) / mean VC of the top three venues).** Full marks = 7.5 round points = **3.0 final points**. VC = buyer's value − seller's value, summed over the round's trades on v10; the scored number is `mm_points`, not the venue's `value_created`. A negative total scores 0.
 - **What counts is VC at the close, not the first hour.** A lead decays as other venues trade.
 
-Simulation [L, model; every parameter is an assumption: 11 rival venues with Saturday's uneven trade counts, 12% of trades negative, 6 h of play]. Our score by VC at the close:
+Simulation [L, model; every parameter is an assumption: 11 rival venues with Saturday's uneven trade counts, 12% of trades negative, 6 h of play; VC units scaled so that Saturday's own top-three mean comes out near the audit's bound of ~15]. Share of the full real-trades score (× 3.0 = final points) by our VC at the close:
 
-| Field trades at | rivals' top-three mean (median, p90) | VC 40 | 60 | 80 | 100 | 150 | 200 |
+| Field trades at | rivals' top-three mean (median, p90) | VC 5 | 10 | 20 | 30 | 40 | 60 |
 |---|---|---|---|---|---|---|---|
-| Saturday's hourly rate | 59, 96 | 3.3 | 4.2 | 4.7 | 4.9 | 5.0 | 5.0 |
-| 2× (15 s ticks, +550 P a team) | 108, 156 | 2.0 | 2.9 | 3.6 | 4.1 | 4.8 | 5.0 |
-| 3× | 156, 213 | 1.4 | 2.1 | 2.7 | 3.2 | 4.2 | 4.8 |
+| Saturday's hourly rate | 10, 16 | 53% | 84% | 99% | 100% | 100% | 100% |
+| 2× (15 s ticks, +550 P a team) | 18, 26 | 30% | 58% | 90% | 99% | 100% | 100% |
+| 3× | 26, 35 | 21% | 41% | 74% | 92% | 99% | 100% |
 
-Our VC needed for full marks with 80% confidence (2× case): **35 after 30 min · 50 after 1 h · 80 after 2 h · 100 after 3 h · 125 after 4 h · 170 at the close.** In trades: two big ones (a rare or a page finisher) plus one common or uncommon first-copy trade every 30-40 minutes, and **no negative trade**: one bad trade took a venue's real-trades score to zero three times on Saturday (ours, Team 12's, Team 7's).
+Our VC needed for full marks with 80% confidence (2× case): **6 after 30 min · 8 after 1 h · 13 after 2 h · 17 after 3 h · 21 after 4 h · 28 at the close.** The audit's independent estimate is 40-50 net VC by the close; plan for the higher figure. **Unit caveat [?]:** these are scoring units inferred from Saturday (about 2 per trade on Team 10's venue); the matchmaker's estimates in §2 (+7 for a common, +68 for RET-09) may be in larger units. If they are the same units, the RET-09 trade alone carries v10 for the whole day; if not, divide the §2 figures by about 3-4. Either way: **no negative trade**. One bad trade took a venue's real-trades score to zero three times on Saturday (ours, Team 12's, Team 7's).
 
 ## 2. The 10 best v10 trades for 09:00
 
@@ -211,9 +215,10 @@ Incentive is fixed by the directive (Club Castizo, Sat 22:55): seller's bonus pe
 - **Stop rule:** any fill that lowers mm: pause that seller's pitches and ask what it sold (a page card or an only copy).
 - **Prior [V, Saturday]:** 30 of 35 fills on team venues were open offers taken by board-scanning bots; 5 were addressed. On an auto stall a bid and an ask for the same card cross in the same tick whichever comes first [L]. In both arms the pair is agreed by WhatsApp and the quote is addressed (§0.5); the test is only who is asked to post first.
 
-## 4. Desk question for Dani (in writing)
+## 4. Desk questions for Dani (in writing; replaces the 22.5 question, which the slide answers)
 
-> On Saturday the best market on the leaderboard showed 12.5 = 7.5 (the Market Test) + 5.0. No venue showed more than +5.0 for real trades, and several sat at exactly +5.0 for hours. The Payday deck says real trades are worth 22.5. **What earns the full 22.5: is +5.0 a cap for Saturday, a share of the round, or does the scale change on Sunday?** Second question: our stall shows `value_created` 9.0 in its venue detail while our score shows `mm_points` −5.2 for the same two trades. **Which of the two is scored, and does a negative total subtract or stop at zero?**
+> 1. **Market Test:** if a single venue beats the free stall's efficiency by a small margin in a session and no other venue does, does it get the full Market Test points for that session, or points in proportion to its efficiency?
+> 2. **Real trades:** our stall showed `value_created` 9.0 in its venue detail while our score showed `mm_points` −5.2 for the same two trades, and at the close `mm_points` read +2.2 with no new trade. Which number is scored, what does `mm_points` subtract, and does it reset on Sunday?
 
 ## 5. Standing rules for v10 on Sunday
 
@@ -225,19 +230,19 @@ Incentive is fixed by the directive (Club Castizo, Sat 22:55): seller's bonus pe
 
 ## 6. Club forecast [L, model on top of estimates]
 
-Inputs: the club pairs in §2 (+89.2 VC in all, +67.6 in the one big trade) and the §1 simulation. Rivals' VC in these units is NOT measured: the leaderboard shows only relative points. The score column is the simulation's mean at Saturday's pace / at 2×.
+Inputs: the club pairs in §2 (+89.2 VC in all, +67.6 in the one big trade) and the §1 simulation. Rivals' VC in these units is NOT measured: the leaderboard shows only relative points. Full marks = 3.0 final points. The last column is the simulation's mean share of full marks.
 
-| Scenario at the close | VC on v10 | our points (1× / 2×) |
+| Scenario at the close | VC on v10 (matchmaker units) | share of full marks: same units, field at 1× / 2× · if matchmaker units are 3.5× larger, field at 2× |
 |---|---|---|
-| Directive (all club deals on v10), everything executed | +89 | **4.8 / 3.9** |
-| Directive, only the big trade executes | +68 | **4.4 / 3.2** |
-| Directive, everything but the big trade | +22 | **2.0 / 1.1** |
-| Rotation (the Chief's 22:52 question): half of the deals by count on v10, big trade elsewhere | +11 | **1.0 / 0.5** |
-| Rotation, but the big trade on v10 and half of the rest | +78 | **4.6 / 3.5** |
-| Club pairs + the outside pairs of §2, all on v10 | +149 | **5.0 / 4.8** |
+| Directive (all club deals on v10), everything executed | +89 | **100% / 100% · 96%** |
+| Directive, only the big trade executes | +68 | **100% / 100% · 89%** |
+| Directive, everything but the big trade | +22 | **99% / 92% · 37%** |
+| Rotation (the Chief's 22:52 question): half of the deals by count on v10, big trade elsewhere | +11 | **87% / 61% · 19%** |
+| Rotation, but the big trade on v10 and half of the rest | +78 | **100% / 100% · 93%** |
+| Club pairs + the outside pairs of §2, all on v10 | +149 | **100% / 100% · 100%** |
 
-- **By time, directive case:** if the big trade lands in the first hour, v10 holds +68, above the 50 needed after 1 h; by 12:00 the bar is about 100 and by the close 170 (2× case), so the +89.2 on the list is not enough by itself to stay at full marks all day: the want-lists have to add pairs.
-- **A rotation over members' venues by count gives v10 about 1 point or less** unless the big trade settles on v10. The 22:55 directive (all club deals on v10) avoids that. If a rotation comes back, rotate by VC, not by count.
+- **By time, directive case:** if the big trade lands in the first hour, v10 holds +68, against 8 needed after 1 h, about 17 by 12:00 and 28 by the close (2× case, scoring units), so the list covers the day in either reading of the units as long as the big trade executes; without it v10 depends on the want-lists adding pairs.
+- **A rotation over members' venues by count leaves v10 with a small share** unless the big trade settles on v10. The 22:55 directive (all club deals on v10) avoids that. If a rotation comes back, rotate by VC, not by count.
 - **The big trade is a page finisher for Team 9** (-7.3 board vs us): the Chief's call.
 - **Team 10** keeps full marks only while its VC is at least the top-three mean; it had 11 fills on Saturday and loses the 4 we made (§7).
 

@@ -26,7 +26,7 @@ Labels: **[V]** read from the data or plain arithmetic on it · **[L]** inferenc
 5. **"Never flip a dealer card" is too broad.** t06 (RET rares and RET-11 from the Pícaros, sold to teams at 77-216), t10
    (SAL-11 155 → 207) and t10/t12/t18 (Pícaros → Pilar cycles in the Salamanca fever) made money and ladder from dealer flips.
    Autoflip failed because it bought above value with no buyer lined up, not because flipping is wrong.
-6. **Friday:** about 25 neg_points of avoidable losses (packs, dealer buys above value) cost ≈ 3.9 Friday board ≈ 1.95 game
+6. **Friday:** about 25 neg_points of avoidable losses (packs, dealer buys above value) cost ≈ 3.9 Friday board ≈ 1.9 game
    points [L]. That's more than our whole gap to t18 (1.16).
 
 ---
@@ -45,8 +45,8 @@ Labels: **[V]** read from the data or plain arithmetic on it · **[L]** inferenc
 
 Readings:
 - **Market [V]:** 11.25 Saturday points = the free stall's bench (half points). Everything above it is value created (VC) on
-  the team's venue: t10 +7.5 (the most anyone reached), t06 +6.55, t09 +5.09, t16 +3.99, t14 +2.70. We, t18, t01, t04, t15, t02
-  and t07 have +0. t03 (9.12) and t12 (10.88) are below the stall because their own board venues lost bench points.
+  the team's venue. Seven teams ended above the stall line: t10 +7.5 (the most anyone reached), t06 +6.55, t09 +5.09, t16 +3.99,
+  t14 +2.70, t17 +1.71, t08 +1.42. We, t18, t01, t04, t15, t02 and t07 have +0. t03 (9.12) and t12 (10.88) are below the stall because their own board venues lost bench points.
 - **Negotiating [V]:** t03 28.08 > t10 27.24 > t18 26.06 > **us 24.49** > t01 23.03. We were 4th.
 - **Friday [V]:** t13 29.94 (it hit 30.00 at tick 120 and held), t12 27.82, t17 22.03, t10 20.75, t04 20.49, **us 19.99 (#6)**.
 
@@ -82,7 +82,7 @@ Saturday-equivalent negotiating (Saturday points, de-blended per snapshot):
 | 1000 (≈ 18:40) | 13.40 | 26.76 | +13.36 | our SAL page close (+40.4 np) |
 | 1100 (≈ 19:30) | 20.57 | 26.27 | +5.70 | t10: cheap RET page close + fever ladder cycles |
 | 1230 (≈ 20:35) | 22.78 | 26.65 | **+3.87** | Duels II starts at 1239 |
-| 1260 | 25.0 | 24.7 | −0.3 | **window 1240-1260: no deal by either team; t10 +2.18, us −1.56 = 3.74 swing** (our wave 1 opened every duel at day 5; fix live from tick 1256) |
+| 1260 | 24.95 | 25.09 | +0.14 | **window 1240-1260: no deal by either team; t10 +2.18, us −1.56 = 3.74 swing** (our wave 1 opened every duel at day 5; fix live from tick 1256) |
 | 1440 (close) | 27.24 | 24.49 | **−2.76** | t10 also did MAL-11 (195) and SAL-11 (207) team trades in this window; we had 0 deals from tick 1210 to the close |
 
 Our duel_points rose 13.93 → 35.39 in Duels II while our board negotiating *fell* 24.43 → 22.99 [V]: every part is graded
@@ -93,8 +93,9 @@ against the field, so a duel session where others gain more costs us even with a
   and 11 fills: 4 ours, 6 by t06 as maker, 1 t04 → t09. It held the VC cap from tick 720 to the close.
 - **Our venue:** listed 73 offers on v10 (mostly addressed): 2 fills, MAL-07 → t01 (+4.99 for us) then SAL-07 → t15 (VC −10.19,
   our market 12.5 → 7.5 at tick 400, never recovered).
-- **Ladder by cycling:** six Pícaros → Pilar round trips with SAL rares in the Salamanca fever (buy 52-57, sell 74-86; ticks
-  1094-1327): high-share L3 and L4 slots and +20-30 P per trip.
+- **Ladder by cycling:** five Pícaros → Pilar round trips with SAL rares (buy 52-57, sell 75-86; four inside the fever, ticks
+  1094-1178, one at 1316-1327), plus two silver-pack SAL-10 pulls sold to Pilar at 74-75: high-share L3 and L4 slots and
+  +20-30 P per trip.
 - **Cheap page close:** RET-09/10 from the Pícaros at 59/53 (≤ list 63), RET-04 from Abuela at 10, then the last card RET-03 from
   t06 at 12 on El Rastro (team trade → page bonus). We paid **Chato 87 and 86** for the same two rares in the morning (−19 np, 0 ladder).
 - **Epic trades:** MAL-11 bought from t08 at 195 as maker (tick 1264); SAL-11 bought from the Pícaros at 155 and sold to t17 at
@@ -106,7 +107,7 @@ against the field, so a duel session where others gain more costs us even with a
 
 | Team | Where it beat us | How |
 |---|---|---|
-| **t18** (+1.16 game, the #2 race) | Saturday negotiating +1.57 | Few, big trades, **all 163 listings open** on El Rastro; LAT page close (LAT-10 from t13 at 72, tick 1332, +1.92 board); SAL-11 bought from the Pícaros at 139, sold to Pilar at 199 in the fever; MAL-10 sold to t17 at 70. Same stall market as us |
+| **t18** (+1.16 game, the #2 race) | Saturday negotiating +1.57 | Few, big trades, **all 163 listings open** on El Rastro; LAT-10 from t13 at 72 (tick 1332, +1.92 board; likely its LAT page close [L]); SAL-11 bought from the Pícaros at 139, sold to Pilar at 199 in the fever; MAL-10 sold to t17 at 70. Same stall market as us |
 | **t03** (−1.22 behind us, but won Saturday negotiating) | Saturday negotiating +3.59 | Strongest Duels I of the top teams (+7.0 Saturday points in windows with no t03 deal, vs our +3.3); a 5-card bundle trade (tick 844). **Lost 2.13 Saturday points** by replacing its stall with board venue v20 (0 on a bench session) |
 | **t06** (Saturday round 36.80 > ours) | Market +6.55 | VC from only 3 trades on its v01 (incl. SAL-10 t12 → t08 at 76); 870 listings, **all open**; 25 Saturday team trades; a RET pipeline: Pícaros RET-09/10 at 52-58 → teams at 77-84, RET-11 137 → t12 at 216; SAL-11 to Ernesto for an L5 slot. Weak duels (its negotiating fell 21.61 → 19.01 in Duels II) |
 | **t12** (Friday 27.82) | Friday +7.83 board | Sold SAL rares from a low-multiplier set to collectors in the first two hours: SAL-10 80 (→ t18), SAL-09 75 (→ t17), SAL-08 35. Saturday market: its v02 took 11 fills, then two cheap page-card sales by t07 wiped its VC (12.43 → 7.5 at tick 910) |
@@ -118,15 +119,17 @@ t03 and t12 lost points with board venues. Keeping the stall was right.
 ## 4. Our explanations, challenged
 
 **4.1 "70% of t10's lead is market."** True at the close (7.5 of 10.64) [V], misleading as a diagnosis:
-- It's **our** zero, not t10's magic: nine teams created value on their venues (t09 and t16 on plain setups), we didn't.
+- It's **our** zero, not t10's magic: seven teams ended above the stall line, t16 on a plain stall and t09 on a 0% venue
+  with 6 fills; we didn't.
 - It hides the duels: we led negotiating by 3.87 at 20:35 and lost the lead in Duels II (§2.2).
 
 **4.2 "Our 10:18 venue deal fed t10."** True, and understated [V]:
 - We were maker on all 4 of our v07 fills.
 - Our SAL-01 sale at 351 took t10's market 7.50 → 11.84.
-- Our MAL-01 buy at 714 took it 12.01 → 12.50, back to the cap. The 15:55 directive had said "our trades on v07 add ~0 to it".
+- Our MAL-01 buy at 714 took it 12.01 → 12.50, back to the cap (the only v07 trade in that window [V]; the cause is [L],
+  since the field reference can also move). The 15:55 directive had said "our trades on v07 add ~0 to it".
 - In return, t10's two v10 trades netted us 0.
-- We kept 128 addressed listings on v07 through the afternoon.
+- We posted 128 addressed listings on v07 between 10:20 and 16:05 (ticks 260-712).
 
 **4.3 "Our ladder is capped."** Partly:
 - The 850-890 test was real (+0.064 ladder, board flat) [V].
@@ -198,14 +201,15 @@ close. Our board negotiating fell in windows with no events of ours [V].
   (t18: SAL-11 139 → 199).
 - Radio "Chato pays above usual for rare MAL, one hour" (tick 403): nobody used it.
 - Radio "Abuela pays more for uncommons until teatime" (943).
-- Rumours from El Tablón were false: the legendary for saying hello, the LAV reprint, "Abuela stops buying commons".
-  Radio and Boletín items came true.
+- El Tablón's rumours were false ("Abuela stops buying commons": she bought 28 more after tick 763; the legendary for a
+  hello; the LAV reprint). The Boletín's saint's-day packs never appeared in the feed either. Treat news as a prompt for one
+  probe, not as a fact.
 
 **5.5 Friday losses were self-inflicted [V me.jsonl + feed].**
 - 3 packs bought at 17-22 (start −8.5 np, unopened until tick 136 → drag).
 - MAL-07 autoflip at 29, worth 17.5: −11.8.
 - LAV-06 from Chato above list, LAV-09 at 93: ≈ −4.
-- Total ≈ −25 np. At Friday's measured rate (+50 np → +7.79 board on the LAV close) that's ≈ 3.9 Friday board ≈ 1.95 game points [L].
+- Total ≈ −25 np. At Friday's measured rate (+50 np → +7.79 board on the LAV close) that's ≈ 3.9 Friday board ≈ 1.9 game points [L].
 - **Enough to be #2 today** (gap to t18: 1.16).
 - Meanwhile the Friday leaders made one to three rare trades at collector prices (65-80) in the first two hours; we made none.
 
@@ -268,7 +272,7 @@ t10's ≥ 9.2.
 - One wrong flag costs −10.
 
 **9. Watch for events with a ready playbook.** Stake: **+0.5-2**.
-- Watch `announcement`, `persona_patch` and Radio/Boletín (ignore El Tablón).
+- Watch `announcement` and `persona_patch` (both came true on Saturday); test any news item with one small probe first.
 - Keep one or two first-copy rares of a non-page set liquid for a fever-type window.
 
 **10. Hard loss guards, the Friday lesson.** Stake: avoids **−1 to −3**.

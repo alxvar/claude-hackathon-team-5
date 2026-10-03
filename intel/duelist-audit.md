@@ -174,6 +174,79 @@ _This is the evidence risk, not a bug._ The replay put the models' real moves th
 - **An untested combination.** The code policy at `MIN_STEP_P` 5 holds under a ~42 P gap mid-duel (0.12 × gap < 5).
   That combination was never simulated.
 
+## Can the loop switch between 2-3 sets Aleks approves in advance, by a rule after each wave, with no human present?
+
+**Not as built. The change that makes it safe is small, about 80 lines plus one line in the runner.**
+
+**What a hot reload does to duels already in progress:** it applies to them at their next decision.
+- How it works:
+  - The runner re-reads `run/duel_params.json` on every new tick (`reload_params`, keyed on the file's mtime and size)
+    and sets the module globals.
+  - Every rule reads those globals when it runs: holds, caps, the worth floor, the accept and deadline rules, the
+    silent walk, the late switch.
+  - Nothing is fixed per duel.
+- Three side effects:
+  1. **The prompts don't change.** The strategist's system prompt is written when the duel starts, and it states
+     `LATE_SWITCH_LEFT` and `DAY_SAME_SIDE_P` (agent.py:446-454). A duel already running keeps the old numbers in its
+     prompt while code plays the new ones. The facts sent each turn (`MIN_STEP_P`, `MAX_STEP_SHARE`, `CLOSING_TICKS`,
+     the day rank) are current.
+  2. **The records misattribute.** A duel's record stores `params` once, when the duel starts (runner.py
+     `update`). A change in the middle of a duel shows only in the JSONL `params` event, so the wave loop scores that
+     duel under the wrong set. A rule that switches on wave results then learns from mislabelled data.
+  3. **One decision can mix the old and new values.** A decision waiting on a model call can read the old values
+     before the await and the new ones after it, for example the ledger says `MIN_STEP_P` 5 and `held()` uses 6.
+     This is harmless.
+- **Safety holds whatever the set.** No tunable can push us past our limit: `final()` checks `past_limit`, a price of
+  at least 1 P, the day 0-10 and amounts in the text, and none of those checks reads a param. Every key is
+  bounds-checked, and a bad file changes nothing.
+
+**Why it isn't ready to run without a human:**
+- **Nothing applies on its own.** `run` and `watch` only propose, and `approve` is a manual command.
+- **Calling `approve` from a cron would be unsafe:**
+  - It **merges** the proposal into the file (`{**existing, **chosen}`), so a key from set B stays after a switch back
+    to A.
+  - It accepts any value within the bounds, not just a list of approved sets.
+  - On a changed baseline it only warns (S3).
+  - `watch` reads the params file of the machine it runs on.
+- **There is no quiet moment between waves.** In Duels II, starts rolled after the first two waves, never more than
+  15 ticks apart, and each duel lasted 16. So from tick 1239 to tick 1402 at least one of our duels was live on
+  every tick (the records' deadlines). A wave counts as closed only once all its duels have
+  finished, and by then the next wave is already playing. A switch therefore always lands in the middle of some duels.
+- **One wave is noise.** With 4 duels, a single no-deal reads 0.75. The Duel Lab's own gates wait for at least 8 duels
+  with a rival that spoke.
+
+**The smallest safe change:**
+1. **A list of approved sets.** Add `duel_loop.py approve-sets --file run/duel_sets.json --by Aleks`, which Aleks runs
+   once before 11:00.
+   - The file holds `{"A": {...}, "B": {...}, "safe": {...}}`, and each set is complete: every set lists the same
+     keys.
+   - Each set is checked with `params.validate` and the CROSS rules, and the file is stamped with the approver.
+   - Allow sets to differ only in keys that are safe to change mid-duel: `MIN_STEP_P`, `MAX_STEP_SHARE`,
+     `MIN_STEP_SHARE`, `MONO_END_SHARE`, `HOLD_TICKS` and `SILENT_KEEP`. Keep the keys the prompt states, and the
+     clock keys (`LATE_SWITCH_LEFT`, `DAY_SAME_SIDE_P`, `CLOSING_TICKS`, `DECIDE_LEFT`, `ACCEPT_BY`), identical
+     across sets.
+2. **A switch command.** Add `duel_loop.py switch --every 15`, run **on the duelist's machine**, where the records
+   are local and fresh. On each newly closed wave it:
+   - runs a fixed, cumulative rule: the `duel_gates` rules mapped to set names (the REVERT gate → "safe", STEP UP → "B",
+     otherwise stay);
+   - requires at least 8 duels since the last switch and at most one switch per two waves, and never goes back to a
+     set it just left;
+   - writes `run/duel_params.json` **as a full replacement** of exactly one named set, with `write_atomic` and a
+     `_note` naming the set, wave, rule and evidence; it never merges;
+   - does nothing, with a warning, if the current file isn't one of the approved sets (someone edited it by hand);
+   - honours a kill switch (`run/duel_switch.off`, or `--dry`) and logs each switch to `intel/duel-loop.md`.
+3. **Record the set on every decision.** Add `"params": self.params.overrides() if self.params else None` to the
+   `decisions=[{...}]` record (runner.py:412), and have the loop label each duel by the set it played most of its
+   ticks under. This replaces true per-duel pinning, which would mean moving roughly 30 global reads into a
+   per-agent snapshot: not a change for Sunday morning. Since the safe keys only move thresholds, applying a switch in
+   the middle of a duel is acceptable once it is recorded.
+
+**Without that change:** keep switching by a human. Pre-write the 2-3 sets as proposal files like
+`docs/duels3-start.json`, so a switch is one command: `approve --proposal docs/<set>.json --by Aleks`.
+- **List the same keys in every set.** `approve` merges, so it then overwrites every key and nothing from the old set
+  remains.
+- **Don't `revert` first:** the defaults could play for a tick in between.
+
 ## Offline replay (Duels II, 68 duels, 514 decisions, at the Duel Lab file's settings)
 
 The records are at 16 ticks and 8% decay, not Sunday's 12 / 10%. Each decision is a one-step counterfactual on the

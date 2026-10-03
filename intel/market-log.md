@@ -1,5 +1,18 @@
 # Market log (Market session; newest first)
 
+## Sun 00:30 · CORRECTION to the 21:15 entry: the deck split was backwards [V, intel/market-test-audit.md]
+- The Payday slide reads **Market Test 22.5 + Real trades 7.5**, not 7.5 + 22.5. The 21:15 entry took the numbers from
+  the 21:10 directive. Consequences: (1) the stall's 7.5 on the board is HALF the Market Test, not its maximum: the other
+  11.25 round points are unclaimed by every team; (2) +5.0 on the board is the FULL real-trades score (7.5 round points =
+  3.0 final on Sunday): there is no 22.5 to unlock on v10.
+- Unchanged: keep the stall (no broker of ours beats it in the sims; 51 rival board sessions, none above it); the
+  real-trades fit (top-three mean); spares only, no negative trade.
+- Changed: "the bench is maxed, no broker upside" is withdrawn. The upside exists; we have no broker that takes it. Desk
+  question now: does one venue beating the stall by a hair get full Market Test points?
+- VC scale: Saturday's top-three mean was ≤ ~15 units (audit §3b); my first sim assumed ~60-150. Sunday's target is
+  about 30-50 net VC at the close, not 170. `mm_points` read +2.2 at the close with no new trade [V], market still 7.5.
+- `intel/market-sunday.md` §0 (negotiation model; first verifier pass applied, second pass running), §1, §4 and §6 rewritten accordingly.
+
 ## Sat 22:50 · bench-h13.0 (ticks 1401-1414), on the stall v10: Saturday's last
 - **Ours [V]:** bench_efficiency 0.854 (0.899 · 0.933 · 0.878 · 0.891 · 0.886 before), bench_points 0.5, market 7.5.
 - **Field at snapshot 1420 [V]:** t10 12.5 · t06 11.87 · t09 10.89 · t16 10.16 · t14 9.3 · t17 8.64 · t08 8.45 · stall
