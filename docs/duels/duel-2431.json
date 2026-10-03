@@ -997,6 +997,178 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 519,
+   "took_s": 5.46,
+   "cost_usd": 0.00787,
+   "obs": {
+    "view": {
+     "duel_id": 2431,
+     "role": "seller",
+     "limit": 125,
+     "currency": "P",
+     "item": "La Heroína del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "I can do 113 for La Heroína del Dos de Mayo. Let's not let the value melt away.",
+      "offer": {
+       "price": 113,
+       "days": null
+      },
+      "accept": false,
+      "tick": 511,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for opening, but your offer is well short of what this piece merits. La Heroína del Dos de Mayo is a distinctive, sought-after work with real historical weight, and I'm asking 175. If you want to close quickly, come up meaningfully from your starting figure.",
+      "offer": {
+       "price": 175,
+       "days": null
+      },
+      "accept": false,
+      "tick": 511,
+      "decision": {
+       "action": "offer",
+       "price": 175,
+       "message": "Thanks for opening, but your offer is well short of what this piece merits. La Heroína del Dos de Mayo is a distinctive, sought-after work with real historical weight, and I'm asking 175. If you want to close quickly, come up meaningfully from your starting figure.\n"
+      }
+     },
+     {
+      "mine": false,
+      "text": "I can do 124 for La Heroína del Dos de Mayo. Let's not let the value melt away.",
+      "offer": {
+       "price": 124,
+       "days": null
+      },
+      "accept": false,
+      "tick": 512,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate you moving up, and I've come down as well, to 168. The work carries real historical weight as an emblem of the 1808 uprising, and that is reflected in this figure. I'd ask you to close more of the remaining gap.",
+      "offer": {
+       "price": 168,
+       "days": null
+      },
+      "accept": false,
+      "tick": 512,
+      "decision": {
+       "action": "offer",
+       "price": 168,
+       "message": "I appreciate you moving up, and I've come down as well, to 168. The work carries real historical weight as an emblem of the 1808 uprising, and that is reflected in this figure. I'd ask you to close more of the remaining gap."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I can do 134 for La Heroína del Dos de Mayo. Let's not let the value melt away.",
+      "offer": {
+       "price": 134,
+       "days": null
+      },
+      "accept": false,
+      "tick": 513,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for moving up again. I've come down to 162, which reflects the painting's historical weight as an emblem of the 1808 uprising. One more solid step from you and we can wrap this up quickly.",
+      "offer": {
+       "price": 162,
+       "days": null
+      },
+      "accept": false,
+      "tick": 513,
+      "decision": {
+       "action": "offer",
+       "price": 162,
+       "message": "Thank you for moving up again. I've come down to 162, which reflects the painting's historical weight as an emblem of the 1808 uprising. One more solid step from you and we can wrap this up quickly."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I'm making a clear move down to 156, in line with the steps you took earlier. That is a real concession on my side, and the painting's historical weight as an emblem of the 1808 uprising supports it. I'd ask you to come up to meet me so we can wrap this up.",
+      "offer": {
+       "price": 156,
+       "days": null
+      },
+      "accept": false,
+      "tick": 516,
+      "decision": {
+       "action": "offer",
+       "price": 156,
+       "message": "I'm making a clear move down to 156, in line with the steps you took earlier. That is a real concession on my side, and the painting's historical weight as an emblem of the 1808 uprising supports it. I'd ask you to come up to meet me so we can wrap this up."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 134,
+     "days": null
+    },
+    "tick": 519,
+    "ticks_left": 8,
+    "rounds": 3
+   },
+   "move": {
+    "action": "message",
+    "text": "I'm holding my current offer for now and will wait for your reply.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "I'm holding my current offer for now and will wait for your reply."
+     },
+     "band": {
+      "worst": 150,
+      "target": 156,
+      "best": 156
+     },
+     "plan": {
+      "read": "They've been silent since 134 while we stepped to 156 to break the standoff; they haven't answered that move yet, so their 134 is the floor they've shown, not their max.",
+      "target": 156,
+      "best": 156,
+      "worst": 150,
+      "days": null,
+      "angle": "Hold at 156 and send nothing; wait for them to respond to our last concession."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.67,
+       "in": 950,
+       "out": 114,
+       "cost_usd": 0.00608,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.79,
+       "in": 707,
+       "out": 38,
+       "cost_usd": 0.00179,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [
