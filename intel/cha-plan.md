@@ -93,7 +93,9 @@ she buys uncommons, rares and epics, and sells gold packs at list 420 (whether t
   keeps each ≤ 20 real ticks (directive 09:46).
 - `book.py` (eb36ec8) caps every bid at our value − 3 and re-reads our values every 10 ticks (e07a8c4). While both
   cards are missing the caps are 37 and 13. When one arrives, the other's value jumps and its floor binds (90 / 72);
-  the book steps the bid up every 20 ticks.
+  the book steps the bid up a quarter of the gap every 20 ticks (5 min at 15 s: ~45-60 min from 37 to 90). To move
+  faster once one card has filled, raise the remaining entry's `price` (e.g. CHA-08 to 70); the book re-reads the file
+  every tick and never passes the floor.
 - Remove the filled card's entry (the book marks it done).
 
 ## 15 s ticks [?]
