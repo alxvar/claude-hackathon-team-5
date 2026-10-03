@@ -1,22 +1,22 @@
-# Metrics (auto, 12:53, game tick 567)
+# Metrics (auto, 12:55, game tick 571)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
-1. Team 14 32.4 (+0.8 / +3.3) deals 23
-2. Team 18 30.2 (+1.1 / +3.5) deals 29
-3. Team 5 29.6 (+2.9 / +7.0) deals 39 ← US
-4. Team 12 29.6 (-1.0 / +3.2) deals 39
-5. Team 17 28.3 (-1.4 / +4.9) deals 21
-6. Team 10 28.3 (+0.4 / +3.5) deals 28
-7. Team 13 27.9 (-0.5 / +0.2) deals 50
-8. Team 1 25.4 (-0.2 / +2.3) deals 18
-9. Team 2 24.6 (+1.0 / +0.7) deals 41
-10. Team 6 24.1 (+1.9 / +6.4) deals 31
+1. Team 14 31.8 (-1.2 / +2.7) deals 23
+2. Team 18 30.0 (+0.6 / +3.3) deals 29
+3. Team 5 29.6 (+2.1 / +6.9) deals 39 ← US
+4. Team 12 28.9 (-1.6 / +2.6) deals 39
+5. Team 10 28.7 (-0.9 / +3.9) deals 28
+6. Team 17 27.7 (-1.6 / +3.2) deals 21
+7. Team 13 27.7 (-0.5 / -0.0) deals 51
+8. Team 1 25.4 (-0.2 / +2.1) deals 18
+9. Team 2 24.5 (+0.9 / +0.6) deals 41
+10. Team 6 24.0 (+2.2 / +6.2) deals 32
 Us: #3
 
 ## Us
 
-score 29.64 · neg_points 35.2 (15 min ago 35.2) · ladder 0.181 · duel 10.68 · cash 184 · level 3 · deals 39
+score 29.57 · neg_points 35.2 (15 min ago 35.2) · ladder 0.181 · duel 11.35 · cash 184 · level 3 · deals 39
 
 ## Our holdings (card (rarity): value of each copy; a sale gives up the cheapest copy)
 
@@ -82,16 +82,14 @@ Who buys which set (team trades): t01: MAL×4, SAL×4; t02: RET×3, MAL×2, LAT�
 - abuela common (team sells): median 6 over 1
 - abuela sobre_barrio (team buys): median 22 over 1
 - abuela uncommon (team buys): median 21 over 2
-- chato rare (team buys): median 88 over 4
-- chato uncommon (team sells): median 13 over 1
+- chato rare (team buys): median 86 over 3
 - pilar epic (team sells): median 140 over 1
-- pilar uncommon (team sells): median 22 over 15
+- pilar uncommon (team sells): median 23 over 13
 
 ## El Rastro now: top bids by price (team, card, price)
 
-- t06: LAV-09 (rare) 99 P · offer 8080
+- t06: LAV-09 (rare) 99 P · offer 8356
 - t06: SAL-09 (rare) 68 P · offer 8132
-- t04: RET-06 (uncommon) 16 P · offer 7506
 - t04: RET-02 (common) 10 P · offer 8215
 - t13: LAT-06 (uncommon) 6 P · offer 8283
 - t13: RET-01 (common) 2 P · offer 8170
@@ -100,11 +98,11 @@ Who buys which set (team trades): t01: MAL×4, SAL×4; t02: RET×3, MAL×2, LAT�
 - t13: RET-04 (common) 2 P · offer 8173
 - t13: RET-05 (common) 2 P · offer 8282
 
-Asks by others (card, price: count): LAT-03 14: 3; LAV-03 8: 2; LAT-04 9: 2; LAT-04 10: 2; MAL-02 8: 2; MAL-04 13: 2; MAL-02 14: 2; RET-05 12: 2; MAL-04 8: 1; MAL-05 4: 1; LAT-01 5: 1; LAT-05 5: 1; LAT-02 11: 1; LAT-03 11: 1; LAT-04 11: 1
+Asks by others (card, price: count): LAT-03 14: 3; LAT-04 11: 2; LAT-04 9: 2; MAL-02 10: 2; MAL-02 8: 2; MAL-04 13: 2; MAL-02 14: 2; RET-05 12: 2; LAT-04 7: 2; LAV-05 6: 2; MAL-04 7: 2; MAL-05 4: 1; LAT-01 5: 1; LAT-05 5: 1; LAT-02 11: 1
 
-## Our duels: 3 live, 61 finished (last 10)
+## Our duels: 1 live, 61 finished (last 10)
 
-- {"duel": 2473, "session": 2, "status": "live", "role": "buyer", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 94, "limit_meaning": "never pay above your value", "rival": "Rival Rojo", "de
+- {"duel": 2473, "session": 2, "status": "deal", "role": "buyer", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 94, "limit_meaning": "never pay above your value", "rival": "Rival Rojo", "de
 - {"duel": 2494, "session": 2, "status": "deal", "role": "seller", "item": "La Hero\u00edna del Dos de Mayo", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 57, "limit_meaning": "never sell below your cost", "rival": "Rival So
 - {"duel": 2495, "session": 2, "status": "deal", "role": "buyer", "item": "La Hero\u00edna del Dos de Mayo", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 124, "limit_meaning": "never pay above your value", "rival": "Rival Ro
 - {"duel": 2506, "session": 2, "status": "deal", "role": "buyer", "item": "Palacio de Cristal", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 103, "limit_meaning": "never pay above your value", "rival": "Rival Noche", "deadli

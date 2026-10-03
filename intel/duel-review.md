@@ -2,6 +2,32 @@
 
 _Written by `tools/duel_monitor.py` after each wave of our duels, newest first. Advisory for Aleks (the duelist is his). Result = our surplus × (1 − decay)^rounds, rounds = min(our priced offers, theirs); "spoke" = the rival sent at least one price._
 
+## Sat 12:54 · Duels I · tick 568 · wave of 4 (duels 2460, 2473, 2495, 2535)
+
+**This wave:** 4 deals / 4 finished (100%)
+- Rival engaged: spoke in 3 → 3 deals (100%); spoke or accepted 4 → 4 (100%); silent 1 (1 took our opener, 0 no deal).
+- In-limit offers not accepted: 0.
+- Rounds and decay: 3.8 rounds per deal; result 70.2 of 92.0 P surplus → 21.8 P (24%) lost to decay.
+- Latency: answered rival offers in 0.8 ticks on average (max 4; 12 of 20 the same tick); decision 4.2 s mean, 8.2 s max.
+- Concessions: we moved 160 P in total, rivals 100 P.
+- Rival behaviours (best → worst by our mean result): conceder: 2 duel(s), 2 deal(s), mean result 23.8 P, rival moved 50.0 P per duel · accept-only (took our opener): 1 duel(s), 1 deal(s), mean result 17.0 P · holder (never moved): 1 duel(s), 1 deal(s), mean result 5.6 P, rival moved 0.0 P per duel.
+- Best duel: 2535 vs Rival Noche (buyer): 33.6 P in 4 round(s). Worst: 2473 vs Rival Rojo (buyer): deal.
+
+**Session so far:** 24 deals / 26 finished (92%)
+- Rival engaged: spoke in 23 → 22 deals (96%); spoke or accepted 25 → 24 (96%); silent 3 (2 took our opener, 1 no deal).
+- In-limit offers not accepted: 0.
+- Deals below an earlier in-limit rival offer: 2 (≈5.4 P: 2296, 2522).
+- Rounds and decay: 4.5 rounds per deal; result 304.4 of 393.0 P surplus → 88.6 P (23%) lost to decay.
+- Latency: answered rival offers in 0.7 ticks on average (max 5; 99 of 142 the same tick); decision 5.4 s mean, 25.0 s max; 1 rival offer(s) never answered.
+- Concessions: we moved 754 P in total, rivals 563 P.
+- Rival behaviours (best → worst by our mean result): accept-only (took our opener): 2 duel(s), 2 deal(s), mean result 22.5 P · conceder: 17 duel(s), 17 deal(s), mean result 13.0 P, rival moved 33.1 P per duel · holder (never moved): 6 duel(s), 5 deal(s), mean result 6.3 P, rival moved 0.0 P per duel · silent: 1 duel(s), 0 deal(s), mean result 0.0 P.
+- Best duel: 2535 vs Rival Noche (buyer): 33.6 P in 4 round(s). Worst: 2367 vs Rival Oro (buyer): no_deal, both still 5 ticks.
+
+**For Aleks:**
+1. Break holds: 1 no-deal duel(s) sat still up to 5 ticks with time left (2367). After 3 still ticks with ≥ 3 left, force a move (a concession step, or send their own price).
+2. Close in fewer exchanges: 88.6 P (23%) of deal value went to decay over 4.5 rounds per deal. Accept when the gap to our last offer ≤ max(2 P, 2d/(1−d) × our surplus).
+3. Silent rivals: 1 no-deal(s) with a silent rival while 2 silent rival(s) took our opener: concede on a code schedule toward a floor (keep ≥ 30% of anchor-to-limit).
+
 ## Sat 12:46 · Duels I · tick 552 · wave of 3 (duels 2446, 2447, 2472)
 
 **This wave:** 3 deals / 3 finished (100%)
