@@ -1,4 +1,4 @@
-# Metrics (auto, 10:19, game tick 261)
+# Metrics (auto, 10:21, game tick 265)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -24,18 +24,18 @@ LAT-03 (common): 5; LAT-04 (common): 1.2 / 1.2; LAT-08 (uncommon): 12.5; LAV-01 
 
 ## Our open offers (12)
 
-- 4064: bid 16 for RET-07 · to abuela · expires tick 264
-- 4067: sell SAL-08 for 33 · to t16 · expires tick 320
 - 4068: sell LAV-04 for 9 · to t07 · expires tick 320
 - 4069: sell LAV-02 for 9 · to t09 · expires tick 320
 - 4070: sell LAV-03 for 9 · to t16 · expires tick 320
 - 4071: sell SAL-01 for 9 · to t07 · expires tick 320
 - 4072: sell SAL-02 for 9 · to t07 · expires tick 320
-- 4073: sell LAT-03 for 9 · to t15 · expires tick 320
-- 4074: sell LAT-04 for 8 · to t15 · expires tick 320
-- 4075: sell LAT-04 for 8 · to t15 · expires tick 320
-- 4076: sell MAL-06 for 26 · to t01 · expires tick 320
-- 4077: sell MAL-07 for 26 · to t01 · expires tick 320
+- 4124: bid 21 for RET-07 · to abuela · expires tick 268
+- 4130: sell SAL-08 for 25 · to t16 · expires tick 294
+- 4131: sell LAT-03 for 7 · to t15 · expires tick 294
+- 4132: sell LAT-04 for 7 · to t15 · expires tick 294
+- 4133: sell LAT-04 for 7 · to t15 · expires tick 294
+- 4134: sell MAL-06 for 24 · to t01 · expires tick 294
+- 4135: sell MAL-07 for 24 · to t01 · expires tick 294
 
 ## What each of our deals did to neg_points (measured, last 12)
 
@@ -61,7 +61,7 @@ LAT-03 (common): 5; LAT-04 (common): 1.2 / 1.2; LAT-08 (uncommon): 12.5; LAV-01 
 - tick 232 chato buy RET-06: 33 → 31, ours 21 · closed
 - tick 242 abuela buy RET-08: 29 → 23, ours 22 · deal
 - tick 247 chato buy RET-06: 33 → 31, ours 30 · deal
-- tick 259 abuela buy RET-07: 29 → 26, ours 16 · open
+- tick 259 abuela buy RET-07: 29 → 24, ours 21 · open
 
 ## Trades between teams (62 so far; last 12)
 
@@ -82,8 +82,7 @@ Who buys which set (team trades): t01: SAL×3, MAL×2; t02: MAL×2, RET×1; t04:
 
 ## Dealer prices, last 60 ticks (median per item)
 
-- abuela common (team buys): median 9 over 15
-- abuela common (team sells): median 6 over 1
+- abuela common (team buys): median 9 over 13
 - abuela sobre_barrio (team buys): median 21 over 1
 - abuela uncommon (team buys): median 22 over 5
 - chato rare (team buys): median 86 over 4
@@ -93,14 +92,14 @@ Who buys which set (team trades): t01: SAL×3, MAL×2; t02: MAL×2, RET×1; t04:
 ## El Rastro now: top bids by price (team, card, price)
 
 - t17: MAL-09 (rare) 70 P · offer 4045
-- t02: RET-10 (rare) 19 P · offer 3982
-- t02: RET-09 (rare) 17 P · offer 3983
+- t02: RET-10 (rare) 20 P · offer 4092
+- t02: RET-09 (rare) 18 P · offer 4093
 - t13: RET-03 (common) 2 P · offer 4063
-- ?: RET-02 (common) 2 P · offer 4084
+- t13: RET-02 (common) 2 P · offer 4084
+- t13: RET-01 (common) 2 P · offer 4107
 - t02: LAV-04 (common) 1 P · offer 3984
-- t02: LAV-02 (common) 1 P · offer 4013
 
-Asks by others (card, price: count): LAV-04 10: 3; LAT-07 22: 1; LAT-08 22: 1; LAT-04 7: 1; SAL-01 9: 1; LAT-02 6: 1; LAT-02 11: 1; LAT-03 11: 1; LAT-04 11: 1; LAT-06 25: 1; LAT-07 25: 1; LAT-08 25: 1; SAL-01 10: 1; MAL-01 8: 1; LAT-04 10: 1
+Asks by others (card, price: count): LAV-04 10: 3; LAT-04 9: 3; MAL-05 9: 2; LAT-01 9: 2; LAV-03 9: 2; LAT-04 7: 1; SAL-01 9: 1; LAT-02 6: 1; LAT-02 11: 1; LAT-03 11: 1; LAT-04 11: 1; LAT-06 25: 1; LAT-07 25: 1; LAT-08 25: 1; LAT-05 9: 1
 
 ## Our duels: 0 live, 34 finished (last 10)
 
@@ -117,9 +116,9 @@ Asks by others (card, price: count): LAV-04 10: 3; LAT-07 22: 1; LAT-08 22: 1; L
 
 ## Latest announcements
 
-- tick 158 level.unlocked: {"team": "t11", "name": "Team 11", "persona": "chato", "persona_name": "El Chato", "level": 2, "why": "open to everyone now"}
-- tick 158 level.unlocked: {"team": "t15", "name": "Team 15", "persona": "chato", "persona_name": "El Chato", "level": 2, "why": "open to everyone now"}
 - tick 159 announcement: {"text": "Closed until Saturday 09:00. Offers stay open; the clock stops."}
 - tick 159 announcement: {"text": "Good morning! The Bazaar is open again: Saturday until 23:00, one tick every 30 s."}
 - tick 252 level.announced: {"level": "pilar", "kind": "persona", "name": "Do\u00f1a Pilar", "teaser": "\u00abI collect what others throw away.\u00bb"}
+- tick 262 level.activated: {"level": "pilar", "kind": "persona", "name": "Do\u00f1a Pilar", "teaser": "\u00abI collect what others throw away.\u00bb", "how": "A collector: she pays over b
+- tick 262 level.unlocked: {"team": "t13", "name": "Team 13", "persona": "pilar", "persona_name": "Do\u00f1a Pilar", "level": 3, "why": "3 deals with chato"}
 
