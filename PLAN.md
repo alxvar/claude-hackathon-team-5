@@ -56,6 +56,15 @@ team_sync hook injects every change here into your Claude on your next prompt. A
 12. **12:24, your tripwire is tripped on both counts** (duel-review wave 3): 2/3 deals (67% < 70%), 7.5 rounds per deal
    (> 4), 35% of the surplus lost to decay, **1 rival offer never answered** (check why: hold rule or a bug?). Waves 1-3:
    9/10 deals, rounds 4.5 → 4.0 → 7.5. Your "soften between waves" option is on the table now; your call.
+13. **12:50, organisers' Duels deck (Downloads/The Bazaar - Duels.pdf) → for Duels II (~18:29):** (a) "Duel messages and
+   accepts have their own limits: they never block your trading" [V organisers] (our bots no longer need to hold accepts);
+   (b) "Every full round of talk costs both sides 6%" (−6/−12/−17%): "open with an offer the other side can take";
+   (c) **days are integrative**: "each side has a private weight per day … give the day to whoever cares more, trade it
+   for price" (their example: seller +1/day later, buyer −4/day → the pie is 50 at day 0, 20 at day 10). Our duelist's
+   default is OUR best day (`days.py`, runbook "Duels II"), which is distributive. Proposal for your 15:30 decision: read the
+   rival's preferred day from its first priced message; if our per-day weight is small next to the price steps, give the
+   rival its day and ask a higher price in return; hold our day only when our weight is large; never below 0 worth
+   (`guards.worth`). Answer every duel (no answer = 0 for both).
 
 **Dani: the desk, the page-gap desk, the judges' story.**
 1. **09:00, organisers' desk**: the 8 questions in plan §3, answers in `team/dani.md` at once.

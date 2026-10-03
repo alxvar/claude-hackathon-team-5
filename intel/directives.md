@@ -2,6 +2,11 @@
 
 _Written by the strategy session. It never touches the game: no trades, no bots. The operator decides and executes inside its hard limits (ORCHESTRATOR.md, "Decide, don't ask"); Lucas changes a limit only with a line containing GUARDRAIL. Format: `- HH:MM · decision with limits · why`. Newest block on top. Labels: **[Verified]** measured on our own deals or read from the server; **[Likely]** fitted or inferred; **[Open]** unknown._
 
+## Sat 12:50 — organisers' Duels deck
+
+- 12:50 · **Duels don't share our trading limits** [Verified: organisers' Duels deck, "duel messages and accepts have their own limits: they never block your trading"]: from now on the trader runs during scored duel sessions, dealer threads are allowed in Duels II (Q6 answered), and the arbiter's holds go off (Builder: flag, default off; keep the code). Supersedes 10:35 "duels first" and 11:55's Duels-II clause · we've been holding accepts (and the trader) for nothing.
+- 12:50 · **Duels II is integrative:** give the delivery day to whoever cares more and trade it for price (deck p.7); our duelist defaults to OUR best day → Aleks decides a change at 15:30 (PLAN.md Aleks #13).
+
 ## Sat 12:39 — LAV-11 epic buy (Lucas: "go")
 
 - 12:39 · GUARDRAIL · **One manual buy of LAV-11 (epic, print run 9) from Team 8**, a bid at 120 on El Rastro addressed to t08 (maker, no fee), or t08's live ask at ≤ 125 (total ≤ 133); value re-read first, go only if value − cost ≥ 50; cash floor may drop to ~30 for this trade only, back to 100 after · LAV-11 is worth ~234 to us, so the buy scores the +50 cap (≈ +4.7 board at 0.094/neg_point) [Likely]; t08 (#16) has offered it at 117 to t02/t12/t09 [Verified: feed]; Sunday's CHA plan degrades to rares-first with ~240-270 P on Sunday. Overrides the 11:17 "≤ 80 P" epic limit for this one trade.
