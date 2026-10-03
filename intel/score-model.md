@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sun 00:55 (tick 1445, doors closed; snapshot 1440): us #3 at 30.49. Fodder approved (directive 02:30): §4.12 buy cap = price + fee ≤ 12.5; odds by case in §4.4/§4.12 (case J with the flip: P(top 2) ≈ 24-27% with fodder, 19% without)._
+_Last update: Sun 01:35 (tick 1445, doors closed; snapshot 1440): us #3 at 30.49. §4.13: the ladder reference is relative and includes us [V-strong]; trades relative [L+]. MAL and v10 stay worth it past our cap; surplus→ladder downgraded (a loss lowers the reference for rivals)._
 _Note: the §4 version labels "00:05" to "02:10" are sequence markers written between Sat 23:50 and Sun 00:42 (my labels ran ahead of the wall clock); real times are in `git log`. The Sunday clock in §4.7 is unaffected._
 
 ## 1. Board = Friday × Saturday blend [V]
@@ -656,6 +656,40 @@ only cards we hold **0** copies of; never a page card; sell only **above the dea
 | case A (flip + Saturday-tail v10 pairs) | 27% | 32% | 36% |
 Rules: never a page card, CHA card or MAL-08; ≤ 3 sales per dealer level unless it upgrades a slot; rival sellers only if their gain
 is ≤ 10 P.
+
+### 4.13 Are the trade and ladder references field-relative? (Chief's ask on mechanics-hunt lever 1; Sun 01:35) [scratchpad `reltest.py`]
+**(b) Ladder: relative, and it includes us [V-strong pattern, L form].** In the 5 clean windows where our ladder rose (no duels;
+few other teams active), idle teams' negotiating fell in proportion:
+
+| Window | Our ΔL | Idle-team median Δ (board) | Predicted, top-3 mean with M ≈ 0.4, L_i/M ≈ 0.7: −2·(L_i/M)·ΔL/M |
+|---|---|---|---|
+| 870 → 880 (1 other team active) | +0.021 | −0.055 | −0.074 |
+| 770 → 780 | +0.070 | −0.265 | −0.245 |
+| 820 → 830 | +0.040 | −0.110 | −0.140 |
+| 880 → 890 | +0.043 | −0.130 | −0.150 |
+| 1200 → 1210 | +0.046 | −0.260 | −0.160 (others dealt too) |
+
+So M is a field reference that our own ladder moved: a top-3 mean that included us (we sat at the cap: our negotiating stayed
+flat while our raw L rose 0.373 → 0.437).
+**(a) Trades: relative [L+], but untested past our cap.**
+- Fixed N is ruled out [V]: our own board gain per neg_point fell 0.155 (tick 400) → 0.068 (660) → 0.050 (900-990), while our part
+  stayed below the cap. That is N ≈ 6/rate ≈ 39 → 88 → 120, rising as the field traded.
+- Our +40.4 np at tick 988 moved our board +2.00 (linear) and idle teams 0.00. So we were BELOW the trade reference all day, and our
+  trades could not move it. Whether it is a top-3 mean, a max or something else is [?]; mechanics-hunt's top-3 reading is consistent.
+- Algebra that holds for any top-3 mean: anyone at or above the mean is in the top 3, so **once we're capped, every +Δ we add raises
+  the reference by Δ/3**. Each rival below the reference then loses p_i × (Δ/3)/(ref + Δ/3) of its part p_i.
+
+**(c) Consequences for Sunday [L]:**
+1. **MAL close past our trade cap is still worth doing.** +30 np → reference +10. Rivals below the cap with a trade part of 6-8 lose
+   ≈ 0.4-1.1 Sunday pts each (N 60-125). That's the #2 race (t18, t12, t03), at 0 points to us (cash has no end value). t10 is
+   unaffected if it is above the reference.
+2. **v10: no VC stop.** VC above our cap raises M_vc by Δ/3. t10 loses wherever its VC falls below the new M (+45 VC past the target
+   → t10 −1.25 to −2.5 for a t10 VC of 30-40 [L]). Keep **zero negative trades**: a negative trade lowers the reference for everyone.
+3. **Surplus → ladder is NOT free under a relative reference. Downgraded.** A below-value dealer sale (RET-11 → Pilar at a loss of
+   ≈ 38) lowers our T. While we stay above the reference, that lowers it by 38/3 ≈ 12.7, and every rival below the cap GAINS ≈ 0.5-1.7.
+   That roughly cancels our ladder +0.9-1.7. Drop it unless the ladder slot is far bigger than the loss/3 effect.
+4. **Ladder fodder past our ladder cap: still positive.** Above M, each +ΔL raises M by ΔL/3 against rivals below M (≈ −0.5 Sunday
+   pts per rival for +0.1). The fodder rules stand (directive 02:30).
 
 ## 5. Buyer model (multiplier per team × set) for v10 steering
 

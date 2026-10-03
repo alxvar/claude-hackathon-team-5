@@ -36,10 +36,14 @@ Read-only: the loop never writes to the game. Sources: `data/feed.jsonl` (settle
 ## 3. Outside the bands → the Chief (the Analyst sends one line with EV, cost and evidence)
 
 - Any price **above list or above our value** (it creates a loss), or a cap outside ±10%.
-- **Trade surplus → ladder (a mechanic we don't use) [L]:** once M5 shows our trade part capped (a positive team trade moves
-  negotiating ≈ 0, field drift removed), a dealer SALE below our value costs nothing on trades as long as the loss ≤ the surplus.
-  Each sale buys a ladder slot. Candidate: RET-11 → Pilar (L3, ≈ +0.9-1.7 round pts at full share) at a loss ≤ the gain of the
-  last trade that didn't register. One L3 slot lifts P(top 2) ≈ 27% → 34% (score-model §4.4). Needs the Chief's go each time.
+- **Past our caps (score-model §4.13, Sun 01:35) [L]: references are field-relative (ladder: shown by data; trades: L+).**
+  Once capped, every +Δ raises the reference by Δ/3 and lowers each rival below it. So **MAL and positive trades stay worth doing
+  past our trade cap**, and **v10 has no VC stop** (only the zero-negative rule).
+  **Surplus → ladder (RET-11 below value) is downgraded:** a loss lowers our T, so it lowers the reference and every rival below
+  the cap gains ≈ 0.5-1.7. That roughly cancels the ladder slot. Escalate only if the slot is clearly worth more than loss/3 on
+  the trade reference.
+- **M5 now reads both ways:** a positive team trade that moves our negotiating ≈ 0 (field drift removed) means we are capped. Then
+  report "past cap: +Δ/3 to the reference" for each further trade, and never a below-value sale.
 - MAL go/no-go beyond the 150 P gate; any cash move > 50 P between stages; Ernesto, gold pack, legendary.
 - Selling any page card; any trade with a rival (live top 6 or within 3.0 of us); a page-closer for a rival.
 - Venue changes (closing v10, opening a board venue).
