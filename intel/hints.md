@@ -152,3 +152,5 @@ Swap your duplicates, hijo — a full page is wort
 - Sat 19:17 · message tick 1085 · picaros → t13 · ¡Hola, amigo! La chulapa dorada, el oro de Moscú... historias viejas, cuentos de abuela, we love them, but later, later! Right now — San Isidro, 73 pesetas, and I swear on my mother, this is the last one in all of Madrid. Nobody else has it. ¿Sí o sí?
 - Sat 19:18 · taller.crafted tick 1086 ·  → t10 · Team 10 turned three common cards into Mercado de San Ildefonso (uncommon) at The Workshop
 - Sat 19:18 · message tick 1087 · banco → t16 · My terms do not move, señor. La Puerta de Alcalá, ciento trece. The card is good; the number is the number. Consider it at your leisure.
+- Sat 19:18 · message tick 1088 · banco → t16 · Ciento trece, señor. I said the number twice; I do not say it a third time for sport. La Puerta de Alcalá. Decide when you wish.
+- Sat 19:18 · message tick 1088 · banco → t12 · Buenas tardes. Here the terms are plain: a gold pack, cuatrocientos veinte. A legendary from the vault, quinientos ochenta y cinco. I buy epics and legendaries. Nothing else.
