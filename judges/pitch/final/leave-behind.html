@@ -11,15 +11,15 @@ html,body{margin:0;height:100%}
 body{background:radial-gradient(120% 120% at 50% 0%,#4a3b30,#211a15);color:var(--ink);font-family:var(--typed);overflow:hidden}
 .wrap{position:fixed;left:50%;top:50%;width:1200px;height:700px;transform:translate(-50%,-50%) scale(var(--k,1))}
 .book{position:absolute;inset:0;display:flex;border-radius:8px;box-shadow:0 18px 50px rgba(0,0,0,.55)}
-.pg{flex:1;position:relative;box-sizing:border-box;padding:20px 30px 18px;background-color:var(--paper);
+.pg{flex:1;position:relative;box-sizing:border-box;padding:16px 30px 20px;background-color:var(--paper);
   background-image:linear-gradient(var(--rule) 1px,transparent 1px),linear-gradient(90deg,var(--rule) 1px,transparent 1px);background-size:22px 22px;
-  font-size:13.5px;line-height:1.38;overflow:hidden}
+  font-size:13.2px;line-height:1.36;overflow:hidden}
 .pg.l{border-radius:8px 0 0 8px;box-shadow:inset -22px 0 26px -18px rgba(60,40,20,.35)}
 .pg.r{border-radius:0 8px 8px 0;box-shadow:inset 22px 0 26px -18px rgba(60,40,20,.35)}
 .exp{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 h1{font-family:var(--hand);font-size:31px;line-height:1.05;margin:0 0 2px;color:var(--red);font-weight:700}
 h2{font-family:var(--hand);font-size:24px;line-height:1.08;margin:1px 0 6px;color:var(--red);font-weight:700}
-.entry{margin-top:12px;padding-top:10px;border-top:1.5px solid var(--ink2)}
+.entry{margin-top:9px;padding-top:8px;border-top:1.5px solid var(--ink2)}
 .entry:first-of-type{border-top:none;padding-top:0}
 dl{margin:0;display:grid;grid-template-columns:92px 1fr;gap:4px 10px}
 dt{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:3px}
@@ -30,7 +30,7 @@ code{font:12.5px ui-monospace,Menlo,monospace}
 .became dt{color:var(--ok)} .became dd{color:var(--ink)}
 table{border-collapse:collapse;width:100%;font-size:13px;margin:2px 0}
 td{padding:2px 6px;border-bottom:1px dotted var(--muted)} td:first-child{padding-left:0;white-space:nowrap;color:var(--ink2)} td:last-child{text-align:right;white-space:nowrap}
-.slip{position:relative;background:#fffdf6;padding:8px 12px;margin:6px 0 8px;box-shadow:0 2px 6px rgba(60,40,20,.25);transform:rotate(-.5deg)}
+.slip{position:relative;background:#fffdf6;padding:7px 12px;margin:5px 0 7px;box-shadow:0 2px 6px rgba(60,40,20,.25);transform:rotate(-.5deg)}
 .slip::before{content:"";position:absolute;top:-8px;left:42%;width:70px;height:16px;background:rgba(224,176,74,.55);transform:rotate(-3deg)}
 .hand{font-family:var(--hand);color:var(--red);font-size:19px;line-height:1.2;font-weight:700}
 .tilt{display:inline-block;transform:rotate(-2deg)}
@@ -69,7 +69,7 @@ td{padding:2px 6px;border-bottom:1px dotted var(--muted)} td:first-child{padding
         <p style="margin:3px 0 0">“Very well. 23 P. A pleasure. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about the golden chulapa.”</p></div>
       <dl><dt>We believed</dt><dd>We treated it as lore. At 16:39 our own flagging rule still filed such lines under “posture and easter-egg lore, not lies”.</dd>
         <dt>What happened</dt><dd>Tick 1021: the one-of-one card (LAT-13) went to another team. Tick 1047: we asked. Egg found, card gone.</dd></dl>
-      <dl class="became" style="margin-top:4px"><dt>It became</dt><dd><code>tools/hints.py</code>, a daemon that mines every dealer line (126 hits backfilled), then an egg catalog: trigger → reward → dealer. A rival's egg at tick 1227 was relayed; ours followed at tick 1231. Sat 22:23: a gift card and the “Castizo” badge from Abuela.</dd></dl>
+      <dl class="became" style="margin-top:4px"><dt>It became</dt><dd><code>tools/hints.py</code>, a daemon that mines every dealer line (126 hits backfilled), then an egg catalog: trigger → reward → dealer. A rival's egg at tick 1227 was relayed; ours followed at tick 1231. Sat 22:23: a gift card and the “Castizo” badge.</dd></dl>
       <div class="src">intel/hints.md (tick 522, pilar → t05) · intel/directives.md 16:39 · intel/GAME.md “Easter egg” [V] · team/lucas.md Sat 19:00, 19:01, 21:13, 21:21, 22:23 · intel/eggs.md</div></div>
 
     <div class="entry"><div class="exp">4 · Sat 21:17 · Duels II</div><h2>The delivery day</h2>
@@ -78,8 +78,8 @@ td{padding:2px 6px;border-bottom:1px dotted var(--muted)} td:first-child{padding
       <dl class="became" style="margin-top:4px"><dt>It became</dt><dd>A fix live at 21:25 (<code>b7d91f3</code>) as wave 2 opened, a second at 21:30. Four bugs fixed mid-session; five restarts, none cost a duel. <b>54 deals of 62</b> after the fixes. Overnight: a simulator calibrated on those duels, staged for Sunday <span class="tbd">result TBD</span></dd></dl>
       <div class="src">team/aleks.md Sat 18:18, 21:31, 22:38 · PLAN.md Aleks #24 · team/lucas.md Sat 22:30, 22:48</div></div>
 
-    <p class="hand" style="margin:12px 0 0"><span class="tilt">every mistake became a rule, then code</span></p>
-    <p style="margin:6px 0 0;font-size:12.5px;color:var(--ink2)">Every number here is in the team's repo: <code>docs/judges/facts.md</code> (47 findings, each with its evidence), <code>DECISIONS.md</code> and <code>intel/directives.md</code> (every decision, with its limits, to the minute).</p>
+    <p class="hand" style="margin:8px 0 0"><span class="tilt">every mistake became a rule, then code</span></p>
+    <p style="margin:4px 0 0;font-size:12px;color:var(--ink2)">Every number is in the team's repo: <code>docs/judges/facts.md</code>, <code>DECISIONS.md</code>, <code>intel/directives.md</code>.</p>
     <span class="no">errata · 2</span></div>
 </div></div>
 <script>
