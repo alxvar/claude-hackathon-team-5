@@ -8,3 +8,4 @@ _Every item from GET /api/news (sources: boletin, radio, tablon), oldest first, 
 - Sat 12:19 · tick 499 (hour 5.4833) · El Tablón · **El Chato gives a legendary to anyone who says hello!** · My cousin saw it. I swear. · Names: dealer chato, dealer el chato
 - Sat 13:01 · tick 583 (hour 6.1833) · Radio Rastro · **Metro line 5 is closed between Ópera and Callao** ·  · Names: none
 - Sat 15:35 · tick 643 (hour 6.6833) · Boletín del Bazar · **Abuela Carmen gives out packs for her saint's day** · A neighbourhood pack for every team in one hour. Happy saint's day, Carmen. · Names: dealer abuela, dealer abuela carmen, event pack, event packs
+- Sat 16:35 · tick 763 (hour 7.6833) · El Tablón · **Abuela stops buying common cards from today** · That is what they say at the next stall. · Names: dealer abuela
