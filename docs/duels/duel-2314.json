@@ -1590,5 +1590,83 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 475,
+ "done": {
+  "duel": 2314,
+  "session": 2,
+  "status": "deal",
+  "role": "buyer",
+  "item": "El Mesón de la Cava",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 75,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Oro",
+  "deadline_tick": 475,
+  "decay_per_round": 0.06,
+  "rounds": 1,
+  "your_offer": {
+   "id": 3004,
+   "price": 68,
+   "tick": 473,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 2729,
+   "price": 100,
+   "tick": 463,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 459,
+    "from": "you",
+    "text": "I'm a serious buyer and ready to close quickly. For El Mesón de la Cava, I offer 45 P, which I think is a fair price. I'd be glad to hear your counter.",
+    "price": 45,
+    "days": null
+   },
+   {
+    "tick": 463,
+    "from": "Rival Oro",
+    "text": "Hola. This one is in perfect condition. 100 P.",
+    "price": 100,
+    "days": null
+   },
+   {
+    "tick": 463,
+    "from": "you",
+    "text": "Thanks for the reply. I've moved up to 50 P as a show of good faith. Could you tell me what justifies a figure double that? I'm ready to close quickly if we can meet closer to the middle.",
+    "price": 50,
+    "days": null
+   },
+   {
+    "tick": 469,
+    "from": "you",
+    "text": "To show I mean business, I'm raising my offer to 58 P. Time is short, and I can close right now if you come down to a realistic counter. What is the lowest figure you can do?",
+    "price": 58,
+    "days": null
+   },
+   {
+    "tick": 472,
+    "from": "you",
+    "text": "I've moved a long way from where I started, and I'm now at 64 P. With the clock running down, no sale helps either of us, so I need a real counter from you to close this in time.",
+    "price": 64,
+    "days": null
+   },
+   {
+    "tick": 473,
+    "from": "you",
+    "text": "This is my last move before the deadline: 68 P. It's a solid step up from where I began, and with no sale you're left with nothing. Please take it now so we can close in time.",
+    "price": 68,
+    "days": null
+   }
+  ],
+  "result": 6.6,
+  "price": 68,
+  "days": 0
+ }
 }

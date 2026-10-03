@@ -484,6 +484,100 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 474,
+   "raw": {
+    "duel": 2506,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 103,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 482,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 3036,
+     "price": 82,
+     "tick": 474,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3029,
+     "price": 113,
+     "tick": 474,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 466,
+      "from": "you",
+      "text": "I'm a serious buyer for Palacio de Cristal and I'm offering 62 P. That reflects its upkeep needs and the lack of a clear market comparison, but I'm ready to move quickly if you counter with a reasoned figure.",
+      "price": 62,
+      "days": null
+     },
+     {
+      "tick": 467,
+      "from": "Rival Noche",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 134,
+      "days": null
+     },
+     {
+      "tick": 467,
+      "from": "you",
+      "text": "I've moved up to 70 P as a show of good faith. Your figure is far out of line with what the palace's upkeep and the lack of comparable sales support. If you want me to go further, please explain what justifies it or come down substantially.",
+      "price": 70,
+      "days": null
+     },
+     {
+      "tick": 470,
+      "from": "Rival Noche",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 125,
+      "days": null
+     },
+     {
+      "tick": 471,
+      "from": "Rival Noche",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 122,
+      "days": null
+     },
+     {
+      "tick": 471,
+      "from": "you",
+      "text": "I've raised my offer to 76 P. Your latest figure still has no stated basis, and with upkeep costs and no comparable sales to point to, it is well out of reach. A substantially lower number from you would let us close this quickly.",
+      "price": 76,
+      "days": null
+     },
+     {
+      "tick": 474,
+      "from": "Rival Noche",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 113,
+      "days": null
+     },
+     {
+      "tick": 474,
+      "from": "you",
+      "text": "Thank you for moving down; I've stepped up to 82 P in response. Any further movement from me depends on you making another real cut, so I'd welcome a meaningfully lower figure.",
+      "price": 82,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {

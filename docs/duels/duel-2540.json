@@ -4610,5 +4610,167 @@
     "settles_at_tick": 475
    }
   }
- ]
+ ],
+ "last_seen_tick": 475,
+ "done": {
+  "duel": 2540,
+  "session": 2,
+  "status": "deal",
+  "role": "seller",
+  "item": "El Mesón de la Cava",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 71,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Luna",
+  "deadline_tick": 480,
+  "decay_per_round": 0.06,
+  "rounds": 7,
+  "your_offer": {
+   "id": 3009,
+   "price": 90,
+   "tick": 473,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 3022,
+   "price": 90,
+   "tick": 474,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 464,
+    "from": "Rival Luna",
+    "text": "Hello! I can do 68. Thank you for your time.",
+    "price": 68,
+    "days": null
+   },
+   {
+    "tick": 464,
+    "from": "you",
+    "text": "El Mesón de la Cava is a distinctive property with real character and a loyal following, and it's rare to find one of this quality available. I'm offering it at 110 P, which reflects that standing, and I'm keen to hear your thoughts.",
+    "price": 110,
+    "days": null
+   },
+   {
+    "tick": 465,
+    "from": "Rival Luna",
+    "text": "Thanks for the reply. 73 works for me.",
+    "price": 73,
+    "days": null
+   },
+   {
+    "tick": 466,
+    "from": "Rival Luna",
+    "text": "Let me move closer: 77.",
+    "price": 77,
+    "days": null
+   },
+   {
+    "tick": 466,
+    "from": "you",
+    "text": "Thank you for moving, I appreciate it. Given the rarity of El Mesón de la Cava and its loyal clientele, I can come down to 106 P. I'd welcome a more serious step toward that figure.",
+    "price": 106,
+    "days": null
+   },
+   {
+    "tick": 467,
+    "from": "Rival Luna",
+    "text": "I'd like to close this. My offer is 80.",
+    "price": 80,
+    "days": null
+   },
+   {
+    "tick": 468,
+    "from": "Rival Luna",
+    "text": "Meeting you halfway at 82, with thanks.",
+    "price": 82,
+    "days": null
+   },
+   {
+    "tick": 468,
+    "from": "you",
+    "text": "I appreciate you moving again. El Mesón de la Cava is a rare property with an established following, and I can come down to 102 P to meet you partway. I'd like to see a larger step from you so we can close the remaining gap.",
+    "price": 102,
+    "days": null
+   },
+   {
+    "tick": 469,
+    "from": "Rival Luna",
+    "text": "Final stretch from me: 84.",
+    "price": 84,
+    "days": null
+   },
+   {
+    "tick": 469,
+    "from": "you",
+    "text": "Thank you for the steady movement. Given the rarity of El Mesón de la Cava and its established following, I can step to 99 P. I'd like to see a substantive move into the 90s from you so we can close this quickly.",
+    "price": 99,
+    "days": null
+   },
+   {
+    "tick": 470,
+    "from": "Rival Luna",
+    "text": "Hello! I can do 85. Thank you for your time.",
+    "price": 85,
+    "days": null
+   },
+   {
+    "tick": 471,
+    "from": "Rival Luna",
+    "text": "Thanks for the reply. 86 works for me.",
+    "price": 86,
+    "days": null
+   },
+   {
+    "tick": 471,
+    "from": "you",
+    "text": "I've made a meaningful step to 95 P, reflecting the rarity and established following of El Mesón de la Cava. Your latest move was very small, so I'd ask for a real jump toward the low 90s so we can wrap this up quickly.",
+    "price": 95,
+    "days": null
+   },
+   {
+    "tick": 472,
+    "from": "Rival Luna",
+    "text": "Let me move closer: 87.",
+    "price": 87,
+    "days": null
+   },
+   {
+    "tick": 472,
+    "from": "you",
+    "text": "I'm making one clear step to 92 P, which is close to my final position on El Mesón de la Cava given its rarity and loyal following. If you can meet me around 90 we can close this now rather than keep inching along.",
+    "price": 92,
+    "days": null
+   },
+   {
+    "tick": 473,
+    "from": "Rival Luna",
+    "text": "I'd like to close this. My offer is 88.",
+    "price": 88,
+    "days": null
+   },
+   {
+    "tick": 473,
+    "from": "you",
+    "text": "We're now only a couple of primas apart, so let's not spend more rounds on it. I'll settle at 90 P for El Mesón de la Cava, a fair midpoint given its rarity and loyal following.",
+    "price": 90,
+    "days": null
+   },
+   {
+    "tick": 474,
+    "from": "Rival Luna",
+    "text": "Meeting you halfway at 90, with thanks.",
+    "price": 90,
+    "days": null
+   }
+  ],
+  "result": 12.3,
+  "price": 90,
+  "days": 0
+ }
 }
