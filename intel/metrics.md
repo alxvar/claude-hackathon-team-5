@@ -1,16 +1,16 @@
-# Metrics (auto, 21:06, game tick 1218)
+# Metrics (auto, 21:08, game tick 1223)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
 1. Team 10 33.6 (-0.4 / -0.6) deals 52
-2. Team 6 32.4 (-0.2 / -0.0) deals 61
+2. Team 6 32.6 (-0.0 / +0.1) deals 62
 3. Team 5 31.3 (-0.4 / -0.6) deals 53 ← US
-4. Team 3 29.9 (-0.1 / +0.2) deals 30
+4. Team 3 29.9 (-0.1 / -0.1) deals 30
 5. Team 14 29.6 (-0.3 / -0.4) deals 51
 6. Team 18 29.4 (-0.5 / -0.7) deals 37
 7. Team 12 28.0 (-0.3 / -0.4) deals 64
 8. Team 15 25.1 (-0.5 / -0.8) deals 61
-9. Team 2 24.6 (-0.5 / +2.1) deals 57
+9. Team 2 24.6 (-0.5 / +1.6) deals 57
 10. Team 17 24.6 (-0.3 / -0.4) deals 31
 Us: #3
 
@@ -88,18 +88,18 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 - t09: MAL-09 (rare) 56 P · offer 17776
 - t09: MAL-10 (rare) 56 P · offer 17777
 - t18: LAT-10 (rare) 47 P · offer 17066
-- t13: LAV-10 (rare) 42 P · offer 17987
-- t09: SAL-06 (uncommon) 20 P · offer 17769
+- t13: LAV-10 (rare) 42 P · offer 18075
+- t09: SAL-06 (uncommon) 21 P · offer 18051
 - t09: MAL-06 (uncommon) 20 P · offer 17772
-- t13: LAV-06 (uncommon) 15 P · offer 17964
-- t13: LAV-07 (uncommon) 15 P · offer 18002
+- t13: LAV-07 (uncommon) 15 P · offer 18063
+- t13: LAV-06 (uncommon) 15 P · offer 18071
 - t13: RET-06 (uncommon) 13 P · offer 17977
 - t13: RET-07 (uncommon) 13 P · offer 17991
 - t13: RET-08 (uncommon) 13 P · offer 18004
 - t13: RET-03 (common) 4 P · offer 17956
 - t13: RET-02 (common) 4 P · offer 17968
 
-Asks by others (card, price: count): SAL-11 245: 1; LAT-02 10: 1; MAL-03 12: 1; MAL-01 12: 1; RET-02 12: 1; RET-04 12: 1; LAT-01 9: 1; MAL-04 12: 1; LAT-02 9: 1; LAT-04 9: 1; RET-01 11: 1; MAL-06 28: 1; LAT-07 30: 1; LAT-04 10: 1; RET-09 84: 1
+Asks by others (card, price: count): SAL-11 245: 1; LAT-02 10: 1; MAL-06 28: 1; LAT-07 30: 1; LAT-04 10: 1; RET-09 84: 1; LAT-08 30: 1; LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAT-06 20: 1; SAL-02 7: 1; LAT-01 7: 1
 
 ## Our duels: 0 live, 68 finished (last 10)
 
