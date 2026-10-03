@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 16:27 (tick 744), snapshot 740 (us #6 at 28.43; t12 29.90, t14 29.88, t10 28.93, t18 28.87, t01 28.55). Duels I post-mortem §1d; Duels II day rule §1e. Rival detail: intel/rivals.md (Analyst-owned)._
+_Last update: Sat 16:42 (tick ~774), snapshot 770; Los Pícaros active with our head start (§3c). Duels I post-mortem §1d; Duels II day rule §1e. Rival detail: intel/rivals.md (Analyst-owned)._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -293,10 +293,17 @@ the ladder can.
   as the field trades.
 
 ## 3c. New levels announced at tick 630 (during the pause) [V /api/levels, /api/dealers; reading L]
-- **Los Pícaros** (persona, "Quick deals. Few questions."): announced, not active. Unlock pattern from `/api/dealers`:
-  Chato early = 3 deals with Abuela; Pilar early = 3 deals with Chato at level ≥ 2 → Pícaros early ≈ 3 deals with Pilar at
-  level ≥ 3 [L]. We hold 3 negotiated Pilar sells (MAL-07 19, SAL-08 23, MAL-06 19) at level 3. Other teams with ≥ 3 Pilar
-  deals: t13, t08, t04, t09. A new (higher) level = fresh, heavier ladder slots; a full-share L4 deal ≈ +0.08 ladder [L].
+- **Los Pícaros: ACTIVE since tick 761 (16:35), level 4; WE HAVE THE HEAD START** [V feed `level.unlocked` "3 deals with
+  pilar"; rule per `/api/dealers`: early = 2 deals with Pilar]. Open to all at game 8.667 ≈ 17:35 wall. Also early: t02, t03,
+  t04, t08, t09, t10, t16. Menu: sells rares (list 63) and epics (list 162); buys commons and uncommons; 6 deals/team/hour;
+  traits patience 0.4, shrewdness 0.7, memory 0.3, chattiness 0.8. "Bargains and bad faith: read every offer before you
+  accept, and flag a trick (POST /api/flags)."
+  - EV per deal [L]: full-share L4 deal ≈ +0.08 ladder ≈ +1.6 board (at ≈ 20 board per ladder point). Best plays: buy a SAL
+    rare we lack at ≤ 63 (worth 63 to us → 0 neg) and resell to Pilar in the fever (≈ 87); sell the Workshop's MAL-06 and
+    spare commons above their opening at ≥ our value. No epics (cash).
+  - **Flags** [?]: `POST /api/flags {"message_id", "reason"}` ("the offer is not what the words say"). RULES: a correct flag
+    scores, a wrong one costs; penalties are a % of the round score. No public flag events, no team `adjustments` yet.
+    Flag only an unmistakable words-vs-structure mismatch.
 - **The Workshop: ACTIVE since tick 706 (16:00)** [V]: `POST /api/taller {"assets": [a, b, c]}`: three spare copies of one
   rarity (keep ≥ 1 of each card) → one card of the next rarity; "the pull is luck, shown and never scored". Value only comes
   from using the pulled card (team sale ≈ +5-12 neg_points, swap, or a dealer slot). Swaps of the same spares score directly
