@@ -27,7 +27,7 @@
   style.textContent = `
   html,body{margin:0;height:100%;overflow:hidden}
   .viewport{position:fixed;inset:0 0 34px 0;overflow:hidden}
-  body.drawer .viewport{right:380px}
+  body.with-script .viewport{right:380px}
   .stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;overflow:hidden;transform:translate(-50%,-50%) scale(var(--k,1))}
   .stage>section{position:absolute;inset:0;visibility:hidden;opacity:0;transition:opacity .3s}
   .stage>section.on{visibility:visible;opacity:1}
@@ -45,7 +45,7 @@
   .hud .keys{opacity:.55}
   .drawer{position:fixed;top:0;right:0;bottom:34px;width:380px;box-sizing:border-box;overflow:auto;display:none;padding:18px 20px 30px;
     font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;background:#161615;color:#e9e8e3;border-left:1px solid rgba(255,255,255,.1);z-index:9}
-  body.drawer .drawer{display:block}
+  body.with-script .drawer{display:block}
   .drawer h3{margin:0 0 2px;font-size:15px}
   .drawer .meta{color:#898781;font-size:12px;margin-bottom:14px}
   .drawer ol{list-style:none;margin:0;padding:0}
@@ -82,7 +82,7 @@
   document.body.append(drawer, hud);
 
   function fit() {
-    document.body.classList.toggle('drawer', drawerOpen);
+    document.body.classList.toggle('with-script', drawerOpen);
     const w = innerWidth - (drawerOpen ? 380 : 0), h = innerHeight - 34;
     stage.style.setProperty('--k', Math.min(w / 1280, h / 720));
   }
