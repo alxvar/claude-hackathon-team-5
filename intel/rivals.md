@@ -9,6 +9,13 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sat 15:56 · snapshot 680 (resumed 15:30; bench 3 started 15:55)
+- Board: t14 30.28 · t12 29.79 · t18 29.29 · t10 28.92 · **us 28.34 (#5, 1.94 behind)** · t13 25.50 · t17 25.43.
+- t18 +0.73 Saturday points: sold RET-08 to t04 at 27 on El Rastro (645). t14 −0.35 with no events (field drift).
+- Market: t12 back to 12.50 (v02: t07 → t04 MAL-03 at 7, tick 679); t10 12.46 → 12.28 (v07: t12 → t06 LAT-02 at 4, 648).
+- Rares to Pilar: t02 sold LAT-10 at 50 (660) and LAT-08 at 19 (666); t04 bought LAT-10 from Chato at 81 (657).
+- Swaps continue: t15 ↔ t07 RET-02 ↔ LAV-04 (661); ours: RET-04 (spare) ↔ SAL-04 with t08 on v11 (669, +6.2 neg_points).
+
 ### Sat 14:10 · paused since 13:26 (tick 630)
 - **Swap offers are now common** [V feed, 183 since tick 160]: t13 56, t15 45, t08 28, t10 22, t06 19, t04 5, t05 4, t12 4.
 - **t13 is hunting RET commons by swap** (ticks 626-627, addressed on t03's v20): LAV-05 or MAL-02 for RET-01..05, to t04, t15,

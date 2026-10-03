@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 15:43 (tick 653, resumed 15:30), snapshot 650. §1d levers 1-2 corrected by Aleks's replay (docs/duels-1-review.md). Duels I post-mortem §1d; Duels II day rule §1e. Duels I post-mortem: §1d. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
+_Last update: Sat 15:57 (tick 682), snapshot 680. §1d levers 1-2 corrected by Aleks's replay (docs/duels-1-review.md). Duels I post-mortem §1d; Duels II day rule §1e. Duels I post-mortem: §1d. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -285,6 +285,10 @@ the ladder can.
   LAT-01 at 7 (t15 selling duplicates into t12's first copies: [L], holdings are not public); t10 = v07: t05 → t03 SAL-01 (351, we sold), t04 → t05 MAL-03 (404, no visible change: t10 already at 12.5);
   t12 = v02: t13 → t15 MAL-03 (203), RET-02 (234).
 - To pin the hurdle: log `score.mm_points`, `bench_points`, `venue.value_created` in `data/me.jsonl` on every change.
+- **Our first swap [V]:** tick 669 on t07's v11, our spare RET-04 (2nd copy, ≈ 2.75 to us) for t08's SAL-04 (our first copy,
+  9): `neg_points` 32.5 → 38.7 (**+6.2**), board negotiating 20.42 → 20.84 (**+0.42**) at snapshot 670 with the field flat.
+  Today's trade rate ≈ **0.068 board per neg_point** (was 0.094 after the duel re-weighting): the trade normaliser keeps rising
+  as the field trades.
 
 ## 3c. New levels announced at tick 630 (during the pause) [V /api/levels, /api/dealers; reading L]
 - **Los Pícaros** (persona, "Quick deals. Few questions."): announced, not active. Unlock pattern from `/api/dealers`:
