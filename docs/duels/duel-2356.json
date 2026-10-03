@@ -1863,6 +1863,355 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 508,
+   "raw": {
+    "duel": 2356,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Café en Goya",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 101,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Plata",
+    "deadline_tick": 513,
+    "decay_per_round": 0.06,
+    "rounds": 9,
+    "your_offer": {
+     "id": 3816,
+     "price": 121,
+     "tick": 507,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3834,
+     "price": 114,
+     "tick": 508,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 497,
+      "from": "Rival Plata",
+      "text": "Propuesta justa para cerrar pronto y que ganemos los dos: 83 P.",
+      "price": 83,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "you",
+      "text": "Café en Goya is a carefully sourced, well-roasted lot with a rich, balanced cup, and I'm offering it at 150 P. That price reflects its quality and origin, and I'm happy to hear your reasoning.",
+      "price": 150,
+      "days": null
+     },
+     {
+      "tick": 498,
+      "from": "Rival Plata",
+      "text": "Me muevo para acercarnos: 91 P.",
+      "price": 91,
+      "days": null
+     },
+     {
+      "tick": 499,
+      "from": "you",
+      "text": "Gracias por acercarte; valoro el gesto. Con la calidad y el origen de este lote, puedo bajar a 144 P, pero necesitaría que subas de forma significativa para cerrar pronto.",
+      "price": 144,
+      "days": null
+     },
+     {
+      "tick": 500,
+      "from": "Rival Plata",
+      "text": "Yo ya me he movido. ¿Qué puedes hacer tú? Propongo 95 P.",
+      "price": 95,
+      "days": null
+     },
+     {
+      "tick": 500,
+      "from": "you",
+      "text": "Reconozco tu movimiento, pero tus pasos son cada vez más pequeños y la distancia sigue siendo grande. Bajo a 141 P, y para cerrar necesitaría un salto bastante mayor de tu parte.",
+      "price": 141,
+      "days": null
+     },
+     {
+      "tick": 501,
+      "from": "Rival Plata",
+      "text": "Cerremos hoy: 99 P.",
+      "price": 99,
+      "days": null
+     },
+     {
+      "tick": 501,
+      "from": "you",
+      "text": "Aprecio que sigas acercándote, pero los pasos pequeños no cierran la distancia que queda. Bajo a 138 P; para cerrar necesitaría que des un salto mucho mayor, hacia la zona de los 120, dada la calidad y el origen de este lote.",
+      "price": 138,
+      "days": null
+     },
+     {
+      "tick": 502,
+      "from": "Rival Plata",
+      "text": "Propuesta justa para cerrar pronto y que ganemos los dos: 102 P.",
+      "price": 102,
+      "days": null
+     },
+     {
+      "tick": 502,
+      "from": "you",
+      "text": "Gracias por el movimiento, pero pasos de apenas unos pocos primas no cierran la distancia que queda. Bajo a 136 P por la calidad y el origen de este lote; para avanzar necesitaría un salto real de tu parte, hacia las zonas de los 110 o 120.",
+      "price": 136,
+      "days": null
+     },
+     {
+      "tick": 503,
+      "from": "Rival Plata",
+      "text": "Me muevo para acercarnos: 105 P.",
+      "price": 105,
+      "days": null
+     },
+     {
+      "tick": 504,
+      "from": "you",
+      "text": "I can do 133 P.",
+      "price": 133,
+      "days": null
+     },
+     {
+      "tick": 505,
+      "from": "Rival Plata",
+      "text": "Yo ya me he movido. ¿Qué puedes hacer tú? Propongo 107 P.",
+      "price": 107,
+      "days": null
+     },
+     {
+      "tick": 505,
+      "from": "you",
+      "text": "Voy a 129 P, un paso claro por mi parte. Mis movimientos son más grandes que los tuyos; si das un salto hacia la zona de los 120, podemos cerrar pronto.",
+      "price": 129,
+      "days": null
+     },
+     {
+      "tick": 506,
+      "from": "Rival Plata",
+      "text": "Cerremos hoy: 110 P.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 506,
+      "from": "you",
+      "text": "Doy un paso claro a 125 P, un movimiento mayor que los tuyos. Si das un salto real hacia los 120, cerramos en el próximo intercambio.",
+      "price": 125,
+      "days": null
+     },
+     {
+      "tick": 507,
+      "from": "Rival Plata",
+      "text": "Propuesta justa para cerrar pronto y que ganemos los dos: 112 P.",
+      "price": 112,
+      "days": null
+     },
+     {
+      "tick": 507,
+      "from": "you",
+      "text": "Doy un paso claro a 121 P; hasta ahora he movido bastante más que tú. Si te acercas de verdad hacia la zona de los 118-120, podemos cerrar en el próximo intercambio.",
+      "price": 121,
+      "days": null
+     },
+     {
+      "tick": 508,
+      "from": "Rival Plata",
+      "text": "Me muevo para acercarnos: 114 P.",
+      "price": 114,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 508,
+   "raw": {
+    "duel": 2356,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Café en Goya",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 101,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Plata",
+    "deadline_tick": 513,
+    "decay_per_round": 0.06,
+    "rounds": 10,
+    "your_offer": {
+     "id": 3837,
+     "price": 117,
+     "tick": 508,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3834,
+     "price": 114,
+     "tick": 508,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 497,
+      "from": "Rival Plata",
+      "text": "Propuesta justa para cerrar pronto y que ganemos los dos: 83 P.",
+      "price": 83,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "you",
+      "text": "Café en Goya is a carefully sourced, well-roasted lot with a rich, balanced cup, and I'm offering it at 150 P. That price reflects its quality and origin, and I'm happy to hear your reasoning.",
+      "price": 150,
+      "days": null
+     },
+     {
+      "tick": 498,
+      "from": "Rival Plata",
+      "text": "Me muevo para acercarnos: 91 P.",
+      "price": 91,
+      "days": null
+     },
+     {
+      "tick": 499,
+      "from": "you",
+      "text": "Gracias por acercarte; valoro el gesto. Con la calidad y el origen de este lote, puedo bajar a 144 P, pero necesitaría que subas de forma significativa para cerrar pronto.",
+      "price": 144,
+      "days": null
+     },
+     {
+      "tick": 500,
+      "from": "Rival Plata",
+      "text": "Yo ya me he movido. ¿Qué puedes hacer tú? Propongo 95 P.",
+      "price": 95,
+      "days": null
+     },
+     {
+      "tick": 500,
+      "from": "you",
+      "text": "Reconozco tu movimiento, pero tus pasos son cada vez más pequeños y la distancia sigue siendo grande. Bajo a 141 P, y para cerrar necesitaría un salto bastante mayor de tu parte.",
+      "price": 141,
+      "days": null
+     },
+     {
+      "tick": 501,
+      "from": "Rival Plata",
+      "text": "Cerremos hoy: 99 P.",
+      "price": 99,
+      "days": null
+     },
+     {
+      "tick": 501,
+      "from": "you",
+      "text": "Aprecio que sigas acercándote, pero los pasos pequeños no cierran la distancia que queda. Bajo a 138 P; para cerrar necesitaría que des un salto mucho mayor, hacia la zona de los 120, dada la calidad y el origen de este lote.",
+      "price": 138,
+      "days": null
+     },
+     {
+      "tick": 502,
+      "from": "Rival Plata",
+      "text": "Propuesta justa para cerrar pronto y que ganemos los dos: 102 P.",
+      "price": 102,
+      "days": null
+     },
+     {
+      "tick": 502,
+      "from": "you",
+      "text": "Gracias por el movimiento, pero pasos de apenas unos pocos primas no cierran la distancia que queda. Bajo a 136 P por la calidad y el origen de este lote; para avanzar necesitaría un salto real de tu parte, hacia las zonas de los 110 o 120.",
+      "price": 136,
+      "days": null
+     },
+     {
+      "tick": 503,
+      "from": "Rival Plata",
+      "text": "Me muevo para acercarnos: 105 P.",
+      "price": 105,
+      "days": null
+     },
+     {
+      "tick": 504,
+      "from": "you",
+      "text": "I can do 133 P.",
+      "price": 133,
+      "days": null
+     },
+     {
+      "tick": 505,
+      "from": "Rival Plata",
+      "text": "Yo ya me he movido. ¿Qué puedes hacer tú? Propongo 107 P.",
+      "price": 107,
+      "days": null
+     },
+     {
+      "tick": 505,
+      "from": "you",
+      "text": "Voy a 129 P, un paso claro por mi parte. Mis movimientos son más grandes que los tuyos; si das un salto hacia la zona de los 120, podemos cerrar pronto.",
+      "price": 129,
+      "days": null
+     },
+     {
+      "tick": 506,
+      "from": "Rival Plata",
+      "text": "Cerremos hoy: 110 P.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 506,
+      "from": "you",
+      "text": "Doy un paso claro a 125 P, un movimiento mayor que los tuyos. Si das un salto real hacia los 120, cerramos en el próximo intercambio.",
+      "price": 125,
+      "days": null
+     },
+     {
+      "tick": 507,
+      "from": "Rival Plata",
+      "text": "Propuesta justa para cerrar pronto y que ganemos los dos: 112 P.",
+      "price": 112,
+      "days": null
+     },
+     {
+      "tick": 507,
+      "from": "you",
+      "text": "Doy un paso claro a 121 P; hasta ahora he movido bastante más que tú. Si te acercas de verdad hacia la zona de los 118-120, podemos cerrar en el próximo intercambio.",
+      "price": 121,
+      "days": null
+     },
+     {
+      "tick": 508,
+      "from": "Rival Plata",
+      "text": "Me muevo para acercarnos: 114 P.",
+      "price": 114,
+      "days": null
+     },
+     {
+      "tick": 508,
+      "from": "you",
+      "text": "Estamos muy cerca: propongo 117 P como número de cierre, un paso claro por mi parte que deja la diferencia en muy poco. Si lo cubres, lo dejamos resuelto en este intercambio.",
+      "price": 117,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -3697,6 +4046,326 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 508,
+   "took_s": 5.68,
+   "cost_usd": 0.01299,
+   "obs": {
+    "view": {
+     "duel_id": 2356,
+     "role": "seller",
+     "limit": 101,
+     "currency": "P",
+     "item": "Café en Goya",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto y que ganemos los dos: 83 P.",
+      "offer": {
+       "price": 83,
+       "days": null
+      },
+      "accept": false,
+      "tick": 497,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Café en Goya is a carefully sourced, well-roasted lot with a rich, balanced cup, and I'm offering it at 150 P. That price reflects its quality and origin, and I'm happy to hear your reasoning.",
+      "offer": {
+       "price": 150,
+       "days": null
+      },
+      "accept": false,
+      "tick": 497,
+      "decision": {
+       "action": "offer",
+       "price": 150,
+       "message": "Café en Goya is a carefully sourced, well-roasted lot with a rich, balanced cup, and I'm offering it at 150 P. That price reflects its quality and origin, and I'm happy to hear your reasoning."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 91 P.",
+      "offer": {
+       "price": 91,
+       "days": null
+      },
+      "accept": false,
+      "tick": 498,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Gracias por acercarte; valoro el gesto. Con la calidad y el origen de este lote, puedo bajar a 144 P, pero necesitaría que subas de forma significativa para cerrar pronto.",
+      "offer": {
+       "price": 144,
+       "days": null
+      },
+      "accept": false,
+      "tick": 499,
+      "decision": {
+       "action": "offer",
+       "price": 144,
+       "message": "Gracias por acercarte; valoro el gesto. Con la calidad y el origen de este lote, puedo bajar a 144 P, pero necesitaría que subas de forma significativa para cerrar pronto."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Yo ya me he movido. ¿Qué puedes hacer tú? Propongo 95 P.",
+      "offer": {
+       "price": 95,
+       "days": null
+      },
+      "accept": false,
+      "tick": 500,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Reconozco tu movimiento, pero tus pasos son cada vez más pequeños y la distancia sigue siendo grande. Bajo a 141 P, y para cerrar necesitaría un salto bastante mayor de tu parte.",
+      "offer": {
+       "price": 141,
+       "days": null
+      },
+      "accept": false,
+      "tick": 500,
+      "decision": {
+       "action": "offer",
+       "price": 141,
+       "message": "Reconozco tu movimiento, pero tus pasos son cada vez más pequeños y la distancia sigue siendo grande. Bajo a 141 P, y para cerrar necesitaría un salto bastante mayor de tu parte."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Cerremos hoy: 99 P.",
+      "offer": {
+       "price": 99,
+       "days": null
+      },
+      "accept": false,
+      "tick": 501,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Aprecio que sigas acercándote, pero los pasos pequeños no cierran la distancia que queda. Bajo a 138 P; para cerrar necesitaría que des un salto mucho mayor, hacia la zona de los 120, dada la calidad y el origen de este lote.",
+      "offer": {
+       "price": 138,
+       "days": null
+      },
+      "accept": false,
+      "tick": 501,
+      "decision": {
+       "action": "offer",
+       "price": 138,
+       "message": "Aprecio que sigas acercándote, pero los pasos pequeños no cierran la distancia que queda. Bajo a 138 P; para cerrar necesitaría que des un salto mucho mayor, hacia la zona de los 120, dada la calidad y el origen de este lote."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto y que ganemos los dos: 102 P.",
+      "offer": {
+       "price": 102,
+       "days": null
+      },
+      "accept": false,
+      "tick": 502,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Gracias por el movimiento, pero pasos de apenas unos pocos primas no cierran la distancia que queda. Bajo a 136 P por la calidad y el origen de este lote; para avanzar necesitaría un salto real de tu parte, hacia las zonas de los 110 o 120.",
+      "offer": {
+       "price": 136,
+       "days": null
+      },
+      "accept": false,
+      "tick": 502,
+      "decision": {
+       "action": "offer",
+       "price": 136,
+       "message": "Gracias por el movimiento, pero pasos de apenas unos pocos primas no cierran la distancia que queda. Bajo a 136 P por la calidad y el origen de este lote; para avanzar necesitaría un salto real de tu parte, hacia las zonas de los 110 o 120."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 105 P.",
+      "offer": {
+       "price": 105,
+       "days": null
+      },
+      "accept": false,
+      "tick": 503,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 133 P.",
+      "offer": {
+       "price": 133,
+       "days": null
+      },
+      "accept": false,
+      "tick": 504,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Yo ya me he movido. ¿Qué puedes hacer tú? Propongo 107 P.",
+      "offer": {
+       "price": 107,
+       "days": null
+      },
+      "accept": false,
+      "tick": 505,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Voy a 129 P, un paso claro por mi parte. Mis movimientos son más grandes que los tuyos; si das un salto hacia la zona de los 120, podemos cerrar pronto.",
+      "offer": {
+       "price": 129,
+       "days": null
+      },
+      "accept": false,
+      "tick": 505,
+      "decision": {
+       "action": "offer",
+       "price": 129,
+       "message": "Voy a 129 P, un paso claro por mi parte. Mis movimientos son más grandes que los tuyos; si das un salto hacia la zona de los 120, podemos cerrar pronto."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Cerremos hoy: 110 P.",
+      "offer": {
+       "price": 110,
+       "days": null
+      },
+      "accept": false,
+      "tick": 506,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Doy un paso claro a 125 P, un movimiento mayor que los tuyos. Si das un salto real hacia los 120, cerramos en el próximo intercambio.",
+      "offer": {
+       "price": 125,
+       "days": null
+      },
+      "accept": false,
+      "tick": 506,
+      "decision": {
+       "action": "offer",
+       "price": 125,
+       "message": "Doy un paso claro a 125 P, un movimiento mayor que los tuyos. Si das un salto real hacia los 120, cerramos en el próximo intercambio."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto y que ganemos los dos: 112 P.",
+      "offer": {
+       "price": 112,
+       "days": null
+      },
+      "accept": false,
+      "tick": 507,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Doy un paso claro a 121 P; hasta ahora he movido bastante más que tú. Si te acercas de verdad hacia la zona de los 118-120, podemos cerrar en el próximo intercambio.",
+      "offer": {
+       "price": 121,
+       "days": null
+      },
+      "accept": false,
+      "tick": 507,
+      "decision": {
+       "action": "offer",
+       "price": 121,
+       "message": "Doy un paso claro a 121 P; hasta ahora he movido bastante más que tú. Si te acercas de verdad hacia la zona de los 118-120, podemos cerrar en el próximo intercambio."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 114 P.",
+      "offer": {
+       "price": 114,
+       "days": null
+      },
+      "accept": false,
+      "tick": 508,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 114,
+     "days": null
+    },
+    "tick": 508,
+    "ticks_left": 5,
+    "rounds": 9
+   },
+   "move": {
+    "action": "offer",
+    "text": "Estamos muy cerca: propongo 117 P como número de cierre, un paso claro por mi parte que deja la diferencia en muy poco. Si lo cubres, lo dejamos resuelto en este intercambio.",
+    "price": 117,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 117,
+      "message": "Estamos muy cerca: propongo 117 P como número de cierre, un paso claro por mi parte que deja la diferencia en muy poco. Si lo cubres, lo dejamos resuelto en este intercambio."
+     },
+     "band": {
+      "worst": 114,
+      "target": 117,
+      "best": 118
+     },
+     "plan": {
+      "read": "They moved 2 P to 114, still creeping in small steps; the gap is 7 P with 5 ticks left, and their offer is well within our range.",
+      "target": 117,
+      "best": 118,
+      "worst": 114,
+      "days": null,
+      "angle": "Split the small gap once at 117 and present it as the closing number; if they won't meet it, accepting their 114 is acceptable."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.66,
+       "in": 1703,
+       "out": 122,
+       "cost_usd": 0.00925,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.02,
+       "in": 1408,
+       "out": 92,
+       "cost_usd": 0.00374,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -4187,6 +4856,239 @@
      "days": 0
     }
    }
+  },
+  {
+   "tick": 508,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Estamos muy cerca: propongo 117 P como número de cierre, un paso claro por mi parte que deja la diferencia en muy poco. Si lo cubres, lo dejamos resuelto en este intercambio.",
+    "price": 117,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 117,
+      "message": "Estamos muy cerca: propongo 117 P como número de cierre, un paso claro por mi parte que deja la diferencia en muy poco. Si lo cubres, lo dejamos resuelto en este intercambio."
+     },
+     "band": {
+      "worst": 114,
+      "target": 117,
+      "best": 118
+     },
+     "plan": {
+      "read": "They moved 2 P to 114, still creeping in small steps; the gap is 7 P with 5 ticks left, and their offer is well within our range.",
+      "target": 117,
+      "best": 118,
+      "worst": 114,
+      "days": null,
+      "angle": "Split the small gap once at 117 and present it as the closing number; if they won't meet it, accepting their 114 is acceptable."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.66,
+       "in": 1703,
+       "out": 122,
+       "cost_usd": 0.00925,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.02,
+       "in": 1408,
+       "out": 92,
+       "cost_usd": 0.00374,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2356,
+    "offer": {
+     "id": 3837,
+     "price": 117,
+     "tick": 508,
+     "days": 0
+    }
+   }
   }
- ]
+ ],
+ "last_seen_tick": 509,
+ "done": {
+  "duel": 2356,
+  "session": 2,
+  "status": "deal",
+  "role": "seller",
+  "item": "Café en Goya",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 101,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Plata",
+  "deadline_tick": 513,
+  "decay_per_round": 0.06,
+  "rounds": 10,
+  "your_offer": {
+   "id": 3837,
+   "price": 117,
+   "tick": 508,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 3834,
+   "price": 114,
+   "tick": 508,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 497,
+    "from": "Rival Plata",
+    "text": "Propuesta justa para cerrar pronto y que ganemos los dos: 83 P.",
+    "price": 83,
+    "days": null
+   },
+   {
+    "tick": 497,
+    "from": "you",
+    "text": "Café en Goya is a carefully sourced, well-roasted lot with a rich, balanced cup, and I'm offering it at 150 P. That price reflects its quality and origin, and I'm happy to hear your reasoning.",
+    "price": 150,
+    "days": null
+   },
+   {
+    "tick": 498,
+    "from": "Rival Plata",
+    "text": "Me muevo para acercarnos: 91 P.",
+    "price": 91,
+    "days": null
+   },
+   {
+    "tick": 499,
+    "from": "you",
+    "text": "Gracias por acercarte; valoro el gesto. Con la calidad y el origen de este lote, puedo bajar a 144 P, pero necesitaría que subas de forma significativa para cerrar pronto.",
+    "price": 144,
+    "days": null
+   },
+   {
+    "tick": 500,
+    "from": "Rival Plata",
+    "text": "Yo ya me he movido. ¿Qué puedes hacer tú? Propongo 95 P.",
+    "price": 95,
+    "days": null
+   },
+   {
+    "tick": 500,
+    "from": "you",
+    "text": "Reconozco tu movimiento, pero tus pasos son cada vez más pequeños y la distancia sigue siendo grande. Bajo a 141 P, y para cerrar necesitaría un salto bastante mayor de tu parte.",
+    "price": 141,
+    "days": null
+   },
+   {
+    "tick": 501,
+    "from": "Rival Plata",
+    "text": "Cerremos hoy: 99 P.",
+    "price": 99,
+    "days": null
+   },
+   {
+    "tick": 501,
+    "from": "you",
+    "text": "Aprecio que sigas acercándote, pero los pasos pequeños no cierran la distancia que queda. Bajo a 138 P; para cerrar necesitaría que des un salto mucho mayor, hacia la zona de los 120, dada la calidad y el origen de este lote.",
+    "price": 138,
+    "days": null
+   },
+   {
+    "tick": 502,
+    "from": "Rival Plata",
+    "text": "Propuesta justa para cerrar pronto y que ganemos los dos: 102 P.",
+    "price": 102,
+    "days": null
+   },
+   {
+    "tick": 502,
+    "from": "you",
+    "text": "Gracias por el movimiento, pero pasos de apenas unos pocos primas no cierran la distancia que queda. Bajo a 136 P por la calidad y el origen de este lote; para avanzar necesitaría un salto real de tu parte, hacia las zonas de los 110 o 120.",
+    "price": 136,
+    "days": null
+   },
+   {
+    "tick": 503,
+    "from": "Rival Plata",
+    "text": "Me muevo para acercarnos: 105 P.",
+    "price": 105,
+    "days": null
+   },
+   {
+    "tick": 504,
+    "from": "you",
+    "text": "I can do 133 P.",
+    "price": 133,
+    "days": null
+   },
+   {
+    "tick": 505,
+    "from": "Rival Plata",
+    "text": "Yo ya me he movido. ¿Qué puedes hacer tú? Propongo 107 P.",
+    "price": 107,
+    "days": null
+   },
+   {
+    "tick": 505,
+    "from": "you",
+    "text": "Voy a 129 P, un paso claro por mi parte. Mis movimientos son más grandes que los tuyos; si das un salto hacia la zona de los 120, podemos cerrar pronto.",
+    "price": 129,
+    "days": null
+   },
+   {
+    "tick": 506,
+    "from": "Rival Plata",
+    "text": "Cerremos hoy: 110 P.",
+    "price": 110,
+    "days": null
+   },
+   {
+    "tick": 506,
+    "from": "you",
+    "text": "Doy un paso claro a 125 P, un movimiento mayor que los tuyos. Si das un salto real hacia los 120, cerramos en el próximo intercambio.",
+    "price": 125,
+    "days": null
+   },
+   {
+    "tick": 507,
+    "from": "Rival Plata",
+    "text": "Propuesta justa para cerrar pronto y que ganemos los dos: 112 P.",
+    "price": 112,
+    "days": null
+   },
+   {
+    "tick": 507,
+    "from": "you",
+    "text": "Doy un paso claro a 121 P; hasta ahora he movido bastante más que tú. Si te acercas de verdad hacia la zona de los 118-120, podemos cerrar en el próximo intercambio.",
+    "price": 121,
+    "days": null
+   },
+   {
+    "tick": 508,
+    "from": "Rival Plata",
+    "text": "Me muevo para acercarnos: 114 P.",
+    "price": 114,
+    "days": null
+   },
+   {
+    "tick": 508,
+    "from": "you",
+    "text": "Estamos muy cerca: propongo 117 P como número de cierre, un paso claro por mi parte que deja la diferencia en muy poco. Si lo cubres, lo dejamos resuelto en este intercambio.",
+    "price": 117,
+    "days": null
+   }
+  ],
+  "result": 8.6,
+  "price": 117,
+  "days": 0
+ }
 }
