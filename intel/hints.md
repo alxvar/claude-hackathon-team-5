@@ -156,3 +156,4 @@ Swap your duplicates, hijo — a full page is wort
 - Sat 19:18 · message tick 1088 · banco → t12 · Buenas tardes. Here the terms are plain: a gold pack, cuatrocientos veinte. A legendary from the vault, quinientos ochenta y cinco. I buy epics and legendaries. Nothing else.
 - Sat 19:19 · message tick 1089 · banco → t16 · Ciento trece, señor. That is my term for La Puerta de Alcalá, today and tomorrow. Your numbers move; mine does not. Sit, think, return when you are ready.
 - Sat 19:19 · taller.crafted tick 1090 ·  → t14 · Team 14 turned three common cards into La Galería (uncommon) at The Workshop
+- Sat 19:20 · catalog.minted LAT-11 (San Francisco el Grande, epic, print run 9): hidden=False minted=2 (was 1)
