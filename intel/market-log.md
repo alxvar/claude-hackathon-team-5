@@ -1,5 +1,21 @@
 # Market log (Market session; newest first)
 
+## Sat 12:00 · bench-h05.0 (ticks 441-458), on the stall v10 (auto, fee 0)
+- **Ours [V]:** bench_efficiency 0.933 (3.0: 0.899), bench_points 0.5, market 7.5 = the stall teams' number, unchanged.
+- **Field at snapshot 460 [V]:** t10 12.5 · t14 11.86 · t12 11.74 · t17 10.26 · t06 9.83 · stall teams 7.5 · t08 7.46 ·
+  t13 5.49 (was 3.33) · t03 3.61 (was 7.5). Bench and value created are now mixed in `market`, so a board broker
+  beating the stall can no longer be read off the leaderboard; none is visibly above it. t14 and t17 are STALLS with
+  a gap: stalls with trades score value created too.
+- **Recording [V]:** again leftovers only (21 states, 15 ids, no settlements); replay proxy is degenerate (0.000).
+  Same trader shape as 3.0: staggered arrivals over ~10 ticks, lives of 1-6 ticks, steps of 1-8 with pauses.
+- **Open contradiction [V both]:** our venue detail says `value_created` 9.0 (2 trades), our score says `mm_points`
+  −5.2. The 11:31 reading "the second trade destroyed value" rests on mm_points only; the two fields measure different
+  things and the formula is unpublished → desk question. t03 (stall) fell 7.5 → 3.61, so "negative floored at zero"
+  is not safe either.
+- Reciprocal count: v10 2 trades (40 P, both t10 as seller) · ours on v07 2 (SAL-01 sold to t03 at 7; MAL-03 bought
+  from t04 at 5).
+- **Decision:** stay on the stall. No replay evidence is possible from it; sim says v1 is worse than the stall.
+
 ## Sat 11:31 · v10 gap LOST: a value-destroying trade [V]
 - Tick 398 (11:29): Team 10 sold SAL-07 to Team 15 on v10 at 26 P. **Our mm_points: −5.2 (/api/me); market 12.5 → 7.5**
   at snapshot 400 (= stall teams; a negative total looks floored at zero [L]). t10 12.5, t12 12.5, t06 9.99.

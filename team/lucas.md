@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sat 12:00 · Market: bench 5.0 on the stall · efficiency 0.933, bench_points 0.5, market 7.5 (stall teams' number); mm_points −5.2 while the venue detail shows value_created 9.0 (unexplained) · next: desk question on the value-created formula; bench 7.0 ~13:50 (`intel/market-log.md`)
 - Sat 11:54 · operator · judge 11:52 #3 applied (feeding): t17 (#7, 23.4) and t01 (#8, 23.1) are now ABOVE us (#10, 22.66) → pulled MAL-06 → t17 and MAL-02 → t01, re-addressed both to t15 (MAL collector, #15): 6681 MAL-06 at 20, 6682 MAL-02 at 9 · book now: SAL-08/LAT-08/LAT-03 → t03, MAL-02/04/06/07 + LAT-04 → t15, LAV-02 → t09, LAV-03/04 → t07, SAL-01 → t06, SAL-02 → t16 (all collectors, all below us)
 - Sat 11:51 · operator · **trader stopped 11:50:15 for Duels I** (auto job; restarts once /api/duels is empty 4 min after 12:10) · no dealer threads · book.py keeps the maker book on El Rastro (repricing) · bench 5.0 fired (Market) · rank #9 (22.66), top 4 t14/t13/t18/t12
 - Sat 11:42 · operator · book (MIN_GAIN_SELL=2) and opps restarted on cde494b (top 4 read every tick before a team-venue post, fail-safe to El Rastro; sells only to collectors, tools/collectors.py) · Chato ladder test after Duels I: SAL-07 (or 06) open 24 → 26 (+2), hold silent, accept ≤ 26, walk on a final > 26 (Chief's tweak)
