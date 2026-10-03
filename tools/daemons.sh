@@ -17,6 +17,7 @@ cmd_for() {
     recorder)  echo "cd $R && python3 -u -m broker.record_bench --loop" ;;  # read-only: records every Market Test (Market session)
     broker)    echo "cd $R && python3 -u -m broker.broker --strategy ${BROKER_STRATEGY:-auto_clone}" ;;  # needs BROKER_KEY: only after OUR venue is open (Market session)
     book)      echo "uv run --project $R python -u $R/agents/trader/book.py --cash-floor ${CASH_FLOOR:-100} --min-gain-sell ${MIN_GAIN_SELL:-1}" ;;  # the maker book (run/book.json): the Operator starts it
+    swaps)     echo "uv run --project $R python -u $R/agents/trader/swaps.py" ;;  # posts addressed card-for-card swaps (Operator starts it; uv: hub model)
     radar)     echo "uv run --project $R python -u $R/tools/v10_radar.py" ;;  # read-only: buyers for asks on our v10 stall -> DM drafts to Lucas (uv: hub model)
     news)      echo "python3 -u $R/tools/news.py" ;;  # read-only: Radio Rastro -> intel/news.md, relevant items to Lucas
     bargains)  echo "python3 -u $R/tools/bargains.py" ;;  # read-only: pages Lucas when an ask is worth >= 20 to us after the fee
@@ -24,7 +25,7 @@ cmd_for() {
     *) return 1 ;;
   esac
 }
-ALL="status collector trader scout judge strategist archiver duelmon opps recorder book bargains news radar"  # broker: started by the Market session only  # autoflip is DEAD (dealer buys above value subtract): never add it back
+ALL="status collector trader scout judge strategist archiver duelmon opps recorder book bargains news radar swaps"  # broker: started by the Market session only  # autoflip is DEAD (dealer buys above value subtract): never add it back
 alive() { [ -f "$R/run/$1.pid" ] && kill -0 "$(cat "$R/run/$1.pid")" 2>/dev/null; }
 action="$1"; shift
 case "$action" in start|stop|status) ;;
@@ -32,7 +33,7 @@ case "$action" in start|stop|status) ;;
     "$0" stop "$@"; exec "$0" start "$@" ;;   # env (CASH_FLOOR, MIN_GAIN_SELL, ...) passes through to start
   *) echo "usage: $0 start|stop|restart|status [names]"; exit 1 ;;
 esac
-if [ "$action" = start ] && [ $# -eq 0 ]; then echo "start needs explicit names (safe at once: status collector archiver duelmon recorder bargains news radar; after the 09:00 checks: trader opps book scout judge strategist)"; exit 1; fi
+if [ "$action" = start ] && [ $# -eq 0 ]; then echo "start needs explicit names (safe at once: status collector archiver duelmon recorder bargains news radar; after the 09:00 checks: trader opps book swaps scout judge strategist)"; exit 1; fi
 names="${*:-$ALL}"
 for n in $names; do
   case "$action" in
