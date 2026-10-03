@@ -71,7 +71,7 @@ def bot(tmp_path, monkeypatch):
 def run_main(bot, monkeypatch, game, *argv, after_deal=None):
     """main() on the fake game; each negotiation is recorded and ends in a deal (no thread is opened)."""
     started = []
-    monkeypatch.setattr(bot, "PacedBazaar", lambda url, key, min_gap: game)
+    monkeypatch.setattr(bot, "PacedBazaar", lambda url, key, min_gap, **kw: game)
 
     def fake_negotiate(b, topic, side, cap, tid=None, fast=False):
         started.append((topic, side, cap))
@@ -245,7 +245,7 @@ def test_after_an_accept_the_thread_is_left_to_settle(bot):
 
 def test_an_error_stops_the_run(bot, monkeypatch):
     game = FakeGame()
-    monkeypatch.setattr(bot, "PacedBazaar", lambda url, key, min_gap: game)
+    monkeypatch.setattr(bot, "PacedBazaar", lambda url, key, min_gap, **kw: game)
     started = []
 
     def failing(b, topic, side, cap, tid=None, fast=False):
@@ -270,3 +270,33 @@ def test_requests_are_paced(monkeypatch):
     t[0] += 1.0
     b.value("RET-03")
     assert len(calls) == 3 and slept == [pytest.approx(0.15)]
+
+
+# ------------------------------------------------------------------------------------------------ 429: wait a tick
+
+class BusyTick(FakeThread):
+    """The team's one acceptance is taken this tick: the first accept is refused with wait_for_tick (a 429)."""
+
+    def __init__(self):
+        super().__init__()
+        self.refused = False
+
+    def accept(self, oid):
+        if not self.refused:
+            self.refused = True
+            raise BazaarError("wait_for_tick", "one acceptance per team per tick")
+        self.accepted.append(oid)
+
+    def thread(self, tid):
+        if self.accepted:
+            return {"status": "deal", "closed_reason": "deal", "messages": [], "standing_offers": []}
+        return super().thread(tid)
+
+
+def test_a_refused_accept_waits_a_tick_and_asks_the_duel_arbiter_again(bot, monkeypatch):
+    asked = []
+    monkeypatch.setattr(bot, "should_hold_accept", lambda b, tick=None: asked.append(1) or (False, "no live duel"))
+    b = BusyTick()
+    t = bot.negotiate(b, {"buy": {"card": "RET-01"}}, "buy", 10)
+    assert t["status"] == "deal" and b.accepted == [5] and b.closed == []   # not closed as an error
+    assert len(asked) == 2 and "accept_waits" in events(bot)              # the retry went through the arbiter

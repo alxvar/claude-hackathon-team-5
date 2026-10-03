@@ -32,6 +32,10 @@ sys.path.insert(0, str(ROOT / "tools"))
 from bazaar_sdk import Bazaar, BazaarError  # noqa: E402
 from arbiter import should_hold_accept  # noqa: E402
 
+# A 429 (RULES: "too early ... wait for it rather than retrying"): wait for the next tick and decide again, so a
+# refused accept goes back through the duel arbiter instead of the SDK retrying it blind (wait_on_tick=False).
+TICK_WAIT = {"wait_for_tick", "rate_limited", "http_429"}
+
 DEALER = "abuela"
 CASH_FLOOR = 200     # overridden by --cash-floor (the GUARDRAIL in intel/directives.md decides it)
 EXPECTED_PRICE = 0.92  # dealers end near 0.9x list in the public data (Abuela: common 9 of 10, uncommon 21-24 of 25)
@@ -207,7 +211,14 @@ def _haggle(b, tid, topic, side, cap, fast, resume, accepted):
                 log({"event": "hold_accept_duel", "thread": tid, "final": o.get("final"), "why": why})
                 b.wait_tick()
                 continue
-            b.accept(o["id"])
+            try:
+                b.accept(o["id"])
+            except BazaarError as e:
+                if e.code not in TICK_WAIT:
+                    raise
+                log({"event": "accept_waits", "thread": tid, "code": e.code})   # the team's accept is taken
+                b.wait_tick()
+                continue
             accepted.append(o["id"])
             log({"event": "accept", "thread": tid, "price": price, "negotiated": price != first})
             b.wait_tick()
@@ -217,7 +228,14 @@ def _haggle(b, tid, topic, side, cap, fast, resume, accepted):
             log({"event": "walk", "thread": tid, "her": price, "ours": ours, "final": o.get("final")})
             continue
         text = TEXTS[side][min(turn, len(TEXTS[side]) - 1)].format(p=nxt)
-        b.say(tid, text, price=nxt)
+        try:
+            b.say(tid, text, price=nxt)
+        except BazaarError as e:
+            if e.code not in TICK_WAIT:
+                raise
+            log({"event": "say_waits", "thread": tid, "code": e.code})
+            b.wait_tick()
+            continue
         log({"event": "say", "thread": tid, "price": nxt, "text": text})
         ours, turn = nxt, turn + 1
         b.wait_tick()
@@ -277,7 +295,7 @@ def main(argv=None) -> None:
     ap.add_argument("--dry-run", action="store_true", help="print the plan, write nothing")
     args = ap.parse_args(argv)
     b = PacedBazaar(os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai"), os.environ["BAZAAR_KEY"],
-                    min_gap=DRY_GAP_S if args.dry_run else GAP_S)
+                    min_gap=DRY_GAP_S if args.dry_run else GAP_S, wait_on_tick=False)
 
     DEALER = args.dealer
     CASH_FLOOR = args.cash_floor
