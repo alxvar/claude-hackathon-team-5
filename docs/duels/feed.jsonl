@@ -265,3 +265,27 @@
 {"id": 12342, "tick": 176, "t": 2.7917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 278, "session": 1, "status": "deal", "item": "El Tren Fantasma"}}
 {"id": 12345, "tick": 176, "t": 2.7917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 280, "session": 1, "status": "no_deal", "item": "El Rastro al Amanecer"}}
 {"id": 12378, "tick": 177, "t": 2.8, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 218, "session": 1, "status": "deal", "item": "Taxi Blanco"}}
+{"id": 12521, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 126, "session": 1, "status": "no_deal", "item": "El Tren Fantasma"}}
+{"id": 12524, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 191, "session": 1, "status": "no_deal", "item": "El Tren Fantasma"}}
+{"id": 12527, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 192, "session": 1, "status": "no_deal", "item": "El Tren Fantasma"}}
+{"id": 12530, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 215, "session": 1, "status": "no_deal", "item": "El Tren Fantasma"}}
+{"id": 12533, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 216, "session": 1, "status": "no_deal", "item": "El Tren Fantasma"}}
+{"id": 12536, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 222, "session": 1, "status": "no_deal", "item": "El Tren Fantasma"}}
+{"id": 12539, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 229, "session": 1, "status": "no_deal", "item": "El Rastro al Amanecer"}}
+{"id": 12542, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 230, "session": 1, "status": "no_deal", "item": "El Rastro al Amanecer"}}
+{"id": 12545, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 235, "session": 1, "status": "no_deal", "item": "Taxi Blanco"}}
+{"id": 12548, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 236, "session": 1, "status": "no_deal", "item": "Taxi Blanco"}}
+{"id": 12551, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 241, "session": 1, "status": "no_deal", "item": "Andén 0"}}
+{"id": 12554, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 242, "session": 1, "status": "no_deal", "item": "Andén 0"}}
+{"id": 12557, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 249, "session": 1, "status": "no_deal", "item": "Mercado de Vallehermoso"}}
+{"id": 12560, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 250, "session": 1, "status": "no_deal", "item": "Mercado de Vallehermoso"}}
+{"id": 12563, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 253, "session": 1, "status": "no_deal", "item": "Andén 0"}}
+{"id": 12566, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 254, "session": 1, "status": "no_deal", "item": "Andén 0"}}
+{"id": 12569, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 259, "session": 1, "status": "no_deal", "item": "Taxi Blanco"}}
+{"id": 12572, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 260, "session": 1, "status": "no_deal", "item": "Taxi Blanco"}}
+{"id": 12575, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 261, "session": 1, "status": "no_deal", "item": "El Tren Fantasma"}}
+{"id": 12578, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 262, "session": 1, "status": "no_deal", "item": "El Tren Fantasma"}}
+{"id": 12581, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 275, "session": 1, "status": "no_deal", "item": "El Tren Fantasma"}}
+{"id": 12584, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 276, "session": 1, "status": "no_deal", "item": "El Tren Fantasma"}}
+{"id": 12587, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 295, "session": 1, "status": "no_deal", "item": "Plaza de Olavide"}}
+{"id": 12590, "tick": 180, "t": 2.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 296, "session": 1, "status": "no_deal", "item": "Plaza de Olavide"}}
