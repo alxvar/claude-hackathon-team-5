@@ -1,4 +1,4 @@
-# Metrics (auto, 16:31, game tick 754)
+# Metrics (auto, 16:33, game tick 758)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -27,13 +27,13 @@ LAT-03 (common): 5; LAT-04 (common): 5; LAV-01 (common): 99.1; LAV-02 (common): 
 - 10569: bid 20 for SAL-07 · to anyone · expires tick 772
 - 10570: bid 15 for MAL-08 · to anyone · expires tick 772
 - 10572: bid 3 for LAT-02 · to anyone · expires tick 772
-- 10793: sell LAT-03 for 7 · to t03 · expires tick 761
 - 10885: sell SAL-01 for 11 · to t16 · expires tick 765
 - 10959: sell MAL-02 for 9 · to t15 · expires tick 768
 - 11046: sell MAL-05 for 9 · to t15 · expires tick 773
 - 11377: sell LAV-04 for 6 · to t03 · expires tick 790
 - 11379: sell SAL-02 for 11 · to t16 · expires tick 790
 - 11426: sell LAV-03 for 6 · to t09 · expires tick 793
+- 11460: sell LAT-03 for 7 · to t03 · expires tick 796
 
 ## What each of our deals did to neg_points (measured, last 12)
 
@@ -80,21 +80,23 @@ Who buys which set (team trades): t01: MAL×4, SAL×4; t02: RET×3, MAL×2, LAT�
 
 ## Dealer prices, last 60 ticks (median per item)
 
-- abuela common (team buys): median 10 over 1
 - abuela common (team sells): median 6 over 8
 - abuela sobre_barrio (team buys): median 21 over 1
 - abuela uncommon (team buys): median 20 over 2
 - chato rare (team buys): median 87 over 2
 - chato uncommon (team sells): median 14 over 4
 - pilar rare (team sells): median 69 over 3
-- pilar uncommon (team sells): median 19 over 7
+- pilar uncommon (team sells): median 19 over 8
 
 ## El Rastro now: top bids by price (team, card, price)
 
 - t06: SAL-09 (rare) 68 P · offer 11242
+- t08: SAL-10 (rare) 49 P · offer 11449
 - t04: RET-10 (rare) 25 P · offer 11366
 - t16: RET-07 (uncommon) 14 P · offer 11355
 - t16: LAV-06 (uncommon) 12 P · offer 11362
+- t03: SAL-05 (common) 8 P · offer 11482
+- t03: RET-01 (common) 6 P · offer 11483
 - t16: RET-01 (common) 5 P · offer 11385
 - t16: LAV-01 (common) 3 P · offer 11386
 - t16: LAV-03 (common) 3 P · offer 11400
@@ -103,7 +105,6 @@ Who buys which set (team trades): t01: MAL×4, SAL×4; t02: RET×3, MAL×2, LAT�
 - t13: RET-02 (common) 2 P · offer 11318
 - t13: RET-03 (common) 2 P · offer 11319
 - t13: RET-04 (common) 2 P · offer 11320
-- t16: MAL-03 (common) 1 P · offer 11417
 
 Asks by others (card, price: count): LAT-05 9: 2; LAV-06 25: 1; LAT-07 25: 1; RET-01 20: 1; LAT-01 8: 1; MAL-05 8: 1; LAV-03 9: 1; LAT-05 11: 1; MAL-04 8: 1; LAT-02 11: 1; LAT-03 11: 1; LAT-04 11: 1; LAT-06 24: 1; LAT-08 25: 1; LAT-03 8: 1
 
