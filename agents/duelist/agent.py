@@ -44,6 +44,10 @@ MAX_MESSAGE = 1000                      # characters; the game keeps 1,200
 SILENT_FROM = 0.5                       # starts once this share of the duel's ticks is left
 SILENT_KEEP = 0.3                       # of the distance from our opener to our limit, never conceded
 SILENT_BY = 2                           # the floor is reached with this many ticks left (the last one is spare)
+MIN_STEP_P = 3                          # a concession smaller than this (in worth) is not worth a round...
+MIN_STEP_SHARE = 0.25                   # ...nor one smaller than this share of the gap between the standing offers
+OFFER_BUDGET = 4                        # priced offers per duel, opener included, before code holds unless they move
+CLOSING_TICKS = 3                       # the last ticks, where code never holds a concession
 
 
 class BandPlan(BaseModel):
@@ -164,6 +168,24 @@ def still_ticks(obs: Observation) -> int:
     return max(obs.tick - max(moved), 0) if moved and obs.tick is not None and their_offers(obs) else 0
 
 
+def min_step(view: DuelView, ours: Offer, theirs: Offer) -> float:
+    """The smallest concession worth a round, in worth: a quarter of the gap between the standing offers, at
+    least MIN_STEP_P (26 of our 75 practice concessions were 3 P or less, all in the longest duels)."""
+    gap = worth(view, ours.price, ours.days) - worth(view, theirs.price, theirs.days)
+    return max(MIN_STEP_P, MIN_STEP_SHARE * gap)
+
+
+def theirs_at_our_last(obs: Observation) -> Offer | None:
+    """Their offer as it stood when we sent our last priced offer."""
+    standing, at = None, None
+    for t in obs.turns:
+        if t.mine and t.offer is not None:
+            at = standing
+        elif not t.mine and t.offer is not None:
+            standing = t.offer
+    return at
+
+
 def ledger(obs: Observation) -> str:
     """Facts for the strategist, computed from the duel. No advice."""
     v = obs.view
@@ -228,6 +250,12 @@ def ledger(obs: Observation) -> str:
             more = worth(v, ours[-1].price, ours[-1].days) - worth(v, standing.price, standing.days)
             lines.append(f"- Counting the days too, your last offer is worth {f(abs(round(more, 1)))} "
                          f"{'more' if more >= 0 else 'less'} to you than theirs.")
+        step = f(math.ceil(min_step(v, ours[-1], standing) - 1e-9))
+        lines.append(f"- Offers your side has sent: {len(ours)}. Plan on at most {OFFER_BUDGET} in the whole duel; "
+                     f"after the fourth, nothing more is sent until the last {CLOSING_TICKS} ticks unless they move "
+                     f"at least {step}.")
+        lines.append(f"- The smallest step worth sending now: {step} (a quarter of the gap, at least "
+                     f"{f(MIN_STEP_P)}). A smaller step is not sent.")
     return "\n".join(lines)
 
 
@@ -577,15 +605,35 @@ class DuelAgent:
         return self.final(self.held(move, plan, obs, days), obs)
 
     def held(self, move: Move, plan: BandPlan, obs: Observation, days: int | None) -> Move:
-        """When the strategist holds (its target is our standing offer, on our day), an offer a point or two off
-        it is still a message, and every message is a round (278), so the offer becomes our standing offer again
-        and the runner sends nothing. An accept still goes through."""
+        """The model's offer, or our standing offer again when the offer isn't worth a round; the runner sends
+        nothing for the latter (`runner.is_hold`), since every message is a round (278). Held:
+        - "plan holds": the strategist holds (its target is our standing offer, on our day) and the negotiator
+          drafted a point or two off it;
+        - "small step": a concession smaller than `min_step` (277: 175 → 173 → 160 → 158 → 156, 11 rounds);
+        - "offer budget": a concession past OFFER_BUDGET priced offers while their offer hasn't moved `min_step`
+          toward us since our last one.
+        Accepts, the opener (no standing offers yet), non-concessions and the last CLOSING_TICKS ticks go out."""
         ours = next(reversed(our_offers(obs)), None)
-        if (move.action != "offer" or ours is None or plan.target != ours.price or days != ours.days
-                or move.price == ours.price):
+        if move.action != "offer" or ours is None or move.price is None or (move.price, days) == (ours.price,
+                                                                                                    ours.days):
             return move
-        return Move("offer", move.text, price=ours.price, days=ours.days,
-                    meta={**move.meta, "rule": "plan holds", "drafted": move.price})
+        hold = lambda rule: Move("offer", move.text, price=ours.price, days=ours.days,  # noqa: E731
+                                 meta={**move.meta, "rule": rule, "drafted": move.price})
+        if plan.target == ours.price and days == ours.days:
+            return hold("plan holds")
+        theirs = standing_offer(obs)
+        step = worth(self.view, ours.price, ours.days) - worth(self.view, move.price, days)
+        if theirs is None or step <= 0 or (obs.ticks_left is not None and obs.ticks_left <= CLOSING_TICKS):
+            return move
+        least = min_step(self.view, ours, theirs)
+        if step < least:
+            return hold("small step")
+        before = theirs_at_our_last(obs)
+        moved = None if before is None else (worth(self.view, theirs.price, theirs.days)
+                                             - worth(self.view, before.price, before.days))
+        if len(our_offers(obs)) >= OFFER_BUDGET and moved is not None and moved < least:
+            return hold("offer budget")
+        return move
 
     def final(self, move: Move, obs: Observation) -> Move:
         """Last line of defence: whatever happened before, never offer or accept past our limit (with days: the

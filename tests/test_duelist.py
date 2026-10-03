@@ -733,11 +733,87 @@ def test_a_plan_that_holds_sends_nothing_even_when_the_negotiator_drifts(tmp_pat
     drift = Decision(action="offer", price=68, message="68 P, final.")
     move = respond(SELLER, obs(SELLER, rival=30, turns=turns), FakeModel(plan(70, 72, 67), drift))
     assert (move.action, move.price, move.meta["rule"], move.meta["drafted"]) == ("offer", 70, "plan holds", 68)
-    step = respond(SELLER, obs(SELLER, rival=30, turns=turns), FakeModel(plan(66, 68, 64), drift))
-    assert step.price == 68 and "rule" not in step.meta          # a planned step goes out as drafted
+    step = respond(SELLER, obs(SELLER, rival=30, turns=turns),
+                   FakeModel(plan(58, 60, 56), Decision(action="offer", price=59, message="59 P.")))
+    assert step.price == 59 and "rule" not in step.meta          # a planned step goes out as drafted
     take = respond(SELLER, obs(SELLER, rival=69, turns=turns),
                    FakeModel(plan(70, 72, 68), Decision(action="accept", price=69, message="Done.")))
     assert (take.action, take.price) == ("accept", 69)            # holding never blocks an accept
+
+
+def mine(*prices, start=1):
+    return [Turn(mine=True, offer=Offer(price=p), tick=start + i) for i, p in enumerate(prices)]
+
+
+def theirs(price, tick, days=None):
+    return Turn(mine=False, offer=Offer(price=price, days=days), tick=tick)
+
+
+def drafted(view, turns, rival, target, left=8, days=None, action="offer"):
+    """Our move when the strategist targets `target` and the negotiator drafts exactly that."""
+    o = Observation(view=view, turns=turns, rival_offer=rival, tick=10, ticks_left=left)
+    s = 1 if view.role is Role.SELLER else -1
+    d = Decision(action=action, price=target if action == "offer" else rival.price, message=f"{target} P.")
+    return respond(view, o, FakeModel(plan(target, target + 2 * s, target - 2 * s, days=days), d))
+
+
+def test_277_a_step_of_a_point_or_two_is_held():
+    # 277 (we sell, cost 119): our 175 against their 118, then 173, 160, 158, 156...: 11 rounds, 51% of the value.
+    view = SELLER.model_copy(update={"limit": 119})
+    turns = [*mine(175), theirs(118, 2)]
+    small = drafted(view, turns, Offer(price=118), 173)       # gap 57: the least step worth a round is 14.25
+    assert (small.price, small.meta["rule"], small.meta["drafted"]) == (175, "small step", 173)
+    assert drafted(view, turns, Offer(price=118), 160).price == 160
+
+
+def test_278_a_step_toward_a_holder_is_held():
+    # 278 (we buy, value 116): our 82 against their 111, which they repeated every tick; we crept 82 → 84 → 85...
+    view = BUYER.model_copy(update={"limit": 116})
+    move = drafted(view, [*mine(82), theirs(111, 2)], Offer(price=111), 84)
+    assert (move.price, move.meta["rule"]) == (82, "small step")
+
+
+def test_after_four_offers_we_move_only_when_they_do():
+    turns = [*mine(70), theirs(20, 1), *mine(64, 58, start=2), theirs(28, 3), *mine(52, start=4)]
+    held = drafted(SELLER, turns, Offer(price=28), 46)       # their 28 stood when we sent 52
+    assert (held.price, held.meta["rule"], held.meta["drafted"]) == (52, "offer budget", 46)
+    moved = drafted(SELLER, [*turns, theirs(34, 5)], Offer(price=34), 46)   # they moved 6, at least the step
+    assert moved.price == 46 and "rule" not in moved.meta
+    assert drafted(SELLER, turns, Offer(price=28), 46, left=3).price == 46  # the closing ticks: sent
+
+
+def test_the_round_rules_leave_accepts_openers_and_code_moves_alone(tmp_path: Path):
+    turns = [*mine(70), theirs(42, 1), *mine(64, 58, 52, start=2)]          # four offers, their 42 unchanged
+    take = drafted(SELLER, turns, Offer(price=42), 44, action="accept")
+    assert (take.action, take.price) == ("accept", 42)
+    assert drafted(SELLER, [], None, 70).price == 70                         # the opener
+    o = Observation(view=SELLER, turns=turns, rival_offer=Offer(price=42), tick=10, ticks_left=6)
+    assert DuelAgent(SELLER, FakeModel(plan(52, 54, 50))).close(o, "small gap").action == "accept"
+    silent_obs = Observation(view=SELLER, turns=mine(70), tick=10, ticks_left=6)
+    walk = DuelAgent(SELLER, FakeModel(plan(70, 72, 68))).silent_move(silent_obs)
+    assert walk.action == "offer" and walk.price < 70 and walk.meta["rule"] == "silent rival"
+    r = runner(FakeBazaar(), FakeModel(plan(80, 78, 82)), tmp_path)
+    assert r.their_price(answered(r, recorded(278, 165), 165), Move("accept", "Agreed.", price=111)).price == 111
+
+
+def test_a_day_only_concession_is_a_step_in_worth():
+    view = SELLER.model_copy(update={"issues": ["price", "days"], "days_weight": 2,
+                                     "days_meaning": "each day later costs you 2 P"})
+    turns = [Turn(mine=True, offer=Offer(price=70, days=0), tick=1), theirs(30, 2, days=0)]
+    rival = Offer(price=30, days=0)                           # gap 40 in worth: the least step is 10
+    small = drafted(view, turns, rival, 70, days=3)           # day 3 costs us 6
+    assert (small.price, small.days, small.meta["rule"]) == (70, 0, "small step")
+    big = drafted(view, turns, rival, 70, days=5)             # day 5 costs us 10
+    assert (big.price, big.days) == (70, 5)
+
+
+def test_ledger_names_the_offer_budget_and_the_least_step_once_both_have_offered():
+    before = ledger(obs(SELLER, turns=mine(70)))
+    assert "Offers your side has sent" not in before and "smallest step" not in before
+    text = ledger(obs(SELLER, rival=30, turns=[*mine(70), theirs(30, 2)]))
+    assert ("- Offers your side has sent: 1. Plan on at most 4 in the whole duel; after the fourth, nothing more is "
+            "sent until the last 3 ticks unless they move at least 10 P.") in text
+    assert "- The smallest step worth sending now: 10 P (a quarter of the gap, at least 3 P)." in text
 
 
 def test_the_opener_is_always_an_offer():
