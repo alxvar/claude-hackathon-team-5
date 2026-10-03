@@ -1,4 +1,4 @@
-# Opportunities (auto, 02:44, game tick 159, t 2.65 h) · DRY RUN: nothing posted, nobody notified
+# Opportunities (auto, 02:48, game tick 159, t 2.65 h) · DRY RUN: nothing posted, nobody notified
 
 Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min old · ≤ 3 alerts/h · team 45 min · team+card 2 h · sells only to teams ≥ 10 below us (20.03) and outside the top 4 (t10, t12, t13, t17). Data: collector.
 

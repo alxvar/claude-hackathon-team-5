@@ -17,7 +17,8 @@ value − 3 (they accept our bid, so no fee for us). Gain = value − price, cap
 
 Alert only if gain ≥ 20 or it completes our page, the signal is ≤ 30 game minutes old, ≤ 3 Dani alerts per hour,
 45 min per team, 2 h per (team, card); a SELL also needs the buyer to lack ≤ 1 other card of that set (seen in the last
-2 game hours), i.e. ours is its last or second-to-last card (plan §4A): otherwise a 40 P ask won't fill. Everything goes to intel/opportunities.md with its status.
+2 game hours): a heuristic for "ours is its last or second-to-last card" (plan §4A), since a 40 P ask won't fill
+otherwise; a team that signalled only one of several gaps still passes. `--any-gap` turns it off. Everything goes to intel/opportunities.md with its status.
 Execution (not --dry-run): post the addressed offer (expires after ~20 min), record its id, THEN notify. At most 3
 live opportunity offers, cancelled after 20 min unfilled; cash floor env CASH_FLOOR (default 200).
 
@@ -52,6 +53,7 @@ ALERTS_PER_H, TEAM_COOLDOWN_S, PAIR_COOLDOWN_S = 3, 45 * 60, 2 * 3600
 MAX_LIVE, OFFER_TTL_S, MAX_POSTS_PER_RUN = 3, 20 * 60, 2   # the team posts ≤ 12 listings/tick across all processes
 OTHER_LACK_H, MAX_OTHER_LACKS = 2.0, 1  # a sale is a page-closer only if the buyer lacks ≤ 1 other card of that set
 BUILD = ("RET", "CHA")     # pages we build (RET Saturday, CHA Sunday; GAME.md)
+PROTECT = ("LAV",)         # completed: only 2nd/3rd copies are ever for sale (also any page /api/me says is complete)
 BASE_ASK = {"common": 40, "uncommon": 45, "rare": 95}
 TEAM_RE = re.compile(r"^t\d+$")
 
@@ -62,8 +64,8 @@ class Api:
     """GETs on public keyless routes, the team key only for /api/me*. Writes refuse to run in dry-run mode."""
 
     def __init__(self, url, key, dry_run, min_gap=1.0):
-        self.pub = _Http(url, {}, 15.0, False, 3)
-        self.team = Bazaar(url, key, wait_on_tick=False) if key else None
+        self.pub = _Http(url, {}, 15.0, False, 0)  # no SDK retries: they would bypass the pacing; the next run retries
+        self.team = Bazaar(url, key, wait_on_tick=False, retries=0) if key else None
         self.dry_run, self.min_gap, self._last = dry_run, min_gap, 0.0
 
     def _paced(self, fn, *a, **k):
@@ -126,12 +128,17 @@ def load_market(api, now, data_dir=DATA):
     if fp.exists():
         with fp.open() as f:
             for line in f:
-                if line.strip():
+                try:
                     e = json.loads(line)
                     events[e["id"]] = e
+                except (ValueError, KeyError, TypeError):
+                    continue  # blank or half-written line
     board = None
     if bp.exists():
-        b = json.loads(bp.read_text())
+        try:
+            b = json.loads(bp.read_text())
+        except ValueError:
+            b = {}  # half-written: fetch instead
         if now - b.get("t", 0) < FRESH_S:
             board = b.get("offers", [])
     if board is None:
@@ -308,7 +315,7 @@ def find_opportunities(*, events, board, lb, cat, me, value_of, build=BUILD, cas
         if a.get("kind") == "card":
             held.setdefault(a["ref"], []).append(a)
     complete = {p["set"] for p in (me.get("album") or {}).get("pages", []) if p.get("complete")}
-    protected = set(build) | complete
+    protected = set(build) | complete | set(PROTECT)
     listed = {a["id"] for o in board if o.get("team") == me_id for a in (o.get("give") or {}).get("assets") or []}
     listed |= set(our_listed)  # live mode: assets in our open offers per /api/me/offers (the board tags can miss some)
     missing = {s: [c for c in sets[s]["page"] if c not in held] for s in build if s in sets}
@@ -323,12 +330,12 @@ def find_opportunities(*, events, board, lb, cat, me, value_of, build=BUILD, cas
                 "rarity": c["rarity"], "src": sig["src"], "live": sig["live"], "age_min": round(age_h * 60),
                 "confident": age_h <= CONF_H, "reasons": []}
         if sig["kind"] == "lack" and card in held:
-            copies = [a for a in held[card] if a["id"] not in listed]
+            copies = [a for a in held[card] if a["id"] not in listed and a.get("your_value") is not None]
             spare = len(copies) >= 2 or (copies and c["set"] not in protected)
             if not spare:
                 continue  # the only copy of a page card we build or completed: never for sale
             a = min(copies, key=lambda x: x.get("your_value") or 0)
-            v = float(a.get("your_value") or 0)
+            v = float(a["your_value"])
             p = prof.get((team, c["set"]), {})
             m_est = min(1.6, max(0.5, max(p["ratios"]))) if p.get("ratios") else None
             price = sell_price(c["rarity"], v, c["book"] + sets[c["set"]]["bonus"], m_est,
@@ -362,6 +369,8 @@ def find_opportunities(*, events, board, lb, cat, me, value_of, build=BUILD, cas
                 o["reasons"].append(f"worth only {value:g} to us")
             if team in top:
                 o["reasons"].append("top 4")
+            if not teams:
+                o["reasons"].append("leaderboard empty: top 4 unknown")
             cash = me.get("cash", 0) - committed_cash
             if price and cash - price < cash_floor:
                 o["reasons"].append(f"cash floor {cash_floor} (cash {cash})")
@@ -389,6 +398,11 @@ def choose_alerts(opps, state, now):
             o["status"] = f"listed only: signal {o['age_min']} game-min old"
         elif any(x["team"] == o["team"] and x["card"] == o["card"] for x in live):
             o["status"] = "offer already live"
+        elif o["side"] == "BUY" and any(x.get("side") == "BUY" and x["card"] == o["card"] for x in live + picked):
+            o["status"] = "our bid for this card is already out to another holder"
+        elif o["side"] == "SELL" and o.get("asset") is not None and any(
+                x.get("side") == "SELL" and x.get("asset") == o["asset"] for x in live + picked):
+            o["status"] = "this copy is already offered to another team"
         elif any(a["team"] == o["team"] and a["card"] == o["card"] and now - a["ts"] < PAIR_COOLDOWN_S for a in alerts):
             o["status"] = "cooldown: same team + card within 2 h"
         elif any(a["team"] == o["team"] and now - a["ts"] < TEAM_COOLDOWN_S for a in alerts) or \
@@ -453,23 +467,39 @@ def message(o, offer_id=None):
 
 # ---------------------------------------------------------------------------------------------------- state, output
 
-def load_state(path):
+def load_state(path, strict=False):
+    """Cooldowns and live offers. A missing file is a fresh start; an unreadable one is refused in live mode (strict),
+    because an empty state would silently lift every cap."""
+    path = Path(path)
+    if not path.exists():
+        return {"alerts": [], "live": []}
     try:
-        return json.loads(Path(path).read_text())
-    except Exception:
+        state = json.loads(path.read_text())
+        if not isinstance(state, dict):
+            raise ValueError("not an object")
+        state.setdefault("alerts", [])
+        state.setdefault("live", [])
+        return state
+    except ValueError as e:
+        if strict:
+            raise RuntimeError(f"{path} unreadable ({e}): fix or delete it before posting") from None
         return {"alerts": [], "live": []}
 
 
 def save_state(path, state, now):
     state["alerts"] = [a for a in state.get("alerts", []) if now - a["ts"] < 86400]
     state["live"] = [x for x in state.get("live", []) if x.get("status") == "live" or now - x["ts"] < 86400]
-    Path(path).parent.mkdir(parents=True, exist_ok=True)
-    Path(path).write_text(json.dumps(state, indent=1))
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(".tmp")
+    tmp.write_text(json.dumps(state, indent=1))
+    os.replace(tmp, path)  # atomic: a crash never leaves half a file
 
 
-def reconcile(api, state, events, me_id, now):
-    """Live mode: drop tracked offers that closed (filled or expired), cancel ours unfilled after 20 min. Returns the
-    asset ids in our open offers, so a copy listed by another process is never offered twice."""
+def reconcile(api, state, events, me_id, now, held_refs=()):
+    """Live mode: drop tracked offers that closed (filled or expired), cancel ours unfilled after 20 min and any bid for
+    a card we now hold (e.g. the trader bought it). Returns (asset ids in our open offers, so a copy listed by another
+    process is never offered twice; cash in ALL our open bids, from every process, for the cash floor)."""
     mine = [o for o in api.my_offers().get("offers", []) if o.get("maker") == me_id and o.get("status") == "open"]
     open_ids = {o["id"] for o in mine}
     for x in state.get("live", []):
@@ -481,17 +511,20 @@ def reconcile(api, state, events, me_id, now):
                 (x["side"] == "BUY" and i.get("ref") == x["card"] and i.get("frm") == x["team"] and i.get("to") == me_id)
                 for i in e["payload"].get("items", [])) for e in events)
             x["status"] = "filled" if filled else "closed (expired or cancelled)"
-        elif now - x["ts"] > OFFER_TTL_S:
+        elif now - x["ts"] > OFFER_TTL_S or (x["side"] == "BUY" and x["card"] in held_refs):
+            why = "unfilled 20 min" if now - x["ts"] > OFFER_TTL_S else "we hold the card now"
             try:
                 api.cancel(x["offer"])
-                x["status"] = "cancelled: unfilled 20 min"
+                x["status"] = f"cancelled: {why}"
             except BazaarError as e:
                 print(f"opportunities: cancel {x['offer']} failed: {e.code}", flush=True)
         for a in state.get("alerts", []):
             if a.get("offer") == x["offer"]:
                 a["status"] = x["status"]
     cancelled = {x["offer"] for x in state.get("live", []) if x.get("status", "").startswith("cancelled")}
-    return {a["id"] for o in mine if o["id"] not in cancelled for a in (o.get("give") or {}).get("assets") or []}
+    still = [o for o in mine if o["id"] not in cancelled]
+    return ({a["id"] for o in still for a in (o.get("give") or {}).get("assets") or []},
+            sum((o.get("give") or {}).get("cash") or 0 for o in still))
 
 
 def write_md(path, opps, state, ctx, *, dry_run, now, clock, src):
@@ -503,7 +536,7 @@ def write_md(path, opps, state, ctx, *, dry_run, now, clock, src):
          f"## Ranked now ({len(opps)})", "",
          "| # | side | team | card | price | our value | gain | signal | age (game min) | status |",
          "|---|---|---|---|---|---|---|---|---|---|"]
-    for i, o in enumerate(opps[:60], 1):
+    for i, o in enumerate(opps, 1):
         L.append(f"| {i} | {o['side']} | {o['team_name']} (#{o['rank']}, {o['their_score']}) | {o['card']} {o['rarity']}"
                  f"{' · COMPLETES' if o['completes'] else ''} | {o['price'] if o['price'] is not None else '-'} | {o['our_value']:g} | {o['gain']:g} | "
                  f"{o['src']} | {o['age_min']}{' live' if o['live'] else ''} | {o.get('status', '')} |")
@@ -528,14 +561,16 @@ def run_once(api, *, dry_run, now=None, state_path=STATE, out_path=OUT, data_dir
              cash_floor=None, notifier=notify, log=print):
     now = time.time() if now is None else now
     cash_floor = int(os.environ.get("CASH_FLOOR", 200)) if cash_floor is None else cash_floor
-    state = load_state(state_path)
+    state = load_state(state_path, strict=not dry_run)
     clock = api.clock()
     events, board, src = load_market(api, now, data_dir)
     lb, cat, me = api.leaderboard(), api.catalog(), api.me()
     gt = GameTime(events, float(clock.get("tick_seconds") or 60))
     now_tick = clock.get("tick") or (events[-1]["tick"] if events else 0)
-    our_listed = reconcile(api, state, events, me["id"], now) if not dry_run else set()
-    committed = sum(x["price"] for x in state.get("live", []) if x.get("status") == "live" and x["side"] == "BUY")
+    held_refs = {a["ref"] for a in me.get("assets", []) if a.get("kind") == "card"}
+    our_listed, open_bid_cash = reconcile(api, state, events, me["id"], now, held_refs) if not dry_run else (set(), 0)
+    committed = max(open_bid_cash, sum(x["price"] for x in state.get("live", [])
+                                       if x.get("status") == "live" and x["side"] == "BUY"))
 
     values = {}
 
@@ -583,6 +618,7 @@ def run_once(api, *, dry_run, now=None, state_path=STATE, out_path=OUT, data_dir
                "offer": oid, "asset": o.get("asset"), "status": "live"}
         state.setdefault("live", []).append(dict(rec))
         state.setdefault("alerts", []).append(dict(rec))
+        save_state(state_path, state, now)  # recorded before anyone is told: a crash can't lose a live offer
         o["status"] = f"ALERTED · offer {oid} live"
         title, body = message(o, oid)
         for who in ("dani", "lucas"):

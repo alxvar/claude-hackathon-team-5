@@ -324,7 +324,7 @@ def run(client, clock: TickClock, planner: Planner, *, dry_run: bool = False, ma
                         failures += 1
                         if failures >= max_errors:
                             return 1
-        sleep(1.0 / hz)
+        sleep(5.0 if c.get("paused") else 1.0 / hz)  # doors closed: nothing ticks
     return 0
 
 

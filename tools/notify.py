@@ -22,7 +22,8 @@ REPEAT_S = 600  # identical (channel, title) at most once per 10 minutes
 
 def _load(path):
     try:
-        return json.loads(path.read_text())
+        state = json.loads(path.read_text())
+        return state if isinstance(state, dict) else {}
     except Exception:
         return {}
 
@@ -30,8 +31,10 @@ def _load(path):
 def _save(path, state, now):
     try:
         path.parent.mkdir(parents=True, exist_ok=True)
-        state = {k: v for k, v in state.items() if now - v < 86400}  # keep the file small
-        path.write_text(json.dumps(state, indent=0))
+        state = {k: v for k, v in state.items() if isinstance(v, (int, float)) and now - v < 86400}  # keep it small
+        tmp = path.with_name(f"{path.name}.{os.getpid()}.tmp")
+        tmp.write_text(json.dumps(state, indent=0))
+        os.replace(tmp, path)  # atomic: several processes (opportunities, duel_monitor) share this file
     except Exception as e:
         print(f"notify: could not save state ({e!r})", file=sys.stderr)
 
@@ -56,7 +59,7 @@ def notify(channel, title, message, priority=3, tags=None, click=None, *, state_
         key = f"{channel.lower()}|{title}"
         state = _load(state_path)
         last = state.get(key)
-        if last is not None and now - last < REPEAT_S:
+        if isinstance(last, (int, float)) and now - last < REPEAT_S:
             print(f"notify[{channel}] suppressed (sent {int(now - last)} s ago): {title}", file=sys.stderr)
             return False
         body = {"topic": topic, "title": title, "message": message, "priority": int(max(1, min(5, priority)))}

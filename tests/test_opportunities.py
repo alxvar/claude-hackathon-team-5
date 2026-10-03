@@ -490,3 +490,63 @@ def test_any_gap_switch_restores_the_plain_filter(monkeypatch):
     opps, _ = engine()
     picked = op.choose_alerts(opps, {"alerts": [], "live": []}, NOW)
     assert [(o["team"], o["card"], o["price"]) for o in picked] == [("t07", "SAL-02", 40)]
+
+
+def test_one_live_bid_per_card_whoever_holds_it(tmp_path):
+    """Two holders of our missing RET-10: one bid only; a second copy would be worth ~25%."""
+    f = ret_page_fixture()
+    f["events"].append(pull_event("t16", "RET-10", 158, 99200))
+    opps, _ = engine(f, values={"RET-10": 149.9}, cash_floor=0)
+    picked = op.choose_alerts(opps, {"alerts": [], "live": []}, NOW)
+    assert [o["card"] for o in picked if o["side"] == "BUY"] == ["RET-10"]
+    other = [o for o in opps if o["side"] == "BUY" and o not in picked]
+    assert other and other[0]["status"] == "our bid for this card is already out to another holder"
+    live = [{"side": "BUY", "team": "t09", "card": "RET-10", "status": "live"}]
+    assert not [o for o in op.choose_alerts(engine(f, values={"RET-10": 149.9}, cash_floor=0)[0],
+                                            {"alerts": [], "live": live}, NOW) if o["side"] == "BUY"]
+
+
+def test_one_copy_is_never_pitched_to_two_teams():
+    f = single_gap_fixture()
+    f["events"].append(lack_event("t16", "SAL-02", 158, 99300))         # Team 16 lacks SAL-02 too
+    opps, _ = engine(f)
+    picked = op.choose_alerts(opps, {"alerts": [], "live": []}, NOW)
+    assert len([o for o in picked if o["card"] == "SAL-02"]) == 1      # SAL-02 ×2: one spare only
+
+
+def test_bid_cancelled_once_we_hold_the_card(tmp_path):
+    state = {"alerts": [], "live": [{"ts": NOW - 60, "tick": 158, "side": "BUY", "team": "t09", "card": "SAL-08",
+                                     "price": 20, "offer": 5, "status": "live"}]}          # we hold SAL-08
+    (tmp_path / "state.json").write_text(json.dumps(state))
+    api = FakeApi(open_offers=[{"id": 5, "maker": "t05", "status": "open", "give": {"cash": 20}}])
+    run(tmp_path, api, False, notifier=lambda *a, **k: None)
+    assert ("cancel", (5,)) in api.calls
+
+
+def test_unreadable_state_blocks_live_posting_but_not_dry_run(tmp_path):
+    (tmp_path / "state.json").write_text("{half a fi")
+    api, notes = FakeApi(single_gap_fixture()), []
+    with pytest.raises(RuntimeError, match="unreadable"):
+        run(tmp_path, api, False, notifier=lambda *a, **k: notes.append(a))
+    assert "list_offer" not in api.names() and notes == []
+    run(tmp_path, FakeApi(single_gap_fixture()), True)                   # dry run still computes
+
+
+def test_state_is_saved_before_the_notification(tmp_path):
+    seen = []
+    api = FakeApi(single_gap_fixture())
+    run(tmp_path, api, False, notifier=lambda *a, **k: seen.append(json.loads((tmp_path / "state.json").read_text())))
+    assert seen and seen[0]["live"][0]["offer"] == 9001
+
+
+def test_pacing_and_keyless_public_client(monkeypatch):
+    api = op.Api("http://127.0.0.1:9", "k", dry_run=True, min_gap=1.0)
+    assert "X-Team-Key" not in api.pub._headers and api.pub.retries == 0 and api.team.retries == 0
+    t = [100.0]
+    slept = []
+    monkeypatch.setattr(op.time, "time", lambda: t[0])
+    monkeypatch.setattr(op.time, "sleep", lambda s: slept.append(s))
+    api._paced(lambda: None)
+    t[0] += 0.3
+    api._paced(lambda: None)
+    assert slept == [pytest.approx(0.7)]

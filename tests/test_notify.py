@@ -74,3 +74,11 @@ def test_cli_returns_nonzero_when_topic_unset(monkeypatch, tmp_path, sent):
     monkeypatch.setattr(nt, "STATE", tmp_path / "s.json")
     assert nt.main(["dani", "title", "message"]) == 1
     assert sent == []
+
+
+def test_corrupt_state_is_treated_as_empty(monkeypatch, tmp_path, sent):
+    monkeypatch.setenv("NTFY_DANI", "t-dani")
+    s = tmp_path / "s.json"
+    s.write_text("[1, 2]")
+    assert nt.notify("dani", "A", "x", state_path=s, now=0) is True
+    assert json.loads(s.read_text()) == {"dani|A": 0}
