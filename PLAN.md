@@ -65,6 +65,16 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    rival's preferred day from its first priced message; if our per-day weight is small next to the price steps, give the
    rival its day and ask a higher price in return; hold our day only when our weight is large; never below 0 worth
    (`guards.worth`). Answer every duel (no answer = 0 for both).
+14. **13:23, Lucas's ask for the 14:30 review: the closing math + engine audit.** Score per deal = our surplus × (1 − d)^rounds,
+   so another round pays only if it raises our surplus by more than **S × d/(1−d)**: **6.4% of S in Duels I, 8.7% in
+   Duels II (8%), 11.1% in Duels III/Final (10%)**. With S = 40 in Duels II, the rival must concede > 3.5 P in that round,
+   or we should take their in-limit offer now. Please bring, per duel: rival's first in-limit offer (round, price),
+   our final result, and the counterfactual "accept their first in-limit offer" (my quick pass: in 2531, 2584 and 2585
+   the rival's FIRST offer already gave us 45 / 31 / 64 P of surplus at rounds 0-1). Then: (a) the closing rule in
+   CODE: accept when the rival's in-limit offer ≥ our expected next-round surplus × (1−d); (b) max 3 priced rounds
+   unless the gap is large; (c) engine audit: decisions where the model conceded < 3 P, latency and fallbacks, and
+   whether a higher strategist effort is worth it (25 s budget today, mean 6 s; Sunday 10 s); (d) days: the
+   integrative rule from #13.
 
 **Dani: the desk, the page-gap desk, the judges' story.**
 1. **09:00, organisers' desk**: the 8 questions in plan §3, answers in `team/dani.md` at once.
