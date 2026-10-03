@@ -24,6 +24,13 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 - **Market:** v14 stall, one trade all day (418); market 9.53 = 7.5 + VC ≈ 2.0 → room ≈ +3 to the cap.
 
 
+### Sat 22:25 · snapshot 1370
+- Board: t10 37.91 · t06 31.42 · **us 30.87 (#3)** · t12 30.57 · t18 30.11 · t03 30.03 · t14 28.20.
+- **t10's lead decomposed** (game total = 0.5·Fri + Sat, snapshot 1360): Friday ½ +0.39 · Saturday negotiating +2.84 ·
+  **Saturday market +7.50** (v07 value created at the cap vs our 0). 70% of its lead is market; repeatable Sunday.
+- **t14 completed its SAL page through a DEALER** (SAL-06 from Abuela at 24, tick 1371): no page bonus scored (dealer gains
+  clipped). Its SAL rares came from the Pícaros (57/56), SAL-07/08 from Abuela.
+
 ### Sat 22:10 · snapshot 1340
 - Board: t10 38.29 · t06 32.63 · **t12 31.02** · **us 30.95 (#4)** · t18 30.05 · t03 29.97 · t14 28.37.
 - Game total so far (0.5·Fri + Sat): t10 57.44 · t06 48.95 · t12 46.53 · **us 46.42** · t18 45.08 · t03 44.95 · t14 42.55.
