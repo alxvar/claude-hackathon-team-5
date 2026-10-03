@@ -11,15 +11,15 @@ words (`text: null`), so only dealer replies are visible. [V] verified in the da
    that dealer). One deal at full share is worth **Abuela 0.022 · Chato 0.044 · Pilar 0.067 · Pícaros 0.089 · Ernesto 0.111**:
    one Ernesto deal = five Abuela deals. Our Saturday 0.483 of 1.0 by level [L]: L1 0.055 · **L2 0.029 (of 0.133)** · L3 0.177 ·
    L4 0.222 · **L5 0 (of 0.333)**.
-2. **The top of a BUY range is the dealer's LIST price, not the opening ask [L].** Our 5 Chato buys were 4 to 11 P below his opening
+2. **The top of a BUY range is the dealer's LIST price, not the opening ask [L].** Our 5 Chato buys were 2 to 11 P below his opening
    ask but above list (RET-09 87, RET-10 86 vs list 77; RET-06 30 vs 26; Fri LAV-06 31, LAV-09 93): ladder +0 every time. Every buy
    below list moved it (Abuela commons 9 < 10, uncommons 22-23 < 25, Pícaros rares 54 < 63, epic 128 < 162). For a SELL the floor is
    the dealer's opening bid: a sale at the opening bid scores 0 (LAT-08 to Chato at 13), one above it scores (LAT-08 at 14: +0.017).
 3. **Words don't move prices [V].** Price paths are identical across teams (Abuela commons 12 → 10 → 9 → 9 for five different
    teams). Kindness buys Abuela's **gift cards**: 18% of her replies that acknowledge kindness carry a gift, vs 3.7% of the rest.
-   Gifts and eggs never score (RULES). **The Pícaros egg doesn't stop their tricks:** bait-and-switch in 4 of their 18 offers to
-   teams after the egg (22%), vs 76 of 495 before (15%).
-4. **Walking out costs nothing; finals are almost binding.** Teams beat a dealer's final in 7 of 183 cases (Pilar 0 of 46). After a
+   Gifts and eggs never score (RULES). **The Pícaros egg doesn't stop their tricks:** bait-and-switch in 4 of their 18 card offers to
+   teams after their egg (22%), vs 76 of 495 otherwise (15%) [L, name matching].
+4. **Walking out costs nothing; finals are almost binding.** Teams beat a dealer's final in 7 of the 183 settled deals that had one (Pilar 0 of 46). After a
    walk, the next thread for the same item had a better best price 191 times, a worse one 151 times and the same 276 times; the opening
    price never changed. Each conversation draws a fresh secret limit, so **a bad final → walk and reopen**.
 5. **Timing [L]:** Round 3 is scheduled at game hour 16.65, which is Sunday's *planned* opening (Saturday lost about 3.3 game hours to
@@ -33,25 +33,25 @@ words (`text: null`), so only dealer replies are visible. [V] verified in the da
 | | Abuela (L1) | El Chato (L2) | Doña Pilar (L3) | Los Pícaros (L4) | Don Ernesto (L5) |
 |---|---|---|---|---|---|
 | Sells (list / opening ask) | common 10/12 · uncommon 25/29 · pack 26/30 | uncommon 26/33 · rare 77/97 · silver 150/188 | gold pack 420/504 | rare 63/73 · epic 162/187 | legendary 585/761 · gold pack 420/546 |
-| Buys (opening bid) | common 5 · uncommon 12 (18 under the Sat "pays more for uncommons" patch, from ≈ tick 1018) | uncommon 13 · rare 39 | uncommon 16 (22 SAL/RET; 25 in the fever) · rare 47-61 (70 SAL/RET) · epic 122-172 | common 4 · uncommon 10 | epic 112-113 (legendary untested) |
-| Settled Sat: median → best | we buy: common 9 → **8** · unc 23 → **20** · pack 21 → **19**; we sell: common 6, unc 15-17 (20-22 on the patch) | we buy: rare 87 → **75** · unc 31 → 26 (= list); we sell: unc 14 → **16** · rare 46, **49** | we sell: unc ×1.12 of her open → **21** (16-open), 26 (22-open, pre-fever), 30 (fever) · rare ×1.13 → **78** (61-open), **87** (70-open) · epic SAL-11 **195-199**, LAV-11 140 | we buy: rare 57 → **48** · epic 146 → **128**; we sell: common **5** · unc **12** | we sell: epic 116, 120, 120 (finals 115-129) |
+| Buys (opening bid) | common 5 · uncommon 12 (18 under the Sat "pays more for uncommons" patch, from ≈ tick 1018) | uncommon 13 · rare 39 | uncommon 16 (22 SAL/RET; 25 SAL in the fever) · rare 47 (61 SAL/RET; 70 SAL in the fever) · epic 122 (LAV) to 172 (SAL) | common 4 · uncommon 10 | epic 112-113 (legendary untested) |
+| Settled Sat: median → best | we buy: common 9 → **8** · unc 23 → **20** · pack 21 → **19**; we sell: common 6, unc 15-17 (20-22 on the patch) | we buy: rare 87 → **75** · unc 31 → 26 (= list); we sell: unc 14 → **16** · rare 46, **49** | we sell: unc ×1.12 of her open → **21** (16-open), 26 (22-open, pre-fever), 30 (fever) · rare ×1.13 → **56** (47-open, ours), **78** (61-open), **87** (70-open, fever) · epic SAL-11 **195-199**, LAV-11 140 | we buy: rare 57 → **48** · epic 146 → **128**; we sell: common **5** · unc **12** | we sell: epic 116, 120, 120 (finals 115-129) |
 | Concession pattern | fixed schedule: common 12, 10, 9, 9, (8 final); unc 29, 25, 23/24, 22, 21, 20, 20 final | flat 2-4 rounds, then 1-5 per round, explicitly mirrored ("You moved four, I move two") | climbs +1 per round (unc), +2 to +4 (rare), +3 to +5 (epic) | front-loaded: 73 → 63 → 57 → 52 → 48 (−10, −6, −5, −4) whatever we do | flat at 113 for 3-4 rounds, then +2, +3, +5, +6 if we keep conceding |
-| Rounds before the final (dealer messages) | 5-7 | 5-8 | 4-6 | 3.5-5 | 7-10 |
+| Rounds before the final (dealer messages) | 4-7 | 5-8 | 4-6 | 3.5-5 | 5-10 |
 | Our step that worked best (share of the dealer's opening) | **3-6%** (+1/+2): unc concession 20.7% of open vs 13.8% with 10-20% steps | **3-6%** on buys; −2 steady on sells | **3-6%** on rares (14.3% vs 8.2% for 10-20%), 6-10% on uncommons | **3-6%** (21.9% on rares vs 17.8% for < 3%) | high anchor (2.3× his bid) then **−6 to −8** per message |
 | Traits (patience/generosity/shrewdness/memory/strictness) | 0.85/0.8/0.2/0.15/0.1 | 0.35/0.25/0.85/0.9/0.85 | 0.6/0.5/0.75/0.7/0.6 | 0.4/0.6/0.7/0.3/0.1 | 0.95/0.1/0.95/1.0/1.0 |
 | Deals per team per hour | 8 (packs 3) | 6 | 6 | 6 | 4 |
 
 Per-dealer notes:
 - **Abuela**: the best deals in the field came from very low anchors and +1/+2 steps that kept her going 7 rounds (t07 and t04 got
-  uncommons at 20: hers 29, 25, 23, 22, 21, 20, 20 final). Commons bottom at 8 (five teams), always after 12, 10, 9, 9.
-- **Chato**: buying from him almost never scores. His uncommon floor is the list price (best 26 = list, n=18) and his rare finals
-  land at 77-90 (25 of 33 rare buys ≥ 82). Only t07 went below list (LAV-10 at 75: he said 78, then accepted their 75, after +9 to
-  +13 steps from 9). Selling to him works: t17 and t01 got 16 for uncommons with −2 steps from 52 / 32 over 8-10 rounds (he held 13
-  for 4-6 rounds, then 14, 15, 16 final); t14 got 49 for a rare (−2 steps from 70, 8 rounds). He mocks +1 steps ("One peseta. That's
+  uncommons at 20: hers 29, 25, 23, 22, 21, 20, 20 final). Commons bottom at 8 (7 deals, 4 teams), always after 12, 10, 9, 9.
+- **Chato**: buying from him almost never scores. His uncommon floor is the list price (best 26 = list, n=18), and 29 of his 33 rare
+  sales went at ≥ 82 (one at 77, one at 75). Only t07 went below list (LAV-10 at 75: he said 78, then accepted their 75, after +9 to
+  +13 steps from 9). Selling to him works: t17 (−2 steps from 52) and t01 (−1 steps from 32) got 16 for uncommons after 8-10 rounds
+  (he held 13 for 5-7 rounds, then 14, 15, 16 final); t14 got 49 for a rare (−2 steps from 70, 8 rounds). He mocks +1 steps ("One peseta. That's
   your big move?") and answers stories with price ("Cascorro doesn't pay my rent").
 - **Pilar**: the best sellers asked about 1.8× her opening and stepped −1/−2 (uncommons) or −3/−4 (rares). A jump to her number
-  triggers her final at once (our SAL-08: her 22, 22, 23 final → share ≈ 0.29). In her best deals she accepted *our* offer one step
-  above her last number (our MAL-07 at 19, MAL-06 at 19 and 20). She asks for RET-11 by name: "me falta el Palacio de Cristal",
+  triggers her final at once (our SAL-08: her 22, 22, 23 final → share ≈ 0.29). In two of our best deals she accepted *our* offer one
+  above her last number (MAL-07 at 19 after her 18; MAL-06 at 20 after her 19). She asks for RET-11 by name: "me falta el Palacio de Cristal",
   "Vuelva el domingo con el Palacio de Cristal" (to t10, tick 1373).
 - **Pícaros**: they concede about 6-7% of their opening per round even when we move by < 3%, then final by message 4-5. The best
   buyers opened at 40-45 on rares and stepped +1 to +3 (t12: 48, twice). We got RET-11 at 128 (their 187, 167, 155, 145, 136; ours
@@ -105,8 +105,8 @@ Pilar's uncommon column mixes her 16 and 22 openings (fever days included), so t
   and Abuela's uncommon bid 12 → 18. **El Tablón lied**: "El Chato gives a legendary to anyone who says hello", "Abuela stops buying
   common cards" (she bought 28 more after it), "Lavapiés reprinted".
 - **Flags (the Pícaros payoff that DOES score):** +10 `neg_points` per correct flag, about 3 scored per team on Saturday [V, GAME.md];
-  whether the cap resets on Sunday is [?]. Pícaros' structured card offers: 15% bait-and-switch (the words name a different card than
-  the offer gives), 7% false facts ("stopped printing", "last one in all of Madrid"). Never flag deadline or finality talk (−10 [V]).
+  whether the cap resets on Sunday is [?]. Pícaros' structured card offers [L, by name matching]: 15% bait-and-switch (the words name a
+  different card than the offer gives), 7% false facts ("stopped printing", "last one in all of Madrid"). Never flag deadline or finality talk (−10 [V]).
 
 ## 3. Sunday playbook
 
@@ -140,7 +140,7 @@ Pilar's uncommon column mixes her 16 and 22 openings (fever days included), so t
 - What: SELL spares: uncommons (target 16) and rares (target 48-49). Don't buy uncommons from him (floor = list 26 → 0). Buy a rare only
   below 77 (best seen 75 in 33 buys; if the range top is book 70 rather than list, even that scores 0): treat Chato buys as not scoring.
 - Opener: uncommon ask 32-40; rare ask 70.
-- Step: −2 every message, steady. He holds 13 (uncommon) or 39-41 (rare) for 4-6 rounds, then +1 (uncommon) or +2 (rare) per round.
+- Step: −1 or −2 every message, steady. He holds 13 (uncommon) or 39-41 (rare) for 4-6 rounds, then +1 (uncommon) or +2 (rare) per round.
   Not ±1 (mocked, early final); no jump to his number (he finals at 14).
 - Target / accept / walk: uncommon **16** (≈ 0.9-1.0) / 15 (≈ 0.6; our two 14s scored ≈ 0.27-0.38) / final ≤ 14 → reopen. Rare **49**
   / ≥ 46 / final ≤ 44 → reopen.
@@ -150,11 +150,12 @@ Pilar's uncommon column mixes her 16 and 22 openings (fever days included), so t
 **Doña Pilar (L3, 0.067 per deal; Saturday ≈ 0.885)**
 - What: SELL. RET-11 if we still hold it on Sunday: she asks for it by name, and SAL-11 fetched 195-199 from her 172 opening; our floor
   is 198 (its value to us). Spare uncommons and rares. CHA cards are not spares on Sunday.
-- Opener: about 1.8× her opening: uncommon 29-30 (her 16) or 36-38 (her 22); rare 98-105 (her 61-70); epic 240-260 (her 172).
+- Opener: about 1.6-1.8× her opening: uncommon 29-30 (her 16) or 36-38 (her 22); rare 78 (her 47) or 98-105 (her 61-70); epic
+  240-260 (her 172).
 - Step: uncommon −1/−2, rare −3/−4, epic −5 to −8. Never jump to her number. When her last number is 1 to 2 steps below ours, offer
   her number + 1: she accepted ours in her best deals.
-- Target / accept / walk: uncommon 16-open **20-21** / ≥ 20 / final ≤ 18 → reopen; 22-open **≥ 26** (our 25 scored ≈ 0.4); rare 61-open
-  **78**, 70-open **86-87** / ≥ open × 1.2 / final ≤ open × 1.1 → reopen; RET-11 **≥ 198**, ask 260.
+- Target / accept / walk: uncommon 16-open **20-21** / ≥ 20 / final ≤ 18 → reopen; 22-open **≥ 26** (our 25 scored ≈ 0.4); rare 47-open
+  **56**, 61-open **77-78**, 70-open (fever) **86-87** / ≥ open × 1.2 / final ≤ open × 1.1 → reopen; RET-11 **≥ 198**, ask 260.
 - Phrases: formal Spanish, collector talk, the card's name ("Buenos días, doña Pilar. Para su álbum del Retiro: el Palacio de Cristal.").
   Words never moved her number.
 - Best-3 target: ≥ 0.85.

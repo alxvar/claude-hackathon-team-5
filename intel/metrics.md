@@ -1,22 +1,22 @@
-# Metrics (auto, 22:41, game tick 1407)
+# Metrics (auto, 22:43, game tick 1411)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
-1. Team 10 37.7 (-0.4 / -0.3) deals 61
-2. Team 18 31.0 (+0.9 / +1.2) deals 39
-3. Team 6 31.0 (-0.6 / -2.2) deals 68
-4. Team 5 30.4 (-0.6 / -0.4) deals 53 ← US
-5. Team 12 30.1 (-0.6 / +0.5) deals 69
+1. Team 10 37.7 (-0.3 / -0.1) deals 62
+2. Team 18 31.0 (+0.9 / +1.3) deals 39
+3. Team 6 31.0 (-0.3 / -2.1) deals 69
+4. Team 5 30.5 (-0.2 / -0.7) deals 53 ← US
+5. Team 12 30.1 (-0.4 / +0.4) deals 69
 6. Team 3 29.6 (-0.4 / -0.7) deals 32
-7. Team 14 27.8 (-0.4 / -1.7) deals 56
-8. Team 17 25.9 (-0.6 / -0.7) deals 32
-9. Team 1 25.8 (-0.2 / +3.0) deals 33
-10. Team 4 25.1 (-0.1 / +0.5) deals 77
+7. Team 14 27.8 (-0.3 / -1.3) deals 56
+8. Team 17 25.9 (-0.4 / -0.6) deals 32
+9. Team 1 25.8 (-0.3 / +3.0) deals 33
+10. Team 4 25.1 (-0.1 / -0.1) deals 77
 Us: #4
 
 ## Us
 
-score 30.38 · neg_points 119.1 (15 min ago 119.1) · ladder 0.483 · duel 35.39 · cash 392 · level 5 · deals 53
+score 30.49 · neg_points 119.1 (15 min ago 119.1) · ladder 0.483 · duel 35.39 · cash 392 · level 5 · deals 53
 
 ## Our holdings (card (rarity): value of each copy; a sale gives up the cheapest copy)
 
@@ -97,7 +97,7 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 - t09: SAL-06 (uncommon) 24 P · offer 19855
 - t16: RET-06 (uncommon) 18 P · offer 19845
 
-Asks by others (card, price: count): LAT-02 8: 3; LAV-05 5: 2; sobre_plata 130: 1; RET-03 10: 1; LAT-01 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; SAL-02 7: 1; MAL-03 12: 1; MAL-01 12: 1; RET-02 12: 1; RET-04 12: 1; LAT-01 9: 1; MAL-04 12: 1
+Asks by others (card, price: count): LAT-02 8: 3; LAV-05 5: 2; sobre_plata 130: 1; RET-03 10: 1; LAT-01 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; SAL-02 7: 1; RET-03 11: 1; LAT-07 30: 1; RET-01 8: 1; RET-09 84: 1; MAL-03 16: 1; MAL-04 16: 1
 
 ## Our duels: 0 live, 136 finished (last 10)
 
