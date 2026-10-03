@@ -2579,5 +2579,112 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1312,
+ "done": {
+  "duel": 5823,
+  "session": 3,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Plaza del Dos de Mayo",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 6.26,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 61,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Sol",
+  "deadline_tick": 1315,
+  "decay_per_round": 0.08,
+  "rounds": 4,
+  "your_offer": {
+   "id": 9093,
+   "price": 57,
+   "tick": 1312,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 9089,
+   "price": 72,
+   "tick": 1311,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1299,
+    "from": "Rival Sol",
+    "text": "We can deliver the Plaza del Dos de Mayo for 103 primas with 10 delivery days. A fair deal we're ready to sign.",
+    "price": 103,
+    "days": 10
+   },
+   {
+    "tick": 1299,
+    "from": "you",
+    "text": "I can do 30 P with delivery on day 0. That's a serious starting offer from me, and early delivery matters to me.}",
+    "price": 30,
+    "days": 0
+   },
+   {
+    "tick": 1300,
+    "from": "Rival Sol",
+    "text": "Happy to move toward early delivery: 100 P with delivery on day 4.",
+    "price": 100,
+    "days": 4
+   },
+   {
+    "tick": 1300,
+    "from": "you",
+    "text": "Thanks for moving on timing. I can do 36 P with delivery on day 0, and your price needs to come down a lot before we're close.",
+    "price": 36,
+    "days": 0
+   },
+   {
+    "tick": 1303,
+    "from": "you",
+    "text": "I can step to 42 P with delivery on day 0. That's a clear move from me, and day 0 is how I want it; your price still needs to come down a long way.",
+    "price": 42,
+    "days": 0
+   },
+   {
+    "tick": 1307,
+    "from": "Rival Sol",
+    "text": "You get delivery on day 0, the way you want it, and I come down to 85 P. That's a real move toward you.",
+    "price": 85,
+    "days": 0
+   },
+   {
+    "tick": 1307,
+    "from": "you",
+    "text": "Thanks for matching day 0, that helps. I can step to 48 P with delivery on day 0, but your price still has to come down much further to meet me.",
+    "price": 48,
+    "days": 0
+   },
+   {
+    "tick": 1310,
+    "from": "you",
+    "text": "I can step to 54 P with delivery on day 0, which is a firm move from me. Your current figure is far out of reach, so you'd need to come down sharply for us to close.",
+    "price": 54,
+    "days": 0
+   },
+   {
+    "tick": 1311,
+    "from": "Rival Sol",
+    "text": "Meeting you well over halfway: 72 P with delivery on day 0, ready to close now.",
+    "price": 72,
+    "days": 0
+   },
+   {
+    "tick": 1312,
+    "from": "you",
+    "text": "I appreciate the move you made. I can step to 57 P with delivery on day 0, but your figure still needs to come down meaningfully further for us to close.",
+    "price": 57,
+    "days": 0
+   }
+  ],
+  "result": 2.9,
+  "price": 57,
+  "days": 0
+ }
 }
