@@ -27,10 +27,9 @@ def _load(path):
         return {}
 
 
-def _save(path, state):
+def _save(path, state, now):
     try:
         path.parent.mkdir(parents=True, exist_ok=True)
-        now = time.time()
         state = {k: v for k, v in state.items() if now - v < 86400}  # keep the file small
         path.write_text(json.dumps(state, indent=0))
     except Exception as e:
@@ -56,8 +55,9 @@ def notify(channel, title, message, priority=3, tags=None, click=None, *, state_
             return False
         key = f"{channel.lower()}|{title}"
         state = _load(state_path)
-        if now - state.get(key, 0) < REPEAT_S:
-            print(f"notify[{channel}] suppressed (sent {int(now - state[key])} s ago): {title}", file=sys.stderr)
+        last = state.get(key)
+        if last is not None and now - last < REPEAT_S:
+            print(f"notify[{channel}] suppressed (sent {int(now - last)} s ago): {title}", file=sys.stderr)
             return False
         body = {"topic": topic, "title": title, "message": message, "priority": int(max(1, min(5, priority)))}
         if tags:
@@ -69,7 +69,7 @@ def notify(channel, title, message, priority=3, tags=None, click=None, *, state_
             print(f"notify[{channel}] ntfy answered HTTP {status}: {title}", file=sys.stderr)
             return False
         state[key] = now
-        _save(state_path, state)
+        _save(state_path, state, now)
         return True
     except Exception as e:  # a notification must never take its caller down
         print(f"notify[{channel}] failed ({e!r}): {title}", file=sys.stderr)

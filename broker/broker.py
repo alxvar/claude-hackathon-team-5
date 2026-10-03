@@ -37,6 +37,7 @@ STRATEGIES = ("auto_clone", "v1")
 RUN_TICKS = 16   # a bench run's length (GET /api/schedule → bench params.ticks)
 TAIL = 2         # v1 crosses everything in a run's last TAIL ticks
 WINDOW = 3       # ticks of quote history v1 uses to see who is relaxing fastest
+TAU = 0.0        # v1: "urgent" = relaxing by at least TAU of its quote per tick (set from the sweep below the README)
 
 
 # ------------------------------------------------------------------------------------------------ pure planning
@@ -118,26 +119,48 @@ def relax_speed(hist: dict[int, int], tick: int, side: str, window: int = WINDOW
     return max(0.0, move / (tick - t0) / max(1, hist[tick]))
 
 
-def v1_pairs(asks: list[Quote], bids: list[Quote], fee, speed: dict[str, float]) -> list[tuple[Quote, Quote]]:
-    """Relaxing traders first (fastest first), each with the tightest counterpart it crosses (a bid takes the dearest
-    ask it covers, an ask the cheapest bid that covers it: the pair other traders could least use); then the stall."""
+def v1_pairs(asks: list[Quote], bids: list[Quote], fee, urgent: dict[str, float]) -> list[tuple[Quote, Quote]]:
+    """Urgent traders first (fastest relaxing first), each with an urgent counterpart if one crosses, else the
+    tightest one (a bid takes the dearest ask it covers, an ask the cheapest bid covering it: the counterpart other
+    traders could least use); then the rest best bid / best ask, as the stall."""
     free_a, free_b, out = list(asks), list(bids), []
-    for q in sorted((q for q in asks + bids if speed.get(q.id, 0.0) > 0), key=lambda q: (-speed[q.id], q.pos)):
+    for q in sorted((q for q in asks + bids if q.id in urgent), key=lambda q: (-urgent[q.id], q.pos)):
         if q.side == "buy" and q in free_b:
             fit = [a for a in free_a if cross_price(a.price, q.price, fee) is not None]
             if fit:
-                a = max(fit, key=lambda a: (a.price, -a.pos))
+                a = min(fit, key=lambda a: (a.id not in urgent, -a.price, a.pos))
                 free_a.remove(a)
                 free_b.remove(q)
                 out.append((a, q))
         elif q.side == "sell" and q in free_a:
             fit = [b for b in free_b if cross_price(q.price, b.price, fee) is not None]
             if fit:
-                b = min(fit, key=lambda b: (b.price, b.pos))
+                b = min(fit, key=lambda b: (b.id not in urgent, b.price, b.pos))
                 free_a.remove(q)
                 free_b.remove(b)
                 out.append((q, b))
     return out + stall_pairs(free_a, free_b, fee)
+
+
+def ids(pairs) -> set[str]:
+    return {q.id for pair in pairs for q in pair}
+
+
+def v1_tick(asks: list[Quote], bids: list[Quote], fee, speed: dict[str, float], tau: float) -> list[tuple[Quote, Quote]]:
+    """v1 for one run and one tick, guarded against the stall. Urgent = relaxing at >= tau of its quote per tick.
+    The urgent-first pairs replace the stall's only if they match at least as many pairs, every trader they add is
+    urgent, and every trader they leave out is relaxing but not urgent (it stays, and its quote keeps improving).
+    A firm trader (never relaxes, so never crosses anything new) or a newcomer is never displaced."""
+    base = stall_pairs(asks, bids, fee)
+    urgent = {q.id: speed[q.id] for q in asks + bids if speed.get(q.id, 0.0) > 0 and speed[q.id] >= tau}
+    if not urgent:
+        return base
+    cand = v1_pairs(asks, bids, fee, urgent)
+    added, dropped = ids(cand) - ids(base), ids(base) - ids(cand)
+    if (len(cand) >= len(base) and all(i in urgent for i in added)
+            and all(i not in urgent and speed.get(i, 0.0) > 0 for i in dropped)):
+        return cand
+    return base
 
 
 class Planner:
@@ -145,10 +168,11 @@ class Planner:
     Feed it every tick's book in order; offers already matched must not be in the book it gets."""
 
     def __init__(self, strategy: str = "auto_clone", run_ticks: int = RUN_TICKS, tail: int = TAIL,
-                 window: int = WINDOW, bench_fee: bool = True):
+                 window: int = WINDOW, bench_fee: bool = True, tau: float = TAU):
         if strategy not in STRATEGIES:
             raise ValueError(f"unknown strategy {strategy!r}; one of {STRATEGIES}")
         self.strategy, self.run_ticks, self.tail, self.window, self.bench_fee = strategy, run_ticks, tail, window, bench_fee
+        self.tau = tau
         self.hist: dict[str, dict[int, int]] = {}
         self.run_start: dict[str, int] = {}
 
@@ -167,7 +191,7 @@ class Planner:
                 pairs = most_pairs(asks, bids, fee)
             else:
                 speed = {q.id: relax_speed(self.hist[q.id], tick, q.side, self.window) for q in asks + bids}
-                pairs = v1_pairs(asks, bids, fee, speed)
+                pairs = v1_tick(asks, bids, fee, speed, self.tau)
             if len(pairs) < len(base):
                 pairs = base
             plan += [(a.id, b.id, cross_price(a.price, b.price, fee)) for a, b in pairs]

@@ -27,6 +27,7 @@ import json
 import math
 import os
 import re
+import shlex
 import shutil
 import subprocess
 import sys
@@ -620,7 +621,9 @@ def load_env() -> None:
     for line in p.read_text().splitlines():
         m = re.match(r"\s*(?:export\s+)?([A-Z_]+)\s*=\s*(.*)\s*$", line)
         if m and m.group(1) in ("BAZAAR_KEY", "BAZAAR_URL") and not os.environ.get(m.group(1)):
-            os.environ[m.group(1)] = m.group(2).strip().strip("'\"")
+            words = shlex.split(m.group(2), comments=True)        # as the shell reads it: quotes, trailing comments
+            if words:
+                os.environ[m.group(1)] = words[0]
 
 
 def local_record(did: Any) -> dict | None:
@@ -643,7 +646,10 @@ class Monitor:
         self.foreign_commit = foreign_commit or (lambda: latest_foreign_commit(self.me))
         self.batch = batch
         self.state = self._load()
-        self._sched_at = self._feed_at = self._tests_at = 0.0
+        self._sched_at = self._feed_at = self._tests_at = self._done_at = 0.0
+        self._done: list[dict] | None = None
+        self._live_ids: list[str] = []
+        self.last_clock: dict = {}
 
     # state
 
@@ -753,6 +759,7 @@ class Monitor:
         end = s["start_tick"] + math.ceil(per_team / conc) * dt + dt
         finished = sum(1 for d in done if (d.get("deadline_tick") or 0) > s["start_tick"])
         if not (s["start_tick"] + 1 < tick < end and finished < per_team):
+            self.state.pop("no_live_since", None)
             return []
         since = self.state.setdefault("no_live_since", tick)
         if tick - since + 1 < NO_LIVE_TICKS:
@@ -813,7 +820,7 @@ class Monitor:
     # one evaluation
 
     def cycle(self, clock: dict | None = None) -> list[Flag]:
-        clock = clock or self.api.clock()
+        clock = self.last_clock = clock or self.api.clock()
         tick = clock.get("tick")
         flags: list[Flag] = []
         now = time.monotonic()
@@ -832,7 +839,13 @@ class Monitor:
             if sched is not None or feed is not None:
                 self.learn_sessions(sched, feed)
             live = [d for d in self.api.duels().get("duels", []) if is_live(d)]
-            done = self.api.duels(done=True).get("duels", [])
+            ids = sorted(str(rid(d)) for d in live)
+            # The finished list only changes when a duel leaves the live list; read it then (or every 5 minutes, or
+            # while nothing is live), not every tick.
+            if self._done is None or ids != self._live_ids or not live or now - self._done_at > 300:
+                self._done, self._done_at = self.api.duels(done=True).get("duels", []), now
+            self._live_ids = ids
+            done = self._done
             seen = self.state.setdefault("first_seen", {})
             cur = self.current_session(tick)
             dt = (cur[1].get("params") or {}).get("duel_ticks") if cur else None
@@ -928,7 +941,10 @@ def main(argv: list[str] | None = None) -> int:
     m = Monitor(make_api(), test_watch=not a.no_tests, batch=a.batch, state_path=a.state)
     if a.once:
         new = m.cycle()
-        emit("DUEL MONITOR", f"tick {m.state.get('last_tick')}: {len(new)} new flag(s)")
+        c = m.last_clock
+        closed = c.get("paused") or c.get("doors") not in (None, "open")
+        emit("DUEL MONITOR", f"tick {c.get('tick')}" + (" (doors closed or paused: duels not read)" if closed else "")
+             + f": {len(new)} new flag(s)")
         return 0
     run_loop(m, a.every)
     return 0
