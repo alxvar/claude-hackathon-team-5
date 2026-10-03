@@ -303,7 +303,7 @@ def test_duel_181_accepts_their_offer_inside_our_limit_before_the_deadline(tmp_p
 
 
 def test_when_our_acceptance_must_wait_we_offer_their_price_if_that_adds_no_round(tmp_path: Path):
-    # 181 on 142: we have made 6 priced offers, they 2, so offering their 73 leaves rounds = min at 2.
+    # 181 on 142: we have sent 6 messages, they 2, so offering their 73 leaves rounds = min at 2.
     b = FakeBazaar()
     r = runner(b, FakeModel(plan(67, 66, 68)), tmp_path)
     raw = recorded(181, 141)
@@ -659,3 +659,74 @@ def test_a_second_duelist_on_one_machine_refuses_to_start(tmp_path: Path):
     assert e.value.code == ALREADY_RUNNING
     held.close()
     single_instance(tmp_path).close()                   # free again once the first one is gone
+
+
+def repeating(raw: dict, rival: str, price: int, ticks: range) -> dict:
+    """`raw` with the rival repeating its standing `price` once on each of `ticks`, as Saturday's holders did."""
+    return {**raw, "messages": [*raw["messages"], *({"tick": t, "from": rival, "text": f"{price}?", "price": price}
+                                                    for t in ticks)]}
+
+
+def test_duel_277_a_hold_sends_nothing(tmp_path: Path):
+    # 277 (we sell, cost 119): Rival Plata sent 118 every tick. Our three no-price "holding" messages on 166-168
+    # each raised the game's rounds by one (rounds = min(our messages, theirs), priced or not).
+    b = FakeBazaar()
+    fake = FakeModel(plan(173, 175, 171), Decision(action="message", price=None, message="I'm staying at 173 P."),
+                     Decision(action="offer", price=173, message="173 P stands."))
+    r = runner(b, fake, tmp_path)
+    base = recorded(277, 165)                           # our 173 on 165 is the last word
+    mem = answered(r, base, 165)
+    for tick in (166, 167):
+        r.tick = tick
+        assert not r.due(r.update(repeating(base, "Rival Plata", 118, range(166, tick + 1))))   # a repeat
+    r.tick = 168                                        # their offer unchanged since 163, our last word on 165
+    mem = r.update(repeating(base, "Rival Plata", 118, range(166, 169)))
+    assert r.due(mem)
+    asyncio.run(r.decide(mem))                          # the model says "message": a hold
+    assert b.said == [] and not r.due(mem)
+    for tick, due in ((169, False), (170, False), (171, True)):     # asked again 3 ticks after the hold
+        r.tick = tick
+        mem = r.update(repeating(base, "Rival Plata", 118, range(166, tick + 1)))
+        assert r.due(mem) is due, tick
+    asyncio.run(r.decide(mem))                          # an offer at our standing 173: a hold too
+    assert b.said == []
+
+
+def test_duel_278_does_not_answer_a_repeated_offer_every_tick(tmp_path: Path):
+    # 278 (we buy, value 116): Rival Oro sent 111, inside our limit, every tick and never moved. We answered every
+    # tick (80, 82, 82, 84, 84, 85, ...), 10 rounds, then took 111 anyway: 5 x 0.94^10 = 2.7. Holding in silence
+    # and taking it at the deadline keeps rounds at 1: 5 x 0.94 = 4.7.
+    b = FakeBazaar()
+    fake = FakeModel(plan(80, 78, 82), *[Decision(action="offer", price=80, message="80 P.")] * 6)
+    r = runner(b, fake, tmp_path)
+    base = recorded(278, 165)                           # their 111, then our opener 80, both on 165
+    answered(r, base, 165)
+    asked = []
+    for tick in range(166, 177):
+        r.tick = tick
+        mem = r.update(repeating(base, "Rival Oro", 111, range(166, tick + 1)))
+        if r.due(mem):
+            calls = len(fake.seen)
+            asyncio.run(r.decide(mem))
+            asked += [tick] if len(fake.seen) > calls else []
+        if b.accepted:
+            break
+    assert b.said == []                                 # never answered the repeats: our messages stay at 1
+    assert asked == [168, 171, 174]                     # the hold breaker every 3 still ticks, then the deadline
+    assert b.accepted == [278] and r.tick == 175        # code took 111 with 2 ticks left
+
+
+def test_their_price_counts_every_message_as_a_round(tmp_path: Path):
+    r = runner(FakeBazaar(), FakeModel(plan(80, 78, 82)), tmp_path)
+    accept = Move("accept", "Agreed.", price=111)
+    base = recorded(278, 165)                           # one message each: offering 111 adds no round
+    assert r.their_price(answered(r, base, 165), accept).price == 111
+    chat = {**base, "messages": [*base["messages"], {"tick": 165, "from": "Rival Oro", "text": "Well?", "price": None}]}
+    r2 = runner(FakeBazaar(), FakeModel(plan(80, 78, 82)), tmp_path)
+    assert r2.their_price(answered(r2, chat, 165), accept) is None   # their no-price message counts: 1 < 2
+
+
+def test_the_opener_is_always_an_offer():
+    talk = Decision(action="message", price=None, message="Tell me more about what you need.")
+    move = respond(SELLER, obs(SELLER), FakeModel(plan(70, 72, 68), talk, talk))
+    assert move.action == "offer" and move.price == 70 and "no offer standing" in move.meta["vetoes"][0]
