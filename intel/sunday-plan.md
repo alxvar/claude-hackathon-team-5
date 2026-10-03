@@ -6,8 +6,8 @@ round) and t06 by > 2.5. Judges (40) come after the 15:00 close.
 
 **What the organisers told us (Payday deck, 21:00) [V]:** only deals score (a deal = value added − price paid + price
 received); a team-trade gain counts up to 50, a dealer gain only on the ladder, losses count in full; the last card of
-a page via a TEAM trade = +50, and selling a page card afterwards = −130; MARKET-MAKING 30 = Market Test 7.5 + REAL
-TRADES 22.5 (value two other teams create on your market). A market gets used when it finds the missing card, swaps
+a page via a TEAM trade = +50, and selling a page card afterwards = −130; MARKET-MAKING 30 = **Market Test 22.5 + Real
+trades 7.5** (corrected 01:15: the stall = half the Market Test; +5.0 board = the full real-trades score). A market gets used when it finds the missing card, swaps
 without cash, finishes pages. "Zero fee alone is no reason; volume and friends count for nothing."
 
 ## ⚠ Saturday's round may continue Sunday morning (Analyst 23:40) [V clock paused at game 13.367 in round 2; L the rest]
@@ -56,4 +56,4 @@ other teams transactional only (no strategy) · one live bid per page-closer car
 
 ## Levers ranked by Sunday points [L]
 1. CHA page + team buys: +8-14 · 2. Duels III + Final: up to 12 (our 12/12 post-fix deal rate) · 3. v10 real trades:
-+2-5 (maybe more: 22.5 unexplained) · 4. MAL close: +1.5-3 · 5. Ladder (fresh): +1-3 · 6. Small swaps: +0.3 each.
++2-7.5 round pts (7.5 = full; target 40-50 net VC) · 4. MAL close: +1.5-3 · 5. Ladder (fresh): +1-3 · 6. Small swaps: +0.3 each.
