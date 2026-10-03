@@ -1,4 +1,4 @@
-# Opportunities (auto, 12:57, game tick 575, t 6.1167 h)
+# Opportunities (auto, 12:58, game tick 577, t 6.1333 h)
 
 Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and ≤ 60 real min old · ≤ 3 alerts/h · team 45 min · team+card 2 h · never to the top 4 (t05, t12, t14, t18); a sale that closes their page (last or second-to-last known lack) only to teams ≥ 10 below us (29.57); page-closers on El Rastro, the rest on v07. Data: collector.
 
@@ -6,12 +6,12 @@ Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and �
 
 | # | side | team | card | price | our value | gain | signal | age (game / real min) | status |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | SELL | Team 3 (#16, 18.91) | SAL-02 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 208) | 184 / 184 | listed only: signal 184 real min old (game clock paused?) |
-| 2 | SELL | Team 7 (#17, 16.56) | SAL-02 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 132) | 235 / 865 | listed only: signal 865 real min old (game clock paused?) |
-| 3 | SELL | Team 3 (#16, 18.91) | SAL-05 common | 40 | 9 | 31 | bid 9 P for it (tick 182) | 196 / 197 | listed only: signal 197 real min old (game clock paused?) |
-| 4 | SELL | Team 7 (#17, 16.56) | SAL-05 common | 40 | 9 | 31 | asked abuela to sell it (tick 128) | 239 / 868 | listed only: signal 868 real min old (game clock paused?) |
-| 5 | SELL | Team 8 (#11, 23.1) | SAL-03 common | 40 | 9 | 31 | bid 5 P for it (tick 142) | 225 / 855 | no: only 6.47 below us (needs ≥ 10) |
-| 6 | SELL | Team 10 (#5, 28.7) | SAL-03 common | 32 | 9 | 23 | bid 0 P for it (tick 336) | 120 / 119 | no: dumps SAL (teams.md): sell only to collectors; only 0.87 below us (needs ≥ 10) |
+| 1 | SELL | Team 3 (#16, 18.91) | SAL-02 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 208) | 184 / 185 | listed only: signal 185 real min old (game clock paused?) |
+| 2 | SELL | Team 7 (#17, 16.56) | SAL-02 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 132) | 236 / 866 | listed only: signal 866 real min old (game clock paused?) |
+| 3 | SELL | Team 3 (#16, 18.91) | SAL-05 common | 40 | 9 | 31 | bid 9 P for it (tick 182) | 197 / 198 | listed only: signal 198 real min old (game clock paused?) |
+| 4 | SELL | Team 7 (#17, 16.56) | SAL-05 common | 40 | 9 | 31 | asked abuela to sell it (tick 128) | 240 / 869 | listed only: signal 869 real min old (game clock paused?) |
+| 5 | SELL | Team 8 (#11, 23.1) | SAL-03 common | 40 | 9 | 31 | bid 5 P for it (tick 142) | 226 / 856 | no: only 6.47 below us (needs ≥ 10) |
+| 6 | SELL | Team 10 (#5, 28.7) | SAL-03 common | 32 | 9 | 23 | bid 0 P for it (tick 336) | 120 / 120 | no: dumps SAL (teams.md): sell only to collectors; only 0.87 below us (needs ≥ 10) |
 
 ## Alerts (newest first)
 
