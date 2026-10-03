@@ -2,6 +2,32 @@
 
 _Written by `tools/duel_monitor.py` after each wave of our duels, newest first. Advisory for Aleks (the duelist is his). Result = our surplus × (1 − decay)^rounds, rounds = min(our priced offers, theirs); "spoke" = the rival sent at least one price._
 
+## Sat 12:23 · Duels I · tick 507 · wave of 3 (duels 2318, 2367, 2541)
+
+**This wave:** 2 deals / 3 finished (67%)
+- Rival engaged: spoke in 3 → 2 deals (67%); spoke or accepted 3 → 2 (67%); silent 0 (0 took our opener, 0 no deal).
+- In-limit offers not accepted: 0.
+- Rounds and decay: 7.5 rounds per deal; result 20.8 of 32.0 P surplus → 11.2 P (35%) lost to decay.
+- Latency: answered rival offers in 1.1 ticks on average (max 5; 19 of 31 the same tick); decision 5.8 s mean, 8.1 s max; 1 rival offer(s) never answered.
+- Concessions: we moved 77 P in total, rivals 79 P.
+- Rival behaviours (best → worst by our mean result): conceder: 2 duel(s), 2 deal(s), mean result 10.4 P, rival moved 39.5 P per duel · holder (never moved): 1 duel(s), 0 deal(s), mean result 0.0 P, rival moved 0.0 P per duel.
+- Best duel: 2541 vs Rival Azul (buyer): 14.5 P in 6 round(s). Worst: 2367 vs Rival Oro (buyer): no_deal, both still 5 ticks.
+
+**Session so far:** 9 deals / 10 finished (90%)
+- Rival engaged: spoke in 10 → 9 deals (90%); spoke or accepted 10 → 9 (90%); silent 0 (0 took our opener, 0 no deal).
+- In-limit offers not accepted: 0.
+- Deals below an earlier in-limit rival offer: 1 (≈4.7 P: 2296).
+- Rounds and decay: 5.0 rounds per deal; result 76.4 of 106.0 P surplus → 29.6 P (28%) lost to decay.
+- Latency: answered rival offers in 0.9 ticks on average (max 5; 48 of 74 the same tick); decision 6.2 s mean, 14.5 s max; 1 rival offer(s) never answered.
+- Concessions: we moved 296 P in total, rivals 233 P.
+- Rival behaviours (best → worst by our mean result): conceder: 6 duel(s), 6 deal(s), mean result 9.3 P, rival moved 38.8 P per duel · holder (never moved): 4 duel(s), 3 deal(s), mean result 5.2 P, rival moved 0.0 P per duel.
+- Best duel: 2541 vs Rival Azul (buyer): 14.5 P in 6 round(s). Worst: 2367 vs Rival Oro (buyer): no_deal, both still 5 ticks.
+
+**For Aleks:**
+1. Break holds: 1 no-deal duel(s) sat still up to 5 ticks with time left (2367). After 3 still ticks with ≥ 3 left, force a move (a concession step, or send their own price).
+2. Close in fewer exchanges: 29.6 P (28%) of deal value went to decay over 5.0 rounds per deal. Accept when the gap to our last offer ≤ max(2 P, 2d/(1−d) × our surplus).
+3. Decay-aware accept: 1 deal(s) closed below an earlier in-limit rival offer (≈4.7 P).
+
 ## Sat 12:15 · Duels I · tick 491 · wave of 3 (duels 2315, 2366, 2506)
 
 **This wave:** 3 deals / 3 finished (100%)
