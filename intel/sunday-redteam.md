@@ -2,29 +2,35 @@
 
 _Read-only red team with no prior context. Sources: `bazaar-kit/RULES.md`, `intel/chief-handoff.md`, `sunday-plan.md`, `cha-plan.md`,
 `dealer-lab.md`, `dealer-lab-ladder.md` (§6 included), `duel-lab.md` (top), `market-sunday.md`, `score-model.md` §3-§4.10, `GAME.md`,
-`directives.md` (through 00:50), `market-test-audit.md`, `audit-why-we-lost.md`, `live-tuning.md`, `deny-list.md`. Live keyless reads at
-00:15-01:20: `/api/clock`, `/api/schedule`, `/api/catalog`, `/api/leaderboard`. Feed: `data/feed.jsonl` (to tick 1445). Code read:
-`agents/dealers/abuela_bot.py`, `chato_steady.py`, `bazaar-kit/bazaar_sdk.py`. Labels: **[V]** measured or read · **[L]** inferred,
-fits the data · **[?]** open. Points are **Sunday round points** (out of 60; final game = × 0.4) unless marked._
+`directives.md` (through the lines labelled 02:30 / 01:35 / 01:15 / 00:50), `market-test-audit.md`, `audit-why-we-lost.md`,
+`live-tuning.md`, `deny-list.md`. Live keyless reads at 00:15-01:20: `/api/clock`, `/api/schedule`, `/api/catalog`, `/api/leaderboard`.
+Feed: `data/feed.jsonl` (to tick 1445). Code read: `agents/dealers/abuela_bot.py`, `chato_steady.py`, `bazaar-kit/bazaar_sdk.py`.
+Labels: **[V]** measured or read · **[L]** inferred, fits the data · **[?]** open. Points are **Sunday round points** (out of 60;
+final game = × 0.4) unless marked. An independent verifier audited this file (6 of 11 checks passed, 5 flagged); every flag is
+applied below._
+
+**Already adopted while this was written:** the clock correction (score-model §4.7, 01:45; sunday-plan and chief-handoff, 01:50),
+the ladder-fodder pipeline (the directive labelled 02:30), the trader running sell-only and CHA bids capped at dealer prices
+(01:35 / 6110b0e). The changes below are the ones still open.
 
 ## 0. The verdict and the changes that matter
 
-**First place stays a long shot** (t10 needs to lose ≈ 16-18 Sunday points against us). **Second place is a coin flip with t18,
-with t03 and t06 close behind.** It goes to whoever fills the four 0-cost or cash-neutral parts best: ladder, trade part, v10 VC
-and duels. The plans are good on CHA and duels. They leave 3-5 points on the table in the **ladder** and in **timing**, and they
-carry one live code risk.
+**First place stays a long shot** (t10 needs to lose ≈ 16-18 Sunday points against us). **Second place is a four-way race with
+t18, t12 and t03**: t12 sits 0.04 final points behind us (audit-why-we-lost §6), and t06 is close too. It goes to whoever fills the
+four 0-cost or cash-neutral parts best: ladder, trade part, v10 VC and duels. The plans are good on CHA and duels. They still
+leave 1-3 points on the table in the **first 20 minutes** and in the **ladder**, and they carry one live code risk.
 
-| # | Change vs the current plans | Why | Sunday pts [L] |
+| # | Change vs the current plans (still open) | Why | Sunday pts [L] |
 |---|---|---|---|
-| 1 | **Plan for round 3 + CHA at the 09:00 open, and Duels III at ≈ 11:00, not 10:00.** The "B15: Duels III 10:00, close 12:00" case is impossible | game time runs at wall speed at any tick length [V], and on Friday → Saturday the round fired on the first tick after the open [V] | protects the whole morning |
-| 2 | **Buy both CHA rares from the Pícaros in the first 20 minutes**, not after 30-60 min of team bids | SAL-09 is minted 29/30 and SAL-11 9/9 after one day of Pícaros → Pilar loops [V catalog]; no team holds a CHA rare before dealers sell them | +0.5-2 (protects 2 L4 slots and the page) |
-| 3 | **The "trick guard" is not in the code.** Run every Pícaros thread with `--offer-only`, and have the Builder add a card/rarity check before `b.accept` | `_haggle` and `chato_steady` accept the dealer's standing offer without reading its card [V code]; to a dealer, our `price` is a structured offer for the thread's item [V SDK] | avoids −1 to −3 |
-| 4 | **Build a ladder-fodder pipeline:** silver pack + Workshop at the release, cheap LAT/MAL uncommons from teams at ≤ 12-13, then sell them to **Pilar (L3) and Chato (L2)** | the Analyst's ladder is 0.27 because we have "no spare rare/uncommon for L2/L3"; Pilar bought 50 non-SAL/RET uncommons on Saturday at 14-21 (19-20 at the top) and Chato 25 at 11-16 [V feed] | **+2-4** (ladder 0.27 → ≈ 0.45) |
-| 5 | **Gate the MAL close at 10:30 on a live trade-part test, not on cash.** Get flags first: 3 × +10 at 0 P if the cap reset with the round | the trade part caps at N (≈ 40-125 np); flags + the CHA closer + 2-3 CHA team buys likely fill it, after which MAL's +44 is worth ≈ 0 | +0-2, and avoids wasting ≈ 130 P |
+| 1 | **Buy both CHA rares from the Pícaros from the first tick** (t+1), not at dealer-lab FAST-START's t+120 (30 min) after team bids | SAL-09 is minted 29/30 and SAL-11 9/9 after one day of Pícaros → Pilar loops [V catalog]; no team holds a CHA rare before dealers sell them; the CHA public bids are now capped at dealer prices anyway (6110b0e), so a 30-minute wait buys nothing | +0.5-2 (protects 2 L4 slots and the page) |
+| 2 | **The "trick guard" is not in the code.** Run every Pícaros thread with `--offer-only`, and have the Builder add a card/rarity check before `b.accept` | `_haggle` and `chato_steady` accept the dealer's standing offer after a cash-only check [V code]; to a dealer, our `price` is a structured offer for the thread's item [V SDK] | avoids −1 to −3 |
+| 3 | **Ladder fodder from T0, in parallel with CHA, and the silver pack opened BEFORE the rares** (the 02:30 directive says after the CHA buys and after the rares) | Pilar, Chato and Abuela/Pícaros are separate threads (≤ 6 open); the pack may draw a CHA rare (then we skip a 52 P buy) and drags every CHA team buy while sealed (≈ 10 np on the SAL close [V]) | +0.5-1 |
+| 4 | **Gate the MAL close at 10:30 on the live trade-part test (live-tuning M5), not on cash (≥ 150 P left)** | the trade part caps at N (≈ 40-125 np); flags + the CHA closer + 2-3 CHA team buys likely fill it, after which MAL's net +20-28 np is worth ≈ 0 while costing ≈ 130 P | +0-2, and avoids wasting ≈ 130 P |
+| 5 | **Harvest flags inside the rare threads, and put the egg line in the first PRICED message** (FAST-START's t+1 opens text-only threads and closes them) | 3 × +10 np at 0 P if the cap reset with round 3 [?]; a text-only thread costs a conversation and the bots' 10-tick reopen gap before the rare buy | +0-2.7 |
 
-Smaller items: open the silver pack **before** the first CHA buy (drag; a free CHA draw); cancel SAL-11 20252 and the two LAV asks
-**before** the first tick; no club cash bonuses; drop the "our sales on members' venues" perk (it raises the VC normaliser);
-throttle keyed daemons during duel waves; idle cash has no terminal value, so spend it by rule (§8).
+Smaller items: cancel SAL-11 20252 and the two LAV asks **before** the first tick; no club cash bonuses; never a big-VC trade
+(page closer, rare) on a member's venue (it raises the VC normaliser); throttle keyed daemons during duel waves; idle cash has no
+terminal value, so spend it by rule (§8); any Ernesto deal needs Lucas to lift the 00:50 GUARDRAIL.
 
 ## 1. Facts checked tonight that change the plan
 
@@ -32,9 +38,13 @@ throttle keyed daemons during duel waves; idle cash has no terminal value, so sp
 - Friday's ticks were 60 s: tick 96 → game 1.6 h (60 ticks per game hour). Saturday's were 30 s: ticks 160 → 1445 = 10.7 game hours
   (120 ticks per game hour). Each tick advances `tick_seconds` of game time, so **15 s ticks don't compress the schedule**. Sunday has
   240 ticks per game hour, and game time still runs at wall speed.
-- So score-model §4.7's **B15 (Duels III 10:00, Final 11:30, close 12:00)** and **A15 (a 98-min tail)** are arithmetic errors. A15 would
-  be 197 min, the same as A30. The handoff's "duelist live by 09:55" can relax to **10:40**, which gives Aleks time to ship the Duel Lab
-  set properly.
+- So score-model §4.7's **B15 (Duels III 10:00, Final 11:30, close 12:00)** and **A15 (a 98-min tail)** were arithmetic errors. A15 would
+  be 197 min, the same as A30. The handoff's "duelist live by 09:55" relaxes to **10:30** (corrected in score-model §4.7 at 01:45, and
+  in sunday-plan and chief-handoff at 01:50).
+- **Wall times below are the earliest possible.** Organiser pauses push everything later: Saturday took 14 wall hours for 10.7 game
+  hours (a late open, then ticks 630 → 632 took 2 h 05 and ticks 1200 → 1209 took ≈ 47 min [V me.jsonl]). The doors close at 15:00
+  whatever the game clock says: Saturday closed at 23:00 with its 14.65 and 15.0 benches never fired. **A late Final can be cut
+  by the 15:00 close.**
 - **Precedent [V feed]:** Friday closed paused at game 2.65 (tick 159). At Saturday's open, `day.opened` came at t 2.65 and
   **`round.started` round 2 at tick 160 (t 2.658)**, though the schedule had placed it later (GAME.md: "not 4.0"). The organisers
   re-anchor day-open events to the real opening. Tonight `/api/schedule` again pins `day_opens sun` at 16.65 = wall 09:00 and
@@ -42,8 +52,11 @@ throttle keyed daemons during duel waves; idle cash has no terminal value, so sp
 - **Cases [L]:**
   - **Case J (≈ 80%):** round 3, the CHA release and the round-3 events fire at ≈ 09:00 (re-anchored or jumped; the wall times
     are the same). +150 at ≈ 09:03; Duels III ≈ 11:00-11:51 (68 duels, 17 waves × 12 ticks × 15 s); finale warning 13:48; dealers
-    close and the Final starts ≈ 14:00 (≈ 14:27 end); freeze 15:00. The benches may land at 09:21 / 11:21 / 13:21 if they are
-    re-anchored, or at their fixed game hours (10:17 hard, 10:38, 12:38, 14:38) if not. Either way the stall gets half.
+    close and the Final starts ≈ 14:00 (≈ 14:27 end); freeze 15:00; benches at ≈ 09:21 / 11:21 / 13:21 (the stall gets half
+    either way).
+  - **Hybrid (inside J):** the round fires at the open but the clock stays near 13.37 with the rest of the schedule unshifted. Then
+    Duels III would read 14:17 and the Final would fall after the close, so expect another re-anchor. Plan on the 11:00 timetable
+    and re-read the schedule at every event.
   - **Case A (≈ 15%):** round 2 continues from 13.367 (a Saturday tail), and the organisers re-anchor or jump later in the morning.
   - **Other (≈ 5%):** organisers' surprises. **The case = `round` in `/api/clock` at the first tick** (directive 00:50). Recompute every
     wall time as `now + (at_hours − t_hours)`.
@@ -86,8 +99,8 @@ A ceiling team scores ≈ 12 + 9 + 9 + 11.25 + 7.5 = 48.75. t10 made 45.99 on Sa
   LAV-03 ×1, LAV-04 ×1 [V, dealer-lab-ladder §6]. Not a scored deal; the card is fodder or a CHA card.
 - **Dealer buy prices for fodder** (Saturday, all teams, ticks ≥ 160) [V feed]:
   - Pilar non-SAL/RET uncommons: 14-21, mostly 17-19, best 20-21 (n = 50); non-SAL/RET rares 50-56 (n = 4).
-  - Chato uncommons: 11-16 (n = 25, two outliers at 26); Chato rares 29 and 49.
-  - Ernesto epics: 116-120 (n = 3).
+  - Chato uncommons: 11-16 (24 settlements, 25 cards; the one "26" is a 2-card settlement at 13 each); Chato rares 29 and 49.
+  - Ernesto epics: settled 116-120 (n = 3); his finals ran up to 129 (dealer-lab-ladder §6).
   - Pícaros MAL rares: 57-61 (n = 5); Pícaros epics: 128-167 (n = 18).
 - **Team uncommons on Saturday** [V feed]: LAT 10-25 (10, 13, 14, 14 at the bottom), MAL 14-28.
 
@@ -107,7 +120,8 @@ EV = our expected Sunday round points from the stage under this plan [L]; "Δ" =
 | H. Duels III + Final | 7.5 (6-9) | +0.5 | 0 | 11:00-11:51, 14:00-14:27 | Aleks |
 | I. Denial | t10 −1 to −3.75 (via v07 flow) | — | 0 | all day | Lucas, Dani |
 
-**Our Sunday ≈ 38-41** [L] (score-model §4.8 case B: 36.4 with the ladder at 0.50; the corrected ladder at 0.27 implies ≈ 33-34).
+**Our Sunday ≈ 38-41** [L], against score-model §4.8 case B (36.4 at 00:30 with the ladder at 0.50; 34.7 in the current file
+after the 01:05 ladder correction to 0.27). The gap is the fodder ladder (≈ 0.45 vs 0.27) and the flags.
 
 ### A. Saturday tail (case A only)
 - **Points:** +1-2 Saturday pts from v10 VC (score-model §4.8: +2.0 mean) on top of the +2.2 mm flip [L].
@@ -137,15 +151,17 @@ EV = our expected Sunday round points from the stage under this plan [L]; "Δ" =
   2. Ask t15 (and t01 for MAL-11) to post their MAL bids on v10. t10's dump bots may fill them there: a rival seller is fine at
      VC ≥ 8 with its own gain ≤ 10 P (directive 17:40). Never message t10 (directive 17:45).
   3. SAL-05 t08 → t07; SAL-02 t09 → t07 (or as a swap).
-  4. Ask the open-offer bots to switch their default venue to v10: t13 (1,157 listings), t08 (1,098), t06 (870), t16 (811)
-     (audit-why-we-lost §6.1). It's an ad, not strategy: "v10: 0 %, crossed every tick, buyers for RET/LAT/SAL commons there."
+  4. Ask t08 and t16 first to list on v10 (directive 01:35). The heavy open-offer bots are t13 (1,157 listings), t08 (1,098),
+     t06 (870) and t16 (820) (audit-why-we-lost §6.1). Per 01:35, don't chase t06 or t13, but welcome their listings. It's an ad, not
+     strategy: "v10: 0 %, crossed every tick, buyers for RET/LAT/SAL commons there."
 - **Rules:**
   - Duplicates or set-dumpers → first-copy collectors only.
   - Page finishers only for teams > 5 below us.
   - **No cash bonuses** (organisers: "volume and friends count for nothing"; fair play: "feeding another team on purpose … count
     for nothing until the organisers have looked").
-  - **Drop the club perk "our sales routed to members' venues"**: VC there raises the top-3 mean that normalises our own VC. Our
-    own trades go to El Rastro.
+  - Our own spares go as **open asks on a non-rival member's venue** (directive 01:35: open asks fill 10× more than addressed
+    ones). But **never a big-VC trade there** (a page closer, a rare, a CHA card): VC on a member's venue can lift it into the top 3,
+    and the top-3 mean normalises our own VC. Big trades of ours go to El Rastro.
 - **Failure modes:**
   - One wrong-direction trade (buyer values < seller) subtracts in full.
   - Pairs priced off matchmaker multipliers are [L]: require a live bid from the buyer as proof of want.
@@ -161,14 +177,17 @@ EV = our expected Sunday round points from the stage under this plan [L]; "Δ" =
 | **Pilar L3 (0.067)** | fodder uncommon #1 at 19-20 (ask 30, −1/−2; take her number + 1) | fodder uncommon #2 | RET-11: ask 260, −6..−8, floor 198 (≈ 20% she reaches it); else a pack rare dup at 50-56 or fodder #3 | 0.10-0.15 |
 | **Chato L2 (0.044)** | **sell** fodder uncommon at 15-16 (ask 32-40, −1/−2, 8-10 rounds; he mocks ±1 on buys only) | fodder #2 | a pack rare dup at ≈ 49 | 0.04-0.10 |
 | **Abuela L1 (0.022)** | CHA-01 at 8-9 | CHA-02 | CHA-03 | 0.05 |
-| **Ernesto L5 (0.111)** | only a pack epic we value ≤ 120 (LAT-11, a RET-11 dup), or the surplus loop (G) | — | — | 0-0.1 |
+| **Ernesto L5 (0.111)** | only a pack epic we value ≤ 120 (LAT-11, a RET-11 dup), or the surplus loop (G). **Needs Lucas to lift the 00:50 GUARDRAIL "Ernesto: no deals"** | — | — | 0-0.1 |
 
 - **Never Chato buys at list** (0 at 26, n = 18). Never above list. Never a dealer for the CHA page's last card.
-- **Fodder sources, cheapest first:**
-  1. silver pack + Workshop (09:00, free);
+- **Fodder** (approved by the directive labelled 02:30: team → dealer only, cards we hold 0 copies of, price + fee ≤ first-copy
+  value, sell only above the dealer's opening, ≤ 3 per level). Sources, cheapest first:
+  1. silver pack + Workshop (T0, free);
   2. Abuela gifts (warm lines; 18% of kind replies carry one);
-  3. **El Rastro maker bids at 11-12 P for LAT-06/07/08** (first copies, value 12.5, so +0.5-1.5 np). Only buy fodder valued ≤ the
-     dealer price we expect (Pilar 19, Chato 15). **Never** SAL/RET/LAV/CHA page cards.
+  3. **maker bids at ≤ 12 P for LAT-06/07/08** on a 0 % member venue or El Rastro (first copies, value 12.5). Fills are unproven:
+     only 1 of the 8 Saturday LAT-uncommon team trades went at ≤ 12 [V feed]. **Never** SAL/RET/LAV/CHA page cards.
+- **Where this file differs from the 02:30 directive:** run fodder **in parallel from T0** (separate dealers and threads; it doesn't
+  slow the CHA buys), and open the pack **before** the rares, not after.
 - **First actions:**
   - 09:00:30 pack; 09:00:45 Workshop.
   - 09:01 three threads in parallel: Pícaros CHA-09, Abuela CHA-01..03, Pilar RET-11 (or fodder first if the pack gave an uncommon).
@@ -223,13 +242,15 @@ EV = our expected Sunday round points from the stage under this plan [L]; "Δ" =
 - **Points:** +0.5-2.
 - **Buyer-first flips** (reactor rule): dealer price ≤ list, a live non-rival team bid ≥ dealer + 30, our value ≤ the dealer price.
   - On Sunday: a 2nd CHA rare from the Pícaros (≈ 52) into a non-rival CHA bid ≥ 85: buy −24 np (2nd copy 28), sell +50 cap →
-    **net ≈ +26 np, +33 P, + an L4 slot**. Same for epics into team bids ≥ 170.
+    **net ≈ +26 np, + an L4 slot**, and +33 P on a 0 % venue (+27 P as an El Rastro taker, after the 6 P fee). Same for epics into
+    team bids ≥ 170.
   - Never against a complete page, never for a rival, never without the bid on the book.
 - **Surplus → ladder** (live-tuning §3, Chief's go each time): once M5 says T ≥ N, small dealer losses are free up to the surplus.
   Candidates, best ladder per np:
   1. RET-11 → Pilar at 175-197 (L3 full share, −1 to −23);
   2. MAL rares Pícaros (57-61) → Pilar (50-56): L4 + L3, ≈ −10 np and −5 P each;
-  3. MAL-11 Pícaros (≈ 140) → Pilar (≈ 140-160, 0 np) or Ernesto (116-129, L5): ≈ −14 to −24 np.
+  3. MAL-11 Pícaros (≈ 140) → Pilar (≈ 140-160, 0 np) or Ernesto (settled 116-120, finals up to 129; L5): ≈ −14 to −24 np. The
+     Ernesto leg needs Lucas to lift the 00:50 GUARDRAIL.
 - **Failure modes:**
   - Surplus misread (M5 needs a clean window, n ≥ 2) → losses count in full.
   - The Pícaros bait and switch on epics (8 rare-for-epic offers on Saturday) → `--offer-only`.
@@ -237,7 +258,7 @@ EV = our expected Sunday round points from the stage under this plan [L]; "Δ" =
 ### H. Duels III + Final
 - **Points:** 7.5 expected (Saturday 6.9).
 - **Actions (Aleks's lane):**
-  - Duelist live by **10:40**.
+  - Duelist live by **10:30** (chief-handoff, sunday-plan).
   - Duel Lab set: v2 or SAFE, with its own gates. Opus `--effort low`; fix the failover budget (20 s > the runner's 10 s).
   - Smoke test: 4 concurrent duels at 15 s, p95 < 9 s.
   - Duelist audit S2 (timeout fallback) fixed before 11:00.
@@ -270,7 +291,7 @@ Tick = 15 s. "T0" = the first tick with `round` = 3.
 | Time | Who | Action |
 |---|---|---|
 | 08:30 | Builder | Trick guard in `abuela_bot._haggle` + `chato_steady` (offer `give` card ref and rarity == topic, else no accept); tests green; Operator restarts nothing yet |
-| 08:30 | Aleks | Pull, full suite, Duel Lab set + duelist audit must-dos; smoke test at 15 s; target live 10:40 |
+| 08:30 | Aleks | Pull, full suite, Duel Lab set + duelist audit must-dos; smoke test at 15 s; live by 10:30 |
 | 08:45 | Operator | Heartbeat, `git pull` (no stash), `tools/daemons.sh status`. **Cancel 20252 (SAL-11), 19979 (LAV-03 → t04), 19981 (LAV-04 → t01) now**; if refused while closed, at the first tick. Stage the `run/book.json` CHA entries (§2E) in a scratch file: commons, uncommons and the CHA-05/08 pair only. Stage the fodder bids: LAT-06/07/08 at 11, floor 12, El Rastro |
 | 08:45 | Lucas, Dani | In the room: (1) RET-09 seller (t07 or t08) and buyer t09, buyer bids first; (2) t15: will it sell its spare MAL-07, and does it want MAL-09/10 bids on v10?; (3) SAL-05/SAL-02 → t07; (4) ask t08/t13/t16/t06 bots to default to v10 |
 | 08:55 | Operator | `/api/clock` (still paused), `/api/schedule`. Tell the Chief: "case decided at 09:00:15 from `round`" |
@@ -281,7 +302,7 @@ Tick = 15 s. "T0" = the first tick with `round` = 3.
 | 09:01 | Operator | **Pícaros:** `chato_steady.py CHA-09 --dealer picaros --cap 54 --open 42 --step 2 --offer-only --cash-floor 0`. First message: the estampita line **with** 42 (never text-only). Flag rule on every message (§2E) |
 | 09:01 | Operator | **Abuela:** `abuela_bot.py --dealer abuela --cards CHA-01,CHA-02,CHA-03 --max-buy 9 --deals 3 --offer-only --cash-floor 0` (cocido line in the first message) |
 | 09:01 | Operator | **Pilar:** with a fodder uncommon from the pack or Workshop, sell it (ask 30, −1/−2, take ≥ 19). Otherwise RET-11 (ask 260, −6..−8, floor 198, walk once) |
-| 09:02 | Operator | Book: one write adding the staged CHA entries (no rares) + the fodder bids. Check `expires_tick − created_tick` on the first post |
+| 09:02 | Operator | Book: one write adding the staged CHA entries (no rares) + the fodder bids (≤ 12 P incl. fee, maker, 0 % member venue or El Rastro). Check `expires_tick − created_tick` on the first post |
 | 09:02 | Lucas, Dani, Market | v10 pairs live (§2C), buyers' bids first; the Market logs each fill's VC sign |
 | 09:03 | Operator | +150 → `/api/me` cash ≈ 542 − spent |
 | 09:06-09:10 | Operator | CHA-09 settles (expect 50-54): check the settlement card = CHA-09 and Δladder ≈ +0.06-0.08. Open **CHA-10** at once (after the bots' 10-tick reopen gap if it's the same dealer) |
@@ -294,7 +315,7 @@ Tick = 15 s. "T0" = the first tick with `round` = 3.
 | 09:30 | Chief + Analyst | **Checkpoint 1:** CHA count (target 5-6/10), T so far (flags), L so far (target ≥ 0.25 by 09:45), cash, first VC fills, first round-3 snapshot (board every 10 ticks) |
 | 09:30-10:00 | Operator | Pilar slot 2-3; Chato fodder #2; uncommon fallback: if CHA-06/07 are unfilled by teams at 09:45 → Abuela CHA-06 at 20-22 (an L1 upgrade only if better than a common's share) |
 | 09:45 | Lucas, Dani | 2nd wave of v10 pairs; check each pair's first fill VC sign |
-| 10:00 | Operator | Book steps bids (automatic). Trader auto-accepts CHA asks ≤ floor. FLIP digest (reactor): any non-rival CHA rare bid ≥ 85 → the 2nd-copy flip on the Chief's go |
+| 10:00 | Operator | Book steps bids (automatic; CHA/MAL buys only through run/cha_book.json / mal_book.json). The trader stays sell-only (`--cash-floor 9999`, directive 01:35). FLIP digest (reactor): any non-rival CHA rare bid ≥ 85 → the 2nd-copy flip on the Chief's go |
 | 10:15 | Operator | CHA should be 8/10. Designate the closer: the card a non-rival actually holds. Its bid jumps to value − 50 by itself at 9/10 |
 | 10:30 | Chief | **Checkpoint 2 (gates):** (a) MAL gate on M5; (b) surplus → ladder go/no-go; (c) dealer threads to wrap by 10:45; (d) daemon throttle plan for 10:45; (e) desk answers (§9) |
 
@@ -324,28 +345,31 @@ Tick = 15 s. "T0" = the first tick with `round` = 3.
 
 ## 6. Holes, wrong assumptions and missing levers in the current plans
 
-1. **Clock conversion** (score-model §4.7, chief-handoff, sunday-plan): 15 s ticks don't speed up game hours [V]. Fix the timeline
-   tables; Duels III ≈ 11:00 in every realistic case.
-2. **CHA rares on a 30-60 min delay** (dealer-lab §3 "t+120": 30 min; cha-plan "~10:00"): supply is global and will be raced (SAL
-   precedent) [V]. Team bids for rares at 70-90 also pay +18-38 over the Pícaros for np that is likely redundant once T ≥ N.
+1. **Clock conversion** (score-model §4.7, chief-handoff, sunday-plan): 15 s ticks don't speed up game hours [V]. **Fixed at
+   01:45-01:50.** Duels III ≈ 11:00 is the earliest; pauses push it later and the 15:00 close can cut the Final.
+2. **CHA rares on a 30-60 min delay** (dealer-lab FAST-START "t+120": 30 min; cha-plan "~10:00"): supply is global and will be raced
+   (SAL precedent) [V]. With CHA public bids now capped at dealer prices (6110b0e), waiting for teams buys nothing.
 3. **"Trick guard mandatory" is not implemented** [V code]. Directive 00:25 assumes it exists.
-4. **The ladder's L2/L3 gap is treated as structural** (score-model §4.5: "no spare rare/uncommon") **but it is a supply problem
-   we can solve**: the pack, the Workshop, gifts and 11-12 P LAT uncommons → Pilar 19-20 / Chato 15-16 [V price history].
-   Our Saturday L3 slots came from this kind of selling: MAL-07 19, MAL-06 19/20 (one from the Workshop), SAL-08 23 and MAL-09 56
-   to Pilar [V, score-model §2 table, STATUS dealer table].
-5. **dealer-lab §4.4 "the silver pack stays unopened"** contradicts cha-plan ("open after the release") and costs drag. Open it at
-   T0 + 2 ticks, before any CHA buy.
-6. **The MAL close is gated on cash (≥ 150 P left), not on value.** Its +44 only counts while T < N. It also needs Pícaros MAL rares
-   that sold at 57-61 on Saturday (≈ −20 np for the pair at our 0.7), and it competes with t15/t09 for the same rares. The gate should
-   be M5 (§2F).
+4. **The ladder's L2/L3 gap was treated as structural** (score-model 01:05: "no spare rare/uncommon for L2/L3"). **Now approved as
+   fodder** (the directive labelled 02:30). Our Saturday L3 slots came from exactly this kind of selling: MAL-07 19, MAL-06 19/20 (one
+   from the Workshop), SAL-08 23 and MAL-09 56 to Pilar [V, score-model §2 table, STATUS dealer table]. Still open: start it at T0,
+   not after the CHA buys.
+5. **dealer-lab §4 item 4 "the silver pack stays unopened"** contradicts cha-plan ("open after the release"); the 02:30 directive
+   says "after the CHA rares". Open it at T0 + 2 ticks, **before** the rares: a CHA rare from the pack saves a 52 P buy, while one
+   drawn after we bought ours is a 2nd copy worth 28.
+6. **The MAL close is gated on cash (≥ 150 P left), not on value.** Its net +20-28 np only counts while T < N. It also needs Pícaros
+   MAL rares that sold at 57-61 on Saturday (≈ −16 to −24 np for the pair at our 0.7), and it competes with t15/t09 for the same
+   rares. The gate should be M5 (§2F).
 7. **The SAL-11 cancel at "the first tick"** (directive 00:50) can race t04's accept on that tick. Cancel at 08:45 if the server
    allows it while closed.
-8. **dealer-lab §3 t+1 "open the Pícaros/Abuela thread with the egg line, no price, then close it":** it spends a conversation, the
-   bots' 10-tick reopen gap, and Ernesto/Chato read text-only as spam. Put the line in the first priced message.
-9. **The club:** cash bonuses (≤ 75 P) buy volume, not value, and invite a fair-play review. The "our sales on members' venues" perk
-   lifts the VC normaliser. market-sunday's VC target (170) is 3-4× too high (audit §3b), which pushes toward risky pairs.
-10. **Ernesto "no deals":** right for what we hold. But the L5 slot is ⅓ of the ladder reference. If the pack draws LAT-11 or a RET-11
-    dup, sell it to him (dealer-lab-ladder §6 option 1). With trade surplus, MAL-11 is the only loop worth pricing (§2G).
+8. **dealer-lab FAST-START t+1, "open the Pícaros/Abuela thread with the egg line, no price, then close it":** it spends a
+   conversation and the bots' 10-tick reopen gap, and Ernesto/Chato read text-only as spam. Put the line in the first priced message.
+9. **The club:** cash bonuses (≤ 75 P) buy volume, not value, and invite a fair-play review. Big-VC trades of ours on members'
+   venues lift the VC normaliser (small open spares are fine, directive 01:35). market-sunday's VC target (170) is 3-4× too high
+   (audit §3b), which pushes toward risky pairs.
+10. **Ernesto "no deals"** (GUARDRAIL 00:50): right for what we hold. But the L5 slot is ⅓ of the ladder reference. If the pack draws
+    LAT-11 or a RET-11 dup, or the trade part shows surplus, **ask Lucas to lift the GUARDRAIL for that one deal**
+    (dealer-lab-ladder §6 option 1; §2G here). Only Lucas changes a GUARDRAIL.
 11. **Pilar targets:** RET-11 at ≥ 198 is a ≈ 20% shot (non-SAL epic precedent 140; SAL 179-199 in the fever). Don't let her three
     slots depend on it: fodder first, RET-11 as the upside. Below 198 only through surplus → ladder.
 12. **Idle cash:** after CHA ≈ 250-280 P (RET-11 may add 198+), ≈ 200-250 P sits idle. "Only deals score, never cash you hold" [V].
@@ -353,8 +377,6 @@ Tick = 15 s. "T0" = the first tick with `round` = 3.
 13. **Rate limit during duels:** 5 req/s per key is shared by the duelist and ≈ 10 daemons that poll per tick. A tick is now 15 s, so
     they poll 2× Saturday's rate. Throttle at 10:45 and 13:55.
 14. **Abuela gifts, the pack and the Workshop can deliver the CHA last card:** none of them at 9/10.
-15. **The B15 "duelist by 09:55"** pressure can push Aleks into shipping v2 untested. With ≈ 11:00, he has time for the
-    gate-respecting rollout.
 
 ## 7. Legal ways to slow Team 10 and the other rivals
 
