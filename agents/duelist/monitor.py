@@ -264,6 +264,7 @@ def next_session(schedule: dict[str, Any], clock: dict[str, Any]) -> dict[str, A
 
 
 def state(public: Public, ours: Ours) -> dict[str, Any]:
+    """Everything the page shows, in one read."""
     with public.lock:
         clock, schedule, events = dict(public.clock), dict(public.schedule), list(public.events.values())
     tick = clock.get("tick")
@@ -272,7 +273,7 @@ def state(public: Public, ours: Ours) -> dict[str, Any]:
     duels = sorted((duel(r, tick, sessions) for r in recs), key=lambda d: (d["session"] or 0, d["id"] or 0))
     score = None
     try:
-        lines = (RECORDS / "scores.jsonl").read_text().splitlines()
+        lines = (ours.folder / "scores.jsonl").read_text().splitlines()
         score = json.loads(lines[-1]) if lines else None
     except (OSError, json.JSONDecodeError):
         pass
@@ -283,14 +284,16 @@ def state(public: Public, ours: Ours) -> dict[str, Any]:
             "field": field(events, {d["id"] for d in duels})}
 
 
-def serve(port: int = 8766, host: str = "127.0.0.1") -> None:
-    public, ours = Public().start(), Ours()
+def serve(port: int = 8766, host: str = "127.0.0.1", folder: Path = RECORDS) -> None:
+    """`folder`: the duel records to follow (another folder replays saved duels)."""
+    public, ours = Public().start(), Ours(folder)
 
     class Handler(BaseHTTPRequestHandler):
         def do_GET(self) -> None:
-            if self.path.split("?")[0] == "/api/state":
+            path = self.path.split("?")[0]
+            if path == "/api/state":
                 body, kind = json.dumps(state(public, ours), default=str).encode(), "application/json"
-            elif self.path in ("/", "/index.html"):
+            elif path in ("/", "/index.html"):
                 body, kind = PAGE.read_bytes(), "text/html; charset=utf-8"
             else:
                 self.send_error(404)
@@ -306,7 +309,7 @@ def serve(port: int = 8766, host: str = "127.0.0.1") -> None:
             pass
 
     httpd = ThreadingHTTPServer((host, port), Handler)
-    print(f"duel monitor on http://{host}:{port} (read-only: records in {RECORDS}, the game's public feed)",
+    print(f"duel monitor on http://{host}:{port} (read-only: records in {folder}, the game's public feed)",
           flush=True)
     try:
         httpd.serve_forever()

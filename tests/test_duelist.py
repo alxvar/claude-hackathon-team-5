@@ -730,3 +730,47 @@ def test_the_opener_is_always_an_offer():
     talk = Decision(action="message", price=None, message="Tell me more about what you need.")
     move = respond(SELLER, obs(SELLER), FakeModel(plan(70, 72, 68), talk, talk))
     assert move.action == "offer" and move.price == 70 and "no offer standing" in move.meta["vetoes"][0]
+
+
+def test_monitor_reads_a_duel_from_its_record():
+    from agents.duelist.monitor import duel
+    d = duel(Records(DUELS).load(278), 200, {})
+    assert (d["status"], d["price"], d["result"], d["rounds"], d["messages"]) == ("deal", 111, 2.7, 10, [10, 11])
+    last = d["events"][-1]
+    assert (last["kind"], last["price"], last["rule"], last["sent"]) == ("accept", 111, "deadline", True)
+    first_ours = next(e for e in d["events"] if e["kind"] == "message" and e["mine"])
+    assert first_ours["decision"]["band"] == {"worst": 84, "target": 80, "best": 76} and first_ours["decision"]["read"]
+
+
+def test_monitor_shows_holds_and_ends_a_duel_at_its_deadline():
+    from agents.duelist.monitor import duel
+    rec = {"duel": 9, "payloads": [{"tick": 98, "raw": {"duel": 9, "status": "live", "role": "buyer", "your_limit": 100,
+                                                        "deadline_tick": 100, "rounds": 1, "decay_per_round": 0.06,
+                                                        "rival_offer": {"price": 90},
+                                                        "messages": [{"tick": 97, "from": "you", "price": 70},
+                                                                     {"tick": 97, "from": "Rival", "price": 90}]}}],
+           "decisions": [{"tick": 98, "hold": True, "move": {"action": "offer", "price": 70, "meta": {}}}]}
+    live = duel(rec, 98, {})
+    assert live["live"] and live["ticks_left"] == 2 and live["worth_now"] == 9.4      # 10 x 0.94
+    assert [e["kind"] for e in live["events"]] == ["message", "message", "hold"]
+    assert duel(rec, 100, {})["status"] == "ended"                                   # over, result not saved yet
+
+
+def test_monitor_counts_every_duel_in_the_field_from_the_feed():
+    from agents.duelist.monitor import field
+    events = [json.loads(line) for line in (DUELS / "feed.jsonl").read_text().splitlines()]
+    practice = next(s for s in field(events, {277, 278})["sessions"] if s["session"] == 1)
+    assert (practice["name"], practice["total"], practice["closed"], practice["deals"]) == ("Practice duels", 306, 306, 124)
+    assert practice["ours_closed"] == 2 and practice["finished"]
+
+
+def test_monitor_knows_whether_the_duelist_runs(tmp_path: Path):
+    import os
+    from agents.duelist.monitor import duelist_status, next_session
+    (tmp_path / "run.lock").write_text(f"pid {os.getpid()}\n")
+    assert duelist_status(tmp_path)["running"]
+    (tmp_path / "run.lock").write_text("pid 999999\n")
+    assert not duelist_status(tmp_path)["running"]
+    nxt = next_session({"upcoming": [{"action": "duels", "at_hours": 5.15, "params": {"name": "Duels I"}}]},
+                       {"t_hours": 3.15, "tick": 219, "tick_seconds": 30})
+    assert (nxt["name"], nxt["minutes"], nxt["tick"]) == ("Duels I", 120, 459)    # 120 ticks a game hour at 30 s

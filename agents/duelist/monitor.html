@@ -42,6 +42,7 @@ h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: v
 .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
 .wrap { padding: 16px; display: grid; gap: 16px; grid-template-columns: minmax(0, 2.2fr) minmax(280px, 1fr); align-items: start; }
 @media (max-width: 960px) { .wrap { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 600px) { .hide-narrow { display: none; } .msg { max-width: 94%; } }
 .tiles { grid-column: 1 / -1; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
 .tile { background: var(--surface); border: 1px solid var(--ring); border-radius: 10px; padding: 10px 12px; }
 .tile .k { color: var(--ink-2); font-size: 12px; }
@@ -60,10 +61,10 @@ section, aside { min-width: 0; }
 .bar { height: 6px; border-radius: 3px; background: var(--grid); overflow: hidden; }
 .bar > i { display: block; height: 100%; background: var(--ink-2); border-radius: 3px; }
 .bar.late > i { background: var(--warn); }
-.nums { display: grid; grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); gap: 6px; }
-.nums div { background: var(--surface-2); border-radius: 8px; padding: 4px 8px; }
-.nums .k { font-size: 11px; color: var(--ink-2); }
-.nums .v { font-weight: 600; font-variant-numeric: tabular-nums; }
+.nums { display: grid; grid-template-columns: repeat(auto-fit, minmax(62px, 1fr)); gap: 6px; }
+.nums div { background: var(--surface-2); border-radius: 8px; padding: 4px 7px; }
+.nums .k { font-size: 11px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nums .v { font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .k .sw { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 4px; vertical-align: 0; }
 svg.chart { width: 100%; height: 120px; display: block; overflow: visible; }
 .chart text { font-size: 10px; fill: var(--muted); }
@@ -115,8 +116,8 @@ tr.row { cursor: pointer; } tr.row:hover td { background: var(--surface-2); }
     <h2>Live duels</h2>
     <div class="cards" id="live"></div>
     <h2 style="margin-top:20px">Finished <span class="small" id="fin-note"></span></h2>
-    <div class="panel" style="padding:4px 8px">
-      <table><thead><tr><th>Duel</th><th>Result</th><th>Role</th><th>Item</th><th>Rival</th><th class="num">Price</th><th class="num">Points</th><th class="num">Rounds</th></tr></thead>
+    <div class="panel" style="padding:4px 8px; overflow-x:auto">
+      <table><thead><tr><th>Duel</th><th>Result</th><th class="hide-narrow">Role</th><th>Item</th><th class="hide-narrow">Rival</th><th class="num">Price</th><th class="num">Points</th><th class="num">Rounds</th></tr></thead>
       <tbody id="done"></tbody></table>
     </div>
     <div id="opened" class="cards" style="margin-top:12px"></div>
@@ -133,7 +134,9 @@ tr.row { cursor: pointer; } tr.row:hover td { background: var(--surface-2); }
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
 const P = (x) => x == null ? "–" : `${Math.round(x * 10) / 10} P`;
-let S = null, session = null, prev = {}, cards = {}, opened = new Set(), first = true;
+let S = null, session = null, prev = {}, cards = {}, first = true;
+const query = new URLSearchParams(location.search);
+const opened = new Set((query.get("open") || "").split(",").filter(Boolean).map(Number));   // ?open=278,277
 
 function statusHtml(d) {
   if (d.status === "deal") return `<span class="status deal">✓ Deal</span>`;
@@ -153,8 +156,10 @@ function chart(d) {
   const W = 300, H = 110, L = 30, R = 8, T = 6, B = 16;
   const x = (t) => L + (W - L - R) * ((t - t0) / Math.max(1, t1 - t0));
   const y = (p) => T + (H - T - B) * (1 - (p - lo) / (hi - lo));
+  const lastOf = (mine) => { const s = pts.filter((p) => p.mine === mine); return s.length ? s[s.length - 1].price : null; };
   const series = (mine) => {
     const s = pts.filter((p) => p.mine === mine); if (!s.length) return "";
+    const other = lastOf(!mine), above = other == null || s[s.length - 1].price >= other;   // label away from the other line
     let path = `M${x(s[0].tick)},${y(s[0].price)}`;
     for (let i = 1; i < s.length; i++) path += ` H${x(s[i].tick)} V${y(s[i].price)}`;
     const end = d.live ? (d.deadline - d.ticks_left) : s[s.length - 1].tick;
@@ -164,22 +169,24 @@ function chart(d) {
       data-tip="${esc(`t${p.tick} · ${mine ? "us" : p.who} · ${p.price} P`)}"></circle>`).join("");
     const last = s[s.length - 1];
     return `<path d="${path}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round"></path>${dots}
-      <text x="${Math.min(W - 2, x(last.tick) + 6)}" y="${y(last.price) - 6}" style="fill:var(--ink-2)">${last.price}</text>`;
+      <text x="${Math.min(W - 2, x(last.tick) + 6)}" y="${y(last.price) + (above ? -6 : 13)}" style="fill:var(--ink-2)">${last.price}</text>`;
   };
-  const ticks = [lo + pad, (lo + hi) / 2, hi - pad].map((p) => Math.round(p));
-  const grid = ticks.map((p) => `<line x1="${L}" x2="${W - R}" y1="${y(p)}" y2="${y(p)}" stroke="var(--grid)" stroke-width="1"></line>
+  // y ticks: the lowest and highest offer, and our limit (labelled on the axis, so it never collides in the plot)
+  const offers = pts.map((p) => p.price), ticks = [Math.min(...offers), Math.max(...offers)]
+    .filter((p) => d.limit == null || Math.abs(y(p) - y(d.limit)) > 10);
+  const grid = [...new Set(ticks)].map((p) => `<line x1="${L}" x2="${W - R}" y1="${y(p)}" y2="${y(p)}" stroke="var(--grid)" stroke-width="1"></line>
     <text x="${L - 4}" y="${y(p) + 3}" text-anchor="end">${p}</text>`).join("");
   const limit = d.limit == null ? "" : `<line x1="${L}" x2="${W - R}" y1="${y(d.limit)}" y2="${y(d.limit)}" stroke="var(--ink-2)" stroke-dasharray="4 3" stroke-width="1"></line>
-    <text x="${W - R}" y="${y(d.limit) - 3}" text-anchor="end" style="fill:var(--ink-2)">our limit ${d.limit}</text>`;
+    <text x="${L - 4}" y="${y(d.limit) + 3}" text-anchor="end" style="fill:var(--ink-2);font-weight:600">${d.limit}</text>`;
   const now = d.live && d.deadline != null ? `<line x1="${x(d.deadline - d.ticks_left)}" x2="${x(d.deadline - d.ticks_left)}" y1="${T}" y2="${H - B}" stroke="var(--axis)" stroke-width="1"></line>` : "";
   const axis = `<text x="${L}" y="${H - 3}">t${t0}</text><text x="${W - R}" y="${H - 3}" text-anchor="end">${d.deadline != null ? "deadline t" + d.deadline : "t" + t1}</text>`;
   return `<svg class="chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="Offers over time">${grid}${limit}${now}${series(false)}${series(true)}${axis}</svg>
-    <div class="legend"><span><span class="dot" style="background:var(--us)"></span> Us</span><span><span class="dot" style="background:var(--them)"></span> ${esc(d.rival || "Them")}</span><span>- - our limit</span></div>`;
+    <div class="legend"><span><span class="dot" style="background:var(--us)"></span> Us</span><span><span class="dot" style="background:var(--them)"></span> ${esc(d.rival || "Them")}</span><span>- - our limit (${d.limit ?? "–"})</span></div>`;
 }
 
 function why(e) {
   const bits = [];
-  if (e.band) bits.push(`band ${e.band.best}–${e.band.worst}`);
+  if (e.band) bits.push(`band ${Math.min(e.band.best, e.band.worst)}–${Math.max(e.band.best, e.band.worst)}`);
   if (e.took_s != null) bits.push(`${e.took_s} s`);
   if (e.cost_usd) bits.push(`$${e.cost_usd.toFixed(4)}`);
   const tags = [e.rule && `<span class="tag">${esc(e.rule)}</span>`, e.fallback && `<span class="tag">fallback</span>`].filter(Boolean).join("");
@@ -206,12 +213,12 @@ function cardHtml(d) {
     <div class="small">${d.ticks_left} tick${d.ticks_left === 1 ? "" : "s"} left · deadline t${d.deadline}</div>` : "";
   const gap = d.our_offer != null && d.their_offer != null ? Math.abs(d.our_offer - d.their_offer) : null;
   const res = d.status === "deal" ? `<div><div class="k">Result</div><div class="v">${P(d.result)}</div></div><div><div class="k">Price</div><div class="v">${P(d.price)}</div></div>` :
-    `<div><div class="k">Worth now</div><div class="v">${P(d.worth_now)}</div></div>`;
+    `<div title="What accepting their standing offer would score now: our margin x (1 - decay)^rounds"><div class="k">If taken</div><div class="v">${P(d.worth_now)}</div></div>`;
   return `<div class="head"><span class="id">#${d.id}</span><span class="badge">${roleText(d)}</span><span class="item">${esc(d.item)}</span>
       <span class="rival">vs ${esc(d.rival)}</span>${d.live ? "" : statusHtml(d)}</div>
     ${progress}
     <div class="nums">
-      <div><div class="k">Our limit</div><div class="v">${P(d.limit)}</div></div>
+      <div title="Our limit: our value when we buy, our cost when we sell"><div class="k">Limit</div><div class="v">${P(d.limit)}</div></div>
       <div><div class="k"><span class="sw" style="background:var(--us)"></span>Ours</div><div class="v">${P(d.our_offer)}</div></div>
       <div><div class="k"><span class="sw" style="background:var(--them)"></span>Theirs</div><div class="v">${P(d.their_offer)}</div></div>
       <div><div class="k">Gap</div><div class="v">${P(gap)}</div></div>
@@ -284,14 +291,14 @@ function draw() {
     <div class="tile"><div class="k">Our deals</div><div class="v">${deals.length} / ${fin.length}</div><div class="s">${rate(deals.length, fin.length)} of finished</div></div>
     <div class="tile"><div class="k">Our points (Σ results)</div><div class="v">${P(pts)}</div><div class="s">${deals.length ? "avg " + (deals.reduce((a, d) => a + d.rounds, 0) / deals.length).toFixed(1) + " rounds per deal" : ""}</div></div>
     <div class="tile"><div class="k">Field deal rate</div><div class="v">${rate(fs.deals, fs.closed)}</div><div class="s">ours ${rate(fs.ours_deals, fs.ours_closed)} · all teams' duels as they close</div></div>
-    <div class="tile"><div class="k">Field progress</div><div class="v">${fs.closed ?? 0}${fs.total ? " / " + fs.total : ""}</div><div class="s">duels closed${s.score ? ` · our duel points ${s.score.duel_points ?? "–"} (rank ${s.score.rank ?? "–"})` : ""}</div></div>`;
+    <div class="tile"><div class="k">Field progress</div><div class="v">${fs.closed ?? 0}${fs.total ? " / " + fs.total : ""}</div><div class="s">duels closed${s.score ? ` · our duel points ${s.score.duel_points ?? "–"} at tick ${s.score.tick}` : ""}</div></div>`;
   $("sess").onchange = (e) => { session = +e.target.value; userPicked = true; Object.keys(cards).forEach((k) => { cards[k].el.remove(); delete cards[k]; }); opened.clear(); draw(); };
 
   if (!live.length) $("live").innerHTML = `<div class="empty">No live duel in this session${n && n.minutes != null ? ` · ${esc(n.name)} starts in ~${n.minutes} min` : ""}.</div>`;
   else { const empty = $("live").querySelector(".empty"); if (empty) empty.remove(); }
   render($("live"), live.sort((a, b) => (a.ticks_left ?? 99) - (b.ticks_left ?? 99) || a.id - b.id), "L");
   $("fin-note").textContent = done.length ? `· click a row for the transcript` : "";
-  $("done").innerHTML = done.map((d) => `<tr class="row" data-id="${d.id}"><td>#${d.id}</td><td>${statusHtml(d)}</td><td>${roleText(d)}</td><td>${esc(d.item)}</td><td>${esc(d.rival)}</td>
+  $("done").innerHTML = done.map((d) => `<tr class="row" data-id="${d.id}"><td>#${d.id}</td><td>${statusHtml(d)}</td><td class="hide-narrow">${roleText(d)}</td><td>${esc(d.item)}</td><td class="hide-narrow">${esc(d.rival)}</td>
     <td class="num">${d.price ?? "–"}</td><td class="num">${d.result ?? "–"}</td><td class="num">${d.rounds}</td></tr>`).join("") ||
     `<tr><td colspan="8" class="small">None yet.</td></tr>`;
   $("done").querySelectorAll("tr.row").forEach((r) => r.onclick = () => { const id = +r.dataset.id; opened.has(id) ? opened.delete(id) : opened.add(id); draw(); });

@@ -5,6 +5,7 @@
     uv run python -m agents.duelist run --dry-run    # play live duels, but only print the moves
     uv run python -m agents.duelist run              # play live duels
     uv run python -m agents.duelist review           # every recorded duel in one table (docs/duels/README.md)
+    uv run python -m agents.duelist monitor          # a local page following our duels and the field, live (read-only)
 """
 from __future__ import annotations
 
@@ -123,6 +124,11 @@ def review(_: argparse.Namespace) -> None:
     print(f"saved to {records.folder / 'README.md'}")
 
 
+def monitor(a: argparse.Namespace) -> None:
+    from .monitor import serve
+    serve(a.port, folder=Path(a.records)) if a.records else serve(a.port)
+
+
 def main() -> None:
     load_dotenv(find_dotenv(usecwd=True))
     p = argparse.ArgumentParser(prog="agents.duelist", description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
@@ -146,6 +152,10 @@ def main() -> None:
             s.add_argument("--duel-ticks", type=int, help="ticks per duel, when the feed doesn't say")
             s.add_argument("--poll", type=float, default=2.0, help="seconds between polls (two reads each)")
     sub.add_parser("review", help="every recorded duel in one table").set_defaults(fn=review)
+    m = sub.add_parser("monitor", help="a local page following our duels and the field, live (read-only, no team key)")
+    m.add_argument("--port", type=int, default=8766)
+    m.add_argument("--records", help="another folder of duel records to follow (default docs/duels)")
+    m.set_defaults(fn=monitor)
     sub.choices["probe"].set_defaults(fn=probe)
     a = p.parse_args()
     a.fn(a)

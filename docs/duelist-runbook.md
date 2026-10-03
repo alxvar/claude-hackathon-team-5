@@ -29,6 +29,16 @@ The schedule says the practice duels last 12 ticks, lose 6% per round, run 6 at 
 
 Ticks are 60 s on Friday, 30 s on Saturday and 15 s on Sunday. A decision that takes longer than the tick minus 5 s is replaced by code's move (`agent.safe_move`, see Fallbacks). Check the decision times printed in the practice session before Sunday.
 
+## Watching it live: the monitor
+
+`~/.local/bin/uv run --project . python -m agents.duelist monitor`, then open http://127.0.0.1:8766 (`--port` for another; `--records <folder>` replays saved records). Read-only and keyless: it never touches the team key or the duelist, so it can run beside it on any laptop with the repo.
+
+- **Live duels:** one card per duel: ticks left, our limit, both standing offers, the gap, rounds, what taking their offer would score now, a chart of both sides' offers against our limit, and the transcript with our decision under each of our messages (band, latency, cost, the strategist's read; tags for code rules: deadline, small gap, silent rival, their price) and the holds (decided, nothing sent).
+- **Finished:** every duel of the session with result, price, points and rounds; click a row for its transcript. A deal or a no-deal pops a notice as it lands.
+- **All duels in the game:** the game publishes other teams' duels only as they close (`duel.closed`: duel, item, deal or no deal; no teams, prices or messages), so the panel shows the session's progress, every closing as it comes, ours marked, and the deal rate by item, ours against the field's.
+- The header says whether the duelist runs (the pid in `logs/duelist/run.lock` is alive), when it last wrote a record, its errors in the last 30 minutes, and the next duel session's tick and minutes away.
+- Our duels come from `docs/duels/` as the duelist rewrites them (it trails the game by the duelist's 2 s poll); the field from the public feed every 5 s.
+
 ## Records: every duel, kept in the repo
 
 `run` also writes one `docs/duels/duel-<id>.json` per duel: the session, how we read it, every raw payload, every decision (latency, cost, what the agent saw), what we sent and what the game answered, refusals, and the game's final payload. Once a minute it also sweeps the done list, so a duel that a crash or a restart missed is still saved (with the final payload only). Two timelines sit next to the records: `feed.jsonl` (the public feed's duel events, which may name the team behind an alias) and `scores.jsonl` (our duel points whenever they move).
