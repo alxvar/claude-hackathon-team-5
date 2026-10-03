@@ -9,6 +9,15 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sat 12:42 · snapshot 540
+- Board: **t14 32.96 (#1)** · t12 30.53 · **t10 29.56 (#3, +3.6)** · t18 29.40 · t17 29.33 · t13 28.23 · **us 27.49 (#7)**.
+- **t14 back to #1:** duels (part 6.4 → ~12.6 incl. deals) + Pilar LAT-08 at 20 (best uncommon share seen) + Chato BUY LAT-10
+  at 86 (above list 77) that completed its LAT page (pages 1 → 2). A page closed through a DEALER scores 0 neg_points (gains
+  clipped) [L]: not a play to copy.
+- **t10 (#3):** duels 5.0 → 10.3 plus two Pilar sells at the top of her range (SAL-08 24, RET-08 25).
+- **t04 sells patiently:** SAL-08 → Pilar at 25 (opened 40, 6 messages) vs our 23 (copied in the 12:42 note to the Chief).
+- t12 is sliding in duels (12.0 → 9.5).
+
 ### Sat 12:30 · snapshot 510 (Duels I running)
 - Board: t12 31.91 · **t17 29.29 (#2, +2.5)** · t14 28.85 · t13 27.71 · t18 27.48 · **us 27.03 (#6)** · t10 25.98 · t01 25.97.
 - **t17 closed its MAL page** [V: pages 1 → 2]: bought MAL-10 from **t18** at 70 + 5 fee as taker on El Rastro (tick 508).
