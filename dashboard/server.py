@@ -424,7 +424,8 @@ class Analysis:
         for st in self.cat.get("sets", []):
             for cd in st.get("cards", []):
                 if isinstance(cd, dict) and cd.get("id"):
-                    self.cards[cd["id"]] = {"name": cd.get("name"), "rarity": cd.get("rarity"), "set": st.get("id")}
+                    self.cards[cd["id"]] = {"name": cd.get("name"), "rarity": cd.get("rarity"), "set": st.get("id"),
+                                            "page": cd.get("page"), "book": cd.get("book")}
         self.marg = (self.cat.get("values") or {}).get("copy_marginals") or [1.0]
         self.held = collections.Counter(a.get("ref") for a in self.me.get("assets", []) if a.get("kind") == "card")
         self.held_value = collections.defaultdict(list)
@@ -821,6 +822,81 @@ class Analysis:
                             "ours_venue_created": round(sum(r["created"] or 0 for r in rows if r["on_ours"]), 1),
                             "last_tick": rows[0]["tick"] if rows else None, "now": self.clock.get("tick"),
                             "mult_updated": (mult.get("_meta") or {}).get("updated")}}
+
+    def collection(self, prof):
+        """Our cards (/api/me assets, with the game's your_value for each copy): every set's page (cards 01-10) and
+        epics, and every duplicate with its extra copies, what one spare is worth to us (the lowest your_value: what a
+        sale of one copy gives up), today's median team price for its rarity, our open asks on El Rastro, and the
+        non-rival teams that collect the set or bid for the card now. Rival = live top 6 or within 3.0 of us, plus
+        Teams 13 and 17 (Lucas's v10 rule)."""
+        assets = [a for a in self.me.get("assets", []) if a.get("kind") == "card" and a.get("ref")]
+        if not assets:
+            return None
+        us = next((p for p in prof if p["us"]), None)
+        us_score = us["score"] if us else None
+        rival = {p["team"] for p in prof if not p["us"] and (p["rank"] <= 6 or (us_score is not None and p["score"] is not None
+                                                                              and abs(p["score"] - us_score) <= 3.0))}
+        rival |= {"t13", "t17"}
+        vals = collections.defaultdict(list)
+        for a in assets:
+            vals[a["ref"]].append(a.get("your_value"))
+        opened = self._day_open()
+        med = collections.defaultdict(list)
+        last = {}
+        for tr in self.trades:
+            if tr["kind"] != "team" or len(tr["items"]) != 1 or not tr["price"]:
+                continue
+            i = tr["items"][0]
+            if (tr["tick"] or 0) >= opened:
+                med[i.get("rarity")].append(tr["price"])
+            last[i.get("ref")] = (tr["price"], tr["tick"])
+        bids, ours_ask = collections.defaultdict(list), collections.defaultdict(list)
+        for o in self.board:
+            who = self.maker.get(o.get("id"))
+            if cash_of(o.get("give")) and refs_of(o.get("want")) and who and who != self.us:
+                for r in refs_of(o.get("want")):
+                    bids[r].append((who, round(cash_of(o.get("give")) / len(refs_of(o.get("want"))), 1)))
+            elif refs_of(o.get("give")) and who == self.us:
+                for r in refs_of(o.get("give")):
+                    ours_ask[r].append(cash_of(o.get("want")))
+        byprof = {p["team"]: p for p in prof}
+        dups = []
+        for ref, vs in vals.items():
+            if len(vs) < 2:
+                continue
+            cd = self.cards.get(ref) or {}
+            s = set_of(ref)
+            known = sorted(v for v in vs if v is not None)
+            buyers = [{"team": t, "name": self.name(t), "rank": (byprof.get(t) or {}).get("rank"), "why": f"bids {p} P"}
+                      for t, p in bids.get(ref, []) if t not in rival]
+            seen = {b["team"] for b in buyers}
+            buyers += [{"team": p["team"], "name": p["name"], "rank": p["rank"], "why": f"collects {s}"}
+                       for p in prof if not p["us"] and p["team"] not in rival and p["team"] not in seen and s in (p.get("wants") or [])]
+            m = med.get(cd.get("rarity")) or []
+            dups.append({"ref": ref, "name": cd.get("name"), "rarity": cd.get("rarity"), "set": s, "page": cd.get("page"),
+                         "copies": len(vs), "extra": len(vs) - 1, "spare_value": known[0] if known else None,
+                         "values": known, "book": cd.get("book"), "market": median(m) if m else None, "market_n": len(m),
+                         "last": last.get(ref), "our_ask": sorted(ours_ask.get(ref, [])),
+                         "bids": sorted((b for b in bids.get(ref, [])), key=lambda x: -x[1])[:4], "buyers": buyers[:6]})
+        dups.sort(key=lambda r: (-(r["spare_value"] or 0), r["ref"]))
+        sets = []
+        for st in self.cat.get("sets", []):
+            sid = st.get("id")
+            page = [cd.get("id") for cd in st.get("cards", []) if isinstance(cd, dict) and cd.get("page")]
+            extra = [cd.get("id") for cd in st.get("cards", []) if isinstance(cd, dict) and not cd.get("page")]
+            if not st.get("released") and not any(set_of(r) == sid for r in vals):
+                continue
+            sets.append({"set": sid, "name": st.get("name"), "affinity": self.aff.get(sid),
+                         "cards": [{"ref": r, "n": len(vals.get(r, [])), "rarity": (self.cards.get(r) or {}).get("rarity")}
+                                   for r in page + extra],
+                         "page_have": sum(1 for r in page if vals.get(r)), "page_size": len(page),
+                         "complete": bool(page) and all(vals.get(r) for r in page)})
+        return {"sets": sets, "dups": dups,
+                "summary": {"copies": len(assets), "distinct": len(vals), "dup_refs": len(dups),
+                            "extra": sum(d["extra"] for d in dups),
+                            "spare_value": round(sum(d["spare_value"] or 0 for d in dups), 1),
+                            "pages": sum(1 for s in sets if s["complete"])},
+                "rivals": sorted(rival)}
 
     def _day_open(self):
         return max((e.get("tick") or 0 for e in self.events if e.get("type") == "day.opened"), default=0)
@@ -1708,6 +1784,7 @@ class Analysis:
             "tape": self.tape(),
             "team_trades": self.team_trades(prof),
             "pulse": self.market_pulse(prof),
+            "collection": self.collection(prof),
             "strategies": self.strategies(prof),
             "holders": self.holders(),
             "abuela": self.abuela(),

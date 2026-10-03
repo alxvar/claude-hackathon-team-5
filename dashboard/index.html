@@ -136,6 +136,7 @@ tr.sel td { background: rgba(57,135,229,0.22) !important; }
     <button data-tab="trades">Team trades</button>
     <button data-tab="pulse">Market pulse</button>
     <button data-tab="strat">Strategies</button>
+    <button data-tab="cards">Our cards</button>
     <button data-tab="more">Dealers · schedule</button>
   </div>
 </header>
@@ -449,6 +450,21 @@ tr.sel td { background: rgba(57,135,229,0.22) !important; }
     </div>
   </section>
   <div class="dgrid" id="sCards"></div>
+</section>
+
+<!-- ============================================================ OUR CARDS -->
+<section class="tab" id="tab-cards">
+  <div class="tiles" id="ocTiles"></div>
+  <section class="card">
+    <h2>Our album, set by set</h2>
+    <p class="sub">Cards 01-10 make a set's page (a complete page adds a bonus to every card in it); 11-12 are the epic and the legendary, outside the page. Each cell shows how many copies we hold: <b>×2</b> or more = a duplicate. Our multiplier for each set is next to its name.</p>
+    <div id="ocSets"></div>
+  </section>
+  <section class="card">
+    <h2>Our duplicates</h2>
+    <p class="sub">Every card we hold more than once. <b>Spare worth</b> = what one copy is worth to us (the game's <code>your_value</code> for our lowest copy: a 2nd copy counts 25 %, a 3rd 10 %), so a sale above it plus the fee gains us points. <b>Market today</b> = the median team price for that rarity today. <b>Who might want it</b> = non-rival teams that bid for the card on El Rastro or collect the set (rivals: live top 6, within 3 points of us, Teams 13 and 17). Selling a spare never breaks a page: we keep one copy. Lucas's Operator does any sale; this page only reads.</p>
+    <div class="scroll" style="max-height:620px"><table id="ocDups"></table></div>
+  </section>
 </section>
 
 <!-- ============================================================ MORE -->
@@ -1074,6 +1090,45 @@ function stratTab(d) {
   }).join("");
 }
 
+// ------------------------------------------------------------------ our cards
+function cardsTab(d) {
+  const c = d.collection;
+  if (!c) { $("#ocTiles").innerHTML = `<span class="muted">${d.has_key ? "Restart the dashboard server to load this tab." : "Needs the team key (our /api/me)."}</span>`; return; }
+  const s = c.summary;
+  const T = [
+    ["Cards we hold", s.copies, `<span class="d">${s.distinct} different cards</span>`],
+    ["Duplicated cards", s.dup_refs, `<span class="d"><b>${s.extra}</b> extra copies in all</span>`],
+    ["Spares worth to us", `${s.spare_value} P`, `<span class="d">one spare of each duplicate, at our own values</span>`],
+    ["Complete pages", s.pages, `<span class="d">${c.sets.filter(x => x.complete).map(x => x.set).join(", ") || "none"}</span>`],
+  ];
+  $("#ocTiles").innerHTML = T.map(([k, val, dl]) => `<div class="tile"><div class="k">${k}</div><div class="v">${val}</div>${dl}</div>`).join("");
+
+  const cell = x => {
+    const has = x.n > 0, dup = x.n > 1, outside = /-1[12]$/.test(x.ref);
+    const bg = !has ? "transparent" : dup ? "rgba(217,89,38,0.22)" : "rgba(57,135,229,0.22)";
+    const bd = !has ? "var(--border)" : dup ? "var(--series-2)" : "var(--series-1)";
+    return `<span title="${esc(x.ref)} · ${esc(x.rarity || "")} · ${x.n} cop${x.n === 1 ? "y" : "ies"}" style="display:inline-block;min-width:58px;margin:2px;padding:3px 6px;border-radius:6px;font-size:12px;text-align:center;`
+      + `border:1px ${outside ? "dashed" : "solid"} ${bd};background:${bg};color:${has ? "var(--text-primary)" : "var(--text-muted)"}">`
+      + `${esc(x.ref.slice(4))}${x.n > 1 ? ` <b>×${x.n}</b>` : x.n === 1 ? " ✓" : ""}</span>`;
+  };
+  $("#ocSets").innerHTML = c.sets.map(st => `<div style="margin:8px 0">`
+    + `<div style="margin-bottom:2px"><b>${esc(st.set)}</b> ${esc(st.name || "")} <span class="muted">· ×${st.affinity ?? "—"} · page ${st.page_have}/${st.page_size}</span>`
+    + `${st.complete ? ` <span class="chip">page complete</span>` : ""}</div>${st.cards.map(cell).join("")}</div>`).join("")
+    + `<p class="sub" style="margin-top:8px"><span style="color:var(--series-1)">■</span> one copy · <span style="color:var(--series-2)">■</span> duplicate · empty = missing · dashed = epic/legendary (outside the page)</p>`;
+
+  table($("#ocDups"), "ocDups", c.dups, [
+    ["ref", "Card", r => `<b>${esc(r.ref)}</b> <span class="muted">${esc(r.name || "")}</span>`],
+    ["rarity", "Rarity", r => esc(r.rarity || "")],
+    ["copies", "Copies", r => `${r.copies} <span class="muted">(+${r.extra})</span>`, true],
+    ["spare_value", "Spare worth P", r => r.spare_value != null ? `<b>${num(r.spare_value)}</b>` : "—", true],
+    ["book", "Book P", null, true],
+    ["market", "Market today P", r => r.market != null ? `${num(r.market)} <span class="muted">(n ${r.market_n})</span>` : "—", true],
+    ["last", "Last trade", r => r.last ? `${r.last[0]} P <span class="muted">tick ${r.last[1]}</span>` : "—"],
+    ["our_ask", "Our ask (El Rastro)", r => r.our_ask.length ? r.our_ask.map(p => p + " P").join(", ") : "—"],
+    ["buyers", "Who might want it", r => r.buyers.length ? r.buyers.map(b => `<span class="chip">${esc(b.name)}${b.rank ? " #" + b.rank : ""}: ${esc(b.why)}</span>`).join("") : `<span class="muted">no non-rival buyer seen</span>`],
+  ]);
+}
+
 // ------------------------------------------------------------------ live duel cards
 function liveDuelCards(d, m) {
   const box = $("#dmCards"), tsec = d.clock.tick_seconds || 30, now = d.clock.tick;
@@ -1261,6 +1316,7 @@ function render() {
   if (tab === "trades") tradesTab(d);
   if (tab === "pulse") pulseTab(d);
   if (tab === "strat") stratTab(d);
+  if (tab === "cards") cardsTab(d);
   if (tab === "more") moreTab(d);
 }
 
