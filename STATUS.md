@@ -1,15 +1,15 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 19:23** · tick 1097 (30 s/tick) · game hour 10.47 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 19:28** · tick 1107 (30 s/tick) · game hour 10.55 · running · today closes 23:00._
 
 ## Team: now and latest
 
 _From `team/<name>.md`; each person writes only their own file._
 
-**Aleks** — Duels I done (30/34 deals, 13.93 duel points). **Duels II ≈ 20:33** (PLAN #18). **Duelist LIVE on 89a6dd6 since 17:15:43** (Duels II days + rounds rollback + Duel Lab + per-duel accepts + no claims, Opus medium + Sonnet low). The Duel Lab picks are in that code (69ef465): **no restart needed** (Lucas 17:3x). Until the **19:30 code freeze**: offline red-team sims only (no server, no team key, no 2nd process; a change goes in only with the suite green AND a clear sim gain). **20:25** check one live process, no errors; on screen **20:33** until wave 1 ends. First wave: no step > 18% of the gap outside the last 3 ticks, day reading ≠ CAN'T READ, `review` pred = points, share per deal vs 0.58.
+**Aleks** — Duels I done (30/34 deals, 13.93 duel points). **Duels II ≈ 20:33** (PLAN #18). **Duelist LIVE on 42f4522 (+ --days-read auto) since 19:26:18** (Duels II days + rounds rollback + Duel Lab + per-duel accepts + no claims, Opus medium + Sonnet low). The Duel Lab picks are in that code (69ef465): **no restart needed** (Lucas 17:3x). Until the **19:30 code freeze**: offline red-team sims only (no server, no team key, no 2nd process; a change goes in only with the suite green AND a clear sim gain). **20:25** check one live process, no errors; on screen **20:33** until wave 1 ends. First wave: no step > 18% of the gap outside the last 3 ticks, day reading ≠ CAN'T READ, `review` pred = points, share per deal vs 0.58.
+  - Sat 19:26 · duelist restarted on Lucas's merged `--days-read` switch (42f4522, PLAN #24; HEAD f53e0b9) with `--days-read auto` (= the old reading), same flags; full suite 440 pass, no live duels, one process · log `logs/duelist/supervise-20261003-1926.log` · at the first days duel (≈ 20:33): console day line vs `days_meaning`; reversed → restart with `--days-read flip`, unclear → `unsure`
   - Sat 18:18 · **duelist red team done, offline** → `docs/duelist-redteam.md` (code: branch `redteam-sim`, `redteam/`; never touched the game or the team key, no 2nd process; ≈ $10–11 API) · **no code change tonight**: 9 rule tweaks over 2,940 simulated days duels vs Duels I's bot types × 7 day behaviours, none clearly better (best +1.7%: no late switch); real models land where the stand-in does (0.347 vs 0.352, 28 paired duels); 19 bait/injection texts ×2 changed no move (0 accepts, 0 fallbacks) · **the risk is our day reading**: read right 0.47 points/duel, direction unknown 0.23, unreadable 0.15, **backwards −0.18 with 30% negative deals** → at 20:33 check the first duel's day line against `days_meaning` by eye · Sunday: Opus medium goes over the 10 s budget in ~5% of decisions (p90 9.5 s at 6 at once); Opus low max 8.0 s at about the same quality (0.386 vs 0.424, 5 better / 6 worse of 20), Sonnet medium closes fewer (0.273) → Opus low + failover budget ≈ tick − 8 s · next: 20:25 one-process check, on screen 20:33
   - Sat 17:32 · duelist red-team plan (offline only, < $20 API) + free probes · (1) `guards.claims` lets through statements about our limit ('the most I can pay', 'my floor/maximum/ceiling', 'bottom line'), third parties ('elsewhere', 'my boss'), 'mint' and number words ('Fifty'). Posture ('final') is not flaggable (GAME.md), none of our 352 Duels I texts used these phrases, and whether the judge counts them is unknown → bait test with real models before any change · (2) Sunday: at 15 s ticks the decide timeout is 10 s (tick − 5) but Failover gives the primary 20 s, so the backup model never runs; Duels I decisions took p50 6.0 s / p95 8.1 s on Opus low, and tonight's Opus medium strategist took 6.4-10.9 s alone in the smoke → expect many code fallbacks · (3) the cost meter (`engine/claude.py`) doesn't count cache tokens, so logged spend is low · next: arena in a worktree (fake server, Duels I bot types × day behaviours), on my go
-  - Sat 17:15 · duelist restarted on 89a6dd6 (per-duel accepts, no claims, 2-tick days open wait; HEAD 4989a7f), same flags; full suite 420 pass, no live duels, one process · log `logs/duelist/supervise-20261003-1715.log` · next: restart again on the Duel Lab picks (18% step cap, days tweaks, SILENT_KEEP 0.15) when they merge
 
 **Dani** — Desk, still open: Q6 (do duel threads count in the 6 open conversations? Duels II runs 6 at once ≈ 18:29), venue bond cooldown length, Q7 judging, Q4 ladder "price range" (do above-list deals count?), Q3 cap flat 50 or 5×book. Answered: stale `day_closes fri` did nothing (Lucas 10:50); Round 3 + CHA re-anchored to Sun ≈ 09:29 (server, log 11:44). Room: RET holders/collectors in log 11:44; steer other teams' trades to our v10 (0% fee: one trade there took us #4 → #2 at 10:45); no sell pitches (no line in `intel/opportunities.md` is live; top 4 at tick 424: t14, t13, t18, t12, and it moves every few minutes, so check the live board). Pitch draft with Lucas during Duels I (11:59-~13:34). Dashboard on my laptop (http://127.0.0.1:8765, read-only; Duel monitor tab at `#duelmon` for Duels I/II/III) rewrites `intel/teams.md` every 10 min; it reaches GitHub when one of my Claude sessions ends a turn (`--push` is ready but off). Judges' showcase: http://127.0.0.1:8765/show (texts in `judges/show.json`).
   - Sat 18:20 · **dashboard: new "Team trades" tab** (http://127.0.0.1:8765/#trades): every settled team-to-team trade in the feed we hold (El Rastro + every team venue), newest first, with venue, seller → buyer (with ranks), cards (swaps both ways), price, fee, × book, buyer collects / seller dumps, **est. value created** (book × (buyer's − seller's set multiplier), ours exact, others from `intel/multipliers.json` [L]), top-4 and ours flags; filters day/venue/team/set/kind, only our venue, hide top 4; tables by venue and by team · no extra game request · first read (tick 965): 147 team trades recorded, **102 today, 2,121 P**, 66 on El Rastro (65 %), 10 swaps; team venues: v02 11, v07 10, v21 5, the rest ≤ 3; our v10 only 2 trades all day (ticks 311, 398: est. +10 / −10) · **git:** the 16:00 showcase session had left `/show` code uncommitted, so the hook pushed nothing of mine since 16:00; committed it (fd269ad), the pull conflicted on `intel/teams.md` only (Aleks's machine also commits it: 18:08), resolved with the newest copy (my dashboard's 18:11) with Dani's OK · next: who writes `intel/teams.md` (one machine only?), desk Q6/Q7
@@ -17,24 +17,24 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 19:26 · operator · Duels II protocol (Chief; ~20:33-22:10, the duelist shares our 5 req/s): job by05m2zep at **20:25** stops the v10 ad job, swaps, book, opps, trader and bargains (bargains does team-key value lookups and has no keyless mode); collector, status, duelmon and news stay · 20:15 watchdog closes any dealer thread · DENY is the only writer during Duels II, and only on the Chief's line · restart when the feed shows `duels.finished` for Duels II, or at 22:15 (ads too if before 22:40) · board tick 1100: #3 31.68 (T10 33.1, T6 32.1)
   - Sat 19:13 · operator · egg try 3 (Chato, 1589, LAT-12, text only): 'las legendarias no pasan por mi mesa… Busca en otro sitio' → decoy, no egg event; **egg hunting stopped for tonight** (Chief) unless the Builder relays a payout to another team
   - Sat 19:12 · operator · egg try 2 (Chief; LAT-12 'El Rastro al Amanecer', legendary, minted 0; text only): Abuela (1582) 'las cartas legendarias no las vendo yo… Para esas, habla con El Chato, ahí al lado' → no egg event, no assets; thread closed
-  - Sat 19:10 · Builder · PLAN #24 for Aleks: branch duelist-days-read @ 552819d (--days-read auto|flip|unsure, env DAYS_READ; auto = today's reading, flip reverses, unsure = sure False), 439 pass, not merged; main + live duelist untouched · merge/restart commands sent to the Chief · Aleks decides
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 31.68 | 2 | 24.18 | 7.50 | 13.93 | 0.44 | 0.89 | 52 | 5 | 120 | 38/50 |
+| 31.68 | 3 | 24.18 | 7.50 | 13.93 | 0.44 | 0.89 | 52 | 5 | 120 | 38/50 |
 
-Leaderboard (snapshot at tick 1090; refreshes every few minutes):
+Leaderboard (snapshot at tick 1100; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 10 | 32.92 | 20.42 | 12.50 | 43 |
-| 2 | Team 5 | 31.68 | 24.18 | 7.50 | 52 |
-| 3 | Team 6 | 31.54 | 19.49 | 12.05 | 53 |
-| 4 | Team 14 | 31.19 | 21.66 | 9.53 | 47 |
+| 1 | Team 10 | 33.13 | 20.63 | 12.50 | 45 |
+| 2 | Team 6 | 32.08 | 20.03 | 12.05 | 55 |
+| 3 | Team 5 | 31.68 | 24.18 | 7.50 | 52 |
+| 4 | Team 14 | 31.19 | 21.66 | 9.53 | 48 |
 | 5 | Team 18 | 30.28 | 22.78 | 7.50 | 37 |
 
 ## Next on the schedule
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 11.00 | ~32 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~41 min | persona_patch | The fever breaks |
-| 11.65 | ~71 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~152 min | bench | The Market Test: every venue gets the same synthetic book |
-| 14.08 | ~217 min | day_closes | Closed until Sunday 09:00 |
-| 14.08 | ~217 min | day_opens | Sunday opens |
-| 14.65 | ~251 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
-| 15.00 | ~272 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 11.00 | ~27 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~36 min | persona_patch | The fever breaks |
+| 11.65 | ~66 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~147 min | bench | The Market Test: every venue gets the same synthetic book |
+| 14.08 | ~212 min (after today's close) | day_closes | Closed until Sunday 09:00 |
+| 14.08 | ~212 min (after today's close) | day_opens | Sunday opens |
+| 14.65 | ~246 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 15.00 | ~267 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
 
 ## Our dealer deals
 
