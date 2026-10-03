@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 12:30 (tick 513), snapshot 510. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
+_Last update: Sat 12:42 (tick 541), snapshot 540. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -81,7 +81,15 @@ t13 and t04 have dealer deals in the window). Full = 12 Saturday points = 8.0 bo
 | 185-269 | 5 Abuela buys ≤ list (3 commons at 9, RET-08 22, RET-07 23) | her 12 → 9-10; 29 → 22-23 | 0 → 0.055 (+0.014/+0.018/+0.016, then +0.003/+0.004 as 4th/5th = replacements) |
 | 481 | SELL LAT-08 → Chato at 14 | his bids 13, 13, 13, 14, 14 | 0.055 → 0.072 (**+0.017**, first L2 slot) |
 | 508 | SELL MAL-07 → Pilar at 19 | her bids 16, 16, 17, 17, 18; she accepted our 19 | 0.072 → 0.122 (**+0.050**, first L3 slot) |
+| 522 | SELL SAL-08 → Pilar at 23 | her 22, 22, 22, FINAL 23 after our 34 → 31 → 28 → **23** (one −5 step) | 0.122 → 0.141 (**+0.019**, 2nd L3 slot) |
+| 515 | MAL-06 → Pilar: walked | she said FINAL 17 (worth 17.5 to us) | — |
 
+- **Same card, other teams [V feed]:** SAL-08 → Pilar: t04 25 (opened 40, 6 messages), t10 24, **us 23**; her opening 22.
+  Uncommons (non-SAL): t14 LAT-08 20, **us MAL-07 19**, t08 MAL-08 18, t16/t08/t13 17; her opening 16. So a full share at L3
+  ≈ +0.06 ladder, and our SAL-08 captured ~1/3 of it: **the big final step (28 → 23) handed her the final** (dealers
+  mirror step size; GAME.md Chato note).
+- **Erosion [L]:** at snapshot 520 our board fell −0.80 while our duel_points rose 5.02 → 5.35. Five rival Pilar sells in
+  509-517 (t16, t08, t14, t10, t08) fit a ladder normaliser rising under us.
 - Fits ladder ≈ Σ_level w × mean(best-3 shares) / Σ w, share = (price − opening)/(limit − opening), weights rising with level [L].
 - Board value [L]: ≈ 49 Saturday points per 1.0 ladder after the duel re-weighting (≈ +1.6 board for +0.050) **only below the
   field cap**, which pre-duel sat near our ladder ≈ 0.15 ± 0.03 [?]. Not measurable while Duels I runs; measure the first
