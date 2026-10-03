@@ -1,26 +1,32 @@
-# Scout (claude-sonnet-5-5, Sat 10:27)
+# Scout (claude-sonnet-5-5, Sat 10:32)
 
 ## Top 3 actions now
-1. **RET-01 page-closer: bid 4167 (20 P, to t10, live to tick 290).** The Operator escalates to 25, then 30, inside the GUARDRAIL (cash floor 97, ≤30 P). Lucas/Dani keep pushing Team 10 to accept.
-   - Evidence: RET is 9/10 and RET-01 is worth 83.9. Team 10 lists RET-01 at 40 on our v10, where we can't buy. The only El Rastro RET-01 bids are t13's at 2.
-   - Effect: closes the page and runs the cap test. Expected score is +50 (flat cap or 5×book), ~64 (5×(p+f)), or ~40 (6×book).
-   - Confidence: med. Whether t10 accepts below its 40 ask is not in the data.
-2. **Sell spare RET rares or commons only after the page closes. Do not sell RET-09/10.** Team 2 bids 21/19 for RET-10/09, far below our 77 value. Teams 2, 15 and 18 buy RET, but 2 and 18 are top 4, so don't feed them.
-   - Evidence: t02 paid 49 for RET-02 (tick 230, to t18); t15 bought RET-07 for 24.
-   - Effect: none now; this only prevents a loss.
-   - Confidence: high.
-3. **Keep the maker book on v07 and reprice to the clearing prices.** The current asks are LAV/SAL commons at 9, SAL-08 25, MAL-06/07 24 and LAT at 7.
-   - Evidence: clearing prices are common 9 and uncommon 24.5. Buyers are t15 (LAT×6, MAL×3), t01 (SAL/MAL) and t16. Other asks to t07/t09/t16 sit at 9.
-   - Effect: small cash and a few neg_points from sells (the Sat sell at 9 earned +7.7). Cash also funds the RET-01 bid.
-   - Confidence: med. Four earlier asks expired unfilled.
+
+1. **Sell RET-surplus and keep the book addressed, but watch the fills: re-check the 11 asks (4248-4258) against clearing.**
+   - Evidence: our asks sit at clearing (SAL-08 27 vs clearing 24.5, MAL-06 25, MAL-07 24, commons 9-10). Asks by others show LAT-04 at 7-9, LAV-03 at 9, LAV-04 at 10. Only 5% of asks filled on Friday.
+   - Action: the Operator drops SAL-08 (4248) toward 25 and MAL-07 (4250) toward 24-25 after about 10 ticks unfilled. book.py already steps toward the floor after 20 ticks.
+   - Effect: each fill adds cash toward Sunday's CHA page (~300 P). Our value for these spares is 1-3, so the neg_points effect is small (a few points). Confidence: med.
+
+2. **Answer the open RET-10 and RET-07 bids from Team 2 only if the card is a spare. We hold no spare RET-07 or RET-10, so do nothing.**
+   - Evidence: t02 bids RET-10 22 and RET-07 19. We hold exactly one copy of each, worth 149.9 and 100.4 to us (page bonus).
+   - Action: do not sell. Team 2 is #3, a top-4 team, and our RET-10 is not a spare.
+   - Effect: avoids feeding a leader. Confidence: high.
+
+3. **Take any team ask on a card we lack (LAT, SAL, MAL) only at gain ≥ 3, and test a high-value bid for MAL-09 (t17 bids 70).**
+   - Evidence: t17 bids 70 for MAL-09 (rare) and t04 bids 52 for LAT-09 (rare). Neither is ours: MAL is 0.7× and LAT is 0.5×.
+   - Action: ask Lucas or Dani in the room whether anyone holds MAL-09 or LAT-09. We have no copy, so there is nothing to sell. Not in the data otherwise.
+   - Effect: none for us. Skip.
+   - Confidence: low.
+
+The one real opening is Pilar at about 12:20, after Duels I. Use it for ladder and cash only. Sell spares only, and keep any ladder deal below her list price [L]. Confidence: med.
 
 ## What the climbing teams are doing
-- **Team 18 (#1, 29.3, +10.1/h)** bought RET-02 from t02 at 49 (tick 230) and has 16 dealer trades. It collects RET/LAT. It is the one team likely racing us for RET cards.
-- **Team 2 (#3, +19.1/h)** has 83 listings. It is trading RET (sold RET-07 to t15 at 24, sold RET-02 at 49) and bidding 21/19 for RET-10/09. It is the biggest climber.
-- **Team 14 (#4, +4.8/h)** collects LAV/LAT. It bought LAT-03 from t15 at 8 (tick 261) with just 14 deals, so it gains from few trades.
-- **Team 13** unlocked Pilar early with 3 Chato deals (tick 262) but is falling (−7.2/h), so Pilar did not bring it points yet.
+- **Team 2 (+19.9 in 60 min, #3)** bought RET-02 from t13 and RET-07 from t02. Its RET-02 at 49 P to t18 and RET bids (RET-10 22, RET-07 19) show it collecting RET. Its profile also lists 102 listings.
+- **Team 18 (#1, +10.5 in 60 min)** bought RET-02 at 49 P from t02 (tick 230). It collects RET/LAT, and its Abuela rate is −19%. It is the leader and a direct RET competitor.
+- **We climbed #6 → #4 (+4.9 in 15 min)** on the RET-01 page close (+50.0, capped). Page-closing from a team at a low price is the recipe that is working.
+- **Team 14 (+0.9 / +5.0)** collects LAV/LAT, so it holds the LAT trades (t15→t14 LAT-03 at 8 P at tick 261).
 
 ## Threats
-- **Feeding leaders:** t12 collects RET and t18 collects RET/LAT. Any RET sale to them is a feed. A RET-01 trade on El Rastro is fine, but never on v02 (t12) or v03 (t13).
-- **RET-01 competition:** t10 asks 40 against our 20. t13 bids 2 on RET-01/02/03, so it also holds or wants RET cards. If another team takes RET-01 first, our page closer is gone.
-- **Chato prices vs value:** our RET-09/10 cost 87/86 against a value of 77. Further Chato deals lose points and don't move the ladder, so stop them.
+- **Team 2 and Team 18 bid for RET-10 and RET-07.** If anyone reads our addressed offers on the feed (35 such events Friday), they can target our RET cards. We hold all ten of the page, so the risk is only to unclosed spares.
+- **Leaders on rival venues.** Team 13 lobbies for trades on v03. Our book sits on Team 10's v07 (#7) and is not feeding the top 4. Keep it that way.
+- **Score drift.** Team 13 fell −7.4 in 60 min, and Teams 12 and 13 are the top-4 venue owners. Our #4 lead over Team 14 is 0.9 points, which is thin. Any further neg_points must come from the book or from page-closers.
