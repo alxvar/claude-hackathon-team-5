@@ -234,6 +234,151 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1330,
+   "raw": {
+    "duel": 5816,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "El Frutero de Argumosa",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.53,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 72,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 1335,
+    "decay_per_round": 0.08,
+    "rounds": 0,
+    "your_offer": {
+     "id": 9728,
+     "price": 82,
+     "tick": 1330,
+     "days": 10
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1321,
+      "from": "you",
+      "text": "I'm opening at 115 P with delivery on day 10. I think that's a fair starting point, and I'm happy to hear your response.",
+      "price": 115,
+      "days": 10
+     },
+     {
+      "tick": 1327,
+      "from": "you",
+      "text": "I can do 107 P, delivery on day 10.",
+      "price": 107,
+      "days": 10
+     },
+     {
+      "tick": 1328,
+      "from": "you",
+      "text": "I can do 99 P, delivery on day 10.",
+      "price": 99,
+      "days": 10
+     },
+     {
+      "tick": 1329,
+      "from": "you",
+      "text": "I can do 91 P, delivery on day 10.",
+      "price": 91,
+      "days": 10
+     },
+     {
+      "tick": 1330,
+      "from": "you",
+      "text": "I can do 82 P, delivery on day 10.",
+      "price": 82,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1331,
+   "raw": {
+    "duel": 5816,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "El Frutero de Argumosa",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.53,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 72,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 1335,
+    "decay_per_round": 0.08,
+    "rounds": 0,
+    "your_offer": {
+     "id": 9737,
+     "price": 74,
+     "tick": 1331,
+     "days": 10
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1321,
+      "from": "you",
+      "text": "I'm opening at 115 P with delivery on day 10. I think that's a fair starting point, and I'm happy to hear your response.",
+      "price": 115,
+      "days": 10
+     },
+     {
+      "tick": 1327,
+      "from": "you",
+      "text": "I can do 107 P, delivery on day 10.",
+      "price": 107,
+      "days": 10
+     },
+     {
+      "tick": 1328,
+      "from": "you",
+      "text": "I can do 99 P, delivery on day 10.",
+      "price": 99,
+      "days": 10
+     },
+     {
+      "tick": 1329,
+      "from": "you",
+      "text": "I can do 91 P, delivery on day 10.",
+      "price": 91,
+      "days": 10
+     },
+     {
+      "tick": 1330,
+      "from": "you",
+      "text": "I can do 82 P, delivery on day 10.",
+      "price": 82,
+      "days": 10
+     },
+     {
+      "tick": 1331,
+      "from": "you",
+      "text": "I can do 74 P, delivery on day 10.",
+      "price": 74,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -622,6 +767,207 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1330,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 5816,
+     "role": "seller",
+     "limit": 72,
+     "currency": "P",
+     "item": "El Frutero de Argumosa",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.53,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm opening at 115 P with delivery on day 10. I think that's a fair starting point, and I'm happy to hear your response.",
+      "offer": {
+       "price": 115,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1321,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 107 P, delivery on day 10.",
+      "offer": {
+       "price": 107,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1327,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 99 P, delivery on day 10.",
+      "offer": {
+       "price": 99,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1328,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 91 P, delivery on day 10.",
+      "offer": {
+       "price": 91,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1329,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1330,
+    "ticks_left": 5,
+    "rounds": 0,
+    "day_swings": [
+     25.299999999999997,
+     22.0,
+     27.599999999999998,
+     77.4,
+     27.799999999999997,
+     8.4
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 82 P, delivery on day 10.",
+    "price": 82,
+    "days": 10,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1331,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 5816,
+     "role": "seller",
+     "limit": 72,
+     "currency": "P",
+     "item": "El Frutero de Argumosa",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.53,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm opening at 115 P with delivery on day 10. I think that's a fair starting point, and I'm happy to hear your response.",
+      "offer": {
+       "price": 115,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1321,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 107 P, delivery on day 10.",
+      "offer": {
+       "price": 107,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1327,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 99 P, delivery on day 10.",
+      "offer": {
+       "price": 99,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1328,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 91 P, delivery on day 10.",
+      "offer": {
+       "price": 91,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1329,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 82 P, delivery on day 10.",
+      "offer": {
+       "price": 82,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1330,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1331,
+    "ticks_left": 4,
+    "rounds": 0,
+    "day_swings": [
+     25.299999999999997,
+     22.0,
+     27.599999999999998,
+     77.4,
+     27.799999999999997,
+     8.4
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 74 P, delivery on day 10.",
+    "price": 74,
+    "days": 10,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -724,6 +1070,52 @@
      "id": 9691,
      "price": 91,
      "tick": 1329,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1330,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 82 P, delivery on day 10.",
+    "price": 82,
+    "days": 10,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 5816,
+    "offer": {
+     "id": 9728,
+     "price": 82,
+     "tick": 1330,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1331,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 74 P, delivery on day 10.",
+    "price": 74,
+    "days": 10,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 5816,
+    "offer": {
+     "id": 9737,
+     "price": 74,
+     "tick": 1331,
      "days": 10
     }
    }
