@@ -1,21 +1,22 @@
-# Opportunities (auto, 18:34, game tick 1000, t 9.6583 h)
+# Opportunities (auto, 18:36, game tick 1004, t 9.6917 h)
 
 Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and ≤ 60 real min old · ≤ 3 alerts/h · team 45 min · team+card 2 h · never to the top 5 (t03, t05, t06, t10, t14, t18); a sale that closes their page (last or second-to-last known lack) only to teams ≥ 6 below us (32.0); page-closers on El Rastro, the rest on v15. Data: collector.
 
-## Ranked now (10)
+## Ranked now (11)
 
 | # | side | team | card | price | our value | gain | signal | age (game / real min) | status |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | SELL | Team 9 (#17, 19.38) | LAV-02 common | 40 | 1.3 | 38.7 | bid 2 P for it (tick 586) | 207 / 332 | listed only: signal 332 real min old (game clock paused?) |
-| 2 | SELL | Team 2 (#14, 22.98) | MAL-04 common | 27 | 7 | 20 | bid 5 P for it (tick 880) | 60 / 60 | listed only: signal 60 game-min old |
-| 3 | SELL | Team 6 (#2, 31.68) | LAT-03 common | 24 | 5 | 19 | bid 4 P for it (tick 964) | 18 / 18 | no: rival (top 6 or within 3 of us); dumps LAT (teams.md): sell only to collectors; only 0.32 below us (needs ≥ 6) |
-| 4 | SELL | Team 6 (#2, 31.68) | MAL-08 uncommon | 23 | 17.5 | 5.5 | bid 9 P for it (tick 964) | 18 / 18 | no: rival (top 6 or within 3 of us); dumps MAL (teams.md): sell only to collectors |
-| 5 | SELL | Team 2 (#14, 22.98) | LAV-02 common | 19 | 1.3 | 17.7 | bid 3 P for it (tick 512) | 244 / 368 | no: dumps LAV (teams.md): sell only to collectors |
-| 6 | SELL | Team 2 (#14, 22.98) | LAV-04 common | 19 | 3.2 | 15.8 | bid 3 P for it (tick 503) | 248 / 373 | no: dumps LAV (teams.md): sell only to collectors |
-| 7 | SELL | Team 2 (#14, 22.98) | LAT-03 common | 20 | 5 | 15 | bid 5 P for it (tick 513) | 243 / 368 | no: dumps LAT (teams.md): sell only to collectors |
-| 8 | SELL | Team 14 (#3, 31.53) | LAV-02 common | 40 | 1.3 | 38.7 | bid 0 P for it (tick 927) | 36 / 36 | no: rival (top 6 or within 3 of us) |
-| 9 | SELL | Team 14 (#3, 31.53) | LAT-04 common | 40 | 5 | 35 | bid 0 P for it (tick 927) | 36 / 36 | no: rival (top 6 or within 3 of us) |
-| 10 | SELL | Team 14 (#3, 31.53) | LAT-03 common | 40 | 5 | 35 | bid 0 P for it (tick 927) | 36 / 36 | no: rival (top 6 or within 3 of us) |
+| 1 | SELL | Team 9 (#17, 19.38) | LAV-02 common | 40 | 1.3 | 38.7 | bid 2 P for it (tick 586) | 209 / 334 | listed only: signal 334 real min old (game clock paused?) |
+| 2 | SELL | Team 2 (#14, 22.98) | MAL-04 common | 27 | 7 | 20 | bid 5 P for it (tick 880) | 62 / 62 | listed only: signal 62 real min old (game clock paused?) |
+| 3 | SELL | Team 6 (#2, 31.68) | LAT-03 common | 24 | 5 | 19 | bid 4 P for it (tick 964) | 20 / 20 | no: rival (top 6 or within 3 of us); dumps LAT (teams.md): sell only to collectors; only 0.32 below us (needs ≥ 6) |
+| 4 | SELL | Team 16 (#7, 26.49) | LAV-02 common | 19 | 1.3 | 17.7 | bids 3 P for it now (offer 15213) | 0 live | no: dumps LAV (teams.md): sell only to collectors |
+| 5 | SELL | Team 6 (#2, 31.68) | MAL-08 uncommon | 23 | 17.5 | 5.5 | bid 9 P for it (tick 964) | 20 / 20 | no: rival (top 6 or within 3 of us); dumps MAL (teams.md): sell only to collectors |
+| 6 | SELL | Team 2 (#14, 22.98) | LAV-02 common | 19 | 1.3 | 17.7 | bid 3 P for it (tick 512) | 246 / 370 | no: dumps LAV (teams.md): sell only to collectors |
+| 7 | SELL | Team 2 (#14, 22.98) | LAV-04 common | 19 | 3.2 | 15.8 | bid 3 P for it (tick 503) | 251 / 375 | no: dumps LAV (teams.md): sell only to collectors |
+| 8 | SELL | Team 2 (#14, 22.98) | LAT-03 common | 20 | 5 | 15 | bid 5 P for it (tick 513) | 246 / 370 | no: dumps LAT (teams.md): sell only to collectors |
+| 9 | SELL | Team 14 (#3, 31.53) | LAV-02 common | 40 | 1.3 | 38.7 | bid 0 P for it (tick 927) | 39 / 38 | no: rival (top 6 or within 3 of us) |
+| 10 | SELL | Team 14 (#3, 31.53) | LAT-04 common | 40 | 5 | 35 | bid 0 P for it (tick 927) | 39 / 38 | no: rival (top 6 or within 3 of us) |
+| 11 | SELL | Team 14 (#3, 31.53) | LAT-03 common | 40 | 5 | 35 | bid 0 P for it (tick 927) | 39 / 38 | no: rival (top 6 or within 3 of us) |
 
 ## Alerts (newest first)
 
