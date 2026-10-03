@@ -1,4 +1,4 @@
-# Metrics (auto, 09:54, game tick 211)
+# Metrics (auto, 09:57, game tick 215)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -22,7 +22,7 @@ score 15.29 · neg_points -10.0 (15 min ago 0.0) · ladder 0.048 · duel 0.0 · 
 
 LAT-03 (common): 5; LAT-04 (common): 1.2 / 1.2; LAV-01 (common): 99.1; LAV-02 (common): 3.2 / 3.2; LAV-03 (common): 3.2 / 3.2; LAV-04 (common): 3.2 / 3.2; LAV-05 (common): 99.1; LAV-06 (uncommon): 118.6; LAV-07 (uncommon): 118.6; LAV-08 (uncommon): 118.6; LAV-09 (rare): 177.1; LAV-10 (rare): 177.1; MAL-02 (common): 7; MAL-04 (common): 7; MAL-06 (uncommon): 17.5; MAL-07 (uncommon): 17.5; RET-02 (common): 11; RET-03 (common): 11; RET-04 (common): 11; RET-05 (common): 11; RET-09 (rare): 77; SAL-01 (common): 2.2 / 2.2; SAL-02 (common): 2.2 / 2.2; SAL-03 (common): 9; SAL-05 (common): 9; SAL-08 (uncommon): 22.5
 
-## Our open offers (14)
+## Our open offers (13)
 
 - 3054: sell MAL-06 for 26 · to t01 · expires tick 237
 - 3055: sell MAL-07 for 26 · to t01 · expires tick 237
@@ -36,7 +36,6 @@ LAT-03 (common): 5; LAT-04 (common): 1.2 / 1.2; LAV-01 (common): 99.1; LAV-02 (c
 - 3070: sell LAT-03 for 10 · to t15 · expires tick 238
 - 3245: sell SAL-03, SAL-05 for 0 · to t16 · expires tick 250
 - 3246: sell MAL-02, MAL-04 for 0 · to t07 · expires tick 250
-- 3531: bid 57 for RET-10 · to chato · expires tick 215
 - 3536: sell SAL-08 for 33 · to t16 · expires tick 271
 
 ## What each of our deals did to neg_points (measured, last 12)
@@ -61,7 +60,7 @@ LAT-03 (common): 5; LAT-04 (common): 1.2 / 1.2; LAV-01 (common): 99.1; LAV-02 (c
 - tick 196 abuela buy RET-08: 29 → 29, ours 14 · closed
 - tick 201 chato buy RET-09: 97 → 87, ours 69 · deal
 - tick 205 abuela buy RET-02: 12 → 10, ours 9 · deal
-- tick 210 chato buy RET-10: 97 → 97, ours 57 · open
+- tick 210 chato buy RET-10: 97 → 91, ours 66 · closed
 
 ## Trades between teams (57 so far; last 12)
 
@@ -82,13 +81,12 @@ Who buys which set (team trades): t01: SAL×3, MAL×2; t02: MAL×1, RET×1; t04:
 
 ## Dealer prices, last 60 ticks (median per item)
 
-- abuela common (team buys): median 9 over 12
+- abuela common (team buys): median 9 over 14
 - abuela common (team sells): median 6 over 10
 - abuela sobre_barrio (team buys): median 21 over 3
 - abuela uncommon (team buys): median 22 over 10
 - abuela uncommon (team sells): median 14 over 1
 - chato rare (team buys): median 86 over 4
-- chato sobre_plata (team buys): median 181 over 1
 - chato uncommon (team buys): median 26 over 3
 - chato uncommon (team sells): median 13 over 4
 
