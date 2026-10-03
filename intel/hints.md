@@ -164,3 +164,4 @@ Swap your duplicates, hijo — a full page is wort
 - Sat 19:22 · message tick 1096 · picaros → t06 · ¡Ey, jefe, qué ojo tienes! Paco, saca la maleta —sí, hermano, el bueno. Mira esto: El Ángel Caído, esquinas perfectas, lo trajimos de Valencia escondido entre camisas. Setenta y tres primas y es tuyo. ¿Treinta y seis? Hombre, por eso no compro ni el café. Setenta y tres, amigo. Palabra.
 - Sat 19:27 · message tick 1105 · banco → t18 · Buenas. You find me at my desk, as always. La Puerta de Alcalá — the true one — leaves this vault on one term: one hundred thirteen P. I do not haggle quickly.
 - Sat 19:30 · catalog.minted SAL-11 (La Puerta de Alcalá, epic, print run 9): hidden=False minted=4 (was 3)
+- Sat 19:32 · taller.crafted tick 1114 ·  → t12 · Team 12 turned three common cards into Las Vistillas (uncommon) at The Workshop
