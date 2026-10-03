@@ -323,6 +323,87 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1287,
+   "raw": {
+    "duel": 5827,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.16,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 109,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1299,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 7997,
+     "price": 48,
+     "tick": 1283,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 8146,
+     "price": 60,
+     "tick": 1287,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1283,
+      "from": "Rival Plata",
+      "text": "63 with delivery on day 10. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "price": 63,
+      "days": 10
+     },
+     {
+      "tick": 1283,
+      "from": "you",
+      "text": "I'll take day 10 as you propose. My offer is 48 P on day 10, a quick and clean close on your preferred day.}",
+      "price": 48,
+      "days": 10
+     },
+     {
+      "tick": 1284,
+      "from": "Rival Plata",
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 60,
+      "days": 10
+     },
+     {
+      "tick": 1285,
+      "from": "Rival Plata",
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 60,
+      "days": 10
+     },
+     {
+      "tick": 1286,
+      "from": "Rival Plata",
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 60,
+      "days": 10
+     },
+     {
+      "tick": 1287,
+      "from": "Rival Plata",
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 60,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -601,6 +682,165 @@
        "in": 395,
        "out": 35,
        "cost_usd": 0.00114,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 1287,
+   "took_s": 9.21,
+   "cost_usd": 0.01384,
+   "obs": {
+    "view": {
+     "duel_id": 5827,
+     "role": "buyer",
+     "limit": 109,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.16,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "63 with delivery on day 10. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "offer": {
+       "price": 63,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1283,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'll take day 10 as you propose. My offer is 48 P on day 10, a quick and clean close on your preferred day.}",
+      "offer": {
+       "price": 48,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1283,
+      "decision": {
+       "action": "offer",
+       "price": 48,
+       "message": "I'll take day 10 as you propose. My offer is 48 P on day 10, a quick and clean close on your preferred day.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 60,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1284,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 60,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1285,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 60,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1286,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 60,
+     "days": 10
+    },
+    "tick": 1287,
+    "ticks_left": 12,
+    "rounds": 1,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1,
+     25.6,
+     37.9,
+     11.6,
+     21.6,
+     39.8
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "I'm holding my current offer on day 10 for now.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "I'm holding my current offer on day 10 for now."
+     },
+     "band": {
+      "worst": 50,
+      "target": 48,
+      "best": 46
+     },
+     "plan": {
+      "read": "They have repeated 60 P on day 10 three times. They have moved only 3 P from their 63 P opening, and they are holding to see whether we chase. Their 'fast deal' framing is pressure, not a concession. 60 P is within reach, but with 12 ticks left there is no reason to pay for their patience yet.",
+      "target": 48,
+      "best": 46,
+      "worst": 50,
+      "days": 10,
+      "angle": "Hold at 48 P on day 10 and send nothing this tick; let their repeated offer stand without answering it."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.05,
+       "in": 1026,
+       "out": 419,
+       "cost_usd": 0.01248,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.16,
+       "in": 501,
+       "out": 36,
+       "cost_usd": 0.00136,
        "model": "claude-sonnet-5-5"
       }
      ]
