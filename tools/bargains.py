@@ -66,7 +66,7 @@ def wanted_card(want: dict) -> str | None:
     """The one card type a bid wants, or None."""
     cards = list(want.get("cards") or []) + [t[5:] for t in want.get("types") or [] if str(t).startswith("card:")]
     cards += [a.get("ref") for a in want.get("assets") or [] if isinstance(a, dict)]
-    return cards[0] if len(cards) == 1 else None
+    return cards[0] if len(cards) == 1 and policy.is_card(cards[0]) else None   # never a pack
 
 
 def feed_view(path: Path = FEED) -> tuple[dict, dict]:
@@ -216,6 +216,8 @@ class Watcher:
         self.underpriced_path, self._clock = UNDERPRICED, {}
 
     def value(self, ref: str) -> float | None:
+        if not policy.is_card(ref):
+            return None                               # a pack or another asset: no value lookup (Chief 23:30)
         hit = self.values.get(ref)
         if hit and self.now() - hit[1] < CACHE_S:
             return hit[0]

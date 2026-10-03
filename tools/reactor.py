@@ -137,6 +137,8 @@ class Reactor:
 
     # ------------------------------------------------------------------------------------------------ cached reads
     def value(self, ref: str) -> float | None:
+        if not policy.is_card(ref):
+            return None                               # a pack or another asset: no value lookup (Chief 23:30)
         hit = self._values.get(ref)
         if hit and self.now() - hit[1] < VALUE_TTL_S:
             return hit[0]

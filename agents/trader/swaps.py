@@ -246,6 +246,8 @@ class Engine:
         hit = self.values.get(card)
         if hit is not None and tick - hit[1] < VALUE_TICKS:
             return hit[0]
+        if not policy.is_card(card):
+            return None                               # a pack or another asset: no value lookup (Chief 23:30)
         if self._reads >= VALUE_READS:
             return None                               # next run
         if self._reads:

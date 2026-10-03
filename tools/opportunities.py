@@ -678,6 +678,9 @@ def run_once(api, *, dry_run, now=None, state_path=STATE, out_path=OUT, data_dir
     values = {}
 
     def value_of(card):
+        import policy as _policy
+        if not _policy.is_card(card):
+            return None                               # a pack or another asset (Chief 23:30)
         if card not in values:
             try:
                 values[card] = float(api.value(card)["your_value"])

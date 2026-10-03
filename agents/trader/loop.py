@@ -255,7 +255,7 @@ def wanted_cards(want):
         if not t.startswith("card:"):
             return None
         refs.append(t.split(":", 1)[1])
-    return refs
+    return refs if all(policy.is_card(r) for r in refs) else None   # a pack named as a card: not ours to trade
 
 
 def pick_copies(refs, held, me, protect_missing, keep_sets=frozenset(KEEP_SETS), reserved=frozenset(),
@@ -325,6 +325,8 @@ def received_value(b, assets, st):
     """Our value of the cards we'd receive (b.value, cached). A repeated card counts once (conservative)."""
     total = 0.0
     for r in {a["ref"] for a in assets}:
+        if not policy.is_card(r):
+            raise ValueError(f"not a card: {r}")     # evaluate() keeps packs out; this is the last check
         if r not in st.values:
             st.values[r] = b.value(r)["your_value"]
         total += st.values[r]

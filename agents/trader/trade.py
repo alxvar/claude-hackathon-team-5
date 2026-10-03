@@ -15,6 +15,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "bazaar-kit"))
+sys.path.insert(0, str(ROOT / "tools"))
+import policy  # noqa: E402  is_card: packs get no value lookup
 from bazaar_sdk import Bazaar  # noqa: E402
 
 FEE_BPS, FEE_PER_CARD = 500, 1  # El Rastro: 5% + 1 P per card
@@ -42,6 +44,8 @@ def scan(b):
             print(f"SELL INTO {o['id']}: they pay {g['cash']} P for {cards}; worth {lose:.1f} to us → gain {g['cash'] - lose:+.1f}")
         if g.get("assets") and w.get("cash") and not cards:  # they sell a card for cash
             refs = [a["ref"] for a in g["assets"]]
+            if not all(policy.is_card(r) for r in refs):  # a pack for cash: no value lookup (Chief 23:30)
+                continue
             v = sum(b.value(r)["your_value"] for r in refs)
             fee = w["cash"] * FEE_BPS / 10000 + FEE_PER_CARD * len(refs)
             if v - w["cash"] - fee > 0:

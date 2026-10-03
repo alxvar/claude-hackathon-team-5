@@ -52,6 +52,12 @@ def reserved_refs(path: Path | None = None, handoff: Path | None = None) -> set:
     return set(_CARD.findall(m.group(1))) if m else set()
 
 
+def is_card(ref) -> bool:
+    """A card id (SET-NN). Packs ("sobre_bienvenida") and other assets aren't: /api/me/value answers unknown_card for
+    them (trader, Sat 22:41-22:45), so every value lookup skips them (Chief 23:30)."""
+    return isinstance(ref, str) and bool(_CARD.fullmatch(ref))
+
+
 def committed(offers, me_id: str = ME) -> set:
     """Asset ids in our open (or queued) offers."""
     return {a["id"] if isinstance(a, dict) else a for o in offers or []
