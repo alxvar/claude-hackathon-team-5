@@ -19,8 +19,13 @@ The clock is paused in round 2. Before round 3 + the CHA release (game 16.65) co
    (RET-09 t07 → t09 first), not at CHA time. Duplicates → first-copy collectors only; a negative trade now costs.
 2. **No ladder deals until round 3**: the Saturday ladder is capped. Keep RET-11, MAL-08 and the spares for Sunday's
    fresh ladder.
-3. Positive team trades still count for Saturday (≈ 0.074 Saturday points per neg_point).
+3. ~~Positive team trades still count for Saturday~~ STRUCK (Analyst 00:05, verified): our Saturday trade part is ≈ 0.95 of its cap, so cash spent there buys ≈ nothing. In the tail only v10 pairs and 0-cash swaps; keep the cash for CHA.
 4. CHA starts at round 3 (16.65). The CHA plan's clock starts then.
+
+## ⚠ Timing (Analyst 00:05) [V server setting: Sunday ticks 15 s; L the wall times]
+If the clock JUMPS to round 3 (16.65) at 09:00 with 15 s ticks: **Duels III ≈ 10:00, Final ≈ 11:30, close ≈ 12:00**. The
+deck's 11:00 / 14:00 / 15:00 assume a slower clock. **The duelist must be live by 09:55 whatever happens**; the Operator
+confirms the real times at 08:55 from /api/clock + /api/schedule.
 
 ## Timeline (wall times [L]; re-read /api/schedule and /api/catalog at 09:00)
 

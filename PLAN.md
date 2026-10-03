@@ -186,6 +186,9 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    Never negative in 17 simulated worlds. Opener: keep the LLM's. Same settings for the Final.
    Live gates (tools/duel_gates.py, advisory): revert MIN_STEP_P to 3 if the deal rate < 0.75 over ≥ 8 duels; step to
    6 if rounds/deal > 3.5 at deal rate ≥ 0.85. Expected: deal rate ≈ 0.94, ≈ 3.0 rounds/deal.
+31. **00:05, TIMING [V Sunday ticks 15 s; L wall times]: Duels III may start as early as ≈ 10:00** (and the Final ≈ 11:30)
+   if the clock jumps to round 3 at 09:00. **Have the duelist live and tested by 09:55**; the Operator confirms the real
+   times at 08:55.
 
 **Dani: deal desk from 15:52 (Lucas's call).** Your phone (ntfy, your channel) now gets every alert that needs a human to
 message another team: v10 radar DMs, v10 partner suggestions (Teams 15, 10, 3), opportunity SELL/BUY alerts, swap nudges.
