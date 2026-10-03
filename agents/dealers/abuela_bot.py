@@ -354,6 +354,8 @@ def main(argv=None) -> None:
     ap.add_argument("--no-buy", action="store_true",
                     help="sell only: a dealer deal never adds neg_points (gains 0, losses in full: GAME.md); buy from teams instead")
     ap.add_argument("--dry-run", action="store_true", help="print the plan, write nothing")
+    ap.add_argument("--cards", default="",
+                    help="buy only these cards, in this order (e.g. CHA-09,CHA-10): a card left out stays for a team")
     ap.add_argument("--narrator", choices=["on", "off"], default="on",
                     help="warm words around our price by claude-sonnet-5-5 (narrator.py); off: templates")
     args = ap.parse_args(argv)
@@ -364,6 +366,15 @@ def main(argv=None) -> None:
     DEALER = args.dealer
     CASH_FLOOR = args.cash_floor
     me, sells, buys, budget, cards, blocked = plan(b)
+    if args.cards:                            # the Operator names the cards and their order (Sunday's CHA page)
+        want = [c.strip().upper() for c in args.cards.split(",") if c.strip()]
+        rank = {c: i for i, c in enumerate(want)}
+        missing = [c for c in want if c not in {x[2] for x in buys}]
+        if missing:
+            log({"event": "cards_not_buyable", "cards": missing,
+                 "why": "page-bonus block, not released, not on this dealer's menu, or value - expected price < "
+                        f"{MIN_GAIN}"})
+        buys = sorted((x for x in buys if x[2] in rank), key=lambda x: rank[x[2]])
     packs = packs_held(me)
     clock = b.clock()
     print(f"tick {clock['tick']} ({clock['tick_seconds']}s) · cash {me['cash']} P · spend budget {budget} P · "

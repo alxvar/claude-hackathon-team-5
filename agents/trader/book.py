@@ -6,7 +6,8 @@ The Operator writes the desired book in run/book.json and runs this; it re-reads
                 {"card": "RET-07", "side": "buy", "price": 40, "floor": 55, "page_closer": true}]}
 
 `floor` is the worst price we take: the least for an ask, the most for a bid. Optional: `to` (an addressed offer),
-`venue`, `page_closer` (a trade that completes a page, ours or theirs), `step` (P per reprice).
+`venue`, `page_closer` (a trade that completes a page, ours or theirs: El Rastro), `step` (P per reprice), `life`
+(real ticks an offer lives, default LIFE_TICKS; page-critical bids <= 20, directive 09:46).
 
 Each tick, per entry (one live offer per card and side):
 - not posted, expired or cancelled: post it (an ask whose copy left us, or a bid whose card arrived, is filled: done);
@@ -261,7 +262,7 @@ class Book:
             if s.get("offer"):
                 self.b.cancel(s["offer"])
             r = self.b.list_offer(give, want, venue=venue, to=e.get("to"),
-                                  expires_in_ticks=expires_param(LIFE_TICKS, secs))
+                                  expires_in_ticks=expires_param(int(e.get("life") or LIFE_TICKS), secs))
         except BazaarError as err:
             self.log({**ev, "event": f"{why}_failed", "code": err.code, "message": err.message[:120]})
             return ({**s, "offer": None} if s.get("offer") else None), False

@@ -395,3 +395,14 @@ def test_the_narrator_never_changes_the_price_whatever_the_model_writes(bot, mon
     assert [p for _, p in sent] == [11]                                  # the engine's price, untouched
     assert sent[0][0] == bot.narrator.template("abuela", "buy", 11, 0)    # the bad text fell back to the template
     assert "99" not in sent[0][0]
+
+
+
+def test_cards_names_which_cards_to_buy_and_in_what_order(bot, monkeypatch):
+    # Sunday: buy CHA rares then the rest, but leave the card we keep for a team (plan: CHA-08).
+    assert cards_bought(run_main(bot, monkeypatch, FakeGame(), "--deals", "5")) == ["RET-03", "RET-01"]   # by gain
+    assert cards_bought(run_main(bot, monkeypatch, FakeGame(), "--deals", "5", "--cards", "RET-01,RET-03")) == \
+        ["RET-01", "RET-03"]                                              # the order given
+    assert cards_bought(run_main(bot, monkeypatch, FakeGame(), "--deals", "5", "--cards", "RET-01")) == ["RET-01"]
+    run_main(bot, monkeypatch, FakeGame(), "--deals", "5", "--cards", "RET-02,RET-01")   # RET-02 closes a page
+    assert "cards_not_buyable" in events(bot)

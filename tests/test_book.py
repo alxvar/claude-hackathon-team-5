@@ -192,3 +192,11 @@ def test_a_bid_follows_our_value_when_the_card_becomes_the_last_of_a_page():
         st = book.step(e, st, {**CLOCK, "tick": t})
     assert max(o["give"]["cash"] for o in g.posted) > 37                 # the new value lifted the cap
     assert all(o["give"]["cash"] <= 96 for o in g.posted)               # never past the book's floor
+
+
+
+def test_a_page_closer_bid_goes_to_el_rastro_with_its_own_shorter_life():
+    g = Game(values={"CHA-08": 146.0})
+    run(g, [{"card": "CHA-08", "side": "buy", "price": 60, "floor": 96, "page_closer": True, "life": 20}])
+    o = g.posted[0]
+    assert o["venue"] == "rastro" and o["expires_tick"] == 300 + 20     # sent as 40 at 30 s ticks
