@@ -1,26 +1,29 @@
-# Scout (claude-sonnet-5-5, Sat 19:08)
+# Scout (claude-sonnet-5-5, Sat 19:13)
 
 ## Top 3 actions now
-1. **Keep the DENY buy armed (Operator, `deny.py`); do not self-trigger.**
-   - Evidence: t10 is +3.3 / +4.1 (15 / 60 min) and bought RET-03 from t06 at 12 (tick 1033). t14 and t10 both "collect LAV/RET". Board is 31.7 / 31.7 / 31.7 / 31.4 for us, t06, t10, t14.
-   - Action: buy only on a Chief "DENY <card> <offer id>" line: team seller, ≤35 P incl. fee, cash ≥85 (we hold 120), never a rival venue.
-   - Effect: removes a rival's ≈ +2.4 board page close for ≈ −1 board. Which card each rival lacks is not in the data. Confidence: low-med.
-2. **Re-post the expiring spare sells to non-rival buyers (Operator, `trade.py`, as maker with 2× ticks).**
-   - Offers 15571 and 15572 (MAL-02 and MAL-05 at 9 to t15) expire at tick 1071; 15599 (LAV-03 at 6 to t09) at 1073; 15932 (LAV-02 at 0 to t01) at 1072.
-   - Buyers are not top-4: t09 is #17 (19.3), t15 #11 (24.5), t01 #12 (24.1).
-   - Evidence: the clearing price for commons is 9 (LAT 7.5). t09 and t15 still collect MAL/RET/SAL.
-   - Effect: small `neg_points` (our spare copies are worth 1.3–7 each). The aim is the "value created on our venue" lever, only if Market confirms the venue and that the buyer holds the 2nd copy, so value created stays positive. Confidence: low.
-3. **Aleks decides the Duels II `--days-read` setting before the 19:30 freeze.**
-   - Evidence: the Duel Lab says the day reading is the biggest swing left (right 0.47, backwards −0.18 per duel). Our duel score is 13.93, and the recent Session-2 duels (2522–2585) are mostly deals.
-   - Effect: protects the duel part of the score; the size is not in the data. Confidence: med.
+
+1. **Sell MAL-08 → t01 at 24 (offer 16001, v15, live to tick 1109). Operator keeps it live and lets it fill; do not reprice.**
+   - Evidence: the card is worth 17.5 to us, so a fill gains +6.5 P cash. Team trade scores are positive and we are the maker, so no fee. t01 is #12 at 24.1, well below us at 31.7. t01 collects MAL and has 4 MAL buys.
+   - Effect: small positive neg_points, at most about +6.5 if the gain counts at ΔV (the exact amount is not in the data). The ladder is capped, so no ladder effect.
+   - Confidence: med.
+
+2. **Push the v10 value-created trades for the market gap. The Operator keeps 15872 (MAL-03 → t09 at 9) and 15991 (LAV-03 → t09 at 6) live. Dani asks t09 in person to accept.**
+   - Evidence: the 17:40 directive names v10 value created as the only lever for the market gap. The 15872 and 15991 offers go to t09, which is #17 at 20.1 and not a rival. t09 has 3 MAL buys and 1 LAV buy.
+   - Effect: positive market-making only if the buyer's value exceeds the seller's. This is not in the data for t09's MAL-03 and LAV-03. 15872 is not on v10 per the data; the venue for either offer is not shown, so Dani must check it first.
+   - Confidence: low-med.
+
+3. **Honour the DENY rule: the Chief or Analyst watches the top-3 rivals (t06, t10, t14). If the Chief posts a "DENY <card> <offer id>" line, the Operator runs deny.py (cap 35 P incl. fee, cash ≥ 85, team seller only).**
+   - Evidence: the GUARDRAIL at 19:05 allows this. We are #1 at 31.7 with Team 6 at 31.6 and Team 10 at 31.6, a gap of 0.1, so one rival page close (≈ +2.4 board) would pass us.
+   - Effect: it protects the lead. The cost is about −1 board at 30 P.
+   - Confidence: med. No DENY line exists yet.
 
 ## What the climbing teams are doing
-- **t10** (+3.3 / +4.1) is the only fast climber, and the cause is not in the data. Visible: 12 team trades (RET-03 from t06 at 12, tick 1033) and a level-5 unlock at tick 971 ("5 deals with pilar").
-- **t16** (+0.7 / +1.6) is concentrating RET: it bought RET-08 (13), RET-05 (5) and RET-07 (13) from t15 at ticks 1022–23. It still bids RET-06 at 13 and RET-01/02/03 at 4.
-- **t18** (+0.6 / +1.6) and **t12** (+1.4 / +0.8) are climbing. t12 bought RET-09 from t06 at 84 (tick 895) and has 56 deals, but the cause is not in the data.
-- **t07** is accumulating RET: RET-08 from t09 at 24 (tick 1057), and a bid on RET-09 at 31.
+- **Team 10** (+3.9 in 60 min, 12 team trades) buys RET-03 from t06 at 12 (tick 1033). It collects LAV/RET and holds Level 5 via 5 Pilar deals. It is allied with t01, so watch t01 ↔ t10 trades on t01's venue.
+- **Team 18** (+2.4 in 60 min, +0.9 in 15 min) collects RET/SAL and has only 36 deals. Its gains come from a few well-chosen cards, not volume.
+- **Team 12** (+1.6 in 15 min, 57 deals) is buying RET/MAL. It paid 84 for RET-09 from t06 at tick 895.
+- **Team 16** is consolidating RET. It bought RET-08, RET-05 and RET-07 from t15 at 13, 5 and 13 (ticks 1022-1023). It also bid for RET-06 at 13 and RET-01/02/03 at 4. It is #7 at 27.4, so it is not a rival, but it may soak up our RET spares.
 
 ## Threats
-- **Three teams are tied with us at 31.7** (t06, t10, t14 at 31.4). A single +1 board event changes first place. t10 moved +3.3 in 15 min while we moved −0.3.
-- **Top-4 teams are trading with each other.** The t06→t10 RET-03 trade at 12 passed through a leader's hands. If it ran on a rival venue, it feeds that owner's market.
-- **Ladder is flat for the board.** All three 19:05 ladder sells walked (ladder 0.437, `negotiating` flat per the 17:45 note). Our remaining levers are denial buys, v10 value created, Duels II, and the CHA release on Sunday (our unopened silver pack stays kept for it).
+- **Lead is 0.1.** t06 and t10 are tied at 31.6 and t14 is at 31.3. We are flat at +0.0 over 15 min, while t18 (+0.9) and t12 (+1.6) are climbing. The ladder is capped and flags are spent, so only team trades, v10 and Duels II remain.
+- **t07 bids 38 P for RET-09 (offer 16030).** We hold RET-09 at 149.9 and RET-10 at 149.9, so we do not sell. It signals demand for RET rares. Pilar buys rares at 79 and Pícaros at 56, so no dealer sale of a rare passes our value.
+- **Level 5 (Don Ernesto, sobre_oro 546) is open to rivals** (t08, t10, t14, t15, t16 all unlocked). Never buy a pack. Packs drag the unopened-pack value, and Team 8's silver pack cost −5.65 board.
