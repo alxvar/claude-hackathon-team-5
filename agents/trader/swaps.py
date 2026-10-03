@@ -361,8 +361,8 @@ class Engine:
         until = "~" + time.strftime("%H:%M", time.localtime(time.time() + LIFE_TICKS * float(tick_seconds or 30)))
         team = f"Team {int(c['to'][1:])}" if str(c["to"])[1:].isdigit() else c["to"]
         name = lambda r: (self.cards.get(r) or {}).get("name", r)   # noqa: E731
-        dm = (f"Hi {team}! We offered you our {name(c['give'])} ({c['give']}) for your {name(c['want'])} ({c['want']}), "
-              f"a straight swap on {c['venue']}, addressed to you: offer {oid}. Check it and accept if it works.")
+        dm = (f"Hi {team}! Swap offer for you on {c['venue']}: our {name(c['give'])} ({c['give']}) for your "
+              f"{name(c['want'])} ({c['want']}), offer {oid}. Thanks!")   # transactional only (Lucas 17:20)
         for who in DESK:
             self.notifier(who, f"Swap to {team}: {c['give']} for {c['want']} (offer {oid})",
                           f"Offer {oid} on {c['venue']}, valid until {until}. Our est. gain +{c['our_gain']:g}, theirs "

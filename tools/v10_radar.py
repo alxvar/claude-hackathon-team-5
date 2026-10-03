@@ -293,23 +293,25 @@ def suggestions(partner: str, *, teams, held, mult, cards, last, prof, collector
     return out[:SUGGEST_LINES]
 
 
+# Ready-to-send texts are transactional only (Lucas, Sat 17:20): what, offer id, price, thanks. Never why: no value
+# created, multipliers, collections or page status; rivals learn from it.
+
 def suggestion_text(lines: list[dict], cards: dict) -> str:
-    return "Suggestions for v10 (our stall, 0% fee): " + "; ".join(
-        f"your {cards.get(x['card'], {}).get('name', x['card'])} ({x['card']}, you hold {x['n']}) → {x['name']} at "
-        f"~{x['price']} P" for x in lines) + "."
+    return "Suggestions for v10: " + "; ".join(
+        f"your {cards.get(x['card'], {}).get('name', x['card'])} ({x['card']}) → {x['name']} at ~{x['price']} P"
+        for x in lines) + ". Thanks!"
 
 
 def dm_addressed(f: dict, card_name: str) -> str:
     if f["side"] == "ask":
-        return (f"Hi {f['name']}! {f['maker_name']} has an offer for you on our v10 stall: {card_name} ({f['card']}) for "
-                f"{f['price']} P, 0% fee. It's in your offers if you want it.")
-    return (f"Hi {f['name']}! {f['maker_name']} offers you {f['price']} P for your {card_name} ({f['card']}) on our v10 "
-            f"stall, 0% fee. It's in your offers if you want to take it.")
+        return (f"Hi {f['name']}! {f['maker_name']} has an offer for you on v10: {card_name} ({f['card']}) for "
+                f"{f['price']} P, offer {f['offer']}. Thanks!")
+    return (f"Hi {f['name']}! {f['maker_name']} offers you {f['price']} P for your {card_name} ({f['card']}) on v10, "
+            f"offer {f['offer']}. Thanks!")
 
 
-def dm(team_name: str, card_name: str, card: str, price, set_id: str) -> str:
-    return (f"Hi {team_name}! There's {card_name} ({card}) for {price} P on the market v10 (0% fee), in case you need "
-            f"it for your {SET_NAMES.get(set_id, set_id)} page.")
+def dm(team_name: str, card_name: str, card: str, price, set_id: str = "", offer=None) -> str:
+    return f"Hi {team_name}! {card_name} ({card}) is on v10 for {price} P{f', offer {offer}' if offer else ''}. Thanks!"
 
 
 class Radar:
@@ -390,7 +392,7 @@ class Radar:
 
     def alert(self, f: dict, tick) -> None:
         c = self.cards.get(f["card"], {})
-        text = dm(f["name"], c.get("name", f["card"]), f["card"], f["price"], c.get("set", set_of(f["card"])))
+        text = dm(f["name"], c.get("name", f["card"]), f["card"], f["price"], offer=f["offer"])
         why = (f"{'lacks it' if f['lacks'] else 'collects ' + c.get('set', '')}, multiplier {f['m_buyer']} × copy "
                f"{f['c_buyer']:g} vs seller {f['seller'] or '?'} {f['m_seller']} × copy {f['c_seller']:g}: est. value "
                f"created +{f['vc']:g} (at least +{f['vc_low']:g}) on v10")

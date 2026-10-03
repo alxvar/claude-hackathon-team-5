@@ -77,8 +77,7 @@ def test_the_buyer_that_lacks_the_card_and_values_the_set_gets_the_dm(tmp_path):
     assert [c for c, _, _ in sent] == ["dani", "lucas"]               # Dani is the deal desk (16:10): both
     channel, title, body = sent[1]
     assert "Team 16" in title and "Offer 900 on v10, valid until" in body
-    assert "Hi Team 16! There's Card 7 (SAL-07) for 24 P on the market v10 (0% fee), in case you need it for your " \
-           "Salamanca page." in body
+    assert "Hi Team 16! Card 7 (SAL-07) is on v10 for 24 P, offer 900. Thanks!" in body   # transactional only (17:20)
     assert "Team 16" in (tmp_path / "radar.md").read_text()
     r.scan()
     assert len(sent) == 2                                              # once per (ask, buyer)
@@ -164,8 +163,9 @@ def test_an_addressed_ask_pages_lucas_with_a_dm_to_the_addressee_only_when_it_cr
     good = vr.addressed_match(o, teams=teams, mult={"t17": {"SAL": 1.6}, "t10": {"SAL": 0.5}}, cards=r.cards, held={})
     assert good["side"] == "ask" and good["seller"] == "t10" and good["vc"] == 11.0
     r.alert_addressed(good, 12)
-    assert [n[0] for n in notes] == ["dani", "lucas"] and "Team 10 has an offer for you on our v10 stall" in notes[0][2]
-    assert "Hi Team 17!" in notes[0][2] and "13 P" in notes[0][2] and "Offer 8031 on v10, valid until ~" in notes[0][2]
+    assert [n[0] for n in notes] == ["dani", "lucas"] and "Team 10 has an offer for you on v10" in notes[0][2]
+    assert "Hi Team 17! Team 10 has an offer for you on v10: Card 3 (SAL-03) for 13 P, offer 8031. Thanks!" in notes[0][2]
+    assert "Offer 8031 on v10, valid until ~" in notes[0][2]
     bad = vr.addressed_match(o, teams=teams, mult={"t17": {"SAL": 0.5}, "t10": {"SAL": 1.6}}, cards=r.cards, held={})
     r.alert_addressed(bad, 12)
     assert len(notes) == 2 and "not paged" in logs[-1]                 # est. value created < 0: logged only
@@ -199,7 +199,7 @@ def test_a_partner_s_2nd_copy_goes_to_the_best_buyer_outside_the_top_5():
     # price: the clearing 24.5, capped at what SAL-06 is worth to Team 16 (25 x 0.8 = 20)
     assert lines[0]["vc"] > vr.SUGGEST_VC
     text = vr.suggestion_text(lines, vr.card_index(CATALOG))
-    assert text.startswith("Suggestions for v10") and "you hold 2" in text and "Team 16 at ~20 P" in text
+    assert text == "Suggestions for v10: your Card 6 (SAL-06) → Team 16 at ~20 P. Thanks!"
 
 
 def test_no_line_below_plus_5_and_at_most_3_lines():

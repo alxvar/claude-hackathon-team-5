@@ -458,12 +458,15 @@ def test_message_is_bilingual_and_tells_their_agent_what_to_say():
     o = find(engine()[0], "SELL", "t07", "SAL-02")
     title, body = op.message(o, 1234)
     assert title == "SELL SAL-02 to Team 7 at 40 P (+37.8)"
-    assert "ES: Che, les falta la SAL-02" in body and "EN: You're missing SAL-02" in body
+    assert "ES: ¡Hola, Team 7! Les dejamos la SAL-02" in body and "EN: Hi Team 7! SAL-02" in body and "offer 1234" in body
+    dm = body.split("ES: ")[1]                                         # the texts sent to them: no why (17:20)
+    assert not any(w in dm for w in ("missing", "falta", "page", "página", "bonus", "collect", "worth"))
     assert 'Their agent: "Accept offer 1234 on El Rastro"' in body
     b = {**o, "side": "BUY", "collects": False, "completes": True, "max_price": 146, "our_value": 149.9, "price": 70,
          "gain": 50, "card": "RET-10", "set_name": "El Retiro"}
     _, body = op.message(b, 77)
-    assert "¿Ustedes juntan El Retiro?" in body and "COMPLETES our El Retiro page" in body
+    assert "Les compramos la RET-10 a 70 P: oferta 77" in body and "COMPLETES our El Retiro page" in body   # Why: ours
+    assert "juntan" not in body and "collect" not in body.split("ES: ")[1]
     assert "Accept offer 77 on El Rastro" in body
 
 

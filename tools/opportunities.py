@@ -532,27 +532,16 @@ def message(o, offer_id=None, valid_until=None):
         why = (f"spare copy worth {o['our_value']:g} to us → +{o['gain']:g} at {p} P; {t} is #{o['rank']} at "
                f"{o['their_score']}, {o['gap']:g} below us and outside the top 5 (feeding rule OK); they {o['src']}"
                f"{'; other ' + o['set'] + ' cards they lack: ' + ', '.join(o['other_lacks']) if o.get('other_lacks') else ''}")
-        es = (f"Che, les falta la {x} ({n}) para la página de {s}, ¿no? Se la dejamos publicada a su nombre en {w} a {p} P, "
-              f"oferta {oid}. No tienen que creernos: la ven ustedes mismos, la aceptan y la suman a la página; si es "
-              f"la última, la cierran y se llevan el bonus.")
-        en = (f"You're missing {x} ({n}) for your {s} page, right? It's on {w} addressed to {t} at {p} P, offer {oid}. "
-              f"No need to trust us: check it yourselves and accept. If it's your last one, you close the page and "
-              f"get the bonus.")
+        # ready-to-send texts: what, offer id, price, thanks; never why (Lucas, Sat 17:20: rivals learn from it)
+        es = f"¡Hola, {t}! Les dejamos la {x} ({n}) en {w} a {p} P, a su nombre: oferta {oid}. ¡Gracias!"
+        en = f"Hi {t}! {x} ({n}) is on {w} for you at {p} P, offer {oid}. Thanks!"
         line = f"Accept offer {oid} on {w}"
     else:
         why = (f"{x} is worth {o['our_value']:g} to us{' and COMPLETES our ' + s + ' page' if o['completes'] else ''}"
                f" → +{o['gain']:g} at {p} P (limit {o['max_price']}); {t} #{o['rank']} "
                f"{'collects ' + s if o['collects'] else 'never bid for ' + s}; they {o['src']}")
-        if o["collects"]:
-            es = (f"Les compramos la {x} a {p} P: la oferta ya está a su nombre en {w} (oferta {oid}). "
-                  f"La revisan ustedes y, si les cierra, la aceptan.")
-            en = (f"We'll buy your {x} for {p} P: the offer is already on {w} addressed to {t} (offer {oid}). "
-                  f"Check it and accept if it works for you.")
-        else:
-            es = (f"¿Ustedes juntan {s}? Si no, la {x} les sirve poco: les ofrecemos {p} P y ya está la oferta a su "
-                  f"nombre en {w} (oferta {oid}). Revísenla antes de aceptar: son {p} P por una carta que no usan.")
-            en = (f"Do you collect {s}? If not, {x} does little for you: we're offering {p} P, already on {w} "
-                  f"addressed to {t} (offer {oid}). Check it before accepting: {p} P for a card you don't use.")
+        es = f"¡Hola, {t}! Les compramos la {x} a {p} P: oferta {oid} en {w}, a su nombre. ¡Gracias!"
+        en = f"Hi {t}! We'll buy your {x} for {p} P: offer {oid} on {w}, addressed to you. Thanks!"
         line = f"Accept offer {oid} on {w} (you hand over one {x} for {p} P)"
     title = f"{o['side']} {x} {'to' if o['side'] == 'SELL' else 'from'} {t} at {p} P (+{o['gain']:g})"
     body = (f"{o['side']} {x} ({o['rarity']}, {s}) · {t} · offer {oid} at {p} P"
