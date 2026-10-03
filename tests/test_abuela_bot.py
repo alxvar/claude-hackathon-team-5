@@ -477,6 +477,9 @@ def test_chato_steady_offer_only(monkeypatch, tmp_path):
         def my_threads(self):
             return {"threads": []}
 
+        def clock(self):
+            return {"tick": 1, "tick_seconds": 30}
+
         def open_thread(self, with_, topic=None):
             return {"id": 7}
 
@@ -503,3 +506,93 @@ def test_chato_steady_offer_only(monkeypatch, tmp_path):
     monkeypatch.setenv("BAZAAR_KEY", "test-key-not-real")
     cs.main(["RET-09", "--cap", "90", "--open", "57", "--step", "3", "--cash-floor", "100", "--offer-only"])
     assert game.said == [57, 79] and game.accepted == []                  # his 80 was his opening: one below it
+
+
+# ------------------------------------------------------------- Sat 13:02: a chato_steady run sat 4+ min silent
+
+def test_wait_tick_is_bounded_and_says_when_it_gives_up(monkeypatch, tmp_path):
+    monkeypatch.setattr(ab, "LOG", tmp_path / "d.jsonl")
+    t, slept = [0.0], []
+    monkeypatch.setattr(ab.time, "monotonic", lambda: t[0])
+    monkeypatch.setattr(ab.time, "sleep", lambda s: (slept.append(s), t.__setitem__(0, t[0] + s)))
+    b = ab.PacedBazaar("http://127.0.0.1:9", "k", min_gap=0)
+    monkeypatch.setattr(b, "clock", lambda: {"tick": 50, "tick_seconds": 30, "next_tick_in": 900})   # never moves
+    c = b.wait_tick(max_s=90)
+    assert c["tick"] == 50 and slept[0] == pytest.approx(31.15)       # a 900 s next_tick_in is clamped to one tick
+    assert t[0] < 92
+    assert json.loads((tmp_path / "d.jsonl").read_text().splitlines()[-1])["event"] == "wait_tick_timeout"
+    ticks = iter([{"tick": 50, "tick_seconds": 30, "next_tick_in": 3}, {"tick": 51}])
+    monkeypatch.setattr(b, "clock", lambda: next(ticks))
+    assert b.wait_tick()["tick"] == 51
+
+
+def test_a_slow_request_is_logged_and_the_timeout_is_shorter(monkeypatch, tmp_path):
+    monkeypatch.setattr(ab, "LOG", tmp_path / "d.jsonl")
+    t = [0.0]
+    monkeypatch.setattr(ab.time, "monotonic", lambda: t[0])
+    monkeypatch.setattr(bazaar_sdk._Http, "_call", lambda self, *a, **k: t.__setitem__(0, t[0] + 12) or {})
+    b = ab.PacedBazaar("http://127.0.0.1:9", "k", min_gap=0)
+    b.thread(805)
+    ev = json.loads((tmp_path / "d.jsonl").read_text().splitlines()[-1])
+    assert ev["event"] == "slow_call" and ev["call"] == "GET /api/threads/805" and ev["s"] == 12
+    assert b.timeout == ab.REQ_TIMEOUT
+
+
+def test_the_watchdog_dumps_every_stack_when_a_loop_stops_turning(monkeypatch, tmp_path):
+    import time as real_time
+    monkeypatch.setattr(ab, "LOG", tmp_path / "d.jsonl")
+    monkeypatch.setattr(ab, "_dog", {"file": None})
+    ab.watchdog(0.2)
+    real_time.sleep(0.6)
+    ab.watchdog_off()
+    ab._dog["file"].flush()
+    dump = next(tmp_path.glob("hang-*.txt")).read_text()
+    assert "test_the_watchdog_dumps_every_stack" in dump
+
+
+def test_chato_steady_walks_after_8_ticks_of_wall_time_stuck(monkeypatch, tmp_path):
+    import chato_steady as cs
+    monkeypatch.setattr(ab, "LOG", tmp_path / "chato.jsonl")
+    monkeypatch.setattr(ab, "DEALER", ab.DEALER)
+    monkeypatch.setattr(ab, "CASH_FLOOR", ab.CASH_FLOOR)
+    monkeypatch.setattr(ab, "watchdog", lambda *a: None)
+    t = [0.0]
+    monkeypatch.setattr(cs.time, "monotonic", lambda: t[0])
+
+    class Stuck:
+        """Chato holds 32 above our cap 26; each of our waits takes 100 s of wall time (a slow server)."""
+        closed = False
+
+        def me(self):
+            return {"cash": 400, "assets": [], "score": {}}
+
+        def my_threads(self):
+            return {"threads": []}
+
+        def clock(self):
+            return {"tick": 1, "tick_seconds": 30}
+
+        def open_thread(self, with_, topic=None):
+            return {"id": 805}
+
+        def thread(self, tid):
+            if self.closed:
+                return {"status": "closed", "messages": []}
+            return {"status": "open", "messages": [], "standing_offers": [
+                {"id": 3, "maker": "chato", "status": "open", "final": False, "want": {"cash": 32}}]}
+
+        def say(self, tid, text, price=None):
+            pass
+
+        def wait_tick(self):
+            t[0] += 100
+
+        def close_thread(self, tid):
+            self.closed = True
+
+    game = Stuck()
+    monkeypatch.setattr(ab, "PacedBazaar", lambda *a, **k: game)
+    monkeypatch.setenv("BAZAAR_KEY", "test-key-not-real")
+    cs.main(["SAL-06", "--cap", "26", "--open", "26", "--step", "2", "--cash-floor", "100"])
+    walk = [json.loads(x) for x in (tmp_path / "chato.jsonl").read_text().splitlines() if '"walk"' in x][0]
+    assert walk["why"].startswith("stuck 4 ticks")                      # 240 s = 8 ticks of 30 s, before 8 loops

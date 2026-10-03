@@ -19,6 +19,7 @@ are paced 0.25 s apart (1 s in --dry-run).
 """
 import argparse
 import collections
+import faulthandler
 import json
 import math
 import os
@@ -44,6 +45,12 @@ MIN_GAIN = 3         # buy only if our value beats the expected price by this mu
 PACK_MARGIN = 4      # hard limit: while we hold an unopened pack, pay a dealer at most value - 4
 PAGE_SLACK = 0.5     # our value above book x affinity + this: the card carries a page bonus (it completes a page)
 GAP_S, DRY_GAP_S = 0.25, 1.0  # seconds between requests, value lookups included (--dry-run: <= 1 GET per second)
+# Sat 13:02: chato_steady sat 4+ min silent after a tick line, alive, no exception, no stack (the server answered
+# every other bot). So: a shorter request timeout, slow requests logged, wait_tick bounded, and a watchdog that dumps
+# every thread's stack when a dealer loop stops turning.
+REQ_TIMEOUT, SLOW_S = 8.0, 10.0   # seconds per request (the SDK's default is 15); a request slower than SLOW_S is logged
+WAIT_MAX_S = 90.0                 # wait_tick gives up after this much wall time and says so
+WATCHDOG_S = 180.0                # a dealer loop silent this long: stacks to logs/dealers/hang-<pid>.txt
 FIRST_COUNTER = 0.55  # buy: open at 55% of her first ask; sell: ask her first bid / 0.55
 STEP = 0.3           # each counter closes 30% of the gap, at least 1 P
 LOG = ROOT / "logs" / "dealers" / f"abuela-{time.strftime('%Y%m%d-%H%M%S')}.jsonl"
@@ -74,6 +81,7 @@ class PacedBazaar(Bazaar):
     never bursts into the team's shared 5 requests per second."""
 
     def __init__(self, url, key, min_gap=GAP_S, **kw):
+        kw.setdefault("timeout", REQ_TIMEOUT)
         super().__init__(url, key, **kw)
         self.min_gap, self._last = min_gap, None
 
@@ -82,10 +90,44 @@ class PacedBazaar(Bazaar):
             wait = self._last + self.min_gap - time.monotonic()
             if wait > 0:
                 time.sleep(wait)
+        t0 = time.monotonic()
         try:
             return super()._call(*a, **k)
         finally:
             self._last = time.monotonic()
+            if self._last - t0 > SLOW_S:
+                log({"event": "slow_call", "call": " ".join(str(x) for x in a[:2]), "s": round(self._last - t0, 1)})
+
+    def wait_tick(self, max_s: float = WAIT_MAX_S) -> dict:
+        """The SDK's wait_tick, bounded: one sleep never runs past a tick length (+1 s), and after max_s of wall time
+        it returns the last clock with a `wait_tick_timeout` log line instead of waiting on."""
+        t0 = time.monotonic()
+        c = self.clock()
+        start, secs = c.get("tick"), float(c.get("tick_seconds") or 30)
+        time.sleep(min(max(0.05, float(c.get("next_tick_in", 1.0))), secs + 1.0) + 0.15)
+        while time.monotonic() - t0 < max_s:
+            c = self.clock()
+            if c.get("tick") != start or c.get("paused"):
+                return c
+            time.sleep(0.25)
+        log({"event": "wait_tick_timeout", "tick": start, "waited_s": round(time.monotonic() - t0, 1)})
+        return c
+
+
+_dog = {"file": None}
+
+
+def watchdog(seconds: float = WATCHDOG_S) -> None:
+    """(Re)arm at every turn of a dealer loop: if it isn't re-armed within `seconds`, every thread's stack goes to
+    logs/dealers/hang-<pid>.txt and the process keeps running (the next hang tells us where it sits)."""
+    if _dog["file"] is None:
+        LOG.parent.mkdir(parents=True, exist_ok=True)
+        _dog["file"] = (LOG.parent / f"hang-{os.getpid()}.txt").open("a")
+    faulthandler.dump_traceback_later(seconds, repeat=False, file=_dog["file"])
+
+
+def watchdog_off() -> None:
+    faulthandler.cancel_dump_traceback_later()
 
 
 def log(event: dict) -> None:
@@ -204,6 +246,7 @@ def negotiate(b: Bazaar, topic: dict, side: str, cap: int, tid: int = None, fast
             raise
         return {"id": tid, "status": "error", "error": repr(e)[:300]}
     finally:
+        watchdog_off()                            # between conversations the gate waits on purpose
         if tid is not None:                       # the REOPEN_TICKS gate counts from here
             try:
                 _note(DEALER, closed_tick=b.clock()["tick"])
@@ -228,6 +271,7 @@ def _haggle(b, tid, topic, side, cap, fast, resume, accepted):
     log({"event": "open", "thread": tid, "topic": topic, "cap": cap, "her_first": first, "ours": ours})
     heard, quiet = None, 0
     while True:
+        watchdog()
         t = b.thread(tid)
         if t["status"] != "open":
             log({"event": "end", "thread": tid, "status": t["status"], "reason": t.get("closed_reason"),

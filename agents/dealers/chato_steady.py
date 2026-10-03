@@ -5,13 +5,15 @@
 Rares: open 55-60, constant +2 to +4 (never +1: early final 91-93; never jumps), bid just under his standing offer.
 Uncommons: open 13-20, +1 per round, bid one under his standing offer (final 28-29).
 Accepts his offer when it is within the cap and (final, or within 1 of ours). Stuck (next would repeat): stays silent
-that tick instead of re-sending; walks after 8 stuck ticks or on a final above the cap. Holds the accept during scored
+that tick instead of re-sending; walks after 8 stuck ticks (or 8 ticks of wall time stuck: Sat 13:02 a run sat 4+ min
+silent at its cap) or on a final above the cap. Holds the accept during scored
 duels (the dealer bot's arbiter). --offer-only: never accepts; offers his standing price instead, so he accepts and
 spends the accept (dealer deals during scored duels without touching the team's one accept per tick).
 """
 import argparse
 import os
 import sys
+import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -62,8 +64,17 @@ def main(argv=None):
     else:
         t = b.open_thread(args.dealer, topic={"buy": {"card": args.card}})
     tid, first, stuck, turn = t["id"], None, 0, 0 if ours is None else 1
+    stuck_since, stuck_s = None, 8 * float(b.clock().get("tick_seconds") or 30)
     ab.log({"event": "open", "thread": tid, "card": args.card, "cap": cap, "open": args.open, "step": args.step})
+    try:
+        _loop(b, args, tid, first, stuck, turn, ours, cap, before, stuck_since, stuck_s)
+    finally:
+        ab.watchdog_off()
+
+
+def _loop(b, args, tid, first, stuck, turn, ours, cap, before, stuck_since, stuck_s):
     while True:
+        ab.watchdog()
         t = b.thread(tid)
         if t["status"] != "open":
             after = {k: (b.me().get("score") or {}).get(k) for k in ("neg_points", "ladder_points")}
@@ -109,13 +120,16 @@ def main(argv=None):
         nxt = args.open if ours is None else min(ours + args.step, price - 1, cap)
         if ours is not None and nxt <= ours:  # can't move without repeating: stay silent this tick
             stuck += 1
-            if stuck >= 8:  # he holds above our cap: walk rather than sit in a thread
+            stuck_since = stuck_since or time.monotonic()
+            waited = time.monotonic() - stuck_since
+            if stuck >= 8 or waited >= stuck_s:  # he holds above our cap: walk rather than sit in a thread
                 b.close_thread(tid)
-                ab.log({"event": "walk", "thread": tid, "his": price, "ours": ours, "why": "stuck 8 ticks"})
+                ab.log({"event": "walk", "thread": tid, "his": price, "ours": ours,
+                        "why": f"stuck {stuck} ticks, {waited:.0f} s"})
                 continue
             b.wait_tick()
             continue
-        stuck = 0
+        stuck, stuck_since = 0, None
         b.say(tid, WARM[0 if turn == 0 else 1 + (turn - 1) % (len(WARM) - 1)].format(p=nxt), price=nxt)
         turn += 1
         ab.log({"event": "say", "thread": tid, "price": nxt})
