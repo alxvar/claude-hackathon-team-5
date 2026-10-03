@@ -6,6 +6,13 @@ above our private value; with --sell-spares it first sells spare copies. Every d
 price. Waits for the server's tick, never repeats a price, holds every accept (her final offers too) while a
 scored duel needs the team's accept (tools/arbiter.py), and never lets cash drop below the venue bond.
 
+Hard limits (intel/ORCHESTRATOR.md), checked with a fresh value lookup right before every buy:
+- never a page-completing card from a dealer: our value of it above book x our affinity + 0.5 means it carries the
+  page bonus, which scores only through a TEAM trade (a dealer buy of it scores <= 0);
+- pay at most our value, or value - 4 while we hold an unopened pack.
+An exception inside a negotiation closes that dealer conversation (best effort), logs it and stops the run. Requests
+are paced 0.25 s apart (1 s in --dry-run).
+
     source .env && python3 agents/dealers/abuela_bot.py --dry-run
     source .env && python3 agents/dealers/abuela_bot.py --deals 3
     source .env && python3 agents/dealers/abuela_bot.py --dealer <id> --deals 3 --dry-run
@@ -13,6 +20,7 @@ scored duel needs the team's accept (tools/arbiter.py), and never lets cash drop
 import argparse
 import collections
 import json
+import math
 import os
 import sys
 import time
@@ -28,6 +36,9 @@ DEALER = "abuela"
 CASH_FLOOR = 200     # overridden by --cash-floor (the GUARDRAIL in intel/directives.md decides it)
 EXPECTED_PRICE = 0.92  # dealers end near 0.9x list in the public data (Abuela: common 9 of 10, uncommon 21-24 of 25)
 MIN_GAIN = 3         # buy only if our value beats the expected price by this much; never pay above value - MIN_GAIN
+PACK_MARGIN = 4      # hard limit: while we hold an unopened pack, pay a dealer at most value - 4
+PAGE_SLACK = 0.5     # our value above book x affinity + this: the card carries a page bonus (it completes a page)
+GAP_S, DRY_GAP_S = 0.25, 1.0  # seconds between requests, value lookups included (--dry-run: <= 1 GET per second)
 FIRST_COUNTER = 0.55  # buy: open at 55% of her first ask; sell: ask her first bid / 0.55
 STEP = 0.3           # each counter closes 30% of the gap, at least 1 P
 LOG = ROOT / "logs" / "dealers" / f"abuela-{time.strftime('%Y%m%d-%H%M%S')}.jsonl"
@@ -50,6 +61,25 @@ TEXTS = {
 }
 
 
+class PacedBazaar(Bazaar):
+    """The SDK with every request at least `min_gap` seconds after the previous one, so a sweep of value lookups
+    never bursts into the team's shared 5 requests per second."""
+
+    def __init__(self, url, key, min_gap=GAP_S, **kw):
+        super().__init__(url, key, **kw)
+        self.min_gap, self._last = min_gap, None
+
+    def _call(self, *a, **k):
+        if self._last is not None:
+            wait = self._last + self.min_gap - time.monotonic()
+            if wait > 0:
+                time.sleep(wait)
+        try:
+            return super()._call(*a, **k)
+        finally:
+            self._last = time.monotonic()
+
+
 def log(event: dict) -> None:
     LOG.parent.mkdir(parents=True, exist_ok=True)
     event = {"t": time.strftime("%H:%M:%S"), **event}
@@ -57,6 +87,48 @@ def log(event: dict) -> None:
         f.write(json.dumps(event) + "\n")
     print(json.dumps(event), flush=True)
 
+
+# ---------------------------------------------------------------------------------------------------- hard limits
+
+def value_of(b, card: str) -> float:
+    return float(b.value(card)["your_value"])
+
+
+def card_index(cat: dict) -> dict:
+    return {c["id"]: {"set": s["id"], "book": c["book"], "rarity": c["rarity"], "released": bool(s.get("released"))}
+            for s in cat["sets"] for c in s["cards"]}
+
+
+def packs_held(me: dict) -> int:
+    """Unopened packs among our assets (each one drags a trade's score: GAME.md)."""
+    return sum(1 for a in me.get("assets", []) if a.get("kind") == "pack")
+
+
+def page_bonus(value: float, book: float, affinity: float) -> bool:
+    """Our value of one more copy above book x affinity: it carries the page bonus (it would complete a page). That
+    bonus scores only through a TEAM trade; bought from a dealer it scores <= 0 (GAME.md)."""
+    return value > book * affinity + PAGE_SLACK
+
+
+def hard_cap(value: float, packs: int) -> int:
+    """The most we may pay a dealer: our value, or value - 4 while we hold an unopened pack (ORCHESTRATOR.md)."""
+    return math.floor(value - (PACK_MARGIN if packs else 0))
+
+
+def check_buy(b, card: str, cards: dict, me: dict) -> tuple:
+    """Fresh value lookup right before a dealer buy (an earlier buy may have made this card a page's last one).
+    -> (value, hard cap, None) when we may buy it, (value, None, why not) when we may not."""
+    c = cards.get(card)
+    aff = (me.get("affinity") or {}).get(c["set"]) if c else None
+    if aff is None:
+        return None, None, f"unknown card or affinity: {card}"
+    v = value_of(b, card)
+    if page_bonus(v, c["book"], aff):
+        return v, None, f"page bonus: value {v:g} > book {c['book']} x {aff} + {PAGE_SLACK} (team trades only)"
+    return v, hard_cap(v, packs_held(me)), None
+
+
+# ---------------------------------------------------------------------------------------------------- negotiation
 
 def her_price(offer: dict, side: str) -> int:
     """Cash in her offer: what she asks when we buy, what she pays when we sell."""
@@ -66,13 +138,35 @@ def her_price(offer: dict, side: str) -> int:
 
 def negotiate(b: Bazaar, topic: dict, side: str, cap: int, tid: int = None, fast: bool = False) -> dict:
     """side 'buy': cap = the most we pay. side 'sell': cap = the least we take.
-    With `tid`, pick up an open conversation where it stands."""
+    With `tid`, pick up an open conversation where it stands. An exception closes the conversation (best effort: an
+    open one blocks the next run) and returns status "error"; Ctrl-C closes it too, then propagates. A conversation
+    where we already accepted is left alone: the deal settles on the next tick and closing could withdraw it."""
+    accepted = []
+    resume = tid is not None
+    try:
+        if tid is None:
+            tid = b.open_thread(DEALER, topic=topic)["id"]
+        return _haggle(b, tid, topic, side, cap, fast, resume, accepted)
+    except BaseException as e:
+        log({"event": "error", "thread": tid, "topic": topic, "error": repr(e)[:300]})
+        if tid is not None and accepted:
+            log({"event": "left_open_after_accept", "thread": tid, "offer": accepted[-1]})
+        elif tid is not None:
+            try:
+                b.close_thread(tid)
+                log({"event": "closed_after_error", "thread": tid})
+            except Exception as e2:
+                log({"event": "close_failed", "thread": tid, "error": repr(e2)[:200]})
+        if not isinstance(e, Exception):
+            raise
+        return {"id": tid, "status": "error", "error": repr(e)[:300]}
+
+
+def _haggle(b, tid, topic, side, cap, fast, resume, accepted):
     better = (lambda x, y: x < y) if side == "buy" else (lambda x, y: x > y)  # x better for us than y
     first = ours = None
     turn = 0
-    if tid is None:
-        tid = b.open_thread(DEALER, topic=topic)["id"]
-    else:
+    if resume:
         for m in b.thread(tid)["messages"]:
             o = m.get("offer") or {}
             if not o:
@@ -114,6 +208,7 @@ def negotiate(b: Bazaar, topic: dict, side: str, cap: int, tid: int = None, fast
                 b.wait_tick()
                 continue
             b.accept(o["id"])
+            accepted.append(o["id"])
             log({"event": "accept", "thread": tid, "price": price, "negotiated": price != first})
             b.wait_tick()
             continue
@@ -128,7 +223,11 @@ def negotiate(b: Bazaar, topic: dict, side: str, cap: int, tid: int = None, fast
         b.wait_tick()
 
 
+# ---------------------------------------------------------------------------------------------------- the plan
+
 def plan(b: Bazaar) -> tuple:
+    """-> (me, spares to sell, buys as (expected gain, our value, card), spend budget, card index, cards never to buy
+    from a dealer as (card, our value): they carry a page bonus)."""
     me = b.me()
     by_ref = collections.defaultdict(list)
     for a in me["assets"]:
@@ -139,25 +238,27 @@ def plan(b: Bazaar) -> tuple:
     sells = [a for copies in by_ref.values() if copies[0]["rarity"] in ("common", "uncommon") for a in copies[1:]
              if a["id"] not in listed]  # a spare already listed for other teams stays there
     sells.sort(key=lambda a: a["your_value"])
-    cat = b.catalog()
+    cards = card_index(b.catalog())
+    aff = me.get("affinity") or {}
     menu = b.dealer(DEALER).get("menu", {}).get("sells", [])
     list_price = {m["rarity"]: m.get("list_price", 0) for m in menu if "rarity" in m}
-    buys = []  # (expected gain, our value, card): our private value minus the price we expect to pay
-    for s in cat["sets"]:
-        if not s.get("released"):
+    buys, blocked = [], []  # buys: our private value minus the price we expect to pay
+    for card, c in cards.items():
+        if not c["released"] or c["rarity"] not in list_price:
             continue
-        for c in s["cards"]:
-            if c["rarity"] in list_price:
-                v = b.value(c["id"])["your_value"]
-                gain = v - EXPECTED_PRICE * list_price[c["rarity"]]
-                if gain >= MIN_GAIN:
-                    buys.append((round(gain, 1), v, c["id"]))
+        v = value_of(b, card)
+        if aff.get(c["set"]) is None or page_bonus(v, c["book"], aff[c["set"]]):
+            blocked.append((card, v))  # the page bonus scores only through a team trade
+            continue
+        gain = v - EXPECTED_PRICE * list_price[c["rarity"]]
+        if gain >= MIN_GAIN:
+            buys.append((round(gain, 1), v, card))
     buys.sort(reverse=True)
     budget = max(0, me["cash"] - CASH_FLOOR)
-    return me, sells, buys, budget
+    return me, sells, buys, budget, cards, blocked
 
 
-def main() -> None:
+def main(argv=None) -> None:
     global DEALER, CASH_FLOOR
     ap = argparse.ArgumentParser()
     ap.add_argument("--deals", type=int, default=3, help="stop after this many deals")
@@ -174,28 +275,40 @@ def main() -> None:
     ap.add_argument("--no-buy", action="store_true",
                     help="sell only: a dealer deal never adds neg_points (gains 0, losses in full: GAME.md); buy from teams instead")
     ap.add_argument("--dry-run", action="store_true", help="print the plan, write nothing")
-    args = ap.parse_args()
-    b = Bazaar(os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai"), os.environ["BAZAAR_KEY"])
+    args = ap.parse_args(argv)
+    b = PacedBazaar(os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai"), os.environ["BAZAAR_KEY"],
+                    min_gap=DRY_GAP_S if args.dry_run else GAP_S)
 
     DEALER = args.dealer
     CASH_FLOOR = args.cash_floor
-    me, sells, buys, budget = plan(b)
+    me, sells, buys, budget, cards, blocked = plan(b)
+    packs = packs_held(me)
     clock = b.clock()
     print(f"tick {clock['tick']} ({clock['tick_seconds']}s) · cash {me['cash']} P · spend budget {budget} P · "
           f"accept hold: {should_hold_accept(b, clock['tick'])}")
+    print(f"unopened packs held: {packs} → dealer buys capped at {'value − 4' if packs else 'our value'}"
+          f" (and value − {MIN_GAIN} by the bot's own margin)")
     print("sell (spares):", [(a["ref"], a["id"], a["your_value"]) for a in sells])
-    print(f"dealer {DEALER} · buy (expected gain, our value, card):", buys[:8])
+    print(f"dealer {DEALER} · buy (expected gain, our value, card, cap):",
+          [(g, v, c, min(int(v - MIN_GAIN), hard_cap(v, packs), budget)) for g, v, c in buys[:8]])
+    print(f"dealer {DEALER} · never buy (page bonus, team trades only):", blocked)
     busy = [t for t in b.my_threads()["threads"] if t["with"] == DEALER and t["status"] == "open"]
     if busy:
-        print(f"Abuela already has an open conversation with us (thread {busy[0]['id']}).")
+        print(f"{DEALER} already has an open conversation with us (thread {busy[0]['id']}).")
     if args.dry_run or (busy and not args.resume_cap):
         return
+
+    halted = []  # a negotiation raised: its thread is closed, no new one opens this run
 
     def score():
         sc = b.me().get("score") or {}
         return {k: sc.get(k) for k in ("negotiating", "neg_points", "ladder_points")}
 
     def done_one(t, label):
+        if t["status"] == "error":
+            halted.append(label)
+            log({"event": "halt", "deal": label, "error": t.get("error")})
+            return False
         before = done_one.last
         after = score()
         log({"event": "score", "deal": label, "status": t["status"], "before": before, "after": after})
@@ -206,15 +319,26 @@ def main() -> None:
     def buy_round(limit):
         n = 0
         for gain, value, ref in buys:
-            if n >= limit or ref in bought:
+            if n >= limit or halted:
+                break
+            if ref in bought:
                 continue
-            cap = min(int(value - MIN_GAIN), max(0, b.me()["cash"] - CASH_FLOOR))
+            m = b.me()
+            room = max(0, m["cash"] - CASH_FLOOR)
+            if room < 1:
+                log({"event": "skip_buy", "card": ref, "reason": "cash floor", "cash": m["cash"]})
+                break
+            v, hard, why = check_buy(b, ref, cards, m)
+            bought.add(ref)
+            if why:
+                log({"event": "skip_buy", "card": ref, "reason": why})
+                continue
+            cap = min(int(v - MIN_GAIN), hard, room)
             if args.max_buy:
                 cap = min(cap, args.max_buy)
             if cap < 1:
-                log({"event": "skip_buy", "card": ref, "reason": "cash floor", "cash": b.me()["cash"]})
-                break
-            bought.add(ref)
+                log({"event": "skip_buy", "card": ref, "reason": f"cap {cap}: value {v:g}, packs held {packs_held(m)}"})
+                continue
             n += done_one(negotiate(b, {"buy": {"card": ref}}, "buy", cap), f"buy {ref}")
         return n
 
@@ -223,16 +347,31 @@ def main() -> None:
         cheapest card items on the menu, never above 90% of list. A dealer deal never adds neg_points (GAME.md)."""
         menu = b.dealer(DEALER).get("menu", {}).get("sells", [])
         n = 0
-        cat = b.catalog()
-        held = {a["ref"] for a in b.me()["assets"] if a["kind"] == "card"}
+        m0 = b.me()
+        aff = m0.get("affinity") or {}
+        held = {a["ref"] for a in m0["assets"] if a["kind"] == "card"}
         for m in sorted(menu, key=lambda m: m.get("list_price", 0)):
             if "rarity" not in m:
                 continue  # packs: their value to us is unknown, and buying above value subtracts (LOG finding 13)
-            options = sorted(((b.value(c["id"])["your_value"], c["id"]) for s in cat["sets"] if s.get("released")
-                              for c in s["cards"] if c["rarity"] == m["rarity"] and c["id"] not in held), reverse=True)
-            while n < limit and options:
-                value, card = options.pop(0)
-                cap = min(int(m.get("list_price", 0) * 0.9), int(value) - 1, max(0, b.me()["cash"] - CASH_FLOOR))
+            options = []
+            for card, c in cards.items():
+                if not c["released"] or c["rarity"] != m["rarity"] or card in held:
+                    continue
+                v = value_of(b, card)
+                if aff.get(c["set"]) is None or page_bonus(v, c["book"], aff[c["set"]]):
+                    log({"event": "skip_ladder", "card": card, "reason": f"page bonus: value {v:g} (team trades only)"})
+                    continue
+                options.append((v, card))
+            options.sort(reverse=True)
+            while n < limit and options and not halted:
+                _, card = options.pop(0)
+                me_now = b.me()
+                value, hard, why = check_buy(b, card, cards, me_now)  # a deal just made may make it a page's last card
+                if why:
+                    log({"event": "skip_ladder", "card": card, "reason": why})
+                    continue
+                cap = min(int(m.get("list_price", 0) * 0.9), int(value) - 1, hard,
+                          max(0, me_now["cash"] - CASH_FLOOR))
                 if cap < 1:
                     break  # never above our private value
                 topic = {"buy": {"card": card}}
@@ -245,23 +384,42 @@ def main() -> None:
     bought, deals = set(), 0
     if args.ladder:
         deals += ladder_round(args.deals)
-        log({"event": "done", "deals": deals, "cash": b.me()["cash"], "score": score()})
+        log({"event": "done", "deals": deals, "cash": b.me()["cash"], "score": score(), "halted": halted})
         return
     if busy:  # pick it up: whoever opened it has stopped
         t0 = busy[0]
         side = "buy" if "buy" in t0["topic"] else "sell"
-        t = negotiate(b, t0["topic"], side, args.resume_cap, tid=t0["id"])
-        deals += t["status"] == "deal"
+        cap, why = args.resume_cap, None
+        if side == "buy":  # the same hard limits as a fresh buy
+            card = (t0["topic"].get("buy") or {}).get("card")
+            if card is None:
+                why = "not a single card (never a pack)"
+            else:
+                _, hard, why = check_buy(b, card, cards, b.me())
+                cap = min(cap, hard) if hard is not None else cap
+                if not why and cap < 1:
+                    why = f"cap {cap} below 1 P"
+        if why:
+            log({"event": "refuse_resume", "thread": t0["id"], "topic": t0["topic"], "reason": why})
+            try:
+                b.close_thread(t0["id"])
+            except BazaarError as e:
+                log({"event": "close_failed", "thread": t0["id"], "error": e.code})
+        else:
+            t = negotiate(b, t0["topic"], side, cap, tid=t0["id"])
+            deals += t["status"] == "deal"
+            if t["status"] == "error":
+                halted.append("resume")
     if not args.no_buy:
         deals += buy_round(args.deals)  # what we can afford now, best expected gain first
     for a in (sells if args.sell_spares else []):  # spares are worth ~1 P to us: cash in, value up
-        if deals >= args.deals:
+        if deals >= args.deals or halted:
             break
         cap = max(args.min_sell, int(a["your_value"]) + MIN_GAIN)
         deals += done_one(negotiate(b, {"sell": {"assets": [a["id"]]}}, "sell", cap), f"sell {a['ref']}")
     if not args.no_buy:
         deals += buy_round(args.deals - deals)  # the rest, with the cash the sales brought in
-    log({"event": "done", "deals": deals, "cash": b.me()["cash"], "score": score()})
+    log({"event": "done", "deals": deals, "cash": b.me()["cash"], "score": score(), "halted": halted})
 
 
 if __name__ == "__main__":

@@ -15,12 +15,14 @@ raised to T's live bid, never below our copy value + 3. Gain = price − copy va
 BUY: team H (outside the top 4) holds X that a page we build misses. Bid = H's live ask or book, never above
 value − 3 (they accept our bid, so no fee for us). Gain = value − price, capped at 50. Non-collectors rank first.
 
-Alert only if gain ≥ 20 or it completes our page, the signal is ≤ 30 game minutes old, ≤ 3 Dani alerts per hour,
+Alert only if gain ≥ 20 or it completes our page, the signal is ≤ 30 game minutes AND ≤ 60 real minutes old (the game
+clock pauses overnight: real time comes from the collector's (tick, wall time) samples), ≤ 3 Dani alerts per hour,
 45 min per team, 2 h per (team, card); a SELL also needs the buyer to lack ≤ 1 other card of that set (seen in the last
 2 game hours): a heuristic for "ours is its last or second-to-last card" (plan §4A), since a 40 P ask won't fill
 otherwise; a team that signalled only one of several gaps still passes. `--any-gap` turns it off. Everything goes to intel/opportunities.md with its status.
-Execution (not --dry-run): post the addressed offer (expires after ~20 min), record its id, THEN notify. At most 3
-live opportunity offers, cancelled after 20 min unfilled; cash floor env CASH_FLOOR (default 200).
+Execution (not --dry-run): post the addressed offer (expires after ~20 min), record its id and save the state, THEN
+notify. At most 3 live opportunity offers, cancelled after 20 min unfilled; cash floor env CASH_FLOOR (default 200),
+net of the cash in ALL our open bids (/api/me/offers, every process; live mode only).
 
 Reads: public keyless routes (clock, feed, El Rastro's board, leaderboard, catalog), data/feed.jsonl + data/board.json
 from the collector when fresh (< 2 min); the team key only for /api/me, /api/me/value (and /api/me/offers when live).
@@ -28,6 +30,7 @@ Every request is paced to ≤ 1 per second.
 """
 import argparse
 import bisect
+import itertools
 import json
 import math
 import os
@@ -47,6 +50,7 @@ URL = os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai")
 
 FRESH_S = 120              # collector files younger than this are used instead of fetching
 CONF_H = 0.5               # a signal older than 30 game minutes is low confidence: listed, never alerted
+WALL_STALE_S = 3600        # ... or older than 60 real minutes, whatever the game clock says (it pauses overnight)
 MIN_GAIN, GAIN_CAP = 20, 50
 SCORE_GAP, TOP_N = 10, 4   # feeding rule: sell only to teams ≥ 10 below us and outside the top 4
 ALERTS_PER_H, TEAM_COOLDOWN_S, PAIR_COOLDOWN_S = 3, 45 * 60, 2 * 3600
@@ -171,6 +175,53 @@ class GameTime:
         return self.hours[i] + (tick - self.ticks[i]) * self.step
 
 
+class WallClock:
+    """Real time at which a tick happened, from the collector's (tick, wall time) samples in data/me.jsonl and
+    data/leaderboard.jsonl: the first sighting of the last sampled tick at or before it, plus tick_seconds per tick since,
+    never later than the first sighting of a later tick. The game clock pauses overnight, so Friday's tick 159 stays
+    Friday evening at Saturday 09:00, when the game clock calls it a minute old. With no sample at or before the tick
+    (no collector history) it counts back from now, as if the clock never paused."""
+
+    def __init__(self, samples, now, now_tick, tick_seconds=60.0):
+        first = {}
+        for tick, wall in samples:
+            if isinstance(tick, (int, float)) and isinstance(wall, (int, float)) and wall <= now:
+                first[tick] = min(wall, first.get(tick, wall))
+        self.ticks = sorted(first)
+        self.walls = [first[k] for k in self.ticks]
+        self.later = list(itertools.accumulate(reversed(self.walls), min))[::-1]  # earliest sighting at index >= i
+        self.now, self.now_tick, self.step = now, now_tick, tick_seconds
+
+    @classmethod
+    def from_files(cls, data_dir, now, now_tick, tick_seconds=60.0):
+        samples = []
+        for name in ("me.jsonl", "leaderboard.jsonl"):
+            path = Path(data_dir) / name
+            if not path.exists():
+                continue
+            with path.open() as f:
+                for line in f:
+                    try:
+                        r = json.loads(line)
+                        samples.append((r.get("tick"), r.get("t")))
+                    except (ValueError, AttributeError):
+                        continue  # blank or half-written line
+        return cls(samples, now, now_tick, tick_seconds)
+
+    def at(self, tick):
+        i = bisect.bisect_right(self.ticks, tick)
+        if i:
+            est = self.walls[i - 1] + (tick - self.ticks[i - 1]) * self.step
+        else:
+            est = self.now - max(0, self.now_tick - tick) * self.step
+        if i < len(self.ticks):
+            est = min(est, self.later[i])
+        return min(est, self.now)
+
+    def age_s(self, tick):
+        return max(0.0, self.now - self.at(tick))
+
+
 def want_cards(want):
     return list(want.get("cards") or []) + [t.split(":", 1)[1] for t in want.get("types") or [] if t.startswith("card:")]
 
@@ -290,8 +341,10 @@ def buy_price(book, value, live_ask=None):
 # ---------------------------------------------------------------------------------------------------- the engine
 
 def find_opportunities(*, events, board, lb, cat, me, value_of, build=BUILD, cash_floor=200, now_tick, gt,
-                       committed_cash=0, now_h=None, our_listed=()):
-    """Every SELL / BUY pair the signals support, with hard-limit and feeding checks; status filled in later."""
+                       committed_cash=0, now_h=None, our_listed=(), wall=None):
+    """Every SELL / BUY pair the signals support, with hard-limit and feeding checks; status filled in later.
+    `wall` (a WallClock) also makes a feed signal older than WALL_STALE_S real seconds low confidence; live board
+    offers are standing now, so they never are."""
     cards, sets = {}, {}
     for s in cat["sets"]:
         page = [c for c in s["cards"] if c.get("page", c["rarity"] in BASE_ASK)]
@@ -324,11 +377,14 @@ def find_opportunities(*, events, board, lb, cat, me, value_of, build=BUILD, cas
     for (team, card), sig in last.items():
         c, t = cards[card], info.get(team, {"team": team, "name": team, "score": None, "rank": None})
         age_h = max(0.0, now_h - sig["hours"])
+        wall_age = None if sig["live"] or wall is None else wall.age_s(sig["tick"])
+        wall_stale = wall_age is not None and wall_age > WALL_STALE_S
         gap = round(ours - t["score"], 2) if t.get("score") is not None else None
         base = {"team": team, "team_name": t.get("name", team), "rank": t.get("rank"), "their_score": t.get("score"), "gap": gap,
                 "card": card, "card_name": c["name"], "set": c["set"], "set_name": sets[c["set"]]["name"],
                 "rarity": c["rarity"], "src": sig["src"], "live": sig["live"], "age_min": round(age_h * 60),
-                "confident": age_h <= CONF_H, "reasons": []}
+                "wall_age_min": None if wall_age is None else round(wall_age / 60), "wall_stale": wall_stale,
+                "confident": age_h <= CONF_H and not wall_stale, "reasons": []}
         if sig["kind"] == "lack" and card in held:
             copies = [a for a in held[card] if a["id"] not in listed and a.get("your_value") is not None]
             spare = len(copies) >= 2 or (copies and c["set"] not in protected)
@@ -395,7 +451,8 @@ def choose_alerts(opps, state, now):
             o["status"] = (f"listed only: they also lack {', '.join(o['other_lacks'])}: not their last or "
                            f"second-to-last {o['set']} card")
         elif not o["confident"]:
-            o["status"] = f"listed only: signal {o['age_min']} game-min old"
+            o["status"] = (f"listed only: signal {o['wall_age_min']} real min old (game clock paused?)"
+                           if o.get("wall_stale") else f"listed only: signal {o['age_min']} game-min old")
         elif any(x["team"] == o["team"] and x["card"] == o["card"] for x in live):
             o["status"] = "offer already live"
         elif o["side"] == "BUY" and any(x.get("side") == "BUY" and x["card"] == o["card"] for x in live + picked):
@@ -500,7 +557,8 @@ def reconcile(api, state, events, me_id, now, held_refs=()):
     """Live mode: drop tracked offers that closed (filled or expired), cancel ours unfilled after 20 min and any bid for
     a card we now hold (e.g. the trader bought it). Returns (asset ids in our open offers, so a copy listed by another
     process is never offered twice; cash in ALL our open bids, from every process, for the cash floor)."""
-    mine = [o for o in api.my_offers().get("offers", []) if o.get("maker") == me_id and o.get("status") == "open"]
+    mine = [o for o in api.my_offers().get("offers", []) if o.get("maker") == me_id
+            and o.get("status", "open") in ("open", "queued")]  # a queued offer locks its cash too
     open_ids = {o["id"] for o in mine}
     for x in state.get("live", []):
         if x.get("status") != "live":
@@ -530,16 +588,18 @@ def reconcile(api, state, events, me_id, now, held_refs=()):
 def write_md(path, opps, state, ctx, *, dry_run, now, clock, src):
     L = [f"# Opportunities (auto, {time.strftime('%H:%M', time.localtime(now))}, game tick {clock.get('tick')}, "
          f"t {clock.get('t_hours')} h){' · DRY RUN: nothing posted, nobody notified' if dry_run else ''}", "",
-         f"Alert rule: gain ≥ {MIN_GAIN} or it completes our page · signal ≤ {int(CONF_H * 60)} game min old · "
+         f"Alert rule: gain ≥ {MIN_GAIN} or it completes our page · signal ≤ {int(CONF_H * 60)} game min and "
+         f"≤ {WALL_STALE_S // 60} real min old · "
          f"≤ {ALERTS_PER_H} alerts/h · team 45 min · team+card 2 h · sells only to teams ≥ {SCORE_GAP} below us "
          f"({ctx['ours']}) and outside the top 4 ({', '.join(sorted(ctx['top']))}). Data: {src}.", "",
          f"## Ranked now ({len(opps)})", "",
-         "| # | side | team | card | price | our value | gain | signal | age (game min) | status |",
+         "| # | side | team | card | price | our value | gain | signal | age (game / real min) | status |",
          "|---|---|---|---|---|---|---|---|---|---|"]
     for i, o in enumerate(opps, 1):
         L.append(f"| {i} | {o['side']} | {o['team_name']} (#{o['rank']}, {o['their_score']}) | {o['card']} {o['rarity']}"
                  f"{' · COMPLETES' if o['completes'] else ''} | {o['price'] if o['price'] is not None else '-'} | {o['our_value']:g} | {o['gain']:g} | "
-                 f"{o['src']} | {o['age_min']}{' live' if o['live'] else ''} | {o.get('status', '')} |")
+                 f"{o['src']} | {o['age_min']}{' live' if o['live'] else ''}"
+                 f"{'' if o.get('wall_age_min') is None else ' / ' + str(o['wall_age_min'])} | {o.get('status', '')} |")
     L += ["", "## Alerts (newest first)", ""]
     for a in sorted(state.get("alerts", []), key=lambda a: -a["ts"])[:20]:
         L.append(f"- {time.strftime('%H:%M', time.localtime(a['ts']))} {a['side']} {a['card']} · {a['team']} at "
@@ -567,6 +627,7 @@ def run_once(api, *, dry_run, now=None, state_path=STATE, out_path=OUT, data_dir
     lb, cat, me = api.leaderboard(), api.catalog(), api.me()
     gt = GameTime(events, float(clock.get("tick_seconds") or 60))
     now_tick = clock.get("tick") or (events[-1]["tick"] if events else 0)
+    wall = WallClock.from_files(data_dir, now, now_tick, float(clock.get("tick_seconds") or 60))
     held_refs = {a["ref"] for a in me.get("assets", []) if a.get("kind") == "card"}
     our_listed, open_bid_cash = reconcile(api, state, events, me["id"], now, held_refs) if not dry_run else (set(), 0)
     committed = max(open_bid_cash, sum(x["price"] for x in state.get("live", [])
@@ -585,7 +646,7 @@ def run_once(api, *, dry_run, now=None, state_path=STATE, out_path=OUT, data_dir
 
     opps, ctx = find_opportunities(events=events, board=board, lb=lb, cat=cat, me=me, value_of=value_of, build=build,
                                    cash_floor=cash_floor, now_tick=now_tick, gt=gt, committed_cash=committed,
-                                   now_h=clock.get("t_hours"), our_listed=our_listed)
+                                   now_h=clock.get("t_hours"), our_listed=our_listed, wall=wall)
     ctx["values"] = values
     picked = choose_alerts(opps, state, now)
     ttl_ticks = math.ceil(OFFER_TTL_S / float(clock.get("tick_seconds") or 60)) + 1
@@ -607,6 +668,7 @@ def run_once(api, *, dry_run, now=None, state_path=STATE, out_path=OUT, data_dir
             o["status"] = f"post failed: {e.code}"
             log(f"opportunities: post {o['side']} {o['card']} to {o['team']} failed: {e.code} {e.message[:100]}")
             break  # e.g. the team's 12 listings this tick are used up: try next run
+        r = r if isinstance(r, dict) else {}
         oid = r.get("id") or (r.get("offer") or {}).get("id")
         if oid is None:  # posted, but we can't point anyone at it: no alert
             o["status"] = "posted without an offer id in the response: check /api/me/offers"

@@ -550,3 +550,87 @@ def test_pacing_and_keyless_public_client(monkeypatch):
     t[0] += 0.3
     api._paced(lambda: None)
     assert slept == [pytest.approx(0.7)]
+
+
+# ------------------------------------------------------------------------------------------------ wall-clock freshness
+
+def test_wall_clock_keeps_fridays_ticks_old_after_the_overnight_pause():
+    fri = NOW - 10 * 3600                                     # Friday 22:56, ten real hours ago
+    wc = op.WallClock([(150, fri - 300), (155, fri), (155, fri + 30)], now=NOW, now_tick=159, tick_seconds=30)
+    assert wc.at(159) == pytest.approx(fri + 4 * 30)          # forward from the last sighting before it
+    assert wc.age_s(159) > op.WALL_STALE_S and wc.age_s(140) > op.WALL_STALE_S
+    sat = op.WallClock([(155, fri), (160, NOW - 60)], now=NOW, now_tick=162, tick_seconds=30)
+    assert sat.age_s(161) == pytest.approx(30) and sat.age_s(159) > op.WALL_STALE_S
+    assert op.WallClock([], now=NOW, now_tick=159, tick_seconds=60).age_s(150) == pytest.approx(540)  # no history
+
+
+def samples_dir(tmp_path, f, rows):
+    d = data_dir(tmp_path, f)
+    (d / "me.jsonl").write_text("".join(json.dumps({"t": t, "tick": k, "cash": 252}) + "\n" for k, t in rows))
+    (d / "leaderboard.jsonl").write_text("{half a line\n")    # unreadable lines are skipped
+    return d
+
+
+def test_signals_seen_hours_ago_in_real_time_are_not_alerted(tmp_path):
+    f = single_gap_fixture()
+    opps, picked = run(tmp_path, FakeApi(f), True, data=samples_dir(tmp_path, f, [(150, NOW - 10 * 3600)]))
+    assert picked == []
+    o = find(opps, "SELL", "t07", "SAL-02")
+    assert not o["confident"] and o["wall_stale"] and o["status"].startswith("listed only: signal")
+    assert "real min old" in o["status"]
+    assert all(o["confident"] for o in opps if o["live"])      # a standing board offer is current
+    assert " / 6" in (tmp_path / "opportunities.md").read_text()   # real minutes shown next to game minutes
+
+
+def test_signals_seen_minutes_ago_still_alert(tmp_path):
+    f = single_gap_fixture()
+    _, picked = run(tmp_path, FakeApi(f), True, data=samples_dir(tmp_path, f, [(155, NOW - 4 * 60)]))
+    assert [(o["team"], o["card"]) for o in picked] == [("t07", "SAL-02")]
+
+
+# ------------------------------------------------------------------------------------------------ crash after a post
+
+def test_a_crash_after_posting_never_reposts(tmp_path):
+    api = FakeApi(single_gap_fixture())
+
+    def boom(*a, **k):
+        raise RuntimeError("notifier down")
+    with pytest.raises(RuntimeError):
+        run(tmp_path, api, False, notifier=boom)
+    state = json.loads((tmp_path / "state.json").read_text())
+    assert state["live"][0]["offer"] == 9001 and state["alerts"][0]["team"] == "t07"
+    api2 = FakeApi(single_gap_fixture(), open_offers=[{"id": 9001, "maker": "t05", "status": "open"}])
+    _, picked = run(tmp_path, api2, False, notifier=lambda *a, **k: None, now=NOW + 60)
+    assert picked == [] and "list_offer" not in api2.names()
+
+
+# ------------------------------------------------------------------------------------------------ cash floor, every bid
+
+class ValueApi(FakeApi):
+    def __init__(self, values, **kw):
+        super().__init__(**kw)
+        self.values = values
+
+    def value(self, card):
+        self._c("value", card)
+        return {"card": card, "your_value": self.values.get(card, 11.0)}
+
+
+def ret_buy_run(tmp_path, open_offers):
+    tmp_path.mkdir(parents=True, exist_ok=True)
+    f = ret_page_fixture()
+    api = ValueApi({"RET-10": 149.9}, f=f, open_offers=open_offers)
+    opps, _ = op.run_once(api, dry_run=False, now=NOW, state_path=tmp_path / "state.json",
+                          out_path=tmp_path / "opportunities.md", data_dir=data_dir(tmp_path, f), cash_floor=100,
+                          notifier=lambda *a, **k: None, log=lambda *a: None)
+    return api, find(opps, "BUY", "t09", "RET-10")
+
+
+def test_cash_floor_counts_bids_posted_by_other_processes(tmp_path):
+    api, o = ret_buy_run(tmp_path / "a", [])
+    assert o["reasons"] == [] and any(c[0] == "list_offer" and c[1][1] == {"cards": ["RET-10"]} for c in api.calls)
+    other = {"id": 4242, "maker": "t05", "status": "open", "give": {"cash": 100}, "want": {"cards": ["LAV-09"]}}
+    for status in ("open", "queued"):                         # 252 − 100 locked − 70 < 100
+        api, o = ret_buy_run(tmp_path / status, [{**other, "status": status}])
+        assert any("cash floor 100 (cash 152)" in r for r in o["reasons"])
+        assert "list_offer" not in api.names()

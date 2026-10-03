@@ -1,6 +1,8 @@
-"""The trader loop (agents/trader/loop.py): offer sources, the three shapes, venue rule, page protection, dry-run.
-Mocked SDK, no network."""
+"""The trader loop (agents/trader/loop.py): offer sources, the three shapes, venue rule, page protection, dry-run,
+and the safety rules (our open offers, --build, feeding, paused clock, retries, value lookups). Mocked SDK, no network."""
 import importlib.util
+import json
+import time
 from pathlib import Path
 
 import pytest
@@ -35,22 +37,39 @@ VENUES = [
     {"venue": "v03", "owner": "t13", "status": "open", "fee_bps": 100, "fee_per_card": 0},
     {"venue": "v09", "owner": ME, "status": "open", "fee_bps": 0, "fee_per_card": 0},
 ]
-TEAMS = [{"team": t, "rank": i + 1, "score": 30 - i} for i, t in enumerate(["t13", "t12", "t17", "t10", "t06", ME])]
+TEAMS = [{"team": t, "rank": i + 1, "score": 30 - i} for i, t in enumerate(["t13", "t12", "t17", "t10", "t06", ME])] + [
+    {"team": "t04", "rank": 7, "score": 20},   # 5 points below us: near
+    {"team": "t09", "rank": 8, "score": 5}]    # 20 points below us: far, safe to sell to
 
 
 class FakeBazaar:
-    def __init__(self, boards=None, mine=(), values=None, cash=300, assets=ASSETS, album=ALBUM):
+    """`listed`: offer id -> team, what GET /api/feed's offer.listed events say. By default every offer on a board
+    or addressed to us was listed by t09 (20 points below us), so a sale to it is allowed."""
+
+    def __init__(self, boards=None, mine=(), values=None, cash=300, assets=ASSETS, album=ALBUM, listed=None):
         self.boards = {"rastro": [], **(boards or {})}
         self.mine, self.values = list(mine), {"MAL-01": 7.0, "MAL-08": 17.5, "LAV-11": 0, **(values or {})}
         self._me = {"id": ME, "tick": 200, "cash": cash, "assets": list(assets), "affinity": AFF, "album": album,
                     "venue": None}
-        self.accepted, self.value_calls, self.board_calls = [], [], []
+        self.listed = listed if listed is not None else {
+            o["id"]: "t09" for o in [*self.mine, *(o for v in self.boards.values() for o in v)] if o.get("maker") != ME}
+        self.accepted, self.value_calls, self.board_calls, self.feed_calls = [], [], [], 0
+        self.offers_error = self.refuse = None
+        self.me_calls = 0
 
     def me(self):
+        self.me_calls += 1
         return self._me
 
     def my_offers(self):
+        if self.offers_error:
+            raise loop.BazaarError(self.offers_error)
         return {"offers": self.mine}
+
+    def feed(self, limit=150):
+        self.feed_calls += 1
+        return {"events": [{"type": "offer.listed", "actor": t, "payload": {"offer": {"id": i}}}
+                           for i, t in self.listed.items()]}
 
     def venues(self):
         return {"venues": VENUES}
@@ -70,6 +89,8 @@ class FakeBazaar:
 
     def accept(self, offer_id, assets=None):
         self.accepted.append((offer_id, assets))
+        if self.refuse:
+            raise loop.BazaarError(self.refuse)
         return {"ok": True}
 
 
@@ -79,23 +100,30 @@ def bid(oid, cash, ref, venue="rastro", to=None, maker="m1"):
             "give": {"cash": cash, "assets": [], "types": []}, "want": {"cash": 0, "assets": [], "types": [f"card:{ref}"]}}
 
 
-def ask(oid, ref, cash, venue="rastro", aid=900, rarity="common"):
+RARITY = {"MAL-08": "uncommon", "MAL-06": "uncommon"}  # every other test card is a common
+
+
+def ask(oid, ref, cash, venue="rastro", aid=900, rarity=None):
     """They sell a card for cash (we buy)."""
     return {"id": oid, "maker": "m2", "to": None, "venue": venue, "status": "open",
-            "give": {"cash": 0, "assets": [{"id": aid, "kind": "card", "ref": ref, "rarity": rarity}], "types": []},
+            "give": {"cash": 0, "assets": [{"id": aid, "kind": "card", "ref": ref, "rarity": rarity or RARITY.get(ref, "common")}],
+                     "types": []},
             "want": {"cash": cash, "assets": [], "types": []}}
 
 
 def swap(oid, give_refs, want_refs, venue="rastro"):
     return {"id": oid, "maker": "m3", "to": None, "venue": venue, "status": "open",
             "give": {"cash": 0, "types": [],
-                     "assets": [{"id": 800 + i, "kind": "card", "ref": r, "rarity": "common"} for i, r in enumerate(give_refs)]},
+                     "assets": [{"id": 800 + i, "kind": "card", "ref": r, "rarity": RARITY.get(r, "common")}
+                                for i, r in enumerate(give_refs)]},
             "want": {"cash": 0, "assets": [], "types": [f"card:{r}" for r in want_refs]}}
 
 
 @pytest.fixture(autouse=True)
 def hermetic(tmp_path, monkeypatch):
     monkeypatch.setattr(loop, "LOG", tmp_path / "trader.jsonl")
+    monkeypatch.setattr(loop, "BOARD", tmp_path / "board.json")   # absent unless a test writes it
+    monkeypatch.setattr(loop, "FEED", tmp_path / "feed.jsonl")
     monkeypatch.setattr(loop, "should_hold_accept", lambda b, tick=None: (False, "test: no duel"))
 
 
@@ -245,3 +273,248 @@ def test_dry_run_never_accepts():
     assert best["offer"] == 70 and b.accepted == []
     text = loop.LOG.read_text()
     assert '"event": "dry_run"' in text and '"would_accept"' in text and '"event": "candidate"' in text
+
+
+# ------------------------------------------------------------------ 1. copies in our own open offers
+
+def our_ask(oid, *asset_ids, status="open"):
+    return {"id": oid, "maker": ME, "to": None, "venue": "rastro", "status": status,
+            "give": {"cash": 0, "assets": [{"id": a, "kind": "card"} for a in asset_ids], "types": []},
+            "want": {"cash": 50, "assets": [], "types": []}}
+
+
+def test_copy_in_our_open_offer_is_never_given():
+    b = FakeBazaar(boards={"rastro": [bid(80, 20, "SAL-02")]}, mine=[our_ask(700, 69)])
+    run(b)
+    assert b.accepted == [(80, [485])]          # 69 is promised in our ask 700: the other copy goes
+    b = FakeBazaar(boards={"rastro": [bid(81, 60, "MAL-02")]}, mine=[our_ask(701, 61)])
+    assert run(b) is None and b.accepted == []  # our only MAL-02 is in our ask
+
+
+def test_our_offer_makes_the_free_copy_the_last_one():
+    album = {"pages": [{"set": "SAL", "have": 9, "of": 10, "complete": False}]}
+    b = FakeBazaar(boards={"rastro": [bid(82, 20, "SAL-02")]}, mine=[our_ask(702, 69)], album=album)
+    assert run(b) is None and b.accepted == []  # 485 is now our last free SAL-02 of a 9/10 page
+
+
+def test_unreadable_my_offers_skips_the_tick():
+    b = FakeBazaar(boards={"rastro": [bid(83, 60, "MAL-02"), ask(84, "MAL-08", 1), swap(85, ["MAL-08"], ["SAL-02"])]})
+    b.offers_error = "network"
+    assert run(b) is None and b.accepted == [] and b.value_calls == []
+    assert '"skip_tick"' in loop.LOG.read_text()
+
+
+# ------------------------------------------------------------------ 2. --build and LAV
+
+RET_CHA = [*ASSETS, card(901, "RET-03", "common", 11.0), card(902, "CHA-02", "common", 16.0),
+           card(903, "CHA-02", "common", 4.0)]
+
+
+def test_build_sets_keep_their_last_copy():
+    b = FakeBazaar(boards={"rastro": [bid(90, 100, "RET-03")]}, assets=RET_CHA)
+    assert run(b) is None and b.accepted == []           # last RET-03, RET is being built
+    b = FakeBazaar(boards={"rastro": [bid(91, 30, "CHA-02")]}, assets=RET_CHA)
+    run(b)
+    assert b.accepted == [(91, [903])]                   # the spare CHA-02 can go
+    b = FakeBazaar(boards={"rastro": [bid(92, 100, "RET-03")]}, assets=RET_CHA)
+    run(b, "--build", "CHA")
+    assert b.accepted == [(92, [901])]                   # RET no longer built: free to sell
+
+
+def test_lav_last_copy_kept_even_on_an_open_page():
+    album = {"pages": [{"set": "LAV", "have": 5, "of": 10, "complete": False}]}
+    assets = [card(904, "LAV-05", "common", 13.0)]       # book x 1.3: no page bonus, page far from complete
+    b = FakeBazaar(boards={"rastro": [bid(93, 40, "LAV-05")]}, assets=assets, album=album)
+    assert run(b, "--build", "") is None and b.accepted == []
+
+
+def test_build_sets_are_kept_in_swaps_too():
+    b = FakeBazaar(boards={"rastro": [swap(94, ["MAL-08"], ["RET-03"])]}, assets=RET_CHA)
+    assert run(b) is None and b.accepted == []
+
+
+# ------------------------------------------------------------------ 3. feeding rule
+
+def write_board(tmp_path, teams, age=0):
+    (tmp_path / "board.json").write_text(json.dumps(
+        {"t": time.time() - age, "me": ME, "offers": [{"id": i, "team": t} for i, t in teams.items()]}))
+
+
+def test_no_sale_to_a_top4_bidder_named_by_board_json(tmp_path):
+    write_board(tmp_path, {100: "t13"})
+    b = FakeBazaar(boards={"rastro": [bid(100, 30, "MAL-06")]})   # 30 - 3 - 17.5 = 9.5 clears the bar
+    assert run(b) is None and b.accepted == [] and b.feed_calls == 0
+    run(FakeBazaar(boards={"rastro": [bid(100, 30, "MAL-06")]}), "--dry-run")
+    cand = [e for e in events() if e["event"] == "candidate"][0]
+    assert cand["bidder"] == "t13" and "top 4" in cand["skip"] and not cand["ok"]
+
+
+def test_stale_board_json_falls_back_to_the_feed(tmp_path):
+    write_board(tmp_path, {101: "t09"}, age=300)                   # says a safe team, but 5 min old
+    b = FakeBazaar(boards={"rastro": [bid(101, 30, "MAL-06")]}, listed={101: "t12"})
+    assert run(b) is None and b.accepted == [] and b.feed_calls == 1
+
+
+def test_local_feed_file_names_the_bidder_without_a_request(tmp_path):
+    (tmp_path / "feed.jsonl").write_text(json.dumps(
+        {"id": 1, "type": "offer.listed", "actor": "t17", "payload": {"offer": {"id": 102}}}) + "\n")
+    b = FakeBazaar(boards={"rastro": [bid(102, 30, "MAL-06")]}, listed={})
+    assert run(b) is None and b.accepted == [] and b.feed_calls == 0
+
+
+def test_unknown_or_near_bidder_gets_no_page_closer_price():
+    # MAL-06 is an uncommon (book 25): 1.5 x book = 37.5
+    b = FakeBazaar(boards={"rastro": [bid(103, 40, "MAL-06")]}, listed={})          # unknown bidder, 40 >= 37.5
+    assert run(b) is None and b.accepted == []
+    b = FakeBazaar(boards={"rastro": [bid(104, 36, "MAL-06")]}, listed={})          # unknown, 36 < 37.5: fine
+    run(b)
+    assert b.accepted == [(104, [119])]
+    b = FakeBazaar(boards={"rastro": [bid(105, 40, "MAL-06")]}, listed={105: "t04"})  # 5 points below us
+    assert run(b) is None and b.accepted == []
+    b = FakeBazaar(boards={"rastro": [bid(106, 40, "MAL-06")]}, listed={106: "t09"})  # 20 below: fine
+    run(b)
+    assert b.accepted == [(106, [119])]
+
+
+def test_live_feed_read_at_most_once_per_tick():
+    b = FakeBazaar(boards={"rastro": [bid(107, 30, "MAL-06"), bid(108, 31, "MAL-06"), bid(109, 20, "SAL-02")]},
+                   listed={})
+    run(b)
+    assert b.feed_calls == 1
+
+
+def test_swap_into_a_top4_team_is_skipped():
+    b = FakeBazaar(boards={"v01": [swap(110, ["MAL-08"], ["SAL-02"], venue="v01")]}, listed={110: "t10"})
+    assert run(b) is None and b.accepted == []
+
+
+# ------------------------------------------------------------------ 5. retries
+
+def test_rate_refusal_is_retried_next_tick_a_gone_one_is_not():
+    st, args = loop.State(), loop.parse_args([])
+    b = FakeBazaar(boards={"rastro": [ask(120, "MAL-08", 5)]})
+    b.refuse = "wait_for_tick"
+    loop.step(b, args, st)
+    assert 120 not in st.tried
+    b.refuse = "gone"
+    loop.step(b, args, st)
+    assert 120 in st.tried and len(b.accepted) == 2
+    loop.step(b, args, st)
+    assert len(b.accepted) == 2                               # not tried again
+
+
+def test_accepted_offer_is_not_taken_twice():
+    st, args = loop.State(), loop.parse_args([])
+    b = FakeBazaar(boards={"rastro": [ask(121, "MAL-08", 5)]})
+    loop.step(b, args, st)
+    loop.step(b, args, st)
+    assert b.accepted == [(121, None)]
+
+
+# ------------------------------------------------------------------ 6. value lookups
+
+def test_no_value_lookup_for_a_buy_that_cannot_clear_the_bar():
+    b = FakeBazaar(boards={"rastro": [ask(130, "MAL-08", 20),            # worth at most 17.5 to us
+                                      ask(131, "MAL-06", 3, aid=901)]})  # our 2nd copy: at most 25% of 17.5
+    assert run(b) is None and b.value_calls == []
+
+
+def test_last_missing_card_of_a_page_is_always_looked_up():
+    album = {"pages": [{"set": "MAL", "have": 9, "of": 10, "complete": False}]}
+    b = FakeBazaar(boards={"rastro": [ask(132, "MAL-08", 100)]}, album=album, cash=500, values={"MAL-08": 120.0})
+    run(b)
+    assert b.value_calls == ["MAL-08"] and b.accepted == [(132, None)]   # 120 - 100 - 6 = 14
+
+
+# ------------------------------------------------------------------ 4. the main loop: clock, errors, SDK settings
+
+class Stop(BaseException):
+    """Ends main()'s endless loop from inside a test (not an Exception, so main doesn't catch it)."""
+
+
+class ClockBazaar(FakeBazaar):
+    def __init__(self, clocks, **kw):
+        super().__init__(**kw)
+        self.clocks, self.me_error = list(clocks), None
+
+    def clock(self):
+        return {"tick": 200, "paused": False, "doors": "open"}
+
+    def wait_tick(self):
+        x = self.clocks.pop(0)
+        if isinstance(x, Exception):
+            raise x
+        return x
+
+    def me(self):
+        if self.me_error:
+            e, self.me_error = self.me_error, None
+            raise e
+        return super().me()
+
+
+OPEN = {"tick": 201, "paused": False, "doors": "open"}
+CLOSED = {"tick": 201, "paused": True, "doors": "closed"}
+
+
+def run_main(monkeypatch, fake, argv=(), stop_after=3, clock=None):
+    built, sleeps = {}, []
+
+    def make(url, key, **kw):
+        built.update(kw)
+        return fake
+
+    def sleep(s):
+        sleeps.append(s)
+        if len(sleeps) >= stop_after:
+            raise Stop
+
+    monkeypatch.setenv("BAZAAR_KEY", "tk-test")
+    monkeypatch.setattr(loop, "Bazaar", make)
+    monkeypatch.setattr(loop, "pace", lambda b, gap: b)
+    monkeypatch.setattr(loop.time, "sleep", sleep)
+    if clock:
+        monkeypatch.setattr(fake, "clock", lambda: clock)
+    try:
+        loop.main(list(argv))
+    except Stop:
+        pass
+    return built, sleeps
+
+
+def events(path=None):
+    return [json.loads(x) for x in (path or loop.LOG).read_text().splitlines()]
+
+
+def test_paused_clock_sleeps_and_scans_nothing(monkeypatch):
+    fake = ClockBazaar([CLOSED, CLOSED, CLOSED], boards={"rastro": [ask(140, "MAL-08", 5)]})
+    built, sleeps = run_main(monkeypatch, fake, clock=CLOSED)
+    assert sleeps == [30, 30, 30] and fake.me_calls == 0 and fake.accepted == []
+    assert [e["event"] for e in events()] == ["closed"]                # logged once, not every 30 s
+    assert built["wait_on_tick"] is False                              # no silent SDK retry past the arbiter
+
+
+def test_loop_survives_errors_and_waits_for_the_next_tick(monkeypatch):
+    fake = ClockBazaar([loop.BazaarError("network", "GET /api/clock"), OPEN, CLOSED],
+                       boards={"rastro": [ask(141, "MAL-08", 5)]})
+    fake.me_error = KeyError("assets")                                 # the first step crashes
+    _, sleeps = run_main(monkeypatch, fake, stop_after=3)
+    kinds = [(e["event"], e.get("code")) for e in events()]
+    assert ("error", "KeyError") in kinds and ("error", "network") in kinds
+    assert sleeps == [5, 5, 30]                                        # short pause after each error, no spin
+    assert fake.accepted == [(141, None)]                              # the open tick still traded
+
+
+def test_dry_run_once_still_evaluates_while_closed(monkeypatch, tmp_path):
+    monkeypatch.setattr(loop, "ROOT", tmp_path)
+    fake = ClockBazaar([], boards={"rastro": [ask(142, "MAL-08", 5)]})
+    _, sleeps = run_main(monkeypatch, fake, argv=["--dry-run", "--once"], clock=CLOSED)
+    log = events(tmp_path / "logs" / "trader-dry.jsonl")
+    assert sleeps == [] and fake.accepted == [] and fake.me_calls == 1
+    assert log[0]["event"] == "clock" and log[1]["would_accept"]["offer"] == 142
+
+
+def test_live_once_while_closed_does_nothing(monkeypatch):
+    fake = ClockBazaar([])
+    _, sleeps = run_main(monkeypatch, fake, argv=["--once"], clock=CLOSED)
+    assert sleeps == [] and fake.me_calls == 0
