@@ -1,20 +1,17 @@
-# Scout (claude-sonnet-5-5, Sat 11:30)
+# Scout (claude-sonnet-5-5, Sat 11:35)
 
 ## Top 3 actions now
-
-1. **Stop all trader accepts before 11:50 (Duels I), per the 10:35 directive.** Executor: operator stops loop.py at 11:50 and dealer threads at 11:40. Book.py keeps posting as maker. Evidence: the 34 duels have all finished, and the 11:30 metrics show 0 live duels. A missed duel deal is 0. The score fell 7.1 in 15 min (22.4, #7), so a collision would hurt more. Effect: protects the duel share (40% of Negotiating's duel part). Confidence: high.
-
-2. **Re-address MAL-06 and MAL-07 to t17 at 26 (our value 17.5, +8.5 each) or to t15 at 21.** Executor: operator, by hand on El Rastro. Evidence: t17 bids MAL-09 at 70. t17 is a MAL/SAL buyer (MAL×3, SAL×3 in the metrics) and is 10.4 below us in intel/teams.md. We hold MAL-06 and MAL-07 now (offers 6112 at 20 to t17, 5813 at 21 to t15). t09 bids MAL-06 at 17 and bought MAL×2 plus MAL-07 at 17. Effect: ~+3 to +8 neg_points per fill, and the maker route pays no fee. Confidence: med. Check first that neither team is within 10 of us, because the board has changed since the 11:02 rankings.
-
-3. **Sell LAV-02, LAV-03 and LAV-04 spares to t09 or t07 at 9-10 (value 3.2).** Executor: operator via book.py. Evidence: t09 just bought LAV-04 from t18 at 9 (tick 353) and has a LAV need; asks by others sit at LAV-04 10 (×4) and LAV-03 9 (×2). Our asks to t07 at 5-6 are below the going rate. Effect: ~+4 to +6 each (price − 3.2). Confidence: med. Avoid t14, who collects LAV and may be a closer. Check that t09 and t07 are not within 10 of us.
+1. **Re-post MAL-06/MAL-07 to a collector on El Rastro (Operator, `trade.py`/book.py).** Offers 6223 (MAL-06 → t17 at 20) and 6240 (MAL-07 → t15 at 20) are live. Evidence: t17 buys MAL×3 and bids 70 for MAL-09; t15 buys MAL×3 and is in the 14.4 band, 8 below us. Both are collectors and outside the top 4. Our values are 17.5, so the gain is +2.5 each as maker with no fee. Effect: ≈ +5 neg_points in total. Confidence: med. Keep them as they are; do not widen to non-collectors, since the v10 trade at tick 398 showed that sales to non-collectors cost points.
+2. **Keep the SAL-08 (24, t03) and LAT-08 (23, t03) asks, and do not add a public ask.** Evidence: t03 bought SAL-01 from us at 7 (+4.7, tick 351) and collects SAL/LAT/LAV. Team 9 paid 20 for SAL-08 at tick 380 and t15 paid 26 for SAL-07 at tick 398. Our values are 22.5 and 12.5, so SAL-08 at 24 gains +1.5 and LAT-08 at 23 gains +10.5 (+10.5 only if t03 accepts). Effect: up to +12. Confidence: med for LAT-08, low for SAL-08 (clearing is 20-26).
+3. **Raise the t07 and t01 commons asks to the bids on the board (Operator).** Asks by others cluster at 9-10 (LAV-04 10 ×4, LAV-03 9 ×2, MAL-02 10 ×2). Our 6224 LAV-04 is at 10 and 6242 LAV-03 at 5. Re-address LAV-03 to t07 at 9, since t07 collects LAV/LAT and is #17, 11.9 below us. Our value is 3.2, so the gain moves from +1.8 to about +5.8. MAL-02 at 8 to t01 is fine. Effect: +4. Confidence: low-med, because no fill has come from t07 in 50 minutes (log 11:32).
 
 ## What the climbing teams are doing
-- **Team 1 (+7.0/h)** buys rares from teams: SAL-10 from t01 to t06 at 76, and LAT-09 t01→t16 at 68. It trades few cards (17 deals) at the top of the rare range.
-- **Team 10 (+5.4/h)** buys LAV×2 from teams. It also sells (SAL-07 to t15 at 26) and pushes public bids on v07.
-- **Team 16 (+5.5/15 min)** got LAV-10 sold to t06 at 82 and LAT-09 at 68. It sells rares for 68-82 against Chato's ~89.
-- **Team 13 (#1)** ranks high on team-trade volume (MAL×6 plus SAL×2 buys) and lobbies for v03 trades.
+- **Team 16 (+5.5 in 15 min, +5.4 in 60 min)** is buying rares for LAT/SAL. It paid 68 for LAT-09 (t01 → t16, tick 386) and sold LAV-10 to t06 at 82 (tick 375). That is rare arbitrage at 68-82 against clearing 70.
+- **Team 1 (+7.0 in 60 min)** buys MAL×4 and SAL×4. It sold SAL-10 for 76 (tick 376) and LAT-09 for 68 (tick 386). It converts rares into cash and cheap sets.
+- **Team 6 (+4.1)** has 17 team trades. It bought LAV-10 at 82 and SAL-10 at 76, then resold MAL-07 at 17 and MAL-04 at 8 to t09. Volume plus dumping non-collected sets.
+- **Team 9 (+2.2)** collects RET/LAV/SAL. It has bids of 8 on RET-02 to RET-05 and bought SAL-08, SAL-05 and MAL-04 in ticks 380-383.
 
 ## Threats
-- **Team 13 and Team 18 lead (27.7, 26.6).** Any SAL/MAL page-closer sold to t13 feeds the leader. Keep MAL/SAL sales addressed to t17/t15/t03 only.
-- **Our drop to #7 (22.4) comes with cash stuck at 114.** Public bids on SAL-04 and MAL-03 are small and tie up cash near the 100 floor.
-- **Rare prices on El Rastro (SAL-09 64-68, MAL-09 70, RET-10 36 bid by t02) are not clearing against us.** t02 bids 36 for RET-10, which we hold at 149.9 value; we should not sell it.
+- **Team 13 (#1, 27.7)** is the leader and dumps RET. Do not sell RET to the top 4. The leader's venue v03 still collects value created on it.
+- **Our mm_points are −5.2** after the t10 → t15 trade on v10. Another non-collector trade on v10 would push us lower. We fell from #3 to #7 (−7.1 in 15 min).
+- **Competition for RET-10:** t02 bids 38 for RET-10, which we already hold. This is not a threat. There is no open RET rare ask below Chato's 77 list, so there is no RET purchase to make.
