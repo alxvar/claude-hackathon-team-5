@@ -7,12 +7,14 @@ ceil(5%) + 1 P per card. Epics and legendaries outside pages count too (RET-11 i
 score a trade can add is capped at 50 [V, n=2], so the alert gives the gain and the capped gain, the cash it needs and
 whether that keeps cash >= CASH_FLOOR. Once per offer, to ntfy `lucas`. It never buys and never writes to the game.
 
-Arbitrage (Chief, Sat 15:50): an ask for card X at P1 on one venue below a LIVE bid for X at P2 on another, with
-P2 - P1 - both fees (we take both legs) >= ARB_MIN. A team-to-team flip scores the spread whatever our value (buy:
-V - P1, sell: P2 - V). The sell leg follows the feeding rule: the bidder outside the top 5, and a card that may close
-its page (it holds >= 8 of the 10 page cards, feed) only to a team >= 10 points below us. No speculative inventory:
-only while the bid is live. Once per (ask, bid): an `ARB ...` line in logs/bargains.log, intel/arbitrage.md, and
-notify("operator") (stderr unless NTFY_OPERATOR is set). The Operator executes both legs (2 accepts, 2 ticks).
+Arbitrage (Chief, Sat 15:50): an ask for card X at P1 on one venue below a LIVE bid for X at P2 on another. Each leg
+scores at our value V of one more copy, capped at 50 per trade: buy = min(V - P1 - f1, 50), sell = min(P2 - V - f2,
+50); flagged when their sum >= ARB_MIN (without the cap it is P2 - P1 - fees; review 16:15). Never a card that would
+close our page (its V carries the bonus). Sell leg, the feeding rule failing closed: the bidder outside the top 5,
+and a page card (01-10) only to a team >= 10 points below us (an unknown score blocks). The best ask per bid, an
+unknown seller skipped, never our own venue (RULES: no trades on it). No speculative inventory: only while the bid is
+live; the alert gives the loss if leg 2 fails. Once per (ask, bid): an `ARB ...` line in logs/bargains.log,
+intel/arbitrage.md, and notify("operator") (stderr unless NTFY_OPERATOR is set). The Operator executes both legs.
 
     source .env && python3 -u tools/bargains.py            # every tick (tools/daemons.sh start bargains)
     source .env && python3 tools/bargains.py --once --dry  # print what it would send
@@ -86,32 +88,53 @@ def feed_view(path: Path = FEED) -> tuple[dict, dict]:
     return makers, held
 
 
-def arbitrage(asks: dict, bids: dict, *, makers: dict, held: dict, teams: list, me: str) -> list[dict]:
-    """Every (ask, bid) pair for the same card on different venues with net spread >= ARB_MIN, best first.
-    asks/bids: {card: [{offer, venue, price, fee}]} (fee: what we pay taking that leg)."""
+def page_card(card: str) -> bool:
+    try:
+        return 1 <= int(card.split("-")[1]) <= 10
+    except (IndexError, ValueError):
+        return False
+
+
+def arbitrage(asks: dict, bids: dict, *, makers: dict, held: dict, teams: list, me: str, value=None,
+              closes_ours=lambda card, v: False) -> list[dict]:
+    """The best ask per live bid for the same card on another venue, scored per leg at our value V (capped at
+    SCORE_CAP each), best first. asks/bids: {card: [{offer, venue, price, fee}]} (fee: what we pay taking that leg).
+    `value(card)` -> V or None (no V: the uncapped spread)."""
     top = {t["team"] for t in teams[:ARB_TOP]}
     score = {t["team"]: t.get("score") for t in teams}
     ours = score.get(me)
     out = []
     for card, bl in bids.items():
-        st = card.split("-")[0]
         for b in bl:
             bidder = makers.get(b["offer"])
             if not bidder or bidder == me or bidder in top:
                 continue
-            in_set = sum(1 for (t, c), ids in held.items() if t == bidder and ids and c.split("-")[0] == st
-                         and c[-2:].isdigit() and 1 <= int(c[-2:]) <= 10)
-            if in_set >= 8 and (ours is None or score.get(bidder) is None or ours - score[bidder] < ARB_GAP):
-                continue                              # may close its page and it is within 10 points of us
+            gap = None if ours is None or score.get(bidder) is None else ours - score[bidder]
+            if page_card(card) and (gap is None or gap < ARB_GAP):
+                continue                              # feeding rule, failing closed: holdings are a lower bound
+            best = None
             for a in asks.get(card, []):
                 seller = makers.get(a["offer"])
-                if a["venue"] == b["venue"] or seller == bidder or seller == me:
+                if a["venue"] == b["venue"] or not seller or seller == bidder or seller == me:
                     continue
                 net = b["price"] - a["price"] - a["fee"] - b["fee"]
-                if net >= ARB_MIN:
-                    out.append({"card": card, "ask": a, "bid": b, "seller": seller, "bidder": bidder, "net": net,
-                                "need": a["price"] + a["fee"]})
-    out.sort(key=lambda x: -x["net"])
+                if net >= ARB_MIN and (best is None or net > best["net"]):
+                    best = {"card": card, "ask": a, "bid": b, "seller": seller, "bidder": bidder, "net": net,
+                            "need": a["price"] + a["fee"]}
+            if best is None:
+                continue
+            v = value(card) if value else None
+            if v is not None:
+                if closes_ours(card, v):
+                    continue                          # its bonus scores only once, and only if we keep it
+                buy = min(v - best["ask"]["price"] - best["ask"]["fee"], SCORE_CAP)
+                sell = min(best["bid"]["price"] - v - best["bid"]["fee"], SCORE_CAP)
+                best.update(v=v, buy=round(buy, 1), sell=round(sell, 1), score=round(buy + sell, 1),
+                            if_leg2_fails=round(buy, 1))
+                if best["score"] < ARB_MIN:
+                    continue
+            out.append(best)
+    out.sort(key=lambda x: -x.get("score", x["net"]))
     return out
 
 
@@ -203,7 +226,8 @@ class Watcher:
         """One pass over every board: the bargains found (alerted unless dry or already alerted)."""
         me = self.api.me()
         mine = {o["id"] for o in self.api.my_offers().get("offers") or [] if o.get("maker") == me["id"]}
-        venues = {v["venue"]: v for v in self.api.venues().get("venues") or [] if v.get("status") == "open"}
+        venues = {v["venue"]: v for v in self.api.venues().get("venues") or []        # never our own venue (RULES)
+                  if v.get("status") == "open" and v.get("owner") != me["id"]}
         venues.setdefault(HOUSE, None)
         teams = sorted(self.api.leaderboard().get("teams") or [], key=lambda t: -(t.get("score") or 0))
         top = {t["team"] for t in teams[:4]}
@@ -225,7 +249,8 @@ class Watcher:
                             {"offer": o["id"], "venue": vid, "price": int(give["cash"]),
                              "fee": fee(int(give["cash"]), 1, bps, per)})
                     elif len(cards) == 1 and len(give.get("assets") or []) == 1 and want.get("cash") \
-                            and not give.get("cash") and not want.get("assets") and not want.get("types"):
+                            and not give.get("cash") and not want.get("assets") and not want.get("types") \
+                            and not want.get("cards"):
                         asks.setdefault(cards[0].get("ref"), []).append(
                             {"offer": o["id"], "venue": vid, "price": int(want["cash"]),
                              "fee": fee(int(want["cash"]), 1, bps, per)})
@@ -257,14 +282,25 @@ class Watcher:
             self.alert(b)
             self.state["alerted"].append(b["offer"])
         if bids and asks:
-            if self.now() - self._feed_at > 60:
-                self._feed, self._feed_at = feed_view(self.feed_path), self.now()
-            for x in arbitrage(asks, bids, makers=self._feed[0], held=self._feed[1], teams=teams, me=me["id"]):
-                key = f"{x['ask']['offer']}:{x['bid']['offer']}"
-                if not dry and key not in self.state["arbs"]:
-                    self.alert_arb(x, venues, me)
-                    self.state["arbs"].append(key)
-            self.state["arbs"] = self.state["arbs"][-500:]
+            try:
+                if self.now() - self._feed_at > 60:
+                    self._feed, self._feed_at = feed_view(self.feed_path), self.now()
+                aff = me.get("affinity") or {}
+
+                def closes_ours(card, v):           # V above book x m: it carries our page bonus
+                    from collectors import book_of
+                    return v > book_of(card) * aff.get(card.split("-")[0], 1.0) + 0.5
+                for x in arbitrage(asks, bids, makers=self._feed[0], held=self._feed[1], teams=teams, me=me["id"],
+                                   value=self.value, closes_ours=closes_ours):
+                    key = f"{x['ask']['offer']}:{x['bid']['offer']}"
+                    if dry:
+                        self.log(f"ARB (dry) {x['card']}: {json.dumps(x)[:300]}")
+                    elif key not in self.state["arbs"]:
+                        self.alert_arb(x, venues, me)
+                        self.state["arbs"].append(key)
+                self.state["arbs"] = self.state["arbs"][-500:]
+            except Exception as e:                    # noqa: BLE001  the bargain state is still saved
+                self.log(f"bargains: arbitrage failed ({e!r})"[:300])
         if not dry:
             save_state(self.state_path, self.state)
         return found
@@ -293,15 +329,18 @@ class Watcher:
         def how(leg, side):
             auto = ((venues.get(leg["venue"]) or {}).get("rules") or {}).get("mechanism") == "auto"
             if auto:
-                return (f"post a {'bid' if side == 'buy' else 'ask'} at {leg['price']} P on {leg['venue']} (auto stall: "
-                        f"the engine crosses it)")
+                return (f"post {'a bid' if side == 'buy' else 'an ask'} at {leg['price']} P on {leg['venue']} (auto "
+                        f"stall: the engine crosses it; one more tick, fee unverified)")
             return f"accept offer {leg['offer']} on {leg['venue']}"
-        title = f"ARB {x['card']}: buy {a['price']} ({a['venue']}) → sell {b['price']} ({b['venue']}): +{x['net']} net"
+        gain = x.get("score", x["net"])
+        title = f"ARB {x['card']}: buy {a['price']} ({a['venue']}) → sell {b['price']} ({b['venue']}): +{gain:g}"
         body = (f"1) BUY: {how(a, 'buy')} (seller {x['seller'] or '?'}, fee {a['fee']}). "
                 f"2) next tick, SELL: {how(b, 'sell')} (bidder {x['bidder']}, fee {b['fee']}). "
                 f"Needs {x['need']} P now (cash {me.get('cash', 0)}, floor {self.cash_floor}). Spread "
-                f"{b['price']} - {a['price']} - fees {a['fee'] + b['fee']} = +{x['net']}. Check the bid is still live "
-                f"before buying; no speculative inventory.")
+                f"{b['price']} - {a['price']} - fees {a['fee'] + b['fee']} = +{x['net']}"
+                + (f"; scored at our value {x['v']:g}: buy {x['buy']:+g}, sell {x['sell']:+g} (cap {SCORE_CAP} each); "
+                   f"if leg 2 fails we keep the card at {x['if_leg2_fails']:+g}" if "v" in x else "")
+                + ". Check the bid is still live before buying; no speculative inventory.")
         self.log(f"{title} | {body}")
         try:
             new = not self.arb_out.exists()

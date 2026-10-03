@@ -50,7 +50,9 @@ OUT, STATE, FEED = ROOT / "intel" / "v10-radar.md", ROOT / "run" / "v10_radar_st
 SUGGEST_OUT, SUGGEST_EVERY_S = ROOT / "intel" / "v10-suggestions.md", 1800
 PARTNER_TEAMS = ("t10", "t15", "t03")
 SUGGEST_VC, SUGGEST_LINES, SUGGEST_TOP = 5.0, 3, 5
-CLEARING = {"common": 9, "uncommon": 24, "rare": 70}   # GAME.md clearing prices: the price to suggest
+CLEARING = {"common": 9, "uncommon": 24.5, "rare": 70}   # GAME.md clearing prices: the price to suggest
+CLEARING_SET = {("LAT", "common"): 7.5, ("LAT", "uncommon"): 21.5, ("MAL", "uncommon"): 26}   # GAME.md, per set
+DESK = ("dani", "lucas")   # Dani is the human deal desk (Lucas, Sat 16:10): every "message a team" alert goes to both
 MULT_FILE = ROOT / "intel" / "multipliers.json"   # the Analyst's estimates: {team: {SET: {m, lo, hi, conf, why}}}
 MIN_VC = 5.0          # est. value created for a buyer that hasn't shown it lacks the card
 COPY = (1.0, 0.25, 0.10)   # what the 1st, 2nd, 3rd copy of a card is worth (catalog values.copy_marginals)
@@ -280,10 +282,13 @@ def suggestions(partner: str, *, teams, held, mult, cards, last, prof, collector
         ranked = [b for b in buyers_for(ask, seller=partner, teams=teams, top=top, ours=ours, last=last, prof=prof,
                                         mult=mult, collectors=collectors, cards=cards, held=held)
                   if b["vc"] > SUGGEST_VC]
-        if ranked:
+        rarity, st = cards[card]["rarity"], cards[card]["set"]
+        if ranked and rarity in CLEARING:              # epics and legendaries: no clearing price, no suggestion
             b = ranked[0]
+            worth = cards[card]["book"] * b["m_buyer"] * b["c_buyer"]   # never suggest above the buyer's value
+            price = max(1, round(min(CLEARING_SET.get((st, rarity), CLEARING[rarity]), worth)))
             out.append({"card": card, "n": len(ids), "buyer": b["team"], "name": b["name"], "vc": b["vc"],
-                        "price": CLEARING.get(cards[card]["rarity"], cards[card]["book"])})
+                        "price": price})
     out.sort(key=lambda x: -x["vc"])
     return out[:SUGGEST_LINES]
 
@@ -320,6 +325,7 @@ class Radar:
             self.state = {"alerted": []}
         self.cards, self._cat_at, self.mult, self._mult_at = {}, 0.0, {}, 0.0
         self._suggest_at = 0.0
+        self._clock: dict = {}
 
     def scan(self) -> list[dict]:
         now = time.time()
@@ -332,7 +338,8 @@ class Radar:
         asks = [o for o in board if (o.get("give") or {}).get("assets") and (o.get("want") or {}).get("cash")
                 and not (o.get("give") or {}).get("cash") and not o.get("to")]
         events = self.events_fn()
-        tick = self.pub._call("GET", "/api/clock").get("tick") or (events[-1]["tick"] if events else 0)
+        self._clock = self.pub._call("GET", "/api/clock") or {}
+        tick = self._clock.get("tick") or (events[-1]["tick"] if events else 0)
         direct = open_addressed(events, tick)
         if not asks and not direct:
             return []
@@ -352,7 +359,8 @@ class Radar:
                                 collectors=col, cards=self.cards, held=held)
             for b in ranked[:2]:
                 found.append({"offer": a["id"], "seller": seller, "price": (a.get("want") or {}).get("cash"),
-                              "card": [x.get("ref") for x in a["give"]["assets"]][0], **b})
+                              "card": [x.get("ref") for x in a["give"]["assets"]][0],
+                              "expires_tick": a.get("expires_tick"), **b})
         for o in direct:
             m = addressed_match(o, teams=teams, mult=self.mult, cards=self.cards, held=held)
             if m:
@@ -369,6 +377,17 @@ class Radar:
             self.state_path.write_text(json.dumps(self.state))
         return found
 
+    def until(self, expires_tick, tick) -> str:
+        """'~HH:MM' wall time an offer expires (the clock's tick length); '?' when unknown."""
+        secs = float(self._clock.get("tick_seconds") or 30)
+        if expires_tick is None or tick is None:
+            return "?"
+        return "~" + time.strftime("%H:%M", time.localtime(time.time() + max(0, expires_tick - tick) * secs))
+
+    def desk(self, title: str, body: str, **kw) -> None:
+        for who in DESK:
+            self.notifier(who, title, body, **kw)
+
     def alert(self, f: dict, tick) -> None:
         c = self.cards.get(f["card"], {})
         text = dm(f["name"], c.get("name", f["card"]), f["card"], f["price"], c.get("set", set_of(f["card"])))
@@ -383,8 +402,9 @@ class Radar:
             fh.write(f"- {time.strftime('%a %H:%M')} · tick {tick} · offer {f['offer']} · {f['card']} at {f['price']} P "
                      f"(seller {f['seller'] or '?'}) → **{f['name']}** (#{f['rank']}) · {why} · DM: \"{text}\"\n")
         if self.notifier:
-            self.notifier("lucas", f"v10: DM {f['name']} about {f['card']} ({f['price']} P)",
-                          f"{why}.\nDM to send:\n{text}", priority=4, tags=["handshake"])
+            self.desk(f"v10: DM {f['name']} about {f['card']} ({f['price']} P)",
+                      f"Offer {f['offer']} on v10, valid until {self.until(f.get('expires_tick'), tick)}.\n{why}.\n"
+                      f"DM to send:\n{text}", priority=4, tags=["handshake"])
 
 
     def suggest(self, out: Path = None) -> dict:
@@ -392,6 +412,8 @@ class Radar:
         out = out or SUGGEST_OUT
         if not self.cards:
             self.cards = card_index(self.pub._call("GET", "/api/catalog"))
+        if not self._hub:                             # the first run after a start: the hub model too, not 1.0
+            self._hub, self._mult_at = self.mult_fn() or {}, time.time()
         self.mult = load_mult(self._hub, self.mult_file)
         teams = sorted(self.pub._call("GET", "/api/leaderboard").get("teams") or [], key=lambda t: -(t.get("score") or 0))
         names = {t["team"]: t.get("name", t["team"]) for t in teams}
@@ -414,13 +436,20 @@ class Radar:
                 continue
             L += [""] + [f"- {x['card']} (holds {x['n']}) → {x['name']} ({x['buyer']}) at ~{x['price']} P · est. value "
                          f"created +{x['vc']:g}" for x in lines]
-            L += ["", f"Message: \"{suggestion_text(lines, self.cards)}\"", ""]
-            if self.notifier and not self.dry:
-                self.notifier("lucas", f"v10 suggestions for {names.get(p, p)}", suggestion_text(lines, self.cards),
-                              priority=3, tags=["handshake"])
+            text = suggestion_text(lines, self.cards)
+            L += ["", f"Message: \"{text}\"", ""]
+            sent = self.state.setdefault("suggested", {})
+            if self.notifier and not self.dry and sent.get(p) != text:   # only when it changed
+                until = time.strftime("%H:%M", time.localtime(time.time() + SUGGEST_EVERY_S))
+                self.desk(f"v10 suggestions for {names.get(p, p)}",
+                          f"For {names.get(p, p)} (no offer yet: they list it on v10). Valid until ~{until} (next "
+                          f"refresh).\n{text}", priority=3, tags=["handshake"])
+                sent[p] = text
         if not self.dry:
             out.parent.mkdir(parents=True, exist_ok=True)
             out.write_text("\n".join(L) + "\n")
+            self.state_path.parent.mkdir(parents=True, exist_ok=True)
+            self.state_path.write_text(json.dumps(self.state))
         return found
 
     def alert_addressed(self, f: dict, tick) -> None:
@@ -439,8 +468,9 @@ class Radar:
             fh.write(f"- {time.strftime('%a %H:%M')} · tick {tick} · addressed offer {f['offer']} · {why} · "
                      f"{'DM' if paged else 'not paged, DM'}: \"{text}\"\n")
         if paged:
-            self.notifier("lucas", f"v10: {f['maker_name']} has an offer for {f['name']} ({f['card']} {f['price']} P)",
-                          f"{why}.\nDM {f['name']} to accept:\n{text}", priority=5, tags=["handshake"])
+            self.desk(f"v10: {f['maker_name']} has an offer for {f['name']} ({f['card']} {f['price']} P)",
+                      f"Offer {f['offer']} on v10, valid until {self.until(f.get('expires_tick'), tick)}.\n{why}.\n"
+                      f"DM {f['name']} to accept:\n{text}", priority=5, tags=["handshake"])
 
 
 def main(argv=None) -> None:

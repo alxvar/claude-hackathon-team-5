@@ -74,13 +74,14 @@ def test_the_buyer_that_lacks_the_card_and_values_the_set_gets_the_dm(tmp_path):
     assert [f["team"] for f in found] == ["t16"]                      # not t13 (top 4), t17 (page, 3 below us),
     f = found[0]                                                       # t06 (holds it), t10 (dumps SAL)
     assert f["seller"] == "t04" and f["lacks"] and f["vc"] == 15.0     # 25 × (1.3 − 0.7)
-    (channel, title, body), = sent
-    assert channel == "lucas" and "Team 16" in title
+    assert [c for c, _, _ in sent] == ["dani", "lucas"]               # Dani is the deal desk (16:10): both
+    channel, title, body = sent[1]
+    assert "Team 16" in title and "Offer 900 on v10, valid until" in body
     assert "Hi Team 16! There's Card 7 (SAL-07) for 24 P on the market v10 (0% fee), in case you need it for your " \
            "Salamanca page." in body
     assert "Team 16" in (tmp_path / "radar.md").read_text()
     r.scan()
-    assert len(sent) == 1                                              # once per (ask, buyer)
+    assert len(sent) == 2                                              # once per (ask, buyer)
 
 
 def test_dry_and_empty_board(tmp_path):
@@ -163,11 +164,11 @@ def test_an_addressed_ask_pages_lucas_with_a_dm_to_the_addressee_only_when_it_cr
     good = vr.addressed_match(o, teams=teams, mult={"t17": {"SAL": 1.6}, "t10": {"SAL": 0.5}}, cards=r.cards, held={})
     assert good["side"] == "ask" and good["seller"] == "t10" and good["vc"] == 11.0
     r.alert_addressed(good, 12)
-    assert len(notes) == 1 and "Team 10 has an offer for you on our v10 stall" in notes[0][2]
-    assert "Hi Team 17!" in notes[0][2] and "13 P" in notes[0][2]
+    assert [n[0] for n in notes] == ["dani", "lucas"] and "Team 10 has an offer for you on our v10 stall" in notes[0][2]
+    assert "Hi Team 17!" in notes[0][2] and "13 P" in notes[0][2] and "Offer 8031 on v10, valid until ~" in notes[0][2]
     bad = vr.addressed_match(o, teams=teams, mult={"t17": {"SAL": 0.5}, "t10": {"SAL": 1.6}}, cards=r.cards, held={})
     r.alert_addressed(bad, 12)
-    assert len(notes) == 1 and "not paged" in logs[-1]                 # est. value created < 0: logged only
+    assert len(notes) == 2 and "not paged" in logs[-1]                 # est. value created < 0: logged only
 
 
 def test_an_addressed_bid_reads_the_maker_as_buyer():
@@ -194,10 +195,11 @@ def test_a_partner_s_2nd_copy_goes_to_the_best_buyer_outside_the_top_5():
              (("t14", 40), ("t13", 39), ("t18", 38), ("t12", 37), ("t02", 36), ("t05", 24), ("t16", 5), ("t17", 6))]
     held = {("t15", "SAL-06"): {501, 502}, ("t15", "SAL-07"): {503}}       # one 2-copy card; SAL-07 is its only copy
     lines = sugg(held, teams, {"t15": {"SAL": 1.45}, "t16": {"SAL": 0.8}, "t17": {"SAL": 0.6}, "t02": {"SAL": 1.6}})
-    assert [(x["card"], x["buyer"], x["price"]) for x in lines] == [("SAL-06", "t16", 24)]   # t02 is 5th: excluded
+    assert [(x["card"], x["buyer"], x["price"]) for x in lines] == [("SAL-06", "t16", 20)]   # t02 is 5th: excluded
+    # price: the clearing 24.5, capped at what SAL-06 is worth to Team 16 (25 x 0.8 = 20)
     assert lines[0]["vc"] > vr.SUGGEST_VC
     text = vr.suggestion_text(lines, vr.card_index(CATALOG))
-    assert text.startswith("Suggestions for v10") and "you hold 2" in text and "Team 16 at ~24 P" in text
+    assert text.startswith("Suggestions for v10") and "you hold 2" in text and "Team 16 at ~20 P" in text
 
 
 def test_no_line_below_plus_5_and_at_most_3_lines():

@@ -148,3 +148,39 @@ def test_a_scan_alerts_the_operator_once_per_pair(tmp_path):
     assert len(ops) == 1 and ops[0][1].startswith("ARB LAT-02: buy 9 (v07) → sell 20 (rastro): +9")
     assert "accept offer 1 on v07" in ops[0][2] and "accept offer 2 on rastro" in ops[0][2]
     assert "ARB LAT-02" in w.arb_out.read_text()
+
+
+def test_our_own_venue_is_never_scanned(tmp_path):
+    # Review 16:15 (blocker): RULES forbid trading on our own venue; a v10 bid would strand leg 1.
+    api = Api({"v10": [bid(2, "LAT-02", 20)], "v07": [ask(1, "LAT-02", 9, "common")], "rastro": [ask(3, "RET-12", 300)]},
+              venues=[{"venue": "v10", "status": "open", "owner": "t05", "fee_bps": 0, "fee_per_card": 0},
+                      {"venue": "v07", "status": "open", "owner": "t10", "fee_bps": 0, "fee_per_card": 0}])
+    api.leaderboard = lambda: {"teams": ARB_TEAMS}
+    w, sent = watcher(tmp_path, api)
+    w.feed_path = tmp_path / "none.jsonl"
+    w.scan()
+    assert not any(a[0] == "operator" for a, k in sent)
+    api.boards["v10"] = [ask(4, "RET-12", 100)]
+    assert all(b["venue"] != "v10" for b in w.scan())
+
+
+def test_each_leg_is_scored_at_our_value_capped_at_50():
+    asks = {"RET-11": [{"offer": 1, "venue": "v07", "price": 100, "fee": 0}]}
+    bids = {"RET-11": [{"offer": 2, "venue": "rastro", "price": 160, "fee": 9}]}
+    teams = ARB_TEAMS
+    # V 198: buy +98 -> 50, sell -47: 3 < 5, though the spread is +51
+    assert bg.arbitrage(asks, bids, makers={1: "t10", 2: "t16"}, held={}, teams=teams, me="t05",
+                        value=lambda c: 198.0) == []
+    x = bg.arbitrage(asks, bids, makers={1: "t10", 2: "t16"}, held={}, teams=teams, me="t05", value=lambda c: 120.0)
+    assert x[0]["buy"] == 20 and x[0]["sell"] == 31 and x[0]["score"] == 51 and x[0]["if_leg2_fails"] == 20
+    assert bg.arbitrage(asks, bids, makers={1: "t10", 2: "t16"}, held={}, teams=teams, me="t05", value=lambda c: 120.0,
+                        closes_ours=lambda c, v: True) == []                     # it would close our page
+
+
+def test_the_best_ask_per_bid_and_never_an_unknown_seller():
+    asks = {"LAT-02": [{"offer": 1, "venue": "v07", "price": 9, "fee": 0}, {"offer": 3, "venue": "v20", "price": 7,
+                                                                             "fee": 0}]}
+    _, bids = legs()
+    x = bg.arbitrage(asks, bids, makers={1: "t10", 3: "t03", 2: "t16"}, held={}, teams=ARB_TEAMS, me="t05")
+    assert [a["ask"]["offer"] for a in x] == [3]
+    assert bg.arbitrage(asks, bids, makers={2: "t16"}, held={}, teams=ARB_TEAMS, me="t05") == []
