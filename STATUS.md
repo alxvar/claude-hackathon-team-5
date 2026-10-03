@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 20:09** · tick 1188 (30 s/tick) · game hour 11.22 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 20:14** · tick 1198 (30 s/tick) · game hour 11.31 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,25 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 20:12 · operator · Team 4 deal (Chief/Lucas): t04 lists spares on v10; our NEW asks go to t04's **v05 'Gacela'** (0 bps, 0 per card, owner t04, not a rival [V]), except asks addressed to t04 (v15) · LAV-03 re-addressed → **t04 at 6** (17660, v15; t09 doesn't collect LAV) · MAL-02/MAL-05 → t15 cancelled (17300/17301; Team 15 holds both) and dropped from the book · kept: LAV-04 → t01 at 6 (17586), MAL-08 → t01 at 20 (17392), MAL-03 → t09 (17228) · swaps' venue list is code (PARTNERS → v15): Builder · 20:12 organisers: 'the game pauses in 2 minutes for a short announcement, about 10 minutes'
   - Sat 19:36 · operator · El Tablón posted a false 'all of Lavapiés reprinted tonight… sell spares now' (print runs are fixed) → one extra starter-broker ad (Chief), no reprint claim: 'Selling Lavapiés spares tonight? Post them on v10: 0% fee, no per-card charge, crossed every tick.' · our LAV page stays held
   - Sat 19:32 · operator · GUARDRAIL 19:40 v10 rebate noted (5 P per card a non-rival sells on v10 tonight, cap 30; settle at 22:45 by buying one of their cards at the owed amount, floor 85; only on the Market's tally + the Chief's go) · flagged to the Chief: the settlement trade scores ΔV − price − fee for us, so a cheap card at 15 on El Rastro ≈ −15 neg (−0.7 board); keep it ≈ 0 with v15 (fee 0) and a card we lack worth ≥ the owed amount
-  - Sat 19:29 · operator · LAV-04 unfilled at t04 (the book had stepped it 9 → 7) → switched to **t01 at 7** (16654, v15, floor 6) · MAL-08 → t01 at 24 (16001) still open
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 31.92 | 3 | 24.42 | 7.50 | 13.93 | 0.44 | 0.89 | 52 | 5 | 120 | 38/50 |
+| 31.80 | 3 | 24.30 | 7.50 | 13.93 | 0.44 | 0.89 | 52 | 5 | 120 | 38/50 |
 
-Leaderboard (snapshot at tick 1180; refreshes every few minutes):
+Leaderboard (snapshot at tick 1190; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 10 | 34.21 | 21.71 | 12.50 | 52 |
-| 2 | Team 6 | 32.54 | 20.64 | 11.90 | 57 |
-| 3 | Team 5 | 31.92 | 24.42 | 7.50 | 52 |
-| 4 | Team 18 | 30.15 | 22.65 | 7.50 | 37 |
-| 5 | Team 3 | 30.04 | 24.18 | 5.86 | 30 |
+| 1 | Team 10 | 34.11 | 21.61 | 12.50 | 52 |
+| 2 | Team 6 | 32.54 | 20.64 | 11.90 | 58 |
+| 3 | Team 5 | 31.80 | 24.30 | 7.50 | 52 |
+| 4 | Team 3 | 30.04 | 24.18 | 5.86 | 30 |
+| 5 | Team 18 | 30.03 | 22.53 | 7.50 | 37 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 11.65 | ~26 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~107 min | bench | The Market Test: every venue gets the same synthetic book |
-| 14.07 | ~171 min | day_closes | Closed until Sunday 09:00 |
-| 14.07 | ~171 min | day_opens | Sunday opens |
-| 14.65 | ~206 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
-| 15.00 | ~227 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
-| 16.65 | ~325 min (after today's close) | set_release | Chamberí released |
-| 16.65 | ~325 min (after today's close) | round | Round 3 starts |
+| 11.65 | ~21 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~102 min | bench | The Market Test: every venue gets the same synthetic book |
+| 14.07 | ~166 min | day_closes | Closed until Sunday 09:00 |
+| 14.07 | ~166 min | day_opens | Sunday opens |
+| 14.65 | ~201 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 15.00 | ~222 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 16.65 | ~321 min (after today's close) | set_release | Chamberí released |
+| 16.65 | ~321 min (after today's close) | round | Round 3 starts |
 
 ## Our dealer deals
 
