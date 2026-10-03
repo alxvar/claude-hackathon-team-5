@@ -24,6 +24,15 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 - **Market:** v14 stall, one trade all day (418); market 9.53 = 7.5 + VC ≈ 2.0 → room ≈ +3 to the cap.
 
 
+### Sat 21:58 · snapshot 1300 (Duels II running since 1239)
+- Board: **t10 38.36** · t06 32.55 · **us 30.85 (#3)** · t14 28.63. On 0.5·Fri + Sat (= 1.5 × board): **t10 57.54 · t06 48.82 ·
+  us 46.28** · t14 42.95. To finish #1 we'd need to beat t10 by > 11.3 points of Sunday's 60-point round; t06 by > 2.5.
+- **t10's Duels II edge [L]:** Saturday negotiating +5.6 since 1240, ≈ +2.5-3.5 of it from duels (windows without t10 deals:
+  +1.03, +1.14, +0.08, −0.27); ours −1.6 over the same windows (duel part graded below the field's rise + ladder erosion).
+  t10's duel part ≈ 2.3-3.0 board above ours.
+- t10 also flipped epics: SAL-11 from the Pícaros at 155 (1267) → sold to a team at 207 (1296); bought MAL-11 from a team at 195.
+- t06: RET-11 from the Pícaros at 137 → sold at 216 on El Rastro (1245); RET-10 sold 84, re-bought from the Pícaros at 58.
+
 ### Sat 19:41 · snapshot 1130
 - Board: **t10 34.02** · t06 32.80 · **us 31.92 (#3)** · t14 30.32 · t18 30.26 · t03 29.75.
 - **t10 keeps the SAL-rare cash loop + L4** [V feed]: Pilar SAL-09 84 (1101), Pícaros SAL-10 55 (1108), Pilar SAL-10 80 (1121),
