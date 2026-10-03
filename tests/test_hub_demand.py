@@ -172,3 +172,24 @@ def test_compute_runs_end_to_end_and_flags_rivals():
     sells = [o for o in out["opps"] if o["kind"] == "sell" and o["card"] == "LAT-09"]
     assert sells and all(o["price"] >= 3.5 + d.PARAMS["margin"] for o in sells)
     assert any(o["buyer"] == "t03" for o in sells)
+
+
+def test_backfilled_negative_ids_are_ingested_in_game_order_once():
+    """Lucas's Friday file had backfilled settlements as id -1; the hub stores them as -settlement. They must count,
+    sit after the real events of their tick, and never double a settlement that also has a real event."""
+    cat = catalog()
+    late = settlement(-3, "MAL-06", 7, "t01", "t02", 20, fee=2, tick=5)
+    late["payload"]["settlement"] = 3
+    real = settlement(50, "MAL-06", 7, "t01", "t02", 20, fee=2, tick=5)
+    real["payload"]["settlement"] = 3
+    listing = {"id": 49, "tick": 5, "t": 0.1, "type": "offer.listed", "payload": {"offer": {
+        "id": 9, "maker": "t01", "give": {"cash": 0, "assets": [{"id": 7, "ref": "MAL-06"}]}, "want": {"cash": 20}}}}
+    w = d.World()
+    w.ingest([late, real, listing], cat)
+    assert [o.kind for o in w.obs].count("team_buy") == 1      # one settlement, applied once
+    assert w.held("t02") == {"MAL-06": 1} and w.held("t01") == {}   # the listing came first, the trade after
+    assert w.max_id == 50 and len(w.seen_ids) == 3
+
+    w2 = d.World()
+    w2.ingest([late], cat)
+    assert w2.max_id == 0 and [o.kind for o in w2.obs] == ["team_buy", "team_sell"]

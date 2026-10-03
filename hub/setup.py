@@ -75,7 +75,7 @@ def main(argv=None):
         with env_path.open("a") as f:
             f.write("\n# The hub (Neon): written by `python -m hub.setup`. Share privately, never commit.\n")
             for k, v in new.items():
-                f.write(f"{k}={v}\n")
+                f.write(f'{k}="{v}"\n')   # quoted: the URL's "&" would break `source .env`
     print("schema applied; grants set;", f"new .env lines: {', '.join(new)}" if new else "roles and .env already set")
 
 

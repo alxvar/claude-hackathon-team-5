@@ -23,13 +23,25 @@ BATCH = 2000
 
 
 def classify(row: dict) -> str:
-    if isinstance(row.get("id"), int) and "type" in row and "payload" in row:
+    if "id" in row and "type" in row and "payload" in row:
         return "event"
     if "teams" in row and "tick" in row:
         return "leaderboard"
     if "tick" in row and ("cash" in row or "neg_points" in row):
         return "me"
     return "other"
+
+
+def event_id(row: dict, known_settlements: set):
+    """The id to store an event under, or None to skip it. Real ids are positive. Backfilled settlements in Lucas's
+    Friday file carry id -1: they get id = −settlement number, unless that settlement is already stored."""
+    i = row.get("id")
+    if isinstance(i, int) and not isinstance(i, bool) and i > 0:
+        return i
+    sid = (row.get("payload") or {}).get("settlement") if row.get("type") == "settlement" else None
+    if isinstance(sid, int) and sid > 0 and sid not in known_settlements:
+        return -sid
+    return None
 
 
 def leaderboard_teams(row: dict) -> list:
@@ -41,8 +53,11 @@ def leaderboard_teams(row: dict) -> list:
 
 
 def import_file(store: Store, path: Path, source: str) -> dict:
-    counts = {"event": 0, "event_new": 0, "leaderboard": 0, "me": 0, "other": 0, "bad": 0}
+    counts = {"event": 0, "event_new": 0, "no_id": 0, "leaderboard": 0, "me": 0, "other": 0, "bad": 0}
     events = []
+    with store._c().cursor() as cur:
+        cur.execute("select (payload->>'settlement')::bigint from hub.events where type = 'settlement'")
+        known_settlements = {r[0] for r in cur.fetchall()}
 
     def flush():
         if events:
@@ -62,7 +77,13 @@ def import_file(store: Store, path: Path, source: str) -> dict:
             kind = classify(row) if isinstance(row, dict) else "other"
             counts[kind] += 1
             if kind == "event":
-                events.append(row)
+                i = event_id(row, known_settlements)
+                if i is None:
+                    counts["no_id"] += 1
+                    continue
+                if row.get("type") == "settlement":
+                    known_settlements.add((row.get("payload") or {}).get("settlement"))
+                events.append({**row, "id": i})
                 if len(events) >= BATCH:
                     flush()
             elif kind == "leaderboard":
@@ -104,7 +125,8 @@ def main(argv=None):
         store = Store(source)
         c = import_file(store, path, source)
         store.reset()
-        print(f"{path}: {c['event']} events ({c['event_new']} new), {c['leaderboard']} leaderboard snapshots, "
+        print(f"{path}: {c['event']} events ({c['event_new']} new, {c['no_id']} without a usable id), "
+              f"{c['leaderboard']} leaderboard snapshots, "
               f"{c['me']} me rows, {c['other']} other, {c['bad']} unreadable")
 
 

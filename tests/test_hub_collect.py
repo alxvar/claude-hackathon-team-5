@@ -42,3 +42,12 @@ def test_import_classifies_every_shape_we_have():
     assert imp.classify({"hello": 1}) == "other"
     assert imp.leaderboard_teams({"teams": {"t01": {"score": 1}}}) == [{"team": "t01", "score": 1}]
     assert imp.leaderboard_teams({"teams": [{"team": "t02"}]}) == [{"team": "t02"}]
+
+
+def test_import_ids_for_backfilled_settlements():
+    s = {"id": -1, "type": "settlement", "payload": {"settlement": 42}}
+    assert imp.event_id(s, set()) == -42
+    assert imp.event_id(s, {42}) is None                     # already stored under its real id
+    assert imp.event_id({"id": -1, "type": "offer.listed", "payload": {}}, set()) is None
+    assert imp.event_id({"id": 7, "type": "settlement", "payload": {"settlement": 42}}, {42}) == 7
+    assert imp.classify({"id": -1, "type": "settlement", "payload": {}}) == "event"

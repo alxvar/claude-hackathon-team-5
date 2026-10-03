@@ -38,7 +38,7 @@ select * from hub.gaps order by at desc;   -- a full feed window whose oldest ev
 
 | Table / view | What |
 |---|---|
-| `hub.events` | Every public feed event (raw `payload` jsonb), keyed by the server's id |
+| `hub.events` | Every public feed event (raw `payload` jsonb), keyed by the server's id. Backfilled settlements without a real id (Lucas's Friday file had them as `-1`) are stored as id = −settlement number; `v_settlements` and the model count each settlement once |
 | `hub.offers` | Every offer seen on any venue, with its life: listed, last seen, cancelled or gone (filled/expired) |
 | `hub.leaderboard`, `hub.team_snapshots` | Each leaderboard refresh; per team: score, `album_filled`, `pages_complete`, luck, level, venue |
 | `hub.state`, `hub.state_history` | clock, schedule, levels, dealers, venues, catalog (latest + every distinct version) |

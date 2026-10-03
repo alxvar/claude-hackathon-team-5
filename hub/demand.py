@@ -143,7 +143,9 @@ class World:
     best_bid: dict = field(default_factory=dict)     # (team, ref, kind) → (price, tick, t)
     best_ask: dict = field(default_factory=dict)     # (team, ref) → (price, tick, t, asset id)
     sold_assets: set = field(default_factory=set)    # (team, asset id) sold in a settlement
-    max_id: int = 0
+    max_id: int = 0                                  # newest positive event id ingested (the incremental cursor)
+    seen_ids: set = field(default_factory=set)
+    seen_settlements: set = field(default_factory=set)
     now_t: float = 0.0
     now_tick: int = 0
 
@@ -180,14 +182,30 @@ class World:
             self.flow_keys.add((team, ref, key))
             self.flow[(team, c["set"])] += sign
 
+    @staticmethod
+    def order(e: dict) -> tuple:
+        """Game order. Backfilled settlements carry id = −settlement number (Lucas's Friday file had them as -1):
+        they go after the real events of their tick, in settlement order."""
+        i = e["id"]
+        return (e.get("tick") or 0, 0, i) if i > 0 else (e.get("tick") or 0, 1, -i)
+
     def ingest(self, events: list, cat: Catalog, p=PARAMS):
-        for e in sorted(events, key=lambda e: e["id"]):
-            if e["id"] <= self.max_id:
+        """Apply events once each. Holdings depend on order, so a batch must not contain events older than ones
+        already applied: the caller rebuilds the World when that happens (see Reader.late_arrivals)."""
+        for e in sorted(events, key=self.order):
+            if e["id"] in self.seen_ids:
                 continue
-            self.max_id = e["id"]
+            self.seen_ids.add(e["id"])
+            if e["id"] > self.max_id:
+                self.max_id = e["id"]
+            pl = e.get("payload") or {}
+            if e["type"] == "settlement":
+                sid = pl.get("settlement")
+                if sid is not None and sid in self.seen_settlements:
+                    continue      # the same settlement under a real id and a backfilled one
+                self.seen_settlements.add(sid)
             tick, t = e.get("tick") or 0, e.get("t") or e.get("t_hours") or 0.0
             self.now_tick, self.now_t = max(self.now_tick, tick), max(self.now_t, t)
-            pl = e.get("payload") or {}
             typ = e["type"]
             if typ == "settlement" and pl.get("kind") == "trade":
                 self._settlement(pl, tick, t, cat, p)
@@ -706,14 +724,24 @@ class Reader:
             raise SystemExit("no catalog in the hub yet: run the collector once")
         return Catalog.from_catalog_json(row[0])
 
-    def events_since(self, after_id: int) -> list:
+    RELEVANT = """type = any(%s) and (type <> 'thread.message' or (payload->>'sender' like 't%%'
+                                                                   and jsonb_typeof(payload->'offer') = 'object'))"""
+
+    def events(self, after_id=None) -> list:
+        """Relevant events; all of them (negative backfill ids included) when after_id is None."""
+        where = self.RELEVANT + ("" if after_id is None else " and id > %s")
+        args = [list(EVENT_TYPES)] + ([] if after_id is None else [after_id])
         with self.c().cursor() as cur:
-            cur.execute("""select id, tick, t_hours, type, payload from hub.events
-                           where id > %s and type = any(%s)
-                             and (type <> 'thread.message' or (payload->>'sender' like 't%%'
-                                                               and jsonb_typeof(payload->'offer') = 'object'))
-                           order by id""", (after_id, list(EVENT_TYPES)))
+            cur.execute(f"select id, tick, t_hours, type, payload from hub.events where {where}", args)
             return [{"id": i, "tick": tk, "t": th, "type": ty, "payload": pl} for i, tk, th, ty, pl in cur.fetchall()]
+
+    def late_arrivals(self, world: "World") -> int:
+        """Relevant events at or below the World's cursor that it has not applied: an import or a collector catching
+        up after an outage. Any of them means the World must be rebuilt (holdings depend on order)."""
+        with self.c().cursor() as cur:
+            cur.execute(f"select count(*) from hub.events where {self.RELEVANT} and id <= %s",
+                        (list(EVENT_TYPES), world.max_id))
+            return cur.fetchone()[0] - len(world.seen_ids)
 
     def snapshots(self) -> dict:
         with self.c().cursor() as cur:
@@ -791,13 +819,20 @@ def main(argv=None):
     ap.add_argument("--dry-run", action="store_true", help="compute and print; write nothing")
     ap.add_argument("--selftest", action="store_true", help="print the summary and the self-test")
     a = ap.parse_args(argv)
-    reader, world, cat = Reader(), World(), None
+    reader, world, cat = Reader(), None, None
     while True:
         t0 = time.time()
         try:
             if cat is None:
                 cat = reader.catalog()
-            evs = reader.events_since(world.max_id)
+            if world is not None and reader.late_arrivals(world) != 0:
+                print(time.strftime("%H:%M:%S"), "late or backfilled events in the hub: rebuilding", flush=True)
+                world = None
+            if world is None:
+                world = World()
+                evs = reader.events()
+            else:
+                evs = reader.events(world.max_id)
             world.ingest(evs, cat)
             snaps = reader.snapshots()
             try:

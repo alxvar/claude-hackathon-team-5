@@ -197,8 +197,9 @@ create table if not exists hub.evidence (
 
 -- ---------------------------------------------------------------- views
 
+-- One row per settlement: a backfilled copy (negative id) yields to the real event when both exist.
 create or replace view hub.v_settlements as
-select e.id as event_id, e.tick, e.t_hours,
+select distinct on ((e.payload->>'settlement')::bigint) e.id as event_id, e.tick, e.t_hours,
        (e.payload->>'settlement')::bigint as settlement,
        e.payload->>'kind' as kind,
        e.payload->'parties'->>0 as maker,
@@ -209,7 +210,8 @@ select e.id as event_id, e.tick, e.t_hours,
        (e.payload->>'fee')::int as fee,
        e.payload->'items' as items
 from hub.events e
-where e.type = 'settlement';
+where e.type = 'settlement'
+order by (e.payload->>'settlement')::bigint, e.id < 0, e.id;
 
 create or replace view hub.v_trade_items as
 select s.event_id, s.tick, s.t_hours, s.settlement, s.kind, s.maker, s.taker, s.venue, s.persona, s.price, s.fee,
