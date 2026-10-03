@@ -214,3 +214,4 @@ One hundred fourteen, señor.
 
 La Puerta de Alcalá: one hundred fourteen. Nothing further moves.
 - Sat 21:42 · catalog.minted SAL-11 (La Puerta de Alcalá, epic, print run 9): hidden=False minted=9 (was 8)
+- Sat 21:48 · message tick 1302 · picaros → t08 · ¡Ay, amigo, qué buen ojo tienes! La Reina de la Movida... esa es leyenda pura, y las leyendas no viajan en nuestra maleta. Nosotros movemos raras, épicas, joyitas a precio de risa — ¡pero legendarias, nunca! Pregunta por otra cosa, que algo bonito te encontramos. ¡Rápido, que cerramos pronto!
