@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 12:50, snapshot 470. Rival detail: intel/rivals.md (Analyst-owned since 12:30)._
+_Last update: Sat 12:12 (tick 481), snapshot 480. Earlier stamps in this file's history (12:15-12:50) were mislabelled; the real times were 11:55-12:08. Rival detail: intel/rivals.md (Analyst-owned)._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -23,6 +23,23 @@ _Last update: Sat 12:50, snapshot 470. Rival detail: intel/rivals.md (Analyst-ow
   t12 sits at exactly 12.01 → graded against the field's best (max or top-3 mean) [L].
 - **Rates after the re-weighting:** 1 neg_point ≈ **0.094 board**; +0.01 ladder ≈ **+0.33 board**; a +50 page close ≈ **+4.7 board**;
   the full duel part = **8.0 board**. The §2 table below is pre-duel (multiply its Saturday points by 0.6).
+
+## 1c. Duels I (live; session 2 from tick 459, 306 duels, decay 0.06, ends ≈ 13:35)
+
+Duel part = Saturday Negotiating − 0.6 × the team's Saturday part at snapshot 460 (exact for teams with no non-duel events;
+t13 and t04 have dealer deals in the window). Full = 12 Saturday points = 8.0 board.
+
+| Snapshot | t12 | t15 | t14 | t09 | t13 | t03 | **t05** | t08 | t17 | t02 | t04 | t07 | t01 | t18 | t16 | t06 | t10 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 470 | 12.0 | 0 | 0 | 10.5 | 7.4 | 0 | **6.5** | 10.2 | 5.9 | 6.3 | 6.5 | 0 | 7.9 | 7.9 | 0 | 0.4 | 0 |
+| 480 | 12.0 | 10.3 | 9.9 | 8.8 | 8.3 | 8.3 | **8.2** | 7.8 | 7.5 | 7.3 | 6.8 | 6.6 | 6.5 | 5.0 | 4.2 | 3.1 | 2.0 |
+
+- The part is relative [V]: t09 10.5 → 8.8 and t08 10.2 → 7.8 while the field closed more deals. Our `duel_points` 0.78 → 2.0
+  mapped to 6.5 → 8.2 (not linear) → graded against the leader / top 3 [L].
+- Deal rate [V feed]: field 36/39 = 92%; ours 4/4. By item: Mercado de la Paz 11/13, Café en Goya 6/7, the rest 100%.
+- Ours (result = surplus × 0.94^rounds): 2296 sell 97 vs cost 87, 6 rounds → 6.9 (31% lost to decay) · 2297 buy 161 vs 175,
+  4 rounds → 10.9 (22%) · 2314 buy 68 vs 75, 1 round → 6.6 (6%; the rival had offered 100) · 2540 sell 90 vs 71, 7 rounds →
+  12.3 (35%).
 
 ## 2. Negotiating (Saturday part) = team trades + ladder (+ duels once Duels I scores)
 

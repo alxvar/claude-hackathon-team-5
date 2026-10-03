@@ -7,6 +7,20 @@ Friday deals are judged against them), the leaderboard (tick 420), our `/api/me`
 duplicates and on page closes. Example: our SAL-01 sale at 7 is est. −2.0 but measured **+4.7** [V]. Verified deltas
 are used wherever they exist. Raw counts cross-check exactly with the leaderboard's deal counts (45 / 28 / 35)._
 
+## Live (Analyst; newest first)
+
+### Sat 12:12 · snapshot 480 (Duels I running)
+- Board: **t12 32.19** · t14 31.16 · t13 29.68 · t17 26.77 · t18 24.88 · **us 24.76 (#6)** · t10 24.0 · t04 23.9.
+- Duels now carry 40% of Saturday Negotiating (intel/score-model.md §1b); the moves since 460 are mostly duels. Duel part
+  (Saturday points, max 12): t12 12.0, t15 10.3, t14 9.9, t09 8.8, t13 8.3, t03 8.3, **us 8.2**.
+- **t12 (#1):** full duel part from the first wave, plus market 11.74 (v02 value created). It buys LAT duplicates from t15 on
+  others' venues (v14 tick 418, v17 tick 433), which feeds those venues' owners, not itself.
+- **t13's Pilar-Abuela loop [V feed, ladder effect L]:** sells an uncommon to Pilar, rebuys the same card from Abuela below
+  list: Pilar SELL LAV-08 @18 (t462), LAV-06 @18 (t467); Abuela BUY LAV-08 @23 (t469), LAV-06 @23 (t474). Same holdings at
+  the end, −5 P and about −5 neg_points per card (≈ −0.47 board), bought ladder at level 3 (sell) and level 1 (buy ≤ list).
+- **t17 (#4):** market 10.26 from one trade on its v17 stall (t15 → t12 LAT-01 at 7); cut the stall's fee to 0 at tick 429.
+- t18 dropped to #5: its duel part fell 7.9 → 5.0.
+
 ## The board [V, leaderboard tick 420]
 
 | Team | Rank | Score | Negotiating | Market | Deals |
