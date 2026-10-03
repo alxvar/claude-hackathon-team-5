@@ -11,6 +11,125 @@ _Lucas's Duel Lab session. It never writes to the game or to `agents/duelist/`._
   fixed below._
 - _**Labels:** [V] measured on our records or code, [L] modelled or inferred, [?] unknown._
 
+## SUNDAY v2 (Sun 00:35): Team-10-style closer, mirrors and latency; best robust set
+
+_Chief's program v2. Analysis only: no game writes, nothing on main's `agents/duelist/`. 12 ticks, 10% decay, 4 at once.
+New simulator `v2/sim3.py`: `night/sim2.py` (role-aware, calibrated on Duels II) + a fast-closer rival + a mirror
+engine (our own logic on both sides) + latency. Outputs in the scratchpad `v2/`. Points per duel = share × 0.9^rounds
+(H1; H2 agrees unless noted). All results are modelled [L] unless marked [V]._
+
+### Go / no-go for Aleks
+
+1. **GO, best robust set: merge duelist-loop (guards on) + `run/duel_params.json` =** `MIN_STEP_P` 8,
+   `MAX_STEP_SHARE` 0.12, `LATE_SWITCH_LEFT` 0, `OPEN_WAIT` 0, `MONO_END_SHARE` 0.25. Against today it scores higher in
+   every opponent group: past rivals +0.060 per duel, a Team-10-style fast closer +0.025, mirrors +0.080, extreme worlds
+   +0.034; the worst case is equal. The deal rate is ≈ 3 points lower.
+2. **If that's too far from what we've played: the SAFE file** (`MIN_STEP_P` 5, `MAX_STEP_SHARE` 0.18,
+   `LATE_SWITCH_LEFT` 2, `MONO_END_SHARE` 0.25): +0.037 vs past rivals, deal rate unchanged. **`MONO_END_SHARE` 0.25,
+   not 0.5:** against strategic (mirror) opponents, 0.5 concedes the end and scores worst of all.
+3. **Run Opus `--effort low`, or code-first moves with per-role openers (0.73 seller / 0.37 buyer), never the single
+   `OPENER_SHARE` 0.42.** After 8 duels, if the deal rate with rivals that spoke is below 0.75, step back
+   v2 → SAFE → today.
+
+Both files pass `params.validate()` on duelist-loop d04a29f with no errors (`v2/duel_params_v2.json`,
+`v2/duel_params_safe.json`):
+
+```json
+{"_note": "Duel Lab SUNDAY v2 best robust set ...", "MIN_STEP_P": 8, "MAX_STEP_SHARE": 0.12, "LATE_SWITCH_LEFT": 0, "OPEN_WAIT": 0, "MONO_END_SHARE": 0.25}
+{"_note": "Duel Lab SUNDAY v2 SAFE set ...", "MIN_STEP_P": 5, "MAX_STEP_SHARE": 0.18, "LATE_SWITCH_LEFT": 2, "MONO_END_SHARE": 0.25}
+```
+
+### 1. The Team-10-style opponent [V records / L model]
+
+- **Who it is.** Team 10's duels can't be singled out: aliases change every duel and the feed carries no team.
+  Instead I fitted the archetype from the 26 of 82 deals (Duels I + II, both openers known) that closed within 2 rounds
+  (`v2/fastclosers.out`).
+- **How those rivals behaved:**
+  - they settled at a median 0.48 of the way between the two openers (the midpoint);
+  - many conceded 40-90% of the opening gap in their first moves (5737, 5796, 6048, 6191), or made one offer and
+    accepted;
+  - all deals took ≤ 2 rounds.
+- **The model:**
+  - it opens at 0.9-1.4 × the pie;
+  - after our first offer it jumps 60% of the way to the openers' midpoint, then halves the remaining distance per
+    reply;
+  - it accepts our offer once it's within 10% of the pie of that midpoint, and anything inside its limit in the last 3
+    ticks;
+  - half of them copy our day.
+
+### 2. Matches (12 ticks / 10%; `v2/matrix.out`, `v2/robust2.out`, `v2/summary_table.out`)
+
+Points per duel (deal rate), all roles, H1:
+
+| Our set | Past rivals (5 worlds) | Fast closer | Mirrors (3) | Extreme (5) | Worst cell |
+|---|---|---|---|---|---|
+| Today (live + guards, `MONO_END_SHARE` 0.25) | 0.355 (0.870) | 0.304 (0.898) | 0.273 (0.884) | 0.303 (0.836) | 0.237 |
+| Params file as sent at 22:41 (`MONO_END_SHARE` 0.5) | 0.392 | 0.332 | 0.286* | n/a | 0.238 |
+| SAFE (file, `MONO_END_SHARE` 0.25) | 0.392 (0.878) | 0.327 (0.892) | 0.291 (0.968) | 0.326 (0.819) | 0.241 |
+| **v2 best robust set** | **0.415** (0.839) | **0.329** (0.876) | **0.353** (0.964) | **0.337** (0.766) | 0.239 |
+
+_\*Its mirrors in `matrix.out` are a different set of 4 (mirror today, file, file-0.25, tough). Against a mirror of
+today's bot the 0.5 file scores 0.238, the worst cell in the matrix._
+
+**By role, past rivals:**
+- **v2:** seller 0.489 (deal 0.850), buyer 0.342 (0.828);
+- **SAFE:** seller 0.466 (0.894), buyer 0.319 (0.862);
+- **today:** seller 0.438 (0.907), buyer 0.272 (0.833).
+
+**Mirror (our bot vs our bot):**
+- **Everyone on the file:** 0.324 per duel; everyone on today's settings: 0.273.
+- **But it's a game of chicken:** the 0.5 file against a today-mirror scores 0.238. The tougher last-ticks cap wins.
+- **The v2 set wins every mirror pairing tested:** 0.305-0.419 per duel. Against itself it scores 0.355.
+
+**Against the fast closer:** v2 0.329, SAFE 0.327, today 0.304. In the smoke test the 22:41 file closed in 2.9
+rounds against today's 4.2.
+
+**Accept threshold and opener:**
+- "Accept when theirs ≥ 0.9 × our next target" changes nothing (±0.001).
+- Opener × 0.9 / × 1.1 is mixed (`matrix.out`).
+- Keep the LLM opener, or use per-role code openers (below).
+
+**Where v2's gain comes from:**
+- **Against past rivals:** mostly the late switch off plus `OPEN_WAIT` 0 (H1 → H2/H3/A25 in `robust2.out`).
+- **Against mirrors:** mostly the hold (`MIN_STEP_P` 8 with cap 0.12 holds every mid-duel step under a ~67 P gap).
+- **This is the furthest from anything played,** hence the gate.
+
+### 3. Latency at 15 s ticks (`v2/latency_probs.out`, `v2/latency_run.out`)
+
+- **Deals lost to a missed tick: 0 [L].** The runner's decision timeout is max(8, 15 − 5) = 10 s; with decisions
+  starting 0-4 s into the tick and 0.5 s to send, every move lands inside its tick. Deadline accepts are code and
+  instant.
+- **The real cost is code fallbacks:**
+  - Opus at 8-14 s → 67% of model decisions fall back;
+  - Opus medium as measured in Duels II (n = 413) → 31%;
+  - the Haiku code policy → 0% (the decision is code; only the text is a model, capped).
+- **Price of fallbacks** (past rivals + fast closer): −0.005 per duel at 31%, −0.008 (SAFE) to −0.010 (v2) at 67%.
+  Deal rates rise slightly, because fallbacks concede more.
+- **Code-first moves are as good or better:**
+  - code-first steps with **per-role openers**: v2 0.406, SAFE 0.388, against LLM steps v2 0.401, SAFE 0.381;
+  - with the branch's single `OPENER_SHARE` 0.42: v2 0.366, SAFE 0.353, because it opens sellers far too low (their
+    LLM median is 0.73 × limit).
+  - **So `--policy code` needs per-role openers (a small code change in `policy.py`), or keep the LLM for the opener
+    only.**
+
+### 4. Best robust set and the numbers Aleks asked for
+
+**v2** = `MIN_STEP_P` 8, `MAX_STEP_SHARE` 0.12, `LATE_SWITCH_LEFT` 0, `OPEN_WAIT` 0, `MONO_END_SHARE` 0.25, guards on.
+
+| Opponent group | v2 points per duel | Deal rate |
+|---|---|---|
+| Past rivals | 0.415 (seller 0.489, buyer 0.342) | 0.839 (seller 0.850, buyer 0.828) |
+| Fast closer | 0.329 | 0.876 |
+| Mirrors | 0.353 | 0.964 |
+| Extreme worlds | 0.337 | 0.766 |
+
+- **Over 68 Duels III duels vs today:** ≈ +4 points against past-style rivals, ≈ +5 against strategic mirrors [L].
+- **Risks:**
+  - it changes behaviour the most (long holds, no day wait);
+  - its deal rate is lower;
+  - its gain rests on the simulator's rivals, which are fitted to Duels II bots.
+- **The 8-duel gate is the guard.**
+
 ## FINAL for Sunday (overnight program, Sat 23:45): Duels III (≈ 11:00) and the Final (≈ 14:00)
 
 _Both sessions: 12 ticks, 10% decay, 4 at once, price + day (`/api/schedule` at 22:08). Duels III: 68 duels; the
