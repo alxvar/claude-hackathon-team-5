@@ -237,3 +237,10 @@ def test_a_posted_swap_nudges_the_desk_with_the_offer_id_and_its_expiry(tmp_path
     oid = g.posted[0]["id"]
     assert [n[0] for n in NUDGES] == ["dani", "lucas"]
     assert f"Offer {oid} on v15, valid until ~" in NUDGES[0][2] and "Hi Team 2!" in NUDGES[0][2]
+
+
+def test_a_complete_page_card_with_its_other_copy_committed_is_no_spare():
+    me = {**ME, "assets": ME["assets"] + [{"id": 65, "kind": "card", "ref": "LAT-03", "your_value": 3.2},
+                                          {"id": 66, "kind": "card", "ref": "LAT-03", "your_value": 3.2}]}
+    assert "LAT-03" not in sw.our_spares(me, {65})                    # one in a book ask: the other is the last
+    assert "LAT-03" in sw.our_spares(me, set())

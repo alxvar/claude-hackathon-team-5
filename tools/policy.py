@@ -4,6 +4,9 @@
 2. A page-closer (a card that may complete the counterparty's page) only to a team >= PAGE_CLOSER_GAP below us: a
    +50 (~ +4.7 board) jump can't lift a team 6 below past us, and our gain on those sales is +30-40 (unknown: skip).
 3. RIVALS (Team 13, Team 17): no trade where their gain > ours (theirs unknown: skip).
+4. Never our LAST copy of a card of a complete page (Chief 17:05): copies committed in our open offers (asks, swaps)
+   count as already gone, so two parallel offers can't each take "the spare". `last_copy(...)`; before a manual
+   Workshop conversion: `python3 tools/policy.py can-give LAV-03` (reads /api/me and /api/me/offers).
 
     from policy import check
     ok, why = check("t16", teams=leaderboard_teams, our_gain=8.0, their_gain=3.1, page_closer=False)
@@ -40,6 +43,29 @@ def reserved_refs(path: Path = RESERVED, handoff: Path = HANDOFF) -> set:
     return set(_CARD.findall(m.group(1))) if m else set()
 
 
+def committed(offers, me_id: str = ME) -> set:
+    """Asset ids in our open (or queued) offers."""
+    return {a["id"] if isinstance(a, dict) else a for o in offers or []
+            if o.get("maker") == me_id and o.get("status", "open") in ("open", "queued")
+            for a in (o.get("give") or {}).get("assets") or []}
+
+
+def last_copy(me: dict, ref: str, *, committed_ids=(), giving=()) -> str:
+    """Why giving `giving` (asset ids) would take our last copy of `ref` in a complete page ("" = fine). Copies in
+    `committed_ids` (our open offers) are already gone."""
+    st = str(ref).split("-")[0]
+    pages = {p.get("set"): p for p in (me.get("album") or {}).get("pages") or []}
+    try:
+        page_card = 1 <= int(str(ref).split("-")[1]) <= 10
+    except (IndexError, ValueError):
+        page_card = False
+    if not page_card or not (pages.get(st) or {}).get("complete"):
+        return ""
+    gone = set(committed_ids) | set(giving)
+    left = [a for a in me.get("assets") or [] if a.get("kind") == "card" and a.get("ref") == ref and a["id"] not in gone]
+    return "" if left else f"{ref}: our last copy outside open offers of the complete {st} page"
+
+
 def ranked(teams) -> list:
     return sorted(teams or [], key=lambda t: -(t.get("score") or 0))
 
@@ -72,3 +98,32 @@ def check(team, *, teams, our_gain=None, their_gain=None, page_closer=False, me:
         if g is None or g < PAGE_CLOSER_GAP:
             return False, f"page-closer for {team}: needs >= {PAGE_CLOSER_GAP} below us (gap {g})"
     return True, ""
+
+
+def main(argv=None) -> None:
+    import argparse
+    import os
+    import sys
+    ap = argparse.ArgumentParser(description="policy checks", allow_abbrev=False)
+    ap.add_argument("cmd", choices=["can-give"])
+    ap.add_argument("card")
+    args = ap.parse_args(argv)
+    sys.path.insert(0, str(ROOT / "bazaar-kit"))
+    from bazaar_sdk import Bazaar
+    b = Bazaar(os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai"), os.environ["BAZAAR_KEY"])
+    me = b.me()
+    gone = committed(b.my_offers().get("offers"), me["id"])
+    free = [a for a in me.get("assets") or [] if a.get("ref") == args.card and a["id"] not in gone]
+    if args.card in reserved_refs():
+        print(f"NO: {args.card} is reserved (run/reserved.json)")
+        return
+    if not free:
+        print(f"NO: no free copy of {args.card} (none held, or all in our open offers)")
+        return
+    a = min(free, key=lambda x: x.get("your_value") or 0)
+    why = last_copy(me, args.card, committed_ids=gone, giving={a["id"]})
+    print(f"NO: {why}" if why else f"YES: give asset {a['id']} ({args.card}, worth {a.get('your_value')} to us)")
+
+
+if __name__ == "__main__":
+    main()

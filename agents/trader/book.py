@@ -327,6 +327,10 @@ class Book:
                 self.log({"event": "skip", "card": card, "side": "sell", "why": "no free copy with a value"})
                 return None, False
             asset = min(free, key=lambda a: a["your_value"])
+            why_last = policy.last_copy(me, card, committed_ids=locked - {asset["id"]}, giving={asset["id"]})
+            if why_last:                              # Chief 17:05: never our last copy of a complete page
+                self.log({"event": "skip", "card": card, "side": "sell", "why": why_last})
+                return None, False
             floor = max(int(e["floor"]), math.ceil(asset["your_value"] + self.min_gain_sell))
         else:
             if why in ("move", "recheck") or (edited and s.get("entry") is not None):

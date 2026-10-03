@@ -499,3 +499,20 @@ def test_a_reserved_card_is_never_asked_and_a_live_ask_for_it_comes_down():
     book.reserved = lambda: {"SAL-08"}
     st = book.step(e, st, {**CLOCK, "tick": 301})
     assert g.cancelled == [oid] and "SAL-08:sell" in st and not st["SAL-08:sell"].get("offer")
+
+
+def test_never_asks_our_last_copy_of_a_complete_page_when_the_other_is_committed():
+    # Sat 17:05: two LAV-03 copies, one already in another offer (a swap): the book may not ask the other.
+    g = Game()
+    g.assets += [{"id": 65, "kind": "card", "ref": "LAV-03", "your_value": 3.2},
+                 {"id": 66, "kind": "card", "ref": "LAV-03", "your_value": 3.2}]
+    g.me = lambda: {"id": "t05", "cash": 400, "assets": g.assets,
+                    "album": {"pages": [{"set": "LAV", "have": 10, "of": 10, "complete": True}]}}
+    g.offers[777] = {"id": 777, "maker": "t05", "status": "open", "give": {"assets": [{"id": 65, "ref": "LAV-03"}]},
+                     "want": {"types": ["card:LAT-07"]}}
+    g.teams = TOP + [{"team": "t16", "score": 8}]
+    st, ev, _ = run(g, [{"card": "LAV-03", "side": "sell", "to": "t16", "price": 6, "floor": 5}])
+    assert g.posted == [] and any("last copy" in (x.get("why") or "") for x in ev)
+    g.offers.clear()                                                    # nothing else committed: one may go
+    run(g, [{"card": "LAV-03", "side": "sell", "to": "t16", "price": 6, "floor": 5}])
+    assert len(g.posted) == 1

@@ -609,3 +609,13 @@ def test_a_reserved_card_is_never_given(tmp_path, monkeypatch):
     b = FakeBazaar(boards={"rastro": [bid(130, 36, "MAL-06")]}, listed={130: "t09"})
     run(b)
     assert b.accepted == []
+
+
+def test_never_the_last_copy_of_a_complete_page_when_the_other_is_committed():
+    # Sat 17:05: LAV-02's other copy (171) sits in our ask; the free one (486) is now the last: no sale.
+    ours = {"id": 9400, "maker": ME, "to": "t16", "venue": "v15", "status": "open", "expires_tick": 99999,
+            "give": {"cash": 0, "assets": [{"id": 171, "kind": "card", "ref": "LAV-02"}], "types": []},
+            "want": {"cash": 50, "assets": [], "types": []}}
+    b = FakeBazaar(boards={"rastro": [bid(140, 30, "LAV-02")]}, listed={140: "t09"}, mine=[ours])
+    run(b)
+    assert b.accepted == []

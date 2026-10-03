@@ -28,3 +28,19 @@ def test_a_page_closer_needs_6_points_below_us():
     assert not policy.check("t03", teams=TEAMS[:-2] + [{"team": "t03", "score": 22.5}], page_closer=True)[0]
     assert not policy.check("t99", teams=TEAMS, page_closer=True)[0]             # unknown score
     assert policy.check("t16", teams=TEAMS)[0] and not policy.check("t16", teams=[])[0]
+
+
+ME_LAV = {"id": "t05", "album": {"pages": [{"set": "LAV", "have": 10, "of": 10, "complete": True},
+                                           {"set": "SAL", "have": 4, "of": 10, "complete": False}]},
+          "assets": [{"id": 65, "kind": "card", "ref": "LAV-03"}, {"id": 66, "kind": "card", "ref": "LAV-03"},
+                     {"id": 70, "kind": "card", "ref": "SAL-02"}]}
+
+
+def test_never_the_last_copy_of_a_complete_page_counting_open_offers_as_gone():
+    # Sat 17:05 (Operator): LAV-03's other copy sits in a book ask while a Workshop conversion could use the free one.
+    assert policy.last_copy(ME_LAV, "LAV-03", committed_ids={65}, giving={66})
+    assert policy.last_copy(ME_LAV, "LAV-03", committed_ids=set(), giving={66}) == ""    # nothing committed: a spare
+    assert policy.last_copy(ME_LAV, "SAL-02", giving={70}) == ""                         # SAL's page isn't complete
+    offers = [{"maker": "t05", "status": "open", "give": {"assets": [{"id": 65}]}},
+              {"maker": "t09", "status": "open", "give": {"assets": [{"id": 1}]}}]
+    assert policy.committed(offers) == {65}
