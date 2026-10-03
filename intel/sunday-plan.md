@@ -10,6 +10,18 @@ a page via a TEAM trade = +50, and selling a page card afterwards = −130; MARK
 TRADES 22.5 (value two other teams create on your market). A market gets used when it finds the missing card, swaps
 without cash, finishes pages. "Zero fee alone is no reason; volume and friends count for nothing."
 
+## ⚠ Saturday's round may continue Sunday morning (Analyst 23:40) [V clock paused at game 13.367 in round 2; L the rest]
+The clock is paused in round 2. Before round 3 + the CHA release (game 16.65) come the hard Market Test (14.65) and a bench
+(15.0). If the clock RESUMES at 09:00 (instead of jumping), Saturday runs ≈ 1.5-3 h more. Operator: read /api/clock and
+/api/schedule at 08:55 and tell the Chief which case applies. In that window:
+1. **v10 trades first**: our Saturday market gap turned positive at the close (mm −5.2 → +2.2, a field-relative hurdle), so
+   ≈ +2.8 more VC caps us at +5 board = +4.2 Saturday points ≈ +1.7 final, for 0 P. Fire the club/v10 pairs at 09:00
+   (RET-09 t07 → t09 first), not at CHA time. Duplicates → first-copy collectors only; a negative trade now costs.
+2. **No ladder deals until round 3**: the Saturday ladder is capped. Keep RET-11, MAL-08 and the spares for Sunday's
+   fresh ladder.
+3. Positive team trades still count for Saturday (≈ 0.074 Saturday points per neg_point).
+4. CHA starts at round 3 (16.65). The CHA plan's clock starts then.
+
 ## Timeline (wall times [L]; re-read /api/schedule and /api/catalog at 09:00)
 
 | When | What | Owner |
