@@ -60,7 +60,8 @@ def test_the_feed_is_read_incrementally(tmp_path):
 def test_the_keepers_answer_to_an_egg_team_is_always_a_hit():
     # Sat 19:20: Don Ernesto's "The gold of Moscow — an old story, and not mine today" matched no pattern.
     events = [{"id": 1, "tick": 1074, "type": "egg.found", "payload": {"persona": "abuela", "team": "t18"}},
-              msg(2, 1080, "banco", "t18", "Buenas. Terms: El Ahuehuete, 761 P."),
+              msg(2, 1080, "banco", "t18", "Buenas. Carmen talks, as always. Terms: El Ahuehuete, 761 P."),
+              msg(9, 1080, "banco", "t18", "Ciento trece, señor. I said the number twice."),             # haggling: out
               msg(3, 1081, "banco", "t08", "Terms: La Casa Encendida, 113 P."),
               msg(4, 1082, "banco", "t05", "The gold of Moscow — an old story, and not mine today.")]
     hits, seen = hints.scan_events(events)

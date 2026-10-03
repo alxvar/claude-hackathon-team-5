@@ -41,7 +41,8 @@ HINT = re.compile(   # strong patterns only: flavour words (grandchildren, saint
     r"he'll know|keeps something|guarda algo|\blegend\w*|leyenda\w*|\bhidden\b|escondid\w*|\bvault\b|bóveda|"
     r"password|contraseña|santo y seña|easter|golden \w*chulapa|chulapa dorada|dorad[ao]s? |oro de mosc\w*|"
     r"moscow gold|gold of mosc\w*|el oro\b|carmen (sends|speaks|talks)|sends you|me manda|te manda)", re.I)
-KEEPER = "banco"   # Don Ernesto keeps the golden chulapa: every line of his to a team that found an egg is a hit
+KEEPER = "banco"   # Don Ernesto keeps the golden chulapa: his lines to a team that found an egg, on the egg's topic
+EGG_WORDS = re.compile(r"(vault|bóveda|chulapa|carmen|mosc|story|stories|historia|\boro\b|gold|legend|leyenda|sends|manda)", re.I)
 NOISE = re.compile(r"(not a legend|no secrets?|hardly a treasure|not a treasure|is a story|a story, not)", re.I)
 QUOTED = re.compile(r"\b(say|tell (him|her|them)|dile|díle|diga|di|pronounce|whisper)\b[^.]{0,20}[\"“«]([^\"”»]{3,60})[\"”»]", re.I)
 NUM = re.compile(r"\d+|\b(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|"
@@ -72,7 +73,7 @@ def scan_events(events, seen: dict | None = None) -> tuple[list[dict], dict]:
             sender, text = p.get("sender"), p.get("text") or ""
             if not sender or is_team(sender) or not text:
                 continue
-            keeper = sender == KEEPER and p.get("team") in eggs
+            keeper = sender == KEEPER and p.get("team") in eggs and bool(EGG_WORDS.search(text))   # not plain haggling
             if not keeper and not HINT.search(text) and not QUOTED.search(text):
                 continue
             if NOISE.search(text) and not re.search(r"chulapa|oro|moscow|ask (her|him)|pregúnt", text, re.I):
