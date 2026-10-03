@@ -1,4 +1,4 @@
-# Opportunities (auto, 10:16, game tick 255, t 3.45 h)
+# Opportunities (auto, 10:18, game tick 259, t 3.4833 h)
 
 Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and ≤ 60 real min old · ≤ 3 alerts/h · team 45 min · team+card 2 h · sells only to teams ≥ 10 below us (19.08) and outside the top 4 (t02, t12, t13, t18). Data: collector.
 
@@ -6,21 +6,21 @@ Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and �
 
 | # | side | team | card | price | our value | gain | signal | age (game / real min) | status |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | BUY | Team 15 (#14, 13.02) | RET-07 uncommon | 24 | 27.5 | 3.5 | bought it at 24 P from t02 (tick 234) | 11 / 10 | listed only: gain 3.5 < 20 |
-| 2 | BUY | Team 12 (#2, 27.17) | RET-01 common | 8 | 11 | 3 | bought it at 9 P from abuela (tick 217) | 19 / 19 | no: top 4 |
-| 3 | BUY | Team 18 (#1, 28.55) | RET-01 common | 8 | 11 | 3 | bought it at 9 P from abuela (tick 211) | 22 / 22 | no: top 4 |
-| 4 | SELL | Team 3 (#9, 16.86) | SAL-01 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 253) | 1 / 1 | no: only 2.22 below us (needs ≥ 10) |
-| 5 | SELL | Team 3 (#9, 16.86) | SAL-02 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 208) | 24 / 23 | no: only 2.22 below us (needs ≥ 10) |
-| 6 | SELL | Team 12 (#2, 27.17) | MAL-07 uncommon | 45 | 17.5 | 27.5 | bid 28 P for it (tick 88) | 119 / 746 | no: top 4; 8.09 above us |
-| 7 | BUY | Team 12 (#2, 27.17) | RET-07 uncommon | 24 | 27.5 | 3.5 | bought it at 22 P from abuela (tick 182) | 36 / 36 | no: top 4 |
-| 8 | BUY | Team 2 (#3, 24.35) | RET-01 common | 8 | 11 | 3 | bought it at 10 P from abuela (tick 163) | 46 / 46 | no: top 4 |
-| 9 | SELL | Team 7 (#17, 10.18) | SAL-01 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 136) | 71 / 700 | no: only 8.9 below us (needs ≥ 10) |
-| 10 | SELL | Team 7 (#17, 10.18) | SAL-02 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 132) | 75 / 704 | no: only 8.9 below us (needs ≥ 10) |
-| 11 | SELL | Team 3 (#9, 16.86) | SAL-05 common | 40 | 9 | 31 | bid 9 P for it (tick 182) | 36 / 36 | no: only 2.22 below us (needs ≥ 10) |
-| 12 | SELL | Team 7 (#17, 10.18) | SAL-05 common | 40 | 9 | 31 | asked abuela to sell it (tick 128) | 79 / 707 | no: only 8.9 below us (needs ≥ 10) |
-| 13 | SELL | Team 8 (#12, 15.04) | SAL-03 common | 38 | 9 | 29 | bid 5 P for it (tick 142) | 65 / 695 | no: only 4.04 below us (needs ≥ 10) |
-| 14 | SELL | Team 7 (#17, 10.18) | MAL-06 uncommon | 45 | 17.5 | 27.5 | asked abuela to sell it (tick 125) | 82 / 711 | no: only 8.9 below us (needs ≥ 10) |
-| 15 | SELL | Team 7 (#17, 10.18) | MAL-07 uncommon | 45 | 17.5 | 27.5 | asked abuela to sell it (tick 122) | 85 / 715 | no: only 8.9 below us (needs ≥ 10) |
+| 1 | BUY | Team 15 (#14, 13.02) | RET-07 uncommon | 24 | 27.5 | 3.5 | bought it at 24 P from t02 (tick 234) | 12 / 12 | listed only: gain 3.5 < 20 |
+| 2 | BUY | Team 12 (#2, 27.17) | RET-01 common | 8 | 11 | 3 | bought it at 9 P from abuela (tick 217) | 21 / 21 | no: top 4 |
+| 3 | BUY | Team 18 (#1, 28.55) | RET-01 common | 8 | 11 | 3 | bought it at 9 P from abuela (tick 211) | 24 / 24 | no: top 4 |
+| 4 | SELL | Team 3 (#9, 16.86) | SAL-01 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 253) | 3 / 3 | no: only 2.22 below us (needs ≥ 10) |
+| 5 | SELL | Team 3 (#9, 16.86) | SAL-02 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 208) | 25 / 25 | no: only 2.22 below us (needs ≥ 10) |
+| 6 | SELL | Team 12 (#2, 27.17) | MAL-07 uncommon | 45 | 17.5 | 27.5 | bid 28 P for it (tick 88) | 121 / 748 | no: top 4; 8.09 above us |
+| 7 | BUY | Team 12 (#2, 27.17) | RET-07 uncommon | 24 | 27.5 | 3.5 | bought it at 22 P from abuela (tick 182) | 38 / 38 | no: top 4 |
+| 8 | BUY | Team 2 (#3, 24.35) | RET-01 common | 8 | 11 | 3 | bought it at 10 P from abuela (tick 163) | 48 / 48 | no: top 4 |
+| 9 | SELL | Team 7 (#17, 10.18) | SAL-01 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 136) | 73 / 702 | no: only 8.9 below us (needs ≥ 10) |
+| 10 | SELL | Team 7 (#17, 10.18) | SAL-02 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 132) | 77 / 706 | no: only 8.9 below us (needs ≥ 10) |
+| 11 | SELL | Team 3 (#9, 16.86) | SAL-05 common | 40 | 9 | 31 | bid 9 P for it (tick 182) | 38 / 38 | no: only 2.22 below us (needs ≥ 10) |
+| 12 | SELL | Team 7 (#17, 10.18) | SAL-05 common | 40 | 9 | 31 | asked abuela to sell it (tick 128) | 81 / 709 | no: only 8.9 below us (needs ≥ 10) |
+| 13 | SELL | Team 8 (#12, 15.04) | SAL-03 common | 38 | 9 | 29 | bid 5 P for it (tick 142) | 67 / 697 | no: only 4.04 below us (needs ≥ 10) |
+| 14 | SELL | Team 7 (#17, 10.18) | MAL-06 uncommon | 45 | 17.5 | 27.5 | asked abuela to sell it (tick 125) | 84 / 713 | no: only 8.9 below us (needs ≥ 10) |
+| 15 | SELL | Team 7 (#17, 10.18) | MAL-07 uncommon | 45 | 17.5 | 27.5 | asked abuela to sell it (tick 122) | 87 / 717 | no: only 8.9 below us (needs ≥ 10) |
 
 ## Alerts (newest first)
 

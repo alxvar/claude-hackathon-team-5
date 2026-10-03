@@ -1,4 +1,4 @@
-# Metrics (auto, 10:15, game tick 252)
+# Metrics (auto, 10:17, game tick 256)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -16,13 +16,13 @@ Us: #6
 
 ## Us
 
-score 19.08 · neg_points -19.0 (15 min ago -10.0) · ladder 0.051 · duel 0.0 · cash 180 · level 2 · deals 30
+score 19.08 · neg_points -21.5 (15 min ago -10.0) · ladder 0.051 · duel 0.0 · cash 150 · level 2 · deals 31
 
 ## Our holdings (card (rarity): value of each copy; a sale gives up the cheapest copy)
 
-LAT-03 (common): 5; LAT-04 (common): 1.2 / 1.2; LAV-01 (common): 99.1; LAV-02 (common): 3.2 / 3.2; LAV-03 (common): 3.2 / 3.2; LAV-04 (common): 3.2 / 3.2; LAV-05 (common): 99.1; LAV-06 (uncommon): 118.6; LAV-07 (uncommon): 118.6; LAV-08 (uncommon): 118.6; LAV-09 (rare): 177.1; LAV-10 (rare): 177.1; MAL-02 (common): 7; MAL-04 (common): 7; MAL-06 (uncommon): 17.5; MAL-07 (uncommon): 17.5; RET-02 (common): 11; RET-03 (common): 11; RET-04 (common): 11; RET-05 (common): 11; RET-08 (uncommon): 27.5; RET-09 (rare): 77; RET-10 (rare): 77; SAL-01 (common): 2.2 / 2.2; SAL-02 (common): 2.2 / 2.2; SAL-03 (common): 9; SAL-05 (common): 9; SAL-08 (uncommon): 22.5
+LAT-03 (common): 5; LAT-04 (common): 1.2 / 1.2; LAV-01 (common): 99.1; LAV-02 (common): 3.2 / 3.2; LAV-03 (common): 3.2 / 3.2; LAV-04 (common): 3.2 / 3.2; LAV-05 (common): 99.1; LAV-06 (uncommon): 118.6; LAV-07 (uncommon): 118.6; LAV-08 (uncommon): 118.6; LAV-09 (rare): 177.1; LAV-10 (rare): 177.1; MAL-02 (common): 7; MAL-04 (common): 7; MAL-06 (uncommon): 17.5; MAL-07 (uncommon): 17.5; RET-02 (common): 11; RET-03 (common): 11; RET-04 (common): 11; RET-05 (common): 11; RET-06 (uncommon): 27.5; RET-08 (uncommon): 27.5; RET-09 (rare): 77; RET-10 (rare): 77; SAL-01 (common): 2.2 / 2.2; SAL-02 (common): 2.2 / 2.2; SAL-03 (common): 9; SAL-05 (common): 9; SAL-08 (uncommon): 22.5
 
-## Our open offers (8)
+## Our open offers (7)
 
 - 3536: sell SAL-08 for 33 · to t16 · expires tick 271
 - 3587: sell LAV-04 for 9 · to t07 · expires tick 277
@@ -31,7 +31,6 @@ LAT-03 (common): 5; LAT-04 (common): 1.2 / 1.2; LAV-01 (common): 99.1; LAV-02 (c
 - 3590: sell SAL-01 for 9 · to t07 · expires tick 277
 - 3591: sell SAL-02 for 9 · to t07 · expires tick 277
 - 3592: sell LAT-03 for 9 · to t15 · expires tick 277
-- 3989: bid 30 for RET-06 · to chato · expires tick 256
 
 ## What each of our deals did to neg_points (measured, last 12)
 
@@ -46,6 +45,7 @@ LAT-03 (common): 5; LAT-04 (common): 1.2 / 1.2; LAV-01 (common): 99.1; LAV-02 (c
 - tick 160: -67.8 → 0.0 · no deal of ours in between
 - tick 208: -10.0 → -10.0 · abuela buy RET-04 at 9 with abuela; abuela buy RET-03 at 9 with abuela; chato buy RET-09 at 87 with chato
 - tick 232: -9.0 → -19.0 · abuela buy RET-02 at 9 with abuela; chato buy RET-10 at 86 with chato
+- tick 253: -2.5 → -21.5 · abuela buy RET-08 at 22 with abuela; chato buy RET-06 at 30 with chato
 
 ## Our dealer conversations (last 8: dealer's first → last price, our last, outcome)
 
@@ -56,7 +56,7 @@ LAT-03 (common): 5; LAT-04 (common): 1.2 / 1.2; LAV-01 (common): 99.1; LAV-02 (c
 - tick 225 chato buy RET-10: 97 → 86, ours 69 · deal
 - tick 232 chato buy RET-06: 33 → 31, ours 21 · closed
 - tick 242 abuela buy RET-08: 29 → 23, ours 22 · deal
-- tick 247 chato buy RET-06: 33 → 31, ours 30 · open
+- tick 247 chato buy RET-06: 33 → 31, ours 30 · deal
 
 ## Trades between teams (61 so far; last 12)
 
@@ -77,27 +77,26 @@ Who buys which set (team trades): t01: SAL×3, MAL×2; t02: MAL×2, RET×1; t04:
 
 ## Dealer prices, last 60 ticks (median per item)
 
-- abuela common (team buys): median 9 over 19
-- abuela common (team sells): median 5 over 4
+- abuela common (team buys): median 9 over 17
+- abuela common (team sells): median 6 over 1
 - abuela sobre_barrio (team buys): median 21 over 1
 - abuela uncommon (team buys): median 22 over 6
 - chato rare (team buys): median 86 over 4
-- chato uncommon (team buys): median 28 over 2
+- chato uncommon (team buys): median 30 over 2
 - chato uncommon (team sells): median 15 over 1
 
 ## El Rastro now: top bids by price (team, card, price)
 
-- t16: SAL-10 (rare) 78 P · offer 3318
 - t17: MAL-09 (rare) 70 P · offer 3735
 - t02: RET-10 (rare) 19 P · offer 3982
 - t02: RET-09 (rare) 17 P · offer 3983
 - t13: RET-01 (common) 2 P · offer 3856
 - t13: RET-03 (common) 2 P · offer 3858
 - t13: RET-02 (common) 2 P · offer 3864
-- t02: LAV-02 (common) 1 P · offer 3817
 - t02: LAV-04 (common) 1 P · offer 3984
+- t02: LAV-02 (common) 1 P · offer 4013
 
-Asks by others (card, price: count): LAV-04 10: 3; LAT-04 9: 2; LAT-01 9: 2; LAV-03 9: 2; MAL-05 9: 2; SAL-07 34: 1; LAT-01 10: 1; LAT-03 10: 1; LAT-05 10: 1; MAL-01 10: 1; MAL-02 10: 1; MAL-05 10: 1; MAL-01 9: 1; LAV-02 9: 1; SAL-05 10: 1
+Asks by others (card, price: count): LAV-04 10: 3; LAT-04 9: 2; LAT-01 9: 2; LAV-03 9: 2; MAL-05 9: 2; LAT-01 10: 1; LAT-03 10: 1; LAT-05 10: 1; MAL-01 10: 1; MAL-02 10: 1; MAL-05 10: 1; MAL-01 9: 1; LAV-02 9: 1; SAL-05 10: 1; LAT-07 22: 1
 
 ## Our duels: 0 live, 34 finished (last 10)
 
@@ -114,9 +113,9 @@ Asks by others (card, price: count): LAV-04 10: 3; LAT-04 9: 2; LAT-01 9: 2; LAV
 
 ## Latest announcements
 
-- tick 144 announcement: {"text": "We close at 23:00. Offers stay open; the clock stops."}
 - tick 158 level.unlocked: {"team": "t11", "name": "Team 11", "persona": "chato", "persona_name": "El Chato", "level": 2, "why": "open to everyone now"}
 - tick 158 level.unlocked: {"team": "t15", "name": "Team 15", "persona": "chato", "persona_name": "El Chato", "level": 2, "why": "open to everyone now"}
 - tick 159 announcement: {"text": "Closed until Saturday 09:00. Offers stay open; the clock stops."}
 - tick 159 announcement: {"text": "Good morning! The Bazaar is open again: Saturday until 23:00, one tick every 30 s."}
+- tick 252 level.announced: {"level": "pilar", "kind": "persona", "name": "Do\u00f1a Pilar", "teaser": "\u00abI collect what others throw away.\u00bb"}
 

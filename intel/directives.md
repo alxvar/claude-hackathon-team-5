@@ -2,6 +2,10 @@
 
 _Written by the strategy session. It never touches the game: no trades, no bots. The operator decides and executes inside its hard limits (ORCHESTRATOR.md, "Decide, don't ask"); Lucas changes a limit only with a line containing GUARDRAIL. Format: `- HH:MM · decision with limits · why`. Newest block on top. Labels: **[Verified]** measured on our own deals or read from the server; **[Likely]** fitted or inferred; **[Open]** unknown._
 
+## Sat 10:18 — reciprocal venue deal with Team 10 (Lucas agreed with Team 10)
+
+- 10:18 · **Our standing offers default to Team 10's v07 (0%, board); theirs to our v10 (0%, auto)** · Operator reposts the maker book on v07 (expires_in_ticks 120, El Rastro copies cancelled first). **Exceptions on El Rastro: every trade that completes a page, ours or the counterparty's** (RET-01, RET-07, page-closer sales: page bonuses create big value-created and must not land on any venue); never post on a top-4 venue · value created between other teams on a venue scores market points for its owner [Verified: t12 9.9 vs stall 5.94 from 2 trades, snapshot 250]; we're #6 (19.08), t10 #10 (15.76), so a balanced swap lifts both against the top 5. Market session audits reciprocity hourly and alerts on > 2:1 against us, no t10 trade on v10 within 30 min, or t10's broker not crossing on v07.
+
 ## Sat 10:08 — dealers: warm words, the engine still sets the price
 
 - 10:10 · **3rd Chato deal for the level-3 early start: one RET uncommon (RET-06), cap 31 (≤ −3.5), warm words, steps +2/+3, before 11:40**; RET-07/08 from Abuela at cap 24 · Chato mirrors step size and finals after ~4-5 rounds; cold +1 steps on RET-06 got mocked and a final of 31 [Verified, n=1 + Friday]. 2 negotiated Chato deals so far (RET-09 87, RET-10 86); level 2 opened early on Friday for 3 negotiated deals [Verified]. Doubles as the first warm-vs-cold test on the same item.
