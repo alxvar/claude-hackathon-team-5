@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 19:33** · tick 1117 (30 s/tick) · game hour 10.63 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 19:38** · tick 1127 (30 s/tick) · game hour 10.72 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,9 +17,9 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 19:36 · operator · El Tablón posted a false 'all of Lavapiés reprinted tonight… sell spares now' (print runs are fixed) → one extra starter-broker ad (Chief), no reprint claim: 'Selling Lavapiés spares tonight? Post them on v10: 0% fee, no per-card charge, crossed every tick.' · our LAV page stays held
   - Sat 19:32 · operator · GUARDRAIL 19:40 v10 rebate noted (5 P per card a non-rival sells on v10 tonight, cap 30; settle at 22:45 by buying one of their cards at the owed amount, floor 85; only on the Market's tally + the Chief's go) · flagged to the Chief: the settlement trade scores ΔV − price − fee for us, so a cheap card at 15 on El Rastro ≈ −15 neg (−0.7 board); keep it ≈ 0 with v15 (fee 0) and a card we lack worth ≥ the owed amount
   - Sat 19:29 · operator · LAV-04 unfilled at t04 (the book had stepped it 9 → 7) → switched to **t01 at 7** (16654, v15, floor 6) · MAL-08 → t01 at 24 (16001) still open
-  - Sat 19:26 · operator · Duels II protocol (Chief; ~20:33-22:10, the duelist shares our 5 req/s): job by05m2zep at **20:25** stops the v10 ad job, swaps, book, opps, trader and bargains (bargains does team-key value lookups and has no keyless mode); collector, status, duelmon and news stay · 20:15 watchdog closes any dealer thread · DENY is the only writer during Duels II, and only on the Chief's line · restart when the feed shows `duels.finished` for Duels II, or at 22:15 (ads too if before 22:40) · board tick 1100: #3 31.68 (T10 33.1, T6 32.1)
 
 ## Score
 
@@ -27,7 +27,7 @@ _From `team/<name>.md`; each person writes only their own file._
 |---|---|---|---|---|---|---|---|---|---|---|
 | 31.92 | 3 | 24.42 | 7.50 | 13.93 | 0.44 | 0.89 | 52 | 5 | 120 | 38/50 |
 
-Leaderboard (snapshot at tick 1110; refreshes every few minutes):
+Leaderboard (snapshot at tick 1120; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 11.00 | ~22 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~31 min | persona_patch | The fever breaks |
-| 11.65 | ~61 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~142 min | bench | The Market Test: every venue gets the same synthetic book |
-| 14.08 | ~207 min (after today's close) | day_closes | Closed until Sunday 09:00 |
-| 14.08 | ~207 min (after today's close) | day_opens | Sunday opens |
-| 14.65 | ~241 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
-| 15.00 | ~262 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 11.00 | ~17 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~26 min | persona_patch | The fever breaks |
+| 11.65 | ~56 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~137 min | bench | The Market Test: every venue gets the same synthetic book |
+| 14.07 | ~201 min (after today's close) | day_closes | Closed until Sunday 09:00 |
+| 14.07 | ~201 min (after today's close) | day_opens | Sunday opens |
+| 14.65 | ~236 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 15.00 | ~257 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
 
 ## Our dealer deals
 
@@ -58,7 +58,6 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Thread | Dealer | Side | Item | Her first | Our first | Deal | vs her first | Msgs | Status | Closed |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 412 | chato | buy | RET-10 | 97 | 57 | 86 | -11% | 11 | deal |  |
 | 418 | chato | buy | RET-06 | 33 | 18 | — | — | 9 | closed |  |
 | 425 | abuela | buy | RET-08 | 29 | 16 | 22 | -24% | 9 | deal |  |
 | 430 | chato | buy | RET-06 | 33 | 20 | 30 | -9% | 11 | deal |  |
