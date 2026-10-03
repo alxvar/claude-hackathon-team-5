@@ -28,6 +28,47 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1288,
+   "raw": {
+    "duel": 5822,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Plaza del Dos de Mayo",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.86,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 72,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1304,
+    "decay_per_round": 0.08,
+    "rounds": 0,
+    "your_offer": null,
+    "rival_offer": {
+     "id": 8194,
+     "price": 84,
+     "tick": 1288,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1288,
+      "from": "Rival Rojo",
+      "text": "Happy to close quickly: 84 primas with delivery in 0 days.",
+      "price": 84,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {

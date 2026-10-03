@@ -404,6 +404,94 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1288,
+   "raw": {
+    "duel": 5860,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.16,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 114,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1298,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 8154,
+     "price": 169,
+     "tick": 1287,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 8186,
+     "price": 156,
+     "tick": 1288,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1284,
+      "from": "Rival Azul",
+      "text": "We can do 134 P, delivery on day 0. Thank you for the talk.",
+      "price": 134,
+      "days": 0
+     },
+     {
+      "tick": 1284,
+      "from": "you",
+      "text": "I'll open at 155 P with delivery on day 10. Happy to hear your terms.",
+      "price": 155,
+      "days": 10
+     },
+     {
+      "tick": 1285,
+      "from": "Rival Azul",
+      "text": "146 P, delivery on day 0 works well for us.",
+      "price": 146,
+      "days": 0
+     },
+     {
+      "tick": 1285,
+      "from": "you",
+      "text": "I can meet your day 0 delivery, and at that day my price is 172 P. That's the figure for day 0.",
+      "price": 172,
+      "days": 0
+     },
+     {
+      "tick": 1286,
+      "from": "Rival Azul",
+      "text": "Our offer is 150 P, delivery on day 0.",
+      "price": 150,
+      "days": 0
+     },
+     {
+      "tick": 1287,
+      "from": "you",
+      "text": "I can come down to 169 P on day 0, a real step toward you after your move. I hope you can meet me closer.",
+      "price": 169,
+      "days": 0
+     },
+     {
+      "tick": 1288,
+      "from": "Rival Azul",
+      "text": "Let's meet at 156 P, delivery on day 0, fair for both.",
+      "price": 156,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
