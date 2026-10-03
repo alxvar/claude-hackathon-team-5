@@ -202,8 +202,8 @@ Commands run from the repo root with the key loaded: `set -a; . ./.env; set +a; 
    the Chief. Tier C: add CHA-01..04 only once both rares are in.
 4. **First bid out** · `/api/me` cash before and after (does the server hold bid cash?); `expires_tick − created_tick`
    (×4?); it sits on El Rastro.
-5. **~10:00** · rares not filled (never the page's last missing card; a refused card goes back in the book, Order step
-   1b): remove the entry, check `/api/me/offers`, then
+5. **~10:00** · rares not filled (never the page's last missing card; a refused card goes back in the book: the rule
+   before Order step 2): remove the entry, check `/api/me/offers`, then
    `chato_steady.py CHA-09 --cap 77 --open 57 --step 3 --cash-floor <open CHA bid cash>` (and CHA-10); `--cap 100` on
    a second try.
 6. **~10:30** · CHA-01..04 / CHA-06/07 still missing, except the page's last missing card: remove the entries, check
