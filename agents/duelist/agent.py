@@ -3,10 +3,11 @@ the move to the band and the hard limits (regateo agents/ranged/v4, config clock
 and `clock` on, the negotiator never told our limit).
 
 Code states facts only: offers so far, how far each side has moved, ticks left, rounds and what one more costs, the
-gap. Prices and
-when to accept stay with the models, with two exceptions. The fallback when both models fail (`safe_move`)
-concedes on a schedule and accepts once their offer meets it, so a duel still closes. And code accepts a standing
-offer inside our limit when the runner says the acceptance can't wait (`close`).
+gap. Prices and when to accept stay with the models, with three exceptions:
+- the fallback when both models fail (`safe_move`) concedes on a schedule and accepts once their offer meets it,
+  so a duel still closes;
+- code accepts a standing offer inside our limit when the runner says the acceptance can't wait (`close`);
+- code walks our offer toward a floor while the rival has said nothing at all since our opener (`silent_move`).
 
 Decay is per round, not per tick (Friday's 30 practice duels): result = our surplus x (1 - decay)^rounds, with
 rounds = min(our priced offers, theirs). Silence costs nothing but the deadline.
@@ -34,6 +35,10 @@ OWN_NOTE = "[Note from your own system, not from the other side]"
 AGREEMENT_FEEDBACK = ("the message could be read as accepting, but you are not accepting. Don't use words like "
                       "'deal', 'agree', 'accept', 'sounds good' or 'works for me' unless you accept.")
 MAX_MESSAGE = 1000                      # characters; the game keeps 1,200
+# A rival that has said nothing at all (plan §4D #5): code concedes from our opener toward a floor.
+SILENT_FROM = 0.5                       # starts once this share of the duel's ticks is left
+SILENT_KEEP = 0.3                       # of the distance from our opener to our limit, never conceded
+SILENT_BY = 2                           # the floor is reached with this many ticks left (the last one is spare)
 
 
 class BandPlan(BaseModel):
@@ -120,6 +125,11 @@ def standing_price(obs: Observation) -> int | None:
         return obs.rival_offer.price
     theirs = their_offers(obs)
     return theirs[-1].price if theirs else None
+
+
+def silent(obs: Observation) -> bool:
+    """The rival hasn't sent anything: no message, no offer."""
+    return not obs.theirs and obs.rival_offer is None
 
 
 def last_tick(obs: Observation) -> bool:
@@ -426,6 +436,33 @@ class DuelAgent:
         risks. `final` still checks the limit."""
         self.calls = []
         return Move("accept", "Agreed.", price=standing_price(obs), meta={"rule": why})
+
+    def silent_move(self, obs: Observation) -> Move | None:
+        """Code's offer to a rival that has said nothing since our opener (plan §4D #5). Once SILENT_FROM of the
+        duel's ticks are left, our offer walks in equal steps from the opener to a floor that keeps SILENT_KEEP of
+        the opener's distance from our limit, reaching it SILENT_BY ticks before the end. Silence adds no round,
+        so the steps cost price only, and the floor bounds what a rival that waits in silence can take. Friday:
+        14 of 30 rivals never offered; two of them accepted our opener at once (164, 258), bots that take the
+        first price good enough for them, and the rest scored 0. None when the rival isn't silent, it's too
+        early, or our offer is already at the step."""
+        ours = our_offers(obs)
+        if not ours or not silent(obs) or obs.ticks_left is None:
+            return None
+        left = obs.ticks_left
+        start = max(round((self.view.duel_ticks or 16) * SILENT_FROM), SILENT_BY)
+        if left > start:
+            return None
+        anchor, limit = ours[0].price, self.view.limit
+        floor = limit + SILENT_KEEP * (anchor - limit)
+        step = min(1.0, (start - left + 1) / (start - SILENT_BY + 1))
+        price = toward_us(self.s, anchor + (floor - anchor) * step)
+        if self.s * price >= self.s * ours[-1].price:
+            return None                               # never back away from what we already offered
+        self.calls = []
+        days = self._days(None, obs)
+        text = f"I can do {money(price, self.view.currency)}" + (f", delivery on day {days}." if days is not None
+                                                                 else ".")
+        return Move("offer", text, price=price, days=days, meta={"rule": "silent rival"})
 
     def repair(self, d: Decision, obs: Observation, band: Band, days: int | None, /, **meta: Any) -> Move:
         """A decision that failed its checks twice: an offer clamped into the band with a plain message."""

@@ -238,8 +238,8 @@ def test_records_keep_the_whole_duel_and_review_reads_it(tmp_path: Path):
     assert rec.add_feed([{"id": 1, "type": "duel.deal"}]) == 0
 
 
-def runner(b, model, tmp_path: Path) -> DuelRunner:
-    return DuelRunner(b, model, model, dry_run=False, log=Log(tmp_path), decay=None, duel_ticks=None, poll_s=1)
+def runner(b, model, tmp_path: Path, duel_ticks: int | None = None) -> DuelRunner:
+    return DuelRunner(b, model, model, dry_run=False, log=Log(tmp_path), decay=None, duel_ticks=duel_ticks, poll_s=1)
 
 
 def answered(r: DuelRunner, raw: dict, tick: int):
@@ -322,15 +322,60 @@ def test_a_gap_smaller_than_one_more_round_is_closed_by_accepting(tmp_path: Path
     assert r2.closing(mem) is None
 
 
-def test_near_the_deadline_we_decide_every_tick_even_with_a_silent_rival(tmp_path: Path):
-    # Duel 31: our opener on tick 120, the rival never spoke, deadline 132. Silence is no standoff, but the
-    # clock is.
-    r = runner(FakeBazaar(), FakeModel(plan(150, 155, 145)), tmp_path)
+def silent_duel_31(tmp_path: Path):
+    """Duel 31 (12 ticks): we sell at cost 111, opened at 165 on tick 120; the rival never spoke; deadline 132."""
+    b, fake = FakeBazaar(), FakeModel(plan(150, 155, 145))
+    r = runner(b, fake, tmp_path, duel_ticks=12)
     raw = recorded(31, 120)
     answered(r, raw, 120)
-    for tick, due in ((125, False), (128, False), (129, True)):
-        r.tick = tick
-        assert r.due(r.update(raw)) is due, tick
+    return r, b, fake, raw
+
+
+def play(r: DuelRunner, b: FakeBazaar, raw: dict, tick: int) -> dict:
+    """One tick: read the duel, decide if due, and put what we said into the payload as the game would."""
+    r.tick = tick
+    mem, sent = r.update(raw), len(b.said)
+    if r.due(mem):
+        asyncio.run(r.decide(mem))
+    if len(b.said) > sent:
+        _, text, price, _ = b.said[-1]
+        raw = {**raw, "messages": [*raw["messages"], {"tick": tick, "from": "you", "text": text, "price": price}],
+               "your_offer": {"price": price, "tick": tick}}
+    return raw
+
+
+def test_a_silent_rival_gets_our_offer_walked_down_to_a_floor_by_code(tmp_path: Path):
+    r, b, fake, raw = silent_duel_31(tmp_path)
+    for tick in range(121, 132):
+        raw = play(r, b, raw, tick)
+    steps = [(m["tick"], m["price"]) for m in raw["messages"][1:]]
+    # From 6 ticks left (tick 126) to 2 left (130): 165 -> floor 111 + 0.3 x 54 = 127.2, rounded up to 128.
+    assert steps == [(126, 158), (127, 150), (128, 143), (129, 135), (130, 128)]
+    assert fake.seen == []                              # no model asked
+
+
+def test_a_silent_rival_that_speaks_goes_back_to_the_models(tmp_path: Path):
+    r, b, fake, raw = silent_duel_31(tmp_path)
+    for tick in range(121, 128):
+        raw = play(r, b, raw, tick)                     # 158 on 126, 150 on 127
+    raw = {**raw, "rival_offer": {"price": 120},
+           "messages": [*raw["messages"], {"tick": 128, "from": "Rival Sol", "text": "120.", "price": 120}]}
+    r.tick = 128
+    mem = r.update(raw)
+    assert r.due(mem) and not r.silent_rival(mem)
+    asyncio.run(r.decide(mem))
+    assert fake.seen and fake.seen[0][0] == "BandPlan"  # the strategist plays it again
+
+
+def test_a_silent_rival_in_a_days_duel_stays_with_the_models(tmp_path: Path):
+    r = runner(FakeBazaar(), FakeModel(plan(150, 155, 145, days=5)), tmp_path, duel_ticks=12)
+    raw = {**recorded(31, 120), "issues": ["price", "days"], "your_days_weight": 1}
+    mem = answered(r, raw, 120)
+    assert not r.silent_rival(mem)
+    r.tick = 126
+    assert not r.due(r.update(raw))                     # no schedule: the models decide in the last 3 ticks
+    r.tick = 129
+    assert r.due(r.update(raw))
 
 
 def test_a_standoff_is_broken_after_three_still_ticks(tmp_path: Path):
@@ -406,7 +451,7 @@ def test_a_restart_waits_like_before_instead_of_resending(tmp_path: Path):
     # Duel 181, tick 137: a restart re-sent our standing 54 because a fresh process saw nothing sent.
     raw = recorded(181, 137)
     raw = {**raw, "messages": [m for m in raw["messages"] if m["tick"] < 137]}   # as read before we spoke on 137
-    r = runner(FakeBazaar(), FakeModel(plan(54, 53, 55)), tmp_path)
+    r = runner(FakeBazaar(), FakeModel(plan(54, 53, 55)), tmp_path, duel_ticks=12)   # 7 left: no silent step yet
     mem = answered(r, raw, 137)
     assert [t.offer.price for t in mem.sent] == [50, 50, 54] and not r.due(mem)
 

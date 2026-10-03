@@ -1,7 +1,8 @@
 """The duel loop: poll the game, let the agent decide for each live duel that needs a move, send the move.
 
 A duel needs a move when the rival has moved, in its last DECIDE_LEFT ticks whatever the rival does, when both
-sides have sat still for HOLD_TICKS ticks, and when code should accept its standing offer (`closer`): the
+sides have sat still for HOLD_TICKS ticks, when a rival that has said nothing is due our next step
+(`silent_rival`: code, no model), and when code should accept its standing offer (`closer`): the
 deadline can't wait, or the gap is smaller than what one more round risks. When our acceptance must wait for the
 team's one acceptance per tick, we offer the rival its own price instead, if that costs no round (`their_price`).
 
@@ -24,7 +25,7 @@ from bazaar_sdk import Bazaar, BazaarError
 from engine import Model
 
 from .adapter import Snapshot, parse_duel
-from .agent import DuelAgent, Move, our_offers, quiet_ticks, standing_price, their_offers
+from .agent import DuelAgent, Move, our_offers, quiet_ticks, silent, standing_price, their_offers
 from .guards import past_limit
 from .model import Observation, Offer, Turn, sign
 from .prices import money
@@ -239,6 +240,8 @@ class DuelRunner:
             return False
         if not mem.sent or signature(mem.snap) != mem.decided_on:
             return True                           # the rival has moved
+        if self.silent_rival(mem):
+            return mem.agent.silent_move(self.observe(mem)) is not None   # its schedule, nothing else
         left = mem.snap.ticks_left
         return ((left is not None and left <= DECIDE_LEFT)        # the clock alone is a reason (duel 181)
                 or self.closing(mem) is not None
@@ -255,6 +258,12 @@ class DuelRunner:
             return 0
         obs = self.observe(mem)
         return quiet_ticks(obs) if their_offers(obs) else 0
+
+    def silent_rival(self, mem: Memory) -> bool:
+        """After our opener, a price-only duel whose rival hasn't sent anything is code's (`agent.silent_move`).
+        With days, the limit alone can't say how far to go, so the models keep it."""
+        return (mem.snap.view is not None and bool(mem.sent) and not mem.agent.view.has_days
+                and silent(self.observe(mem)))
 
     def closer(self) -> tuple[Memory, str] | None:
         """The duel whose standing offer code accepts this tick, and why; None when none should.
@@ -334,6 +343,10 @@ class DuelRunner:
         timeout = max(8.0, self.tick_seconds - 5.0)
         if why := self.closing(mem):
             move = mem.agent.final(mem.agent.close(obs, why), obs)
+        elif self.silent_rival(mem):
+            if (step := mem.agent.silent_move(obs)) is None:
+                return                            # nothing to send this tick
+            move = mem.agent.final(step, obs)
         else:
             try:
                 move = await asyncio.wait_for(mem.agent.respond(obs), timeout)
