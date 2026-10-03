@@ -128,6 +128,7 @@ tr.sel td { background: rgba(57,135,229,0.22) !important; }
     <button data-tab="duelmon">Duel monitor</button>
     <button data-tab="convs">Conversations</button>
     <button data-tab="market">Market</button>
+    <button data-tab="trades">Team trades</button>
     <button data-tab="more">Dealers · schedule</button>
   </div>
 </header>
@@ -319,6 +320,38 @@ tr.sel td { background: rgba(57,135,229,0.22) !important; }
       <table id="priceT"></table>
       <h2 style="margin-top:16px">Latest trades</h2>
       <div class="scroll" style="max-height:320px"><table id="tapeT"></table></div>
+    </section>
+  </div>
+</section>
+
+<!-- ============================================================ TEAM TRADES -->
+<section class="tab" id="tab-trades">
+  <div class="tiles" id="ttTiles"></div>
+  <section class="card">
+    <h2>Every trade between teams</h2>
+    <p class="sub">All settled team-to-team trades in the public feed we hold (El Rastro and every team's venue), newest first. <b>Value created</b> = buyer's value − seller's value of the cards, estimated as book × (buyer's set multiplier − seller's): ours exact, the others from <code>intel/multipliers.json</code> [L]; "—" when a multiplier is unknown. On <b>our</b> venue it is what scores our market part (a minus there costs us).</p>
+    <div class="filters">
+      <label>Day <select id="tDay"></select></label>
+      <label>Venue <select id="tVenue"></select></label>
+      <label>Team <select id="tTeam"></select></label>
+      <label>Set <select id="tSet"></select></label>
+      <label>Kind <select id="tKind"><option value="">all</option><option value="cash">cash</option><option value="swap">swap</option></select></label>
+      <label><input type="checkbox" id="tOursVenue"> only our venue</label>
+      <label><input type="checkbox" id="tNoTop4"> hide trades with a top-4 team</label>
+      <span class="muted" id="tCount"></span>
+    </div>
+    <div class="scroll" style="max-height:620px"><table id="ttT"></table></div>
+  </section>
+  <div class="grid2">
+    <section class="card">
+      <h2>By venue</h2>
+      <p class="sub">Where teams trade. "Value created" sums only the trades whose two multipliers are known (n).</p>
+      <div class="scroll"><table id="ttVenues"></table></div>
+    </section>
+    <section class="card">
+      <h2>By team</h2>
+      <p class="sub">Who buys and sells between teams (swaps counted apart), and the sets each one buys most.</p>
+      <div class="scroll"><table id="ttTeams"></table></div>
     </section>
   </div>
 </section>
@@ -709,6 +742,76 @@ function duelsTab(d) {
 }
 
 // ------------------------------------------------------------------ conversations
+// ------------------------------------------------------------------ team trades
+let ttDayInit = false;
+function tradesTab(d) {
+  const t = d.team_trades;
+  if (!t) { $("#ttTiles").innerHTML = `<span class="muted">Restart the dashboard server to load this tab.</span>`; return; }
+  const s = t.summary, tsec = d.clock.tick_seconds || 30, rows = t.rows;
+  const ago = s.last_tick != null && s.now != null ? s.now - s.last_tick : null;
+  const T = [
+    [`Team trades today (${s.day || "—"})`, s.today, `<span class="d">${s.volume_today} P volume · ${s.swaps_today} swaps · ${s.n} recorded in all</span>`],
+    ["On El Rastro today", s.today ? Math.round(100 * s.rastro_today / s.today) + "%" : "—", `<span class="d">${s.rastro_today} there, ${s.today - s.rastro_today} on team venues</span>`],
+    ["On our venue (v10)", s.ours_venue, `<span class="d">est. value created ${sgn(s.ours_venue_created, 1)} (it scores our market part)</span>`],
+    ["Last team trade", s.last_tick != null ? "tick " + s.last_tick : "—", `<span class="d">${ago != null ? `${ago} ticks ago (≈ ${Math.round(ago * tsec / 60)} min)` : ""}</span>`],
+  ];
+  $("#ttTiles").innerHTML = T.map(([k, val, dl]) => `<div class="tile"><div class="k">${k}</div><div class="v">${val}</div>${dl}</div>`).join("");
+
+  fillSelect($("#tDay"), [...new Set(rows.map(r => r.day))].map(x => [x, x]));
+  if (!ttDayInit && s.day) { $("#tDay").value = s.day; ttDayInit = true; }
+  fillSelect($("#tVenue"), t.venues.map(v => [v.venue, (v.ours ? "★ " : "") + v.name]));
+  fillSelect($("#tTeam"), t.teams.map(g => [g.team, `${g.name}${g.rank ? " #" + g.rank : ""}`]));
+  fillSelect($("#tSet"), [...new Set(rows.flatMap(r => r.sets))].sort().map(x => [x, x]));
+  const day = $("#tDay").value, venue = $("#tVenue").value, team = $("#tTeam").value, set = $("#tSet").value,
+        kind = $("#tKind").value, oursV = $("#tOursVenue").checked, noTop = $("#tNoTop4").checked;
+  const shown = rows.filter(r => (!day || r.day === day) && (!venue || r.venue === venue)
+    && (!team || r.buyer === team || r.seller === team) && (!set || r.sets.includes(set)) && (!kind || r.kind === kind)
+    && (!oursV || r.on_ours) && (!noTop || !r.top4));
+  $("#tCount").textContent = `${shown.length} of ${rows.length} trades · ${shown.reduce((a, r) => a + (r.price || 0), 0)} P`;
+
+  const who = (id, name, rank) => `${id === d.us ? "★ " : ""}${esc(name || id || "?")}${rank ? ` <span class="muted">#${rank}</span>` : ""}`;
+  const cards = r => r.kind === "swap"
+    ? r.items.map(i => `${esc(d.names[i.frm] || i.frm)} gives <b>${esc(i.ref)}</b>`).join(" · ")
+    : `<b>${esc(r.refs.join(", "))}</b> <span class="muted">${esc(r.card || "")}</span>`;
+  table($("#ttT"), "teamTrades", shown, [
+    ["tick", "Tick", r => `${r.tick} <span class="muted">${esc(r.day)}</span>`, true],
+    ["venue_name", "Venue", r => `${r.on_ours ? "★ " : ""}${esc(r.venue_name)}`],
+    ["kind", "Kind", r => `<span class="chip">${esc(r.kind)}</span>`],
+    ["seller_name", "Seller → buyer", r => `${who(r.seller, r.seller_name, r.seller_rank)} → ${who(r.buyer, r.buyer_name, r.buyer_rank)}`],
+    ["refs", "Cards", cards],
+    ["rarity", "Rarity", r => esc(r.rarity || "")],
+    ["price", "Price P", null, true],
+    ["fee", "Fee", null, true],
+    ["vs_book", "× book", r => r.vs_book != null ? r.vs_book + "×" : "—", true],
+    ["buyer_collects", "Buyer collects", r => r.buyer_collects ? "✓" : ""],
+    ["seller_dumps", "Seller dumps", r => r.seller_dumps ? "✓" : ""],
+    ["created", "Value created", r => r.created == null ? "—" : `<span class="${r.created > 0 ? "up" : r.created < 0 ? "down" : ""}">${sgn(r.created, 1)}</span>`, true],
+    ["top4", "", r => (r.top4 ? `<span class="chip">top 4</span>` : "") + (r.ours ? `<span class="chip">ours</span>` : "")],
+  ], r => r.ours ? "us" : "");
+
+  table($("#ttVenues"), "ttVenues", t.venues, [
+    ["name", "Venue", r => `${r.ours ? "★ " : ""}${esc(r.name)}`],
+    ["owner_name", "Owner", r => r.venue === "rastro" ? `<span class="muted">the house</span>` : esc(r.owner_name)],
+    ["fee", "Fee now", r => esc(r.fee)],
+    ["trades", "Trades", null, true],
+    ["today", "Today", null, true],
+    ["volume", "Volume P", null, true],
+    ["fees", "Fees P", null, true],
+    ["created", "Value created", r => r.created_n ? `<span class="${r.created > 0 ? "up" : r.created < 0 ? "down" : ""}">${sgn(r.created, 1)}</span> <span class="muted">(n ${r.created_n})</span>` : "—", true],
+    ["last", "Last tick", null, true],
+  ], r => r.ours ? "us" : "");
+  table($("#ttTeams"), "ttTeams", t.teams, [
+    ["name", "Team", r => `${r.us ? "★ " : ""}${esc(r.name)}${r.rank ? ` <span class="muted">#${r.rank}</span>` : ""}`],
+    ["buys", "Buys", null, true],
+    ["sells", "Sells", null, true],
+    ["swaps", "Swaps", null, true],
+    ["spent", "Spent P", null, true],
+    ["received", "Received P", null, true],
+    ["today", "Today", null, true],
+    ["sets_bought", "Buys most", r => esc(r.sets_bought)],
+  ], r => r.us ? "us" : "");
+}
+
 // ------------------------------------------------------------------ duel monitor
 const DM_SEV = { critical: ["warn", "CRITICAL"], watch: ["watch", "WATCH"], missed: ["missed", "MISSED"] };
 function duelmonTab(d) {
@@ -832,6 +935,7 @@ function render() {
   if (tab === "duelmon") duelmonTab(d);
   if (tab === "convs") convsTab(d);
   if (tab === "market") { marketTable(d); holdersTable(d); pricesTables(d); }
+  if (tab === "trades") tradesTab(d);
   if (tab === "more") moreTab(d);
 }
 
@@ -849,7 +953,8 @@ async function refresh() {
     DATA = await r.json(); render();
   } catch (e) { $("#hdr").innerHTML = `<span class="err">dashboard server not reachable: ${esc(e.message)}</span>`; }
 }
-["#fSide", "#fSet", "#fTeam", "#fOpp", "#fOurs", "#cTeam", "#cDealer", "#cOurs"].forEach(s => $(s).addEventListener("change", render));
+["#fSide", "#fSet", "#fTeam", "#fOpp", "#fOurs", "#cTeam", "#cDealer", "#cOurs",
+ "#tDay", "#tVenue", "#tTeam", "#tSet", "#tKind", "#tOursVenue", "#tNoTop4"].forEach(s => $(s).addEventListener("change", render));
 const TABS = [...document.querySelectorAll(".tabs button")].map(b => b.dataset.tab);
 const fromHash = location.hash.slice(1);
 showTab(TABS.includes(fromHash) ? fromHash : store.get("bz-tab", "overview"));

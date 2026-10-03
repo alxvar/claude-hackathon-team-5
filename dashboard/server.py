@@ -40,6 +40,7 @@ HERE = Path(__file__).resolve().parent
 CACHE = ROOT / "logs" / "dashboard"
 TEAMS_MD = ROOT / "intel" / "teams.md"
 SHOW_JSON = ROOT / "judges" / "show.json"   # the judges' showcase (/show): story texts Dani edits
+MULT_JSON = ROOT / "intel" / "multipliers.json"   # the Analyst's per-team set multiplier estimates (read-only here)
 URL = os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai")
 GAP = 0.4          # seconds between two requests
 EDGE = 3           # P of gain, after fees, that makes an offer an opportunity
@@ -687,6 +688,132 @@ class Analysis:
                          "dealer_n": len(d), "dealer_median": median(d)})
         return rows, last
 
+    def team_trades(self, prof):
+        """Every settled trade between two teams (El Rastro and the teams' venues), newest first, from the feed we hold.
+
+        A cash trade has one side giving cards and the other paying `price`; a swap moves cards both ways (plus any
+        price). "Value created" is the venue's market-making signal: buyer's value − seller's value of the cards,
+        estimated as book × (buyer's set multiplier − seller's), with ours exact (/api/me affinity) and the others from
+        intel/multipliers.json (the Analyst's estimates [L]); None when a multiplier is unknown. Second copies are worth
+        less to their holder, so it reads high on spares."""
+        try:
+            mult = json.loads(MULT_JSON.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            mult = {}
+
+        def m_of(team, s):
+            if team == self.us:
+                return self.aff.get(s)
+            return ((mult.get(team) or {}).get(s) or {}).get("m")
+
+        byprof = {p["team"]: p for p in prof}
+        vname = {v.get("venue"): v for v in self.venues}
+        top4 = {p["team"] for p in prof if p["rank"] <= 4}
+        opens = sorted(((e.get("tick") or 0), str((e.get("payload") or {}).get("day") or "").capitalize())
+                       for e in self.events if e.get("type") == "day.opened")
+        rows = []
+        for tr in self.trades:
+            if tr["kind"] != "team" or len(tr["parties"]) != 2:
+                continue
+            items = tr["items"]
+            if not items:
+                continue
+            givers = {i.get("frm") for i in items}
+            a, b = tr["parties"]
+            swap = len(givers) > 1
+            if swap:
+                seller, buyer = a, b
+            else:
+                seller = items[0].get("frm")
+                buyer = next((p for p in tr["parties"] if p != seller), None)
+            created, known = 0.0, True
+            for i in items:
+                s, book = set_of(i.get("ref")), self.book.get(i.get("rarity")) or 0
+                m_to, m_from = m_of(i.get("to"), s), m_of(i.get("frm"), s)
+                if m_to is None or m_from is None:
+                    known = False
+                else:
+                    created += book * (m_to - m_from)
+            sets = sorted({set_of(i.get("ref")) for i in items})
+            v = {} if tr["venue"] == "rastro" else (vname.get(tr["venue"]) or {})  # El Rastro is the house's
+            day = next((d for t, d in reversed(opens) if t <= (tr["tick"] or 0)), "Fri")
+            first = items[0]
+            book = self.book.get(first.get("rarity"))
+            bp, sp = byprof.get(buyer) or {}, byprof.get(seller) or {}
+            rows.append({
+                "tick": tr["tick"], "day": day, "venue": tr["venue"],
+                "venue_name": "El Rastro" if tr["venue"] == "rastro" else (v.get("name") or tr["venue"]),
+                "venue_owner": v.get("owner"), "on_ours": v.get("owner") == self.us,
+                "kind": "swap" if swap else "cash",
+                "seller": seller, "buyer": buyer, "seller_name": self.name(seller), "buyer_name": self.name(buyer),
+                "seller_rank": sp.get("rank"), "buyer_rank": bp.get("rank"),
+                "refs": [i.get("ref") for i in items],
+                "items": [{"ref": i.get("ref"), "name": i.get("name"), "rarity": i.get("rarity"), "frm": i.get("frm"),
+                           "to": i.get("to")} for i in items],
+                "card": first.get("name"), "rarity": first.get("rarity"), "sets": sets,
+                "price": tr["price"], "fee": tr["fee"],
+                "vs_book": round(tr["price"] / book, 2) if book and not swap and len(items) == 1 and tr["price"] else None,
+                "buyer_collects": any(s in (bp.get("wants") or []) for s in sets),
+                "seller_dumps": any(s in (sp.get("dumps") or []) for s in sets),
+                "created": round(created, 1) if known else None,
+                "ours": self.us in tr["parties"], "top4": bool(top4 & set(tr["parties"])),
+            })
+        rows.sort(key=lambda r: -(r["tick"] or 0))
+
+        venues = {}
+        for r in rows:
+            g = venues.setdefault(r["venue"], {"venue": r["venue"], "name": r["venue_name"], "owner": r["venue_owner"],
+                                               "owner_name": self.name(r["venue_owner"]) if r["venue_owner"] else "the house",
+                                               "ours": r["on_ours"], "trades": 0, "today": 0, "volume": 0, "fees": 0,
+                                               "created": 0.0, "created_n": 0, "last": None})
+            g["trades"] += 1
+            g["today"] += r["day"] == rows[0]["day"]
+            g["volume"] += r["price"] or 0
+            g["fees"] += r["fee"] or 0
+            if r["created"] is not None:
+                g["created"] = round(g["created"] + r["created"], 1)
+                g["created_n"] += 1
+            g["last"] = max(g["last"] or 0, r["tick"] or 0)
+        for g in venues.values():
+            fee = (vname.get(g["venue"]) or {}).get("fee_bps")
+            g["fee"] = "5 % + 1 P" if g["venue"] == "rastro" else (f"{fee / 100:g} %" if fee is not None else "—")
+
+        teams = {}
+        for r in rows:
+            for tid, side in ((r["buyer"], "buy"), (r["seller"], "sell")):
+                if not tid:
+                    continue
+                g = teams.setdefault(tid, {"team": tid, "name": self.name(tid), "rank": (byprof.get(tid) or {}).get("rank"),
+                                           "us": tid == self.us, "buys": 0, "sells": 0, "swaps": 0, "spent": 0,
+                                           "received": 0, "today": 0, "sets_bought": collections.Counter()})
+                g["today"] += r["day"] == rows[0]["day"]
+                if r["kind"] == "swap":
+                    g["swaps"] += 1
+                    continue
+                if side == "buy":
+                    g["buys"] += 1
+                    g["spent"] += r["price"] or 0
+                    g["sets_bought"].update(r["sets"])
+                else:
+                    g["sells"] += 1
+                    g["received"] += r["price"] or 0
+        team_rows = []
+        for g in teams.values():
+            g["sets_bought"] = ", ".join(f"{s} {n}" for s, n in g["sets_bought"].most_common(3))
+            team_rows.append(g)
+        team_rows.sort(key=lambda g: -(g["buys"] + g["sells"] + g["swaps"]))
+
+        today = [r for r in rows if rows and r["day"] == rows[0]["day"]]
+        return {"rows": rows, "venues": sorted(venues.values(), key=lambda g: -g["trades"]), "teams": team_rows,
+                "summary": {"n": len(rows), "today": len(today), "day": rows[0]["day"] if rows else None,
+                            "volume_today": sum(r["price"] or 0 for r in today),
+                            "rastro_today": sum(1 for r in today if r["venue"] == "rastro"),
+                            "swaps_today": sum(1 for r in today if r["kind"] == "swap"),
+                            "ours_venue": sum(1 for r in rows if r["on_ours"]),
+                            "ours_venue_created": round(sum(r["created"] or 0 for r in rows if r["on_ours"]), 1),
+                            "last_tick": rows[0]["tick"] if rows else None, "now": self.clock.get("tick"),
+                            "mult_updated": (mult.get("_meta") or {}).get("updated")}}
+
     def tape(self, n=40):
         out = []
         for tr in reversed(self.trades[-n:]):
@@ -1310,6 +1437,7 @@ class Analysis:
             "market": market,
             "prices": price_rows,
             "tape": self.tape(),
+            "team_trades": self.team_trades(prof),
             "holders": self.holders(),
             "abuela": self.abuela(),
             "schedule": self.schedule(),
