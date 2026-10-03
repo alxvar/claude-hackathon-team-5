@@ -8,10 +8,10 @@ cmd_for() {
   case "$1" in
     status)    echo "python3 -u $R/tools/status.py --every 300 --push" ;;
     collector) echo "python3 -u $R/tools/collector.py" ;;
-    trader)    echo "python3 -u $R/agents/trader/loop.py --min-gain 3 --min-gain-sell 6 --cash-floor ${CASH_FLOOR:-100}" ;;
-    scout)     echo "uv run --project $R python -u $R/agents/analyst/analyst.py --role scout --every 300" ;;
-    judge)     echo "uv run --project $R python -u $R/agents/analyst/analyst.py --role judge --every 900" ;;
-    strategist) echo "uv run --project $R python -u $R/agents/analyst/analyst.py --role strategist --every 2700" ;;
+    trader)    echo "python3 -u $R/agents/trader/loop.py --min-gain 3 --min-gain-sell 6 --cash-floor ${CASH_FLOOR:-100} --max-ratio ${TRADER_MAX_RATIO:-0.8} --exclude '${TRADER_EXCLUDE:-CHA-*,MAL-*}'" ;;  # Market 08:00: a cap per card and no CHA/MAL buys
+    scout)     echo "uv run --project $R python -u $R/agents/analyst/analyst.py --role scout --every 900" ;;  # Analyst, Sun: every 15 min
+    judge)     echo "uv run --project $R python -u $R/agents/analyst/analyst.py --role judge --every 1800" ;;  # every 30 min
+    strategist) echo "uv run --project $R python -u $R/agents/analyst/analyst.py --role strategist --every 2700" ;;  # stopped Sun (Analyst): start only on request
     archiver)  echo "python3 -u $R/tools/archive_round.py --every 60" ;;  # read-only: snapshots at round close
     duelmon)   echo "python3 -u $R/tools/duel_monitor.py --every 15" ;;  # read-only: duel alerts + per-wave review
     recorder)  echo "cd $R && python3 -u -m broker.record_bench --loop" ;;  # read-only: records every Market Test (Market session)
