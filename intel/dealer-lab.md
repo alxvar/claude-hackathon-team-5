@@ -85,7 +85,7 @@ commons 16, uncommons 40, rares 112.
 | 1 | **Pícaros (L4)** | buy CHA-09 (rare) | 42 | +2 | target **48-52**, accept ≤ 54; walk on a final ≥ 57 and reopen | ≈ 52 (reopens beat walked threads) | the highest level; below list 63 is normal for them; value 112 |
 | 2 | Pícaros | buy CHA-10 (rare) | 42 | +2 | same | ≈ 52 | if only one rare comes from a dealer, keep CHA-10 for a team (the last card) |
 | 3 | Pícaros | sell a LAV-02 spare (common) | 12 | −1 | floor **5** (4 is their opening: never counts) | 5 | a free 0-neg L4 slot (Sat: SAL-04 at 5 gave +0.043) |
-| 4 | **Pilar (L3)** | sell RET-11 (epic, RET premium) | 260 | −4 | floor **198** (our value) | possible: she asks for the Palacio de Cristal by name; SAL-11 went 179-199 | walk below 198 and keep it |
+| 4 | **Pilar (L3)** | sell RET-11 (epic, RET premium), **round 3 only** | 260 | −4 | floor **198** (our value; directive 01:40: never below) | possible: she asks for the Palacio de Cristal by name; SAL-11 went 179-199 | walk below 198 and keep it |
 | 5 | Pilar | sell a spare uncommon | ~1.6-1.8× her bid | −1/−2 | floor ≥ our value | 1.12× her opening | **none held now**: MAL-08 is a MAL page card (see note) |
 | 6 | **Abuela (L1)** | buy CHA-06/07 (uncommons) | 12 | +1/+2 | target **20-21**, accept ≤ 22 (list 25; value 40) | 20-22 in ~7 rounds | the CHA plan's dealer fallback; L1 ladder |
 | 7 | Abuela | buy CHA-01..04 (commons) | 5 | +1 | target **8**, accept ≤ 9 (list 10; value 16) | 8-9 after 12, 10, 9, 9 | same |
@@ -151,7 +151,7 @@ The Operator reports the case to the Chief at 08:55. The order below starts at "
 | t+840 | CHA-08 → Abuela ≤ 22, only if CHA-08 and CHA-05 are both still missing | 1 |
 | when one CHA card is the last missing | **never public**: ONE agreed, addressed post from a NON-rival (pre-agreed by Lucas/Dani), up to value-when-last − 50 (common 72 / uncommon 96 / rare 168): +50 | 1 |
 | after the CHA threads | fodder **dealer sales** (Pilar > 16 first, then Chato > 13), ≤ 3 per level | ≤ 2 threads |
-| **10:30 go/no-go on the Analyst's M5 line** (directive 00:55; not on cash) | **MAL**: MAL-09 then MAL-10 → Pícaros (open 40, +2, target 44-48, accept ≤ 49 = our value); then MAL-07 **last** from Team 15 by team trade (addressed bid on El Rastro, start 20, up to value-when-last − 50) | 1 thread + 1 bid |
+| **GO whenever ≥ 150 P is left after CHA** (directive 01:40, replaces the 10:30 M5 gate: past our cap it still lowers t18/t12/t03) | **MAL**: MAL-09 then MAL-10 → Pícaros (open 40, +2, target 44-48, accept ≤ 49 = our value); then MAL-07 **last** from Team 15 by team trade (addressed bid on El Rastro, start 20, up to value-when-last − 50) | 1 thread + 1 bid |
 
 **Expected P and score (CHA)** [L, from §1 medians and cha-plan values 16/40/112, page bonus 106]:
 
