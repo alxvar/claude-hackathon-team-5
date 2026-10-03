@@ -551,6 +551,215 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 481,
+   "raw": {
+    "duel": 2366,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 101,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 491,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 3210,
+     "price": 148,
+     "tick": 481,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3205,
+     "price": 67,
+     "tick": 481,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 475,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 475,
+      "from": "you",
+      "text": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1",
+      "price": 165,
+      "days": null
+     },
+     {
+      "tick": 476,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 477,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 478,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 479,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 480,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 481,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 481,
+      "from": "you",
+      "text": "I'm willing to move: I can offer Palacio de Cristal at 148 P, a clear step down from where I began. Your repeated figure is far from a workable level, so please come up meaningfully to show you're serious about closing.",
+      "price": 148,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 482,
+   "raw": {
+    "duel": 2366,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 101,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 491,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 3210,
+     "price": 148,
+     "tick": 481,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3219,
+     "price": 67,
+     "tick": 482,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 475,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 475,
+      "from": "you",
+      "text": "Palacio de Cristal is a rare glass-and-iron landmark, and that figure is well short of what it is worth. I can offer it at 165 P, which reflects its quality and scarcity.1",
+      "price": 165,
+      "days": null
+     },
+     {
+      "tick": 476,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 477,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 478,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 479,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 480,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 481,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     },
+     {
+      "tick": 481,
+      "from": "you",
+      "text": "I'm willing to move: I can offer Palacio de Cristal at 148 P, a clear step down from where I began. Your repeated figure is far from a workable level, so please come up meaningfully to show you're serious about closing.",
+      "price": 148,
+      "days": null
+     },
+     {
+      "tick": 482,
+      "from": "Rival Oro",
+      "text": "67?",
+      "price": 67,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -870,6 +1079,63 @@
      "id": 3062,
      "price": 165,
      "tick": 475,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 481,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'm willing to move: I can offer Palacio de Cristal at 148 P, a clear step down from where I began. Your repeated figure is far from a workable level, so please come up meaningfully to show you're serious about closing.",
+    "price": 148,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 148,
+      "message": "I'm willing to move: I can offer Palacio de Cristal at 148 P, a clear step down from where I began. Your repeated figure is far from a workable level, so please come up meaningfully to show you're serious about closing."
+     },
+     "band": {
+      "worst": 146,
+      "target": 148,
+      "best": 150
+     },
+     "plan": {
+      "read": "They repeat 67 P without moving, either a bot or a patience play. Their words carry no information. Neither side has moved for 6 ticks, so this is a standoff and one clear step is warranted.",
+      "target": 148,
+      "best": 150,
+      "worst": 146,
+      "days": null,
+      "angle": "Make one clear move down to signal flexibility, and ask them to come up meaningfully from 67 to show they are serious."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.83,
+       "in": 575,
+       "out": 134,
+       "cost_usd": 0.00498,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.45,
+       "in": 353,
+       "out": 90,
+       "cost_usd": 0.00161,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2366,
+    "offer": {
+     "id": 3210,
+     "price": 148,
+     "tick": 481,
      "days": 0
     }
    }

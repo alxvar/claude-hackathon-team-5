@@ -393,6 +393,126 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 482,
+   "took_s": 6.16,
+   "cost_usd": 0.00667,
+   "obs": {
+    "view": {
+     "duel_id": 2315,
+     "role": "seller",
+     "limit": 64,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "El Mesón de la Cava is an established tavern with steady trade, a prime location and a well-stocked cellar that draws regulars. I'm offering it at 96 P, and I'd welcome a serious counteroffer from you.",
+      "offer": {
+       "price": 96,
+       "days": null
+      },
+      "accept": false,
+      "tick": 475,
+      "decision": {
+       "action": "offer",
+       "price": 96,
+       "message": "El Mesón de la Cava is an established tavern with steady trade, a prime location and a well-stocked cellar that draws regulars. I'm offering it at 96 P, and I'd welcome a serious counteroffer from you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hola. I like it, and I can pay 50 P.",
+      "offer": {
+       "price": 50,
+       "days": null
+      },
+      "accept": false,
+      "tick": 479,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for your interest. The tavern's steady trade, prime location and well-stocked cellar make it worth far more than your offer, but I'm willing to come down to 90 P as a good-faith step. I'd ask you to move meaningfully closer from where you started.",
+      "offer": {
+       "price": 90,
+       "days": null
+      },
+      "accept": false,
+      "tick": 479,
+      "decision": {
+       "action": "offer",
+       "price": 90,
+       "message": "Thanks for your interest. The tavern's steady trade, prime location and well-stocked cellar make it worth far more than your offer, but I'm willing to come down to 90 P as a good-faith step. I'd ask you to move meaningfully closer from where you started."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 50,
+     "days": null
+    },
+    "tick": 482,
+    "ticks_left": 9,
+    "rounds": 1
+   },
+   "move": {
+    "action": "message",
+    "text": "I'll hold my position and wait for your counteroffer.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "I'll hold my position and wait for your counteroffer."
+     },
+     "band": {
+      "worst": 90,
+      "target": 90,
+      "best": 90
+     },
+     "plan": {
+      "read": "They opened at 50 P and haven't moved since, while we've already come down from 96 to 90. Their low anchor is likely a probe, not their real ceiling, and they owe us a counter.",
+      "target": 90,
+      "best": 90,
+      "worst": 90,
+      "days": null,
+      "angle": "Hold at 90 and send nothing; the next move is theirs after our concession."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.57,
+       "in": 550,
+       "out": 119,
+       "cost_usd": 0.00458,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.59,
+       "in": 417,
+       "out": 126,
+       "cost_usd": 0.00209,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [
