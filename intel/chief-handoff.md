@@ -16,7 +16,7 @@ FINAL params for Duels III) · pitch `-a1`/`-a5` (judges/pitch/final/) · Aleks 
 venue deal fed it). Our mm turned +2.2 at the close (field-relative) → ≈ +0.7-2.2 board at the next snapshot [L].
 P(#1 final) ≤ 9%, P(top 2) 21-45% [Analyst, L].
 
-**Sunday facts:** +150 P at 09:00; Don Ernesto open to all; Sunday ticks 15 s [V]. The clock is paused at game 13.367
+**Sunday facts:** +150 P at 09:00; Don Ernesto open to all since Sat tick 1091 (no neg-safe Ernesto deal for us: skip L5, dealer-lab-ladder §6); Sunday ticks 15 s [V]. The clock is paused at game 13.367
 in ROUND 2 (Saturday): if it RESUMES, ≈ 1.5-3 h of Saturday's round remain (hard Market Test 14.65, bench 15.0)
 before round 3 + the CHA release at 16.65; if it JUMPS, Duels III ≈ 10:00, Final ≈ 11:30, close ≈ 12:00 [L].
 The Operator reads /api/clock + /api/schedule at 08:55. Duels III/Final: 12 ticks, 10% decay, 4 at once [V].
