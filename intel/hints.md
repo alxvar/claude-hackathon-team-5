@@ -160,3 +160,4 @@ Swap your duplicates, hijo — a full page is wort
 - Sat 19:20 · persona.open_to_all tick 1091 · banco → ? · {"persona": "banco", "name": "Don Ernesto", "level": 5}
 - Sat 19:21 · message tick 1092 · banco → t13 · Buenas tardes. Carmen's regards are noted; the gold chulapa stays in the vault today. What I offer now is a gold pack. Terms: 546 P. Take your time deciding.
 - Sat 19:21 · message tick 1093 · banco → t04 · Buenas tardes. Carmen talks. Moscow gold is not a tale I repeat at a desk. Business first: a gold pack, 546 P. The terms are those.
+- Sat 19:22 · message tick 1095 · picaros → t12 · ¡Amigo! Paco here — and Nando, mind the suitcase. Look, look, no touching with the eyes only... El Marqués! Foiled edges, barely out of the vault, the Duchess herself wanted it. For you, because your face brings luck: 73 pesos. Say sí quickly, the market closes and we vanish.
