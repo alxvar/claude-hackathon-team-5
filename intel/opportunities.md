@@ -1,4 +1,4 @@
-# Opportunities (auto, 17:28, game tick 868, t 8.5583 h)
+# Opportunities (auto, 17:29, game tick 870, t 8.575 h)
 
 Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and ≤ 60 real min old · ≤ 3 alerts/h · team 45 min · team+card 2 h · never to the top 5 (t01, t03, t05, t06, t10, t12, t14, t16, t18); a sale that closes their page (last or second-to-last known lack) only to teams ≥ 6 below us (29.38); page-closers on El Rastro, the rest on v15. Data: collector.
 
@@ -6,30 +6,30 @@ Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and �
 
 | # | side | team | card | price | our value | gain | signal | age (game / real min) | status |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | SELL | Team 8 (#15, 21.25) | SAL-01 common | 40 | 9 | 31 | bid 5 P for it (tick 722) | 73 / 73 | listed only: signal 73 real min old (game clock paused?) |
-| 2 | SELL | Team 8 (#15, 21.25) | SAL-03 common | 40 | 9 | 31 | bid 5 P for it (tick 142) | 371 / 1126 | reserved (run/reserved.json): never sold |
-| 3 | SELL | Team 2 (#14, 22.68) | LAT-03 common | 20 | 5 | 15 | bid 5 P for it (tick 513) | 177 / 302 | listed only: gain 15 < 20 |
-| 4 | SELL | Team 9 (#16, 19.59) | SAL-09 rare | 66 | 63 | 3 | bid 50 P for it (tick 379) | 244 / 369 | listed only: gain 3 < 20 |
-| 5 | SELL | Team 9 (#16, 19.59) | SAL-10 rare | 66 | 63 | 3 | bid 50 P for it (tick 379) | 244 / 369 | listed only: gain 3 < 20 |
-| 6 | SELL | Team 10 (#6, 27.98) | MAL-09 rare | 73 | 49 | 24 | bid 0 P for it (tick 864) | 2 / 2 | reserved (run/reserved.json): never sold |
-| 7 | SELL | Team 8 (#15, 21.25) | LAT-01 common | 27 | 5 | 22 | bid 5 P for it (tick 863) | 2 / 2 | no: dumps LAT (teams.md): sell only to collectors |
-| 8 | SELL | Team 7 (#17, 18.45) | SAL-01 common | 19 | 9 | 10 | bid 5 P for it (tick 860) | 4 / 4 | no: dumps SAL (teams.md): sell only to collectors |
-| 9 | SELL | Team 10 (#6, 27.98) | SAL-05 common | 32 | 9 | 23 | asked abuela to sell it (tick 821) | 23 / 23 | reserved (run/reserved.json): never sold |
-| 10 | SELL | Team 6 (#7, 27.42) | LAT-03 common | 24 | 5 | 19 | bid 4 P for it (tick 863) | 2 / 2 | no: rival (top 6 or within 3 of us); dumps LAT (teams.md): sell only to collectors |
-| 11 | SELL | Team 16 (#9, 26.79) | MAL-03 common | 19 | 7 | 12 | bid 1 P for it (tick 841) | 13 / 13 | no: rival (top 6 or within 3 of us); dumps MAL (teams.md): sell only to collectors |
-| 12 | SELL | Team 3 (#3, 29.09) | SAL-10 rare | 79 | 63 | 16 | bid 73 P for it (tick 758) | 55 / 55 | no: rival (top 6 or within 3 of us); only 0.29 below us (needs ≥ 6) |
-| 13 | SELL | Team 3 (#3, 29.09) | SAL-09 rare | 79 | 63 | 16 | bid 74 P for it (tick 216) | 326 / 451 | no: rival (top 6 or within 3 of us); only 0.29 below us (needs ≥ 6) |
-| 14 | SELL | Team 2 (#14, 22.68) | LAV-04 common | 19 | 3.2 | 15.8 | bid 3 P for it (tick 503) | 182 / 307 | no: dumps LAV (teams.md): sell only to collectors |
-| 15 | SELL | Team 15 (#12, 24.19) | MAL-09 rare | 61 | 49 | 12 | bid 0 P for it (tick 651) | 108 / 109 | reserved (run/reserved.json): never sold |
-| 16 | SELL | Team 12 (#5, 28.51) | SAL-01 common | 19 | 9 | 10 | bid 5 P for it (tick 634) | 117 / 117 | no: rival (top 6 or within 3 of us); dumps SAL (teams.md): sell only to collectors; only 0.87 below us (needs ≥ 6) |
-| 17 | SELL | Team 7 (#17, 18.45) | SAL-05 common | 19 | 9 | 10 | asked abuela to sell it (tick 128) | 385 / 1139 | reserved (run/reserved.json): never sold |
-| 18 | SELL | Team 1 (#4, 28.69) | MAL-09 rare | 57 | 49 | 8 | asked picaros to sell it (tick 782) | 43 / 43 | reserved (run/reserved.json): never sold |
-| 19 | SELL | Team 15 (#12, 24.19) | SAL-10 rare | 71 | 63 | 8 | bid 0 P for it (tick 359) | 254 / 379 | no: only 5.19 below us (needs ≥ 6) |
-| 20 | SELL | Team 9 (#16, 19.59) | MAL-09 rare | 54 | 49 | 5 | asked chato to sell it (tick 418) | 225 / 349 | reserved (run/reserved.json): never sold |
-| 21 | SELL | Team 10 (#6, 27.98) | LAT-01 common | 40 | 5 | 35 | bid 0 P for it (tick 704) | 82 / 82 | no: rival (top 6 or within 3 of us); dumps LAT (teams.md): sell only to collectors |
-| 22 | SELL | Team 8 (#15, 21.25) | MAL-01 common | 40 | 7 | 33 | bid 4 P for it (tick 717) | 75 / 75 | no: dumps MAL (teams.md): sell only to collectors |
-| 23 | SELL | Team 13 (#11, 24.34) | LAT-01 common | 19 | 5 | 14 | bid 2 P for it (tick 290) | 289 / 413 | no: rival (Team 13/17): their gain vs ours unknown; dumps LAT (teams.md): sell only to collectors |
-| 24 | SELL | Team 6 (#7, 27.42) | MAL-09 rare | 52 | 49 | 3 | bid 31 P for it (tick 549) | 159 / 284 | reserved (run/reserved.json): never sold |
+| 1 | SELL | Team 8 (#15, 21.21) | SAL-01 common | 40 | 9 | 31 | bid 5 P for it (tick 722) | 74 / 74 | listed only: signal 74 real min old (game clock paused?) |
+| 2 | SELL | Team 8 (#15, 21.21) | SAL-03 common | 40 | 9 | 31 | bid 5 P for it (tick 142) | 372 / 1127 | reserved (run/reserved.json): never sold |
+| 3 | SELL | Team 2 (#14, 22.94) | LAT-03 common | 20 | 5 | 15 | bid 5 P for it (tick 513) | 178 / 303 | listed only: gain 15 < 20 |
+| 4 | SELL | Team 9 (#16, 19.5) | SAL-09 rare | 66 | 63 | 3 | bid 50 P for it (tick 379) | 246 / 370 | listed only: gain 3 < 20 |
+| 5 | SELL | Team 9 (#16, 19.5) | SAL-10 rare | 66 | 63 | 3 | bid 50 P for it (tick 379) | 246 / 370 | listed only: gain 3 < 20 |
+| 6 | SELL | Team 10 (#6, 27.94) | MAL-09 rare | 73 | 49 | 24 | bid 0 P for it (tick 864) | 3 / 3 | reserved (run/reserved.json): never sold |
+| 7 | SELL | Team 8 (#15, 21.21) | LAT-01 common | 27 | 5 | 22 | bid 5 P for it (tick 863) | 3 / 3 | no: dumps LAT (teams.md): sell only to collectors |
+| 8 | SELL | Team 7 (#17, 18.39) | SAL-01 common | 19 | 9 | 10 | bid 5 P for it (tick 860) | 5 / 5 | no: dumps SAL (teams.md): sell only to collectors |
+| 9 | SELL | Team 10 (#6, 27.94) | SAL-05 common | 32 | 9 | 23 | asked abuela to sell it (tick 821) | 24 / 24 | reserved (run/reserved.json): never sold |
+| 10 | SELL | Team 6 (#7, 27.43) | LAT-03 common | 24 | 5 | 19 | bid 4 P for it (tick 863) | 3 / 3 | no: rival (top 6 or within 3 of us); dumps LAT (teams.md): sell only to collectors |
+| 11 | SELL | Team 16 (#9, 26.74) | MAL-03 common | 19 | 7 | 12 | bid 1 P for it (tick 841) | 15 / 14 | no: rival (top 6 or within 3 of us); dumps MAL (teams.md): sell only to collectors |
+| 12 | SELL | Team 3 (#4, 29.03) | SAL-10 rare | 79 | 63 | 16 | bid 73 P for it (tick 758) | 56 / 56 | no: rival (top 6 or within 3 of us); only 0.35 below us (needs ≥ 6) |
+| 13 | SELL | Team 3 (#4, 29.03) | SAL-09 rare | 79 | 63 | 16 | bid 74 P for it (tick 216) | 327 / 452 | no: rival (top 6 or within 3 of us); only 0.35 below us (needs ≥ 6) |
+| 14 | SELL | Team 2 (#14, 22.94) | LAV-04 common | 19 | 3.2 | 15.8 | bid 3 P for it (tick 503) | 183 / 308 | no: dumps LAV (teams.md): sell only to collectors |
+| 15 | SELL | Team 15 (#12, 24.14) | MAL-09 rare | 61 | 49 | 12 | bid 0 P for it (tick 651) | 109 / 110 | reserved (run/reserved.json): never sold |
+| 16 | SELL | Team 12 (#5, 28.26) | SAL-01 common | 19 | 9 | 10 | bid 5 P for it (tick 634) | 118 / 118 | no: rival (top 6 or within 3 of us); dumps SAL (teams.md): sell only to collectors; only 1.12 below us (needs ≥ 6) |
+| 17 | SELL | Team 7 (#17, 18.39) | SAL-05 common | 19 | 9 | 10 | asked abuela to sell it (tick 128) | 387 / 1140 | reserved (run/reserved.json): never sold |
+| 18 | SELL | Team 1 (#3, 29.35) | MAL-09 rare | 57 | 49 | 8 | asked picaros to sell it (tick 782) | 44 / 44 | reserved (run/reserved.json): never sold |
+| 19 | SELL | Team 15 (#12, 24.14) | SAL-10 rare | 71 | 63 | 8 | bid 0 P for it (tick 359) | 255 / 380 | no: only 5.24 below us (needs ≥ 6) |
+| 20 | SELL | Team 9 (#16, 19.5) | MAL-09 rare | 54 | 49 | 5 | asked chato to sell it (tick 418) | 226 / 350 | reserved (run/reserved.json): never sold |
+| 21 | SELL | Team 10 (#6, 27.94) | LAT-01 common | 40 | 5 | 35 | bid 0 P for it (tick 704) | 83 / 83 | no: rival (top 6 or within 3 of us); dumps LAT (teams.md): sell only to collectors |
+| 22 | SELL | Team 8 (#15, 21.21) | MAL-01 common | 40 | 7 | 33 | bid 4 P for it (tick 717) | 76 / 76 | no: dumps MAL (teams.md): sell only to collectors |
+| 23 | SELL | Team 13 (#11, 24.29) | LAT-01 common | 19 | 5 | 14 | bid 2 P for it (tick 290) | 290 / 414 | no: rival (Team 13/17): their gain vs ours unknown; dumps LAT (teams.md): sell only to collectors |
+| 24 | SELL | Team 6 (#7, 27.43) | MAL-09 rare | 52 | 49 | 3 | bid 31 P for it (tick 549) | 160 / 285 | reserved (run/reserved.json): never sold |
 
 ## Alerts (newest first)
 
