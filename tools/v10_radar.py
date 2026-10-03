@@ -43,6 +43,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 from bazaar_sdk import _Http  # noqa: E402
 from collectors import CachedCollectors, set_of  # noqa: E402
 import opportunities as op  # noqa: E402
+import policy  # noqa: E402
 
 URL = os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai")
 VENUE, ME = "v10", "t05"
@@ -273,7 +274,7 @@ def addressed_match(o: dict, *, teams, mult, cards, held) -> dict | None:
 def suggestions(partner: str, *, teams, held, mult, cards, last, prof, collectors, ours) -> list[dict]:
     """Up to SUGGEST_LINES {card, n, buyer, name, price, vc} for one partner: its 2+ copy cards, each with its best
     buyer outside the top SUGGEST_TOP (buyers_for), est. value created > SUGGEST_VC."""
-    top = {t["team"] for t in teams[:SUGGEST_TOP]} | {"t13", "t17"}   # policy: rivals' gains vs ours unknown
+    top = policy.rivals(teams) | {"t13", "t17"}   # policy: top 6 or within 3 of us; rivals' gains vs ours unknown
     out = []
     for (team, card), ids in held.items():
         if team != partner or len(ids) < 2 or card not in cards:
@@ -348,7 +349,7 @@ class Radar:
         teams = sorted(self.pub._call("GET", "/api/leaderboard").get("teams") or [], key=lambda t: -(t.get("score") or 0))
         for i, t in enumerate(teams):
             t["rank"] = i + 1
-        top = {t["team"] for t in teams[:5]} | {"t13", "t17"}   # policy: top 5; rivals' gains vs ours unknown
+        top = policy.rivals(teams) | {"t13", "t17"}   # policy: top 6 or within 3; rivals' gains vs ours unknown
         ours = next((t.get("score") for t in teams if t["team"] == ME), None)
         last, prof = op.read_signals(events, [], ME, op.GameTime(events), tick, self.cards)
         who = sellers(events)

@@ -1,6 +1,7 @@
 """Counterparty policy for every writer (Chief, Sat 16:20: the board is compressed, #1-#4 within 2 of us, #6-#8 within 3).
 
-1. Never trade with the live top TOP_N unless our gain >= TOP_RATIO x theirs (theirs unknown: skip).
+1. Never trade with a rival unless our gain >= TOP_RATIO x theirs (theirs unknown: skip). A rival: the live top
+   TOP_N, or any team within RIVAL_WITHIN board points of us (Chief 17:45: t10, #6 and 1.33 behind, slipped through).
 2. A page-closer (a card that may complete the counterparty's page) only to a team >= PAGE_CLOSER_GAP below us: a
    +50 (~ +4.7 board) jump can't lift a team 6 below past us, and our gain on those sales is +30-40 (unknown: skip).
 3. RIVALS (Team 13, Team 17): no trade where their gain > ours (theirs unknown: skip).
@@ -22,7 +23,8 @@ RESERVED, HANDOFF = ROOT / "run" / "reserved.json", ROOT / "run" / "operator-han
 _CARD = re.compile(r"\b[A-Z]{3}-\d{2}\b")
 
 ME = "t05"
-TOP_N = 5
+TOP_N = 6
+RIVAL_WITHIN = 3.0
 TOP_RATIO = 3.0
 PAGE_CLOSER_GAP = 6
 RIVALS = frozenset({"t13", "t17"})
@@ -81,6 +83,18 @@ def top(teams, n: int = TOP_N) -> set:
     return {t["team"] for t in ranked(teams)[:n]}
 
 
+def rivals(teams, me: str = ME, n: int | None = None, within: float | None = None) -> set:
+    """The live top N plus every team within RIVAL_WITHIN board points of us (above or below); never us."""
+    n, within = n or TOP_N, RIVAL_WITHIN if within is None else within
+    out = top(teams, n)
+    score = {t["team"]: t.get("score") for t in teams or []}
+    ours = score.get(me)
+    if ours is not None:
+        out |= {t for t, s in score.items() if s is not None and abs(s - ours) <= within}
+    out.discard(me)
+    return out
+
+
 def gap(team, teams, me: str = ME):
     """Our score minus theirs (> 0: they are below us), or None when either is unknown."""
     score = {t["team"]: t.get("score") for t in teams or []}
@@ -94,10 +108,10 @@ def check(team, *, teams, our_gain=None, their_gain=None, page_closer=False, me:
         return False, "counterparty or leaderboard unknown"
     if team == me:
         return False, "ourselves"
-    if team in top(teams):
+    if team in rivals(teams, me):
         if our_gain is None or their_gain is None or our_gain < TOP_RATIO * max(their_gain, 0.0) or our_gain <= 0:
-            return False, (f"{team} is in the top {TOP_N}: only if our gain >= {TOP_RATIO:g}x theirs "
-                           f"(ours {our_gain}, theirs {their_gain})")
+            return False, (f"{team} is in the top {TOP_N} or within {RIVAL_WITHIN:g} of us: only if our gain >= "
+                           f"{TOP_RATIO:g}x theirs (ours {our_gain}, theirs {their_gain})")
     if team in RIVALS and (their_gain is None or our_gain is None or their_gain > our_gain):
         return False, f"{team} is a rival: no trade where their gain ({their_gain}) > ours ({our_gain})"
     if page_closer:

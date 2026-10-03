@@ -9,6 +9,7 @@ import book as bk  # noqa: E402
 from bazaar_sdk import BazaarError  # noqa: E402
 
 V07 = {"venue": "v07", "owner": "t10", "status": "open"}
+V15 = {"venue": "v15", "owner": "t15", "status": "open"}
 TOP = [{"team": t, "score": s} for t, s in (("t13", 40), ("t12", 38), ("t18", 35), ("t02", 33), ("t05", 20))]
 CLOCK = {"tick": 300, "tick_seconds": 30.0, "limits": {"offers_per_team_per_tick": 12, "max_open_offers_per_team": 30}}
 
@@ -16,7 +17,7 @@ CLOCK = {"tick": 300, "tick_seconds": 30.0, "limits": {"offers_per_team_per_tick
 class Game:
     """Our team t05: holds SAL-08 (worth 14) and two LAT-04 (8, 9); cash 400. Offers posted here stay open."""
 
-    def __init__(self, venues=(V07,), values=None, cash=400):
+    def __init__(self, venues=(V07, V15), values=None, cash=400):
         self.assets = [{"id": 179, "kind": "card", "ref": "SAL-08", "your_value": 14},
                        {"id": 277, "kind": "card", "ref": "LAT-04", "your_value": 9},
                        {"id": 484, "kind": "card", "ref": "LAT-04", "your_value": 8}]
@@ -74,11 +75,11 @@ def run(game, entries, st=None, tick=300, **kw):
     return book.step(entries, st or {}, {**CLOCK, "tick": tick}), events, book
 
 
-def test_a_new_entry_is_posted_on_v07_for_40_real_ticks():
+def test_a_new_entry_is_posted_on_v15_for_40_real_ticks():
     g = Game()
     st, ev, _ = run(g, [{"card": "SAL-08", "side": "sell", "to": "t16", "price": 30, "floor": 20}])
     o = g.posted[0]
-    assert o["venue"] == "v07" and o["to"] == "t16" and o["give"] == {"assets": [179]} and o["want"] == {"cash": 30}
+    assert o["venue"] == "v15" and o["to"] == "t16" and o["give"] == {"assets": [179]} and o["want"] == {"cash": 30}
     assert o["expires_tick"] == 300 + bk.LIFE_TICKS                     # sent as 80: Friday's 60 s ticks
     assert st["SAL-08:sell"]["price"] == 30 and ev[-1]["event"] == "post"
 
@@ -227,11 +228,11 @@ def test_a_venue_owner_entering_the_top_4_sends_the_next_post_to_el_rastro():
     g = Game()
     book = bk.Book(g, log=lambda ev: None, collectors=AllowAll())
     st = book.step([{"card": "SAL-08", "side": "sell", "to": "t16", "price": 30, "floor": 20}], {}, {**CLOCK, "tick": 300})
-    assert g.posted[-1]["venue"] == "v07"
-    g.teams = [{"team": "t10", "score": 99}] + list(TOP)                # t10, v07's owner, is now #1
+    assert g.posted[-1]["venue"] == "v15"
+    g.teams = [{"team": "t15", "score": 99}] + list(TOP)                # t15, v15's owner, is now #1: a rival
     g.tick = 302
     book.step([{"card": "SAL-08", "side": "sell", "to": "t16", "price": 30, "floor": 20},
-               {"card": "LAT-04", "side": "sell", "to": "t15", "price": 15, "floor": 14}], st, {**CLOCK, "tick": 302})
+               {"card": "LAT-04", "side": "sell", "to": "t16", "price": 15, "floor": 14}], st, {**CLOCK, "tick": 302})
     assert g.posted[-1]["give"] == {"assets": [484]} and g.posted[-1]["venue"] == "rastro"
 
 
@@ -250,7 +251,7 @@ def test_an_unread_leaderboard_posts_no_new_addressed_ask_but_keeps_a_live_one()
     st, ev, _ = run(g, e)
     assert g.posted == [] and any("leaderboard unknown" in (x.get("why") or "") for x in ev)
     g.lb_fails = False
-    g.teams = TOP + [{"team": "t16", "score": 8}]
+    g.teams = TOP + [{"team": "t90", "score": 45}, {"team": "t16", "score": 8}]
     st, _, _ = run(g, e)
     oid = g.posted[0]["id"]
     g.lb_fails = True
@@ -500,7 +501,7 @@ def test_an_addressed_ask_follows_the_counterparty_policy():
     g = Game()
     run(g, [{"card": "SAL-08", "side": "sell", "to": "t02", "price": 30, "floor": 20}])
     assert g.posted == []
-    g.teams = TOP + [{"team": "t16", "score": 8}]
+    g.teams = TOP + [{"team": "t90", "score": 45}, {"team": "t16", "score": 8}]
     run(g, [{"card": "SAL-08", "side": "sell", "to": "t16", "price": 30, "floor": 20}])
     assert g.posted[0]["to"] == "t16"
 
@@ -509,7 +510,7 @@ def test_an_addressed_ask_follows_the_counterparty_policy():
 def test_a_reserved_card_is_never_asked_and_a_live_ask_for_it_comes_down():
     g = Game()
     e = [{"card": "SAL-08", "side": "sell", "to": "t16", "price": 30, "floor": 20}]
-    g.teams = TOP + [{"team": "t16", "score": 8}]
+    g.teams = TOP + [{"team": "t90", "score": 45}, {"team": "t16", "score": 8}]
     st, _, book = run(g, e)
     oid = g.posted[0]["id"]
     book.reserved = lambda: {"SAL-08"}
@@ -526,7 +527,7 @@ def test_never_asks_our_last_copy_of_a_complete_page_when_the_other_is_committed
                     "album": {"pages": [{"set": "LAV", "have": 10, "of": 10, "complete": True}]}}
     g.offers[777] = {"id": 777, "maker": "t05", "status": "open", "give": {"assets": [{"id": 65, "ref": "LAV-03"}]},
                      "want": {"types": ["card:LAT-07"]}}
-    g.teams = TOP + [{"team": "t16", "score": 8}]
+    g.teams = TOP + [{"team": "t90", "score": 45}, {"team": "t16", "score": 8}]
     st, ev, _ = run(g, [{"card": "LAV-03", "side": "sell", "to": "t16", "price": 6, "floor": 5}])
     assert g.posted == [] and any("last" in (x.get("why") or "") for x in ev)
     g.offers.clear()                                                    # nothing else committed: one may go

@@ -18,7 +18,8 @@ def test_the_top_5_only_at_3x_their_gain():
 
 def test_rivals_never_with_their_gain_above_ours():
     assert not policy.check("t13", teams=TEAMS, our_gain=4, their_gain=5)[0]
-    assert policy.check("t13", teams=TEAMS, our_gain=5, their_gain=4)[0]
+    assert not policy.check("t13", teams=TEAMS, our_gain=5, their_gain=4)[0]           # also within 3: needs 3x
+    assert policy.check("t13", teams=TEAMS, our_gain=13, their_gain=4)[0]
     assert not policy.check("t17", teams=TEAMS, our_gain=5)[0]
 
 
@@ -55,3 +56,13 @@ def test_the_reserved_list_takes_both_shapes_and_ignores_junk(tmp_path):
     (tmp_path / "c.json").write_text('{"cards": ')                                   # half-written: the handoff
     (tmp_path / "h.md").write_text("## Reserved\nLAT-08 · MAL-05\n## Next\nRET-01\n")
     assert policy.reserved_refs(tmp_path / "c.json", tmp_path / "h.md") == {"LAT-08", "MAL-05"}
+
+
+
+def test_a_team_within_3_of_us_is_a_rival_like_the_top_6():
+    # Chief 17:45: t10 at #6, 1.33 behind us, passed the trader/opps/swaps.
+    teams = [{"team": f"t9{i}", "score": 40 - i} for i in range(6)] + [{"team": "t05", "score": 28},
+                                                                         {"team": "t10", "score": 26.67},
+                                                                         {"team": "t16", "score": 10}]
+    assert policy.TOP_N == 6 and "t10" in policy.rivals(teams) and "t16" not in policy.rivals(teams)
+    assert not policy.check("t10", teams=teams, our_gain=8, their_gain=3)[0] and policy.check("t16", teams=teams)[0]

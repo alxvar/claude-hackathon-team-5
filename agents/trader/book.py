@@ -53,7 +53,7 @@ import policy  # noqa: E402
 
 BOOK, STATE, LOG = ROOT / "run" / "book.json", ROOT / "run" / "book_state.json", ROOT / "logs" / "book.jsonl"
 HOUSE = "rastro"
-DEFAULT_VENUE = os.environ.get("DEFAULT_VENUE", "v07")
+DEFAULT_VENUE = os.environ.get("DEFAULT_VENUE", "v15")   # Chief 17:45: v07's owner is a rival now
 LIFE_TICKS = 40         # real ticks an offer lives; refreshed before it ends
 REFRESH_LEFT = 5        # re-post when this few ticks are left
 REPRICE_AFTER = 20      # ticks unfilled at one price before one step toward the floor
@@ -100,13 +100,14 @@ def save(path: Path, data) -> None:
 
 
 def venue_for(e: dict, venues: dict, top: set | None) -> str:
-    """El Rastro for a page-closer, an unseen or closed venue, a venue owned by a top-4 team, or when the top 4 is
-    unknown (the leaderboard read failed): a team venue only when we know its owner is outside the top 4."""
+    """El Rastro for a page-closer, an unseen or closed venue, a venue owned by a rival (`top`: policy.rivals, the
+    top 6 or within 3 of us) or by the counterparty itself, or when the rivals are unknown (the leaderboard read
+    failed): a team venue only when we know its owner is no rival."""
     if e.get("page_closer") or top is None:
         return HOUSE
     want = e.get("venue") or DEFAULT_VENUE
     v = venues.get(want)
-    if want == HOUSE or not v or v.get("status") != "open" or v.get("owner") in top:
+    if want == HOUSE or not v or v.get("status") != "open" or v.get("owner") in top or v.get("owner") == e.get("to"):
         return HOUSE
     return want
 
@@ -166,7 +167,7 @@ class Book:
             self._top_tick = tick
             try:
                 teams = sorted(self.b.leaderboard().get("teams") or [], key=lambda t: -(t.get("score") or 0))
-                self.top = {t["team"] for t in teams[:4]}
+                self.top = policy.rivals(teams)          # no rival-owned venue (Chief 17:45)
                 self.teams = teams
             except BazaarError as e:
                 self.log({"event": "error", "where": "leaderboard", "code": e.code})

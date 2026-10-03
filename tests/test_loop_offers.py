@@ -346,7 +346,7 @@ def test_no_sale_to_a_top4_bidder_named_by_board_json(tmp_path):
     assert run(b) is None and b.accepted == [] and b.feed_calls == 0
     run(FakeBazaar(boards={"rastro": [bid(100, 30, "MAL-06")]}), "--dry-run")
     cand = [e for e in events() if e["event"] == "candidate"][0]
-    assert cand["bidder"] == "t13" and "top 5" in cand["skip"] and not cand["ok"]
+    assert cand["bidder"] == "t13" and "top 6" in cand["skip"] and not cand["ok"]
 
 
 def test_stale_board_json_falls_back_to_the_feed(tmp_path):

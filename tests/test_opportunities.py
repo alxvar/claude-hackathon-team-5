@@ -133,13 +133,13 @@ def test_a_spare_already_listed_by_us_is_not_offered_twice():
 
 def test_feeding_filter_on_the_real_leaderboard():
     opps, ctx = engine()
-    assert ctx["ours"] == 20.03 and ctx["top"] == {"t13", "t12", "t17", "t10", "t05"}   # top 5 (16:20), us included
+    assert ctx["ours"] == 20.03 and {"t13", "t12", "t17", "t10", "t05", "t08"} <= ctx["top"]   # rivals (17:45)
     t07 = find(opps, "SELL", "t07", "SAL-02")             # Team 7 at 8.98: 11.05 below us
     assert t07["reasons"] == [] and t07["gap"] == pytest.approx(11.05)
     t08 = find(opps, "SELL", "t08", "LAV-03")             # Team 8 at 17.65: close, but it lacks LAV-09/10 too
-    assert t08["reasons"] == [] and not t08["closing"]     # plan §4A: not a page-closer, so no 10-point rule
+    assert t08["reasons"] == ["rival (top 6 or within 3 of us)"] and not t08["closing"]   # 2.38 below: a rival
     t12 = find(opps, "SELL", "t12", "MAL-07")             # Team 12: top 4 and above us
-    assert "top 5" in t12["reasons"] and any("above us" in r for r in t12["reasons"])
+    assert any(r.startswith("rival") for r in t12["reasons"]) and any("above us" in r for r in t12["reasons"])
 
 
 def test_feeding_gap_boundary():
@@ -215,7 +215,7 @@ def test_buy_respects_cash_floor_and_top_4():
     assert any("cash floor" in r for r in o["reasons"])         # 252 − 70 < 200
     f = ret_page_fixture(holder="t13")
     o = find(engine(f, values={"RET-10": 149.9}, cash_floor=100)[0], "BUY", "t13", "RET-10")
-    assert "top 5" in o["reasons"]
+    assert any(r.startswith("rival") for r in o["reasons"])
 
 
 # ------------------------------------------------------------------------------------------------ strategic filter
@@ -496,13 +496,13 @@ def test_no_offer_id_no_alert(tmp_path, monkeypatch):
     assert notes == [] and find(opps, "SELL", "t07", "SAL-02")["status"].startswith("posted without an offer id")
 
 
-def test_a_mid_table_team_lacking_4_cards_of_a_set_gets_an_addressed_offer():
-    # Team 8, 2.38 below us (not 10), bid for LAT-03, -06, -09 and -10: our LAT-03 closes no page of theirs.
+def test_a_mid_table_team_within_3_of_us_is_a_rival_now():
+    # Team 8, 2.38 below us, bid for LAT-03, -06, -09 and -10: our LAT-03 closes no page of theirs, but since 17:45 a
+    # team within 3 board points of us is treated like the top 6 (Chief): no offer.
     opps, _ = engine()
     o = find(opps, "SELL", "t08", "LAT-03")
-    assert o["other_lacks"] == ["LAT-06", "LAT-09", "LAT-10"] and not o["closing"] and o["reasons"] == []
-    picked = op.choose_alerts(opps, {"alerts": [], "live": []}, NOW)
-    assert ("t08", "LAT-03") in [(x["team"], x["card"]) for x in picked]
+    assert o["other_lacks"] == ["LAT-06", "LAT-09", "LAT-10"] and not o["closing"]
+    assert [r for r in o["reasons"] if not r.startswith("rival")] == [] and o["reasons"]
 
 
 def test_a_mid_table_team_lacking_2_cards_of_a_set_does_not():
@@ -686,17 +686,20 @@ def test_offers_live_20_ticks_whatever_the_tick_length():
 
 # ------------------------------------------------------------------ venue: DEFAULT_VENUE, page-closers on El Rastro
 
+V15 = {"venue": "v15", "owner": "t15", "status": "open", "name": "Puesto de Team 15"}
 V07 = {"venue": "v07", "owner": "t10", "status": "open", "name": "Mercado del 10"}
 
 
 def test_venue_rules():
-    vs, top = {"v07": V07}, {"t13", "t12", "t18", "t02"}
-    sale = {"side": "SELL", "other_lacks": ["SAL-03"], "completes": False}
-    assert op.venue_for(sale, vs, top) == ("v07", "Mercado del 10")              # an ordinary sale: Team 10's venue
+    vs, top = {"v15": V15}, {"t13", "t12", "t18", "t02"}
+    sale = {"side": "SELL", "other_lacks": ["SAL-03"], "completes": False, "team": "t09"}
+    assert op.venue_for(sale, vs, top) == ("v15", "Puesto de Team 15")          # an ordinary sale: Team 15's venue
+    assert op.venue_for({**sale, "team": "t15"}, vs, top)[0] == "rastro"        # not on the buyer's own stall
+    assert op.venue_for(sale, vs, top | {"t15"})[0] == "rastro"                 # never a rival's venue (17:45)
     assert op.venue_for({**sale, "other_lacks": []}, vs, top)[0] == "rastro"     # closes their page (or unknown)
     assert op.venue_for({"side": "BUY", "completes": True}, vs, top)[0] == "rastro"   # closes ours
-    assert op.venue_for({"side": "BUY", "completes": False}, vs, top)[0] == "v07"
-    assert op.venue_for(sale, {"v07": {**V07, "owner": "t13"}}, top)[0] == "rastro"  # a top-4 team's venue: never
+    assert op.venue_for({"side": "BUY", "completes": False}, vs, top)[0] == "v15"
+    assert op.venue_for(sale, {"v15": {**V15, "owner": "t13"}}, top)[0] == "rastro"  # a top-4 team's venue: never
     assert op.venue_for(sale, {"v07": {**V07, "status": "closed"}}, top)[0] == "rastro"
     assert op.venue_for(sale, {}, top)[0] == "rastro"                            # can't see it: El Rastro
 
@@ -730,4 +733,4 @@ def test_sells_go_only_to_teams_that_collect_the_set():
     c = col.Collectors({"t07": {"collects": set(), "dumps": {"SAL"}}, "t08": {"collects": {"LAT"}, "dumps": set()}}, {})
     opps, _ = engine(collectors=c)
     assert any("dumps SAL" in r for r in find(opps, "SELL", "t07", "SAL-02")["reasons"])
-    assert find(opps, "SELL", "t08", "LAT-03")["reasons"] == []          # collects LAT (teams.md and its bids)
+    assert not any("collect" in r for r in find(opps, "SELL", "t08", "LAT-03")["reasons"])   # collects LAT

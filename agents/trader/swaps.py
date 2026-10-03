@@ -49,7 +49,8 @@ except Exception:  # noqa: BLE001
     _notify = None
 DESK = ("dani", "lucas")   # Dani is the human deal desk (Lucas, Sat 16:10)
 
-PARTNERS = ("v15", "v07", "v20")
+PARTNERS = ("v15",)   # Chief 17:45: never a rival's venue (value created lifts its market); t15 -> El Rastro
+HOUSE = "rastro"
 MIN_OUR_GAIN = 3.0
 PACK_DRAG = 2.5        # an unopened pack drags each trade's score ~-2.4 (GAME.md): raise our bar while we hold one
 MAX_LIVE = 4
@@ -126,10 +127,15 @@ def their_gain(team, gets: str, gives: str, *, mult, held, cards, fee: int = 0) 
 
 
 def pick_venue(to: str, venues: dict, top: set) -> str | None:
+    """A partner venue that is open, owned, not owned by a rival (`top`) nor by the counterparty; El Rastro when the
+    counterparty owns the partner venue (it can't trade on its own stall)."""
     for v in PARTNERS:
         x = venues.get(v) or {}
         if x.get("status") == "open" and x.get("owner") and x["owner"] not in top and x["owner"] != to:
             return v
+    if any((venues.get(v) or {}).get("owner") == to for v in PARTNERS) and (venues.get(HOUSE) or {}).get("status") \
+            in (None, "open"):
+        return HOUSE
     return None
 
 
@@ -142,7 +148,7 @@ def candidates(*, me, locked, our_value, teams, held, mult, cards, last, collect
     spares = our_spares(me, locked, no_spare)
     if not spares:
         return []
-    top = policy.top(teams)
+    top = policy.rivals(teams)
     have = {a["ref"] for a in me.get("assets") or [] if a.get("kind") == "card"}
     busy_teams, busy_cards = {b["to"] for b in busy}, {b["want"] for b in busy}
     busy_assets = {b["asset"] for b in busy}
@@ -281,7 +287,7 @@ class Engine:
         live_ids = {x["offer"] for x in live}
         self.save_gone(known, live_ids, mine_ids, have)
         teams = sorted(self.b.leaderboard().get("teams") or [], key=lambda t: -(t.get("score") or 0))
-        top = policy.top(teams)
+        top = policy.rivals(teams)
         venues = None
         no_spare = frozenset(book_refs(self.book, "sell") | reserved_refs(self.reserved, self.handoff))
         for x in list(live):                          # cancel what no longer passes

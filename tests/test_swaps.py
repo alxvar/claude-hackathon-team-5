@@ -212,8 +212,9 @@ def test_a_live_swap_is_cancelled_once_its_card_arrives_another_way(tmp_path, mo
 
 
 def test_never_on_the_counterpartys_own_venue_nor_a_top_5_or_ownerless_venue():
-    assert sw.pick_venue("t15", VENUES, {"t10"}) == "v20"
-    assert sw.pick_venue("t03", VENUES, {"t10", "t15"}) is None
+    assert sw.pick_venue("t15", VENUES, {"t10"}) == "rastro"         # t15 can't trade on its own v15 (17:45)
+    assert sw.pick_venue("t03", VENUES, {"t10", "t15"}) is None        # v15's owner a rival: no venue
+    assert sw.pick_venue("t02", VENUES, set()) == "v15"
     assert sw.pick_venue("t02", {"v15": {"status": "open", "owner": None}}, set()) is None
 
 

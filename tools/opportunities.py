@@ -49,13 +49,13 @@ DATA, STATE, OUT = ROOT / "data", ROOT / "run" / "opportunities_state.json", ROO
 BOOK = ROOT / "run" / "book.json"   # the maker book's desired offers (agents/trader/book.py)
 URL = os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai")
 HOUSE = "rastro"
-DEFAULT_VENUE = os.environ.get("DEFAULT_VENUE", "v07")   # Team 10's venue at 0% (directive 10:18, reciprocal deal)
+DEFAULT_VENUE = os.environ.get("DEFAULT_VENUE", "v15")   # Team 15's venue at 0% (Chief 17:45: v07's owner is a rival)
 
 FRESH_S = 120              # collector files younger than this are used instead of fetching
 CONF_H = 0.5               # a signal older than 30 game minutes is low confidence: listed, never alerted
 WALL_STALE_S = 3600        # ... or older than 60 real minutes, whatever the game clock says (it pauses overnight)
 MIN_GAIN, GAIN_CAP = 20, 50
-SCORE_GAP, TOP_N = 6, 5    # policy (Chief 16:20): never the top 5; a page-closing sale only to teams ≥ 6 below us
+SCORE_GAP, TOP_N = 6, 6    # policy: never a rival (top 6 or within 3, Chief 17:45); page-closers only ≥ 6 below us
 RIVALS = frozenset({"t13", "t17"})   # policy: no trade where their gain > ours; unknown here, so none
 ALERTS_PER_H, TEAM_COOLDOWN_S, PAIR_COOLDOWN_S = 3, 45 * 60, 2 * 3600
 MAX_LIVE, MAX_POSTS_PER_RUN = 3, 2   # the team posts ≤ 12 listings/tick across all processes
@@ -374,7 +374,8 @@ def find_opportunities(*, events, board, lb, cat, me, value_of, build=BUILD, cas
 
     teams = sorted(lb.get("teams", []), key=lambda t: -(t.get("score") or 0))
     info = {t["team"]: {**t, "rank": i + 1} for i, t in enumerate(teams)}
-    top = {t["team"] for t in teams[:TOP_N]}
+    import policy                                   # rivals: the top 6 or within 3 board points of us (17:45)
+    top = policy.rivals(teams, me_id) | ({me_id} if any(t["team"] == me_id for t in teams[:TOP_N]) else set())
     ours = (info.get(me_id) or {}).get("score")
     if ours is None:
         ours = (me.get("score") or {}).get("score") or 0
@@ -421,7 +422,7 @@ def find_opportunities(*, events, board, lb, cat, me, value_of, build=BUILD, cas
                  "completes": False, "collects": p.get("collects", False), "m_est": m_est, "other_lacks": others,
                  "closing": closing}
             if team in top:
-                o["reasons"].append(f"top {TOP_N}")
+                o["reasons"].append(f"rival (top {TOP_N} or within 3 of us)")
             if team in RIVALS:
                 o["reasons"].append("rival (Team 13/17): their gain vs ours unknown")
             # Chief 11:50: value created = buyer value - seller value; a sale to a non-collector scored -10.2 [V].
@@ -450,7 +451,7 @@ def find_opportunities(*, events, board, lb, cat, me, value_of, build=BUILD, cas
             if price is None:
                 o["reasons"].append(f"worth only {value:g} to us")
             if team in top:
-                o["reasons"].append(f"top {TOP_N}")
+                o["reasons"].append(f"rival (top {TOP_N} or within 3 of us)")
             if team in RIVALS:
                 o["reasons"].append("rival (Team 13/17): their gain vs ours unknown")
             if not teams:
@@ -518,7 +519,8 @@ def venue_for(o, venues, top):
     if o.get("completes") or (o["side"] == "SELL" and not o.get("other_lacks")):
         return house
     v = venues.get(DEFAULT_VENUE)
-    if DEFAULT_VENUE == HOUSE or not v or v.get("status") != "open" or v.get("owner") in top:
+    if DEFAULT_VENUE == HOUSE or not v or v.get("status") != "open" or v.get("owner") in top \
+            or v.get("owner") == o.get("team"):         # a rival's venue, or the counterparty's own stall
         return house
     return DEFAULT_VENUE, v.get("name") or DEFAULT_VENUE
 
