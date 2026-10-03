@@ -1,17 +1,34 @@
-# Scout (claude-sonnet-5-5, Sat 18:05)
+# Scout (claude-sonnet-5-5, Sat 18:10)
 
 ## Top 3 actions now
-1. **SAL-06 page close: keep bid 14268 (42 P → t02 on v15), maker, Operator.** Evidence: SAL page is 9/10 and /api/me/value for SAL-06 reads 82.1. Fever means Pilar pays ~31 for SAL-06, so 42 outbids her. Expected: about +40 neg (the +50 cap is not binding at 42). At the rate of +0.05 board per neg point, that is about +2 board, enough to pass t6 (30.6) and approach t14 (31.8). Confidence: med (t02 must accept before it expires at tick 965). Fallback t17, then t13 at 18:20, one at a time. Do not exceed 45 without the Chief.
-2. **Push v10 value created (the market gap): Dani in person asks t09 and t07 to accept our LAV-03 → t09 (offer 14168, 6 P) and the LAV-02 swaps.** Evidence: the directives name market value created as the decisive lever (7.5 vs 9.15-12.5). Offers 14199/14226 (LAV-02 at 0 to t17/t09) expire at ticks 940/942. Effect: positive value created for the market score; neg_points about 0 for us. Confidence: low-med. The Operator re-posts them with 2× ticks, since the server halves expiry.
-3. **L5 Don Ernesto (banco): one defensive offer-only SELL of MAL-08 (value 17.5) once active, at ≥ 18 and above his opening bid. Operator watcher b2cqqhnz7.** Evidence: banco was announced at tick 932 with no menu yet; ladder is 0.437, and rivals' L5 deals could pull it down. Expected: a ladder gain only. The board showed 0 effect from ladder deals at 17:45, and Chato sales showed a ladder gain with neg unchanged. Confidence: low. Do it only if cash stays ≥ 120 after SAL-06 (151 → 109 if filled, so the sale itself must add cash).
+
+1. **SAL-06 page close from Team 2 (Operator watcher + Dani in person).**
+   - Bid 14268 is live: 42 P → t02 on v15, expires tick 965. Page is 9/10 with only SAL-06 missing; /api/me/value SAL-06 = 82.1.
+   - The Chief's GUARDRAIL allows up to 60 P, floor 85, fee ≤ 4. Our value is 82.1, so the gain is ≈ +22 at 60 and capped at +50 at 35-42.
+   - Evidence: t02 anchored at "120" in person; Dani counters at 50. Pilar pays ~31 in the fever, so t02 has a dealer outlet at ~31.
+   - Action: extend bid 14268 before it expires at tick 965, with a repost of the same bid if it lapses. Step up in small amounts (42 → 46 → 50), never repeating a price. If t02 stays silent past 18:20, fall back to t17, then t13, one at a time.
+   - Effect: ≈ +22 to +40 neg_points ≈ +1 to +2 board (0.05 board per neg point).
+   - Confidence: med.
+
+2. **Push the v10 value-created trades (Dani in the room, Lucas to t03/t15).**
+   - Evidence: market is our gap (7.5 vs 9.15-12.5 for rivals). The Chief calls v10 value created the decisive lever, at ≈ +3 board [L].
+   - Seller is t03 (LAV-03 → t09 at 6; our own ask 14168 is live at 6 to t09, expires tick 968).
+   - Dani asks t09 to accept both 14168 and our 0-P LAV-02 spare offers (14397 to t09, expires tick 954).
+   - Effect: market-making points rather than neg_points. One trade ≈ mm 0 to +5, two ≈ the +5 cap [L]. Confidence: low-med.
+
+3. **Hold SAL-09/10 (63 each) for the Pilar fever, at ≥ 85 only.**
+   - Evidence: the fever runs 18:04-20:04, with Pilar at ~85 for SAL rares. After the close, SAL-09/10 read ~122 to us, so a sale below that is a counted loss.
+   - Effect: cash ≈ +85 and no neg_points loss. Do this only after SAL-06 settles, because it still ranks behind the page close.
+   - Confidence: low.
 
 ## What the climbing teams are doing
-- **Team 14 (#1, 31.8, +1.3 in 15 min)** is on 37 deals, fewer than our 51. It collects LAV/LAT and the board shows it buying LAT×4, RET×3. Quality over volume. Team 3's LAV-10 → t07 at 38 P (tick 844) is a rival-to-rival rare move.
-- **Team 6 (#2, 30.6, +2.7 in 60 min)** has 51 deals and sells RET: RET-09 → t12 at 84 P (tick 895), RET-02 and RET-03 → t06 at 6 P each. It is dumping into teams that need cards.
-- **Team 18 (+1.0 in 15 min)** bought LAT-01 at 8 from t18 → t07 (tick 904) and is collecting RET/LAT. Nothing else is measured.
-- Team 3 trades small cheap commons: MAL-02 → t17 at 3 P (tick 929), LAV-03 → t04 at 6 P. This is volume at floor prices and gains little.
+
+- **Team 6 (#1, 31.8, +3.8 per hour)** collects SAL, dumps MAL/LAV/LAT, and has 540 listings and 28 team trades. It sold RET-09 to t12 at 84 (tick 895) and RET-02/RET-03 to t06 at 6. Listing volume is its engine.
+- **Team 14 (#2, 31.5)** buys LAT×4, RET×4 and SAL×2. It bought RET-03 from t02 at 7 (tick 946), swapped SAL-04 for MAL-05 with t16 (tick 939), and has a 65 P LAT-09 buy on record. Swaps and cheap commons are its pattern.
+- **Team 3 (#4, 29.2, +1.0 per hour)** has the highest negotiating score (24.49) with only 28 deals, so it is quality rather than volume. It bought LAT-09 at 88 (tick 724) and sold MAL-02 to t17 at 3 (tick 929).
 
 ## Threats
-- **SAL-06 race:** t10 buys SAL-06 and t17/t13 collect SAL. If t02 sits on our bid or a rival bids above 42, the page stays at 9/10. Offer 14268 is addressed, and addressed offers are visible on the public feed.
-- **Team 12 fell −4.3 in 15 min** and teams 14/6 keep rising; the gap to #1 is about 1.9 and the leaders are widening it.
-- **Rival feeding:** t15 offers (MAL-02/05 at 9 on El Rastro) and t09 on v10 are fine. Nothing may go to t3, t10 or t1 (within 3 board of us). A v10 trade with negative value created (e.g. SAL-10 t10 → t08) lowers our market, so never push it.
+
+- Team 14 (31.5) is 1.6 points ahead of us on the board, and Team 3 (29.2) is 0.7 behind. Neither may receive SAL-06 or any page closer from us.
+- Team 2 is the only SAL-06 holder we know, and it anchors at 120. Pilar's ~31 fever price gives it a fallback sale, so it may refuse our ≤ 60 ceiling and the page close may fail.
+- t10 is allied with t01 (28.2). Any v10 trade where t10 gains up to +50 neg (SAL-10 → t08 at 160) feeds a rival; don't suggest it.
