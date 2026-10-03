@@ -661,6 +661,108 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1269,
+   "raw": {
+    "duel": 5663,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.08,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 72,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 1271,
+    "decay_per_round": 0.08,
+    "rounds": 4,
+    "your_offer": {
+     "id": 7407,
+     "price": 57,
+     "tick": 1268,
+     "days": 5
+    },
+    "rival_offer": {
+     "id": 7434,
+     "price": 60,
+     "tick": 1269,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1255,
+      "from": "Rival Verde",
+      "text": "Propuesta justa para cerrar pronto: 68 P y 5 días.",
+      "price": 68,
+      "days": 5
+     },
+     {
+      "tick": 1255,
+      "from": "you",
+      "text": "I can do 52 P with delivery on day 0, a clean and quick close.",
+      "price": 52,
+      "days": 0
+     },
+     {
+      "tick": 1256,
+      "from": "Rival Verde",
+      "text": "Me muevo para acercarnos: 66 P con 5 días.",
+      "price": 66,
+      "days": 5
+     },
+     {
+      "tick": 1262,
+      "from": "you",
+      "text": "I'm moving up to 55 P with delivery on day 0, a real step to meet your move.",
+      "price": 55,
+      "days": 0
+     },
+     {
+      "tick": 1263,
+      "from": "Rival Verde",
+      "text": "Yo ya me he movido. Propongo 65 P y 5 días.",
+      "price": 65,
+      "days": 5
+     },
+     {
+      "tick": 1267,
+      "from": "you",
+      "text": "I can do 49 P, delivery on day 5.",
+      "price": 49,
+      "days": 5
+     },
+     {
+      "tick": 1267,
+      "from": "Rival Verde",
+      "text": "Propuesta justa para cerrar pronto: 61 P y 5 días.",
+      "price": 61,
+      "days": 5
+     },
+     {
+      "tick": 1268,
+      "from": "you",
+      "text": "I can do 57 P with delivery on day 5, a clear step from me to close now.",
+      "price": 57,
+      "days": 5
+     },
+     {
+      "tick": 1269,
+      "from": "Rival Verde",
+      "text": "Me muevo para acercarnos: 60 P con 5 días.",
+      "price": 60,
+      "days": 5
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
