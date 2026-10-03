@@ -1520,5 +1520,84 @@
     "settles_at_tick": 1282
    }
   }
- ]
+ ],
+ "last_seen_tick": 1282,
+ "done": {
+  "duel": 5707,
+  "session": 3,
+  "status": "deal",
+  "role": "seller",
+  "item": "La Dama de Serrano",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 0.95,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 77,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Azul",
+  "deadline_tick": 1283,
+  "decay_per_round": 0.08,
+  "rounds": 2,
+  "your_offer": {
+   "id": 7886,
+   "price": 103,
+   "tick": 1280,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 7823,
+   "price": 90,
+   "tick": 1279,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1269,
+    "from": "you",
+    "text": "I'm offering 115 P with delivery on day 10. I think that's a fair place to start, and I'm happy to hear your response.",
+    "price": 115,
+    "days": 10
+   },
+   {
+    "tick": 1273,
+    "from": "Rival Azul",
+    "text": "Hola. I like it, and I can pay 64 P, delivery day 0.",
+    "price": 64,
+    "days": 0
+   },
+   {
+    "tick": 1273,
+    "from": "you",
+    "text": "Thanks for the day 0 timing, I can do that. For delivery on day 0 my price is 132 P.",
+    "price": 132,
+    "days": 0
+   },
+   {
+    "tick": 1279,
+    "from": "Rival Azul",
+    "text": "Last word from me: 90 P, delivery day 0.",
+    "price": 90,
+    "days": 0
+   },
+   {
+    "tick": 1279,
+    "from": "you",
+    "text": "Let's break the silence: I'm stepping down to 120 P with delivery on day 0. I'd like to see you come up meaningfully from your last figure.",
+    "price": 120,
+    "days": 0
+   },
+   {
+    "tick": 1280,
+    "from": "you",
+    "text": "I'm making a clear move to 103 P with delivery on day 0, which meets you most of the way. I invite you to come up to it so we can close.",
+    "price": 103,
+    "days": 0
+   }
+  ],
+  "result": 11.0,
+  "price": 90,
+  "days": 0
+ }
 }

@@ -1736,5 +1736,91 @@
     "settles_at_tick": 1282
    }
   }
- ]
+ ],
+ "last_seen_tick": 1282,
+ "done": {
+  "duel": 5809,
+  "session": 3,
+  "status": "deal",
+  "role": "seller",
+  "item": "Fiesta de San Cayetano",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 2.12,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 130,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Rojo",
+  "deadline_tick": 1288,
+  "decay_per_round": 0.08,
+  "rounds": 3,
+  "your_offer": {
+   "id": 7655,
+   "price": 178,
+   "tick": 1274,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 7694,
+   "price": 167,
+   "tick": 1275,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1272,
+    "from": "Rival Rojo",
+    "text": "Hello, and thank you for meeting me. I would propose 137 P with delivery on day 0.",
+    "price": 137,
+    "days": 0
+   },
+   {
+    "tick": 1272,
+    "from": "you",
+    "text": "Day 0 is fine with me, so only price is left. I can do 186 P on day 0.",
+    "price": 186,
+    "days": 0
+   },
+   {
+    "tick": 1273,
+    "from": "Rival Rojo",
+    "text": "I appreciate it, thank you. Could we close at 154 P, delivery on day 0, please?",
+    "price": 154,
+    "days": 0
+   },
+   {
+    "tick": 1273,
+    "from": "you",
+    "text": "Thank you for moving. I can come down to 181 P on day 0, and I'd need the next step to come from your side.",
+    "price": 181,
+    "days": 0
+   },
+   {
+    "tick": 1274,
+    "from": "Rival Rojo",
+    "text": "Fair enough, thank you. I will meet you partway: 161 P with delivery on day 0.",
+    "price": 161,
+    "days": 0
+   },
+   {
+    "tick": 1274,
+    "from": "you",
+    "text": "Thank you for moving again. I can come down to 178 P on day 0, and I'd need a further meaningful step from your side to close.",
+    "price": 178,
+    "days": 0
+   },
+   {
+    "tick": 1275,
+    "from": "Rival Rojo",
+    "text": "Thank you, we are getting close. 167 P and delivery on day 0 works for me.",
+    "price": 167,
+    "days": 0
+   }
+  ],
+  "result": 28.8,
+  "price": 167,
+  "days": 0
+ }
 }
