@@ -914,6 +914,129 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1283,
+   "raw": {
+    "duel": 6094,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.11,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 34,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 1289,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 7612,
+     "price": 58,
+     "tick": 1273,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 7986,
+     "price": 63,
+     "tick": 1283,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1273,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 41 with delivery on day 0.",
+      "price": 41,
+      "days": 0
+     },
+     {
+      "tick": 1273,
+      "from": "you",
+      "text": "Thanks for the opening. I can do 58 P with delivery on day 10.</br>",
+      "price": 58,
+      "days": 10
+     },
+     {
+      "tick": 1274,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 47, delivery day 0.",
+      "price": 47,
+      "days": 0
+     },
+     {
+      "tick": 1275,
+      "from": "Rival Luna",
+      "text": "Let me move closer: 51, day 0.",
+      "price": 51,
+      "days": 0
+     },
+     {
+      "tick": 1276,
+      "from": "Rival Luna",
+      "text": "I'd like to close this: 54 with day 0.",
+      "price": 54,
+      "days": 0
+     },
+     {
+      "tick": 1277,
+      "from": "Rival Luna",
+      "text": "Meeting you halfway: 56, delivered day 0.",
+      "price": 56,
+      "days": 0
+     },
+     {
+      "tick": 1278,
+      "from": "Rival Luna",
+      "text": "Final stretch from me: 58, day 0.",
+      "price": 58,
+      "days": 0
+     },
+     {
+      "tick": 1279,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 59 with delivery on day 0.",
+      "price": 59,
+      "days": 0
+     },
+     {
+      "tick": 1280,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 60, delivery day 0.",
+      "price": 60,
+      "days": 0
+     },
+     {
+      "tick": 1281,
+      "from": "Rival Luna",
+      "text": "Let me move closer: 61, day 0.",
+      "price": 61,
+      "days": 0
+     },
+     {
+      "tick": 1282,
+      "from": "Rival Luna",
+      "text": "I'd like to close this: 62 with day 0.",
+      "price": 62,
+      "days": 0
+     },
+     {
+      "tick": 1283,
+      "from": "Rival Luna",
+      "text": "Meeting you halfway: 63, delivered day 0.",
+      "price": 63,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {

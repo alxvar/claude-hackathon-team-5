@@ -2780,5 +2780,119 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1283,
+ "done": {
+  "duel": 5808,
+  "session": 3,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Fiesta de San Cayetano",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 6.7,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 195,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Luna",
+  "deadline_tick": 1285,
+  "decay_per_round": 0.08,
+  "rounds": 5,
+  "your_offer": {
+   "id": 7885,
+   "price": 136,
+   "tick": 1280,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 7928,
+   "price": 158,
+   "tick": 1281,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1269,
+    "from": "Rival Luna",
+    "text": "Hello, and thank you for meeting me. I would propose 180 P with delivery on day 10.",
+    "price": 180,
+    "days": 10
+   },
+   {
+    "tick": 1270,
+    "from": "you",
+    "text": "Thanks for opening. I can do 110 P with delivery on day 0, and I'd welcome a move toward that on price.",
+    "price": 110,
+    "days": 0
+   },
+   {
+    "tick": 1270,
+    "from": "Rival Luna",
+    "text": "I appreciate it, thank you. Could we close at 178 P, delivery on day 0, please?",
+    "price": 178,
+    "days": 0
+   },
+   {
+    "tick": 1271,
+    "from": "you",
+    "text": "Glad we're settled on day 0. I can move to 118 P on day 0, and I'd need to see a bigger move on price from you to go further.",
+    "price": 118,
+    "days": 0
+   },
+   {
+    "tick": 1271,
+    "from": "Rival Luna",
+    "text": "Fair enough, thank you. I will meet you partway: 168 P with delivery on day 0.",
+    "price": 168,
+    "days": 0
+   },
+   {
+    "tick": 1272,
+    "from": "you",
+    "text": "Thank you for moving; I appreciate the step. I can do 127 P with delivery on day 0, and I'd need another real step down from you to go further.",
+    "price": 127,
+    "days": 0
+   },
+   {
+    "tick": 1272,
+    "from": "Rival Luna",
+    "text": "Thank you, we are getting close. 160 P and delivery on day 0 works for me.",
+    "price": 160,
+    "days": 0
+   },
+   {
+    "tick": 1273,
+    "from": "you",
+    "text": "Thank you for the step. I can do 132 P with delivery on day 0, and I'd need another real step down from you to go further.",
+    "price": 132,
+    "days": 0
+   },
+   {
+    "tick": 1273,
+    "from": "Rival Luna",
+    "text": "Thank you for your offer. I can do 159 P with delivery on day 0.",
+    "price": 159,
+    "days": 0
+   },
+   {
+    "tick": 1280,
+    "from": "you",
+    "text": "Thank you. I can do 136 P with delivery on day 0, but your last step was very small, so I'd need a real move down on price to close soon.",
+    "price": 136,
+    "days": 0
+   },
+   {
+    "tick": 1281,
+    "from": "Rival Luna",
+    "text": "I appreciate it, thank you. Could we close at 158 P, delivery on day 0, please?",
+    "price": 158,
+    "days": 0
+   }
+  ],
+  "result": 24.4,
+  "price": 158,
+  "days": 0
+ }
 }

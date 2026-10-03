@@ -1899,6 +1899,201 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1283,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 5968,
+     "role": "seller",
+     "limit": 78,
+     "currency": "P",
+     "item": "Plaza del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.1,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Rápido y justo: 86 P, día 3. ¿Qué día de entrega te va mejor? / Quick and fair: 86 P, day 3. Which delivery day suits you best?",
+      "offer": {
+       "price": 86,
+       "days": 3
+      },
+      "accept": false,
+      "tick": 1270,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Day 10 suits me best, so I can do 108 P on day 10.",
+      "offer": {
+       "price": 108,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1270,
+      "decision": {
+       "action": "offer",
+       "price": 108,
+       "message": "Day 10 suits me best, so I can do 108 P on day 10."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Parece que el día te importa: 83 P con día 7. / It seems the day matters to you: 83 P, day 7.",
+      "offer": {
+       "price": 83,
+       "days": 7
+      },
+      "accept": false,
+      "tick": 1271,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can come down to 104 P if we settle on day 10; holding day 10 is what lets me move on price. Can you meet me on day 10?",
+      "offer": {
+       "price": 104,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1274,
+      "decision": {
+       "action": "offer",
+       "price": 104,
+       "message": "I can come down to 104 P if we settle on day 10; holding day 10 is what lets me move on price. Can you meet me on day 10?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Parece que el día te importa: 75 P con día 9. / It seems the day matters to you: 75 P, day 9.",
+      "offer": {
+       "price": 75,
+       "days": 9
+      },
+      "accept": false,
+      "tick": 1275,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for moving close to day 10. I can do 100 P on day 10, which is a real step from me. Can you go the last step to day 10?",
+      "offer": {
+       "price": 100,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1275,
+      "decision": {
+       "action": "offer",
+       "price": 100,
+       "message": "Thanks for moving close to day 10. I can do 100 P on day 10, which is a real step from me. Can you go the last step to day 10?"
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can step to 96 P on day 10. Can you meet me on day 10 and come much closer on price?",
+      "offer": {
+       "price": 96,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1278,
+      "decision": {
+       "action": "offer",
+       "price": 96,
+       "message": "I can step to 96 P on day 10. Can you meet me on day 10 and come much closer on price?"
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 99 P, delivery on day 9.",
+      "offer": {
+       "price": 99,
+       "days": 9
+      },
+      "accept": false,
+      "tick": 1281,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Mi mejor oferta: 111 P, día 0. / My best offer: 111 P, day 0.",
+      "offer": {
+       "price": 111,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1282,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 88 P on day 9, which is a clear step from me. Can you meet me there?",
+      "offer": {
+       "price": 88,
+       "days": 9
+      },
+      "accept": false,
+      "tick": 1282,
+      "decision": {
+       "action": "offer",
+       "price": 88,
+       "message": "I can do 88 P on day 9, which is a clear step from me. Can you meet me there?"
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 111,
+     "days": 0
+    },
+    "tick": 1283,
+    "ticks_left": 2,
+    "rounds": 4,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1,
+     25.6,
+     37.9,
+     11.6,
+     21.6
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 111,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -2219,6 +2414,25 @@
      "tick": 1282,
      "days": 9
     }
+   }
+  },
+  {
+   "tick": 1283,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 111,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 111,
+    "settles_at_tick": 1284
    }
   }
  ]
