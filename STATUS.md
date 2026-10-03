@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 19:43** · tick 1137 (30 s/tick) · game hour 10.80 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 19:48** · tick 1147 (30 s/tick) · game hour 10.88 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -27,7 +27,7 @@ _From `team/<name>.md`; each person writes only their own file._
 |---|---|---|---|---|---|---|---|---|---|---|
 | 31.92 | 3 | 24.42 | 7.50 | 13.93 | 0.44 | 0.89 | 52 | 5 | 120 | 38/50 |
 
-Leaderboard (snapshot at tick 1130; refreshes every few minutes):
+Leaderboard (snapshot at tick 1140; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 11.00 | ~12 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~21 min | persona_patch | The fever breaks |
-| 11.65 | ~51 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~132 min | bench | The Market Test: every venue gets the same synthetic book |
-| 14.07 | ~196 min | day_closes | Closed until Sunday 09:00 |
-| 14.07 | ~196 min | day_opens | Sunday opens |
-| 14.65 | ~231 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
-| 15.00 | ~252 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 11.00 | ~7 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~16 min | persona_patch | The fever breaks |
+| 11.65 | ~46 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~127 min | bench | The Market Test: every venue gets the same synthetic book |
+| 14.07 | ~191 min | day_closes | Closed until Sunday 09:00 |
+| 14.07 | ~191 min | day_opens | Sunday opens |
+| 14.65 | ~226 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 15.00 | ~247 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
 
 ## Our dealer deals
 
