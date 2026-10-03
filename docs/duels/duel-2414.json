@@ -1504,5 +1504,92 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 589,
+ "done": {
+  "duel": 2414,
+  "session": 2,
+  "status": "no_deal",
+  "role": "seller",
+  "item": "El Mesón de la Cava",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 60,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Verde",
+  "deadline_tick": 589,
+  "decay_per_round": 0.06,
+  "rounds": 0,
+  "your_offer": {
+   "id": 5247,
+   "price": 71,
+   "tick": 587,
+   "days": 0
+  },
+  "rival_offer": null,
+  "messages": [
+   {
+    "tick": 573,
+    "from": "you",
+    "text": "El Mesón de la Cava is a well-established restaurant with a loyal clientele, a strong reputation and a famous cellar setting that is hard to replicate. I'm offering it at 95 P, which reflects that quality. I'd welcome a concrete counteroffer from you.",
+    "price": 95,
+    "days": null
+   },
+   {
+    "tick": 581,
+    "from": "you",
+    "text": "I can do 92 P.",
+    "price": 92,
+    "days": null
+   },
+   {
+    "tick": 582,
+    "from": "you",
+    "text": "I can do 88 P.",
+    "price": 88,
+    "days": null
+   },
+   {
+    "tick": 583,
+    "from": "you",
+    "text": "I can do 85 P.",
+    "price": 85,
+    "days": null
+   },
+   {
+    "tick": 584,
+    "from": "you",
+    "text": "I can do 81 P.",
+    "price": 81,
+    "days": null
+   },
+   {
+    "tick": 585,
+    "from": "you",
+    "text": "I can do 78 P.",
+    "price": 78,
+    "days": null
+   },
+   {
+    "tick": 586,
+    "from": "you",
+    "text": "I can do 74 P.",
+    "price": 74,
+    "days": null
+   },
+   {
+    "tick": 587,
+    "from": "you",
+    "text": "I can do 71 P.",
+    "price": 71,
+    "days": null
+   }
+  ],
+  "result": 0.0,
+  "price": null,
+  "days": null
+ }
 }

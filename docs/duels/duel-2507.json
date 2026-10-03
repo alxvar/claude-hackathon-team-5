@@ -3644,5 +3644,146 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 589,
+ "done": {
+  "duel": 2507,
+  "session": 2,
+  "status": "deal",
+  "role": "seller",
+  "item": "Palacio de Cristal",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 100,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Rojo",
+  "deadline_tick": 589,
+  "decay_per_round": 0.06,
+  "rounds": 7,
+  "your_offer": {
+   "id": 5262,
+   "price": 101,
+   "tick": 588,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 5245,
+   "price": 99,
+   "tick": 587,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 573,
+    "from": "you",
+    "text": "Palacio de Cristal is a one-of-a-kind landmark: a iconic glass-and-iron pavilion with enduring appeal and a prime setting. I'm offering it at 160 P, which reflects that rarity. I'd be glad to hear your counteroffer.",
+    "price": 160,
+    "days": null
+   },
+   {
+    "tick": 574,
+    "from": "Rival Rojo",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 49,
+    "days": null
+   },
+   {
+    "tick": 574,
+    "from": "you",
+    "text": "Thanks for the reply, but your offer is far from what a landmark like this is worth. As a gesture of good faith I'll move to 152 P, given the rarity of an iron-and-glass pavilion in such a prime setting. I'd ask you to come back with a serious figure that reflects its real value.",
+    "price": 152,
+    "days": null
+   },
+   {
+    "tick": 577,
+    "from": "Rival Rojo",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 60,
+    "days": null
+   },
+   {
+    "tick": 578,
+    "from": "Rival Rojo",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 64,
+    "days": null
+   },
+   {
+    "tick": 578,
+    "from": "you",
+    "text": "I appreciate that you are moving, but the steps so far are small next to the distance still between us. I'll come down to 145 P, a real step on my side. To get anywhere near a realistic range for a landmark like this, I'd need to see much bigger moves from you.",
+    "price": 145,
+    "days": null
+   },
+   {
+    "tick": 581,
+    "from": "Rival Rojo",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 76,
+    "days": null
+   },
+   {
+    "tick": 581,
+    "from": "you",
+    "text": "Thank you for the bigger step; I'm answering it with another move of my own, to 138 P. That is a meaningful reduction for a one-of-a-kind glass-and-iron landmark. I'd like to see another substantial move from you toward a realistic range.",
+    "price": 138,
+    "days": null
+   },
+   {
+    "tick": 584,
+    "from": "Rival Rojo",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 87,
+    "days": null
+   },
+   {
+    "tick": 584,
+    "from": "you",
+    "text": "With the clock running down, I'm making another clear move to 128 P to show I want to get this done. For a unique glass-and-iron landmark, that is a fair place to land. I'd ask you now for a substantial step toward it so we can close before time runs out.",
+    "price": 128,
+    "days": null
+   },
+   {
+    "tick": 586,
+    "from": "Rival Rojo",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 99,
+    "days": null
+   },
+   {
+    "tick": 586,
+    "from": "you",
+    "text": "To close this out before time runs short, I'm making a decisive move to 114 P, a big step from where I started. For a unique glass-and-iron landmark that is a fair landing point. I'd ask you to meet it promptly with a figure close to it so we can finish.",
+    "price": 114,
+    "days": null
+   },
+   {
+    "tick": 587,
+    "from": "Rival Rojo",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 99,
+    "days": null
+   },
+   {
+    "tick": 587,
+    "from": "you",
+    "text": "Time is nearly out, so I'm putting forward 106 P as my closing figure, roughly the midpoint between us. If we don't settle now, both of us walk away with nothing. Please take it so we can finish.",
+    "price": 106,
+    "days": null
+   },
+   {
+    "tick": 588,
+    "from": "you",
+    "text": "This is my last move: I'm coming down to 101 P, practically meeting your figure. It is a small gap to close, and if we settle now we both avoid walking away with nothing. Please take it so we can finish.",
+    "price": 101,
+    "days": null
+   }
+  ],
+  "result": 3.9,
+  "price": 106,
+  "days": 0
+ }
 }
