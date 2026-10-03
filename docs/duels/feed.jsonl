@@ -851,3 +851,12 @@
 {"id": 63605, "tick": 1288, "t": 12.0583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5975, "session": 3, "status": "deal", "item": "La Dama de Serrano"}}
 {"id": 63608, "tick": 1288, "t": 12.0583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6094, "session": 3, "status": "deal", "item": "La Sala Pentagrama"}}
 {"id": 63611, "tick": 1288, "t": 12.0583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6098, "session": 3, "status": "deal", "item": "La Dama de Serrano"}}
+{"id": 63692, "tick": 1289, "t": 12.0667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5703, "session": 3, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 63695, "tick": 1289, "t": 12.0667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5786, "session": 3, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 63698, "tick": 1289, "t": 12.0667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5850, "session": 3, "status": "deal", "item": "Fiesta de San Cayetano"}}
+{"id": 63701, "tick": 1289, "t": 12.0667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5885, "session": 3, "status": "deal", "item": "El Frutero de Argumosa"}}
+{"id": 63704, "tick": 1289, "t": 12.0667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5937, "session": 3, "status": "deal", "item": "Plaza del Dos de Mayo"}}
+{"id": 63707, "tick": 1289, "t": 12.0667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5982, "session": 3, "status": "deal", "item": "La Vía Láctea"}}
+{"id": 63710, "tick": 1289, "t": 12.0667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6013, "session": 3, "status": "deal", "item": "La Dama de Serrano"}}
+{"id": 63802, "tick": 1290, "t": 12.075, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5956, "session": 3, "status": "deal", "item": "Fiesta de San Cayetano"}}
+{"id": 63805, "tick": 1290, "t": 12.075, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5971, "session": 3, "status": "deal", "item": "El Frutero de Argumosa"}}
