@@ -210,3 +210,6 @@ La Puerta de Alcalá, esa joya de Madrid... para tu tío, 187 P. Piedra noble, p
 - Sat 21:40 · message tick 1285 · banco → t04 · Sí. A legendary I waited eleven years for. The seller came back thinner each winter. I paid less the last time than the first.
 
 One hundred fourteen, señor.
+- Sat 21:40 · message tick 1286 · banco → t04 · Carmen talks. I do not. That story is not for sale, señor, and neither is my patience.
+
+La Puerta de Alcalá: one hundred fourteen. Nothing further moves.
