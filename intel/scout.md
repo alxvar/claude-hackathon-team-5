@@ -1,30 +1,34 @@
-# Scout (claude-sonnet-5-5, Sat 17:28)
+# Scout (claude-sonnet-5-5, Sat 17:33)
 
 ## Top 3 actions now
-1. **Hold the SAL-09/SAL-10 → Pilar job for the fever (Operator, job b1iw7l644, 18:06 to 19:50).**
-   - Evidence: the fever runs ~18:04-20:04 (Pilar pays +25% over book). Our two SAL rares are worth 63 each (the ladder rose 0.200 → 0.270 on the Pícaros buy at 54). Pilar's rare median in the last 60 ticks is 70.
-   - Plan: open 100, step −2 or −3, accept ≥ 85. Never jump to her bid. Offer-only close.
-   - Effect: 0 neg_points because gains clip, but cash of about +170 and a possible L3 ladder slot (+0.02 to +0.05).
-   - Confidence: med. Her rare final is not in the data.
-2. **Sell LAV-02 (3 copies at 1.3) and LAV-03/04 spares (3.2 each) to Team 7 (#17, 10.6 below us) for real cash instead of 0 P swaps.**
-   - Evidence: offers 13100 and 13139 sit at 0 P. Team 7 bids 17 for RET-08 and 5 for SAL-01. Team 7's estimated price for commons is 9.5, with no live bid.
-   - Plan: the Operator posts addressed asks at 9 to t07, as maker (no fee). Team 7 collects LAV and is far enough below us.
-   - Effect: about +4 neg per card (price − 1.3 or 3.2), roughly +0.6 board each.
-   - Confidence: med. The 9.5 is an estimate.
-3. **Keep one Pícaros thread open and flag only checkable false facts, starting at 17:42 (Operator).**
-   - Evidence: flags scored +10, +10, +10 (ticks 766-773), then −10 for finality talk at tick 774. The directive says to flag only a card, price or direction that differs from the structured offer, or a false fact such as print runs or "last one".
-   - Effect: +10 neg per hit, about +0.7 board. Stop at the first 0 or −10.
-   - Confidence: low-med. Earlier flags after 16:41 scored 0, so this may be capped.
+
+1. **MAL-09 → Pilar, ask 63 (offer 13405, expires tick 881), step −2/−3 and let her climb, floor ≥ 55; Operator's dealer_sell job.**
+   - Evidence: Pilar's thread for MAL-09 (tick 871) went 47 → 54 against our 63. MAL-09 is worth 49 to us. A sale at ≥ 55 gives a gain that is clipped to 0, but the ladder moves.
+   - Pilar's L3 slots paid +0.040 (MAL-06 at 20, small steps) vs +0.019 (SAL-08 after a jump). Ladder is 0.373.
+   - Effect: about +0.02 to +0.04 ladder, 0 neg. Never jump to her bid (she finals).
+   - Confidence: med.
+
+2. **SAL-09 and SAL-10 → Pilar in the Salamanca fever (18:06-19:50, open 100, −2, accept ≥ 85), Operator's job b1iw7l644.**
+   - Evidence: Pilar pays +25% over book for SAL (fever 18:04-20:04). Our SAL rares are worth 63 each, and the Pícaros buys at 54 each lifted the ladder 0.200 → 0.270.
+   - Effect: sales at ~85 are above our value, so 0 neg, but they are L3 ladder deals. Cash +~170 for Sunday's CHA page.
+   - Confidence: med. Keep the start at ≥ 18:06, since the fever is timed from the schedule.
+
+3. **Flag probe at ≥ 17:42 on a Pícaros message (Operator), safe classes only.**
+   - Classes: a false fact such as "stopped printing" or "last one", or words ≠ the structured offer. Never finality talk.
+   - Evidence: flags 7053, 7068 and 7160 each paid +10.0 (tick 766-773), and 7170 (finality talk) cost −10.0. The 3 later flags scored 0, which suggests a cap per hour or per team.
+   - Effect: +10 neg ≈ +0.7 board if it scores. Worst case is −10, so flag only a checkable lie.
+   - Confidence: low-med.
 
 ## What the climbing teams are doing
-- **Team 14 (#1, 31.1, +1.5 in 15 min, 35 deals):** the Chief reports 3 ladder deals in 10 minutes. It collects LAV/LAT and reached Pícaros L4 at tick 781. It bought MAL-08 from us at 15.
-- **Team 3 (#3, 29.1, +3.0 in 60 min):**
-  - It is buying page cards in bulk. At tick 844 it took RET-01, RET-02, MAL-01 and MAL-04 from t07 for 38 P with LAV-10.
-  - It bought LAT-09 from t16 at 88.
-  - It owns v20.
-- **Team 6 (#7, +2.4 in 60 min):** 46 deals. Recent buys are RET-04 at 5, SAL-09 at 68 from t15 and RET-02 at 6. Its recent team trades mostly run through t15, t12 and t09.
+- **Team 14 (#1, 31.0, +1.4 in 15 min).** It is #1 on negotiating and has 35 deals. Per Lucas's 17:40 note it had 3 ladder deals in 10 min. It collects LAV/LAT (rival profile) and unlocked L4 at tick 781.
+- **Team 3 (#4, +2.9 / 60 min).**
+  - It sold LAV-10 for 38 P in a 5-card bundle (tick 844), and bought LAT-09 for 88 P from t16 (tick 724).
+  - Bundles that include a rare could be a way to dump cards.
+  - Lucas has already flagged it as a rival.
+- **Team 6 (#7, +2.4 / 60 min).** It bought SAL-09 from t15 at 68 (tick 781) and is trading often, 47 deals. It sells MAL/LAT/LAV and buys SAL.
+- **Team 1 (#3, 29.4, +0.5).** Deals are only 24, so it gains per deal. It buys MAL/SAL (4 each).
 
 ## Threats
-- Team 14 leads by 1.7 and is climbing on ladder and L4 deals. We should not feed it.
-- Team 3 is 0.3 behind us. It is accumulating RET cards from t07, which may hurt our RET page or prices.
-- The t15 SAL-09 sale to t06 at 68 shows SAL rares clearing near 68-70 on El Rastro. The fever is the only window above that, so missing 18:06 costs us.
+- Gap to Team 14 is about 1.6 (31.0 vs 29.4) and it is still rising. Team 1 is tied with us at 29.4, and Team 3 is 0.4 behind.
+- Team 6 is buying SAL-09 at 68. If Pilar's fever pushes SAL prices up, our 63-value SAL rares are worth selling only at ≥ 85.
+- Team 13's venue v03 and Team 3's v20 collect value created from trades there. Keep our offers off rival venues (the 17:30 directive).
