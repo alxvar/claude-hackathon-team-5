@@ -41,8 +41,8 @@ Saturday's round may continue Sunday morning (score-model §4.7).
 | t01 | +1.46 | **−7.26** |
 
 Rule: we finish ahead of a rival when 0.5·ΔFri + ΔSat + ΔSun > 0 (Δ = us − them). Every Saturday point added in a Sunday-morning
-tail counts 1:1, and so does every Sunday point. Friday counts half. P(#1) ≤ 4% in every variant; P(top 2) ≈ 9-34% under the full plan (score-model §4.4, ladder-corrected
-01:05: 9% with nothing extra, 19% if the flip lands, 27% with the flip + Saturday-tail v10 pairs, 34% with one more L3 ladder slot).
+tail counts 1:1, and so does every Sunday point. Friday counts half. P(#1) ≤ 4% in every variant. P(top 2) in case J (round 3 at ≈ 09:00, the flip lands): **≈ 19% without
+ladder fodder, ≈ 31-36% with it** (score-model §4.4, 01:45).
 
 ## 3. Rivals' Sunday upside [L]
 

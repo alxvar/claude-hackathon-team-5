@@ -31,6 +31,7 @@ Read-only: the loop never writes to the game. Sources: `data/feed.jsonl` (settle
 | Ladder upgrade (replace a slot) | only if the new share ≥ old share + 0.10 | never a 4th deal at a level whose best 3 are full, unless it upgrades | M2 for ≥ 2 deals at that dealer |
 | v10: next pair to fire; rebate per trade | pairs from `intel/matches.md`; rebate 5/10 P | rebate total ≤ 80 P; non-rivals only | one **negative** VC trade (mm_points falls) → stop that pair type at once (no sample needed: losses count in full) |
 | Thread allocation | ≤ 6 open, duel windows first | 1 accept/tick, 5 rps shared | — |
+| **Ladder fodder** (only once the Chief approves the pipeline) | team buys of uncommons/duplicates at ≤ our value; dealer sales at ≥ our value: Pilar target 19-20, Chato 14-16 | never a page card, CHA card or MAL-08; ≤ 3 deals per dealer level unless it upgrades a slot (+0.10 share); float ≤ 60 P | M2: ≥ 2 fodder sales at a dealer before moving its target ±10% |
 
 ## 3. Outside the bands → the Chief (the Analyst sends one line with EV, cost and evidence)
 
