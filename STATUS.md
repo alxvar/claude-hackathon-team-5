@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 20:24** · tick 1201 (30 s/tick) · game hour 11.33 · PAUSED · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 20:29** · tick 1201 (30 s/tick) · game hour 11.33 · PAUSED · today closes 23:00._
 
 ## Team: now and latest
 
@@ -45,8 +45,8 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 |---|---|---|---|
 | 11.65 | ~19 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
 | 13.00 | ~100 min | bench | The Market Test: every venue gets the same synthetic book |
-| 13.93 | ~156 min | day_closes | Closed until Sunday 09:00 |
-| 13.93 | ~156 min | day_opens | Sunday opens |
+| 13.84 | ~151 min (after today's close) | day_closes | Closed until Sunday 09:00 |
+| 13.84 | ~151 min (after today's close) | day_opens | Sunday opens |
 | 14.65 | ~199 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
 | 15.00 | ~220 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
 | 16.65 | ~319 min (after today's close) | set_release | Chamberí released |
