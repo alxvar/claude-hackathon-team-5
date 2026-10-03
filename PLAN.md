@@ -126,6 +126,14 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    Remove it before the ~20:15 restart if it's in the code (test: two duels accept in the same tick).
    Also confirmed: final = game (0.5·Fri + Sat + Sun)/2.5 over 60 + judges over 40; the judges' pitch is Sunday after the
    15:00 close, 1 h to prepare, free format, 3 min (5 min for the top 3).
+23. **17:40, until Duels II (Lucas + Chief).** The live process already runs the final code (89a6dd6, since 17:15), so
+   **no restart is needed** unless you change code. Simulations are welcome, with these limits: (a) **offline only**, never
+   the live server or the team key, and never a 2nd duelist process; (b) **code freeze at 19:30**: a change goes in only
+   with the full suite green AND a sim gain over the rival book (`docs/duel-rivals.md`), otherwise leave the live process
+   alone, since each restart is a risk; (c) the most useful sims: **days** vs the scripted clusters (followers, clock bots,
+   holders, silent), since days are new in Duels II; **Sunday's 15 s ticks** (latency with 6 duels in parallel: the reply
+   must land inside a tick); 6 accepts in one tick. (d) **20:25 check**: one process alive, no errors in the log; at the
+   screen 20:33 → end of the first wave.
 
 **Dani: deal desk from 15:52 (Lucas's call).** Your phone (ntfy, your channel) now gets every alert that needs a human to
 message another team: v10 radar DMs, v10 partner suggestions (Teams 15, 10, 3), opportunity SELL/BUY alerts, swap nudges.
