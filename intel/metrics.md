@@ -1,4 +1,4 @@
-# Metrics (auto, 16:25, game tick 741)
+# Metrics (auto, 16:27, game tick 745)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -81,26 +81,27 @@ Who buys which set (team trades): t01: MAL×4, SAL×4; t02: RET×3, MAL×2, LAT�
 ## Dealer prices, last 60 ticks (median per item)
 
 - abuela common (team buys): median 10 over 1
-- abuela common (team sells): median 6 over 11
+- abuela common (team sells): median 6 over 9
 - abuela sobre_barrio (team buys): median 21 over 1
 - abuela uncommon (team buys): median 21 over 1
 - chato rare (team buys): median 87 over 2
-- chato uncommon (team sells): median 14 over 3
+- chato uncommon (team sells): median 14 over 4
 - pilar rare (team sells): median 69 over 3
-- pilar uncommon (team sells): median 18 over 6
+- pilar uncommon (team sells): median 19 over 7
 
 ## El Rastro now: top bids by price (team, card, price)
 
+- t03: LAV-10 (rare) 69 P · offer 11295
 - t06: SAL-09 (rare) 68 P · offer 11242
 - t16: RET-07 (uncommon) 14 P · offer 11180
 - t16: RET-08 (uncommon) 14 P · offer 11181
 - t16: RET-01 (common) 5 P · offer 11201
 - t16: LAV-01 (common) 3 P · offer 11202
-- t13: RET-05 (common) 2 P · offer 10823
 - t13: RET-01 (common) 2 P · offer 10934
 - t13: RET-02 (common) 2 P · offer 10935
 - t13: RET-03 (common) 2 P · offer 10936
 - t13: RET-04 (common) 2 P · offer 10937
+- t13: RET-05 (common) 2 P · offer 11279
 - t16: MAL-12 (legendary) 1 P · offer 11223
 - t16: MAL-03 (common) 1 P · offer 11249
 
