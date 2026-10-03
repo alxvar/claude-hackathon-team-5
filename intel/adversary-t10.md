@@ -17,15 +17,16 @@ T0 ≈ 10:40; the 23:25 schedule read: D3 ≈ 11:00, dealers close ≈ 14:00)._
   - Our P(#1) stays low: ≤ 4% in every variant per standings.md, ≤ 9% in score-model's best case (t10 loses its VC) [L]. The
     moves below cost little and also decide the #2-#5 race, where four teams sit within 1.5 final points.
 - **Top threats from t10 [L]:**
-  1. Its v07 ad bot turns our public footprint (dealer-thread topics, addressed offers) into "t05 is hunting X: list PUBLIC on v07"
-     ads, with the pair matched in the same tick, while our club agrees deals on WhatsApp.
+  1. Its v07 ad bot turns our public footprint (dealer topics, messages and offers, addressed offers: all in the feed) into
+     "t05 is hunting X: list PUBLIC on v07" ads, with the pair matched in the same tick, while our club agrees deals on WhatsApp.
   2. A CHA flip into our public last-card bid, plus a fast first hour of round 3 from selling Saturday inventory (MAL-09/10/11,
      RET-11).
   3. v07 stays the top value-created venue, and its duelist stays ≈ 2-4 points better than ours.
 - **Top counters:**
   1. **Pyramid routing:** make v10 the clear #1 value-created (VC) venue with 2-4 large pre-agreed trades. Then send the extra club
      deals to two member markets kept just below v10, so v07 drops out of the top-three mean.
-  2. **Close CHA without paying t10:** dealers first, the last card agreed in advance and addressed, no open last-card bid.
+  2. **Close CHA without paying t10:** dealers first, the last card agreed in advance and addressed, never visible anywhere public
+     before that post.
   3. **Get the duelist to full strength** before D3.
 
 ## Part 1: Team 10's Sunday, from its side
