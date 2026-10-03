@@ -147,3 +147,6 @@ Taxi Blanco, twelve P — ¿sí? And Doña Pilar from Salamanca pays very well S
 Here, the Neighbourhood pack, 30 P. And take this Perrito con Abrigo, un regalito, you are kind.
 
 Swap your duplicates, hijo — a full page is wort
+- Sat 19:17 · message tick 1085 · banco → t16 · Buenas tardes. I know the card, and I know its worth. My terms: La Puerta de Alcalá, ciento trece. Take your time deciding, señor. I am not hurried.
+- Sat 19:17 · message tick 1085 · pilar → t13 · Buenas tardes. The golden chulapa — they say only one was ever printed. Carmen, at El Rastro, knows that story; ask her. As for business, I have a gold pack: 504 pesetas, for serious collectors only.
+- Sat 19:17 · message tick 1085 · picaros → t13 · ¡Hola, amigo! La chulapa dorada, el oro de Moscú... historias viejas, cuentos de abuela, we love them, but later, later! Right now — San Isidro, 73 pesetas, and I swear on my mother, this is the last one in all of Madrid. Nobody else has it. ¿Sí o sí?
