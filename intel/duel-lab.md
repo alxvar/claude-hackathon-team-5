@@ -13,12 +13,12 @@ _Lucas's Duel Lab session. It never writes to the game or to `agents/duelist/`._
 
 ## Update Sat 18:30: second pass before the 19:30 freeze (Chief's three questions)
 
-**Answer: one change, as insurance. Everything else the Lab recommended is already live** (69ef465 + 89a6dd6, running
-since 17:15).
+**Answer: one change, as insurance. Everything Aleks picked from the Lab's list is live** (69ef465 + 89a6dd6, running
+since 17:15). The fixed 15% step and `HOLD_TICKS` 3 → 5 were declined at 16:24 and stay out.
 
 **1. Pairings: not visible [V].**
 - `/api/duels` lists 0 live duels (tick 972).
-- `/api/schedule` gives only the parameters: Duels II at hour 11.65 ≈ 20:35, `rounds` 2 (each team plays us 4 times),
+- `/api/schedule` gives only the parameters: Duels II at hour 11.65 ≈ 20:33, `rounds` 2 (each team plays us 4 times),
   16 ticks, 8% decay, 6 at once, price + days.
 - **The meeting order can't predict the rival either [V].** The order differs between sessions: by Friday id, R3, R15,
   R7, R8, R1, R13, R4, R5 (`docs/duel-rivals.md`), against R1, R3, R4, R5, R7, R8, R13, R15 in Duels I.
@@ -32,10 +32,12 @@ since 17:15).
   - 2523: R13 was silent in that role. The only lever is the silent walk, and it already goes further:
     `SILENT_KEEP` 0.15 walks to 183 of our 196, not 170.
 - **Days may silence more scripted bots** (a priced message without `days` is refused). The walk and the accept-only
-  path cover that, and both are live.
+  path cover that, and both are live, but the walk runs only when we can read our day weight (`runner.py`: an unreadable
+  days duel stays with the models).
 - **The rounds loss.** The 18% step cap is live.
-- **Aleks's "stay silent against clock bots", re-scored in share** (`silence_share.out`): **−0.19** share-points as a
-  rule for every rival (R15 −1.00), **+0.80** for R4, R9 and R13 only. It works only as a rule keyed to the rival's
+- **Aleks's "stay silent against clock bots", re-scored in share** [L: the pies are inferred] (`silence_share.out`, 10
+  of his 12 duels: 2460 and 2507 have no pie): **−0.19** share-points as a rule for every clock-bot rival (R15 −1.00),
+  **+0.80** for R4, R9 and R13 only. It works only as a rule keyed to the rival's
   wording, and that needs a matcher built before the freeze, with no evidence the wording survives the days update.
   **Not worth it tonight.**
 - **The biggest swing left is our day reading [L, Aleks's red team, `docs/duelist-redteam.md`].**
@@ -47,10 +49,12 @@ since 17:15).
   | can't read | 0.15 |
   | direction backwards | −0.18, with 30% of deals worth less than nothing |
 
-  - **The danger:** backwards against right is ≈ 0.65 per duel, about 4 points per wave of 6.
+  - **The danger:** backwards against right is ≈ 0.65 per duel in the red team's simulated share score [L], about 4
+    points per wave of 6.
   - **The gap today [V code]:** there is no switch to flip or distrust the reading. `read_days` has no flag, no
-    environment variable and no override file. A wrong reading at 20:33 would need a code edit, the suite and a
-    restart mid-session, probably 2-4 waves (8-16 points).
+    environment variable and no override file.
+  - **The cost of fixing it live [L, my guess at the timing]:** a wrong reading at 20:33 would need a code edit, the
+    suite and a restart mid-session. At about 8 minutes per wave, that's probably 2-4 waves, or 8-16 points.
 
 **3. Changes for Aleks.**
 1. **Day-reading override, default off** [L, insurance].
@@ -65,8 +69,10 @@ since 17:15).
    - **Runbook, 20:33:** read the console's day line against the game's `days_meaning`.
      - Clearly reversed: restart with `flip`. A restart doesn't re-send (records).
      - Ambiguous: restart with `unsure`.
-   - **Worth:** 0 if the reading is right. If it's backwards, about 1 wave lost instead of 2-4, which saves ≈ 4-12
-     points.
+   - **Worth [L]:** 0 if the reading is right. If it's backwards, about 1 wave lost instead of 2-4, which saves ≈ 4-12
+     points (red-team share score, my timing guess).
+   - **The freeze rule (PLAN #23)** asks for a clear sim gain. This change has none by default: `auto` is today's code.
+     Its gain exists only if the reading is wrong, so whether it qualifies is Aleks's call.
 2. **No other change.** The step cap, the day tweaks, `SILENT_KEEP`, per-duel accepts and the 2-tick day wait are all
    live, and the red team found no tweak clearly better (best +1.7%).
 
