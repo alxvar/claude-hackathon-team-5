@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 12:20 (tick ~485), snapshot 480. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
+_Last update: Sat 12:30 (tick ~509), snapshot 500. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -64,6 +64,18 @@ t13 and t04 have dealer deals in the window). Full = 12 Saturday points = 8.0 bo
 - **Marginal value of the ladder now** [L]: 4.5 Sat for 0.055 → **+0.01 ladder ≈ +0.8 Sat ≈ +0.54 board ≈ 3.5 neg_points**.
   Our Abuela commons at 9 gave +0.014-0.018 each (≈ +0.8-1.0 board at today's rate) **if they still beat our best three
   at that level** (only the best 3 per level count; RULES).
+
+### Our measured ladder deals today (`data/me.jsonl` + feed thread paths) [V]
+| Tick | Deal | Dealer path → close | ladder_points |
+|---|---|---|---|
+| 185-269 | 5 Abuela buys ≤ list (3 commons at 9, RET-08 22, RET-07 23) | her 12 → 9-10; 29 → 22-23 | 0 → 0.055 (+0.014/+0.018/+0.016, then +0.003/+0.004 as 4th/5th = replacements) |
+| 481 | SELL LAT-08 → Chato at 14 | his bids 13, 13, 13, 14, 14 | 0.055 → 0.072 (**+0.017**, first L2 slot) |
+| 508 | SELL MAL-07 → Pilar at 19 | her bids 16, 16, 17, 17, 18; she accepted our 19 | 0.072 → 0.122 (**+0.050**, first L3 slot) |
+
+- Fits ladder ≈ Σ_level w × mean(best-3 shares) / Σ w, share = (price − opening)/(limit − opening), weights rising with level [L].
+- Board value [L]: ≈ 49 Saturday points per 1.0 ladder after the duel re-weighting (≈ +1.6 board for +0.050) **only below the
+  field cap**, which pre-duel sat near our ladder ≈ 0.15 ± 0.03 [?]. Not measurable while Duels I runs; measure the first
+  isolated ladder deal after ~13:35.
 
 ### t13's lead over us (24.39 vs 15.16 = 9.23 board)
 | Source | board | Evidence |
