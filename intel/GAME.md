@@ -140,6 +140,8 @@
   more ('not mine today'). Score effect of egg.found alone: unknown.
   Pícaros egg [V, tick 1231]: text 'Conozco el timo de la estampita…' → egg.found + badge 'Trickster tricked' ('sin trucos para
   ti... hoy'); the Abuela egg gave badge 'Sharp ear'. Badges: score effect unknown.
+  Castizo eggs [V, ticks 1368-1369]: Madrid references in dealer threads ('cocido con sus tres vuelcos', rosquillas de San Isidro)
+  → Abuela egg.given MAL-06 + badge 'Castizo' (t10 got a sobre_barrio from Chato for Plaza Mayor + caña; not repeated for us).
 - **Payday** [V, Sat 20:37, game paused at tick 1201]: every team +400 P ('a second starting purse… Only deals score, never
   cash you hold'). Ours 120 → 520.
 - **Broker announcements: 1 per venue per 20 ticks** [V, Sat 21:48: `wait: one announcement per venue every 20 ticks`].
