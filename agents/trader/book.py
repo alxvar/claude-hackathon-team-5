@@ -12,8 +12,8 @@ Each tick, per entry (one live offer per card and side):
 - not posted, expired or cancelled: post it (an ask whose copy left us, or a bid whose card arrived, is filled: done);
 - expiring within REFRESH_LEFT ticks: cancel and post again at the same price;
 - unfilled REPRICE_AFTER ticks at one price: cancel and post one step toward the floor (asks down, bids up).
-Never past the floor, and never past what the trader would take: an ask at least our copy's value + --min-gain-sell,
-a bid at most our value - --min-gain (no fee: the taker pays it). Bids keep cash >= --cash-floor across all our bids.
+Never past the floor, nor past what scores: an ask at least our copy's value + --min-gain-sell (1: as maker we pay
+no fee, so any price above value scores; the trader's +6 is a taker's bar), a bid at most our value - --min-gain. Bids keep cash >= --cash-floor across all our bids.
 Venue: the entry's, else DEFAULT_VENUE (v07); El Rastro for a page-closer, and when the venue is closed, unseen or
 owned by a top-4 team. Limits: at most NEW_SHARE of the team's new offers per tick and the open-offer limit minus
 OPEN_RESERVE (/api/clock limits; the trader and opps post too). expires_in_ticks is sent in Friday's 60 s ticks.
@@ -45,7 +45,7 @@ REPRICE_AFTER = 20      # ticks unfilled at one price before one step toward the
 STEP_SHARE = 0.25       # default step: a quarter of the distance to the floor, at least 1 P
 NEW_SHARE = 0.5         # of the team's new offers per tick (12): the rest for the trader and opps
 OPEN_RESERVE = 5        # open offers left free for the other processes
-MIN_GAIN_SELL, MIN_GAIN_BUY = 6.0, 3.0     # as agents/trader/loop.py's --min-gain-sell / --min-gain
+MIN_GAIN_SELL, MIN_GAIN_BUY = 1.0, 3.0     # maker asks: value + 1 (no fee; +6 is the trader's taker bar); bids -3
 CASH_FLOOR = int(os.environ.get("CASH_FLOOR", 200))
 
 

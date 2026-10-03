@@ -89,7 +89,7 @@ def test_an_offer_about_to_expire_is_posted_again_at_the_same_price():
 
 def test_after_20_unfilled_ticks_an_ask_steps_down_but_never_below_its_floor():
     g = Game()
-    e = [{"card": "SAL-08", "side": "sell", "price": 30, "floor": 21}]  # value 14 + 6 = 20 < 21: floor 21
+    e = [{"card": "SAL-08", "side": "sell", "price": 30, "floor": 21}]  # value 14 + 1 = 15 < 21: floor 21
     st, _, _ = run(g, e, tick=300)
     st, ev, _ = run(g, e, st, tick=319)
     assert len(g.posted) == 1                                           # 19 ticks: not yet
@@ -101,10 +101,12 @@ def test_after_20_unfilled_ticks_an_ask_steps_down_but_never_below_its_floor():
     assert min(o["want"]["cash"] for o in g.posted) >= 21 and all(p >= 21 for p in prices)
 
 
-def test_the_floor_never_goes_below_our_value_plus_the_trader_bar():
+def test_an_ask_never_goes_below_our_value_plus_1():
+    # As maker we pay no fee: any price above our copy's value scores (the trader's +6 is a taker's bar). Today +6
+    # blocked SAL-08 (worth 22.5: floor 28.5, while uncommons clear ~24.5).
     g = Game()
     run(g, [{"card": "SAL-08", "side": "sell", "price": 10, "floor": 5}])  # the book asks too little
-    assert g.posted[0]["want"] == {"cash": 20}                          # 14 + 6
+    assert g.posted[0]["want"] == {"cash": 15}                          # 14 + 1
 
 
 def test_a_bid_steps_up_to_its_cap_value_minus_3():
