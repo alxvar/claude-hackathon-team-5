@@ -1,4 +1,4 @@
-# Sunday: the Chamberí (CHA) page (Builder, Sat 11:40; team bids 12:10; reviews 12:30 and 13:30, fixes applied)
+# Sunday: the Chamberí (CHA) page (Builder, Sat 11:40; team bids 12:10; reviews 12:30, 13:30, 13:55, fixes applied)
 
 **Goal:** complete the CHA page Sunday morning, **buying from teams first** (Chief 12:05, from intel/rivals.md play 1).
 A dealer buy below our value scores 0 (gains clipped, GAME.md). A team buy scores value − price (cap 50). As maker at
@@ -62,7 +62,7 @@ last card is worth bidding up to **value − 50: 72 / 96 / 168**. No CHA card is
   real C, whatever happened.
 - **Peak need by ~11:20 ≈ 260-321 P:** the 8 cards other than the pair (244 if all at dealer lists, 288 if all at our
   bid floors, 224 if teams fill at the start bids) plus the pair's flat bids (24 + 9 = 33).
-- **Total by ~12:30 ≈ 340-385 P:** add CHA-08 from Abuela (~25) and the last card at value − 50 (72 for CHA-05),
+- **Total by ~12:30 ≈ 321-385 P:** add CHA-08 from Abuela (~25) and the last card at value − 50 (72 for CHA-05),
   less the 33 the pair already held. Rares are counted at 90 (team floor); two Chato deals at the `--cap 100` retry add
   up to 20.
 - **The book clamps a bid to the cash it has** (227140e): a bid cash can't cover goes out at what cash allows (never
@@ -87,7 +87,9 @@ whatever cash is left, because any price up to value − 50 scores the same capp
 | 310-340 (160-190) | **B** | 303 | C − 295: 15-45 |
 | < 310 (< 160) | **B + C**, and tell the Chief | ≤ 303 | < 15: a team may not sell the last card that cheap |
 
-Worst cases count rares at 90; the Chato `--cap 100` retry can add up to 20.
+Worst cases count rares at 90; the Chato `--cap 100` retry can add up to 20. The table assumes CHA-05 closes (72). If the
+last card is CHA-08 (96) or a rare (168), it needs more; the book still bids what cash is left, but a team is unlikely
+to sell an uncommon or a rare that cheap.
 
 - **B · commons and uncommons at list.** Floors 10 (CHA-01..04) and 25 (CHA-06/07) instead of 12 / 30. A team fill at 10
   still scores +6; the dealer fallback costs the same.
@@ -110,6 +112,12 @@ Worst cases count rares at 90; the Chato `--cap 100` retry can add up to 20.
    - The book cancels a bid by itself once that card reaches us another way (a dealer, the trader, the pack: a005145).
      opps never bids for a card the book bids for (45ce829); run it with `OPPS_BUILD=RET` all morning anyway, so it
      can't bid CHA when an entry is removed for a dealer buy.
+**Before any dealer run (steps 2-4): never send the page's last missing card to a dealer.** Count the CHA cards still
+missing; the last one keeps its book entry. If a dealer bot refuses a card for "page bonus" (chato_steady exits
+"refused: page bonus"; abuela_bot logs `skip_buy` / `cards_not_buyable` "page bonus"), that card has become the last
+one: **put its entry back** in run/book.json with `last_card: true`, in one write; it posts straight at value − 50.
+This is the one allowed remove-and-re-add.
+
 2. **~10:00 · rares.** For a CHA rare not filled from a team: **remove its entry** from run/book.json (the book cancels
    the bid within a tick), check `/api/me/offers` shows no bid for it, then buy it from Chato with the steady protocol
    (ORCHESTRATOR: rares at a constant +2 to +4): `chato_steady.py CHA-09 --cap 77 --open 57 --step 3 --cash-floor <F>`.
@@ -147,7 +155,9 @@ Tier B: CHA-01..04 floor 10, CHA-06/07 floor 25. Tier C: leave CHA-01..04 out un
 
 - **Edit the file in one write** (open, change, save). Never remove an entry and add it back to change a field: the
   removal cancels the bid and the re-add posts it at the file price again, losing its climb (5 asks reset this way at
-  Sat 13:11).
+  Sat 13:11). The one exception: a card a dealer bot refused as the page's last (Order, before step 2).
+- A `last_card` entry's `floor` must stay below its value − 50 (72 / 96 / 168), as all the floors above do: a higher
+  floor would keep the last card's bid at min(floor, value − 3), which scores less than +50.
 - A filled bid is marked done; its entry can stay. **Removing an entry cancels its live bid** (45ce829). A missing or
   half-written file, or one without an `offers` list, changes nothing (227140e).
 - **Editing an entry's `price` moves the live bid within a tick**, clamped to the floor, value − 3 and cash; a bid held
@@ -165,8 +175,10 @@ Tier B: CHA-01..04 floor 10, CHA-06/07 floor 25. Tier C: leave CHA-01..04 out un
   ticks (2.5 min) between two conversations with the same dealer. Six open conversations per team: Abuela and Chato
   can run in parallel (one run per dealer at a time).
 - **A dealer's offer expires after 4 ticks** [V, threads 805 and 832]. When it expires and nobody moves, both dealer
-  bots log `no_live_offer` each tick and walk on the 4th (e875b82). To keep talking at a new cap, run again with
-  `--resume <thread>` before that.
+  bots log `no_live_offer` each tick and walk on the 4th (e875b82). To keep talking to **Chato** at a new cap: Ctrl-C the
+  running chato_steady (the thread stays open), then `chato_steady.py <card> --resume <thread> --cap <new> ...`.
+  Abuela runs are never resumed (their cap is already her list); abuela_bot has no `--resume` (it is `--resume-cap`,
+  and abbreviations are refused since 001c203).
 
 ## Operator checklist, Sunday 09:00-12:30
 
@@ -178,9 +190,10 @@ Commands run from the repo root with the key loaded: `set -a; . ./.env; set +a; 
 2. **09:01** · `tools/daemons.sh status`. Book with floor 0 (its only bids are the CHA page's):
    `CASH_FLOOR=0 MIN_GAIN_SELL=2 tools/daemons.sh restart book`. Opps at 100 without CHA:
    `CASH_FLOOR=100 OPPS_BUILD=RET tools/daemons.sh restart opps`. The trader may run (directive 12:50) at its floor
-   100; it counts our open bids against it (227140e).
+   100 and counts our open bids against it (227140e): `tools/daemons.sh restart trader` (no CASH_FLOOR prefix).
 3. **At the release** · first **open asset 755** (sobre_plata, value 91.1 Sat 12:45) alone in its measurement window:
-   `tools/daemons.sh stop book opps trader`, open it, read `/api/me`, then start them again with the step 2 commands
+   `tools/daemons.sh stop book opps trader` (the book's live asks stay up), open it, read `/api/me`, then start them
+   again with the step 2 commands
    (Operator 12:50, the Chief's decision: kept unopened until then; luck never scores). Fallback: if the desk or the
    feed shows pack contents are fixed at grant time, open it Saturday evening instead. Then add the CHA bids to
    run/book.json for the cards still missing (a CHA card from the pack: leave its entry out; keep the asks), with the
@@ -189,10 +202,12 @@ Commands run from the repo root with the key loaded: `set -a; . ./.env; set +a; 
    the Chief. Tier C: add CHA-01..04 only once both rares are in.
 4. **First bid out** · `/api/me` cash before and after (does the server hold bid cash?); `expires_tick − created_tick`
    (×4?); it sits on El Rastro.
-5. **~10:00** · rares not filled: remove the entry, check `/api/me/offers`, then
+5. **~10:00** · rares not filled (never the page's last missing card; a refused card goes back in the book, Order step
+   1b): remove the entry, check `/api/me/offers`, then
    `chato_steady.py CHA-09 --cap 77 --open 57 --step 3 --cash-floor <open CHA bid cash>` (and CHA-10); `--cap 100` on
    a second try.
-6. **~10:30** · CHA-01..04 / CHA-06/07 still missing: remove the entries, check `/api/me/offers`, then
+6. **~10:30** · CHA-01..04 / CHA-06/07 still missing, except the page's last missing card: remove the entries, check
+   `/api/me/offers`, then
    `abuela_bot.py --dealer abuela --cards <commons> --max-buy 10 --deals <n> --cash-floor <open CHA bid cash>`; when it
    ends, the same with `--cards <uncommons> --max-buy 25`.
 7. **By ~11:20** (target) · dealer threads done. Log `neg_points` before and after each deal: expect value − price on
