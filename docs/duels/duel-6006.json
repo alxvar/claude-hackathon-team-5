@@ -110,6 +110,240 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1359,
+   "raw": {
+    "duel": 6006,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.46,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 73,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Verde",
+    "deadline_tick": 1367,
+    "decay_per_round": 0.08,
+    "rounds": 0,
+    "your_offer": {
+     "id": 10515,
+     "price": 105,
+     "tick": 1359,
+     "days": 10
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1353,
+      "from": "you",
+      "text": "I'm offering 115 P with delivery on day 10. I'd like to settle this quickly and fairly.",
+      "price": 115,
+      "days": 10
+     },
+     {
+      "tick": 1359,
+      "from": "you",
+      "text": "I can do 105 P, delivery on day 10.",
+      "price": 105,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1360,
+   "raw": {
+    "duel": 6006,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.46,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 73,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Verde",
+    "deadline_tick": 1367,
+    "decay_per_round": 0.08,
+    "rounds": 0,
+    "your_offer": {
+     "id": 10532,
+     "price": 94,
+     "tick": 1360,
+     "days": 10
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1353,
+      "from": "you",
+      "text": "I'm offering 115 P with delivery on day 10. I'd like to settle this quickly and fairly.",
+      "price": 115,
+      "days": 10
+     },
+     {
+      "tick": 1359,
+      "from": "you",
+      "text": "I can do 105 P, delivery on day 10.",
+      "price": 105,
+      "days": 10
+     },
+     {
+      "tick": 1360,
+      "from": "you",
+      "text": "I can do 94 P, delivery on day 10.",
+      "price": 94,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1361,
+   "raw": {
+    "duel": 6006,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.46,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 73,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Verde",
+    "deadline_tick": 1367,
+    "decay_per_round": 0.08,
+    "rounds": 0,
+    "your_offer": {
+     "id": 10544,
+     "price": 84,
+     "tick": 1361,
+     "days": 10
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1353,
+      "from": "you",
+      "text": "I'm offering 115 P with delivery on day 10. I'd like to settle this quickly and fairly.",
+      "price": 115,
+      "days": 10
+     },
+     {
+      "tick": 1359,
+      "from": "you",
+      "text": "I can do 105 P, delivery on day 10.",
+      "price": 105,
+      "days": 10
+     },
+     {
+      "tick": 1360,
+      "from": "you",
+      "text": "I can do 94 P, delivery on day 10.",
+      "price": 94,
+      "days": 10
+     },
+     {
+      "tick": 1361,
+      "from": "you",
+      "text": "I can do 84 P, delivery on day 10.",
+      "price": 84,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1362,
+   "raw": {
+    "duel": 6006,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.46,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 73,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Verde",
+    "deadline_tick": 1367,
+    "decay_per_round": 0.08,
+    "rounds": 0,
+    "your_offer": {
+     "id": 10568,
+     "price": 73,
+     "tick": 1362,
+     "days": 10
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1353,
+      "from": "you",
+      "text": "I'm offering 115 P with delivery on day 10. I'd like to settle this quickly and fairly.",
+      "price": 115,
+      "days": 10
+     },
+     {
+      "tick": 1359,
+      "from": "you",
+      "text": "I can do 105 P, delivery on day 10.",
+      "price": 105,
+      "days": 10
+     },
+     {
+      "tick": 1360,
+      "from": "you",
+      "text": "I can do 94 P, delivery on day 10.",
+      "price": 94,
+      "days": 10
+     },
+     {
+      "tick": 1361,
+      "from": "you",
+      "text": "I can do 84 P, delivery on day 10.",
+      "price": 84,
+      "days": 10
+     },
+     {
+      "tick": 1362,
+      "from": "you",
+      "text": "I can do 73 P, delivery on day 10.",
+      "price": 73,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -237,6 +471,670 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1359,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 6006,
+     "role": "seller",
+     "limit": 73,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.46,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm offering 115 P with delivery on day 10. I'd like to settle this quickly and fairly.",
+      "offer": {
+       "price": 115,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1353,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1359,
+    "ticks_left": 8,
+    "rounds": 0,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 105 P, delivery on day 10.",
+    "price": 105,
+    "days": 10,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1360,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 6006,
+     "role": "seller",
+     "limit": 73,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.46,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm offering 115 P with delivery on day 10. I'd like to settle this quickly and fairly.",
+      "offer": {
+       "price": 115,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1353,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 105 P, delivery on day 10.",
+      "offer": {
+       "price": 105,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1359,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1360,
+    "ticks_left": 7,
+    "rounds": 0,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 94 P, delivery on day 10.",
+    "price": 94,
+    "days": 10,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1361,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 6006,
+     "role": "seller",
+     "limit": 73,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.46,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm offering 115 P with delivery on day 10. I'd like to settle this quickly and fairly.",
+      "offer": {
+       "price": 115,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1353,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 105 P, delivery on day 10.",
+      "offer": {
+       "price": 105,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1359,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 94 P, delivery on day 10.",
+      "offer": {
+       "price": 94,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1360,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1361,
+    "ticks_left": 6,
+    "rounds": 0,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 84 P, delivery on day 10.",
+    "price": 84,
+    "days": 10,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1362,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 6006,
+     "role": "seller",
+     "limit": 73,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.46,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm offering 115 P with delivery on day 10. I'd like to settle this quickly and fairly.",
+      "offer": {
+       "price": 115,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1353,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 105 P, delivery on day 10.",
+      "offer": {
+       "price": 105,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1359,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 94 P, delivery on day 10.",
+      "offer": {
+       "price": 94,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1360,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 84 P, delivery on day 10.",
+      "offer": {
+       "price": 84,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1361,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1362,
+    "ticks_left": 5,
+    "rounds": 0,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 73 P, delivery on day 10.",
+    "price": 73,
+    "days": 10,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1363,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 6006,
+     "role": "seller",
+     "limit": 73,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.46,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm offering 115 P with delivery on day 10. I'd like to settle this quickly and fairly.",
+      "offer": {
+       "price": 115,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1353,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 105 P, delivery on day 10.",
+      "offer": {
+       "price": 105,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1359,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 94 P, delivery on day 10.",
+      "offer": {
+       "price": 94,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1360,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 84 P, delivery on day 10.",
+      "offer": {
+       "price": 84,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1361,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 73 P, delivery on day 10.",
+      "offer": {
+       "price": 73,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1362,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1363,
+    "ticks_left": 4,
+    "rounds": 0,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "Let me think about that.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "blocked": {
+      "fallback": "past the limit despite the band",
+      "blocked": {
+       "rule": "silent rival",
+       "calls": []
+      },
+      "calls": []
+     }
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 1364,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 6006,
+     "role": "seller",
+     "limit": 73,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.46,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm offering 115 P with delivery on day 10. I'd like to settle this quickly and fairly.",
+      "offer": {
+       "price": 115,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1353,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 105 P, delivery on day 10.",
+      "offer": {
+       "price": 105,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1359,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 94 P, delivery on day 10.",
+      "offer": {
+       "price": 94,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1360,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 84 P, delivery on day 10.",
+      "offer": {
+       "price": 84,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1361,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 73 P, delivery on day 10.",
+      "offer": {
+       "price": 73,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1362,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1364,
+    "ticks_left": 3,
+    "rounds": 0,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "Let me think about that.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "blocked": {
+      "fallback": "past the limit despite the band",
+      "blocked": {
+       "rule": "silent rival",
+       "calls": []
+      },
+      "calls": []
+     }
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 1365,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 6006,
+     "role": "seller",
+     "limit": 73,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.46,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm offering 115 P with delivery on day 10. I'd like to settle this quickly and fairly.",
+      "offer": {
+       "price": 115,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1353,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 105 P, delivery on day 10.",
+      "offer": {
+       "price": 105,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1359,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 94 P, delivery on day 10.",
+      "offer": {
+       "price": 94,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1360,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 84 P, delivery on day 10.",
+      "offer": {
+       "price": 84,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1361,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 73 P, delivery on day 10.",
+      "offer": {
+       "price": 73,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1362,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1365,
+    "ticks_left": 2,
+    "rounds": 0,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "Let me think about that.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "blocked": {
+      "fallback": "past the limit despite the band",
+      "blocked": {
+       "rule": "silent rival",
+       "calls": []
+      },
+      "calls": []
+     }
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [
@@ -293,6 +1191,98 @@
      "id": 10402,
      "price": 115,
      "tick": 1353,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1359,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 105 P, delivery on day 10.",
+    "price": 105,
+    "days": 10,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 6006,
+    "offer": {
+     "id": 10515,
+     "price": 105,
+     "tick": 1359,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1360,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 94 P, delivery on day 10.",
+    "price": 94,
+    "days": 10,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 6006,
+    "offer": {
+     "id": 10532,
+     "price": 94,
+     "tick": 1360,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1361,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 84 P, delivery on day 10.",
+    "price": 84,
+    "days": 10,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 6006,
+    "offer": {
+     "id": 10544,
+     "price": 84,
+     "tick": 1361,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1362,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 73 P, delivery on day 10.",
+    "price": 73,
+    "days": 10,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 6006,
+    "offer": {
+     "id": 10568,
+     "price": 73,
+     "tick": 1362,
      "days": 10
     }
    }

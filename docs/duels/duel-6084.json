@@ -150,6 +150,376 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1358,
+   "raw": {
+    "duel": 6084,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.78,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 126,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1369,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 10442,
+     "price": 78,
+     "tick": 1355,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 10501,
+     "price": 116,
+     "tick": 1358,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1355,
+      "from": "you",
+      "text": "I'll start at 78 P for delivery on day 0. I'd like to keep this quick and clean, so I hope we can close soon.",
+      "price": 78,
+      "days": 0
+     },
+     {
+      "tick": 1356,
+      "from": "Rival Plata",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 122,
+      "days": 0
+     },
+     {
+      "tick": 1358,
+      "from": "Rival Plata",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 116,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1358,
+   "raw": {
+    "duel": 6084,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.78,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 126,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1369,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 10510,
+     "price": 86,
+     "tick": 1358,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 10501,
+     "price": 116,
+     "tick": 1358,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1355,
+      "from": "you",
+      "text": "I'll start at 78 P for delivery on day 0. I'd like to keep this quick and clean, so I hope we can close soon.",
+      "price": 78,
+      "days": 0
+     },
+     {
+      "tick": 1356,
+      "from": "Rival Plata",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 122,
+      "days": 0
+     },
+     {
+      "tick": 1358,
+      "from": "Rival Plata",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 116,
+      "days": 0
+     },
+     {
+      "tick": 1358,
+      "from": "you",
+      "text": "I can move up to 86 P for delivery on day 0. If you keep moving toward me, I'm ready to close quickly.",
+      "price": 86,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1361,
+   "raw": {
+    "duel": 6084,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.78,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 126,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1369,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 10558,
+     "price": 92,
+     "tick": 1361,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 10501,
+     "price": 116,
+     "tick": 1358,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1355,
+      "from": "you",
+      "text": "I'll start at 78 P for delivery on day 0. I'd like to keep this quick and clean, so I hope we can close soon.",
+      "price": 78,
+      "days": 0
+     },
+     {
+      "tick": 1356,
+      "from": "Rival Plata",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 122,
+      "days": 0
+     },
+     {
+      "tick": 1358,
+      "from": "Rival Plata",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 116,
+      "days": 0
+     },
+     {
+      "tick": 1358,
+      "from": "you",
+      "text": "I can move up to 86 P for delivery on day 0. If you keep moving toward me, I'm ready to close quickly.",
+      "price": 86,
+      "days": 0
+     },
+     {
+      "tick": 1361,
+      "from": "you",
+      "text": "I can move to 92 P for delivery on day 0. That's a clear step from me, so I'd like to see a meaningful move from your side, and then we can close quickly.",
+      "price": 92,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1364,
+   "raw": {
+    "duel": 6084,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.78,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 126,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1369,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 10558,
+     "price": 92,
+     "tick": 1361,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 10619,
+     "price": 101,
+     "tick": 1364,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1355,
+      "from": "you",
+      "text": "I'll start at 78 P for delivery on day 0. I'd like to keep this quick and clean, so I hope we can close soon.",
+      "price": 78,
+      "days": 0
+     },
+     {
+      "tick": 1356,
+      "from": "Rival Plata",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 122,
+      "days": 0
+     },
+     {
+      "tick": 1358,
+      "from": "Rival Plata",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 116,
+      "days": 0
+     },
+     {
+      "tick": 1358,
+      "from": "you",
+      "text": "I can move up to 86 P for delivery on day 0. If you keep moving toward me, I'm ready to close quickly.",
+      "price": 86,
+      "days": 0
+     },
+     {
+      "tick": 1361,
+      "from": "you",
+      "text": "I can move to 92 P for delivery on day 0. That's a clear step from me, so I'd like to see a meaningful move from your side, and then we can close quickly.",
+      "price": 92,
+      "days": 0
+     },
+     {
+      "tick": 1364,
+      "from": "Rival Plata",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 101,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1364,
+   "raw": {
+    "duel": 6084,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.78,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 126,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1369,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 10624,
+     "price": 98,
+     "tick": 1364,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 10619,
+     "price": 101,
+     "tick": 1364,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1355,
+      "from": "you",
+      "text": "I'll start at 78 P for delivery on day 0. I'd like to keep this quick and clean, so I hope we can close soon.",
+      "price": 78,
+      "days": 0
+     },
+     {
+      "tick": 1356,
+      "from": "Rival Plata",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 122,
+      "days": 0
+     },
+     {
+      "tick": 1358,
+      "from": "Rival Plata",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 116,
+      "days": 0
+     },
+     {
+      "tick": 1358,
+      "from": "you",
+      "text": "I can move up to 86 P for delivery on day 0. If you keep moving toward me, I'm ready to close quickly.",
+      "price": 86,
+      "days": 0
+     },
+     {
+      "tick": 1361,
+      "from": "you",
+      "text": "I can move to 92 P for delivery on day 0. That's a clear step from me, so I'd like to see a meaningful move from your side, and then we can close quickly.",
+      "price": 92,
+      "days": 0
+     },
+     {
+      "tick": 1364,
+      "from": "Rival Plata",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 101,
+      "days": 0
+     },
+     {
+      "tick": 1364,
+      "from": "you",
+      "text": "I can move to 98 P for delivery on day 0. That's a real step from me, and I'd like a real move back so we can close in the next exchange.",
+      "price": 98,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -387,6 +757,581 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 1358,
+   "took_s": 9.15,
+   "cost_usd": 0.0098,
+   "obs": {
+    "view": {
+     "duel_id": 6084,
+     "role": "buyer",
+     "limit": 126,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.78,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'll start at 78 P for delivery on day 0. I'd like to keep this quick and clean, so I hope we can close soon.",
+      "offer": {
+       "price": 78,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1355,
+      "decision": {
+       "action": "offer",
+       "price": 78,
+       "message": "I'll start at 78 P for delivery on day 0. I'd like to keep this quick and clean, so I hope we can close soon."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 122,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1356,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 116,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1358,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 116,
+     "days": 0
+    },
+    "tick": 1358,
+    "ticks_left": 11,
+    "rounds": 1,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can move up to 86 P for delivery on day 0. If you keep moving toward me, I'm ready to close quickly.",
+    "price": 86,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 86,
+      "message": "I can move up to 86 P for delivery on day 0. If you keep moving toward me, I'm ready to close quickly."
+     },
+     "band": {
+      "worst": 87,
+      "target": 86,
+      "best": 84
+     },
+     "plan": {
+      "read": "They have dropped from 122 to 116 on day 0 within two ticks, which shows real movement. Their words are boilerplate. 116 is within reach, but there is likely more room below it.",
+      "target": 86,
+      "best": 84,
+      "worst": 87,
+      "days": 0,
+      "angle": "Make one clear step up to 86 P on day 0. Keep the tone friendly and brisk, and signal readiness to close quickly if they keep moving toward us."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.34,
+       "in": 768,
+       "out": 270,
+       "cost_usd": 0.00847,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.81,
+       "in": 369,
+       "out": 59,
+       "cost_usd": 0.00133,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1361,
+   "took_s": 8.92,
+   "cost_usd": 0.014249999999999999,
+   "obs": {
+    "view": {
+     "duel_id": 6084,
+     "role": "buyer",
+     "limit": 126,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.78,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'll start at 78 P for delivery on day 0. I'd like to keep this quick and clean, so I hope we can close soon.",
+      "offer": {
+       "price": 78,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1355,
+      "decision": {
+       "action": "offer",
+       "price": 78,
+       "message": "I'll start at 78 P for delivery on day 0. I'd like to keep this quick and clean, so I hope we can close soon."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 122,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1356,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 116,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1358,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move up to 86 P for delivery on day 0. If you keep moving toward me, I'm ready to close quickly.",
+      "offer": {
+       "price": 86,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1358,
+      "decision": {
+       "action": "offer",
+       "price": 86,
+       "message": "I can move up to 86 P for delivery on day 0. If you keep moving toward me, I'm ready to close quickly."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 116,
+     "days": 0
+    },
+    "tick": 1361,
+    "ticks_left": 8,
+    "rounds": 2,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can move to 92 P for delivery on day 0. That's a clear step from me, so I'd like to see a meaningful move from your side, and then we can close quickly.",
+    "price": 92,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 92,
+      "message": "I can move to 92 P for delivery on day 0. That's a clear step from me, so I'd like to see a meaningful move from your side, and then we can close quickly."
+     },
+     "band": {
+      "worst": 93,
+      "target": 92,
+      "best": 91
+     },
+     "plan": {
+      "read": "They dropped from 122 to 116 on day 0 and have been silent for three ticks, while we last offered 86. Their offer is within reach, but they have conceded less than we have. The standoff flag suggests one clear step to restart movement, not a chase.",
+      "target": 92,
+      "best": 91,
+      "worst": 93,
+      "days": 0,
+      "angle": "Keep it short and steady: offer 92 P for day 0 as a clear move, ask them to come down meaningfully from 116, and signal readiness to close quickly if they do."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.81,
+       "in": 895,
+       "out": 452,
+       "cost_usd": 0.01262,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.11,
+       "in": 455,
+       "out": 72,
+       "cost_usd": 0.00163,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1364,
+   "took_s": 8.72,
+   "cost_usd": 0.01323,
+   "obs": {
+    "view": {
+     "duel_id": 6084,
+     "role": "buyer",
+     "limit": 126,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.78,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'll start at 78 P for delivery on day 0. I'd like to keep this quick and clean, so I hope we can close soon.",
+      "offer": {
+       "price": 78,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1355,
+      "decision": {
+       "action": "offer",
+       "price": 78,
+       "message": "I'll start at 78 P for delivery on day 0. I'd like to keep this quick and clean, so I hope we can close soon."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 122,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1356,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 116,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1358,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move up to 86 P for delivery on day 0. If you keep moving toward me, I'm ready to close quickly.",
+      "offer": {
+       "price": 86,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1358,
+      "decision": {
+       "action": "offer",
+       "price": 86,
+       "message": "I can move up to 86 P for delivery on day 0. If you keep moving toward me, I'm ready to close quickly."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can move to 92 P for delivery on day 0. That's a clear step from me, so I'd like to see a meaningful move from your side, and then we can close quickly.",
+      "offer": {
+       "price": 92,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1361,
+      "decision": {
+       "action": "offer",
+       "price": 92,
+       "message": "I can move to 92 P for delivery on day 0. That's a clear step from me, so I'd like to see a meaningful move from your side, and then we can close quickly."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 116,
+     "days": 0
+    },
+    "tick": 1364,
+    "ticks_left": 5,
+    "rounds": 2,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can move to 98 P for delivery on day 0. That's a real step from me, and I'd like a real move back so we can close in the next exchange.",
+    "price": 98,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 98,
+      "message": "I can move to 98 P for delivery on day 0. That's a real step from me, and I'd like a real move back so we can close in the next exchange."
+     },
+     "band": {
+      "worst": 98,
+      "target": 98,
+      "best": 96
+     },
+     "plan": {
+      "read": "They have held at 116 P on day 0 for three ticks after a single 6 P step. 116 is within reach but leaves little for us, and they have conceded less than we have. Our message now adds no round by itself, so one more clear step costs little and may draw a move from them.",
+      "target": 98,
+      "best": 96,
+      "worst": 98,
+      "days": 0,
+      "angle": "Offer 98 P for day 0 in a calm, firm tone, framed as a real step that needs a real move back from them so we can close in the next exchange."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.51,
+       "in": 985,
+       "out": 380,
+       "cost_usd": 0.01154,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.2,
+       "in": 522,
+       "out": 65,
+       "cost_usd": 0.00169,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1365,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 6084,
+     "role": "buyer",
+     "limit": 126,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.78,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'll start at 78 P for delivery on day 0. I'd like to keep this quick and clean, so I hope we can close soon.",
+      "offer": {
+       "price": 78,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1355,
+      "decision": {
+       "action": "offer",
+       "price": 78,
+       "message": "I'll start at 78 P for delivery on day 0. I'd like to keep this quick and clean, so I hope we can close soon."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 122,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1356,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 116,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1358,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move up to 86 P for delivery on day 0. If you keep moving toward me, I'm ready to close quickly.",
+      "offer": {
+       "price": 86,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1358,
+      "decision": {
+       "action": "offer",
+       "price": 86,
+       "message": "I can move up to 86 P for delivery on day 0. If you keep moving toward me, I'm ready to close quickly."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can move to 92 P for delivery on day 0. That's a clear step from me, so I'd like to see a meaningful move from your side, and then we can close quickly.",
+      "offer": {
+       "price": 92,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1361,
+      "decision": {
+       "action": "offer",
+       "price": 92,
+       "message": "I can move to 92 P for delivery on day 0. That's a clear step from me, so I'd like to see a meaningful move from your side, and then we can close quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 101,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1364,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 98 P for delivery on day 0. That's a real step from me, and I'd like a real move back so we can close in the next exchange.",
+      "offer": {
+       "price": 98,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1364,
+      "decision": {
+       "action": "offer",
+       "price": 98,
+       "message": "I can move to 98 P for delivery on day 0. That's a real step from me, and I'd like a real move back so we can close in the next exchange."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 101,
+     "days": 0
+    },
+    "tick": 1365,
+    "ticks_left": 4,
+    "rounds": 3,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 101,
+    "days": null,
+    "meta": {
+     "rule": "small gap",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -445,6 +1390,196 @@
      "tick": 1355,
      "days": 0
     }
+   }
+  },
+  {
+   "tick": 1358,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can move up to 86 P for delivery on day 0. If you keep moving toward me, I'm ready to close quickly.",
+    "price": 86,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 86,
+      "message": "I can move up to 86 P for delivery on day 0. If you keep moving toward me, I'm ready to close quickly."
+     },
+     "band": {
+      "worst": 87,
+      "target": 86,
+      "best": 84
+     },
+     "plan": {
+      "read": "They have dropped from 122 to 116 on day 0 within two ticks, which shows real movement. Their words are boilerplate. 116 is within reach, but there is likely more room below it.",
+      "target": 86,
+      "best": 84,
+      "worst": 87,
+      "days": 0,
+      "angle": "Make one clear step up to 86 P on day 0. Keep the tone friendly and brisk, and signal readiness to close quickly if they keep moving toward us."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.34,
+       "in": 768,
+       "out": 270,
+       "cost_usd": 0.00847,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.81,
+       "in": 369,
+       "out": 59,
+       "cost_usd": 0.00133,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 6084,
+    "offer": {
+     "id": 10510,
+     "price": 86,
+     "tick": 1358,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1361,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can move to 92 P for delivery on day 0. That's a clear step from me, so I'd like to see a meaningful move from your side, and then we can close quickly.",
+    "price": 92,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 92,
+      "message": "I can move to 92 P for delivery on day 0. That's a clear step from me, so I'd like to see a meaningful move from your side, and then we can close quickly."
+     },
+     "band": {
+      "worst": 93,
+      "target": 92,
+      "best": 91
+     },
+     "plan": {
+      "read": "They dropped from 122 to 116 on day 0 and have been silent for three ticks, while we last offered 86. Their offer is within reach, but they have conceded less than we have. The standoff flag suggests one clear step to restart movement, not a chase.",
+      "target": 92,
+      "best": 91,
+      "worst": 93,
+      "days": 0,
+      "angle": "Keep it short and steady: offer 92 P for day 0 as a clear move, ask them to come down meaningfully from 116, and signal readiness to close quickly if they do."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.81,
+       "in": 895,
+       "out": 452,
+       "cost_usd": 0.01262,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.11,
+       "in": 455,
+       "out": 72,
+       "cost_usd": 0.00163,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 6084,
+    "offer": {
+     "id": 10558,
+     "price": 92,
+     "tick": 1361,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1364,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can move to 98 P for delivery on day 0. That's a real step from me, and I'd like a real move back so we can close in the next exchange.",
+    "price": 98,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 98,
+      "message": "I can move to 98 P for delivery on day 0. That's a real step from me, and I'd like a real move back so we can close in the next exchange."
+     },
+     "band": {
+      "worst": 98,
+      "target": 98,
+      "best": 96
+     },
+     "plan": {
+      "read": "They have held at 116 P on day 0 for three ticks after a single 6 P step. 116 is within reach but leaves little for us, and they have conceded less than we have. Our message now adds no round by itself, so one more clear step costs little and may draw a move from them.",
+      "target": 98,
+      "best": 96,
+      "worst": 98,
+      "days": 0,
+      "angle": "Offer 98 P for day 0 in a calm, firm tone, framed as a real step that needs a real move back from them so we can close in the next exchange."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.51,
+       "in": 985,
+       "out": 380,
+       "cost_usd": 0.01154,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.2,
+       "in": 522,
+       "out": 65,
+       "cost_usd": 0.00169,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 6084,
+    "offer": {
+     "id": 10624,
+     "price": 98,
+     "tick": 1364,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1365,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 101,
+    "days": null,
+    "meta": {
+     "rule": "small gap",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 101,
+    "settles_at_tick": 1366
    }
   }
  ]

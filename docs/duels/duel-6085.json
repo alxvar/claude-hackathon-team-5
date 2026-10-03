@@ -831,6 +831,366 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1360,
+   "took_s": 9.01,
+   "cost_usd": 0.014110000000000001,
+   "obs": {
+    "view": {
+     "duel_id": 6085,
+     "role": "seller",
+     "limit": 136,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.28,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 80,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1355,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Day 0 is fine for me, so only the price is left. My price for day 0 is 210 P, and that is a firm figure for me.}",
+      "offer": {
+       "price": 210,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1355,
+      "decision": {
+       "action": "offer",
+       "price": 210,
+       "message": "Day 0 is fine for me, so only the price is left. My price for day 0 is 210 P, and that is a firm figure for me.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 87,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1356,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 203 P on day 0. Bigger steps from me will need bigger steps from you.",
+      "offer": {
+       "price": 203,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1356,
+      "decision": {
+       "action": "offer",
+       "price": 203,
+       "message": "I can move to 203 P on day 0. Bigger steps from me will need bigger steps from you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 94,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1357,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 196 P on day 0. We are moving step for step, and bigger moves from you will get bigger moves from me.",
+      "offer": {
+       "price": 196,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1357,
+      "decision": {
+       "action": "offer",
+       "price": 196,
+       "message": "I can move to 196 P on day 0. We are moving step for step, and bigger moves from you will get bigger moves from me."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 94,
+     "days": 0
+    },
+    "tick": 1360,
+    "ticks_left": 11,
+    "rounds": 3,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "I'm holding my offer where it is for now. When you make a bigger move, I will meet it.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "I'm holding my offer where it is for now. When you make a bigger move, I will meet it."
+     },
+     "vetoes": [
+      "the message mentions 0 P. Don't write those amounts, not even to reject them."
+     ],
+     "band": {
+      "worst": 190,
+      "target": 196,
+      "best": 198
+     },
+     "plan": {
+      "read": "They are stepping 7 P per message on day 0 (now 94 P), but they have not moved since our 196 P, and their offer is still far below anything we can accept on day 0.",
+      "target": 196,
+      "best": 198,
+      "worst": 190,
+      "days": 0,
+      "angle": "Hold at 196 P on day 0 and send nothing new until they move again; if a message is needed, keep it short and firm, and say bigger steps from them will be met."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.45,
+       "in": 1038,
+       "out": 341,
+       "cost_usd": 0.01097,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.1,
+       "in": 500,
+       "out": 56,
+       "cost_usd": 0.00156,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.46,
+       "in": 557,
+       "out": 47,
+       "cost_usd": 0.00158,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 1364,
+   "took_s": 21.91,
+   "cost_usd": 0.01642,
+   "obs": {
+    "view": {
+     "duel_id": 6085,
+     "role": "seller",
+     "limit": 136,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.28,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 80,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1355,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Day 0 is fine for me, so only the price is left. My price for day 0 is 210 P, and that is a firm figure for me.}",
+      "offer": {
+       "price": 210,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1355,
+      "decision": {
+       "action": "offer",
+       "price": 210,
+       "message": "Day 0 is fine for me, so only the price is left. My price for day 0 is 210 P, and that is a firm figure for me.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 87,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1356,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 203 P on day 0. Bigger steps from me will need bigger steps from you.",
+      "offer": {
+       "price": 203,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1356,
+      "decision": {
+       "action": "offer",
+       "price": 203,
+       "message": "I can move to 203 P on day 0. Bigger steps from me will need bigger steps from you."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 94,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1357,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 196 P on day 0. We are moving step for step, and bigger moves from you will get bigger moves from me.",
+      "offer": {
+       "price": 196,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1357,
+      "decision": {
+       "action": "offer",
+       "price": 196,
+       "message": "I can move to 196 P on day 0. We are moving step for step, and bigger moves from you will get bigger moves from me."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 94,
+     "days": 0
+    },
+    "tick": 1363,
+    "ticks_left": 8,
+    "rounds": 3,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 196 P, delivery on day 0.",
+    "price": 196,
+    "days": 0,
+    "meta": {
+     "repaired": true,
+     "vetoes": [
+      "the message mentions 0 P. Don't write those amounts, not even to reject them.",
+      "the message mentions 0 P. Don't write those amounts, not even to reject them."
+     ],
+     "rejected": {
+      "action": "message",
+      "price": null,
+      "message": "I'm staying with my current offer on day 0 and will wait for your next move."
+     },
+     "band": {
+      "worst": 190,
+      "target": 196,
+      "best": 198
+     },
+     "plan": {
+      "read": "Their latest is 94 P on day 0, and they have moved 7 P each time, matching our steps. They have not moved since our 196 P, and their stock line carries no information.",
+      "target": 196,
+      "best": 198,
+      "worst": 190,
+      "days": 0,
+      "angle": "Hold at 196 P on day 0 and send nothing this tick; let them make the next move."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.79,
+       "in": 1038,
+       "out": 472,
+       "cost_usd": 0.01359,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 13.01,
+       "in": 476,
+       "out": 39,
+       "cost_usd": 0.00134,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.11,
+       "in": 533,
+       "out": 42,
+       "cost_usd": 0.00149,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [

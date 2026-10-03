@@ -97,6 +97,260 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1358,
+   "raw": {
+    "duel": 6100,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Plaza del Dos de Mayo",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.54,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 122,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1368,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 10422,
+     "price": 85,
+     "tick": 1354,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 10502,
+     "price": 134,
+     "tick": 1358,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1354,
+      "from": "you",
+      "text": "I can do 85 P with delivery on day 0, a clean and quick close today.}",
+      "price": 85,
+      "days": 0
+     },
+     {
+      "tick": 1358,
+      "from": "Rival Rojo",
+      "text": "Hola. This one is in perfect condition. 134 P, delivery day 10.",
+      "price": 134,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1358,
+   "raw": {
+    "duel": 6100,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Plaza del Dos de Mayo",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.54,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 122,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1368,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 10509,
+     "price": 92,
+     "tick": 1358,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 10502,
+     "price": 134,
+     "tick": 1358,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1354,
+      "from": "you",
+      "text": "I can do 85 P with delivery on day 0, a clean and quick close today.}",
+      "price": 85,
+      "days": 0
+     },
+     {
+      "tick": 1358,
+      "from": "Rival Rojo",
+      "text": "Hola. This one is in perfect condition. 134 P, delivery day 10.",
+      "price": 134,
+      "days": 10
+     },
+     {
+      "tick": 1358,
+      "from": "you",
+      "text": "I can move to 92 P with delivery on day 0. Or, if you prefer, 55 P on day 10 - whichever suits you.}",
+      "price": 92,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1361,
+   "raw": {
+    "duel": 6100,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Plaza del Dos de Mayo",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.54,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 122,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1368,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 10559,
+     "price": 98,
+     "tick": 1361,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 10502,
+     "price": 134,
+     "tick": 1358,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1354,
+      "from": "you",
+      "text": "I can do 85 P with delivery on day 0, a clean and quick close today.}",
+      "price": 85,
+      "days": 0
+     },
+     {
+      "tick": 1358,
+      "from": "Rival Rojo",
+      "text": "Hola. This one is in perfect condition. 134 P, delivery day 10.",
+      "price": 134,
+      "days": 10
+     },
+     {
+      "tick": 1358,
+      "from": "you",
+      "text": "I can move to 92 P with delivery on day 0. Or, if you prefer, 55 P on day 10 - whichever suits you.}",
+      "price": 92,
+      "days": 0
+     },
+     {
+      "tick": 1361,
+      "from": "you",
+      "text": "I can step to 98 P with delivery on day 0. That is a real move from me, and I would like you to come down substantially so we can close quickly.",
+      "price": 98,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1364,
+   "raw": {
+    "duel": 6100,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Plaza del Dos de Mayo",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.54,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 122,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1368,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 10608,
+     "price": 62,
+     "tick": 1364,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 10502,
+     "price": 134,
+     "tick": 1358,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1354,
+      "from": "you",
+      "text": "I can do 85 P with delivery on day 0, a clean and quick close today.}",
+      "price": 85,
+      "days": 0
+     },
+     {
+      "tick": 1358,
+      "from": "Rival Rojo",
+      "text": "Hola. This one is in perfect condition. 134 P, delivery day 10.",
+      "price": 134,
+      "days": 10
+     },
+     {
+      "tick": 1358,
+      "from": "you",
+      "text": "I can move to 92 P with delivery on day 0. Or, if you prefer, 55 P on day 10 - whichever suits you.}",
+      "price": 92,
+      "days": 0
+     },
+     {
+      "tick": 1361,
+      "from": "you",
+      "text": "I can step to 98 P with delivery on day 0. That is a real move from me, and I would like you to come down substantially so we can close quickly.",
+      "price": 98,
+      "days": 0
+     },
+     {
+      "tick": 1364,
+      "from": "you",
+      "text": "I can do 62 P, delivery on day 10.",
+      "price": 62,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -218,6 +472,365 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1358,
+   "took_s": 8.55,
+   "cost_usd": 0.012289999999999999,
+   "obs": {
+    "view": {
+     "duel_id": 6100,
+     "role": "buyer",
+     "limit": 122,
+     "currency": "P",
+     "item": "Plaza del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.54,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I can do 85 P with delivery on day 0, a clean and quick close today.}",
+      "offer": {
+       "price": 85,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1354,
+      "decision": {
+       "action": "offer",
+       "price": 85,
+       "message": "I can do 85 P with delivery on day 0, a clean and quick close today.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hola. This one is in perfect condition. 134 P, delivery day 10.",
+      "offer": {
+       "price": 134,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1358,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 134,
+     "days": 10
+    },
+    "tick": 1358,
+    "ticks_left": 10,
+    "rounds": 1,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can move to 92 P with delivery on day 0. Or, if you prefer, 55 P on day 10 - whichever suits you.}",
+    "price": 92,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 92,
+      "message": "I can move to 92 P with delivery on day 0. Or, if you prefer, 55 P on day 10 - whichever suits you.}"
+     },
+     "band": {
+      "worst": 94,
+      "target": 92,
+      "best": 90
+     },
+     "plan": {
+      "read": "Their opening is 134 P on day 10, an extreme anchor. With the day cost, it is far past what we can pay. The 'perfect condition' claim is just talk; only the offer counts. They have now made their first offer, so one modest step from us is justified.",
+      "target": 92,
+      "best": 90,
+      "worst": 94,
+      "days": 0,
+      "angle": "Be friendly and firm: offer 92 P for day 0, and say plainly as a menu that day 10 would work at 55 P, so they can choose which suits them."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.43,
+       "in": 752,
+       "out": 397,
+       "cost_usd": 0.01095,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.12,
+       "in": 349,
+       "out": 64,
+       "cost_usd": 0.00134,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1361,
+   "took_s": 11.91,
+   "cost_usd": 0.01863,
+   "obs": {
+    "view": {
+     "duel_id": 6100,
+     "role": "buyer",
+     "limit": 122,
+     "currency": "P",
+     "item": "Plaza del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.54,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I can do 85 P with delivery on day 0, a clean and quick close today.}",
+      "offer": {
+       "price": 85,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1354,
+      "decision": {
+       "action": "offer",
+       "price": 85,
+       "message": "I can do 85 P with delivery on day 0, a clean and quick close today.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hola. This one is in perfect condition. 134 P, delivery day 10.",
+      "offer": {
+       "price": 134,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1358,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 92 P with delivery on day 0. Or, if you prefer, 55 P on day 10 - whichever suits you.}",
+      "offer": {
+       "price": 92,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1358,
+      "decision": {
+       "action": "offer",
+       "price": 92,
+       "message": "I can move to 92 P with delivery on day 0. Or, if you prefer, 55 P on day 10 - whichever suits you.}"
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 134,
+     "days": 10
+    },
+    "tick": 1361,
+    "ticks_left": 7,
+    "rounds": 1,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can step to 98 P with delivery on day 0. That is a real move from me, and I would like you to come down substantially so we can close quickly.",
+    "price": 98,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 98,
+      "message": "I can step to 98 P with delivery on day 0. That is a real move from me, and I would like you to come down substantially so we can close quickly."
+     },
+     "band": {
+      "worst": 100,
+      "target": 98,
+      "best": 96
+     },
+     "plan": {
+      "read": "They opened at 134 on day 10 and have not answered our move to 92. Their 'perfect condition' line is just talk. At day 10 their offer is far past what works for us, but our message now costs no round and only 7 ticks remain.",
+      "target": 98,
+      "best": 96,
+      "worst": 100,
+      "days": 0,
+      "angle": "Make one firm, friendly step to 98 P on day 0 as a clear sign of good faith, and invite them to come down substantially from 134 so we can close quickly."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 9.97,
+       "in": 886,
+       "out": 682,
+       "cost_usd": 0.01718,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.94,
+       "in": 410,
+       "out": 63,
+       "cost_usd": 0.00145,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1364,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 6100,
+     "role": "buyer",
+     "limit": 122,
+     "currency": "P",
+     "item": "Plaza del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.54,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I can do 85 P with delivery on day 0, a clean and quick close today.}",
+      "offer": {
+       "price": 85,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1354,
+      "decision": {
+       "action": "offer",
+       "price": 85,
+       "message": "I can do 85 P with delivery on day 0, a clean and quick close today.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hola. This one is in perfect condition. 134 P, delivery day 10.",
+      "offer": {
+       "price": 134,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1358,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 92 P with delivery on day 0. Or, if you prefer, 55 P on day 10 - whichever suits you.}",
+      "offer": {
+       "price": 92,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1358,
+      "decision": {
+       "action": "offer",
+       "price": 92,
+       "message": "I can move to 92 P with delivery on day 0. Or, if you prefer, 55 P on day 10 - whichever suits you.}"
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can step to 98 P with delivery on day 0. That is a real move from me, and I would like you to come down substantially so we can close quickly.",
+      "offer": {
+       "price": 98,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1361,
+      "decision": {
+       "action": "offer",
+       "price": 98,
+       "message": "I can step to 98 P with delivery on day 0. That is a real move from me, and I would like you to come down substantially so we can close quickly."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 134,
+     "days": 10
+    },
+    "tick": 1364,
+    "ticks_left": 4,
+    "rounds": 1,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004,
+     12.8,
+     17.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 62 P, delivery on day 10.",
+    "price": 62,
+    "days": 10,
+    "meta": {
+     "rule": "late switch",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -275,6 +888,143 @@
      "price": 85,
      "tick": 1354,
      "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1358,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can move to 92 P with delivery on day 0. Or, if you prefer, 55 P on day 10 - whichever suits you.}",
+    "price": 92,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 92,
+      "message": "I can move to 92 P with delivery on day 0. Or, if you prefer, 55 P on day 10 - whichever suits you.}"
+     },
+     "band": {
+      "worst": 94,
+      "target": 92,
+      "best": 90
+     },
+     "plan": {
+      "read": "Their opening is 134 P on day 10, an extreme anchor. With the day cost, it is far past what we can pay. The 'perfect condition' claim is just talk; only the offer counts. They have now made their first offer, so one modest step from us is justified.",
+      "target": 92,
+      "best": 90,
+      "worst": 94,
+      "days": 0,
+      "angle": "Be friendly and firm: offer 92 P for day 0, and say plainly as a menu that day 10 would work at 55 P, so they can choose which suits them."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.43,
+       "in": 752,
+       "out": 397,
+       "cost_usd": 0.01095,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.12,
+       "in": 349,
+       "out": 64,
+       "cost_usd": 0.00134,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 6100,
+    "offer": {
+     "id": 10509,
+     "price": 92,
+     "tick": 1358,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1361,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can step to 98 P with delivery on day 0. That is a real move from me, and I would like you to come down substantially so we can close quickly.",
+    "price": 98,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 98,
+      "message": "I can step to 98 P with delivery on day 0. That is a real move from me, and I would like you to come down substantially so we can close quickly."
+     },
+     "band": {
+      "worst": 100,
+      "target": 98,
+      "best": 96
+     },
+     "plan": {
+      "read": "They opened at 134 on day 10 and have not answered our move to 92. Their 'perfect condition' line is just talk. At day 10 their offer is far past what works for us, but our message now costs no round and only 7 ticks remain.",
+      "target": 98,
+      "best": 96,
+      "worst": 100,
+      "days": 0,
+      "angle": "Make one firm, friendly step to 98 P on day 0 as a clear sign of good faith, and invite them to come down substantially from 134 so we can close quickly."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 9.97,
+       "in": 886,
+       "out": 682,
+       "cost_usd": 0.01718,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.94,
+       "in": 410,
+       "out": 63,
+       "cost_usd": 0.00145,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 6100,
+    "offer": {
+     "id": 10559,
+     "price": 98,
+     "tick": 1361,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1364,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 62 P, delivery on day 10.",
+    "price": 62,
+    "days": 10,
+    "meta": {
+     "rule": "late switch",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 6100,
+    "offer": {
+     "id": 10608,
+     "price": 62,
+     "tick": 1364,
+     "days": 10
     }
    }
   }
