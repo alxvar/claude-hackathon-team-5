@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 17:28 (tick 866), snapshot 860: us #2 at 29.38; **t14 #1 at 31.15** (+1.47 from three ladder deals at L2/L3/L4); t03 29.09, t01 28.69. Duels I post-mortem §1d; Duels II day rule §1e; Pícaros + flags §3c; standings: intel/standings.md._
+_Last update: Sat 17:43 (tick 895), snapshot 890: us #2 at 29.38; t14 30.75 (eroding); t06 29.37; t01 29.06; t03 28.75. Our ladder part looks capped (§2 table). Duels I post-mortem §1d; Duels II day rule §1e; Pícaros + flags §3c; standings: intel/standings.md._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -232,6 +232,9 @@ t13 and t04 have dealer deals in the window). Full = 12 Saturday points = 8.0 bo
 | 775 | **BUY SAL-09 ← Los Pícaros at 54** (L4; below list 63; worth 63 to us) | their asks 73, 65 (words "El Marqués", structure SAL-06: the trick), 60 "final", 56; they took our 54 | 0.200 → **0.270 (+0.070, first L4 slot)**; neg 0; cash 180 → 126 Board at 780: our negotiating +0.49 vs field median −0.24 → **≈ +0.73 board** (≈ 10 board per 1.0 ladder) [V/L] |
 | 798 | **BUY SAL-10 ← Los Pícaros at 54** (2nd L4 slot) | — | 0.270 → **0.333 (+0.063)**; cash 126 → 72. Board at 800: our negotiating −0.29 vs field median ≈ −0.65 (everyone fell as early teams filled L4) → **≈ +0.36 board**, half the first slot → **stop L4 buys** [L] |
 | 823 | SELL MAL-06 (Workshop) → Pilar at 20 | — | 0.333 → 0.373 (+0.040, replaces the weak SAL-06 L3 slot); cash 72 → 92. Board at 830: our negotiating flat while the field drifted −0.06 to −0.21 → ≈ +0.1-0.2 board [L] |
+| 880 | SELL MAL-09 → Pilar at 56 (worth 49 to us) | — | 0.373 → 0.394 (+0.021); cash 92 → 148 |
+| 887 | SELL SAL-04 (spare) → Pícaros at 5 (3rd L4 slot) | — | 0.394 → 0.437 (+0.043); neg 0 |
+| — | **Our negotiating was exactly 21.88 at snapshots 850-890** while the field drifted −0.1 to −0.2 per snapshot and our ladder rose +0.064 | | **ladder part capped [L, 2 clean tests]**: further ladder deals add 0 board; being capped also shields us from ladder erosion |
 
 - **Same card, other teams [V feed]:** SAL-08 → Pilar: t04 25 (opened 40, 6 messages), t10 24, **us 23**; her opening 22.
   Uncommons (non-SAL): t14 LAT-08 20, **us MAL-07 19**, t08 MAL-08 18, t16/t08/t13 17; her opening 16. So a full share at L3

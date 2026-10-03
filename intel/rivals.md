@@ -9,6 +9,13 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sat 17:42 · snapshot 890 (Los Pícaros open to all since ~17:35)
+- Board: t14 30.75 · **us 29.38 (#2)** · t06 29.37 · t01 29.06 · t03 28.75 · t12 27.98 · t10 27.81 · t18 27.04.
+- t14 erodes 0.1-0.2 per snapshot (its ladder below the field cap); we hold exactly flat (ours capped) [L].
+- **t06 +1.98 at 890**: RET-09 bought from the Pícaros at 52 (887; L4 slot) [+ possibly a page step]. **t01 +0.66 at 870**:
+  LAV-10 from the Pícaros at 63 (864).
+- Pícaros buy commons/uncommons cheaply: t12 LAV-03 5, LAV-07 11; t08 RET-08 11.
+
 ### Sat 17:27 · snapshot 860
 - Board: **t14 31.15 (#1)** · us 29.38 · t03 29.09 · t01 28.69 · t12 28.51 · t10 27.98 · t06 27.42 · t18 27.13.
 - **t14 +1.47 in two snapshots, all ladder** [V feed]: Pilar SELL MAL-06 19 (842; its 2nd Pilar deal → Pícaros early unlock),
