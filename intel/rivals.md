@@ -9,6 +9,14 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sat 16:12 · snapshot 710 (bench 3 scored)
+- Board: t14 30.27 · t12 29.73 · t18 29.25 · t10 28.59 · **us 28.53 (#5, 1.74 behind)** · t13 26.09 · t17 25.43.
+- Bench 3 moved board venues up: t13 5.49 → 6.08, t03 3.61 → 4.75, t06 11.64 → 11.89; stalls stay 7.5 (our efficiency
+  0.933 → 0.878, still 7.5).
+- RET-06 is the hot uncommon: t04 → t09 on v07 at 28, t03 → Pilar 25, t06 → t04 at 26, t06 ← Abuela 21, t12 → t16 at 14.
+  t06 runs the Abuela-Pilar loop too (LAV-08 → Pilar 16, RET-06 ← Abuela 21).
+- Workshop users at 709: us (→ MAL-06) and t12 (→ RET-06).
+
 ### Sat 15:56 · snapshot 680 (resumed 15:30; bench 3 started 15:55)
 - Board: t14 30.28 · t12 29.79 · t18 29.29 · t10 28.92 · **us 28.34 (#5, 1.94 behind)** · t13 25.50 · t17 25.43.
 - t18 +0.73 Saturday points: sold RET-08 to t04 at 27 on El Rastro (645). t14 −0.35 with no events (field drift).

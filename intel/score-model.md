@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 15:57 (tick 682), snapshot 680. §1d levers 1-2 corrected by Aleks's replay (docs/duels-1-review.md). Duels I post-mortem §1d; Duels II day rule §1e. Duels I post-mortem: §1d. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
+_Last update: Sat 16:13 (tick 714), snapshot 710. §1d levers 1-2 corrected by Aleks's replay (docs/duels-1-review.md). Duels I post-mortem §1d; Duels II day rule §1e. Duels I post-mortem: §1d. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -227,6 +227,8 @@ t13 and t04 have dealer deals in the window). Full = 12 Saturday points = 8.0 bo
 | 515 | MAL-06 → Pilar: walked | she said FINAL 17 (worth 17.5 to us) | — |
 | 551 | SELL MAL-06 → Pilar at 19 | — | 0.141 → 0.181 (+0.040, 3rd L3 slot) |
 | 632 / 639 | BUY SAL-06 ← Abuela at 23, then SELL → Pilar at 25 | Pilar SAL opening 22 | neg_points 35.2 → 32.5 (−2.7); ladder 0.181 → 0.188 (+0.007, replaces SAL-08's slot). **Net ≈ −0.2 board**: Pilar's SAL range is wide, 25 is a small share |
+| 704 | SELL LAT-08 → Chato at 14 (2nd L2 slot; LAT-08 regained via a swap) | his opening 13 | 0.188 → 0.200 (**+0.012**); our Saturday part +0.28 vs field −0.08 → ≈ +0.24 board → **≈ 20 board per 1.0 ladder, down from ≈ 35 at tick 550** (erosion as the field fills its slots) [L] |
+| 709 | Workshop: 3 commons → MAL-06 (uncommon; our first copy again, 17.5 to us) | — | no score (luck) |
 
 - **Same card, other teams [V feed]:** SAL-08 → Pilar: t04 25 (opened 40, 6 messages), t10 24, **us 23**; her opening 22.
   Uncommons (non-SAL): t14 LAT-08 20, **us MAL-07 19**, t08 MAL-08 18, t16/t08/t13 17; her opening 16. So a full share at L3
