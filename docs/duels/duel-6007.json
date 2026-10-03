@@ -1649,5 +1649,93 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1383,
+ "done": {
+  "duel": 6007,
+  "session": 3,
+  "status": "no_deal",
+  "role": "buyer",
+  "item": "La Sala Pentagrama",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 2.07,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 48,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Plata",
+  "deadline_tick": 1383,
+  "decay_per_round": 0.08,
+  "rounds": 0,
+  "your_offer": {
+   "id": 10937,
+   "price": 45,
+   "tick": 1381,
+   "days": 0
+  },
+  "rival_offer": null,
+  "messages": [
+   {
+    "tick": 1369,
+    "from": "you",
+    "text": "I'm offering 30 P with delivery on day 0. Happy to move quickly if that works for you.",
+    "price": 30,
+    "days": 0
+   },
+   {
+    "tick": 1375,
+    "from": "you",
+    "text": "I can do 32 P, delivery on day 0.",
+    "price": 32,
+    "days": 0
+   },
+   {
+    "tick": 1376,
+    "from": "you",
+    "text": "I can do 34 P, delivery on day 0.",
+    "price": 34,
+    "days": 0
+   },
+   {
+    "tick": 1377,
+    "from": "you",
+    "text": "I can do 36 P, delivery on day 0.",
+    "price": 36,
+    "days": 0
+   },
+   {
+    "tick": 1378,
+    "from": "you",
+    "text": "I can do 38 P, delivery on day 0.",
+    "price": 38,
+    "days": 0
+   },
+   {
+    "tick": 1379,
+    "from": "you",
+    "text": "I can do 40 P, delivery on day 0.",
+    "price": 40,
+    "days": 0
+   },
+   {
+    "tick": 1380,
+    "from": "you",
+    "text": "I can do 43 P, delivery on day 0.",
+    "price": 43,
+    "days": 0
+   },
+   {
+    "tick": 1381,
+    "from": "you",
+    "text": "I can do 45 P, delivery on day 0.",
+    "price": 45,
+    "days": 0
+   }
+  ],
+  "result": 0.0,
+  "price": null,
+  "days": null
+ }
 }
