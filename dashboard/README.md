@@ -16,6 +16,10 @@ VS Code or the window closes) and opens the browser. Every teammate can run thei
   127.0.0.1 only. `--no-key` shows public data only.
 - **History** is cached in `logs/dashboard/` (gitignored). The feed only keeps the last ~20 ticks, so the
   dashboard knows what happened while it was running; leave it on.
+- **The team hub (optional):** with `HUB_READER_URL` in `.env` (ask Aleks; see `hub/README.md`) and `psycopg`
+  installed, it also reads the hub at start and every 5 rounds, read-only, and merges the events, leaderboard
+  snapshots and `/api/me` rows it missed (Friday's early settlements, anything while it was off). The header shows
+  `hub synced HH:MM:SS`. `--no-hub` turns it off; without the URL it runs as before.
 - Strategy labels and "who holds" are inferences from the feed: starting cards and pack pulls are invisible.
 
 Owner: Dani.

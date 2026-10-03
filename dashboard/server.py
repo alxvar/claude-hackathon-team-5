@@ -3,18 +3,24 @@
     python dashboard/server.py              # then open http://127.0.0.1:8765
     python dashboard/server.py --port 9000  # another port
     python dashboard/server.py --no-key     # public data only (no score, assets or duels of ours)
+    python dashboard/server.py --no-hub     # don't read the team hub even if HUB_READER_URL is set
 
 It never writes to the game. Public routes (feed, leaderboard, El Rastro board, venues, catalog, schedule, levels,
 dealers) are read without the team key; only `me` and `duels` use it. About 5-8 requests per tick, spaced 0.4 s
 apart, so the team's 5 requests/s stay free for the live bots. The key comes from BAZAAR_KEY, the repo's .env or
 ~/bazaar_key.txt, stays in this process and is never printed; the page is served on 127.0.0.1 only. History is
 cached in logs/dashboard/ (gitignored), so charts survive a restart.
+
+With HUB_READER_URL (env or .env; see hub/README.md) it also reads the team hub (read-only), at start and every few
+rounds, and merges the events, leaderboard snapshots and /api/me rows it hasn't seen: the hub's collectors fill
+the holes left while the dashboard was off. Without the URL or psycopg it runs as before.
 """
 import argparse
 import collections
 import json
 import math
 import os
+import re
 import statistics
 import subprocess
 import sys
@@ -35,27 +41,44 @@ URL = os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai")
 GAP = 0.4          # seconds between two requests
 EDGE = 3           # P of gain, after fees, that makes an offer an opportunity
 RECENT = 30        # ticks that count as "recent" for momentum
+HUB_EVERY = 5      # rounds between two reads of the hub (plus one at start)
 
 
-def load_key():
-    if os.environ.get("BAZAAR_KEY"):
-        return os.environ["BAZAAR_KEY"].strip()
+def env_value(name):
+    """A setting from the environment, else from the repo's .env. Never printed."""
+    if os.environ.get(name):
+        return os.environ[name].strip()
     env = ROOT / ".env"
     if env.exists():
         for line in env.read_text(encoding="utf-8").splitlines():
-            if line.strip().startswith("BAZAAR_KEY="):
-                return line.split("=", 1)[1].strip().strip('"').strip("'")
+            if line.strip().startswith(name + "="):
+                return line.split("=", 1)[1].strip().strip('"').strip("'") or None
+    return None
+
+
+def load_key():
+    key = env_value("BAZAAR_KEY")
+    if key:
+        return key
     f = Path.home() / "bazaar_key.txt"
     return f.read_text(encoding="utf-8").strip() if f.exists() else None
+
+
+def redact(text):
+    """Strip credentials from a database error before showing it."""
+    return re.sub(r"(postgres(?:ql)?://)[^@\s]+@", r"\1***@", str(text))
 
 
 class Collector:
     """Polls the game once per tick and keeps everything it has seen, in memory and in logs/dashboard/."""
 
-    def __init__(self, key):
+    def __init__(self, key, hub_url=None):
         self.pub = Bazaar(URL, "", retries=2)
         self.pub._headers = {}  # public routes: don't spend the team's quota
         self.team = Bazaar(URL, key, retries=2, wait_on_tick=False) if key else None
+        self.hub_url = hub_url
+        self.hub = {"on": bool(hub_url), "last": None, "added": 0, "gaps": 0}
+        self.hub_since = None   # the hub's clock at our last read: next read asks for rows ingested after it
         self.lock = threading.Lock()
         self.events = {}
         self.lb_hist = {}
@@ -92,7 +115,8 @@ class Collector:
     def _load(self):
         self.events = {e["id"]: e for e in self._jsonl("feed.jsonl")}
         self.lb_hist = {s["tick"]: s for s in self._jsonl("leaderboard.jsonl")}
-        self.me_hist = self._jsonl("me.jsonl")
+        me = {r["tick"]: r for r in self._jsonl("me.jsonl") if r.get("tick") is not None}  # rows from the hub can be out of order
+        self.me_hist = [me[t] for t in sorted(me)]
 
     def _get(self, name, fn):
         try:
@@ -143,6 +167,71 @@ class Collector:
             self.me_hist.append(row)
         self._append("me.jsonl", [row])
 
+    def hub_sync(self):
+        """Read-only pass over the team hub: merge the events, leaderboard snapshots and our /api/me rows we lack.
+
+        What it adds also goes to logs/dashboard/, so the local cache is the union and survives a restart offline.
+        The first pass asks for every event we don't have; later passes only for rows ingested since the last one
+        (with a 2-minute overlap for rows that were mid-insert)."""
+        try:
+            import psycopg
+        except ImportError:
+            self.hub["on"] = False
+            self.errors.appendleft(f"{time.strftime('%H:%M:%S')} hub: psycopg is not installed (pip install psycopg[binary])")
+            return
+        try:
+            with psycopg.connect(self.hub_url, connect_timeout=10, autocommit=True,
+                                 application_name="dashboard-dani") as conn, conn.cursor() as cur:
+                cur.execute("select now()")
+                now = cur.fetchone()[0]
+                with self.lock:
+                    known_ids = list(self.events)
+                    known_lb = list(self.lb_hist)
+                    known_me = [r["tick"] for r in self.me_hist]
+                cols = "select id, tick, t_hours, type, scope, actor, payload from hub.events"
+                if self.hub_since is not None:
+                    cur.execute(cols + " where ingested_at > %s - interval '2 minutes'", (self.hub_since,))
+                elif known_ids:
+                    cur.execute(cols + " where not (id = any(%s))", (known_ids,))
+                else:
+                    cur.execute(cols)
+                events = [{"id": i, "tick": tk, "t": t, "type": ty, "scope": sc, "actor": ac, "payload": p}
+                          for i, tk, t, ty, sc, ac, p in cur.fetchall()]
+                cur.execute("""select s.snapshot_tick, l.t_hours, s.team, s.name, s.score, s.negotiating, s.market, s.deals
+                               from hub.team_snapshots s left join hub.leaderboard l using (snapshot_tick)
+                               where not (s.snapshot_tick = any(%s))""", (known_lb or [-1],))
+                lb_rows = cur.fetchall()
+                cur.execute("""select distinct on (tick) tick, data from hub.me_snapshots
+                               where not (tick = any(%s)) order by tick, source""", (known_me or [-1],))
+                me_rows = cur.fetchall()
+                cur.execute("select count(*) from hub.gaps")
+                gaps = cur.fetchone()[0]
+        except Exception as e:
+            self.errors.appendleft(f"{time.strftime('%H:%M:%S')} hub: {redact(e)}"[:200])
+            return
+        snaps = {}
+        for tick, t, team, name, score, neg, market, deals in lb_rows:
+            s = snaps.setdefault(tick, {"tick": tick, "t": t, "teams": {}})
+            s["teams"][team] = {"name": name, "score": score, "negotiating": neg, "market": market, "deals": deals}
+        me_keys = ("score", "rank", "neg_points", "negotiating", "market", "cash", "ladder_points", "duel_points")
+        with self.lock:
+            new_ev = [e for e in events if e["id"] not in self.events]
+            for e in new_ev:
+                self.events[e["id"]] = e
+            new_lb = [s for k, s in sorted(snaps.items()) if k not in self.lb_hist]
+            for s in new_lb:
+                self.lb_hist[s["tick"]] = s
+            have = {r["tick"] for r in self.me_hist}
+            new_me = [{"tick": tick, **{k: (d or {}).get(k) for k in me_keys}} for tick, d in me_rows if tick not in have]
+            if new_me:
+                self.me_hist = sorted(self.me_hist + new_me, key=lambda r: r["tick"])
+            self.hub_since = now
+            self.feed_gap = False  # the hub's two collectors cover what we missed; their own holes are in hub.gaps
+            self.hub.update(last=time.strftime("%H:%M:%S"), added=self.hub["added"] + len(new_ev), gaps=gaps)
+        self._append("feed.jsonl", sorted(new_ev, key=lambda e: e["id"]))
+        self._append("leaderboard.jsonl", new_lb)
+        self._append("me.jsonl", new_me)
+
     def write_teams(self):
         """Rewrite intel/teams.md and, with --push, commit and push that one file (retries on a busy git)."""
         try:
@@ -174,6 +263,8 @@ class Collector:
     def run(self):
         n = 0
         while True:
+            if self.hub["on"] and n % HUB_EVERY == 0:
+                self.hub_sync()  # before the feed, so a restart's gap is filled before it is flagged
             clock = self._get("clock", self.pub.clock) or {}
             feed = self._get("feed", lambda: self.pub.feed(limit=500))
             if feed:
@@ -232,7 +323,12 @@ def median(xs):
 class Analysis:
     def __init__(self, c: Collector):
         with c.lock:
-            self.events = sorted(c.events.values(), key=lambda e: e["id"])
+            evs = list(c.events.values())
+            # the hub stores Friday's backfilled settlements as id = −settlement number: drop one if the real event exists
+            real = {(e.get("payload") or {}).get("settlement") for e in evs if e["id"] > 0 and e.get("type") == "settlement"}
+            self.events = sorted((e for e in evs if e["id"] > 0 or e.get("type") != "settlement"
+                                  or (e.get("payload") or {}).get("settlement") not in real),
+                                 key=lambda e: (e.get("tick") or 0, e["id"]))
             self.lb_hist = [c.lb_hist[k] for k in sorted(c.lb_hist)]
             self.me_hist = list(c.me_hist)
             L = dict(c.latest)
@@ -640,6 +736,9 @@ class Analysis:
                         + (f"; we get {mine['avg_move']}%." if mine else "."))
         if self.c.feed_gap:
             add("warn", "The feed had a gap (the dashboard was off for a while): counts before it are incomplete.")
+        if self.c.hub.get("gaps"):
+            add("warn", f"The hub recorded {self.c.hub['gaps']} feed gap(s) (both collectors were away): "
+                        f"history there is incomplete.")
         return out
 
     # -------------------------------------------------------------------------------------- duels and conversations
@@ -906,6 +1005,7 @@ class Analysis:
             "updated": datetime.fromtimestamp(self.c.updated).strftime("%H:%M:%S") if self.c.updated else None,
             "requests": self.c.requests, "errors": list(self.c.errors), "has_key": self.c.team is not None,
             "events_cached": len(self.events),
+            "hub": dict(self.c.hub),
             "clock": {k: self.clock.get(k) for k in ("tick", "t_hours", "tick_seconds", "paused", "next_tick_in",
                                                      "closes", "opens", "limits")},
             "us": self.us,
@@ -976,9 +1076,11 @@ def main():
     ap.add_argument("--no-key", action="store_true", help="public data only")
     ap.add_argument("--teams-every", type=int, default=600, help="seconds between intel/teams.md rewrites; 0 = off")
     ap.add_argument("--push", action="store_true", help="commit and push intel/teams.md after each rewrite")
+    ap.add_argument("--no-hub", action="store_true", help="don't read the team hub even if HUB_READER_URL is set")
     args = ap.parse_args()
     key = None if args.no_key else load_key()
-    c = Collector(key)
+    hub_url = None if args.no_hub else env_value("HUB_READER_URL")
+    c = Collector(key, hub_url)
     c.teams_every, c.teams_push = args.teams_every, args.push
     threading.Thread(target=c.run, daemon=True).start()
     Handler.collector = c
@@ -988,7 +1090,8 @@ def main():
     except OSError:
         print(f"Port {args.port} is busy: the dashboard is probably already running on http://127.0.0.1:{args.port}")
         return
-    print(f"Bazaar dashboard on http://127.0.0.1:{args.port}  (team key: {'yes' if key else 'no'}; read-only)", flush=True)
+    print(f"Bazaar dashboard on http://127.0.0.1:{args.port}  (team key: {'yes' if key else 'no'}; "
+          f"hub: {'yes' if hub_url else 'no'}; read-only)", flush=True)
     try:
         srv.serve_forever()
     except KeyboardInterrupt:

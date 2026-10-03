@@ -668,6 +668,7 @@ function header(d) {
   $("#hdr").innerHTML = `tick <b>${c.tick ?? "—"}</b> · ${c.tick_seconds ?? "—"} s/tick · game hour <b>${num(c.t_hours, 2)}</b> · `
     + `${c.paused ? "<b class='down'>PAUSED</b>" : "running"} · closes ${esc((c.closes || "").slice(11, 16) || "—")} · `
     + `data ${esc(d.updated || "—")} · ${d.events_cached} events cached`
+    + (d.hub && d.hub.on ? ` · hub ${d.hub.last ? "synced " + esc(d.hub.last) + (d.hub.added ? ` (+${d.hub.added} events)` : "") : "connecting…"}` : "")
     + (d.errors.length ? ` · <span class="err">${d.errors.length} errors</span>` : "");
 }
 
