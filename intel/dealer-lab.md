@@ -122,6 +122,11 @@ Files: `run/cha_book.json` (per card: team bid ladder, dealer fallback, castizo 
 `run/mal_book.json` (MAL-09/10 then MAL-07 last), `run/book_cha_entries.json` (cha-plan's book block, ready to merge into
 run/book.json in **one write**). Settled by directive 00:25. Dry-run script: Operator scratchpad `fast_start_dry.py`.
 
+**Directive 00:50 (verified):** cancel SAL-11 bid 20252 at Sunday's first tick in both clock cases (no re-post unless ≥ 150 P is left
+after CHA and MAL) · priority CHA → MAL (only if ≥ 150 P is left after CHA; a partial MAL still scores: a Pícaros MAL rare at ≤ 49
+fills an empty L4 slot) → v10 rebates ≤ 60 → reserve · MAL-08 never sold · no Ernesto deals · **the clock case is decided on
+`/api/clock` `round`**, not on the game hour.
+
 **08:55 read decides the case.** Saturday's game clock stopped at hour **13.367**, and the CHA release and round 3 sit at
 **16.65** on `/api/schedule`. The two Market Tests at 14.65 and 15.0 are still listed.
 - **Resume:** the clock restarts at 13.37, and CHA + round 3 come about 3.3 game hours after 09:00.
@@ -155,9 +160,8 @@ The Operator reports the case to the Chief at 08:55. The order below starts at "
 
 **MAL:** ≈ **126** P (MAL-09/10 at ~48 = 0 neg + L4; MAL-07 at ~30 = **+50**, page close).
 
-**Cash** (392 + 150 = 542): A → 300 → MAL 174; B → 254 → MAL 128; C → 158 → MAL 32. The **SAL-11 overnight bid (115)**
-takes it to 59 / 13 / −83 if Team 4 fills it. In case C, MAL can't be funded with SAL-11 also filled. The book clamps
-bids to cash, so nothing overdraws, but the Chief should decide the SAL-11 vs MAL priority at 08:55.
+**Cash** (392 + 150 = 542): after CHA A 300 / B 254 / C 158. The MAL gate is ≥ 150 P left, so the full MAL runs in A and B; in C
+only a partial (one Pícaros rare at ≤ 49). SAL-11 20252 is cancelled at the first tick (directive 00:50), so it no longer competes.
 
 ## 4. 08:45 readiness checklist (Operator)
 
