@@ -315,3 +315,16 @@ def test_parse_failures():
 def test_latest_foreign_commit_skips_my_own():
     c = dm.latest_foreign_commit("Lucas Wiese")
     assert c is None or c[1] != "Lucas Wiese"
+
+
+def test_test_watch_does_not_page_the_known_data_failure(tmp_path):
+    notes = Recorder()
+    failed = ["test_review_predicts_each_deals_result_from_our_reading"]
+    m = dm.Monitor(FakeApi([]), notify=notes, state_path=tmp_path / "s.json", review_path=tmp_path / "r.md",
+                   me="Lucas Wiese", test_watch=True, records=lambda _id: None,
+                   run_tests=lambda: (False, list(failed), "1 failed, 44 passed"),
+                   foreign_commit=lambda: ("abc1234def", "Aleksandar Varga", "duelist: x"))
+    assert m.cycle({"tick": 1, "doors": "closed", "paused": True}) == [] and notes.sent == []
+    failed.append("test_deadline_accept")                                 # a real failure alongside it still pages
+    m._tests_at, m.state["tests_sha"] = 0, None
+    assert [f.kind for f in m.cycle({"tick": 2, "doors": "closed", "paused": True})] == ["duelist_tests_failed"]
