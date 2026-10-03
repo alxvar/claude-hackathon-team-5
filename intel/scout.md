@@ -1,32 +1,20 @@
-# Scout (claude-sonnet-5-5, Sat 14:56)
+# Scout (claude-sonnet-5-5, Sat 15:01)
 
 ## Top 3 actions now
 
-1. **Arm the Pícaros watch for the resume (Operator).** Announced at tick 630: "Quick deals. Few questions." No menu yet.
-   - Evidence: we hold three Pilar deals (MAL-07 19, MAL-06 19, SAL-08 23). Ladder is 0.181, and Pilar's MAL deals gave +0.050 and +0.040. Ladder is worth ≈ +0.33 board per +0.01 (Directives 12:13).
-   - Action: poll /api/dealers/picaros every 20 s and use `--offer-only` for sells at ≥ our value only.
-   - Candidates: SAL-01/03/05 (value 9), MAL-02/03/04 (7), LAT-03 (5).
-   - Expected effect: neg 0, ladder up to about +0.02-0.05 if a new level pays like Pilar. Pícaros being level 4 is not in the data.
-   - Confidence: med.
+1. **Pícaros unlock (Operator, at resume).** Metrics tick 630: "Los Pícaros, 'Quick deals. Few questions.'" announced as a persona. Our Pilar deals are MAL-07 at 19, MAL-06 at 19 and SAL-08 at 23. The Chief's guess is that Pícaros is L4 with an early unlock for 3 Pilar deals. That is [L], and the unlock rule is not in the data. Action: run the 20 s poll of /api/dealers/picaros. Open a thread only at or above our value, step −2/−3, offer-only, never at the opening price. Spare candidates: SAL-01/03/05, MAL-02/03, LAT-03. Expected effect: a level-4 ladder slot. The L3 deals paid +0.050 and +0.040 against +0.017 at L2, but the L4 weight is not in the data. Confidence: med.
 
-2. **Keep swaps 9172 (→ t15) and 9173 (→ t07) live until tick 650, and add swaps (Operator, trade.py).**
-   - Evidence: t15↔t07 swapped three times at ticks 607-616 at 0 P (LAV-08/LAV-06, LAV-03/MAL-08, MAL-01/SAL-02). t15 collects LAT/MAL and dumps LAV and SAL. t07 is #17 with 17.3, so it is not a feed risk. Our estimates: 9172 gives us about +14.3, 9173 about +3.8.
-   - Expected effect: the cap-free team-trade gain is about +18 neg if both fill, at 0 fee as maker.
-   - Confidence: med. t15 is #14 and t07 is #17, both safe to trade with.
+2. **Swap offers 9172 / 9173 (already live; Operator and Dani).** 9172 to t15 offers LAT-04 (2nd) + MAL-04 for SAL-07 (+14.3 for us). 9173 to t07 offers LAV-02 (2nd) for MAL-01 (+3.8). Both expire at tick 650. Evidence: t15↔t07 swapped at 0 P at ticks 607, 613 and 616. t15 collects LAT/MAL and t07 collects LAV. Dani should push both teams in the room. Neither team is in the top 4 and t07 is #17, so we feed no leader. Expected effect: ≈ +18 neg_points, roughly +1.7 board at 0.094/point. Confidence: med.
 
-3. **Sell spare commons to Team 7 (#17, 11.3 below us) at ≥ 9 as maker (Operator).**
-   - Evidence: the buyer table shows LAT-04 +6.3 and LAV-02/03/04 +4.3 each at an estimated 9.5. Our values are 1.2-3.2.
-   - Our live asks are at 6-7 to t03/t04/t16 (9101, 9136, 9102, 9025). Reprice or re-address them to t07 at 9, and cancel the 0 P swap duplicates first.
-   - Expected effect: about +4 neg per card, about +0.4 board each at 0.094. The 9.5 price is an estimate, not a bid.
-   - Confidence: low-med.
+3. **SAL-06 at ≤ 25, then resell to Pilar at ≥ 25 (Operator).** The Abuela thread (id 868) is open at 29 against our 21; she held 25 against our 22 earlier. Our bid 9168 at 21 expires at tick 634. Her SAL uncommon final was 22-25 across threads. SAL-08 sold to Pilar at 23 for +0.019 ladder. A Pilar resale needs ≥ 25 (the Chief's rule) and small steps. Value of SAL-06 to us: not in the data. Expected effect: an L3 ladder slot (+0.019 to +0.040) at ≈ 0 neg cost. Confidence: low-med.
 
 ## What the climbing teams are doing
-- **Team 10 (#3, +4.1 in 60 min)** is a seller and posts on its own venue: MAL-10 from Team 3 for 74 P at tick 585. It dumps SAL/LAT/MAL and collects LAV. Directives say Team 10 posts SAL-10 → t06.
-- **Team 18 (#4, +2.2)** collects RET/LAT (prices c 9, u 23, r 75). It bought SAL-10 at 80 earlier and is trading the RET commons that t14 dumps: RET-02 and RET-04 at 9.
-- **Team 14 (#1, +1.1)** collects LAV/LAT and dumps MAL/RET. At ticks 591-598 it sold four RET commons at 9 to t04, t09 and t15. This is steady volume at the clearing price.
-- **Team 6 (#9, +4.6)** has 296 listings and a rare price of 79. It sold RET-09 to Team 2 for 84 at tick 504.
+- **t14 (#1, 30.8):** sells commons at a steady 9 P each tick (RET-02, 03, 01 and 04 at ticks 591-598 to t04, t09 and t15). It collects LAV/LAT and dumps RET. It has 16 team trades and 13 dealer trades. The profile says its Abuela price is −19.5%, so it leads on ladder and volume of small sales.
+- **t10 (#3, +4.1 in 60 min):** sells MAL-10 to Team 3 at 74 P (tick 585) and collects LAV. Its stall v10 produced value created for it. Our `mm_points` fell on v10 when t15 dumped SAL (+4.99 → −5.2).
+- **t15 and t07 swap card-for-card at 0 P (ticks 607, 613, 616).** Both gain collector value without cash or fee, so the lever is free. We copied it with 9172 and 9173.
+- **t04 buys across sets (LAV×3, LAT×3, MAL×2, RET×1) and keeps top bids on our cards.** It bids RET-08 at 27 and RET-06 at 26, with LAT-09 at 64. Our RET-06/07/08 are worth 100.4 each to us, so we do not sell.
 
 ## Threats
-- **Team 14 and Team 12 lead (30.8 and 29.6) and we are #5 at 28.1 (−0.8 in 15 min).** Do not feed them our LAV spares: t14 collects LAV/LAT, so LAV-02/03/04 must not go to it.
-- **Team 13 (#7) bids RET-01/02/03 at 2 P and has 57 deals.** It is a low-value sink for our RET cards and it owns venue v03. Do not trade there.
-- **Pilar's uncommon price is flat at a median of 18, and Abuela holds SAL-06 at 29 against our 21 (bid 9168 expires at tick 634).** The SAL-06 buy for the ladder is stalled while the clock is paused.
+- **Team 14 (#1, 30.8) lead over us is +2.7.** We are #5 at 28.1 and fell 0.8 in 15 min. Do not sell it LAV/LAT cards.
+- **t10 (#3) and t12 (#2)** sit above us and gain from value created on their stalls. Do not trade on v10, v02 or v03 unless the gain is ≥ 15.
+- **Abuela holds SAL-06 at 29 → 25.** Her offers expire after 4 ticks, so any silent hold ends the talk. Bid 9168 expires at tick 634, so the Operator must move at the resume or walk.
