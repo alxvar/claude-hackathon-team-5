@@ -1,29 +1,20 @@
-# Scout (claude-sonnet-5-5, Sat 15:27)
+# Scout (claude-sonnet-5-5, Sat 15:33)
 
 ## Top 3 actions now
 
-1. **Watch for the Pícaros menu at the resume and run the Pilar-style ladder there (Operator).**
-   - Evidence: tick 630 announced Los Pícaros ("Quick deals. Few questions.") and The Workshop. Our three Pilar deals are MAL-07 at 19, MAL-06 at 19 and SAL-08 at 23. The ladder is at 0.181 and a Pilar deal moved it +0.050 (L3).
-   - Action: use the existing 20 s poll of /api/dealers/picaros. Sell spares only at ≥ our value, step −2/−3, and use `--offer-only` (never a deal at the opening price). Candidates: SAL-01/03/05, MAL-02/03 and LAT-03. Cancel the card's team ask first (e.g. 8776 SAL-01, 9087 MAL-02, 9025 LAT-03).
-   - Effect: ladder gain only (neg unchanged, since gains are clipped). Confidence: med; Pícaros' rules are not in the data.
+1. **Sell SAL-06 (just bought at 23, worth 22.5) to Pilar, then to the Salamanca fever.** The operator's offer 9230 asks 34 to Pilar and expires at tick 639. Her last thread was 22 → 22 against our 34, and it is still open. Move in −2/−3 steps toward ~25 and let her climb; never jump to her bid. Her pattern: MAL-06 at 19 with small steps gave +0.040 ladder, while a jump gave only +0.019. Effect: a sale at ≥ 22.5 costs 0 neg; we also lose the unopened-pack drag, which was −2.4 on the buy. The fever (18:03-20:03, Pilar +25% over book) is the fallback if she finals below 22.5. Confidence: med.
 
-2. **Close the SAL-06 buy only at ≤ 25, then sell it to Pilar (Operator).**
-   - Evidence: Abuela's thread is at 29 against our 21 (tick 629, open). Her earlier path was 29 → 25 with 25 held. Our bid 9168 (21, to abuela) expires at tick 634. Directive 12:58 moves A and B target Salamanca fever and a Pilar resale.
-   - Action: move in small steps and never repeat a price; walk if no live offer for 4 ticks. Resell to Pilar at ≥ 25.
-   - Effect: roughly +0.017 to +0.04 ladder if the Pilar sale replaces our weak L3 slot (≈ +1.4 board in the Analyst's model). Neg ≈ 0 if the buy is ≤ our value. Confidence: med.
+2. **Los Pícaros watch (operator).** The announcement at tick 630 says "Quick deals. Few questions". Level 4 likely carries a head start for 3 Pilar deals, and we have MAL-07 at 19, MAL-06 at 19 and SAL-08 at 23. When it opens, sell only at ≥ our value, offer-only, one thread. Candidates: SAL-01/03/05 (value 9), MAL-02/03/04 (value 7), LAT-03 (value 5). Ladder is still uncapped at 0.181, and +0.01 ladder is about 0.33 board. Confidence: low-med, since the menu and unlock rule are not in the data.
 
-3. **Keep swaps 9172 and 9173 live and chase small team sells (Operator, Dani).**
-   - Evidence: t15↔t07 swapped 3× at ticks 607-616 at 0 P. 9172 (LAT-04 + MAL-04 → SAL-07, +14.3 for us) and 9173 (LAV-02 → MAL-01, +3.8) expire at tick 650. Team 7 (#17, 17.3) is the only buyer that passes the feeding rule, with a 9.5 est. for LAT-04, LAV-02/03/04 (+4.3 to +6.3 each).
-   - Action: Dani pitches Team 7 on the LAV commons already addressed to others. Repost at the resume if they lapse.
-   - Effect: about +4 to +14 neg_points. Confidence: low-med, since no counterparty has accepted yet.
+3. **Sell spare commons to Team 7 (#17, 10.6 below us, not top 4).** Our value for each: LAT-04 1.2, RET-04 2.8, LAV-02/03/04 3.2. The profile lists an estimated 9.5 each, gaining +4.3 to +6.3 each, and Team 7 collects RET/LAV/LAT. Offers 9173 (LAV-02 for MAL-01 swap) and 9172 (t15 swap, +14.3 for us) expire at tick 650; offer 9136 sells LAV-03 to t04 at 7. Act as maker so no fee applies. Check first that Team 7 is not one card from a page. Effect: +4 to +6 neg_points per sale, small. Confidence: med.
 
 ## What the climbing teams are doing
-- Team 14 (#1, 30.8, +1.1 in 60 min) is selling cheap commons to many buyers. It sent RET-02, RET-03, RET-01 and RET-04 to t04, t09 and t15 at 9 P each (ticks 591-598). It collects LAV/LAT and dumps RET/MAL. That is a high volume of small trades, 29 deals.
-- Team 10 (#3, +4.1 in 60 min) bought MAL-10 from Team 3 at 74 P (tick 585), on its own venue. It is the top gainer after Team 6, with only 30 deals.
-- Teams 15 and 7 swap card-for-card at 0 P (ticks 607-616). Both sides gain and no fee is paid.
-- Team 6 (#9, +4.6 in 60 min) holds 19 team trades and 296 listings. Its gain is unexplained in the data.
+- **Team 10 (+4.1 in 60 min)**: bought MAL-10 from Team 3 for 74 P at tick 585, and collects LAV. The v10 value-created trades (t10 → t01, t15 → t07) are consistent with a venue-owner gain. Team 6 (+4.6) is the other riser, with 305 listings and 19 team trades.
+- **Team 18 (+2.2)**: collects RET/LAT, and its median prices are r 75 u 23 c 9. It is a steady Abuela buyer at −19.2%.
+- **Swap traders (t15 ↔ t07)**: at ticks 607, 613 and 616 they swapped cards at 0 P (LAV-08 ↔ LAV-06, LAV-03 ↔ MAL-08, MAL-01 ↔ SAL-02). Each side gets a card it collects without paying a fee or cash. Team 15 has 22 team trades, the most of anyone.
+- **Epics are moving**: LAT-11 went t04 → t16 for 160 P at tick 631. Dealers and teams both pay about 140-160 for epics.
 
 ## Threats
-- Team 13 (#7) and Team 4 (#10) are bidding on RET cards. t04 bids 27 for RET-08 and 26 for RET-06 (our values are 100.4), and t13 bids 2 P on RET commons. This signals interest in our RET page; do not sell those cards.
-- Our score is slipping (−0.8 in 15 min) while Team 14 and Team 12 sit above us. Team 14 has the lead on a Friday base we cannot match. Rank #5 → #4 needs +0.7 against Team 18 (28.8).
-- Abuela's SAL-06 held at 25-29 while our cap is 25. If it does not move, the thread dies after 4 ticks and the slot is wasted.
+- Team 13 (#7) has the most deals (57), but its score is falling (−3.3 per hour, −1.2 per 15 min). Team 14 (#1, 30.8) leads us by 2.7 points, and that gap is mostly its stall trade (+3.10, Analyst); trading on v14, v12, v10 or v18 would feed the leaders.
+- We fell 0.8 in the last 15 min (28.9 → 28.1) with neg_points down from 35.2 to 32.5. The SAL-06 buy at 23 against a value of 22.5 cost −2.7 because of pack drag.
+- Team 4 bids 64 for LAT-09 and 26-27 for RET-06/RET-08. We hold RET-06/07/08, but each is worth 100.4 to us because of the page bonus, so do not sell them.
