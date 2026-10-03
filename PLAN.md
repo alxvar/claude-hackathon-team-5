@@ -20,6 +20,12 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    Duels II (6 duels at once).
 5. Then: Duels II day reading at the first days duel; Sunday's Sonnet strategist (15 s ticks).
 6. Duel monitor: its 3 HIGH "duelist tests failed" pages at 09:44-09:46 were false (the repo was mid-conflict on Lucas's Mac).
+7. **Accept sharing (one accept per tick for duels AND deals)** [V desk]: our bots on Lucas's Mac (trader, dealer bots) ask
+   `tools/arbiter.py` before every accept and hold when a scored duel of ours has an in-limit rival offer or ≤ 3 ticks
+   left (it reads `/api/duels` itself: nothing to update on your side). Your part: (a) a refused accept (`accept_taken` /
+   429) is retried next tick or turned into "send their own price"; (b) from `ticks_left ≤ 4` close by sending the
+   rival's standing price so THEY spend their accept; (c) after Duels I wave 1, report any refused accept in
+   `team/aleks.md`; (d) review the Builder's arbiter days fix for Duels II (`read_days` + `guards.worth`) before 17:30.
 
 **Dani: the desk, the page-gap desk, the judges' story.**
 1. **09:00, organisers' desk**: the 8 questions in plan §3, answers in `team/dani.md` at once.
