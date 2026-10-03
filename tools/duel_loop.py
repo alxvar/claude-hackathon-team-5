@@ -23,7 +23,7 @@ propose a params diff for the duelist. It never applies anything itself: a human
    tweak whose 95% CI is entirely above 0 and that passes `params.validate` and the CROSS checks is proposed;
    "no change proposed" is a valid outcome. Rule notes from the wave go next to it, never into the JSON.
 Only a session at the setting the Duel Lab simulated proposes anything (TARGET: Duels III and the Final, 12 ticks at
-10% decay; Chief 00:50): Duels III starts from the Duel Lab's file (docs/duels3-start.json), and a wave of another
+10% decay; Chief 00:50): Duels III starts from an approved set (docs/duel_sets.json, `use`), and a wave of another
 setting (Duels II: 16 / 8%) still gets its summary and the simulator's comparison, never a proposal.
 4. The Duel Lab's switch rule (`tools/duel_gates.py`, SUNDAY v2) on the session so far, shown with its counts: at
    least 12 closed duels with a rival that spoke and a deal rate below 0.60 → the pre-approved fallback set (C → A,
@@ -777,8 +777,8 @@ def render(wave: Wave, obs: dict, sess: dict, preds: dict, dist: dict, world: st
     elif ctx.get("off_target"):
         t = ctx["off_target"]
         L += [f"**Proposal:** none for this session: it plays {ctx['T']} ticks at {ctx['d']:.0%} decay, not the "
-              f"{t[0]} ticks at {t[1]:.0%} the Duel Lab simulated (Chief 00:50). Duels III starts from "
-              "docs/duels3-start.json; proposals count from its first wave."]
+              f"{t[0]} ticks at {t[1]:.0%} the Duel Lab simulated (Chief 00:50). Duels III starts from an "
+              "approved set (docs/duel_sets.json); proposals count from its first wave."]
     else:
         L += ["**Proposal:** no change proposed (no tweak's CI is entirely above 0)."]
     return "\n".join(L) + "\n"

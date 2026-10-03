@@ -529,12 +529,3 @@ def test_a_session_off_the_simulated_setting_proposes_nothing(tmp_path, src, mon
     assert dl.run(**kw, target=(16, D))["params"] == {"MAX_STEP_SHARE": 0.15}
     p = dl.run(**kw, target=(12, 0.10))
     assert p["params"] == {} and "not proposed" in p["evidence"]["gates"]["reason"]
-
-
-def test_the_duels3_start_file_approves_cleanly(tmp_path):
-    params = tmp_path / "duel_params.json"
-    start = dl.ROOT / "docs" / "duels3-start.json"
-    assert dl.approve(proposal_path=start, params_path=params, by="Aleks") == 0
-    data = json.loads(params.read_text())
-    assert {k: v for k, v in data.items() if k != "_note"} == {"MIN_STEP_P": 5, "MAX_STEP_SHARE": 0.18,
-                                                               "LATE_SWITCH_LEFT": 2, "MONO_END_SHARE": 0.5}

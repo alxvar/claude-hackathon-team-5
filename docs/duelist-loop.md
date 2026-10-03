@@ -1,9 +1,48 @@
 # Branch `duelist-loop`: hot-reloaded params, the wave loop, a code-first policy (for Aleks, Sun 08:00)
 
-_Builder, Sat night, on the Chief's brief. Items 1–3 change nothing until you choose them: with no
-`run/duel_params.json` the duelist plays today's constants, and `--policy llm` (the default) is today's agent.
-**Item 4 (the guards) is live once merged**, with an off switch (`{"GUARDS": 0}` in the params file). Full suite
-green on the branch: 559 tests._
+## Result for 08:00 (Builder, Sun 01:40; independent re-audit pending)
+
+1. **All four audit items are fixed**, with tests: 575 green on the branch.
+2. **`--policy code`:**
+   - A give is now worth-neutral and keeps the small-step hold. The audit's Duels II replay shows **0 give retreats**
+     (it found 34 in 9 duels); the guards path is unchanged: 193 / 52 / 12 / 11 / 3.
+   - Openers are per role: a seller opens 0.73 × the limit above it, a buyer 0.37 × below.
+   - An accept makes no text call.
+3. **Params:**
+   - A missing `run/duel_params.json` plays the default set from `docs/duel_sets.json` (**A**), said loudly every
+     20 ticks.
+   - `use SET` replaces the whole file; `switch` is the Lab's one-way C → A → today rule (opt-in).
+   - Every decision records the set it was made under. The prompt names no late-switch tick count, and drops the
+     line at 0.
+4. **Failover:** the primary model's budget is 8 s (`--failover-s`), and the runner's cancellation counts as a
+   failure, so at 15 s ticks the backup now engages.
+5. **Your call:** the default in the script is set C with `--policy code` (Haiku writes the text), per the Duel Lab's
+   SUNDAY v2. The safer alternative is `SET=A POLICY=llm`. `--rollback` gets you Saturday's duelist in one command.
+
+## The Sunday script (`tools/duelist_sunday.sh`): run it from your own checkout, no merge needed
+
+```bash
+bash <(git show origin/duelist-loop:tools/duelist_sunday.sh) --check      # steps 1-4 only, never starts: try it first
+bash <(git show origin/duelist-loop:tools/duelist_sunday.sh)              # start
+bash <(git show origin/duelist-loop:tools/duelist_sunday.sh) --status     # one screen
+bash <(git show origin/duelist-loop:tools/duelist_sunday.sh) --rollback   # back to Saturday's duelist on main
+```
+
+**What it does:**
+1. Fetches and checks out `COMMIT` in its own worktree, `../team5-duelist-sunday`. Never in your checkout: your
+   auto-sync pushes HEAD to main, so a detached branch there would merge it unreviewed.
+2. Runs the full test suite and aborts on red.
+3. Installs `SET` as the whole params file (`duel_loop.py use`).
+4. Refuses if any duelist runs on this machine.
+5. Starts `supervise.sh` with `--policy POLICY FLAGS`. The records go to your checkout's `docs/duels`, so your
+   auto-sync pushes them as before.
+6. Prints a one-screen status.
+
+**Settings** (env vars at the top: `COMMIT`, `SET`, `POLICY`, `FLAGS`, `AUTOSWITCH`, `BY`): the defaults are the
+Duel Lab's. Pin `COMMIT` to the re-audited sha.
+
+**`--rollback`:** it stops every duelist and the switch, checks your checkout out to main, runs the duelist tests,
+and starts with Saturday's flags (`OLD_FLAGS`, from the runbook).
 
 ## TL;DR
 
@@ -14,16 +53,28 @@ green on the branch: 559 tests._
 | 3 | **Code-first policy**: code decides accept / hold / step and the day; one capped model call writes the words | none (`--policy llm` stays the default) | `run --policy code --negotiator-model claude-haiku-4-5` |
 | 4 | **Guards on every offer** (6190): accept instead of offering worse; worth-monotonic steps; the day call on the first offer | **yes, once merged**: the last-ticks concession is capped at 25% of the gap | tune `MONO_END_SHARE` (0.5 = the simulator's preference); `{"GUARDS": 0}` turns all three off |
 
-## Before Duels III: one param set (Chief 00:50)
+## Before Duels III: the approved sets (Duel Lab SUNDAY v2, 00:45)
 
-- **Duels III starts with the Duel Lab's file**, simulated at its 12 ticks / 10% decay (intel/duel-lab.md, path A):
-  `MIN_STEP_P` 5, `MAX_STEP_SHARE` 0.18, `LATE_SWITCH_LEFT` 2, `MONO_END_SHARE` 0.5. It's shipped as
-  `docs/duels3-start.json`. Load it on the duelist's machine, validated and noted, with:
-  `python3 tools/duel_loop.py approve --proposal docs/duels3-start.json --by Aleks`
-- **The wave loop proposes only on sessions at 12 ticks / 10%.** Duels II's 16 / 8% waves get the summary and the
-  simulator's comparison, never a proposal. The first proposal comes after wave 1 of Duels III, and it starts from the
-  file above (the loop reads the params file as "today").
-- The v2 runs on Duels II waves below are for reference only.
+`docs/duel_sets.json` holds three complete sets. Every set lists the same five keys, so `use` leaves nothing of the
+previous set behind:
+
+| Set | `MIN_STEP_P` | `MAX_STEP_SHARE` | `LATE_SWITCH_LEFT` | `OPEN_WAIT` | `MONO_END_SHARE` |
+|---|---|---|---|---|---|
+| **C** (the Lab's GO) | 8 | 0.12 | 0 | 0 | 0.25 |
+| **A** (SAFE, the fallback; `_default` when the file is missing) | 5 | 0.18 | 2 | 2 | 0.25 |
+| **today** | 3 | 0.25 | 4 | 2 | 0.25 |
+
+- **The switch rule** (`tools/duel_gates.py`): once at least 12 closed duels with a rival that spoke show a deal rate
+  below 0.60, C → A (or A → today). Once, never back.
+  - `python3 tools/duel_loop.py switch` applies it on your machine.
+  - `AUTOSWITCH=1` in the script runs it alongside the duelist.
+  - `touch run/duel_switch.off` stops it.
+- **The wave loop proposes only on 12 ticks / 10% sessions.** Duels II's 16 / 8% waves get a summary and the
+  simulator's comparison, nothing more.
+- **The 0.5 file (`docs/duels3-start.json`) is retired:** the Lab's SUNDAY v2 says never 0.5 for `MONO_END_SHARE`.
+- **A change during a duel** applies from that duel's next decision on: every rule reads the globals when it runs.
+  The strategist's prompt, written when the duel starts, names no tunable number, and every decision's record
+  carries the set it was decided under.
 
 ## 1. Hot-reloaded params (`agents/duelist/params.py`)
 
