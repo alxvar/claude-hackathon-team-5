@@ -190,3 +190,4 @@ Nando: You walk fast, amigo, we respect that. 143 P and she goes in your bag bef
 
 Paco: Say sí, the street is waiting.
 - Sat 21:02 · catalog.minted RET-11 (Palacio de Cristal, epic, print run 9): hidden=False minted=1 (was 0)
+- Sat 21:07 · persona.updated tick 1219 · abuela → ? · {"persona": "abuela", "name": "Abuela Carmen", "version": 3}
