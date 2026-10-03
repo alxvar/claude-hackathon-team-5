@@ -75,6 +75,8 @@ tr:hover td { background: var(--surface-2); }
 .tag.mover { color: var(--warning); }
 .tag.warn { color: var(--critical); }
 .tag.info { color: var(--text-secondary); }
+.tag.watch { color: var(--warning); }
+.tag.missed { color: var(--serious); }
 .tag.up { color: var(--good); }
 .tag.down { color: var(--critical); }
 .moves li { flex-direction: row; }
@@ -123,6 +125,7 @@ tr.sel td { background: rgba(57,135,229,0.22) !important; }
     <button data-tab="overview" class="on">Overview</button>
     <button data-tab="rivals">Rivals</button>
     <button data-tab="duels">Duels</button>
+    <button data-tab="duelmon">Duel monitor</button>
     <button data-tab="convs">Conversations</button>
     <button data-tab="market">Market</button>
     <button data-tab="more">Dealers · schedule</button>
@@ -232,6 +235,37 @@ tr.sel td { background: rgba(57,135,229,0.22) !important; }
       <div class="chartbox short"><canvas id="duelChart"></canvas></div>
       <p class="read" id="duelRead"></p>
       <div class="chat" id="duelChat" style="margin-top:12px"></div>
+    </section>
+  </div>
+</section>
+
+<!-- ============================================================ DUEL MONITOR -->
+<section class="tab" id="tab-duelmon">
+  <div class="card">
+    <h2 id="dmTitle">Duel monitor</h2>
+    <p class="sub" id="dmSub"></p>
+  </div>
+  <div class="tiles" id="dmTiles"></div>
+  <div class="card">
+    <h2>Watch now</h2>
+    <p class="sub">Read-only, from data the dashboard already reads (no extra request: the duelist shares the team's 5 requests per second). CRITICAL = tell Aleks now · WATCH = a deal we could take now · MISSED = it already cost us. Lucas's duelmon also sends the critical ones to your phone.</p>
+    <ul class="ins" id="dmAlerts"></ul>
+  </div>
+  <div class="card">
+    <h2>Live duels</h2>
+    <p class="sub">Our standing offer and the rival's, against our limit (only ours is known). Pie left = (1 − decay)<sup>rounds</sup>: the share of the surplus a deal still scores. Accept now = what taking the rival's standing offer would score. Click a row for the conversation.</p>
+    <div class="scroll"><table id="dmLive"></table></div>
+  </div>
+  <div class="grid2">
+    <section class="card">
+      <h2>Finished this session</h2>
+      <p class="sub">Result = surplus × (1 − decay)<sup>rounds</sup>; "lost" is what the rounds cost. ⚠ = the rival offered inside our limit and it ended with no deal.</p>
+      <div class="scroll"><table id="dmDone"></table></div>
+    </section>
+    <section class="card">
+      <h2>Negotiating per team since the session began</h2>
+      <p class="sub" id="dmNegSub">From leaderboard snapshots. The board doesn't split duels out: this also moves with dealer deals and team trades.</p>
+      <div class="scroll"><table id="dmNeg"></table></div>
     </section>
   </div>
 </section>
@@ -675,6 +709,73 @@ function duelsTab(d) {
 }
 
 // ------------------------------------------------------------------ conversations
+// ------------------------------------------------------------------ duel monitor
+const DM_SEV = { critical: ["warn", "CRITICAL"], watch: ["watch", "WATCH"], missed: ["missed", "MISSED"] };
+function duelmonTab(d) {
+  const m = d.duelmon;
+  if (!m) {
+    $("#dmSub").textContent = d.has_key ? "No duel session in the feed yet: it starts when the organisers fire one (see the schedule)." : "Needs the team key.";
+    ["#dmTiles", "#dmAlerts"].forEach(s => $(s).innerHTML = "");
+    return;
+  }
+  const tsec = d.clock.tick_seconds || 30, pct = (a, b) => b ? Math.round(100 * a / b) + "%" : "—";
+  $("#dmTitle").textContent = `${m.name} · session ${m.session} · ${m.finished ? "finished" : "live"}`;
+  $("#dmSub").innerHTML = `Started at tick ${m.start}, now tick ${m.tick} · ${m.duel_ticks} ticks per duel (≈ ${Math.round(m.duel_ticks * tsec / 60)} min) · decay <b>${Math.round(m.decay * 100)}%</b> of the pie per round · ${m.rounds} round-robin(s): every team twice per round, once as buyer and once as seller`;
+  const T = [
+    ["Our duels", `${m.ours_done}/${m.ours_total ?? "?"}`, `<span class="d">${m.ours_live} live${m.eta_min != null ? ` · ≈ ${m.eta_min} min to go` : ""}</span>`],
+    ["Deals", `${m.deals}/${m.ours_done}`, `<span class="d">${pct(m.deals, m.talked)} when the rival talked · ${m.silent} silent rival(s)</span>`],
+    ["Result after decay", `${m.points} P`, `<span class="d">of ${m.surplus} P surplus · <b>${m.decay_lost} P lost to rounds</b> (${pct(m.decay_lost, m.surplus)}) · ${m.avg_rounds ?? "—"} rounds per deal</span>`],
+    ["duel_points (/api/me)", num(m.duel_points, 2), `<span class="d">${num(m.duel_points_start, 2)} at the start</span>${spark(m.duel_points_series)}`],
+    ["Left on the table", `${m.missed_gain} P`, `<span class="d">in-limit rival offers that ended with no deal</span>`],
+    ["Whole field", `${m.field_closed}/${m.field_total}`, `<span class="d">duels closed · ${pct(m.field_deals, m.field_closed)} ended in a deal</span>`],
+  ];
+  $("#dmTiles").innerHTML = T.map(([k, val, dl]) => `<div class="tile"><div class="k">${k}</div><div class="v">${val}</div>${dl}</div>`).join("");
+  $("#dmAlerts").innerHTML = m.alerts.length
+    ? m.alerts.map(a => `<li><span class="tag ${DM_SEV[a.sev][0]}">${DM_SEV[a.sev][1]}</span><span>${esc(a.text)}</span></li>`).join("")
+    : `<li><span class="muted">Nothing to act on right now.</span></li>`;
+  const days = (p, dd, r) => r.days_weight != null ? `${num(p)} · day ${dd ?? "—"}` : num(p);
+  table($("#dmLive"), "dmLive", m.live, [
+    ["duel", "#", r => `${r.duel}`, true],
+    ["rival", "Rival", r => esc(r.rival)],
+    ["role", "We are", r => `${esc(r.role)}${r.days_weight != null ? ` <span class="muted">(days weight ${r.days_weight})</span>` : ""}`],
+    ["item", "Item", r => esc(r.item)],
+    ["limit", "Our limit", null, true],
+    ["our_now", "Our offer", r => days(r.our_now, r.our_days, r), true],
+    ["their_now", "Their offer", r => `<span class="${r.in_limit ? "edge-pos" : ""}">${days(r.their_now, r.their_days, r)}</span>`, true],
+    ["gap", "Gap", null, true],
+    ["rounds", "Rounds", null, true],
+    ["pie", "Pie left", r => `${r.pie}%`, true],
+    ["left", "Ticks left", r => r.left == null ? "—" : `${r.left} <span class="muted">(${Math.round(r.left * tsec / 60 * 10) / 10} min)</span>`, true],
+    ["accept_now", "Accept now", r => r.accept_now != null ? `<span class="edge-pos">+${r.accept_now} P</span>` : "—", true],
+    ["flags", "Flags", r => r.flags.map(f => `<span class="chip">${esc(f)}</span>`).join("")],
+  ], () => "pick");
+  const goDuel = el => el.querySelectorAll("tbody tr").forEach(tr => {
+    const id = parseInt(tr.querySelector("td").textContent);
+    if (!isNaN(id)) tr.onclick = () => { pickedDuel = id; showTab("duels"); };
+  });
+  goDuel($("#dmLive"));
+  table($("#dmDone"), "dmDone", m.done, [
+    ["duel", "#", r => `${r.duel}${r.missed ? `<span class="flag">⚠</span>` : ""}`, true],
+    ["status", "", r => `<span class="status-${r.status}"></span>`],
+    ["role", "We were", r => esc(r.role)],
+    ["rival", "Rival", r => esc(r.rival) + (r.silent ? ` <span class="muted">(silent)</span>` : "")],
+    ["limit", "Limit", null, true],
+    ["price", "Price", null, true],
+    ["surplus", "Surplus", null, true],
+    ["rounds", "Rounds", null, true],
+    ["result", "Result", null, true],
+    ["lost", "Lost", null, true],
+  ], () => "pick");
+  goDuel($("#dmDone"));
+  $("#dmNegSub").textContent = `From leaderboard snapshots${m.neg_span ? ` (tick ${m.neg_span[0]} → ${m.neg_span[1]})` : ""}. The board doesn't split duels out: this also moves with dealer deals and team trades.`;
+  table($("#dmNeg"), "dmNeg", m.neg, [
+    ["name", "Team", r => esc(r.name) + (r.us ? " (us)" : "")],
+    ["from", "At the start", null, true],
+    ["now", "Now", null, true],
+    ["delta", "Change", r => `<span class="${r.delta > 0 ? "up" : r.delta < 0 ? "down" : ""}">${sgn(r.delta)}</span>`, true],
+  ], r => r.us ? "us" : "");
+}
+
 function convsTab(d) {
   const all = d.conversations || [];
   fillSelect($("#cTeam"), [...new Set(all.map(c => c.team))].sort().map(t => [t, d.names[t] || t]));
@@ -728,6 +829,7 @@ function render() {
   if (tab === "overview") { tiles(d); moves(d); storyChart(d); ourCharts(d); raceChart(d); insights(d); decisions(d); }
   if (tab === "rivals") { teamsTable(d); leaderboardChart(d); activityChart(d); }
   if (tab === "duels") duelsTab(d);
+  if (tab === "duelmon") duelmonTab(d);
   if (tab === "convs") convsTab(d);
   if (tab === "market") { marketTable(d); holdersTable(d); pricesTables(d); }
   if (tab === "more") moreTab(d);

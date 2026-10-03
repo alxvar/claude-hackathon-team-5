@@ -870,6 +870,9 @@ class Analysis:
                         "rival_silent": not any(not m["us"] for m in msgs) and d.get("status") != "deal",
                         "rival_best": rival_best, "missed": missed, "gain_missed": gain_missed,
                         "our_first": ours[0]["price"] if ours else None, "their_first": theirs[0]["price"] if theirs else None,
+                        "our_now": (d.get("your_offer") or {}).get("price"), "their_now": (d.get("rival_offer") or {}).get("price"),
+                        "our_days": (d.get("your_offer") or {}).get("days"), "their_days": (d.get("rival_offer") or {}).get("days"),
+                        "days_weight": d.get("your_days_weight"), "issues": d.get("issues"),
                         "conc_us": conc_us, "conc_them": conc_them,
                         "surplus": (limit - d["price"] if role == "buyer" else d["price"] - limit) if d.get("price") is not None and limit is not None else None})
         out.sort(key=lambda x: (x["status"] != "live", -(x["duel"] or 0)))
@@ -907,6 +910,119 @@ class Analysis:
             lessons.append(f"Whole field (public feed): {summary['field_deals']} deals out of {n} closed duels "
                            f"({round(100 * summary['field_deals'] / n)}%).")
         return {"duels": out, "summary": summary, "lessons": lessons}
+
+    def duel_monitor(self, view):
+        """The current duel session live (Duels I/II/III), from data the dashboard already reads: no extra request.
+
+        Session and field progress from the public feed (`duels.scheduled`, `duel.closed`: no team ids), our duels
+        from GET /api/duels, `duel_points` from /api/me, negotiating per team from the leaderboard (it doesn't split
+        duels out, so that column also moves with dealer and team trades). result = surplus × (1 − decay) ** rounds,
+        so accepting the rival's standing offer now would score (limit − price, or price − limit) × (1 − decay) ** rounds."""
+        sched = [e for e in self.duel_events if e.get("type") == "duels.scheduled"]
+        if not sched:
+            return None
+        ev = sched[-1]
+        sp, start, tick = ev.get("payload") or {}, ev.get("tick") or 0, self.clock.get("tick") or 0
+        sess = sp.get("session")
+        finished = any((e.get("payload") or {}).get("session") == sess for e in self.duel_events
+                       if e.get("type") == "duels.finished")
+        n_teams = len(self.lb_hist[-1]["teams"]) if self.lb_hist else 18
+        total = sp.get("duels") or 0
+        ours_total = round(total * 2 / n_teams) if n_teams else None  # each duel has two teams in it
+        field = [p for p in self.duel_closed if p.get("session") == sess]
+        field_deals = sum(1 for p in field if p.get("status") == "deal")
+        mine = [x for x in view["duels"] if x.get("session") == sess]
+        live = [x for x in mine if x["status"] == "live"]
+        done = [x for x in mine if x["status"] in ("deal", "no_deal")]
+        deals = [x for x in done if x["status"] == "deal"]
+        talked = [x for x in done if not x["rival_silent"]]
+
+        alerts, rows = [], []
+        for x in sorted(live, key=lambda r: r["deadline"] or 0):
+            role, limit, decay, rounds = x["role"], x["limit"], x["decay"] or 0, x["rounds"] or 0
+            left = (x["deadline"] - tick) if x["deadline"] is not None else None
+            pie = (1 - decay) ** rounds
+            buyer = role == "buyer"
+            their, our = x["their_now"], x["our_now"]
+            in_limit = their is not None and limit is not None and (their <= limit if buyer else their >= limit)
+            accept_now = round(((limit - their) if buyer else (their - limit)) * pie, 1) if in_limit else None
+            ours_out = our is not None and limit is not None and (our > limit if buyer else our < limit)
+            msgs = x["messages"]
+            last_them = max((m["tick"] for m in msgs if not m["us"]), default=None)
+            last_us = max((m["tick"] for m in msgs if m["us"]), default=None)
+            we_quiet = last_them is not None and (last_us is None or last_us < last_them) and tick - last_them >= 4
+            flags = []
+            name = f"Duel {x['duel']} ({role}, {x['rival']})"
+            if ours_out:
+                flags.append("our offer outside our limit")
+                alerts.append({"sev": "critical", "duel": x["duel"], "text": f"{name}: our standing offer {our} is outside our limit {limit}: a deal there loses points. Tell Aleks."})
+            if in_limit and left is not None and left <= 2:
+                flags.append("accept before the deadline")
+                alerts.append({"sev": "critical", "duel": x["duel"], "text": f"{name}: the rival's {their} is inside our limit {limit} with {left} tick(s) left: accepting now scores +{accept_now} P; no deal scores 0 (duel 181)."})
+            elif in_limit:
+                flags.append("acceptable now")
+                alerts.append({"sev": "watch", "duel": x["duel"], "text": f"{name}: the rival's {their} is inside our limit {limit}: accepting now would score +{accept_now} P; haggling on costs {round(decay * 100)}% of the pie per round."})
+            if we_quiet:
+                flags.append("we are silent")
+                alerts.append({"sev": "critical" if left is not None and left <= 4 else "watch", "duel": x["duel"],
+                               "text": f"{name}: the rival spoke at tick {last_them} and we haven't answered for {tick - last_them} ticks: is the duelist up? (Aleks)"})
+            began = (x["deadline"] - sp["duel_ticks"]) if x["deadline"] is not None and sp.get("duel_ticks") else start
+            if not any(not m["us"] for m in msgs) and tick - began >= 6:
+                flags.append("rival silent")
+            if rounds >= 6:
+                flags.append(f"{rounds} rounds")
+            rows.append({"duel": x["duel"], "rival": x["rival"], "role": role, "item": x["item"], "limit": limit,
+                         "our_now": our, "their_now": their, "our_days": x["our_days"], "their_days": x["their_days"],
+                         "days_weight": x["days_weight"],
+                         "gap": abs(our - their) if our is not None and their is not None else None,
+                         "rounds": rounds, "pie": round(100 * pie), "left": left, "accept_now": accept_now,
+                         "flags": flags, "in_limit": in_limit})
+        sev_order = {"critical": 0, "watch": 1}
+        alerts.sort(key=lambda a: sev_order.get(a["sev"], 2))
+
+        fin_rows = []
+        for x in done:
+            lost = round(x["surplus"] - x["result"], 1) if x["surplus"] is not None and x["result"] is not None else None
+            fin_rows.append({"duel": x["duel"], "status": x["status"], "role": x["role"], "rival": x["rival"], "item": x["item"],
+                             "limit": x["limit"], "price": x["price"], "surplus": x["surplus"], "rounds": x["rounds"],
+                             "result": x["result"], "lost": lost, "missed": x["missed"], "gain_missed": x["gain_missed"],
+                             "silent": x["rival_silent"]})
+        for x in done:
+            if x["missed"]:
+                alerts.append({"sev": "missed", "duel": x["duel"], "text": f"Duel {x['duel']} ({x['role']}, {x['rival']}): the rival offered {x['rival_best']}, inside our limit {x['limit']}, and it ended with no deal: +{x['gain_missed']} P left on the table."})
+
+        pts = [(r["tick"], r.get("duel_points")) for r in self.me_hist if (r.get("tick") or 0) >= start - 2]
+        rate = len(done) / (tick - start) if tick > start and done else None
+        remaining = (ours_total - len(done)) if ours_total else None
+        eta_min = round(remaining / rate * (self.clock.get("tick_seconds") or 30) / 60) if rate and remaining is not None and not finished else None
+
+        neg = []
+        if self.lb_hist:  # snapshots sorted by tick
+            base_snap = next((h for h in reversed(self.lb_hist) if h["tick"] <= start), self.lb_hist[0])
+            base, a, b = base_snap["tick"], base_snap["teams"], self.lb_hist[-1]["teams"]
+            for tid, v in b.items():
+                if tid in a and v.get("negotiating") is not None and a[tid].get("negotiating") is not None:
+                    neg.append({"team": tid, "name": v.get("name"), "us": tid == self.us, "from": a[tid]["negotiating"],
+                                "now": v["negotiating"], "delta": round(v["negotiating"] - a[tid]["negotiating"], 2)})
+            neg.sort(key=lambda r: -r["delta"])
+            neg_span = [base, self.lb_hist[-1]["tick"]]
+        else:
+            neg_span = None
+
+        return {"session": sess, "name": sp.get("name"), "decay": sp.get("decay"), "duel_ticks": sp.get("duel_ticks"),
+                "rounds": sp.get("rounds"), "start": start, "tick": tick, "finished": finished,
+                "field_total": total, "field_closed": len(field), "field_deals": field_deals,
+                "ours_total": ours_total, "ours_done": len(done), "ours_live": len(live), "deals": len(deals),
+                "talked": len(talked), "silent": sum(1 for x in done if x["rival_silent"]),
+                "points": round(sum(x["result"] or 0 for x in deals), 1),
+                "surplus": sum(x["surplus"] or 0 for x in deals),
+                "decay_lost": round(sum(r["lost"] or 0 for r in fin_rows if r["status"] == "deal"), 1),
+                "missed_gain": sum(x["gain_missed"] or 0 for x in done if x["missed"]),
+                "avg_rounds": round(statistics.mean(x["rounds"] or 0 for x in deals), 1) if deals else None,
+                "duel_points": pts[-1][1] if pts else None, "duel_points_start": pts[0][1] if pts else None,
+                "duel_points_series": [p[1] for p in pts], "eta_min": eta_min,
+                "alerts": alerts, "live": rows, "done": sorted(fin_rows, key=lambda r: -(r["duel"] or 0)),
+                "neg": neg, "neg_span": neg_span}
 
     def conversations(self, n=60):
         """Public dealer conversations (every team's haggling, from the feed), newest first."""
@@ -1156,8 +1272,10 @@ class Analysis:
         above = next((p for p in prof if us and p["rank"] == us["rank"] - 1), None)
         below = next((p for p in prof if us and p["rank"] == us["rank"] + 1), None)
         neighbours = [p["team"] for p in prof if us and abs(p["rank"] - us["rank"]) <= 2]
+        duelview = self.duel_view()
         return {
-            "duelview": self.duel_view(),
+            "duelview": duelview,
+            "duelmon": self.duel_monitor(duelview),
             "conversations": self.conversations(),
             "story": story,
             "moves": self.moves(story),
