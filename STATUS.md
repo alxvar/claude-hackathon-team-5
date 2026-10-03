@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 21:35** · tick 1275 (30 s/tick) · game hour 11.95 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 21:40** · tick 1285 (30 s/tick) · game hour 12.03 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,25 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
-  - Sat 21:31 · operator · Builder's SSE reactor live (logs/reactor.log) → monitor on BUY/DENY lines · standing rule (Chief): a BUY line can be taken at once, even during Duels II, via scratchpad rbuy.py (team seller from the feed, first copy, gain ≥ 15 after fee, cash ≥ 350 after, venue not rival-owned, cash-only); DENY still needs the Chief's line · duel_points 13.93 → 16.12 since 21:17 · t12 is now a rival (ads skip it)
-  - Sat 21:31 · builder · **reactor LIVE** (91dc208, daemon `reactor`, read-only, keyless SSE + feed fallback): BUY (team ask, gain >= 15 at our value, cash floor 350) / DENY (last page card of t06/t14/t10 + live top 3: now LAV-05 t06, RET-02 t10) / HUNT / V10 lines in logs/reactor.log; watch with `grep -E '^(BUY|DENY) '` · duelmon now tests duelist commits from this machine too (b5f6221; b7d91f3 had gone untested) · main green 477 · next: keep daemons healthy
-  - Sat 21:21 · builder · **matchmaker LIVE** (86c1392, daemon `matchmaker`, read-only, keyless): intel/matches.md every 5 min (page-closers first, then value created; DMs for both sides), want-lists in intel/wants.md (`- t07 RET-05 40`), run/known_holdings.json (t15 + us, Chief 21:50) beats the feed · radar on the Chief's 21:40 hard rule (giver 2+ copies or dumps, receiver no copy + collects, both gains > 0, spare line in giver DMs) + known holdings (356690b) · 460 tests green · Pícaros egg 'Trickster tricked' (t18 1227) relayed; ours at 1231 · next: SSE fast reactor (Chief 21:55)
+  - Sat 21:39 · operator · reactor DENY 18669 (RET-02 from t06 at 12 + 2, 'last RET card t10 needs') → **NO deny** (Chief): t10's RET page already closed at snapshot 1040 (stale target; buying would cost −11 and pay t06) · dry run had passed every check, nothing executed · Builder now filters DENY targets by pages_complete
+  - Sat 21:39 · operator · ad rotation → page-finisher framing (Chief, on the big screen): from 21:46 every 10 min until 22:50: (a) '🏁 Page finishers on v10: Team 9 is one card from finishing Retiro… RET-09 (~100 P)…', (b) '…Team 15 needs MAL-09 and MAL-10 (~50 P each)…', then matchmaker non-rival pairs · previous ads: 21:24 RET-09 match, 21:36 t07 MAL-02 → t08 · duelist fine (wave 2: 6/6 deals, Chief) → opps restarted (CASH_FLOOR=350); bargains stays off (reactor covers it) · duel_points 19.47
+  - Sat 21:37 · operator · Chief 21:45: **hold cleared**, bots back on during Duels II at floor 350 (trader --cash-floor 350, book CASH_FLOOR=350 MIN_GAIN_SELL=2, opps CASH_FLOOR=350, swaps, bargains; no dealer threads) · the restart burst hit the shared 5 req/s (opps 21:34:59, duelmon 21:35 'rate_limited') → stopped opps + bargains (the reactor covers bargains keyless); trader + book + swaps stay · **SAL-11 bid 18605**: 115 P → t04 on v15 (value 162, first copy, exp tick 1305; t04 counter ≤ 125 auto-accepted by watcher bzahrz6s2; GUARDRAIL floor 260 for this buy)
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 30.96 | 3 | 23.46 | 7.50 | 18.08 | 0.48 | 0.89 | 53 | 5 | 392 | 38/50 |
+| 30.75 | 3 | 23.25 | 7.50 | 20.52 | 0.48 | 0.89 | 53 | 5 | 392 | 38/50 |
 
-Leaderboard (snapshot at tick 1270; refreshes every few minutes):
+Leaderboard (snapshot at tick 1280; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 10 | 37.97 | 25.47 | 12.50 | 55 |
-| 2 | Team 6 | 32.77 | 20.95 | 11.82 | 67 |
-| 3 | Team 5 | 30.96 | 23.46 | 7.50 | 53 |
+| 1 | Team 10 | 38.02 | 25.52 | 12.50 | 55 |
+| 2 | Team 6 | 33.20 | 21.38 | 11.82 | 67 |
+| 3 | Team 5 | 30.75 | 23.25 | 7.50 | 53 |
 | 4 | Team 3 | 30.26 | 24.40 | 5.86 | 31 |
-| 5 | Team 14 | 29.54 | 20.25 | 9.30 | 51 |
+| 5 | Team 18 | 29.80 | 22.30 | 7.50 | 37 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 13.00 | ~63 min | bench | The Market Test: every venue gets the same synthetic book |
-| 13.36 | ~85 min (after today's close) | day_closes | Closed until Sunday 09:00 |
-| 13.36 | ~85 min (after today's close) | day_opens | Sunday opens |
-| 14.65 | ~162 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
-| 15.00 | ~183 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
-| 16.65 | ~282 min (after today's close) | set_release | Chamberí released |
-| 16.65 | ~282 min (after today's close) | round | Round 3 starts |
-| 16.70 | ~285 min (after today's close) | grant_all | The Sunday allowance: 150 primas for everyone |
+| 13.00 | ~58 min | bench | The Market Test: every venue gets the same synthetic book |
+| 13.36 | ~80 min (after today's close) | day_closes | Closed until Sunday 09:00 |
+| 13.36 | ~80 min (after today's close) | day_opens | Sunday opens |
+| 14.65 | ~157 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 15.00 | ~178 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 16.65 | ~277 min (after today's close) | set_release | Chamberí released |
+| 16.65 | ~277 min (after today's close) | round | Round 3 starts |
+| 16.70 | ~280 min (after today's close) | grant_all | The Sunday allowance: 150 primas for everyone |
 
 ## Our dealer deals
 
@@ -102,19 +102,19 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 ## Duels
 
-Live: 6 · finished: 88
+Live: 6 · finished: 93
 
-- {"duel": 5662, "session": 3, "status": "deal", "role": "seller", "item": "La Sala Pentagrama", "issues": ["price", "days"], "your_days_weight": 5.45, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 79, "limit_meaning": "never sell below your cost", "rival": "Rival
-- {"duel": 5663, "session": 3, "status": "deal", "role": "buyer", "item": "La Sala Pentagrama", "issues": ["price", "days"], "your_days_weight": 1.08, "days_meaning": "each delivery day costs you this much cash", "your_limit": 72, "limit_meaning": "never pay above your value", "rival": "Rival Verde", 
-- {"duel": 5706, "session": 3, "status": "deal", "role": "buyer", "item": "La Dama de Serrano", "issues": ["price", "days"], "your_days_weight": 2.6, "days_meaning": "each delivery day costs you this much cash", "your_limit": 122, "limit_meaning": "never pay above your value", "rival": "Rival Rojo", "
-- {"duel": 5707, "session": 3, "status": "live", "role": "seller", "item": "La Dama de Serrano", "issues": ["price", "days"], "your_days_weight": 0.95, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 77, "limit_meaning": "never sell below your cost", "rival": "Rival
-- {"duel": 5736, "session": 3, "status": "deal", "role": "seller", "item": "La Dama de Serrano", "issues": ["price", "days"], "your_days_weight": 0.79, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 111, "limit_meaning": "never sell below your cost", "rival": "Riva
 - {"duel": 5737, "session": 3, "status": "deal", "role": "buyer", "item": "La Dama de Serrano", "issues": ["price", "days"], "your_days_weight": 2.37, "days_meaning": "each delivery day costs you this much cash", "your_limit": 78, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "d
 - {"duel": 5796, "session": 3, "status": "deal", "role": "seller", "item": "El Frutero de Argumosa", "issues": ["price", "days"], "your_days_weight": 2.1, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 93, "limit_meaning": "never sell below your cost", "rival": "Ri
-- {"duel": 5797, "session": 3, "status": "live", "role": "buyer", "item": "El Frutero de Argumosa", "issues": ["price", "days"], "your_days_weight": 5.03, "days_meaning": "each delivery day costs you this much cash", "your_limit": 98, "limit_meaning": "never pay above your value", "rival": "Rival Plat
-- {"duel": 5808, "session": 3, "status": "live", "role": "buyer", "item": "Fiesta de San Cayetano", "issues": ["price", "days"], "your_days_weight": 6.7, "days_meaning": "each delivery day costs you this much cash", "your_limit": 195, "limit_meaning": "never pay above your value", "rival": "Rival Luna
-- {"duel": 5809, "session": 3, "status": "live", "role": "seller", "item": "Fiesta de San Cayetano", "issues": ["price", "days"], "your_days_weight": 2.12, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 130, "limit_meaning": "never sell below your cost", "rival": "
-- {"duel": 5968, "session": 3, "status": "live", "role": "seller", "item": "Plaza del Dos de Mayo", "issues": ["price", "days"], "your_days_weight": 2.1, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 78, "limit_meaning": "never sell below your cost", "rival": "Riv
+- {"duel": 5797, "session": 3, "status": "deal", "role": "buyer", "item": "El Frutero de Argumosa", "issues": ["price", "days"], "your_days_weight": 5.03, "days_meaning": "each delivery day costs you this much cash", "your_limit": 98, "limit_meaning": "never pay above your value", "rival": "Rival Plat
+- {"duel": 5800, "session": 3, "status": "live", "role": "seller", "item": "La V\u00eda L\u00e1ctea", "issues": ["price", "days"], "your_days_weight": 3.98, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 77, "limit_meaning": "never sell below your cost", "rival": "
+- {"duel": 5808, "session": 3, "status": "deal", "role": "buyer", "item": "Fiesta de San Cayetano", "issues": ["price", "days"], "your_days_weight": 6.7, "days_meaning": "each delivery day costs you this much cash", "your_limit": 195, "limit_meaning": "never pay above your value", "rival": "Rival Luna
+- {"duel": 5809, "session": 3, "status": "deal", "role": "seller", "item": "Fiesta de San Cayetano", "issues": ["price", "days"], "your_days_weight": 2.12, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 130, "limit_meaning": "never sell below your cost", "rival": "
+- {"duel": 5812, "session": 3, "status": "live", "role": "seller", "item": "La V\u00eda L\u00e1ctea", "issues": ["price", "days"], "your_days_weight": 2.56, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 73, "limit_meaning": "never sell below your cost", "rival": "
+- {"duel": 5826, "session": 3, "status": "live", "role": "seller", "item": "La Sala Pentagrama", "issues": ["price", "days"], "your_days_weight": 3.79, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 72, "limit_meaning": "never sell below your cost", "rival": "Rival
+- {"duel": 5827, "session": 3, "status": "live", "role": "buyer", "item": "La Sala Pentagrama", "issues": ["price", "days"], "your_days_weight": 2.16, "days_meaning": "each delivery day costs you this much cash", "your_limit": 109, "limit_meaning": "never pay above your value", "rival": "Rival Plata",
+- {"duel": 5860, "session": 3, "status": "live", "role": "seller", "item": "Fiesta de San Cayetano", "issues": ["price", "days"], "your_days_weight": 1.16, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 114, "limit_meaning": "never sell below your cost", "rival": "
+- {"duel": 5968, "session": 3, "status": "deal", "role": "seller", "item": "Plaza del Dos de Mayo", "issues": ["price", "days"], "your_days_weight": 2.1, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 78, "limit_meaning": "never sell below your cost", "rival": "Riv
 - {"duel": 6094, "session": 3, "status": "live", "role": "seller", "item": "La Sala Pentagrama", "issues": ["price", "days"], "your_days_weight": 5.11, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 34, "limit_meaning": "never sell below your cost", "rival": "Rival
 
 ## Dealers
