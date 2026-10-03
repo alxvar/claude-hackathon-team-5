@@ -47,6 +47,12 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    deal/no-deal + item) → `intel/score-model.md` · **15:30** you decide the changes · **17:00** coded + tests green
    (your Builder) · **17:45** restart, before Duels II at ~18:29 (days: check the console's day reading on the first
    duel) · no code changes while a scored session is live.
+11. **CRITICAL, 12:08 (Analyst [V]): duels are 40% of Saturday Negotiating** (the rest is scaled to 0.6 once duels
+   score; the full duel part = 12 Saturday pts = 8.0 board, graded vs the field leader: t12 is at 12.0). At snapshot 470
+   ours is 6.5/12 from 2 deals (2296 seller 97 vs cost 87 after 6 rounds; 2297 buyer 161 vs value 175 after 4 rounds):
+   decay took ~22-31% of each surplus [L, n=2]. Field: t12 12.0 · t09 10.5 · t08 10.2 · t18/t01 7.9 · t13 7.4 · us 6.5.
+   Your tripwire (rounds per deal > 4) is already tripped on n=2. Your call: soften the opener / take in-limit offers
+   sooner between waves, or wait for 2 more waves. A no-deal is now a full share of an 8-board component lost.
 
 **Dani: the desk, the page-gap desk, the judges' story.**
 1. **09:00, organisers' desk**: the 8 questions in plan §3, answers in `team/dani.md` at once.
