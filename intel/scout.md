@@ -1,26 +1,25 @@
-# Scout (claude-sonnet-5-5, Sat 20:22)
+# Scout (claude-sonnet-5-5, Sat 20:27)
 
 ## Top 3 actions now
-1. **Hold all writes until the Chief clears the 20:16 pause (tick 1201, ~10 min).**
-   - Owner: Operator; the restart job waits on `duels.finished` or tick ≥ 1439.
-   - Evidence: the standing asks stay posted. MAL-08→t01 at 20 (17392) expires at tick 1217 and MAL-02→t08 at 40 (17650) at 1214. They may lapse during the pause, since the server counts ticks.
-   - Effect: none by itself. Confidence: high.
-2. **On resume, re-post MAL-08 → t01 at 20 as maker (v15).**
-   - Evidence: our value is 17.5, so the gain is +2.5 (offer 17392). t01 is #11 at 23.8, so selling feeds no rival. t12 sold MAL-08 to t04 at 14 (tick 1142), so 20 is above the recent clearing price.
-   - Effect: ≈ +2.5 neg, before pack drag. Confidence: med.
-3. **Offer our two spare LAV-02 copies (1.3 each) to t16 at 3 P, addressed, as maker on v15.**
-   - Evidence: t13→t16 LAV-02 at 3 P (tick 1194), so t16 may lack it. t16 is #15 at 22.5, well below us and far from page closing.
-   - Effect: ≈ +1.7 neg per copy. It is small, and whether t16 still lacks LAV-02 is not in the data. Confidence: low.
-
-The metrics show no buyer above our value + 3 who passes the feeding rule. Nothing bigger is open.
+1. **Pause: hold all writes, but have Dani point t08 at our live MAL-02 ask (offer 17650, 40 P).** The Operator's hold-writes flag stays until the Chief clears it. Dani does this in person at the front, since the game is paused at tick 1201 and the offer expires at tick 1214.
+   - Evidence: our copies of MAL-02 are worth 7 each, so a fill at 40 is about +33 neg_points as maker (no fee). t08 is #14 (23.5, 8.1 below us), so the feeding rule passes.
+   - Effect: about +33 neg_points ≈ +1.6 board at 0.05 board per neg_point [L]. Confidence: low, because 40 is far above t08's usual uncommon price of 22.5 and the target is unproven.
+2. **Dani nudges the four small addressed asks to fill.** The Operator keeps them live; no repricing is needed.
+   - Offer 17392: MAL-08 → t01 at 20 (our value 17.5, +2.5).
+   - Offers 17586 (LAV-04) and 17660 (LAV-03, to t04), both at 6 (second copies worth 3.2, about +2.8 each).
+   - Offer 17696: MAL-03 → t09 at 9 (value 7, +2).
+   - Evidence: t01, t04 and t09 are all 10+ points below us (23.7, 23.6, 21.3). Effect: about +10 neg_points in total. Confidence: med.
+3. **Market lever: the Chief or Dani asks the organisers what "Payday, tips" changes, and Market re-scores v10 within 10 minutes of the answer.** This follows the 18:40 contingency directive.
+   - Evidence: we are #3 with 31.6 against t10's 34.0 and t6's 32.6, and the directives call market the decisive gap. Our neg_points are flat at 119.1 across the last 15 minutes.
+   - Effect: not in the data. Confidence: med on the process, low on the outcome.
 
 ## What the climbing teams are doing
-- **Team 2 (+2.6 in 15 min, +2.5 in 60 min)**: bought MAL-10 (rare) from t13 at 30 P (tick 1191), far below the rare clearing price of ~70. It also buys RET×3 and MAL×3. The gain comes from taking cheap cards from a dumper.
-- **Team 13 dumps** LAT/LAV/MAL widely: SAL-07 to t09 at 18, LAV-02 to t16 at 3, MAL-10 to t02 at 30. Its bids sit at 2 P for commons and 15 P for LAV-06/07 uncommons. Selling to it at 2 P is not worth it.
-- **Team 10 (#1, 34.0, +1.9 in 60 min)** collects LAV/RET and bought RET-03 from t06 at 12 (tick 1033). t06→t07 sold RET-10 at 77 (tick 1186), a market price for a rare.
-- **Teams 12 and 15 (+1.0 and +1.1 in 60 min)** trade volume in LAT: t15→t12 LAT-09 at 55 and LAT-07 at 14, t12→t09 LAT-08 at 10. Their gains are small and steady.
+- **Team 2 (+2.6 in 15 min, +2.5 in 60, #9 at 25.1):** it bought MAL-10 from t13 at 30 (tick 1191) and RET-09 from t6 at 84 (tick 504). It is a RET collector with 40 dealer trades and no page closer under our feeding rule.
+- **Team 10 (#1, 34.0, +1.9 in 60 min):** its team trades are few (12) against 40 dealer trades. It sits on the venue we flagged as a rival's, and its lead over us is 2.4.
+- **Team 6 (#2, 32.6, +1.1 in 60):** 30 team trades. It sells RET rares to low teams: RET-10 to t07 at 77 (tick 1186) and RET-09 to t12 at 84 (tick 895). It is a buyer-side collector of SAL.
+- **Team 12 (+1.0 in 60 min):** it buys across LAT, MAL and RET. Examples: LAT-09 from t15 at 55 (tick 1101) and MAL-08 from t12 to t04 at 14 (tick 1142). Its 64 deals are the most of any top-10 team.
 
 ## Threats
-- **Team 10 leads by 2.4 and Team 6 by 1.0** (34.0 / 32.6 vs our 31.6). Team 3 (30.0) is 1.6 behind us, with the highest negotiating score earlier (24.49).
-- **Our ladder is capped** (0.437, board flat). We have 119.1 neg_points with no new lever: flags and the ladder are spent. The live levers are team trades, v10 value created and Duels II.
-- **Team 14 is #5 (29.9) and Team 18 is #6 (29.9)**, 1.7 below us. Under the DENY rule, Dani and the Chief watch for a last page card to either of them, via t18's RET bids and t14's LAV/RET buying. No single card is identified in the data.
+- **Gap to the top:** t10 is 2.4 ahead and t6 is 1.0 ahead. t3 (30.0, +0.3) and t14 (29.9) are within 1.7 behind us, so any score drop hands them #3.
+- **Team 7 is closing RET:** it bought RET-09 at 66 and RET-10 at 77 (ticks 1125 and 1186), plus RET×8 overall. It is at 21.2, so it is not a ranking threat, but RET rares are gone from t6/t4.
+- **Flat score and no ladder or flag levers left:** our neg_points are flat at 119.1 and the pause holds our writes. Rivals with 50+ deals (t12 64, t6 59, t15 61) keep drifting up while we idle.
