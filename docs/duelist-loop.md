@@ -33,9 +33,52 @@ Full suite green on the branch._
 - The strategist prompt names some constants (`LATE_SWITCH_LEFT`, `DAY_SAME_SIDE_P`). A new value reaches the prompt
   of duels that start after it, and code rules at once.
 
-## 2. The wave loop (`tools/duel_loop.py`)
+## 2. The wave loop (`tools/duel_loop.py`, `tools/duel_sim.py`)
 
-_(filled in below when the build lands)_
+Plain `python3`, stdlib only. It reads the duelist's constants from the source files, so the checkout it runs in
+defines "today". The Duel Lab simulator is copied in unchanged as `tools/duel_sim.py`.
+
+```bash
+python3 tools/duel_loop.py run --dry            # the latest closed wave: print only
+python3 tools/duel_loop.py watch                 # every 60 s: a newly closed wave → intel/duel-loop.md
+python3 tools/duel_loop.py approve --by Aleks    # THE one command: merge the proposal into run/duel_params.json
+python3 tools/duel_loop.py approve --proposal intel/duel-loop.md --only MAX_STEP_SHARE --by Aleks   # after a pull
+python3 tools/duel_loop.py revert --by Aleks     # back to today's constants
+```
+
+- **Waves:** grouped from `docs/duels` records. Within a session, duels are taken in start order and cut by
+  `max_concurrent` (or the first tick's starts). A wave is closed once every duel in it has its final payload.
+- **Summary:** deals, rounds, result vs surplus, decay lost, share (pie from the score jumps, when known), day outcomes
+  and what the settled day cost, in-limit offers missed, and latency (model vs code, fallbacks).
+- **Simulator comparison:**
+  - It evaluates today's params, mapped to the simulator's keys, in the four worlds at the session's ticks and decay,
+    and picks the world closest to the observed wave.
+  - In that world it tries ±1 step on `MAX_STEP_SHARE`, `MIN_STEP_SHARE`, `HOLD_TICKS`, `SILENT_KEEP`, `ACCEPT_BY`
+    and `OPENER_SHARE`. Each is paired against today.
+  - It keeps only tweaks whose 95% CI is above 0 and that pass `params.validate` plus the cross-checks.
+  - The best ones are proposed together if the set also wins.
+- **Never applied by itself.** `approve` validates, refuses on any error, writes atomically, and leaves a `_note`
+  with the wave, time and approver.
+- **Blocked moves:** `ACCEPT_BY` down is shown with its gain but never proposed. The simulator never has an accept
+  refused, and at 1 no spare tick is left.
+- **Latest real wave** (Duels II wave 3.10, run tonight):
+
+  | | Deal rate | Rounds | Score per duel |
+  |---|---|---|---|
+  | Observed, this wave | 0.83 | 3.6 | 0.18 (est.) |
+  | Observed, session so far | 0.85 | 3.7 | 0.34 |
+  | Closest world W3, predicted | 0.91 | 3.9 | 0.34 |
+
+  - **Proposal: `MAX_STEP_SHARE` 0.25 → 0.22** (+0.0014 ± 0.0013 a duel). That runs against your "close faster"
+    change, a40ced6, and is your call.
+  - `ACCEPT_BY` 2 → 1 (+0.0077) is blocked.
+  - Rule notes: decision p90 12.5 s is over the 10 s budget; a silent rival ended with no deal; 2 deals settled on a
+    day costing us 15 P or more.
+- **Honest limits:**
+  - The simulator is price-only, and the world distances are close.
+  - About 10 tweaks are tested at 95%, so expect about 0.5 false positives per run.
+  - The share is known for only a few deals per wave.
+  - Treat proposals as small nudges, not findings.
 
 ## 3. Latency and the code-first policy (`agents/duelist/policy.py`)
 
