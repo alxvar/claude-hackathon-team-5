@@ -46,6 +46,11 @@ GAP_S, DRY_GAP_S = 0.25, 1.0  # seconds between requests, value lookups included
 FIRST_COUNTER = 0.55  # buy: open at 55% of her first ask; sell: ask her first bid / 0.55
 STEP = 0.3           # each counter closes 30% of the gap, at least 1 P
 LOG = ROOT / "logs" / "dealers" / f"abuela-{time.strftime('%Y%m%d-%H%M%S')}.jsonl"
+STATE = ROOT / "run" / "dealers.json"  # per dealer, across runs: the tick our last conversation closed; a pause
+REOPEN_TICKS = 10    # never open a conversation with a dealer sooner than this after the last one closed (Sat 09:47:
+                     # a walk on thread 367, then thread 373 with her 5 s later)
+SILENT_TICKS = 4     # our word is the last and she hasn't said anything for this many ticks: close, pause her
+SILENT_PAUSE_S = 30 * 60
 
 TEXTS = {
     "buy": [
@@ -140,6 +145,40 @@ def her_price(offer: dict, side: str) -> int:
     return int(want if side == "buy" else give)
 
 
+class DealerPaused(Exception):
+    pass
+
+
+def _dealers() -> dict:
+    try:
+        return json.loads(STATE.read_text())
+    except (OSError, ValueError):
+        return {}
+
+
+def _note(dealer: str, **fields) -> None:
+    st = _dealers()
+    st.setdefault(dealer, {}).update(fields)
+    STATE.parent.mkdir(parents=True, exist_ok=True)
+    tmp = STATE.with_suffix(".tmp")
+    tmp.write_text(json.dumps(st))
+    tmp.replace(STATE)
+
+
+def gate(b) -> None:
+    """Before a new conversation with DEALER: refuse while she is paused for silence (DealerPaused: the run halts),
+    and wait until REOPEN_TICKS have passed since our last conversation with her closed."""
+    s = _dealers().get(DEALER, {})
+    while True:
+        tick = b.clock()["tick"]
+        if s.get("paused_until_tick") is not None and tick < s["paused_until_tick"]:
+            raise DealerPaused(f"{DEALER} is paused until tick {s['paused_until_tick']} (she went silent)")
+        if s.get("closed_tick") is None or tick - s["closed_tick"] >= REOPEN_TICKS:
+            return
+        log({"event": "reopen_wait", "dealer": DEALER, "closed_tick": s["closed_tick"], "tick": tick})
+        b.wait_tick()
+
+
 def negotiate(b: Bazaar, topic: dict, side: str, cap: int, tid: int = None, fast: bool = False) -> dict:
     """side 'buy': cap = the most we pay. side 'sell': cap = the least we take.
     With `tid`, pick up an open conversation where it stands. An exception closes the conversation (best effort: an
@@ -149,6 +188,7 @@ def negotiate(b: Bazaar, topic: dict, side: str, cap: int, tid: int = None, fast
     resume = tid is not None
     try:
         if tid is None:
+            gate(b)
             tid = b.open_thread(DEALER, topic=topic)["id"]
         return _haggle(b, tid, topic, side, cap, fast, resume, accepted)
     except BaseException as e:
@@ -164,6 +204,12 @@ def negotiate(b: Bazaar, topic: dict, side: str, cap: int, tid: int = None, fast
         if not isinstance(e, Exception):
             raise
         return {"id": tid, "status": "error", "error": repr(e)[:300]}
+    finally:
+        if tid is not None:                       # the REOPEN_TICKS gate counts from here
+            try:
+                _note(DEALER, closed_tick=b.clock()["tick"])
+            except Exception as e:
+                log({"event": "note_failed", "thread": tid, "error": repr(e)[:200]})
 
 
 def _haggle(b, tid, topic, side, cap, fast, resume, accepted):
@@ -181,12 +227,25 @@ def _haggle(b, tid, topic, side, cap, fast, resume, accepted):
                 ours = int(o.get("give", {}).get("cash", 0) if side == "buy" else o.get("want", {}).get("cash", 0))
                 turn += 1
     log({"event": "open", "thread": tid, "topic": topic, "cap": cap, "her_first": first, "ours": ours})
+    heard, quiet = None, 0
     while True:
         t = b.thread(tid)
         if t["status"] != "open":
             log({"event": "end", "thread": tid, "status": t["status"], "reason": t.get("closed_reason"),
                  "her_first": first, "ours_last": ours})
             return t
+        msgs = t.get("messages") or []            # one pass of this loop per tick
+        n_hers = sum(1 for m in msgs if m.get("sender") == DEALER)
+        waiting = not msgs or msgs[-1].get("sender") != DEALER     # our word (or nothing yet) is the last
+        quiet = quiet + 1 if waiting and n_hers == heard else 0
+        heard = n_hers
+        if quiet >= SILENT_TICKS:
+            b.close_thread(tid)
+            c = b.clock()
+            until = c["tick"] + math.ceil(SILENT_PAUSE_S / float(c.get("tick_seconds") or 30))
+            _note(DEALER, paused_until_tick=until)
+            log({"event": "silent_dealer", "thread": tid, "quiet_ticks": quiet, "paused_until_tick": until})
+            return {**t, "status": "closed", "closed_reason": "silent dealer"}
         hers = [o for o in t.get("standing_offers", []) if o.get("maker") == DEALER and o.get("status") == "open"]
         if not hers:
             b.wait_tick()

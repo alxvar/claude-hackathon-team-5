@@ -63,6 +63,7 @@ class FakeGame:
 @pytest.fixture
 def bot(tmp_path, monkeypatch):
     monkeypatch.setattr(ab, "LOG", tmp_path / "abuela.jsonl")
+    monkeypatch.setattr(ab, "STATE", tmp_path / "dealers.json")
     monkeypatch.setattr(ab, "should_hold_accept", lambda b, tick=None: (False, "no live duel"))
     monkeypatch.setenv("BAZAAR_KEY", "test-key-not-real")
     return ab
@@ -182,9 +183,13 @@ def test_dry_run_starts_nothing(bot, monkeypatch, capsys):
 class FakeThread:
     """A dealer conversation. `fail` raises inside the haggling loop."""
 
-    def __init__(self, fail=None, accept_then_fail=None):
+    def __init__(self, fail=None, accept_then_fail=None, tick=1000):
         self.fail, self.accept_then_fail = fail, accept_then_fail
         self.closed, self.accepted, self.opened = [], [], []
+        self.tick = tick
+
+    def clock(self):
+        return {"tick": self.tick, "tick_seconds": 30.0}
 
     def open_thread(self, with_, topic=None):
         self.opened.append(topic)
@@ -202,6 +207,7 @@ class FakeThread:
     def wait_tick(self):
         if self.accept_then_fail:
             raise self.accept_then_fail
+        self.tick += 1
         return {}
 
     def close_thread(self, tid):
@@ -300,3 +306,46 @@ def test_a_refused_accept_waits_a_tick_and_asks_the_duel_arbiter_again(bot, monk
     t = bot.negotiate(b, {"buy": {"card": "RET-01"}}, "buy", 10)
     assert t["status"] == "deal" and b.accepted == [5] and b.closed == []   # not closed as an error
     assert len(asked) == 2 and "accept_waits" in events(bot)              # the retry went through the arbiter
+
+
+# ------------------------------------------------------------------------------------------------ re-open gate, silence
+
+class Silent(FakeThread):
+    """She never answers: the thread shows only our opening counter, and no standing offer."""
+
+    def __init__(self, **kw):
+        super().__init__(**kw)
+        self.waits = 0
+
+    def thread(self, tid):
+        if tid in self.closed:
+            return {"status": "closed", "messages": [], "standing_offers": []}
+        return {"status": "open", "messages": [{"sender": "us", "offer": {"want": {"cash": 5}}}], "standing_offers": []}
+
+    def wait_tick(self):
+        self.waits += 1
+        if self.waits > 20:                        # the old loop waits forever: fail the test instead of hanging
+            raise RuntimeError("still waiting after 20 ticks")
+        return super().wait_tick()
+
+
+def test_a_new_conversation_waits_10_ticks_after_the_last_one_closed(bot):
+    # Sat 09:47: we walked from Abuela on thread 367 and opened thread 373 with her 5 s later.
+    bot._note(bot.DEALER, closed_tick=995)
+    b = BusyTick()
+    b.refused, b.tick = True, 1000                                       # her final 9 is accepted at once: a deal
+    bot.negotiate(b, {"buy": {"card": "RET-01"}}, "buy", 10)
+    assert b.opened and b.tick >= 1005                                   # opened at 1005, 10 ticks after 995
+    assert "reopen_wait" in events(bot)
+    assert bot._dealers()[bot.DEALER]["closed_tick"] >= 1005             # the gate counts from this close
+
+
+def test_a_silent_dealer_is_closed_and_paused_30_minutes(bot):
+    b = Silent(tick=2000)
+    t = bot.negotiate(b, {"buy": {"card": "RET-01"}}, "buy", 10)
+    assert t["status"] == "closed" and b.closed == [42]
+    assert bot._dealers()[bot.DEALER]["paused_until_tick"] == b.tick + 60   # 30 min at 30 s ticks
+    assert "silent_dealer" in events(bot)
+    b2 = FakeThread(tick=b.tick + 10)
+    t2 = bot.negotiate(b2, {"buy": {"card": "RET-02"}}, "buy", 10)        # still paused: no new conversation
+    assert t2["status"] == "error" and "paused" in t2["error"] and b2.opened == []
