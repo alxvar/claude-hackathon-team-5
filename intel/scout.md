@@ -1,34 +1,18 @@
-# Scout (claude-sonnet-5-5, Sat 20:48)
+# Scout (claude-sonnet-5-5, Sat 20:54)
 
 ## Top 3 actions now
 
-1. **Sell the LAV-04 and LAV-03 spares to t04 (v15, maker) and keep only non-rival buyers.**
-   - Standing asks: 17660 LAV-03 → t04 at 6, 17586 LAV-04 → t01 at 6. Operator: leave them live, since the Operator's writes are held until the Chief clears them.
-   - Evidence: t04 (#13, 23.6) is 8 points below us, and the rivals sheet marks it "buyer for RET/LAV". The spares are worth 3.2 each to us.
-   - Effect: about +3 neg_points per card, with 0 fee as maker. Small gain, no feeding risk.
-   - Confidence: med.
-
-2. **Use the new 520 P to bid on RET/LAV rares from teams only, at or below our value.**
-   - t06 sold RET-10 to t07 at 77 (tick 1186), and t04 sold RET-09 to t07 at 66 (tick 1125). Both sold below the 70-77 band.
-   - Our RET-09/10 are already held, so only a 2nd copy at 25% would be worth buying. No live card is worth buying at the current asks.
-   - Action: do not take the RET-09 ask at 84 (t-unknown). A 2nd copy is worth about 37 to us, so paying 84 would be a loss.
-   - Expected effect: avoids a loss of about −45 neg. Hold the cash for Sunday's CHA page (CHA 1.6, released Sunday).
-   - Confidence: high.
-
-3. **Check the t10 LAV-11 bid at 205 P (offer 17778) before anyone sells to it.**
-   - Pilar's epic price is 187. t10 is #1 (34.0) and collects LAV/RET.
-   - We hold no LAV-11 (not in our holdings). Do not feed t10 or route anything to it.
-   - Action: Dani asks t09/t13 holders not to route LAV-11 to t10. Operator: no action.
-   - Effect: denies the leader about +2.4 board, which is Lucas's DENY rule. It costs us nothing.
-   - Confidence: low, because the holder of LAV-11 is not in the data.
+1. **Sell nothing to the top 4; hold the complete pages.** Leaderboard: us #3 31.6, t10 34.0, t6 32.6, t3 30.0, t14 29.9, t18 29.9. The gap to #1 is 2.4. Feeding rule: `intel/teams.md` shows "no buyer passes the feeding rule above our value + 3". Executor: Operator holds. The 5 open asks (17392, 17586, 17650, 17660, 17696) go to t01, t08, t04 and t09, none of them top-4, so they can stay. Confidence: high. Effect: 0 neg_points at risk.
+2. **Take t09's open bids with spares only if we gain.** t09 bids MAL-09/MAL-10 (rare) at 56, SAL-06 at 20 and MAL-06 at 20. We hold no MAL-09/10 (MAL-06/07/09/10 are missing). Our spare MAL-08 (uncommon, worth 17.5) is on offer to t01 at 20 (17392). Not in the data: whether t09's MAL-06 bid at 20 can take MAL-08. Action: the Operator re-addresses 17392 to t09 at ≥ 20 and cancels the t01 offer only if the Chief confirms t09 is not a rival (t09 is #16, 21.3). Expected effect: ~+2 neg for a cash 20 sale (gain vs our value 17.5, clipped 0 if a dealer, but a team sale scores). Confidence: med.
+3. **Cheap spare dumps to non-rivals with 520 P cash.** Our spares LAV-02 (×3, worth 1.3 each) and LAV-03/04 (3.2) are worth almost nothing to us. t13 bids 2 P for RET/LAT commons, and t13 (#11, 24.6) is not a rival. RET-01..05 are our page cards, worth 83.9 each, so don't sell them. Action: Operator lists LAV-02 spares at ~3 on El Rastro (the t16 trade at 3 P, tick 1194, is the price signal). Expected effect: ~+1-2 neg per sale as maker. Confidence: low. This is minor; the main lever stays v10 value created and Duels II.
 
 ## What the climbing teams are doing
-- **Team 2 (+2.6 over 15 min, #9):** it bought MAL-10 from t13 at 30 (tick 1191) and is a RET buyer (RET×3, MAL×3). Page closes on cheap cards are lifting it.
-- **Team 7 (RET collector):** it has bought RET×8 and LAV×7, including RET-10 at 77, RET-09 at 66 and RET-08 at 24. It is accumulating RET rares below 80 and is #17, so it does not threaten us.
-- **Team 10 (#1, 34.0):** it has 12 team trades but 40 dealer trades, and listed 427 offers. It leads on market-making, which our own notes say v10 vs v07 decided.
-- **Team 13:** it dumps cheap cards (LAV-02 at 3, SAL-07 at 18, MAL-10 at 30) and lists 779 offers. It uses volume to feed buyers, and it hands value to t09, t16 and t02.
+- **t2 (+2.6 over 15 min, #9):** buys RET (RET×3, MAL-10 from t13 at 30 P at tick 1191). It is moving cheap rares from the dump teams (t13).
+- **t7 collects RET heavily (RET×8, LAV×7):** RET-09 from t4 at 66 (tick 1125) and RET-10 from t6 at 77 (tick 1186). t7 is #17 at 21.2, so it is not a threat to the leaders.
+- **t6 (#2, +0.2):** sells RET-10 at 77 to t7 and RET-09 earlier at 84. It is also the most active team with 59 deals, and it is the one to watch.
+- **t10 (#1 at 34.0, 52 deals, bid LAV-11 at 205 P):** it uses the payday cash for epics. Don Ernesto's vault and Los Pícaros' epics are the stated payday targets.
 
 ## Threats
-- **t10 and t06 hold #1 and #2** (34.0 and 32.6). We are #3 at 31.6, only 1.0 behind t06. Any rare trade they close lifts them and drops us.
-- **t09 is bidding for MAL-09/10 at 56** and for SAL-06/MAL-06 at 20. It is #16, so it is not a rival. Our MAL-06/09/10 are gone or missing, so there is nothing to sell it.
-- **Payday gave every team 400 P**, so rivals can now afford page closers. Watch the t14 and t06 closes (Lucas's DENY line).
+- **Payday (+400 P to every team)** lets rivals afford page closers. t14 and t18 (29.9 each) are 1.7 behind us, and t3 is 1.6 behind. Watch the Chief's DENY line for a last-card page closer.
+- **t10's epic bid at 205 P (LAV-11)** versus the 140 P a dealer pays: a rival is using the payday cash. We hold no epic, and a bid of ours would have to beat 205. Not worth chasing.
+- **The ladder is capped for us** (negotiating flat at 21.88 over 0.373 → 0.437). Don't spend payday cash on dealer deals for the ladder.
