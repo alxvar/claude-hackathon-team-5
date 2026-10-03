@@ -201,13 +201,16 @@ in 6 worlds, paired seeds. The baseline lands on 0.423, against the Lab's 0.421 
    P in worth (0.12 × gap ≥ 8). Otherwise it waits for the last 3 ticks and the deadline accept. That is what the Lab
    simulated. In Duels II it would have held or raised 12 closing offers, and C holds more. Watch the deal rate; the
    switch rule is the insurance.
-5. **An unreadable day weight under code** (low probability, high cost). Code treats the day as free and can accept
-   past the true limit. The patch hands such a duel to the models. When the models fail, `safe_move` still treats the
-   day as free.
+5. **An unreadable day weight under code** (low probability: every Duels II duel's weight was readable; high cost).
+   Code treats the day as free.
+   - **Fuzz** [L]: 5 accepts below the true limit and about 490 offers past it per 6,000 such duels.
+   - **The patch mitigates, it doesn't fix:** it hands the duel to the models, but when the models fail or time out,
+     `safe_move` still treats the day as free.
+   - **Watch the log** for a days duel whose weight isn't read.
 6. **A missing params file at start plays "today" silently.** Only on a start that bypasses the script. Fixed by the
    patch.
-7. **The LLM-path residuals (only with `POLICY=llm`).** Late day flips and the give premium pass the guards, and
-   failover 8 is above the Lab's 6.
+7. **The LLM-path residuals (only with `POLICY=llm`).** Late day flips and the give premium pass the guards. At
+   `--failover-s 8`, the backup gets about 2 s of the 10 s budget.
 8. **The one-duelist check is local only,** and the lock is per checkout. Confirm in the team chat that nothing else
    runs on the team key.
 9. **A failed `git fetch` blocks a restart.** Fixed by the patch for a pinned sha.
@@ -227,12 +230,15 @@ What it changes:
   - seller opener 0.42;
   - the `Params` stamp sentinel;
   - code policy hands an unreadable-weight days duel to the models;
-  - three test lines.
+  - four test lines.
 - **Tested:**
+  - the suite: 576 passed;
+  - the set C replays: 0 flags;
   - `--check`: clean, it passes. With a dummy duelist running, it aborts at step 1 and the params stay on A. With the
-    fetch failing on a pinned sha, it continues.
+    fetch failing on a pinned sha, it continues;
   - `--rollback`, in a throwaway clone: with a code edit, it aborts with both dummies still alive. With no `.env`, it
     aborts before stopping anything.
+- **Not tested:** the patched rollback's start itself, and the A and today replays on the patched code.
 
 <details><summary>the diff</summary>
 
