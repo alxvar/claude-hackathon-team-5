@@ -1,20 +1,26 @@
-# Scout (claude-sonnet-5-5, Sat 16:09)
+# Scout (claude-sonnet-5-5, Sat 16:15)
 
 ## Top 3 actions now
-
-1. **Sell the spare commons to Team 7 (#17-ish, safe) at ~9-10, via the Operator's book.** Metrics table: LAT-04 +6.3, RET-04 +4.7, LAV-02/03/04 +4.3 each, price est. 9.5. Evidence: t07 collects RET/LAV/LAT, and the metrics show it bought LAV×5. Limit: Team 7 is not in the top 5, but check the gap to us before sending. Note that LAV-03 is already offered to t09 at 6 and LAV-04 to t03 at 6 (offers 9926, 9862). Replace those with an ask of ~9 addressed to t07, and cancel the old ones first. Effect: about +4 neg_points per card. Confidence: med (the 9.5 price is an estimate, not a bid).
-
-2. **Reprice the low asks: MAL-02 and MAL-05 to t15 (9, offers 10095/10215) are fine. Raise SAL-02 (5, t16, offer 9863) and SAL-01 (6, t16, offer 10377).** Evidence: t08 bids 5 for commons, and there are asks at 12 for SAL-04. Both SAL commons are worth 2.2 to us, so 5-6 is still a gain. Expected effect: about +3 each if they fill, no fee when the maker is us. Confidence: low-med.
-
-3. **Hold MAL-09 (rare, worth 49) and do not sell it to Team 10.** Evidence: t10 (#4) offered SAL-10 for MAL-09, and the Operator suspects it is their MAL page-closer worth +50 to them. Policy bars it. If we want to sell at all, the only gain is price − 49. Effect: avoids feeding #4. Confidence: high.
+1. **Sell spare commons to Team 7 (#17, 10.6 below us).** Offer our spare LAV-02, LAV-03, LAV-04 and RET-04 at ~9 each, as maker, addressed to t07. Executor: Operator via `trade.py`. Run `python3 tools/policy.py can-give <REF>` first: it said LAV-02 YES, LAV-03/04 and RET-04 NO.
+   - Evidence: Dani's table shows gains of +4.3 to +4.7 each at an estimated 9.5.
+   - Caveats: the price is an estimate, not a live bid; t07 has few trades, and t07 collects RET/LAV/LAT.
+   - Effect: about +4 neg_points per card (≈ +0.4 board). Confidence: med for LAV-02 only, low for the others until the policy check clears them.
+2. **Fill the empty ladder slots with dealer sells at or above our value.** Our ladder is 0.2, with the second L2 slot filled at 14.
+   - Spare MAL-06 (17.5, policy YES): sell to Pilar at ≥ 19. Step our ask −2/−3 from ~30 and let her climb; never jump to her bid. Pilar MAL-06 earlier gave +0.040 with small steps. Executor: `abuela_bot.py --dealer pilar`, alone in its window, offer-only close.
+   - Salamanca fever (Pilar +25% over book, 18:03-20:03) is the window for SAL-08 (reserved, worth 22.5) and any SAL bought below value.
+   - Effect: ladder +0.02 to +0.04 per good L3 deal (≈ +0.7 to +1.3 board at +0.01 ≈ +0.33 board), neg 0. Confidence: med.
+3. **Place a bid on Team 3's LAT-09 ask (rare, ~88 P bid, asks at 135) only if we hold no LAT page.** LAT is our lowest multiplier (0.5), so this is not for us. Instead, sell into the live bids for cards we hold and don't need.
+   - t03 bids 88 for LAT-09 (offer 10700); we don't hold it. t06 bids 68 for SAL-09 and t04 bids 65 for RET-10. We hold RET-10 (149.9 to us), so we do not sell it.
+   - Real action: let the open bids (10569 SAL-07 20, 10570 MAL-08 15, 10572 LAT-02 3) run to tick 772. Reprice only if they have not filled by ~tick 745.
+   - Effect: small, +2 per fill. Confidence: low.
 
 ## What the climbing teams are doing
-- **Team 6 (#9, +1.0 in 15 min):** 19 team trades, collects SAL, dumps MAL/LAT/LAV. It is moving cards to the teams that value them: LAT-02 to t06 at 4 (tick 648).
-- **Team 15 (#14, +1.2 in 30 ticks):** 22 team trades, the most volume of the low teams. It does 0 P card-for-card swaps with t07 (RET-02 ↔ LAV-04, LAT-05 ↔ SAL-08). Swaps score for both sides without cash.
-- **Team 13 (#6, +0.6 in 15 min):** 57 deals, 454 listings, and the lending pitch. We refuse it per the directives.
-- **Team 4 (#10):** buys RET×5, MAL×4 and LAV×3. At ticks 645-686 it bought RET-08 at 27, RET-06 at 26 twice, and sold RET-06 at 28 to t09. It is flipping RET uncommons, and we hold RET-06/07/08.
+- **Team 1 (+1.2 / 15 min, #6) with only 19 deals:** it buys MAL×4 and SAL×4 from teams. That is few deals but cheap, clean value gains.
+- **Team 6 (+1.0, #9) and Team 17 (+0.8, #7):** t17 buys MAL×4 and SAL×3. Team 6 sells to us (MAL-01 at 5 at tick 714) and lists 305 cards, so volume and low-multiplier dumping is its engine.
+- **Team 15 (+1.2 in Dani's profile, 22 team trades):** it buys LAT×6, MAL×4, RET×3 and SAL×3 and posts many small deals. It is a safe counterparty.
+- **Team 14, #1 at 30.1:** its score is falling (−0.2 / −0.6). Its lead is one value-created trade, so the board is compressing.
 
 ## Threats
-- **Board is compressed:** t14 30.3, t12 29.8, t18 29.3 and t10 28.6 versus our 28.3. Any gift to them is a net loss for us.
-- **Team 4 and Team 2 bids for RET-10:** t04 bids 65 on RET-10, and our two RET rares are each worth 149.9 to us. Keep them. t03 bids 88 for LAT-09, which we don't hold.
-- **Team 13 (#6, 57 deals):** it is lobbying every team to trade on its venue v03. Trades there feed its market-making score. Avoid v03.
+- **Team 10 (#4, 29.1, +0.4)** is chasing a MAL page. It bid for our MAL-09 via its SAL-10 swap offer. Never give it MAL-09 (reserved); our bids on v07 help only its capped market score.
+- **Team 4 bids 65 for RET-10** (offer 9866) and Team 2 pays 84 for RET-09. Rare demand for RET is rising, so Chato's 86-87 sale price is no longer a bargain. Page-closer sales are only allowed to teams ≥ 6 below us.
+- **Team 13 (#8, 58 deals, 2 P bids on RET-01..04)** is trying to pick up our RET commons at dump prices. Do not sell it anything. Team 17 is also barred (Lucas's 15:55 policy).
