@@ -798,6 +798,11 @@ class DuelAgent:
         most = MAX_STEP_SHARE * (now - worth(self.view, theirs.price, theirs.days))
         if step > most:                           # cut to MAX_STEP_SHARE of the gap, rounded toward us
             price = toward_us(self.s, price_at(self.view, now - most, days))
+            if price < 1:                         # a costly day ate the cut price (6095: 0 P on day 10): our day
+                days = ours.days
+                price = toward_us(self.s, price_at(self.view, now - most, days))
+                if price < 1:
+                    return hold("plan holds")
             step = now - worth(self.view, price, days)
             if step < min_step(self.view, ours, theirs):
                 return hold("small step")

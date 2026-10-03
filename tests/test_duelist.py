@@ -1069,3 +1069,13 @@ def test_the_strategist_rules_spell_out_what_the_decay_keeps():
     assert "THE DECAY IS THE BIGGEST COST IN THIS DUEL" in rules
     assert "2 rounds 85%, 4 rounds 72%, 6 rounds 61%, 8 rounds 51%" in rules
     assert "smaller than about 8% of what the deal is worth to you" in rules
+
+
+def test_a_capped_step_never_offers_a_price_below_one():
+    # 6095: buyer, value 46, each day 2.67; our 20 on day 0, their 21 on day 10; a drafted 11 on day 10 was cut to
+    # 0 P on day 10 (refused: bad_price). Now the cut keeps our day instead.
+    view = DAYS_BUYER.model_copy(update={"limit": 46, "days_weight": 2.67,
+                                         "days_meaning": "each delivery day costs you this much cash"})
+    turns = [Turn(mine=True, offer=Offer(price=20, days=0), tick=1), theirs(21, 2, days=10)]
+    move = drafted(view, turns, Offer(price=21, days=10), 11, days=10)
+    assert move.price is not None and move.price >= 1 and move.days == 0
