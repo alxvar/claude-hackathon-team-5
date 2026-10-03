@@ -18,12 +18,19 @@ from . import LLMError, Model, Reply
 class Failover:
     primary: Model
     backup: Model
-    timeout_s: float = 20.0          # the primary's budget before we ask the backup
+    timeout_s: float = 8.0           # the primary's budget before we ask the backup: below the runner's per-decision
+                                     # budget (max(8, tick - 5) = 10 s at 15 s ticks), or the backup never engages
     trip: int = 2
     cooldown_s: float = 120.0
     failures: int = 0
     skip_until: float = 0.0
     log: list[str] = field(default_factory=list)
+
+    def fail(self, e: BaseException) -> None:
+        self.failures += 1
+        if self.failures >= self.trip:
+            self.skip_until = time.monotonic() + self.cooldown_s
+        self.log.append(f"{self.primary.label}: {e!r}")
 
     @property
     def label(self) -> str:
@@ -36,8 +43,8 @@ class Failover:
                 self.failures = 0
                 return r
             except (LLMError, TimeoutError) as e:
-                self.failures += 1
-                if self.failures >= self.trip:
-                    self.skip_until = time.monotonic() + self.cooldown_s
-                self.log.append(f"{self.primary.label}: {e!r}")
+                self.fail(e)
+            except asyncio.CancelledError as e:       # the runner's own timeout cancelled us: a failure too (audit S3)
+                self.fail(e)
+                raise
         return await self.backup.parse(schema, system, messages)

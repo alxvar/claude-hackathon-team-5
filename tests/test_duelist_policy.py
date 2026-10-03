@@ -44,9 +44,9 @@ def agent(view=SELLER, model=None):
 
 def test_the_opener_sits_opener_share_of_the_limit_away_rounded_toward_us():
     a, _ = agent()
-    assert P.code_move(a, obs(SELLER)).price == 57          # 40 + 0.42 x 40 = 56.8, up
+    assert P.code_move(a, obs(SELLER)).price == 70          # a seller: 40 + 0.73 x 40 = 69.2, up (per role, audit)
     b, _ = agent(BUYER)
-    assert P.code_move(b, obs(BUYER)).price == 34           # 60 - 25.2 = 34.8, down
+    assert P.code_move(b, obs(BUYER)).price == 37           # a buyer: 60 - 0.37 x 60 = 37.8, down
 
 
 def test_a_mid_duel_step_is_code_step_share_of_the_gap():
@@ -112,9 +112,10 @@ def test_a_slow_text_model_is_cut_at_the_budget(monkeypatch):
 
 
 def test_an_accept_gets_words_that_may_agree():
-    a, _ = agent(model=Words("Agreed, thank you."))
+    a, m = agent(model=Words("Agreed, thank you."))
     move = asyncio.run(a.respond(obs(SELLER, ours=[50], theirs=[55])))
-    assert (move.action, move.price, move.text) == ("accept", 55, "Agreed, thank you.")
+    assert (move.action, move.price, move.text) == ("accept", 55, "Agreed.")   # an accept posts no text: no call
+    assert m.seen == []
 
 
 def test_the_llm_policy_is_untouched():
@@ -131,7 +132,7 @@ def test_a_days_seller_opens_on_price_not_on_a_worth_that_carries_the_day_bonus(
     # Duel 6094 replay: worth-based, the opener came out at -2 P (day 10 adds 51.1 to a seller's worth)
     a, _ = agent(DAYS_SELLER)
     m = P.code_move(a, obs(DAYS_SELLER))
-    assert m.days == 10 and m.price == 49                   # 34 + 0.42 x 34 = 48.3, up
+    assert m.days == 10 and m.price == 59                   # 34 + 0.73 x 34 = 58.8, up
 
 
 def test_prices_never_go_below_the_floor_and_the_accept_ratio_is_tunable(monkeypatch):
@@ -215,3 +216,50 @@ def test_guards_off_switch(monkeypatch):
     a = DuelAgent(D6190, Words(), Words())
     m = a.final(A.Move("offer", "I can do 88 P, delivery on day 10.", price=88, days=10), obs_6190())
     assert (m.price, m.meta.get("rule")) == (88, None)
+
+
+
+def test_a_give_is_worth_neutral_and_never_retreats_once_on_their_day():
+    # audit S1: after a "give" call, the premium was re-added on every step and the offer ran away from the rival
+    from agents.duelist.guards import worth
+    view = D6190.model_copy(update={"role": Role.BUYER, "limit": 100, "days_weight": 1.2})
+    a, _ = agent(view)
+    seq = [Turn(mine=False, text="", offer=Offer(price=90, days=10), tick=1)]
+    o = Observation(view=view, turns=seq, rival_offer=Offer(price=90, days=10), tick=2, ticks_left=10)
+    first = P.code_move(a, o)
+    prev = worth(view, first.price, first.days)
+    theirs = 90
+    for t in range(3, 8):                                             # the rival concedes; we must not retreat
+        seq.append(Turn(mine=True, text="", offer=Offer(price=first.price, days=first.days), tick=t))
+        theirs -= 2
+        seq.append(Turn(mine=False, text="", offer=Offer(price=theirs, days=10), tick=t))
+        o = Observation(view=view, turns=list(seq), rival_offer=Offer(price=theirs, days=10), tick=t + 1,
+                        ticks_left=12 - t)
+        m = P.code_move(a, o)
+        if m.action != "offer":
+            break
+        assert worth(view, m.price, m.days) <= prev + 1e-9            # every move concedes or holds, never retreats
+        prev, first = worth(view, m.price, m.days), m
+
+
+def test_guards_leave_an_unreadable_day_alone_and_never_accept_from_a_past_limit_draft():
+    unread = D6190.model_copy(update={"days_weight": "?", "days_meaning": None})
+    a = DuelAgent(unread, Words(), Words())
+    o = Observation(view=unread, turns=[Turn(mine=True, text="", offer=Offer(price=62, days=0), tick=1),
+                                        Turn(mine=False, text="", offer=Offer(price=58, days=10), tick=1)],
+                    rival_offer=Offer(price=58, days=10), tick=2, ticks_left=8)
+    m = a.guarded(A.Move("offer", "x", price=61, days=0), o)
+    assert m.action == "offer" and m.price == 61                       # no worth comparison on an unreadable day
+    b = DuelAgent(SELLER, Words(), Words())
+    m = b.guarded(A.Move("offer", "x", price=30), obs(SELLER, ours=[50], theirs=[41]))
+    assert m.action == "offer"                                         # our draft is past the limit: no accept
+
+
+def test_a_seller_may_name_its_own_price_below_the_nominal_limit_on_a_bonus_day():
+    view = DuelView(duel_id=1, role=Role.SELLER, limit=73, item="a card", decay=0.08, duel_ticks=16,
+                    issues=["price", "days"], days_weight=4.46, days_meaning="each delivery day adds this much cash to your side")
+    a = DuelAgent(view, Words(), Words())
+    o = Observation(view=view, turns=[Turn(mine=True, text="", offer=Offer(price=80, days=10), tick=1)],
+                    rival_offer=None, tick=2, ticks_left=6)
+    m = a.final(A.Move("offer", "I can do 70 P, delivery on day 10.", price=70, days=10), o)
+    assert (m.action, m.price) == ("offer", 70)                       # worth +41.6: not "Let me think about that."

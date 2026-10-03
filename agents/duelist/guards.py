@@ -49,6 +49,16 @@ def past_limit(view: DuelView, price: float, day: int | None = None) -> bool:
     return worth(view, price, day) < 0
 
 
+def said_past_limit(view: DuelView, message: str, price: float | None = None, day: int | None = None) -> list[float]:
+    """`mentions_past_limit`, except the move's own price when the whole package is inside our limit: a seller on a
+    bonus day may name a price below its nominal limit (70 on day 10 with a 73 limit is worth +41.6; audit S3:
+    silent-rival duels 5816 and 6006 froze on it)."""
+    bad = mentions_past_limit(view, message)
+    if price is not None and not past_limit(view, price, day):
+        bad = [p for p in bad if p != price]
+    return bad
+
+
 def mentions_past_limit(view: DuelView, message: str) -> list[float]:
     """Amounts written in the message that are past our limit (on price: the day's cost doesn't change what the
     amount tells the rival). If any amount is currency-marked, only marked ones count ("day 3", "2 cards" aren't

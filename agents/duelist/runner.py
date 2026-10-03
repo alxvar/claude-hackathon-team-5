@@ -407,10 +407,12 @@ class DuelRunner:
         cost = sum(c["cost_usd"] for c in move.meta.get("calls", []))
         self.spent_usd += cost
         hold = self.is_hold(mem, move, obs)
+        played = ({"params_set": self.params.set_name, "params": self.params.overrides()} if self.params else {})
         self.log.write("decision", duel=mem.snap.id, tick=self.tick, took_s=round(took, 2), cost_usd=cost,
-                       obs=obs.model_dump(), move=move.__dict__, hold=hold)
+                       obs=obs.model_dump(), move=move.__dict__, hold=hold, **played)
         self.record(mem.snap.id, decisions=[{"tick": self.tick, "took_s": round(took, 2), "cost_usd": cost,
-                                             "obs": obs.model_dump(), "move": move.__dict__, "hold": hold}])
+                                             "obs": obs.model_dump(), "move": move.__dict__, "hold": hold,
+                                             **played}])     # the set each decision was made under (audit S2)
         if signature(mem.snap) != sig and move.action == "accept":
             say(f"duel {mem.snap.id}: their offer changed while deciding; deciding again")
             mem.force = True
@@ -522,6 +524,8 @@ class DuelRunner:
             return {}
         if not r:
             return r
+        if r.get("missing"):
+            self.warn_missing()
         if r.get("errors"):
             say(f"params: {self.params.path} NOT applied ({'; '.join(r['errors'])}); the last good set stays")
         for k, (old, new) in r.get("changed", {}).items():
@@ -529,6 +533,11 @@ class DuelRunner:
         self.log.write("params", tick=self.tick, path=str(self.params.path), changed=r.get("changed"),
                        errors=r.get("errors"), overrides=self.params.overrides())
         return r
+
+    def warn_missing(self) -> None:
+        say(f"PARAMS FILE MISSING ({self.params.path}): playing {self.params.set_name}. Write the chosen set with "
+            f"`python3 tools/duel_loop.py use <set> --by <name>`.")
+        self.log.write("params_missing", tick=self.tick, set=self.params.set_name)
 
     # The loop
 
@@ -548,6 +557,8 @@ class DuelRunner:
                     self.tick = clock.get("tick")
                     self.tick_seconds = float(clock.get("tick_seconds") or self.tick_seconds)
                     self.reload_params()
+                    if self.params is not None and self.params.missing and (self.tick or 0) % 20 == 0:
+                        self.warn_missing()          # loudly, every 20 ticks, while the file is missing
                 if time.monotonic() - last_schedule > 60:
                     await self.refresh_session(clock.get("t_hours"))
                     await self.sweep()

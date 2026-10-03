@@ -878,7 +878,8 @@ def test_the_days_guide_and_the_negotiator_line():
     from agents.duelist.agent import brief
     s = brief(LATE_SELLER, strategist=True)["days_guide"]
     assert "Never settle on a middle day" in s and "at most 2 P" in s and "C/2" not in s
-    assert "Don't pay to keep it" in s and "answer with your own end" in s and "4 ticks left" in s
+    assert "Don't pay to keep it" in s and "answer with your own end" in s and "in the last few ticks" in s
+    assert "ticks left and the days" not in s                        # no tick count: a hot reload can't contradict it
     n = brief(LATE_SELLER, strategist=False)["days_negotiator"]
     assert "second package" in n and "Only the price and day of your offer bind" in n
 

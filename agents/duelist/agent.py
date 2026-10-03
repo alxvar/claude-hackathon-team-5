@@ -31,7 +31,8 @@ from pydantic import BaseModel, Field
 from engine import LLMError, Model, Reply
 
 from .days import DayValues
-from .guards import (claims, mentions_past_limit, past_limit, price_at, reads_as_agreement, standing_problems,
+from .guards import (claims, mentions_past_limit, past_limit, price_at, reads_as_agreement, said_past_limit,
+                     standing_problems,
                      worth)
 from .model import DuelView, Observation, Offer, Role, sign
 from .prices import money
@@ -451,8 +452,18 @@ The delivery day: set "days" (0 to 10) every turn. Each side values the day priv
 4. Never settle on a middle day when each day costs you the same (your best day is 0 or 10): the pie is biggest at one end, and a middle day throws away half the gain. A middle day from them says nothing about which end they prefer: answer with your own end and haggle the price.
 5. Settle the day within your first two messages, then keep it: at this decay, haggling over two issues is expensive.
 6. If your system says which days you prefer is a guess, don't give the day first; follow their day only if it costs you at most {f(DAY_SAME_SIDE_P)} at the worse reading.
-Near the end, your system makes one move on its own: with {LATE_SWITCH_LEFT} ticks left and the days still apart, it offers their day at the price that keeps the deal worth the same to you, so a quarrel over the day never costs the deal. After that, keep their day.
-"""
+{late_switch_line()}"""
+
+
+def late_switch_line() -> str:
+    """The prompt's line on code's late day switch: none when LATE_SWITCH_LEFT is 0 (the switch is off: the model
+    must not wait for it), and no tick count otherwise, so a hot-reloaded value never contradicts a running duel's
+    prompt (audit S2)."""
+    if not LATE_SWITCH_LEFT:
+        return ""
+    return ("Near the end, your system makes one move on its own: in the last few ticks, with the days still apart, it "
+            "offers their day at the price that keeps the deal worth the same to you, so a quarrel over the day never "
+            "costs the deal. After that, keep their day.")
 
 
 def quoted(text: str) -> str:
@@ -590,7 +601,7 @@ class DuelAgent:
             elif worth(self.view, their.price, their.days) < worth(self.view, band.worst, days):
                 out.append(f"you may only accept an offer of {f(band.worst)} or better for you"
                            + (f", on day {days} or a day as good for you." if self.view.has_days else "."))
-        if bad := mentions_past_limit(self.view, d.message):
+        if bad := said_past_limit(self.view, d.message, *self._named(d.action, d.price, days, obs)):
             out.append(f"the message mentions {', '.join(map(f, bad))}. Don't write those amounts, not even to "
                        "reject them.")
         if d.action != "accept" and reads_as_agreement(d.message):
@@ -789,6 +800,9 @@ class DuelAgent:
         ours = next(reversed(our_offers(obs)), None)
         if move.action == "offer" and ours is not None and (move.price, move.days) == (ours.price, ours.days):
             return self.final(move, obs)
+        if move.action == "accept":                   # the game posts no text with an accept: no call, no delay
+            move.text = "Agreed."
+            return self.final(move, obs)
         return self.final(await policy.write(self, move, obs), obs)
 
     def held(self, move: Move, plan: BandPlan, obs: Observation, days: int | None) -> Move:
@@ -846,8 +860,11 @@ class DuelAgent:
           day were free; the rival took it. The guard sends the floor's price on that day, with code's plain text."""
         if not GUARDS or move.action != "offer" or move.price is None:
             return move
+        if self.view.has_days and self.view.day_values is None:
+            return move                               # the day can't be valued: no worth comparison (audit S3)
         v, their = self.view, standing_offer(obs)
         if their is not None and not past_limit(v, their.price, their.days) and \
+                not past_limit(v, move.price, move.days) and \
                 worth(v, their.price, their.days) >= worth(v, move.price, move.days):
             return Move("accept", "Agreed.", price=their.price,
                         meta={**move.meta, "rule": "theirs is as good as our offer", "drafted": move.price})
@@ -862,7 +879,7 @@ class DuelAgent:
         floor = max(now - max((MONO_END_SHARE if closing else MAX_STEP_SHARE) * gap, min(MIN_STEP_P, gap)), 0.0)
         if worth(v, move.price, move.days) >= floor - 1e-9:
             return move
-        price = toward_us(self.s, price_at(v, floor, move.days))
+        price = max(toward_us(self.s, price_at(v, floor, move.days)), 1)   # a seller's day bonus: never below 1 P
         text = f"I can do {money(price, v.currency)}" + (f", delivery on day {move.days}." if move.days is not None
                                                           else ".")
         return Move("offer", text, price=price, days=move.days,
@@ -877,7 +894,7 @@ class DuelAgent:
         day = r.their_day if r.call in ("take", "give") else r.best_day
         if day == plan.days:
             return plan
-        extra = r.cost if r.call == "give" else 0.0
+        extra = 0.0                                   # a give is worth-neutral, as simulated (audit S1/S3)
         move = lambda p: toward_us(self.s, price_at(self.view, worth(self.view, p, plan.days) + extra, day))  # noqa: E731
         return plan.model_copy(update={"target": move(plan.target), "best": move(plan.best),
                                        "worst": move(plan.worst), "days": day})
@@ -893,7 +910,7 @@ class DuelAgent:
         bad = ((move.action == "offer" and (move.price is None or move.price < 1 or no_day
                                             or past_limit(self.view, move.price, move.days)))
                or (move.action == "accept" and (their is None or past_limit(self.view, their.price, their.days)))
-               or mentions_past_limit(self.view, move.text))
+               or said_past_limit(self.view, move.text, *self._named(move.action, move.price, move.days, obs)))
         if not bad:
             return self.plain(move, obs)
         if move.meta.get("fallback"):                 # the fallback itself failed: say nothing binding

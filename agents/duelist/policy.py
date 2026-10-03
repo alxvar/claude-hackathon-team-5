@@ -38,14 +38,15 @@ from pydantic import BaseModel, Field
 from engine import LLMError
 
 from . import agent as A
-from .guards import claims, mentions_past_limit, past_limit, price_at, reads_as_agreement, worth
+from .guards import claims, past_limit, price_at, reads_as_agreement, said_past_limit, worth
 from .model import Observation
 from .prices import money
 
 if TYPE_CHECKING:
     from .agent import DuelAgent, Move
 
-OPENER_SHARE = 0.42      # our opener's distance from our limit, as a share of the limit (Duels I median, Duel Lab U)
+OPENER_SHARE_SELLER = 0.73   # a seller's opener: this share of the limit above it (the models' Duels II median, audit)
+OPENER_SHARE_BUYER = 0.37    # a buyer's: this share below it (one share for both opened sellers far too low)
 CODE_STEP_SHARE = 0.12   # a mid-duel concession: this share of the gap (simulated vs today's 25% cap, below)
 END_STEP_SHARE = 0.5     # in the last CLOSING_TICKS ticks: this share (the simulator's end_alpha)
 ACCEPT_NEAR_P = 2.0      # their offer within this of where our step lands: take it instead of another round
@@ -74,7 +75,8 @@ def code_day(agent: "DuelAgent", obs: Observation) -> tuple[int | None, str | No
     if r.call == "take":
         return r.their_day, r.call, 0.0
     if r.call == "give":
-        return r.their_day, r.call, r.cost
+        return r.their_day, r.call, 0.0              # worth-neutral, as simulated; a premium re-added on every step
+                                                     # ran away from the rival (audit S1: 9 Duels II replays)
     return r.our_day, r.call, 0.0
 
 
@@ -87,7 +89,8 @@ def code_move(agent: "DuelAgent", obs: Observation) -> "Move":
     meta: dict[str, Any] = {"policy": "code", "day_call": call}
     if not ours:
         best = v.day_values.best if v.day_values is not None else day
-        anchor = v.limit + s * OPENER_SHARE * v.limit   # in price, on our best day; moved to the call's day at its worth
+        share = OPENER_SHARE_SELLER if s > 0 else OPENER_SHARE_BUYER
+        anchor = v.limit + s * share * v.limit       # in price, on our best day; moved to the call's day at its worth
         price = A.toward_us(s, price_at(v, worth(v, anchor, best) + premium, day))
         if past_limit(v, price, day):                  # the day costs more than the margin: our limit on that day
             price = A.toward_us(s, price_at(v, 0.0, day))
@@ -107,8 +110,8 @@ def code_move(agent: "DuelAgent", obs: Observation) -> "Move":
     step = (END_STEP_SHARE if closing else CODE_STEP_SHARE) * gap
     if not closing:
         step = min(step, A.MAX_STEP_SHARE * gap)
-        if step < A.min_step(v, last, theirs) and call != "give":
-            return hold("code: small step")
+        if step < A.min_step(v, last, theirs) and not (call == "give" and last.days != day):
+            return hold("code: small step")          # only the move onto their day goes out below min_step
     target = max(now - step, 0.0)
     if their_w >= 0 and target - their_w <= ACCEPT_NEAR_P and not past_limit(v, theirs.price, theirs.days):
         return A.Move("accept", "", price=theirs.price, meta={**meta, "rule": "code: theirs is within reach"})
@@ -128,7 +131,7 @@ def problems(agent: "DuelAgent", move: "Move", text: str, obs: Observation) -> l
     out = []
     if not text.strip():
         out.append("empty")
-    if bad := mentions_past_limit(v, text):
+    if bad := said_past_limit(v, text, *agent._named(move.action, move.price, move.days, obs)):
         out.append(f"names {bad}")
     if move.action != "accept" and reads_as_agreement(text):
         out.append("reads as agreement")

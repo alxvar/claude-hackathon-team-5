@@ -16,7 +16,7 @@ SELLER = DuelView(duel_id=1, role=Role.SELLER, limit=40, item="a card", decay=0.
 
 @pytest.fixture
 def params(tmp_path):
-    p = Params(modules(), tmp_path / "duel_params.json")
+    p = Params(modules(), tmp_path / "duel_params.json", sets=tmp_path / "no-sets.json")   # no fallback set here
     yield p
     for k, v in p.defaults.items():               # never leak a tuned constant into another test
         setattr(p.modules[SPEC[k].module], k, v)
@@ -39,14 +39,15 @@ def test_every_spec_names_a_real_constant_and_its_default_is_inside_its_bounds(p
 
 
 def test_a_good_file_applies_and_a_removed_key_or_file_reverts(params):
-    cap, hold, opener = (params.defaults[k] for k in ("MAX_STEP_SHARE", "HOLD_TICKS", "OPENER_SHARE"))
-    put(params, {"_note": "wave 2", "MAX_STEP_SHARE": 0.12, "HOLD_TICKS": 5, "OPENER_SHARE": 0.5})
+    cap, hold, opener = (params.defaults[k] for k in ("MAX_STEP_SHARE", "HOLD_TICKS", "OPENER_SHARE_SELLER"))
+    put(params, {"_note": "wave 2", "MAX_STEP_SHARE": 0.12, "HOLD_TICKS": 5, "OPENER_SHARE_SELLER": 0.5})
     r = params.reload()
-    assert r["changed"] == {"MAX_STEP_SHARE": [cap, 0.12], "HOLD_TICKS": [hold, 5], "OPENER_SHARE": [opener, 0.5]}
-    assert A.MAX_STEP_SHARE == 0.12 and R.HOLD_TICKS == 5 and P.OPENER_SHARE == 0.5
+    assert {k: r["changed"][k] for k in r["changed"]} == {"MAX_STEP_SHARE": [cap, 0.12], "HOLD_TICKS": [hold, 5],
+                                                           "OPENER_SHARE_SELLER": [opener, 0.5]}
+    assert A.MAX_STEP_SHARE == 0.12 and R.HOLD_TICKS == 5 and P.OPENER_SHARE_SELLER == 0.5
     assert params.reload() == {}                                         # unchanged file: not even re-read
     put(params, {"MAX_STEP_SHARE": 0.12})
-    assert params.reload()["changed"] == {"HOLD_TICKS": [5, hold], "OPENER_SHARE": [0.5, opener]}
+    assert params.reload()["changed"] == {"HOLD_TICKS": [5, hold], "OPENER_SHARE_SELLER": [0.5, opener]}
     params.path.unlink()
     assert params.reload()["changed"] == {"MAX_STEP_SHARE": [0.12, cap]}
     assert params.overrides() == {}
@@ -98,3 +99,29 @@ def test_the_runner_reloads_and_logs_every_change(params, tmp_path):
     assert logged[1]["errors"] and R.ACCEPT_BY == 3
     assert DuelRunner(None, None, None, dry_run=True, log=Log(tmp_path / "l2"), decay=None, duel_ticks=None,
                       poll_s=0.1).reload_params() == {}                    # --no-params: nothing to read
+
+
+def test_a_missing_file_plays_the_default_set_loudly_never_the_code_constants(tmp_path):
+    sets = tmp_path / "sets.json"
+    sets.write_text(json.dumps({"_default": "A", "A": {"MIN_STEP_P": 5, "MAX_STEP_SHARE": 0.18}}))
+    p = Params(modules(), tmp_path / "duel_params.json", sets=sets)
+    try:
+        p._stamp = "?"                                                # force the first read
+        r = p.reload()
+        assert r["missing"] and A.MIN_STEP_P == 5 and A.MAX_STEP_SHARE == 0.18 and p.set_name.startswith("A ")
+        put(p, {"_set": "C", "MIN_STEP_P": 8})                      # the file arrives: it wins, named
+        r = p.reload()
+        assert not r["missing"] and A.MIN_STEP_P == 8 and p.set_name == "C"
+        logs = tmp_path / "logs"
+        runner = DuelRunner(None, None, None, dry_run=True, log=Log(logs), decay=None, duel_ticks=None, poll_s=0.1,
+                            params=Params(modules(), tmp_path / "gone.json", sets=sets))
+        runner.params._stamp = "?"
+        assert runner.reload_params()["missing"]
+        assert any(json.loads(x)["event"] == "params_missing" for x in runner.log.path.read_text().splitlines())
+    finally:
+        for k, v in p.defaults.items():
+            setattr(p.modules[SPEC[k].module], k, v)
+
+
+def test_nan_is_refused_not_raised():
+    assert validate({"HOLD_TICKS": float("nan")})[1] and validate({"MIN_STEP_P": float("inf")})[1]

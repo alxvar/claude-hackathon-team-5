@@ -16,11 +16,22 @@ with no restart.
   start after it).
 
 The duelist runs on Aleks's machine: the file is the one under that checkout's run/ (or --params / DUEL_PARAMS).
-`tools/duel_loop.py approve` writes it; nothing else does.
+`tools/duel_loop.py use <set>` (a whole approved set, replacing the file), `switch` (the Duel Lab's rule, once) and
+`approve` (a proposal's keys) write it; nothing else does.
+
+A MISSING file never plays silently (audit S2, Sun 01:00): run/ is gitignored, so a restart from another checkout
+would play the code constants. The duelist then plays the default set of docs/duel_sets.json (git-tracked: the sets
+Aleks approves, every set listing the same keys) and says so loudly at start and every 20 ticks; only when that file
+is missing too do the code constants play, said just as loudly.
+
+Mid-duel (audit S2): a change applies to the duels already running from their next decision on (every rule reads
+the module globals when it runs); the strategist's prompt, written when a duel starts, names no tunable number, and
+every decision's record carries the set it was decided under.
 """
 from __future__ import annotations
 
 import json
+import math
 import os
 from dataclasses import dataclass
 from pathlib import Path
@@ -29,6 +40,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
 PATH = Path(os.environ.get("DUEL_PARAMS") or ROOT / "run" / "duel_params.json")
+SETS = ROOT / "docs" / "duel_sets.json"            # the approved complete sets (git): the fallback and `use`
 
 
 @dataclass(frozen=True)
@@ -70,7 +82,8 @@ SPEC: dict[str, Spec] = {
     "SMALL_GAP_P": Spec("runner", 0, 10, float, None, "accept when the gap is at most this (P)..."),
     "SMALL_GAP_ROUNDS": Spec("runner", 0, 4, float, None, "...or at most this many rounds of decay on the surplus"),
     # the code-first policy (policy.py, --policy code)
-    "OPENER_SHARE": Spec("policy", 0.05, 1.5, float, "u_scale", "our opener's distance from our limit, as a share of it"),
+    "OPENER_SHARE_SELLER": Spec("policy", 0.05, 2.0, float, None, "a seller's opener: this share of the limit above it"),
+    "OPENER_SHARE_BUYER": Spec("policy", 0.05, 0.9, float, None, "a buyer's opener: this share of the limit below it"),
     "CODE_STEP_SHARE": Spec("policy", 0.03, 0.6, float, "alpha", "a mid-duel concession: this share of the gap"),
     "END_STEP_SHARE": Spec("policy", 0.1, 1.0, float, "end_alpha", "in the last CLOSING_TICKS: this share"),
     "ACCEPT_NEAR_P": Spec("policy", 0, 10, float, None, "their offer within this of our step's landing: take it"),
@@ -93,7 +106,7 @@ def validate(data: Any) -> tuple[dict[str, Any], list[str]]:
         if spec is None:
             errors.append(f"{k}: unknown parameter")
             continue
-        if isinstance(v, bool) or not isinstance(v, (int, float)):
+        if isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v):
             errors.append(f"{k}: {v!r} is not a number")
             continue
         if spec.kind is int and float(v) != int(v):
@@ -106,21 +119,59 @@ def validate(data: Any) -> tuple[dict[str, Any], list[str]]:
     return out, errors
 
 
+def load_sets(path: Path | None = None) -> tuple[dict[str, dict], str | None, dict[str, str], list[str]]:
+    """(sets, default name, switch map, errors) from docs/duel_sets.json:
+    {"_default": "A", "_switch": {"C": "A", "A": "today"}, "today": {...}, "A": {...}, "C": {...}}. Every set must
+    validate and list the same keys, so replacing one with another leaves nothing behind."""
+    try:
+        data = json.loads(Path(path or SETS).read_text())
+    except (OSError, ValueError) as e:
+        return {}, None, {}, [f"sets file: {e}"]
+    if not isinstance(data, dict):
+        return {}, None, {}, ["sets file: not a JSON object"]
+    sets, errors = {}, []
+    for name, values in data.items():
+        if name.startswith("_"):
+            continue
+        over, bad = validate(values)
+        if bad or not over:
+            errors.append(f"set {name}: {'; '.join(bad) or 'empty'}")
+            continue
+        sets[name] = over
+    keys = {frozenset(v) for v in sets.values()}
+    if len(keys) > 1:
+        errors.append("sets list different keys: " + "; ".join(f"{n}: {sorted(v)}" for n, v in sets.items()))
+    default = data.get("_default") if data.get("_default") in sets else None
+    switch = {a: b for a, b in (data.get("_switch") or {}).items() if a in sets and b in sets}
+    return sets, default, switch, errors
+
+
 class Params:
     """The effective values: defaults read from the modules, overridden by the file. `reload()` once per tick."""
 
-    def __init__(self, modules: dict[str, ModuleType], path: Path | None = None):
-        self.modules, self.path = modules, Path(path or PATH)
+    def __init__(self, modules: dict[str, ModuleType], path: Path | None = None, sets: Path | None = None):
+        self.modules, self.path, self.sets_path = modules, Path(path or PATH), Path(sets or SETS)
         self.defaults = {k: getattr(modules[s.module], k) for k, s in SPEC.items() if s.module in modules}
         self.current = dict(self.defaults)
         self._stamp: Any = None
         self.last_error: list[str] = []
+        self.missing = False                           # the file is missing: the fallback set plays (loudly)
+        self.set_name = "code defaults"                # what plays: a set's name, "custom", or the code defaults
+
+    def _fallback(self) -> dict[str, Any]:
+        sets, default, _, errors = load_sets(self.sets_path)
+        if default is None or errors:
+            self.set_name = "code defaults (no params file, no usable default set)"
+            return {}
+        self.set_name = f"{default} (default set: no params file)"
+        return sets[default]
 
     def _read(self) -> tuple[dict[str, Any] | None, list[str]]:
         try:
             raw = self.path.read_text()
         except FileNotFoundError:
-            return {}, []
+            self.missing = True
+            return self._fallback(), []
         except OSError as e:
             return None, [f"unreadable: {e}"]
         try:
@@ -128,6 +179,9 @@ class Params:
         except ValueError as e:
             return None, [f"broken JSON: {e}"]
         over, errors = validate(data)
+        if not errors:
+            self.missing = False
+            self.set_name = str(data.get("_set") or "custom") if isinstance(data, dict) else "custom"
         return (None, errors) if errors else (over, [])
 
     def reload(self) -> dict[str, Any]:
@@ -156,7 +210,7 @@ class Params:
             setattr(self.modules[SPEC[k].module], k, v)
             self.current[k] = v
         self.last_error = []
-        return {"changed": changed, "errors": []}
+        return {"changed": changed, "errors": [], "missing": self.missing, "set": self.set_name}
 
     def overrides(self) -> dict[str, Any]:
         """The values that differ from today's defaults."""
