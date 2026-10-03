@@ -1,17 +1,17 @@
-# Market plan for Sunday (Market session) · written Sun 00:54
+# Market plan for Sunday (Market session) · written Sun 00:56
 
 _Sources: intel/matches.md (matchmaker run 00:53, tick 1440; its VC estimates move between runs, so re-read it before acting), leaderboard snapshot 1440 (us 30.49), intel/market-log.md, intel/directives.md (Club Castizo, Sat 22:55). Labels: [V] measured, [L] inferred, [?] unknown. An independent verifier audited the 22:52 draft; its ten flags are applied here._
 
 ## 0. NEGOTIATION (Chief's overnight ask; read-only analysis of data/feed.jsonl to tick 1445; two independent verifier passes, their flags applied; the figures were not re-run by the verifier, which had no shell)
 
-**Data and its limits [V]:** 7608 cash listings (asks and bids) and 176 team-to-team settlements over Friday and Saturday. Bots renew the same quote every few ticks, so listings are chained into **4484 quote episodes** (same maker, card, side, venue, addressee and price); 145 fills are tied to an episode, and the wait is counted from the quote's first appearance. The feed has NO team-to-team threads, so a 'counter' is only visible as a new offer in the opposite direction. Each team has 1 to 22 accepts: the per-team rows are counts, not fitted curves. Ratios are price ÷ book (common 10, uncommon 25, rare 70, epic 180). Ticks were 60 s on Friday, 30 s on Saturday, 15 s on Sunday: a bot that acts once per tick keeps its wait in ticks, a human-driven team doubles it.
+**Data and its limits [V]:** 7610 cash listings (asks and bids) and 176 team-to-team settlements over Friday and Saturday. Bots renew the same quote every few ticks, so listings are chained into **4486 quote episodes** (same maker, card, side, venue, addressee and price); 145 fills are tied to an episode, and the wait is counted from the quote's first appearance. The feed has NO team-to-team threads, so a 'counter' is only visible as a new offer in the opposite direction. Each team has 1 to 22 accepts: the per-team rows are counts, not fitted curves. Ratios are price ÷ book (common 10, uncommon 25, rare 70, epic 180). Ticks were 60 s on Friday, 30 s on Saturday, 15 s on Sunday: a bot that acts once per tick keeps its wait in ticks, a human-driven team doubles it.
 
 ### 0.1 How the market answers a quote (Saturday)
 
 | Quote | price ÷ book | open: episodes | filled | within 2 ticks | addressed: episodes | filled | within 2 ticks |
 |---|---|---|---|---|---|---|---|
 | bid | 0-0.7 | 613 | 12 (2.0%) | 4 (0.7%) | 154 | 7 (4.5%) | 6 (3.9%) |
-| bid | 0.7-1.0 | 105 | 9 (8.6%) | 2 (1.9%) | 80 | 3 (3.8%) | 2 (2.5%) |
+| bid | 0.7-1.0 | 107 | 9 (8.4%) | 2 (1.9%) | 80 | 3 (3.8%) | 2 (2.5%) |
 | bid | 1-1.3 | 28 | 5 (17.9%) | 1 (3.6%) | 57 | 2 (3.5%) | 0 (0.0%) |
 | bid | 1.3-∞ | 2 | 1 (50.0%) | 1 (50.0%) | 12 | 1 (8.3%) | 0 (0.0%) |
 | ask | 0-0.7 | 274 | 20 (7.3%) | 12 (4.4%) | 126 | 1 (0.8%) | 0 (0.0%) |
@@ -19,9 +19,9 @@ _Sources: intel/matches.md (matchmaker run 00:53, tick 1440; its VC estimates mo
 | ask | 1-1.3 | 630 | 22 (3.5%) | 8 (1.3%) | 443 | 2 (0.5%) | 1 (0.2%) |
 | ask | 1.3-∞ | 285 | 1 (0.4%) | 0 (0.0%) | 302 | 0 (0.0%) | 0 (0.0%) |
 
-- **A better price raises the chance of a fill, but not to anything like certainty, and hardly within 2 ticks.** Open bids: 12/613 filled under 0.7 book, 9/105 at 0.7-1.0, 6/30 at book or above; within 2 ticks only 4, 2 and 2 of those. Open asks: 20/274 filled under 0.7 book (12 within 2 ticks), about 3.5% between 0.7 and 1.3, almost none above 1.3.
+- **A better price raises the chance of a fill, but not to anything like certainty, and hardly within 2 ticks.** Open bids: 12/613 filled under 0.7 book, 9/107 at 0.7-1.0, 6/30 at book or above; within 2 ticks only 4, 2 and 2 of those. Open asks: 20/274 filled under 0.7 book (12 within 2 ticks), about 3.5% between 0.7 and 1.3, almost none above 1.3.
 - **Addressed quotes are rarely accepted:** 17 of 1490 episodes (1.1%); when accepted, median wait 2 ticks, 10 of 17 within 2 ticks. Nothing in the feed shows which of those were agreed beforehand. The denominator is swollen by bots that spray addressed bids at many teams (Team 8 sent about 40 addressed quotes in ticks 700-719, about 17 of them bids; four were taken, by Teams 13, 16 and 2).
-- **Re-pricing:** a maker's first quote for a card filled 49/578 (8.5%); a later quote at a BETTER price 38/1548 (2.5%); a later quote at the same or a worse price 22/1965 (1.1%). Weak evidence that re-pricing helps a little: the grouping mixes venues and addressees, and a card that did not sell at first is mostly one nobody was looking for.
+- **Re-pricing:** a maker's first quote for a card filled 49/578 (8.5%); a later quote at a BETTER price 38/1548 (2.5%); a later quote at the same or a worse price 22/1967 (1.1%). Weak evidence that re-pricing helps a little: the grouping mixes venues and addressees, and a card that did not sell at first is mostly one nobody was looking for.
 - **What buyers pay against their own value** (asks taken, 47 cases where the Analyst has the buyer's multiplier): median 0.75 of value, 90% at or under 1.12.
 - **Clearing prices, Saturday (filled quotes, price ÷ book; n, quartile-median-quartile):** common asks n 36: 0.50-0.70-0.90 · common bids n 16: 0.40-0.60-0.80 · uncommon asks n 21: 0.76-0.92-1.04 · uncommon bids n 15: 0.52-0.60-0.80 · rare asks n 13: 1.00-1.09-1.20 · rare bids n 6: 0.94-1.00-1.10.
 - **Cheap asks go fast:** of the 20 open asks under 0.7 book that filled, 12 went within 2 ticks of first appearing.
@@ -55,7 +55,7 @@ _Sources: intel/matches.md (matchmaker run 00:53, tick 1440; its VC estimates mo
 
 ### 0.3 Our Sunday buys: what closes within 2 ticks
 
-**No bid, opening price, step or max closes within 2 ticks with any reliability [V]:** on Saturday 8 of 748 open bid quotes were hit within 2 ticks, and at book or above 2 of 30 (too few to put a percentage on). Over its whole life a bid at book or above was hit 6/30 times, median wait 49.5 ticks. What closes in the same tick is our own accept. So the answer is a procedure, not a price:
+**No bid, opening price, step or max closes within 2 ticks with any reliability [V]:** on Saturday 8 of 750 open bid quotes were hit within 2 ticks, and at book or above 2 of 30 (too few to put a percentage on). Over its whole life a bid at book or above was hit 6/30 times, median wait 49.5 ticks. What closes in the same tick is our own accept. So the answer is a procedure, not a price:
 
 1. **A standing ask at or under the 'take' price below: accept it the tick it appears** (one accept per tick). Nobody can snipe that. **The trader's auto-accept does not enforce this table:** `agents/trader/loop.py` accepts any buy whose gain is at least `--min-gain` (default 3), which for a CHA rare means up to about 109 P. The Operator has to apply the take prices by hand or raise `--min-gain`.
 2. **No ask: agree by WhatsApp first**, then the seller posts the ask ADDRESSED to us on a 0% venue and we accept in that tick. Addressed, so no rival bot can take it.
@@ -69,7 +69,7 @@ Price rule used below: max = 0.8 × our value, rounded down (every buy keeps at 
 | CHA uncommon | 25 | 40 | 30 | 32 | Directive 00:25: Abuela uncommons accept 22. |
 | CHA rare | 70 | 112 | 84 | 89 | **Directive 00:25 sets the dealer price: Pícaros CHA rare accept ≤ 54 (57 after one walk).** A team ask above that is only worth it for the points it scores (value − price) and if cash stays above the floor; the Operator decides per the 00:50 priority (CHA first). |
 | MAL-07 (uncommon) | 25 | 17.5; 64 as the card that closes the page | 14; 30 as the closer | 14; 51 as the closer | **WhatsApp: Team 15** holds a spare (on Saturday it listed MAL-07 at 14 P on v10, addressed to Team 2; unfilled). Fills so far: 14, 17, 25, 26 P. Ask for an ask addressed to us on a 0% venue that is not v10 (we cannot trade on our own stall). |
-| MAL-09, MAL-10 (rares) | 70 | 49 each | 39 | 39 | **Not from teams at market prices.** MAL-10 fills: 30, 53, 65, 70, 74 P (the 30 was Team 2's bid addressed to Team 13). Live bids at the close: Team 9 56 P for MAL-10 (expires tick 1447), Team 9 56 P for MAL-09 (expires tick 1505), Team 6 31 P for MAL-09 (expires tick 1488). Team 9's are above our max, so a bid of ours would not be the best on the board. Directive 00:50: a Pícaros MAL rare at ≤ 49 is the route. |
+| MAL-09, MAL-10 (rares) | 70 | 49 each | 39 | 39 | **Not from teams at market prices.** MAL-10 fills: 30, 53, 65, 70, 74 P (the 30 was Team 2's bid addressed to Team 13). Live bids at the close: Team 6 31 P for MAL-09 (expires tick 1488). Team 9's are above our max, so a bid of ours would not be the best on the board. Directive 00:50: a Pícaros MAL rare at ≤ 49 is the route. |
 
 Our MAL page lacks MAL-07, MAL-09, MAL-10 [V, /api/me, 00:20]; MAL-07 is the closer only once both rares are in. Cash 392 P at the close. Directives: cash floor 350 (21:00, the CHA reserve; +150 P arrives at 09:00), and **MAL only if at least 150 P is left after CHA** (00:50), so every MAL row above waits for that.
 
@@ -103,6 +103,60 @@ Spares [V, /api/me]: LAV-02 ×2, LAV-03 ×1, LAV-04 ×1. LAT-03 and LAT-04 are s
 
 **Every row needs a WhatsApp (or the Chief's OK) first.** Then one side posts the quote on v10 ADDRESSED to the other at the agreed price (directive 21:20) and the other accepts: the seller's ask in arm A, the buyer's bid in arm B (§3; texts in §2). Addressed, because an open ask on v10 can be taken by a rival's fast bot (Teams 6, 13, 14 are fast takers), which would move the card to the wrong team and can turn the VC negative.
 
+#### Final WhatsApp texts for 08:30 (directive 01:00; transactional only: card, price, market)
+
+Status per the Chief's 01:00 directive. Send in this order; when two rows go to the same team, send them as one message. The buyer's second message ('it is posted, accept it') goes out when the Market session reports the listing on v10.
+
+**1. Row #1 · RET-09 · Team 7 → Team 9 at ~70 P · APPROVED (page finisher, Chief 01:00)**
+- Dani → Team 7: ES: "¡Hola Team 7! Team 9 busca El Ángel Caído (RET-09). Si la tenés repetida, ¿la publicás en v10 a ~70 P, dirigida a Team 9? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 7! Team 9 is looking for El Ángel Caído (RET-09). If yours is a spare, could you post it on v10 at ~70 P, addressed to Team 9? 0% fee. Thanks!"
+- Lucas → Team 9: ES: "¡Hola Team 9! Team 7 puede publicarte El Ángel Caído (RET-09) en v10 a ~70 P, dirigida a vos, 0 % de comisión. ¿Te sirve? Cuando aparezca, aceptala ahí." · EN: "Hi Team 9! Team 7 can post El Ángel Caído (RET-09) for you on v10 at ~70 P, addressed to you, 0% fee. Does that work? When it shows up, accept it there."
+- When the listing appears, Lucas → Team 9: ES: "Ya está publicada RET-09 en v10 a tu nombre. ¡Aceptala!" · EN: "RET-09 is posted for you on v10. Go ahead and accept it!"
+
+**2. Row #2 · SAL-02 · Team 9 → Team 7 at ~9 P · FIRE at 08:30**
+- Lucas → Team 9: ES: "¡Hola Team 9! Team 7 busca El Portero (SAL-02). Si la tenés repetida, ¿la publicás en v10 a ~9 P, dirigida a Team 7? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 9! Team 7 is looking for El Portero (SAL-02). If yours is a spare, could you post it on v10 at ~9 P, addressed to Team 7? 0% fee. Thanks!"
+- Dani → Team 7: ES: "¡Hola Team 7! Team 9 puede publicarte El Portero (SAL-02) en v10 a ~9 P, dirigida a vos, 0 % de comisión. ¿Te sirve? Cuando aparezca, aceptala ahí." · EN: "Hi Team 7! Team 9 can post El Portero (SAL-02) for you on v10 at ~9 P, addressed to you, 0% fee. Does that work? When it shows up, accept it there."
+- When the listing appears, Dani → Team 7: ES: "Ya está publicada SAL-02 en v10 a tu nombre. ¡Aceptala!" · EN: "SAL-02 is posted for you on v10. Go ahead and accept it!"
+
+**3. Row #3 · SAL-05 · Team 8 → Team 7 at ~9 P · FIRE at 08:30, but first confirm Team 8 still holds two**
+- Lucas → Team 8: ES: "¡Hola Team 8! Team 7 busca Taxi Blanco (SAL-05). ¿La tenés repetida (te quedan dos)? Si sí, ¿la publicás en v10 a ~9 P, dirigida a Team 7? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 8! Team 7 is looking for Taxi Blanco (SAL-05). Do you still have a spare (two copies)? If so, could you post it on v10 at ~9 P, addressed to Team 7? 0% fee. Thanks!"
+- Dani → Team 7: ES: "¡Hola Team 7! Team 8 puede publicarte Taxi Blanco (SAL-05) en v10 a ~9 P, dirigida a vos, 0 % de comisión. ¿Te sirve? Cuando aparezca, aceptala ahí." · EN: "Hi Team 7! Team 8 can post Taxi Blanco (SAL-05) for you on v10 at ~9 P, addressed to you, 0% fee. Does that work? When it shows up, accept it there."
+- When the listing appears, Dani → Team 7: ES: "Ya está publicada SAL-05 en v10 a tu nombre. ¡Aceptala!" · EN: "SAL-05 is posted for you on v10. Go ahead and accept it!"
+
+**4. Row #5 · RET-01 · Team 2 → Team 16 at ~9 P · APPROVED if Team 16 is not a rival under policy.rivals at 08:30 (the Chief checks then)**
+- Dani → Team 2: ES: "¡Hola Team 2! Team 16 busca Barca del Estanque (RET-01). Si la tenés repetida, ¿la publicás en v10 a ~9 P, dirigida a Team 16? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 2! Team 16 is looking for Barca del Estanque (RET-01). If yours is a spare, could you post it on v10 at ~9 P, addressed to Team 16? 0% fee. Thanks!"
+- Dani → Team 16: ES: "¡Hola Team 16! Team 2 puede publicarte Barca del Estanque (RET-01) en v10 a ~9 P, dirigida a vos, 0 % de comisión. ¿Te sirve? Cuando aparezca, aceptala ahí." · EN: "Hi Team 16! Team 2 can post Barca del Estanque (RET-01) for you on v10 at ~9 P, addressed to you, 0% fee. Does that work? When it shows up, accept it there."
+- When the listing appears, Dani → Team 16: ES: "Ya está publicada RET-01 en v10 a tu nombre. ¡Aceptala!" · EN: "RET-01 is posted for you on v10. Go ahead and accept it!"
+
+**5. Row #6 · RET-03 · Team 4 → Team 16 at ~9 P · APPROVED if Team 16 is not a rival under policy.rivals at 08:30 (the Chief checks then)**
+- Dani → Team 4: ES: "¡Hola Team 4! Team 16 busca El Titiritero (RET-03). Si la tenés repetida, ¿la publicás en v10 a ~9 P, dirigida a Team 16? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 4! Team 16 is looking for El Titiritero (RET-03). If yours is a spare, could you post it on v10 at ~9 P, addressed to Team 16? 0% fee. Thanks!"
+- Dani → Team 16: ES: "¡Hola Team 16! Team 4 puede publicarte El Titiritero (RET-03) en v10 a ~9 P, dirigida a vos, 0 % de comisión. ¿Te sirve? Cuando aparezca, aceptala ahí." · EN: "Hi Team 16! Team 4 can post El Titiritero (RET-03) for you on v10 at ~9 P, addressed to you, 0% fee. Does that work? When it shows up, accept it there."
+- When the listing appears, Dani → Team 16: ES: "Ya está publicada RET-03 en v10 a tu nombre. ¡Aceptala!" · EN: "RET-03 is posted for you on v10. Go ahead and accept it!"
+
+**6. Row #7 · RET-09 · Team 8 → Team 16 at ~70 P · SELLER CHECK first (is it a spare?); outside the club: only on the Chief's OK**
+- Lucas → Team 8: ES: "¡Hola Team 8! Team 16 busca El Ángel Caído (RET-09). ¿La tenés repetida (te quedan dos)? Si sí, ¿la publicás en v10 a ~70 P, dirigida a Team 16? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 8! Team 16 is looking for El Ángel Caído (RET-09). Do you still have a spare (two copies)? If so, could you post it on v10 at ~70 P, addressed to Team 16? 0% fee. Thanks!"
+- Dani → Team 16: ES: "¡Hola Team 16! Team 8 puede publicarte El Ángel Caído (RET-09) en v10 a ~70 P, dirigida a vos, 0 % de comisión. ¿Te sirve? Cuando aparezca, aceptala ahí." · EN: "Hi Team 16! Team 8 can post El Ángel Caído (RET-09) for you on v10 at ~70 P, addressed to you, 0% fee. Does that work? When it shows up, accept it there."
+- When the listing appears, Dani → Team 16: ES: "Ya está publicada RET-09 en v10 a tu nombre. ¡Aceptala!" · EN: "RET-09 is posted for you on v10. Go ahead and accept it!"
+
+**7. Row #8 · SAL-01 · Team 1 → Team 7 at ~9 P · SELLER CHECK first (is it a spare?); outside the club: only on the Chief's OK**
+- Lucas → Team 1: ES: "¡Hola Team 1! Team 7 busca Escaparate de Serrano (SAL-01). ¿La tenés repetida (te quedan dos)? Si sí, ¿la publicás en v10 a ~9 P, dirigida a Team 7? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 1! Team 7 is looking for Escaparate de Serrano (SAL-01). Do you still have a spare (two copies)? If so, could you post it on v10 at ~9 P, addressed to Team 7? 0% fee. Thanks!"
+- Dani → Team 7: ES: "¡Hola Team 7! Team 1 puede publicarte Escaparate de Serrano (SAL-01) en v10 a ~9 P, dirigida a vos, 0 % de comisión. ¿Te sirve? Cuando aparezca, aceptala ahí." · EN: "Hi Team 7! Team 1 can post Escaparate de Serrano (SAL-01) for you on v10 at ~9 P, addressed to you, 0% fee. Does that work? When it shows up, accept it there."
+- When the listing appears, Dani → Team 7: ES: "Ya está publicada SAL-01 en v10 a tu nombre. ¡Aceptala!" · EN: "SAL-01 is posted for you on v10. Go ahead and accept it!"
+
+**8. Row #9 · RET-04 · Team 8 → Team 16 at ~9 P · SELLER CHECK first (is it a spare?); outside the club: only on the Chief's OK**
+- Lucas → Team 8: ES: "¡Hola Team 8! Team 16 busca Paseo de Coches (RET-04). ¿La tenés repetida (te quedan dos)? Si sí, ¿la publicás en v10 a ~9 P, dirigida a Team 16? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 8! Team 16 is looking for Paseo de Coches (RET-04). Do you still have a spare (two copies)? If so, could you post it on v10 at ~9 P, addressed to Team 16? 0% fee. Thanks!"
+- Dani → Team 16: ES: "¡Hola Team 16! Team 8 puede publicarte Paseo de Coches (RET-04) en v10 a ~9 P, dirigida a vos, 0 % de comisión. ¿Te sirve? Cuando aparezca, aceptala ahí." · EN: "Hi Team 16! Team 8 can post Paseo de Coches (RET-04) for you on v10 at ~9 P, addressed to you, 0% fee. Does that work? When it shows up, accept it there."
+- When the listing appears, Dani → Team 16: ES: "Ya está publicada RET-04 en v10 a tu nombre. ¡Aceptala!" · EN: "RET-04 is posted for you on v10. Go ahead and accept it!"
+
+**9. Row #4 · MAL-02 · Team 7 → Team 8 at ~9 P · ASK THE BUYER FIRST: does Team 8 still lack it?**
+- Lucas → Team 8 (first): ES: "¡Hola Team 8! ¿Todavía te falta Plaza del Dos de Mayo (MAL-02)? Hay una repetida disponible a ~9 P en v10, 0 % de comisión." · EN: "Hi Team 8! Do you still need Plaza del Dos de Mayo (MAL-02)? There's a spare available at ~9 P on v10, 0% fee."
+- Only if Team 8 says yes, Dani → Team 7: ES: "¡Hola Team 7! Team 8 busca Plaza del Dos de Mayo (MAL-02). Si la tenés repetida, ¿la publicás en v10 a ~9 P, dirigida a Team 8? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 7! Team 8 is looking for Plaza del Dos de Mayo (MAL-02). If yours is a spare, could you post it on v10 at ~9 P, addressed to Team 8? 0% fee. Thanks!"
+- When the listing appears, Lucas → Team 8: ES: "Ya está publicada MAL-02 en v10 a tu nombre. ¡Aceptala!" · EN: "MAL-02 is posted for you on v10. Go ahead and accept it!"
+
+**10. Row #10 · LAV-02 · Team 16 → Team 9 at ~9 P · ASK THE BUYER FIRST: does Team 9 still lack it?**
+- Lucas → Team 9 (first): ES: "¡Hola Team 9! ¿Todavía te falta El Frutero de Argumosa (LAV-02)? Hay una repetida disponible a ~9 P en v10, 0 % de comisión." · EN: "Hi Team 9! Do you still need El Frutero de Argumosa (LAV-02)? There's a spare available at ~9 P on v10, 0% fee."
+- Only if Team 9 says yes, Dani → Team 16: ES: "¡Hola Team 16! Team 9 busca El Frutero de Argumosa (LAV-02). Si la tenés repetida, ¿la publicás en v10 a ~9 P, dirigida a Team 9? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 16! Team 9 is looking for El Frutero de Argumosa (LAV-02). If yours is a spare, could you post it on v10 at ~9 P, addressed to Team 9? 0% fee. Thanks!"
+- When the listing appears, Lucas → Team 9: ES: "Ya está publicada LAV-02 en v10 a tu nombre. ¡Aceptala!" · EN: "LAV-02 is posted for you on v10. Go ahead and accept it!"
+
 ### 0.6 Who Team 10 trades with (to offer them better terms first)
 
 - **Team 10's own trades, both days [V]:** 16 in all: Team 6 3, Team 8 2, Team 12 2, Team 13 2, Team 4 1, Team 5 1, Team 1 1, Team 15 1, Team 3 1, Team 9 1, Team 17 1. It trades little and with everyone; no partner dominates. Its two largest deals: MAL-11 bought from Team 8 at 195 P and SAL-11 sold to Team 17 at 207 P, both on El Rastro.
@@ -111,7 +165,7 @@ Spares [V, /api/me]: LAV-02 ×2, LAV-03 ×1, LAV-04 ×1. LAT-03 and LAT-04 are s
 
 ### 0.7 Open or addressed? (Chief, 01:30; against intel/audit-why-we-lost.md lesson 3)
 
-- **The audit is right about asks [V, Saturday episodes]:** open asks filled 67/1891 (3.5%), addressed asks 4/1187 (0.3%): about ten times less. Bids show no such gap (open 27/748 (3.6%), addressed 13/303 (4.3%)). Every one of our own ask quotes was addressed (1/195 (0.5%); open asks: 0). Team 6 listed everything open and filled 11/186 (5.9%) asks and 6/64 (9.4%) bids.
+- **The audit is right about asks [V, Saturday episodes]:** open asks filled 67/1891 (3.5%), addressed asks 4/1187 (0.3%): about ten times less. Bids show no such gap (open 27/750 (3.6%), addressed 13/303 (4.3%)). Every one of our own ask quotes was addressed (1/195 (0.5%); open asks: 0). Team 6 listed everything open and filled 11/186 (5.9%) asks and 6/64 (9.4%) bids.
 - **Who takes open asks:** Team 12 9, Team 4 9, Team 9 7, Team 7 6, Team 1 6, Team 2 5, Team 14 5, Team 13 3; 42 of 67 takers were non-rivals.
 - **Rule:** (1) a pair agreed by WhatsApp stays ADDRESSED: it protects the intended buyer and the VC estimate. (2) Anything without an agreed buyer goes OPEN: our own spares on a non-rival member's market, and third parties' spares on v10. A spare sold to any first-copy buyer creates positive VC whoever takes it; the cost of a rival taking it is that rival's gain on one card.
 - **Heavy listers posting open on v10 (Teams 13, 8, 6, 16): yes.** Their open asks filled 23 times on Saturday (Team 6 11, Team 13 6, Team 8 4, Team 16 2); Team 10's market held full real-trades marks all day on 11 such fills. Half of that flow on v10 is worth up to the full real-trades score, **3.0 final points on Sunday** [L]. What it gives the rivals among them (Teams 6 and 13) is close to nothing extra: they sell at the same price wherever they list, so their trade points are the same; only the venue credit moves, away from their own or Team 10's market and to ours. The bound if v10 did hand them an extra fill: about 3-5 trade points, roughly 0.3-0.5 final per card [L, at ~0.1 final per trade point]. Risk: a bot selling a page card or an only copy on v10; one such fill wiped 3 of the ~10 venues that had trades on Saturday. Ask non-rivals first (Teams 8 and 16); do not chase Teams 6 and 13, but do not turn their listings away.
