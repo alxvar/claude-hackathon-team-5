@@ -2,6 +2,33 @@
 
 _Written by `tools/duel_monitor.py` after each wave of our duels, newest first. Advisory for Aleks (the duelist is his). Result = our surplus × (1 − decay)^rounds, rounds = min(our priced offers, theirs); "spoke" = the rival sent at least one price._
 
+## Sat 21:52 · Duels II · tick 1309 · wave of 6 (duels 5800, 5801, 5813, 5822, 5861, 6170)
+
+**This wave:** 5 deals / 6 finished (83%)
+- Rival engaged: spoke in 6 → 5 deals (83%); spoke or accepted 6 → 5 (83%); silent 0 (0 took our opener, 0 no deal).
+- In-limit offers not accepted: 1 — 5813 (buyer, limit 97, vs Rival Oro): ≈5.0 P left on the table.
+- Deals below an earlier in-limit rival offer: 1 (≈0.6 P: 6170).
+- Rounds and decay: 5.4 rounds per deal; result 87.1 of 104.0 P surplus → 16.9 P (16%) lost to decay.
+- Latency: answered rival offers in 0.6 ticks on average (max 6; 28 of 43 the same tick); decision 8.5 s mean, 13.3 s max.
+- Concessions: we moved 162 P in total, rivals 184 P.
+- Rival behaviours (best → worst by our mean result): conceder: 6 duel(s), 5 deal(s), mean result 14.5 P, rival moved 30.7 P per duel.
+- Best duel: 5822 vs Rival Rojo (seller): 33.0 P in 2 round(s). Worst: 5813 vs Rival Oro (buyer): no_deal, 5.0 P in-limit left, both still 5 ticks.
+
+**Session so far:** 25 deals / 30 finished (83%)
+- Rival engaged: spoke in 30 → 25 deals (83%); spoke or accepted 30 → 25 (83%); silent 0 (0 took our opener, 0 no deal).
+- In-limit offers not accepted: 3 — 5618 (buyer, limit 50, vs Rival Azul): ≈3.1 P left on the table; 5622 (seller, limit 83, vs Rival Plata): ≈19.5 P left on the table; 5813 (buyer, limit 97, vs Rival Oro): ≈5.0 P left on the table.
+- Deals below an earlier in-limit rival offer: 9 (≈68.1 P: 5623, 5653, 5663, 5737, 5797, 5808, 5827, 6094, 6170).
+- Rounds and decay: 3.7 rounds per deal; result 578.0 of 703.0 P surplus → 125.0 P (18%) lost to decay.
+- Latency: answered rival offers in 1.2 ticks on average (max 11; 84 of 149 the same tick); decision 8.6 s mean, 20.0 s max; 1 rival offer(s) never answered.
+- Concessions: we moved 598 P in total, rivals 652 P.
+- Rival behaviours (best → worst by our mean result): hardener (moved away): 1 duel(s), 1 deal(s), mean result 40.0 P, rival moved -46.0 P per duel · conceder: 26 duel(s), 22 deal(s), mean result 19.2 P, rival moved 26.8 P per duel · holder (never moved): 3 duel(s), 2 deal(s), mean result 13.2 P, rival moved 0.0 P per duel.
+- Best duel: 5652 vs Rival Verde (seller): 52.9 P in 2 round(s). Worst: 5622 vs Rival Plata (seller): no_deal, 19.5 P in-limit left, both still 4 ticks.
+
+**For Aleks:**
+1. Accept earlier: 3 deal(s) lost with the rival's offer inside our limit (5618, 5622, 5813; ≈27.6 P after decay). In code, accept any in-limit standing offer at ticks_left ≤ 2.
+2. Break holds: 3 no-deal duel(s) sat still up to 5 ticks with time left (5618, 5622, 5813). After 3 still ticks with ≥ 3 left, force a move (a concession step, or send their own price).
+3. Close in fewer exchanges: 125.0 P (18%) of deal value went to decay over 3.7 rounds per deal. Accept when the gap to our last offer ≤ max(2 P, 2d/(1−d) × our surplus).
+
 ## Sat 21:44 · Duels II · tick 1294 · wave of 6 (duels 5812, 5826, 5827, 5860, 5968, 6094)
 
 **This wave:** 6 deals / 6 finished (100%)
