@@ -1,4 +1,4 @@
-# v10 partner suggestions (Sat 17:04, tick 821)
+# v10 partner suggestions (Sat 17:27, tick 864)
 
 _Written every 30 min by `tools/v10_radar.py`: for Teams 10, 15 and 3, the cards each holds 2+ copies of (feed, a lower bound) and the best buyer outside the top 5 (est. value created > +5, copy-weighted; no page-closer to a team within 10 points of us). Est. [L]. Price: the rarity's clearing price._
 
