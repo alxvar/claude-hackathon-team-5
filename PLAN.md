@@ -147,6 +147,15 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    console must print `day reading: --days-read auto`. At the first days duel: day line reversed vs `days_meaning` →
    restart with `--days-read flip`; unclear → `--days-read unsure`. From 20:25 Lucas's bots pause to free the 5 req/s
    for you.
+26. **22:00, OVERNIGHT LEARNING LOOP (Lucas: Team 10's duelist beat ours in Duels II by ≈ 2.3-3.0 board; tomorrow we
+   beat it).** Built overnight for your 08:00 review, nothing on main or live without you:
+   (a) Duel Lab: rival models fitted on our ≈ 100 records; your redteam-sim extended with days (buyer −w·d, seller
+   +w·d) and Duels III's shorter clock and harder decay; a policy search over opener, step cap, accept threshold,
+   silent-keep, day give cap and late switch; a best-vs-current report with confidence → intel/duel-lab.md 07:30.
+   (b) Builder, branch : run/duel_params.json hot-reloaded each tick (defaults = today's constants), a
+   between-waves loop that proposes ≤ 3 bounded param changes (you or the Chief approve), and code-first
+   accept/hold/step decisions (the LLM writes text only) so each decision lands < 5 s at 15 s ticks.
+   Morning: 08:00 review → merge what's green and better in the sim → duelist up by 08:50.
 
 **Dani: deal desk from 15:52 (Lucas's call).** Your phone (ntfy, your channel) now gets every alert that needs a human to
 message another team: v10 radar DMs, v10 partner suggestions (Teams 15, 10, 3), opportunity SELL/BUY alerts, swap nudges.
