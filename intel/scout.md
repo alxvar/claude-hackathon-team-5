@@ -1,33 +1,30 @@
-# Scout (claude-sonnet-5-5, Sat 16:30)
+# Scout (claude-sonnet-5-5, Sat 16:36)
 
 ## Top 3 actions now
 
-1. **Sell LAV-02 / LAV-04 spares to Team 7 (#17, 10.6 below us) as maker.**
-   - Action: the Operator or `trade.py` posts an ask addressed to t07 at ~9-10 P. Run `policy.py can-give` first. It currently says LAV-02 YES, LAV-04 NO, so only LAV-02 goes.
-   - Evidence: the 4.3 gain per card is a Dani estimate ("9.5 est."), not an open bid. Our spares are worth 3.2 each.
-   - Effect: about +4 neg_points per card, and no fee as maker. That is ≈ +0.4 board at 0.094 per neg_point.
-   - Confidence: low-med. t07 shows no live bid, and our ask 10716 (LAV-03 at 6 to t09) is still open.
+1. **Cash in the SAL-07 bid (offer 10569, bid 20, expires 772). Operator, trader.py.**
+   - Evidence: the bids board lists t03 SAL-10 (rare) 73 (offer 11505) and t06 SAL-09 68 (offer 11579), and both teams are outside the top 5. Our MAL-09 (rare, worth 49) is a different card. Lucas has told us not to recommend a MAL-09 sale below 55 to Pilar.
+   - Action: let 10569 ride, and re-bid at 20 only if it lapses. It is a gain-≥3 buy only if our SAL-07 value is above 23; re-read /api/me/value first. Confidence: low on the value.
+   - Effect: roughly +1 to +3 neg_points per fill.
 
-2. **Fill Team 16's and Team 15's live bids with our spares.**
-   - Evidence: t16 bids RET-01 at 5 (offer 11385), RET-07 at 14 (11355) and LAV-06 at 12 (11362). Our own asks to t16 and t15 are already posted: 10885 SAL-01 at 11, 11379 SAL-02 at 11, 10959 MAL-02 at 9 and 11046 MAL-05 at 9.
-   - Action: the Operator keeps those asks alive. Do not sell the RET or LAV page cards: RET-01 is our complete-page card, so `can-give` refuses it.
-   - Effect: small positive neg_points. Past fills of this kind gave +2.0 (MAL-01 at 5) and +4.7 (SAL-01 at 7).
-   - Confidence: med. t16 and t15 are on the safe list.
+2. **Sell spare commons as maker to Team 7 and other low teams. Operator, book daemon.**
+   - Evidence: Team 7 (#17, 10.6 below us) values commons at ~9.5. Our spares are worth 1.2-3.2: LAT-04 +6.3, RET-04 +4.7, LAV-02/03/04 +4.3 each.
+   - Action: list LAT-04 and LAV-02 at 9 addressed to t07 (maker, no fee). Run `tools/policy.py can-give` first. Today it returns YES for LAV-02 only. LAV-03/04 and RET-04 are NO because they are page copies, so do not sell them.
+   - Effect: about +4 to +6 neg_points per fill, roughly +0.4 to +0.6 board points. Confidence: med.
 
-3. **Pilar ladder sells in the Salamanca fever (18:03-20:03).**
-   - Action: sell SAL-04 or SAL-08, held for this window, to Pilar at ≥ our value (SAL-08 is worth 22.5). Use small −2/−3 steps, then offer-only. Operator, `abuela_bot.py --dealer pilar`.
-   - Evidence: Pilar paid SAL-06 25 at tick 669 for +6.2 neg, and +0.040 ladder for MAL-06 with small steps. Ladder is at 0.2 and the L3 slot pays about 3× L2. Pilar's median uncommon is 18 over 6 deals.
-   - Effect: neg is not hurt when the price is ≥ value. Ladder +0.01 to +0.04.
-   - Confidence: med. The ladder may be saturating (Analyst's cap near ~0.15 is [L], yet 0.2 is already reached).
+3. **Spend the level-4 unlock (3 deals with Pilar, announced at tick 761). Operator, abuela_bot.py with `--dealer`.**
+   - Evidence: the ladder pays most at higher levels (L3 ≈ 3× L2). The Pícaros persona opened at level 4 for t05, t08, t09, t10 and t16.
+   - Action: try a level-4 sale of a spare uncommon above our value (MAL-06 at 17.5 or SAL-08 at 22.5). Step -2/-3, never jump to the dealer's bid, and use offer-only to close.
+   - Effect: a clipped-gain sale costs 0 neg_points, and the ladder is 0.2 now. The level-4 price range is not in the data, so keep the first test small. Confidence: low.
 
 ## What the climbing teams are doing
 
-- **Team 1 (+3.3 in 15 min) and Team 16 (+4.5):** Team 16 is the one that moved most. Team 16 took LAT-09 (rare) from Team 3 for 88 P at tick 724 (Team 3 is the buyer, +2.9). Team 16 is also bidding on rares and uncommons, so the gains are not in the data beyond that. Team 1's source of gain is not in the data.
-- **Team 3 (+2.9/+5.6):** its buys are LAT×2, SAL×1. Its rare purchase at 88 sits above the usual rare price of 70, so it likely gains from LAT-09's page value.
-- **Team 12 (#1, 43 deals):** its edge is volume plus dealer trades (26). It is not a safe counterparty.
+- **Team 3 (+1.6 / +7.0 in 60 min)** is buying rares from the field and selling its own commons. It bought LAT-09 at 88 from t16 (tick 724), and it bids 73 for SAL-10 (offer 11505). It sold SAL-01 to us at 7 and appears to keep buying. It is #7, 0.9 below us, and rising.
+- **Team 16 (+1.2 / +4.5)** takes lots of cards, mostly cheap. It bought a rare and RET-06 at 14 (tick 711), and now bids RET-07 at 15, LAV-06 at 12, RET-02 at 5 and RET-01 at 5. It has 32 deals.
+- **Team 1 (+1.1 / +3.3)** reached #6 with only 21 deals. Its page purchases are MAL×4 and SAL×4, so it is a page-building team.
 
 ## Threats
 
-- **t03 bids 69 for LAV-10 (offer 11295).** We hold LAV-10 (worth 177.1, page piece). Never sell it. t03 is #8, but the card would close nothing for us.
-- **Board compression.** #1-#6 sit within 1.5 points, and t16 and t1 are climbing fast. Their rises could push us down.
-- **Rare 25 P bid by t04 on RET-10 (11366)** is far below our value of 149.9. Ignore it.
+- **Team 14 (#1)** bought our MAL-08 at 15 at tick 760. It gained little from the card, but this is a top-5 trade. Lucas's 15:55 policy says no trades with the live top 5 unless our gain is ≥ 3× theirs, so check the policy before any repeat.
+- **Teams 3 and 1** are at 27.7 and 28.5, within 0.9 and 0.1 of us. Do not feed them page-closers. The policy limit is ≥ 6 below us, and neither is.
+- **Level-4 unlocks went to t08, t09, t10 and t16 as well.** Several rivals can now race for the same ladder slots.
