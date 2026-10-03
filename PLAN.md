@@ -134,6 +134,14 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    holders, silent), since days are new in Duels II; **Sunday's 15 s ticks** (latency with 6 duels in parallel: the reply
    must land inside a tick); 6 accepts in one tick. (d) **20:25 check**: one process alive, no errors in the log; at the
    screen 20:33 → end of the first wave.
+24. **18:30, ONE insurance change, approved as an exception to #23's sim-gain rule (Chief, from Duel Lab c59e1f7).** Add
+   `--days-read auto|flip|unsure`, default `auto` = today's code exactly. `flip` reverses the day direction; `unsure`
+   sets sure=False (the safe mode). Tests: the red-team "backwards" fixture with `flip` scores as read-right, and the
+   suite is green with `auto`. Restart on it by 20:15. Why: today there's no switch if the day reading comes out
+   backwards at 20:33, and that would cost a code edit plus a restart mid-session, ≈ 2-4 waves (8-16 points)
+   [L, Duel Lab red team: backwards = −0.18/duel]. Runbook at the first days duel: compare the console day line
+   against `days_meaning` by eye. Reversed → restart with `flip`; ambiguous → restart with `unsure`. If it can't
+   be done green by 19:45, skip it and keep the live code.
 
 **Dani: deal desk from 15:52 (Lucas's call).** Your phone (ntfy, your channel) now gets every alert that needs a human to
 message another team: v10 radar DMs, v10 partner suggestions (Teams 15, 10, 3), opportunity SELL/BUY alerts, swap nudges.
