@@ -241,8 +241,8 @@ def day_read(obs: Observation) -> DayRead | None:
         call = "take"
     elif not dv.sure:
         call = "hold"                                 # the direction is a guess: never give the day first
-    elif level == "low" or (rank is None and cost <= GIVE_COST_P):
-        call = "give"
+    elif cost <= GIVE_COST_P and (level == "low" or rank is None):
+        call = "give"                                 # only a cheap day (Sat 21:45: a "low" rank gave away 21-23 P days)
     else:
         call = "hold" if level == "high" else "menu"
     return DayRead(standing.days, first, dv.best, our_day, cost, middle, max(dv(our_day) - dv(standing.days), 0.0),
