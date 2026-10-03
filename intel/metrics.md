@@ -1,4 +1,4 @@
-# Metrics (auto, 18:35, game tick 1001)
+# Metrics (auto, 18:37, game tick 1005)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -80,7 +80,7 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: RET×3, MAL�
 - chato uncommon (team buys): median 26 over 1
 - chato uncommon (team sells): median 14 over 2
 - picaros common (team sells): median 5 over 3
-- picaros rare (team buys): median 54 over 4
+- picaros rare (team buys): median 53 over 3
 - picaros uncommon (team sells): median 11 over 2
 - pilar epic (team sells): median 199 over 1
 - pilar rare (team sells): median 76 over 6
@@ -88,7 +88,7 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: RET×3, MAL�
 
 ## El Rastro now: top bids by price (team, card, price)
 
-- t16: RET-07 (uncommon) 13 P · offer 15158
+- t16: RET-07 (uncommon) 13 P · offer 15243
 - t16: RET-02 (common) 5 P · offer 15200
 - t16: RET-03 (common) 5 P · offer 15208
 - t16: RET-04 (common) 4 P · offer 15169
@@ -101,7 +101,7 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: RET×3, MAL�
 - t16: SAL-12 (legendary) 1 P · offer 15221
 - t16: MAL-12 (legendary) 1 P · offer 15222
 
-Asks by others (card, price: count): SAL-02 7: 1; RET-01 7: 1; SAL-04 10: 1; SAL-01 10: 1; SAL-03 6: 1; LAT-02 6: 1; LAV-04 8: 1; MAL-02 6: 1; RET-04 9: 1; MAL-01 12: 1; LAT-04 12: 1; SAL-02 6: 1; LAT-02 9: 1; RET-02 12: 1; LAT-08 30: 1
+Asks by others (card, price: count): SAL-04 10: 1; SAL-01 10: 1; SAL-03 6: 1; LAT-02 6: 1; LAV-04 8: 1; MAL-02 6: 1; RET-04 9: 1; LAT-02 9: 1; RET-02 12: 1; LAT-08 30: 1; RET-04 11: 1; RET-03 12: 1; MAL-04 12: 1; LAT-05 12: 1; LAT-01 8: 1
 
 ## Our duels: 0 live, 68 finished (last 10)
 
