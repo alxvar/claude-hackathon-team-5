@@ -1,31 +1,31 @@
 # v10 matchmaker: page finishers and first copies
 
-_Written by `tools/matchmaker.py` at 22:12 (tick 1340). Read-only. Holdings are a feed lower bound (~80% recall on our own album): a missing card may already be held unless the team bid for it or put it on a want-list (✓). Giver: a true duplicate or a set it dumps; receiver: no copy, collects the set; both gain > 0 at the price (conservative multipliers). Want-lists: `intel/wants.md`. Never a page-closer for a rival or a team < 6 below us; a rival on either side gains <= 10 P at our price._
+_Written by `tools/matchmaker.py` at 22:17 (tick 1350). Read-only. Holdings are a feed lower bound (~80% recall on our own album): a missing card may already be held unless the team bid for it or put it on a want-list (✓). Giver: a true duplicate or a set it dumps; receiver: no copy, collects the set; both gain > 0 at the price (conservative multipliers). Want-lists: `intel/wants.md`. Never a page-closer for a rival or a team < 6 below us; a rival on either side gains <= 10 P at our price._
 
 ## Matches (best first)
 
 | # | Buyer | Card | Seller | Price | Value created | Closer | Rival | Why |
 |---|---|---|---|---|---|---|---|---|
-| 1 | Team 9 | RET-09 El Ángel Caído | Team 7 | ~70 | +69.3 (low +69.3) |  |  | page 9/10 · bid ✓ · seller holds 2 · also t08 |
-| 2 | Team 9 | SAL-10 Museo Lázaro Galdiano | Team 18 | ~30 | +60.3 (low +60.3) |  | rival seller | bid ✓ · seller holds 2 · also t14 |
+| 1 | Team 9 | RET-09 El Ángel Caído | Team 7 | ~70 | +68.4 (low +68.4) |  |  | page 9/10 · bid ✓ · seller holds 2 · also t08 |
+| 2 | Team 9 | SAL-10 Museo Lázaro Galdiano | Team 18 | ~30 | +60.5 (low +60.5) |  | rival seller | bid ✓ · seller holds 2 · also t14 |
 | 3 | Team 15 | MAL-09 La Heroína del Dos de Mayo | Team 10 | ~45 | +42.4 (low +42.4) |  | rival seller | page 8/10 · known want ✓ · seller dumps MAL |
 | 4 | Team 15 | MAL-10 Noche de Movida | Team 10 | ~45 | +42.4 (low +42.4) |  | rival seller | page 8/10 · known want ✓ · seller dumps MAL |
-| 5 | Team 1 | RET-09 El Ángel Caído | Team 8 | ~65 | +14.8 (low +14.8) |  |  | bid ✓ · seller dumps RET · also t07 |
-| 6 | Team 1 | RET-08 Palacio de Velázquez | Team 4 | ~23 | +14.4 (low +14.4) |  |  | bid ✓ · seller holds 2 · also t07 |
-| 7 | Team 13 | RET-08 Palacio de Velázquez | Team 7 | ~22 | +13.3 (low +13.3) |  | rival buyer | bid ✓ · seller holds 2 · also t04 |
-| 8 | Team 8 | SAL-03 Perrito con Abrigo | Team 1 | ~9 | +13.2 (low +13) |  |  | bid ✓ · seller holds 3 · also t15, t02, t12 |
-| 9 | Team 9 | LAV-02 El Frutero de Argumosa | Team 16 | ~9 | +13 (low +11.2) |  |  | bid ✓ · seller holds 2 · also t18 |
-| 10 | Team 17 | LAV-06 La Tabacalera | Team 16 | ~24 | +12 (low +9.5) |  | rival buyer | bid ✓ · seller dumps LAV |
-| 11 | Team 14 | LAV-01 La Corrala | Team 16 | ~9 | +8.5 (low +6) |  | rival buyer | page 8/10 · bid ✓ · seller dumps LAV |
-| 12 | Team 7 | SAL-01 Escaparate de Serrano | Team 1 | ~9 | +8.1 (low +7.8) |  |  | bid ✓ · seller holds 3 · also t04 |
-| 13 | Team 16 | RET-01 Barca del Estanque | Team 2 | ~9 | +7.5 (low +7.3) |  |  | bid ✓ · seller holds 2 · also t09 |
-| 14 | Team 6 | RET-03 El Titiritero | Team 4 | ~9 | +7.3 (low +7.3) |  | rival buyer | page 8/10 · bid ✓ · seller holds 2 · also t08 |
-| 15 | Team 8 | MAL-02 Plaza del Dos de Mayo | Team 7 | ~9 | +7.2 (low +7.2) |  |  | bid ✓ · seller dumps MAL · also t16, t04, t10 |
-| 16 | Team 3 | SAL-09 El Marqués | Team 2 | ~91 | +6.8 (low +6.8) |  | rival buyer | bid ✓ · seller dumps SAL |
+| 5 | Team 3 | SAL-09 El Marqués | Team 4 | ~87 | +41.2 (low +41.2) |  | rival buyer | bid ✓ · seller dumps SAL · also t02 |
+| 6 | Team 1 | RET-09 El Ángel Caído | Team 8 | ~65 | +14.9 (low +14.9) |  |  | bid ✓ · seller dumps RET · also t07 |
+| 7 | Team 1 | RET-08 Palacio de Velázquez | Team 4 | ~23 | +14.4 (low +14.4) |  |  | bid ✓ · seller holds 2 · also t07 |
+| 8 | Team 13 | RET-08 Palacio de Velázquez | Team 7 | ~22 | +13.7 (low +13.7) |  | rival buyer | bid ✓ · seller holds 2 · also t04 |
+| 9 | Team 8 | SAL-03 Perrito con Abrigo | Team 1 | ~9 | +13.2 (low +12.9) |  |  | bid ✓ · seller holds 3 · also t15, t02, t12 |
+| 10 | Team 9 | LAV-02 El Frutero de Argumosa | Team 16 | ~9 | +13 (low +11.2) |  |  | bid ✓ · seller holds 2 · also t18 |
+| 11 | Team 17 | LAV-06 La Tabacalera | Team 16 | ~24 | +12 (low +9.5) |  | rival buyer | bid ✓ · seller dumps LAV |
+| 12 | Team 14 | LAV-01 La Corrala | Team 16 | ~9 | +8.5 (low +6) |  | rival buyer | page 8/10 · bid ✓ · seller dumps LAV |
+| 13 | Team 7 | SAL-01 Escaparate de Serrano | Team 1 | ~9 | +8.1 (low +7.8) |  |  | bid ✓ · seller holds 3 · also t04 |
+| 14 | Team 16 | RET-01 Barca del Estanque | Team 2 | ~9 | +7.5 (low +7.3) |  |  | bid ✓ · seller holds 2 · also t09 |
+| 15 | Team 6 | RET-03 El Titiritero | Team 4 | ~9 | +7.3 (low +7.3) |  | rival buyer | page 8/10 · bid ✓ · seller holds 2 · also t08 |
+| 16 | Team 8 | MAL-02 Plaza del Dos de Mayo | Team 7 | ~9 | +7.2 (low +7.2) |  |  | bid ✓ · seller dumps MAL · also t16, t04, t10 |
 | 17 | Team 7 | SAL-02 El Portero | Team 9 | ~9 | +6.5 (low +6.5) |  |  | bid ✓ · seller holds 2 · also t02, t01, t12 |
 | 18 | Team 7 | SAL-05 Taxi Blanco | Team 16 | ~9 | +6.4 (low +6.2) |  |  | bid ✓ · seller holds 2 · also t08, t12 |
 | 19 | Team 1 | RET-03 El Titiritero | Team 10 | ~9 | +6.3 (low +6.3) |  | rival seller | bid ✓ · seller holds 2 · also t04, t08 |
-| 20 | Team 13 | RET-01 Barca del Estanque | Team 9 | ~8 | +5.6 (low +5.6) |  | rival buyer | bid ✓ · seller holds 2 · also t02 |
+| 20 | Team 13 | RET-01 Barca del Estanque | Team 9 | ~9 | +5.7 (low +5.7) |  | rival buyer | bid ✓ · seller holds 2 · also t02 |
 
 ## Ready DMs
 
@@ -45,21 +45,21 @@ _Written by `tools/matchmaker.py` at 22:12 (tick 1340). Read-only. Holdings are 
 - To Team 10: "Hi Team 10! Could you post your Noche de Movida (MAL-10) on v10 as an open ask at ~45 P? There's a buyer for it. Only if it's a spare for you, keep one copy. Thanks!"
 - To Team 15: "Hi Team 15! Noche de Movida (MAL-10) can be on v10 soon: post an open bid there at ~45 P and it crosses. Thanks!"
 
-**5. RET-09 · Team 8 → Team 1 at ~65 P**
+**5. SAL-09 · Team 4 → Team 3 at ~87 P**
+- To Team 4: "Hi Team 4! Could you post your El Marqués (SAL-09) on v10 as an open ask at ~87 P? There's a buyer for it. Only if it's a spare for you, keep one copy. Thanks!"
+- To Team 3: "Hi Team 3! El Marqués (SAL-09) can be on v10 soon: post an open bid there at ~87 P and it crosses. Thanks!"
+
+**6. RET-09 · Team 8 → Team 1 at ~65 P**
 - To Team 8: "Hi Team 8! Could you post your El Ángel Caído (RET-09) on v10 as an open ask at ~65 P? There's a buyer for it. Only if it's a spare for you, keep one copy. Thanks!"
 - To Team 1: "Hi Team 1! El Ángel Caído (RET-09) can be on v10 soon: post an open bid there at ~65 P and it crosses. Thanks!"
 
-**6. RET-08 · Team 4 → Team 1 at ~23 P**
+**7. RET-08 · Team 4 → Team 1 at ~23 P**
 - To Team 4: "Hi Team 4! Could you post your Palacio de Velázquez (RET-08) on v10 as an open ask at ~23 P? There's a buyer for it. Only if it's a spare for you, keep one copy. Thanks!"
 - To Team 1: "Hi Team 1! Palacio de Velázquez (RET-08) can be on v10 soon: post an open bid there at ~23 P and it crosses. Thanks!"
 
-**7. RET-08 · Team 7 → Team 13 at ~22 P**
+**8. RET-08 · Team 7 → Team 13 at ~22 P**
 - To Team 7: "Hi Team 7! Could you post your Palacio de Velázquez (RET-08) on v10 as an open ask at ~22 P? There's a buyer for it. Only if it's a spare for you, keep one copy. Thanks!"
 - To Team 13: "Hi Team 13! Palacio de Velázquez (RET-08) can be on v10 soon: post an open bid there at ~22 P and it crosses. Thanks!"
-
-**8. SAL-03 · Team 1 → Team 8 at ~9 P**
-- To Team 1: "Hi Team 1! Could you post your Perrito con Abrigo (SAL-03) on v10 as an open ask at ~9 P? There's a buyer for it. Only if it's a spare for you, keep one copy. Thanks!"
-- To Team 8: "Hi Team 8! Perrito con Abrigo (SAL-03) can be on v10 soon: post an open bid there at ~9 P and it crosses. Thanks!"
 
 ## Teams one or two cards from a page (feed lower bound)
 
