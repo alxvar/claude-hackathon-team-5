@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sat 19:29 · operator · LAV-04 unfilled at t04 (the book had stepped it 9 → 7) → switched to **t01 at 7** (16654, v15, floor 6) · MAL-08 → t01 at 24 (16001) still open
 - Sat 19:26 · operator · Duels II protocol (Chief; ~20:33-22:10, the duelist shares our 5 req/s): job by05m2zep at **20:25** stops the v10 ad job, swaps, book, opps, trader and bargains (bargains does team-key value lookups and has no keyless mode); collector, status, duelmon and news stay · 20:15 watchdog closes any dealer thread · DENY is the only writer during Duels II, and only on the Chief's line · restart when the feed shows `duels.finished` for Duels II, or at 22:15 (ads too if before 22:40) · board tick 1100: #3 31.68 (T10 33.1, T6 32.1)
 - Sat 19:13 · operator · egg try 3 (Chato, 1589, LAT-12, text only): 'las legendarias no pasan por mi mesa… Busca en otro sitio' → decoy, no egg event; **egg hunting stopped for tonight** (Chief) unless the Builder relays a payout to another team
 - Sat 19:12 · operator · egg try 2 (Chief; LAT-12 'El Rastro al Amanecer', legendary, minted 0; text only): Abuela (1582) 'las cartas legendarias no las vendo yo… Para esas, habla con El Chato, ahí al lado' → no egg event, no assets; thread closed
