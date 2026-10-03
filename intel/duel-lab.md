@@ -11,6 +11,104 @@ _Lucas's Duel Lab session. It never writes to the game or to `agents/duelist/`._
   fixed below._
 - _**Labels:** [V] measured on our records or code, [L] modelled or inferred, [?] unknown._
 
+## Overnight program, checkpoint 1 (Sat 22:20): Duels III and the Final
+
+_For Aleks's Sunday morning. Duels III and the Final: 12 ticks, 10% decay, 4 at once, price + day
+(`/api/schedule` at 22:08: Duels III `rounds` 2 = 68 duels; the Final `rounds` 1 = 34). Code and raw outputs are in the
+scratchpad `night/`: `sim2.py`, `fit2.out`, `clusters.out`, `calib2.out`, `validate2.out`, `search_n1.out`,
+`final2.out`, `final3.out`, `tuner.py`, `tuner_dryrun.out`. Code-only: no LLM spend, no game writes, no duelist process.
+Labels: [V] measured on records or code, [L] modelled, [?] unknown._
+
+### Recommendation: three constants, about +1.5 duel points over Duels III [L]
+
+| Constant (live → proposed) | Where | Δ per duel at 12 ticks / 10% |
+|---|---|---|
+| `MIN_STEP_P` 3 → **5** | `agent.py:50` | +0.010 alone |
+| `MAX_STEP_SHARE` 0.25 → **0.18** (back to the 16:30 value; a40ced6 raised it to "close faster") | `agent.py:52` | +0.003 alone |
+| `LATE_SWITCH_LEFT` 4 → **2** | `agent.py:54` | +0.008 for "off"; at 2 ticks the switch stays as a last-moment deal-saver, at the same score |
+| **All three together (Q4)** | | **+0.022 per duel** (5 worlds: worst +0.015, best +0.027; CI ±0.0015). Under the other scoring reading (H2): +0.022. On the Duels II setting: +0.022. **≈ +1.5 points over 68 Duels III duels, +0.75 in the Final** (baseline ≈ 0.37 per duel: +6%) |
+
+- **Stronger variant:** `MIN_STEP_P` 6 (Q5): +0.027, worst +0.018. The gain grows from 4 to 6 P (4: +0.018; 5:
+  +0.023; 6: +0.027).
+- **Not recommended, though the model likes them:**
+  - **A fixed code opener at 0.55 × limit (+0.063 in the model).** The raw data disagrees: our 9 Duels II openers above
+    1.0 × limit all closed, with the best mean result (27.1 P vs 22.9 for 0.4-0.7). The model draws our opener
+    independently of the pie; reality likely isn't independent. [?]
+  - **`OPEN_WAIT` 2 → 0 (+0.006).** The model charges the waiting ticks but undervalues seeing their day first; the
+    earlier days model said the opposite. Conflicting models, so keep. [?]
+  - **Accept at the last tick, `ACCEPT_BY` 1 (+0.006):** a missed settle on 15 s ticks costs the whole deal.
+- **Confirmed no-change [L]:**
+  - the opener scale (×0.8 and ×1.2 both lose);
+  - the accept rules (`acc_f` thresholds ≈ 0; earlier exact replays lose);
+  - give the day only when C ≤ 15 (C ≤ 30/60/always lose −0.018 to −0.057: many rivals ignore the day when they price);
+  - `SILENT_KEEP` 0.15 (0 and 0.3 both lose a little);
+  - `DECIDE_LEFT` / end-game step (both directions lose).
+
+### 1. Rival fits on the Duels II transcripts (35 closed duels) [V counts, L types]
+
+- **Price behaviour:**
+  - reply-only: 66% (answers each of our messages, else silent);
+  - clock: 17% (posts every tick);
+  - one-shot / accept-only: 14%;
+  - silent: 3%.
+- **Day behaviour:**
+  - locked at its own best day: 34%;
+  - moves (copies ours or erratic): 31%;
+  - locked at the far end (day-blind?): 17%;
+  - locked at day 5: 14%.
+- **Reaction to our step [V, n = 67 exchanges]:** their concession after our message doesn't depend on our step size
+  (slope −0.06, corr −0.06). They give ≈ 12-14% of the gap per reply whether we concede 0 P or 15 P. So our step size
+  only decides how much share we hand over; the number of messages decides the decay.
+- **Pies are bigger than in Duels I:** inferred median 0.44 × our limit vs 0.26 (8 duels with a score jump). Our shares
+  were lower (median 0.52).
+- **The worth formula reproduces the game's `result` in all 33 closed deals [V].**
+
+### 2. Simulator validation (`validate2.out`) [L]
+
+- **Calibrated on Duels II after the day fix:** deal rate, rounds, worth per deal, result per duel and share fitted
+  within ±10% (rounds −10%).
+- **Per duel:** each real duel was simulated 1,000 times with its own role, limit and day weight.
+  - The actual result falls inside the simulated 10-90% band in 29-31 of 32 duels.
+  - Predicted total result vs actual: −0% / −9% / −3% across the three calibrated worlds.
+  - Mean per-duel error is ≈ 10 P, so a per-deal ±10% match isn't achievable with unknown rival limits. The aggregate
+    is.
+- **Five worlds bracket the uncertainty:** three calibrated, one with the exact Duels II rival mix, one where 80% of
+  rivals price the day.
+
+### 3. Latency: code-first moves (design for the Builder) [L]
+
+- **Live today:** Duels II decisions averaged 9.4 s on Opus medium, 29% over 10 s [V]. Sunday's decision budget is
+  10 s.
+- **Design:**
+  - The LLM makes **one** decision per duel: the opener, during the 2-tick `OPEN_WAIT`, so it has time.
+  - **Every later move is code:**
+    - step = 12-15% of the gap in worth, clamped to [`MIN_STEP_P`, `MAX_STEP_SHARE` × gap];
+    - accept = the existing closer;
+    - day = the existing `day_read` rules;
+    - holds = the existing rules.
+  - **Text:** the template "I can do N P, delivery on day D." (the claims guard already falls back to it), or an
+    optional Sonnet-low text with a hard 3 s cap that never delays the send.
+- **Effect:** every non-opener move goes out within about a second of the tick.
+- **In the model:** code steps score as well as the LLM's steps (12% steps on top of the other changes: +0.027 vs
+  +0.024 with LLM steps). So moving steps into code costs nothing and removes the latency risk.
+- **Test:** fake server at 15 s ticks, 4 concurrent duels; every send lands within 5 s of its tick.
+
+### 4. Between-waves tuner (`night/tuner.py`; advisory: Aleks approves, the Builder wires the hot-reload)
+
+- **What it does:** reads the session's closed records and proposes at most three constants in fixed bounds, one notch
+  per wave:
+  - `MIN_STEP_P` 3-8;
+  - `MAX_STEP_SHARE` 0.12-0.25;
+  - `HOLD_TICKS` 2-5.
+- **Guardrails:** nothing changes before 6 closed duels; a change is reverted if the next wave scores under 0.7× the
+  session mean. Output is a JSON file (`version`, `params`, `reason`, `evidence`, history) written atomically, which the
+  duelist can reload by mtime.
+- **Dry run on Duels II:** no rule fired (deal rate 0.889 among rivals that spoke, 3.6 rounds per deal;
+  `tuner_dryrun.out`).
+- **Its rules are untested in the model:** a wave is about 4 duels, so it's a safety valve, not an optimiser.
+
+_Next checkpoints: 01:00 (re-run on the complete Duels II set) and 04:00 / 07:30 (final, verified)._
+
 ## Update Sat 22:30: for Sunday (Duels III ≈ 11:00, 12 ticks, 10% decay, 4 at once; the Final the same)
 
 _Data: the closed Duels II records in `docs/duels/` (30 for the 21:50 replays, 32-33 by 22:20) and Duels I. Outputs in
