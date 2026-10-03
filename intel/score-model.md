@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 21:45 (tick 1295), snapshot 1280: **t10 38.02** · t06 33.20 · **us #3 30.75** · t03 30.26 · t18 29.80 · t12 29.60 · t14 29.54. Duels II §1g (strategist concedes opposite-side days: fix sent). Sunday allocation §3g._
+_Last update: Sat 21:56 (tick 1316), snapshot 1310: t10 38.17 · t06 32.42 · t12 30.85 · **us #4 30.70** · t03 30.02 · t14 28.63. Duels II (§1g): waves 1-4 = 27 deals / 32 synced, duel_points 13.93 → 22.96; t10's duel part ≈ 2.3-3.0 board above ours [L]. Sunday allocation §3g._
 
 ## 1. Board = Friday × Saturday blend [V]
 
