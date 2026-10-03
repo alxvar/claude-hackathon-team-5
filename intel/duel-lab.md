@@ -50,7 +50,7 @@ Both files pass `params.validate()` on duelist-loop d04a29f with no errors (`v2/
     accepted;
   - all deals took ≤ 2 rounds.
 - **The model:**
-  - it opens at 0.9-1.4 × the pie;
+  - it opens at no more than 0.9-1.4 × the pie (the lower of that and its usual opening draw);
   - after our first offer it jumps 60% of the way to the openers' midpoint, then halves the remaining distance per
     reply;
   - it accepts our offer once it's within 10% of the pie of that midpoint, and anything inside its limit in the last 3
