@@ -9,6 +9,12 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sat 17:57 · snapshot 920 (bench 4 started 17:55)
+- Board: **t14 31.89** · t06 30.62 · **us 29.98 (#3)** · t03 28.57 · t01 28.52 · t10 27.65 · t18 26.99.
+- t14 +0.46: Pícaros BUY RET-10 at 57 (920), after RET-09 at 57 (852): t14 keeps filling L4 below list, and its RET set grows.
+- On Saturday alone t06 (39.59) and t14 (38.80) lead; for the game total (0.5·Fri + Sat) t14 47.83 · t06 45.93 · us 44.97.
+- t15 bought MAL-09 from the Pícaros at 60 (920).
+
 ### Sat 17:54 · snapshots 900-910
 - Board at 910: t14 31.43 · t06 30.73 · **us 29.98 (#3)** · t03 28.75 · t01 28.71 · t10 27.74 · t18 27.04 · t16 26.23 · t12 26.06.
 - **t06 flipped a Pícaros rare** [V feed]: bought RET-09 from the Pícaros at 52 (887, L4 slot), sold it to t12 at 84 on El Rastro
