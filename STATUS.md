@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 19:28** · tick 1107 (30 s/tick) · game hour 10.55 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 19:33** · tick 1117 (30 s/tick) · game hour 10.63 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,25 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 19:32 · operator · GUARDRAIL 19:40 v10 rebate noted (5 P per card a non-rival sells on v10 tonight, cap 30; settle at 22:45 by buying one of their cards at the owed amount, floor 85; only on the Market's tally + the Chief's go) · flagged to the Chief: the settlement trade scores ΔV − price − fee for us, so a cheap card at 15 on El Rastro ≈ −15 neg (−0.7 board); keep it ≈ 0 with v15 (fee 0) and a card we lack worth ≥ the owed amount
+  - Sat 19:29 · operator · LAV-04 unfilled at t04 (the book had stepped it 9 → 7) → switched to **t01 at 7** (16654, v15, floor 6) · MAL-08 → t01 at 24 (16001) still open
   - Sat 19:26 · operator · Duels II protocol (Chief; ~20:33-22:10, the duelist shares our 5 req/s): job by05m2zep at **20:25** stops the v10 ad job, swaps, book, opps, trader and bargains (bargains does team-key value lookups and has no keyless mode); collector, status, duelmon and news stay · 20:15 watchdog closes any dealer thread · DENY is the only writer during Duels II, and only on the Chief's line · restart when the feed shows `duels.finished` for Duels II, or at 22:15 (ads too if before 22:40) · board tick 1100: #3 31.68 (T10 33.1, T6 32.1)
-  - Sat 19:13 · operator · egg try 3 (Chato, 1589, LAT-12, text only): 'las legendarias no pasan por mi mesa… Busca en otro sitio' → decoy, no egg event; **egg hunting stopped for tonight** (Chief) unless the Builder relays a payout to another team
-  - Sat 19:12 · operator · egg try 2 (Chief; LAT-12 'El Rastro al Amanecer', legendary, minted 0; text only): Abuela (1582) 'las cartas legendarias no las vendo yo… Para esas, habla con El Chato, ahí al lado' → no egg event, no assets; thread closed
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 31.68 | 3 | 24.18 | 7.50 | 13.93 | 0.44 | 0.89 | 52 | 5 | 120 | 38/50 |
+| 31.92 | 3 | 24.42 | 7.50 | 13.93 | 0.44 | 0.89 | 52 | 5 | 120 | 38/50 |
 
-Leaderboard (snapshot at tick 1100; refreshes every few minutes):
+Leaderboard (snapshot at tick 1110; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 10 | 33.13 | 20.63 | 12.50 | 45 |
-| 2 | Team 6 | 32.08 | 20.03 | 12.05 | 55 |
-| 3 | Team 5 | 31.68 | 24.18 | 7.50 | 52 |
-| 4 | Team 14 | 31.19 | 21.66 | 9.53 | 48 |
-| 5 | Team 18 | 30.28 | 22.78 | 7.50 | 37 |
+| 1 | Team 10 | 33.78 | 21.28 | 12.50 | 47 |
+| 2 | Team 6 | 32.90 | 20.85 | 12.05 | 57 |
+| 3 | Team 5 | 31.92 | 24.42 | 7.50 | 52 |
+| 4 | Team 14 | 30.42 | 20.89 | 9.53 | 49 |
+| 5 | Team 18 | 30.36 | 22.86 | 7.50 | 37 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 11.00 | ~27 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~36 min | persona_patch | The fever breaks |
-| 11.65 | ~66 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~147 min | bench | The Market Test: every venue gets the same synthetic book |
-| 14.08 | ~212 min (after today's close) | day_closes | Closed until Sunday 09:00 |
-| 14.08 | ~212 min (after today's close) | day_opens | Sunday opens |
-| 14.65 | ~246 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
-| 15.00 | ~267 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 11.00 | ~22 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~31 min | persona_patch | The fever breaks |
+| 11.65 | ~61 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~142 min | bench | The Market Test: every venue gets the same synthetic book |
+| 14.08 | ~207 min (after today's close) | day_closes | Closed until Sunday 09:00 |
+| 14.08 | ~207 min (after today's close) | day_opens | Sunday opens |
+| 14.65 | ~241 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 15.00 | ~262 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
 
 ## Our dealer deals
 
@@ -97,7 +97,7 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
 | common card | team buys | 72 | 9.00 | 7 | 12 | 5 | 9 |
-| common card | team sells | 112 | 6.00 | 2 | 23 | 5 | 5.40 |
+| common card | team sells | 113 | 6 | 2 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 42 | 22.00 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 79 | 23 | 17 | 29 | 5 | 24.20 |
 | uncommon card | team sells | 13 | 15 | 12 | 22 | 0 | — |
