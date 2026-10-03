@@ -184,3 +184,8 @@ Swap your duplicates, hijo — a full page is wort
 - Sat 20:04 · persona.updated tick 1179 · pilar → ? · {"persona": "pilar", "name": "Do\u00f1a Pilar", "version": 3}
 - Sat 20:10 · message tick 1190 · picaros → t04 · ¡Primo, ese estirón fue de un centímetro! Paco ya se abrazó contigo mentalmente, pero el marco dorado pesa. Mira: El Marqués, para tu mamá, 56 P. Ahí sí nos damos el abrazo, las cervezas y el domingo con todo el barrio. El taxi pita, primo... ¿cerramos ya?
 - Sat 20:58 · taller.crafted tick 1202 ·  → t13 · Team 13 turned three common cards into Vermut del Domingo (uncommon) at The Workshop
+- Sat 21:01 · message tick 1207 · picaros → t03 · Paco: ¡El real, claro! We have only one, and she is hers — I mean yours, almost!
+
+Nando: You walk fast, amigo, we respect that. 143 P and she goes in your bag before the van leaves.
+
+Paco: Say sí, the street is waiting.
