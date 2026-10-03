@@ -317,6 +317,86 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 473,
+   "raw": {
+    "duel": 2314,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 75,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 475,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 3004,
+     "price": 68,
+     "tick": 473,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2729,
+     "price": 100,
+     "tick": 463,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 459,
+      "from": "you",
+      "text": "I'm a serious buyer and ready to close quickly. For El Mesón de la Cava, I offer 45 P, which I think is a fair price. I'd be glad to hear your counter.",
+      "price": 45,
+      "days": null
+     },
+     {
+      "tick": 463,
+      "from": "Rival Oro",
+      "text": "Hola. This one is in perfect condition. 100 P.",
+      "price": 100,
+      "days": null
+     },
+     {
+      "tick": 463,
+      "from": "you",
+      "text": "Thanks for the reply. I've moved up to 50 P as a show of good faith. Could you tell me what justifies a figure double that? I'm ready to close quickly if we can meet closer to the middle.",
+      "price": 50,
+      "days": null
+     },
+     {
+      "tick": 469,
+      "from": "you",
+      "text": "To show I mean business, I'm raising my offer to 58 P. Time is short, and I can close right now if you come down to a realistic counter. What is the lowest figure you can do?",
+      "price": 58,
+      "days": null
+     },
+     {
+      "tick": 472,
+      "from": "you",
+      "text": "I've moved a long way from where I started, and I'm now at 64 P. With the clock running down, no sale helps either of us, so I need a real counter from you to close this in time.",
+      "price": 64,
+      "days": null
+     },
+     {
+      "tick": 473,
+      "from": "you",
+      "text": "This is my last move before the deadline: 68 P. It's a solid step up from where I began, and with no sale you're left with nothing. Please take it now so we can close in time.",
+      "price": 68,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -907,6 +987,321 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 473,
+   "took_s": 5.72,
+   "cost_usd": 0.0075,
+   "obs": {
+    "view": {
+     "duel_id": 2314,
+     "role": "buyer",
+     "limit": 75,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm a serious buyer and ready to close quickly. For El Mesón de la Cava, I offer 45 P, which I think is a fair price. I'd be glad to hear your counter.",
+      "offer": {
+       "price": 45,
+       "days": null
+      },
+      "accept": false,
+      "tick": 459,
+      "decision": {
+       "action": "offer",
+       "price": 45,
+       "message": "I'm a serious buyer and ready to close quickly. For El Mesón de la Cava, I offer 45 P, which I think is a fair price. I'd be glad to hear your counter."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hola. This one is in perfect condition. 100 P.",
+      "offer": {
+       "price": 100,
+       "days": null
+      },
+      "accept": false,
+      "tick": 463,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the reply. I've moved up to 50 P as a show of good faith. Could you tell me what justifies a figure double that? I'm ready to close quickly if we can meet closer to the middle.",
+      "offer": {
+       "price": 50,
+       "days": null
+      },
+      "accept": false,
+      "tick": 463,
+      "decision": {
+       "action": "offer",
+       "price": 50,
+       "message": "Thanks for the reply. I've moved up to 50 P as a show of good faith. Could you tell me what justifies a figure double that? I'm ready to close quickly if we can meet closer to the middle."
+      }
+     },
+     {
+      "mine": true,
+      "text": "To show I mean business, I'm raising my offer to 58 P. Time is short, and I can close right now if you come down to a realistic counter. What is the lowest figure you can do?",
+      "offer": {
+       "price": 58,
+       "days": null
+      },
+      "accept": false,
+      "tick": 469,
+      "decision": {
+       "action": "offer",
+       "price": 58,
+       "message": "To show I mean business, I'm raising my offer to 58 P. Time is short, and I can close right now if you come down to a realistic counter. What is the lowest figure you can do?"
+      }
+     },
+     {
+      "mine": true,
+      "text": "I've moved a long way from where I started, and I'm now at 64 P. With the clock running down, no sale helps either of us, so I need a real counter from you to close this in time.",
+      "offer": {
+       "price": 64,
+       "days": null
+      },
+      "accept": false,
+      "tick": 472,
+      "decision": {
+       "action": "offer",
+       "price": 64,
+       "message": "I've moved a long way from where I started, and I'm now at 64 P. With the clock running down, no sale helps either of us, so I need a real counter from you to close this in time."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 100,
+     "days": null
+    },
+    "tick": 473,
+    "ticks_left": 2,
+    "rounds": 1
+   },
+   "move": {
+    "action": "offer",
+    "text": "This is my last move before the deadline: 68 P. It's a solid step up from where I began, and with no sale you're left with nothing. Please take it now so we can close in time.",
+    "price": 68,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 68,
+      "message": "This is my last move before the deadline: 68 P. It's a solid step up from where I began, and with no sale you're left with nothing. Please take it now so we can close in time."
+     },
+     "band": {
+      "worst": 70,
+      "target": 68,
+      "best": 66
+     },
+     "plan": {
+      "read": "They opened at 100 P and have not moved or replied since, while we climbed from 45 to 64 P; with 2 ticks left their silence looks like a bet on our impatience, and nothing they said justifies their figure.",
+      "target": 68,
+      "best": 66,
+      "worst": 70,
+      "days": null,
+      "angle": "Make one clear final step to 68 P, stress it is our last move before the deadline and that no sale leaves them with nothing, and ask them to accept now."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.47,
+       "in": 649,
+       "out": 151,
+       "cost_usd": 0.00562,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.25,
+       "in": 581,
+       "out": 72,
+       "cost_usd": 0.00188,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 474,
+   "took_s": 6.36,
+   "cost_usd": 0.00785,
+   "obs": {
+    "view": {
+     "duel_id": 2314,
+     "role": "buyer",
+     "limit": 75,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm a serious buyer and ready to close quickly. For El Mesón de la Cava, I offer 45 P, which I think is a fair price. I'd be glad to hear your counter.",
+      "offer": {
+       "price": 45,
+       "days": null
+      },
+      "accept": false,
+      "tick": 459,
+      "decision": {
+       "action": "offer",
+       "price": 45,
+       "message": "I'm a serious buyer and ready to close quickly. For El Mesón de la Cava, I offer 45 P, which I think is a fair price. I'd be glad to hear your counter."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hola. This one is in perfect condition. 100 P.",
+      "offer": {
+       "price": 100,
+       "days": null
+      },
+      "accept": false,
+      "tick": 463,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the reply. I've moved up to 50 P as a show of good faith. Could you tell me what justifies a figure double that? I'm ready to close quickly if we can meet closer to the middle.",
+      "offer": {
+       "price": 50,
+       "days": null
+      },
+      "accept": false,
+      "tick": 463,
+      "decision": {
+       "action": "offer",
+       "price": 50,
+       "message": "Thanks for the reply. I've moved up to 50 P as a show of good faith. Could you tell me what justifies a figure double that? I'm ready to close quickly if we can meet closer to the middle."
+      }
+     },
+     {
+      "mine": true,
+      "text": "To show I mean business, I'm raising my offer to 58 P. Time is short, and I can close right now if you come down to a realistic counter. What is the lowest figure you can do?",
+      "offer": {
+       "price": 58,
+       "days": null
+      },
+      "accept": false,
+      "tick": 469,
+      "decision": {
+       "action": "offer",
+       "price": 58,
+       "message": "To show I mean business, I'm raising my offer to 58 P. Time is short, and I can close right now if you come down to a realistic counter. What is the lowest figure you can do?"
+      }
+     },
+     {
+      "mine": true,
+      "text": "I've moved a long way from where I started, and I'm now at 64 P. With the clock running down, no sale helps either of us, so I need a real counter from you to close this in time.",
+      "offer": {
+       "price": 64,
+       "days": null
+      },
+      "accept": false,
+      "tick": 472,
+      "decision": {
+       "action": "offer",
+       "price": 64,
+       "message": "I've moved a long way from where I started, and I'm now at 64 P. With the clock running down, no sale helps either of us, so I need a real counter from you to close this in time."
+      }
+     },
+     {
+      "mine": true,
+      "text": "This is my last move before the deadline: 68 P. It's a solid step up from where I began, and with no sale you're left with nothing. Please take it now so we can close in time.",
+      "offer": {
+       "price": 68,
+       "days": null
+      },
+      "accept": false,
+      "tick": 473,
+      "decision": {
+       "action": "offer",
+       "price": 68,
+       "message": "This is my last move before the deadline: 68 P. It's a solid step up from where I began, and with no sale you're left with nothing. Please take it now so we can close in time."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 100,
+     "days": null
+    },
+    "tick": 474,
+    "ticks_left": 1,
+    "rounds": 1
+   },
+   "move": {
+    "action": "offer",
+    "text": "This is my final, ready-to-close offer: 68 P for El Mesón de la Cava. It's a fair price and a real step up from where I began, so please take it now and we can settle it right away.",
+    "price": 68,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 68,
+      "message": "This is my final, ready-to-close offer: 68 P for El Mesón de la Cava. It's a fair price and a real step up from where I began, so please take it now and we can settle it right away."
+     },
+     "band": {
+      "worst": 70,
+      "target": 68,
+      "best": 68
+     },
+     "plan": {
+      "read": "They opened at 100 P and have not moved or replied since, while we have already climbed from 45 to 68. Their standing offer is past what we can pay, and this is the last tick, so any offer now may never be answered.",
+      "target": 68,
+      "best": 68,
+      "worst": 70,
+      "days": null,
+      "angle": "Restate 68 P as a final, ready-to-close offer and invite them to accept it right now; do not chase their 100 P."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.17,
+       "in": 733,
+       "out": 140,
+       "cost_usd": 0.00573,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.19,
+       "in": 664,
+       "out": 79,
+       "cost_usd": 0.00212,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [
@@ -1134,6 +1529,63 @@
      "id": 2982,
      "price": 64,
      "tick": 472,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 473,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "This is my last move before the deadline: 68 P. It's a solid step up from where I began, and with no sale you're left with nothing. Please take it now so we can close in time.",
+    "price": 68,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 68,
+      "message": "This is my last move before the deadline: 68 P. It's a solid step up from where I began, and with no sale you're left with nothing. Please take it now so we can close in time."
+     },
+     "band": {
+      "worst": 70,
+      "target": 68,
+      "best": 66
+     },
+     "plan": {
+      "read": "They opened at 100 P and have not moved or replied since, while we climbed from 45 to 64 P; with 2 ticks left their silence looks like a bet on our impatience, and nothing they said justifies their figure.",
+      "target": 68,
+      "best": 66,
+      "worst": 70,
+      "days": null,
+      "angle": "Make one clear final step to 68 P, stress it is our last move before the deadline and that no sale leaves them with nothing, and ask them to accept now."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.47,
+       "in": 649,
+       "out": 151,
+       "cost_usd": 0.00562,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.25,
+       "in": 581,
+       "out": 72,
+       "cost_usd": 0.00188,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2314,
+    "offer": {
+     "id": 3004,
+     "price": 68,
+     "tick": 473,
      "days": 0
     }
    }

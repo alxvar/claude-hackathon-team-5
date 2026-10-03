@@ -397,6 +397,93 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 474,
+   "raw": {
+    "duel": 2506,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 103,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 482,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 2950,
+     "price": 76,
+     "tick": 471,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3029,
+     "price": 113,
+     "tick": 474,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 466,
+      "from": "you",
+      "text": "I'm a serious buyer for Palacio de Cristal and I'm offering 62 P. That reflects its upkeep needs and the lack of a clear market comparison, but I'm ready to move quickly if you counter with a reasoned figure.",
+      "price": 62,
+      "days": null
+     },
+     {
+      "tick": 467,
+      "from": "Rival Noche",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 134,
+      "days": null
+     },
+     {
+      "tick": 467,
+      "from": "you",
+      "text": "I've moved up to 70 P as a show of good faith. Your figure is far out of line with what the palace's upkeep and the lack of comparable sales support. If you want me to go further, please explain what justifies it or come down substantially.",
+      "price": 70,
+      "days": null
+     },
+     {
+      "tick": 470,
+      "from": "Rival Noche",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 125,
+      "days": null
+     },
+     {
+      "tick": 471,
+      "from": "Rival Noche",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 122,
+      "days": null
+     },
+     {
+      "tick": 471,
+      "from": "you",
+      "text": "I've raised my offer to 76 P. Your latest figure still has no stated basis, and with upkeep costs and no comparable sales to point to, it is well out of reach. A substantially lower number from you would let us close this quickly.",
+      "price": 76,
+      "days": null
+     },
+     {
+      "tick": 474,
+      "from": "Rival Noche",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 113,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1020,6 +1107,174 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 474,
+   "took_s": 6.31,
+   "cost_usd": 0.00787,
+   "obs": {
+    "view": {
+     "duel_id": 2506,
+     "role": "buyer",
+     "limit": 103,
+     "currency": "P",
+     "item": "Palacio de Cristal",
+     "context": "",
+     "rival": "Rival Noche",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm a serious buyer for Palacio de Cristal and I'm offering 62 P. That reflects its upkeep needs and the lack of a clear market comparison, but I'm ready to move quickly if you counter with a reasoned figure.",
+      "offer": {
+       "price": 62,
+       "days": null
+      },
+      "accept": false,
+      "tick": 466,
+      "decision": {
+       "action": "offer",
+       "price": 62,
+       "message": "I'm a serious buyer for Palacio de Cristal and I'm offering 62 P. That reflects its upkeep needs and the lack of a clear market comparison, but I'm ready to move quickly if you counter with a reasoned figure."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 134,
+       "days": null
+      },
+      "accept": false,
+      "tick": 467,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've moved up to 70 P as a show of good faith. Your figure is far out of line with what the palace's upkeep and the lack of comparable sales support. If you want me to go further, please explain what justifies it or come down substantially.",
+      "offer": {
+       "price": 70,
+       "days": null
+      },
+      "accept": false,
+      "tick": 467,
+      "decision": {
+       "action": "offer",
+       "price": 70,
+       "message": "I've moved up to 70 P as a show of good faith. Your figure is far out of line with what the palace's upkeep and the lack of comparable sales support. If you want me to go further, please explain what justifies it or come down substantially."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 125,
+       "days": null
+      },
+      "accept": false,
+      "tick": 470,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 122,
+       "days": null
+      },
+      "accept": false,
+      "tick": 471,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've raised my offer to 76 P. Your latest figure still has no stated basis, and with upkeep costs and no comparable sales to point to, it is well out of reach. A substantially lower number from you would let us close this quickly.",
+      "offer": {
+       "price": 76,
+       "days": null
+      },
+      "accept": false,
+      "tick": 471,
+      "decision": {
+       "action": "offer",
+       "price": 76,
+       "message": "I've raised my offer to 76 P. Your latest figure still has no stated basis, and with upkeep costs and no comparable sales to point to, it is well out of reach. A substantially lower number from you would let us close this quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 113,
+       "days": null
+      },
+      "accept": false,
+      "tick": 474,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 113,
+     "days": null
+    },
+    "tick": 474,
+    "ticks_left": 8,
+    "rounds": 3
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thank you for moving down; I've stepped up to 82 P in response. Any further movement from me depends on you making another real cut, so I'd welcome a meaningfully lower figure.",
+    "price": 82,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 82,
+      "message": "Thank you for moving down; I've stepped up to 82 P in response. Any further movement from me depends on you making another real cut, so I'd welcome a meaningfully lower figure."
+     },
+     "band": {
+      "worst": 83,
+      "target": 82,
+      "best": 81
+     },
+     "plan": {
+      "read": "They dropped from 122 to 113 since our last offer, a 9 P move, and they have moved 21 P in total against our 14. Their message text is a repeated stock phrase with no real content; only the falling offers count.",
+      "target": 82,
+      "best": 81,
+      "worst": 83,
+      "days": null,
+      "angle": "Acknowledge that they moved and step up to about 82 P, stressing that further movement depends on them making another real cut."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.15,
+       "in": 770,
+       "out": 139,
+       "cost_usd": 0.00586,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.15,
+       "in": 619,
+       "out": 77,
+       "cost_usd": 0.00201,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1190,6 +1445,63 @@
      "id": 2950,
      "price": 76,
      "tick": 471,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 474,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thank you for moving down; I've stepped up to 82 P in response. Any further movement from me depends on you making another real cut, so I'd welcome a meaningfully lower figure.",
+    "price": 82,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 82,
+      "message": "Thank you for moving down; I've stepped up to 82 P in response. Any further movement from me depends on you making another real cut, so I'd welcome a meaningfully lower figure."
+     },
+     "band": {
+      "worst": 83,
+      "target": 82,
+      "best": 81
+     },
+     "plan": {
+      "read": "They dropped from 122 to 113 since our last offer, a 9 P move, and they have moved 21 P in total against our 14. Their message text is a repeated stock phrase with no real content; only the falling offers count.",
+      "target": 82,
+      "best": 81,
+      "worst": 83,
+      "days": null,
+      "angle": "Acknowledge that they moved and step up to about 82 P, stressing that further movement depends on them making another real cut."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.15,
+       "in": 770,
+       "out": 139,
+       "cost_usd": 0.00586,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.15,
+       "in": 619,
+       "out": 77,
+       "cost_usd": 0.00201,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2506,
+    "offer": {
+     "id": 3036,
+     "price": 82,
+     "tick": 474,
      "days": 0
     }
    }
