@@ -1,4 +1,4 @@
-# Metrics (auto, 20:35, game tick 1201)
+# Metrics (auto, 20:37, game tick 1201)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -16,7 +16,7 @@ Us: #3
 
 ## Us
 
-score 31.64 · neg_points 119.1 (15 min ago 119.1) · ladder 0.437 · duel 13.93 · cash 120 · level 5 · deals 52
+score 31.64 · neg_points 119.1 (15 min ago 119.1) · ladder 0.437 · duel 13.93 · cash 520 · level 5 · deals 52
 
 ## Our holdings (card (rarity): value of each copy; a sale gives up the cheapest copy)
 
@@ -85,7 +85,11 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 
 ## El Rastro now: top bids by price (team, card, price)
 
+- t09: SAL-09 (rare) 68 P · offer 17770
+- t09: SAL-10 (rare) 68 P · offer 17771
 - t18: LAT-10 (rare) 47 P · offer 17066
+- t09: SAL-06 (uncommon) 20 P · offer 17769
+- t09: MAL-06 (uncommon) 20 P · offer 17772
 - t13: LAV-06 (uncommon) 15 P · offer 17706
 - t13: LAV-07 (uncommon) 15 P · offer 17740
 - t13: RET-06 (uncommon) 11 P · offer 17605
@@ -96,7 +100,6 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 - t13: LAT-02 (common) 2 P · offer 17665
 - t13: LAT-05 (common) 2 P · offer 17667
 - t13: LAT-04 (common) 2 P · offer 17681
-- t13: LAT-01 (common) 2 P · offer 17695
 
 Asks by others (card, price: count): LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAT-06 20: 1; SAL-02 7: 1; SAL-01 6: 1; RET-09 84: 1; LAT-08 30: 1; SAL-11 245: 1; RET-06 30: 1; LAT-06 21: 1; SAL-03 7: 1; SAL-04 10: 1
 
@@ -115,9 +118,9 @@ Asks by others (card, price: count): LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-
 
 ## Latest announcements
 
-- tick 1091 level.unlocked: {"team": "t13", "name": "Team 13", "persona": "banco", "persona_name": "Don Ernesto", "level": 5, "why": "open to everyone now"}
 - tick 1091 level.unlocked: {"team": "t17", "name": "Team 17", "persona": "banco", "persona_name": "Don Ernesto", "level": 5, "why": "open to everyone now"}
 - tick 1091 level.unlocked: {"team": "t18", "name": "Team 18", "persona": "banco", "persona_name": "Don Ernesto", "level": 5, "why": "open to everyone now"}
 - tick 1194 announcement: {"text": "Heads-up: the game pauses in 2 minutes for a short announcement, about 10 minutes. Please come to the front."}
 - tick 1201 announcement: {"text": "\u23f8 The game is paused for about 10 minutes. Announcement at the front: Payday, tips, and a congratulation. Play resumes right after."}
+- tick 1201 announcement: {"text": "Payday in Madrid: every team gets 400 primas, a second starting purse. Don Ernesto's vault and Los P\u00edcaros' epics are within reach. Only deals sc
 
