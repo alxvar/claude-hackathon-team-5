@@ -1,53 +1,48 @@
-# Judge (claude-opus-5-5, Sat 19:01)
+# Judge (claude-opus-5-5, Sat 19:17)
 
 ## Verdict
-Holding, not gaining: #3 at 31.68, 0.12 behind Team 14 (31.8). Our +1.7 over 60 min beats Team 14 (+0.3) and Team 6 (+0.9), but we are −0.3 in the last 15 min (idle drift since #1 at 31.97 at 18:30). Team 10 is level with us at 31.7 after +3.3 in 15 min.
+**Slipping, now #2.** Us 31.68: flat over 15 min, +1.7 over 60 min (the SAL close). Team 10 leads at 32.0 (+4.4/60) and passed us. Team 6 sits 0.1 behind us. Team 18, at 30.4 and +2.4/60, is the fastest climber within 3.0 of us.
 
 ## Our strategies: keep / kill / scale
-- **Bargains daemon plus taker accepts by hand: SCALE.** The SAL-06 ask at 28 scored +40.4 neg, worth +1.99 board. It is our only large win since 17:45.
-- **Ladder sells, job bxpdvaqj5 (MAL-08 → Pilar, LAT-04 / LAV-04 → Pícaros): CUT TO ONE TEST.**
-  - /api/me still reads ladder 0.437, so the "fell below its cap" premise is not shown.
-  - At 17:45, three ladder deals moved ladder 0.373 → 0.437 and left `negotiating` flat.
-  - The Pícaros LAT-04 thread shows her bid at 4 against our 12, for a card worth 5 to us.
-- **Trading loop: KEEP.** The last fill was the t07 swap at 17:46 (+15.5 measured). Since then: no errors and no fills.
-- **Maker asks to t09 and t15 (MAL at 9, LAV-03 at 6): KEEP.** Each is +2 to +2.8 if filled, with no fee for us. None has filled; 15458 has been live since about tick 1000 at least.
-- **Offer 15667 (LAV-02 at 0 to t01): KILL, do not repost.**
-  - It loses 1.3.
-  - t01 collects LAV and sits only 7.6 below us, so it fails the ≥10 feeding rule.
-  - t01 is allied with t10, which is level with us.
-- **v10 value-created pushes (ad job, Dani): KEEP, but no measured effect.**
-  - Since 17:40 the trade list shows no settlement on v10.
-  - The t03 → t09 LAV deal never appeared.
-  - t15 posted one sale, with 0 settlements.
-- **Unopened silver pack: COSTING US.** Pack drag took the SAL close from the +50 cap to +40.4. The pack fell 87.1 → 76.5 since 18:20.
+- **Dealer bot (ladder sells): KILL.** At 19:01-19:05 all 3 threads walked; each dealer went final at its opening bid. Ladder has been flat at 0.437 since 17:45, and the cap is [L].
+- **Egg hunting: KILL (already stopped).** egg.found at tick 1047 left neg_points at 119.1 (unchanged since tick 988), and Don Ernesto paid nothing.
+- **Trading loop: KEEP, idle.** It made 2 accepts on Saturday (15:48 +6.2, 17:46 +15.5). Its logged errors are Friday's. It costs nothing to leave running.
+- **Maker book: SCALE.** Only 7 offers are live, against the plan's 20-30, and none filled from tick 988 to 1082 (neg_points flat at 119.1).
+  - If all fill: MAL-02/03/05 at 9 (worth 7) +6, LAV-03 at 6 (3.2) +2.8, LAV-04 at 8 (3.2) +4.8, MAL-08 at 23 (17.5) +5.5. That is ≈ +19 neg_points.
+  - Team sales do score: SAL-01 at 7 gave +4.7 at tick 351.
+- **LAV-02 → t01 at 0 (offer 16078): KILL.** It is a sure −1.3 to us and a gift to Team 10's ally. Nothing in the data says it is a v10 value-created play.
+- **In-room page closes: KEEP the method, but no targets are left.**
+  - The SAL close at 28 P gave +40.4, the best trade of the day.
+  - LAV, RET and SAL are complete. MAL is 6/10 and LAT 2/10, so no cheap close remains until CHA on Sunday.
+- **v10 / market: UNMEASURED.** None of the metrics show our mm_points or any v10 trade since tick 398 (which went to −5.2). The 17:45 room plan (t02/t07 sellers on v10) has no recorded result.
 
 ## Check the scout
 - **Holds:**
-  - Team 10 is the fastest climber (+3.3 / +3.9). Its MAL-10 at 74 (tick 585) and RET-03 at 12 (tick 1033) are confirmed.
-  - Team 16 bought t15's RET cards at ticks 1022-1023.
-  - The earlier Pilar sells scored +0.050 and +0.040.
-  - We have 3 complete pages.
-  - Skipping LAV-05 at 5 is correct: a duplicate is worth 3.25 to us, less than 5 + fee.
-- **Does not hold:**
-  - "Ladder 0.437, dropped 0.28": the ladder reads 0.437, unchanged. The 0.28 is a board drop, not ladder release, and its source is not in the data.
-  - "Board effect low": stronger than that. It measured 0 on three deals at 17:45.
-- **Stale:** "v10 7.5 vs 9.15-12.5" is the 17:50 figure. No current `mm` figure exists in the metrics.
-- **Wrong:**
-  - "MAL needs only MAL-09/10": we also lack MAL-06 and MAL-07 (both sold to Pilar). MAL is 4 cards from a page.
-  - "LAT-02 at 8" is no bargain: our value is 5, and 8 + fee 2 nets −5.
+  - Team sales of low-multiplier spares score.
+  - MAL-08 → t01 passes the feeding rule (t01 is #12 at 24.1).
+  - The scout correctly says t09's value for MAL-03/LAV-03, and the venue, are not in the data.
+  - No dealer rare sale beats our value (Pilar's median is 79 against our 149.9).
+  - Never buy packs.
+- **Stale or wrong:**
+  - "We are #1, lead 0.1": false at 19:15. We are #2, 0.3 behind t10.
+  - MAL-08 is now offer 16225 at 23, not 16001 at 24. LAV-04 is now 16224 at 8.
+  - t07's RET-09 bid is 16127, not 16030. The top RET-09 bid is t09 at 51 (16212).
+  - The threat list omits t18 (within 1.3, +2.4/60). Under the 17:25 rule, t18 is a rival.
+- **Minor:** t10 is +4.4/60 (not +3.9), and t18 has 37 deals (not 36). These do not change conclusions.
 
 ## The 3 changes with the highest expected gain
-1. **Duels II (about 20:33): verify the day reading live.**
-   - Action: Aleks runs `--days-read auto`, checks the first 2-3 settled `days` duels against predicted surplus, and flips the switch if they read backwards.
-   - Expected gain: the Duel Lab puts it at +0.47/duel if right vs −0.18/duel if backwards, over 68 duels. This is the largest swing left on Saturday.
-   - Main risk: too few early duels to tell the two readings apart.
-2. **Ladder: one measured MAL-08 sale, then decide.**
-   - Action: sell only MAL-08 to Pilar (floor 18 ≥ its value of 17.5). Read `negotiating` at the next refresh, about 10 ticks later.
-   - If it is flat, stop job bxpdvaqj5 (LAT-04 and LAV-04 included) and cancel 15762.
-   - Expected gain: 0 to a small ladder move, and it saves Operator attention and accepts before Duels II.
-   - Main risk: we lose a small gain if the cap really did reset.
-3. **Decide the silver pack before any further card buy (Chief, before Sunday's CHA purchases).**
-   - Every acquisition we make while it stays unopened loses value to pack drag (≈9.6 on SAL-06).
-   - Weigh that drag against pulling CHA cards on Sunday by opening it after the release.
-   - Expected gain: the avoided drag on each CHA buy. The size of a CHA pull is not in the data.
-   - Main risk: opening before the CHA release forfeits any CHA pull.
+1. **Make the maker book fill, and widen it.**
+   - Dani walks t09, t15, t04 and t01 to accept the live offers.
+   - Operator cancels 16078 and adds asks for our LAV spares (LAV-02 ×3 worth 1.3, LAV-03 and LAV-04 second copies) at 6-9 to t07. Team 7 has made 7 LAV buys and sits at 21.9, so it passes the feeding rule.
+   - Effect: ≈ +19-30 neg_points, roughly +1-1.5 board at 0.05/np [L], which is enough to retake #1 from 0.3 behind.
+   - Risk: never selling the last copy of a page card (values show which copies are spares); offers expire at ticks 1097-1122.
+2. **DENY watch on t10 first, then t06 and t14.**
+   - Analyst reads t10's bids and offer.listed events for its last missing RET/LAV card. t10 just bought RET-03 from t06 at tick 1033, and its score rose +2.0 around then.
+   - Chief issues DENY lines under the 19:05 GUARDRAIL: cap 35, cash 120 ≥ 85, so one deny at most.
+   - Chief asks Lucas whether t18 joins the DENY list; today it is not on it.
+   - Effect: blocks ≈ +2.4 board for a rival, at about −1 board to us.
+   - Risk: a wrong read of their album burns our only deny.
+3. **Measure v10 before spending more room time on it.**
+   - Market session posts current mm_points and v10's trade count within 10 min. Then Dani either runs the 17:45 room plan (t02 → t08, t07 → t09 at ~9 on v10) or drops it.
+   - Effect: up to ≈ +3 board [L, Market] if value created is positive.
+   - Risk: a negative-VC trade, like tick 398 (mm 4.99 → −5.2). Check each buyer's multiplier against the seller's before Dani pitches.
