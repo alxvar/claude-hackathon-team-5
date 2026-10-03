@@ -66,7 +66,25 @@ section, aside { min-width: 0; }
 .nums .k { font-size: 11px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .nums .v { font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .k .sw { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 4px; vertical-align: 0; }
-svg.chart { width: 100%; height: 120px; display: block; overflow: visible; }
+svg.chart { width: 100%; height: auto; display: block; overflow: visible; }
+.statline { display: flex; flex-wrap: wrap; gap: 4px 14px; font-variant-numeric: tabular-nums; color: var(--ink-2); }
+.statline b { color: var(--ink); font-weight: 600; }
+.statline .sw { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 4px; }
+.detail { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(200px, 1fr); gap: 12px; align-items: start; }
+.detail .side { position: sticky; top: 0; display: flex; flex-direction: column; gap: 6px; }
+@media (max-width: 700px) { .detail { grid-template-columns: minmax(0, 1fr); } .detail .side { position: static; order: -1; } }
+.head.clickable { cursor: pointer; } .head.clickable:hover .item { text-decoration: underline; }
+#drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(760px, 100vw); background: var(--page); border-left: 1px solid var(--ring);
+  box-shadow: -8px 0 24px rgba(0,0,0,.18); z-index: 15; display: flex; flex-direction: column; transform: translateX(100%); transition: transform .18s ease; }
+#drawer.open { transform: none; }
+#drawer .bar-top { display: flex; align-items: center; gap: 8px; padding: 10px 16px; border-bottom: 1px solid var(--ring); }
+#drawer .bar-top .grow { flex: 1; color: var(--ink-2); font-size: 12px; }
+#drawer button { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--ring); border-radius: 6px; padding: 2px 10px; cursor: pointer; }
+#drawer button:disabled { opacity: .4; cursor: default; }
+#drawer .body { overflow-y: auto; padding: 16px; }
+#drawer .card { border: 0; padding: 0; background: transparent; }
+#drawer .tx { max-height: none; overflow: visible; }
+tr.row.sel td { background: var(--us-wash); }
 .chart text { font-size: 10px; fill: var(--muted); }
 .legend { display: flex; gap: 12px; font-size: 12px; color: var(--ink-2); }
 .tx { max-height: 340px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; padding-right: 4px; }
@@ -120,7 +138,6 @@ tr.row { cursor: pointer; } tr.row:hover td { background: var(--surface-2); }
       <table><thead><tr><th>Duel</th><th>Result</th><th class="hide-narrow">Role</th><th>Item</th><th class="hide-narrow">Rival</th><th class="num">Price</th><th class="num">Points</th><th class="num">Rounds</th></tr></thead>
       <tbody id="done"></tbody></table>
     </div>
-    <div id="opened" class="cards" style="margin-top:12px"></div>
   </section>
   <aside>
     <h2>All duels in the game</h2>
@@ -128,6 +145,11 @@ tr.row { cursor: pointer; } tr.row:hover td { background: var(--surface-2); }
   </aside>
 </div>
 <div id="toasts"></div>
+<aside id="drawer" aria-label="Duel details" aria-hidden="true">
+  <div class="bar-top"><button id="prev" title="Previous duel (↑ or k)">↑</button><button id="nextd" title="Next duel (↓ or j)">↓</button>
+    <span class="grow" id="dpos"></span><button id="close" title="Close (Esc)">✕ Close</button></div>
+  <div class="body" id="dbody"></div>
+</aside>
 <div id="tip"></div>
 <script>
 "use strict";
@@ -136,7 +158,7 @@ const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({"&": "&amp;", "<
 const P = (x) => x == null ? "–" : `${Math.round(x * 10) / 10} P`;
 let S = null, session = null, prev = {}, cards = {}, first = true;
 const query = new URLSearchParams(location.search);
-const opened = new Set((query.get("open") || "").split(",").filter(Boolean).map(Number));   // ?open=278,277
+let drawerId = query.get("open") ? +query.get("open") : null, order = [];   // ?open=278 opens duel 278
 
 function statusHtml(d) {
   if (d.status === "deal") return `<span class="status deal">✓ Deal</span>`;
@@ -151,6 +173,7 @@ function chart(d) {
   const pts = d.events.filter((e) => e.kind === "message" && e.price != null && e.tick != null);
   const t0 = d.first_tick ?? (pts[0] && pts[0].tick), t1 = Math.max(d.deadline ?? 0, ...pts.map((p) => p.tick)) ;
   if (t0 == null || !pts.length) return `<div class="small">No priced message yet.</div>`;
+  if (!pts.some((p) => !p.mine)) return `<div class="small">${esc(d.rival || "The rival")} never made an offer${pts.length ? `: our offers ${pts.map((p) => p.price).join(" → ")}` : ""}.</div>`;
   const prices = [...pts.map((p) => p.price), d.limit].filter((x) => x != null);
   let lo = Math.min(...prices), hi = Math.max(...prices); const pad = Math.max(2, (hi - lo) * 0.12); lo -= pad; hi += pad;
   const W = 300, H = 110, L = 30, R = 8, T = 6, B = 16;
@@ -180,7 +203,7 @@ function chart(d) {
     <text x="${L - 4}" y="${y(d.limit) + 3}" text-anchor="end" style="fill:var(--ink-2);font-weight:600">${d.limit}</text>`;
   const now = d.live && d.deadline != null ? `<line x1="${x(d.deadline - d.ticks_left)}" x2="${x(d.deadline - d.ticks_left)}" y1="${T}" y2="${H - B}" stroke="var(--axis)" stroke-width="1"></line>` : "";
   const axis = `<text x="${L}" y="${H - 3}">t${t0}</text><text x="${W - R}" y="${H - 3}" text-anchor="end">${d.deadline != null ? "deadline t" + d.deadline : "t" + t1}</text>`;
-  return `<svg class="chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="Offers over time">${grid}${limit}${now}${series(false)}${series(true)}${axis}</svg>
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Offers over time">${grid}${limit}${now}${series(false)}${series(true)}${axis}</svg>
     <div class="legend"><span><span class="dot" style="background:var(--us)"></span> Us</span><span><span class="dot" style="background:var(--them)"></span> ${esc(d.rival || "Them")}</span><span>- - our limit (${d.limit ?? "–"})</span></div>`;
 }
 
@@ -207,29 +230,30 @@ function transcript(d) {
   }).join("");
 }
 
-function cardHtml(d) {
+function cardHtml(d, inDrawer = false) {
   const total = d.deadline != null && d.first_tick != null ? Math.max(1, d.deadline - d.first_tick) : null;
   const progress = d.live && total ? `<div class="bar ${d.ticks_left <= 3 ? "late" : ""}" title="${d.ticks_left} ticks left"><i style="width:${Math.min(100, 100 * (1 - d.ticks_left / total))}%"></i></div>
     <div class="small">${d.ticks_left} tick${d.ticks_left === 1 ? "" : "s"} left · deadline t${d.deadline}</div>` : "";
   const gap = d.our_offer != null && d.their_offer != null ? Math.abs(d.our_offer - d.their_offer) : null;
-  const res = d.status === "deal" ? `<div><div class="k">Result</div><div class="v">${P(d.result)}</div></div><div><div class="k">Price</div><div class="v">${P(d.price)}</div></div>` :
-    `<div title="What accepting their standing offer would score now: our margin x (1 - decay)^rounds"><div class="k">If taken</div><div class="v">${P(d.worth_now)}</div></div>`;
-  return `<div class="head"><span class="id">#${d.id}</span><span class="badge">${roleText(d)}</span><span class="item">${esc(d.item)}</span>
+  const res = d.status === "deal" ? `<span>Result <b>${P(d.result)}</b> at ${P(d.price)}</span>` :
+    d.live ? `<span title="What accepting their standing offer would score now: our margin x (1 - decay)^rounds">If taken <b>${P(d.worth_now)}</b></span>` : "";
+  return `<div class="head ${inDrawer ? "" : "clickable"}" ${inDrawer ? "" : `data-open="${d.id}" title="Open in the side panel"`}><span class="id">#${d.id}</span><span class="badge">${roleText(d)}</span><span class="item">${esc(d.item)}</span>
       <span class="rival">vs ${esc(d.rival)}</span>${d.live ? "" : statusHtml(d)}</div>
     ${progress}
-    <div class="nums">
-      <div title="Our limit: our value when we buy, our cost when we sell"><div class="k">Limit</div><div class="v">${P(d.limit)}</div></div>
-      <div><div class="k"><span class="sw" style="background:var(--us)"></span>Ours</div><div class="v">${P(d.our_offer)}</div></div>
-      <div><div class="k"><span class="sw" style="background:var(--them)"></span>Theirs</div><div class="v">${P(d.their_offer)}</div></div>
-      <div><div class="k">Gap</div><div class="v">${P(gap)}</div></div>
-      <div><div class="k">Rounds</div><div class="v">${d.rounds}</div></div>${res}
+    <div class="statline">
+      <span title="Our limit: our value when we buy, our cost when we sell">Limit <b>${P(d.limit)}</b></span>
+      <span><span class="sw" style="background:var(--us)"></span>Ours <b>${P(d.our_offer)}</b></span>
+      <span><span class="sw" style="background:var(--them)"></span>Theirs <b>${P(d.their_offer)}</b></span>
+      <span>Gap <b>${P(gap)}</b></span><span><b>${d.rounds}</b> round${d.rounds === 1 ? "" : "s"}</span>${res}
     </div>
-    ${chart(d)}
-    <div class="small">Messages: ${d.messages[0]} ours, ${d.messages[1]} theirs · holds ${d.holds} · ${d.avg_s ?? "–"} s per decision · $${d.cost_usd}</div>
-    <div class="tx">${transcript(d)}</div>`;
+    <div class="detail">
+      <div class="tx">${transcript(d)}</div>
+      <div class="side">${chart(d)}
+        <div class="small">${d.messages[0]} ours · ${d.messages[1]} theirs · ${d.holds} hold${d.holds === 1 ? "" : "s"}<br>${d.avg_s ?? "–"} s per decision · $${d.cost_usd}</div></div>
+    </div>`;
 }
 
-function render(container, list, keyPrefix) {
+function render(container, list, keyPrefix, inDrawer = false) {
   const seen = new Set();
   for (const d of list) {
     const key = keyPrefix + d.id; seen.add(key);
@@ -239,7 +263,7 @@ function render(container, list, keyPrefix) {
     if (c.sig === sig) continue;
     const tx = c.el.querySelector(".tx"), atBottom = !tx || tx.scrollHeight - tx.scrollTop - tx.clientHeight < 30, top = tx ? tx.scrollTop : 0;
     const open = new Set([...c.el.querySelectorAll("details[open]")].map((x) => x.dataset.k));
-    c.el.innerHTML = cardHtml(d); c.sig = sig;
+    c.el.innerHTML = cardHtml(d, inDrawer); c.sig = sig;
     c.el.querySelectorAll("details").forEach((x) => { if (open.has(x.dataset.k)) x.open = true; });
     const t2 = c.el.querySelector(".tx"); if (t2) t2.scrollTop = atBottom ? t2.scrollHeight : top;
   }
@@ -292,17 +316,20 @@ function draw() {
     <div class="tile"><div class="k">Our points (Σ results)</div><div class="v">${P(pts)}</div><div class="s">${deals.length ? "avg " + (deals.reduce((a, d) => a + d.rounds, 0) / deals.length).toFixed(1) + " rounds per deal" : ""}</div></div>
     <div class="tile"><div class="k">Field deal rate</div><div class="v">${rate(fs.deals, fs.closed)}</div><div class="s">ours ${rate(fs.ours_deals, fs.ours_closed)} · all teams' duels as they close</div></div>
     <div class="tile"><div class="k">Field progress</div><div class="v">${fs.closed ?? 0}${fs.total ? " / " + fs.total : ""}</div><div class="s">duels closed${s.score ? ` · our duel points ${s.score.duel_points ?? "–"} at tick ${s.score.tick}` : ""}</div></div>`;
-  $("sess").onchange = (e) => { session = +e.target.value; userPicked = true; Object.keys(cards).forEach((k) => { cards[k].el.remove(); delete cards[k]; }); opened.clear(); draw(); };
+  $("sess").onchange = (e) => { session = +e.target.value; userPicked = true; Object.keys(cards).forEach((k) => { cards[k].el.remove(); delete cards[k]; }); openDrawer(null); };
 
   if (!live.length) $("live").innerHTML = `<div class="empty">No live duel in this session${n && n.minutes != null ? ` · ${esc(n.name)} starts in ~${n.minutes} min` : ""}.</div>`;
   else { const empty = $("live").querySelector(".empty"); if (empty) empty.remove(); }
   render($("live"), live.sort((a, b) => (a.ticks_left ?? 99) - (b.ticks_left ?? 99) || a.id - b.id), "L");
-  $("fin-note").textContent = done.length ? `· click a row for the transcript` : "";
-  $("done").innerHTML = done.map((d) => `<tr class="row" data-id="${d.id}"><td>#${d.id}</td><td>${statusHtml(d)}</td><td class="hide-narrow">${roleText(d)}</td><td>${esc(d.item)}</td><td class="hide-narrow">${esc(d.rival)}</td>
+  $("fin-note").textContent = done.length ? `· click a row for the conversation` : "";
+  $("done").innerHTML = done.map((d) => `<tr class="row ${d.id === drawerId ? "sel" : ""}" data-open="${d.id}"><td>#${d.id}</td><td>${statusHtml(d)}</td><td class="hide-narrow">${roleText(d)}</td><td>${esc(d.item)}</td><td class="hide-narrow">${esc(d.rival)}</td>
     <td class="num">${d.price ?? "–"}</td><td class="num">${d.result ?? "–"}</td><td class="num">${d.rounds}</td></tr>`).join("") ||
     `<tr><td colspan="8" class="small">None yet.</td></tr>`;
-  $("done").querySelectorAll("tr.row").forEach((r) => r.onclick = () => { const id = +r.dataset.id; opened.has(id) ? opened.delete(id) : opened.add(id); draw(); });
-  render($("opened"), done.filter((d) => opened.has(d.id)), "O");
+  order = [...live, ...done].map((d) => d.id);
+  const shown = s.duels.find((d) => d.id === drawerId);
+  render($("dbody"), shown ? [shown] : [], "D", true);
+  $("dpos").textContent = shown ? `${order.indexOf(shown.id) + 1} of ${order.length} in ${names[session] || "this session"}` : "";
+  $("prev").disabled = order.indexOf(drawerId) <= 0; $("nextd").disabled = order.indexOf(drawerId) >= order.length - 1;
 
   const closed = s.field.closed.filter((e) => e.session === session).slice(0, 120);
   $("field").innerHTML = `<p class="small" style="margin-top:0">The game shows other teams' duels only as they close (item, deal or not): no teams, prices or messages. Ours are marked.</p>
@@ -315,7 +342,7 @@ function draw() {
 
   for (const d of s.duels) {
     if (!first && prev[d.id] === "live" && (d.status === "deal" || d.status === "no_deal")) {
-      toast(d); const c2 = cards["O" + d.id] || cards["L" + d.id]; if (c2) c2.el.classList.add("flash");
+      toast(d); const c2 = cards["D" + d.id] || cards["L" + d.id]; if (c2) c2.el.classList.add("flash");
     }
     prev[d.id] = d.status;
   }
@@ -323,6 +350,25 @@ function draw() {
 }
 let userPicked = false;
 const ago = (s) => s < 60 ? `${s} s ago` : s < 3600 ? `${Math.round(s / 60)} min ago` : `${Math.round(s / 3600)} h ago`;
+
+function openDrawer(id) {
+  drawerId = id;
+  $("drawer").classList.toggle("open", id != null); $("drawer").setAttribute("aria-hidden", id == null ? "true" : "false");
+  const u = new URL(location.href); id == null ? u.searchParams.delete("open") : u.searchParams.set("open", id); history.replaceState(null, "", u);
+  draw();
+}
+const step = (k) => { const i = order.indexOf(drawerId); if (i >= 0 && order[i + k] != null) openDrawer(order[i + k]); };
+document.addEventListener("click", (e) => {
+  const t = e.target.closest("[data-open]"); if (t && !e.target.closest("details")) openDrawer(+t.dataset.open);
+});
+$("close").onclick = () => openDrawer(null); $("prev").onclick = () => step(-1); $("nextd").onclick = () => step(1);
+document.addEventListener("keydown", (e) => {
+  if (drawerId == null || e.target.closest("select")) return;
+  if (e.key === "Escape") openDrawer(null);
+  else if (e.key === "ArrowDown" || e.key === "j") { e.preventDefault(); step(1); }
+  else if (e.key === "ArrowUp" || e.key === "k") { e.preventDefault(); step(-1); }
+});
+if (drawerId != null) { $("drawer").classList.add("open"); $("drawer").setAttribute("aria-hidden", "false"); }
 
 async function poll() {
   try {
