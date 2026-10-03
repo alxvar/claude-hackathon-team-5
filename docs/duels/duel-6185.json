@@ -587,6 +587,108 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1352,
+   "raw": {
+    "duel": 6185,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.68,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 54,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Sol",
+    "deadline_tick": 1364,
+    "decay_per_round": 0.08,
+    "rounds": 4,
+    "your_offer": {
+     "id": 10386,
+     "price": 45,
+     "tick": 1352,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 10376,
+     "price": 59,
+     "tick": 1352,
+     "days": 6
+    },
+    "messages": [
+     {
+      "tick": 1348,
+      "from": "Rival Sol",
+      "text": "Te la dejo en 64 primas y entrega en 10 días; me cuesta bajar más.",
+      "price": 64,
+      "days": 10
+     },
+     {
+      "tick": 1348,
+      "from": "you",
+      "text": "Te ofrezco 34 P con entrega el día 0. Si prefieres otra fecha, el precio tendría que bajar mucho más.}",
+      "price": 34,
+      "days": 0
+     },
+     {
+      "tick": 1349,
+      "from": "Rival Sol",
+      "text": "64 primas y entrega en 9 días. Me muevo poco ya, pero si tú te mueves, cerramos.",
+      "price": 64,
+      "days": 9
+     },
+     {
+      "tick": 1349,
+      "from": "you",
+      "text": "I can do 38 P, delivery on day 0.",
+      "price": 38,
+      "days": 0
+     },
+     {
+      "tick": 1350,
+      "from": "Rival Sol",
+      "text": "Mi propuesta: 64 primas y entrega en 8 días. Dime una cifra concreta y la miro.",
+      "price": 64,
+      "days": 8
+     },
+     {
+      "tick": 1351,
+      "from": "Rival Sol",
+      "text": "Es una pieza que merece su precio: 60 primas y entrega en 7 días.",
+      "price": 60,
+      "days": 7
+     },
+     {
+      "tick": 1351,
+      "from": "you",
+      "text": "Thanks for the move on both price and day. I can do 42 P with delivery on day 0; the early day is what makes that figure work for me.",
+      "price": 42,
+      "days": 0
+     },
+     {
+      "tick": 1352,
+      "from": "Rival Sol",
+      "text": "Te la dejo en 59 primas y entrega en 6 días; me cuesta bajar más.",
+      "price": 59,
+      "days": 6
+     },
+     {
+      "tick": 1352,
+      "from": "you",
+      "text": "I see you moved again on price and day, thanks. I can do 45 P with delivery on day 0; the early day is what makes that figure work for me.",
+      "price": 45,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1186,6 +1288,195 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1352,
+   "took_s": 8.4,
+   "cost_usd": 0.0137,
+   "obs": {
+    "view": {
+     "duel_id": 6185,
+     "role": "buyer",
+     "limit": 54,
+     "currency": "P",
+     "item": "La Vía Láctea",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.68,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Te la dejo en 64 primas y entrega en 10 días; me cuesta bajar más.",
+      "offer": {
+       "price": 64,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1348,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Te ofrezco 34 P con entrega el día 0. Si prefieres otra fecha, el precio tendría que bajar mucho más.}",
+      "offer": {
+       "price": 34,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1348,
+      "decision": {
+       "action": "offer",
+       "price": 34,
+       "message": "Te ofrezco 34 P con entrega el día 0. Si prefieres otra fecha, el precio tendría que bajar mucho más.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "64 primas y entrega en 9 días. Me muevo poco ya, pero si tú te mueves, cerramos.",
+      "offer": {
+       "price": 64,
+       "days": 9
+      },
+      "accept": false,
+      "tick": 1349,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 38 P, delivery on day 0.",
+      "offer": {
+       "price": 38,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1349,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Mi propuesta: 64 primas y entrega en 8 días. Dime una cifra concreta y la miro.",
+      "offer": {
+       "price": 64,
+       "days": 8
+      },
+      "accept": false,
+      "tick": 1350,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Es una pieza que merece su precio: 60 primas y entrega en 7 días.",
+      "offer": {
+       "price": 60,
+       "days": 7
+      },
+      "accept": false,
+      "tick": 1351,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the move on both price and day. I can do 42 P with delivery on day 0; the early day is what makes that figure work for me.",
+      "offer": {
+       "price": 42,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1351,
+      "decision": {
+       "action": "offer",
+       "price": 42,
+       "message": "Thanks for the move on both price and day. I can do 42 P with delivery on day 0; the early day is what makes that figure work for me."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Te la dejo en 59 primas y entrega en 6 días; me cuesta bajar más.",
+      "offer": {
+       "price": 59,
+       "days": 6
+      },
+      "accept": false,
+      "tick": 1352,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 59,
+     "days": 6
+    },
+    "tick": 1352,
+    "ticks_left": 12,
+    "rounds": 3,
+    "day_swings": [
+     36.800000000000004,
+     40.300000000000004,
+     10.700000000000001,
+     26.7,
+     77.5,
+     32.1,
+     25.299999999999997,
+     36.800000000000004,
+     44.6,
+     35.4,
+     24.5
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I see you moved again on price and day, thanks. I can do 45 P with delivery on day 0; the early day is what makes that figure work for me.",
+    "price": 45,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 45,
+      "message": "I see you moved again on price and day, thanks. I can do 45 P with delivery on day 0; the early day is what makes that figure work for me."
+     },
+     "band": {
+      "worst": 46,
+      "target": 45,
+      "best": 45
+     },
+     "plan": {
+      "read": "They came down a point to 59 and moved the day from 7 to 6, so they keep easing on both price and day. That is still well past what works for us once the day is counted, and the 'hard to go lower' line is just posture.",
+      "target": 45,
+      "best": 45,
+      "worst": 46,
+      "days": 0,
+      "angle": "Acknowledge their move calmly and offer 45 P with delivery on day 0, framing the early day as what makes the figure work; keep it brief and firm, with no menu of other days."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.62,
+       "in": 1216,
+       "out": 343,
+       "cost_usd": 0.01172,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.78,
+       "in": 670,
+       "out": 64,
+       "cost_usd": 0.00198,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1380,6 +1671,63 @@
      "id": 10371,
      "price": 42,
      "tick": 1351,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1352,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I see you moved again on price and day, thanks. I can do 45 P with delivery on day 0; the early day is what makes that figure work for me.",
+    "price": 45,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 45,
+      "message": "I see you moved again on price and day, thanks. I can do 45 P with delivery on day 0; the early day is what makes that figure work for me."
+     },
+     "band": {
+      "worst": 46,
+      "target": 45,
+      "best": 45
+     },
+     "plan": {
+      "read": "They came down a point to 59 and moved the day from 7 to 6, so they keep easing on both price and day. That is still well past what works for us once the day is counted, and the 'hard to go lower' line is just posture.",
+      "target": 45,
+      "best": 45,
+      "worst": 46,
+      "days": 0,
+      "angle": "Acknowledge their move calmly and offer 45 P with delivery on day 0, framing the early day as what makes the figure work; keep it brief and firm, with no menu of other days."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.62,
+       "in": 1216,
+       "out": 343,
+       "cost_usd": 0.01172,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.78,
+       "in": 670,
+       "out": 64,
+       "cost_usd": 0.00198,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 6185,
+    "offer": {
+     "id": 10386,
+     "price": 45,
+     "tick": 1352,
      "days": 0
     }
    }
