@@ -82,7 +82,7 @@ def smoke(a: argparse.Namespace) -> None:
              Turn(mine=False, text="Fine, 30, and that's generous.", offer=d(30), tick=2)]
     obs = Observation(view=view, turns=turns, rival_offer=d(30), tick=3, ticks_left=10)
     strategist, negotiator = models(a)
-    agent = DuelAgent(view, strategist, negotiator)
+    agent = DuelAgent(view, strategist, negotiator, policy=a.policy)
     move = asyncio.run(agent.respond(obs))
     print(json.dumps({"action": move.action, "price": move.price, "days": move.days, "text": move.text,
                       **move.meta}, indent=2, default=str))
@@ -148,6 +148,9 @@ def main() -> None:
         s.add_argument("--negotiator-model", help="e.g. claude-sonnet-5-5 or claude-haiku-4-5 for a faster turn")
         s.add_argument("--negotiator-effort", choices=["low", "medium", "high"])
         s.add_argument("--thinking-off", action="store_true", help="Sonnet 5.5 only: thinking between_tools")
+        s.add_argument("--policy", choices=["llm", "code"], default="llm",
+                       help="llm = strategist + negotiator (default); code = code decides accept/hold/step and the "
+                            "day, one capped model call writes the words (policy.py)")
         s.add_argument("--no-failover", action="store_true",
                        help="no backup model (default: Opus -> Sonnet, Sonnet -> Haiku, Haiku -> Sonnet)")
         if name == "smoke":
@@ -160,9 +163,6 @@ def main() -> None:
             s.add_argument("--days-read", choices=MODES, default=MODE,
                            help="day reading override (PLAN #24): auto = as read (default), flip = direction "
                                 "reversed, unsure = sure=False safe mode; env DAYS_READ sets the default")
-            s.add_argument("--policy", choices=["llm", "code"], default="llm",
-                           help="llm = strategist + negotiator (default); code = code decides accept/hold/step and "
-                                "the day, one capped model call writes the words (policy.py)")
             s.add_argument("--params", default=str(PARAMS_PATH),
                            help="tuning overrides re-read every tick (params.py; env DUEL_PARAMS)")
             s.add_argument("--no-params", action="store_true", help="ignore the params file: today's constants")
