@@ -1,4 +1,4 @@
-# Opportunities (auto, 21:40, game tick 1287, t 12.05 h)
+# Opportunities (auto, 21:41, game tick 1289, t 12.0667 h)
 
 Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and ≤ 60 real min old · ≤ 3 alerts/h · team 45 min · team+card 2 h · never to the top 5 (t03, t05, t06, t10, t12, t14, t18); a sale that closes their page (last or second-to-last known lack) only to teams ≥ 6 below us (30.75); page-closers on El Rastro, the rest on v15. Data: collector.
 
@@ -6,17 +6,17 @@ Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and �
 
 | # | side | team | card | price | our value | gain | signal | age (game / real min) | status |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | SELL | Team 9 (#16, 22.54) | LAV-02 common | 40 | 1.3 | 38.7 | bid 2 P for it (tick 586) | 351 / 518 | listed only: signal 518 real min old (game clock paused?) |
-| 2 | SELL | Team 6 (#2, 33.2) | LAT-03 common | 24 | 5 | 19 | bid 4 P for it (tick 1262) | 12 / 12 | no: rival (top 6 or within 3 of us); dumps LAT (teams.md): sell only to collectors |
-| 3 | SELL | Team 6 (#2, 33.2) | MAL-02 common | 19 | 7 | 12 | bid 2 P for it (tick 1264) | 12 / 11 | no: rival (top 6 or within 3 of us); dumps MAL (teams.md): sell only to collectors |
-| 4 | SELL | Team 6 (#2, 33.2) | MAL-05 common | 19 | 7 | 12 | bid 2 P for it (tick 1259) | 14 / 14 | no: rival (top 6 or within 3 of us); dumps MAL (teams.md): sell only to collectors |
-| 5 | SELL | Team 14 (#7, 29.54) | LAT-04 common | 40 | 5 | 35 | bid 0 P for it (tick 927) | 180 / 223 | no: rival (top 6 or within 3 of us); only 1.21 below us (needs ≥ 6) |
-| 6 | SELL | Team 14 (#7, 29.54) | LAT-03 common | 40 | 5 | 35 | bid 0 P for it (tick 927) | 180 / 223 | no: rival (top 6 or within 3 of us); only 1.21 below us (needs ≥ 6) |
-| 7 | SELL | Team 8 (#10, 25.2) | MAL-02 common | 40 | 7 | 33 | asked abuela to sell it (tick 1168) | 60 / 102 | no: only 5.55 below us (needs ≥ 6) |
-| 8 | SELL | Team 2 (#9, 25.35) | LAV-02 common | 19 | 1.3 | 17.7 | bid 3 P for it (tick 512) | 387 / 555 | no: dumps LAV (teams.md): sell only to collectors; only 5.4 below us (needs ≥ 6) |
-| 9 | SELL | Team 2 (#9, 25.35) | LAT-03 common | 20 | 5 | 15 | bid 5 P for it (tick 513) | 387 / 554 | no: dumps LAT (teams.md): sell only to collectors; only 5.4 below us (needs ≥ 6) |
-| 10 | SELL | Team 14 (#7, 29.54) | LAV-02 common | 40 | 1.3 | 38.7 | bid 0 P for it (tick 927) | 180 / 223 | no: rival (top 6 or within 3 of us) |
-| 11 | SELL | Team 13 (#13, 24.52) | LAT-04 common | 19 | 5 | 14 | bid 2 P for it (tick 1196) | 45 / 88 | no: rival (Team 13/17): their gain vs ours unknown; dumps LAT (teams.md): sell only to collectors |
+| 1 | SELL | Team 9 (#16, 22.54) | LAV-02 common | 40 | 1.3 | 38.7 | bid 2 P for it (tick 586) | 352 / 519 | listed only: signal 519 real min old (game clock paused?) |
+| 2 | SELL | Team 6 (#2, 33.2) | LAT-03 common | 24 | 5 | 19 | bid 4 P for it (tick 1262) | 14 / 13 | no: rival (top 6 or within 3 of us); dumps LAT (teams.md): sell only to collectors |
+| 3 | SELL | Team 6 (#2, 33.2) | MAL-02 common | 19 | 7 | 12 | bid 2 P for it (tick 1264) | 13 / 12 | no: rival (top 6 or within 3 of us); dumps MAL (teams.md): sell only to collectors |
+| 4 | SELL | Team 6 (#2, 33.2) | MAL-05 common | 19 | 7 | 12 | bid 2 P for it (tick 1259) | 15 / 15 | no: rival (top 6 or within 3 of us); dumps MAL (teams.md): sell only to collectors |
+| 5 | SELL | Team 14 (#7, 29.54) | LAT-04 common | 40 | 5 | 35 | bid 0 P for it (tick 927) | 181 / 224 | no: rival (top 6 or within 3 of us); only 1.21 below us (needs ≥ 6) |
+| 6 | SELL | Team 14 (#7, 29.54) | LAT-03 common | 40 | 5 | 35 | bid 0 P for it (tick 927) | 181 / 224 | no: rival (top 6 or within 3 of us); only 1.21 below us (needs ≥ 6) |
+| 7 | SELL | Team 8 (#10, 25.2) | MAL-02 common | 40 | 7 | 33 | asked abuela to sell it (tick 1168) | 61 / 103 | no: only 5.55 below us (needs ≥ 6) |
+| 8 | SELL | Team 2 (#9, 25.35) | LAV-02 common | 19 | 1.3 | 17.7 | bid 3 P for it (tick 512) | 389 / 556 | no: dumps LAV (teams.md): sell only to collectors; only 5.4 below us (needs ≥ 6) |
+| 9 | SELL | Team 2 (#9, 25.35) | LAT-03 common | 20 | 5 | 15 | bid 5 P for it (tick 513) | 388 / 555 | no: dumps LAT (teams.md): sell only to collectors; only 5.4 below us (needs ≥ 6) |
+| 10 | SELL | Team 14 (#7, 29.54) | LAV-02 common | 40 | 1.3 | 38.7 | bid 0 P for it (tick 927) | 181 / 224 | no: rival (top 6 or within 3 of us) |
+| 11 | SELL | Team 13 (#13, 24.52) | LAT-04 common | 19 | 5 | 14 | bid 2 P for it (tick 1196) | 47 / 89 | no: rival (Team 13/17): their gain vs ours unknown; dumps LAT (teams.md): sell only to collectors |
 
 ## Alerts (newest first)
 
