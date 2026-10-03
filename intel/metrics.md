@@ -1,22 +1,22 @@
-# Metrics (auto, 20:14, game tick 1199)
+# Metrics (auto, 20:16, game tick 1201)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
-1. Team 10 34.1 (+0.1 / +2.5) deals 52
-2. Team 6 32.5 (-0.0 / +0.9) deals 58
-3. Team 5 31.8 (-0.1 / +0.1) deals 52 ← US
+1. Team 10 34.0 (-0.2 / +1.9) deals 52
+2. Team 6 32.6 (+0.2 / +1.1) deals 59
+3. Team 5 31.6 (-0.3 / -0.0) deals 52 ← US
 4. Team 3 30.0 (+0.3 / +0.5) deals 30
-5. Team 18 30.0 (-0.2 / -0.3) deals 37
-6. Team 14 30.0 (-0.2 / -1.3) deals 50
-7. Team 12 28.4 (-0.2 / +1.1) deals 64
-8. Team 15 25.7 (-0.2 / +1.3) deals 61
-9. Team 17 24.9 (-0.1 / -0.5) deals 31
-10. Team 13 24.6 (+0.1 / -0.1) deals 75
+5. Team 14 29.9 (-0.1 / -1.4) deals 50
+6. Team 18 29.9 (-0.3 / -0.5) deals 37
+7. Team 12 28.3 (-0.1 / +1.0) deals 64
+8. Team 15 25.5 (-0.3 / +1.1) deals 61
+9. Team 2 25.1 (+2.6 / +2.5) deals 57
+10. Team 17 24.9 (-0.1 / -0.5) deals 31
 Us: #3
 
 ## Us
 
-score 31.8 · neg_points 119.1 (15 min ago 119.1) · ladder 0.437 · duel 13.93 · cash 120 · level 5 · deals 52
+score 31.64 · neg_points 119.1 (15 min ago 119.1) · ladder 0.437 · duel 13.93 · cash 120 · level 5 · deals 52
 
 ## Our holdings (card (rarity): value of each copy; a sale gives up the cheapest copy)
 
@@ -86,8 +86,8 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 ## El Rastro now: top bids by price (team, card, price)
 
 - t18: LAT-10 (rare) 47 P · offer 17066
-- t13: LAV-07 (uncommon) 15 P · offer 17679
 - t13: LAV-06 (uncommon) 15 P · offer 17706
+- t13: LAV-07 (uncommon) 15 P · offer 17740
 - t13: RET-06 (uncommon) 11 P · offer 17605
 - t13: RET-03 (common) 2 P · offer 17603
 - t13: RET-01 (common) 2 P · offer 17622
@@ -98,7 +98,7 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 - t13: LAT-04 (common) 2 P · offer 17681
 - t13: LAT-01 (common) 2 P · offer 17695
 
-Asks by others (card, price: count): LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAT-06 20: 1; SAL-02 7: 1; SAL-01 6: 1; MAL-04 12: 1; LAT-02 9: 1; LAT-04 9: 1; RET-01 12: 1; RET-09 84: 1; LAT-08 30: 1; SAL-11 245: 1
+Asks by others (card, price: count): LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAT-06 20: 1; SAL-02 7: 1; SAL-01 6: 1; RET-09 84: 1; LAT-08 30: 1; SAL-11 245: 1; RET-06 30: 1; LAT-06 21: 1; SAL-03 7: 1; SAL-04 10: 1
 
 ## Our duels: 0 live, 68 finished (last 10)
 
@@ -115,9 +115,9 @@ Asks by others (card, price: count): LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-
 
 ## Latest announcements
 
-- tick 1091 level.unlocked: {"team": "t11", "name": "Team 11", "persona": "banco", "persona_name": "Don Ernesto", "level": 5, "why": "open to everyone now"}
 - tick 1091 level.unlocked: {"team": "t13", "name": "Team 13", "persona": "banco", "persona_name": "Don Ernesto", "level": 5, "why": "open to everyone now"}
 - tick 1091 level.unlocked: {"team": "t17", "name": "Team 17", "persona": "banco", "persona_name": "Don Ernesto", "level": 5, "why": "open to everyone now"}
 - tick 1091 level.unlocked: {"team": "t18", "name": "Team 18", "persona": "banco", "persona_name": "Don Ernesto", "level": 5, "why": "open to everyone now"}
 - tick 1194 announcement: {"text": "Heads-up: the game pauses in 2 minutes for a short announcement, about 10 minutes. Please come to the front."}
+- tick 1201 announcement: {"text": "\u23f8 The game is paused for about 10 minutes. Announcement at the front: Payday, tips, and a congratulation. Play resumes right after."}
 
