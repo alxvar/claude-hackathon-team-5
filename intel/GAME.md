@@ -67,6 +67,14 @@
   in 4 rounds, walked. Warm (open 20, +3, greeting/thanks/"for our Retiro page", Spanish mix) → his 33, 33, 33, 32, 31, then
   he ACCEPTED our 30 ("Done. 30 P.") in 5 rounds: `neg_points` −19 → −21.5 (27.5 − 30), ladder unchanged (Chato deal 5,
   still never moves the ladder). Abuela RET-08 at 22 (her 29 → 22): `neg_points` 0, ladder +0.003 (a 4th level-1 deal).
+- **Offer life on Saturday** [V, probe tick 264]: the server halves `expires_in_ticks` (asked 60 → 30 ticks, 120 → 60,
+  200 → 100): it counts in 60 s units (Friday's tick). Ask 2× the ticks you want.
+- **Ladder and early unlock count only below-list dealer deals** [L, strong pattern]: every Abuela deal under her list
+  (commons 9 vs 10, RET-08 22 vs 25) moved the ladder; none of our 6 Chato deals moved it, all above his list (RET-09 87 and
+  RET-10 86 vs 77, RET-06 30 vs 26, Fri LAV-09 93, LAV-06 31, LAT-08 sale). Level 3 (Doña Pilar, active 3.51 h, open to
+  all at 5.51 h): Team 13 unlocked her early at tick 262 by "3 deals with chato"; our 3 Chato deals today did not unlock it.
+  Pilar: early unlock 3 Chato deals at level ≥ 2; sells gold packs (list 420); buys released uncommons/rares/epics and
+  pays over book for SAL/RET; 6 deals/team/hour.
 - **RET rares** [V, feed ticks 160-188]: no team pulled a RET rare from a grant pack (every sobre_barrio `best` = null);
   the only sources are Chato (rare list 77) and silver packs. Team 15 bids 59 and Team 2 9-12 for RET-09/10.
 
