@@ -28,6 +28,47 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1270,
+   "raw": {
+    "duel": 5968,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Plaza del Dos de Mayo",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.1,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 78,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1285,
+    "decay_per_round": 0.08,
+    "rounds": 0,
+    "your_offer": null,
+    "rival_offer": {
+     "id": 7465,
+     "price": 86,
+     "tick": 1270,
+     "days": 3
+    },
+    "messages": [
+     {
+      "tick": 1270,
+      "from": "Rival Azul",
+      "text": "Rápido y justo: 86 P, día 3. ¿Qué día de entrega te va mejor? / Quick and fair: 86 P, day 3. Which delivery day suits you best?",
+      "price": 86,
+      "days": 3
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {

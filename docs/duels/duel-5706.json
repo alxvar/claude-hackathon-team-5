@@ -1361,5 +1361,77 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1270,
+ "done": {
+  "duel": 5706,
+  "session": 3,
+  "status": "deal",
+  "role": "buyer",
+  "item": "La Dama de Serrano",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 2.6,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 122,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Rojo",
+  "deadline_tick": 1271,
+  "decay_per_round": 0.08,
+  "rounds": 1,
+  "your_offer": {
+   "id": 7441,
+   "price": 115,
+   "tick": 1269,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 7120,
+   "price": 157,
+   "tick": 1261,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1257,
+    "from": "you",
+    "text": "I can do 80 P with delivery on day 0. Happy to hear your counter.",
+    "price": 80,
+    "days": 0
+   },
+   {
+    "tick": 1261,
+    "from": "Rival Rojo",
+    "text": "Hola. This one is in perfect condition. 157 P, delivery day 0.",
+    "price": 157,
+    "days": 0
+   },
+   {
+    "tick": 1264,
+    "from": "you",
+    "text": "I can move up to 93 P with delivery on day 0. That's a real step from me, so I'd like to see you come down meaningfully from your figure.",
+    "price": 93,
+    "days": 0
+   },
+   {
+    "tick": 1267,
+    "from": "you",
+    "text": "I can do 104 P with delivery on day 0. That's my second step, so it's your turn to come down substantially.",
+    "price": 104,
+    "days": 0
+   },
+   {
+    "tick": 1269,
+    "from": "you",
+    "text": "I can do 115 P with delivery on day 0. That's a clear, ready-to-sign figure from me, and you can close it this tick.",
+    "price": 115,
+    "days": 0
+   }
+  ],
+  "result": 6.4,
+  "price": 115,
+  "days": 0
+ }
 }
