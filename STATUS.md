@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 11:01** · tick 343 (30 s/tick) · game hour 4.18 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 11:06** · tick 353 (30 s/tick) · game hour 4.27 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,25 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 10:16 · **for Lucas** (repo audit 10:00-10:15, read-only, each checked in the code or the hub; by impact) · (1) `agents/trader/loop.py:139` accepts on every open rival venue (bar 3, or 15 for the top 4): each fill scores market for the venue's owner (your 10:06: one 7 P trade gave t12 its market lead) → El Rastro + venues of teams ≥ 10 below us only · (2) the feeding rule is written 4 ways: `PLAN.md:36` page-closers only; `opportunities.md`/`teams.md` every sale; `judge.md` page-closers to teams 6-9 below OK; `ORCHESTRATOR.md:75` other sales to the top 4 OK "if our gain clearly beats theirs"; and `loop.py:231` treats a sale as a page-closer only at ≥ 1.5× book (`CLOSER_X`, l.55) → one rule, one check · (3) directive 10:03 (RET-10 cap 91, value 77) lifts "never above value" without GUARDRAIL, on a false premise (t18 bought RET-10 from Chato at 86, tick 213; we got ours at 86, tick 232); `agents/dealers/chato_steady.py` takes the cap from `--cap` with no value check and checks the cash floor once, at start (l.47) · (4) cash floor: GUARDRAIL 09:55 = 100, `ORCHESTRATOR.md:34` 370 and `:65` 200, code defaults 200 (`loop.py:462`, `opportunities.py:343`, `abuela_bot.py:36`), `daemons.sh` 100 · (5) the venue bond is 250 (`bazaar-kit/RULES.md:70`, all 7 board venues in the feed), not 270 (ORCHESTRATOR, plan §4E, strategy) · (6) bot vs bot: `PacedBazaar` (`abuela_bot.py:73`) doesn't pass `wait_on_tick=False`; `trade.py accept` doesn't go through the arbiter (its docstring says it checks value) · (7) stale docs: `CLAUDE.md:47`, `saturday-plan.md:22`, `brief-aleks.md:20` and `tools/duel_monitor.py:15,48` say rounds = priced offers (GAME.md is fixed); `saturday-plan.md:174`/`brief-aleks.md:32` "send their own price from ticks_left ≤ 4" now costs a round; plan/brief-aleks times 11:30 / 18:00; `brief-dani.md:13` pitch window (Duels I is 11:58-~13:34); `market-playbook.md:4,8,49,59`: hard test at 14.65 ≈ 21:28 (not 16.0), Sunday has 3 benches (17, 19, 21; the first ≈ 09:21), not 2; `judge.md:13` "addressed offers visible only to the addressee" vs `GAME.md:38` [V] · next: Lucas triages
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
-  - Sat 10:53 · operator · **#2 (29.05)**, market 7.3 → 12.5 (first trade on our v10, t10 → t01, +4.99 market) · 10:50 clock check: hour 4.0, doors open, round 2: the stale `day_closes` did nothing · reciprocity for Team 10 (Chief): cheap 2nd-copy spares on v07 at value + 1-2, posted by hand (book.py clamps to value + 2): 4745 LAV-03 → t07 5, 4746 SAL-02 → t16 4, 4747 LAT-04 → t15 4 (until tick 384); removed from run/book.json · Chief kept 4322 (SAL-01 → t03 at 40), the judge's stricter reading overruled
-  - Sat 10:50 · Market: first trade on our stall v10 (t10 → t01, MAL-07 at 14 P, tick 311) · our market 7.32 → 12.47, +4.99 over the stall teams (7.48), level with t12 · next: keep trades flowing on v10; hourly reciprocal count vs v07 (`intel/market-log.md`)
-  - Sat 10:40 · operator · we hold **LAT-08**: Abuela's gift at tick 261 after our 5th deal with her (my 10:30 'we don't hold it' was wrong; the judge was right) → book: LAT-08 → t15 at 22 (floor 15, worth 12.5) · opps posted SAL-01 → t03 at 40 on El Rastro (offer 4322, +37.8 if filled; t03 #10, not top 4; their gain at most ~25): kept · GAME.md: Abuela gifts
+  - Sat 11:06 · operator · **SAL-01 sold to Team 3 at 7** (offer 5205 on v07, after Lucas's DM; their counter of 7 accepted): `neg_points` 28.5 → **33.2** (+4.7, predicted +4.8), cash 114, value created on v07 for Team 10 · the other SAL-01 copy is still worth 2.2 (server value), so book.py's 5081 → t06 at 6 stays (+3.8) · #3 (28.95), top 4 t18/t13/us/t12
+  - Sat 11:05 · operator · public LAV asks (Chief 11:02) checked and SKIPPED: t02 (top 4) bid for LAV-02 ×4 and LAV-04 ×2, t12 (1.6 below us) bid for LAV-04 → every set is blocked for public asks right now (SAL/MAL: t13 #1; LAT: t18; LAV: t02/t12 lack 02/04) · Team 10's value created comes only from our addressed v07 asks (4745, 4746, 4747, 4879 + book.py)
+  - Sat 11:03 · operator · SAL-01 → t03 at 10 on v07 (offer 4879, Team 3 values it 13; 4322 at 40 had expired) · **directive 11:02 (public SAL asks on v07) NOT executed: stale premise**: at the 11:00 snapshot t13 is back in the top 4 (#1) and collects MAL/SAL (teams.md) → flagged to the Chief with a counter (2nd-copy LAV public, no top-4 LAV collector now); SAL-03/05 at 9 would score 0 anyway (first copies, worth 9) · rank #3 (27.95)
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 27.95 | 3 | 15.45 | 12.50 | 0.00 | 0.06 | 0.90 | 33 | 2 | 107 | 32/50 |
+| 28.95 | 3 | 16.45 | 12.50 | 0.00 | 0.06 | 0.90 | 34 | 2 | 114 | 32/50 |
 
-Leaderboard (snapshot at tick 340; refreshes every few minutes):
+Leaderboard (snapshot at tick 350; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 13 | 28.82 | 25.50 | 3.33 | 41 |
-| 2 | Team 18 | 28.61 | 21.11 | 7.50 | 27 |
-| 3 | Team 5 | 27.95 | 15.45 | 12.50 | 33 |
-| 4 | Team 2 | 27.05 | 19.55 | 7.50 | 29 |
-| 5 | Team 12 | 26.38 | 13.88 | 12.50 | 30 |
+| 1 | Team 18 | 30.47 | 22.97 | 7.50 | 27 |
+| 2 | Team 13 | 30.24 | 26.91 | 3.33 | 43 |
+| 3 | Team 5 | 28.95 | 16.45 | 12.50 | 33 |
+| 4 | Team 12 | 26.52 | 14.02 | 12.50 | 30 |
+| 5 | Team 2 | 25.18 | 17.68 | 7.50 | 31 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 5.00 | ~49 min | bench | The Market Test: every venue gets the same synthetic book |
-| 5.15 | ~58 min | duels | Duels I: price only, one round-robin |
-| 5.51 | ~80 min | persona_opens | Doña Pilar opens for everyone |
-| 7.00 | ~169 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.00 | ~289 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.15 | ~298 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
-| 11.00 | ~409 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~418 min | persona_patch | The fever breaks |
+| 5.00 | ~44 min | bench | The Market Test: every venue gets the same synthetic book |
+| 5.15 | ~53 min | duels | Duels I: price only, one round-robin |
+| 5.51 | ~74 min | persona_opens | Doña Pilar opens for everyone |
+| 7.00 | ~164 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.00 | ~284 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.15 | ~293 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
+| 11.00 | ~404 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~413 min | persona_patch | The fever breaks |
 
 ## Our dealer deals
 
@@ -101,9 +101,9 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
 | common card | team buys | 50 | 9.00 | 7 | 12 | 5 | 9 |
-| common card | team sells | 44 | 6.00 | 5 | 23 | 5 | 5.40 |
+| common card | team sells | 47 | 6 | 5 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 37 | 22 | 17 | 30 | 3 | 20.33 |
-| uncommon card | team buys | 57 | 23 | 17 | 29 | 4 | 24.50 |
+| uncommon card | team buys | 58 | 23.00 | 17 | 29 | 4 | 24.50 |
 | uncommon card | team sells | 6 | 14.00 | 13 | 16 | 0 | — |
 
 ## Duels
