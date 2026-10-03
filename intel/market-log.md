@@ -11,7 +11,7 @@
   question now: does one venue beating the stall by a hair get full Market Test points?
 - VC scale: Saturday's top-three mean was ≤ ~15 units (audit §3b); my first sim assumed ~60-150. Sunday's target is
   about 30-50 net VC at the close, not 170. `mm_points` read +2.2 at the close with no new trade [V], market still 7.5.
-- `intel/market-sunday.md` §0 (negotiation model; first verifier pass applied, second pass running), §1, §4 and §6 rewritten accordingly.
+- `intel/market-sunday.md` §0 (negotiation model; two verifier passes applied), §1, §4 and §6 rewritten accordingly.
 
 ## Sat 22:50 · bench-h13.0 (ticks 1401-1414), on the stall v10: Saturday's last
 - **Ours [V]:** bench_efficiency 0.854 (0.899 · 0.933 · 0.878 · 0.891 · 0.886 before), bench_points 0.5, market 7.5.

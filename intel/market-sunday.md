@@ -1,10 +1,10 @@
-# Market plan for Sunday (Market session) · written Sun 00:28
+# Market plan for Sunday (Market session) · written Sun 00:31
 
-_Sources: intel/matches.md (matchmaker run 00:23, tick 1440; its VC estimates move between runs, so re-read it before acting), leaderboard snapshot 1440 (us 30.49), intel/market-log.md, intel/directives.md (Club Castizo, Sat 22:55). Labels: [V] measured, [L] inferred, [?] unknown. An independent verifier audited the 22:52 draft; its ten flags are applied here._
+_Sources: intel/matches.md (matchmaker run 00:28, tick 1440; its VC estimates move between runs, so re-read it before acting), leaderboard snapshot 1440 (us 30.49), intel/market-log.md, intel/directives.md (Club Castizo, Sat 22:55). Labels: [V] measured, [L] inferred, [?] unknown. An independent verifier audited the 22:52 draft; its ten flags are applied here._
 
-## 0. NEGOTIATION (Chief's overnight ask; read-only analysis of data/feed.jsonl to tick 1445; audited by an independent verifier, 11 flags applied)
+## 0. NEGOTIATION (Chief's overnight ask; read-only analysis of data/feed.jsonl to tick 1445; two independent verifier passes, their flags applied; the figures were not re-run by the verifier, which had no shell)
 
-**Data and its limits [V]:** 7608 cash listings (asks and bids) and 176 team-to-team settlements over Friday and Saturday. Bots renew the same quote every few ticks, so listings are chained into **4484 quote episodes** (same maker, card, side, venue, addressee and price); 145 fills are tied to an episode, and the wait is counted from the quote's first appearance. The feed has NO team-to-team threads, so a 'counter' is only visible as a new offer in the opposite direction. Each team has 2 to 22 accepts: the per-team rows are counts, not fitted curves. Ratios are price ÷ book (common 10, uncommon 25, rare 70, epic 180). Ticks were 60 s on Friday, 30 s on Saturday, 15 s on Sunday: a bot that acts once per tick keeps its wait in ticks, a human-driven team doubles it.
+**Data and its limits [V]:** 7608 cash listings (asks and bids) and 176 team-to-team settlements over Friday and Saturday. Bots renew the same quote every few ticks, so listings are chained into **4484 quote episodes** (same maker, card, side, venue, addressee and price); 145 fills are tied to an episode, and the wait is counted from the quote's first appearance. The feed has NO team-to-team threads, so a 'counter' is only visible as a new offer in the opposite direction. Each team has 1 to 22 accepts: the per-team rows are counts, not fitted curves. Ratios are price ÷ book (common 10, uncommon 25, rare 70, epic 180). Ticks were 60 s on Friday, 30 s on Saturday, 15 s on Sunday: a bot that acts once per tick keeps its wait in ticks, a human-driven team doubles it.
 
 ### 0.1 How the market answers a quote (Saturday)
 
@@ -19,12 +19,12 @@ _Sources: intel/matches.md (matchmaker run 00:23, tick 1440; its VC estimates mo
 | ask | 1-1.3 | 630 | 22 (3.5%) | 8 (1.3%) | 443 | 2 (0.5%) | 1 (0.2%) |
 | ask | 1.3-∞ | 285 | 1 (0.4%) | 0 (0.0%) | 302 | 0 (0.0%) | 0 (0.0%) |
 
-- **A better price raises the chance of a fill, but not to anything like certainty, and hardly within 2 ticks.** Open bids: 12/613 filled under 0.7 book, 9/105 at 0.7-1.0, 6/30 at book or above; within 2 ticks only 4, 2 and 2 of those. Open asks: 20/274 filled at ≤ 0.7 book (12 within 2 ticks), about 3.5% between 0.7 and 1.3, almost none above 1.3.
-- **Addressed quotes are rarely accepted:** 19 of 1518 episodes (1.3%); when accepted, median wait 2 ticks, 10 of 19 within 2 ticks. Nothing in the feed shows which of those were agreed beforehand. The denominator is swollen by bots that spray addressed bids at many teams (Team 8 sent about 40 in ticks 700-719; four were taken, by Teams 13, 16 and 2).
-- **Re-pricing:** a maker's first quote for a card filled 49/578 (8.5%); a later quote at a BETTER price 38/1548 (2.5%); a later quote at the same or a worse price 22/1965 (1.1%). Improving the price helps against standing still, but a card that did not sell at first is mostly one nobody was looking for (a selection effect, not proof that raising is useless).
+- **A better price raises the chance of a fill, but not to anything like certainty, and hardly within 2 ticks.** Open bids: 12/613 filled under 0.7 book, 9/105 at 0.7-1.0, 6/30 at book or above; within 2 ticks only 4, 2 and 2 of those. Open asks: 20/274 filled under 0.7 book (12 within 2 ticks), about 3.5% between 0.7 and 1.3, almost none above 1.3.
+- **Addressed quotes are rarely accepted:** 17 of 1490 episodes (1.1%); when accepted, median wait 2 ticks, 10 of 17 within 2 ticks. Nothing in the feed shows which of those were agreed beforehand. The denominator is swollen by bots that spray addressed bids at many teams (Team 8 sent about 40 addressed quotes in ticks 700-719, about 17 of them bids; four were taken, by Teams 13, 16 and 2).
+- **Re-pricing:** a maker's first quote for a card filled 49/578 (8.5%); a later quote at a BETTER price 38/1548 (2.5%); a later quote at the same or a worse price 22/1965 (1.1%). Weak evidence that re-pricing helps a little: the grouping mixes venues and addressees, and a card that did not sell at first is mostly one nobody was looking for.
 - **What buyers pay against their own value** (asks taken, 47 cases where the Analyst has the buyer's multiplier): median 0.75 of value, 90% at or under 1.12.
 - **Clearing prices, Saturday (filled quotes, price ÷ book; n, quartile-median-quartile):** common asks n 36: 0.50-0.70-0.90 · common bids n 16: 0.40-0.60-0.80 · uncommon asks n 21: 0.76-0.92-1.04 · uncommon bids n 15: 0.52-0.60-0.80 · rare asks n 13: 1.00-1.09-1.20 · rare bids n 6: 0.94-1.00-1.10.
-- **Cheap asks go fast:** of the 20 open asks at ≤ 0.7 book that filled, 12 went within 2 ticks of first appearing.
+- **Cheap asks go fast:** of the 20 open asks under 0.7 book that filled, 12 went within 2 ticks of first appearing.
 
 ### 0.2 Per team (counts over both days; wait = ticks from the quote's first appearance to the accept)
 
@@ -48,7 +48,7 @@ _Sources: intel/matches.md (matchmaker run 00:23, tick 1440; its VC estimates mo
 | Team 17 | 5 · 1.04 · 1.12 | 0 · — · — | 5 · 0/5 | 1/107 | 1/106 | slow or manual |
 | Team 18 | 0 · — · — | 3 · 1.00 · 0.92 | 28 · 0/3 | 0/26 | 0/26 | too few accepts to say |
 
-- **Fast bot takers (more than half of ≥ 5 accepts within 2 ticks): Team 2, Team 6 (rival), Team 13 (rival), Team 14 (rival).** For these an open quote at a fair price can be enough. Every other team needs an agreement first.
+- **Fast bot takers (more than half of ≥ 5 accepts within 2 ticks): Team 2, Team 6 (rival), Team 13 (rival), Team 14 (rival).** For these an open quote at a fair price can be enough (Team 6 and Team 13 are one accept away from borderline). For every other team plan on an agreement first: they are slow, borderline, or have too few accepts to judge.
 - **Team 9 is the only team that counters regularly** (16 of 121 unfilled addressed quotes answered with its own price within 8 ticks); others did it 1-3 times (Team 1 1, Team 2 1, Team 5 1, Team 8 2, Team 12 3, Team 17 1).
 - **Reaction to a 2nd bid, per team:** not measurable: no team has more than a handful of cases. See the market-wide re-pricing line above.
 - **Teams that have sold into bids (n ≥ 3; median and lowest price ÷ book):** Team 12 (rival) 10 · 0.66 · 0.40; Team 6 (rival) 8 · 0.70 · 0.50; Team 10 (rival) 6 · 0.90 · 0.60; Team 13 (rival) 5 · 0.56 · 0.40; Team 15 5 · 0.80 · 0.52; Team 2 4 · 1.50 · 0.40; Team 4 3 · 0.89 · 0.50; Team 8 3 · 0.80 · 0.56; Team 14 (rival) 3 · 0.60 · 0.52; Team 16 3 · 0.40 · 0.40; Team 18 (rival) 3 · 1.00 · 0.92.
@@ -57,9 +57,9 @@ _Sources: intel/matches.md (matchmaker run 00:23, tick 1440; its VC estimates mo
 
 **No bid, opening price, step or max closes within 2 ticks with any reliability [V]:** on Saturday 8 of 748 open bid quotes were hit within 2 ticks, and at book or above 2 of 30 (too few to put a percentage on). Over its whole life a bid at book or above was hit 6/30 times, median wait 49.5 ticks. What closes in the same tick is our own accept. So the answer is a procedure, not a price:
 
-1. **A standing ask at or under our max: accept it the tick it appears** (one accept per tick; the trader's auto-accept). Nobody can snipe that.
+1. **A standing ask at or under the 'take' price below: accept it the tick it appears** (one accept per tick). Nobody can snipe that. **The trader's auto-accept does not enforce this table:** `agents/trader/loop.py` accepts any buy whose gain is at least `--min-gain` (default 3), which for a CHA rare means up to about 109 P. The Operator has to apply the take prices by hand or raise `--min-gain`.
 2. **No ask: agree by WhatsApp first**, then the seller posts the ask ADDRESSED to us on a 0% venue and we accept in that tick. Addressed, so no rival bot can take it.
-3. **Fallback: one open bid at the max, left standing**, no ladder. It is a slow tool (see the waits above), useful only if the seller's bot sells into bids.
+3. **Fallback: one open bid at the max, left standing**, no ladder, on El Rastro or a member's 0% market (the maker pays no fee). It is a slow tool (see the waits above), and only where no dealer sells the card cheaper: the 00:25 dealer accept prices (commons 9, uncommons 22, Pícaros CHA rare 54) come first. A team buy scores points (value − price); a dealer buy does not.
 
 Price rule used below: max = 0.8 × our value, rounded down (every buy keeps at least 20% of value as points); 'take' = the lower of 1.2 × book and that max.
 
@@ -68,20 +68,20 @@ Price rule used below: max = 0.8 × our value, rounded down (every buy keeps at 
 | CHA common | 10 | 16 | 12 | 12 | A team buy scores value − price; a dealer buy scores nothing but costs less (directive 00:25: Abuela commons accept 9). |
 | CHA uncommon | 25 | 40 | 30 | 32 | Directive 00:25: Abuela uncommons accept 22. |
 | CHA rare | 70 | 112 | 84 | 89 | **Directive 00:25 sets the dealer price: Pícaros CHA rare accept ≤ 54 (57 after one walk).** A team ask above that is only worth it for the points it scores (value − price) and if cash stays above the floor; the Operator decides per the 00:50 priority (CHA first). |
-| MAL-07 (uncommon) | 25 | 17.5; 64 as the card that closes the page | 14; 51 as the closer | 14 | **WhatsApp: Team 15** holds a spare (on Saturday it listed MAL-07 at 14 P on v10, addressed to Team 2; unfilled). Fills so far: 14, 17, 25, 26 P. Ask for an ask addressed to us on a 0% venue that is not v10 (we cannot trade on our own stall). |
+| MAL-07 (uncommon) | 25 | 17.5; 64 as the card that closes the page | 14; 30 as the closer | 14; 51 as the closer | **WhatsApp: Team 15** holds a spare (on Saturday it listed MAL-07 at 14 P on v10, addressed to Team 2; unfilled). Fills so far: 14, 17, 25, 26 P. Ask for an ask addressed to us on a 0% venue that is not v10 (we cannot trade on our own stall). |
 | MAL-09, MAL-10 (rares) | 70 | 49 each | 39 | 39 | **Not from teams at market prices.** MAL-10 fills: 30, 53, 65, 70, 74 P (the 30 was Team 2's bid addressed to Team 13). Live bids at the close: Team 9 56 P for MAL-10 (expires tick 1447), Team 9 56 P for MAL-09 (expires tick 1505), Team 6 31 P for MAL-09 (expires tick 1488). Team 9's are above our max, so a bid of ours would not be the best on the board. Directive 00:50: a Pícaros MAL rare at ≤ 49 is the route. |
 
-Our MAL page lacks MAL-07, MAL-09, MAL-10 [V, /api/me, 00:20]; MAL-07 is the closer only once both rares are in. Cash 392 P at the close; the directives' floor and the +150 P at 09:00 govern what can be spent.
+Our MAL page lacks MAL-07, MAL-09, MAL-10 [V, /api/me, 00:20]; MAL-07 is the closer only once both rares are in. Cash 392 P at the close. Directives: cash floor 350 (21:00, the CHA reserve; +150 P arrives at 09:00), and **MAL only if at least 150 P is left after CHA** (00:50), so every MAL row above waits for that.
 
 ### 0.4 Our Sunday sells (spares only)
 
 Spares [V, /api/me]: LAV-02 ×2, LAV-03 ×1, LAV-04 ×1. LAT-03 and LAT-04 are single cards of a set we hold 2 of 10 in (LAT 0.5). MAL-08 is never sold (directive 00:50).
 
-- **Our asks barely sold:** 1 of 195 ask quotes filled on Saturday. Our bids did better (4 of 21), but most of those were deals agreed beforehand, so the two are not like for like.
-- **Price matters for asks, within limits:** market-wide an open ask at ≤ 0.7 book filled 7% of the time, against 3% between 0.7 and 1.3. Even the cheap ones mostly do not sell: a buyer who wants the card has to exist.
+- **Our asks barely sold:** 1 of 195 ask quotes filled on Saturday. Our bids did better (4 of 21), but the bid sample is tiny and at least one was an addressed deal (RET-01 with Team 10), so the two are not like for like.
+- **Price matters for asks, within limits:** market-wide an open ask under 0.7 book filled 7% of the time, against 3% between 0.7 and 1.3. Even the cheap ones mostly do not sell: a buyer who wants the card has to exist.
 - **What sells for sure:** hitting a standing bid (immediate), or a buyer agreed by WhatsApp. No bid is live for any of our spares at the close. Saturday's LAV common fills: 3, 4, 4, 4, 6, 9 P; buyers: Team 8 3, Team 9 1, Team 4 1, Team 16 1.
-- **Prices:** LAV commons: one open ask at 7 (0.7 book) on a member's 0% venue, floor 4 (a 2nd copy is worth 3.25 to us). LAT-03/04: ask 6, floor 5 (our value 5). If unsold after 20 ticks, re-price once to the floor.
-- **LAV-02:** the matchmaker shows Team 9 looking for it, and Team 9 answers addressed quotes with its own price: offer by WhatsApp, accept a counter at ≥ 4. It has to sit on another member's venue, so its VC goes to that member, not to v10.
+- **Prices:** LAV commons: one open ask at 6 (0.6 book, inside the bucket that fills most) on a member's 0% venue, floor 4 (a 2nd copy is worth 3.25 to us). LAT-03/04: ask 6, floor 5 (our value 5). If unsold after 20 ticks, re-price once to the floor.
+- **LAV-02 and Team 9:** the matchmaker shows ONE want (Team 9), and §0.5 row 7 already uses it for Team 16's spare on v10, which scores for us. Offer our LAV-02 to Team 9 only if row 7 is not approved or falls through (Team 9 counters with its own price: accept ≥ 4; it would sit on another member's market and score for that member). Otherwise our LAV spares go to the other LAV buyers above.
 
 ### 0.5 The 09:00 v10 list, in order, and who needs a WhatsApp first
 
@@ -101,7 +101,7 @@ Spares [V, /api/me]: LAV-02 ×2, LAV-03 ×1, LAV-04 ×1. LAT-03 and LAT-04 are s
 **Who sends [proposal, not a record]:** the repo holds no list of who has which team's WhatsApp. The split follows the directives: Lucas already messages Team 15 and brokered Team 8 ↔ Team 9 (21:40), so he keeps Teams 15, 8 and 9, plus Team 1; Dani takes Teams 7, 4, 2 and 16. Swap any name if the other holds the contact. **Dani:** Team 7 (rows 1, 2, 3, 4, 5, 8); Team 16 (rows 7, 9, 10); Team 2 (rows 9); Team 4 (rows 10) · **Lucas:** Team 9 (rows 1, 3, 7); Team 8 (rows 2, 4, 6); Team 1 (rows 5, 6, 8). The ready texts are in §2 (per pair) and in intel/club-pitch.md §4 (per team, Spanish and English).
 
 
-**Every row needs a WhatsApp (or the Chief's OK) first.** Then the seller posts the ask on v10 ADDRESSED to the buyer at the agreed price (directive 21:20) and the buyer accepts. Addressed, because an open ask on v10 can be taken by a rival's fast bot (Teams 6, 13, 14 are fast takers), which would move the card to the wrong team and can turn the VC negative.
+**Every row needs a WhatsApp (or the Chief's OK) first.** Then one side posts the quote on v10 ADDRESSED to the other at the agreed price (directive 21:20) and the other accepts: the seller's ask in arm A, the buyer's bid in arm B (§3; texts in §2). Addressed, because an open ask on v10 can be taken by a rival's fast bot (Teams 6, 13, 14 are fast takers), which would move the card to the wrong team and can turn the VC negative.
 
 ### 0.6 Who Team 10 trades with (to offer them better terms first)
 
@@ -159,47 +159,47 @@ Built from the match list above. Filter: no rival buyer (fixed t13, t17, and any
   - To Team 7: "Hi Team 7! Swap idea, no cash: your spare Palacio de Velázquez (RET-08) for Team 1's Escaparate de Serrano (SAL-01). If RET-08 is a spare for you, post it on v10 as give RET-08, want SAL-01, addressed to Team 1; they accept."
   - To Team 1: "Hi Team 1! Team 7 is posting a swap for you on v10: their RET-08 for your spare SAL-01. Accept it only if SAL-01 is a spare for you."
 
-### Ready DMs
+### Ready DMs (addressed quotes, per the 21:20 directive and §0.5; the matchmaker's own DMs in intel/matches.md still say "open ask": use these)
 
 **1. RET-09 · Team 7 → Team 9 at ~70 P**
-- Seller-ask first. To Team 7: "Hi Team 7! Is your El Ángel Caído (RET-09) a spare? If yes, post it on v10 as an open ask at ~70 P: Team 9 is looking for it, and v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 9: "El Ángel Caído (RET-09) is on v10 at ~70 P, 0% fee. Accept it there."
-- Buyer-bid first. To Team 9: "Hi Team 9! Post an open bid for El Ángel Caído (RET-09) at ~70 P on v10 (0% fee): Team 7 has listed it and the stall crosses a matching ask the same tick." Then to Team 7: "There is a bid for RET-09 at ~70 P on v10. If yours is a spare, post an ask at that price and it crosses at once."
+- Arm A, seller posts first. To Team 7: "Hi Team 7! Team 9 is looking for El Ángel Caído (RET-09). You have a spare: could you post it on v10 at ~70 P, addressed to Team 9? v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 9: "Team 7 has posted El Ángel Caído (RET-09) for you on v10 at ~70 P, 0% fee. Accept it there."
+- Arm B, buyer posts first. To Team 9: "Hi Team 9! Team 7 has a spare El Ángel Caído (RET-09). Post a bid for it on v10 at ~70 P, addressed to Team 7 (0% fee)." Then to Team 7: "Team 9 has posted a bid for your RET-09 at ~70 P on v10, addressed to you. Accept it if the card is a spare."
 
 **2. SAL-05 · Team 8 → Team 7 at ~9 P**
-- Seller-ask first. To Team 8: "Hi Team 8! Is your Taxi Blanco (SAL-05) a spare? If yes, post it on v10 as an open ask at ~9 P: Team 7 is looking for it, and v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 7: "Taxi Blanco (SAL-05) is on v10 at ~9 P, 0% fee. Accept it there."
-- Buyer-bid first. To Team 7: "Hi Team 7! Post an open bid for Taxi Blanco (SAL-05) at ~9 P on v10 (0% fee): Team 8 has listed it and the stall crosses a matching ask the same tick." Then to Team 8: "There is a bid for SAL-05 at ~9 P on v10. If yours is a spare, post an ask at that price and it crosses at once."
+- Arm A, seller posts first. To Team 8: "Hi Team 8! Team 7 is looking for Taxi Blanco (SAL-05). You have a spare: could you post it on v10 at ~9 P, addressed to Team 7? v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 7: "Team 8 has posted Taxi Blanco (SAL-05) for you on v10 at ~9 P, 0% fee. Accept it there."
+- Arm B, buyer posts first. To Team 7: "Hi Team 7! Team 8 has a spare Taxi Blanco (SAL-05). Post a bid for it on v10 at ~9 P, addressed to Team 8 (0% fee)." Then to Team 8: "Team 7 has posted a bid for your SAL-05 at ~9 P on v10, addressed to you. Accept it if the card is a spare."
 
 **3. SAL-02 · Team 9 → Team 7 at ~9 P**
-- Seller-ask first. To Team 9: "Hi Team 9! Is your El Portero (SAL-02) a spare? If yes, post it on v10 as an open ask at ~9 P: Team 7 is looking for it, and v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 7: "El Portero (SAL-02) is on v10 at ~9 P, 0% fee. Accept it there."
-- Buyer-bid first. To Team 7: "Hi Team 7! Post an open bid for El Portero (SAL-02) at ~9 P on v10 (0% fee): Team 9 has listed it and the stall crosses a matching ask the same tick." Then to Team 9: "There is a bid for SAL-02 at ~9 P on v10. If yours is a spare, post an ask at that price and it crosses at once."
+- Arm A, seller posts first. To Team 9: "Hi Team 9! Team 7 is looking for El Portero (SAL-02). You have a spare: could you post it on v10 at ~9 P, addressed to Team 7? v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 7: "Team 9 has posted El Portero (SAL-02) for you on v10 at ~9 P, 0% fee. Accept it there."
+- Arm B, buyer posts first. To Team 7: "Hi Team 7! Team 9 has a spare El Portero (SAL-02). Post a bid for it on v10 at ~9 P, addressed to Team 9 (0% fee)." Then to Team 9: "Team 7 has posted a bid for your SAL-02 at ~9 P on v10, addressed to you. Accept it if the card is a spare."
 
 **4. MAL-02 · Team 7 → Team 8 at ~9 P**
-- Seller-ask first. To Team 7: "Hi Team 7! Is your Plaza del Dos de Mayo (MAL-02) a spare? If yes, post it on v10 as an open ask at ~9 P: Team 8 is looking for it, and v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 8: "Plaza del Dos de Mayo (MAL-02) is on v10 at ~9 P, 0% fee. Accept it there."
-- Buyer-bid first. To Team 8: "Hi Team 8! Post an open bid for Plaza del Dos de Mayo (MAL-02) at ~9 P on v10 (0% fee): Team 7 has listed it and the stall crosses a matching ask the same tick." Then to Team 7: "There is a bid for MAL-02 at ~9 P on v10. If yours is a spare, post an ask at that price and it crosses at once."
+- Arm A, seller posts first. To Team 7: "Hi Team 7! Team 8 is looking for Plaza del Dos de Mayo (MAL-02). If it is a spare: could you post it on v10 at ~9 P, addressed to Team 8? v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 8: "Team 7 has posted Plaza del Dos de Mayo (MAL-02) for you on v10 at ~9 P, 0% fee. Accept it there."
+- Arm B, buyer posts first. To Team 8: "Hi Team 8! Team 7 has a spare Plaza del Dos de Mayo (MAL-02). Post a bid for it on v10 at ~9 P, addressed to Team 7 (0% fee)." Then to Team 7: "Team 8 has posted a bid for your MAL-02 at ~9 P on v10, addressed to you. Accept it if the card is a spare."
 
 **5. RET-08 · Team 7 → Team 1 at ~22 P**
-- Seller-ask first. To Team 7: "Hi Team 7! Is your Palacio de Velázquez (RET-08) a spare? If yes, post it on v10 as an open ask at ~22 P: Team 1 is looking for it, and v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 1: "Palacio de Velázquez (RET-08) is on v10 at ~22 P, 0% fee. Accept it there."
-- Buyer-bid first. To Team 1: "Hi Team 1! Post an open bid for Palacio de Velázquez (RET-08) at ~22 P on v10 (0% fee): Team 7 has listed it and the stall crosses a matching ask the same tick." Then to Team 7: "There is a bid for RET-08 at ~22 P on v10. If yours is a spare, post an ask at that price and it crosses at once."
+- Arm A, seller posts first. To Team 7: "Hi Team 7! Team 1 is looking for Palacio de Velázquez (RET-08). You have a spare: could you post it on v10 at ~22 P, addressed to Team 1? v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 1: "Team 7 has posted Palacio de Velázquez (RET-08) for you on v10 at ~22 P, 0% fee. Accept it there."
+- Arm B, buyer posts first. To Team 1: "Hi Team 1! Team 7 has a spare Palacio de Velázquez (RET-08). Post a bid for it on v10 at ~22 P, addressed to Team 7 (0% fee)." Then to Team 7: "Team 1 has posted a bid for your RET-08 at ~22 P on v10, addressed to you. Accept it if the card is a spare."
 
 **6. SAL-03 · Team 1 → Team 8 at ~9 P**
-- Seller-ask first. To Team 1: "Hi Team 1! Is your Perrito con Abrigo (SAL-03) a spare? If yes, post it on v10 as an open ask at ~9 P: Team 8 is looking for it, and v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 8: "Perrito con Abrigo (SAL-03) is on v10 at ~9 P, 0% fee. Accept it there."
-- Buyer-bid first. To Team 8: "Hi Team 8! Post an open bid for Perrito con Abrigo (SAL-03) at ~9 P on v10 (0% fee): Team 1 has listed it and the stall crosses a matching ask the same tick." Then to Team 1: "There is a bid for SAL-03 at ~9 P on v10. If yours is a spare, post an ask at that price and it crosses at once."
+- Arm A, seller posts first. To Team 1: "Hi Team 1! Team 8 is looking for Perrito con Abrigo (SAL-03). You have a spare: could you post it on v10 at ~9 P, addressed to Team 8? v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 8: "Team 1 has posted Perrito con Abrigo (SAL-03) for you on v10 at ~9 P, 0% fee. Accept it there."
+- Arm B, buyer posts first. To Team 8: "Hi Team 8! Team 1 has a spare Perrito con Abrigo (SAL-03). Post a bid for it on v10 at ~9 P, addressed to Team 1 (0% fee)." Then to Team 1: "Team 8 has posted a bid for your SAL-03 at ~9 P on v10, addressed to you. Accept it if the card is a spare."
 
 **7. LAV-02 · Team 16 → Team 9 at ~9 P**
-- Seller-ask first. To Team 16: "Hi Team 16! Is your El Frutero de Argumosa (LAV-02) a spare? If yes, post it on v10 as an open ask at ~9 P: Team 9 is looking for it, and v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 9: "El Frutero de Argumosa (LAV-02) is on v10 at ~9 P, 0% fee. Accept it there."
-- Buyer-bid first. To Team 9: "Hi Team 9! Post an open bid for El Frutero de Argumosa (LAV-02) at ~9 P on v10 (0% fee): Team 16 has listed it and the stall crosses a matching ask the same tick." Then to Team 16: "There is a bid for LAV-02 at ~9 P on v10. If yours is a spare, post an ask at that price and it crosses at once."
+- Arm A, seller posts first. To Team 16: "Hi Team 16! Team 9 is looking for El Frutero de Argumosa (LAV-02). You have a spare: could you post it on v10 at ~9 P, addressed to Team 9? v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 9: "Team 16 has posted El Frutero de Argumosa (LAV-02) for you on v10 at ~9 P, 0% fee. Accept it there."
+- Arm B, buyer posts first. To Team 9: "Hi Team 9! Team 16 has a spare El Frutero de Argumosa (LAV-02). Post a bid for it on v10 at ~9 P, addressed to Team 16 (0% fee)." Then to Team 16: "Team 9 has posted a bid for your LAV-02 at ~9 P on v10, addressed to you. Accept it if the card is a spare."
 
 **8. SAL-01 · Team 1 → Team 7 at ~9 P**
-- Seller-ask first. To Team 1: "Hi Team 1! Is your Escaparate de Serrano (SAL-01) a spare? If yes, post it on v10 as an open ask at ~9 P: Team 7 is looking for it, and v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 7: "Escaparate de Serrano (SAL-01) is on v10 at ~9 P, 0% fee. Accept it there."
-- Buyer-bid first. To Team 7: "Hi Team 7! Post an open bid for Escaparate de Serrano (SAL-01) at ~9 P on v10 (0% fee): Team 1 has listed it and the stall crosses a matching ask the same tick." Then to Team 1: "There is a bid for SAL-01 at ~9 P on v10. If yours is a spare, post an ask at that price and it crosses at once."
+- Arm A, seller posts first. To Team 1: "Hi Team 1! Team 7 is looking for Escaparate de Serrano (SAL-01). You have a spare: could you post it on v10 at ~9 P, addressed to Team 7? v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 7: "Team 1 has posted Escaparate de Serrano (SAL-01) for you on v10 at ~9 P, 0% fee. Accept it there."
+- Arm B, buyer posts first. To Team 7: "Hi Team 7! Team 1 has a spare Escaparate de Serrano (SAL-01). Post a bid for it on v10 at ~9 P, addressed to Team 1 (0% fee)." Then to Team 1: "Team 7 has posted a bid for your SAL-01 at ~9 P on v10, addressed to you. Accept it if the card is a spare."
 
 **9. RET-01 · Team 2 → Team 16 at ~9 P**
-- Seller-ask first. To Team 2: "Hi Team 2! Is your Barca del Estanque (RET-01) a spare? If yes, post it on v10 as an open ask at ~9 P: Team 16 is looking for it, and v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 16: "Barca del Estanque (RET-01) is on v10 at ~9 P, 0% fee. Accept it there."
-- Buyer-bid first. To Team 16: "Hi Team 16! Post an open bid for Barca del Estanque (RET-01) at ~9 P on v10 (0% fee): Team 2 has listed it and the stall crosses a matching ask the same tick." Then to Team 2: "There is a bid for RET-01 at ~9 P on v10. If yours is a spare, post an ask at that price and it crosses at once."
+- Arm A, seller posts first. To Team 2: "Hi Team 2! Team 16 is looking for Barca del Estanque (RET-01). You have a spare: could you post it on v10 at ~9 P, addressed to Team 16? v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 16: "Team 2 has posted Barca del Estanque (RET-01) for you on v10 at ~9 P, 0% fee. Accept it there."
+- Arm B, buyer posts first. To Team 16: "Hi Team 16! Team 2 has a spare Barca del Estanque (RET-01). Post a bid for it on v10 at ~9 P, addressed to Team 2 (0% fee)." Then to Team 2: "Team 16 has posted a bid for your RET-01 at ~9 P on v10, addressed to you. Accept it if the card is a spare."
 
 **10. RET-03 · Team 4 → Team 16 at ~9 P**
-- Seller-ask first. To Team 4: "Hi Team 4! Is your El Titiritero (RET-03) a spare? If yes, post it on v10 as an open ask at ~9 P: Team 16 is looking for it, and v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 16: "El Titiritero (RET-03) is on v10 at ~9 P, 0% fee. Accept it there."
-- Buyer-bid first. To Team 16: "Hi Team 16! Post an open bid for El Titiritero (RET-03) at ~9 P on v10 (0% fee): Team 4 has listed it and the stall crosses a matching ask the same tick." Then to Team 4: "There is a bid for RET-03 at ~9 P on v10. If yours is a spare, post an ask at that price and it crosses at once."
+- Arm A, seller posts first. To Team 4: "Hi Team 4! Team 16 is looking for El Titiritero (RET-03). You have a spare: could you post it on v10 at ~9 P, addressed to Team 16? v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 16: "Team 4 has posted El Titiritero (RET-03) for you on v10 at ~9 P, 0% fee. Accept it there."
+- Arm B, buyer posts first. To Team 16: "Hi Team 16! Team 4 has a spare El Titiritero (RET-03). Post a bid for it on v10 at ~9 P, addressed to Team 4 (0% fee)." Then to Team 4: "Team 16 has posted a bid for your RET-03 at ~9 P on v10, addressed to you. Accept it if the card is a spare."
 
 ## 3. Test plan, first 30 minutes (09:00-09:30), measured live
 
@@ -207,8 +207,8 @@ Incentive is fixed by the directive (Club Castizo, Sat 22:55): seller's bonus pe
 
 | Arm | Pairs from §2 | Pitch |
 |---|---|---|
-| A | odd numbers | seller's open ask first, then tell the buyer |
-| B | even numbers | buyer's open bid first, then tell the seller |
+| A | odd numbers | the seller posts an ask addressed to the buyer; the buyer accepts |
+| B | even numbers | the buyer posts a bid addressed to the seller; the seller accepts |
 
 - **Metrics (the Market session logs them from the feed):** minutes from DM to listing · listing to fill · fills per arm by 09:30 · VC sign of each fill (mm before → after).
 - **09:30 decision:** the arm with more fills becomes the default. If neither has a fill, price is not the problem (Saturday: a 10 P rebate got zero listings in 105 minutes): move to swaps (no cash, both sides gain) and to asking in person in the room.
