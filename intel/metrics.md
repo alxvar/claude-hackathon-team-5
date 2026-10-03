@@ -1,28 +1,28 @@
-# Metrics (auto, 12:13, game tick 486)
+# Metrics (auto, 12:15, game tick 490)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
-1. Team 12 32.2 (+5.8 / +5.9) deals 37
-2. Team 14 31.2 (+2.1 / +6.2) deals 21
-3. Team 13 29.7 (+2.0 / -0.4) deals 49
-4. Team 17 26.8 (+2.2 / +8.8) deals 20
-5. Team 18 24.9 (-1.8 / -5.7) deals 28
-6. Team 5 24.8 (+2.1 / -5.0) deals 35 ← US
-7. Team 10 24.0 (-0.8 / -1.1) deals 26
-8. Team 4 23.9 (+1.2 / +0.3) deals 29
-9. Team 2 23.1 (-0.8 / -2.7) deals 36
-10. Team 1 22.4 (-0.9 / -0.2) deals 18
+1. Team 12 32.2 (+5.8 / +6.0) deals 37
+2. Team 14 31.1 (+2.1 / +5.9) deals 21
+3. Team 13 29.8 (+2.1 / -0.6) deals 49
+4. Team 17 26.7 (+2.2 / +7.5) deals 20
+5. Team 18 26.6 (-0.1 / -3.6) deals 28
+6. Team 5 25.2 (+2.5 / -4.3) deals 36 ← US
+7. Team 2 24.4 (+0.4 / -1.2) deals 36
+8. Team 1 24.3 (+1.1 / +1.8) deals 18
+9. Team 10 24.1 (-0.8 / -1.0) deals 26
+10. Team 4 23.5 (+0.7 / +0.1) deals 30
 Us: #6
 
 ## Us
 
-score 24.76 · neg_points 35.2 (15 min ago 35.2) · ladder 0.072 · duel 2.27 · cash 123 · level 2 · deals 36
+score 25.16 · neg_points 35.2 (15 min ago 35.2) · ladder 0.072 · duel 2.77 · cash 123 · level 2 · deals 36
 
 ## Our holdings (card (rarity): value of each copy; a sale gives up the cheapest copy)
 
 LAT-03 (common): 5; LAT-04 (common): 1.2 / 1.2; LAV-01 (common): 99.1; LAV-02 (common): 3.2 / 3.2; LAV-03 (common): 3.2 / 3.2; LAV-04 (common): 3.2 / 3.2; LAV-05 (common): 99.1; LAV-06 (uncommon): 118.6; LAV-07 (uncommon): 118.6; LAV-08 (uncommon): 118.6; LAV-09 (rare): 177.1; LAV-10 (rare): 177.1; MAL-02 (common): 7; MAL-03 (common): 7; MAL-04 (common): 7; MAL-06 (uncommon): 17.5; MAL-07 (uncommon): 17.5; RET-01 (common): 83.9; RET-02 (common): 83.9; RET-03 (common): 83.9; RET-04 (common): 83.9; RET-05 (common): 83.9; RET-06 (uncommon): 100.4; RET-07 (uncommon): 100.4; RET-08 (uncommon): 100.4; RET-09 (rare): 149.9; RET-10 (rare): 149.9; SAL-01 (common): 9; SAL-02 (common): 2.2 / 2.2; SAL-03 (common): 9; SAL-05 (common): 9; SAL-08 (uncommon): 22.5
 
-## Our open offers (9)
+## Our open offers (10)
 
 - 6781: sell LAV-03 for 6 · to t07 · expires tick 496
 - 6782: sell SAL-02 for 5 · to t16 · expires tick 496
@@ -33,6 +33,7 @@ LAT-03 (common): 5; LAT-04 (common): 1.2 / 1.2; LAV-01 (common): 99.1; LAV-02 (c
 - 7058: sell MAL-04 for 9 · to t15 · expires tick 517
 - 7126: sell LAV-04 for 6 · to t07 · expires tick 522
 - 7144: sell MAL-02 for 9 · to t15 · expires tick 523
+- 7238: sell SAL-08 for 25 · to t03 · expires tick 530
 
 ## What each of our deals did to neg_points (measured, last 12)
 
@@ -89,29 +90,30 @@ Who buys which set (team trades): t01: MAL×4, SAL×4; t02: MAL×2, RET×2, LAT�
 
 ## El Rastro now: top bids by price (team, card, price)
 
-- t02: SAL-09 (rare) 69 P · offer 7095
+- t02: SAL-09 (rare) 66 P · offer 7232
 - t02: RET-10 (rare) 56 P · offer 7117
 - t02: LAT-06 (uncommon) 12 P · offer 7138
+- t02: RET-02 (common) 3 P · offer 7233
 - t13: RET-01 (common) 2 P · offer 6976
 - t13: RET-02 (common) 2 P · offer 6977
 - t13: RET-03 (common) 2 P · offer 6979
 - t13: RET-04 (common) 2 P · offer 6980
 - t13: RET-05 (common) 2 P · offer 6981
 
-Asks by others (card, price: count): LAV-04 10: 4; MAL-02 10: 2; LAT-04 7: 2; LAT-01 10: 2; SAL-03 9: 2; LAT-04 9: 2; LAV-05 7: 2; MAL-05 6: 1; LAT-01 6: 1; LAT-05 6: 1; LAT-03 9: 1; MAL-04 9: 1; LAV-03 9: 1; RET-04 22: 1; SAL-03 11: 1
+Asks by others (card, price: count): LAV-04 10: 4; LAV-03 9: 2; MAL-02 10: 2; LAT-04 7: 2; LAT-01 9: 2; LAT-01 10: 2; LAT-04 9: 2; LAV-05 7: 2; SAL-03 9: 2; MAL-05 6: 1; LAT-01 6: 1; LAT-05 6: 1; LAT-03 9: 1; MAL-04 9: 1; RET-04 22: 1
 
-## Our duels: 3 live, 42 finished (last 10)
+## Our duels: 3 live, 43 finished (last 10)
 
-- {"duel": 277, "session": 1, "status": "deal", "role": "seller", "item": "El Tren Fantasma", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 119, "limit_meaning": "never sell below your cost", "rival": "Rival Plata", "deadline
 - {"duel": 278, "session": 1, "status": "deal", "role": "buyer", "item": "El Tren Fantasma", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 116, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "deadline_ti
 - {"duel": 2296, "session": 2, "status": "deal", "role": "seller", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 87, "limit_meaning": "never sell below your cost", "rival": "Rival Sol", "de
 - {"duel": 2297, "session": 2, "status": "deal", "role": "buyer", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 175, "limit_meaning": "never pay above your value", "rival": "Rival Plata", "
 - {"duel": 2314, "session": 2, "status": "deal", "role": "buyer", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 75, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "dea
-- {"duel": 2315, "session": 2, "status": "live", "role": "seller", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 64, "limit_meaning": "never sell below your cost", "rival": "Rival Oro", "de
+- {"duel": 2315, "session": 2, "status": "deal", "role": "seller", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 64, "limit_meaning": "never sell below your cost", "rival": "Rival Oro", "de
 - {"duel": 2318, "session": 2, "status": "live", "role": "seller", "item": "Palacio de Cristal", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 74, "limit_meaning": "never sell below your cost", "rival": "Rival Sol", "deadline
 - {"duel": 2366, "session": 2, "status": "live", "role": "seller", "item": "Palacio de Cristal", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 101, "limit_meaning": "never sell below your cost", "rival": "Rival Oro", "deadlin
 - {"duel": 2506, "session": 2, "status": "deal", "role": "buyer", "item": "Palacio de Cristal", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 103, "limit_meaning": "never pay above your value", "rival": "Rival Noche", "deadli
 - {"duel": 2540, "session": 2, "status": "deal", "role": "seller", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 71, "limit_meaning": "never sell below your cost", "rival": "Rival Luna", "d
+- {"duel": 2541, "session": 2, "status": "live", "role": "buyer", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 108, "limit_meaning": "never pay above your value", "rival": "Rival Azul", "d
 
 ## Latest announcements
 
