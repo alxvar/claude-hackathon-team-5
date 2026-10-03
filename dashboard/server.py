@@ -42,6 +42,8 @@ GAP = 0.4          # seconds between two requests
 EDGE = 3           # P of gain, after fees, that makes an offer an opportunity
 RECENT = 30        # ticks that count as "recent" for momentum
 HUB_EVERY = 5      # rounds between two reads of the hub (plus one at start)
+TOP_NEVER = 4      # feeding rule (intel/saturday-plan.md): never sell to the top 4
+FEED_GAP = 10      # ...and a card that can close the buyer's page goes only to teams this many points below us
 
 
 def env_value(name):
@@ -387,6 +389,15 @@ class Analysis:
         v = self.held_value.get(ref)
         return min(v) if v else None
 
+    def feeding_block(self, p, us_score):
+        """Why the feeding rule forbids selling team profile `p` a card that can close its page, or None if allowed."""
+        if p["rank"] <= TOP_NEVER:
+            return f"top {TOP_NEVER}"
+        gap = (us_score or 0) - (p["score"] or 0)
+        if gap < FEED_GAP:
+            return f"only {gap:.1f} below us" if gap >= 0 else f"{-gap:.1f} above us"
+        return None
+
     # -------------------------------------------------------------------------------------- the pass over the feed
     def scan(self):
         self.maker = {}
@@ -396,8 +407,10 @@ class Analysis:
         self.packs = collections.Counter()
         self.gifts = collections.Counter()
         self.listings = collections.Counter()
-        self.bids = collections.defaultdict(collections.Counter)   # team -> set -> n bids posted
-        self.asks = collections.defaultdict(collections.Counter)
+        # team -> set -> distinct cards it bid for / listed for sale: a card relisted every few ticks counts once
+        # (Team 12 relisted one spare MAL-02 ~23 times while buying 6 MAL cards, which read as "dumps MAL")
+        self.bids = collections.defaultdict(lambda: collections.defaultdict(set))
+        self.asks = collections.defaultdict(lambda: collections.defaultdict(set))
         self.news = []
         self.duel_events = []
         self.duel_closed = []
@@ -410,10 +423,10 @@ class Analysis:
                 self.listings[who] += 1
                 if cash_of(o.get("give")) and refs_of(o.get("want")):
                     for r in refs_of(o.get("want")):
-                        self.bids[who][set_of(r)] += 1
+                        self.bids[who][set_of(r)].add(r)
                 elif refs_of(o.get("give")) and cash_of(o.get("want")):
                     for r in refs_of(o.get("give")):
-                        self.asks[who][set_of(r)] += 1
+                        self.asks[who][set_of(r)].add(r)
             elif ty == "settlement":
                 items = [i for i in p.get("items", []) if i.get("kind") == "card" or i.get("ref")]
                 kind = "dealer" if p.get("persona") else "team"
@@ -496,12 +509,12 @@ class Analysis:
             for s, k in (buys + dbuys).items():
                 interest[s] += 2 * k
             for s, k in self.bids[tid].items():
-                interest[s] += k
+                interest[s] += len(k)
             dumping = collections.Counter()
             for s, k in (sells + dsells).items():
                 dumping[s] += 2 * k
             for s, k in self.asks[tid].items():
-                dumping[s] += k
+                dumping[s] += len(k)
             net = {s: interest[s] - dumping[s] for s in set(interest) | set(dumping)}
             wants = [s for s, v in sorted(net.items(), key=lambda kv: -kv[1]) if v >= 2][:3]
             dumps = [s for s, v in sorted(net.items(), key=lambda kv: kv[1]) if v <= -2][:3]
@@ -687,8 +700,13 @@ class Analysis:
                              + (f"; biggest team trade: {p['biggest']}" if p["biggest"] else "") + ".")
         sells = [r for r in market if r["side"] == "bid" and (r["edge"] or 0) >= EDGE]
         for r in sells[:5]:
+            block = self.feeding_block(byid[r["team"]], us["score"]) if us and r["team"] in byid else None
+            rule = ("" if not block else
+                    f" Feeding rule: {r['name']} is in the top {TOP_NEVER}: only if the card can't close their page "
+                    f"and our gain clearly beats theirs." if block.startswith("top") else
+                    f" Feeding rule: {r['name']} is {block}: only if the card can't close their page.")
             add("sell", f"SELL: {r['name']} bids {r['price']} P for {r['ref']} (offer #{r['id']}); "
-                        f"our copy is worth {r['value']} → +{r['edge']} after the fee if we accept.")
+                        f"our copy is worth {r['value']} → +{r['edge']} after the fee if we accept." + rule)
         buys = [r for r in market if r["side"] == "ask" and (r["edge"] or 0) >= EDGE]
         for r in buys[:5]:
             add("buy", f"BUY: {r['name']} asks {r['price']} P for {r['ref']} (offer #{r['id']}); "
@@ -896,6 +914,7 @@ class Analysis:
         byid = {p["team"]: p for p in prof}
         us = byid.get(self.us, {})
         our_rank = us.get("rank", 99)
+        us_score = us.get("score") or 0
         first_tick = self.events[0].get("tick") if self.events else "?"
         ab = {r["team"]: r for r in self.abuela() if r["dealer"] == "abuela"}
         short = {"common": "c", "uncommon": "u", "rare": "r", "epic": "e", "legendary": "l"}
@@ -911,8 +930,8 @@ class Analysis:
             prices[tid] = tp
             if p["us"]:
                 label = "US"
-            elif p["rank"] <= 3:
-                label = "leader (never feed)"
+            elif p["rank"] <= TOP_NEVER:
+                label = f"top {TOP_NEVER} (never feed)"
             elif p["wants"]:
                 label = f"buyer for {'/'.join(p['wants'])}"
             elif p["dumps"]:
@@ -923,6 +942,8 @@ class Analysis:
                 label = "trader"
             bits = [f"#{p['rank']} {p['name']} {p['score']:.1f}"
                     + (f" (Δ {p['delta']:+.1f})" if p["delta"] is not None else ""), f"**{label}**"]
+            if not p["us"] and p["rank"] > TOP_NEVER and self.feeding_block(p, us_score):
+                bits.append(f"no page closers (<{FEED_GAP} below us)")
             if p["wants"]:
                 bits.append("collects " + "/".join(p["wants"]))
             if p["dumps"]:
@@ -936,7 +957,7 @@ class Analysis:
                 bits.append("big: " + p["biggest"].split(" bought ", 1)[1])
             L.append("- " + " · ".join(bits))
 
-        # who to sell what to: our cards, best counterparty below us
+        # who to sell what to: our cards, best counterparty that passes the feeding rule
         copies = collections.defaultdict(list)
         for a in self.me.get("assets", []):
             if a.get("kind") == "card" and a.get("your_value") is not None:
@@ -951,7 +972,8 @@ class Analysis:
             rar, st = self.rarity(ref), set_of(ref)
             cands = []
             for p in prof:
-                if p["us"] or p["rank"] <= 3:
+                # every candidate collects the set or bids for the card, i.e. it may lack it: treat it as a page closer
+                if p["us"] or self.feeding_block(p, us_score):
                     continue
                 bid = max((r["price"] for r in market if r["team"] == p["team"] and r["side"] == "bid" and r["ref"] == ref), default=None)
                 if bid is None and st not in p["wants"]:
@@ -960,21 +982,25 @@ class Analysis:
                 if price is None:
                     continue
                 gain = round(price - v - self.fee(price), 1)
-                cands.append((p["rank"] > our_rank, bid is not None, gain, p, price))
-            cands = [c for c in cands if c[2] >= EDGE]
+                cands.append((bid is not None, gain, p, price))
+            cands = [c for c in cands if c[1] >= EDGE]
             if not cands:
                 continue
-            cands.sort(key=lambda c: (c[0], c[1], c[2]), reverse=True)
-            below, hasbid, gain, p, price = cands[0]
-            also = ", ".join(f"{c[3]['name']} {c[4]:g}" for c in cands[1:4])
-            rows.append((gain, f"| {ref} {rar[0] if rar else '?'} | {len(vals)} | {v:g} | {p['name']} (#{p['rank']}{'' if below else ', above us'}) "
+            cands.sort(key=lambda c: (c[0], c[1]), reverse=True)
+            hasbid, gain, p, price = cands[0]
+            also = ", ".join(f"{c[2]['name']} {c[3]:g}" for c in cands[1:4])
+            rows.append((gain, f"| {ref} {rar[0] if rar else '?'} | {len(vals)} | {v:g} | {p['name']} (#{p['rank']}, "
+                               f"{us_score - (p['score'] or 0):.1f} below) "
                                f"| {price:g}{' bid' if hasbid else ' est.'} | {gain:+g} | {also or '—'} |"))
         rows.sort(key=lambda r: -r[0])
-        L += ["", f"## Who to sell what to (us #{our_rank}; never the top 3)", "",
-              "_Our copies (cheapest value), the best buyer, preferring teams BELOW us and an open bid over an estimate. "
-              "Gain = price − our value − El Rastro fee (if we accept; 0 fee if they accept our ask)._", "",
+        L += ["", f"## Who to sell what to (us #{our_rank}, {us_score:.1f}; never the top {TOP_NEVER}, "
+                  f"only teams ≥ {FEED_GAP} points below us)", "",
+              f"_Feeding rule: each buyer here collects the set or bids for the card, so the card may close its page; it goes "
+              f"only to teams ≥ {FEED_GAP} points below us and never to the top {TOP_NEVER}. Our copies (cheapest value); "
+              f"an open bid beats an estimate. Gain = price − our value − El Rastro fee (if we accept; 0 fee if they "
+              f"accept our ask)._", "",
               "| Card | Copies | Our value | Best buyer | Price | Gain | Also |", "|---|---|---|---|---|---|---|"]
-        L += [r[1] for r in rows] or ["| — | | | no buyer above our value + 3 yet | | | |"]
+        L += [r[1] for r in rows] or ["| — | | | no buyer passes the feeding rule above our value + 3 yet | | | |"]
         text = "\n".join(L) + "\n"
         if len(text) > 5900:  # the analysts read 6000 characters: drop the tail of the team list first
             head, rest = text.split("\n## Who to sell", 1)
@@ -990,6 +1016,8 @@ class Analysis:
         price_rows, last_price = self.prices()
         s = self.me.get("score") or {}
         us = next((p for p in prof if p["us"]), None)
+        for p in prof:
+            p["feed_block"] = None if p["us"] or not us else self.feeding_block(p, us["score"])
         above = next((p for p in prof if us and p["rank"] == us["rank"] - 1), None)
         below = next((p for p in prof if us and p["rank"] == us["rank"] + 1), None)
         neighbours = [p["team"] for p in prof if us and abs(p["rank"] - us["rank"]) <= 2]

@@ -481,7 +481,8 @@ function teamsTable(d) {
     ["name", "Team", r => `${r.us ? "★ " : ""}${esc(r.name)}`],
     ["score", "Score", r => num(r.score, 2), true],
     ["delta", "Δ ~30 ticks", r => r.delta == null ? "—" : `<span class="${r.delta > 0 ? "up" : r.delta < 0 ? "down" : ""}">${sgn(r.delta)}</span>`, true],
-    ["relation", "For us", r => r.rank <= 3 && !r.us ? `<span class="chip">leader: don't feed</span>` : (r.relation.map(([k, t]) => `<span class="chip ${k}">${esc(t)}</span>`).join("") || "—")],
+    ["relation", "For us", r => r.feed_block && r.feed_block.startsWith("top") ? `<span class="chip">${esc(r.feed_block)}: don't feed</span>`
+      : ((r.feed_block ? `<span class="chip">no page closers (${esc(r.feed_block)})</span>` : "") + r.relation.map(([k, t]) => `<span class="chip ${k}">${esc(t)}</span>`).join("")) || "—"],
     ["wants", "Collects", r => r.wants.map(esc).join(", ") || "—"],
     ["dumps", "Sells off", r => r.dumps.map(esc).join(", ") || "—"],
     ["labels", "Style", r => r.labels.filter(l => !l.startsWith("Collects")).map(l => `<span class="chip">${esc(l)}</span>`).join("") || "—"],
