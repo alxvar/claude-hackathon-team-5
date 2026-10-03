@@ -1,5 +1,13 @@
 # Market log (Market session; newest first)
 
+## Sat 10:50 · FIRST TRADE ON v10: +4.99 market points [V]
+- Tick 311 (10:45): Team 10 sold MAL-07 to Team 1 on v10 at 14 P (fee 0). Team 10's first offer on v10 was tick 263.
+- **Our market: 7.32 (snapshot 310, = stall teams) → 12.47 (snapshot 320); stall teams 7.48. Gap +4.99 from one trade.**
+- Team 12 reads exactly 12.47 too (one 7 P trade on v02). Two venues with different trades (7 P and 14 P) and the same
+  gap → the value-created part looks capped or scored against the top three, like the bench [L]. If so the bar rises as
+  more venues get trades: what matters is staying in the top three by value created, so keep trades coming on v10.
+- Reciprocal count: v10 1 trade (14 P, with t10) · our trades on v07: 0 · v07 total: 0.
+
 ## Sat 10:20 · reciprocal venue deal with Team 10 (Chief): tracking started
 - Their standing offers → our v10, ours → their v07, both 0%. Page-closing trades stay on El Rastro.
 - **Baseline [V, snapshot 260]:** stall teams 6.23 · us 6.23 (+0.0) · t10 6.23 (+0.0) · t12 10.39. The market number

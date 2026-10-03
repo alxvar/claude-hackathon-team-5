@@ -1,21 +1,21 @@
-# Opportunities (auto, 10:49, game tick 319, t 3.9833 h)
+# Opportunities (auto, 10:50, game tick 321, t 4.0 h)
 
-Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and ≤ 60 real min old · ≤ 3 alerts/h · team 45 min · team+card 2 h · never to the top 4 (t02, t05, t12, t18); a sale that closes their page (last or second-to-last known lack) only to teams ≥ 10 below us (24.36); page-closers on El Rastro, the rest on v07. Data: collector.
+Alert rule: gain ≥ 20 or it completes our page · signal ≤ 30 game min and ≤ 60 real min old · ≤ 3 alerts/h · team 45 min · team+card 2 h · never to the top 4 (t02, t05, t12, t18); a sale that closes their page (last or second-to-last known lack) only to teams ≥ 10 below us (29.05); page-closers on El Rastro, the rest on v07. Data: collector.
 
 ## Ranked now (10)
 
 | # | side | team | card | price | our value | gain | signal | age (game / real min) | status |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | SELL | Team 3 (#10, 17.38) | SAL-01 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 253) | 33 / 33 | listed only: signal 33 game-min old |
-| 2 | SELL | Team 3 (#10, 17.38) | SAL-02 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 208) | 55 / 56 | listed only: signal 55 game-min old |
-| 3 | SELL | Team 7 (#17, 10.46) | SAL-01 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 136) | 103 / 733 | listed only: signal 733 real min old (game clock paused?) |
-| 4 | SELL | Team 7 (#17, 10.46) | SAL-02 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 132) | 107 / 737 | listed only: signal 737 real min old (game clock paused?) |
-| 5 | SELL | Team 3 (#10, 17.38) | SAL-05 common | 40 | 9 | 31 | bid 9 P for it (tick 182) | 68 / 69 | listed only: signal 69 real min old (game clock paused?) |
-| 6 | SELL | Team 7 (#17, 10.46) | SAL-05 common | 40 | 9 | 31 | asked abuela to sell it (tick 128) | 111 / 740 | listed only: signal 740 real min old (game clock paused?) |
-| 7 | SELL | Team 8 (#15, 14.44) | SAL-03 common | 38 | 9 | 29 | bid 5 P for it (tick 142) | 97 / 727 | listed only: signal 727 real min old (game clock paused?) |
-| 8 | SELL | Team 12 (#3, 27.73) | LAV-04 common | 37 | 3.2 | 33.8 | bid 8 P for it (tick 275) | 22 / 22 | no: top 4; 3.37 above us |
-| 9 | SELL | Team 15 (#14, 15.13) | LAV-04 common | 19 | 3.2 | 15.8 | bid 4 P for it (tick 297) | 11 / 11 | no: only 9.23 below us (needs ≥ 10) |
-| 10 | SELL | Team 2 (#2, 28.42) | LAV-04 common | 19 | 3.2 | 15.8 | bid 1 P for it (tick 251) | 34 / 34 | no: top 4 |
+| 1 | SELL | Team 15 (#13, 15.13) | LAV-04 common | 19 | 3.2 | 15.8 | bid 4 P for it (tick 297) | 12 / 12 | listed only: gain 15.8 < 20 |
+| 2 | SELL | Team 3 (#10, 17.7) | SAL-01 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 253) | 34 / 34 | listed only: signal 34 game-min old |
+| 3 | SELL | Team 3 (#10, 17.7) | SAL-02 common | 40 | 2.2 | 37.8 | bid 9 P for it (tick 208) | 57 / 57 | listed only: signal 57 game-min old |
+| 4 | SELL | Team 7 (#17, 10.49) | SAL-01 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 136) | 104 / 734 | listed only: signal 734 real min old (game clock paused?) |
+| 5 | SELL | Team 7 (#17, 10.49) | SAL-02 common | 40 | 2.2 | 37.8 | asked abuela to sell it (tick 132) | 108 / 738 | listed only: signal 738 real min old (game clock paused?) |
+| 6 | SELL | Team 3 (#10, 17.7) | SAL-05 common | 40 | 9 | 31 | bid 9 P for it (tick 182) | 69 / 70 | listed only: signal 70 real min old (game clock paused?) |
+| 7 | SELL | Team 7 (#17, 10.49) | SAL-05 common | 40 | 9 | 31 | asked abuela to sell it (tick 128) | 112 / 741 | listed only: signal 741 real min old (game clock paused?) |
+| 8 | SELL | Team 8 (#15, 14.31) | SAL-03 common | 38 | 9 | 29 | bid 5 P for it (tick 142) | 98 / 728 | listed only: signal 728 real min old (game clock paused?) |
+| 9 | SELL | Team 12 (#4, 27.43) | LAV-04 common | 37 | 3.2 | 33.8 | bid 8 P for it (tick 275) | 23 / 23 | no: top 4; only 1.62 below us (needs ≥ 10) |
+| 10 | SELL | Team 2 (#3, 28.51) | LAV-04 common | 19 | 3.2 | 15.8 | bid 1 P for it (tick 251) | 35 / 35 | no: top 4 |
 
 ## Alerts (newest first)
 
