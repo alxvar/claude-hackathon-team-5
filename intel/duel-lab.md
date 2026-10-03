@@ -11,6 +11,51 @@ _Lucas's Duel Lab session. It never writes to the game or to `agents/duelist/`._
   fixed below._
 - _**Labels:** [V] measured on our records or code, [L] modelled or inferred, [?] unknown._
 
+## Overnight program, checkpoint 2 (Sat 23:35): role-aware model; the params file stands
+
+**A structural fix to the simulator, and all decisions re-run (`night/final_role.out`).**
+- **The flaw.** Until 23:00 the simulator drew our limit, our opener, the money pie and the day weights the same way for
+  both roles.
+- **Why it matters.** The records differ by role (`byrole.out`):
+  - sellers: median limit 78, opener 0.73 × limit, pie 0.48 × limit, weight 2.16 P/day;
+  - buyers: median limit 98, opener 0.37 × limit, pie 0.33 × limit, weight 3.68 P/day.
+  - A buyer's worth is capped by its limit; a seller's isn't. This is why the earlier "fixed opener 0.55 × limit" looked
+    good: it was a role-mixing artefact.
+- **Recalibrated per role** (`calib4.out`): deal rate, rounds and result per limit within about ±10% per role (deal
+  rate up to +9% high).
+- **Re-validated on all 62 post-fix Duels II duels** (`validate3.out`):
+  - predicted total result +10% / +7% / +17% (R1 / R2 / R3; sellers over-predicted by 15-25%, buyers within 0-12%);
+  - the actual result falls inside the simulated 10-90% band in 51-53 of 62 duels (≈ the expected 80%).
+
+**Decisions on the role-aware model.** 12 ticks / 10%, 5 role-aware worlds, 15,000 duels each, 4 cells (reciprocity 0 or
+0.5 × both scoring readings). Baseline = what Aleks runs if the duelist-loop guards merge: live constants + guards +
+`MONO_END_SHARE` 0.25.
+
+| Set | Δ per duel (range over the 4 cells) | Worst world | Over 68 duels |
+|---|---|---|---|
+| **The params file** (`MIN_STEP_P` 5, `MAX_STEP_SHARE` 0.18, `LATE_SWITCH_LEFT` 2, `MONO_END_SHARE` 0.5) | **+0.036 to +0.039** | ≥ +0.030 | **+2.4 to +2.7** |
+| file, but `MIN_STEP_P` 6 | +0.040 to +0.043 | ≥ +0.033 | +2.7 to +2.9 |
+| file, but `MIN_STEP_P` 8 | +0.043 to +0.045 | ≥ +0.032 | +2.9 to +3.0 |
+| file, but `MIN_STEP_P` 4 | +0.029 to +0.033 | ≥ +0.025 | +2.0 to +2.3 |
+| file, but `MONO_END_SHARE` 0.25 | +0.036 to +0.038 | ≥ +0.031 | a tie with 0.5 |
+| file, but `MONO_END_SHARE` off | +0.030 to +0.034 | ≥ +0.024 | worse |
+| file, but `LATE_SWITCH_LEFT` off | +0.037 to +0.041 | ≥ +0.030 | ≈ 2 |
+| file, but `LATE_SWITCH_LEFT` 4 (today) | +0.008 to +0.010 | ≥ +0.002 | the switch at 4 costs ≈ 0.03 |
+| file + `OPEN_WAIT` 0 | +0.042 to +0.044 | ≥ +0.033 | +0.005 more, but see checkpoint 1 [?] |
+| file + `HOLD_TICKS` 5 | ≈ the file | | no gain |
+
+**What changes from checkpoint 1:**
+- **The file stands, and its estimated gain grows** from +0.027 to ≈ +0.037 per duel.
+- **`LATE_SWITCH_LEFT` 4 → 2 is the biggest single piece:** +0.018 to +0.021 alone.
+- **`MONO_END_SHARE` 0.5 vs 0.25 is now a tie** (±0.001, within noise). The role-blind model preferred 0.5 by 0.003;
+  both beat "off" by ≈ 0.005. **Keep 0.5:** it's no worse anywhere and better with reciprocity.
+- **`MIN_STEP_P` 6 beats 5 by ≈ +0.005 in every cell and in both simulators.** But each notch moves further from
+  anything we've played: at 6 with an 18% cap, nothing goes out mid-duel under a ~33 P gap. **Suggested use of the hot
+  reload:** start Duels III at 5, and step to 6 after wave 1 if the wave shows rounds ≥ 4 and a deal rate ≥ 0.85 (the
+  tuner's rule).
+- **Not re-run on the role-aware model:** the thin-margin, accept and opener conclusions came from exact replays or are
+  unchanged in direction.
+
 ## Overnight program, checkpoint 1 (Sat 22:40): Duels III and the Final
 
 _For Aleks's Sunday morning. Duels III and the Final: 12 ticks, 10% decay, 4 at once, price + day
