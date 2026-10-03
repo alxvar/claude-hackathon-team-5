@@ -102,9 +102,26 @@ def test_ticks_left(deadline, expect):
         assert "tick(s) left" in why
 
 
-def test_days_session_any_rival_offer_holds():
-    d = duel(rival=150, limit=100, issues=("price", "days"))
+def test_a_days_duel_whose_weight_we_cannot_read_holds_on_any_offer():
+    d = duel(rival=150, limit=100, issues=("price", "days"))                 # no weight in the payload
     assert arbiter.should_hold_accept(FakeBazaar([d]), 100)[0]
+
+
+def days_duel(price, day, weight=2, meaning="each day later costs you 2 P"):
+    """Duels II as RULES.md describes it: we buy at value 100; each day after day 0 costs us 2 P."""
+    d = duel(limit=100, issues=("price", "days"))
+    d.update(your_days_weight=weight, days_meaning=meaning,
+             rival_offer={"id": 1, "price": price, "tick": 99, **({} if day is None else {"days": day})})
+    return d
+
+
+def test_a_days_duel_holds_only_when_the_whole_package_is_inside_our_limit():
+    # Aleks's review (10:20): counting every standing offer would freeze our bots through most of Duels II.
+    assert not arbiter.should_hold_accept(FakeBazaar([days_duel(95, 5)]), 100)[0]   # +5 on price, -10 for day 5
+    hold, why = arbiter.should_hold_accept(FakeBazaar([days_duel(85, 2)]), 101)       # +15, -4: worth 11
+    assert hold and "inside our limit" in why
+    assert not arbiter.should_hold_accept(FakeBazaar([days_duel(85, None)]), 102)[0]  # no day: our worst, -20
+    assert arbiter.should_hold_accept(FakeBazaar([days_duel(95, 5, weight={"x": 1})]), 103)[0]   # unreadable
 
 
 def test_finished_duels_are_ignored():

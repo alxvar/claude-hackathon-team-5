@@ -6,7 +6,9 @@ Hold only when BOTH hold true:
   "Practice duels"; with no event found, session 1 is the practice (RULES.md: "The first session of the weekend is
   a practice round that does not score"). /api/schedule can't tell: it lists only sessions still to come;
 - one of our live duels in it needs the accept soon: the rival's standing offer is inside our limit, or
-  ticks_left <= 3.
+  ticks_left <= 3. With days (Duels II), "inside" is on the whole package, as the duelist values it: the price's
+  margin over our limit plus what the day is worth to us (agents/duelist/days.read_days, guards.worth); a duel whose
+  day weight can't be read counts any standing offer (Aleks's review 10:20: else 6 duels at once freeze our bots).
 GET /api/duels is read at most once per tick (cached by tick).
 
     from arbiter import should_hold_accept
@@ -71,14 +73,31 @@ def session_scored(b, duel):
     return _sessions[s]
 
 
+def _day_values(duel):
+    """What each delivery day is worth to us, read as the duelist reads it; None when the weight can't be read.
+    days.py is stdlib only: the bots that import this module run on a bare python3 (no pydantic for guards.py)."""
+    try:
+        if str(ROOT) not in sys.path:
+            sys.path.insert(0, str(ROOT))
+        from agents.duelist.days import read_days
+        return read_days(duel.get("your_days_weight", duel.get("days_weight")), duel.get("days_meaning"))
+    except Exception:  # noqa: BLE001
+        return None
+
+
 def _inside_limit(duel):
+    """The rival's standing offer is worth >= 0 to us: guards.worth = the price's margin over our limit plus, with
+    days, the day's value (0 at our best day, less elsewhere; an offer without a day counts at our worst)."""
     o = duel.get("rival_offer")
     if not o or o.get("price") is None or duel.get("your_limit") is None:
         return False
+    margin = (duel["your_limit"] - o["price"]) if duel.get("role") == "buyer" else (o["price"] - duel["your_limit"])
     if "days" in (duel.get("issues") or []):
-        return True  # price + days: the limit alone can't tell, so any standing offer counts [Uncertain]
-    price, limit = o["price"], duel["your_limit"]
-    return price <= limit if duel.get("role") == "buyer" else price >= limit
+        dv = _day_values(duel)
+        if dv is None:
+            return True  # can't value the day: any standing offer counts (the duelist leaves these to the models)
+        return margin + dv(o.get("days")) >= 0
+    return margin >= 0
 
 
 def _duels(b, tick):
