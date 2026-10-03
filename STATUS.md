@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 18:27** · tick 985 (30 s/tick) · game hour 9.53 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 18:32** · tick 995 (30 s/tick) · game hour 9.62 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,25 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
-  - Sat 18:35 · Duel Lab · **second pass for the 19:30 freeze → top of `intel/duel-lab.md`** (verified, 4 low flags fixed) · Duels II pairings not visible (0 live duels; schedule has params only; meeting order differs between sessions) → identify rivals live by wording · Duels I no-deals unrecoverable by a rule; silence vs clock bots in share: −0.19 blanket, +0.80 for R4/R9/R13 only → not tonight · **one change, insurance: `--days-read auto|flip|unsure` (default auto = today's code)**; the day reading is the biggest swing left (red team: right 0.47, backwards −0.18/duel) and today there's no switch · next: Aleks's call
-  - Sat 18:22 · operator · **Silver pack arrived** (asset 1013, value 87.1, 18:20): held UNOPENED until SAL-06 settles, then ask the Chief (reserved.json can't hold a pack: card refs only) · Workshop on hold too · **Don Ernesto (banco, L5) unlocked for us** ('5 deals with pilar'): sells a gold pack (420, opens at 546) and legendaries (585), buys only epics/legendaries; we hold none and every buy is above our cash → L5 job stood down (Chief) · SAL-06: t13 didn't take 14557 → 18:21 switch to **14889**, 50 → **t17** on v15, exp tick 993 · v10 ads: fee line posted 18:22 ('Team 12's v02 now charges 10% + 5 P per card…'; v02 already at 1000 bps + 5/card [V], so 'now charges' instead of 'is moving to') · ad job bv1vj5hwu: from ~18:37 every 15 min until 22:45, top non-rival pair from intel/v10-suggestions.md (rares, then uncommons, then commons; no rival buyer or seller, no closer, never our cards), else the fee line
-  - Sat 18:20 · operator · Chief: if a free pack or gift lands, **do NOT open it** until SAL-06 settles through a team trade (a pack pull would complete the page as luck, with no bonus, and our live bid would then buy a duplicate), then ask before opening · watcher bmlgrdl8t reports any non-card asset; no pack held now; no auto-opener running (the 16:40 one ended at 17:40)
+  - Sat 18:31 · operator · Team 15 window over (18:30): thread 1179 was already closed; t15 posted one approved v10 sale (MAL-07 → t02, offer 13773, tick 893), **0 v10 settlements** since → commission N = 0, nothing owed; any t15 settlement offer > 0 gets ignored and reported
+  - Sat 18:30 · operator · board at tick 990 after the SAL close: **#1 31.97** (T6 31.7, T14 31.5, T3 29.6, T10 28.3), +1.99 board from +40.4 neg (≈ 0.049 per neg point)
+  - Sat 18:29 · operator · **SAL PAGE CLOSED (pages 2 → 3)**: the bargains daemon flagged an open SAL-06 ask at 28 on El Rastro (15011); the board masked the maker ('ma88927b8'), the feed's offer.listed showed **t08** (no rival) → I accepted by hand as taker at 18:28 (fee 3), settled tick 988: `neg_points` 78.7 → **119.1 (+40.4)**, cash 151 → 120, album 38 · +40.4, not +50: pack drag (our unopened silver pack's expected value fell with the new card) · bid 14889 (t17) cancelled, repost loop and SAL-06 watcher stopped, no t02 thread, no new bid · SAL cards stay reserved; the complete-page guard covers them too · lesson: public boards mask makers (m + hash); the feed's offer.listed names them
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 29.97 | 3 | 22.47 | 7.50 | 13.93 | 0.44 | 0.89 | 51 | 5 | 151 | 37/50 |
+| 31.97 | 1 | 24.47 | 7.50 | 13.93 | 0.44 | 0.89 | 52 | 5 | 120 | 38/50 |
 
-Leaderboard (snapshot at tick 980; refreshes every few minutes):
+Leaderboard (snapshot at tick 990; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 6 | 31.68 | 19.63 | 12.05 | 52 |
-| 2 | Team 14 | 31.52 | 21.99 | 9.53 | 43 |
-| 3 | Team 5 | 29.97 | 22.47 | 7.50 | 51 |
+| 1 | Team 5 | 31.97 | 24.47 | 7.50 | 52 |
+| 2 | Team 6 | 31.68 | 19.63 | 12.05 | 52 |
+| 3 | Team 14 | 31.52 | 21.99 | 9.53 | 43 |
 | 4 | Team 3 | 29.64 | 24.17 | 5.46 | 29 |
-| 5 | Team 10 | 28.26 | 15.76 | 12.50 | 35 |
+| 5 | Team 10 | 28.34 | 15.84 | 12.50 | 36 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 10.42 | ~53 min | persona_opens | Don Ernesto opens for everyone |
-| 11.00 | ~88 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~97 min | persona_patch | The fever breaks |
-| 11.65 | ~127 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~208 min | bench | The Market Test: every venue gets the same synthetic book |
-| 14.08 | ~273 min (after today's close) | day_closes | Closed until Sunday 09:00 |
-| 14.08 | ~273 min (after today's close) | day_opens | Sunday opens |
-| 14.65 | ~307 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 10.42 | ~48 min | persona_opens | Don Ernesto opens for everyone |
+| 11.00 | ~83 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~92 min | persona_patch | The fever breaks |
+| 11.65 | ~122 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~203 min | bench | The Market Test: every venue gets the same synthetic book |
+| 14.08 | ~268 min (after today's close) | day_closes | Closed until Sunday 09:00 |
+| 14.08 | ~268 min (after today's close) | day_opens | Sunday opens |
+| 14.65 | ~302 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
 
 ## Our dealer deals
 
@@ -58,7 +58,6 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Thread | Dealer | Side | Item | Her first | Our first | Deal | vs her first | Msgs | Status | Closed |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 228 | chato | buy | LAV-06 | 33 | 23 | 31 | -6% | 13 | deal |  |
 | 264 | chato | buy | LAV-07 | — | — | — | — | 0 | closed |  |
 | 276 | chato | sell | 1 card(s) | 13 | 24 | 13 | +0% | 11 | deal |  |
 | 288 | abuela | sell | 1 card(s) | 5 | — | 5 | +0% | 1 | deal |  |
@@ -102,7 +101,7 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
 | common card | team buys | 70 | 9.00 | 7 | 12 | 5 | 9 |
-| common card | team sells | 108 | 6.00 | 2 | 23 | 5 | 5.40 |
+| common card | team sells | 109 | 6 | 2 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 42 | 22.00 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 77 | 23 | 17 | 29 | 5 | 24.20 |
 | uncommon card | team sells | 9 | 14 | 12 | 17 | 0 | — |
