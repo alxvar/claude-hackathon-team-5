@@ -2,6 +2,31 @@
 
 _Written by `tools/duel_monitor.py` after each wave of our duels, newest first. Advisory for Aleks (the duelist is his). Result = our surplus × (1 − decay)^rounds, rounds = min(our priced offers, theirs); "spoke" = the rival sent at least one price._
 
+## Sat 12:15 · Duels I · tick 491 · wave of 3 (duels 2315, 2366, 2506)
+
+**This wave:** 3 deals / 3 finished (100%)
+- Rival engaged: spoke in 3 → 3 deals (100%); spoke or accepted 3 → 3 (100%); silent 0 (0 took our opener, 0 no deal).
+- In-limit offers not accepted: 0.
+- Rounds and decay: 4.0 rounds per deal; result 18.9 of 24.0 P surplus → 5.1 P (21%) lost to decay.
+- Latency: answered rival offers in 1.4 ticks on average (max 5; 11 of 22 the same tick); decision 6.4 s mean, 8.9 s max.
+- Concessions: we moved 115 P in total, rivals 38 P.
+- Rival behaviours (best → worst by our mean result): holder (never moved): 2 duel(s), 2 deal(s), mean result 7.0 P, rival moved 0.0 P per duel · conceder: 1 duel(s), 1 deal(s), mean result 4.8 P, rival moved 38.0 P per duel.
+- Best duel: 2315 vs Rival Oro (seller): 7.5 P in 1 round(s). Worst: 2506 vs Rival Noche (buyer): deal.
+
+**Session so far:** 7 deals / 7 finished (100%)
+- Rival engaged: spoke in 7 → 7 deals (100%); spoke or accepted 7 → 7 (100%); silent 0 (0 took our opener, 0 no deal).
+- In-limit offers not accepted: 0.
+- Deals below an earlier in-limit rival offer: 1 (≈4.7 P: 2296).
+- Rounds and decay: 4.3 rounds per deal; result 55.6 of 74.0 P surplus → 18.4 P (25%) lost to decay.
+- Latency: answered rival offers in 0.8 ticks on average (max 5; 29 of 43 the same tick); decision 6.4 s mean, 14.5 s max.
+- Concessions: we moved 219 P in total, rivals 154 P.
+- Rival behaviours (best → worst by our mean result): conceder: 4 duel(s), 4 deal(s), mean result 8.7 P, rival moved 38.5 P per duel · holder (never moved): 3 duel(s), 3 deal(s), mean result 6.9 P, rival moved 0.0 P per duel.
+- Best duel: 2540 vs Rival Luna (seller): 12.3 P in 7 round(s). Worst: 2506 vs Rival Noche (buyer): deal.
+
+**For Aleks:**
+1. Close in fewer exchanges: 18.4 P (25%) of deal value went to decay over 4.3 rounds per deal. Accept when the gap to our last offer ≤ max(2 P, 2d/(1−d) × our surplus).
+2. Decay-aware accept: 1 deal(s) closed below an earlier in-limit rival offer (≈4.7 P).
+
 ## Sat 12:07 · Duels I · tick 475 · wave of 4 (duels 2296, 2297, 2314, 2540)
 
 **This wave:** 4 deals / 4 finished (100%)
