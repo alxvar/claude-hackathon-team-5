@@ -8,6 +8,7 @@ cash and the daemons. Read-only (GET only, one game request per second); never p
 """
 import json
 import os
+import shlex
 import subprocess
 import sys
 import time
@@ -32,7 +33,10 @@ def load_env(path=ROOT / ".env"):
             if not line or line.startswith("#") or "=" not in line:
                 continue
             k, v = line.removeprefix("export ").split("=", 1)
-            env[k.strip()] = v.strip().strip("'\"")
+            try:
+                env[k.strip()] = " ".join(shlex.split(v, comments=True))  # as the shell reads it: quotes, # comments
+            except ValueError:  # unbalanced quote
+                env[k.strip()] = v.strip()
     for k in (*KEYS, "BAZAAR_URL"):
         if not env.get(k) and os.environ.get(k):
             env[k] = os.environ[k]
