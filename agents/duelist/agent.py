@@ -568,11 +568,24 @@ class DuelAgent:
             except LLMError as e:
                 return self.final(self.safe_move(obs, f"negotiator: {e}", vetoes=vetoes, **meta), obs)
             if not (found := self.check(d, obs, band, days)):
-                return self.final(self.to_move(d, obs, days, **({"vetoes": vetoes} if vetoes else {}), **meta), obs)
+                move = self.to_move(d, obs, days, **({"vetoes": vetoes} if vetoes else {}), **meta)
+                return self.final(self.held(move, plan, obs, days), obs)
             vetoes += found
             feedback = f"{OWN_NOTE} Your previous draft was rejected: {' '.join(found)} Decide again."
         assert d is not None
-        return self.final(self.repair(d, obs, band, days, vetoes=vetoes, rejected=d.model_dump(), **meta), obs)
+        move = self.repair(d, obs, band, days, vetoes=vetoes, rejected=d.model_dump(), **meta)
+        return self.final(self.held(move, plan, obs, days), obs)
+
+    def held(self, move: Move, plan: BandPlan, obs: Observation, days: int | None) -> Move:
+        """When the strategist holds (its target is our standing offer, on our day), an offer a point or two off
+        it is still a message, and every message is a round (278), so the offer becomes our standing offer again
+        and the runner sends nothing. An accept still goes through."""
+        ours = next(reversed(our_offers(obs)), None)
+        if (move.action != "offer" or ours is None or plan.target != ours.price or days != ours.days
+                or move.price == ours.price):
+            return move
+        return Move("offer", move.text, price=ours.price, days=ours.days,
+                    meta={**move.meta, "rule": "plan holds", "drafted": move.price})
 
     def final(self, move: Move, obs: Observation) -> Move:
         """Last line of defence: whatever happened before, never offer or accept past our limit (with days: the

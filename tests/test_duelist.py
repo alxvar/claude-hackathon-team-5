@@ -726,6 +726,20 @@ def test_their_price_counts_every_message_as_a_round(tmp_path: Path):
     assert r2.their_price(answered(r2, chat, 165), accept) is None   # their no-price message counts: 1 < 2
 
 
+def test_a_plan_that_holds_sends_nothing_even_when_the_negotiator_drifts(tmp_path: Path):
+    # Dani's 10:16 audit: the strategist holds (target = our standing 70) but the negotiator picks 68 from the
+    # band; 68 would be sent and cost a round for 2 P (the 278 pattern). Code keeps our 70, so the runner holds.
+    turns = [Turn(mine=True, offer=Offer(price=70), tick=1), Turn(mine=False, offer=Offer(price=30), tick=2)]
+    drift = Decision(action="offer", price=68, message="68 P, final.")
+    move = respond(SELLER, obs(SELLER, rival=30, turns=turns), FakeModel(plan(70, 72, 67), drift))
+    assert (move.action, move.price, move.meta["rule"], move.meta["drafted"]) == ("offer", 70, "plan holds", 68)
+    step = respond(SELLER, obs(SELLER, rival=30, turns=turns), FakeModel(plan(66, 68, 64), drift))
+    assert step.price == 68 and "rule" not in step.meta          # a planned step goes out as drafted
+    take = respond(SELLER, obs(SELLER, rival=69, turns=turns),
+                   FakeModel(plan(70, 72, 68), Decision(action="accept", price=69, message="Done.")))
+    assert (take.action, take.price) == ("accept", 69)            # holding never blocks an accept
+
+
 def test_the_opener_is_always_an_offer():
     talk = Decision(action="message", price=None, message="Tell me more about what you need.")
     move = respond(SELLER, obs(SELLER), FakeModel(plan(70, 72, 68), talk, talk))
