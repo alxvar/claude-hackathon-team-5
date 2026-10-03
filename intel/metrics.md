@@ -1,18 +1,18 @@
-# Metrics (auto, 18:58, game tick 1047)
+# Metrics (auto, 19:00, game tick 1052)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
-1. Team 14 31.8 (+0.2 / +0.3) deals 45
-2. Team 6 31.7 (+0.0 / +0.9) deals 53
-3. Team 5 31.7 (-0.3 / +1.7) deals 52 ← US
-4. Team 10 31.7 (+3.3 / +3.9) deals 42
-5. Team 3 29.6 (-0.0 / +0.9) deals 29
+1. Team 6 31.7 (+0.0 / +1.1) deals 53
+2. Team 5 31.7 (-0.3 / +1.7) deals 52 ← US
+3. Team 10 31.7 (+3.3 / +4.0) deals 42
+4. Team 14 31.3 (-0.2 / -0.6) deals 46
+5. Team 3 29.6 (-0.0 / +1.0) deals 29
 6. Team 18 29.4 (+0.7 / +2.4) deals 35
-7. Team 16 27.5 (+1.0 / +1.2) deals 43
-8. Team 12 25.7 (+0.5 / -0.4) deals 55
-9. Team 17 25.5 (+0.5 / +0.7) deals 31
-10. Team 13 24.8 (+0.0 / +0.1) deals 72
-Us: #3
+7. Team 16 27.5 (+1.0 / +1.4) deals 43
+8. Team 12 25.7 (+0.5 / -0.2) deals 55
+9. Team 17 25.5 (-0.0 / +0.8) deals 31
+10. Team 13 24.8 (+0.0 / +0.2) deals 73
+Us: #2
 
 ## Us
 
@@ -28,8 +28,8 @@ LAT-03 (common): 5; LAT-04 (common): 5; LAV-01 (common): 99.1; LAV-02 (common): 
 - 15571: sell MAL-02 for 9 · to t15 · expires tick 1071
 - 15572: sell MAL-05 for 9 · to t15 · expires tick 1071
 - 15599: sell LAV-03 for 6 · to t09 · expires tick 1073
-- 15667: sell LAV-02 for 0 · to t01 · expires tick 1048
-- 15762: sell MAL-08 for 28 · to pilar · expires tick 1051
+- 15793: sell LAV-02 for 0 · to t01 · expires tick 1060
+- 15807: sell LAT-04 for 10 · to picaros · expires tick 1056
 
 ## What each of our deals did to neg_points (measured, last 12)
 
@@ -48,14 +48,14 @@ LAT-03 (common): 5; LAT-04 (common): 5; LAV-01 (common): 99.1; LAV-02 (common): 
 
 ## Our dealer conversations (last 8: dealer's first → last price, our last, outcome)
 
-- tick 793 picaros buy SAL-10: 73 → 54, ours 54 · deal
-- tick 816 pilar sell Tienda de Discos: 16 → 19, ours 20 · deal
 - tick 871 pilar sell La Heroína del Dos de Mayo: 47 → 56, ours 56 · deal
 - tick 881 picaros sell Café en Goya: 4 → 5, ours 5 · deal
 - tick 887 chato sell La Vía Láctea: 13 → 14, ours 19 · closed
 - tick 895 picaros buy MAL-10: 73 → 73, ours - · closed
-- tick 1044 pilar sell La Vía Láctea: 16 → 16, ours 28 · open
-- tick 1046 abuela buy LAT-02: 12 → 12, ours - · open
+- tick 1044 pilar sell La Vía Láctea: 16 → 16, ours 28 · closed
+- tick 1046 abuela buy LAT-02: 12 → 12, ours - · closed
+- tick 1049 picaros sell Mercado de la Cebada: 4 → 4, ours 10 · open
+- tick 1050 banco buy sobre_oro: 546 → 546, ours - · open
 
 ## Trades between teams (152 so far; last 12)
 
@@ -77,16 +77,15 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: RET×3, MAL�
 ## Dealer prices, last 60 ticks (median per item)
 
 - abuela common (team buys): median 10 over 2
-- abuela common (team sells): median 6 over 2
+- abuela common (team sells): median 6 over 1
 - abuela uncommon (team buys): median 29 over 1
 - abuela uncommon (team sells): median 20 over 2
 - picaros common (team sells): median 5 over 2
 - picaros epic (team buys): median 143 over 2
 - picaros rare (team buys): median 57 over 8
-- picaros uncommon (team sells): median 11 over 1
 - pilar epic (team sells): median 199 over 1
-- pilar rare (team sells): median 72 over 5
-- pilar uncommon (team sells): median 19 over 6
+- pilar rare (team sells): median 75 over 4
+- pilar uncommon (team sells): median 19 over 5
 
 ## El Rastro now: top bids by price (team, card, price)
 
@@ -99,7 +98,7 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: RET×3, MAL�
 - t13: RET-01 (common) 2 P · offer 15645
 - t13: RET-05 (common) 2 P · offer 15685
 
-Asks by others (card, price: count): LAT-02 8: 2; LAV-05 5: 2; SAL-01 6: 1; LAT-02 12: 1; RET-02 12: 1; LAT-08 30: 1; RET-04 12: 1; MAL-04 12: 1; LAT-05 12: 1; RET-07 30: 1; LAT-01 12: 1; RET-06 30: 1; LAT-01 8: 1; LAT-03 8: 1; LAT-04 8: 1
+Asks by others (card, price: count): LAT-02 8: 2; LAV-05 5: 2; SAL-01 6: 1; MAL-04 12: 1; LAT-05 12: 1; RET-07 30: 1; LAT-01 12: 1; RET-06 30: 1; LAT-01 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAT-06 20: 1; RET-08 24: 1; SAL-02 7: 1
 
 ## Our duels: 0 live, 68 finished (last 10)
 
