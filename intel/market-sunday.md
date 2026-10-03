@@ -1,6 +1,6 @@
-# Market plan for Sunday (Market session) · written Sun 01:04
+# Market plan for Sunday (Market session) · written Sun 01:13
 
-_Sources: intel/matches.md (matchmaker run 01:03, tick 1440; its VC estimates move between runs, so re-read it before acting), leaderboard snapshot 1440 (us 30.49), intel/market-log.md, intel/directives.md (Club Castizo, Sat 22:55). Labels: [V] measured, [L] inferred, [?] unknown. An independent verifier audited the 22:52 draft; its ten flags are applied here._
+_Sources: intel/matches.md (matchmaker run 01:12, tick 1440; its VC estimates move between runs, so re-read it before acting), leaderboard snapshot 1440 (us 30.49), intel/market-log.md, intel/directives.md (Club Castizo, Sat 22:55). Labels: [V] measured, [L] inferred, [?] unknown. An independent verifier audited the 22:52 draft; its ten flags are applied here._
 
 ## 0. NEGOTIATION (Chief's overnight ask; read-only analysis of data/feed.jsonl to tick 1445; two independent verifier passes, their flags applied; the figures were not re-run by the verifier, which had no shell)
 
@@ -87,21 +87,21 @@ Spares [V, /api/me]: LAV-02 ×2, LAV-03 ×1, LAV-04 ×1. LAT-03 and LAT-04 are s
 
 | # | Buyer | Seller | Card | Price | Expected VC (low) | Market | Pre-agree by WhatsApp? | Who sends (08:30) |
 |---|---|---|---|---|---|---|---|---|
-| 1 | Team 9 | Team 7 | RET-09 | ~70 | +67.6 | v10 | YES: Team 9 (slow or manual, counters); page finisher: approved by the Chief, 01:00 | Dani → Team 7 (seller); Lucas → Team 9 (buyer) · APPROVED |
+| 1 | Team 9 | Team 7 | RET-09 | ~76 | +156.2 | v10 | YES: Team 9 (slow or manual, counters); page finisher: approved by the Chief, 01:00 | Dani → Team 7 (seller); Lucas → Team 9 (buyer) · APPROVED |
 | 2 | Team 7 | Team 9 | SAL-02 | ~9 | +6.5 | v10 | YES: Team 7 (slow or manual) | Lucas → Team 9 (seller); Dani → Team 7 (buyer) · FIRE 08:30 |
-| 3 | Team 7 | Team 8 | SAL-05 | ~9 | +7.9 | v26 (Team 2) | YES: Team 7 (slow or manual); Team 8: confirm it is a spare | Lucas → Team 8 (seller); Dani → Team 7 (buyer) · FIRE 08:30 after the seller confirms |
+| 3 | Team 7 | Team 4 | SAL-01 | ~9 | +1.2 | v26 (Team 2) | YES: Team 7 (slow or manual); Team 4: confirm it is a spare | Dani → Team 4 (seller); Dani → Team 7 (buyer) · FIRE 08:30 after the seller confirms |
 | 4 | Team 8 | Team 7 | MAL-02 | ~9 | +7.2 | v10 | YES: Team 8 (slow or manual); Team 7: confirm it is a spare; Team 8: ask whether it still lacks MAL-02 | Dani → Team 7 (seller); Lucas → Team 8 (buyer) · HOLD: ask the buyer first |
 | 5 | Team 16 | Team 2 | RET-01 | ~9 | +7.4 | v10 | YES: Team 16 (borderline (half within 2 ticks)); Team 16: outside the club, Chief's OK | Dani → Team 2 (seller); Dani → Team 16 (buyer) · on the Chief's 08:30 rival check |
 | 6 | Team 16 | Team 4 | RET-03 | ~9 | +7.1 | v10 | YES: Team 16 (borderline (half within 2 ticks)); Team 16: outside the club, Chief's OK | Dani → Team 4 (seller); Dani → Team 16 (buyer) · on the Chief's 08:30 rival check |
 | 7 | Team 16 | Team 8 | RET-09 | ~70 | +23.7 | v10 | YES: Team 16 (borderline (half within 2 ticks)); Team 8: confirm it is a spare; Team 16: outside the club, Chief's OK | Lucas → Team 8 (seller); Dani → Team 16 (buyer) · HOLD: seller check and the Chief's OK |
-| 8 | Team 7 | Team 1 | SAL-01 | ~9 | +7.8 | v10 | YES: Team 7 (slow or manual); Team 1: confirm it is a spare; Team 1: outside the club, Chief's OK | Lucas → Team 1 (seller); Dani → Team 7 (buyer) · HOLD: seller check and the Chief's OK |
+| 8 | Team 16 | Team 8 | RET-06 | ~24 | +8.5 | v10 | YES: Team 16 (borderline (half within 2 ticks)); Team 8: confirm it is a spare; Team 16: outside the club, Chief's OK | Lucas → Team 8 (seller); Dani → Team 16 (buyer) · HOLD: seller check and the Chief's OK |
 | 9 | Team 16 | Team 8 | RET-04 | ~9 | +3.4 | v10 | YES: Team 16 (borderline (half within 2 ticks)); Team 8: confirm it is a spare; Team 16: outside the club, Chief's OK | Lucas → Team 8 (seller); Dani → Team 16 (buyer) · HOLD: seller check and the Chief's OK |
-| 10 | Team 9 | Team 16 | LAV-02 | ~9 | +11.2 | v10 | YES: Team 9 (slow or manual, counters); Team 16: confirm it is a spare; Team 9: ask whether it still lacks LAV-02; Team 16: outside the club, Chief's OK | Dani → Team 16 (seller); Lucas → Team 9 (buyer) · HOLD: ask the buyer first |
+| 10 | Team 1 | Team 8 | RET-03 | ~9 | +1.9 | v10 | YES: Team 1 (slow or manual); Team 8: confirm it is a spare; Team 1: outside the club, Chief's OK | Lucas → Team 8 (seller); Lucas → Team 1 (buyer) · HOLD: seller check and the Chief's OK |
 
-**Split check (directive 01:10; club deals only, by count):** off v10 go SAL-05 Team 8 → Team 7 (+7.9) on v26. Every deal with Team 16 or Team 1 stays on v10.
+**Split check (directive 01:10; club deals only, by count):** off v10 go SAL-01 Team 4 → Team 7 (+1.2) on v26. Every deal with Team 16 or Team 1 stays on v10.
 
 
-**Who sends [proposal, not a record]:** the repo holds no list of who has which team's WhatsApp. The split follows the directives: Lucas already messages Team 15 and brokered Team 8 ↔ Team 9 (21:40), so he keeps Teams 15, 8 and 9, plus Team 1; Dani takes Teams 7, 4, 2 and 16. Swap any name if the other holds the contact. **Dani:** Team 7 (rows 1, 2, 3, 4, 8); Team 2 (rows 5); Team 16 (rows 5, 6, 7, 9, 10); Team 4 (rows 6) · **Lucas:** Team 9 (rows 1, 2, 10); Team 8 (rows 3, 4, 7, 9); Team 1 (rows 8). The ready texts are in §2 (per pair) and in intel/club-pitch.md §4 (per team, Spanish and English).
+**Who sends [proposal, not a record]:** the repo holds no list of who has which team's WhatsApp. The split follows the directives: Lucas already messages Team 15 and brokered Team 8 ↔ Team 9 (21:40), so he keeps Teams 15, 8 and 9, plus Team 1; Dani takes Teams 7, 4, 2 and 16. Swap any name if the other holds the contact. **Dani:** Team 7 (rows 1, 2, 3, 4); Team 4 (rows 3, 6); Team 2 (rows 5); Team 16 (rows 5, 6, 7, 8, 9) · **Lucas:** Team 9 (rows 1, 2); Team 8 (rows 4, 7, 8, 9, 10); Team 1 (rows 10). The ready texts are in §2 (per pair) and in intel/club-pitch.md §4 (per team, Spanish and English).
 
 
 **Every row needs a WhatsApp (or the Chief's OK) first.** Then one side posts the quote on the row's market (the Market column: v10, except every third club deal, which goes to a member's market, directive 01:10) ADDRESSED to the other at the agreed price (directive 21:20) and the other accepts: the seller's ask in arm A, the buyer's bid in arm B (§3; texts in §2). Addressed, because an open ask on v10 can be taken by a rival's fast bot (Teams 6, 13, 14 are fast takers), which would move the card to the wrong team and can turn the VC negative.
@@ -110,9 +110,9 @@ Spares [V, /api/me]: LAV-02 ×2, LAV-03 ×1, LAV-04 ×1. LAT-03 and LAT-04 are s
 
 Status per the Chief's 01:00 directive. Send in this order; when two rows go to the same team, send them as one message. **Market (directive 01:10, Chief 01:20):** the split applies to club deals only (both teams among Teams 2, 4, 7, 8, 9, 15): v10 hosts 2 of every 3, including the first ones and every page closer; each third club deal goes to a member's market, lowest market score first, never one of the two parties' own. A deal with a non-member on either side goes on v10 and does not count in the rotation. The buyer's second message ('it is posted, accept it') goes out when the Market session reports the listing on v10.
 
-**1. Row #1 · RET-09 · Team 7 → Team 9 at ~70 P · on v10 · APPROVED (page finisher, Chief 01:00)**
-- Dani → Team 7: ES: "¡Hola Team 7! Team 9 busca El Ángel Caído (RET-09). Si la tenés repetida, ¿la publicás en v10 a ~70 P, dirigida a Team 9? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 7! Team 9 is looking for El Ángel Caído (RET-09). If yours is a spare, could you post it on v10 at ~70 P, addressed to Team 9? 0% fee. Thanks!"
-- Lucas → Team 9: ES: "¡Hola Team 9! Team 7 puede publicarte El Ángel Caído (RET-09) en v10 a ~70 P, dirigida a vos, 0 % de comisión. ¿Te sirve? Cuando aparezca, aceptala ahí." · EN: "Hi Team 9! Team 7 can post El Ángel Caído (RET-09) for you on v10 at ~70 P, addressed to you, 0% fee. Does that work? When it shows up, accept it there."
+**1. Row #1 · RET-09 · Team 7 → Team 9 at ~76 P · on v10 · APPROVED (page finisher, Chief 01:00)**
+- Dani → Team 7: ES: "¡Hola Team 7! Team 9 busca El Ángel Caído (RET-09). Si la tenés repetida, ¿la publicás en v10 a ~76 P, dirigida a Team 9? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 7! Team 9 is looking for El Ángel Caído (RET-09). If yours is a spare, could you post it on v10 at ~76 P, addressed to Team 9? 0% fee. Thanks!"
+- Lucas → Team 9: ES: "¡Hola Team 9! Team 7 puede publicarte El Ángel Caído (RET-09) en v10 a ~76 P, dirigida a vos, 0 % de comisión. ¿Te sirve? Cuando aparezca, aceptala ahí." · EN: "Hi Team 9! Team 7 can post El Ángel Caído (RET-09) for you on v10 at ~76 P, addressed to you, 0% fee. Does that work? When it shows up, accept it there."
 - When the listing appears, Lucas → Team 9: ES: "Ya está publicada RET-09 en v10 a tu nombre. ¡Aceptala!" · EN: "RET-09 is posted for you on v10. Go ahead and accept it!"
 
 **2. Row #2 · SAL-02 · Team 9 → Team 7 at ~9 P · on v10 · FIRE at 08:30**
@@ -120,10 +120,10 @@ Status per the Chief's 01:00 directive. Send in this order; when two rows go to 
 - Dani → Team 7: ES: "¡Hola Team 7! Team 9 puede publicarte El Portero (SAL-02) en v10 a ~9 P, dirigida a vos, 0 % de comisión. ¿Te sirve? Cuando aparezca, aceptala ahí." · EN: "Hi Team 7! Team 9 can post El Portero (SAL-02) for you on v10 at ~9 P, addressed to you, 0% fee. Does that work? When it shows up, accept it there."
 - When the listing appears, Dani → Team 7: ES: "Ya está publicada SAL-02 en v10 a tu nombre. ¡Aceptala!" · EN: "SAL-02 is posted for you on v10. Go ahead and accept it!"
 
-**3. Row #3 · SAL-05 · Team 8 → Team 7 at ~9 P · on v26 · FIRE at 08:30, but first confirm Team 8 still holds two**
-- Lucas → Team 8: ES: "¡Hola Team 8! Team 7 busca Taxi Blanco (SAL-05). ¿La tenés repetida (te quedan dos)? Si sí, ¿la publicás en v26 a ~9 P, dirigida a Team 7? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 8! Team 7 is looking for Taxi Blanco (SAL-05). Do you still have a spare (two copies)? If so, could you post it on v26 at ~9 P, addressed to Team 7? 0% fee. Thanks!"
-- Dani → Team 7: ES: "¡Hola Team 7! Team 8 puede publicarte Taxi Blanco (SAL-05) en v26 a ~9 P, dirigida a vos, 0 % de comisión. ¿Te sirve? Cuando aparezca, aceptala ahí." · EN: "Hi Team 7! Team 8 can post Taxi Blanco (SAL-05) for you on v26 at ~9 P, addressed to you, 0% fee. Does that work? When it shows up, accept it there."
-- When the listing appears, Dani → Team 7: ES: "Ya está publicada SAL-05 en v26 a tu nombre. ¡Aceptala!" · EN: "SAL-05 is posted for you on v26. Go ahead and accept it!"
+**3. Row #3 · SAL-01 · Team 4 → Team 7 at ~9 P · on v26 · FIRE at 08:30, but first confirm Team 4 still holds two**
+- Dani → Team 4: ES: "¡Hola Team 4! Team 7 busca Escaparate de Serrano (SAL-01). ¿La tenés repetida (te quedan dos)? Si sí, ¿la publicás en v26 a ~9 P, dirigida a Team 7? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 4! Team 7 is looking for Escaparate de Serrano (SAL-01). Do you still have a spare (two copies)? If so, could you post it on v26 at ~9 P, addressed to Team 7? 0% fee. Thanks!"
+- Dani → Team 7: ES: "¡Hola Team 7! Team 4 puede publicarte Escaparate de Serrano (SAL-01) en v26 a ~9 P, dirigida a vos, 0 % de comisión. ¿Te sirve? Cuando aparezca, aceptala ahí." · EN: "Hi Team 7! Team 4 can post Escaparate de Serrano (SAL-01) for you on v26 at ~9 P, addressed to you, 0% fee. Does that work? When it shows up, accept it there."
+- When the listing appears, Dani → Team 7: ES: "Ya está publicada SAL-01 en v26 a tu nombre. ¡Aceptala!" · EN: "SAL-01 is posted for you on v26. Go ahead and accept it!"
 
 **4. Row #5 · RET-01 · Team 2 → Team 16 at ~9 P · on v10 · APPROVED if Team 16 is not a rival under policy.rivals at 08:30 (the Chief checks then)**
 - Dani → Team 2: ES: "¡Hola Team 2! Team 16 busca Barca del Estanque (RET-01). Si la tenés repetida, ¿la publicás en v10 a ~9 P, dirigida a Team 16? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 2! Team 16 is looking for Barca del Estanque (RET-01). If yours is a spare, could you post it on v10 at ~9 P, addressed to Team 16? 0% fee. Thanks!"
@@ -140,25 +140,25 @@ Status per the Chief's 01:00 directive. Send in this order; when two rows go to 
 - Dani → Team 16: ES: "¡Hola Team 16! Team 8 puede publicarte El Ángel Caído (RET-09) en v10 a ~70 P, dirigida a vos, 0 % de comisión. ¿Te sirve? Cuando aparezca, aceptala ahí." · EN: "Hi Team 16! Team 8 can post El Ángel Caído (RET-09) for you on v10 at ~70 P, addressed to you, 0% fee. Does that work? When it shows up, accept it there."
 - When the listing appears, Dani → Team 16: ES: "Ya está publicada RET-09 en v10 a tu nombre. ¡Aceptala!" · EN: "RET-09 is posted for you on v10. Go ahead and accept it!"
 
-**7. Row #8 · SAL-01 · Team 1 → Team 7 at ~9 P · on v10 · SELLER CHECK first (is it a spare?); outside the club: only on the Chief's OK**
-- Lucas → Team 1: ES: "¡Hola Team 1! Team 7 busca Escaparate de Serrano (SAL-01). ¿La tenés repetida (te quedan dos)? Si sí, ¿la publicás en v10 a ~9 P, dirigida a Team 7? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 1! Team 7 is looking for Escaparate de Serrano (SAL-01). Do you still have a spare (two copies)? If so, could you post it on v10 at ~9 P, addressed to Team 7? 0% fee. Thanks!"
-- Dani → Team 7: ES: "¡Hola Team 7! Team 1 puede publicarte Escaparate de Serrano (SAL-01) en v10 a ~9 P, dirigida a vos, 0 % de comisión. ¿Te sirve? Cuando aparezca, aceptala ahí." · EN: "Hi Team 7! Team 1 can post Escaparate de Serrano (SAL-01) for you on v10 at ~9 P, addressed to you, 0% fee. Does that work? When it shows up, accept it there."
-- When the listing appears, Dani → Team 7: ES: "Ya está publicada SAL-01 en v10 a tu nombre. ¡Aceptala!" · EN: "SAL-01 is posted for you on v10. Go ahead and accept it!"
+**7. Row #8 · RET-06 · Team 8 → Team 16 at ~24 P · on v10 · SELLER CHECK first (is it a spare?); outside the club: only on the Chief's OK**
+- Lucas → Team 8: ES: "¡Hola Team 8! Team 16 busca La Rosaleda (RET-06). ¿La tenés repetida (te quedan dos)? Si sí, ¿la publicás en v10 a ~24 P, dirigida a Team 16? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 8! Team 16 is looking for La Rosaleda (RET-06). Do you still have a spare (two copies)? If so, could you post it on v10 at ~24 P, addressed to Team 16? 0% fee. Thanks!"
+- Dani → Team 16: ES: "¡Hola Team 16! Team 8 puede publicarte La Rosaleda (RET-06) en v10 a ~24 P, dirigida a vos, 0 % de comisión. ¿Te sirve? Cuando aparezca, aceptala ahí." · EN: "Hi Team 16! Team 8 can post La Rosaleda (RET-06) for you on v10 at ~24 P, addressed to you, 0% fee. Does that work? When it shows up, accept it there."
+- When the listing appears, Dani → Team 16: ES: "Ya está publicada RET-06 en v10 a tu nombre. ¡Aceptala!" · EN: "RET-06 is posted for you on v10. Go ahead and accept it!"
 
 **8. Row #9 · RET-04 · Team 8 → Team 16 at ~9 P · on v10 · SELLER CHECK first (is it a spare?); outside the club: only on the Chief's OK**
 - Lucas → Team 8: ES: "¡Hola Team 8! Team 16 busca Paseo de Coches (RET-04). ¿La tenés repetida (te quedan dos)? Si sí, ¿la publicás en v10 a ~9 P, dirigida a Team 16? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 8! Team 16 is looking for Paseo de Coches (RET-04). Do you still have a spare (two copies)? If so, could you post it on v10 at ~9 P, addressed to Team 16? 0% fee. Thanks!"
 - Dani → Team 16: ES: "¡Hola Team 16! Team 8 puede publicarte Paseo de Coches (RET-04) en v10 a ~9 P, dirigida a vos, 0 % de comisión. ¿Te sirve? Cuando aparezca, aceptala ahí." · EN: "Hi Team 16! Team 8 can post Paseo de Coches (RET-04) for you on v10 at ~9 P, addressed to you, 0% fee. Does that work? When it shows up, accept it there."
 - When the listing appears, Dani → Team 16: ES: "Ya está publicada RET-04 en v10 a tu nombre. ¡Aceptala!" · EN: "RET-04 is posted for you on v10. Go ahead and accept it!"
 
-**9. Row #4 · MAL-02 · Team 7 → Team 8 at ~9 P · on v10 · ASK THE BUYER FIRST: does Team 8 still lack it?**
+**9. Row #10 · RET-03 · Team 8 → Team 1 at ~9 P · on v10 · SELLER CHECK first (is it a spare?); outside the club: only on the Chief's OK**
+- Lucas → Team 8: ES: "¡Hola Team 8! Team 1 busca El Titiritero (RET-03). ¿La tenés repetida (te quedan dos)? Si sí, ¿la publicás en v10 a ~9 P, dirigida a Team 1? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 8! Team 1 is looking for El Titiritero (RET-03). Do you still have a spare (two copies)? If so, could you post it on v10 at ~9 P, addressed to Team 1? 0% fee. Thanks!"
+- Lucas → Team 1: ES: "¡Hola Team 1! Team 8 puede publicarte El Titiritero (RET-03) en v10 a ~9 P, dirigida a vos, 0 % de comisión. ¿Te sirve? Cuando aparezca, aceptala ahí." · EN: "Hi Team 1! Team 8 can post El Titiritero (RET-03) for you on v10 at ~9 P, addressed to you, 0% fee. Does that work? When it shows up, accept it there."
+- When the listing appears, Lucas → Team 1: ES: "Ya está publicada RET-03 en v10 a tu nombre. ¡Aceptala!" · EN: "RET-03 is posted for you on v10. Go ahead and accept it!"
+
+**10. Row #4 · MAL-02 · Team 7 → Team 8 at ~9 P · on v10 · ASK THE BUYER FIRST: does Team 8 still lack it?**
 - Lucas → Team 8 (first): ES: "¡Hola Team 8! ¿Todavía te falta Plaza del Dos de Mayo (MAL-02)? Hay una repetida disponible a ~9 P en v10, 0 % de comisión." · EN: "Hi Team 8! Do you still need Plaza del Dos de Mayo (MAL-02)? There's a spare available at ~9 P on v10, 0% fee."
 - Only if Team 8 says yes, Dani → Team 7: ES: "¡Hola Team 7! Team 8 busca Plaza del Dos de Mayo (MAL-02). Si la tenés repetida, ¿la publicás en v10 a ~9 P, dirigida a Team 8? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 7! Team 8 is looking for Plaza del Dos de Mayo (MAL-02). If yours is a spare, could you post it on v10 at ~9 P, addressed to Team 8? 0% fee. Thanks!"
 - When the listing appears, Lucas → Team 8: ES: "Ya está publicada MAL-02 en v10 a tu nombre. ¡Aceptala!" · EN: "MAL-02 is posted for you on v10. Go ahead and accept it!"
-
-**10. Row #10 · LAV-02 · Team 16 → Team 9 at ~9 P · on v10 · ASK THE BUYER FIRST: does Team 9 still lack it?**
-- Lucas → Team 9 (first): ES: "¡Hola Team 9! ¿Todavía te falta El Frutero de Argumosa (LAV-02)? Hay una repetida disponible a ~9 P en v10, 0 % de comisión." · EN: "Hi Team 9! Do you still need El Frutero de Argumosa (LAV-02)? There's a spare available at ~9 P on v10, 0% fee."
-- Only if Team 9 says yes, Dani → Team 16: ES: "¡Hola Team 16! Team 9 busca El Frutero de Argumosa (LAV-02). Si la tenés repetida, ¿la publicás en v10 a ~9 P, dirigida a Team 9? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 16! Team 9 is looking for El Frutero de Argumosa (LAV-02). If yours is a spare, could you post it on v10 at ~9 P, addressed to Team 9? 0% fee. Thanks!"
-- When the listing appears, Lucas → Team 9: ES: "Ya está publicada LAV-02 en v10 a tu nombre. ¡Aceptala!" · EN: "LAV-02 is posted for you on v10. Go ahead and accept it!"
 
 ### 0.6 Who Team 10 trades with (to offer them better terms first)
 
@@ -196,44 +196,41 @@ Built from the match list above. Filter: no rival buyer (fixed t13, t17, and any
 
 | # | Group | Card | Seller → Buyer | ~Price | VC (low) | Spare check | Flags |
 |---|---|---|---|---|---|---|---|
-| 1 | club | RET-09 El Ángel Caído | Team 7 → Team 9 | 70 | +67.6 | spare traced (2 copies at the seller, all seen after its last Workshop craft) | buyer's gap proven; PAGE FINISHER for Team 9 (-7.3 board vs us) |
+| 1 | club | RET-09 El Ángel Caído | Team 7 → Team 9 | 76 | +156.2 | spare traced (2 copies at the seller, all seen after its last Workshop craft) | buyer's gap proven; PAGE FINISHER for Team 9 (-7.3 board vs us) |
 | 2 | club | SAL-02 El Portero | Team 9 → Team 7 | 9 | +6.5 | spare traced (2 copies at the seller, all seen after its last Workshop craft) | buyer's gap proven |
-| 3 | club | SAL-05 Taxi Blanco | Team 8 → Team 7 | 9 | +7.9 | CONFIRM: 4 copies traced, but the seller's Workshop craft at tick 1404 may have used some and its page is complete: an only copy would break it | buyer's gap proven |
+| 3 | club | SAL-01 Escaparate de Serrano | Team 4 → Team 7 | 9 | +1.2 | CONFIRM: 1 copy traced at the seller (not a page for the seller) | buyer's gap proven |
 | 4 | club | MAL-02 Plaza del Dos de Mayo | Team 7 → Team 8 | 9 | +7.2 | CONFIRM: 1 copy traced at the seller (not a page for the seller) | BUYER MAY ALREADY HOLD IT (undecided in the holdings audit): ask before anything is posted |
 | 5 | outside | RET-01 Barca del Estanque | Team 2 → Team 16 | 9 | +7.4 | spare traced (2 copies at the seller, all seen after its last Workshop craft) | buyer's gap proven; Team 16: runs its own market (market score 10.16) |
 | 6 | outside | RET-03 El Titiritero | Team 4 → Team 16 | 9 | +7.1 | spare traced (2 copies at the seller, all seen after its last Workshop craft) | buyer's gap proven; Team 16: runs its own market (market score 10.16) |
 | 7 | outside | RET-09 El Ángel Caído | Team 8 → Team 16 | 70 | +23.7 | CONFIRM: 1 copy traced at the seller (not a page for the seller) | buyer's gap proven; Team 16: runs its own market (market score 10.16) |
-| 8 | outside | SAL-01 Escaparate de Serrano | Team 1 → Team 7 | 9 | +7.8 | CONFIRM: 3 copies traced, but the seller's Workshop craft at tick 1333 may have used some and its page is complete: an only copy would break it | buyer's gap proven; Team 1: Team 10's reported ally (directive 17:45) |
+| 8 | outside | RET-06 La Rosaleda | Team 8 → Team 16 | 24 | +8.5 | CONFIRM: 0 copy traced at the seller (not a page for the seller) | buyer's gap proven; Team 16: runs its own market (market score 10.16) |
 | 9 | outside | RET-04 Paseo de Coches | Team 8 → Team 16 | 9 | +3.4 | CONFIRM: 1 copy traced at the seller (not a page for the seller) | buyer's gap proven; Team 16: runs its own market (market score 10.16) |
-| 10 | outside | LAV-02 El Frutero de Argumosa | Team 16 → Team 9 | 9 | +11.2 | CONFIRM: 2 copies traced, but the seller's Workshop craft at tick 730 may have used some | BUYER MAY ALREADY HOLD IT (undecided in the holdings audit): ask before anything is posted; Team 16: runs its own market (market score 10.16) |
+| 10 | outside | RET-03 El Titiritero | Team 8 → Team 1 | 9 | +1.9 | CONFIRM: 1 copy traced at the seller (not a page for the seller) | buyer's gap proven; Team 1: Team 10's reported ally (directive 17:45) |
 
-- **Holdings check (intel/holdings-audit.md, Sun 00:45: feed + leaderboard album counts + minted supply; 10 teams resolved exactly):** every row was re-checked. Dropped because the buyer already holds the card: MAL-09 Team 10 → Team 15 (+42.2): the buyer already holds it; MAL-10 Team 10 → Team 15 (+42.2): the buyer already holds it; RET-08 Team 7 → Team 1 (+13.7): the buyer already holds it; SAL-03 Team 1 → Team 8 (+12.9): the buyer already holds it; LAV-06 Team 16 → Team 17 (+9.5): the buyer already holds it; LAV-01 Team 16 → Team 14 (+6): the buyer already holds it. Sellers' spares were traced copy by copy; 'CONFIRM' means the spare is not certain.
-- Club pairs: 4, **+89.2 VC**; +67.6 of it is one trade, RET-09 Team 7 → Team 9, whose estimate has read between +68 and +134 across tonight's matchmaker runs.
-- All ten: +149.8. The outside pairs involve Team 1 or Team 16; each needs the Chief's OK (flags).
+- **Holdings check (intel/holdings-audit.md, Sun 00:45: feed + leaderboard album counts + minted supply; 10 teams resolved exactly):** every row was re-checked. Dropped because the buyer already holds the card: none. Sellers' spares were traced copy by copy; 'CONFIRM' means the spare is not certain.
+- Club pairs: 4, **+171.1 VC**; +156.2 of it is one trade, RET-09 Team 7 → Team 9, whose estimate has read between +68 and +134 across tonight's matchmaker runs.
+- All ten: +223.1. The outside pairs involve Team 1 or Team 16; each needs the Chief's OK (flags).
 - intel/wants.md was still empty at this run: real want-lists should add club pairs.
 
 **Two-way swaps (card for card, price 0, settle by acceptance on v10).** These reuse cards from the table: a swap replaces the two cash trades, it does not add to them.
 
-- Team 7 ↔ Team 9: RET-09 goes to Team 9, SAL-02 goes to Team 7 · VC +74.1
+- Team 7 ↔ Team 9: RET-09 goes to Team 9, SAL-02 goes to Team 7 · VC +162.7
   - To Team 7: "Hi Team 7! Swap idea, no cash: your spare El Ángel Caído (RET-09) for Team 9's El Portero (SAL-02). If RET-09 is a spare for you, post it on v10 as give RET-09, want SAL-02, addressed to Team 9; they accept."
   - To Team 9: "Hi Team 9! Team 7 is posting a swap for you on v10: their RET-09 for your spare SAL-02. Accept it only if SAL-02 is a spare for you."
-- Team 8 ↔ Team 7: SAL-05 goes to Team 7, MAL-02 goes to Team 8 · VC +15.1 · one leg has only one copy seen: confirm it is a spare before anything is posted
-  - To Team 8: "Hi Team 8! Swap idea, no cash: your Taxi Blanco (SAL-05) for Team 7's Plaza del Dos de Mayo (MAL-02). If SAL-05 is a spare for you, post it on v10 as give SAL-05, want MAL-02, addressed to Team 7; they accept."
-  - To Team 7: "Hi Team 7! Team 8 is posting a swap for you on v10: their SAL-05 for your MAL-02. Accept it only if MAL-02 is a spare for you."
 
 ### Ready DMs (addressed quotes, per the 21:20 directive and §0.5; the matchmaker's own DMs in intel/matches.md still say "open ask": use these)
 
-**1. RET-09 · Team 7 → Team 9 at ~70 P**
-- Arm A, seller posts first. To Team 7: "Hi Team 7! Team 9 is looking for El Ángel Caído (RET-09). You have a spare: could you post it on v10 at ~70 P, addressed to Team 9? v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 9: "Team 7 has posted El Ángel Caído (RET-09) for you on v10 at ~70 P, 0% fee. Accept it there."
-- Arm B, buyer posts first. To Team 9: "Hi Team 9! Team 7 has a spare El Ángel Caído (RET-09). Post a bid for it on v10 at ~70 P, addressed to Team 7 (0% fee)." Then to Team 7: "Team 9 has posted a bid for your RET-09 at ~70 P on v10, addressed to you. Accept it if the card is a spare."
+**1. RET-09 · Team 7 → Team 9 at ~76 P**
+- Arm A, seller posts first. To Team 7: "Hi Team 7! Team 9 is looking for El Ángel Caído (RET-09). You have a spare: could you post it on v10 at ~76 P, addressed to Team 9? v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 9: "Team 7 has posted El Ángel Caído (RET-09) for you on v10 at ~76 P, 0% fee. Accept it there."
+- Arm B, buyer posts first. To Team 9: "Hi Team 9! Team 7 has a spare El Ángel Caído (RET-09). Post a bid for it on v10 at ~76 P, addressed to Team 7 (0% fee)." Then to Team 7: "Team 9 has posted a bid for your RET-09 at ~76 P on v10, addressed to you. Accept it if the card is a spare."
 
 **2. SAL-02 · Team 9 → Team 7 at ~9 P**
 - Arm A, seller posts first. To Team 9: "Hi Team 9! Team 7 is looking for El Portero (SAL-02). You have a spare: could you post it on v10 at ~9 P, addressed to Team 7? v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 7: "Team 9 has posted El Portero (SAL-02) for you on v10 at ~9 P, 0% fee. Accept it there."
 - Arm B, buyer posts first. To Team 7: "Hi Team 7! Team 9 has a spare El Portero (SAL-02). Post a bid for it on v10 at ~9 P, addressed to Team 9 (0% fee)." Then to Team 9: "Team 7 has posted a bid for your SAL-02 at ~9 P on v10, addressed to you. Accept it if the card is a spare."
 
-**3. SAL-05 · Team 8 → Team 7 at ~9 P**
-- Arm A, seller posts first. To Team 8: "Hi Team 8! Team 7 is looking for Taxi Blanco (SAL-05). If it is a spare: could you post it on v10 at ~9 P, addressed to Team 7? v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 7: "Team 8 has posted Taxi Blanco (SAL-05) for you on v10 at ~9 P, 0% fee. Accept it there."
-- Arm B, buyer posts first. To Team 7: "Hi Team 7! Team 8 has a spare Taxi Blanco (SAL-05). Post a bid for it on v10 at ~9 P, addressed to Team 8 (0% fee)." Then to Team 8: "Team 7 has posted a bid for your SAL-05 at ~9 P on v10, addressed to you. Accept it if the card is a spare."
+**3. SAL-01 · Team 4 → Team 7 at ~9 P**
+- Arm A, seller posts first. To Team 4: "Hi Team 4! Team 7 is looking for Escaparate de Serrano (SAL-01). If it is a spare: could you post it on v10 at ~9 P, addressed to Team 7? v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 7: "Team 4 has posted Escaparate de Serrano (SAL-01) for you on v10 at ~9 P, 0% fee. Accept it there."
+- Arm B, buyer posts first. To Team 7: "Hi Team 7! Team 4 has a spare Escaparate de Serrano (SAL-01). Post a bid for it on v10 at ~9 P, addressed to Team 4 (0% fee)." Then to Team 4: "Team 7 has posted a bid for your SAL-01 at ~9 P on v10, addressed to you. Accept it if the card is a spare."
 
 **4. MAL-02 · Team 7 → Team 8 at ~9 P**
 - Arm A, seller posts first. To Team 7: "Hi Team 7! Team 8 is looking for Plaza del Dos de Mayo (MAL-02). If it is a spare: could you post it on v10 at ~9 P, addressed to Team 8? v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 8: "Team 7 has posted Plaza del Dos de Mayo (MAL-02) for you on v10 at ~9 P, 0% fee. Accept it there."
@@ -251,17 +248,17 @@ Built from the match list above. Filter: no rival buyer (fixed t13, t17, and any
 - Arm A, seller posts first. To Team 8: "Hi Team 8! Team 16 is looking for El Ángel Caído (RET-09). If it is a spare: could you post it on v10 at ~70 P, addressed to Team 16? v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 16: "Team 8 has posted El Ángel Caído (RET-09) for you on v10 at ~70 P, 0% fee. Accept it there."
 - Arm B, buyer posts first. To Team 16: "Hi Team 16! Team 8 has a spare El Ángel Caído (RET-09). Post a bid for it on v10 at ~70 P, addressed to Team 8 (0% fee)." Then to Team 8: "Team 16 has posted a bid for your RET-09 at ~70 P on v10, addressed to you. Accept it if the card is a spare."
 
-**8. SAL-01 · Team 1 → Team 7 at ~9 P**
-- Arm A, seller posts first. To Team 1: "Hi Team 1! Team 7 is looking for Escaparate de Serrano (SAL-01). If it is a spare: could you post it on v10 at ~9 P, addressed to Team 7? v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 7: "Team 1 has posted Escaparate de Serrano (SAL-01) for you on v10 at ~9 P, 0% fee. Accept it there."
-- Arm B, buyer posts first. To Team 7: "Hi Team 7! Team 1 has a spare Escaparate de Serrano (SAL-01). Post a bid for it on v10 at ~9 P, addressed to Team 1 (0% fee)." Then to Team 1: "Team 7 has posted a bid for your SAL-01 at ~9 P on v10, addressed to you. Accept it if the card is a spare."
+**8. RET-06 · Team 8 → Team 16 at ~24 P**
+- Arm A, seller posts first. To Team 8: "Hi Team 8! Team 16 is looking for La Rosaleda (RET-06). If it is a spare: could you post it on v10 at ~24 P, addressed to Team 16? v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 16: "Team 8 has posted La Rosaleda (RET-06) for you on v10 at ~24 P, 0% fee. Accept it there."
+- Arm B, buyer posts first. To Team 16: "Hi Team 16! Team 8 has a spare La Rosaleda (RET-06). Post a bid for it on v10 at ~24 P, addressed to Team 8 (0% fee)." Then to Team 8: "Team 16 has posted a bid for your RET-06 at ~24 P on v10, addressed to you. Accept it if the card is a spare."
 
 **9. RET-04 · Team 8 → Team 16 at ~9 P**
 - Arm A, seller posts first. To Team 8: "Hi Team 8! Team 16 is looking for Paseo de Coches (RET-04). If it is a spare: could you post it on v10 at ~9 P, addressed to Team 16? v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 16: "Team 8 has posted Paseo de Coches (RET-04) for you on v10 at ~9 P, 0% fee. Accept it there."
 - Arm B, buyer posts first. To Team 16: "Hi Team 16! Team 8 has a spare Paseo de Coches (RET-04). Post a bid for it on v10 at ~9 P, addressed to Team 8 (0% fee)." Then to Team 8: "Team 16 has posted a bid for your RET-04 at ~9 P on v10, addressed to you. Accept it if the card is a spare."
 
-**10. LAV-02 · Team 16 → Team 9 at ~9 P**
-- Arm A, seller posts first. To Team 16: "Hi Team 16! Team 9 is looking for El Frutero de Argumosa (LAV-02). If it is a spare: could you post it on v10 at ~9 P, addressed to Team 9? v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 9: "Team 16 has posted El Frutero de Argumosa (LAV-02) for you on v10 at ~9 P, 0% fee. Accept it there."
-- Arm B, buyer posts first. To Team 9: "Hi Team 9! Team 16 has a spare El Frutero de Argumosa (LAV-02). Post a bid for it on v10 at ~9 P, addressed to Team 16 (0% fee)." Then to Team 16: "Team 9 has posted a bid for your LAV-02 at ~9 P on v10, addressed to you. Accept it if the card is a spare."
+**10. RET-03 · Team 8 → Team 1 at ~9 P**
+- Arm A, seller posts first. To Team 8: "Hi Team 8! Team 1 is looking for El Titiritero (RET-03). If it is a spare: could you post it on v10 at ~9 P, addressed to Team 1? v10 is 0% (El Rastro takes 5% + 1 P)." Then to Team 1: "Team 8 has posted El Titiritero (RET-03) for you on v10 at ~9 P, 0% fee. Accept it there."
+- Arm B, buyer posts first. To Team 1: "Hi Team 1! Team 8 has a spare El Titiritero (RET-03). Post a bid for it on v10 at ~9 P, addressed to Team 8 (0% fee)." Then to Team 8: "Team 1 has posted a bid for your RET-03 at ~9 P on v10, addressed to you. Accept it if the card is a spare."
 
 ## 3. Test plan, first 30 minutes (09:00-09:30), measured live
 
@@ -292,18 +289,18 @@ Incentive is fixed by the directive (Club Castizo, Sat 22:55): seller's bonus pe
 
 ## 6. Club forecast [L, model on top of estimates]
 
-Inputs: the club pairs in §2 (+89.2 VC in all, +67.6 in the one big trade) and the §1 simulation. Rivals' VC in these units is NOT measured: the leaderboard shows only relative points. Full marks = 3.0 final points. The last column is the simulation's mean share of full marks.
+Inputs: the club pairs in §2 (+171.1 VC in all, +156.2 in the one big trade) and the §1 simulation. Rivals' VC in these units is NOT measured: the leaderboard shows only relative points. Full marks = 3.0 final points. The last column is the simulation's mean share of full marks.
 
 | Scenario at the close | VC on v10 (matchmaker units) | share of full marks: same units, field at 1× / 2× · if matchmaker units are 3.5× larger, field at 2× |
 |---|---|---|
-| Directive (all club deals on v10), everything executed | +89 | **100% / 100% · 96%** |
-| Directive, only the big trade executes | +68 | **100% / 100% · 89%** |
-| Directive, everything but the big trade | +22 | **99% / 92% · 37%** |
-| Rotation (the Chief's 22:52 question): half of the deals by count on v10, big trade elsewhere | +11 | **87% / 61% · 19%** |
-| Rotation, but the big trade on v10 and half of the rest | +78 | **100% / 100% · 93%** |
-| Club pairs + the outside pairs of §2, all on v10 | +150 | **100% / 100% · 100%** |
+| Directive (all club deals on v10), everything executed | +171 | **100% / 100% · 100%** |
+| Directive, only the big trade executes | +156 | **100% / 100% · 100%** |
+| Directive, everything but the big trade | +15 | **96% / 77% · 26%** |
+| Rotation (the Chief's 22:52 question): half of the deals by count on v10, big trade elsewhere | +7 | **71% / 44% · 13%** |
+| Rotation, but the big trade on v10 and half of the rest | +164 | **100% / 100% · 100%** |
+| Club pairs + the outside pairs of §2, all on v10 | +223 | **100% / 100% · 100%** |
 
-- **By time, directive case:** if the big trade lands in the first hour, v10 holds +68, against 8 needed after 1 h, about 17 by 12:00 and 28 by the close (2× case, scoring units), so the list covers the day in either reading of the units as long as the big trade executes; without it v10 depends on the want-lists adding pairs.
+- **By time, directive case:** if the big trade lands in the first hour, v10 holds +156, against 8 needed after 1 h, about 17 by 12:00 and 28 by the close (2× case, scoring units), so the list covers the day in either reading of the units as long as the big trade executes; without it v10 depends on the want-lists adding pairs.
 - **A rotation over members' venues by count leaves v10 with a small share** unless the big trade settles on v10. The 22:55 directive (all club deals on v10) avoids that. If a rotation comes back, rotate by VC, not by count.
 - **The big trade is a page finisher for Team 9** (-7.3 board vs us): the Chief's call.
 - **Team 10** keeps full marks only while its VC is at least the top-three mean; it had 11 fills on Saturday and loses the 4 we made (§7).

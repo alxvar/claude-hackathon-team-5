@@ -1,17 +1,17 @@
-# Metrics (auto, 01:08, game tick 1445)
+# Metrics (auto, 01:12, game tick 1445)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
-1. Team 10 37.6 (-0.2 / -0.3) deals 62
-2. Team 18 31.3 (+0.3 / +1.2) deals 40
-3. Team 5 30.5 (+0.0 / -0.4) deals 53 ← US
-4. Team 12 30.4 (-0.1 / -0.1) deals 70
-5. Team 3 29.7 (-0.1 / -0.4) deals 32
-6. Team 6 28.8 (-0.1 / -2.7) deals 71
-7. Team 14 27.7 (-0.1 / -0.5) deals 56
-8. Team 17 25.8 (-0.1 / -0.6) deals 32
-9. Team 1 25.6 (-0.1 / -0.4) deals 33
-10. Team 13 25.0 (-0.1 / -0.3) deals 88
+1. Team 10 37.6 (+0.0 / +0.0) deals 62
+2. Team 18 31.3 (+0.0 / +0.0) deals 40
+3. Team 5 30.5 (+0.0 / +0.0) deals 53 ← US
+4. Team 12 30.4 (+0.0 / +0.0) deals 70
+5. Team 3 29.7 (+0.0 / +0.0) deals 32
+6. Team 6 28.8 (+0.0 / +0.0) deals 71
+7. Team 14 27.7 (+0.0 / +0.0) deals 56
+8. Team 17 25.8 (+0.0 / +0.0) deals 32
+9. Team 1 25.6 (+0.0 / +0.0) deals 33
+10. Team 13 25.0 (+0.0 / +0.0) deals 88
 Us: #3
 
 ## Us
