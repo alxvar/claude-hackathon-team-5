@@ -1,39 +1,60 @@
-# Judge (claude-opus-5-5, Sat 23:36)
+# Judge (claude-opus-5-5, Sat 23:53)
 
 ## Verdict
-Holding #3 but stalled. 30.49, +0.0 over 15 min and −0.4 over 60 min. `neg_points` has been flat at 119.1 since tick 988 (≈457 ticks). Gaps: t18 is +0.8 ahead and climbing (+1.2/60 min); t12 is 0.1 behind; t10 is 7.1 ahead and flat.
+**Holding #3, but drifting down.** We score 30.49: −0.4 over 60 min, 7.1 behind Team 10 (37.6) and 0.8 behind Team 18 (31.3, +1.2/60 min). Team 12 sits 0.1 behind us at 30.4. Our `neg_points` has been flat at 119.1 since tick 988, about 457 ticks with no scored deal. Market has stayed at 7.5 (the stall) all of Saturday, while the top market is 12.5.
 
 ## Our strategies: keep / kill / scale
-- **Dealer bot: kill for Sunday except CHA buys at ≤ value.** The last thread (LAV-04 to Pícaros, 19:04) walked with 0 Δ. The ladder rose 0.437 → 0.483 but the board stayed flat (Chief 17:45). Flags are capped and done.
-- **Trading loop: keep and restart on HEAD (918f823).** Its last fills were +6.2 (15:48) and +15.5 (17:46). Since then it logged only `sobre_bienvenida` errors and the 22:50-23:24 outage.
-- **Spare asks 19979-19982: let them lapse at tick 1455.** No fills. Max gain ≈ +2.5 each. None of t04, t01 or t09 is ≥ 10 below us (Dani's table: "no buyer passes the feeding rule").
-- **SAL-11 bid 20252 (115 → t04): keep the target, fix the timing (see change 1).** Unfilled since 21:45 under 19620/20252. Value 162 → +47 at 115, before pack drag.
-- **In-room / Club Castizo on v10: scale.** Market is 7.5 (stall), the top is 12.5, and nobody beat the stall in six benches. The 22.5 "real trades" part is untouched, and the club engine is paused awaiting Lucas's go.
-- **Duels (Aleks): keep.** 8 of the last 10 Duels II duels were deals; duel points 35.39.
+- **Team trades (page closes, swaps): SCALE.** These were Saturday's best scores:
+  - SAL-06 from t08 at 28: +40.4
+  - Swap with t07: +15.5
+  - Swap with t08: +6.2
+  - Board impact measured at ≈ +0.05 per `neg_point`.
+- **Trading loop: KEEP, restart on HEAD.**
+  - It has had no accept since 17:46.
+  - From 22:41 it logged 5 × `unknown_card sobre_bienvenida`; the fix is commit 918f823, picked up only at restart.
+  - The network errors ran from 22:55 to 23:24.
+- **Dealer bot: KEEP, but only for at-or-below-value buys.**
+  - Its last thread (Pícaros LAV-04) walked at her final of 4. Our neg and ladder did not change.
+  - Ladder went 0.373 → 0.437 with `negotiating` flat [L], so do not chase the ladder.
+- **Egg probes (dealer threads at ticks 1367-1370, closed at the dealer's first price): KILL.**
+  - The Castizo egg already paid MAL-06 + a badge; the score effect of badges is not in the data.
+- **SAL-11 bid (20252, 115 → t04): KEEP, but verify.**
+  - It is unfilled through 19620 and its re-post.
+  - A SAL-11 ask at 245 stands on El Rastro, and its maker is masked. If that maker is t04, 115 will not fill.
+- **Book asks LAV-03 → t04 at 6 and LAV-04 → t01 at 6: KILL unless they are not page closers.**
+  - Our gain is about +2.8 each.
+  - Neither buyer is ≥ 10 below us (t04 25.1, t01 25.6), and Dani's table finds no buyer that passes the feeding rule.
+  - Both expire at tick 1455 anyway.
+- **v10 venue / club: SCALE.** Market stayed at 7.5 through six benches. The 22.5 real-trades part is untouched and is the largest open lever.
+- **Flags: DONE.** We got 3 scored (net +20); the 8th flag scored 0 at 17:43.
+- **Duels (Aleks): KEEP.** Duel points are 35.39; 2 of the last 10 duels in session 3 ended with no deal.
 
 ## Check the scout
-- Holds: MAL-07/09/10 are missing. t09 bids 56 on both MAL rares. t10 sold SAL-11 at 207 and bought MAL-11 at 195. t12 is #4 at 30.4. +47 = 162 − 115 at 0 fee as maker.
-- Partly wrong: "cash 392 covers CHA ≈ 330". After 115 we hold 277; it covers CHA only with Sunday's +150 (427, per the 22:47 log). The 21:45 guardrail floor of 260 holds.
-- Wrong: "never feed top 4 (t10, t06, t12, t14)". The board's top 4 is t10, t18, us, t12. t06 is #6 and t14 #7.
-- Missed: t18, the only climber, is not listed as a threat.
-- Wrong: re-posting spares to t04/t01/t09. They fail the ≥10-below feeding rule.
-- Wrong: "MAL, never dealers" contradicts directive 21:00 ("dealer buys of MAL-09/10/06 first").
-- Wrong: "MAL page value not in the data". It is 66.25 × 0.7 = 46.4 bonus.
-- Missed: the round-reset risk on 20252 (change 1).
+| Claim | Verdict |
+|---|---|
+| Team 12 sits 0.1 behind us | Holds (30.4 vs 30.5). |
+| t18 bought LAT-10 at 72; t12 paid 86 | Holds. |
+| t06 sold RET-10 at 84 and RET-11 at 216, −2.7/60 min | Holds. |
+| Team 10 is "selling epics" | **Wrong.** t08→t10 means Team 10 *bought* MAL-11 at 195; it sold only SAL-11 at 207. |
+| "A non-member sale on v10 hands the venue owner value" | **Wrong.** v10 is **our** venue: value created there scores for us (+4.99 at tick 311). |
+| The directive lists t10 among the club's non-rivals | **Wrong.** The 22:55 candidates are t15, t04, t07, t08, t09, t02; the 21:30 directive names t10 as a team never to help. |
+| RET-09 match is "t08→t09" yet "68 VC from RET-09 t07→t09" | **Contradicts itself**, and Market (23:35) says t07 while Lucas (21:40) says t08. t07 bought RET 9 times (a collector), so t08 (which dumps RET) is the likelier seller. Confirm before brokering. |
+| Pícaros rare median 55 | Holds, but n=1. The ≤ 54 accept rests on two buys at tick 904. |
+| LAV-03/04 asks at 6 are "fine" | Unchecked against the feeding rule (see above). |
 
 ## The 3 changes with the highest expected gain
-1. **CHA page from 09:00 (Lucas #1, ≈330 P → +3.2-5.6 final [L]).**
-   - Check `/api/me` for the round-3 reset first.
-   - Open the sobre_plata once CHA is released, before any team trade (pack drag cost SAL-06 ≈ 9.6).
-   - Buy CHA commons, uncommons and rares at ≤ value: 16 / 40 / 112.
-   - Buy the cheapest common last, from a non-top team, as maker.
-   - Risk: CHA rares are scarce, and high-multiplier rivals outbid us.
-2. **SAL-11: cancel 20252 now if the server allows it while closed; re-post 115 → t04 only after the reset shows in `/api/me`.**
-   - Why: Saturday's reset fired at tick 160, after doors opened. A fill at tick 1446 may land before Sunday's reset and be wiped. Sunday's reset timing is not in the data.
-   - Counter cap ≤ 125.
-   - Effect: +37-47 `neg_points` ≈ +1.9-2.3 board (0.05 per point, Sat 17:46).
-   - Risk: t04 fills elsewhere during the gap.
-3. **Lucas gives the Builder the explicit go for the Club Castizo engine before 09:00. Lucas/Dani broker RET-09 t07 → t09 on v10 at open.**
-   - Both are far below us (20.2 and 23.3); the Market list values it at +68 VC.
-   - Effect: sim +89 VC ≈ 3.9-4.8 of 5 [L]. Only lever toward the 22.5.
-   - Risk: an alliance rule change (contingency 18:40) stops it. Pay club bonuses only on settled v10 deals.
+1. **CHA page at the open, in order.**
+   - Order: rares from the Pícaros at ≤ 54 (value 112, so neg = 0), then uncommons and commons at ≤ value, then the cheapest common last from a team, as maker.
+   - Before buying, open `sobre_plata` (71.6) right after CHA is released. Pack drag cut the SAL close from +50 to +40.4.
+   - Expected gain: +3.2-5.6 final [L, Analyst].
+   - Risk: Pícaros bait-and-switch. Check the card id in the structured offer before every accept. Also watch cash: 392 + 150 = 542 against ≈ 330 for CHA.
+2. **v10 club deals, Lucas and Dani in the room from 09:00.**
+   - First: settle whether RET-09 comes from t07 or t08, then broker the trade to t09 on v10, addressed.
+   - Only route trades where the buyer's value exceeds the seller's. A sale to a lower-multiplier holder cost us −10.2 at tick 398. Never put a top-5 team on either side.
+   - Expected gain: +3.9-4.8 of the 5 real-trades points [L, Market sim].
+   - Risk: one bad route wipes the venue's gain, as at tick 398.
+3. **SAL-11: identify the maker of the 245 ask before 09:00** (from the feed's `offer.listed`).
+   - If the maker is t04, counter once at the 125 cap at the open. If no fill within 10 min, cancel and free the cash for CHA.
+   - Expected gain: +37-47 neg, ≈ +2.3 board (directive's figure).
+   - Risk: a public bid lets rivals see the target. Floor 260 still holds after this buy (542 − 125 = 417).
+- Also before 09:00: restart the trader on HEAD (918f823), and either cancel the LAV-03/04 asks or reprice them to page price only if the buyer is a confirmed non-closer.
