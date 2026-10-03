@@ -74,13 +74,13 @@ def test_the_buyer_that_lacks_the_card_and_values_the_set_gets_the_dm(tmp_path):
     assert [f["team"] for f in found] == ["t16"]                      # not t13 (top 4), t17 (page, 3 below us),
     f = found[0]                                                       # t06 (holds it), t10 (dumps SAL)
     assert f["seller"] == "t04" and f["lacks"] and f["vc"] == 15.0     # 25 × (1.3 − 0.7)
-    assert [c for c, _, _ in sent] == ["dani", "lucas"]               # Dani is the deal desk (16:10): both
-    channel, title, body = sent[1]
-    assert "Team 16" in title and "Offer 900 on v10, valid until" in body
+    assert [c for c, _, _ in sent] == ["dani"]                       # Chief 17:40: an ACT, to Dani only
+    channel, title, body = sent[0]
+    assert title.startswith("ACT · v10 SAL-07 24 P → Team 16 · offer 900 · until ") and "Offer 900 on v10" in body
     assert "Hi Team 16! Card 7 (SAL-07) is on v10 for 24 P, offer 900. Thanks!" in body   # transactional only (17:20)
     assert "Team 16" in (tmp_path / "radar.md").read_text()
     r.scan()
-    assert len(sent) == 2                                              # once per (ask, buyer)
+    assert len(sent) == 1                                              # once per (ask, buyer)
 
 
 def test_dry_and_empty_board(tmp_path):
@@ -163,12 +163,12 @@ def test_an_addressed_ask_pages_lucas_with_a_dm_to_the_addressee_only_when_it_cr
     good = vr.addressed_match(o, teams=teams, mult={"t17": {"SAL": 1.6}, "t10": {"SAL": 0.5}}, cards=r.cards, held={})
     assert good["side"] == "ask" and good["seller"] == "t10" and good["vc"] == 11.0
     r.alert_addressed(good, 12)
-    assert [n[0] for n in notes] == ["dani", "lucas"] and "Team 10 has an offer for you on v10" in notes[0][2]
+    assert [n[0] for n in notes] == ["dani"] and "Team 10 has an offer for you on v10" in notes[0][2]
     assert "Hi Team 17! Team 10 has an offer for you on v10: Card 3 (SAL-03) for 13 P, offer 8031. Thanks!" in notes[0][2]
     assert "Offer 8031 on v10, valid until ~" in notes[0][2]
     bad = vr.addressed_match(o, teams=teams, mult={"t17": {"SAL": 0.5}, "t10": {"SAL": 1.6}}, cards=r.cards, held={})
     r.alert_addressed(bad, 12)
-    assert len(notes) == 2 and "not paged" in logs[-1]                 # est. value created < 0: logged only
+    assert len(notes) == 1 and any("not paged" in x for x in logs)     # est. value created < 0: logged only
 
 
 def test_an_addressed_bid_reads_the_maker_as_buyer():
@@ -209,3 +209,18 @@ def test_no_line_below_plus_5_and_at_most_3_lines():
     held = {("t15", c): {1, 2} for c in ("SAL-01", "SAL-02", "SAL-03", "SAL-06", "SAL-07")}
     lines = sugg(held, teams, {"t15": {"SAL": 0.5}, "t16": {"SAL": 1.6}})
     assert len(lines) == vr.SUGGEST_LINES and lines[0]["vc"] >= lines[-1]["vc"]
+
+
+def test_no_act_when_a_party_is_a_rival(tmp_path):
+    # Chief 17:40: t10's SAL-10 160 P to t8 would hand Team 10 up to +50 if Dani nudged it.
+    notes, logs = [], []
+    r = vr.Radar(None, notifier=lambda *a, **k: notes.append(a), out=tmp_path / "r.md", state=tmp_path / "s.json",
+                 log=logs.append, mult_file=tmp_path / "none.json")
+    r.cards = vr.card_index(CATALOG)
+    r._teams = [{"team": f"t9{i}", "score": 40 - i} for i in range(5)] + [{"team": "t10", "score": 35},
+                                                                         {"team": "t05", "score": 24},
+                                                                         {"team": "t17", "score": 5}]
+    o = vr.open_addressed([listed(1, 10, 8031, "t10", "t17", *ASK_TO)], 12)[0]
+    good = vr.addressed_match(o, teams=r._teams, mult={"t17": {"SAL": 1.6}, "t10": {"SAL": 0.5}}, cards=r.cards, held={})
+    r.alert_addressed(good, 12)
+    assert notes == [] and any("rival" in x for x in logs)              # t10 is #6: no ACT

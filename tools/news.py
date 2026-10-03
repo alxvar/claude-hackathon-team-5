@@ -114,11 +114,7 @@ class Watcher:
                 self.out.write_text(HEADER)
             with self.out.open("a") as f:
                 f.write(line)
-            if n["names"] and self.notifier:
-                self.notifier("lucas", f"Radio Rastro: {n.get('headline', '')[:80]}",
-                              f"{n.get('source_name') or n.get('source')} (tick {n.get('tick')}): {n.get('body', '')}\n"
-                              f"Names: {', '.join(n['names'])}. Rumour or true: verify before acting.",
-                              priority=4, tags=["radio"])
+            # no push (Chief 17:40: Lucas gets CRITICAL only); the Builder relays NEWS lines to the Chief
             self.state["seen"] = max(self.state["seen"], n["id"])
         if not self.dry:
             self.state_path.parent.mkdir(parents=True, exist_ok=True)

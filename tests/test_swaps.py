@@ -236,7 +236,7 @@ def test_a_posted_swap_nudges_the_desk_with_the_offer_id_and_its_expiry(tmp_path
     g = Game(three)
     engine(tmp_path, g, monkeypatch).run(644, 30.0)
     oid = g.posted[0]["id"]
-    assert [n[0] for n in NUDGES] == ["dani", "lucas"]
+    assert [n[0] for n in NUDGES] == ["dani"] and NUDGES[0][1].startswith(f"ACT · swap SAL-02 for LAT-07 → Team 2 · offer {oid}")
     assert f"Offer {oid} on v15, valid until ~" in NUDGES[0][2]
     assert f"Hi Team 2! Swap offer for you on v15: our SAL 2 (SAL-02) for your LAT 7 (LAT-07), offer {oid}. Thanks!" \
         in NUDGES[0][2]

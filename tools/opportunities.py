@@ -751,11 +751,19 @@ def run_once(api, *, dry_run, now=None, state_path=STATE, out_path=OUT, data_dir
         state.setdefault("alerts", []).append(dict(rec))
         save_state(state_path, state, now)  # recorded before anyone is told: a crash can't lose a live offer
         o["status"] = f"ALERTED · offer {oid} live"
-        until = "~" + time.strftime("%H:%M", time.localtime(now + OFFER_TTL_TICKS * float(clock.get("tick_seconds") or 30)))
-        title, body = message(o, oid, until)
-        for who in ("dani", "lucas"):
-            notifier(who, title, body, priority=5 if o["completes"] else 4, tags=["moneybag"])
-        log(f"opportunities: posted offer {oid} and alerted: {title}")
+        until_ts = now + OFFER_TTL_TICKS * float(clock.get("tick_seconds") or 30)
+        title, body = message(o, oid, "~" + time.strftime("%H:%M", time.localtime(until_ts)))
+        import alerts                               # the phone policy (Chief 17:40): Dani gets ACT items only
+        if o["team"] in alerts.rivals(lb.get("teams") or []):
+            log(f"opportunities: posted offer {oid}; no ACT: {o['team']} is a rival (top 6 or within 3)")
+        else:
+            held_n = sum(1 for a in me.get("assets", []) if a.get("ref") == o["card"])
+            alerts.act(f"{o['side']} {o['card']} {'to' if o['side'] == 'SELL' else 'from'} {o['team_name']} at "
+                       f"{o['price']} P", oid, until_ts, body, source="opps",
+                       asset=o.get("asset") if o["side"] == "SELL" else None,
+                       want=o["card"] if o["side"] == "BUY" else None, want_n=held_n, notifier=notifier, now=now,
+                       log=log)
+        log(f"opportunities: posted offer {oid}: {title}")
     write_md(out_path, opps, state, ctx, dry_run=dry_run, now=now, clock=clock, src=src)
     if not dry_run:
         save_state(state_path, state, now)

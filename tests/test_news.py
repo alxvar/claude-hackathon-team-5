@@ -53,7 +53,7 @@ def test_poll_writes_every_item_once_and_pages_only_the_relevant(tmp_path):
     assert [n["id"] for n in w.poll()] == [3] and w.poll() == []
     text = (tmp_path / "news.md").read_text()
     assert text.startswith("# Radio Rastro") and text.count("\n- ") == 3 and "Names: none" in text
-    assert len(sent) == 1 and sent[0][0] == "lucas" and "SAL-09" in sent[0][1]
+    assert sent == [] and any("SAL-09" in x for x in logged)          # Chief 17:40: no push, logged and relayed
     assert any(line.startswith("NEWS #3 [tablon]") for line in logged)
 
 

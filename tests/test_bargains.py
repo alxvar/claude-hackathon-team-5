@@ -42,9 +42,10 @@ class Api:
 
 
 def watcher(tmp_path, api, **kw):
-    sent = []
-    w = bg.Watcher(api, notifier=lambda *a, **k: sent.append((a, k)), state_path=tmp_path / "s.json", log=lambda *a: None,
+    sent, logs = [], []
+    w = bg.Watcher(api, notifier=lambda *a, **k: sent.append((a, k)), state_path=tmp_path / "s.json", log=logs.append,
                    **kw)
+    w.logs = logs                                    # bargain alerts are logged only since 17:40 (no push to Lucas)
     return w, sent
 
 
@@ -56,11 +57,12 @@ def test_a_legendary_bargain_on_el_rastro_pages_lucas_once(tmp_path):
     b = found[0]
     assert b["fee"] == 16 and b["gain"] == 179 and b["score"] == 50 and b["need"] == 316   # 5% of 300 + 1
     assert not b["fits"]                                               # 400 - 316 = 84 < floor 100
-    (channel, title, body), k = sent[0]
-    assert channel == "lucas" and "RET-12 at 300 P: +50" in title and "BELOW the cash floor 100" in body
-    assert "accept offer 1 on El Rastro" in body and k["priority"] == 5
+    assert sent == []                                                  # Chief 17:40: no push to Lucas
+    line = next(x for x in w.logs if "RET-12 at 300 P: +50" in x)
+    assert "BELOW the cash floor 100" in line
+    assert "accept offer 1 on El Rastro" in line
     w.scan()
-    assert len(sent) == 1                                              # once per offer
+    assert sum("RET-12 at 300 P" in x for x in w.logs) == 1            # once per offer
 
 
 def test_small_gains_our_own_and_others_addressed_offers_are_ignored(tmp_path):
@@ -87,9 +89,8 @@ def test_venue_fees_auto_stalls_and_top_4_venues(tmp_path):
     by = {b["venue"]: b for b in w.scan()}
     assert by["v07"]["fee"] == 0 and by["v02"]["fee"] == 6                # pending 3% + 1 beats current 2%
     assert by["v02"]["top4_venue"] and not by["v07"]["top4_venue"]
-    bodies = {a[1]: a[2] for a, _ in sent}
-    assert any("auto stall" in b and "post a bid of 150 P" in b for b in bodies.values())
-    assert any("top-4 team t12" in b for b in bodies.values())
+    assert any("auto stall" in b and "post a bid of 150 P" in b for b in w.logs)
+    assert any("top-4 team t12" in b for b in w.logs)
 
 
 def test_dry_run_sends_and_remembers_nothing(tmp_path):

@@ -704,12 +704,10 @@ class Monitor:
             sent.append(f.key)
             new.append(f)
             emit("DUEL " + f.severity.upper(), f.line())
-            if f.severity in (CRITICAL, HIGH):
+            if f.severity == CRITICAL:                # Chief 17:40: Lucas gets CRITICAL only; Dani's phone is ACTs
                 title = f"{f.severity.upper()} duel {f.duel}: {f.kind.replace('_', ' ')}" \
                     if not str(f.duel).startswith(("session:", "tests:")) else f"{f.severity.upper()} {f.kind.replace('_', ' ')}"
-                for ch in ("lucas", "dani"):
-                    self._notify(ch, title, f.text + ("  (Dani: tell Aleks.)" if ch == "dani" else ""),
-                                 PRIORITY[f.severity], TAGS[f.severity])
+                self._notify("lucas", title, f.text, PRIORITY[f.severity], TAGS[f.severity])
         return new
 
     def _notify(self, channel: str, title: str, message: str, priority: int, tags: list[str]) -> bool:
@@ -800,7 +798,7 @@ class Monitor:
         since = self.state.setdefault("no_live_since", tick)
         if tick - since + 1 < NO_LIVE_TICKS:
             return []
-        return [Flag(key, "no_live_duel", HIGH, tick,
+        return [Flag(key, "no_live_duel", CRITICAL, tick,   # a possible duelist failover: Lucas (Chief 17:40)
                      f"{name} is running (started tick {s['start_tick']}, we've finished {finished} of ~{per_team}) "
                      f"but /api/duels shows no live duel for us since tick {since}: check the duelist and the key.")]
 
@@ -853,7 +851,7 @@ class Monitor:
             emit("DUELIST TESTS", f"only the known data-dependent failure ({', '.join(failed)}): not paged")
             return []
         names = ", ".join(failed[:8]) or tail[:200]
-        return [Flag(f"tests:{sha[:7]}", "duelist_tests_failed", HIGH, None,
+        return [Flag(f"tests:{sha[:7]}", "duelist_tests_failed", CRITICAL, None,   # tests red: Lucas (17:40)
                      f"tests/test_duelist.py fails after {author}'s {sha[:7]} \"{subject[:60]}\": {names}")]
 
     # one evaluation

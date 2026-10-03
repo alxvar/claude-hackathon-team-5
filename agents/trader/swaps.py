@@ -43,11 +43,9 @@ import v10_radar as vr  # noqa: E402
 from book import expires_param  # noqa: E402
 from collectors import CachedCollectors  # noqa: E402
 import policy  # noqa: E402
-try:
-    from notify import notify as _notify
-except Exception:  # noqa: BLE001
-    _notify = None
-DESK = ("dani", "lucas")   # Dani is the human deal desk (Lucas, Sat 16:10)
+import alerts  # noqa: E402  the phone policy (Chief 17:40)
+_notify = None             # alerts.act's own transport (tools/notify.py) unless a test passes one
+NUDGE_MIN_GAIN, NUDGE_EVERY_S = 10.0, 7200   # Chief 17:40: one push per (team, give, get) per 2 h, gain >= 10
 
 PARTNERS = ("v15",)   # Chief 17:45: never a rival's venue (value created lifts its market); t15 -> El Rastro
 HOUSE = "rastro"
@@ -354,25 +352,29 @@ class Engine:
             self.state["live"].append({**c, "offer": oid, "tick": tick})
             posted.append(c)
             self.save()
-            self.nudge(c, oid, tick_seconds)
+            self.nudge(c, oid, tick_seconds, teams)
         if self.dry_run:
             self.state["live"] = live
         return cands
 
 
-    def nudge(self, c: dict, oid, tick_seconds: float) -> None:
-        """A ready DM for the desk (Dani and Lucas): the swap is addressed to the team; a nudge helps it get taken."""
-        if not self.notifier:
+    def nudge(self, c: dict, oid, tick_seconds: float, teams=()) -> None:
+        """An ACT for Dani (a ready DM): only at our gain >= NUDGE_MIN_GAIN, once per (team, give, get) per 2 h (a
+        repost's new offer id beat the 10-min dedupe: 3 pushes in 12 min), never to a rival (top 6 or within 3)."""
+        if c["our_gain"] < NUDGE_MIN_GAIN or c["to"] in alerts.rivals(teams):
+            self.emit({"event": "nudge_skipped", "offer": oid, "to": c["to"], "our_gain": c["our_gain"]})
             return
-        until = "~" + time.strftime("%H:%M", time.localtime(time.time() + LIFE_TICKS * float(tick_seconds or 30)))
+        until_ts = time.time() + LIFE_TICKS * float(tick_seconds or 30)
+        until = "~" + time.strftime("%H:%M", time.localtime(until_ts))
         team = f"Team {int(c['to'][1:])}" if str(c["to"])[1:].isdigit() else c["to"]
         name = lambda r: (self.cards.get(r) or {}).get("name", r)   # noqa: E731
         dm = (f"Hi {team}! Swap offer for you on {c['venue']}: our {name(c['give'])} ({c['give']}) for your "
               f"{name(c['want'])} ({c['want']}), offer {oid}. Thanks!")   # transactional only (Lucas 17:20)
-        for who in DESK:
-            self.notifier(who, f"Swap to {team}: {c['give']} for {c['want']} (offer {oid})",
-                          f"Offer {oid} on {c['venue']}, valid until {until}. Our est. gain +{c['our_gain']:g}, theirs "
-                          f"+{c['their_est']:g}.\nDM {team}:\n{dm}", priority=3, tags=["handshake"])
+        alerts.act(f"swap {c['give']} for {c['want']} → {team}", oid, until_ts,
+                   f"Offer {oid} on {c['venue']}, valid until {until}. Our est. gain +{c['our_gain']:g}.\nDM {team}:\n{dm}",
+                   source="swaps", asset=c["asset"], want=c["want"], want_n=0,
+                   key=f"swap:{c['to']}:{c['give']}:{c['want']}", key_every_s=NUDGE_EVERY_S, notifier=self.notifier,
+                   log=lambda m: self.emit({"event": "alert", "msg": m}))
 
 
 def main(argv=None) -> None:

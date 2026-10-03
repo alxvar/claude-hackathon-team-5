@@ -271,6 +271,16 @@ class Watcher:
                      "need": need, "cash": me.get("cash", 0), "to_us": o.get("to") == me["id"],
                      "fits": me.get("cash", 0) - need >= self.cash_floor, "top4_venue": (v or {}).get("owner") in top}
                 found.append(b)
+        if not dry:                                   # close the loop on our own ACTed offers (opps, swaps)
+            try:
+                import alerts
+                counts: dict = {}
+                for a in me.get("assets") or []:
+                    counts[a.get("ref")] = counts.get(a.get("ref"), 0) + 1
+                alerts.sweep(open_offer_ids=mine, asset_ids={a["id"] for a in me.get("assets") or []}, counts=counts,
+                             notifier=self.notifier, log=self.log)
+            except Exception as e:                    # noqa: BLE001  alerts never break the watcher
+                self.log(f"bargains: alert sweep failed ({e!r})"[:200])
         found.sort(key=lambda b: -b["score"])
         for b in found:
             if dry or b["offer"] in self.state["alerted"]:
@@ -316,8 +326,7 @@ class Watcher:
             lines.append(f"Venue owned by top-4 team {b['owner']}: the value created scores market points there.")
         body = "\n".join(lines)
         self.log(f"bargains: {title} | {body}")
-        if self.notifier:
-            self.notifier("lucas", title, body, priority=5 if b["score"] >= 40 else 4, tags=["moneybag", "eyes"])
+        # log only (Chief 17:40: Lucas gets CRITICAL only; the Operator reads logs/bargains.log)
 
 
     def alert_arb(self, x: dict, venues: dict, me: dict) -> None:

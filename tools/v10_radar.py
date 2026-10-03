@@ -44,6 +44,7 @@ from bazaar_sdk import _Http  # noqa: E402
 from collectors import CachedCollectors, set_of  # noqa: E402
 import opportunities as op  # noqa: E402
 import policy  # noqa: E402
+import alerts  # noqa: E402
 
 URL = os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai")
 VENUE, ME = "v10", "t05"
@@ -53,7 +54,6 @@ PARTNER_TEAMS = ("t10", "t15", "t03")
 SUGGEST_VC, SUGGEST_LINES, SUGGEST_TOP = 5.0, 3, 5
 CLEARING = {"common": 9, "uncommon": 24.5, "rare": 70}   # GAME.md clearing prices: the price to suggest
 CLEARING_SET = {("LAT", "common"): 7.5, ("LAT", "uncommon"): 21.5, ("MAL", "uncommon"): 26}   # GAME.md, per set
-DESK = ("dani", "lucas")   # Dani is the human deal desk (Lucas, Sat 16:10): every "message a team" alert goes to both
 MULT_FILE = ROOT / "intel" / "multipliers.json"   # the Analyst's estimates: {team: {SET: {m, lo, hi, conf, why}}}
 MIN_VC = 5.0          # est. value created for a buyer that hasn't shown it lacks the card
 COPY = (1.0, 0.25, 0.10)   # what the 1st, 2nd, 3rd copy of a card is worth (catalog values.copy_marginals)
@@ -329,6 +329,7 @@ class Radar:
         self.cards, self._cat_at, self.mult, self._mult_at = {}, 0.0, {}, 0.0
         self._suggest_at = 0.0
         self._clock: dict = {}
+        self._teams: list = []
 
     def scan(self) -> list[dict]:
         now = time.time()
@@ -344,6 +345,7 @@ class Radar:
         self._clock = self.pub._call("GET", "/api/clock") or {}
         tick = self._clock.get("tick") or (events[-1]["tick"] if events else 0)
         direct = open_addressed(events, tick)
+        self.close_acts({o["id"] for o in board} | {o["id"] for o in direct}, events)
         if not asks and not direct:
             return []
         teams = sorted(self.pub._call("GET", "/api/leaderboard").get("teams") or [], key=lambda t: -(t.get("score") or 0))
@@ -351,6 +353,7 @@ class Radar:
             t["rank"] = i + 1
         top = policy.rivals(teams) | {"t13", "t17"}   # policy: top 6 or within 3; rivals' gains vs ours unknown
         ours = next((t.get("score") for t in teams if t["team"] == ME), None)
+        self._teams = teams
         last, prof = op.read_signals(events, [], ME, op.GameTime(events), tick, self.cards)
         who = sellers(events)
         held = holdings(events)
@@ -363,6 +366,7 @@ class Radar:
             for b in ranked[:2]:
                 found.append({"offer": a["id"], "seller": seller, "price": (a.get("want") or {}).get("cash"),
                               "card": [x.get("ref") for x in a["give"]["assets"]][0],
+                              "asset": [x.get("id") for x in a["give"]["assets"]][0],
                               "expires_tick": a.get("expires_tick"), **b})
         for o in direct:
             m = addressed_match(o, teams=teams, mult=self.mult, cards=self.cards, held=held)
@@ -387,9 +391,31 @@ class Radar:
             return "?"
         return "~" + time.strftime("%H:%M", time.localtime(time.time() + max(0, expires_tick - tick) * secs))
 
-    def desk(self, title: str, body: str, **kw) -> None:
-        for who in DESK:
-            self.notifier(who, title, body, **kw)
+    def act(self, what: str, f: dict, tick, body: str, parties) -> None:
+        """An ACT for Dani through tools/alerts.py; never when a party is a rival (top 6 or within 3, re-read now)."""
+        riv = alerts.rivals(self._teams) & {p for p in parties if p}
+        if riv:
+            self.log(f"v10 radar: no ACT for offer {f['offer']}: {', '.join(sorted(riv))} rival (Chief 17:40)")
+            return
+        until = alerts.until_ts(f.get("expires_tick"), tick, self._clock.get("tick_seconds"))
+        alerts.act(what, f["offer"], until, body, source="radar", asset=f.get("asset"), notifier=self.notifier,
+                   log=self.log)
+
+    def close_acts(self, open_ids: set, events) -> None:
+        """Our radar ACTs whose offer left v10: DONE when its card was settled since, else VOID."""
+        if self.dry:
+            return
+        try:
+            todo = [a for a in alerts.open_acts("radar") if a["offer"] not in open_ids]
+        except OSError:
+            return
+        if not todo:
+            return
+        moved = {i.get("id") for e in events if e.get("type") == "settlement"
+                 for i in (e.get("payload") or {}).get("items") or []}
+        for a in todo:
+            alerts.close(a["offer"], a.get("asset") in moved, notifier=self.notifier, log=self.log)
+        alerts.expire(notifier=self.notifier, log=self.log)
 
     def alert(self, f: dict, tick) -> None:
         c = self.cards.get(f["card"], {})
@@ -404,10 +430,10 @@ class Radar:
         with self.out.open("a") as fh:
             fh.write(f"- {time.strftime('%a %H:%M')} · tick {tick} · offer {f['offer']} · {f['card']} at {f['price']} P "
                      f"(seller {f['seller'] or '?'}) → **{f['name']}** (#{f['rank']}) · {why} · DM: \"{text}\"\n")
-        if self.notifier:
-            self.desk(f"v10: DM {f['name']} about {f['card']} ({f['price']} P)",
-                      f"Offer {f['offer']} on v10, valid until {self.until(f.get('expires_tick'), tick)}.\n{why}.\n"
-                      f"DM to send:\n{text}", priority=4, tags=["handshake"])
+        if not self.dry:
+            self.act(f"v10 {f['card']} {f['price']} P → {f['name']}", f, tick,
+                     f"Offer {f['offer']} on v10, valid until {self.until(f.get('expires_tick'), tick)}.\n"
+                     f"DM {f['name']}:\n{text}", parties=(f.get("seller"), f["team"]))
 
 
     def suggest(self, out: Path = None) -> dict:
@@ -425,8 +451,10 @@ class Radar:
         tick = events[-1]["tick"] if events else 0
         last, prof = op.read_signals(events, [], ME, op.GameTime(events), tick, self.cards)
         held, col = holdings(events), self.collectors.get()
-        found = {p: suggestions(p, teams=teams, held=held, mult=self.mult, cards=self.cards, last=last, prof=prof,
-                                collectors=col, ours=ours) for p in PARTNER_TEAMS}
+        riv = alerts.rivals(teams)                    # never help a rival partner (Team 3 at #3, Chief 17:40)
+        found = {p: [] if p in riv else suggestions(p, teams=teams, held=held, mult=self.mult, cards=self.cards,
+                                                    last=last, prof=prof, collectors=col, ours=ours)
+                 for p in PARTNER_TEAMS}
         L = [f"# v10 partner suggestions ({time.strftime('%a %H:%M')}, tick {tick})", "",
              "_Written every 30 min by `tools/v10_radar.py`: for Teams 10, 15 and 3, the cards each holds 2+ copies of "
              "(feed, a lower bound) and the best buyer outside the top 5 (est. value created > +5, copy-weighted; no "
@@ -441,13 +469,7 @@ class Radar:
                          f"created +{x['vc']:g}" for x in lines]
             text = suggestion_text(lines, self.cards)
             L += ["", f"Message: \"{text}\"", ""]
-            sent = self.state.setdefault("suggested", {})
-            if self.notifier and not self.dry and sent.get(p) != text:   # only when it changed
-                until = time.strftime("%H:%M", time.localtime(time.time() + SUGGEST_EVERY_S))
-                self.desk(f"v10 suggestions for {names.get(p, p)}",
-                          f"For {names.get(p, p)} (no offer yet: they list it on v10). Valid until ~{until} (next "
-                          f"refresh).\n{text}", priority=3, tags=["handshake"])
-                sent[p] = text
+            # no push (Chief 17:40): suggestions aren't offers; Dani's phone gets ACT items only
         if not self.dry:
             out.parent.mkdir(parents=True, exist_ok=True)
             out.write_text("\n".join(L) + "\n")
@@ -470,10 +492,10 @@ class Radar:
         with self.out.open("a") as fh:
             fh.write(f"- {time.strftime('%a %H:%M')} · tick {tick} · addressed offer {f['offer']} · {why} · "
                      f"{'DM' if paged else 'not paged, DM'}: \"{text}\"\n")
-        if paged:
-            self.desk(f"v10: {f['maker_name']} has an offer for {f['name']} ({f['card']} {f['price']} P)",
-                      f"Offer {f['offer']} on v10, valid until {self.until(f.get('expires_tick'), tick)}.\n{why}.\n"
-                      f"DM {f['name']} to accept:\n{text}", priority=5, tags=["handshake"])
+        if paged and not self.dry:
+            self.act(f"v10 {f['maker_name']}'s {f['card']} {f['price']} P → {f['name']}", f, tick,
+                     f"Offer {f['offer']} on v10, valid until {self.until(f.get('expires_tick'), tick)}.\n"
+                     f"DM {f['name']}:\n{text}", parties=(f["maker"], f["team"]))
 
 
 def main(argv=None) -> None:

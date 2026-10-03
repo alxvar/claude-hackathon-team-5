@@ -197,17 +197,17 @@ def monitor(tmp_path, api, notes, **kw):
                       me="Lucas Wiese", test_watch=False, records=lambda _id: None, **kw)
 
 
-def test_critical_goes_to_lucas_and_dani_once(tmp_path):
+def test_critical_goes_to_lucas_only_once(tmp_path):
     raw = copy.deepcopy(record(181)["payloads"][-1]["raw"])
     notes = Recorder()
     m = monitor(tmp_path, FakeApi([raw]), notes)
     new = m.cycle({"tick": 143, "doors": "open", "paused": False})
     assert [f.kind for f in new] == ["in_limit_not_accepted"]
-    assert sorted(ch for ch, _, _ in notes.sent) == ["dani", "lucas"]
+    assert [ch for ch, _, _ in notes.sent] == ["lucas"]               # Chief 17:40: Lucas critical only, no Dani
     assert all(p == 5 for _, _, p in notes.sent)
     m2 = monitor(tmp_path, FakeApi([raw]), notes)                       # restart: dedupe survives in the state file
     assert m2.cycle({"tick": 144, "doors": "open", "paused": False}) == []
-    assert len(notes.sent) == 2
+    assert len(notes.sent) == 1
 
 
 def test_medium_is_printed_not_pushed(tmp_path, capsys):
@@ -226,7 +226,7 @@ def test_without_notify_it_prints(tmp_path, capsys):
     m.notify_fn = None
     m.cycle({"tick": 143, "doors": "open", "paused": False})
     out = capsys.readouterr().out
-    assert "notify[lucas]" in out and "notify[dani]" in out
+    assert "notify[lucas]" in out and "notify[dani]" not in out
 
 
 def test_closed_doors_read_nothing(tmp_path):
@@ -249,8 +249,8 @@ def test_no_live_duel_in_a_scored_session(tmp_path):
     assert m.cycle(clk(380)) == []     # before the session (tick 390)
     assert m.cycle(clk(395)) == []     # first tick without a duel
     new = m.cycle(clk(396))
-    assert [f.kind for f in new] == ["no_live_duel"] and new[0].severity == dm.HIGH
-    assert sorted(ch for ch, _, _ in notes.sent) == ["dani", "lucas"]
+    assert [f.kind for f in new] == ["no_live_duel"] and new[0].severity == dm.CRITICAL   # failover: Lucas (17:40)
+    assert [ch for ch, _, _ in notes.sent] == ["lucas"]
 
 
 def test_session_start_follows_the_clock_pace(tmp_path):
@@ -311,7 +311,7 @@ def test_test_watch_runs_once_per_foreign_commit_and_names_failures(tmp_path):
                    foreign_commit=lambda: tuple(commit))
     new = m.cycle({"tick": 1, "doors": "closed", "paused": True})
     assert [f.kind for f in new] == ["duelist_tests_failed"] and "test_deadline_accept" in new[0].text
-    assert sorted(ch for ch, _, _ in notes.sent) == ["dani", "lucas"]
+    assert [ch for ch, _, _ in notes.sent] == ["lucas"]
     m._tests_at = 0
     assert m.cycle({"tick": 2, "doors": "closed", "paused": True}) == [] and len(runs) == 1   # same commit
     commit[0] = "fff0000aaa"

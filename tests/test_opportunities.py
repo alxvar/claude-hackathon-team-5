@@ -420,7 +420,8 @@ def test_live_run_posts_the_offer_then_notifies(tmp_path):
     give, want, to, ttl, venue = post[1]
     assert give["assets"][0] in sal02 and want == {"cash": 40} and to == "t07" and ttl == op.OFFER_TTL_TICKS == 20
     assert log.index("list_offer") < log.index("notify")
-    assert [n[0] for n in notes] == ["dani", "lucas"]
+    assert [n[0] for n in notes] == ["dani"] and notes[0][1].startswith("ACT · SELL SAL-02 to Team 7 at ")
+    assert " · offer " in notes[0][1] and " · until " in notes[0][1]       # Chief 17:40: ACT items only, to Dani
     body = notes[0][2]
     assert "Accept offer 9001 on El Rastro" in body and "a su nombre" in body and "offer 9001" in body
     state = json.loads((tmp_path / "state.json").read_text())

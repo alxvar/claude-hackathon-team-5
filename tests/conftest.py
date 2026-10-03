@@ -6,6 +6,7 @@ from pathlib import Path
 import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
+import alerts  # noqa: E402
 import policy  # noqa: E402
 
 
@@ -13,3 +14,4 @@ import policy  # noqa: E402
 def _no_live_reserved_list(tmp_path, monkeypatch):
     monkeypatch.setattr(policy, "RESERVED", tmp_path / "no-reserved.json")
     monkeypatch.setattr(policy, "HANDOFF", tmp_path / "no-handoff.md")
+    monkeypatch.setattr(alerts, "STATE", tmp_path / "alerts_state.json")   # never the live alert state
