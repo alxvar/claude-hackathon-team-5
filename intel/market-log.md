@@ -1,5 +1,13 @@
 # Market log (Market session; newest first)
 
+## Sat 22:50 · bench-h13.0 (ticks 1401-1414), on the stall v10: Saturday's last
+- **Ours [V]:** bench_efficiency 0.854 (0.899 · 0.933 · 0.878 · 0.891 · 0.886 before), bench_points 0.5, market 7.5.
+- **Field at snapshot 1420 [V]:** t10 12.5 · t06 11.87 · t09 10.89 · t16 10.16 · t14 9.3 · t17 8.64 · t08 8.45 · stall
+  teams 7.5 (us, t18, t15, t11, t07, t04, t02, t01) · t12 7.25 · t13 6.77 · t03 6.08. Six benches, nobody above the stall.
+- **Saturday's market result for us: 7.5 of the 12.5 seen at the top.** The whole gap is real trades: v10 had 2 fills
+  all day (+4.99, then −10.2), mm −5.2. The rebate (21:15-23:00) got no listing; 0 P owed.
+- Sunday plan: `intel/market-sunday.md`.
+
 ## Partner audit · Sat 22:38 · tick 1401 · snapshot 1400: stall teams 7.5 · us 7.5 (+0.00)
 - **Team 15** (v15, market 7.5 = +0.00): on v10 0 open offers, 1 trades (26 P) · ours on v15: 5 open offers, 0 trades (0 P)
   - v10 trade tick 398: [('SAL-07', 't10', '→', 't15')] at 26
