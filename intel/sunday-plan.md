@@ -14,8 +14,8 @@ without cash, finishes pages. "Zero fee alone is no reason; volume and friends c
 The clock is paused in round 2. Before round 3 + the CHA release (game 16.65) come the hard Market Test (14.65) and a bench
 (15.0). If the clock RESUMES at 09:00 (instead of jumping), Saturday runs ≈ 1.5-3 h more. Operator: read /api/clock and
 /api/schedule at 08:55 and tell the Chief which case applies. In that window:
-1. **v10 trades first**: our Saturday market gap turned positive at the close (mm −5.2 → +2.2, a field-relative hurdle), so
-   ≈ +2.8 more VC caps us at +5 board = +4.2 Saturday points ≈ +1.7 final, for 0 P. Fire the club/v10 pairs at 09:00
+1. **v10 trades first**: our mm turned positive at the close (−5.2 → +2.2, field-relative); the board's VC part is
+   normalised to a field reference M (≈ 12 now), so each +1 of v10 value created ≈ +0.4 board [L, Analyst 23:55], for 0 P. Fire the club/v10 pairs at 09:00
    (RET-09 t07 → t09 first), not at CHA time. Duplicates → first-copy collectors only; a negative trade now costs.
 2. **No ladder deals until round 3**: the Saturday ladder is capped. Keep RET-11, MAL-08 and the spares for Sunday's
    fresh ladder.
