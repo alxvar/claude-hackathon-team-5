@@ -9,6 +9,13 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sat 16:53 · snapshot 780
+- Board: **us 30.02 (#1)** · t14 29.83 · t12 29.12 · t01 29.04 · t10 28.98 · t18 28.61 · t03 27.79.
+- t01 +0.73 (LAV-09 from the Pícaros at 58, an L4 slot) → #4. t06 +0.54 (Pilar SAL-07 23, MAL-08 18). Everyone else drifted
+  −0.1 to −0.4 (the ladder and trade references rising).
+- t08 bought SAL-09 from Chato at 77 (above list); t02 bought SAL-09 from the Pícaros at 67. SAL rares are being stocked for
+  Pilar's fever (18:04-20:04).
+
 ### Sat 16:44 · snapshot 770 (Los Pícaros live since 16:35)
 - Board: t14 30.06 · **us 29.53 (#2)** · t12 29.33 · t10 29.24 · t18 28.75 · t01 28.31 · t03 27.86.
 - **Our two flags on Pícaros lies scored +10 neg_points each (≈ +0.57 board each).** t02 likely flagged too (+0.54 net, no

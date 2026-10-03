@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 16:49 (tick 777), snapshot 770; flags ±10 (§3c); first L4 deal +0.070 ladder. Duels I post-mortem §1d; Duels II day rule §1e. Rival detail: intel/rivals.md (Analyst-owned)._
+_Last update: Sat 16:54 (tick 784), snapshot 780: **us #1 at 30.02** (t14 29.83, t12 29.12, t01 29.04, t10 28.98, t18 28.61).070 ladder. Duels I post-mortem §1d; Duels II day rule §1e. Rival detail: intel/rivals.md (Analyst-owned)._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -229,7 +229,7 @@ t13 and t04 have dealer deals in the window). Full = 12 Saturday points = 8.0 bo
 | 632 / 639 | BUY SAL-06 ← Abuela at 23, then SELL → Pilar at 25 | Pilar SAL opening 22 | neg_points 35.2 → 32.5 (−2.7); ladder 0.181 → 0.188 (+0.007, replaces SAL-08's slot). **Net ≈ −0.2 board**: Pilar's SAL range is wide, 25 is a small share |
 | 704 | SELL LAT-08 → Chato at 14 (2nd L2 slot; LAT-08 regained via a swap) | his opening 13 | 0.188 → 0.200 (**+0.012**); our Saturday part +0.28 vs field −0.08 → ≈ +0.24 board → **≈ 20 board per 1.0 ladder, down from ≈ 35 at tick 550** (erosion as the field fills its slots) [L] |
 | 709 | Workshop: 3 commons → MAL-06 (uncommon; our first copy again, 17.5 to us) | — | no score (luck) |
-| 775 | **BUY SAL-09 ← Los Pícaros at 54** (L4; below list 63; worth 63 to us) | their asks 73, 65 (words "El Marqués", structure SAL-06: the trick), 60 "final", 56; they took our 54 | 0.200 → **0.270 (+0.070, first L4 slot)**; neg 0; cash 180 → 126 |
+| 775 | **BUY SAL-09 ← Los Pícaros at 54** (L4; below list 63; worth 63 to us) | their asks 73, 65 (words "El Marqués", structure SAL-06: the trick), 60 "final", 56; they took our 54 | 0.200 → **0.270 (+0.070, first L4 slot)**; neg 0; cash 180 → 126 Board at 780: our negotiating +0.49 vs field median −0.24 → **≈ +0.73 board** (≈ 10 board per 1.0 ladder) [V/L] |
 
 - **Same card, other teams [V feed]:** SAL-08 → Pilar: t04 25 (opened 40, 6 messages), t10 24, **us 23**; her opening 22.
   Uncommons (non-SAL): t14 LAT-08 20, **us MAL-07 19**, t08 MAL-08 18, t16/t08/t13 17; her opening 16. So a full share at L3
