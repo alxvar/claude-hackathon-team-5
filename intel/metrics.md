@@ -1,22 +1,22 @@
-# Metrics (auto, 22:30, game tick 1385)
+# Metrics (auto, 22:32, game tick 1390)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
-1. Team 10 38.0 (-0.3 / +2.7) deals 59
-2. Team 6 31.3 (-1.3 / -0.8) deals 67
-3. Team 5 30.7 (-0.2 / -0.9) deals 53 ← US
-4. Team 12 30.4 (-0.6 / +0.9) deals 68
-5. Team 18 30.1 (+0.0 / -0.1) deals 38
-6. Team 3 30.0 (+0.1 / -0.3) deals 32
-7. Team 14 28.1 (-0.2 / -1.7) deals 56
-8. Team 17 26.3 (-0.2 / +0.5) deals 32
-9. Team 1 26.0 (+0.3 / +2.5) deals 33
-10. Team 4 25.2 (+0.1 / +2.0) deals 76
+1. Team 10 37.8 (-0.5 / -0.2) deals 60
+2. Team 6 31.2 (-0.5 / -1.5) deals 67
+3. Team 5 30.5 (-0.3 / -0.4) deals 53 ← US
+4. Team 12 30.2 (-0.5 / +0.8) deals 68
+5. Team 18 30.2 (+0.1 / +0.7) deals 38
+6. Team 3 29.9 (-0.1 / -0.4) deals 32
+7. Team 14 27.9 (-0.4 / -1.6) deals 56
+8. Team 17 26.1 (-0.6 / -0.0) deals 32
+9. Team 1 26.0 (+0.2 / +3.2) deals 33
+10. Team 4 25.2 (+0.2 / -0.2) deals 76
 Us: #3
 
 ## Us
 
-score 30.7 · neg_points 119.1 (15 min ago 119.1) · ladder 0.483 · duel 34.13 · cash 392 · level 5 · deals 53
+score 30.53 · neg_points 119.1 (15 min ago 119.1) · ladder 0.483 · duel 34.31 · cash 392 · level 5 · deals 53
 
 ## Our holdings (card (rarity): value of each copy; a sale gives up the cheapest copy)
 
@@ -78,34 +78,33 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 - abuela common (team buys): median 10 over 1
 - abuela sobre_barrio (team buys): median 26 over 1
 - abuela uncommon (team buys): median 23 over 3
+- chato uncommon (team sells): median 13 over 1
 - picaros rare (team buys): median 57 over 5
 - picaros uncommon (team sells): median 10 over 1
-- pilar rare (team sells): median 74 over 2
+- pilar rare (team sells): median 72 over 1
 
 ## El Rastro now: top bids by price (team, card, price)
 
 - t10: LAV-11 (epic) 210 P · offer 19648
 - t17: MAL-11 (epic) 150 P · offer 19568
-- t09: MAL-10 (rare) 56 P · offer 19129
 - t09: MAL-09 (rare) 56 P · offer 19686
-- t13: RET-10 (rare) 42 P · offer 19586
+- t09: MAL-10 (rare) 56 P · offer 19719
 - t09: SAL-06 (uncommon) 24 P · offer 19298
-- t13: RET-07 (uncommon) 13 P · offer 19603
+- t06: RET-03 (common) 8 P · offer 19701
+- t06: RET-05 (common) 8 P · offer 19702
 - t04: LAV-02 (common) 5 P · offer 19296
 - t08: RET-01 (common) 5 P · offer 19694
-- t13: RET-02 (common) 4 P · offer 19538
-- t13: LAT-02 (common) 2 P · offer 19555
 
-Asks by others (card, price: count): LAT-04 8: 2; RET-08 26: 2; LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-05 8: 1; SAL-02 7: 1; RET-07 30: 1; MAL-03 12: 1; MAL-01 12: 1; RET-02 12: 1; RET-04 12: 1; LAT-01 9: 1; MAL-04 12: 1; LAT-02 9: 1
+Asks by others (card, price: count): LAT-04 8: 2; RET-08 26: 2; LAT-02 8: 2; LAV-04 9: 2; sobre_plata 130: 1; LAT-07 30: 1; RET-09 84: 1; LAT-08 30: 1; LAT-06 30: 1; RET-06 30: 1; RET-07 30: 1; RET-03 10: 1; LAT-01 8: 1; LAT-03 8: 1; LAT-05 8: 1
 
-## Our duels: 1 live, 134 finished (last 10)
+## Our duels: 2 live, 136 finished (last 10)
 
 - {"duel": 6170, "session": 3, "status": "deal", "role": "seller", "item": "La V\u00eda L\u00e1ctea", "issues": ["price", "days"], "your_days_weight": 3.34, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 70, "limit_meaning": 
 - {"duel": 6171, "session": 3, "status": "deal", "role": "buyer", "item": "La V\u00eda L\u00e1ctea", "issues": ["price", "days"], "your_days_weight": 7.75, "days_meaning": "each delivery day costs you this much cash", "your_limit": 74, "limit_meaning": "never pa
 - {"duel": 6176, "session": 3, "status": "deal", "role": "seller", "item": "La V\u00eda L\u00e1ctea", "issues": ["price", "days"], "your_days_weight": 2.45, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 92, "limit_meaning": 
 - {"duel": 6177, "session": 3, "status": "no_deal", "role": "buyer", "item": "La V\u00eda L\u00e1ctea", "issues": ["price", "days"], "your_days_weight": 7.06, "days_meaning": "each delivery day costs you this much cash", "your_limit": 76, "limit_meaning": "never
 - {"duel": 6182, "session": 3, "status": "no_deal", "role": "seller", "item": "Plaza del Dos de Mayo", "issues": ["price", "days"], "your_days_weight": 3.33, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 71, "limit_meaning":
-- {"duel": 6183, "session": 3, "status": "live", "role": "buyer", "item": "Plaza del Dos de Mayo", "issues": ["price", "days"], "your_days_weight": 4.03, "days_meaning": "each delivery day costs you this much cash", "your_limit": 82, "limit_meaning": "never pay 
+- {"duel": 6183, "session": 3, "status": "deal", "role": "buyer", "item": "Plaza del Dos de Mayo", "issues": ["price", "days"], "your_days_weight": 4.03, "days_meaning": "each delivery day costs you this much cash", "your_limit": 82, "limit_meaning": "never pay 
 - {"duel": 6184, "session": 3, "status": "deal", "role": "seller", "item": "La V\u00eda L\u00e1ctea", "issues": ["price", "days"], "your_days_weight": 3.21, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 60, "limit_meaning": 
 - {"duel": 6185, "session": 3, "status": "deal", "role": "buyer", "item": "La V\u00eda L\u00e1ctea", "issues": ["price", "days"], "your_days_weight": 3.68, "days_meaning": "each delivery day costs you this much cash", "your_limit": 54, "limit_meaning": "never pa
 - {"duel": 6190, "session": 3, "status": "deal", "role": "buyer", "item": "El Frutero de Argumosa", "issues": ["price", "days"], "your_days_weight": 5.0, "days_meaning": "each delivery day costs you this much cash", "your_limit": 143, "limit_meaning": "never pay
