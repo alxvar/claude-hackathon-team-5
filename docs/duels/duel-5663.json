@@ -1481,6 +1481,172 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1268,
+   "took_s": 13.6,
+   "cost_usd": 0.02105,
+   "obs": {
+    "view": {
+     "duel_id": 5663,
+     "role": "buyer",
+     "limit": 72,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.08,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 68 P y 5 días.",
+      "offer": {
+       "price": 68,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1255,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 52 P with delivery on day 0, a clean and quick close.",
+      "offer": {
+       "price": 52,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1255,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 66 P con 5 días.",
+      "offer": {
+       "price": 66,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1256,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm moving up to 55 P with delivery on day 0, a real step to meet your move.",
+      "offer": {
+       "price": 55,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1262,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Yo ya me he movido. Propongo 65 P y 5 días.",
+      "offer": {
+       "price": 65,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1263,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 49 P, delivery on day 5.",
+      "offer": {
+       "price": 49,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1267,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 61 P y 5 días.",
+      "offer": {
+       "price": 61,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1267,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 61,
+     "days": 5
+    },
+    "tick": 1268,
+    "ticks_left": 3,
+    "rounds": 3,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 57 P with delivery on day 5, a clear step from me to close now.",
+    "price": 57,
+    "days": 5,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 57,
+      "message": "I can do 57 P with delivery on day 5, a clear step from me to close now."
+     },
+     "band": {
+      "worst": 61,
+      "target": 57,
+      "best": 56
+     },
+     "plan": {
+      "read": "They have come down steadily from 68 to 61 at day 5, which is within our limit even counting the day. With only 3 ticks left, their 'close soon' framing is credible: they are moving.",
+      "target": 57,
+      "best": 56,
+      "worst": 61,
+      "days": 5,
+      "angle": "Keep day 5 and make one clear move to 57 P, framed as a final step to close now. If they are already firm at 61 P on day 5, accepting it is fine rather than risking the deadline."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 11.56,
+       "in": 1064,
+       "out": 764,
+       "cost_usd": 0.01954,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.04,
+       "in": 526,
+       "out": 46,
+       "cost_usd": 0.00151,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1617,6 +1783,63 @@
      "id": 7327,
      "price": 49,
      "tick": 1267,
+     "days": 5
+    }
+   }
+  },
+  {
+   "tick": 1268,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 57 P with delivery on day 5, a clear step from me to close now.",
+    "price": 57,
+    "days": 5,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 57,
+      "message": "I can do 57 P with delivery on day 5, a clear step from me to close now."
+     },
+     "band": {
+      "worst": 61,
+      "target": 57,
+      "best": 56
+     },
+     "plan": {
+      "read": "They have come down steadily from 68 to 61 at day 5, which is within our limit even counting the day. With only 3 ticks left, their 'close soon' framing is credible: they are moving.",
+      "target": 57,
+      "best": 56,
+      "worst": 61,
+      "days": 5,
+      "angle": "Keep day 5 and make one clear move to 57 P, framed as a final step to close now. If they are already firm at 61 P on day 5, accepting it is fine rather than risking the deadline."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 11.56,
+       "in": 1064,
+       "out": 764,
+       "cost_usd": 0.01954,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.04,
+       "in": 526,
+       "out": 46,
+       "cost_usd": 0.00151,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5663,
+    "offer": {
+     "id": 7407,
+     "price": 57,
+     "tick": 1268,
      "days": 5
     }
    }

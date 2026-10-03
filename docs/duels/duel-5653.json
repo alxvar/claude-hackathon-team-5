@@ -376,6 +376,94 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1268,
+   "raw": {
+    "duel": 5653,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.33,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 114,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 1281,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 7406,
+     "price": 66,
+     "tick": 1268,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 7364,
+     "price": 101,
+     "tick": 1268,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1265,
+      "from": "Rival Verde",
+      "text": "Te la dejo en 107 primas y entrega en 10 días; me cuesta bajar más.",
+      "price": 107,
+      "days": 10
+     },
+     {
+      "tick": 1265,
+      "from": "you",
+      "text": "Day 10 for delivery is fine by me. I can do 55 P on day 10.",
+      "price": 55,
+      "days": 10
+     },
+     {
+      "tick": 1266,
+      "from": "Rival Verde",
+      "text": "105 primas y entrega en 10 días. Me muevo poco ya, pero si tú te mueves, cerramos.",
+      "price": 105,
+      "days": 10
+     },
+     {
+      "tick": 1267,
+      "from": "Rival Verde",
+      "text": "Mi propuesta: 103 primas y entrega en 10 días. Dime una cifra concreta y la miro.",
+      "price": 103,
+      "days": 10
+     },
+     {
+      "tick": 1267,
+      "from": "you",
+      "text": "I see you've moved, and I appreciate it. I can do 62 P on day 10; further movement from me depends on you coming down meaningfully more.",
+      "price": 62,
+      "days": 10
+     },
+     {
+      "tick": 1268,
+      "from": "Rival Verde",
+      "text": "Es una pieza que merece su precio: 101 primas y entrega en 10 días.",
+      "price": 101,
+      "days": 10
+     },
+     {
+      "tick": 1268,
+      "from": "you",
+      "text": "Small steps from you get small steps from me: I can do 66 P on day 10. A real jump on your side would bring us together much faster.",
+      "price": 66,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -789,6 +877,165 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1268,
+   "took_s": 9.44,
+   "cost_usd": 0.01392,
+   "obs": {
+    "view": {
+     "duel_id": 5653,
+     "role": "buyer",
+     "limit": 114,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.33,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Te la dejo en 107 primas y entrega en 10 días; me cuesta bajar más.",
+      "offer": {
+       "price": 107,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1265,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Day 10 for delivery is fine by me. I can do 55 P on day 10.",
+      "offer": {
+       "price": 55,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1265,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "105 primas y entrega en 10 días. Me muevo poco ya, pero si tú te mueves, cerramos.",
+      "offer": {
+       "price": 105,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1266,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Mi propuesta: 103 primas y entrega en 10 días. Dime una cifra concreta y la miro.",
+      "offer": {
+       "price": 103,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1267,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I see you've moved, and I appreciate it. I can do 62 P on day 10; further movement from me depends on you coming down meaningfully more.",
+      "offer": {
+       "price": 62,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1267,
+      "decision": {
+       "action": "offer",
+       "price": 62,
+       "message": "I see you've moved, and I appreciate it. I can do 62 P on day 10; further movement from me depends on you coming down meaningfully more."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Es una pieza que merece su precio: 101 primas y entrega en 10 días.",
+      "offer": {
+       "price": 101,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1268,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 101,
+     "days": 10
+    },
+    "tick": 1268,
+    "ticks_left": 13,
+    "rounds": 2,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "Small steps from you get small steps from me: I can do 66 P on day 10. A real jump on your side would bring us together much faster.",
+    "price": 66,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 66,
+      "message": "Small steps from you get small steps from me: I can do 66 P on day 10. A real jump on your side would bring us together much faster."
+     },
+     "band": {
+      "worst": 68,
+      "target": 66,
+      "best": 65
+     },
+     "plan": {
+      "read": "They keep shaving 2 P per message (107→105→103→101) on day 10. That is slow but real movement, and they have moved 2 since our last offer. Their talk of 'merece su precio' is just pressure, and 101 on day 10 is still well beyond what works for us.",
+      "target": 66,
+      "best": 65,
+      "worst": 68,
+      "days": 10,
+      "angle": "Keep day 10 and make one modest step to 66 P. Say calmly that their small steps get small steps back, and that a real jump from them would get us closer much faster."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.09,
+       "in": 1068,
+       "out": 396,
+       "cost_usd": 0.01219,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.35,
+       "in": 565,
+       "out": 60,
+       "cost_usd": 0.00173,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -913,6 +1160,63 @@
      "id": 7357,
      "price": 62,
      "tick": 1267,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1268,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Small steps from you get small steps from me: I can do 66 P on day 10. A real jump on your side would bring us together much faster.",
+    "price": 66,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 66,
+      "message": "Small steps from you get small steps from me: I can do 66 P on day 10. A real jump on your side would bring us together much faster."
+     },
+     "band": {
+      "worst": 68,
+      "target": 66,
+      "best": 65
+     },
+     "plan": {
+      "read": "They keep shaving 2 P per message (107→105→103→101) on day 10. That is slow but real movement, and they have moved 2 since our last offer. Their talk of 'merece su precio' is just pressure, and 101 on day 10 is still well beyond what works for us.",
+      "target": 66,
+      "best": 65,
+      "worst": 68,
+      "days": 10,
+      "angle": "Keep day 10 and make one modest step to 66 P. Say calmly that their small steps get small steps back, and that a real jump from them would get us closer much faster."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.09,
+       "in": 1068,
+       "out": 396,
+       "cost_usd": 0.01219,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.35,
+       "in": 565,
+       "out": 60,
+       "cost_usd": 0.00173,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5653,
+    "offer": {
+     "id": 7406,
+     "price": 66,
+     "tick": 1268,
      "days": 10
     }
    }

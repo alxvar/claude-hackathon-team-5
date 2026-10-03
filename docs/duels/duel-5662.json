@@ -1195,6 +1195,150 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1268,
+   "raw": {
+    "duel": 5662,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.45,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 79,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Noche",
+    "deadline_tick": 1270,
+    "decay_per_round": 0.08,
+    "rounds": 7,
+    "your_offer": {
+     "id": 7359,
+     "price": 110,
+     "tick": 1267,
+     "days": 5
+    },
+    "rival_offer": {
+     "id": 7390,
+     "price": 101,
+     "tick": 1268,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1254,
+      "from": "Rival Noche",
+      "text": "Propuesta justa para cerrar pronto: 76 P y 5 días.",
+      "price": 76,
+      "days": 5
+     },
+     {
+      "tick": 1254,
+      "from": "you",
+      "text": "Your offer is well short of where I can go. I can do 145 P on day 5.",
+      "price": 145,
+      "days": 5
+     },
+     {
+      "tick": 1255,
+      "from": "Rival Noche",
+      "text": "Me muevo para acercarnos: 81 P con 5 días.",
+      "price": 81,
+      "days": 5
+     },
+     {
+      "tick": 1255,
+      "from": "you",
+      "text": "Thanks for moving toward me. I can do 114 P on day 10.",
+      "price": 114,
+      "days": 10
+     },
+     {
+      "tick": 1256,
+      "from": "Rival Noche",
+      "text": "Yo ya me he movido. Propongo 84 P y 5 días.",
+      "price": 84,
+      "days": 5
+     },
+     {
+      "tick": 1259,
+      "from": "you",
+      "text": "I see your small step, but we're still far apart. I can do 110 P on day 10, and I'd need a much bigger move from you to go lower.",
+      "price": 110,
+      "days": 10
+     },
+     {
+      "tick": 1260,
+      "from": "Rival Noche",
+      "text": "Propuesta justa para cerrar pronto: 87 P y 5 días.",
+      "price": 87,
+      "days": 5
+     },
+     {
+      "tick": 1263,
+      "from": "you",
+      "text": "I've moved again too, and I can do 106 P on day 10. I need you to come up meaningfully from here.",
+      "price": 106,
+      "days": 10
+     },
+     {
+      "tick": 1264,
+      "from": "Rival Noche",
+      "text": "Me muevo para acercarnos: 89 P con 5 días.",
+      "price": 89,
+      "days": 5
+     },
+     {
+      "tick": 1264,
+      "from": "you",
+      "text": "I appreciate your steady steps, and this is a clear move from me: 100 P on day 10. Day 10 is how the price can stay this low, and I need a real jump from you to close.",
+      "price": 100,
+      "days": 10
+     },
+     {
+      "tick": 1265,
+      "from": "Rival Noche",
+      "text": "Yo ya me he movido. Propongo 91 P y 5 días.",
+      "price": 91,
+      "days": 5
+     },
+     {
+      "tick": 1266,
+      "from": "you",
+      "text": "I can do 128 P, delivery on day 5.",
+      "price": 128,
+      "days": 5
+     },
+     {
+      "tick": 1266,
+      "from": "Rival Noche",
+      "text": "Propuesta justa para cerrar pronto: 100 P y 5 días.",
+      "price": 100,
+      "days": 5
+     },
+     {
+      "tick": 1267,
+      "from": "you",
+      "text": "That's a real step from you, and I'll meet it: 110 P on day 5. That should let us close right away.",
+      "price": 110,
+      "days": 5
+     },
+     {
+      "tick": 1268,
+      "from": "Rival Noche",
+      "text": "Me muevo para acercarnos: 101 P con 5 días.",
+      "price": 101,
+      "days": 5
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {

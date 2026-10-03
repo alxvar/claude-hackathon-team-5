@@ -780,6 +780,143 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1268,
+   "took_s": 9.18,
+   "cost_usd": 0.01334,
+   "obs": {
+    "view": {
+     "duel_id": 5706,
+     "role": "buyer",
+     "limit": 122,
+     "currency": "P",
+     "item": "La Dama de Serrano",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.6,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I can do 80 P with delivery on day 0. Happy to hear your counter.",
+      "offer": {
+       "price": 80,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1257,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hola. This one is in perfect condition. 157 P, delivery day 0.",
+      "offer": {
+       "price": 157,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1261,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move up to 93 P with delivery on day 0. That's a real step from me, so I'd like to see you come down meaningfully from your figure.",
+      "offer": {
+       "price": 93,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1264,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 104 P with delivery on day 0. That's my second step, so it's your turn to come down substantially.",
+      "offer": {
+       "price": 104,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1267,
+      "decision": {
+       "action": "offer",
+       "price": 104,
+       "message": "I can do 104 P with delivery on day 0. That's my second step, so it's your turn to come down substantially."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 157,
+     "days": 0
+    },
+    "tick": 1268,
+    "ticks_left": 3,
+    "rounds": 1,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "I'm holding my offer where it stands and will wait for your move.</br>",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "I'm holding my offer where it stands and will wait for your move.</br>"
+     },
+     "band": {
+      "worst": 104,
+      "target": 104,
+      "best": 104
+     },
+     "plan": {
+      "read": "They opened at 157 P on day 0 and have not moved since. We have already made two unanswered steps, and their claim about condition is just talk.",
+      "target": 104,
+      "best": 104,
+      "worst": 104,
+      "days": 0,
+      "angle": "Hold at 104 P, day 0, and send nothing new; let our standing offer do the work until they come down."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.08,
+       "in": 818,
+       "out": 442,
+       "cost_usd": 0.01211,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.1,
+       "in": 404,
+       "out": 42,
+       "cost_usd": 0.00123,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [

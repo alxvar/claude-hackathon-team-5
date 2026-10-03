@@ -478,6 +478,94 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1268,
+   "raw": {
+    "duel": 5736,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Dama de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 0.79,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 111,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 1271,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 7328,
+     "price": 157,
+     "tick": 1267,
+     "days": 9
+    },
+    "rival_offer": {
+     "id": 7376,
+     "price": 165,
+     "tick": 1268,
+     "days": 2
+    },
+    "messages": [
+     {
+      "tick": 1256,
+      "from": "Rival Sol",
+      "text": "Rápido y justo: 128 P, día 3. ¿Qué día de entrega te va mejor? / Quick and fair: 128 P, day 3. Which delivery day suits you best?",
+      "price": 128,
+      "days": 3
+     },
+     {
+      "tick": 1256,
+      "from": "you",
+      "text": "Thanks for the quick opening. I can do 160 P with delivery on day 10; I'd like to see you move up on price.",
+      "price": 160,
+      "days": 10
+     },
+     {
+      "tick": 1257,
+      "from": "Rival Sol",
+      "text": "Parece que el día te importa: 138 P con día 7. / It seems the day matters to you: 138 P, day 7.",
+      "price": 138,
+      "days": 7
+     },
+     {
+      "tick": 1257,
+      "from": "you",
+      "text": "Thanks for moving on both price and day. I can come down to 156 P with delivery on day 10; I'd need to see you move up on price again to keep progressing.",
+      "price": 156,
+      "days": 10
+     },
+     {
+      "tick": 1258,
+      "from": "Rival Sol",
+      "text": "Parece que el día te importa: 143 P con día 9. / It seems the day matters to you: 143 P, day 9.",
+      "price": 143,
+      "days": 9
+     },
+     {
+      "tick": 1267,
+      "from": "you",
+      "text": "I can do 157 P, delivery on day 9.",
+      "price": 157,
+      "days": 9
+     },
+     {
+      "tick": 1268,
+      "from": "Rival Sol",
+      "text": "Mi mejor oferta: 165 P, día 2. / My best offer: 165 P, day 2.",
+      "price": 165,
+      "days": 2
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1456,6 +1544,259 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1268,
+   "took_s": 10.21,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 5736,
+     "role": "seller",
+     "limit": 111,
+     "currency": "P",
+     "item": "La Dama de Serrano",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 0.79,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Rápido y justo: 128 P, día 3. ¿Qué día de entrega te va mejor? / Quick and fair: 128 P, day 3. Which delivery day suits you best?",
+      "offer": {
+       "price": 128,
+       "days": 3
+      },
+      "accept": false,
+      "tick": 1256,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the quick opening. I can do 160 P with delivery on day 10; I'd like to see you move up on price.",
+      "offer": {
+       "price": 160,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1256,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Parece que el día te importa: 138 P con día 7. / It seems the day matters to you: 138 P, day 7.",
+      "offer": {
+       "price": 138,
+       "days": 7
+      },
+      "accept": false,
+      "tick": 1257,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for moving on both price and day. I can come down to 156 P with delivery on day 10; I'd need to see you move up on price again to keep progressing.",
+      "offer": {
+       "price": 156,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1257,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Parece que el día te importa: 143 P con día 9. / It seems the day matters to you: 143 P, day 9.",
+      "offer": {
+       "price": 143,
+       "days": 9
+      },
+      "accept": false,
+      "tick": 1258,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 157 P, delivery on day 9.",
+      "offer": {
+       "price": 157,
+       "days": 9
+      },
+      "accept": false,
+      "tick": 1267,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 143,
+     "days": 9
+    },
+    "tick": 1268,
+    "ticks_left": 3,
+    "rounds": 3,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 143,
+    "days": null,
+    "meta": {
+     "rule": "small gap",
+     "calls": []
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1268,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 5736,
+     "role": "seller",
+     "limit": 111,
+     "currency": "P",
+     "item": "La Dama de Serrano",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 0.79,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Rápido y justo: 128 P, día 3. ¿Qué día de entrega te va mejor? / Quick and fair: 128 P, day 3. Which delivery day suits you best?",
+      "offer": {
+       "price": 128,
+       "days": 3
+      },
+      "accept": false,
+      "tick": 1256,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for the quick opening. I can do 160 P with delivery on day 10; I'd like to see you move up on price.",
+      "offer": {
+       "price": 160,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1256,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Parece que el día te importa: 138 P con día 7. / It seems the day matters to you: 138 P, day 7.",
+      "offer": {
+       "price": 138,
+       "days": 7
+      },
+      "accept": false,
+      "tick": 1257,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for moving on both price and day. I can come down to 156 P with delivery on day 10; I'd need to see you move up on price again to keep progressing.",
+      "offer": {
+       "price": 156,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1257,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Parece que el día te importa: 143 P con día 9. / It seems the day matters to you: 143 P, day 9.",
+      "offer": {
+       "price": 143,
+       "days": 9
+      },
+      "accept": false,
+      "tick": 1258,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 157 P, delivery on day 9.",
+      "offer": {
+       "price": 157,
+       "days": 9
+      },
+      "accept": false,
+      "tick": 1267,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Mi mejor oferta: 165 P, día 2. / My best offer: 165 P, day 2.",
+      "offer": {
+       "price": 165,
+       "days": 2
+      },
+      "accept": false,
+      "tick": 1268,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 165,
+     "days": 2
+    },
+    "tick": 1268,
+    "ticks_left": 3,
+    "rounds": 3,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 165,
+    "days": null,
+    "meta": {
+     "rule": "small gap",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1594,6 +1935,25 @@
      "tick": 1267,
      "days": 9
     }
+   }
+  },
+  {
+   "tick": 1268,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 165,
+    "days": null,
+    "meta": {
+     "rule": "small gap",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 165,
+    "settles_at_tick": 1269
    }
   }
  ]
