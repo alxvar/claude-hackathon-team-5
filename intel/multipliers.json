@@ -1,0 +1,290 @@
+{
+ "_meta": {
+  "updated": "Sat 12:30 snapshot 440",
+  "source": "intel/score-model.md §4 (Analyst)",
+  "fields": "m = midpoint estimate; lo/hi = range within {0.5,0.7,0.9,1.1,1.3,1.6}; conf V/L/?",
+  "method": "implied dV from Saturday-only board jumps / 0.235 + price/book floors of bids and buys"
+ },
+ "t01": {
+  "MAL": {
+   "m": 0.9,
+   "lo": 0.9,
+   "hi": 0.9,
+   "conf": "L",
+   "why": "MAL-06 buy at 20+2 reads 0.91 (clean window)"
+  },
+  "SAL": {
+   "m": 1.35,
+   "lo": 1.1,
+   "hi": 1.6,
+   "conf": "L",
+   "why": "bought SAL-10/07/08; SAL-07 jump"
+  }
+ },
+ "t02": {
+  "MAL": {
+   "m": 0.6,
+   "lo": 0.5,
+   "hi": 0.7,
+   "conf": "L",
+   "why": "bids 0.50, paid 0.60"
+  },
+  "LAT": {
+   "m": 0.5,
+   "lo": 0.5,
+   "hi": 0.5,
+   "conf": "L",
+   "why": "bids 0.52"
+  },
+  "LAV": {
+   "m": 0.7,
+   "lo": 0.5,
+   "hi": 0.9,
+   "conf": "?",
+   "why": "bids 0.32"
+  },
+  "RET": {
+   "m": 1.2,
+   "lo": 1.1,
+   "hi": 1.3,
+   "conf": "L",
+   "why": "paid 1.24"
+  }
+ },
+ "t03": {
+  "SAL": {
+   "m": 1.2,
+   "lo": 1.1,
+   "hi": 1.3,
+   "conf": "L",
+   "why": "SAL-01 buy on v07 reads 1.37; bid 1.06"
+  },
+  "LAV": {
+   "m": 1.35,
+   "lo": 1.1,
+   "hi": 1.6,
+   "conf": "L",
+   "why": "bid 1.01"
+  },
+  "LAT": {
+   "m": 1.0,
+   "lo": 0.9,
+   "hi": 1.1,
+   "conf": "L",
+   "why": "bid 0.93, paid 0.88"
+  }
+ },
+ "t04": {
+  "LAV": {
+   "m": 1.2,
+   "lo": 1.1,
+   "hi": 1.3,
+   "conf": "L",
+   "why": "paid 1.23"
+  }
+ },
+ "t06": {
+  "LAV": {
+   "m": 1.45,
+   "lo": 1.3,
+   "hi": 1.6,
+   "conf": "L",
+   "why": "bid 1.19, paid 1.17; LAV-10 at 82+6 with SAL-10 jump"
+  },
+  "SAL": {
+   "m": 1.45,
+   "lo": 1.3,
+   "hi": 1.6,
+   "conf": "L",
+   "why": "SAL-10 at 76+5; bid 0.97"
+  }
+ },
+ "t09": {
+  "LAV": {
+   "m": 1.45,
+   "lo": 1.3,
+   "hi": 1.6,
+   "conf": "L",
+   "why": "LAV-09 from Chato at 89; LAV-04 jump"
+  },
+  "MAL": {
+   "m": 1.0,
+   "lo": 0.9,
+   "hi": 1.1,
+   "conf": "L",
+   "why": "MAL-07 jump 1.13; bids 0.80"
+  }
+ },
+ "t10": {
+  "MAL": {
+   "m": 0.5,
+   "lo": 0.5,
+   "hi": 0.5,
+   "conf": "L",
+   "why": "sold MAL-07 at 14, lost 9.9 (clean)"
+  },
+  "SAL": {
+   "m": 1.0,
+   "lo": 0.9,
+   "hi": 1.1,
+   "conf": "L",
+   "why": "sold SAL-07 at 26, lost 26.3; v10 VC -10.2 vs t15 0.5"
+  }
+ },
+ "t12": {
+  "LAV": {
+   "m": 1.45,
+   "lo": 1.3,
+   "hi": 1.6,
+   "conf": "L",
+   "why": "LAV-06 from Chato at 31"
+  },
+  "LAT": {
+   "m": 0.8,
+   "lo": 0.7,
+   "hi": 0.9,
+   "conf": "L",
+   "why": "LAT-05 9.0, LAT-07 18.7, LAT-01 7.0"
+  }
+ },
+ "t13": {
+  "MAL": {
+   "m": 1.6,
+   "lo": 1.6,
+   "hi": 1.6,
+   "conf": "L",
+   "why": "MAL-10 at 65+5 reads 1.63"
+  }
+ },
+ "t14": {
+  "LAV": {
+   "m": 1.45,
+   "lo": 1.3,
+   "hi": 1.6,
+   "conf": "L",
+   "why": "LAV-07 at 55 (page?)"
+  },
+  "LAT": {
+   "m": 1.2,
+   "lo": 1.1,
+   "hi": 1.3,
+   "conf": "L",
+   "why": "LAT-03 jump 1.22; bid 1.40"
+  }
+ },
+ "t15": {
+  "LAT": {
+   "m": 1.45,
+   "lo": 1.3,
+   "hi": 1.6,
+   "conf": "L",
+   "why": "buys LAT x6; its dup sales read as 25%/10% copies of 1.3-1.6"
+  },
+  "SAL": {
+   "m": 0.5,
+   "lo": 0.5,
+   "hi": 0.5,
+   "conf": "L",
+   "why": "SAL-07 on v10 reads 0.55"
+  },
+  "RET": {
+   "m": 1.2,
+   "lo": 1.1,
+   "hi": 1.3,
+   "conf": "L",
+   "why": "RET-07 at 24+3"
+  },
+  "MAL": {
+   "m": 0.8,
+   "lo": 0.7,
+   "hi": 0.9,
+   "conf": "?",
+   "why": "paid 0.70"
+  }
+ },
+ "t16": {
+  "LAV": {
+   "m": 0.7,
+   "lo": 0.7,
+   "hi": 0.7,
+   "conf": "L",
+   "why": "sold LAV-10 at 82, lost 49.9 (clean)"
+  },
+  "LAT": {
+   "m": 1.2,
+   "lo": 1.1,
+   "hi": 1.3,
+   "conf": "L",
+   "why": "LAT-10 from Chato at 91; LAT-09 jump 1.03"
+  },
+  "SAL": {
+   "m": 1.2,
+   "lo": 1.1,
+   "hi": 1.3,
+   "conf": "L",
+   "why": "bid 1.11, paid 1.29"
+  }
+ },
+ "t17": {
+  "MAL": {
+   "m": 1.45,
+   "lo": 1.3,
+   "hi": 1.6,
+   "conf": "L",
+   "why": "bid MAL-09 85 (1.21), paid 1.24"
+  }
+ },
+ "t18": {
+  "RET": {
+   "m": 1.45,
+   "lo": 1.3,
+   "hi": 1.6,
+   "conf": "L",
+   "why": "RET-02 at 49 (page closer)"
+  }
+ },
+ "t05": {
+  "CHA": {
+   "m": 1.6,
+   "lo": 1.6,
+   "hi": 1.6,
+   "conf": "V",
+   "why": "ours"
+  },
+  "LAV": {
+   "m": 1.3,
+   "lo": 1.3,
+   "hi": 1.3,
+   "conf": "V",
+   "why": "ours"
+  },
+  "RET": {
+   "m": 1.1,
+   "lo": 1.1,
+   "hi": 1.1,
+   "conf": "V",
+   "why": "ours"
+  },
+  "SAL": {
+   "m": 0.9,
+   "lo": 0.9,
+   "hi": 0.9,
+   "conf": "V",
+   "why": "ours"
+  },
+  "MAL": {
+   "m": 0.7,
+   "lo": 0.7,
+   "hi": 0.7,
+   "conf": "V",
+   "why": "ours"
+  },
+  "LAT": {
+   "m": 0.5,
+   "lo": 0.5,
+   "hi": 0.5,
+   "conf": "V",
+   "why": "ours"
+  }
+ }
+}
