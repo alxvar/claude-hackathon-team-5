@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sat 16:07 · operator · **trader STOPPED** (Chief, urgent): Team 10 (#4, 0.6 above us) offered us SAL-10 for MAL-09, which loop.py would have taken at +14 while it's likely t10's MAL page-closer (+50 for them) → MAL-09 still ours; trader stays down until the Builder puts the counterparty policy + a reserved-cards guard into loop.py
 - Sat 16:05 · operator · Chief: don't idle on Pícaros → LAT-08 (pack, 12.5) → Chato offer-only now (ask 30, −2 steps, take a bid ≥ 15 or a final ≥ 14) for an empty L2 slot · book + MAL-03 → t09 and MAL-05 → t15 at 9 (floor 8); reserved: MAL-09, SAL-08, SAL-04, SAL-03, SAL-05
 - Sat 15:57 · operator · counterparty policy (Chief): no trades with the live top 5 unless our gain ≥ 3× theirs; page-closers only to teams ≥ 6 below; never t13/t17 gaining more than us; Team 13's 'lending program' NO; safe now: t16, t15, t08, t03, t09, t07 → book re-addressed SAL-01 t06 → t16, LAV-03 t04 → t09 (old asks cancelled); book now 6 asks, all to safe teams
 - Sat 15:51 · operator · **trader took a swap addressed to us**: t08's SAL-04 for our 2nd RET-04 on v11 (Team 7's venue), tick 669: `neg_points` 32.5 → **38.7 (+6.2, as expected)**; opps then dropped its RET-04 ask (9343): we keep the last RET-04, RET page 10/10 intact
