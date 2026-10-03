@@ -323,6 +323,87 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1312,
+   "raw": {
+    "duel": 5969,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Plaza del Dos de Mayo",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.59,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 68,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1316,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 9096,
+     "price": 37,
+     "tick": 1312,
+     "days": 2
+    },
+    "rival_offer": {
+     "id": 8761,
+     "price": 50,
+     "tick": 1303,
+     "days": 2
+    },
+    "messages": [
+     {
+      "tick": 1301,
+      "from": "Rival Plata",
+      "text": "Rápido y justo: 57 P, día 8. ¿Qué día de entrega te va mejor? / Quick and fair: 57 P, day 8. Which delivery day suits you best?",
+      "price": 57,
+      "days": 8
+     },
+     {
+      "tick": 1301,
+      "from": "you",
+      "text": "Day 0 suits me best, so I can do 40 P for delivery on day 0. That keeps things simple and quick for both of us.",
+      "price": 40,
+      "days": 0
+     },
+     {
+      "tick": 1302,
+      "from": "Rival Plata",
+      "text": "Parece que el día te importa: 52 P con día 4. / It seems the day matters to you: 52 P, day 4.",
+      "price": 52,
+      "days": 4
+     },
+     {
+      "tick": 1302,
+      "from": "you",
+      "text": "Thanks for moving. I can do 43 P with delivery on day 0, which keeps it simple and quick.",
+      "price": 43,
+      "days": 0
+     },
+     {
+      "tick": 1303,
+      "from": "Rival Plata",
+      "text": "Parece que el día te importa: 50 P con día 2. / It seems the day matters to you: 50 P, day 2.",
+      "price": 50,
+      "days": 2
+     },
+     {
+      "tick": 1312,
+      "from": "you",
+      "text": "I can do 37 P, delivery on day 2.",
+      "price": 37,
+      "days": 2
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1052,6 +1133,129 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 1312,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 5969,
+     "role": "buyer",
+     "limit": 68,
+     "currency": "P",
+     "item": "Plaza del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.59,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Rápido y justo: 57 P, día 8. ¿Qué día de entrega te va mejor? / Quick and fair: 57 P, day 8. Which delivery day suits you best?",
+      "offer": {
+       "price": 57,
+       "days": 8
+      },
+      "accept": false,
+      "tick": 1301,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Day 0 suits me best, so I can do 40 P for delivery on day 0. That keeps things simple and quick for both of us.",
+      "offer": {
+       "price": 40,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1301,
+      "decision": {
+       "action": "offer",
+       "price": 40,
+       "message": "Day 0 suits me best, so I can do 40 P for delivery on day 0. That keeps things simple and quick for both of us."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Parece que el día te importa: 52 P con día 4. / It seems the day matters to you: 52 P, day 4.",
+      "offer": {
+       "price": 52,
+       "days": 4
+      },
+      "accept": false,
+      "tick": 1302,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for moving. I can do 43 P with delivery on day 0, which keeps it simple and quick.",
+      "offer": {
+       "price": 43,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1302,
+      "decision": {
+       "action": "offer",
+       "price": 43,
+       "message": "Thanks for moving. I can do 43 P with delivery on day 0, which keeps it simple and quick."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Parece que el día te importa: 50 P con día 2. / It seems the day matters to you: 50 P, day 2.",
+      "offer": {
+       "price": 50,
+       "days": 2
+      },
+      "accept": false,
+      "tick": 1303,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 50,
+     "days": 2
+    },
+    "tick": 1312,
+    "ticks_left": 4,
+    "rounds": 2,
+    "day_swings": [
+     39.8,
+     55.199999999999996,
+     36.2,
+     18.6,
+     45.099999999999994,
+     33.4,
+     62.599999999999994,
+     25.9,
+     13.200000000000001,
+     23.3,
+     14.299999999999999,
+     64.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 37 P, delivery on day 2.",
+    "price": 37,
+    "days": 2,
+    "meta": {
+     "rule": "late switch",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1166,6 +1370,29 @@
      "price": 43,
      "tick": 1302,
      "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1312,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 37 P, delivery on day 2.",
+    "price": 37,
+    "days": 2,
+    "meta": {
+     "rule": "late switch",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 5969,
+    "offer": {
+     "id": 9096,
+     "price": 37,
+     "tick": 1312,
+     "days": 2
     }
    }
   }

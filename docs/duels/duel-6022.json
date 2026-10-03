@@ -606,6 +606,163 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1310,
+   "took_s": 9.28,
+   "cost_usd": 0.015430000000000001,
+   "obs": {
+    "view": {
+     "duel_id": 6022,
+     "role": "buyer",
+     "limit": 125,
+     "currency": "P",
+     "item": "La Dama de Serrano",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.43,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello, and thank you for meeting me. I would propose 107 P with delivery on day 10.",
+      "offer": {
+       "price": 107,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1307,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the opening, I appreciate it. I can do 78 P with delivery on day 10; a gap like this is a normal place to start.",
+      "offer": {
+       "price": 78,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1308,
+      "decision": {
+       "action": "offer",
+       "price": 78,
+       "message": "Thank you for the opening, I appreciate it. I can do 78 P with delivery on day 10; a gap like this is a normal place to start."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I appreciate it, thank you. Could we close at 95 P, delivery on day 10, please?",
+      "offer": {
+       "price": 95,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1308,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you, I appreciate the move. I can step up to 81 P with delivery on day 10, a real step toward meeting in the middle.",
+      "offer": {
+       "price": 81,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1309,
+      "decision": {
+       "action": "offer",
+       "price": 81,
+       "message": "Thank you, I appreciate the move. I can step up to 81 P with delivery on day 10, a real step toward meeting in the middle."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Fair enough, thank you. I will meet you partway: 90 P with delivery on day 10.",
+      "offer": {
+       "price": 90,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1309,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 90,
+     "days": 10
+    },
+    "tick": 1310,
+    "ticks_left": 13,
+    "rounds": 2,
+    "day_swings": [
+     39.8,
+     55.199999999999996,
+     36.2,
+     18.6,
+     45.099999999999994,
+     33.4,
+     62.599999999999994,
+     25.9,
+     13.200000000000001,
+     23.3,
+     14.299999999999999,
+     64.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'll stay at 81 P with delivery on day 10.",
+    "price": 81,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 81,
+      "message": "I'll stay at 81 P with delivery on day 10."
+     },
+     "band": {
+      "worst": 81,
+      "target": 81,
+      "best": 81
+     },
+     "plan": {
+      "read": "They keep conceding in large steps (107, then 95, then 90 on day 10) while we have moved only 3. Their 90 is within our limit, but they show no sign of stopping, so their momentum looks genuine and is worth letting run.",
+      "target": 81,
+      "best": 81,
+      "worst": 81,
+      "days": 10,
+      "angle": "Hold at 81 P on day 10 and send nothing this tick; let their concessions keep coming."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.72,
+       "in": 1014,
+       "out": 439,
+       "cost_usd": 0.01284,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.56,
+       "in": 477,
+       "out": 164,
+       "cost_usd": 0.00259,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [
