@@ -1,28 +1,17 @@
-# Scout (claude-sonnet-5-5, Sat 17:07)
+# Scout (claude-sonnet-5-5, Sat 17:12)
 
 ## Top 3 actions now
-
-1. **Sell spare commons to Team 7 (#17, 10.6 below us, safe) as maker, price 9, addressed `to` t07.** Operator via `trade.py`.
-   - Evidence: the "who to sell what to" table lists LAT-04, RET-04, LAV-03 and LAV-04 at "9.5 est." (+4.3 to +6.3 each). Our offer 12512 (LAV-02 at 0 to t07) is mispriced.
-   - Action: cancel 12512 and relist LAV-02 at 9. Our value for LAV-02 is 1.3, so about +7.7 gain on a clipped team sell.
-   - Effect: roughly +4 to +6 neg_points per card. Our own LAV-03 (6) and LAV-04 (6) offers sit below the 9.5 est.
-   - Confidence: med. The 9.5 is an estimate; the only live bid on t07's list is SAL-01 at 5.
-2. **Keep the Pilar 12511 offer (MAL-06 at 20) and then list MAL-08 for Pilar (L3 slot).**
-   - Evidence: the 17:06 log says MAL-06 → Pilar at 20 gave ladder +0.040 (0.333 → 0.373). Her prices run 16 → 19, and she accepts our price with small steps.
-   - Action: Operator makes a sequence of offers on MAL-08 (value 17.5), opening at 28 and stepping −2/−3. Never jump to her bid and sell only at ≥ 18.
-   - Effect: replaces a weaker L3 slot, about +0.02 to +0.04 ladder, 0 neg.
-   - Confidence: med. A third MAL deal may not beat the existing best 3.
-3. **Fever resale at 18:04: SAL-09 and SAL-10 → Pilar, open 100, −2, accept ≥ 85 only.**
-   - Evidence: the log says the job is armed. Pícaros paid 54 each and our value is 63. A sale at ≥ 63 is 0 neg, and cash is 72 while the Sunday CHA target is ~245.
-   - Effect: about +25 cash each at 85, no neg loss, and it funds the CHA page.
-   - Confidence: med. The fever window is 18:03-20:03, and Pilar's rare median is 70 over only 1 deal.
+1. **Sell MAL-09 to Pilar at ≥55 (Operator job 17:30, already armed).** MAL-09 is worth 49 to us. Her fever bids are not in the data. It converts to cash for the Sunday CHA page, and neg_points stay unchanged (a gain clips to 0). Confidence: med.
+2. **Fever resale of SAL-09 and SAL-10 to Pilar from 18:04 (Operator job).** Open 100 and step −2/−3, never jump to her bid. Accept only at ≥85, because both are worth 63 to us. A dealer sale does not add neg_points. A stepped sale earned +0.040 ladder (MAL-06 at 20, ladder 0.333 → 0.373). Ladder is now 0.373. The L3 slots hold 0.050 (MAL-07), 0.040 and 0.019 or 0.040, so a high SAL sale can replace the weakest slot. Confidence: med.
+3. **Sell the spare commons to non-top-5 buyers who bid or collect them, as maker.** Open offers: 12479 LAV-04 at 6 to t03, 12539 LAV-03 at 6 to t09, 12584 LAT-03 at 7 to t03, 12480 SAL-02 at 11 to t16, 12654 SAL-01 at 11 to t16. Evidence: t16 and t03 are on the safe list. Past spare sales gave +4.7 (SAL-01 at 7) and +6.2. Offer 12725 (LAV-02 at 0 to t07, expires tick 844) gives the card away; check it is deliberate. Dani can point t16 and t03 at the live offers. Confidence: med.
 
 ## What the climbing teams are doing
-- **Team 1** (+3.9 in 60 min, #3) and **Team 3** (+4.9) are climbing. Team 3 bought LAT-09 for 88 from t16 at tick 724 and SAL-05 at 8 from t15 at tick 782. Team 16 (+4.7) sold that LAT-09 and then took Pícaros L4. Rare buys and sales plus the L4 unlock seem to be driving the gains.
-- **Team 15** is the busiest seller (22 team trades). It sells SAL-09 to t06 at 68 (tick 781) and swaps LAV-07/LAV-08 at 0 P with t07 (tick 787). Team 7 pays 44 for LAV-07 from t16 at tick 796, so Team 7 is building LAV.
-- **Pícaros L4 unlocks are spreading**: t09, t10, t16, t14 and t15 all unlocked via 2-3 Pilar deals (ticks 761-802). The L4 slot is no longer exclusive; Analyst says SAL-10 netted only ~+0.36 board.
+- **Team 16 (#9, +4.5/h).** It bought LAT-09 for 88 from t16→t03, sold SAL-05 and LAV-07 (44 to t07), and bids for RET-07 at 15 and LAV-06/07 at 12. It is also in Pícaros L4. It looks like a high-turnover dealer-to-team arbitrage.
+- **Team 3 (#6, +4.7/h).** It took LAT-09 (88) and SAL-05 (8), and bids LAV-10 at 38. This is rare-for-cash buying from teams.
+- **Team 1 (#3, +3.7/h).** It has only 23 deals, and the metrics do not show how it climbs. Not in the data.
+- **Team 15 (#14, +1.2).** It has 22 team trades and reached L4 at tick 802. It sold SAL-09 to t06 at 68 and swapped LAV-07 with LAV-08 at 0 P with t07.
 
 ## Threats
-- **Team 14 (#1, 29.8)** is 0.1 above us. Its LAV and LAT collecting overlaps our LAV needs, and it bought MAL-08 from us for 15 at tick 760 (+2.5 for us). No further sales to t14 or t1 unless our gain is ≥ 3× theirs.
-- **t07's LAV-07 buy at 44 (tick 796) and t03's bid on LAV-10 at 38.** LAV-10 is worth 177 to us. Do not sell LAV rares and uncommons.
-- **Flags are capped** (flags 5-7 scored 0). Do not spend more tries on Pícaros flags beyond the planned 17:40 probe.
+- **Team 14** is tied with us at 29.7 (we are #1 on the margin) and is our nearest rival. Keep it away from our page-closers and rares. Never trade with it at gains above 1/3 of ours.
+- **Pícaros L4 is no longer an edge.** Teams 9, 10, 16, 14 and 15 all joined L4 at ticks 761-802, and SAL-10's slot netted only ~+0.36 board. Flags are capped (the last three scored 0). A wrong flag costs −10.
+- **Our current lead** is 29.73 against t14 29.7, and the last 15 min showed −0.3. It is unstable, so avoid feeding t12 or t10. t10 bids LAV-10 area? No, t03 bids LAV-10 at 38, and our LAV-10 is worth 177, so never sell it.
