@@ -22,7 +22,9 @@ cmd_for() {
 }
 ALL="status collector trader scout judge strategist archiver duelmon opps recorder"  # broker: started by the Market session only  # autoflip is DEAD (dealer buys above value subtract): never add it back
 alive() { [ -f "$R/run/$1.pid" ] && kill -0 "$(cat "$R/run/$1.pid")" 2>/dev/null; }
-action="$1"; shift; names="${*:-$ALL}"
+action="$1"; shift
+if [ "$action" = start ] && [ $# -eq 0 ]; then echo "start needs explicit names (safe at once: status collector archiver duelmon recorder; after the 09:00 checks: trader opps scout judge strategist)"; exit 1; fi
+names="${*:-$ALL}"
 for n in $names; do
   case "$action" in
     start)

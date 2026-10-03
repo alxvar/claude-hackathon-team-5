@@ -26,7 +26,7 @@ from bazaar_sdk import Bazaar, BazaarError  # noqa: E402
 ARCHIVE = ROOT / "archive"
 STATE = ROOT / "run" / "archiver.json"  # the last clock read, so a restart doesn't miss a boundary
 SOURCES = ("data", "logs")
-SECRETS = ("BAZAAR_KEY", "ANTHROPIC_API_KEY", "BROKER_KEY")
+SECRETS = ("BAZAAR_KEY", "ANTHROPIC_API_KEY", "BROKER_KEY", "NTFY_DANI", "NTFY_LUCAS")
 ME_FIELDS = ("id", "name", "tick", "cash", "level", "score")
 
 

@@ -25,14 +25,14 @@ anything important (find it with `ListAgents`) and log every action in `team/luc
    wake-up (a lock without a heartbeat for 10 min is stale and another session may take it), and
    `python3 tools/operator_lock.py release` when you hand off. Then `python3 tools/preflight.py`: any FAIL (a key over its
    spend limit, the game unreachable) goes to Lucas before anything else.
-1. `tools/daemons.sh status`. Before the §2 checks start only `status` and `collector` if they are DOWN.
+1. `tools/daemons.sh status`. Start at once only the read-only daemons that are DOWN:
+   `tools/daemons.sh start status collector archiver duelmon recorder` (`start` with no names is refused on purpose).
 2. Arm the live watcher with the Monitor tool: command `set -a; . ./.env; set +a; python3 -u tools/watch.py`,
    timeout 1800000. Re-arm it every time it expires.
-3. **Saturday:** read `intel/saturday-plan.md` first and run its §2 decision tree before anything else. The trader and
-   the analysts were stopped overnight on purpose: start them with the cash floor of the latest GUARDRAIL directive (`CASH_FLOOR=100 tools/daemons.sh start trader opps scout judge strategist`)
-   — and at once, read-only and safe before the checks: `tools/daemons.sh start archiver duelmon recorder`
-   only after the clock check, opening the grant pack and the reset check. The plan supersedes directive blocks written
-   before Sat 00:45 where they conflict.
+3. **Saturday:** read `intel/saturday-plan.md` first and run its §2 decision tree before anything else (clock check →
+   open the grant pack → reset check). Only then start the daemons that trade, with the cash floor of the latest
+   GUARDRAIL directive: `CASH_FLOOR=100 tools/daemons.sh start trader opps scout judge strategist`. The plan supersedes
+   directive blocks written before Sat 00:45 where they conflict.
 4. Read `intel/directives.md`, `intel/strategy.md`, `intel/judge.md`, then the top of `intel/metrics.md` (it now has our
    holdings with per-copy values, our open offers with `to`, what each of our deals did to `neg_points`, and our dealer
    conversations). Nothing else unless needed.
