@@ -5,6 +5,8 @@
     python dashboard/server.py --no-key     # public data only (no score, assets or duels of ours)
     python dashboard/server.py --no-hub     # don't read the team hub even if HUB_READER_URL is set
 
+http://127.0.0.1:8765/show is the judges' showcase (judges/dashboard-brief.md): the same data plus judges/show.json.
+
 It never writes to the game. Public routes (feed, leaderboard, El Rastro board, venues, catalog, schedule, levels,
 dealers) are read without the team key; only `me` and `duels` use it. About 5-8 requests per tick, spaced 0.4 s
 apart, so the team's 5 requests/s stay free for the live bots. The key comes from BAZAAR_KEY, the repo's .env or
@@ -37,6 +39,7 @@ from bazaar_sdk import Bazaar, BazaarError  # noqa: E402
 HERE = Path(__file__).resolve().parent
 CACHE = ROOT / "logs" / "dashboard"
 TEAMS_MD = ROOT / "intel" / "teams.md"
+SHOW_JSON = ROOT / "judges" / "show.json"   # the judges' showcase (/show): story texts Dani edits
 URL = os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai")
 GAP = 0.4          # seconds between two requests
 EDGE = 3           # P of gain, after fees, that makes an offer an opportunity
@@ -1325,6 +1328,48 @@ class Analysis:
 
 # ---------------------------------------------------------------------------------------------- web
 
+def last_seen(files, _cache={}):
+    """When each file last changed on GitHub (`git log origin/main`, which read_directives keeps fetched): the "last
+    seen" of the agent that writes it, for the showcase diagram. Local git only, no game request; cached 2 minutes."""
+    out = {}
+    for f in files:
+        t, v = _cache.get(f, (0.0, None))
+        if time.time() - t > 120:
+            v = None
+            for ref in ("origin/main", "HEAD"):
+                try:
+                    r = subprocess.run(["git", "-C", str(ROOT), "log", "-1", "--format=%cd", "--date=format:%a %H:%M",
+                                        ref, "--", f], capture_output=True, text=True, timeout=5)
+                except (OSError, subprocess.SubprocessError):
+                    continue
+                if r.returncode == 0 and r.stdout.strip():
+                    v = r.stdout.strip()
+                    break
+            _cache[f] = (time.time(), v)
+        out[f] = v
+    return out
+
+
+def show_data(c):
+    """judges/show.json, read fresh on every call (Dani edits it during the day), plus each diagram node's last seen and
+    our /api/me row at each tick the story names (/api/data only carries the last 500 rows)."""
+    try:
+        show = json.loads(SHOW_JSON.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as e:
+        return {"error": f"judges/show.json: {e}"[:300]}
+    files = [n["file"] for col in (show.get("how") or {}).get("columns", []) for n in col.get("nodes", []) if n.get("file")]
+    show["last_seen"] = last_seen(files)
+    ticks = {(show.get("hero") or {}).get("since_tick"), (show.get("waterfall") or {}).get("start_tick"),
+             (show.get("waterfall") or {}).get("end_tick")} - {None}
+    with c.lock:
+        rows = list(c.me_hist)
+    show["me_at"] = {}
+    for t in ticks:
+        before = [r for r in rows if r.get("tick") is not None and r["tick"] <= t]
+        show["me_at"][str(t)] = before[-1] if before else None
+    return show
+
+
 class Handler(BaseHTTPRequestHandler):
     collector: Collector = None
     _cache = (0.0, b"")
@@ -1342,6 +1387,11 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path in ("/", "/index.html"):
             return self._send(200, (HERE / "index.html").read_bytes(), "text/html; charset=utf-8")
+        if self.path.split("?")[0] in ("/show", "/show.html"):
+            return self._send(200, (HERE / "show.html").read_bytes(), "text/html; charset=utf-8")
+        if self.path.startswith("/api/show"):
+            return self._send(200, json.dumps(show_data(self.collector), ensure_ascii=False, default=str).encode(),
+                              "application/json; charset=utf-8")
         if self.path.startswith("/api/data"):
             t, body = Handler._cache
             if time.time() - t > 3:

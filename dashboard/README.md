@@ -22,4 +22,10 @@ VS Code or the window closes) and opens the browser. Every teammate can run thei
   `hub synced HH:MM:SS`. `--no-hub` turns it off; without the URL it runs as before.
 - Strategy labels and "who holds" are inferences from the feed: starting cards and pack pulls are invisible.
 
+**The judges' showcase:** http://127.0.0.1:8765/show (brief: `judges/dashboard-brief.md`; design: Figma
+"Team 5 · Judges showcase", https://www.figma.com/design/picVx0KcLHR9uY0ctMuVTu). One page, eight sections, live from
+`/api/data` plus the story texts in `judges/show.json`, which it re-reads every minute (edit it, no restart). It adds no
+request to the game; "last seen" in the diagram is the last commit of each file on GitHub. No external files, so it works
+offline; light or dark follows the system (button top right, or `?theme=light|dark`); stacks on a phone.
+
 Owner: Dani.
