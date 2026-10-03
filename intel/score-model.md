@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 20:11 (tick 1192), snapshot 1190: t10 34.11 · t06 32.54 · **us #3 31.80** (−0.12, ladder erosion) · t03 30.04 (bench 5: market 5.46 → 5.86) · t18 30.03 · t14 29.96. Fever ended (tick 1179). Duels II ≈ 20:33 (tick ≈ 1239); plan §1f._
+_Last update: Sat 21:11 (tick 1226), snapshot 1220: t10 33.58 · t06 32.62 · **us #3 31.29** · t03 29.89 · t14 29.58 · t18 29.41. Field-wide drop at 1210 (−0.15 to −0.48 each) [?]. Duels II ≈ tick 1239 (≈ 21:16); plan §1f; Sunday allocation §3g._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -260,6 +260,7 @@ t13 and t04 have dealer deals in the window). Full = 12 Saturday points = 8.0 bo
 | 904 | SWAP LAT-01 → t07 for SAL-07 (El Rastro, price 0) | — | neg_points 63.2 → 78.7 (+15.5); board negotiating +0.74 at 910 with the field median 0.00 → **trade part NOT capped: ≈ 0.048 board per neg_point [V]** |
 | 988 | **BUY SAL-06 ← t08 at 28 + 3 fee (taker, El Rastro): SAL PAGE CLOSED** | — | neg_points 78.7 → 119.1 (**+40.4**, under the cap; ΔV ≈ 71.4); board negotiating **+2.00** at 990 with the field median 0.00 → ≈ 0.0495 board per neg_point; **#1 at 31.97** |
 | — | Snapshots 1030-1040: our negotiating −0.28, −0.04 with no event of ours | | **ladder back below its cap [L]**: the field's Pícaros/Pilar flood lifted the reference; zero-neg ladder deals regain ≈ +0.1-0.3 board each |
+| 1209 | BUY RET-11 (epic, worth 198 to us) ← Pícaros at 128 | — | ladder 0.437 → 0.483 (+0.046, replaces the SAL-04 L4 slot); neg 0; cash 520 → 392. Board at 1210: −0.35, but the whole field fell 0.15-0.48 in that window (no duels, few deals) → net ≈ 0 to +0.1 [?] |
 
 **Saturday negotiating decomposition at snapshot 910 [L, fits]:** 23.73 = duel part ≈ 9.1 + ladder 0.6 × 15 (capped) = 9.0
 + trades 0.6 × 15 × T/N with T = 78.7 and N ≈ 125 (from the 0.072 Saturday points per neg_point measured at 904). Implications:
