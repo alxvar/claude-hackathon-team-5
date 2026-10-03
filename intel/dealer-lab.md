@@ -116,6 +116,49 @@ From `intel/eggs.md` and our Saturday results. Rewards may reset with the day [?
   octubre" was tried by t08 at tick 1325: no reward [V, eggs.md]. Best lever with her: bring RET-11 (she asks for it).
 - **Ernesto**: "el oro de Moscú" is spent (LAT-13 minted out). Skip.
 
+## FAST-START: CHA and MAL at round 3's first tick (dry run, no API writes)
+
+Files: `run/cha_book.json` (per card: team bid ladder, dealer fallback, castizo opener, the last card),
+`run/mal_book.json` (MAL-09/10 then MAL-07 last), `run/book_cha_entries.json` (cha-plan's book block, ready to merge into
+run/book.json in **one write**). Settled by directive 00:25. Dry-run script: Operator scratchpad `fast_start_dry.py`.
+
+**08:55 read decides the case.** Saturday's game clock stopped at hour **13.367**, and the CHA release and round 3 sit at
+**16.65** on `/api/schedule`. The two Market Tests at 14.65 and 15.0 are still listed.
+- **Resume:** the clock restarts at 13.37, and CHA + round 3 come about 3.3 game hours after 09:00.
+- **Jump:** Sunday opens at 16.65, so CHA + round 3 fire at 09:00.
+
+The Operator reports the case to the Chief at 08:55. The order below starts at "t+0 = the first tick after CHA's
+`released`".
+
+**Order of fire** (15 s ticks; limits: 5 rps shared with the duelist, 1 accept/tick, 6 threads, 30 offers):
+
+| When | Action | Requests |
+|---|---|---|
+| t+0 | merge `book_cha_entries.json` into run/book.json; book.py posts 10 public bids on El Rastro (rares 70, uncommons 24, commons 9, CHA-08 flat 24, CHA-05 flat 9, `last_card` on all) | ~10 over 2 ticks (book.py throttles itself) |
+| t+1 | open the Pícaros thread with the estampita line, no price, then close it; open the Abuela thread with the cocido line, no price, then close it | 4 |
+| t+40 / 80 / 120 / 160 (every 10 min) | book.py steps each bid toward its floor (rares 70 → 90, uncommons 24 → 30, commons 9 → 12) | 1 each |
+| t+120 (30 min) | CHA-09 not filled → **Pícaros** buy: open 42, +2, target 48-52, accept ≤ 54, walk on a final ≥ 57 and reopen once, then ≤ 57; trick guard | 1 thread |
+| after CHA-09's thread closes (≈ t+180) | CHA-10 → Pícaros, same terms | 1 thread |
+| t+240 / 300 | CHA-06 then CHA-07 → **Abuela**: open 12, +1/+2, target 20-21, accept ≤ 22 | 1 thread at a time |
+| t+360 … 480 | CHA-01..04 → Abuela: open 5, +1, target 8, accept ≤ 9 | 1 thread at a time |
+| t+840 | CHA-08 → Abuela ≤ 22, only if CHA-08 and CHA-05 are both still missing | 1 |
+| any time CHA-05 is the last missing card | its bid jumps 9 → value − 50 = 72 cap (book.py `last_card`): +50 | auto |
+| once CHA is in or on budget | **MAL**: MAL-09 then MAL-10 → Pícaros (open 40, +2, target 44-48, accept ≤ 49 = our value); then MAL-07 **last** from Team 15 by team trade (addressed bid on El Rastro, start 20, up to value-when-last − 50) | 1 thread + 1 bid |
+
+**Expected P and score (CHA)** [L, from §1 medians and cha-plan values 16/40/112, page bonus 106]:
+
+| Case | CHA cash | neg_points | Ladder |
+|---|---|---|---|
+| A. dealers at targets, CHA-08/05 from teams | **242** | ≈ +66 (CHA-08 +16, last card +50) | L4 ×2, L1 ×6 |
+| B. teams fill at the start bids | **288** | ≈ +210 (rares +42 each, unc +16, commons +7, last +50) | none |
+| C. worst case, every team bid at its max | **384** | ≈ +146 | none |
+
+**MAL:** ≈ **126** P (MAL-09/10 at ~48 = 0 neg + L4; MAL-07 at ~30 = **+50**, page close).
+
+**Cash** (392 + 150 = 542): A → 300 → MAL 174; B → 254 → MAL 128; C → 158 → MAL 32. The **SAL-11 overnight bid (115)**
+takes it to 59 / 13 / −83 if Team 4 fills it. In case C, MAL can't be funded with SAL-11 also filled. The book clamps
+bids to cash, so nothing overdraws, but the Chief should decide the SAL-11 vs MAL priority at 08:55.
+
 ## 4. 08:45 readiness checklist (Operator)
 
 1. `python3 tools/operator_lock.py heartbeat`; `git pull` on a clean tree (no stash); HEAD has the Builder's overnight fixes
