@@ -123,7 +123,8 @@ re-read `/api/schedule` at every round start.
 - **Team 13's WhatsApp (Sat 02:00)** pushes every team to bid, swap and trade on its venue v03: true and useful ideas, but
   each trade between other teams there scores market-making for Team 13 (#1). **We use the ideas, not its venue**: our
   offers go on El Rastro (house; nobody scores) or Team 2's v04 (0%, #17); on v03/v02 (Team 12, #2) we accept only gains
-  ≥ 15. Swaps (our spare for a page card we need) save cash and score for both sides. The same lever is ours once our
+  ≥ 15. Its claim that addressed offers are seen only by the addressee is false (the public feed shows them). Swaps (our
+  spare for a page card we need) save cash and score for both sides. The same lever is ours once our
   venue is open: Dani pitches low teams to trade on our 0% venue ("value created on our venue").
 
 ### 4B. Pages — the recipe that worked (+40 net, #10 → #5)

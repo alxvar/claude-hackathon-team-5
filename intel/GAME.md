@@ -35,8 +35,10 @@
   negotiated Abuela deals [V].
 - **Venues** [V]: 4 team venues exist (v01 Team 6 0.5%→0%, v02 Team 12 0%, v03 Team 13 1%, v04 Team 2 0% auto), all with 0
   trades on Friday. All 46 team trades went through El Rastro.
-- **Addressed offers are private** [V Sat 02:30]: an offer with `to` doesn't appear on public boards; the addressee sees it
-  in `GET /api/me/offers`. Our addressed bids don't reveal our needs. **Card-for-card swaps** exist (give assets, want
+- **Addressed offers are NOT private** [V Sat 02:50]: an offer with `to` is hidden from public boards (the addressee sees it
+  in `GET /api/me/offers`), but the public FEED's `offer.listed` event shows it in full: maker, `to`, give, want (35 such
+  events on Friday). Anyone reading the feed sees what we bid for and whom we target: keep page-critical bids short-lived.
+  Team 13's claim that only the addressee sees them is false. **Card-for-card swaps** exist (give assets, want
   cards). A venue's owner scores the value created between other teams on it: trading on a leader's venue feeds the leader
   (Team 13 lobbied every team on Sat 02:00 to trade and swap on its venue v03).
 - **Clearing prices on El Rastro** [V]: common 9 (LAT 7.5), uncommon 24.5 (MAL 26, SAL 24.5, LAT 21.5), rare 70 (53-80).

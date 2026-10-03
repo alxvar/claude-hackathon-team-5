@@ -2,8 +2,9 @@
 
 Strategies (--strategy):
   auto_clone  exactly what the free stall does on the Market Test (bazaar-kit/starter_broker.py `bench_plan`): in each
-              bench run, the best bid against the best ask while they cross, at the midpoint; with a venue fee the
-              midpoint is lowered until the buyer also covers the fee (identical to the stall at fee 0).
+              bench run, the best bid against the best ask while they cross, at the midpoint. Like the starter, it
+              charges no venue fee on bench matches; --bench-fee lowers the midpoint until the buyer also covers the
+              venue fee (same result at fee 0, which is the plan).
   v1          auto_clone + one rule about who is about to leave, built so it can only add: start from the stall's
               pairs, then bring in traders whose quote relaxed over the last ticks (fastest first: the impatient
               ones, likely to leave) through augmenting paths, i.e. by re-pairing the stall's traders, never by
@@ -35,7 +36,7 @@ from pathlib import Path
 if __package__ in (None, ""):  # run as a file: make `broker` the package, not this module
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from broker.common import URL, BazaarError, Broker, Public, TickClock  # noqa: E402
+from broker.common import URL, BazaarError, Broker, Public, TickClock
 
 STRATEGIES = ("auto_clone", "v1", "v1_literal")
 RUN_TICKS = 16   # a bench run's length (GET /api/schedule → bench params.ticks)
@@ -185,7 +186,7 @@ class Planner:
     Feed it every tick's book in order; offers already matched must not be in the book it gets."""
 
     def __init__(self, strategy: str = "auto_clone", run_ticks: int = RUN_TICKS, tail: int = TAIL,
-                 window: int = WINDOW, bench_fee: bool = True, tau: float = TAU):
+                 window: int = WINDOW, bench_fee: bool = False, tau: float = TAU):
         if strategy not in STRATEGIES:
             raise ValueError(f"unknown strategy {strategy!r}; one of {STRATEGIES}")
         self.strategy, self.run_ticks, self.tail, self.window, self.bench_fee = strategy, run_ticks, tail, window, bench_fee
@@ -284,7 +285,7 @@ def run(client, clock: TickClock, planner: Planner, *, dry_run: bool = False, ma
             try:
                 recorder.observe(book, tick, c.get("t_hours"))
                 recorder.poll_results()
-            except Exception as e:  # recording never stops the broker
+            except Exception as e:  # noqa: BLE001 - recording never stops the broker
                 out(f"recorder: {e!r}"[:200], flush=True)
         bench = [o for o in (book.get("bench_offers") or []) if o.get("id") not in posted]
         public = [o for o in (book.get("offers") or []) if o.get("id") not in posted]
@@ -297,7 +298,7 @@ def run(client, clock: TickClock, planner: Planner, *, dry_run: bool = False, ma
             view = {**book, "bench_offers": bench, "offers": public}
             try:
                 plan = planner.bench_plan(view, tick) + public_plan(view)
-            except Exception as e:  # an unexpected book shape: log it, count it, keep the loop alive
+            except Exception as e:  # noqa: BLE001 - an unexpected book shape: log, count, keep going
                 plan = []
                 failures += 1
                 st.errors += 1
@@ -334,8 +335,8 @@ def main(argv=None) -> int:
     ap.add_argument("--record", action="store_true", help="also record bench sessions to data/bench/ (then don't "
                     "run record_bench.py's book polling on the same key)")
     ap.add_argument("--run-ticks", type=int, default=RUN_TICKS)
-    ap.add_argument("--no-bench-fee", action="store_true", help="ignore the venue fee on bench matches (as the "
-                    "starter broker does); identical at fee 0")
+    ap.add_argument("--bench-fee", action="store_true", help="make bench matches cover the venue fee too (the "
+                    "starter broker doesn't); identical at fee 0")
     ap.add_argument("--tau", type=float, default=TAU, help="v1: urgent = relaxing by more than this share of its "
                     "quote per tick")
     ap.add_argument("--max-errors", type=int, default=20)
@@ -353,7 +354,7 @@ def main(argv=None) -> int:
         team = Bazaar(URL, os.environ["BAZAAR_KEY"], retries=2) if os.environ.get("BAZAAR_KEY") else None
         recorder = BenchRecorder(team=team)
     clock = TickClock(Public().clock)
-    planner = Planner(a.strategy, run_ticks=a.run_ticks, bench_fee=not a.no_bench_fee, tau=a.tau)
+    planner = Planner(a.strategy, run_ticks=a.run_ticks, bench_fee=a.bench_fee, tau=a.tau)
     return run(client, clock, planner, dry_run=a.dry_run, max_errors=a.max_errors, hz=a.hz, recorder=recorder)
 
 

@@ -29,7 +29,8 @@ anything important (find it with `ListAgents`) and log every action in `team/luc
 2. Arm the live watcher with the Monitor tool: command `set -a; . ./.env; set +a; python3 -u tools/watch.py`,
    timeout 1800000. Re-arm it every time it expires.
 3. **Saturday:** read `intel/saturday-plan.md` first and run its §2 decision tree before anything else. The trader and
-   the analysts were stopped overnight on purpose: start them (`tools/daemons.sh start trader scout judge strategist`)
+   the analysts were stopped overnight on purpose: start them with the cash floor of the latest GUARDRAIL directive (`CASH_FLOOR=100 tools/daemons.sh start trader opps scout judge strategist`)
+   — and at once, read-only and safe before the checks: `tools/daemons.sh start archiver duelmon`
    only after the clock check, opening the grant pack and the reset check. The plan supersedes directive blocks written
    before Sat 00:45 where they conflict.
 4. Read `intel/directives.md`, `intel/strategy.md`, `intel/judge.md`, then the top of `intel/metrics.md` (it now has our

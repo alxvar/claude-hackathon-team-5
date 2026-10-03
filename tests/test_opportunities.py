@@ -457,3 +457,36 @@ def test_message_is_bilingual_and_tells_their_agent_what_to_say():
     _, body = op.message(b, 77)
     assert "¿Ustedes juntan El Retiro?" in body and "COMPLETES our El Retiro page" in body
     assert "Accept offer 77 on El Rastro" in body
+
+
+def test_hard_limits_recheck_before_posting():
+    sell = {"side": "SELL", "price": 7, "our_value": 3.2}
+    assert op.within_hard_limits(sell, 0, 200)                           # the floor doesn't apply to sales
+    assert not op.within_hard_limits({**sell, "price": 6}, 0, 200)       # 6 < 3.2 + 3
+    buy = {"side": "BUY", "price": 70, "our_value": 77}
+    assert op.within_hard_limits(buy, 270, 200)
+    assert not op.within_hard_limits(buy, 269, 200)                      # 269 − 70 < 200
+    assert not op.within_hard_limits({**buy, "price": 75}, 1000, 200)    # above value − 3
+    assert not op.within_hard_limits({**buy, "price": None}, 1000, 200)
+
+
+def test_blocked_by_hard_limits_posts_nothing(tmp_path, monkeypatch):
+    monkeypatch.setattr(op, "within_hard_limits", lambda o, cash, floor: False)
+    api, notes = FakeApi(single_gap_fixture()), []
+    opps, _ = run(tmp_path, api, False, notifier=lambda *a, **k: notes.append(a))
+    assert "list_offer" not in api.names() and notes == []
+    assert find(opps, "SELL", "t07", "SAL-02")["status"] == "blocked by hard limits"
+
+
+def test_no_offer_id_no_alert(tmp_path, monkeypatch):
+    api, notes = FakeApi(single_gap_fixture()), []
+    monkeypatch.setattr(api, "list_offer", lambda *a: {"ok": True})
+    opps, _ = run(tmp_path, api, False, notifier=lambda *a, **k: notes.append(a))
+    assert notes == [] and find(opps, "SELL", "t07", "SAL-02")["status"].startswith("posted without an offer id")
+
+
+def test_any_gap_switch_restores_the_plain_filter(monkeypatch):
+    monkeypatch.setattr(op, "MAX_OTHER_LACKS", None)
+    opps, _ = engine()
+    picked = op.choose_alerts(opps, {"alerts": [], "live": []}, NOW)
+    assert [(o["team"], o["card"], o["price"]) for o in picked] == [("t07", "SAL-02", 40)]

@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT / "bazaar-kit") not in sys.path:
     sys.path.insert(0, str(ROOT / "bazaar-kit"))
 
-from bazaar_sdk import Bazaar, BazaarError, Broker, _Http  # noqa: E402,F401
+from bazaar_sdk import Bazaar, BazaarError, Broker, _Http  # noqa: F401 - re-exported
 
 URL = os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai")
 BENCH_DIR = ROOT / "data" / "bench"

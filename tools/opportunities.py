@@ -366,7 +366,7 @@ def find_opportunities(*, events, board, lb, cat, me, value_of, build=BUILD, cas
             if price and cash - price < cash_floor:
                 o["reasons"].append(f"cash floor {cash_floor} (cash {cash})")
             opps.append(o)
-    opps.sort(key=lambda o: (not o["reasons"], o["confident"], len(o.get("other_lacks", ())) <= MAX_OTHER_LACKS,
+    opps.sort(key=lambda o: (not o["reasons"], o["confident"], len(o.get("other_lacks", ())) <= (MAX_OTHER_LACKS or 99),
                              o["completes"], o["gain"], not o["collects"], -o["age_min"]), reverse=True)
     return opps, {"ours": ours, "top": top, "missing": missing, "held": held, "protected": protected, "me_id": me_id}
 
@@ -382,7 +382,7 @@ def choose_alerts(opps, state, now):
             o["status"] = "no: " + "; ".join(o["reasons"])
         elif not (o["gain"] >= MIN_GAIN or o["completes"]):
             o["status"] = f"listed only: gain {o['gain']:g} < {MIN_GAIN}"
-        elif len(o.get("other_lacks", ())) > MAX_OTHER_LACKS:
+        elif MAX_OTHER_LACKS is not None and len(o.get("other_lacks", ())) > MAX_OTHER_LACKS:
             o["status"] = (f"listed only: they also lack {', '.join(o['other_lacks'])}: not their last or "
                            f"second-to-last {o['set']} card")
         elif not o["confident"]:
@@ -423,8 +423,8 @@ def message(o, offer_id=None):
                f"{o['their_score']}, {o['gap']:g} below us and outside the top 4 (feeding rule OK); they {o['src']}"
                f"{'; other ' + o['set'] + ' cards they lack: ' + ', '.join(o['other_lacks']) if o.get('other_lacks') else ''}")
         es = (f"Che, les falta la {x} ({n}) para la página de {s}, ¿no? Se la dejamos publicada a su nombre en El Rastro a {p} P, "
-              f"oferta {oid}. No tienen que creernos: la ven ustedes mismos, la aceptan y suman la carta; si es la "
-              f"última, cierran la página y se llevan el bonus.")
+              f"oferta {oid}. No tienen que creernos: la ven ustedes mismos, la aceptan y la suman a la página; si es "
+              f"la última, la cierran y se llevan el bonus.")
         en = (f"You're missing {x} ({n}) for your {s} page, right? It's on El Rastro addressed to {t} at {p} P, offer {oid}. "
               f"No need to trust us: check it yourselves and accept. If it's your last one, you close the page and "
               f"get the bonus.")
@@ -505,7 +505,7 @@ def write_md(path, opps, state, ctx, *, dry_run, now, clock, src):
          "|---|---|---|---|---|---|---|---|---|---|"]
     for i, o in enumerate(opps[:60], 1):
         L.append(f"| {i} | {o['side']} | {o['team_name']} (#{o['rank']}, {o['their_score']}) | {o['card']} {o['rarity']}"
-                 f"{' · COMPLETES' if o['completes'] else ''} | {o['price']} | {o['our_value']:g} | {o['gain']:g} | "
+                 f"{' · COMPLETES' if o['completes'] else ''} | {o['price'] if o['price'] is not None else '-'} | {o['our_value']:g} | {o['gain']:g} | "
                  f"{o['src']} | {o['age_min']}{' live' if o['live'] else ''} | {o.get('status', '')} |")
     L += ["", "## Alerts (newest first)", ""]
     for a in sorted(state.get("alerts", []), key=lambda a: -a["ts"])[:20]:
@@ -600,7 +600,12 @@ def main(argv=None):
     ap.add_argument("--every", type=int, default=30, help="seconds between runs (then waits for the server's tick)")
     ap.add_argument("--dry-run", action="store_true", help="compute + print; no offers, no cancels, no notifications")
     ap.add_argument("--build", default=",".join(BUILD), help="sets whose pages we build (default RET,CHA)")
+    ap.add_argument("--any-gap", action="store_true",
+                    help="alert SELLs even when the buyer lacks 2+ other cards of that set (off: page-closers only)")
     a = ap.parse_args(argv)
+    if a.any_gap:
+        global MAX_OTHER_LACKS
+        MAX_OTHER_LACKS = None
     api = Api(URL, os.environ.get("BAZAAR_KEY", ""), a.dry_run)
     build = tuple(s.strip().upper() for s in a.build.split(",") if s.strip())
     while True:

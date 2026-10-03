@@ -34,8 +34,8 @@ from types import SimpleNamespace
 if __package__ in (None, ""):
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from broker import sim  # noqa: E402
-from broker.broker import RUN_TICKS, STRATEGIES, Planner, bench_runs, make_fee, run_of  # noqa: E402
+from broker import sim
+from broker.broker import RUN_TICKS, STRATEGIES, Planner, make_fee, run_of
 
 # Trader models. default = the schedule's bench (10 traders, 16 ticks). hard-12 = the hour-16.0 bench ("firmer and more
 # impatient traders", 12 traders, 16 ticks): the firm/impatient shares are OUR guess, to calibrate on the real one.
@@ -153,52 +153,55 @@ def possible(limits: dict[str, int], side: dict[str, str]) -> int:
     return sum(sim.possible_gains(ts) for ts in runs.values())
 
 
+def _best_matching(bs: list[str], ss: list[str], gain: dict[tuple[str, str], int]) -> int:
+    """Max-weight bipartite matching by DP over a bitmask of `ss` (the smaller side). gain[(b, s)] for allowed pairs."""
+    memo: dict[tuple[int, int], int] = {}
+
+    def best(i: int, used: int) -> int:
+        if i == len(bs):
+            return 0
+        if (i, used) not in memo:
+            r = best(i + 1, used)
+            for j, s in enumerate(ss):
+                if not used >> j & 1 and (bs[i], s) in gain:
+                    r = max(r, gain[bs[i], s] + best(i + 1, used | 1 << j))
+            memo[i, used] = r
+        return memo[i, used]
+
+    return best(0, 0)
+
+
 def oracle(sess: Session) -> float | None:
     """Headroom check: the best ANY quote-respecting broker could have done with hindsight, as a share of the possible
     gains. = a max-weight matching over the pairs that crossed on quotes at some tick while both were in the book (each
     such pair could have been crossed at that tick; the pairs are disjoint). None if a run is too big to solve exactly."""
     limits, side, _ = limits_of(sess)
-    seen: dict[tuple[str, str], bool] = {}
+    crossed: set[tuple[str, str]] = set()  # (buy id, sell id)
     for offers in sess.books.values():
         asks = [(o["id"], quote_of(o)) for o in offers if side_of(o) == "sell"]
         for b in (o for o in offers if side_of(o) == "buy"):
-            for a, q in asks:
-                if run_of(a) == run_of(b["id"]) and q <= quote_of(b):
-                    seen[a, b["id"]] = True
+            crossed |= {(b["id"], a) for a, q in asks if run_of(a) == run_of(b["id"]) and q <= quote_of(b)}
     total = 0
     for run in {run_of(i) for i in side}:
         bs = [i for i in side if side[i] == "buy" and run_of(i) == run]
         ss = [i for i in side if side[i] == "sell" and run_of(i) == run]
         if min(len(bs), len(ss)) > 14:
             return None
+        gain = {(b, s): limits[b] - limits[s] for b, s in crossed if run_of(b) == run}
         if len(ss) > len(bs):  # the bitmask runs over the smaller side
-            bs, ss = ss, bs
-        memo: dict[tuple[int, int], int] = {}
-
-        def best(i: int, used: int) -> int:
-            if i == len(bs):
-                return 0
-            if (i, used) not in memo:
-                r = best(i + 1, used)
-                for j, s in enumerate(ss):
-                    pair = (s, bs[i]) if side[bs[i]] == "buy" else (bs[i], s)
-                    if not used >> j & 1 and pair in seen:
-                        r = max(r, limits[pair[1]] - limits[pair[0]] + best(i + 1, used | 1 << j))
-                memo[i, used] = r
-            return memo[i, used]
-
-        total += best(0, 0)
+            bs, ss, gain = ss, bs, {(s, b): g for (b, s), g in gain.items()}
+        total += _best_matching(bs, ss, gain)
     best_all = possible(limits, side)
     return total / best_all if best_all else 1.0
 
 
 # -------------------------------------------------------------------------------------------- replay
 
-def replay(sess: Session, strategy: str, censor: str = "leave", verbose: bool = False) -> dict:
+def replay(sess: Session, strategy: str, censor: str = "leave", verbose: bool = False, bench_fee: bool = False) -> dict:
     """Feed the session tick by tick to a Planner; matched offers leave the book. Every match is checked against the
     book it was planned on (same run, a sell and a buy, both live and unmatched, ask <= price, price + fee <= bid)."""
-    planner = Planner(strategy, run_ticks=sess.run_ticks)
-    fee = make_fee(sess.fee_bps, sess.fee_per_card)
+    planner = Planner(strategy, run_ticks=sess.run_ticks, bench_fee=bench_fee)
+    fee = make_fee(sess.fee_bps, sess.fee_per_card) if bench_fee else make_fee()
     limits, side, basis = limits_of(sess)
     done, matches, violations = set(), [], []
     last: dict[str, tuple[int, dict]] = {}

@@ -30,7 +30,17 @@ from pathlib import Path
 if __package__ in (None, ""):
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from broker.common import BENCH_DIR, URL, Bazaar, BazaarError, Broker, Public, TickClock, find_broker_key, scrub  # noqa: E402
+from broker.common import (
+    BENCH_DIR,
+    URL,
+    Bazaar,
+    BazaarError,
+    Broker,
+    Public,
+    TickClock,
+    find_broker_key,
+    scrub,
+)
 
 RESULT_DELAYS = (5, 180, 420)   # seconds after a session ends: the leaderboard snapshot refreshes every few minutes
 ME_FIELDS = ("bench_efficiency", "bench_points", "mm_points", "bench_venue", "market", "score", "rank", "venue")
@@ -97,10 +107,10 @@ class BenchRecorder:
     def path(self, session: str) -> Path:
         return self.out_dir / f"{session}.jsonl"
 
-    def write(self, session: str, kind: str, **fields):
+    def write(self, name: str, kind: str, /, **fields):
         self.out_dir.mkdir(parents=True, exist_ok=True)
         line = {"kind": kind, "t": round(self.now(), 3), **scrub(fields)}
-        with self.path(session).open("a") as f:
+        with self.path(name).open("a") as f:
             f.write(json.dumps(line, separators=(",", ":")) + "\n")
 
     # ---------------------------------------------------------------- the book
@@ -190,8 +200,8 @@ class BenchRecorder:
                    "fee_bps": v.get("fee_bps"), "fee_per_card": v.get("fee_per_card"), "pairs": v.get("pairs"),
                    "trades": v.get("trades"), "volume": v.get("volume")}
                   for v in (self.public.venues().get("venues") or [])]
-        line = dict(session=session, n=n, t_hours=self.now_hours, me=mine, snapshot_tick=lb.get("snapshot_tick"),
-                    teams=teams, venues=venues)
+        line = {"session": session, "n": n, "t_hours": self.now_hours, "me": mine,
+                "snapshot_tick": lb.get("snapshot_tick"), "teams": teams, "venues": venues}
         self.write(session, "result", **line)
         self.write("results", "result", **line)
         top = sorted((t for t in teams if t.get("market")), key=lambda t: -t["market"])[:5]
