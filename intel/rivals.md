@@ -24,6 +24,14 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 - **Market:** v14 stall, one trade all day (418); market 9.53 = 7.5 + VC ≈ 2.0 → room ≈ +3 to the cap.
 
 
+### Sat 19:41 · snapshot 1130
+- Board: **t10 34.02** · t06 32.80 · **us 31.92 (#3)** · t14 30.32 · t18 30.26 · t03 29.75.
+- **t10 keeps the SAL-rare cash loop + L4** [V feed]: Pilar SAL-09 84 (1101), Pícaros SAL-10 55 (1108), Pilar SAL-10 80 (1121),
+  Pícaros SAL-09 55 (1128): +25-30 cash per round trip and fresh ladder share while below its cap. +0.65 at 1110, +0.24 at 1130.
+- t06 +0.82 at 1110: Pícaros RET-09 at 54 (L4) + Pilar LAT-08 20.
+- **t14 −0.77 at 1110**: bought SAL-11 (epic) from the Pícaros at 140 (1104); a loss if its SAL value < 140 [L].
+- Epic churn: t16 sold SAL-11 to Don Ernesto at 116 then bought another from the Pícaros at 146; t08 bought MAL-11 at 128.
+
 ### Sat 19:27 · snapshot 1100
 - Board: **t10 33.13 (#1)** · t06 32.08 · **us 31.68 (#3)** · t14 31.19 · t18 30.28 · t03 29.42.
 - **t10 +0.46 (1080) and +0.88 (1090) with no settlement of its own** while the field was flat → matches ≈ 3 scored flags on
