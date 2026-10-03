@@ -223,6 +223,73 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1299,
+   "raw": {
+    "duel": 5801,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.52,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 86,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 1307,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 8605,
+     "price": 56,
+     "tick": 1299,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 8580,
+     "price": 111,
+     "tick": 1299,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1293,
+      "from": "you",
+      "text": "I can do 50 P with delivery on day 0. What price and day work for you?",
+      "price": 50,
+      "days": 0
+     },
+     {
+      "tick": 1298,
+      "from": "Rival Noche",
+      "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 112.",
+      "price": 112,
+      "days": 5
+     },
+     {
+      "tick": 1299,
+      "from": "Rival Noche",
+      "text": "I just moved for you. 111, your turn to meet me.",
+      "price": 111,
+      "days": 5
+     },
+     {
+      "tick": 1299,
+      "from": "you",
+      "text": "I can move to 56 P with delivery on day 0. I'd need to see you come down meaningfully on price and to an earlier day before I move again.",
+      "price": 56,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -470,6 +537,128 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 1299,
+   "took_s": 8.59,
+   "cost_usd": 0.014369999999999999,
+   "obs": {
+    "view": {
+     "duel_id": 5801,
+     "role": "buyer",
+     "limit": 86,
+     "currency": "P",
+     "item": "La Vía Láctea",
+     "context": "",
+     "rival": "Rival Noche",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.52,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I can do 50 P with delivery on day 0. What price and day work for you?",
+      "offer": {
+       "price": 50,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1293,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 112.",
+      "offer": {
+       "price": 112,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1298,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I just moved for you. 111, your turn to meet me.",
+      "offer": {
+       "price": 111,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1299,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 111,
+     "days": 5
+    },
+    "tick": 1299,
+    "ticks_left": 8,
+    "rounds": 1,
+    "day_swings": [
+     39.8,
+     55.199999999999996,
+     36.2,
+     18.6,
+     45.099999999999994,
+     33.4,
+     62.599999999999994
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can move to 56 P with delivery on day 0. I'd need to see you come down meaningfully on price and to an earlier day before I move again.",
+    "price": 56,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 56,
+      "message": "I can move to 56 P with delivery on day 0. I'd need to see you come down meaningfully on price and to an earlier day before I move again."
+     },
+     "band": {
+      "worst": 57,
+      "target": 56,
+      "best": 55
+     },
+     "plan": {
+      "read": "They opened at 112 on day 5 and moved only 1 P to 111, plus small talk and a 'your turn' nudge. The 1 P step is token pressure, and with the day cost their offer is far outside what works for us.",
+      "target": 56,
+      "best": 55,
+      "worst": 57,
+      "days": 0,
+      "angle": "Keep it friendly and brief, skip the barrio chat. Make one clear move to 56 with delivery on day 0, and say we need them to come down meaningfully on price and to an earlier day before we move again."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.73,
+       "in": 793,
+       "out": 489,
+       "cost_usd": 0.01295,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.86,
+       "in": 390,
+       "out": 64,
+       "cost_usd": 0.00142,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -526,6 +715,63 @@
      "id": 8377,
      "price": 50,
      "tick": 1293,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1299,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can move to 56 P with delivery on day 0. I'd need to see you come down meaningfully on price and to an earlier day before I move again.",
+    "price": 56,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 56,
+      "message": "I can move to 56 P with delivery on day 0. I'd need to see you come down meaningfully on price and to an earlier day before I move again."
+     },
+     "band": {
+      "worst": 57,
+      "target": 56,
+      "best": 55
+     },
+     "plan": {
+      "read": "They opened at 112 on day 5 and moved only 1 P to 111, plus small talk and a 'your turn' nudge. The 1 P step is token pressure, and with the day cost their offer is far outside what works for us.",
+      "target": 56,
+      "best": 55,
+      "worst": 57,
+      "days": 0,
+      "angle": "Keep it friendly and brief, skip the barrio chat. Make one clear move to 56 with delivery on day 0, and say we need them to come down meaningfully on price and to an earlier day before we move again."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.73,
+       "in": 793,
+       "out": 489,
+       "cost_usd": 0.01295,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.86,
+       "in": 390,
+       "out": 64,
+       "cost_usd": 0.00142,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5801,
+    "offer": {
+     "id": 8605,
+     "price": 56,
+     "tick": 1299,
      "days": 0
     }
    }

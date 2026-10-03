@@ -1321,5 +1321,77 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1299,
+ "done": {
+  "duel": 5822,
+  "session": 3,
+  "status": "deal",
+  "role": "seller",
+  "item": "Plaza del Dos de Mayo",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 1.86,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 72,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Rojo",
+  "deadline_tick": 1304,
+  "decay_per_round": 0.08,
+  "rounds": 2,
+  "your_offer": {
+   "id": 8349,
+   "price": 111,
+   "tick": 1292,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 8230,
+   "price": 93,
+   "tick": 1289,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1288,
+    "from": "Rival Rojo",
+    "text": "Happy to close quickly: 84 primas with delivery in 0 days.",
+    "price": 84,
+    "days": 0
+   },
+   {
+    "tick": 1288,
+    "from": "you",
+    "text": "Thanks for the opener. I can do 118 P with delivery on day 0, which keeps your preferred timing.This is where I'm comfortable starting.Let me know your move.Z",
+    "price": 118,
+    "days": 0
+   },
+   {
+    "tick": 1289,
+    "from": "Rival Rojo",
+    "text": "Thanks! I can move to 93 P with delivery on day 0.",
+    "price": 93,
+    "days": 0
+   },
+   {
+    "tick": 1289,
+    "from": "you",
+    "text": "Thanks for moving; I can come down to 114 P with delivery on day 0. The price still needs to come up meaningfully from your last figure.",
+    "price": 114,
+    "days": 0
+   },
+   {
+    "tick": 1292,
+    "from": "you",
+    "text": "I can step to 111 P with delivery on day 0. I've made a clear move, so I'd need to see real movement from you next.",
+    "price": 111,
+    "days": 0
+   }
+  ],
+  "result": 33.0,
+  "price": 111,
+  "days": 0
+ }
 }

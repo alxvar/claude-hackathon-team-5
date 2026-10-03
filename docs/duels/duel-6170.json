@@ -770,6 +770,245 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1299,
+   "raw": {
+    "duel": 6170,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.34,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 70,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1308,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 8539,
+     "price": 170,
+     "tick": 1297,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 8604,
+     "price": 76,
+     "tick": 1299,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1292,
+      "from": "Rival Azul",
+      "text": "67 with delivery on day 0. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "price": 67,
+      "days": 0
+     },
+     {
+      "tick": 1292,
+      "from": "you",
+      "text": "I'll keep my per-day figure to myself. My offer is 125 P with delivery on day 10; or, if you prefer day 0, 190 P.",
+      "price": 125,
+      "days": 10
+     },
+     {
+      "tick": 1293,
+      "from": "Rival Azul",
+      "text": "68 with delivery on day 0. Fast deal before the pie shrinks?",
+      "price": 68,
+      "days": 0
+     },
+     {
+      "tick": 1294,
+      "from": "Rival Azul",
+      "text": "70 with delivery on day 0. Fast deal before the pie shrinks?",
+      "price": 70,
+      "days": 0
+     },
+     {
+      "tick": 1295,
+      "from": "you",
+      "text": "I'll meet you on delivery: day 0, at 180 P. That's my move toward you, and I'd like to see a bigger step on price.",
+      "price": 180,
+      "days": 0
+     },
+     {
+      "tick": 1295,
+      "from": "Rival Azul",
+      "text": "71 with delivery on day 0. Fast deal before the pie shrinks?",
+      "price": 71,
+      "days": 0
+     },
+     {
+      "tick": 1296,
+      "from": "Rival Azul",
+      "text": "73 with delivery on day 0. Fast deal before the pie shrinks?",
+      "price": 73,
+      "days": 0
+     },
+     {
+      "tick": 1297,
+      "from": "Rival Azul",
+      "text": "74 with delivery on day 0. Fast deal before the pie shrinks?",
+      "price": 74,
+      "days": 0
+     },
+     {
+      "tick": 1297,
+      "from": "you",
+      "text": "I can do 170 P on day 0, which is another step toward you. Small upticks won't close this; I need a much bigger move on price.",
+      "price": 170,
+      "days": 0
+     },
+     {
+      "tick": 1298,
+      "from": "Rival Azul",
+      "text": "75 with delivery on day 0. Fast deal before the pie shrinks?",
+      "price": 75,
+      "days": 0
+     },
+     {
+      "tick": 1299,
+      "from": "Rival Azul",
+      "text": "76 with delivery on day 0. Fast deal before the pie shrinks?",
+      "price": 76,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1299,
+   "raw": {
+    "duel": 6170,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.34,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 70,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1308,
+    "decay_per_round": 0.08,
+    "rounds": 4,
+    "your_offer": {
+     "id": 8608,
+     "price": 155,
+     "tick": 1299,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 8604,
+     "price": 76,
+     "tick": 1299,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1292,
+      "from": "Rival Azul",
+      "text": "67 with delivery on day 0. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "price": 67,
+      "days": 0
+     },
+     {
+      "tick": 1292,
+      "from": "you",
+      "text": "I'll keep my per-day figure to myself. My offer is 125 P with delivery on day 10; or, if you prefer day 0, 190 P.",
+      "price": 125,
+      "days": 10
+     },
+     {
+      "tick": 1293,
+      "from": "Rival Azul",
+      "text": "68 with delivery on day 0. Fast deal before the pie shrinks?",
+      "price": 68,
+      "days": 0
+     },
+     {
+      "tick": 1294,
+      "from": "Rival Azul",
+      "text": "70 with delivery on day 0. Fast deal before the pie shrinks?",
+      "price": 70,
+      "days": 0
+     },
+     {
+      "tick": 1295,
+      "from": "you",
+      "text": "I'll meet you on delivery: day 0, at 180 P. That's my move toward you, and I'd like to see a bigger step on price.",
+      "price": 180,
+      "days": 0
+     },
+     {
+      "tick": 1295,
+      "from": "Rival Azul",
+      "text": "71 with delivery on day 0. Fast deal before the pie shrinks?",
+      "price": 71,
+      "days": 0
+     },
+     {
+      "tick": 1296,
+      "from": "Rival Azul",
+      "text": "73 with delivery on day 0. Fast deal before the pie shrinks?",
+      "price": 73,
+      "days": 0
+     },
+     {
+      "tick": 1297,
+      "from": "Rival Azul",
+      "text": "74 with delivery on day 0. Fast deal before the pie shrinks?",
+      "price": 74,
+      "days": 0
+     },
+     {
+      "tick": 1297,
+      "from": "you",
+      "text": "I can do 170 P on day 0, which is another step toward you. Small upticks won't close this; I need a much bigger move on price.",
+      "price": 170,
+      "days": 0
+     },
+     {
+      "tick": 1298,
+      "from": "Rival Azul",
+      "text": "75 with delivery on day 0. Fast deal before the pie shrinks?",
+      "price": 75,
+      "days": 0
+     },
+     {
+      "tick": 1299,
+      "from": "Rival Azul",
+      "text": "76 with delivery on day 0. Fast deal before the pie shrinks?",
+      "price": 76,
+      "days": 0
+     },
+     {
+      "tick": 1299,
+      "from": "you",
+      "text": "I can do 155 P on day 0, another firm step toward you. If you prefer day 10, I could do 122 P instead. I'd like to see a real jump on price, not single-point moves.",
+      "price": 155,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1716,6 +1955,213 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 1299,
+   "took_s": 11.66,
+   "cost_usd": 0.02164,
+   "obs": {
+    "view": {
+     "duel_id": 6170,
+     "role": "seller",
+     "limit": 70,
+     "currency": "P",
+     "item": "La Vía Láctea",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.34,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "67 with delivery on day 0. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "offer": {
+       "price": 67,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1292,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'll keep my per-day figure to myself. My offer is 125 P with delivery on day 10; or, if you prefer day 0, 190 P.",
+      "offer": {
+       "price": 125,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1292,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "68 with delivery on day 0. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 68,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1293,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "70 with delivery on day 0. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 70,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1294,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'll meet you on delivery: day 0, at 180 P. That's my move toward you, and I'd like to see a bigger step on price.",
+      "offer": {
+       "price": 180,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1295,
+      "decision": {
+       "action": "offer",
+       "price": 180,
+       "message": "I'll meet you on delivery: day 0, at 180 P. That's my move toward you, and I'd like to see a bigger step on price."
+      }
+     },
+     {
+      "mine": false,
+      "text": "71 with delivery on day 0. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 71,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1295,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "73 with delivery on day 0. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 73,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1296,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "74 with delivery on day 0. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 74,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1297,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 170 P on day 0, which is another step toward you. Small upticks won't close this; I need a much bigger move on price.",
+      "offer": {
+       "price": 170,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1297,
+      "decision": {
+       "action": "offer",
+       "price": 170,
+       "message": "I can do 170 P on day 0, which is another step toward you. Small upticks won't close this; I need a much bigger move on price."
+      }
+     },
+     {
+      "mine": false,
+      "text": "75 with delivery on day 0. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 75,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1298,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 75,
+     "days": 0
+    },
+    "tick": 1299,
+    "ticks_left": 9,
+    "rounds": 3,
+    "day_swings": [
+     39.8,
+     55.199999999999996,
+     36.2,
+     18.6,
+     45.099999999999994,
+     33.4,
+     62.599999999999994
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 155 P on day 0, another firm step toward you. If you prefer day 10, I could do 122 P instead. I'd like to see a real jump on price, not single-point moves.",
+    "price": 155,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 155,
+      "message": "I can do 155 P on day 0, another firm step toward you. If you prefer day 10, I could do 122 P instead. I'd like to see a real jump on price, not single-point moves."
+     },
+     "band": {
+      "worst": 152,
+      "target": 155,
+      "best": 158
+     },
+     "plan": {
+      "read": "They keep inching up by 1–2 P a tick (now 75 on day 0). This shows a slow, scripted climb with their real ceiling likely well above, so the steady upticks are the signal and their words add nothing.",
+      "target": 155,
+      "best": 158,
+      "worst": 152,
+      "days": 0,
+      "angle": "Make one firm step to 155 P on day 0, mention that day 10 would come in lower at 122 P, and ask for a real jump on price rather than single-point moves."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 9.71,
+       "in": 1390,
+       "out": 691,
+       "cost_usd": 0.01938,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.95,
+       "in": 740,
+       "out": 78,
+       "cost_usd": 0.00226,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1886,6 +2332,63 @@
      "id": 8539,
      "price": 170,
      "tick": 1297,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1299,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 155 P on day 0, another firm step toward you. If you prefer day 10, I could do 122 P instead. I'd like to see a real jump on price, not single-point moves.",
+    "price": 155,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 155,
+      "message": "I can do 155 P on day 0, another firm step toward you. If you prefer day 10, I could do 122 P instead. I'd like to see a real jump on price, not single-point moves."
+     },
+     "band": {
+      "worst": 152,
+      "target": 155,
+      "best": 158
+     },
+     "plan": {
+      "read": "They keep inching up by 1–2 P a tick (now 75 on day 0). This shows a slow, scripted climb with their real ceiling likely well above, so the steady upticks are the signal and their words add nothing.",
+      "target": 155,
+      "best": 158,
+      "worst": 152,
+      "days": 0,
+      "angle": "Make one firm step to 155 P on day 0, mention that day 10 would come in lower at 122 P, and ask for a real jump on price rather than single-point moves."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 9.71,
+       "in": 1390,
+       "out": 691,
+       "cost_usd": 0.01938,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.95,
+       "in": 740,
+       "out": 78,
+       "cost_usd": 0.00226,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 6170,
+    "offer": {
+     "id": 8608,
+     "price": 155,
+     "tick": 1299,
      "days": 0
     }
    }
