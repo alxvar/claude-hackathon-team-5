@@ -1,35 +1,26 @@
-# Scout (claude-sonnet-5-5, Sat 15:43)
+# Scout (claude-sonnet-5-5, Sat 15:48)
 
 ## Top 3 actions now
-
-1. **Wait for the Pícaros (L4) menu and open it with the 3 Pilar sells already done (Operator, watch armed).**
-   - Evidence: announced tick 630 ("Quick deals. Few questions."). The ladder is 0.188 and L3 is near saturation (Chief). One +0.01 ladder ≈ +0.33 board (directives 12:13).
-   - Action: sell only at ≥ our value, offer-only, with small steps. Candidates are SAL-01/03/05, MAL-02/03, LAT-03 and the 2nd copies.
-   - Effect: neg_points 0 (gains clip); ladder gain not in the data, since there are no Pícaros prices yet.
-   - Confidence: med.
-
-2. **Keep swap 9387 live (El Rastro → t15: LAT-04 + MAL-04 for SAL-07) and pitch it through Dani.**
-   - Evidence: t15 swapped with t07 three times at ticks 607-616 (0 P each). t15 collects LAT/MAL and dumps LAV. It is #14 at 21.5, which passes the feeding rule.
-   - Our gain on the earlier plan: +14.3 (Log 13:56). The offer expires at tick 688.
-   - Caveat: 9387 reads "for 0", so the SAL-07 ask must be confirmed in the offer, and the SAL-07 holder is not in the data.
-   - Effect: team-trade gain at our private values, uncapped; confidence: low-med.
-
-3. **Sell the spare commons to Team 7 (#17, 10.6 below us, collects RET/LAV/LAT), as maker, with Dani pointing it at the offers.**
-   - Offers: 9389 (LAV-02 → t07, at 0, swap for MAL-01) is live. Add LAT-04 and RET-04 at about 9.5, with LAV-03 and LAV-04 on the same terms. Team 7 is buying at about 9.5 est.
-   - Evidence: the profile table shows +4.3 to +6.3 per card. Team 7 is the only buyer that passes the feeding rule for all five.
-   - Cancel the existing asks to other teams first, e.g. RET-04 at 40 to t15 (9343), which is stale against clearing prices of 9-10.
-   - Effect: about +4 to +6 neg_points each. Spares score on our private values, so the drag on unopened packs is minimal now that the pack is opened.
-   - Confidence: med.
+1. **Pícaros (L4) watch: first deals with SAL-01/03/05, MAL-02/03, LAT-03 (Operator, armed 20 s poll).**
+   - Evidence: announced tick 630 ("Quick deals. Few questions."). We hold 3 Pilar deals (MAL-07 19, MAL-06 19, SAL-08 23). Ladder is 0.188, and Level 3 is near saturation (SAL-06 round trip +0.007).
+   - Effect: a new level has empty top-3 slots. Level 3 paid +0.050 per sale, about 3× level 2. Sell only at or above our value (0 neg cost). The sale price must also be at or above the dealer's opening bid.
+   - Confidence: med. The Pícaros menu is not in the data.
+2. **Buy MAL-09 (rare, worth 49) back into use only at the dealer's price; do not sell it to t17.**
+   - Evidence: t17 bids 70-85 for it and is #6, 25.8 (2.3 below us). Our metrics file lists LAV-09 bid 47 from t17. The feeding rule says no.
+   - Effect: keeps MAL-09 for the Pícaros or Pilar rare slot. Pilar rare sells median 50 over 1 deal, so a sale ≥ 49 costs 0 neg_points.
+   - Confidence: low-med. A t17 sale at ≥ 70 would gain +21, but the feeding rule blocks it.
+3. **Keep the swap offers 9387 (→ t15) and 9389 (→ t07) live. Re-post both at expiry (tick 688), Operator.**
+   - Evidence: t15↔t07 swapped 3× at ticks 613, 616, 661, all at 0 P. 9387 gives LAT-04 (2nd, worth 1.2) and MAL-04 for SAL-07. 9389 gives LAV-02 (2nd, worth 3.2) for MAL-01.
+   - Effect: swaps are cash-free. The planned gain is +14.3 and +3.8 against our cheapest copies. t15 is #14 (21.5) and t07 is #17, so neither is a leader.
+   - Confidence: med. Neither offer has filled yet.
 
 ## What the climbing teams are doing
-
-- **Team 4 (#10) is the heaviest RET buyer.** It bought RET-07 at 25 from t08 (tick 636), RET-08 at 27 from t18 (645) and RET-06 at 26 from t09 (656). Team 4 is racing the RET set, and RET uncommons clear at 25-27.
-- **Team 18 (+0.5) and Team 10 (+0.2) are the only top-5 risers.** Team 10 bought MAL-10 at 74 from t03 (tick 585). Both pay near book for rares (c 9-10, r 70-75).
-- **Team 15 (+1.2) trades the most in volume** (22 team trades, mostly swaps and low-priced LAT/MAL). That is the same swap lever we have just posted.
-- **Epics move between teams at 160:** LAT-11 t04 → t16 at 160 (tick 631). Dealers also pay about 140 for epics.
+- **Team 18 (#3, +0.5):** the gain comes from RET. It sold RET-08 to t04 at 27 (tick 645), and its profile says it collects RET/LAT. It is racing us on RET sales.
+- **Team 10 (#4, +0.2):** it holds a LAV collection and dumps SAL/LAT/MAL. Its MAL-10 purchase at 74 (tick 585) shows it pays near book for rares.
+- **Team 15 (#14, +1.2):** the biggest mover, with 22 team trades (LAT×6, MAL×4, RET×3). It swaps cards at 0 P, for example t15→t07 RET-02 ↔ LAV-04 at tick 661. Its dumping is a swap partner for us.
+- **Team 4 (#10):** it bought RET-07 at 25, RET-08 at 27 and RET-06 at 26 (ticks 636-656), and sold LAT-11 at 160 to t16. It is the only team paying near list for RET uncommons, so our RET spares are a possible sale to it.
 
 ## Threats
-
-- **Team 14 (#1, 30.4) and Team 12 (#2, 29.5) are top 4.** Never sell them LAV, LAT or RET page cards (Team 14 collects LAV/LAT, Team 12 collects RET/MAL/LAT).
-- **Team 17 bids 47 for LAV-09 and 70-85 for MAL-09.** It is #7 at 25.5 and 2.4 below us, so it is not ≥ 10 below. Hold MAL-09 for Pícaros per the Chief; do not feed it.
-- **Our neg_points are drifting down (35.2 → 32.5)** from dealer buys, and our score fell 0.2 in the last 15 minutes. Team 3's open bid of 80 for LAT-09 is not ours to fill, as we do not hold LAT-09 per the holdings list.
+- **Team 14 (#1, 30.4) and Team 12 (#2, 29.5):** both are top 4, so never feed them. Their lead over us is 2.5 and 1.6. Team 12 collects RET/MAL/LAT, and our MAL/RET spares must not go to it.
+- **Team 17 (#6):** it bids on MAL-09 and LAV-09 and buys MAL×4 and SAL×3. A page-closer sale to it would feed a team 2.3 below us.
+- **Neg_points drift:** 35.2 → 32.5 over 15 minutes, and the −2.7 came from the silver-pack drag. Every new card we buy lowers the unopened-pack value, so open packs before trading. The Abuela gift pack expected around 16:40 is armed to auto-open.
