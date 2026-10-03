@@ -1398,5 +1398,86 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1320,
+ "done": {
+  "duel": 5898,
+  "session": 3,
+  "status": "deal",
+  "role": "seller",
+  "item": "La Dama de Serrano",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 1.32,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 76,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Noche",
+  "deadline_tick": 1322,
+  "decay_per_round": 0.08,
+  "rounds": 0,
+  "your_offer": {
+   "id": 9365,
+   "price": 79,
+   "tick": 1319,
+   "days": 10
+  },
+  "rival_offer": null,
+  "messages": [
+   {
+    "tick": 1308,
+    "from": "you",
+    "text": "I'll open at 120 P with delivery on day 10. Happy to hear your offer.",
+    "price": 120,
+    "days": 10
+   },
+   {
+    "tick": 1314,
+    "from": "you",
+    "text": "I can do 114 P, delivery on day 10.",
+    "price": 114,
+    "days": 10
+   },
+   {
+    "tick": 1315,
+    "from": "you",
+    "text": "I can do 107 P, delivery on day 10.",
+    "price": 107,
+    "days": 10
+   },
+   {
+    "tick": 1316,
+    "from": "you",
+    "text": "I can do 100 P, delivery on day 10.",
+    "price": 100,
+    "days": 10
+   },
+   {
+    "tick": 1317,
+    "from": "you",
+    "text": "I can do 93 P, delivery on day 10.",
+    "price": 93,
+    "days": 10
+   },
+   {
+    "tick": 1318,
+    "from": "you",
+    "text": "I can do 86 P, delivery on day 10.",
+    "price": 86,
+    "days": 10
+   },
+   {
+    "tick": 1319,
+    "from": "you",
+    "text": "I can do 79 P, delivery on day 10.",
+    "price": 79,
+    "days": 10
+   }
+  ],
+  "result": 23.2,
+  "price": 86,
+  "days": 10
+ }
 }
