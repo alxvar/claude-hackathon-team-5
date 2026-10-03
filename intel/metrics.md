@@ -1,4 +1,4 @@
-# Metrics (auto, 13:56, game tick 630)
+# Metrics (auto, 14:01, game tick 630)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -22,18 +22,17 @@ score 28.15 · neg_points 35.2 (15 min ago 35.2) · ladder 0.181 · duel 13.93 �
 
 LAT-03 (common): 5; LAT-04 (common): 1.2 / 1.2; LAV-01 (common): 99.1; LAV-02 (common): 3.2 / 3.2; LAV-03 (common): 3.2 / 3.2; LAV-04 (common): 3.2 / 3.2; LAV-05 (common): 99.1; LAV-06 (uncommon): 118.6; LAV-07 (uncommon): 118.6; LAV-08 (uncommon): 118.6; LAV-09 (rare): 177.1; LAV-10 (rare): 177.1; MAL-02 (common): 7; MAL-03 (common): 7; MAL-04 (common): 7; RET-01 (common): 83.9; RET-02 (common): 83.9; RET-03 (common): 83.9; RET-04 (common): 83.9; RET-05 (common): 83.9; RET-06 (uncommon): 100.4; RET-07 (uncommon): 100.4; RET-08 (uncommon): 100.4; RET-09 (rare): 149.9; RET-10 (rare): 149.9; SAL-01 (common): 9; SAL-02 (common): 2.2 / 2.2; SAL-03 (common): 9; SAL-05 (common): 9; sobre_plata (pack): 92.9
 
-## Our open offers (10)
+## Our open offers (9)
 
 - 8776: sell SAL-01 for 11 · to t06 · expires tick 639
 - 9025: sell LAT-03 for 7 · to t03 · expires tick 656
-- 9032: sell MAL-04 for 9 · to t15 · expires tick 657
 - 9087: sell MAL-02 for 9 · to t15 · expires tick 663
-- 9100: sell LAV-02 for 7 · to t09 · expires tick 665
 - 9101: sell LAV-04 for 7 · to t03 · expires tick 665
 - 9102: sell SAL-02 for 6 · to t16 · expires tick 665
-- 9103: sell LAT-04 for 5 · to t16 · expires tick 665
 - 9136: sell LAV-03 for 7 · to t04 · expires tick 667
 - 9168: bid 21 for SAL-06 · to abuela · expires tick 634
+- 9172: sell LAT-04, MAL-04 for 0 · to t15 · expires tick 650
+- 9173: sell LAV-02 for 0 · to t07 · expires tick 650
 
 ## What each of our deals did to neg_points (measured, last 12)
 
