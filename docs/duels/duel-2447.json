@@ -692,5 +692,69 @@
     "settles_at_tick": 552
    }
   }
- ]
+ ],
+ "last_seen_tick": 552,
+ "done": {
+  "duel": 2447,
+  "session": 2,
+  "status": "deal",
+  "role": "seller",
+  "item": "Mercado de la Paz",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 86,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Verde",
+  "deadline_tick": 565,
+  "decay_per_round": 0.06,
+  "rounds": 2,
+  "your_offer": {
+   "id": 4665,
+   "price": 122,
+   "tick": 550,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 4671,
+   "price": 118,
+   "tick": 550,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 549,
+    "from": "you",
+    "text": "Thanks for engaging. Given the quality of what Mercado de la Paz offers and its prime location, I'm proposing 130 P. I'm open to a serious counteroffer from you.}",
+    "price": 130,
+    "days": null
+   },
+   {
+    "tick": 549,
+    "from": "Rival Verde",
+    "text": "Hello, and thank you for meeting me. I would propose 98 P for this one.",
+    "price": 98,
+    "days": null
+   },
+   {
+    "tick": 550,
+    "from": "you",
+    "text": "Thank you for the counter. I'm willing to make a measured step down to 122 P in good faith, given the quality and the location of Mercado de la Paz. I'd ask you to come up meaningfully from your current figure so we can close this quickly.",
+    "price": 122,
+    "days": null
+   },
+   {
+    "tick": 550,
+    "from": "Rival Verde",
+    "text": "I appreciate it, thank you. Could we close at 118 P, please?",
+    "price": 118,
+    "days": null
+   }
+  ],
+  "result": 28.3,
+  "price": 118,
+  "days": 0
+ }
 }
