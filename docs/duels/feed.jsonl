@@ -1111,3 +1111,12 @@
 {"id": 69152, "tick": 1351, "t": 12.5833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6051, "session": 3, "status": "no_deal", "item": "La Vía Láctea"}}
 {"id": 69155, "tick": 1351, "t": 12.5833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6060, "session": 3, "status": "deal", "item": "La Dama de Serrano"}}
 {"id": 69158, "tick": 1351, "t": 12.5833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6064, "session": 3, "status": "no_deal", "item": "La Vía Láctea"}}
+{"id": 69245, "tick": 1352, "t": 12.5917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6078, "session": 3, "status": "deal", "item": "El Frutero de Argumosa"}}
+{"id": 69248, "tick": 1352, "t": 12.5917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6087, "session": 3, "status": "deal", "item": "La Vía Láctea"}}
+{"id": 69251, "tick": 1352, "t": 12.5917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6095, "session": 3, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 69254, "tick": 1352, "t": 12.5917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6171, "session": 3, "status": "deal", "item": "La Vía Láctea"}}
+{"id": 69257, "tick": 1352, "t": 12.5917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6189, "session": 3, "status": "deal", "item": "El Frutero de Argumosa"}}
+{"id": 69315, "tick": 1353, "t": 12.6, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5973, "session": 3, "status": "deal", "item": "El Frutero de Argumosa"}}
+{"id": 69318, "tick": 1353, "t": 12.6, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6145, "session": 3, "status": "deal", "item": "La Vía Láctea"}}
+{"id": 69321, "tick": 1353, "t": 12.6, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6149, "session": 3, "status": "no_deal", "item": "Plaza del Dos de Mayo"}}
+{"id": 69324, "tick": 1353, "t": 12.6, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6184, "session": 3, "status": "deal", "item": "La Vía Láctea"}}

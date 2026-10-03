@@ -122,6 +122,274 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1353,
+   "raw": {
+    "duel": 6176,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.45,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 92,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Verde",
+    "deadline_tick": 1368,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 10390,
+     "price": 155,
+     "tick": 1352,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 10406,
+     "price": 72,
+     "tick": 1353,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1352,
+      "from": "Rival Verde",
+      "text": "Propuesta justa para cerrar pronto: 66 P y 0 días.",
+      "price": 66,
+      "days": 0
+     },
+     {
+      "tick": 1352,
+      "from": "you",
+      "text": "I can do 155 P, delivery on day 0.",
+      "price": 155,
+      "days": 0
+     },
+     {
+      "tick": 1353,
+      "from": "Rival Verde",
+      "text": "Me muevo para acercarnos: 72 P con 0 días.",
+      "price": 72,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1353,
+   "raw": {
+    "duel": 6176,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.45,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 92,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Verde",
+    "deadline_tick": 1368,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 10407,
+     "price": 146,
+     "tick": 1353,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 10406,
+     "price": 72,
+     "tick": 1353,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1352,
+      "from": "Rival Verde",
+      "text": "Propuesta justa para cerrar pronto: 66 P y 0 días.",
+      "price": 66,
+      "days": 0
+     },
+     {
+      "tick": 1352,
+      "from": "you",
+      "text": "I can do 155 P, delivery on day 0.",
+      "price": 155,
+      "days": 0
+     },
+     {
+      "tick": 1353,
+      "from": "Rival Verde",
+      "text": "Me muevo para acercarnos: 72 P con 0 días.",
+      "price": 72,
+      "days": 0
+     },
+     {
+      "tick": 1353,
+      "from": "you",
+      "text": "I can move to 146 P, delivery on day 0. A bigger step from you would help us close sooner.",
+      "price": 146,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1354,
+   "raw": {
+    "duel": 6176,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.45,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 92,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Verde",
+    "deadline_tick": 1368,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 10407,
+     "price": 146,
+     "tick": 1353,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 10406,
+     "price": 72,
+     "tick": 1353,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1352,
+      "from": "Rival Verde",
+      "text": "Propuesta justa para cerrar pronto: 66 P y 0 días.",
+      "price": 66,
+      "days": 0
+     },
+     {
+      "tick": 1352,
+      "from": "you",
+      "text": "I can do 155 P, delivery on day 0.",
+      "price": 155,
+      "days": 0
+     },
+     {
+      "tick": 1353,
+      "from": "Rival Verde",
+      "text": "Me muevo para acercarnos: 72 P con 0 días.",
+      "price": 72,
+      "days": 0
+     },
+     {
+      "tick": 1353,
+      "from": "you",
+      "text": "I can move to 146 P, delivery on day 0. A bigger step from you would help us close sooner.",
+      "price": 146,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1354,
+   "raw": {
+    "duel": 6176,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.45,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 92,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Verde",
+    "deadline_tick": 1368,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 10407,
+     "price": 146,
+     "tick": 1353,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 10426,
+     "price": 76,
+     "tick": 1354,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1352,
+      "from": "Rival Verde",
+      "text": "Propuesta justa para cerrar pronto: 66 P y 0 días.",
+      "price": 66,
+      "days": 0
+     },
+     {
+      "tick": 1352,
+      "from": "you",
+      "text": "I can do 155 P, delivery on day 0.",
+      "price": 155,
+      "days": 0
+     },
+     {
+      "tick": 1353,
+      "from": "Rival Verde",
+      "text": "Me muevo para acercarnos: 72 P con 0 días.",
+      "price": 72,
+      "days": 0
+     },
+     {
+      "tick": 1353,
+      "from": "you",
+      "text": "I can move to 146 P, delivery on day 0. A bigger step from you would help us close sooner.",
+      "price": 146,
+      "days": 0
+     },
+     {
+      "tick": 1354,
+      "from": "Rival Verde",
+      "text": "Yo ya me he movido. Propongo 76 P y 0 días.",
+      "price": 76,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -132,7 +400,7 @@
   "duel_ticks": 16,
   "decay": 0.08
  },
- "first_tick": 1352,
+ "first_tick": 1354,
  "view": {
   "duel_id": 6176,
   "role": "seller",
@@ -276,6 +544,133 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1353,
+   "took_s": 7.34,
+   "cost_usd": 0.01062,
+   "obs": {
+    "view": {
+     "duel_id": 6176,
+     "role": "seller",
+     "limit": 92,
+     "currency": "P",
+     "item": "La Vía Láctea",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.45,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 66 P y 0 días.",
+      "offer": {
+       "price": 66,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1352,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 155 P, delivery on day 0.",
+      "offer": {
+       "price": 155,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1352,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 72 P con 0 días.",
+      "offer": {
+       "price": 72,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1353,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 72,
+     "days": 0
+    },
+    "tick": 1353,
+    "ticks_left": 15,
+    "rounds": 1,
+    "day_swings": [
+     36.800000000000004,
+     40.300000000000004,
+     10.700000000000001,
+     26.7,
+     77.5,
+     32.1,
+     25.299999999999997,
+     36.800000000000004,
+     44.6,
+     35.4,
+     24.5,
+     37.8
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can move to 146 P, delivery on day 0. A bigger step from you would help us close sooner.",
+    "price": 146,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 146,
+      "message": "I can move to 146 P, delivery on day 0. A bigger step from you would help us close sooner."
+     },
+     "band": {
+      "worst": 143,
+      "target": 146,
+      "best": 148
+     },
+     "plan": {
+      "read": "They moved from 66 to 72 at day 0, a small 6 P step. Their offer is still far below what day-0 delivery requires, and their 'closing soon' talk is only framing.",
+      "target": 146,
+      "best": 148,
+      "worst": 143,
+      "days": 0,
+      "angle": "Keep day 0 to match their delivery and answer their move with one modest step to 146 P. Stay calm and firm, and signal that bigger moves need bigger steps from them."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.49,
+       "in": 788,
+       "out": 314,
+       "cost_usd": 0.00943,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.86,
+       "in": 342,
+       "out": 51,
+       "cost_usd": 0.00119,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -345,6 +740,63 @@
      "id": 10390,
      "price": 155,
      "tick": 1352,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1353,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can move to 146 P, delivery on day 0. A bigger step from you would help us close sooner.",
+    "price": 146,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 146,
+      "message": "I can move to 146 P, delivery on day 0. A bigger step from you would help us close sooner."
+     },
+     "band": {
+      "worst": 143,
+      "target": 146,
+      "best": 148
+     },
+     "plan": {
+      "read": "They moved from 66 to 72 at day 0, a small 6 P step. Their offer is still far below what day-0 delivery requires, and their 'closing soon' talk is only framing.",
+      "target": 146,
+      "best": 148,
+      "worst": 143,
+      "days": 0,
+      "angle": "Keep day 0 to match their delivery and answer their move with one modest step to 146 P. Stay calm and firm, and signal that bigger moves need bigger steps from them."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 5.49,
+       "in": 788,
+       "out": 314,
+       "cost_usd": 0.00943,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.86,
+       "in": 342,
+       "out": 51,
+       "cost_usd": 0.00119,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 6176,
+    "offer": {
+     "id": 10407,
+     "price": 146,
+     "tick": 1353,
      "days": 0
     }
    }

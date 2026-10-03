@@ -28,6 +28,34 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1354,
+   "raw": {
+    "duel": 6084,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.78,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 126,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1369,
+    "decay_per_round": 0.08,
+    "rounds": 0,
+    "your_offer": null,
+    "rival_offer": null,
+    "messages": [],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -38,7 +66,7 @@
   "duel_ticks": 16,
   "decay": 0.08
  },
- "first_tick": 1353,
+ "first_tick": 1354,
  "view": {
   "duel_id": 6084,
   "role": "buyer",

@@ -189,6 +189,80 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1354,
+   "raw": {
+    "duel": 6049,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Dama de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.53,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 148,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 1363,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 10365,
+     "price": 88,
+     "tick": 1351,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 10415,
+     "price": 96,
+     "tick": 1354,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1348,
+      "from": "Rival Oro",
+      "text": "Hi there. 106 P and it is yours. Delivery on day 10.",
+      "price": 106,
+      "days": 10
+     },
+     {
+      "tick": 1348,
+      "from": "you",
+      "text": "Happy to meet you on delivery: 82 P on day 10. Or, if you prefer, 100 P on day 0.",
+      "price": 82,
+      "days": 10
+     },
+     {
+      "tick": 1351,
+      "from": "Rival Oro",
+      "text": "How about 101 P? Delivery on day 10.",
+      "price": 101,
+      "days": 10
+     },
+     {
+      "tick": 1351,
+      "from": "you",
+      "text": "I'm moving toward you with 88 P on day 10. I'd like to meet you here and get this settled quickly.",
+      "price": 88,
+      "days": 10
+     },
+     {
+      "tick": 1354,
+      "from": "Rival Oro",
+      "text": "96 P, then. Delivery on day 10.",
+      "price": 96,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -199,7 +273,7 @@
   "duel_ticks": 16,
   "decay": 0.08
  },
- "first_tick": 1347,
+ "first_tick": 1354,
  "view": {
   "duel_id": 6049,
   "role": "buyer",
@@ -589,6 +663,149 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 1354,
+   "took_s": 10.73,
+   "cost_usd": 0.01645,
+   "obs": {
+    "view": {
+     "duel_id": 6049,
+     "role": "buyer",
+     "limit": 148,
+     "currency": "P",
+     "item": "La Dama de Serrano",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.53,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hi there. 106 P and it is yours. Delivery on day 10.",
+      "offer": {
+       "price": 106,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1348,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Happy to meet you on delivery: 82 P on day 10. Or, if you prefer, 100 P on day 0.",
+      "offer": {
+       "price": 82,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1348,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "How about 101 P? Delivery on day 10.",
+      "offer": {
+       "price": 101,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1351,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm moving toward you with 88 P on day 10. I'd like to meet you here and get this settled quickly.",
+      "offer": {
+       "price": 88,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1351,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "96 P, then. Delivery on day 10.",
+      "offer": {
+       "price": 96,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1354,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 96,
+     "days": 10
+    },
+    "tick": 1354,
+    "ticks_left": 9,
+    "rounds": 2,
+    "day_swings": [
+     44.6,
+     25.299999999999997,
+     37.8,
+     35.4,
+     24.5,
+     36.800000000000004
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Accepted: 96 P, delivery on day 10.",
+    "price": 96,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "accept",
+      "price": 96,
+      "message": "Accepted: 96 P, delivery on day 10."
+     },
+     "band": {
+      "worst": 96,
+      "target": 88,
+      "best": 88
+     },
+     "plan": {
+      "read": "They have stepped down steadily, 106 to 101 to 96, all on day 10, and moved further than we have. Their 96 on day 10 is within our limit, and the 8 P gap is small next to how far both sides have moved.",
+      "target": 88,
+      "best": 88,
+      "worst": 96,
+      "days": 10,
+      "angle": "Keep day 10. Accepting their 96 on day 10 is acceptable now rather than spending more rounds on a small gap; if not accepting, hold at 88 and send nothing."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.88,
+       "in": 984,
+       "out": 561,
+       "cost_usd": 0.01516,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.85,
+       "in": 461,
+       "out": 37,
+       "cost_usd": 0.00129,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -704,6 +921,59 @@
      "tick": 1351,
      "days": 10
     }
+   }
+  },
+  {
+   "tick": 1354,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Accepted: 96 P, delivery on day 10.",
+    "price": 96,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "accept",
+      "price": 96,
+      "message": "Accepted: 96 P, delivery on day 10."
+     },
+     "band": {
+      "worst": 96,
+      "target": 88,
+      "best": 88
+     },
+     "plan": {
+      "read": "They have stepped down steadily, 106 to 101 to 96, all on day 10, and moved further than we have. Their 96 on day 10 is within our limit, and the 8 P gap is small next to how far both sides have moved.",
+      "target": 88,
+      "best": 88,
+      "worst": 96,
+      "days": 10,
+      "angle": "Keep day 10. Accepting their 96 on day 10 is acceptable now rather than spending more rounds on a small gap; if not accepting, hold at 88 and send nothing."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.88,
+       "in": 984,
+       "out": 561,
+       "cost_usd": 0.01516,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.85,
+       "in": 461,
+       "out": 37,
+       "cost_usd": 0.00129,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 96,
+    "settles_at_tick": 1355
    }
   }
  ]
