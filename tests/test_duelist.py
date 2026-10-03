@@ -442,7 +442,7 @@ def test_a_standoff_is_broken_after_three_still_ticks(tmp_path: Path):
     r.tick = 149
     mem = r.update(raw)
     assert r.due(mem) and mem.snap.ticks_left == 7
-    assert "Neither side has sent anything for 3 ticks." in ledger(r.observe(mem))
+    assert "Neither side has moved for 3 ticks" in ledger(r.observe(mem))
 
 
 def test_offers_inside_our_limit_ending_together_are_accepted_one_per_tick_biggest_first(tmp_path: Path):
@@ -643,10 +643,11 @@ def test_ledger_counts_rounds_and_prices_one_more(tmp_path: Path):
     r = runner(FakeBazaar(), FakeModel(plan(67, 66, 68)), tmp_path)
     text = ledger(r.observe(answered(r, recorded(181, 141), 141)))
     assert "Their offers so far: 81 P, 73 P\n" in text                  # the standing offer is not a third one
-    assert "Rounds so far: 2 (the smaller of your 6 priced offers and their 2)" in text
+    assert "Messages sent so far, priced or not: 6 by your side, 2 by theirs." in text
+    assert "Rounds so far: 2, the smaller of the two sides' message counts" in text
     assert "adds no round by itself" in text and "worth about 11 P" in text   # 12 x 0.94^2
     text = ledger(r.observe(answered(r, recorded(200, 157), 157)))      # 87, our 104, their 102
-    assert "Your next priced offer adds a round at once" in text
+    assert "Any message your side sends now adds a round" in text
 
 
 def test_a_second_duelist_on_one_machine_refuses_to_start(tmp_path: Path):
