@@ -2408,5 +2408,105 @@
     "settles_at_tick": 1333
    }
   }
- ]
+ ],
+ "last_seen_tick": 1333,
+ "done": {
+  "duel": 5893,
+  "session": 3,
+  "status": "deal",
+  "role": "seller",
+  "item": "Plaza del Dos de Mayo",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 2.2,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 65,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Luna",
+  "deadline_tick": 1334,
+  "decay_per_round": 0.08,
+  "rounds": 4,
+  "your_offer": {
+   "id": 9764,
+   "price": 92,
+   "tick": 1331,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 9734,
+   "price": 84,
+   "tick": 1331,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1318,
+    "from": "Rival Luna",
+    "text": "Hola, Rival Sol, voy con prisa: 58 por Plaza del Dos de Mayo y cerramos ya. Entrega inmediata.",
+    "price": 58,
+    "days": 0
+   },
+   {
+    "tick": 1318,
+    "from": "you",
+    "text": "I can do 140 P, delivery on day 0.",
+    "price": 140,
+    "days": 0
+   },
+   {
+    "tick": 1319,
+    "from": "Rival Luna",
+    "text": "67 y lo cerramos ahora. Entrega inmediata.",
+    "price": 67,
+    "days": 0
+   },
+   {
+    "tick": 1319,
+    "from": "you",
+    "text": "I appreciate the move, and I'm making a real one back: 128 P, delivery on day 0.",
+    "price": 128,
+    "days": 0
+   },
+   {
+    "tick": 1320,
+    "from": "Rival Luna",
+    "text": "Venga, 76; no tengo mucho tiempo. Entrega inmediata.",
+    "price": 76,
+    "days": 0
+   },
+   {
+    "tick": 1320,
+    "from": "you",
+    "text": "I see you moving up, thanks. I can come down to 120 P on day 0, but I'd need bigger steps from you to go further.",
+    "price": 120,
+    "days": 0
+   },
+   {
+    "tick": 1323,
+    "from": "you",
+    "text": "Let's break the standoff: I can move to 113 P, delivery on day 0. I'd need a real step up from you to go further.",
+    "price": 113,
+    "days": 0
+   },
+   {
+    "tick": 1331,
+    "from": "Rival Luna",
+    "text": "84, último paso. Entrega inmediata.",
+    "price": 84,
+    "days": 0
+   },
+   {
+    "tick": 1331,
+    "from": "you",
+    "text": "I'm making a big move here: 92 P, delivery on day 0. That meets you most of the way, so let's wrap this up.",
+    "price": 92,
+    "days": 0
+   }
+  ],
+  "result": 19.3,
+  "price": 92,
+  "days": 0
+ }
 }

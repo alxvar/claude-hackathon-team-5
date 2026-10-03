@@ -2250,5 +2250,105 @@
     "settles_at_tick": 1333
    }
   }
- ]
+ ],
+ "last_seen_tick": 1333,
+ "done": {
+  "duel": 6023,
+  "session": 3,
+  "status": "deal",
+  "role": "seller",
+  "item": "La Dama de Serrano",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 0.84,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 68,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Azul",
+  "deadline_tick": 1337,
+  "decay_per_round": 0.08,
+  "rounds": 4,
+  "your_offer": {
+   "id": 9677,
+   "price": 105,
+   "tick": 1328,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 9706,
+   "price": 96,
+   "tick": 1329,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1321,
+    "from": "Rival Azul",
+    "text": "Hello, and thank you for meeting me. I would propose 78 P with delivery on day 0.",
+    "price": 78,
+    "days": 0
+   },
+   {
+    "tick": 1322,
+    "from": "you",
+    "text": "Thanks for opening. I'm happy to do day 0 as you proposed, and I can do 115 P on day 0.",
+    "price": 115,
+    "days": 0
+   },
+   {
+    "tick": 1322,
+    "from": "Rival Azul",
+    "text": "I appreciate it, thank you. Could we close at 88 P, delivery on day 0, please?",
+    "price": 88,
+    "days": 0
+   },
+   {
+    "tick": 1323,
+    "from": "you",
+    "text": "Thank you, I see you've moved and I appreciate it. I can come down to 111 P with delivery on day 0.",
+    "price": 111,
+    "days": 0
+   },
+   {
+    "tick": 1323,
+    "from": "Rival Azul",
+    "text": "Fair enough, thank you. I will meet you partway: 92 P with delivery on day 0.",
+    "price": 92,
+    "days": 0
+   },
+   {
+    "tick": 1324,
+    "from": "you",
+    "text": "Thank you, I appreciate you moving again. I can come down to 108 P with delivery on day 0.",
+    "price": 108,
+    "days": 0
+   },
+   {
+    "tick": 1324,
+    "from": "Rival Azul",
+    "text": "Thank you, we are getting close. 95 P and delivery on day 0 works for me.",
+    "price": 95,
+    "days": 0
+   },
+   {
+    "tick": 1328,
+    "from": "you",
+    "text": "Thank you, I appreciate you moving again. I can come down to 105 P with delivery on day 0, which I hope helps us close the remaining gap.",
+    "price": 105,
+    "days": 0
+   },
+   {
+    "tick": 1329,
+    "from": "Rival Azul",
+    "text": "Thank you for your offer. I can do 96 P with delivery on day 0.",
+    "price": 96,
+    "days": 0
+   }
+  ],
+  "result": 20.1,
+  "price": 96,
+  "days": 0
+ }
 }
