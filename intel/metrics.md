@@ -1,17 +1,17 @@
-# Metrics (auto, 21:15, game tick 1235)
+# Metrics (auto, 21:17, game tick 1240)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
-1. Team 10 34.6 (+0.6 / +0.5) deals 53
-2. Team 5 31.9 (+0.3 / +0.1) deals 53 ← US
-3. Team 6 30.4 (-2.2 / -2.1) deals 63
-4. Team 18 30.0 (+0.1 / -0.0) deals 37
-5. Team 3 29.9 (-0.1 / -0.1) deals 30
-6. Team 14 29.8 (-0.1 / -0.1) deals 51
-7. Team 12 28.2 (-0.0 / -0.1) deals 64
-8. Team 15 25.7 (+0.2 / +0.0) deals 61
-9. Team 2 25.4 (+0.2 / +2.4) deals 57
-10. Team 17 24.8 (-0.0 / -0.1) deals 31
+1. Team 10 34.6 (+1.0 / +0.6) deals 53
+2. Team 5 31.9 (+0.6 / +0.3) deals 53 ← US
+3. Team 6 30.4 (-2.0 / -2.2) deals 63
+4. Team 18 30.0 (+0.6 / +0.1) deals 37
+5. Team 3 29.9 (+0.0 / -0.1) deals 30
+6. Team 14 29.8 (+0.3 / -0.1) deals 51
+7. Team 12 29.3 (+1.3 / +1.0) deals 65
+8. Team 15 25.7 (+0.7 / +0.2) deals 61
+9. Team 2 25.4 (+0.7 / +0.2) deals 57
+10. Team 17 24.8 (+0.2 / -0.0) deals 31
 Us: #2
 
 ## Us
@@ -22,9 +22,8 @@ score 31.93 · neg_points 119.1 (15 min ago 119.1) · ladder 0.483 · duel 13.93
 
 LAT-03 (common): 5; LAT-04 (common): 5; LAV-01 (common): 99.1; LAV-02 (common): 1.3 / 1.3 / 1.3; LAV-03 (common): 3.2 / 3.2; LAV-04 (common): 3.2 / 3.2; LAV-05 (common): 99.1; LAV-06 (uncommon): 118.6; LAV-07 (uncommon): 118.6; LAV-08 (uncommon): 118.6; LAV-09 (rare): 177.1; LAV-10 (rare): 177.1; MAL-01 (common): 7; MAL-02 (common): 7; MAL-03 (common): 7; MAL-04 (common): 7; MAL-05 (common): 7; MAL-08 (uncommon): 17.5; RET-01 (common): 83.9; RET-02 (common): 83.9; RET-03 (common): 83.9; RET-04 (common): 83.9; RET-05 (common): 83.9; RET-06 (uncommon): 100.4; RET-07 (uncommon): 100.4; RET-08 (uncommon): 100.4; RET-09 (rare): 149.9; RET-10 (rare): 149.9; RET-11 (epic): 198; SAL-01 (common): 68.6; SAL-02 (common): 68.6; SAL-03 (common): 68.6; SAL-04 (common): 68.6; SAL-05 (common): 68.6; SAL-06 (uncommon): 82.1; SAL-07 (uncommon): 82.1; SAL-08 (uncommon): 82.1; SAL-09 (rare): 122.6; SAL-10 (rare): 122.6; sobre_plata (pack): 73.3
 
-## Our open offers (1)
+## Our open offers (0)
 
-- 17696: sell MAL-03 for 9 · to t09 · expires tick 1237
 
 ## What each of our deals did to neg_points (measured, last 12)
 
@@ -76,7 +75,7 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 - picaros common (team sells): median 4 over 1
 - picaros epic (team buys): median 140 over 3
 - picaros rare (team buys): median 60 over 3
-- pilar rare (team sells): median 71 over 2
+- pilar rare (team sells): median 67 over 1
 - pilar uncommon (team sells): median 25 over 1
 
 ## El Rastro now: top bids by price (team, card, price)
@@ -87,30 +86,30 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 - t09: MAL-09 (rare) 56 P · offer 17776
 - t09: MAL-10 (rare) 56 P · offer 17777
 - t18: LAT-10 (rare) 47 P · offer 17066
-- t13: LAV-10 (rare) 42 P · offer 18202
+- t13: LAV-10 (rare) 42 P · offer 18244
 - t09: SAL-06 (uncommon) 21 P · offer 18051
-- t13: LAV-07 (uncommon) 15 P · offer 18194
-- t13: LAV-06 (uncommon) 15 P · offer 18200
-- t13: RET-06 (uncommon) 13 P · offer 17977
-- t13: RET-07 (uncommon) 13 P · offer 17991
-- t13: RET-08 (uncommon) 13 P · offer 18004
-- t13: RET-02 (common) 4 P · offer 17968
-- t13: RET-01 (common) 4 P · offer 17975
+- t13: LAV-07 (uncommon) 15 P · offer 18223
+- t13: LAV-06 (uncommon) 15 P · offer 18242
+- t13: RET-06 (uncommon) 13 P · offer 18225
+- t13: RET-07 (uncommon) 13 P · offer 18247
+- t08: LAT-08 (uncommon) 5 P · offer 18231
+- t08: RET-01 (common) 5 P · offer 18232
+- t13: RET-05 (common) 4 P · offer 18105
 
-Asks by others (card, price: count): SAL-03 6: 2; SAL-11 245: 1; LAT-04 10: 1; LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAT-06 20: 1; SAL-02 7: 1; LAT-02 6: 1; RET-06 30: 1; LAT-06 21: 1; RET-10 84: 1; RET-07 30: 1
+Asks by others (card, price: count): SAL-03 6: 2; SAL-11 245: 1; LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAT-06 20: 1; SAL-02 7: 1; LAT-02 6: 1; RET-02 12: 1; RET-04 12: 1; LAT-01 9: 1; MAL-04 12: 1; LAT-02 9: 1
 
-## Our duels: 0 live, 68 finished (last 10)
+## Our duels: 6 live, 74 finished (last 10)
 
-- {"duel": 2522, "session": 2, "status": "deal", "role": "seller", "item": "Caf\u00e9 en Goya", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 44, "limit_meaning": "never sell below your cost", "rival": "Rival Plata", "deadlin
-- {"duel": 2523, "session": 2, "status": "no_deal", "role": "buyer", "item": "Caf\u00e9 en Goya", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 196, "limit_meaning": "never pay above your value", "rival": "Rival Noche", "dead
-- {"duel": 2530, "session": 2, "status": "deal", "role": "seller", "item": "Mercado de la Paz", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 87, "limit_meaning": "never sell below your cost", "rival": "Rival Azul", "deadline
-- {"duel": 2531, "session": 2, "status": "deal", "role": "buyer", "item": "Mercado de la Paz", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 146, "limit_meaning": "never pay above your value", "rival": "Rival Sol", "deadline_
-- {"duel": 2534, "session": 2, "status": "deal", "role": "seller", "item": "Caf\u00e9 en Goya", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 129, "limit_meaning": "never sell below your cost", "rival": "Rival Sol", "deadline
-- {"duel": 2535, "session": 2, "status": "deal", "role": "buyer", "item": "Caf\u00e9 en Goya", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 219, "limit_meaning": "never pay above your value", "rival": "Rival Noche", "deadlin
 - {"duel": 2540, "session": 2, "status": "deal", "role": "seller", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 71, "limit_meaning": "never sell below your cost", "rival": "Rival Luna", "d
 - {"duel": 2541, "session": 2, "status": "deal", "role": "buyer", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 108, "limit_meaning": "never pay above your value", "rival": "Rival Azul", "d
 - {"duel": 2584, "session": 2, "status": "deal", "role": "seller", "item": "Mercado de la Paz", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 122, "limit_meaning": "never sell below your cost", "rival": "Rival Verde", "deadli
 - {"duel": 2585, "session": 2, "status": "deal", "role": "buyer", "item": "Mercado de la Paz", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 160, "limit_meaning": "never pay above your value", "rival": "Rival Rojo", "deadline
+- {"duel": 5616, "session": 3, "status": "live", "role": "seller", "item": "Plaza del Dos de Mayo", "issues": ["price", "days"], "your_days_weight": 3.19, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 69, "limit_meaning": "n
+- {"duel": 5617, "session": 3, "status": "live", "role": "buyer", "item": "Plaza del Dos de Mayo", "issues": ["price", "days"], "your_days_weight": 4.63, "days_meaning": "each delivery day costs you this much cash", "your_limit": 88, "limit_meaning": "never pay 
+- {"duel": 5618, "session": 3, "status": "live", "role": "buyer", "item": "La V\u00eda L\u00e1ctea", "issues": ["price", "days"], "your_days_weight": 5.01, "days_meaning": "each delivery day costs you this much cash", "your_limit": 50, "limit_meaning": "never pa
+- {"duel": 5619, "session": 3, "status": "live", "role": "seller", "item": "La V\u00eda L\u00e1ctea", "issues": ["price", "days"], "your_days_weight": 3.29, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 123, "limit_meaning":
+- {"duel": 5622, "session": 3, "status": "live", "role": "seller", "item": "Fiesta de San Cayetano", "issues": ["price", "days"], "your_days_weight": 1.42, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 83, "limit_meaning": "
+- {"duel": 5623, "session": 3, "status": "live", "role": "buyer", "item": "Fiesta de San Cayetano", "issues": ["price", "days"], "your_days_weight": 3.66, "days_meaning": "each delivery day costs you this much cash", "your_limit": 119, "limit_meaning": "never pa
 
 ## Latest announcements
 
