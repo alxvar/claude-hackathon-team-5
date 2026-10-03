@@ -1,49 +1,47 @@
-# Judge (claude-opus-5-5, Sat 11:02)
+# Judge (claude-opus-5-5, Sat 11:19)
 
 ## Verdict
-Gaining: #2 at 27.8, 0.5 behind Team 18 (28.3). Over 15 min we gained +3.6 while Team 18 lost 2.0. Over 60 min Team 18 still out-gained us (+14.3 vs +12.5). The 15-min gain came from market (7.3 → 12.5, one trade on v10). `neg_points` has been flat at 28.5 since tick 276 (62 ticks).
+Gaining: #3 at 29.5 (+10.4 in 60 min). The leaders are t13 at 30.4 (+7.0) and t18 at 30.2 (+1.6), so the gap to #1 is 0.9.
 
 ## Our strategies: keep / kill / scale
-- **In-room page closing (Lucas → Team 10): scale.** RET-01 at 20 as maker scored +50.0 and is our only positive `neg_points` today. RET net is +28.5.
-- **Chato buys: kill.** He sold RET-09/10 at 87/86 (−10, −9) and RET-06 at 30. All 6 of our Chato deals were above list and none moved the ladder.
-- **Dealer bot (Abuela): pause until Pilar.** It moved the ladder +0.004 on RET-07, but the RET page is done. Any further card we buy is a 2nd copy at 25% value (a RET common is worth 2.75 vs a 9 price), so every buy now subtracts.
-- **Trading loop (loop.py): keep, low value.** The log shows no accepts today, only errors and a pause/resume. It stops for Duels I per the directive.
-- **Maker book (book.py): keep, but fix it.** 16 asks are live with 0 fills since tick 276. Problems:
-  - Three cards have duplicate asks to the same team, where the cheaper one supersedes the other: LAV-03 → t07 at 7 and 5, SAL-02 → t16 at 7 and 4, LAT-04 → t15 at 5 and 4.
-  - MAL-07 → t01 at 22 targets a team that bought MAL-07 at 14 (tick 311) and MAL-06 at 20 (tick 321).
-  - Our MAL asks at 22 sit above the 14-20 clears.
-- **Reciprocal venue with Team 10: scale.** One t10 → t01 trade on v10 added +4.99 market and lifted us level with t12.
+- **Chato buys: kill.** RET-09 cost −10.0, RET-10 −9.0 and RET-06 −2.5. All 6 of our Chato deals were above list and none moved the ladder. The RET page is complete, so no Chato need remains.
+- **Abuela via abuela_bot: kill unless a card is needed.** Below-list deals moved the ladder: +0.014 to +0.018 per common, and RET-07 only +0.004 as the 5th deal at level 1. Dealer gains never score.
+- **Trading loop (loop.py): no measured value.** Its log shows only errors and an open at tick 285, with no accept or fill attributed since. Keep it stopped from 11:50 per the directive.
+- **Addressed maker asks on v07: keep, but they don't fill by themselves.** There was 1 fill in ~95 ticks with 12-14 live offers: SAL-01 at 7, +4.7 (predicted +4.8). That fill came after Lucas's DM and t03's counter.
+- **In-room deals (Lucas DMs): scale.** They produced RET-01 from t10 (+50.0, page closed) and SAL-01 to t03 (+4.7). These are our only two positive `neg_points` events since round 2.
+- **Public bids 5590 (SAL-04 at 7, worth 9) and 5591 (MAL-03 at 5, worth 7): keep.** As maker the gain is +2 each, and cash stays at 102, above the floor.
+- **Reciprocal venues (v10/v07): keep.** One v10 trade moved our market score 7.3 → 12.5 (+4.99).
+- **Duels:** 34 practice duels all ended in a deal, and duel points are 0.0. Scored performance is not in the data yet; Duels I starts at 11:30.
 
 ## Check the scout
 - **Holds:**
-  - Score 27.8, +3.6 in 15 min, `neg_points` flat at 28.5.
-  - MAL clears at 14 and 20 sit below our 22 asks.
-  - t02 bids 27 for RET-10.
-  - t18 and t02 are within 0.6 of us; never feed them.
-  - We have no 2nd RET copies.
-- **Does not hold:**
-  - "10 deals in the last 10 duels" are practice duels (session 1). Our duel score is 0.0, so they are no evidence for Duels I.
-  - LAT-08 is not offer 4648 at 20; the live ask is 4971 at 18 → t15.
-  - t02 bids 65 for SAL-09, not 68.
-  - The tick-234 trade (t13 → t15) says nothing about Team 18.
-  - It misses that t01 already bought MAL-06 and MAL-07.
-  - "t02 may be closing RET" is unverified. t02 also sold RET-06 to t14 at 14.
+  - The gain arithmetic on every ask: LAT-08 +12.5, SAL-08 +2.5, LAV-02/03 at 3.2 each.
+  - t01 is ~7.0 below us, so it fails the ≥10 rule.
+  - No open bid exists for any spare (t02 bids 3 for LAT-03, which we value at 5).
+  - t10 is +4.5 in 15 min.
+- **Weak:**
+  - "Raise to 28 for t03" rests on an estimate built from 1 team trade.
+  - t03 countered our SAL-01 ask of 10 down to 7, so it bargains down, not up. Its cash is not in the data.
+  - LAV-03 at 8 would still undercut the public LAV-03 asks at 9 (×2), so that raise is the more plausible of the two.
+- **Wrong:**
+  - "t13 +8.5 in 15 min, #2": the metrics show +1.6 and #1. t18 is #2 at 30.2, not #1 at 30.6.
+  - "t02 bids 64 for SAL-09": the bid is 61.
+  - "t17 is top 4": it is #10.
+  - "Reposts must happen before 11:50": per directive 10:35, book.py keeps posting as maker during duels. Only accepts freeze.
+- **Missed:**
+  - t01 already bought MAL-07 at tick 311, so our offer 5440 (MAL-07 → t01) is a 2nd copy for them and is dead weight.
+  - MAL-02 at 9 → t17 is undercut by public MAL-02 asks at 6-7 (×4), so it won't fill.
 
 ## The 3 changes with the highest expected gain
-1. **Align the Duels I accept hold with the real start (operator, now).**
-   - The plan says Duels I starts at 11:30; the directive stops the trader at 11:50.
-   - Read `/api/schedule`. If duels start before 11:50, stop loop.py and dealer threads at the actual start. This stays within the directive's intent: "until Duels I ends".
-   - Effect: protects 34 scored duels; a missed duel deal scores 0. Its size in points is not in the data.
-   - Risk: none; the loop has made no accepts today.
-2. **Clean the book and route each live ask through Dani in the room.** This is the method that filled RET-01.
-   - Cancel the superseded duplicates 4735, 4737 and 4738.
-   - Re-address MAL-07 away from t01, to t17, t15 or t13. t13 is #6, outside the top 4, and collects MAL.
-   - Step MAL-06 and MAL-07 to 20.
-   - List the unlisted LAV-04 spare (2 copies held, 3.2 each).
-   - Dani points each addressee at its live offer.
-   - Effect: the current book sums to about +40 `neg_points` if everything fills (e.g. MAL at 20 = +2.5, SAL-01 at 10 = +7.8, LAT-08 at 18 = +5.5). That is about +6 board at the 0.16 rate [L]. It also builds cash toward the ~300 P CHA page.
-   - Risk: feeding a climber. t01 is +11.1/60 min but 7.2 below us. No sales to t18, t02, t12 or t14.
-3. **Pitch non-top-4 traders to settle on v10 at 0% (Dani, during Duels I).**
-   - Targets are teams already trading MAL/LAT/SAL among themselves: t01, t04, t15, t17, t10.
-   - Effect: one trade gave +4.99 market. More trades are the cheapest board points while our accepts are frozen.
-   - Risk: reciprocity with t10. Keep the market session's alert on a > 2:1 imbalance. Our broker must stay up (a down venue scores 0).
+1. **Dani/Lucas walk every live addressed ask to its addressee before 11:30, and keep going during Duels I.**
+   - Use only the file prices: t03 for LAT-08 at 25, SAL-08 at 25 and LAT-03 at 7; t17, t15, t07, t09, t06 and t16 for theirs.
+   - Fills use their accept, not ours, so the duel freeze doesn't block them.
+   - Effect: up to +37.2 `neg_points` if all 12 fill (LAT-08 alone +12.5), plus ~165 P cash toward Sunday's CHA page.
+   - Risk: an addressee's lacks are unknown. All addressees are ≥10 below us except t01; fix that per change 2.
+2. **Re-address MAL-07 (5440) from t01 to t15 at 20.** t15 collects MAL and is #12, 14.4 below us. Reprice MAL-02 (4988) to 6 or swap its addressee.
+   - Effect: +2.5 on MAL-07, and turns a dead offer into a live one. At 6, MAL-02 would score −1 (its value is 7), so a new addressee at 9 is the only positive option.
+   - Risk: none material; t15 is far below and not top 4.
+3. **After Duels I, if LAT-08, MAL-06, MAL-07 or SAL-08 are still unsold, sell up to 3 of them to Pilar at ≥ our copy value.**
+   - Pilar buys uncommons only, never commons. Level 3 currently holds 0 deals for us, and the ladder counts the best 3 per level.
+   - Effect: 0 `neg_points` (dealer sale), plus cash and ladder at a higher-weight level.
+   - Risk: whether Pilar sells move the ladder is not in the data (only "beat her list" [L]). A team sale scores +2.5 to +12.5 more, so Pilar is the fallback only.
