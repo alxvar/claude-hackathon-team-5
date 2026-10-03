@@ -239,6 +239,29 @@ def test_records_keep_the_whole_duel_and_review_reads_it(tmp_path: Path):
     assert rec.add_feed([{"id": 1, "type": "duel.deal"}]) == 0
 
 
+def test_the_sweep_saves_only_a_duel_that_is_over(tmp_path: Path):
+    # Sat 09:13: the done list also listed six practice duels frozen as `live`; the sweep saved them as done, so
+    # once over, their real result would never have been saved (`finished` was true).
+    from agents.duelist.records import Records
+    rec = Records(tmp_path / "duels")
+    live = {"duel": 116, "session": 1, "status": "live", "role": "buyer", "your_limit": 140, "deadline_tick": 168}
+    over = {**live, "status": "no_deal", "result": 0}
+    b = FakeBazaar()
+    b.done = [live]
+    b.duels = lambda done=False: {"duels": b.done if done else []}
+    b.feed = lambda limit=200: {"events": []}
+    b.me = lambda: {"score": {}}
+    r = DuelRunner(b, FakeModel(plan(67, 66, 68)), FakeModel(plan(67, 66, 68)), dry_run=False, log=Log(tmp_path),
+                   decay=None, duel_ticks=None, poll_s=1, records=rec)
+    asyncio.run(r.sweep())
+    assert rec.load(116) is None
+    rec.save(116, done=live)                            # a record from before this fix
+    assert not rec.finished(116)
+    b.done = [over]
+    asyncio.run(r.sweep())
+    assert rec.load(116)["done"]["status"] == "no_deal" and rec.finished(116)
+
+
 def runner(b, model, tmp_path: Path, duel_ticks: int | None = None) -> DuelRunner:
     return DuelRunner(b, model, model, dry_run=False, log=Log(tmp_path), decay=None, duel_ticks=duel_ticks, poll_s=1)
 
@@ -247,6 +270,19 @@ def answered(r: DuelRunner, raw: dict, tick: int):
     """The runner first reading a duel on `tick`, as after a restart: our messages in the payload count as sent."""
     r.tick = tick
     return r.update(raw)
+
+
+def test_with_no_duel_live_the_loop_polls_the_shared_key_less_often(tmp_path: Path):
+    # Friday's runner read clock + duels every 2 s all night: 1 of the team key's 5 requests a second.
+    r = runner(FakeBazaar(), FakeModel(plan(67, 66, 68)), tmp_path)
+    r.poll_s, r.tick_seconds = 2, 30.0
+    assert r.wait_s([]) == 10.0                         # Saturday: every 10 s while nothing is live
+    r.tick_seconds = 15.0
+    assert r.wait_s([]) == 5.0                          # Sunday: a third of a tick, seen early in its first tick
+    raw = recorded(181, 141)
+    assert r.wait_s([raw]) == 2                         # a duel is live: every poll_s
+    answered(r, raw, 141)
+    assert r.wait_s([]) == 2                            # gone from the list but not finished yet: every poll_s
 
 
 def test_duel_181_accepts_their_offer_inside_our_limit_before_the_deadline(tmp_path: Path):

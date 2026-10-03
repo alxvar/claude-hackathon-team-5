@@ -14,7 +14,7 @@ The duel agent is `agents/duelist/`, running on the model engine in `engine/`: r
 The schedule says the practice duels last 12 ticks, lose 6% per round, run 6 at a time, are price only, and don't score.
 
 1. A few minutes before, run `uv run python -m agents.duelist probe`. It shows the clock, the duel sessions, and any live duels as raw JSON, and saves them to `logs/duelist/`.
-2. When duels appear, start `uv run python -m agents.duelist run` and leave it running. It polls every 2 s and decides for a duel (at most once per tick) when the rival has moved, on each of the last 3 ticks whatever the rival does, and when both sides have sat still for 3 ticks after the rival's first offer. It sends at most one message per duel per tick. Every move is printed on one line: tick, duel, role, limit, the move, the band, and how long the decision took.
+2. When duels appear, start `uv run python -m agents.duelist run` and leave it running. It polls every 2 s while a duel is live (every 10 s, at most a third of a tick, while none is: the team key's 5 requests a second are shared) and decides for a duel (at most once per tick) when the rival has moved, on each of the last 3 ticks whatever the rival does, and when both sides have sat still for 3 ticks after the rival's first offer. It sends at most one message per duel per tick. Every move is printed on one line: tick, duel, role, limit, the move, the band, and how long the decision took.
 3. If the console says `can't read it` for a duel, the payload uses field names the adapter doesn't know. Open `logs/duelist/duels-*.jsonl`, find the `"event": "duel"` lines, and add the names to `agents/duelist/adapter.py` (`first(raw, ...)` lists). Ctrl-C and restart. Duels resume from the game's state.
 4. Use `run --dry-run` to watch decisions without sending anything.
 
@@ -101,4 +101,7 @@ What changes when the weight can be read:
 3. **A bad payload or a failed read:** that duel or that poll is skipped and logged; the loop goes on.
 4. **The process dies:** run it under the supervisor, which restarts it after 5 s. The game keeps each duel's messages and `docs/duels/` keeps our records, so it picks the duels up again:
    `agents/duelist/supervise.sh --negotiator-model claude-sonnet-5-5`
+   It keeps the laptop awake (`caffeinate`) and uses `~/.local/bin/uv` (a pyenv shim named `uv` can shadow it and fail). Detached, so it outlives the terminal:
+   `nohup agents/duelist/supervise.sh --negotiator-model claude-sonnet-5-5 >logs/duelist/supervise-$(date +%Y%m%d-%H%M).log 2>&1 </dev/null &`
+   Stop it supervisor first, or it restarts the run: `pkill -f duelist/supervise.sh; pkill -f 'agents.duelist run'`. Check: `ps aux | grep agents.duelist`. A process started before Sat 08:05 has no lock: stop it before starting a new one.
 5. **The duelist can't run at all:** `uv run python -m agents.duelist run --no-failover --model claude-haiku-4-5` from any team laptop with the `.env`. Only one duelist may run at a time (one key, one accept per tick).

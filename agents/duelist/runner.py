@@ -9,8 +9,9 @@ With days, the code rules weigh whole packages (`guards.worth`); a days duel who
 the models (`by_code`).
 
 Rules it keeps (RULES.md): one message per duel per tick, one acceptance per team per tick, 5 requests a second
-per key. A poll is two reads (`clock`, `duels`) every `poll_s` seconds; each duel then costs one write per tick
-at most. The SDK is synchronous, so every call runs in a thread and the model calls of several duels overlap.
+per key. A poll is two reads (`clock`, `duels`) every `poll_s` seconds while a duel is live, every IDLE_POLL_S (at
+most a third of a tick) while none is, since the key's 5 requests a second are the team's; each duel then costs one
+write per tick at most. The SDK is synchronous, so every call runs in a thread and the model calls of several duels overlap.
 """
 from __future__ import annotations
 
@@ -31,11 +32,12 @@ from .agent import DuelAgent, Move, our_offers, quiet_ticks, silent, standing_of
 from .guards import past_limit, worth
 from .model import DuelView, Observation, Offer, Turn
 from .prices import money
-from .records import Records, duel_key, sessions_in
+from .records import Records, duel_key, ended, sessions_in
 
 DECIDE_LEFT = 3     # ticks left at or below which we decide every tick, whether or not the rival has moved
 ACCEPT_BY = 2       # every standing offer inside our limit is accepted by this many ticks left (1, the last, is spare)
 HOLD_TICKS = 3      # both sides still this long, once the rival has offered: decide again (duels 103/104)
+IDLE_POLL_S = 10.0  # no duel live: poll this often, or every third of a tick if that is shorter
 
 
 class Log:
@@ -120,6 +122,13 @@ class DuelRunner:
 
     async def call(self, fn, *args, **kw):
         return await asyncio.to_thread(fn, *args, **kw)
+
+    def wait_s(self, live: list[dict[str, Any]]) -> float:
+        """Seconds to the next poll: `poll_s` while any duel is live or still ours to finish; otherwise up to
+        IDLE_POLL_S, never more than a third of a tick, so a new duel is seen early in its first tick."""
+        if live or self.duels:
+            return self.poll_s
+        return max(self.poll_s, min(IDLE_POLL_S, self.tick_seconds / 3))
 
     # The session's params
 
@@ -465,7 +474,7 @@ class DuelRunner:
         try:
             for raw in (await self.call(self.b.duels, True)).get("duels", []):
                 key = duel_key(raw)
-                if key is not None and key not in self.duels and not self.records.finished(key):
+                if key is not None and key not in self.duels and ended(raw) and not self.records.finished(key):
                     self.record(key, done=raw)
                     self.log.write("recorded", duel=key)
             events = (await self.call(self.b.feed, 200)).get("events", [])
@@ -529,7 +538,7 @@ class DuelRunner:
                     await self.finish(gone)
                 except Exception as e:
                     self.log.write("error", where="finish", error=repr(e))
-            await asyncio.sleep(self.poll_s)
+            await asyncio.sleep(self.wait_s(live))
 
     async def _decide(self, mem: Memory) -> None:
         try:

@@ -15,7 +15,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from .adapter import as_number, as_offer, as_role, first
+from .adapter import DONE, as_number, as_offer, as_role, first
 from .guards import worth
 from .model import DuelView, Role
 
@@ -24,6 +24,12 @@ RECORDS = Path(__file__).resolve().parents[2] / "docs" / "duels"
 
 def duel_key(raw: dict[str, Any]) -> Any:
     return first(raw, "id", "duel_id", "duel")
+
+
+def ended(raw: dict[str, Any] | None) -> bool:
+    """The game's payload of a duel that is over. The done list also lists live duels (Sat 09:13: six practice
+    duels frozen by the clock's pause came back with status `live`)."""
+    return bool(raw) and str(first(raw, "status", "state") or "").lower() in DONE
 
 
 class Records:
@@ -46,7 +52,7 @@ class Records:
     def finished(self, key: Any) -> bool:
         """Saved with the game's final payload: nothing more to learn about it."""
         rec = self.load(key)
-        return bool(rec and rec.get("done"))
+        return bool(rec) and ended(rec.get("done"))
 
     def save(self, key: Any, **fields: Any) -> Path:
         """Merges `fields` into the duel's record; lists of events are extended, never replaced."""
