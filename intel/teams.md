@@ -1,4 +1,4 @@
-# Rival profiles (Dani's dashboard, auto Sat 00:47, tick 159)
+# Rival profiles (Dani's dashboard, auto Sat 09:10, tick 159)
 
 _From the public feed since tick 67, the leaderboard and our /api/me. Inferred: starting cards and pack pulls are invisible. Collects = sets it buys or bids for; dumps = sets it sells or asks for. Prices = median of its team trades and open bids (c/u/r). Δ = score change over ~30 ticks._
 
@@ -12,8 +12,8 @@ _From the public feed since tick 67, the leaderboard and our /api/me. Inferred: 
 - #6 Team 4 19.9 (Δ +0.7) · **buyer for LAV/LAT** · collects LAV/LAT · dumps MAL · prices c 7.5 u 21 · 6 team / 3 dealer trades, 20 listings · Abuela −15.3% · big: LAT-07 from Team 5 for 21 P (tick 68)
 - #7 Team 18 19.2 (Δ -2.2) · **seller of MAL/LAV** · dumps MAL/LAV · prices c 9 u 23 r 62 · 6 team / 4 dealer trades, 34 listings · Abuela −19.5% · big: SAL-10 from Team 12 for 80 P (tick 72)
 - #8 Team 14 18.1 (Δ +0.6) · **buyer for LAV** · collects LAV · dumps MAL/LAT/SAL · prices u 55 r 53 · 1 team / 4 dealer trades, 17 listings · Abuela −25%
-- #9 Team 8 17.6 (Δ -4.0) · **buyer for SAL/LAT/LAV** · collects SAL/LAT/LAV · prices c 7.5 r 53 · 3 team / 3 dealer trades, 80 listings · Abuela −15.5% · big: MAL-10 from Team 14 for 53 P (tick 77)
-- #10 Team 3 14.6 (Δ +3.2) · **buyer for SAL/LAT** · collects SAL/LAT · dumps MAL/LAV · prices u 28 · 1 team / 5 dealer trades, 4 listings · Abuela −15.8%
+- #9 Team 8 17.6 (Δ -4.0) · **buyer for SAL/LAT/LAV** · collects SAL/LAT/LAV · prices c 7.5 r 53 · 3 team / 3 dealer trades, 82 listings · Abuela −15.5% · big: MAL-10 from Team 14 for 53 P (tick 77)
+- #10 Team 3 14.6 (Δ +3.2) · **buyer for SAL/LAT** · collects SAL/LAT · dumps MAL/LAV · prices u 28 · 1 team / 5 dealer trades, 5 listings · Abuela −15.8%
 - #11 Team 6 12.1 (Δ -1.7) · **buyer for SAL** · collects SAL · dumps MAL/LAV/LAT · prices c 8.5 u 23 r 60 · 10 team / 2 dealer trades, 112 listings · Abuela −9.6%
 - #12 Team 15 10.3 (Δ +6.2) · **buyer for MAL** · collects MAL · dumps LAV/SAL · prices c 8 u 22 r 13.5 · 8 team / 5 dealer trades, 46 listings · Abuela −3.4% · big: LAT-10 from Team 6 for 60 P (tick 142)
 - #13 Team 9 9.5 (Δ -2.7) · **buyer for LAV** · collects LAV · dumps MAL/LAT · 0 team / 5 dealer trades, 0 listings · Abuela −20.9%
