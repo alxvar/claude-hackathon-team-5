@@ -192,3 +192,6 @@ Paco: Say sí, the street is waiting.
 - Sat 21:02 · catalog.minted RET-11 (Palacio de Cristal, epic, print run 9): hidden=False minted=1 (was 0)
 - Sat 21:07 · persona.updated tick 1219 · abuela → ? · {"persona": "abuela", "name": "Abuela Carmen", "version": 3}
 - Sat 21:11 · egg.found tick 1227 · picaros → t18 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t18", "name": "Team 18"}
+- Sat 21:12 · catalog.minted SAL-11 (La Puerta de Alcalá, epic, print run 9): hidden=False minted=7 (was 5)
+- Sat 21:13 · egg.found tick 1231 · picaros → t05 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t05", "name": "Team 5"}
+- Sat 21:13 · egg.found tick 1231 · picaros → t10 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t10", "name": "Team 10"}
