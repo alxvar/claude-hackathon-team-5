@@ -1,4 +1,4 @@
-# Metrics (auto, 20:56, game tick 1201)
+# Metrics (auto, 20:58, game tick 1201)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -86,6 +86,7 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 ## El Rastro now: top bids by price (team, card, price)
 
 - t10: LAV-11 (epic) 205 P · offer 17778
+- t17: MAL-11 (epic) 150 P · offer 17786
 - t09: MAL-09 (rare) 56 P · offer 17776
 - t09: MAL-10 (rare) 56 P · offer 17777
 - t18: LAT-10 (rare) 47 P · offer 17066
@@ -99,7 +100,6 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 - t13: RET-05 (common) 2 P · offer 17625
 - t13: RET-02 (common) 2 P · offer 17648
 - t13: LAT-02 (common) 2 P · offer 17665
-- t13: LAT-05 (common) 2 P · offer 17667
 
 Asks by others (card, price: count): LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAT-06 20: 1; SAL-02 7: 1; SAL-01 6: 1; RET-09 84: 1; LAT-08 30: 1; SAL-11 245: 1; RET-06 30: 1; LAT-06 21: 1; SAL-03 7: 1; SAL-04 10: 1
 
@@ -118,9 +118,9 @@ Asks by others (card, price: count): LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-
 
 ## Latest announcements
 
-- tick 1091 level.unlocked: {"team": "t17", "name": "Team 17", "persona": "banco", "persona_name": "Don Ernesto", "level": 5, "why": "open to everyone now"}
 - tick 1091 level.unlocked: {"team": "t18", "name": "Team 18", "persona": "banco", "persona_name": "Don Ernesto", "level": 5, "why": "open to everyone now"}
 - tick 1194 announcement: {"text": "Heads-up: the game pauses in 2 minutes for a short announcement, about 10 minutes. Please come to the front."}
 - tick 1201 announcement: {"text": "\u23f8 The game is paused for about 10 minutes. Announcement at the front: Payday, tips, and a congratulation. Play resumes right after."}
 - tick 1201 announcement: {"text": "Payday in Madrid: every team gets 400 primas, a second starting purse. Don Ernesto's vault and Los P\u00edcaros' epics are within reach. Only deals sc
+- tick 1201 announcement: {"text": "Play resumes now. Duels II starts in about 20 minutes: make sure your agent is running."}
 
