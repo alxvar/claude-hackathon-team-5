@@ -43,11 +43,14 @@ AGREEMENT_FEEDBACK = ("the message could be read as accepting, but you are not a
 MAX_MESSAGE = 1000                      # characters; the game keeps 1,200
 # A rival that has said nothing at all (plan §4D #5): code concedes from our opener toward a floor.
 SILENT_FROM = 0.5                       # starts once this share of the duel's ticks is left
-SILENT_KEEP = 0.3                       # of the distance from our opener to our limit, never conceded
+SILENT_KEEP = 0.15                      # of the distance from our opener to our limit, never conceded (Duel Lab
+                                        # 16:00: near our limit the share is small, so the walk may go further)
 SILENT_BY = 2                           # the floor is reached with this many ticks left (the last one is spare)
 MIN_STEP_P = 3                          # a concession smaller than this (in worth) is not worth a round...
 MIN_STEP_SHARE = 0.05                   # ...nor one smaller than this share of the gap between the standing offers
-CLOSING_TICKS = 3                       # the last ticks, where code never holds a concession
+MAX_STEP_SHARE = 0.18                   # a mid-duel concession bigger than this share of the gap is cut to it
+CLOSING_TICKS = 3                       # the last ticks, where code never holds or cuts a concession
+LATE_SWITCH_LEFT = 4                    # ticks left from which code offers their day once, worth the same to us
 # The delivery day (Duels II, docs/duels-1-review.md §3.1)
 DAY_SAME_SIDE_P = 2                     # their day costs us at most this: it is on our side, take it
 RANK_SAMPLES = 3                        # weights seen this session before our weight is ranked among them
@@ -196,9 +199,8 @@ class DayRead:
     best_day: int
     our_day: int                    # our last offer's day, else our best
     cost: float                     # C: what their day costs us against our best day
-    give_day: int                   # the day we would give: theirs, or the end on their side for a middle day
-    ask: float                      # what giving it costs us against our last offer's day: ask at least this more
-    premium: float                  # about this much more on top when we give (what the given day costs us)
+    middle: bool                    # their day is 1-9 and each day costs us the same: it says nothing of their side
+    ask: float                      # what giving their day costs us against our last offer's day
     swing: float
     rank: int | None                # among the weights seen this session, 1 = the lowest; None: too few seen
     seen: int
@@ -227,12 +229,13 @@ def day_read(obs: Observation) -> DayRead | None:
     our_day = ours[-1].days if ours and ours[-1].days is not None else dv.best
     first = next((o.days for o in their_offers(obs)), None)
     cost = -dv(standing.days)
-    linear = dv.sure and dv.best in (0, 10)
-    give = standing.days if not linear or standing.days in (0, 10) else 10 - dv.best   # never a middle day (rule 4)
+    middle = dv.sure and dv.best in (0, 10) and standing.days not in (0, 10)
     size = swing(dv)
     seen = obs.day_swings if size in obs.day_swings else [*obs.day_swings, size]
     level, rank = weight_level(size, seen)
-    if cost <= DAY_SAME_SIDE_P:
+    if middle:
+        call = "hold"                                 # answer with our own end, never settle a middle day (Duel Lab)
+    elif cost <= DAY_SAME_SIDE_P:
         call = "take"
     elif not dv.sure:
         call = "hold"                                 # the direction is a guess: never give the day first
@@ -240,7 +243,7 @@ def day_read(obs: Observation) -> DayRead | None:
         call = "give"
     else:
         call = "hold" if level == "high" else "menu"
-    return DayRead(standing.days, first, dv.best, our_day, cost, give, max(dv(our_day) - dv(give), 0.0), -dv(give),
+    return DayRead(standing.days, first, dv.best, our_day, cost, middle, max(dv(our_day) - dv(standing.days), 0.0),
                    size, rank, len(seen), level, call)
 
 
@@ -258,18 +261,19 @@ def day_lines(obs: Observation) -> list[str]:
               f"{f(SWING_LOW_P)}, high from {f(SWING_HIGH_P)}")
     lines.append(f"- Your day weight: the worst day costs you {f(r.swing)} against your best; {ranked}. It counts "
                  f"as {'in between' if r.level == 'middle' else r.level}.")
-    if r.cost > DAY_SAME_SIDE_P:
-        lines.append(f"- If you give them day {r.give_day}, ask at least {f(r.ask)} more in price than your offer on "
-                     f"day {r.our_day}" + (" (a middle day throws away pie, so the end on their side)"
-                                           if r.give_day != r.their_day else "") + ".")
+    if r.cost > DAY_SAME_SIDE_P and not r.middle:
+        lines.append(f"- If you give them day {r.their_day}, ask at least {f(r.ask)} more in price than your offer "
+                     f"on day {r.our_day}.")
     way = "up" if obs.view.role is Role.SELLER else "down"
+    hold = (f"day {r.their_day} is a middle day, which says nothing about which end they prefer: answer with your "
+            f"own end, day {r.best_day}, and haggle the price as usual" if r.middle else
+            f"hold your day {r.our_day} and haggle the price as usual; don't pay to keep it"
+            + ("" if obs.view.day_values.sure else " (which days you prefer is a guess: don't give first)"))
     call = {"take": f"take their day {r.their_day} now and haggle the price only",
-            "give": f"give them day {r.give_day}, with your price {way} by {f(r.ask)} plus about {f(r.premium)} "
-                    f"more",
-            "hold": f"hold your day {r.our_day}; offer up to about {f(r.cost / 2)} in price to keep it"
-                    + ("" if obs.view.day_values.sure else " (which days you prefer is a guess: don't give first)"),
+            "give": f"give them day {r.their_day}, with your price {way} by {f(r.ask)} plus about {f(r.cost)} more",
+            "hold": hold,
             "menu": f"offer a menu: one package in the offer, the other in words (your day {r.our_day} at one "
-                    f"price, day {r.give_day} at {f(r.ask)} plus about {f(r.premium)} more)"}[r.call]
+                    f"price, day {r.their_day} at {f(r.ask)} plus about {f(r.cost)} more)"}[r.call]
     lines.append(f"- By your day rules: {call}.")
     return lines
 
@@ -342,6 +346,12 @@ def ledger(obs: Observation) -> str:
         step = f(math.ceil(min_step(v, ours[-1], standing) - 1e-9))
         lines.append(f"- The smallest step worth sending now: {step} ({MIN_STEP_SHARE:.0%} of the gap, at least "
                      f"{f(MIN_STEP_P)}). A smaller step is not sent.")
+        gap = worth(v, ours[-1].price, ours[-1].days) - worth(v, standing.price, standing.days)
+        if gap > 0:
+            lines.append(f"- The largest step that will go out now: {f(math.floor(MAX_STEP_SHARE * gap + 1e-9))} "
+                         f"({MAX_STEP_SHARE:.0%} of the gap); a bigger one is cut to it, and under a "
+                         f"~{f(round(MIN_STEP_P / MAX_STEP_SHARE))} gap no concession goes out until the last "
+                         f"{CLOSING_TICKS} ticks.")
     lines += day_lines(obs)
     return "\n".join(lines)
 
@@ -424,11 +434,12 @@ The delivery day: set "days" (0 to 10) every turn. Each side values the day priv
 2. If their day costs you at most {f(DAY_SAME_SIDE_P)} (the facts say it is on your side), take it at once and haggle the price only.
 3. If it is on the other side, C is what their day costs you (the facts give it):
    - Your day weight is low (the facts say how it ranks among this session's weights): give them their day in your first or second offer, with the price moved by C plus a premium of about C (a seller asks more, a buyer offers less). The deal is worth no less to you, and the bigger pie is shared.
-   - Your day weight is high: hold your day, and offer up to about C/2 in price to keep it.
+   - Your day weight is high: hold your day and haggle the price as usual. Don't pay to keep it: a rival that knows what its day is worth already prices that in.
    - In between: offer one package and name the other in the angle as a menu in words ("day 0 at 120, or day 10 at 105"). It costs no extra round, and their next offer shows which they value.
-4. Never settle on a middle day when each day costs you the same (your best day is 0 or 10): the pie is biggest at one end, and a middle day throws away half the gain.
+4. Never settle on a middle day when each day costs you the same (your best day is 0 or 10): the pie is biggest at one end, and a middle day throws away half the gain. A middle day from them says nothing about which end they prefer: answer with your own end and haggle the price.
 5. Settle the day within your first two messages, then keep it: at this decay, haggling over two issues is expensive.
 6. If your system says which days you prefer is a guess, don't give the day first; follow their day only if it costs you at most {f(DAY_SAME_SIDE_P)} at the worse reading.
+Near the end, your system makes one move on its own: with {LATE_SWITCH_LEFT} ticks left and the days still apart, it offers their day at the price that keeps the deal worth the same to you, so a quarrel over the day never costs the deal. After that, keep their day.
 """
 
 
@@ -492,6 +503,7 @@ class DuelAgent:
         self.strategist = strategist
         self.negotiator = negotiator or strategist
         self.strategist_system = render("strategist", **brief(view, strategist=True))
+        self.switched = False                     # the late day switch went out (`late_switch`)
         self.negotiator_system = render("negotiator", **brief(view, strategist=False))
         self.calls: list[dict[str, Any]] = []         # per turn: stage, latency, tokens, cost
 
@@ -668,6 +680,28 @@ class DuelAgent:
                                                                  else ".")
         return Move("offer", text, price=price, days=days, meta={"rule": "silent rival"})
 
+    def late_switch(self, obs: Observation) -> Move | None:
+        """Code's one move on the day (Duel Lab §4): from LATE_SWITCH_LEFT ticks left, with the days still apart and
+        our weight read for sure, offer their day at the price that keeps our worth where our standing offer has
+        it, so a quarrel over the day never costs the deal. Any day of theirs, a middle day too. Once per duel
+        (the runner sets `switched` when it sends it); None otherwise. Pure: `runner.due` asks it too."""
+        dv, their, ours = self.view.day_values, standing_offer(obs), next(reversed(our_offers(obs)), None)
+        if (self.switched or dv is None or not dv.sure or obs.ticks_left is None or obs.ticks_left > LATE_SWITCH_LEFT
+                or their is None or ours is None or their.days is None or their.days == ours.days):
+            return None
+        keep = worth(self.view, ours.price, ours.days)
+        if worth(self.view, their.price, their.days) >= keep:
+            return None                               # theirs is already as good: accepting is for the closers
+        price = toward_us(self.s, price_at(self.view, keep, their.days))
+        text = f"I can do {money(price, self.view.currency)}, delivery on day {their.days}."
+        return Move("offer", text, price=price, days=their.days, meta={"rule": "late switch"})
+
+    def take_switch(self, obs: Observation) -> Move | None:
+        """`late_switch`, as the move this tick: it won't be offered again."""
+        if (move := self.late_switch(obs)) is not None:
+            self.calls, self.switched = [], True
+        return move
+
     def repair(self, d: Decision, obs: Observation, band: Band, days: int | None, /, **meta: Any) -> Move:
         """A decision that failed its checks twice: an offer clamped into the band with a plain message."""
         price = band.clamp(self.s, d.price) if d.action == "offer" and d.price is not None else band.target
@@ -713,6 +747,9 @@ class DuelAgent:
         - "plan holds": the strategist holds (its target is our standing offer, on our day) and the negotiator
           drafted a point or two off it;
         - "small step": a concession smaller than `min_step` (277: 175 → 173 → 160 → 158 → 156, 11 rounds).
+        Cut ("capped", with code's text naming the new price): a concession bigger than MAX_STEP_SHARE of the gap
+        is cut to it, then held if that leaves less than `min_step` (Duel Lab 1a: our LLM conceded up to 67% of
+        the gap in one step, and steps of a quarter or more drew 4.8 P back for 7.5 P given).
         Accepts, the opener (no standing offers yet), non-concessions (a day swap that keeps our worth among them)
         and the last CLOSING_TICKS ticks go out. Duels I: the haggling after our 4th offer paid (71 P), so there is
         no cap on the number of offers (docs/duels-1-review.md §3.2)."""
@@ -728,6 +765,17 @@ class DuelAgent:
         step = worth(self.view, ours.price, ours.days) - worth(self.view, move.price, days)
         if theirs is None or step <= 0 or (obs.ticks_left is not None and obs.ticks_left <= CLOSING_TICKS):
             return move
+        now = worth(self.view, ours.price, ours.days)
+        most = MAX_STEP_SHARE * (now - worth(self.view, theirs.price, theirs.days))
+        if step > most:                           # cut to MAX_STEP_SHARE of the gap, rounded toward us
+            price = toward_us(self.s, price_at(self.view, now - most, days))
+            step = now - worth(self.view, price, days)
+            if step < min_step(self.view, ours, theirs):
+                return hold("small step")
+            text = f"I can do {money(price, self.view.currency)}" + (f", delivery on day {days}."
+                                                                     if days is not None else ".")
+            return Move("offer", text, price=price, days=days, meta={**move.meta, "rule": "capped",
+                                                                     "drafted": move.price})
         if step < min_step(self.view, ours, theirs):
             return hold("small step")
         return move

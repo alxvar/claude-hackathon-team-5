@@ -2,8 +2,9 @@
 
 A duel needs a move when the rival has moved, in its last DECIDE_LEFT ticks whatever the rival does, when both
 sides have sat still for HOLD_TICKS ticks, when a rival that has said nothing is due our next step
-(`silent_rival`: code, no model), and when code should accept its standing offer (`closer`): the
-deadline can't wait, or the gap is smaller than what one more round risks. When our acceptance must wait for the
+(`silent_rival`: code, no model), when code should accept its standing offer (`closer`): the
+deadline can't wait, or the gap is smaller than what one more round risks, and, with days, when code offers
+their day once near the end (`agent.late_switch`). When our acceptance must wait for the
 team's one acceptance per tick, we offer the rival its own price instead, if that costs no round (`their_price`).
 With days, the code rules weigh whole packages (`guards.worth`); a days duel whose weight we can't read stays with
 the models (`by_code`).
@@ -283,6 +284,7 @@ class DuelRunner:
         left = mem.snap.ticks_left
         return ((left is not None and left <= DECIDE_LEFT)        # the clock alone is a reason (duel 181)
                 or self.closing(mem) is not None
+                or mem.agent.late_switch(self.observe(mem)) is not None     # the day, at LATE_SWITCH_LEFT ticks
                 or self.standoff(mem) >= HOLD_TICKS)               # both sides still (duels 103/104)
 
     def accepted(self, mem: Memory) -> bool:
@@ -389,6 +391,8 @@ class DuelRunner:
         timeout = max(8.0, self.tick_seconds - 5.0)
         if why := self.closing(mem):
             move = mem.agent.final(mem.agent.close(obs, why), obs)
+        elif (switch := mem.agent.take_switch(obs)) is not None:
+            move = mem.agent.final(switch, obs)
         elif self.silent_rival(mem):
             if (step := mem.agent.silent_move(obs)) is None:
                 return                            # nothing to send this tick

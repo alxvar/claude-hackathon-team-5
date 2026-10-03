@@ -387,8 +387,8 @@ def test_a_silent_rival_gets_our_offer_walked_down_to_a_floor_by_code(tmp_path: 
     for tick in range(121, 132):
         raw = play(r, b, raw, tick)
     steps = [(m["tick"], m["price"]) for m in raw["messages"][1:]]
-    # From 6 ticks left (tick 126) to 2 left (130): 165 -> floor 111 + 0.3 x 54 = 127.2, rounded up to 128.
-    assert steps == [(126, 158), (127, 150), (128, 143), (129, 135), (130, 128)]
+    # From 6 ticks left (tick 126) to 2 left (130): 165 -> floor 111 + 0.15 x 54 = 119.1, rounded up to 120.
+    assert steps == [(126, 156), (127, 147), (128, 138), (129, 129), (130, 120)]
     assert fake.seen == []                              # no model asked
 
 
@@ -407,7 +407,7 @@ def test_a_silent_rival_that_speaks_goes_back_to_the_models(tmp_path: Path):
 
 def test_a_silent_rival_in_a_days_duel_walks_on_price_and_keeps_our_day(tmp_path: Path):
     # Duel 31 as a days duel: our opener 165 on day 4, each day later costing us 2, so day 4 costs 8 and our
-    # limit on it is 119: floor 119 + 0.3 x 46 = 132.8, rounded up to 133.
+    # limit on it is 119: floor 119 + 0.15 x 46 = 125.9, rounded up to 126.
     b, fake = FakeBazaar(), FakeModel(plan(150, 155, 145, days=4))
     r = runner(b, fake, tmp_path, duel_ticks=12)
     raw = recorded(31, 120)
@@ -417,7 +417,7 @@ def test_a_silent_rival_in_a_days_duel_walks_on_price_and_keeps_our_day(tmp_path
     for tick in range(121, 132):
         raw = play(r, b, raw, tick)
     steps = [(m["tick"], m["price"], m["days"]) for m in raw["messages"][1:]]
-    assert steps == [(126, 159, 4), (127, 153, 4), (128, 146, 4), (129, 140, 4), (130, 133, 4)]
+    assert steps == [(126, 158, 4), (127, 150, 4), (128, 142, 4), (129, 134, 4), (130, 126, 4)]
     assert fake.seen == []
 
 
@@ -573,7 +573,8 @@ def test_the_strategist_sees_what_each_day_costs_and_the_negotiator_does_not():
                                                                           tick=2)]
     move = respond(v, Observation(view=v, turns=turns, rival_offer=Offer(price=95, days=6), tick=3, ticks_left=8),
                    fake)
-    assert (move.action, move.price, move.days) == ("offer", 80, 1)
+    # gap 47 in worth: the drafted 20-in-worth step is cut to 18% of it, 66 on day 1 (66 + 2 = 68 ≤ 100 - 31.5)
+    assert (move.action, move.price, move.days, move.meta["rule"]) == ("offer", 66, 1, "capped")
     (_, s_system, s_msgs), (_, n_system, n_msgs) = fake.seen
     assert "day 0: 0 P, day 1: 2 P, day 2: 4 P" in s_system and "best day (day 0)" in s_system
     assert "each day later costs you 2 P" in s_system
@@ -734,8 +735,8 @@ def test_a_plan_that_holds_sends_nothing_even_when_the_negotiator_drifts(tmp_pat
     move = respond(SELLER, obs(SELLER, rival=30, turns=turns), FakeModel(plan(70, 72, 67), drift))
     assert (move.action, move.price, move.meta["rule"], move.meta["drafted"]) == ("offer", 70, "plan holds", 68)
     step = respond(SELLER, obs(SELLER, rival=30, turns=turns),
-                   FakeModel(plan(58, 60, 56), Decision(action="offer", price=59, message="59 P.")))
-    assert step.price == 59 and "rule" not in step.meta          # a planned step goes out as drafted
+                   FakeModel(plan(64, 66, 62), Decision(action="offer", price=64, message="64 P.")))
+    assert step.price == 64 and "rule" not in step.meta          # a planned step goes out as drafted
     take = respond(SELLER, obs(SELLER, rival=69, turns=turns),
                    FakeModel(plan(70, 72, 68), Decision(action="accept", price=69, message="Done.")))
     assert (take.action, take.price) == ("accept", 69)            # holding never blocks an accept
@@ -763,7 +764,7 @@ def test_277_a_step_of_a_point_or_two_is_held():
     turns = [*mine(175), theirs(118, 2)]
     small = drafted(view, turns, Offer(price=118), 173)       # gap 57: the least step worth a round is 3 P
     assert (small.price, small.meta["rule"], small.meta["drafted"]) == (175, "small step", 173)
-    assert drafted(view, turns, Offer(price=118), 160).price == 160
+    assert drafted(view, turns, Offer(price=118), 166).price == 166    # 9 P: inside 18% of the gap (10.26)
 
 
 def test_278_a_step_toward_a_holder_is_held():
@@ -776,8 +777,8 @@ def test_278_a_step_toward_a_holder_is_held():
 def test_a_fifth_offer_goes_out_normally():
     # Duels I: 71 P of our results came after our 4th offer, so there is no offer budget (§3.2).
     turns = [*mine(70), theirs(20, 1), *mine(64, 58, start=2), theirs(28, 3), *mine(52, start=4)]
-    fifth = drafted(SELLER, turns, Offer(price=28), 46)       # their 28 stood when we sent 52
-    assert fifth.price == 46 and "rule" not in fifth.meta
+    fifth = drafted(SELLER, turns, Offer(price=28), 48)       # their 28 stood when we sent 52
+    assert fifth.price == 48 and "rule" not in fifth.meta
     assert drafted(SELLER, turns, Offer(price=28), 50).meta["rule"] == "small step"   # the 3 P floor stays
 
 
@@ -840,13 +841,17 @@ def test_the_deck_example_seller_gives_the_day_buyer_holds_it():
     assert "- By your day rules: give them day 0, with your price up by 10 P plus about 10 P more." in text
     hold = day_read(days_obs(EARLY_BUYER, (60, 0), (90, 10)))     # a day-10 seller: day 10 costs us 40
     assert (hold.cost, hold.level, hold.call) == (40, "high", "hold")
-    assert "- By your day rules: hold your day 0; offer up to about 20 P in price to keep it." in \
+    assert "- By your day rules: hold your day 0 and haggle the price as usual; don't pay to keep it." in \
         ledger(days_obs(EARLY_BUYER, (60, 0), (90, 10)))
     same = day_read(days_obs(EARLY_BUYER, (60, 0), (90, 0)))      # their day is ours
     assert (same.cost, same.call) == (0, "take")
     assert "ask at least" not in ledger(days_obs(EARLY_BUYER, (60, 0), (90, 0)))
-    middle = day_read(days_obs(LATE_SELLER, (95, 10), (70, 4)))   # never settle on a middle day: give the end
-    assert (middle.cost, middle.call, middle.give_day, middle.ask, middle.premium) == (6, "give", 0, 10, 10)
+    middle = day_read(days_obs(LATE_SELLER, (95, 10), (70, 4)))   # a middle day: answer with our own end
+    assert (middle.cost, middle.middle, middle.call) == (6, True, "hold")
+    text = ledger(days_obs(LATE_SELLER, (95, 10), (70, 4)))
+    assert "answer with your own end, day 10, and haggle the price as usual" in text and "If you give" not in text
+    near = day_read(days_obs(LATE_SELLER, (95, 10), (70, 9)))      # even a middle day that costs us 1 P
+    assert near.call == "hold"
 
 
 def test_the_day_weight_ranks_among_this_sessions_weights():
@@ -887,9 +892,86 @@ def test_the_runner_keeps_the_sessions_day_weights(tmp_path: Path):
 def test_the_days_guide_and_the_negotiator_line():
     from agents.duelist.agent import brief
     s = brief(LATE_SELLER, strategist=True)["days_guide"]
-    assert "Never settle on a middle day" in s and "at most 2 P" in s and "C/2" in s
+    assert "Never settle on a middle day" in s and "at most 2 P" in s and "C/2" not in s
+    assert "Don't pay to keep it" in s and "answer with your own end" in s and "4 ticks left" in s
     n = brief(LATE_SELLER, strategist=False)["days_negotiator"]
     assert "second package" in n and "only the price and day of your offer bind" in n
+
+
+# Duel Lab 1a: a mid-duel concession is cut to 18% of the gap (intel/duel-lab.md)
+
+CAP_SELLER = SELLER.model_copy(update={"limit": 87, "duel_ticks": 16})
+
+
+def test_a_step_cut_to_18_percent_of_a_small_gap_is_held():
+    # 2296 on tick 462: our 114 against their 101 (gap 13); a drafted 108 is cut to 112, under the 3 P floor.
+    move = drafted(CAP_SELLER, [*mine(114), theirs(101, 2)], Offer(price=101), 108)
+    assert (move.price, move.meta["rule"], move.meta["drafted"]) == (114, "small step", 108)
+
+
+def test_a_big_step_is_cut_to_18_percent_of_the_gap_with_codes_text():
+    turns = [*mine(135), theirs(83, 2)]                       # gap 52: at most 9.36, so 125.64, rounded up to 126
+    move = drafted(CAP_SELLER, turns, Offer(price=83), 122)
+    assert (move.action, move.price, move.text) == ("offer", 126, "I can do 126 P.")
+    assert (move.meta["rule"], move.meta["drafted"]) == ("capped", 122)
+    assert drafted(CAP_SELLER, turns, Offer(price=83), 122, left=3).price == 122    # the closing ticks: as drafted
+    assert drafted(CAP_SELLER, [*mine(127), theirs(87, 2)], Offer(price=87), 121).price == 121  # gap 40: 6 P is fine
+
+
+def test_a_cut_step_in_a_days_duel_names_the_day_and_a_day_swap_is_never_cut():
+    view = LATE_SELLER.model_copy(update={"limit": 87})
+    turns = [Turn(mine=True, offer=Offer(price=135, days=10), tick=1), theirs(83, 2, days=10)]
+    move = drafted(view, turns, Offer(price=83, days=10), 122, days=10)
+    assert (move.price, move.days, move.text) == (126, 10, "I can do 126 P, delivery on day 10.")
+    swap = drafted(view, [Turn(mine=True, offer=Offer(price=135, days=10), tick=1), theirs(83, 2, days=0)],
+                   Offer(price=83, days=0), 145, days=0)       # day 0 costs us 10: worth the same
+    assert (swap.price, swap.days) == (145, 0) and "rule" not in swap.meta
+
+
+def test_the_ledger_names_the_largest_step():
+    text = ledger(obs(CAP_SELLER, rival=83, turns=[*mine(135), theirs(83, 2)]))
+    assert ("- The largest step that will go out now: 9 P (18% of the gap); a bigger one is cut to it, and under a "
+            "~17 P gap no concession goes out until the last 3 ticks.") in text
+
+
+# Duel Lab §4: the late day switch
+
+def switch_obs(view, ours, their, left):
+    return days_obs(view, ours, their, left=left)
+
+
+def test_the_late_switch_offers_their_day_at_a_price_worth_the_same_once():
+    agent = DuelAgent(LATE_SELLER, FakeModel(plan(95, 97, 93)))
+    assert agent.late_switch(switch_obs(LATE_SELLER, (95, 10), (70, 0), left=5)) is None     # too early
+    move = agent.late_switch(switch_obs(LATE_SELLER, (95, 10), (70, 0), left=4))
+    assert (move.price, move.days, move.meta["rule"]) == (105, 0, "late switch")             # 95 + day 0's 10
+    assert move.text == "I can do 105 P, delivery on day 0."
+    assert agent.late_switch(switch_obs(LATE_SELLER, (95, 10), (70, 4), left=2)).price == 101  # a middle day too
+    assert agent.take_switch(switch_obs(LATE_SELLER, (95, 10), (70, 0), left=4)) is not None
+    assert agent.late_switch(switch_obs(LATE_SELLER, (95, 10), (70, 0), left=3)) is None     # once per duel
+    fresh = DuelAgent(LATE_SELLER, FakeModel(plan(95, 97, 93)))
+    assert fresh.late_switch(switch_obs(LATE_SELLER, (95, 10), (70, 10), left=4)) is None    # the days match
+    unsure = SELLER.model_copy(update={"issues": ["price", "days"], "days_weight": 2})
+    assert DuelAgent(unsure, FakeModel(plan(95, 97, 93))).late_switch(
+        switch_obs(unsure, (95, 5), (70, 0), left=4)) is None                                # a guessed direction
+
+
+def test_the_runner_decides_at_four_ticks_left_to_switch_the_day(tmp_path: Path):
+    b = FakeBazaar()
+    r = runner(b, FakeModel(plan(95, 97, 93)), tmp_path)
+    raw = {"id": 7, "role": "seller", "your_limit": 60, "deadline": 112, "issues": ["price", "days"],
+           "your_days_weight": 1, "days_meaning": "each day later earns you 1 P",
+           "rival_offer": {"price": 70, "days": 0},
+           "messages": [{"tick": 106, "from": "Rival Sol", "text": "70, day 0.", "price": 70, "days": 0},
+                        {"tick": 106, "from": "you", "text": "95, day 10.", "price": 95, "days": 10}],
+           "your_offer": {"price": 95, "days": 10, "tick": 106}}
+    mem = answered(r, raw, 107)                       # 5 left: we answered on 106, they haven't moved
+    assert not r.due(mem)
+    r.tick = 108                                      # 4 left
+    mem = r.update(raw)
+    assert r.due(mem)
+    asyncio.run(r.decide(mem))
+    assert b.said == [(7, "I can do 105 P, delivery on day 0.", 105, 0)]
 
 
 def test_the_opener_is_always_an_offer():
