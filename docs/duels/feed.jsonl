@@ -605,3 +605,4 @@
 {"id": 33354, "tick": 625, "t": 6.5333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2542, "session": 2, "status": "no_deal", "item": "Mercado de la Paz"}}
 {"id": 33357, "tick": 625, "t": 6.5333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2561, "session": 2, "status": "deal", "item": "La Heroína del Dos de Mayo"}}
 {"id": 33360, "tick": 625, "t": 6.5333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2595, "session": 2, "status": "deal", "item": "El Mesón de la Cava"}}
+{"id": 33475, "tick": 629, "t": 6.5667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 2599, "session": 2, "status": "deal", "item": "Café en Goya"}}
