@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 18:57** · tick 1046 (30 s/tick) · game hour 10.04 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 19:02** · tick 1056 (30 s/tick) · game hour 10.12 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,24 +17,24 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 19:01 · operator · easter egg (Chief; text only, no price): Abuela (1539): 'La chulapa dorada... solo hubo una. Don Ernesto… guarda algo dorado. Pregúntale por el oro de Moscú' → feed **egg.found abuela t05 (tick 1047)** · Don Ernesto (1544) on 'El oro de Moscú': 'an old story, and not mine today. The gold pack… 546 P' → no egg.given (LAT-13 is print run 1, gone to t02 at 1021) · both threads closed, nothing bought
+  - Sat 19:00 · Builder · dealer-hint miner tools/hints.py live (13135ab, daemon hints): backfill 126 hits → intel/hints.md; golden-chulapa chain mapped (Pilar → Abuela egg → Don Ernesto 'El oro de Moscú' → LAT-13 to t02 at 1021); LAT-13 hidden, print run 1, minted 1: gone (banco 1045 'left Spain'); also underpriced-ask scanner in bargains (7e07250, first scan empty), suggestions per buyer + exclusions (18a8679); 435 pass
   - Sat 18:56 · operator · Chief/Analyst: our ladder fell back below its cap (−0.28 at tick 1030), so 0-neg ladder sells pay again → job bxpdvaqj5, one at a time, offer-only, never at the first price: (a) MAL-08 → Pilar (ask 30, −1, floor 18; value 17.5), (b) LAT-04 → Pícaros (ask 12, −1, floor 5), (c) LAV-04 spare → Pícaros (ask 10, −1, floor 4; value 3.2) · can-give YES on all three (LAV-03 NO) · none starts after 20:00; watchdog bfqg25rty kills the sellers and closes dealer threads at 20:15 (Duels II at 20:33) · ladder 0.437, negotiating 24.18
-  - Sat 18:31 · operator · Team 15 window over (18:30): thread 1179 was already closed; t15 posted one approved v10 sale (MAL-07 → t02, offer 13773, tick 893), **0 v10 settlements** since → commission N = 0, nothing owed; any t15 settlement offer > 0 gets ignored and reported
-  - Sat 18:30 · operator · board at tick 990 after the SAL close: **#1 31.97** (T6 31.7, T14 31.5, T3 29.6, T10 28.3), +1.99 board from +40.4 neg (≈ 0.049 per neg point)
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 31.68 | 3 | 24.18 | 7.50 | 13.93 | 0.44 | 0.89 | 52 | 5 | 120 | 38/50 |
+| 31.68 | 2 | 24.18 | 7.50 | 13.93 | 0.44 | 0.89 | 52 | 5 | 120 | 38/50 |
 
-Leaderboard (snapshot at tick 1040; refreshes every few minutes):
+Leaderboard (snapshot at tick 1050; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 14 | 31.76 | 22.23 | 9.53 | 45 |
-| 2 | Team 6 | 31.68 | 19.63 | 12.05 | 53 |
-| 3 | Team 5 | 31.68 | 24.18 | 7.50 | 52 |
-| 4 | Team 10 | 31.68 | 19.18 | 12.50 | 42 |
+| 1 | Team 6 | 31.68 | 19.63 | 12.05 | 53 |
+| 2 | Team 5 | 31.68 | 24.18 | 7.50 | 52 |
+| 3 | Team 10 | 31.68 | 19.18 | 12.50 | 42 |
+| 4 | Team 14 | 31.31 | 21.78 | 9.53 | 46 |
 | 5 | Team 3 | 29.61 | 24.14 | 5.46 | 29 |
 
 ## Next on the schedule
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 10.42 | ~22 min | persona_opens | Don Ernesto opens for everyone |
-| 11.00 | ~57 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~66 min | persona_patch | The fever breaks |
-| 11.65 | ~96 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~177 min | bench | The Market Test: every venue gets the same synthetic book |
-| 14.08 | ~242 min | day_closes | Closed until Sunday 09:00 |
-| 14.08 | ~242 min | day_opens | Sunday opens |
-| 14.65 | ~276 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 10.42 | ~18 min | persona_opens | Don Ernesto opens for everyone |
+| 11.00 | ~52 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~62 min | persona_patch | The fever breaks |
+| 11.65 | ~92 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~172 min | bench | The Market Test: every venue gets the same synthetic book |
+| 14.08 | ~237 min (after today's close) | day_closes | Closed until Sunday 09:00 |
+| 14.08 | ~237 min (after today's close) | day_opens | Sunday opens |
+| 14.65 | ~272 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
 
 ## Our dealer deals
 
@@ -58,8 +58,6 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Thread | Dealer | Side | Item | Her first | Our first | Deal | vs her first | Msgs | Status | Closed |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 367 | abuela | buy | RET-02 | 12 | 7 | — | — | 7 | closed |  |
-| 373 | abuela | buy | RET-08 | 29 | 14 | — | — | 2 | closed |  |
 | 384 | chato | buy | RET-09 | 97 | 57 | 87 | -10% | 11 | deal |  |
 | 389 | abuela | buy | RET-02 | 12 | 7 | 9 | -25% | 7 | deal |  |
 | 394 | chato | buy | RET-10 | 97 | 57 | — | — | 9 | closed |  |
@@ -89,15 +87,18 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | 1264 | picaros | sell | 1 card(s) | 4 | 12 | 5 | +25% | 11 | deal |  |
 | 1278 | chato | sell | 1 card(s) | 13 | 24 | — | — | 12 | closed |  |
 | 1294 | picaros | buy | MAL-10 | 73 | — | — | — | 13 | closed |  |
-| 1533 | pilar | sell | 1 card(s) | 16 | 30 | — | — | 4 | open |  |
-| 1539 | abuela | buy | LAT-02 | — | — | — | — | 1 | open |  |
+| 1533 | pilar | sell | 1 card(s) | 16 | 30 | — | — | 7 | closed |  |
+| 1539 | abuela | buy | LAT-02 | 12 | — | — | — | 2 | closed |  |
+| 1541 | picaros | sell | 1 card(s) | 4 | 12 | — | — | 7 | closed |  |
+| 1544 | banco | buy | sobre_oro | 546 | — | — | — | 2 | closed |  |
+| 1554 | picaros | sell | 1 card(s) | 4 | 10 | — | — | 4 | open |  |
 
 ## Abuela benchmark: every team's deals with her (public feed)
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
 | common card | team buys | 72 | 9.00 | 7 | 12 | 5 | 9 |
-| common card | team sells | 110 | 6.00 | 2 | 23 | 5 | 5.40 |
+| common card | team sells | 111 | 6 | 2 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 42 | 22.00 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 78 | 23.00 | 17 | 29 | 5 | 24.20 |
 | uncommon card | team sells | 11 | 15 | 12 | 20 | 0 | — |
