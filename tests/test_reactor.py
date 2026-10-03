@@ -168,3 +168,66 @@ def test_heartbeat_every_10_ticks_with_counts(tmp_path):
     r.handle({"id": _id[0], "tick": 60, "type": "tick", "payload": {"tick": 60, "tick_seconds": 15.0}})
     beat = [x for x in logs if x.startswith("reactor: tick 60")]
     assert beat and "listings 1" in beat[0] and "BUY 1" in beat[0] and r.tick_seconds == 15.0
+
+
+DEALERS = {"personas": [
+    {"id": "picaros", "status": "active", "menu": {"sells": [{"rarity": "rare", "list_price": 63},
+                                                              {"rarity": "epic", "list_price": 162}]}},
+    {"id": "chato", "status": "active", "menu": {"sells": [{"pack": "sobre_plata", "list_price": 150},
+                                                            {"rarity": "rare", "list_price": 77}]}}]}
+CARDS = {"SAL-11": {"set": "SAL", "rarity": "epic", "name": "La Puerta", "print_run": 9, "minted": 7},
+         "MAL-11": {"set": "MAL", "rarity": "epic", "name": "La Sala", "print_run": 9, "minted": 9},
+         "RET-09": {"set": "RET", "rarity": "rare", "name": "El Angel", "print_run": 30, "minted": 20}}
+
+
+class PubD(Pub):
+    def _call(self, method, path, *a, **k):
+        return DEALERS if path == "/api/dealers" else super()._call(method, path, *a, **k)
+
+
+def flipper(tmp_path, values, cash=500, prog=None):
+    r, clock, sent, logs = make(tmp_path, values, cash)
+    r.pub, r._cards, r._prog = PubD(), dict(CARDS), dict(prog or {})
+    rx.FLIPS_OUT = tmp_path / "flips.md"
+    return r, sent, logs
+
+
+def bid_to(maker, ref, cash, to=None, venue="rastro"):
+    e = bid(maker, ref, cash, venue)
+    e["payload"]["offer"]["to"] = to
+    return e
+
+
+def test_flip_when_a_dealer_sells_well_below_a_team_bid(tmp_path):
+    r, sent, logs = flipper(tmp_path, {"SAL-11": 150})
+    lines = r.handle(bid_to("t09", "SAL-11", 207, to="t08"))         # Team 10's 1296 trade, with a non-rival bidder
+    assert lines and lines[0].startswith("FLIP ") and "dealer picaros est. 162" in lines[0]
+    assert "est. score +38" in lines[0]                              # min(0, 150 - 162) + min(50, 206 - 150)
+    assert any(s[0] == "operator" and s[1].startswith("FLIP") for s in sent)
+
+
+def test_a_dealer_s_recent_sales_set_the_estimate_and_sold_out_cards_never_flip(tmp_path):
+    r, sent, logs = flipper(tmp_path, {"SAL-11": 150, "MAL-11": 150})
+    r.settled = [(r.now(), "picaros", "epic", 128.0), (r.now(), "picaros", "epic", 146.0)]
+    assert "est. 146" in r.handle(bid_to("t09", "SAL-11", 200))[0] or "est. 137" in logs[-1]
+    assert r.handle(bid_to("t09", "MAL-11", 300)) == []               # 9 of 9 minted: only teams hold it
+
+
+def test_no_flip_for_t10_small_spreads_or_scores_and_rivals_are_held(tmp_path):
+    r, sent, logs = flipper(tmp_path, {"SAL-11": 150, "RET-09": 60})
+    assert r.handle(bid_to("t10", "SAL-11", 230)) == []               # never Team 10's bid
+    assert r.handle(bid_to("t09", "SAL-11", 180)) == []               # 180 - 162 < 30
+    assert r.handle(bid_to("t09", "RET-09", 75)) == []                # spread 12 to the Pícaros' 63
+    held = r.handle(bid_to("t06", "SAL-11", 230))                     # t06: top 6
+    assert held and held[0].startswith("FLIP-HOLD ") and "held:" in held[0]
+    assert r.handle(bid_to("t17", "SAL-11", 207))[0].startswith("FLIP-HOLD ")   # t17: a named rival (policy)
+    assert not any("FLIP-HOLD" in s[1] for s in sent)
+
+
+def test_the_hunt_digest_lists_open_rare_bids(tmp_path):
+    r, sent, logs = flipper(tmp_path, {"SAL-11": 150, "RET-09": 60})
+    r.handle(bid_to("t09", "SAL-11", 207))
+    r.handle(bid_to("t08", "RET-09", 70))
+    r.digest(force=True)
+    text = (tmp_path / "flips.md").read_text()
+    assert "| 207 | SAL-11 La Puerta (epic) | t09 |" in text and "| 70 | RET-09" in text and "FLIP " in text

@@ -13,6 +13,15 @@ It reads /api/events/stream (SSE, keyless: it takes none of the team key's 6 str
    DENY_EVERY_S) → a `DENY <offer> ...` line (cap 35 P incl. fee flagged) and notify("operator"); a watched team's own
    bid for its last card is a `HUNT` line (log only).
 3. V10: every listing on v10 → a `V10 ...` line and data/v10_listings.jsonl for the Market.
+4. FLIP (Chief 22:10, Team 10's playbook [V feed]: it bought SAL-11 from the Pícaros at ~150 and sold it to t17's
+   bid at 207): a TEAM's bid for a card (not ours, not t10's) that a dealer sells at least FLIP_SPREAD below it, by
+   the dealer menus (/api/dealers: list price per rarity) and what that dealer settled at lately (the median of the
+   last 2 h, capped at list), only while the card has unminted copies (catalog print_run − minted) →
+   `FLIP <bid> ...` when our score clears FLIP_MIN: the dealer leg scores min(0, our value − dealer price), the sale
+   min(50, bid − 1 − our value) (our ask addressed to them at bid − 1, as maker: no fee). A rival bidder
+   (policy.check: their gain unknown) or a card that may close the bidder's page within 6 of us: `FLIP-HOLD`, log
+   only. The Operator executes (team/lucas.md 22:13: dealer at <= list, cash >= 260 after the buy).
+   intel/flips.md: every open team bid for a rare, epic or legendary of the last 2 h (the HUNT digest) and the flips.
 When the stream drops it polls /api/feed every POLL_S and reconnects every RECONNECT_S; a reconnect backfills from
 /api/feed by event id, so nothing is handled twice or missed. Watch it: `tail -n 0 -F logs/reactor.log | grep
 --line-buffered -E '^(BUY|DENY) '`.
@@ -51,6 +60,9 @@ MIN_GAIN = 15
 CASH_FLOOR = int(os.environ.get("REACTOR_CASH_FLOOR", 350))
 DENY_TEAMS = tuple(t for t in os.environ.get("DENY_TEAMS", "t06,t14,t10").split(",") if t)
 DENY_CAP, SCORE_CAP = 35, bargains.SCORE_CAP
+FLIP_SPREAD, FLIP_MIN, NO_FLIP = 30, 20, {"t10"}      # Chief 22:10: bid >= dealer + 30, score >= +20, never t10's bid
+FLIP_RARITIES = ("rare", "epic", "legendary")
+FLIPS_OUT, DIGEST_S, DEALERS_TTL_S = ROOT / "intel" / "flips.md", 7200, 600
 VALUE_TTL_S, VALUE_GAP_S, ME_TTL_S, VENUES_TTL_S, TEAMS_TTL_S, DENY_EVERY_S = 300, 1.0, 60, 300, 120, 300
 POLL_S, RECONNECT_S, READ_TIMEOUT_S = 10, 60, 120
 HEARTBEAT_TICKS = 10      # a `reactor: tick ...` line every 10 ticks: silence means no event, not a dead stream
@@ -113,7 +125,15 @@ class Reactor:
         self._venues, self._venues_at = {}, 0.0
         self._teams, self._teams_at = [], 0.0
         self._targets, self._targets_at = {}, -1e9
-        self.counts = {"listings": 0, "BUY": 0, "BUY-NOCASH": 0, "DENY": 0, "HUNT": 0, "V10": 0}
+        self._prog: dict = {}                        # (team, set) → page cards seen (with the DENY refresh)
+        self._cards: dict = {}                       # card → {set, rarity, book, name, print_run, minted}
+        self._menus, self._menus_at = {}, -1e9       # rarity → [(dealer, list price)]
+        self.settled: list = []                      # (time, dealer, rarity, price): dealer sales to teams
+        self.bids: dict = {}                         # offer id → open team bid for a rare+ (the HUNT digest)
+        self.flips: list = []                        # FLIP lines today, newest last
+        self._digest_at = 0.0
+        self.counts = {"listings": 0, "BUY": 0, "BUY-NOCASH": 0, "DENY": 0, "HUNT": 0, "V10": 0, "FLIP": 0,
+                       "FLIP-HOLD": 0}
 
     # ------------------------------------------------------------------------------------------------ cached reads
     def value(self, ref: str) -> float | None:
@@ -179,8 +199,14 @@ class Reactor:
         cat = mm.load_catalog()
         cards, pg = vr.card_index(cat), mm.pages(cat)
         known = mm.load_known()
-        n, last, _ = mm.counts(vr.load_events(mm.FEED), cards)
+        events = vr.load_events(mm.FEED)
+        n, last, _ = mm.counts(events, cards)
         prog = mm.progress(mm.apply_known(n, known, pg), pg)
+        self._prog = prog
+        self._cards = {c["id"]: {"set": st["id"], **{k: c.get(k) for k in ("rarity", "book", "name", "print_run",
+                                                                           "minted")}}
+                       for st in cat.get("sets") or [] for c in st.get("cards") or []}
+        self.learn(events)
         lb = {t["team"]: t for t in self.teams()} or None
         out: dict = {}
         for (team, st), have in prog.items():
@@ -192,6 +218,141 @@ class Reactor:
                 else:
                     self.log(f"reactor: no DENY watch on {card} for {team} {st}: {why}")
         return out
+
+    # -------------------------------------------------------------------------------------------- flips (Chief 22:10)
+    def learn(self, events) -> None:
+        """Dealer sale prices and open team bids for rare+ cards from the collector's feed (every DENY refresh)."""
+        tick = self.tick or max((e.get("tick") or 0 for e in events), default=0)
+        span = self.span()
+        settled, bids, gone = [], {}, set()
+        for e in events:
+            p = e.get("payload") if isinstance(e.get("payload"), dict) else {}
+            if (e.get("tick") or 0) < tick - span:
+                continue
+            if e.get("type") == "settlement" and p.get("persona") and p.get("price"):
+                cards = [i for i in p.get("items") or [] if i.get("kind") == "card" and i.get("frm") == p["persona"]]
+                if len(cards) == 1:
+                    settled.append((self.now(), p["persona"], cards[0].get("rarity"), float(p["price"])))
+            elif e.get("type") == "offer.listed":
+                o = p.get("offer") or {}
+                self._note_bid(o, o.get("maker") or e.get("actor"), bids)
+            elif e.get("type") == "offer.cancelled":
+                gone.add(p.get("offer"))
+        self.settled = settled                       # the feed has every sale of the window, the live ones too
+        live = {k: b for k, b in self.bids.items() if (b.get("tick") or 0) >= tick - span}
+        self.bids = {k: b for k, b in {**bids, **live}.items() if k not in gone}
+
+    def span(self) -> float:
+        """The digest's 2 h in ticks (the tick is 30 s on Saturday, 15 s on Sunday)."""
+        return DIGEST_S / max(self.tick_seconds, 1.0)
+
+    def _note_bid(self, o: dict, maker, into: dict | None = None) -> None:
+        card = bid_card(o)
+        info = self._cards.get(card) or {}
+        if (card and op.is_team(maker) and maker != ME and info.get("rarity") in FLIP_RARITIES
+                and o.get("id") is not None):
+            (self.bids if into is None else into)[o["id"]] = {
+                "offer": o["id"], "t": self.now(), "tick": o.get("created_tick") or self.tick, "bidder": maker,
+                "card": card, "price": (o.get("give") or {}).get("cash"), "venue": o.get("venue"), "to": o.get("to"),
+                "expires_tick": o.get("expires_tick")}
+
+    def menus(self) -> dict:
+        """rarity → [(dealer, list price)] from /api/dealers (public): what each dealer sells."""
+        if self.now() - self._menus_at > DEALERS_TTL_S:
+            try:
+                out: dict = {}
+                for d in self.pub._call("GET", "/api/dealers").get("personas") or []:
+                    if d.get("status") != "active" or not d.get("enabled", True):
+                        continue
+                    for item in (d.get("menu") or {}).get("sells") or []:
+                        if item.get("rarity") and item.get("list_price"):
+                            out.setdefault(item["rarity"], []).append((d["id"], float(item["list_price"])))
+                self._menus, self._menus_at = out, self.now()
+            except (BazaarError, OSError, AttributeError):
+                pass
+        return self._menus
+
+    def dealer_price(self, card: str) -> tuple[str, float, float, int] | None:
+        """(dealer, est. price, list price, copies unminted) of the cheapest dealer selling `card`'s rarity: the
+        median of its last 2 h of sales of that rarity, capped at its list price. None when no dealer sells it or the
+        print run is all minted (only teams hold it)."""
+        info = self._cards.get(card) or {}
+        left = (info.get("print_run") or 0) - (info.get("minted") or 0)
+        if left <= 0:
+            return None
+        best = None
+        for dealer, lst in self.menus().get(info.get("rarity"), []):
+            seen = sorted(x[3] for x in self.settled if x[1] == dealer and x[2] == info.get("rarity"))
+            est = min(lst, seen[len(seen) // 2]) if len(seen) >= 2 else lst
+            if best is None or est < best[1]:
+                best = (dealer, est, lst, left)
+        return best
+
+    def flip(self, o: dict, card: str, bidder: str) -> str | None:
+        price = (o.get("give") or {}).get("cash")
+        dp = self.dealer_price(card)
+        if not price or dp is None or bidder in NO_FLIP or price - dp[1] < FLIP_SPREAD:
+            return None
+        dealer, est, lst, left = dp
+        v = self.value(card)
+        if v is None:
+            return None
+        buy, sell = min(0.0, v - est), min(float(SCORE_CAP), price - 1 - v)
+        score = round(buy + sell, 1)
+        if score < FLIP_MIN:
+            return None
+        info = self._cards.get(card) or {}
+        st = info.get("set")
+        closer = (st is not None and 1 <= int(card.split("-")[1]) <= 10
+                  and len(self._prog.get((bidder, st), ())) == 9 and card not in self._prog.get((bidder, st), ()))
+        ok, why = policy.check(bidder, teams=self.teams(), our_gain=sell, their_gain=None, page_closer=closer)
+        cash = self.cash()
+        tag = "FLIP" if ok else "FLIP-HOLD"
+        line = (f"{tag} {o['id']} · {card} {info.get('name', '')} ({info.get('rarity')}) · {bidder} bids {price} P on "
+                f"{o.get('venue')}{' to ' + o['to'] if o.get('to') else ''} · dealer {dealer} est. {est:g} (list "
+                f"{lst:g}, {left} unminted) · our value {v:g} · est. score +{score:g} (buy {buy:+g}, sell {sell:+g} "
+                f"at {price - 1}) · cash {cash} → {None if cash is None else cash - est:g} after the buy · until "
+                f"{self.until(o.get('expires_tick'))}" + ("" if ok else f" · held: {why}"))
+        self.flips.append(line)
+        self.flips = self.flips[-30:]
+        if ok and self.notifier:
+            self.notifier("operator", f"FLIP {o['id']}: {card} {dealer} {est:g} → {bidder} {price}", "→ " + line,
+                          priority=4, tags=["arrows_counterclockwise"])
+        return self.emit(line)
+
+    def digest(self, force: bool = False) -> None:
+        """intel/flips.md: the open team bids for rare+ cards of the last 2 h, and today's flips (once a minute)."""
+        if not force and self.now() - self._digest_at < 60:
+            return
+        self._digest_at = self.now()
+        tick = self.tick or 0
+        live = sorted((b for b in self.bids.values() if (b.get("expires_tick") or 1e12) > tick
+                       and (b.get("tick") or 0) >= tick - self.span()), key=lambda b: -(b.get("price") or 0))
+        L = [f"# Flips: team bids a dealer can fill (Team 10's playbook)\n",
+             f"_Written by `tools/reactor.py` at {time.strftime('%H:%M')} (tick {tick}). The open team bids for rare, "
+             f"epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled "
+             f"since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of "
+             f"sales when lower) while copies are unminted. FLIP: bid >= dealer + {FLIP_SPREAD} and our est. score >= "
+             f"+{FLIP_MIN}, never t10's bid. Read-only: the Operator executes._\n",
+             "## Open bids (HUNT digest)\n", "| bid P | card | bidder | venue | dealer est. | spread | offer | until |",
+             "|---|---|---|---|---|---|---|---|"]
+        for b in live[:40]:
+            dp = self.dealer_price(b["card"])
+            info = self._cards.get(b["card"]) or {}
+            dealer = f"{dp[0]} {dp[1]:g}" if dp else "none (all minted or no dealer)"
+            spread = f"{b['price'] - dp[1]:+g}" if dp and b.get("price") else "-"
+            where = f"{b['venue']}{' → ' + b['to'] if b.get('to') else ''}"
+            L.append(f"| {b['price']} | {b['card']} {info.get('name', '')} ({info.get('rarity')}) | {b['bidder']} | "
+                     f"{where} | {dealer} | {spread} | {b['offer']} | {self.until(b.get('expires_tick'))} |")
+        if not live:
+            L.append("| - | none open | | | | | | |")
+        L += ["", "## Flips today (newest last)", ""] + ([f"- {x}" for x in self.flips] or ["None yet."])
+        try:
+            tmp = FLIPS_OUT.with_suffix(".tmp")
+            tmp.write_text("\n".join(L) + "\n")
+            tmp.replace(FLIPS_OUT)
+        except OSError:
+            pass
 
     def until(self, expires_tick) -> str:
         if expires_tick is None or self.tick is None:
@@ -214,9 +375,16 @@ class Reactor:
             if self.tick is not None and self.tick % HEARTBEAT_TICKS == 0:
                 self.log(f"reactor: tick {self.tick} · last event {self.last_id} · "
                          + " · ".join(f"{k} {v}" for k, v in self.counts.items()))
-        elif typ == "settlement" and ME in (p.get("parties") or []):
-            self._values.clear()                      # our holdings moved: values and cash change
-            self._me_at = 0.0
+        elif typ == "settlement":
+            if ME in (p.get("parties") or []):
+                self._values.clear()                  # our holdings moved: values and cash change
+                self._me_at = 0.0
+            if p.get("persona") and p.get("price"):
+                cards = [i for i in p.get("items") or [] if i.get("kind") == "card" and i.get("frm") == p["persona"]]
+                if len(cards) == 1:
+                    self.settled.append((self.now(), p["persona"], cards[0].get("rarity"), float(p["price"])))
+        elif typ == "offer.cancelled":
+            self.bids.pop(p.get("offer"), None)
         elif typ and typ.startswith("venue."):
             self._venues_at = 0.0
         elif typ == "offer.listed":
@@ -237,6 +405,11 @@ class Reactor:
         refs = ask_cards(o)
         if refs is None:
             card = bid_card(o)
+            if card and op.is_team(maker):
+                self._note_bid(o, maker)
+                if (line := self.flip(o, card, maker)) is not None:
+                    out.append(line)
+                self.digest()
             for team, st in (self.targets().get(card) or []) if card else []:
                 if team == maker:
                     out.append(self.emit(f"HUNT {o['id']} · {maker} bids {o['give'].get('cash')} P for {card}, the last "
