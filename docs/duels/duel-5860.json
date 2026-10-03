@@ -492,6 +492,101 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1290,
+   "raw": {
+    "duel": 5860,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.16,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 114,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1298,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 8154,
+     "price": 169,
+     "tick": 1287,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 8270,
+     "price": 161,
+     "tick": 1290,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1284,
+      "from": "Rival Azul",
+      "text": "We can do 134 P, delivery on day 0. Thank you for the talk.",
+      "price": 134,
+      "days": 0
+     },
+     {
+      "tick": 1284,
+      "from": "you",
+      "text": "I'll open at 155 P with delivery on day 10. Happy to hear your terms.",
+      "price": 155,
+      "days": 10
+     },
+     {
+      "tick": 1285,
+      "from": "Rival Azul",
+      "text": "146 P, delivery on day 0 works well for us.",
+      "price": 146,
+      "days": 0
+     },
+     {
+      "tick": 1285,
+      "from": "you",
+      "text": "I can meet your day 0 delivery, and at that day my price is 172 P. That's the figure for day 0.",
+      "price": 172,
+      "days": 0
+     },
+     {
+      "tick": 1286,
+      "from": "Rival Azul",
+      "text": "Our offer is 150 P, delivery on day 0.",
+      "price": 150,
+      "days": 0
+     },
+     {
+      "tick": 1287,
+      "from": "you",
+      "text": "I can come down to 169 P on day 0, a real step toward you after your move. I hope you can meet me closer.",
+      "price": 169,
+      "days": 0
+     },
+     {
+      "tick": 1288,
+      "from": "Rival Azul",
+      "text": "Let's meet at 156 P, delivery on day 0, fair for both.",
+      "price": 156,
+      "days": 0
+     },
+     {
+      "tick": 1290,
+      "from": "Rival Azul",
+      "text": "161 P, delivery on day 0, and we close now.",
+      "price": 161,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1278,6 +1373,173 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 1290,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 5860,
+     "role": "seller",
+     "limit": 114,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.16,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "We can do 134 P, delivery on day 0. Thank you for the talk.",
+      "offer": {
+       "price": 134,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1284,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'll open at 155 P with delivery on day 10. Happy to hear your terms.",
+      "offer": {
+       "price": 155,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1284,
+      "decision": {
+       "action": "offer",
+       "price": 155,
+       "message": "I'll open at 155 P with delivery on day 10. Happy to hear your terms."
+      }
+     },
+     {
+      "mine": false,
+      "text": "146 P, delivery on day 0 works well for us.",
+      "offer": {
+       "price": 146,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1285,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can meet your day 0 delivery, and at that day my price is 172 P. That's the figure for day 0.",
+      "offer": {
+       "price": 172,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1285,
+      "decision": {
+       "action": "offer",
+       "price": 172,
+       "message": "I can meet your day 0 delivery, and at that day my price is 172 P. That's the figure for day 0."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Our offer is 150 P, delivery on day 0.",
+      "offer": {
+       "price": 150,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1286,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can come down to 169 P on day 0, a real step toward you after your move. I hope you can meet me closer.",
+      "offer": {
+       "price": 169,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1287,
+      "decision": {
+       "action": "offer",
+       "price": 169,
+       "message": "I can come down to 169 P on day 0, a real step toward you after your move. I hope you can meet me closer."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Let's meet at 156 P, delivery on day 0, fair for both.",
+      "offer": {
+       "price": 156,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1288,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "161 P, delivery on day 0, and we close now.",
+      "offer": {
+       "price": 161,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1290,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 161,
+     "days": 0
+    },
+    "tick": 1290,
+    "ticks_left": 8,
+    "rounds": 3,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004,
+     21.200000000000003,
+     51.1,
+     25.6,
+     37.9,
+     11.6,
+     21.6,
+     39.8,
+     18.6
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 161,
+    "days": null,
+    "meta": {
+     "rule": "small gap",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1450,6 +1712,25 @@
      "tick": 1287,
      "days": 0
     }
+   }
+  },
+  {
+   "tick": 1290,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 161,
+    "days": null,
+    "meta": {
+     "rule": "small gap",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 161,
+    "settles_at_tick": 1291
    }
   }
  ]

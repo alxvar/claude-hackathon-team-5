@@ -492,6 +492,203 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1289,
+   "raw": {
+    "duel": 5827,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.16,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 109,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1299,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 7997,
+     "price": 48,
+     "tick": 1283,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 8213,
+     "price": 60,
+     "tick": 1289,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1283,
+      "from": "Rival Plata",
+      "text": "63 with delivery on day 10. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "price": 63,
+      "days": 10
+     },
+     {
+      "tick": 1283,
+      "from": "you",
+      "text": "I'll take day 10 as you propose. My offer is 48 P on day 10, a quick and clean close on your preferred day.}",
+      "price": 48,
+      "days": 10
+     },
+     {
+      "tick": 1284,
+      "from": "Rival Plata",
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 60,
+      "days": 10
+     },
+     {
+      "tick": 1285,
+      "from": "Rival Plata",
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 60,
+      "days": 10
+     },
+     {
+      "tick": 1286,
+      "from": "Rival Plata",
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 60,
+      "days": 10
+     },
+     {
+      "tick": 1287,
+      "from": "Rival Plata",
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 60,
+      "days": 10
+     },
+     {
+      "tick": 1288,
+      "from": "Rival Plata",
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 60,
+      "days": 10
+     },
+     {
+      "tick": 1289,
+      "from": "Rival Plata",
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 60,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1290,
+   "raw": {
+    "duel": 5827,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.16,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 109,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1299,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 7997,
+     "price": 48,
+     "tick": 1283,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 8266,
+     "price": 60,
+     "tick": 1290,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1283,
+      "from": "Rival Plata",
+      "text": "63 with delivery on day 10. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "price": 63,
+      "days": 10
+     },
+     {
+      "tick": 1283,
+      "from": "you",
+      "text": "I'll take day 10 as you propose. My offer is 48 P on day 10, a quick and clean close on your preferred day.}",
+      "price": 48,
+      "days": 10
+     },
+     {
+      "tick": 1284,
+      "from": "Rival Plata",
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 60,
+      "days": 10
+     },
+     {
+      "tick": 1285,
+      "from": "Rival Plata",
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 60,
+      "days": 10
+     },
+     {
+      "tick": 1286,
+      "from": "Rival Plata",
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 60,
+      "days": 10
+     },
+     {
+      "tick": 1287,
+      "from": "Rival Plata",
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 60,
+      "days": 10
+     },
+     {
+      "tick": 1288,
+      "from": "Rival Plata",
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 60,
+      "days": 10
+     },
+     {
+      "tick": 1289,
+      "from": "Rival Plata",
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 60,
+      "days": 10
+     },
+     {
+      "tick": 1290,
+      "from": "Rival Plata",
+      "text": "60 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 60,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
