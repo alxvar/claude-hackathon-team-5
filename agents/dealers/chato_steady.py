@@ -81,6 +81,8 @@ def main(argv=None):
         ab.log({"event": "tick", "thread": tid, "his": price, "final": o.get("final"), "ours": ours})
         if price <= cap and ours is not None and (o.get("final") or price - ours <= 1):
             if args.offer_only:                   # never our accept: offer his price and let him accept
+                if price == first:                # RULES: a deal at his OPENING price never counts: one notch below
+                    price -= 1
                 if ours == price:
                     ab.log({"event": "offer_matched_waiting", "thread": tid, "price": price})
                     b.wait_tick()

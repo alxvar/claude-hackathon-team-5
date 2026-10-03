@@ -427,13 +427,37 @@ class Standing(FakeThread):
         return super().thread(tid)
 
 
+class Moved(Standing):
+    """She opened at 12, then stands at a FINAL 9; she accepts once we offer 9."""
+
+    def __init__(self):
+        super().__init__()
+        self.reads = 0
+
+    def thread(self, tid):
+        self.reads += 1
+        if 9 in self.said:
+            return {"status": "deal", "messages": [], "standing_offers": []}
+        price = 12 if self.reads == 1 else 9
+        return {"status": "open", "messages": [], "standing_offers": [
+            {"id": 5, "maker": "abuela", "status": "open", "final": self.reads > 1, "want": {"cash": price}}]}
+
+
 def test_offer_only_offers_her_price_and_never_accepts(bot, monkeypatch):
     monkeypatch.setattr(bot, "OFFER_ONLY", True)
     monkeypatch.setattr(bot, "should_hold_accept", lambda b, tick=None: (_ for _ in ()).throw(AssertionError("asked")))
-    b = Standing()
+    b = Moved()
     t = bot.negotiate(b, {"buy": {"card": "RET-01"}}, "buy", 10)
-    assert t["status"] == "deal" and b.said == [9] and b.accepted == []
+    assert t["status"] == "deal" and b.said[-1] == 9 and b.accepted == []
     assert "offer_her_price" in events(bot)
+
+
+def test_offer_only_never_takes_her_opening_price(bot, monkeypatch):
+    # RULES.md:35: a deal at the dealer's opening price never counts: offer one notch better for us instead.
+    monkeypatch.setattr(bot, "OFFER_ONLY", True)
+    b = Standing()                                                        # FINAL 9 is also her first price
+    bot.negotiate(b, {"buy": {"card": "RET-01"}}, "buy", 10)
+    assert 9 not in b.said and b.said[0] == 8 and b.accepted == []
 
 
 def test_chato_steady_offer_only(monkeypatch, tmp_path):
@@ -457,7 +481,7 @@ def test_chato_steady_offer_only(monkeypatch, tmp_path):
             return {"id": 7}
 
         def thread(self, tid):
-            if 80 in self.said:
+            if any(p >= 79 for p in self.said):
                 return {"status": "deal", "messages": []}
             return {"status": "open", "messages": [], "standing_offers": [
                 {"id": 3, "maker": "chato", "status": "open", "final": True, "want": {"cash": 80}}]}
@@ -478,4 +502,4 @@ def test_chato_steady_offer_only(monkeypatch, tmp_path):
     monkeypatch.setattr(ab, "PacedBazaar", lambda *a, **k: game)
     monkeypatch.setenv("BAZAAR_KEY", "test-key-not-real")
     cs.main(["RET-09", "--cap", "90", "--open", "57", "--step", "3", "--cash-floor", "100", "--offer-only"])
-    assert game.said == [57, 80] and game.accepted == []                  # opened, then offered his final
+    assert game.said == [57, 79] and game.accepted == []                  # his 80 was his opening: one below it

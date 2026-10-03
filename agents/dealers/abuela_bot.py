@@ -265,10 +265,14 @@ def _haggle(b, tid, topic, side, cap, fast, resume, accepted):
 
         if within_cap and (o.get("final") or crosses or close or fast):  # fast: take her price now (a flip)
             if OFFER_ONLY:                        # never our accept: offer her own price and let her accept
-                if ours == price:
-                    log({"event": "offer_matched_waiting", "thread": tid, "price": price})
+                target = price                    # RULES: a deal at her OPENING price never counts: one notch ours
+                if price == first:
+                    target = price - 1 if side == "buy" else price + 1
+                if ours == target:
+                    log({"event": "offer_matched_waiting", "thread": tid, "price": target, "her": price})
                     b.wait_tick()
                     continue
+                price = target
                 her_text = next((m.get("text") or "" for m in reversed(msgs) if m.get("sender") == DEALER), "")
                 text = narrator.say_text(DEALER, side, item_of(topic, side), price, her_text, turn, log=log,
                                          enabled=NARRATOR)
