@@ -1,47 +1,55 @@
-# Judge (claude-opus-5-5, Sat 18:29)
+# Judge (claude-opus-5-5, Sat 18:45)
 
 ## Verdict
-Holding #3 at 30.0, but losing ground at the top: +0.6/60 min vs t06 +4.3 (gap 1.7) and t14 +0.4 (gap 1.5). t03 is 0.4 behind and gained +0.4 in 15 min. neg_points have been flat at 78.7 since tick 904.
+**Gaining, but the lead rests on one trade.** We are #1 at 32.0 (+2.0 in 15 min, +2.6 in 60 min). Team 6 is at 31.7 (+0.3 behind us) and Team 14 at 31.5 (+0.5 behind). The whole 15-min gain is the SAL close: +40.4 neg → +1.99 board, about 0.049 per neg point.
 
 ## Our strategies: keep / kill / scale
-- **Dealer bot: KILL (confirm it is stopped).** The ladder is capped (negotiating flat across ladder 0.373 → 0.437). Its last log is still a Chato MAL-08 sell thread at 17:40, stepping 24 → 19 against his 14; the 17:45 directive cancelled it. L5 Ernesto is unreachable at our cash.
-- **Trading loop: KEEP.** Its only two accepts today were swaps worth +6.2 (15:48) and +15.5 (17:46). No bad fills.
-- **SAL-06 bids: KEEP, RETARGET.** Four addressed bids in 28 min (35 → t02, 42 → t02, 50 → t13, 50 → t17) and 0 fills. 14889 expires at tick 993, about 5 min from now.
-- **MAL/LAV common asks (14534, 14696, 14698, 14733): KEEP only if the feeding check passes.**
-  - Each gains only ≈ +2 to +2.8.
-  - t15 collects MAL and sits 5.9 below us, not ≥ 10 below. If MAL-02 or MAL-05 closes its page, t15 books up to +50 against our +2.
-  - Teams.md agrees: "no buyer passes the feeding rule above value + 3".
-- **v10 ad job (every 15 min): UNPROVEN.** No v10 fill or mm_points change is in the data since tick 398 (−5.2).
-- **Dani in-room (t02 SAL-06): KEEP.** t02 dumps SAL, so it likely holds a spare. Its 120 is an anchor.
+- **Bargains daemon plus taker accept: SCALE.**
+  - It produced the biggest gain of the day: the SAL-06 ask at 28 gave +40.4 at tick 988.
+  - Nothing qualifies on El Rastro now. LAV-05 at 5, SAL-04 at 10 and RET-10 at 84 would all be 2nd copies worth 2-19 to us.
+- **Addressed maker bids for page closers: KILL.** Bids 14040, 14268, 14557 and 14889 (35-50 P to t02, t13 and t17) went about 30 min with no fill.
+- **Trading loop: KEEP.**
+  - Today it made 2 accepts, both swaps: +6.2 (SAL-04/RET-04) and +15.5 (SAL-07/LAT-01, the tick 904 window).
+  - The errors in its log (rate_limited, sobre_bienvenida) are Friday's and stale.
+- **Dealer bot: KILL.**
+  - The ladder is capped: negotiating stayed flat at 21.88 while the ladder went 0.373 → 0.437.
+  - The MAL-08 → Chato thread was cancelled at 17:45.
+  - Any SAL sale to Pilar now books the page bonus as a loss.
+- **Our 4 open asks (MAL commons at 9, LAV-03 at 6): KEEP small.**
+  - As maker they gain about +2 to +2.8 each; no fills are in the data yet.
+  - The t15 asks break §4A if the card closes t15's MAL page: t15 is 8.0 below us, not ≥ 10. Whether it lacks MAL-02/05 is not in the data.
+- **v10 room plan and Team 15 posting script: KEEP, with no result yet.** There have been 0 v10 settlements since 17:40 (commission N = 0). Our current mm_points are not in the data.
+- **Flags: KILLED, correctly.** Flag 8 scored 0.
 
 ## Check the scout
 - **Holds:**
-  - SAL-06 close ≈ +32 at 50 and +22 at 60.
-  - Keep the pack unopened (Chief 18:20).
-  - Don't take t16's 5 P RET or 12 P LAV-06 bids.
-  - t14's RET-03 buy at 7 (tick 946) and its SAL-04 ↔ MAL-05 swap (939).
-  - t03's commons at 6 and 3 (ticks 904, 929).
-  - t10 +0.7/15 min, L5 unlocked.
+  - Ladder and flags are spent.
+  - SAL cards stay reserved.
+  - T6 and T14 are 0.3 and 0.5 behind us.
+  - T12 trades heavily without gaining (−2.9 in 60 min).
 - **Wrong:**
-  - t10 did not sell MAL-10: it bought it from t03 at 74.
-  - t06 bought the RET commons at ticks 861 and 905 from t12; it did not sell them.
-  - "t03's negotiating is the highest" is stale (tick 850); current value not in data.
-  - "Fastest climber t10" holds over 15 min only; over 60 min it is t06 (+4.3).
-  - Action 3 is flawed. We hold no rare or uncommon spares: all RET/LAV are single page cards, and SAL is reserved. Our own sales on v10 are not "value created between other teams", and the ad job pairs other teams, never our cards.
-- **Missed:**
-  - t17 closed its SAL page Friday with our SAL-06. Selling it now breaks its page, so the t17 fallback is likely futile.
-  - The unopened pack drags the close by ≈ 2.4 (SAL-06 at tick 632: −2.7 vs −0.5). Expect ≈ +30, not +32.
+  - **Workshop as a gain.** The Workshop moves neither neg_points nor the ladder [V 16:15], so it adds 0 board. LAT-03 and LAT-04 are single copies, not spares. The LAV-03 spare is already committed to offer 15196.
+  - **Opening the pack now.** GAME.md keeps the pack for the CHA release. What a pull is worth is not in the data, and opening it scores nothing by itself.
+  - **"Asks to t15/t09 lift mm_points."** Our own trades never count as value created between *other* teams. These asks pay only their small neg gain.
+  - **"T10 bid on RET-09 at 30 (offer 15314)."** It is not on the board: the top bid shown is 13.
+  - **"T6 sold RET-03 to t12 (tick 905)."** It was t12 → t06, so T6 bought.
+  - **"T18 buying RET (LAT-01 to t07)."** T18 sold that LAT-01.
+  - **"T16 RET bids at 5."** The board shows 4.
 
 ## The 3 changes with the highest expected gain
-1. **SAL-06 from t02 (≈ +22 to +30 neg, ≈ +1.0 to +1.5 board [L]).**
-   - Let 14889 → t17 lapse.
-   - Dani gets t02 to post the ask itself: one SAL-06, ≤ 60, on v15 or El Rastro. The watcher auto-accepts under the 85-floor guardrail.
-   - If t02 prefers our bid: one maker bid → t02 on v15 at 50, asking 2× the ticks (server halves them).
-   - Main risk: t02 holds at > 60 and we end with 0. Never go past the 60 ceiling, and never close at a dealer.
-2. **Duels II: ship the `--days-read auto|flip|unsure` switch before the 19:30 freeze (Aleks's call).**
-   - Day reading is the largest swing left: +0.47/duel right vs −0.18 backwards (red team). Duel points are live while neg and ladder are flat.
-   - Risk: flipping on a wrong read. Default to auto, and flip only on a confirmed misread in the first duels.
-3. **Make v10 value created measurable, then push it in person.**
-   - Log mm_points after each ad slot. If there is no positive-VC fill by 19:00, Dani pitches the top non-rival pair from `intel/v10-suggestions.md` face to face (t09 or t15 buyers, sellers holding 2 copies).
-   - Expected: 0 to +5 mm per trade, ≈ +3 board at the cap [L].
-   - Risk: a negative-VC fill (tick 398: −5.2, #3 → #7). Run the rival and VC test on every pair, and never involve t03, t06, t10 or t14.
+1. **Get one positive-VC, non-rival trade on v10 before the next bench.**
+   - How: Dani, in person, takes the first pair from intel/v10-suggestions.md: the buyer's multiplier must beat the seller's, and neither team may be within 3.0 of us or in the top 6.
+   - Effect: about mm 0 to +5 [L, Market], the lever the 17:40 directive put at about +3 board.
+   - Risk: negative value created (the SAL-07 t10 → t15 trade cost −5.2), so check the multipliers before anyone accepts.
+2. **Sell the LAV spares to t07 and t09 as maker.**
+   - Spares: LAV-02 (worth 1.3), LAV-03 and LAV-04 (3.2 each).
+   - Buyers: t07 (21.9, 10.1 below us, bought LAV ×7) and t09 (19.4); both pass the feeding rule.
+   - Price: addressed asks at 9, the clearing price for commons, on El Rastro or v15, never a rival venue. Raise to 35-45 only if Dani confirms a page gap.
+   - Effect: about +6 to +8 neg each, so ≈ +1 board if three fill.
+   - Risk: only 5% of asks filled on Friday. Reprice after 10 min.
+3. **Pin the bargains daemon to every El Rastro ask with value − price − fee ≥ 3, plus a human taker accept.**
+   - Check each maker in the feed's `offer.listed` event first: the public boards mask makers.
+   - Effect: it is the only lever left that pays in tens of points.
+   - Risk: accepting from a rival (t06, t14, t03, t10) lifts them as well. Skip their asks.
+
+Hold the silver pack and the Workshop until the Chief rules: neither moves the board tonight.
