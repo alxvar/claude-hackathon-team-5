@@ -1,47 +1,64 @@
-# Judge (claude-opus-5-5, Sat 15:12)
+# Judge (claude-opus-5-5, Sat 15:28)
 
 ## Verdict
-Falling behind: #5 at 28.1 (−0.8 in the last 15 min, +1.8 in 60 min). The gap to #1 Team 14 (30.8) has grown from 2.19 at snapshot 570 to 2.7. Team 10 (+4.1/60) and Team 18 (+2.2/60) are pulling away. Our neg_points have sat at 35.2 since tick 404, and our ladder at 0.181 since ~12:45.
+**Holding at #5, not catching up.** We are at 28.15, 2.65 behind #1 Team 14 (30.8).
+- Over 60 min we gained +1.8 against Team 14's +1.1, so the gap to #1 closes about 0.7/h.
+- Team 10 (+4.1) and Team 18 (+2.2) passed us in the same hour.
+- We lost 0.8 in the last 15 min.
+- `neg_points` has been flat at 35.2 since tick 404, which is 226 ticks with no scoring trade.
+- Ladder has been flat at 0.181 since 12:45.
 
 ## Our strategies: keep / kill / scale
-- **Dealer bot, Pilar/Chato sells above value**: keep. These were our last ladder gains: MAL-07 +0.050, MAL-06 +0.040, SAL-08 +0.019, LAT-08 +0.017, all at 0 neg cost.
-- **Dealer bot, SAL-06 buy loop**: kill the Abuela route.
-  - Three threads, no fill: Chato 32 vs our 26, Abuela 25 vs 22, Abuela now 29 vs 21.
-  - SAL-06 is worth 22.5 to us (0.9 × 25), so buying it at the cap of 25 costs −2.5 neg.
-  - An Abuela deal does not fill an empty L2 slot. Directive A says Chato at list 26.
-- **Trading loop**: keep, since it costs nothing, but it is idle. No measured fill since tick 404, and the log shows only open/closed events.
-- **Spare asks (9 live, 6-11 P)**: keep, but they score little. The only measured spare sale is SAL-01 at 7 (+4.7). Two flags:
-  - LAV-04 → t03 and LAV-03 → t04 go to LAV collectors who are only 7.6 and 4.8 points below us, so they fail the ≥ 10 feeding rule if either card closes a page.
-  - Repricing these to t07 (10.8 below us) is the safe version.
-- **Swaps 9172/9173**: scale. +14.3 and +3.8 by our values, against #14 and #17. They expire at tick 650, only 20 ticks after the resume.
-- **In-room trades / bargain watch**: the only big scorer today was RET-01 from t10 at 20 (+50 cap). No bargain hits are logged. We have no page one card from completion (MAL, SAL and LAT are all far), so a ≥ 50 bargain candidate is not in the data.
-- **Venue (v10)**: the last reading was mm −5.2 at 11:30. The current value is not in the data.
+- **Pilar sells (dealer bot, offer-only): keep.** MAL-07 19, MAL-06 19 and SAL-08 23 all closed at or above our value. They took the ladder from 0.072 to 0.181 at 0 neg cost, and they are the best-evidenced lever of the day.
+- **SAL-06 from Chato at list 26 (directive A): kill.** He held 33 → 32 and the thread closed (tick 577). Never above his list.
+- **SAL-06 from Abuela: keep, but only at ≤ 25.**
+  - She went 29 → 25 and held 25 (tick 596). Thread 868 is open at 29 vs our 21.
+  - Bid 9168 at 21 expires at tick 634.
+  - If she holds above 25, walk.
+- **Trading loop and maker book (9 asks): scale down and re-aim.** Zero fills in 226 ticks.
+  - Single-copy asks are priced at or above our value against a common clearing price of 5 (team trades at ticks 595-610). They cannot gain:
+    - SAL-01 at 11 (value 9)
+    - LAT-03 at 7 (value 5)
+    - MAL-02 at 9 (value 7)
+  - The MAL-02 ask is addressed to t15, which sold its own MAL-02 at 5 at tick 602, so it has no buyer.
+- **Swaps 9172 → t15 (+14.3) and 9173 → t07 (+3.8): scale.** Both are maker trades with no fee, and both partners pass the feeding rule (t15 #14, t07 #17). Both expire at tick 650.
+- **Bargain-buy guardrail (13:15): keep, no action.** No ask on the board qualifies (LAT-06/08 at 24-25 vs value 12.5; RET-04 at 12, which we already hold).
+- **In-room trades (Dani): not visible in the data since tick 404.** The swaps need him now, while the clock is paused.
+- **Unopened sobre_plata (92.9):** this is Chief's call. The reason for holding it is not in the data. It adds a 1-4 point drag to each trade's score.
 
 ## Check the scout
-- **Holds**:
-  - Swap arithmetic (22.5 − 7 − 1.2 = 14.3; 7 − 3.2 = 3.8).
-  - t15 and t07 traded 0 P swaps at ticks 607, 613 and 616.
-  - Pilar's uncommon median is 18 over 5 deals, so ≥ 25 is unsupported.
-  - Selling RET-06/08 to Team 4 at 26-27 would lose ~73 each.
-  - The leader moves and the Team 6 RET-09 sale at 84 match the feed.
-- **Fails**:
-  - "SAL-06 worth about 26, clips to 0, costs nothing" is wrong. It is worth 22.5, so 25 costs −2.5, and dealer losses count in full.
-  - "Pícaros = L4 with a head start for 3 Pilar deals" is inference, not in the data.
-  - The scout ignores The Workshop ("Three spares. One surprise."). All five of our spare duplicates are committed to asks or swaps right now.
+**Holds:**
+- Pilar deals at 19 / 19 / 23.
+- Swap gains: +14.3 = 22.5 − (1.2 + 7); +3.8 = 7 − 3.2. +18 neg ≈ +1.7 board.
+- Bid 9168 expires at tick 634.
+- Pilar's uncommon median is 18 over 5 deals.
+- t14 sells RET commons at 9 (ticks 591-598).
+- t10's MAL-10 buy at 74.
+- t04's RET-06/08 bids at 26-27 (we keep both cards).
+- The top 4 are within 2.7 points of us.
+- Pícaros' unlock rule and prices are correctly marked "not in the data".
+
+**Wrong:**
+- "SAL-06 at ≤ 25 costs about −0.33 neg." The −0.33 in the directive is board points at list 26 (3.5 neg × 0.094). At 25 the cost is −2.5 neg ≈ −0.24 board.
+
+**Missed:**
+- Our MAL-02 ask targets a seller of MAL-02.
+- SAL-07 from swap 9172 is a free Pilar-sale vehicle. It makes buying SAL-06 a second step, not the first.
+- The book has been dead for 226 ticks.
 
 ## The 3 changes with the highest expected gain
-1. **Land swap 9172 (SAL-07) and use that card for the L3 upgrade instead of buying SAL-06 from Abuela.**
-   - Dani nudges t15 in the room now, while the clock is paused.
-   - Re-post 9172 and 9173 with a longer life (ask 2× the ticks).
-   - After the swap, sell SAL-07 to Pilar offer-only at ≥ 23 in −2/−3 steps, to replace the 0.019 slot. That move earned +0.040 with MAL-06.
-   - Effect: ≈ +14.3 neg (≈ +1.3 board) plus ≈ +0.02 ladder (≈ +0.7 board).
-   - Risk: t15 doesn't accept, or Pilar won't reach 22.5. In that case don't sell.
-2. **Run the SAL-06 ladder buy only through Chato (directive A), and drop the Abuela thread.**
-   - Abuela's 29 vs our 21 earns no L2 slot and costs −2.5 at the cap.
-   - Chato at list 26 costs −3.5 neg (≈ −0.33 board) for an L2 slot (≈ +1.2 board per directive, [Likely]).
-   - Risk: his last price was 32, and his L2 deals above list never counted. Walk if he finals above 26.
-3. **Pícaros at the resume: one offer-only thread, sells only above value, small steps.**
-   - Candidates: SAL-01/03/05 (value 9), MAL-02/03 (7), LAT-03 (5).
-   - Measure Δladder after the first deal before a second one. Keep 3 spares unlisted until The Workshop's rules are read.
-   - Effect: not in the data. Pilar's comparable sells gave +0.02 to +0.05 ladder.
-   - Risk: the level's pricing and unlock rules are unknown; never accept the opening price.
+1. **Close the swaps during the pause.**
+   - Dani pitches t15 and t07 in the room now, pointing at 9172 and 9173.
+   - Operator re-posts both before tick 650, asking 2× the wanted ticks because the server halves them.
+   - Effect: +18 neg ≈ +1.7 board.
+   - Risk: t15 keeps SAL-07 for itself. The partners are low-ranked, so no leader is fed.
+2. **SAL-07 → Pilar first, then decide on SAL-06.**
+   - Once SAL-07 arrives, sell it to Pilar offer-only, alone in its window: open around 30, step −2/−3, accept only ≥ 22.5. Measure Δladder against our weakest L3 slot (SAL-08, +0.019).
+   - Buy SAL-06 from Abuela at ≤ 25 and repeat only if that measurement moves the ladder.
+   - Effect: about +1.4 board per slot [L, Analyst].
+   - Risk: Pilar's finals of 18-23 sit below 22.5. Walk rather than sell under value.
+3. **Free the cards for the new levels.**
+   - Cancel the asks on SAL-01, LAT-03 and MAL-02. They have no buyer at those prices and are our Pícaros candidates for sells at ≥ value. Cancel each card's team ask before its dealer thread.
+   - Hold LAV-03, LAV-04 and SAL-02 off the book until The Workshop's menu ("Three spares") is read at the resume. If it is worse, sell them as maker at about 5 to teams ≥ 10 points below us, for about +2-4 neg each.
+   - Effect: a possible new ladder level; its size is not in the data.
+   - Risk: Pícaros or the Workshop pay less than our values. Then nothing is lost but 226 ticks of unfilled asks.
