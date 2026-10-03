@@ -11,6 +11,67 @@ _Lucas's Duel Lab session. It never writes to the game or to `agents/duelist/`._
   fixed below._
 - _**Labels:** [V] measured on our records or code, [L] modelled or inferred, [?] unknown._
 
+## Update Sat 18:30: second pass before the 19:30 freeze (Chief's three questions)
+
+**Answer: one change, as insurance. Everything else the Lab recommended is already live** (69ef465 + 89a6dd6, running
+since 17:15).
+
+**1. Pairings: not visible [V].**
+- `/api/duels` lists 0 live duels (tick 972).
+- `/api/schedule` gives only the parameters: Duels II at hour 11.65 ≈ 20:35, `rounds` 2 (each team plays us 4 times),
+  16 ticks, 8% decay, 6 at once, price + days.
+- **The meeting order can't predict the rival either [V].** The order differs between sessions: by Friday id, R3, R15,
+  R7, R8, R1, R13, R4, R5 (`docs/duel-rivals.md`), against R1, R3, R4, R5, R7, R8, R13, R15 in Duels I.
+- **So rivals can only be identified live**, from the first line's wording (fingerprints in `docs/duel-rivals.md`). The
+  live day and step rules don't depend on the cluster, so no per-cluster parameters are needed.
+
+**2. Duels I losses, re-checked with days in play.**
+- **The 4 no-deals can't be recovered by a rule [V transcripts]:**
+  - 2367: R5 never came inside our limit (its lowest was 83 against our 72).
+  - 2414/2415: R6 was silent (Team 11 [L]).
+  - 2523: R13 was silent in that role. The only lever is the silent walk, and it already goes further:
+    `SILENT_KEEP` 0.15 walks to 183 of our 196, not 170.
+- **Days may silence more scripted bots** (a priced message without `days` is refused). The walk and the accept-only
+  path cover that, and both are live.
+- **The rounds loss.** The 18% step cap is live.
+- **Aleks's "stay silent against clock bots", re-scored in share** (`silence_share.out`): **−0.19** share-points as a
+  rule for every rival (R15 −1.00), **+0.80** for R4, R9 and R13 only. It works only as a rule keyed to the rival's
+  wording, and that needs a matcher built before the freeze, with no evidence the wording survives the days update.
+  **Not worth it tonight.**
+- **The biggest swing left is our day reading [L, Aleks's red team, `docs/duelist-redteam.md`].**
+
+  | Our reading of the day weight | Points per duel |
+  |---|---|
+  | read right | 0.47 |
+  | direction unknown | 0.23 |
+  | can't read | 0.15 |
+  | direction backwards | −0.18, with 30% of deals worth less than nothing |
+
+  - **The danger:** backwards against right is ≈ 0.65 per duel, about 4 points per wave of 6.
+  - **The gap today [V code]:** there is no switch to flip or distrust the reading. `read_days` has no flag, no
+    environment variable and no override file. A wrong reading at 20:33 would need a code edit, the suite and a
+    restart mid-session, probably 2-4 waves (8-16 points).
+
+**3. Changes for Aleks.**
+1. **Day-reading override, default off** [L, insurance].
+   - **What:** `supervise.sh … --days-read auto|flip|unsure`, passed through to `read_days`.
+     - `flip`: reverse the reading's direction (for a linear weight, day d gets day 10 − d's value; our best end
+       becomes the other end), and `sure` stays.
+     - `unsure`: set `sure = False`, the safe "direction unknown" mode (0.23/duel, no negative deals in the red team).
+     - `auto` (the default) behaves exactly as now.
+   - **Tests:**
+     - the red-team "backwards" fixture with `flip` scores as "read right";
+     - `auto` passes the current suite unchanged.
+   - **Runbook, 20:33:** read the console's day line against the game's `days_meaning`.
+     - Clearly reversed: restart with `flip`. A restart doesn't re-send (records).
+     - Ambiguous: restart with `unsure`.
+   - **Worth:** 0 if the reading is right. If it's backwards, about 1 wave lost instead of 2-4, which saves ≈ 4-12
+     points.
+2. **No other change.** The step cap, the day tweaks, `SILENT_KEEP`, per-duel accepts and the 2-tick day wait are all
+   live, and the red team found no tweak clearly better (best +1.7%).
+
+_Everything below is the 16:15 report, unchanged._
+
 ## Bottom line
 
 - **Step size is the lever. Cap each mid-duel concession at about 18% of the gap, or better, make it about 15%.**
