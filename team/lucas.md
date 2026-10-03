@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sat 11:51 · operator · **trader stopped 11:50:15 for Duels I** (auto job; restarts once /api/duels is empty 4 min after 12:10) · no dealer threads · book.py keeps the maker book on El Rastro (repricing) · bench 5.0 fired (Market) · rank #9 (22.66), top 4 t14/t13/t18/t12
 - Sat 11:42 · operator · book (MIN_GAIN_SELL=2) and opps restarted on cde494b (top 4 read every tick before a team-venue post, fail-safe to El Rastro; sells only to collectors, tools/collectors.py) · Chato ladder test after Duels I: SAL-07 (or 06) open 24 → 26 (+2), hold silent, accept ≤ 26, walk on a final > 26 (Chief's tweak)
 - Sat 11:55 · Builder · cde494b: **sells only to collectors** (tools/collectors.py: teams.md collects or feed bids/dealer asks; dumps/unknown/public: no), in book.py (cancels a live ask that stops qualifying) and opps · **book reads the top 4 every tick** before a team venue, unknown → El Rastro (MAL-02 on v07 at 11:31) · dry run: the Operator's 13 entries all go to collectors · suite 316 · restart book + opps owed · next: Chief
 - Sat 11:40 · operator · GUARDRAIL (Lucas): Sunday floor 0 from doors-open, CHA page buys only · ladder program after Duels I (Chief): (1) one Chato SAL-06/07 buy at his list 26 (−3.5), warm, alone in its window, measure ladder; (2) if it moves: 2 more at list, then Pilar sales of leftover uncommons ≥ her buy list and our value (SAL-08 before 17:30) · dealer threads: none open (11:40 stop respected); trader stops 11:50
