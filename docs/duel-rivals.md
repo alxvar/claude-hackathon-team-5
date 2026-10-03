@@ -7,18 +7,21 @@ or rules, [L] inferred, [?] unknown.
 ## How rivals are identified
 - **Each pair of consecutive duel ids is one rival team [V].** The rules say every team meets every other twice, once
   as seller and once as buyer, on the same scenario. Our 17 Duels I pairs (2296/2297 … 2584/2585) each have opposite
-  roles and the same item, and 14 of them use the same wording in both duels.
+  roles and the same item.
+  - In 9 pairs the same lines appear in both duels.
+  - In 4 more, each role has its own line in a shared style (R2's "Hola.", R7, R14, R15).
+  - In the other 4, one or both duels were silent.
 - **Team names are hidden [V].** The alias changes per duel, and the public feed's `duel.closed` carries only the
-  duel, status and item. The one exception is inferred: the silent pair 2414/2415 is most likely Team 11, whose
-  negotiating never moved in Duels I [L].
-- **Wording identifies a team across sessions [V].** 8 Friday pairs use exactly the same lines as a Duels I pair, so
-  the same bot ran on both days (table below).
+  duel, status and item. The one exception is inferred: the silent pair 2414/2415 is most likely Team 11, whose duel
+  agent never spoke in Duels I [L].
+- **Wording identifies a team across sessions [V].** 7 Friday pairs use exactly the same lines as a Duels I pair, and
+  1 more nearly the same, so the same bot ran on both days (table below).
 
 ## Scripted or LLM
 
 | | Friday practice (17 teams) | Duels I (17 teams) |
 |---|---|---|
-| Scripted: fixed lines with the number swapped in, prices from a formula | 11 | **16** (11 sure, 5 likely: 1-3 messages each) |
+| Scripted: fixed lines with the number swapped in, prices from a formula | 11 (some with only 1-2 messages) | **16** (12 sure, 4 likely: 1-3 messages each) |
 | LLM-written text | **1** (pair 121/122) | **0** |
 | Silent: no message, no accept | 5 | 1 (2414/2415) |
 
@@ -54,7 +57,7 @@ ignored it.
 | **A. Follower** | R1, R8, R14, R16, R17 | Its price comes to ours. R1 trails our offer by a shrinking %, and **drops when we concede** (2296: 101 → 97). R14 splits the difference. R16 ends on our exact number. R8 and R17 close within 1-2 messages | 10/10 deals, 26.2 P each, 3.0 rounds | Hold firm: every P we concede comes back as a lower offer. Open ambitious |
 | **B. Clock** | R3, R4, R9, R12, R13, R15 | Concedes on its own schedule whatever we do: accelerating (R3), slowing (R4), constant (R9), bursts every ~3 ticks (R12), +1 P a tick (R13), a slow staircase (R15) | 11/12 deals, 12.1 P each, **7.6 rounds** | Our messages only add rounds; see the replay below. R15 is the exception: it closes only by accepting **our** offer |
 | **C. Holder** | R5, R7 | R5 never moves and accepts our offer once it's inside its limit. R7 makes 3 moves of ~11 P, then sits silent and never accepts ours (it refused shares ≈ 0.46-0.61) | 3/4 deals, 6.9 P each | R7: take its number at the deadline and send nothing after its hold. R5: step towards its limit; no deal if the limits don't overlap (2367) |
-| **D. Accept-only** | R2, R10, R11 | 0-2 messages, then accepts our offer with about 2 ticks left | 6/6 deals, 10.5 P each, 1.0 round | Rounds = min(ours, theirs), so they stay at 1-2 however many offers we send: stepping down costs no decay. What they accept at the end is unknown |
+| **D. Accept-only** | R2, R10, R11 | 0-2 messages, then accepts our offer with 2-3 ticks left | 6/6 deals, 10.5 P each, 1.0 round | Rounds = min(ours, theirs), so they stay at 1-2 however many offers we send: stepping down costs no decay. What they accept at the end is unknown |
 | **E. Silent** | R6 (Team 11 [L]) | Never speaks or accepts | 0/2 | Silent walk; expect no deal |
 
 ## Team book (Duels I; R = rival team in duel order)
@@ -69,7 +72,7 @@ ignored it.
 | R6 | 2414/2415 | (silent) | E | — | silent pair | no deal ×2 |
 | R7 | 2430/2431 | "N for ITEM. Every round costs us both: let's close it now." | C, 3 moves then holds | Yes | 181/182 | 184 · 134, took its number at the deadline |
 | R8 | 2446/2447 | "Hello, and thank you for meeting me. I would propose N P for this one." | A, fast closer | Yes | 199/200 | 45 (took our opener) · 118 in 2 |
-| R9 | 2460/2461 | "Happy to close quickly at N primas for ITEM." (then a 4-line cycle) | B, constant steps, jump at the deadline | Yes | — | 198 in 10 · 150 in 12 |
+| R9 | 2460/2461 | "Happy to close quickly at N primas for ITEM." (then a 4-line cycle) | B, constant steps, a jump near the end (2461) | Yes | — | 198 in 10 · 150 in 12 |
 | R10 | 2472/2473 | "N P y cerramos ahora." | D | Yes | — | 92 · 88, 1 round each |
 | R11 | 2494/2495 | "Thank you, that's kind. I could do N P and close it today." | D | Likely | 113/114? | 74 in 2 · 107 (silent, took ours) |
 | R12 | 2506/2507 | "Propongo este precio, creo que es justo para los dos." | B, bursts | Yes | — | 96 in 6 · 106 in 7 |
@@ -96,7 +99,7 @@ and accept its best in-limit offer by 2 ticks left (rounds stay at 1).
 | R15 | 29.7 · 33.6 | 0.0 · 9.4 | **−53.9** |
 | All 12 | 133.2 | 109.0 | −24 |
 
-- **As a rule for every rival it loses.** R15 never offers inside our limit; it only accepts ours.
+- **As a rule for every rival it loses.** R15's own offers stay at or near our limit; it closes by accepting ours.
 - **For R4, R9 and R13 it gains +32 P over 5 duels.** That's a per-team rule, and it needs the wording to survive into
   Duels II.
 - **Not built.** Rival memory by wording is still off the build list (16:24). It is Aleks's call whether to add it
