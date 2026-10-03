@@ -9,6 +9,19 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sat 23:00 · final snapshot 1440 (doors closed; clock paused at game 13.367, round 2 still active)
+- Board: t10 37.58 · t18 31.26 · **us 30.49 (#3)** · t12 30.42 · t03 29.67 · t06 28.76 · t14 27.67. Game total (0.5·Fri + Sat):
+  t10 56.37 · t18 46.89 · us 45.73 · t12 45.63 · t03 44.51 · t06 43.14 (intel/standings.md).
+- **t06 fell #2 → #6 by selling a page card** (tick 1417-1418): it sold RET-06 to t07 at 30 on El Rastro and bought another
+  RET-06 from Chato at 61 (list 26). Negotiating −2.12 board ≈ −13.7 neg_points [V attrib]. That confirms the guardrail: never
+  sell a card from a complete page (the deck's −130), and dealer buys above list never count.
+- **t18 climbed on late Pilar sells**: SAL-10 at 71 (tick ≈ 1395, +0.82 board ≈ +6.3 np) and RET-07 at 25 (1426, +0.28). These are
+  ladder slots at L3. A copyable play for Sunday's fresh ladder: our RET-11 and MAL-08 go to Pilar (score-model §4.5).
+- t12: LAV-08 from t08 at 14 on v11 (+0.73 board ≈ +4.7 np); market −0.25 (bench session 6; v02 is a board venue below the stall).
+- t10: RET-11 from the Pícaros at 142, and t12: MAL-11 from the Pícaros at 139. Neither moved the board (dealer buys never score
+  negotiation; ladder already capped).
+- **Our mm_points −5.2 → +2.2 at the close** with no v10 trade (score-model §3h): the next snapshot shows the board effect.
+
 ### t14 deep dive (Sat 19:10; Chief's ask: "Team 14 says it is 100% sure to win")
 - **Pages [V leaderboard, L feed]:** pages_complete 3 since snapshot 950. Feed-visible: RET 10/10; LAV 8/10 (missing LAV-01,
   LAV-08); LAT 8/10 (missing LAT-06, LAT-07); SAL 4/10; MAL 1/10. With 3 complete pages, LAV and LAT are most likely complete
