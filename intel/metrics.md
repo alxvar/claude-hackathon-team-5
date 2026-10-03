@@ -1,22 +1,22 @@
-# Metrics (auto, 17:58, game tick 928)
+# Metrics (auto, 18:00, game tick 932)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
-1. Team 14 31.9 (+1.1 / +2.0) deals 36
-2. Team 6 30.6 (+1.2 / +2.6) deals 51
-3. Team 5 30.0 (+0.6 / +0.2) deals 51 ← US
-4. Team 3 28.6 (-0.2 / +0.4) deals 27
-5. Team 1 28.5 (-0.5 / -0.6) deals 26
-6. Team 10 27.6 (-0.2 / -0.7) deals 31
-7. Team 18 27.0 (-0.1 / -0.9) deals 32
-8. Team 16 26.1 (-0.4 / -0.8) deals 34
-9. Team 12 25.9 (-2.1 / -2.7) deals 52
-10. Team 17 24.7 (+0.2 / -0.6) deals 25
+1. Team 14 31.8 (+1.3 / +2.0) deals 37
+2. Team 6 30.6 (+0.6 / +2.7) deals 51
+3. Team 5 29.9 (+0.6 / +0.1) deals 51 ← US
+4. Team 3 28.6 (-0.2 / +0.4) deals 28
+5. Team 1 28.3 (-0.4 / -0.8) deals 26
+6. Team 18 27.8 (+1.0 / -0.0) deals 33
+7. Team 10 27.6 (-0.1 / -0.8) deals 31
+8. Team 16 25.9 (-0.4 / -1.0) deals 34
+9. Team 12 25.9 (-4.3 / -2.9) deals 52
+10. Team 17 24.7 (+0.1 / -0.7) deals 26
 Us: #3
 
 ## Us
 
-score 29.98 · neg_points 78.7 (15 min ago 63.2) · ladder 0.437 · duel 13.93 · cash 151 · level 4 · deals 51
+score 29.87 · neg_points 78.7 (15 min ago 63.2) · ladder 0.437 · duel 13.93 · cash 151 · level 4 · deals 51
 
 ## Our holdings (card (rarity): value of each copy; a sale gives up the cheapest copy)
 
@@ -25,11 +25,11 @@ LAT-03 (common): 5; LAT-04 (common): 5; LAV-01 (common): 99.1; LAV-02 (common): 
 ## Our open offers (6)
 
 - 14040: bid 35 for SAL-06 · to t02 · expires tick 944
-- 14062: sell LAV-02 for 0 · to t17 · expires tick 928
-- 14078: sell LAV-02 for 0 · to t09 · expires tick 930
 - 14144: sell MAL-02 for 9 · to t15 · expires tick 966
 - 14146: sell MAL-05 for 9 · to t15 · expires tick 966
 - 14168: sell LAV-03 for 6 · to t09 · expires tick 968
+- 14199: sell LAV-02 for 0 · to t17 · expires tick 940
+- 14226: sell LAV-02 for 0 · to t09 · expires tick 942
 
 ## What each of our deals did to neg_points (measured, last 12)
 
@@ -57,9 +57,8 @@ LAT-03 (common): 5; LAT-04 (common): 5; LAV-01 (common): 99.1; LAV-02 (common): 
 - tick 887 chato sell La Vía Láctea: 13 → 14, ours 19 · closed
 - tick 895 picaros buy MAL-10: 73 → 73, ours - · closed
 
-## Trades between teams (144 so far; last 12)
+## Trades between teams (145 so far; last 12)
 
-- tick 804: LAV-01 (common) t07→t08 for 4 P
 - tick 844: RET-01 (common) t03→t07, RET-02 (common) t03→t07, MAL-01 (common) t03→t07, MAL-04 (common) t03→t07, LAV-10 (rare) t07→t03 for 38 P
 - tick 853: MAL-08 (uncommon) t06→t09 for 18 P
 - tick 861: RET-02 (common) t12→t06 for 6 P
@@ -71,31 +70,33 @@ LAT-03 (common): 5; LAT-04 (common): 5; LAV-01 (common): 99.1; LAV-02 (common): 
 - tick 904: LAT-01 (common) t18→t07 for 8 P
 - tick 904: SAL-07 (uncommon) t07→t05, LAT-01 (common) t05→t07 for 0 P
 - tick 905: RET-03 (common) t12→t06 for 6 P
+- tick 929: MAL-02 (common) t03→t17 for 3 P
 
-Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: RET×3, MAL×2, LAT×1; t03: SAL×2, LAT×2, LAV×1; t04: RET×5, LAV×4, MAL×4, LAT×3; t05: MAL×4, SAL×3, LAV×1, RET×1; t06: SAL×4, RET×2, LAV×1, LAT×1; t07: LAV×7, RET×5, LAT×4, MAL×3; t08: MAL×3, LAT×3, LAV×3, SAL×2, RET×1; t09: RET×5, MAL×3, SAL×2, LAV×1; t10: LAV×2, MAL×1, SAL×1; t12: LAT×4, MAL×2, LAV×1, RET×1; t13: MAL×7, SAL×2, LAV×1; t14: LAT×4, RET×3, LAV×1, SAL×1; t15: LAT×6, MAL×4, RET×3, SAL×3, LAV×3; t16: LAT×2, RET×1; t17: MAL×4, SAL×3; t18: SAL×1, LAT×1, RET×1
+Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: RET×3, MAL×2, LAT×1; t03: SAL×2, LAT×2, LAV×1; t04: RET×5, LAV×4, MAL×4, LAT×3; t05: MAL×4, SAL×3, LAV×1, RET×1; t06: SAL×4, RET×2, LAV×1, LAT×1; t07: LAV×7, RET×5, LAT×4, MAL×3; t08: MAL×3, LAT×3, LAV×3, SAL×2, RET×1; t09: RET×5, MAL×3, SAL×2, LAV×1; t10: LAV×2, MAL×1, SAL×1; t12: LAT×4, MAL×2, LAV×1, RET×1; t13: MAL×7, SAL×2, LAV×1; t14: LAT×4, RET×3, LAV×1, SAL×1; t15: LAT×6, MAL×4, RET×3, SAL×3, LAV×3; t16: LAT×2, RET×1; t17: MAL×5, SAL×3; t18: SAL×1, LAT×1, RET×1
 
 ## Dealer prices, last 60 ticks (median per item)
 
-- abuela common (team buys): median 9 over 1
-- abuela common (team sells): median 5 over 7
+- abuela common (team buys): median 9 over 2
+- abuela common (team sells): median 6 over 8
 - chato rare (team buys): median 75 over 1
 - chato uncommon (team sells): median 16 over 2
 - picaros common (team sells): median 5 over 6
 - picaros epic (team buys): median 139 over 1
-- picaros rare (team buys): median 58 over 4
+- picaros rare (team buys): median 57 over 5
 - picaros uncommon (team sells): median 11 over 1
 - pilar rare (team sells): median 56 over 1
-- pilar uncommon (team sells): median 18 over 6
+- pilar uncommon (team sells): median 18 over 4
 
 ## El Rastro now: top bids by price (team, card, price)
 
-- t16: LAV-06 (uncommon) 12 P · offer 14073
-- t16: RET-03 (common) 5 P · offer 14079
-- t16: LAT-12 (legendary) 1 P · offer 14066
-- t16: LAV-12 (legendary) 1 P · offer 14083
+- t16: RET-01 (common) 5 P · offer 14216
+- t08: RET-02 (common) 5 P · offer 14228
+- t16: LAV-01 (common) 3 P · offer 14225
 - t16: SAL-12 (legendary) 1 P · offer 14090
+- t16: LAT-12 (legendary) 1 P · offer 14201
+- t16: RET-12 (legendary) 1 P · offer 14202
 
-Asks by others (card, price: count): MAL-02 8: 1; LAV-05 6: 1; MAL-02 3: 1; LAT-03 8: 1; RET-06 30: 1; RET-08 28: 1; LAT-06 22: 1; MAL-02 7: 1; MAL-03 12: 1; RET-01 12: 1; RET-08 27: 1; MAL-01 12: 1; LAT-04 12: 1; SAL-01 13: 1; LAT-02 9: 1
+Asks by others (card, price: count): LAV-05 6: 1; MAL-02 3: 1; RET-08 28: 1; LAT-06 22: 1; MAL-02 7: 1; MAL-03 12: 1; RET-01 12: 1; RET-08 27: 1; MAL-01 12: 1; LAT-04 12: 1; SAL-01 13: 1; LAT-02 9: 1; SAL-11 315: 1; RET-02 12: 1; SAL-03 11: 1
 
 ## Our duels: 0 live, 68 finished (last 10)
 
@@ -112,9 +113,9 @@ Asks by others (card, price: count): MAL-02 8: 1; LAV-05 6: 1; MAL-02 3: 1; LAT-
 
 ## Latest announcements
 
-- tick 881 level.unlocked: {"team": "t11", "name": "Team 11", "persona": "picaros", "persona_name": "Los P\u00edcaros", "level": 4, "why": "open to everyone now"}
 - tick 881 level.unlocked: {"team": "t12", "name": "Team 12", "persona": "picaros", "persona_name": "Los P\u00edcaros", "level": 4, "why": "open to everyone now"}
 - tick 881 level.unlocked: {"team": "t13", "name": "Team 13", "persona": "picaros", "persona_name": "Los P\u00edcaros", "level": 4, "why": "open to everyone now"}
 - tick 881 level.unlocked: {"team": "t17", "name": "Team 17", "persona": "picaros", "persona_name": "Los P\u00edcaros", "level": 4, "why": "open to everyone now"}
 - tick 881 level.unlocked: {"team": "t18", "name": "Team 18", "persona": "picaros", "persona_name": "Los P\u00edcaros", "level": 4, "why": "open to everyone now"}
+- tick 932 level.announced: {"level": "banco", "kind": "persona", "name": "Don Ernesto", "teaser": "\u00abGold is not shown. It is negotiated.\u00bb"}
 
