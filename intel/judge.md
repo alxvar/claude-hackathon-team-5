@@ -1,41 +1,49 @@
-# Judge (claude-opus-5-5, Sat 09:37)
+# Judge (claude-opus-5-5, Sat 09:56)
 
 ## Verdict
-**Falling behind.** We are #7 at 17.8 (−2.2 in 15 min; leader Team 13 −1.8, Team 14 −0.1). The gap is 10.4 to #1 and 1.5 to #4. `neg_points` and ladder reset to 0 at tick 160. Since the unpause we have 0 open offers and no bot activity, while others settled 7 team trades (ticks 160-166).
+**Falling behind.** We are 15.29 (#6), −4.7 over 60 min. Leader Team 12 is 32.2, +4.3 over 60 min, so the gap widened by about 9 to 16.9. #3 (Team 14, 17.2) is only 1.9 ahead. Our only Saturday score is `neg_points` −10.0 (RET-09 bought from Chato at 87).
 
 ## Our strategies: keep / kill / scale
-- **Trading loop**: keep and restart now. It has logged no Saturday actions; its last lines are Friday errors (rate_limited, sobre_bienvenida, network). Friday maker sells scored +7.7 (LAV-04 at 9) and +6.0 (SAL-06 at 26).
-- **Our bids/listings**: scale from 0 to the plan's 20-30. The leaders list far more (t17 59 listings, t12 47).
-- **Dealer bot on Chato**: kill, except as the RET-rare fallback. Chato deals scored −2.3 (LAV-06), −2.0 (LAV-09) and −8.0 (LAT-08 + Abuela LAV-05 window), and none moved the ladder.
-- **Dealer bot on Abuela**: keep for the ladder now that it is reset to 0. Buy only at ≤ our value (Friday's MAL-07 at 29 cost −11.8).
-- **In-room page trades (Dani)**: keep. The LAV-05 team buy at 8 was +50.0, the largest single gain we have. There is no Saturday output in the data yet.
-- **Duelist (Aleks)**: 4 live, 34 finished, duel 0.0. Whether session 1 is scored is not in the data. The arbiter must hold our accepts only if it is.
-- **Market recorder**: its status is not in the data. The first Market Test (hour 3.0) is the next event, and the venue decision and cash floor depend on it.
+- **Chato steady-step (RET rares): keep.** RET-09 landed exactly as predicted (−10.0). RET-10 is running (his 97→97→96, ours 57→60→63, cap 88). He is the only RET rare source, since no team pulled or asked one.
+- **Abuela ladder bot: keep, but only for RET needs.** 3 deals moved the ladder 0 → 0.048 at 0 `neg_points`. With best-3 per level, a 4th level-1 deal at 9 adds nothing unless it closes cheaper.
+- **Chato for ladder: kill as a standalone.** That is 4 Chato deals with 0 ladder movement. Only buy from him for cards we need (directive: 3 RET uncommons, cap 28).
+- **Trading loop: keep, verify it is alive.** No Saturday entries in its log since the 09:55 restart; the last lines are Friday errors.
+- **Maker book: scale and reprice.** 14 offers against the plan's 20-30, 0 fills in 17+ min.
+  - Our spares at 10 compete with public asks at 9 (LAV-03 ×2) and 10 (LAV-04 ×3).
+  - Addressed offers are visible only to their addressee.
+- **Swaps 3245/3246: keep.** SAL-03+SAL-05 (18) → RET-07 (27.5) is +9.5; MAL-02+MAL-04 (14) → RET-08 (27.5) is +13.5. Whether t16/t07 hold those cards: not in data.
+- **In-room trades (Dani): no evidence of any today.** teams.md lists no buyer that passes the feeding rule.
+- **Ignoring t03's 64 bid for LAV-09 (worth 177): correct.**
 
 ## Check the scout
-- The scout has not run on Saturday, so there are no claims to check. Dani's `intel/teams.md` (tick 164) is the only rival read, and it is stale:
-  - **Holds**: Team 15 and Team 2 collect RET. The live bids confirm it: t02/t15 on RET-09/10 at 7-10.
-  - **Holds**: Team 14 buys LAV. It paid 55 for LAV-07 at tick 161.
-  - **Fails**: it shows us #6 at 20.0 (Δ +5.1). Metrics show #7 at 17.8, and the +5.1 is Friday's page trade.
-  - **Fails**: its sell table names Team 7 (8.8 below us) and Team 1 (9.4 below) as best buyers. Both now fail the ≥10-below rule for page-completing sales. Team 2 (11.0 below) passes.
-  - **Fails**: Team 14 is only 0.1 below us and collects LAV, so never sell it LAV spares as page-closers.
+- **Holds:**
+  - Team 2 bids low for RET rares (13, 15) and RET-04 (7).
+  - Our book is unfilled.
+  - The venue bond and the RET page competed for cash (now settled by the 09:55 GUARDRAIL).
+- **Wrong, #2:** the "0 P" offers are card-for-card swaps; the metrics renderer hides the `want`. Cancelling them throws away +9.5 / +13.5.
+- **Wrong, #3:**
+  - RET-02 is already held.
+  - RET-06/07/08 are uncommons (Abuela opened RET-08 at 29), not commons.
+  - RET-01 is reserved for the cap test at ~20; a bid at 6 breaks the test's separation.
+  - Last RET team trade: 12, not 2-7.
+- **Wrong, #1 (partly):**
+  - SAL-08 has already moved to t16 (offer 3536).
+  - t16 is 9.2 below us, not 10.5.
+  - "+12 if t16 accepts" is wrong: as maker we gain 33 − 22.5 = +10.5; the fee is theirs.
+  - Even if SAL-08 completes t16's page, t16 stays below us (6.1 + ≤8). Acceptable.
+- **Stale:** cash 384 / floor 370 / ladder 0.032. Now 288 / 100 / 0.048.
+- **Wrong:** "Team 2 the only climber". Team 12 is +7.4 over 15 min.
 
 ## The 3 changes with the highest expected gain
-1. **Open sobre_barrio, then restart `loop.py` and post a maker book.**
-   - Floor: `--cash-floor 370` until the venue decision.
-   - Asks: LAV-02/03/04, SAL-02 and LAT-04 spares at 9 (common clearing price; rival LAV-04 asks sit at 8-10). MAL-06/07 and SAL-08 at 25.
-   - Addressing: send them to collectors that pass the feeding rule (Team 2, Team 9, Team 3). Never to the top 4 or Team 14.
-   - Never sell a first-copy LAV card: each is worth 99-177 to us.
-   - Effect: about +4 to +8 `neg_points` per fill (Friday comparables).
-   - Risk: only 5% of asks fill (reprice after 10 min), and the unopened pack drags every trade's score.
-2. **Ladder while it is cheap: `abuela_bot --dealer abuela --ladder --cash-floor 370`** before Duels I.
-   - Before RET: negotiated buys only at ≤ value, e.g. a missing SAL common at ≤9.
-   - After RET's release: RET commons at 9-10 (worth 11) and uncommons at 21-24 (worth 27.5). These score 0 `neg_points` and count toward the page.
-   - Effect: Friday moved ladder 0.054 → 0.064 (board points per ladder point: not in the data).
-   - Risk: −1 per common at 10 when we value it at 9. Whether the welcome price resets, and whether it counts, is open.
-3. **RET rares first, as soon as the venue decision lowers the floor to 100.**
-   - Bid at ≤74 for RET-09/10, addressed to holders below us, short-lived because the feed exposes addressed bids.
-   - Fallback: Chato's steady-step protocol, capped at 90.
-   - Finish with a RET common bought from a team at ~20 to test the cap.
-   - Effect: +24 to +45 (plan §4B) plus the cap measurement.
-   - Risk: Team 15 and Team 2 compete for RET rares (30 copies each). Cash is only 32 P spendable until the venue decision.
+1. **Finish RET within cash, in order, before Duels I (tick ~309, ~49 min).** Order: RET-10 (cap 88) → 3 Chato uncommons (cap 28) → RET-01 from a team at ≈20 as the last card.
+   - Cash math: 288 − 88 − 84 − 22 = 94, below the 100 floor. Start the third uncommon only after a maker sale adds ≥ 6 P.
+   - Effect: plan estimate +24 to +45 `neg_points` (≈ +4 to +7 board) if the ~50 cap and the page bonus via a team trade hold. It also gives the level-3 early start.
+   - Risk: the cap form ([L], n=1). The accept arbiter may freeze accepts during Duels I.
+2. **Reprice and widen the maker book now (directive: reprice after 10 min unfilled).**
+   - Spares (worth 3.2): reprice the 10 asks to 9 and add more of them, addressed only to teams outside the top 4.
+   - Keep the SAL-08 and MAL-06/07 asks (+10.5 and +8.5 each, fee-free as maker); they fund change 1.
+   - Post RET-01 as a public bid at ~20, ≤20 ticks, only once it is the last card.
+   - Risk: a page-completer reaching a team only 6-9 below us (t01, t07, t09, t15). Their gain then exceeds ours, but none of them overtakes us.
+3. **Builder: show `want` for swaps in metrics, and timestamp the scout's inputs.**
+   - Effect: prevents cancelling +23 of live swaps, and stops recommendations built on stale cash, floor and ladder numbers.
+   - Risk: none to the game; it costs Builder time before Duels I.
