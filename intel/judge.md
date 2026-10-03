@@ -1,40 +1,56 @@
-# Judge (claude-opus-5-5, Sun 00:09)
+# Judge (claude-opus-5-5, Sun 00:25)
 
 ## Verdict
-**Holding, slightly slipping.** #3 at 30.49 (−0.4 over 60 min). Team 18 passed us (+1.2/60 min → 31.3). Team 12 sits 0.1 behind at 30.4. Leader Team 10 is +7.1 ahead at 37.6. `neg_points` has been flat at 119.1 since tick 988 (~450 ticks with no scored deal). Market stayed at 7.5, the stall number, all Saturday.
+Holding #3 at 30.49 (0/15 min, −0.4/60 min), 7.1 behind Team 10 (37.6, −0.3/60). Team 18 is gaining on us: 31.3, +1.2/60 min, 0.8 ahead. Team 12 is 0.1 behind at 30.4. `neg_points` has been flat at 119.1 since tick 988. The game is closed until Sun 09:00.
 
 ## Our strategies: keep / kill / scale
-- **Dealer bot: keep for CHA buys at ≤ value only; kill ladder-only threads.** No neg or ladder movement since tick 904. Last thread (Pícaros LAV-04) walked at 4 with no change. Ladder 0.483 had no board effect after 0.373 ([L], Chief 17:45).
-- **Trading loop: keep and restart on HEAD.** 2 accepts since 15:29 (+6.2, +15.5). It logged 5 `unknown_card sobre_bienvenida` errors (fixed in 918f823, which only takes effect after a restart) and a network outage from 22:55 to 23:24.
-- **SAL-11 bid 20252 (115 → t04): keep, but expect low odds.** Unfilled since 21:45. The last epic trade was SAL-11 at 207 (t10 → t17, tick 1296), and a 245 ask is live.
-- **Book asks LAV-03 → t04 and LAV-04 → t01 at 6: let them lapse at tick 1455.** Gain is 2.8 each. t01 (−4.9) and t04 (−5.4) both collect LAV and are not ≥ 10 below us. Whether either card closes a page for them is not in the data.
-- **v10 swap desk / club: scale.** Real trades are 22.5 of Market's 30 (organisers' deck). Our market was stuck at 7.5, and six benches had nobody above the stall. The matched trades are not executed yet.
-- **In-room trades: keep.** They produced our two biggest Saturday deals: +40.4 (SAL-06 from t08) and +15.5 (swap with t07).
+- **Dealer bot: KEEP, buys only.** The last thread (Pícaros LAV-04 sell, final 4 under floor 4/value 3.2) walked correctly, so 0 neg was lost. Ladder 0.483 looks spent: `negotiating` stayed flat across 0.373 → 0.437 [L]. Use it only for CHA buys at ≤ value. Ernesto: no neg-safe deal (00:40 log).
+- **Trading loop: KEEP, RESTART.** Its last real fills were the swaps at 15:48 (+6.2) and 17:46 (+15.5). Since then the log shows only errors: `unknown_card sobre_bienvenida` ×5, then network failures. The fix (918f823) loads only at the next restart.
+- **Maker asks 19979 / 19981 (LAV-03 → t04 at 6, LAV-04 → t01 at 6): KEEP.**
+  - Each is about +2.8 over our value of 3.2, with no fee because we are the maker.
+  - Both expire at tick 1455, 10 ticks after the open.
+  - Of 414 listings, few filled, and the sell table is empty: no buyer passes the feeding rule.
+- **SAL-11 bid 20252 (115 → t04): KILL** at the first tick (00:50 GUARDRAIL).
+- **In-room / page-closing team trades: SCALE.**
+  - SAL-06 from t08 at 28 gave +40.4, our biggest single gain on Saturday.
+  - The t07 swap gave +15.5 and moved the board +0.74 (≈ 0.05 per neg point).
+- **v10 market: SCALE.**
+  - Saturday ended at 7.5, the stall number, and nobody beat the stall.
+  - Real trades are worth 22.5 and remain the largest open lever.
+- **Duels: not ours to run.** Session 3 shows 8 of the last 10 duels as deals; duel score is 35.39.
 
 ## Check the scout
-- **Holds:** the ≤125 GUARDRAIL, value 162, cash 392, the 260 floor, and ≈ +2.3 board (≈ 0.05/pt × 47). Also holds: t09 bids 56 for MAL-09/10 and 24 for SAL-06; Team 6's RET sales to t12 (216) and t04 (84); t09 at #16; Team 10's 46 dealer / 16 team trades.
-- **Unverified:** "t04 asks 245 for SAL-11". Public boards mask makers; the metrics list SAL-11 at 245 with no team.
-- **Overstated:** "+47 if filled" ignores pack drag. Our unopened sobre_plata (71.6) cut SAL-06's capped +50 to +40.4.
-- **Conflict:** RET-09 seller.
-  - The scout and the 21:40 directive say t08 → t09 with VC ≈ +134.
-  - The Market log (23:35) says t07 → t09 with 68 VC.
-  - Resolve this before Lucas DMs anyone.
-- **Wrong wording:** "dealer buys score ≤ 0 unless below value". They score min(0, ΔV − p), so never above 0. Whether the Pícaros stock CHA cards at all is not in the data.
-- **Missed:** Team 18 overtook us, and Team 12 is 0.1 behind.
+- **#1 Cancel 20252: HOLDS.** It matches the GUARDRAIL and the expiry at tick 1565.
+- **#2 Sell into t09's 56 bids for MAL-09/10: VOID.**
+  - We hold neither card; holdings show MAL-01..06 and MAL-08 only.
+  - Even if we held them, the "MAL close stays" directive would forbid the sale.
+  - Read it the other way: t09 is competing with us for the MAL rares we need.
+- **#3 CHA FAST-START at 09:00: HOLDS.** Cash 392 covers the 242-384 P need, and the +3.2-5.6 [L] estimate comes from the 21:20 directive. Caveat: in the 384 case, nothing is left for MAL.
+- **Team 18 +1.2/60 and the LAT-10 buy at 72: HOLD.** Team 12 at 30.4: holds.
+- **Team 10 MAL-11 at 195 and SAL-11 at 207: HOLD.** Team 6 −2.7/60: holds; that sales cause it is inferred.
+- **"Dealer prices may move against us": NOT IN THE DATA.**
+- **Missed:** the two LAV asks expire at tick 1455, and MAL-08 is never-sell (00:50).
 
 ## The 3 changes with the highest expected gain
-1. **Execute the RET-09 → t09 page-closer on v10 at the 09:00 open, then 2-3 more vetted swap-desk pairs.**
-   - Effect: one collector trade took our market 7.5 → 12.5 (+5 board, tick 311). This is the only lever above +2 on the board.
-   - Risk: value created is net. Tick 398's sale to a lower-multiplier holder wiped +5 → −5.2. Approve only pairs where the buyer values the card more than the seller, and never a top-4 team or a rival venue.
-2. **Sunday sequencing:**
-   - Restart everything on HEAD.
-   - Confirm the round-3 reset in `/api/me`.
-   - Open sobre_plata immediately after the CHA release and before any buy (directive: the pack is kept for CHA).
-   - Effect: removes ~2-10 pts of drag per trade (SAL-06 lost 9.6).
-   - Risk: opening before the release wastes the pack's CHA chance. Also, SAL-11 may fill before the pack is opened, which is accepted (still positive).
-3. **CHA page:**
-   - Rares from the Pícaros at 48-52 (≤ 54, below their list of 63); last card from a team as maker (no fee, cap 50). Value 112 vs ~50 gives 0 neg loss, and below-list deals are what moved the ladder in a fresh round.
-   - Effect: +3.2-5.6 final [L].
-   - Risks:
-     - Pícaros bait-and-switch: check the structured card ID against the words before every accept (trick guard on).
-     - Cash floor 350 until CHA is done.
+1. **At 09:00:**
+   - Read `/api/clock` `round`.
+   - Cancel 20252.
+   - Run the CHA FAST-START with these limits: Pícaros rares 48-52, accept ≤ 54; Abuela commons ≤ 9, uncommons ≤ 22.
+   - Buy the last CHA card from a team; a page-closer is worth at most 50 + price.
+
+   Expected: +3.2-5.6 final [L].
+   Risk: Pícaros bait and switch, so the trick guard checks every offer. A dealer buy above value loses in full.
+2. **MAL close via a team trade, only if ≥ 150 P is left after CHA.**
+   - Get the MAL rares from the Pícaros at ≤ 49, which is our value and fills the empty L4 slot.
+   - Buy the closer from a team, e.g. t15's spare MAL-07.
+
+   Expected: up to +50 neg (bonus 46.4 + card value, capped) ≈ +2.5 board at the measured 0.05/pt.
+   Risk: t09's 56 bids outbid us for MAL-09/10. Cash could run out if CHA lands in the 384 case.
+3. **Before 09:00, restart `loop.py` with 918f823; Lucas and Dani broker v10 club pairs.**
+   - Start with RET-09 t08 → t09: +68 value created, a page-finisher.
+   - Both sides are ≥ 10 below us and outside the top 4.
+
+   Expected: about 3.9-4.8 of the 5 real-trades points (Market sim [L]).
+   Risk:
+   - Club pairs leaking to the top 4 (t10, t18, t12, t03).
+   - Another network outage like the 22:50-23:24 one; the operator alerts on a quiet `team/lucas.md`.
