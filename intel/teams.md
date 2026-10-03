@@ -1,4 +1,4 @@
-# Rival profiles (Dani's dashboard, auto Sat 20:21, tick 1201)
+# Rival profiles (Dani's dashboard, auto Sat 20:31, tick 1201)
 
 _From the public feed since tick 2, the leaderboard and our /api/me. Inferred: starting cards and pack pulls are invisible. Collects = sets it buys or bids for; dumps = sets it sells or asks for. Prices = median of its team trades and open bids (c/u/r). Δ = score change over ~30 ticks._
 
@@ -14,7 +14,7 @@ _From the public feed since tick 2, the leaderboard and our /api/me. Inferred: s
 - #8 Team 15 25.5 (Δ -0.3) · **buyer for RET/MAL** · no page closers (not ≥ 10 below us) · collects RET/MAL · dumps SAL/LAV · prices c 7.5 u 21 r 60 · 32 team / 29 dealer trades, 357 listings · Abuela −7.3%
 - #9 Team 2 25.1 (Δ +2.6) · **buyer for RET** · no page closers (not ≥ 10 below us) · collects RET · dumps LAV/LAT/SAL · prices c 7.5 u 21.5 r 72 · 17 team / 40 dealer trades, 412 listings · Abuela −9.5% · big: RET-09 from Team 6 for 84 P (tick 504)
 - #10 Team 17 24.9 (Δ -0.1) · **buyer for LAV/MAL/SAL** · no page closers (not ≥ 10 below us) · collects LAV/MAL/SAL · dumps LAT · prices c 6 u 26 r 72.5 · 10 team / 21 dealer trades, 418 listings · Abuela −18.3% · big: SAL-09 from Team 12 for 75 P (tick 109)
-- #11 Team 13 24.6 (Δ +0.2) · **seller of LAT/LAV/MAL** · no page closers (not ≥ 10 below us) · dumps LAT/LAV/MAL · prices c 4 u 20 r 65 · 23 team / 56 dealer trades, 778 listings · Abuela −14.4% · big: SAL-09 from Team 4 for 74 P (tick 65)
+- #11 Team 13 24.6 (Δ +0.2) · **seller of LAT/LAV/MAL** · no page closers (not ≥ 10 below us) · dumps LAT/LAV/MAL · prices c 4 u 20 r 65 · 23 team / 56 dealer trades, 779 listings · Abuela −14.4% · big: SAL-09 from Team 4 for 74 P (tick 65)
 - #12 Team 1 23.7 (Δ -0.1) · **buyer for LAV/SAL** · no page closers (not ≥ 10 below us) · collects LAV/SAL · dumps LAT · prices c 8 u 21.5 r 72 · 12 team / 19 dealer trades, 203 listings · Abuela −8.8%
 - #13 Team 4 23.6 (Δ +0.2) · **buyer for RET/LAV** · no page closers (not ≥ 10 below us) · collects RET/LAV · dumps MAL/SAL/LAT · prices c 6 u 26 r 70 e 160 · 28 team / 42 dealer trades, 163 listings · Abuela −14%
 - #14 Team 8 23.5 (Δ +0.0) · **seller of LAV/RET/LAT** · no page closers (not ≥ 10 below us) · dumps LAV/RET/LAT · prices c 6 u 22.5 r 70 · 19 team / 48 dealer trades, 1118 listings · Abuela −4.4% · big: SAL-10 from Team 12 for 76 P (tick 556)
