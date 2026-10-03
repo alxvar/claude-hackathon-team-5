@@ -165,6 +165,13 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    the last 4 ticks (+3 P / 30 duels).
    (c) Late switch: optional skip when an in-limit offer stands AND the rival is a clock bot.
    (d) Your MAX_STEP_SHARE 0.25 (22:01) stays unless the overnight sim says otherwise (07:30 report).
+28. **22:35, Duel Lab checkpoint 1 (intel/duel-lab.md 5d3fa40, verified) for DUELS III + FINAL: 12 ticks, 10%
+   decay, 4 at once [V schedule].** [L, sim calibrated on Duels II] MIN_STEP_P 3 → 5, MAX_STEP_SHARE 0.25 → 0.18,
+   LATE_SWITCH_LEFT 4 → 2: +0.027/duel (≈ +7%; the gain is holding in narrow gaps and closing in the last ticks).
+   Two code guards [V, records]: (1) never send an offer worth less to us than the rival's standing offer; accept
+   theirs instead (5968, 6095); (2) enforce the day call on our FIRST offer, because the LLM opener overrode
+   "give only if C ≤ 15" in 6049 (−25.3 for 18 P). Latency: code-first after the opener, text from a template or a
+   3 s-capped line. Final numbers at 07:30; decide at 08:00 with the full suite.
 
 **Dani: deal desk from 15:52 (Lucas's call).** Your phone (ntfy, your channel) now gets every alert that needs a human to
 message another team: v10 radar DMs, v10 partner suggestions (Teams 15, 10, 3), opportunity SELL/BUY alerts, swap nudges.
