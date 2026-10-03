@@ -290,6 +290,80 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1300,
+   "raw": {
+    "duel": 5801,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.52,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 86,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 1307,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 8605,
+     "price": 56,
+     "tick": 1299,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 8629,
+     "price": 109,
+     "tick": 1300,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1293,
+      "from": "you",
+      "text": "I can do 50 P with delivery on day 0. What price and day work for you?",
+      "price": 50,
+      "days": 0
+     },
+     {
+      "tick": 1298,
+      "from": "Rival Noche",
+      "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 112.",
+      "price": 112,
+      "days": 5
+     },
+     {
+      "tick": 1299,
+      "from": "Rival Noche",
+      "text": "I just moved for you. 111, your turn to meet me.",
+      "price": 111,
+      "days": 5
+     },
+     {
+      "tick": 1299,
+      "from": "you",
+      "text": "I can move to 56 P with delivery on day 0. I'd need to see you come down meaningfully on price and to an earlier day before I move again.",
+      "price": 56,
+      "days": 0
+     },
+     {
+      "tick": 1300,
+      "from": "Rival Noche",
+      "text": "That was a real step from my side: 109.",
+      "price": 109,
+      "days": 5
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
