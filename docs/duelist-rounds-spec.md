@@ -1,7 +1,7 @@
-# Duelist: fewer rounds per deal (handoff from Aleks to the Builder, Sat 11:58)
+# Duelist: fewer rounds per deal (handoff to Aleks's Builder session on Aleks's Mac, Sat 11:58)
 
-Aleks owns `agents/duelist/` and asks the Builder to make this change. Deploy before **Duels II (~18:29)**, after Duels I
-is over. Questions go to Aleks (`team/aleks.md`) or through the Chief.
+For Aleks's Builder session (on the same Mac as the live duelist), not Lucas's. Deploy before **Duels II (~18:29)**,
+after Duels I is over. Questions go to Aleks.
 
 ## Why
 Each duel scores our share of the gap between the two limits × (1 − decay)^rounds. Rounds = min(our messages, theirs),
@@ -73,17 +73,18 @@ Leave the rest of the prompt alone (the opener guidance, the standoff exception,
 Run `uv run --project . pytest -q`; the full suite must be green.
 
 ## Constraints
-- **The duelist is live for Duels I on Aleks's Mac until ~13:35.** Push only after Duels I is over (`GET
-  /api/duels` shows nothing live). `supervise.sh` restarts a crashed process on whatever code is checked out, and
-  Aleks's machine pulls automatically, so new code must not land mid-session.
-- **Never run `agents.duelist run` on Lucas's machine** (never two duelists on the key). `pytest` only; `smoke` is
-  fine (it calls the models and sends nothing to the game).
+- **The duelist is live for Duels I in this repo folder until ~13:35.** `supervise.sh` restarts a crashed process on
+  whatever code is checked out here, so don't edit `agents/duelist/` in this folder until Duels I is over (`GET
+  /api/duels` shows nothing live). Build in a separate git worktree (`git worktree add ../team5-rounds main`), run the
+  tests there, and merge, pull and push only after Duels I.
+- **Never a second duelist:** no `agents.duelist run` in the worktree. `pytest` only; `smoke` is fine (it calls the
+  models and sends nothing to the game).
 - Limits stay enforced by `final`; nothing here may loosen it.
-- Aleks restarts the duelist on the new code (`agents/duelist/supervise.sh --negotiator-model claude-sonnet-5-5`)
-  before Duels II.
+- Restart the live duelist on the new code before Duels II only with Aleks's go: stop the supervisor, then
+  `agents/duelist/supervise.sh --negotiator-model claude-sonnet-5-5`, then check the log's first line.
 
 ## Done
 - One commit (prompt + ledger + `held` + tests), suite green, pushed after Duels I.
-- One line in `team/lucas.md` with the commit and the test count, so Aleks sees it on his next prompt.
+- One line in `team/aleks.md` with the commit and the test count.
 - After Duels II's first wave, `intel/duel-review.md` should show rounds per deal and the share of value lost to decay
   below Duels I's numbers.
