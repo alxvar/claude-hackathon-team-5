@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sun 00:48** · tick 1445 (30 s/tick) · game hour 13.37 · PAUSED · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sun 00:53** · tick 1445 (30 s/tick) · game hour 13.37 · PAUSED · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,9 +17,9 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Sun 08:45: run intel/dealer-lab.md §4 checklist, then intel/sunday-plan.md. (Sat history:) Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sun 00:49 · operator · red team directive 00:55 applied: Pícaros CHA-09 thread at round 3's first tick (CHA-10 right after; one thread per dealer), our script's trick guard + --offer-only, the egg line inside the first priced message (simple_buy.py --first-text), the silver pack right after the CHA release (≥ 2-missing gate), fodder maker bids LAT-06/07/08 ≤ 12 at T0, fodder dealer sales after the CHA threads, MAL go/no-go at 10:30 on the Analyst's M5 line, flag verified Pícaros lies if the cap reset; ≤ 6 threads
   - Sun 00:46 · operator · CHA anti-flip fix (Chief 02:45, intel/adversary-t10.md): public CHA bids capped at the dealer accept price (rares 48 → 54, uncommons 20 → 22, commons 8 → 9; CHA-08 flat 22, CHA-05 flat 9), no `last_card` flag; the LAST card only as one agreed, addressed post from a non-rival · run/book_cha_entries.json + run/cha_book.json + dealer-lab §FAST-START updated (CHA cash now A 242 / B 250 / C 282; the full MAL fits in every case)
   - Sun 00:40 · operator · trader patch on main (0701945 + b805ad1: --max-ratio 0.8 --exclude 'CHA-*,MAL-*') → at 09:00 `CASH_FLOOR=464 tools/daemons.sh restart trader` (464 = CHA case-B 288 + MAL 126 + 50 reserve; lowered as the books fill, each change logged); sells-only (9999) until then · timing (Analyst 01:50): game hour = wall hour; round 3 ≈ 09:00 likely, Duels III ≈ 11:00, Final + dealers close ≈ 14:00 (confirm at 08:55)
-  - Sun 00:36 · operator · directive 01:15: the trader restarted NOW (game closed) with **--cash-floor 9999 = sells only** (no buys, no swaps), so it can't buy CHA at up to ~109 at the open; CHA/MAL only through run/cha_book.json / run/mal_book.json · switch to the Builder's patch (book take-price cap + CHA/MAL exclude list) once it lands and is tested, and log it · SAL-11 20252 cancel armed (08:58 or the first unpaused tick)
 
 ## Score
 
