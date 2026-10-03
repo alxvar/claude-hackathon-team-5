@@ -239,3 +239,5 @@ Nando: Setenta y tres,
 - Sat 22:07 · message tick 1339 · banco → t06 · Buenas tardes. El Gato de Lavapiés, sí, está en la bóveda. Mis términos: setecientos sesenta y uno. Trescientos ochenta no entra en conversación.
 - Sat 22:07 · message tick 1340 · banco → t06 · Mis términos no cambian con cinco primas más: setecientos sesenta y uno. El Gato espera en la bóveda; yo también tengo paciencia. Cuando usted llegue a esa cifra, hablamos.
 - Sat 22:07 · message tick 1340 · pilar → t06 · Buenas noches. Sí, dicen que sólo existe una Chulapa Dorada. Carmen, en El Rastro, conoce la historia mejor que nadie; pregúntele a ella. Mientras tanto, si usted va en serio: un sobre dorado, 504 P.
+- Sat 22:08 · message tick 1342 · banco → t06 · Setecientos cincuenta y seis. Ahí está mi término de hoy. El Gato sigue en la bóveda, y yo sigo sin prisa alguna, caballero.
+- Sat 22:09 · message tick 1343 · pilar → t02 · Buenas tardes. Claro que sí, el astronauta de la Catedral Nueva, un capricho moderno en piedra vieja. Salamanca siempre sorprende. Y ya que hablamos de tesoros: le ofrezco un sobre dorado por 504 P. ¿Le interesa, señor?
