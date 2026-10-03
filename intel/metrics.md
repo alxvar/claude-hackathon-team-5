@@ -1,4 +1,4 @@
-# Metrics (auto, 18:37, game tick 1005)
+# Metrics (auto, 18:39, game tick 1009)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -74,7 +74,6 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: RET×3, MAL�
 
 ## Dealer prices, last 60 ticks (median per item)
 
-- abuela common (team buys): median 9 over 1
 - abuela common (team sells): median 6 over 2
 - abuela uncommon (team buys): median 21 over 1
 - chato uncommon (team buys): median 26 over 1
@@ -84,24 +83,23 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: RET×3, MAL�
 - picaros uncommon (team sells): median 11 over 2
 - pilar epic (team sells): median 199 over 1
 - pilar rare (team sells): median 76 over 6
-- pilar uncommon (team sells): median 27 over 12
+- pilar uncommon (team sells): median 24 over 7
 
 ## El Rastro now: top bids by price (team, card, price)
 
 - t16: RET-07 (uncommon) 13 P · offer 15243
-- t16: RET-02 (common) 5 P · offer 15200
 - t16: RET-03 (common) 5 P · offer 15208
-- t16: RET-04 (common) 4 P · offer 15169
-- t16: RET-05 (common) 4 P · offer 15182
-- t16: RET-01 (common) 4 P · offer 15188
+- t16: RET-04 (common) 5 P · offer 15253
+- t16: RET-05 (common) 5 P · offer 15260
+- t16: RET-01 (common) 4 P · offer 15285
+- t16: RET-02 (common) 4 P · offer 15286
 - t16: LAV-02 (common) 3 P · offer 15213
 - t16: LAV-03 (common) 3 P · offer 15214
 - t13: RET-01 (common) 2 P · offer 15162
-- t16: LAT-12 (legendary) 1 P · offer 15202
 - t16: SAL-12 (legendary) 1 P · offer 15221
 - t16: MAL-12 (legendary) 1 P · offer 15222
 
-Asks by others (card, price: count): SAL-04 10: 1; SAL-01 10: 1; SAL-03 6: 1; LAT-02 6: 1; LAV-04 8: 1; MAL-02 6: 1; RET-04 9: 1; LAT-02 9: 1; RET-02 12: 1; LAT-08 30: 1; RET-04 11: 1; RET-03 12: 1; MAL-04 12: 1; LAT-05 12: 1; LAT-01 8: 1
+Asks by others (card, price: count): SAL-04 10: 1; SAL-01 10: 1; LAV-04 8: 1; MAL-02 6: 1; RET-04 9: 1; RET-03 12: 1; MAL-04 12: 1; LAT-05 12: 1; LAT-01 8: 1; RET-07 30: 1; LAT-01 9: 1; RET-06 30: 1; SAL-01 11: 1; MAL-02 7: 1; RET-10 84: 1
 
 ## Our duels: 0 live, 68 finished (last 10)
 
