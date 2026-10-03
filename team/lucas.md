@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sat 16:15 · operator · **Workshop** (Chief): LAT-04 + SAL-01 + SAL-02 spares (5.6 P) → **MAL-06** (17.5): cv +11.8, neg and ladder unchanged (not a scored deal, not a level) → GAME.md · MAL-06 → book, t09 at 24 (floor 19) · swaps 9387/9389 expired unfilled at tick 688
 - Sat 16:10 · operator · **trader restarted** on 2c12274 (counterparty policy tools/policy.py: no trade with a live top-5 team, never t13/t17, page-closers only ≥ 6 below; run/reserved.json: MAL-09, SAL-08, SAL-04, SAL-03, SAL-05); book + opps restarted on the same rules; --keep-page-cards left off (the value check covers complete pages)
 - Sat 16:05 · Builder · trader stopped by Operator (t10 SAL-10↔MAL-09 swap) · shipped: counterparty policy tools/policy.py in every writer (5dbca1c: top 5 only at 3x, rivals t13/t17, page-closer gap 6; trader fails closed), reserved cards run/reserved.json = MAL-09 SAL-08 SAL-04 SAL-03 SAL-05 (2c12274), Dani deal desk routing with offer id + valid-until, arbitrage/suggestions review fixes (1da1bc3), swaps rework (af76831); 402 pass · Operator to restart trader/book/opps · final swaps+policy verify running
 - Sat 16:08 · operator · **LAT-08 → Chato at 14** (his final; small steps 30 → 22): `ladder_points` 0.188 → **0.200** (+0.012, 2nd L2 slot), neg 38.7, **cash 200** (Saturday close target met)
