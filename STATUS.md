@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 11:37** · tick 414 (30 s/tick) · game hour 4.78 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 11:42** · tick 424 (30 s/tick) · game hour 4.86 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,26 +17,26 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 10:16 · **for Aleks** (repo audit 10:00-10:15, read-only, each checked in the code) · (a) the negotiator still gets a band when the strategist holds (`agents/duelist/agent.py:99` `make_band`, `runner.py:421` `is_hold`): if it picks 1-2 P off our standing offer, that is sent and costs a round (the 278 pattern) → when the plan's target equals our standing price and day, hold in code without asking the negotiator; before 11:58 if you agree · (b) `engine/failover.py:21` gives the primary 20 s, but the whole decision (strategist + negotiator) has max(8, tick − 5) = 25 s (`runner.py:385`): the backup is rarely reached today and never at Sunday's 15 s ticks → primary budget ≈ 40% of the tick · (c) `docs/duelist-runbook.md:61,66` say hour 6.5 / 13 (live: 5.15 ≈ 11:58, 11.65 ≈ 18:28) · (d) `hub/import_files.py`: a `me` row with `tick: null` aborts the file; "new" overcounts repeated ids; files open without utf-8 (Windows) · next: Aleks decides (a)
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 11:42 · operator · book (MIN_GAIN_SELL=2) and opps restarted on cde494b (top 4 read every tick before a team-venue post, fail-safe to El Rastro; sells only to collectors, tools/collectors.py) · Chato ladder test after Duels I: SAL-07 (or 06) open 24 → 26 (+2), hold silent, accept ≤ 26, walk on a final > 26 (Chief's tweak)
+  - Sat 11:55 · Builder · cde494b: **sells only to collectors** (tools/collectors.py: teams.md collects or feed bids/dealer asks; dumps/unknown/public: no), in book.py (cancels a live ask that stops qualifying) and opps · **book reads the top 4 every tick** before a team venue, unknown → El Rastro (MAL-02 on v07 at 11:31) · dry run: the Operator's 13 entries all go to collectors · suite 316 · restart book + opps owed · next: Chief
   - Sat 11:40 · operator · GUARDRAIL (Lucas): Sunday floor 0 from doors-open, CHA page buys only · ladder program after Duels I (Chief): (1) one Chato SAL-06/07 buy at his list 26 (−3.5), warm, alone in its window, measure ladder; (2) if it moves: 2 more at list, then Pilar sales of leftover uncommons ≥ her buy list and our value (SAL-08 before 17:30) · dealer threads: none open (11:40 stop respected); trader stops 11:50
-  - Sat 11:37 · operator · t10 in the top 4 → **no offers on v07** (house rule): book.py's top-4 fallback didn't fire (reposted MAL-02 on v07 at 11:31) → every run/book.json entry forced to venue rastro, all 14 v07 offers cancelled; book.py reposting the 13 asks on El Rastro · collector rule (Chief 11:31: sell only to collectors of the set): MAL-02 t07 (dumps MAL) → t01 · **MAL-03 bought at 5** (public bid on v07, filled just before the cancel): `neg_points` 33.2 → **35.2** (+2.0), cash 109 · NEWS #3 (Chato pays more for MAL rares): no action (Chief)
-  - Sat 11:35 · operator · **#3 → #7 (22.35)**: market 12.5 → 7.5, `mm_points` +4.99 → **−5.2** after a v10 trade at tick 398 (t10 → t15 SAL-07 at 26; t15 dumps SAL → negative value created) → GAME.md fact, Chief + Market + Lucas told · t10 now top 4 → our LAV-04 ask re-addressed t10 → t07 in run/book.json
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 22.66 | 8 | 15.16 | 7.50 | 0.00 | 0.06 | 0.90 | 35 | 2 | 109 | 33/50 |
+| 22.66 | 9 | 15.16 | 7.50 | 0.00 | 0.06 | 0.90 | 35 | 2 | 109 | 33/50 |
 
-Leaderboard (snapshot at tick 410; refreshes every few minutes):
+Leaderboard (snapshot at tick 420; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 13 | 27.72 | 24.39 | 3.33 | 45 |
-| 2 | Team 18 | 26.66 | 19.16 | 7.50 | 28 |
-| 3 | Team 12 | 26.16 | 14.06 | 12.10 | 33 |
-| 4 | Team 10 | 24.84 | 12.34 | 12.50 | 26 |
-| 5 | Team 2 | 23.95 | 16.45 | 7.50 | 34 |
-| 8 | Team 5 | 22.66 | 15.16 | 7.50 | 35 |
+| 1 | Team 14 | 29.05 | 17.19 | 11.86 | 21 |
+| 2 | Team 13 | 27.72 | 24.39 | 3.33 | 45 |
+| 3 | Team 18 | 26.66 | 19.16 | 7.50 | 28 |
+| 4 | Team 12 | 25.76 | 14.02 | 11.74 | 35 |
+| 5 | Team 10 | 24.84 | 12.34 | 12.50 | 26 |
+| 9 | Team 5 | 22.66 | 15.16 | 7.50 | 35 |
 
 ## Next on the schedule
 
@@ -44,14 +44,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 5.00 | ~13 min | bench | The Market Test: every venue gets the same synthetic book |
-| 5.15 | ~22 min | duels | Duels I: price only, one round-robin |
-| 5.51 | ~44 min | persona_opens | Doña Pilar opens for everyone |
-| 7.00 | ~133 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.00 | ~253 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.15 | ~262 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
-| 11.00 | ~374 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~382 min | persona_patch | The fever breaks |
+| 5.00 | ~9 min | bench | The Market Test: every venue gets the same synthetic book |
+| 5.15 | ~18 min | duels | Duels I: price only, one round-robin |
+| 5.51 | ~39 min | persona_opens | Doña Pilar opens for everyone |
+| 7.00 | ~129 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.00 | ~249 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.15 | ~258 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
+| 11.00 | ~369 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~378 min | persona_patch | The fever breaks |
 
 ## Our dealer deals
 
@@ -101,11 +101,11 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
-| common card | team buys | 57 | 9 | 7 | 12 | 5 | 9 |
+| common card | team buys | 58 | 9.00 | 7 | 12 | 5 | 9 |
 | common card | team sells | 55 | 6 | 5 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 38 | 21.50 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 64 | 23.00 | 17 | 29 | 4 | 24.50 |
-| uncommon card | team sells | 7 | 14 | 13 | 17 | 0 | — |
+| uncommon card | team sells | 8 | 14.50 | 13 | 17 | 0 | — |
 
 ## Duels
 
