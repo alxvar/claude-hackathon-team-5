@@ -11,25 +11,29 @@ _Lucas's Duel Lab session. It never writes to the game or to `agents/duelist/`._
   fixed below._
 - _**Labels:** [V] measured on our records or code, [L] modelled or inferred, [?] unknown._
 
-## FINAL for Sunday (overnight program, Sat 23:50): Duels III (≈ 11:00) and the Final (≈ 14:00)
+## FINAL for Sunday (overnight program, Sun 00:30): Duels III (≈ 11:00) and the Final (≈ 14:00)
 
 _Both sessions: 12 ticks, 10% decay, 4 at once, price + day (`/api/schedule` at 22:08). Duels III: 68 duels; the
-Final: 34. Everything here is from a code-only simulator, role-aware and calibrated on the 62 post-fix Duels II duels
-(checkpoint 2), plus exact replays of the records. Outputs in the scratchpad `night/`. No LLM spend, no game writes. The
-checkpoints below are the history; this section supersedes them where they differ._
+Final: 34._
+- _**Basis:** a code-only simulator, role-aware and calibrated on the 62 post-fix Duels II duels (checkpoint 2), plus
+  exact replays of the records. Outputs in the scratchpad `night/`._
+- _**Scope:** no LLM spend, no game writes._
+- _**Checked:** two independent verifier passes; every flag is applied here._
+- _The checkpoints below are history; this section supersedes them where they differ._
 
 ### Do this (one decision, two ways to ship it)
 
-| Path | What | Expected vs main today [L] |
+| Path | What | Expected vs main today [L] (`nomerge.py` / `.out`) |
 |---|---|---|
-| **A. Merge `duelist-loop` (a1d679e) and write the params file** | the three guards (accept instead of offering worse; worth-monotonic steps; the day call on the first offer) + the file below | **+0.039 per duel** (worst world +0.034; H2 +0.038) ≈ **+2.6 points over Duels III, +1.3 in the Final** (`nomerge.out`) |
-| B. No merge: edit three constants on main | `agent.py`: `MIN_STEP_P` 3→5 (l.50), `MAX_STEP_SHARE` 0.25→0.18 (l.52), `LATE_SWITCH_LEFT` 4→2 (l.54) | +0.033 per duel (worst world +0.027) ≈ +2.2 points |
+| **A. Merge `duelist-loop` (head b10f9cc: the guards are abd0301, `GUARDS` defaults to 1 = on) and write the params file** | the three guards (accept instead of offering worse; worth-monotonic steps; the day call on the first offer) + the file below | **+0.038 to +0.040 per duel** (H2 / H1; worst world +0.034) ≈ **+2.6 to +2.7 points over Duels III, +1.3 in the Final** |
+| B. No merge: edit three constants on main | `agent.py`: `MIN_STEP_P` 3→5 (l.50), `MAX_STEP_SHARE` 0.25→0.18 (l.52), `LATE_SWITCH_LEFT` 4→2 (l.54) | +0.032 to +0.034 per duel (worst world +0.027) ≈ +2.2 points. Path B was not run in the extreme worlds or with reciprocity |
 
-`run/duel_params.json` for path A (passes `params.validate()` on duelist-loop, no errors):
+`run/duel_params.json` for path A. It passes `params.validate()` on b10f9cc with no errors, and the cross-check
+`MIN_STEP_SHARE` 0.05 ≤ 0.18 holds:
 
 ```json
 {
- "_note": "Duel Lab overnight proposal for Duels III / Final (12 ticks, 10% decay): MIN_STEP_P 5, MAX_STEP_SHARE 0.18, LATE_SWITCH_LEFT 2 (+0.027/duel in the days simulator, 5 rival worlds) and MONO_END_SHARE 0.5 (+0.004 vs off, 0.25 is worse). Evidence: intel/duel-lab.md. Aleks approves before it goes live.",
+ "_note": "Duel Lab, Sun 00:15, for Duels III / Final (12 ticks, 10% decay). Role-aware simulator calibrated on 62 Duels II duels: vs main today +0.039/duel (path A: this file + the guards), robust in 5 worlds x 2 scorings x 2 reciprocity levels and 12 extreme worlds. MONO_END_SHARE 0.5 ties 0.25 and beats off. Evidence: intel/duel-lab.md FINAL. Aleks approves before it goes live.",
  "MIN_STEP_P": 5,
  "MAX_STEP_SHARE": 0.18,
  "LATE_SWITCH_LEFT": 2,
@@ -37,60 +41,74 @@ checkpoints below are the history; this section supersedes them where they diffe
 }
 ```
 
-_(The `_note`'s "+0.027" and "0.25 is worse" are from the earlier role-blind model. On the role-aware model the file
-gains ≈ +0.037 against the guarded baseline, and `MONO_END_SHARE` 0.25 vs 0.5 is a tie. The numbers in this section
-are the current ones.)_
-
-**What it does.** We stop conceding mid-duel while the gap is narrow (under ~28 P with a 5 P floor and an 18% cap), and
-let the last 3 ticks and the deadline accept close it. The late day-switch moves from 4 ticks left to 2.
-- The gain is the hold itself: sending a 5 P step instead scores ≈ 0 (role-blind model, `final5.out`).
-- `LATE_SWITCH_LEFT` 4→2 is the largest single piece (+0.018 to +0.021).
+**What it does [L]:**
+- **The late day-switch moves from 4 ticks left to 2.** This is the largest single piece: +0.018 to +0.021 alone. The
+  live switch fires whenever the days differ; the model's switch fires without the code's `dv.sure` check, so this
+  piece may be a little overstated.
+- **`MIN_STEP_P` 5 with an 18% cap** stops mid-duel concessions while the gap is under ~28 P; the last 3 ticks and the
+  deadline accept close those duels. It's worth +0.006 to +0.008 alone. That part works through the hold: sending a 5 P
+  step instead scores ≈ 0 (role-blind model, `final5.out`).
+- **`MONO_END_SHARE` 0.5** caps the last-ticks concession: a tie with 0.25, and better than off.
 
 **Robustness [L]:**
-- **Never worse than today** in any of 5 role-aware worlds × 2 scoring readings × 2 reciprocity levels: the file is
-  +0.036 to +0.039 over the guarded baseline, worst world +0.030.
-- **Never worse in 12 extreme worlds either** (`robust_extreme.out`): worst +0.007 against rivals that never soften at
-  the deadline; 0 against all accept-only rivals.
-- **Deal rate rises in every world.**
+- **Against the guarded baseline (path A's alternative):** +0.036 to +0.039 in every one of 5 role-aware worlds × 2
+  scoring readings × 2 reciprocity levels; worst world +0.030 (`final_role.out`).
+- **In 12 extreme worlds:** never below +0.007 (rivals that never soften at the deadline); 0 against all accept-only
+  rivals (`robust_extreme.out`).
+- **Deal rate:** rises, or is unchanged against accept-only rivals.
+- **Against main today:** +0.033 to +0.040 in all 5 role-aware worlds (`nomerge.out`).
 
-### Live gates (first two waves of Duels III)
+### Live gates (`tools/duel_gates.py`: advisory, never writes)
 
-- **Expected under the file** (`file_expect.out`): deal rate ≈ 0.93-0.95 with rivals that speak, **≈ 3.0 rounds per
-  deal** (today ≈ 0.89-0.92 and 3.6-4.0).
-- **After wave 1:**
-  - **Deal rate (rivals that spoke) < 0.80:** revert `MIN_STEP_P` to 3 (the hold is costing deals).
-  - **Rounds per deal > 3.5 with deal rate ≥ 0.85:** step `MIN_STEP_P` to 6. The model gives 6 another ≈ +0.005 per
-    duel in every cell, but it's further from anything played.
-  - `night/tuner.py` encodes these two rules. It writes only when a rule fires and never resets the constants.
+- **Expected under the file** (`file_expect.out`): deal rate ≈ 0.93-0.95 with rivals that speak, ≈ 3.0 rounds per
+  deal. The guarded baseline gives ≈ 0.89-0.92 and 3.6-4.0.
+- **Judge on two waves, not one:** a single no-deal in a wave of 4 reads 0.75. Gates apply from 8 closed duels with a
+  rival that spoke:
+  - **Revert `MIN_STEP_P` to 3** if the deal rate is below 0.75 (with 8 duels, 5 deals or fewer). The false-alarm chance
+    is 3.8% if the true rate is 0.90, 7.4% at 0.87.
+  - **Step `MIN_STEP_P` to 6** if rounds per deal > 3.5 over ≥ 6 deals with a deal rate ≥ 0.85. The model gives 6 a
+    further +0.004 to +0.005 per duel in every cell, but it's further from anything played.
+- **How the gates work:** the script reads the flat params file and prints a flat diff. **Applying it is
+  `tools/duel_loop.py approve`** (the Builder's tool, the only writer), on Aleks's call; every other key stays.
 - **Also check:**
   - no concession over 18% of the gap mid-duel;
   - day reading ≠ CAN'T READ;
   - `pred` = `points`.
 
+**For the Builder: the live loop's simulator is outdated.** `tools/duel_sim.py` on duelist-loop is my Saturday 15:50
+copy: price-only, role-blind, Duels I. The current role-aware days simulator is now `tools/duel_sim_v2.py` on main:
+- self-contained, with the same output as `night/sim2.py`;
+- `POLICY_KEYS` maps the params names to its keys (they differ from v1);
+- use the `RW` worlds.
+
+Until `duel_loop.py` switches to it, its simulated gains don't model days or roles.
+
 ### Answers to the backlog
 
-1. **Per-cluster overrides: not worth building [L]** (`cluster_oracle.out`). With the rival type known from the start
-   (an oracle), the best settings per cluster are nearly the same single global set: `MIN_STEP_P` 8, cap 0.12, late
-   switch off. So the +0.017 oracle gain is that global set's gain, not specialisation, and a classifier adds ≈ 0. That
-   aggressive global set is ≈ +0.008 (`MIN_STEP_P` 8 alone, `final_role.out`) to +0.017 (the oracle's in-sample
-   maximum) above the file, but it holds every mid-duel step under a ~67 P gap, which is far
-   from anything played. Use the live loop to move toward it only if wave data agree.
-2. **The opener: keep the LLM's [V weak, L].**
-   - Scaling it ±15-30% per role loses or is flat (`opener_role.out`).
-   - A fixed code opener scores +0.015 in the model for sellers, but **our real seller openers track the pie** (corr
-     0.88, n = 7; `opener_vs_pie.out`). The LLM reads something, probably the rival's first offer during `OPEN_WAIT`,
-     and the model treats that as noise. Buyers: corr 0.25, and fixed openers are within ±0.005.
-3. **Robustness:** see above. The worst-world change against today is a gain (+0.030 role-aware; +0.007 in the harshest
-   extreme world).
-4. **The Final:** same 12 ticks / 10% / 4 at once, 34 duels (one per team and role). Same file. The only difference is
-   fewer waves for the live loop to learn from (~9 vs ~17).
-5. **Independent verification:** see the line below.
+1. **Per-cluster overrides: not worth building [L]** (`cluster_oracle_v2.out`).
+   - With the rival type known from the start (an oracle), the best settings per cluster are nearly one global set:
+     `MIN_STEP_P` 8, cap 0.12, late switch off, `OPEN_WAIT` 0. The exception is rivals locked on their own best day,
+     which prefer `OPEN_WAIT` 2, and you can only tell them apart by waiting.
+   - So the oracle's +0.017 per duel (an in-sample maximum, biased up) is mostly that global set, not specialisation.
+     That set was not run as one policy. Its pieces alone are `MIN_STEP_P` 8 +0.006 to +0.008, `OPEN_WAIT` 0 +0.005 to
+     +0.008, cap 0.12 +0.000 to +0.003.
+   - It holds every mid-duel step under a ~67 P gap, far from anything played. Move toward it only through the gates.
+2. **The opener: keep the LLM's [L].**
+   - Scaling it per role is mixed: H1 −0.006 to +0.002 for ×0.7-0.85; H2 sellers +0.005 to +0.006; ×1.15 and ×1.3 lose
+     everywhere (`opener_role.out`).
+   - A fixed code opener scores +0.015 in the model for sellers, but our real seller openers track the pie: corr 0.88,
+     n = 7, about 0.4 without the 6094 outlier (`opener_vs_pie.out`). The model treats the opener as noise, so that
+     gain is suspect. Buyers: corr 0.25, and fixed openers are within ±0.005.
+3. **Robustness:** see above. No world tested shows a loss against today or against the guarded baseline.
+4. **The Final:** same 12 ticks / 10% / 4 at once, 34 duels (one per team and role). Same file. The live gates get
+   fewer duels to judge (~9 waves vs ~17).
+5. **Independent verification:** done twice on this section; every flag applied.
 
 **Still not recommended:**
-- `OPEN_WAIT` 0: +0.005 in the model, but the models conflict on what seeing their day first is worth.
+- `OPEN_WAIT` 0: +0.005 to +0.008 in the model, but the models conflict on what seeing their day first is worth.
 - `ACCEPT_BY` 1: settle risk on 15 s ticks.
 - Thin-margin accept rules: ±1% on exact replays.
-- Break-even / fast-close accepts: exact replays lose 9-49%.
+- Break-even / fast-close accepts: −9% to −49% on exact replays (`lab2/`).
 
 ## Overnight program, checkpoint 2 (Sat 23:35): role-aware model; the params file stands
 
