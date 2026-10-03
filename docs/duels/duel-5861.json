@@ -141,6 +141,73 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1298,
+   "raw": {
+    "duel": 5861,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.51,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 130,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Azul",
+    "deadline_tick": 1310,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 8569,
+     "price": 82,
+     "tick": 1298,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 8529,
+     "price": 105,
+     "tick": 1297,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1296,
+      "from": "you",
+      "text": "I can do 78 P with delivery on day 0. What price and day would work for you?",
+      "price": 78,
+      "days": 0
+     },
+     {
+      "tick": 1296,
+      "from": "Rival Azul",
+      "text": "We can do 111 P, delivery on day 0. Thank you for the talk.",
+      "price": 111,
+      "days": 0
+     },
+     {
+      "tick": 1297,
+      "from": "Rival Azul",
+      "text": "105 P, delivery on day 0 works well for us.",
+      "price": 105,
+      "days": 0
+     },
+     {
+      "tick": 1298,
+      "from": "you",
+      "text": "I can move to 82 P with delivery on day 0. I'm making progress toward you and hope you can keep coming down too.",
+      "price": 82,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -376,6 +443,131 @@
     }
    },
    "hold": true
+  },
+  {
+   "tick": 1298,
+   "took_s": 6.76,
+   "cost_usd": 0.00924,
+   "obs": {
+    "view": {
+     "duel_id": 5861,
+     "role": "buyer",
+     "limit": 130,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.51,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I can do 78 P with delivery on day 0. What price and day would work for you?",
+      "offer": {
+       "price": 78,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1296,
+      "decision": {
+       "action": "offer",
+       "price": 78,
+       "message": "I can do 78 P with delivery on day 0. What price and day would work for you?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "We can do 111 P, delivery on day 0. Thank you for the talk.",
+      "offer": {
+       "price": 111,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1296,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "105 P, delivery on day 0 works well for us.",
+      "offer": {
+       "price": 105,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1297,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 105,
+     "days": 0
+    },
+    "tick": 1298,
+    "ticks_left": 12,
+    "rounds": 1,
+    "day_swings": [
+     39.8,
+     55.199999999999996,
+     36.2,
+     18.6,
+     45.099999999999994,
+     33.4
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can move to 82 P with delivery on day 0. I'm making progress toward you and hope you can keep coming down too.",
+    "price": 82,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 82,
+      "message": "I can move to 82 P with delivery on day 0. I'm making progress toward you and hope you can keep coming down too."
+     },
+     "band": {
+      "worst": 82,
+      "target": 82,
+      "best": 81
+     },
+     "plan": {
+      "read": "They have moved 6 P across two messages (111 to 105), both on day 0, which suits us. They are conceding steadily but are still 27 P above our 78, so a measured step is warranted.",
+      "target": 82,
+      "best": 81,
+      "worst": 82,
+      "days": 0,
+      "angle": "Keep a friendly but firm tone and move modestly to 82 P on day 0, signalling that we are making progress and want to meet them if they keep coming down."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.85,
+       "in": 756,
+       "out": 247,
+       "cost_usd": 0.00796,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.91,
+       "in": 356,
+       "out": 57,
+       "cost_usd": 0.00128,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -432,6 +624,63 @@
      "id": 8487,
      "price": 78,
      "tick": 1296,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1298,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can move to 82 P with delivery on day 0. I'm making progress toward you and hope you can keep coming down too.",
+    "price": 82,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 82,
+      "message": "I can move to 82 P with delivery on day 0. I'm making progress toward you and hope you can keep coming down too."
+     },
+     "band": {
+      "worst": 82,
+      "target": 82,
+      "best": 81
+     },
+     "plan": {
+      "read": "They have moved 6 P across two messages (111 to 105), both on day 0, which suits us. They are conceding steadily but are still 27 P above our 78, so a measured step is warranted.",
+      "target": 82,
+      "best": 81,
+      "worst": 82,
+      "days": 0,
+      "angle": "Keep a friendly but firm tone and move modestly to 82 P on day 0, signalling that we are making progress and want to meet them if they keep coming down."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.85,
+       "in": 756,
+       "out": 247,
+       "cost_usd": 0.00796,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.91,
+       "in": 356,
+       "out": 57,
+       "cost_usd": 0.00128,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5861,
+    "offer": {
+     "id": 8569,
+     "price": 82,
+     "tick": 1298,
      "days": 0
     }
    }

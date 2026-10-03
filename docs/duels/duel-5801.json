@@ -110,6 +110,119 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1298,
+   "raw": {
+    "duel": 5801,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.52,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 86,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 1307,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 8377,
+     "price": 50,
+     "tick": 1293,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 8571,
+     "price": 112,
+     "tick": 1298,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1293,
+      "from": "you",
+      "text": "I can do 50 P with delivery on day 0. What price and day work for you?",
+      "price": 50,
+      "days": 0
+     },
+     {
+      "tick": 1298,
+      "from": "Rival Noche",
+      "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 112.",
+      "price": 112,
+      "days": 5
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1299,
+   "raw": {
+    "duel": 5801,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.52,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 86,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 1307,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 8377,
+     "price": 50,
+     "tick": 1293,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 8580,
+     "price": 111,
+     "tick": 1299,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1293,
+      "from": "you",
+      "text": "I can do 50 P with delivery on day 0. What price and day work for you?",
+      "price": 50,
+      "days": 0
+     },
+     {
+      "tick": 1298,
+      "from": "Rival Noche",
+      "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 112.",
+      "price": 112,
+      "days": 5
+     },
+     {
+      "tick": 1299,
+      "from": "Rival Noche",
+      "text": "I just moved for you. 111, your turn to meet me.",
+      "price": 111,
+      "days": 5
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -247,6 +360,116 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1298,
+   "took_s": 6.63,
+   "cost_usd": 0.010280000000000001,
+   "obs": {
+    "view": {
+     "duel_id": 5801,
+     "role": "buyer",
+     "limit": 86,
+     "currency": "P",
+     "item": "La Vía Láctea",
+     "context": "",
+     "rival": "Rival Noche",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.52,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I can do 50 P with delivery on day 0. What price and day work for you?",
+      "offer": {
+       "price": 50,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1293,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 112.",
+      "offer": {
+       "price": 112,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1298,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 112,
+     "days": 5
+    },
+    "tick": 1298,
+    "ticks_left": 9,
+    "rounds": 1,
+    "day_swings": [
+     39.8,
+     55.199999999999996,
+     36.2,
+     18.6,
+     45.099999999999994,
+     33.4
+    ]
+   },
+   "move": {
+    "action": "message",
+    "text": "Holding my offer of 50 P on day 0.\n",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "Holding my offer of 50 P on day 0.\n"
+     },
+     "band": {
+      "worst": 50,
+      "target": 50,
+      "best": 50
+     },
+     "plan": {
+      "read": "Their opening is 112 on day 5, with small talk attached. Day 5 is a middle day that costs us heavily, and that package is past what works for us. This is their first number, so they haven't moved yet.",
+      "target": 50,
+      "best": 50,
+      "worst": 50,
+      "days": 0,
+      "angle": "Hold at 50 on day 0 and send nothing this tick, so they have to make the next move."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.8,
+       "in": 718,
+       "out": 322,
+       "cost_usd": 0.00931,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.83,
+       "in": 302,
+       "out": 37,
+       "cost_usd": 0.00097,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [
