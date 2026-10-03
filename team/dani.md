@@ -2,9 +2,11 @@
 
 **Now:** Dashboard runs on my laptop as a standalone process (http://127.0.0.1:8765, read-only; anyone can run their own with `dashboard/start.bat` or `python dashboard/server.py`). It rewrites `intel/teams.md` every 10 min. Next: the room (buyers for SAL/LAT below us) and the organisers' desk.
 
-**Touches:** this file only.
+**Touches:** this file, `dashboard/`, `judges/`, `DECISIONS.md`; the dashboard also writes `intel/teams.md` (every 10 min).
 
 ## Log (newest on top: `time · what · result · next`)
+
+- Sat 09:43 · PLAN Dani #4, repo fixes · **feeding rule in the dashboard:** the `intel/teams.md` sell table only names buyers outside the top 4 and ≥ 10 points below us (each buyer there collects the set or bids for the card, so the card may close its page); team lines read "top 4 (never feed)" and "no page closers (not ≥ 10 below us)"; on the page, the "For us" chips and the SELL insights carry the same rule · today only Team 16 (#17) and Team 11 (#18) pass, so the table is SAL-01/02 → Team 16 at ~9 (est.) · `judges/team-messages.md` (Friday drafts, incl. "buy LAV-09 from Chato") → `archive/fri/` · dashboard restarted 09:42 on this code (hub on, 0 errors) · next: ntfy on my phone (channel name from Lucas), desk, room
 
 - Sat 09:41 · Team 12 label fixed (Aleks's model: MAL 1.6; my profile said "dumps MAL"): the dashboard counted every relisting as one more sale, and t12 relisted one spare MAL-02 ~23 times (6-10 P) while buying 6 MAL cards (rares MAL-09/10 from Chato at 90/89) → `dashboard/server.py` now counts bids/asks once per distinct card · `intel/teams.md` 09:39: t12 collects MAL/RET, dumps SAL/LAT/LAV (still "leader, never feed"); t15 collects LAT/MAL/RET; t18 collects LAT; t17 no longer "dumps LAV" · dashboard restarted 09:39 on the new code, which also turns on the hub read (+89 events, no errors) · next: desk, room, judges
 

@@ -943,7 +943,7 @@ class Analysis:
             bits = [f"#{p['rank']} {p['name']} {p['score']:.1f}"
                     + (f" (Δ {p['delta']:+.1f})" if p["delta"] is not None else ""), f"**{label}**"]
             if not p["us"] and p["rank"] > TOP_NEVER and self.feeding_block(p, us_score):
-                bits.append(f"no page closers (<{FEED_GAP} below us)")
+                bits.append(f"no page closers (not ≥ {FEED_GAP} below us)")
             if p["wants"]:
                 bits.append("collects " + "/".join(p["wants"]))
             if p["dumps"]:
