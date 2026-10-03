@@ -295,8 +295,10 @@ the ladder can.
   Chato early = 3 deals with Abuela; Pilar early = 3 deals with Chato at level ≥ 2 → Pícaros early ≈ 3 deals with Pilar at
   level ≥ 3 [L]. We hold 3 negotiated Pilar sells (MAL-07 19, SAL-08 23, MAL-06 19) at level 3. Other teams with ≥ 3 Pilar
   deals: t13, t08, t04, t09. A new (higher) level = fresh, heavier ladder slots; a full-share L4 deal ≈ +0.08 ladder [L].
-- **The Workshop** (kind `taller`, "Three spares. One surprise."): likely 3 duplicates → 1 random card [?]. Not a team
-  trade → no direct score expected (luck never counts); only converts spares into something tradeable.
+- **The Workshop: ACTIVE since tick 706 (16:00)** [V]: `POST /api/taller {"assets": [a, b, c]}`: three spare copies of one
+  rarity (keep ≥ 1 of each card) → one card of the next rarity; "the pull is luck, shown and never scored". Value only comes
+  from using the pulled card (team sale ≈ +5-12 neg_points, swap, or a dealer slot). Swaps of the same spares score directly
+  (+4-6 each), so the Workshop is the fallback for spares nobody swaps.
 
 ## 3b. Card-for-card swaps (a mechanic we haven't used) [V feed; scoring L]
 - t15 ↔ t07 swapped 3 times on El Rastro at price 0 (607 LAV-08 ↔ LAV-06, 613 LAV-03 ↔ MAL-08, 616 MAL-01 ↔ SAL-02).
