@@ -1,4 +1,4 @@
-# Metrics (auto, 12:55, game tick 571)
+# Metrics (auto, 12:57, game tick 575)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -79,17 +79,16 @@ Who buys which set (team trades): t01: MAL×4, SAL×4; t02: RET×3, MAL×2, LAT�
 
 ## Dealer prices, last 60 ticks (median per item)
 
-- abuela common (team sells): median 6 over 1
 - abuela sobre_barrio (team buys): median 22 over 1
-- abuela uncommon (team buys): median 21 over 2
+- abuela uncommon (team buys): median 22 over 1
 - chato rare (team buys): median 86 over 3
 - pilar epic (team sells): median 140 over 1
-- pilar uncommon (team sells): median 23 over 13
+- pilar uncommon (team sells): median 23 over 12
 
 ## El Rastro now: top bids by price (team, card, price)
 
 - t06: LAV-09 (rare) 99 P · offer 8356
-- t06: SAL-09 (rare) 68 P · offer 8132
+- t06: SAL-09 (rare) 68 P · offer 8408
 - t04: RET-02 (common) 10 P · offer 8215
 - t13: LAT-06 (uncommon) 6 P · offer 8283
 - t13: RET-01 (common) 2 P · offer 8170
@@ -98,14 +97,14 @@ Who buys which set (team trades): t01: MAL×4, SAL×4; t02: RET×3, MAL×2, LAT�
 - t13: RET-04 (common) 2 P · offer 8173
 - t13: RET-05 (common) 2 P · offer 8282
 
-Asks by others (card, price: count): LAT-03 14: 3; LAT-04 11: 2; LAT-04 9: 2; MAL-02 10: 2; MAL-02 8: 2; MAL-04 13: 2; MAL-02 14: 2; RET-05 12: 2; LAT-04 7: 2; LAV-05 6: 2; MAL-04 7: 2; MAL-05 4: 1; LAT-01 5: 1; LAT-05 5: 1; LAT-02 11: 1
+Asks by others (card, price: count): LAT-03 14: 3; LAT-04 11: 2; LAT-04 9: 2; MAL-04 13: 2; MAL-02 14: 2; MAL-02 8: 2; MAL-02 6: 2; LAT-04 7: 2; LAV-05 6: 2; MAL-04 7: 2; MAL-05 4: 1; LAT-01 5: 1; LAT-05 5: 1; LAT-02 11: 1; LAT-03 11: 1
 
-## Our duels: 1 live, 61 finished (last 10)
+## Our duels: 3 live, 63 finished (last 10)
 
-- {"duel": 2473, "session": 2, "status": "deal", "role": "buyer", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 94, "limit_meaning": "never pay above your value", "rival": "Rival Rojo", "de
 - {"duel": 2494, "session": 2, "status": "deal", "role": "seller", "item": "La Hero\u00edna del Dos de Mayo", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 57, "limit_meaning": "never sell below your cost", "rival": "Rival So
 - {"duel": 2495, "session": 2, "status": "deal", "role": "buyer", "item": "La Hero\u00edna del Dos de Mayo", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 124, "limit_meaning": "never pay above your value", "rival": "Rival Ro
 - {"duel": 2506, "session": 2, "status": "deal", "role": "buyer", "item": "Palacio de Cristal", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 103, "limit_meaning": "never pay above your value", "rival": "Rival Noche", "deadli
+- {"duel": 2507, "session": 2, "status": "live", "role": "seller", "item": "Palacio de Cristal", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 100, "limit_meaning": "never sell below your cost", "rival": "Rival Rojo", "deadli
 - {"duel": 2522, "session": 2, "status": "deal", "role": "seller", "item": "Caf\u00e9 en Goya", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 44, "limit_meaning": "never sell below your cost", "rival": "Rival Plata", "deadlin
 - {"duel": 2523, "session": 2, "status": "no_deal", "role": "buyer", "item": "Caf\u00e9 en Goya", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 196, "limit_meaning": "never pay above your value", "rival": "Rival Noche", "dead
 - {"duel": 2534, "session": 2, "status": "deal", "role": "seller", "item": "Caf\u00e9 en Goya", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 129, "limit_meaning": "never sell below your cost", "rival": "Rival Sol", "deadline
