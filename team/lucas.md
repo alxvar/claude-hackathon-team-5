@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sat 16:24 · operator · MAL-01 bid filled at 5 on v07 (first fill for Team 10): `neg_points` 38.7 → **40.7** (+2.0), cash 195 · book restarted on 89696c0 (last-copy invariant: never our last copy of a complete page, counting copies in open offers as gone) · rule: `python3 tools/policy.py can-give <REF>` before any manual give-away (now: LAV-02 YES, MAL-06 YES; LAV-03/04, RET-04, SAL-01 NO)
 - Sat 16:20 · operator · Team 10 reciprocity (Chief): 4 PUBLIC bids on v07 until tick 772: 10569 SAL-07 20, 10570 MAL-08 15, 10571 MAL-01 5, 10572 LAT-02 3 (each 2-2.5 under our value; 43 P total, cash ≥ 157 if all fill); t10 is #4: allowed on the Chief's read that its value created is capped at +5 and bids can't feed a closer · swap 10517 cancelled (crossed with 'no manual reposts': the swaps daemon owns swaps)
 - Sat 16:15 · operator · **Workshop** (Chief): LAT-04 + SAL-01 + SAL-02 spares (5.6 P) → **MAL-06** (17.5): cv +11.8, neg and ladder unchanged (not a scored deal, not a level) → GAME.md · MAL-06 → book, t09 at 24 (floor 19) · swaps 9387/9389 expired unfilled at tick 688
 - Sat 16:10 · operator · **trader restarted** on 2c12274 (counterparty policy tools/policy.py: no trade with a live top-5 team, never t13/t17, page-closers only ≥ 6 below; run/reserved.json: MAL-09, SAL-08, SAL-04, SAL-03, SAL-05); book + opps restarted on the same rules; --keep-page-cards left off (the value check covers complete pages)
