@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 13:14 (tick 602), snapshot 600. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
+_Last update: Sat 13:30 (tick 630), snapshot 620. Duels I post-mortem: §1d. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -46,6 +46,77 @@ _Last update: Sat 13:14 (tick 602), snapshot 600. Independent verifier pass (12:
   t12 sits at exactly 12.01 → graded against the field's best (max or top-3 mean) [L].
 - **Rates after the re-weighting:** 1 neg_point ≈ **0.094 board**; +0.01 ladder ≈ **+0.33 board**; a +50 page close ≈ **+4.7 board**;
   the full duel part = **8.0 board**. The §2 table below is pre-duel (multiply its Saturday points by 0.6).
+
+## 1d. Duels I post-mortem (34 duels, decay 0.06; Analyst 13:30) [V on our records `docs/duels/`, field from feed + board]
+
+**Headline: haggling paid; decay is the cost to cut, not the haggling.**
+- Our 34: **30 deals (88%)** vs the field 226/299 = 76% (t11 is silent: 34 no-deals; field without t11 ≈ 85%).
+  Sum of results **478.9 P**; raw surplus of our deals 591.0 → **decay cost 112.1 P (19%)**.
+- Counterfactual "accept the rival's FIRST in-limit offer": **217.6 P (−261)**. "Accept the rival's best offer as soon as
+  seen": 320.5 P (−158). Rivals' first in-limit offers are thin (median surplus 7 P, n = 21); 9 deals closed with the rival
+  accepting OUR price and no in-limit rival offer before. The big early offers are the exception: 2531 (S45, taken at r1:
+  optimal), 2584 (S31 at r0 → we got S53 at r1: +18.8), 2585 (S64 at r0 → took it at r1: −3.8).
+- **Break-even test** (another round pays only if the rival's improvement > S × d/(1−d) = 6.4%): 54 rival moves after an
+  in-limit offer, **9 failed (17%)**: 2296 ×3, 2319 ×2, 2318, 2535, 2540, 2585. Small in P.
+- **Decay by length** (deals): 0-1 rounds n=9, mean result 25.4, lost 11.7 · 2-3 rounds n=5, 13.2, lost 9.8 · 4-6 rounds
+  n=8, 14.6, lost 39.3 · **7-12 rounds n=8, mean result 8.5 of 14.9 raw, lost 51.3**. Rounds track the opening gap: our opener
+  was 18 P from the final in 0-1-round deals vs **38 P in 7-12-round deals**.
+- Ceiling: the same final prices with ≤ 3 rounds would be 523.0 P (+44, +9%). That's an upper bound: a hard "max 3 rounds"
+  cap would have forced thin offers (median S7) or no-deals in the long duels (2460: first in-limit S1 at r6, final S26 at
+  r10 → 14.0). **Use the break-even rule, not a round cap.**
+- No-deals: 2367 (rival stuck at 101 vs our limit 72: correct); 2414, 2415, 2523 (silent rivals, rounds 0: unavoidable).
+- Field position [L]: our duel-part column (14.0 at 620) includes ~+5-6 Saturday points of ladder gains since 460, so our
+  pure duel part ≈ 8-9.5 Saturday points vs clean teams t01 10.8, t15 ~11. Upper-mid, not top. duel_points 13.93
+  (≈ 0.41 per duel, 0.46 per deal).
+
+**Levers for Duels II (decay 0.08 → break-even 8.7%; price + days)**, expected board points [L]:
+1. **Anchor closer** (opener ≤ ~20 P from the expected settle, not ~38): fewer rounds where we lost most → +6-9% of
+   results ≈ **+0.3-0.5 board**. At 8% decay every round costs a third more than in Duels I.
+2. **Break-even accept rule in code**: accept a rival in-limit offer when its value now ≥ our expected next-round surplus × (1−d)
+   (8.7% threshold) → removes the ~17% of rounds that lost money ≈ **+0.1-0.2 board**.
+3. **Days (integrative)**: concede days where `your_days_weight` is low, ask price in return; the pie grows only when both
+   trade on what each cares about. Largest unknown upside: a 20-30% bigger pie at our share ≈ **+1-1.5 board**.
+
+<details><summary>Per-duel table (34)</summary>
+
+| Duel | Role | Item | Limit | Rival's first in-limit offer (round, price, surplus → value) | Final (price, rounds → result) | Δ vs first |
+|---|---|---|---|---|---|---|
+| 2296 | seller | El Mesón de la Cava | 87 | r2 @93 S6 → 5.3 | deal 97, r6 → 6.9 | +1.6 |
+| 2297 | buyer | El Mesón de la Cava | 175 | r2 @167 S8 → 7.1 | deal 161, r4 → 10.9 | +3.8 |
+| 2314 | buyer | El Mesón de la Cava | 75 | none (we closed on the rival accepting ours, or no deal) | deal 68, r1 → 6.6 | +6.6 |
+| 2315 | seller | El Mesón de la Cava | 64 | none (we closed on the rival accepting ours, or no deal) | deal 72, r1 → 7.5 | +7.5 |
+| 2318 | seller | Palacio de Cristal | 74 | r6 @76 S2 → 1.4 | deal 85, r9 → 6.3 | +4.9 |
+| 2319 | buyer | Palacio de Cristal | 97 | r6 @96 S1 → 0.7 | deal 91, r9 → 3.4 | +2.7 |
+| 2356 | seller | Café en Goya | 101 | r4 @102 S1 → 0.8 | deal 117, r10 → 8.6 | +7.8 |
+| 2357 | buyer | Café en Goya | 92 | r2 @87 S5 → 4.4 | deal 78, r6 → 9.7 | +5.3 |
+| 2366 | seller | Palacio de Cristal | 101 | none (we closed on the rival accepting ours, or no deal) | deal 110, r5 → 6.6 | +6.6 |
+| 2367 | buyer | Palacio de Cristal | 72 | none (we closed on the rival accepting ours, or no deal) | no_deal -, r5 → 0.0 | +0.0 |
+| 2414 | seller | El Mesón de la Cava | 60 | none (we closed on the rival accepting ours, or no deal) | no_deal -, r0 → 0.0 | +0.0 |
+| 2415 | buyer | El Mesón de la Cava | 95 | none (we closed on the rival accepting ours, or no deal) | no_deal -, r0 → 0.0 | +0.0 |
+| 2430 | buyer | La Heroína del Dos de Mayo | 192 | r2 @184 S8 → 7.1 | deal 184, r3 → 6.6 | -0.5 |
+| 2431 | seller | La Heroína del Dos de Mayo | 125 | r2 @134 S9 → 8.0 | deal 134, r3 → 7.5 | -0.5 |
+| 2446 | buyer | Mercado de la Paz | 73 | none (we closed on the rival accepting ours, or no deal) | deal 45, r0 → 28.0 | +28.0 |
+| 2447 | seller | Mercado de la Paz | 86 | r1 @98 S12 → 11.3 | deal 118, r2 → 28.3 | +17.0 |
+| 2460 | seller | La Heroína del Dos de Mayo | 172 | r6 @173 S1 → 0.7 | deal 198, r10 → 14.0 | +13.3 |
+| 2461 | buyer | La Heroína del Dos de Mayo | 170 | r6 @170 S0 → 0.0 | deal 150, r12 → 9.5 | +9.5 |
+| 2472 | seller | El Mesón de la Cava | 80 | none (we closed on the rival accepting ours, or no deal) | deal 92, r1 → 11.3 | +11.3 |
+| 2473 | buyer | El Mesón de la Cava | 94 | none (we closed on the rival accepting ours, or no deal) | deal 88, r1 → 5.6 | +5.6 |
+| 2494 | seller | La Heroína del Dos de Mayo | 57 | r1 @64 S7 → 6.6 | deal 74, r2 → 15.0 | +8.4 |
+| 2495 | buyer | La Heroína del Dos de Mayo | 124 | none (we closed on the rival accepting ours, or no deal) | deal 107, r0 → 17.0 | +17.0 |
+| 2506 | buyer | Palacio de Cristal | 103 | r6 @96 S7 → 4.8 | deal 96, r6 → 4.8 | -0.0 |
+| 2507 | seller | Palacio de Cristal | 100 | none (we closed on the rival accepting ours, or no deal) | deal 106, r7 → 3.9 | +3.9 |
+| 2522 | seller | Café en Goya | 44 | r0 @52 S8 → 8.0 | deal 59, r7 → 9.7 | +1.7 |
+| 2523 | buyer | Café en Goya | 196 | none (we closed on the rival accepting ours, or no deal) | no_deal -, r0 → 0.0 | +0.0 |
+| 2530 | seller | Mercado de la Paz | 87 | r2 @97 S10 → 8.8 | deal 97, r2 → 8.8 | -0.0 |
+| 2531 | buyer | Mercado de la Paz | 146 | r1 @101 S45 → 42.3 | deal 101, r1 → 42.3 | +0.0 |
+| 2534 | seller | Café en Goya | 129 | none (we closed on the rival accepting ours, or no deal) | deal 167, r4 → 29.7 | +29.7 |
+| 2535 | buyer | Café en Goya | 219 | r2 @219 S0 → 0.0 | deal 176, r4 → 33.6 | +33.6 |
+| 2540 | seller | El Mesón de la Cava | 71 | r1 @73 S2 → 1.9 | deal 90, r7 → 12.3 | +10.4 |
+| 2541 | buyer | El Mesón de la Cava | 108 | r2 @104 S4 → 3.5 | deal 87, r6 → 14.5 | +11.0 |
+| 2584 | seller | Mercado de la Paz | 122 | r0 @153 S31 → 31.0 | deal 175, r1 → 49.8 | +18.8 |
+| 2585 | buyer | Mercado de la Paz | 160 | r0 @96 S64 → 64.0 | deal 96, r1 → 60.2 | -3.8 |
+
+</details>
 
 ## 1c. Duels I (live; session 2 from tick 459, 306 duels, decay 0.06, ends ≈ 13:35)
 
