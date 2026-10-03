@@ -213,6 +213,137 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1334,
+   "raw": {
+    "duel": 5947,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 7.74,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 94,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Luna",
+    "deadline_tick": 1340,
+    "decay_per_round": 0.08,
+    "rounds": 0,
+    "your_offer": {
+     "id": 9842,
+     "price": 69,
+     "tick": 1334,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1326,
+      "from": "you",
+      "text": "I can do 55 P with delivery on day 0. Happy to talk once I see where you stand.",
+      "price": 55,
+      "days": 0
+     },
+     {
+      "tick": 1332,
+      "from": "you",
+      "text": "I can do 59 P, delivery on day 0.",
+      "price": 59,
+      "days": 0
+     },
+     {
+      "tick": 1333,
+      "from": "you",
+      "text": "I can do 64 P, delivery on day 0.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1334,
+      "from": "you",
+      "text": "I can do 69 P, delivery on day 0.",
+      "price": 69,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1335,
+   "raw": {
+    "duel": 5947,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "Fiesta de San Cayetano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 7.74,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 94,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Luna",
+    "deadline_tick": 1340,
+    "decay_per_round": 0.08,
+    "rounds": 0,
+    "your_offer": {
+     "id": 9883,
+     "price": 73,
+     "tick": 1335,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1326,
+      "from": "you",
+      "text": "I can do 55 P with delivery on day 0. Happy to talk once I see where you stand.",
+      "price": 55,
+      "days": 0
+     },
+     {
+      "tick": 1332,
+      "from": "you",
+      "text": "I can do 59 P, delivery on day 0.",
+      "price": 59,
+      "days": 0
+     },
+     {
+      "tick": 1333,
+      "from": "you",
+      "text": "I can do 64 P, delivery on day 0.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1334,
+      "from": "you",
+      "text": "I can do 69 P, delivery on day 0.",
+      "price": 69,
+      "days": 0
+     },
+     {
+      "tick": 1335,
+      "from": "you",
+      "text": "I can do 73 P, delivery on day 0.",
+      "price": 73,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -487,6 +618,192 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1334,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 5947,
+     "role": "buyer",
+     "limit": 94,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 7.74,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I can do 55 P with delivery on day 0. Happy to talk once I see where you stand.",
+      "offer": {
+       "price": 55,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1326,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 59 P, delivery on day 0.",
+      "offer": {
+       "price": 59,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1332,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 64 P, delivery on day 0.",
+      "offer": {
+       "price": 64,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1333,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1334,
+    "ticks_left": 6,
+    "rounds": 0,
+    "day_swings": [
+     25.299999999999997,
+     22.0,
+     27.599999999999998,
+     77.4,
+     27.799999999999997,
+     8.4,
+     59.900000000000006,
+     11.200000000000001,
+     40.300000000000004
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 69 P, delivery on day 0.",
+    "price": 69,
+    "days": 0,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1335,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 5947,
+     "role": "buyer",
+     "limit": 94,
+     "currency": "P",
+     "item": "Fiesta de San Cayetano",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 7.74,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I can do 55 P with delivery on day 0. Happy to talk once I see where you stand.",
+      "offer": {
+       "price": 55,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1326,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 59 P, delivery on day 0.",
+      "offer": {
+       "price": 59,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1332,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 64 P, delivery on day 0.",
+      "offer": {
+       "price": 64,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1333,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 69 P, delivery on day 0.",
+      "offer": {
+       "price": 69,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1334,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1335,
+    "ticks_left": 5,
+    "rounds": 0,
+    "day_swings": [
+     25.299999999999997,
+     22.0,
+     27.599999999999998,
+     77.4,
+     27.799999999999997,
+     8.4,
+     59.900000000000006,
+     11.200000000000001,
+     40.300000000000004,
+     36.800000000000004
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 73 P, delivery on day 0.",
+    "price": 73,
+    "days": 0,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -589,6 +906,52 @@
      "id": 9812,
      "price": 64,
      "tick": 1333,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1334,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 69 P, delivery on day 0.",
+    "price": 69,
+    "days": 0,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 5947,
+    "offer": {
+     "id": 9842,
+     "price": 69,
+     "tick": 1334,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1335,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 73 P, delivery on day 0.",
+    "price": 73,
+    "days": 0,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 5947,
+    "offer": {
+     "id": 9883,
+     "price": 73,
+     "tick": 1335,
      "days": 0
     }
    }

@@ -1034,3 +1034,12 @@
 {"id": 67564, "tick": 1332, "t": 12.425, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5925, "session": 3, "status": "deal", "item": "La Sala Pentagrama"}}
 {"id": 67567, "tick": 1332, "t": 12.425, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5945, "session": 3, "status": "deal", "item": "La Sala Pentagrama"}}
 {"id": 67570, "tick": 1332, "t": 12.425, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5965, "session": 3, "status": "deal", "item": "La Dama de Serrano"}}
+{"id": 67637, "tick": 1333, "t": 12.4333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5887, "session": 3, "status": "deal", "item": "Plaza del Dos de Mayo"}}
+{"id": 67640, "tick": 1333, "t": 12.4333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5893, "session": 3, "status": "deal", "item": "Plaza del Dos de Mayo"}}
+{"id": 67643, "tick": 1333, "t": 12.4333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5900, "session": 3, "status": "deal", "item": "La Vía Láctea"}}
+{"id": 67646, "tick": 1333, "t": 12.4333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6023, "session": 3, "status": "deal", "item": "La Dama de Serrano"}}
+{"id": 67649, "tick": 1333, "t": 12.4333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6113, "session": 3, "status": "no_deal", "item": "La Vía Láctea"}}
+{"id": 67732, "tick": 1334, "t": 12.4417, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5943, "session": 3, "status": "deal", "item": "Fiesta de San Cayetano"}}
+{"id": 67735, "tick": 1334, "t": 12.4417, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 5944, "session": 3, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 67738, "tick": 1334, "t": 12.4417, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6020, "session": 3, "status": "no_deal", "item": "La Sala Pentagrama"}}
+{"id": 67741, "tick": 1334, "t": 12.4417, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6091, "session": 3, "status": "deal", "item": "Fiesta de San Cayetano"}}
