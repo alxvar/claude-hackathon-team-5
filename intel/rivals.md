@@ -9,6 +9,13 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sat 18:40 · snapshot 1010
+- Board: **us 32.00 (#1)** · t06 31.68 · t14 31.53 · t03 29.64 · t18 28.77 · t10 28.35 · t16 26.49.
+- **t18 epic flip** [V feed]: SAL-11 bought from the Pícaros at 139 (925) → sold to Pilar at **199** in the fever (994): +60 cash
+  and an L3 slot; t18 +0.87 board at 1000. Not for us: cash 120 < 139, and our ladder is capped (cash-only gain).
+- t10's addressed LAT-07 offer to t14 (23, tick 993) has NOT settled (no settlement through 1011). t14's LAT stays 8/10 (feed).
+- t16 sells LAV-02/04 to the Pícaros at 5 (L4); t02 sells RET-08 to the Pícaros (11), LAV-08 to Pilar (16).
+
 ### Sat 18:25 · snapshot 980 (fever on; Don Ernesto live for early teams since 971)
 - Board: t06 31.68 · t14 31.52 · **us 29.97 (#3, flat)** · t03 29.64 · t18 27.90 · t10 28.26 (+0.59: Pícaros MAL-09 57 + Pilar SAL-10 74/75).
 - **t08 runs a SAL-rare cash loop** [V feed]: Pícaros SAL-10 at 53 → Pilar 78 (958 → 965); Pícaros SAL-09 at 52 (971); earlier
