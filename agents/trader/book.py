@@ -7,7 +7,10 @@ The Operator writes the desired book in run/book.json and runs this; it re-reads
 
 `floor` is the worst price we take: the least for an ask, the most for a bid. Optional: `to` (an addressed offer),
 `venue`, `page_closer` (a trade that completes a page, ours or theirs: El Rastro), `step` (P per reprice), `life`
-(real ticks an offer lives, default LIFE_TICKS; page-critical bids <= 20, directive 09:46).
+(real ticks an offer lives, default LIFE_TICKS; page-critical bids <= 20, directive 09:46), `last_card` (a bid for a
+card of a page we build: once it is the page's last missing card, our value jumps by the page bonus and the bid goes
+straight to value - LAST_GAIN, cash permitting: any price up to there scores the capped +50; checked every
+VALUE_TICKS).
 
 Each tick, per entry (one live offer per card and side):
 - not posted, expired or cancelled: post it (an ask whose copy left us, or a bid whose card arrived, is filled: done);
@@ -58,6 +61,7 @@ NEW_SHARE = 0.5         # of the team's new offers per tick (12): the rest for t
 OPEN_RESERVE = 5        # open offers left free for the other processes
 VALUE_TICKS = 10        # our value of a card is re-read this often
 MIN_GAIN_SELL, MIN_GAIN_BUY = 1.0, 3.0     # maker asks: value + 1 (no fee; +6 is the trader's taker bar); bids -3
+LAST_GAIN = 50          # a team trade scores at most 50: the page's last card is worth bidding up to value - 50
 CASH_FLOOR = int(os.environ.get("CASH_FLOOR", 200))
 
 
@@ -263,9 +267,11 @@ class Book:
                 left = (o.get("expires_tick") or tick + LIFE_TICKS) - tick
                 if left <= REFRESH_LEFT:
                     due.append(((0, left), key, e, s, "refresh"))
-                elif int(e["price"]) != s.get("entry") or (
-                        s.get("clamped") and tick - s.get("checked", tick) >= VALUE_TICKS):
-                    due.append(((2, -1), key, e, s, "move"))   # edited, or held below its file price: now
+                elif int(e["price"]) != s.get("entry"):
+                    due.append(((2, -1), key, e, s, "move"))   # the Operator edited the price: now, not in 20 ticks
+                elif not sell and (s.get("clamped") or e.get("last_card")) and \
+                        tick - s.get("checked", tick) >= VALUE_TICKS:
+                    due.append(((2, -1), key, e, s, "recheck"))   # held below what we want, or maybe the last card
                 elif tick - s.get("since", tick) >= REPRICE_AFTER:
                     due.append(((2, 0), key, e, s, "reprice"))
                 else:
@@ -314,7 +320,7 @@ class Book:
             asset = min(free, key=lambda a: a["your_value"])
             floor = max(int(e["floor"]), math.ceil(asset["your_value"] + self.min_gain_sell))
         else:
-            if why == "move" or edited:
+            if why in ("move", "recheck") or edited:
                 self.values.pop(card, None)           # an edit often follows a value jump (the page's last card)
             v = self.value(card)
             if v is None:
@@ -322,10 +328,17 @@ class Book:
                 return None, False
             asset = None
             floor = min(int(e["floor"]), math.floor(v - self.min_gain_buy))
+            closing = bool(e.get("last_card")) and math.floor(v - LAST_GAIN) > floor
+            if closing:                               # the page's last card: value - 50 still scores the capped +50
+                floor = math.floor(v - LAST_GAIN)
             if floor < 1:
                 self.log({"event": "skip", "card": card, "side": "buy", "why": f"worth {v:g} to us"})
                 return None, False
-        old = int(s.get("price") or price) if why == "move" else price
+            if why == "recheck" and not closing and not s.get("clamped"):
+                return {**s, "checked": tick}, False  # not the last card, nothing held back: as is
+            if closing or why == "recheck":
+                price = floor if closing else int(e["price"])
+        old = int(s.get("price") or price) if why in ("move", "recheck") else price
         if why == "reprice":
             price = toward(price, floor, sell, e.get("step"))
         price = max(price, floor) if sell else min(price, floor)   # never past the floor, whatever the book says
@@ -339,8 +352,8 @@ class Book:
                 return None, False
             self.log({"event": "cash_clamp", "card": card, "price": room, "wanted": price})
             price = room                              # what cash allows; moves up when cash frees (clamped)
-        clamped = not sell and price < int(e["price"])
-        if why == "move" and price == s.get("price") and s.get("offer"):
+        clamped = not sell and price < (floor if e.get("last_card") and floor > int(e["floor"]) else int(e["price"]))
+        if why in ("move", "recheck") and price == s.get("price") and s.get("offer"):
             return {**s, "entry": int(e["price"]), "clamped": clamped, "checked": tick}, False   # nothing to move
         venue = venue_for(e, self.venues, self.top4(tick) if (e.get("venue") or DEFAULT_VENUE) != HOUSE else set())
         give, want = ({"assets": [asset["id"]]}, {"cash": price}) if sell else ({"cash": price}, {"cards": [card]})

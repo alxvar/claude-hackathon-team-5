@@ -396,3 +396,37 @@ def test_a_file_without_an_offers_list_changes_nothing(tmp_path):
     for text in ("{}", '{"offers": null}', '{"offer": []}'):
         (tmp_path / "b.json").write_text(text)
         assert bk.desired(tmp_path / "b.json") is None
+
+
+
+# ------------------------------------------------------------------ last_card: the page's last card bids value - 50
+
+CHA = {"card": "CHA-05", "side": "buy", "price": 9, "floor": 12, "page_closer": True, "last_card": True}
+
+
+def test_a_last_card_bid_jumps_to_value_minus_50_once_it_is_the_last_one():
+    g = Game(values={"CHA-05": 16.0})
+    st, _, _ = run(g, [CHA])
+    st, ev, _ = run(g, [CHA], st, tick=300 + bk.VALUE_TICKS)            # not the last card: a recheck posts nothing
+    assert len(g.posted) == 1 and st["CHA-05:buy"]["checked"] == 300 + bk.VALUE_TICKS
+    g.values["CHA-05"] = 122.0                                            # every other CHA card is in: +106
+    st, ev, _ = run(g, [CHA], st, tick=300 + 2 * bk.VALUE_TICKS)
+    assert g.posted[-1]["give"] == {"cash": 72} and ev[-1]["event"] == "recheck" and ev[-1]["was"] == 9
+    st, _, _ = run(g, [CHA], st, tick=300 + 2 * bk.VALUE_TICKS + bk.REPRICE_AFTER)
+    assert g.posted[-1]["give"] == {"cash": 72}                           # stays at 72: never above value - 50
+
+
+def test_a_last_card_bid_takes_what_cash_allows_and_climbs_when_cash_frees():
+    g = Game(values={"CHA-05": 122.0}, cash=60)
+    st, ev, _ = run(g, [CHA], cash_floor=0)
+    assert g.posted[0]["give"] == {"cash": 60} and st["CHA-05:buy"]["clamped"] is True
+    g.cash = 300
+    run(g, [CHA], st, tick=300 + bk.VALUE_TICKS, cash_floor=0)
+    assert g.posted[-1]["give"] == {"cash": 72}
+
+
+def test_a_rare_that_turns_last_bids_up_to_its_value_minus_50():
+    # Review 13:30 (M1): if CHA-05 and CHA-08 fill first, a rare can be the last card: a team at <= 168 still scores +50.
+    g = Game(values={"CHA-09": 218.0})
+    run(g, [{"card": "CHA-09", "side": "buy", "price": 70, "floor": 90, "page_closer": True, "last_card": True}])
+    assert g.posted[0]["give"] == {"cash": 168}
