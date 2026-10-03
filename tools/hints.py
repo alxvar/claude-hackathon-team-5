@@ -9,7 +9,8 @@ Every tick this reads new events in data/feed.jsonl (the collector's) and:
   only one, ask her/him about, knows, golden/dorad*, oro, treasure, vault, password, phrase, saint, a quoted phrase…)
   becomes a hit, de-duplicated per (dealer, text without numbers): first/last tick, count, teams;
 - every egg.found / egg.given / taller.crafted / persona.updated / persona.open_to_all / set.released is a hit;
-- every 10 min, /api/catalog: a new card with hidden=true, or a changed `minted` on an epic or legendary, is a hit;
+- every 10 min, /api/catalog: a new card, a card turning hidden, a changed print run (a reprint), or a changed
+  `minted` on an epic or legendary is a hit;
 - intel/news.md lines matching the patterns are hits.
 Each new hit prints one `HINT …` line (the Builder relays it to the Chief) and is appended to intel/hints.md.
 
@@ -116,6 +117,8 @@ def scan_catalog(catalog: dict, before: dict) -> tuple[list[dict], dict]:
                 new.append({"kind": "catalog.new_card", "card": cid, **now[cid]})
             elif old and now[cid]["hidden"] and not old.get("hidden"):
                 new.append({"kind": "catalog.hidden", "card": cid, **now[cid]})
+            elif old and old.get("print_run") is not None and old.get("print_run") != c.get("print_run"):
+                new.append({"kind": "catalog.print_run", "card": cid, "was": old.get("print_run"), **now[cid]})
             elif old and c.get("rarity") in ("epic", "legendary") and old.get("minted") != c.get("minted"):
                 new.append({"kind": "catalog.minted", "card": cid, "was": old.get("minted"), **now[cid]})
     return new, now

@@ -79,3 +79,10 @@ def test_his_gold_pack_menu_is_not_the_egg():
               msg(3, 1120, "banco", "t13", "Carmen's regards are noted; the gold chulapa stays in the vault today.")]
     hits, _ = hints.scan_events(events)
     assert [h["first"] for h in hits if h["kind"] == "message"] == [1120]
+
+
+
+def test_a_reprint_shows_as_a_print_run_change():
+    _, snap = hints.scan_catalog({"sets": [{"cards": [{"id": "LAV-03", "rarity": "common", "print_run": 300}]}]}, {})
+    new, _ = hints.scan_catalog({"sets": [{"cards": [{"id": "LAV-03", "rarity": "common", "print_run": 600}]}]}, snap)
+    assert [(h["kind"], h["card"], h["was"], h["print_run"]) for h in new] == [("catalog.print_run", "LAV-03", 300, 600)]
