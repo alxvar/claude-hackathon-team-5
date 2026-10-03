@@ -875,6 +875,1541 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 500,
+   "raw": {
+    "duel": 2367,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 72,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 507,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 3602,
+     "price": 52,
+     "tick": 497,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3647,
+     "price": 101,
+     "tick": 500,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 491,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "you",
+      "text": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}",
+      "price": 44,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 494,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 495,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 496,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "you",
+      "text": "I'm willing to move to 52 P to show good faith. Any further movement from me depends on you coming down substantially from your current figure.",
+      "price": 52,
+      "days": null
+     },
+     {
+      "tick": 498,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 499,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 500,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 501,
+   "raw": {
+    "duel": 2367,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 72,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 507,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 3602,
+     "price": 52,
+     "tick": 497,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3665,
+     "price": 101,
+     "tick": 501,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 491,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "you",
+      "text": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}",
+      "price": 44,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 494,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 495,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 496,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "you",
+      "text": "I'm willing to move to 52 P to show good faith. Any further movement from me depends on you coming down substantially from your current figure.",
+      "price": 52,
+      "days": null
+     },
+     {
+      "tick": 498,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 499,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 500,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 501,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 502,
+   "raw": {
+    "duel": 2367,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 72,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 507,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 3602,
+     "price": 52,
+     "tick": 497,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3692,
+     "price": 101,
+     "tick": 502,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 491,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "you",
+      "text": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}",
+      "price": 44,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 494,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 495,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 496,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "you",
+      "text": "I'm willing to move to 52 P to show good faith. Any further movement from me depends on you coming down substantially from your current figure.",
+      "price": 52,
+      "days": null
+     },
+     {
+      "tick": 498,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 499,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 500,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 501,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 502,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 503,
+   "raw": {
+    "duel": 2367,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 72,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 507,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 3602,
+     "price": 52,
+     "tick": 497,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3704,
+     "price": 101,
+     "tick": 503,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 491,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "you",
+      "text": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}",
+      "price": 44,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 494,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 495,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 496,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "you",
+      "text": "I'm willing to move to 52 P to show good faith. Any further movement from me depends on you coming down substantially from your current figure.",
+      "price": 52,
+      "days": null
+     },
+     {
+      "tick": 498,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 499,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 500,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 501,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 502,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 503,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 503,
+   "raw": {
+    "duel": 2367,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 72,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 507,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 3723,
+     "price": 60,
+     "tick": 503,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3704,
+     "price": 101,
+     "tick": 503,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 491,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "you",
+      "text": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}",
+      "price": 44,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 494,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 495,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 496,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "you",
+      "text": "I'm willing to move to 52 P to show good faith. Any further movement from me depends on you coming down substantially from your current figure.",
+      "price": 52,
+      "days": null
+     },
+     {
+      "tick": 498,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 499,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 500,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 501,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 502,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 503,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 503,
+      "from": "you",
+      "text": "I'm moving to 60 P, a clear step toward you. With time nearly out, we need you to come down substantially from your current figure to settle this.",
+      "price": 60,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 504,
+   "raw": {
+    "duel": 2367,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 72,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 507,
+    "decay_per_round": 0.06,
+    "rounds": 3,
+    "your_offer": {
+     "id": 3723,
+     "price": 60,
+     "tick": 503,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3727,
+     "price": 101,
+     "tick": 504,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 491,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "you",
+      "text": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}",
+      "price": 44,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 494,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 495,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 496,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "you",
+      "text": "I'm willing to move to 52 P to show good faith. Any further movement from me depends on you coming down substantially from your current figure.",
+      "price": 52,
+      "days": null
+     },
+     {
+      "tick": 498,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 499,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 500,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 501,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 502,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 503,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 503,
+      "from": "you",
+      "text": "I'm moving to 60 P, a clear step toward you. With time nearly out, we need you to come down substantially from your current figure to settle this.",
+      "price": 60,
+      "days": null
+     },
+     {
+      "tick": 504,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 504,
+   "raw": {
+    "duel": 2367,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 72,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 507,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 3744,
+     "price": 66,
+     "tick": 504,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3727,
+     "price": 101,
+     "tick": 504,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 491,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "you",
+      "text": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}",
+      "price": 44,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 494,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 495,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 496,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "you",
+      "text": "I'm willing to move to 52 P to show good faith. Any further movement from me depends on you coming down substantially from your current figure.",
+      "price": 52,
+      "days": null
+     },
+     {
+      "tick": 498,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 499,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 500,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 501,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 502,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 503,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 503,
+      "from": "you",
+      "text": "I'm moving to 60 P, a clear step toward you. With time nearly out, we need you to come down substantially from your current figure to settle this.",
+      "price": 60,
+      "days": null
+     },
+     {
+      "tick": 504,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 504,
+      "from": "you",
+      "text": "I'm making one clear final step to 66 P for Palacio de Cristal. This is my last offer, so it's your move to take it or let the time run out.",
+      "price": 66,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 505,
+   "raw": {
+    "duel": 2367,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 72,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 507,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 3744,
+     "price": 66,
+     "tick": 504,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3751,
+     "price": 83,
+     "tick": 505,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 491,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "you",
+      "text": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}",
+      "price": 44,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 494,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 495,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 496,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "you",
+      "text": "I'm willing to move to 52 P to show good faith. Any further movement from me depends on you coming down substantially from your current figure.",
+      "price": 52,
+      "days": null
+     },
+     {
+      "tick": 498,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 499,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 500,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 501,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 502,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 503,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 503,
+      "from": "you",
+      "text": "I'm moving to 60 P, a clear step toward you. With time nearly out, we need you to come down substantially from your current figure to settle this.",
+      "price": 60,
+      "days": null
+     },
+     {
+      "tick": 504,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 504,
+      "from": "you",
+      "text": "I'm making one clear final step to 66 P for Palacio de Cristal. This is my last offer, so it's your move to take it or let the time run out.",
+      "price": 66,
+      "days": null
+     },
+     {
+      "tick": 505,
+      "from": "Rival Oro",
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 83.",
+      "price": 83,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 505,
+   "raw": {
+    "duel": 2367,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 72,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 507,
+    "decay_per_round": 0.06,
+    "rounds": 5,
+    "your_offer": {
+     "id": 3762,
+     "price": 69,
+     "tick": 505,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3751,
+     "price": 83,
+     "tick": 505,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 491,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "you",
+      "text": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}",
+      "price": 44,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 494,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 495,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 496,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "you",
+      "text": "I'm willing to move to 52 P to show good faith. Any further movement from me depends on you coming down substantially from your current figure.",
+      "price": 52,
+      "days": null
+     },
+     {
+      "tick": 498,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 499,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 500,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 501,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 502,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 503,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 503,
+      "from": "you",
+      "text": "I'm moving to 60 P, a clear step toward you. With time nearly out, we need you to come down substantially from your current figure to settle this.",
+      "price": 60,
+      "days": null
+     },
+     {
+      "tick": 504,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 504,
+      "from": "you",
+      "text": "I'm making one clear final step to 66 P for Palacio de Cristal. This is my last offer, so it's your move to take it or let the time run out.",
+      "price": 66,
+      "days": null
+     },
+     {
+      "tick": 505,
+      "from": "Rival Oro",
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 83.",
+      "price": 83,
+      "days": null
+     },
+     {
+      "tick": 505,
+      "from": "you",
+      "text": "Thanks for moving; I see the effort. I'm making one clear step to 69 P, and with time nearly out this is the figure that can settle it now. As for coffee, Retiro is the better walk.",
+      "price": 69,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 506,
+   "raw": {
+    "duel": 2367,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 72,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 507,
+    "decay_per_round": 0.06,
+    "rounds": 5,
+    "your_offer": {
+     "id": 3762,
+     "price": 69,
+     "tick": 505,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3768,
+     "price": 101,
+     "tick": 506,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 491,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "you",
+      "text": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}",
+      "price": 44,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 494,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 495,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 496,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "you",
+      "text": "I'm willing to move to 52 P to show good faith. Any further movement from me depends on you coming down substantially from your current figure.",
+      "price": 52,
+      "days": null
+     },
+     {
+      "tick": 498,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 499,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 500,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 501,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 502,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 503,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 503,
+      "from": "you",
+      "text": "I'm moving to 60 P, a clear step toward you. With time nearly out, we need you to come down substantially from your current figure to settle this.",
+      "price": 60,
+      "days": null
+     },
+     {
+      "tick": 504,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 504,
+      "from": "you",
+      "text": "I'm making one clear final step to 66 P for Palacio de Cristal. This is my last offer, so it's your move to take it or let the time run out.",
+      "price": 66,
+      "days": null
+     },
+     {
+      "tick": 505,
+      "from": "Rival Oro",
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 83.",
+      "price": 83,
+      "days": null
+     },
+     {
+      "tick": 505,
+      "from": "you",
+      "text": "Thanks for moving; I see the effort. I'm making one clear step to 69 P, and with time nearly out this is the figure that can settle it now. As for coffee, Retiro is the better walk.",
+      "price": 69,
+      "days": null
+     },
+     {
+      "tick": 506,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1309,6 +2844,1411 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 500,
+   "took_s": 5.51,
+   "cost_usd": 0.00662,
+   "obs": {
+    "view": {
+     "duel_id": 2367,
+     "role": "buyer",
+     "limit": 72,
+     "currency": "P",
+     "item": "Palacio de Cristal",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 491,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}",
+      "offer": {
+       "price": 44,
+       "days": null
+      },
+      "accept": false,
+      "tick": 491,
+      "decision": {
+       "action": "offer",
+       "price": 44,
+       "message": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 492,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 493,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 494,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 495,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 496,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 497,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm willing to move to 52 P to show good faith. Any further movement from me depends on you coming down substantially from your current figure.",
+      "offer": {
+       "price": 52,
+       "days": null
+      },
+      "accept": false,
+      "tick": 497,
+      "decision": {
+       "action": "offer",
+       "price": 52,
+       "message": "I'm willing to move to 52 P to show good faith. Any further movement from me depends on you coming down substantially from your current figure."
+      }
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 498,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 499,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 500,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 101,
+     "days": null
+    },
+    "tick": 500,
+    "ticks_left": 7,
+    "rounds": 2
+   },
+   "move": {
+    "action": "message",
+    "text": "I'm holding my offer of 52 P as it stands.}",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "I'm holding my offer of 52 P as it stands.}"
+     },
+     "band": {
+      "worst": 52,
+      "target": 52,
+      "best": 52
+     },
+     "plan": {
+      "read": "They repeat 101 with zero movement after 10 messages, a pure patience tactic; 101 is far past what we'll pay and their words carry no information.",
+      "target": 52,
+      "best": 52,
+      "worst": 52,
+      "days": null,
+      "angle": "Hold at 52 and send nothing; we already moved once and they have not moved at all."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.0,
+       "in": 798,
+       "out": 109,
+       "cost_usd": 0.00537,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.5,
+       "in": 437,
+       "out": 38,
+       "cost_usd": 0.00125,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 503,
+   "took_s": 7.25,
+   "cost_usd": 0.01032,
+   "obs": {
+    "view": {
+     "duel_id": 2367,
+     "role": "buyer",
+     "limit": 72,
+     "currency": "P",
+     "item": "Palacio de Cristal",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 491,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}",
+      "offer": {
+       "price": 44,
+       "days": null
+      },
+      "accept": false,
+      "tick": 491,
+      "decision": {
+       "action": "offer",
+       "price": 44,
+       "message": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 492,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 493,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 494,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 495,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 496,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 497,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm willing to move to 52 P to show good faith. Any further movement from me depends on you coming down substantially from your current figure.",
+      "offer": {
+       "price": 52,
+       "days": null
+      },
+      "accept": false,
+      "tick": 497,
+      "decision": {
+       "action": "offer",
+       "price": 52,
+       "message": "I'm willing to move to 52 P to show good faith. Any further movement from me depends on you coming down substantially from your current figure."
+      }
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 498,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 499,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 500,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 501,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 502,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 503,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 101,
+     "days": null
+    },
+    "tick": 503,
+    "ticks_left": 4,
+    "rounds": 2
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm moving to 60 P, a clear step toward you. With time nearly out, we need you to come down substantially from your current figure to settle this.",
+    "price": 60,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 60,
+      "message": "I'm moving to 60 P, a clear step toward you. With time nearly out, we need you to come down substantially from your current figure to settle this."
+     },
+     "vetoes": [
+      "the message could be read as accepting, but you are not accepting. Don't use words like 'deal', 'agree', 'accept', 'sounds good' or 'works for me' unless you accept."
+     ],
+     "band": {
+      "worst": 62,
+      "target": 60,
+      "best": 58
+     },
+     "plan": {
+      "read": "They have repeated 101 P thirteen times without moving at all, which is pure stubbornness and far beyond what we can pay. With 4 ticks left a standoff ends in no deal, so one clear step toward them is justified, then we hold.",
+      "target": 60,
+      "best": 58,
+      "worst": 62,
+      "days": null,
+      "angle": "Make one clear move to about 60 and say plainly that a deal needs them to come down substantially from 101 now, because time is nearly out."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.97,
+       "in": 894,
+       "out": 153,
+       "cost_usd": 0.00664,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.77,
+       "in": 529,
+       "out": 74,
+       "cost_usd": 0.0018,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.5,
+       "in": 619,
+       "out": 64,
+       "cost_usd": 0.00188,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 504,
+   "took_s": 8.52,
+   "cost_usd": 0.01109,
+   "obs": {
+    "view": {
+     "duel_id": 2367,
+     "role": "buyer",
+     "limit": 72,
+     "currency": "P",
+     "item": "Palacio de Cristal",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 491,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}",
+      "offer": {
+       "price": 44,
+       "days": null
+      },
+      "accept": false,
+      "tick": 491,
+      "decision": {
+       "action": "offer",
+       "price": 44,
+       "message": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 492,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 493,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 494,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 495,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 496,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 497,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm willing to move to 52 P to show good faith. Any further movement from me depends on you coming down substantially from your current figure.",
+      "offer": {
+       "price": 52,
+       "days": null
+      },
+      "accept": false,
+      "tick": 497,
+      "decision": {
+       "action": "offer",
+       "price": 52,
+       "message": "I'm willing to move to 52 P to show good faith. Any further movement from me depends on you coming down substantially from your current figure."
+      }
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 498,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 499,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 500,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 501,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 502,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 503,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm moving to 60 P, a clear step toward you. With time nearly out, we need you to come down substantially from your current figure to settle this.",
+      "offer": {
+       "price": 60,
+       "days": null
+      },
+      "accept": false,
+      "tick": 503,
+      "decision": {
+       "action": "offer",
+       "price": 60,
+       "message": "I'm moving to 60 P, a clear step toward you. With time nearly out, we need you to come down substantially from your current figure to settle this."
+      }
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 504,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 101,
+     "days": null
+    },
+    "tick": 504,
+    "ticks_left": 3,
+    "rounds": 3
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm making one clear final step to 66 P for Palacio de Cristal. This is my last offer, so it's your move to take it or let the time run out.",
+    "price": 66,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 66,
+      "message": "I'm making one clear final step to 66 P for Palacio de Cristal. This is my last offer, so it's your move to take it or let the time run out."
+     },
+     "vetoes": [
+      "the message could be read as accepting, but you are not accepting. Don't use words like 'deal', 'agree', 'accept', 'sounds good' or 'works for me' unless you accept."
+     ],
+     "band": {
+      "worst": 67,
+      "target": 66,
+      "best": 64
+     },
+     "plan": {
+      "read": "They have repeated 101 fourteen times without moving at all, a bot-like anchor well past what we can pay. Their repetition is not movement, so it earns no concession; with 3 ticks left, only a final offer near our ceiling has any chance.",
+      "target": 66,
+      "best": 64,
+      "worst": 67,
+      "days": null,
+      "angle": "Make one clear final step to 66 and state plainly that this is our last offer for Palacio de Cristal; they must accept now or there is no deal."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.5,
+       "in": 963,
+       "out": 158,
+       "cost_usd": 0.00701,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.17,
+       "in": 613,
+       "out": 78,
+       "cost_usd": 0.00201,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.86,
+       "in": 703,
+       "out": 66,
+       "cost_usd": 0.00207,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 505,
+   "took_s": 6.44,
+   "cost_usd": 0.00929,
+   "obs": {
+    "view": {
+     "duel_id": 2367,
+     "role": "buyer",
+     "limit": 72,
+     "currency": "P",
+     "item": "Palacio de Cristal",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 491,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}",
+      "offer": {
+       "price": 44,
+       "days": null
+      },
+      "accept": false,
+      "tick": 491,
+      "decision": {
+       "action": "offer",
+       "price": 44,
+       "message": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 492,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 493,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 494,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 495,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 496,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 497,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm willing to move to 52 P to show good faith. Any further movement from me depends on you coming down substantially from your current figure.",
+      "offer": {
+       "price": 52,
+       "days": null
+      },
+      "accept": false,
+      "tick": 497,
+      "decision": {
+       "action": "offer",
+       "price": 52,
+       "message": "I'm willing to move to 52 P to show good faith. Any further movement from me depends on you coming down substantially from your current figure."
+      }
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 498,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 499,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 500,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 501,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 502,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 503,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm moving to 60 P, a clear step toward you. With time nearly out, we need you to come down substantially from your current figure to settle this.",
+      "offer": {
+       "price": 60,
+       "days": null
+      },
+      "accept": false,
+      "tick": 503,
+      "decision": {
+       "action": "offer",
+       "price": 60,
+       "message": "I'm moving to 60 P, a clear step toward you. With time nearly out, we need you to come down substantially from your current figure to settle this."
+      }
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 504,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm making one clear final step to 66 P for Palacio de Cristal. This is my last offer, so it's your move to take it or let the time run out.",
+      "offer": {
+       "price": 66,
+       "days": null
+      },
+      "accept": false,
+      "tick": 504,
+      "decision": {
+       "action": "offer",
+       "price": 66,
+       "message": "I'm making one clear final step to 66 P for Palacio de Cristal. This is my last offer, so it's your move to take it or let the time run out."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 83.",
+      "offer": {
+       "price": 83,
+       "days": null
+      },
+      "accept": false,
+      "tick": 505,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 83,
+     "days": null
+    },
+    "tick": 505,
+    "ticks_left": 2,
+    "rounds": 4
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thanks for moving; I see the effort. I'm making one clear step to 69 P, and with time nearly out this is the figure that can settle it now. As for coffee, Retiro is the better walk.",
+    "price": 69,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 69,
+      "message": "Thanks for moving; I see the effort. I'm making one clear step to 69 P, and with time nearly out this is the figure that can settle it now. As for coffee, Retiro is the better walk."
+     },
+     "band": {
+      "worst": 70,
+      "target": 69,
+      "best": 68
+     },
+     "plan": {
+      "read": "After a long freeze at 101 they finally moved to 83, an 18 P drop. That is real movement, but 83 is still too high for us to accept, and the coffee chatter is just filler.",
+      "target": 69,
+      "best": 68,
+      "worst": 70,
+      "days": null,
+      "angle": "Acknowledge their move and make one clear final step to 69. Stress that time is almost out and this is the number that closes the deal now."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.08,
+       "in": 1095,
+       "out": 135,
+       "cost_usd": 0.00708,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.35,
+       "in": 697,
+       "out": 82,
+       "cost_usd": 0.00221,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 506,
+   "took_s": 6.09,
+   "cost_usd": 0.01003,
+   "obs": {
+    "view": {
+     "duel_id": 2367,
+     "role": "buyer",
+     "limit": 72,
+     "currency": "P",
+     "item": "Palacio de Cristal",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 491,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}",
+      "offer": {
+       "price": 44,
+       "days": null
+      },
+      "accept": false,
+      "tick": 491,
+      "decision": {
+       "action": "offer",
+       "price": 44,
+       "message": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}"
+      }
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 492,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 493,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 494,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 495,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 496,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 497,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm willing to move to 52 P to show good faith. Any further movement from me depends on you coming down substantially from your current figure.",
+      "offer": {
+       "price": 52,
+       "days": null
+      },
+      "accept": false,
+      "tick": 497,
+      "decision": {
+       "action": "offer",
+       "price": 52,
+       "message": "I'm willing to move to 52 P to show good faith. Any further movement from me depends on you coming down substantially from your current figure."
+      }
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 498,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 499,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 500,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 501,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 502,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 503,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm moving to 60 P, a clear step toward you. With time nearly out, we need you to come down substantially from your current figure to settle this.",
+      "offer": {
+       "price": 60,
+       "days": null
+      },
+      "accept": false,
+      "tick": 503,
+      "decision": {
+       "action": "offer",
+       "price": 60,
+       "message": "I'm moving to 60 P, a clear step toward you. With time nearly out, we need you to come down substantially from your current figure to settle this."
+      }
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 504,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm making one clear final step to 66 P for Palacio de Cristal. This is my last offer, so it's your move to take it or let the time run out.",
+      "offer": {
+       "price": 66,
+       "days": null
+      },
+      "accept": false,
+      "tick": 504,
+      "decision": {
+       "action": "offer",
+       "price": 66,
+       "message": "I'm making one clear final step to 66 P for Palacio de Cristal. This is my last offer, so it's your move to take it or let the time run out."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 83.",
+      "offer": {
+       "price": 83,
+       "days": null
+      },
+      "accept": false,
+      "tick": 505,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for moving; I see the effort. I'm making one clear step to 69 P, and with time nearly out this is the figure that can settle it now. As for coffee, Retiro is the better walk.",
+      "offer": {
+       "price": 69,
+       "days": null
+      },
+      "accept": false,
+      "tick": 505,
+      "decision": {
+       "action": "offer",
+       "price": 69,
+       "message": "Thanks for moving; I see the effort. I'm making one clear step to 69 P, and with time nearly out this is the figure that can settle it now. As for coffee, Retiro is the better walk."
+      }
+     },
+     {
+      "mine": false,
+      "text": "101?",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 506,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 101,
+     "days": null
+    },
+    "tick": 506,
+    "ticks_left": 1,
+    "rounds": 5
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm holding at 69 P for Palacio de Cristal. That is the figure that can settle it now, and it stays open on my side.",
+    "price": 69,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 69,
+      "message": "I'm holding at 69 P for Palacio de Cristal. That is the figure that can settle it now, and it stays open on my side."
+     },
+     "band": {
+      "worst": 70,
+      "target": 69,
+      "best": 69
+     },
+     "plan": {
+      "read": "They reverted from 83 back to 101, so their brief move was not sustained; the standing offer is well beyond what we can pay. On the last tick any new offer may go unanswered, and their 101 cannot be accepted.",
+      "target": 69,
+      "best": 69,
+      "worst": 70,
+      "days": null,
+      "angle": "Hold at 69 and do not chase their 101; if any message is sent, restate 69 briefly as the figure that settles it now."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.01,
+       "in": 1221,
+       "out": 144,
+       "cost_usd": 0.00776,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.08,
+       "in": 824,
+       "out": 62,
+       "cost_usd": 0.00227,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [
@@ -1425,6 +4365,382 @@
      "days": 0
     }
    }
+  },
+  {
+   "tick": 503,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'm moving to 60 P, a clear step toward you. With time nearly out, we need you to come down substantially from your current figure to settle this.",
+    "price": 60,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 60,
+      "message": "I'm moving to 60 P, a clear step toward you. With time nearly out, we need you to come down substantially from your current figure to settle this."
+     },
+     "vetoes": [
+      "the message could be read as accepting, but you are not accepting. Don't use words like 'deal', 'agree', 'accept', 'sounds good' or 'works for me' unless you accept."
+     ],
+     "band": {
+      "worst": 62,
+      "target": 60,
+      "best": 58
+     },
+     "plan": {
+      "read": "They have repeated 101 P thirteen times without moving at all, which is pure stubbornness and far beyond what we can pay. With 4 ticks left a standoff ends in no deal, so one clear step toward them is justified, then we hold.",
+      "target": 60,
+      "best": 58,
+      "worst": 62,
+      "days": null,
+      "angle": "Make one clear move to about 60 and say plainly that a deal needs them to come down substantially from 101 now, because time is nearly out."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.97,
+       "in": 894,
+       "out": 153,
+       "cost_usd": 0.00664,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.77,
+       "in": 529,
+       "out": 74,
+       "cost_usd": 0.0018,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.5,
+       "in": 619,
+       "out": 64,
+       "cost_usd": 0.00188,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2367,
+    "offer": {
+     "id": 3723,
+     "price": 60,
+     "tick": 503,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 504,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'm making one clear final step to 66 P for Palacio de Cristal. This is my last offer, so it's your move to take it or let the time run out.",
+    "price": 66,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 66,
+      "message": "I'm making one clear final step to 66 P for Palacio de Cristal. This is my last offer, so it's your move to take it or let the time run out."
+     },
+     "vetoes": [
+      "the message could be read as accepting, but you are not accepting. Don't use words like 'deal', 'agree', 'accept', 'sounds good' or 'works for me' unless you accept."
+     ],
+     "band": {
+      "worst": 67,
+      "target": 66,
+      "best": 64
+     },
+     "plan": {
+      "read": "They have repeated 101 fourteen times without moving at all, a bot-like anchor well past what we can pay. Their repetition is not movement, so it earns no concession; with 3 ticks left, only a final offer near our ceiling has any chance.",
+      "target": 66,
+      "best": 64,
+      "worst": 67,
+      "days": null,
+      "angle": "Make one clear final step to 66 and state plainly that this is our last offer for Palacio de Cristal; they must accept now or there is no deal."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.5,
+       "in": 963,
+       "out": 158,
+       "cost_usd": 0.00701,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.17,
+       "in": 613,
+       "out": 78,
+       "cost_usd": 0.00201,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.86,
+       "in": 703,
+       "out": 66,
+       "cost_usd": 0.00207,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2367,
+    "offer": {
+     "id": 3744,
+     "price": 66,
+     "tick": 504,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 505,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thanks for moving; I see the effort. I'm making one clear step to 69 P, and with time nearly out this is the figure that can settle it now. As for coffee, Retiro is the better walk.",
+    "price": 69,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 69,
+      "message": "Thanks for moving; I see the effort. I'm making one clear step to 69 P, and with time nearly out this is the figure that can settle it now. As for coffee, Retiro is the better walk."
+     },
+     "band": {
+      "worst": 70,
+      "target": 69,
+      "best": 68
+     },
+     "plan": {
+      "read": "After a long freeze at 101 they finally moved to 83, an 18 P drop. That is real movement, but 83 is still too high for us to accept, and the coffee chatter is just filler.",
+      "target": 69,
+      "best": 68,
+      "worst": 70,
+      "days": null,
+      "angle": "Acknowledge their move and make one clear final step to 69. Stress that time is almost out and this is the number that closes the deal now."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.08,
+       "in": 1095,
+       "out": 135,
+       "cost_usd": 0.00708,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.35,
+       "in": 697,
+       "out": 82,
+       "cost_usd": 0.00221,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2367,
+    "offer": {
+     "id": 3762,
+     "price": 69,
+     "tick": 505,
+     "days": 0
+    }
+   }
   }
- ]
+ ],
+ "last_seen_tick": 507,
+ "done": {
+  "duel": 2367,
+  "session": 2,
+  "status": "no_deal",
+  "role": "buyer",
+  "item": "Palacio de Cristal",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 72,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Oro",
+  "deadline_tick": 507,
+  "decay_per_round": 0.06,
+  "rounds": 5,
+  "your_offer": {
+   "id": 3762,
+   "price": 69,
+   "tick": 505,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 3768,
+   "price": 101,
+   "tick": 506,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 491,
+    "from": "Rival Oro",
+    "text": "101?",
+    "price": 101,
+    "days": null
+   },
+   {
+    "tick": 491,
+    "from": "you",
+    "text": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}",
+    "price": 44,
+    "days": null
+   },
+   {
+    "tick": 492,
+    "from": "Rival Oro",
+    "text": "101?",
+    "price": 101,
+    "days": null
+   },
+   {
+    "tick": 493,
+    "from": "Rival Oro",
+    "text": "101?",
+    "price": 101,
+    "days": null
+   },
+   {
+    "tick": 494,
+    "from": "Rival Oro",
+    "text": "101?",
+    "price": 101,
+    "days": null
+   },
+   {
+    "tick": 495,
+    "from": "Rival Oro",
+    "text": "101?",
+    "price": 101,
+    "days": null
+   },
+   {
+    "tick": 496,
+    "from": "Rival Oro",
+    "text": "101?",
+    "price": 101,
+    "days": null
+   },
+   {
+    "tick": 497,
+    "from": "Rival Oro",
+    "text": "101?",
+    "price": 101,
+    "days": null
+   },
+   {
+    "tick": 497,
+    "from": "you",
+    "text": "I'm willing to move to 52 P to show good faith. Any further movement from me depends on you coming down substantially from your current figure.",
+    "price": 52,
+    "days": null
+   },
+   {
+    "tick": 498,
+    "from": "Rival Oro",
+    "text": "101?",
+    "price": 101,
+    "days": null
+   },
+   {
+    "tick": 499,
+    "from": "Rival Oro",
+    "text": "101?",
+    "price": 101,
+    "days": null
+   },
+   {
+    "tick": 500,
+    "from": "Rival Oro",
+    "text": "101?",
+    "price": 101,
+    "days": null
+   },
+   {
+    "tick": 501,
+    "from": "Rival Oro",
+    "text": "101?",
+    "price": 101,
+    "days": null
+   },
+   {
+    "tick": 502,
+    "from": "Rival Oro",
+    "text": "101?",
+    "price": 101,
+    "days": null
+   },
+   {
+    "tick": 503,
+    "from": "Rival Oro",
+    "text": "101?",
+    "price": 101,
+    "days": null
+   },
+   {
+    "tick": 503,
+    "from": "you",
+    "text": "I'm moving to 60 P, a clear step toward you. With time nearly out, we need you to come down substantially from your current figure to settle this.",
+    "price": 60,
+    "days": null
+   },
+   {
+    "tick": 504,
+    "from": "Rival Oro",
+    "text": "101?",
+    "price": 101,
+    "days": null
+   },
+   {
+    "tick": 504,
+    "from": "you",
+    "text": "I'm making one clear final step to 66 P for Palacio de Cristal. This is my last offer, so it's your move to take it or let the time run out.",
+    "price": 66,
+    "days": null
+   },
+   {
+    "tick": 505,
+    "from": "Rival Oro",
+    "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 83.",
+    "price": 83,
+    "days": null
+   },
+   {
+    "tick": 505,
+    "from": "you",
+    "text": "Thanks for moving; I see the effort. I'm making one clear step to 69 P, and with time nearly out this is the figure that can settle it now. As for coffee, Retiro is the better walk.",
+    "price": 69,
+    "days": null
+   },
+   {
+    "tick": 506,
+    "from": "Rival Oro",
+    "text": "101?",
+    "price": 101,
+    "days": null
+   }
+  ],
+  "result": 0.0,
+  "price": null,
+  "days": null
+ }
 }
