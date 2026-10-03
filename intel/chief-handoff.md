@@ -38,3 +38,17 @@ friends count for nothing"). Venue rotation by value: big deals on v10 (≥ 75% 
 
 **Do not:** sell page cards; dealer-to-dealer flips; ladder deals in the Saturday tail; trade on rival venues (v07
 etc.); help t10. Eggs/badges don't score (we have Sharp ear, Trickster tricked, Castizo + MAL-06 gift).
+
+## Overnight program (Sun 00:20) → everything lands by 06:30-07:30; the Chief merges it at 06:41 into intel/sunday-final.md
+| Who | Job | Output |
+|---|---|---|
+| Auditor A (no context) | why we lost Fri/Sat vs t10/t06/t18/t12, 10 lessons | intel/audit-why-we-lost.md |
+| Auditor B (no context) | red-team + aggressive per-stage plan, both clock cases, rival slow-down | intel/sunday-redteam.md |
+| Auditor C (no context) | Market Test + real-trades scoring, board venue or not | intel/market-test-audit.md |
+| Auditor D (no context) | code audit of origin/duelist-loop, tests, go/no-go | intel/duelist-audit.md |
+| Auditor E (no context) | club contrarian review + final one-pager + per-team pitches | scratchpad club-castizo.html, intel/club-pitch.md |
+| Duel Lab -38 | t10-style opponent, 15 s latency, config sweep → SUNDAY v2 | intel/duel-lab.md (top) |
+| Market -27 | per-team bot negotiation models, CHA/MAL bid ladders, 09:00 v10 pairs | intel/market-sunday.md (NEGOTIATION) |
+| Analyst -6c | per-stage EV both cases, cash split, deny list, P(#1) levers | score-model §4-5, intel/deny-list.md |
+| Operator -3d | CHA + MAL fast-start books (dry run), 08:45 checklist, 08:55 clock case | run/cha_book.json, run/mal_book.json, dealer-lab §FAST-START |
+| Builder -ce | tools/club.py: waits for Lucas's approval in its session | run/club_orders.json, intel/club-orders.md |
