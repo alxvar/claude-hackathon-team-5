@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sat 18:08 · operator · **GUARDRAIL (Chief): cash floor 85 for the SAL-06 page close only** (one t02 → t05 SAL-06 ask, ≤ 60, fee ≤ 4, v15 or El Rastro); every other spend stays at floor 100, and the L5 buy rule needs cash ≥ 120 · watcher b9yxmhumq now auto-accepts on that rule (floor 85), bid 14268 still live
 - Sat 18:07 · operator · Chief: a fee of 4 on El Rastro is OK → watcher bmx09zzy3 auto-accepts a t02 → t05 SAL-06 ask ≤ 60 on v15 or El Rastro (fee ≤ 4) · but the cash floor of 100 binds first at cash 151 (v15 ≤ 51, El Rastro ≤ 47) → asked the Chief for a SAL-06-only GUARDRAIL (floor 85); the watcher keeps ≥ 100 until then
 - Sat 18:06 · operator · SAL-06: t02 told Dani they 'value it at 120' (an anchor); Dani counters at 50 in person; Chief ceiling **60** · watcher re-armed (bbmx2vwfi) with auto-accept of a t02 → t05 ask for exactly one SAL-06, cash only, ≤ 60, fee ≤ 3, cash ≥ 100 after · fees [V /api/venues]: v15 0 bps / 0 per card; El Rastro 500 bps + 1 per card (60 → fee 4, so auto only ≤ 40 there) · on the Chief's '50': cancel 14268, repost a maker bid of 50 → t02 on v15
 - Sat 18:02 · operator · Chief (fever live: Pilar pays ~31 for SAL-06, so outbid her clearly): 14040 cancelled → new MAKER bid **14268**, give **42 P**, want card:SAL-06, to t02 on v15, expires tick 965 (~18:32) · gain ≈ 82.1 − 42 = +40 (no fee) · cash 151 → 109 if filled · watcher unchanged (counter ≤ 45, cancel on hold, t17 fallback 18:20)
