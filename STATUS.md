@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 18:22** · tick 975 (30 s/tick) · game hour 9.45 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 18:27** · tick 985 (30 s/tick) · game hour 9.53 · running · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,9 +17,9 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sat 18:35 · Duel Lab · **second pass for the 19:30 freeze → top of `intel/duel-lab.md`** (verified, 4 low flags fixed) · Duels II pairings not visible (0 live duels; schedule has params only; meeting order differs between sessions) → identify rivals live by wording · Duels I no-deals unrecoverable by a rule; silence vs clock bots in share: −0.19 blanket, +0.80 for R4/R9/R13 only → not tonight · **one change, insurance: `--days-read auto|flip|unsure` (default auto = today's code)**; the day reading is the biggest swing left (red team: right 0.47, backwards −0.18/duel) and today there's no switch · next: Aleks's call
+  - Sat 18:22 · operator · **Silver pack arrived** (asset 1013, value 87.1, 18:20): held UNOPENED until SAL-06 settles, then ask the Chief (reserved.json can't hold a pack: card refs only) · Workshop on hold too · **Don Ernesto (banco, L5) unlocked for us** ('5 deals with pilar'): sells a gold pack (420, opens at 546) and legendaries (585), buys only epics/legendaries; we hold none and every buy is above our cash → L5 job stood down (Chief) · SAL-06: t13 didn't take 14557 → 18:21 switch to **14889**, 50 → **t17** on v15, exp tick 993 · v10 ads: fee line posted 18:22 ('Team 12's v02 now charges 10% + 5 P per card…'; v02 already at 1000 bps + 5/card [V], so 'now charges' instead of 'is moving to') · ad job bv1vj5hwu: from ~18:37 every 15 min until 22:45, top non-rival pair from intel/v10-suggestions.md (rares, then uncommons, then commons; no rival buyer or seller, no closer, never our cards), else the fee line
   - Sat 18:20 · operator · Chief: if a free pack or gift lands, **do NOT open it** until SAL-06 settles through a team trade (a pack pull would complete the page as luck, with no bonus, and our live bid would then buy a duplicate), then ask before opening · watcher bmlgrdl8t reports any non-card asset; no pack held now; no auto-opener running (the 16:40 one ended at 17:40)
-  - Sat 18:11 · operator · Chief (1.9 behind: t06 31.8, t14 31.5; go proactive): 14268 cancelled (t02 anchors at 120, won't take addressed offers) → MAKER bid **14557**, give 50 P, want card:SAL-06, to **t13** on v15, exp tick 973 (policy OK: ours +32 > theirs ~+16) · job b8s3vonoz at 18:21:15: if still unfilled, cancel and post 50 → **t17** on v15 (one bid at a time) · t02-ask watcher stays (≤ 60, floor 85) · **v10 re-announced** via the starter broker at 18:11:20, Chief's exact text, {ok: true} (v10 fee 0 / 0 per card checked first) · t13 runs two 'MAD RUSH 0%' venues (v23 auto, v24 board), 0 trades so far
-  - Sat 18:08 · operator · **GUARDRAIL (Chief): cash floor 85 for the SAL-06 page close only** (one t02 → t05 SAL-06 ask, ≤ 60, fee ≤ 4, v15 or El Rastro); every other spend stays at floor 100, and the L5 buy rule needs cash ≥ 120 · watcher b9yxmhumq now auto-accepts on that rule (floor 85), bid 14268 still live
 
 ## Score
 
@@ -27,15 +27,15 @@ _From `team/<name>.md`; each person writes only their own file._
 |---|---|---|---|---|---|---|---|---|---|---|
 | 29.97 | 3 | 22.47 | 7.50 | 13.93 | 0.44 | 0.89 | 51 | 5 | 151 | 37/50 |
 
-Leaderboard (snapshot at tick 970; refreshes every few minutes):
+Leaderboard (snapshot at tick 980; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
 | 1 | Team 6 | 31.68 | 19.63 | 12.05 | 52 |
 | 2 | Team 14 | 31.52 | 21.99 | 9.53 | 43 |
 | 3 | Team 5 | 29.97 | 22.47 | 7.50 | 51 |
-| 4 | Team 3 | 29.64 | 24.18 | 5.46 | 29 |
-| 5 | Team 10 | 28.26 | 15.76 | 12.50 | 34 |
+| 4 | Team 3 | 29.64 | 24.17 | 5.46 | 29 |
+| 5 | Team 10 | 28.26 | 15.76 | 12.50 | 35 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 10.42 | ~58 min | persona_opens | Don Ernesto opens for everyone |
-| 11.00 | ~93 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~102 min | persona_patch | The fever breaks |
-| 11.65 | ~132 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~213 min | bench | The Market Test: every venue gets the same synthetic book |
-| 14.08 | ~278 min (after today's close) | day_closes | Closed until Sunday 09:00 |
-| 14.08 | ~278 min (after today's close) | day_opens | Sunday opens |
-| 14.65 | ~312 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
+| 10.42 | ~53 min | persona_opens | Don Ernesto opens for everyone |
+| 11.00 | ~88 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~97 min | persona_patch | The fever breaks |
+| 11.65 | ~127 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~208 min | bench | The Market Test: every venue gets the same synthetic book |
+| 14.08 | ~273 min (after today's close) | day_closes | Closed until Sunday 09:00 |
+| 14.08 | ~273 min (after today's close) | day_opens | Sunday opens |
+| 14.65 | ~307 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
 
 ## Our dealer deals
 
