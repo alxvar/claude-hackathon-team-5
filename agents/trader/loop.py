@@ -4,7 +4,8 @@ Two kinds of offer qualify:
 - a team bids cash for a card we hold, and the cash minus the fee beats what that copy is worth to us;
 - a team sells a card for less than it is worth to us, fee included.
 When we accept, we pay El Rastro's fee (5% + 1 P per card). One accept per tick (the team limit), none while a
-duel is live, never below the cash floor. Our own bids and listings stay up; their fills show up in the score.
+scored duel needs it (tools/arbiter.py), never below the cash floor. Our own bids and listings stay up; their fills
+show up in the score.
 
     source .env && python3 -u agents/trader/loop.py --min-gain 3
 """
@@ -18,7 +19,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "bazaar-kit"))
+sys.path.insert(0, str(ROOT / "tools"))
 from bazaar_sdk import Bazaar, BazaarError  # noqa: E402
+from arbiter import should_hold_accept  # noqa: E402
 
 LOG = ROOT / "logs" / "trader.jsonl"
 
@@ -80,7 +83,10 @@ def main():
                     continue
                 if gain >= args.min_gain and (best is None or gain > best[0]):
                     best = cand
-            if best and not b.duels().get("duels"):
+            hold, why = should_hold_accept(b, me.get("tick")) if best else (False, "")
+            if hold:
+                log({"event": "hold_accept", "offer": best[1], "what": best[3], "why": why})
+            elif best:
                 gain, oid, assets, what = best
                 tried.add(oid)
                 try:

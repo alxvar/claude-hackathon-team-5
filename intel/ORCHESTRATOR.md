@@ -20,6 +20,11 @@ session; it reaches you through `intel/directives.md` and `SendMessage`. You rep
 anything important (find it with `ListAgents`) and log every action in `team/lucas.md`. Never wait for Lucas.
 
 ## Start of every session
+0. `python3 tools/operator_lock.py acquire operator`. If it prints REFUSED, another session is the operator: **stop**,
+   touch nothing, and tell Lucas who holds it. Once you hold it, run `python3 tools/operator_lock.py heartbeat` on every
+   wake-up (a lock without a heartbeat for 10 min is stale and another session may take it), and
+   `python3 tools/operator_lock.py release` when you hand off. Then `python3 tools/preflight.py`: any FAIL (a key over its
+   spend limit, the game unreachable) goes to Lucas before anything else.
 1. `tools/daemons.sh status`. Before the §2 checks start only `status` and `collector` if they are DOWN.
 2. Arm the live watcher with the Monitor tool: command `set -a; . ./.env; set +a; python3 -u tools/watch.py`,
    timeout 1800000. Re-arm it every time it expires.

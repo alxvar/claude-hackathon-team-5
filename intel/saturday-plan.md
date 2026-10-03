@@ -137,8 +137,7 @@ re-read `/api/schedule` at every round start.
      GAME.md immediately; it sets every later price.
 4. **CHA page (Sunday, 18.0)**: values common 16, uncommon 40, rare 112 > dealer prices, so no dealer losses even on
    rares. Also buy CHA cards from teams below value (each scores value − price). Dealers close at hour 23.
-5. **Cash**: cash scores nothing at the end. **GUARDRAIL needed (Lucas):** Saturday floor 200 → 100 for page buys,
-   Sunday → 0 by 14:00. Fund pages by selling low-multiplier cards (MAL 0.7, LAT 0.5, SAL 0.9) as maker.
+5. **Cash**: cash scores nothing at the end. **GUARDRAIL decided (Sat 02:20):** Saturday floor 100, Sunday → 0 by 14:00. Fund pages by selling low-multiplier cards (MAL 0.7, LAT 0.5, SAL 0.9) as maker.
 
 ### 4C. Dealers and the ladder
 - **Never** a first price, never a pack (Team 8's silver pack: −5.65 board, #3 → #9) [V]. Open free packs at once.
@@ -183,7 +182,9 @@ Practice [V]: 11 deals / 24 finished; 9/12 closed when the rival spoke; ~14% of 
   best ask every tick, as the stall does) + one improvement, supervised by `daemons.sh`; open a `board` venue at fee 0
   as soon as it reproduces the stall's matches on a recorded bench (replay equality). Downside bounded to "= stall"
   except downtime; it is the only way to capture any edge. Funds: the bond is refundable; sell low-multiplier cards.
-  Option B: the gate below. **Recommendation: A**, because B's four conditions are unlikely to all hold before 15:00.
+  Option B: the gate below. **Decided (Sat 02:20, `intel/directives.md`): staged** — stall + recorder for the first bench;
+  right after it open a `board` venue at once if the stall doesn't expose `bench_offers` (only way to learn), else as soon
+  as real replays show an edge; open and supervised before Sunday 10:00 in any case.
 - **Before the first bench**: a read-only recorder of `bench_offers` (needs `starter_broker_key` from `/api/me` once
   the stall exists) + our `bench_efficiency` and every team's `market` after each session.
 - **~14:15 gate** (Lucas): open a `board` venue at fee 0, between sessions, only if (a) broker v1 ≥ stall + 2 pp on the

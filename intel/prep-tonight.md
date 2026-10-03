@@ -35,6 +35,6 @@ the repo audit (item 9).
 18. [~] W2 tools/duel_monitor.py (live flags + per-wave review in intel/duel-review.md + run duelist tests on Aleks's pushes; alerts)
 19. [~] W3 accept arbiter (loop.py, abuela_bot), operator PID lock, API preflight, round-close archiver
 20. [~] W4 broker/record_bench.py + broker/broker.py (auto-clone + one improvement) + replay harness, with fixtures
-21. [ ] Me: intel/market-playbook.md, intel/brief-aleks.md, intel/brief-dani.md, sessions redesign (Chief of staff = Lucas's only session; Operator, Market, Builder), CLAUDE.md duelist rules
+21. [x] Me: intel/market-playbook.md, intel/brief-aleks.md, intel/brief-dani.md, sessions redesign (Chief of staff = Lucas's only session; Operator, Market, Builder), CLAUDE.md duelist rules
 22. [ ] Independent review of every diff, then commit + push
-23. [ ] Lucas: market A/B + cash floor
+23. [x] Market: staged decision; cash floor 100 (directive Sat 02:20)

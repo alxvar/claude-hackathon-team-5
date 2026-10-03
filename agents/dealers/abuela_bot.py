@@ -3,8 +3,8 @@ and the level unlocks.
 
 Buys the missing cards we value most, from what the dealer's menu sells (cheapest rarity first), never
 above our private value; with --sell-spares it first sells spare copies. Every deal is countered at least once, so none closes at her opening
-price. Waits for the server's tick, never repeats a price, never accepts while a duel is live
-(unless her offer is final), and never lets cash drop below the venue bond.
+price. Waits for the server's tick, never repeats a price, holds every accept (her final offers too) while a
+scored duel needs the team's accept (tools/arbiter.py), and never lets cash drop below the venue bond.
 
     source .env && python3 agents/dealers/abuela_bot.py --dry-run
     source .env && python3 agents/dealers/abuela_bot.py --deals 3
@@ -20,7 +20,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "bazaar-kit"))
+sys.path.insert(0, str(ROOT / "tools"))
 from bazaar_sdk import Bazaar, BazaarError  # noqa: E402
+from arbiter import should_hold_accept  # noqa: E402
 
 DEALER = "abuela"
 CASH_FLOOR = 200     # overridden by --cash-floor (the GUARDRAIL in intel/directives.md decides it)
@@ -60,13 +62,6 @@ def her_price(offer: dict, side: str) -> int:
     """Cash in her offer: what she asks when we buy, what she pays when we sell."""
     want, give = offer.get("want", {}).get("cash", 0), offer.get("give", {}).get("cash", 0)
     return int(want if side == "buy" else give)
-
-
-def duel_live(b: Bazaar) -> bool:
-    try:
-        return bool(b.duels().get("duels"))
-    except BazaarError:
-        return False
 
 
 def negotiate(b: Bazaar, topic: dict, side: str, cap: int, tid: int = None, fast: bool = False) -> dict:
@@ -113,8 +108,9 @@ def negotiate(b: Bazaar, topic: dict, side: str, cap: int, tid: int = None, fast
         log({"event": "tick", "thread": tid, "her": price, "final": o.get("final"), "ours": ours, "next": nxt})
 
         if within_cap and (o.get("final") or crosses or close or fast):  # fast: take her price now (a flip)
-            if duel_live(b) and not o.get("final"):
-                log({"event": "hold_accept_duel_live", "thread": tid})
+            hold, why = should_hold_accept(b)
+            if hold:  # a final offer too: a scored duel's accept is worth more than one dealer deal
+                log({"event": "hold_accept_duel", "thread": tid, "final": o.get("final"), "why": why})
                 b.wait_tick()
                 continue
             b.accept(o["id"])
@@ -186,7 +182,7 @@ def main() -> None:
     me, sells, buys, budget = plan(b)
     clock = b.clock()
     print(f"tick {clock['tick']} ({clock['tick_seconds']}s) · cash {me['cash']} P · spend budget {budget} P · "
-          f"duel live: {duel_live(b)}")
+          f"accept hold: {should_hold_accept(b, clock['tick'])}")
     print("sell (spares):", [(a["ref"], a["id"], a["your_value"]) for a in sells])
     print(f"dealer {DEALER} · buy (expected gain, our value, card):", buys[:8])
     busy = [t for t in b.my_threads()["threads"] if t["with"] == DEALER and t["status"] == "open"]
