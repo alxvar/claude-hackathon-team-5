@@ -79,6 +79,131 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 498,
+   "raw": {
+    "duel": 2356,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Café en Goya",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 101,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Plata",
+    "deadline_tick": 513,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 3601,
+     "price": 150,
+     "tick": 497,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3624,
+     "price": 91,
+     "tick": 498,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 497,
+      "from": "Rival Plata",
+      "text": "Propuesta justa para cerrar pronto y que ganemos los dos: 83 P.",
+      "price": 83,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "you",
+      "text": "Café en Goya is a carefully sourced, well-roasted lot with a rich, balanced cup, and I'm offering it at 150 P. That price reflects its quality and origin, and I'm happy to hear your reasoning.",
+      "price": 150,
+      "days": null
+     },
+     {
+      "tick": 498,
+      "from": "Rival Plata",
+      "text": "Me muevo para acercarnos: 91 P.",
+      "price": 91,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 499,
+   "raw": {
+    "duel": 2356,
+    "session": 2,
+    "status": "live",
+    "role": "seller",
+    "item": "Café en Goya",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 101,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Plata",
+    "deadline_tick": 513,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 3645,
+     "price": 144,
+     "tick": 499,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3624,
+     "price": 91,
+     "tick": 498,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 497,
+      "from": "Rival Plata",
+      "text": "Propuesta justa para cerrar pronto y que ganemos los dos: 83 P.",
+      "price": 83,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "you",
+      "text": "Café en Goya is a carefully sourced, well-roasted lot with a rich, balanced cup, and I'm offering it at 150 P. That price reflects its quality and origin, and I'm happy to hear your reasoning.",
+      "price": 150,
+      "days": null
+     },
+     {
+      "tick": 498,
+      "from": "Rival Plata",
+      "text": "Me muevo para acercarnos: 91 P.",
+      "price": 91,
+      "days": null
+     },
+     {
+      "tick": 499,
+      "from": "you",
+      "text": "Gracias por acercarte; valoro el gesto. Con la calidad y el origen de este lote, puedo bajar a 144 P, pero necesitaría que subas de forma significativa para cerrar pronto.",
+      "price": 144,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -189,6 +314,227 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 498,
+   "took_s": 4.97,
+   "cost_usd": 0.00489,
+   "obs": {
+    "view": {
+     "duel_id": 2356,
+     "role": "seller",
+     "limit": 101,
+     "currency": "P",
+     "item": "Café en Goya",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto y que ganemos los dos: 83 P.",
+      "offer": {
+       "price": 83,
+       "days": null
+      },
+      "accept": false,
+      "tick": 497,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Café en Goya is a carefully sourced, well-roasted lot with a rich, balanced cup, and I'm offering it at 150 P. That price reflects its quality and origin, and I'm happy to hear your reasoning.",
+      "offer": {
+       "price": 150,
+       "days": null
+      },
+      "accept": false,
+      "tick": 497,
+      "decision": {
+       "action": "offer",
+       "price": 150,
+       "message": "Café en Goya is a carefully sourced, well-roasted lot with a rich, balanced cup, and I'm offering it at 150 P. That price reflects its quality and origin, and I'm happy to hear your reasoning."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 83,
+     "days": null
+    },
+    "tick": 498,
+    "ticks_left": 15,
+    "rounds": 1
+   },
+   "move": {
+    "action": "message",
+    "text": "I'm holding my current offer and will wait for your next move.",
+    "price": null,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "message",
+      "price": null,
+      "message": "I'm holding my current offer and will wait for your next move."
+     },
+     "band": {
+      "worst": 150,
+      "target": 150,
+      "best": 150
+     },
+     "plan": {
+      "read": "They opened at 83 P and haven't moved since our 150 P opening; their 'fair, close quickly' framing is just positioning. There's no new offer to respond to.",
+      "target": 150,
+      "best": 150,
+      "worst": 150,
+      "days": null,
+      "angle": "Hold at 150 and send nothing; wait for them to make a real move before we concede anything."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 2.93,
+       "in": 398,
+       "out": 116,
+       "cost_usd": 0.00391,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.04,
+       "in": 307,
+       "out": 37,
+       "cost_usd": 0.00098,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
+  },
+  {
+   "tick": 499,
+   "took_s": 5.58,
+   "cost_usd": 0.0061,
+   "obs": {
+    "view": {
+     "duel_id": 2356,
+     "role": "seller",
+     "limit": 101,
+     "currency": "P",
+     "item": "Café en Goya",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto y que ganemos los dos: 83 P.",
+      "offer": {
+       "price": 83,
+       "days": null
+      },
+      "accept": false,
+      "tick": 497,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Café en Goya is a carefully sourced, well-roasted lot with a rich, balanced cup, and I'm offering it at 150 P. That price reflects its quality and origin, and I'm happy to hear your reasoning.",
+      "offer": {
+       "price": 150,
+       "days": null
+      },
+      "accept": false,
+      "tick": 497,
+      "decision": {
+       "action": "offer",
+       "price": 150,
+       "message": "Café en Goya is a carefully sourced, well-roasted lot with a rich, balanced cup, and I'm offering it at 150 P. That price reflects its quality and origin, and I'm happy to hear your reasoning."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 91 P.",
+      "offer": {
+       "price": 91,
+       "days": null
+      },
+      "accept": false,
+      "tick": 498,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 91,
+     "days": null
+    },
+    "tick": 499,
+    "ticks_left": 14,
+    "rounds": 1
+   },
+   "move": {
+    "action": "offer",
+    "text": "Gracias por acercarte; valoro el gesto. Con la calidad y el origen de este lote, puedo bajar a 144 P, pero necesitaría que subas de forma significativa para cerrar pronto.",
+    "price": 144,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 144,
+      "message": "Gracias por acercarte; valoro el gesto. Con la calidad y el origen de este lote, puedo bajar a 144 P, pero necesitaría que subas de forma significativa para cerrar pronto."
+     },
+     "band": {
+      "worst": 142,
+      "target": 144,
+      "best": 146
+     },
+     "plan": {
+      "read": "They moved 8 P (83 to 91) after our 150 opening, a genuine step but still below what we can take; their limit is likely well above 91.",
+      "target": 144,
+      "best": 146,
+      "worst": 142,
+      "days": null,
+      "angle": "Acknowledge their move with a smaller step of our own, stress the lot's quality and sourcing, and ask them to come up meaningfully if they want to close soon."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.66,
+       "in": 462,
+       "out": 132,
+       "cost_usd": 0.00449,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.91,
+       "in": 362,
+       "out": 89,
+       "cost_usd": 0.00161,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -245,6 +591,63 @@
      "id": 3601,
      "price": 150,
      "tick": 497,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 499,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Gracias por acercarte; valoro el gesto. Con la calidad y el origen de este lote, puedo bajar a 144 P, pero necesitaría que subas de forma significativa para cerrar pronto.",
+    "price": 144,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 144,
+      "message": "Gracias por acercarte; valoro el gesto. Con la calidad y el origen de este lote, puedo bajar a 144 P, pero necesitaría que subas de forma significativa para cerrar pronto."
+     },
+     "band": {
+      "worst": 142,
+      "target": 144,
+      "best": 146
+     },
+     "plan": {
+      "read": "They moved 8 P (83 to 91) after our 150 opening, a genuine step but still below what we can take; their limit is likely well above 91.",
+      "target": 144,
+      "best": 146,
+      "worst": 142,
+      "days": null,
+      "angle": "Acknowledge their move with a smaller step of our own, stress the lot's quality and sourcing, and ask them to come up meaningfully if they want to close soon."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.66,
+       "in": 462,
+       "out": 132,
+       "cost_usd": 0.00449,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.91,
+       "in": 362,
+       "out": 89,
+       "cost_usd": 0.00161,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 2356,
+    "offer": {
+     "id": 3645,
+     "price": 144,
+     "tick": 499,
      "days": 0
     }
    }

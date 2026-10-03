@@ -652,6 +652,229 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 498,
+   "raw": {
+    "duel": 2367,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 72,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 507,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 3602,
+     "price": 52,
+     "tick": 497,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3605,
+     "price": 101,
+     "tick": 498,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 491,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "you",
+      "text": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}",
+      "price": 44,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 494,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 495,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 496,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "you",
+      "text": "I'm willing to move to 52 P to show good faith. Any further movement from me depends on you coming down substantially from your current figure.",
+      "price": 52,
+      "days": null
+     },
+     {
+      "tick": 498,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 499,
+   "raw": {
+    "duel": 2367,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 72,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 507,
+    "decay_per_round": 0.06,
+    "rounds": 2,
+    "your_offer": {
+     "id": 3602,
+     "price": 52,
+     "tick": 497,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3633,
+     "price": 101,
+     "tick": 499,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 491,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "you",
+      "text": "That opening figure is far from what I can justify for Palacio de Cristal. Given its condition and what comparable pieces fetch, I can offer 44 P. If you have a number grounded in real value, I'm happy to hear it.}",
+      "price": 44,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 494,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 495,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 496,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 497,
+      "from": "you",
+      "text": "I'm willing to move to 52 P to show good faith. Any further movement from me depends on you coming down substantially from your current figure.",
+      "price": 52,
+      "days": null
+     },
+     {
+      "tick": 498,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 499,
+      "from": "Rival Oro",
+      "text": "101?",
+      "price": 101,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
