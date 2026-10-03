@@ -10,3 +10,4 @@ _Every item from GET /api/news (sources: boletin, radio, tablon), oldest first, 
 - Sat 15:35 · tick 643 (hour 6.6833) · Boletín del Bazar · **Abuela Carmen gives out packs for her saint's day** · A neighbourhood pack for every team in one hour. Happy saint's day, Carmen. · Names: dealer abuela, dealer abuela carmen, event pack, event packs
 - Sat 16:35 · tick 763 (hour 7.6833) · El Tablón · **Abuela stops buying common cards from today** · That is what they say at the next stall. · Names: dealer abuela
 - Sat 17:11 · tick 835 (hour 8.2833) · Radio Rastro · **Half-hour queue at the San Ginés churro shop** ·  · Names: none
+- Sat 18:05 · tick 943 (hour 9.1833) · Radio Rastro · **Abuela pays more for uncommon cards until teatime** · She wants to complete her grandchildren's album. · Names: dealer abuela
