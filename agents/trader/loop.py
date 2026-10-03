@@ -39,6 +39,7 @@ sys.path.insert(0, str(ROOT / "bazaar-kit"))
 sys.path.insert(0, str(ROOT / "tools"))
 from bazaar_sdk import Bazaar, BazaarError  # noqa: E402
 from arbiter import should_hold_accept  # noqa: E402
+import policy  # noqa: E402
 
 LOG = ROOT / "logs" / "trader.jsonl"
 BOARD = ROOT / "data" / "board.json"   # the collector's copy of El Rastro's board, each offer tagged with its `team`
@@ -51,7 +52,8 @@ KEEP_SETS = {"LAV"}  # never give the last copy of a card of these sets (on top 
 LEADER_BAR = 15     # minimum gain on a venue owned by a top-4 team
 REFRESH_TICKS = 10  # venues and leaderboard are re-read this often
 BOARD_FRESH = 120   # seconds: an older data/board.json is not trusted
-FEED_GAP = 10       # board points: a team at least this far below us may get a page-closer
+FEED_GAP = policy.PAGE_CLOSER_GAP   # board points: a team at least this far below us may get a page-closer (16:20: 6)
+ASK_LEFT = 3        # our own live ask for a card wins over a worse accept unless it expires within this many ticks
 CLOSER_X = 1.5      # a price at or above this many times book is treated as a likely page-closer
 CLOSED_SLEEP = 30   # seconds between clock checks while paused or closed
 ERROR_SLEEP = 5     # seconds after an unexpected error
@@ -84,6 +86,7 @@ class State:
         self.venues, self.top4, self.own_venues, self.scores = {}, set(), set(), {}
         self.venues_tick = self.lb_tick = None
         self.locked, self.offers_ok = set(), True        # asset ids in our open offers; did my_offers read this tick
+        self.own_asks = {}                               # ref -> [(offer, cash, expires_tick)]: our live asks
         self.bid_cash = 0                                # cash in our open bids (the book's CHA bids): kept above the floor
         self.board_teams, self.listed = {}, {}           # offer id -> team: board.json (fresh), feed offer.listed
         self.feed_pos, self.live_feed_tick = 0, "never"
@@ -124,17 +127,20 @@ def refresh(b, st, me, tick):
 def gather(b, me_id, st):
     """Open offers we could take: addressed to us, then every open public board but our own venue's.
     Also sets st.locked (asset ids in our own open offers) and st.offers_ok (False: my_offers failed this tick)."""
-    own, found, locked, bid_cash = set(), [], set(), 0
+    own, found, locked, bid_cash, asks = set(), [], set(), 0, {}
     try:
         for o in b.my_offers().get("offers") or []:
             if o.get("maker") == me_id:
                 own.add(o["id"])
                 if o.get("status", "open") not in TERMINAL:
-                    locked |= {a["id"] for a in (o.get("give") or {}).get("assets") or [] if "id" in a}
+                    give = (o.get("give") or {}).get("assets") or []
+                    locked |= {a["id"] for a in give if "id" in a}
                     bid_cash += (o.get("give") or {}).get("cash") or 0
+                    if len(give) == 1 and (o.get("want") or {}).get("cash") and give[0].get("ref"):
+                        asks.setdefault(give[0]["ref"], []).append((o["id"], o["want"]["cash"], o.get("expires_tick")))
             elif o.get("to") == me_id:
                 found.append(o)
-        st.locked, st.offers_ok, st.bid_cash = locked, True, bid_cash
+        st.locked, st.offers_ok, st.bid_cash, st.own_asks = locked, True, bid_cash, asks
     except BazaarError as e:
         st.locked, st.offers_ok = set(), False
         log({"event": "error", "where": "my_offers", "code": e.code})
@@ -224,8 +230,10 @@ def feeding_skip(b, o, me, st, price, book):
     team = bidder(b, o, st)
     if not st.scores:
         return "leaderboard unknown: no sales or swaps", team
-    if team in st.top4:
-        return f"counterparty {team} is top 4", team
+    teams = [{"team": t, "score": s} for t, s in st.scores.items()]
+    ok, why = policy.check(team, teams=teams, page_closer=False)     # their gain unknown: top 5 and rivals skip
+    if not ok:
+        return why, team
     ours = st.scores.get(me["id"])
     if ours is None:
         ours = (me.get("score") or {}).get("score") if isinstance(me.get("score"), dict) else None
@@ -372,11 +380,23 @@ def evaluate(b, o, me, held, st, args):
         c["skip"] = "our own venue"
     c["gain"] = round(c["gain"], 2)
     c["ok"] = not c["skip"] and c["gain"] >= bar
+    if c["ok"] and kind in ("sell", "swap"):  # Chief 16:30: our own live ask for this card may be worth more
+        for r in refs:
+            for oid, cash, exp in st.own_asks.get(r, []):
+                left = None if exp is None or st.tick is None else exp - st.tick
+                if cash - loss / max(len(refs), 1) > c["gain"] and (left is None or left > ASK_LEFT):
+                    c.update(skip=f"our live ask {oid} sells {r} at {cash}: better than +{c['gain']:g}", ok=False)
     if c["ok"] and kind in ("sell", "swap"):  # who gets our card(s); only for offers that pass, it may cost a GET
         price = gcash if kind == "sell" else sum(RARITY_BOOK.get(a.get("rarity"), 0) for a in gassets)
         book = sum(RARITY_BOOK.get((held[r][0] or {}).get("rarity"), 0) for r in refs)
         why, c["bidder"] = feeding_skip(b, o, me, st, price, book)
         if why:
+            c.update(skip=why, ok=False)
+    elif c["ok"] and kind == "buy":           # policy (16:20): never the top 5 nor a rival, their gain unknown
+        team = bidder(b, o, st)
+        ok, why = policy.check(team, teams=[{"team": t, "score": s} for t, s in st.scores.items()])
+        c["bidder"] = team
+        if not ok:
             c.update(skip=why, ok=False)
     return c
 

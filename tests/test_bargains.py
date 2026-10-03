@@ -100,7 +100,8 @@ def test_dry_run_sends_and_remembers_nothing(tmp_path):
 
 # ------------------------------------------------------------------ arbitrage (Chief 15:50)
 
-ARB_TEAMS = TEAMS + [{"team": "t16", "score": 8}, {"team": "t17", "score": 20}]
+ARB_TEAMS = TEAMS + [{"team": "t16", "score": 8}, {"team": "t17", "score": 20}, {"team": "t20", "score": 3},
+                     {"team": "t03", "score": 4}]   # t10 is in the top 5 here: sellers are t20 / t03
 
 
 def bid(oid, ref, price, to=None):
@@ -116,21 +117,21 @@ def legs(ask_venue="v07", bid_venue="rastro", p1=9, p2=20):
 
 def test_an_ask_below_a_live_bid_on_another_venue_is_an_arbitrage():
     asks, bids = legs()
-    x = bg.arbitrage(asks, bids, makers={1: "t10", 2: "t16"}, held={}, teams=ARB_TEAMS, me="t05")
+    x = bg.arbitrage(asks, bids, makers={1: "t20", 2: "t16"}, held={}, teams=ARB_TEAMS, me="t05")
     assert len(x) == 1 and x[0]["net"] == 20 - 9 - 0 - 2 and x[0]["bidder"] == "t16" and x[0]["need"] == 9
 
 
 def test_the_sell_leg_follows_the_feeding_rule_and_the_bars():
     asks, bids = legs()
-    assert bg.arbitrage(asks, bids, makers={1: "t10", 2: "t12"}, held={}, teams=ARB_TEAMS, me="t05") == []   # top 5
+    assert bg.arbitrage(asks, bids, makers={1: "t20", 2: "t12"}, held={}, teams=ARB_TEAMS, me="t05") == []   # top 5
     near = {("t17", f"LAT-{i:02d}"): {i} for i in (1, 3, 4, 5, 6, 7, 8, 9)}             # LAT-02 may close its page
-    assert bg.arbitrage(asks, bids, makers={1: "t10", 2: "t17"}, held=near, teams=ARB_TEAMS, me="t05") == []
-    assert bg.arbitrage(asks, bids, makers={1: "t10", 2: "t16"}, held={**near, **{("t16", k[1]): v for k, v in
+    assert bg.arbitrage(asks, bids, makers={1: "t20", 2: "t17"}, held=near, teams=ARB_TEAMS, me="t05") == []
+    assert bg.arbitrage(asks, bids, makers={1: "t20", 2: "t16"}, held={**near, **{("t16", k[1]): v for k, v in
                         near.items()}}, teams=ARB_TEAMS, me="t05")                        # t16 is 16 below us: fine
     asks, bids = legs(p1=14)
-    assert bg.arbitrage(asks, bids, makers={1: "t10", 2: "t16"}, held={}, teams=ARB_TEAMS, me="t05") == []   # +4
+    assert bg.arbitrage(asks, bids, makers={1: "t20", 2: "t16"}, held={}, teams=ARB_TEAMS, me="t05") == []   # +4
     asks, bids = legs(ask_venue="rastro")
-    assert bg.arbitrage(asks, bids, makers={1: "t10", 2: "t16"}, held={}, teams=ARB_TEAMS, me="t05") == []   # same venue
+    assert bg.arbitrage(asks, bids, makers={1: "t20", 2: "t16"}, held={}, teams=ARB_TEAMS, me="t05") == []   # same venue
 
 
 def test_a_scan_alerts_the_operator_once_per_pair(tmp_path):
@@ -140,7 +141,7 @@ def test_a_scan_alerts_the_operator_once_per_pair(tmp_path):
     w, sent = watcher(tmp_path, api)
     w.arb_out = tmp_path / "arbitrage.md"
     w.feed_path = tmp_path / "feed.jsonl"
-    w.feed_path.write_text('{"type": "offer.listed", "payload": {"offer": {"id": 1, "maker": "t10"}}}\n'
+    w.feed_path.write_text('{"type": "offer.listed", "payload": {"offer": {"id": 1, "maker": "t20"}}}\n'
                            '{"type": "offer.listed", "payload": {"offer": {"id": 2, "maker": "t16"}}}\n')
     w.scan()
     w.scan()
@@ -169,11 +170,11 @@ def test_each_leg_is_scored_at_our_value_capped_at_50():
     bids = {"RET-11": [{"offer": 2, "venue": "rastro", "price": 160, "fee": 9}]}
     teams = ARB_TEAMS
     # V 198: buy +98 -> 50, sell -47: 3 < 5, though the spread is +51
-    assert bg.arbitrage(asks, bids, makers={1: "t10", 2: "t16"}, held={}, teams=teams, me="t05",
+    assert bg.arbitrage(asks, bids, makers={1: "t20", 2: "t16"}, held={}, teams=teams, me="t05",
                         value=lambda c: 198.0) == []
-    x = bg.arbitrage(asks, bids, makers={1: "t10", 2: "t16"}, held={}, teams=teams, me="t05", value=lambda c: 120.0)
+    x = bg.arbitrage(asks, bids, makers={1: "t20", 2: "t16"}, held={}, teams=teams, me="t05", value=lambda c: 120.0)
     assert x[0]["buy"] == 20 and x[0]["sell"] == 31 and x[0]["score"] == 51 and x[0]["if_leg2_fails"] == 20
-    assert bg.arbitrage(asks, bids, makers={1: "t10", 2: "t16"}, held={}, teams=teams, me="t05", value=lambda c: 120.0,
+    assert bg.arbitrage(asks, bids, makers={1: "t20", 2: "t16"}, held={}, teams=teams, me="t05", value=lambda c: 120.0,
                         closes_ours=lambda c, v: True) == []                     # it would close our page
 
 
@@ -181,6 +182,6 @@ def test_the_best_ask_per_bid_and_never_an_unknown_seller():
     asks = {"LAT-02": [{"offer": 1, "venue": "v07", "price": 9, "fee": 0}, {"offer": 3, "venue": "v20", "price": 7,
                                                                              "fee": 0}]}
     _, bids = legs()
-    x = bg.arbitrage(asks, bids, makers={1: "t10", 3: "t03", 2: "t16"}, held={}, teams=ARB_TEAMS, me="t05")
+    x = bg.arbitrage(asks, bids, makers={1: "t20", 3: "t03", 2: "t16"}, held={}, teams=ARB_TEAMS, me="t05")
     assert [a["ask"]["offer"] for a in x] == [3]
     assert bg.arbitrage(asks, bids, makers={2: "t16"}, held={}, teams=ARB_TEAMS, me="t05") == []

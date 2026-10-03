@@ -10,8 +10,8 @@ whether that keeps cash >= CASH_FLOOR. Once per offer, to ntfy `lucas`. It never
 Arbitrage (Chief, Sat 15:50): an ask for card X at P1 on one venue below a LIVE bid for X at P2 on another. Each leg
 scores at our value V of one more copy, capped at 50 per trade: buy = min(V - P1 - f1, 50), sell = min(P2 - V - f2,
 50); flagged when their sum >= ARB_MIN (without the cap it is P2 - P1 - fees; review 16:15). Never a card that would
-close our page (its V carries the bonus). Sell leg, the feeding rule failing closed: the bidder outside the top 5,
-and a page card (01-10) only to a team >= 10 points below us (an unknown score blocks). The best ask per bid, an
+close our page (its V carries the bonus). Both legs follow tools/policy.py, failing closed (their gains unknown): no
+top-5 team or rival (Team 13, 17) as seller or bidder, and a page card (01-10) only to a team >= 6 below us. The best ask per bid, an
 unknown seller skipped, never our own venue (RULES: no trades on it). No speculative inventory: only while the bid is
 live; the alert gives the loss if leg 2 fails. Once per (ask, bid): an `ARB ...` line in logs/bargains.log,
 intel/arbitrage.md, and notify("operator") (stderr unless NTFY_OPERATOR is set). The Operator executes both legs.
@@ -37,7 +37,8 @@ from bazaar_sdk import Bazaar, BazaarError, _Http  # noqa: E402
 URL = os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai")
 STATE = ROOT / "run" / "bargains_state.json"
 FEED, ARB_OUT = ROOT / "data" / "feed.jsonl", ROOT / "intel" / "arbitrage.md"
-ARB_MIN, ARB_TOP, ARB_GAP = 5, 5, 10      # min net spread; bidders outside the top 5; page-closers >= 10 points below"
+ARB_MIN = 5                               # min net spread
+import policy  # noqa: E402  tools/policy.py: top 5, page-closer gap 6, rivals"
 HOUSE, HOUSE_FEE = "rastro", (500, 1)     # El Rastro: 5% + 1 P per card
 MIN_GAIN = 20
 SCORE_CAP = 50                            # per trade [V, n=2: LAV-05 and RET-01 closes, +50.0 each]
@@ -100,22 +101,17 @@ def arbitrage(asks: dict, bids: dict, *, makers: dict, held: dict, teams: list, 
     """The best ask per live bid for the same card on another venue, scored per leg at our value V (capped at
     SCORE_CAP each), best first. asks/bids: {card: [{offer, venue, price, fee}]} (fee: what we pay taking that leg).
     `value(card)` -> V or None (no V: the uncapped spread)."""
-    top = {t["team"] for t in teams[:ARB_TOP]}
-    score = {t["team"]: t.get("score") for t in teams}
-    ours = score.get(me)
     out = []
     for card, bl in bids.items():
         for b in bl:
-            bidder = makers.get(b["offer"])
-            if not bidder or bidder == me or bidder in top:
-                continue
-            gap = None if ours is None or score.get(bidder) is None else ours - score[bidder]
-            if page_card(card) and (gap is None or gap < ARB_GAP):
-                continue                              # feeding rule, failing closed: holdings are a lower bound
+            bidder = makers.get(b["offer"])          # their gain unknown: the policy skips the top 5 and rivals
+            if not bidder or bidder == me or not policy.check(bidder, teams=teams, page_closer=page_card(card))[0]:
+                continue                              # feeding rule failing closed: holdings are a lower bound
             best = None
             for a in asks.get(card, []):
                 seller = makers.get(a["offer"])
-                if a["venue"] == b["venue"] or not seller or seller == bidder or seller == me:
+                if a["venue"] == b["venue"] or not seller or seller == bidder or seller == me \
+                        or not policy.check(seller, teams=teams)[0]:
                     continue
                 net = b["price"] - a["price"] - a["fee"] - b["fee"]
                 if net >= ARB_MIN and (best is None or net > best["net"]):

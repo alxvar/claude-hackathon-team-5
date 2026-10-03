@@ -477,3 +477,13 @@ def test_an_asset_another_offer_holds_is_never_reused_by_an_ask():
                      "want": {"types": ["card:LAT-07"]}}
     st, ev, _ = run(g, e, st, tick=301)
     assert g.posted == [] and any("no free copy" in (x.get("why") or "") for x in ev)
+
+
+def test_an_addressed_ask_follows_the_counterparty_policy():
+    # Chief 16:20: never the top 5 (their gain unknown here); t02 is 4th in this board, t16 isn't ranked.
+    g = Game()
+    run(g, [{"card": "SAL-08", "side": "sell", "to": "t02", "price": 30, "floor": 20}])
+    assert g.posted == []
+    g.teams = TOP + [{"team": "t16", "score": 8}]
+    run(g, [{"card": "SAL-08", "side": "sell", "to": "t16", "price": 30, "floor": 20}])
+    assert g.posted[0]["to"] == "t16"

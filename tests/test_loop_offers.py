@@ -346,7 +346,7 @@ def test_no_sale_to_a_top4_bidder_named_by_board_json(tmp_path):
     assert run(b) is None and b.accepted == [] and b.feed_calls == 0
     run(FakeBazaar(boards={"rastro": [bid(100, 30, "MAL-06")]}), "--dry-run")
     cand = [e for e in events() if e["event"] == "candidate"][0]
-    assert cand["bidder"] == "t13" and "top 4" in cand["skip"] and not cand["ok"]
+    assert cand["bidder"] == "t13" and "top 5" in cand["skip"] and not cand["ok"]
 
 
 def test_stale_board_json_falls_back_to_the_feed(tmp_path):
@@ -366,7 +366,10 @@ def test_unknown_or_near_bidder_gets_no_page_closer_price():
     # MAL-06 is an uncommon (book 25): 1.5 x book = 37.5
     b = FakeBazaar(boards={"rastro": [bid(103, 40, "MAL-06")]}, listed={})          # unknown bidder, 40 >= 37.5
     assert run(b) is None and b.accepted == []
-    b = FakeBazaar(boards={"rastro": [bid(104, 36, "MAL-06")]}, listed={})          # unknown, 36 < 37.5: fine
+    b = FakeBazaar(boards={"rastro": [bid(104, 36, "MAL-06")]}, listed={})          # unknown, 36 < 37.5:
+    run(b)
+    assert b.accepted == []                                  # policy 16:20: an unknown counterparty is skipped
+    b = FakeBazaar(boards={"rastro": [bid(104, 36, "MAL-06")]}, listed={104: "t09"})  # known, far below us: fine
     run(b)
     assert b.accepted == [(104, [119])]
     b = FakeBazaar(boards={"rastro": [bid(105, 40, "MAL-06")]}, listed={105: "t04"})  # 5 points below us
@@ -429,7 +432,7 @@ def test_no_sales_while_the_leaderboard_is_unknown():
     b = FakeBazaar(boards={"rastro": [bid(112, 30, "MAL-06"), ask(113, "MAL-08", 5)]})
     b.leaderboard = lambda: (_ for _ in ()).throw(loop.BazaarError("network"))
     run(b)
-    assert b.accepted == [(113, None)]                       # the buy goes, the sale doesn't
+    assert b.accepted == []                                  # policy 16:20: no top 5 known, no counterparty at all
 
 
 def test_odd_feed_lines_do_not_break_the_tick(tmp_path):
@@ -572,3 +575,28 @@ def test_cash_in_our_open_bids_counts_against_the_floor():
     b = FakeBazaar(boards={"rastro": [ask(60, "MAL-08", 5)]}, cash=300)
     run(b)
     assert [a[0] for a in b.accepted] == [60]
+
+
+
+# ------------------------------------------------------------------ counterparty policy and our own asks (Chief 16:20/16:30)
+
+def test_a_rival_or_top_5_seller_is_skipped_on_a_buy_and_a_far_one_is_not():
+    b = FakeBazaar(boards={"rastro": [ask(120, "MAL-08", 5)]}, listed={120: "t17"})   # Team 17: rival and top 5 here
+    run(b)
+    assert b.accepted == []
+    b = FakeBazaar(boards={"rastro": [ask(121, "MAL-08", 5)]}, listed={121: "t09"})
+    run(b)
+    assert [a[0] for a in b.accepted] == [121]
+
+
+def test_our_own_live_ask_for_the_card_beats_a_worse_accept():
+    # Sat 16:28: t08's swap took a RET-04 copy for +6.2 while our ask at 40 (+37) had been DM'd to Team 15.
+    ours = {"id": 9343, "maker": ME, "to": "t15", "venue": "rastro", "status": "open", "expires_tick": 99999,
+            "give": {"cash": 0, "assets": [{"id": 69, "kind": "card", "ref": "SAL-02"}], "types": []},
+            "want": {"cash": 30, "assets": [], "types": []}}
+    b = FakeBazaar(boards={"rastro": [bid(122, 15, "SAL-02")]}, listed={122: "t09"}, mine=[ours])
+    run(b)
+    assert b.accepted == []                                  # 30 - 2.2 beats 15 - 2 - 2.2: our ask stands
+    b = FakeBazaar(boards={"rastro": [bid(122, 15, "SAL-02")]}, listed={122: "t09"})
+    run(b)
+    assert [a[0] for a in b.accepted] == [122]               # no ask of ours: the same bid is taken

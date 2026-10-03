@@ -56,7 +56,7 @@ DESK = ("dani", "lucas")   # Dani is the human deal desk (Lucas, Sat 16:10): eve
 MULT_FILE = ROOT / "intel" / "multipliers.json"   # the Analyst's estimates: {team: {SET: {m, lo, hi, conf, why}}}
 MIN_VC = 5.0          # est. value created for a buyer that hasn't shown it lacks the card
 COPY = (1.0, 0.25, 0.10)   # what the 1st, 2nd, 3rd copy of a card is worth (catalog values.copy_marginals)
-FEED_GAP = 10         # a page-closing card only to teams at least this far below us
+FEED_GAP = 6          # a page-closing card only to teams at least this far below us (policy.PAGE_CLOSER_GAP)
 SET_NAMES = {"SAL": "Salamanca", "LAT": "La Latina", "LAV": "Lavapiés", "MAL": "Malasaña", "RET": "El Retiro",
              "CHA": "Chamberí"}
 HEADER = ("# v10 radar: buyers for the asks on our stall\n\n_Written by `tools/v10_radar.py`. Each line: an ask on v10, "
@@ -273,7 +273,7 @@ def addressed_match(o: dict, *, teams, mult, cards, held) -> dict | None:
 def suggestions(partner: str, *, teams, held, mult, cards, last, prof, collectors, ours) -> list[dict]:
     """Up to SUGGEST_LINES {card, n, buyer, name, price, vc} for one partner: its 2+ copy cards, each with its best
     buyer outside the top SUGGEST_TOP (buyers_for), est. value created > SUGGEST_VC."""
-    top = {t["team"] for t in teams[:SUGGEST_TOP]}
+    top = {t["team"] for t in teams[:SUGGEST_TOP]} | {"t13", "t17"}   # policy: rivals' gains vs ours unknown
     out = []
     for (team, card), ids in held.items():
         if team != partner or len(ids) < 2 or card not in cards:
@@ -346,7 +346,7 @@ class Radar:
         teams = sorted(self.pub._call("GET", "/api/leaderboard").get("teams") or [], key=lambda t: -(t.get("score") or 0))
         for i, t in enumerate(teams):
             t["rank"] = i + 1
-        top = {t["team"] for t in teams[:4]}
+        top = {t["team"] for t in teams[:5]} | {"t13", "t17"}   # policy: top 5; rivals' gains vs ours unknown
         ours = next((t.get("score") for t in teams if t["team"] == ME), None)
         last, prof = op.read_signals(events, [], ME, op.GameTime(events), tick, self.cards)
         who = sellers(events)

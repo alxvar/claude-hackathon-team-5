@@ -49,6 +49,7 @@ sys.path.insert(0, str(ROOT / "bazaar-kit"))
 sys.path.insert(0, str(ROOT / "tools"))
 from bazaar_sdk import Bazaar, BazaarError  # noqa: E402
 from collectors import CachedCollectors, set_of  # noqa: E402
+import policy  # noqa: E402
 
 BOOK, STATE, LOG = ROOT / "run" / "book.json", ROOT / "run" / "book_state.json", ROOT / "logs" / "book.jsonl"
 HOUSE = "rastro"
@@ -143,6 +144,7 @@ class Book:
         self.collectors = collectors or CachedCollectors()
         self.venues: dict = {}
         self.top: set = set()
+        self.teams: list | None = None
 
     def context(self, tick: int) -> None:
         """Venues and the top 4, read every 10 ticks (public reads)."""
@@ -164,9 +166,10 @@ class Book:
             try:
                 teams = sorted(self.b.leaderboard().get("teams") or [], key=lambda t: -(t.get("score") or 0))
                 self.top = {t["team"] for t in teams[:4]}
+                self.teams = teams
             except BazaarError as e:
                 self.log({"event": "error", "where": "leaderboard", "code": e.code})
-                self.top = None
+                self.top, self.teams = None, None
         return self.top
 
     def value(self, card: str) -> float | None:
@@ -211,6 +214,8 @@ class Book:
             held = len(copies.get(e["card"], []))
             if sell:                                  # only to a team that collects the set (Chief 11:50)
                 ok, why = self.collectors.get().allows(e.get("to"), set_of(e["card"]))
+                if ok and self.teams and e.get("to"):  # and the counterparty policy (16:20); unread board: as before
+                    ok, why = policy.check(e.get("to"), teams=self.teams, page_closer=bool(e.get("page_closer")))
                 if not ok:
                     if s.get("offer") in mine and self.dry_run:
                         self.log({"event": "cancel_not_collector", "card": e["card"], "offer": s["offer"], "why": why,

@@ -55,7 +55,8 @@ FRESH_S = 120              # collector files younger than this are used instead 
 CONF_H = 0.5               # a signal older than 30 game minutes is low confidence: listed, never alerted
 WALL_STALE_S = 3600        # ... or older than 60 real minutes, whatever the game clock says (it pauses overnight)
 MIN_GAIN, GAIN_CAP = 20, 50
-SCORE_GAP, TOP_N = 10, 4   # feeding rule (plan §4A): never the top 4; a page-closing sale only to teams ≥ 10 below us
+SCORE_GAP, TOP_N = 6, 5    # policy (Chief 16:20): never the top 5; a page-closing sale only to teams ≥ 6 below us
+RIVALS = frozenset({"t13", "t17"})   # policy: no trade where their gain > ours; unknown here, so none
 ALERTS_PER_H, TEAM_COOLDOWN_S, PAIR_COOLDOWN_S = 3, 45 * 60, 2 * 3600
 MAX_LIVE, MAX_POSTS_PER_RUN = 3, 2   # the team posts ≤ 12 listings/tick across all processes
 OFFER_TTL_TICKS = 20   # in ticks, not minutes: 10 min at Saturday's 30 s, 5 at Sunday's 15 s (page-critical bids)
@@ -420,7 +421,9 @@ def find_opportunities(*, events, board, lb, cat, me, value_of, build=BUILD, cas
                  "completes": False, "collects": p.get("collects", False), "m_est": m_est, "other_lacks": others,
                  "closing": closing}
             if team in top:
-                o["reasons"].append("top 4")
+                o["reasons"].append(f"top {TOP_N}")
+            if team in RIVALS:
+                o["reasons"].append("rival (Team 13/17): their gain vs ours unknown")
             # Chief 11:50: value created = buyer value - seller value; a sale to a non-collector scored -10.2 [V].
             dumps = collectors is not None and c["set"] in collectors.teams.get(team, {}).get("dumps", set())
             if dumps:
@@ -447,9 +450,11 @@ def find_opportunities(*, events, board, lb, cat, me, value_of, build=BUILD, cas
             if price is None:
                 o["reasons"].append(f"worth only {value:g} to us")
             if team in top:
-                o["reasons"].append("top 4")
+                o["reasons"].append(f"top {TOP_N}")
+            if team in RIVALS:
+                o["reasons"].append("rival (Team 13/17): their gain vs ours unknown")
             if not teams:
-                o["reasons"].append("leaderboard empty: top 4 unknown")
+                o["reasons"].append(f"leaderboard empty: top {TOP_N} unknown")
             cash = me.get("cash", 0) - committed_cash
             if price and cash - price < cash_floor:
                 o["reasons"].append(f"cash floor {cash_floor} (cash {cash})")
@@ -520,12 +525,12 @@ def venue_for(o, venues, top):
 
 # ---------------------------------------------------------------------------------------------------- messages
 
-def message(o, offer_id=None):
+def message(o, offer_id=None, valid_until=None):
     oid, w = offer_id or "????", o.get("venue_name") or "El Rastro"
     t, x, n, s, p = o["team_name"], o["card"], o["card_name"], o["set_name"], o["price"]
     if o["side"] == "SELL":
         why = (f"spare copy worth {o['our_value']:g} to us → +{o['gain']:g} at {p} P; {t} is #{o['rank']} at "
-               f"{o['their_score']}, {o['gap']:g} below us and outside the top 4 (feeding rule OK); they {o['src']}"
+               f"{o['their_score']}, {o['gap']:g} below us and outside the top 5 (feeding rule OK); they {o['src']}"
                f"{'; other ' + o['set'] + ' cards they lack: ' + ', '.join(o['other_lacks']) if o.get('other_lacks') else ''}")
         es = (f"Che, les falta la {x} ({n}) para la página de {s}, ¿no? Se la dejamos publicada a su nombre en {w} a {p} P, "
               f"oferta {oid}. No tienen que creernos: la ven ustedes mismos, la aceptan y la suman a la página; si es "
@@ -551,6 +556,7 @@ def message(o, offer_id=None):
         line = f"Accept offer {oid} on {w} (you hand over one {x} for {p} P)"
     title = f"{o['side']} {x} {'to' if o['side'] == 'SELL' else 'from'} {t} at {p} P (+{o['gain']:g})"
     body = (f"{o['side']} {x} ({o['rarity']}, {s}) · {t} · offer {oid} at {p} P"
+            f"{' · valid until ' + valid_until if valid_until else ''}"
             f"{'' if offer_id else ' [dry run: not posted]'}\nWhy: {why}\n\nES: {es}\n\nEN: {en}\n\n"
             f"Their agent: \"{line}\"")
     return title, body
@@ -634,7 +640,7 @@ def write_md(path, opps, state, ctx, *, dry_run, now, clock, src):
          f"t {clock.get('t_hours')} h){' · DRY RUN: nothing posted, nobody notified' if dry_run else ''}", "",
          f"Alert rule: gain ≥ {MIN_GAIN} or it completes our page · signal ≤ {int(CONF_H * 60)} game min and "
          f"≤ {WALL_STALE_S // 60} real min old · "
-         f"≤ {ALERTS_PER_H} alerts/h · team 45 min · team+card 2 h · never to the top 4 ({', '.join(sorted(ctx['top']))}); "
+         f"≤ {ALERTS_PER_H} alerts/h · team 45 min · team+card 2 h · never to the top 5 ({', '.join(sorted(ctx['top']))}); "
          f"a sale that closes their page (last or second-to-last known lack) only to teams ≥ {SCORE_GAP} below us "
          f"({ctx['ours']}); page-closers on El Rastro, the rest on {DEFAULT_VENUE}. Data: {src}.", "",
          f"## Ranked now ({len(opps)})", "",
@@ -748,7 +754,8 @@ def run_once(api, *, dry_run, now=None, state_path=STATE, out_path=OUT, data_dir
         state.setdefault("alerts", []).append(dict(rec))
         save_state(state_path, state, now)  # recorded before anyone is told: a crash can't lose a live offer
         o["status"] = f"ALERTED · offer {oid} live"
-        title, body = message(o, oid)
+        until = "~" + time.strftime("%H:%M", time.localtime(now + OFFER_TTL_TICKS * float(clock.get("tick_seconds") or 30)))
+        title, body = message(o, oid, until)
         for who in ("dani", "lucas"):
             notifier(who, title, body, priority=5 if o["completes"] else 4, tags=["moneybag"])
         log(f"opportunities: posted offer {oid} and alerted: {title}")

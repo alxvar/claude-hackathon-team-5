@@ -5,10 +5,11 @@ other tick, for each spare we hold and each card we lack (0 copies):
 - a spare: a card with 2+ copies free of open offers (2 copies, one in an ask: no spare), never a card the book asks for
   (run/book.json "sell") nor a reserved one (run/reserved.json {"cards": [...]}, else the "## Reserved" section of
   run/operator-handoff.md); the least valuable free copy goes;
-- a holder: a team outside the live top 5 that holds the card (feed holdings, a lower bound; tools/v10_radar.py) and
-  collects our spare's set (tools/collectors.py, never "dumps") or values it at m >= 1 (multipliers);
-- the feeding rule: a page card (01-10) only to a team >= 10 points below us, unless the feed shows it lacks 2+ other
-  cards of that set (as tools/v10_radar.py and opps); unknown scores block;
+- a holder: a team that holds the card (feed holdings, a lower bound; tools/v10_radar.py) and collects our spare's
+  set (tools/collectors.py, never "dumps") or values it at m >= 1 (multipliers);
+- the counterparty policy (tools/policy.py, Chief 16:20): the top 5 only if our gain >= 3x theirs; Teams 13 and 17
+  never with their gain > ours; a page card (01-10) only to a team >= 6 below us, unless the feed shows it lacks 2+
+  other cards of that set (then it isn't a page-closer); unknown scores block;
 - our gain = our value of the card (GET /api/me/value, page bonus included) - our value of the copy we give >= +3
   (+PACK_DRAG while we hold an unopened pack); never a card we already want in an open offer or the book bids for;
 - their gain, conservative (their low multiplier on what they get, high on what they give; 2nd copy 25%, 3rd 10%) minus
@@ -41,14 +42,18 @@ import opportunities as op  # noqa: E402
 import v10_radar as vr  # noqa: E402
 from book import expires_param  # noqa: E402
 from collectors import CachedCollectors  # noqa: E402
+import policy  # noqa: E402
+try:
+    from notify import notify as _notify
+except Exception:  # noqa: BLE001
+    _notify = None
+DESK = ("dani", "lucas")   # Dani is the human deal desk (Lucas, Sat 16:10)
 
 PARTNERS = ("v15", "v07", "v20")
 MIN_OUR_GAIN = 3.0
 PACK_DRAG = 2.5        # an unopened pack drags each trade's score ~-2.4 (GAME.md): raise our bar while we hold one
 MAX_LIVE = 4
 LIFE_TICKS = 10        # real ticks a swap offer lives
-TOP_N = 5
-SCORE_GAP = 10         # a page card only to a team this far below us
 VALUE_TICKS = 20       # our value of a card we lack is re-read this often (and whenever our holdings change)
 VALUE_READS, READ_GAP_S = 4, 0.25   # at most this many value reads per run, this far apart (shared 5 req/s)
 POSTS_PER_RUN = 2
@@ -147,15 +152,13 @@ def candidates(*, me, locked, our_value, teams, held, mult, cards, last, collect
     spares = our_spares(me, locked, no_spare)
     if not spares:
         return []
-    top = {t["team"] for t in teams[:TOP_N]}
-    score = {t["team"]: t.get("score") for t in teams}
-    ours = score.get(ME)
+    top = policy.top(teams)
     have = {a["ref"] for a in me.get("assets") or [] if a.get("kind") == "card"}
     busy_teams, busy_cards = {b["to"] for b in busy}, {b["want"] for b in busy}
     busy_assets = {b["asset"] for b in busy}
     holders: dict = {}
     for (team, card), ids in held.items():
-        if ids and team not in top and team != ME and str(team).startswith("t") and card in cards \
+        if ids and team != ME and str(team).startswith("t") and card in cards \
                 and card not in have and card not in skip_want and card not in busy_cards and team not in busy_teams:
             holders.setdefault(card, []).append(team)
     out = []
@@ -170,12 +173,11 @@ def candidates(*, me, locked, our_value, teams, held, mult, cards, last, collect
                 m = vr._triple((mult.get(team) or {}).get(st, 0.0))[0]
                 if "dumps" in why or not (ok or m >= 1.0):
                     continue                          # it neither collects our spare's set nor values it
-                if page_card(ref):
-                    lacks = [k for k, x in last.items() if k[0] == team and k[1] != ref and x.get("kind") == "lack"
-                             and cards.get(k[1], {}).get("set") == st]
-                    gap = None if ours is None or score.get(team) is None else ours - score[team]
-                    if len(lacks) < 2 and (gap is None or gap < SCORE_GAP):
-                        continue                      # may close its page and it isn't 10+ below us (or unknown)
+                closer = page_card(ref) and len([k for k, x in last.items() if k[0] == team and k[1] != ref
+                                                 and x.get("kind") == "lack"
+                                                 and cards.get(k[1], {}).get("set") == st]) < 2
+                if closer and not policy.check(team, teams=teams, our_gain=1e9, their_gain=0.0, page_closer=True)[0]:
+                    continue                          # the cheap part of the policy first: the page-closer gap
                 venue = pick_venue(team, venues, top)
                 if venue is None:
                     continue
@@ -183,15 +185,16 @@ def candidates(*, me, locked, our_value, teams, held, mult, cards, last, collect
                 est, low = their_gain(team, ref, want, mult=mult, held=held, cards=cards, fee=fee)
                 if low <= 0:
                     continue
-                pairs.append((ref, asset, team, venue, est, low))
+                pairs.append((ref, asset, team, venue, est, low, closer))
         if not pairs:
             continue
         v_want = our_value(want)                      # only now: every other check passed
         if v_want is None:
             continue
-        for ref, asset, team, venue, est, low in pairs:
+        for ref, asset, team, venue, est, low, closer in pairs:
             gain = round(v_want - asset["your_value"], 1)
-            if gain >= min_gain:
+            if gain >= min_gain and policy.check(team, teams=teams, our_gain=gain, their_gain=est,
+                                                 page_closer=closer)[0]:
                 out.append({"asset": asset["id"], "give": ref, "want": want, "to": team, "venue": venue,
                             "our_gain": gain, "their_est": est, "their_low": low, "our_value_want": v_want,
                             "our_value_give": asset["your_value"]})
@@ -207,10 +210,11 @@ def is_swap(o: dict) -> bool:
 
 class Engine:
     def __init__(self, b, *, dry_run=False, mult_fn=vr.hub_mult, events_fn=vr.load_events, state=STATE, book=BOOK,
-                 reserved=RESERVED, handoff=HANDOFF, collectors=None, log=log, sleep=time.sleep):
+                 reserved=RESERVED, handoff=HANDOFF, collectors=None, log=log, sleep=time.sleep, notifier=_notify):
         self.b, self.dry_run, self.mult_fn, self.events_fn, self.state_path = b, dry_run, mult_fn, events_fn, state
         self.book, self.reserved, self.handoff, self.log, self.sleep = book, reserved, handoff, log, sleep
         self.collectors = collectors or CachedCollectors()
+        self.notifier = notifier
         self.values: dict = {}
         self.cards: dict = {}
         self._hub: dict = {}
@@ -279,15 +283,15 @@ class Engine:
                 filled = x.get("asset") not in mine_ids and x["want"] in have
                 self.emit({"event": "filled" if filled else "expired", **x})
         teams = sorted(self.b.leaderboard().get("teams") or [], key=lambda t: -(t.get("score") or 0))
-        top = {t["team"] for t in teams[:TOP_N]}
+        top = policy.top(teams)
         venues = None
         for x in list(live):                          # cancel what no longer passes
-            why = ("its card reached us another way" if x["want"] in have else
-                   f"{x['to']} is in the top {TOP_N}" if x["to"] in top else None)
+            ok, pwhy = policy.check(x["to"], teams=teams, our_gain=x.get("our_gain"), their_gain=x.get("their_est"))
+            why = ("its card reached us another way" if x["want"] in have else None if ok or not teams else pwhy)
             if why is None and teams:
                 venues = venues or {v.get("venue"): v for v in self.b.venues().get("venues") or []}
                 if (venues.get(x["venue"]) or {}).get("owner") in top:
-                    why = f"venue {x['venue']}'s owner is in the top {TOP_N}"
+                    why = f"venue {x['venue']}'s owner is in the top {policy.TOP_N}"
             if why:
                 if not self.dry_run:
                     try:
@@ -338,9 +342,25 @@ class Engine:
             self.state["live"].append({**c, "offer": oid, "tick": tick})
             posted.append(c)
             self.save()
+            self.nudge(c, oid, tick_seconds)
         if self.dry_run:
             self.state["live"] = live
         return cands
+
+
+    def nudge(self, c: dict, oid, tick_seconds: float) -> None:
+        """A ready DM for the desk (Dani and Lucas): the swap is addressed to the team; a nudge helps it get taken."""
+        if not self.notifier:
+            return
+        until = "~" + time.strftime("%H:%M", time.localtime(time.time() + LIFE_TICKS * float(tick_seconds or 30)))
+        team = f"Team {int(c['to'][1:])}" if str(c["to"])[1:].isdigit() else c["to"]
+        name = lambda r: (self.cards.get(r) or {}).get("name", r)   # noqa: E731
+        dm = (f"Hi {team}! We offered you our {name(c['give'])} ({c['give']}) for your {name(c['want'])} ({c['want']}), "
+              f"a straight swap on {c['venue']} (0% fee), addressed to you: offer {oid}. Check it and accept if it works.")
+        for who in DESK:
+            self.notifier(who, f"Swap to {team}: {c['give']} for {c['want']} (offer {oid})",
+                          f"Offer {oid} on {c['venue']}, valid until {until}. Our est. gain +{c['our_gain']:g}, theirs "
+                          f"+{c['their_est']:g}.\nDM {team}:\n{dm}", priority=3, tags=["handshake"])
 
 
 def main(argv=None) -> None:

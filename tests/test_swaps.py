@@ -143,7 +143,10 @@ def engine(tmp_path, game, monkeypatch, dry_run=False, held=HELD):
     (tmp_path / "book.json").write_text('{"offers": []}')
     return sw.Engine(game, dry_run=dry_run, mult_fn=dict, events_fn=list, state=tmp_path / "state.json",
                      book=tmp_path / "book.json", reserved=tmp_path / "r.json", handoff=tmp_path / "h.md",
-                     collectors=Col(), sleep=lambda s: None)
+                     collectors=Col(), sleep=lambda s: None, notifier=lambda *a, **k: NUDGES.append(a))
+
+
+NUDGES = []
 
 
 def events(tmp_path):
@@ -212,3 +215,25 @@ def test_never_on_the_counterpartys_own_venue_nor_a_top_5_or_ownerless_venue():
     assert sw.pick_venue("t15", VENUES, {"t10"}) == "v20"
     assert sw.pick_venue("t03", VENUES, {"t10", "t15"}) is None
     assert sw.pick_venue("t02", {"v15": {"status": "open", "owner": None}}, set()) is None
+
+
+def test_the_policy_lets_a_top_5_holder_in_only_at_3x_and_keeps_rivals_below_us():
+    held = {("t14", "LAT-07"): {1, 2}}                                  # t14 is #1, 10 above us
+    lacks = {("t14", "SAL-05"): {"kind": "lack"}, ("t14", "SAL-06"): {"kind": "lack"}}   # so SAL-02 can't close its page
+    assert cands(held=held, our_value={"LAT-07": 25.0}.get) == []       # without that evidence: a page-closer, no
+    assert cands(held=held, last=lacks) == []                           # ours 10.3 < 3 x their 7.5
+    assert cands(held=held, last=lacks, our_value={"LAT-07": 25.0}.get)   # ours 22.8 >= 22.5
+    teams = TEAMS + [{"team": "t17", "score": 5}]
+    assert cands(held={("t17", "LAT-07"): {1, 2}}, teams=teams, our_value={"LAT-07": 9.0}.get) == []   # 6.8 < 7.5
+    assert cands(held={("t17", "LAT-07"): {1, 2}}, teams=teams)         # ours 10.3 > their 7.5
+
+
+
+def test_a_posted_swap_nudges_the_desk_with_the_offer_id_and_its_expiry(tmp_path, monkeypatch):
+    NUDGES.clear()
+    three = {**ME, "assets": ME["assets"] + [{"id": 487, "kind": "card", "ref": "SAL-02", "your_value": 0.9}]}
+    g = Game(three)
+    engine(tmp_path, g, monkeypatch).run(644, 30.0)
+    oid = g.posted[0]["id"]
+    assert [n[0] for n in NUDGES] == ["dani", "lucas"]
+    assert f"Offer {oid} on v15, valid until ~" in NUDGES[0][2] and "Hi Team 2!" in NUDGES[0][2]

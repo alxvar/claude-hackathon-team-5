@@ -133,22 +133,22 @@ def test_a_spare_already_listed_by_us_is_not_offered_twice():
 
 def test_feeding_filter_on_the_real_leaderboard():
     opps, ctx = engine()
-    assert ctx["ours"] == 20.03 and ctx["top"] == {"t13", "t12", "t17", "t10"}
+    assert ctx["ours"] == 20.03 and ctx["top"] == {"t13", "t12", "t17", "t10", "t05"}   # top 5 (16:20), us included
     t07 = find(opps, "SELL", "t07", "SAL-02")             # Team 7 at 8.98: 11.05 below us
     assert t07["reasons"] == [] and t07["gap"] == pytest.approx(11.05)
     t08 = find(opps, "SELL", "t08", "LAV-03")             # Team 8 at 17.65: close, but it lacks LAV-09/10 too
     assert t08["reasons"] == [] and not t08["closing"]     # plan §4A: not a page-closer, so no 10-point rule
     t12 = find(opps, "SELL", "t12", "MAL-07")             # Team 12: top 4 and above us
-    assert "top 4" in t12["reasons"] and any("above us" in r for r in t12["reasons"])
+    assert "top 5" in t12["reasons"] and any("above us" in r for r in t12["reasons"])
 
 
 def test_feeding_gap_boundary():
     f = fx()
     for t in f["leaderboard"]["teams"]:
         if t["team"] == "t07":
-            t["score"] = 10.03                            # exactly 10 below: allowed
+            t["score"] = 14.03                            # exactly 6 below: allowed (policy 16:20: was 10)
         if t["team"] == "t02":
-            t["score"] = 10.04                            # 9.99 below: refused
+            t["score"] = 14.04                            # 5.99 below: refused
     opps, _ = engine(f)
     assert find(opps, "SELL", "t07", "SAL-02")["reasons"] == []
     assert any("below us" in r for r in find(opps, "SELL", "t02", "LAT-03")["reasons"])
@@ -215,7 +215,7 @@ def test_buy_respects_cash_floor_and_top_4():
     assert any("cash floor" in r for r in o["reasons"])         # 252 − 70 < 200
     f = ret_page_fixture(holder="t13")
     o = find(engine(f, values={"RET-10": 149.9}, cash_floor=100)[0], "BUY", "t13", "RET-10")
-    assert "top 4" in o["reasons"]
+    assert "top 5" in o["reasons"]
 
 
 # ------------------------------------------------------------------------------------------------ strategic filter
