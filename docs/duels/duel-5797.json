@@ -323,6 +323,87 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1273,
+   "raw": {
+    "duel": 5797,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Frutero de Argumosa",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.03,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 98,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1286,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 7537,
+     "price": 59,
+     "tick": 1271,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 7599,
+     "price": 62,
+     "tick": 1273,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1270,
+      "from": "Rival Plata",
+      "text": "Hello! I can do 85 with delivery on day 10.",
+      "price": 85,
+      "days": 10
+     },
+     {
+      "tick": 1270,
+      "from": "you",
+      "text": "Thanks for opening. I can do 52 P with delivery on day 0; happy to hear your counter.",
+      "price": 52,
+      "days": 0
+     },
+     {
+      "tick": 1271,
+      "from": "Rival Plata",
+      "text": "Thanks for the reply. 75, delivery day 10.",
+      "price": 75,
+      "days": 10
+     },
+     {
+      "tick": 1271,
+      "from": "you",
+      "text": "I appreciate the move on price. I can do 59 P with delivery on day 0; I'd like you to meet me on the day.",
+      "price": 59,
+      "days": 0
+     },
+     {
+      "tick": 1272,
+      "from": "Rival Plata",
+      "text": "Let me move closer: 68, day 10.",
+      "price": 68,
+      "days": 10
+     },
+     {
+      "tick": 1273,
+      "from": "Rival Plata",
+      "text": "I'd like to close this: 62 with day 10.",
+      "price": 62,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
