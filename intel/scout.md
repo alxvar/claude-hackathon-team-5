@@ -1,17 +1,28 @@
-# Scout (claude-sonnet-5-5, Sat 22:12)
+# Scout (claude-sonnet-5-5, Sat 22:17)
 
 ## Top 3 actions now
-1. **Keep SAL-11 bid 18977 live (115 → t04, v15, exp tick 1371) and re-post it before it lapses.** Owner: Operator (repost loop). Evidence: our value is 162 for the first copy, the GUARDRAIL allows ≤ 125 with a 260 floor, and cash is 392. Asks by others show SAL-11 at 245, so t04 is not selling at our price yet. t10 → t17 SAL-11 went at 207 (tick 1296), so t10 can also supply it. Expected: gain ≈ 162 − 115 − fee, about +40 neg_points if it fills, capped at 50. Pack drag applies. Confidence: med-low, because t04 has ignored every ping.
-2. **Offer RET-09 or RET-10 duplicates only to non-top-4 buyers, and only at a price above the roughly 84 market.** Owner: Operator via trade.py, with Lucas/Dani DMing t09. Evidence: we hold RET-09 and RET-10 at 149.9 each. The feed shows an ask of 84 for each, and t13 bids only 42. The ask has no taker, so any sale is below our value of 149.9 and costs us. We also have only a single copy of each, so a sale breaks our own page. Therefore do NOT sell. The live gain is on the buy side: Lucas's matchmaker plan, RET-09 from t08 to t09 at about 100, belongs to t09 and should be left to them. Expected neg_points: 0. Confidence: high that selling is wrong.
-3. **Clear our spare commons through the open maker offers (19326, 19328, 19330, 19331) and add a bid for the missing cards.** Owner: Operator. Evidence: t04 bids 5 for LAV-02, and we hold three copies of LAV-02 at 1.3 each. Our spares LAV-03 and LAV-04 are worth 3.2 and sell at 6. The 19331 MAL-08 ask at 20 compares with a value of 17.5. Expected: roughly +2 to +6 neg_points in total, with no page bonus lost. Confidence: med. The gain is small, but nothing here feeds a top-4 team.
+
+1. **Keep SAL-11 bid 18977 (115 → t04) alive; re-post before it expires at tick 1371.** Operator, via trade.py or the existing repost loop.
+   - Evidence: Lucas's 21:45 GUARDRAIL allows SAL-11 from Team 4 at ≤ 125 (our value 162, first copy). Team 10 sold SAL-11 to t17 at 207 (tick 1296), so a fresh bid is competing with that market.
+   - Effect: about +2.3 board by Lucas's estimate. Gain at 115 is 162 − 115 = 47, but pack drag and the 50 cap apply.
+   - Confidence: med. t04 bots have not replied to any ping.
+
+2. **Take Team 9 or Team 15 page-finisher matches on v10 only where the seller is not a top-4 team.** Offer ads and brokering via Lucas or Dani, not the operator.
+   - Evidence: t09 bids 56 for MAL-09 and 56 for MAL-10 (offers 19105 and 19129). Lucas's 21:40 directive has the RET-09 t08 → t09 match at about 100. Team 13 bids 42 for RET-09/10, far below the ~84-100 that t09 can pay.
+   - Effect: zero neg_points for us. The Market (v10) real-trades mark is the lever, with a 10 P rebate per non-rival card sold on v10.
+   - Confidence: low to med. The rebate is capped at 80 P.
+
+3. **Sell spares to t01 and t09 via our standing asks (19326, 19328, 19330, 19331); hold RET-11 at 198 value.**
+   - Evidence: 19331 is MAL-08 at 20 (our value 17.5). The LAV-03, LAV-04 and MAL-03 asks at 6-9 are close to spare value 3.2-7. Both targets are below us on the board (t01 at 25.7, t09 at 24.0). The dealer FLIP rule requires est. score ≥ +20, and nothing in the metrics shows one.
+   - Effect: gain of about +2.5 neg on MAL-08. Small.
+   - Confidence: med.
 
 ## What the climbing teams are doing
-- **Team 12 (+1.7 in 15 min, +3.1 in 60 min).** It bought RET-11 from t06 at 216 (tick 1245), SAL-09 from t12 → t09 at 70, and LAT-10 from t01 at 86 (tick 1304). It also bought LAT-06 from t09 at 20. That is a pattern of epic and rare buys at prices below value, on the sets it collects (RET/MAL/LAT).
-- **Team 1 (+2.8 / +2.2).** It sold LAT-10 to t12 at 86. It collects LAV/SAL/MAL and is not a top-4 team, so selling to it passes the feeding rule.
-- **Team 18 (+1.2).** It bought LAT-10 from t13 at 72 (tick 1332). It collects RET/LAT, at rare prices around 72.
-- **Team 10 (#1, 38.3).** Its +4.7 over 60 min comes from epic trades: it bought MAL-11 at 195 from t08 and sold SAL-11 at 207 to t17. A single trade of ~200 P moves the board.
+- **Team 18 (+1.6 in 15 min, now #5):** it buys RET/LAT. Its latest trade is LAT-10 from t13 at 72 (tick 1332), a rare below the clearing price of 70-80. Its profile shows 38 deals against our 53, so it gains from fewer, bigger trades.
+- **Team 10 (#1, 38.3, +3.7 in 60 min):** it moves epics. It sold SAL-11 to t17 at 207 and bought MAL-11 from t08 at 195 (ticks 1296 and 1264). It bids 205 for LAV-11 (offer 19081). It also profits from other teams' trades on v10.
+- **Team 12 (+2.5 in 60 min):** it is collecting RET/MAL/LAT. It paid 216 for RET-11 from t06 (tick 1245) and bought LAT-10 at 86 (tick 1304). It also bought LAT-06 at 20 and SAL-09 for 70 (t09 bought the SAL-09).
 
 ## Threats
-- **Team 10 is bidding 205 for LAV-11** (offer 19081), which would feed a leader that sells epics to others.
-- **SAL-11 is moving.** t17 bought it at 207 (tick 1296), and an ask sits at 245. Our 115 bid is well below the market and may never fill.
-- **t13 is bidding 4 for our RET commons and 42 for rares.** Those are junk bids; do not engage.
+- **Team 10 widens the lead.** It leads by 7.4 points and holds the epic flow (LAV-11 bid at 205). We must not route trades to v10 while it is a rival. The v10 rebate relies on non-rival sellers only.
+- **t09 and t13 compete for RET cards.** t09 is a RET-09 finisher, and t13 posts bids of 42 on RET-09/10 and 4 on commons. If t09 closes RET it gains, but it sits below us on the board, so the feeding rule allows it.
+- **Pack drag and the cap.** The SAL-06 buy gave +40.4, below the +50 cap. Any further trade shifts the value of our unopened silver pack (72.7).
