@@ -50,6 +50,8 @@ class DayValues:
     values: tuple[float, ...]     # day 0 to 10: what the day adds to a deal for us, 0 at our best day, else less
     sure: bool                    # False: the direction is a guess, and each day counts at the worse reading
     how: str                      # one line on how we read the weight, for the console, the records, the strategist
+    offset: float = 0.0           # what our best day adds in the game's own terms: 10 x w when "each delivery day
+                                  # adds w to your side" (day 0 adds 0), else 0. Only the limit check uses it.
 
     def __call__(self, day: int | None) -> float:
         """The day's value; a missing day counts as our worst."""
@@ -137,7 +139,7 @@ def apply_mode(v: DayValues | None, mode: str) -> DayValues | None:
     """The reading `v` under `mode`; auto returns `v` itself."""
     if v is None or mode == "auto":
         return v
-    if mode == "flip":
+    if mode == "flip":                            # a flipped reading drops the bonus offset: the safe side
         return DayValues(tuple(v.values[10 - d] for d in DAYS), v.sure, f"{v.how} [flipped: --days-read flip]")
     if mode == "unsure":
         return DayValues(tuple(min(v.values[d], v.values[10 - d]) for d in DAYS), False,
@@ -184,4 +186,16 @@ def _read_days(weight: Any, meaning: str | None = None) -> DayValues | None:
     prefer = direction(text) if text else None
     if prefer is None and w < 0:
         prefer = "early"                          # w x day with a negative w: the early days are worth more
-    return _per_day(w, prefer, f"{_amount(w)} per day" + (" (direction from the game's words)" if text and prefer else ""))
+    v = _per_day(w, prefer, f"{_amount(w)} per day" + (" (direction from the game's words)" if text and prefer else ""))
+    if prefer == "late" and _bonus(text):
+        # "each delivery day adds w to your side": a bonus counted from day 0 (duel 5616: day 0 scored the price
+        # margin alone), so day d is worth +w x d in the game's terms, not w x (d - 10).
+        v = DayValues(v.values, v.sure, f"{v.how}; a bonus from day 0 (day 10 adds {_amount(10 * abs(w))})",
+                      offset=10 * abs(w))
+    return v
+
+
+def _bonus(text: str) -> bool:
+    """The game's Duels II seller wording: the day adds cash to our side, with no early/late word."""
+    t = re.sub(r"\([^)]*\)", " ", text.replace("_", " "))
+    return (bool(_ADDS.search(t)) and not _COST.search(t) and not _EARLY.search(t) and not _LATE.search(t))
