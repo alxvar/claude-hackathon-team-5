@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 21:11 (tick 1226), snapshot 1220: t10 33.58 · t06 32.62 · **us #3 31.29** · t03 29.89 · t14 29.58 · t18 29.41. Field-wide drop at 1210 (−0.15 to −0.48 each) [?]. Duels II ≈ tick 1239 (≈ 21:16); plan §1f; Sunday allocation §3g._
+_Last update: Sat 21:31 (tick 1262), snapshot 1250: Duels II live (§1g): wave 1 on the old day reading, 2/6 deals; fix live from tick 1256. Board: t10 · t06 · us #3. Sunday allocation §3g._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -165,6 +165,18 @@ message. Duels II decay d = 0.08 → break-even 8.7%.
 
 **Expected:** with half the duels in conflict and the rival's weight above ours half the time, giving the day with a premium
 lifts those deals' worth by ≈ `0.5 × (w_r − w_us) × Δ` each (deck case +15 P). ≈ +20-30% on Duels II results ≈ +1-1.5 board [L].
+
+## 1g. Duels II live (session 3 from tick 1239; 612 duels, decay 0.08) [V docs/duels, feed]
+
+**Day weights as served:** buyer `"each delivery day costs you this much cash"` (w 3.66-5.01) → day 0 best; seller
+`"each delivery day adds this much cash to your side"` (w 1.42-3.29) → day 10 best. **The seller bonus is ABSOLUTE from day 0**
+[V: 5616 sold at 105 vs limit 69 at day 0, 1 round → result 33.1 = 36 × 0.92, i.e. day 0 adds 0]; days.py stores values
+relative to the best day, so `guards.worth` under-reads seller deals by w × (10 − day) (fix sent to the Chief).
+
+**Wave 1 (old reading, opened every duel at day 5):** 2 deals / 6 (field 59/75 = 79%). 5623 buyer settled at day 5 → day cost
+18.3 of a 22 margin → result 2.6 (≈ 15.8 at day 0). 5616 seller at day 0 → left +31.9 of day bonus. Missed: 5622 (rival offered
+99/106 at day 10 = worth 30/37; later "92 works, please accept" and the clock ran out), 5618 (rival 46 at day 0 = +4).
+Correct no-deals: 5619, 5617. Fix b7d91f3 (direction words) live from tick 1256.
 
 ## 1f. Duels II scoreboard plan (FINAL 19:35, snapshot 1100) [L]
 
