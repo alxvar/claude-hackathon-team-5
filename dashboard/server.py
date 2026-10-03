@@ -666,11 +666,24 @@ class Analysis:
         rows.sort(key=lambda r: -r["avg_move"])
         return rows
 
+    def minutes_per_hour(self):
+        """Wall minutes per game hour: ticks per game hour, measured on the feed's last 20 ticks, × the tick length.
+        Friday (60 s ticks, 60 per hour) and Saturday (30 s, 120 per hour) both give 60: game hour = wall hour."""
+        secs = self.clock.get("tick_seconds") or 60
+        pts = [(e["tick"], e["t"]) for e in self.events
+               if isinstance(e.get("t"), (int, float)) and isinstance(e.get("tick"), int)]
+        if pts:
+            win = [p for p in pts if p[0] >= pts[-1][0] - 20]
+            (k0, t0), (k1, t1) = win[0], win[-1]
+            if k1 - k0 >= 5 and t1 > t0:
+                return (k1 - k0) / (t1 - t0) * secs / 60
+        return 60
+
     def schedule(self):
-        t_now, secs = self.clock.get("t_hours") or 0, self.clock.get("tick_seconds") or 60
+        t_now, per_hour = self.clock.get("t_hours") or 0, self.minutes_per_hour()
         rows = []
         for e in (self.sched.get("upcoming") or [])[:10]:
-            rows.append({"at": e.get("at_hours"), "eta_min": round((e.get("at_hours", 0) - t_now) * secs),
+            rows.append({"at": e.get("at_hours"), "eta_min": round((e.get("at_hours", 0) - t_now) * per_hour),
                          "action": e.get("action"), "note": e.get("note", ""),
                          "params": json.dumps(e.get("params") or {}, ensure_ascii=False)[:160]})
         return rows
