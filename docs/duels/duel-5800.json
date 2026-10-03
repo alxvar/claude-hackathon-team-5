@@ -411,6 +411,681 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1295,
+   "raw": {
+    "duel": 5800,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.98,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 77,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1300,
+    "decay_per_round": 0.08,
+    "rounds": 4,
+    "your_offer": {
+     "id": 8463,
+     "price": 94,
+     "tick": 1295,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 8430,
+     "price": 64,
+     "tick": 1295,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1286,
+      "from": "you",
+      "text": "I'm opening at 128 P with delivery on day 10. I'm open to talking, so tell me what price and day work for you.",
+      "price": 128,
+      "days": 10
+     },
+     {
+      "tick": 1292,
+      "from": "Rival Azul",
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 57.",
+      "price": 57,
+      "days": 5
+     },
+     {
+      "tick": 1292,
+      "from": "you",
+      "text": "I can come down to 114 P with delivery on day 10. I'd need to see you move up meaningfully from your last figure to keep going.",
+      "price": 114,
+      "days": 10
+     },
+     {
+      "tick": 1293,
+      "from": "Rival Azul",
+      "text": "That was a real step from my side: 58.",
+      "price": 58,
+      "days": 5
+     },
+     {
+      "tick": 1294,
+      "from": "Rival Azul",
+      "text": "That was a real step from my side: 61.",
+      "price": 61,
+      "days": 5
+     },
+     {
+      "tick": 1294,
+      "from": "you",
+      "text": "I can move to 102 P with delivery on day 10. I've made the first and bigger steps so far, so I'd need a much larger jump from you next.",
+      "price": 102,
+      "days": 10
+     },
+     {
+      "tick": 1295,
+      "from": "Rival Azul",
+      "text": "I just moved for you. 64, your turn to meet me.",
+      "price": 64,
+      "days": 5
+     },
+     {
+      "tick": 1295,
+      "from": "you",
+      "text": "I can do 94 P with delivery on day 10. My steps have been much larger than yours, so a quick close needs a proper move up from you on day 10.",
+      "price": 94,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1296,
+   "raw": {
+    "duel": 5800,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.98,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 77,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1300,
+    "decay_per_round": 0.08,
+    "rounds": 4,
+    "your_offer": {
+     "id": 8473,
+     "price": 114,
+     "tick": 1296,
+     "days": 5
+    },
+    "rival_offer": {
+     "id": 8430,
+     "price": 64,
+     "tick": 1295,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1286,
+      "from": "you",
+      "text": "I'm opening at 128 P with delivery on day 10. I'm open to talking, so tell me what price and day work for you.",
+      "price": 128,
+      "days": 10
+     },
+     {
+      "tick": 1292,
+      "from": "Rival Azul",
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 57.",
+      "price": 57,
+      "days": 5
+     },
+     {
+      "tick": 1292,
+      "from": "you",
+      "text": "I can come down to 114 P with delivery on day 10. I'd need to see you move up meaningfully from your last figure to keep going.",
+      "price": 114,
+      "days": 10
+     },
+     {
+      "tick": 1293,
+      "from": "Rival Azul",
+      "text": "That was a real step from my side: 58.",
+      "price": 58,
+      "days": 5
+     },
+     {
+      "tick": 1294,
+      "from": "Rival Azul",
+      "text": "That was a real step from my side: 61.",
+      "price": 61,
+      "days": 5
+     },
+     {
+      "tick": 1294,
+      "from": "you",
+      "text": "I can move to 102 P with delivery on day 10. I've made the first and bigger steps so far, so I'd need a much larger jump from you next.",
+      "price": 102,
+      "days": 10
+     },
+     {
+      "tick": 1295,
+      "from": "Rival Azul",
+      "text": "I just moved for you. 64, your turn to meet me.",
+      "price": 64,
+      "days": 5
+     },
+     {
+      "tick": 1295,
+      "from": "you",
+      "text": "I can do 94 P with delivery on day 10. My steps have been much larger than yours, so a quick close needs a proper move up from you on day 10.",
+      "price": 94,
+      "days": 10
+     },
+     {
+      "tick": 1296,
+      "from": "you",
+      "text": "I can do 114 P, delivery on day 5.",
+      "price": 114,
+      "days": 5
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1296,
+   "raw": {
+    "duel": 5800,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.98,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 77,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1300,
+    "decay_per_round": 0.08,
+    "rounds": 5,
+    "your_offer": {
+     "id": 8473,
+     "price": 114,
+     "tick": 1296,
+     "days": 5
+    },
+    "rival_offer": {
+     "id": 8485,
+     "price": 71,
+     "tick": 1296,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1286,
+      "from": "you",
+      "text": "I'm opening at 128 P with delivery on day 10. I'm open to talking, so tell me what price and day work for you.",
+      "price": 128,
+      "days": 10
+     },
+     {
+      "tick": 1292,
+      "from": "Rival Azul",
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 57.",
+      "price": 57,
+      "days": 5
+     },
+     {
+      "tick": 1292,
+      "from": "you",
+      "text": "I can come down to 114 P with delivery on day 10. I'd need to see you move up meaningfully from your last figure to keep going.",
+      "price": 114,
+      "days": 10
+     },
+     {
+      "tick": 1293,
+      "from": "Rival Azul",
+      "text": "That was a real step from my side: 58.",
+      "price": 58,
+      "days": 5
+     },
+     {
+      "tick": 1294,
+      "from": "Rival Azul",
+      "text": "That was a real step from my side: 61.",
+      "price": 61,
+      "days": 5
+     },
+     {
+      "tick": 1294,
+      "from": "you",
+      "text": "I can move to 102 P with delivery on day 10. I've made the first and bigger steps so far, so I'd need a much larger jump from you next.",
+      "price": 102,
+      "days": 10
+     },
+     {
+      "tick": 1295,
+      "from": "Rival Azul",
+      "text": "I just moved for you. 64, your turn to meet me.",
+      "price": 64,
+      "days": 5
+     },
+     {
+      "tick": 1295,
+      "from": "you",
+      "text": "I can do 94 P with delivery on day 10. My steps have been much larger than yours, so a quick close needs a proper move up from you on day 10.",
+      "price": 94,
+      "days": 10
+     },
+     {
+      "tick": 1296,
+      "from": "you",
+      "text": "I can do 114 P, delivery on day 5.",
+      "price": 114,
+      "days": 5
+     },
+     {
+      "tick": 1296,
+      "from": "Rival Azul",
+      "text": "That was a real step from my side: 71.",
+      "price": 71,
+      "days": 5
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1297,
+   "raw": {
+    "duel": 5800,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.98,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 77,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1300,
+    "decay_per_round": 0.08,
+    "rounds": 5,
+    "your_offer": {
+     "id": 8473,
+     "price": 114,
+     "tick": 1296,
+     "days": 5
+    },
+    "rival_offer": {
+     "id": 8503,
+     "price": 77,
+     "tick": 1297,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1286,
+      "from": "you",
+      "text": "I'm opening at 128 P with delivery on day 10. I'm open to talking, so tell me what price and day work for you.",
+      "price": 128,
+      "days": 10
+     },
+     {
+      "tick": 1292,
+      "from": "Rival Azul",
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 57.",
+      "price": 57,
+      "days": 5
+     },
+     {
+      "tick": 1292,
+      "from": "you",
+      "text": "I can come down to 114 P with delivery on day 10. I'd need to see you move up meaningfully from your last figure to keep going.",
+      "price": 114,
+      "days": 10
+     },
+     {
+      "tick": 1293,
+      "from": "Rival Azul",
+      "text": "That was a real step from my side: 58.",
+      "price": 58,
+      "days": 5
+     },
+     {
+      "tick": 1294,
+      "from": "Rival Azul",
+      "text": "That was a real step from my side: 61.",
+      "price": 61,
+      "days": 5
+     },
+     {
+      "tick": 1294,
+      "from": "you",
+      "text": "I can move to 102 P with delivery on day 10. I've made the first and bigger steps so far, so I'd need a much larger jump from you next.",
+      "price": 102,
+      "days": 10
+     },
+     {
+      "tick": 1295,
+      "from": "Rival Azul",
+      "text": "I just moved for you. 64, your turn to meet me.",
+      "price": 64,
+      "days": 5
+     },
+     {
+      "tick": 1295,
+      "from": "you",
+      "text": "I can do 94 P with delivery on day 10. My steps have been much larger than yours, so a quick close needs a proper move up from you on day 10.",
+      "price": 94,
+      "days": 10
+     },
+     {
+      "tick": 1296,
+      "from": "you",
+      "text": "I can do 114 P, delivery on day 5.",
+      "price": 114,
+      "days": 5
+     },
+     {
+      "tick": 1296,
+      "from": "Rival Azul",
+      "text": "That was a real step from my side: 71.",
+      "price": 71,
+      "days": 5
+     },
+     {
+      "tick": 1297,
+      "from": "Rival Azul",
+      "text": "I just moved for you. 77, your turn to meet me.",
+      "price": 77,
+      "days": 5
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1297,
+   "raw": {
+    "duel": 5800,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.98,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 77,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1300,
+    "decay_per_round": 0.08,
+    "rounds": 6,
+    "your_offer": {
+     "id": 8538,
+     "price": 88,
+     "tick": 1297,
+     "days": 5
+    },
+    "rival_offer": {
+     "id": 8503,
+     "price": 77,
+     "tick": 1297,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1286,
+      "from": "you",
+      "text": "I'm opening at 128 P with delivery on day 10. I'm open to talking, so tell me what price and day work for you.",
+      "price": 128,
+      "days": 10
+     },
+     {
+      "tick": 1292,
+      "from": "Rival Azul",
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 57.",
+      "price": 57,
+      "days": 5
+     },
+     {
+      "tick": 1292,
+      "from": "you",
+      "text": "I can come down to 114 P with delivery on day 10. I'd need to see you move up meaningfully from your last figure to keep going.",
+      "price": 114,
+      "days": 10
+     },
+     {
+      "tick": 1293,
+      "from": "Rival Azul",
+      "text": "That was a real step from my side: 58.",
+      "price": 58,
+      "days": 5
+     },
+     {
+      "tick": 1294,
+      "from": "Rival Azul",
+      "text": "That was a real step from my side: 61.",
+      "price": 61,
+      "days": 5
+     },
+     {
+      "tick": 1294,
+      "from": "you",
+      "text": "I can move to 102 P with delivery on day 10. I've made the first and bigger steps so far, so I'd need a much larger jump from you next.",
+      "price": 102,
+      "days": 10
+     },
+     {
+      "tick": 1295,
+      "from": "Rival Azul",
+      "text": "I just moved for you. 64, your turn to meet me.",
+      "price": 64,
+      "days": 5
+     },
+     {
+      "tick": 1295,
+      "from": "you",
+      "text": "I can do 94 P with delivery on day 10. My steps have been much larger than yours, so a quick close needs a proper move up from you on day 10.",
+      "price": 94,
+      "days": 10
+     },
+     {
+      "tick": 1296,
+      "from": "you",
+      "text": "I can do 114 P, delivery on day 5.",
+      "price": 114,
+      "days": 5
+     },
+     {
+      "tick": 1296,
+      "from": "Rival Azul",
+      "text": "That was a real step from my side: 71.",
+      "price": 71,
+      "days": 5
+     },
+     {
+      "tick": 1297,
+      "from": "Rival Azul",
+      "text": "I just moved for you. 77, your turn to meet me.",
+      "price": 77,
+      "days": 5
+     },
+     {
+      "tick": 1297,
+      "from": "you",
+      "text": "I can do 88 P with delivery on day 5. That's a big move from me, and it's close to my last step if you can meet it.",
+      "price": 88,
+      "days": 5
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1298,
+   "raw": {
+    "duel": 5800,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.98,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 77,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1300,
+    "decay_per_round": 0.08,
+    "rounds": 6,
+    "your_offer": {
+     "id": 8538,
+     "price": 88,
+     "tick": 1297,
+     "days": 5
+    },
+    "rival_offer": {
+     "id": 8549,
+     "price": 84,
+     "tick": 1298,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1286,
+      "from": "you",
+      "text": "I'm opening at 128 P with delivery on day 10. I'm open to talking, so tell me what price and day work for you.",
+      "price": 128,
+      "days": 10
+     },
+     {
+      "tick": 1292,
+      "from": "Rival Azul",
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 57.",
+      "price": 57,
+      "days": 5
+     },
+     {
+      "tick": 1292,
+      "from": "you",
+      "text": "I can come down to 114 P with delivery on day 10. I'd need to see you move up meaningfully from your last figure to keep going.",
+      "price": 114,
+      "days": 10
+     },
+     {
+      "tick": 1293,
+      "from": "Rival Azul",
+      "text": "That was a real step from my side: 58.",
+      "price": 58,
+      "days": 5
+     },
+     {
+      "tick": 1294,
+      "from": "Rival Azul",
+      "text": "That was a real step from my side: 61.",
+      "price": 61,
+      "days": 5
+     },
+     {
+      "tick": 1294,
+      "from": "you",
+      "text": "I can move to 102 P with delivery on day 10. I've made the first and bigger steps so far, so I'd need a much larger jump from you next.",
+      "price": 102,
+      "days": 10
+     },
+     {
+      "tick": 1295,
+      "from": "Rival Azul",
+      "text": "I just moved for you. 64, your turn to meet me.",
+      "price": 64,
+      "days": 5
+     },
+     {
+      "tick": 1295,
+      "from": "you",
+      "text": "I can do 94 P with delivery on day 10. My steps have been much larger than yours, so a quick close needs a proper move up from you on day 10.",
+      "price": 94,
+      "days": 10
+     },
+     {
+      "tick": 1296,
+      "from": "you",
+      "text": "I can do 114 P, delivery on day 5.",
+      "price": 114,
+      "days": 5
+     },
+     {
+      "tick": 1296,
+      "from": "Rival Azul",
+      "text": "That was a real step from my side: 71.",
+      "price": 71,
+      "days": 5
+     },
+     {
+      "tick": 1297,
+      "from": "Rival Azul",
+      "text": "I just moved for you. 77, your turn to meet me.",
+      "price": 77,
+      "days": 5
+     },
+     {
+      "tick": 1297,
+      "from": "you",
+      "text": "I can do 88 P with delivery on day 5. That's a big move from me, and it's close to my last step if you can meet it.",
+      "price": 88,
+      "days": 5
+     },
+     {
+      "tick": 1298,
+      "from": "Rival Azul",
+      "text": "We're close. 84 and done?",
+      "price": 84,
+      "days": 5
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -972,6 +1647,740 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1295,
+   "took_s": 11.8,
+   "cost_usd": 0.02103,
+   "obs": {
+    "view": {
+     "duel_id": 5800,
+     "role": "seller",
+     "limit": 77,
+     "currency": "P",
+     "item": "La Vía Láctea",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.98,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm opening at 128 P with delivery on day 10. I'm open to talking, so tell me what price and day work for you.",
+      "offer": {
+       "price": 128,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1286,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 57.",
+      "offer": {
+       "price": 57,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1292,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can come down to 114 P with delivery on day 10. I'd need to see you move up meaningfully from your last figure to keep going.",
+      "offer": {
+       "price": 114,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1292,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 58.",
+      "offer": {
+       "price": 58,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1293,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 61.",
+      "offer": {
+       "price": 61,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1294,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 102 P with delivery on day 10. I've made the first and bigger steps so far, so I'd need a much larger jump from you next.",
+      "offer": {
+       "price": 102,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1294,
+      "decision": {
+       "action": "offer",
+       "price": 102,
+       "message": "I can move to 102 P with delivery on day 10. I've made the first and bigger steps so far, so I'd need a much larger jump from you next."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I just moved for you. 64, your turn to meet me.",
+      "offer": {
+       "price": 64,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1295,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 64,
+     "days": 5
+    },
+    "tick": 1295,
+    "ticks_left": 5,
+    "rounds": 3,
+    "day_swings": [
+     39.8,
+     55.199999999999996,
+     36.2,
+     18.6,
+     45.099999999999994,
+     33.4
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 94 P with delivery on day 10. My steps have been much larger than yours, so a quick close needs a proper move up from you on day 10.",
+    "price": 94,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 94,
+      "message": "I can do 94 P with delivery on day 10. My steps have been much larger than yours, so a quick close needs a proper move up from you on day 10."
+     },
+     "band": {
+      "worst": 92,
+      "target": 94,
+      "best": 96
+     },
+     "plan": {
+      "read": "They keep inching up by about 3 P a tick (now 64 on day 5) and talk up small steps as big ones; their pressure language is just framing. They have moved far less than we have, but they are still moving, and 5 ticks remain.",
+      "target": 94,
+      "best": 96,
+      "worst": 92,
+      "days": 10,
+      "angle": "Keep the tone firm and brief: name 94 on day 10. Point out that our steps have been much larger than theirs, and say a deal can close quickly if they come up properly on day 10."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 9.71,
+       "in": 1123,
+       "out": 736,
+       "cost_usd": 0.01921,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.08,
+       "in": 582,
+       "out": 66,
+       "cost_usd": 0.00182,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1296,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 5800,
+     "role": "seller",
+     "limit": 77,
+     "currency": "P",
+     "item": "La Vía Láctea",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.98,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm opening at 128 P with delivery on day 10. I'm open to talking, so tell me what price and day work for you.",
+      "offer": {
+       "price": 128,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1286,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 57.",
+      "offer": {
+       "price": 57,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1292,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can come down to 114 P with delivery on day 10. I'd need to see you move up meaningfully from your last figure to keep going.",
+      "offer": {
+       "price": 114,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1292,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 58.",
+      "offer": {
+       "price": 58,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1293,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 61.",
+      "offer": {
+       "price": 61,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1294,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 102 P with delivery on day 10. I've made the first and bigger steps so far, so I'd need a much larger jump from you next.",
+      "offer": {
+       "price": 102,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1294,
+      "decision": {
+       "action": "offer",
+       "price": 102,
+       "message": "I can move to 102 P with delivery on day 10. I've made the first and bigger steps so far, so I'd need a much larger jump from you next."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I just moved for you. 64, your turn to meet me.",
+      "offer": {
+       "price": 64,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1295,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 94 P with delivery on day 10. My steps have been much larger than yours, so a quick close needs a proper move up from you on day 10.",
+      "offer": {
+       "price": 94,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1295,
+      "decision": {
+       "action": "offer",
+       "price": 94,
+       "message": "I can do 94 P with delivery on day 10. My steps have been much larger than yours, so a quick close needs a proper move up from you on day 10."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 64,
+     "days": 5
+    },
+    "tick": 1296,
+    "ticks_left": 4,
+    "rounds": 4,
+    "day_swings": [
+     39.8,
+     55.199999999999996,
+     36.2,
+     18.6,
+     45.099999999999994,
+     33.4
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 114 P, delivery on day 5.",
+    "price": 114,
+    "days": 5,
+    "meta": {
+     "rule": "late switch",
+     "calls": []
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1297,
+   "took_s": 10.85,
+   "cost_usd": 0.019049999999999997,
+   "obs": {
+    "view": {
+     "duel_id": 5800,
+     "role": "seller",
+     "limit": 77,
+     "currency": "P",
+     "item": "La Vía Láctea",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.98,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm opening at 128 P with delivery on day 10. I'm open to talking, so tell me what price and day work for you.",
+      "offer": {
+       "price": 128,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1286,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 57.",
+      "offer": {
+       "price": 57,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1292,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can come down to 114 P with delivery on day 10. I'd need to see you move up meaningfully from your last figure to keep going.",
+      "offer": {
+       "price": 114,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1292,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 58.",
+      "offer": {
+       "price": 58,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1293,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 61.",
+      "offer": {
+       "price": 61,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1294,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 102 P with delivery on day 10. I've made the first and bigger steps so far, so I'd need a much larger jump from you next.",
+      "offer": {
+       "price": 102,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1294,
+      "decision": {
+       "action": "offer",
+       "price": 102,
+       "message": "I can move to 102 P with delivery on day 10. I've made the first and bigger steps so far, so I'd need a much larger jump from you next."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I just moved for you. 64, your turn to meet me.",
+      "offer": {
+       "price": 64,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1295,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 94 P with delivery on day 10. My steps have been much larger than yours, so a quick close needs a proper move up from you on day 10.",
+      "offer": {
+       "price": 94,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1295,
+      "decision": {
+       "action": "offer",
+       "price": 94,
+       "message": "I can do 94 P with delivery on day 10. My steps have been much larger than yours, so a quick close needs a proper move up from you on day 10."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 114 P, delivery on day 5.",
+      "offer": {
+       "price": 114,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1296,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 71.",
+      "offer": {
+       "price": 71,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1296,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 71,
+     "days": 5
+    },
+    "tick": 1297,
+    "ticks_left": 3,
+    "rounds": 5,
+    "day_swings": [
+     39.8,
+     55.199999999999996,
+     36.2,
+     18.6,
+     45.099999999999994,
+     33.4
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 88 P with delivery on day 5. That's a big move from me, and it's close to my last step if you can meet it.",
+    "price": 88,
+    "days": 5,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 88,
+      "message": "I can do 88 P with delivery on day 5. That's a big move from me, and it's close to my last step if you can meet it."
+     },
+     "band": {
+      "worst": 84,
+      "target": 88,
+      "best": 92
+     },
+     "plan": {
+      "read": "They have moved steadily, 57 to 71, all on day 5, and their steps are getting bigger. Their 71 at day 5 already clears our cost, but with three ticks left there is still room for one firm counter before we close.",
+      "target": 88,
+      "best": 92,
+      "worst": 84,
+      "days": 5,
+      "angle": "Keep day 5 and make one clear, decisive move to 88. Frame it as a near-final number that closes the deal now if they come up to meet it."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.67,
+       "in": 1283,
+       "out": 597,
+       "cost_usd": 0.01707,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.18,
+       "in": 698,
+       "out": 58,
+       "cost_usd": 0.00198,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
+  },
+  {
+   "tick": 1298,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 5800,
+     "role": "seller",
+     "limit": 77,
+     "currency": "P",
+     "item": "La Vía Láctea",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.98,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm opening at 128 P with delivery on day 10. I'm open to talking, so tell me what price and day work for you.",
+      "offer": {
+       "price": 128,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1286,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Quick one: Retiro or Malasaña for a coffee? My offer is 57.",
+      "offer": {
+       "price": 57,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1292,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can come down to 114 P with delivery on day 10. I'd need to see you move up meaningfully from your last figure to keep going.",
+      "offer": {
+       "price": 114,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1292,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 58.",
+      "offer": {
+       "price": 58,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1293,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 61.",
+      "offer": {
+       "price": 61,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1294,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 102 P with delivery on day 10. I've made the first and bigger steps so far, so I'd need a much larger jump from you next.",
+      "offer": {
+       "price": 102,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1294,
+      "decision": {
+       "action": "offer",
+       "price": 102,
+       "message": "I can move to 102 P with delivery on day 10. I've made the first and bigger steps so far, so I'd need a much larger jump from you next."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I just moved for you. 64, your turn to meet me.",
+      "offer": {
+       "price": 64,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1295,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 94 P with delivery on day 10. My steps have been much larger than yours, so a quick close needs a proper move up from you on day 10.",
+      "offer": {
+       "price": 94,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1295,
+      "decision": {
+       "action": "offer",
+       "price": 94,
+       "message": "I can do 94 P with delivery on day 10. My steps have been much larger than yours, so a quick close needs a proper move up from you on day 10."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can do 114 P, delivery on day 5.",
+      "offer": {
+       "price": 114,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1296,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 71.",
+      "offer": {
+       "price": 71,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1296,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I just moved for you. 77, your turn to meet me.",
+      "offer": {
+       "price": 77,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1297,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 88 P with delivery on day 5. That's a big move from me, and it's close to my last step if you can meet it.",
+      "offer": {
+       "price": 88,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1297,
+      "decision": {
+       "action": "offer",
+       "price": 88,
+       "message": "I can do 88 P with delivery on day 5. That's a big move from me, and it's close to my last step if you can meet it."
+      }
+     },
+     {
+      "mine": false,
+      "text": "We're close. 84 and done?",
+      "offer": {
+       "price": 84,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1298,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 84,
+     "days": 5
+    },
+    "tick": 1298,
+    "ticks_left": 2,
+    "rounds": 6,
+    "day_swings": [
+     39.8,
+     55.199999999999996,
+     36.2,
+     18.6,
+     45.099999999999994,
+     33.4
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 84,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1144,6 +2553,162 @@
      "tick": 1294,
      "days": 10
     }
+   }
+  },
+  {
+   "tick": 1295,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 94 P with delivery on day 10. My steps have been much larger than yours, so a quick close needs a proper move up from you on day 10.",
+    "price": 94,
+    "days": 10,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 94,
+      "message": "I can do 94 P with delivery on day 10. My steps have been much larger than yours, so a quick close needs a proper move up from you on day 10."
+     },
+     "band": {
+      "worst": 92,
+      "target": 94,
+      "best": 96
+     },
+     "plan": {
+      "read": "They keep inching up by about 3 P a tick (now 64 on day 5) and talk up small steps as big ones; their pressure language is just framing. They have moved far less than we have, but they are still moving, and 5 ticks remain.",
+      "target": 94,
+      "best": 96,
+      "worst": 92,
+      "days": 10,
+      "angle": "Keep the tone firm and brief: name 94 on day 10. Point out that our steps have been much larger than theirs, and say a deal can close quickly if they come up properly on day 10."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 9.71,
+       "in": 1123,
+       "out": 736,
+       "cost_usd": 0.01921,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.08,
+       "in": 582,
+       "out": 66,
+       "cost_usd": 0.00182,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5800,
+    "offer": {
+     "id": 8463,
+     "price": 94,
+     "tick": 1295,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1296,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 114 P, delivery on day 5.",
+    "price": 114,
+    "days": 5,
+    "meta": {
+     "rule": "late switch",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 5800,
+    "offer": {
+     "id": 8473,
+     "price": 114,
+     "tick": 1296,
+     "days": 5
+    }
+   }
+  },
+  {
+   "tick": 1297,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 88 P with delivery on day 5. That's a big move from me, and it's close to my last step if you can meet it.",
+    "price": 88,
+    "days": 5,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 88,
+      "message": "I can do 88 P with delivery on day 5. That's a big move from me, and it's close to my last step if you can meet it."
+     },
+     "band": {
+      "worst": 84,
+      "target": 88,
+      "best": 92
+     },
+     "plan": {
+      "read": "They have moved steadily, 57 to 71, all on day 5, and their steps are getting bigger. Their 71 at day 5 already clears our cost, but with three ticks left there is still room for one firm counter before we close.",
+      "target": 88,
+      "best": 92,
+      "worst": 84,
+      "days": 5,
+      "angle": "Keep day 5 and make one clear, decisive move to 88. Frame it as a near-final number that closes the deal now if they come up to meet it."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.67,
+       "in": 1283,
+       "out": 597,
+       "cost_usd": 0.01707,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.18,
+       "in": 698,
+       "out": 58,
+       "cost_usd": 0.00198,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5800,
+    "offer": {
+     "id": 8538,
+     "price": 88,
+     "tick": 1297,
+     "days": 5
+    }
+   }
+  },
+  {
+   "tick": 1298,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 84,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 84,
+    "settles_at_tick": 1299
    }
   }
  ]
