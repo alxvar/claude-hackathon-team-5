@@ -182,6 +182,73 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1319,
+   "raw": {
+    "duel": 5893,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Plaza del Dos de Mayo",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.2,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 65,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 1334,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 9373,
+     "price": 128,
+     "tick": 1319,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 9341,
+     "price": 67,
+     "tick": 1319,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1318,
+      "from": "Rival Luna",
+      "text": "Hola, Rival Sol, voy con prisa: 58 por Plaza del Dos de Mayo y cerramos ya. Entrega inmediata.",
+      "price": 58,
+      "days": 0
+     },
+     {
+      "tick": 1318,
+      "from": "you",
+      "text": "I can do 140 P, delivery on day 0.",
+      "price": 140,
+      "days": 0
+     },
+     {
+      "tick": 1319,
+      "from": "Rival Luna",
+      "text": "67 y lo cerramos ahora. Entrega inmediata.",
+      "price": 67,
+      "days": 0
+     },
+     {
+      "tick": 1319,
+      "from": "you",
+      "text": "I appreciate the move, and I'm making a real one back: 128 P, delivery on day 0.",
+      "price": 128,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -340,6 +407,137 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1319,
+   "took_s": 9.77,
+   "cost_usd": 0.013680000000000001,
+   "obs": {
+    "view": {
+     "duel_id": 5893,
+     "role": "seller",
+     "limit": 65,
+     "currency": "P",
+     "item": "Plaza del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.2,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hola, Rival Sol, voy con prisa: 58 por Plaza del Dos de Mayo y cerramos ya. Entrega inmediata.",
+      "offer": {
+       "price": 58,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1318,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 140 P, delivery on day 0.",
+      "offer": {
+       "price": 140,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1318,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67 y lo cerramos ahora. Entrega inmediata.",
+      "offer": {
+       "price": 67,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1319,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 67,
+     "days": 0
+    },
+    "tick": 1319,
+    "ticks_left": 15,
+    "rounds": 1,
+    "day_swings": [
+     39.8,
+     55.199999999999996,
+     36.2,
+     18.6,
+     45.099999999999994,
+     33.4,
+     62.599999999999994,
+     25.9,
+     13.200000000000001,
+     23.3,
+     14.299999999999999,
+     64.6,
+     9.399999999999999,
+     13.4,
+     22.0,
+     25.299999999999997
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I appreciate the move, and I'm making a real one back: 128 P, delivery on day 0.",
+    "price": 128,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 128,
+      "message": "I appreciate the move, and I'm making a real one back: 128 P, delivery on day 0."
+     },
+     "band": {
+      "worst": 127,
+      "target": 128,
+      "best": 130
+     },
+     "plan": {
+      "read": "They moved from 58 to 67 on day 0 and are pressing for a quick close. The urgency is just talk, but the 9 P step is real movement, so we can answer it.",
+      "target": 128,
+      "best": 130,
+      "worst": 127,
+      "days": 0,
+      "angle": "Stay friendly and firm. Keep day 0 for immediate delivery and come down once, clearly, to about 128, saying this is a real move in return for theirs."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.76,
+       "in": 841,
+       "out": 455,
+       "cost_usd": 0.01246,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.0,
+       "in": 360,
+       "out": 50,
+       "cost_usd": 0.00122,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -409,6 +607,63 @@
      "id": 9337,
      "price": 140,
      "tick": 1318,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1319,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I appreciate the move, and I'm making a real one back: 128 P, delivery on day 0.",
+    "price": 128,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 128,
+      "message": "I appreciate the move, and I'm making a real one back: 128 P, delivery on day 0."
+     },
+     "band": {
+      "worst": 127,
+      "target": 128,
+      "best": 130
+     },
+     "plan": {
+      "read": "They moved from 58 to 67 on day 0 and are pressing for a quick close. The urgency is just talk, but the 9 P step is real movement, so we can answer it.",
+      "target": 128,
+      "best": 130,
+      "worst": 127,
+      "days": 0,
+      "angle": "Stay friendly and firm. Keep day 0 for immediate delivery and come down once, clearly, to about 128, saying this is a real move in return for theirs."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.76,
+       "in": 841,
+       "out": 455,
+       "cost_usd": 0.01246,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.0,
+       "in": 360,
+       "out": 50,
+       "cost_usd": 0.00122,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5893,
+    "offer": {
+     "id": 9373,
+     "price": 128,
+     "tick": 1319,
      "days": 0
     }
    }
