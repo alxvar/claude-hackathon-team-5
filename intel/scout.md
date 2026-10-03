@@ -1,29 +1,31 @@
-# Scout (claude-sonnet-5-5, Sat 13:20)
+# Scout (claude-sonnet-5-5, Sat 13:26)
 
 ## Top 3 actions now
+1. **Open `sobre_plata` (value 92.9) now, then sell any spare uncommon to Pilar at or above our value (Operator, offer-only).**
+   - Evidence: the pack is still unopened in holdings. GAME.md says an unopened pack drags every trade's score by 1-4 points. L3 pays +0.040 to +0.050 per good deal (MAL-07 at 19: +0.050; MAL-06 at 19 with small steps: +0.040). Her uncommon finals are 18-19; the last 60 ticks show a median of 18 over 6 deals.
+   - Rule: step −2/−3 and let her climb; never jump to her bid. Cancel any team ask on that card first.
+   - Effect: +0.01 ladder ≈ +0.33 board, with no neg cost if price ≥ our value. Contents are not in the data, so the effect is unknown until opened.
+   - Confidence: med.
+2. **Move the t15↔t07 swaps onto v10 (Dani in the room, Lucas DM, directive plan B).**
+   - Evidence: t15 and t07 swapped cards for 0 P at ticks 607 (LAV-08↔LAV-06), 613 (LAV-03↔MAL-08) and 616 (MAL-01↔SAL-02). t15 has 17 team trades and t07 sits low in the standings. Each swap is a mutual gain.
+   - Ask: "run your next swaps as addressed offers on v10".
+   - Effect: value created on our venue lifts `mm_points`. Our v10 trades have moved it +4.99 and −5.2 (a card moving to a lower-multiplier holder subtracts), so push only swaps where each side gets a card of higher value to itself.
+   - Confidence: med-low.
+3. **Keep the lunch bargain watch on. No qualifying target is live.**
+   - Evidence: El Rastro asks show only LAT-06 and LAT-08 at 25, worth about 12 to us. Our pages are done: RET 1-10 held, LAV 01-10 held. The guardrail needs gain ≥ 50 net of price and fee, price ≤ 100, and a seller outside the top 5.
+   - Action: the Operator checks `logs/bargains.log`; no manual buy.
+   - Do not chase LAV-11. Pilar paid 140 at tick 550, above our ≤ 125 guardrail.
+   - Confidence: high that nothing is open; the epic is not in the data.
 
-1. **Sell the cheap spares as maker to non-top-5 teams (Operator/trader).** We have 9 live asks, 6 of them addressed to teams below us (t09, t03, t04, t16 ×2, t06). Rastro asks for the same cards: LAV-04 10 ×3, MAL-02 8 ×3, LAT-04 8. Reprice only if unfilled after ~10 min.
-   - Evidence: Sat 351 SAL-01 at 7 to t03 gave +4.7 neg_points; Dani's table gives +4.3 to +6.3 per spare.
-   - Effect: about +4 neg_points per fill, roughly +0.4 board each. Confidence: med.
-   - Caveat: SAL-02 (t16 at 7) and LAT-04 sell at near-book, so the gain is small.
-
-2. **Ladder: sell spares to Pilar and Chato at or above our value, offer-only (Operator).** Our best level-3 slots hold MAL-06 at 19 (+0.040) and MAL-07 at 19 (+0.050).
-   - Evidence: the Chato LAT-08 sale at 14 gave +0.017, and Pilar's SAL-08 at 23 gave +0.019. Pilar's median uncommon is 20 over 8 deals, and the ladder is 0.181 with 35 board per 1.0 [L].
-   - Action: sell only genuine uncommon spares we don't need. The holdings list shows none (all uncommons LAV-06..08 and RET-06..08 are page cards), so there is nothing to sell now.
-   - Effect: skip unless a spare uncommon appears. Do not sell page cards. Confidence: low.
-
-3. **Don't buy SAL-06/07 from Chato at 26 (Operator).**
-   - Evidence: his 33 → 32 held against our silent 26 (tick 577, closed), and Abuela held at 25 against our 22 (tick 596). Chato mirrors step size and finals after ~4 rounds.
-   - Action: retry Abuela only with −2/−3 steps and a ≤ 22 cap, one thread. If she won't come down, drop it.
-   - Effect: ≈ +0.019 ladder if it lands below her list (25). Confidence: low.
+Minor: the 9 live spare asks (7-11 P each) fill themselves. The profile table lists t07 as best buyer at ~9.5 est., but we have no ask to it, and t07 is not named in our 9 open offers. Offer one spare to t07 only if it is not a page-closer.
 
 ## What the climbing teams are doing
-- **Team 10 (+5.1/60 min, #4):** it is earning from LAV, with LAV-10 bought from t08 at 70, and it is the one whose board venue v10 gets value created. Its trades are small and frequent.
-- **Team 18 (+2.7/60 min, #3):** collects RET/LAT, is paying ~9 for RET commons and bidding for rares at 75.
-- **Team 6 (+5.0/60 min, #9):** the most team trades (18), a mix of SAL buys and RET-09 sold to Team 2 at 84, so it sells rares at the Chato price.
-- **Team 14 (#1, 30.8):** it is selling RET commons at 9 to t04, t09 and t15 (ticks 591-598), mostly feeding the field.
+- **Team 6 (+4.7/60 min, #9) and Team 10 (+4.4, #4):** both are buying SAL cards. Team 10 took SAL-03 from t13 at 5 (tick 595), and Team 6 sold SAL-03 to t14 at 5 (tick 600). Team 6 sold RET-09 to Team 2 at 84 (tick 504), a rare above the clearing price of 70.
+- **Team 14 (#1, 30.8):** sells RET commons at 9 to t04, t09 and t15 (ticks 591-598), and buys cheap SAL/LAT commons at 5. Its volume is mostly small clearing-price trades.
+- **Team 15:** 17 team trades, buys LAT×6 and MAL×4, and uses 0 P swaps with t07 to collect sets without cash.
+- **Team 12 (+1.3/15 min, #2):** the metrics show no cause. Not in the data.
 
 ## Threats
-- Team 14 leads at 30.8 and we trail at 28.6. Its RET-common dumps at 9 can feed t09 and t04, rivals for RET cards.
-- Team 13 (#7, 55 deals) is lowering our relative score through its venue v03 and the lobbying for trades there, but at #7 it is not yet a top-5 feed risk.
-- Epics go to dealers at ~140. Pilar paid it for LAV-11, so a bid under 140 loses.
+- **Gap to #1:** Team 14 leads us by 2.2 (30.8 vs 28.6). Team 18 and Team 10 are at 29.2, only 0.6 ahead.
+- **Team 13 (#7, 57 deals, most active) lobbies for its venue v03:** any trade there feeds a leader on market-making. Our spares go only to El Rastro or v15 asks.
+- **Team 4 bids RET-06 at 26 and RET-08 at 27,** against our worth of 100.4 each. Never sell them. Our hold-and-sell choices on RET uncommons are not at risk.
