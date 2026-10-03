@@ -174,3 +174,36 @@ def test_an_addressed_bid_reads_the_maker_as_buyer():
     o = vr.open_addressed([listed(1, 10, 9000, "t06", "t10", {"cash": 24}, {"cards": ["SAL-07"]})], 12)[0]
     m = vr.addressed_match(o, teams=[], mult={}, cards=vr.card_index(CATALOG), held={})
     assert m["side"] == "bid" and m["seller"] == "t10" and m["team"] == "t10" and m["price"] == 24
+
+
+# ------------------------------------------------------------ partner suggestions (Chief 15:45)
+
+class AllCollect:
+    def allows(self, team, set_id):
+        return True, "collects"
+
+
+def sugg(held, teams, mult):
+    lacks = {(t["team"], f"SAL-0{i}"): {"kind": "lack"} for t in teams for i in (1, 2)}
+    return vr.suggestions("t15", teams=teams, held=held, mult=mult, cards=vr.card_index(CATALOG), last=lacks, prof={},
+                          collectors=AllCollect(), ours=24)
+
+
+def test_a_partner_s_2nd_copy_goes_to_the_best_buyer_outside_the_top_5():
+    teams = [{"team": t, "name": f"Team {t[1:]}", "score": s} for t, s in
+             (("t14", 40), ("t13", 39), ("t18", 38), ("t12", 37), ("t02", 36), ("t05", 24), ("t16", 5), ("t17", 6))]
+    held = {("t15", "SAL-06"): {501, 502}, ("t15", "SAL-07"): {503}}       # one 2-copy card; SAL-07 is its only copy
+    lines = sugg(held, teams, {"t15": {"SAL": 1.45}, "t16": {"SAL": 0.8}, "t17": {"SAL": 0.6}, "t02": {"SAL": 1.6}})
+    assert [(x["card"], x["buyer"], x["price"]) for x in lines] == [("SAL-06", "t16", 24)]   # t02 is 5th: excluded
+    assert lines[0]["vc"] > vr.SUGGEST_VC
+    text = vr.suggestion_text(lines, vr.card_index(CATALOG))
+    assert text.startswith("Suggestions for v10") and "you hold 2" in text and "Team 16 at ~24 P" in text
+
+
+def test_no_line_below_plus_5_and_at_most_3_lines():
+    teams = [{"team": f"t9{i}", "score": 50 - i} for i in range(5)] + [{"team": "t05", "score": 24},
+                                                                         {"team": "t16", "name": "Team 16", "score": 5}]
+    assert sugg({("t15", "SAL-01"): {1, 2}}, teams, {"t15": {"SAL": 1.6}, "t16": {"SAL": 0.7}}) == []   # 7 - 4 = +3
+    held = {("t15", c): {1, 2} for c in ("SAL-01", "SAL-02", "SAL-03", "SAL-06", "SAL-07")}
+    lines = sugg(held, teams, {"t15": {"SAL": 0.5}, "t16": {"SAL": 1.6}})
+    assert len(lines) == vr.SUGGEST_LINES and lines[0]["vc"] >= lines[-1]["vc"]

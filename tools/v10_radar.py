@@ -14,6 +14,11 @@ Never the top 4, never the seller or us, and never a team within 10 points of us
 (it lacks at most one other card of the set). The conservative estimate (buyer's low multiplier, seller's high) must be above 0. A strong match pages Lucas once per (ask, buyer) with a ready WhatsApp DM
 and is logged to intel/v10-radar.md. Read-only: it never trades.
 
+Partner suggestions (Chief 15:45): every 30 min, for each partner (Teams 10, 15, 3), the cards it holds 2+ copies of
+(feed) and the best buyer for each (the same buyer model, top 5 excluded, est. value created > +5 copy-weighted, no
+page-closer to a team within 10 points of us); at most 3 lines per partner, written to intel/v10-suggestions.md and
+sent to Lucas as a ready message per partner ("Suggestions for v10: your <card> (you hold 2) -> Team Y at ~P; ...").
+
 Addressed offers (Chief 12:55): the public board hides offers on v10 made `to` one team, which are the trades that
 score for us (Team 10 → t03 LAV-04 at 13, → t17 MAL-02 at 6). So it also reads offer.listed events on v10 from
 data/feed.jsonl, keeps the open ones (not cancelled, not expired, no settlement of its card since), and for each one
@@ -42,6 +47,10 @@ import opportunities as op  # noqa: E402
 URL = os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai")
 VENUE, ME = "v10", "t05"
 OUT, STATE, FEED = ROOT / "intel" / "v10-radar.md", ROOT / "run" / "v10_radar_state.json", ROOT / "data" / "feed.jsonl"
+SUGGEST_OUT, SUGGEST_EVERY_S = ROOT / "intel" / "v10-suggestions.md", 1800
+PARTNER_TEAMS = ("t10", "t15", "t03")
+SUGGEST_VC, SUGGEST_LINES, SUGGEST_TOP = 5.0, 3, 5
+CLEARING = {"common": 9, "uncommon": 24, "rare": 70}   # GAME.md clearing prices: the price to suggest
 MULT_FILE = ROOT / "intel" / "multipliers.json"   # the Analyst's estimates: {team: {SET: {m, lo, hi, conf, why}}}
 MIN_VC = 5.0          # est. value created for a buyer that hasn't shown it lacks the card
 COPY = (1.0, 0.25, 0.10)   # what the 1st, 2nd, 3rd copy of a card is worth (catalog values.copy_marginals)
@@ -259,6 +268,32 @@ def addressed_match(o: dict, *, teams, mult, cards, held) -> dict | None:
             "expires_tick": o.get("expires_tick")}
 
 
+def suggestions(partner: str, *, teams, held, mult, cards, last, prof, collectors, ours) -> list[dict]:
+    """Up to SUGGEST_LINES {card, n, buyer, name, price, vc} for one partner: its 2+ copy cards, each with its best
+    buyer outside the top SUGGEST_TOP (buyers_for), est. value created > SUGGEST_VC."""
+    top = {t["team"] for t in teams[:SUGGEST_TOP]}
+    out = []
+    for (team, card), ids in held.items():
+        if team != partner or len(ids) < 2 or card not in cards:
+            continue
+        ask = {"give": {"assets": [{"ref": card}]}}
+        ranked = [b for b in buyers_for(ask, seller=partner, teams=teams, top=top, ours=ours, last=last, prof=prof,
+                                        mult=mult, collectors=collectors, cards=cards, held=held)
+                  if b["vc"] > SUGGEST_VC]
+        if ranked:
+            b = ranked[0]
+            out.append({"card": card, "n": len(ids), "buyer": b["team"], "name": b["name"], "vc": b["vc"],
+                        "price": CLEARING.get(cards[card]["rarity"], cards[card]["book"])})
+    out.sort(key=lambda x: -x["vc"])
+    return out[:SUGGEST_LINES]
+
+
+def suggestion_text(lines: list[dict], cards: dict) -> str:
+    return "Suggestions for v10 (our stall, 0% fee): " + "; ".join(
+        f"your {cards.get(x['card'], {}).get('name', x['card'])} ({x['card']}, you hold {x['n']}) → {x['name']} at "
+        f"~{x['price']} P" for x in lines) + "."
+
+
 def dm_addressed(f: dict, card_name: str) -> str:
     if f["side"] == "ask":
         return (f"Hi {f['name']}! {f['maker_name']} has an offer for you on our v10 stall: {card_name} ({f['card']}) for "
@@ -284,6 +319,7 @@ class Radar:
         except (OSError, ValueError):
             self.state = {"alerted": []}
         self.cards, self._cat_at, self.mult, self._mult_at = {}, 0.0, {}, 0.0
+        self._suggest_at = 0.0
 
     def scan(self) -> list[dict]:
         now = time.time()
@@ -351,6 +387,42 @@ class Radar:
                           f"{why}.\nDM to send:\n{text}", priority=4, tags=["handshake"])
 
 
+    def suggest(self, out: Path = None) -> dict:
+        """{partner: lines}; written to intel/v10-suggestions.md and sent to Lucas, one message per partner."""
+        out = out or SUGGEST_OUT
+        if not self.cards:
+            self.cards = card_index(self.pub._call("GET", "/api/catalog"))
+        self.mult = load_mult(self._hub, self.mult_file)
+        teams = sorted(self.pub._call("GET", "/api/leaderboard").get("teams") or [], key=lambda t: -(t.get("score") or 0))
+        names = {t["team"]: t.get("name", t["team"]) for t in teams}
+        ours = next((t.get("score") for t in teams if t["team"] == ME), None)
+        events = self.events_fn()
+        tick = events[-1]["tick"] if events else 0
+        last, prof = op.read_signals(events, [], ME, op.GameTime(events), tick, self.cards)
+        held, col = holdings(events), self.collectors.get()
+        found = {p: suggestions(p, teams=teams, held=held, mult=self.mult, cards=self.cards, last=last, prof=prof,
+                                collectors=col, ours=ours) for p in PARTNER_TEAMS}
+        L = [f"# v10 partner suggestions ({time.strftime('%a %H:%M')}, tick {tick})", "",
+             "_Written every 30 min by `tools/v10_radar.py`: for Teams 10, 15 and 3, the cards each holds 2+ copies of "
+             "(feed, a lower bound) and the best buyer outside the top 5 (est. value created > +5, copy-weighted; no "
+             "page-closer to a team within 10 points of us). Est. [L]. Price: the rarity's clearing price._", ""]
+        for p in PARTNER_TEAMS:
+            lines = found[p]
+            L.append(f"## {names.get(p, p)} ({p})")
+            if not lines:
+                L += ["", "No pair clears +5 now.", ""]
+                continue
+            L += [""] + [f"- {x['card']} (holds {x['n']}) → {x['name']} ({x['buyer']}) at ~{x['price']} P · est. value "
+                         f"created +{x['vc']:g}" for x in lines]
+            L += ["", f"Message: \"{suggestion_text(lines, self.cards)}\"", ""]
+            if self.notifier and not self.dry:
+                self.notifier("lucas", f"v10 suggestions for {names.get(p, p)}", suggestion_text(lines, self.cards),
+                              priority=3, tags=["handshake"])
+        if not self.dry:
+            out.parent.mkdir(parents=True, exist_ok=True)
+            out.write_text("\n".join(L) + "\n")
+        return found
+
     def alert_addressed(self, f: dict, tick) -> None:
         c = self.cards.get(f["card"], {})
         text = dm_addressed(f, c.get("name", f["card"]))
@@ -380,6 +452,11 @@ def main(argv=None) -> None:
     r = Radar(pub, dry=args.dry)
     while True:
         try:
+            if time.time() - r._suggest_at >= SUGGEST_EVERY_S:
+                r._suggest_at = time.time()
+                sug = r.suggest()
+                print(f"{time.strftime('%H:%M:%S')} v10 suggestions: "
+                      + ", ".join(f"{p} {len(x)}" for p, x in sug.items()), flush=True)
             found = r.scan()
             print(f"{time.strftime('%H:%M:%S')} v10 radar: {len(found)} match(es)"
                   + "".join(f" · {'addressed ' if f.get('addressed') else ''}{f['card']} → {f['team']} ({f['vc']:+g})"
