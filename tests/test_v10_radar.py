@@ -61,6 +61,7 @@ class Col:
 
 def radar(tmp_path, board, **kw):
     sent = []
+    kw.setdefault("mult_file", tmp_path / "no-multipliers.json")
     r = vr.Radar(Pub(board), events_fn=lambda: list(EVENTS), mult_fn=lambda: MULT, collectors=Col(),
                  notifier=lambda *a, **k: sent.append(a), out=tmp_path / "radar.md", state=tmp_path / "s.json",
                  log=lambda *a: None, **kw)
@@ -103,3 +104,28 @@ def test_a_high_multiplier_team_selling_a_duplicate_creates_value():
                       collectors=Ok(), cards=vr.card_index(CATALOG), held=held)
     assert b and b[0]["team"] == "t16" and b[0]["c_seller"] == 0.25
     assert b[0]["vc"] == round(25 * (0.8 * 1.0 - 1.45 * 0.25), 1)        # +10.9; with first copies it would be < 0
+
+
+
+def test_the_analysts_multipliers_win_where_confident_and_the_conservative_estimate_gates(tmp_path):
+    import json
+    f = tmp_path / "multipliers.json"
+    f.write_text(json.dumps({"_meta": {}, "t15": {"LAT": {"m": 1.45, "lo": 1.3, "hi": 1.6, "conf": "L"}},
+                             "t12": {"LAT": {"m": 0.8, "lo": 0.7, "hi": 0.9, "conf": "L"},
+                                     "MAL": {"m": 1.6, "lo": 1.6, "hi": 1.6, "conf": "?"}}}))
+    m = vr.load_mult({"t12": {"LAT": 1.4, "MAL": 0.9}}, f)
+    assert m["t12"]["LAT"] == (0.8, 0.7, 0.9) and m["t12"]["MAL"] == (0.9, 0.9, 0.9)   # "?" keeps the hub's
+    cat = {"sets": [{"id": "LAT", "cards": [{"id": "LAT-07", "rarity": "uncommon", "book": 25}]}]}
+    ask = {"id": 5, "give": {"assets": [{"ref": "LAT-07"}]}, "want": {"cash": 20}}
+
+    class Ok:
+        def allows(self, team, set_id):
+            return True, "collects"
+    teams = [{"team": "t12", "name": "Team 12", "score": 5, "rank": 12}]
+    kw = dict(teams=teams, top=set(), ours=24, last={("t12", "LAT-07"): {"kind": "lack"}}, prof={}, mult=m,
+              collectors=Ok(), cards=vr.card_index(cat))
+    # t15 sells its 2nd copy (0.25): 25 x (0.8 - 1.45 x 0.25) = +10.9, at least 25 x (0.7 - 1.6 x 0.25) = +7.5
+    b = vr.buyers_for(ask, seller="t15", held={("t15", "LAT-07"): {1, 2}}, **kw)
+    assert b and b[0]["vc"] == 10.9 and b[0]["vc_low"] == 7.5
+    # its only copy: value destroyed, no DM
+    assert vr.buyers_for(ask, seller="t15", held={("t15", "LAT-07"): {1}}, **kw) == []

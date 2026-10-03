@@ -5,13 +5,13 @@ points for us; one good trade ≈ +5 board, a bad one (−10.2) cost us. Every t
 for each ask (cards for cash), ranks the likely buyers with the bots' buyer model:
 - collects the set (tools/collectors.py: teams.md "collects", feed bids ≥ half book, dealer asks; "dumps" vetoes);
 - lacks that card (opportunities.read_signals: a bid or dealer ask for it not followed by getting one);
-- creates value: est. value created = book × (m_buyer × c_buyer − m_seller × c_seller), m from the hub's demand model
-  (hub.team_mult, else 1.0 [L]) and c the copy weight (values rules: 1st copy 1.0, 2nd 0.25, 3rd 0.10): the seller
+- creates value: est. value created = book × (m_buyer × c_buyer − m_seller × c_seller), m from the Analyst's
+  intel/multipliers.json where its confidence is V or L, else the hub's demand model (hub.team_mult), else 1.0 [L] and c the copy weight (values rules: 1st copy 1.0, 2nd 0.25, 3rd 0.10): the seller
   gives up its last copy, the buyer gains its next. Copies are counted from the feed (settlements, pack pulls,
   listings), so they are lower bounds: starting cards are invisible [L]. Analyst, Sat 12:05: a high-multiplier team
   selling a duplicate to a lower-multiplier collector creates value (v14 +4.36, v17 +2.76 [V]).
 Never the top 4, never the seller or us, and never a team within 10 points of us for a card that may close its page
-(it lacks at most one other card of the set). A strong match pages Lucas once per (ask, buyer) with a ready WhatsApp DM
+(it lacks at most one other card of the set). The conservative estimate (buyer's low multiplier, seller's high) must be above 0. A strong match pages Lucas once per (ask, buyer) with a ready WhatsApp DM
 and is logged to intel/v10-radar.md. Read-only: it never trades.
 
     python3 -u tools/v10_radar.py            # every tick (tools/daemons.sh start radar)
@@ -36,6 +36,7 @@ import opportunities as op  # noqa: E402
 URL = os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai")
 VENUE, ME = "v10", "t05"
 OUT, STATE, FEED = ROOT / "intel" / "v10-radar.md", ROOT / "run" / "v10_radar_state.json", ROOT / "data" / "feed.jsonl"
+MULT_FILE = ROOT / "intel" / "multipliers.json"   # the Analyst's estimates: {team: {SET: {m, lo, hi, conf, why}}}
 MIN_VC = 5.0          # est. value created for a buyer that hasn't shown it lacks the card
 COPY = (1.0, 0.25, 0.10)   # what the 1st, 2nd, 3rd copy of a card is worth (catalog values.copy_marginals)
 FEED_GAP = 10         # a page-closing card only to teams at least this far below us
@@ -65,6 +66,27 @@ def hub_mult() -> dict:
             return out
     except Exception:  # noqa: BLE001
         return {}
+
+
+def _triple(v) -> tuple:
+    return tuple(v) if isinstance(v, (tuple, list)) else (float(v), float(v), float(v))
+
+
+def load_mult(hub: dict, path: Path = MULT_FILE) -> dict:
+    """{team: {set: (m, lo, hi)}}: the Analyst's estimates where conf is V or L (intel/multipliers.json), else the hub's
+    (m = lo = hi)."""
+    out = {t: {s: _triple(v) for s, v in sets.items()} for t, sets in (hub or {}).items()}
+    try:
+        data = json.loads(Path(path).read_text())
+    except (OSError, ValueError):
+        data = {}
+    for team, sets in data.items():
+        if team.startswith("_") or not isinstance(sets, dict):
+            continue
+        for st, v in sets.items():
+            if isinstance(v, dict) and v.get("conf") in ("V", "L") and isinstance(v.get("m"), (int, float)):
+                out.setdefault(team, {})[st] = (float(v["m"]), float(v.get("lo", v["m"])), float(v.get("hi", v["m"])))
+    return out
 
 
 def load_events(path: Path = FEED) -> list:
@@ -133,7 +155,7 @@ def buyers_for(ask: dict, *, seller, teams, top, ours, last, prof, mult, collect
     card = refs[0]
     c = cards[card]
     st, book = c["set"], c["book"]
-    m_s = (mult.get(seller) or {}).get(st, 1.0) if seller else 1.0
+    m_s, _, hi_s = _triple((mult.get(seller) or {}).get(st, 1.0)) if seller else (1.0, 1.0, 1.0)
     held = held or {}
     c_s = copy_weight(len(held.get((seller, card), ())) or 1)      # the seller gives up its last copy
     out = []
@@ -152,10 +174,11 @@ def buyers_for(ask: dict, *, seller, teams, top, ours, last, prof, mult, collect
         if sig and sig["kind"] == "hold":
             n_b = max(n_b, 1)
         lacks = bool(sig and sig["kind"] == "lack") and n_b == 0
-        m_b = (mult.get(team) or {}).get(st, 1.0)
+        m_b, lo_b, _ = _triple((mult.get(team) or {}).get(st, 1.0))
         c_b = copy_weight(n_b + 1)                      # the buyer gains its next copy
         vc = round(book * (m_b * c_b - m_s * c_s), 1)
-        if vc <= 0 or (not lacks and vc < MIN_VC):
+        vc_low = round(book * (lo_b * c_b - hi_s * c_s), 1)   # conservative: buyer at lo, seller at hi (Analyst)
+        if vc_low <= 0 or (not lacks and vc < MIN_VC):
             continue
         others = [k for k, x in last.items() if k[0] == team and k[1] != card and x["kind"] == "lack"
                   and cards.get(k[1], {}).get("set") == st]
@@ -163,7 +186,8 @@ def buyers_for(ask: dict, *, seller, teams, top, ours, last, prof, mult, collect
         if len(others) <= 1 and (gap is None or gap < FEED_GAP):
             continue                                   # may close its page and it's within 10 points of us
         out.append({"team": team, "name": t.get("name", team), "rank": t.get("rank"), "m_buyer": round(m_b, 2),
-                    "m_seller": round(m_s, 2), "c_buyer": c_b, "c_seller": c_s, "vc": vc, "lacks": lacks,
+                    "m_seller": round(m_s, 2), "c_buyer": c_b, "c_seller": c_s, "vc": vc, "vc_low": vc_low,
+                    "lacks": lacks,
                     "why": why if ok else "bought or bid for the set"})
     out.sort(key=lambda b: (not b["lacks"], -b["vc"]))
     return out
@@ -176,10 +200,11 @@ def dm(team_name: str, card_name: str, card: str, price, set_id: str) -> str:
 
 class Radar:
     def __init__(self, pub, *, events_fn=load_events, mult_fn=hub_mult, collectors=None, notifier=_notify,
-                 out: Path = OUT, state: Path = STATE, log=print, dry=False):
+                 out: Path = OUT, state: Path = STATE, log=print, dry=False, mult_file: Path = MULT_FILE):
         self.pub, self.events_fn, self.mult_fn, self.notifier = pub, events_fn, mult_fn, notifier
         self.collectors = collectors or CachedCollectors()
-        self.out, self.state_path, self.log, self.dry = out, state, log, dry
+        self.out, self.state_path, self.log, self.dry, self.mult_file = out, state, log, dry, mult_file
+        self._hub: dict = {}
         try:
             self.state = json.loads(state.read_text())
         except (OSError, ValueError):
@@ -191,7 +216,8 @@ class Radar:
         if not self.cards or now - self._cat_at > 600:
             self.cards, self._cat_at = card_index(self.pub._call("GET", "/api/catalog")), now
         if now - self._mult_at > 600:
-            self.mult, self._mult_at = self.mult_fn() or self.mult, now
+            self._hub, self._mult_at = self.mult_fn() or self._hub, now
+        self.mult = load_mult(self._hub, self.mult_file)    # the Analyst's file is re-read every scan
         board = self.pub._call("GET", f"/api/venues/{VENUE}/offers").get("offers") or []
         asks = [o for o in board if (o.get("give") or {}).get("assets") and (o.get("want") or {}).get("cash")
                 and not (o.get("give") or {}).get("cash") and not o.get("to")]
@@ -233,7 +259,7 @@ class Radar:
         text = dm(f["name"], c.get("name", f["card"]), f["card"], f["price"], c.get("set", set_of(f["card"])))
         why = (f"{'lacks it' if f['lacks'] else 'collects ' + c.get('set', '')}, multiplier {f['m_buyer']} × copy "
                f"{f['c_buyer']:g} vs seller {f['seller'] or '?'} {f['m_seller']} × copy {f['c_seller']:g}: est. value "
-               f"created +{f['vc']:g} on v10")
+               f"created +{f['vc']:g} (at least +{f['vc_low']:g}) on v10")
         self.log(f"v10 radar: offer {f['offer']} {f['card']} at {f['price']} → {f['team']} (#{f['rank']}) · {why}")
         if not self.out.exists():
             self.out.parent.mkdir(parents=True, exist_ok=True)
