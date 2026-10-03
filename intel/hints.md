@@ -213,3 +213,4 @@ One hundred fourteen, señor.
 - Sat 21:40 · message tick 1286 · banco → t04 · Carmen talks. I do not. That story is not for sale, señor, and neither is my patience.
 
 La Puerta de Alcalá: one hundred fourteen. Nothing further moves.
+- Sat 21:42 · catalog.minted SAL-11 (La Puerta de Alcalá, epic, print run 9): hidden=False minted=9 (was 8)
