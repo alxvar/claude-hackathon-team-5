@@ -689,6 +689,115 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1252,
+   "raw": {
+    "duel": 5619,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "La Vía Láctea",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.29,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 123,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 1255,
+    "decay_per_round": 0.08,
+    "rounds": 4,
+    "your_offer": {
+     "id": 6769,
+     "price": 142,
+     "tick": 1252,
+     "days": 5
+    },
+    "rival_offer": {
+     "id": 6746,
+     "price": 122,
+     "tick": 1252,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1241,
+      "from": "you",
+      "text": "I'm opening at 182 P with delivery on day 5. I'm happy to hear your counteroffer.",
+      "price": 182,
+      "days": 5
+     },
+     {
+      "tick": 1242,
+      "from": "Rival Oro",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 69,
+      "days": 0
+     },
+     {
+      "tick": 1244,
+      "from": "Rival Oro",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 79,
+      "days": 0
+     },
+     {
+      "tick": 1244,
+      "from": "you",
+      "text": "I can move to 172 P with delivery on day 5. I'd need to see a much bigger step from you to keep closing the gap.",
+      "price": 172,
+      "days": 5
+     },
+     {
+      "tick": 1245,
+      "from": "Rival Oro",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 84,
+      "days": 0
+     },
+     {
+      "tick": 1245,
+      "from": "you",
+      "text": "I can move to 163 P with delivery on day 5. Your steps would need to get much bigger for us to close the gap.",
+      "price": 163,
+      "days": 5
+     },
+     {
+      "tick": 1248,
+      "from": "you",
+      "text": "I can move to 151 P with delivery on day 5. That's a real step from me, so I'd need a substantial jump from you.",
+      "price": 151,
+      "days": 5
+     },
+     {
+      "tick": 1251,
+      "from": "you",
+      "text": "I can move to 145 P with delivery on day 5. That's a clear step from me, and I need a real jump from you to close in the time left.",
+      "price": 145,
+      "days": 5
+     },
+     {
+      "tick": 1252,
+      "from": "Rival Oro",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 122,
+      "days": 0
+     },
+     {
+      "tick": 1252,
+      "from": "you",
+      "text": "Thanks for the bigger step. I can come to 142 P with delivery on day 5, and we can close right now at that number on day 5.",
+      "price": 142,
+      "days": 5
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1560,6 +1669,213 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1252,
+   "took_s": 9.99,
+   "cost_usd": 0.01607,
+   "obs": {
+    "view": {
+     "duel_id": 5619,
+     "role": "seller",
+     "limit": 123,
+     "currency": "P",
+     "item": "La Vía Láctea",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.29,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm opening at 182 P with delivery on day 5. I'm happy to hear your counteroffer.",
+      "offer": {
+       "price": 182,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1241,
+      "decision": {
+       "action": "offer",
+       "price": 182,
+       "message": "I'm opening at 182 P with delivery on day 5. I'm happy to hear your counteroffer."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 69,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1242,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 79,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1244,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 172 P with delivery on day 5. I'd need to see a much bigger step from you to keep closing the gap.",
+      "offer": {
+       "price": 172,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1244,
+      "decision": {
+       "action": "offer",
+       "price": 172,
+       "message": "I can move to 172 P with delivery on day 5. I'd need to see a much bigger step from you to keep closing the gap."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 84,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1245,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can move to 163 P with delivery on day 5. Your steps would need to get much bigger for us to close the gap.",
+      "offer": {
+       "price": 163,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1245,
+      "decision": {
+       "action": "offer",
+       "price": 163,
+       "message": "I can move to 163 P with delivery on day 5. Your steps would need to get much bigger for us to close the gap."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can move to 151 P with delivery on day 5. That's a real step from me, so I'd need a substantial jump from you.",
+      "offer": {
+       "price": 151,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1248,
+      "decision": {
+       "action": "offer",
+       "price": 151,
+       "message": "I can move to 151 P with delivery on day 5. That's a real step from me, so I'd need a substantial jump from you."
+      }
+     },
+     {
+      "mine": true,
+      "text": "I can move to 145 P with delivery on day 5. That's a clear step from me, and I need a real jump from you to close in the time left.",
+      "offer": {
+       "price": 145,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1251,
+      "decision": {
+       "action": "offer",
+       "price": 145,
+       "message": "I can move to 145 P with delivery on day 5. That's a clear step from me, and I need a real jump from you to close in the time left."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 122,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1252,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 122,
+     "days": 0
+    },
+    "tick": 1252,
+    "ticks_left": 3,
+    "rounds": 4,
+    "day_swings": [
+     31.9,
+     46.3,
+     50.099999999999994,
+     32.9,
+     14.2,
+     36.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thanks for the bigger step. I can come to 142 P with delivery on day 5, and we can close right now at that number on day 5.",
+    "price": 142,
+    "days": 5,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 142,
+      "message": "Thanks for the bigger step. I can come to 142 P with delivery on day 5, and we can close right now at that number on day 5."
+     },
+     "band": {
+      "worst": 140,
+      "target": 142,
+      "best": 145
+     },
+     "plan": {
+      "read": "They made a big jump from 84 to 122 on day 0. With the day counted, that is still well short of a workable deal. Their repeated 'fair for both' line carries no information, so judge them only by their offers.",
+      "target": 142,
+      "best": 145,
+      "worst": 140,
+      "days": 5,
+      "angle": "Make one clear final-stretch step to 142 on day 5 in a firm, friendly tone, and say we can close right now at that number on day 5."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.02,
+       "in": 1263,
+       "out": 453,
+       "cost_usd": 0.01411,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.97,
+       "in": 671,
+       "out": 62,
+       "cost_usd": 0.00196,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1844,6 +2160,63 @@
      "id": 6724,
      "price": 145,
      "tick": 1251,
+     "days": 5
+    }
+   }
+  },
+  {
+   "tick": 1252,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thanks for the bigger step. I can come to 142 P with delivery on day 5, and we can close right now at that number on day 5.",
+    "price": 142,
+    "days": 5,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 142,
+      "message": "Thanks for the bigger step. I can come to 142 P with delivery on day 5, and we can close right now at that number on day 5."
+     },
+     "band": {
+      "worst": 140,
+      "target": 142,
+      "best": 145
+     },
+     "plan": {
+      "read": "They made a big jump from 84 to 122 on day 0. With the day counted, that is still well short of a workable deal. Their repeated 'fair for both' line carries no information, so judge them only by their offers.",
+      "target": 142,
+      "best": 145,
+      "worst": 140,
+      "days": 5,
+      "angle": "Make one clear final-stretch step to 142 on day 5 in a firm, friendly tone, and say we can close right now at that number on day 5."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 8.02,
+       "in": 1263,
+       "out": 453,
+       "cost_usd": 0.01411,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.97,
+       "in": 671,
+       "out": 62,
+       "cost_usd": 0.00196,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5619,
+    "offer": {
+     "id": 6769,
+     "price": 142,
+     "tick": 1252,
      "days": 5
     }
    }
