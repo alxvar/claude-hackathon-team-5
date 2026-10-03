@@ -94,6 +94,133 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1271,
+   "raw": {
+    "duel": 5796,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "El Frutero de Argumosa",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.1,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 93,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 1286,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 7496,
+     "price": 145,
+     "tick": 1270,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 7522,
+     "price": 121,
+     "tick": 1271,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1270,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 105 with delivery on day 0.",
+      "price": 105,
+      "days": 0
+     },
+     {
+      "tick": 1270,
+      "from": "you",
+      "text": "Day 0 is fine by me, so let's focus on price. I can do 145 P with delivery on day 0.",
+      "price": 145,
+      "days": 0
+     },
+     {
+      "tick": 1271,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 121, delivery day 0.",
+      "price": 121,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1271,
+   "raw": {
+    "duel": 5796,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "El Frutero de Argumosa",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.1,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 93,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 1286,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 7538,
+     "price": 141,
+     "tick": 1271,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 7522,
+     "price": 121,
+     "tick": 1271,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1270,
+      "from": "Rival Luna",
+      "text": "Hello! I can do 105 with delivery on day 0.",
+      "price": 105,
+      "days": 0
+     },
+     {
+      "tick": 1270,
+      "from": "you",
+      "text": "Day 0 is fine by me, so let's focus on price. I can do 145 P with delivery on day 0.",
+      "price": 145,
+      "days": 0
+     },
+     {
+      "tick": 1271,
+      "from": "Rival Luna",
+      "text": "Thanks for the reply. 121, delivery day 0.",
+      "price": 121,
+      "days": 0
+     },
+     {
+      "tick": 1271,
+      "from": "you",
+      "text": "Thanks for moving. I can come down to 141 P with delivery on day 0, which is a real step from my side.",
+      "price": 141,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -246,6 +373,136 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1271,
+   "took_s": 9.14,
+   "cost_usd": 0.011559999999999999,
+   "obs": {
+    "view": {
+     "duel_id": 5796,
+     "role": "seller",
+     "limit": 93,
+     "currency": "P",
+     "item": "El Frutero de Argumosa",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.1,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello! I can do 105 with delivery on day 0.",
+      "offer": {
+       "price": 105,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1270,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Day 0 is fine by me, so let's focus on price. I can do 145 P with delivery on day 0.",
+      "offer": {
+       "price": 145,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1270,
+      "decision": {
+       "action": "offer",
+       "price": 145,
+       "message": "Day 0 is fine by me, so let's focus on price. I can do 145 P with delivery on day 0."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 121, delivery day 0.",
+      "offer": {
+       "price": 121,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1271,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 121,
+     "days": 0
+    },
+    "tick": 1271,
+    "ticks_left": 15,
+    "rounds": 1,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "Thanks for moving. I can come down to 141 P with delivery on day 0, which is a real step from my side.",
+    "price": 141,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 141,
+      "message": "Thanks for moving. I can come down to 141 P with delivery on day 0, which is a real step from my side."
+     },
+     "band": {
+      "worst": 141,
+      "target": 141,
+      "best": 143
+     },
+     "plan": {
+      "read": "They jumped 16 P, from 105 to 121, on day 0, while we haven't moved yet. That is real movement, but 121 is still well short of what we can likely get.",
+      "target": 141,
+      "best": 143,
+      "worst": 141,
+      "days": 0,
+      "angle": "Keep day 0 as agreed and make one modest, firm step to 141 P, signalling we're near our floor so they need to come up meaningfully."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.67,
+       "in": 802,
+       "out": 357,
+       "cost_usd": 0.01035,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.47,
+       "in": 337,
+       "out": 54,
+       "cost_usd": 0.00121,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -313,6 +570,63 @@
      "id": 7496,
      "price": 145,
      "tick": 1270,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1271,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Thanks for moving. I can come down to 141 P with delivery on day 0, which is a real step from my side.",
+    "price": 141,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 141,
+      "message": "Thanks for moving. I can come down to 141 P with delivery on day 0, which is a real step from my side."
+     },
+     "band": {
+      "worst": 141,
+      "target": 141,
+      "best": 143
+     },
+     "plan": {
+      "read": "They jumped 16 P, from 105 to 121, on day 0, while we haven't moved yet. That is real movement, but 121 is still well short of what we can likely get.",
+      "target": 141,
+      "best": 143,
+      "worst": 141,
+      "days": 0,
+      "angle": "Keep day 0 as agreed and make one modest, firm step to 141 P, signalling we're near our floor so they need to come up meaningfully."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.67,
+       "in": 802,
+       "out": 357,
+       "cost_usd": 0.01035,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.47,
+       "in": 337,
+       "out": 54,
+       "cost_usd": 0.00121,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5796,
+    "offer": {
+     "id": 7538,
+     "price": 141,
+     "tick": 1271,
      "days": 0
     }
    }

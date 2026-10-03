@@ -122,6 +122,133 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1271,
+   "raw": {
+    "duel": 5797,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Frutero de Argumosa",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.03,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 98,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1286,
+    "decay_per_round": 0.08,
+    "rounds": 1,
+    "your_offer": {
+     "id": 7491,
+     "price": 52,
+     "tick": 1270,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 7530,
+     "price": 75,
+     "tick": 1271,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1270,
+      "from": "Rival Plata",
+      "text": "Hello! I can do 85 with delivery on day 10.",
+      "price": 85,
+      "days": 10
+     },
+     {
+      "tick": 1270,
+      "from": "you",
+      "text": "Thanks for opening. I can do 52 P with delivery on day 0; happy to hear your counter.",
+      "price": 52,
+      "days": 0
+     },
+     {
+      "tick": 1271,
+      "from": "Rival Plata",
+      "text": "Thanks for the reply. 75, delivery day 10.",
+      "price": 75,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1271,
+   "raw": {
+    "duel": 5797,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Frutero de Argumosa",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.03,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 98,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1286,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 7537,
+     "price": 59,
+     "tick": 1271,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 7530,
+     "price": 75,
+     "tick": 1271,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1270,
+      "from": "Rival Plata",
+      "text": "Hello! I can do 85 with delivery on day 10.",
+      "price": 85,
+      "days": 10
+     },
+     {
+      "tick": 1270,
+      "from": "you",
+      "text": "Thanks for opening. I can do 52 P with delivery on day 0; happy to hear your counter.",
+      "price": 52,
+      "days": 0
+     },
+     {
+      "tick": 1271,
+      "from": "Rival Plata",
+      "text": "Thanks for the reply. 75, delivery day 10.",
+      "price": 75,
+      "days": 10
+     },
+     {
+      "tick": 1271,
+      "from": "you",
+      "text": "I appreciate the move on price. I can do 59 P with delivery on day 0; I'd like you to meet me on the day.",
+      "price": 59,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -263,6 +390,136 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1271,
+   "took_s": 6.6,
+   "cost_usd": 0.009120000000000001,
+   "obs": {
+    "view": {
+     "duel_id": 5797,
+     "role": "buyer",
+     "limit": 98,
+     "currency": "P",
+     "item": "El Frutero de Argumosa",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.03,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello! I can do 85 with delivery on day 10.",
+      "offer": {
+       "price": 85,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1270,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for opening. I can do 52 P with delivery on day 0; happy to hear your counter.",
+      "offer": {
+       "price": 52,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1270,
+      "decision": {
+       "action": "offer",
+       "price": 52,
+       "message": "Thanks for opening. I can do 52 P with delivery on day 0; happy to hear your counter."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 75, delivery day 10.",
+      "offer": {
+       "price": 75,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1271,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 75,
+     "days": 10
+    },
+    "tick": 1271,
+    "ticks_left": 15,
+    "rounds": 1,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5,
+     67.0,
+     21.0,
+     21.0,
+     50.300000000000004
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I appreciate the move on price. I can do 59 P with delivery on day 0; I'd like you to meet me on the day.",
+    "price": 59,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 59,
+      "message": "I appreciate the move on price. I can do 59 P with delivery on day 0; I'd like you to meet me on the day."
+     },
+     "band": {
+      "worst": 60,
+      "target": 59,
+      "best": 57
+     },
+     "plan": {
+      "read": "They dropped 10 P (85 to 75) but still insist on day 10, which is very costly for us. A real concession on price, so a modest reply is earned, but day 10 stays off the table.",
+      "target": 59,
+      "best": 57,
+      "worst": 60,
+      "days": 0,
+      "angle": "Acknowledge their move and make a measured step to 59 P on day 0, firm on day 0 delivery and inviting them to meet us on the day."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.56,
+       "in": 804,
+       "out": 232,
+       "cost_usd": 0.00786,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.04,
+       "in": 341,
+       "out": 58,
+       "cost_usd": 0.00126,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -319,6 +576,63 @@
      "id": 7491,
      "price": 52,
      "tick": 1270,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1271,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I appreciate the move on price. I can do 59 P with delivery on day 0; I'd like you to meet me on the day.",
+    "price": 59,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 59,
+      "message": "I appreciate the move on price. I can do 59 P with delivery on day 0; I'd like you to meet me on the day."
+     },
+     "band": {
+      "worst": 60,
+      "target": 59,
+      "best": 57
+     },
+     "plan": {
+      "read": "They dropped 10 P (85 to 75) but still insist on day 10, which is very costly for us. A real concession on price, so a modest reply is earned, but day 10 stays off the table.",
+      "target": 59,
+      "best": 57,
+      "worst": 60,
+      "days": 0,
+      "angle": "Acknowledge their move and make a measured step to 59 P on day 0, firm on day 0 delivery and inviting them to meet us on the day."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.56,
+       "in": 804,
+       "out": 232,
+       "cost_usd": 0.00786,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.04,
+       "in": 341,
+       "out": 58,
+       "cost_usd": 0.00126,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5797,
+    "offer": {
+     "id": 7537,
+     "price": 59,
+     "tick": 1271,
      "days": 0
     }
    }
