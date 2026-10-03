@@ -158,3 +158,5 @@ Swap your duplicates, hijo — a full page is wort
 - Sat 19:19 · taller.crafted tick 1090 ·  → t14 · Team 14 turned three common cards into La Galería (uncommon) at The Workshop
 - Sat 19:20 · catalog.minted LAT-11 (San Francisco el Grande, epic, print run 9): hidden=False minted=2 (was 1)
 - Sat 19:20 · persona.open_to_all tick 1091 · banco → ? · {"persona": "banco", "name": "Don Ernesto", "level": 5}
+- Sat 19:21 · message tick 1092 · banco → t13 · Buenas tardes. Carmen's regards are noted; the gold chulapa stays in the vault today. What I offer now is a gold pack. Terms: 546 P. Take your time deciding.
+- Sat 19:21 · message tick 1093 · banco → t04 · Buenas tardes. Carmen talks. Moscow gold is not a tale I repeat at a desk. Business first: a gold pack, 546 P. The terms are those.
