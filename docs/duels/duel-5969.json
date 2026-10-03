@@ -1344,6 +1344,186 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1313,
+   "took_s": 9.58,
+   "cost_usd": 0.0152,
+   "obs": {
+    "view": {
+     "duel_id": 5969,
+     "role": "buyer",
+     "limit": 68,
+     "currency": "P",
+     "item": "Plaza del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.59,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Rápido y justo: 57 P, día 8. ¿Qué día de entrega te va mejor? / Quick and fair: 57 P, day 8. Which delivery day suits you best?",
+      "offer": {
+       "price": 57,
+       "days": 8
+      },
+      "accept": false,
+      "tick": 1301,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Day 0 suits me best, so I can do 40 P for delivery on day 0. That keeps things simple and quick for both of us.",
+      "offer": {
+       "price": 40,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1301,
+      "decision": {
+       "action": "offer",
+       "price": 40,
+       "message": "Day 0 suits me best, so I can do 40 P for delivery on day 0. That keeps things simple and quick for both of us."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Parece que el día te importa: 52 P con día 4. / It seems the day matters to you: 52 P, day 4.",
+      "offer": {
+       "price": 52,
+       "days": 4
+      },
+      "accept": false,
+      "tick": 1302,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for moving. I can do 43 P with delivery on day 0, which keeps it simple and quick.",
+      "offer": {
+       "price": 43,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1302,
+      "decision": {
+       "action": "offer",
+       "price": 43,
+       "message": "Thanks for moving. I can do 43 P with delivery on day 0, which keeps it simple and quick."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Parece que el día te importa: 50 P con día 2. / It seems the day matters to you: 50 P, day 2.",
+      "offer": {
+       "price": 50,
+       "days": 2
+      },
+      "accept": false,
+      "tick": 1303,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 37 P, delivery on day 2.",
+      "offer": {
+       "price": 37,
+       "days": 2
+      },
+      "accept": false,
+      "tick": 1312,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Mi mejor oferta: 45 P, día 2. / My best offer: 45 P, day 2.",
+      "offer": {
+       "price": 45,
+       "days": 2
+      },
+      "accept": false,
+      "tick": 1313,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 45,
+     "days": 2
+    },
+    "tick": 1313,
+    "ticks_left": 3,
+    "rounds": 3,
+    "day_swings": [
+     39.8,
+     55.199999999999996,
+     36.2,
+     18.6,
+     45.099999999999994,
+     33.4,
+     62.599999999999994,
+     25.9,
+     13.200000000000001,
+     23.3,
+     14.299999999999999,
+     64.6,
+     9.399999999999999
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Accepted: 45 P, day 2.",
+    "price": 45,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "accept",
+      "price": 45,
+      "message": "Accepted: 45 P, day 2."
+     },
+     "band": {
+      "worst": 45,
+      "target": 45,
+      "best": 43
+     },
+     "plan": {
+      "read": "They have come down steadily from 57 to 45 on day 2 and now call it their best. That claim is unproven, but their offer is within our limit, the gap is small next to how far they have moved, and only 3 ticks remain.",
+      "target": 45,
+      "best": 43,
+      "worst": 45,
+      "days": 2,
+      "angle": "Accept their 45 P on day 2 now to close the deal cleanly, with no further haggling."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.96,
+       "in": 1174,
+       "out": 448,
+       "cost_usd": 0.01366,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.61,
+       "in": 605,
+       "out": 33,
+       "cost_usd": 0.00154,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1482,6 +1662,59 @@
      "tick": 1312,
      "days": 2
     }
+   }
+  },
+  {
+   "tick": 1313,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Accepted: 45 P, day 2.",
+    "price": 45,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "accept",
+      "price": 45,
+      "message": "Accepted: 45 P, day 2."
+     },
+     "band": {
+      "worst": 45,
+      "target": 45,
+      "best": 43
+     },
+     "plan": {
+      "read": "They have come down steadily from 57 to 45 on day 2 and now call it their best. That claim is unproven, but their offer is within our limit, the gap is small next to how far they have moved, and only 3 ticks remain.",
+      "target": 45,
+      "best": 43,
+      "worst": 45,
+      "days": 2,
+      "angle": "Accept their 45 P on day 2 now to close the deal cleanly, with no further haggling."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.96,
+       "in": 1174,
+       "out": 448,
+       "cost_usd": 0.01366,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.61,
+       "in": 605,
+       "out": 33,
+       "cost_usd": 0.00154,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 45,
+    "settles_at_tick": 1314
    }
   }
  ]
