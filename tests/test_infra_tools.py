@@ -319,3 +319,29 @@ def test_team_sync_does_nothing_while_paused(tmp_path):
     (ours / "STATUS.md").write_text("1\n")
     assert "paused" in team_sync(ours, "push").stderr
     assert g(ours, "log", "-1", "--format=%s") == "init"
+
+
+# ------------------------------------------------------------------ collectors: who may buy a set from us
+
+import collectors  # noqa: E402
+
+TEAMS_MD = """# Rival profiles
+- #7 Team 10 17.0 (Δ +0.6) · **buyer for LAV** · collects LAV/RET · dumps LAT/MAL/SAL · prices c 10
+- #8 Team 16 13.4 (Δ +0.8) · **buyer for SAL/LAT** · collects SAL/LAT · 0 team / 14 dealer trades
+- #18 Team 11 6.2 (Δ +1.0) · **inactive** · 0 team / 0 dealer trades
+"""
+
+
+def test_collectors_rule(tmp_path):
+    (tmp_path / "teams.md").write_text(TEAMS_MD)
+    feed = [{"type": "offer.listed", "actor": "t09", "payload": {"offer": {"maker": "t09", "give": {"cash": 30},
+                                                                            "want": {"types": ["card:MAL-07"]}}}},
+            {"type": "offer.listed", "actor": "t13", "payload": {"offer": {"maker": "t13", "give": {"cash": 2},
+                                                                            "want": {"types": ["card:RET-02"]}}}},
+            {"type": "thread.opened", "payload": {"kind": "persona", "team": "t04", "topic": {"buy": {"card": "SAL-06"}}}}]
+    (tmp_path / "feed.jsonl").write_text("\n".join(json.dumps(e) for e in feed) + "\n")
+    c = collectors.Collectors.load(teams_md=tmp_path / "teams.md", feed=tmp_path / "feed.jsonl")
+    assert c.allows("t16", "SAL")[0] and not c.allows("t10", "SAL")[0]          # collects / dumps (teams.md)
+    assert c.allows("t09", "MAL")[0] and c.allows("t04", "SAL")[0]              # a real bid / a dealer ask (feed)
+    assert not c.allows("t13", "RET")[0]                                        # a 2 P bid on a common: no sign
+    assert not c.allows("t11", "SAL")[0] and not c.allows(None, "SAL")[0]       # unknown / public ask

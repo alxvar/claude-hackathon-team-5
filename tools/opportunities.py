@@ -355,7 +355,7 @@ def buy_price(book, value, live_ask=None):
 # ---------------------------------------------------------------------------------------------------- the engine
 
 def find_opportunities(*, events, board, lb, cat, me, value_of, build=BUILD, cash_floor=200, now_tick, gt,
-                       committed_cash=0, now_h=None, our_listed=(), wall=None):
+                       committed_cash=0, now_h=None, our_listed=(), wall=None, collectors=None):
     """Every SELL / BUY pair the signals support, with hard-limit and feeding checks; status filled in later.
     `wall` (a WallClock) also makes a feed signal older than WALL_STALE_S real seconds low confidence; live board
     offers are standing now, so they never are."""
@@ -420,6 +420,12 @@ def find_opportunities(*, events, board, lb, cat, me, value_of, build=BUILD, cas
                  "closing": closing}
             if team in top:
                 o["reasons"].append("top 4")
+            # Chief 11:50: value created = buyer value - seller value; a sale to a non-collector scored -10.2 [V].
+            dumps = collectors is not None and c["set"] in collectors.teams.get(team, {}).get("dumps", set())
+            if dumps:
+                o["reasons"].append(f"dumps {c['set']} (teams.md): sell only to collectors")
+            elif not (p.get("collects") or (collectors is not None and collectors.allows(team, c["set"])[0])):
+                o["reasons"].append(f"no sign it collects {c['set']}: sell only to collectors")
             if closing and (gap is None or gap < SCORE_GAP):   # plan §4A: only a page-closer needs the 10-point gap
                 o["reasons"].append("not on the leaderboard" if gap is None else f"{-gap:g} above us" if gap < 0
                                     else f"only {gap:g} below us (needs ≥ {SCORE_GAP})")
@@ -648,7 +654,7 @@ def write_md(path, opps, state, ctx, *, dry_run, now, clock, src):
 # ---------------------------------------------------------------------------------------------------- one run
 
 def run_once(api, *, dry_run, now=None, state_path=STATE, out_path=OUT, data_dir=DATA, build=BUILD,
-             cash_floor=None, notifier=notify, log=print):
+             cash_floor=None, notifier=notify, log=print, collectors=None):
     now = time.time() if now is None else now
     cash_floor = int(os.environ.get("CASH_FLOOR", 200)) if cash_floor is None else cash_floor
     state = load_state(state_path, strict=not dry_run)
@@ -676,7 +682,8 @@ def run_once(api, *, dry_run, now=None, state_path=STATE, out_path=OUT, data_dir
 
     opps, ctx = find_opportunities(events=events, board=board, lb=lb, cat=cat, me=me, value_of=value_of, build=build,
                                    cash_floor=cash_floor, now_tick=now_tick, gt=gt, committed_cash=committed,
-                                   now_h=clock.get("t_hours"), our_listed=our_listed, wall=wall)
+                                   now_h=clock.get("t_hours"), our_listed=our_listed, wall=wall,
+                                   collectors=collectors)
     ctx["values"] = values
     picked = choose_alerts(opps, state, now)
     ttl_ticks = expires_param(OFFER_TTL_TICKS, clock.get("tick_seconds"))
@@ -739,10 +746,12 @@ def main(argv=None):
     a = ap.parse_args(argv)
     api = Api(URL, os.environ.get("BAZAAR_KEY", ""), a.dry_run)
     build = tuple(s.strip().upper() for s in a.build.split(",") if s.strip())
+    from collectors import CachedCollectors
+    collectors_cache = CachedCollectors()
     while True:
         started = time.time()
         try:
-            opps, picked = run_once(api, dry_run=a.dry_run, build=build)
+            opps, picked = run_once(api, dry_run=a.dry_run, build=build, collectors=collectors_cache.get())
             ok = [o for o in opps if not o["reasons"]]
             sent = len(picked) if a.dry_run else sum(o["status"].startswith("ALERTED") for o in picked)
             print(f"{time.strftime('%H:%M:%S')} opportunities: {len(opps)} found, {len(ok)} pass the hard rules, "

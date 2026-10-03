@@ -13,7 +13,9 @@ Each tick, per entry (one live offer per card and side):
 - not posted, expired or cancelled: post it (an ask whose copy left us, or a bid whose card arrived, is filled: done);
 - expiring within REFRESH_LEFT ticks: cancel and post again at the same price;
 - unfilled REPRICE_AFTER ticks at one price: cancel and post one step toward the floor (asks down, bids up).
-Never past the floor, nor past what scores: an ask at least our copy's value + --min-gain-sell (1: as maker we pay
+An ask goes only to a team that collects the card's set (tools/collectors.py: teams.md "collects" or its bids /
+dealer asks; "dumps" or unknown: no; a public ask, with no `to`, never): a live one that stops qualifying is
+cancelled. Never past the floor, nor past what scores: an ask at least our copy's value + --min-gain-sell (1: as maker we pay
 no fee, so any price above value scores; the trader's +6 is a taker's bar), a bid at most our value - --min-gain. Bids keep cash >= --cash-floor across all our bids.
 Venue: the entry's, else DEFAULT_VENUE (v07); El Rastro for a page-closer, and when the venue is closed, unseen or
 owned by a top-4 team. Limits: at most NEW_SHARE of the team's new offers per tick and the open-offer limit minus
@@ -35,7 +37,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "bazaar-kit"))
+sys.path.insert(0, str(ROOT / "tools"))
 from bazaar_sdk import Bazaar, BazaarError  # noqa: E402
+from collectors import CachedCollectors, set_of  # noqa: E402
 
 BOOK, STATE, LOG = ROOT / "run" / "book.json", ROOT / "run" / "book_state.json", ROOT / "logs" / "book.jsonl"
 HOUSE = "rastro"
@@ -78,8 +82,10 @@ def save(path: Path, data) -> None:
     tmp.replace(path)
 
 
-def venue_for(e: dict, venues: dict, top: set) -> str:
-    if e.get("page_closer"):
+def venue_for(e: dict, venues: dict, top: set | None) -> str:
+    """El Rastro for a page-closer, an unseen or closed venue, a venue owned by a top-4 team, or when the top 4 is
+    unknown (the leaderboard read failed): a team venue only when we know its owner is outside the top 4."""
+    if e.get("page_closer") or top is None:
         return HOUSE
     want = e.get("venue") or DEFAULT_VENUE
     v = venues.get(want)
@@ -111,12 +117,14 @@ def toward(price: int, floor: int, sell: bool, step: int | None) -> int:
 
 class Book:
     def __init__(self, b, *, dry_run: bool = False, log=log, min_gain_sell=MIN_GAIN_SELL, min_gain_buy=MIN_GAIN_BUY,
-                 cash_floor=CASH_FLOOR):
+                 cash_floor=CASH_FLOOR, collectors=None):
         self.b, self.dry_run, self.log = b, dry_run, log
         self.min_gain_sell, self.min_gain_buy, self.cash_floor = min_gain_sell, min_gain_buy, cash_floor
         self.values: dict[str, tuple[float, int]] = {}   # card -> (our value, tick read): re-read every VALUE_TICKS
         self.tick = 0
         self._ctx_tick: int | None = None
+        self._top_tick: int | None = None
+        self.collectors = collectors or CachedCollectors()
         self.venues: dict = {}
         self.top: set = set()
 
@@ -130,11 +138,20 @@ class Book:
         except BazaarError as e:
             self.log({"event": "error", "where": "venues", "code": e.code})
             self.venues = {}                         # unseen: El Rastro
-        try:
-            teams = sorted(self.b.leaderboard().get("teams") or [], key=lambda t: -(t.get("score") or 0))
-            self.top = {t["team"] for t in teams[:4]}
-        except BazaarError as e:
-            self.log({"event": "error", "where": "leaderboard", "code": e.code})
+        self.top4(tick)
+
+    def top4(self, tick: int) -> set | None:
+        """The top 4, read at most once a tick; None when the read fails (then nothing goes on a team venue). Sat
+        11:31: MAL-02 was reposted on v07 with its owner already in the top 4 (read every 10 ticks before)."""
+        if self._top_tick != tick:
+            self._top_tick = tick
+            try:
+                teams = sorted(self.b.leaderboard().get("teams") or [], key=lambda t: -(t.get("score") or 0))
+                self.top = {t["team"] for t in teams[:4]}
+            except BazaarError as e:
+                self.log({"event": "error", "where": "leaderboard", "code": e.code})
+                self.top = None
+        return self.top
 
     def value(self, card: str) -> float | None:
         """Our value, re-read every VALUE_TICKS: it moves with our holdings (the last card of a page jumps by the
@@ -176,6 +193,25 @@ class Book:
                 out[key] = s
                 continue
             held = len(copies.get(e["card"], []))
+            if sell:                                  # only to a team that collects the set (Chief 11:50)
+                ok, why = self.collectors.get().allows(e.get("to"), set_of(e["card"]))
+                if not ok:
+                    if s.get("offer") in mine and self.dry_run:
+                        self.log({"event": "cancel_not_collector", "card": e["card"], "offer": s["offer"], "why": why,
+                                  "dry_run": True})
+                    elif s.get("offer") in mine:
+                        try:
+                            self.b.cancel(s["offer"])
+                            self.log({"event": "cancel_not_collector", "card": e["card"], "offer": s["offer"],
+                                      "why": why})
+                        except BazaarError as err:
+                            self.log({"event": "cancel_failed", "card": e["card"], "offer": s["offer"],
+                                      "code": err.code})
+                    elif s.get("blocked") != why:
+                        self.log({"event": "skip", "card": e["card"], "side": "sell", "why": why})
+                    out[key] = {k: v for k, v in s.items() if k != "offer"} | {"blocked": why}
+                    continue
+                s.pop("blocked", None)
             if not s.get("offer"):                    # one of ours already out (posted by hand): take it over
                 for oid, x in mine.items():
                     if oid not in adopted and (p := matches(x, e)) is not None:
@@ -251,7 +287,7 @@ class Book:
         if not sell and me.get("cash", 0) - (bid_cash - mine_now) - price < self.cash_floor:
             self.log({"event": "skip", "card": card, "side": "buy", "why": f"cash floor {self.cash_floor}"})
             return None, False
-        venue = venue_for(e, self.venues, self.top)
+        venue = venue_for(e, self.venues, self.top4(tick) if (e.get("venue") or DEFAULT_VENUE) != HOUSE else set())
         give, want = ({"assets": [asset["id"]]}, {"cash": price}) if sell else ({"cash": price}, {"cards": [card]})
         ev = {"event": why, "card": card, "side": e["side"], "price": price, "was": old if price != old else None,
               "floor": floor, "venue": venue, "to": e.get("to"), "replaces": s.get("offer")}

@@ -22,12 +22,15 @@ class Game:
                        {"id": 484, "kind": "card", "ref": "LAT-04", "your_value": 8}]
         self.offers, self.posted, self.cancelled, self.next_id, self.tick = {}, [], [], 5000, CLOCK["tick"]
         self._venues, self.values, self.cash = list(venues), values or {"RET-07": 60.0}, cash
+        self.teams, self.lb_fails = list(TOP), False
 
     def venues(self):
         return {"venues": self._venues}
 
     def leaderboard(self):
-        return {"teams": TOP}
+        if self.lb_fails:
+            raise BazaarError("network", "leaderboard down")
+        return {"teams": self.teams}
 
     def me(self):
         return {"id": "t05", "cash": self.cash, "assets": self.assets}
@@ -53,9 +56,20 @@ class Game:
         self.offers.pop(oid, None)
 
 
+class AllowAll:
+    """Collectors stub: every named buyer collects every set (the collectors rule has its own tests)."""
+
+    def get(self):
+        return self
+
+    def allows(self, team, set_id):
+        return (bool(team) or True), "test"
+
+
 def run(game, entries, st=None, tick=300, **kw):
     events = []
     game.tick = tick
+    kw.setdefault("collectors", AllowAll())
     book = bk.Book(game, log=events.append, **kw)
     return book.step(entries, st or {}, {**CLOCK, "tick": tick}), events, book
 
@@ -183,7 +197,7 @@ def test_a_bid_follows_our_value_when_the_card_becomes_the_last_of_a_page():
     # CHA-08 reads 40 while other CHA cards are missing, 146 once it is the last one (+106 page bonus).
     g = Game(values={"CHA-08": 40.0})
     e = [{"card": "CHA-08", "side": "buy", "price": 60, "floor": 96}]
-    book = bk.Book(g, log=lambda ev: None)
+    book = bk.Book(g, log=lambda ev: None, collectors=AllowAll())
     st = book.step(e, {}, {**CLOCK, "tick": 300})
     assert g.posted[-1]["give"] == {"cash": 37}                         # capped at value - 3
     g.values["CHA-08"] = 146.0
@@ -200,3 +214,66 @@ def test_a_page_closer_bid_goes_to_el_rastro_with_its_own_shorter_life():
     run(g, [{"card": "CHA-08", "side": "buy", "price": 60, "floor": 96, "page_closer": True, "life": 20}])
     o = g.posted[0]
     assert o["venue"] == "rastro" and o["expires_tick"] == 300 + 20     # sent as 40 at 30 s ticks
+
+
+
+# ------------------------------------------------------------------ top 4 read per tick; sells only to collectors
+
+def test_a_venue_owner_entering_the_top_4_sends_the_next_post_to_el_rastro():
+    # Sat 11:31: MAL-02 was reposted on v07 with t10 already in the top 4 (the top 4 was read every 10 ticks).
+    g = Game()
+    book = bk.Book(g, log=lambda ev: None, collectors=AllowAll())
+    st = book.step([{"card": "SAL-08", "side": "sell", "to": "t16", "price": 30, "floor": 20}], {}, {**CLOCK, "tick": 300})
+    assert g.posted[-1]["venue"] == "v07"
+    g.teams = [{"team": "t10", "score": 99}] + list(TOP)                # t10, v07's owner, is now #1
+    g.tick = 302
+    book.step([{"card": "SAL-08", "side": "sell", "to": "t16", "price": 30, "floor": 20},
+               {"card": "LAT-04", "side": "sell", "to": "t15", "price": 15, "floor": 14}], st, {**CLOCK, "tick": 302})
+    assert g.posted[-1]["give"] == {"assets": [484]} and g.posted[-1]["venue"] == "rastro"
+
+
+def test_an_unknown_top_4_means_el_rastro():
+    g = Game()
+    g.lb_fails = True
+    run(g, [{"card": "SAL-08", "side": "sell", "to": "t16", "price": 30, "floor": 20}])
+    assert g.posted[0]["venue"] == "rastro"
+
+
+class Rule:
+    def __init__(self, allowed):
+        self.allowed = allowed
+
+    def get(self):
+        return self
+
+    def allows(self, team, set_id):
+        return (team, set_id) in self.allowed, f"{team} doesn't collect {set_id}"
+
+
+def test_asks_go_only_to_teams_that_collect_the_set():
+    g = Game()
+    e = [{"card": "SAL-08", "side": "sell", "to": "t10", "price": 30, "floor": 20},     # t10 dumps SAL
+         {"card": "LAT-04", "side": "sell", "price": 15, "floor": 14},                  # public: buyer unknown
+         {"card": "SAL-08", "side": "sell", "to": "t16", "price": 30, "floor": 20}]     # t16 collects SAL
+    st, ev, _ = run(g, e[:2], collectors=Rule({("t16", "SAL")}))
+    assert g.posted == [] and [x["event"] for x in ev] == ["skip", "skip"]
+    st, ev, _ = run(g, e[2:], collectors=Rule({("t16", "SAL")}))
+    assert g.posted[0]["to"] == "t16"
+
+
+def test_a_live_ask_that_stops_qualifying_is_cancelled():
+    g = Game()
+    e = [{"card": "SAL-08", "side": "sell", "to": "t16", "price": 30, "floor": 20}]
+    st, _, _ = run(g, e, collectors=Rule({("t16", "SAL")}))
+    oid = g.posted[0]["id"]
+    st, ev, _ = run(g, e, st, tick=301, collectors=Rule(set()))           # teams.md now says t16 dumps SAL
+    assert g.cancelled == [oid] and ev[-1]["event"] == "cancel_not_collector" and "offer" not in st["SAL-08:sell"]
+
+
+
+def test_a_dry_run_never_cancels():
+    g = Game()
+    e = [{"card": "SAL-08", "side": "sell", "to": "t16", "price": 30, "floor": 20}]
+    st, _, _ = run(g, e, collectors=Rule({("t16", "SAL")}))
+    st, ev, _ = run(g, e, st, tick=301, collectors=Rule(set()), dry_run=True)
+    assert g.cancelled == [] and ev[-1]["event"] == "cancel_not_collector" and ev[-1]["dry_run"]

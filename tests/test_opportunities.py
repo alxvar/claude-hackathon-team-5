@@ -46,12 +46,12 @@ def pull_event(team, card, tick, eid):
     return e
 
 
-def engine(f=None, values=None, build=("RET", "CHA"), cash_floor=200):
+def engine(f=None, values=None, build=("RET", "CHA"), cash_floor=200, collectors=None):
     f = f or fx()
     ev = sorted(f["events"], key=lambda e: (e["tick"], e["id"]))
     return op.find_opportunities(events=ev, board=f["board"], lb=f["leaderboard"], cat=f["catalog"], me=f["me"],
                                  value_of=lambda c: (values or {}).get(c), build=build, cash_floor=cash_floor,
-                                 now_tick=TICK, gt=op.GameTime(ev))
+                                 now_tick=TICK, gt=op.GameTime(ev), collectors=collectors)
 
 
 def signals(f=None):
@@ -706,3 +706,13 @@ def test_expires_in_ticks_is_sent_in_fridays_60_s_units():
     assert op.expires_param(20, 60) == 20
     assert op.expires_param(20, 30) == 40                                  # 20 real ticks on Saturday
     assert op.expires_param(20, 15) == 80                                  # Sunday, if the rule holds: verify
+
+
+
+def test_sells_go_only_to_teams_that_collect_the_set():
+    # Chief 11:50 [V]: a sale to a non-collector scored -10.2 on our venue. teams.md "dumps" vetoes a sale.
+    import collectors as col
+    c = col.Collectors({"t07": {"collects": set(), "dumps": {"SAL"}}, "t08": {"collects": {"LAT"}, "dumps": set()}}, {})
+    opps, _ = engine(collectors=c)
+    assert any("dumps SAL" in r for r in find(opps, "SELL", "t07", "SAL-02")["reasons"])
+    assert find(opps, "SELL", "t08", "LAT-03")["reasons"] == []          # collects LAT (teams.md and its bids)
