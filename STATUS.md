@@ -1,15 +1,15 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 15:39** · tick 651 (30 s/tick) · game hour 6.75 · running · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 15:44** · tick 661 (30 s/tick) · game hour 6.83 · running · today closes 23:00._
 
 ## Team: now and latest
 
 _From `team/<name>.md`; each person writes only their own file._
 
-**Aleks** — Duels I done (30/34 deals, 13.93 duel points). **Duels II ≈ 20:33** (new times, PLAN #18). Aleks's Builder (this Mac) is building `docs/duels-1-review.md` §3.1 days strategy, §3.2 rounds rollback (MIN_STEP_SHARE 0.05, no offer budget) and §3.4 runbook (`--effort medium`); merge by ~19:30. Duel Lab's recommendation (`intel/duel-lab.md`) by 18:00 → Aleks decides tweaks. **Aleks restarts by ~20:15:** `agents/duelist/supervise.sh --negotiator-model claude-sonnet-5-5 --effort medium`, then checks the day reading at the first days duel.
+**Aleks** — Duels I done (30/34 deals, 13.93 duel points). **Duels II ≈ 20:33** (new times, PLAN #18). Aleks's Builder (this Mac) is building `docs/duels-1-review.md` §3.1 days strategy, §3.2 rounds rollback (MIN_STEP_SHARE 0.05, no offer budget) and §3.4 runbook (`--effort medium`); merge by ~19:30. Duel Lab's recommendation (`intel/duel-lab.md`) by 18:00 → Aleks decides tweaks. **Duelist LIVE on 4699673 since 15:43:11** (Opus medium + Sonnet low, tests 377 green); restart again by ~20:15 only if Duel Lab tweaks merge: `agents/duelist/supervise.sh --negotiator-model claude-sonnet-5-5 --effort medium`, then checks the day reading at the first days duel.
+  - Sat 15:43 · duelist restarted on the Duels II changes (4699673): `supervise.sh --negotiator-model claude-sonnet-5-5 --effort medium --negotiator-effort low`; full suite 377 pass, no live duels; console: strategist opus/medium, negotiator sonnet/low, next session Duels II (hour 11.65 ≈ 20:34, 6 at once, price + days, 8%) · the 6e53377 rounds limits are no longer live · log `logs/duelist/supervise-20261003-1543.log` · next: restart once more if Duel Lab tweaks merge (test first), then the day reading at the first days duel
+  - Sat 15:42 · Builder · **Duels II changes merged** (4699673, `docs/duels-1-review.md` §3.1/3.2/3.4) · rounds: `MIN_STEP_SHARE` 0.25 → 0.05 (3 P floor kept), offer budget and its ledger line removed, strategist bullet: no 'four offers', + 'small steps while the gap is wide, big moves for the close' · days: ledger reads their day against our table (C vs our best day, same side ≤ 2 P, our weight's rank among the session's weights kept by the runner; < 3 seen: ≤ 15 P low, ≥ 30 P high) and states the call of the 6 day rules (take / give for C + ~C / hold, up to C/2 / menu); a middle day under linear weights is never given (the end on their side instead); negotiator may offer the second package in words; all thresholds named constants in `agent.py` · tests: deck example both ways, worth-neutral day swap, weight rank, runner swings per session, guide; full suite 377 pass · smoke (days, Opus medium + Sonnet low): menu day 10 at 58 / day 0 at 80 in words, worth-neutral; strategist 10.9 s (spec 6.4-8.1) · runbook restart line: `supervise.sh --negotiator-model claude-sonnet-5-5 --effort medium --negotiator-effort low` (`--effort` alone also sets the negotiator to medium) · **not live: restart by ~20:15 is Aleks's**
   - Sat 15:40 · Duels II changes handed to Aleks's Builder (this Mac, not Lucas's): §3.1 days, §3.2 rounds rollback, §3.4 effort, from `docs/duels-1-review.md`; thresholds as named constants so the Duel Lab's 18:00 findings can tune them; merge by ~19:30, no restart · next: read `intel/duel-lab.md` at 18:00, restart by ~20:15
-  - Sat 13:45 · **Duels I review + Duels II plan** → `docs/duels-1-review.md` (PLAN #10/#14/#15) · tested on real offers: break-even accept 447 P vs our 479 (−31: rivals' steps are lumpy) → don't ship; anchor closer −83 P at 60% / −43 P at 75% of our opener distance vs ≤ +14 from fewer rounds → don't; our <10%-of-gap steps drew 5.5 P back, ≥25% steps 4.8 for 7.5 → **the merged ¼-gap min step and the 4-offer budget would cut haggling that paid (71 P of results sat behind offer 4)**: keep the 3 P floor, MIN_STEP_SHARE 0.25 → 0.05, drop OFFER_BUDGET · rival teams play us in pairs with identical wording (8 pairs) · inferred share per deal 0.58 (n=17) · **days plan**: take a same-side day at once; opposite: give it when our weight is low and ask ≥ C (its cost) + ~C, hold it when high, menu in words otherwise; never a middle day; settle the day in the first two messages · engine: strategist --effort medium for Duels II (smoke: 6.4-8.1 s vs low 3.9-7.5 s) · desk Q: duel accepts per duel or per team per tick (6 at once) · next: Aleks decides at 15:30, Builder codes by 17:00
-  - Sat 13:24 · duelist restarted on 6e53377 'fewer rounds per deal' (HEAD 724b13b): full suite 351 pass, no live duels; up since 13:24:30, log `logs/duelist/supervise-20261003-1324.log`; reads Duels II (hour 11.65, 6 at once, price + days, 8%) · next: restart again on whatever the 15:30 decisions add, by 17:45
 
 **Dani** — Desk, still open: Q6 (do duel threads count in the 6 open conversations? Duels II runs 6 at once ≈ 18:29), venue bond cooldown length, Q7 judging, Q4 ladder "price range" (do above-list deals count?), Q3 cap flat 50 or 5×book. Answered: stale `day_closes fri` did nothing (Lucas 10:50); Round 3 + CHA re-anchored to Sun ≈ 09:29 (server, log 11:44). Room: RET holders/collectors in log 11:44; steer other teams' trades to our v10 (0% fee: one trade there took us #4 → #2 at 10:45); no sell pitches (no line in `intel/opportunities.md` is live; top 4 at tick 424: t14, t13, t18, t12, and it moves every few minutes, so check the live board). Pitch draft with Lucas during Duels I (11:59-~13:34). Dashboard on my laptop (http://127.0.0.1:8765, read-only; Duel monitor tab at `#duelmon` for Duels I/II/III) rewrites `intel/teams.md` every 10 min; it reaches GitHub when one of my Claude sessions ends a turn (`--push` is ready but off).
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
@@ -17,9 +17,9 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 12:12 · **dashboard: new "Duel monitor" tab** (http://127.0.0.1:8765/#duelmon), the current duel session live, read-only, from data the dashboard already reads (**no extra request**: the duelist shares the team's 5 rps) · session + field progress from the feed (`duels.scheduled`, `duel.closed`), our duels from `/api/duels`, `duel_points` from `/api/me` · tiles: our duels done/total + ETA, deals, result after decay and **P lost to rounds**, `duel_points` sparkline, P left on the table, field deal rate · alerts: CRITICAL (rival's standing offer inside our limit with ≤ 2 ticks left; our offer outside our limit; we silent ≥ 4 ticks after a rival price near the deadline), WATCH (acceptable now: +X P after decay), MISSED · live table (our offer vs theirs vs limit, gap, rounds, pie left, ticks left, accept-now value; days for Duels II) · finished table · negotiating Δ per team since the session began (board doesn't split duels out) · complements Lucas's `duelmon` (phone alerts + per-wave review), doesn't replace it · restarted 12:10 on this code, 0 errors, hub on · **Duels I at tick 483:** 4/34 done, 4 deals, 36.7 P of 50 P surplus (**13.3 P, 27 %, lost to rounds**; duel 2540: 7 rounds, 6.7 of 19 lost), field 36/39 deals · seen live: duel 2506 (buyer, limit 103): rival dropped to 96 at tick 480 and we sent 98 the same tick (step computed on their previous 104); it closed at 96 anyway (4.8 P, 6 rounds), so no cost; for Aleks's rounds spec: a same-tick drop can cross our next step · next: watch Duels I on the tab, desk Q6
 
 **Lucas** — Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
-  - Sat 15:39 · operator · swaps unfilled at tick 647 → reposted: 9387 (El Rastro → t15: LAT-04 2nd + MAL-04 for SAL-07) and 9389 (v15 → t07: LAV-02 2nd for MAL-01), until tick 688 · Chief: MAL-09 held for Pícaros (no sale to t17); L3 near saturation (no more Pilar round trips unless they clearly beat the weakest share) · NEWS #6: Abuela gift pack ~16:40 → auto-open job armed
-  - Sat 15:36 · operator · **SAL-06 → Pilar at 25** (her 22 → 23 → 25): ladder 0.181 → **0.188** (+0.007), neg 32.5, cash 186 (round trip ≈ break-even) · **silver pack 755 opened** (Chief's change), alone in its window: neg unchanged, cv +0.5; pulls SAL-01 (2.2), MAL-05 (7), LAT-08 unc (12.5), SAL-08 unc (22.5), **MAL-09 rare (49)**, all held out of the book for Pícaros L4 / Pilar L3 · t17 bids 70-85 for MAL-09 (likely its closer; feeding rule says no) → Chief's call
-  - Sat 15:31 · operator · game resumed 15:29 (new times: fever 18:03-20:03, Duels II ~20:33, CHA Sunday ~11:34) · **SAL-06 bought from Abuela at 23** (her 25; resumed thread 868): `neg_points` 35.2 → 32.5 (−2.7 vs −0.5: silver-pack drag 92.9 → 90.5, now [V] in GAME.md), ladder unchanged, cash 161 · SAL-06 → Pilar now (≥ 25), else the fever · swap repost at tick 647 and Pícaros watch armed
+  - Sat 15:47 · operator · **handoff kept in run/operator-handoff.md** (jobs, monitors, live special offers, reserved cards, scripts, next steps; updated on change) · opps 9343 (RET-04 → t15 at 40, +37.2) checked: it sells our 2nd RET-04 copy, page stays complete · bargain monitor now also catches `ARB ` arbitrage lines (Chief: check the bid, feeding rule on the sell leg, net ≥ 5) · `swaps` daemon on hold until cleared
+  - Sat 15:55 · Builder · Chief's 3 builds pushed (375 pass): swaps engine cfa654d (daemon `swaps`, on hold until verified; dry run 43 candidates, best +10.3/+9.7), v10 partner suggestions f1ce219 (radar, live, every 30 min), arbitrage in bargains 4c81dfc (live; ARB lines for the Operator) · 2 verifiers running
+  - Sat 15:31 · Builder · cha-plan: pack 755 opened Saturday (Chief/Operator), CHA bids cover all 10 (4d3dd39)
 
 ## Score
 
@@ -27,7 +27,7 @@ _From `team/<name>.md`; each person writes only their own file._
 |---|---|---|---|---|---|---|---|---|---|---|
 | 27.92 | 5 | 20.42 | 7.50 | 13.93 | 0.19 | 0.93 | 41 | 3 | 186 | 33/50 |
 
-Leaderboard (snapshot at tick 650; refreshes every few minutes):
+Leaderboard (snapshot at tick 660; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 7.00 | ~15 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.00 | ~135 min | bench | The Market Test: every venue gets the same synthetic book |
-| 9.15 | ~144 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
-| 11.00 | ~255 min | bench | The Market Test: every venue gets the same synthetic book |
-| 11.15 | ~264 min | persona_patch | The fever breaks |
-| 11.65 | ~294 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
-| 13.00 | ~375 min | bench | The Market Test: every venue gets the same synthetic book |
-| 14.09 | ~440 min (after today's close) | day_closes | Closed until Sunday 09:00 |
+| 7.00 | ~10 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.00 | ~130 min | bench | The Market Test: every venue gets the same synthetic book |
+| 9.15 | ~139 min | persona_patch | Salamanca fever: Doña Pilar pays 25 % over book for Salamanca until 17:30 |
+| 11.00 | ~250 min | bench | The Market Test: every venue gets the same synthetic book |
+| 11.15 | ~259 min | persona_patch | The fever breaks |
+| 11.65 | ~289 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
+| 13.00 | ~370 min | bench | The Market Test: every venue gets the same synthetic book |
+| 14.09 | ~435 min | day_closes | Closed until Sunday 09:00 |
 
 ## Our dealer deals
 
@@ -109,8 +109,8 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
-| common card | team buys | 64 | 9.00 | 7 | 12 | 5 | 9 |
-| common card | team sells | 71 | 6 | 2 | 23 | 5 | 5.40 |
+| common card | team buys | 65 | 9 | 7 | 12 | 5 | 9 |
+| common card | team sells | 72 | 6.00 | 2 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 41 | 22 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 71 | 23 | 17 | 29 | 5 | 24.20 |
 | uncommon card | team sells | 8 | 14.50 | 13 | 17 | 0 | — |
