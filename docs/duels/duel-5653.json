@@ -295,6 +295,87 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1268,
+   "raw": {
+    "duel": 5653,
+    "session": 3,
+    "status": "live",
+    "role": "buyer",
+    "item": "La Sala Pentagrama",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.33,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 114,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 1281,
+    "decay_per_round": 0.08,
+    "rounds": 2,
+    "your_offer": {
+     "id": 7357,
+     "price": 62,
+     "tick": 1267,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 7364,
+     "price": 101,
+     "tick": 1268,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1265,
+      "from": "Rival Verde",
+      "text": "Te la dejo en 107 primas y entrega en 10 días; me cuesta bajar más.",
+      "price": 107,
+      "days": 10
+     },
+     {
+      "tick": 1265,
+      "from": "you",
+      "text": "Day 10 for delivery is fine by me. I can do 55 P on day 10.",
+      "price": 55,
+      "days": 10
+     },
+     {
+      "tick": 1266,
+      "from": "Rival Verde",
+      "text": "105 primas y entrega en 10 días. Me muevo poco ya, pero si tú te mueves, cerramos.",
+      "price": 105,
+      "days": 10
+     },
+     {
+      "tick": 1267,
+      "from": "Rival Verde",
+      "text": "Mi propuesta: 103 primas y entrega en 10 días. Dime una cifra concreta y la miro.",
+      "price": 103,
+      "days": 10
+     },
+     {
+      "tick": 1267,
+      "from": "you",
+      "text": "I see you've moved, and I appreciate it. I can do 62 P on day 10; further movement from me depends on you coming down meaningfully more.",
+      "price": 62,
+      "days": 10
+     },
+     {
+      "tick": 1268,
+      "from": "Rival Verde",
+      "text": "Es una pieza que merece su precio: 101 primas y entrega en 10 días.",
+      "price": 101,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {

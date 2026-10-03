@@ -2970,6 +2970,219 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1268,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 5662,
+     "role": "seller",
+     "limit": 79,
+     "currency": "P",
+     "item": "La Sala Pentagrama",
+     "context": "",
+     "rival": "Rival Noche",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.45,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 76 P y 5 días.",
+      "offer": {
+       "price": 76,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1254,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Your offer is well short of where I can go. I can do 145 P on day 5.",
+      "offer": {
+       "price": 145,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1254,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 81 P con 5 días.",
+      "offer": {
+       "price": 81,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1255,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for moving toward me. I can do 114 P on day 10.",
+      "offer": {
+       "price": 114,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1255,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Yo ya me he movido. Propongo 84 P y 5 días.",
+      "offer": {
+       "price": 84,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1256,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I see your small step, but we're still far apart. I can do 110 P on day 10, and I'd need a much bigger move from you to go lower.",
+      "offer": {
+       "price": 110,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1259,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 87 P y 5 días.",
+      "offer": {
+       "price": 87,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1260,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've moved again too, and I can do 106 P on day 10. I need you to come up meaningfully from here.",
+      "offer": {
+       "price": 106,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1263,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 89 P con 5 días.",
+      "offer": {
+       "price": 89,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1264,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate your steady steps, and this is a clear move from me: 100 P on day 10. Day 10 is how the price can stay this low, and I need a real jump from you to close.",
+      "offer": {
+       "price": 100,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1264,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Yo ya me he movido. Propongo 91 P y 5 días.",
+      "offer": {
+       "price": 91,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1265,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 128 P, delivery on day 5.",
+      "offer": {
+       "price": 128,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1266,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 100 P y 5 días.",
+      "offer": {
+       "price": 100,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1266,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "That's a real step from you, and I'll meet it: 110 P on day 5. That should let us close right away.",
+      "offer": {
+       "price": 110,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1267,
+      "decision": {
+       "action": "offer",
+       "price": 110,
+       "message": "That's a real step from you, and I'll meet it: 110 P on day 5. That should let us close right away."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 100,
+     "days": 5
+    },
+    "tick": 1268,
+    "ticks_left": 2,
+    "rounds": 7,
+    "day_swings": [
+     23.3,
+     54.5,
+     10.8,
+     26.0,
+     7.9,
+     23.700000000000003,
+     9.5
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 100,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -3347,6 +3560,25 @@
      "tick": 1267,
      "days": 5
     }
+   }
+  },
+  {
+   "tick": 1268,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 100,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 100,
+    "settles_at_tick": 1269
    }
   }
  ]
