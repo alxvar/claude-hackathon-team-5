@@ -19,45 +19,59 @@ re-checked by about 10:30; until then, follow the operating rules.**
   - The 514 Duels II decisions were replayed through the code policy under sets C, A and today, both as recorded
     and rescaled to 12 ticks at 10%. None accepted below our limit, offered past it, named a wrong day or stepped
     backward.
-  - 6,000 random duels per set with readable day weights raised no flag.
+  - 6,000 random duels per set with readable day weights raised no flag. (Unreadable weights are a separate,
+    low-probability residual: R5.)
   - The switch now stops at A, and `--stop` stops everything and starts nothing.
 - **What still needs the fix:** two defects in `tools/duelist_sunday.sh` and one value defect.
-  1. `--rollback` crash-loops.
+  1. `--rollback` crash-loops. The Lab's SUNDAY v2 names it "the tested way back", so this matters.
   2. A re-run while the duelist is live rewrites the live params file before it refuses.
   3. The seller opener: −0.022 a duel, modelled.
 
-  A 6-file patch fixes all three, plus two smaller items. It passes the suite (576), the replays and the script tests
-  on a99f641. It is in the appendix.
+  A 6-file patch fixes all three, plus three smaller items: the params-file sentinel (R6), fetch tolerance (R9), and
+  handing unreadable-weight duels to the models (R5, a partial mitigation). On a99f641 it passes the suite (576), the
+  set C replays and the script tests. It is in the appendix.
 
-**Aleks's command (zsh-safe: the braces matter, because in zsh `$SHA:t…` is a modifier and breaks the path):**
+**Aleks's command.** Paste the lines exactly as they are. They carry no `#` comments, because interactive zsh
+doesn't treat `#` as a comment unless `interactivecomments` is set. The braces in `"${SHA}:tools/…"` matter: in zsh,
+`$SHA:t` is a modifier and breaks the path.
 
 ```bash
-# from your normal checkout
 git fetch origin
 SHA=a99f6417b644922c7ccefdf03f33f0bdcd9762a2
-COMMIT=$SHA bash <(git show "${SHA}:tools/duelist_sunday.sh") --check   # must end "steps 1-4 passed"
-COMMIT=$SHA bash <(git show "${SHA}:tools/duelist_sunday.sh")           # start: SET=C, POLICY=code, AUTOSWITCH=0
+COMMIT=$SHA bash <(git show "${SHA}:tools/duelist_sunday.sh") --check
+COMMIT=$SHA AUTOSWITCH=1 bash <(git show "${SHA}:tools/duelist_sunday.sh")
 ```
 
-- **If the fix commit lands:** use the same two lines with its sha. Check first that `git diff --stat a99f641 <sha>`
+- **Where:** your normal checkout.
+- **`--check`:** it must print "steps 1-4 passed". Then run the second line.
+- **The start:** `SET=C` and `POLICY=code` are the defaults. `AUTOSWITCH=1` is the Lab's recommendation, and safe
+  now that the switch stops at A.
+- **If the fix commit lands:** use the same lines with its sha. First check that `git diff --stat a99f641 <sha>`
   shows only the six patched files, and that `--check` passes (it runs the full suite).
+- **Moving a running a99f641 duelist onto the fix commit:**
+  1. Run `--stop` first. The patched `--check` refuses while a duelist runs.
+  2. Start with the new sha and `SET=<the set now live>`.
 - **Never use `origin/duelist-loop` in place of the sha,** in either spot: it is a moving ref.
 
 **Operating rules on a99f641 as it is:**
 - **Start once.** While the duelist runs, use only `--status` and `--stop`. Never re-run start or `--check`: before it
   refuses, it checks code out in the live worktree and rewrites the live params file (R2).
-- **Don't use `--rollback`** (R1). Roll back by hand:
+- **After a `--stop`, restart with `SET=<the set now live>`.** Check it in `--status`. After a switch, a plain re-run
+  would put C back with the rule already spent.
+- **Don't use `--rollback`** (R1). Roll back by hand from your checkout, one line at a time:
   ```bash
+  SHA=a99f6417b644922c7ccefdf03f33f0bdcd9762a2
   bash <(git show "${SHA}:tools/duelist_sunday.sh") --stop
-  git checkout main && git status --short agents engine     # must print nothing
-  mkdir -p logs/duelist && (set -a; . ./.env; set +a; nohup agents/duelist/supervise.sh \
-    --negotiator-model claude-sonnet-5-5 --effort medium --negotiator-effort low \
-    > logs/duelist/supervise-rollback.log 2>&1 < /dev/null &)
+  pgrep -fl "agents.duelist run|duelist/supervise.sh|duel_loop.py switch"
+  git checkout main
+  git status --short agents engine
+  mkdir -p logs/duelist && (set -a; . ./.env; set +a; nohup agents/duelist/supervise.sh --negotiator-model claude-sonnet-5-5 --effort medium --negotiator-effort low > logs/duelist/supervise-rollback.log 2>&1 < /dev/null &)
   ```
-- **Keep `AUTOSWITCH=0`,** the default. The Lab rates the switch at about 0 expected value. If it is on and someone
-  re-runs the script after a switch, the file goes back to C, and the switch never fires again.
+  - **`pgrep` must print nothing.** If it prints a process, the stop didn't happen. Kill that process before starting
+    main's duelist, or two duelists end up on the team key: the lock is per checkout.
+  - **`git status` must print nothing,** too.
+  - **The start line** uses Saturday's flags, which main's `run` accepts (checked offline).
 - **For the Final:** if a switch happened in Duels III, start with `SET=A` (Lab: start on the set Duels III ended on).
-  A re-run with C undoes the switch.
 
 ## Tests
 
@@ -67,8 +81,9 @@ COMMIT=$SHA bash <(git show "${SHA}:tools/duelist_sunday.sh")           # start:
 | a99f641 | **576 passed** (+2: the switch stops at A; `--stop` starts nothing) |
 | a99f641 + the appendix patch | **576 passed** |
 
-On origin/main (950ac89), `tests/test_duelist.py` passes (77), which is what `--rollback` runs. Since the merge base,
-main has changed only `agents/dealers` and two tests; it hasn't touched `agents/duelist` or `engine`.
+On origin/main (950ac89), `tests/test_duelist.py` gives **77 passed**, and that is the test `--rollback` runs
+(`main_test_duelist.out`). `git diff a99f641...950ac89` touches only `agents/dealers` and two of their tests: nothing
+in `agents/duelist` or `engine`. `agents/` and `engine/` are identical at 3a0f6f3 and a99f641 (`main_drift.out`).
 
 ## The audit's items, one by one
 
@@ -77,16 +92,16 @@ main has changed only `agents/dealers` and two tests; it hasn't touched `agents/
 | **S1: the give retreat** (code policy) | **Fixed** [V] | `policy.code_day` returns a premium of 0 on a give, and the small-step hold stays on once we are on their day. Replay: 0 backward moves; the 9 duels and 34 decisions the audit flagged are clean. Probe (buyer, limit 100, 1.2 a day): opens at 51 on day 10, then holds. It used to go 34 → 28 → 22 → 17 → 12 |
 | **Per-role openers** | **Done, but against the Lab** [V/L] | Sellers open at 0.74 × the limit in price, median, which is **1.00 × the limit in worth**. The models opened at 0.63 in price and 0.73 in worth, and the Lab simulated 0.42 in price (≈ 0.69 in worth). The Lab's SUNDAY v2 retracted the per-role item as its own units error (R3) |
 | **Missing params file** | **Fixed mid-run, not at start** [V] | `Params._stamp` starts at `None`, which is also a missing file's stamp. On a fresh process `reload()` returns `{}`: the code defaults ("today") play silently with no warning (`probe_missing.out`). The test hides this by forcing `_stamp = "?"`. The script always writes the file first, so this bites only on another start path. Fix: a one-line sentinel (appendix) |
-| **Failover at 8 s; a cancellation counts as a failure** | **Fixed** [V] | `failover.py:21` defaults to 8, and `:47-49` counts `CancelledError` and re-raises it. `--failover-s` is passed through, with 3 tests. Probe: two runner cancellations trip the primary, and the next call goes to the backup |
+| **Failover at 8 s; a cancellation counts as a failure** | **Fixed** [V] | `failover.py:21` defaults to 8, and `:47-49` counts `CancelledError` and re-raises it. 3 tests cover `Failover` itself; the `--failover-s` pass-through was read in the code, not tested. Probe: two runner cancellations trip the primary, and the next call goes to the backup |
 | **Prompt at `LATE_SWITCH_LEFT` 0** | **Fixed** [V] | `late_switch_line()` drops the line at 0 and never states a tick count (test at `tests/test_duelist.py:877`). The only number the prompt still states is `DAY_SAME_SIDE_P`, which no set changes |
-| **Whole-file sets** (`use`) | **Fixed** [V] | Writes `_set`, `_note` and every key, atomically. Refuses an unknown set or a broken sets file. The sets match `intel/duel-sets/{C,A,today}.json` exactly. Works under python3 3.9.6 and 3.14 |
+| **Whole-file sets** (`use`) | **Fixed** [V] | Writes `_set`, `_note` and every key, atomically. Refuses an unknown set or a broken sets file. The sets match `intel/duel-sets/{C,A,today}.json` exactly. Works under python3 3.9.6 and 3.14.4 (`use_pythons.out`) |
 | **`approve` on a changed baseline** | **Fixed** [V] | Refuses unless `--force` (`duel_loop.py:958-961`) |
-| **The one-way switch and its kill switch** | **Fixed in a99f641** [V] | On 3a0f6f3 the switch cascaded: 12 duels at 0.50 gave C → A, and 4 more at 0.75 (session 0.56) gave **A → today on the next wave**. On a99f641, `_switch` is `{"C": "A"}`, and the same probe ends on A: "the last step of the switch: nothing written". The kill switch (`run/duel_switch.off`, `--dry`) and once-per-set are tested |
+| **The one-way switch and its kill switch** | **Fixed in a99f641** [V] | On 3a0f6f3 the switch cascaded: 12 duels at 0.50 gave C → A, and 4 more at 0.75 (session 0.56) gave **A → today on the next wave**. On a99f641, `_switch` is `{"C": "A"}`, and the same probe ends on A: "the last step of the switch: nothing written". The kill-switch file (`run/duel_switch.off`) has a test. `--dry` and once-per-set (`switched_from`) were read in the code, not tested |
 | **The set recorded on every decision** | **Fixed** [V] | `runner.py:410-415` writes `params_set` and the overrides into the log and the record. Probe confirmed; there is no unit test |
 | **Mid-duel switch** | **Works** [V] | Same duel, same state: C holds at 160 (a step of 6 < 8). After `use A`, the next decision steps to 154, and the record says A |
 | **A seller below its nominal limit** | **Fixed** [V] | `said_past_limit`: an offer of 70 on day 10 against a limit of 73 (worth +41.6) now goes out |
 | **`first_day` give premium** | **Fixed** [V] | `extra = 0`. Duel 5622 moves 8 P (worth-neutral) instead of 22. A menu call still forces our best day (optional; only the LLM path uses it) |
-| **An unreadable day weight** | **Partly fixed** [V] | `guarded()` now skips. `respond_code` still plays the duel, though, with the day as free: our 60 on day 0 against their 58 on day 10 → **accept**. Fix: route it to the models (appendix) |
+| **An unreadable day weight** | **Partly fixed** [V] | `guarded()` now skips. `respond_code` still plays the duel, though, with the day as free: our 60 on day 0 against their 58 on day 10 → **accept**. The fuzz ran 6,000 duels with unreadable weights, taking the true cost as linear in the curve's scale (an assumption, so the counts are illustrative). Under C: 485 offers past the true limit, 5 accepts below it, 7 backward moves; under A: 494 / 5 / 7. The patch hands these duels to the models. It only mitigates: when the models fail, `safe_move` still treats the day as free, and the patched probe with failing models still accepts the 58 (`a99_patched_probe_unreadable.out`) |
 | **S4 items** | **Mostly fixed** [V] | Fixed: the floor never goes below 1 P, a near-zero accept is blocked, accepts make no text call (0 calls), and NaN is refused. Not done: logging an accept-price mismatch, and restoring `switched` after a restart (moot under C) |
 
 ## Duels II replays on the new code (task 3)
@@ -107,12 +122,19 @@ through `held` + `final`. Sets come from `docs/duel_sets.json` via `Params.reloa
   - steps: 104 code steps, 68 openers, 57 silent-walk steps;
   - 29 worth floors;
   - accepts: 20 deadline, 11 small-gap.
-- **Fuzz** (6,000 random duels a set, both roles, readable weights): no flags under C or under A.
+- **Where each replay ran:**
+  - C (as recorded and rescaled) and A rescaled ran on a99f641.
+  - A as recorded, and today in both settings, ran on 3a0f6f3. `agents/` and `engine/` are identical between the two
+    commits.
+  - On the patched code only C was re-run: 0 flags, and the seller opener at 0.43 in price / 0.69 in worth.
+- **Fuzz** (6,000 random duels a set, both roles, readable weights): no flags under C or under A. For unreadable
+  weights, see the table above (R5).
 - **The LLM path (only matters with `POLICY=llm`):** the guards still pass the models' own moves.
   - 10 backward moves on a day change. Some are the strategist's give premium. Others are late flips back to our
     day: 5813, 58 on day 10 → 92 on day 0 with 3 ticks left.
   - Middle-day openers (day 5 at `OPEN_WAIT` 0): `first_day` acts only once the rival has offered.
-  - This is the same as Saturday's behaviour; the audit did not list it.
+  - The audit listed both: the flip back as S4 (6190), the `first_day` gap under `OPEN_WAIT` 0 in S3. Both are still
+    open.
 
 ## `tools/duelist_sunday.sh`, line by line (task 4)
 
@@ -121,7 +143,7 @@ through `held` + `final`. Sets come from `docs/duel_sets.json` via `Params.reloa
 | **Worktree isolation** | **Good** [V]. A detached worktree at the sha, outside your checkout. Start mode never touches the checkout's branch. `run/`, `logs/` and `.venv` are ignored, so the dirty check still allows a re-run |
 | **Abort on red tests** | **Works** [V]. With a red test added: "1 failed, 574 passed … ABORT: tests red: not starting" |
 | **Refusing a second duelist** | **The refusal works, but it comes too late** [V]. It is step 4 of 6. Steps 1-3 first check out the sha in the live worktree and rewrite the live params file. Test: a dummy duelist was running and the params were on A; `--check` wrote C, then aborted. The check is also only local: other machines aren't seen, and the lock file is per checkout (`logs/duelist`) |
-| **`--stop`** (a99f641) | **Works** [V]. It killed a dummy supervisor, duelist and switch. 6 s later: no process, no new log, no git and no `.env` |
+| **`--stop`** (a99f641) | **Works** [V]. It killed a dummy supervisor, duelist and switch. 6 s later: no process and no new log. It made no git writes (only `--status`'s read-only `git log`) and never touched `.env` |
 | **`--rollback`** | **Broken** [V]. Details below |
 | **No key leakage** | **Good** [V]. `.env` is sourced only inside the start subshell (`set -a`), never echoed, and there is no `set -x`. `--status` prints command lines (no key in them) and GETs `/api/clock` without a key. The switch process gets no key |
 | **`git fetch` fails** | **Aborts at step 1** [V], even when the pinned sha is already local. That's safe, but it blocks a restart on bad Wi-Fi. The patch continues with the local copy when `COMMIT` is a sha |
@@ -144,8 +166,9 @@ through `held` + `final`. Sets come from `docs/duel_sets.json` via `Params.reloa
 | `POLICY` | code | code, if the S1 fix passes its replay check (it does: 0 retreats) | ✓ |
 | Negotiator | Haiku 4.5 | Haiku 4.5 | ✓ |
 | Strategist | Opus 5.5, effort low | Opus, effort low (for the LLM fallback) | ✓ Unused under `POLICY=code` |
-| `--failover-s` | 8 | ≈ 6 (for the LLM fallback) | ✓ for code: the text call is capped at 3.5 s, so it doesn't bind. With `POLICY=llm`, pass `--failover-s 6` in `FLAGS` |
-| `AUTOSWITCH` | 0 | C → A once, about 0 expected value: insurance | ✓ Either value is fine on a99f641. 0 is safer until R2 is fixed |
+| `--failover-s` | 8 | 8 (the Run row) | ✓ Under code the text call is capped at 3.5 s, so 8 doesn't bind. Under `POLICY=llm`, 8 leaves the backup about 2 s of the 10 s decision budget; the audit had suggested about 6 |
+| `AUTOSWITCH` | 0 (default) | **1**, with only C → A (needs a99f641's `_switch`) | ✓ Pass `AUTOSWITCH=1`, as in the command above. It is safe on a99f641; the restart rule handles R2 |
+| The way back | `--rollback` | "the tested way back is `--rollback`" | **✗ Broken on a99f641 (R1).** Use the manual rollback until the patch lands |
 | Code opener | seller 0.73, buyer 0.37 (price) | **0.42 in price** ("fine"; per-role retracted) | **✗ R3** |
 
 **What the opener costs, in the Lab's own simulator** [L]: `sim3`, code-first, 12 ticks at 10%, 4,000 duels per world
@@ -164,7 +187,11 @@ in 6 worlds, paired seeds. The baseline lands on 0.423, against the Lab's 0.421 
 ## Remaining risks, ranked
 
 1. **R1: `--rollback` crash-loops and stops the duelist before its checks.** It only matters in an emergency, but then
-   no duels get played. Fixed by the patch; until then, roll back by hand (above).
+   no duels get played. The patch fixes it.
+   - **Tested:** the checks-first order, in a throwaway clone. Main's `run` parses Saturday's flags without
+     `--records`.
+   - **Not run end to end:** the patched start itself.
+   - **Until it lands:** roll back by hand (above).
 2. **R2: a re-run of start or `--check` while live rewrites the live params file and checks out code before it
    refuses.** With `AUTOSWITCH=1`, this also resets A → C for good. Fixed by the patch (the duelist check moves to
    step 1); until then, follow the rule.
