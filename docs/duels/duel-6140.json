@@ -1395,5 +1395,77 @@
     "settles_at_tick": 1401
    }
   }
- ]
+ ],
+ "last_seen_tick": 1401,
+ "done": {
+  "duel": 6140,
+  "session": 3,
+  "status": "deal",
+  "role": "seller",
+  "item": "El Frutero de Argumosa",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 2.33,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 80,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Rojo",
+  "deadline_tick": 1402,
+  "decay_per_round": 0.08,
+  "rounds": 1,
+  "your_offer": {
+   "id": 11027,
+   "price": 140,
+   "tick": 1399,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 10998,
+   "price": 125,
+   "tick": 1391,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1388,
+    "from": "you",
+    "text": "I'm offering 135 P with delivery on day 10. I'm happy to hear your counteroffer.",
+    "price": 135,
+    "days": 10
+   },
+   {
+    "tick": 1391,
+    "from": "Rival Rojo",
+    "text": "I can do 125 P with delivery in 0 days.",
+    "price": 125,
+    "days": 0
+   },
+   {
+    "tick": 1391,
+    "from": "you",
+    "text": "I can offer 160 P with delivery on day 0. Or, if you prefer, 135 P on day 10 still stands as a choice for you.",
+    "price": 160,
+    "days": 0
+   },
+   {
+    "tick": 1397,
+    "from": "you",
+    "text": "I'm moving to 152 P with delivery on day 0. That's a real step from me, and I'm ready to close quickly near there if you meet me.",
+    "price": 152,
+    "days": 0
+   },
+   {
+    "tick": 1399,
+    "from": "you",
+    "text": "I'm moving to 140 P with delivery on day 0. I'd like to finish now, so I hope you can meet me there.",
+    "price": 140,
+    "days": 0
+   }
+  ],
+  "result": 41.4,
+  "price": 125,
+  "days": 0
+ }
 }

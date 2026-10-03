@@ -1217,3 +1217,4 @@
 {"id": 71864, "tick": 1399, "t": 12.9833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6135, "session": 3, "status": "no_deal", "item": "La Sala Pentagrama"}}
 {"id": 71867, "tick": 1399, "t": 12.9833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6141, "session": 3, "status": "deal", "item": "El Frutero de Argumosa"}}
 {"id": 71870, "tick": 1399, "t": 12.9833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6152, "session": 3, "status": "no_deal", "item": "Plaza del Dos de Mayo"}}
+{"id": 71936, "tick": 1401, "t": 13.0, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 6140, "session": 3, "status": "deal", "item": "El Frutero de Argumosa"}}
