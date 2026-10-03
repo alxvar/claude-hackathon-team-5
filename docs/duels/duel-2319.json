@@ -119,6 +119,65 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 496,
+   "raw": {
+    "duel": 2319,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "Palacio de Cristal",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 97,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 511,
+    "decay_per_round": 0.06,
+    "rounds": 1,
+    "your_offer": {
+     "id": 3554,
+     "price": 55,
+     "tick": 495,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3571,
+     "price": 185,
+     "tick": 496,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 495,
+      "from": "Rival Oro",
+      "text": "I can do 192. That is a fair deal for both of us.",
+      "price": 192,
+      "days": null
+     },
+     {
+      "tick": 495,
+      "from": "you",
+      "text": "I'm a serious buyer for Palacio de Cristal and ready to move quickly. My offer is 55 P, which I think is fair given its condition and upkeep needs. What figure do you have in mind?",
+      "price": 55,
+      "days": null
+     },
+     {
+      "tick": 496,
+      "from": "Rival Oro",
+      "text": "I can do 185. That is a fair deal for both of us.",
+      "price": 185,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {

@@ -1024,6 +1024,135 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 496,
+   "raw": {
+    "duel": 2541,
+    "session": 2,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Mesón de la Cava",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 108,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Azul",
+    "deadline_tick": 506,
+    "decay_per_round": 0.06,
+    "rounds": 6,
+    "your_offer": {
+     "id": 3555,
+     "price": 87,
+     "tick": 495,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 3567,
+     "price": 87,
+     "tick": 496,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 490,
+      "from": "Rival Azul",
+      "text": "Hello! I can do 118. Thank you for your time.",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 490,
+      "from": "you",
+      "text": "I'd like to open at 65 P for El Mesón de la Cava. That reflects a fair value for the property as it stands, and I'm ready to move quickly if we can find common ground. What's your counter?",
+      "price": 65,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "Rival Azul",
+      "text": "Thanks for the reply. 110 works for me.",
+      "price": 110,
+      "days": null
+     },
+     {
+      "tick": 491,
+      "from": "you",
+      "text": "Thank you for moving. I can come up to 71 P, and that is a real step on my side. Your figure is still well above what the property supports, so we'll need to see a more meaningful move from you to close.",
+      "price": 71,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "Rival Azul",
+      "text": "Let me move closer: 104.",
+      "price": 104,
+      "days": null
+     },
+     {
+      "tick": 492,
+      "from": "you",
+      "text": "Thank you for moving again. I can come up to 76 P, which is another real step from me. The gap is still wide, so I'd need to see a larger move from you, toward the mid-80s, to bring this home.",
+      "price": 76,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "Rival Azul",
+      "text": "I'd like to close this. My offer is 99.",
+      "price": 99,
+      "days": null
+     },
+     {
+      "tick": 493,
+      "from": "you",
+      "text": "Thank you for moving again. I can come up to 80 P, a real step from me. To wrap this up quickly, I'd need you to come meaningfully closer, into the high 80s.",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 494,
+      "from": "Rival Azul",
+      "text": "Meeting you halfway at 96, with thanks.",
+      "price": 96,
+      "days": null
+     },
+     {
+      "tick": 494,
+      "from": "you",
+      "text": "Thank you for the move. I can come up to 83 P, another real step from me. Your steps keep getting smaller while mine continue, so I'd ask for a clear move into the high 80s so we can wrap this up in the next exchange.",
+      "price": 83,
+      "days": null
+     },
+     {
+      "tick": 495,
+      "from": "Rival Azul",
+      "text": "Final stretch from me: 93.",
+      "price": 93,
+      "days": null
+     },
+     {
+      "tick": 495,
+      "from": "you",
+      "text": "Thank you for the move. I can come up to 87 P, which closes most of the remaining gap from my side after five steps in a row. If you can meet me at that figure or close to it, we can wrap this up this exchange.",
+      "price": 87,
+      "days": null
+     },
+     {
+      "tick": 496,
+      "from": "Rival Azul",
+      "text": "Hello! I can do 87. Thank you for your time.",
+      "price": 87,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1974,6 +2103,218 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 496,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 2541,
+     "role": "buyer",
+     "limit": 108,
+     "currency": "P",
+     "item": "El Mesón de la Cava",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hello! I can do 118. Thank you for your time.",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 490,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'd like to open at 65 P for El Mesón de la Cava. That reflects a fair value for the property as it stands, and I'm ready to move quickly if we can find common ground. What's your counter?",
+      "offer": {
+       "price": 65,
+       "days": null
+      },
+      "accept": false,
+      "tick": 490,
+      "decision": {
+       "action": "offer",
+       "price": 65,
+       "message": "I'd like to open at 65 P for El Mesón de la Cava. That reflects a fair value for the property as it stands, and I'm ready to move quickly if we can find common ground. What's your counter?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 110 works for me.",
+      "offer": {
+       "price": 110,
+       "days": null
+      },
+      "accept": false,
+      "tick": 491,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for moving. I can come up to 71 P, and that is a real step on my side. Your figure is still well above what the property supports, so we'll need to see a more meaningful move from you to close.",
+      "offer": {
+       "price": 71,
+       "days": null
+      },
+      "accept": false,
+      "tick": 491,
+      "decision": {
+       "action": "offer",
+       "price": 71,
+       "message": "Thank you for moving. I can come up to 71 P, and that is a real step on my side. Your figure is still well above what the property supports, so we'll need to see a more meaningful move from you to close."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Let me move closer: 104.",
+      "offer": {
+       "price": 104,
+       "days": null
+      },
+      "accept": false,
+      "tick": 492,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for moving again. I can come up to 76 P, which is another real step from me. The gap is still wide, so I'd need to see a larger move from you, toward the mid-80s, to bring this home.",
+      "offer": {
+       "price": 76,
+       "days": null
+      },
+      "accept": false,
+      "tick": 492,
+      "decision": {
+       "action": "offer",
+       "price": 76,
+       "message": "Thank you for moving again. I can come up to 76 P, which is another real step from me. The gap is still wide, so I'd need to see a larger move from you, toward the mid-80s, to bring this home."
+      }
+     },
+     {
+      "mine": false,
+      "text": "I'd like to close this. My offer is 99.",
+      "offer": {
+       "price": 99,
+       "days": null
+      },
+      "accept": false,
+      "tick": 493,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for moving again. I can come up to 80 P, a real step from me. To wrap this up quickly, I'd need you to come meaningfully closer, into the high 80s.",
+      "offer": {
+       "price": 80,
+       "days": null
+      },
+      "accept": false,
+      "tick": 493,
+      "decision": {
+       "action": "offer",
+       "price": 80,
+       "message": "Thank you for moving again. I can come up to 80 P, a real step from me. To wrap this up quickly, I'd need you to come meaningfully closer, into the high 80s."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Meeting you halfway at 96, with thanks.",
+      "offer": {
+       "price": 96,
+       "days": null
+      },
+      "accept": false,
+      "tick": 494,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the move. I can come up to 83 P, another real step from me. Your steps keep getting smaller while mine continue, so I'd ask for a clear move into the high 80s so we can wrap this up in the next exchange.",
+      "offer": {
+       "price": 83,
+       "days": null
+      },
+      "accept": false,
+      "tick": 494,
+      "decision": {
+       "action": "offer",
+       "price": 83,
+       "message": "Thank you for the move. I can come up to 83 P, another real step from me. Your steps keep getting smaller while mine continue, so I'd ask for a clear move into the high 80s so we can wrap this up in the next exchange."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Final stretch from me: 93.",
+      "offer": {
+       "price": 93,
+       "days": null
+      },
+      "accept": false,
+      "tick": 495,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thank you for the move. I can come up to 87 P, which closes most of the remaining gap from my side after five steps in a row. If you can meet me at that figure or close to it, we can wrap this up this exchange.",
+      "offer": {
+       "price": 87,
+       "days": null
+      },
+      "accept": false,
+      "tick": 495,
+      "decision": {
+       "action": "offer",
+       "price": 87,
+       "message": "Thank you for the move. I can come up to 87 P, which closes most of the remaining gap from my side after five steps in a row. If you can meet me at that figure or close to it, we can wrap this up this exchange."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Hello! I can do 87. Thank you for your time.",
+      "offer": {
+       "price": 87,
+       "days": null
+      },
+      "accept": false,
+      "tick": 496,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 87,
+     "days": null
+    },
+    "tick": 496,
+    "ticks_left": 10,
+    "rounds": 6
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 87,
+    "days": null,
+    "meta": {
+     "rule": "small gap",
+     "calls": []
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -2317,6 +2658,25 @@
      "tick": 495,
      "days": 0
     }
+   }
+  },
+  {
+   "tick": 496,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 87,
+    "days": null,
+    "meta": {
+     "rule": "small gap",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 87,
+    "settles_at_tick": 497
    }
   }
  ]
