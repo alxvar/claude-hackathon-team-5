@@ -75,6 +75,14 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    unless the gap is large; (c) engine audit: decisions where the model conceded < 3 P, latency and fallbacks, and
    whether a higher strategist effort is worth it (25 s budget today, mean 6 s; Sunday 10 s); (d) days: the
    integrative rule from #13.
+15. **13:26, Analyst's Duels I post-mortem (intel/score-model.md §1d, all 34 duels) CORRECTS #14: haggling PAID.**
+   Accepting every rival's first in-limit offer would have scored 217.6 P vs our 478.9; decay cost 112 P (19%),
+   concentrated in 7-12-round duels, and rounds track our opener (38 P from the final in long deals vs 18 P in short).
+   **Don't ship a hard round cap.** Levers for Duels II, in order: (1) **days: give the day where our weight is low,
+   ask price for it** (pie +20-30% ≈ +1-1.5 board, the biggest); (2) **anchor closer:** opener within ~20 P of the
+   expected settle, not ~38 (≈ +0.3-0.5 board); (3) **break-even accept in code:** take an in-limit offer when its
+   value now ≥ our expected next-round surplus × (1−d), with d = 8% (≈ +0.1-0.2). Check that your 13:24 change
+   (6e53377, "hold after 4 priced offers") doesn't cap the haggling that paid.
 
 **Dani: the desk, the page-gap desk, the judges' story.**
 1. **09:00, organisers' desk**: the 8 questions in plan §3, answers in `team/dani.md` at once.
