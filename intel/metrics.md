@@ -1,4 +1,4 @@
-# Metrics (auto, 19:22, game tick 1095)
+# Metrics (auto, 19:24, game tick 1099)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -81,19 +81,18 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: RET×3, MAL�
 - abuela uncommon (team sells): median 20 over 2
 - banco epic (team sells): median 120 over 1
 - chato rare (team sells): median 29 over 1
-- picaros common (team sells): median 5 over 1
-- picaros epic (team buys): median 143 over 2
-- picaros rare (team buys): median 55 over 7
-- pilar rare (team sells): median 79 over 4
-- pilar uncommon (team sells): median 22 over 2
+- picaros common (team sells): median 5 over 2
+- picaros epic (team buys): median 147 over 1
+- picaros rare (team buys): median 54 over 5
+- pilar rare (team sells): median 80 over 3
+- pilar uncommon (team sells): median 24 over 2
 
 ## El Rastro now: top bids by price (team, card, price)
 
 - t07: RET-09 (rare) 52 P · offer 16430
 - t09: RET-09 (rare) 51 P · offer 16212
-- t13: RET-01 (common) 2 P · offer 16157
 
-Asks by others (card, price: count): LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAT-06 20: 1; SAL-02 7: 1; LAT-09 70: 1; RET-01 11: 1; SAL-02 6: 1; RET-07 45: 1; RET-10 84: 1; RET-06 30: 1; LAT-06 21: 1; RET-07 30: 1
+Asks by others (card, price: count): SAL-02 6: 1; RET-07 45: 1; RET-10 84: 1; RET-06 30: 1; LAT-06 21: 1; RET-07 30: 1; RET-08 30: 1; MAL-02 12: 1; MAL-03 12: 1; MAL-01 12: 1; LAV-06 45: 1; SAL-03 8: 1; RET-02 12: 1; RET-04 12: 1; LAT-01 9: 1
 
 ## Our duels: 0 live, 68 finished (last 10)
 
