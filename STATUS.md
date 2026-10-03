@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sat 14:29** · tick 630 (30 s/tick) · game hour 6.58 · PAUSED · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sat 14:59** · tick 630 (30 s/tick) · game hour 6.58 · PAUSED · today closes 23:00._
 
 ## Team: now and latest
 
@@ -50,7 +50,7 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 | 11.15 | ~274 min | persona_patch | The fever breaks |
 | 11.65 | ~304 min | duels | Duels II: price and delivery day; the pie grows for teams that trade on what each side cares about |
 | 13.00 | ~386 min | bench | The Market Test: every venue gets the same synthetic book |
-| 14.65 | ~484 min | bench | The hard Market Test: firmer and more impatient traders |
+| 14.59 | ~481 min (after today's close) | day_closes | Closed until Sunday 09:00 |
 
 ## Our dealer deals
 
