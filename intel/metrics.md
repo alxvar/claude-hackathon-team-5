@@ -1,4 +1,4 @@
-# Metrics (auto, 12:17, game tick 494)
+# Metrics (auto, 12:19, game tick 499)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -16,7 +16,7 @@ Us: #6
 
 ## Us
 
-score 25.16 · neg_points 35.2 (15 min ago 35.2) · ladder 0.072 · duel 3.32 · cash 123 · level 2 · deals 36
+score 25.16 · neg_points 35.2 (15 min ago 35.2) · ladder 0.072 · duel 4.37 · cash 123 · level 2 · deals 36
 
 ## Our holdings (card (rarity): value of each copy; a sale gives up the cheapest copy)
 
@@ -101,20 +101,20 @@ Who buys which set (team trades): t01: MAL×4, SAL×4; t02: MAL×2, RET×2, LAT�
 - t02: LAV-02 (common) 1 P · offer 7264
 - t02: LAV-03 (common) 1 P · offer 7265
 
-Asks by others (card, price: count): LAV-04 10: 4; LAV-03 9: 2; MAL-02 10: 2; LAT-01 9: 2; LAT-01 10: 2; LAT-04 9: 2; SAL-03 9: 2; LAV-05 6: 2; MAL-05 6: 1; LAT-01 6: 1; LAT-05 6: 1; LAT-03 9: 1; MAL-04 9: 1; RET-04 22: 1; LAT-02 9: 1
+Asks by others (card, price: count): LAV-04 10: 4; LAV-03 9: 2; LAT-01 9: 2; LAT-01 10: 2; MAL-02 10: 2; LAT-04 9: 2; LAT-04 6: 2; LAV-05 4: 2; MAL-05 6: 1; LAT-01 6: 1; LAT-05 6: 1; LAT-03 9: 1; MAL-04 9: 1; RET-04 22: 1; LAT-02 9: 1
 
-## Our duels: 3 live, 44 finished (last 10)
+## Our duels: 3 live, 46 finished (last 10)
 
-- {"duel": 2296, "session": 2, "status": "deal", "role": "seller", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 87, "limit_meaning": "never sell below your cost", "rival": "Rival Sol", "de
-- {"duel": 2297, "session": 2, "status": "deal", "role": "buyer", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 175, "limit_meaning": "never pay above your value", "rival": "Rival Plata", "
 - {"duel": 2314, "session": 2, "status": "deal", "role": "buyer", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 75, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "dea
 - {"duel": 2315, "session": 2, "status": "deal", "role": "seller", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 64, "limit_meaning": "never sell below your cost", "rival": "Rival Oro", "de
-- {"duel": 2318, "session": 2, "status": "live", "role": "seller", "item": "Palacio de Cristal", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 74, "limit_meaning": "never sell below your cost", "rival": "Rival Sol", "deadline
+- {"duel": 2318, "session": 2, "status": "deal", "role": "seller", "item": "Palacio de Cristal", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 74, "limit_meaning": "never sell below your cost", "rival": "Rival Sol", "deadline
+- {"duel": 2319, "session": 2, "status": "live", "role": "buyer", "item": "Palacio de Cristal", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 97, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "deadline_
+- {"duel": 2356, "session": 2, "status": "live", "role": "seller", "item": "Caf\u00e9 en Goya", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 101, "limit_meaning": "never sell below your cost", "rival": "Rival Plata", "deadli
 - {"duel": 2366, "session": 2, "status": "deal", "role": "seller", "item": "Palacio de Cristal", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 101, "limit_meaning": "never sell below your cost", "rival": "Rival Oro", "deadlin
 - {"duel": 2367, "session": 2, "status": "live", "role": "buyer", "item": "Palacio de Cristal", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 72, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "deadline_
 - {"duel": 2506, "session": 2, "status": "deal", "role": "buyer", "item": "Palacio de Cristal", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 103, "limit_meaning": "never pay above your value", "rival": "Rival Noche", "deadli
 - {"duel": 2540, "session": 2, "status": "deal", "role": "seller", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 71, "limit_meaning": "never sell below your cost", "rival": "Rival Luna", "d
-- {"duel": 2541, "session": 2, "status": "live", "role": "buyer", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 108, "limit_meaning": "never pay above your value", "rival": "Rival Azul", "d
+- {"duel": 2541, "session": 2, "status": "deal", "role": "buyer", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 108, "limit_meaning": "never pay above your value", "rival": "Rival Azul", "d
 
 ## Latest announcements
 
