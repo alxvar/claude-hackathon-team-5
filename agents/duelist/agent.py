@@ -398,6 +398,12 @@ def brief(view: DuelView, *, strategist: bool) -> dict[str, str]:
                      "smaller of the two sides' numbers of messages, priced or not: each message your side sends "
                      "costs a round once the other side has sent as many, and sending nothing is free. When your "
                      "side holds its offer, it sends nothing.")
+        kept = ", ".join(f"{n} rounds {(1 - view.decay) ** n:.0%}" for n in (2, 4, 6, 8))
+        rules.append(f"- THE DECAY IS THE BIGGEST COST IN THIS DUEL. Share of a deal's value still kept after: {kept}. "
+                     f"A deal closed in 2 rounds beats a slightly better price closed in 6. A concession that brings "
+                     f"the close one round sooner pays for itself whenever it is smaller than about "
+                     f"{view.decay:.0%} of what the deal is worth to you, so make steps that close, not steps that "
+                     "keep talking.")
     if view.has_days:
         rules.append("- The duel settles two issues: the price and a delivery day from 0 to 10. Every offer names both.")
     item = view.item or "an item"

@@ -1061,3 +1061,11 @@ def test_monitor_knows_whether_the_duelist_runs(tmp_path: Path):
     nxt = next_session({"upcoming": [{"action": "duels", "at_hours": 5.15, "params": {"name": "Duels I"}}]},
                        {"t_hours": 3.15, "tick": 219, "tick_seconds": 30})
     assert (nxt["name"], nxt["minutes"], nxt["tick"]) == ("Duels I", 120, 459)    # 120 ticks a game hour at 30 s
+
+
+def test_the_strategist_rules_spell_out_what_the_decay_keeps():
+    from agents.duelist.agent import brief
+    rules = brief(DAYS_BUYER.model_copy(update={"decay": 0.08}), strategist=True)["rules"]
+    assert "THE DECAY IS THE BIGGEST COST IN THIS DUEL" in rules
+    assert "2 rounds 85%, 4 rounds 72%, 6 rounds 61%, 8 rounds 51%" in rules
+    assert "smaller than about 8% of what the deal is worth to you" in rules
