@@ -11,3 +11,4 @@ _Every item from GET /api/news (sources: boletin, radio, tablon), oldest first, 
 - Sat 16:35 · tick 763 (hour 7.6833) · El Tablón · **Abuela stops buying common cards from today** · That is what they say at the next stall. · Names: dealer abuela
 - Sat 17:11 · tick 835 (hour 8.2833) · Radio Rastro · **Half-hour queue at the San Ginés churro shop** ·  · Names: none
 - Sat 18:05 · tick 943 (hour 9.1833) · Radio Rastro · **Abuela pays more for uncommon cards until teatime** · She wants to complete her grandchildren's album. · Names: dealer abuela
+- Sat 18:48 · tick 1027 (hour 9.8833) · Radio Rastro · **Sun and 24 degrees; a storm after ten** ·  · Names: none
