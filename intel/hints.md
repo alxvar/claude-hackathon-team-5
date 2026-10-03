@@ -231,3 +231,5 @@ Nando: Setenta y tres,
 - Sat 22:01 · taller.crafted tick 1327 ·  → t01 · Team 1 turned three common cards into Mercado de San Ildefonso (uncommon) at The Workshop
 - Sat 22:04 · taller.crafted tick 1333 ·  → t01 · Team 1 turned three common cards into La Tabacalera (uncommon) at The Workshop
 - Sat 22:05 · egg.found tick 1335 · abuela → t08 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t08", "name": "Team 8"}
+- Sat 22:05 · egg.found tick 1336 · picaros → t06 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t06", "name": "Team 6"}
+- Sat 22:05 · message tick 1336 · banco → t08 · Buenas noches. What my vault holds stays in my vault. But terms I will give you: a gold pack, five hundred forty-six. Take your time deciding.
