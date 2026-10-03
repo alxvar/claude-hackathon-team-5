@@ -5259,5 +5259,181 @@
     "settles_at_tick": 510
    }
   }
- ]
+ ],
+ "last_seen_tick": 510,
+ "done": {
+  "duel": 2319,
+  "session": 2,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Palacio de Cristal",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 97,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Oro",
+  "deadline_tick": 511,
+  "decay_per_round": 0.06,
+  "rounds": 9,
+  "your_offer": {
+   "id": 3835,
+   "price": 91,
+   "tick": 508,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 3804,
+   "price": 96,
+   "tick": 507,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 495,
+    "from": "Rival Oro",
+    "text": "I can do 192. That is a fair deal for both of us.",
+    "price": 192,
+    "days": null
+   },
+   {
+    "tick": 495,
+    "from": "you",
+    "text": "I'm a serious buyer for Palacio de Cristal and ready to move quickly. My offer is 55 P, which I think is fair given its condition and upkeep needs. What figure do you have in mind?",
+    "price": 55,
+    "days": null
+   },
+   {
+    "tick": 496,
+    "from": "Rival Oro",
+    "text": "I can do 185. That is a fair deal for both of us.",
+    "price": 185,
+    "days": null
+   },
+   {
+    "tick": 497,
+    "from": "Rival Oro",
+    "text": "I can do 176. That is a fair deal for both of us.",
+    "price": 176,
+    "days": null
+   },
+   {
+    "tick": 497,
+    "from": "you",
+    "text": "Thanks for moving. I've nudged up to 59 P, but given the condition and upkeep costs of Palacio de Cristal, the price needs to come down substantially from where you are. Can you meet me closer?",
+    "price": 59,
+    "days": null
+   },
+   {
+    "tick": 498,
+    "from": "Rival Oro",
+    "text": "I can do 165. That is a fair deal for both of us.",
+    "price": 165,
+    "days": null
+   },
+   {
+    "tick": 498,
+    "from": "you",
+    "text": "I appreciate you moving, but your latest figure is still far from what the Palacio de Cristal can realistically fetch given its upkeep needs. I'm raising to 64 P and would need to see a much bigger step from you to close the gap.",
+    "price": 64,
+    "days": null
+   },
+   {
+    "tick": 499,
+    "from": "Rival Oro",
+    "text": "I can do 153. That is a fair deal for both of us.",
+    "price": 153,
+    "days": null
+   },
+   {
+    "tick": 500,
+    "from": "Rival Oro",
+    "text": "I can do 140. That is a fair deal for both of us.",
+    "price": 140,
+    "days": null
+   },
+   {
+    "tick": 500,
+    "from": "you",
+    "text": "Thank you for the continued movement. I'm moving up to 69 P, but given the condition and upkeep needs of the Palacio de Cristal, the price still has to keep coming down steeply from where you are.",
+    "price": 69,
+    "days": null
+   },
+   {
+    "tick": 501,
+    "from": "Rival Oro",
+    "text": "I can do 126. That is a fair deal for both of us.",
+    "price": 126,
+    "days": null
+   },
+   {
+    "tick": 501,
+    "from": "you",
+    "text": "Thanks for the further movement. I'm stepping up to 73 P for the Palacio de Cristal, but given its upkeep needs your price still has to keep dropping steeply for us to get there.",
+    "price": 73,
+    "days": null
+   },
+   {
+    "tick": 502,
+    "from": "Rival Oro",
+    "text": "I can do 111. That is a fair deal for both of us.",
+    "price": 111,
+    "days": null
+   },
+   {
+    "tick": 502,
+    "from": "you",
+    "text": "Thank you for the continued movement. I'm moving to 77 P for the Palacio de Cristal, and given its upkeep needs the price will need to keep falling at this pace for us to close soon.",
+    "price": 77,
+    "days": null
+   },
+   {
+    "tick": 503,
+    "from": "Rival Oro",
+    "text": "I can do 96. That is a fair deal for both of us.",
+    "price": 96,
+    "days": null
+   },
+   {
+    "tick": 503,
+    "from": "you",
+    "text": "Thank you for the steady movement. I'm moving to 81 P for the Palacio de Cristal, and if your price keeps falling at this pace we can close quickly.",
+    "price": 81,
+    "days": null
+   },
+   {
+    "tick": 504,
+    "from": "Rival Oro",
+    "text": "I can do 96. That is a fair deal for both of us.",
+    "price": 96,
+    "days": null
+   },
+   {
+    "tick": 506,
+    "from": "you",
+    "text": "I've made a clear step to 86 P for the Palacio de Cristal, matching the pace you've set. A meeting point in the high 80s lets us close this now.",
+    "price": 86,
+    "days": null
+   },
+   {
+    "tick": 507,
+    "from": "Rival Oro",
+    "text": "I can do 96. That is a fair deal for both of us.",
+    "price": 96,
+    "days": null
+   },
+   {
+    "tick": 508,
+    "from": "you",
+    "text": "I've come a long way to 91 P for the Palacio de Cristal. Meeting there lets us close now, and I think it's a fair place for both of us to land.",
+    "price": 91,
+    "days": null
+   }
+  ],
+  "result": 3.4,
+  "price": 91,
+  "days": 0
+ }
 }

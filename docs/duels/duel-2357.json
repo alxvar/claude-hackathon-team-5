@@ -189,6 +189,111 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 510,
+   "took_s": 6.73,
+   "cost_usd": 0.0069700000000000005,
+   "obs": {
+    "view": {
+     "duel_id": 2357,
+     "role": "buyer",
+     "limit": 92,
+     "currency": "P",
+     "item": "Café en Goya",
+     "context": "",
+     "rival": "Rival Noche",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to settle this quickly. For this Café en Goya, I'm offering 55 P, a fair price for a good product. If you have a different figure in mind, tell me and we can close fast.",
+      "offer": {
+       "price": 55,
+       "days": null
+      },
+      "accept": false,
+      "tick": 509,
+      "decision": {
+       "action": "offer",
+       "price": 55,
+       "message": "I'd like to settle this quickly. For this Café en Goya, I'm offering 55 P, a fair price for a good product. If you have a different figure in mind, tell me and we can close fast."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto y que ganemos los dos: 96 P.",
+      "offer": {
+       "price": 96,
+       "days": null
+      },
+      "accept": false,
+      "tick": 509,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 96,
+     "days": null
+    },
+    "tick": 510,
+    "ticks_left": 15,
+    "rounds": 1
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm staying with 55 P for this Café en Goya. It's a fair price for the product, and I'm happy to hear a figure closer to it.",
+    "price": 55,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 55,
+      "message": "I'm staying with 55 P for this Café en Goya. It's a fair price for the product, and I'm happy to hear a figure closer to it."
+     },
+     "band": {
+      "worst": 55,
+      "target": 55,
+      "best": 55
+     },
+     "plan": {
+      "read": "They opened at 96 P against our 55 P. It's their first offer, so there's no movement yet to judge, and the 96 is likely padded well above what they'd actually accept.",
+      "target": 55,
+      "best": 55,
+      "worst": 55,
+      "days": null,
+      "angle": "Hold at 55 and send nothing; wait for them to come down before we move."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.43,
+       "in": 386,
+       "out": 113,
+       "cost_usd": 0.0038,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 3.3,
+       "in": 307,
+       "out": 256,
+       "cost_usd": 0.00317,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": true
   }
  ],
  "sent": [
