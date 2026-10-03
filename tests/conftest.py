@@ -9,6 +9,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 import alerts  # noqa: E402
 import bargains  # noqa: E402
 import policy  # noqa: E402
+import eggs  # noqa: E402
 import reactor  # noqa: E402
 
 
@@ -20,3 +21,4 @@ def _no_live_reserved_list(tmp_path, monkeypatch):
     monkeypatch.setattr(bargains, "UNDERPRICED", tmp_path / "underpriced.md")   # never the live intel files
     monkeypatch.setattr(bargains, "ARB_OUT", tmp_path / "arbitrage.md")
     monkeypatch.setattr(reactor, "FLIPS_OUT", tmp_path / "flips.md")         # the reactor's digest, too
+    monkeypatch.setattr(eggs, "OUT", tmp_path / "eggs.md")                   # and the egg catalog

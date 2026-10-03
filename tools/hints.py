@@ -13,6 +13,7 @@ Every tick this reads new events in data/feed.jsonl (the collector's) and:
   `minted` on an epic or legendary is a hit;
 - intel/news.md lines matching the patterns are hits.
 Each new hit prints one `HINT …` line (the Builder relays it to the Chief) and is appended to intel/hints.md.
+Every 10 minutes it also rewrites intel/eggs.md, the egg-trigger catalog (tools/eggs.py, Chief 22:30).
 
     python3 -u tools/hints.py                 # daemon (tools/daemons.sh start hints)
     python3 tools/hints.py --backfill --dry   # every hit in the whole feed, printed only
@@ -29,6 +30,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "bazaar-kit"))
+sys.path.insert(0, str(ROOT / "tools"))
+import eggs  # noqa: E402  the egg-trigger catalog, written every eggs.EGGS_EVERY_S
 FEED, NEWS = ROOT / "data" / "feed.jsonl", ROOT / "intel" / "news.md"
 OUT, STATE = ROOT / "intel" / "hints.md", ROOT / "run" / "hints_state.json"
 URL = os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai")
@@ -158,7 +161,7 @@ class Miner:
             st = {}
         self.pos, self.seen = st.get("pos", 0), st.get("seen", {})
         self.catalog, self.news_seen = st.get("catalog", {}), set(st.get("news_seen", []))
-        self._cat_at = 0.0
+        self._cat_at = self._eggs_at = 0.0
         if "eggs" not in self.seen and self.pos:      # state from before the egg list: seed it from the whole feed
             teams = set()
             try:
@@ -208,6 +211,13 @@ class Miner:
                 hits += new
             except Exception as e:  # noqa: BLE001
                 self.log(f"hints: catalog unavailable ({e!r})"[:200])
+        if not self.dry and time.time() - self._eggs_at >= eggs.EGGS_EVERY_S:   # the egg-trigger catalog (Chief 22:30)
+            self._eggs_at = time.time()
+            try:
+                cat = eggs.write(Path(self.feed), eggs.OUT)
+                self.log(f"hints: eggs.md · {len(cat['rewards'])} rewards, {len(cat['refs'])} Madrid replies")
+            except Exception as e:  # noqa: BLE001
+                self.log(f"hints: eggs.md not written ({e!r})"[:200])
         for h in hits:
             self.log(line(h))
         if hits and not self.dry:
