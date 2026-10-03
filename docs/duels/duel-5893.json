@@ -404,6 +404,94 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1323,
+   "raw": {
+    "duel": 5893,
+    "session": 3,
+    "status": "live",
+    "role": "seller",
+    "item": "Plaza del Dos de Mayo",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 2.2,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 65,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 1334,
+    "decay_per_round": 0.08,
+    "rounds": 3,
+    "your_offer": {
+     "id": 9522,
+     "price": 113,
+     "tick": 1323,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 9383,
+     "price": 76,
+     "tick": 1320,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1318,
+      "from": "Rival Luna",
+      "text": "Hola, Rival Sol, voy con prisa: 58 por Plaza del Dos de Mayo y cerramos ya. Entrega inmediata.",
+      "price": 58,
+      "days": 0
+     },
+     {
+      "tick": 1318,
+      "from": "you",
+      "text": "I can do 140 P, delivery on day 0.",
+      "price": 140,
+      "days": 0
+     },
+     {
+      "tick": 1319,
+      "from": "Rival Luna",
+      "text": "67 y lo cerramos ahora. Entrega inmediata.",
+      "price": 67,
+      "days": 0
+     },
+     {
+      "tick": 1319,
+      "from": "you",
+      "text": "I appreciate the move, and I'm making a real one back: 128 P, delivery on day 0.",
+      "price": 128,
+      "days": 0
+     },
+     {
+      "tick": 1320,
+      "from": "Rival Luna",
+      "text": "Venga, 76; no tengo mucho tiempo. Entrega inmediata.",
+      "price": 76,
+      "days": 0
+     },
+     {
+      "tick": 1320,
+      "from": "you",
+      "text": "I see you moving up, thanks. I can come down to 120 P on day 0, but I'd need bigger steps from you to go further.",
+      "price": 120,
+      "days": 0
+     },
+     {
+      "tick": 1323,
+      "from": "you",
+      "text": "Let's break the standoff: I can move to 113 P, delivery on day 0. I'd need a real step up from you to go further.",
+      "price": 113,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -851,6 +939,180 @@
     }
    },
    "hold": false
+  },
+  {
+   "tick": 1323,
+   "took_s": 9.08,
+   "cost_usd": 0.01722,
+   "obs": {
+    "view": {
+     "duel_id": 5893,
+     "role": "seller",
+     "limit": 65,
+     "currency": "P",
+     "item": "Plaza del Dos de Mayo",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 2.2,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.08,
+     "duel_ticks": 16,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hola, Rival Sol, voy con prisa: 58 por Plaza del Dos de Mayo y cerramos ya. Entrega inmediata.",
+      "offer": {
+       "price": 58,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1318,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 140 P, delivery on day 0.",
+      "offer": {
+       "price": 140,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1318,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "67 y lo cerramos ahora. Entrega inmediata.",
+      "offer": {
+       "price": 67,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1319,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I appreciate the move, and I'm making a real one back: 128 P, delivery on day 0.",
+      "offer": {
+       "price": 128,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1319,
+      "decision": {
+       "action": "offer",
+       "price": 128,
+       "message": "I appreciate the move, and I'm making a real one back: 128 P, delivery on day 0."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Venga, 76; no tengo mucho tiempo. Entrega inmediata.",
+      "offer": {
+       "price": 76,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1320,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I see you moving up, thanks. I can come down to 120 P on day 0, but I'd need bigger steps from you to go further.",
+      "offer": {
+       "price": 120,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1320,
+      "decision": {
+       "action": "offer",
+       "price": 120,
+       "message": "I see you moving up, thanks. I can come down to 120 P on day 0, but I'd need bigger steps from you to go further."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 76,
+     "days": 0
+    },
+    "tick": 1323,
+    "ticks_left": 11,
+    "rounds": 3,
+    "day_swings": [
+     39.8,
+     55.199999999999996,
+     36.2,
+     18.6,
+     45.099999999999994,
+     33.4,
+     62.599999999999994,
+     25.9,
+     13.200000000000001,
+     23.3,
+     14.299999999999999,
+     64.6,
+     9.399999999999999,
+     13.4,
+     22.0,
+     25.299999999999997,
+     27.599999999999998,
+     8.4
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "Let's break the standoff: I can move to 113 P, delivery on day 0. I'd need a real step up from you to go further.",
+    "price": 113,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 113,
+      "message": "Let's break the standoff: I can move to 113 P, delivery on day 0. I'd need a real step up from you to go further."
+     },
+     "band": {
+      "worst": 111,
+      "target": 113,
+      "best": 115
+     },
+     "plan": {
+      "read": "They climbed 58→67→76 in steady steps, then stopped at 76 on day 0 for three ticks. Their talk of being in a hurry is unverified, so I judge them by their offers. Both sides are now waiting each other out.",
+      "target": 113,
+      "best": 115,
+      "worst": 111,
+      "days": 0,
+      "angle": "Break the standoff with one clear step to 113 on day 0, keeping their immediate delivery. Stay firm and friendly, and signal that further moves need real steps up from them."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.17,
+       "in": 1106,
+       "out": 556,
+       "cost_usd": 0.01554,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.91,
+       "in": 543,
+       "out": 59,
+       "cost_usd": 0.00168,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "hold": false
   }
  ],
  "sent": [
@@ -1034,6 +1296,63 @@
      "id": 9407,
      "price": 120,
      "tick": 1320,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1323,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Let's break the standoff: I can move to 113 P, delivery on day 0. I'd need a real step up from you to go further.",
+    "price": 113,
+    "days": 0,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 113,
+      "message": "Let's break the standoff: I can move to 113 P, delivery on day 0. I'd need a real step up from you to go further."
+     },
+     "band": {
+      "worst": 111,
+      "target": 113,
+      "best": 115
+     },
+     "plan": {
+      "read": "They climbed 58→67→76 in steady steps, then stopped at 76 on day 0 for three ticks. Their talk of being in a hurry is unverified, so I judge them by their offers. Both sides are now waiting each other out.",
+      "target": 113,
+      "best": 115,
+      "worst": 111,
+      "days": 0,
+      "angle": "Break the standoff with one clear step to 113 on day 0, keeping their immediate delivery. Stay firm and friendly, and signal that further moves need real steps up from them."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 7.17,
+       "in": 1106,
+       "out": 556,
+       "cost_usd": 0.01554,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.91,
+       "in": 543,
+       "out": 59,
+       "cost_usd": 0.00168,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 5893,
+    "offer": {
+     "id": 9522,
+     "price": 113,
+     "tick": 1323,
      "days": 0
     }
    }
