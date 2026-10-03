@@ -2,6 +2,10 @@
 
 _Written by the strategy session. It never touches the game: no trades, no bots. The operator decides and executes inside its hard limits (ORCHESTRATOR.md, "Decide, don't ask"); Lucas changes a limit only with a line containing GUARDRAIL. Format: `- HH:MM · decision with limits · why`. Newest block on top. Labels: **[Verified]** measured on our own deals or read from the server; **[Likely]** fitted or inferred; **[Open]** unknown._
 
+## Sat 12:13 — ladder: sells that cost nothing
+
+- 12:13 · **Fact [Verified, n=1 ours + 1 field]:** a dealer SELL closing above the dealer's opening bid counts for the ladder (LAT-08 → Chato at 14: ladder 0.055 → 0.072, neg 0; t12's LAV-06 → Chato at 14 lifted only its Saturday part); offer-only closes (the dealer accepts our offer at his own standing price). Corrected rates [Verified]: duels are 40% of Saturday Negotiating; 1 neg_point ≈ 0.094 board; +0.01 ladder ≈ +0.33 board. **Rule:** dealer sells only where the price ≥ our value (0 neg cost): MAL-06/07 → Pilar at ≥ 18 (her uncommon finals 18-19), SAL-08 → Pilar; not MAL → Chato at 14 (−3.5 each ≈ the ladder gain). Cancel the card's team ask first; one thread, offer-only, alone in its window.
+
 ## Sat 11:56 — the ladder is the cheapest board points left (Analyst's model)
 
 - 11:56 · **Facts [Analyst, intel/score-model.md]:** board = (0.5·Fri + Sat)/1.5 now (1 Saturday point = 0.667 board; Friday frozen) [Verified, exact fit on 11 snapshots]; value created is capped at +5.0 board and floored at 0 [Verified]; t13's lead = Friday +3.3 + Saturday ladder ~+4 + trades ~+2; **+0.01 ladder ≈ +0.54 board ≈ 3.5 neg_points** [Likely]; every dealer deal at or below the MENU list counted, none above [Likely, no counterexample]. **Action:** the L2 ladder (our Chato best 3 are all 0) via SELLS to Chato in offer-only mode now (MAL-07, MAL-06, LAT-08; loss ≤ 3 neg_points each, brings cash), then Pilar from ~12:21; measure Δladder on the first and continue only if it moves.
