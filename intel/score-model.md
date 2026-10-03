@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sat 14:27 (game paused at tick 630), snapshot 630. §1d levers 1-2 corrected by Aleks's replay (docs/duels-1-review.md). Duels I post-mortem §1d; Duels II day rule §1e. Duels I post-mortem: §1d. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
+_Last update: Sat 15:43 (tick 653, resumed 15:30), snapshot 650. §1d levers 1-2 corrected by Aleks's replay (docs/duels-1-review.md). Duels I post-mortem §1d; Duels II day rule §1e. Duels I post-mortem: §1d. Independent verifier pass (12:15) flagged 13 issues; all applied (t16 LAV, t03 SAL, ladder-cut alternative, circular validation, ranges). Earlier stamps 12:15-12:50 in git history were mislabelled (real 11:55-12:08). Rival detail: intel/rivals.md (Analyst-owned)._
 
 ## 1. Board = Friday × Saturday blend [V]
 
@@ -28,8 +28,9 @@ _Last update: Sat 14:27 (game paused at tick 630), snapshot 630. §1d levers 1-2
   **≈ 35 board per 1.0 ladder, still uncapped at 0.181** [L].
 - **Value-created grading is relative** [V]: at 570 every VC team fell (t14 11.86 → 10.60, t12 → 10.52, t10 → 12.06,
   t17 → 9.46) when t06's v01 got its 2nd trade (t12 → t08 SAL-10 at 76, tick 556; t06 9.83 → 11.64). No trade on v14 since 418.
-- Clock map: game hour = wall − 6.83 h. Benches 13:51, 15:51, 17:51, 19:51, 21:30 (hard), 21:51 · Salamanca fever (Pilar
-  +25% over book on SAL) 16:00-18:00 · Duels II 18:30 · close 23:00.
+- **Clock map after the 13:26-15:30 pause [V]:** game hour = wall − 8.92 h. Benches 15:55, 17:55, 19:55, 21:55 · Salamanca
+  fever (Pilar +25% over book on SAL) 18:04-20:04 · **Duels II ≈ 20:34** · close 23:00 (game 14.083); the hard Market Test
+  (game 14.65) falls after today's close.
 
 ### Update snapshot 600 (13:10): us #5 at 28.96 · t14 30.42 · t12 29.88 · t10 29.51 · t18 29.21
 - **t12 market → 12.50 cap** [V]: t14 sold RET-05/02/03/01/04 at 9 as maker on t12's v02 (ticks 591-598) to t09 ×3, t04, t15.
@@ -224,6 +225,8 @@ t13 and t04 have dealer deals in the window). Full = 12 Saturday points = 8.0 bo
 | 508 | SELL MAL-07 → Pilar at 19 | her bids 16, 16, 17, 17, 18; she accepted our 19 | 0.072 → 0.122 (**+0.050**, first L3 slot) |
 | 522 | SELL SAL-08 → Pilar at 23 | her 22, 22, 22, FINAL 23 after our 34 → 31 → 28 → **23** (one −5 step) | 0.122 → 0.141 (**+0.019**, 2nd L3 slot) |
 | 515 | MAL-06 → Pilar: walked | she said FINAL 17 (worth 17.5 to us) | — |
+| 551 | SELL MAL-06 → Pilar at 19 | — | 0.141 → 0.181 (+0.040, 3rd L3 slot) |
+| 632 / 639 | BUY SAL-06 ← Abuela at 23, then SELL → Pilar at 25 | Pilar SAL opening 22 | neg_points 35.2 → 32.5 (−2.7); ladder 0.181 → 0.188 (+0.007, replaces SAL-08's slot). **Net ≈ −0.2 board**: Pilar's SAL range is wide, 25 is a small share |
 
 - **Same card, other teams [V feed]:** SAL-08 → Pilar: t04 25 (opened 40, 6 messages), t10 24, **us 23**; her opening 22.
   Uncommons (non-SAL): t14 LAT-08 20, **us MAL-07 19**, t08 MAL-08 18, t16/t08/t13 17; her opening 16. So a full share at L3
