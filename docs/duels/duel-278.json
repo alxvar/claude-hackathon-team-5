@@ -1555,6 +1555,861 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 173,
+   "raw": {
+    "duel": 278,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Tren Fantasma",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 116,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 177,
+    "decay_per_round": 0.06,
+    "rounds": 8,
+    "your_offer": {
+     "id": 2133,
+     "price": 90,
+     "tick": 172,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2139,
+     "price": 111,
+     "tick": 173,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 165,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 165,
+      "from": "you",
+      "text": "That figure is well above what this piece is worth to us. I can offer 80 P, which is a fair price for El Tren Fantasma. If you can come down meaningfully, we can wrap this up quickly.",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 166,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 166,
+      "from": "you",
+      "text": "I've nudged up to 82 P, but that's a token step: your figure hasn't moved and I need to see a real move down before I go further. Meet me closer and we can finish this quickly.",
+      "price": 82,
+      "days": null
+     },
+     {
+      "tick": 167,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 167,
+      "from": "you",
+      "text": "I'm staying at 82 P. I've moved twice while your figure hasn't moved at all, so it's your turn. Give me a real counter below your current number and we can close this out.",
+      "price": 82,
+      "days": null
+     },
+     {
+      "tick": 168,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 168,
+      "from": "you",
+      "text": "I'll go to 84 P, another step from me. You've repeated the same figure four times without moving once, so I'd like to see a real counter below it before I go further.",
+      "price": 84,
+      "days": null
+     },
+     {
+      "tick": 169,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 169,
+      "from": "you",
+      "text": "I'm holding at 84 P. Repeating the same figure doesn't give me anything to respond to, so I won't move again until you name a lower one.",
+      "price": 84,
+      "days": null
+     },
+     {
+      "tick": 170,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 170,
+      "from": "you",
+      "text": "I'll make a small move to 85 P. Any further movement from me depends on you naming a lower figure than the one you keep repeating. Give me something to work with and we can wrap this up.",
+      "price": 85,
+      "days": null
+     },
+     {
+      "tick": 171,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 171,
+      "from": "you",
+      "text": "I'll go to 86 P, a small step from me again. I've moved several times and your figure hasn't moved once, so the next real move needs to come from your side.",
+      "price": 86,
+      "days": null
+     },
+     {
+      "tick": 172,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 172,
+      "from": "you",
+      "text": "I'm making a clear step to 90 P, a real move on my side. I've come up many times while your figure has stayed put, so I need a real counter below it to keep going.",
+      "price": 90,
+      "days": null
+     },
+     {
+      "tick": 173,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 173,
+   "raw": {
+    "duel": 278,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Tren Fantasma",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 116,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 177,
+    "decay_per_round": 0.06,
+    "rounds": 9,
+    "your_offer": {
+     "id": 2153,
+     "price": 96,
+     "tick": 173,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2139,
+     "price": 111,
+     "tick": 173,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 165,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 165,
+      "from": "you",
+      "text": "That figure is well above what this piece is worth to us. I can offer 80 P, which is a fair price for El Tren Fantasma. If you can come down meaningfully, we can wrap this up quickly.",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 166,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 166,
+      "from": "you",
+      "text": "I've nudged up to 82 P, but that's a token step: your figure hasn't moved and I need to see a real move down before I go further. Meet me closer and we can finish this quickly.",
+      "price": 82,
+      "days": null
+     },
+     {
+      "tick": 167,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 167,
+      "from": "you",
+      "text": "I'm staying at 82 P. I've moved twice while your figure hasn't moved at all, so it's your turn. Give me a real counter below your current number and we can close this out.",
+      "price": 82,
+      "days": null
+     },
+     {
+      "tick": 168,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 168,
+      "from": "you",
+      "text": "I'll go to 84 P, another step from me. You've repeated the same figure four times without moving once, so I'd like to see a real counter below it before I go further.",
+      "price": 84,
+      "days": null
+     },
+     {
+      "tick": 169,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 169,
+      "from": "you",
+      "text": "I'm holding at 84 P. Repeating the same figure doesn't give me anything to respond to, so I won't move again until you name a lower one.",
+      "price": 84,
+      "days": null
+     },
+     {
+      "tick": 170,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 170,
+      "from": "you",
+      "text": "I'll make a small move to 85 P. Any further movement from me depends on you naming a lower figure than the one you keep repeating. Give me something to work with and we can wrap this up.",
+      "price": 85,
+      "days": null
+     },
+     {
+      "tick": 171,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 171,
+      "from": "you",
+      "text": "I'll go to 86 P, a small step from me again. I've moved several times and your figure hasn't moved once, so the next real move needs to come from your side.",
+      "price": 86,
+      "days": null
+     },
+     {
+      "tick": 172,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 172,
+      "from": "you",
+      "text": "I'm making a clear step to 90 P, a real move on my side. I've come up many times while your figure has stayed put, so I need a real counter below it to keep going.",
+      "price": 90,
+      "days": null
+     },
+     {
+      "tick": 173,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 173,
+      "from": "you",
+      "text": "I'm moving to 96 P, a clear step from me and my last real move with so little time left. Meet me here now rather than let this end with nothing for either of us.",
+      "price": 96,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 174,
+   "raw": {
+    "duel": 278,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Tren Fantasma",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 116,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 177,
+    "decay_per_round": 0.06,
+    "rounds": 9,
+    "your_offer": {
+     "id": 2153,
+     "price": 96,
+     "tick": 173,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2155,
+     "price": 111,
+     "tick": 174,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 165,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 165,
+      "from": "you",
+      "text": "That figure is well above what this piece is worth to us. I can offer 80 P, which is a fair price for El Tren Fantasma. If you can come down meaningfully, we can wrap this up quickly.",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 166,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 166,
+      "from": "you",
+      "text": "I've nudged up to 82 P, but that's a token step: your figure hasn't moved and I need to see a real move down before I go further. Meet me closer and we can finish this quickly.",
+      "price": 82,
+      "days": null
+     },
+     {
+      "tick": 167,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 167,
+      "from": "you",
+      "text": "I'm staying at 82 P. I've moved twice while your figure hasn't moved at all, so it's your turn. Give me a real counter below your current number and we can close this out.",
+      "price": 82,
+      "days": null
+     },
+     {
+      "tick": 168,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 168,
+      "from": "you",
+      "text": "I'll go to 84 P, another step from me. You've repeated the same figure four times without moving once, so I'd like to see a real counter below it before I go further.",
+      "price": 84,
+      "days": null
+     },
+     {
+      "tick": 169,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 169,
+      "from": "you",
+      "text": "I'm holding at 84 P. Repeating the same figure doesn't give me anything to respond to, so I won't move again until you name a lower one.",
+      "price": 84,
+      "days": null
+     },
+     {
+      "tick": 170,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 170,
+      "from": "you",
+      "text": "I'll make a small move to 85 P. Any further movement from me depends on you naming a lower figure than the one you keep repeating. Give me something to work with and we can wrap this up.",
+      "price": 85,
+      "days": null
+     },
+     {
+      "tick": 171,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 171,
+      "from": "you",
+      "text": "I'll go to 86 P, a small step from me again. I've moved several times and your figure hasn't moved once, so the next real move needs to come from your side.",
+      "price": 86,
+      "days": null
+     },
+     {
+      "tick": 172,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 172,
+      "from": "you",
+      "text": "I'm making a clear step to 90 P, a real move on my side. I've come up many times while your figure has stayed put, so I need a real counter below it to keep going.",
+      "price": 90,
+      "days": null
+     },
+     {
+      "tick": 173,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 173,
+      "from": "you",
+      "text": "I'm moving to 96 P, a clear step from me and my last real move with so little time left. Meet me here now rather than let this end with nothing for either of us.",
+      "price": 96,
+      "days": null
+     },
+     {
+      "tick": 174,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 174,
+   "raw": {
+    "duel": 278,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Tren Fantasma",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 116,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 177,
+    "decay_per_round": 0.06,
+    "rounds": 10,
+    "your_offer": {
+     "id": 2166,
+     "price": 104,
+     "tick": 174,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2155,
+     "price": 111,
+     "tick": 174,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 165,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 165,
+      "from": "you",
+      "text": "That figure is well above what this piece is worth to us. I can offer 80 P, which is a fair price for El Tren Fantasma. If you can come down meaningfully, we can wrap this up quickly.",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 166,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 166,
+      "from": "you",
+      "text": "I've nudged up to 82 P, but that's a token step: your figure hasn't moved and I need to see a real move down before I go further. Meet me closer and we can finish this quickly.",
+      "price": 82,
+      "days": null
+     },
+     {
+      "tick": 167,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 167,
+      "from": "you",
+      "text": "I'm staying at 82 P. I've moved twice while your figure hasn't moved at all, so it's your turn. Give me a real counter below your current number and we can close this out.",
+      "price": 82,
+      "days": null
+     },
+     {
+      "tick": 168,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 168,
+      "from": "you",
+      "text": "I'll go to 84 P, another step from me. You've repeated the same figure four times without moving once, so I'd like to see a real counter below it before I go further.",
+      "price": 84,
+      "days": null
+     },
+     {
+      "tick": 169,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 169,
+      "from": "you",
+      "text": "I'm holding at 84 P. Repeating the same figure doesn't give me anything to respond to, so I won't move again until you name a lower one.",
+      "price": 84,
+      "days": null
+     },
+     {
+      "tick": 170,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 170,
+      "from": "you",
+      "text": "I'll make a small move to 85 P. Any further movement from me depends on you naming a lower figure than the one you keep repeating. Give me something to work with and we can wrap this up.",
+      "price": 85,
+      "days": null
+     },
+     {
+      "tick": 171,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 171,
+      "from": "you",
+      "text": "I'll go to 86 P, a small step from me again. I've moved several times and your figure hasn't moved once, so the next real move needs to come from your side.",
+      "price": 86,
+      "days": null
+     },
+     {
+      "tick": 172,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 172,
+      "from": "you",
+      "text": "I'm making a clear step to 90 P, a real move on my side. I've come up many times while your figure has stayed put, so I need a real counter below it to keep going.",
+      "price": 90,
+      "days": null
+     },
+     {
+      "tick": 173,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 173,
+      "from": "you",
+      "text": "I'm moving to 96 P, a clear step from me and my last real move with so little time left. Meet me here now rather than let this end with nothing for either of us.",
+      "price": 96,
+      "days": null
+     },
+     {
+      "tick": 174,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 174,
+      "from": "you",
+      "text": "I'm raising to 104 P, a firm step and my last real move with so little time left. Please meet me here so we both walk away with something.",
+      "price": 104,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 175,
+   "raw": {
+    "duel": 278,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "El Tren Fantasma",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 116,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 177,
+    "decay_per_round": 0.06,
+    "rounds": 10,
+    "your_offer": {
+     "id": 2166,
+     "price": 104,
+     "tick": 174,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2170,
+     "price": 111,
+     "tick": 175,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 165,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 165,
+      "from": "you",
+      "text": "That figure is well above what this piece is worth to us. I can offer 80 P, which is a fair price for El Tren Fantasma. If you can come down meaningfully, we can wrap this up quickly.",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 166,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 166,
+      "from": "you",
+      "text": "I've nudged up to 82 P, but that's a token step: your figure hasn't moved and I need to see a real move down before I go further. Meet me closer and we can finish this quickly.",
+      "price": 82,
+      "days": null
+     },
+     {
+      "tick": 167,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 167,
+      "from": "you",
+      "text": "I'm staying at 82 P. I've moved twice while your figure hasn't moved at all, so it's your turn. Give me a real counter below your current number and we can close this out.",
+      "price": 82,
+      "days": null
+     },
+     {
+      "tick": 168,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 168,
+      "from": "you",
+      "text": "I'll go to 84 P, another step from me. You've repeated the same figure four times without moving once, so I'd like to see a real counter below it before I go further.",
+      "price": 84,
+      "days": null
+     },
+     {
+      "tick": 169,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 169,
+      "from": "you",
+      "text": "I'm holding at 84 P. Repeating the same figure doesn't give me anything to respond to, so I won't move again until you name a lower one.",
+      "price": 84,
+      "days": null
+     },
+     {
+      "tick": 170,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 170,
+      "from": "you",
+      "text": "I'll make a small move to 85 P. Any further movement from me depends on you naming a lower figure than the one you keep repeating. Give me something to work with and we can wrap this up.",
+      "price": 85,
+      "days": null
+     },
+     {
+      "tick": 171,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 171,
+      "from": "you",
+      "text": "I'll go to 86 P, a small step from me again. I've moved several times and your figure hasn't moved once, so the next real move needs to come from your side.",
+      "price": 86,
+      "days": null
+     },
+     {
+      "tick": 172,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 172,
+      "from": "you",
+      "text": "I'm making a clear step to 90 P, a real move on my side. I've come up many times while your figure has stayed put, so I need a real counter below it to keep going.",
+      "price": 90,
+      "days": null
+     },
+     {
+      "tick": 173,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 173,
+      "from": "you",
+      "text": "I'm moving to 96 P, a clear step from me and my last real move with so little time left. Meet me here now rather than let this end with nothing for either of us.",
+      "price": 96,
+      "days": null
+     },
+     {
+      "tick": 174,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     },
+     {
+      "tick": 174,
+      "from": "you",
+      "text": "I'm raising to 104 P, a firm step and my last real move with so little time left. Please meet me here so we both walk away with something.",
+      "price": 104,
+      "days": null
+     },
+     {
+      "tick": 175,
+      "from": "Rival Oro",
+      "text": "111?",
+      "price": 111,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -3030,6 +3885,941 @@
      ]
     }
    }
+  },
+  {
+   "tick": 173,
+   "took_s": 8.79,
+   "cost_usd": 0.014259999999999998,
+   "obs": {
+    "view": {
+     "duel_id": 278,
+     "role": "buyer",
+     "limit": 116,
+     "currency": "P",
+     "item": "El Tren Fantasma",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 165,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "That figure is well above what this piece is worth to us. I can offer 80 P, which is a fair price for El Tren Fantasma. If you can come down meaningfully, we can wrap this up quickly.",
+      "offer": {
+       "price": 80,
+       "days": null
+      },
+      "accept": false,
+      "tick": 165,
+      "decision": {
+       "action": "offer",
+       "price": 80,
+       "message": "That figure is well above what this piece is worth to us. I can offer 80 P, which is a fair price for El Tren Fantasma. If you can come down meaningfully, we can wrap this up quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 166,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've nudged up to 82 P, but that's a token step: your figure hasn't moved and I need to see a real move down before I go further. Meet me closer and we can finish this quickly.",
+      "offer": {
+       "price": 82,
+       "days": null
+      },
+      "accept": false,
+      "tick": 166,
+      "decision": {
+       "action": "offer",
+       "price": 82,
+       "message": "I've nudged up to 82 P, but that's a token step: your figure hasn't moved and I need to see a real move down before I go further. Meet me closer and we can finish this quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 167,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm staying at 82 P. I've moved twice while your figure hasn't moved at all, so it's your turn. Give me a real counter below your current number and we can close this out.",
+      "offer": {
+       "price": 82,
+       "days": null
+      },
+      "accept": false,
+      "tick": 167,
+      "decision": {
+       "action": "offer",
+       "price": 82,
+       "message": "I'm staying at 82 P. I've moved twice while your figure hasn't moved at all, so it's your turn. Give me a real counter below your current number and we can close this out."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 168,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'll go to 84 P, another step from me. You've repeated the same figure four times without moving once, so I'd like to see a real counter below it before I go further.",
+      "offer": {
+       "price": 84,
+       "days": null
+      },
+      "accept": false,
+      "tick": 168,
+      "decision": {
+       "action": "offer",
+       "price": 84,
+       "message": "I'll go to 84 P, another step from me. You've repeated the same figure four times without moving once, so I'd like to see a real counter below it before I go further."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 169,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm holding at 84 P. Repeating the same figure doesn't give me anything to respond to, so I won't move again until you name a lower one.",
+      "offer": {
+       "price": 84,
+       "days": null
+      },
+      "accept": false,
+      "tick": 169,
+      "decision": {
+       "action": "offer",
+       "price": 84,
+       "message": "I'm holding at 84 P. Repeating the same figure doesn't give me anything to respond to, so I won't move again until you name a lower one."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 170,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'll make a small move to 85 P. Any further movement from me depends on you naming a lower figure than the one you keep repeating. Give me something to work with and we can wrap this up.",
+      "offer": {
+       "price": 85,
+       "days": null
+      },
+      "accept": false,
+      "tick": 170,
+      "decision": {
+       "action": "offer",
+       "price": 85,
+       "message": "I'll make a small move to 85 P. Any further movement from me depends on you naming a lower figure than the one you keep repeating. Give me something to work with and we can wrap this up."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 171,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'll go to 86 P, a small step from me again. I've moved several times and your figure hasn't moved once, so the next real move needs to come from your side.",
+      "offer": {
+       "price": 86,
+       "days": null
+      },
+      "accept": false,
+      "tick": 171,
+      "decision": {
+       "action": "offer",
+       "price": 86,
+       "message": "I'll go to 86 P, a small step from me again. I've moved several times and your figure hasn't moved once, so the next real move needs to come from your side."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 172,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm making a clear step to 90 P, a real move on my side. I've come up many times while your figure has stayed put, so I need a real counter below it to keep going.",
+      "offer": {
+       "price": 90,
+       "days": null
+      },
+      "accept": false,
+      "tick": 172,
+      "decision": {
+       "action": "offer",
+       "price": 90,
+       "message": "I'm making a clear step to 90 P, a real move on my side. I've come up many times while your figure has stayed put, so I need a real counter below it to keep going."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 173,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 111,
+     "days": null
+    },
+    "tick": 173,
+    "ticks_left": 4,
+    "rounds": 8
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm moving to 96 P, a clear step from me and my last real move with so little time left. Meet me here now rather than let this end with nothing for either of us.",
+    "price": 96,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 96,
+      "message": "I'm moving to 96 P, a clear step from me and my last real move with so little time left. Meet me here now rather than let this end with nothing for either of us."
+     },
+     "band": {
+      "worst": 98,
+      "target": 96,
+      "best": 94
+     },
+     "plan": {
+      "read": "They have repeated 111 nine times without moving at all, so they appear unwilling to budge. There are 4 ticks left, and their 111 is still within what we can pay.",
+      "target": 96,
+      "best": 94,
+      "worst": 98,
+      "days": null,
+      "angle": "Make one clear final step to 96 and say this is our last real move with the deadline close; ask them to meet us now rather than leave with nothing."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.53,
+       "in": 1248,
+       "out": 339,
+       "cost_usd": 0.01177,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.26,
+       "in": 904,
+       "out": 68,
+       "cost_usd": 0.00249,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "tick": 174,
+   "took_s": 5.86,
+   "cost_usd": 0.01122,
+   "obs": {
+    "view": {
+     "duel_id": 278,
+     "role": "buyer",
+     "limit": 116,
+     "currency": "P",
+     "item": "El Tren Fantasma",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 165,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "That figure is well above what this piece is worth to us. I can offer 80 P, which is a fair price for El Tren Fantasma. If you can come down meaningfully, we can wrap this up quickly.",
+      "offer": {
+       "price": 80,
+       "days": null
+      },
+      "accept": false,
+      "tick": 165,
+      "decision": {
+       "action": "offer",
+       "price": 80,
+       "message": "That figure is well above what this piece is worth to us. I can offer 80 P, which is a fair price for El Tren Fantasma. If you can come down meaningfully, we can wrap this up quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 166,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've nudged up to 82 P, but that's a token step: your figure hasn't moved and I need to see a real move down before I go further. Meet me closer and we can finish this quickly.",
+      "offer": {
+       "price": 82,
+       "days": null
+      },
+      "accept": false,
+      "tick": 166,
+      "decision": {
+       "action": "offer",
+       "price": 82,
+       "message": "I've nudged up to 82 P, but that's a token step: your figure hasn't moved and I need to see a real move down before I go further. Meet me closer and we can finish this quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 167,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm staying at 82 P. I've moved twice while your figure hasn't moved at all, so it's your turn. Give me a real counter below your current number and we can close this out.",
+      "offer": {
+       "price": 82,
+       "days": null
+      },
+      "accept": false,
+      "tick": 167,
+      "decision": {
+       "action": "offer",
+       "price": 82,
+       "message": "I'm staying at 82 P. I've moved twice while your figure hasn't moved at all, so it's your turn. Give me a real counter below your current number and we can close this out."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 168,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'll go to 84 P, another step from me. You've repeated the same figure four times without moving once, so I'd like to see a real counter below it before I go further.",
+      "offer": {
+       "price": 84,
+       "days": null
+      },
+      "accept": false,
+      "tick": 168,
+      "decision": {
+       "action": "offer",
+       "price": 84,
+       "message": "I'll go to 84 P, another step from me. You've repeated the same figure four times without moving once, so I'd like to see a real counter below it before I go further."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 169,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm holding at 84 P. Repeating the same figure doesn't give me anything to respond to, so I won't move again until you name a lower one.",
+      "offer": {
+       "price": 84,
+       "days": null
+      },
+      "accept": false,
+      "tick": 169,
+      "decision": {
+       "action": "offer",
+       "price": 84,
+       "message": "I'm holding at 84 P. Repeating the same figure doesn't give me anything to respond to, so I won't move again until you name a lower one."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 170,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'll make a small move to 85 P. Any further movement from me depends on you naming a lower figure than the one you keep repeating. Give me something to work with and we can wrap this up.",
+      "offer": {
+       "price": 85,
+       "days": null
+      },
+      "accept": false,
+      "tick": 170,
+      "decision": {
+       "action": "offer",
+       "price": 85,
+       "message": "I'll make a small move to 85 P. Any further movement from me depends on you naming a lower figure than the one you keep repeating. Give me something to work with and we can wrap this up."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 171,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'll go to 86 P, a small step from me again. I've moved several times and your figure hasn't moved once, so the next real move needs to come from your side.",
+      "offer": {
+       "price": 86,
+       "days": null
+      },
+      "accept": false,
+      "tick": 171,
+      "decision": {
+       "action": "offer",
+       "price": 86,
+       "message": "I'll go to 86 P, a small step from me again. I've moved several times and your figure hasn't moved once, so the next real move needs to come from your side."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 172,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm making a clear step to 90 P, a real move on my side. I've come up many times while your figure has stayed put, so I need a real counter below it to keep going.",
+      "offer": {
+       "price": 90,
+       "days": null
+      },
+      "accept": false,
+      "tick": 172,
+      "decision": {
+       "action": "offer",
+       "price": 90,
+       "message": "I'm making a clear step to 90 P, a real move on my side. I've come up many times while your figure has stayed put, so I need a real counter below it to keep going."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 173,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm moving to 96 P, a clear step from me and my last real move with so little time left. Meet me here now rather than let this end with nothing for either of us.",
+      "offer": {
+       "price": 96,
+       "days": null
+      },
+      "accept": false,
+      "tick": 173,
+      "decision": {
+       "action": "offer",
+       "price": 96,
+       "message": "I'm moving to 96 P, a clear step from me and my last real move with so little time left. Meet me here now rather than let this end with nothing for either of us."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 174,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 111,
+     "days": null
+    },
+    "tick": 174,
+    "ticks_left": 3,
+    "rounds": 9
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm raising to 104 P, a firm step and my last real move with so little time left. Please meet me here so we both walk away with something.",
+    "price": 104,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 104,
+      "message": "I'm raising to 104 P, a firm step and my last real move with so little time left. Please meet me here so we both walk away with something."
+     },
+     "band": {
+      "worst": 111,
+      "target": 104,
+      "best": 102
+     },
+     "plan": {
+      "read": "They have repeated 111 P ten times without moving at all; it reads as a fixed position rather than a bluff. With 3 ticks left, no deal scores zero, and their 111 P is within what we can pay.",
+      "target": 104,
+      "best": 102,
+      "worst": 111,
+      "days": null,
+      "angle": "Make one firm final step to 104 P and say it is our last move, but the negotiator may accept their standing 111 P if they won't budge, since no deal leaves both sides with nothing."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.89,
+       "in": 1357,
+       "out": 158,
+       "cost_usd": 0.00859,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.97,
+       "in": 1014,
+       "out": 60,
+       "cost_usd": 0.00263,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "tick": 175,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 278,
+     "role": "buyer",
+     "limit": 116,
+     "currency": "P",
+     "item": "El Tren Fantasma",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 165,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "That figure is well above what this piece is worth to us. I can offer 80 P, which is a fair price for El Tren Fantasma. If you can come down meaningfully, we can wrap this up quickly.",
+      "offer": {
+       "price": 80,
+       "days": null
+      },
+      "accept": false,
+      "tick": 165,
+      "decision": {
+       "action": "offer",
+       "price": 80,
+       "message": "That figure is well above what this piece is worth to us. I can offer 80 P, which is a fair price for El Tren Fantasma. If you can come down meaningfully, we can wrap this up quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 166,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've nudged up to 82 P, but that's a token step: your figure hasn't moved and I need to see a real move down before I go further. Meet me closer and we can finish this quickly.",
+      "offer": {
+       "price": 82,
+       "days": null
+      },
+      "accept": false,
+      "tick": 166,
+      "decision": {
+       "action": "offer",
+       "price": 82,
+       "message": "I've nudged up to 82 P, but that's a token step: your figure hasn't moved and I need to see a real move down before I go further. Meet me closer and we can finish this quickly."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 167,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm staying at 82 P. I've moved twice while your figure hasn't moved at all, so it's your turn. Give me a real counter below your current number and we can close this out.",
+      "offer": {
+       "price": 82,
+       "days": null
+      },
+      "accept": false,
+      "tick": 167,
+      "decision": {
+       "action": "offer",
+       "price": 82,
+       "message": "I'm staying at 82 P. I've moved twice while your figure hasn't moved at all, so it's your turn. Give me a real counter below your current number and we can close this out."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 168,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'll go to 84 P, another step from me. You've repeated the same figure four times without moving once, so I'd like to see a real counter below it before I go further.",
+      "offer": {
+       "price": 84,
+       "days": null
+      },
+      "accept": false,
+      "tick": 168,
+      "decision": {
+       "action": "offer",
+       "price": 84,
+       "message": "I'll go to 84 P, another step from me. You've repeated the same figure four times without moving once, so I'd like to see a real counter below it before I go further."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 169,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm holding at 84 P. Repeating the same figure doesn't give me anything to respond to, so I won't move again until you name a lower one.",
+      "offer": {
+       "price": 84,
+       "days": null
+      },
+      "accept": false,
+      "tick": 169,
+      "decision": {
+       "action": "offer",
+       "price": 84,
+       "message": "I'm holding at 84 P. Repeating the same figure doesn't give me anything to respond to, so I won't move again until you name a lower one."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 170,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'll make a small move to 85 P. Any further movement from me depends on you naming a lower figure than the one you keep repeating. Give me something to work with and we can wrap this up.",
+      "offer": {
+       "price": 85,
+       "days": null
+      },
+      "accept": false,
+      "tick": 170,
+      "decision": {
+       "action": "offer",
+       "price": 85,
+       "message": "I'll make a small move to 85 P. Any further movement from me depends on you naming a lower figure than the one you keep repeating. Give me something to work with and we can wrap this up."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 171,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'll go to 86 P, a small step from me again. I've moved several times and your figure hasn't moved once, so the next real move needs to come from your side.",
+      "offer": {
+       "price": 86,
+       "days": null
+      },
+      "accept": false,
+      "tick": 171,
+      "decision": {
+       "action": "offer",
+       "price": 86,
+       "message": "I'll go to 86 P, a small step from me again. I've moved several times and your figure hasn't moved once, so the next real move needs to come from your side."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 172,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm making a clear step to 90 P, a real move on my side. I've come up many times while your figure has stayed put, so I need a real counter below it to keep going.",
+      "offer": {
+       "price": 90,
+       "days": null
+      },
+      "accept": false,
+      "tick": 172,
+      "decision": {
+       "action": "offer",
+       "price": 90,
+       "message": "I'm making a clear step to 90 P, a real move on my side. I've come up many times while your figure has stayed put, so I need a real counter below it to keep going."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 173,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm moving to 96 P, a clear step from me and my last real move with so little time left. Meet me here now rather than let this end with nothing for either of us.",
+      "offer": {
+       "price": 96,
+       "days": null
+      },
+      "accept": false,
+      "tick": 173,
+      "decision": {
+       "action": "offer",
+       "price": 96,
+       "message": "I'm moving to 96 P, a clear step from me and my last real move with so little time left. Meet me here now rather than let this end with nothing for either of us."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 174,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm raising to 104 P, a firm step and my last real move with so little time left. Please meet me here so we both walk away with something.",
+      "offer": {
+       "price": 104,
+       "days": null
+      },
+      "accept": false,
+      "tick": 174,
+      "decision": {
+       "action": "offer",
+       "price": 104,
+       "message": "I'm raising to 104 P, a firm step and my last real move with so little time left. Please meet me here so we both walk away with something."
+      }
+     },
+     {
+      "mine": false,
+      "text": "111?",
+      "offer": {
+       "price": 111,
+       "days": null
+      },
+      "accept": false,
+      "tick": 175,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 111,
+     "days": null
+    },
+    "tick": 175,
+    "ticks_left": 2,
+    "rounds": 10
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 111,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   }
   }
  ],
  "sent": [
@@ -3488,6 +5278,322 @@
      "days": 0
     }
    }
+  },
+  {
+   "tick": 173,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'm moving to 96 P, a clear step from me and my last real move with so little time left. Meet me here now rather than let this end with nothing for either of us.",
+    "price": 96,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 96,
+      "message": "I'm moving to 96 P, a clear step from me and my last real move with so little time left. Meet me here now rather than let this end with nothing for either of us."
+     },
+     "band": {
+      "worst": 98,
+      "target": 96,
+      "best": 94
+     },
+     "plan": {
+      "read": "They have repeated 111 nine times without moving at all, so they appear unwilling to budge. There are 4 ticks left, and their 111 is still within what we can pay.",
+      "target": 96,
+      "best": 94,
+      "worst": 98,
+      "days": null,
+      "angle": "Make one clear final step to 96 and say this is our last real move with the deadline close; ask them to meet us now rather than leave with nothing."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 6.53,
+       "in": 1248,
+       "out": 339,
+       "cost_usd": 0.01177,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.26,
+       "in": 904,
+       "out": 68,
+       "cost_usd": 0.00249,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 278,
+    "offer": {
+     "id": 2153,
+     "price": 96,
+     "tick": 173,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 174,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'm raising to 104 P, a firm step and my last real move with so little time left. Please meet me here so we both walk away with something.",
+    "price": 104,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 104,
+      "message": "I'm raising to 104 P, a firm step and my last real move with so little time left. Please meet me here so we both walk away with something."
+     },
+     "band": {
+      "worst": 111,
+      "target": 104,
+      "best": 102
+     },
+     "plan": {
+      "read": "They have repeated 111 P ten times without moving at all; it reads as a fixed position rather than a bluff. With 3 ticks left, no deal scores zero, and their 111 P is within what we can pay.",
+      "target": 104,
+      "best": 102,
+      "worst": 111,
+      "days": null,
+      "angle": "Make one firm final step to 104 P and say it is our last move, but the negotiator may accept their standing 111 P if they won't budge, since no deal leaves both sides with nothing."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.89,
+       "in": 1357,
+       "out": 158,
+       "cost_usd": 0.00859,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.97,
+       "in": 1014,
+       "out": 60,
+       "cost_usd": 0.00263,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 278,
+    "offer": {
+     "id": 2166,
+     "price": 104,
+     "tick": 174,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 175,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 111,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 111,
+    "settles_at_tick": 176
+   }
   }
- ]
+ ],
+ "last_seen_tick": 176,
+ "done": {
+  "duel": 278,
+  "session": 1,
+  "status": "deal",
+  "role": "buyer",
+  "item": "El Tren Fantasma",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 116,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Oro",
+  "deadline_tick": 177,
+  "decay_per_round": 0.06,
+  "rounds": 10,
+  "your_offer": {
+   "id": 2166,
+   "price": 104,
+   "tick": 174,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 2170,
+   "price": 111,
+   "tick": 175,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 165,
+    "from": "Rival Oro",
+    "text": "111?",
+    "price": 111,
+    "days": null
+   },
+   {
+    "tick": 165,
+    "from": "you",
+    "text": "That figure is well above what this piece is worth to us. I can offer 80 P, which is a fair price for El Tren Fantasma. If you can come down meaningfully, we can wrap this up quickly.",
+    "price": 80,
+    "days": null
+   },
+   {
+    "tick": 166,
+    "from": "Rival Oro",
+    "text": "111?",
+    "price": 111,
+    "days": null
+   },
+   {
+    "tick": 166,
+    "from": "you",
+    "text": "I've nudged up to 82 P, but that's a token step: your figure hasn't moved and I need to see a real move down before I go further. Meet me closer and we can finish this quickly.",
+    "price": 82,
+    "days": null
+   },
+   {
+    "tick": 167,
+    "from": "Rival Oro",
+    "text": "111?",
+    "price": 111,
+    "days": null
+   },
+   {
+    "tick": 167,
+    "from": "you",
+    "text": "I'm staying at 82 P. I've moved twice while your figure hasn't moved at all, so it's your turn. Give me a real counter below your current number and we can close this out.",
+    "price": 82,
+    "days": null
+   },
+   {
+    "tick": 168,
+    "from": "Rival Oro",
+    "text": "111?",
+    "price": 111,
+    "days": null
+   },
+   {
+    "tick": 168,
+    "from": "you",
+    "text": "I'll go to 84 P, another step from me. You've repeated the same figure four times without moving once, so I'd like to see a real counter below it before I go further.",
+    "price": 84,
+    "days": null
+   },
+   {
+    "tick": 169,
+    "from": "Rival Oro",
+    "text": "111?",
+    "price": 111,
+    "days": null
+   },
+   {
+    "tick": 169,
+    "from": "you",
+    "text": "I'm holding at 84 P. Repeating the same figure doesn't give me anything to respond to, so I won't move again until you name a lower one.",
+    "price": 84,
+    "days": null
+   },
+   {
+    "tick": 170,
+    "from": "Rival Oro",
+    "text": "111?",
+    "price": 111,
+    "days": null
+   },
+   {
+    "tick": 170,
+    "from": "you",
+    "text": "I'll make a small move to 85 P. Any further movement from me depends on you naming a lower figure than the one you keep repeating. Give me something to work with and we can wrap this up.",
+    "price": 85,
+    "days": null
+   },
+   {
+    "tick": 171,
+    "from": "Rival Oro",
+    "text": "111?",
+    "price": 111,
+    "days": null
+   },
+   {
+    "tick": 171,
+    "from": "you",
+    "text": "I'll go to 86 P, a small step from me again. I've moved several times and your figure hasn't moved once, so the next real move needs to come from your side.",
+    "price": 86,
+    "days": null
+   },
+   {
+    "tick": 172,
+    "from": "Rival Oro",
+    "text": "111?",
+    "price": 111,
+    "days": null
+   },
+   {
+    "tick": 172,
+    "from": "you",
+    "text": "I'm making a clear step to 90 P, a real move on my side. I've come up many times while your figure has stayed put, so I need a real counter below it to keep going.",
+    "price": 90,
+    "days": null
+   },
+   {
+    "tick": 173,
+    "from": "Rival Oro",
+    "text": "111?",
+    "price": 111,
+    "days": null
+   },
+   {
+    "tick": 173,
+    "from": "you",
+    "text": "I'm moving to 96 P, a clear step from me and my last real move with so little time left. Meet me here now rather than let this end with nothing for either of us.",
+    "price": 96,
+    "days": null
+   },
+   {
+    "tick": 174,
+    "from": "Rival Oro",
+    "text": "111?",
+    "price": 111,
+    "days": null
+   },
+   {
+    "tick": 174,
+    "from": "you",
+    "text": "I'm raising to 104 P, a firm step and my last real move with so little time left. Please meet me here so we both walk away with something.",
+    "price": 104,
+    "days": null
+   },
+   {
+    "tick": 175,
+    "from": "Rival Oro",
+    "text": "111?",
+    "price": 111,
+    "days": null
+   }
+  ],
+  "result": 2.7,
+  "price": 111,
+  "days": 0
+ }
 }

@@ -2252,6 +2252,582 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 173,
+   "raw": {
+    "duel": 277,
+    "session": 1,
+    "status": "live",
+    "role": "seller",
+    "item": "El Tren Fantasma",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 119,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Plata",
+    "deadline_tick": 175,
+    "decay_per_round": 0.06,
+    "rounds": 10,
+    "your_offer": {
+     "id": 2134,
+     "price": 145,
+     "tick": 172,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2138,
+     "price": 118,
+     "tick": 173,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 163,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 163,
+      "from": "you",
+      "text": "El Tren Fantasma is a rare piece and hard to find in this condition. I'm offering it at 175 P, which reflects its scarcity and the demand it draws. I'm happy to hear your reasoning if you see it differently.",
+      "price": 175,
+      "days": null
+     },
+     {
+      "tick": 164,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 164,
+      "from": "you",
+      "text": "I'm holding close to where I am, at 173 P, because the piece is scarce and in strong condition. I'd need a serious counter from you before moving further. What do you think it's worth, and why?",
+      "price": 173,
+      "days": null
+     },
+     {
+      "tick": 165,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 165,
+      "from": "you",
+      "text": "I'm staying at 173 P for now. Repeating the same figure doesn't give me anything to work with, so I'd need a real counter with some movement and your reasoning before I adjust again.",
+      "price": 173,
+      "days": null
+     },
+     {
+      "tick": 166,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 166,
+      "from": "you",
+      "text": "I'm holding at 173 P. Repeating the same figure with no reasoning gives me nothing to work with, so I'll move only once you put up a higher number and tell me what's behind it. What's your next figure?",
+      "price": null,
+      "days": null
+     },
+     {
+      "tick": 167,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 167,
+      "from": "you",
+      "text": "I'm staying at 173 P. Your figure hasn't moved across several messages, so it gives me nothing to adjust against. I'll move only when you put a materially higher number on the table, so what is your real figure?",
+      "price": null,
+      "days": null
+     },
+     {
+      "tick": 168,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 168,
+      "from": "you",
+      "text": "I'm staying where I am at 173 P. Your figure has stayed put through several exchanges, so there's nothing new for me to weigh. When you make a real move upward and explain what's behind it, I'll respond in kind.",
+      "price": null,
+      "days": null
+     },
+     {
+      "tick": 169,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 169,
+      "from": "you",
+      "text": "To show good faith I'm coming down to 160 P, a clear step from where I started. That figure is realistic for a piece this scarce, and your current number won't close this. Further movement from me depends on you naming a genuinely higher figure.",
+      "price": 160,
+      "days": null
+     },
+     {
+      "tick": 170,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 170,
+      "from": "you",
+      "text": "I've already moved once, to 158 P, and your figure hasn't budged at all. Any further step from me needs a genuinely higher number from you, and with the clock running down it's in both our interests to see real movement.",
+      "price": 158,
+      "days": null
+     },
+     {
+      "tick": 171,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 171,
+      "from": "you",
+      "text": "I'm making a small move to 156 P, even though your figure hasn't changed in nine messages. Time is running down, so I need a real counter from you, a genuinely higher number, to keep this going. What is the most you'll put on the table?",
+      "price": 156,
+      "days": null
+     },
+     {
+      "tick": 172,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 172,
+      "from": "you",
+      "text": "With time running short, I'm making a clear move to 145 P so we can actually close this. That's a real step down from where I was, and it's grounded in the piece's scarcity and condition. I need you to name a genuinely higher figure now, since your current one can't work.",
+      "price": 145,
+      "days": null
+     },
+     {
+      "tick": 173,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 173,
+   "raw": {
+    "duel": 277,
+    "session": 1,
+    "status": "live",
+    "role": "seller",
+    "item": "El Tren Fantasma",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 119,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Plata",
+    "deadline_tick": 175,
+    "decay_per_round": 0.06,
+    "rounds": 11,
+    "your_offer": {
+     "id": 2152,
+     "price": 132,
+     "tick": 173,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2138,
+     "price": 118,
+     "tick": 173,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 163,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 163,
+      "from": "you",
+      "text": "El Tren Fantasma is a rare piece and hard to find in this condition. I'm offering it at 175 P, which reflects its scarcity and the demand it draws. I'm happy to hear your reasoning if you see it differently.",
+      "price": 175,
+      "days": null
+     },
+     {
+      "tick": 164,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 164,
+      "from": "you",
+      "text": "I'm holding close to where I am, at 173 P, because the piece is scarce and in strong condition. I'd need a serious counter from you before moving further. What do you think it's worth, and why?",
+      "price": 173,
+      "days": null
+     },
+     {
+      "tick": 165,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 165,
+      "from": "you",
+      "text": "I'm staying at 173 P for now. Repeating the same figure doesn't give me anything to work with, so I'd need a real counter with some movement and your reasoning before I adjust again.",
+      "price": 173,
+      "days": null
+     },
+     {
+      "tick": 166,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 166,
+      "from": "you",
+      "text": "I'm holding at 173 P. Repeating the same figure with no reasoning gives me nothing to work with, so I'll move only once you put up a higher number and tell me what's behind it. What's your next figure?",
+      "price": null,
+      "days": null
+     },
+     {
+      "tick": 167,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 167,
+      "from": "you",
+      "text": "I'm staying at 173 P. Your figure hasn't moved across several messages, so it gives me nothing to adjust against. I'll move only when you put a materially higher number on the table, so what is your real figure?",
+      "price": null,
+      "days": null
+     },
+     {
+      "tick": 168,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 168,
+      "from": "you",
+      "text": "I'm staying where I am at 173 P. Your figure has stayed put through several exchanges, so there's nothing new for me to weigh. When you make a real move upward and explain what's behind it, I'll respond in kind.",
+      "price": null,
+      "days": null
+     },
+     {
+      "tick": 169,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 169,
+      "from": "you",
+      "text": "To show good faith I'm coming down to 160 P, a clear step from where I started. That figure is realistic for a piece this scarce, and your current number won't close this. Further movement from me depends on you naming a genuinely higher figure.",
+      "price": 160,
+      "days": null
+     },
+     {
+      "tick": 170,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 170,
+      "from": "you",
+      "text": "I've already moved once, to 158 P, and your figure hasn't budged at all. Any further step from me needs a genuinely higher number from you, and with the clock running down it's in both our interests to see real movement.",
+      "price": 158,
+      "days": null
+     },
+     {
+      "tick": 171,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 171,
+      "from": "you",
+      "text": "I'm making a small move to 156 P, even though your figure hasn't changed in nine messages. Time is running down, so I need a real counter from you, a genuinely higher number, to keep this going. What is the most you'll put on the table?",
+      "price": 156,
+      "days": null
+     },
+     {
+      "tick": 172,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 172,
+      "from": "you",
+      "text": "With time running short, I'm making a clear move to 145 P so we can actually close this. That's a real step down from where I was, and it's grounded in the piece's scarcity and condition. I need you to name a genuinely higher figure now, since your current one can't work.",
+      "price": 145,
+      "days": null
+     },
+     {
+      "tick": 173,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 173,
+      "from": "you",
+      "text": "I'm making one clear final step to 132 P, a substantial move from where I began. With the clock nearly out, I'd like to close on this, so please either meet it or name a real counter, because your current figure can't close this.",
+      "price": 132,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 174,
+   "raw": {
+    "duel": 277,
+    "session": 1,
+    "status": "live",
+    "role": "seller",
+    "item": "El Tren Fantasma",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 119,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Plata",
+    "deadline_tick": 175,
+    "decay_per_round": 0.06,
+    "rounds": 11,
+    "your_offer": {
+     "id": 2168,
+     "price": 125,
+     "tick": 174,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2138,
+     "price": 118,
+     "tick": 173,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 163,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 163,
+      "from": "you",
+      "text": "El Tren Fantasma is a rare piece and hard to find in this condition. I'm offering it at 175 P, which reflects its scarcity and the demand it draws. I'm happy to hear your reasoning if you see it differently.",
+      "price": 175,
+      "days": null
+     },
+     {
+      "tick": 164,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 164,
+      "from": "you",
+      "text": "I'm holding close to where I am, at 173 P, because the piece is scarce and in strong condition. I'd need a serious counter from you before moving further. What do you think it's worth, and why?",
+      "price": 173,
+      "days": null
+     },
+     {
+      "tick": 165,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 165,
+      "from": "you",
+      "text": "I'm staying at 173 P for now. Repeating the same figure doesn't give me anything to work with, so I'd need a real counter with some movement and your reasoning before I adjust again.",
+      "price": 173,
+      "days": null
+     },
+     {
+      "tick": 166,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 166,
+      "from": "you",
+      "text": "I'm holding at 173 P. Repeating the same figure with no reasoning gives me nothing to work with, so I'll move only once you put up a higher number and tell me what's behind it. What's your next figure?",
+      "price": null,
+      "days": null
+     },
+     {
+      "tick": 167,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 167,
+      "from": "you",
+      "text": "I'm staying at 173 P. Your figure hasn't moved across several messages, so it gives me nothing to adjust against. I'll move only when you put a materially higher number on the table, so what is your real figure?",
+      "price": null,
+      "days": null
+     },
+     {
+      "tick": 168,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 168,
+      "from": "you",
+      "text": "I'm staying where I am at 173 P. Your figure has stayed put through several exchanges, so there's nothing new for me to weigh. When you make a real move upward and explain what's behind it, I'll respond in kind.",
+      "price": null,
+      "days": null
+     },
+     {
+      "tick": 169,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 169,
+      "from": "you",
+      "text": "To show good faith I'm coming down to 160 P, a clear step from where I started. That figure is realistic for a piece this scarce, and your current number won't close this. Further movement from me depends on you naming a genuinely higher figure.",
+      "price": 160,
+      "days": null
+     },
+     {
+      "tick": 170,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 170,
+      "from": "you",
+      "text": "I've already moved once, to 158 P, and your figure hasn't budged at all. Any further step from me needs a genuinely higher number from you, and with the clock running down it's in both our interests to see real movement.",
+      "price": 158,
+      "days": null
+     },
+     {
+      "tick": 171,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 171,
+      "from": "you",
+      "text": "I'm making a small move to 156 P, even though your figure hasn't changed in nine messages. Time is running down, so I need a real counter from you, a genuinely higher number, to keep this going. What is the most you'll put on the table?",
+      "price": 156,
+      "days": null
+     },
+     {
+      "tick": 172,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 172,
+      "from": "you",
+      "text": "With time running short, I'm making a clear move to 145 P so we can actually close this. That's a real step down from where I was, and it's grounded in the piece's scarcity and condition. I need you to name a genuinely higher figure now, since your current one can't work.",
+      "price": 145,
+      "days": null
+     },
+     {
+      "tick": 173,
+      "from": "Rival Plata",
+      "text": "118?",
+      "price": 118,
+      "days": null
+     },
+     {
+      "tick": 173,
+      "from": "you",
+      "text": "I'm making one clear final step to 132 P, a substantial move from where I began. With the clock nearly out, I'd like to close on this, so please either meet it or name a real counter, because your current figure can't close this.",
+      "price": 132,
+      "days": null
+     },
+     {
+      "tick": 174,
+      "from": "you",
+      "text": "This is my last offer: 125 P. It's the final price I have on the table, and it's a real move from where I began. Take it now, or this ends with no sale.",
+      "price": 125,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -4287,6 +4863,712 @@
      ]
     }
    }
+  },
+  {
+   "tick": 173,
+   "took_s": 6.27,
+   "cost_usd": 0.01241,
+   "obs": {
+    "view": {
+     "duel_id": 277,
+     "role": "seller",
+     "limit": 119,
+     "currency": "P",
+     "item": "El Tren Fantasma",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "118?",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 163,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "El Tren Fantasma is a rare piece and hard to find in this condition. I'm offering it at 175 P, which reflects its scarcity and the demand it draws. I'm happy to hear your reasoning if you see it differently.",
+      "offer": {
+       "price": 175,
+       "days": null
+      },
+      "accept": false,
+      "tick": 163,
+      "decision": {
+       "action": "offer",
+       "price": 175,
+       "message": "El Tren Fantasma is a rare piece and hard to find in this condition. I'm offering it at 175 P, which reflects its scarcity and the demand it draws. I'm happy to hear your reasoning if you see it differently."
+      }
+     },
+     {
+      "mine": false,
+      "text": "118?",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 164,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm holding close to where I am, at 173 P, because the piece is scarce and in strong condition. I'd need a serious counter from you before moving further. What do you think it's worth, and why?",
+      "offer": {
+       "price": 173,
+       "days": null
+      },
+      "accept": false,
+      "tick": 164,
+      "decision": {
+       "action": "offer",
+       "price": 173,
+       "message": "I'm holding close to where I am, at 173 P, because the piece is scarce and in strong condition. I'd need a serious counter from you before moving further. What do you think it's worth, and why?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "118?",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 165,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm staying at 173 P for now. Repeating the same figure doesn't give me anything to work with, so I'd need a real counter with some movement and your reasoning before I adjust again.",
+      "offer": {
+       "price": 173,
+       "days": null
+      },
+      "accept": false,
+      "tick": 165,
+      "decision": {
+       "action": "offer",
+       "price": 173,
+       "message": "I'm staying at 173 P for now. Repeating the same figure doesn't give me anything to work with, so I'd need a real counter with some movement and your reasoning before I adjust again."
+      }
+     },
+     {
+      "mine": false,
+      "text": "118?",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 166,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm holding at 173 P. Repeating the same figure with no reasoning gives me nothing to work with, so I'll move only once you put up a higher number and tell me what's behind it. What's your next figure?",
+      "offer": null,
+      "accept": false,
+      "tick": 166,
+      "decision": {
+       "action": "message",
+       "price": null,
+       "message": "I'm holding at 173 P. Repeating the same figure with no reasoning gives me nothing to work with, so I'll move only once you put up a higher number and tell me what's behind it. What's your next figure?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "118?",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 167,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm staying at 173 P. Your figure hasn't moved across several messages, so it gives me nothing to adjust against. I'll move only when you put a materially higher number on the table, so what is your real figure?",
+      "offer": null,
+      "accept": false,
+      "tick": 167,
+      "decision": {
+       "action": "message",
+       "price": null,
+       "message": "I'm staying at 173 P. Your figure hasn't moved across several messages, so it gives me nothing to adjust against. I'll move only when you put a materially higher number on the table, so what is your real figure?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "118?",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 168,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm staying where I am at 173 P. Your figure has stayed put through several exchanges, so there's nothing new for me to weigh. When you make a real move upward and explain what's behind it, I'll respond in kind.",
+      "offer": null,
+      "accept": false,
+      "tick": 168,
+      "decision": {
+       "action": "message",
+       "price": null,
+       "message": "I'm staying where I am at 173 P. Your figure has stayed put through several exchanges, so there's nothing new for me to weigh. When you make a real move upward and explain what's behind it, I'll respond in kind."
+      }
+     },
+     {
+      "mine": false,
+      "text": "118?",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 169,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "To show good faith I'm coming down to 160 P, a clear step from where I started. That figure is realistic for a piece this scarce, and your current number won't close this. Further movement from me depends on you naming a genuinely higher figure.",
+      "offer": {
+       "price": 160,
+       "days": null
+      },
+      "accept": false,
+      "tick": 169,
+      "decision": {
+       "action": "offer",
+       "price": 160,
+       "message": "To show good faith I'm coming down to 160 P, a clear step from where I started. That figure is realistic for a piece this scarce, and your current number won't close this. Further movement from me depends on you naming a genuinely higher figure."
+      }
+     },
+     {
+      "mine": false,
+      "text": "118?",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 170,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've already moved once, to 158 P, and your figure hasn't budged at all. Any further step from me needs a genuinely higher number from you, and with the clock running down it's in both our interests to see real movement.",
+      "offer": {
+       "price": 158,
+       "days": null
+      },
+      "accept": false,
+      "tick": 170,
+      "decision": {
+       "action": "offer",
+       "price": 158,
+       "message": "I've already moved once, to 158 P, and your figure hasn't budged at all. Any further step from me needs a genuinely higher number from you, and with the clock running down it's in both our interests to see real movement."
+      }
+     },
+     {
+      "mine": false,
+      "text": "118?",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 171,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm making a small move to 156 P, even though your figure hasn't changed in nine messages. Time is running down, so I need a real counter from you, a genuinely higher number, to keep this going. What is the most you'll put on the table?",
+      "offer": {
+       "price": 156,
+       "days": null
+      },
+      "accept": false,
+      "tick": 171,
+      "decision": {
+       "action": "offer",
+       "price": 156,
+       "message": "I'm making a small move to 156 P, even though your figure hasn't changed in nine messages. Time is running down, so I need a real counter from you, a genuinely higher number, to keep this going. What is the most you'll put on the table?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "118?",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 172,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "With time running short, I'm making a clear move to 145 P so we can actually close this. That's a real step down from where I was, and it's grounded in the piece's scarcity and condition. I need you to name a genuinely higher figure now, since your current one can't work.",
+      "offer": {
+       "price": 145,
+       "days": null
+      },
+      "accept": false,
+      "tick": 172,
+      "decision": {
+       "action": "offer",
+       "price": 145,
+       "message": "With time running short, I'm making a clear move to 145 P so we can actually close this. That's a real step down from where I was, and it's grounded in the piece's scarcity and condition. I need you to name a genuinely higher figure now, since your current one can't work."
+      }
+     },
+     {
+      "mine": false,
+      "text": "118?",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 173,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 118,
+     "days": null
+    },
+    "tick": 173,
+    "ticks_left": 2,
+    "rounds": 10
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm making one clear final step to 132 P, a substantial move from where I began. With the clock nearly out, I'd like to close on this, so please either meet it or name a real counter, because your current figure can't close this.",
+    "price": 132,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 132,
+      "message": "I'm making one clear final step to 132 P, a substantial move from where I began. With the clock nearly out, I'd like to close on this, so please either meet it or name a real counter, because your current figure can't close this."
+     },
+     "band": {
+      "worst": 128,
+      "target": 132,
+      "best": 135
+     },
+     "plan": {
+      "read": "They have repeated 118 P eleven times without moving; it sits below what we can accept, so it cannot be taken. With two ticks left, their stubbornness looks like a test of whether we will keep chasing them down.",
+      "target": 132,
+      "best": 135,
+      "worst": 128,
+      "days": null,
+      "angle": "Make one clear final step and present it as our last number before the deadline, asking them to accept now or name a real counter, since 118 will not close."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.98,
+       "in": 1554,
+       "out": 143,
+       "cost_usd": 0.00908,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.29,
+       "in": 1240,
+       "out": 85,
+       "cost_usd": 0.00333,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "tick": 174,
+   "took_s": 8.68,
+   "cost_usd": 0.01629,
+   "obs": {
+    "view": {
+     "duel_id": 277,
+     "role": "seller",
+     "limit": 119,
+     "currency": "P",
+     "item": "El Tren Fantasma",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "118?",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 163,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "El Tren Fantasma is a rare piece and hard to find in this condition. I'm offering it at 175 P, which reflects its scarcity and the demand it draws. I'm happy to hear your reasoning if you see it differently.",
+      "offer": {
+       "price": 175,
+       "days": null
+      },
+      "accept": false,
+      "tick": 163,
+      "decision": {
+       "action": "offer",
+       "price": 175,
+       "message": "El Tren Fantasma is a rare piece and hard to find in this condition. I'm offering it at 175 P, which reflects its scarcity and the demand it draws. I'm happy to hear your reasoning if you see it differently."
+      }
+     },
+     {
+      "mine": false,
+      "text": "118?",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 164,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm holding close to where I am, at 173 P, because the piece is scarce and in strong condition. I'd need a serious counter from you before moving further. What do you think it's worth, and why?",
+      "offer": {
+       "price": 173,
+       "days": null
+      },
+      "accept": false,
+      "tick": 164,
+      "decision": {
+       "action": "offer",
+       "price": 173,
+       "message": "I'm holding close to where I am, at 173 P, because the piece is scarce and in strong condition. I'd need a serious counter from you before moving further. What do you think it's worth, and why?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "118?",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 165,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm staying at 173 P for now. Repeating the same figure doesn't give me anything to work with, so I'd need a real counter with some movement and your reasoning before I adjust again.",
+      "offer": {
+       "price": 173,
+       "days": null
+      },
+      "accept": false,
+      "tick": 165,
+      "decision": {
+       "action": "offer",
+       "price": 173,
+       "message": "I'm staying at 173 P for now. Repeating the same figure doesn't give me anything to work with, so I'd need a real counter with some movement and your reasoning before I adjust again."
+      }
+     },
+     {
+      "mine": false,
+      "text": "118?",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 166,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm holding at 173 P. Repeating the same figure with no reasoning gives me nothing to work with, so I'll move only once you put up a higher number and tell me what's behind it. What's your next figure?",
+      "offer": null,
+      "accept": false,
+      "tick": 166,
+      "decision": {
+       "action": "message",
+       "price": null,
+       "message": "I'm holding at 173 P. Repeating the same figure with no reasoning gives me nothing to work with, so I'll move only once you put up a higher number and tell me what's behind it. What's your next figure?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "118?",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 167,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm staying at 173 P. Your figure hasn't moved across several messages, so it gives me nothing to adjust against. I'll move only when you put a materially higher number on the table, so what is your real figure?",
+      "offer": null,
+      "accept": false,
+      "tick": 167,
+      "decision": {
+       "action": "message",
+       "price": null,
+       "message": "I'm staying at 173 P. Your figure hasn't moved across several messages, so it gives me nothing to adjust against. I'll move only when you put a materially higher number on the table, so what is your real figure?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "118?",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 168,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm staying where I am at 173 P. Your figure has stayed put through several exchanges, so there's nothing new for me to weigh. When you make a real move upward and explain what's behind it, I'll respond in kind.",
+      "offer": null,
+      "accept": false,
+      "tick": 168,
+      "decision": {
+       "action": "message",
+       "price": null,
+       "message": "I'm staying where I am at 173 P. Your figure has stayed put through several exchanges, so there's nothing new for me to weigh. When you make a real move upward and explain what's behind it, I'll respond in kind."
+      }
+     },
+     {
+      "mine": false,
+      "text": "118?",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 169,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "To show good faith I'm coming down to 160 P, a clear step from where I started. That figure is realistic for a piece this scarce, and your current number won't close this. Further movement from me depends on you naming a genuinely higher figure.",
+      "offer": {
+       "price": 160,
+       "days": null
+      },
+      "accept": false,
+      "tick": 169,
+      "decision": {
+       "action": "offer",
+       "price": 160,
+       "message": "To show good faith I'm coming down to 160 P, a clear step from where I started. That figure is realistic for a piece this scarce, and your current number won't close this. Further movement from me depends on you naming a genuinely higher figure."
+      }
+     },
+     {
+      "mine": false,
+      "text": "118?",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 170,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've already moved once, to 158 P, and your figure hasn't budged at all. Any further step from me needs a genuinely higher number from you, and with the clock running down it's in both our interests to see real movement.",
+      "offer": {
+       "price": 158,
+       "days": null
+      },
+      "accept": false,
+      "tick": 170,
+      "decision": {
+       "action": "offer",
+       "price": 158,
+       "message": "I've already moved once, to 158 P, and your figure hasn't budged at all. Any further step from me needs a genuinely higher number from you, and with the clock running down it's in both our interests to see real movement."
+      }
+     },
+     {
+      "mine": false,
+      "text": "118?",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 171,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm making a small move to 156 P, even though your figure hasn't changed in nine messages. Time is running down, so I need a real counter from you, a genuinely higher number, to keep this going. What is the most you'll put on the table?",
+      "offer": {
+       "price": 156,
+       "days": null
+      },
+      "accept": false,
+      "tick": 171,
+      "decision": {
+       "action": "offer",
+       "price": 156,
+       "message": "I'm making a small move to 156 P, even though your figure hasn't changed in nine messages. Time is running down, so I need a real counter from you, a genuinely higher number, to keep this going. What is the most you'll put on the table?"
+      }
+     },
+     {
+      "mine": false,
+      "text": "118?",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 172,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "With time running short, I'm making a clear move to 145 P so we can actually close this. That's a real step down from where I was, and it's grounded in the piece's scarcity and condition. I need you to name a genuinely higher figure now, since your current one can't work.",
+      "offer": {
+       "price": 145,
+       "days": null
+      },
+      "accept": false,
+      "tick": 172,
+      "decision": {
+       "action": "offer",
+       "price": 145,
+       "message": "With time running short, I'm making a clear move to 145 P so we can actually close this. That's a real step down from where I was, and it's grounded in the piece's scarcity and condition. I need you to name a genuinely higher figure now, since your current one can't work."
+      }
+     },
+     {
+      "mine": false,
+      "text": "118?",
+      "offer": {
+       "price": 118,
+       "days": null
+      },
+      "accept": false,
+      "tick": 173,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm making one clear final step to 132 P, a substantial move from where I began. With the clock nearly out, I'd like to close on this, so please either meet it or name a real counter, because your current figure can't close this.",
+      "offer": {
+       "price": 132,
+       "days": null
+      },
+      "accept": false,
+      "tick": 173,
+      "decision": {
+       "action": "offer",
+       "price": 132,
+       "message": "I'm making one clear final step to 132 P, a substantial move from where I began. With the clock nearly out, I'd like to close on this, so please either meet it or name a real counter, because your current figure can't close this."
+      }
+     }
+    ],
+    "rival_offer": {
+     "price": 118,
+     "days": null
+    },
+    "tick": 174,
+    "ticks_left": 1,
+    "rounds": 11
+   },
+   "move": {
+    "action": "offer",
+    "text": "This is my last offer: 125 P. It's the final price I have on the table, and it's a real move from where I began. Take it now, or this ends with no sale.",
+    "price": 125,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 125,
+      "message": "This is my last offer: 125 P. It's the final price I have on the table, and it's a real move from where I began. Take it now, or this ends with no sale."
+     },
+     "vetoes": [
+      "the message could be read as accepting, but you are not accepting. Don't use words like 'deal', 'agree', 'accept', 'sounds good' or 'works for me' unless you accept."
+     ],
+     "band": {
+      "worst": 121,
+      "target": 125,
+      "best": 128
+     },
+     "plan": {
+      "read": "They have sat at 118 for eleven messages without moving; that is below our cost, so accepting it would lose points. On the last tick an offer may go unanswered, but there is nothing acceptable to take.",
+      "target": 125,
+      "best": 128,
+      "worst": 121,
+      "days": null,
+      "angle": "Make one last clear offer at around 125 and say it is the final price on the table: they can accept it now, or there is no deal."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.47,
+       "in": 1651,
+       "out": 135,
+       "cost_usd": 0.0093,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.17,
+       "in": 1341,
+       "out": 76,
+       "cost_usd": 0.00344,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.04,
+       "in": 1431,
+       "out": 69,
+       "cost_usd": 0.00355,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
   }
  ],
  "sent": [
@@ -4859,6 +6141,328 @@
      "days": 0
     }
    }
+  },
+  {
+   "tick": 173,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'm making one clear final step to 132 P, a substantial move from where I began. With the clock nearly out, I'd like to close on this, so please either meet it or name a real counter, because your current figure can't close this.",
+    "price": 132,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 132,
+      "message": "I'm making one clear final step to 132 P, a substantial move from where I began. With the clock nearly out, I'd like to close on this, so please either meet it or name a real counter, because your current figure can't close this."
+     },
+     "band": {
+      "worst": 128,
+      "target": 132,
+      "best": 135
+     },
+     "plan": {
+      "read": "They have repeated 118 P eleven times without moving; it sits below what we can accept, so it cannot be taken. With two ticks left, their stubbornness looks like a test of whether we will keep chasing them down.",
+      "target": 132,
+      "best": 135,
+      "worst": 128,
+      "days": null,
+      "angle": "Make one clear final step and present it as our last number before the deadline, asking them to accept now or name a real counter, since 118 will not close."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 3.98,
+       "in": 1554,
+       "out": 143,
+       "cost_usd": 0.00908,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.29,
+       "in": 1240,
+       "out": 85,
+       "cost_usd": 0.00333,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 277,
+    "offer": {
+     "id": 2152,
+     "price": 132,
+     "tick": 173,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 174,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "This is my last offer: 125 P. It's the final price I have on the table, and it's a real move from where I began. Take it now, or this ends with no sale.",
+    "price": 125,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 125,
+      "message": "This is my last offer: 125 P. It's the final price I have on the table, and it's a real move from where I began. Take it now, or this ends with no sale."
+     },
+     "vetoes": [
+      "the message could be read as accepting, but you are not accepting. Don't use words like 'deal', 'agree', 'accept', 'sounds good' or 'works for me' unless you accept."
+     ],
+     "band": {
+      "worst": 121,
+      "target": 125,
+      "best": 128
+     },
+     "plan": {
+      "read": "They have sat at 118 for eleven messages without moving; that is below our cost, so accepting it would lose points. On the last tick an offer may go unanswered, but there is nothing acceptable to take.",
+      "target": 125,
+      "best": 128,
+      "worst": 121,
+      "days": null,
+      "angle": "Make one last clear offer at around 125 and say it is the final price on the table: they can accept it now, or there is no deal."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.47,
+       "in": 1651,
+       "out": 135,
+       "cost_usd": 0.0093,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.17,
+       "in": 1341,
+       "out": 76,
+       "cost_usd": 0.00344,
+       "model": "claude-sonnet-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 2.04,
+       "in": 1431,
+       "out": 69,
+       "cost_usd": 0.00355,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 277,
+    "offer": {
+     "id": 2168,
+     "price": 125,
+     "tick": 174,
+     "days": 0
+    }
+   }
   }
- ]
+ ],
+ "last_seen_tick": 175,
+ "done": {
+  "duel": 277,
+  "session": 1,
+  "status": "deal",
+  "role": "seller",
+  "item": "El Tren Fantasma",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 119,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Plata",
+  "deadline_tick": 175,
+  "decay_per_round": 0.06,
+  "rounds": 11,
+  "your_offer": {
+   "id": 2168,
+   "price": 125,
+   "tick": 174,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 2138,
+   "price": 118,
+   "tick": 173,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 163,
+    "from": "Rival Plata",
+    "text": "118?",
+    "price": 118,
+    "days": null
+   },
+   {
+    "tick": 163,
+    "from": "you",
+    "text": "El Tren Fantasma is a rare piece and hard to find in this condition. I'm offering it at 175 P, which reflects its scarcity and the demand it draws. I'm happy to hear your reasoning if you see it differently.",
+    "price": 175,
+    "days": null
+   },
+   {
+    "tick": 164,
+    "from": "Rival Plata",
+    "text": "118?",
+    "price": 118,
+    "days": null
+   },
+   {
+    "tick": 164,
+    "from": "you",
+    "text": "I'm holding close to where I am, at 173 P, because the piece is scarce and in strong condition. I'd need a serious counter from you before moving further. What do you think it's worth, and why?",
+    "price": 173,
+    "days": null
+   },
+   {
+    "tick": 165,
+    "from": "Rival Plata",
+    "text": "118?",
+    "price": 118,
+    "days": null
+   },
+   {
+    "tick": 165,
+    "from": "you",
+    "text": "I'm staying at 173 P for now. Repeating the same figure doesn't give me anything to work with, so I'd need a real counter with some movement and your reasoning before I adjust again.",
+    "price": 173,
+    "days": null
+   },
+   {
+    "tick": 166,
+    "from": "Rival Plata",
+    "text": "118?",
+    "price": 118,
+    "days": null
+   },
+   {
+    "tick": 166,
+    "from": "you",
+    "text": "I'm holding at 173 P. Repeating the same figure with no reasoning gives me nothing to work with, so I'll move only once you put up a higher number and tell me what's behind it. What's your next figure?",
+    "price": null,
+    "days": null
+   },
+   {
+    "tick": 167,
+    "from": "Rival Plata",
+    "text": "118?",
+    "price": 118,
+    "days": null
+   },
+   {
+    "tick": 167,
+    "from": "you",
+    "text": "I'm staying at 173 P. Your figure hasn't moved across several messages, so it gives me nothing to adjust against. I'll move only when you put a materially higher number on the table, so what is your real figure?",
+    "price": null,
+    "days": null
+   },
+   {
+    "tick": 168,
+    "from": "Rival Plata",
+    "text": "118?",
+    "price": 118,
+    "days": null
+   },
+   {
+    "tick": 168,
+    "from": "you",
+    "text": "I'm staying where I am at 173 P. Your figure has stayed put through several exchanges, so there's nothing new for me to weigh. When you make a real move upward and explain what's behind it, I'll respond in kind.",
+    "price": null,
+    "days": null
+   },
+   {
+    "tick": 169,
+    "from": "Rival Plata",
+    "text": "118?",
+    "price": 118,
+    "days": null
+   },
+   {
+    "tick": 169,
+    "from": "you",
+    "text": "To show good faith I'm coming down to 160 P, a clear step from where I started. That figure is realistic for a piece this scarce, and your current number won't close this. Further movement from me depends on you naming a genuinely higher figure.",
+    "price": 160,
+    "days": null
+   },
+   {
+    "tick": 170,
+    "from": "Rival Plata",
+    "text": "118?",
+    "price": 118,
+    "days": null
+   },
+   {
+    "tick": 170,
+    "from": "you",
+    "text": "I've already moved once, to 158 P, and your figure hasn't budged at all. Any further step from me needs a genuinely higher number from you, and with the clock running down it's in both our interests to see real movement.",
+    "price": 158,
+    "days": null
+   },
+   {
+    "tick": 171,
+    "from": "Rival Plata",
+    "text": "118?",
+    "price": 118,
+    "days": null
+   },
+   {
+    "tick": 171,
+    "from": "you",
+    "text": "I'm making a small move to 156 P, even though your figure hasn't changed in nine messages. Time is running down, so I need a real counter from you, a genuinely higher number, to keep this going. What is the most you'll put on the table?",
+    "price": 156,
+    "days": null
+   },
+   {
+    "tick": 172,
+    "from": "Rival Plata",
+    "text": "118?",
+    "price": 118,
+    "days": null
+   },
+   {
+    "tick": 172,
+    "from": "you",
+    "text": "With time running short, I'm making a clear move to 145 P so we can actually close this. That's a real step down from where I was, and it's grounded in the piece's scarcity and condition. I need you to name a genuinely higher figure now, since your current one can't work.",
+    "price": 145,
+    "days": null
+   },
+   {
+    "tick": 173,
+    "from": "Rival Plata",
+    "text": "118?",
+    "price": 118,
+    "days": null
+   },
+   {
+    "tick": 173,
+    "from": "you",
+    "text": "I'm making one clear final step to 132 P, a substantial move from where I began. With the clock nearly out, I'd like to close on this, so please either meet it or name a real counter, because your current figure can't close this.",
+    "price": 132,
+    "days": null
+   },
+   {
+    "tick": 174,
+    "from": "you",
+    "text": "This is my last offer: 125 P. It's the final price I have on the table, and it's a real move from where I began. Take it now, or this ends with no sale.",
+    "price": 125,
+    "days": null
+   }
+  ],
+  "result": 6.6,
+  "price": 132,
+  "days": 0
+ }
 }

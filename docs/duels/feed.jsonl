@@ -256,3 +256,12 @@
 {"id": 12006, "tick": 171, "t": 2.75, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 282, "session": 1, "status": "deal", "item": "El Tren Fantasma"}}
 {"id": 12092, "tick": 172, "t": 2.7583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 256, "session": 1, "status": "deal", "item": "Mercado de Vallehermoso"}}
 {"id": 12095, "tick": 172, "t": 2.7583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 286, "session": 1, "status": "no_deal", "item": "El Rastro al Amanecer"}}
+{"id": 12169, "tick": 173, "t": 2.7667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 195, "session": 1, "status": "deal", "item": "El Rastro al Amanecer"}}
+{"id": 12172, "tick": 173, "t": 2.7667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 272, "session": 1, "status": "deal", "item": "Taxi Blanco"}}
+{"id": 12288, "tick": 175, "t": 2.7833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 217, "session": 1, "status": "deal", "item": "Taxi Blanco"}}
+{"id": 12291, "tick": 175, "t": 2.7833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 277, "session": 1, "status": "deal", "item": "El Tren Fantasma"}}
+{"id": 12336, "tick": 176, "t": 2.7917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 196, "session": 1, "status": "deal", "item": "El Rastro al Amanecer"}}
+{"id": 12339, "tick": 176, "t": 2.7917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 264, "session": 1, "status": "no_deal", "item": "Andén 0"}}
+{"id": 12342, "tick": 176, "t": 2.7917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 278, "session": 1, "status": "deal", "item": "El Tren Fantasma"}}
+{"id": 12345, "tick": 176, "t": 2.7917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 280, "session": 1, "status": "no_deal", "item": "El Rastro al Amanecer"}}
+{"id": 12378, "tick": 177, "t": 2.8, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 218, "session": 1, "status": "deal", "item": "Taxi Blanco"}}

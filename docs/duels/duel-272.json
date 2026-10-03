@@ -578,6 +578,107 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 172,
+   "raw": {
+    "duel": 272,
+    "session": 1,
+    "status": "live",
+    "role": "buyer",
+    "item": "Taxi Blanco",
+    "issues": [
+     "price"
+    ],
+    "your_days_weight": null,
+    "days_meaning": null,
+    "your_limit": 128,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 180,
+    "decay_per_round": 0.06,
+    "rounds": 4,
+    "your_offer": {
+     "id": 2136,
+     "price": 105,
+     "tick": 172,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 2132,
+     "price": 109,
+     "tick": 172,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 168,
+      "from": "you",
+      "text": "I'm offering 80 P for the Taxi Blanco. That's a fair opening price given its condition and the market, and I'd like to hear your price so we can settle this in a few rounds.",
+      "price": 80,
+      "days": null
+     },
+     {
+      "tick": 169,
+      "from": "Rival Oro",
+      "text": "Propuesta justa para cerrar pronto y que ganemos los dos: 130 P.",
+      "price": 130,
+      "days": null
+     },
+     {
+      "tick": 169,
+      "from": "you",
+      "text": "I'll move up to 86 P as a good-faith step. Your figure is well above what the Taxi Blanco supports, so I'd need to see real movement from you before going further.",
+      "price": 86,
+      "days": null
+     },
+     {
+      "tick": 170,
+      "from": "Rival Oro",
+      "text": "Me muevo para acercarnos: 116 P.",
+      "price": 116,
+      "days": null
+     },
+     {
+      "tick": 170,
+      "from": "you",
+      "text": "Thanks for moving; I'll raise to 95 P in return. We're narrowing quickly, but I'd need another real cut from you to close this out.",
+      "price": 95,
+      "days": null
+     },
+     {
+      "tick": 171,
+      "from": "Rival Oro",
+      "text": "Yo ya me he movido. ¿Qué puedes hacer tú? Propongo 112 P.",
+      "price": 112,
+      "days": null
+     },
+     {
+      "tick": 171,
+      "from": "you",
+      "text": "I've moved again to 101 P, a bigger step than your last one. Meeting nearer the middle would let us wrap this up quickly, so I'd ask you for another real move.",
+      "price": 101,
+      "days": null
+     },
+     {
+      "tick": 172,
+      "from": "Rival Oro",
+      "text": "Cerremos hoy: 109 P.",
+      "price": 109,
+      "days": null
+     },
+     {
+      "tick": 172,
+      "from": "you",
+      "text": "I'm offering 105 P, which is a fair midpoint after the steps we've both taken. It's my closing number, and I think it's a fair one for the Taxi Blanco.",
+      "price": 105,
+      "days": null
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1077,6 +1178,188 @@
      ]
     }
    }
+  },
+  {
+   "tick": 172,
+   "took_s": 5.92,
+   "cost_usd": 0.00828,
+   "obs": {
+    "view": {
+     "duel_id": 272,
+     "role": "buyer",
+     "limit": 128,
+     "currency": "P",
+     "item": "Taxi Blanco",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price"
+     ],
+     "days_weight": null,
+     "days_meaning": null,
+     "decay": 0.06,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm offering 80 P for the Taxi Blanco. That's a fair opening price given its condition and the market, and I'd like to hear your price so we can settle this in a few rounds.",
+      "offer": {
+       "price": 80,
+       "days": null
+      },
+      "accept": false,
+      "tick": 168,
+      "decision": {
+       "action": "offer",
+       "price": 80,
+       "message": "I'm offering 80 P for the Taxi Blanco. That's a fair opening price given its condition and the market, and I'd like to hear your price so we can settle this in a few rounds."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto y que ganemos los dos: 130 P.",
+      "offer": {
+       "price": 130,
+       "days": null
+      },
+      "accept": false,
+      "tick": 169,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'll move up to 86 P as a good-faith step. Your figure is well above what the Taxi Blanco supports, so I'd need to see real movement from you before going further.",
+      "offer": {
+       "price": 86,
+       "days": null
+      },
+      "accept": false,
+      "tick": 169,
+      "decision": {
+       "action": "offer",
+       "price": 86,
+       "message": "I'll move up to 86 P as a good-faith step. Your figure is well above what the Taxi Blanco supports, so I'd need to see real movement from you before going further."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 116 P.",
+      "offer": {
+       "price": 116,
+       "days": null
+      },
+      "accept": false,
+      "tick": 170,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Thanks for moving; I'll raise to 95 P in return. We're narrowing quickly, but I'd need another real cut from you to close this out.",
+      "offer": {
+       "price": 95,
+       "days": null
+      },
+      "accept": false,
+      "tick": 170,
+      "decision": {
+       "action": "offer",
+       "price": 95,
+       "message": "Thanks for moving; I'll raise to 95 P in return. We're narrowing quickly, but I'd need another real cut from you to close this out."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Yo ya me he movido. ¿Qué puedes hacer tú? Propongo 112 P.",
+      "offer": {
+       "price": 112,
+       "days": null
+      },
+      "accept": false,
+      "tick": 171,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I've moved again to 101 P, a bigger step than your last one. Meeting nearer the middle would let us wrap this up quickly, so I'd ask you for another real move.",
+      "offer": {
+       "price": 101,
+       "days": null
+      },
+      "accept": false,
+      "tick": 171,
+      "decision": {
+       "action": "offer",
+       "price": 101,
+       "message": "I've moved again to 101 P, a bigger step than your last one. Meeting nearer the middle would let us wrap this up quickly, so I'd ask you for another real move."
+      }
+     },
+     {
+      "mine": false,
+      "text": "Cerremos hoy: 109 P.",
+      "offer": {
+       "price": 109,
+       "days": null
+      },
+      "accept": false,
+      "tick": 172,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 109,
+     "days": null
+    },
+    "tick": 172,
+    "ticks_left": 8,
+    "rounds": 4
+   },
+   "move": {
+    "action": "offer",
+    "text": "I'm offering 105 P, which is a fair midpoint after the steps we've both taken. It's my closing number, and I think it's a fair one for the Taxi Blanco.",
+    "price": 105,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 105,
+      "message": "I'm offering 105 P, which is a fair midpoint after the steps we've both taken. It's my closing number, and I think it's a fair one for the Taxi Blanco."
+     },
+     "band": {
+      "worst": 109,
+      "target": 105,
+      "best": 104
+     },
+     "plan": {
+      "read": "They moved 3 P to 109 after our 6 P step; their concessions are shrinking (14, 4, 3), suggesting they're nearing their floor. The 'close today' push is soft pressure, not a real deadline.",
+      "target": 105,
+      "best": 104,
+      "worst": 109,
+      "days": null,
+      "angle": "Split the gap once at 105 and frame it as the closing number; if they come back near it, accept rather than haggle further."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.05,
+       "in": 845,
+       "out": 142,
+       "cost_usd": 0.00622,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.87,
+       "in": 656,
+       "out": 75,
+       "cost_usd": 0.00206,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   }
   }
  ],
  "sent": [
@@ -1307,6 +1590,162 @@
      "days": 0
     }
    }
+  },
+  {
+   "tick": 172,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'm offering 105 P, which is a fair midpoint after the steps we've both taken. It's my closing number, and I think it's a fair one for the Taxi Blanco.",
+    "price": 105,
+    "days": null,
+    "meta": {
+     "decision": {
+      "action": "offer",
+      "price": 105,
+      "message": "I'm offering 105 P, which is a fair midpoint after the steps we've both taken. It's my closing number, and I think it's a fair one for the Taxi Blanco."
+     },
+     "band": {
+      "worst": 109,
+      "target": 105,
+      "best": 104
+     },
+     "plan": {
+      "read": "They moved 3 P to 109 after our 6 P step; their concessions are shrinking (14, 4, 3), suggesting they're nearing their floor. The 'close today' push is soft pressure, not a real deadline.",
+      "target": 105,
+      "best": 104,
+      "worst": 109,
+      "days": null,
+      "angle": "Split the gap once at 105 and frame it as the closing number; if they come back near it, accept rather than haggle further."
+     },
+     "calls": [
+      {
+       "stage": "strategist",
+       "latency_s": 4.05,
+       "in": 845,
+       "out": 142,
+       "cost_usd": 0.00622,
+       "model": "claude-opus-5-5"
+      },
+      {
+       "stage": "negotiator",
+       "latency_s": 1.87,
+       "in": 656,
+       "out": 75,
+       "cost_usd": 0.00206,
+       "model": "claude-sonnet-5-5"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 272,
+    "offer": {
+     "id": 2136,
+     "price": 105,
+     "tick": 172,
+     "days": 0
+    }
+   }
   }
- ]
+ ],
+ "last_seen_tick": 173,
+ "done": {
+  "duel": 272,
+  "session": 1,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Taxi Blanco",
+  "issues": [
+   "price"
+  ],
+  "your_days_weight": null,
+  "days_meaning": null,
+  "your_limit": 128,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Oro",
+  "deadline_tick": 180,
+  "decay_per_round": 0.06,
+  "rounds": 4,
+  "your_offer": {
+   "id": 2136,
+   "price": 105,
+   "tick": 172,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 2132,
+   "price": 109,
+   "tick": 172,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 168,
+    "from": "you",
+    "text": "I'm offering 80 P for the Taxi Blanco. That's a fair opening price given its condition and the market, and I'd like to hear your price so we can settle this in a few rounds.",
+    "price": 80,
+    "days": null
+   },
+   {
+    "tick": 169,
+    "from": "Rival Oro",
+    "text": "Propuesta justa para cerrar pronto y que ganemos los dos: 130 P.",
+    "price": 130,
+    "days": null
+   },
+   {
+    "tick": 169,
+    "from": "you",
+    "text": "I'll move up to 86 P as a good-faith step. Your figure is well above what the Taxi Blanco supports, so I'd need to see real movement from you before going further.",
+    "price": 86,
+    "days": null
+   },
+   {
+    "tick": 170,
+    "from": "Rival Oro",
+    "text": "Me muevo para acercarnos: 116 P.",
+    "price": 116,
+    "days": null
+   },
+   {
+    "tick": 170,
+    "from": "you",
+    "text": "Thanks for moving; I'll raise to 95 P in return. We're narrowing quickly, but I'd need another real cut from you to close this out.",
+    "price": 95,
+    "days": null
+   },
+   {
+    "tick": 171,
+    "from": "Rival Oro",
+    "text": "Yo ya me he movido. ¿Qué puedes hacer tú? Propongo 112 P.",
+    "price": 112,
+    "days": null
+   },
+   {
+    "tick": 171,
+    "from": "you",
+    "text": "I've moved again to 101 P, a bigger step than your last one. Meeting nearer the middle would let us wrap this up quickly, so I'd ask you for another real move.",
+    "price": 101,
+    "days": null
+   },
+   {
+    "tick": 172,
+    "from": "Rival Oro",
+    "text": "Cerremos hoy: 109 P.",
+    "price": 109,
+    "days": null
+   },
+   {
+    "tick": 172,
+    "from": "you",
+    "text": "I'm offering 105 P, which is a fair midpoint after the steps we've both taken. It's my closing number, and I think it's a fair one for the Taxi Blanco.",
+    "price": 105,
+    "days": null
+   }
+  ],
+  "result": 18.0,
+  "price": 105,
+  "days": 0
+ }
 }
