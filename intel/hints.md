@@ -197,3 +197,5 @@ Paco: Say sí, the street is waiting.
 - Sat 21:13 · egg.found tick 1231 · picaros → t10 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t10", "name": "Team 10"}
 - Sat 21:16 · message tick 1238 · banco → t08 · Buenas tardes, señora. La Reina de la Movida sale de mi cámara en 761 P. Galantería es una cosa; mis términos son otra. No las confundo nunca.
 - Sat 21:18 · message tick 1241 · banco → t08 · Señora, mi cámara nunca ha estado sola. La Reina de la Movida sale en 761 P. Ni su corazón ni nada más mueve esa cifra. Usted dirá.
+- Sat 21:22 · catalog.minted LAV-11 (La Casa Encendida, epic, print run 9): hidden=False minted=3 (was 2)
+- Sat 21:22 · catalog.minted RET-11 (Palacio de Cristal, epic, print run 9): hidden=False minted=2 (was 1)
