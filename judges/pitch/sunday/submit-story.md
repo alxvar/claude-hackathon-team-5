@@ -14,4 +14,4 @@
 
 **One more day.** Merge the Sunday duelist and learn day weights per opponent; switch on the broker we staged; put a verifier gate on every directive.
 
-**Where to look.** `judges/pitch/sunday/` (deck, architecture), `agents/duelist/` + branch `duelist-loop` (Sunday duelist), `tools/`, `hub/`, `dashboard/`, `intel/directives.md`, `LOG.md`.
+**Where to look.** `judges/pitch/sunday/` (deck, architecture), `agents/duelist/` on main + the live Sunday duelist on branch `duelist-loop` @ f57a002, `tools/`, `hub/`, `dashboard/`, `intel/directives.md`, `LOG.md`.
