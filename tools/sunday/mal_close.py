@@ -8,9 +8,9 @@ sys.path.insert(0, ROOT + '/bazaar-kit')
 from bazaar_sdk import Bazaar
 b = Bazaar(os.environ['BAZAAR_URL'], os.environ['BAZAAR_KEY'], wait_on_tick=False, timeout=10.0)
 PAGE = [f"MAL-{i:02d}" for i in range(1, 11)]
-SELLER = {"MAL-09": "t08", "MAL-07": "t15"}  # Chief 10:47: t13 out; t08 (MAL 6/10, no page break) is the MAL-09 seller
+SELLER = {"MAL-09": "t08", "MAL-07": "t15"}  # Chief 12:20: MAL closer GO again (per-trade +50 clip, no round cap)
 CAP = {"MAL-09": 48, "MAL-07": 999}
-VENUE = {"MAL-09": "v21", "MAL-07": "v21"}
+VENUE = {"MAL-09": "rastro", "MAL-07": "rastro"}   # Chief 12:20: El Rastro only (as maker: no fee)
 
 def log(**kw):
     print(json.dumps({"t": time.strftime('%H:%M:%S'), **kw}), flush=True)
@@ -22,8 +22,24 @@ def retry(f, *a, **kw):
     raise err
 
 def live_bids():
-    return [o for o in retry(b.my_offers).get('offers', []) if o.get('status') == 'open'
+    """Our open MAL bids ADDRESSED to a closer seller (the book's public MAL-07 bid is not ours to manage)."""
+    return [o for o in retry(b.my_offers).get('offers', []) if o.get('status') == 'open' and o.get('to') in SELLER.values()
             and any(t.startswith('card:MAL-') for t in ((o.get('want') or {}).get('types') or []))]
+
+def drop_from_book(card):
+    """When `card` becomes the LAST missing one, the book's public bid for it goes (the closer replaces it)."""
+    B = ROOT + '/run/book.json'
+    try:
+        bk = json.load(open(B)); n = len(bk['offers'])
+        bk['offers'] = [e for e in bk['offers'] if not (e['card'] == card and e['side'] == 'buy')]
+        if len(bk['offers']) != n:
+            json.dump(bk, open(B + '.tmp', 'w'), indent=1); os.replace(B + '.tmp', B); log(event="closed", why=f"{card} dropped from run/book.json (now last)")
+            time.sleep(25)   # book.py cancels its live bid on its next loop
+        for o in retry(b.my_offers).get('offers', []):
+            if o.get('status') == 'open' and not o.get('to') and f'card:{card}' in ((o.get('want') or {}).get('types') or []):
+                retry(b.cancel, o['id']); log(event="closed", offer=o['id'], why=f"public {card} bid cancelled: closer replaces it")
+    except Exception as e:
+        log(event="error", where="drop_from_book", err=repr(e)[:150])
 
 while time.strftime('%H%M') < '1355':
     held = {a['ref'] for a in retry(b.me)['assets']}
@@ -32,6 +48,7 @@ while time.strftime('%H%M') < '1355':
     if any(c not in SELLER for c in miss): log(event="end", why=f"unexpected missing {miss}"); break
     card = "MAL-09" if "MAL-09" in miss else "MAL-07"
     last = len(miss) == 1
+    if last: drop_from_book(card)
     live = live_bids()
     for o in live:
         if f'card:{card}' not in o['want']['types'] or o.get('venue') != VENUE[card]:

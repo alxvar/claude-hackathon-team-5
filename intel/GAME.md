@@ -7,6 +7,7 @@
 - Never counts: number of trades, fees earned, pack luck, gifts.
 
 ## Measured facts (operator-maintained; verified Sat 00:00-01:15 by independent agents; [V] verified, [L] likely, [?] open)
+- **No round cap on neg_points; the +50 is per trade** [V, Sun 12:17, tick 2169]: a team sale of RET-03 at 5 (worth 2.8) took `neg_points` 50.0 → 52.2. Earlier peaks: Fri 67.8, Sat 119.1 (data/me.jsonl). The Friday '50.0 exactly, uncapped 63.9' was ONE trade (−21.5 → +28.5) clipped at +50. RET-11's 0 (Sun 10:26) = its value at sale ≈ 227, not a cap.
 **Dealer playbook (Sat 13:30, from today's measured deals; details in the entries below)**
 1. A dealer deal scores min(0, ΔV − price): gains clip to 0, losses count in full. Buy only at ≤ our value, sell only at
    ≥ our value. Dealers pay only through the **ladder** (best 3 deals per level; L3 ≈ 3× L2: Pilar +0.050 vs Chato +0.017).

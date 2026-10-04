@@ -36,7 +36,7 @@ def retry(f, *a, **kw):
 try: st = json.load(open(STATE))
 except Exception: st = {"done": [], "bids": []}   # bids: {settlement, team, card, price, offer, venue}
 st.setdefault("bounties", []); st.setdefault("bounty_trades", [])
-BOUNTIES, BONUS, PER_SELLER, SLACK = 5, 20, 2, 29
+BOUNTIES, BONUS, PER_SELLER, SLACK = 5, 20, 2, 0   # Chief 12:20: in kind only (no round cap: overpay costs real neg points)
 st.setdefault("over_used", 0.0)
 LACK_ALSO = ["MAL-07", "MAL-09"]
 def save():

@@ -16,7 +16,7 @@ cmd_for() {
     duelmon)   echo "python3 -u $R/tools/duel_monitor.py --every 15" ;;  # read-only: duel alerts + per-wave review
     recorder)  echo "cd $R && python3 -u -m broker.record_bench --loop" ;;  # read-only: records every Market Test (Market session)
     broker)    echo "cd $R && python3 -u -m broker.broker --strategy ${BROKER_STRATEGY:-auto_clone}" ;;  # needs BROKER_KEY: only after OUR venue is open (Market session)
-    book)      echo "uv run --project $R python -u $R/agents/trader/book.py --cash-floor ${CASH_FLOOR:-100} --min-gain-sell ${MIN_GAIN_SELL:-1}" ;;  # the maker book (run/book.json): the Operator starts it
+    book)      echo "uv run --project $R python -u $R/agents/trader/book.py --cash-floor ${CASH_FLOOR:-100} --min-gain-sell ${MIN_GAIN_SELL:-1} --min-gain ${BOOK_MIN_GAIN:-3}" ;;  # the maker book (run/book.json): the Operator starts it
     swaps)     echo "uv run --project $R python -u $R/agents/trader/swaps.py" ;;  # posts addressed card-for-card swaps (Operator starts it; uv: hub model)
     hints)     echo "python3 -u $R/tools/hints.py" ;;  # read-only: dealer hints, eggs, hidden cards -> intel/hints.md + HINT lines
     matchmaker) echo "uv run --project $R python -u $R/tools/matchmaker.py" ;;  # read-only: page finishers + want-lists for v10 -> intel/matches.md
