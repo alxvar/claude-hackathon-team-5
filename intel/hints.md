@@ -331,3 +331,4 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 09:56 · egg.found tick 1612 · abuela → t16 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t16", "name": "Team 16"}
 - Sun 09:56 · egg.given tick 1612 · abuela → t16 · {"team": "t16", "name": "Team 16", "cash": 0, "packs": [], "cards": ["LAT-06"], "reason": "easter egg"}
 - Sun 10:00 · catalog.minted CHA-11 (Andén 0, epic, print run 9): hidden=False minted=2 (was 1)
+- Sun 10:08 · egg.found tick 1659 · picaros → t01 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t01", "name": "Team 1"}
