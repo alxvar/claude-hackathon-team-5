@@ -46,13 +46,30 @@ def log(msg: str) -> None:
     print(time.strftime("%H:%M:%S"), "window:", msg, flush=True)
 
 
-def get(path: str) -> dict | None:
+def team_key() -> str | None:
+    """BAZAAR_KEY from the environment, else from the repo's .env (window.sh is started without it). Never logged."""
+    if os.environ.get("BAZAAR_KEY"):
+        return os.environ["BAZAAR_KEY"]
     try:
-        with urllib.request.urlopen(URL.rstrip("/") + path, timeout=8) as r:
-            return json.load(r)
-    except Exception as e:  # noqa: BLE001  a missed read is the next minute's
-        log(f"GET {path} failed: {e!r}"[:200])
+        m = re.search(r"""^\s*(?:export\s+)?BAZAAR_KEY\s*=\s*["']?([^"'\s#]+)""", (ROOT / ".env").read_text(), re.M)
+    except OSError:
         return None
+    return m.group(1) if m else None
+
+
+def get(path: str) -> dict | None:
+    """GET with the team key first (Chief 11:45: the keyless 60/s per address is shared with every team on the venue
+    Wi-Fi; two keyed reads a minute are nothing on our 5/s), then keyless. A missed read is the next look's."""
+    key = team_key()
+    for headers in ([{"X-Team-Key": key}] if key else []) + [{}]:
+        try:
+            req = urllib.request.Request(URL.rstrip("/") + path, headers=headers)
+            with urllib.request.urlopen(req, timeout=8) as r:
+                return json.load(r)
+        except Exception as e:  # noqa: BLE001
+            log(f"GET {path} {'(team key)' if headers else '(keyless)'} failed: {type(e).__name__} "
+                f"{getattr(e, 'code', '')}".rstrip())
+    return None
 
 
 def waves(state: dict, schedule: dict | None) -> list[tuple[str, bool]]:
