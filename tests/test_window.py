@@ -45,7 +45,13 @@ def test_waits_then_stops_at_d_minus_5_only_on_a_running_clock(tmp_path, monkeyp
     assert ops.ran == [("stop", w.STOP, {})] and st["Duels III"]["stopped_t"] == 18.57 and not st["Duels III"]["done"]
 
 
+def test_the_default_stop_list_leaves_the_trader_running():
+    """Directive 07:25 (contra-duels): the trader's duel-side cost is ~0, so it keeps running."""
+    assert w.STOP == ("swaps", "opps", "recorder") and "trader" not in w.STOP
+
+
 def test_restart_after_duels_finished_in_order_from_floors(tmp_path, monkeypatch):
+    monkeypatch.setattr(w, "STOP", ("trader", "swaps", "opps", "recorder"))       # WINDOW_STOP with the trader
     ops, st = setup(tmp_path, monkeypatch), {}
     s = sched(("Duels III", D3), ("Final duels", F))
     w.step(st, clock(18.6), s, ops, feed=no_feed)
@@ -64,6 +70,7 @@ def test_restart_after_duels_finished_in_order_from_floors(tmp_path, monkeypatch
 
 
 def test_restart_falls_back_at_d_plus_65_and_never_after_the_final(tmp_path, monkeypatch):
+    monkeypatch.setattr(w, "STOP", ("trader", "swaps", "opps", "recorder"))
     ops, st = setup(tmp_path, monkeypatch), {}
     w.step(st, clock(18.6), sched(("Duels III", D3), ("Final duels", F)), ops, feed=no_feed)
     w.step(st, clock(D3 + 64 / 60), sched(("Final duels", F)), ops, feed=no_feed)
@@ -79,6 +86,7 @@ def test_restart_falls_back_at_d_plus_65_and_never_after_the_final(tmp_path, mon
 
 
 def test_no_floors_no_restart_and_no_trader_ok_holds_the_trader(tmp_path, monkeypatch):
+    monkeypatch.setattr(w, "STOP", ("trader", "swaps", "opps", "recorder"))
     ops, st = setup(tmp_path, monkeypatch, floors=None), {}
     w.step(st, clock(18.6), sched(("Duels III", D3)), ops, feed=no_feed)
     w.step(st, clock(20.0), sched(), ops, feed=lambda n: {"scheduled": D3, "finished": 19.5})
@@ -138,3 +146,22 @@ def test_one_instance_only(tmp_path, monkeypatch):
     assert w.main([]) == 1                                  # a second armed instance refuses
     r = subprocess.run(["bash", "-n", str(ROOT / "tools" / "sunday" / "window.sh")])
     assert r.returncode == 0
+
+
+def test_only_what_was_stopped_comes_back(tmp_path, monkeypatch):
+    ops, st = setup(tmp_path, monkeypatch), {}                                           # the default list
+    w.step(st, clock(18.6), sched(("Duels III", D3)), ops, feed=no_feed)
+    w.step(st, clock(20.0), sched(), ops, feed=lambda n: {"scheduled": D3, "finished": 19.5})
+    assert [(a, n) for a, n, _ in ops.ran] == [("stop", ("swaps", "opps", "recorder")), ("start", ("opps",)),
+                                               ("start", ("swaps",)), ("start", ("recorder",))]
+    monkeypatch.setattr(w, "STOP", ("swaps", "recorder"))                                 # no floors needed for these
+    (tmp_path / "y").mkdir()
+    ops, st = setup(tmp_path / "y", monkeypatch, floors=None), {}
+    w.step(st, clock(18.6), sched(("Duels III", D3)), ops, feed=no_feed)
+    w.step(st, clock(20.0), sched(), ops, feed=lambda n: {"scheduled": D3, "finished": 19.5})
+    assert [n for _, n, _ in ops.ran] == [("swaps", "recorder"), ("swaps",), ("recorder",)]
+
+
+def test_a_typo_in_window_stop_refuses_to_arm(monkeypatch):
+    monkeypatch.setattr(w, "STOP", ("swaps", "opp"))
+    assert w.main([]) == 2

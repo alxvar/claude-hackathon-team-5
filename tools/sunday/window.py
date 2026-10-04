@@ -2,10 +2,11 @@
 
 Every 60 s (15 s near a stop) it reads the keyless /api/clock and /api/schedule and recomputes each wave's time:
 - Duels III: at D−5 min (game time: the clock's t_hours against the schedule's at_hours) it runs
-  `tools/daemons.sh stop trader swaps opps recorder` and checks with pgrep that none is left. During the wave it stops
-  them again if anything brings them back. On `duels.finished` for "Duels III" (data/feed.jsonl, the collector's), or at
-  D+65 min at the latest, it restarts from run/floors.env, 15 s apart: trader (only if run/trader_ok exists, as t0.sh),
-  then opps (OPPS_BUILD=RET), then swaps, then recorder. No floors.env, no restart: a bare start falls back to
+  `tools/daemons.sh stop $WINDOW_STOP` (default "swaps opps recorder": directive 07:25, the trader keeps running) and
+  checks with pgrep that none is left. During the wave it stops them again if anything brings them back. On
+  `duels.finished` for "Duels III" (data/feed.jsonl, the collector's), or at D+65 min at the latest, it restarts only
+  what it stopped, from run/floors.env, 15 s apart, in this order: trader (only if run/trader_ok exists, as t0.sh),
+  opps (OPPS_BUILD=RET), swaps, recorder. No floors.env, no trader/opps restart: a bare start falls back to
   CASH_FLOOR=100.
 - Final duels: the same stop at F−5 min; no restart after it. The sessions come from /api/schedule (`duels` actions;
   "Duels III" and "Final duels" are the seed), so a renamed or extra wave is handled in time order.
@@ -34,8 +35,9 @@ URL = os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai")
 STATE, LOCK = ROOT / "run" / "window_state.json", ROOT / "run" / "window.lock"
 FEED, FLOORS, TRADER_OK = ROOT / "data" / "feed.jsonl", ROOT / "run" / "floors.env", ROOT / "run" / "trader_ok"
 DAEMONS = ROOT / "tools" / "daemons.sh"
-STOP = ("trader", "swaps", "opps", "recorder")
-PGREP = "agents/trader/loop.py|agents/trader/swaps.py|tools/opportunities.py|broker.record_bench"
+PROCS = {"trader": "agents/trader/loop.py", "opps": "tools/opportunities.py", "swaps": "agents/trader/swaps.py",
+         "recorder": "broker.record_bench"}            # daemons.sh name → what pgrep looks for; also the restart order
+STOP = tuple((os.environ.get("WINDOW_STOP") or "swaps opps recorder").split())   # directive 07:25: not the trader
 SEED = ("Duels III", "Final duels")   # the schedule's names; any other upcoming duel session joins in time order
 LEAD_MIN, FALLBACK_MIN, EVERY_S, NEAR_S, GAP_S = 5, 65, 60, 15, 15
 
@@ -123,7 +125,7 @@ class Ops:
         """Processes of the stopped bots still alive (pgrep)."""
         if self.dry:
             return []
-        r = subprocess.run(["pgrep", "-fl", PGREP], capture_output=True, text=True)
+        r = subprocess.run(["pgrep", "-fl", "|".join(PROCS[n] for n in STOP)], capture_output=True, text=True)
         return [x for x in r.stdout.strip().splitlines() if x]
 
 
@@ -149,23 +151,27 @@ def stop(ops: Ops, why: str) -> None:
 
 
 def restart(ops: Ops, why: str) -> str:
-    """trader (if run/trader_ok), opps (RET), swaps, recorder, GAP_S apart, from run/floors.env."""
-    fl = floors()
+    """Only what STOP stopped, GAP_S apart, in PROCS order: trader (if run/trader_ok), opps (RET), swaps, recorder;
+    the trader's and opps' floors from run/floors.env."""
+    names = [n for n in PROCS if n in STOP]
+    fl = floors() if {"trader", "opps"} & set(names) else {}
     if fl is None:
         log(f"NOT restarting ({why}): run/floors.env missing or without TRADER_FLOOR/OPPS_FLOOR (a bare start "
             "would use CASH_FLOOR=100): restart by hand")
         return "no floors.env"
-    log(f"RESTART ({why}) from run/floors.env {fl}")
-    if TRADER_OK.exists():
-        ops.daemons("restart", ["trader"], {"CASH_FLOOR": str(fl["TRADER_FLOOR"])})
-    else:
-        log("trader HELD: run/trader_ok missing (the rival-venue skip not confirmed)")
-    ops.sleep(GAP_S)
-    ops.daemons("start", ["opps"], {"OPPS_BUILD": "RET", "CASH_FLOOR": str(fl["OPPS_FLOOR"])})
-    ops.sleep(GAP_S)
-    ops.daemons("start", ["swaps"])
-    ops.sleep(GAP_S)
-    ops.daemons("start", ["recorder"])
+    log(f"RESTART {' '.join(names)} ({why})" + (f" from run/floors.env {fl}" if fl else ""))
+    for i, n in enumerate(names):
+        if i:
+            ops.sleep(GAP_S)
+        if n == "trader":
+            if TRADER_OK.exists():
+                ops.daemons("restart", ["trader"], {"CASH_FLOOR": str(fl["TRADER_FLOOR"])})
+            else:
+                log("trader HELD: run/trader_ok missing (the rival-venue skip not confirmed)")
+        elif n == "opps":
+            ops.daemons("start", ["opps"], {"OPPS_BUILD": "RET", "CASH_FLOOR": str(fl["OPPS_FLOOR"])})
+        else:
+            ops.daemons("start", [n])
     return "restarted"
 
 
@@ -223,11 +229,15 @@ def main(argv=None) -> int:
     ap.add_argument("--once", action="store_true")
     ap.add_argument("--status", action="store_true")
     args = ap.parse_args(argv)
+    if not STOP or set(STOP) - set(PROCS):
+        log(f"WINDOW_STOP {' '.join(STOP)!r}: only {', '.join(PROCS)} (space-separated): not arming")
+        return 2
     if args.status:
         print(json.dumps(load_state(), indent=1))
         sched = get("/api/schedule")
         for name, after in waves(load_state(), sched):
             print(name, "at_hours", duel_at(sched, name), "| restart after:", after, "| feed", feed_events(name))
+        print("stops:", " ".join(STOP), "(WINDOW_STOP)")
         clock = get("/api/clock") or {}
         print("clock: t_hours", clock.get("t_hours"), "doors", clock.get("doors"), "paused", clock.get("paused"))
         return 0
