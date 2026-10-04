@@ -11,6 +11,31 @@ _Lucas's Duel Lab session. It never writes to the game or to `agents/duelist/`._
   fixed below._
 - _**Labels:** [V] measured on our records or code, [L] modelled or inferred, [?] unknown._
 
+## Morning check (Sun 06:45): GO as written
+
+- **Branch `origin/duelist-loop` 29aa1be [V code]:**
+  - `OPENER_SHARE_SELLER` 0.42 (price), `OPENER_SHARE_BUYER` 0.37;
+  - `docs/duel_sets.json`: `_switch` {"C": "A"} only, `_default` "A";
+  - sets C, A and today pass `params.validate()`;
+  - `GUARDS` 1; the S1 and prompt fixes are in;
+  - `duelist_sunday.sh` defaults to `SET=C`, `POLICY=code`, `FLAGS="--model claude-opus-5-5 --effort low
+    --negotiator-model claude-haiku-4-5 --failover-s 8"`, `AUTOSWITCH=0`.
+- **`/api/schedule` at 06:45 [V]:**
+  - Sunday opens at hour 16.65 with 15 s ticks;
+  - **Duels III at 18.65:** 12 ticks, 10% decay, 4 at once, rounds 2 (68 duels);
+  - **the Final at 21.65:** the same settings, rounds 1 (34 duels);
+  - unchanged from Saturday night.
+- **To run at 08:00:** `AUTOSWITCH=1 COMMIT=29aa1be bash <(git show origin/duelist-loop:tools/duelist_sunday.sh)`.
+  `AUTOSWITCH` must be passed: the script's default is 0. Pin `COMMIT` to the sha the re-audit approves.
+- **Expected [L], with the branch's exact openers:** code-first C 0.428 points per duel against today's LLM setup
+  with ≈ 30% timeouts at 0.341, ≈ +0.087 per duel. Over Duels III that's ≈ +5.9 duel points (past rivals + the fast
+  closer, H1; `v2/opener_code.out`, `codefirst2.out`).
+- **Live checks after the first two waves** (`python3 tools/duel_gates.py --session 4 --params
+  <WT>/run/duel_params.json`):
+  - deal rate with rivals that spoke ≈ 0.88-0.93 expected; < 0.60 over ≥ 12 → the switch to A;
+  - ≈ 2-3 rounds per deal (C's simulated range 1.7-2.4, past + fast);
+  - no `CAN'T READ` on the day line.
+
 ## SUNDAY v2 (Sun 01:10): the 08:00 recommendation for Duels III and the Final
 
 _Chief's overnight program v2, analysis only (no game writes, nothing on main's `agents/duelist/`)._
