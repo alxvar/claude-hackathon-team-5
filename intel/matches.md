@@ -1,29 +1,30 @@
 # v10 matchmaker: page finishers and first copies
 
-_Written by `tools/matchmaker.py` at 09:43 (tick 1542). Read-only. Holdings: the feed's copies (gifts, eggs and Workshop crafts included) plus the page arithmetic on the leaderboard's album_filled/pages_complete and minted supply (`tools/album.py`; 0 conflicts with intel/holdings-audit.md). ✓ = a proven gap, a bid since Saturday, or a want-list; "undecided" = the buyer may hold it. Giver: a true duplicate or a set it dumps (held back when its page is complete and under two copies are seen after its last craft); receiver: no copy, collects the set; both gain > 0 at the price (conservative multipliers). Want-lists: `intel/wants.md`. Never a page-closer for a rival or a team < 6 below us; a rival on either side gains <= 10 P at our price. Venue: a club deal (both sides in the club) alternates v10 / a member's market (least used, then lowest market score, never either side's own; page-closers on v10); every other deal on v10._
+_Written by `tools/matchmaker.py` at 09:48 (tick 1562). Read-only. Holdings: the feed's copies (gifts, eggs and Workshop crafts included) plus the page arithmetic on the leaderboard's album_filled/pages_complete and minted supply (`tools/album.py`; 0 conflicts with intel/holdings-audit.md). ✓ = a proven gap, a bid since Saturday, or a want-list; "undecided" = the buyer may hold it. Giver: a true duplicate or a set it dumps (held back when its page is complete and under two copies are seen after its last craft); receiver: no copy, collects the set; both gain > 0 at the price (conservative multipliers). Want-lists: `intel/wants.md`. Never a page-closer for a rival or a team < 6 below us; a rival on either side gains <= 10 P at our price. Venue: a club deal (both sides in the club) alternates v10 / a member's market (least used, then lowest market score, never either side's own; page-closers on v10); every other deal on v10._
 
 ## Matches (best first)
 
 | # | Buyer | Card | Seller | Venue | Price | Value created | Closer | Rival | Why |
 |---|---|---|---|---|---|---|---|---|---|
 | 1 | Team 9 | RET-09 El Ángel Caído | Team 7 | v10 · club | ~76 | +155.1 (low +155.1) | **page 10/10** |  | page 9/10 · bid ✓ · gap proven · seller holds 2 · also t08, t03 |
-| 2 | Team 16 | SAL-12 La Dama de Serrano | Team 12 | v10 | ~326 | +223.4 (low +178.4) |  | rival seller | bid ✓ · seller dumps SAL |
+| 2 | Team 16 | SAL-12 La Dama de Serrano | Team 12 | v10 | ~323 | +226.1 (low +181.1) |  | rival seller | bid ✓ · seller dumps SAL |
 | 3 | Team 1 | MAL-11 La Sala Pentagrama | Team 10 | v10 | ~100 | +72 (low +72) |  | rival seller | bid ✓ · seller dumps MAL |
 | 4 | Team 9 | MAL-10 Noche de Movida | Team 10 | v10 | ~45 | +35 (low +28) |  | rival seller | bid ✓ · gap proven · seller dumps MAL |
 | 5 | Team 9 | MAL-09 La Heroína del Dos de Mayo | Team 10 | v10 | ~45 | +35 (low +28) |  | rival seller | bid ✓ · undecided · seller dumps MAL |
-| 6 | Team 16 | RET-09 El Ángel Caído | Team 8 | v10 | ~70 | +28.2 (low +28.2) |  |  | bid ✓ · gap proven · seller dumps RET · also t07, t03 |
+| 6 | Team 16 | RET-09 El Ángel Caído | Team 8 | v10 | ~70 | +29.2 (low +29.2) |  |  | bid ✓ · gap proven · seller dumps RET · also t07, t03 |
 | 7 | Team 9 | LAV-02 El Frutero de Argumosa | Team 16 | v10 | ~9 | +13 (low +11.2) |  |  | bid ✓ · undecided · seller holds 2 · also t04, t18 · spare unverified: 1 seen after its common craft at tick 730 |
 | 8 | Team 13 | RET-08 Palacio de Velázquez | Team 7 | v10 | ~21 | +11.8 (low +11.8) |  | rival buyer | bid ✓ · gap proven · seller holds 2 |
-| 9 | Team 16 | RET-06 La Rosaleda | Team 8 | v10 | ~24 | +10.1 (low +10.1) |  |  | bid ✓ · gap proven · seller dumps RET |
+| 9 | Team 16 | RET-06 La Rosaleda | Team 8 | v10 | ~24 | +10.4 (low +10.4) |  |  | bid ✓ · gap proven · seller dumps RET |
 | 10 | Team 16 | RET-10 Monumento a Alfonso XII | Team 3 | v10 | ~70 | +9.6 (low +9.6) |  | rival seller | bid ✓ · gap proven · seller dumps RET |
-| 11 | Team 16 | RET-01 Barca del Estanque | Team 2 | v10 | ~9 | +7.7 (low +7.4) |  |  | bid ✓ · gap proven · seller holds 2 · also t09 |
+| 11 | Team 16 | RET-01 Barca del Estanque | Team 2 | v10 | ~9 | +7.7 (low +7.4) |  |  | bid ✓ · gap proven · seller holds 2 · also t09, t12 |
 | 12 | Team 16 | RET-03 El Titiritero | Team 4 | v10 | ~9 | +7.1 (low +7.1) |  |  | bid ✓ · gap proven · seller holds 2 · also t08 |
 | 13 | Team 7 | SAL-02 El Portero | Team 2 | v15 · club | ~9 | +6.4 (low +6.4) |  |  | bid ✓ · gap proven · seller holds 2 · also t09, t12 · spare unverified: 0 seen after its common craft at tick 1349, its SAL page may be complete |
 | 14 | Team 13 | RET-01 Barca del Estanque | Team 9 | v10 | ~8 | +5.1 (low +5.1) |  | rival buyer | bid ✓ · gap proven · seller holds 2 · also t02 |
-| 15 | Team 16 | RET-04 Paseo de Coches | Team 8 | v10 | ~9 | +4 (low +4) |  |  | bid ✓ · gap proven · seller dumps RET |
-| 16 | Team 13 | RET-03 El Titiritero | Team 8 | v10 | ~8 | +1.8 (low +1.8) |  | rival buyer | bid ✓ · gap proven · seller dumps RET · also t04 |
-| 17 | Team 13 | RET-05 La Ardilla | Team 8 | v10 | ~8 | +1.8 (low +1.8) |  | rival buyer | bid ✓ · gap proven · seller dumps RET |
-| 18 | Team 7 | SAL-01 Escaparate de Serrano | Team 4 | v10 | ~9 | +1.4 (low +1.4) |  |  | bid ✓ · gap proven · seller dumps SAL |
+| 15 | Team 3 | LAT-05 El Organillero | Team 2 | v10 | ~8 | +5 (low +4) |  | rival buyer | bid ✓ · undecided · seller dumps LAT · also t09 |
+| 16 | Team 16 | RET-04 Paseo de Coches | Team 8 | v10 | ~9 | +4.2 (low +4.2) |  |  | bid ✓ · gap proven · seller dumps RET |
+| 17 | Team 13 | RET-03 El Titiritero | Team 8 | v10 | ~8 | +1.9 (low +1.9) |  | rival buyer | bid ✓ · gap proven · seller dumps RET · also t04 |
+| 18 | Team 13 | RET-05 La Ardilla | Team 8 | v10 | ~8 | +1.9 (low +1.9) |  | rival buyer | bid ✓ · gap proven · seller dumps RET |
+| 19 | Team 7 | SAL-01 Escaparate de Serrano | Team 4 | v10 | ~9 | +1.4 (low +1.4) |  |  | bid ✓ · gap proven · seller dumps SAL |
 
 ## Ready DMs
 
@@ -31,9 +32,9 @@ _Written by `tools/matchmaker.py` at 09:43 (tick 1542). Read-only. Holdings: the
 - To Team 7: "Hi Team 7! Could you post your El Ángel Caído (RET-09) on v10 (Puesto de Team 5) as an ask addressed to Team 9, at ~76 P? They're ready to take it. Only if it's a spare for you, keep one copy. Thanks!"
 - To Team 9: "Hi Team 9! Team 7 can post El Ángel Caído (RET-09) on v10 (Puesto de Team 5) as an ask addressed to Team 9, at ~76 P: accept it there once it's up. Thanks!"
 
-**2. SAL-12 · Team 12 → Team 16 at ~326 P on v10 (Puesto de Team 5)**
-- To Team 12: "Hi Team 12! Could you post your La Dama de Serrano (SAL-12) on v10 (Puesto de Team 5) as an ask addressed to Team 16, at ~326 P? They're ready to take it. Only if it's a spare for you, keep one copy. Thanks!"
-- To Team 16: "Hi Team 16! Team 12 can post La Dama de Serrano (SAL-12) on v10 (Puesto de Team 5) as an ask addressed to Team 16, at ~326 P: accept it there once it's up. Thanks!"
+**2. SAL-12 · Team 12 → Team 16 at ~323 P on v10 (Puesto de Team 5)**
+- To Team 12: "Hi Team 12! Could you post your La Dama de Serrano (SAL-12) on v10 (Puesto de Team 5) as an ask addressed to Team 16, at ~323 P? They're ready to take it. Only if it's a spare for you, keep one copy. Thanks!"
+- To Team 16: "Hi Team 16! Team 12 can post La Dama de Serrano (SAL-12) on v10 (Puesto de Team 5) as an ask addressed to Team 16, at ~323 P: accept it there once it's up. Thanks!"
 
 **3. MAL-11 · Team 10 → Team 1 at ~100 P on v10 (Puesto de Team 5)**
 - To Team 10: "Hi Team 10! Could you post your La Sala Pentagrama (MAL-11) on v10 (Puesto de Team 5) as an ask addressed to Team 1, at ~100 P? They're ready to take it. Only if it's a spare for you, keep one copy. Thanks!"
@@ -61,13 +62,14 @@ _Written by `tools/matchmaker.py` at 09:43 (tick 1542). Read-only. Holdings: the
 
 ## Teams one or two cards from a page
 
-- Team 12 LAT 9/10 · missing LAT-08 · rival · **may be complete** (server: 3 complete pages, feed sees 0)
 - Team 9 RET 9/10 · missing RET-09
-- Team 12 LAV 8/10 · missing LAV-07, LAV-09 · rival · **may be complete** (server: 3 complete pages, feed sees 0)
+- Team 6 LAV 9/10 · missing LAV-05 · rival · **may be complete** (server: 3 complete pages, feed sees 1)
+- Team 6 CHA 9/10 · missing CHA-05 · rival · **may be complete** (server: 3 complete pages, feed sees 1)
 - Team 2 CHA 8/10 · missing CHA-09, CHA-10
 
 ## Held back (never suggested)
 
+- CHA-05 for Team 6: page-closer for a rival
 - SAL-02 for Team 7: seller safety: Team 1's SAL page is complete and only 0 copies of it seen after its last common craft (tick 1333)
 - SAL-01 for Team 7: seller safety: Team 1's SAL page is complete and only 0 copies of it seen after its last common craft (tick 1333)
 - LAV-02 for Team 9: seller safety: Team 14's LAV page is complete and only 0 copies of it seen after its last common craft (tick 1090)
@@ -78,19 +80,19 @@ _Written by `tools/matchmaker.py` at 09:43 (tick 1542). Read-only. Holdings: the
 
 | Team | Status | Held | Proven gaps | Undecided |
 |---|---|---|---|---|
-| Team 1 | repaired | 30/39 | 20 | 10 |
+| Team 1 | repaired | 30/40 | 19 | 11 |
 | Team 2 | partial | 34/39 | 4 | 22 |
-| Team 3 | partial | 34/36 | 10 | 16 |
-| Team 4 | exact | 40/40 | 20 | 0 |
-| Team 6 | repaired | 30/43 | 16 | 14 |
+| Team 3 | partial | 30/38 | 10 | 20 |
+| Team 4 | partial | 40/41 | 10 | 10 |
+| Team 6 | inconsistent | 0/44 | 0 | 0 |
 | Team 7 | exact | 37/37 | 23 | 0 |
-| Team 8 | exact | 33/33 | 27 | 0 |
+| Team 8 | exact | 34/34 | 26 | 0 |
 | Team 9 | partial | 30/42 | 11 | 19 |
-| Team 10 | partial | 32/37 | 18 | 10 |
+| Team 10 | exact | 37/37 | 23 | 0 |
 | Team 11 | partial | 1/13 | 14 | 45 |
-| Team 12 | inconsistent | 0/40 | 0 | 0 |
+| Team 12 | partial | 37/42 | 9 | 14 |
 | Team 13 | exact | 32/32 | 28 | 0 |
-| Team 14 | repaired | 40/41 | 18 | 2 |
+| Team 14 | exact | 42/42 | 18 | 0 |
 | Team 15 | exact | 42/42 | 18 | 0 |
 | Team 16 | exact | 34/34 | 26 | 0 |
 | Team 17 | exact | 37/37 | 23 | 0 |

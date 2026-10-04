@@ -1,18 +1,17 @@
 # Flips: team bids a dealer can fill (Team 10's playbook)
 
-_Written by `tools/reactor.py` at 09:42 (tick 1556). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
+_Written by `tools/reactor.py` at 09:47 (tick 1576). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
 
 ## Open bids (HUNT digest)
 
 | bid P | card | bidder | venue | dealer est. | spread | offer | until |
 |---|---|---|---|---|---|---|---|
 | 531 | CHA-12 El Tren Fantasma (legendary) | t06 | v21 | banco 585 | -54 | 20678 | 09:58 |
-| 180 | SAL-11 La Puerta de Alcalá (epic) | t02 | rastro → t17 | none (all minted or no dealer) | - | 21169 | 09:47 |
-| 50 | MAL-10 Noche de Movida (rare) | t04 | rastro | picaros 55 | -5 | 20359 | 09:51 |
-| 49 | CHA-10 Casa de las Flores (rare) | t15 | rastro → t01 | picaros 55 | -6 | 21088 | 09:46 |
-| 44 | SAL-10 Museo Lázaro Galdiano (rare) | t04 | rastro | picaros 55 | -11 | 20282 | 09:50 |
-| 36 | MAL-09 La Heroína del Dos de Mayo (rare) | t04 | rastro | picaros 55 | -19 | 20355 | 09:51 |
-| 31 | MAL-09 La Heroína del Dos de Mayo (rare) | t06 | v21 | picaros 55 | -24 | 20777 | 10:00 |
+| 165 | SAL-11 La Puerta de Alcalá (epic) | t02 | rastro → t04 | none (all minted or no dealer) | - | 21329 | 09:52 |
+| 50 | MAL-10 Noche de Movida (rare) | t04 | rastro | picaros 56 | -6 | 20359 | 09:52 |
+| 44 | SAL-10 Museo Lázaro Galdiano (rare) | t04 | rastro | picaros 56 | -12 | 20282 | 09:50 |
+| 36 | MAL-09 La Heroína del Dos de Mayo (rare) | t04 | rastro | picaros 56 | -20 | 20355 | 09:51 |
+| 31 | MAL-09 La Heroína del Dos de Mayo (rare) | t06 | v21 | picaros 56 | -25 | 20777 | 10:00 |
 
 ## Flips today (newest last)
 
