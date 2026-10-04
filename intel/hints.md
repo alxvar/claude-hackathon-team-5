@@ -402,3 +402,4 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 12:28 · message tick 2214 · banco → t12 · Then we are finished for today, señor. The vault is closed. Keep your pesos; I keep La Reina. Buenas tardes.
 - Sun 12:28 · taller.crafted tick 2216 ·  → t18 · Team 18 turned three common cards into La Chulapa (uncommon) at The Workshop
 - Sun 12:32 · message tick 2232 · banco → t07 · Buenas tardes. You have come to the wrong table for commons — I do not trade in them. Epics, legendaries, gold packs. Say what you came for, señor. I have time.
+- Sun 12:35 · message tick 2242 · pilar → t01 · Caballero, los relojes no me apuran. El sobre dorado sigue aquí, y por cortesía se lo dejo en 494 primas. Es un precio digno, y yo no regateo como en un mercadillo. Decida usted con calma.
