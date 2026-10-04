@@ -234,6 +234,75 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1907,
+   "raw": {
+    "duel": 11145,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.06,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 104,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Sol",
+    "deadline_tick": 1910,
+    "decay_per_round": 0.1,
+    "rounds": 0,
+    "your_offer": {
+     "id": 12739,
+     "price": 91,
+     "tick": 1907,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1898,
+      "from": "you",
+      "text": "I'd like to open at 65 P for delivery on day 0.",
+      "price": 65,
+      "days": 0
+     },
+     {
+      "tick": 1904,
+      "from": "you",
+      "text": "I can do 71 P, delivery on day 0.",
+      "price": 71,
+      "days": 0
+     },
+     {
+      "tick": 1905,
+      "from": "you",
+      "text": "I can do 78 P, delivery on day 0.",
+      "price": 78,
+      "days": 0
+     },
+     {
+      "tick": 1906,
+      "from": "you",
+      "text": "I can do 84 P, delivery on day 0.",
+      "price": 84,
+      "days": 0
+     },
+     {
+      "tick": 1907,
+      "from": "you",
+      "text": "I can do 91 P, delivery on day 0.",
+      "price": 91,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -638,6 +707,122 @@
     "ACCEPT_BY": 1,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1907,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11145,
+     "role": "buyer",
+     "limit": 104,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.06,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 65 P for delivery on day 0.",
+      "offer": {
+       "price": 65,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1898,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 71 P, delivery on day 0.",
+      "offer": {
+       "price": 71,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1904,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 78 P, delivery on day 0.",
+      "offer": {
+       "price": 78,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1905,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 84 P, delivery on day 0.",
+      "offer": {
+       "price": 84,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1906,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1907,
+    "ticks_left": 3,
+    "rounds": 0,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 91 P, delivery on day 0.",
+    "price": 91,
+    "days": 0,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -740,6 +925,29 @@
      "id": 12712,
      "price": 84,
      "tick": 1906,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1907,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 91 P, delivery on day 0.",
+    "price": 91,
+    "days": 0,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 11145,
+    "offer": {
+     "id": 12739,
+     "price": 91,
+     "tick": 1907,
      "days": 0
     }
    }

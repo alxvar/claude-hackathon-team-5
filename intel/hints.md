@@ -365,3 +365,4 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 10:51 · message tick 1829 · pilar → t02 · Twenty-nine, still theatre, querido. I will stretch to seventeen pesetas — that is courtesy, not negotiation. And if you like stories, ask Carmen at El Rastro about the golden chulapa. Only one ever printed, they say.
 - Sun 11:00 · catalog.minted LAV-11 (La Casa Encendida, epic, print run 9): hidden=False minted=8 (was 7)
 - Sun 11:10 · catalog.minted LAV-11 (La Casa Encendida, epic, print run 9): hidden=False minted=9 (was 8)
+- Sun 11:10 · message tick 1905 · banco → t04 · Buenas tardes. You have read the books, bien. But books do not own the card; I do. El Gato de Lavapiés leaves my vault at 761 P. Those are my terms.
