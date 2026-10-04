@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 13:45 · Dani's dashboard restarted in screen `market-dashboard` on ff13d81 (Our market tab, race projection, leaderboard dropdown, Who has been on top) · / /full /show HTTP 200, read-only · next: none
 - Sun 13:08 · Dani's market dashboard restarted in screen `market-dashboard` on latest main (was running Sat 18:08 code, before d1d7dd2 Team trades tab) · :8765 HTTP 200, read-only · next: none
 - Sun 12:34 · mined 35,767 captured public events through tick 2237, 7,863 dealer replies across 2,139 conversations, all 16 radio items, live catalog and five of our private clue threads · only verified hidden legendary is LAT-13 (t02, 1/1 minted); our Chato pack was claimed at 2101 and opened at 2102; SAL-12 provenance confirms no transfer after t12 → t16; no Pilar egg observed · next: operator can source SAL-12 from t16 or LAT-13 from t02; lince/red-umbrella probes are unverified, text-only leads; full audit below
 
