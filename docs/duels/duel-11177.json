@@ -865,6 +865,131 @@
     "ACCEPT_BY": 1,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1896,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11177,
+     "role": "seller",
+     "limit": 137,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.13,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 195 P for delivery on day 10.",
+      "offer": {
+       "price": 195,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1885,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hola. I like it, and I can pay 114 P, delivery day 0.",
+      "offer": {
+       "price": 114,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1889,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Last word from me: 161 P, delivery day 0.",
+      "offer": {
+       "price": 161,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1893,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 179 P, delivery on day 10.",
+      "offer": {
+       "price": 179,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1894,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 164 P, delivery on day 10.",
+      "offer": {
+       "price": 164,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1895,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 161,
+     "days": 0
+    },
+    "tick": 1896,
+    "ticks_left": 1,
+    "rounds": 2,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 161,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -943,6 +1068,97 @@
      "days": 10
     }
    }
+  },
+  {
+   "tick": 1896,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 161,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 161,
+    "settles_at_tick": 1897
+   }
   }
- ]
+ ],
+ "last_seen_tick": 1897,
+ "done": {
+  "duel": 11177,
+  "session": 4,
+  "status": "deal",
+  "role": "seller",
+  "item": "Cine Doré",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 3.13,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 137,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Verde",
+  "deadline_tick": 1897,
+  "decay_per_round": 0.1,
+  "rounds": 2,
+  "your_offer": {
+   "id": 12459,
+   "price": 164,
+   "tick": 1895,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 12394,
+   "price": 161,
+   "tick": 1893,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1885,
+    "from": "you",
+    "text": "I'd like to open at 195 P for delivery on day 10.",
+    "price": 195,
+    "days": 10
+   },
+   {
+    "tick": 1889,
+    "from": "Rival Verde",
+    "text": "Hola. I like it, and I can pay 114 P, delivery day 0.",
+    "price": 114,
+    "days": 0
+   },
+   {
+    "tick": 1893,
+    "from": "Rival Verde",
+    "text": "Last word from me: 161 P, delivery day 0.",
+    "price": 161,
+    "days": 0
+   },
+   {
+    "tick": 1894,
+    "from": "you",
+    "text": "I can do 179 P, delivery on day 10.",
+    "price": 179,
+    "days": 10
+   },
+   {
+    "tick": 1895,
+    "from": "you",
+    "text": "I can do 164 P, delivery on day 10.",
+    "price": 164,
+    "days": 10
+   }
+  ],
+  "result": 19.4,
+  "price": 161,
+  "days": 0
+ }
 }

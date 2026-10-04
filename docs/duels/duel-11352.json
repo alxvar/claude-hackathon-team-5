@@ -404,6 +404,189 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1895,
+   "raw": {
+    "duel": 11352,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 6.83,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 110,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Verde",
+    "deadline_tick": 1904,
+    "decay_per_round": 0.1,
+    "rounds": 3,
+    "your_offer": {
+     "id": 12430,
+     "price": 121,
+     "tick": 1894,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 12469,
+     "price": 102,
+     "tick": 1895,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1892,
+      "from": "you",
+      "text": "I'd like to propose 157 P with delivery on day 10.",
+      "price": 157,
+      "days": 10
+     },
+     {
+      "tick": 1892,
+      "from": "Rival Verde",
+      "text": "I can do 53 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 53,
+      "days": 0
+     },
+     {
+      "tick": 1893,
+      "from": "you",
+      "text": "That's quite far from where I am. I'll offer 137 P with delivery on day 10.",
+      "price": 137,
+      "days": 10
+     },
+     {
+      "tick": 1893,
+      "from": "Rival Verde",
+      "text": "I can do 64 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1894,
+      "from": "you",
+      "text": "I'm moving to 121 P with delivery on day 10. We're still far apart, but I'm closing the gap.",
+      "price": 121,
+      "days": 10
+     },
+     {
+      "tick": 1894,
+      "from": "Rival Verde",
+      "text": "I can do 84 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 84,
+      "days": 0
+     },
+     {
+      "tick": 1895,
+      "from": "Rival Verde",
+      "text": "I can do 102 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 102,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1896,
+   "raw": {
+    "duel": 11352,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 6.83,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 110,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Verde",
+    "deadline_tick": 1904,
+    "decay_per_round": 0.1,
+    "rounds": 3,
+    "your_offer": {
+     "id": 12430,
+     "price": 121,
+     "tick": 1894,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 12490,
+     "price": 121,
+     "tick": 1896,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1892,
+      "from": "you",
+      "text": "I'd like to propose 157 P with delivery on day 10.",
+      "price": 157,
+      "days": 10
+     },
+     {
+      "tick": 1892,
+      "from": "Rival Verde",
+      "text": "I can do 53 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 53,
+      "days": 0
+     },
+     {
+      "tick": 1893,
+      "from": "you",
+      "text": "That's quite far from where I am. I'll offer 137 P with delivery on day 10.",
+      "price": 137,
+      "days": 10
+     },
+     {
+      "tick": 1893,
+      "from": "Rival Verde",
+      "text": "I can do 64 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1894,
+      "from": "you",
+      "text": "I'm moving to 121 P with delivery on day 10. We're still far apart, but I'm closing the gap.",
+      "price": 121,
+      "days": 10
+     },
+     {
+      "tick": 1894,
+      "from": "Rival Verde",
+      "text": "I can do 84 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 84,
+      "days": 0
+     },
+     {
+      "tick": 1895,
+      "from": "Rival Verde",
+      "text": "I can do 102 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 102,
+      "days": 0
+     },
+     {
+      "tick": 1896,
+      "from": "Rival Verde",
+      "text": "I can do 121 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 121,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -873,6 +1056,316 @@
      24.0,
      60.199999999999996,
      68.3
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 121,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "hold",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1896,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11352,
+     "role": "seller",
+     "limit": 110,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 6.83,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to propose 157 P with delivery on day 10.",
+      "offer": {
+       "price": 157,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1892,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can do 53 with delivery on day 0. That is a fair deal for both of us.",
+      "offer": {
+       "price": 53,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1892,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "That's quite far from where I am. I'll offer 137 P with delivery on day 10.",
+      "offer": {
+       "price": 137,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1893,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can do 64 with delivery on day 0. That is a fair deal for both of us.",
+      "offer": {
+       "price": 64,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1893,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm moving to 121 P with delivery on day 10. We're still far apart, but I'm closing the gap.",
+      "offer": {
+       "price": 121,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1894,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can do 84 with delivery on day 0. That is a fair deal for both of us.",
+      "offer": {
+       "price": 84,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1894,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can do 102 with delivery on day 0. That is a fair deal for both of us.",
+      "offer": {
+       "price": 102,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1895,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 102,
+     "days": 0
+    },
+    "tick": 1896,
+    "ticks_left": 8,
+    "rounds": 3,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 121,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "hold",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1897,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11352,
+     "role": "seller",
+     "limit": 110,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 6.83,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to propose 157 P with delivery on day 10.",
+      "offer": {
+       "price": 157,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1892,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can do 53 with delivery on day 0. That is a fair deal for both of us.",
+      "offer": {
+       "price": 53,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1892,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "That's quite far from where I am. I'll offer 137 P with delivery on day 10.",
+      "offer": {
+       "price": 137,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1893,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can do 64 with delivery on day 0. That is a fair deal for both of us.",
+      "offer": {
+       "price": 64,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1893,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'm moving to 121 P with delivery on day 10. We're still far apart, but I'm closing the gap.",
+      "offer": {
+       "price": 121,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1894,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can do 84 with delivery on day 0. That is a fair deal for both of us.",
+      "offer": {
+       "price": 84,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1894,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can do 102 with delivery on day 0. That is a fair deal for both of us.",
+      "offer": {
+       "price": 102,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1895,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can do 121 with delivery on day 0. That is a fair deal for both of us.",
+      "offer": {
+       "price": 121,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1896,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 121,
+     "days": 0
+    },
+    "tick": 1897,
+    "ticks_left": 7,
+    "rounds": 3,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004
     ]
    },
    "move": {
