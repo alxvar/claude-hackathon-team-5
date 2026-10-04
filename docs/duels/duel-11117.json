@@ -28,6 +28,47 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1873,
+   "raw": {
+    "duel": 11117,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "San Isidro",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.87,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 140,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1885,
+    "decay_per_round": 0.1,
+    "rounds": 0,
+    "your_offer": {
+     "id": 11935,
+     "price": 88,
+     "tick": 1873,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1873,
+      "from": "you",
+      "text": "I offer 88 P for delivery on day 0.",
+      "price": 88,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
