@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 09:28 · operator · **CHA-02 from Abuela at 9** (L1) · **LAV-07 spare → Pilar at 17** (fodder, L3) → `ladder_points` **0.148**, neg 0, cash 505 · CHA held: 01, 02, 07, 09, 10 (missing 03-06, 08) · Abuela CHA-03 next; uncommons + CHA-04 at C+45 ≈ 10:05 · L3 slots: LAT-06 18, LAV-07 17 (1 left: RET-11 ≥ 198 or more fodder)
 - Sun 09:27 · operator · **CHA-01 from Abuela at 8** (her 12 → 8; L1 +0.018) · **LAT-06 → Pilar at 18** (fodder; her 16 → 18, ours 30 → 26, we offered her 18; L3 +0.022) → `ladder_points` 0.075 → **0.115**, neg 0, cash 497 · next: CHA-02/03 (Abuela), LAV-07 spare → Pilar
 - Sun 09:25 · operator · LAV-04 → Pícaros walked (their final 4 = their opening, < floor 5; card kept) · Pícaros chain done · Abuela CHA-01 thread 2258 open (cap 9) · fodder started (phase 3; the CHA rares are done): LAT-06 (12.5, from the pack) then the LAV-07 spare (8.1, from the Workshop) → Pilar, ask 30, −2, floor 17 (above her opening 16)
 - Sun 09:22 · operator · the silver pack also held **CHA-10** (asset 1199) → both CHA rares in hand (CHA-09 Pícaros 55 + CHA-10 pack) · CHA held: 07, 09, 10; missing 01-06 + 08 (public capped bids live; Abuela commons ≈ 09:25) · LAV-04 → Pícaros started (thread 2235, ask 12, floor 5) · watcher dropped our CHA-07 public bid (t01 got one, settlement 1152) · directive 09:28 (t12 #2): rivals = t03 t06 t10 t12 t13 t17 t18 [V policy.rivals]; MAL-03/08 reserved; no LAT-08 held; no open asks
