@@ -2364,5 +2364,119 @@
     "settles_at_tick": 1926
    }
   }
- ]
+ ],
+ "last_seen_tick": 1926,
+ "done": {
+  "duel": 11304,
+  "session": 4,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Museo Sorolla",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 4.18,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 149,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Luna",
+  "deadline_tick": 1927,
+  "decay_per_round": 0.1,
+  "rounds": 2,
+  "your_offer": {
+   "id": 13145,
+   "price": 108,
+   "tick": 1924,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 13182,
+   "price": 95,
+   "tick": 1925,
+   "days": 10
+  },
+  "messages": [
+   {
+    "tick": 1915,
+    "from": "you",
+    "text": "I offer 93 P for delivery on day 0.",
+    "price": 93,
+    "days": 0
+   },
+   {
+    "tick": 1915,
+    "from": "Rival Luna",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 150,
+    "days": 10
+   },
+   {
+    "tick": 1918,
+    "from": "Rival Luna",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 134,
+    "days": 10
+   },
+   {
+    "tick": 1919,
+    "from": "Rival Luna",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 129,
+    "days": 10
+   },
+   {
+    "tick": 1920,
+    "from": "Rival Luna",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 124,
+    "days": 10
+   },
+   {
+    "tick": 1921,
+    "from": "Rival Luna",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 119,
+    "days": 10
+   },
+   {
+    "tick": 1922,
+    "from": "Rival Luna",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 113,
+    "days": 10
+   },
+   {
+    "tick": 1923,
+    "from": "Rival Luna",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 108,
+    "days": 10
+   },
+   {
+    "tick": 1924,
+    "from": "Rival Luna",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 103,
+    "days": 10
+   },
+   {
+    "tick": 1924,
+    "from": "you",
+    "text": "I can do 108 P, delivery on day 0.",
+    "price": 108,
+    "days": 0
+   },
+   {
+    "tick": 1925,
+    "from": "Rival Luna",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 95,
+    "days": 10
+   }
+  ],
+  "result": 3.4,
+  "price": 103,
+  "days": 10
+ }
 }

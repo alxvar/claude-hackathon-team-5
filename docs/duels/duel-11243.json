@@ -1670,6 +1670,212 @@
     "LATE_SWITCH_LEFT": 0,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1926,
+   "took_s": 0.94,
+   "cost_usd": 0.00139,
+   "obs": {
+    "view": {
+     "duel_id": 11243,
+     "role": "buyer",
+     "limit": 136,
+     "currency": "P",
+     "item": "Escaparate de Serrano",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.33,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Te la dejo en 139 primas y entrega en 10 días; me cuesta bajar más.",
+      "offer": {
+       "price": 139,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1917,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "No puedo aceptar esa cifra; te ofrezco 72 primas con entrega en día 10.",
+      "offer": {
+       "price": 72,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1917,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "139 primas y entrega en 10 días. Me muevo poco ya, pero si tú te mueves, cerramos.",
+      "offer": {
+       "price": 139,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1918,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Mi propuesta: 132 primas y entrega en 10 días. Dime una cifra concreta y la miro.",
+      "offer": {
+       "price": 132,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1919,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Es una pieza que merece su precio: 123 primas y entrega en 10 días.",
+      "offer": {
+       "price": 123,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1920,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Te la dejo en 121 primas y entrega en 10 días; me cuesta bajar más.",
+      "offer": {
+       "price": 121,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1921,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "118 primas y entrega en 10 días. Me muevo poco ya, pero si tú te mueves, cerramos.",
+      "offer": {
+       "price": 118,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1922,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Mi propuesta: 118 primas y entrega en 10 días. Dime una cifra concreta y la miro.",
+      "offer": {
+       "price": 118,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1923,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Es una pieza que merece su precio: 118 primas y entrega en 10 días.",
+      "offer": {
+       "price": 118,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1924,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Te la dejo en 116 primas y entrega en 10 días; me cuesta bajar más.",
+      "offer": {
+       "price": 116,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1925,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 116,
+     "days": 10
+    },
+    "tick": 1926,
+    "ticks_left": 3,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 87 P, delivery on day 10.",
+    "price": 87,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "give",
+     "rule": "worth floor",
+     "step": 22.0,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 0.94,
+       "in": 1267,
+       "out": 25,
+       "cost_usd": 0.00139,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 94,
+     "floor": 35.7
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -1703,6 +1909,44 @@
      "id": 12986,
      "price": 72,
      "tick": 1917,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1926,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 87 P, delivery on day 10.",
+    "price": 87,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "give",
+     "rule": "worth floor",
+     "step": 22.0,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 0.94,
+       "in": 1267,
+       "out": 25,
+       "cost_usd": 0.00139,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 94,
+     "floor": 35.7
+    }
+   },
+   "result": {
+    "duel": 11243,
+    "offer": {
+     "id": 13201,
+     "price": 87,
+     "tick": 1926,
      "days": 10
     }
    }
