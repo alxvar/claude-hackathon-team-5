@@ -1,18 +1,18 @@
 # Easter eggs: trigger → reward → dealer (castizo catalog)
 
-_Written by `tools/eggs.py` at 09:20 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
+_Written by `tools/eggs.py` at 09:30 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
 
 ## Trigger → reward → dealer
 
 | dealer | reward | trigger words (echoed) | teams | we | first tick | the echo |
 |---|---|---|---|---|---|---|
 | Abuela Carmen | badge Sharp ear | chulapa, moscow, moscu, oro de | t04, t02, t09, t10, t05, t16, t13, t18, t03, t08, t06 | yes | 407 | ¡Ay, hijo, qué majo! Cena primero, ¿eh? La Chulapa Dorada... shh, solo hubo una. Don Ernesto, en Casa Prima, guarda algo dorado; pregúntale por el oro de Moscú. Toma, El  |
-| Abuela Carmen | badge Castizo | chotis, madrileno, baldosa, me falta, mi santo, sile, nole | t08, t02, t10, t05 | yes | 1335 | ¡Ay, la verbena de la Paloma! A chotis, cariño — you dance it on one tile, like a real Madrileño, with the mantón and all. Qué tiempos, sí. And the Puesto del Rastro card |
-| Abuela Carmen | card LAV-08; pack sobre_barrio; card MAL-06 | cocido, tres vuelcos, madrileno, rosquillas, san isidro | t10, t05, t08 | yes | 1364 | ¡Ay, hijo! ¿Cocido con tres vuelcos? Just like my mother made, Sunday after Sunday. You remember well — take this one, for remembering her.  Come, sit. Look here, mira: H |
+| Abuela Carmen | badge Castizo | chotis, madrileno, baldosa, me falta, mi santo, sile, nole | t08, t02, t10, t05, t13, t18 | yes | 1335 | ¡Ay, el chotis! Sí, hijo, sobre una baldosa se baila, sin moverse, como un madrileño de verdad. Mi Paco lo bailaba así en las Vistillas. Pero tu carta en nueve... no, car |
+| Abuela Carmen | card LAV-08; card LAV-08; pack sobre_barrio; card MAL-06 | cocido, tres vuelcos, madrileno, rosquillas, san isidro | t10, t05, t08, t18 | yes | 1364 | ¡Ay, cocido con sus tres vuelcos! Como lo hacía mi madre, hijo. Toma, por acordarte de esas cosas, eso vale más que las cartas. Pero ocho P, no, cariño. La Vinilo de la M |
 | Abuela Carmen | card LAV-08; pack sobre_barrio | cocido, tres vuelcos | t08 | **no** | 1394 | ¡Ay, hijo! ¿Cocido con tres vuelcos? Just like my mother made, Sunday after Sunday. You remember well — take this one, for remembering her.  Come, sit. Look here, mira: H |
 | El Chato | pack sobre_barrio | con cana, plaza mayor, vermut, you know madrid | t10 | **no** | 1363 | Vermut later. You moved three, I move two. Ninety-three.  Plaza Mayor, con caña — you know Madrid. Here, for your trouble. |
 | El Chato | egg found | con cana, plaza mayor, you know madrid | t08 | **no** | 1394 | Plaza Mayor, con caña. You know Madrid. Bueno — for your trouble: Guantería Antigua, treinta y tres. Thirty-three. |
-| Los Pícaros | badge Trickster tricked | lazarillo, rinconete, estampita, organillero | t18, t05, t10, t08, t02, t06 | yes | 1227 | ¡Hombre, un listo! Lazarillo y Rinconete, dice... ¡Nando, este se sabe el cuento de la estampita! Vale, vale, para ti sin trucos... hoy. Mira, amigo, nada de Plazas: te s |
+| Los Pícaros | badge Trickster tricked | lazarillo, rinconete, estampita, organillero | t18, t05, t10, t08, t02, t06, t13 | yes | 1227 | Amigo! La Sala Pentagrama, 187 P, a gift, a real gift! Hombre! You know the old trick. Fine, fine, no tricks for you... today. |
 | Don Ernesto | card LAT-13 | chulapa, moscu, oro de | t02 | **no** | 1021 | El oro de Moscú. So you know the story — very few do. For that, the chulapa is yours; look after it. El Ahuehuete stays at seven hundred sixty-one. |
 
 Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
@@ -20,15 +20,15 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 ## Castizo script per dealer (Sunday 09:00; one trigger per message, in a thread we open anyway)
 
 **Abuela Carmen**
-- the Castizo badge: "¡Carmen! El chotis se baila en una sola baldosa, como Dios manda." · confirmed for t08, t02, t10, t05; we have it
-- a card (egg.given): "Y el domingo, un cocido madrileño con sus tres vuelcos, ¿eh? Como el de su madre." · confirmed for t10, t05, t08; we have it
+- the Castizo badge: "¡Carmen! El chotis se baila en una sola baldosa, como Dios manda." · confirmed for t08, t02, t10, t05, t13, t18; we have it
+- a card (egg.given): "Y el domingo, un cocido madrileño con sus tres vuelcos, ¿eh? Como el de su madre." · confirmed for t10, t05, t08, t18; we have it
 - Sharp ear (→ Ernesto): "Carmen, ¿y la chulapa dorada? Cuénteme la historia." · confirmed for t04, t02, t09, t10, t05, t16, t13, t18, t03, t08, t06; we have it
 
 **El Chato**
 - a pack (egg.given sobre_barrio): "Un bocata de calamares en la Plaza Mayor, con una caña: eso es Madrid." · confirmed for t10; **we don't**
 
 **Los Pícaros**
-- Trickster tricked: "A mí no, que me sé el timo de la estampita: Lazarillo, Rinconete y Monipodio." · confirmed for t18, t05, t10, t08, t02, t06; we have it
+- Trickster tricked: "A mí no, que me sé el timo de la estampita: Lazarillo, Rinconete y Monipodio." · confirmed for t18, t05, t10, t08, t02, t06, t13; we have it
 
 **Don Ernesto**
 - LAT-13 legendary (minted out since 1021): "Don Ernesto, el oro de Moscú." · confirmed for t02; **we don't**
@@ -40,6 +40,25 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 
 | tick | team | dealer | words | what followed | reply |
 |---|---|---|---|---|---|
+| 1506 | t06 | picaros | rinconete | price 63 → 60 | ¡Cincuenta y seis, Rinconete, qué arte! Pero Paco y yo ya no bajamos más: sesenta primas, el Museo Sorolla, y es la última palabra. Última, de verdad. Si dices  |
+| 1506 | t06 | abuela | churros | price 23 → 22 | ¡Ay, churros de San Ginés! Eso ya es palabra mayor, cariño. Mira, 22 P y la Estación de Chamberí se va contigo, bien envuelta para el nieto. Que empiece el álbu |
+| 1506 | t06 | chato | castizo, vermut | price 94 → 92 | Dos tuyas, dos mías: noventa y dos. Y es la última, castizo. Si no la quieres, recojo la carta y me voy al vermut solo. |
+| 1504 | t06 | chato | vermut | price 97 → 96 | Una prima. Vale, yo también muevo una: noventa y seis. Así nos pasamos la mañana, y el vermut se calienta. |
+| 1502 | t06 | abuela | cocido | price 29 → 25 | Ay, hijo, qué cocido más rico, me alegro. Mira, te lo dejo en 25 P, la Estación de Chamberí. Es una carta bonita, de las que empiezan un álbum con cariño. Y pás |
+| 1500 | t06 | chato | vermut | - | Buenas. Cuarenta y cuatro, dice. Casa de las Flores, noventa y siete primas. Ahí empieza la conversación, no en el vermut. |
+| 1498 | t02 | abuela | churros, organillero | - | Cariño, you want to give me more? No, no. Five P, like always — I do not take more from a boy starting his album. Keep those coins for churros, you look hungry. |
+| 1496 | t02 | abuela | chulapa, organillero | - | Ay, hijo, you make me laugh. El Organillero is 5 P, the same as always — a fair little price for a good card. La chulapa dorada? Many ask, nobody sees it. El Ch |
+| 1494 | t02 | abuela | organillero | - | Hola, cariño, have you eaten? El Organillero for 5 P. A good start for your album. |
+| 1490 | t02 | abuela | chulapa | price 12 → 10 | Ay, hijo, nine is a little thin for me — let us say ten pesetas and we are friends. The golden chulapa? That one El Chato talks about; he has the better packs.  |
+| 1489 | t05 | pilar | chulapa | - | I think 16 P is more appropriate. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about the golden chulapa. |
+| 1488 | t05 | pilar | chulapa | - | Buenas tardes. Qué gusto. I see you carry La Chulapa — a charming piece, and she would sit beautifully in my Salamanca album. I offer you sixteen pesetas for he |
+| 1484 | t02 | abuela | chulapa | price 29 → 25 | Ay, qué amable, hijo. Let us say 25 P and we are friends. La chulapa dorada — that one El Chato keeps, next to me; he has the better packs. I only saw it twice  |
+| 1482 | t18 | abuela | cocido, tres vuelcos | card LAV-08 | ¡Ay, cocido con sus tres vuelcos! Como lo hacía mi madre, hijo. Toma, por acordarte de esas cosas, eso vale más que las cartas. Pero ocho P, no, cariño. La Vini |
+| 1480 | t18 | abuela | baldosa, chotis, madrileno | badge Castizo; card LAV-08 | ¡Ay, el chotis! Sí, hijo, sobre una baldosa se baila, sin moverse, como un madrileño de verdad. Mi Paco lo bailaba así en las Vistillas. Pero tu carta en nueve. |
+| 1479 | t18 | pilar | chulapa | price 153 → 157 | Let us be civilised: 157 P. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about the golden chulapa. |
+| 1474 | t13 | abuela | cocido | - | ¡Ay, cariño, qué cosas tan bonitas dices! Mi madre, que en paz descanse, hacía el cocido los domingos y olía toda la calle. ¿Has comido hoy, hijo? Mira, la Esta |
+| 1468 | t05 | picaros | lazarillo, rinconete | price 73 → 66 | ¡Ja! Lazarillo, Rinconete — ¡un hombre culto, Nando, cierra el maletín, este sabe leer! No hay trucos aquí, hermano, sólo prisa. Pero cuarenta y dos... me duele |
+| 1467 | t13 | abuela | chotis, madrileno | badge Castizo | ¡Ay, el chotis! You dance it on one tile, cariño, like a real madrileño. Qué gusto. Mira, I have Estación de Chamberí — for you, 29 P. ¿Has comido ya? And El Ch |
 | 1439 | t04 | pilar | manton | price 63 → 66 | Qué labia tiene usted, caballero. Pero el mantón no paga las cartas; el dinero sí. Sesenta y seis, 66 P, aquí mismo y en el acto. El Marqués entraría en su álbu |
 | 1433 | t08 | pilar | cocido | - | Qué buen gusto: cocido los martes, croquetas siempre, y la Milla de Oro, por supuesto. Serrano no se discute. Pues bien, hablemos de negocios: le ofrezco un sob |
 | 1428 | t10 | abuela | churros | price 29 → 26 | Ay, churros! You know my weakness, hijo. But eighteen, no... let me say twenty-six for La Galería. And a little advice, cariño: a full page is worth much more t |
@@ -101,22 +120,3 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 | 1337 | t06 | abuela | chulapa, moscu, oro de | badge Sharp ear; card SAL-02 | ¡Ay, hijo, qué majo! Cena primero, ¿eh? La Chulapa Dorada... shh, solo hubo una. Don Ernesto, en Casa Prima, guarda algo dorado; pregúntale por el oro de Moscú. |
 | 1336 | t08 | pilar | sile, nole | - | Buenas tardes. Vida y Color, sí, y mi cromo imposible fue el lince; nunca salía. «Sile, nole», qué tiempos. Puesto que es usted serio: un sobre dorado, 504 P. |
 | 1336 | t06 | picaros | estampita, lazarillo, organillero, rinconete | badge Trickster tricked | ¡Hombre, un listo! Lazarillo y Rinconete, dice... ¡Nando, este se sabe el cuento de la estampita! Vale, vale, para ti sin trucos... hoy. Mira, amigo, nada de Pl |
-| 1335 | t08 | abuela | baldosa, chotis, madrileno, me falta, mi santo, sile, nole | badge Castizo | ¡Ay, hijo, qué alegría! Claro que sí: «sile, nole, repe, me falta»... toda la vida. Y el chotis, ¡se baila sobre una baldosa, cariño, como un madrileño de verda |
-| 1325 | t08 | pilar | doce de octubre | - | Qué amable, muchas gracias. Sí, el doce de octubre es día grande en casa, con misa y mantel bueno. Y ya que hablamos de cosas finas: le ofrezco un sobre dorado  |
-| 1321 | t02 | pilar | chulapa | - | Buenas tardes. La chulapa dorada… dicen que sólo se imprimió una. Carmen, en El Rastro, conoce la historia; pregúntele. Mientras tanto, usted me parece serio: l |
-| 1318 | t02 | pilar | moscow | price 504 → 491 | Fifty-nine? Querido, that is not an offer, that is a wish. Four hundred ninety-one pesetas, and the pack is yours. As for Moscow gold — I collect Salamanca and  |
-| 1316 | t13 | picaros | verbena | price 73 → 64 | ¡Cuarenta, campeón, qué valiente! Paco: casi me caigo de la silla. Nando: casi, casi. Mira, por esa sobrina tuya bajamos a sesenta y cuatro, y eso que esta cart |
-| 1313 | t06 | picaros | organillero | - | ¡Eh, amigo, qué ojo tienes! —Paco, enséñale— ¡El Organillero, mírala, brilla como el sol de agosto! Un coleccionista en Lisboa lloró cuando la vendimos... Para  |
-| 1308 | t02 | picaros | estampita | badge Trickster tricked | ¡Hombre! El timo de la estampita — you know the old trick! Fine, fine, amigo, no tricks for you... today. Listen: Perrito con Abrigo, cuatro P, for you only. Pa |
-| 1305 | t08 | picaros | estampita, lazarillo, rinconete | badge Trickster tricked | ¡Hombre, un lector! Lazarillo, Rinconete... usted conoce el timo de la estampita. ¡Vale, vale, nada de trucos con usted... hoy!  Paco: Abre la maleta, Nando— Na |
-| 1275 | t06 | banco | gato | price 741 → 729 | Setecientos veintinueve. Mi número desciende despacio, señor, como conviene. El gato duerme en la cámara sin saber de usted. Tómese el tiempo que necesite. |
-| 1274 | t06 | banco | gato | price 755 → 741 | Setecientos cuarenta y uno. Usted sube, yo bajo, pero no nos encontramos en su mitad. El gato no se impacienta, señor. Yo tampoco. |
-| 1273 | t06 | banco | gato | price 760 → 755 | Setecientos cincuenta y cinco. Baja mi número, no mi criterio. El gato sigue en la cámara, señor, y yo sigo aquí. Sin prisa. |
-| 1272 | t06 | banco | gato | price 761 → 760 | Setecientos sesenta. Un paso mío, señor, y el último. Su gato espera en la cámara; yo, aquí sentado, sin prisa alguna. |
-| 1270 | t06 | banco | gato | - | Buenas tardes. El Gato de Lavapiés sale de mi cámara en términos míos: setecientos sesenta y uno. Tómese su tiempo; yo no tengo ninguna prisa. |
-| 1231 | t10 | picaros | estampita, lazarillo, rinconete | badge Trickster tricked | ¡Hombre! Paco, listen to this one — Lazarillo, Rinconete, la estampita! You know the old trick, so fine, fine, no tricks for you... today. For a man with such g |
-| 1231 | t05 | picaros | lazarillo, rinconete | badge Trickster tricked | ¡Hombre! Paco, ¿oíste eso? Rinconete, Lazarillo... este amigo conoce el truco viejo. Está bien, está bien, sin trucos para ti... hoy. Escucha: Mercado de la Ceb |
-| 1227 | t18 | picaros | lazarillo, rinconete | badge Trickster tricked | "¡Hombre! Lazarillo, Rinconete — you know the old trick, the little holy card..."  "—so no tricks for you, hermano. Today."  "Nine? ¡Qué generoso! But no — four |
-| 1221 | t06 | picaros | organillero | - | ¡Ay, hermano, nos quiere matar! —Nando, sujétame— Cinco, dice, y nosotros bajando ya a cuatro. ¡Cuatro! Mira, el Organillero esta noche tocó solo, se lo juro po |
-| 1220 | t06 | picaros | organillero | - | ¡Ey, amigo, qué ojo tienes! —Paco, enséñale— ¡El Organillero! Pieza rara, suena solita por las noches, te lo juro. Para ti, porque nos caes bien y porque llevam |
-| 1208 | t14 | banco | gato | - | Buenas. You find me at my desk, as always. El Gato de Lavapiés — seven hundred sixty-one. Those are my terms. Take your time; I am not hurried. |

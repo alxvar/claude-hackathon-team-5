@@ -294,3 +294,5 @@ La Caña te la dejo en 10 P, cariño. Y esta noche a las nueve y media abre El C
 - Sun 09:26 · message tick 1490 · abuela → t02 · Ay, hijo, nine is a little thin for me — let us say ten pesetas and we are friends. The golden chulapa? That one El Chato talks about; he has the better packs. And listen, cariño: a full page is worth much more than loose cards. Swap your duplicates!
 - Sun 09:27 · message tick 1496 · abuela → t02 · Ay, hijo, you make me laugh. El Organillero is 5 P, the same as always — a fair little price for a good card. La chulapa dorada? Many ask, nobody sees it. El Chato tells stories about it. Take this one first, cariño.
 - Sun 09:28 · egg.found tick 1497 · picaros → t13 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t13", "name": "Team 13"}
+- Sun 09:30 · catalog.minted LAV-11 (La Casa Encendida, epic, print run 9): hidden=False minted=5 (was 4)
+- Sun 09:30 · catalog.minted CHA-11 (Andén 0, epic, print run 9): hidden=False minted=1 (was 0)
