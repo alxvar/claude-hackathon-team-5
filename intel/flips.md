@@ -1,17 +1,16 @@
 # Flips: team bids a dealer can fill (Team 10's playbook)
 
-_Written by `tools/reactor.py` at 10:36 (tick 1770). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
+_Written by `tools/reactor.py` at 10:39 (tick 1783). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
 
 ## Open bids (HUNT digest)
 
 | bid P | card | bidder | venue | dealer est. | spread | offer | until |
 |---|---|---|---|---|---|---|---|
 | 286 | LAT-12 El Rastro al Amanecer (legendary) | t06 | v21 | banco 585 | -299 | 22429 | 10:59 |
-| 200 | SAL-11 La Puerta de Alcalá (epic) | t02 | rastro → t17 | none (all minted or no dealer) | - | 22528 | 10:38 |
-| 117 | RET-11 Palacio de Cristal (epic) | t07 | rastro | picaros 144 | -27 | 22569 | 10:38 |
+| 185 | SAL-11 La Puerta de Alcalá (epic) | t02 | rastro → t13 | none (all minted or no dealer) | - | 22623 | 10:43 |
 | 68 | RET-09 El Ángel Caído (rare) | t09 | rastro | picaros 56 | +12 | 21548 | 10:56 |
-| 64 | CHA-09 Museo Sorolla (rare) | t16 | rastro | picaros 56 | +8 | 22488 | 10:37 |
 | 64 | CHA-10 Casa de las Flores (rare) | t16 | rastro | picaros 56 | +8 | 22549 | 10:40 |
+| 64 | CHA-09 Museo Sorolla (rare) | t16 | rastro | picaros 56 | +8 | 22595 | 10:43 |
 | 44 | LAT-10 El Mesón de la Cava (rare) | t06 | v21 | picaros 56 | -12 | 22309 | 10:54 |
 | 44 | LAT-09 San Isidro (rare) | t06 | v21 | picaros 56 | -12 | 22430 | 10:59 |
 | 31 | MAL-09 La Heroína del Dos de Mayo (rare) | t06 | v21 | picaros 56 | -25 | 22460 | 11:01 |
