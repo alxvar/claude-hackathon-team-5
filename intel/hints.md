@@ -312,3 +312,4 @@ Shh... la chulapa dorada, solo hubo una. Don Ernesto, en Casa Prima, guarda algo
 
 Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 09:42 · message tick 1553 · abuela → t08 · Ay, cariño, seis... ya me pones blandita. Mira, diez P y nos damos la mano. Una vez un niño me pagó con monedas de su hucha, y hoy tiene nietos que vienen aquí. Guarda algo para merendar, hijo, que no has comido.
+- Sun 09:43 · message tick 1557 · banco → t04 · My number does not move with stories, nor with Doña Pilar. One hundred thirteen pesetas for La Puerta de Alcalá. If her desk suits you better, go there.
