@@ -164,6 +164,9 @@ main { padding: 16px 20px 48px; max-width: 1500px; margin: 0 auto; display: grid
 .vtr li.today { border-left: 3px solid var(--good); }
 .vtr b { color: var(--text-primary); font-weight: 600; }
 .lb .rv { color: var(--serious); font-size: 11px; margin-left: 4px; }
+.lb .tbar { display: flex; height: 8px; min-width: 120px; border-radius: 4px; background: var(--surface-2); overflow: hidden; }
+.lb .tbar i { display: block; height: 100%; background: var(--warning); }
+.lb td.pk { font-weight: 700; }
 .side { font-size: 10.5px; font-weight: 700; letter-spacing: .03em; margin-right: 6px; }
 .side.ask { color: var(--serious); } .side.bid { color: var(--good); } .side.swap { color: var(--text-secondary); }
 
@@ -272,6 +275,17 @@ main > * { min-width: 0; }
       </section>
     </div>
   </div>
+
+  <section class="card" id="topCard">
+    <div class="head"><h2>Who has been on top</h2><span class="meta">share of game time spent in each place (the leaderboard's own rank at every snapshot)</span>
+      <div class="seg" id="topSeg"></div></div>
+    <p class="sub-note" id="topSum" style="margin:0 0 10px"></p>
+    <div class="row2">
+      <div class="lbwrap"><table class="lb" id="topT"></table></div>
+      <div><div class="mini-h">Place over time (1 = first)</div><div class="chartbox" style="height:260px"><canvas id="topChart"></canvas></div></div>
+    </div>
+    <p class="sub-note">Time is game time, so nights and pauses count for nothing. <b>Ahead of us</b> = share of the period in which that team ranked above us. A team that leads only now has a short bar; one that was always near the top has a long one. Click a team for its race.</p>
+  </section>
 
   <section class="card" id="v10Card">
     <div class="head"><h2 id="v10Title">Our market</h2><span class="meta" id="v10Stats"></span></div>
@@ -922,6 +936,77 @@ function race(d) {
   $("#raceProj").innerHTML = projSummary(P);
 }
 
+// ------------------------------------------------------------------ time on top: who has held which place, and for how long
+// Every leaderboard snapshot ranks the teams by score; a snapshot's place holds until the next one. Time is game time (t), so
+// nights and pauses weigh nothing, and a gap in our own collection is capped at 15 min instead of counting for hours.
+const TOP = { range: store.get("bz-top-range", "all") };
+const dur = h => { const m = Math.round(h * 60); return m >= 60 ? `${Math.floor(m / 60)} h ${String(m % 60).padStart(2, "0")}` : `${m} min`; };
+function topOptions(d) {
+  const days = (d.timeline || {}).days || [], opts = [["all", "All", -Infinity]];
+  days.forEach((dd, i) => { if (i >= 1) opts.push([`d${i}`, i === days.length - 1 ? "Today" : `${dd.label} on`, dd.t]); });
+  return opts;
+}
+function standingsOver(d, fromT) {
+  const H = (d.lb_hist || []).filter(h => h.t != null && h.t >= fromT);
+  if (H.length < 2) return null;
+  const gaps = H.slice(1).map((h, i) => h.t - H[i].t).filter(g => g > 0), lastGap = med(gaps) || 0.02;
+  const S = {}, runs = [], ranks = [];
+  H.forEach((h, i) => {
+    const w = Math.min(i + 1 < H.length ? H[i + 1].t - h.t : lastGap, 0.25);
+    const order = Object.keys(h.scores).filter(k => h.scores[k] != null).sort((a, b) => h.scores[b] - h.scores[a]);
+    const rk = {}; order.forEach((k, j) => rk[k] = j + 1); ranks.push(rk);
+    order.forEach(k => {
+      const s = S[k] ??= { w: 0, p1: 0, p23: 0, p46: 0, sum: 0, ahead: 0, aheadW: 0 }, r = rk[k];
+      s.w += w; s.sum += r * w; if (r === 1) s.p1 += w; else if (r <= 3) s.p23 += w; else if (r <= 6) s.p46 += w;
+      if (rk[d.us] != null) { s.aheadW += w; if (r < rk[d.us]) s.ahead += w; }
+    });
+    if (order.length) { const l = runs[runs.length - 1]; if (l && l.team === order[0]) l.h += w; else runs.push({ team: order[0], h: w }); }
+  });
+  return { H, S, runs, ranks };
+}
+function onTop(d) {
+  const opts = topOptions(d);
+  if (!opts.some(o => o[0] === TOP.range)) TOP.range = "all";
+  $("#topSeg").innerHTML = opts.map(o => `<button data-r="${o[0]}" class="${o[0] === TOP.range ? "on" : ""}">${esc(o[1])}</button>`).join("");
+  const R = standingsOver(d, opts.find(o => o[0] === TOP.range)[2]);
+  if (!R) { $("#topT").innerHTML = `<tr><td class="muted">Not enough snapshots yet…</td></tr>`; $("#topSum").textContent = ""; return; }
+  const { H, S, runs, ranks } = R, nowRank = ranks[ranks.length - 1], pc = (x, w) => w ? Math.round(100 * x / w) : 0;
+  const rows = Object.keys(S).map(k => ({ k, ...S[k] })).filter(r => r.k === d.us || r.p1 + r.p23 + r.p46 > 0)
+    .sort((a, b) => b.p1 / b.w - a.p1 / a.w || (b.p1 + b.p23) / b.w - (a.p1 + a.p23) / a.w || a.sum / a.w - b.sum / b.w);
+  const nm = id => (d.names[id] || id) + (id === d.us ? " ★" : "");
+  const bar = (x, w, o) => x ? `<i style="width:${100 * x / w}%;opacity:${o}" title="${pc(x, w)} %"></i>` : "";
+  $("#topT").innerHTML = `<thead><tr><th class="n">Now</th><th>Team</th><th>Time in each place (#1 · #2-3 · #4-6)</th><th class="n">#1</th><th class="n">Top 3</th>`
+    + `<th class="n hide-s">Top 6</th><th class="n hide-s">Avg place</th><th class="n">Ahead of us</th></tr></thead><tbody>`
+    + rows.map(r => `<tr class="${r.k === d.us ? "us" : ""}" data-t="${esc(r.k)}">`
+      + `<td class="n muted">${nowRank[r.k] ?? "—"}</td><td><span class="tm">${esc(nm(r.k))}</span></td>`
+      + `<td><div class="tbar">${bar(r.p1, r.w, 1)}${bar(r.p23, r.w, 0.6)}${bar(r.p46, r.w, 0.3)}</div></td>`
+      + `<td class="n pk">${pc(r.p1, r.w)} %</td><td class="n">${pc(r.p1 + r.p23, r.w)} %</td>`
+      + `<td class="n hide-s">${pc(r.p1 + r.p23 + r.p46, r.w)} %</td><td class="n hide-s">${(r.sum / r.w).toFixed(1)}</td>`
+      + `<td class="n">${r.k === d.us ? `<span class="muted">—</span>` : `<span class="${r.ahead / r.aheadW > 0.5 ? "down" : "muted"}">${pc(r.ahead, r.aheadW)} %</span>`}</td></tr>`).join("") + `</tbody>`;
+  const us = S[d.us], cur = runs[runs.length - 1], best = [...runs].sort((a, b) => b.h - a.h)[0], strong = t => `<b style="color:var(--text-primary)">${t}</b>`;
+  $("#topSum").innerHTML = `${strong(esc(nm(cur.team)))} has been #1 for ${dur(cur.h)} · the lead changed hands ${runs.length - 1} time${runs.length === 2 ? "" : "s"} · `
+    + `longest reign: ${strong(esc(nm(best.team)))} (${dur(best.h)})`
+    + (us ? ` · us: #1 ${pc(us.p1, us.w)} % of the time, top 3 ${pc(us.p1 + us.p23, us.w)} %, now #${nowRank[d.us] ?? "—"}` : "");
+  // place over time for the teams that have been top 3 the most, plus us
+  const ids = rows.filter(r => r.k !== d.us && r.p1 + r.p23 > 0).slice(0, 6).map(r => r.k);
+  if (S[d.us]) ids.unshift(d.us);
+  const col = raceColors(ids, d.us), maxR = Math.max(3, ...ids.map(id => Math.max(...ranks.map(rk => rk[id] || 0))));
+  chart("topChart", "line", { datasets: ids.map(id => ({
+      label: nm(id), team: id, stepped: "after", borderColor: col(id), backgroundColor: col(id), borderWidth: id === d.us ? 3 : 2, pointRadius: 0,
+      pointHoverRadius: 4, pointHitRadius: 8, order: id === d.us ? 0 : 1,
+      data: H.map((h, i) => ranks[i][id] != null ? { x: h.t, y: ranks[i][id], ts: h.ts, tick: h.tick } : null).filter(Boolean) })) }, {
+    interaction: { mode: "index", intersect: false },
+    scales: { x: timeAxis({ min: H[0].t, max: H[H.length - 1].t }),
+              y: { ...axis(), reverse: true, min: 1, max: maxR, ticks: { color: css("--text-muted"), font: { size: 10 }, stepSize: 1, precision: 0 } } },
+    plugins: { legend: { position: "bottom", labels: { color: css("--text-secondary"), boxWidth: 12, boxHeight: 3, font: { size: 11 } } },
+               tooltip: { itemSort: (a, b) => a.parsed.y - b.parsed.y, callbacks: {
+                 title: it => { const r = it[0]?.raw || {}; return r.tick != null ? `${when(r.ts)} · tick ${r.tick}` : ""; },
+                 label: it => ` ${it.dataset.label}: #${it.parsed.y}` } } },
+  }, [dayLines]);
+}
+$("#topSeg").addEventListener("click", e => { const b = e.target.closest("button[data-r]"); if (b) { TOP.range = b.dataset.r; store.set("bz-top-range", TOP.range); onTop(DATA); } });
+$("#topT").addEventListener("click", e => { const tr = e.target.closest("tr[data-t]"); if (tr) openRace(tr.dataset.t); });
+
 // ------------------------------------------------------------------ race explorer: every team, zoom, why each jump
 const RX = { range: store.get("bz-rx-range", "all"), shown: null, focus: null, sel: null, order: "big", all: false, band: null, view: null,
              proj: store.get("bz-rx-proj", true) };
@@ -1108,7 +1193,7 @@ function render() {
   const d = DATA; if (!d) return;
   if (d.fatal) { $("#clock").innerHTML = `<span class="err">server error: ${esc(d.fatal)}</span>`; return; }
   timeTable(d);
-  const parts = [["header", header], ["kpis", kpis], ["leaderboard", leaderboardTable], ["v10", venueBoard], ["battles", battles], ["deck", deck], ["race", race], ["arenas", arenas],
+  const parts = [["header", header], ["kpis", kpis], ["leaderboard", leaderboardTable], ["v10", venueBoard], ["battles", battles], ["deck", deck], ["race", race], ["ontop", onTop], ["arenas", arenas],
                  ["explorer", () => renderRace(false)]];
   for (const [name, fn] of parts) {
     try { fn(d); } catch (e) { console.error(name, e); }
