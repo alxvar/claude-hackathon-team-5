@@ -61,7 +61,7 @@
   </div>
   <div class="sync"><div class="k">How we stayed in sync</div>
     <div class="chip"><b>Git as the bus</b>one file per owner</div>
-    <div class="chip"><b>directives.md</b>every call + evidence</div>
+    <div class="chip"><b>directives.md</b>big calls + guardrails</div>
     <div class="chip"><b>Session messages</b>Claude ↔ Claude</div>
     <div class="chip"><b>STATUS.md</b>auto, every 5 min</div>
     <div class="chip"><b>Phone alerts</b>to Lucas + Dani</div>
@@ -78,7 +78,7 @@ const cx = 590, cy = 590, r = 232;
 const st = [
   {k:'S', n:1, a:-90, t:'Sense',   d:'collector · watch · scout',        m:'data/*.jsonl · STATUS.md'},
   {k:'D', n:2, a:-18, t:'Decide',  d:'humans + the Chief of staff',      m:'directives.md + evidence'},
-  {k:'A', n:3, a:54,  t:'Act',     d:'Operator + bots · Duelist',        m:'two writer roles'},
+  {k:'A', n:3, a:54,  t:'Act',     d:'Operator + bots · Duelist',        m:'two trading roles'},
   {k:'M', n:4, a:126, t:'Measure', d:'metrics · judge · duel monitor',   m:'me.jsonl · duel records'},
   {k:'L', n:5, a:198, t:'Learn',   d:'Duel Lab · verifier · contrarian', m:'GAME.md: measured facts'},
 ];
@@ -93,9 +93,9 @@ document.getElementById('chev').innerHTML = [-54, 18, 90, 162, 234].map(a => {
 const rows = [
   {k:'S', n:1, t:'Sat · Duels II', p:'With the LLM deciding, replies took <b>9.2 s</b>, 29 % over 10 s. Sunday\'s tick: <b>15 s</b>. <span class="tag v">V</span>'},
   {k:'D', n:2, t:'Sat 22:30', p:'<b>Code decides</b> price, day and accept; the LLM only writes. Checked first on a simulator validated on Duels II.'},
-  {k:'A', n:3, t:'Sat 22:48 →<br>Sun 09:50', p:'Branch <b>duelist-loop</b>: Haiku ≈ 2 s, guards, 8 s failover, hot-reloaded params.'},
-  {k:'M', n:4, t:'Sun 11:02', p:'Duels III, shorter clock, harder decay: <b>57 of 68 closed</b>. The monitor reviews every deal. <span class="tag v">V</span>'},
-  {k:'L', n:5, t:'11:47 →<br>12:37', p:'Review finds duels lost to holding still; fix shipped (f57a002), restarted on the <b>Duel Lab\'s GO</b>.'},
+  {k:'A', n:3, t:'Sat 22:48 →<br>Sun 09:45', p:'Branch <b>duelist-loop</b>: Haiku ≈ 2 s, guards, 8 s failover, hot-reloaded params.'},
+  {k:'M', n:4, t:'Sun 10:59', p:'Duels III, shorter clock, harder decay: <b>57 of 68 closed</b>. The monitor reviews every deal. <span class="tag v">V</span>'},
+  {k:'L', n:5, t:'11:47 →<br>12:37', p:'Review + Duel Lab find a missed last-tick accept (11124); fix shipped (f57a002: last-tick accept + worth floor), restarted on the <b>Duel Lab\'s GO</b>.'},
 ];
 document.getElementById('rows').innerHTML = rows.map(w => `<div class="row" style="--c:${C[w.k]}"><div class="b">${w.n}</div><time>${w.t}</time><p>${w.p}</p></div>`).join('');
 // result header: our board line, Friday → now

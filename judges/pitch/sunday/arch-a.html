@@ -48,7 +48,7 @@
 
   <!-- groups -->
   <div class="grp" data-s="0" style="left:128px;top:282px;width:1070px;height:176px;--c:var(--yellow);--tint:rgba(255,197,71,.04)"><div class="gl">Decide</div></div>
-  <div class="grp" data-s="1" style="left:128px;top:506px;width:770px;height:352px;--c:var(--red);--tint:rgba(242,85,90,.04)"><div class="gl">Act · two writer roles</div></div>
+  <div class="grp" data-s="1" style="left:128px;top:506px;width:770px;height:352px;--c:var(--red);--tint:rgba(242,85,90,.04)"><div class="gl">Act · two trading roles</div></div>
   <div class="grp" data-s="2" style="left:938px;top:506px;width:854px;height:352px;--c:var(--blue);--tint:rgba(74,138,244,.04)"><div class="gl">Sense · check</div></div>
 
   <svg class="wires" viewBox="0 0 1920 1080">
@@ -64,7 +64,7 @@
       <path d="M700 448V480H474V548" stroke="#ffc547" stroke-width="4" fill="none" marker-end="url(#ay)"/>
       <text x="488" y="474" class="wl" fill="#ffc547">directives + limits</text>
       <path d="M860 448V548" stroke="#ffc547" stroke-width="4" fill="none" marker-end="url(#ay)"/>
-      <text x="636" y="534" class="wl" fill="#ffc547">params · kill switch</text>
+      <text x="636" y="534" class="wl" fill="#ffc547">params · C→A off</text>
       <path d="M330 858V886" stroke="#f2555a" stroke-width="5" fill="none" marker-end="url(#ar)"/>
       <path d="M720 858V886" stroke="#f2555a" stroke-width="5" fill="none" marker-end="url(#ar)"/>
       <text x="346" y="880" class="wl" fill="#f2555a">writes</text><text x="736" y="880" class="wl" fill="#f2555a">writes</text>
@@ -83,7 +83,7 @@
     <div class="node sm" style="left:152px;top:300px;width:322px;--c:var(--purple)" data-i="user:var(--purple)"><div><div class="t">Lucas</div><div class="d">strategy · goals + hard limits</div></div></div>
     <div class="node sm" style="left:152px;top:350px;width:322px;--c:var(--purple)" data-i="user:var(--purple)"><div><div class="t">Aleks</div><div class="d">wrote the duelist + the hub</div></div></div>
     <div class="node sm" style="left:152px;top:400px;width:322px;--c:var(--purple)" data-i="user:var(--purple)"><div><div class="t">Dani</div><div class="d">the room · rivals · dashboard</div></div></div>
-    <div class="node big" style="left:566px;top:302px;width:474px;height:138px;--c:var(--yellow)" data-i="compass:var(--yellow)"><div><div class="t">Chief of staff</div><div class="d">Claude Code · makes every call, logs it with evidence · <b style="color:var(--ink)">never writes to the game</b></div></div></div>
+    <div class="node big" style="left:566px;top:302px;width:474px;height:138px;--c:var(--yellow)" data-i="compass:var(--yellow)"><div><div class="t">Chief of staff</div><div class="d">Claude Code · makes the big calls, logs them with evidence · <b style="color:var(--ink)">never writes to the game</b></div></div></div>
   </div>
 
   <!-- ACT -->
@@ -125,10 +125,10 @@
     <div class="why" style="left:128px;--c:var(--red)"><div class="n">1</div><div class="t">Code decides, the LLM writes</div>
       <p>The duelist's price, day and accept are code; Haiku only writes the words, in ≈ 2 s instead of 9.2 s.</p>
       <p>Guards in code, not in the prompt.</p><div class="bc">Because a 15 s tick doesn't wait</div></div>
-    <div class="why" style="left:695px;--c:var(--yellow)"><div class="n">2</div><div class="t">One writer per job, limits in writing</div>
-      <p>Only the Operator and the Duelist write to the game. A hard limit changes only through a <b>GUARDRAIL</b> line in directives.md.</p><div class="bc">Because one key, 5 req/s and 1 accept per tick are shared</div></div>
+    <div class="why" style="left:695px;--c:var(--yellow)"><div class="n">2</div><div class="t">One trader per job, limits in writing</div>
+      <p>Only the Operator and the Duelist trade; the Market session only posts our venue's ads. Lucas changes a hard limit with a <b>GUARDRAIL</b> line in directives.md.</p><div class="bc">Because one key, 5 req/s and 1 accept per tick are shared</div></div>
     <div class="why" style="left:1262px;--c:var(--green)"><div class="n">3</div><div class="t">Check before you act</div>
-      <p>A fresh verifier and contrarian reviews on the big calls; the Duel Lab simulates before any duel restart.</p><div class="bc">Because the author can't grade its own work</div></div>
+      <p>A fresh verifier and contrarian reviews on the big calls; the Duel Lab simulates before every Sunday duelist start.</p><div class="bc">Because the author can't grade its own work</div></div>
   </div>
 
   <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i style="width:66%"></i></div><div class="lvl">Q2 · Q3</div><div class="who">Control room</div></div>

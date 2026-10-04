@@ -78,11 +78,11 @@
     <li><b>The generator can't grade itself.</b> A separate verifier caught errors the author missed, in this very deck too.</li></ul></div>
   <div class="card top lcol" style="left:702px;--c:var(--red)"><div class="t">Negotiation <span class="draft">draft</span></div><ul>
     <li><b>Decay is per exchange, so silence is free.</b> Hold instead of talking.</li>
-    <li><b>Take the good offer when it's there.</b> 23 Duels III deals closed below an offer the rival had already made (≈ 197 P).</li></ul></div>
+    <li><b>Take the good offer when it's there.</b> 23 Duels III deals closed below an offer the rival had already made (≈ 197 P, the monitor's price check).</li></ul></div>
   <div class="card top lcol" style="left:1276px;--c:var(--yellow)"><div class="t">Marketplace <span class="draft">draft</span></div><ul>
     <li><b>Value created, not activity.</b> A trade with a rival lifts the rival as much as you: CHA-11, +1.48 each.</li>
-    <li><b>Matchmaking moved trades; the bounty didn't.</b> 0 % fee: 0 fills by 10:45; pushed pairs and partners: 6 by 13:10; bounty bids filled: 0.</li></ul></div>
-  <div class="more"><span class="k">With one more day <span class="draft">draft</span></span><span>Merge the Sunday duelist and learn day weights per opponent</span><span>Switch on the broker we staged</span><span>A verifier gate on every directive</span></div>
+    <li><b>Pushing pairs and partners moved trades; the bounty didn't.</b> 0 fills by 10:45, 6 by 13:11; the bounty paid nobody.</li></ul></div>
+  <div class="more"><span class="k">With one more day <span class="draft">draft</span></span><span>Merge the Sunday duelist into main</span><span>Switch on the broker we staged</span><span>A verifier gate on every directive</span></div>
   <div class="close" style="top:914px;font-size:40px">Three humans set the limits. <span class="y">Claude ran the bazaar, and checked itself.</span></div>
   <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i></i></div><div class="lvl"></div><div class="who">Thank you</div></div>
 </div>
@@ -90,7 +90,7 @@
 <!-- BACKUP (Q&A only) -->
 <!-- 1 · HOOK + RESULT -->
 <div class="stage backup" data-t="backup">
-  <div class="pills"><span class="pill" style="color:var(--yellow)">Team 5</span><span class="pill" style="color:var(--grey)">3 humans</span><span class="pill" style="color:var(--blue)">7+ Claude Code sessions</span><span class="pill" style="color:var(--green)">19 daemons built</span><span class="pill" style="color:var(--red)">2 writer roles</span></div>
+  <div class="pills"><span class="pill" style="color:var(--yellow)">Team 5</span><span class="pill" style="color:var(--grey)">3 humans</span><span class="pill" style="color:var(--blue)">7+ Claude Code sessions</span><span class="pill" style="color:var(--green)">19 daemons built</span><span class="pill" style="color:var(--red)">2 trading roles</span></div>
   <h1 class="hero">From #6 to <em>#1</em></h1>
   <div class="lede">Friday final <b>#6</b> · first <b>#1</b> Sat 16:44 · <b>#1 since 12:35</b> today · board <b id="lead"></b> <span class="tag v">V</span></div>
   <svg id="race" viewBox="0 0 1664 560"></svg>
@@ -157,7 +157,7 @@ const H = [
    g:'<b>Lock the lead (13:12):</b> zero trades with the five closest rivals.'},
   {c:'var(--blue)', k:'Market', b:'A 0 % fee venue attracts trades.',
    x:'v10 at 0 %: <b>0 fills</b> today by 10:45. <span class="tag v">V</span>',
-   g:'<b>We pushed pairs and partners onto v10:</b> our RET-01 pair, Team 13\'s bot, Team 10\'s listings. <b>6 fills by 13:10.</b> <span class="tag v">V</span>'},
+   g:'<b>We pushed pairs and partners onto v10:</b> our RET-01 pair, Team 13\'s bot, Team 10\'s listings. <b>6 fills by 13:11.</b> <span class="tag v">V</span>'},
 ];
 document.getElementById('hyp').innerHTML = H.map((h, i) => `<div class="card hrow" style="top:${320 + i * 130}px;--c:${h.c}"><div class="topic">${h.k}</div><p>${h.b}</p><p>${h.x}</p><p class="chg">${h.g}</p></div>`).join('');
 
