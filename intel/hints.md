@@ -296,3 +296,4 @@ La Caña te la dejo en 10 P, cariño. Y esta noche a las nueve y media abre El C
 - Sun 09:28 · egg.found tick 1497 · picaros → t13 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t13", "name": "Team 13"}
 - Sun 09:30 · catalog.minted LAV-11 (La Casa Encendida, epic, print run 9): hidden=False minted=5 (was 4)
 - Sun 09:30 · catalog.minted CHA-11 (Andén 0, epic, print run 9): hidden=False minted=1 (was 0)
+- Sun 09:30 · message tick 1508 · abuela → t02 · Ay, qué majo eres. Let us say ten P, hijo, and we are both happy. The golden chulapa — I saw one years ago, a boy traded it for two duplicates and cried after. El Chato gets the better packs, ask him, cariño.
