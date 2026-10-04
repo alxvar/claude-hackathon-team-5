@@ -54,6 +54,8 @@ MAX_STEP_SHARE = 0.25                   # a mid-duel concession bigger than this
 CLOSING_TICKS = 3                       # the last ticks, where code never holds or cuts a concession
 LATE_SWITCH_LEFT = 4                    # ticks left from which code offers their day once, worth the same to us
 GUARDS = 1                              # 1: the 6190 guards on (accept-instead, worth floor, first-offer day); 0: off
+WORTH_FLOOR_SHARE = 0.0                 # an offer of ours is never worth less than this share of our limit (0: off;
+                                        # Duel Lab, Sun 12:00): final() raises it on the same day, the silent walk too
 MONO_END_SHARE = 0.25                   # worth floor in the last CLOSING_TICKS: a concession takes at most this share
                                         # of the gap, days included (Chief 22:50, duel 6190; mid-duel: MAX_STEP_SHARE)
 # The delivery day (Duels II, docs/duels-1-review.md §3.1)
@@ -716,6 +718,9 @@ class DuelAgent:
         days = self._days(None, obs)
         anchor, limit = ours[0].price, price_at(self.view, 0, days)
         floor = limit + SILENT_KEEP * (anchor - limit)
+        if WORTH_FLOOR_SHARE > 0 and not (self.view.has_days and self.view.day_values is None):
+            wf = price_at(self.view, WORTH_FLOOR_SHARE * self.view.limit, days)
+            floor = wf if self.s * wf > self.s * floor else floor   # the higher of the two floors, for us
         step = min(1.0, (start - left + 1) / (start - SILENT_BY + 1))
         price = toward_us(self.s, anchor + (floor - anchor) * step)
         if self.s * price >= self.s * ours[-1].price:
@@ -885,6 +890,24 @@ class DuelAgent:
         return Move("offer", text, price=price, days=move.days,
                     meta={**move.meta, "rule": "worth floor", "drafted": move.price, "floor": round(floor, 1)})
 
+    def floored(self, move: Move, obs: Observation) -> Move:
+        """WORTH_FLOOR_SHARE (Duel Lab, Sun 12:00; 0 = off): an OFFER of ours worth less to us than that share of
+        our limit is raised to that worth on the same day. When that lands on our standing offer, the runner holds
+        and sends nothing (`is_hold`). Accepts are untouched; a days duel whose weight we can't read is left alone."""
+        if WORTH_FLOOR_SHARE <= 0 or move.action != "offer" or move.price is None:
+            return move
+        v = self.view
+        if v.has_days and v.day_values is None:
+            return move
+        floor = WORTH_FLOOR_SHARE * v.limit
+        if worth(v, move.price, move.days) >= floor - 1e-9:
+            return move
+        price = max(toward_us(self.s, price_at(v, floor, move.days)), 1)
+        text = f"I can do {money(price, v.currency)}" + (f", delivery on day {move.days}." if move.days is not None
+                                                          else ".")
+        return Move("offer", text, price=price, days=move.days,
+                    meta={**move.meta, "rule": "worth floor share", "drafted": move.price, "floor": round(floor, 1)})
+
     def first_day(self, plan: BandPlan, obs: Observation) -> BandPlan:
         """Our FIRST offer follows the day rules' call (Duel Lab: enforce it on the opener, not just suggest it):
         take or give → their day (give: worth up by what their day costs us, the premium), hold or menu → our best
@@ -904,7 +927,7 @@ class DuelAgent:
         whole package, our offer on its day and theirs on its own), never send a days duel's offer without a day
         from 0 to 10, and never write an amount past the limit."""
         move.meta["calls"] = self.calls
-        move = self.guarded(move, obs)
+        move = self.floored(self.guarded(move, obs), obs)
         their = standing_offer(obs)
         no_day = self.view.has_days and (move.days is None or not 0 <= move.days <= 10)
         bad = ((move.action == "offer" and (move.price is None or move.price < 1 or no_day

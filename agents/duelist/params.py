@@ -67,6 +67,7 @@ SPEC: dict[str, Spec] = {
     "LATE_SWITCH_LEFT": Spec("agent", 0, 8, int, None, "ticks left from which code offers their day once"),
     "GUARDS": Spec("agent", 0, 1, int, None, "1: the 6190 guards on (accept-instead, worth floor, first-offer day)"),
     "MONO_END_SHARE": Spec("agent", 0.1, 1.0, float, None, "worth floor in the last ticks: at most this share of the gap"),
+    "WORTH_FLOOR_SHARE": Spec("agent", 0.0, 0.3, float, None, "an offer of ours is worth at least this share of our limit (0: off)"),
     "DAY_SAME_SIDE_P": Spec("agent", 0, 10, float, None, "their day costs us at most this: take it"),
     "GIVE_COST_P": Spec("agent", 0, 40, float, None, "their day costing at most this is cheap to give"),
     "SWING_LOW_P": Spec("agent", 0, 60, float, None, "a 10-day swing up to this is a low weight"),

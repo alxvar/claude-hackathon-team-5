@@ -289,3 +289,42 @@ def test_the_opener_shares_are_the_duel_labs():
     """Duel Lab ruling (intel/duel-lab.md, Sun 02:00): seller 0.42 in price units, buyer 0.37. Change only with a
     new ruling: 0.73 was the models' median in worth, which the code does not read."""
     assert (P.OPENER_SHARE_SELLER, P.OPENER_SHARE_BUYER) == (0.42, 0.37)
+
+
+# ---- WORTH_FLOOR_SHARE (Duel Lab, Sun 12:00): an offer of ours is never worth less than this share of our limit
+
+def test_a_code_end_step_that_would_land_at_zero_worth_lands_at_the_floor(monkeypatch):
+    monkeypatch.setattr(A, "WORTH_FLOOR_SHARE", 0.1)
+    monkeypatch.setattr(A, "GUARDS", 0)                       # the floor alone (the 6190 guards have their own tests)
+    a, _ = agent()                                             # seller, cost 40: floor 4 → 44
+    m = a.final(A.Move("offer", "I can do 40 P.", price=40, meta={"rule": "code step"}), obs(SELLER, ours=[50],
+                                                                                              theirs=[30], left=1))
+    assert (m.action, m.price, m.meta["rule"]) == ("offer", 44, "worth floor share") and "44" in m.text
+    b, _ = agent(BUYER)                                        # buyer, value 60: floor 6 → 54
+    m = b.final(A.Move("offer", "60 P.", price=60), obs(BUYER, ours=[50], theirs=[70], left=1))
+    assert m.price == 54
+    m = a.final(A.Move("offer", "41 P.", price=41), obs(SELLER, ours=[44], theirs=[30], left=1))
+    assert m.price == 44                                       # = our standing offer: the runner holds, sends nothing
+    m = a.final(A.Move("offer", "47 P.", price=47), obs(SELLER, ours=[50], theirs=[30], left=1))
+    assert m.price == 47 and m.meta.get("rule") != "worth floor share"     # above the floor: as it was
+
+
+def test_the_floor_never_touches_an_accept_of_a_plus_one_offer(monkeypatch):
+    monkeypatch.setattr(A, "WORTH_FLOOR_SHARE", 0.3)          # floor 12 on a 40 cost
+    a, _ = agent()
+    m = a.final(A.Move("accept", "Agreed.", price=41), obs(SELLER, ours=[50], theirs=[41], left=1))
+    assert (m.action, m.price) == ("accept", 41)
+
+
+def test_default_zero_changes_nothing_and_the_silent_walk_keeps_the_higher_floor(monkeypatch):
+    a, _ = agent()
+    m = a.final(A.Move("offer", "I can do 40 P.", price=40), obs(SELLER, ours=[50], theirs=[30], left=1))
+    assert m.meta.get("rule") != "worth floor share"                       # 0: off (the 6190 guard may still act)
+    monkeypatch.setattr(A, "GUARDS", 0)
+    m = a.final(A.Move("offer", "I can do 40 P.", price=40), obs(SELLER, ours=[50], theirs=[30], left=1))
+    assert m.price == 40                                                   # nothing raised it
+    quiet = obs(SELLER, ours=[80], left=2)                                 # opener 80, a silent rival, 2 ticks left
+    base = a.silent_move(quiet)
+    monkeypatch.setattr(A, "WORTH_FLOOR_SHARE", 0.3)                       # floor 12 → 52 beats SILENT_KEEP's 46
+    floored = a.silent_move(quiet)
+    assert base.price == 46 and floored.price == 52
