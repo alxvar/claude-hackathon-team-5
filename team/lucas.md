@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 09:55 · operator · floors 176/176 (until the MAL call ≈ 12:00) → trader restarted (cash-floor 176, HEAD 9bfae78), opps RET 176 · RET-11 held: look for a team buyer ≥ 220 (addressed, El Rastro; feed watcher for RET-11 bids); Pilar ≥ 198 only from 13:30 · the duelist now runs on THIS Mac (09:45, sha 29aa1be, C+; Chief's watchdog): never start another · the Grand Final ≈ 14:15 (dealers close), new dealer threads cut at 14:00
 - Sun 09:53 · operator · RET-11 → t13: 248 (20815) and the one re-post at 235 (21141) both expired unfilled → stopped (Chief told); RET-11 kept (reserved, 198); options: Pilar ≥ 198 or another buyer (Chief's call)
 - Sun 09:50 · operator · **CHA PAGE COMPLETE** (settlement 1225, tick 1585: CHA-05 t02 → t05 on El Rastro at 72, t02 paid the 5 fee) → `neg_points` 0 → **50.0** (cap), pages **4**, cash 373 · CHA total 196 P (Pícaros 55; Abuela 8/9/8/9/22/21; t02 72; pack CHA-07 + CHA-10) · RET-11: 248 lapsed → re-posted at 235 (21141, exp 1594) · proposed floors 176 until the MAL call
 - Sun 09:43 · operator · closer moved (Chief: no evidence t13 holds CHA-05; t02 bought one from Abuela at 10, tick 1541): 21142 (t13) **cancelled**, then **closer bid 21210: CHA-05 ← t02, El Rastro, 72** (exp 1680); the only closer live · Dani asks t02 to accept · organisers: a bug bounty silver pack to Team 12
