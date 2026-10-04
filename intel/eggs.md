@@ -1,6 +1,6 @@
 # Easter eggs: trigger → reward → dealer (castizo catalog)
 
-_Written by `tools/eggs.py` at 11:20 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
+_Written by `tools/eggs.py` at 11:30 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
 
 ## Trigger → reward → dealer
 
@@ -43,6 +43,11 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 
 | tick | team | dealer | words | what followed | reply |
 |---|---|---|---|---|---|
+| 1984 | t06 | pilar | chulapa | - | Mi álbum lleva sesenta años esperando, caballero; puede esperar un poco más. Dieciséis primas, ni una menos. Si le interesan las rarezas, pregunte a Carmen en E |
+| 1982 | t06 | pilar | chulapa | - | Buenas tardes. El Embassy, qué recuerdos... pero las violetas no suben el precio, caballero. La Chulapa la conozco bien: tirada generosa, nada excepcional. Le o |
+| 1975 | t06 | pilar | chulapa | - | Diecisiete, señor. My offer does not grow with repetition — seventeen primas, the same as before. Las Vistillas will not break my heart. Say yes, and we part as |
+| 1971 | t06 | chato | chulapa, vermut | - | Buenas. La Chulapa, trece primas. Esa es la carta que te interesa. El vermut lo pagas tú. |
+| 1966 | t07 | abuela | churros | price 12 → 10 | Ay, cariño, eight is a little thin for my old table. Make it 10 P and he is yours — a good keeper, he saved me many goals. Have you eaten today? El Chato sells  |
 | 1936 | t10 | banco | chulapa, gato | - | Consta. Lo sabe, y lo sabe bien. Pero la chulapa no se mueve hoy. Mis términos siguen: El Gato de Lavapiés, setecientos sesenta y uno. Sin prisa. |
 | 1933 | t10 | banco | chulapa, gato | - | Bonita historia, y casi exacta. Guárdela para otro domingo. Hoy mis términos no cambian: El Gato de Lavapiés, setecientos sesenta y uno. La chulapa sigue en su  |
 | 1931 | t10 | banco | gato | - | Buenas tardes. Doña Pilar habla de más, pero pase. Páginas completas se respetan. Mis términos hoy: El Gato de Lavapiés, setecientos sesenta y uno. Tómese su ti |
@@ -118,8 +123,3 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 | 1609 | t16 | abuela | baldosa, chotis, madrileno | egg found; card LAT-06 | ¡Ay, qué alegría, hijo! A chotis — you dance it on one baldosa, cariño, like a real Madrileño. ¿Has comido?  Look: the Neighbourhood pack, twenty-six. Commons,  |
 | 1609 | t16 | chato | plaza mayor, you know madrid | egg found | Silver packs and rares. sells Silver pack ~150, uncommon ~26, rare ~77; buys uncommon, rare Plaza Mayor, with a caña. You know Madrid. Here, for your trouble. |
 | 1595 | t09 | abuela | cocido | - | Ay, hijo, qué bueno eres, pero no — five is my price and five it stays. El Portero goes home with you for 5 P, and you go home and eat that cocido, ¿eh? Tell me |
-| 1593 | t09 | abuela | cocido, tres vuelcos | card SAL-06 | Ay, cariño, ¡cocido con tres vuelcos! Just like my mother made it, with the sopa first, then the garbanzos... Take this, hijo, for remembering. El Portero, for  |
-| 1584 | t06 | abuela | la paloma | price 10 → 9 | Ay, tu abuela era lista, hijo, y seguro que guapa. Mira, nueve primas y cerramos, que ya nos hemos reído bastante. Esa Plaza de Olavide te cierra la página, ya  |
-| 1582 | t06 | abuela | la paloma | price 12 → 10 | Ay, cariño, qué salero tienes. Mira, te la dejo en diez primas y tan amigos. Esa carta cierra página, y una página entera vale mucho más que cartas sueltas, cré |
-| 1580 | t06 | abuela | cocido, tres vuelcos | - | ¡Ay, hijo, cocido de tres vuelcos! Así se hace. Mira, para empezar te enseño esta: Plaza de Olavide, doce primas. Es bonita, de las que completan página. Y si b |
-| 1579 | t06 | abuela | gato | - | ¡Ay, un abrazo de un gato de Madrid! Eso no se rechaza, hijo. Venga, 9 P y tuya es la Mercado de Vallehermoso. Guárdala bien, que una página entera vale mucho m |
