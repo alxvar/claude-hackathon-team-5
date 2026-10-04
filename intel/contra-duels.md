@@ -57,10 +57,14 @@ C that way within their bounds (`params.py` SPEC):
 | Set A, for scale | −0.027 | — | −0.009 | — |
 
 - **H2 agrees:** +0.027 for C+ against past rivals.
+- **The two models split on `MIN_STEP_P` 15 alone:** clear in the Lab's (+0.018 ± 0.002), a wash in the cross-check's
+  (+0.010 ± 0.013, from −0.003 to +0.012 across its variants). `ACCEPT_BY` 1 and the combination are clearly positive
+  in both, in every variant (`xcheck_paired.out`).
 - **C+ doesn't lower the deal rate:** 0.895 vs 0.889 in the Lab's model; 0.84 vs 0.84 in the cross-check's.
-- **Mirrors** (sim3: our bot against copies of today, A, C and C+): C+ beats C by +0.025 to +0.117 against every
-  opponent.
-  - `ACCEPT_BY` 1 alone loses to an A-mirror (−0.020).
+- **Mirrors** (`mirror.out`): sim3's mirror engine plays both sides with the models' drawn openers, not 0.42 / 0.37.
+  Our C+ beats our C by +0.025 to +0.117 against all five opponents: today, A and C on the LLM policy, and C and C+ on
+  code.
+  - `ACCEPT_BY` 1 alone loses to the A opponent (−0.020).
   - The combination doesn't, though its deal rate there drops from 1.00 to 0.92.
 
 **Why it fits the scoring.** Rounds = min(our priced offers, theirs), and accepts add no round. A hold sends nothing,
@@ -71,14 +75,24 @@ and waiting one more tick to accept costs no round by itself.
 - **The result is XC's shape** (hold, then a larger final), reached with params. C's closing ticks and silent walk stay.
 
 **The risk the models don't see: `ACCEPT_BY` 1 has no spare tick.** An accept refused on the last tick is not retried.
-The evidence says the risk is small [V]:
+
+**The records say the risk is small [V]:**
 - our two accepts sent at ticks_left 1 (2506, 6095) both settled on the deadline tick;
 - 13 deals in sessions 1-3 closed on the deadline tick;
-- none of our accepts was ever refused. The send errors in 140 records are 3 `wait_for_tick`, all on offers, and 2
-  `bad_price`;
-- with the duel window quiet, ops-contention models 0-1 key 429s an hour.
+- none of our accepts was ever refused. The send errors in 136 records are 3 `wait_for_tick`, all on offers, and 2
+  `bad_price`.
 
-The expected loss is ≈ 0.001 a duel, against a gain of 0.011-0.032 [L].
+**ops-contention's model [L]:** with the trader, swaps and opps off and 2 dealer threads open during Duels III, it gives
+0-6 key 429s an hour, 0-1.6 of them on the duelist, and 0 moves pushed a tick. The SDK's three retries absorb a
+429 within 1.5 s.
+- **Caveat:** that model's "0 lost deadline accepts" assumed `ACCEPT_BY` 2, so a spare tick. Under C+, a move pushed a
+  tick at ticks_left 1 is a lost deal.
+
+**Under that window, the expected loss is ≈ 0.001 a duel against a gain of 0.011-0.032 [L].**
+- **With the trader on,** the model gives 0-16 duelist hits an hour and still 0 pushed.
+- **With swaps and opps on as well,** it gives 0.1-2 pushed an hour.
+- **So C+'s `ACCEPT_BY` 1 is conditional:** use it only while the trader, swaps and opps stay off in the duel window
+  (§5). If they run, keep `ACCEPT_BY` 2 and take `MIN_STEP_P` 15 alone (+0.018 Lab, +0.010 cross-check).
 
 **Stake:** +0.029 to +0.042 a duel × 102 duels = +3.0 to +4.3 raw ≈ **+0.5 to +0.7 Sunday points** (≈ +0.2-0.3 final).
 That is more than C's whole edge over A.
@@ -89,8 +103,8 @@ WT=../team5-duelist-sunday
 printf '{"wave": "C+ contra-duels", "params": {"MIN_STEP_P": 15, "ACCEPT_BY": 1}}\n' > "$WT/run/c_plus.json"
 (cd "$WT" && python3 tools/duel_loop.py approve --proposal run/c_plus.json --by Aleks)
 ```
-- **What you should see:** `MIN_STEP_P: 8 → 15` and `ACCEPT_BY: default 2 → 1`. At the next tick the supervise log
-  shows the `params:` change lines.
+- **What you should see:** `MIN_STEP_P: 8.0 → 15` (`use` stores the float) and `ACCEPT_BY: default 2 → 1`. At the
+  next tick the supervise log shows the `params:` change lines.
 - **Why it's safe [L]:**
   - `approve` merges, so `_set` stays "C" and the auto-switch still works. A switch writes A whole, which puts
     `ACCEPT_BY` back to 2.
@@ -201,12 +215,15 @@ the next has just started.
 
 **The Lab's live check reads the records next to the script.** Run `tools/duel_gates.py` from the checkout:
 - From `$WT` it reads the 29aa1be snapshot and says "fewer than 12" forever.
-- Under C+ it prints "live params are not set C". That tool only advises; the real switch keys on `_set`.
+- Under C+, if the rule fires, it prints "live params are not set C: no switch". That tool only advises; the real
+  switch keys on `_set` and would switch.
 
-**The switch can stay silent.** It acts only when `docs/duels/feed.jsonl` gives the session (12 ticks, 10%) [V code].
-- `duels.scheduled` is posted when a session starts (ticks 120, 459, 1239), and the sweep keeps the last 200 feed
-  events a minute.
-- If it misses that event, the switch reads 16 ticks, never evaluates, and prints nothing.
+**The switch can stay silent (unlikely).** It acts only when the session's settings read (12 ticks, 10%) [V code].
+- **Where it reads them:** from `docs/duels/feed.jsonl` (the sweep keeps the last 200 feed events a minute) or from
+  each record's `session` object. The runner fills that object with a 500-event feed read as soon as it sees a duel of
+  an unknown session.
+- **If both miss `duels.scheduled`,** posted when a session starts (ticks 120, 459, 1239), the switch reads 16 ticks,
+  never evaluates, and prints nothing [L: unlikely].
 - **Check:** after the first closed wave, `$WT/logs/duelist/switch-*.log` shows a "switch rule HOLD" line.
 
 **What Aleks keeps on screen:**
@@ -219,7 +236,9 @@ Under C+, expect more "hold, nothing sent" lines, more accepts at ticks_left 1, 
 
 **Stake:** an unnoticed misstart costs ≈ 0.3 Sunday points per wave; the wrong set (A) ≈ −0.45 Sunday points.
 
-**Fix:** stage 2 carries exactly this block. Aleks updates his Now line.
+**Fix:** stage 2 carries exactly this block, and Aleks updates his Now line.
+- The `approve` line is still unrun (§1): the Builder should dry-run it first.
+- If it errors, it writes nothing and plain C plays.
 ```bash
 git fetch origin
 SHA=29aa1bed66962959ce633492d84bbc321385c7e7
@@ -240,17 +259,22 @@ bash <(git show "${SHA}:tools/duelist_sunday.sh") --status
 - **So every set question is worth less than 1 Sunday point:** C vs A, the switch, XC, C+.
 
 **The window rule.** At T−5 it stops the trader, swaps and opps, opens no new dealer threads and allows no restarts.
-- **What it buys,** by ops-contention's own model:
-  - with everything on: 0-2 duel moves an hour slip by one tick, 0 deadline accepts lost;
-  - with the trader and 2 dealer threads on: 0.4 moves an hour slip, 0 lost.
-- **What it costs:** ≈ 80 min without dealer threads or trading. That includes any CHA step still open at 10:55
-  (stage 1, +7) and the dealer close from 13:48 to 14:00.
+
+**What the dealer-thread ban buys: nothing measurable** (ops-contention, Duels III rows [L]):
+- policy §6 alone: 0-1 key 429s an hour;
+- policy §6 plus 2 dealer threads and a reactor wave (the CHA-release row): 0-6 429s an hour, 0-1.6 on the duelist,
+  0 moves pushed a tick.
+
+**What it costs:** ≈ 80 min of window [L] with no new dealer threads.
+- That includes any CHA step still open at 10:55 (stage 1, +7).
+- It also includes the dealers' last minutes before they close (warning 13:48, close ≈ 14:00).
 
 **Fix.**
-- In the window, stop swaps and opps and freeze restarts: those are the burst sources, and C+ makes the last-tick accept
-  count.
-- Keep the trader and the Operator's dealer threads.
-- A stage-1 action never waits for a duel window.
+- **Allow the Operator's dealer threads in the window.** A stage-1 action never waits for a duel window.
+- **Keep the trader, swaps and opps off, and freeze restarts.** With swaps and opps on, the model pushes 0.1-2 moves an
+  hour a tick. Under C+, a push on the last tick loses the deal.
+- **The trader alone** (0-16 duelist hits an hour, 0 pushed) took 2 accepts all Saturday. It isn't worth `ACCEPT_BY`
+  1's margin.
 
 ## 6. The switch rule: harmless, nearly worthless (question b): KEEP
 
@@ -296,8 +320,10 @@ rule (8 duels) misfires: the cross-check gives 12% at a true rate of 0.84.
 - sim3: A on the LLM policy with 10% timeouts scores 0.377, against 0.403 for A on code.
 
 **Residuals:**
-- An exception outside `LLMError` / `TimeoutError` in the text call turns that decision into `safe_move`. There were 0
-  such fallbacks in 903 recorded decisions [V]. Leave it.
+- An exception outside `LLMError` / `TimeoutError` in the text call turns that decision into `safe_move`.
+  - In 903 recorded decisions there were 0 `error:` fallbacks [V].
+  - But all 903 were Saturday's LLM-policy decisions. The code path's text call has never run live.
+  - Leave it, and watch for `FALLBACK(error` in the supervise log.
 - R5 (an unreadable weight) goes to the models. Issue 2 covers it.
 - If the organisers cut the tick below 10 s, approve `TEXT_TIMEOUT_S` 1.5. It is hot, with bounds 0.5-8.
 
