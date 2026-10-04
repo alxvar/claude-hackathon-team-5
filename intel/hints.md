@@ -284,3 +284,5 @@ La Caña te la dejo en 10 P, cariño. Y esta noche a las nueve y media abre El C
 - Sat 22:51 · message tick 1428 · pilar → t08 · Ah, la Cuesta de Moyano... los domingos en la Plaza Mayor, sí, los conozco bien. Allí aprendí a mirar. Pero hablemos de negocios: le ofrezco un sobre dorado por 504 P. Para gente seria.
 - Sat 23:24 · message tick 1433 · pilar → t08 · Qué buen gusto: cocido los martes, croquetas siempre, y la Milla de Oro, por supuesto. Serrano no se discute. Pues bien, hablemos de negocios: le ofrezco un sobre dorado por 504 P. Serio, elegante, como usted.
 - Sat 23:24 · message tick 1442 · pilar → t04 · Setenta y siete, no, caballero. Setenta y cinco, 75 P, dicho con toda cortesía y pagado en el acto. Es mi palabra, y mi palabra en El Rastro vale tanto como el oro. El Marqués dormirá en Salamanca.
+- Sun 09:20 · set.released tick 1446 ·  → ? · {"set": "CHA", "name": "Chamber\u00ed", "cards": 12}
+- Sun 09:20 · taller.crafted tick 1466 ·  → t05 · Team 5 turned three common cards into Samosas de la Plaza (uncommon) at The Workshop
