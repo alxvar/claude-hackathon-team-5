@@ -152,6 +152,25 @@ def bids_since(events) -> int:
     return 0
 
 
+def settle_last(events) -> list:
+    """The feed in tick order with each tick's settlements last, renumbered so every later step sees that order
+    (Market 11:20: an ask and its settlement on one tick, or a backfilled settlement with a negative id, made the
+    seller look like the holder)."""
+    out = sorted(events, key=lambda e: (e.get("tick") or 0, e.get("type") == "settlement", e.get("id") or 0))
+    return [{**e, "id": i} for i, e in enumerate(out, 1)]
+
+
+def sold_ticks(events) -> dict:
+    """(team, card) → ticks the team sold (gave away in a settlement) a copy of the card."""
+    out: dict = {}
+    for e in events:
+        if e.get("type") == "settlement":
+            for i in (e.get("payload") or {}).get("items") or []:
+                if i.get("kind") == "card" and op.is_team(i.get("frm")):
+                    out.setdefault((i["frm"], i.get("ref")), []).append(e.get("tick") or 0)
+    return out
+
+
 def counts(events, cards: dict) -> tuple[dict, dict, dict]:
     """((team, card) → copies seen, (team, card) → latest signal, (team, set) → profile). Copies: the distinct asset
     ids v10_radar.holdings sees, or 1 when the latest signal is a hold the ids miss (a gift, an egg, a Workshop craft,
@@ -366,6 +385,8 @@ def matches(*, events, catalog, teams, wants=(), mult=None, coll: Collectors | N
     mult = mult or {}
     cards = vr.card_index(catalog)
     pg = pages(catalog)
+    events = settle_last(events)
+    sold = sold_ticks(events)
     n, last, prof = counts(events, cards)
     tr = al.trace(events, cards)
     for k, v in al.copies(tr).items():
@@ -407,6 +428,10 @@ def matches(*, events, catalog, teams, wants=(), mult=None, coll: Collectors | N
         sig = last.get((buyer, card))
         holding = al.status(alb, buyer, card)               # gap | undecided | None (no arithmetic for the buyer)
         confirmed = wanted or bool(sig and sig["kind"] == "lack") or holding == "gap"
+        ask_first = ""
+        if sold.get((buyer, card)) and (alb.get(buyer) or {}).get("status") != "exact":
+            ask_first = f"ask first: {buyer} sold a {card} at tick {max(sold[(buyer, card)])}, it may keep another"
+            holding, confirmed = "ask first", False         # Market 11:20: teams sell duplicates (Team 3's SAL-03)
         if closer and buyer in riv:
             held_back.append({"buyer": buyer, "card": card, "why": "page-closer for a rival"})
             continue
@@ -416,6 +441,7 @@ def matches(*, events, catalog, teams, wants=(), mult=None, coll: Collectors | N
                               "why": f"page-closer for a team {g if g is None else round(g, 1)} below us "
                                      f"(< {policy.PAGE_CLOSER_GAP})"})
             continue
+        closer = closer and not ask_first                   # the safety checks above saw it as a possible closer
         m_b, lo_b, _ = _m(mult, buyer, st)
         hi = value(book, m_b, 1, closer, pg[st]["book"])
         hi_cons = value(book, lo_b, 1, closer, pg[st]["book"])
@@ -460,7 +486,7 @@ def matches(*, events, catalog, teams, wants=(), mult=None, coll: Collectors | N
                          "seller_value": round(lo, 1), "buyer_value": round(hi, 1), "closer": closer,
                          "confirmed": confirmed, "have": len(have), "page_size": len(pg[st]["cards"]),
                          "sources": c["sources"], "max": c["max"], "rival_buyer": buyer in riv,
-                         "rival_seller": seller in riv, "note": "; ".join(x for x in (note, safety) if x),
+                         "rival_seller": seller in riv, "note": "; ".join(x for x in (note, safety, ask_first) if x),
                          "holding": holding,
                          "bid": sig.get("src") if sig and sig["kind"] == "lack" else None})
         if rows:
@@ -602,7 +628,8 @@ def render(rows, held_back, prog, names, pg, *, tick=None, now=None, me=ME, riv=
                   "|---|---|---|---|---|---|---|---|---|---|"]
         for i, r in enumerate(rows[:TABLE_LINES], 1):
             why = " · ".join(r["sources"]) + (" ✓" if r["confirmed"] else "")
-            why += {"gap": " · gap proven", "undecided": " · undecided"}.get(r.get("holding"), "")
+            why += {"gap": " · gap proven", "undecided": " · undecided", "ask first": " · **ask first**"}.get(
+                r.get("holding"), "")
             why += f" · seller {r['seller_why']}" + (f" · also {', '.join(r['also'][:3])}" if r["also"] else "")
             why += f" · {r['note']}" if r["note"] else ""
             lines.append(f"| {i} | {r['buyer_name']} | {r['card']} {r['card_name']} | {r['seller_name']} | "

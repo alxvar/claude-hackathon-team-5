@@ -370,3 +370,33 @@ def test_the_buyer_dm_names_the_venue_twice_and_asks_for_no_bid_elsewhere():
     r = run(events)[0][0]
     assert r["dm_buyer"].count("v10") == 2 and "don't bid for it elsewhere" in r["dm_buyer"]
     assert "Only there" in r["dm_seller"] and r["dm_seller"].count("v10") == 2
+
+
+# ---- Market 11:20: a buyer that sold a copy may keep another; settlements last within a tick
+
+def sell(team, ref, to="picaros", tick=30):
+    _id[0] += 1
+    return ev(tick, "settlement", "", {"parties": [team, to], "price": 9, "items": [
+        {"id": 50_000 + _id[0], "kind": "card", "ref": ref, "frm": team, "to": to}]})
+
+
+def test_a_buyer_that_sold_the_card_is_ask_first_never_a_gap_or_a_closer():
+    events = page_but("t09", {"RET-09"}) + give("t08", "RET-09", "RET-09") + [sell("t09", "RET-09"),
+                                                                              bid("t09", "RET-09", 40, tick=60)]
+    rows = run(events)[0]
+    r = [x for x in rows if x["buyer"] == "t09"][0]
+    assert r["holding"] == "ask first" and not r["closer"] and not r["confirmed"] and "sold a RET-09" in r["note"]
+    text = mm.render(rows, [], {}, {}, mm.pages(CATALOG))
+    assert "ask first" in text and "page 10/10" not in text
+
+
+def test_an_ask_and_its_settlement_on_one_tick_leave_the_card_with_the_buyer():
+    listed = ev(40, "offer.listed", "t08", {"offer": {"id": 77, "maker": "t08", "give": {"assets": [
+        {"id": 9100, "ref": "RET-07"}]}, "want": {"cash": 20}}})
+    settled = {**ev(40, "settlement", "", {"parties": ["t08", "t04"], "price": 20, "items": [
+        {"id": 9100, "kind": "card", "ref": "RET-07", "frm": "t08", "to": "t04"}]}), "id": -5}   # a backfilled id
+    out = mm.settle_last([listed, settled])
+    assert [e["type"] for e in out] == ["offer.listed", "settlement"] and [e["id"] for e in out] == [1, 2]
+    n, last, _ = mm.counts(out, mm.vr.card_index(CATALOG))
+    assert not n.get(("t08", "RET-07")) and n.get(("t04", "RET-07")) == 1
+    assert mm.sold_ticks(out) == {("t08", "RET-07"): [40]}
