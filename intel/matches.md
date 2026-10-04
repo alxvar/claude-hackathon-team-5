@@ -1,6 +1,6 @@
 # v10 matchmaker: page finishers and first copies
 
-_Written by `tools/matchmaker.py` at 11:49 (tick 2042). Read-only. Holdings: the feed's copies (gifts, eggs and Workshop crafts included) plus the page arithmetic on the leaderboard's album_filled/pages_complete and minted supply (`tools/album.py`; 0 conflicts with intel/holdings-audit.md). ✓ = a proven gap, a bid since Saturday, or a want-list; "undecided" = the buyer may hold it. Giver: a true duplicate or a set it dumps (held back when its page is complete and under two copies are seen after its last craft); receiver: no copy, collects the set; both gain > 0 at the price (conservative multipliers). Want-lists: `intel/wants.md`. Never a page-closer for a rival or a team < 6 below us; a rival on either side gains <= 10 P at our price. Venue: a club deal (both sides in the club) alternates v10 / a member's market (least used, then lowest market score, never either side's own; page-closers on v10); every other deal on v10._
+_Written by `tools/matchmaker.py` at 11:54 (tick 2062). Read-only. Holdings: the feed's copies (gifts, eggs and Workshop crafts included) plus the page arithmetic on the leaderboard's album_filled/pages_complete and minted supply (`tools/album.py`; 0 conflicts with intel/holdings-audit.md). ✓ = a proven gap, a bid since Saturday, or a want-list; "undecided" = the buyer may hold it. Giver: a true duplicate or a set it dumps (held back when its page is complete and under two copies are seen after its last craft); receiver: no copy, collects the set; both gain > 0 at the price (conservative multipliers). Want-lists: `intel/wants.md`. Never a page-closer for a rival or a team < 6 below us; a rival on either side gains <= 10 P at our price. Venue: a club deal (both sides in the club) alternates v10 / a member's market (least used, then lowest market score, never either side's own; page-closers on v10); every other deal on v10._
 
 ## Matches (best first)
 
@@ -8,14 +8,15 @@ _Written by `tools/matchmaker.py` at 11:49 (tick 2042). Read-only. Holdings: the
 |---|---|---|---|---|---|---|---|---|---|
 | 1 | Team 9 | LAV-02 El Frutero de Argumosa | Team 16 | v10 | ~9 | +13 (low +11.2) |  |  | bid · **ask first** · seller holds 2 · also t04, t18 · spare unverified: 1 seen after its common craft at tick 730; ask first: t09 sold a LAV-02 at tick 369, it may keep another |
 | 2 | Team 8 | MAL-06 Tienda de Discos | Team 7 | v10 · club | ~26 | +12.4 (low +12.4) |  |  | bid · **ask first** · seller dumps MAL · also t04 · ask first: t08 sold a MAL-06 at tick 510, it may keep another |
-| 3 | Team 16 | RET-01 Barca del Estanque | Team 1 | v10 | ~8 | +7.1 (low +7.1) |  |  | bid ✓ · undecided · seller holds 2 · spare unverified: 1 seen after its common craft at tick 1333 |
-| 4 | Team 8 | MAL-02 Plaza del Dos de Mayo | Team 16 | v10 | ~9 | +6.2 (low +6.2) |  |  | bid · **ask first** · seller dumps MAL · also t14, t04, t03 · ask first: t08 sold a MAL-02 at tick 171, it may keep another |
-| 5 | Team 16 | RET-06 La Rosaleda | Team 8 | v10 | ~22 | +6.1 (low +6.1) |  |  | bid · **ask first** · seller dumps RET · ask first: t16 sold a RET-06 at tick 1011, it may keep another |
-| 6 | Team 16 | RET-03 El Titiritero | Team 4 | v10 | ~8 | +5.4 (low +5.4) |  |  | bid ✓ · undecided · seller holds 2 · also t08 |
-| 7 | Team 2 | MAL-04 El Tatuador | Team 8 | v21 · club | ~4 | +3.1 (low +2.1) |  |  | bid ✓ · undecided · seller holds 2 · spare unverified: 0 seen after its common craft at tick 1404, its MAL page may be complete |
-| 8 | Team 16 | RET-04 Paseo de Coches | Team 8 | v10 | ~8 | +2.5 (low +2.5) |  |  | bid ✓ · undecided · seller dumps RET |
-| 9 | Team 13 | RET-03 El Titiritero | Team 8 | v10 | ~8 | +1.7 (low +1.7) |  | rival buyer | bid ✓ · gap proven · seller dumps RET · also t04 |
-| 10 | Team 13 | RET-05 La Ardilla | Team 8 | v10 | ~8 | +1.7 (low +1.7) |  | rival buyer | bid ✓ · gap proven · seller dumps RET |
+| 3 | Team 16 | RET-01 Barca del Estanque | Team 1 | v10 | ~8 | +7.1 (low +7.1) |  |  | bid ✓ · gap proven · seller holds 2 · also t02 · spare unverified: 1 seen after its common craft at tick 1333 |
+| 4 | Team 8 | MAL-02 Plaza del Dos de Mayo | Team 6 | v10 | ~9 | +6.3 (low +6.3) |  |  | bid · **ask first** · seller dumps MAL · also t16, t14, t03 · ask first: t08 sold a MAL-02 at tick 171, it may keep another |
+| 5 | Team 16 | RET-06 La Rosaleda | Team 8 | v10 | ~22 | +6.1 (low +6.1) |  |  | bid ✓ · gap proven · seller dumps RET |
+| 6 | Team 13 | RET-01 Barca del Estanque | Team 2 | v10 | ~8 | +5.2 (low +5) |  | rival buyer | bid ✓ · gap proven · seller holds 2 · also t01 |
+| 7 | Team 1 | RET-03 El Titiritero | Team 4 | v10 | ~7 | +4 (low +4) |  | rival seller | bid ✓ · gap proven · seller holds 2 |
+| 8 | Team 2 | MAL-04 El Tatuador | Team 8 | v21 · club | ~4 | +3.1 (low +2.1) |  |  | bid ✓ · undecided · seller holds 2 · spare unverified: 0 seen after its common craft at tick 1404, its MAL page may be complete |
+| 9 | Team 16 | RET-03 El Titiritero | Team 8 | v10 | ~8 | +2.5 (low +2.5) |  |  | bid ✓ · gap proven · seller dumps RET · also t04 |
+| 10 | Team 16 | RET-04 Paseo de Coches | Team 8 | v10 | ~8 | +2.5 (low +2.5) |  |  | bid ✓ · gap proven · seller dumps RET |
+| 11 | Team 13 | RET-05 La Ardilla | Team 8 | v10 | ~8 | +1.7 (low +1.7) |  | rival buyer | bid ✓ · gap proven · seller dumps RET |
 
 ## Ready DMs
 
@@ -31,25 +32,25 @@ _Written by `tools/matchmaker.py` at 11:49 (tick 2042). Read-only. Holdings: the
 - To Team 1: "Hi Team 1! Could you post your Barca del Estanque (RET-01) on v10 as an ask addressed to Team 16, at ~8 P? Only there, please: they're ready to take it on v10. Only if it's a spare for you, keep one copy. Thanks!"
 - To Team 16: "Hi Team 16! Team 1 can post Barca del Estanque (RET-01) on v10 as an ask addressed to Team 16, at ~8 P: please accept it there, on v10, once it's up, and don't bid for it elsewhere meanwhile. Thanks!"
 
-**4. MAL-02 · Team 16 → Team 8 at ~9 P on v10**
-- To Team 16: "Hi Team 16! Could you post your Plaza del Dos de Mayo (MAL-02) on v10 as an ask addressed to Team 8, at ~9 P? Only there, please: they're ready to take it on v10. Only if it's a spare for you, keep one copy. Thanks!"
-- To Team 8: "Hi Team 8! Team 16 can post Plaza del Dos de Mayo (MAL-02) on v10 as an ask addressed to Team 8, at ~9 P: please accept it there, on v10, once it's up, and don't bid for it elsewhere meanwhile. Thanks!"
+**4. MAL-02 · Team 6 → Team 8 at ~9 P on v10**
+- To Team 6: "Hi Team 6! Could you post your Plaza del Dos de Mayo (MAL-02) on v10 as an ask addressed to Team 8, at ~9 P? Only there, please: they're ready to take it on v10. Only if it's a spare for you, keep one copy. Thanks!"
+- To Team 8: "Hi Team 8! Team 6 can post Plaza del Dos de Mayo (MAL-02) on v10 as an ask addressed to Team 8, at ~9 P: please accept it there, on v10, once it's up, and don't bid for it elsewhere meanwhile. Thanks!"
 
 **5. RET-06 · Team 8 → Team 16 at ~22 P on v10**
 - To Team 8: "Hi Team 8! Could you post your La Rosaleda (RET-06) on v10 as an ask addressed to Team 16, at ~22 P? Only there, please: they're ready to take it on v10. Only if it's a spare for you, keep one copy. Thanks!"
 - To Team 16: "Hi Team 16! Team 8 can post La Rosaleda (RET-06) on v10 as an ask addressed to Team 16, at ~22 P: please accept it there, on v10, once it's up, and don't bid for it elsewhere meanwhile. Thanks!"
 
-**6. RET-03 · Team 4 → Team 16 at ~8 P on v10**
-- To Team 4: "Hi Team 4! Could you post your El Titiritero (RET-03) on v10 as an ask addressed to Team 16, at ~8 P? Only there, please: they're ready to take it on v10. Only if it's a spare for you, keep one copy. Thanks!"
-- To Team 16: "Hi Team 16! Team 4 can post El Titiritero (RET-03) on v10 as an ask addressed to Team 16, at ~8 P: please accept it there, on v10, once it's up, and don't bid for it elsewhere meanwhile. Thanks!"
+**6. RET-01 · Team 2 → Team 13 at ~8 P on v10**
+- To Team 2: "Hi Team 2! Could you post your Barca del Estanque (RET-01) on v10 as an ask addressed to Team 13, at ~8 P? Only there, please: they're ready to take it on v10. Only if it's a spare for you, keep one copy. Thanks!"
+- To Team 13: "Hi Team 13! Team 2 can post Barca del Estanque (RET-01) on v10 as an ask addressed to Team 13, at ~8 P: please accept it there, on v10, once it's up, and don't bid for it elsewhere meanwhile. Thanks!"
 
-**7. MAL-04 · Team 8 → Team 2 at ~4 P on v21 (Team 9's market)**
+**7. RET-03 · Team 4 → Team 1 at ~7 P on v10**
+- To Team 4: "Hi Team 4! Could you post your El Titiritero (RET-03) on v10 as an ask addressed to Team 1, at ~7 P? Only there, please: they're ready to take it on v10. Only if it's a spare for you, keep one copy. Thanks!"
+- To Team 1: "Hi Team 1! Team 4 can post El Titiritero (RET-03) on v10 as an ask addressed to Team 1, at ~7 P: please accept it there, on v10, once it's up, and don't bid for it elsewhere meanwhile. Thanks!"
+
+**8. MAL-04 · Team 8 → Team 2 at ~4 P on v21 (Team 9's market)**
 - To Team 8: "Hi Team 8! Could you post your El Tatuador (MAL-04) on v21 (Team 9's market) as an ask addressed to Team 2, at ~4 P? Only there, please: they're ready to take it on v21. Only if it's a spare for you, keep one copy. Thanks!"
 - To Team 2: "Hi Team 2! Team 8 can post El Tatuador (MAL-04) on v21 (Team 9's market) as an ask addressed to Team 2, at ~4 P: please accept it there, on v21, once it's up, and don't bid for it elsewhere meanwhile. Thanks!"
-
-**8. RET-04 · Team 8 → Team 16 at ~8 P on v10**
-- To Team 8: "Hi Team 8! Could you post your Paseo de Coches (RET-04) on v10 as an ask addressed to Team 16, at ~8 P? Only there, please: they're ready to take it on v10. Only if it's a spare for you, keep one copy. Thanks!"
-- To Team 16: "Hi Team 16! Team 8 can post Paseo de Coches (RET-04) on v10 as an ask addressed to Team 16, at ~8 P: please accept it there, on v10, once it's up, and don't bid for it elsewhere meanwhile. Thanks!"
 
 ## Teams one or two cards from a page
 
@@ -59,10 +60,8 @@ _Written by `tools/matchmaker.py` at 11:49 (tick 2042). Read-only. Holdings: the
 
 - MAL-02 for Team 8: seller safety: Team 17's MAL page is complete and only 0 copies of it seen after its last common craft (tick 929)
 - MAL-02 for Team 8: seller safety: Team 10's MAL page is complete and only 0 copies of it seen after its last common craft (tick 1718)
-- RET-01 for Team 13: seller safety: Team 2's RET page is complete and only 1 copy of it seen after its last common craft (tick 1819)
 - MAL-04 for Team 2: seller safety: Team 1's MAL page is complete and only 0 copies of it seen after its last common craft (tick 1333)
-- MAL-04 for Team 2: seller safety: Team 12's MAL page is complete and only 0 copies of it seen after its last common craft (tick 1114)
-- RET-01 for Team 16: seller safety: Team 2's RET page is complete and only 1 copy of it seen after its last common craft (tick 1819)
+- MAL-04 for Team 2: seller safety: Team 12's MAL page is complete and only 1 copy of it seen after its last common craft (tick 1114)
 - RET-01 for Team 16: seller safety: Team 12's RET page is complete and only 1 copy of it seen after its last common craft (tick 1114)
 
 ## Holdings (page arithmetic)
@@ -82,8 +81,8 @@ _Written by `tools/matchmaker.py` at 11:49 (tick 2042). Read-only. Holdings: the
 | Team 12 | exact | 44/44 | 16 | 0 |
 | Team 13 | repaired | 30/33 | 26 | 4 |
 | Team 14 | partial | 42/43 | 8 | 10 |
-| Team 15 | exact | 43/43 | 17 | 0 |
-| Team 16 | partial | 36/37 | 9 | 15 |
+| Team 15 | partial | 42/43 | 7 | 11 |
+| Team 16 | exact | 37/37 | 23 | 0 |
 | Team 17 | exact | 37/37 | 23 | 0 |
 | Team 18 | exact | 47/47 | 13 | 0 |
 
