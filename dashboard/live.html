@@ -153,6 +153,18 @@ main { padding: 16px 20px 48px; max-width: 1500px; margin: 0 auto; display: grid
 .deckgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(560px, 1fr)); column-gap: 28px; }
 @media (max-width: 700px) { .lb .hide-s { display: none; } .deckgrid { grid-template-columns: 1fr; } }
 
+/* our market (v10) */
+.v10grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 18px; align-items: start; }
+@media (max-width: 1000px) { .v10grid { grid-template-columns: 1fr; } }
+.mini-h { font-size: 11px; color: var(--text-muted); letter-spacing: .03em; margin-bottom: 6px; }
+.vtr { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; font-size: 12.5px; max-height: 260px; overflow: auto; }
+.vtr li { padding: 5px 8px; border-radius: 6px; background: var(--surface-2); color: var(--text-secondary); }
+.vtr li.today { border-left: 3px solid var(--good); }
+.vtr b { color: var(--text-primary); font-weight: 600; }
+.lb .rv { color: var(--serious); font-size: 11px; margin-left: 4px; }
+.side { font-size: 10.5px; font-weight: 700; letter-spacing: .03em; margin-right: 6px; }
+.side.ask { color: var(--serious); } .side.bid { color: var(--good); } .side.swap { color: var(--text-secondary); }
+
 /* race card + explorer */
 .xbtn { margin-left: auto; background: none; border: 1px solid var(--border); color: var(--text-secondary); border-radius: 6px;
         font: inherit; font-size: 12.5px; padding: 2px 10px; cursor: pointer; }
@@ -242,9 +254,10 @@ main > * { min-width: 0; }
     </section>
     <div class="col">
       <section class="card">
-        <div class="head"><h2>The race</h2><span class="meta">us and the two teams above and below</span>
+        <div class="head"><h2>The race</h2><span class="meta">dashed = projection · shaded = 80 % range</span>
           <button class="xbtn" id="raceOpen" title="Zoom, every team, and why each one jumped">⤢ Explore</button></div>
         <div class="chartbox" id="raceBox"><canvas id="race"></canvas></div>
+        <p class="sub-note" id="raceProj"></p>
       </section>
       <section class="card">
         <div class="head"><h2>By arena</h2><span class="meta">everything we played today and before</span></div>
@@ -252,6 +265,15 @@ main > * { min-width: 0; }
       </section>
     </div>
   </div>
+
+  <section class="card" id="v10Card">
+    <div class="head"><h2 id="v10Title">Our market</h2><span class="meta" id="v10Stats"></span></div>
+    <div class="v10grid">
+      <div class="lbwrap"><table class="lb" id="v10T"></table></div>
+      <div><div class="mini-h">Trades settled on it</div><ul class="vtr" id="v10Tr"></ul></div>
+    </div>
+    <p class="sub-note">Every open offer on our stall, with the real team behind it: the public board shows only offers open to anyone, under an alias, so offers addressed to one team and every maker's name come from the feed. Other teams' trades here create the value that scores our market points; we can't trade on our own stall. ⚔ = a top-6 team.</p>
+  </section>
 
   <section class="card">
     <div class="head">
@@ -533,6 +555,36 @@ function lbCountdown() {
 setInterval(lbCountdown, 1000);
 $("#lbT").addEventListener("click", e => { const tr = e.target.closest("tr[data-t]"); if (tr) openRace(tr.dataset.t); });
 
+// ------------------------------------------------------------------ our market (v10): open offers and trades on our stall
+const SIDE = { ask: "SELLS", bid: "BUYS", swap: "SWAPS" };
+function venueBoard(d) {
+  const v = d.venue_board, cardEl = $("#v10Card");
+  if (!v) { cardEl.style.display = "none"; return; }
+  cardEl.style.display = "";
+  const tsec = d.clock.tick_seconds || 15;
+  $("#v10Title").textContent = `Our market · ${v.venue}`;
+  const addressed = v.offers.filter(o => o.to).length;
+  $("#v10Stats").innerHTML = `${esc(v.name || "")} · ${(v.fee_bps ?? 0) / 100} % fee · <b>${v.offers.length}</b> open offer${v.offers.length === 1 ? "" : "s"}`
+    + (addressed ? ` (${addressed} addressed to one team)` : "")
+    + (v.makers.length ? ` (${v.makers.map(([n, k]) => `${esc(n)} ×${k}`).join(", ")})` : "") + ` · <b>${v.trades_today}</b> trade${v.trades_today === 1 ? "" : "s"} today`;
+  const cards = cs => cs.map(c => `<b>${esc(c.ref)}</b> ${esc(c.name || "")} <span class="muted">${esc(c.rarity || "")}</span>`).join(" + ");
+  const who = (name, rank) => `${esc(name)}${rank ? ` <span class="muted">#${rank}</span>` : ""}${rank && rank <= 6 && name !== "Team 5" ? `<span class="rv">⚔</span>` : ""}`;
+  $("#v10T").innerHTML = v.offers.length
+    ? `<thead><tr><th>Team</th><th>Offer</th><th class="n">Price</th><th class="n hide-s">× book</th><th class="hide-s">To</th><th class="n">Expires</th><th class="n hide-s">Posted</th></tr></thead><tbody>`
+      + v.offers.slice(0, 12).map(o => `<tr style="cursor:default"><td>${who(o.name, o.rank)}</td>`
+        + `<td style="white-space:normal"><span class="side ${o.side}">${SIDE[o.side] || ""}</span>${cards(o.cards)}</td>`
+        + `<td class="n"><b>${o.price ?? "—"}</b> P</td><td class="n hide-s">${o.vs_book != null ? o.vs_book.toFixed(2) : "—"}</td>`
+        + `<td class="hide-s">${o.to ? `→ ${who(o.to, o.to_rank)}` : `<span class="muted">anyone</span>`}</td>`
+        + `<td class="n">${o.left != null ? `${Math.max(0, Math.round(o.left * tsec / 60))} min` : "—"}</td>`
+        + `<td class="n hide-s muted">${o.ts ? when(o.ts, false) : "tick " + (o.created ?? "—")}</td></tr>`).join("")
+      + (v.offers.length > 12 ? `<tr style="cursor:default"><td colspan="7" class="muted">+${v.offers.length - 12} more (newest shown first)</td></tr>` : "") + `</tbody>`
+    : `<tbody><tr><td class="muted" style="border:0">No open offer on ${esc(v.venue)} right now${v.read ? "" : " (waiting for the first read)"}.</td></tr></tbody>`;
+  $("#v10Tr").innerHTML = v.trades.length
+    ? v.trades.map(t => `<li class="${t.today ? "today" : ""}"><span class="muted">${t.ts ? when(t.ts) : "tick " + t.tick}</span> · ${who(t.seller, t.seller_rank)} → ${who(t.buyer, t.buyer_rank)} · `
+        + `${t.cards.map(c => `<b>${esc(c.ref)}</b>`).join(" + ")} for <b>${t.price}</b> P</li>`).join("")
+    : `<li class="muted">No trade settled on ${esc(v.venue)} yet.</li>`;
+}
+
 // us between the teams above and below, placed by score
 function raceTrack(d) {
   const us = d.lb_score, pts = [d.below && { s: d.below.score, us: false }, { s: us, us: true }, d.above && { s: d.above.score, us: false }].filter(Boolean);
@@ -748,22 +800,92 @@ const raceLine = (d, id, color, hist, extra = {}) => ({
   data: hist.filter(h => h.scores[id] != null && h.t != null).map(h => ({ x: h.t, y: h.scores[id], ts: h.ts, tick: h.tick })),
   borderColor: color, backgroundColor: color, borderWidth: id === d.us ? 3 : 2, pointRadius: 0, pointHoverRadius: 5, pointHitRadius: 8,
   tension: 0.15, order: id === d.us ? 0 : 1, ...extra });
-const raceTip = J => ({ itemSort: (a, b) => b.parsed.y - a.parsed.y, callbacks: {
+const raceTip = J => ({ itemSort: (a, b) => b.parsed.y - a.parsed.y, filter: it => !it.dataset.isBand, callbacks: {
   title: it => { const r = it[0]?.raw || {}; if (it[0]?.dataset.isMarkers) { const j = J[r.j]; return `${when(j.ts0)} → ${when(j.ts1, !sameDay(j.ts0, j.ts1))}`; }
-                 return `${when(r.ts)} · tick ${r.tick}`; },
-  label: it => it.dataset.isMarkers ? ` ${sgn(J[it.raw.j].delta)} points · ${J[it.raw.j].why[0]}` : ` ${it.dataset.label}: ${it.parsed.y.toFixed(2)}`,
+                 return r.tick != null ? `${when(r.ts)} · tick ${r.tick}` : `${when(tToTs(r.x))} · projection`; },
+  label: it => it.dataset.isMarkers ? ` ${sgn(J[it.raw.j].delta)} points · ${J[it.raw.j].why[0]}`
+    : it.dataset.isProj ? ` ${it.dataset.label}: ${it.parsed.y.toFixed(2)} (80 %: ${it.raw.lo.toFixed(1)}–${it.raw.hi.toFixed(1)})`
+    : ` ${it.dataset.label}: ${it.parsed.y.toFixed(2)}`,
   afterLabel: it => it.dataset.isMarkers ? J[it.raw.j].why.slice(1, 5).map(w => "   " + w) : "" } });
 
+// Projection to the close, per team: its trend over the last 90 game minutes (least squares), fading over about an hour
+// (momentum doesn't last), ± its typical volatility (the spread of its snapshot-to-snapshot moves around that trend,
+// today only, growing with √time): an 80 % range if the next hours look like the last ones. Statistical only: it knows
+// nothing about the Grand Final or a Market Test.
+const PROJ_TAU = 1, PROJ_Z = 1.28;
+function project(hist, id, tEnd, tDay) {
+  const pts = hist.filter(h => h.scores[id] != null && h.t != null).map(h => [h.t, h.scores[id]]);
+  if (pts.length < 6) return null;
+  const [t0, s0] = pts[pts.length - 1];
+  const win = pts.filter(p => p[0] >= t0 - 1.5), n = win.length;
+  if (n < 4 || !(tEnd > t0)) return null;
+  const mt = win.reduce((a, p) => a + p[0], 0) / n, ms = win.reduce((a, p) => a + p[1], 0) / n;
+  const sxx = win.reduce((a, p) => a + (p[0] - mt) ** 2, 0);
+  const slope = sxx ? win.reduce((a, p) => a + (p[0] - mt) * (p[1] - ms), 0) / sxx : 0;
+  const vol = pts.filter(p => p[0] >= Math.max(tDay ?? -Infinity, t0 - 3));
+  let ss = 0, st = 0;
+  for (let i = 1; i < vol.length; i++) {
+    const dt = vol[i][0] - vol[i - 1][0];
+    if (dt > 0) { ss += (vol[i][1] - vol[i - 1][1] - slope * dt) ** 2; st += dt; }
+  }
+  const sigma = st ? Math.sqrt(ss / st) : 0, out = [];   // per √(game hour)
+  for (let k = 0; k <= 12; k++) {
+    const t = t0 + (tEnd - t0) * k / 12, h = t - t0;
+    const c = s0 + slope * PROJ_TAU * (1 - Math.exp(-h / PROJ_TAU)), r = PROJ_Z * sigma * Math.sqrt(h);
+    out.push({ x: t, y: c, lo: c - r, hi: c + r });
+  }
+  return out;
+}
+// a dashed "now" line where the history ends and the projection starts
+const nowLine = { id: "nowLine", afterDraw(c, _, o) {
+  if (o.t == null) return;
+  const x = c.scales.x, ar = c.chartArea;
+  if (o.t <= x.min || o.t >= x.max) return;
+  const px = x.getPixelForValue(o.t), ctx = c.ctx;
+  ctx.save(); ctx.strokeStyle = css("--text-secondary"); ctx.fillStyle = css("--text-secondary"); ctx.setLineDash([2, 3]);
+  ctx.font = "11px system-ui, sans-serif"; ctx.beginPath(); ctx.moveTo(px, ar.top); ctx.lineTo(px, ar.bottom); ctx.stroke();
+  ctx.fillText("now", px + 4, ar.bottom - 6); ctx.restore();
+} };
+
 function race(d) {
-  const ids = d.neighbours || [], hist = (d.lb_hist || []).slice(-60), col = raceColors(ids, d.us);
-  chart("race", "line", { datasets: ids.map(id => raceLine(d, id, col(id), hist)) }, {
+  const ids = d.neighbours || [], hist = (d.lb_hist || []).slice(-40), col = raceColors(ids, d.us);
+  const ds = ids.map(id => raceLine(d, id, col(id), hist));
+  const T = TL.t, S = TL.ts, last = T[T.length - 1];
+  const closeTs = d.clock.closes ? new Date(d.clock.closes).getTime() / 1000 : null;
+  const tEnd = closeTs && S.length ? last + (closeTs - S[S.length - 1]) / 3600 : null;
+  const days = (d.timeline || {}).days || [], tDay = days.length ? days[days.length - 1].t : null;
+  const proj = [];
+  if (tEnd > last) ids.forEach(id => {
+    const p = project(d.lb_hist || [], id, tEnd, tDay);
+    if (!p) return;
+    const c = col(id), name = (id === d.us ? "★ " : "") + (d.names[id] || id);
+    ds.push({ label: name, isBand: true, data: p.map(q => ({ x: q.x, y: q.hi })), borderColor: alpha(c, 0.5), borderWidth: 1, borderDash: [1, 3], pointRadius: 0, pointHitRadius: 0, fill: false, order: 5 });
+    ds.push({ label: name, isBand: true, data: p.map(q => ({ x: q.x, y: q.lo })), borderColor: alpha(c, 0.5), borderWidth: 1, borderDash: [1, 3], pointRadius: 0, pointHitRadius: 0,
+              fill: "-1", backgroundColor: alpha(c, 0.07), order: 5 });
+    ds.push({ label: name, isProj: true, team: id, data: p, borderColor: c, backgroundColor: c, borderDash: [5, 4], borderWidth: id === d.us ? 2.5 : 1.75,
+              pointRadius: 0, pointHoverRadius: 4, pointHitRadius: 6, order: id === d.us ? 0 : 1 });
+    proj.push({ id, name: d.names[id] || id, us: id === d.us, end: p[p.length - 1] });
+  });
+  chart("race", "line", { datasets: ds }, {
     interaction: { mode: window.Chart && Chart.Interaction.modes.race ? "race" : "index", intersect: false },
     onClick: () => openRace(),
-    scales: { x: timeAxis({ min: hist[0]?.t, max: hist[hist.length - 1]?.t }),
+    scales: { x: timeAxis({ min: hist[0]?.t, max: tEnd > last ? tEnd : last }),
               y: { ...axis(), ticks: { color: css("--text-muted"), font: { size: 10 }, maxTicksLimit: 6 } } },
-    plugins: { legend: { position: "bottom", labels: { color: css("--text-secondary"), boxWidth: 12, boxHeight: 3, font: { size: 11 } } },
-               tooltip: raceTip([]) },
-  }, [dayLines]);
+    plugins: { legend: { position: "bottom", labels: { color: css("--text-secondary"), boxWidth: 12, boxHeight: 3, font: { size: 11 },
+                         filter: (it, cd) => !cd.datasets[it.datasetIndex].isBand && !cd.datasets[it.datasetIndex].isProj } },
+               tooltip: raceTip([]), nowLine: { t: last } },
+  }, [dayLines, nowLine]);
+  // at the close, in projected order; "too close to call" when our range overlaps another team's
+  proj.sort((a, b) => b.end.y - a.end.y);
+  const usI = proj.findIndex(p => p.us), me = proj[usI];
+  const close = me && proj.some(p => !p.us && p.end.lo <= me.end.hi && p.end.hi >= me.end.lo);
+  const strong = t => `<b style="color:var(--text-primary)">${t}</b>`;
+  $("#raceProj").innerHTML = proj.length
+    ? `At the close (${when(closeTs, false)}), if the last 90 min hold: ` + proj.map(p => {
+        const txt = `${esc(p.name)} ${p.end.y.toFixed(1)}`;
+        return `${p.us ? strong(txt) : txt} <span class="muted">(${p.end.lo.toFixed(1)}–${p.end.hi.toFixed(1)})</span>`; }).join(" · ")
+      + (me ? ` · ${strong(`us #${usI + 1} of these ${proj.length}`)}${close ? ": the ranges overlap, too close to call" : ""}` : "")
+    : "";
 }
 
 // ------------------------------------------------------------------ race explorer: every team, zoom, why each jump
@@ -945,7 +1067,7 @@ function render() {
   const d = DATA; if (!d) return;
   if (d.fatal) { $("#clock").innerHTML = `<span class="err">server error: ${esc(d.fatal)}</span>`; return; }
   timeTable(d);
-  const parts = [["header", header], ["kpis", kpis], ["leaderboard", leaderboardTable], ["battles", battles], ["deck", deck], ["race", race], ["arenas", arenas],
+  const parts = [["header", header], ["kpis", kpis], ["leaderboard", leaderboardTable], ["v10", venueBoard], ["battles", battles], ["deck", deck], ["race", race], ["arenas", arenas],
                  ["explorer", () => renderRace(false)]];
   for (const [name, fn] of parts) {
     try { fn(d); } catch (e) { console.error(name, e); }

@@ -329,6 +329,11 @@ class Collector:
             time.sleep(5)  # git busy (index.lock): try again
         self.errors.appendleft(f"{time.strftime('%H:%M:%S')} teams.md: git busy, will retry next round")
 
+    def our_venue(self):
+        """Our own stall's venue id, from the last /api/venues read (refreshed every 10 loops) and /api/me."""
+        me = (self.latest.get("me") or {}).get("id") or "t05"
+        return next((v.get("venue") for v in (self.latest.get("venues") or {}).get("venues", []) if v.get("owner") == me), None)
+
     def run(self):
         n = 0
         while True:
@@ -344,6 +349,9 @@ class Collector:
                 if lb:
                     self._ingest_lb(lb)
             self._get("board", lambda: self.pub.board("rastro"))
+            ours = self.our_venue()
+            if ours:  # public route, no key: our own stall's open offers
+                self._get("board_ours", lambda: self.pub.board(ours))
             if self.team:
                 me = self._get("me", self.team.me)
                 if me:
@@ -382,6 +390,16 @@ def refs_of(side):
     return [r for r in out if r]
 
 
+def offer_terms(o):
+    """(side, card refs, price) of a posted offer: 'bid' = cash for cards, 'ask' = cards for cash, else 'swap'."""
+    give, want = o.get("give") or {}, o.get("want") or {}
+    if cash_of(give) and refs_of(want):
+        return "bid", refs_of(want), cash_of(give)
+    if refs_of(give) and cash_of(want):
+        return "ask", refs_of(give), cash_of(want)
+    return "swap", refs_of(give) + refs_of(want), cash_of(give) or cash_of(want)
+
+
 def set_of(ref):
     return ref.split("-")[0] if ref and "-" in ref else "?"
 
@@ -406,6 +424,8 @@ class Analysis:
         self.clock = L.get("clock") or {}
         self.lb = L.get("leaderboard") or {}
         self.board = (L.get("board") or {}).get("offers", [])
+        self.board_ours = (L.get("board_ours") or {}).get("offers", [])
+        self.board_ours_read = "board_ours" in L
         self.me = L.get("me") or {}
         self.cat = L.get("catalog") or {}
         self.sched = L.get("schedule") or {}
@@ -415,6 +435,7 @@ class Analysis:
         self.duels = (L.get("duels") or {}).get("duels", [])
         self.duels_done = (L.get("duels_done") or {}).get("duels", [])
         self.us = self.me.get("id") or "t05"
+        self.our_vid = next((v.get("venue") for v in self.venues if v.get("owner") == self.us), None)
         self.names = {t["team"]: t.get("name", t["team"]) for t in self.lb.get("teams", [])}
         for d in self.dealers:
             self.names.setdefault(d["id"], d.get("name", d["id"]))
@@ -479,6 +500,7 @@ class Analysis:
         self.holder = {}
         self.threads = {}
         self.closed_threads = set()
+        self.v_listed, self.v_cancelled = {}, set()   # offers posted on our own venue, and the ones cancelled
         self.packs = collections.Counter()
         self.gifts = collections.Counter()
         self.listings = collections.Counter()
@@ -495,6 +517,8 @@ class Analysis:
                 o = p.get("offer") or {}
                 who = e.get("actor") or o.get("maker")
                 self.maker[o.get("id")] = who
+                if self.our_vid and o.get("venue") == self.our_vid:
+                    self.v_listed[o.get("id")] = {**o, "maker": who}
                 self.listings[who] += 1
                 if cash_of(o.get("give")) and refs_of(o.get("want")):
                     each = cash_of(o.get("give")) / len(refs_of(o.get("want")))
@@ -533,6 +557,8 @@ class Analysis:
                                   "price": price, "final": bool(o.get("final")) if o else False})
             elif ty == "thread.closed":
                 self.closed_threads.add(p.get("thread"))
+            elif ty == "offer.cancelled" and self.our_vid and p.get("venue") == self.our_vid:
+                self.v_cancelled.add(p.get("offer"))
             elif ty == "duel.closed":
                 self.duel_closed.append(p)
             elif ty == "pack.opened":
@@ -652,13 +678,7 @@ class Analysis:
             if o.get("status") not in (None, "open"):
                 continue
             team = self.maker.get(o.get("id"))
-            give, want = o.get("give") or {}, o.get("want") or {}
-            if cash_of(give) and refs_of(want):
-                side, refs, price = "bid", refs_of(want), cash_of(give)
-            elif refs_of(give) and cash_of(want):
-                side, refs, price = "ask", refs_of(give), cash_of(want)
-            else:
-                side, refs, price = "swap", refs_of(give) + refs_of(want), cash_of(give) or cash_of(want)
+            side, refs, price = offer_terms(o)
             ref = refs[0] if refs else None
             row = {"id": o.get("id"), "team": team, "name": self.name(team) if team else "unknown",
                    "ours": team == self.us, "side": side, "ref": ref, "n": len(refs), "price": price,
@@ -1574,6 +1594,66 @@ class Analysis:
                 "series": [[r["tick"], r["market"]] for r in rows if r["tick"] <= start + ticks + 4][-40:],
                 "bench_efficiency": (self.me.get("score") or {}).get("bench_efficiency")}
 
+    def venue_board(self):
+        """Our own stall (v10): its open offers with the real team behind each (the board shows an alias; the feed's
+        `offer.listed` names the maker), and every trade settled on it, newest first. Others' trades here create the
+        value that scores our market points; we can't trade on our own stall."""
+        venue = next((v for v in self.venues if v.get("owner") == self.us), None)
+        if not venue:
+            return None
+        vid, tick = venue.get("venue"), self.clock.get("tick") or 0
+        rank = {t.get("team"): t.get("rank") for t in (self.lb or {}).get("teams", [])}
+
+        def card(r):
+            cd = self.cards.get(r) or {}
+            return {"ref": r, "name": cd.get("name"), "rarity": cd.get("rarity"), "book": cd.get("book") or self.book.get(cd.get("rarity"))}
+        # The public board lists only offers open to anyone; offers addressed to one team show only in the feed. An
+        # offer is open while not cancelled, not expired, and not matched by a settlement here (same maker, cards, price).
+        here = [tr for tr in self.trades if tr.get("venue") == vid]
+
+        def filled(o, team, refs, price):
+            return any((tr["tick"] or 0) >= (o.get("created_tick") or 0) and team in tr["parties"] and tr["price"] == price
+                       and sorted(i.get("ref") for i in tr["items"] if i.get("ref")) == sorted(refs) for tr in here)
+        cands = dict(self.v_listed)
+        for o in self.board_ours:
+            cands.setdefault(o.get("id"), o)
+        public = {o.get("id") for o in self.board_ours}
+        offers = []
+        for oid, o in cands.items():
+            if oid in self.v_cancelled or o.get("status") not in (None, "open"):
+                continue
+            if o.get("expires_tick") is not None and o["expires_tick"] <= tick:
+                continue
+            team = o.get("maker") if o.get("maker") in self.names else self.maker.get(oid)
+            side, refs, price = offer_terms(o)
+            if oid not in public and filled(o, team, refs, price):
+                continue
+            cards = [card(r) for r in refs]
+            book = sum(c["book"] or 0 for c in cards) or None
+            offers.append({"id": o.get("id"), "team": team, "name": self.name(team) if team else "unknown", "rank": rank.get(team),
+                           "side": side, "cards": cards, "price": price, "vs_book": round(price / book, 2) if book and price else None,
+                           "to": self.name(o.get("to")) if o.get("to") else None, "to_rank": rank.get(o.get("to")),
+                           "public": oid in public, "created": o.get("created_tick"),
+                           "ts": self.ts_of_tick(o.get("created_tick")), "expires": o.get("expires_tick"),
+                           "left": (o.get("expires_tick") - tick) if o.get("expires_tick") is not None else None})
+        offers.sort(key=lambda r: -(r["created"] or 0))
+        opened = self._day_open()
+        trades = []
+        for tr in self.trades:
+            if tr.get("venue") != vid or not tr["items"]:
+                continue
+            i = tr["items"][0]
+            trades.append({"tick": tr["tick"], "ts": self.ts_of_tick(tr["tick"]), "today": (tr["tick"] or 0) >= opened,
+                           "seller": self.name(i.get("frm")), "buyer": self.name(i.get("to")),
+                           "seller_rank": rank.get(i.get("frm")), "buyer_rank": rank.get(i.get("to")),
+                           "cards": [card(x.get("ref")) for x in tr["items"] if x.get("ref")], "price": tr["price"]})
+        trades.sort(key=lambda r: -(r["tick"] or 0))
+        makers = collections.Counter(o["name"] for o in offers)
+        return {"venue": vid, "name": venue.get("name"), "fee_bps": venue.get("fee_bps"), "status": venue.get("status"),
+                "stats": {k: v for k, v in venue.items() if isinstance(v, (int, float)) and not isinstance(v, bool)},
+                "offers": offers, "makers": makers.most_common(), "trades": trades[:12],
+                "trades_today": sum(1 for t in trades if t["today"]), "read": self.board_ours_read}
+
     def leaderboard(self):
         """The public leaderboard as the organisers show it (score /60 split into negotiating and market, level,
         album, rarest card, badges, adjustments), plus each team's move since the previous snapshot. No extra request:
@@ -2013,6 +2093,7 @@ class Analysis:
             "timeline": timeline,
             "jumps": self.team_jumps(),
             "leaderboard": self.leaderboard(),
+            "venue_board": self.venue_board(),
             "names": self.names,
             "teams": prof,
             "insights": self.insights(prof, market),
