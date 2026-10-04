@@ -1035,5 +1035,70 @@
     "settles_at_tick": 1932
    }
   }
- ]
+ ],
+ "last_seen_tick": 1932,
+ "done": {
+  "duel": 11280,
+  "session": 4,
+  "status": "deal",
+  "role": "seller",
+  "item": "Vinilo de la Movida",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 3.96,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 38,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Verde",
+  "deadline_tick": 1933,
+  "decay_per_round": 0.1,
+  "rounds": 2,
+  "your_offer": {
+   "id": 13300,
+   "price": 39,
+   "tick": 1930,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 13305,
+   "price": 50,
+   "tick": 1930,
+   "days": 10
+  },
+  "messages": [
+   {
+    "tick": 1921,
+    "from": "you",
+    "text": "I'm interested in the Vinilo de la Movida. I'll offer 54 P for delivery on day 10.",
+    "price": 54,
+    "days": 10
+   },
+   {
+    "tick": 1921,
+    "from": "Rival Verde",
+    "text": "Opening at 52 primas, 0 days: a fair price for a quick deal.",
+    "price": 52,
+    "days": 0
+   },
+   {
+    "tick": 1930,
+    "from": "you",
+    "text": "I can do 39 P, delivery on day 10.",
+    "price": 39,
+    "days": 10
+   },
+   {
+    "tick": 1930,
+    "from": "Rival Verde",
+    "text": "I can do 50 P with delivery in 10 days to close today.",
+    "price": 50,
+    "days": 10
+   }
+  ],
+  "result": 32.9,
+  "price": 39,
+  "days": 10
+ }
 }
