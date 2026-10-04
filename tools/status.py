@@ -25,6 +25,9 @@ OUT = ROOT / "STATUS.md"
 SETTLEMENTS = ROOT / "logs" / "feed_settlements.jsonl"  # local cache: the feed only keeps recent events
 
 
+PUB = None  # keyless client for public reads (set in main)
+
+
 def fmt(x, nd=2):
     return "—" if x is None else (f"{x:.{nd}f}" if isinstance(x, float) else str(x))
 
@@ -47,7 +50,7 @@ def cached_settlements(b):
         for line in SETTLEMENTS.read_text().splitlines():
             s = json.loads(line)
             seen[s["settlement"]] = s
-    new = [e["payload"] for e in b.feed(limit=1000).get("events", []) if e["type"] == "settlement"]
+    new = [e["payload"] for e in PUB.feed(limit=1000).get("events", []) if e["type"] == "settlement"]
     fresh = [s for s in new if s["settlement"] not in seen]
     if fresh:
         SETTLEMENTS.parent.mkdir(parents=True, exist_ok=True)
@@ -63,10 +66,10 @@ def item_key(it, rarity):
 
 
 def build(b):
-    clock, me, sched = b.clock(), b.me(), b.schedule()
+    clock, me, sched = PUB.clock(), b.me(), PUB.schedule()
     s = me.get("score") or {}
-    lb = b.leaderboard()
-    cat = b.catalog()
+    lb = PUB.leaderboard()
+    cat = PUB.catalog()
     rarity = {c["id"]: c["rarity"] for st in cat["sets"] for c in st["cards"]}
     L = [
         "# Team 5 — live status",
@@ -167,8 +170,8 @@ def build(b):
                            for m in (d.get("menu") or {}).get("sells", [])),
                  ", ".join(str(m.get("rarity") or m.get("pack")) for m in (d.get("menu") or {}).get("buys", [])),
                  (d.get("menu") or {}).get("deals_per_team_per_hour")]
-                for d in b.dealers().get("personas", [])])
-    lv = b.levels().get("levels", [])
+                for d in PUB.dealers().get("personas", [])])
+    lv = PUB.levels().get("levels", [])
     L += ["", "## Levels", ""] + ([f"- {x.get('name')}: {x.get('status')} — {x.get('how') or x.get('line', '')}"
                                     for x in lv] or ["_None announced yet._"])
     return "\n".join(L) + "\n"
@@ -186,6 +189,8 @@ def main():
     ap.add_argument("--push", action="store_true", help="commit and push STATUS.md when it changes")
     args = ap.parse_args()
     b = Bazaar(os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai"), os.environ["BAZAAR_KEY"])
+    global PUB
+    PUB = Bazaar(b.url, ""); PUB._headers = {}  # keyless public reads: the team key's 5 req/s stays for writes (duelist)
     while True:
         try:
             body = build(b)

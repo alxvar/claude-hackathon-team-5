@@ -28,6 +28,7 @@ def emit(kind, msg):
 
 def main():
     b = Bazaar(os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai"), os.environ["BAZAAR_KEY"])
+    pub = Bazaar(b.url, ""); pub._headers = {}  # keyless: public reads don't spend the team key's 5 req/s (duelist)
     last = {}
     while True:
         try:
@@ -40,7 +41,7 @@ def main():
                 emit("OUR SCORE", f"{json.dumps(d)} (cash {me.get('cash')}, level {me.get('level')})")
             last["mine"] = mine
 
-            lb = b.leaderboard()
+            lb = pub.leaderboard()
             if lb.get("snapshot_tick") != last.get("snap"):
                 teams = sorted(lb.get("teams", []), key=lambda t: -(t.get("score") or 0))
                 rank = next((i + 1 for i, t in enumerate(teams) if t.get("team") == me.get("id")), None)
@@ -53,7 +54,7 @@ def main():
                 last["top4"] = top4
                 last["snap"] = lb.get("snapshot_tick")
 
-            ev = b.feed(limit=200).get("events", [])
+            ev = pub.feed(limit=200).get("events", [])
             seen = last.setdefault("feed", max((e["id"] for e in ev), default=0))
             for e in ev:
                 if e["id"] <= seen:
@@ -67,8 +68,8 @@ def main():
                     emit("OUR DEAL", f"{p.get('persona') or 'team trade'} {p.get('price')} P {[i['ref'] for i in p.get('items', [])]}")
             last["feed"] = max([seen] + [e["id"] for e in ev])
 
-            lv = json.dumps(b.levels().get("levels", []), sort_keys=True)
-            dl = sorted((d["id"], d.get("status")) for d in b.dealers().get("personas", []))
+            lv = json.dumps(pub.levels().get("levels", []), sort_keys=True)
+            dl = sorted((d["id"], d.get("status")) for d in pub.dealers().get("personas", []))
             if "lv" in last and (lv != last["lv"] or dl != last["dl"]):
                 emit("LEVELS/DEALERS", f"levels {lv[:300]} · dealers {dl}")
             last["lv"], last["dl"] = lv, dl
