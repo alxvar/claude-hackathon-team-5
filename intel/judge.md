@@ -1,39 +1,42 @@
-# Judge (claude-opus-5-5, Sun 11:12)
+# Judge (claude-opus-5-5, Sun 11:43)
 
 ## Verdict
-Holding, not gaining on #1. At 11:09 we are #4 at 32.2, level with t18 (32.2, −1.2/15 min). We trail t10 by 0.7 and t12 by 2.7. Over 60 min we made +2.2, against t12 +3.5, t03 +2.2, t18 +1.2 and t10 +0.6. t03 is 2.0 behind and climbing (+1.2/15 min).
+**Holding at #4 (32.8; +0.5 over 15 min, +0.6 over 60 min).** We are closing slowly on t12 (34.7, −0.2/60) and t18 (33.0, −0.1/60), but losing ground to t10 (34.1, +1.0/60). The gap to #3 is 0.2 and to #1 is 1.9. Behind us, t04, t09 and t15 are climbing fast (+5.5 to +6.4 per 60 min, now at 27-29).
 
 ## Our strategies: keep / kill / scale
-- **Dealer bot (spares → Pícaros/Abuela): stop new threads; it is done.** Ladder went 0.253 → 0.342 and `neg_points` stayed flat. We have no spares left. Walking on LAT-03 at 5 (her opening = our value) was correct. Whether the ladder still moves the board is unproven ([L] flat on Sat 17:45).
-- **Trading loop: keep it running passively.** It has no Sunday fills; Saturday gave +6.2 and +15.5. Our holdings are far above any bid (CHA bids top out at 19 vs our 146-218), so it cannot sell a page card.
-- **LAT-06/07/08 bids at 9: keep.** They are ≥ 0 (worth 12.5 each, we are the maker) but worth only ~+3.5 each. Unfilled since at least tick 1910-1940. Posting time is not in the data.
-- **MAL close (22816, 48 → t08): keep it, but the plan is stale.** MAL-07 went t15 → t03 at tick 1647, so "MAL-07 → t15" targets a team that may no longer hold it. t08 has been silent all weekend.
-- **CHA bids pulled and book cleared: correct.** The page is complete; it scored +50 at tick 1585.
-- **RET-11 round trip (bought from the Pícaros at 128, sold to t02 at 240): unexplained.** Predicted ≈ +42 (240 − 198 value). Measured: `neg_points` 50 → 50 and no score change logged since tick 1585.
-- **v10 reward and ad: no evidence yet.** No v10 settlements or `mm_points` appear in the metrics ("not in the data"). It is Lucas's GUARDRAIL, so it stays.
+- **Team trades (all):** zero marginal value now. `neg_points` has sat at 50.0 since tick 1585 (CHA close), and the round cap of 50 is real (Chief 11:33). Further gains don't score; only losses beyond the ~29 slack would.
+- **Dealer bot, common sells at 5-6 (Pícaros/Abuela, ticks 1787-1810; LAT-03 walk 10:51):** **kill.** These deals score 0 neg, and LAT-03 left the ladder at 0.342 → 0.342. Cash never scores.
+- **MAL close / MAL-09 Pícaros retry:** **killed, correctly.** The Chief called NO-GO at 11:33. The retry walked at their 58 against our 44. Lucas logged "no more retries": hold to that.
+- **Trading loop:** **keep idle.** Its log has no Sunday events (0 fills since Saturday 17:46). Under the cap it can only cost points.
+- **Our LAT-06/07/08 bids at 9 (El Rastro, the reward leg):** keep, unscaled. They are unfilled about 7 min after posting, sit at ≤ value (LAT uncommon 12.5), and cost 0 points.
+- **v10 bounty (20 P × 5, GUARDRAIL 11:38):** keep, but fix one hole (change 3). v10's value_created is still 0, and no v10 settlement appears in the data.
+- **Duels:** **scale.** Duel score is 21.83 with 199 finished; it is the only Negotiating lever still uncapped. Two duels are live, so the duelist is running again after the 09:46 stop.
 
 ## Check the scout
-- Holds: MAL-07 t15 → t03 at 9 (tick 1647) · MAL-09 value 49 · t02 bought RET-11 from us at 240 · t13 bought SAL-11 from t18 at 238 · don't buy LAT/LAV/SAL commons (first LAT copy worth 5, asks at 8-9).
-- Wrong or stale:
-  - "We are #3 at 32.4, t10 0.2 behind, t18 1.0 ahead." Now we are #4, t10 is 0.7 ahead, and t18 is level.
-  - "t10 falling." It is +0.7 in 15 min.
-  - "CHA bids 15-64 P." The top bid is 19.
-  - "t02 bought CHA-05 from us." It sold CHA-05 to us at 72.
-  - "We hold the LAT page." We hold only LAT-03.
-  - "Pícaros MAL-09 was a bait-and-switch." Not in the data: the log shows 73 → 49 against our 48, closed.
-- "Accept nothing" is too broad: ≥ 0 non-last MAL buys still help.
+- **Holds:**
+  - The t07 bids of 8 on CHA-01..05 and t09 bids of 15 on CHA-06..08.
+  - "Don't sell anything."
+  - t12's SAL-12 sale at 380.
+  - t18 is just ahead of us (now by 0.2, not 0.4).
+- **Stale:** its #1 action (MAL close) was cancelled at 11:33. Its premise "trade part not capped" is false: the cap is 50 and `neg_points` is flat.
+- **Wrong:**
+  - The Pícaros' MAL-09 went 73 → **58** (our bid was 44), not 49.
+  - LAV-07 went **t13 → t12** at 40 (t12 bought it); it did not sell it.
+  - t02 is not #10; t13 is (27.1).
+- **Missed:** t04, the fastest climber (+6.4/60, now 28.9).
+- **Rank:** metrics now show t12 at #1 and t10 at #2.
 
 ## The 3 changes with the highest expected gain
-1. **Sequence the MAL close: MAL-07 first, MAL-09 last.**
-   - Have mal_close post an addressed bid to t03 for MAL-07 as the NON-last card. Price ≤ 17.5 (value), kept low (t03 paid 9) so t03 gains little. This is allowed: the 10:25 directive limits only the LAST card to non-rivals.
-   - Once MAL-07 lands, 22816 (t08, non-rival) becomes the last card. mal_close then reprices it to ≤ value-when-last − 50 per `/api/me/value`.
-   - Effect: ≈ +47-50 `neg_points` if buys still score (CHA did). At Saturday's ≈ 0.05 board/point, that is enough to pass t18 and t10.
-   - Risk: if 22816 fills first, MAL-07 becomes the last card and its only known holder is a rival (blocked). The Chief should decide now whether to pause 22816 until MAL-07 is held; the cost is low given t08's silence.
-2. **Resolve the RET-11 anomaly before the MAL spend and any further sale.**
-   - The Analyst re-runs M5 on tick 1730 (expected +42, measured 0). Check: a Sunday team-trade cap at 50, sale gains not scoring, or pack drag.
-   - Effect: shows whether MAL adds to our own score or only lowers rivals' reference (the 01:40 logic). Cash doesn't score, so MAL stays GO either way.
-   - Risk: Analyst time only.
-3. **Tighten the v10 reward rival list to match the 09:28 directive.**
-   - The log shows "never t10/t13" plus policy.check. Confirm t12, t18 and t03 are excluded in `policy.check`, so no ≥ 0 buy pays a #1-#5 rival.
-   - Effect: closes a feeding leak in the #3 race.
-   - Risk: none; code check by the Builder.
+1. **Have v10's broker live and supervised for the 12:00 Market Test (operator/Market session, now).**
+   - Each Sunday bench is half of round 3's bench score (plan §2b), and a venue whose broker is down scores 0.
+   - Our current bench efficiency is not in the data.
+   - Risk: a restart close to 12:00 leaves the broker down during the test. Don't touch the code; only check that it is alive.
+2. **Load the Duel Lab's Final config between Duels III and the Final (Aleks).**
+   - The config is 506a2fd, ACCEPT_BY 1, MAX_STEP_SHARE 0.08, and a worth floor of 0.075 × limit in code.
+   - Expected gain: +0.018 to +0.033 per duel across all 9 worlds.
+   - Risk: if decay counts per tick, we lose about 0.04-0.05.
+   - Run the first-wave check (no below-limit accepts, no CAN'T READ) right after wave 1.
+3. **Make the v10 bounty and ad never pay a rival.**
+   - **Exclude t12, t18 and t03 as bounty sellers**, alongside t10. A bid above their value scores up to +20 `neg_points` for them; the 09:28 directive already bans any v10 pair that lets t12 gain.
+   - **Steer the ad text toward sales into collectors of the set.** Value created on our venue is net, and a card that moves to a lower-multiplier holder subtracts from us (Sat 11:30: +4.99 → −5.2).
+   - Risk: fewer qualifying trades before the bounty slots expire. The Chief's fair-play review risk stands either way.
