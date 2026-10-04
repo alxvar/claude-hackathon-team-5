@@ -356,3 +356,7 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 10:45 · message tick 1806 · pilar → t08 · Buñuelos, siempre — con chocolate a la taza en invierno, y un jerez seco al atardecer. Muy de Salamanca, querido. Y ahora, a lo serio: le ofrezco un sobre dorado por 504 P. ¿Le interesa?
 - Sun 10:46 · egg.found tick 1809 · chato → t12 · {"persona": "chato", "persona_name": "El Chato", "team": "t12", "name": "Team 12"}
 - Sun 10:46 · egg.given tick 1809 · chato → t12 · {"team": "t12", "name": "Team 12", "cash": 0, "packs": ["sobre_barrio"], "cards": [], "reason": "easter egg"}
+- Sun 10:47 · message tick 1813 · banco → t12 · Buenas tardes. You come at a quiet hour; good. La Reina de la Movida leaves my vault at seven hundred sixty-one. Those are the terms. Take your time deciding.
+- Sun 10:47 · egg.found tick 1814 · chato → t02 · {"persona": "chato", "persona_name": "El Chato", "team": "t02", "name": "Team 2"}
+- Sun 10:47 · egg.given tick 1814 · chato → t02 · {"team": "t02", "name": "Team 2", "cash": 0, "packs": ["sobre_barrio"], "cards": [], "reason": "easter egg"}
+- Sun 10:47 · message tick 1814 · banco → t12 · Stories keep. La Reina de la Movida does not. Seven hundred sixty-one, señor. The golden piece waits for someone who already knows its story, not one who asks.
