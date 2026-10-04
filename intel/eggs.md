@@ -1,6 +1,6 @@
 # Easter eggs: trigger → reward → dealer (castizo catalog)
 
-_Written by `tools/eggs.py` at 11:00 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
+_Written by `tools/eggs.py` at 11:10 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
 
 ## Trigger → reward → dealer
 
@@ -43,6 +43,10 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 
 | tick | team | dealer | words | what followed | reply |
 |---|---|---|---|---|---|
+| 1890 | t06 | picaros | estampita, lazarillo, rinconete | - | ¡Ay, qué culto nos sale el cliente! Lazarillo, Rinconete... Paco, este sabe leer. Nada de estampitas, hombre, aquí todo limpio. Mira esta joya: La Casa Encendid |
+| 1885 | t14 | pilar | chulapa | price 61 → 62 | I think 62 P is more appropriate. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about the golden chulapa. |
+| 1872 | t06 | chato | vermut | - | 13. Same as before. Vermut's waiting. |
+| 1870 | t06 | chato | chulapa | - | La Chulapa. 13 P. Take it or leave it. |
 | 1852 | t06 | picaros | estampita | - | ¡Ay, qué listo nos ha salido el cliente! Paco, mira, este ha leído libros. — ¡Y por eso le tratamos bien, hombre! Nada de estampitas, aquí todo a la luz: La Cas |
 | 1847 | t10 | abuela | churros, me falta | - | Ay, hijo, churros no me faltan, que mi vecina me trae cada domingo. Pero esta carta vale cinco, y cinco te doy, de corazón. Llévatelos ahora y vuelve cuando qui |
 | 1842 | t06 | pilar | chulapa | - | Nineteen primas, señor. I told you I would not move again, and I am a woman of my word. Twenty is your invention, not La Chulapa's worth. Accept nineteen, and s |
@@ -119,7 +123,3 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 | 1534 | t04 | abuela | chulapa | price 30 → 26 | Ay, la chulapa dorada... una sola se imprimió, dicen, y un niño la cambió por un helado. Otro día te cuento entera, hija.  El pack, 26 primas y tuyo. Y oye, jun |
 | 1532 | t06 | abuela | la paloma | price 21 → 20 | Ay, hijo, la Paloma... qué recuerdos me traes. Mira, 20 P, y ésta es mi última palabra, de verdad. Si no te vale, lo dejamos y tan amigos, que yo no guardo renc |
 | 1532 | t02 | abuela | churros | price 12 → 10 | Ay, hijo, you have kind eyes. Let us say ten P and we are both happy, sí? My own grandson started his album here, tiny hands, all sticky from churros. Take it — |
-| 1531 | t06 | abuela | churros | price 22 → 21 | Ay, churros de San Ginés, hijo, ya me has ganado el domingo. Mira, 21 P y asunto cerrado. Y un consejo, cariño: una página completa vale mucho más que las carta |
-| 1529 | t06 | abuela | gato | price 23 → 22 | Ay, qué abrazo más bueno, hijo. Mira, 22 P y te la envuelvo con cariño. Cuarenta años aquí y todavía me emociono con un gato de Madrid. Y no olvides a El Chato, |
-| 1527 | t15 | abuela | churros | - | Ay, hola, cariño! Come, come, sit a minute. Have you eaten today? Look — this one, Plaza de Olavide, very pretty, no? My favourite square, I ate churros there w |
-| 1527 | t06 | abuela | cocido | price 25 → 23 | Ay, cariño, tu abuela tenía razón, siempre llegamos a un trato. Mira, te lo dejo en 23 P, y es buena carta para empezar. Que con ese cocido vas fuerte, hijo. Y  |
