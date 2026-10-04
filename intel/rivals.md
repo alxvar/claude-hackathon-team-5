@@ -9,6 +9,14 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sun 09:32 · snapshot 1502 (phase 0.15)
+- **t18: CHA sprint, 9/10 by tick 1506 (lacks CHA-01)** [V feed]: CHA-09 Pícaros 58 (1484), CHA-06 Chato 31 (1485), CHA-10 Pícaros 54
+  (1491), CHA-07 Chato 31, CHA-02/03/04 Abuela 9-10, CHA-08 Chato 31, CHA-11 epic Pícaros 145 (1496). It **sold SAL-11 to t13 at 238**
+  on El Rastro (1494). Sunday round ≈ +25 so far; game total 50.61 vs ours 50.07. Its CHA closer needs a TEAM seller of CHA-01 (+50).
+  Chato buys at 31 sit above list 26: no ladder for t18 there (it bought speed).
+- t13 pays big for epics (SAL-11 at 238): a buyer for our RET-11.
+- t10, t12, t06: no Sunday deals yet (Sunday ≈ 0).
+
 ### Sun 09:20 · first round-3 snapshot 1462 (Saturday final)
 - **t12 +7.03 at the close** with no trade of its own: its Saturday market went 10.88 → 17.91, i.e. its v02 real trades went from 0 to
   ≈ +6.7 when the close recomputed values (the same recompute flipped our mm −5.2 → +2.2: us +2.72). t12 is now #2 on the game
