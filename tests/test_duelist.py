@@ -1098,3 +1098,83 @@ def test_final_never_sends_an_offer_below_one():
     obs = days_obs(DAYS_BUYER, (60, 0), (80, 0), left=8)
     move = agent.final(Move("offer", "I can do 0 P, delivery on day 10.", price=0, days=10), obs)
     assert move.action != "offer" or (move.price is not None and move.price >= 1)
+
+
+DUEL_11124_LAST_TICK = {'duel': 11124,
+ 'session': 4,
+ 'status': 'live',
+ 'role': 'seller',
+ 'item': 'Cine Doré',
+ 'issues': ['price', 'days'],
+ 'your_days_weight': 3.83,
+ 'days_meaning': 'each delivery day adds this much cash to your side',
+ 'your_limit': 40,
+ 'limit_meaning': 'never sell below your cost',
+ 'rival': 'Rival Verde',
+ 'deadline_tick': 1886,
+ 'decay_per_round': 0.1,
+ 'rounds': 3,
+ 'your_offer': {'id': 12202, 'price': 12, 'tick': 1885, 'days': 10},
+ 'rival_offer': {'id': 12193, 'price': 60, 'tick': 1885, 'days': 0},
+ 'messages': [{'tick': 1874,
+               'from': 'you',
+               'text': "I'd like to propose 57 primas with delivery on day 10.",
+               'price': 57,
+               'days': 10},
+              {'tick': 1876,
+               'from': 'Rival Verde',
+               'text': 'Rápido y justo: 46 P, día 0. ¿Qué día de entrega te va mejor? / Quick and fair: 46 '
+                       'P, day 0. Which delivery day suits you best?',
+               'price': 46,
+               'days': 0},
+              {'tick': 1883,
+               'from': 'you',
+               'text': 'I can do 42 P, delivery on day 10.',
+               'price': 42,
+               'days': 10},
+              {'tick': 1884,
+               'from': 'you',
+               'text': 'I can do 27 P, delivery on day 10.',
+               'price': 27,
+               'days': 10},
+              {'tick': 1884,
+               'from': 'Rival Verde',
+               'text': 'Parece que el día te importa: 26 P con día 0. / It seems the day matters to you: 26 '
+                       'P, day 0.',
+               'price': 26,
+               'days': 0},
+              {'tick': 1885,
+               'from': 'Rival Verde',
+               'text': 'Mi mejor oferta: 60 P, día 0. / My best offer: 60 P, day 0.',
+               'price': 60,
+               'days': 0},
+              {'tick': 1885,
+               'from': 'you',
+               'text': 'I can do 12 P, delivery on day 10.',
+               'price': 12,
+               'days': 10}],
+ 'result': None,
+ 'price': None,
+ 'days': None}
+
+
+def test_duel_11124_accepts_a_better_offer_posted_on_the_last_tick_after_our_send(tmp_path: Path):
+    # Sun 11:0x, Duels III: seller, cost 40, day weight +3.83/day. On the last tick (1885, deadline 1886) their 60 at
+    # day 0 (+20 worth to us) landed just before our send of 12 at day 10; the runner refused to act after a send that
+    # tick, and the duel ended with no deal.
+    b = FakeBazaar()
+    fake = FakeModel(plan(12, 12, 12))                    # no decisions: a negotiator call would fail
+    r = runner(b, fake, tmp_path)
+    mem = answered(r, DUEL_11124_LAST_TICK, 1885)          # our 12 on 1885 counts as sent this tick
+    assert mem.sent_tick == 1885 and mem.snap.ticks_left == 1
+    assert r.closing(mem) == "deadline" and r.due(mem)
+    asyncio.run(r.decide(mem))
+    assert b.accepted == [11124] and b.said == [] and fake.seen == []
+
+
+def test_a_send_still_ends_the_tick_while_more_than_one_tick_is_left(tmp_path: Path):
+    b = FakeBazaar()
+    r = runner(b, FakeModel(plan(12, 12, 12)), tmp_path)
+    raw = {**DUEL_11124_LAST_TICK, "deadline_tick": 1888}   # 3 ticks left: no accept in the tick we sent
+    mem = answered(r, raw, 1885)
+    assert mem.snap.ticks_left == 3 and r.closing(mem) is None and not r.due(mem)

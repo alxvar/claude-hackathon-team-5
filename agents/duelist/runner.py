@@ -282,8 +282,10 @@ class DuelRunner:
 
     def due(self, mem: Memory) -> bool:
         """Decide now? At most once per tick (a decision whose send was refused waits for the next one)."""
-        if mem.task is not None or mem.sent_tick == self.tick or not mem.snap.live:
+        if mem.task is not None or not mem.snap.live:
             return False
+        if mem.sent_tick == self.tick:                # sent this tick: only a closing accept (duel 11124, last tick)
+            return self.closing(mem) is not None
         if mem.pending is not None:
             return mem.pending[2] != self.tick
         if mem.force:
@@ -348,8 +350,8 @@ class DuelRunner:
         read is left to the models (`by_code`)."""
         v, left = mem.agent.view, mem.snap.ticks_left
         if (not mem.snap.live or not by_code(v) or left is None or mem.snap.view is None or self.accepted(mem)
-                or mem.sent_tick == self.tick):
-            return None
+                or (mem.sent_tick == self.tick and left > 1)):
+            return None                               # the last tick: accept even after a send (duel 11124)
         their = standing_offer(self.observe(mem))
         surplus = None if their is None else worth(v, their.price, their.days)
         if surplus is None or surplus <= 0:
