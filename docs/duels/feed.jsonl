@@ -1782,3 +1782,10 @@
 {"id": 93669, "tick": 2021, "t": 16.0292, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11575, "session": 4, "status": "no_deal", "item": "Museo Sorolla"}}
 {"id": 93672, "tick": 2021, "t": 16.0292, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11601, "session": 4, "status": "deal", "item": "Escaparate de Serrano"}}
 {"id": 93720, "tick": 2022, "t": 16.0333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11493, "session": 4, "status": "deal", "item": "Museo Sorolla"}}
+{"id": 93781, "tick": 2024, "t": 16.0417, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11423, "session": 4, "status": "no_deal", "item": "Cine Doré"}}
+{"id": 93784, "tick": 2024, "t": 16.0417, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11445, "session": 4, "status": "deal", "item": "San Isidro"}}
+{"id": 93815, "tick": 2025, "t": 16.0458, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11491, "session": 4, "status": "deal", "item": "Vinilo de la Movida"}}
+{"id": 93818, "tick": 2025, "t": 16.0458, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11550, "session": 4, "status": "no_deal", "item": "Museo Sorolla"}}
+{"id": 93821, "tick": 2025, "t": 16.0458, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11603, "session": 4, "status": "deal", "item": "Cine Doré"}}
+{"id": 93869, "tick": 2026, "t": 16.05, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11564, "session": 4, "status": "no_deal", "item": "Vinilo de la Movida"}}
+{"id": 93872, "tick": 2026, "t": 16.05, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11627, "session": 4, "status": "deal", "item": "Cine Doré"}}
