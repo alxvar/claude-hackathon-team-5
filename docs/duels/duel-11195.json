@@ -69,6 +69,59 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1916,
+   "raw": {
+    "duel": 11195,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.66,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 138,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 1925,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 12889,
+     "price": 86,
+     "tick": 1913,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 12955,
+     "price": 144,
+     "tick": 1916,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1913,
+      "from": "you",
+      "text": "I'd like to open at 86 primas, with delivery on day 0.",
+      "price": 86,
+      "days": 0
+     },
+     {
+      "tick": 1916,
+      "from": "Rival Verde",
+      "text": "Hello. My number is 144.",
+      "price": 144,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -189,6 +242,107 @@
     }
    },
    "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1916,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11195,
+     "role": "buyer",
+     "limit": 138,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.66,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 86 primas, with delivery on day 0.",
+      "offer": {
+       "price": 86,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1913,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hello. My number is 144.",
+      "offer": {
+       "price": 144,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1916,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 144,
+     "days": 10
+    },
+    "tick": 1916,
+    "ticks_left": 9,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 86,
+    "days": 0,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
    "params_set": "C",
    "params": {
     "MIN_STEP_P": 15.0,

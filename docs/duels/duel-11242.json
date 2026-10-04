@@ -492,6 +492,101 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1916,
+   "raw": {
+    "duel": 11242,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Escaparate de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.61,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 124,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 1922,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 12809,
+     "price": 177,
+     "tick": 1910,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 12956,
+     "price": 118,
+     "tick": 1916,
+     "days": 9
+    },
+    "messages": [
+     {
+      "tick": 1910,
+      "from": "you",
+      "text": "I'm offering 177 P with delivery on day 10.",
+      "price": 177,
+      "days": 10
+     },
+     {
+      "tick": 1910,
+      "from": "Rival Sol",
+      "text": "Te ofrezco 88 primas y entrega en 2 días; me cuesta subir más.",
+      "price": 88,
+      "days": 2
+     },
+     {
+      "tick": 1911,
+      "from": "Rival Sol",
+      "text": "90 primas y entrega en 10 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 90,
+      "days": 10
+     },
+     {
+      "tick": 1912,
+      "from": "Rival Sol",
+      "text": "Mi propuesta: 109 primas y entrega en 10 días. Dame una cifra concreta y la miro.",
+      "price": 109,
+      "days": 10
+     },
+     {
+      "tick": 1913,
+      "from": "Rival Sol",
+      "text": "Puedo llegar a 113 primas y entrega en 10 días. Dime si cerramos.",
+      "price": 113,
+      "days": 10
+     },
+     {
+      "tick": 1914,
+      "from": "Rival Sol",
+      "text": "Te ofrezco 118 primas y entrega en 9 días; me cuesta subir más.",
+      "price": 118,
+      "days": 9
+     },
+     {
+      "tick": 1915,
+      "from": "Rival Sol",
+      "text": "118 primas y entrega en 9 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 118,
+      "days": 9
+     },
+     {
+      "tick": 1916,
+      "from": "Rival Sol",
+      "text": "Mi propuesta: 118 primas y entrega en 9 días. Dame una cifra concreta y la miro.",
+      "price": 118,
+      "days": 9
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
