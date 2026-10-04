@@ -71,6 +71,15 @@ All three commit every ~5 min: cut to their cadence above to reduce git churn on
 
 ## Live log
 
+### 10:36 · snapshot 1762 (phase ≈ 0.47)
+| Metric | Actual | Book | n | Note |
+|---|---|---|---|---|
+| M1 Pícaros MAL rare | **MAL-10 at 46** (tick 1757) | target 44-48, accept ≤ 49 (our value) | 1 | **contradicts the 07:25 premise** ("0 of 8 Saturday finals < 57"): a ≤ 49 MAL buy CAN fill |
+| M2 ladder | 0.172 → **0.253** (+0.081 ≈ 0.91 of an L4 slot) | full 0.089 | — | Pícaros best 3: CHA-09 (0.075) + MAL-10 (0.081) + one slot open |
+| M4 trades | neg **50.0 flat**: the RET-11 sale (240, tick 1730) added 0 | — | — | **working rule: Sunday team-trade gains capped at 50 per round** (score-model §3j) |
+| MAL page | holds 01-06, 08, **10** · missing **07, 09** | — | — | under the 50 cap a MAL closer adds 0 trade points: buy MAL-09 only at ≤ 49 (L4 slot #3) |
+**PROPOSE (in the bands):** MAL-09 at the Pícaros at ≤ 49 (the third L4 slot, 0 neg). No MAL-07 above value.
+
 ### 10:11 · tick ≈ 1665 · snapshot 1662 (phase 0.35)
 | Metric | Actual | Note |
 |---|---|---|
