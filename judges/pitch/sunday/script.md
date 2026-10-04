@@ -1,7 +1,7 @@
 # Speaker script · Team 5 · Sunday final pitch
 
 Structure = the organisers' four questions (Sunday deck p10). Open `deck.html` (F = full screen; → also steps through slide 2's four reveals; `deck.html#2.3` jumps to slide 2, step 4). Slides after 3/3 are **BACKUP** for Q&A: race chart, five beliefs, impact map, around the Bazaar.
-Final numbers (15:00): **37.73, #1, 1.97 ahead of Team 10** (35.76); #1 at every snapshot from 12:35 to the close; Grand Final duels 27 of 34.
+Final numbers (15:00): **37.73, #1, 1.97 ahead of Team 10** (35.76); Saturday's close: #3, 7.09 behind Team 10 [V board ticks 1440, 2802]; #1 at every snapshot from 12:35 to the close; Grand Final duels 27 of 34.
 
 | Slide | 5:00 version | 3:00 cut |
 |---|---|---|
@@ -12,7 +12,7 @@ Final numbers (15:00): **37.73, #1, 1.97 ahead of Team 10** (35.76); #1 at every
 ## 5-minute version (≈ 690 words)
 
 **1 · Q1 · How we approached it · 0:00–1:00**
-We're Team 5, and we finished the game first: 37.73, ahead of Team 10. Here's how we approached it: as a loop. Sense, decide, act, measure, learn, with git at the centre. One real lap. Our first idea was to let an LLM negotiate the duels. Saturday's records said it took 9.2 seconds a reply, 29 percent over ten, and today's tick is fifteen. So we decided: code decides price, day and accept, and the LLM only writes the words. We tested that first on a simulator validated on Saturday's duels, shipped it overnight, and this morning it closed 57 of 68 duels, then 27 of 34 in the Grand Final. The review and the Duel Lab then found a missed last-tick accept; we fixed it and restarted on the Duel Lab's go. We kept the LLM's words and replaced its decisions. And three humans and seven-plus Claude sessions stayed in sync through git, one file per owner, a decision log for the big calls, session-to-session messages and a status file rewritten every five minutes.
+We're Team 5. At Saturday's close we were third, seven points behind Team 10. We finished the game first: 37.73, 1.97 ahead. Here's how we approached it: as a loop. Sense, decide, act, measure, learn, with git at the centre. One real lap. Our first idea was to let an LLM negotiate the duels. Saturday's records said it took 9.2 seconds a reply, 29 percent over ten, and today's tick is fifteen. So we decided: code decides price, day and accept, and the LLM only writes the words. We tested that first on a simulator validated on Saturday's duels, shipped it overnight, and this morning it closed 57 of 68 duels, then 27 of 34 in the Grand Final. The review and the Duel Lab then found a missed last-tick accept; we fixed it and restarted on the Duel Lab's go. We kept the LLM's words and replaced its decisions. And three humans and seven-plus Claude sessions stayed in sync through git, one file per owner, a decision log for the big calls, session-to-session messages and a status file rewritten every five minutes.
 
 **2 · Q2 + Q3 · What we built, and why · 1:00–3:50** (→ for each step)
 *Step 1, Decide (≈ 35 s).* What we built is a control room. At the top, decide: the three of us set the goals and the hard limits, and one Claude Code session, the Chief of staff, makes the big calls and logs them with their evidence. It never writes to the game.
@@ -30,7 +30,7 @@ Three humans set the limits. Claude ran the bazaar, and checked itself. Thank yo
 
 ## 3-minute cut (≈ 430 words)
 
-**1 · 0:00–0:40** We're Team 5, and we finished the game first. We approached it as a loop: sense, decide, act, measure, learn. One lap: our first idea, an LLM negotiating duels, took 9.2 seconds a reply on a fifteen-second tick. So code decides and the LLM only writes. Tested on a simulator, shipped overnight: 57 of 68 duels closed this morning. Git, a decision log and session messages kept three humans and seven-plus Claude sessions in sync.
+**1 · 0:00–0:40** We're Team 5: third and seven points behind on Saturday night, first at the close. We approached it as a loop: sense, decide, act, measure, learn. One lap: our first idea, an LLM negotiating duels, took 9.2 seconds a reply on a fifteen-second tick. So code decides and the LLM only writes. Tested on a simulator, shipped overnight: 57 of 68 duels closed this morning. Git, a decision log and session messages kept three humans and seven-plus Claude sessions in sync.
 
 **2 · 0:40–2:30** What we built is a control room. *(→)* Decide: we set the limits; a Claude Code Chief of staff makes the big calls with their evidence and never writes to the game. *(→)* Act: only two roles trade, the Operator with its trading bots, and the Duelist, where code decides and Haiku talks. *(→)* Sense and check: venue, collector, dashboard, analysts, the Duel Lab and fresh verifiers. *(→)* Three decisions we'd defend: code decides, because a fifteen-second tick doesn't wait; one trader per job with written limits, because the key's limits are shared; and check before you act, because the author can't grade its own work.
 

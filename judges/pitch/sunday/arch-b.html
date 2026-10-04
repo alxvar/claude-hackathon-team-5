@@ -94,7 +94,7 @@ const rows = [
   {k:'S', n:1, t:'Sat · Duels II', p:'With the LLM deciding, replies took <b>9.2 s</b>, 29 % over 10 s. Sunday\'s tick: <b>15 s</b>. <span class="tag v">V</span>'},
   {k:'D', n:2, t:'Sat 22:30', p:'<b>Code decides</b> price, day and accept; the LLM only writes. Checked first on a simulator validated on Duels II.'},
   {k:'A', n:3, t:'Sat 22:48 →<br>Sun 09:45', p:'Branch <b>duelist-loop</b>: Haiku ≈ 2 s, guards, 8 s failover, hot-reloaded params.'},
-  {k:'M', n:4, t:'Sun 10:59', p:'Duels III, shorter clock, harder decay: <b>57 of 68 closed</b>; the Grand Final <b>27 of 34</b>. The monitor reviews every deal. <span class="tag v">V</span>'},
+  {k:'M', n:4, t:'Sun 10:59', p:'Duels III, shorter clock, harder decay: <b>57 of 68</b> (84 %); the Grand Final <b>27 of 34</b> (79 %), both above the field. The monitor reviews every deal. <span class="tag v">V</span>'},
   {k:'L', n:5, t:'11:47 →<br>12:37', p:'Review + Duel Lab find a missed last-tick accept (11124); fix shipped (f57a002: last-tick accept + worth floor), restarted on the <b>Duel Lab\'s GO</b>.'},
 ];
 document.getElementById('rows').innerHTML = rows.map(w => `<div class="row" style="--c:${C[w.k]}"><div class="b">${w.n}</div><time>${w.t}</time><p>${w.p}</p></div>`).join('');
@@ -105,7 +105,7 @@ document.getElementById('rows').innerHTML = rows.map(w => `<div class="row" styl
   const d = us.map((p, i) => (i ? 'L' : 'M') + X(p[0]).toFixed(1) + ' ' + Y(p[1]).toFixed(1)).join('');
   const last = us[us.length - 1];
   document.getElementById('spark').innerHTML = `<path d="${d}" fill="none" stroke="#ffc547" stroke-width="3"/><circle cx="${X(last[0])}" cy="${Y(last[1])}" r="5" fill="#ffc547"/>`;
-  const f = R.final; document.getElementById('rl').innerHTML = `#6 Friday → #1<br>${f[0][2].toFixed(2)} · lead ${(f[0][2] - f[1][2]).toFixed(2)}<br>${R.as_of}`;
+  const f = R.final; document.getElementById('rl').innerHTML = `Sat close: #3, −7.09<br>Final: #1 · ${f[0][2].toFixed(2)} · +${(f[0][2] - f[1][2]).toFixed(2)}<br>vs Team 10 · board`;
 })();
 </script>
 <script src="bz.js"></script>
