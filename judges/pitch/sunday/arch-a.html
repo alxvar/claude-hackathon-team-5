@@ -54,15 +54,16 @@
   <div class="stepdots" id="dots"><i></i><i></i><i></i><i></i></div>
 
   <!-- groups -->
-  <div class="grp" data-s="0" style="left:128px;top:282px;width:1070px;height:176px;--c:var(--yellow);--tint:rgba(255,197,71,.04)"><div class="gl">Decide</div></div>
+  <div class="grp" data-s="0" style="left:128px;top:282px;width:880px;height:176px;--c:var(--yellow);--tint:rgba(255,197,71,.04)"><div class="gl">Decide</div></div>
   <div class="grp" data-s="1" style="left:128px;top:506px;width:770px;height:352px;--c:var(--red);--tint:rgba(242,85,90,.04)"><div class="gl">Act · two trading roles</div></div>
-  <div class="grp" data-s="2" style="left:938px;top:506px;width:854px;height:352px;--c:var(--blue);--tint:rgba(74,138,244,.04)"><div class="gl">Sense · check</div></div>
+  <div class="grp" data-s="2" style="left:938px;top:506px;width:854px;height:352px;--c:var(--blue);--tint:rgba(74,138,244,.04)"><div class="gl" style="left:auto;right:22px">Sense · check</div></div>
 
   <svg class="wires" viewBox="0 0 1920 1080">
     <defs>
       <marker id="ay" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ffc547"/></marker>
       <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#f2555a"/></marker>
       <marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#4a8af4"/></marker>
+      <marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#3ddc97"/></marker>
     </defs>
     <!-- step 0: humans → chief (authority) -->
     <g data-s="0"><path d="M478 372H560" stroke="#ffc547" stroke-width="4" fill="none" marker-end="url(#ay)"/></g>
@@ -80,8 +81,9 @@
     <g data-s="2">
       <path d="M1300 890V864" stroke="#4a8af4" stroke-width="3.5" fill="none" stroke-dasharray="8 7" marker-end="url(#ab)"/>
       <text x="1316" y="882" class="wl" fill="#4a8af4">reads</text>
-      <path d="M1100 506V420H1040" stroke="#4a8af4" stroke-width="3.5" fill="none" stroke-dasharray="8 7" marker-end="url(#ab)"/>
-      <text x="1112" y="476" class="wl" fill="#4a8af4">live numbers · verdicts</text>
+      <path d="M966 506V446" stroke="#4a8af4" stroke-width="3.5" fill="none" stroke-dasharray="8 7" marker-end="url(#ab)"/>
+      <text x="980" y="494" class="wl" fill="#4a8af4">live data</text>
+      <path d="M1124 506V446" stroke="#3ddc97" stroke-width="3.5" fill="none" stroke-dasharray="8 7" marker-end="url(#ag)"/>
     </g>
   </svg>
 
@@ -90,16 +92,21 @@
     <div class="node sm" style="left:152px;top:300px;width:322px;--c:var(--purple)" data-i="user:var(--purple)"><div><div class="t">Lucas</div><div class="d">strategy · goals + hard limits</div></div></div>
     <div class="node sm" style="left:152px;top:350px;width:322px;--c:var(--purple)" data-i="user:var(--purple)"><div><div class="t">Aleks</div><div class="d">wrote the duelist + the hub</div></div></div>
     <div class="node sm" style="left:152px;top:400px;width:322px;--c:var(--purple)" data-i="user:var(--purple)"><div><div class="t">Dani</div><div class="d">the room · rivals · dashboard</div></div></div>
-    <div class="node big" style="left:566px;top:302px;width:474px;height:138px;--c:var(--yellow)" data-i="compass:var(--yellow)"><div><div class="t">Chief of staff</div><div class="d">Claude Code · makes the big calls, logs them with evidence · <b style="color:var(--ink)">never writes to the game</b></div></div></div>
+    <div class="node big" style="left:566px;top:302px;width:420px;height:138px;--c:var(--yellow)" data-i="compass:var(--yellow)"><div><div class="t">Chief of staff</div><div class="d">Claude Code · makes the big calls, logs them with evidence · <b style="color:var(--ink)">never writes to the game</b></div></div></div>
+  </div>
+
+  <!-- humans in the loop: phone alerts -->
+  <div data-s="2">
+    <div class="node" style="left:1032px;top:302px;width:186px;height:138px;flex-direction:column;align-items:flex-start;gap:6px;--c:var(--green)" data-i="bell:var(--green)"><div><div class="t" style="font-size:22px">Phone alerts</div><div class="d" style="font-size:15px">ntfy → Lucas + Dani → the team in the room</div></div></div>
   </div>
 
   <!-- ACT -->
   <div data-s="1">
     <div class="node" style="left:152px;top:554px;width:356px;height:100px;--c:var(--red)" data-i="swap:var(--red)"><div><div class="t">Operator</div><div class="d">Claude Code · the only trade writer</div></div></div>
-    <div class="chips" style="left:152px;top:668px;width:356px"><span>trader · taker</span><span>book · maker</span><span>dealer bots</span><span>closers</span></div>
+    <div class="chips" style="left:152px;top:668px;width:356px"><span>trader · taker</span><span>book · maker</span><span>dealer bots</span><span>page closers</span><span>counterparty policy</span></div>
     <div class="node" style="left:536px;top:554px;width:340px;height:100px;--c:var(--red)" data-i="sword:var(--red)"><div><div class="t">Duelist</div><div class="d">code decides · Haiku writes the words</div></div></div>
-    <div class="chips" style="left:536px;top:668px;width:340px"><span>guards</span><span>8 s failover</span><span>hot-reloaded params</span><span>C → A switch</span></div>
-    <div class="src" style="left:152px;top:812px">Sunday duelist: branch duelist-loop @ f57a002</div>
+    <div class="chips" style="left:536px;top:668px;width:340px"><span>guards</span><span>8 s failover</span><span>27 hot-reloaded tunables</span><span>C → A switch</span><span>5-world simulator</span></div>
+    <div class="src" style="left:152px;top:826px">Sunday duelist: branch duelist-loop @ f57a002</div>
   </div>
 
   <!-- SENSE · CHECK -->
@@ -128,10 +135,10 @@
     <div class="why" style="left:128px;--c:var(--red)"><div class="n">1</div><div class="t">Code decides, the LLM writes</div>
       <p>The duelist's price, day and accept are code; Haiku only writes the words, in ≈ 2 s instead of 9.4 s.</p>
       <p>Guards in code, not in the prompt.</p><div class="bc">Because a 15 s tick doesn't wait</div></div>
-    <div class="why" style="left:695px;--c:var(--yellow)"><div class="n">2</div><div class="t">One trader per job, limits in writing</div>
-      <p>Only the Operator and the Duelist trade; the Market session only posts our venue's ads. Lucas changes a hard limit with a <b>GUARDRAIL</b> line in directives.md.</p><div class="bc">Because one key, 5 req/s and 1 accept per tick are shared</div></div>
-    <div class="why" style="left:1262px;--c:var(--green)"><div class="n">3</div><div class="t">Check before you act</div>
-      <p>A fresh verifier and contrarian reviews on the big calls; the Duel Lab simulates before every Sunday duelist start.</p><div class="bc">Because the author can't grade its own work</div></div>
+    <div class="why" style="left:695px;--c:var(--yellow)"><div class="n">2</div><div class="t">2 writers · 1 orchestrator · 14 watchers</div>
+      <p>Two roles act, one Chief decides, fourteen read-only daemons sense. Every hard limit is a written <b>GUARDRAIL</b> line.</p><div class="bc">Because one key, 5 req/s and 1 accept per tick are shared</div></div>
+    <div class="why" style="left:1262px;--c:var(--green)"><div class="n">3</div><div class="t">Redesigned every night, pressure-tested</div>
+      <p>Each night we rebuilt on the day's data. Saturday night the duelist went code-first (<b>547 tests green</b>) and ran on the simulator; contrarian agents and verifiers re-checked every big change; <b>163 tests</b> guard the bots.</p><div class="bc">Because the author can't grade its own work</div></div>
   </div>
 
   <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i style="width:66%"></i></div><div class="lvl">Q2 · Q3</div><div class="who">Control room</div></div>
