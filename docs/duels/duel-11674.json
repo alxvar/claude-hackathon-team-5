@@ -546,6 +546,333 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 2048,
+   "raw": {
+    "duel": 11674,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Escaparate de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.63,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 42,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 2052,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 15668,
+     "price": 60,
+     "tick": 2040,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 15739,
+     "price": 54,
+     "tick": 2048,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 2040,
+      "from": "you",
+      "text": "I'd like to open at 60 P for delivery on day 10.",
+      "price": 60,
+      "days": 10
+     },
+     {
+      "tick": 2040,
+      "from": "Rival Rojo",
+      "text": "Hello! I can do 34 with delivery on day 0.",
+      "price": 34,
+      "days": 0
+     },
+     {
+      "tick": 2041,
+      "from": "Rival Rojo",
+      "text": "Thanks for the reply. 40, delivery day 0.",
+      "price": 40,
+      "days": 0
+     },
+     {
+      "tick": 2043,
+      "from": "Rival Rojo",
+      "text": "Let me move closer: 44, day 0.",
+      "price": 44,
+      "days": 0
+     },
+     {
+      "tick": 2044,
+      "from": "Rival Rojo",
+      "text": "I'd like to close this: 47 with day 0.",
+      "price": 47,
+      "days": 0
+     },
+     {
+      "tick": 2045,
+      "from": "Rival Rojo",
+      "text": "Meeting you halfway: 50, delivered day 0.",
+      "price": 50,
+      "days": 0
+     },
+     {
+      "tick": 2046,
+      "from": "Rival Rojo",
+      "text": "Final stretch from me: 52, day 0.",
+      "price": 52,
+      "days": 0
+     },
+     {
+      "tick": 2047,
+      "from": "Rival Rojo",
+      "text": "Hello! I can do 53 with delivery on day 0.",
+      "price": 53,
+      "days": 0
+     },
+     {
+      "tick": 2048,
+      "from": "Rival Rojo",
+      "text": "Thanks for the reply. 54, delivery day 0.",
+      "price": 54,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 2049,
+   "raw": {
+    "duel": 11674,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Escaparate de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.63,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 42,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 2052,
+    "decay_per_round": 0.1,
+    "rounds": 2,
+    "your_offer": {
+     "id": 15745,
+     "price": 49,
+     "tick": 2049,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 15739,
+     "price": 54,
+     "tick": 2048,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 2040,
+      "from": "you",
+      "text": "I'd like to open at 60 P for delivery on day 10.",
+      "price": 60,
+      "days": 10
+     },
+     {
+      "tick": 2040,
+      "from": "Rival Rojo",
+      "text": "Hello! I can do 34 with delivery on day 0.",
+      "price": 34,
+      "days": 0
+     },
+     {
+      "tick": 2041,
+      "from": "Rival Rojo",
+      "text": "Thanks for the reply. 40, delivery day 0.",
+      "price": 40,
+      "days": 0
+     },
+     {
+      "tick": 2043,
+      "from": "Rival Rojo",
+      "text": "Let me move closer: 44, day 0.",
+      "price": 44,
+      "days": 0
+     },
+     {
+      "tick": 2044,
+      "from": "Rival Rojo",
+      "text": "I'd like to close this: 47 with day 0.",
+      "price": 47,
+      "days": 0
+     },
+     {
+      "tick": 2045,
+      "from": "Rival Rojo",
+      "text": "Meeting you halfway: 50, delivered day 0.",
+      "price": 50,
+      "days": 0
+     },
+     {
+      "tick": 2046,
+      "from": "Rival Rojo",
+      "text": "Final stretch from me: 52, day 0.",
+      "price": 52,
+      "days": 0
+     },
+     {
+      "tick": 2047,
+      "from": "Rival Rojo",
+      "text": "Hello! I can do 53 with delivery on day 0.",
+      "price": 53,
+      "days": 0
+     },
+     {
+      "tick": 2048,
+      "from": "Rival Rojo",
+      "text": "Thanks for the reply. 54, delivery day 0.",
+      "price": 54,
+      "days": 0
+     },
+     {
+      "tick": 2049,
+      "from": "you",
+      "text": "I can meet you at 49 P, but I need delivery on day 10 rather than day 0.",
+      "price": 49,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 2049,
+   "raw": {
+    "duel": 11674,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Escaparate de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.63,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 42,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 2052,
+    "decay_per_round": 0.1,
+    "rounds": 2,
+    "your_offer": {
+     "id": 15745,
+     "price": 49,
+     "tick": 2049,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 15746,
+     "price": 56,
+     "tick": 2049,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 2040,
+      "from": "you",
+      "text": "I'd like to open at 60 P for delivery on day 10.",
+      "price": 60,
+      "days": 10
+     },
+     {
+      "tick": 2040,
+      "from": "Rival Rojo",
+      "text": "Hello! I can do 34 with delivery on day 0.",
+      "price": 34,
+      "days": 0
+     },
+     {
+      "tick": 2041,
+      "from": "Rival Rojo",
+      "text": "Thanks for the reply. 40, delivery day 0.",
+      "price": 40,
+      "days": 0
+     },
+     {
+      "tick": 2043,
+      "from": "Rival Rojo",
+      "text": "Let me move closer: 44, day 0.",
+      "price": 44,
+      "days": 0
+     },
+     {
+      "tick": 2044,
+      "from": "Rival Rojo",
+      "text": "I'd like to close this: 47 with day 0.",
+      "price": 47,
+      "days": 0
+     },
+     {
+      "tick": 2045,
+      "from": "Rival Rojo",
+      "text": "Meeting you halfway: 50, delivered day 0.",
+      "price": 50,
+      "days": 0
+     },
+     {
+      "tick": 2046,
+      "from": "Rival Rojo",
+      "text": "Final stretch from me: 52, day 0.",
+      "price": 52,
+      "days": 0
+     },
+     {
+      "tick": 2047,
+      "from": "Rival Rojo",
+      "text": "Hello! I can do 53 with delivery on day 0.",
+      "price": 53,
+      "days": 0
+     },
+     {
+      "tick": 2048,
+      "from": "Rival Rojo",
+      "text": "Thanks for the reply. 54, delivery day 0.",
+      "price": 54,
+      "days": 0
+     },
+     {
+      "tick": 2049,
+      "from": "you",
+      "text": "I can meet you at 49 P, but I need delivery on day 10 rather than day 0.",
+      "price": 49,
+      "days": 10
+     },
+     {
+      "tick": 2049,
+      "from": "Rival Rojo",
+      "text": "Let me move closer: 56, day 0.",
+      "price": 56,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1983,6 +2310,467 @@
     "ACCEPT_BY": 1,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 2048,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11674,
+     "role": "seller",
+     "limit": 42,
+     "currency": "P",
+     "item": "Escaparate de Serrano",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.63,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 60 P for delivery on day 10.",
+      "offer": {
+       "price": 60,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2040,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hello! I can do 34 with delivery on day 0.",
+      "offer": {
+       "price": 34,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2040,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 40, delivery day 0.",
+      "offer": {
+       "price": 40,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2041,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Let me move closer: 44, day 0.",
+      "offer": {
+       "price": 44,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2043,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I'd like to close this: 47 with day 0.",
+      "offer": {
+       "price": 47,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2044,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Meeting you halfway: 50, delivered day 0.",
+      "offer": {
+       "price": 50,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2045,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Final stretch from me: 52, day 0.",
+      "offer": {
+       "price": 52,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2046,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hello! I can do 53 with delivery on day 0.",
+      "offer": {
+       "price": 53,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2047,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 54, delivery day 0.",
+      "offer": {
+       "price": 54,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2048,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 54,
+     "days": 0
+    },
+    "tick": 2048,
+    "ticks_left": 4,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5,
+     51.0,
+     65.4,
+     33.8,
+     10.600000000000001,
+     44.3,
+     3.8,
+     38.6,
+     62.5,
+     30.4,
+     33.4,
+     65.3,
+     15.700000000000001,
+     51.3,
+     5.8,
+     20.2,
+     48.2,
+     49.400000000000006,
+     6.8999999999999995,
+     15.2,
+     29.3,
+     49.0,
+     59.3,
+     16.299999999999997,
+     8.299999999999999,
+     12.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 60,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.08,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 2049,
+   "took_s": 1.63,
+   "cost_usd": 0.00129,
+   "obs": {
+    "view": {
+     "duel_id": 11674,
+     "role": "seller",
+     "limit": 42,
+     "currency": "P",
+     "item": "Escaparate de Serrano",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.63,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 60 P for delivery on day 10.",
+      "offer": {
+       "price": 60,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2040,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hello! I can do 34 with delivery on day 0.",
+      "offer": {
+       "price": 34,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2040,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 40, delivery day 0.",
+      "offer": {
+       "price": 40,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2041,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Let me move closer: 44, day 0.",
+      "offer": {
+       "price": 44,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2043,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I'd like to close this: 47 with day 0.",
+      "offer": {
+       "price": 47,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2044,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Meeting you halfway: 50, delivered day 0.",
+      "offer": {
+       "price": 50,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2045,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Final stretch from me: 52, day 0.",
+      "offer": {
+       "price": 52,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2046,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hello! I can do 53 with delivery on day 0.",
+      "offer": {
+       "price": 53,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2047,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Thanks for the reply. 54, delivery day 0.",
+      "offer": {
+       "price": 54,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2048,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 54,
+     "days": 0
+    },
+    "tick": 2049,
+    "ticks_left": 3,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5,
+     51.0,
+     65.4,
+     33.8,
+     10.600000000000001,
+     44.3,
+     3.8,
+     38.6,
+     62.5,
+     30.4,
+     33.4,
+     65.3,
+     15.700000000000001,
+     51.3,
+     5.8,
+     20.2,
+     48.2,
+     49.400000000000006,
+     6.8999999999999995,
+     15.2,
+     29.3,
+     49.0,
+     59.3,
+     16.299999999999997,
+     8.299999999999999,
+     12.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can meet you at 49 P, but I need delivery on day 10 rather than day 0.",
+    "price": 49,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "code step",
+     "step": 11.15,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.63,
+       "in": 1129,
+       "out": 33,
+       "cost_usd": 0.00129,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ]
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.08,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -2016,6 +2804,42 @@
      "id": 15668,
      "price": 60,
      "tick": 2040,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 2049,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can meet you at 49 P, but I need delivery on day 10 rather than day 0.",
+    "price": 49,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "code step",
+     "step": 11.15,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.63,
+       "in": 1129,
+       "out": 33,
+       "cost_usd": 0.00129,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 11674,
+    "offer": {
+     "id": 15745,
+     "price": 49,
+     "tick": 2049,
      "days": 10
     }
    }
