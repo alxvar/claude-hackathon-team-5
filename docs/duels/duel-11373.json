@@ -1358,5 +1358,79 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1989,
+ "done": {
+  "duel": 11373,
+  "session": 4,
+  "status": "no_deal",
+  "role": "buyer",
+  "item": "Museo Sorolla",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 3.38,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 141,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Oro",
+  "deadline_tick": 1989,
+  "decay_per_round": 0.1,
+  "rounds": 0,
+  "your_offer": {
+   "id": 14598,
+   "price": 133,
+   "tick": 1987,
+   "days": 0
+  },
+  "rival_offer": null,
+  "messages": [
+   {
+    "tick": 1977,
+    "from": "you",
+    "text": "I'm interested in Museo Sorolla. I offer 88 P with delivery on day 0.",
+    "price": 88,
+    "days": 0
+   },
+   {
+    "tick": 1983,
+    "from": "you",
+    "text": "I can do 97 P, delivery on day 0.",
+    "price": 97,
+    "days": 0
+   },
+   {
+    "tick": 1984,
+    "from": "you",
+    "text": "I can do 106 P, delivery on day 0.",
+    "price": 106,
+    "days": 0
+   },
+   {
+    "tick": 1985,
+    "from": "you",
+    "text": "I can do 115 P, delivery on day 0.",
+    "price": 115,
+    "days": 0
+   },
+   {
+    "tick": 1986,
+    "from": "you",
+    "text": "I can do 124 P, delivery on day 0.",
+    "price": 124,
+    "days": 0
+   },
+   {
+    "tick": 1987,
+    "from": "you",
+    "text": "I can do 133 P, delivery on day 0.",
+    "price": 133,
+    "days": 0
+   }
+  ],
+  "result": 0.0,
+  "price": null,
+  "days": null
+ }
 }

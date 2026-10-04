@@ -1358,5 +1358,79 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1989,
+ "done": {
+  "duel": 11610,
+  "session": 4,
+  "status": "no_deal",
+  "role": "seller",
+  "item": "Escaparate de Serrano",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 1.06,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 81,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Sol",
+  "deadline_tick": 1989,
+  "decay_per_round": 0.1,
+  "rounds": 0,
+  "your_offer": {
+   "id": 14599,
+   "price": 78,
+   "tick": 1987,
+   "days": 10
+  },
+  "rival_offer": null,
+  "messages": [
+   {
+    "tick": 1977,
+    "from": "you",
+    "text": "I'm offering 116 P for delivery on day 10.",
+    "price": 116,
+    "days": 10
+   },
+   {
+    "tick": 1983,
+    "from": "you",
+    "text": "I can do 109 P, delivery on day 10.",
+    "price": 109,
+    "days": 10
+   },
+   {
+    "tick": 1984,
+    "from": "you",
+    "text": "I can do 101 P, delivery on day 10.",
+    "price": 101,
+    "days": 10
+   },
+   {
+    "tick": 1985,
+    "from": "you",
+    "text": "I can do 93 P, delivery on day 10.",
+    "price": 93,
+    "days": 10
+   },
+   {
+    "tick": 1986,
+    "from": "you",
+    "text": "I can do 85 P, delivery on day 10.",
+    "price": 85,
+    "days": 10
+   },
+   {
+    "tick": 1987,
+    "from": "you",
+    "text": "I can do 78 P, delivery on day 10.",
+    "price": 78,
+    "days": 10
+   }
+  ],
+  "result": 0.0,
+  "price": null,
+  "days": null
+ }
 }

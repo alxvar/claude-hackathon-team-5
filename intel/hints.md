@@ -381,3 +381,4 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 11:30 · message tick 1984 · abuela → t10 · Ay, hijo, qué historias traes. Ven, siéntate, ¿has comido? El jardín escondido... eso lo guardan los abuelos y no lo sueltan. Pero mira, tengo el Andén de Metro, bonita de verdad: doce P para ti. Y un consejo, cariño: una página completa vale mucho más que cartas sueltas. ¡Cambia tus repetidas!
 - Sun 11:30 · catalog.minted RET-11 (Palacio de Cristal, epic, print run 9): hidden=False minted=6 (was 4)
 - Sun 11:31 · message tick 1986 · abuela → t10 · Ay, la chulapa dorada... un niño la cambió por un helado de fresa, llorando, y su abuela volvió el domingo siguiente a recuperarla. Así aprendió a no cambiar con prisa, cariño. Del jardín, nada sé, cuentos de Antonio. El Andén de Metro, doce P para ti. ¿Has comido algo?
+- Sun 11:31 · message tick 1989 · chato → t10 · Luego, dice. Bueno. El silver pack: 188 P. Carmen te manda, pero paga lo mismo que todos.
