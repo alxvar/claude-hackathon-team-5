@@ -397,3 +397,4 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 12:25 · message tick 2205 · banco → t12 · Buenas tardes. You come at a quiet hour; that suits me. La Reina de la Movida, from my vault. My terms: 761. I do not haggle over her.
 - Sun 12:26 · message tick 2206 · banco → t12 · Paciencia I have in abundance, señor. But my terms do not move with the hour. La Reina de la Movida: 761. She waits in the vault either way.
 - Sun 12:26 · message tick 2208 · banco → t12 · Un peso at a time, señor? We would both grow old. La Reina de la Movida: 758. The vault is cool, and she keeps well.
+- Sun 12:27 · message tick 2211 · banco → t12 · Five times now, one peso each. The vault does not notice, señor. La Reina de la Movida: 751. Walk home, think, and return with something serious.
