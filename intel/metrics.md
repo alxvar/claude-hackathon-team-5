@@ -1,22 +1,22 @@
-# Metrics (auto, 10:14, game tick 1681)
+# Metrics (auto, 10:16, game tick 1690)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
-1. Team 10 32.3 (-1.5 / -5.3) deals 65
-2. Team 12 31.5 (-1.1 / +1.0) deals 75
-3. Team 18 31.0 (-0.1 / -0.3) deals 54
-4. Team 5 29.9 (+0.8 / -0.6) deals 63 ← US
-5. Team 3 28.0 (+0.1 / -1.7) deals 39
-6. Team 6 25.4 (-0.8 / -3.4) deals 81
+1. Team 10 32.0 (-1.0 / -5.6) deals 67
+2. Team 12 31.2 (-0.8 / +0.8) deals 75
+3. Team 18 30.8 (-0.2 / -0.4) deals 54
+4. Team 5 29.7 (-0.6 / -0.8) deals 63 ← US
+5. Team 3 27.8 (-0.3 / -1.9) deals 39
+6. Team 6 25.1 (-0.6 / -3.6) deals 81
 7. Team 13 24.8 (-0.1 / -0.2) deals 97
-8. Team 8 23.7 (+0.7 / -1.2) deals 82
-9. Team 14 22.7 (-1.2 / -5.0) deals 58
-10. Team 1 22.0 (-1.0 / -3.7) deals 37
+8. Team 8 23.6 (-0.1 / -1.4) deals 82
+9. Team 14 22.4 (-0.9 / -5.2) deals 58
+10. Team 1 22.4 (-0.0 / -3.2) deals 38
 Us: #4
 
 ## Us
 
-score 29.93 · neg_points 50.0 (15 min ago 50.0) · ladder 0.172 · duel 0.0 · cash 373 · level 5 · deals 63
+score 29.72 · neg_points 50.0 (15 min ago 50.0) · ladder 0.172 · duel 0.0 · cash 373 · level 5 · deals 63
 
 ## Our holdings (card (rarity): value of each copy; a sale gives up the cheapest copy)
 
@@ -74,17 +74,16 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 
 ## Dealer prices, last 60 ticks (median per item)
 
-- abuela common (team sells): median 6 over 1
 - abuela uncommon (team buys): median 24 over 4
 - chato uncommon (team buys): median 27 over 1
-- picaros epic (team buys): median 146 over 1
+- picaros epic (team buys): median 140 over 2
 - picaros rare (team buys): median 56 over 2
 
 ## El Rastro now: top bids by price (team, card, price)
 
 - t16: SAL-11 (epic) 176 P · offer 21884
-- t16: CHA-10 (rare) 69 P · offer 21828
 - t16: CHA-09 (rare) 69 P · offer 21885
+- t16: CHA-10 (rare) 67 P · offer 21967
 - t16: CHA-06 (uncommon) 27 P · offer 21892
 - t12: LAV-07 (uncommon) 24 P · offer 21827
 - t16: CHA-07 (uncommon) 19 P · offer 21898
@@ -98,7 +97,7 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 - t09: CHA-02 (common) 5 P · offer 21550
 - t09: CHA-03 (common) 5 P · offer 21551
 
-Asks by others (card, price: count): LAT-01 8: 2; LAT-02 8: 2; LAT-06 21: 2; LAV-01 5: 2; LAV-05 5: 2; LAV-04 9: 1; sobre_plata 130: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAT-02 7: 1; SAL-05 9: 1; LAT-08 30: 1; LAT-07 30: 1; MAL-04 12: 1
+Asks by others (card, price: count): LAT-01 8: 2; LAT-02 8: 2; LAT-06 21: 2; LAV-01 5: 2; LAV-05 5: 2; sobre_plata 130: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAT-02 7: 1; SAL-05 9: 1; LAT-08 30: 1; LAT-07 30: 1; MAL-04 12: 1; MAL-03 12: 1
 
 ## Our duels: 0 live, 136 finished (last 10)
 
