@@ -28,6 +28,47 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1932,
+   "raw": {
+    "duel": 11241,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Cine Doré",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.16,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 139,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 1944,
+    "decay_per_round": 0.1,
+    "rounds": 0,
+    "your_offer": {
+     "id": 13340,
+     "price": 87,
+     "tick": 1932,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1932,
+      "from": "you",
+      "text": "I'm interested in Cine Doré. I offer 87 P for immediate delivery on day 0.",
+      "price": 87,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
