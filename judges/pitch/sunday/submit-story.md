@@ -1,4 +1,4 @@
-# /submit story · Team 5 (paste below the line; ⟳ = update at 15:00)
+# /submit story · Team 5 (paste below the line · FINAL numbers, 15:00)
 
 ---
 
@@ -10,7 +10,7 @@
 
 **Built around the Bazaar.** A club matchmaker, our market with more than two sides: it estimates every team's album from the public feed and shared want-lists, matches one team's spare to another's missing card (page-closers first), prices between both values so both sides gain, and is designed to rotate hosting across members' markets. Plus a demand model of what every card is worth to every team (no LLM), a shared Neon archive, a Market Test recorder and offline broker simulator, a live reactor on the public event stream, sequenced page closers (one addressed bid at a time) and Dani's live judges' showcase.
 
-**Result.** #6 at Friday's final, #1 since 12:35 Sunday: 37.26, 3.09 ahead at 13:35 ⟳.
+**Result.** #6 at Friday's final; #1 from 12:35 Sunday to the close: **37.73, 1.97 ahead of Team 10** (the game's 60; the judges' 40 not included). Duels III closed 57 of 68 deals, the Grand Final 27 of 34.
 
 **One more day.** Merge the Sunday duelist into main; switch on the broker we staged; put a verifier gate on every directive.
 
