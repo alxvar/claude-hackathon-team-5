@@ -1,4 +1,4 @@
-# Metrics (auto, 09:59, game tick 1622)
+# Metrics (auto, 10:01, game tick 1630)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -24,10 +24,10 @@ CHA-01 (common): 122; CHA-02 (common): 122; CHA-03 (common): 122; CHA-04 (common
 
 ## Our open offers (4)
 
-- 20331: bid 9 for LAT-07 · to anyone · expires tick 1630
-- 20332: bid 9 for LAT-08 · to anyone · expires tick 1630
 - 20680: bid 9 for LAT-06 · to anyone · expires tick 1660
 - 21583: sell RET-11 for 240 · to t02 · expires tick 1653
+- 21657: bid 9 for LAT-07 · to anyone · expires tick 1785
+- 21658: bid 9 for LAT-08 · to anyone · expires tick 1785
 
 ## What each of our deals did to neg_points (measured, last 12)
 
@@ -74,12 +74,11 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 
 ## Dealer prices, last 60 ticks (median per item)
 
-- abuela common (team buys): median 9 over 11
+- abuela common (team buys): median 9 over 8
 - abuela common (team sells): median 6 over 3
 - abuela sobre_barrio (team buys): median 21 over 1
-- chato rare (team buys): median 86 over 1
 - picaros epic (team buys): median 140 over 1
-- picaros rare (team buys): median 58 over 6
+- picaros rare (team buys): median 60 over 5
 - pilar rare (team sells): median 71 over 3
 - pilar uncommon (team sells): median 24 over 1
 
@@ -101,7 +100,7 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 - t04: SAL-06 (uncommon) 12 P · offer 21480
 - t16: CHA-01 (common) 10 P · offer 21604
 
-Asks by others (card, price: count): LAV-05 5: 2; LAT-02 8: 2; LAT-02 7: 1; LAT-08 30: 1; LAT-06 30: 1; LAT-07 30: 1; MAL-04 12: 1; MAL-03 12: 1; MAL-01 12: 1; LAT-01 9: 1; LAT-02 9: 1; LAT-04 9: 1; SAL-05 9: 1; LAV-04 9: 1; sobre_plata 130: 1
+Asks by others (card, price: count): LAT-06 21: 2; LAV-05 5: 2; LAT-02 8: 2; LAT-02 7: 1; SAL-05 9: 1; LAV-04 9: 1; sobre_plata 130: 1; LAV-08 23: 1; LAT-11 246: 1; LAV-09 80: 1; LAV-06 45: 1; RET-07 45: 1; RET-08 45: 1; MAL-01 14: 1; MAL-02 14: 1
 
 ## Our duels: 0 live, 136 finished (last 10)
 
