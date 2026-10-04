@@ -2,17 +2,17 @@
 
 Each field's text sits between its two `----` lines. Character counts are next to each heading (python `len`, newlines included).
 
-## PROJECT NAME ({{N1}} chars)
+## PROJECT NAME (25 chars)
 ----
 Team 5 · The Control Room
 ----
 
-## PITCH ({{N2}} / 1500 chars)
+## PITCH (1271 / 1500 chars)
 ----
 Team 5 finished the trading game #1 (37.73, 1.97 ahead of Team 10) after sitting #3 and 7.09 behind at Saturday's close. We built a control room of Claude Code sessions with one rule: separate who decides, who acts and who checks. Three humans set goals and hard limits. A Chief of staff session makes the big calls and logs each with its evidence, and never touches the game. Only two roles trade: the Operator (with the trading and dealer bots it starts) and the Duelist, where code decides price, delivery day and accept while Claude Haiku only writes the words. Read-only daemons, a live dashboard and a shared Neon archive feed the numbers back; verifier subagents, contrarian reviews and a duel simulator check the big calls before we act. Why it's good: it changed its own mind fast. An LLM deciding duels took 9.4 s per decision on Saturday, so we moved decisions into code overnight and closed 57 of 68 Duels III deals and 27 of 34 in the Grand Final, both above the field. A belief about a scoring cap was refuted by our own logs within two hours. And around the game we built a market with more than two sides: a club matchmaker that estimates every team's album from the public feed and pairs one team's spare with another's missing card, priced so both gain.
 ----
 
-## HOW IT WORKS ({{N3}} / 20000 chars)
+## HOW IT WORKS (6279 / 20000 chars)
 ----
 ### Result
 - **#1 on the trading game: 37.73** (negotiating 24.64 + market-making 13.08), 1.97 ahead of Team 10. #6 at Friday's close, #3 and 7.09 behind Team 10 at Saturday's close, #1 at every snapshot from Sunday 12:35 to the close (`data/leaderboard.jsonl`).
@@ -96,7 +96,7 @@ Solid arrows are authority or a write to the game; dotted arrows are data flowin
 - One trade with Team 10 (CHA-11) helped both sides equally; after it we locked out trades with the five closest rivals.
 ----
 
-## WHAT WOULD YOU DO WITH ONE MORE DAY ({{N4}} / 2000 chars)
+## WHAT WOULD YOU DO WITH ONE MORE DAY (763 / 2000 chars)
 ----
 1. **Merge the Sunday duelist into main** and keep tuning it on the Duel Lab simulator: the review found deals closed below an offer the rival had already made, so the accept rule is the next lever.
 2. **Switch on the broker we built.** We recorded every Market Test and simulated brokers offline, but none beat the free stall, so it stayed staged; one more day of recorded books is what it needs to earn a bond.

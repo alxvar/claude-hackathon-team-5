@@ -44,3 +44,11 @@ svg.wires{position:absolute;left:0;top:0;width:1920px;height:1080px;pointer-even
 @keyframes flow{to{stroke-dashoffset:-24}}
 .flow{stroke-dasharray:10 14;animation:flow 1.2s linear infinite}
 .src{position:absolute;font:500 14px/1.35 var(--mono);color:var(--dim);letter-spacing:.02em}
+
+/* print / PDF: one 16:9 page per slide, backgrounds kept */
+@page{size:1920px 1080px;margin:0}
+@media print{
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  html,body{height:auto!important;overflow:visible!important;background:#0b1020}
+  .stage{position:relative!important;left:0!important;top:0!important;transform:none!important;break-after:page;page-break-after:always}
+}
