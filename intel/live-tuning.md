@@ -70,4 +70,14 @@ evidence (n) · expected effect`); **ESCALATE** lines for the Chief (EV, cost, a
 All three commit every ~5 min: cut to their cadence above to reduce git churn on the shared tree.
 
 ## Live log
-_(empty until Sunday's open)_
+
+### 09:38 · tick ≈ 1490 · case J (round 3 since tick 1446; snapshot 1482, phase 0.12)
+| Metric | Actual | Book | n | Note |
+|---|---|---|---|---|
+| M1 Pícaros CHA rare | CHA-09 at **55** (tick 1472) | ≤ 57 → 60 → 62 (07:25) | 1 (ours) + t18 at 58 | inside the band |
+| M2 ladder share | 0.075 raw = **0.84 of an L4 slot** | full = 0.089 | 1 | good |
+| M3 CHA held / spent | 1 of 10 · 55 P (cash 487) | ≈ 330 P plan | — | CHA-10 next at the Pícaros |
+| M6 v10 | 0 trades, mm 0.0 | RET-09 pair | — | the pair hasn't fired yet |
+| M8 Sunday round (≈ ±1) | us **≈ +12.3** (negotiating; ladder vs a tiny early reference) · t03 +5.8 · t10/t12/t18/t06 ≈ 0 | — | — | early numbers shrink as the field deals |
+**PROPOSE:** no change (n < 3 for every band). **ESCALATE:** none. Watch: t18 is racing the same CHA rares (CHA-09 at 58); t18 bought
+CHA-06 from Chato at 31 (above list 26: no ladder for it).

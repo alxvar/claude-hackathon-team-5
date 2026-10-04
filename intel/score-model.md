@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sun 09:25 (tick 1468, round 3 live; snapshot 1462): **§3i Saturday final: the flip landed (+2.72, us 48.46), t12 +7.03 → #2 (52.66). We must beat t12 by 4.20 on Sunday; we lead t18 by 1.55.**_
+_Last update: Sun 09:38 (tick ≈ 1490; snapshot 1482, phase 0.12): Sunday round so far us ≈ +12.3 (one Pícaros CHA rare, ladder 0.075), t03 +5.8, t10/t12/t18 ≈ 0. Saturday final in §3i (us 48.46, t12 52.66, t10 56.38)._
 _Note: the §4 version labels "00:05" to "02:10" are sequence markers written between Sat 23:50 and Sun 00:42 (my labels ran ahead of the wall clock); real times are in `git log`. The Sunday clock in §4.7 is unaffected._
 
 ## 1. Board = Friday × Saturday blend [V]
