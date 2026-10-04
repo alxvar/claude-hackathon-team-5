@@ -1,5 +1,7 @@
 # Club Castizo: review, venue plan, WhatsApp pitches (Sun 01:00)
 
+> **SUPERSEDED (Chief, Sun 07:05): §1 and §3 of this file are replaced by the club page and by `intel/market-sunday.md` §0.5** (the 08:30 texts, venues and order). No cash bonuses are offered. Do not send from §1/§3.
+
 _Independent strategist pass, rewritten for Lucas's 00:40 requirements and the coordinator's 00:55 edits (matching explained step by step, worked example, v10 first deals + page-closers then member rotation ≈ 50/50, accept rule for bots, list sharing) and an independent verifier's audit. Sources: bazaar-kit/RULES.md, intel/chief-handoff.md, intel/directives.md (19:40, 21:30, 21:40, 22:55), intel/market-sunday.md (§0, §1, §6), intel/matches.md (00:23 run, tick 1440), intel/teams.md, data/feed.jsonl (venue ids, RET-09 holdings), public /api/leaderboard (tick 1440: market, pages_complete), the Market session's Saturday accept counts (via the Chief). Labels: [V] measured or read from the server/feed, [L] inferred, [?] unknown._
 
 Page source: the Chief's scratchpad `club-castizo.html` → publish to https://claude.ai/artifact/9HVLftiHAKMwgPwTQbLff1 (private until Lucas shares it).
