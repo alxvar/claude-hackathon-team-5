@@ -1,4 +1,22 @@
-# Standings (Analyst; refreshed hourly)
+# Standings (Analyst)
+
+## FINAL RESULT: trading game (Sun 15:03, last public snapshot 2802; doors closed, round 3 end_round at game 19.367) [V board · provisional until the organisers publish]
+The board at phase 1.0 IS the final game score on the 60 points (Negotiating 30 + Market 30): (0.5·Fri + Sat + Sun)/2.5. Judges' 40 come on top.
+| Rank | Team | Board = final /60 | Negotiating | Market | 0.5·Fri + Sat + Sun |
+|---|---|---|---|---|---|
+| **1** | **t05 (us)** | **37.73** | 24.64 | 13.08 | **94.32** |
+| 2 | t10 | 35.76 | 23.49 | 12.26 | 89.40 |
+| 3 | t12 | 34.51 | 23.07 | 11.44 | 86.27 |
+| 4 | t03 | 34.19 | 26.04 | 8.15 | 85.47 |
+| 5 | t18 | 32.27 | 23.27 | 9.00 | 80.68 |
+| 6 | t09 | 30.83 | 17.49 | 13.34 | 77.07 |
+| 7 | t04 | 30.52 | 19.20 | 11.31 | 76.30 |
+| 8 | t06 | 30.41 | 19.15 | 11.26 | 76.03 |
+**We finished #1 on the trading game, 1.97 board points (4.92 on the day totals) ahead of t10.** We started Sunday #3, 10.6 behind t10 on
+0.5·Fri + Sat. What decided it [V feed]: our CHA page closed by a team trade (+50, 09:52); **v10 real trades** from club pairs and two big
+epic sales by other teams on our venue (t10 → t06 CHA-11 at 184; VC 245+ → market capped); Duels III 57/68 deals (84% vs the field's
+75%) and the Grand Final 27/34 (79% vs 69%); the flip at Saturday's close (+2.72).
+
 
 _Final Saturday snapshot 1440 (Sat 23:00, doors closed; clock paused at game 13.367 in round 2). Source: `/api/leaderboard`
 (keyless) + the board fit in `intel/score-model.md` §1._
