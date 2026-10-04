@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sun 12:58 (snapshot 2302, phase 1.0): **final basis us 89.5 · t12 85.5 · t10 83.3 · t18 81.4 · t03 81.0** (lead ≈ 4.0). v10 VC 175 (t17 → t01 RET-09 / RET-10). We bought CHA-11 from t10 at 190 (+50, on v17) and MAL-07 from t07 at 15. MAL-09 is the last card: a team at ≤ 45 (§4.14). Grand Final checks at 14:08 / 14:24._
+_Last update: Sun 13:00 (snapshot 2322, phase 1.0): **final basis us 93.0 · t10 86.9 · t12 85.5 · t18 81.3 · t03 81.0 (lead ≈ 6.1).** CHA-11 from t10 (+50, neg 104.8) moved our negotiating 22.72 → 24.20: the trade reference N is ≈ 122 (uncapped) or ≈ 93 (just capped) [L]. Either way, spend cash only on ≥ 0-gain trades (MAL-09 closer ≤ 75, first copies under value). Grand Final checks at 14:08 / 14:24._
 _Note: the §4 version labels "00:05" to "02:10" are sequence markers written between Sat 23:50 and Sun 00:42 (my labels ran ahead of the wall clock); real times are in `git log`. The Sunday clock in §4.7 is unaffected._
 
 ## 1. Board = Friday × Saturday blend [V]
