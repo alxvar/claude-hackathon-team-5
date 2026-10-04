@@ -1204,5 +1204,77 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1992,
+ "done": {
+  "duel": 11471,
+  "session": 4,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Vinilo de la Movida",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 0.38,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 177,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Noche",
+  "deadline_tick": 1994,
+  "decay_per_round": 0.1,
+  "rounds": 2,
+  "your_offer": {
+   "id": 14710,
+   "price": 121,
+   "tick": 1991,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 14551,
+   "price": 133,
+   "tick": 1985,
+   "days": 10
+  },
+  "messages": [
+   {
+    "tick": 1982,
+    "from": "you",
+    "text": "I'd like to open at 111 P for delivery on day 0.",
+    "price": 111,
+    "days": 0
+   },
+   {
+    "tick": 1984,
+    "from": "Rival Noche",
+    "text": "Rápido y justo: 147 P, día 10. ¿Qué día de entrega te va mejor? / Quick and fair: 147 P, day 10. Which delivery day suits you best?",
+    "price": 147,
+    "days": 10
+   },
+   {
+    "tick": 1984,
+    "from": "you",
+    "text": "I can do 110 P, delivery on day 10.",
+    "price": 110,
+    "days": 10
+   },
+   {
+    "tick": 1985,
+    "from": "Rival Noche",
+    "text": "Parece que el día te importa: 133 P con día 10. / It seems the day matters to you: 133 P, day 10.",
+    "price": 133,
+    "days": 10
+   },
+   {
+    "tick": 1991,
+    "from": "you",
+    "text": "Nos acercamos: 121 P, día 10.",
+    "price": 121,
+    "days": 10
+   }
+  ],
+  "result": 42.3,
+  "price": 121,
+  "days": 10
+ }
 }

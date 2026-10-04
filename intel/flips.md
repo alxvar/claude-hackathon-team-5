@@ -1,6 +1,6 @@
 # Flips: team bids a dealer can fill (Team 10's playbook)
 
-_Written by `tools/reactor.py` at 11:30 (tick 1987). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
+_Written by `tools/reactor.py` at 11:32 (tick 1991). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
 
 ## Open bids (HUNT digest)
 
@@ -10,8 +10,8 @@ _Written by `tools/reactor.py` at 11:30 (tick 1987). The open team bids for rare
 | 170 | LAV-11 La Casa Encendida (epic) | t12 | v21 → t06 | none (all minted or no dealer) | - | 23970 | 11:37 |
 | 114 | LAT-11 San Francisco el Grande (epic) | t06 | v21 | picaros 145 | -31 | 23890 | 11:49 |
 | 112 | SAL-11 La Puerta de Alcalá (epic) | t10 | v19 → t08 | none (all minted or no dealer) | - | 24160 | 11:39 |
-| 81 | MAL-11 La Sala Pentagrama (epic) | t06 | v21 | picaros 145 | -64 | 24180 | 11:59 |
-| 44 | LAT-09 San Isidro (rare) | t06 | v21 | picaros 57 | -13 | 24213 | 12:00 |
+| 81 | MAL-11 La Sala Pentagrama (epic) | t06 | v21 | picaros 145 | -64 | 24180 | 12:00 |
+| 44 | LAT-09 San Isidro (rare) | t06 | v21 | picaros 57 | -13 | 24213 | 12:01 |
 | 31 | MAL-09 La Heroína del Dos de Mayo (rare) | t06 | v21 | picaros 57 | -26 | 23219 | 11:32 |
 | 31 | MAL-10 Noche de Movida (rare) | t06 | v21 | picaros 57 | -26 | 23379 | 11:36 |
 
