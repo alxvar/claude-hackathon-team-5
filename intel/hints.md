@@ -287,3 +287,4 @@ La Caña te la dejo en 10 P, cariño. Y esta noche a las nueve y media abre El C
 - Sun 09:20 · set.released tick 1446 ·  → ? · {"set": "CHA", "name": "Chamber\u00ed", "cards": 12}
 - Sun 09:20 · taller.crafted tick 1466 ·  → t05 · Team 5 turned three common cards into Samosas de la Plaza (uncommon) at The Workshop
 - Sun 09:20 · egg.found tick 1467 · abuela → t13 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t13", "name": "Team 13"}
+- Sun 09:23 · egg.found tick 1480 · abuela → t18 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t18", "name": "Team 18"}

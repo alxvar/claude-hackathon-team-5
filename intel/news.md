@@ -15,3 +15,4 @@ _Every item from GET /api/news (sources: boletin, radio, tablon), oldest first, 
 - Sat 19:36 · tick 1123 (hour 10.6833) · El Tablón · **All of Lavapiés will be reprinted tonight** · If you have spare Lavapiés cards, sell them now. · Names: set LAV
 - Sun 09:20 · tick 1464 (hour 13.6833) · El Tablón · **Someone lost a red umbrella next to Abuela's stall** ·  · Names: dealer abuela
 - Sun 09:21 · tick 1470 (hour 13.7333) · El Tablón · **Tomorrow common cards will be worth double** ·  · Names: none
+- Sun 09:24 · tick 1482 (hour 13.7833) · Radio Rastro · **Bonus pay: the Bazaar gives everyone 60 primas in one hour** ·  · Names: price
