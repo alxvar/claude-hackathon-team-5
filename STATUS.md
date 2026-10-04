@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sun 12:44** · tick 2278 (15 s/tick) · game hour 17.10 · running · today closes 15:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sun 12:49** · tick 2299 (15 s/tick) · game hour 17.19 · running · today closes 15:00._
 
 ## Team: now and latest
 
@@ -17,25 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Sun: CHA page COMPLETE (+50). RET-11 kept (t13 asks lapsed); MAL decision ≈ 12:00 (Chief); Duels III ≈ 11:00 (duelist stopped on Aleks's machine at 09:46: Chief alerted). (Sat history:) Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sun 12:49 · CHA-11: t10 is flipping CHA-11 (Pícaros 149 → t06 on v10 184; Pícaros 150 → public El Rastro ask 26209 at 162) · Chief GO on taking 26209: cancelled 25784, but t10 had cancelled 26209 at tick 2290 (accept refused ×6), nothing bought · t08 bid re-posted **26349** (240, exp 2356) · cha11_t10.py (pid 66887): if t10 lists CHA-11 on El Rastro ≤ 190 (to us or public), it cancels the t08 bid, then accepts · our posting on v10 is impossible (RULES: no trading on your own venue); the Chief's move (1) is void · MAL-09 from t10 (≤ 45) armed, waits for Lucas's go; the feed says t10 still holds MAL-09 (bought from the Pícaros at tick 967, no later sale)
+  - Sun 12:46 · Market: v10 has 5 fills since 11:56 (two commons, Team 10's CHA-11 epic to t06 at 184, two RET rares t17 → t01) · mm_points 9.7, market 13.08, score 35.81, RANK 1; benches 14.65 (0.967), 15.0 (0.895), 17.0 (0.890) all at the stall's 0.5, nobody above it · next: keep flow on v10 through the 14:15 push (`intel/market-log.md`)
   - Sun 12:42 · MAL-09 closer (Chief 12:43): mal_close stopped, 25451 cancelled → **26022** → t08, El Rastro, 60 (value-when-last 95.4 → +35), exp tick 2308; mal09_bid.py (pid 56602): one move to t13 at 60 on expiry, never two live · **4th v10 settlement** #1403 t01 ↔ t17 RET-09 at 40 → bounty #3 (seller t17): in kind LAT-05 + LAT-01 at 10 = value, offer 25997 (both taken out of the book first) · cash 647, ≈ 416 in open bids
-  - Sun 12:41 · **MAL-07 filled** via the book's public bid at 15 (value 17.5): neg 52.2 → 54.8 · MAL 9/10: MAL-09 is the last card, value-when-last 95.4 (≤ 45 = full +50 clip) · closer 25451 → t08, El Rastro, 48 (+47.4 if filled), exp 2310; mal_close re-posts at 45 · asked the Chief on price/seller · Market Test fired 12:38 · market 12.7, score 35.39 (v10 VC 114.4)
-  - Sun 12:35 · CHA-11 (Chief 12:36: t08 sells at 240; t16 won't; t10 offers 210 but is a rival) · cha11.py stopped, 25638 cancelled → **25784** → t08, El Rastro, 240, exp tick 2303; value 288 → +48; the only CHA-11 bid live; no auto re-post
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 35.39 | 1 | 22.69 | 12.70 | 24.68 | 0.36 | 0.89 | 73 | 5 | 647 | 50/60 |
+| 35.81 | 1 | 22.72 | 13.08 | 24.68 | 0.36 | 0.89 | 73 | 5 | 647 | 50/60 |
 
-Leaderboard (snapshot at tick 2262; refreshes every few minutes):
+Leaderboard (snapshot at tick 2282; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 5 | 35.39 | 22.69 | 12.70 | 72 |
-| 2 | Team 10 | 34.18 | 21.72 | 12.46 | 72 |
-| 3 | Team 12 | 34.13 | 22.80 | 11.32 | 82 |
-| 4 | Team 18 | 32.60 | 23.60 | 9.00 | 57 |
-| 5 | Team 3 | 32.28 | 24.13 | 8.15 | 44 |
+| 1 | Team 5 | 35.81 | 22.72 | 13.08 | 73 |
+| 2 | Team 12 | 34.20 | 22.76 | 11.44 | 82 |
+| 3 | Team 10 | 34.08 | 21.69 | 12.38 | 72 |
+| 4 | Team 18 | 32.54 | 23.54 | 9.00 | 57 |
+| 5 | Team 3 | 32.23 | 24.08 | 8.15 | 44 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 18.17 | ~64 min | announce | finale warning |
-| 18.37 | ~76 min | persona | Finale: stalls close |
-| 18.37 | ~76 min | persona | Finale: stalls close |
-| 18.37 | ~76 min | persona | Finale: stalls close |
-| 18.37 | ~76 min | persona | Finale: stalls close |
-| 18.37 | ~76 min | persona | Finale: stalls close |
-| 18.37 | ~76 min | duels | The Grand Final: the last duel wave, on the big screen |
-| 19.27 | ~130 min | announce | freeze warning |
+| 18.17 | ~59 min | announce | finale warning |
+| 18.37 | ~71 min | persona | Finale: stalls close |
+| 18.37 | ~71 min | persona | Finale: stalls close |
+| 18.37 | ~71 min | persona | Finale: stalls close |
+| 18.37 | ~71 min | persona | Finale: stalls close |
+| 18.37 | ~71 min | persona | Finale: stalls close |
+| 18.37 | ~71 min | duels | The Grand Final: the last duel wave, on the big screen |
+| 19.27 | ~125 min | announce | freeze warning |
 
 ## Our dealer deals
 
@@ -58,8 +58,6 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Thread | Dealer | Side | Item | Her first | Our first | Deal | vs her first | Msgs | Status | Closed |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 2629 | picaros | sell | 1 card(s) | 4 | 12 | — | — | 7 | closed |  |
-| 2632 | picaros | sell | 1 card(s) | 4 | 12 | — | — | 13 | closed |  |
 | 2656 | picaros | sell | 1 card(s) | 4 | 12 | 5 | +25% | 13 | deal |  |
 | 2661 | picaros | sell | 1 card(s) | 4 | 12 | 5 | +25% | 7 | deal |  |
 | 2668 | picaros | sell | 1 card(s) | 4 | 12 | 5 | +25% | 15 | deal |  |
@@ -78,9 +76,9 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
-| common card | team buys | 120 | 9.00 | 7 | 15 | 9 | 8.78 |
+| common card | team buys | 123 | 9 | 7 | 15 | 9 | 8.78 |
 | common card | team sells | 130 | 6.00 | 2 | 23 | 6 | 5.50 |
-| sobre_barrio | team buys | 45 | 22 | 17 | 30 | 3 | 20.33 |
+| sobre_barrio | team buys | 46 | 22.00 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 103 | 23 | 17 | 29 | 7 | 23.43 |
 | uncommon card | team sells | 13 | 15 | 12 | 22 | 0 | — |
 
