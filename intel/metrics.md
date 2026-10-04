@@ -1,4 +1,4 @@
-# Metrics (auto, 11:16, game tick 1927)
+# Metrics (auto, 11:18, game tick 1936)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -16,7 +16,7 @@ Us: #4
 
 ## Us
 
-score 31.68 · neg_points 50.0 (15 min ago 50.0) · ladder 0.342 · duel 7.01 · cash 635 · level 5 · deals 69
+score 31.68 · neg_points 50.0 (15 min ago 50.0) · ladder 0.342 · duel 8.77 · cash 635 · level 5 · deals 69
 
 ## Our holdings (card (rarity): value of each copy; a sale gives up the cheapest copy)
 
@@ -24,10 +24,10 @@ CHA-01 (common): 122; CHA-02 (common): 122; CHA-03 (common): 122; CHA-04 (common
 
 ## Our open offers (4)
 
-- 22614: bid 9 for LAT-07 · to anyone · expires tick 1940
-- 22615: bid 9 for LAT-08 · to anyone · expires tick 1940
 - 22813: bid 9 for LAT-06 · to anyone · expires tick 1970
-- 22816: bid 48 for MAL-09 · to t08 · expires tick 1930
+- 23827: bid 48 for MAL-09 · to t08 · expires tick 2051
+- 23846: bid 9 for LAT-07 · to anyone · expires tick 2095
+- 23847: bid 9 for LAT-08 · to anyone · expires tick 2095
 
 ## What each of our deals did to neg_points (measured, last 12)
 
@@ -74,14 +74,14 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×2; t02: RET×4, MAL�
 
 ## Dealer prices, last 60 ticks (median per item)
 
-- abuela common (team buys): median 11 over 3
+- abuela common (team buys): median 12 over 4
 - abuela common (team sells): median 5 over 2
 - chato uncommon (team sells): median 14 over 1
 - picaros common (team sells): median 5 over 1
-- picaros epic (team buys): median 140 over 1
+- picaros epic (team buys): median 142 over 2
 - picaros rare (team buys): median 58 over 3
 - pilar rare (team sells): median 71 over 1
-- pilar uncommon (team sells): median 23 over 1
+- pilar uncommon (team sells): median 22 over 3
 
 ## El Rastro now: top bids by price (team, card, price)
 
@@ -101,13 +101,13 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×2; t02: RET×4, MAL�
 - t15: SAL-05 (common) 2 P · offer 22922
 - t15: SAL-02 (common) 2 P · offer 22923
 
-Asks by others (card, price: count): sobre_plata 130: 1; RET-05 8: 1; MAL-01 6: 1; SAL-05 8: 1; LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAV-04 6: 1; LAT-08 30: 1; LAT-07 30: 1; MAL-01 7: 1; LAT-01 9: 1; LAT-02 9: 1
+Asks by others (card, price: count): sobre_plata 130: 1; RET-05 8: 1; MAL-01 6: 1; SAL-05 8: 1; LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAV-04 6: 1; LAT-07 30: 1; MAL-01 7: 1; LAT-01 9: 1; LAT-02 9: 1; LAT-04 9: 1
 
-## Our duels: 4 live, 164 finished (last 10)
+## Our duels: 4 live, 167 finished (last 10)
 
-- {"duel": 11280, "session": 4, "status": "live", "role": "seller", "item": "Vinilo de la Movida", "issues": ["price", "days"], "your_days_weight": 3.96, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 38, "limit_meaning": "ne
 - {"duel": 11281, "session": 4, "status": "deal", "role": "buyer", "item": "Vinilo de la Movida", "issues": ["price", "days"], "your_days_weight": 0.94, "days_meaning": "each delivery day costs you this much cash", "your_limit": 159, "limit_meaning": "never pay 
 - {"duel": 11284, "session": 4, "status": "live", "role": "seller", "item": "Escaparate de Serrano", "issues": ["price", "days"], "your_days_weight": 1.46, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 86, "limit_meaning": "
+- {"duel": 11285, "session": 4, "status": "live", "role": "buyer", "item": "Escaparate de Serrano", "issues": ["price", "days"], "your_days_weight": 1.25, "days_meaning": "each delivery day costs you this much cash", "your_limit": 106, "limit_meaning": "never pa
 - {"duel": 11304, "session": 4, "status": "deal", "role": "buyer", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 4.18, "days_meaning": "each delivery day costs you this much cash", "your_limit": 149, "limit_meaning": "never pay above 
 - {"duel": 11305, "session": 4, "status": "live", "role": "seller", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 4.84, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 85, "limit_meaning": "never se
 - {"duel": 11352, "session": 4, "status": "no_deal", "role": "seller", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 6.83, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 110, "limit_meaning": "neve

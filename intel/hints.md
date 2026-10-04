@@ -373,3 +373,4 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 11:14 · message tick 1922 · banco → t04 · Respect does not move terms, señor. Let it be 760 P — one peseta, to mark the courtesy. El Gato stays in the vault until you meet it.
 - Sun 11:15 · message tick 1924 · banco → t04 · Firsts do not lower terms, señor; they raise them. 751 P for El Gato. The vault is cool and he is comfortable there. Decide when you wish.
 - Sun 11:17 · message tick 1933 · banco → t10 · Bonita historia, y casi exacta. Guárdela para otro domingo. Hoy mis términos no cambian: El Gato de Lavapiés, setecientos sesenta y uno. La chulapa sigue en su sitio.
+- Sun 11:18 · message tick 1936 · banco → t10 · Consta. Lo sabe, y lo sabe bien. Pero la chulapa no se mueve hoy. Mis términos siguen: El Gato de Lavapiés, setecientos sesenta y uno. Sin prisa.

@@ -440,6 +440,129 @@
     "LATE_SWITCH_LEFT": 0,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1939,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11285,
+     "role": "buyer",
+     "limit": 106,
+     "currency": "P",
+     "item": "Escaparate de Serrano",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.25,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm looking to acquire Escaparate de Serrano at 66 P with delivery on day 0.",
+      "offer": {
+       "price": 66,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1935,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "97 with delivery on day 10. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "offer": {
+       "price": 97,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1935,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Your offer is too high. I'll propose 58 P with delivery on day 10.",
+      "offer": {
+       "price": 58,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1936,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 97,
+     "days": 10
+    },
+    "tick": 1939,
+    "ticks_left": 8,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 58,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "give",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [

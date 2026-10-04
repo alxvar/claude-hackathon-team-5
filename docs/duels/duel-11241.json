@@ -69,6 +69,171 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1938,
+   "raw": {
+    "duel": 11241,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Cine Doré",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.16,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 139,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 1944,
+    "decay_per_round": 0.1,
+    "rounds": 0,
+    "your_offer": {
+     "id": 13495,
+     "price": 95,
+     "tick": 1938,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1932,
+      "from": "you",
+      "text": "I'm interested in Cine Doré. I offer 87 P for immediate delivery on day 0.",
+      "price": 87,
+      "days": 0
+     },
+     {
+      "tick": 1938,
+      "from": "you",
+      "text": "I can do 95 P, delivery on day 0.",
+      "price": 95,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1939,
+   "raw": {
+    "duel": 11241,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Cine Doré",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.16,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 139,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 1944,
+    "decay_per_round": 0.1,
+    "rounds": 0,
+    "your_offer": {
+     "id": 13515,
+     "price": 104,
+     "tick": 1939,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1932,
+      "from": "you",
+      "text": "I'm interested in Cine Doré. I offer 87 P for immediate delivery on day 0.",
+      "price": 87,
+      "days": 0
+     },
+     {
+      "tick": 1938,
+      "from": "you",
+      "text": "I can do 95 P, delivery on day 0.",
+      "price": 95,
+      "days": 0
+     },
+     {
+      "tick": 1939,
+      "from": "you",
+      "text": "I can do 104 P, delivery on day 0.",
+      "price": 104,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1940,
+   "raw": {
+    "duel": 11241,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Cine Doré",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.16,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 139,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 1944,
+    "decay_per_round": 0.1,
+    "rounds": 0,
+    "your_offer": {
+     "id": 13535,
+     "price": 113,
+     "tick": 1940,
+     "days": 0
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1932,
+      "from": "you",
+      "text": "I'm interested in Cine Doré. I offer 87 P for immediate delivery on day 0.",
+      "price": 87,
+      "days": 0
+     },
+     {
+      "tick": 1938,
+      "from": "you",
+      "text": "I can do 95 P, delivery on day 0.",
+      "price": 95,
+      "days": 0
+     },
+     {
+      "tick": 1939,
+      "from": "you",
+      "text": "I can do 104 P, delivery on day 0.",
+      "price": 104,
+      "days": 0
+     },
+     {
+      "tick": 1940,
+      "from": "you",
+      "text": "I can do 113 P, delivery on day 0.",
+      "price": 113,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -205,6 +370,326 @@
     "LATE_SWITCH_LEFT": 0,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1938,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11241,
+     "role": "buyer",
+     "limit": 139,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.16,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm interested in Cine Doré. I offer 87 P for immediate delivery on day 0.",
+      "offer": {
+       "price": 87,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1932,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1938,
+    "ticks_left": 6,
+    "rounds": 0,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 95 P, delivery on day 0.",
+    "price": 95,
+    "days": 0,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1939,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11241,
+     "role": "buyer",
+     "limit": 139,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.16,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm interested in Cine Doré. I offer 87 P for immediate delivery on day 0.",
+      "offer": {
+       "price": 87,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1932,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 95 P, delivery on day 0.",
+      "offer": {
+       "price": 95,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1938,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1939,
+    "ticks_left": 5,
+    "rounds": 0,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 104 P, delivery on day 0.",
+    "price": 104,
+    "days": 0,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1940,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11241,
+     "role": "buyer",
+     "limit": 139,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.16,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm interested in Cine Doré. I offer 87 P for immediate delivery on day 0.",
+      "offer": {
+       "price": 87,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1932,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 95 P, delivery on day 0.",
+      "offer": {
+       "price": 95,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1938,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 104 P, delivery on day 0.",
+      "offer": {
+       "price": 104,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1939,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1940,
+    "ticks_left": 4,
+    "rounds": 0,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 113 P, delivery on day 0.",
+    "price": 113,
+    "days": 0,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -238,6 +723,75 @@
      "id": 13340,
      "price": 87,
      "tick": 1932,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1938,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 95 P, delivery on day 0.",
+    "price": 95,
+    "days": 0,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 11241,
+    "offer": {
+     "id": 13495,
+     "price": 95,
+     "tick": 1938,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1939,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 104 P, delivery on day 0.",
+    "price": 104,
+    "days": 0,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 11241,
+    "offer": {
+     "id": 13515,
+     "price": 104,
+     "tick": 1939,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1940,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 113 P, delivery on day 0.",
+    "price": 113,
+    "days": 0,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 11241,
+    "offer": {
+     "id": 13535,
+     "price": 113,
+     "tick": 1940,
      "days": 0
     }
    }

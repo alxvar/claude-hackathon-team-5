@@ -2522,5 +2522,119 @@
     "settles_at_tick": 1937
    }
   }
- ]
+ ],
+ "last_seen_tick": 1937,
+ "done": {
+  "duel": 11305,
+  "session": 4,
+  "status": "deal",
+  "role": "seller",
+  "item": "Museo Sorolla",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 4.84,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 85,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Sol",
+  "deadline_tick": 1938,
+  "decay_per_round": 0.1,
+  "rounds": 2,
+  "your_offer": {
+   "id": 13412,
+   "price": 102,
+   "tick": 1935,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 13432,
+   "price": 107,
+   "tick": 1936,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1926,
+    "from": "you",
+    "text": "I offer 121 P with delivery on day 10.",
+    "price": 121,
+    "days": 10
+   },
+   {
+    "tick": 1928,
+    "from": "Rival Sol",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 59,
+    "days": 0
+   },
+   {
+    "tick": 1929,
+    "from": "Rival Sol",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 65,
+    "days": 0
+   },
+   {
+    "tick": 1930,
+    "from": "Rival Sol",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 71,
+    "days": 0
+   },
+   {
+    "tick": 1931,
+    "from": "Rival Sol",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 76,
+    "days": 0
+   },
+   {
+    "tick": 1932,
+    "from": "Rival Sol",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 82,
+    "days": 0
+   },
+   {
+    "tick": 1933,
+    "from": "Rival Sol",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 87,
+    "days": 0
+   },
+   {
+    "tick": 1934,
+    "from": "Rival Sol",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 93,
+    "days": 0
+   },
+   {
+    "tick": 1935,
+    "from": "you",
+    "text": "I can do 102 P, delivery on day 10.",
+    "price": 102,
+    "days": 10
+   },
+   {
+    "tick": 1935,
+    "from": "Rival Sol",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 107,
+    "days": 0
+   },
+   {
+    "tick": 1936,
+    "from": "Rival Sol",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 107,
+    "days": 0
+   }
+  ],
+  "result": 17.8,
+  "price": 107,
+  "days": 0
+ }
 }

@@ -798,6 +798,129 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1937,
+   "raw": {
+    "duel": 11284,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Escaparate de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.46,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 86,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 1940,
+    "decay_per_round": 0.1,
+    "rounds": 2,
+    "your_offer": {
+     "id": 13468,
+     "price": 108,
+     "tick": 1937,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 13460,
+     "price": 92,
+     "tick": 1937,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1928,
+      "from": "you",
+      "text": "I'm looking to offer 123 P with delivery on day 10 for Escaparate de Serrano.",
+      "price": 123,
+      "days": 10
+     },
+     {
+      "tick": 1928,
+      "from": "Rival Oro",
+      "text": "69 with delivery on day 10. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "price": 69,
+      "days": 10
+     },
+     {
+      "tick": 1929,
+      "from": "Rival Oro",
+      "text": "71 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 71,
+      "days": 10
+     },
+     {
+      "tick": 1930,
+      "from": "Rival Oro",
+      "text": "74 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 74,
+      "days": 10
+     },
+     {
+      "tick": 1931,
+      "from": "Rival Oro",
+      "text": "77 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 77,
+      "days": 10
+     },
+     {
+      "tick": 1932,
+      "from": "Rival Oro",
+      "text": "80 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 80,
+      "days": 10
+     },
+     {
+      "tick": 1933,
+      "from": "Rival Oro",
+      "text": "82 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 82,
+      "days": 10
+     },
+     {
+      "tick": 1934,
+      "from": "Rival Oro",
+      "text": "85 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 85,
+      "days": 10
+     },
+     {
+      "tick": 1935,
+      "from": "Rival Oro",
+      "text": "88 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 88,
+      "days": 10
+     },
+     {
+      "tick": 1936,
+      "from": "Rival Oro",
+      "text": "91 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 91,
+      "days": 10
+     },
+     {
+      "tick": 1937,
+      "from": "Rival Oro",
+      "text": "92 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 92,
+      "days": 10
+     },
+     {
+      "tick": 1937,
+      "from": "you",
+      "text": "I can do 108 P, delivery on day 10.",
+      "price": 108,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -2142,6 +2265,437 @@
     "LATE_SWITCH_LEFT": 0,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1937,
+   "took_s": 1.57,
+   "cost_usd": 0.00136,
+   "obs": {
+    "view": {
+     "duel_id": 11284,
+     "role": "seller",
+     "limit": 86,
+     "currency": "P",
+     "item": "Escaparate de Serrano",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.46,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm looking to offer 123 P with delivery on day 10 for Escaparate de Serrano.",
+      "offer": {
+       "price": 123,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1928,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "69 with delivery on day 10. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "offer": {
+       "price": 69,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1928,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "71 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 71,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1929,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "74 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 74,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1930,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "77 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 77,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1931,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "80 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 80,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1932,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "82 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 82,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1933,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "85 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 85,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1934,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "88 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 88,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1935,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "91 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 91,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1936,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 91,
+     "days": 10
+    },
+    "tick": 1937,
+    "ticks_left": 3,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 108 P, delivery on day 10.",
+    "price": 108,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "take",
+     "rule": "worth floor",
+     "step": 16.0,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.57,
+       "in": 1201,
+       "out": 31,
+       "cost_usd": 0.00136,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 107,
+     "floor": 36.6
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1938,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11284,
+     "role": "seller",
+     "limit": 86,
+     "currency": "P",
+     "item": "Escaparate de Serrano",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.46,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm looking to offer 123 P with delivery on day 10 for Escaparate de Serrano.",
+      "offer": {
+       "price": 123,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1928,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "69 with delivery on day 10. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "offer": {
+       "price": 69,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1928,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "71 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 71,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1929,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "74 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 74,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1930,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "77 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 77,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1931,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "80 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 80,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1932,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "82 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 82,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1933,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "85 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 85,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1934,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "88 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 88,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1935,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "91 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 91,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1936,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "92 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 92,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1937,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 108 P, delivery on day 10.",
+      "offer": {
+       "price": 108,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1937,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 92,
+     "days": 10
+    },
+    "tick": 1938,
+    "ticks_left": 2,
+    "rounds": 2,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 92,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -2178,6 +2732,184 @@
      "days": 10
     }
    }
+  },
+  {
+   "tick": 1937,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 108 P, delivery on day 10.",
+    "price": 108,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "take",
+     "rule": "worth floor",
+     "step": 16.0,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.57,
+       "in": 1201,
+       "out": 31,
+       "cost_usd": 0.00136,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 107,
+     "floor": 36.6
+    }
+   },
+   "result": {
+    "duel": 11284,
+    "offer": {
+     "id": 13468,
+     "price": 108,
+     "tick": 1937,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1938,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 92,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 92,
+    "settles_at_tick": 1939
+   }
   }
- ]
+ ],
+ "last_seen_tick": 1939,
+ "done": {
+  "duel": 11284,
+  "session": 4,
+  "status": "deal",
+  "role": "seller",
+  "item": "Escaparate de Serrano",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 1.46,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 86,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Oro",
+  "deadline_tick": 1940,
+  "decay_per_round": 0.1,
+  "rounds": 2,
+  "your_offer": {
+   "id": 13468,
+   "price": 108,
+   "tick": 1937,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 13460,
+   "price": 92,
+   "tick": 1937,
+   "days": 10
+  },
+  "messages": [
+   {
+    "tick": 1928,
+    "from": "you",
+    "text": "I'm looking to offer 123 P with delivery on day 10 for Escaparate de Serrano.",
+    "price": 123,
+    "days": 10
+   },
+   {
+    "tick": 1928,
+    "from": "Rival Oro",
+    "text": "69 with delivery on day 10. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+    "price": 69,
+    "days": 10
+   },
+   {
+    "tick": 1929,
+    "from": "Rival Oro",
+    "text": "71 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 71,
+    "days": 10
+   },
+   {
+    "tick": 1930,
+    "from": "Rival Oro",
+    "text": "74 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 74,
+    "days": 10
+   },
+   {
+    "tick": 1931,
+    "from": "Rival Oro",
+    "text": "77 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 77,
+    "days": 10
+   },
+   {
+    "tick": 1932,
+    "from": "Rival Oro",
+    "text": "80 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 80,
+    "days": 10
+   },
+   {
+    "tick": 1933,
+    "from": "Rival Oro",
+    "text": "82 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 82,
+    "days": 10
+   },
+   {
+    "tick": 1934,
+    "from": "Rival Oro",
+    "text": "85 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 85,
+    "days": 10
+   },
+   {
+    "tick": 1935,
+    "from": "Rival Oro",
+    "text": "88 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 88,
+    "days": 10
+   },
+   {
+    "tick": 1936,
+    "from": "Rival Oro",
+    "text": "91 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 91,
+    "days": 10
+   },
+   {
+    "tick": 1937,
+    "from": "Rival Oro",
+    "text": "92 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 92,
+    "days": 10
+   },
+   {
+    "tick": 1937,
+    "from": "you",
+    "text": "I can do 108 P, delivery on day 10.",
+    "price": 108,
+    "days": 10
+   }
+  ],
+  "result": 16.7,
+  "price": 92,
+  "days": 10
+ }
 }
