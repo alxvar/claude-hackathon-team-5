@@ -1,6 +1,6 @@
 # Flips: team bids a dealer can fill (Team 10's playbook)
 
-_Written by `tools/reactor.py` at 12:53 (tick 2313). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
+_Written by `tools/reactor.py` at 12:54 (tick 2317). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
 
 ## Open bids (HUNT digest)
 
@@ -16,15 +16,15 @@ _Written by `tools/reactor.py` at 12:53 (tick 2313). The open team bids for rare
 | 112 | LAV-11 La Casa Encendida (epic) | t17 | rastro | none (all minted or no dealer) | - | 26470 | 13:07 |
 | 107 | LAV-11 La Casa Encendida (epic) | t18 | rastro | none (all minted or no dealer) | - | 26386 | 13:49 |
 | 76 | MAL-11 La Sala Pentagrama (epic) | t18 | rastro | picaros 150 | -74 | 26403 | 13:50 |
-| 40 | RET-09 El Ángel Caído (rare) | t01 | v10 → t17 | picaros 56 | -16 | 25969 | 13:00 |
-| 38 | CHA-09 Museo Sorolla (rare) | t14 | v05 | picaros 56 | -18 | 26412 | 13:05 |
-| 38 | CHA-10 Casa de las Flores (rare) | t14 | v05 | picaros 56 | -18 | 26413 | 13:05 |
-| 35 | LAV-09 Cine Doré (rare) | t18 | rastro | picaros 56 | -21 | 25477 | 13:23 |
-| 35 | LAV-10 Fiesta de San Cayetano (rare) | t18 | rastro | picaros 56 | -21 | 25494 | 13:24 |
-| 33 | RET-10 Monumento a Alfonso XII (rare) | t01 | v10 → t17 | picaros 56 | -23 | 25990 | 13:00 |
-| 25 | MAL-09 La Heroína del Dos de Mayo (rare) | t18 | rastro | picaros 56 | -31 | 25495 | 13:24 |
-| 25 | MAL-10 Noche de Movida (rare) | t18 | rastro | picaros 56 | -31 | 25496 | 13:24 |
-| 22 | LAV-09 Cine Doré (rare) | t02 | rastro → t01 | picaros 56 | -34 | 26496 | 12:58 |
+| 40 | RET-09 El Ángel Caído (rare) | t01 | v10 → t17 | picaros 55 | -15 | 25969 | 13:00 |
+| 38 | CHA-09 Museo Sorolla (rare) | t14 | v05 | picaros 55 | -17 | 26412 | 13:05 |
+| 38 | CHA-10 Casa de las Flores (rare) | t14 | v05 | picaros 55 | -17 | 26413 | 13:05 |
+| 35 | LAV-09 Cine Doré (rare) | t18 | rastro | picaros 55 | -20 | 25477 | 13:23 |
+| 35 | LAV-10 Fiesta de San Cayetano (rare) | t18 | rastro | picaros 55 | -20 | 25494 | 13:24 |
+| 33 | RET-10 Monumento a Alfonso XII (rare) | t01 | v10 → t17 | picaros 55 | -22 | 25990 | 13:00 |
+| 25 | MAL-09 La Heroína del Dos de Mayo (rare) | t18 | rastro | picaros 55 | -30 | 25495 | 13:24 |
+| 25 | MAL-10 Noche de Movida (rare) | t18 | rastro | picaros 55 | -30 | 25496 | 13:24 |
+| 22 | LAV-09 Cine Doré (rare) | t02 | rastro → t01 | picaros 55 | -33 | 26496 | 12:58 |
 
 ## Flips today (newest last)
 
