@@ -1,6 +1,6 @@
 # Easter eggs: trigger → reward → dealer (castizo catalog)
 
-_Written by `tools/eggs.py` at 11:30 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
+_Written by `tools/eggs.py` at 11:40 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
 
 ## Trigger → reward → dealer
 
@@ -43,6 +43,11 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 
 | tick | team | dealer | words | what followed | reply |
 |---|---|---|---|---|---|
+| 2021 | t08 | picaros | san isidro | - | ¡Hombre, qué gusto, un caballero con ambición! Paco dice que de Don Ernesto no hablamos, y Nando dice lo mismo pero más rápido. Cámaras, secretos... eso son cue |
+| 1993 | t07 | abuela | churros | - | Ay, hijo, qué cabezón eres — ¡pero al revés! Six P, that is my price, and not one more. Keep those coins for churros, anda. And tonight, El Chato opens at half  |
+| 1991 | t07 | abuela | churros | - | Ay, cariño, qué amable eres. But no, no — five P is my price, and I am happy with it. Keep the rest for churros, hijo. And a little advice: a full page is worth |
+| 1986 | t10 | abuela | chulapa | - | Ay, la chulapa dorada... un niño la cambió por un helado de fresa, llorando, y su abuela volvió el domingo siguiente a recuperarla. Así aprendió a no cambiar co |
+| 1986 | t06 | pilar | chulapas | - | Lázaro Galdiano compraba obras maestras, caballero, no chulapas de tirada generosa. Mi cifra no se mueve con citas: dieciséis primas. Es justa, la conoce usted  |
 | 1984 | t06 | pilar | chulapa | - | Mi álbum lleva sesenta años esperando, caballero; puede esperar un poco más. Dieciséis primas, ni una menos. Si le interesan las rarezas, pregunte a Carmen en E |
 | 1982 | t06 | pilar | chulapa | - | Buenas tardes. El Embassy, qué recuerdos... pero las violetas no suben el precio, caballero. La Chulapa la conozco bien: tirada generosa, nada excepcional. Le o |
 | 1975 | t06 | pilar | chulapa | - | Diecisiete, señor. My offer does not grow with repetition — seventeen primas, the same as before. Las Vistillas will not break my heart. Say yes, and we part as |
@@ -118,8 +123,3 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 | 1642 | t06 | picaros | organillero | - | —¡Cinco dice! —Paco, que este hombre aprendió del ciego. Mira, amigo, no podemos bailar más: El Organillero, cuatro primas, como dijimos. —Ni una menos, ni una  |
 | 1640 | t06 | picaros | cortadillo, organillero, rinconete | - | ¡Hombre, un lector! Rinconete y Cortadillo, nada menos. —Nando, que éste sabe. —Entonces nada de humo, amigo. Mira: El Organillero, cuatro primas. Cuatro, y te  |
 | 1613 | t10 | abuela | churros | - | Ay, cariño, que me dejas sin desayuno a mí... Pero mira, 24 P y no hablamos más, que ya es regalo. Te la envuelvo con cuidadito y te vas corriendo a por tu café |
-| 1612 | t16 | abuela | cocido, tres vuelcos | card LAT-06 | ¡Ay, el cocido con sus tres vuelcos! Just like my mother made, hijo. Take this little one, for remembering.  So: the Neighbourhood pack, veintiséis. Commons, di |
-| 1609 | t16 | picaros | estampita, rinconete | badge Trickster tricked; badge Castizo; pack sobre_barrio | "Hombre! Rinconete himself! You know the old estampita — fine, fine, no tricks for you... today."  "Only honest business, hermano. Rares, sixty-three. Epics, on |
-| 1609 | t16 | abuela | baldosa, chotis, madrileno | egg found; card LAT-06 | ¡Ay, qué alegría, hijo! A chotis — you dance it on one baldosa, cariño, like a real Madrileño. ¿Has comido?  Look: the Neighbourhood pack, twenty-six. Commons,  |
-| 1609 | t16 | chato | plaza mayor, you know madrid | egg found | Silver packs and rares. sells Silver pack ~150, uncommon ~26, rare ~77; buys uncommon, rare Plaza Mayor, with a caña. You know Madrid. Here, for your trouble. |
-| 1595 | t09 | abuela | cocido | - | Ay, hijo, qué bueno eres, pero no — five is my price and five it stays. El Portero goes home with you for 5 P, and you go home and eat that cocido, ¿eh? Tell me |

@@ -1440,5 +1440,79 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 2025,
+ "done": {
+  "duel": 11491,
+  "session": 4,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Vinilo de la Movida",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 0.69,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 235,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Plata",
+  "deadline_tick": 2025,
+  "decay_per_round": 0.1,
+  "rounds": 0,
+  "your_offer": {
+   "id": 15471,
+   "price": 221,
+   "tick": 2023,
+   "days": 0
+  },
+  "rival_offer": null,
+  "messages": [
+   {
+    "tick": 2013,
+    "from": "you",
+    "text": "I'm interested in this Vinilo de la Movida. I'd like to offer 148 P with delivery on day 0.",
+    "price": 148,
+    "days": 0
+   },
+   {
+    "tick": 2019,
+    "from": "you",
+    "text": "I can do 162 P, delivery on day 0.",
+    "price": 162,
+    "days": 0
+   },
+   {
+    "tick": 2020,
+    "from": "you",
+    "text": "I can do 177 P, delivery on day 0.",
+    "price": 177,
+    "days": 0
+   },
+   {
+    "tick": 2021,
+    "from": "you",
+    "text": "I can do 192 P, delivery on day 0.",
+    "price": 192,
+    "days": 0
+   },
+   {
+    "tick": 2022,
+    "from": "you",
+    "text": "I can do 207 P, delivery on day 0.",
+    "price": 207,
+    "days": 0
+   },
+   {
+    "tick": 2023,
+    "from": "you",
+    "text": "I can do 221 P, delivery on day 0.",
+    "price": 221,
+    "days": 0
+   }
+  ],
+  "result": 14.0,
+  "price": 221,
+  "days": 0
+ }
 }
