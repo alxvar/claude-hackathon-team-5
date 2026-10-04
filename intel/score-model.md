@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sun 12:11 (snapshot 2142, phase 0.96): **final basis t12 86.6 · us 84.8 · t18 83.1 · t10 82.9 · t03 79.8.** v10: 2 trades, VC 6.4 (M_vc ≈ 22: ≈ +16 VC more caps ≈ +5.3). t12 flips SAL-10 Pícaros 56 → Pilar 72 (two ladder slots); not copyable for us (a SAL rare duplicate is worth ≈ 16 to us: a ≈ −40 loss on the buy)._
+_Last update: Sun 12:22: **§3j cap RETRACTED (neg 50 → 52.2 [V]); MAL closer GO again (§4.14).** Our RET-03 sale settled on t10's v07 (feeds t10's VC): no offers on rival venues. Final basis (12:11): t12 86.6 · us 84.8 · t18 83.1 · t10 82.9 · t03 ≈ 81 (rising, ladder at every dealer)._
 _Note: the §4 version labels "00:05" to "02:10" are sequence markers written between Sat 23:50 and Sun 00:42 (my labels ran ahead of the wall clock); real times are in `git log`. The Sunday clock in §4.7 is unaffected._
 
 ## 1. Board = Friday × Saturday blend [V]
@@ -470,6 +470,11 @@ counters reset per round. RT = 7.5 × min(1, VC/M), M = the top-3 mean, and on S
 (market-test-audit §2). So **one positive pair on v10 with VC ≥ ½ of v29's likely caps our Sunday real trades: +7.5**, more than the
 ≈ 3-point gap to #3. t10 (v07) and t12 (v02) can do the same. New venues today: t14 v27 (1589), t18 v28 (1662), t07 v29 (1758).
 
+> **§3j RETRACTED (Sun 12:22) [V me.jsonl]: there is NO round cap of 50.** The RET-03 sale moved neg 50.0 → **52.2** (tick 2169). RET-11's
+> 0 = its value at sale ≈ 227 [L], not a cap. Team-trade gains count again. §4.14's MAL verdict is reversed: see below.
+> **Side-effect:** the RET-03 sale (us → t01 at 5) settled on **t10's v07**, so it feeds t10's real trades (≈ +8 VC). No offers of ours on
+> rival venues (v07, v02, v28, v20): v10 or El Rastro only.
+
 ## 3j. Sunday anomaly: RET-11 sale scored 0 (Sun 10:31) [V data · ? cause]
 - Tick 1730, settlement 1280: RET-11 sold to t02 at 240 on El Rastro (we were the taker, fee 13). Expected +29 (240 − 13 − 198).
   `me.jsonl` at tick 1730: cash 660 (= 433 + 240 − 13), deals 64, **neg_points still 50.0**. Not lag: the row already carries the sale.
@@ -759,8 +764,9 @@ neg_points 50 = the Sunday team-trade cap (working rule §3j [L+]).
   **≈ +0.5-0.8 Sunday** (9 × ΔL / M, M ≈ 0.4-0.5) for ≈ 46-49 P → ≈ 1-1.7 per 100 P.
 - MAL-07 from a dealer: no ladder gain (Abuela's best 3 are full; Chato's buys at list don't score). ≈ 0.
 - **Our MAL-09 bid on v21 hurts:** a fill there adds VC to t09's venue, raising the real-trades top-3 mean against v10.
-**Verdict:**
-- **MAL page close: NO-GO** (0 points under the cap).
+**Verdict (REVERSED Sun 12:22: no cap, §3j retracted): MAL closer GO.** MAL-09 (Pícaros ≤ 49 or a team ≤ value), then MAL-07 LAST from
+a non-rival team at ≤ 13.5 → +50 (≤ 30 → +33): T 52 → ≈ 102 vs N ≈ 78 → ≈ +3 Sunday (post-duel 9 scale). Settle on v10 or El Rastro.
+- ~~MAL page close: NO-GO (0 points under the cap).~~
 - **MAL-09 at the Pícaros ≤ 49: GO** (ladder upgrade); walk above 49.
 - **Move the MAL-09 bid off v21** (El Rastro, as maker) or cancel it.
 - If the desk says the cap is per trade only: GO the closer route, MAL-09 (Pícaros ≤ 49) then MAL-07 LAST from a team (t13/t08/t17/t01)

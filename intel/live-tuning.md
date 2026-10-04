@@ -71,6 +71,13 @@ All three commit every ~5 min: cut to their cadence above to reduce git churn on
 
 ## Live log
 
+### 12:22 · tick ≈ 2170 · CORRECTIONS
+- **No Sunday cap of 50 on team trades** [V: RET-03 sale → neg 50.0 → 52.2]. Positive team trades count again: a first copy bought at ≤ value,
+  a spare sold at ≥ value. **MAL closer GO** (score-model §4.14): MAL-09 ≤ 49 at the Pícaros, then MAL-07 LAST from a non-rival team at ≤ 13.5.
+- **Venue rule (hard limit):** none of our offers on rival venues (**v07 t10, v02 t12, v28 t18, v20 t03**). Our RET-03 sale settled on v07 and fed
+  t10's real trades. Use v10 (club pairs: our VC) or El Rastro.
+- **Chato L2 slots are EMPTY for us:** sell spare uncommons at 14-16 (> opening 13). Upgrade Pilar at ≥ 19. (t03 is filling every dealer.)
+
 ### 10:46 · snapshot 1802 (phase ≈ 0.53)
 - Pícaros SELLS: LAT-04 at 5 (1794) and spare LAV-04 at 5 (1800), both at ≥ value, 0 neg → ladder 0.253 → **0.311**. The Pícaros' best 3:
   CHA-09 (0.075) · MAL-10 (0.081) · a common sell (≈ 0.03-0.06).
