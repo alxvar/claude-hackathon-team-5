@@ -189,6 +189,16 @@ team_sync hook injects every change here into your Claude on your next prompt. A
 31. **00:05, TIMING [V Sunday ticks 15 s; L wall times]: Duels III may start as early as ≈ 10:00** (and the Final ≈ 11:30)
    if the clock jumps to round 3 at 09:00. **Have the duelist live and tested by 09:55**; the Operator confirms the real
    times at 08:55.
+32. **07:05 Sun, FINAL duelist for Duels III + Final: GO (sha 29aa1be, re-audited twice; intel/duelist-reaudit.md).** Set C, code policy,
+   Haiku text, failover 8 s, AUTOSWITCH C → A once. No merge: it runs in its own worktree. In zsh, keep the braces:
+   - 08:30: `SHA=29aa1bed66962959ce633492d84bbc321385c7e7`; then `bash <(git show "${SHA}:tools/duelist_sunday.sh") --status`;
+     if Saturday's duelist is up: `COMMIT=$SHA bash <(git show "${SHA}:tools/duelist_sunday.sh") --stop`;
+     then `COMMIT=$SHA bash <(git show "${SHA}:tools/duelist_sunday.sh") --check` (expect "steps 1-4 passed").
+   - **Start at R+5 min** (R = the first tick of round 3; ≈ 09:05 if the clock jumps): `COMMIT=$SHA AUTOSWITCH=1 bash <(git show "${SHA}:tools/duelist_sunday.sh")`.
+     Duels III = R + 2 game h (≈ 11:00), the Final = R + 5 (≈ 14:00): re-read /api/schedule; watch it at 13:30.
+   - Never pipe its output (it hangs). Never re-run start/--check while live. Stop: `--stop`. Back to Saturday's: `--rollback`.
+   - Live check after two waves: `tools/duel_gates.py --session 4 --params <worktree>/run/duel_params.json`; expected deal
+     rate with rivals that spoke ≈ 0.88-0.93, 2-3 rounds/deal, no CAN'T READ on the day line. Supersedes #29-#31.
 
 **Dani: deal desk from 15:52 (Lucas's call).** Your phone (ntfy, your channel) now gets every alert that needs a human to
 message another team: v10 radar DMs, v10 partner suggestions (Teams 15, 10, 3), opportunity SELL/BUY alerts, swap nudges.
