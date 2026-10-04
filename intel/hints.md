@@ -411,3 +411,4 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 12:43 · egg.found tick 2273 · abuela → t01 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t01", "name": "Team 1"}
 - Sun 12:43 · message tick 2274 · pilar → t06 · Seventeen primas, señor. That is my last word — refuse it and I close the album and we part as friends. One more thing: ask Carmen at El Rastro about the golden chulapa. Only one printed, they say.
 - Sun 12:46 · message tick 2284 · banco → t01 · Buenas tardes. En esta casa las ofertas no caducan, señor. El pack de oro: 546 primas. Esos son mis términos.
+- Sun 12:46 · message tick 2286 · banco → t01 · Los plazos de usted no me afectan, señor. El pack de oro sale de esta casa por 546 primas. Puede volver mañana; el número será el mismo.
