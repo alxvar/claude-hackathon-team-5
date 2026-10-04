@@ -47,7 +47,7 @@ import alerts  # noqa: E402  the phone policy (Chief 17:40)
 _notify = None             # alerts.act's own transport (tools/notify.py) unless a test passes one
 NUDGE_MIN_GAIN, NUDGE_EVERY_S = 10.0, 7200   # Chief 17:40: one push per (team, give, get) per 2 h, gain >= 10
 
-PARTNERS = ("v15",)   # Chief 17:45: never a rival's venue (value created lifts its market); t15 -> El Rastro
+PARTNERS = tuple(os.environ.get("SWAPS_PARTNERS", "v15").split(","))   # Chief 17:45: never a rival's venue; Sun 11:33: rastro via run/daemons.env
 HOUSE = "rastro"
 MIN_OUR_GAIN = 3.0
 PACK_DRAG = 2.5        # an unopened pack drags each trade's score ~-2.4 (GAME.md): raise our bar while we hold one

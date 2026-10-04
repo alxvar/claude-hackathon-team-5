@@ -49,7 +49,7 @@ DATA, STATE, OUT = ROOT / "data", ROOT / "run" / "opportunities_state.json", ROO
 BOOK = ROOT / "run" / "book.json"   # the maker book's desired offers (agents/trader/book.py)
 URL = os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai")
 HOUSE = "rastro"
-DEFAULT_VENUE = os.environ.get("DEFAULT_VENUE", "v15")   # Team 15's venue at 0% (Chief 17:45: v07's owner is a rival)
+DEFAULT_VENUE = os.environ.get("DEFAULT_VENUE", "v15")   # Team 15's venue at 0% (Chief 17:45: v07's owner is a rival); Sun 11:33: rastro via run/daemons.env
 
 FRESH_S = 120              # collector files younger than this are used instead of fetching
 CONF_H = 0.5               # a signal older than 30 game minutes is low confidence: listed, never alerted

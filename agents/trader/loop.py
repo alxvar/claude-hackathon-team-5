@@ -148,9 +148,9 @@ def gather(b, me_id, st):
     except BazaarError as e:
         st.locked, st.offers_ok = set(), False
         log({"event": "error", "where": "my_offers", "code": e.code})
-    boards = [HOUSE] + sorted(v for v, x in st.venues.items()
+    boards = [HOUSE] + ([] if os.environ.get("TRADER_HOUSE_ONLY") else sorted(v for v, x in st.venues.items()
                               if v != HOUSE and x["status"] == "open" and v not in st.own_venues
-                              and not policy.rival_venue(v, x["owner"], st.rivals))   # Chief 07:15
+                              and not policy.rival_venue(v, x["owner"], st.rivals)))   # Chief 07:15; TRADER_HOUSE_ONLY: Chief Sun 11:33
     for v in boards:
         try:
             for o in b.board(v).get("offers") or []:
