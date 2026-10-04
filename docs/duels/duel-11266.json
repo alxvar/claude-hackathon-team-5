@@ -162,5 +162,41 @@
     "OPEN_WAIT": 0
    }
   }
+ ],
+ "sent": [
+  {
+   "tick": 1927,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'm offering 83 P for delivery on day 0.",
+    "price": 83,
+    "days": 0,
+    "meta": {
+     "policy": "code",
+     "day_call": null,
+     "rule": "code opener",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 0.94,
+       "in": 855,
+       "out": 22,
+       "cost_usd": 0.00097,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 11266,
+    "offer": {
+     "id": 13223,
+     "price": 83,
+     "tick": 1927,
+     "days": 0
+    }
+   }
+  }
  ]
 }
