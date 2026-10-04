@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 09:30 · operator · **CHA-03 from Abuela at 8** (L1 slot 3) → `ladder_points` **0.168**, cash 497 · CHA held: 01, 02, 03, 07, 09, 10 · next: CHA-06 + CHA-04 → Abuela at C+45 (≈ 10:05); CHA-05/08 = team relay (last card +50) · L1 full (3); L3 2 of 3; L4 1 of 3
 - Sun 09:28 · operator · **CHA-02 from Abuela at 9** (L1) · **LAV-07 spare → Pilar at 17** (fodder, L3) → `ladder_points` **0.148**, neg 0, cash 505 · CHA held: 01, 02, 07, 09, 10 (missing 03-06, 08) · Abuela CHA-03 next; uncommons + CHA-04 at C+45 ≈ 10:05 · L3 slots: LAT-06 18, LAV-07 17 (1 left: RET-11 ≥ 198 or more fodder)
 - Sun 09:27 · operator · **CHA-01 from Abuela at 8** (her 12 → 8; L1 +0.018) · **LAT-06 → Pilar at 18** (fodder; her 16 → 18, ours 30 → 26, we offered her 18; L3 +0.022) → `ladder_points` 0.075 → **0.115**, neg 0, cash 497 · next: CHA-02/03 (Abuela), LAV-07 spare → Pilar
 - Sun 09:25 · operator · LAV-04 → Pícaros walked (their final 4 = their opening, < floor 5; card kept) · Pícaros chain done · Abuela CHA-01 thread 2258 open (cap 9) · fodder started (phase 3; the CHA rares are done): LAT-06 (12.5, from the pack) then the LAV-07 spare (8.1, from the Workshop) → Pilar, ask 30, −2, floor 17 (above her opening 16)
