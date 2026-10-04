@@ -1,55 +1,41 @@
-# Judge (claude-opus-5-5, Sun 03:14)
+# Judge (claude-opus-5-5, Sun 03:45)
 
 ## Verdict
-**Holding at #3, unverified.** Score 30.49, flat over 15 and 60 min because the game is closed. We trail Team 10 (37.6) by 7.1 and Team 18 (31.3) by 0.8. Team 12 is 0.1 behind at 30.4. `neg_points` has sat at 119.1 since tick 988.
+**Holding #3** at 30.5, flat for 60 min while closed. We trail Team 10 by 7.1 (37.6) and Team 18 by 0.8 (31.3), and lead Team 12 by only 0.1 (30.4).
 
 ## Our strategies: keep / kill / scale
-- **Team trades (page closes, swaps): SCALE.** These are our only live neg lever.
-  - SAL-06 from t08 at 28 gave +40.4 (tick 988).
-  - The t07 swap gave +15.5 and the t08 swap +6.2.
-  - Nothing has scored since tick 988.
-- **Dealer bot / ladder fodder: KEEP, but only inside GUARDRAIL 00:44.**
-  - The ladder rose 0.437 → 0.483, but `negotiating` stayed flat from 0.373 to 0.437 (Chief 17:45, [L]), so the board gain is unproven.
-  - The Pícaros LAV-04 walk at a final of 4, against a floor of 4 and value 3.2, was correct: no loss.
-- **Trading loop: KEEP, sells-only.**
-  - Its last accept was at 17:46. Since then its log shows only errors: `unknown_card sobre_bienvenida` once a minute, then DNS failures.
-  - Cash is 392, below the planned `CASH_FLOOR=464`, so it cannot buy anyway.
-- **Addressed spare asks (19979 LAV-03 → t04, 19981 LAV-04 → t01, at 6): KILL.**
-  - Addressed asks fill at 0.3% vs 3.5% for open ones (directive 00:37).
-  - Both buyers collect LAV and sit only 4.9-5.4 below us, so they fail the "≥ 10 below" feeding rule if the card closes a page. Whether it would is not in the data.
-- **Flags: DONE.** Net +20; the cap was confirmed at 17:43.
-- **Duels:** 35.39. This is Aleks's lane, not ours to run.
+- **Team trades (bids, asks, swaps): SCALE.** They are the only lever with a measured board effect (≈ +0.05 board per neg point, tick 910). They produced +40.4 (SAL-06 page close, tick 988), +15.5 (t07 swap, tick 904) and +6.2 (t08 swap, tick 669). 17 team trades came from 414 listings, so most listings go unfilled.
+- **Addressed asks (19979 LAV-03 → t04, 19981 LAV-04 → t01, at 6): CHANGE.** Both are unfilled and expire at tick 1455. Addressed asks fill at 0.3% vs 3.5% for open asks.
+- **Trading loop: KEEP, but fix it.** It made 2 accepts all Saturday (+6.2, +15.5). Since then it has logged 5× `unknown_card sobre_bienvenida` and repeated DNS errors (22:55-23:24). Directive: sells-only until 09:00.
+- **Dealer bot: KEEP, only for CHA buys and approved fodder.** The last thread (LAV-04 to Pícaros) correctly walked at a final of 4 below our floor of 7, with neg_points unchanged. Ladder 0.437 → 0.483 did not move `negotiating` per Chief 17:45 [L]. The −2.7 window at tick 632 shows dealer losses still leak.
+- **Flags: KILL** (already done). Net +20; the cap is reached (the 17:43 probe scored 0).
+- **Duels (Aleks): not ours.** 35.39 duel points; 8 of the last 10 closed.
+- **v10 venue VC: no current number in the metrics.** Directive target: 40-50 net by the close.
 
 ## Check the scout
-**Holds:**
-- CHA fast start via Pícaros with `--offer-only`; rare value 112 (70 × 1.6); public bid cap 54.
-- Spare gains of about +5-8 as maker: LAV-02 is worth 1.3 and LAV-03/04 3.2, against prices of 9-10.
-- Team 18 Δ +0.8; ≈ +0.05 board per `neg_point`; the ladder and flags are spent.
-
-**Wrong:**
-- "Pilar sold MAL-09 at 56 to us": the metrics show **we sold** MAL-09 to Pilar at 56 (tick 904).
-- "t07, t04 and t16 are low enough to receive cards": only t07 (20.2) is ≥ 10 below us. t04 (25.1) and t16 (23.7) are not, and teams.md marks both "no page closers".
-- "Open asks on v10": directive 00:37 puts our own spares on a **non-rival member's** venue, because our own trades never count as v10 VC.
-- "Don't sell to t10/t12/t18" contradicts open asks, which anyone can take.
-
-**Missing:**
-- MAL needs MAL-07, MAL-09 and MAL-10 (we sold MAL-09).
-- The scout ignores the cash maths. 392 − CHA case C (282) = 110, below the 150 MAL gate. Case A (242) leaves exactly 150.
-- 00:46 and 00:40 give different CHA case-B costs (250 vs 288). Which figure is current is not in the data.
+- **Holds:**
+  - Rank gaps: 0.1 over #4 and 0.8 under #2.
+  - LAT-10 t13 → t18 at 72 vs the 86 t12 paid.
+  - t12 bought RET-11 at 216; t10 sold RET-03 at 8.
+  - SAL-10 bid 68 is below our 122.6: do not sell.
+  - Maker gain on LAV-03/04 at 6 = 2.8 each.
+- **Wrong: "Team 10 sells epics … MAL-11 to t10 at 195".** The feed shows t08 → t10, so Team 10 *bought* MAL-11. It sold only SAL-11 (207).
+- **Wrong: "t01 bids 152 for MAL-11 … open bids against us".** We hold no MAL-11 (only MAL-01..06 and MAL-08), so the bid doesn't apply to us.
+- **Unsupported: "Team 10 hosts the cheap trades".** Not in the data.
+- **Wrong reason: "t09 passes the feeding rule" (scout #2).** t09 is 7.2 below us, not ≥ 10. Row #1 is approved under the directive's ≥ 6 rule, and it isn't our sale, so the conclusion stands.
+- **Risk in scout #3:** re-posting the LAV spares OPEN lets Team 10 (#1, collects LAV) take them. If one closes its page, Team 10 books up to +50 while we gain 2.8.
 
 ## The 3 changes with the highest expected gain
-1. **Run the CHA close at 09:00 as directed, and buy the LAST CHA card from a team.**
-   - Page bonus 66.25 × 1.6 = 106, which scores only through a team trade. The cap is 50, so expect ≈ +50 np ≈ +2.5 board.
-   - Before 09:00, confirm the dealer bots were restarted on e461e3b (the trick guard).
-   - Risk: a Pícaros bait-and-switch, or print runs selling out to faster rivals.
-2. **Fund the MAL go before 10:00. The 01:40 gate needs ≥ 150 P after CHA.**
-   - Post open maker asks at 9 (under the rival LAV-02 ask at 10) on a non-rival member's venue: LAV-02 ×3, one LAV-03, one LAV-04, LAT-03, LAT-04.
-   - Never sell the MAL commons.
-   - Expected: about +5-8 np per fill, and the MAL close's +30 np past our cap (directive).
-   - Risk: an open ask completes a top-4 team's page. Team 10 collects LAV. Check its LAV gaps first; if unknown, hold the LAV spares.
-3. **Fix the trader before its 09:00 restart and re-check the cash floor.**
-   - Fix the `sobre_bienvenida` lookup (it errors every minute) and confirm DNS/API reachability.
-   - Set `CASH_FLOOR` from the actual CHA case, not 464, which already exceeds our 392 cash.
-   - Follow 01:30: stop trader, swaps and opps at T−5 before Duels III.
-   - Expected: no missed fills in the 09:00-11:00 accept window.
-   - Risk: a wrong floor lets the loop spend CHA/MAL cash. The `--exclude 'CHA-*,MAL-*'` setting limits that.
+1. **Run the CHA fast start exactly as directed at round 3's first tick.**
+   - Pícaros CHA-09/10 run `--offer-only`, with the Operator checking card and rarity before each accept. Open the pack, then post the capped maker bids.
+   - CHA values (common 16, uncommon 40, rare 112, bonus 106) exceed dealer prices, so each buy scores and the close is worth up to +50.
+   - Risks: bait-and-switch (7160, 8507) and print runs running out.
+   - **Cash check:** we have 392 P. CHA case B is 250 P, which leaves 142, below the MAL GO line of 150. MAL is no-go unless Sunday's grant arrives (amount not in the data) or spares sell first. `CASH_FLOOR=464` keeps the trader sells-only until the books fill.
+2. **Fire v10 row #1 (RET-09 t07 → t09, addressed, pre-agreed) first at 09:00, then rows #2/#3 at 08:30 per the directive.**
+   - Effect: +67.6 VC, alone near the 40-50 real-trades target.
+   - Risk: t09's holdings are unconfirmed. Lucas/Dani check before posting; skip the row if the RET-09 doesn't finish t09's page.
+3. **Re-post the LAV spares OPEN only on a venue/price Team 10 can't use cheaply.**
+   - Otherwise keep them addressed to vetted teams (t01/t04 are fine; both are outside the top 4).
+   - Before 09:00, ask the Chief to exclude LAV-* from the open-ask rule (directive 00:37) while t10 still collects LAV.
+   - Effect: protects us from a ≤ +50 leader gain, at a cost of ≤ 5.6 to us.
+   - Before restart, also fix the loop's `sobre_bienvenida` error and add a DNS retry backoff, so it can't stall during the 09:00-11:00 accept window.
