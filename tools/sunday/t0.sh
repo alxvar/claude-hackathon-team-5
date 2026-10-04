@@ -14,6 +14,10 @@ hhmm() { date +%H%M | sed 's/^0*//'; }
 held() { k /api/me | python3 -c "import sys,json;d=json.load(sys.stdin);sys.exit(0 if any(a['ref']=='$1' for a in d['assets']) else 1)" 2>/dev/null; }
 cutoff() { [ "$(hhmm)" -lt "${STOP_HHMM:-1340}" ]; }                # dealers close ≈ 14:00 (warning 13:48)
 walked() { tail -n 60 "$1" | grep -q '"event": "walk"'; }
+# pending(CARD): an open offer of ours wanting CARD, or an open thread with picaros/chato/abuela (a deal may still settle)
+pending() { k /api/me/offers | python3 -c "import sys,json;d=json.load(sys.stdin);sys.exit(0 if any(o.get('status')=='open' and o.get('maker')=='t05' and ('card:$1' in ((o.get('want') or {}).get('types') or []) or any(x.get('ref')=='$1' for x in ((o.get('want') or {}).get('assets') or []))) for o in d.get('offers',[])) else 1)" 2>/dev/null && return 0
+            k /api/me/threads | python3 -c "import sys,json;d=json.load(sys.stdin);sys.exit(0 if any(t.get('status')=='open' and t.get('with') in ('picaros','chato','abuela') for t in d.get('threads',[])) else 1)" 2>/dev/null; }
+settled_or_free() { sleep 35; held "$1" && return 1; pending "$1" && { sleep 35; held "$1" && return 1; pending "$1" && return 1; }; return 0; }  # 0 = free to try another source
 log "t0 armed (pid $$)"
 
 # --- 08:35: book on floor 0, swaps/recorder/opps off ---
@@ -75,10 +79,12 @@ P() { python3 -u "$O/simple_buy.py" "$1" --dealer picaros --open 42 --step 2 --c
     cutoff || { echo "$(date +%T) cutoff: $c skipped"; continue; }
     held $c && { echo "$(date +%T) $c already held"; continue; }
     for cap in 57 60 62; do
-      P $c $cap > "$CH.$c.$cap" 2>&1; cat "$CH.$c.$cap"; sleep 15
-      held $c && break
-      walked "$CH.$c.$cap" || { echo "$(date +%T) $c: no logged walk at cap $cap (no stock/error) → Chato ≤ 100"; \
-        python3 -u "$O/simple_buy.py" $c --dealer chato --open 60 --step 3 --cap 100 --floor-cash 0 --offer-only --base-value 112 --deadline 480; sleep 15; break; }
+      P $c $cap > "$CH.$c.$cap" 2>&1; cat "$CH.$c.$cap"
+      settled_or_free $c || { echo "$(date +%T) $c held or a deal pending after cap $cap: no further source"; break; }
+      walked "$CH.$c.$cap" && continue                     # a logged walk → next tier
+      echo "$(date +%T) $c: no logged walk at cap $cap (no stock/timeout/trick), not held, nothing pending → Chato ≤ 100"
+      python3 -u "$O/simple_buy.py" $c --dealer chato --open 60 --step 3 --cap 100 --floor-cash 0 --offer-only --base-value 112 --deadline 480
+      settled_or_free $c >/dev/null; break
     done
   done
   # LAV-04 spare → Pícaros (L4 slot), floor 5 (above their opening 4)

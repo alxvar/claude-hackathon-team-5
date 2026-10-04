@@ -87,6 +87,14 @@ def main():
             refs = [x.get("ref") for x in g.get("assets", [])] + [t.split(":", 1)[1] for t in g.get("types", []) if t.startswith("card:")]
             if refs != [a.card] or g.get("cash") or w.get("assets") or w.get("types"):
                 log(event="trick_guard", refs=refs, give=o.get("give"), want=o.get("want")); time.sleep(12); continue
+            if a.base_value:  # last-card guard, re-checked right before matching their price (contra-cha final pass)
+                try:
+                    v_now = float(retry(b.value, a.card)["your_value"])
+                except Exception as e:  # noqa: BLE001
+                    log(event="guard_value_error", error=repr(e)[:80]); time.sleep(12); continue
+                if v_now > a.base_value + 1:
+                    log(event="last_card_guard", value=v_now, base=a.base_value)
+                    retry(b.close_thread, tid); log(event="walk", why="last card: team trade only"); return
             try:
                 if a.offer_only:
                     b.say(tid, TEXT[min(turn, len(TEXT) - 1)].format(n=name, p=price), price=price)
