@@ -1,5 +1,24 @@
 # Market log (Market session; newest first)
 
+## Sun 12:46 · v10 has trades: five fills, we are #1 [V]
+| Tick | Trade on v10 | Price | mm_points after |
+|---|---|---|---|
+| 2087 | RET-02 t13 → t17 (common) | 8 | 0.9 |
+| 2102 | RET-01 t02 → t08 (common; the pair we pushed) | 6 | 1.8 |
+| 2228 | CHA-11 t10 → t06 (epic) | 184 | 5.9 |
+| 2265 | RET-09 t17 → t01 (rare) | 40 | 8.6 |
+| 2268 | RET-10 t17 → t01 (rare) | 33 | 9.7 |
+- **/api/me at tick 2283:** mm_points 9.7 · venue value_created 175.4 (5 trades, 271 P) · market 13.08 · score 35.81 ·
+  **rank 1** (t12 34.20, t10 34.08, t18 32.54, t03 32.23).
+- Market gap over the stall teams (9.0): us +4.08, of which ~1.1 is Saturday's carry-over, so Sunday's real trades are
+  worth ~+3.0 to us now = the full 7.5 round points × 0.4 [L]. Team 9 +4.98 (Saturday carry ~2.4 + Sunday ~2.5).
+  mm_points is not capped at 7.5 (it reads 9.7); what it measures exactly is still open.
+- **bench-h17.0 (12:38-12:42) on the stall:** efficiency 0.890, bench_points 0.5; stall teams' number unchanged (9.0).
+- How v10 got its flow: Lucas's pact with Team 13 (its bot posts bids and asks there since 10:56), then pushes to
+  Teams 2/8/16/1, then Team 10 listing there after the one v07 trade. Eight teams quote on v10. RET-09 t07 → t09, the
+  pair we brokered at 08:30, settled on El Rastro instead (10:13): texts now say "on v10" twice.
+- One trade of ours settled on v07 (RET-03 → t01 at 5, tick 2169, a manual one-off): Team 10 +0.37.
+
 ## Sun 10:45 · bench-h15.0 (≈ 10:37), on the stall v10 [V]
 - **Ours:** bench_efficiency 0.895, bench_points 0.5, market 9.81.
 - **Field:** nobody above the stall. Team 7 and Team 8 each dropped ~1.37 against the stall teams at snapshot 1802
