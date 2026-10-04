@@ -333,3 +333,4 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 10:00 · catalog.minted CHA-11 (Andén 0, epic, print run 9): hidden=False minted=2 (was 1)
 - Sun 10:08 · egg.found tick 1659 · picaros → t01 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t01", "name": "Team 1"}
 - Sun 10:10 · catalog.minted CHA-11 (Andén 0, epic, print run 9): hidden=False minted=3 (was 2)
+- Sun 10:18 · message tick 1699 · chato → t10 · Thirty-three. I said it once. Card doesn't get cheaper because you say "fair."

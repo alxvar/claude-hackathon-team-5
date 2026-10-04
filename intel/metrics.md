@@ -1,4 +1,4 @@
-# Metrics (auto, 10:16, game tick 1690)
+# Metrics (auto, 10:18, game tick 1698)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -74,6 +74,7 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 
 ## Dealer prices, last 60 ticks (median per item)
 
+- abuela common (team sells): median 6 over 1
 - abuela uncommon (team buys): median 24 over 4
 - chato uncommon (team buys): median 27 over 1
 - picaros epic (team buys): median 140 over 2
@@ -81,23 +82,23 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 
 ## El Rastro now: top bids by price (team, card, price)
 
-- t16: SAL-11 (epic) 176 P · offer 21884
-- t16: CHA-09 (rare) 69 P · offer 21885
+- t16: SAL-11 (epic) 176 P · offer 22039
 - t16: CHA-10 (rare) 67 P · offer 21967
-- t16: CHA-06 (uncommon) 27 P · offer 21892
+- t16: CHA-09 (rare) 67 P · offer 22040
 - t12: LAV-07 (uncommon) 24 P · offer 21827
-- t16: CHA-07 (uncommon) 19 P · offer 21898
+- t16: CHA-06 (uncommon) 19 P · offer 22049
+- t16: CHA-07 (uncommon) 19 P · offer 22058
 - t09: CHA-06 (uncommon) 15 P · offer 21563
 - t09: CHA-07 (uncommon) 15 P · offer 21564
 - t09: CHA-08 (uncommon) 15 P · offer 21572
 - t04: SAL-06 (uncommon) 12 P · offer 21480
-- t16: CHA-03 (common) 10 P · offer 21888
-- t16: CHA-01 (common) 9 P · offer 21899
+- t16: CHA-02 (common) 9 P · offer 22050
+- t16: CHA-01 (common) 9 P · offer 22059
+- t16: CHA-03 (common) 9 P · offer 22060
 - t09: CHA-01 (common) 5 P · offer 21549
 - t09: CHA-02 (common) 5 P · offer 21550
-- t09: CHA-03 (common) 5 P · offer 21551
 
-Asks by others (card, price: count): LAT-01 8: 2; LAT-02 8: 2; LAT-06 21: 2; LAV-01 5: 2; LAV-05 5: 2; sobre_plata 130: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAT-02 7: 1; SAL-05 9: 1; LAT-08 30: 1; LAT-07 30: 1; MAL-04 12: 1; MAL-03 12: 1
+Asks by others (card, price: count): LAT-01 8: 2; LAT-02 8: 2; LAT-06 21: 2; sobre_plata 130: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; SAL-05 9: 1; LAT-08 30: 1; LAT-07 30: 1; MAL-04 12: 1; MAL-03 12: 1; MAL-01 12: 1; LAT-01 9: 1; LAT-02 9: 1
 
 ## Our duels: 0 live, 136 finished (last 10)
 
