@@ -254,7 +254,7 @@ main > * { min-width: 0; }
     </section>
     <div class="col">
       <section class="card">
-        <div class="head"><h2>The race</h2><span class="meta">dashed = projection · shaded = 80 % range</span>
+        <div class="head"><h2>The race</h2><span class="meta">dashed = projection · shaded = 80 % range of each team's own moves</span>
           <button class="xbtn" id="raceOpen" title="Zoom, every team, and why each one jumped">⤢ Explore</button></div>
         <div class="chartbox" id="raceBox"><canvas id="race"></canvas></div>
         <p class="sub-note" id="raceProj"></p>
@@ -316,10 +316,12 @@ main > * { min-width: 0; }
   <div class="rxbar">
     <div class="seg" id="rxRange"></div>
     <div class="seg" id="rxSet"><button data-s="near">Around us</button><button data-s="top">Top 6</button><button data-s="all">All teams</button></div>
+    <button class="xbtn" id="rxProj" style="margin-left:0" title="Each team projected to the close: 90-min trend, 80 % range of its own moves">Projection: on</button>
     <span class="hint" id="rxHint"></span>
   </div>
   <div class="chips" id="rxTeams"></div>
   <div class="big tall"><canvas id="rxChart"></canvas></div>
+  <p class="sub-note" id="rxProjNote" style="margin-top:-4px"></p>
   <div class="why" id="rxWhy"></div>
 </dialog>
 
@@ -808,33 +810,70 @@ const raceTip = J => ({ itemSort: (a, b) => b.parsed.y - a.parsed.y, filter: it 
     : ` ${it.dataset.label}: ${it.parsed.y.toFixed(2)}`,
   afterLabel: it => it.dataset.isMarkers ? J[it.raw.j].why.slice(1, 5).map(w => "   " + w) : "" } });
 
-// Projection to the close, per team: its trend over the last 90 game minutes (least squares), fading over about an hour
-// (momentum doesn't last), ± its typical volatility (the spread of its snapshot-to-snapshot moves around that trend,
-// today only, growing with √time): an 80 % range if the next hours look like the last ones. Statistical only: it knows
-// nothing about the Grand Final or a Market Test.
+// Projection to the close, per team. Centre: its trend over the last 90 game minutes (least squares), fading over about
+// an hour (momentum doesn't last). Range (80 %): its OWN moves only, i.e. each snapshot move minus the field's median move
+// then (a Market Test re-grade lifts everyone and changes no place), measured robustly (median absolute move, so one jump
+// doesn't widen it), growing with √time. Statistical only: it knows nothing about the Grand Final or a Market Test.
 const PROJ_TAU = 1, PROJ_Z = 1.28;
+const med = xs => { const a = [...xs].sort((x, y) => x - y), n = a.length; return n ? (n % 2 ? a[(n - 1) / 2] : (a[n / 2 - 1] + a[n / 2]) / 2) : 0; };
 function project(hist, id, tEnd, tDay) {
-  const pts = hist.filter(h => h.scores[id] != null && h.t != null).map(h => [h.t, h.scores[id]]);
-  if (pts.length < 6) return null;
-  const [t0, s0] = pts[pts.length - 1];
-  const win = pts.filter(p => p[0] >= t0 - 1.5), n = win.length;
+  const H = hist.filter(h => h.t != null && h.scores[id] != null);
+  if (H.length < 6) return null;
+  const t0 = H[H.length - 1].t, s0 = H[H.length - 1].scores[id];
+  const win = H.filter(h => h.t >= t0 - 1.5), n = win.length;
   if (n < 4 || !(tEnd > t0)) return null;
-  const mt = win.reduce((a, p) => a + p[0], 0) / n, ms = win.reduce((a, p) => a + p[1], 0) / n;
-  const sxx = win.reduce((a, p) => a + (p[0] - mt) ** 2, 0);
-  const slope = sxx ? win.reduce((a, p) => a + (p[0] - mt) * (p[1] - ms), 0) / sxx : 0;
-  const vol = pts.filter(p => p[0] >= Math.max(tDay ?? -Infinity, t0 - 3));
-  let ss = 0, st = 0;
-  for (let i = 1; i < vol.length; i++) {
-    const dt = vol[i][0] - vol[i - 1][0];
-    if (dt > 0) { ss += (vol[i][1] - vol[i - 1][1] - slope * dt) ** 2; st += dt; }
+  const mt = win.reduce((a, h) => a + h.t, 0) / n, ms = win.reduce((a, h) => a + h.scores[id], 0) / n;
+  const sxx = win.reduce((a, h) => a + (h.t - mt) ** 2, 0);
+  const slope = sxx ? win.reduce((a, h) => a + (h.t - mt) * (h.scores[id] - ms), 0) / sxx : 0;
+  const V = H.filter(h => h.t >= Math.max(tDay ?? -Infinity, t0 - 3)), moves = [];
+  for (let i = 1; i < V.length; i++) {
+    const a = V[i - 1], b = V[i], dt = b.t - a.t;
+    if (!(dt > 0)) continue;
+    const field = Object.keys(b.scores).filter(k => a.scores[k] != null && b.scores[k] != null).map(k => b.scores[k] - a.scores[k]);
+    moves.push([b.scores[id] - a.scores[id] - med(field), dt]);
   }
-  const sigma = st ? Math.sqrt(ss / st) : 0, out = [];   // per √(game hour)
+  const span = moves.reduce((a, m) => a + m[1], 0), drift = span ? moves.reduce((a, m) => a + m[0], 0) / span : 0;
+  const sigma = moves.length >= 4 ? 1.4826 * med(moves.map(([x, dt]) => Math.abs(x - drift * dt) / Math.sqrt(dt))) : 0;
+  const out = [];
   for (let k = 0; k <= 12; k++) {
     const t = t0 + (tEnd - t0) * k / 12, h = t - t0;
     const c = s0 + slope * PROJ_TAU * (1 - Math.exp(-h / PROJ_TAU)), r = PROJ_Z * sigma * Math.sqrt(h);
     out.push({ x: t, y: c, lo: c - r, hi: c + r });
   }
   return out;
+}
+// the projection's datasets (upper edge, lower edge filled to it, dashed centre) for `ids`; `dim(id)` fades a team
+function projSets(d, ids, col, dim = () => false) {
+  const T = TL.t, S = TL.ts, last = T[T.length - 1];
+  const closeTs = d.clock.closes ? new Date(d.clock.closes).getTime() / 1000 : null;
+  const tEnd = closeTs && S.length ? last + (closeTs - S[S.length - 1]) / 3600 : null;
+  const days = (d.timeline || {}).days || [], tDay = days.length ? days[days.length - 1].t : null;
+  const ds = [], proj = [];
+  if (tEnd > last) ids.forEach(id => {
+    const p = project(d.lb_hist || [], id, tEnd, tDay);
+    if (!p) return;
+    const c = col(id), f = dim(id), name = (id === d.us ? "★ " : "") + (d.names[id] || id);
+    const edge = { label: name, team: id, isBand: true, borderColor: alpha(c, f ? 0.2 : 0.5), borderWidth: 1, borderDash: [1, 3],
+                   pointRadius: 0, pointHitRadius: 0, order: 5 };
+    ds.push({ ...edge, data: p.map(q => ({ x: q.x, y: q.hi })), fill: false });
+    ds.push({ ...edge, data: p.map(q => ({ x: q.x, y: q.lo })), fill: "-1", backgroundColor: alpha(c, f ? 0.03 : 0.09) });
+    ds.push({ label: name, isProj: true, team: id, data: p, borderColor: f ? alpha(c, 0.35) : c, backgroundColor: c, borderDash: [5, 4],
+              borderWidth: id === d.us ? 2.5 : 1.75, pointRadius: 0, pointHoverRadius: 4, pointHitRadius: 6, order: id === d.us ? 0 : 1 });
+    proj.push({ id, name: d.names[id] || id, us: id === d.us, end: p[p.length - 1] });
+  });
+  return { ds, proj, tEnd, last, closeTs };
+}
+// "At the close: …" in projected order; "too close to call" when our range overlaps another team's
+function projSummary(P) {
+  const proj = [...P.proj].sort((a, b) => b.end.y - a.end.y);
+  if (!proj.length) return "";
+  const usI = proj.findIndex(p => p.us), me = proj[usI];
+  const close = me && proj.some(p => !p.us && p.end.lo <= me.end.hi && p.end.hi >= me.end.lo);
+  const strong = t => `<b style="color:var(--text-primary)">${t}</b>`;
+  return `At the close (${when(P.closeTs, false)}), if the last 90 min hold: ` + proj.map(p => {
+      const txt = `${esc(p.name)} ${p.end.y.toFixed(1)}`;
+      return `${p.us ? strong(txt) : txt} <span class="muted">(${p.end.lo.toFixed(1)}–${p.end.hi.toFixed(1)})</span>`; }).join(" · ")
+    + (me ? ` · ${strong(`us #${usI + 1} of these ${proj.length}`)}${close ? ": the ranges overlap, too close to call" : ""}` : "");
 }
 // a dashed "now" line where the history ends and the projection starts
 const nowLine = { id: "nowLine", afterDraw(c, _, o) {
@@ -849,47 +888,22 @@ const nowLine = { id: "nowLine", afterDraw(c, _, o) {
 
 function race(d) {
   const ids = d.neighbours || [], hist = (d.lb_hist || []).slice(-40), col = raceColors(ids, d.us);
-  const ds = ids.map(id => raceLine(d, id, col(id), hist));
-  const T = TL.t, S = TL.ts, last = T[T.length - 1];
-  const closeTs = d.clock.closes ? new Date(d.clock.closes).getTime() / 1000 : null;
-  const tEnd = closeTs && S.length ? last + (closeTs - S[S.length - 1]) / 3600 : null;
-  const days = (d.timeline || {}).days || [], tDay = days.length ? days[days.length - 1].t : null;
-  const proj = [];
-  if (tEnd > last) ids.forEach(id => {
-    const p = project(d.lb_hist || [], id, tEnd, tDay);
-    if (!p) return;
-    const c = col(id), name = (id === d.us ? "★ " : "") + (d.names[id] || id);
-    ds.push({ label: name, isBand: true, data: p.map(q => ({ x: q.x, y: q.hi })), borderColor: alpha(c, 0.5), borderWidth: 1, borderDash: [1, 3], pointRadius: 0, pointHitRadius: 0, fill: false, order: 5 });
-    ds.push({ label: name, isBand: true, data: p.map(q => ({ x: q.x, y: q.lo })), borderColor: alpha(c, 0.5), borderWidth: 1, borderDash: [1, 3], pointRadius: 0, pointHitRadius: 0,
-              fill: "-1", backgroundColor: alpha(c, 0.07), order: 5 });
-    ds.push({ label: name, isProj: true, team: id, data: p, borderColor: c, backgroundColor: c, borderDash: [5, 4], borderWidth: id === d.us ? 2.5 : 1.75,
-              pointRadius: 0, pointHoverRadius: 4, pointHitRadius: 6, order: id === d.us ? 0 : 1 });
-    proj.push({ id, name: d.names[id] || id, us: id === d.us, end: p[p.length - 1] });
-  });
-  chart("race", "line", { datasets: ds }, {
+  const P = projSets(d, ids, col);
+  chart("race", "line", { datasets: [...ids.map(id => raceLine(d, id, col(id), hist)), ...P.ds] }, {
     interaction: { mode: window.Chart && Chart.Interaction.modes.race ? "race" : "index", intersect: false },
     onClick: () => openRace(),
-    scales: { x: timeAxis({ min: hist[0]?.t, max: tEnd > last ? tEnd : last }),
+    scales: { x: timeAxis({ min: hist[0]?.t, max: P.tEnd > P.last ? P.tEnd : P.last }),
               y: { ...axis(), ticks: { color: css("--text-muted"), font: { size: 10 }, maxTicksLimit: 6 } } },
     plugins: { legend: { position: "bottom", labels: { color: css("--text-secondary"), boxWidth: 12, boxHeight: 3, font: { size: 11 },
                          filter: (it, cd) => !cd.datasets[it.datasetIndex].isBand && !cd.datasets[it.datasetIndex].isProj } },
-               tooltip: raceTip([]), nowLine: { t: last } },
+               tooltip: raceTip([]), nowLine: { t: P.last } },
   }, [dayLines, nowLine]);
-  // at the close, in projected order; "too close to call" when our range overlaps another team's
-  proj.sort((a, b) => b.end.y - a.end.y);
-  const usI = proj.findIndex(p => p.us), me = proj[usI];
-  const close = me && proj.some(p => !p.us && p.end.lo <= me.end.hi && p.end.hi >= me.end.lo);
-  const strong = t => `<b style="color:var(--text-primary)">${t}</b>`;
-  $("#raceProj").innerHTML = proj.length
-    ? `At the close (${when(closeTs, false)}), if the last 90 min hold: ` + proj.map(p => {
-        const txt = `${esc(p.name)} ${p.end.y.toFixed(1)}`;
-        return `${p.us ? strong(txt) : txt} <span class="muted">(${p.end.lo.toFixed(1)}–${p.end.hi.toFixed(1)})</span>`; }).join(" · ")
-      + (me ? ` · ${strong(`us #${usI + 1} of these ${proj.length}`)}${close ? ": the ranges overlap, too close to call" : ""}` : "")
-    : "";
+  $("#raceProj").innerHTML = projSummary(P);
 }
 
 // ------------------------------------------------------------------ race explorer: every team, zoom, why each jump
-const RX = { range: store.get("bz-rx-range", "all"), shown: null, focus: null, sel: null, order: "big", all: false, band: null, view: null };
+const RX = { range: store.get("bz-rx-range", "all"), shown: null, focus: null, sel: null, order: "big", all: false, band: null, view: null,
+             proj: store.get("bz-rx-proj", true) };
 const KIND = { deal: "DEALS", duel: "DUELS", market: "MARKET", page: "PAGE", field: "THE FIELD", other: "RE-GRADE" };
 const bandPlugin = { id: "band", beforeDatasetsDraw(c) {
   const b = RX.band; if (!b) return;
@@ -962,7 +976,10 @@ function renderRace(applyRange) {
     pointRotation: J.map(j => j.delta > 0 ? 0 : 180), pointRadius: J.map((_, i) => i === RX.sel ? 9 : 6), pointHoverRadius: 9, pointHitRadius: 8,
     pointBackgroundColor: J.map(j => j.delta > 0 ? css("--good") : css("--critical")), pointBorderColor: css("--surface-1"), pointBorderWidth: 2 });
 
-  const rng = (ranges.find(r => r[0] === RX.range) || ranges[ranges.length - 1] || [0, 0, [undefined, undefined]])[2];
+  const P = RX.proj ? projSets(d, shownIds, col, id => RX.focus && id !== RX.focus) : { ds: [], proj: [] };
+  ds.push(...P.ds);
+  let rng = (ranges.find(r => r[0] === RX.range) || ranges[ranges.length - 1] || [0, 0, [undefined, undefined]])[2];
+  if (P.tEnd > P.last && rng[1] >= P.last) rng = [rng[0], P.tEnd];   // a range that reaches now shows the projection too
   if (applyRange || !RX.view) RX.view = rng;
   const [xmin, xmax] = RX.view;
   const c = chart("rxChart", "line", { datasets: ds }, {
@@ -971,14 +988,16 @@ function renderRace(applyRange) {
       const p = Chart.Interaction.modes.nearest(ch, e, { intersect: false, axis: "xy" }, false)[0];
       if (!p) return;
       const set = ch.data.datasets[p.datasetIndex];
-      if (set.isMarkers) rxSelect(set.data[p.index].j); else rxFocus(set.team);
+      if (set.isMarkers) rxSelect(set.data[p.index].j); else if (set.team) rxFocus(set.team);
     },
     scales: { x: timeAxis({ min: xmin, max: xmax }), y: { ...axis(), ticks: { color: css("--text-muted"), font: { size: 10 }, includeBounds: false } } },
-    plugins: { legend: { display: false }, tooltip: raceTip(J),
+    plugins: { legend: { display: false }, tooltip: raceTip(J), nowLine: { t: TL.t[TL.t.length - 1] },
       zoom: { zoom: { drag: { enabled: true, threshold: 6, backgroundColor: "rgba(57,135,229,0.15)", borderColor: css("--series-1"), borderWidth: 1 },
                       wheel: { enabled: true, modifierKey: "ctrl" }, pinch: { enabled: true }, mode: "x", onZoomComplete: ({ chart }) => rxViewed(chart) },
               pan: { enabled: true, mode: "x", modifierKey: "shift", onPanComplete: ({ chart }) => rxViewed(chart) } } },
-  }, [dayLines, bandPlugin]);
+  }, [dayLines, bandPlugin, nowLine]);
+  $("#rxProjNote").innerHTML = RX.proj ? projSummary(P) : "";
+  $("#rxProj").textContent = `Projection: ${RX.proj ? "on" : "off"}`;
   if (c) {
     fitY(c);
     if (!c.canvas.dataset.dbl) { c.canvas.addEventListener("dblclick", () => rxSetRange(RX.range)); c.canvas.dataset.dbl = "1"; }
@@ -1025,6 +1044,7 @@ $("#rxClose").onclick = () => $("#raceX").close();
 $("#raceX").addEventListener("click", e => {
   if (e.target === $("#raceX")) return $("#raceX").close();
   const r = e.target.closest("#rxRange button"); if (r) return rxSetRange(r.dataset.r);
+  if (e.target.id === "rxProj") { RX.proj = !RX.proj; store.set("bz-rx-proj", RX.proj); return renderRace(true); }
   const s = e.target.closest("#rxSet button");
   if (s) { RX.shown = new Set(rxTeamsFor(DATA, s.dataset.s)); RX.shown.add(RX.focus); return renderRace(false); }
   const x = e.target.closest(".tchip .x");
