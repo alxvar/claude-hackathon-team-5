@@ -1835,3 +1835,5 @@
 {"id": 94765, "tick": 2054, "t": 16.1667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11684, "session": 4, "status": "deal", "item": "San Isidro"}}
 {"id": 94838, "tick": 2057, "t": 16.1792, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11611, "session": 4, "status": "no_deal", "item": "Escaparate de Serrano"}}
 {"id": 94841, "tick": 2057, "t": 16.1792, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11618, "session": 4, "status": "no_deal", "item": "Museo Sorolla"}}
+{"id": 94927, "tick": 2061, "t": 16.1958, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11619, "session": 4, "status": "no_deal", "item": "Museo Sorolla"}}
+{"id": 94962, "tick": 2062, "t": 16.2, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11633, "session": 4, "status": "no_deal", "item": "Museo Sorolla"}}
