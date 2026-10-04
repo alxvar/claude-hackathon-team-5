@@ -249,6 +249,263 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1888,
+   "raw": {
+    "duel": 11612,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Cine Doré",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.32,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 104,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 1892,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 12079,
+     "price": 148,
+     "tick": 1880,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 12277,
+     "price": 131,
+     "tick": 1888,
+     "days": 5
+    },
+    "messages": [
+     {
+      "tick": 1880,
+      "from": "you",
+      "text": "I'd like to offer 148 P for delivery on day 10.",
+      "price": 148,
+      "days": 10
+     },
+     {
+      "tick": 1882,
+      "from": "Rival Oro",
+      "text": "Hello! I can offer 99 P. Delivery on day 0.",
+      "price": 99,
+      "days": 0
+     },
+     {
+      "tick": 1885,
+      "from": "Rival Oro",
+      "text": "140 P, then. Delivery on day 0.",
+      "price": 140,
+      "days": 0
+     },
+     {
+      "tick": 1886,
+      "from": "Rival Oro",
+      "text": "I can move to 118 P. Delivery on day 7.",
+      "price": 118,
+      "days": 7
+     },
+     {
+      "tick": 1888,
+      "from": "Rival Oro",
+      "text": "I can move to 131 P. Delivery on day 5.",
+      "price": 131,
+      "days": 5
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1889,
+   "raw": {
+    "duel": 11612,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Cine Doré",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.32,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 104,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 1892,
+    "decay_per_round": 0.1,
+    "rounds": 2,
+    "your_offer": {
+     "id": 12301,
+     "price": 133,
+     "tick": 1889,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 12293,
+     "price": 151,
+     "tick": 1889,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1880,
+      "from": "you",
+      "text": "I'd like to offer 148 P for delivery on day 10.",
+      "price": 148,
+      "days": 10
+     },
+     {
+      "tick": 1882,
+      "from": "Rival Oro",
+      "text": "Hello! I can offer 99 P. Delivery on day 0.",
+      "price": 99,
+      "days": 0
+     },
+     {
+      "tick": 1885,
+      "from": "Rival Oro",
+      "text": "140 P, then. Delivery on day 0.",
+      "price": 140,
+      "days": 0
+     },
+     {
+      "tick": 1886,
+      "from": "Rival Oro",
+      "text": "I can move to 118 P. Delivery on day 7.",
+      "price": 118,
+      "days": 7
+     },
+     {
+      "tick": 1888,
+      "from": "Rival Oro",
+      "text": "I can move to 131 P. Delivery on day 5.",
+      "price": 131,
+      "days": 5
+     },
+     {
+      "tick": 1889,
+      "from": "Rival Oro",
+      "text": "Meeting you partway: 151 P. Delivery on day 0.",
+      "price": 151,
+      "days": 0
+     },
+     {
+      "tick": 1889,
+      "from": "you",
+      "text": "I can do 133 P, delivery on day 10.",
+      "price": 133,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1890,
+   "raw": {
+    "duel": 11612,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Cine Doré",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.32,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 104,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 1892,
+    "decay_per_round": 0.1,
+    "rounds": 3,
+    "your_offer": {
+     "id": 12323,
+     "price": 126,
+     "tick": 1890,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 12293,
+     "price": 151,
+     "tick": 1889,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1880,
+      "from": "you",
+      "text": "I'd like to offer 148 P for delivery on day 10.",
+      "price": 148,
+      "days": 10
+     },
+     {
+      "tick": 1882,
+      "from": "Rival Oro",
+      "text": "Hello! I can offer 99 P. Delivery on day 0.",
+      "price": 99,
+      "days": 0
+     },
+     {
+      "tick": 1885,
+      "from": "Rival Oro",
+      "text": "140 P, then. Delivery on day 0.",
+      "price": 140,
+      "days": 0
+     },
+     {
+      "tick": 1886,
+      "from": "Rival Oro",
+      "text": "I can move to 118 P. Delivery on day 7.",
+      "price": 118,
+      "days": 7
+     },
+     {
+      "tick": 1888,
+      "from": "Rival Oro",
+      "text": "I can move to 131 P. Delivery on day 5.",
+      "price": 131,
+      "days": 5
+     },
+     {
+      "tick": 1889,
+      "from": "Rival Oro",
+      "text": "Meeting you partway: 151 P. Delivery on day 0.",
+      "price": 151,
+      "days": 0
+     },
+     {
+      "tick": 1889,
+      "from": "you",
+      "text": "I can do 133 P, delivery on day 10.",
+      "price": 133,
+      "days": 10
+     },
+     {
+      "tick": 1890,
+      "from": "you",
+      "text": "Let's close this: 126 P, delivery on day 10. That's movement from both of us.",
+      "price": 126,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -650,6 +907,542 @@
     "ACCEPT_BY": 1,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1887,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11612,
+     "role": "seller",
+     "limit": 104,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.32,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to offer 148 P for delivery on day 10.",
+      "offer": {
+       "price": 148,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1880,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hello! I can offer 99 P. Delivery on day 0.",
+      "offer": {
+       "price": 99,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1882,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "140 P, then. Delivery on day 0.",
+      "offer": {
+       "price": 140,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1885,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can move to 118 P. Delivery on day 7.",
+      "offer": {
+       "price": 118,
+       "days": 7
+      },
+      "accept": false,
+      "tick": 1886,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 118,
+     "days": 7
+    },
+    "tick": 1887,
+    "ticks_left": 5,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 148,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "hold",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1888,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11612,
+     "role": "seller",
+     "limit": 104,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.32,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to offer 148 P for delivery on day 10.",
+      "offer": {
+       "price": 148,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1880,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hello! I can offer 99 P. Delivery on day 0.",
+      "offer": {
+       "price": 99,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1882,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "140 P, then. Delivery on day 0.",
+      "offer": {
+       "price": 140,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1885,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can move to 118 P. Delivery on day 7.",
+      "offer": {
+       "price": 118,
+       "days": 7
+      },
+      "accept": false,
+      "tick": 1886,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can move to 131 P. Delivery on day 5.",
+      "offer": {
+       "price": 131,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1888,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 131,
+     "days": 5
+    },
+    "tick": 1888,
+    "ticks_left": 4,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 148,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "hold",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1889,
+   "took_s": 1.45,
+   "cost_usd": 0.00112,
+   "obs": {
+    "view": {
+     "duel_id": 11612,
+     "role": "seller",
+     "limit": 104,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.32,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to offer 148 P for delivery on day 10.",
+      "offer": {
+       "price": 148,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1880,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hello! I can offer 99 P. Delivery on day 0.",
+      "offer": {
+       "price": 99,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1882,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "140 P, then. Delivery on day 0.",
+      "offer": {
+       "price": 140,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1885,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can move to 118 P. Delivery on day 7.",
+      "offer": {
+       "price": 118,
+       "days": 7
+      },
+      "accept": false,
+      "tick": 1886,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can move to 131 P. Delivery on day 5.",
+      "offer": {
+       "price": 131,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1888,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 131,
+     "days": 5
+    },
+    "tick": 1889,
+    "ticks_left": 3,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 133 P, delivery on day 10.",
+    "price": 133,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "hold",
+     "rule": "worth floor",
+     "step": 16.8,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.45,
+       "in": 1008,
+       "out": 22,
+       "cost_usd": 0.00112,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 132,
+     "floor": 62.2
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1890,
+   "took_s": 1.42,
+   "cost_usd": 0.00126,
+   "obs": {
+    "view": {
+     "duel_id": 11612,
+     "role": "seller",
+     "limit": 104,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.32,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to offer 148 P for delivery on day 10.",
+      "offer": {
+       "price": 148,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1880,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hello! I can offer 99 P. Delivery on day 0.",
+      "offer": {
+       "price": 99,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1882,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "140 P, then. Delivery on day 0.",
+      "offer": {
+       "price": 140,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1885,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can move to 118 P. Delivery on day 7.",
+      "offer": {
+       "price": 118,
+       "days": 7
+      },
+      "accept": false,
+      "tick": 1886,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can move to 131 P. Delivery on day 5.",
+      "offer": {
+       "price": 131,
+       "days": 5
+      },
+      "accept": false,
+      "tick": 1888,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Meeting you partway: 151 P. Delivery on day 0.",
+      "offer": {
+       "price": 151,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1889,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 133 P, delivery on day 10.",
+      "offer": {
+       "price": 133,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1889,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 151,
+     "days": 0
+    },
+    "tick": 1890,
+    "ticks_left": 2,
+    "rounds": 2,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "Let's close this: 126 P, delivery on day 10. That's movement from both of us.",
+    "price": 126,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "code step",
+     "step": 7.6,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.42,
+       "in": 1095,
+       "out": 32,
+       "cost_usd": 0.00126,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ]
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -683,6 +1476,80 @@
      "id": 12079,
      "price": 148,
      "tick": 1880,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1889,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 133 P, delivery on day 10.",
+    "price": 133,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "hold",
+     "rule": "worth floor",
+     "step": 16.8,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.45,
+       "in": 1008,
+       "out": 22,
+       "cost_usd": 0.00112,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 132,
+     "floor": 62.2
+    }
+   },
+   "result": {
+    "duel": 11612,
+    "offer": {
+     "id": 12301,
+     "price": 133,
+     "tick": 1889,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1890,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Let's close this: 126 P, delivery on day 10. That's movement from both of us.",
+    "price": 126,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "code step",
+     "step": 7.6,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.42,
+       "in": 1095,
+       "out": 32,
+       "cost_usd": 0.00126,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 11612,
+    "offer": {
+     "id": 12323,
+     "price": 126,
+     "tick": 1890,
      "days": 10
     }
    }

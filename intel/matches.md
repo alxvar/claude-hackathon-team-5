@@ -1,12 +1,12 @@
 # v10 matchmaker: page finishers and first copies
 
-_Written by `tools/matchmaker.py` at 11:00 (tick 1862). Read-only. Holdings: the feed's copies (gifts, eggs and Workshop crafts included) plus the page arithmetic on the leaderboard's album_filled/pages_complete and minted supply (`tools/album.py`; 0 conflicts with intel/holdings-audit.md). ✓ = a proven gap, a bid since Saturday, or a want-list; "undecided" = the buyer may hold it. Giver: a true duplicate or a set it dumps (held back when its page is complete and under two copies are seen after its last craft); receiver: no copy, collects the set; both gain > 0 at the price (conservative multipliers). Want-lists: `intel/wants.md`. Never a page-closer for a rival or a team < 6 below us; a rival on either side gains <= 10 P at our price. Venue: a club deal (both sides in the club) alternates v10 / a member's market (least used, then lowest market score, never either side's own; page-closers on v10); every other deal on v10._
+_Written by `tools/matchmaker.py` at 11:05 (tick 1882). Read-only. Holdings: the feed's copies (gifts, eggs and Workshop crafts included) plus the page arithmetic on the leaderboard's album_filled/pages_complete and minted supply (`tools/album.py`; 0 conflicts with intel/holdings-audit.md). ✓ = a proven gap, a bid since Saturday, or a want-list; "undecided" = the buyer may hold it. Giver: a true duplicate or a set it dumps (held back when its page is complete and under two copies are seen after its last craft); receiver: no copy, collects the set; both gain > 0 at the price (conservative multipliers). Want-lists: `intel/wants.md`. Never a page-closer for a rival or a team < 6 below us; a rival on either side gains <= 10 P at our price. Venue: a club deal (both sides in the club) alternates v10 / a member's market (least used, then lowest market score, never either side's own; page-closers on v10); every other deal on v10._
 
 ## Matches (best first)
 
 | # | Buyer | Card | Seller | Venue | Price | Value created | Closer | Rival | Why |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | Team 6 | SAL-12 La Dama de Serrano | Team 12 | v10 | ~321 | +340.9 (low +273.4) |  | rival seller | bid ✓ · seller dumps SAL |
+| 1 | Team 16 | RET-10 Monumento a Alfonso XII | Team 14 | v10 | ~62 | +40.5 (low +40.5) |  |  | bid ✓ · gap proven · seller holds 2 |
 | 2 | Team 6 | SAL-11 La Puerta de Alcalá | Team 2 | v10 | ~229 | +37.4 (low +10.4) |  |  | bid ✓ · seller dumps SAL |
 | 3 | Team 9 | LAV-02 El Frutero de Argumosa | Team 16 | v10 | ~9 | +13 (low +11.2) |  |  | bid ✓ · undecided · seller holds 2 · also t04, t18 · spare unverified: 1 seen after its common craft at tick 730 |
 | 4 | Team 8 | MAL-06 Tienda de Discos | Team 4 | v10 · club | ~26 | +10.1 (low +10.1) |  |  | bid ✓ · undecided · seller dumps MAL |
@@ -19,9 +19,9 @@ _Written by `tools/matchmaker.py` at 11:00 (tick 1862). Read-only. Holdings: the
 
 ## Ready DMs
 
-**1. SAL-12 · Team 12 → Team 6 at ~321 P on v10**
-- To Team 12: "Hi Team 12! Could you post your La Dama de Serrano (SAL-12) on v10 as an ask addressed to Team 6, at ~321 P? Only there, please: they're ready to take it on v10. Only if it's a spare for you, keep one copy. Thanks!"
-- To Team 6: "Hi Team 6! Team 12 can post La Dama de Serrano (SAL-12) on v10 as an ask addressed to Team 6, at ~321 P: please accept it there, on v10, once it's up, and don't bid for it elsewhere meanwhile. Thanks!"
+**1. RET-10 · Team 14 → Team 16 at ~62 P on v10**
+- To Team 14: "Hi Team 14! Could you post your Monumento a Alfonso XII (RET-10) on v10 as an ask addressed to Team 16, at ~62 P? Only there, please: they're ready to take it on v10. Only if it's a spare for you, keep one copy. Thanks!"
+- To Team 16: "Hi Team 16! Team 14 can post Monumento a Alfonso XII (RET-10) on v10 as an ask addressed to Team 16, at ~62 P: please accept it there, on v10, once it's up, and don't bid for it elsewhere meanwhile. Thanks!"
 
 **2. SAL-11 · Team 2 → Team 6 at ~229 P on v10**
 - To Team 2: "Hi Team 2! Could you post your La Puerta de Alcalá (SAL-11) on v10 as an ask addressed to Team 6, at ~229 P? Only there, please: they're ready to take it on v10. Only if it's a spare for you, keep one copy. Thanks!"
@@ -74,19 +74,19 @@ _Written by `tools/matchmaker.py` at 11:00 (tick 1862). Read-only. Holdings: the
 |---|---|---|---|---|
 | Team 1 | exact | 48/48 | 12 | 0 |
 | Team 2 | partial | 34/39 | 4 | 22 |
-| Team 3 | partial | 33/37 | 11 | 16 |
-| Team 4 | partial | 40/41 | 9 | 11 |
+| Team 3 | partial | 33/37 | 10 | 17 |
+| Team 4 | partial | 40/41 | 8 | 12 |
 | Team 6 | repaired | 40/48 | 11 | 9 |
 | Team 7 | exact | 38/38 | 22 | 0 |
 | Team 8 | partial | 37/42 | 3 | 20 |
-| Team 9 | partial | 32/44 | 9 | 19 |
+| Team 9 | partial | 32/44 | 8 | 20 |
 | Team 10 | exact | 41/41 | 19 | 0 |
-| Team 11 | partial | 1/13 | 13 | 46 |
+| Team 11 | partial | 1/13 | 12 | 47 |
 | Team 12 | exact | 44/44 | 16 | 0 |
 | Team 13 | exact | 32/32 | 28 | 0 |
-| Team 14 | exact | 42/42 | 18 | 0 |
+| Team 14 | partial | 42/43 | 8 | 10 |
 | Team 15 | exact | 44/44 | 16 | 0 |
-| Team 16 | partial | 35/36 | 11 | 14 |
+| Team 16 | partial | 35/36 | 10 | 15 |
 | Team 17 | exact | 37/37 | 23 | 0 |
 | Team 18 | exact | 47/47 | 13 | 0 |
 
