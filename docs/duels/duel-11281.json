@@ -501,5 +501,63 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1927,
+ "done": {
+  "duel": 11281,
+  "session": 4,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Vinilo de la Movida",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 0.94,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 159,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Plata",
+  "deadline_tick": 1936,
+  "decay_per_round": 0.1,
+  "rounds": 1,
+  "your_offer": {
+   "id": 13183,
+   "price": 95,
+   "tick": 1925,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 13161,
+   "price": 128,
+   "tick": 1924,
+   "days": 10
+  },
+  "messages": [
+   {
+    "tick": 1924,
+    "from": "you",
+    "text": "I'd like to open at 100 P with delivery on day 0.",
+    "price": 100,
+    "days": 0
+   },
+   {
+    "tick": 1924,
+    "from": "Rival Plata",
+    "text": "Fair opening: 128 P with 10 days delivery.",
+    "price": 128,
+    "days": 10
+   },
+   {
+    "tick": 1925,
+    "from": "you",
+    "text": "Your offer is well above my range. I'll counter at 95 P with day 10 delivery.",
+    "price": 95,
+    "days": 10
+   }
+  ],
+  "result": 49.2,
+  "price": 95,
+  "days": 10
+ }
 }

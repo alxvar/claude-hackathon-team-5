@@ -1,20 +1,20 @@
-# v10 suggestions (Sun 10:45, tick 1806)
+# v10 suggestions (Sun 11:15, tick 1926)
 
 _Written every 30 min by `tools/v10_radar.py`: every team holding 2+ copies of a card (feed, a lower bound), its best buyer that is no rival (est. value created > +5, copy-weighted; no page-closer to a team within 6 of us). A rival seller only at value created >= 8 and its own gain <= 10 P. Ranked; the top 3 go to Dani as ACTs. Est. [L]. Price: the clearing price, capped at the buyer's value._
 
-- Team 8 → Team 6: SAL-04 (holds 4) at ~9 P · est. value created +13.1 · seller's gain +7.6
 - Team 16 → Team 14: LAV-01 (holds 2) at ~9 P · est. value created +13 · seller's gain +7.5
 - Team 1 → Team 8: SAL-03 (holds 3) at ~9 P · est. value created +12.5 · seller's gain +7.7
-- Team 7 → Team 6: SAL-04 (holds 2) at ~9 P · est. value created +12.2 · seller's gain +6.7
-- Team 14 → Team 6: SAL-04 (holds 2) at ~9 P · est. value created +12 · seller's gain +6.5
 - Team 17 → Team 14: LAV-01 (holds 2) at ~9 P · est. value created +11.8 · seller's gain +6.3
-- Team 2 → Team 1: RET-07 (holds 2) at ~18 P · est. value created +11.2 · seller's gain +10.5
 - Team 3 → Team 14: LAV-01 (holds 2) at ~9 P · est. value created +11.1 · seller's gain +5.6 · rival seller
 - Team 12 → Team 14: LAV-01 (holds 2) at ~9 P · est. value created +10.9 · seller's gain +5.4 · rival seller
-- Team 16 → Team 1: LAV-02 (holds 2) at ~9 P · est. value created +10.4 · seller's gain +7.5
-
-ACT: ask Team 8: "Hi Team 8! If you list your Café en Goya (SAL-04) on v10 at ~9 P, Team 6 may take it. Only if it's a spare for you, keep one copy. Thanks!"
+- Team 18 → Team 8: MAL-05 (holds 2) at ~9 P · est. value created +10.2 · seller's gain +7.5 · rival seller
+- Team 13 → Team 8: SAL-03 (holds 2) at ~9 P · est. value created +10.1 · seller's gain +5.3
+- Team 7 → Team 1: RET-08 (holds 2) at ~18 P · est. value created +9.6 · seller's gain +8.6
+- Team 12 → Team 8: MAL-05 (holds 2) at ~9 P · est. value created +8.2 · seller's gain +5.5 · rival seller
+- Team 17 → Team 8: MAL-05 (holds 2) at ~9 P · est. value created +8.1 · seller's gain +5.4
 
 ACT: ask Team 16: "Hi Team 16! If you list your La Corrala (LAV-01) on v10 at ~9 P, Team 14 may take it. Only if it's a spare for you, keep one copy. Thanks!"
 
 ACT: ask Team 1: "Hi Team 1! If you list your Perrito con Abrigo (SAL-03) on v10 at ~9 P, Team 8 may take it. Only if it's a spare for you, keep one copy. Thanks!"
+
+ACT: ask Team 7: "Hi Team 7! If you list your Palacio de Velázquez (RET-08) on v10 at ~18 P, Team 1 may take it. Only if it's a spare for you, keep one copy. Thanks!"
