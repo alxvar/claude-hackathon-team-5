@@ -1502,5 +1502,91 @@
     "settles_at_tick": 1924
    }
   }
- ]
+ ],
+ "last_seen_tick": 1924,
+ "done": {
+  "duel": 11195,
+  "session": 4,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Museo Sorolla",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 3.66,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 138,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Verde",
+  "deadline_tick": 1925,
+  "decay_per_round": 0.1,
+  "rounds": 2,
+  "your_offer": {
+   "id": 13113,
+   "price": 101,
+   "tick": 1922,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 13098,
+   "price": 99,
+   "tick": 1922,
+   "days": 8
+  },
+  "messages": [
+   {
+    "tick": 1913,
+    "from": "you",
+    "text": "I'd like to open at 86 primas, with delivery on day 0.",
+    "price": 86,
+    "days": 0
+   },
+   {
+    "tick": 1916,
+    "from": "Rival Verde",
+    "text": "Hello. My number is 144.",
+    "price": 144,
+    "days": 10
+   },
+   {
+    "tick": 1919,
+    "from": "Rival Verde",
+    "text": "That was a real step from my side: 125.",
+    "price": 125,
+    "days": 10
+   },
+   {
+    "tick": 1920,
+    "from": "Rival Verde",
+    "text": "That was a real step from my side: 116.",
+    "price": 116,
+    "days": 10
+   },
+   {
+    "tick": 1921,
+    "from": "Rival Verde",
+    "text": "That was a real step from my side: 105.",
+    "price": 105,
+    "days": 10
+   },
+   {
+    "tick": 1922,
+    "from": "Rival Verde",
+    "text": "That was a real step from my side: 99.",
+    "price": 99,
+    "days": 8
+   },
+   {
+    "tick": 1922,
+    "from": "you",
+    "text": "I can do 101 P, delivery on day 0.",
+    "price": 101,
+    "days": 0
+   }
+  ],
+  "result": 30.0,
+  "price": 101,
+  "days": 0
+ }
 }

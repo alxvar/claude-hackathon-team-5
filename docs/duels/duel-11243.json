@@ -559,6 +559,108 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1924,
+   "raw": {
+    "duel": 11243,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Escaparate de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.33,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 136,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1929,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 12986,
+     "price": 72,
+     "tick": 1917,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 13153,
+     "price": 118,
+     "tick": 1924,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1917,
+      "from": "Rival Plata",
+      "text": "Te la dejo en 139 primas y entrega en 10 días; me cuesta bajar más.",
+      "price": 139,
+      "days": 10
+     },
+     {
+      "tick": 1917,
+      "from": "you",
+      "text": "No puedo aceptar esa cifra; te ofrezco 72 primas con entrega en día 10.",
+      "price": 72,
+      "days": 10
+     },
+     {
+      "tick": 1918,
+      "from": "Rival Plata",
+      "text": "139 primas y entrega en 10 días. Me muevo poco ya, pero si tú te mueves, cerramos.",
+      "price": 139,
+      "days": 10
+     },
+     {
+      "tick": 1919,
+      "from": "Rival Plata",
+      "text": "Mi propuesta: 132 primas y entrega en 10 días. Dime una cifra concreta y la miro.",
+      "price": 132,
+      "days": 10
+     },
+     {
+      "tick": 1920,
+      "from": "Rival Plata",
+      "text": "Es una pieza que merece su precio: 123 primas y entrega en 10 días.",
+      "price": 123,
+      "days": 10
+     },
+     {
+      "tick": 1921,
+      "from": "Rival Plata",
+      "text": "Te la dejo en 121 primas y entrega en 10 días; me cuesta bajar más.",
+      "price": 121,
+      "days": 10
+     },
+     {
+      "tick": 1922,
+      "from": "Rival Plata",
+      "text": "118 primas y entrega en 10 días. Me muevo poco ya, pero si tú te mueves, cerramos.",
+      "price": 118,
+      "days": 10
+     },
+     {
+      "tick": 1923,
+      "from": "Rival Plata",
+      "text": "Mi propuesta: 118 primas y entrega en 10 días. Dime una cifra concreta y la miro.",
+      "price": 118,
+      "days": 10
+     },
+     {
+      "tick": 1924,
+      "from": "Rival Plata",
+      "text": "Es una pieza que merece su precio: 118 primas y entrega en 10 días.",
+      "price": 118,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
