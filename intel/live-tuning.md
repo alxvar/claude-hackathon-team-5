@@ -71,6 +71,10 @@ All three commit every ~5 min: cut to their cadence above to reduce git churn on
 
 ## Live log
 
+### 14:09 · Grand Final waves 1-2 (M7)
+- Deals 6/8 (75%) vs the field's 70% · no below-worth accept · no in-limit miss · wave-1 capture low (8.6 P/deal vs Duels III's ≈ 26.7) · board 2562 → 2602:
+  us +0.06, t10 +0.10, t12 +0.14 · final basis us 93.00 · t10 87.25 · t12 85.57 · t03 85.02. **Verdict: on par, no SWITCH.** Duelist params are Aleks's / the Lab's.
+
 ### 13:41 · LAST CALL before the ≈ 14:00 dealer close
 - Our ladder hasn't moved since tick ≈ 1822 (0.364). **Chato L2 is still empty for us; t03 is filling its own (MAL-06 at 18, LAT-07 at 13).**
   If a spare uncommon exists: sell to Chato at 14-16 now (≈ +1.8 Sunday ≈ +0.7 final). Never buy from Chato.
