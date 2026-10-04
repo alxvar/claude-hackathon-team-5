@@ -9,6 +9,11 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sun 12:41 · snapshot 2242 (phase 1.0: board × 2.5 = the final basis)
+- **t10 sold CHA-11 (epic) to t06 at 184 on OUR v10** (tick 2228): v10 VC → 114.4, so our real trades are capped (7.5). t10's negotiating +0.77 on it.
+- Final basis: **us 88.5** · t10 85.5 · t12 85.3 · t18 81.5 · t03 80.7 · t04 77.
+- Earlier leak (12:22): our RET-03 sale settled on t10's v07 and gave t10 real-trades VC (market 12.00 → 12.48).
+
 ### Sun 12:11 · snapshot 2142 (phase 0.96; Duels III done at 2074)
 - **Final basis (G + Sunday now): t12 86.6 · us 84.8 · t18 83.1 · t10 82.9 · t03 79.8.** Our v10 club pairs landed (VC 6.4): we're #2.
 - **t12 flips dealer cards for ladder:** SAL-10 bought from the Pícaros at 56 (2129), sold to Pilar at 72 (2139). That's an L4 buy plus an L3
