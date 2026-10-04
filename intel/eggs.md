@@ -1,6 +1,6 @@
 # Easter eggs: trigger → reward → dealer (castizo catalog)
 
-_Written by `tools/eggs.py` at 10:30 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
+_Written by `tools/eggs.py` at 10:40 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
 
 ## Trigger → reward → dealer
 
@@ -43,6 +43,9 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 
 | tick | team | dealer | words | what followed | reply |
 |---|---|---|---|---|---|
+| 1764 | t10 | chato | churros | - | Buenas. Bonita ruta. La Chamberí vale 33 P. Los churros te los pagas tú. |
+| 1760 | t10 | pilar | barquillos | - | Qué evocación tan bonita, caballero: los barquillos junto al Palacio de Cristal, mi padre, las tardes de Embassy. Pero los álbumes no se pagan con meriendas. El |
+| 1760 | t02 | abuela | chulapa | - | Ay, hijo, that old biscuit tin... Antonio kept his chulapa dorada in it for years, under the table with the cables. But today I have this Neighbourhood pack, 30 |
 | 1745 | t04 | pilar | cocido | price 66 → 67 | Las brujas de Goya las conozco de memoria, señor mío, y el Parque Florido también. Pero el pincel no cambia la tirada: 67 P, mi palabra final de hoy. Acepto el  |
 | 1738 | t05 | picaros | rinconete | price 64 → 59 | ¡Cuarenta! Nando, sujétame que me caigo. Amigo, that card survived cannons and we survived worse — but forty? Mira, por ti, porque me caes bien y tienes labia d |
 | 1737 | t06 | picaros | organillero | - | ¡Ay, Nando, que nos sale listo el caballero! Mira, amigo: cinco ya las pide cualquiera, pero El Organillero vale lo que vale. Cuatro primas, ni una menos, y te  |
@@ -120,6 +123,3 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 | 1482 | t18 | abuela | cocido, tres vuelcos | card LAV-08 | ¡Ay, cocido con sus tres vuelcos! Como lo hacía mi madre, hijo. Toma, por acordarte de esas cosas, eso vale más que las cartas. Pero ocho P, no, cariño. La Vini |
 | 1480 | t18 | abuela | baldosa, chotis, madrileno | badge Castizo; card LAV-08 | ¡Ay, el chotis! Sí, hijo, sobre una baldosa se baila, sin moverse, como un madrileño de verdad. Mi Paco lo bailaba así en las Vistillas. Pero tu carta en nueve. |
 | 1479 | t18 | pilar | chulapa | price 153 → 157 | Let us be civilised: 157 P. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about the golden chulapa. |
-| 1474 | t13 | abuela | cocido | - | ¡Ay, cariño, qué cosas tan bonitas dices! Mi madre, que en paz descanse, hacía el cocido los domingos y olía toda la calle. ¿Has comido hoy, hijo? Mira, la Esta |
-| 1468 | t05 | picaros | lazarillo, rinconete | price 73 → 66 | ¡Ja! Lazarillo, Rinconete — ¡un hombre culto, Nando, cierra el maletín, este sabe leer! No hay trucos aquí, hermano, sólo prisa. Pero cuarenta y dos... me duele |
-| 1467 | t13 | abuela | chotis, madrileno | badge Castizo | ¡Ay, el chotis! You dance it on one tile, cariño, like a real madrileño. Qué gusto. Mira, I have Estación de Chamberí — for you, 29 P. ¿Has comido ya? And El Ch |
