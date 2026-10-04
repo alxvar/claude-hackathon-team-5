@@ -1178,5 +1178,79 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1910,
+ "done": {
+  "duel": 11145,
+  "session": 4,
+  "status": "no_deal",
+  "role": "buyer",
+  "item": "Museo Sorolla",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 3.06,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 104,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Sol",
+  "deadline_tick": 1910,
+  "decay_per_round": 0.1,
+  "rounds": 0,
+  "your_offer": {
+   "id": 12757,
+   "price": 98,
+   "tick": 1908,
+   "days": 0
+  },
+  "rival_offer": null,
+  "messages": [
+   {
+    "tick": 1898,
+    "from": "you",
+    "text": "I'd like to open at 65 P for delivery on day 0.",
+    "price": 65,
+    "days": 0
+   },
+   {
+    "tick": 1904,
+    "from": "you",
+    "text": "I can do 71 P, delivery on day 0.",
+    "price": 71,
+    "days": 0
+   },
+   {
+    "tick": 1905,
+    "from": "you",
+    "text": "I can do 78 P, delivery on day 0.",
+    "price": 78,
+    "days": 0
+   },
+   {
+    "tick": 1906,
+    "from": "you",
+    "text": "I can do 84 P, delivery on day 0.",
+    "price": 84,
+    "days": 0
+   },
+   {
+    "tick": 1907,
+    "from": "you",
+    "text": "I can do 91 P, delivery on day 0.",
+    "price": 91,
+    "days": 0
+   },
+   {
+    "tick": 1908,
+    "from": "you",
+    "text": "I can do 98 P, delivery on day 0.",
+    "price": 98,
+    "days": 0
+   }
+  ],
+  "result": 0.0,
+  "price": null,
+  "days": null
+ }
 }

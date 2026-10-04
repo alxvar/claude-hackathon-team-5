@@ -366,3 +366,5 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 11:00 · catalog.minted LAV-11 (La Casa Encendida, epic, print run 9): hidden=False minted=8 (was 7)
 - Sun 11:10 · catalog.minted LAV-11 (La Casa Encendida, epic, print run 9): hidden=False minted=9 (was 8)
 - Sun 11:10 · message tick 1905 · banco → t04 · Buenas tardes. You have read the books, bien. But books do not own the card; I do. El Gato de Lavapiés leaves my vault at 761 P. Those are my terms.
+- Sun 11:11 · message tick 1908 · banco → t04 · The market is not my concern, señor. I have shaved one peseta, and that is the whole of my movement: 760 P. The card waits in my vault either way.
+- Sun 11:11 · message tick 1908 · picaros → t06 · ¡Anda, un lector! Paco, este sabe más que nosotros. Mira, sin humo, sin cuento: El Organillero, pieza fina, suena solo cuando lo abres... —y te lo dejamos en 4 primas. Cuatro, hermano. Pero decide ya, que el tren nos silba y la maleta se cierra sola.

@@ -540,6 +540,127 @@
     "LATE_SWITCH_LEFT": 0,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1910,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11240,
+     "role": "seller",
+     "limit": 111,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.47,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 158 P, with delivery on day 10.",
+      "offer": {
+       "price": 158,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1902,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 141 P, delivery on day 10.",
+      "offer": {
+       "price": 141,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1908,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 124 P, delivery on day 10.",
+      "offer": {
+       "price": 124,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1909,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "113 P con entrega el día 0 y cerramos ahora.",
+      "offer": {
+       "price": 113,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1909,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 113,
+     "days": 0
+    },
+    "tick": 1910,
+    "ticks_left": 4,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 124,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
