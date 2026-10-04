@@ -1,12 +1,12 @@
 # Flips: team bids a dealer can fill (Team 10's playbook)
 
-_Written by `tools/reactor.py` at 10:41 (tick 1792). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
+_Written by `tools/reactor.py` at 10:42 (tick 1796). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
 
 ## Open bids (HUNT digest)
 
 | bid P | card | bidder | venue | dealer est. | spread | offer | until |
 |---|---|---|---|---|---|---|---|
-| 286 | LAT-12 El Rastro al Amanecer (legendary) | t06 | v21 | banco 585 | -299 | 22429 | 10:59 |
+| 444 | SAL-12 La Dama de Serrano (legendary) | t06 | v21 → t12 | banco 585 | -141 | 22698 | 11:12 |
 | 68 | RET-09 El Ángel Caído (rare) | t09 | rastro | picaros 56 | +12 | 21548 | 10:56 |
 | 64 | CHA-09 Museo Sorolla (rare) | t16 | rastro | picaros 56 | +8 | 22595 | 10:43 |
 | 64 | CHA-10 Casa de las Flores (rare) | t16 | rastro | picaros 56 | +8 | 22651 | 10:45 |
