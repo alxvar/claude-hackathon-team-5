@@ -249,6 +249,256 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1913,
+   "raw": {
+    "duel": 11194,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.66,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 130,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1918,
+    "decay_per_round": 0.1,
+    "rounds": 2,
+    "your_offer": {
+     "id": 12796,
+     "price": 170,
+     "tick": 1909,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 12882,
+     "price": 121,
+     "tick": 1913,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1906,
+      "from": "you",
+      "text": "I'd like to open at 185 P for delivery on day 10.",
+      "price": 185,
+      "days": 10
+     },
+     {
+      "tick": 1909,
+      "from": "Rival Azul",
+      "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 94.",
+      "price": 94,
+      "days": 0
+     },
+     {
+      "tick": 1909,
+      "from": "you",
+      "text": "That's quite far from where we started. I'll come down to 170 P, still for day 10—or we could settle day 0 at a higher price if you prefer speed.",
+      "price": 170,
+      "days": 10
+     },
+     {
+      "tick": 1910,
+      "from": "Rival Azul",
+      "text": "That was a real step from my side: 97.",
+      "price": 97,
+      "days": 0
+     },
+     {
+      "tick": 1913,
+      "from": "Rival Azul",
+      "text": "I just moved for you. 121, your turn to meet me.",
+      "price": 121,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1914,
+   "raw": {
+    "duel": 11194,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.66,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 130,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1918,
+    "decay_per_round": 0.1,
+    "rounds": 2,
+    "your_offer": {
+     "id": 12796,
+     "price": 170,
+     "tick": 1909,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 12907,
+     "price": 132,
+     "tick": 1914,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1906,
+      "from": "you",
+      "text": "I'd like to open at 185 P for delivery on day 10.",
+      "price": 185,
+      "days": 10
+     },
+     {
+      "tick": 1909,
+      "from": "Rival Azul",
+      "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 94.",
+      "price": 94,
+      "days": 0
+     },
+     {
+      "tick": 1909,
+      "from": "you",
+      "text": "That's quite far from where we started. I'll come down to 170 P, still for day 10—or we could settle day 0 at a higher price if you prefer speed.",
+      "price": 170,
+      "days": 10
+     },
+     {
+      "tick": 1910,
+      "from": "Rival Azul",
+      "text": "That was a real step from my side: 97.",
+      "price": 97,
+      "days": 0
+     },
+     {
+      "tick": 1913,
+      "from": "Rival Azul",
+      "text": "I just moved for you. 121, your turn to meet me.",
+      "price": 121,
+      "days": 0
+     },
+     {
+      "tick": 1914,
+      "from": "Rival Azul",
+      "text": "That was a real step from my side: 132.",
+      "price": 132,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1915,
+   "raw": {
+    "duel": 11194,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.66,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 130,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1918,
+    "decay_per_round": 0.1,
+    "rounds": 3,
+    "your_offer": {
+     "id": 12932,
+     "price": 152,
+     "tick": 1915,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 12931,
+     "price": 143,
+     "tick": 1915,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1906,
+      "from": "you",
+      "text": "I'd like to open at 185 P for delivery on day 10.",
+      "price": 185,
+      "days": 10
+     },
+     {
+      "tick": 1909,
+      "from": "Rival Azul",
+      "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 94.",
+      "price": 94,
+      "days": 0
+     },
+     {
+      "tick": 1909,
+      "from": "you",
+      "text": "That's quite far from where we started. I'll come down to 170 P, still for day 10—or we could settle day 0 at a higher price if you prefer speed.",
+      "price": 170,
+      "days": 10
+     },
+     {
+      "tick": 1910,
+      "from": "Rival Azul",
+      "text": "That was a real step from my side: 97.",
+      "price": 97,
+      "days": 0
+     },
+     {
+      "tick": 1913,
+      "from": "Rival Azul",
+      "text": "I just moved for you. 121, your turn to meet me.",
+      "price": 121,
+      "days": 0
+     },
+     {
+      "tick": 1914,
+      "from": "Rival Azul",
+      "text": "That was a real step from my side: 132.",
+      "price": 132,
+      "days": 0
+     },
+     {
+      "tick": 1915,
+      "from": "Rival Azul",
+      "text": "I just moved for you. 143, your turn to meet me.",
+      "price": 143,
+      "days": 0
+     },
+     {
+      "tick": 1915,
+      "from": "you",
+      "text": "I can do 152 P, delivery on day 10.",
+      "price": 152,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -606,6 +856,441 @@
     "LATE_SWITCH_LEFT": 0,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1913,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11194,
+     "role": "seller",
+     "limit": 130,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.66,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 185 P for delivery on day 10.",
+      "offer": {
+       "price": 185,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1906,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 94.",
+      "offer": {
+       "price": 94,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1909,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "That's quite far from where we started. I'll come down to 170 P, still for day 10—or we could settle day 0 at a higher price if you prefer speed.",
+      "offer": {
+       "price": 170,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1909,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 97.",
+      "offer": {
+       "price": 97,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1910,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I just moved for you. 121, your turn to meet me.",
+      "offer": {
+       "price": 121,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1913,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 121,
+     "days": 0
+    },
+    "tick": 1913,
+    "ticks_left": 5,
+    "rounds": 2,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 170,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1914,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11194,
+     "role": "seller",
+     "limit": 130,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.66,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 185 P for delivery on day 10.",
+      "offer": {
+       "price": 185,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1906,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 94.",
+      "offer": {
+       "price": 94,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1909,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "That's quite far from where we started. I'll come down to 170 P, still for day 10—or we could settle day 0 at a higher price if you prefer speed.",
+      "offer": {
+       "price": 170,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1909,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 97.",
+      "offer": {
+       "price": 97,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1910,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I just moved for you. 121, your turn to meet me.",
+      "offer": {
+       "price": 121,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1913,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 132.",
+      "offer": {
+       "price": 132,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1914,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 132,
+     "days": 0
+    },
+    "tick": 1914,
+    "ticks_left": 4,
+    "rounds": 2,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 170,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1915,
+   "took_s": 1.35,
+   "cost_usd": 0.00136,
+   "obs": {
+    "view": {
+     "duel_id": 11194,
+     "role": "seller",
+     "limit": 130,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.66,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 185 P for delivery on day 10.",
+      "offer": {
+       "price": 185,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1906,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 94.",
+      "offer": {
+       "price": 94,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1909,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "That's quite far from where we started. I'll come down to 170 P, still for day 10—or we could settle day 0 at a higher price if you prefer speed.",
+      "offer": {
+       "price": 170,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1909,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 97.",
+      "offer": {
+       "price": 97,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1910,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I just moved for you. 121, your turn to meet me.",
+      "offer": {
+       "price": 121,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1913,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 132.",
+      "offer": {
+       "price": 132,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1914,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 132,
+     "days": 0
+    },
+    "tick": 1915,
+    "ticks_left": 3,
+    "rounds": 2,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 152 P, delivery on day 10.",
+    "price": 152,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 37.3,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.35,
+       "in": 1095,
+       "out": 52,
+       "cost_usd": 0.00136,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 133,
+     "floor": 57.9
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -675,6 +1360,44 @@
      "id": 12796,
      "price": 170,
      "tick": 1909,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1915,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 152 P, delivery on day 10.",
+    "price": 152,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 37.3,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.35,
+       "in": 1095,
+       "out": 52,
+       "cost_usd": 0.00136,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 133,
+     "floor": 57.9
+    }
+   },
+   "result": {
+    "duel": 11194,
+    "offer": {
+     "id": 12932,
+     "price": 152,
+     "tick": 1915,
      "days": 10
     }
    }

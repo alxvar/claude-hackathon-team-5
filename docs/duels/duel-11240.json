@@ -239,6 +239,80 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1911,
+   "raw": {
+    "duel": 11240,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Cine Doré",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.47,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 111,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1914,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 12841,
+     "price": 108,
+     "tick": 1911,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 12797,
+     "price": 113,
+     "tick": 1909,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1902,
+      "from": "you",
+      "text": "I'd like to open at 158 P, with delivery on day 10.",
+      "price": 158,
+      "days": 10
+     },
+     {
+      "tick": 1908,
+      "from": "you",
+      "text": "I can do 141 P, delivery on day 10.",
+      "price": 141,
+      "days": 10
+     },
+     {
+      "tick": 1909,
+      "from": "you",
+      "text": "I can do 124 P, delivery on day 10.",
+      "price": 124,
+      "days": 10
+     },
+     {
+      "tick": 1909,
+      "from": "Rival Azul",
+      "text": "113 P con entrega el día 0 y cerramos ahora.",
+      "price": 113,
+      "days": 0
+     },
+     {
+      "tick": 1911,
+      "from": "you",
+      "text": "I can do 108 P, delivery on day 10.",
+      "price": 108,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -661,6 +735,275 @@
     "LATE_SWITCH_LEFT": 0,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1911,
+   "took_s": 1.64,
+   "cost_usd": 0.00124,
+   "obs": {
+    "view": {
+     "duel_id": 11240,
+     "role": "seller",
+     "limit": 111,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.47,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 158 P, with delivery on day 10.",
+      "offer": {
+       "price": 158,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1902,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 141 P, delivery on day 10.",
+      "offer": {
+       "price": 141,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1908,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 124 P, delivery on day 10.",
+      "offer": {
+       "price": 124,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1909,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "113 P con entrega el día 0 y cerramos ahora.",
+      "offer": {
+       "price": 113,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1909,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 113,
+     "days": 0
+    },
+    "tick": 1911,
+    "ticks_left": 3,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 108 P, delivery on day 10.",
+    "price": 108,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 32.85,
+     "closing": true,
+     "text": "rejected: plain words",
+     "text_problems": [
+      "the message names 10, 0: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "Eso es muy bajo. Ofrezco 92 P con entrega el día 10, o podemos hablar del día 0 a un precio similar.",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.64,
+       "in": 1012,
+       "out": 46,
+       "cost_usd": 0.00124,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 92,
+     "floor": 51.3
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1912,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11240,
+     "role": "seller",
+     "limit": 111,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.47,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 158 P, with delivery on day 10.",
+      "offer": {
+       "price": 158,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1902,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 141 P, delivery on day 10.",
+      "offer": {
+       "price": 141,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1908,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 124 P, delivery on day 10.",
+      "offer": {
+       "price": 124,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1909,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "113 P con entrega el día 0 y cerramos ahora.",
+      "offer": {
+       "price": 113,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1909,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 108 P, delivery on day 10.",
+      "offer": {
+       "price": 108,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1911,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 113,
+     "days": 0
+    },
+    "tick": 1912,
+    "ticks_left": 2,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 113,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -743,6 +1086,140 @@
      "days": 10
     }
    }
+  },
+  {
+   "tick": 1911,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 108 P, delivery on day 10.",
+    "price": 108,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 32.85,
+     "closing": true,
+     "text": "rejected: plain words",
+     "text_problems": [
+      "the message names 10, 0: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "Eso es muy bajo. Ofrezco 92 P con entrega el día 10, o podemos hablar del día 0 a un precio similar.",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.64,
+       "in": 1012,
+       "out": 46,
+       "cost_usd": 0.00124,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 92,
+     "floor": 51.3
+    }
+   },
+   "result": {
+    "duel": 11240,
+    "offer": {
+     "id": 12841,
+     "price": 108,
+     "tick": 1911,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1912,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 113,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 113,
+    "settles_at_tick": 1913
+   }
   }
- ]
+ ],
+ "last_seen_tick": 1913,
+ "done": {
+  "duel": 11240,
+  "session": 4,
+  "status": "deal",
+  "role": "seller",
+  "item": "Cine Doré",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 5.47,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 111,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Azul",
+  "deadline_tick": 1914,
+  "decay_per_round": 0.1,
+  "rounds": 1,
+  "your_offer": {
+   "id": 12841,
+   "price": 108,
+   "tick": 1911,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 12797,
+   "price": 113,
+   "tick": 1909,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1902,
+    "from": "you",
+    "text": "I'd like to open at 158 P, with delivery on day 10.",
+    "price": 158,
+    "days": 10
+   },
+   {
+    "tick": 1908,
+    "from": "you",
+    "text": "I can do 141 P, delivery on day 10.",
+    "price": 141,
+    "days": 10
+   },
+   {
+    "tick": 1909,
+    "from": "you",
+    "text": "I can do 124 P, delivery on day 10.",
+    "price": 124,
+    "days": 10
+   },
+   {
+    "tick": 1909,
+    "from": "Rival Azul",
+    "text": "113 P con entrega el día 0 y cerramos ahora.",
+    "price": 113,
+    "days": 0
+   },
+   {
+    "tick": 1911,
+    "from": "you",
+    "text": "I can do 108 P, delivery on day 10.",
+    "price": 108,
+    "days": 10
+   }
+  ],
+  "result": 1.8,
+  "price": 113,
+  "days": 0
+ }
 }
