@@ -458,6 +458,9 @@ of 30 → whether VC can exceed +5 board on Sunday: reconcile with the Market se
 - Saturday had no 50 total: neg reached 119.1, and team-trade SALES scored (SAL-01 at 7 → +4.7 at tick 351).
 - Hypotheses: (1) **a Sunday per-round cap of 50 on team-trade gains** (fits 0 → 50 → 50 exactly); (2) our value of RET-11 ≥ 227, so gain
   ≤ 0. But a loss would have lowered neg. Test: the next snapshot's negotiating vs drift; ask the desk. Until resolved: no MAL buy above value.
+- **Test result (snapshot 1742):** our negotiating 21.93 → 21.88 (drift only). The sale added nothing. Working rule [L+]: **team-trade
+  gains are capped at 50 per round on Sunday**. So the MAL closer and further team trades add 0 trade points; MAL buys only at ≤ value
+  (ladder only). The desk should confirm.
 
 ## 3i. SATURDAY FINAL (first round-3 snapshot 1462, Sun 09:20) [V arithmetic: G = board × (1.5 + phase), phase 0.082, Sunday ≈ 0]
 - **The flip landed:** our Saturday market = 13.95 (11.25 stall + **2.70 real trades**); game total (0.5·Fri + Sat) **48.46** (+2.72).
