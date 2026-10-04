@@ -1,4 +1,4 @@
-# Metrics (auto, 08:45, game tick 1445)
+# Metrics (auto, 09:00, game tick 1445)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -105,9 +105,9 @@ Asks by others (card, price: count): RET-03 10: 1; RET-01 8: 1; LAV-02 10: 1; SA
 
 ## Latest announcements
 
-- tick 1201 announcement: {"text": "\u23f8 The game is paused for about 10 minutes. Announcement at the front: Payday, tips, and a congratulation. Play resumes right after."}
 - tick 1201 announcement: {"text": "Payday in Madrid: every team gets 400 primas, a second starting purse. Don Ernesto's vault and Los P\u00edcaros' epics are within reach. Only deals sc
 - tick 1201 announcement: {"text": "Play resumes now. Duels II starts in about 20 minutes: make sure your agent is running."}
 - tick 1415 announcement: {"text": "We close at 23:00. Offers stay open; the clock stops."}
 - tick 1445 announcement: {"text": "Closed until Sunday 09:00. Offers stay open; the clock stops."}
+- tick 1445 announcement: {"text": "Good morning! The Bazaar is open again: Sunday until 15:00, one tick every 15 s."}
 
