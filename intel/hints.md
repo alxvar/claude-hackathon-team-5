@@ -341,3 +341,8 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 10:24 · message tick 1721 · pilar → t04 · Buenos días. El Lázaro Galdiano, sí, Serrano puro, muy de mi gusto. Pero conozco su tirada tan bien como mi propia firma. Le ofrezco 61 P, y quedará en mi álbum, no en una bóveda fría. Don Ernesto recibe los domingos.
 - Sun 10:24 · message tick 1722 · pilar → t08 · Qué placer, un visitante que conoce el Retiro de verdad — el Fauno, el Amorcillo, la porcelana del Buen Retiro. Con usted se puede hablar en serio. Le ofrezco un sobre dorado por 504 P. Nada vulgar, se lo aseguro.
 - Sun 10:25 · message tick 1726 · pilar → t08 · Qué memoria más dulce, señor. Yo guardo los pavos reales y el barquillero, sí — y aquellas noches de Florida Park. Un alma así merece algo bueno: le ofrezco un sobre dorado por 504 P.
+- Sun 10:26 · message tick 1727 · banco → t14 · The number does not move, señor. One hundred thirteen. You may think on it as long as you like; the card will wait in my vault, and so will I.
+- Sun 10:26 · message tick 1728 · banco → t14 · You step down slowly, señor. I will move once, and only once: one hundred fourteen. That is the whole of it. The vault is patient, and so am I.
+- Sun 10:26 · message tick 1730 · banco → t14 · Ciento dieciocho, señor. The steps I take are small, and few remain. The card does not age in my vault. Decide when it suits you.
+- Sun 10:27 · egg.found tick 1733 · abuela → t02 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t02", "name": "Team 2"}
+- Sun 10:27 · egg.given tick 1733 · abuela → t02 · {"team": "t02", "name": "Team 2", "cash": 0, "packs": [], "cards": ["RET-07"], "reason": "easter egg"}
