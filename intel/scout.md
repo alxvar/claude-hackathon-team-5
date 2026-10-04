@@ -1,26 +1,25 @@
-# Scout (claude-sonnet-5-5, Sun 09:27)
+# Scout (claude-sonnet-5-5, Sun 09:43)
 
 ## Top 3 actions now
-1. **Close the Abuela CHA commons (CHA-02..05) at ≤ 9, using the Operator's `abuela_bot.py --dealer`.**
-   - **Evidence:** CHA-01 closed at 8 (her 12 → 8), and the L1 ladder went 0.057 → 0.075 in that window. The CHA-02 thread 2258 is open (her 12 → 10, ours 6).
-   - **Method:** small steps, never jump to her bid.
-   - **Effect:** neg_points 0 (gain clipped, value 16 vs price ≤ 9); ladder +0.015-0.018 each. Confidence: high on the ladder, low on board effect (Chief 17:45 note: ladder is flat for the board).
-2. **Keep the public CHA uncommon bids alive: 20329 (CHA-08 at 22, expires 1550) and 20536 (CHA-06 at 21, expires 1569).** The Operator renews them before expiry at no more than 22 (the public hard limit).
-   - **Evidence:** our value is 40 (CHA-07 shows 40). A fill with us as maker means no fee, so about +18 neg_points per card, less pack drag.
-   - **Caveat:** the asks list shows no CHA ask from any team right now, and the open bids are ours only. Fills depend on a seller appearing.
-   - **Page closer:** goes addressed on El Rastro with the seller's fee added (07:25 directive).
-   - **Confidence:** med.
-3. **Finish the Pilar fodder: LAV-07 spare (ask 30 to Pilar, offer 20599, expires 1502).** The Operator re-posts it before expiry with steps of −2/−3, floor 17.
-   - **Evidence:** LAT-06 → Pilar at 18 (her 16 → 18, ours 30 → 26) gave L3 +0.022. Earlier steady steps gave +0.040.
-   - **Effect:** neg_points 0, ladder +0.02. Confidence: med.
+1. **Close CHA-05 (our 10th card) via a team trade.** Bid 21142 is live: CHA-05 from t13, El Rastro, addressed, 72 P, expires tick 1674. Lucas asks t13's human to accept in the room, and the operator keeps the bid alive.
+   - Evidence: /api/me/value reads CHA-05 = 122 with the page bonus. t13 sold CHA-01 to t18 for 72 at tick 1513, so 72 is a price t13 already takes. Our open public bid is only 9 (offer 21030).
+   - Effect: ≈ +50 neg_points at the trade cap (122 − 72 = 50, with the maker fee saved). Board effect ≈ +0.05 per point, so ≈ +2.5 board. Confidence: med (depends on t13 accepting).
+   - Backup: if t13 doesn't accept by ~tick 1660, the t04 bids at 8 for CHA-01..05 show no seller, so re-post once at 75 (still < 122 − 50). Never go above 72 + 0 without checking the 50 cap.
+2. **RET-11 (epic, value 198) to t13 at 248 (offer 20815).**
+   - Evidence: t13 paid t18 238 for SAL-11 at tick 1494. We hold RET-11 at 198. A buyer at 248 gives a +50 trade cap (value paid above 198).
+   - Effect: +50 neg_points as a sale only if the cap logic applies to sales, which is not in the data. A swap or sale at ≥ 235 is positive either way.
+   - Caveat: t13 is #7 at 25.1, so it is not a leader and we are not feeding a top-4 team. t13 is also the CHA-05 holder, so bundle both asks in one talk. Confidence: med.
+3. **Finish CHA-06 and CHA-08 at ≤ 25 from Abuela (job bt7e6ssrd), then spend the last ladder slots.**
+   - Evidence: both threads already closed at 22 and 21 (tick 1534, tick 1545). Ladder 0.172, with L1 full, L3 2 of 3 and L4 1 of 3.
+   - Effect: neg_points stay 0 (price 21-22 < value 40). Remaining ladder gain is small: Pilar fodder ≈ +0.02, and the Chief's 0.050 for RET-11 at ≥ 198. Confidence: high on 0 loss, low on board effect, because the ladder was flat for the board at 17:45.
 
 ## What the climbing teams are doing
-- **t12 (#2, +2.0 in 15 min, 70 deals)** buys cheap, mostly LAT: LAT-10 from t01 at 86 (tick 1304), LAT-06 from t09 at 20, LAV-08 from t08 at 14, RET-11 from t06 at 216. Its profile lists LAT as 8 buys, and the Sat close added +7.03.
-- **t10 (#1, 34.8, −2.8)** is falling but still leads. Its profile says it collects LAV/RET.
-- **t13 (90 deals, 24.4)** trades volume: SAL-11 epic from t18 at 238 (tick 1494) and SAL-10 from t13 → t09 at 68. Its trades don't move it up; its score is flat (−0.6).
-- **We're #3 (+0.3).** Everyone else dropped 0.6-2.8 while our CHA setup held at neg 0.0.
+- **t18 (#2, 31.1, +1.5/15 min)** closed its CHA page with a team trade, CHA-01 from t13 at 72 (tick 1513). It also bought SAL-11 from t13 for 238 (tick 1494). It is a page-closer buyer, so never sell it a card.
+- **t13 (#7, +1.3/15 min, 97 deals)** is the busiest seller. SAL-10 went to t09 at 68 (tick 1473) and to t03 at 108 (tick 1528), so it prices high on rares. It is the main counterparty for our closer.
+- **t12 (#3, 31.0)** is buying cheap on LAT: LAT-06 at 20 (tick 1303) and LAT-10 at 86 (tick 1304). It has 70 deals. Never sell it LAT/MAL.
+- **t10 (#1, 33.2, −2.5/15 min)** is falling while t18 rises, which is the gap we can close.
 
 ## Threats
-- **t12 (#2) is the one racing us.** Never sell it LAT-08, MAL-03 or MAL-08; its gaps are LAT/MAL/RET. We hold LAT-01/03/04 and MAL-01..05; none go to t12 or to any rival.
-- **t03's bid for SAL-10 at 92 (offer 20570).** We hold SAL-09 and SAL-10 (value 122.6 each), so a sale at 92 loses about 30 and feeds #5. Don't take it.
-- **Club routing:** keep every club pair on v10 or a member market, never v02/v07/v18.
+- t04 has public bids at 8 for CHA-01..05 and 20 for CHA-06/07/08. A bid on CHA-05 could pull it from t13 first. Our 72 bid must stay above the market.
+- t18 (+1.5) and t12 (31.0, −2.3) sit 1.3 and 1.2 points above us (29.8). t3 is 2.2 below at 27.6. Any CHA or RET page closer we sell would feed them.
+- Only 4 open offers of ours, all bids at 9. Public asks of 30 for LAT-06/07/08 are above fair value.
