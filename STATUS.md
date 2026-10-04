@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sun 07:10** · tick 1445 (30 s/tick) · game hour 13.37 · PAUSED · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sun 07:15** · tick 1445 (30 s/tick) · game hour 13.37 · PAUSED · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,9 +17,9 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Sun 08:45: run intel/dealer-lab.md §4 checklist, then intel/sunday-plan.md. (Sat history:) Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sun 07:15 · operator · directive 07:25 (contra-cha) applied → **t0 re-armed, pid 15531** (repo 26ffa09): Pícaros CHA rares ≤ 57 → 60 → 62 (reopen only after a logged walk; no stock → Chato ≤ 100), LAV-04 → Pícaros after, Workshop LAV-02 ×2 + LAV-03 at C, Abuela commons CHA-01..03 from C+5, uncommons + CHA-04 at C+45, CHA-09/10 public only if missing at C+60, a watcher drops public bids for CHA cards t10/t01 obtain, MAL out; simple_buy: retries + last-card guard; LAV asks 19979/19981 cancelled (0 open offers); floors.env 110/110; closers on El Rastro addressed + seller fee (books)
+  - Sun 07:13 · Builder · window.sh main 7a84a35: stops WINDOW_STOP (default swaps opps recorder; **the trader keeps running**, directive 07:25), restarts only what it stopped → Operator re-checks, arms at 08:45
   - Sun 07:10 · operator · reviewed the Builder's tools/sunday/window.sh (57bfb41, 528 green): --status Duels III 18.65 (restart after) / Final 21.65 (no restart), clock t 13.3667, closed, paused; --dry --once clean; logic = D−5 stop of trader/swaps/opps/recorder (game time, doors open), re-stop if anything comes back, restart from run/floors.env on duels.finished or D+65 (trader only with trader_ok, opps RET) → arm at 08:45 · tools/sunday/t0.sh = run/sunday/t0.sh (identical)
-  - Sun 07:10 · Builder · (1) **trader/book/opps/swaps never trade on a rival's venue nor v07** main f19eaff (policy.rival_venue; off now: v01 v02 v07 v17 v18 v20 v24 v25) → Operator set run/trader_ok, t0 restarts the trader at R+10 · (2) **tools/sunday/window.sh** main 57bfb41 (D−5 stop trader/swaps/opps/recorder per /api/schedule; restart after Duels III from floors.env, none after the Final; lock + state, 9 tests) → Operator reviews and arms at 08:45 · Operator scripts copied to tools/sunday/; t0 is the Operator's
-  - Sun 07:06 · operator · the Builder's rival-venue skip is on main (f19eaff): HEAD 94c1994 contains it (run/ops_sha) · **old trader STOPPED** (no trader process; it could have filled bids on rival venues at the open) · **run/trader_ok created** → t0 starts the NEW trader at R+10 with CASH_FLOOR=464 (commit = HEAD at R+10, logged then) · book restarts on HEAD at 08:35 (t0), opps/swaps at R+10
 
 ## Score
 
