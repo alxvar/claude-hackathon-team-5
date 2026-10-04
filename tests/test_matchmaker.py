@@ -301,7 +301,7 @@ def test_club_deals_alternate_v10_and_a_member_market():
     st = mm.route(rows, teams=CLUB_TEAMS, venues=VENUES, state={}, day="d1")
     assert [r["venue"] for r in rows] == ["v10", "v15", "v10", "v11"]    # t15's v15 (lowest market), then t07's v11
     assert st["v10"] == 2 and st["member"] == 2                          # (v15 already used once)
-    assert "on v15 (Mercado t15) as an ask addressed to Team 4" in rows[1]["dm_seller"]
+    assert "on v15 (Team 15's market) as an ask addressed to Team 4" in rows[1]["dm_seller"]
     assert "on v10 as an ask addressed to Team 9" in rows[0]["dm_buyer"]
 
 
@@ -346,3 +346,19 @@ def test_a_deal_the_market_doesn_t_fire_doesn_t_take_a_turn():
     st = mm.route(rows, teams=CLUB_TEAMS, venues=VENUES, state={}, day="d1")
     assert [r["venue"] for r in rows] == ["v10", "v10", "v10", "v15"] and [r["club"] for r in rows] == \
         [True, False, False, True] and (st["v10"], st["member"]) == (1, 1)
+
+
+def test_member_markets_come_from_the_live_venue_list():
+    """Market 10:50: t07's v11 closed for board v29; v06 charges 1%: the live list wins, the fee breaks ties."""
+    live = {**VENUES, "v11": {**VENUES["v11"], "status": "closed"},
+            "v29": {"owner": "t07", "status": "open", "name": "Team 7 board", "opened_tick": 1758},
+            "v06": {**VENUES["v06"], "fee_bps": 100}, "rastro": {"owner": "world", "status": "open", "house": True}}
+    mk = mm.member_markets(live)
+    assert mk["t07"] == "v29" and mk["t08"] == "v06" and "world" not in mk
+    two = {**live, "v30": {"owner": "t02", "status": "open", "fee_bps": 50}}       # t02: v26 (0%) beats v30 (0.5%)
+    assert mm.member_markets(two)["t02"] == "v26"
+    rows = [crow("t07", "t09"), crow("t04", "t02", "RET-06")]
+    teams = [{"team": t, "market": 0.0} for t in mm.CLUB]                         # all tied: the fee decides
+    mm.route(rows, teams=teams, venues=live, state={}, day="d1")
+    assert rows[1]["venue"] != "v06" and "0% fee" not in rows[1]["dm_seller"]
+    assert mm.member_markets(None) == mm.CLUB_VENUES
