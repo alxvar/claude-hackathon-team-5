@@ -1,15 +1,15 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sun 13:04** · tick 2359 (15 s/tick) · game hour 17.44 · running · today closes 15:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sun 13:09** · tick 2379 (15 s/tick) · game hour 17.52 · running · today closes 15:00._
 
 ## Team: now and latest
 
 _From `team/<name>.md`; each person writes only their own file._
 
 **Aleks** — Dealer/radio clue audit complete (Sun 12:34, evidence below): LAT-13's only copy went to t02; all confirmed repeatable trigger families already claimed by us; SAL-12 is with t16; Pilar's lince story remains unverified. Sunday tick-decay duelist implemented: Opus low strategist / Sonnet low negotiator, 12 s whole-decision ceiling, 8 s strategy / 3 s writer; immediate code accepts from the last validated band (days-aware) and risk-adjusted tick break-even; static-prefix pre-warming. Offline tests cover four concurrent days duels, timeouts and band boundaries. Pending deployment; no live process started or restarted. Runbook: docs/duelist-tick.md.
+  - Sun 13:08 · Dani's market dashboard restarted in screen `market-dashboard` on latest main (was running Sat 18:08 code, before d1d7dd2 Team trades tab) · :8765 HTTP 200, read-only · next: none
   - Sun 12:34 · mined 35,767 captured public events through tick 2237, 7,863 dealer replies across 2,139 conversations, all 16 radio items, live catalog and five of our private clue threads · only verified hidden legendary is LAT-13 (t02, 1/1 minted); our Chato pack was claimed at 2101 and opened at 2102; SAL-12 provenance confirms no transfer after t12 → t16; no Pilar egg observed · next: operator can source SAL-12 from t16 or LAT-13 from t02; lince/red-umbrella probes are unverified, text-only leads; full audit below
   - Sun 11:20 · restarted read-only duel monitor from latest monitor code 457be25 (verified against origin/main), PID 39828 at http://127.0.0.1:8766 · full suite 592 passed; page and live API healthy, tick 1944, 156 recorded duels, no public-feed errors · next: watch the monitor during Duels III
-  - Sun 11:06 · implemented the user-approved tick-decay policy, strategist-band code accepts, bounded model calls/failover and pre-match prompt warming; preserved exchange mode for historical replays and standalone market agents · new offline deadline/package/cache tests green · next: full-suite gate, push main, deploy one duelist from updated main (older 29aa1be worktree does not include this change)
 
 **Dani** — Desk, still open: Q6 (do duel threads count in the 6 open conversations? Duels II runs 6 at once ≈ 18:29), venue bond cooldown length, Q7 judging, Q4 ladder "price range" (do above-list deals count?), Q3 cap flat 50 or 5×book. Answered: stale `day_closes fri` did nothing (Lucas 10:50); Round 3 + CHA re-anchored to Sun ≈ 09:29 (server, log 11:44). Room: RET holders/collectors in log 11:44; steer other teams' trades to our v10 (0% fee: one trade there took us #4 → #2 at 10:45); no sell pitches (no line in `intel/opportunities.md` is live; top 4 at tick 424: t14, t13, t18, t12, and it moves every few minutes, so check the live board). Pitch draft with Lucas during Duels I (11:59-~13:34). Dashboard on my laptop (http://127.0.0.1:8765, read-only; Duel monitor tab at `#duelmon` for Duels I/II/III) rewrites `intel/teams.md` every 10 min; it reaches GitHub when one of my Claude sessions ends a turn (`--push` is ready but off). Judges' showcase: http://127.0.0.1:8765/show (texts in `judges/show.json`).
   - Sat 18:20 · **dashboard: new "Team trades" tab** (http://127.0.0.1:8765/#trades): every settled team-to-team trade in the feed we hold (El Rastro + every team venue), newest first, with venue, seller → buyer (with ranks), cards (swaps both ways), price, fee, × book, buyer collects / seller dumps, **est. value created** (book × (buyer's − seller's set multiplier), ours exact, others from `intel/multipliers.json` [L]), top-4 and ours flags; filters day/venue/team/set/kind, only our venue, hide top 4; tables by venue and by team · no extra game request · first read (tick 965): 147 team trades recorded, **102 today, 2,121 P**, 66 on El Rastro (65 %), 10 swaps; team venues: v02 11, v07 10, v21 5, the rest ≤ 3; our v10 only 2 trades all day (ticks 311, 398: est. +10 / −10) · **git:** the 16:00 showcase session had left `/show` code uncommitted, so the hook pushed nothing of mine since 16:00; committed it (fd269ad), the pull conflicted on `intel/teams.md` only (Aleks's machine also commits it: 18:08), resolved with the newest copy (my dashboard's 18:11) with Dani's OK · next: who writes `intel/teams.md` (one machine only?), desk Q6/Q7
@@ -25,17 +25,17 @@ _From `team/<name>.md`; each person writes only their own file._
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 37.14 | 1 | 24.20 | 12.94 | 24.68 | 0.36 | 0.89 | 74 | 5 | 457 | 50/60 |
+| 37.36 | 1 | 24.43 | 12.94 | 24.68 | 0.36 | 0.89 | 74 | 5 | 457 | 50/60 |
 
-Leaderboard (snapshot at tick 2342; refreshes every few minutes):
+Leaderboard (snapshot at tick 2362; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 5 | 37.14 | 24.20 | 12.94 | 74 |
-| 2 | Team 10 | 34.76 | 22.46 | 12.30 | 74 |
-| 3 | Team 12 | 34.19 | 22.76 | 11.44 | 82 |
-| 4 | Team 18 | 32.53 | 23.53 | 9.00 | 57 |
-| 5 | Team 3 | 32.39 | 24.24 | 8.15 | 46 |
+| 1 | Team 5 | 37.36 | 24.43 | 12.94 | 74 |
+| 2 | Team 10 | 34.94 | 22.64 | 12.30 | 74 |
+| 3 | Team 12 | 34.47 | 23.03 | 11.44 | 82 |
+| 4 | Team 18 | 32.71 | 23.71 | 9.00 | 57 |
+| 5 | Team 3 | 32.58 | 24.43 | 8.15 | 47 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 18.17 | ~44 min | announce | finale warning |
-| 18.37 | ~56 min | persona | Finale: stalls close |
-| 18.37 | ~56 min | persona | Finale: stalls close |
-| 18.37 | ~56 min | persona | Finale: stalls close |
-| 18.37 | ~56 min | persona | Finale: stalls close |
-| 18.37 | ~56 min | persona | Finale: stalls close |
-| 18.37 | ~56 min | duels | The Grand Final: the last duel wave, on the big screen |
-| 19.27 | ~110 min | announce | freeze warning |
+| 18.17 | ~39 min | announce | finale warning |
+| 18.37 | ~51 min | persona | Finale: stalls close |
+| 18.37 | ~51 min | persona | Finale: stalls close |
+| 18.37 | ~51 min | persona | Finale: stalls close |
+| 18.37 | ~51 min | persona | Finale: stalls close |
+| 18.37 | ~51 min | persona | Finale: stalls close |
+| 18.37 | ~51 min | duels | The Grand Final: the last duel wave, on the big screen |
+| 19.27 | ~105 min | announce | freeze warning |
 
 ## Our dealer deals
 
@@ -72,8 +72,8 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
 | common card | team buys | 124 | 9.00 | 7 | 15 | 9 | 8.78 |
-| common card | team sells | 130 | 6.00 | 2 | 23 | 6 | 5.50 |
-| sobre_barrio | team buys | 48 | 22.00 | 17 | 30 | 3 | 20.33 |
+| common card | team sells | 132 | 6.00 | 2 | 23 | 6 | 5.50 |
+| sobre_barrio | team buys | 49 | 22 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 105 | 23 | 17 | 29 | 7 | 23.43 |
 | uncommon card | team sells | 13 | 15 | 12 | 22 | 0 | — |
 
