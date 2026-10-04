@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sun 12:07 (snapshot 2122, phase 0.94): **v10 real trades landed: t13 → t17 RET-02 at 8 (2087), t02 → t08 RET-01 at 6 (2102); VC 6.4 → ≈ +2.2 Sunday. We're #2 on the board (33.85) and on the final basis: t12 85.8 · us 84.8 · t18 82.9 · t10 82.9 · t03 77.2.** M_vc ≈ 22, so ≈ +16 VC more (3-4 small pairs) caps ≈ +5.3 more. Duels III: 57/68 deals (84%) vs the field's 75%; duel_points 24.68._
+_Last update: Sun 12:11 (snapshot 2142, phase 0.96): **final basis t12 86.6 · us 84.8 · t18 83.1 · t10 82.9 · t03 79.8.** v10: 2 trades, VC 6.4 (M_vc ≈ 22: ≈ +16 VC more caps ≈ +5.3). t12 flips SAL-10 Pícaros 56 → Pilar 72 (two ladder slots); not copyable for us (a SAL rare duplicate is worth ≈ 16 to us: a ≈ −40 loss on the buy)._
 _Note: the §4 version labels "00:05" to "02:10" are sequence markers written between Sat 23:50 and Sun 00:42 (my labels ran ahead of the wall clock); real times are in `git log`. The Sunday clock in §4.7 is unaffected._
 
 ## 1. Board = Friday × Saturday blend [V]

@@ -9,6 +9,13 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sun 12:11 · snapshot 2142 (phase 0.96; Duels III done at 2074)
+- **Final basis (G + Sunday now): t12 86.6 · us 84.8 · t18 83.1 · t10 82.9 · t03 79.8.** Our v10 club pairs landed (VC 6.4): we're #2.
+- **t12 flips dealer cards for ladder:** SAL-10 bought from the Pícaros at 56 (2129), sold to Pilar at 72 (2139). That's an L4 buy plus an L3
+  sell (two slots) and +16 cash. Not copyable for us: a SAL rare duplicate is worth ≈ 16 to us, so the buy is a ≈ −40 loss.
+- **t03 climbing:** RET-10 from the Pícaros at 53 (L4); its Sunday ≈ 35.3. t04 (Sunday ≈ 39.2, v05 VC) and t09 (≈ 38.8, v21 VC) lead Sunday
+  among the mid-table.
+
 ### Sun 11:26 · snapshot 1962 (phase 0.74; Duels III scored)
 - Final basis (G + Sunday now): t12 85.5 · t10 84.8 · t18 82.2 · **us 80.6** · t03 76.6. t10 passed t12 on the board (duels).
 - **t09: Sunday ≈ 39.0**, market 13.41: real-trades VC on its v21 from t12 → t16 SAL-12 at 380. That raises the top-3 VC reference for everyone.
