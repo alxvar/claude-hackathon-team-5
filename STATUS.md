@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sun 12:39** · tick 2257 (15 s/tick) · game hour 17.01 · running · today closes 15:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sun 12:44** · tick 2278 (15 s/tick) · game hour 17.10 · running · today closes 15:00._
 
 ## Team: now and latest
 
@@ -17,17 +17,17 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Sun: CHA page COMPLETE (+50). RET-11 kept (t13 asks lapsed); MAL decision ≈ 12:00 (Chief); Duels III ≈ 11:00 (duelist stopped on Aleks's machine at 09:46: Chief alerted). (Sat history:) Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sun 12:42 · MAL-09 closer (Chief 12:43): mal_close stopped, 25451 cancelled → **26022** → t08, El Rastro, 60 (value-when-last 95.4 → +35), exp tick 2308; mal09_bid.py (pid 56602): one move to t13 at 60 on expiry, never two live · **4th v10 settlement** #1403 t01 ↔ t17 RET-09 at 40 → bounty #3 (seller t17): in kind LAT-05 + LAT-01 at 10 = value, offer 25997 (both taken out of the book first) · cash 647, ≈ 416 in open bids
+  - Sun 12:41 · **MAL-07 filled** via the book's public bid at 15 (value 17.5): neg 52.2 → 54.8 · MAL 9/10: MAL-09 is the last card, value-when-last 95.4 (≤ 45 = full +50 clip) · closer 25451 → t08, El Rastro, 48 (+47.4 if filled), exp 2310; mal_close re-posts at 45 · asked the Chief on price/seller · Market Test fired 12:38 · market 12.7, score 35.39 (v10 VC 114.4)
   - Sun 12:35 · CHA-11 (Chief 12:36: t08 sells at 240; t16 won't; t10 offers 210 but is a rival) · cha11.py stopped, 25638 cancelled → **25784** → t08, El Rastro, 240, exp tick 2303; value 288 → +48; the only CHA-11 bid live; no auto re-post
-  - Sun 12:33 · Chief 12:33: reward 25697 (LAT-06 → t06) cancelled: t06 is a rival on the Chief's list (live policy.rivals had dropped it: now t03 t04 t10 t12 t18 + t13 t17) · v10_reward.py (pid 45047): skips live rivals ∪ RIVALS ∪ {t03,t06,t10,t12,t13,t17,t18}; never bids a card with any open bid of ours (book included), so the LAT reward is superseded by the book; a bounty needing a book card takes it out of run/book.json + cancels the public bid first · no more v07 posts (even with Team 10)
-  - Sun 12:32 · **3rd v10 settlement #1394: t10 → t06 CHA-11 at 184** → v10 value_created 3.4 → **114.4**, trades 3, traders 6, mm_points 0.9 → **5.9** · Team 10 completed a sale on v10 (Lucas's reciprocity condition; our RET-03 spare already gone) · reactor: t10 excluded → t06 LAT reward LAT-06 at 10 (value 12.5), offer 25697, El Rastro
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 35.39 | 1 | 22.69 | 12.70 | 24.68 | 0.36 | 0.90 | 72 | 5 | 662 | 49/60 |
+| 35.39 | 1 | 22.69 | 12.70 | 24.68 | 0.36 | 0.89 | 73 | 5 | 647 | 50/60 |
 
-Leaderboard (snapshot at tick 2242; refreshes every few minutes):
+Leaderboard (snapshot at tick 2262; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 18.17 | ~69 min | announce | finale warning |
-| 18.37 | ~81 min | persona | Finale: stalls close |
-| 18.37 | ~81 min | persona | Finale: stalls close |
-| 18.37 | ~81 min | persona | Finale: stalls close |
-| 18.37 | ~81 min | persona | Finale: stalls close |
-| 18.37 | ~81 min | persona | Finale: stalls close |
-| 18.37 | ~81 min | duels | The Grand Final: the last duel wave, on the big screen |
-| 19.27 | ~135 min | announce | freeze warning |
+| 18.17 | ~64 min | announce | finale warning |
+| 18.37 | ~76 min | persona | Finale: stalls close |
+| 18.37 | ~76 min | persona | Finale: stalls close |
+| 18.37 | ~76 min | persona | Finale: stalls close |
+| 18.37 | ~76 min | persona | Finale: stalls close |
+| 18.37 | ~76 min | persona | Finale: stalls close |
+| 18.37 | ~76 min | duels | The Grand Final: the last duel wave, on the big screen |
+| 19.27 | ~130 min | announce | freeze warning |
 
 ## Our dealer deals
 
@@ -58,8 +58,6 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Thread | Dealer | Side | Item | Her first | Our first | Deal | vs her first | Msgs | Status | Closed |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 2610 | picaros | buy | MAL-10 | 73 | 38 | 46 | -37% | 11 | deal |  |
-| 2617 | picaros | buy | MAL-09 | 73 | 40 | — | — | 11 | closed |  |
 | 2629 | picaros | sell | 1 card(s) | 4 | 12 | — | — | 7 | closed |  |
 | 2632 | picaros | sell | 1 card(s) | 4 | 12 | — | — | 13 | closed |  |
 | 2656 | picaros | sell | 1 card(s) | 4 | 12 | 5 | +25% | 13 | deal |  |
