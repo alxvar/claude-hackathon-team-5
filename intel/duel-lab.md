@@ -11,6 +11,74 @@ _Lucas's Duel Lab session. It never writes to the game or to `agents/duelist/`._
   fixed below._
 - _**Labels:** [V] measured on our records or code, [L] modelled or inferred, [?] unknown._
 
+## Final check (Sun 12:20): NO CHANGE. The Final config is the best point in its neighbourhood
+
+For the Chief (Lucas: "every last bit").
+- **The bar:** recommend a change only if it is positive in ALL worlds at ≥ 3 SE.
+- **Result:** no candidate meets it. Play f57a002 with `{"MIN_STEP_P": 15, "ACCEPT_BY": 1, "MAX_STEP_SHARE": 0.08,
+  "WORTH_FLOOR_SHARE": 0.075}`, as planned.
+- **Sources:** scratchpad `final/`: `extract68.py` → `d3rows68.json`, `calib68.out` / `calib68b.out`, `sim4.py`,
+  `final_sweep.py` / `final_sweep.out`.
+
+### 1. Duels III, all 68 duels [V]
+- **Deals:** 57 of 68 (0.84); 57 of 60 rivals that spoke or accepted (0.95).
+- **Rival mix:**
+  - 8 silent (12%);
+  - 6 only accepted our offer, never sending one (9%, up from 3% at 33 duels);
+  - 4 were the Verde mirror: 11352/11353 and 11572/11573.
+- **Verde dealt in 3 of 4 duels:** 11572 at +0.89 of our limit, 11573 at +0.22, 11353 at 0, 11352 no deal.
+- **Deal shape:** worth per deal 0.25 of our limit; 1.77 rounds per deal; 12 deals worth ≤ 0.06 (3 at 0).
+- **Points:** 24.68 over the 67 duels closed by tick 2054 ≈ 0.37 a duel.
+- **The field** (feed `duel.closed`, session 4): 457 of 612 duels ended in a deal (0.747).
+- **Configs played:** 29 duels on ACCEPT_BY 2 / MAX 0.12, 16 on ACCEPT_BY 1 / MAX 0.12, 23 on ACCEPT_BY 1 / MAX 0.08.
+  The refit simulates exactly this mix.
+
+### 2. Refit [L]
+- **Method:** a grid over rival toughness, end softening, floors, pie size and concession speed, extended to softer
+  floors (`calib68b.out`).
+- **Best fit F1:** distance 3.4 over 5 moments, against 5.0 for the old grid's best. F1 matches points (0.39 vs 0.37),
+  worth per deal (0.255) and rounds (1.74).
+- **Still low:** deal rate with responders (0.91 vs 0.95, 1.4 SE) and near-zero deals (0.15 vs 0.21, 1.1 SE).
+- **The 11 worlds:**
+  - F1, F1 under H2, F2 (softer floors), F3 (bigger pies, tough);
+  - the earlier 33-duel fits D3a and D3c;
+  - tiny pies, 20% mirrors, 25% silent + 15% accept-only, 30% fast closers;
+  - the Duels II fit R1.
+- **The Final config in the fits:** 0.37-0.42 a duel; deal rate with responders 0.90-0.92.
+
+### 3. Sweep around the Final config [L]
+Paired, 8,000 duels per world (`final_sweep.out`).
+
+| Candidate | Min / max Δ over the 11 worlds | Verdict |
+|---|---|---|
+| ACCEPT_BY 2 (reference) | −0.026 / −0.007, every world ≥ 12 SE worse | keep 1 |
+| Floor 0.05 / 0.06 | worse in 10 of 11 worlds (≈ −0.003 to −0.010) | keep 0.075 |
+| Floor 0.09 / 0.10 | +0.004 / +0.007 at best; −0.022 / −0.033 with tiny pies | keep 0.075 |
+| OPENER_SHARE_SELLER 0.35 | −0.004 (R1) to +0.015 (tiny pies) | no |
+| OPENER_SHARE_SELLER 0.50 / 0.60 | worse everywhere, down to −0.017 / −0.036 | no |
+| OPENER_SHARE_BUYER 0.30 / 0.45 | −0.003 to +0.014 / worse everywhere | no |
+| END_STEP_SHARE 0.35 / 0.65 | down to −0.014 / mixed, −0.002 to +0.003 | keep 0.5 |
+| CODE_STEP_SHARE 0.05 (below MAX 0.08) | +0.001 to +0.007 at ≥ 4 SE in 10 worlds; tiny pies −0.0001 (−0.8 SE) | the only near-miss; below the bar |
+| MONO_END_SHARE 0.15 / 0.20 / 0.30 / 0.35 | each worse somewhere (tiny pies, F3, D3c or R1) | keep 0.25 |
+| DECIDE_LEFT 2 / 4 / 5 | −0.001 / 0 / 0: the extra decisions are held steps | keep 3 |
+| CLOSING_TICKS 2 / 4 (with DECIDE_LEFT) | −0.095 to −0.033 / −0.054 to +0.038 | keep 3 |
+| Mirror rule A (code): on a detected Verde, switch to its day at worth-neutral | 0.000 to +0.0003 | no: Verde already deals |
+| Mirror rule B (code): on a detected Verde, stop conceding | −0.002 to 0 | no |
+
+- **The near-miss, CODE_STEP_SHARE 0.05:**
+  - It holds more mid-duel: a step goes out only once 5% of the gap reaches 15 P.
+  - With tiny pies it is ≈ 0, not negative, so it misses the bar on one world.
+  - At ≈ +0.003 a duel × 34 ≈ +0.1 raw, it isn't worth a change.
+- **MAX_STEP_SHARE 0.05 does the same.** Both validate: CODE_STEP_SHARE 0.03-0.60, MAX_STEP_SHARE 0.05-0.60, and the
+  CROSS rules hold.
+
+### 4. For the Final
+- **No change.** Set it between sessions, and never raise the floor mid-session.
+- **Expected [L]:** ≈ 0.37-0.42 points a duel on the fits, against 0.37 in Duels III. That's ≈ 12.5-14.5 raw over 34
+  duels, ± ≈ 1.8 (SE 0.053 a duel).
+- **Live, the only thing worth a hot change** is a breakage signal: run the first-wave checklist. Below ≈ 12 duels,
+  points can't tell configs apart.
+
 ## Pre-Final program (Sun 11:30): one config for the Final, one hot change now
 
 For the Chief (Lucas's request).

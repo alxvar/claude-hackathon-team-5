@@ -1,13 +1,12 @@
 # Flips: team bids a dealer can fill (Team 10's playbook)
 
-_Written by `tools/reactor.py` at 12:15 (tick 2165). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
+_Written by `tools/reactor.py` at 12:16 (tick 2169). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
 
 ## Open bids (HUNT digest)
 
 | bid P | card | bidder | venue | dealer est. | spread | offer | until |
 |---|---|---|---|---|---|---|---|
 | 162 | SAL-11 La Puerta de Alcalá (epic) | t03 | rastro | none (all minted or no dealer) | - | 25237 | 12:22 |
-| 150 | SAL-11 La Puerta de Alcalá (epic) | t03 | rastro | none (all minted or no dealer) | - | 25027 | 12:16 |
 | 114 | LAT-11 San Francisco el Grande (epic) | t06 | v21 | picaros 145 | -31 | 24572 | 12:20 |
 | 113 | RET-11 Palacio de Cristal (epic) | t06 | v19 → t10 | picaros 145 | -32 | 25057 | 12:39 |
 | 112 | LAV-11 La Casa Encendida (epic) | t17 | rastro | none (all minted or no dealer) | - | 25046 | 12:24 |
