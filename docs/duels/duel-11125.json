@@ -69,6 +69,59 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1876,
+   "raw": {
+    "duel": 11125,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Cine Doré",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.32,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 93,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1886,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 11954,
+     "price": 58,
+     "tick": 1874,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 12009,
+     "price": 90,
+     "tick": 1876,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1874,
+      "from": "you",
+      "text": "I'd like to open at 58 P with delivery on day 0.",
+      "price": 58,
+      "days": 0
+     },
+     {
+      "tick": 1876,
+      "from": "Rival Rojo",
+      "text": "Rápido y justo: 90 P, día 10. ¿Qué día de entrega te va mejor? / Quick and fair: 90 P, day 10. Which delivery day suits you best?",
+      "price": 90,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -177,6 +230,94 @@
     }
    },
    "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1876,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11125,
+     "role": "buyer",
+     "limit": 93,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.32,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 58 P with delivery on day 0.",
+      "offer": {
+       "price": 58,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1874,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Rápido y justo: 90 P, día 10. ¿Qué día de entrega te va mejor? / Quick and fair: 90 P, day 10. Which delivery day suits you best?",
+      "offer": {
+       "price": 90,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1876,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 90,
+     "days": 10
+    },
+    "tick": 1876,
+    "ticks_left": 10,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 58,
+    "days": 0,
+    "meta": {
+     "policy": "code",
+     "day_call": "hold",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
    "params_set": "C",
    "params": {
     "MIN_STEP_P": 15.0,
