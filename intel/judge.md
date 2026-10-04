@@ -1,43 +1,64 @@
-# Judge (claude-opus-5-5, Sun 12:14)
+# Judge (claude-opus-5-5, Sun 12:46)
 
 ## Verdict
-**Gaining.** We are #2 at 33.9 (+1.7 over 60 min). t12 leads at 34.6 (−0.3), 0.7 ahead. t10 (33.3) and t18 (33.2) are 0.6-0.7 behind. t03 is the fastest climber: 31.9, +1.4 in 15 min. neg_points is flat at 50.0, the round cap, so recent gains come from duels, market and relative movement. Only v10 is measured: market 10.03 → 10.87. The rest of the attribution is not in the data.
+Gaining: we are #1 at 35.39 (+1.8 over 15 min, +2.6 over 60 min). t10 is at 34.2 (+0.1/60) and t12 at 34.1 (−0.5/60), so our lead is 1.2.
 
 ## Our strategies: keep / kill / scale
-- **Trading loop: KILL (already stopped).** The cap makes extra team-trade gains worth 0. The loop's last accept was Sat 17:46, and nothing since.
-- **Dealer bot / pack_route: KEEP, minimal.**
-  - LAV-08 → Pilar at 17: ladder 0.342 → 0.364.
-  - LAT-05 → Pícaros at 5 (worth 5): neg and ladder both unchanged, so it was a wasted slot.
-  - The ladder looks flat on the board [L, Chief Sat 17:45], so no extra effort here.
-- **lat_fodder bids (LAT-06/07/08 at 9): KEEP, expect nothing.** El Rastro shows no LAT-06/07/08 asks, so the bids are unlikely to fill. Only Chato's L2 slots remain, and his 12:01 thread said "sold out".
-- **MAL-09 bid 24703 (49, to t13): KEEP.** It pays bounty #1 at value (0 over), per Lucas's 11:25 GUARDRAIL and the Chief's 12:03 decision. It does not close MAL, because MAL-07 is still missing.
-- **The 13:30 Pícaros MAL-09 attempt (cap 49 = value): expected 0 np.** It is harmless only if the trick guard holds.
-- **v10 bounty: KEEP, and measure it.**
-  - Two settlements so far: mm_points +0.9 and market +0.84.
-  - Bounty #2, LAT-01 at 20 against a value of 5 (24785), is a team buy at −15 by the formula.
-  - Whether the round cap absorbs that loss is not in the data. Log neg_points before and after the fill.
+- **MAL closer: keep.**
+  - MAL-07 filled through the public bid at 15: neg 52.2 → 54.8.
+  - MAL-09 is now the last card (value-when-last 95.4). Bid 26022 at 60 to t08 is worth +35.4 if it fills; it expires at tick 2308.
+  - 60 is above the 12:22 limit of ≤ 49. The Chief approved it at 12:43, and it is still ≥ 0.
+- **CHA-11 epic bid: keep.** 25784 at 240 vs value 288 is +48. It expires at tick 2303 (about 26 ticks).
+- **Dealer spare sales (Pícaros/Abuela/Pilar): kill.**
+  - The tick-2169 batch and LAT-05 at 5: neg 50.0 → 50.0, ladder 0.364 flat. Zero gain, accepts and attention spent.
+  - LAT-05 and LAT-01 were sold to dealers at 5 and 6. Bounty bid 25997 now buys them back at 10, which is pure churn.
+  - Pícaros MAL-09 threads walked twice (58, 56). A dealer last card scores 0 by rule anyway.
+- **Spare sales to non-rival teams: keep, small.** RET-03 → t01 at 5 (worth 2.8) gave +2.2.
+- **LAT book bids (31 / 12 / 4): keep, low value.**
+  - None has filled since posting.
+  - LAT-09/10 are worth 35, so the max gain is +4 each. Never raise above 35, even though t01 paid t06 44.
+- **v10 bounty/reward: keep (Lucas's GUARDRAIL).**
+  - The 3rd settlement took v10 value created to 114.4 and mm_points 0.9 → 5.9.
+  - Paying in kind at value costs 0 np.
+  - Risk: the fair-play review the Chief flagged.
+- **Trading loop: verify it is running.**
+  - Its log has no Sunday entry (the last line is "closed" at 00:36), yet the 12:22 directive says ON.
+  - Low stakes right now: no current ask is ≥ our value + 3 + fee.
+- **teams.md "Who to sell" table: kill its rows.** It suggests selling MAL-10, MAL-06 and MAL-08 to t17. Those are MAL page cards, and selling any one destroys the +35-50 closer.
+- **Duels: no change.** The Duel Lab Final check says NO CHANGE; duel score is 24.68.
 
-## Check the scout
-- **"Cancel 24703": wrong.** The Chief kept it as the bounty payment, and "neg_points stay at 0" is false (they are 50.0).
-- **"Run lat_fodder for the L3 slot": stale.** Ladder is 0.364, not 0.342, and Pilar's 3rd L3 slot is used. Bids 24252-54 have been replaced by 25107/25111/25112, which expire at tick 2307.
-- **"Don't sell CHA": holds.** We hold no spares, and every CHA card is worth ≥ 122 to us. The bidders it cites (t07 at 8, t16 at 12) are not on the board; t09 bids 5 and 15.
-- **Leaderboard: stale.** It has us behind t18; we are #2, ahead of t10 and t18.
-- **Climb rates: wrong.** The scout gives t04 +7.5, t09 +5.6 and t15 +6.2. Metrics show +4.5, +2.9 and +2.8.
-- **t15 → t16 CHA rares at 65: holds** (ticks 2022 and 2065).
-- **Missed threat: t03,** at +1.4 in 15 min. It is not flagged.
+## Check the scout (12:30 notes)
+- **Holds:**
+  - t18 bids 25 for MAL-09/10.
+  - LAT-09/10 are worth about 35 and our 31 bids are likely unfilled.
+  - t15 sold CHA-09/10 to t16 at 65, and t13 sold CHA-01 to t16 at 40.
+  - t12 sold SAL-12 to t16 at 380.
+  - t03's trend is +1.8/60.
+- **Stale:**
+  - "t12 #1, leads us by 0.6": we are now #1, 1.3 above t12.
+  - "t03 1.3 behind": it is now 3.1 behind.
+  - "MAL-07 last from t15": MAL-07 filled from t07, so MAL-09 is last.
+  - "bid 25451 at 48" has been replaced by 26022 at 60.
+  - "CHA-11 25638 at 220" has been replaced by 25784 at 240.
+- **Wrong:**
+  - "t04 +4.5 in 60 min": the metrics show +1.7.
+  - "t10 bids only 100 for CHA-11": the Chief has t10 at 210, and t10 sold CHA-11 to t06 at 184 (tick 2228).
+  - "t12 collects LAT": teams.md says RET/MAL/LAV, though the metrics show LAT×8 buys, so this is mixed.
+  - "SAL-11 t04→t02 at 220 (tick 1858)": not in the data.
 
 ## The 3 changes with the highest expected gain
-1. **Secure the 12:37 duelist restart and the Grand Final (≈ 14:15).**
-   - Confirm one instance is running f57a002 with the Duel Lab params.
-   - Run the first-wave check (directive 07:25 #10).
-   - Duel points (24.68) are our only uncapped negotiating lever left.
-   - Risk: two copies on one key, or a SWITCH line. Escape ladder: `use A` → POLICY=llm → `--rollback`.
-2. **Use the last v10 bounty slot (≤ 14 P over value) on a non-rival pair.**
-   - Dani points teams below us (not t12/t10/t18/t03) at existing v10 offers.
-   - Keep the recorder and broker supervised through the 12:37 bench and any later Sunday benches.
-   - Expected: ≈ +0.9 mm per settlement, as measured.
-   - Risk: the fair-play review the Chief flagged, and the unknown np cost of an above-value bounty fill. Measure 24785 first and size the slot by the result.
-3. **Freeze neg_points at 50.**
-   - No deal above value at any dealer or team until close. A dealer loss counts in full and would erase cap headroom we cannot regain.
-   - Move freed operator and human time to the judges' pitch (40%). Use today's measured table: the 50 cap, the round cap, flags +10/−10, the ladder's board effect, and bounty ROI.
-   - Risk: none to the score. Whether the pitch is ready is not in the data.
+1. **Land CHA-11 before tick 2303 (+48).**
+   - Dani confirms in the room that t08 will accept 25784 at 240.
+   - On expiry, make one move to t16 (#11, non-rival) at ≤ 238 (value − 50). Never t10 or t06 (Chief's rival list).
+   - Risk: t08 sells elsewhere first.
+2. **Land MAL-09 before tick 2308 (+35.4 at 60; +50 at ≤ 45).**
+   - Dani confirms in the room that t08 holds MAL-09. Holders are anonymous in the API.
+   - If t08 doesn't hold it, mal09_bid.py's single move to t13 stands.
+   - Keep it a team trade on El Rastro. Never buy the last card from the Pícaros (scores 0).
+   - Risk: t18 (top 4) outbids us. Its bid is 25 now, so the risk is low.
+3. **After 1-2 resolve, use spare cash for one epic closer-style bid: LAV-11 at ≤ 184.**
+   - Value 234 = 180 × 1.3, [L] by analogy with CHA-11 = 288. That makes it a +50 team trade.
+   - Address one El Rastro bid to a non-rival holder that Dani finds in the room. The holder is not in the data.
+   - t17's 112 is the only LAV-11 bid on the board.
+   - Risk: the holder is a top-4 rival (then don't bid) or won't sell under the Pícaros' epic price (~149).
+   - Cash 647 − 416 in bids leaves room, and leftover cash doesn't score.
