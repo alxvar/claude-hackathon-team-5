@@ -314,3 +314,6 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 09:42 · message tick 1553 · abuela → t08 · Ay, cariño, seis... ya me pones blandita. Mira, diez P y nos damos la mano. Una vez un niño me pagó con monedas de su hucha, y hoy tiene nietos que vienen aquí. Guarda algo para merendar, hijo, que no has comido.
 - Sun 09:43 · message tick 1557 · banco → t04 · My number does not move with stories, nor with Doña Pilar. One hundred thirteen pesetas for La Puerta de Alcalá. If her desk suits you better, go there.
 - Sun 09:46 · message tick 1569 · abuela → t04 · Ay, Maruja, sí, valían más que el oro... pero el oro no llenaba el plato, hija. Mira, 23, y porque eres tú. ¿Has comido algo hoy? Tráeme tus repes, que entre las dos te completamos la página. El Chato abre esta noche a las nueve y media.
+- Sun 09:49 · message tick 1584 · abuela → t08 · Ay, hijo, qué cosas más bonitas me dices... pero la cartita se queda en nueve P, mi vida. Mira esa monedita lista que apareció en el abrigo, igual tiene una hermanita escondida, ¿eh? Y luego te comes algo calentito, que vienes muy flaquito, cariño.
+- Sun 09:50 · catalog.minted LAV-11 (La Casa Encendida, epic, print run 9): hidden=False minted=7 (was 6)
+- Sun 09:50 · catalog.minted SAL-12 (La Dama de Serrano, legendary, print run 3): hidden=False minted=1 (was 0)

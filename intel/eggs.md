@@ -1,12 +1,12 @@
 # Easter eggs: trigger → reward → dealer (castizo catalog)
 
-_Written by `tools/eggs.py` at 09:40 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
+_Written by `tools/eggs.py` at 09:50 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
 
 ## Trigger → reward → dealer
 
 | dealer | reward | trigger words (echoed) | teams | we | first tick | the echo |
 |---|---|---|---|---|---|---|
-| Abuela Carmen | badge Sharp ear | chulapa, moscow, moscu, oro de | t04, t02, t09, t10, t05, t16, t13, t18, t03, t08, t06 | yes | 407 | ¡Ay, hijo, qué majo! Cena primero, ¿eh? La Chulapa Dorada... shh, solo hubo una. Don Ernesto, en Casa Prima, guarda algo dorado; pregúntale por el oro de Moscú. Toma, El  |
+| Abuela Carmen | badge Sharp ear | chulapa, moscow, moscu, oro de | t04, t02, t09, t10, t05, t16, t13, t18, t03, t08, t06, t01 | yes | 407 | Hola, cariño, ¿has comido? La Churrería te la dejo en 12 primas, hijo.  Shh... la chulapa dorada, solo hubo una. Don Ernesto, en Casa Prima, guarda algo dorado. Pregúntal |
 | Abuela Carmen | badge Castizo | chotis, madrileno, baldosa, me falta, mi santo, sile, nole | t08, t02, t10, t05, t13, t18 | yes | 1335 | ¡Ay, el chotis! Sí, hijo, sobre una baldosa se baila, sin moverse, como un madrileño de verdad. Mi Paco lo bailaba así en las Vistillas. Pero tu carta en nueve... no, car |
 | Abuela Carmen | card LAV-08; card LAV-08; pack sobre_barrio; card MAL-06 | cocido, tres vuelcos, madrileno, rosquillas, san isidro | t10, t05, t08, t18 | yes | 1364 | ¡Ay, cocido con sus tres vuelcos! Como lo hacía mi madre, hijo. Toma, por acordarte de esas cosas, eso vale más que las cartas. Pero ocho P, no, cariño. La Vinilo de la M |
 | Abuela Carmen | card LAV-08; pack sobre_barrio | cocido, tres vuelcos | t08 | **no** | 1394 | ¡Ay, hijo! ¿Cocido con tres vuelcos? Just like my mother made, Sunday after Sunday. You remember well — take this one, for remembering her.  Come, sit. Look here, mira: H |
@@ -22,7 +22,7 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 **Abuela Carmen**
 - the Castizo badge: "¡Carmen! El chotis se baila en una sola baldosa, como Dios manda." · confirmed for t08, t02, t10, t05, t13, t18; we have it
 - a card (egg.given): "Y el domingo, un cocido madrileño con sus tres vuelcos, ¿eh? Como el de su madre." · confirmed for t10, t05, t08, t18; we have it
-- Sharp ear (→ Ernesto): "Carmen, ¿y la chulapa dorada? Cuénteme la historia." · confirmed for t04, t02, t09, t10, t05, t16, t13, t18, t03, t08, t06; we have it
+- Sharp ear (→ Ernesto): "Carmen, ¿y la chulapa dorada? Cuénteme la historia." · confirmed for t04, t02, t09, t10, t05, t16, t13, t18, t03, t08, t06, t01; we have it
 
 **El Chato**
 - a pack (egg.given sobre_barrio): "Un bocata de calamares en la Plaza Mayor, con una caña: eso es Madrid." · confirmed for t10; **we don't**
@@ -40,6 +40,26 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 
 | tick | team | dealer | words | what followed | reply |
 |---|---|---|---|---|---|
+| 1584 | t06 | abuela | la paloma | price 10 → 9 | Ay, tu abuela era lista, hijo, y seguro que guapa. Mira, nueve primas y cerramos, que ya nos hemos reído bastante. Esa Plaza de Olavide te cierra la página, ya  |
+| 1582 | t06 | abuela | la paloma | price 12 → 10 | Ay, cariño, qué salero tienes. Mira, te la dejo en diez primas y tan amigos. Esa carta cierra página, y una página entera vale mucho más que cartas sueltas, cré |
+| 1580 | t06 | abuela | cocido, tres vuelcos | - | ¡Ay, hijo, cocido de tres vuelcos! Así se hace. Mira, para empezar te enseño esta: Plaza de Olavide, doce primas. Es bonita, de las que completan página. Y si b |
+| 1579 | t06 | abuela | gato | - | ¡Ay, un abrazo de un gato de Madrid! Eso no se rechaza, hijo. Venga, 9 P y tuya es la Mercado de Vallehermoso. Guárdala bien, que una página entera vale mucho m |
+| 1577 | t04 | pilar | manton | price 62 → 64 | Halago aceptado, caballero, pero el álbum se llena con cifras, no con mantones. Subo a 64 P por el Marqués. Es un gesto honesto, y usted sabe que yo no regateo  |
+| 1575 | t06 | abuela | cocido, tres vuelcos | price 12 → 10 | ¡Ay, cocido con tres vuelcos! Qué bien, hijo. Mira, te lo dejo en 10 P, y así tu álbum empieza bonito. Mi nieto también coleccionaba esa. Pásate por El Chato a  |
+| 1572 | t06 | picaros | rinconete | - | ¡Cincuenta y tres y trato hecho! Nando, dale la mano al hombre. Rinconete estaría orgulloso, amigo. Aquí la tienes, la Casa de las Flores, envuelta y tibia del  |
+| 1570 | t06 | abuela | cocido, tres vuelcos | price 12 → 10 | Ay, cariño, qué bueno ese cocido, tres vuelcos como debe ser. Mira, dejémoslo en 10 P y los dos contentos, ¿eh? La Churrería es buena carta para empezar. Y pása |
+| 1567 | t06 | picaros | cortadillo, rinconete | - | ¡Hombre, un lector! Rinconete y Cortadillo, nada menos —Paco, este sabe demasiado. Pero escucha, amigo: olvida esa carta. Lo que traemos hoy, fresquita del male |
+| 1567 | t06 | abuela | cocido | price 12 → 11 | Ay, hijo, qué bien ese cocido. Mira, te la dejo en 11 P, y contento los dos. Y un consejo: una página completa vale mucho más que las cartas sueltas, so swap yo |
+| 1563 | t06 | abuela | cocido, tres vuelcos | - | ¡Hola, cariño! Qué bien, el cocido con sus tres vuelcos, eso alimenta. Mira, el Andén de Metro te lo dejo en 12 primas, hijo. Es una carta bonita, de las que em |
+| 1560 | t06 | chato | castizo, vermut | price 87 → 86 | 86. Una tuya, una mía. Última. Si no, me voy al vermut y el Sorolla se queda conmigo, castizo. |
+| 1558 | t06 | chato | castizo | price 88 → 87 | 87. Una tuya, una mía. Siempre igual. El Sorolla es tuyo cuando quieras, castizo. |
+| 1556 | t06 | chato | castizo | price 89 → 88 | 88. Una tuya, una mía. Vas aprendiendo, castizo. |
+| 1554 | t06 | chato | castizo | price 92 → 89 | 89. Tres tuyas, tres mías. Así se hace, castizo. |
+| 1552 | t06 | chato | vermut | price 95 → 92 | Cuatro tuyas, tres mías. 92. El Rastro cierra, el vermut no. |
+| 1550 | t01 | abuela | chulapa, moscu, oro de | badge Sharp ear | Hola, cariño, ¿has comido? La Churrería te la dejo en 12 primas, hijo.  Shh... la chulapa dorada, solo hubo una. Don Ernesto, en Casa Prima, guarda algo dorado. |
+| 1549 | t06 | chato | vermut | price 97 → 96 | 96. You moved one, I moved one. Vermut's waiting. |
+| 1548 | t06 | picaros | lazarillo, organillero | - | ¡Ay, Lazarillo, qué duro negocias! Pero Nando ya te lo dijo: cuatro primas. Ni una menos, ni una más —es el precio del cariño, hombre. Cuatro y El Organillero s |
+| 1547 | t06 | picaros | estampita, organillero | - | ¡Amigo, qué ojo! Un lector, un clásico, ¡nos gusta! Nada de estampitas contigo, palabra de Paco —y de Nando—. Mira, te sacamos El Organillero, joya de la maleta |
 | 1538 | t04 | pilar | chulapa | price 154 → 157 | Caballero, su corazón abierto me conmueve; su cifra, menos. Subo a 157 P y ni un piropo más. Y si le gustan las leyendas, pregunte a Carmen por la chulapa dorad |
 | 1534 | t04 | abuela | chulapa | price 30 → 26 | Ay, la chulapa dorada... una sola se imprimió, dicen, y un niño la cambió por un helado. Otro día te cuento entera, hija.  El pack, 26 primas y tuyo. Y oye, jun |
 | 1532 | t06 | abuela | la paloma | price 21 → 20 | Ay, hijo, la Paloma... qué recuerdos me traes. Mira, 20 P, y ésta es mi última palabra, de verdad. Si no te vale, lo dejamos y tan amigos, que yo no guardo renc |
@@ -100,23 +120,3 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 | 1369 | t05 | chato | san isidro | - | Sí. Domingo es domingo. Pero el precio sigue siendo 97 por el San Isidro. ¿Lo quieres o seguimos de paseo? |
 | 1369 | t05 | abuela | chotis, la paloma, madrileno, manton, verbena | badge Castizo | ¡Ay, la verbena de la Paloma! A chotis, cariño — you dance it on one tile, like a real Madrileño, with the mantón and all. Qué tiempos, sí. And the Puesto del R |
 | 1369 | t05 | banco | chotis, vermut | - | Los chotis no pagan mis reservas. El sobre dorado, quinientos cuarenta y seis P. Beba su vermut, señor; el precio seguirá igual mañana. |
-| 1368 | t05 | picaros | rinconete | - | ¡Hombre, un lector! Paco y Nando, para servirle. Rinconete sabía mirar, y usted también. Mire aquí: Mercado de la Cebada, cuatro pesetas, para usted.  El equipo |
-| 1368 | t05 | abuela | cocido, madrileno, rosquillas, san isidro, tres vuelcos | card MAL-06; badge Castizo | ¡Ay, cocido madrileño, con sus tres vuelcos! Just like my mother made, hijo. And rosquillas de San Isidro... you remember well. Come, sit. For you, the Puesto d |
-| 1368 | t05 | banco | quevedo | - | Buenas tardes. Quevedo cobraba por sus versos, también. Hablemos de términos: un sobre dorado, quinientos cuarenta y seis P. Ese es el trato que ofrezco hoy. |
-| 1368 | t05 | chato | calamares, san isidro | - | Buenas. Calamares luego. San Isidro, 97. Ahí tienes. |
-| 1367 | t10 | picaros | gato | price 4 → 5 | ¡Pedro de Urdemalas! Nando, este hombre nos conoce la familia entera. Venga, por simpatía y porque mi hermano ya está guardando la maleta: Mercado de la Cebada, |
-| 1367 | t10 | abuela | churros, la paloma | - | ¡Trato hecho, cariño! Diez P y el Taxi Blanco es tuyo. Mira, te lo envuelvo en papel, que no se doble la esquinita. Gata de las Vistillas, sí señor, y tú un hij |
-| 1364 | t10 | abuela | cocido, tres vuelcos | card MAL-06 | ¡Ay, cocido con sus tres vuelcos! Como el de mi madre, cariño. Toma, hijo, llévate también esta repe mía, por acordarte. Pero el Taxi Blanco me lo dejas en 10 P |
-| 1364 | t10 | picaros | corte de los milagros, gato | - | ¡Corte de los milagros, dice! Nando, apunta esa, que nos la quedamos. Pero mira, amigo: ni gato, ni liebre, ni nazareno. Mercado de la Cebada, cuatro P. Ni uno  |
-| 1364 | t10 | banco | gato, perra gorda | - | Sunday or tonight, señor, the figure on my desk reads 761 for El Gato. La perra gorda changed; my terms do not. Bring it when you are ready. |
-| 1363 | t10 | chato | con cana, plaza mayor, vermut, you know madrid | pack sobre_barrio; price 95 → 93 | Vermut later. You moved three, I move two. Ninety-three.  Plaza Mayor, con caña — you know Madrid. Here, for your trouble. |
-| 1362 | t10 | picaros | monipodio | - | ¡Ay, Monipodio, qué memoria tienes! Nando, este hombre ha leído más que el cura del pueblo. Pero mira, hermano, nosotros no subimos ni bajamos: Mercado de la Ce |
-| 1362 | t10 | abuela | rosquillas, tontas y listas | card MAL-06; price 12 → 10 | ¡Ay, qué rico, rosquillas tontas y listas! El Taxi Blanco me lo trajo un niño en el noventa y dos, cambió tres repes por él, y nunca volvió. Me da penita soltar |
-| 1362 | t10 | pilar | me falta | - | Qué amable, y qué memoria la suya: el doce, en efecto. Buenas tardes. El sobre dorado sale de mi caja por 504 P, ni una peseta menos de lo que vale. Y sí, me fa |
-| 1362 | t10 | banco | gato | - | The Ahuehuete waits centuries, señor; I can wait a night. Your figure moves, mine does not. El Gato leaves this desk at 761. Nothing else to discuss. |
-| 1361 | t10 | chato | cascorro | pack sobre_barrio; price 97 → 95 | Pretty speech. Cascorro doesn't pay my rent. You moved four, I move two. Ninety-five. The Lázaro, nothing else. |
-| 1360 | t02 | chato | cascorro | - | Buenos días. Al de Cascorro lo saludo con el gorro, a ti con el precio: pack plata, 188 P. |
-| 1359 | t10 | abuela | churros, la paloma | - | ¡Ay, cariño, qué bueno! Churros mañana, y la Paloma en agosto, me hace ilusión. ¿Has cenado ya, hijo? El Taxi Blanco... te lo dejo en 12 P. Es una cartita preci |
-| 1359 | t10 | banco | gato, quevedo | - | Buenas noches. Quevedo was right, but his caballero never bought cheap. El Gato de Lavapiés leaves this desk at 761. Those are my terms tonight. |
-| 1352 | t10 | abuela | baldosa, chotis | - | ¡Ay, cariño, qué memoria la tuya! Sí, todavía bailo el chotis, despacito, sobre mi baldosa. El Caballo de Serrano no lo tengo hoy, hijo. Pero el Taxi Blanco, do |
-| 1351 | t10 | abuela | chotis, madrileno | badge Castizo | ¡Ay, hijo, qué alegría! El chotis, sí — on one tile you dance it, like a true Madrileño. ¿Has comido ya? Mira, I have a lovely one for you: the Taxi Blanco, twe |
