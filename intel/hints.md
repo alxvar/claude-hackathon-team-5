@@ -388,3 +388,5 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 11:57 · egg.found tick 2092 · chato → t18 · {"persona": "chato", "persona_name": "El Chato", "team": "t18", "name": "Team 18"}
 - Sun 11:57 · egg.given tick 2092 · chato → t18 · {"team": "t18", "name": "Team 18", "cash": 0, "packs": ["sobre_barrio"], "cards": [], "reason": "easter egg"}
 - Sun 11:58 · message tick 2096 · banco → t10 · Buenas tardes. El agua guarda el oro; yo guardo lo mío. Hoy le ofrezco El Gato de Lavapiés: 761 P, esos son mis términos.
+- Sun 11:59 · egg.found tick 2101 · chato → t05 · {"persona": "chato", "persona_name": "El Chato", "team": "t05", "name": "Team 5"}
+- Sun 11:59 · egg.given tick 2101 · chato → t05 · {"team": "t05", "name": "Team 5", "cash": 0, "packs": ["sobre_barrio"], "cards": [], "reason": "easter egg"}
