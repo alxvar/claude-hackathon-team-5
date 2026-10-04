@@ -23,7 +23,7 @@ We're Team 5, and we finished the game first: 37.73, ahead of Team 10. Here's ho
 **3 · Q4 · What we learned · 3:50–4:50** *(draft: the team rewrites the slots)*
 Technically: code decides and the LLM writes; and the generator can't grade itself, a separate verifier caught what the author missed, in this deck too.
 Negotiation: decay is per exchange, so silence is free; and take the good offer when it's there: by our monitor's price check, 23 deals this morning closed below an offer the rival had already made.
-Marketplaces: value created, not activity, and a trade with a rival lifts them as much as you; and pushing pairs and partners moved trades, the bounty didn't.
+Marketplaces: value created, not activity, and a trade with a rival lifts them as much as you; and pushing pairs and partners moved trades, the bounty didn't; and nobody beat the free stall in eleven Market Tests, so we never paid a bond.
 With one more day: merge the Sunday duelist into main, switch on the broker we staged, and put a verifier gate on every directive.
 Three humans set the limits. Claude ran the bazaar, and checked itself. Thank you.
 *(Alternative negotiation line from the Chief, unverified [?]: "small steps earn small steps".)*

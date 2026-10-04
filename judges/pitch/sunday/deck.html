@@ -51,6 +51,7 @@
 .sm p b{color:var(--ink);font-weight:600}
 /* q4 */
 .lcol{height:470px}
+.lcol li{font-size:23px}
 .draft{font:700 13px var(--mono);letter-spacing:.14em;color:var(--orange);border:1.5px dashed var(--orange);border-radius:6px;padding:2px 7px;vertical-align:6px;margin-left:8px}
 .more{position:absolute;left:128px;right:128px;top:800px;height:92px;display:flex;align-items:center;gap:14px;padding:0 22px;border-radius:16px;background:var(--card);border:1.5px solid var(--line);border-left:6px solid var(--green)}
 .more .k{font:800 28px var(--head);text-transform:uppercase;color:var(--green);flex:none;margin-right:6px}
@@ -81,7 +82,8 @@
     <li><b>Take the good offer when it's there.</b> 23 Duels III deals closed below an offer the rival had already made (≈ 197 P, the monitor's price check).</li></ul></div>
   <div class="card top lcol" style="left:1276px;--c:var(--yellow)"><div class="t">Marketplace <span class="draft">draft</span></div><ul>
     <li><b>Value created, not activity.</b> A trade with a rival lifts the rival as much as you: CHA-11, +1.48 each.</li>
-    <li><b>Pushing pairs and partners moved trades; the bounty didn't.</b> 0 fills by 10:45, 6 by 13:11; the bounty paid nobody.</li></ul></div>
+    <li><b>Pushing partners moved trades; the bounty didn't.</b> 0 fills at 10:45, 8 at the close; the bounty paid nobody.</li>
+    <li><b>Nobody beat the free stall.</b> 0.5 in all eleven Market Tests: no bond needed.</li></ul></div>
   <div class="more"><span class="k">With one more day <span class="draft">draft</span></span><span>Merge the Sunday duelist into main</span><span>Switch on the broker we staged</span><span>A verifier gate on every directive</span></div>
   <div class="close" style="top:914px;font-size:40px">Three humans set the limits. <span class="y">Claude ran the bazaar, and checked itself.</span></div>
   <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i></i></div><div class="lvl"></div><div class="who">Thank you</div></div>
@@ -157,7 +159,7 @@ const H = [
    g:'<b>Lock the lead (13:12):</b> zero trades with the five closest rivals.'},
   {c:'var(--blue)', k:'Market', b:'A 0 % fee venue attracts trades.',
    x:'v10 at 0 %: <b>0 fills</b> today by 10:45. <span class="tag v">V</span>',
-   g:'<b>We pushed pairs and partners onto v10:</b> our RET-01 pair, Team 13\'s bot, Team 10\'s listings. <b>6 fills by 13:11.</b> <span class="tag v">V</span>'},
+   g:'<b>We pushed pairs and partners onto v10:</b> our RET-01 pair, Team 13\'s bot, Team 10\'s listings. <b>8 fills by the close.</b> <span class="tag v">V</span>'},
 ];
 document.getElementById('hyp').innerHTML = H.map((h, i) => `<div class="card hrow" style="top:${320 + i * 130}px;--c:${h.c}"><div class="topic">${h.k}</div><p>${h.b}</p><p>${h.x}</p><p class="chg">${h.g}</p></div>`).join('');
 
