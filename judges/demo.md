@@ -165,7 +165,7 @@
 
 | Moment | Rank, score | `neg_points` / market | Cash | Screenshot | Source |
 |---|---|---|---|---|---|
-| Fri close (round 1) | #5, 20.0 | 67.8 / — | 252 | TBD | team/lucas.md Fri 22:59 |
+| Fri close (round 1) | #6, 19.99 (frozen at tick 160; #5, 20.03 at 22:55) | 67.8 / — | 252 | TBD | data/leaderboard.jsonl ticks 155, 160 |
 | Sat 10:05 (reference only) | #7, 19.20 | −19.0 (10:09) / 5.23 | 202 | — | STATUS.md; intel/metrics.md |
 | Sat round 2 close | TBD | TBD | TBD | TBD | |
 | Sat close (23:00) | TBD | TBD | TBD | TBD | |
