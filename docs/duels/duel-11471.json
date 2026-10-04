@@ -69,6 +69,119 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1984,
+   "raw": {
+    "duel": 11471,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Vinilo de la Movida",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 0.38,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 177,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 1994,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 14493,
+     "price": 111,
+     "tick": 1982,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 14534,
+     "price": 147,
+     "tick": 1984,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1982,
+      "from": "you",
+      "text": "I'd like to open at 111 P for delivery on day 0.",
+      "price": 111,
+      "days": 0
+     },
+     {
+      "tick": 1984,
+      "from": "Rival Noche",
+      "text": "Rápido y justo: 147 P, día 10. ¿Qué día de entrega te va mejor? / Quick and fair: 147 P, day 10. Which delivery day suits you best?",
+      "price": 147,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1984,
+   "raw": {
+    "duel": 11471,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Vinilo de la Movida",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 0.38,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 177,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 1994,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 14539,
+     "price": 110,
+     "tick": 1984,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 14534,
+     "price": 147,
+     "tick": 1984,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1982,
+      "from": "you",
+      "text": "I'd like to open at 111 P for delivery on day 0.",
+      "price": 111,
+      "days": 0
+     },
+     {
+      "tick": 1984,
+      "from": "Rival Noche",
+      "text": "Rápido y justo: 147 P, día 10. ¿Qué día de entrega te va mejor? / Quick and fair: 147 P, day 10. Which delivery day suits you best?",
+      "price": 147,
+      "days": 10
+     },
+     {
+      "tick": 1984,
+      "from": "you",
+      "text": "I can do 110 P, delivery on day 10.",
+      "price": 110,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -224,6 +337,151 @@
     "LATE_SWITCH_LEFT": 0,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1984,
+   "took_s": 1.23,
+   "cost_usd": 0.00112,
+   "obs": {
+    "view": {
+     "duel_id": 11471,
+     "role": "buyer",
+     "limit": 177,
+     "currency": "P",
+     "item": "Vinilo de la Movida",
+     "context": "",
+     "rival": "Rival Noche",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 0.38,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 111 P for delivery on day 0.",
+      "offer": {
+       "price": 111,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1982,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Rápido y justo: 147 P, día 10. ¿Qué día de entrega te va mejor? / Quick and fair: 147 P, day 10. Which delivery day suits you best?",
+      "offer": {
+       "price": 147,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1984,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 147,
+     "days": 10
+    },
+    "tick": 1984,
+    "ticks_left": 10,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5,
+     51.0,
+     65.4,
+     33.8,
+     10.600000000000001,
+     44.3,
+     3.8
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 110 P, delivery on day 10.",
+    "price": 110,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "give",
+     "rule": "code step",
+     "step": 3.18,
+     "closing": false,
+     "text": "rejected: plain words",
+     "text_problems": [
+      "the message names 10: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "El día 10 me funciona bien. Pero necesito bajar el precio a 110 P.",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.23,
+       "in": 962,
+       "out": 32,
+       "cost_usd": 0.00112,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ]
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.08,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -258,6 +516,47 @@
      "price": 111,
      "tick": 1982,
      "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1984,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 110 P, delivery on day 10.",
+    "price": 110,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "give",
+     "rule": "code step",
+     "step": 3.18,
+     "closing": false,
+     "text": "rejected: plain words",
+     "text_problems": [
+      "the message names 10: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "El día 10 me funciona bien. Pero necesito bajar el precio a 110 P.",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.23,
+       "in": 962,
+       "out": 32,
+       "cost_usd": 0.00112,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 11471,
+    "offer": {
+     "id": 14539,
+     "price": 110,
+     "tick": 1984,
+     "days": 10
     }
    }
   }
