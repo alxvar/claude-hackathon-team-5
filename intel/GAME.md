@@ -144,6 +144,7 @@
   → Abuela egg.given MAL-06 + badge 'Castizo' (t10 got a sobre_barrio from Chato for Plaza Mayor + caña; not repeated for us).
 - **Payday** [V, Sat 20:37, game paused at tick 1201]: every team +400 P ('a second starting purse… Only deals score, never
   cash you hold'). Ours 120 → 520.
+- **CHA page closed Sunday by a team trade** [V, tick 1585]: 9 cards from dealers/pack at 0 neg (Pícaros CHA-09 55; Abuela 8/9/8/9/22/21; pack CHA-07/10), then the last (CHA-05, value 122 with the bonus) from t02 by our addressed El Rastro bid at 72 → neg 0 → 50 (cap). Total 196 P.
 - **Broker announcements: 1 per venue per 20 ticks** [V, Sat 21:48: `wait: one announcement per venue every 20 ticks`].
 - **`GET /api/cards/{id}` masks other holders** [V, Sun 03:00]: our cards show `owner: t05`; others `owner: "a team"`, and the history
   masks teams too ("to": "a team"), but shows each card's origin (pack # / El Taller / trade #). The server accepts cancels while closed.
