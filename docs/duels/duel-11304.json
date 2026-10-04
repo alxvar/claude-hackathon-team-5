@@ -122,6 +122,66 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1918,
+   "raw": {
+    "duel": 11304,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.18,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 149,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Luna",
+    "deadline_tick": 1927,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 12930,
+     "price": 93,
+     "tick": 1915,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 13006,
+     "price": 134,
+     "tick": 1918,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1915,
+      "from": "you",
+      "text": "I offer 93 P for delivery on day 0.",
+      "price": 93,
+      "days": 0
+     },
+     {
+      "tick": 1915,
+      "from": "Rival Luna",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 150,
+      "days": 10
+     },
+     {
+      "tick": 1918,
+      "from": "Rival Luna",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 134,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -329,6 +389,119 @@
      16.1,
      36.6,
      41.8
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 93,
+    "days": 0,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1918,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11304,
+     "role": "buyer",
+     "limit": 149,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.18,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I offer 93 P for delivery on day 0.",
+      "offer": {
+       "price": 93,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1915,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 150,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1915,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 134,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1918,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 134,
+     "days": 10
+    },
+    "tick": 1918,
+    "ticks_left": 9,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3
     ]
    },
    "move": {
