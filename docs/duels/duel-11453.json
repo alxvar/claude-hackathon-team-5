@@ -182,6 +182,73 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1976,
+   "raw": {
+    "duel": 11453,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Cine Doré",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.1,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 189,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Sol",
+    "deadline_tick": 1982,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 14219,
+     "price": 119,
+     "tick": 1970,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 14360,
+     "price": 156,
+     "tick": 1976,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1970,
+      "from": "you",
+      "text": "I'd like to open at 119 P for delivery on day 0.",
+      "price": 119,
+      "days": 0
+     },
+     {
+      "tick": 1972,
+      "from": "Rival Sol",
+      "text": "We can do 177 P, delivery on day 0. Thank you for the talk.",
+      "price": 177,
+      "days": 0
+     },
+     {
+      "tick": 1974,
+      "from": "Rival Sol",
+      "text": "162 P, delivery on day 0 works well for us.",
+      "price": 162,
+      "days": 0
+     },
+     {
+      "tick": 1976,
+      "from": "Rival Sol",
+      "text": "Our offer is 156 P, delivery on day 0.",
+      "price": 156,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -522,6 +589,152 @@
     },
     "tick": 1974,
     "ticks_left": 8,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5,
+     51.0,
+     65.4
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 119,
+    "days": 0,
+    "meta": {
+     "policy": "code",
+     "day_call": "take",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1976,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11453,
+     "role": "buyer",
+     "limit": 189,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.1,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 119 P for delivery on day 0.",
+      "offer": {
+       "price": 119,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1970,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "We can do 177 P, delivery on day 0. Thank you for the talk.",
+      "offer": {
+       "price": 177,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1972,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "162 P, delivery on day 0 works well for us.",
+      "offer": {
+       "price": 162,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1974,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Our offer is 156 P, delivery on day 0.",
+      "offer": {
+       "price": 156,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1976,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 156,
+     "days": 0
+    },
+    "tick": 1976,
+    "ticks_left": 6,
     "rounds": 1,
     "day_swings": [
      59.3,
