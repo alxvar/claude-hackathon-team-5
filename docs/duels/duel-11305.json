@@ -798,6 +798,122 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1936,
+   "raw": {
+    "duel": 11305,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.84,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 85,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 1938,
+    "decay_per_round": 0.1,
+    "rounds": 2,
+    "your_offer": {
+     "id": 13412,
+     "price": 102,
+     "tick": 1935,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 13432,
+     "price": 107,
+     "tick": 1936,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1926,
+      "from": "you",
+      "text": "I offer 121 P with delivery on day 10.",
+      "price": 121,
+      "days": 10
+     },
+     {
+      "tick": 1928,
+      "from": "Rival Sol",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 59,
+      "days": 0
+     },
+     {
+      "tick": 1929,
+      "from": "Rival Sol",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 65,
+      "days": 0
+     },
+     {
+      "tick": 1930,
+      "from": "Rival Sol",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 71,
+      "days": 0
+     },
+     {
+      "tick": 1931,
+      "from": "Rival Sol",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 76,
+      "days": 0
+     },
+     {
+      "tick": 1932,
+      "from": "Rival Sol",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 82,
+      "days": 0
+     },
+     {
+      "tick": 1933,
+      "from": "Rival Sol",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 87,
+      "days": 0
+     },
+     {
+      "tick": 1934,
+      "from": "Rival Sol",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 93,
+      "days": 0
+     },
+     {
+      "tick": 1935,
+      "from": "you",
+      "text": "I can do 102 P, delivery on day 10.",
+      "price": 102,
+      "days": 10
+     },
+     {
+      "tick": 1935,
+      "from": "Rival Sol",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 107,
+      "days": 0
+     },
+     {
+      "tick": 1936,
+      "from": "Rival Sol",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 107,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -2111,6 +2227,202 @@
     "LATE_SWITCH_LEFT": 0,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1936,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11305,
+     "role": "seller",
+     "limit": 85,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.84,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I offer 121 P with delivery on day 10.",
+      "offer": {
+       "price": 121,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1926,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 59,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1928,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 65,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1929,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 71,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1930,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 76,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1931,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 82,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1932,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 87,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1933,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 93,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1934,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 102 P, delivery on day 10.",
+      "offer": {
+       "price": 102,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1935,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "offer": {
+       "price": 107,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1935,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 107,
+     "days": 0
+    },
+    "tick": 1936,
+    "ticks_left": 2,
+    "rounds": 2,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 107,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -2189,6 +2501,25 @@
      "tick": 1935,
      "days": 10
     }
+   }
+  },
+  {
+   "tick": 1936,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 107,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 107,
+    "settles_at_tick": 1937
    }
   }
  ]
