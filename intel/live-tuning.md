@@ -71,6 +71,17 @@ All three commit every ~5 min: cut to their cadence above to reduce git churn on
 
 ## Live log
 
+### 13:14 · LADDER MAX BEFORE 13:55 (Chief's ask) · ladder now 0.364
+| Dealer (level, full slot) | Our best 3 | Gap | Action at ≥ 0 (never above our value: losses count in full) | Gain |
+|---|---|---|---|---|
+| Abuela L1 (0.022) | CHA-01/02/03 ≈ full | none | none | 0 |
+| **Chato L2 (0.044)** | **EMPTY** | 3 slots | **SELL spare uncommons at 14-16** (> opening 13). **Don't BUY**: his floor = list, and our 18 buys at list scored 0 | **≈ +0.09 raw ≈ +1.8 Sunday ≈ +0.7 board** |
+| Pilar L3 (0.067) | 18 / 17 / 17 (≈ 0.33-0.49) | all weak | sell uncommons at **19-21** (share 0.6-1.0), each replaces a weak slot | +0.02-0.045 raw each (≈ +0.4-0.9 Sunday) |
+| Pícaros L4 (0.089) | CHA-09 0.84 · MAL-10 0.91 · LAT-04 ≈ 0.65 | 1 weak | none at ≥ 0 (MAL-09 must come from a TEAM as the closer) | 0 |
+| Ernesto L5 (0.111) | empty | 3 slots | none at ≥ 0 (our CHA-11 is worth 288 vs ≈ 118 there; legendaries list at 585) | 0 |
+**PROPOSE:** (1) Chato: 3 spare uncommons at 14-16. If we have none, buy first-copy LAT uncommons from non-rival teams at ≤ 12 on v10 / El Rastro and
+sell them to Chato at ≥ 13.5. (2) Pilar: next uncommons at ≥ 19. Dealers close ≈ 14:00 (warning 13:48).
+
 ### 12:22 · tick ≈ 2170 · CORRECTIONS
 - **No Sunday cap of 50 on team trades** [V: RET-03 sale → neg 50.0 → 52.2]. Positive team trades count again: a first copy bought at ≤ value,
   a spare sold at ≥ value. **MAL closer GO** (score-model §4.14): MAL-09 ≤ 49 at the Pícaros, then MAL-07 LAST from a non-rival team at ≤ 13.5.
