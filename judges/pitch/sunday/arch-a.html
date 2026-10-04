@@ -3,102 +3,150 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Architecture A · Control room</title>
+<title>Q2 Q3 · Control room</title>
 <link rel="stylesheet" href="bz.css">
 <style>
-.node{display:flex;gap:16px;align-items:center;padding:12px 18px}
-.node .t{font-size:28px}
-.node .d{font-size:18px;margin-top:3px}
-.node.sm{padding:10px 16px}.node.sm .t{font-size:24px}.node.sm .d{font-size:16px;margin-top:1px}
-.node.sm .ico{width:40px;height:40px}
-.human{background:#1a1530;border-color:#3b2d63}
-.chief{background:#1c1a14;border-color:#5a4a1d;box-shadow:0 0 0 1px rgba(255,197,71,.15),0 0 60px rgba(255,197,71,.12)}
-.chief .t{font-size:36px}
-.lane{position:absolute;top:516px;font:700 17px var(--mono);letter-spacing:.2em;text-transform:uppercase}
-.game{display:flex;align-items:center;gap:28px;padding:0 26px;background:linear-gradient(90deg,#10203d,#13182c);border-color:#2b4473}
-.game .t{font-size:32px}
-.game .rw{font:500 19px var(--body);color:var(--ink2)}
-.game .rw b{font:700 15px var(--mono);letter-spacing:.12em;margin-right:8px}
-.game .lim{margin-left:auto;font:600 16px var(--mono);letter-spacing:.1em;color:var(--grey);text-align:right;line-height:1.5}
-.wl{font:700 14px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+[data-s]{transition:opacity .45s ease, transform .45s ease}
+.off{opacity:0!important;transform:translateY(10px)}
+.grp{position:absolute;border-radius:22px;border:1.5px dashed var(--c);background:var(--tint)}
+.grp .gl{position:absolute;left:22px;top:-15px;padding:2px 12px;border-radius:8px;background:#0b1020;font:700 17px var(--mono);letter-spacing:.2em;color:var(--c);text-transform:uppercase}
+.node{position:absolute;display:flex;gap:14px;align-items:center;padding:10px 16px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;border-left:5px solid var(--c)}
+.node .t{font:800 27px/1 var(--head);letter-spacing:.02em;text-transform:uppercase}
+.node .d{font:400 17px/1.25 var(--body);color:var(--ink2);margin-top:4px}
+.node.big .t{font-size:36px}.node.big .d{font-size:19px}
+.node.sm{padding:6px 12px;border-left-width:4px}.node.sm .t{font-size:21px}.node.sm .d{font-size:15px;margin-top:2px}
+.node.sm .ico{width:34px;height:34px;border-radius:9px}.node.sm .ico svg{width:19px;height:19px}
+.chips{position:absolute;display:flex;gap:8px;flex-wrap:wrap}
+.chips span{font:600 15px var(--mono);letter-spacing:.04em;color:var(--ink2);padding:5px 10px;border-radius:8px;background:#141d33;border:1px solid var(--line)}
+.game{position:absolute;left:128px;top:892px;width:1664px;height:70px;display:flex;align-items:center;gap:26px;padding:0 24px;border-radius:16px;background:linear-gradient(90deg,#10203d,#13182c);border:1.5px solid #2b4473}
+.game .t{font:800 30px var(--head);text-transform:uppercase}
+.game .rw{font:500 18px var(--body);color:var(--ink2)}
+.game .rw b{font:700 14px var(--mono);letter-spacing:.12em;margin-right:8px}
+.game .lim{margin-left:auto;font:600 15px/1.5 var(--mono);letter-spacing:.1em;color:var(--grey);text-align:right}
+.legend{position:absolute;left:1236px;top:290px;width:556px;padding:18px 22px;border-radius:16px;background:var(--card2);border:1.5px solid var(--line)}
+.legend div{display:flex;align-items:center;gap:14px;font:500 19px var(--body);color:var(--ink2);margin:6px 0}
+.legend svg{flex:none}
+.legend .k{font:700 15px var(--mono);letter-spacing:.18em;color:var(--muted);text-transform:uppercase;margin-bottom:8px}
+.wl{font:700 14px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+/* step 3: the decisions we'd defend */
+#dim{position:absolute;inset:0;background:rgba(8,11,22,.78);pointer-events:none}
+.why{position:absolute;top:300px;width:530px;height:470px;padding:30px 30px;border-radius:20px;background:var(--card);border:1.5px solid var(--line);border-top:6px solid var(--c);box-shadow:0 30px 80px rgba(0,0,0,.55)}
+.why .n{font:800 84px/0.9 var(--head);color:var(--c)}
+.why .t{font:800 44px/1 var(--head);text-transform:uppercase;margin:14px 0 14px}
+.why p{font:400 23px/1.38 var(--body);color:var(--ink2);margin:0 0 14px}
+.why p b{color:var(--ink);font-weight:600}
+.why .bc{font:700 15px/1.4 var(--mono);letter-spacing:.06em;color:var(--c);text-transform:uppercase;border-top:1px solid var(--line);padding-top:14px}
+.stepdots{position:absolute;right:128px;top:116px;display:flex;gap:8px}
+.stepdots i{width:12px;height:12px;border-radius:50%;background:#26324d}.stepdots i.on{background:var(--yellow)}
 </style>
 </head>
 <body>
 <div class="stage">
-  <div class="kicker">Architecture · A · the control room</div>
+  <div class="kicker">Q2 · What did you build? &nbsp;·&nbsp; Q3 · Why that way?</div>
   <h1>Who decides, who acts, <em>who checks</em></h1>
-  <div id="nodes"></div>
-  <div class="lane" style="left:128px;color:var(--red)">Act · two writer roles ↓</div>
-  <div class="lane" style="left:720px;color:var(--blue)">Sense · 14 read-only daemons ↑</div>
-  <div class="lane" style="left:1372px;color:var(--green)">Check · verdicts ↑</div>
+  <div class="stepdots" id="dots"><i></i><i></i><i></i><i></i></div>
+
+  <!-- groups -->
+  <div class="grp" data-s="0" style="left:128px;top:282px;width:1070px;height:176px;--c:var(--yellow);--tint:rgba(255,197,71,.04)"><div class="gl">Decide</div></div>
+  <div class="grp" data-s="1" style="left:128px;top:506px;width:770px;height:352px;--c:var(--red);--tint:rgba(242,85,90,.04)"><div class="gl">Act · two writer roles</div></div>
+  <div class="grp" data-s="2" style="left:938px;top:506px;width:854px;height:352px;--c:var(--blue);--tint:rgba(74,138,244,.04)"><div class="gl">Sense · check</div></div>
+
   <svg class="wires" viewBox="0 0 1920 1080">
     <defs>
       <marker id="ay" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ffc547"/></marker>
       <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#f2555a"/></marker>
       <marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#4a8af4"/></marker>
-      <marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#3ddc97"/></marker>
     </defs>
-    <!-- humans → chief -->
-    <path d="M960 356V388" stroke="#ffc547" stroke-width="3" fill="none" marker-end="url(#ay)"/>
-    <!-- Aleks owns the duelist -->
-    <path d="M128 323H98V704H124" stroke="#a46bf5" stroke-width="2.5" fill="none" stroke-dasharray="6 6" marker-end="url(#ay)"/>
-    <!-- chief → act (directives) -->
-    <path d="M760 492V508H560V544" stroke="#ffc547" stroke-width="3" fill="none" marker-end="url(#ay)"/>
-    <text x="574" y="503" class="wl" fill="#ffc547">directives</text>
-    <!-- sense → chief -->
-    <path d="M1150 548V496" stroke="#4a8af4" stroke-width="3" fill="none" marker-end="url(#ab)"/>
-    
-    <!-- check → chief -->
-    <path d="M1340 548V512H1232V496" stroke="#3ddc97" stroke-width="3" fill="none" stroke-dasharray="7 6" marker-end="url(#ag)"/>
-    
-    <!-- builder / git side links -->
-    <path d="M548 442H646" stroke="#4c5670" stroke-width="2.5" fill="none"/>
-    <path d="M1274 442H1368" stroke="#4c5670" stroke-width="2.5" fill="none"/>
-    <!-- write bus: act → game -->
-    <path d="M640 596H668M640 704H668" stroke="#f2555a" stroke-width="3" fill="none"/>
-    <path d="M668 596V882" stroke="#f2555a" stroke-width="4" fill="none" marker-end="url(#ar)"/>
-    <path d="M668 596V882" stroke="#ffd2d3" stroke-width="2" fill="none" class="flow" opacity=".55"/>
-    <!-- read bus: game → sense -->
-    <path d="M694 888V584" stroke="#4a8af4" stroke-width="4" fill="none"/>
-    <path d="M694 888V584" stroke="#cfe0ff" stroke-width="2" fill="none" class="flow" opacity=".55"/>
-    <path d="M694 584H716M694 664H716M694 744H716M694 824H716" stroke="#4a8af4" stroke-width="3" fill="none" marker-end="url(#ab)"/>
+    <!-- step 0: humans → chief (authority) -->
+    <g data-s="0"><path d="M478 372H560" stroke="#ffc547" stroke-width="4" fill="none" marker-end="url(#ay)"/></g>
+    <!-- step 1: chief → operator, chief → duelist (authority); act → game (writes) -->
+    <g data-s="1">
+      <path d="M700 448V480H446V548" stroke="#ffc547" stroke-width="4" fill="none" marker-end="url(#ay)"/>
+      <text x="460" y="474" class="wl" fill="#ffc547">directives + limits</text>
+      <path d="M860 448V548" stroke="#ffc547" stroke-width="4" fill="none" marker-end="url(#ay)"/>
+      <text x="636" y="534" class="wl" fill="#ffc547">params · kill switch</text>
+      <path d="M330 858V886" stroke="#f2555a" stroke-width="5" fill="none" marker-end="url(#ar)"/>
+      <path d="M720 858V886" stroke="#f2555a" stroke-width="5" fill="none" marker-end="url(#ar)"/>
+      <text x="346" y="880" class="wl" fill="#f2555a">writes</text><text x="736" y="880" class="wl" fill="#f2555a">writes</text>
+    </g>
+    <!-- step 2: game → sense (data), sense → chief (data) -->
+    <g data-s="2">
+      <path d="M1300 890V864" stroke="#4a8af4" stroke-width="3.5" fill="none" stroke-dasharray="8 7" marker-end="url(#ab)"/>
+      <text x="1316" y="882" class="wl" fill="#4a8af4">reads</text>
+      <path d="M1100 506V420H1040" stroke="#4a8af4" stroke-width="3.5" fill="none" stroke-dasharray="8 7" marker-end="url(#ab)"/>
+      <text x="1112" y="476" class="wl" fill="#4a8af4">live numbers · verdicts</text>
+    </g>
   </svg>
-  <div class="src" style="left:128px;top:972px">Sunday duelist: branch duelist-loop @ f57a002 · everything else on main</div>
-  <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i style="width:33%"></i></div><div class="lvl">ARCH A</div><div class="who">Control room</div></div>
+
+  <!-- DECIDE -->
+  <div data-s="0">
+    <div class="node sm" style="left:152px;top:300px;width:322px;--c:var(--purple)" data-i="user:var(--purple)"><div><div class="t">Lucas</div><div class="d">strategy · goals + hard limits</div></div></div>
+    <div class="node sm" style="left:152px;top:350px;width:322px;--c:var(--purple)" data-i="user:var(--purple)"><div><div class="t">Aleks</div><div class="d">wrote the duelist + the hub</div></div></div>
+    <div class="node sm" style="left:152px;top:400px;width:322px;--c:var(--purple)" data-i="user:var(--purple)"><div><div class="t">Dani</div><div class="d">the room · rivals · dashboard</div></div></div>
+    <div class="node big" style="left:566px;top:302px;width:474px;height:138px;--c:var(--yellow)" data-i="compass:var(--yellow)"><div><div class="t">Chief of staff</div><div class="d">Claude Code · makes every call, logs it with evidence · <b style="color:var(--ink)">never writes to the game</b></div></div></div>
+  </div>
+
+  <!-- ACT -->
+  <div data-s="1">
+    <div class="node" style="left:152px;top:554px;width:356px;height:100px;--c:var(--red)" data-i="swap:var(--red)"><div><div class="t">Operator</div><div class="d">Claude Code · the only trade writer</div></div></div>
+    <div class="chips" style="left:152px;top:668px;width:356px"><span>trader · taker</span><span>book · maker</span><span>dealer bots</span><span>closers</span></div>
+    <div class="node" style="left:536px;top:554px;width:340px;height:100px;--c:var(--red)" data-i="sword:var(--red)"><div><div class="t">Duelist</div><div class="d">code decides · Haiku writes the words</div></div></div>
+    <div class="chips" style="left:536px;top:668px;width:340px"><span>guards</span><span>8 s failover</span><span>hot-reloaded params</span><span>C → A switch</span></div>
+    <div class="src" style="left:152px;top:812px">Sunday duelist: branch duelist-loop @ f57a002</div>
+  </div>
+
+  <!-- SENSE · CHECK -->
+  <div data-s="2">
+    <div class="node sm" style="left:962px;top:536px;width:402px;--c:var(--blue)" data-i="store:var(--blue)"><div><div class="t">Market</div><div class="d">venue v10 at 0 % · Market Test recorder</div></div></div>
+    <div class="node sm" style="left:962px;top:640px;width:402px;--c:var(--blue)" data-i="db:var(--blue)"><div><div class="t">Collector + status</div><div class="d">feed · me · board → data/, STATUS.md</div></div></div>
+    <div class="node sm" style="left:962px;top:744px;width:402px;--c:var(--blue)" data-i="monitor:var(--blue)"><div><div class="t">Dashboard + hub</div><div class="d">Dani's screen · Neon archive</div></div></div>
+    <div class="node sm" style="left:1380px;top:536px;width:392px;--c:var(--green)" data-i="search:var(--green)"><div><div class="t">Analysts</div><div class="d">scout + judge on the Claude API</div></div></div>
+    <div class="node sm" style="left:1380px;top:640px;width:392px;--c:var(--green)" data-i="flask:var(--green)"><div><div class="t">Duel Lab</div><div class="d">simulator · tests params first</div></div></div>
+    <div class="node sm" style="left:1380px;top:744px;width:392px;--c:var(--green)" data-i="shield:var(--green)"><div><div class="t">Verifiers</div><div class="d">fresh subagents · contrarian reviews</div></div></div>
+  </div>
+
+  <div class="legend">
+    <div class="k">How to read it</div>
+    <div><svg width="70" height="12"><path d="M2 6H60" stroke="#ffc547" stroke-width="4"/><path d="M58 1L68 6L58 11z" fill="#ffc547"/></svg>solid: authority, or a write to the game</div>
+    <div><svg width="70" height="12"><path d="M2 6H60" stroke="#4a8af4" stroke-width="3.5" stroke-dasharray="8 7"/><path d="M58 1L68 6L58 11z" fill="#4a8af4"/></svg>dashed: data flowing back</div>
+    <div><svg width="70" height="12"><rect x="2" y="1" width="64" height="10" rx="5" fill="none" stroke="#8b95aa" stroke-dasharray="4 4"/></svg>one colour per function</div>
+  </div>
+
+  <div class="game">
+    <div class="t">The Bazaar · game API</div>
+    <div class="rw"><b style="color:var(--red)">WRITE</b>offers · accepts · threads · duels</div>
+    <div class="rw"><b style="color:var(--blue)">READ</b>me · clock · board · event stream</div>
+    <div class="lim">ONE TEAM KEY · 5 REQ/S<br>1 ACCEPT PER TICK</div>
+  </div>
+
+  <!-- step 3: the decisions we'd defend -->
+  <div id="dim" data-s="3"></div>
+  <div data-s="3">
+    <div class="why" style="left:128px;--c:var(--red)"><div class="n">1</div><div class="t">Code decides, the LLM writes</div>
+      <p>The duelist's price, day and accept are code; Haiku only writes the words, in ≈ 2 s instead of 9.2 s.</p>
+      <p>Guards in code, not in the prompt.</p><div class="bc">Because a 15 s tick doesn't wait</div></div>
+    <div class="why" style="left:695px;--c:var(--yellow)"><div class="n">2</div><div class="t">One writer per job, limits in writing</div>
+      <p>Only the Operator and the Duelist write to the game. A hard limit changes only through a <b>GUARDRAIL</b> line in directives.md.</p><div class="bc">Because one key, 5 req/s and 1 accept per tick are shared</div></div>
+    <div class="why" style="left:1262px;--c:var(--green)"><div class="n">3</div><div class="t">Check before you act</div>
+      <p>A fresh verifier and contrarian reviews on the big calls; the Duel Lab simulates before any duel restart.</p><div class="bc">Because the author can't grade its own work</div></div>
+  </div>
+
+  <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i style="width:66%"></i></div><div class="lvl">Q2 · Q3</div><div class="who">Control room</div></div>
 </div>
 <script src="icons.js"></script>
 <script>
-const P = 'var(--purple)', Y = 'var(--yellow)', R = 'var(--red)', B = 'var(--blue)', G = 'var(--green)', N = 'var(--grey)';
-const nodes = [
-  // humans
-  {x:128, y:290, w:420, h:66, c:P, i:'user', t:'Aleks', d:'wrote the duelist + the shared hub', k:'human sm'},
-  {x:620, y:290, w:680, h:66, c:P, i:'user', t:'Lucas', d:'strategy: sets goals + hard limits, talks only to the Chief', k:'human sm'},
-  {x:1372,y:290, w:420, h:66, c:P, i:'user', t:'Dani', d:'the room: organisers\' desk, rivals, dashboard', k:'human sm'},
-  // decide
-  {x:128, y:392, w:420, h:100, c:N, i:'wrench', t:'Builder', d:'Claude Code · tools + the Sunday duelist loop'},
-  {x:650, y:392, w:620, h:100, c:Y, i:'compass', t:'Chief of staff', d:'Claude Code · decides, logs each directive with its evidence · <b style="color:var(--ink)">never writes to the game</b>', k:'chief'},
-  {x:1372,y:392, w:420, h:100, c:N, i:'git', t:'Git = shared memory', d:'one owner per file · directives · LOG · team/*.md'},
-  // act
-  {x:128, y:548, w:512, h:96, c:R, i:'swap', t:'Operator', d:'Claude Code · the only trade writer: taker, maker book, dealer bots', k:'top'},
-  {x:128, y:656, w:512, h:96, c:R, i:'sword', t:'Duelist', d:'Sun: code decides · Haiku talks · 8 s failover', k:'top'},
-  {x:128, y:764, w:512, h:96, c:'var(--orange)', i:'store', t:'Market', d:'Claude Code · runs venue v10 (0 % fee) + the Market Test recorder · no game writes', k:'top'},
-  // sense
-  {x:720, y:548, w:500, h:72, c:B, i:'db', t:'Collector', d:'feed · me · leaderboard · El Rastro → data/', k:'sm'},
-  {x:720, y:628, w:500, h:72, c:B, i:'gauge', t:'Metrics + status', d:'live score components → STATUS.md', k:'sm'},
-  {x:720, y:708, w:500, h:72, c:B, i:'eye', t:'Reactor + watch', d:'live event stream → Operator + phones', k:'sm'},
-  {x:720, y:788, w:500, h:72, c:B, i:'monitor', t:'Dashboard + hub', d:'Dani\'s screen · Neon Postgres', k:'sm'},
-  // check
-  {x:1292,y:548, w:500, h:72, c:G, i:'shield', t:'Verifier', d:'fresh subagent audits plans + numbers', k:'sm'},
-  {x:1292,y:628, w:500, h:72, c:G, i:'flask', t:'Duel Lab', d:'simulator · tests duel params before restarts', k:'sm'},
-  {x:1292,y:708, w:500, h:72, c:G, i:'search', t:'Analysts', d:'scout + judge on the Claude API', k:'sm'},
-  {x:1292,y:788, w:500, h:72, c:G, i:'scale', t:'Audits', d:'contrarian reviews: duels, market, CHA, ops', k:'sm'},
-];
-document.getElementById('nodes').innerHTML = nodes.map(n =>
-  `<div class="card node ${n.k||''}" style="left:${n.x}px;top:${n.y}px;width:${n.w}px;height:${n.h}px;--c:${n.c}">${icon(n.i, n.c)}<div><div class="t">${n.t}</div><div class="d">${n.d}</div></div></div>`).join('') +
-  `<div class="card game" style="left:128px;top:888px;width:1664px;height:76px">${icon('server', B)}<div class="t">The Bazaar · game API</div>
-   <div class="rw"><b style="color:var(--red)">WRITE</b>offers · accepts · threads · duels</div>
-   <div class="rw"><b style="color:var(--blue)">READ</b>me · clock · leaderboard · event stream</div>
-   <div class="lim">ONE TEAM KEY · 5 REQ/S<br>1 ACCEPT PER TICK</div></div>`;
+document.querySelectorAll('[data-i]').forEach(n => { const [i, c] = n.dataset.i.split(':'); n.insertAdjacentHTML('afterbegin', icon(i, c)); });
+const MAX = 3;
+let step = +((/step=(\d)/.exec(location.search) || [])[1] ?? (window.parent !== window ? 0 : MAX));
+function setStep(n) {
+  step = Math.max(0, Math.min(MAX, n));
+  document.querySelectorAll('[data-s]').forEach(el => el.classList.toggle('off', +el.dataset.s > step));
+  document.querySelectorAll('#dots i').forEach((d, i) => d.classList.toggle('on', i <= step));
+  if (window.parent !== window) window.parent.postMessage({arch: 'a', step, max: MAX}, '*');
+}
+addEventListener('message', e => { if (e.data && typeof e.data.step === 'number') setStep(e.data.step); });
+addEventListener('keydown', e => { if (e.key === 'ArrowRight' || e.key === ' ') setStep(step + 1); if (e.key === 'ArrowLeft') setStep(step - 1); });
+setStep(step);
 </script>
 <script src="bz.js"></script>
 </body>

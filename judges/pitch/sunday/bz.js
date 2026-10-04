@@ -10,7 +10,7 @@
   addEventListener('DOMContentLoaded', function () {
     var m = /lvl=(\d+)\/(\d+)/.exec(location.search); if (!m) return;
     var l = document.querySelector('.foot .lvl'), b = document.querySelector('.foot .bar i');
-    if (l) l.textContent = 'LVL ' + ('0' + m[1]).slice(-2) + '/' + ('0' + m[2]).slice(-2);
+    if (l) l.textContent = m[1] === '0' ? 'BACKUP' : 'LVL ' + ('0' + m[1]).slice(-2) + '/' + ('0' + m[2]).slice(-2);
     if (b) b.style.width = (100 * m[1] / m[2]) + '%';
   });
   addEventListener('resize', fit);

@@ -49,6 +49,13 @@
 .sm .t{font-size:32px;margin:12px 0 2px}
 .sm p{font:400 21px/1.36 var(--body);color:var(--ink2);margin:8px 0 0}
 .sm p b{color:var(--ink);font-weight:600}
+/* q4 */
+.lcol{height:470px}
+.draft{font:700 13px var(--mono);letter-spacing:.14em;color:var(--orange);border:1.5px dashed var(--orange);border-radius:6px;padding:2px 7px;vertical-align:6px;margin-left:8px}
+.more{position:absolute;left:128px;right:128px;top:800px;height:92px;display:flex;align-items:center;gap:14px;padding:0 22px;border-radius:16px;background:var(--card);border:1.5px solid var(--line);border-left:6px solid var(--green)}
+.more .k{font:800 28px var(--head);text-transform:uppercase;color:var(--green);flex:none;margin-right:6px}
+.more span:not(.k):not(.draft){flex:1;font:500 21px/1.3 var(--body);color:var(--ink);padding-left:14px;border-left:1px solid var(--line)}
+.stage.backup .kicker::before{content:"BACKUP · ";color:var(--orange)}
 /* nav */
 .hint{position:fixed;right:14px;bottom:10px;font:600 12px var(--mono);color:#3a4560;letter-spacing:.08em;z-index:5}
 .short .skip{display:none!important}
@@ -56,8 +63,33 @@
 </head>
 <body>
 
+<!-- 1 · Q1 · HOW WE APPROACHED IT (B · the loop) -->
+<div class="stage frame on" data-t="60s"><iframe data-src="arch-b.html"></iframe></div>
+
+<!-- 2 · Q2 + Q3 · WHAT WE BUILT, WHY (A · control room, 4 click steps) -->
+<div class="stage frame" data-t="2:30-3:00" data-steps="3"><iframe data-src="arch-a.html"></iframe></div>
+
+<!-- 3 · Q4 · WHAT WE LEARNED (draft slots for the team) -->
+<div class="stage warm" data-t="45-60s">
+  <div class="kicker">Q4 · What did you learn? Technically, and about negotiation and marketplaces</div>
+  <h1>What we <em>learned</em></h1>
+  <div class="card top lcol" style="left:128px;--c:var(--blue)"><div class="t">Technical <span class="draft">draft</span></div><ul>
+    <li><b>Code decides, the LLM writes.</b> On a 15 s tick, latency is a rule: Haiku ≈ 2 s vs 9.2 s when the LLM decided.</li>
+    <li><b>The generator can't grade itself.</b> A separate verifier caught errors the author missed, in this very deck too.</li></ul></div>
+  <div class="card top lcol" style="left:702px;--c:var(--red)"><div class="t">Negotiation <span class="draft">draft</span></div><ul>
+    <li><b>Decay is per exchange, so silence is free.</b> Hold instead of talking.</li>
+    <li><b>Take the good offer when it's there.</b> 23 Duels III deals closed below an offer the rival had already made (≈ 197 P).</li></ul></div>
+  <div class="card top lcol" style="left:1276px;--c:var(--yellow)"><div class="t">Marketplace <span class="draft">draft</span></div><ul>
+    <li><b>Value created, not activity.</b> A trade with a rival lifts the rival as much as you: CHA-11, +1.48 each.</li>
+    <li><b>Matchmaking moved trades; the bounty didn't.</b> 0 % fee: 0 fills by 10:45; pushed pairs and partners: 6 by 13:10; bounty bids filled: 0.</li></ul></div>
+  <div class="more"><span class="k">With one more day <span class="draft">draft</span></span><span>Merge the Sunday duelist and learn day weights per opponent</span><span>Switch on the broker we staged</span><span>A verifier gate on every directive</span></div>
+  <div class="close" style="top:914px;font-size:40px">Three humans set the limits. <span class="y">Claude ran the bazaar, and checked itself.</span></div>
+  <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i></i></div><div class="lvl"></div><div class="who">Thank you</div></div>
+</div>
+
+<!-- BACKUP (Q&A only) -->
 <!-- 1 · HOOK + RESULT -->
-<div class="stage on" data-t="30s">
+<div class="stage backup" data-t="backup">
   <div class="pills"><span class="pill" style="color:var(--yellow)">Team 5</span><span class="pill" style="color:var(--grey)">3 humans</span><span class="pill" style="color:var(--blue)">7+ Claude Code sessions</span><span class="pill" style="color:var(--green)">19 daemons built</span><span class="pill" style="color:var(--red)">2 writer roles</span></div>
   <h1 class="hero">From #6 to <em>#1</em></h1>
   <div class="lede">Friday final <b>#6</b> · first <b>#1</b> Sat 16:44 · <b>#1 since 12:35</b> today · board <b id="lead"></b> <span class="tag v">V</span></div>
@@ -65,11 +97,9 @@
   <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i></i></div><div class="lvl"></div><div class="who">Final pitch</div></div>
 </div>
 
-<!-- 2 · ARCHITECTURE (A) -->
-<div class="stage frame" data-t="60s"><iframe data-src="arch-a.html"></iframe></div>
 
 <!-- 3 · HYPOTHESES → CHALLENGES → CHANGES -->
-<div class="stage" data-t="60s">
+<div class="stage backup" data-t="backup">
   <div class="kicker">First idea, and what changed it</div>
   <h1>Five beliefs our <em>data</em> broke</h1>
   <div class="cols"><span></span><span style="color:var(--grey)">We believed</span><span style="color:var(--red)">What broke it</span><span style="color:var(--green)">What we changed</span></div>
@@ -77,11 +107,13 @@
   <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i></i></div><div class="lvl"></div><div class="who">Hypotheses</div></div>
 </div>
 
+
 <!-- 4 · IMPACT BY ACTION (C) -->
-<div class="stage frame" data-t="45s"><iframe data-src="arch-c.html"></iframe></div>
+<div class="stage backup frame" data-t="backup"><iframe data-src="arch-c.html"></iframe></div>
+
 
 <!-- 5 · BUILT AROUND THE BAZAAR -->
-<div class="stage" data-t="40s">
+<div class="stage backup" data-t="backup">
   <div class="kicker">Outside the game's own tools</div>
   <h1>What we built <em>around</em> the Bazaar</h1>
   <div class="card top big" style="--c:var(--yellow)">
@@ -103,30 +135,7 @@
   <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i></i></div><div class="lvl"></div><div class="who">Around the Bazaar</div></div>
 </div>
 
-<!-- 5 · THE LOOP (B) · skippable in the 3-minute cut -->
-<div class="stage frame skip" data-t="45s"><iframe data-src="arch-b.html"></iframe></div>
-
-<!-- 6 · LEARNED + ONE MORE DAY -->
-<div class="stage warm" data-t="45s">
-  <div class="kicker">What we learned · what we'd do with one more day</div>
-  <h1>What we <em>learned</em></h1>
-  <div class="card top lcol" style="left:128px;--c:var(--blue)"><div class="t">Technically</div><ul>
-    <li><b>Code decides, the LLM talks.</b> Haiku ≈ 2 s per message vs 9.2 s when the LLM decided.</li>
-    <li><b>Split who decides, who writes, who checks.</b> The Chief never touched the game.</li>
-    <li><b>A belief is a bug until the data says so.</b> The round cap died on our own logs.</li></ul></div>
-  <div class="card top lcol" style="left:702px;--c:var(--yellow)"><div class="t">Negotiation + markets</div><ul>
-    <li><b>Scoring is relative.</b> A trade with a rival pays them too: CHA-11, +1.48 each.</li>
-    <li><b>Losses count, gains clip.</b> Never sell below value; dealers only for the ladder.</li>
-    <li><b>A market needs a matchmaker.</b> 0 % fee: 0 fills this morning. After we pushed pairs and partners: 6 by 13:10.</li></ul></div>
-  <div class="card top lcol" style="left:1276px;--c:var(--green)"><div class="t">One more day</div><ul>
-    <li><b>Merge the Sunday duelist</b> and learn day-weights per opponent.</li>
-    <li><b>Run the broker</b> we built and staged but never switched on.</li>
-    <li><b>A verifier gate on every directive,</b> not only the big calls.</li></ul></div>
-  <div class="close">Three humans set the limits. <span class="y">Claude ran the bazaar, and checked itself.</span></div>
-  <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i></i></div><div class="lvl"></div><div class="who">Thank you</div></div>
-</div>
-
-<div class="hint" id="hint">← → · F full screen · 3 = 3-min cut</div>
+<div class="hint" id="hint">← → · F full screen</div>
 <script src="icons.js"></script>
 <script src="race-data.js"></script>
 <script>
@@ -181,30 +190,37 @@ document.getElementById('hyp').innerHTML = H.map((h, i) => `<div class="card hro
   const f = R.final; document.getElementById('lead').textContent = f[0][2].toFixed(2) + ', lead ' + (f[0][2] - f[1][2]).toFixed(2) + ' at ' + R.as_of.slice(4);
 })();
 
-// ---------- navigation ----------
+// ---------- navigation: 3 main slides (+ click steps on slide 2), then backups ----------
 const S = [...document.querySelectorAll('.stage')];
-let cur = 0, short = /short/.test(location.hash);
-const live = () => S.filter(x => !(short && x.classList.contains('skip')));
-function show(i) {
-  const L = live(); cur = Math.max(0, Math.min(L.length - 1, i));
-  S.forEach(x => x.classList.remove('on')); const el = L[cur]; el.classList.add('on');
-  const n = cur + 1, N = L.length, f = el.querySelector('iframe');
-  if (f) { const src = f.dataset.src + '?lvl=' + n + '/' + N; if (f.getAttribute('src') !== src) f.setAttribute('src', src); }
-  const lv = el.querySelector('.foot .lvl'); if (lv) lv.textContent = 'LVL ' + String(n).padStart(2, '0') + '/' + String(N).padStart(2, '0');
-  const b = el.querySelector('.foot .bar i'); if (b) b.style.width = (100 * n / N) + '%';
-  document.getElementById('hint').textContent = `${n}/${N} · ${el.dataset.t}${short ? ' · 3-MIN CUT' : ''} · ← → · F · 3`;
+const MAIN = S.filter(x => !x.classList.contains('backup')).length;
+let cur = 0, sub = 0;
+function frame(el) { return el.querySelector('iframe'); }
+function show(i, s) {
+  cur = Math.max(0, Math.min(S.length - 1, i)); const el = S[cur];
+  const max = +(el.dataset.steps || 0); sub = s === undefined ? 0 : Math.max(0, Math.min(max, s));
+  S.forEach(x => x.classList.remove('on')); el.classList.add('on');
+  const n = cur + 1, bk = el.classList.contains('backup'), f = frame(el);
+  const lvl = bk ? 'BACKUP' : 'LVL ' + String(n).padStart(2, '0') + '/' + String(MAIN).padStart(2, '0');
+  el.dataset.sub = sub;
+  if (f) { const src = f.dataset.src + '?lvl=' + (bk ? 0 : n) + '/' + MAIN + (max ? '&step=' + sub : ''); if (!f.getAttribute('src')) f.setAttribute('src', src); else if (f.contentWindow) f.contentWindow.postMessage({step: sub}, '*'); }
+  const lv = el.querySelector('.foot .lvl'); if (lv) lv.textContent = lvl;
+  const b = el.querySelector('.foot .bar i'); if (b) b.style.width = bk ? '100%' : (100 * n / MAIN) + '%';
+  document.getElementById('hint').textContent = `${bk ? 'backup' : n + '/' + MAIN} · ${el.dataset.t}${max ? ' · step ' + (sub + 1) + '/' + (max + 1) : ''} · ← → · F`;
 }
+function next() { const max = +(S[cur].dataset.steps || 0); if (sub < max) show(cur, sub + 1); else show(cur + 1); }
+function prev() { if (sub > 0) show(cur, sub - 1); else { const p = Math.max(0, cur - 1); show(p, +(S[p].dataset.steps || 0)); } }
 addEventListener('keydown', e => {
-  if (['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); show(cur + 1); }
-  else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(e.key)) { e.preventDefault(); show(cur - 1); }
-  else if (e.key === 'Home') show(0); else if (e.key === 'End') show(99);
+  if (['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); next(); }
+  else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(e.key)) { e.preventDefault(); prev(); }
+  else if (e.key === 'Home') show(0); else if (e.key === 'End') show(MAIN - 1, 99);
   else if (e.key === 'f' || e.key === 'F') { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); }
-  else if (e.key === '3') { short = !short; location.hash = short ? 'short' : ''; show(0); }
 });
-addEventListener('click', e => show(cur + (e.clientX > innerWidth / 3 ? 1 : -1)));
-// preload the framed slides so they're instant
-S.forEach((x, i) => { const f = x.querySelector('iframe'); if (f) f.setAttribute('src', f.dataset.src + '?lvl=' + (i + 1) + '/' + S.length); });
-const m0 = /#(\d+)/.exec(location.hash); show(m0 ? +m0[1] - 1 : 0);
+addEventListener('click', e => (e.clientX > innerWidth / 3 ? next() : prev()));
+// load every framed slide up front (offline, instant); slide 2 starts at step 0
+S.forEach((x, i) => { const f = frame(x); if (f) { const bk = x.classList.contains('backup'), max = +(x.dataset.steps || 0);
+  f.addEventListener('load', () => f.contentWindow.postMessage({step: +(x.dataset.sub || 0)}, '*'));
+  f.setAttribute('src', f.dataset.src + '?lvl=' + (bk ? 0 : i + 1) + '/' + MAIN + (max ? '&step=0' : '')); } });
+const m0 = /#(\d+)(?:\.(\d))?/.exec(location.hash); show(m0 ? +m0[1] - 1 : 0, m0 && m0[2] ? +m0[2] : undefined);
 </script>
 <script src="bz.js"></script>
 </body>

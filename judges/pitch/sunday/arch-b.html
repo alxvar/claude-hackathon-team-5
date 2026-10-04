@@ -3,89 +3,110 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Architecture B · The loop</title>
+<title>Q1 · The loop</title>
 <link rel="stylesheet" href="bz.css">
 <style>
-.st{position:absolute;width:300px;height:112px;padding:14px 18px 12px 18px;border-top:5px solid var(--c)}
-.st .n{position:absolute;right:16px;top:12px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font:800 20px var(--head);color:#0b1020;background:var(--c)}
-.st .t{font-size:34px;color:var(--c)}
+.st{position:absolute;width:290px;height:108px;padding:13px 18px 12px 18px;border-top:5px solid var(--c)}
+.st .n{position:absolute;right:14px;top:12px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font:800 19px var(--head);color:#0b1020;background:var(--c)}
+.st .t{font-size:32px;color:var(--c)}
 .st .d{font-size:17px;margin-top:2px;color:var(--ink)}
-.st .m{margin-top:4px;font-size:13.5px}
-.core{position:absolute;left:560px;top:520px;width:280px;height:280px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+.st .m{margin-top:3px;font-size:13px}
+.core{position:absolute;width:236px;height:236px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
   background:radial-gradient(circle at 50% 40%,#1a2442 0%,#0e1427 70%);border:1.5px solid var(--line2);box-shadow:0 0 80px rgba(74,138,244,.12)}
-.core .t{font:800 34px/1 var(--head);letter-spacing:.03em;text-transform:uppercase}
-.core .d{font:400 17px/1.3 var(--body);color:var(--ink2);margin-top:8px;max-width:210px}
-.core .ico{margin-bottom:10px}
-.lap{position:absolute;left:1190px;top:300px;width:602px;height:664px;padding:26px 30px}
-.lap .k{font:700 17px var(--mono);letter-spacing:.2em;color:var(--yellow);text-transform:uppercase}
-.lap .h{font:800 44px/1 var(--head);text-transform:uppercase;margin:8px 0 18px}
-.row{display:grid;grid-template-columns:40px 70px 1fr;gap:12px;align-items:start;padding:11px 0;border-top:1px solid var(--line)}
-.row .b{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font:800 19px var(--head);color:#0b1020;background:var(--c)}
-.row time{font:700 18px var(--mono);color:var(--ink2);padding-top:6px}
+.core .t{font:800 30px/1 var(--head);letter-spacing:.03em;text-transform:uppercase}
+.core .d{font:400 16px/1.3 var(--body);color:var(--ink2);margin-top:8px;max-width:180px}
+.lap{position:absolute;left:1060px;top:286px;width:732px;height:590px;padding:22px 28px}
+.lap .k{font:700 16px var(--mono);letter-spacing:.2em;color:var(--yellow);text-transform:uppercase}
+.lap .h{font:800 40px/1 var(--head);text-transform:uppercase;margin:8px 0 12px}
+.row{display:grid;grid-template-columns:38px 132px 1fr;gap:12px;align-items:start;padding:9px 0;border-top:1px solid var(--line)}
+.row .b{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font:800 18px var(--head);color:#0b1020;background:var(--c)}
+.row time{font:700 15px/1.3 var(--mono);color:var(--ink2);padding-top:5px}
 .row p{margin:0;font:400 19px/1.32 var(--body);color:var(--ink2)}
 .row p b{color:var(--ink);font-weight:600}
-.res{margin-top:12px;padding:14px 18px;border-radius:14px;background:#0f2a22;border:1.5px solid #1f5c46}
-.res p{margin:0;font:500 19px/1.35 var(--body);color:var(--ink)}
-.res .big{font:800 36px/1 var(--head);color:var(--green);margin-right:10px;vertical-align:-3px}
+.res{margin-top:10px;padding:12px 18px;border-radius:14px;background:#0f2a22;border:1.5px solid #1f5c46;font:800 30px/1.1 var(--head);text-transform:uppercase;color:var(--ink)}
+.res span{color:var(--green)}
+.sync{position:absolute;left:128px;right:128px;top:898px;height:72px;display:flex;align-items:center;gap:12px;padding:0 18px;border-radius:16px;background:var(--card2);border:1.5px solid var(--line)}
+.sync .k{font:700 15px/1.25 var(--mono);letter-spacing:.16em;color:var(--blue);text-transform:uppercase;width:150px;flex:none}
+.chip{flex:1;font:500 15.5px/1.25 var(--body);color:var(--ink2);padding:7px 11px;border-radius:10px;background:#141d33;border:1px solid var(--line)}
+.chip b{display:block;color:var(--ink);font-weight:600;font-size:16px}
+.res-top{position:absolute;right:128px;top:26px;display:flex;align-items:center;gap:18px}
+.res-top .p{font:800 76px/0.9 var(--head);color:var(--yellow);text-shadow:0 0 30px rgba(255,197,71,.35)}
+.res-top .l{font:700 16px/1.5 var(--mono);letter-spacing:.12em;color:var(--ink2);text-transform:uppercase;text-align:right}
 </style>
 </head>
 <body>
 <div class="stage">
-  <div class="kicker">Architecture · B · the loop</div>
-  <h1>Every lap leaves <em>evidence</em></h1>
+  <div class="kicker">Q1 · How did you approach the challenge?</div>
+  <h1>A loop that <em>changes its mind</em></h1>
+  <div class="res-top"><div class="l" id="rl"></div><svg id="spark" width="230" height="70" viewBox="0 0 230 70"></svg><div class="p">#1</div></div>
   <svg class="wires" viewBox="0 0 1920 1080">
     <defs>
       <linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4a8af4"/><stop offset=".35" stop-color="#ffc547"/><stop offset=".6" stop-color="#f2555a"/><stop offset=".8" stop-color="#3ddc97"/><stop offset="1" stop-color="#a46bf5"/></linearGradient>
     </defs>
-    <circle cx="700" cy="660" r="280" fill="none" stroke="#1b2540" stroke-width="16"/>
-    <circle cx="700" cy="660" r="280" fill="none" stroke="url(#rg)" stroke-width="4" opacity=".75"/>
-    <circle cx="700" cy="660" r="280" fill="none" stroke="#fff" stroke-width="3" class="flow" opacity=".35" transform="rotate(0 700 660)"/>
+    <circle cx="590" cy="590" r="232" fill="none" stroke="#1b2540" stroke-width="16"/>
+    <circle cx="590" cy="590" r="232" fill="none" stroke="url(#rg)" stroke-width="4" opacity=".75"/>
+    <circle cx="590" cy="590" r="232" fill="none" stroke="#fff" stroke-width="3" class="flow" opacity=".35"/>
     <g id="chev"></g>
     <circle r="11" fill="#ffc547" stroke="#0b1020" stroke-width="3">
-      <animateMotion dur="9s" repeatCount="indefinite" path="M700 380 A280 280 0 1 1 699.9 380"/>
+      <animateMotion dur="9s" repeatCount="indefinite" path="M590 358 A232 232 0 1 1 589.9 358"/>
     </circle>
   </svg>
+  <div class="core" style="left:485px;top:485px;width:210px;height:210px"><div class="t">Git</div><div class="d">every decision, fact and experiment, one owner per file</div></div>
   <div id="st"></div>
-  <div class="core">
-    <div class="t">Git</div>
-    <div class="d">one owner per file: directives, measured facts, every experiment</div>
-  </div>
   <div class="card lap">
-    <div class="k">One real lap · Sunday</div>
-    <div class="h">The "round cap" <span class="y">belief</span></div>
+    <div class="k">One real lap · the duelist</div>
+    <div class="h">First idea: <span class="y">let the LLM negotiate</span></div>
     <div id="rows"></div>
-    <div class="res"><p><span class="big">1 h 51</span>belief → correction, from our own data. The next +50 trade, CHA&#8209;11: <b>+1.48 board</b> <span class="tag v">V</span></p></div>
+    <div class="res">Kept the LLM's words. <span>Replaced its decisions.</span></div>
   </div>
-  <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i style="width:66%"></i></div><div class="lvl">ARCH B</div><div class="who">The loop</div></div>
+  <div class="sync"><div class="k">How we stayed in sync</div>
+    <div class="chip"><b>Git as the bus</b>one file per owner</div>
+    <div class="chip"><b>directives.md</b>every call + evidence</div>
+    <div class="chip"><b>Session messages</b>Claude ↔ Claude</div>
+    <div class="chip"><b>STATUS.md</b>auto, every 5 min</div>
+    <div class="chip"><b>Phone alerts</b>to Lucas + Dani</div>
+    <div class="chip"><b>Dani's dashboard</b>live, read-only</div>
+    <div class="chip"><b>Neon hub</b>one copy of the game</div>
+  </div>
+  <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i style="width:33%"></i></div><div class="lvl">Q1</div><div class="who">The loop</div></div>
 </div>
 <script src="icons.js"></script>
+<script src="race-data.js"></script>
 <script>
 const C = {S:'var(--blue)', D:'var(--yellow)', A:'var(--red)', M:'var(--green)', L:'var(--purple)'};
-const cx = 700, cy = 660, r = 280;
+const cx = 590, cy = 590, r = 232;
 const st = [
-  {k:'S', n:1, a:-90, t:'Sense',   d:'collector · watch · scout',          m:'data/*.jsonl · STATUS.md'},
-  {k:'D', n:2, a:-18, t:'Decide',  d:'Lucas + the Chief of staff',         m:'directives.md + evidence'},
-  {k:'A', n:3, a:54,  t:'Act',     d:'Operator · Duelist · Market',        m:'two writer roles'},
-  {k:'M', n:4, a:126, t:'Measure', d:'metrics · judge · Duel Lab',         m:'me.jsonl: every score change'},
-  {k:'L', n:5, a:198, t:'Learn',   d:'verifier · contrarian · experiments', m:'GAME.md: measured facts'},
+  {k:'S', n:1, a:-90, t:'Sense',   d:'collector · watch · scout',        m:'data/*.jsonl · STATUS.md'},
+  {k:'D', n:2, a:-18, t:'Decide',  d:'humans + the Chief of staff',      m:'directives.md + evidence'},
+  {k:'A', n:3, a:54,  t:'Act',     d:'Operator + bots · Duelist',        m:'two writer roles'},
+  {k:'M', n:4, a:126, t:'Measure', d:'metrics · judge · duel monitor',   m:'me.jsonl · duel records'},
+  {k:'L', n:5, a:198, t:'Learn',   d:'Duel Lab · verifier · contrarian', m:'GAME.md: measured facts'},
 ];
 document.getElementById('st').innerHTML = st.map(s => {
   const x = cx + r * Math.cos(s.a * Math.PI / 180), y = cy + r * Math.sin(s.a * Math.PI / 180);
-  return `<div class="card st" style="left:${x - 150}px;top:${y - 56}px;--c:${C[s.k]}"><div class="n">${s.n}</div><div class="t">${s.t}</div><div class="d">${s.d}</div><div class="m">${s.m}</div></div>`;
+  return `<div class="card st" style="left:${x - 145}px;top:${y - 54}px;--c:${C[s.k]}"><div class="n">${s.n}</div><div class="t">${s.t}</div><div class="d">${s.d}</div><div class="m">${s.m}</div></div>`;
 }).join('');
-// chevrons between stations, pointing clockwise
 document.getElementById('chev').innerHTML = [-54, 18, 90, 162, 234].map(a => {
   const x = cx + r * Math.cos(a * Math.PI / 180), y = cy + r * Math.sin(a * Math.PI / 180);
   return `<path d="M-9 -12L9 0L-9 12" fill="none" stroke="#e8ecf6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" transform="translate(${x} ${y}) rotate(${a + 90})"/>`;
 }).join('');
 const rows = [
-  {k:'S', n:1, t:'10:27', p:'RET&#8209;11 sells at 240. Expected <b>+29</b> negotiating points; the score <b>doesn\'t move</b>. <span class="tag v">V</span>'},
-  {k:'D', n:2, t:'10:31', p:'Belief, from the Analyst: <b>trade gains cap at 50 per round</b>. The Chief calls the MAL page closer <b>NO&#8209;GO</b>.'},
-  {k:'A', n:3, t:'11:33', p:'MAL closer stopped (logged 11:48).'},
-  {k:'M', n:4, t:'12:17', p:'A 5 P sale moves neg_points <b>50.0 → 52.2</b>. No cap. <span class="tag v">V</span>'},
-  {k:'L', n:5, t:'12:22', p:'Fact corrected: the 50 is a <b>per-trade</b> clip. RET&#8209;11 scored 0: 240 − 13 fee − value ≈ 227 <span class="tag l">L</span>. Buyers back <b>ON</b>.'},
+  {k:'S', n:1, t:'Sat · Duels II', p:'With the LLM deciding, replies took <b>9.2 s</b>, 29 % over 10 s. Sunday\'s tick: <b>15 s</b>. <span class="tag v">V</span>'},
+  {k:'D', n:2, t:'Sat 22:30', p:'<b>Code decides</b> price, day and accept; the LLM only writes. Checked first on a simulator validated on Duels II.'},
+  {k:'A', n:3, t:'Sat 22:48 →<br>Sun 09:50', p:'Branch <b>duelist-loop</b>: Haiku ≈ 2 s, guards, 8 s failover, hot-reloaded params.'},
+  {k:'M', n:4, t:'Sun 11:02', p:'Duels III, shorter clock, harder decay: <b>57 of 68 closed</b>. The monitor reviews every deal. <span class="tag v">V</span>'},
+  {k:'L', n:5, t:'11:47 →<br>12:37', p:'Review finds duels lost to holding still; fix shipped (f57a002), restarted on the <b>Duel Lab\'s GO</b>.'},
 ];
 document.getElementById('rows').innerHTML = rows.map(w => `<div class="row" style="--c:${C[w.k]}"><div class="b">${w.n}</div><time>${w.t}</time><p>${w.p}</p></div>`).join('');
+// result header: our board line, Friday → now
+(function () {
+  const R = window.RACE; if (!R) return; const us = R.series.t05, n = R.n;
+  const X = i => 4 + 222 * i / (n - 1), Y = v => 66 - 62 * (v - 10) / 30;
+  const d = us.map((p, i) => (i ? 'L' : 'M') + X(p[0]).toFixed(1) + ' ' + Y(p[1]).toFixed(1)).join('');
+  const last = us[us.length - 1];
+  document.getElementById('spark').innerHTML = `<path d="${d}" fill="none" stroke="#ffc547" stroke-width="3"/><circle cx="${X(last[0])}" cy="${Y(last[1])}" r="5" fill="#ffc547"/>`;
+  const f = R.final; document.getElementById('rl').innerHTML = `#6 Friday → #1<br>${f[0][2].toFixed(2)} · lead ${(f[0][2] - f[1][2]).toFixed(2)}<br>${R.as_of}`;
+})();
 </script>
 <script src="bz.js"></script>
 </body>

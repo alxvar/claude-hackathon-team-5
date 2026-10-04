@@ -1,52 +1,40 @@
 # Speaker script · Team 5 · Sunday final pitch
 
-Open `deck.html` (F = full screen, ← → to move). **Top 3 at 15:00 → 5 minutes, all 7 slides. Otherwise press `3` for the 3-minute cut** (skips slide 6, the loop).
-Numbers marked ⟳ change at 15:00: re-run `python3 judges/pitch/sunday/race_sunday.py` (slide 1 updates itself), then update the ⟳ lines here, in `submit-story.md` and on arch C.
+Structure = the organisers' four questions (Sunday deck p10). Open `deck.html` (F = full screen; → also steps through slide 2's four reveals; `deck.html#2.3` jumps to slide 2, step 4). Slides after 3/3 are **BACKUP** for Q&A: race chart, five beliefs, impact map, around the Bazaar.
+Numbers marked ⟳ change at 15:00 (slide 1's header updates from `race_sunday.py`; update the ⟳ words here).
 
-## 5-minute version (≈ 680 words)
+| Slide | 5:00 version | 3:00 cut |
+|---|---|---|
+| 1 · Q1 approach (the loop) | 0:00–1:00 | 0:00–0:40 |
+| 2 · Q2 + Q3 build + why (control room, 4 steps) | 1:00–3:50 | 0:40–2:30 |
+| 3 · Q4 learned + one more day | 3:50–4:50 | 2:30–3:00 |
 
-**1 · From #5 to #1 · 0:00–0:30**
-We're Team 5. Three humans, seven-plus Claude Code sessions and nineteen daemons we built. Friday's round closed with us sixth. Saturday afternoon we touched first. Since 12:35 today we've been first: 37.26 on the board, 3.09 ahead ⟳. Here's what we built, and what we got wrong on the way.
+## 5-minute version (≈ 690 words)
 
-**2 · Architecture: the control room · 0:30–1:20**
-This is the system. The three of us set the goal and the hard limits. One Claude Code session, the Chief of staff, makes every decision and logs it with its evidence. It never touches the game. Only two roles write to the game: the Operator, with the trading and dealer bots it starts, and the Duelist. Fourteen read-only daemons feed the live numbers back up. On the right, a column whose only job is to check: a fresh verifier, a duel simulator, the analysts, contrarian reviews. Everything shares one memory: git, one owner per file.
+**1 · Q1 · How we approached it · 0:00–1:00**
+We're Team 5, and right now we're first ⟳. Here's how we approached it: as a loop. Sense, decide, act, measure, learn, with git at the centre. One real lap. Our first idea was to let an LLM negotiate the duels. Saturday's records said it took 9.2 seconds a reply, 29 percent over ten, and today's tick is fifteen. So we decided: code decides price, day and accept, and the LLM only writes the words. We tested that first on a simulator validated on Saturday's duels, shipped it overnight, and this morning it closed 57 of 68 duels. The review then found duels lost to holding still; we fixed it and restarted on the Duel Lab's go. We kept the LLM's words and replaced its decisions. And three humans and seven-plus Claude sessions stayed in sync through git, one file per owner, a written decision log, session-to-session messages and a status file rewritten every five minutes.
 
-**3 · Five beliefs our data broke · 1:20–2:10**
-Our first ideas were wrong in five useful ways.
-We thought any trade at a gain scores. Dealer gains clip to zero and losses count in full, so pages close only through team trades.
-We thought an LLM should negotiate the duels. It took 9.2 seconds a reply, 29 percent over ten, on a fifteen-second tick. So code decides and Haiku only writes the words: 57 of 68 duels closed this morning.
-We believed gains were capped at 50 a round. Our own logs disproved it at 12:17.
-A trade with a rival pays them too, so at 13:12 we locked the lead.
-And our zero-fee market had no trades this morning, until we pushed pairs and partners onto it: six trades by 13:10.
+**2 · Q2 + Q3 · What we built, and why · 1:00–3:50** (→ for each step)
+*Step 1, Decide (≈ 35 s).* What we built is a control room. At the top, decide: the three of us set the goals and the hard limits, and one Claude Code session, the Chief of staff, makes every call and logs it with its evidence. It never writes to the game.
+*Step 2, Act (≈ 40 s).* Below, act. Exactly two roles write to the game. The Operator, a Claude Code session, runs our trades through the bots it starts: a taker, a maker book, dealer bots and page closers. And the Duelist: code decides, Haiku writes the words, with guards, an eight-second failover and parameters we change live. Solid arrows are authority; the red ones are the only writes.
+*Step 3, Sense and check (≈ 40 s).* On the right, everything read-only: our venue and its Market Test recorder, the collector and the status file, Dani's dashboard and a shared archive, analysts on the Claude API, the Duel Lab simulator and fresh verifiers. Dashed arrows are data flowing back to the Chief.
+*Step 4, the decisions we'd defend (≈ 55 s).* One: code decides, the LLM writes, because a fifteen-second tick doesn't wait. Two: one writer per job, and a hard limit changes only through a written guardrail line, because one key, five requests a second and one accept per tick are shared by everything we run. Three: check before you act. A fresh verifier and contrarian reviews on the big calls, the Duel Lab before any restart, because the author can't grade its own work.
 
-**4 · Where the points came from · 2:10–2:45**
-Here's the score by the part of the system that earned it. The Duelist: 6.75. The Operator and its bots: 17.43, from page closes, the dealer ladder and one epic. Our market: 13.08. The grey band is the Market Test every stall gets. The blue band is what our venue added on top, over two days: 4.08 more than teams with only a stall.
-
-**5 · Built around the Bazaar · 2:45–3:25**
-We also built around the game. The biggest piece is a market with more than two sides: a club matchmaker. It estimates every team's album from the public feed, matches one team's spare copy to another team's missing card, page-closers first, prices each deal between the two values so both sides gain, and is designed to rotate hosting across the members' markets. Under it: a demand model of what every card is worth to every team, a shared archive of the history the feed drops, a Market Test lab, a live reactor on the event stream, and Dani's live showcase for you.
-
-**6 · The loop · 3:25–4:05** *(skip in the 3-minute cut)*
-Underneath, it's a loop: sense, decide, act, measure, learn. One real lap from today. At 10:27 a sale didn't score. We decided gains were capped and stopped our page closer. At 12:17 a five-point sale moved the counter. Corrected at 12:22, from our own data, one hour fifty-one later, and the next +50 trade added 1.48.
-
-**7 · What we learned · 4:05–4:50**
-Technically: let code decide and the LLM talk; separate who decides, who writes and who checks; treat every belief as a bug until the data agrees.
-About markets: scoring is relative, losses count while gains clip, and a market needs a matchmaker, not just a low fee.
-With one more day: merge the Sunday duelist with per-opponent day weights, switch on the broker we built, and put a verifier gate on every directive.
+**3 · Q4 · What we learned · 3:50–4:50** *(draft: the team rewrites the slots)*
+Technically: code decides and the LLM writes; and the generator can't grade itself, a separate verifier caught what the author missed, in this deck too.
+Negotiation: decay is per exchange, so silence is free; and take the good offer when it's there: 23 deals this morning closed below an offer the rival had already made.
+Marketplaces: value created, not activity, and a trade with a rival lifts them as much as you; and matchmaking moved trades, the bounty didn't.
+With one more day: merge the Sunday duelist with per-opponent day weights, switch on the broker we staged, and put a verifier gate on every directive.
 Three humans set the limits. Claude ran the bazaar, and checked itself. Thank you.
+*(Alternative negotiation line from the Chief, unverified [?]: "small steps earn small steps".)*
 
-## 3-minute cut (≈ 420 words · slides 1-2-3-4-5-7)
+## 3-minute cut (≈ 430 words)
 
-**1 · 0:00–0:20** We're Team 5: three humans, seven-plus Claude Code sessions. Sixth after Friday, first since 12:35 today: 37.26, 3.09 ahead ⟳.
+**1 · 0:00–0:40** We're Team 5, first right now ⟳. We approached it as a loop: sense, decide, act, measure, learn. One lap: our first idea, an LLM negotiating duels, took 9.2 seconds a reply on a fifteen-second tick. So code decides and the LLM only writes. Tested on a simulator, shipped overnight: 57 of 68 duels closed this morning. Git, a decision log and session messages kept three humans and seven-plus Claude sessions in sync.
 
-**2 · 0:20–0:55** The system is a control room. We set the limits. A Claude Code Chief of staff decides and logs every call with its evidence, and never touches the game. Only two roles write: the Operator and its bots for trades, the Duelist for duels. Fourteen daemons read; a separate column only checks. Git is the shared memory.
+**2 · 0:40–2:30** What we built is a control room. *(→)* Decide: we set the limits; a Claude Code Chief of staff makes every call with its evidence and never writes to the game. *(→)* Act: only two roles write, the Operator with its trading bots, and the Duelist, where code decides and Haiku talks. *(→)* Sense and check, all read-only: venue, collector, dashboard, analysts, the Duel Lab and fresh verifiers. *(→)* Three decisions we'd defend: code decides, because a fifteen-second tick doesn't wait; one writer per job with written limits, because the key's limits are shared; and check before you act, because the author can't grade its own work.
 
-**3 · 0:55–1:40** Five beliefs our data broke. Dealer gains don't score but dealer losses do, so pages close through teams. An LLM deciding duels was too slow for a 15-second tick, so code decides and Haiku writes: 57 of 68 closed. The "cap of 50" was a myth, disproved by our own logs. A trade with a rival pays them too, so we locked the lead. And our zero-fee market had no trades this morning until we pushed pairs and partners onto it.
-
-**4 · 1:40–2:05** Where the points came from: Duelist 6.75, Operator and bots 17.43, our market 13.08, of which 4.08 is above what a plain stall gets.
-
-**5 · 2:05–2:30** Around the game we built a market with more than two sides: a club matchmaker that estimates every album from the public feed, pairs spares with missing cards, prices between both values so both gain, and is designed to rotate hosting across members. Plus a demand model, an archive, a Market Test lab and a live showcase.
-
-**7 · 2:30–2:58** We learned: code decides, the LLM talks; separate deciding, writing and checking; scoring is relative and a market needs a matchmaker. One more day: merge the Sunday duelist, switch on the broker, and gate every directive with a verifier. Three humans set the limits. Claude ran the bazaar, and checked itself. Thank you.
+**3 · 2:30–3:00** We learned: code decides, the LLM writes; silence is free in a negotiation; value created beats activity, and matchmaking moved trades where a bounty didn't. One more day: merge the Sunday duelist, switch on the broker, gate every directive with a verifier. Three humans set the limits. Claude ran the bazaar, and checked itself.
 
 ## Q&A, prepared (sources in brackets)
 
