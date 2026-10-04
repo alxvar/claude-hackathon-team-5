@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sun 09:07** · tick 1445 (15 s/tick) · game hour 13.37 · PAUSED · today closes 15:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sun 09:22** · tick 1474 (15 s/tick) · game hour 13.75 · running · today closes 15:00._
 
 ## Team: now and latest
 
@@ -17,25 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Sun: t0 (pid 22755) + window.sh (pid 58604) armed; case J; waiting for the first live tick (R = C). (Sat history:) Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sun 09:22 · operator · **round 3 live 09:20:05 (tick 1466; R = C, case J)**; +150 → cash 542 · t0: **silver pack → LAT-01, SAL-04, CHA-07 (uncommon #1), LAT-06**; **Workshop LAV-02 ×2 + LAV-03 → LAV-07** · **CHA-09 from the Pícaros at 55** (thread 2213: 73 → 66 → 62 → 58 → 55 final, ours 42 → 48, offered their final; cap 57): `ladder_points` 0 → **0.075** (L4), neg 0, cash 487 · book merged 09:20:35 (public CHA bids capped + LAT fodder) · next: CHA-10 Pícaros, Abuela commons 09:25, R+10 restarts 09:30
   - Sun 09:02 · operator · the Mac slept 08:28-09:00 (Builder, pmset) → t0's 08:35 step ran at 08:45:24 (one book instance) · **window.sh armed 09:01:19, pid 58604** (default stop list: swaps opps recorder; trader on) · **CASE J** (Chief, /api/schedule re-anchored: CHA + round 3 at 13.367 = first live tick; Duels III 15.367 ≈ 11:00, Final 18.367 ≈ 14:00) · floors.env 110/110 unchanged · t0 pid 22755 waiting at R (tick 1445, doors open, paused)
   - Sun 08:05 · Builder · **club venue routing, Lucas's call: 50/50** main 15dd3ef: club deals (t02 t04 t07 t08 t09 t15 on both sides) alternate v10 / a member's market (open, neither party's own, no rival; least used, then lowest market score); closers and non-member deals on v10; run/club_routing.json keeps the day's venues; DMs name the market · live: 2 v10 + 2 members (v05, v15) → Market aligns nego_section (was 2 of 3)
-  - Sun 07:38 · Duel Lab · C+ check (contra-duels §1) on sim3, every world + mirrors + LLM moves + accept slips · **YES: C+ (C + MIN_STEP_P 15 + ACCEPT_BY 1) ≈ +0.028/duel ≈ +2.9 raw over 102 duels, no code-first world worse; still wins with the trader on unless > ≈ 9% of last-tick accepts slip**; hot `approve` dry-run on 29aa1be clean; new-sha path also needs the repo-sets test edit + SET=C+ (verifier caught it) · intel/duel-lab.md top + first-wave checklist; duel_gates.live_set knows C+
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 30.49 | 3 | 22.99 | 7.50 | 35.39 | 0.48 | 0.85 | 53 | 5 | 392 | 39/50 |
+| 30.63 | 3 | 21.81 | 8.82 | 0.00 | 0.07 | — | 54 | 5 | 487 | 44/60 |
 
-Leaderboard (snapshot at tick 1440; refreshes every few minutes):
+Leaderboard (snapshot at tick 1462; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 10 | 37.58 | 25.08 | 12.50 | 62 |
-| 2 | Team 18 | 31.26 | 23.76 | 7.50 | 40 |
-| 3 | Team 5 | 30.49 | 22.99 | 7.50 | 53 |
-| 4 | Team 12 | 30.42 | 23.17 | 7.25 | 70 |
-| 5 | Team 3 | 29.67 | 23.59 | 6.08 | 32 |
+| 1 | Team 10 | 35.64 | 23.79 | 11.85 | 62 |
+| 2 | Team 12 | 33.29 | 21.97 | 11.32 | 70 |
+| 3 | Team 5 | 30.63 | 21.81 | 8.82 | 53 |
+| 4 | Team 18 | 29.65 | 22.54 | 7.11 | 40 |
+| 5 | Team 3 | 28.14 | 22.37 | 5.77 | 32 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 13.37 | ~-0 min | set_release | Chamberí released |
-| 13.37 | ~0 min | round | Round 3 starts |
-| 13.42 | ~3 min | grant_all | The Sunday allowance: 150 primas for everyone |
-| 14.65 | ~77 min | bench | The hard Market Test: firmer and more impatient traders |
-| 15.00 | ~98 min | bench | The Market Test: every venue gets the same synthetic book |
-| 15.37 | ~120 min | duels | Duels III: two issues, shorter clock, harder decay |
-| 17.00 | ~218 min | bench | The Market Test: every venue gets the same synthetic book |
-| 18.17 | ~288 min | announce | finale warning |
+| 14.65 | ~54 min | bench | The hard Market Test: firmer and more impatient traders |
+| 15.00 | ~75 min | bench | The Market Test: every venue gets the same synthetic book |
+| 15.37 | ~97 min | duels | Duels III: two issues, shorter clock, harder decay |
+| 17.00 | ~195 min | bench | The Market Test: every venue gets the same synthetic book |
+| 18.17 | ~265 min | announce | finale warning |
+| 18.37 | ~277 min | persona | Finale: stalls close |
+| 18.37 | ~277 min | persona | Finale: stalls close |
+| 18.37 | ~277 min | persona | Finale: stalls close |
 
 ## Our dealer deals
 
@@ -58,7 +58,6 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Thread | Dealer | Side | Item | Her first | Our first | Deal | vs her first | Msgs | Status | Closed |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 960 | chato | sell | 1 card(s) | 13 | 30 | 14 | +8% | 13 | deal |  |
 | 1062 | picaros | sell | 1 card(s) | 10 | 32 | — | — | 7 | closed |  |
 | 1075 | picaros | buy | SAL-09 | 73 | 45 | 54 | -26% | 9 | deal |  |
 | 1092 | picaros | sell | 1 card(s) | 4 | 20 | — | — | 2 | closed |  |
@@ -85,6 +84,7 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | 2104 | banco | buy | sobre_oro | 546 | — | — | — | 4 | closed |  |
 | 2111 | abuela | buy | LAT-02 | 12 | — | — | — | 4 | closed |  |
 | 2112 | chato | buy | {"rarity": "rare", "set": "LAT"} | 97 | — | — | — | 2 | closed |  |
+| 2213 | picaros | buy | CHA-09 | 73 | 42 | 55 | -25% | 11 | deal |  |
 
 ## Abuela benchmark: every team's deals with her (public feed)
 
@@ -93,7 +93,7 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | common card | team buys | 74 | 9.00 | 7 | 15 | 5 | 9 |
 | common card | team sells | 113 | 6 | 2 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 43 | 22 | 17 | 30 | 3 | 20.33 |
-| uncommon card | team buys | 83 | 23 | 17 | 29 | 5 | 24.20 |
+| uncommon card | team buys | 84 | 23.00 | 17 | 29 | 5 | 24.20 |
 | uncommon card | team sells | 13 | 15 | 12 | 22 | 0 | — |
 
 ## Duels
