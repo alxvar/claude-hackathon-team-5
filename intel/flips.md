@@ -1,6 +1,6 @@
 # Flips: team bids a dealer can fill (Team 10's playbook)
 
-_Written by `tools/reactor.py` at 12:48 (tick 2293). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
+_Written by `tools/reactor.py` at 12:49 (tick 2297). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
 
 ## Open bids (HUNT digest)
 
@@ -16,8 +16,7 @@ _Written by `tools/reactor.py` at 12:48 (tick 2293). The open team bids for rare
 | 35 | LAV-09 Cine Doré (rare) | t18 | rastro | picaros 56 | -21 | 25477 | 13:23 |
 | 35 | LAV-10 Fiesta de San Cayetano (rare) | t18 | rastro | picaros 56 | -21 | 25494 | 13:24 |
 | 33 | RET-10 Monumento a Alfonso XII (rare) | t01 | v10 → t17 | picaros 56 | -23 | 25990 | 13:00 |
-| 30 | LAV-09 Cine Doré (rare) | t08 | v10 → t16 | picaros 56 | -26 | 26303 | 12:48 |
-| 29 | RET-09 El Ángel Caído (rare) | t17 | rastro → t01 | picaros 56 | -27 | 26242 | 13:01 |
+| 32 | RET-09 El Ángel Caído (rare) | t17 | rastro → t01 | picaros 56 | -24 | 26323 | 13:03 |
 | 25 | MAL-09 La Heroína del Dos de Mayo (rare) | t18 | rastro | picaros 56 | -31 | 25495 | 13:24 |
 | 25 | MAL-10 Noche de Movida (rare) | t18 | rastro | picaros 56 | -31 | 25496 | 13:24 |
 
