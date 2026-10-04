@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sun 10:56 (snapshot 1842, phase 0.58): we're #3 on the board (32.40). **Only ONE real trade in the whole field today (v29): one positive v10 pair likely caps +7.5 (§3k).** Projection §3k: t12 84.6 · t10 82.3 · t18 82.0 · us 78.9._
+_Last update: Sun 11:14 (snapshot 1902, phase 0.66; Duels III running): running totals t12 75.36 · t10 70.93 · t18 69.44 = us 69.44 · t03 65.26. Duels III waves 1-3: 9/13 deals (= the field's 69%), duel_points 5.14. Real trades today: 1 each on v21 (t09; t12 → t16 SAL-12 at 380), v15, v29; **v10 still 0**: one big pair (RET-09, VC ≈ +68) still likely caps us (§3k)._
 _Note: the §4 version labels "00:05" to "02:10" are sequence markers written between Sat 23:50 and Sun 00:42 (my labels ran ahead of the wall clock); real times are in `git log`. The Sunday clock in §4.7 is unaffected._
 
 ## 1. Board = Friday × Saturday blend [V]

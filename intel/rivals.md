@@ -9,6 +9,13 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sun 11:14 · snapshot 1902 (phase 0.66; Duels III running)
+- **t12 sold SAL-12 to t16 at 380 on t09's v21** (tick 1886): a team trade, but t12 is at the Sunday 50 cap, so it likely scores 0 for t12.
+  It lifts t09's v21 VC and the real-trades top-3 mean.
+- t06 bought LAV-11 from the Pícaros at 140 (an L4 epic slot). t10 sold LAT-04 to Abuela at 5.
+- Duels III so far (board moves): t03 +1.79, t12 +0.51, t10 +0.82 at the first wave; us mixed. Running totals: t12 75.36 · t10 70.93 · t18 69.44 =
+  us 69.44 · t03 65.26.
+
 ### Sun 10:56 · snapshot 1842 (phase 0.58)
 - **Real trades today: 1 in the whole field** (t07's v29). v07 / v02 / v01 / v10 at 0. New board venues: t14 v27 (1589), **t18 v28
   "Mercado Chamberí" (1662)**, t07 v29 (1758).
