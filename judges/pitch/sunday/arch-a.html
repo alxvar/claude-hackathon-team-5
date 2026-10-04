@@ -27,6 +27,13 @@
 .legend div{display:flex;align-items:center;gap:14px;font:500 19px var(--body);color:var(--ink2);margin:6px 0}
 .legend svg{flex:none}
 .legend .k{font:700 15px var(--mono);letter-spacing:.18em;color:var(--muted);text-transform:uppercase;margin-bottom:8px}
+.shot{position:absolute;left:1236px;top:282px;width:556px;height:176px;display:flex;gap:16px;align-items:center;padding:0;border-radius:16px;background:var(--card2);border:1.5px solid var(--line);overflow:hidden}
+.shot img{width:313px;height:176px;object-fit:cover;display:block;border-right:1.5px solid var(--line)}
+.shot .cap{font:400 16px/1.35 var(--body);color:var(--ink2);padding-right:14px}
+.shot .cap b{display:block;font:800 24px/1.1 var(--head);text-transform:uppercase;color:var(--ink);margin:4px 0}
+.shot .cap .k{font:700 13px var(--mono);letter-spacing:.14em;color:var(--green)}
+.legend2{position:absolute;right:128px;top:246px;display:flex;gap:26px;font:600 15px var(--mono);letter-spacing:.06em;color:var(--ink2);text-transform:uppercase}
+.legend2 span{display:flex;align-items:center;gap:10px}
 .wl{font:700 14px var(--mono);letter-spacing:.1em;text-transform:uppercase}
 /* step 3: the decisions we'd defend */
 #dim{position:absolute;inset:0;background:rgba(8,11,22,.78);pointer-events:none}
@@ -105,12 +112,8 @@
     <div class="node sm" style="left:1380px;top:744px;width:392px;--c:var(--green)" data-i="shield:var(--green)"><div><div class="t">Verifiers</div><div class="d">fresh subagents · contrarian reviews</div></div></div>
   </div>
 
-  <div class="legend">
-    <div class="k">How to read it</div>
-    <div><svg width="70" height="12"><path d="M2 6H60" stroke="#ffc547" stroke-width="4"/><path d="M58 1L68 6L58 11z" fill="#ffc547"/></svg>solid: authority, or a write to the game</div>
-    <div><svg width="70" height="12"><path d="M2 6H60" stroke="#4a8af4" stroke-width="3.5" stroke-dasharray="8 7"/><path d="M58 1L68 6L58 11z" fill="#4a8af4"/></svg>dashed: data flowing back</div>
-    <div><svg width="70" height="12"><rect x="2" y="1" width="64" height="10" rx="5" fill="none" stroke="#8b95aa" stroke-dasharray="4 4"/></svg>one colour per function</div>
-  </div>
+  <div class="shot"><img src="img/dashboard.png" alt="Dani's live dashboard"><div class="cap"><span class="k">● Live · 14:26</span><b>Dani's dashboard</b>the room's view: us #1, every team's race, read-only</div></div>
+  <div class="legend2"><span><svg width="54" height="12"><path d="M2 6H44" stroke="#ffc547" stroke-width="4"/><path d="M42 1L52 6L42 11z" fill="#ffc547"/></svg>authority / game write</span><span><svg width="54" height="12"><path d="M2 6H44" stroke="#4a8af4" stroke-width="3.5" stroke-dasharray="8 7"/><path d="M42 1L52 6L42 11z" fill="#4a8af4"/></svg>data</span></div>
 
   <div class="game">
     <div class="t">The Bazaar · game API</div>
