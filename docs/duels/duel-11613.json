@@ -69,6 +69,119 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1892,
+   "raw": {
+    "duel": 11613,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Cine Doré",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 6.02,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 132,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1902,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 12318,
+     "price": 83,
+     "tick": 1890,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 12377,
+     "price": 141,
+     "tick": 1892,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1890,
+      "from": "you",
+      "text": "I'd like to open at 83 P, delivery on day 0.",
+      "price": 83,
+      "days": 0
+     },
+     {
+      "tick": 1892,
+      "from": "Rival Rojo",
+      "text": "Hi there. 141 P and it is yours. Delivery on day 10.",
+      "price": 141,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1895,
+   "raw": {
+    "duel": 11613,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Cine Doré",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 6.02,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 132,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1902,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 12318,
+     "price": 83,
+     "tick": 1890,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 12457,
+     "price": 118,
+     "tick": 1895,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1890,
+      "from": "you",
+      "text": "I'd like to open at 83 P, delivery on day 0.",
+      "price": 83,
+      "days": 0
+     },
+     {
+      "tick": 1892,
+      "from": "Rival Rojo",
+      "text": "Hi there. 141 P and it is yours. Delivery on day 10.",
+      "price": 141,
+      "days": 10
+     },
+     {
+      "tick": 1895,
+      "from": "Rival Rojo",
+      "text": "How about 118 P? Delivery on day 10.",
+      "price": 118,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -182,6 +295,194 @@
     }
    },
    "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1892,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11613,
+     "role": "buyer",
+     "limit": 132,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 6.02,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 83 P, delivery on day 0.",
+      "offer": {
+       "price": 83,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1890,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hi there. 141 P and it is yours. Delivery on day 10.",
+      "offer": {
+       "price": 141,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1892,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 141,
+     "days": 10
+    },
+    "tick": 1892,
+    "ticks_left": 10,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 83,
+    "days": 0,
+    "meta": {
+     "policy": "code",
+     "day_call": "hold",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1895,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11613,
+     "role": "buyer",
+     "limit": 132,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 6.02,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 83 P, delivery on day 0.",
+      "offer": {
+       "price": 83,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1890,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hi there. 141 P and it is yours. Delivery on day 10.",
+      "offer": {
+       "price": 141,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1892,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 141,
+     "days": 10
+    },
+    "tick": 1895,
+    "ticks_left": 7,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 83,
+    "days": 0,
+    "meta": {
+     "policy": "code",
+     "day_call": "hold",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
    "params_set": "C",
    "params": {
     "MIN_STEP_P": 15.0,
