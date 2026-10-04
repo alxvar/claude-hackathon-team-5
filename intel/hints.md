@@ -305,3 +305,9 @@ El pack, 26 primas y tuyo. Y oye, junta página completa, vale mucho más suelta
 - Sun 09:40 · catalog.minted LAV-11 (La Casa Encendida, epic, print run 9): hidden=False minted=6 (was 5)
 - Sun 09:40 · catalog.minted MAL-11 (La Sala Pentagrama, epic, print run 9): hidden=False minted=4 (was 3)
 - Sun 09:40 · catalog.minted RET-11 (Palacio de Cristal, epic, print run 9): hidden=False minted=4 (was 3)
+- Sun 09:41 · egg.found tick 1550 · abuela → t01 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t01", "name": "Team 1"}
+- Sun 09:41 · message tick 1550 · abuela → t01 · Hola, cariño, ¿has comido? La Churrería te la dejo en 12 primas, hijo.
+
+Shh... la chulapa dorada, solo hubo una. Don Ernesto, en Casa Prima, guarda algo dorado. Pregúntale por el oro de Moscú.
+
+Y El Chato, aquí al lado, abre a las nueve y media esta noche.
