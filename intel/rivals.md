@@ -9,6 +9,12 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sun 10:26 · snapshot 1722 (phase 0.43; the 10:16 hard Market Test is now in: every board +≈ 2.1)
+- **t13's mechanic, a dealer → team closer flip** [V feed]: LAV-07 bought from Abuela at 25 (tick 1711), sold to t12 at 40 one tick later
+  (1712). t13 books a team-trade margin, and the buyer still gets the +50 closer because the LAST hop is a team trade. Its Sunday ≈ 35.
+- Running totals: t12 67.79 · t10 65.57 · t18 63.43 · **us 61.07** · t03 57.48 · t13 52.55. Sunday so far: t18 38.5 · t12 35.2 · t13 35.0 ·
+  t03 30.2 · **us 29.4** · t06 23.6 · t10 21.4.
+
 ### Sun 10:23 · tick 1715
 - **t12 closed LAV via a TEAM trade: LAV-07 from t13 at 40 on El Rastro (tick 1712) → +50 closer** (≈ +6-10 Sunday, pre-duel scale).
 - **t10 closed SAL via Chato** (SAL-08 at 30, tick 1715): a dealer close, no bonus.

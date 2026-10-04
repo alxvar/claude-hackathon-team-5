@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sun 10:11 (tick ≈ 1665; snapshot 1662, phase 0.35): running totals t10 59.80 · t12 58.28 · t18 57.36 · us 55.43 · t03 51.86; Sunday so far t18 29.7 · us 19.8 · t03 20.8. No deals of ours since tick 1585; v10 has 0 trades today; RET-11 offered to t02 at 240. Saturday market bug: fully corrected (§3i)._
+_Last update: Sun 10:26 (tick 1722, phase 0.43; the hard Market Test is in: stall 0.5): running totals t12 67.79 · t10 65.57 · t18 63.43 · us 61.07 · t03 57.48. Sunday so far t18 38.5 · t12 35.2 (LAV closer via t13) · us 29.4. t13 flips dealer cards into page closers (rivals.md)._
 _Note: the §4 version labels "00:05" to "02:10" are sequence markers written between Sat 23:50 and Sun 00:42 (my labels ran ahead of the wall clock); real times are in `git log`. The Sunday clock in §4.7 is unaffected._
 
 ## 1. Board = Friday × Saturday blend [V]
