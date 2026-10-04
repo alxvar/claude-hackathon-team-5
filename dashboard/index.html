@@ -262,6 +262,12 @@ tr.sel td { background: rgba(57,135,229,0.22) !important; }
     <div class="scroll"><table id="dmSess"></table></div>
   </div>
   <div class="card">
+    <h2>Are we getting better, or are the others getting worse?</h2>
+    <p class="sub">Three things move our duel results, and this splits them session by session. <b>Us</b>: share of the pie per deal (duel_points ÷ deals: the game's own measure), where the price landed between the two openers (0 = at the rival's opener, 1 = at ours), rounds and how much we conceded. <b>Our rivals</b> (from our own duels): how far outside our limit they opened, how much they conceded, how many stayed silent. <b>The field</b>: every team's deal rate (public <code>duel.closed</code>; no prices or team ids are public). Medians; the verdict compares each scored session with the one before. Duels II and III also negotiate the delivery day, so their price-only columns (landing, openers, concessions) are approximate; the share per deal is the game's own measure and holds. [L]</p>
+    <ul class="ins" id="dmVerdict" style="margin-bottom:10px"></ul>
+    <div class="scroll"><table id="dmVs"></table></div>
+  </div>
+  <div class="card">
     <h2>Our duels, live</h2>
     <p class="sub">One card per live duel, soonest deadline first: our offers (blue), the rival's (orange) and our limit (dashed) over the duel's ticks, the delivery day on each offer when the session has days, and the conversation. Updates every tick (30 s); the page refreshes every 15 s.</p>
     <div class="dgrid" id="dmCards"></div>
@@ -1130,6 +1136,67 @@ function cardsTab(d) {
   ]);
 }
 
+// ------------------------------------------------------------------ us vs rivals vs field, per duel session
+function duelVsField(d, m) {
+  const med = xs => { const v = xs.filter(x => x != null && isFinite(x)).sort((a, b) => a - b); if (!v.length) return null;
+    const k = Math.floor(v.length / 2); return v.length % 2 ? v[k] : (v[k - 1] + v[k]) / 2; };
+  const all = (d.duelview?.duels || []).filter(x => x.status === "deal" || x.status === "no_deal");
+  const rows = (m.sessions || []).map(s => {
+    const ds = all.filter(x => x.session === s.session), deals = ds.filter(x => x.status === "deal");
+    const land = deals.map(x => (x.our_first != null && x.their_first != null && x.our_first !== x.their_first && x.price != null)
+      ? Math.max(0, Math.min(1, (x.price - x.their_first) / (x.our_first - x.their_first))) : null);
+    const tough = ds.map(x => x.their_first != null && x.limit ? (x.role === "buyer" ? (x.their_first - x.limit) : (x.limit - x.their_first)) / x.limit : null);
+    const theyMoved = ds.map(x => x.their_first ? x.conc_them / x.their_first : null);
+    const weMoved = ds.map(x => x.our_first ? x.conc_us / x.our_first : null);
+    const sur = deals.reduce((a, x) => a + (x.surplus || 0), 0), res = deals.reduce((a, x) => a + (x.result || 0), 0);
+    return { name: s.name, scored: s.dp > 0 || s.current, current: s.current, n: ds.length,
+      ours: ds.length ? deals.length / ds.length : null, field: s.field_done ? s.field_deals / s.field_done : null,
+      share: s.dp != null && deals.length ? s.dp / deals.length : null, land: med(land), rounds: s.rounds,
+      days: ds.some(x => x.days_weight != null),
+      decay: sur && !ds.some(x => x.days_weight != null) ? (sur - res) / sur : null, tough: med(tough), theyMoved: med(theyMoved), weMoved: med(weMoved),
+      silent: ds.filter(x => x.rival_silent).length, opener: deals.filter(x => x.price === x.our_first).length };
+  });
+  const pct = v => v == null ? "—" : Math.round(100 * v) + "%";
+  const f2 = v => v == null ? "—" : v.toFixed(2);
+  table($("#dmVs"), "dmVs", rows, [
+    ["name", "Session", r => `${esc(r.name)}${r.current ? ` <span class="chip">live</span>` : ""}`],
+    ["ours", "Our deal rate", r => pct(r.ours), true],
+    ["field", "Field deal rate", r => pct(r.field), true],
+    ["share", "Our share per deal", r => `<b>${f2(r.share)}</b>`, true],
+    ["land", "Price landed (0 theirs → 1 ours)", r => f2(r.land), true],
+    ["rounds", "Rounds per deal", null, true],
+    ["decay", "Lost to rounds", r => r.days ? `<span class="muted">n/a (days)</span>` : pct(r.decay), true],
+    ["weMoved", "We conceded", r => pct(r.weMoved), true],
+    ["tough", "Rivals opened outside our limit by", r => pct(r.tough), true],
+    ["theyMoved", "Rivals conceded", r => pct(r.theyMoved), true],
+    ["silent", "Silent rivals", null, true],
+    ["opener", "Took our opener", null, true],
+  ], r => r.current ? "us" : "");
+
+  const sc = rows.filter(r => r.scored && r.n);
+  const out = [];
+  for (let i = 1; i < sc.length; i++) {
+    const a = sc[i - 1], b = sc[i], dd = (x, y) => x != null && y != null ? y - x : null;
+    const sh = dd(a.share, b.share), ld = dd(a.land, b.land), our = dd(a.ours, b.ours), fld = dd(a.field, b.field);
+    const tg = dd(a.tough, b.tough), tm = dd(a.theyMoved, b.theyMoved);
+    const usBetter = (sh || 0) > 0.02 || (ld || 0) > 0.05, rivalsSofter = (tg != null && tg < -0.05) || (tm != null && tm > 0.03);
+    const usWorse = (sh || 0) < -0.02, rivalsTougher = (tg != null && tg > 0.05) || (tm != null && tm < -0.03);
+    const verdict = usBetter ? (rivalsSofter ? "PARTLY RIVALS" : "WE IMPROVED")
+      : usWorse ? (rivalsTougher ? "TOUGHER RIVALS" : "WE SLIPPED") : "FLAT";
+    const tag = verdict === "WE IMPROVED" ? "up" : verdict === "WE SLIPPED" ? "down" : "info";
+    const why = { "WE IMPROVED": "our share went up and the rivals were not softer: the gain is ours",
+                  "PARTLY RIVALS": "our share went up, but the rivals also opened softer or conceded more: part of it is them",
+                  "WE SLIPPED": "our share went down although the rivals were not tougher: the drop is ours",
+                  "TOUGHER RIVALS": "our share went down while the rivals opened tougher or conceded less",
+                  "FLAT": "no clear change" }[verdict];
+    const sgnp = v => v == null ? "—" : `${v > 0 ? "+" : ""}${Math.round(100 * v)} pts`;
+    out.push(`<li><span class="tag ${tag}">${verdict}</span><span><b>${esc(a.name)} → ${esc(b.name)}</b> (${why}): our share per deal ${f2(a.share)} → ${f2(b.share)}, price landed ${f2(a.land)} → ${f2(b.land)}, rounds ${a.rounds ?? "—"} → ${b.rounds ?? "—"}. `
+      + `Rivals opened ${pct(a.tough)} → ${pct(b.tough)} outside our limit and conceded ${pct(a.theyMoved)} → ${pct(b.theyMoved)}. `
+      + `Deal rate: ours ${sgnp(our)}, the field's ${sgnp(fld)}${our != null && fld != null ? (our - fld < -0.03 ? " (we lost ground on the field)" : our - fld > 0.03 ? " (we gained on the field)" : " (in line with the field)") : ""}.</span></li>`);
+  }
+  $("#dmVerdict").innerHTML = out.join("") || `<li><span class="muted">Needs two scored sessions.</span></li>`;
+}
+
 // ------------------------------------------------------------------ live duel cards
 function liveDuelCards(d, m) {
   const box = $("#dmCards"), tsec = d.clock.tick_seconds || 30, now = d.clock.tick;
@@ -1210,6 +1277,8 @@ function duelmonTab(d) {
     ["dp_per_duel", "duel_points per duel", r => r.dp_per_duel != null ? `<b>${r.dp_per_duel.toFixed(2)}</b>` : "—", true],
     ["decay", "Decay", r => r.decay != null ? Math.round(r.decay * 100) + "%" : "—", true],
   ], r => r.current ? "us" : "");
+  try { duelVsField(d, m); }
+  catch (e) { $("#dmVerdict").innerHTML = `<li><span class="err">comparison: ${esc(e.message)}</span></li>`; }
   try { liveDuelCards(d, m); }
   catch (e) { $("#dmCards").innerHTML = `<p class="err">live cards: ${esc(e.message)}</p>`; $("#dmCards").dataset.ids = ""; }
   $("#dmAlerts").innerHTML = m.alerts.length
