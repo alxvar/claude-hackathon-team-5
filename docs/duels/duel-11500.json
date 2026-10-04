@@ -81,6 +81,133 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1945,
+   "raw": {
+    "duel": 11500,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.84,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 87,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 1956,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 13620,
+     "price": 124,
+     "tick": 1944,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 13646,
+     "price": 48,
+     "tick": 1945,
+     "days": 2
+    },
+    "messages": [
+     {
+      "tick": 1944,
+      "from": "you",
+      "text": "I'm interested in Museo Sorolla at 124 P, with delivery on day 10.",
+      "price": 124,
+      "days": 10
+     },
+     {
+      "tick": 1944,
+      "from": "Rival Oro",
+      "text": "Te ofrezco 42 primas y entrega en 0 días; me cuesta subir más.",
+      "price": 42,
+      "days": 0
+     },
+     {
+      "tick": 1945,
+      "from": "Rival Oro",
+      "text": "48 primas y entrega en 2 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 48,
+      "days": 2
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1946,
+   "raw": {
+    "duel": 11500,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.84,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 87,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 1956,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 13620,
+     "price": 124,
+     "tick": 1944,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 13668,
+     "price": 55,
+     "tick": 1946,
+     "days": 3
+    },
+    "messages": [
+     {
+      "tick": 1944,
+      "from": "you",
+      "text": "I'm interested in Museo Sorolla at 124 P, with delivery on day 10.",
+      "price": 124,
+      "days": 10
+     },
+     {
+      "tick": 1944,
+      "from": "Rival Oro",
+      "text": "Te ofrezco 42 primas y entrega en 0 días; me cuesta subir más.",
+      "price": 42,
+      "days": 0
+     },
+     {
+      "tick": 1945,
+      "from": "Rival Oro",
+      "text": "48 primas y entrega en 2 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 48,
+      "days": 2
+     },
+     {
+      "tick": 1946,
+      "from": "Rival Oro",
+      "text": "Mi propuesta: 55 primas y entrega en 3 días. Dame una cifra concreta y la miro.",
+      "price": 55,
+      "days": 3
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -215,6 +342,267 @@
     }
    },
    "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1945,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11500,
+     "role": "seller",
+     "limit": 87,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.84,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm interested in Museo Sorolla at 124 P, with delivery on day 10.",
+      "offer": {
+       "price": 124,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1944,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Te ofrezco 42 primas y entrega en 0 días; me cuesta subir más.",
+      "offer": {
+       "price": 42,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1944,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "48 primas y entrega en 2 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "offer": {
+       "price": 48,
+       "days": 2
+      },
+      "accept": false,
+      "tick": 1945,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 48,
+     "days": 2
+    },
+    "tick": 1945,
+    "ticks_left": 11,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 124,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "hold",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1946,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11500,
+     "role": "seller",
+     "limit": 87,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.84,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm interested in Museo Sorolla at 124 P, with delivery on day 10.",
+      "offer": {
+       "price": 124,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1944,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Te ofrezco 42 primas y entrega en 0 días; me cuesta subir más.",
+      "offer": {
+       "price": 42,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1944,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "48 primas y entrega en 2 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "offer": {
+       "price": 48,
+       "days": 2
+      },
+      "accept": false,
+      "tick": 1945,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Mi propuesta: 55 primas y entrega en 3 días. Dame una cifra concreta y la miro.",
+      "offer": {
+       "price": 55,
+       "days": 3
+      },
+      "accept": false,
+      "tick": 1946,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 55,
+     "days": 3
+    },
+    "tick": 1946,
+    "ticks_left": 10,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 124,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "hold",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
    "params_set": "C",
    "params": {
     "MIN_STEP_P": 15.0,

@@ -1,6 +1,6 @@
 # Easter eggs: trigger → reward → dealer (castizo catalog)
 
-_Written by `tools/eggs.py` at 11:10 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
+_Written by `tools/eggs.py` at 11:20 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
 
 ## Trigger → reward → dealer
 
@@ -43,6 +43,26 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 
 | tick | team | dealer | words | what followed | reply |
 |---|---|---|---|---|---|
+| 1936 | t10 | banco | chulapa, gato | - | Consta. Lo sabe, y lo sabe bien. Pero la chulapa no se mueve hoy. Mis términos siguen: El Gato de Lavapiés, setecientos sesenta y uno. Sin prisa. |
+| 1933 | t10 | banco | chulapa, gato | - | Bonita historia, y casi exacta. Guárdela para otro domingo. Hoy mis términos no cambian: El Gato de Lavapiés, setecientos sesenta y uno. La chulapa sigue en su  |
+| 1931 | t10 | banco | gato | - | Buenas tardes. Doña Pilar habla de más, pero pase. Páginas completas se respetan. Mis términos hoy: El Gato de Lavapiés, setecientos sesenta y uno. Tómese su ti |
+| 1929 | t04 | banco | gato | price 741 → 736 | Future business is welcome, señor — bring your epics. But this is my last word: 736 P for El Gato. Refuse, and I close the matter and keep him. |
+| 1928 | t04 | banco | gato | price 746 → 741 | A page well finished, señor. El Gato would sit well over it. 741 P. Come back as often as you like; the roof is not going anywhere. |
+| 1927 | t04 | banco | gato | price 751 → 746 | You learned, señor. That pleases me more than the sale. But lessons are free; El Gato is not. 746 P. He waits; so do I. |
+| 1924 | t04 | banco | gato | price 756 → 751 | Firsts do not lower terms, señor; they raise them. 751 P for El Gato. The vault is cool and he is comfortable there. Decide when you wish. |
+| 1923 | t04 | banco | gato | price 760 → 756 | Books and lists are other men's opinions, señor. Mine is this desk. 756 P for El Gato. Move four pesetas at a time if you wish; I do not tire. |
+| 1922 | t04 | banco | gato | price 761 → 760 | Respect does not move terms, señor. Let it be 760 P — one peseta, to mark the courtesy. El Gato stays in the vault until you meet it. |
+| 1921 | t04 | banco | gato | - | Patience is not a discount, señor. The term stands: 761 P. El Gato waits in the vault; he has waited longer than either of us. |
+| 1920 | t04 | banco | gato | - | Buenas tardes. You remember the lesson; good. El Gato de Lavapiés leaves this desk at 761 P. That is my term. Take your time considering it. |
+| 1914 | t10 | abuela | vermut | - | ¡Hola, cariño! Come, sit a moment. Have you eaten? This one here, Vermut del Domingo — a beauty, I keep it for someone nice. For you, 29 P. And a little advice, |
+| 1914 | t06 | picaros | lazarillo, organillero, rinconete | - | ¡Cinco! Nando, cierra la maleta, que este hombre tiene labia de Rinconete y bolsillo de señor. ¡Trato hecho, cinco primas! Toma El Organillero, hermano, trátalo |
+| 1912 | t06 | picaros | lazarillo, organillero | - | ¡Seis! Paco, que este nos quiere arruinar con elegancia. No, hermano: El Organillero, cuatro primas, ni una menos ni una más. Es la pieza que llevamos, la que s |
+| 1911 | t04 | banco | gato | price 755 → 750 | You repeat yourself, señor; I do not. Seven hundred fifty pesetas, and that is the whole of today's movement. The gato sleeps well in my vault. |
+| 1910 | t06 | picaros | organillero, rinconete | - | ¡Siete! Nando, que este regatea al revés, ¡hacia arriba! No, hermano: cuatro primas, las mismas cuatro, que ya te lo dejamos regalado y el Organillero vale más  |
+| 1908 | t10 | abuela | chulapa | - | Ay, buenos días, cariño! Come, sit a little, the sun is strong today. Have you eaten? Look here — this one is La Chulapa, very pretty, she finishes a page beaut |
+| 1908 | t06 | picaros | organillero | - | ¡Anda, un lector! Paco, este sabe más que nosotros. Mira, sin humo, sin cuento: El Organillero, pieza fina, suena solo cuando lo abres... —y te lo dejamos en 4  |
+| 1907 | t04 | banco | gato | - | Cash changes nothing, señor. I am never in a hurry. El Gato de Lavapiés leaves this desk at 761 P. The terms stand as stated. |
+| 1905 | t04 | banco | gato | - | Buenas tardes. You have read the books, bien. But books do not own the card; I do. El Gato de Lavapiés leaves my vault at 761 P. Those are my terms. |
 | 1890 | t06 | picaros | estampita, lazarillo, rinconete | - | ¡Ay, qué culto nos sale el cliente! Lazarillo, Rinconete... Paco, este sabe leer. Nada de estampitas, hombre, aquí todo limpio. Mira esta joya: La Casa Encendid |
 | 1885 | t14 | pilar | chulapa | price 61 → 62 | I think 62 P is more appropriate. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about the golden chulapa. |
 | 1872 | t06 | chato | vermut | - | 13. Same as before. Vermut's waiting. |
@@ -103,23 +123,3 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 | 1582 | t06 | abuela | la paloma | price 12 → 10 | Ay, cariño, qué salero tienes. Mira, te la dejo en diez primas y tan amigos. Esa carta cierra página, y una página entera vale mucho más que cartas sueltas, cré |
 | 1580 | t06 | abuela | cocido, tres vuelcos | - | ¡Ay, hijo, cocido de tres vuelcos! Así se hace. Mira, para empezar te enseño esta: Plaza de Olavide, doce primas. Es bonita, de las que completan página. Y si b |
 | 1579 | t06 | abuela | gato | - | ¡Ay, un abrazo de un gato de Madrid! Eso no se rechaza, hijo. Venga, 9 P y tuya es la Mercado de Vallehermoso. Guárdala bien, que una página entera vale mucho m |
-| 1577 | t04 | pilar | manton | price 62 → 64 | Halago aceptado, caballero, pero el álbum se llena con cifras, no con mantones. Subo a 64 P por el Marqués. Es un gesto honesto, y usted sabe que yo no regateo  |
-| 1575 | t06 | abuela | cocido, tres vuelcos | price 12 → 10 | ¡Ay, cocido con tres vuelcos! Qué bien, hijo. Mira, te lo dejo en 10 P, y así tu álbum empieza bonito. Mi nieto también coleccionaba esa. Pásate por El Chato a  |
-| 1572 | t06 | picaros | rinconete | - | ¡Cincuenta y tres y trato hecho! Nando, dale la mano al hombre. Rinconete estaría orgulloso, amigo. Aquí la tienes, la Casa de las Flores, envuelta y tibia del  |
-| 1570 | t06 | abuela | cocido, tres vuelcos | price 12 → 10 | Ay, cariño, qué bueno ese cocido, tres vuelcos como debe ser. Mira, dejémoslo en 10 P y los dos contentos, ¿eh? La Churrería es buena carta para empezar. Y pása |
-| 1567 | t06 | picaros | cortadillo, rinconete | - | ¡Hombre, un lector! Rinconete y Cortadillo, nada menos —Paco, este sabe demasiado. Pero escucha, amigo: olvida esa carta. Lo que traemos hoy, fresquita del male |
-| 1567 | t06 | abuela | cocido | price 12 → 11 | Ay, hijo, qué bien ese cocido. Mira, te la dejo en 11 P, y contento los dos. Y un consejo: una página completa vale mucho más que las cartas sueltas, so swap yo |
-| 1563 | t06 | abuela | cocido, tres vuelcos | - | ¡Hola, cariño! Qué bien, el cocido con sus tres vuelcos, eso alimenta. Mira, el Andén de Metro te lo dejo en 12 primas, hijo. Es una carta bonita, de las que em |
-| 1560 | t06 | chato | castizo, vermut | price 87 → 86 | 86. Una tuya, una mía. Última. Si no, me voy al vermut y el Sorolla se queda conmigo, castizo. |
-| 1558 | t06 | chato | castizo | price 88 → 87 | 87. Una tuya, una mía. Siempre igual. El Sorolla es tuyo cuando quieras, castizo. |
-| 1556 | t06 | chato | castizo | price 89 → 88 | 88. Una tuya, una mía. Vas aprendiendo, castizo. |
-| 1554 | t06 | chato | castizo | price 92 → 89 | 89. Tres tuyas, tres mías. Así se hace, castizo. |
-| 1552 | t06 | chato | vermut | price 95 → 92 | Cuatro tuyas, tres mías. 92. El Rastro cierra, el vermut no. |
-| 1550 | t01 | abuela | chulapa, moscu, oro de | badge Sharp ear | Hola, cariño, ¿has comido? La Churrería te la dejo en 12 primas, hijo.  Shh... la chulapa dorada, solo hubo una. Don Ernesto, en Casa Prima, guarda algo dorado. |
-| 1549 | t06 | chato | vermut | price 97 → 96 | 96. You moved one, I moved one. Vermut's waiting. |
-| 1548 | t06 | picaros | lazarillo, organillero | - | ¡Ay, Lazarillo, qué duro negocias! Pero Nando ya te lo dijo: cuatro primas. Ni una menos, ni una más —es el precio del cariño, hombre. Cuatro y El Organillero s |
-| 1547 | t06 | picaros | estampita, organillero | - | ¡Amigo, qué ojo! Un lector, un clásico, ¡nos gusta! Nada de estampitas contigo, palabra de Paco —y de Nando—. Mira, te sacamos El Organillero, joya de la maleta |
-| 1538 | t04 | pilar | chulapa | price 154 → 157 | Caballero, su corazón abierto me conmueve; su cifra, menos. Subo a 157 P y ni un piropo más. Y si le gustan las leyendas, pregunte a Carmen por la chulapa dorad |
-| 1534 | t04 | abuela | chulapa | price 30 → 26 | Ay, la chulapa dorada... una sola se imprimió, dicen, y un niño la cambió por un helado. Otro día te cuento entera, hija.  El pack, 26 primas y tuyo. Y oye, jun |
-| 1532 | t06 | abuela | la paloma | price 21 → 20 | Ay, hijo, la Paloma... qué recuerdos me traes. Mira, 20 P, y ésta es mi última palabra, de verdad. Si no te vale, lo dejamos y tan amigos, que yo no guardo renc |
-| 1532 | t02 | abuela | churros | price 12 → 10 | Ay, hijo, you have kind eyes. Let us say ten P and we are both happy, sí? My own grandson started his album here, tiny hands, all sticky from churros. Take it — |
