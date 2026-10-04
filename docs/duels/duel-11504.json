@@ -376,6 +376,94 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 2000,
+   "raw": {
+    "duel": 11504,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.86,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 111,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 2001,
+    "decay_per_round": 0.1,
+    "rounds": 3,
+    "your_offer": {
+     "id": 14921,
+     "price": 126,
+     "tick": 1999,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 14949,
+     "price": 143,
+     "tick": 2000,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1989,
+      "from": "Rival Rojo",
+      "text": "I can do 108 P with delivery in 0 days. Every round costs us both, so let's close.",
+      "price": 108,
+      "days": 0
+     },
+     {
+      "tick": 1989,
+      "from": "you",
+      "text": "I need 158 P, and I can deliver on day 10 rather than day 0 if that helps close the gap.",
+      "price": 158,
+      "days": 10
+     },
+     {
+      "tick": 1990,
+      "from": "Rival Rojo",
+      "text": "126 P with delivery in 0 days works for me and we can close now.",
+      "price": 126,
+      "days": 0
+     },
+     {
+      "tick": 1998,
+      "from": "you",
+      "text": "I can do 141 P, delivery on day 10.",
+      "price": 141,
+      "days": 10
+     },
+     {
+      "tick": 1998,
+      "from": "Rival Rojo",
+      "text": "I can do 138 P with delivery in 0 days to close today.",
+      "price": 138,
+      "days": 0
+     },
+     {
+      "tick": 1999,
+      "from": "you",
+      "text": "I can do 126 P, delivery on day 10.",
+      "price": 126,
+      "days": 10
+     },
+     {
+      "tick": 2000,
+      "from": "Rival Rojo",
+      "text": "A real step from me: 143 P with delivery in 0 days.",
+      "price": 143,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1625,5 +1713,91 @@
     "settles_at_tick": 2001
    }
   }
- ]
+ ],
+ "last_seen_tick": 2001,
+ "done": {
+  "duel": 11504,
+  "session": 4,
+  "status": "deal",
+  "role": "seller",
+  "item": "Museo Sorolla",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 3.86,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 111,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Rojo",
+  "deadline_tick": 2001,
+  "decay_per_round": 0.1,
+  "rounds": 3,
+  "your_offer": {
+   "id": 14921,
+   "price": 126,
+   "tick": 1999,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 14949,
+   "price": 143,
+   "tick": 2000,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1989,
+    "from": "Rival Rojo",
+    "text": "I can do 108 P with delivery in 0 days. Every round costs us both, so let's close.",
+    "price": 108,
+    "days": 0
+   },
+   {
+    "tick": 1989,
+    "from": "you",
+    "text": "I need 158 P, and I can deliver on day 10 rather than day 0 if that helps close the gap.",
+    "price": 158,
+    "days": 10
+   },
+   {
+    "tick": 1990,
+    "from": "Rival Rojo",
+    "text": "126 P with delivery in 0 days works for me and we can close now.",
+    "price": 126,
+    "days": 0
+   },
+   {
+    "tick": 1998,
+    "from": "you",
+    "text": "I can do 141 P, delivery on day 10.",
+    "price": 141,
+    "days": 10
+   },
+   {
+    "tick": 1998,
+    "from": "Rival Rojo",
+    "text": "I can do 138 P with delivery in 0 days to close today.",
+    "price": 138,
+    "days": 0
+   },
+   {
+    "tick": 1999,
+    "from": "you",
+    "text": "I can do 126 P, delivery on day 10.",
+    "price": 126,
+    "days": 10
+   },
+   {
+    "tick": 2000,
+    "from": "Rival Rojo",
+    "text": "A real step from me: 143 P with delivery in 0 days.",
+    "price": 143,
+    "days": 0
+   }
+  ],
+  "result": 19.7,
+  "price": 138,
+  "days": 0
+ }
 }
