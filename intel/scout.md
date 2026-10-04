@@ -1,27 +1,30 @@
-# Scout (claude-sonnet-5-5, Sun 07:14)
+# Scout (claude-sonnet-5-5, Sun 07:30)
 
 ## Top 3 actions now
-1. **Keep the trader off rival venues; start only via t0 at R+10 (operator).**
-   - Evidence: the game is closed until Sun 09:00 (tick 1445, "offers stay open; the clock stops"). We are #3 at 30.5, with t12 at 30.4 and t18 at 31.3. The gap to #2 is 0.8.
-   - Directives: t0 (pid 92570) is armed. run/trader_ok exists. CASH_FLOOR=464, with cash at 392.
-   - Effect: this protects the neg_points of 119.1. It adds nothing new.
-   - Confidence: high.
-2. **Add no new sales to t12, t18 or t10. Send the spare LAV-03/LAV-04 asks (6 P, addressed to t04/t01, expire tick 1455) only to non-top-4 teams (operator).**
-   - Evidence: t04 (#11, 25.1) and t01 (#9, 25.8) are both below us by more than 10. t04 collects LAV/RET and t01 collects LAV/SAL/MAL. Rival profiles list no buyer above our value + 3.
-   - Effect: the spares are worth 3.2 each to us, so the gain is about +2.8 each, minus the maker fee of 0. Small, but it adds neg_points.
-   - Confidence: med. Both offers expire at tick 1455 and the clock is stopped, so they stay live until the game reopens. Re-list them if they lapse.
-3. **Sunday CHA close: keep it addressed on El Rastro with the seller's fee added (per the 07:25 GUARDRAIL), and Pícaros rare asks ≤ 60 → 62 (operator, t0 chain).**
-   - Evidence: the Pícaros picaros-rare median is 55 (Sat). Their rare list is 63. The directive cites finals of 55-60. Earlier Pícaros buys: SAL-09/10 at 54, scoring +15.5 in the tick-904 window together with other deals.
-   - Effect: a closer is capped at about +50 per trade. A CHA rare is worth about 112 to us at 1.6×.
+1. **Operator t0 chain at R (09:00): Pícaros CHA rares at ≤57 → ≤60 → ≤62, one thread at a time, always under his list of 63.**
+   - Evidence: Pícaros rare median 55 over 1 deal; Saturday finals 55-60; a CHA rare is worth 112 to us (1.6 × 70), so each buy is above value by ~50. A dealer deal scores min(0, ΔV − price), so no loss.
+   - Effect: no `neg_points` from the dealer deals themselves. They feed the CHA page, and the page close scores only through a team trade.
+   - Confidence: med.
+2. **Page closers (CHA last card, MAL-07) go on El Rastro, addressed to the seller, with the seller's fee added to our price. Operator/books execute.**
+   - Evidence: our last closer (SAL-06 at 28, fee 3, value 82.1) gave +40.4 `neg_points` (119.1 now). The cap is 50 per trade, and pack drag took ~10 off.
+   - Effect: up to +40-50 per closer. Open the sobre_plata (71.6) first to avoid drag, unless it is held for the CHA release.
+   - Confidence: high on mechanics, med on finding a seller.
+3. **Keep every public CHA bid that is ≥0 for us. Cancel any bid for a card t10 or t01 holds. The t0 watcher does this (directive 07:40).**
+   - Evidence: the leader t10 is 37.6 vs our 30.5. It collects LAV/RET and traded MAL-11 at 195.
+   - Effect: no direct `neg_points`; it denies the leader cards and squeezes t18/t12/t03.
    - Confidence: med.
 
+Not worth doing now:
+- Selling spares (MAL-01..05 at 7; others ask 12) fails the feeding rule. No buyer passes it above our value + 3 (Dani's table).
+- Our LAV-02 ×3 (1.3 each) and LAV-03 (3.2) go to the Workshop at C (directive).
+
 ## What the climbing teams are doing
-- **Team 18 (#2, 31.3, +0.8 per ~30 ticks) collects RET/LAT.** It bought LAT-10 from t13 at 72 (tick 1332), below the 86 that t12 paid at tick 1304. It is buying rares near 72 while dumping LAV/MAL.
-- **Team 16 (#14, +0.3) buys RET.** It is the only other riser. Its prices are low (c 4, u 14, r 50) and it lists 796 offers. The feed shows no completed page from it.
-- **Team 12 (#3 or #4, +0.4) bought the RET-11 epic from t6 at 216 (tick 1245) and LAT-10 at 86, LAT-06 at 20, LAV-08 at 14 (tick 1420).** Its 29 team trades come as buyer on collected sets. t12 is one of the teams we must not feed.
-- **Team 10 (#1, 37.6) is flat.** It sold MAL-06 at 20 to t09 (tick 1230) and an epic at 207 to t17. It has 467 listings.
+- **Team 18 (#2, 31.3, Δ +0.8, collects RET/LAT):** bought LAT-10 at 72 from t13 (tick 1332). It also took SAL-10 at 80 from t12 earlier.
+- **Team 12 (#3 per Dani, 30.6, Δ +0.4, collects RET/MAL/LAT; 70 deals in the metrics):** bought epics and cheap uncommons: RET-11 at 216 (tick 1245), LAT-10 at 86, LAT-06 at 20 (1303), LAV-08 at 14 (1420). It is the heaviest LAT buyer (LAT×8).
+- **Team 16 (#14, Δ +0.3):** bids LAV-10 at 28 and RET-06 at 18 on El Rastro. It is cheap-bid fishing, not a threat.
+- **Team 13 (88 deals, #10, 25.0):** volume without score. It does not climb.
 
 ## Threats
-- **t12 is 0.1 behind us (30.4 vs 30.5) and bought RET-11 at 216.** It is also buying LAT/MAL/RET. Any card we sell it moves the ranking. LAV-08 went t8→t12 at 14.
-- **RET rare competition.** t07 and t04 both took RET-10 from t06 (77 and 84), and t06 sold at 84. t16 bids RET-06 at 18, and t09/t13 are also in. Our RET page is already complete, so this is mostly relevant if we sell. The CHA rares will face the same bidding competition (t01 bids 152 for MAL-11).
-- **Feeding v10 (#1, 37.6).** Club deals send 2 of every 3 deals to v10, as decided. This raises the top-3 mean against us. That is a directive, so no change, but watch that mm_points does not go negative (it fell −5.2 on tick 398).
+- **t10 (leader, 37.6 vs our 30.5):** it dumps SAL/MAL/LAT and collects LAV/RET, which are our sets. It sold SAL-11 at 207 to t17 and bought MAL-11 at 195. Never feed it page closers.
+- **RET demand:** t07 has RET×9 buys and t04 RET×6. t06 sold RET-10 at 84 to t04 (tick 1257) and RET-06 at 30 to t07 (tick 1417). No RET closers to teams in the top 4.
+- **Board lead is thin:** the metrics show us #3 (30.5, 0.1 ahead of t12 30.4); Dani's table puts t12 ahead of us. Any t12 or t18 closer trade passes us. A t12 rival-venue trade also feeds its venue owner.
