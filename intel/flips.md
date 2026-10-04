@@ -1,6 +1,6 @@
 # Flips: team bids a dealer can fill (Team 10's playbook)
 
-_Written by `tools/reactor.py` at 11:32 (tick 1991). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
+_Written by `tools/reactor.py` at 11:33 (tick 1995). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
 
 ## Open bids (HUNT digest)
 
@@ -8,11 +8,12 @@ _Written by `tools/reactor.py` at 11:32 (tick 1991). The open team bids for rare
 |---|---|---|---|---|---|---|---|
 | 170 | LAV-11 La Casa Encendida (epic) | t12 | v21 → t04 | none (all minted or no dealer) | - | 23969 | 11:37 |
 | 170 | LAV-11 La Casa Encendida (epic) | t12 | v21 → t06 | none (all minted or no dealer) | - | 23970 | 11:37 |
-| 114 | LAT-11 San Francisco el Grande (epic) | t06 | v21 | picaros 145 | -31 | 23890 | 11:49 |
+| 150 | MAL-11 La Sala Pentagrama (epic) | t17 | rastro | picaros 146 | +4 | 24250 | 11:47 |
+| 114 | LAT-11 San Francisco el Grande (epic) | t06 | v21 | picaros 146 | -32 | 23890 | 11:49 |
 | 112 | SAL-11 La Puerta de Alcalá (epic) | t10 | v19 → t08 | none (all minted or no dealer) | - | 24160 | 11:39 |
-| 81 | MAL-11 La Sala Pentagrama (epic) | t06 | v21 | picaros 145 | -64 | 24180 | 12:00 |
+| 81 | MAL-11 La Sala Pentagrama (epic) | t06 | v21 | picaros 146 | -65 | 24180 | 12:00 |
 | 44 | LAT-09 San Isidro (rare) | t06 | v21 | picaros 57 | -13 | 24213 | 12:01 |
-| 31 | MAL-09 La Heroína del Dos de Mayo (rare) | t06 | v21 | picaros 57 | -26 | 23219 | 11:32 |
+| 44 | LAT-10 El Mesón de la Cava (rare) | t06 | v21 | picaros 57 | -13 | 24267 | 12:02 |
 | 31 | MAL-10 Noche de Movida (rare) | t06 | v21 | picaros 57 | -26 | 23379 | 11:36 |
 
 ## Flips today (newest last)

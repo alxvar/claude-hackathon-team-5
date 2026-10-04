@@ -23,7 +23,7 @@ not conclusive.
 
 | | My model (Final mix, share × 0.9^rounds) | Duel Lab simulator (5 worlds × H1 / H2) |
 |---|---|---|
-| `ACCEPT_BY` 1 vs 2 | **+0.029 ± 0.006 per duel** (better against 16 of 17 teams). Range across 6 world variants +0.009 to +0.034 | **+0.007 to +0.008 in all 10 cells** |
+| `ACCEPT_BY` 1 vs 2 | **+0.029 ± 0.006 per duel** (better against 16 of 17 teams). Range across 6 world variants +0.009 to +0.033 | **+0.007 to +0.008 in all 10 cells** |
 | Over the Final's 34 duels | ≈ +1.0 duel point | ≈ +0.25 |
 
 **Why it works [L].** At 2 ticks left our closing offer is still standing, and the rival may accept it. Taking their
@@ -41,10 +41,10 @@ weaker in-limit offer at that tick throws that chance away.
 
 | Change | My model | Lab simulator | Verdict |
 |---|---|---|---|
-| `OPENER_SHARE_BUYER` 0.45 | +0.010 | −0.005 | models disagree |
-| `OPEN_WAIT` 2 | +0.005 | −0.004 to +0.004 | models disagree |
-| `CLOSING_TICKS` 2 | +0.015, but −0.017 with no deadline accepts and deal rate −6 points | −0.02 to −0.03 | reject |
-| `CLOSING_TICKS` 4, `MONO_END_SHARE` 0.4 | −0.013 to −0.026; zero-worth deals up from 4% to 9% | not run | reject |
+| `OPENER_SHARE_BUYER` 0.45 | +0.011 | −0.002 to −0.009 | models disagree |
+| `OPEN_WAIT` 2 | +0.005 | −0.009 to +0.004 | models disagree |
+| `CLOSING_TICKS` 2 | +0.015, but −0.014 with no deadline accepts and deal rate −5 points | −0.024 to −0.039 | reject |
+| `CLOSING_TICKS` 4, `MONO_END_SHARE` 0.4 | −0.012 to −0.024; zero-worth deals up from 4% to 9% | not run | reject |
 | `MONO_END_SHARE` 0.15, `END_STEP_SHARE` 0.3, `SILENT_KEEP` 0.05 / 0.3, `ACCEPT_RATIO` 0.8 / 0.9 | within ±0.005 | not run | no change |
 | `MIN_STEP_P` 8 | −0.011 | not run | keep 15 |
 | `LATE_SWITCH_LEFT` 2 / 3 | −0.011 / −0.017: switches away from day 10 against rivals that would have taken it | not run | reject |
@@ -61,15 +61,16 @@ weaker in-limit offer at that tick throws that chance away.
   - **new: a mirror bot** (Rival Verde, 11352/11353, "I can do N with delivery on day N. That is a fair deal…");
   - not seen today: D, G, J, M and O, probably the silent ones and the mirror.
 - **Day-rigid rivals are the norm:** 30 of 38 responding rivals offered one day only.
-  - **As buyers,** most still took our day-10 offers (B, E, F, I, N), so seller day 10 stays.
+  - **As buyers,** most still took our day-10 offers or offered day 10 themselves (B, F, I, N), so seller day 10
+    stays.
   - **As sellers on day 10,** F, L and the mirror took our day-0 offer only at our limit: 11125, 11285 and 11353
     closed at worth 0.
 - **The mirror bot** moves to our price on its own day, then copies each new price we offer.
   - In 11352 its offer was inside our limit at t4 (121 on day 0, worth 11). Later it copied our falling prices below
     our cost, and the duel ended with no deal.
   - That's 2 duels in the Final. A generic switch-to-their-day rule costs more elsewhere, so it isn't recommended.
-- **Rivals that never entered our limit:** 8 of 38. Most of them still took our offer (E, N at day 10). The bad cases
-  are the 3 zero-worth deals above.
+- **Rivals that never entered our limit:** 8 of 38. Most of them still took our offer (E twice, N). The bad cases are
+  the 3 zero-worth deals above.
 
 **Is 92% close to the ceiling? Yes.**
 - **Responding rivals [V]:** 35 deals in 38 (92%). Of the 3 no-deals:
