@@ -24,7 +24,8 @@ from pathlib import Path
 R = str(Path(__file__).resolve().parents[1] / 'docs' / 'duels') + '/'
 MIN_N, THR = 12, 0.60
 TODAY_MIN_STEP_P = 3                       # kept for tools/duel_loop.py's import
-SET_C = {'MIN_STEP_P': 8, 'MAX_STEP_SHARE': 0.12, 'OPEN_WAIT': 0, 'MONO_END_SHARE': 0.25}   # C and C2 share these
+SET_C = {'MAX_STEP_SHARE': 0.12, 'OPEN_WAIT': 0, 'MONO_END_SHARE': 0.25}   # C, C2 and C+ share these
+C_MIN_STEP_P = (8, 15)                     # C and C2: 8; C+ (Sun 07:25, with ACCEPT_BY 1): 15
 SET_A = {'MIN_STEP_P': 5, 'MAX_STEP_SHARE': 0.18, 'LATE_SWITCH_LEFT': 2, 'OPEN_WAIT': 2, 'MONO_END_SHARE': 0.25}
 
 
@@ -38,10 +39,10 @@ def load(session):
 
 
 def live_set(eff):
-    """'C' when the effective params are set C (or C2), 'A' when set A, else None (unknown: never switch)."""
+    """'C' when the effective params are set C (or C2, C+), 'A' when set A, else None (unknown: never switch)."""
     if not eff:
         return None
-    if all(eff.get(k) == v for k, v in SET_C.items()):
+    if eff.get('MIN_STEP_P') in C_MIN_STEP_P and all(eff.get(k) == v for k, v in SET_C.items()):
         return 'C'
     if all(eff.get(k) == v for k, v in SET_A.items()):
         return 'A'

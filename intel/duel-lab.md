@@ -11,95 +11,120 @@ _Lucas's Duel Lab session. It never writes to the game or to `agents/duelist/`._
   fixed below._
 - _**Labels:** [V] measured on our records or code, [L] modelled or inferred, [?] unknown._
 
-## C+ verdict (Sun 07:25): YES, play C+ (C plus MIN_STEP_P 15 and ACCEPT_BY 1)
+## C+ verdict (Sun 07:35): YES, play C+ (C plus MIN_STEP_P 15 and ACCEPT_BY 1), applied hot on 29aa1be
 
-This answers the Chief's 08:15 question on `intel/contra-duels.md` §1.
+This answers the Chief's 08:15 question on `intel/contra-duels.md` §1. An independent verifier audited this section
+(1 code claim and 3 instructions corrected below).
+- **It supersedes** "`ACCEPT_BY` 1: settle risk" under "Still not recommended" in the FINAL section (Sat 23:45). That
+  risk is now bounded below.
 - **Setup [L]:** re-run on my sim3, paired against C. 12 ticks, 10% decay, code-first with the branch's openers
   (0.42 / 0.37). 10,000 duels per world, 95% CIs.
-- **Sources:** scratchpad `v2/cplus.py`, `cplus.out`; LLM moves in `cplus_llm.out`.
+- **Mirrors** use the models' drawn openers.
+- **Sources:** scratchpad `v2/cplus.py` and `cplus.out`; LLM moves in `cplus_llm.out`; accept slips in
+  `accslip.out`.
 
 | World (H1) | C, points per duel | C+ − C | Deal rate C → C+ |
 |---|---|---|---|
 | R1-R5, past rivals | 0.37-0.48 | +0.022 to +0.029 (± 0.003) | unchanged or +0.01 |
 | Fast closer | 0.345 | +0.041 ± 0.003 | 0.89 → 0.90 |
 | 20% silent rivals | 0.388 | +0.021 ± 0.003 | 0.75 → 0.76 |
-| Tough all duel / no end-softening (the worst two) | 0.265 / 0.334 | +0.006 / +0.007 (± 0.002) | 0.78 → 0.79 / 0.83 → 0.84 |
-| All replies tough / high floors / small pies | 0.32-0.47 | +0.022 / +0.029 / +0.049 | unchanged to +0.03 |
+| Tough all duel / no end-softening (the worst two) | 0.265 / 0.334 | +0.006 ± 0.002 / +0.007 ± 0.003 | 0.78 → 0.79 / 0.83 → 0.84 |
+| All replies tough / high floors / small pies | 0.32-0.47 | +0.022 / +0.029 / +0.049 | +0.01 to +0.03 |
 | Mirrors: our bot plays C+ instead of C, against today / A / C / C+ | 0.28-0.39 | +0.117 / +0.026 / +0.112 / +0.078 | against A: 1.00 → 0.95 |
 
 - **H2 agrees:** C+ − C is between +0.008 and +0.035 in every world.
-- **Under LLM moves** (if the code policy is pulled), the gain is smaller:
+- **Under LLM moves** (only if the code policy is pulled), the gain is smaller and the deal rate drops 0.01-0.03:
   - realistic worlds: +0.012 to +0.025;
   - with 30% timeouts: +0.006 to +0.010;
-  - the two extreme worlds: −0.002 ± 0.002, inside the noise.
-- **No world is clearly worse.** The worst cell is −0.0024 ± 0.0025 (LLM moves, no end-softening).
+  - the two extreme worlds: ≈ −0.002.
+- **The one significantly negative cell:** LLM moves with 30% timeouts and no end-softening, −0.0022 ± 0.0020.
+  - It is tiny and needs the code policy pulled.
+  - One marginal hit in ≈ 36 cells is what chance alone gives.
+  - Every code-first cell is positive.
 - **Apply both changes or neither:**
-  - `MIN_STEP_P` 15 alone carries most of the gain, but it is slightly negative when rivals are tough all duel
-    (−0.0035 ± 0.0021).
-  - `ACCEPT_BY` 1 alone gains +0.005 to +0.032.
-  - Together they are positive in every code-first world. A middle option, `MIN_STEP_P` 12 with `ACCEPT_BY` 1, scores
-    between C and C+: no reason to pick it.
+  - `MIN_STEP_P` 15 alone carries ≈ 63% of the gain (+0.018 of +0.028). It is the variant that turns slightly
+    negative when rivals are tough all duel (−0.0035 ± 0.0021).
+  - `ACCEPT_BY` 1 alone gains +0.006 to +0.032.
+  - Together they are positive in every code-first world.
+  - A middle option, `MIN_STEP_P` 12 with `ACCEPT_BY` 1, scores at or below C+: no reason to pick it.
 - **Stake [L]:** past rivals plus the fast closer, H1, code-first:
   - ≈ +0.028 a duel, which matches contra-duels' +0.029;
-  - × 102 Sunday duels (68 in Duels III, 34 in the Final) ≈ **+2.8 raw duel points**.
-- **Fewer rounds:** the simulated rounds per deal are 1.2-1.6 for C+, against 1.5-1.9 for C (fast closer: 2.1 vs 1.8).
-- **The risk the sim doesn't see: `ACCEPT_BY` 1 has no spare tick.** An accept refused on the last tick isn't
-  retried. The evidence says the risk is small [V]:
+  - × 102 Sunday duels (68 in Duels III, 34 in the Final) ≈ **+2.9 raw duel points**;
+  - ≈ +0.45 Sunday points at contra-duels' 1 raw ≈ 0.16.
+- **Rounds per deal:** C+ runs ≈ 0.2-0.3 fewer rounds per deal than C in the sim, except against the fast closer
+  (+0.3).
+  - Live C ran above the sim (2-3), so judge C+ live against C, not against the sim's absolute numbers.
+- **`MIN_STEP_P` 15 is the top of its bound** (0-15 in `params.py` SPEC) [V]. The tough-world result argues against
+  pushing it further.
+
+**The risk the sim doesn't see: `ACCEPT_BY` 1 has no spare tick.** An accept refused on the last tick isn't retried,
+so the deal is lost.
+- **Facts [V]:**
   - duel accepts aren't limited per team (organisers, Sat 16:55; three settled in tick 1281);
   - our only two accepts sent with 1 tick left (2506, 6095) were both queued and settled;
-  - no accept of ours has ever been refused;
-  - the code accept's unused text call adds at most 3.5 s, well inside a 15 s tick.
-  - If any accept shows a send error, set `ACCEPT_BY` back to 2.
-- **With the trader, swaps and opps on (Chief, 07:20: the key at 73-92%), C+ still wins.** It doesn't need them off.
-  - **Simulated [L]:** each accept slips a tick with probability p. A slipped accept is retried next tick; with 1 tick
-    left the deal is lost (`v2/accslip.out`, past rivals + fast, H1, code-first):
+  - none of our accepts was ever refused: the 5 send errors on record are 3 `wait_for_tick` and 2 `bad_price`, all on
+    offers;
+  - the deadline accept takes no model call.
+- **The busy key** (Chief, 07:20: the trader, swaps and opps on, the key at 73-92%). Simulated [L]: each accept slips
+  a tick with probability p. A slipped accept is retried next tick; with 1 tick left the deal is lost
+  (`v2/accslip.out`):
 
-    | p | C+ − C | `MIN_STEP_P` 15 alone − C | C+ − (15 alone) |
-    |---|---|---|---|
-    | 0 | +0.028 | +0.018 | +0.010 |
-    | 5% | +0.027 | +0.018 | +0.009 |
-    | 20% | +0.024 | +0.018 | +0.006 |
+  | p | C+ − C | `MIN_STEP_P` 15 alone − C | C+ − (15 alone) |
+  |---|---|---|---|
+  | 0 | +0.028 | +0.018 | +0.010 |
+  | 5% | +0.027 | +0.018 | +0.009 |
+  | 20% | +0.024 | +0.018 | +0.006 |
 
-  - **Records bound [V/L]:** the sim under-counts late accepts. In our records, 21-24% of duels closed on our accept
-    with ≤ 2 ticks left (Duels I 8/34, Duels II 14/68). Under C+ these all wait for the last tick.
-    - So a slip rate p costs ≈ p × 0.22 × ≈ 0.45 ≈ 0.10·p a duel.
-    - Break-even against `MIN_STEP_P` 15 alone: **p ≈ 10%** of last-tick accepts slipping.
-    - Break-even against C: **p ≈ 28%**.
-  - **What p is plausible [L/?]:**
-    - ops-contention's model gives 0.1-2 duelist moves pushed a tick an hour with everything on. That is about 0.5% or
-      less of the duelist's ≈ 400 sends an hour (my estimate).
-    - A last-tick accept goes out within ≈ 2-6 s of the tick start, and the SDK absorbs a 429 within 1.5 s.
-    - p hasn't been measured under load.
-  - **`MIN_STEP_P` 15 alone keeps only ≈ 63% of the gain** (+0.018 of +0.028), and it is the variant that turns
-    slightly negative when rivals are tough all duel (−0.003). C+ stays positive there.
-  - **Stopping the trader, swaps and opps for the window** is a cheap hedge on this tail, worth ≈ 0.10·p a duel. It
-    isn't a precondition for C+.
-- **`MIN_STEP_P` 15 is the top of its bound** (0-15 in `params.py` SPEC) [V]. The tough-world result argues against
-  pushing it further, even with a code change.
+- **Records bound [L]:** the sim under-counts late accepts.
+  - In our records, 21-24% of duels closed on our accept with ≤ 2 ticks left (Duels I 8/34, Duels II 14/68), all at
+    `ACCEPT_BY` 2. C+ holds longer, so its share is likely higher.
+  - A slip rate p then costs ≈ p × 0.22 × ≈ 0.5 (simulated points per deal) ≈ 0.11·p a duel, or more.
+  - Break-even against `MIN_STEP_P` 15 alone: **p ≈ 9%** of last-tick accepts, lower if the share is higher.
+  - Break-even against C: **p ≈ 25%**.
+- **What p is plausible:** ops-contention gives ≤ 0.6% of the duelist's moves pushed a tick in Duels III with
+  everything on.
+  - Its caveats: the server's limiter may be stricter than a plain bucket.
+  - Wave-synchronised last-tick accepts land in the tick-start burst, where that model refuses some duelist moves for
+    4-5 s.
+  - So p is probably far below 9%, but it is unmeasured [?].
+- **Verdict on the trader:** C+ still wins with the trader, swaps and opps on.
+  - Keep them off in the duel window anyway (directives 01:30, contra-duels §5). The hedge costs ≈ nothing (the trader
+    took 2 accepts all Saturday) and removes this tail.
+  - If they must run, C+ is still better than `MIN_STEP_P` 15 alone unless more than ≈ 1 in 11 last-tick accepts
+    slips.
+  - If any accept shows a send error, set `ACCEPT_BY` back to 2 (`approve` with `{"ACCEPT_BY": 2}`).
 
-**The exact complete set, and what else `docs/duel_sets.json` needs.** Read in `params.py` (`load_sets`) and
-`duel_loop.py` (`use`, `switch_once`) on 29aa1be [V]:
-```json
-"C+":    {"MIN_STEP_P": 15, "MAX_STEP_SHARE": 0.12, "LATE_SWITCH_LEFT": 0, "OPEN_WAIT": 0, "MONO_END_SHARE": 0.25, "ACCEPT_BY": 1},
-"C":     {"MIN_STEP_P": 8,  "MAX_STEP_SHARE": 0.12, "LATE_SWITCH_LEFT": 0, "OPEN_WAIT": 0, "MONO_END_SHARE": 0.25, "ACCEPT_BY": 2},
-"A":     {"MIN_STEP_P": 5,  "MAX_STEP_SHARE": 0.18, "LATE_SWITCH_LEFT": 2, "OPEN_WAIT": 2, "MONO_END_SHARE": 0.25, "ACCEPT_BY": 2},
-"today": {"MIN_STEP_P": 3,  "MAX_STEP_SHARE": 0.25, "LATE_SWITCH_LEFT": 4, "OPEN_WAIT": 2, "MONO_END_SHARE": 0.25, "ACCEPT_BY": 2},
-"_switch": {"C": "A", "C+": "A"}
-```
-- **`ACCEPT_BY` 2 in every other set is required.**
-  - `load_sets` rejects a file whose sets list different keys, and then `use` refuses every set.
-  - The start script would die at "4/6 install the approved set", loudly, before any duel.
-  - 2 is the code default (`runner.py`), so C, A and today play exactly as before.
-- **`"C+": "A"` in `_switch` is required for `AUTOSWITCH`.** `switch_once` acts only when the file's `_set` is a key
-  of `_switch`. Without it, it logs "plays C+ … nothing written".
-- **`_default`** is Aleks's call: the file's note says to set it to the set he picks.
-- **The new sha** needs the duelist tests and `--check` before 08:00. The tests use their own sets fixture, so the new
-  set doesn't affect them [V].
-- **If the new sha isn't green by ≈ 07:55:**
-  - start `SET=C` on 29aa1be as planned, then hot-apply contra-duels' two-key `approve` (§1);
-  - the effective params are the same;
-  - `approve` merges, so `_set` stays "C" and the C → A switch still works. A is written whole, which puts
-    `ACCEPT_BY` back to 2 [V: code read, not run].
+**How to apply.**
+- **Recommended: hot, on the already-checked 29aa1be.** No new sha, no test change.
+  - Dry-run on a scratch copy of 29aa1be, 07:28 [V]: `use C` → `approve` exits 0, giving `MIN_STEP_P` 8 → 15 and
+    `ACCEPT_BY` default 2 → 1, with `_set` still "C".
+  - `params.validate()` is clean.
+  - `use A` writes A whole, which puts `ACCEPT_BY` back to 2. The C → A auto-switch therefore still works.
+  - After the start at 08:00, in `$WT`:
+    ```bash
+    printf '{"wave": "C+ Duel Lab", "params": {"MIN_STEP_P": 15, "ACCEPT_BY": 1}}\n' > "$WT/run/c_plus.json"
+    (cd "$WT" && python3 tools/duel_loop.py approve --proposal run/c_plus.json --by Aleks)
+    ```
+  - Expect `MIN_STEP_P: 8.0 → 15` and `ACCEPT_BY: default 2 → 1`. The next tick's supervise log shows the
+    `params:` lines.
+  - **Every re-run of the start script reinstalls plain C** (its step 4/6 is `use C`, checked in the dry run). Re-run
+    the two lines after any restart.
+- **Alternative: a new sha with a "C+" set.** It needs three edits and a re-check before 08:00 (read on 29aa1be [V]):
+  1. **`docs/duel_sets.json`:** add `"C+"` and give every other set `ACCEPT_BY` 2:
+     ```json
+     "C+":    {"MIN_STEP_P": 15, "MAX_STEP_SHARE": 0.12, "LATE_SWITCH_LEFT": 0, "OPEN_WAIT": 0, "MONO_END_SHARE": 0.25, "ACCEPT_BY": 1},
+     "C":     {"MIN_STEP_P": 8,  "MAX_STEP_SHARE": 0.12, "LATE_SWITCH_LEFT": 0, "OPEN_WAIT": 0, "MONO_END_SHARE": 0.25, "ACCEPT_BY": 2},
+     "A":     {"MIN_STEP_P": 5,  "MAX_STEP_SHARE": 0.18, "LATE_SWITCH_LEFT": 2, "OPEN_WAIT": 2, "MONO_END_SHARE": 0.25, "ACCEPT_BY": 2},
+     "today": {"MIN_STEP_P": 3,  "MAX_STEP_SHARE": 0.25, "LATE_SWITCH_LEFT": 4, "OPEN_WAIT": 2, "MONO_END_SHARE": 0.25, "ACCEPT_BY": 2},
+     "_switch": {"C": "A", "C+": "A"}
+     ```
+     - Without `ACCEPT_BY` in every set, `load_sets` rejects the file (its sets list different keys).
+     - Without `"C+": "A"`, the auto-switch logs "plays C+ … nothing written".
+  2. **`tests/test_duel_loop.py:497-499`** (`test_the_repo_sets_file_is_valid_and_its_sets_list_the_same_keys`)
+     asserts `set(sets) == {"today", "A", "C"}` and `switch == {"C": "A"}`. Update it.
+     - Otherwise the start script's step 3/6 (the full test suite) stops with "tests red: not starting".
+  3. **Start with `SET=C+`.** The script defaults to `SET=C`, and `_default` only plays when the params file is
+     missing. The same goes for any restart line, including the `--days-read flip` one.
 
 ## Morning check (Sun 06:45): GO as written
 
@@ -124,17 +149,19 @@ This answers the Chief's 08:15 question on `intel/contra-duels.md` §1.
   <WT>/run/duel_params.json`):
   - deal rate with rivals that spoke ≈ 0.88-0.93 expected; < 0.60 over ≥ 12 → the switch to A;
   - ≈ 2-3 rounds per deal (C's simulated range 1.7-2.4, past + fast);
-  - under C+ (07:25), expect fewer rounds per deal: 1.2-1.6 simulated, 2.1 against the fast closer;
+  - under C+, expect ≈ 0.2-0.3 fewer rounds per deal than C ran, and more deals closed on the last tick;
   - no `CAN'T READ` on the day line.
 - **First-wave checklist for Aleks** (≈ 3 min into Duels III, and again at the Final; contra-duels §2-§3):
   1. Every days duel's day line names a direction. This prints nothing:
      `grep -E "direction unknown|CAN'T READ|refused" <newest $WT/logs/duelist/supervise-*.log>`.
   2. For the first deal, `pred` equals `points` in `uv run python -m agents.duelist review` (run it from the
      checkout).
-  3. No `refused:` lines. Their absence means no new issue: with one, every priced send would be refused.
+  3. No `refused:` lines (a new issue).
   4. At least one of the first four rivals that spoke reached a deal.
-  - **If check 1 or 2 fails because the reading is reversed:** restart with `--days-read flip` (contra-duels §2),
-    then re-apply C+ if it was hot-applied.
+  - **If check 1 or 2 fails because the reading is reversed:** run contra-duels §2's `--stop`, then its restart line
+    with `--days-read flip`. It starts `SET=C` on `$SHA` (29aa1be).
+    - **Then re-run the two C+ lines** (`printf` and `approve`): the restart reinstalls plain C.
+    - On a new-sha "C+" set, use `SET=C+` in the restart line instead.
   - **"Direction unknown":** it needs a code fix; tell Lucas.
   - **Anything else:** use contra-duels §3's tiers:
     - `use A` when the set is too stiff;
