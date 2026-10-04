@@ -1,26 +1,33 @@
-# Scout (claude-sonnet-5-5, Sun 10:13)
+# Scout (claude-sonnet-5-5, Sun 10:28)
 
 ## Top 3 actions now
-1. **Keep RET-11 → t02 at 240 (offer 21836, El Rastro, addressed, exp 1783); Dani pushes t02 in the room.**
-   - Evidence: our value is 198, so +42. t02 bid 240 for it addressed to t10. t13's asks (248, 235) lapsed unfilled. Pilar pays only about 140 for epics. Metrics show t16 bidding SAL-11 (epic) at 176, so epic demand exists.
-   - Effect: neg_points rises by about +42, but the 50 cap applies per trade. neg is already 50.0, so the gain should land only if the cap is per trade. Fallback: 230 to t02, or Pilar at ≥198 after 13:30.
-   - Confidence: med.
-2. **Sell spare CHA copies at the t16 bids; no rival gets a page closer.**
-   - Evidence: t16 bids are 69 for CHA-09 and CHA-10 (offers 21885, 21828), 19 for CHA-07 and 10 for CHA-02/03. t16 is #16 at 20.5, well below us.
-   - Caveat: we hold exactly one copy of each CHA card, and our values are 218 for the rares and 122-146 for the rest. A sale loses far more than 69 and would break our page. Sell only a second copy, and we have none. So **no action** on these bids.
-   - Real action: the operator reads `/api/me` for CHA duplicates after packs. Today we have none.
-   - Confidence: high that we should not sell.
-3. **Sell the dead low-value spares on El Rastro as maker, addressed to t16 or t09 (non-top-4): LAT-01/03/04 (value 5), MAL-01..05 (value 7), SAL-04 (2.2), LAV-04 (3.2).**
-   - Evidence: others' asks run 8 for LAT and 14 for MAL-01. The best open bids are 5-15 for CHA, RET, SAL. Our 3 open LAT bids at 9 (21657/21658/21791) are buys and need review.
-   - Effect: the effect is small and mostly cash. Cash does not score, but it funds MAL or a floor. Gain is about +1-3 neg each on a team trade, and the cap leaves room.
-   - Confidence: low.
+
+1. **MAL page close, last card via ONE addressed El Rastro bid to a non-rival (t13 or t15).**
+   - Non-last MAL cards: Pícaros MAL-09 → MAL-10 at ≤ 49 (value, 0 neg, L4); we hold MAL-06 and MAL-08 and are missing MAL-07, MAL-09 and MAL-10.
+   - Last card: bid ≤ value-when-last − 50. Evidence: Sunday 10:25 directive (GO), t15 sold MAL-07 to t03 at 9 P (tick 1647), t13 buys MAL×9.
+   - Expected effect: +50 neg_points at the cap. Our trade part is not capped (Analyst M5), but the metrics show neg_points stuck at 50.0 after the RET-11 sale.
+   - Executor: operator (trade.py bid); Dani nudges t13/t15. Confidence: med.
+
+2. **Do not post more RET-11-type sales or buys until the neg_points question is answered.**
+   - RET-11 sold at 240 (tick 1730), but neg_points is still 50.0.
+   - Ask the Analyst whether the Sunday round is capped at 50 or only lagging. The board refreshes every ~10 ticks.
+   - If capped, extra +50 closers add nothing to our own score. Then MAL is worth only the relative-reference effect (directive 01:40) and cash should not be spent past that.
+   - Executor: Analyst check, then operator. Confidence: med.
+
+3. **Spend the 660 P cash only on non-negative uses; keep ≥ 50.**
+   - Cash scores nothing. Dealers close ~14:00-14:15.
+   - Use order from the directives: floors, then MAL if it scores, then ladder upgrades ≤ value, then non-rival asks ≤ value − 10.
+   - Open asks from t16 (LAT-06 21, LAT-07/08 30) are not at our value, so skip them.
+   - Executor: operator (trader/opps). Confidence: low-med.
 
 ## What the climbing teams are doing
-- **t12** (#2) leads our competitors with 29 team trades. Its Abuela discount is −22.1%, the deepest in the table, which means it is milking the dealer ladder. It also bought RET-11 from t6 at 216. Lucas's directives mark it as the #2 rival; never feed it.
-- **t13** has 97 deals and 31 team trades. It flips epics: SAL-11 bought from t18 at 238, SAL-10 sold at 108 to t03. It keeps a high listing count (1192).
-- **t03** has the largest gain among rivals, from buying SAL for 108 (tick 1528) and MAL-07 at 9 (tick 1647) while posting 39 deals. It is a tail-catcher at #5, 1.9 behind us.
+- **t12 (#1, 35.1, +3.7/15 min)** trades the most. 29 team trades: LAT×8, buys RET (RET-11 for 216), and bought LAV-07 from t13 at 40 (tick 1712).
+- **t18 (#3, +1.9/15 min, +4.0/60 min)** closed CHA with CHA-01 from t13 at 72 (tick 1513) and sold SAL-11 to t13 at 238. t13 brokers closers: SAL-10 to t09 at 68 and to t03 at 108.
+- **t03 (#5, +1.8/15 min)** buys SAL-10 at 108 and MAL-07 at 9 (tick 1647).
+- **t02** is paying 240 for RET-11 and 72 for CHA-05, so it is a buyer with cash (relevant only for non-closers).
 
 ## Threats
-- **t03** (28.0, #5) is 1.9 behind us and buys SAL/LAT/LAV. Never sell it a page closer.
-- **t10 and t12 are above us** (32.3 and 31.5 vs our 29.9). t10 collects LAV/RET and bids RET-09 at 68 (offer 21548). That means a RET rare of ours could feed it. Avoid.
-- **RET-11 may lapse.** Offers 21583 and 21141 expired unfilled, and no feed bid for RET-11 is above 240. If 21836 lapses too, Pilar's ~140 is below our value of 198, so we keep the card.
+- t12 at 35.1 is 3.4 ahead of us and gaining fastest. Do not sell it LAT-08, MAL-03 or MAL-08 (its known gaps).
+- t18 (32.9) is 1.2 ahead and t03 (29.8) is 1.9 behind us. A MAL closer must not go to either of them.
+- Open public CHA bids (t16 67 for CHA-09, 64 for CHA-10; t09 at 15 for CHA-06/07/08) are for cards we hold. They are not a threat, only cards we could sell if the value drops (we value them at 218/146).
+- Selling past our own cap still raises the field's reference (directive 01:40), so any gain we hand to the top 3 counts against us.
