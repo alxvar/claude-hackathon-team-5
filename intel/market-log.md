@@ -1,5 +1,14 @@
 # Market log (Market session; newest first)
 
+## Sun 10:25 · the HARD Market Test (bench-h14.7, ticks 1690-1707, 12 traders), on the stall v10 [V]
+- **Ours:** bench_efficiency **0.967** (Saturday's six: 0.85-0.93), bench_points 0.5, market 7.33. The "hard" book was the
+  stall's best session: firmer, more impatient traders leave less for a broker to add.
+- Round 3 began at tick 1446 (09:15 wall, live ticks from 09:20); mm_points reset to 0.0. No trade on any team venue
+  yet on Sunday (6 team trades on El Rastro by 09:54). Saturday's real-trades scores were re-scored overnight after the
+  organisers' bug fix ("a trade that destroys value is the seller's loss, never the market's"): we read +1.6 for Saturday.
+- v10: 0 listings, 0 fills at 10:25. Pushes sent 10:02 to Lucas and Dani (RET-09 t07 → t09; RET-11 to Team 2 at 240).
+- Next benches: 15.0 (≈ 10:37), 17.0 (≈ 12:37).
+
 ## Sun 00:30 · CORRECTION to the 21:15 entry: the deck split was backwards [V, intel/market-test-audit.md]
 - The Payday slide reads **Market Test 22.5 + Real trades 7.5**, not 7.5 + 22.5. The 21:15 entry took the numbers from
   the 21:10 directive. Consequences: (1) the stall's 7.5 on the board is HALF the Market Test, not its maximum: the other
