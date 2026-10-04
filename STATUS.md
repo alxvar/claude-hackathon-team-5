@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sun 10:23** · tick 1717 (15 s/tick) · game hour 14.76 · running · today closes 15:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sun 10:28** · tick 1738 (15 s/tick) · game hour 14.85 · running · today closes 15:00._
 
 ## Team: now and latest
 
@@ -17,25 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Sun: CHA page COMPLETE (+50). RET-11 kept (t13 asks lapsed); MAL decision ≈ 12:00 (Chief); Duels III ≈ 11:00 (duelist stopped on Aleks's machine at 09:46: Chief alerted). (Sat history:) Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sun 10:27 · operator · **RET-11 SOLD to t02 at 240** (t02's public bid 22286: our ask 21836 cancelled, accepted as taker, fee 13; settlement tick 1730) → cash 433 → **660**; expected +29 but neg_points still 50.0 (lag or a per-round cap? asked the Analyst) · cash 373 → 433 earlier with no settlement of ours (bench payout?; market 7.33 → 9.73) · team pings t07/t09/t02 (RET-09 pair, RET-11 nudge): 0 replies · **MAL close GO** (Chief 10:25): threads to t13/t15 (MAL-07/09/10?), Pícaros MAL-09 → MAL-10 at ≤ 49 (value, 0 neg, L4) starting; MAL-07 last → one addressed closer to t15/t13
   - Sun 10:09 · operator · RET-11 → t02 at 240 (21583) expired unfilled → re-posted **21836**, 240, El Rastro, 120 ticks (exp 1783) (Chief: El Rastro, not a member market; Dani's WhatsApp is the trigger) · a watcher re-posts once at 230, then stops
   - Sun 10:07 · operator · v10 ad (Chief: NO cash rebates, RULES l.71/l.131): first post 10:07:21 {ok: true}: 'v10 (Puesto de Team 5): 0% fee. Selling here instead of El Rastro saves you 5% + 1 P per card. Post your spares open on v10; buyers' bots watch it.' · job run/sunday/v10_ad_sun.py pid 35906, every 15 min until 15:00
-  - Sun 09:57 · operator · **RET-11 → t02 at 240** (offer 21583, El Rastro, addressed, exp tick 1653): t02 had bid 240 for it (addressed to t10); value 198 → +42 for us and denies t10 a +98 flip · Dani messages t02 · fallback 230 or a 0% member market (not v26/v10) on the Chief's word
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 29.58 | 4 | 22.25 | 7.33 | 0.00 | 0.17 | 0.97 | 63 | 5 | 373 | 50/60 |
+| 31.66 | 4 | 21.93 | 9.73 | 0.00 | 0.17 | 0.97 | 64 | 5 | 660 | 50/60 |
 
-Leaderboard (snapshot at tick 1702; refreshes every few minutes):
+Leaderboard (snapshot at tick 1722; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 10 | 31.68 | 21.83 | 9.85 | 67 |
-| 2 | Team 12 | 31.00 | 21.59 | 9.41 | 75 |
-| 3 | Team 18 | 30.80 | 24.89 | 5.91 | 54 |
-| 4 | Team 5 | 29.58 | 22.25 | 7.33 | 63 |
-| 5 | Team 3 | 27.71 | 22.92 | 4.80 | 39 |
+| 1 | Team 12 | 35.14 | 23.36 | 11.78 | 76 |
+| 2 | Team 10 | 33.99 | 21.76 | 12.22 | 68 |
+| 3 | Team 18 | 32.88 | 24.55 | 8.33 | 54 |
+| 4 | Team 5 | 31.66 | 21.93 | 9.73 | 63 |
+| 5 | Team 3 | 29.80 | 22.57 | 7.23 | 39 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 15.00 | ~14 min | bench | The Market Test: every venue gets the same synthetic book |
-| 15.37 | ~36 min | duels | Duels III: two issues, shorter clock, harder decay |
-| 17.00 | ~134 min | bench | The Market Test: every venue gets the same synthetic book |
-| 18.17 | ~204 min | announce | finale warning |
-| 18.37 | ~216 min | persona | Finale: stalls close |
-| 18.37 | ~216 min | persona | Finale: stalls close |
-| 18.37 | ~216 min | persona | Finale: stalls close |
-| 18.37 | ~216 min | persona | Finale: stalls close |
+| 15.00 | ~9 min | bench | The Market Test: every venue gets the same synthetic book |
+| 15.37 | ~31 min | duels | Duels III: two issues, shorter clock, harder decay |
+| 17.00 | ~129 min | bench | The Market Test: every venue gets the same synthetic book |
+| 18.17 | ~199 min | announce | finale warning |
+| 18.37 | ~211 min | persona | Finale: stalls close |
+| 18.37 | ~211 min | persona | Finale: stalls close |
+| 18.37 | ~211 min | persona | Finale: stalls close |
+| 18.37 | ~211 min | persona | Finale: stalls close |
 
 ## Our dealer deals
 
@@ -85,13 +85,14 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | 2330 | abuela | buy | CHA-06 | 29 | 12 | — | — | 9 | closed |  |
 | 2340 | abuela | buy | CHA-08 | 29 | 12 | 21 | -28% | 11 | deal |  |
 | 2351 | abuela | buy | CHA-06 | 29 | 14 | 22 | -24% | 15 | deal |  |
+| 2595 | picaros | buy | MAL-09 | 73 | 38 | — | — | 4 | open |  |
 
 ## Abuela benchmark: every team's deals with her (public feed)
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
-| common card | team buys | 102 | 9.00 | 7 | 15 | 9 | 8.78 |
-| common card | team sells | 119 | 6 | 2 | 23 | 5 | 5.40 |
+| common card | team buys | 103 | 9 | 7 | 15 | 9 | 8.78 |
+| common card | team sells | 121 | 6 | 2 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 45 | 22 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 98 | 23.00 | 17 | 29 | 7 | 23.43 |
 | uncommon card | team sells | 13 | 15 | 12 | 22 | 0 | — |
