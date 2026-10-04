@@ -71,6 +71,21 @@ All three commit every ~5 min: cut to their cadence above to reduce git churn on
 
 ## Live log
 
+### 09:41 · tick 1544 · case J (snapshot 1542, phase ≈ 0.20)
+| Metric | Actual | Book | n | Note |
+|---|---|---|---|---|
+| M3 CHA held | **7/10**: 01, 02, 03, 04, 08, 09, 10 (09 Pícaros 55, 10 from the pack) · missing **05, 06, 07** (07 may be the Workshop uncommon: check /api/me) | 10 | — | cash 467 |
+| M3 team-bid fills | **0 fills in ≈ 100 ticks**; live bids CHA-05 at 9, CHA-06 at 22 (public, El Rastro) · **no live CHA asks anywhere**; the only CHA team trade today: t13 → t18 CHA-01 at 72 | public caps 54/22/9 | 2 bids | the step-up trigger needs a live ask in the cap: none exists |
+| M1/M2 Pilar fodder | LAT-06 at 18, LAV-07 (spare) at 17 → shares ≈ 0.4 / 0.2 | target 19-20 | 2 | n = 2 reached: next Pilar fodder target **≥ 19** (band) |
+| M4/M5 trades | neg_points **0** | — | — | we have no team trade yet; t18 has its +50 closer |
+| M8 Sunday round (≈ ±1) | t18 ≈ +25 + its closer (rising) · us ≈ +10 · t03 rising (+0.90 board) · t10/t12 ≈ 0 | — | — | |
+**PROPOSE (inside the bands):**
+1. **CHA-06 → Abuela at 20-21 (accept ≤ 22) now**: the C+45 fallback in the book is due, with no team seller in sight.
+2. **CHA-07**: if /api/me shows it missing → Abuela after CHA-06, same band.
+3. **Pilar fodder: hold ≥ 19** (two sales at 17-18 gave only 0.2-0.4 shares).
+**ESCALATE (Chief):** **CHA-05, the closer, can only come from a team, and no ask exists.** Addressed request to **t13**
+(it sold CHA-01 to t18 at 72 on El Rastro) at ≤ 72 incl. fee. It's our only +50 route today; ask in the same message as RET-11 at ≥ 248.
+
 ### 09:25 · tick ≈ 1490 · case J (round 3 since tick 1446; snapshot 1482, phase 0.12)
 | Metric | Actual | Book | n | Note |
 |---|---|---|---|---|
