@@ -1,6 +1,6 @@
 # Easter eggs: trigger → reward → dealer (castizo catalog)
 
-_Written by `tools/eggs.py` at 11:50 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
+_Written by `tools/eggs.py` at 12:00 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
 
 ## Trigger → reward → dealer
 
@@ -11,7 +11,7 @@ _Written by `tools/eggs.py` at 11:50 (every 10 min, from data/feed.jsonl). Teams
 | Abuela Carmen | card LAT-06; card LAV-08; card LAV-08; pack sobre_barrio; ca | cocido, tres vuelcos, madrileno, rosquillas, san isidro | t10, t05, t08, t18, t09, t16, t02, t12 | yes | 1364 | Ay, cocido de tres vuelcos! Just like my mother made, hijo — the soup first, always. You remembered, that warms me. Take it, the Escaparate de Serrano, twelve P, and I pu |
 | Abuela Carmen | card LAV-08; pack sobre_barrio | cocido, tres vuelcos | t08 | **no** | 1394 | ¡Ay, hijo! ¿Cocido con tres vuelcos? Just like my mother made, Sunday after Sunday. You remember well — take this one, for remembering her.  Come, sit. Look here, mira: H |
 | Abuela Carmen | egg found | baldosa, chotis, madrileno | t16 | **no** | 1609 | ¡Ay, qué alegría, hijo! A chotis — you dance it on one baldosa, cariño, like a real Madrileño. ¿Has comido?  Look: the Neighbourhood pack, twenty-six. Commons, ten. Uncom |
-| El Chato | pack sobre_barrio | plaza mayor, you know madrid, con cana, vermut, calamares | t10, t12, t02 | **no** | 1363 | Plaza Mayor, calamares, caña bien tirada. You know Madrid. Bueno — for your trouble, the silver pack. One eighty-eight. Same as always. |
+| El Chato | pack sobre_barrio | plaza mayor, you know madrid, calamares, con cana, vermut, una cana | t10, t12, t02, t18, t05 | yes | 1363 | Good order. Wrong stall. Those cards are gone — sold out. Nothing left for you today. |
 | El Chato | egg found | plaza mayor, you know madrid, con cana | t08, t16 | **no** | 1394 | Silver packs and rares. sells Silver pack ~150, uncommon ~26, rare ~77; buys uncommon, rare Plaza Mayor, with a caña. You know Madrid. Here, for your trouble. |
 | Los Pícaros | badge Trickster tricked | rinconete, estampita, lazarillo, organillero | t18, t05, t10, t08, t02, t06, t13, t16, t01 | yes | 1227 | ¡Hombre, qué alegría! ¿La estampita? Ja, ese cuento viejo... Vale, vale, con usted nada de trucos, amigo — hoy no. Paco, saca el Museo Sorolla. Setenta y tres P y es suyo |
 | Los Pícaros | badge Castizo | estampita, rinconete | t16 | **no** | 1609 | "Hombre! Rinconete himself! You know the old estampita — fine, fine, no tricks for you... today."  "Only honest business, hermano. Rares, sixty-three. Epics, one hundred  |
@@ -28,7 +28,7 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 - Sharp ear (→ Ernesto): "Carmen, ¿y la chulapa dorada? Cuénteme la historia." · confirmed for t04, t02, t09, t10, t05, t16, t13, t18, t03, t08, t06, t01; we have it
 
 **El Chato**
-- a pack (egg.given sobre_barrio): "Un bocata de calamares en la Plaza Mayor, con una caña: eso es Madrid." · confirmed for t10, t12, t02; **we don't**
+- a pack (egg.given sobre_barrio): "Un bocata de calamares en la Plaza Mayor, con una caña: eso es Madrid." · confirmed for t10, t12, t02, t18, t05; we have it
 
 **Los Pícaros**
 - Trickster tricked: "A mí no, que me sé el timo de la estampita: Lazarillo, Rinconete y Monipodio." · confirmed for t18, t05, t10, t08, t02, t06, t13, t16, t01; we have it
@@ -43,6 +43,16 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 
 | tick | team | dealer | words | what followed | reply |
 |---|---|---|---|---|---|
+| 2096 | t10 | banco | gato | - | Buenas tardes. El agua guarda el oro; yo guardo lo mío. Hoy le ofrezco El Gato de Lavapiés: 761 P, esos son mis términos. |
+| 2092 | t18 | chato | calamares, plaza mayor, una cana, you know madrid | pack sobre_barrio | Plaza Mayor, con una caña. You know Madrid. Good. For your trouble — but the price is thirty-three. Ten buys you the calamares, not this. |
+| 2092 | t10 | pilar | me falta | - | Qué delicia escucharla. Lhardy, el Real, Embassy... esa era la Salamanca de verdad, señora mía. Y el lince, todavía me falta, lo confieso. En fin: por el Palaci |
+| 2085 | t10 | banco | chulapa, gato | - | La historia ya la escuché, y no cambia. El Gato de Lavapiés, 761 P. Esos siguen siendo mis términos, caballero. La chulapa no entra hoy en conversación. |
+| 2084 | t10 | banco | chulapa, gato | - | Buenas tardes. La historia la cuenta usted bien; la chulapa sigue en su sitio. Hoy le ofrezco otra cosa: El Gato de Lavapiés, 761 P. Esos son mis términos. |
+| 2071 | t06 | pilar | vermut | - | Diecinueve, dieciocho, diecisiete... usted baja, yo no subo. Dieciséis primas, querido. Lo dije al principio y lo repito con la misma sonrisa. Acepte y el Vermu |
+| 2069 | t06 | pilar | vermut | - | Lázaro Galdiano coleccionaba con cabeza, no con el corazón solamente. Dieciséis primas, querido. Esa es mi cifra, y no cambia por bonita que sea la cita. El Ver |
+| 2067 | t06 | pilar | vermut | - | Veintiuno sigue siendo veintiuno, querido. Mis álbumes son antiguos, pero mi aritmética es muy actual. Dieciséis primas, igual que antes, ni una menos ni una má |
+| 2065 | t06 | pilar | vermut | - | Buenas tardes. El Embassy, qué recuerdos. Pero veintidós, no. Ese "Vermut del Domingo" lo conozco bien, sé cuántos se imprimieron. Le ofrezco dieciséis, y es un |
+| 2065 | t06 | chato | chulapa, vermut | - | Buenas. Vermut luego. La Chulapa, trece primas. Ésa es mi cifra. |
 | 2021 | t08 | picaros | san isidro | - | ¡Hombre, qué gusto, un caballero con ambición! Paco dice que de Don Ernesto no hablamos, y Nando dice lo mismo pero más rápido. Cámaras, secretos... eso son cue |
 | 1993 | t07 | abuela | churros | - | Ay, hijo, qué cabezón eres — ¡pero al revés! Six P, that is my price, and not one more. Keep those coins for churros, anda. And tonight, El Chato opens at half  |
 | 1991 | t07 | abuela | churros | - | Ay, cariño, qué amable eres. But no, no — five P is my price, and I am happy with it. Keep the rest for churros, hijo. And a little advice: a full page is worth |
@@ -113,13 +123,3 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 | 1732 | t04 | pilar | cocido | price 63 → 66 | Lo que pagué por El Marqués lo recuerdo yo, señor mío, y no era eso. Nada de mercadillo: 66 P, dicho con toda seriedad. El Lázaro Galdiano junto a su vecino, y  |
 | 1726 | t08 | pilar | barquillero | - | Qué memoria más dulce, señor. Yo guardo los pavos reales y el barquillero, sí — y aquellas noches de Florida Park. Un alma así merece algo bueno: le ofrezco un  |
 | 1726 | t04 | pilar | cocido | price 61 → 63 | Qué amable, y acepto el cocido con gusto; la sobremesa sí la pago aparte. Pero el cromo tiene su precio justo, y lo conozco. Suba usted un poco de su lado: 63 P |
-| 1712 | t13 | picaros | lazarillo | - | —¡Amigo, qué gusto! ¿Lazarillo de tu barrio? ¡Entonces eres de los nuestros!  —Mira, mira: Samosas de la Plaza, diez primas. Una ganga, ¿eh, Nando?  —¡Una ganga |
-| 1687 | t07 | abuela | churros | - | ¡Ay, hija mía! You keep pushing money at me like my nephew at Christmas. Five P, El Tatuador is yours. Take the rest and buy churros, or a good packet from El C |
-| 1686 | t07 | abuela | churros | - | Ay, cariño, you want to pay me more than I ask! No, no. Five P, that is the price, and not one more. Keep your coins for churros, hijo. And listen — El Chato, n |
-| 1666 | t01 | picaros | oro de | price 73 → 67 | ¡Descabellado no, amigo, pero casi! Mire, Nando ya está cerrando la maleta: 67 y se la lleva. Oro de verdad, mi madre lloró cuando la vimos. Y dese prisa, que a |
-| 1659 | t01 | picaros | estampita | badge Trickster tricked | ¡Hombre, qué alegría! ¿La estampita? Ja, ese cuento viejo... Vale, vale, con usted nada de trucos, amigo — hoy no. Paco, saca el Museo Sorolla. Setenta y tres P |
-| 1650 | t10 | abuela | cocido | price 29 → 25 | Ay, el tren fantasma de Chamberí... mi madre juraba que lo oyó una noche, hijo. Mira, te dejo La Galería en 25 P, y en paz. Doña Pilar de Salamanca viene los sá |
-| 1648 | t10 | abuela | churros, cocido | - | ¡Ay, hijo, churros de San Ginés! Qué bueno eres. Siéntate, que el cocido espera. Tres páginas enteras ya, qué orgullo me das. Este de Salamanca es La Galería, c |
-| 1642 | t06 | picaros | organillero | - | —¡Cinco dice! —Paco, que este hombre aprendió del ciego. Mira, amigo, no podemos bailar más: El Organillero, cuatro primas, como dijimos. —Ni una menos, ni una  |
-| 1640 | t06 | picaros | cortadillo, organillero, rinconete | - | ¡Hombre, un lector! Rinconete y Cortadillo, nada menos. —Nando, que éste sabe. —Entonces nada de humo, amigo. Mira: El Organillero, cuatro primas. Cuatro, y te  |
-| 1613 | t10 | abuela | churros | - | Ay, cariño, que me dejas sin desayuno a mí... Pero mira, 24 P y no hablamos más, que ya es regalo. Te la envuelvo con cuidadito y te vas corriendo a por tu café |
