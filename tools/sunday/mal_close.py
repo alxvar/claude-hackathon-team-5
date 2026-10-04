@@ -1,5 +1,6 @@
-"""MAL close by team trades (Chief 10:40): ONE addressed want-card bid at a time, on El Rastro.
-MAL-09 (non-last) from t13 at price + fee <= our value; when MAL-09 lands, MAL-07 LAST from t15 at <= value-when-last - 50.
+"""MAL close by team trades (Chief 10:40; venue moved 10:43: t13 refuses El Rastro): ONE addressed want-card bid at a time,
+on v21 (Team 9's 0% board; non-rival club market; never v10/v24/v15/El Rastro).
+MAL-09 (non-last) from t13 at price <= our value - 1; when MAL-09 lands, MAL-07 LAST from t15 at <= value-when-last - 50.
 Never two closer bids live; never t10. A bid that expires unfilled is re-posted (still one live). Stops at 13:55."""
 import os, sys, json, time
 ROOT = '/Users/lucaswiese/Documents/claude-hackathon-team-5'
@@ -8,7 +9,8 @@ from bazaar_sdk import Bazaar
 b = Bazaar(os.environ['BAZAAR_URL'], os.environ['BAZAAR_KEY'], wait_on_tick=False, timeout=10.0)
 PAGE = [f"MAL-{i:02d}" for i in range(1, 11)]
 SELLER = {"MAL-09": "t13", "MAL-07": "t15"}
-CAP = {"MAL-09": 45, "MAL-07": 999}
+CAP = {"MAL-09": 48, "MAL-07": 999}
+VENUE = {"MAL-09": "v21", "MAL-07": "v21"}
 
 def log(**kw):
     print(json.dumps({"t": time.strftime('%H:%M:%S'), **kw}), flush=True)
@@ -32,13 +34,13 @@ while time.strftime('%H%M') < '1355':
     last = len(miss) == 1
     live = live_bids()
     for o in live:
-        if f'card:{card}' not in o['want']['types']:
+        if f'card:{card}' not in o['want']['types'] or o.get('venue') != VENUE[card]:
             retry(b.cancel, o['id']); log(event="closed", offer=o['id'], why="not the current target")
-    if not any(f'card:{card}' in o['want']['types'] for o in live):
+    if not any(f'card:{card}' in o['want']['types'] and o.get('venue') == VENUE[card] for o in live_bids()):
         v = float(retry(b.value, card)['your_value'])
-        price = min(CAP[card], int(v - 50)) if last else min(CAP[card], int((v - 1) / 1.05))
+        price = min(CAP[card], int(v - 50)) if last else min(CAP[card], int(v - 1))
         if price <= 0: log(event="end", why=f"{card} worth {v}, last={last}: no price >= 0 exists"); break
-        r = retry(b.list_offer, give={"cash": price}, want={"types": [f"card:{card}"]}, venue="rastro",
+        r = retry(b.list_offer, give={"cash": price}, want={"types": [f"card:{card}"]}, venue=VENUE[card],
                   to=SELLER[card], expires_in_ticks=120)
         log(event="open", card=card, to=SELLER[card], price=price, value=v, last=last, offer=r.get('id'), exp=r.get('expires_tick'))
     time.sleep(20)
