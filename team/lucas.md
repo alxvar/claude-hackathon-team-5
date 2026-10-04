@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 11:46 · Chief 11:50 (team trades at zero marginal value under the cap) · (1) trader STOPPED for the day · (2) book kept: LAT-06/07/08 bids at 9 on El Rastro = ladder fodder → run/sunday/lat_fodder.py (pid 87090): a filled LAT uncommon goes to Pilar > 16 (empty 3rd L3 slot) first, then Chato > 13 (3 empty L2 slots); one try per dealer per copy; stops after 1 + 3 deals or 14:00 · (3) opps + swaps stay DOWN: run/floors.env → floors.env.off (window.py restart() then restarts nothing); window_fallback.sh (pid 85571) now brings back only the recorder (12:37 bench) after Duels III + 180 s · undo: mv floors.env.off floors.env
 - Sun 11:45 · Duel Lab · review of the Builder's worth floor (duelist-loop f57a002 on 506a2fd: WORTH_FLOOR_SHARE in final(), accepts untouched, silent walk max floor, hold via is_hold) · **GO, 0.075 confirmed**: 584 tests pass on a scratch copy · Final restart: f57a002 + {MIN_STEP_P 15, ACCEPT_BY 1, MAX_STEP_SHARE 0.08, WORTH_FLOOR_SHARE 0.075}; never raise the floor mid-session
 
 - Sun 11:42 · window.sh's keyless clock/schedule reads 429 at the tick boundary every minute (11:39-11:41; collides with hub.collect's per-tick board sweep); with no clock window.py does nothing → backup run/sunday/window_fallback.sh (pid 78577): on duels.finished 'Duels III' (or 12:10) + 180 s, starts whatever of opps (RET, floor 176) / swaps / recorder is still down via daemons.sh (daemons.env → El Rastro) · 20 P bounty ad posted 11:42:02
