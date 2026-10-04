@@ -1699,5 +1699,105 @@
     "settles_at_tick": 1917
    }
   }
- ]
+ ],
+ "last_seen_tick": 1917,
+ "done": {
+  "duel": 11194,
+  "session": 4,
+  "status": "deal",
+  "role": "seller",
+  "item": "Museo Sorolla",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 3.66,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 130,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Azul",
+  "deadline_tick": 1918,
+  "decay_per_round": 0.1,
+  "rounds": 3,
+  "your_offer": {
+   "id": 12932,
+   "price": 152,
+   "tick": 1915,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 12952,
+   "price": 156,
+   "tick": 1916,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1906,
+    "from": "you",
+    "text": "I'd like to open at 185 P for delivery on day 10.",
+    "price": 185,
+    "days": 10
+   },
+   {
+    "tick": 1909,
+    "from": "Rival Azul",
+    "text": "Before we start: which Madrid barrio would you pick for a Sunday walk? I can do 94.",
+    "price": 94,
+    "days": 0
+   },
+   {
+    "tick": 1909,
+    "from": "you",
+    "text": "That's quite far from where we started. I'll come down to 170 P, still for day 10—or we could settle day 0 at a higher price if you prefer speed.",
+    "price": 170,
+    "days": 10
+   },
+   {
+    "tick": 1910,
+    "from": "Rival Azul",
+    "text": "That was a real step from my side: 97.",
+    "price": 97,
+    "days": 0
+   },
+   {
+    "tick": 1913,
+    "from": "Rival Azul",
+    "text": "I just moved for you. 121, your turn to meet me.",
+    "price": 121,
+    "days": 0
+   },
+   {
+    "tick": 1914,
+    "from": "Rival Azul",
+    "text": "That was a real step from my side: 132.",
+    "price": 132,
+    "days": 0
+   },
+   {
+    "tick": 1915,
+    "from": "Rival Azul",
+    "text": "I just moved for you. 143, your turn to meet me.",
+    "price": 143,
+    "days": 0
+   },
+   {
+    "tick": 1915,
+    "from": "you",
+    "text": "I can do 152 P, delivery on day 10.",
+    "price": 152,
+    "days": 10
+   },
+   {
+    "tick": 1916,
+    "from": "Rival Azul",
+    "text": "That was a real step from my side: 156.",
+    "price": 156,
+    "days": 0
+   }
+  ],
+  "result": 19.0,
+  "price": 156,
+  "days": 0
+ }
 }
