@@ -1,13 +1,13 @@
 # Easter eggs: trigger → reward → dealer (castizo catalog)
 
-_Written by `tools/eggs.py` at 12:40 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
+_Written by `tools/eggs.py` at 12:50 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
 
 ## Trigger → reward → dealer
 
 | dealer | reward | trigger words (echoed) | teams | we | first tick | the echo |
 |---|---|---|---|---|---|---|
 | Abuela Carmen | badge Sharp ear | chulapa, moscow, moscu, oro de | t04, t02, t09, t10, t05, t16, t13, t18, t03, t08, t06, t01 | yes | 407 | Hola, cariño, ¿has comido? La Churrería te la dejo en 12 primas, hijo.  Shh... la chulapa dorada, solo hubo una. Don Ernesto, en Casa Prima, guarda algo dorado. Pregúntal |
-| Abuela Carmen | badge Castizo | chotis, madrileno, baldosa, me falta, mi santo, sile, nole | t08, t02, t10, t05, t13, t18 | yes | 1335 | ¡Ay, el chotis! Sí, hijo, sobre una baldosa se baila, sin moverse, como un madrileño de verdad. Mi Paco lo bailaba así en las Vistillas. Pero tu carta en nueve... no, car |
+| Abuela Carmen | badge Castizo | chotis, madrileno, baldosa, me falta, mi santo, sile, nole | t08, t02, t10, t05, t13, t18, t01 | yes | 1335 | Ay, un chotis! You dance it on one tile, cariño, like a real madrileño. My Paco danced it so, barely moving his feet. Seventeen is little, hijo... twenty-six for the Neig |
 | Abuela Carmen | card LAT-06; card LAV-08; card LAV-08; pack sobre_barrio; ca | cocido, tres vuelcos, madrileno, rosquillas, san isidro | t10, t05, t08, t18, t09, t16, t02, t12 | yes | 1364 | Ay, cocido de tres vuelcos! Just like my mother made, hijo — the soup first, always. You remembered, that warms me. Take it, the Escaparate de Serrano, twelve P, and I pu |
 | Abuela Carmen | card LAV-08; pack sobre_barrio | cocido, tres vuelcos | t08 | **no** | 1394 | ¡Ay, hijo! ¿Cocido con tres vuelcos? Just like my mother made, Sunday after Sunday. You remember well — take this one, for remembering her.  Come, sit. Look here, mira: H |
 | Abuela Carmen | egg found | baldosa, chotis, madrileno | t16 | **no** | 1609 | ¡Ay, qué alegría, hijo! A chotis — you dance it on one baldosa, cariño, like a real Madrileño. ¿Has comido?  Look: the Neighbourhood pack, twenty-six. Commons, ten. Uncom |
@@ -23,7 +23,7 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 ## Castizo script per dealer (Sunday 09:00; one trigger per message, in a thread we open anyway)
 
 **Abuela Carmen**
-- the Castizo badge: "¡Carmen! El chotis se baila en una sola baldosa, como Dios manda." · confirmed for t08, t02, t10, t05, t13, t18; we have it
+- the Castizo badge: "¡Carmen! El chotis se baila en una sola baldosa, como Dios manda." · confirmed for t08, t02, t10, t05, t13, t18, t01; we have it
 - a card (egg.given): "Y el domingo, un cocido madrileño con sus tres vuelcos, ¿eh? Como el de su madre." · confirmed for t10, t05, t08, t18, t09, t16, t02, t12; we have it
 - Sharp ear (→ Ernesto): "Carmen, ¿y la chulapa dorada? Cuénteme la historia." · confirmed for t04, t02, t09, t10, t05, t16, t13, t18, t03, t08, t06, t01; we have it
 
@@ -43,6 +43,19 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 
 | tick | team | dealer | words | what followed | reply |
 |---|---|---|---|---|---|
+| 2299 | t17 | pilar | chulapa | price 61 → 63 | Caballero, you move like a glacier. Sixty-three primas, and that is me being generous because the Retiro is dear to me. By the way — ask Carmen at El Rastro abo |
+| 2296 | t03 | abuela | churros | price 26 → 25 | Ay hijo, thirteen... you push like my grandson pushes for churros. Look — 25 P, and I wrap it nice so the corners stay perfect. Doña Pilar would scold me. But y |
+| 2292 | t13 | pilar | chulapa | price 48 → 49 | I think 49 P is more appropriate. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about the golden chulapa. |
+| 2280 | t08 | abuela | vermut | - | ¡Buenas, cariño! ¿Has comido ya? Sí, aquí lo tengo, el Vermut del Domingo, bonita carta, mi favorita de esa página. Te la dejo en 29 P, hijo. Mira qué colores t |
+| 2275 | t13 | chato | vermut | - | Buenas. Museo Sorolla, treinta y nueve primas. El vermut lo pagas tú. |
+| 2274 | t06 | chato | chulapa, vermut | - | 13. No me he movido, y tú tampoco de verdad. La Chulapa, 13 primas. Tómala o vete al vermut. |
+| 2274 | t06 | pilar | chulapa | price 16 → 17 | Seventeen primas, señor. That is my last word — refuse it and I close the album and we part as friends. One more thing: ask Carmen at El Rastro about the golden |
+| 2273 | t01 | abuela | chotis, madrileno | badge Castizo; price 30 → 26 | Ay, un chotis! You dance it on one tile, cariño, like a real madrileño. My Paco danced it so, barely moving his feet. Seventeen is little, hijo... twenty-six fo |
+| 2271 | t06 | pilar | vermut | - | Galdiano collected with discipline, señor, not with sentiment. Vermut del Domingo, sixteen primas. The figure has not moved, and it will not. Shall we close it, |
+| 2271 | t06 | chato | chulapa | - | Buenas. La Chulapa, 13 primas. Esa es la carta que te interesa. |
+| 2270 | t13 | picaros | lazarillo | - | ¡Amigo! Paco here, Nando there — qué gusto, a man who knows his Lazarillo! Then you know quality. Museo Sorolla, yours for 73 primas. And listen, the team next  |
+| 2268 | t06 | pilar | vermut | - | Querido mío, the Embassy does lovely pastries, but it does not set my prices. Vermut del Domingo, sixteen. That is my figure, and it does not wander. |
+| 2266 | t06 | pilar | vermut | - | Good evening. Vermut del Domingo, 16 P. I trust that suits you. |
 | 2256 | t08 | abuela | vermut | - | Ay, hola cariño! Come, sit a moment. Have you eaten? No? Later, later. Look — this one, Vermut del Domingo, very pretty card, my favourite. My grandson started  |
 | 2256 | t07 | abuela | cocido | - | ¡Ay, hija, qué testaruda! Cinco P, ni una más. Toma, es tuya. Guarda esos dieciséis para un buen cocido, que estás muy delgada. Y mañana vienes y me cuentas cóm |
 | 2256 | t06 | pilar | chulapa | - | Buenas tardes. El Embassy, qué recuerdos... Hablemos de La Chulapa, entonces. La conozco bien, y conozco su tirada. Le ofrezco dieciséis primas, sin más vueltas |
@@ -110,16 +123,3 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 | 1905 | t04 | banco | gato | - | Buenas tardes. You have read the books, bien. But books do not own the card; I do. El Gato de Lavapiés leaves my vault at 761 P. Those are my terms. |
 | 1890 | t06 | picaros | estampita, lazarillo, rinconete | - | ¡Ay, qué culto nos sale el cliente! Lazarillo, Rinconete... Paco, este sabe leer. Nada de estampitas, hombre, aquí todo limpio. Mira esta joya: La Casa Encendid |
 | 1885 | t14 | pilar | chulapa | price 61 → 62 | I think 62 P is more appropriate. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about the golden chulapa. |
-| 1872 | t06 | chato | vermut | - | 13. Same as before. Vermut's waiting. |
-| 1870 | t06 | chato | chulapa | - | La Chulapa. 13 P. Take it or leave it. |
-| 1852 | t06 | picaros | estampita | - | ¡Ay, qué listo nos ha salido el cliente! Paco, mira, este ha leído libros. — ¡Y por eso le tratamos bien, hombre! Nada de estampitas, aquí todo a la luz: La Cas |
-| 1847 | t10 | abuela | churros, me falta | - | Ay, hijo, churros no me faltan, que mi vecina me trae cada domingo. Pero esta carta vale cinco, y cinco te doy, de corazón. Llévatelos ahora y vuelve cuando qui |
-| 1842 | t06 | pilar | chulapa | - | Nineteen primas, señor. I told you I would not move again, and I am a woman of my word. Twenty is your invention, not La Chulapa's worth. Accept nineteen, and s |
-| 1841 | t06 | pilar | chulapa | price 18 → 19 | Nineteen primas, señor. That is where I stand, and I do not move again tonight. La Chulapa belongs in my album — but on my terms, not those of your lemon tart. |
-| 1839 | t06 | pilar | chulapa | price 17 → 18 | Twenty-two, señor? No. Eighteen primas — and that is the last courtesy I extend this evening. La Chulapa will sit beautifully in my album, but not at any price  |
-| 1837 | t06 | pilar | chulapa | price 16 → 17 | Lázaro Galdiano also knew when a thing was worth no more. Seventeen primas, señor — a courtesy, not a concession. La Chulapa deserves my album, but my album is  |
-| 1836 | t06 | pilar | chulapa | - | The Embassy's lemon tart is charming, señor, but it does not alter the value of La Chulapa. My figure remains 16 primas. I know this card's print run precisely, |
-| 1834 | t06 | pilar | chulapa | - | Good evening. La Chulapa, 16 P. I trust that suits you. |
-| 1829 | t02 | pilar | chulapa | price 16 → 17 | Twenty-nine, still theatre, querido. I will stretch to seventeen pesetas — that is courtesy, not negotiation. And if you like stories, ask Carmen at El Rastro a |
-| 1827 | t08 | picaros | plaza mayor | price 54 → 50 | ¡Cuarenta! Nando, sujétame que me caigo otra vez. Mira, guapo, tú regateas como un abuelo en la Plaza Mayor, y eso me gusta. Cincuenta P y la Heroína del Dos de |
-| 1824 | t08 | picaros | plaza mayor | price 59 → 54 | ¡Ay, qué memoria tienes, amigo! Nando, este sí que lee. Pero escucha: ésta es la última Heroína que queda en todo Madrid, te lo juro por mi abuela. No hay otra, |
