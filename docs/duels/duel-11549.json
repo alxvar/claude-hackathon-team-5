@@ -201,5 +201,41 @@
     "OPEN_WAIT": 0
    }
   }
+ ],
+ "sent": [
+  {
+   "tick": 2029,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I'd like to open at 73 primas with delivery on day 0.",
+    "price": 73,
+    "days": 0,
+    "meta": {
+     "policy": "code",
+     "day_call": null,
+     "rule": "code opener",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.57,
+       "in": 855,
+       "out": 26,
+       "cost_usd": 0.00098,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 11549,
+    "offer": {
+     "id": 15550,
+     "price": 73,
+     "tick": 2029,
+     "days": 0
+    }
+   }
+  }
  ]
 }
