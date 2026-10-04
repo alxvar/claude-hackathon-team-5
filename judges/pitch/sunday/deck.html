@@ -58,9 +58,9 @@
 
 <!-- 1 · HOOK + RESULT -->
 <div class="stage on" data-t="30s">
-  <div class="pills"><span class="pill" style="color:var(--yellow)">Team 5</span><span class="pill" style="color:var(--grey)">3 humans</span><span class="pill" style="color:var(--blue)">7+ Claude Code sessions</span><span class="pill" style="color:var(--green)">19 daemons</span><span class="pill" style="color:var(--red)">2 game writers</span></div>
-  <h1 class="hero">From #5 to <em>#1</em></h1>
-  <div class="lede">Friday close <b>#5</b> · first <b>#1</b> Sat 16:44 · <b>#1 since 12:35</b> today · board <b id="lead"></b> <span class="tag v">V</span></div>
+  <div class="pills"><span class="pill" style="color:var(--yellow)">Team 5</span><span class="pill" style="color:var(--grey)">3 humans</span><span class="pill" style="color:var(--blue)">7+ Claude Code sessions</span><span class="pill" style="color:var(--green)">19 daemons built</span><span class="pill" style="color:var(--red)">2 writer roles</span></div>
+  <h1 class="hero">From #6 to <em>#1</em></h1>
+  <div class="lede">Friday final <b>#6</b> · first <b>#1</b> Sat 16:44 · <b>#1 since 12:35</b> today · board <b id="lead"></b> <span class="tag v">V</span></div>
   <svg id="race" viewBox="0 0 1664 560"></svg>
   <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i></i></div><div class="lvl"></div><div class="who">Final pitch</div></div>
 </div>
@@ -97,7 +97,7 @@
   <div class="card top sm" style="left:1344px;top:300px;--c:var(--green)">${icon('flask','var(--green)')}<div class="t">Market Test lab</div>
     <p>A recorder captures <b>every bench session</b>; an offline simulator tests broker strategies against the free stall before we risk a bond.</p><div class="src">broker/record_bench.py · broker/sim.py</div></div>
   <div class="card top sm" style="left:862px;top:630px;--c:var(--orange)">${icon('store','var(--orange)')}<div class="t">Incentives in kind</div>
-    <p>v10's first-trades bounty paid sellers in <b>cards we lacked, at ≤ our value</b>: never cash, never a gift; capped at five trades.</p><div class="src">tools/sunday/v10_reward.py · directives 10:50</div></div>
+    <p>When two teams trade on v10, the venue pays the <b>seller</b> in cards we lack, settled <b>at our value</b>: five bounties, two per seller, rivals excluded.</p><div class="src">tools/sunday/v10_reward.py · directives 10:50</div></div>
   <div class="card top sm" style="left:1344px;top:630px;--c:var(--purple)">${icon('monitor','var(--purple)')}<div class="t">Judges' showcase</div>
     <p>Dani's live dashboard and a <b>/show</b> page: read-only, built to run offline, the whole game on one screen.</p><div class="src">dashboard/server.py · dashboard/show.html</div></div>
   <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i></i></div><div class="lvl"></div><div class="who">Around the Bazaar</div></div>
@@ -117,7 +117,7 @@
   <div class="card top lcol" style="left:702px;--c:var(--yellow)"><div class="t">Negotiation + markets</div><ul>
     <li><b>Scoring is relative.</b> A trade with a rival pays them too: CHA-11, +1.48 each.</li>
     <li><b>Losses count, gains clip.</b> Never sell below value; dealers only for the ladder.</li>
-    <li><b>A market needs a first trade.</b> 0 % fee alone: 0 fills. Brokering + a bounty in cards: 6.</li></ul></div>
+    <li><b>A market needs a matchmaker.</b> 0 % fee: 0 fills this morning. Brokered pairs: 6 by 13:10.</li></ul></div>
   <div class="card top lcol" style="left:1276px;--c:var(--green)"><div class="t">One more day</div><ul>
     <li><b>Merge the Sunday duelist</b> and learn day-weights per opponent.</li>
     <li><b>Run the broker</b> we built and staged but never switched on.</li>
@@ -138,17 +138,17 @@ const H = [
    x:'Dealer gains clip to 0, losses count in full: RET-09 at 87, worth 77 → <b>−10</b>. <span class="tag v">V</span>',
    g:'<b>Pages close only through team trades.</b> Dealers only for the ladder; autoflip killed.'},
   {c:'var(--red)', k:'Duels', b:'An LLM should negotiate the duels.',
-   x:'LLM replies took <b>9.2 s</b> on average, 29 % over 10 s, and every exchange costs decay (×0.9). <span class="tag v">V</span>',
+   x:'LLM replies took <b>9.2 s</b> on average, <b>29 % over 10 s</b>, on a 15 s tick. <span class="tag v">V</span>',
    g:'<b>Code decides, Haiku only writes.</b> 8 s failover. Duels III: <b>57 of 68</b> closed. <span class="tag v">V</span>'},
   {c:'var(--purple)', k:'Scoring', b:'Trade gains cap at 50 per round (10:31).',
    x:'A 5 P sale moved neg_points <b>50.0 → 52.2</b> at 12:17. <span class="tag v">V</span>',
    g:'<b>Corrected at 12:22.</b> Buyers back on; the next +50 trade, CHA-11, added <b>+1.48</b>. <span class="tag v">V</span>'},
   {c:'var(--yellow)', k:'Rivals', b:'A trade is good if we gain.',
    x:'CHA-11 from Team 10: we gained +1.48, <b>so did Team 10</b>. <span class="tag v">V</span>',
-   g:'<b>Lock the lead (13:05):</b> no deals that feed the five closest rivals.'},
+   g:'<b>Lock the lead (13:12):</b> zero trades with the five closest rivals.'},
   {c:'var(--blue)', k:'Market', b:'A 0 % fee venue attracts trades.',
-   x:'v10 at 0 % since Saturday: <b>0 fills</b> by 10:45 today. <span class="tag v">V</span>',
-   g:'<b>We brokered pairs ourselves,</b> Team 13\'s bot quoted on v10, plus a bounty in cards: 6 fills, <b>+4.08</b> over stall-only teams. <span class="tag v">V</span>'},
+   x:'v10 at 0 %: <b>0 fills</b> today by 10:45. <span class="tag v">V</span>',
+   g:'<b>We brokered pairs,</b> Team 13\'s bot quoted on v10, sellers got a bounty: <b>6 fills by 13:10</b>, full real-trade marks today. <span class="tag l">L</span>'},
 ];
 document.getElementById('hyp').innerHTML = H.map((h, i) => `<div class="card hrow" style="top:${320 + i * 130}px;--c:${h.c}"><div class="topic">${h.k}</div><p>${h.b}</p><p>${h.x}</p><p class="chg">${h.g}</p></div>`).join('');
 
@@ -171,7 +171,7 @@ document.getElementById('hyp').innerHTML = H.map((h, i) => `<div class="card hro
   ends.forEach(e => { s += `<text class="end" x="${W - m.r + 18}" y="${e.y + 7}" fill="${col[e.t]}">${R.names[e.t].replace('Team ', 'T')} ${e.v.toFixed(2)}</text>`; });
   // call-outs on our line
   const us = R.series.t05, at = lbl => us.find(p => R.times[p[0]] === lbl);
-  [['Fri 22:55', 'Friday close', '#5', 60, -96], ['Sat 16:44', 'first time', '#1', -10, -58], ['Sat 23:24', 'Saturday close', '#3', 0, 60], ['Sun 12:35', 'back on top', '#1', -80, -36]].forEach(([lbl, txt, rk, dx, dy]) => {
+  [['Sat 09:29', 'Friday final', '#6', 70, 92], ['Sat 16:44', 'first time', '#1', -10, -58], ['Sat 23:24', 'Saturday close', '#3', 0, 60], ['Sun 12:35', 'back on top', '#1', -80, -36]].forEach(([lbl, txt, rk, dx, dy]) => {
     const p = at(lbl); if (!p) return; const x = X(p[0]), y = Y(p[1]);
     s += `<circle cx="${x}" cy="${y}" r="8" fill="#0b1020" stroke="#ffc547" stroke-width="3.5"/><line x1="${x}" y1="${y + Math.sign(dy) * 10}" x2="${x + dx}" y2="${y + dy - Math.sign(dy) * 22}" stroke="#4c5670" stroke-width="1.5"/>`;
     s += `<text class="call" x="${x + dx}" y="${y + dy - (dy < 0 ? 26 : -4)}" text-anchor="middle">${rk} · ${txt}</text><text class="callm" x="${x + dx}" y="${y + dy - (dy < 0 ? 6 : -22)}" text-anchor="middle">${lbl} · ${p[1].toFixed(2)}</text>`; });

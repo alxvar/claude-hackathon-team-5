@@ -65,7 +65,7 @@ const cx = 700, cy = 660, r = 280;
 const st = [
   {k:'S', n:1, a:-90, t:'Sense',   d:'collector · watch · scout',          m:'data/*.jsonl · STATUS.md'},
   {k:'D', n:2, a:-18, t:'Decide',  d:'Lucas + the Chief of staff',         m:'directives.md + evidence'},
-  {k:'A', n:3, a:54,  t:'Act',     d:'Operator · Duelist · Market',        m:'only two write to the game'},
+  {k:'A', n:3, a:54,  t:'Act',     d:'Operator · Duelist · Market',        m:'two writer roles'},
   {k:'M', n:4, a:126, t:'Measure', d:'metrics · judge · Duel Lab',         m:'me.jsonl: every score change'},
   {k:'L', n:5, a:198, t:'Learn',   d:'verifier · contrarian · experiments', m:'GAME.md: measured facts'},
 ];
@@ -83,7 +83,7 @@ const rows = [
   {k:'D', n:2, t:'10:31', p:'Belief, from the Analyst: <b>trade gains cap at 50 per round</b>. The Chief calls the MAL page closer <b>NO&#8209;GO</b>.'},
   {k:'A', n:3, t:'11:33', p:'MAL closer stopped (logged 11:48).'},
   {k:'M', n:4, t:'12:17', p:'A 5 P sale moves neg_points <b>50.0 → 52.2</b>. No cap. <span class="tag v">V</span>'},
-  {k:'L', n:5, t:'12:22', p:'Fact corrected: the 50 is a <b>per-trade</b> clip. RET&#8209;11 scored 0 because its value had risen to ≈ 227 <span class="tag l">L</span>. Buyers back <b>ON</b>.'},
+  {k:'L', n:5, t:'12:22', p:'Fact corrected: the 50 is a <b>per-trade</b> clip. RET&#8209;11 scored 0: 240 − 13 fee − value ≈ 227 <span class="tag l">L</span>. Buyers back <b>ON</b>.'},
 ];
 document.getElementById('rows').innerHTML = rows.map(w => `<div class="row" style="--c:${C[w.k]}"><div class="b">${w.n}</div><time>${w.t}</time><p>${w.p}</p></div>`).join('');
 </script>

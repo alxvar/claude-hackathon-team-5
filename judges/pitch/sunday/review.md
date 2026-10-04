@@ -65,5 +65,5 @@ Sources: S = `Sunday.pdf`, K = `Kickoff.pdf`, P = `Payday.pdf`, plus `bazaar-kit
 | Q4 learned: negotiation and markets | 7 · column 2 (+ 4 · impact map) | relative scoring (CHA-11), losses count / gains clip, a market needs a first trade (+4.08 over stall-only) |
 | One more day | 7 · column 3 | merge the Sunday duelist + per-opponent day weights; run the staged broker; verifier gate on every directive |
 | Built around the Bazaar (organisers' feed, 13:44: "lending, escrow, auctions, ZK, a market with more than two sides? Describe it in your /submit story and tell us at the desk") | 5 · Around the Bazaar + `submit-story.md` | club matchmaker (tools/matchmaker.py, intel/club-pitch.md), demand model + Neon hub, Market Test recorder + sim, bounty in kind, judges' showcase. **Also tell the desk in person.** |
-| Result / strategy | 1 · race, 4 · impact map | #5 Fri → #1 since 12:35; points by part of the system, V/L tagged |
+| Result / strategy | 1 · race, 4 · impact map | #6 at Friday's final → #1 since 12:35; points by part of the system, V/L tagged |
 | Submission items | upload | code (main + `duelist-loop`), Claude artifacts (this folder, intel/), how the agent works (arch A + docs/duelist-sunday-summary.md), slides (deck.html, or a PDF export) by 16:00; never the `tk-` key |
