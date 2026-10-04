@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 11:57 · Chief: v24 stays OFF (no third-party trades to route; the ≤ 1.7 VC cap makes it moot); a specific t13 trade on v24 only on the Chief's word · bounty 24703 stays on El Rastro (an MAL-09 fill on a team venue would hand it ≈ +37 VC)
 - Sun 11:57 · **FIRST v10 settlement** #1351 (tick 2087): t13 → t17 RET-02 at 8 → v10 trades 1, traders 2, value_created 3.4, mm_points 0.9 · bounty #1 (v10 settlement 1351): seller t13, in kind MAL-09 at 49 = our value (0 over; slack 29 left), offer 24703, El Rastro, exp 2208 · pact condition technically met (t13-side VC on v10 > 0) but v24 flag NOT enabled: conflicts with the Chief's 11:33 El Rastro-only rule; asked the Chief
 - Sun 11:56 · Duels III finished 11:53 (t 16.25) · window.sh (restarted 11:46 on 7a71041, keyed clock reads) logged NOT restarting as intended (floors.env.off) · window_fallback started the recorder 11:56:13 (12:37 bench); opps/swaps/trader stay DOWN; book up (LAT fodder) · next: v10 bounty/reward, lat_fodder, ad every 15 min; dealer threads cut 14:00, Grand Final ≈ 14:15
 - Sun 11:47 · Builder · shipped: duelist-loop **f57a002** (WORTH_FLOOR_SHARE, default off, + 11124 fix) for the 12:37 restart · main 2bd3cf8 matchmaker 'ask first' (buyer sold the card) + settlements last · fe397fb hub boards every 2 ticks, 429 ends the sweep · 7a71041 window.py keyed reads (venue Wi-Fi shares the keyless 60/s) → Operator restarts window.sh
