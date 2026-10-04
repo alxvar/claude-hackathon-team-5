@@ -1,6 +1,6 @@
 # Flips: team bids a dealer can fill (Team 10's playbook)
 
-_Written by `tools/reactor.py` at 11:23 (tick 1957). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
+_Written by `tools/reactor.py` at 11:24 (tick 1961). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
 
 ## Open bids (HUNT digest)
 
@@ -10,11 +10,11 @@ _Written by `tools/reactor.py` at 11:23 (tick 1957). The open team bids for rare
 | 170 | LAV-11 La Casa Encendida (epic) | t12 | v21 → t06 | none (all minted or no dealer) | - | 23970 | 11:37 |
 | 114 | LAT-11 San Francisco el Grande (epic) | t06 | v21 | picaros 145 | -31 | 23890 | 11:49 |
 | 81 | MAL-11 La Sala Pentagrama (epic) | t06 | v21 | picaros 145 | -64 | 23123 | 11:29 |
-| 44 | LAT-09 San Isidro (rare) | t06 | v21 | picaros 56 | -12 | 23145 | 11:30 |
-| 40 | LAT-11 San Francisco el Grande (epic) | t10 | rastro | picaros 145 | -105 | 23988 | 11:52 |
-| 31 | MAL-09 La Heroína del Dos de Mayo (rare) | t06 | v21 | picaros 56 | -25 | 23219 | 11:32 |
-| 31 | MAL-10 Noche de Movida (rare) | t06 | v21 | picaros 56 | -25 | 23379 | 11:36 |
-| 22 | LAV-10 Fiesta de San Cayetano (rare) | t02 | rastro → t03 | picaros 56 | -34 | 23946 | 11:26 |
+| 44 | LAT-09 San Isidro (rare) | t06 | v21 | picaros 57 | -13 | 23145 | 11:30 |
+| 37 | RET-10 Monumento a Alfonso XII (rare) | t01 | v29 → t14 | picaros 57 | -20 | 24015 | 11:44 |
+| 31 | MAL-09 La Heroína del Dos de Mayo (rare) | t06 | v21 | picaros 57 | -26 | 23219 | 11:32 |
+| 31 | MAL-10 Noche de Movida (rare) | t06 | v21 | picaros 57 | -26 | 23379 | 11:36 |
+| 24 | LAV-10 Fiesta de San Cayetano (rare) | t02 | rastro → t03 | picaros 57 | -33 | 24014 | 11:29 |
 
 ## Flips today (newest last)
 

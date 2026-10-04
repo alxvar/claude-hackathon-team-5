@@ -1341,5 +1341,77 @@
     "settles_at_tick": 1960
    }
   }
- ]
+ ],
+ "last_seen_tick": 1960,
+ "done": {
+  "duel": 11360,
+  "session": 4,
+  "status": "deal",
+  "role": "seller",
+  "item": "Escaparate de Serrano",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 1.51,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 109,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Plata",
+  "deadline_tick": 1961,
+  "decay_per_round": 0.1,
+  "rounds": 2,
+  "your_offer": {
+   "id": 13951,
+   "price": 140,
+   "tick": 1958,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 13978,
+   "price": 120,
+   "tick": 1959,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1949,
+    "from": "you",
+    "text": "I'd like to propose 155 P with delivery on day 10.",
+    "price": 155,
+    "days": 10
+   },
+   {
+    "tick": 1949,
+    "from": "Rival Plata",
+    "text": "Propuesta justa para cerrar pronto: 87 P y 0 días.",
+    "price": 87,
+    "days": 0
+   },
+   {
+    "tick": 1957,
+    "from": "Rival Plata",
+    "text": "Me muevo para acercarnos: 119 P con 0 días.",
+    "price": 119,
+    "days": 0
+   },
+   {
+    "tick": 1958,
+    "from": "you",
+    "text": "I can do 140 P, delivery on day 10.",
+    "price": 140,
+    "days": 10
+   },
+   {
+    "tick": 1959,
+    "from": "Rival Plata",
+    "text": "Yo ya me he movido. Propongo 120 P y 0 días.",
+    "price": 120,
+    "days": 0
+   }
+  ],
+  "result": 8.9,
+  "price": 120,
+  "days": 0
+ }
 }
