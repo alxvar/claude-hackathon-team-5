@@ -6,6 +6,8 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 11:45 · Duel Lab · review of the Builder's worth floor (duelist-loop f57a002 on 506a2fd: WORTH_FLOOR_SHARE in final(), accepts untouched, silent walk max floor, hold via is_hold) · **GO, 0.075 confirmed**: 584 tests pass on a scratch copy · Final restart: f57a002 + {MIN_STEP_P 15, ACCEPT_BY 1, MAX_STEP_SHARE 0.08, WORTH_FLOOR_SHARE 0.075}; never raise the floor mid-session
+
 - Sun 11:42 · window.sh's keyless clock/schedule reads 429 at the tick boundary every minute (11:39-11:41; collides with hub.collect's per-tick board sweep); with no clock window.py does nothing → backup run/sunday/window_fallback.sh (pid 78577): on duels.finished 'Duels III' (or 12:10) + 180 s, starts whatever of opps (RET, floor 176) / swaps / recorder is still down via daemons.sh (daemons.env → El Rastro) · 20 P bounty ad posted 11:42:02
 - Sun 11:40 · Duel Lab · pre-Final program (sim4 refit to 33 Duels III duels; 9 worlds; verifier pass, 1 high + 10 low fixed) · **hot now: ACCEPT_BY 1 + MAX_STEP_SHARE 0.08 (+0.008 to +0.019/duel, every world); Final: + worth floor 0.075 × limit in code (+0.018 to +0.033/duel), c95b700 proxy −0.04 to −0.12**; tick-decay sensitivity: live would lose ≈ 0.04-0.05 if decay were per tick · intel/duel-lab.md top
 
