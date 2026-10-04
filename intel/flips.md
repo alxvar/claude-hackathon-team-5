@@ -1,6 +1,6 @@
 # Flips: team bids a dealer can fill (Team 10's playbook)
 
-_Written by `tools/reactor.py` at 12:37 (tick 2252). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
+_Written by `tools/reactor.py` at 12:39 (tick 2258). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
 
 ## Open bids (HUNT digest)
 
@@ -10,7 +10,8 @@ _Written by `tools/reactor.py` at 12:37 (tick 2252). The open team bids for rare
 | 184 | SAL-11 La Puerta de Alcalá (epic) | t03 | rastro | none (all minted or no dealer) | - | 25772 | 12:42 |
 | 180 | SAL-11 La Puerta de Alcalá (epic) | t06 | v21 | none (all minted or no dealer) | - | 25645 | 12:58 |
 | 113 | RET-11 Palacio de Cristal (epic) | t06 | v19 → t10 | picaros 149 | -36 | 25057 | 12:39 |
-| 112 | LAV-11 La Casa Encendida (epic) | t17 | rastro | none (all minted or no dealer) | - | 25508 | 12:38 |
+| 112 | LAV-11 La Casa Encendida (epic) | t17 | rastro | none (all minted or no dealer) | - | 25864 | 12:52 |
+| 99 | LAV-11 La Casa Encendida (epic) | t07 | rastro | none (all minted or no dealer) | - | 25865 | 12:40 |
 | 38 | CHA-09 Museo Sorolla (rare) | t14 | v05 | picaros 56 | -18 | 25766 | 12:49 |
 | 38 | CHA-10 Casa de las Flores (rare) | t14 | v05 | picaros 56 | -18 | 25768 | 12:49 |
 | 35 | LAV-09 Cine Doré (rare) | t18 | rastro | picaros 56 | -21 | 25477 | 13:23 |
