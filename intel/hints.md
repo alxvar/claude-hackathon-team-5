@@ -421,3 +421,4 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 12:59 · message tick 2338 · picaros → t17 · ¡Ciento trece! Nando, hold me, I feel faint. Amigo, this card came from a vault in Sevilla — true story, the owner cried when he sold it. For you, because we like your face: ciento cincuenta y cinco. 155. The ferry leaves soon, ¿sí o sí?
 - Sun 13:00 · message tick 2339 · banco → t08 · El honor no altera mis términos, señor. La Reina de la Movida sale por setecientos sesenta y uno. Piénselo con calma; la cámara no se mueve, ni yo tampoco.
 - Sun 13:00 · catalog.minted RET-11 (Palacio de Cristal, epic, print run 9): hidden=False minted=7 (was 6)
+- Sun 13:01 · message tick 2345 · banco → t08 · I deal in coin, señor, not in trades. La Reina de la Movida leaves my vault for seven hundred sixty-one. Those are the terms. Take your time.
