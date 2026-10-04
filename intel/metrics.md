@@ -1,4 +1,4 @@
-# Metrics (auto, 11:09, game tick 1902)
+# Metrics (auto, 11:11, game tick 1911)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -16,7 +16,7 @@ Us: #4
 
 ## Us
 
-score 32.18 · neg_points 50.0 (15 min ago 50.0) · ladder 0.342 · duel 4.56 · cash 635 · level 5 · deals 69
+score 32.18 · neg_points 50.0 (15 min ago 50.0) · ladder 0.342 · duel 5.14 · cash 635 · level 5 · deals 69
 
 ## Our holdings (card (rarity): value of each copy; a sale gives up the cheapest copy)
 
@@ -78,13 +78,11 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×2; t02: RET×4, MAL�
 - chato uncommon (team sells): median 14 over 1
 - picaros epic (team buys): median 150 over 2
 - pilar rare (team sells): median 71 over 1
+- pilar uncommon (team sells): median 23 over 1
 
 ## El Rastro now: top bids by price (team, card, price)
 
 - t16: CHA-06 (uncommon) 19 P · offer 23389
-- t07: CHA-06 (uncommon) 18 P · offer 23015
-- t07: CHA-07 (uncommon) 18 P · offer 23016
-- t07: CHA-08 (uncommon) 18 P · offer 23017
 - t09: CHA-06 (uncommon) 15 P · offer 23065
 - t09: CHA-07 (uncommon) 15 P · offer 23066
 - t09: CHA-08 (uncommon) 15 P · offer 23069
@@ -96,19 +94,22 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×2; t02: RET×4, MAL�
 - t15: CHA-05 (common) 6 P · offer 22930
 - t09: CHA-01 (common) 5 P · offer 23048
 - t09: CHA-02 (common) 5 P · offer 23049
+- t09: CHA-03 (common) 5 P · offer 23050
+- t09: CHA-04 (common) 5 P · offer 23063
+- t09: CHA-05 (common) 5 P · offer 23064
 
-Asks by others (card, price: count): LAV-04 8: 1; RET-03 9: 1; LAV-02 7: 1; sobre_plata 130: 1; RET-05 8: 1; MAL-01 6: 1; SAL-05 8: 1; LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAT-07 30: 1; MAL-01 7: 1; LAT-01 9: 1
+Asks by others (card, price: count): LAV-04 8: 1; RET-03 9: 1; LAV-02 7: 1; sobre_plata 130: 1; RET-05 8: 1; MAL-01 6: 1; SAL-05 8: 1; LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAT-01 9: 1; LAT-02 9: 1; LAT-04 9: 1
 
-## Our duels: 4 live, 153 finished (last 10)
+## Our duels: 4 live, 156 finished (last 10)
 
-- {"duel": 11129, "session": 4, "status": "deal", "role": "seller", "item": "Vinilo de la Movida", "issues": ["price", "days"], "your_days_weight": 4.89, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 77, "limit_meaning": "ne
-- {"duel": 11144, "session": 4, "status": "no_deal", "role": "seller", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 2.4, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 84, "limit_meaning": "never 
-- {"duel": 11145, "session": 4, "status": "live", "role": "buyer", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 3.06, "days_meaning": "each delivery day costs you this much cash", "your_limit": 104, "limit_meaning": "never pay above 
 - {"duel": 11176, "session": 4, "status": "deal", "role": "buyer", "item": "Cine Dor\u00e9", "issues": ["price", "days"], "your_days_weight": 5.78, "days_meaning": "each delivery day costs you this much cash", "your_limit": 143, "limit_meaning": "never pay above
 - {"duel": 11177, "session": 4, "status": "deal", "role": "seller", "item": "Cine Dor\u00e9", "issues": ["price", "days"], "your_days_weight": 3.13, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 137, "limit_meaning": "never 
+- {"duel": 11194, "session": 4, "status": "live", "role": "seller", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 3.66, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 130, "limit_meaning": "never s
 - {"duel": 11240, "session": 4, "status": "live", "role": "seller", "item": "Cine Dor\u00e9", "issues": ["price", "days"], "your_days_weight": 5.47, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 111, "limit_meaning": "never 
-- {"duel": 11352, "session": 4, "status": "live", "role": "seller", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 6.83, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 110, "limit_meaning": "never s
-- {"duel": 11510, "session": 4, "status": "live", "role": "buyer", "item": "Vinilo de la Movida", "issues": ["price", "days"], "your_days_weight": 0.39, "days_meaning": "each delivery day costs you this much cash", "your_limit": 129, "limit_meaning": "never pay 
+- {"duel": 11242, "session": 4, "status": "live", "role": "seller", "item": "Escaparate de Serrano", "issues": ["price", "days"], "your_days_weight": 1.61, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 124, "limit_meaning": 
+- {"duel": 11352, "session": 4, "status": "no_deal", "role": "seller", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 6.83, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 110, "limit_meaning": "neve
+- {"duel": 11353, "session": 4, "status": "live", "role": "buyer", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 5.78, "days_meaning": "each delivery day costs you this much cash", "your_limit": 110, "limit_meaning": "never pay above 
+- {"duel": 11510, "session": 4, "status": "deal", "role": "buyer", "item": "Vinilo de la Movida", "issues": ["price", "days"], "your_days_weight": 0.39, "days_meaning": "each delivery day costs you this much cash", "your_limit": 129, "limit_meaning": "never pay 
 - {"duel": 11612, "session": 4, "status": "deal", "role": "seller", "item": "Cine Dor\u00e9", "issues": ["price", "days"], "your_days_weight": 3.32, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 104, "limit_meaning": "never 
 - {"duel": 11613, "session": 4, "status": "deal", "role": "buyer", "item": "Cine Dor\u00e9", "issues": ["price", "days"], "your_days_weight": 6.02, "days_meaning": "each delivery day costs you this much cash", "your_limit": 132, "limit_meaning": "never pay above
 
