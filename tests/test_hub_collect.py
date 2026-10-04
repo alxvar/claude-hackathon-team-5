@@ -51,3 +51,44 @@ def test_import_ids_for_backfilled_settlements():
     assert imp.event_id({"id": -1, "type": "offer.listed", "payload": {}}, set()) is None
     assert imp.event_id({"id": 7, "type": "settlement", "payload": {"settlement": 42}}, {42}) == 7
     assert imp.classify({"id": -1, "type": "settlement", "payload": {}}) == "event"
+
+
+def test_boards_are_swept_every_two_ticks_and_a_429_ends_the_sweep():
+    """Chief 11:40: the per-pass board sweep hit the keyless 60/s limit (11:36-11:39)."""
+    import urllib.error
+    from hub import collect as c
+
+    class Api:
+        def __init__(self, tick):
+            self.tick, self.paths = tick, []
+
+        def get(self, path, **q):
+            self.paths.append(path)
+            if path == "/api/clock":
+                return {"tick": self.tick, "doors": "open", "paused": False, "tick_seconds": 15}
+            if path == "/api/feed":
+                return {"events": []}
+            if path.endswith("/offers") and "v02" in path:
+                raise urllib.error.HTTPError(path, 429, "slow down", {}, None)
+            return {"offers": [], "venues": [], "sets": []}
+
+    class Store:
+        def __getattr__(self, name):
+            return lambda *a, **k: 0
+
+    class Local:
+        max_id = 0
+
+        def append(self, events):
+            pass
+
+    col = c.Collector(Api(100), Store(), Local())
+    col.venues = ["rastro", "v01", "v02", "v03"]
+    col.next_state = col.next_catalog = float("inf")
+    boards = lambda api: [p for p in api.paths if p.endswith("/offers")]  # noqa: E731
+    col.step()
+    assert boards(col.api) == ["/api/venues/rastro/offers", "/api/venues/v01/offers", "/api/venues/v02/offers"]
+    for tick, swept in ((100, False), (101, False), (102, True)):
+        col.api = Api(tick)
+        col.step()
+        assert bool(boards(col.api)) == swept, tick
