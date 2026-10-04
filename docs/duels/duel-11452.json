@@ -249,6 +249,80 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1967,
+   "raw": {
+    "duel": 11452,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Cine Doré",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.57,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 52,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 1971,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 13983,
+     "price": 74,
+     "tick": 1959,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 14165,
+     "price": 69,
+     "tick": 1967,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1959,
+      "from": "you",
+      "text": "I'd like to open at 74 P for delivery on day 10.",
+      "price": 74,
+      "days": 10
+     },
+     {
+      "tick": 1961,
+      "from": "Rival Sol",
+      "text": "We can do 56 P, delivery on day 0. Thank you for the talk.",
+      "price": 56,
+      "days": 0
+     },
+     {
+      "tick": 1963,
+      "from": "Rival Sol",
+      "text": "64 P, delivery on day 0 works well for us.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1965,
+      "from": "Rival Sol",
+      "text": "Our offer is 67 P, delivery on day 0.",
+      "price": 67,
+      "days": 0
+     },
+     {
+      "tick": 1967,
+      "from": "Rival Sol",
+      "text": "Let's meet at 69 P, delivery on day 0, fair for both.",
+      "price": 69,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -766,6 +840,161 @@
      58.3,
      45.7,
      7.199999999999999
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 74,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1967,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11452,
+     "role": "seller",
+     "limit": 52,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.57,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 74 P for delivery on day 10.",
+      "offer": {
+       "price": 74,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1959,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "We can do 56 P, delivery on day 0. Thank you for the talk.",
+      "offer": {
+       "price": 56,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1961,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "64 P, delivery on day 0 works well for us.",
+      "offer": {
+       "price": 64,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1963,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Our offer is 67 P, delivery on day 0.",
+      "offer": {
+       "price": 67,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1965,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Let's meet at 69 P, delivery on day 0, fair for both.",
+      "offer": {
+       "price": 69,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1967,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 69,
+     "days": 0
+    },
+    "tick": 1967,
+    "ticks_left": 4,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5
     ]
    },
    "move": {
