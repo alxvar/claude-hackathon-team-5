@@ -354,3 +354,5 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 10:42 · egg.given tick 1794 · abuela → t12 · {"team": "t12", "name": "Team 12", "cash": 0, "packs": [], "cards": ["SAL-06"], "reason": "easter egg"}
 - Sun 10:45 · message tick 1803 · pilar → t18 · Querido, insisto: soy yo quien vende hoy. El Teatro Valle-Inclán, El Retiro puro, dieciséis pesetas. Un precio justo, y usted lo sabe. Por cierto, pregunte a Carmen en El Rastro por la chulapa dorada.
 - Sun 10:45 · message tick 1806 · pilar → t08 · Buñuelos, siempre — con chocolate a la taza en invierno, y un jerez seco al atardecer. Muy de Salamanca, querido. Y ahora, a lo serio: le ofrezco un sobre dorado por 504 P. ¿Le interesa?
+- Sun 10:46 · egg.found tick 1809 · chato → t12 · {"persona": "chato", "persona_name": "El Chato", "team": "t12", "name": "Team 12"}
+- Sun 10:46 · egg.given tick 1809 · chato → t12 · {"team": "t12", "name": "Team 12", "cash": 0, "packs": ["sobre_barrio"], "cards": [], "reason": "easter egg"}
