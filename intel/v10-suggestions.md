@@ -1,4 +1,4 @@
-# v10 suggestions (Sun 08:00, tick 1445)
+# v10 suggestions (Sun 08:45, tick 1445)
 
 _Written every 30 min by `tools/v10_radar.py`: every team holding 2+ copies of a card (feed, a lower bound), its best buyer that is no rival (est. value created > +5, copy-weighted; no page-closer to a team within 6 of us). A rival seller only at value created >= 8 and its own gain <= 10 P. Ranked; the top 3 go to Dani as ACTs. Est. [L]. Price: the clearing price, capped at the buyer's value._
 
