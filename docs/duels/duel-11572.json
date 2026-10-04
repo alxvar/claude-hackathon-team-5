@@ -323,6 +323,270 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 2008,
+   "raw": {
+    "duel": 11572,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "San Isidro",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 6.53,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 43,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 2011,
+    "decay_per_round": 0.1,
+    "rounds": 2,
+    "your_offer": {
+     "id": 15149,
+     "price": 46,
+     "tick": 2008,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 15007,
+     "price": 62,
+     "tick": 2003,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1999,
+      "from": "you",
+      "text": "I'd like to open at 62 P for delivery on day 10.",
+      "price": 62,
+      "days": 10
+     },
+     {
+      "tick": 1999,
+      "from": "Rival Oro",
+      "text": "I can do 30 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 30,
+      "days": 0
+     },
+     {
+      "tick": 2000,
+      "from": "Rival Oro",
+      "text": "I can do 38 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 38,
+      "days": 0
+     },
+     {
+      "tick": 2001,
+      "from": "Rival Oro",
+      "text": "I can do 53 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 53,
+      "days": 0
+     },
+     {
+      "tick": 2003,
+      "from": "Rival Oro",
+      "text": "I can do 62 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 62,
+      "days": 0
+     },
+     {
+      "tick": 2008,
+      "from": "you",
+      "text": "I can do 46 P, delivery on day 10.",
+      "price": 46,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 2008,
+   "raw": {
+    "duel": 11572,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "San Isidro",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 6.53,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 43,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 2011,
+    "decay_per_round": 0.1,
+    "rounds": 2,
+    "your_offer": {
+     "id": 15149,
+     "price": 46,
+     "tick": 2008,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 15158,
+     "price": 46,
+     "tick": 2008,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1999,
+      "from": "you",
+      "text": "I'd like to open at 62 P for delivery on day 10.",
+      "price": 62,
+      "days": 10
+     },
+     {
+      "tick": 1999,
+      "from": "Rival Oro",
+      "text": "I can do 30 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 30,
+      "days": 0
+     },
+     {
+      "tick": 2000,
+      "from": "Rival Oro",
+      "text": "I can do 38 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 38,
+      "days": 0
+     },
+     {
+      "tick": 2001,
+      "from": "Rival Oro",
+      "text": "I can do 53 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 53,
+      "days": 0
+     },
+     {
+      "tick": 2003,
+      "from": "Rival Oro",
+      "text": "I can do 62 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 62,
+      "days": 0
+     },
+     {
+      "tick": 2008,
+      "from": "you",
+      "text": "I can do 46 P, delivery on day 10.",
+      "price": 46,
+      "days": 10
+     },
+     {
+      "tick": 2008,
+      "from": "Rival Oro",
+      "text": "I can do 46 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 46,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 2009,
+   "raw": {
+    "duel": 11572,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "San Isidro",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 6.53,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 43,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 2011,
+    "decay_per_round": 0.1,
+    "rounds": 3,
+    "your_offer": {
+     "id": 15175,
+     "price": 30,
+     "tick": 2009,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 15158,
+     "price": 46,
+     "tick": 2008,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1999,
+      "from": "you",
+      "text": "I'd like to open at 62 P for delivery on day 10.",
+      "price": 62,
+      "days": 10
+     },
+     {
+      "tick": 1999,
+      "from": "Rival Oro",
+      "text": "I can do 30 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 30,
+      "days": 0
+     },
+     {
+      "tick": 2000,
+      "from": "Rival Oro",
+      "text": "I can do 38 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 38,
+      "days": 0
+     },
+     {
+      "tick": 2001,
+      "from": "Rival Oro",
+      "text": "I can do 53 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 53,
+      "days": 0
+     },
+     {
+      "tick": 2003,
+      "from": "Rival Oro",
+      "text": "I can do 62 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 62,
+      "days": 0
+     },
+     {
+      "tick": 2008,
+      "from": "you",
+      "text": "I can do 46 P, delivery on day 10.",
+      "price": 46,
+      "days": 10
+     },
+     {
+      "tick": 2008,
+      "from": "Rival Oro",
+      "text": "I can do 46 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 46,
+      "days": 0
+     },
+     {
+      "tick": 2009,
+      "from": "you",
+      "text": "I can do 30 P, delivery on day 10.",
+      "price": 30,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1095,6 +1359,577 @@
     "ACCEPT_BY": 1,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 2006,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11572,
+     "role": "seller",
+     "limit": 43,
+     "currency": "P",
+     "item": "San Isidro",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 6.53,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 62 P for delivery on day 10.",
+      "offer": {
+       "price": 62,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1999,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can do 30 with delivery on day 0. That is a fair deal for both of us.",
+      "offer": {
+       "price": 30,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1999,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can do 38 with delivery on day 0. That is a fair deal for both of us.",
+      "offer": {
+       "price": 38,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2000,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can do 53 with delivery on day 0. That is a fair deal for both of us.",
+      "offer": {
+       "price": 53,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2001,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can do 62 with delivery on day 0. That is a fair deal for both of us.",
+      "offer": {
+       "price": 62,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2003,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 62,
+     "days": 0
+    },
+    "tick": 2006,
+    "ticks_left": 5,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5,
+     51.0,
+     65.4,
+     33.8,
+     10.600000000000001,
+     44.3,
+     3.8,
+     38.6,
+     62.5,
+     30.4,
+     33.4,
+     65.3,
+     15.700000000000001,
+     51.3,
+     5.8,
+     20.2
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 62,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "hold",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.08,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 2008,
+   "took_s": 1.15,
+   "cost_usd": 0.00123,
+   "obs": {
+    "view": {
+     "duel_id": 11572,
+     "role": "seller",
+     "limit": 43,
+     "currency": "P",
+     "item": "San Isidro",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 6.53,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 62 P for delivery on day 10.",
+      "offer": {
+       "price": 62,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1999,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can do 30 with delivery on day 0. That is a fair deal for both of us.",
+      "offer": {
+       "price": 30,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1999,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can do 38 with delivery on day 0. That is a fair deal for both of us.",
+      "offer": {
+       "price": 38,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2000,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can do 53 with delivery on day 0. That is a fair deal for both of us.",
+      "offer": {
+       "price": 53,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2001,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can do 62 with delivery on day 0. That is a fair deal for both of us.",
+      "offer": {
+       "price": 62,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2003,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 62,
+     "days": 0
+    },
+    "tick": 2008,
+    "ticks_left": 3,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5,
+     51.0,
+     65.4,
+     33.8,
+     10.600000000000001,
+     44.3,
+     3.8,
+     38.6,
+     62.5,
+     30.4,
+     33.4,
+     65.3,
+     15.700000000000001,
+     51.3,
+     5.8,
+     20.2
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 46 P, delivery on day 10.",
+    "price": 46,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "hold",
+     "rule": "worth floor",
+     "step": 32.65,
+     "closing": true,
+     "text": "rejected: plain words",
+     "text_problems": [
+      "the message names 62: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "I appreciate you meeting me at 62, but I need day 10 for delivery. I'll offer 30 P on day 10.",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.15,
+       "in": 1038,
+       "out": 39,
+       "cost_usd": 0.00123,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 30,
+     "floor": 68.0
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.08,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 2009,
+   "took_s": 0.99,
+   "cost_usd": 0.00127,
+   "obs": {
+    "view": {
+     "duel_id": 11572,
+     "role": "seller",
+     "limit": 43,
+     "currency": "P",
+     "item": "San Isidro",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 6.53,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 62 P for delivery on day 10.",
+      "offer": {
+       "price": 62,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1999,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can do 30 with delivery on day 0. That is a fair deal for both of us.",
+      "offer": {
+       "price": 30,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1999,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can do 38 with delivery on day 0. That is a fair deal for both of us.",
+      "offer": {
+       "price": 38,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2000,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can do 53 with delivery on day 0. That is a fair deal for both of us.",
+      "offer": {
+       "price": 53,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2001,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can do 62 with delivery on day 0. That is a fair deal for both of us.",
+      "offer": {
+       "price": 62,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2003,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 46 P, delivery on day 10.",
+      "offer": {
+       "price": 46,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2008,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can do 46 with delivery on day 0. That is a fair deal for both of us.",
+      "offer": {
+       "price": 46,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2008,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 46,
+     "days": 0
+    },
+    "tick": 2009,
+    "ticks_left": 2,
+    "rounds": 2,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5,
+     51.0,
+     65.4,
+     33.8,
+     10.600000000000001,
+     44.3,
+     3.8,
+     38.6,
+     62.5,
+     30.4,
+     33.4,
+     65.3,
+     15.700000000000001,
+     51.3,
+     5.8,
+     20.2
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 30 P, delivery on day 10.",
+    "price": 30,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "hold",
+     "rule": "worth floor",
+     "step": 32.65,
+     "closing": true,
+     "text": "rejected: plain words",
+     "text_problems": [
+      "the message names 46: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "Your offer at 46 is closer, but I need to stay at 14 P for day 10.",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 0.99,
+       "in": 1110,
+       "out": 32,
+       "cost_usd": 0.00127,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 14,
+     "floor": 52.0
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.08,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -1131,6 +1966,185 @@
      "days": 10
     }
    }
+  },
+  {
+   "tick": 2008,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 46 P, delivery on day 10.",
+    "price": 46,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "hold",
+     "rule": "worth floor",
+     "step": 32.65,
+     "closing": true,
+     "text": "rejected: plain words",
+     "text_problems": [
+      "the message names 62: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "I appreciate you meeting me at 62, but I need day 10 for delivery. I'll offer 30 P on day 10.",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.15,
+       "in": 1038,
+       "out": 39,
+       "cost_usd": 0.00123,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 30,
+     "floor": 68.0
+    }
+   },
+   "result": {
+    "duel": 11572,
+    "offer": {
+     "id": 15149,
+     "price": 46,
+     "tick": 2008,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 2009,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 30 P, delivery on day 10.",
+    "price": 30,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "hold",
+     "rule": "worth floor",
+     "step": 32.65,
+     "closing": true,
+     "text": "rejected: plain words",
+     "text_problems": [
+      "the message names 46: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "Your offer at 46 is closer, but I need to stay at 14 P for day 10.",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 0.99,
+       "in": 1110,
+       "out": 32,
+       "cost_usd": 0.00127,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 14,
+     "floor": 52.0
+    }
+   },
+   "result": {
+    "duel": 11572,
+    "offer": {
+     "id": 15175,
+     "price": 30,
+     "tick": 2009,
+     "days": 10
+    }
+   }
   }
- ]
+ ],
+ "last_seen_tick": 2010,
+ "done": {
+  "duel": 11572,
+  "session": 4,
+  "status": "deal",
+  "role": "seller",
+  "item": "San Isidro",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 6.53,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 43,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Oro",
+  "deadline_tick": 2011,
+  "decay_per_round": 0.1,
+  "rounds": 3,
+  "your_offer": {
+   "id": 15175,
+   "price": 30,
+   "tick": 2009,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 15158,
+   "price": 46,
+   "tick": 2008,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1999,
+    "from": "you",
+    "text": "I'd like to open at 62 P for delivery on day 10.",
+    "price": 62,
+    "days": 10
+   },
+   {
+    "tick": 1999,
+    "from": "Rival Oro",
+    "text": "I can do 30 with delivery on day 0. That is a fair deal for both of us.",
+    "price": 30,
+    "days": 0
+   },
+   {
+    "tick": 2000,
+    "from": "Rival Oro",
+    "text": "I can do 38 with delivery on day 0. That is a fair deal for both of us.",
+    "price": 38,
+    "days": 0
+   },
+   {
+    "tick": 2001,
+    "from": "Rival Oro",
+    "text": "I can do 53 with delivery on day 0. That is a fair deal for both of us.",
+    "price": 53,
+    "days": 0
+   },
+   {
+    "tick": 2003,
+    "from": "Rival Oro",
+    "text": "I can do 62 with delivery on day 0. That is a fair deal for both of us.",
+    "price": 62,
+    "days": 0
+   },
+   {
+    "tick": 2008,
+    "from": "you",
+    "text": "I can do 46 P, delivery on day 10.",
+    "price": 46,
+    "days": 10
+   },
+   {
+    "tick": 2008,
+    "from": "Rival Oro",
+    "text": "I can do 46 with delivery on day 0. That is a fair deal for both of us.",
+    "price": 46,
+    "days": 0
+   },
+   {
+    "tick": 2009,
+    "from": "you",
+    "text": "I can do 30 P, delivery on day 10.",
+    "price": 30,
+    "days": 10
+   }
+  ],
+  "result": 38.1,
+  "price": 30,
+  "days": 10
+ }
 }

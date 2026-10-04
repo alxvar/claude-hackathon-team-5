@@ -141,6 +141,228 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 2009,
+   "raw": {
+    "duel": 11640,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.13,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 104,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 2013,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 14967,
+     "price": 148,
+     "tick": 2001,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 15183,
+     "price": 122,
+     "tick": 2009,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 2001,
+      "from": "Rival Luna",
+      "text": "Propuesta justa para cerrar pronto: 86 P y 0 días.",
+      "price": 86,
+      "days": 0
+     },
+     {
+      "tick": 2001,
+      "from": "you",
+      "text": "I'd like to open at 148 primas with delivery on day 10.",
+      "price": 148,
+      "days": 10
+     },
+     {
+      "tick": 2002,
+      "from": "Rival Luna",
+      "text": "Me muevo para acercarnos: 97 P con 0 días.",
+      "price": 97,
+      "days": 0
+     },
+     {
+      "tick": 2009,
+      "from": "Rival Luna",
+      "text": "Yo ya me he movido. Propongo 122 P y 0 días.",
+      "price": 122,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 2010,
+   "raw": {
+    "duel": 11640,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.13,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 104,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 2013,
+    "decay_per_round": 0.1,
+    "rounds": 2,
+    "your_offer": {
+     "id": 15194,
+     "price": 129,
+     "tick": 2010,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 15183,
+     "price": 122,
+     "tick": 2009,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 2001,
+      "from": "Rival Luna",
+      "text": "Propuesta justa para cerrar pronto: 86 P y 0 días.",
+      "price": 86,
+      "days": 0
+     },
+     {
+      "tick": 2001,
+      "from": "you",
+      "text": "I'd like to open at 148 primas with delivery on day 10.",
+      "price": 148,
+      "days": 10
+     },
+     {
+      "tick": 2002,
+      "from": "Rival Luna",
+      "text": "Me muevo para acercarnos: 97 P con 0 días.",
+      "price": 97,
+      "days": 0
+     },
+     {
+      "tick": 2009,
+      "from": "Rival Luna",
+      "text": "Yo ya me he movido. Propongo 122 P y 0 días.",
+      "price": 122,
+      "days": 0
+     },
+     {
+      "tick": 2010,
+      "from": "you",
+      "text": "I can do 129 P, delivery on day 10.",
+      "price": 129,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 2011,
+   "raw": {
+    "duel": 11640,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.13,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 104,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Luna",
+    "deadline_tick": 2013,
+    "decay_per_round": 0.1,
+    "rounds": 3,
+    "your_offer": {
+     "id": 15232,
+     "price": 114,
+     "tick": 2011,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 15183,
+     "price": 122,
+     "tick": 2009,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 2001,
+      "from": "Rival Luna",
+      "text": "Propuesta justa para cerrar pronto: 86 P y 0 días.",
+      "price": 86,
+      "days": 0
+     },
+     {
+      "tick": 2001,
+      "from": "you",
+      "text": "I'd like to open at 148 primas with delivery on day 10.",
+      "price": 148,
+      "days": 10
+     },
+     {
+      "tick": 2002,
+      "from": "Rival Luna",
+      "text": "Me muevo para acercarnos: 97 P con 0 días.",
+      "price": 97,
+      "days": 0
+     },
+     {
+      "tick": 2009,
+      "from": "Rival Luna",
+      "text": "Yo ya me he movido. Propongo 122 P y 0 días.",
+      "price": 122,
+      "days": 0
+     },
+     {
+      "tick": 2010,
+      "from": "you",
+      "text": "I can do 129 P, delivery on day 10.",
+      "price": 129,
+      "days": 10
+     },
+     {
+      "tick": 2011,
+      "from": "you",
+      "text": "I can do 114 P, delivery on day 10.",
+      "price": 114,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -590,6 +812,849 @@
     "ACCEPT_BY": 1,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 2006,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11640,
+     "role": "seller",
+     "limit": 104,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.13,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 86 P y 0 días.",
+      "offer": {
+       "price": 86,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2001,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'd like to open at 148 primas with delivery on day 10.",
+      "offer": {
+       "price": 148,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2001,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 97 P con 0 días.",
+      "offer": {
+       "price": 97,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2002,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 97,
+     "days": 0
+    },
+    "tick": 2006,
+    "ticks_left": 7,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5,
+     51.0,
+     65.4,
+     33.8,
+     10.600000000000001,
+     44.3,
+     3.8,
+     38.6,
+     62.5,
+     30.4,
+     33.4,
+     65.3,
+     15.700000000000001,
+     51.3,
+     5.8,
+     20.2
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 148,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.08,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 2009,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11640,
+     "role": "seller",
+     "limit": 104,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.13,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 86 P y 0 días.",
+      "offer": {
+       "price": 86,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2001,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'd like to open at 148 primas with delivery on day 10.",
+      "offer": {
+       "price": 148,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2001,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 97 P con 0 días.",
+      "offer": {
+       "price": 97,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2002,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 97,
+     "days": 0
+    },
+    "tick": 2009,
+    "ticks_left": 4,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5,
+     51.0,
+     65.4,
+     33.8,
+     10.600000000000001,
+     44.3,
+     3.8,
+     38.6,
+     62.5,
+     30.4,
+     33.4,
+     65.3,
+     15.700000000000001,
+     51.3,
+     5.8,
+     20.2
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 148,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.08,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 2010,
+   "took_s": 1.18,
+   "cost_usd": 0.00118,
+   "obs": {
+    "view": {
+     "duel_id": 11640,
+     "role": "seller",
+     "limit": 104,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.13,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 86 P y 0 días.",
+      "offer": {
+       "price": 86,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2001,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'd like to open at 148 primas with delivery on day 10.",
+      "offer": {
+       "price": 148,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2001,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 97 P con 0 días.",
+      "offer": {
+       "price": 97,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2002,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Yo ya me he movido. Propongo 122 P y 0 días.",
+      "offer": {
+       "price": 122,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2009,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 122,
+     "days": 0
+    },
+    "tick": 2010,
+    "ticks_left": 3,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5,
+     51.0,
+     65.4,
+     33.8,
+     10.600000000000001,
+     44.3,
+     3.8,
+     38.6,
+     62.5,
+     30.4,
+     33.4,
+     65.3,
+     15.700000000000001,
+     51.3,
+     5.8,
+     20.2,
+     48.2
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 129 P, delivery on day 10.",
+    "price": 129,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 38.65,
+     "closing": true,
+     "text": "rejected: plain words",
+     "text_problems": [
+      "the message names 122, 10: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "Veo que bajas a 122, así que propongo 110 P con día 10 de entrega.",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.18,
+       "in": 1003,
+       "out": 35,
+       "cost_usd": 0.00118,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 110,
+     "floor": 76.0
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.08,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 2011,
+   "took_s": 0.84,
+   "cost_usd": 0.00117,
+   "obs": {
+    "view": {
+     "duel_id": 11640,
+     "role": "seller",
+     "limit": 104,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.13,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 86 P y 0 días.",
+      "offer": {
+       "price": 86,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2001,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'd like to open at 148 primas with delivery on day 10.",
+      "offer": {
+       "price": 148,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2001,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 97 P con 0 días.",
+      "offer": {
+       "price": 97,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2002,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Yo ya me he movido. Propongo 122 P y 0 días.",
+      "offer": {
+       "price": 122,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2009,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 129 P, delivery on day 10.",
+      "offer": {
+       "price": 129,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2010,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 122,
+     "days": 0
+    },
+    "tick": 2011,
+    "ticks_left": 2,
+    "rounds": 2,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5,
+     51.0,
+     65.4,
+     33.8,
+     10.600000000000001,
+     44.3,
+     3.8,
+     38.6,
+     62.5,
+     30.4,
+     33.4,
+     65.3,
+     15.700000000000001,
+     51.3,
+     5.8,
+     20.2,
+     48.2
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 114 P, delivery on day 10.",
+    "price": 114,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 29.15,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 0.84,
+       "in": 1039,
+       "out": 27,
+       "cost_usd": 0.00117,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 100,
+     "floor": 61.3
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.08,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 2012,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11640,
+     "role": "seller",
+     "limit": 104,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.13,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 86 P y 0 días.",
+      "offer": {
+       "price": 86,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2001,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I'd like to open at 148 primas with delivery on day 10.",
+      "offer": {
+       "price": 148,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2001,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 97 P con 0 días.",
+      "offer": {
+       "price": 97,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2002,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Yo ya me he movido. Propongo 122 P y 0 días.",
+      "offer": {
+       "price": 122,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2009,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 129 P, delivery on day 10.",
+      "offer": {
+       "price": 129,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2010,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 114 P, delivery on day 10.",
+      "offer": {
+       "price": 114,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2011,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 122,
+     "days": 0
+    },
+    "tick": 2012,
+    "ticks_left": 1,
+    "rounds": 3,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5,
+     51.0,
+     65.4,
+     33.8,
+     10.600000000000001,
+     44.3,
+     3.8,
+     38.6,
+     62.5,
+     30.4,
+     33.4,
+     65.3,
+     15.700000000000001,
+     51.3,
+     5.8,
+     20.2,
+     48.2
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 122,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.08,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -626,6 +1691,185 @@
      "days": 10
     }
    }
+  },
+  {
+   "tick": 2010,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 129 P, delivery on day 10.",
+    "price": 129,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 38.65,
+     "closing": true,
+     "text": "rejected: plain words",
+     "text_problems": [
+      "the message names 122, 10: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "Veo que bajas a 122, así que propongo 110 P con día 10 de entrega.",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.18,
+       "in": 1003,
+       "out": 35,
+       "cost_usd": 0.00118,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 110,
+     "floor": 76.0
+    }
+   },
+   "result": {
+    "duel": 11640,
+    "offer": {
+     "id": 15194,
+     "price": 129,
+     "tick": 2010,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 2011,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 114 P, delivery on day 10.",
+    "price": 114,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 29.15,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 0.84,
+       "in": 1039,
+       "out": 27,
+       "cost_usd": 0.00117,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 100,
+     "floor": 61.3
+    }
+   },
+   "result": {
+    "duel": 11640,
+    "offer": {
+     "id": 15232,
+     "price": 114,
+     "tick": 2011,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 2012,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 122,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 122,
+    "settles_at_tick": 2013
+   }
   }
- ]
+ ],
+ "last_seen_tick": 2013,
+ "done": {
+  "duel": 11640,
+  "session": 4,
+  "status": "deal",
+  "role": "seller",
+  "item": "Museo Sorolla",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 5.13,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 104,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Luna",
+  "deadline_tick": 2013,
+  "decay_per_round": 0.1,
+  "rounds": 3,
+  "your_offer": {
+   "id": 15232,
+   "price": 114,
+   "tick": 2011,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 15183,
+   "price": 122,
+   "tick": 2009,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 2001,
+    "from": "Rival Luna",
+    "text": "Propuesta justa para cerrar pronto: 86 P y 0 días.",
+    "price": 86,
+    "days": 0
+   },
+   {
+    "tick": 2001,
+    "from": "you",
+    "text": "I'd like to open at 148 primas with delivery on day 10.",
+    "price": 148,
+    "days": 10
+   },
+   {
+    "tick": 2002,
+    "from": "Rival Luna",
+    "text": "Me muevo para acercarnos: 97 P con 0 días.",
+    "price": 97,
+    "days": 0
+   },
+   {
+    "tick": 2009,
+    "from": "Rival Luna",
+    "text": "Yo ya me he movido. Propongo 122 P y 0 días.",
+    "price": 122,
+    "days": 0
+   },
+   {
+    "tick": 2010,
+    "from": "you",
+    "text": "I can do 129 P, delivery on day 10.",
+    "price": 129,
+    "days": 10
+   },
+   {
+    "tick": 2011,
+    "from": "you",
+    "text": "I can do 114 P, delivery on day 10.",
+    "price": 114,
+    "days": 10
+   }
+  ],
+  "result": 13.1,
+  "price": 122,
+  "days": 0
+ }
 }

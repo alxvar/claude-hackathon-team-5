@@ -270,5 +270,44 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 2005,
+ "done": {
+  "duel": 11444,
+  "session": 4,
+  "status": "deal",
+  "role": "buyer",
+  "item": "San Isidro",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 1.57,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 154,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Plata",
+  "deadline_tick": 2013,
+  "decay_per_round": 0.1,
+  "rounds": 0,
+  "your_offer": {
+   "id": 14968,
+   "price": 97,
+   "tick": 2001,
+   "days": 0
+  },
+  "rival_offer": null,
+  "messages": [
+   {
+    "tick": 2001,
+    "from": "you",
+    "text": "I'm offering 97 P for delivery on day 0.",
+    "price": 97,
+    "days": 0
+   }
+  ],
+  "result": 57.0,
+  "price": 97,
+  "days": 0
+ }
 }
