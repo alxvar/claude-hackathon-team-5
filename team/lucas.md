@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 10:27 · operator · **RET-11 SOLD to t02 at 240** (t02's public bid 22286: our ask 21836 cancelled, accepted as taker, fee 13; settlement tick 1730) → cash 433 → **660**; expected +29 but neg_points still 50.0 (lag or a per-round cap? asked the Analyst) · cash 373 → 433 earlier with no settlement of ours (bench payout?; market 7.33 → 9.73) · team pings t07/t09/t02 (RET-09 pair, RET-11 nudge): 0 replies · **MAL close GO** (Chief 10:25): threads to t13/t15 (MAL-07/09/10?), Pícaros MAL-09 → MAL-10 at ≤ 49 (value, 0 neg, L4) starting; MAL-07 last → one addressed closer to t15/t13
 - Sun 10:09 · operator · RET-11 → t02 at 240 (21583) expired unfilled → re-posted **21836**, 240, El Rastro, 120 ticks (exp 1783) (Chief: El Rastro, not a member market; Dani's WhatsApp is the trigger) · a watcher re-posts once at 230, then stops
 - Sun 10:07 · operator · v10 ad (Chief: NO cash rebates, RULES l.71/l.131): first post 10:07:21 {ok: true}: 'v10 (Puesto de Team 5): 0% fee. Selling here instead of El Rastro saves you 5% + 1 P per card. Post your spares open on v10; buyers' bots watch it.' · job run/sunday/v10_ad_sun.py pid 35906, every 15 min until 15:00
 - Sun 09:57 · operator · **RET-11 → t02 at 240** (offer 21583, El Rastro, addressed, exp tick 1653): t02 had bid 240 for it (addressed to t10); value 198 → +42 for us and denies t10 a +98 flip · Dani messages t02 · fallback 230 or a 0% member market (not v26/v10) on the Chief's word
