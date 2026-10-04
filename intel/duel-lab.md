@@ -50,6 +50,30 @@ This answers the Chief's 08:15 question on `intel/contra-duels.md` §1.
   - no accept of ours has ever been refused;
   - the code accept's unused text call adds at most 3.5 s, well inside a 15 s tick.
   - If any accept shows a send error, set `ACCEPT_BY` back to 2.
+- **With the trader, swaps and opps on (Chief, 07:20: the key at 73-92%), C+ still wins.** It doesn't need them off.
+  - **Simulated [L]:** each accept slips a tick with probability p. A slipped accept is retried next tick; with 1 tick
+    left the deal is lost (`v2/accslip.out`, past rivals + fast, H1, code-first):
+
+    | p | C+ − C | `MIN_STEP_P` 15 alone − C | C+ − (15 alone) |
+    |---|---|---|---|
+    | 0 | +0.028 | +0.018 | +0.010 |
+    | 5% | +0.027 | +0.018 | +0.009 |
+    | 20% | +0.024 | +0.018 | +0.006 |
+
+  - **Records bound [V/L]:** the sim under-counts late accepts. In our records, 21-24% of duels closed on our accept
+    with ≤ 2 ticks left (Duels I 8/34, Duels II 14/68). Under C+ these all wait for the last tick.
+    - So a slip rate p costs ≈ p × 0.22 × ≈ 0.45 ≈ 0.10·p a duel.
+    - Break-even against `MIN_STEP_P` 15 alone: **p ≈ 10%** of last-tick accepts slipping.
+    - Break-even against C: **p ≈ 28%**.
+  - **What p is plausible [L/?]:**
+    - ops-contention's model gives 0.1-2 duelist moves pushed a tick an hour with everything on. That is about 0.5% or
+      less of the duelist's ≈ 400 sends an hour (my estimate).
+    - A last-tick accept goes out within ≈ 2-6 s of the tick start, and the SDK absorbs a 429 within 1.5 s.
+    - p hasn't been measured under load.
+  - **`MIN_STEP_P` 15 alone keeps only ≈ 63% of the gain** (+0.018 of +0.028), and it is the variant that turns
+    slightly negative when rivals are tough all duel (−0.003). C+ stays positive there.
+  - **Stopping the trader, swaps and opps for the window** is a cheap hedge on this tail, worth ≈ 0.10·p a duel. It
+    isn't a precondition for C+.
 - **`MIN_STEP_P` 15 is the top of its bound** (0-15 in `params.py` SPEC) [V]. The tough-world result argues against
   pushing it further, even with a code change.
 
