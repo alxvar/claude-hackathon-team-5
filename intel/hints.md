@@ -319,3 +319,8 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 09:50 · catalog.minted SAL-12 (La Dama de Serrano, legendary, print run 3): hidden=False minted=1 (was 0)
 - Sun 09:52 · egg.found tick 1593 · abuela → t09 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t09", "name": "Team 9"}
 - Sun 09:52 · egg.given tick 1593 · abuela → t09 · {"team": "t09", "name": "Team 9", "cash": 0, "packs": [], "cards": ["SAL-06"], "reason": "easter egg"}
+- Sun 09:53 · message tick 1599 · picaros → t04 · —¡Ay, paisano, qué historia tan bonita, las pirámides, el abuelo, se me enchina la piel!—
+
+—Pero El Marqués ya voló, primo. Vendido, agotado, se lo llevó un señor hace rato y ni las gracias dio.
+
+—Nada que hacer con ése. Pregúntanos por otra cosa y vemos, ¿va?
