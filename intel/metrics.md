@@ -1,4 +1,4 @@
-# Metrics (auto, 12:11, game tick 2147)
+# Metrics (auto, 12:13, game tick 2155)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -75,32 +75,34 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×2; t02: RET×4, MAL�
 
 ## Dealer prices, last 60 ticks (median per item)
 
+- abuela common (team buys): median 9 over 1
 - abuela uncommon (team buys): median 22 over 1
+- chato uncommon (team sells): median 13 over 1
 - picaros common (team sells): median 5 over 1
 - picaros epic (team buys): median 145 over 1
-- picaros rare (team buys): median 57 over 6
+- picaros rare (team buys): median 56 over 6
 - pilar rare (team sells): median 61 over 2
-- pilar uncommon (team sells): median 17 over 1
+- pilar uncommon (team sells): median 17 over 2
 
 ## El Rastro now: top bids by price (team, card, price)
 
-- t03: SAL-11 (epic) 154 P · offer 25099
+- t03: SAL-11 (epic) 158 P · offer 25168
 - t17: LAV-11 (epic) 112 P · offer 25046
 - t10: CHA-11 (epic) 76 P · offer 24621
-- t16: CHA-06 (uncommon) 20 P · offer 24955
 - t09: CHA-06 (uncommon) 15 P · offer 24746
 - t09: CHA-07 (uncommon) 15 P · offer 24747
 - t09: CHA-08 (uncommon) 15 P · offer 24748
 - t03: RET-06 (uncommon) 12 P · offer 25079
+- t03: RET-07 (uncommon) 12 P · offer 25140
 - t05 (US): LAT-06 (uncommon) 9 P · offer 25107
 - t05 (US): LAT-07 (uncommon) 9 P · offer 25111
 - t05 (US): LAT-08 (uncommon) 9 P · offer 25112
-- t16: CHA-01 (common) 8 P · offer 24957
-- t16: CHA-02 (common) 8 P · offer 24958
-- t16: CHA-03 (common) 8 P · offer 24959
-- t16: CHA-04 (common) 8 P · offer 24960
+- t03: MAL-08 (uncommon) 7 P · offer 25078
+- t09: CHA-01 (common) 5 P · offer 24738
+- t09: CHA-02 (common) 5 P · offer 24739
+- t09: CHA-03 (common) 5 P · offer 24740
 
-Asks by others (card, price: count): MAL-06 25: 2; MAL-07 25: 2; sobre_plata 130: 1; LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; MAL-10 63: 1; SAL-09 63: 1; LAT-07 30: 1; MAL-05 10: 1; SAL-03 10: 1; SAL-04 10: 1; SAL-05 10: 1
+Asks by others (card, price: count): MAL-06 25: 2; MAL-07 25: 2; sobre_plata 130: 1; LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; MAL-10 63: 1; SAL-09 63: 1; MAL-05 10: 1; SAL-03 10: 1; SAL-04 10: 1; SAL-05 10: 1; MAL-01 7: 1
 
 ## Our duels: 0 live, 204 finished (last 10)
 
