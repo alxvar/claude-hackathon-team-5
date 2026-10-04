@@ -1260,5 +1260,77 @@
     "settles_at_tick": 1977
    }
   }
- ]
+ ],
+ "last_seen_tick": 1977,
+ "done": {
+  "duel": 11519,
+  "session": 4,
+  "status": "deal",
+  "role": "seller",
+  "item": "Cine Doré",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 5.84,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 59,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Sol",
+  "deadline_tick": 1978,
+  "decay_per_round": 0.1,
+  "rounds": 2,
+  "your_offer": {
+   "id": 14330,
+   "price": 67,
+   "tick": 1975,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 14361,
+   "price": 72,
+   "tick": 1976,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1966,
+    "from": "you",
+    "text": "I'd like to open at 84 P for delivery on day 10.",
+    "price": 84,
+    "days": 10
+   },
+   {
+    "tick": 1968,
+    "from": "Rival Sol",
+    "text": "Hello, and thank you for meeting me. I would propose 64 P with delivery on day 0.",
+    "price": 64,
+    "days": 0
+   },
+   {
+    "tick": 1970,
+    "from": "Rival Sol",
+    "text": "I appreciate it, thank you. Could we close at 72 P, delivery on day 0, please?",
+    "price": 72,
+    "days": 0
+   },
+   {
+    "tick": 1975,
+    "from": "you",
+    "text": "I can do 67 P, delivery on day 10.",
+    "price": 67,
+    "days": 10
+   },
+   {
+    "tick": 1976,
+    "from": "Rival Sol",
+    "text": "Thank you. My offer stays at 72 P with delivery on day 0, and I am happy to close there.",
+    "price": 72,
+    "days": 0
+   }
+  ],
+  "result": 10.5,
+  "price": 72,
+  "days": 0
+ }
 }

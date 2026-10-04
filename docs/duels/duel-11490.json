@@ -234,6 +234,75 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1976,
+   "raw": {
+    "duel": 11490,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Vinilo de la Movida",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.35,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 159,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 1979,
+    "decay_per_round": 0.1,
+    "rounds": 0,
+    "your_offer": {
+     "id": 14363,
+     "price": 158,
+     "tick": 1976,
+     "days": 10
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1967,
+      "from": "you",
+      "text": "I'm offering 226 P with delivery on day 10.",
+      "price": 226,
+      "days": 10
+     },
+     {
+      "tick": 1973,
+      "from": "you",
+      "text": "I can do 209 P, delivery on day 10.",
+      "price": 209,
+      "days": 10
+     },
+     {
+      "tick": 1974,
+      "from": "you",
+      "text": "I can do 192 P, delivery on day 10.",
+      "price": 192,
+      "days": 10
+     },
+     {
+      "tick": 1975,
+      "from": "you",
+      "text": "I can do 175 P, delivery on day 10.",
+      "price": 175,
+      "days": 10
+     },
+     {
+      "tick": 1976,
+      "from": "you",
+      "text": "I can do 158 P, delivery on day 10.",
+      "price": 158,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1010,5 +1079,72 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1977,
+ "done": {
+  "duel": 11490,
+  "session": 4,
+  "status": "deal",
+  "role": "seller",
+  "item": "Vinilo de la Movida",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 3.35,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 159,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Sol",
+  "deadline_tick": 1979,
+  "decay_per_round": 0.1,
+  "rounds": 0,
+  "your_offer": {
+   "id": 14363,
+   "price": 158,
+   "tick": 1976,
+   "days": 10
+  },
+  "rival_offer": null,
+  "messages": [
+   {
+    "tick": 1967,
+    "from": "you",
+    "text": "I'm offering 226 P with delivery on day 10.",
+    "price": 226,
+    "days": 10
+   },
+   {
+    "tick": 1973,
+    "from": "you",
+    "text": "I can do 209 P, delivery on day 10.",
+    "price": 209,
+    "days": 10
+   },
+   {
+    "tick": 1974,
+    "from": "you",
+    "text": "I can do 192 P, delivery on day 10.",
+    "price": 192,
+    "days": 10
+   },
+   {
+    "tick": 1975,
+    "from": "you",
+    "text": "I can do 175 P, delivery on day 10.",
+    "price": 175,
+    "days": 10
+   },
+   {
+    "tick": 1976,
+    "from": "you",
+    "text": "I can do 158 P, delivery on day 10.",
+    "price": 158,
+    "days": 10
+   }
+  ],
+  "result": 49.5,
+  "price": 175,
+  "days": 10
+ }
 }
