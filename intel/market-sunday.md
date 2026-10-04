@@ -1,6 +1,6 @@
-# Market plan for Sunday (Market session) · written Sun 07:03
+# Market plan for Sunday (Market session) · written Sun 08:06
 
-_Sources: intel/matches.md (matchmaker run 06:58, tick 1440; its VC estimates move between runs, so re-read it before acting), leaderboard snapshot 1440 (us 30.49), intel/market-log.md, intel/directives.md (Club Castizo, Sat 22:55). Labels: [V] measured, [L] inferred, [?] unknown. An independent verifier audited the 22:52 draft; its ten flags are applied here._
+_Sources: intel/matches.md (matchmaker run 08:05, tick 1440; its VC estimates move between runs, so re-read it before acting), leaderboard snapshot 1440 (us 30.49), intel/market-log.md, intel/directives.md (Club Castizo, Sat 22:55). Labels: [V] measured, [L] inferred, [?] unknown. An independent verifier audited the 22:52 draft; its ten flags are applied here._
 
 ## 0. NEGOTIATION (Chief's overnight ask; read-only analysis of data/feed.jsonl to tick 1445; two independent verifier passes, their flags applied; the figures were not re-run by the verifier, which had no shell)
 
@@ -90,7 +90,7 @@ Spares [V, /api/me]: LAV-02 ×2, LAV-03 ×1, LAV-04 ×1. LAT-03 and LAT-04 are s
 |---|---|---|---|---|---|---|---|---|
 | 1 | Team 9 | Team 7 | RET-09 | ~76 | +156.2 | v10 | YES: Team 9 (slow or manual, counters); page finisher: approved by the Chief, 01:00 | Dani → Team 7 (seller); Lucas → Team 9 (buyer) · APPROVED |
 | 2 | Team 7 | Team 9 | SAL-02 | ~9 | +6.5 | v10 | YES: Team 7 (slow or manual) | Lucas → Team 9 (seller); Dani → Team 7 (buyer) · after RET-09 settles |
-| 3 | Team 8 | Team 7 | MAL-02 | ~9 | +7.2 | v26 (Team 2) | YES: Team 8 (slow or manual); Team 7: confirm it is a spare; Team 8: ask whether it still lacks MAL-02 | Dani → Team 7 (seller); Lucas → Team 8 (buyer) · HOLD: ask the buyer first |
+| 3 | Team 8 | Team 7 | MAL-02 | ~9 | +7.2 | v05 (Team 4) | YES: Team 8 (slow or manual); Team 7: confirm it is a spare; Team 8: ask whether it still lacks MAL-02 | Dani → Team 7 (seller); Lucas → Team 8 (buyer) · HOLD: ask the buyer first |
 | 4 | Team 16 | Team 2 | RET-01 | ~9 | +7.4 | v10 | YES: Team 16 (borderline (half within 2 ticks)); Team 16: outside the club, Chief's OK | Dani → Team 2 (seller); Dani → Team 16 (buyer) · on the Chief's 08:30 rival check |
 | 5 | Team 16 | Team 4 | RET-03 | ~9 | +7.1 | v10 | YES: Team 16 (borderline (half within 2 ticks)); Team 16: outside the club, Chief's OK | Dani → Team 4 (seller); Dani → Team 16 (buyer) · on the Chief's 08:30 rival check |
 | 6 | Team 16 | Team 8 | RET-09 | ~70 | +23.7 | v10 | YES: Team 16 (borderline (half within 2 ticks)); Team 8: confirm it is a spare; Team 16: outside the club, Chief's OK | Lucas → Team 8 (seller); Dani → Team 16 (buyer) · HOLD: seller check and the Chief's OK |
@@ -98,17 +98,17 @@ Spares [V, /api/me]: LAV-02 ×2, LAV-03 ×1, LAV-04 ×1. LAT-03 and LAT-04 are s
 | 8 | Team 16 | Team 8 | RET-04 | ~9 | +3.4 | v10 | YES: Team 16 (borderline (half within 2 ticks)); Team 8: confirm it is a spare; Team 16: outside the club, Chief's OK | Lucas → Team 8 (seller); Dani → Team 16 (buyer) · HOLD: seller check and the Chief's OK |
 | 9 | Team 9 | Team 16 | LAV-02 | ~9 | +11.2 | v10 | YES: Team 9 (slow or manual, counters); Team 16: confirm it is a spare; Team 9: ask whether it still lacks LAV-02; Team 16: outside the club, Chief's OK | Dani → Team 16 (seller); Lucas → Team 9 (buyer) · HOLD: ask the buyer first |
 
-**Split check (directive 01:10; club deals only, by count):** off v10 go MAL-02 Team 7 → Team 8 (+7.2) on v26. Every deal with Team 16 or Team 1 stays on v10.
+**Split check (half and half, club deals only):** off v10 go MAL-02 Team 7 → Team 8 (+7.2) on v05. Every deal with Team 16 or Team 1 stays on v10.
 
 
 **Who sends [proposal, not a record]:** the repo holds no list of who has which team's WhatsApp. The split follows the directives: Lucas already messages Team 15 and brokered Team 8 ↔ Team 9 (21:40), so he keeps Teams 15, 8 and 9, plus Team 1; Dani takes Teams 7, 4, 2 and 16. Swap any name if the other holds the contact. **Dani:** Team 7 (rows 1, 2, 3); Team 2 (rows 4); Team 16 (rows 4, 5, 6, 7, 8, 9); Team 4 (rows 5) · **Lucas:** Team 9 (rows 1, 2, 9); Team 8 (rows 3, 6, 7, 8). The ready texts are in §2 (per pair) and in intel/club-pitch.md §4 (per team, Spanish and English).
 
 
-**Every row needs a WhatsApp (or the Chief's OK) first.** Then one side posts the quote on the row's market (the Market column: v10, except every third club deal, which goes to a member's market, directive 01:10) ADDRESSED to the other at the agreed price (directive 21:20) and the other accepts: the seller's ask in arm A, the buyer's bid in arm B (§3; texts in §2). Addressed, because an open ask on v10 can be taken by a rival's fast bot (Teams 6, 13, 14 are fast takers), which would move the card to the wrong team and can turn the VC negative.
+**Every row needs a WhatsApp (or the Chief's OK) first.** Then one side posts the quote on the row's market (the Market column: club deals alternate between v10 and a member's market, Lucas 08:00) ADDRESSED to the other at the agreed price (directive 21:20) and the other accepts: the seller's ask in arm A, the buyer's bid in arm B (§3; texts in §2). Addressed, because an open ask on v10 can be taken by a rival's fast bot (Teams 6, 13, 14 are fast takers), which would move the card to the wrong team and can turn the VC negative.
 
 #### Final WhatsApp texts for 08:30 (directive 01:00; transactional only: card, price, market)
 
-Status per the Chief's 01:00 directive. Send in this order; when two rows go to the same team, send them as one message. **Market (directive 01:10, Chief 01:20):** the split applies to club deals only (both teams among Teams 2, 4, 7, 8, 9, 15): v10 hosts 2 of every 3, including the first ones and every page closer; each third club deal goes to a member's market, lowest market score first, never one of the two parties' own. A deal with a non-member on either side goes on v10 and does not count in the rotation. The buyer's second message ('it is posted, accept it') goes out when the Market session reports the listing on v10.
+Status per the Chief's 01:00 directive. Send in this order; when two rows go to the same team, send them as one message. **Market (Lucas, 08:00, as built into the matchmaker):** HALF AND HALF for club deals only (both teams among Teams 2, 4, 7, 8, 9, 15): they alternate, one on v10, one on a member's market (least used today, then lowest market score, never one of the two parties' own); a page closer always stays on v10. The venue shown is the matchmaker's own (intel/matches.md, Venue column). A deal with a non-member on either side goes on v10 and does not count in the rotation. The buyer's second message ('it is posted, accept it') goes out when the Market session reports the listing on v10.
 
 **The 08:30 messages: RET-09 alone (intel/contra-market.md, fix 1).** SAL-02 between the same two teams is NOT bundled: a two-way bundle between one pair looks like a round trip. It goes out as its own deal after RET-09 has settled.
 
@@ -151,10 +151,10 @@ Status per the Chief's 01:00 directive. Send in this order; when two rows go to 
 - Dani → Team 16: ES: "¡Hola Team 16! Team 8 puede publicarte Paseo de Coches (RET-04) en v10 a ~9 P, dirigida a vos, 0 % de comisión. ¿Te sirve? Cuando aparezca, aceptala ahí." · EN: "Hi Team 16! Team 8 can post Paseo de Coches (RET-04) for you on v10 at ~9 P, addressed to you, 0% fee. Does that work? When it shows up, accept it there."
 - When the listing appears, Dani → Team 16: ES: "Ya está publicada RET-04 en v10 a tu nombre. ¡Aceptala!" · EN: "RET-04 is posted for you on v10. Go ahead and accept it!"
 
-**8. Row #3 · MAL-02 · Team 7 → Team 8 at ~9 P · on v26 · ASK THE BUYER FIRST: does Team 8 still lack it?**
-- Lucas → Team 8 (first): ES: "¡Hola Team 8! ¿Todavía te falta Plaza del Dos de Mayo (MAL-02)? Hay una repetida disponible a ~9 P en v26, 0 % de comisión." · EN: "Hi Team 8! Do you still need Plaza del Dos de Mayo (MAL-02)? There's a spare available at ~9 P on v26, 0% fee."
-- Only if Team 8 says yes, Dani → Team 7: ES: "¡Hola Team 7! Team 8 busca Plaza del Dos de Mayo (MAL-02). Si la tenés repetida, ¿la publicás en v26 a ~9 P, dirigida a Team 8? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 7! Team 8 is looking for Plaza del Dos de Mayo (MAL-02). If yours is a spare, could you post it on v26 at ~9 P, addressed to Team 8? 0% fee. Thanks!"
-- When the listing appears, Lucas → Team 8: ES: "Ya está publicada MAL-02 en v26 a tu nombre. ¡Aceptala!" · EN: "MAL-02 is posted for you on v26. Go ahead and accept it!"
+**8. Row #3 · MAL-02 · Team 7 → Team 8 at ~9 P · on v05 · ASK THE BUYER FIRST: does Team 8 still lack it?**
+- Lucas → Team 8 (first): ES: "¡Hola Team 8! ¿Todavía te falta Plaza del Dos de Mayo (MAL-02)? Hay una repetida disponible a ~9 P en v05, 0 % de comisión." · EN: "Hi Team 8! Do you still need Plaza del Dos de Mayo (MAL-02)? There's a spare available at ~9 P on v05, 0% fee."
+- Only if Team 8 says yes, Dani → Team 7: ES: "¡Hola Team 7! Team 8 busca Plaza del Dos de Mayo (MAL-02). Si la tenés repetida, ¿la publicás en v05 a ~9 P, dirigida a Team 8? 0 % de comisión. ¡Gracias!" · EN: "Hi Team 7! Team 8 is looking for Plaza del Dos de Mayo (MAL-02). If yours is a spare, could you post it on v05 at ~9 P, addressed to Team 8? 0% fee. Thanks!"
+- When the listing appears, Lucas → Team 8: ES: "Ya está publicada MAL-02 en v05 a tu nombre. ¡Aceptala!" · EN: "MAL-02 is posted for you on v05. Go ahead and accept it!"
 
 **9. Row #9 · LAV-02 · Team 16 → Team 9 at ~9 P · on v10 · ASK THE BUYER FIRST: does Team 9 still lack it?**
 - Lucas → Team 9 (first): ES: "¡Hola Team 9! ¿Todavía te falta El Frutero de Argumosa (LAV-02)? Hay una repetida disponible a ~9 P en v10, 0 % de comisión." · EN: "Hi Team 9! Do you still need El Frutero de Argumosa (LAV-02)? There's a spare available at ~9 P on v10, 0% fee."
