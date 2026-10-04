@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sun 09:03 (tick 1445, doors open, clock paused; snapshot 1440): **case J confirmed by the re-anchored schedule (§4.7).** Round 3 + CHA fire on the first live tick._
+_Last update: Sun 09:25 (tick 1468, round 3 live; snapshot 1462): **§3i Saturday final: the flip landed (+2.72, us 48.46), t12 +7.03 → #2 (52.66). We must beat t12 by 4.20 on Sunday; we lead t18 by 1.55.**_
 _Note: the §4 version labels "00:05" to "02:10" are sequence markers written between Sat 23:50 and Sun 00:42 (my labels ran ahead of the wall clock); real times are in `git log`. The Sunday clock in §4.7 is unaffected._
 
 ## 1. Board = Friday × Saturday blend [V]
@@ -451,6 +451,16 @@ of 30 → whether VC can exceed +5 board on Sunday: reconcile with the Market se
   post-resume snapshot, and whether its final score uses this live state is [?].
 - **Consequence:** our v10 VC already counts above zero → any positive v10 trade adds 5/M ≥ +0.33 board per +1 of VC [L];
   a negative one subtracts. The §3 "need 14.2 first" hurdle is stale (GAME.md line 150 too).
+
+## 3i. SATURDAY FINAL (first round-3 snapshot 1462, Sun 09:20) [V arithmetic: G = board × (1.5 + phase), phase 0.082, Sunday ≈ 0]
+- **The flip landed:** our Saturday market = 13.95 (11.25 stall + **2.70 real trades**); game total (0.5·Fri + Sat) **48.46** (+2.72).
+- **The close recompute was field-wide, and t12 gained most:** its Saturday market 10.88 → **17.91 (+7.03)**; t06 −0.90, t14 −0.34.
+  Cause [?]: real-trades values recomputed at the close (copy numbers / the top-3 mean).
+- Game totals: **t10 56.38 · t12 52.66 · us 48.46 · t18 46.91 · t03 44.52 · t06 42.24**. Gaps we must win Sunday by: t10 +7.92,
+  **t12 +4.20**; we lead t18 by 1.55, t03 by 3.94.
+- Odds (Saturday rounds as the Sunday expectation; t12's 38.75 includes the +7.03 VC bump, so it's likely an overstatement) [L]:
+  P(top 2) ≈ 5-9%, **P(top 3) ≈ 28-38%** (ladder 0.29-0.38). P(#1) ≤ 0.2%.
+- Board display: every board fell at the open because round 3 enters at phase 0.08 with a near-zero Sunday score. It's not a loss.
 
 ## 4. OVERNIGHT PROGRAM (Analyst, Sat 23:30 → Sun 07:30; final Saturday snapshot 1440)
 
