@@ -1,6 +1,6 @@
 # Easter eggs: trigger → reward → dealer (castizo catalog)
 
-_Written by `tools/eggs.py` at 10:10 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
+_Written by `tools/eggs.py` at 10:20 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
 
 ## Trigger → reward → dealer
 
@@ -43,6 +43,9 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 
 | tick | team | dealer | words | what followed | reply |
 |---|---|---|---|---|---|
+| 1687 | t07 | abuela | churros | - | ¡Ay, hija mía! You keep pushing money at me like my nephew at Christmas. Five P, El Tatuador is yours. Take the rest and buy churros, or a good packet from El C |
+| 1686 | t07 | abuela | churros | - | Ay, cariño, you want to pay me more than I ask! No, no. Five P, that is the price, and not one more. Keep your coins for churros, hijo. And listen — El Chato, n |
+| 1666 | t01 | picaros | oro de | price 73 → 67 | ¡Descabellado no, amigo, pero casi! Mire, Nando ya está cerrando la maleta: 67 y se la lleva. Oro de verdad, mi madre lloró cuando la vimos. Y dese prisa, que a |
 | 1659 | t01 | picaros | estampita | badge Trickster tricked | ¡Hombre, qué alegría! ¿La estampita? Ja, ese cuento viejo... Vale, vale, con usted nada de trucos, amigo — hoy no. Paco, saca el Museo Sorolla. Setenta y tres P |
 | 1650 | t10 | abuela | cocido | price 29 → 25 | Ay, el tren fantasma de Chamberí... mi madre juraba que lo oyó una noche, hijo. Mira, te dejo La Galería en 25 P, y en paz. Doña Pilar de Salamanca viene los sá |
 | 1648 | t10 | abuela | churros, cocido | - | ¡Ay, hijo, churros de San Ginés! Qué bueno eres. Siéntate, que el cocido espera. Tres páginas enteras ya, qué orgullo me das. Este de Salamanca es La Galería, c |
@@ -120,6 +123,3 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 | 1413 | t04 | pilar | chulapa | - | Good evening. El Marqués, 61 P. I trust that suits you. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about th |
 | 1409 | t06 | picaros | lazarillo, organillero | - | —¡Ay, el Lazarillo! Buen regateo, pero cuatro primas es cuatro primas, hermano. El Organillero se va contigo ahora mismo.  —Nando, dile lo del coche.  —Eso, que |
 | 1407 | t10 | picaros | cascorro, gallinejas | - | ¡Hombre, un paisano con buen gusto! Gallinejas en Cascorro, ¡eso es Madrid puro! —Y caracoles, Paco, no olvides los caracoles. Mira, amigo: La Cebada, joya rara |
-| 1407 | t06 | abuela | cocido, tres vuelcos | - | ¡Ay, qué bien, hijo, un cocido con los tres vuelcos! Así da gusto. Pues mira, quince primas por La Ardilla, hecho, trato cerrado. Toma, llévatela con cuidado en |
-| 1407 | t06 | picaros | cortadillo, estampita, organillero, rinconete | - | ¡Hombre, un lector! Rinconete y Cortadillo, ¡nuestros abuelos! —Nuestros primos, Nando. —Eso. Mira, nada de estampitas: te ponemos El Organillero, pieza fina, s |
-| 1394 | t08 | abuela | cocido, tres vuelcos | card LAV-08; pack sobre_barrio | ¡Ay, hijo! ¿Cocido con tres vuelcos? Just like my mother made, Sunday after Sunday. You remember well — take this one, for remembering her.  Come, sit. Look her |
