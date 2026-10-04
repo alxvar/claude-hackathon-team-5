@@ -422,3 +422,4 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 13:00 · message tick 2339 · banco → t08 · El honor no altera mis términos, señor. La Reina de la Movida sale por setecientos sesenta y uno. Piénselo con calma; la cámara no se mueve, ni yo tampoco.
 - Sun 13:00 · catalog.minted RET-11 (Palacio de Cristal, epic, print run 9): hidden=False minted=7 (was 6)
 - Sun 13:01 · message tick 2345 · banco → t08 · I deal in coin, señor, not in trades. La Reina de la Movida leaves my vault for seven hundred sixty-one. Those are the terms. Take your time.
+- Sun 13:04 · message tick 2357 · banco → t08 · Doña Carmen sabe bien que yo no cambio de términos por recados. Setecientos sesenta y uno. Dele recuerdos de mi parte, y piénselo con calma.
