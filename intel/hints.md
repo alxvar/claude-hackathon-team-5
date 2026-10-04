@@ -391,3 +391,4 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 11:59 · egg.found tick 2101 · chato → t05 · {"persona": "chato", "persona_name": "El Chato", "team": "t05", "name": "Team 5"}
 - Sun 11:59 · egg.given tick 2101 · chato → t05 · {"team": "t05", "name": "Team 5", "cash": 0, "packs": ["sobre_barrio"], "cards": [], "reason": "easter egg"}
 - Sun 12:00 · catalog.minted LAT-11 (San Francisco el Grande, epic, print run 9): hidden=False minted=6 (was 5)
+- Sun 12:10 · taller.crafted tick 2144 ·  → t13 · Team 13 turned three common cards into La Chulapa (uncommon) at The Workshop

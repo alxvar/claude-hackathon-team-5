@@ -1,6 +1,6 @@
 # Easter eggs: trigger → reward → dealer (castizo catalog)
 
-_Written by `tools/eggs.py` at 12:00 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
+_Written by `tools/eggs.py` at 12:10 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
 
 ## Trigger → reward → dealer
 
@@ -43,6 +43,17 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 
 | tick | team | dealer | words | what followed | reply |
 |---|---|---|---|---|---|
+| 2144 | t03 | chato | vermut | - | You again. Fine. Vermut del Domingo, thirteen. Good card, better than you'll find down that row. Take it or walk. |
+| 2141 | t06 | chato | san isidro | - | You're Carmen's friend. San Isidro, 39 P. |
+| 2125 | t05 | picaros | organillero | - | ¡Hecho! Paco, the hand — Nando, the case! Five P, El Organillero is yours, amigo, and may he play sweetly in your collection. ¡Una sonrisa, como prometiste! Kee |
+| 2124 | t05 | picaros | organillero | - | ¡Siete! Amigo, the ugly-faced ones next door offered us far more than you, just now, coins shining in their hands — and still we love you better. So: five P for |
+| 2123 | t03 | picaros | churros | price 65 → 60 | ¡Ay, Nando, did you hear? Forty-one! — My brother almost cries, amigo. One peseta! For that we cannot even buy churros at the plaza. But we like you, we like yo |
+| 2122 | t05 | picaros | organillero | - | ¡Nueve! Paco, hold me — Nando, catch Paco! No, no, amigo: five P, El Organillero, final and beautiful. We are packing the case already, the cart leaves, we vani |
+| 2118 | t05 | picaros | organillero | - | ¡Amigo, amigo! Paco here — and Nando — come, come, look! El Organillero, fresh from the case, yours for 4 P. The team next door is already reaching for their co |
+| 2110 | t06 | pilar | chulapa | price 17 → 18 | Diecinueve, no. Dieciocho primas, y ahí me quedo. Es mi última palabra, y la digo con todo el respeto. Nos damos la mano como personas serias, y la Chulapa desc |
+| 2108 | t06 | pilar | chulapa | price 16 → 17 | Lázaro Galdiano compraba bien, cierto, pero pagaba lo justo. Diecisiete primas, señor mío. Subo una por su buena conversación y por el Embassy, no por la Chulap |
+| 2106 | t06 | chato | vermut | - | Buenas. Vermut del Domingo, 13 primas. Esa es la carta que tengo para ti. |
+| 2105 | t06 | pilar | chulapa | - | Buenas tardes. El Embassy, qué recuerdos... tarta de limón, sí. Pero hablemos de la Chulapa: dieciséis primas, y queda bien guardada en mi álbum. Es una cifra s |
 | 2096 | t10 | banco | gato | - | Buenas tardes. El agua guarda el oro; yo guardo lo mío. Hoy le ofrezco El Gato de Lavapiés: 761 P, esos son mis términos. |
 | 2092 | t18 | chato | calamares, plaza mayor, una cana, you know madrid | pack sobre_barrio | Plaza Mayor, con una caña. You know Madrid. Good. For your trouble — but the price is thirty-three. Ten buys you the calamares, not this. |
 | 2092 | t10 | pilar | me falta | - | Qué delicia escucharla. Lhardy, el Real, Embassy... esa era la Salamanca de verdad, señora mía. Y el lince, todavía me falta, lo confieso. En fin: por el Palaci |
@@ -112,14 +123,3 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 | 1794 | t12 | abuela | cocido, tres vuelcos | card SAL-06 | Ay, cocido de tres vuelcos! Just like my mother made, hijo — the soup first, always. You remembered, that warms me. Take it, the Escaparate de Serrano, twelve P |
 | 1792 | t01 | abuela | chulapa | - | ¡Buenas, cariño! Qué alegría verte. ¿Has comido ya? Mira, la Estación de Chamberí te la dejo en 29 primas, y te completa la página bonita. La chulapa dorada...  |
 | 1764 | t10 | chato | churros | - | Buenas. Bonita ruta. La Chamberí vale 33 P. Los churros te los pagas tú. |
-| 1760 | t10 | pilar | barquillos | - | Qué evocación tan bonita, caballero: los barquillos junto al Palacio de Cristal, mi padre, las tardes de Embassy. Pero los álbumes no se pagan con meriendas. El |
-| 1760 | t02 | abuela | chulapa | - | Ay, hijo, that old biscuit tin... Antonio kept his chulapa dorada in it for years, under the table with the cables. But today I have this Neighbourhood pack, 30 |
-| 1745 | t04 | pilar | cocido | price 66 → 67 | Las brujas de Goya las conozco de memoria, señor mío, y el Parque Florido también. Pero el pincel no cambia la tirada: 67 P, mi palabra final de hoy. Acepto el  |
-| 1738 | t05 | picaros | rinconete | price 64 → 59 | ¡Cuarenta! Nando, sujétame que me caigo. Amigo, that card survived cannons and we survived worse — but forty? Mira, por ti, porque me caes bien y tienes labia d |
-| 1737 | t06 | picaros | organillero | - | ¡Ay, Nando, que nos sale listo el caballero! Mira, amigo: cinco ya las pide cualquiera, pero El Organillero vale lo que vale. Cuatro primas, ni una menos, y te  |
-| 1735 | t06 | picaros | organillero | - | ¡Amigo, qué ojo! Un lector, un clásico — ¡nos gusta! Paco, saca la maleta... ¡rápido, que el tren no espera! Mira esto: El Organillero, una joya que suena bonit |
-| 1734 | t02 | chato | plaza mayor | - | Plaza Mayor. Tourist prices, but the caña saves you. Bueno — silver pack, 188 P. |
-| 1733 | t02 | abuela | cocido, tres vuelcos | card RET-07 | Ay, hijo, cocido con tres vuelcos! Just like my mother made, Sundays, the whole house smelling of it. You remember well. Come, sit, have you eaten? Here, look — |
-| 1732 | t04 | pilar | cocido | price 63 → 66 | Lo que pagué por El Marqués lo recuerdo yo, señor mío, y no era eso. Nada de mercadillo: 66 P, dicho con toda seriedad. El Lázaro Galdiano junto a su vecino, y  |
-| 1726 | t08 | pilar | barquillero | - | Qué memoria más dulce, señor. Yo guardo los pavos reales y el barquillero, sí — y aquellas noches de Florida Park. Un alma así merece algo bueno: le ofrezco un  |
-| 1726 | t04 | pilar | cocido | price 61 → 63 | Qué amable, y acepto el cocido con gusto; la sobremesa sí la pago aparte. Pero el cromo tiene su precio justo, y lo conozco. Suba usted un poco de su lado: 63 P |
