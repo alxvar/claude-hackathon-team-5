@@ -506,5 +506,63 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1931,
+ "done": {
+  "duel": 11266,
+  "session": 4,
+  "status": "deal",
+  "role": "buyer",
+  "item": "San Isidro",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 0.97,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 133,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Sol",
+  "deadline_tick": 1939,
+  "decay_per_round": 0.1,
+  "rounds": 1,
+  "your_offer": {
+   "id": 13264,
+   "price": 75,
+   "tick": 1929,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 13263,
+   "price": 94,
+   "tick": 1928,
+   "days": 10
+  },
+  "messages": [
+   {
+    "tick": 1927,
+    "from": "you",
+    "text": "I'm offering 83 P for delivery on day 0.",
+    "price": 83,
+    "days": 0
+   },
+   {
+    "tick": 1928,
+    "from": "Rival Sol",
+    "text": "Hello, and thank you for meeting me. I would propose 94 P with delivery on day 10.",
+    "price": 94,
+    "days": 10
+   },
+   {
+    "tick": 1929,
+    "from": "you",
+    "text": "That's too high for me. I'll offer 75 P for delivery on day 10.",
+    "price": 75,
+    "days": 10
+   }
+  ],
+  "result": 43.5,
+  "price": 75,
+  "days": 10
+ }
 }
