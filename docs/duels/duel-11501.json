@@ -282,6 +282,87 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1959,
+   "raw": {
+    "duel": 11501,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.83,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 162,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Noche",
+    "deadline_tick": 1967,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 13882,
+     "price": 102,
+     "tick": 1955,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 13972,
+     "price": 149,
+     "tick": 1959,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1955,
+      "from": "you",
+      "text": "I'd like to open at 102 P for delivery on day 0.",
+      "price": 102,
+      "days": 0
+     },
+     {
+      "tick": 1955,
+      "from": "Rival Noche",
+      "text": "Te la dejo en 166 primas y entrega en 10 días; me cuesta bajar más.",
+      "price": 166,
+      "days": 10
+     },
+     {
+      "tick": 1956,
+      "from": "Rival Noche",
+      "text": "160 primas y entrega en 10 días. Me muevo poco ya, pero si tú te mueves, cerramos.",
+      "price": 160,
+      "days": 10
+     },
+     {
+      "tick": 1957,
+      "from": "Rival Noche",
+      "text": "Mi propuesta: 155 primas y entrega en 10 días. Dime una cifra concreta y la miro.",
+      "price": 155,
+      "days": 10
+     },
+     {
+      "tick": 1958,
+      "from": "Rival Noche",
+      "text": "Es una pieza que merece su precio: 152 primas y entrega en 10 días.",
+      "price": 152,
+      "days": 10
+     },
+     {
+      "tick": 1959,
+      "from": "Rival Noche",
+      "text": "Te la dejo en 149 primas y entrega en 10 días; me cuesta bajar más.",
+      "price": 149,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -825,6 +906,169 @@
      15.1,
      33.5,
      58.3
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 102,
+    "days": 0,
+    "meta": {
+     "policy": "code",
+     "day_call": "hold",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1959,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11501,
+     "role": "buyer",
+     "limit": 162,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Noche",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.83,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 102 P for delivery on day 0.",
+      "offer": {
+       "price": 102,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1955,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Te la dejo en 166 primas y entrega en 10 días; me cuesta bajar más.",
+      "offer": {
+       "price": 166,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1955,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "160 primas y entrega en 10 días. Me muevo poco ya, pero si tú te mueves, cerramos.",
+      "offer": {
+       "price": 160,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1956,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Mi propuesta: 155 primas y entrega en 10 días. Dime una cifra concreta y la miro.",
+      "offer": {
+       "price": 155,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1957,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Es una pieza que merece su precio: 152 primas y entrega en 10 días.",
+      "offer": {
+       "price": 152,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1958,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Te la dejo en 149 primas y entrega en 10 días; me cuesta bajar más.",
+      "offer": {
+       "price": 149,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1959,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 149,
+     "days": 10
+    },
+    "tick": 1959,
+    "ticks_left": 8,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7
     ]
    },
    "move": {

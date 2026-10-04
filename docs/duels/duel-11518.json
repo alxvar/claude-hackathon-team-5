@@ -404,6 +404,94 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1958,
+   "raw": {
+    "duel": 11518,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Cine Doré",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 6.2,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 107,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 1959,
+    "decay_per_round": 0.1,
+    "rounds": 3,
+    "your_offer": {
+     "id": 13948,
+     "price": 107,
+     "tick": 1958,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 13968,
+     "price": 105,
+     "tick": 1958,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1947,
+      "from": "you",
+      "text": "I'd like to open at 67 primas for delivery on day 0.",
+      "price": 67,
+      "days": 0
+     },
+     {
+      "tick": 1948,
+      "from": "Rival Oro",
+      "text": "Hello, and thank you for meeting me. I would propose 103 P with delivery on day 10.",
+      "price": 103,
+      "days": 10
+     },
+     {
+      "tick": 1950,
+      "from": "Rival Oro",
+      "text": "I appreciate it, thank you. Could we close at 126 P, delivery on day 0, please?",
+      "price": 126,
+      "days": 0
+     },
+     {
+      "tick": 1956,
+      "from": "you",
+      "text": "I can do 82 P, delivery on day 0.",
+      "price": 82,
+      "days": 0
+     },
+     {
+      "tick": 1957,
+      "from": "you",
+      "text": "I can do 97 P, delivery on day 0.",
+      "price": 97,
+      "days": 0
+     },
+     {
+      "tick": 1958,
+      "from": "you",
+      "text": "I'll offer 107 P for delivery on day 0.",
+      "price": 107,
+      "days": 0
+     },
+     {
+      "tick": 1958,
+      "from": "Rival Oro",
+      "text": "Fair enough, thank you. I will meet you partway: 105 P with delivery on day 0.",
+      "price": 105,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1522,5 +1610,91 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1959,
+ "done": {
+  "duel": 11518,
+  "session": 4,
+  "status": "no_deal",
+  "role": "buyer",
+  "item": "Cine Doré",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 6.2,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 107,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Oro",
+  "deadline_tick": 1959,
+  "decay_per_round": 0.1,
+  "rounds": 3,
+  "your_offer": {
+   "id": 13948,
+   "price": 107,
+   "tick": 1958,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 13968,
+   "price": 105,
+   "tick": 1958,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1947,
+    "from": "you",
+    "text": "I'd like to open at 67 primas for delivery on day 0.",
+    "price": 67,
+    "days": 0
+   },
+   {
+    "tick": 1948,
+    "from": "Rival Oro",
+    "text": "Hello, and thank you for meeting me. I would propose 103 P with delivery on day 10.",
+    "price": 103,
+    "days": 10
+   },
+   {
+    "tick": 1950,
+    "from": "Rival Oro",
+    "text": "I appreciate it, thank you. Could we close at 126 P, delivery on day 0, please?",
+    "price": 126,
+    "days": 0
+   },
+   {
+    "tick": 1956,
+    "from": "you",
+    "text": "I can do 82 P, delivery on day 0.",
+    "price": 82,
+    "days": 0
+   },
+   {
+    "tick": 1957,
+    "from": "you",
+    "text": "I can do 97 P, delivery on day 0.",
+    "price": 97,
+    "days": 0
+   },
+   {
+    "tick": 1958,
+    "from": "you",
+    "text": "I'll offer 107 P for delivery on day 0.",
+    "price": 107,
+    "days": 0
+   },
+   {
+    "tick": 1958,
+    "from": "Rival Oro",
+    "text": "Fair enough, thank you. I will meet you partway: 105 P with delivery on day 0.",
+    "price": 105,
+    "days": 0
+   }
+  ],
+  "result": 0.0,
+  "price": null,
+  "days": null
+ }
 }
