@@ -324,3 +324,7 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 —Pero El Marqués ya voló, primo. Vendido, agotado, se lo llevó un señor hace rato y ni las gracias dio.
 
 —Nada que hacer con ése. Pregúntanos por otra cosa y vemos, ¿va?
+- Sun 09:56 · egg.found tick 1609 · picaros → t16 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t16", "name": "Team 16"}
+- Sun 09:56 · egg.found tick 1609 · abuela → t16 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t16", "name": "Team 16"}
+- Sun 09:56 · egg.found tick 1609 · chato → t16 · {"persona": "chato", "persona_name": "El Chato", "team": "t16", "name": "Team 16"}
+- Sun 09:56 · egg.given tick 1609 · chato → t16 · {"team": "t16", "name": "Team 16", "cash": 0, "packs": ["sobre_barrio"], "cards": [], "reason": "easter egg"}
