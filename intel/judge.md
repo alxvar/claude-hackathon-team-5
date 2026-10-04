@@ -1,42 +1,43 @@
-# Judge (claude-opus-5-5, Sun 07:22)
+# Judge (claude-opus-5-5, Sun 07:53)
 
 ## Verdict
-Holding at #3 (30.49): 0.8 behind #2 Team 18, 0.1 ahead of #4 Team 12, and 7.1 behind Team 10. `neg_points` has sat at 119.1 since tick 988, so 457 ticks of Saturday evening added nothing while Team 18 rose +0.8.
+**Holding.** We are #3 at 30.49. Team 10 leads by 7.1 and Team 18 leads us by 0.8. Team 12 is 0.1 behind us. `neg_points` has been flat at 119.1 since tick 988, and nobody has moved in 60 min because the game is closed (tick 1445).
 
 ## Our strategies: keep / kill / scale
-- **Dealer bot: keep for CHA only; kill ladder-only threads.** Its last thread (LAV-04 to the Pícaros) walked at her 4 against our floor, with `neg_points` and ladder flat. Ladder rose 0.437 → 0.483 with a flat board [L, Chief 17:45]. CHA rares (worth 112) at Pícaros ≤ 62 cost nothing in `neg_points` and build the page.
-- **Trading loop: keep and fix.** Its only scoring actions were 2 swaps (+6.2 at 15:48, +15.5 at 17:46). Since then it logged:
-  - 5 `unknown_card sobre_bienvenida` errors in 4 min (22:41-22:45);
-  - DNS failures at 22:55-23:24.
-- **Our bids and listings: correctly empty (0 open).** LAV asks 19979/19981 were cancelled per the 07:25 directive. Nothing is unfilled.
-- **Team trades (pages): scale.** Every large gain came from team trades: SAL close +40.4, t07 swap +15.5, RET cap test +50.
-- **Flags: dead.** The cap was reached; flag 8 scored 0 after an hour.
-- **Club / v10 trades: cannot judge.** `mm_points` are not in the live metrics.
-- **Duels (Aleks): not ours to change.** Score 35.39 over 136 duels; 2 of the last 10 ended no_deal (6177, 6182).
+- **Team trades (maker and swaps): SCALE.** Every positive `neg_points` move came from one: +4.7, +2.0, +2.0, +2.5, +6.2, +15.5 (swap) and +40.4 (SAL close). We have 0 open offers now.
+- **Dealer bot: KEEP, but only for CHA buys at or below value.** Dealer gains clip to 0, so the bot earns nothing beyond the ladder. Its last thread (LAV-04 to Pícaros, 10→7 in −1 steps, her final 4 = her opening) was a correct walk: `neg_points` and ladder were unchanged. The playbook says step −2/−3, not −1.
+- **Ladder chasing: KILL.** The board stayed flat across 0.373 → 0.437 (Chief 17:45).
+- **Flags: KILL.** The cap is reached (flag 8 scored 0). Net +20.
+- **Trading loop: KEEP, but FIX it before 09:00.**
+  - It hit `unknown_card sobre_bienvenida` every minute from 22:41 to 22:45.
+  - It hit DNS errors on /api/clock and /api/me from 22:55 to 23:24.
+  - Its only accepts on Saturday were +6.2 and +15.5.
+- **v10 club / venue: KEEP per directive.** Our `mm_points` are not in the metrics, so there is no evidence of their current effect.
+- **Workshop: KEEP, but do not count on it.** It changes collection value only and is not scored.
+- **Duels: KEEP (Aleks).** In the last 10, 8 reached a deal. C+ was confirmed by the Duel Lab at 07:38.
+- **Cash: SPEND per GUARDRAIL.** We hold 392 and cash never scores. The target is 0 by 14:00.
 
 ## Check the scout
 - **Holds:**
-  - t12 is 0.1 behind us; t18 is +0.8 per ~30 ticks (teams.md).
-  - RET-10 sold t06 → t04 at 84 and t06 → t07 at 77; t01 bids 152 for MAL-11.
-  - Our RET page is complete (RET-01..11 held).
-  - Pícaros rare median 55 (n=1).
-- **Wrong / stale:**
-  - It says the LAV-03/04 asks are live until tick 1455. They were cancelled at 07:15, metrics show 0 open offers, and directive 07:25 (4) sends LAV-04 to the Pícaros and LAV-02×2 + LAV-03 to the Workshop. Drop its action 2.
-  - It cites t0 pid 92570; t0 is now pid 22755.
-  - It credits the +15.5 at tick 904 to the Pícaros SAL-09/10 buys at 54. That +15.5 is the t07 swap (trader log). Dealer gains clip to 0.
-- **Unflagged risk:** it notes CASH_FLOOR=464 against cash of 392 without seeing the problem. Any floor above our cash blocks every buy (change 1).
+  - The game is closed, we have 0 offers, cash is 392 and the ladder is 0.483.
+  - Flags are spent, and the t0 chain is armed (pid 22755).
+  - The CHA numbers are right: value 112, page bonus 106, cap 50.
+  - Team 12's buys (RET-11 at 216, LAT-10 at 86) and Team 10's epics (MAL-11 at 195 in, SAL-11 at 207 out) match the feed.
+  - The rivals are t18, t12 and t03.
+- **Weak:** "Pícaros rare median 55" rests on n=1.
+- **Partly wrong:** "Team 6 dumps RET rares at 77-84" only partly holds. RET-10 went at 84 and 77, but RET-06 at 30 is an uncommon.
+- **Wrong:** "CHA rares at ≤ 62 are a gain of ~50 each" is false for Pícaros. A dealer deal scores min(0, ΔV − p), so these buys score 0. Only the team-trade closer scores (≤ 50).
+- **Unverified:** "Team 10 holds the venue lead" is not in the data.
 
 ## The 3 changes with the highest expected gain
-1. **Confirm t0 starts the trader and opps on `run/floors.env` 110/110, not CASH_FLOOR=464.**
-   - Why: the 07:06 and 07:05 lines say 464. Directive 07:25 (6) replaced it with ≈ 100-120, and the operator wrote 110/110 at 07:15. With cash at 392, a 464 floor freezes every buy until the grant arrives.
-   - How: the operator greps t0.sh before 08:45.
-   - Effect: restores the only automated scorer, which earned +6.2 and +15.5 per swap.
-   - Risk: spending into the CHA budget. The floor already reserves the planned spend.
-2. **Run the CHA closer exactly as directed.**
-   - Plan: open `sobre_plata` (71.6) plus the grant pack before the closer. Then buy the last CHA card from a non-rival team, addressed on El Rastro, with the seller's fee added.
-   - Effect: up to +50 `neg_points`, the cap. The CHA page bonus is 106. Measured analog: SAL close +40.4, held below 50 by pack drag.
-   - Risk: t10 or t01 hold the last copies (the watcher drops those bids). Print runs may run out (SAL-11 9/9), so keep the closer a common.
-3. **Fix the trader's `sobre_bienvenida` lookup and add a DNS/network check before R.**
-   - Why: the repeated errors burn the shared 5 req/s key, which ran at 73-92% load with everything on. That load hits Duels III and the Final.
-   - Effect: protects the 35.39 duel score and the trader's accept window.
-   - Risk: a code change before the open. Run the existing tests (528 green) and restart only via t0.
+1. **Open `sobre_plata` (71.6) before any CHA buy, and confirm the t0 chain's "pack →" step runs first.**
+   - Effect: the CHA closer scores nearer +50. The SAL closer scored +40.4 instead of +50 because of pack drag, and SAL-06 scored −2.7 instead of −0.5.
+   - Risk: none on score, since the pack opens either way.
+2. **Have Dani source CHA cards from non-rival teams by addressed trade (executor posts, pre-agreed per the 07:05 limits).**
+   - Watch `pack.opened` and listings from R.
+   - At value 112, any team-bought rare at ≤ 62 scores +50 (at the cap); the same card from Pícaros scores 0. Commons (16) and uncommons (40) score value − price.
+   - Effect: up to +50 per rare, but supply is unknown. No RET rare came from a grant pack on Saturday.
+   - Risks: the feed exposes addressed bids, and the seller may be t10/t01, whose bids get cancelled per the directive.
+3. **Fix the loop errors and add a network retry and alert, then verify `trade.py` lists before R+10.**
+   - Effect: keeps the only scoring engine (team trades) live from minute one.
+   - Risk: a restart collides with t0; keep exactly one process per role.
