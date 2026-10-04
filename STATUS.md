@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sun 11:37** · tick 2014 (15 s/tick) · game hour 16.00 · running · today closes 15:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sun 11:42** · tick 2034 (15 s/tick) · game hour 16.08 · running · today closes 15:00._
 
 ## Team: now and latest
 
@@ -17,25 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Sun: CHA page COMPLETE (+50). RET-11 kept (t13 asks lapsed); MAL decision ≈ 12:00 (Chief); Duels III ≈ 11:00 (duelist stopped on Aleks's machine at 09:46: Chief alerted). (Sat history:) Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sun 11:42 · window.sh's keyless clock/schedule reads 429 at the tick boundary every minute (11:39-11:41; collides with hub.collect's per-tick board sweep); with no clock window.py does nothing → backup run/sunday/window_fallback.sh (pid 78577): on duels.finished 'Duels III' (or 12:10) + 180 s, starts whatever of opps (RET, floor 176) / swaps / recorder is still down via daemons.sh (daemons.env → El Rastro) · 20 P bounty ad posted 11:42:02
+  - Sun 11:40 · Duel Lab · pre-Final program (sim4 refit to 33 Duels III duels; 9 worlds; verifier pass, 1 high + 10 low fixed) · **hot now: ACCEPT_BY 1 + MAX_STEP_SHARE 0.08 (+0.008 to +0.019/duel, every world); Final: + worth floor 0.075 × limit in code (+0.018 to +0.033/duel), c95b700 proxy −0.04 to −0.12**; tick-decay sensitivity: live would lose ≈ 0.04-0.05 if decay were per tick · intel/duel-lab.md top
   - Sun 11:37 · v10 bounty → 20 P × first 5 v10 trades, max 2 per seller (GUARDRAIL 11:38, Lucas: spend big) · v10_reward.py (pid 65846), El Rastro as maker: in kind first (cards the seller holds that we LACK, LAT first copies + MAL-07/09, at ≤ our value: one worth ≥ 20, else a bundle of ≤ 3 summing ≥ 20); top-up / any-card at value + ≤ 20 only from the 29 P over-value slack (round cap: uncapped ≈ 79 vs 50); never two of our addressed bids on one card; dry run OK (LAT-10 at 35 in kind, MAL-07 + LAT-01 bundle at 22, one LAT-01 top-up at 20 = 15 over) · ad → 20 P text (pid 66178; the old process posted the 10 P line at 11:36:34, the new one posts at ≈ 11:41 after the 20-tick limit) · MAL-09 Pícaros retry walked (their 58 vs our 44, first 73): MAL stays 8/10, no more retries
-  - Sun 11:33 · Chief (Analyst 11:31; round cap 50 real) · (1) MAL close NO-GO: 23827 cancelled, mal_close.py stopped; ONE MAL-09 retry at the Pícaros (thread 2877, cap 49, trick guard) for an L4 slot upgrade · (2) our third-party trades EL RASTRO ONLY (no VC to other teams' venues): v10_reward bounty/reward → rastro; run/daemons.env (sourced by tools/daemons.sh, incl. window.sh's restarts): DEFAULT_VENUE=rastro (opps), SWAPS_PARTNERS=rastro (swaps, new env hook), TRADER_HOUSE_ONLY=1 (trader, new env hook); code defaults unchanged, 163 tests green; trader + book restarted with it; LAT bids v15 → rastro (24252/53/54) · undo: delete run/daemons.env
-  - Sun 11:27 · v10 first-trades bounty (GUARDRAIL 11:25, Lucas's explicit call; the Chief flagged the fair-play review risk) · v10_reward.py (pid 50163): the first 3 v10 trades between two other teams (not t10), max 1 per seller → ONE addressed want-card bid to the SELLER at our value + 10 on v21 (v05 for t09); LAT first copy we lack preferred, else the seller's most recently seen card; MAL excluded (mal_close owns MAL: never two live MAL bids); logged with the v10 settlement id; later trades → the LAT reward (≤ value) · dry run OK (3 bounties, t10 excluded, repeat seller → reward) · score cost ≤ ≈ 1 neg pt: uncapped neg ≈ 79 (CHA closer +50, RET-11 +29) − 30 → ≈ 49 · ad → bounty text while slots remain (pid 50221, next ≈ 11:36), then the CHA-bids/base line
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 32.97 | 4 | 23.00 | 9.97 | 20.63 | 0.34 | 0.90 | 69 | 5 | 635 | 49/60 |
+| 32.75 | 4 | 22.77 | 9.99 | 22.23 | 0.34 | 0.90 | 69 | 5 | 635 | 49/60 |
 
-Leaderboard (snapshot at tick 2002; refreshes every few minutes):
+Leaderboard (snapshot at tick 2022; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 12 | 34.71 | 23.30 | 11.41 | 78 |
-| 2 | Team 10 | 34.51 | 22.43 | 12.07 | 70 |
-| 3 | Team 18 | 33.41 | 24.62 | 8.79 | 56 |
-| 4 | Team 5 | 32.97 | 23.00 | 9.97 | 69 |
-| 5 | Team 3 | 30.63 | 22.76 | 7.86 | 39 |
+| 1 | Team 12 | 34.66 | 23.26 | 11.40 | 78 |
+| 2 | Team 10 | 34.08 | 22.02 | 12.06 | 70 |
+| 3 | Team 18 | 32.99 | 24.18 | 8.82 | 56 |
+| 4 | Team 5 | 32.75 | 22.77 | 9.99 | 69 |
+| 5 | Team 3 | 30.47 | 22.58 | 7.90 | 39 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 17.00 | ~60 min | bench | The Market Test: every venue gets the same synthetic book |
-| 18.17 | ~130 min | announce | finale warning |
-| 18.37 | ~142 min | persona | Finale: stalls close |
-| 18.37 | ~142 min | persona | Finale: stalls close |
-| 18.37 | ~142 min | persona | Finale: stalls close |
-| 18.37 | ~142 min | persona | Finale: stalls close |
-| 18.37 | ~142 min | persona | Finale: stalls close |
-| 18.37 | ~142 min | duels | The Grand Final: the last duel wave, on the big screen |
+| 17.00 | ~55 min | bench | The Market Test: every venue gets the same synthetic book |
+| 18.17 | ~125 min | announce | finale warning |
+| 18.37 | ~137 min | persona | Finale: stalls close |
+| 18.37 | ~137 min | persona | Finale: stalls close |
+| 18.37 | ~137 min | persona | Finale: stalls close |
+| 18.37 | ~137 min | persona | Finale: stalls close |
+| 18.37 | ~137 min | persona | Finale: stalls close |
+| 18.37 | ~137 min | duels | The Grand Final: the last duel wave, on the big screen |
 
 ## Our dealer deals
 
@@ -58,7 +58,6 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Thread | Dealer | Side | Item | Her first | Our first | Deal | vs her first | Msgs | Status | Closed |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 2213 | picaros | buy | CHA-09 | 73 | 42 | 55 | -25% | 11 | deal |  |
 | 2235 | picaros | sell | 1 card(s) | 4 | 12 | — | — | 7 | closed |  |
 | 2258 | abuela | buy | CHA-01 | 12 | 5 | 8 | -33% | 9 | deal |  |
 | 2261 | pilar | sell | 1 card(s) | 16 | 30 | 18 | +12% | 9 | deal |  |
@@ -93,20 +92,20 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 ## Duels
 
-Live: 4 · finished: 197
+Live: 3 · finished: 201
 
-- {"duel": 11501, "session": 4, "status": "deal", "role": "buyer", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 5.83, "days_meaning": "each delivery day costs you this much cash", "your_limit": 162, "limit_meaning": "never pay above your value", "rival": "Rival Noche", "de
-- {"duel": 11504, "session": 4, "status": "deal", "role": "seller", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 3.86, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 111, "limit_meaning": "never sell below your cost", "rival": "Rival Ro
-- {"duel": 11505, "session": 4, "status": "deal", "role": "buyer", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 6.25, "days_meaning": "each delivery day costs you this much cash", "your_limit": 156, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "dead
-- {"duel": 11510, "session": 4, "status": "deal", "role": "buyer", "item": "Vinilo de la Movida", "issues": ["price", "days"], "your_days_weight": 0.39, "days_meaning": "each delivery day costs you this much cash", "your_limit": 129, "limit_meaning": "never pay above your value", "rival": "Rival Verde
 - {"duel": 11511, "session": 4, "status": "deal", "role": "seller", "item": "Vinilo de la Movida", "issues": ["price", "days"], "your_days_weight": 3.34, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 128, "limit_meaning": "never sell below your cost", "rival": "Ri
 - {"duel": 11518, "session": 4, "status": "no_deal", "role": "buyer", "item": "Cine Dor\u00e9", "issues": ["price", "days"], "your_days_weight": 6.2, "days_meaning": "each delivery day costs you this much cash", "your_limit": 107, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "d
 - {"duel": 11519, "session": 4, "status": "deal", "role": "seller", "item": "Cine Dor\u00e9", "issues": ["price", "days"], "your_days_weight": 5.84, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 59, "limit_meaning": "never sell below your cost", "rival": "Rival So
+- {"duel": 11548, "session": 4, "status": "live", "role": "seller", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 2.93, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 110, "limit_meaning": "never sell below your cost", "rival": "Rival Ve
+- {"duel": 11549, "session": 4, "status": "live", "role": "buyer", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 4.9, "days_meaning": "each delivery day costs you this much cash", "your_limit": 117, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "deadl
 - {"duel": 11572, "session": 4, "status": "deal", "role": "seller", "item": "San Isidro", "issues": ["price", "days"], "your_days_weight": 6.53, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 43, "limit_meaning": "never sell below your cost", "rival": "Rival Oro", 
+- {"duel": 11573, "session": 4, "status": "deal", "role": "buyer", "item": "San Isidro", "issues": ["price", "days"], "your_days_weight": 1.52, "days_meaning": "each delivery day costs you this much cash", "your_limit": 187, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "deadlin
 - {"duel": 11610, "session": 4, "status": "no_deal", "role": "seller", "item": "Escaparate de Serrano", "issues": ["price", "days"], "your_days_weight": 1.06, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 81, "limit_meaning": "never sell below your cost", "rival":
 - {"duel": 11612, "session": 4, "status": "deal", "role": "seller", "item": "Cine Dor\u00e9", "issues": ["price", "days"], "your_days_weight": 3.32, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 104, "limit_meaning": "never sell below your cost", "rival": "Rival O
 - {"duel": 11613, "session": 4, "status": "deal", "role": "buyer", "item": "Cine Dor\u00e9", "issues": ["price", "days"], "your_days_weight": 6.02, "days_meaning": "each delivery day costs you this much cash", "your_limit": 132, "limit_meaning": "never pay above your value", "rival": "Rival Rojo", "de
 - {"duel": 11640, "session": 4, "status": "deal", "role": "seller", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 5.13, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 104, "limit_meaning": "never sell below your cost", "rival": "Rival Lu
+- {"duel": 11641, "session": 4, "status": "live", "role": "buyer", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 5.93, "days_meaning": "each delivery day costs you this much cash", "your_limit": 116, "limit_meaning": "never pay above your value", "rival": "Rival Plata", "de
 
 ## Dealers
 
