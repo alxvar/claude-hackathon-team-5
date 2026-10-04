@@ -1,11 +1,12 @@
 # Lucas (+ Claude Code) — dealers, team trades, market, monitoring
 
-**Now:** Sun: CHA page COMPLETE (+50). RET-11 kept (t13 asks lapsed); MAL decision ≈ 12:00 (Chief); Duels III ≈ 11:00 (duelist stopped on Aleks's machine at 09:46: Chief alerted). (Sat history:) Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+**Now:** Sun 15:00 FINAL: Team 5 **#1 at 37.73** (negotiating 24.64: neg_points 104.8, duel points 35.84, ladder 0.364; market 13.08: mm_points 14.0; 4 pages, 74 deals; v10: 8 trades, 10 traders, VC 248.7). Trading daemons stopped, no open offers. Operator session closed.
 
 **Touches:** `agents/dealers/`, `agents/trader/`, `broker/`, `tools/`, `STATUS.md`, `LOG.md`; dealer, trade and market endpoints only.
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 15:00 · **FINAL (15:00 freeze): #1, 37.73** · negotiating 24.64 (neg 104.8, duel 35.84, ladder 0.364), market 13.08 (mm 14.0), 4 pages, 74 deals, cash 457 · v10: 8 trades, 10 traders, VC 248.7 · last bids (RET-11/SAL-11/MAL-11 at value − 15 / − 5) unfilled, all cancelled at 14:57 · close_out.sh stopped trader/book/opps/swaps at 15:00:20 and cancelled any open offer · Operator scripts stopped, lock released
 - Sun 14:51 · the timed-out RET-11 POST landed late as 29354 (a duplicate of 29351) → cancelled 14:51:19, 0 held (lesson: after a POST timeout, re-check my_offers again after a few seconds before trusting it) · non-rival venue sweep: no ask ≤ value − 3; free cash ≈ 0 · 14:54 re-price armed (value − 5, same holders, 12 ticks) · 14:57 cancel-all armed
 - Sun 14:49 · final push (Chief 14:46: t10 +0.52 in 20 ticks, lead 1.97) · 3 addressed El Rastro bids at value − 15 to non-rival holders (feed): **29351** RET-11 → t09 183 (198), **29352** SAL-11 → t02 147 (162), **29353** MAL-11 → t15 111 (126); total 441; exp 2811; ALL our open offers cancelled at 14:57 (offers stay open when the clock stops) · the first post timed out without landing; checked, posted once
 - Sun 14:46 · MAL-09 round 2 over: t01 28505, t09 28643, t15 28719 all lapsed at 75 (v01) → MAL 9/10; counter-watch till 14:55; no offers of ours live; trader only (floor 0, El Rastro, rivals excluded) · score 37.72, duel points 34.65, negotiating 24.64, neg 104.8, ladder 0.364 final
