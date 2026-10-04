@@ -1,4 +1,4 @@
-# Metrics (auto, 10:55, game tick 1845)
+# Metrics (auto, 10:56, game tick 1849)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -83,23 +83,23 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×2; t02: RET×4, MAL�
 
 ## El Rastro now: top bids by price (team, card, price)
 
-- t14: LAV-11 (epic) 140 P · offer 23027
+- t14: LAV-11 (epic) 148 P · offer 23044
 - t16: CHA-10 (rare) 64 P · offer 22946
 - t16: CHA-09 (rare) 64 P · offer 22997
-- t07: CHA-09 (rare) 60 P · offer 23019
-- t07: CHA-10 (rare) 60 P · offer 23020
 - t16: CHA-06 (uncommon) 19 P · offer 23004
 - t07: CHA-06 (uncommon) 18 P · offer 23015
 - t07: CHA-07 (uncommon) 18 P · offer 23016
 - t07: CHA-08 (uncommon) 18 P · offer 23017
-- t09: CHA-06 (uncommon) 15 P · offer 21563
-- t09: CHA-07 (uncommon) 15 P · offer 21564
-- t09: CHA-08 (uncommon) 15 P · offer 21572
+- ?: CHA-06 (uncommon) 15 P · offer 21563
+- ?: CHA-07 (uncommon) 15 P · offer 21564
+- ?: CHA-08 (uncommon) 15 P · offer 21572
 - t16: CHA-02 (common) 10 P · offer 23005
 - t16: CHA-03 (common) 10 P · offer 23022
+- t16: CHA-04 (common) 10 P · offer 23041
 - t07: CHA-01 (common) 8 P · offer 23006
+- t07: CHA-02 (common) 8 P · offer 23007
 
-Asks by others (card, price: count): LAV-05 5: 2; LAT-06 21: 2; RET-05 9: 1; MAL-01 6: 1; SAL-05 9: 1; LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAV-04 8: 1; RET-03 9: 1; LAV-02 7: 1; RET-01 8: 1; SAL-12 450: 1
+Asks by others (card, price: count): LAV-05 5: 2; LAT-06 21: 2; SAL-05 9: 1; LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAV-04 8: 1; RET-03 9: 1; LAV-02 7: 1; RET-01 8: 1; SAL-12 450: 1; LAT-07 30: 1; MAL-01 14: 1
 
 ## Our duels: 0 live, 136 finished (last 10)
 
