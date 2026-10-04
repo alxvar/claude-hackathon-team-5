@@ -1,11 +1,14 @@
 # Aleks — duels
 
-**Now:** Sunday tick-decay duelist implemented: Opus low strategist / Sonnet low negotiator, 12 s whole-decision ceiling, 8 s strategy / 3 s writer; immediate code accepts from the last validated band (days-aware) and risk-adjusted tick break-even; static-prefix pre-warming. Offline tests cover four concurrent days duels, timeouts and band boundaries. Pending deployment; no live process started or restarted. Runbook: docs/duelist-tick.md.
+**Now:** Dealer/radio clue audit complete (Sun 12:34, evidence below): LAT-13's only copy went to t02; all confirmed repeatable trigger families already claimed by us; SAL-12 is with t16; Pilar's lince story remains unverified. Sunday tick-decay duelist implemented: Opus low strategist / Sonnet low negotiator, 12 s whole-decision ceiling, 8 s strategy / 3 s writer; immediate code accepts from the last validated band (days-aware) and risk-adjusted tick break-even; static-prefix pre-warming. Offline tests cover four concurrent days duels, timeouts and band boundaries. Pending deployment; no live process started or restarted. Runbook: docs/duelist-tick.md.
 
 **Touches:** `agents/duelist/`, `docs/duels/`, duel endpoints only; `hub/` (shared Neon store + demand model: public reads, one `/api/me` read per 2 min, no game writes).
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 12:34 · mined 35,767 captured public events through tick 2237, 7,863 dealer replies across 2,139 conversations, all 16 radio items, live catalog and five of our private clue threads · only verified hidden legendary is LAT-13 (t02, 1/1 minted); our Chato pack was claimed at 2101 and opened at 2102; SAL-12 provenance confirms no transfer after t12 → t16; no Pilar egg observed · next: operator can source SAL-12 from t16 or LAT-13 from t02; lince/red-umbrella probes are unverified, text-only leads; full audit below
+
+- Sun 11:20 · restarted read-only duel monitor from latest monitor code 457be25 (verified against origin/main), PID 39828 at http://127.0.0.1:8766 · full suite 592 passed; page and live API healthy, tick 1944, 156 recorded duels, no public-feed errors · next: watch the monitor during Duels III
 - Sun 11:06 · implemented the user-approved tick-decay policy, strategist-band code accepts, bounded model calls/failover and pre-match prompt warming; preserved exchange mode for historical replays and standalone market agents · new offline deadline/package/cache tests green · next: full-suite gate, push main, deploy one duelist from updated main (older 29aa1be worktree does not include this change)
 - Sun 09:46 · **duelist stopped on Aleks's machine** (supervisor + run, Aleks's call); lock free; monitor page (8766) left up · next: Duels III ≈ 11:00 runs only if someone starts it (one duelist per key)
 - Sun 07:10 · negotiator now calculates its own private limit through `for_trade`: collection marginal values, set affinity, duplicates and immediate page bonus; confirmed RET + CHA goals and completed-page protection; configurable wanted/neutral/unwanted/keep cards and profit margins; fees, cash reserve and committed bids/assets enforced in code, with fresh-state repricing and an explainable private breakdown · custom team-trade prompts retain 8% decay as internal urgency; 537 offline tests pass, including recorded catalog/team snapshots and fee-rounding boundaries · remains unwired; next: market-open decision and execution integration
@@ -72,3 +75,74 @@
 - Fri 22:07 · smoke, faster negotiator: strategist (Opus) 4.4 s / 3.8 s + negotiator Sonnet 5.5 2.6 s ($0.005/turn) or Haiku 4.5 1.4 s ($0.005/turn); duels decide concurrently (one task each) · ~7 s with Sonnet, ~5 s with Haiku, both inside Sunday's ~10 s budget; Haiku is the fallback if the live turns run slower · next: `run --negotiator-model claude-sonnet-5-5` in the practice
 - Fri 22:00 · duelist now keeps a record of every duel in the repo (`docs/duels/duel-<id>.json`: payloads, decisions with latency and cost, sends, refusals, final result), sweeps the done list every minute so a restart loses nothing, saves the feed's duel events (to unmask aliases) and our duel points; `review` writes one table · 15 tests pass, live sweep OK · next: practice duels, then `review` and push `docs/duels/`
 - Fri 21:25 · duelist checks: 14 offline tests pass; `probe` reads clock + schedule; `smoke` failed (`.env` had CLAUDE_API_KEY, engine reads ANTHROPIC_API_KEY; renamed locally), then works: Opus decision 6-10 s, ~$0.007/turn, `--days` OK · Sunday's 15 s tick leaves a 10 s budget, too tight for Opus · next: `run` live in the practice, then read the payload
+
+## Dealer and radio clue audit — Sun 12:34, October 4
+
+**Result:** one verified hidden legendary, **LAT-13 La Chulapa Dorada**, already minted to Team 2. Every other confirmed egg reward is already claimed by Team 5. The remaining concrete legendary lead is **SAL-12 La Dama de Serrano, copy #1/3, held by Team 16**. Pilar's lince story and the radio's red umbrella are unverified leads; no additional hidden-card unlock was found.
+
+### Coverage and evidence
+
+Read-only audit of the shared hub database, `logs/dashboard/feed.jsonl`, `data/hub/feed-aleks-mac.jsonl`, and `docs/duels/feed.jsonl`, deduplicated by event id. Latest merged snapshot: **35,767 events, ticks 2–2237; 7,863 visible dealer replies in 2,139 conversations** (Carmen 3,162; Chato 1,644; Pilar 1,147; Pícaros 1,690; Ernesto 220). All **16** live `/api/news` items were checked, together with live catalog, dealer menus, levels, schedule, our inventory at tick 2220, and our private clue threads 1539, 1544, 1856, 2100 and 3036. The public feed redacts teams' words; the exact phrases below come from our own private threads or are inferred from a dealer's echo. Captured public history cannot recover conversations missed by every collector.
+
+Evidence is identified by **public event id / tick / thread**. A dealer's promise is treated as confirmed only when the feed contains its reward event or a corresponding catalog/provenance change. Local working extracts are in `/private/tmp/bazaar-card-clues/`; no game messages, trades, pack openings or probes were sent in this audit.
+
+### The hidden legendary chain — verified, exhausted
+
+1. **Pilar → Carmen:** ask Carmen at El Rastro about the golden chulapa. Seen repeatedly, including our event 26922 / tick 512 / thread 737.
+2. **Carmen → Ernesto:** our exact message in thread 1539 was `Buenas tardes, Carmen, ¿ha comido? Pilar me dijo que usted sabe la historia de la chulapa dorada. ¿Me la cuenta?` Carmen awarded **Sharp ear** at tick 1047 (events 51600–51601), then named Don Ernesto at Casa Prima and **el oro de Moscú** (51612).
+3. **Ernesto → LAT-13:** Team 2 received the card at tick 1021, thread 1491: `egg.found` 50715, `egg.given` 50716, dealer reply 50719. His reply echoed **El oro de Moscú** and explicitly handed over the chulapa. The catalog has `hidden: true`, `print_run: 1`, `minted: 1`.
+
+Our exact attempt, `Buenas tardes, Don Ernesto. El oro de Moscú.`, in thread 1544 at ticks 1050–1051 produced no reward. It came **30 ticks after Team 2's claim**. No later LAT-13 transfer appears in the captured feed, so Team 2 is its last known holder. A secondary trade is the remaining acquisition route if they agree; repeating the phrase cannot mint another copy unless the organizers change the print run. Rules describe the hidden card as prestige only and say dealers do not buy it.
+
+### Other verified trigger families — all already ours
+
+| Dealer | Phrase or cultural reference | Actual reward | Our evidence and status |
+|---|---|---|---|
+| Carmen | Golden chulapa story | Sharp ear badge and the Ernesto clue | Tick 1047, events 51600–51601; already ours |
+| Carmen | **Cocido madrileño con sus tres vuelcos** | A free uncommon; the particular card varies | Tick 1368, events 70421–70422: **MAL-06** to us |
+| Carmen | **Chotis**, dancing on one **baldosa**, La Paloma | Castizo badge | Tick 1369, events 70522–70523; already ours |
+| Chato | **Plaza Mayor, bocadillo de calamares, caña bien tirada.** | **Neighbourhood pack** (`sobre_barrio`) | Our exact text in thread 3036; events 95841–95842 at tick 2101; opened at 2102, event 95865 |
+| Pícaros | **Conozco el timo de la estampita, como Lazarillo y Rinconete. Sin trucos, ¿eh?** | Trickster tricked badge | Our exact text in thread 1856; events 58673–58674 at tick 1231; already ours |
+
+Observed totals: **8** Carmen uncommon gifts from the cocido egg, **7** Chato pack rewards, **12** Sharp ear badges, **7** Castizo badges, **9** Trickster tricked badges, and the single Ernesto legendary. No Pilar `egg.found` or `egg.given` event was observed.
+
+Two corrections to the automated egg table matter. Chato's reward is a **neighbourhood pack**, even when his reply discusses a silver pack; our reply actually said sold out, yet the reward events fired. Also, multiple dealers rewarded the same team on the same tick (t08 at 1394; t16 at 1609). `tools/eggs.py` assigns non-`egg.found` rewards to the first dealer found that tick, creating mixed reward rows. These events do **not** establish a Pícaros pack egg or a combined Carmen card-and-pack egg. Our Chato reward is now claimed; any earlier note saying otherwise is stale. The Pícaros badge does not prove that later offers are honest.
+
+### The concrete remaining legendary lead
+
+**SAL-12, La Dama de Serrano, asset 1249, #1/3:** Team 12 pulled it from a **silver pack** at tick 1554 (`pack.opened` event 76435). Team 12 sold it to Team 16 for **380 P** on v21 at tick 1886 (settlement 1314, public event 84479; offer/trade 23072). The live `/api/cards/1249` provenance still contains only that pack mint and that transfer; it anonymizes team names, but matches the public settlement and shows no later handoff. Team 16 is therefore the current holder supported by both sources.
+
+This is an ordinary legendary, with **1/3 minted** in the live catalog. The other five ordinary legendaries are **0/3 minted**; LAT-13 is the catalog's only hidden card. Normal pack odds on the last slot are **2% legendary in silver**, **15% in gold**, and **0% in the free neighbourhood pack**. That establishes ordinary acquisition routes, not another secret phrase. Current strategy excludes paid legendary/gold-pack shopping; the operator should check the card's private marginal value, rival policy and committed cash before any proposed trade.
+
+The Workshop is a separate route to higher rarity: three spare copies of the same rarity become one random card of the next rarity, retaining at least one copy of each input card. There are 37 observed common→uncommon crafts and one uncommon→rare craft (Team 1, San Isidro, tick 1361, event 69822). No epic or legendary craft was observed. Our tick-2220 inventory has **no duplicate card refs**, so it has no eligible inputs now.
+
+### Unverified leads, ranked
+
+1. **Pilar: Vida y Color / el lince / sile, nole.** At tick 1336, thread 2028, she told t08 that the lince was her impossible childhood sticker (event 68000). At 1741 she told t02 it was intact in her safe (80819); at 2092 she told t10 she still lacked it (95643). None produced a visible reward, and there is no lince card in the catalog. This is the strongest remaining conversational lead, but the contradictory replies make it weak evidence. A possible text-only probe is `Doña Pilar, ¿qué historia guarda el lince de Vida y Color? Sile, nole: ¿cuál era su cromo imposible?` It is untested; her gold-pack pitch is not a reward.
+2. **Carmen: the lost red umbrella.** News #12, tick 1464, El Tablón: someone lost a red umbrella beside her stall. No matching umbrella dialogue or reward was found. Possible text-only probe: `Carmen, en el tablón dicen que se perdió un paraguas rojo junto a su puesto. ¿Sabe de quién es?` This is a notice-board rumor, not an established card unlock.
+3. **Pilar's saint's day, October 12; Embassy / violetas / Lhardy.** t08 already tried the saint's-day reference (event 67064, tick 1325), and several teams tried the other references. Replies returned to unchanged prices; no reward followed. Lower priority than the lince. October 12 is after this game's close.
+
+These are suggestions for the operator's existing conversations, not actions taken by this audit. No new dealer thread is needed for a confirmed reward we already hold.
+
+### All radio items checked
+
+| News id | Source and topic | Relevance to special cards |
+|---|---|---|
+| 1 | Bulletin: Radio Rastro starts | Introduction only |
+| 2 | Radio: Atleti 2–1 | No reward link observed |
+| 3 | Radio: Chato wants MAL rares | Price opportunity, supported by his later patch at tick 463; no special-card unlock |
+| 4 | Tablón: Chato gives a legendary for saying hello | Unsupported rumor; his verified egg gives a neighbourhood pack, never a legendary |
+| 5 | Radio: Metro line 5 closes | No reward link observed |
+| 6 | Bulletin: Carmen's saint's-day pack | Scheduled free neighbourhood pack; ours was already opened at tick 763, event 39860 |
+| 7 | Tablón: Carmen stops buying commons | Contradicted by later trades and her live menu |
+| 8 | Radio: San Ginés churro queue | Cultural chatter; no separate egg established |
+| 9 | Radio: Carmen pays more for uncommons | Price opportunity, supported by her patch at tick 979; no special-card unlock |
+| 10 | Radio: sun, then storm | No reward link observed |
+| 11 | Tablón: Lavapiés reprint | No catalog print-run expansion found |
+| 12 | Tablón: lost red umbrella | Unverified Carmen lead above |
+| 13 | Tablón: commons double tomorrow | No card-reward evidence; tomorrow is outside the game |
+| 14 | Radio: 60 P bonus in an hour | Cash announcement; no special-card link established |
+| 15 | Tablón: El Rastro closes at midnight | Conflicts with the live Sunday close at 15:00 |
+| 16 | Tablón: Cine Doré for two roast chestnuts | Barter joke/reference; no structured card offer or reward found |
+
+Live schedule at tick 2211 had all five dealers closing at game hour **18.367**, before the final freeze at **19.367**. Any optional conversation probe belongs before that dealer deadline. Best concrete next steps for collecting special cards: source SAL-12 from Team 16, or ask Team 2 whether they would trade the unique LAT-13; further phrase hunts remain speculative.

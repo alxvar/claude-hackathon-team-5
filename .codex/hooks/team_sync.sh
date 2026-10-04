@@ -8,8 +8,13 @@ case "${1:-}" in
     # SessionStart and UserPromptSubmit accept plain-text context.
     exec bash "$project_dir/tools/team_sync.sh" pull
     ;;
+  push)
+    # Stop requires JSON on stdout; keep sync diagnostics on stderr.
+    bash "$project_dir/tools/team_sync.sh" push >&2
+    printf '{}\n'
+    ;;
   *)
-    echo "Usage: team_sync.sh pull" >&2
+    echo "Usage: team_sync.sh pull|push" >&2
     exit 1
     ;;
 esac

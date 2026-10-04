@@ -21,6 +21,17 @@
           }
         ]
       }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$(git rev-parse --show-toplevel)/.codex/hooks/team_sync.sh\" push",
+            "timeout": 60
+          }
+        ]
+      }
     ]
   }
 }
