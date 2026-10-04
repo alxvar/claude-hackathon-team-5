@@ -86,49 +86,11 @@ body.print .hint{display:none}
   <div class="card top ins" style="left:128px;--c:var(--blue)"><div class="q">Technical</div><div class="t">Real-time shared context is everything</div>
     <p>Day one, three people and their agents worked in silos. By Sunday every agent saw every update as it happened.</p><div class="who2">Lucas · Aleks</div></div>
   <div class="card top ins" style="left:702px;--c:var(--red)"><div class="q">Negotiation</div><div class="t">Time can beat price</div>
-    <p>A fast good deal beats a slow perfect one. And people still decide: alliances made in the room outweighed agent tactics.</p><div class="who2">Aleks · Lucas</div></div>
-  <div class="card top ins" style="left:1276px;--c:var(--yellow)"><div class="q">Marketplace</div><div class="t">Trust moves trades, not fees</div>
-    <p>Zero commission wasn't enough. Trust and returned favours brought trades to our market; incentives can break.</p><div class="who2">Dani · Aleks</div></div>
-  <div class="close" style="top:860px;font-size:48px">Three humans set the limits. <span class="y">Claude ran the bazaar, and checked itself.</span></div>
+    <p>A fast good deal beats a slow perfect one: every round of talk costs value, and silence is free.</p><div class="who2">Aleks · Lucas</div></div>
+  <div class="card top ins" style="left:1276px;--c:var(--yellow)"><div class="q">Marketplace</div><div class="t">People outweigh incentives</div>
+    <p>Zero commission wasn't enough. Human interaction and relationships still outweighed incentives and LLM tactics.</p><div class="who2">Dani · Aleks</div></div>
+  <div class="close" style="top:860px;font-size:48px">Three humans set the limits. <span class="y">Claude did the work, and checked itself.</span></div>
   <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i></i></div><div class="lvl"></div><div class="who">Thank you</div></div>
-</div>
-
-<!-- BACKUP (Q&A only) -->
-<!-- 3 · HYPOTHESES → CHALLENGES → CHANGES -->
-<div class="stage backup" data-t="backup">
-  <div class="kicker">First idea, and what changed it</div>
-  <h1>Five beliefs our <em>data</em> broke</h1>
-  <div class="cols"><span></span><span style="color:var(--grey)">We believed</span><span style="color:var(--red)">What broke it</span><span style="color:var(--green)">What we changed</span></div>
-  <div id="hyp"></div>
-  <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i></i></div><div class="lvl"></div><div class="who">Hypotheses</div></div>
-</div>
-
-
-<!-- 4 · IMPACT BY ACTION (C) -->
-<div class="stage backup frame" data-t="backup"><iframe data-src="arch-c.html"></iframe></div>
-
-
-<!-- 5 · BUILT AROUND THE BAZAAR -->
-<div class="stage backup" data-t="backup">
-  <div class="kicker">Outside the game's own tools</div>
-  <h1>What we built <em>around</em> the Bazaar</h1>
-  <div class="card top big" style="--c:var(--yellow)">
-    <div class="q">A market with more than two sides</div>
-    ${icon('swap','var(--yellow)')}
-    <div class="t">The club matchmaker</div>
-    <p>We estimate <b>every team's album from the public feed</b> and shared want-lists, match one team's spare copy to another team's missing card, page-closers first, and price each deal <b>between the two values</b>, so both sides gain.</p>
-    <p>Six teams invited to a club, with hosting <b>designed to rotate across members' markets</b>, so the matching pays more than one venue.</p>
-    <div class="src">tools/matchmaker.py · intel/club-pitch.md · brokered RET-01 Team 2 → Team 8 on v10</div>
-  </div>
-  <div class="card top sm" style="left:862px;top:300px;--c:var(--blue)">${icon('db','var(--blue)')}<div class="t">Demand model + hub</div>
-    <p>What <b>every card is worth to every team</b>, from public behaviour alone, no LLM. A shared Neon archive keeps the history the 500-event feed drops.</p><div class="src">hub/demand.py · hub/README.md</div></div>
-  <div class="card top sm" style="left:1344px;top:300px;--c:var(--green)">${icon('flask','var(--green)')}<div class="t">Market Test lab</div>
-    <p>A recorder captures <b>every bench session</b>; an offline simulator tests broker strategies against the free stall before we risk a bond.</p><div class="src">broker/record_bench.py · broker/sim.py</div></div>
-  <div class="card top sm" style="left:862px;top:630px;--c:var(--orange)">${icon('eye','var(--orange)')}<div class="t">Live reactor</div>
-    <p>Reads the public <b>event stream</b> without our key, flags every ask we can take at a gain, and <b>pages the Operator</b> and our phones.</p><div class="src">tools/reactor.py · tools/notify.py</div></div>
-  <div class="card top sm" style="left:1344px;top:630px;--c:var(--purple)">${icon('monitor','var(--purple)')}<div class="t">Judges' showcase</div>
-    <p>Dani's live dashboard and a <b>/show</b> page: read-only, built to run offline, the whole game on one screen.</p><div class="src">dashboard/server.py · dashboard/show.html</div></div>
-  <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i></i></div><div class="lvl"></div><div class="who">Around the Bazaar</div></div>
 </div>
 
 <div class="hint" id="hint">← → · F full screen</div>
@@ -155,7 +117,7 @@ const H = [
    x:'v10 at 0 %: <b>0 fills</b> today by 10:45. <span class="tag v">V</span>',
    g:'<b>We pushed pairs and partners onto v10:</b> our RET-01 pair, Team 13\'s bot, Team 10\'s listings. <b>8 fills by the close.</b> <span class="tag v">V</span>'},
 ];
-document.getElementById('hyp').innerHTML = H.map((h, i) => `<div class="card hrow" style="top:${320 + i * 130}px;--c:${h.c}"><div class="topic">${h.k}</div><p>${h.b}</p><p>${h.x}</p><p class="chg">${h.g}</p></div>`).join('');
+if (document.getElementById('hyp')) document.getElementById('hyp').innerHTML = H.map((h, i) => `<div class="card hrow" style="top:${320 + i * 130}px;--c:${h.c}"><div class="topic">${h.k}</div><p>${h.b}</p><p>${h.x}</p><p class="chg">${h.g}</p></div>`).join('');
 
 // ---------- slide 1: the race ----------
 (function () {
