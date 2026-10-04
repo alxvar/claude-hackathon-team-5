@@ -69,6 +69,59 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1885,
+   "raw": {
+    "duel": 11176,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Cine Doré",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.78,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 143,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 1893,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 12102,
+     "price": 90,
+     "tick": 1881,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 12184,
+     "price": 166,
+     "tick": 1885,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1881,
+      "from": "you",
+      "text": "I'd like to open at 90 P for delivery on day 0.",
+      "price": 90,
+      "days": 0
+     },
+     {
+      "tick": 1885,
+      "from": "Rival Verde",
+      "text": "Hola. This one is in perfect condition. 166 P, delivery day 10.",
+      "price": 166,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -173,6 +226,108 @@
        "in": 856,
        "out": 25,
        "cost_usd": 0.00098,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ]
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1885,
+   "took_s": 1.45,
+   "cost_usd": 0.00108,
+   "obs": {
+    "view": {
+     "duel_id": 11176,
+     "role": "buyer",
+     "limit": 143,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.78,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 90 P for delivery on day 0.",
+      "offer": {
+       "price": 90,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1881,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hola. This one is in perfect condition. 166 P, delivery day 10.",
+      "offer": {
+       "price": 166,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1885,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 166,
+     "days": 10
+    },
+    "tick": 1885,
+    "ticks_left": 8,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "La brecha es grande. Ofrezco 106 P para entrega en día 0.",
+    "price": 106,
+    "days": 0,
+    "meta": {
+     "policy": "code",
+     "day_call": "hold",
+     "rule": "code step",
+     "step": 16.06,
+     "closing": false,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.45,
+       "in": 929,
+       "out": 30,
+       "cost_usd": 0.00108,
        "model": "claude-haiku-4-5-20251001"
       }
      ]

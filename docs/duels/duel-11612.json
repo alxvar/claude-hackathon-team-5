@@ -329,6 +329,97 @@
     "ACCEPT_BY": 1,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1885,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11612,
+     "role": "seller",
+     "limit": 104,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.32,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to offer 148 P for delivery on day 10.",
+      "offer": {
+       "price": 148,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1880,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hello! I can offer 99 P. Delivery on day 0.",
+      "offer": {
+       "price": 99,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1882,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 99,
+     "days": 0
+    },
+    "tick": 1885,
+    "ticks_left": 7,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 148,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [

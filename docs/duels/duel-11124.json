@@ -249,6 +249,80 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1884,
+   "raw": {
+    "duel": 11124,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Cine Doré",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.83,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 40,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Verde",
+    "deadline_tick": 1886,
+    "decay_per_round": 0.1,
+    "rounds": 2,
+    "your_offer": {
+     "id": 12166,
+     "price": 27,
+     "tick": 1884,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 12174,
+     "price": 26,
+     "tick": 1884,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1874,
+      "from": "you",
+      "text": "I'd like to propose 57 primas with delivery on day 10.",
+      "price": 57,
+      "days": 10
+     },
+     {
+      "tick": 1876,
+      "from": "Rival Verde",
+      "text": "Rápido y justo: 46 P, día 0. ¿Qué día de entrega te va mejor? / Quick and fair: 46 P, day 0. Which delivery day suits you best?",
+      "price": 46,
+      "days": 0
+     },
+     {
+      "tick": 1883,
+      "from": "you",
+      "text": "I can do 42 P, delivery on day 10.",
+      "price": 42,
+      "days": 10
+     },
+     {
+      "tick": 1884,
+      "from": "you",
+      "text": "I can do 27 P, delivery on day 10.",
+      "price": 27,
+      "days": 10
+     },
+     {
+      "tick": 1884,
+      "from": "Rival Verde",
+      "text": "Parece que el día te importa: 26 P con día 0. / It seems the day matters to you: 26 P, day 0.",
+      "price": 26,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
