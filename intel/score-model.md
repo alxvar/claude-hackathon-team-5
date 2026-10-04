@@ -747,6 +747,25 @@ If the trade reference were a max of others or a median, the past-cap effect wou
 4. **Ladder fodder past our ladder cap: still positive.** Above M, each +ΔL raises M by ΔL/3 against rivals below M (≈ −0.5 Sunday
    pts per rival for +0.1). The fodder rules stand (directive 02:30).
 
+### 4.14 MAL decision math (Sun 11:30, for the Chief's ≈ 12:00 call) [V feed · L points]
+**State:** we hold MAL-01..06, 08 and **10** (Pícaros at 46, tick 1757). Missing **MAL-07** (uncommon, value 17.5) and **MAL-09** (rare, 49). Cash 635.
+neg_points 50 = the Sunday team-trade cap (working rule §3j [L+]).
+**Sources [V]:**
+- MAL-07: no asks. Sunday sale: t15 → t03 at 9. Holders t12, t17, t08, t13, t01, t09, t03. Live bid: t06 at 9.
+- MAL-09: no asks. Pícaros MAL-rare finals today 46 (us), 56, 58 (t09), so a fill at ≤ 49 ≈ 1 in 3. Our own live bid: 48 on **t09's v21**.
+**Points [L]:**
+- **MAL closer (page): 0** under the Sunday 50 cap (a closer is a team-trade gain, and we're capped). The page itself never scores.
+- **MAL-09 from the Pícaros at ≤ 49:** replaces our weakest L4 slot (a common sell, ≈ 0.03-0.06) with ≈ 0.08 → ΔL ≈ +0.03-0.05 →
+  **≈ +0.5-0.8 Sunday** (9 × ΔL / M, M ≈ 0.4-0.5) for ≈ 46-49 P → ≈ 1-1.7 per 100 P.
+- MAL-07 from a dealer: no ladder gain (Abuela's best 3 are full; Chato's buys at list don't score). ≈ 0.
+- **Our MAL-09 bid on v21 hurts:** a fill there adds VC to t09's venue, raising the real-trades top-3 mean against v10.
+**Verdict:**
+- **MAL page close: NO-GO** (0 points under the cap).
+- **MAL-09 at the Pícaros ≤ 49: GO** (ladder upgrade); walk above 49.
+- **Move the MAL-09 bid off v21** (El Rastro, as maker) or cancel it.
+- If the desk says the cap is per trade only: GO the closer route, MAL-09 (Pícaros ≤ 49) then MAL-07 LAST from a team (t13/t08/t17/t01)
+  at ≤ 13.5 for the full +50 (≤ 30 → +33). ≈ +3 Sunday points to our trade cap.
+
 ## 5. Buyer model (multiplier per team × set) for v10 steering
 
 Method: implied ΔV of each team-trade side from its Saturday-part jump ÷ 0.235 (clean windows only) + price/book of bids and
