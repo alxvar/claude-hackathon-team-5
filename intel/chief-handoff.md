@@ -57,3 +57,8 @@ etc.); help t10. Eggs/badges don't score (we have Sharp ear, Trickster tricked, 
 Re-audit GO-WITH-CHANGES on a99f641 (intel/duelist-reaudit.md); its patch is applied + seller opener 0.42 (Duel Lab ruling, +1.8 pts Duels III).
 Set C, code policy, Haiku text, failover 8 s, AUTOSWITCH C → A once. The 06:07 gate re-audits the delta a99f641 → 29aa1be, then the sha goes into PLAN.md #32.
 Aleks (zsh, braces needed): `SHA=29aa1bed66962959ce633492d84bbc321385c7e7` · `COMMIT=$SHA bash <(git show "${SHA}:tools/duelist_sunday.sh") --check` · then the same command without --check, with AUTOSWITCH=1 · stop: `--stop` · back to Saturday's duelist: `--rollback`. Don't run it inside a command that also pgreps duelist names (false "already running").
+
+## Sunday 07:30 state (Chief)
+Final plan: intel/sunday-final.md (contrarian-checked; deltas in directives 07:05 + 07:25). Morning tasks: intel/morning-brief.md. Aleks: PLAN.md #32 (sha 29aa1be, GO; a "C+" set only if the Duel Lab confirms by 08:15).
+Armed: the Operator's t0.sh (re-armed after 07:25; check its pid in logs/t0.log), window.sh at 08:45 (stops swaps/opps/recorder only), the trader starts at R+10 (run/trader_ok, rival-venue skip f19eaff).
+Open decisions: MAL at ≈ 12:00 (Analyst's math); the 12:00 cash sink; the club venue rule/exclusivity wording after the desk's answer (contra-market #3); SAL-02 after RET-09 settles.
