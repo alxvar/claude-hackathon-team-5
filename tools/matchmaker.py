@@ -560,12 +560,15 @@ def dm_seller(r: dict) -> str:
     """Transactional only (Lucas 17:20): what, where, price, thanks. Never why. Addressed to the buyer (directive
     01:15: pairs are pre-agreed and addressed, never an open ask)."""
     return (f"Hi {r['seller_name']}! Could you post your {r['card_name']} ({r['card']}) on {_on(r)} as an ask "
-            f"addressed to {r['buyer_name']}, at ~{r['price']} P? They're ready to take it. {SPARE_LINE} Thanks!")
+            f"addressed to {r['buyer_name']}, at ~{r['price']} P? Only there, please: they're ready to take it on "
+            f"{r.get('venue') or V10}. {SPARE_LINE} Thanks!")
 
 
 def dm_buyer(r: dict) -> str:
+    v = r.get("venue") or V10                       # Market 10:55: RET-09 settled on El Rastro, so no venue scored
     return (f"Hi {r['buyer_name']}! {r['seller_name']} can post {r['card_name']} ({r['card']}) on {_on(r)} as an ask "
-            f"addressed to {r['buyer_name']}, at ~{r['price']} P: accept it there once it's up. Thanks!")
+            f"addressed to {r['buyer_name']}, at ~{r['price']} P: please accept it there, on {v}, once it's up, and "
+            f"don't bid for it elsewhere meanwhile. Thanks!")
 
 
 def _flags(r: dict) -> str:

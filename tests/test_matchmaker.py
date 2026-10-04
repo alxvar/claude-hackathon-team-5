@@ -362,3 +362,11 @@ def test_member_markets_come_from_the_live_venue_list():
     mm.route(rows, teams=teams, venues=live, state={}, day="d1")
     assert rows[1]["venue"] != "v06" and "0% fee" not in rows[1]["dm_seller"]
     assert mm.member_markets(None) == mm.CLUB_VENUES
+
+
+def test_the_buyer_dm_names_the_venue_twice_and_asks_for_no_bid_elsewhere():
+    """Market 10:55: RET-09 t07→t09 settled on El Rastro, so no venue got its value created."""
+    events = page_but("t09", {"RET-09"}) + give("t08", "RET-09", "RET-09") + [bid("t09", "RET-09", 40)]
+    r = run(events)[0][0]
+    assert r["dm_buyer"].count("v10") == 2 and "don't bid for it elsewhere" in r["dm_buyer"]
+    assert "Only there" in r["dm_seller"] and r["dm_seller"].count("v10") == 2
