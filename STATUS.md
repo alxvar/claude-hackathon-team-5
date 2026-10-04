@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sun 01:44** · tick 1445 (30 s/tick) · game hour 13.37 · PAUSED · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sun 06:45** · tick 1445 (30 s/tick) · game hour 13.37 · PAUSED · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,9 +17,9 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Sun 08:45: run intel/dealer-lab.md §4 checklist, then intel/sunday-plan.md. (Sat history:) Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sun 06:43 · operator · MAL-07 (last MAL card) from Team 15 → our addressed bid on **v26** (Team 2 'El Rastro Express', 0 bps, owner t02, board [V]), not El Rastro (Chief: the club settles member trades on member markets; Lucas's 08:30 WhatsApp tells t15) · final plan: intel/sunday-final.md at 07:30
   - Sun 01:40 · Builder · **duelist-loop final sha 29aa1be** (579 green, `--check` passes): re-audit fixes R1 rollback (checks before stopping, no --records), R2 (refuse before touching params), R5/R6/R9 + seller opener 0.42 in price (Duel Lab ruling; buyer 0.37, pinned by a test) → Chief → Aleks pins it at 08:00
   - Sun 01:35 · operator · directive 01:40: MAL close GO whenever ≥ 150 P is left after CHA (replaces the 10:30 M5 gate; relative scoring past our cap); RET-11 → Pilar only at ≥ 198 (the surplus option withdrawn); fodder stays on → run/mal_book.json + §FAST-START updated
-  - Sun 01:33 · operator · **SAL-11 bid 20252 cancelled now** (the server accepts cancels while closed); 0 SAL-11 bids; the 08:58 job disarmed · probe GET /api/cards/{id} (3 reads): other teams' cards show owner 'a team' (holders masked; provenance shows pack # / Workshop / trade #) → no holder sweep · open overnight: LAV-03 → t04 (19979), LAV-04 → t01 (19981)
 
 ## Score
 
