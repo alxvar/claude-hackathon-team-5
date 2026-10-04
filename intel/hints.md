@@ -300,3 +300,4 @@ La Caña te la dejo en 10 P, cariño. Y esta noche a las nueve y media abre El C
 - Sun 09:37 · message tick 1534 · abuela → t04 · Ay, la chulapa dorada... una sola se imprimió, dicen, y un niño la cambió por un helado. Otro día te cuento entera, hija.
 
 El pack, 26 primas y tuyo. Y oye, junta página completa, vale mucho más suelta. Doña Pilar paga bien los sábados a las once.
+- Sun 09:37 · message tick 1536 · pilar → t04 · Buenas tardes de nuevo, caballero. Su cariño lo acepto; el precio, no. Nueve ejemplares, sí, y conozco cada uno. Por La Puerta de Alcalá le ofrezco 151 P. Salamanca merece mi bóveda, no la de Don Ernesto.
