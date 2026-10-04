@@ -317,3 +317,5 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 09:49 · message tick 1584 · abuela → t08 · Ay, hijo, qué cosas más bonitas me dices... pero la cartita se queda en nueve P, mi vida. Mira esa monedita lista que apareció en el abrigo, igual tiene una hermanita escondida, ¿eh? Y luego te comes algo calentito, que vienes muy flaquito, cariño.
 - Sun 09:50 · catalog.minted LAV-11 (La Casa Encendida, epic, print run 9): hidden=False minted=7 (was 6)
 - Sun 09:50 · catalog.minted SAL-12 (La Dama de Serrano, legendary, print run 3): hidden=False minted=1 (was 0)
+- Sun 09:52 · egg.found tick 1593 · abuela → t09 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t09", "name": "Team 9"}
+- Sun 09:52 · egg.given tick 1593 · abuela → t09 · {"team": "t09", "name": "Team 9", "cash": 0, "packs": [], "cards": ["SAL-06"], "reason": "easter egg"}
