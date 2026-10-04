@@ -9,6 +9,13 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sun 12:58 · snapshot 2302
+- **t10 flips CHA-11 epics:** Pícaros 149 → t06 at 184 on v10 (2228), then Pícaros 150 → **us at 190 on v17** (2318). t10 nets ≈ +35-40 cash per
+  flip and its trade gain; our side is a first copy (≈ 288) → +50. t10's negotiating −0.78 at snapshot 2302 (a loss elsewhere?).
+- v10 pairs: t17 → t01 RET-09 at 40 (2265), RET-10 at 33 (2268) → VC 175.4.
+- t03 keeps filling ladder: Abuela RET-02 (8), RET-06 (21).
+- Final basis: **us 89.5** · t12 85.5 · t10 83.3 · t18 81.4 · t03 81.0.
+
 ### Sun 12:41 · snapshot 2242 (phase 1.0: board × 2.5 = the final basis)
 - **t10 sold CHA-11 (epic) to t06 at 184 on OUR v10** (tick 2228): v10 VC → 114.4, so our real trades are capped (7.5). t10's negotiating +0.77 on it.
   It was a dealer → team flip, t13's pattern: bought from the Pícaros at 149 (2225), sold 3 ticks later. v10's 0% fee drew it onto our venue.

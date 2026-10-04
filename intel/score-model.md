@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sun 12:41 (snapshot 2242, phase 1.0): **WE ARE #1. Final basis (board × 2.5): us 88.5 · t10 85.5 · t12 85.3 · t18 81.5 · t03 80.7.** Cause: t10 sold CHA-11 to t06 at 184 ON v10 (tick 2228): v10 VC 6.4 → 114.4, real trades capped at 7.5. Main risk left: the Grand Final (≈ 14:00), where t10 is a strong duelist. Cheap adds: MAL closer, Chato L2, Pilar ≥ 19._
+_Last update: Sun 12:58 (snapshot 2302, phase 1.0): **final basis us 89.5 · t12 85.5 · t10 83.3 · t18 81.4 · t03 81.0** (lead ≈ 4.0). v10 VC 175 (t17 → t01 RET-09 / RET-10). We bought CHA-11 from t10 at 190 (+50, on v17) and MAL-07 from t07 at 15. MAL-09 is the last card: a team at ≤ 45 (§4.14). Grand Final checks at 14:08 / 14:24._
 _Note: the §4 version labels "00:05" to "02:10" are sequence markers written between Sat 23:50 and Sun 00:42 (my labels ran ahead of the wall clock); real times are in `git log`. The Sunday clock in §4.7 is unaffected._
 
 ## 1. Board = Friday × Saturday blend [V]
@@ -764,6 +764,7 @@ neg_points 50 = the Sunday team-trade cap (working rule §3j [L+]).
   **≈ +0.5-0.8 Sunday** (9 × ΔL / M, M ≈ 0.4-0.5) for ≈ 46-49 P → ≈ 1-1.7 per 100 P.
 - MAL-07 from a dealer: no ladder gain (Abuela's best 3 are full; Chato's buys at list don't score). ≈ 0.
 - **Our MAL-09 bid on v21 hurts:** a fill there adds VC to t09's venue, raising the real-trades top-3 mean against v10.
+**UPDATE 12:58: MAL-07 was bought FIRST (t07 at 15, tick 2263), so MAL-09 is now the LAST card. Buy it from a non-rival TEAM at ≤ 45 for the full +50 (never the Pícaros: a dealer close forfeits the closer). After the CHA-11 buy (+50, tick 2318) our trade part may be capped (T ≈ 105 vs N ≈ 78), so the closer then adds only the §4.13 squeeze [L].**
 **Verdict (REVERSED Sun 12:22: no cap, §3j retracted): MAL closer GO.** MAL-09 (Pícaros ≤ 49 or a team ≤ value), then MAL-07 LAST from
 a non-rival team at ≤ 13.5 → +50 (≤ 30 → +33): T 52 → ≈ 102 vs N ≈ 78 → ≈ +3 Sunday (post-duel 9 scale). Settle on v10 or El Rastro.
 - ~~MAL page close: NO-GO (0 points under the cap).~~
