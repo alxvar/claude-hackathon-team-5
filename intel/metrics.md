@@ -1,22 +1,22 @@
-# Metrics (auto, 11:49, game tick 2060)
+# Metrics (auto, 11:51, game tick 2069)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
-1. Team 12 34.5 (+0.1 / +0.1) deals 78
-2. Team 10 33.7 (-0.9 / +1.0) deals 70
-3. Team 18 33.1 (+0.5 / +0.2) deals 56
-4. Team 5 32.9 (+0.6 / +0.4) deals 69 ← US
-5. Team 3 30.5 (+0.0 / +1.2) deals 39
-6. Team 6 29.0 (+0.5 / +2.5) deals 86
-7. Team 4 28.9 (+2.6 / +6.6) deals 89
-8. Team 9 28.8 (+0.5 / +5.5) deals 52
-9. Team 15 27.5 (+1.6 / +5.9) deals 66
-10. Team 13 26.9 (-0.5 / -0.4) deals 102
+1. Team 12 34.4 (-0.3 / -0.2) deals 78
+2. Team 10 33.6 (-0.9 / +1.2) deals 70
+3. Team 18 33.1 (-0.3 / -0.1) deals 56
+4. Team 5 32.9 (-0.0 / +0.5) deals 69 ← US
+5. Team 3 30.5 (-0.1 / +1.4) deals 39
+6. Team 4 29.1 (+1.8 / +6.9) deals 89
+7. Team 6 29.0 (-0.5 / +2.6) deals 86
+8. Team 9 28.9 (-0.1 / +5.5) deals 52
+9. Team 15 27.6 (+0.3 / +6.2) deals 66
+10. Team 13 26.9 (-0.4 / -0.3) deals 102
 Us: #4
 
 ## Us
 
-score 32.86 · neg_points 50.0 (15 min ago 50.0) · ladder 0.342 · duel 24.68 · cash 635 · level 5 · deals 69
+score 32.93 · neg_points 50.0 (15 min ago 50.0) · ladder 0.342 · duel 24.68 · cash 635 · level 5 · deals 69
 
 ## Our holdings (card (rarity): value of each copy; a sale gives up the cheapest copy)
 
@@ -54,9 +54,8 @@ CHA-01 (common): 122; CHA-02 (common): 122; CHA-03 (common): 122; CHA-04 (common
 - tick 1817 abuela sell Huevos Rotos: 5 → 5, ours 6 · closed
 - tick 1995 picaros buy MAL-09: 73 → 58, ours 44 · closed
 
-## Trades between teams (195 so far; last 12)
+## Trades between teams (196 so far; last 12)
 
-- tick 1647: MAL-07 (uncommon) t15→t03 for 9 P
 - tick 1677: RET-09 (rare) t07→t09 for 68 P
 - tick 1712: LAV-07 (uncommon) t13→t12 for 40 P
 - tick 1730: RET-11 (epic) t05→t02 for 240 P
@@ -68,8 +67,9 @@ CHA-01 (common): 122; CHA-02 (common): 122; CHA-03 (common): 122; CHA-04 (common
 - tick 1858: SAL-11 (epic) t04→t02 for 220 P
 - tick 1886: SAL-12 (legendary) t12→t16 for 380 P
 - tick 2022: CHA-10 (rare) t15→t16 for 65 P
+- tick 2065: CHA-09 (rare) t15→t16 for 65 P
 
-Who buys which set (team trades): t01: MAL×4, SAL×4, RET×2; t02: RET×4, MAL×3, LAT×1, SAL×1; t03: SAL×3, LAT×2, LAV×1, MAL×1; t04: RET×6, MAL×6, LAV×4, LAT×3; t05: MAL×4, SAL×4, LAV×1, RET×1, CHA×1; t06: SAL×4, RET×3, LAT×2, LAV×1; t07: RET×9, LAV×7, MAL×5, LAT×4, SAL×1; t08: MAL×3, LAT×3, LAV×3, SAL×2, RET×1; t09: RET×6, SAL×5, MAL×4, LAV×1, LAT×1; t10: LAV×2, MAL×2, SAL×1, RET×1; t12: LAT×8, LAV×3, MAL×2, RET×2; t13: MAL×9, SAL×3, LAV×1; t14: LAT×4, RET×4, SAL×2, LAV×1, MAL×1; t15: LAT×6, MAL×4, RET×3, SAL×3, LAV×3; t16: RET×4, LAT×2, CHA×2, MAL×1, LAV×1, SAL×1; t17: MAL×5, SAL×4; t18: LAT×2, SAL×1, RET×1, CHA×1
+Who buys which set (team trades): t01: MAL×4, SAL×4, RET×2; t02: RET×4, MAL×3, LAT×1, SAL×1; t03: SAL×3, LAT×2, LAV×1, MAL×1; t04: RET×6, MAL×6, LAV×4, LAT×3; t05: MAL×4, SAL×4, LAV×1, RET×1, CHA×1; t06: SAL×4, RET×3, LAT×2, LAV×1; t07: RET×9, LAV×7, MAL×5, LAT×4, SAL×1; t08: MAL×3, LAT×3, LAV×3, SAL×2, RET×1; t09: RET×6, SAL×5, MAL×4, LAV×1, LAT×1; t10: LAV×2, MAL×2, SAL×1, RET×1; t12: LAT×8, LAV×3, MAL×2, RET×2; t13: MAL×9, SAL×3, LAV×1; t14: LAT×4, RET×4, SAL×2, LAV×1, MAL×1; t15: LAT×6, MAL×4, RET×3, SAL×3, LAV×3; t16: RET×4, CHA×3, LAT×2, MAL×1, LAV×1, SAL×1; t17: MAL×5, SAL×4; t18: LAT×2, SAL×1, RET×1, CHA×1
 
 ## Dealer prices, last 60 ticks (median per item)
 
@@ -93,7 +93,7 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×2; t02: RET×4, MAL�
 - t09: CHA-01 (common) 5 P · offer 23048
 - t09: CHA-02 (common) 5 P · offer 23049
 
-Asks by others (card, price: count): LAV-06 22: 1; LAV-02 9: 1; LAV-04 9: 1; MAL-01 10: 1; MAL-02 10: 1; MAL-03 10: 1; MAL-04 10: 1; MAL-05 10: 1; sobre_plata 130: 1; LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAT-06 30: 1
+Asks by others (card, price: count): LAV-06 22: 1; LAV-02 9: 1; LAV-04 9: 1; MAL-01 10: 1; MAL-02 10: 1; MAL-03 10: 1; MAL-04 10: 1; MAL-05 10: 1; sobre_plata 130: 1; LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; MAL-01 9: 1
 
 ## Our duels: 0 live, 204 finished (last 10)
 
