@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sun 01:35 (tick 1445, doors closed; snapshot 1440): us #3 at 30.49. §4.13: the ladder reference is relative and includes us [V-strong]; trades relative [L+]. MAL and v10 stay worth it past our cap; surplus→ladder downgraded (a loss lowers the reference for rivals)._
+_Last update: Sun 07:10 (tick 1445, doors closed; snapshot 1440): us #3 at 30.49. §4.13: the ladder reference is relative and includes us [V-strong]; trades relative [L+]. MAL and v10 stay worth it past our cap; surplus→ladder downgraded (a loss lowers the reference for rivals)._
 _Note: the §4 version labels "00:05" to "02:10" are sequence markers written between Sat 23:50 and Sun 00:42 (my labels ran ahead of the wall clock); real times are in `git log`. The Sunday clock in §4.7 is unaffected._
 
 ## 1. Board = Friday × Saturday blend [V]
@@ -525,7 +525,10 @@ sell ≥ value), ≈ cash-neutral, +0.15-0.23 raw → **ladder ≈ 0.42-0.50** [
 or "stopped printing"-type facts — **test one flag early on Sunday: if the cap was per round, flags score again (+10 each)** [?].
 
 ### 4.6 CHA price list (Saturday prices, all sets) [V feed]
-| Rarity | Team trades (p10 / median / p90) | Team bids (median) | Dealer | Our CHA value | Bid band for a positive team buy |
+**Directive 07:05: PUBLIC CHA team bids are capped at 54 / 22 / 9 (rare / uncommon / common).** The bands in the last column
+apply only to ADDRESSED, pre-agreed deals with a non-rival.
+
+| Rarity | Team trades (p10 / median / p90) | Team bids (median) | Dealer | Our CHA value | Addressed-deal band (non-rival, pre-agreed) |
 |---|---|---|---|---|---|
 | common | 4 / 7 / 10 | 4 | Abuela 8-9 (list 10) | 16 | **9-12** (+4-7) |
 | uncommon | 14 / 20 / 28 | 14 | Abuela 20-23, Chato 26 | 40 | **22-28** (+12-18) |
