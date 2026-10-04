@@ -151,7 +151,7 @@ The Operator reports the case to the Chief at 08:55. The order below starts at "
 | t+840 | CHA-08 → Abuela ≤ 22, only if CHA-08 and CHA-05 are both still missing | 1 |
 | when one CHA card is the last missing | **never public**: ONE agreed, addressed post from a NON-rival (pre-agreed by Lucas/Dani), up to value-when-last − 50 (common 72 / uncommon 96 / rare 168): +50 | 1 |
 | after the CHA threads | fodder **dealer sales** (Pilar > 16 first, then Chato > 13), ≤ 3 per level | ≤ 2 threads |
-| **GO whenever ≥ 150 P is left after CHA** (directive 01:40, replaces the 10:30 M5 gate: past our cap it still lowers t18/t12/t03) | **MAL**: MAL-09 then MAL-10 → Pícaros (open 40, +2, target 44-48, accept ≤ 49 = our value); then MAL-07 **last** from Team 15 by team trade (addressed bid on El Rastro, start 20, up to value-when-last − 50) | 1 thread + 1 bid |
+| **GO whenever ≥ 150 P is left after CHA** (directive 01:40, replaces the 10:30 M5 gate: past our cap it still lowers t18/t12/t03) | **MAL**: MAL-09 then MAL-10 → Pícaros (open 40, +2, target 44-48, accept ≤ 49 = our value); then MAL-07 **last** from Team 15 by team trade (addressed bid on **v26**, Team 2's club market at 0% [V /api/venues: owner t02, 0 bps, board], start 20, up to value-when-last − 50) | 1 thread + 1 bid |
 
 **Expected P and score (CHA)** [L, from §1 medians and cha-plan values 16/40/112, page bonus 106]:
 

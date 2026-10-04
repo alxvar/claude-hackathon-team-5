@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 06:43 · operator · MAL-07 (last MAL card) from Team 15 → our addressed bid on **v26** (Team 2 'El Rastro Express', 0 bps, owner t02, board [V]), not El Rastro (Chief: the club settles member trades on member markets; Lucas's 08:30 WhatsApp tells t15) · final plan: intel/sunday-final.md at 07:30
 - Sun 01:40 · Builder · **duelist-loop final sha 29aa1be** (579 green, `--check` passes): re-audit fixes R1 rollback (checks before stopping, no --records), R2 (refuse before touching params), R5/R6/R9 + seller opener 0.42 in price (Duel Lab ruling; buyer 0.37, pinned by a test) → Chief → Aleks pins it at 08:00
 - Sun 01:35 · operator · directive 01:40: MAL close GO whenever ≥ 150 P is left after CHA (replaces the 10:30 M5 gate; relative scoring past our cap); RET-11 → Pilar only at ≥ 198 (the surplus option withdrawn); fodder stays on → run/mal_book.json + §FAST-START updated
 - Sun 01:33 · operator · **SAL-11 bid 20252 cancelled now** (the server accepts cancels while closed); 0 SAL-11 bids; the 08:58 job disarmed · probe GET /api/cards/{id} (3 reads): other teams' cards show owner 'a team' (holders masked; provenance shows pack # / Workshop / trade #) → no holder sweep · open overnight: LAV-03 → t04 (19979), LAV-04 → t01 (19981)
