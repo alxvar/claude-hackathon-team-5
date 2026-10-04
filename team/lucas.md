@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 08:05 · Builder · **club venue routing, Lucas's call: 50/50** main 15dd3ef: club deals (t02 t04 t07 t08 t09 t15 on both sides) alternate v10 / a member's market (open, neither party's own, no rival; least used, then lowest market score); closers and non-member deals on v10; run/club_routing.json keeps the day's venues; DMs name the market · live: 2 v10 + 2 members (v05, v15) → Market aligns nego_section (was 2 of 3)
 - Sun 07:38 · Duel Lab · C+ check (contra-duels §1) on sim3, every world + mirrors + LLM moves + accept slips · **YES: C+ (C + MIN_STEP_P 15 + ACCEPT_BY 1) ≈ +0.028/duel ≈ +2.9 raw over 102 duels, no code-first world worse; still wins with the trader on unless > ≈ 9% of last-tick accepts slip**; hot `approve` dry-run on 29aa1be clean; new-sha path also needs the repo-sets test edit + SET=C+ (verifier caught it) · intel/duel-lab.md top + first-wave checklist; duel_gates.live_set knows C+
 
 - Sun 07:25 · operator · directive 07:40: public CHA bids are NOT pulled when our trade part caps (every bid ≥ 0 for us stays: relative squeeze on t18/t12/t03); the t0 watcher still drops the bid for any card t10/t01 holds
