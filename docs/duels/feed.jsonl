@@ -1597,3 +1597,13 @@
 {"id": 90168, "tick": 1966, "t": 15.8, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11389, "session": 4, "status": "deal", "item": "Museo Sorolla"}}
 {"id": 90171, "tick": 1966, "t": 15.8, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11501, "session": 4, "status": "deal", "item": "Museo Sorolla"}}
 {"id": 90223, "tick": 1967, "t": 15.8042, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11465, "session": 4, "status": "deal", "item": "Museo Sorolla"}}
+{"id": 90280, "tick": 1968, "t": 15.8083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11396, "session": 4, "status": "deal", "item": "Museo Sorolla"}}
+{"id": 90283, "tick": 1968, "t": 15.8083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11628, "session": 4, "status": "deal", "item": "Cine Doré"}}
+{"id": 90286, "tick": 1968, "t": 15.8083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11671, "session": 4, "status": "deal", "item": "Museo Sorolla"}}
+{"id": 90337, "tick": 1969, "t": 15.8125, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11646, "session": 4, "status": "deal", "item": "San Isidro"}}
+{"id": 90394, "tick": 1970, "t": 15.8167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11365, "session": 4, "status": "deal", "item": "Museo Sorolla"}}
+{"id": 90397, "tick": 1970, "t": 15.8167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11452, "session": 4, "status": "deal", "item": "Cine Doré"}}
+{"id": 90400, "tick": 1970, "t": 15.8167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11514, "session": 4, "status": "no_deal", "item": "San Isidro"}}
+{"id": 90455, "tick": 1971, "t": 15.8208, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11361, "session": 4, "status": "deal", "item": "Escaparate de Serrano"}}
+{"id": 90458, "tick": 1971, "t": 15.8208, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11367, "session": 4, "status": "no_deal", "item": "Escaparate de Serrano"}}
+{"id": 90461, "tick": 1971, "t": 15.8208, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11383, "session": 4, "status": "deal", "item": "San Isidro"}}
