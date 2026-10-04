@@ -122,6 +122,207 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1973,
+   "raw": {
+    "duel": 11492,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 6.54,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 53,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 1983,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 14239,
+     "price": 76,
+     "tick": 1971,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 14284,
+     "price": 54,
+     "tick": 1973,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1971,
+      "from": "you",
+      "text": "I'd like to open at 76 P for delivery on day 10.",
+      "price": 76,
+      "days": 10
+     },
+     {
+      "tick": 1971,
+      "from": "Rival Oro",
+      "text": "52 with delivery on day 0. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "price": 52,
+      "days": 0
+     },
+     {
+      "tick": 1973,
+      "from": "Rival Oro",
+      "text": "54 with delivery on day 0. Fast deal before the pie shrinks?",
+      "price": 54,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1974,
+   "raw": {
+    "duel": 11492,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 6.54,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 53,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 1983,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 14239,
+     "price": 76,
+     "tick": 1971,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 14308,
+     "price": 56,
+     "tick": 1974,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1971,
+      "from": "you",
+      "text": "I'd like to open at 76 P for delivery on day 10.",
+      "price": 76,
+      "days": 10
+     },
+     {
+      "tick": 1971,
+      "from": "Rival Oro",
+      "text": "52 with delivery on day 0. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "price": 52,
+      "days": 0
+     },
+     {
+      "tick": 1973,
+      "from": "Rival Oro",
+      "text": "54 with delivery on day 0. Fast deal before the pie shrinks?",
+      "price": 54,
+      "days": 0
+     },
+     {
+      "tick": 1974,
+      "from": "Rival Oro",
+      "text": "56 with delivery on day 0. Fast deal before the pie shrinks?",
+      "price": 56,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1975,
+   "raw": {
+    "duel": 11492,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 6.54,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 53,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 1983,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 14239,
+     "price": 76,
+     "tick": 1971,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 14326,
+     "price": 58,
+     "tick": 1975,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1971,
+      "from": "you",
+      "text": "I'd like to open at 76 P for delivery on day 10.",
+      "price": 76,
+      "days": 10
+     },
+     {
+      "tick": 1971,
+      "from": "Rival Oro",
+      "text": "52 with delivery on day 0. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "price": 52,
+      "days": 0
+     },
+     {
+      "tick": 1973,
+      "from": "Rival Oro",
+      "text": "54 with delivery on day 0. Fast deal before the pie shrinks?",
+      "price": 54,
+      "days": 0
+     },
+     {
+      "tick": 1974,
+      "from": "Rival Oro",
+      "text": "56 with delivery on day 0. Fast deal before the pie shrinks?",
+      "price": 56,
+      "days": 0
+     },
+     {
+      "tick": 1975,
+      "from": "Rival Oro",
+      "text": "58 with delivery on day 0. Fast deal before the pie shrinks?",
+      "price": 58,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -328,6 +529,444 @@
     },
     "tick": 1972,
     "ticks_left": 11,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5,
+     51.0,
+     65.4
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 76,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "hold",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1973,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11492,
+     "role": "seller",
+     "limit": 53,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 6.54,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 76 P for delivery on day 10.",
+      "offer": {
+       "price": 76,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1971,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "52 with delivery on day 0. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "offer": {
+       "price": 52,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1971,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "54 with delivery on day 0. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 54,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1973,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 54,
+     "days": 0
+    },
+    "tick": 1973,
+    "ticks_left": 10,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5,
+     51.0,
+     65.4
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 76,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "hold",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1974,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11492,
+     "role": "seller",
+     "limit": 53,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 6.54,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 76 P for delivery on day 10.",
+      "offer": {
+       "price": 76,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1971,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "52 with delivery on day 0. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "offer": {
+       "price": 52,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1971,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "54 with delivery on day 0. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 54,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1973,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "56 with delivery on day 0. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 56,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1974,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 56,
+     "days": 0
+    },
+    "tick": 1974,
+    "ticks_left": 9,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5,
+     51.0,
+     65.4
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 76,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "hold",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1975,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11492,
+     "role": "seller",
+     "limit": 53,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 6.54,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 76 P for delivery on day 10.",
+      "offer": {
+       "price": 76,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1971,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "52 with delivery on day 0. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "offer": {
+       "price": 52,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1971,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "54 with delivery on day 0. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 54,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1973,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "56 with delivery on day 0. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 56,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1974,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "58 with delivery on day 0. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 58,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1975,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 58,
+     "days": 0
+    },
+    "tick": 1975,
+    "ticks_left": 8,
     "rounds": 1,
     "day_swings": [
      59.3,
