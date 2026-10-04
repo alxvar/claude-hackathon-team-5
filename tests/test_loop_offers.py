@@ -36,6 +36,8 @@ VENUES = [
     {"venue": "v01", "owner": "t06", "status": "open", "fee_bps": 50, "fee_per_card": 0},
     {"venue": "v03", "owner": "t13", "status": "open", "fee_bps": 100, "fee_per_card": 0},
     {"venue": "v09", "owner": ME, "status": "open", "fee_bps": 0, "fee_per_card": 0},
+    {"venue": "v11", "owner": "t09", "status": "open", "fee_bps": 50, "fee_per_card": 0},   # far below us: no rival
+    {"venue": "v07", "owner": "t09", "status": "open", "fee_bps": 0, "fee_per_card": 0},    # v07: never, any owner
 ]
 TEAMS = [{"team": t, "rank": i + 1, "score": 30 - i} for i, t in enumerate(["t13", "t12", "t17", "t10", "t06", ME])] + [
     {"team": "t04", "rank": 7, "score": 20},   # 5 points below us: near
@@ -163,7 +165,7 @@ def test_own_public_offer_is_skipped_by_id_even_under_a_pseudonym():
 def test_reads_every_open_board_but_our_own_venue():
     b = FakeBazaar()
     run(b)
-    assert b.board_calls == ["rastro", "v01", "v03"]
+    assert b.board_calls == ["rastro", "v11"]                  # v01 (t06) and v03 (t13) are rivals', v07 never
 
 
 def test_one_accept_per_tick_takes_the_best():
@@ -184,7 +186,7 @@ def test_swap_gain_counts_the_venue_fee():
         held.setdefault(a["ref"], []).append(a)
     loop.refresh(b, st, me, me["tick"])
     on_rastro = loop.evaluate(b, swap(10, ["MAL-01"], ["SAL-02"]), me, held, st, args)
-    on_v01 = loop.evaluate(b, swap(11, ["MAL-01"], ["SAL-02"], venue="v01"), me, held, st, args)
+    on_v01 = loop.evaluate(b, swap(11, ["MAL-01"], ["SAL-02"], venue="v11"), me, held, st, args)
     # receive MAL-01 (7.0), give our cheaper SAL-02 copy (2.2); El Rastro charges 1 P for each of the 2 cards
     assert on_rastro["kind"] == "swap" and on_rastro["gain"] == pytest.approx(7.0 - 2.2 - 2)
     assert on_rastro["assets"] in ([69], [485])
@@ -192,28 +194,36 @@ def test_swap_gain_counts_the_venue_fee():
 
 
 def test_swap_accepted_when_it_clears_the_bar():
-    b = FakeBazaar(boards={"v01": [swap(12, ["MAL-08"], ["SAL-02"], venue="v01")]})  # 17.5 - 2.2 - 0
+    b = FakeBazaar(boards={"v11": [swap(12, ["MAL-08"], ["SAL-02"], venue="v11")]})  # 17.5 - 2.2 - 0
     best = run(b)
     assert b.accepted == [(12, best["assets"])] and best["gain"] == pytest.approx(15.3)
 
 
 # ------------------------------------------------------------------ venue rule
 
-def test_leader_venue_needs_gain_of_15():
-    b = FakeBazaar(boards={"v03": [ask(20, "MAL-08", 5, venue="v03")]})  # 17.5 - 5 - 1 = 11.5 < 15 on t13's venue
-    assert run(b) is None and b.accepted == []
-    b = FakeBazaar(boards={"v01": [ask(21, "MAL-08", 5, venue="v01")]})  # t06 is rank 5: the normal bar
+def test_never_on_a_rival_s_venue_nor_v07():
+    """Chief 07:15 (contra-market): any fill on a team venue lifts its owner's market score."""
+    for venue in ("v03", "v01", "v07"):                      # t13 (RIVALS), t06 (top 6), v07 whatever its owner
+        b = FakeBazaar(boards={venue: [ask(22, "MAL-08", 1, venue=venue)]})   # 17.5 - 1 - 1 = 15.5: a fine gain
+        assert run(b) is None and b.accepted == [] and venue not in b.board_calls
+        b = FakeBazaar(mine=[{**ask(23, "MAL-08", 1, venue=venue), "to": ME}])  # addressed to us there: still no
+        assert run(b) is None and b.accepted == []
+    b = FakeBazaar(boards={"v11": [ask(21, "MAL-08", 5, venue="v11")]})  # t09, far below us: the normal bar
     assert run(b)["gain"] == pytest.approx(17.5 - 5 - 1) and b.accepted == [(21, None)]
-    b = FakeBazaar(boards={"v03": [ask(22, "MAL-08", 1, venue="v03")]})  # 17.5 - 1 - 1 = 15.5 clears it
-    best = run(b)
-    assert best["gain"] == pytest.approx(15.5) and best["owner"] == "t13" and b.accepted == [(22, None)]
+
+
+def test_no_team_venue_before_the_rivals_are_known():
+    st = loop.State()
+    assert st.rivals is None
+    assert loop.policy.rival_venue("v11", "t09", None) and not loop.policy.rival_venue("rastro", "world", None)
+    assert loop.policy.rival_venue("v11", "?", set()) and not loop.policy.rival_venue("v11", "t09", set())
 
 
 def test_accept_log_names_venue_and_owner(tmp_path):
-    b = FakeBazaar(boards={"v01": [ask(23, "MAL-08", 5, venue="v01")]})
+    b = FakeBazaar(boards={"v11": [ask(23, "MAL-08", 5, venue="v11")]})
     run(b)
     line = loop.LOG.read_text().strip().splitlines()[-1]
-    assert '"event": "accept"' in line and '"venue": "v01"' in line and '"owner": "t06"' in line
+    assert '"event": "accept"' in line and '"venue": "v11"' in line and '"owner": "t09"' in line
 
 
 def test_never_on_our_own_venue():

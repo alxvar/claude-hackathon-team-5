@@ -85,6 +85,7 @@ class State:
     def __init__(self):
         self.values, self.tried, self.retries = {}, set(), {}
         self.venues, self.top4, self.own_venues, self.scores = {}, set(), set(), {}
+        self.rivals = None                               # policy.rivals | RIVALS; None until a leaderboard read
         self.venues_tick = self.lb_tick = None
         self.locked, self.offers_ok = set(), True        # asset ids in our open offers; did my_offers read this tick
         self.own_asks = {}                               # ref -> [(offer, cash, expires_tick)]: our live asks
@@ -120,6 +121,8 @@ def refresh(b, st, me, tick):
             else:
                 st.top4 = {t["team"] for t in sorted(teams, key=lambda t: -(t.get("score") or 0))[:4]}
             st.scores = {t["team"]: t.get("score") for t in teams if t.get("team")}
+            if teams:
+                st.rivals = policy.rivals(teams) | set(policy.RIVALS)
             st.lb_tick = tick
         except BazaarError as e:
             log({"event": "error", "where": "leaderboard", "code": e.code})
@@ -146,7 +149,8 @@ def gather(b, me_id, st):
         st.locked, st.offers_ok = set(), False
         log({"event": "error", "where": "my_offers", "code": e.code})
     boards = [HOUSE] + sorted(v for v, x in st.venues.items()
-                              if v != HOUSE and x["status"] == "open" and v not in st.own_venues)
+                              if v != HOUSE and x["status"] == "open" and v not in st.own_venues
+                              and not policy.rival_venue(v, x["owner"], st.rivals))   # Chief 07:15
     for v in boards:
         try:
             for o in b.board(v).get("offers") or []:
@@ -362,6 +366,9 @@ def evaluate(b, o, me, held, st, args):
          "to_us": o.get("to") == me["id"], "ok": False, "skip": "", "bidder": None}
     got = [a["ref"] for a in gassets]
     c["what"] = {"sell": f"sell {refs} for {gcash}", "buy": f"buy {got} for {wcash}", "swap": f"swap {got} for {refs}"}[kind]
+    if venue != HOUSE and (why := policy.rival_venue(venue, owner, st.rivals)):
+        c.update(skip=why, gain=None)                # Chief 07:15: a fill there lifts a rival's market score
+        return c
     if kind in ("buy", "swap") and (hit := [r for r in got if any(fnmatch(r, p) for p in args.exclude)]):
         c.update(skip=f"excluded: never buy {', '.join(hit)} (--exclude {','.join(args.exclude)})", gain=None)
         return c                                     # Market 08:00: CHA rares bought at ~109 on a +3 gain

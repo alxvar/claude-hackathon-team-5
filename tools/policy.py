@@ -29,6 +29,7 @@ TOP_RATIO = 3.0
 PAGE_CLOSER_GAP = 6
 RIVALS = frozenset({"t13", "t17"})
 BOOK_ONLY = ("CHA-", "MAL-")   # directive 07:05: these sets are bought only through the Operator's books
+NEVER_VENUES = frozenset({"v07"})   # Chief 07:15 (contra-market): Team 10's venue, whatever the leaderboard says
 
 
 def reserved_refs(path: Path | None = None, handoff: Path | None = None) -> set:
@@ -51,6 +52,23 @@ def reserved_refs(path: Path | None = None, handoff: Path | None = None) -> set:
         return set()
     m = re.search(r"^## Reserved[^\n]*\n(.*?)(?=^## |\Z)", text, re.S | re.M)
     return set(_CARD.findall(m.group(1))) if m else set()
+
+
+def rival_venue(venue, owner, rivals) -> str:
+    """Why a fill on `venue` would feed a rival ("" = fine): every trade on a team venue raises its owner's market
+    score, so never v07, never a venue owned by `rivals` (rivals() | RIVALS), and never a team venue while the rivals
+    or its owner are unknown. El Rastro ("rastro", the house) is always fine."""
+    if venue in (None, "rastro"):
+        return ""
+    if venue in NEVER_VENUES:
+        return f"{venue}: never (Team 10's venue)"
+    if rivals is None:
+        return f"{venue}: rivals unknown (no leaderboard read)"
+    if not owner or owner == "?":
+        return f"{venue}: owner unknown"
+    if owner in rivals or owner in RIVALS:
+        return f"{venue}: a rival's venue ({owner})"
+    return ""
 
 
 def book_only(ref) -> bool:

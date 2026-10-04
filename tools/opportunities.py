@@ -515,11 +515,12 @@ def venue_for(o, venues, top):
     theirs (a SELL to a team with no other known lack in that set: unknown counts as closing): the page bonus's value
     created must not land on a team's venue. Otherwise DEFAULT_VENUE while it is open and its owner is not in the top
     4; otherwise El Rastro."""
+    import policy                                   # NEVER_VENUES: v07 whatever the leaderboard says (Chief 07:15)
     house = (HOUSE, "El Rastro")
     if o.get("completes") or (o["side"] == "SELL" and not o.get("other_lacks")):
         return house
     v = venues.get(DEFAULT_VENUE)
-    if DEFAULT_VENUE == HOUSE or not v or v.get("status") != "open" or v.get("owner") in top \
+    if DEFAULT_VENUE in (HOUSE, *policy.NEVER_VENUES) or not v or v.get("status") != "open" or v.get("owner") in top \
             or v.get("owner") == o.get("team"):         # a rival's venue, or the counterparty's own stall
         return house
     return DEFAULT_VENUE, v.get("name") or DEFAULT_VENUE

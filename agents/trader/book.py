@@ -107,7 +107,8 @@ def venue_for(e: dict, venues: dict, top: set | None) -> str:
         return HOUSE
     want = e.get("venue") or DEFAULT_VENUE
     v = venues.get(want)
-    if want == HOUSE or not v or v.get("status") != "open" or v.get("owner") in top or v.get("owner") == e.get("to"):
+    if want == HOUSE or want in policy.NEVER_VENUES or not v or v.get("status") != "open" or v.get("owner") in top \
+            or v.get("owner") == e.get("to"):
         return HOUSE
     return want
 
