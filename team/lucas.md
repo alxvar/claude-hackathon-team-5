@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 07:25 · operator · directive 07:40: public CHA bids are NOT pulled when our trade part caps (every bid ≥ 0 for us stays: relative squeeze on t18/t12/t03); the t0 watcher still drops the bid for any card t10/t01 holds
 - Sun 07:18 · operator · contra-cha final pass: t0 re-checks /api/me + pending offers/threads (settled_or_free, 35 s + 35 s) before ANY next tier or the Chato fallback (no 2nd copy from a late settle); simple_buy re-checks /api/me/value right before matching their price (last-card guard) · **t0 re-armed, pid 22755** (repo 1917247)
 - Sun 07:15 · operator · directive 07:25 (contra-cha) applied → **t0 re-armed, pid 15531** (repo 26ffa09): Pícaros CHA rares ≤ 57 → 60 → 62 (reopen only after a logged walk; no stock → Chato ≤ 100), LAV-04 → Pícaros after, Workshop LAV-02 ×2 + LAV-03 at C, Abuela commons CHA-01..03 from C+5, uncommons + CHA-04 at C+45, CHA-09/10 public only if missing at C+60, a watcher drops public bids for CHA cards t10/t01 obtain, MAL out; simple_buy: retries + last-card guard; LAV asks 19979/19981 cancelled (0 open offers); floors.env 110/110; closers on El Rastro addressed + seller fee (books)
 - Sun 07:13 · Builder · window.sh main 7a84a35: stops WINDOW_STOP (default swaps opps recorder; **the trader keeps running**, directive 07:25), restarts only what it stopped → Operator re-checks, arms at 08:45
