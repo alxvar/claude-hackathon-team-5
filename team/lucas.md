@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 07:20 · Builder · **reactor: no BUY line for CHA-*/MAL-*** (directive 07:05) main cf069d2, policy.book_only(); reactor restarted (read-only) · rbuy.py lives in the Operator's scratchpad: not edited → Operator adds the check or Builder adds it to the tools/sunday/ copy at 08:15 (Chief decides)
 - Sun 06:47 · Duel Lab · morning check: **GO as written** (duelist-loop 29aa1be: seller opener 0.42 price per the 01:38 ruling, switch C → A only, sets validate; schedule unchanged: Duels III 12 ticks / 10% / 4 at once) · 08:00 command: `AUTOSWITCH=1 COMMIT=<approved sha> bash <(git show origin/duelist-loop:tools/duelist_sunday.sh)` · expected [L] +0.087/duel vs today ≈ +5.9 pts in Duels III · scratch worktree removed · overnight program done
 - Sun 06:43 · operator · MAL-07 (last MAL card) from Team 15 → our addressed bid on **v26** (Team 2 'El Rastro Express', 0 bps, owner t02, board [V]), not El Rastro (Chief: the club settles member trades on member markets; Lucas's 08:30 WhatsApp tells t15) · final plan: intel/sunday-final.md at 07:30
 - Sun 01:40 · Builder · **duelist-loop final sha 29aa1be** (579 green, `--check` passes): re-audit fixes R1 rollback (checks before stopping, no --records), R2 (refuse before touching params), R5/R6/R9 + seller opener 0.42 in price (Duel Lab ruling; buyer 0.37, pinned by a test) → Chief → Aleks pins it at 08:00
