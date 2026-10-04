@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 12:54 · **CHA-11 BOUGHT from t10 at 190** (Lucas: 'negociá y cerralo'): 26414 cancelled → counter 26511 on v17 (t17's stall, 0% fee) → t10 accepted within ≈ 20 s, **settlement 1429** (tick 2318) → **neg_points 54.8 → 104.8 (+50, per-trade clip; value 288)**, cash 647 → 457 · the superseding 190/194/197/200 ladder was moot (closed at its floor) · leaderboard **#1** (35.81) · still live: MAL-09 → t08 at 75 (26452)
 - Sun 12:51 · MAL-09 (Lucas: raise the t08 bid) · mal09_bid.py stopped, 26022 cancelled → **26452** → t08, El Rastro, 75 (value-when-last 95.4 → +20.4), exp tick 2347, no auto re-post · (C) t10 ≤ 45 armed, waits for Lucas's go
 - Sun 12:50 · CHA-11 (Lucas: not from t08; agreed 190 with t10) · 26349 cancelled; cha11_t10.py stopped (one path only) → **26414** → t10, El Rastro, 190, exp tick 2363; value 288 → +50 (clipped)
 - Sun 12:49 · CHA-11: t10 is flipping CHA-11 (Pícaros 149 → t06 on v10 184; Pícaros 150 → public El Rastro ask 26209 at 162) · Chief GO on taking 26209: cancelled 25784, but t10 had cancelled 26209 at tick 2290 (accept refused ×6), nothing bought · t08 bid re-posted **26349** (240, exp 2356) · cha11_t10.py (pid 66887): if t10 lists CHA-11 on El Rastro ≤ 190 (to us or public), it cancels the t08 bid, then accepts · our posting on v10 is impossible (RULES: no trading on your own venue); the Chief's move (1) is void · MAL-09 from t10 (≤ 45) armed, waits for Lucas's go; the feed says t10 still holds MAL-09 (bought from the Pícaros at tick 967, no later sale)
