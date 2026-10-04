@@ -419,3 +419,174 @@ index b2db270..643ee9e 100755
 To apply it: save the block as `fixes.patch`, then run `git apply fixes.patch` on a checkout of a99f641, commit and re-pin.
 
 </details>
+
+## Delta audit 29aa1be
+
+_Independent delta audit, Sun 06:05-06:30, of `origin/duelist-loop` at 29aa1be (7a0d516 + 29aa1be on top of
+a99f641). Offline only: no game server, no key read, no branch touched, no real duelist started. It ran in a worktree of
+29aa1be, a sandbox `WT` and a throwaway `--shared` clone under /private/tmp, all removed afterwards. Outputs: the session
+scratchpad's `delta/` folder. Labels as above._
+- _**One slip:** one unstubbed `--check` was started by mistake. It died at step 2's first print (its output was piped
+  to `head -1`), before any fetch, checkout or `curl`: no worktree, no `FETCH_HEAD` change and no process was left._
+
+### Verdict: GO
+
+**Start from 29aa1be.** R1, R2 and R3 (the three GO-WITH-CHANGES items) and R5, R6 and R9 are in, as the appendix asked.
+Nothing regressed in the suite, the replays, the fuzz, the probes or the script tests. The a99f641 operating rules (never
+re-run while live, roll back by hand) no longer apply: `--rollback` is now usable.
+
+**Aleks's command** (zsh: paste as is, no `#` comments, braces kept):
+
+```bash
+git fetch origin
+SHA=29aa1bed66962959ce633492d84bbc321385c7e7
+git diff --stat a99f6417b644922c7ccefdf03f33f0bdcd9762a2 "${SHA}"
+COMMIT=$SHA bash <(git show "${SHA}:tools/duelist_sunday.sh") --check
+COMMIT=$SHA AUTOSWITCH=1 bash <(git show "${SHA}:tools/duelist_sunday.sh")
+```
+
+- **`git diff --stat`** must end with "8 files changed, 80 insertions(+), 32 deletions(-)": the appendix's six files plus
+  `docs/duelist-loop.md` and `tests/test_duel_loop.py`.
+- **`--check`** must print "579 passed" and "steps 1-4 passed". It now refuses while any duelist runs on the machine.
+- **If an a99f641 duelist is already running:** stop it, check, then start on the set it was playing (`--status` shows
+  `_set`; replace `C` with `A` if it shows A):
+  ```bash
+  bash <(git show "${SHA}:tools/duelist_sunday.sh") --stop
+  COMMIT=$SHA bash <(git show "${SHA}:tools/duelist_sunday.sh") --check
+  COMMIT=$SHA SET=C AUTOSWITCH=1 bash <(git show "${SHA}:tools/duelist_sunday.sh")
+  ```
+- **While it runs:** `--status` and `--stop` only. **Don't pipe the script's output** (`| tee`, `| tail`) on a start or a
+  rollback: the background `&&` list in `start_in` leaves a bash subshell, holding the script's stdout, as the
+  supervisor's parent, so the pipe never closes and the command hangs until the duelist stops [V]. This is
+  pre-existing (a99f641 has the same line) and harmless in a plain terminal.
+- **The way back**, from your checkout on main, pulled, with no edits in `agents/` or `engine/`:
+  ```bash
+  bash <(git show "${SHA}:tools/duelist_sunday.sh") --rollback
+  ```
+  If any check fails, it stops nothing. After it, `--status` must show `agents/duelist/supervise.sh --negotiator-model
+  claude-sonnet-5-5 --effort medium --negotiator-effort low` with no `--records`.
+- **Never use `origin/duelist-loop` in place of the sha.** The block in `docs/duelist-loop.md` still uses it, with `#`
+  comments. In zsh without `interactivecomments` (zsh 5.9's default), its start line passes `#` as `$1`, and the script
+  prints its usage and exits 2 [V]. Use these lines.
+
+### (1) Tests [V]
+
+| Commit | `uv run python -m pytest -q tests` |
+|---|---|
+| 7a0d516 | **578 passed** (seller opener still 0.73) |
+| 29aa1be | **579 passed** (a99f641's 576 + the R5 handoff test + the script-order test + the opener pin) |
+
+### (2) The diff, item by item [V]
+
+The code in 29aa1be is a99f641 plus the appendix patch, line for line, except the comment on `OPENER_SHARE_SELLER`.
+To check, the patch was applied to a99f641 and the result diffed against 29aa1be: `agent.py`, `params.py` and
+`duelist_sunday.sh` are byte-identical. The rest is `docs/duelist-loop.md` and three new tests.
+
+| Item | In 29aa1be | Verdict |
+|---|---|---|
+| **R1** `--rollback` | Checks, in order: no edits in `agents`/`engine`, on main, fetch (a failure is tolerated), `agents/duelist` + `engine` identical to origin/main, `tests/test_duelist.py` green, `.env` present. Only then `stop_all`, then `start_in "$MAIN" ""`, which adds no `--records`. It never pulls | **Fixed**, sandbox below |
+| **R2** one duelist first | Step 1/6, before the fetch, the checkout in `$WT` and `use` | **Fixed**, sandbox below |
+| **R3** seller opener | 0.42 (7a0d516 held 0.73; 29aa1be sets it) | **Fixed**, see (5) |
+| **R5** unreadable weight | `respond` sends a days duel with `day_values is None` to the models: the same test as `runner.by_code` | **Done, partial as before**: see the fuzz note in (4) |
+| **R6** params stamp | `_stamp = object()`. Probe: a fresh process with no file plays A, loudly (`params_missing` logged) | **Fixed** |
+| **R9** fetch failure | Continues on the local copy when `COMMIT` is 7-40 hex characters; refuses a moving ref | **Fixed** |
+
+No regression found. One ordering nit: at start, `use` (4/6) rewrites the params file before `start_in` (5/6) checks
+`.env`. This is harmless, because step 1 has already confirmed that nothing is running.
+
+### (3) `tools/duelist_sunday.sh` in a sandbox [V]
+
+Setup: `git fetch` and `curl` were stubbed, and dummy processes (renamed `sleep`) stood in for the duelist. `WT` was a
+sandbox worktree. The `MAIN` used for start mode had no `.env`, so nothing could start.
+
+- **`--check`, nothing running:** steps 1-4 pass, with 579 tests passed and set C installed.
+- **A dummy running, with `WT` left on a99f641 and params on A** (the state after a switch). This was tried with each of
+  the three process patterns, under `--check` and under start with `AUTOSWITCH=1`:
+  - every run aborts at **1/6**;
+  - `WT` stays at a99f641 and the params stay on A (md5 unchanged);
+  - no log is written and nothing starts.
+- **`git fetch` failing:**
+  - the full sha and a 7-character sha continue on the local copy;
+  - `origin/duelist-loop` refuses ("not a pinned sha");
+  - an unknown sha refuses ("no commit").
+- **`--stop`:**
+  - it kills a dummy supervisor, duelist and switch, and starts nothing; `WT` and the params are untouched;
+  - with a dummy that ignores SIGTERM, it prints "ABORT: a duelist process is still running" and exits 1, so it never
+    reports a false success.
+- **`--rollback`, in a throwaway clone on main.** Each of these aborts before stopping anything, with both dummies still
+  alive:
+  1. an edit in `agents/`;
+  2. a checkout not on main;
+  3. a local `engine` commit, so the duelist differs from origin/main;
+  4. a red `tests/test_duelist.py`;
+  5. no `.env`.
+
+  With every check passing and `git fetch` failing, it stops both dummies. It then starts main's `supervise.sh` (a stub,
+  in the clone only) with exactly `--negotiator-model claude-sonnet-5-5 --effort medium --negotiator-effort low`, with
+  no `--records` and with `.env` sourced.
+- **Main's real CLI** (offline parse, current origin/main) accepts those flags and rejects `--records`. `agents/duelist`,
+  `engine` and `tests/test_duelist.py` are unchanged on main since 950ac89.
+
+### (4) Duels II replays on 29aa1be [V]
+
+**Wrong actions on the code path:** none. The 514 decisions ran under C, A and today, each both as recorded and at 12
+ticks / 10%. In all six runs: **0 accepts below the limit, 0 offers past it, 0 wrong days, 0 backward moves**. The
+rounding-ups are 0 under C, 6 under A, and 27 / 41 under today (late switch), as on a99f641.
+
+**Against a99f641:** every output is identical line for line except the seller opener:
+
+| Seller opener (n 34) | a99f641 | 29aa1be |
+|---|---|---|
+| Price share, median | 0.74 | **0.43** |
+| Worth / limit, median | 1.00 | **0.69** |
+
+- **The LLM-path flags are unchanged** (18 wrong days, 4 middle-day openers, 10 backward moves). They only matter with
+  `POLICY=llm`.
+- **A lower opener never undercuts the rival's standing offer.** `guarded()` turns an offer worth no more than theirs
+  into an accept; the replay's "should accept" check found 0.
+- **The re-audit's probes give the same output as its patched run.** They cover the missing params file, the mid-duel
+  switch, C → A followed by "nothing written", the S1 give hold, a seller below its nominal limit, and the floor below 1.
+- **The fuzz on readable weights** (6,000 duels each under C and A) raised no flags.
+
+**R5 residual (new number, not a blocker).** This fuzz used unreadable weights and failing models. Per 6,000 duels,
+before and after the handoff:
+
+| Flag | Before the handoff | After |
+|---|---|---|
+| Offers past the true limit | 485 | 484 |
+| Accepts below it | 5 | **18** |
+| Backward moves | 7 | 7 |
+
+- **What it means:** with the models down, the fallback accepts below the true limit slightly more often than code did.
+  C and A give the same counts.
+- **Why it isn't a blocker:** it needs both an unreadable weight (every Duels II weight was readable) and the models
+  failing.
+- **The fuzz's true-cost model is illustrative**, as above.
+- **Watch the log** for a days duel whose weight isn't read.
+
+### (5) The openers against the Duel Lab [V]
+
+**The values match the ruling.**
+- **The ruling:** `intel/duel-lab.md`, "Ruling on the code opener (Sun 02:00)", gives seller 0.42 in price units on our
+  best day and keeps the buyer at 0.37.
+- **The code:** `policy.py:48-49` reads 0.42 / 0.37, and `test_the_opener_shares_are_the_duel_labs` pins both.
+- **The sets don't override it:** they carry no `OPENER_*` key, so the code values play under C, A and today (the
+  replay headers read "opener S 0.42 B 0.37").
+- **Worked examples:**
+  - a seller with limit 40 opens at 57;
+  - a days seller with limit 34 opens at 49 on day 10;
+  - a buyer with limit 60 opens at 37.
+- **The replay's 0.69 worth median** matches the Lab's "≈ 0.70 × limit in worth".
+
+### Remaining risks after 29aa1be
+
+- **Closed:** R1, R2, R3, R6 and R9.
+- **Open, as ranked above:**
+  - C's holds (watch the deal rate; the switch is the insurance);
+  - the R5 residual (now 18 accepts below the limit per 6,000 unreadable-weight duels when the models fail);
+  - the LLM-path residuals;
+  - the local-only one-duelist check (confirm in the team chat);
+  - the small items: an accept-price mismatch isn't logged, and `switched` isn't restored after a restart.
+- **Added:**
+  - don't pipe the script's output;
+  - the runbook block in `docs/duelist-loop.md` still uses `origin/duelist-loop` and `#` comments.
