@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sun 14:11 (snapshot 2602, phase 1.0; Grand Final running): **final basis us 93.00 · t10 87.25 · t12 85.57 · t03 85.02 · t18 80.88 (lead 5.75).** Final waves 1-3: 8/12 deals (67%) vs the field's ≈ 72%, low capture per deal (8.6-13 P, one 30.5); no below-worth accept. Dealers closed at 14:00. Wrap at 14:24._
+_Last update: Sun 14:25 (snapshot 2662, phase 1.0): **Grand Final 26/33 deals (79%) vs the field's 69%, duel_points 35.07. Final basis: us 94.30 · t10 88.03 · t12 86.20 · t03 85.47 · t18 81.05 (lead 6.27).** Dealers closed at 14:00. Until the 15:00 freeze, only ≥ 0 team trades; none with rivals or on their venues. Recommendation: hold._
 _Note: the §4 version labels "00:05" to "02:10" are sequence markers written between Sat 23:50 and Sun 00:42 (my labels ran ahead of the wall clock); real times are in `git log`. The Sunday clock in §4.7 is unaffected._
 
 ## 1. Board = Friday × Saturday blend [V]
