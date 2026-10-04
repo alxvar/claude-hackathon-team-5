@@ -452,6 +452,13 @@ of 30 → whether VC can exceed +5 board on Sunday: reconcile with the Market se
 - **Consequence:** our v10 VC already counts above zero → any positive v10 trade adds 5/M ≥ +0.33 board per +1 of VC [L];
   a negative one subtracts. The §3 "need 14.2 first" hurdle is stale (GAME.md line 150 too).
 
+## 3j. Sunday anomaly: RET-11 sale scored 0 (Sun 10:31) [V data · ? cause]
+- Tick 1730, settlement 1280: RET-11 sold to t02 at 240 on El Rastro (we were the taker, fee 13). Expected +29 (240 − 13 − 198).
+  `me.jsonl` at tick 1730: cash 660 (= 433 + 240 − 13), deals 64, **neg_points still 50.0**. Not lag: the row already carries the sale.
+- Saturday had no 50 total: neg reached 119.1, and team-trade SALES scored (SAL-01 at 7 → +4.7 at tick 351).
+- Hypotheses: (1) **a Sunday per-round cap of 50 on team-trade gains** (fits 0 → 50 → 50 exactly); (2) our value of RET-11 ≥ 227, so gain
+  ≤ 0. But a loss would have lowered neg. Test: the next snapshot's negotiating vs drift; ask the desk. Until resolved: no MAL buy above value.
+
 ## 3i. SATURDAY FINAL (first round-3 snapshot 1462, Sun 09:20) [V arithmetic: G = board × (1.5 + phase), phase 0.082, Sunday ≈ 0]
 - **The flip landed:** our Saturday market = 13.95 (11.25 stall + **2.70 real trades**); game total (0.5·Fri + Sat) **48.46** (+2.72).
 - **The close recompute was field-wide, and t12 gained most:** its Saturday market 10.88 → **17.91 (+7.03)**; t06 −0.90, t14 −0.34.
