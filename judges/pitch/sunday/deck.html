@@ -88,16 +88,16 @@
     <div class="q">A market with more than two sides</div>
     ${icon('swap','var(--yellow)')}
     <div class="t">The club matchmaker</div>
-    <p>We rebuild <b>every team's album from the public feed</b>, match one team's spare copy to another team's missing card, page-closers first, and price each deal <b>halfway between the two values</b>, so both sides gain.</p>
-    <p>Seven teams invited to a club; hosting <b>rotates across members' markets</b>, so the matching pays more than one venue.</p>
+    <p>We estimate <b>every team's album from the public feed</b> and shared want-lists, match one team's spare copy to another team's missing card, page-closers first, and price each deal <b>between the two values</b>, so both sides gain.</p>
+    <p>Six teams invited to a club, with hosting <b>designed to rotate across members' markets</b>, so the matching pays more than one venue.</p>
     <div class="src">tools/matchmaker.py · intel/club-pitch.md · brokered RET-01 Team 2 → Team 8 on v10</div>
   </div>
   <div class="card top sm" style="left:862px;top:300px;--c:var(--blue)">${icon('db','var(--blue)')}<div class="t">Demand model + hub</div>
     <p>What <b>every card is worth to every team</b>, from public behaviour alone, no LLM. A shared Neon archive keeps the history the 500-event feed drops.</p><div class="src">hub/demand.py · hub/README.md</div></div>
   <div class="card top sm" style="left:1344px;top:300px;--c:var(--green)">${icon('flask','var(--green)')}<div class="t">Market Test lab</div>
     <p>A recorder captures <b>every bench session</b>; an offline simulator tests broker strategies against the free stall before we risk a bond.</p><div class="src">broker/record_bench.py · broker/sim.py</div></div>
-  <div class="card top sm" style="left:862px;top:630px;--c:var(--orange)">${icon('store','var(--orange)')}<div class="t">Incentives in kind</div>
-    <p>When two teams trade on v10, the venue pays the <b>seller</b> in cards we lack, settled <b>at our value</b>: five bounties, two per seller, rivals excluded.</p><div class="src">tools/sunday/v10_reward.py · directives 10:50</div></div>
+  <div class="card top sm" style="left:862px;top:630px;--c:var(--orange)">${icon('eye','var(--orange)')}<div class="t">Live reactor</div>
+    <p>Reads the public <b>event stream</b> without our key, flags every ask we can take at a gain, and <b>pages the Operator</b> and our phones.</p><div class="src">tools/reactor.py · tools/notify.py</div></div>
   <div class="card top sm" style="left:1344px;top:630px;--c:var(--purple)">${icon('monitor','var(--purple)')}<div class="t">Judges' showcase</div>
     <p>Dani's live dashboard and a <b>/show</b> page: read-only, built to run offline, the whole game on one screen.</p><div class="src">dashboard/server.py · dashboard/show.html</div></div>
   <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i></i></div><div class="lvl"></div><div class="who">Around the Bazaar</div></div>
@@ -117,7 +117,7 @@
   <div class="card top lcol" style="left:702px;--c:var(--yellow)"><div class="t">Negotiation + markets</div><ul>
     <li><b>Scoring is relative.</b> A trade with a rival pays them too: CHA-11, +1.48 each.</li>
     <li><b>Losses count, gains clip.</b> Never sell below value; dealers only for the ladder.</li>
-    <li><b>A market needs a matchmaker.</b> 0 % fee: 0 fills this morning. Brokered pairs: 6 by 13:10.</li></ul></div>
+    <li><b>A market needs a matchmaker.</b> 0 % fee: 0 fills this morning. After we pushed pairs and partners: 6 by 13:10.</li></ul></div>
   <div class="card top lcol" style="left:1276px;--c:var(--green)"><div class="t">One more day</div><ul>
     <li><b>Merge the Sunday duelist</b> and learn day-weights per opponent.</li>
     <li><b>Run the broker</b> we built and staged but never switched on.</li>
@@ -148,7 +148,7 @@ const H = [
    g:'<b>Lock the lead (13:12):</b> zero trades with the five closest rivals.'},
   {c:'var(--blue)', k:'Market', b:'A 0 % fee venue attracts trades.',
    x:'v10 at 0 %: <b>0 fills</b> today by 10:45. <span class="tag v">V</span>',
-   g:'<b>We brokered pairs,</b> Team 13\'s bot quoted on v10, sellers got a bounty: <b>6 fills by 13:10</b>, full real-trade marks today. <span class="tag l">L</span>'},
+   g:'<b>We pushed pairs and partners onto v10:</b> our RET-01 pair, Team 13\'s bot, Team 10\'s listings. <b>6 fills by 13:10.</b> <span class="tag v">V</span>'},
 ];
 document.getElementById('hyp').innerHTML = H.map((h, i) => `<div class="card hrow" style="top:${320 + i * 130}px;--c:${h.c}"><div class="topic">${h.k}</div><p>${h.b}</p><p>${h.x}</p><p class="chg">${h.g}</p></div>`).join('');
 

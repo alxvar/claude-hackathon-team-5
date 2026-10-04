@@ -8,7 +8,7 @@
 
 **Why this way.** Our first duelist let an LLM decide: 9.2 s per reply, 29 % over 10 s, on a 15 s tick. The Sunday duelist lets code decide price and delivery day while Claude Haiku 4.5 only writes the words (≈ 2 s), with an 8 s failover and hot-reloaded parameters: 57 of 68 Duels III closed. Splitting deciding, writing and checking let us correct our own beliefs fast: the "cap of 50" on trade gains was refuted by our own logs in 1 h 51.
 
-**Built around the Bazaar.** A club matchmaker, our market with more than two sides: it rebuilds every team's album from the public feed, matches one team's spare to another's missing card (page-closers first), prices halfway between both values and rotates hosting across members' markets. Plus a demand model of what every card is worth to every team (no LLM), a shared Neon archive, a Market Test recorder and offline broker simulator, a three-sided incentive (when two teams trade on our venue, the venue pays the seller in cards, settled at our value), sequenced page closers and Dani's live judges' showcase.
+**Built around the Bazaar.** A club matchmaker, our market with more than two sides: it estimates every team's album from the public feed and shared want-lists, matches one team's spare to another's missing card (page-closers first), prices between both values so both sides gain, and is designed to rotate hosting across members' markets. Plus a demand model of what every card is worth to every team (no LLM), a shared Neon archive, a Market Test recorder and offline broker simulator, a live reactor on the public event stream, sequenced page closers (one addressed bid at a time) and Dani's live judges' showcase.
 
 **Result.** #6 at Friday's final, #1 since 12:35 Sunday: 37.26, 3.09 ahead at 13:35 ⟳.
 
