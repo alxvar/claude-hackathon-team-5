@@ -2814,5 +2814,133 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1966,
+ "done": {
+  "duel": 11501,
+  "session": 4,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Museo Sorolla",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 5.83,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 162,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Noche",
+  "deadline_tick": 1967,
+  "decay_per_round": 0.1,
+  "rounds": 3,
+  "your_offer": {
+   "id": 14125,
+   "price": 145,
+   "tick": 1965,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 14089,
+   "price": 144,
+   "tick": 1964,
+   "days": 10
+  },
+  "messages": [
+   {
+    "tick": 1955,
+    "from": "you",
+    "text": "I'd like to open at 102 P for delivery on day 0.",
+    "price": 102,
+    "days": 0
+   },
+   {
+    "tick": 1955,
+    "from": "Rival Noche",
+    "text": "Te la dejo en 166 primas y entrega en 10 días; me cuesta bajar más.",
+    "price": 166,
+    "days": 10
+   },
+   {
+    "tick": 1956,
+    "from": "Rival Noche",
+    "text": "160 primas y entrega en 10 días. Me muevo poco ya, pero si tú te mueves, cerramos.",
+    "price": 160,
+    "days": 10
+   },
+   {
+    "tick": 1957,
+    "from": "Rival Noche",
+    "text": "Mi propuesta: 155 primas y entrega en 10 días. Dime una cifra concreta y la miro.",
+    "price": 155,
+    "days": 10
+   },
+   {
+    "tick": 1958,
+    "from": "Rival Noche",
+    "text": "Es una pieza que merece su precio: 152 primas y entrega en 10 días.",
+    "price": 152,
+    "days": 10
+   },
+   {
+    "tick": 1959,
+    "from": "Rival Noche",
+    "text": "Te la dejo en 149 primas y entrega en 10 días; me cuesta bajar más.",
+    "price": 149,
+    "days": 10
+   },
+   {
+    "tick": 1960,
+    "from": "Rival Noche",
+    "text": "144 primas y entrega en 10 días. Me muevo poco ya, pero si tú te mueves, cerramos.",
+    "price": 144,
+    "days": 10
+   },
+   {
+    "tick": 1961,
+    "from": "Rival Noche",
+    "text": "Mi propuesta: 144 primas y entrega en 10 días. Dime una cifra concreta y la miro.",
+    "price": 144,
+    "days": 10
+   },
+   {
+    "tick": 1962,
+    "from": "Rival Noche",
+    "text": "Es una pieza que merece su precio: 144 primas y entrega en 10 días.",
+    "price": 144,
+    "days": 10
+   },
+   {
+    "tick": 1963,
+    "from": "Rival Noche",
+    "text": "Te la dejo en 144 primas y entrega en 10 días; me cuesta bajar más.",
+    "price": 144,
+    "days": 10
+   },
+   {
+    "tick": 1964,
+    "from": "Rival Noche",
+    "text": "144 primas y entrega en 10 días. Me muevo poco ya, pero si tú te mueves, cerramos.",
+    "price": 144,
+    "days": 10
+   },
+   {
+    "tick": 1964,
+    "from": "you",
+    "text": "I can do 127 P, delivery on day 0.",
+    "price": 127,
+    "days": 0
+   },
+   {
+    "tick": 1965,
+    "from": "you",
+    "text": "I can do 145 P, delivery on day 0.",
+    "price": 145,
+    "days": 0
+   }
+  ],
+  "result": 25.5,
+  "price": 127,
+  "days": 0
+ }
 }

@@ -1647,5 +1647,91 @@
     "settles_at_tick": 1966
    }
   }
- ]
+ ],
+ "last_seen_tick": 1966,
+ "done": {
+  "duel": 11389,
+  "session": 4,
+  "status": "deal",
+  "role": "seller",
+  "item": "Museo Sorolla",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 3.35,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 64,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Azul",
+  "deadline_tick": 1966,
+  "decay_per_round": 0.1,
+  "rounds": 3,
+  "your_offer": {
+   "id": 14101,
+   "price": 59,
+   "tick": 1964,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 14111,
+   "price": 79,
+   "tick": 1965,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1954,
+    "from": "Rival Azul",
+    "text": "Hola, Rival Plata, voy con prisa: 38 por Museo Sorolla y cerramos ya. Entrega inmediata.",
+    "price": 38,
+    "days": 0
+   },
+   {
+    "tick": 1954,
+    "from": "you",
+    "text": "I can do 91 P, delivery on day 10.",
+    "price": 91,
+    "days": 10
+   },
+   {
+    "tick": 1955,
+    "from": "Rival Azul",
+    "text": "56 y lo cerramos ahora. Entrega inmediata.",
+    "price": 56,
+    "days": 0
+   },
+   {
+    "tick": 1963,
+    "from": "you",
+    "text": "I can do 74 P, delivery on day 10.",
+    "price": 74,
+    "days": 10
+   },
+   {
+    "tick": 1963,
+    "from": "Rival Azul",
+    "text": "64, último paso. Entrega inmediata.",
+    "price": 64,
+    "days": 0
+   },
+   {
+    "tick": 1964,
+    "from": "you",
+    "text": "I can do 59 P, delivery on day 10.",
+    "price": 59,
+    "days": 10
+   },
+   {
+    "tick": 1965,
+    "from": "Rival Azul",
+    "text": "Venga, 79; no tengo mucho tiempo. Entrega inmediata.",
+    "price": 79,
+    "days": 0
+   }
+  ],
+  "result": 10.9,
+  "price": 79,
+  "days": 0
+ }
 }
