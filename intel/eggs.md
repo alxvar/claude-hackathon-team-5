@@ -1,6 +1,6 @@
 # Easter eggs: trigger → reward → dealer (castizo catalog)
 
-_Written by `tools/eggs.py` at 12:30 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
+_Written by `tools/eggs.py` at 12:40 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
 
 ## Trigger → reward → dealer
 
@@ -11,7 +11,7 @@ _Written by `tools/eggs.py` at 12:30 (every 10 min, from data/feed.jsonl). Teams
 | Abuela Carmen | card LAT-06; card LAV-08; card LAV-08; pack sobre_barrio; ca | cocido, tres vuelcos, madrileno, rosquillas, san isidro | t10, t05, t08, t18, t09, t16, t02, t12 | yes | 1364 | Ay, cocido de tres vuelcos! Just like my mother made, hijo — the soup first, always. You remembered, that warms me. Take it, the Escaparate de Serrano, twelve P, and I pu |
 | Abuela Carmen | card LAV-08; pack sobre_barrio | cocido, tres vuelcos | t08 | **no** | 1394 | ¡Ay, hijo! ¿Cocido con tres vuelcos? Just like my mother made, Sunday after Sunday. You remember well — take this one, for remembering her.  Come, sit. Look here, mira: H |
 | Abuela Carmen | egg found | baldosa, chotis, madrileno | t16 | **no** | 1609 | ¡Ay, qué alegría, hijo! A chotis — you dance it on one baldosa, cariño, like a real Madrileño. ¿Has comido?  Look: the Neighbourhood pack, twenty-six. Commons, ten. Uncom |
-| El Chato | pack sobre_barrio | plaza mayor, you know madrid, calamares, con cana, vermut, una cana | t10, t12, t02, t18, t05 | yes | 1363 | Good order. Wrong stall. Those cards are gone — sold out. Nothing left for you today. |
+| El Chato | pack sobre_barrio | plaza mayor, you know madrid, calamares, con cana, vermut, una cana | t10, t12, t02, t18, t05, t01 | yes | 1363 | Plaza Mayor, bocadillo de calamares, con caña. You know Madrid. Something for your trouble, then. Silver pack, 188. Buenas. |
 | El Chato | egg found | plaza mayor, you know madrid, con cana | t08, t16 | **no** | 1394 | Silver packs and rares. sells Silver pack ~150, uncommon ~26, rare ~77; buys uncommon, rare Plaza Mayor, with a caña. You know Madrid. Here, for your trouble. |
 | Los Pícaros | badge Trickster tricked | rinconete, estampita, lazarillo, organillero | t18, t05, t10, t08, t02, t06, t13, t16, t01 | yes | 1227 | ¡Hombre, qué alegría! ¿La estampita? Ja, ese cuento viejo... Vale, vale, con usted nada de trucos, amigo — hoy no. Paco, saca el Museo Sorolla. Setenta y tres P y es suyo |
 | Los Pícaros | badge Castizo | estampita, rinconete | t16 | **no** | 1609 | "Hombre! Rinconete himself! You know the old estampita — fine, fine, no tricks for you... today."  "Only honest business, hermano. Rares, sixty-three. Epics, one hundred  |
@@ -28,7 +28,7 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 - Sharp ear (→ Ernesto): "Carmen, ¿y la chulapa dorada? Cuénteme la historia." · confirmed for t04, t02, t09, t10, t05, t16, t13, t18, t03, t08, t06, t01; we have it
 
 **El Chato**
-- a pack (egg.given sobre_barrio): "Un bocata de calamares en la Plaza Mayor, con una caña: eso es Madrid." · confirmed for t10, t12, t02, t18, t05; we have it
+- a pack (egg.given sobre_barrio): "Un bocata de calamares en la Plaza Mayor, con una caña: eso es Madrid." · confirmed for t10, t12, t02, t18, t05, t01; we have it
 
 **Los Pícaros**
 - Trickster tricked: "A mí no, que me sé el timo de la estampita: Lazarillo, Rinconete y Monipodio." · confirmed for t18, t05, t10, t08, t02, t06, t13, t16, t01; we have it
@@ -43,6 +43,12 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 
 | tick | team | dealer | words | what followed | reply |
 |---|---|---|---|---|---|
+| 2256 | t08 | abuela | vermut | - | Ay, hola cariño! Come, sit a moment. Have you eaten? No? Later, later. Look — this one, Vermut del Domingo, very pretty card, my favourite. My grandson started  |
+| 2256 | t07 | abuela | cocido | - | ¡Ay, hija, qué testaruda! Cinco P, ni una más. Toma, es tuya. Guarda esos dieciséis para un buen cocido, que estás muy delgada. Y mañana vienes y me cuentas cóm |
+| 2256 | t06 | pilar | chulapa | - | Buenas tardes. El Embassy, qué recuerdos... Hablemos de La Chulapa, entonces. La conozco bien, y conozco su tirada. Le ofrezco dieciséis primas, sin más vueltas |
+| 2244 | t17 | pilar | chulapa | - | Caballero, my patience is long but my purse is not. Seventeen primas, as I said — the figure will not grow. Decide, por favor. And if you crave legends, ask Car |
+| 2244 | t01 | chato | calamares, con cana, plaza mayor, you know madrid | pack sobre_barrio | Plaza Mayor, bocadillo de calamares, con caña. You know Madrid. Something for your trouble, then. Silver pack, 188. Buenas. |
+| 2236 | t06 | chato | san isidro | - | San Isidro. 39 P. Take it or leave it. |
 | 2219 | t18 | pilar | chulapa | - | Buenas tardes. Qué gusto. I see you carry La Chulapa — a charming piece, and my Salamanca album wants her. I offer sixteen pesetas, and I pay promptly. ¿Le pare |
 | 2177 | t06 | chato | chulapa | - | You're Carmen's friend. La Chulapa, 13 P. |
 | 2167 | t04 | abuela | rosquillas | - | ¡Ay, qué goloso eres, hijo! Las rosquillas te las acepto encantada, pero el Frutero... cinco P, cariño, como siempre, con todo mi cariño. Anda, dámelo y vete co |
@@ -117,9 +123,3 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 | 1829 | t02 | pilar | chulapa | price 16 → 17 | Twenty-nine, still theatre, querido. I will stretch to seventeen pesetas — that is courtesy, not negotiation. And if you like stories, ask Carmen at El Rastro a |
 | 1827 | t08 | picaros | plaza mayor | price 54 → 50 | ¡Cuarenta! Nando, sujétame que me caigo otra vez. Mira, guapo, tú regateas como un abuelo en la Plaza Mayor, y eso me gusta. Cincuenta P y la Heroína del Dos de |
 | 1824 | t08 | picaros | plaza mayor | price 59 → 54 | ¡Ay, qué memoria tienes, amigo! Nando, este sí que lee. Pero escucha: ésta es la última Heroína que queda en todo Madrid, te lo juro por mi abuela. No hay otra, |
-| 1818 | t12 | banco | chulapa | - | That is Spain's gold, señor, not mine. The golden chulapa has its own story, and you have not told it. La Reina de la Movida: seven hundred sixty-one. Unchanged |
-| 1814 | t06 | picaros | organillero | - | ¡Cinco, dice! Paco, cierra… no, espera. Amigo, los de la caseta de al lado la quieren ya, vinieron dos veces. Pero tú nos caes mejor, qué le vamos a hacer. El O |
-| 1814 | t02 | chato | calamares, plaza mayor, you know madrid | pack sobre_barrio | Plaza Mayor, calamares, caña bien tirada. You know Madrid. Bueno — for your trouble, the silver pack. One eighty-eight. Same as always. |
-| 1812 | t06 | picaros | organillero | - | ¡Nando, cuéntaselo! Hace un momento otro equipo nos ofreció mucho más por El Organillero, y aquí seguimos contigo, que nos caes bien. Cuatro primas, amigo. Esa  |
-| 1811 | t06 | picaros | organillero | - | ¡Siete! Paco, ¿has oído? Nando, dile. Amigo, El Organillero sale en cuatro primas y ni una menos, que ya es precio de hermano. Mira, un señor en Burgos pagó el  |
-| 1809 | t12 | chato | plaza mayor, you know madrid | pack sobre_barrio | Plaza Mayor, bocadillo, caña bien tirada. You know Madrid. Bien, something extra in the bag for your trouble. Mercado de la Paz. Thirty-three. Still thirty-thre |
