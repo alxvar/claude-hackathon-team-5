@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sun 07:30** · tick 1445 (30 s/tick) · game hour 13.37 · PAUSED · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sun 08:05** · tick 1445 (30 s/tick) · game hour 13.37 · PAUSED · today closes 23:00._
 
 ## Team: now and latest
 
@@ -17,9 +17,9 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Sun 08:45: run intel/dealer-lab.md §4 checklist, then intel/sunday-plan.md. (Sat history:) Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sun 08:05 · Builder · **club venue routing, Lucas's call: 50/50** main 15dd3ef: club deals (t02 t04 t07 t08 t09 t15 on both sides) alternate v10 / a member's market (open, neither party's own, no rival; least used, then lowest market score); closers and non-member deals on v10; run/club_routing.json keeps the day's venues; DMs name the market · live: 2 v10 + 2 members (v05, v15) → Market aligns nego_section (was 2 of 3)
   - Sun 07:38 · Duel Lab · C+ check (contra-duels §1) on sim3, every world + mirrors + LLM moves + accept slips · **YES: C+ (C + MIN_STEP_P 15 + ACCEPT_BY 1) ≈ +0.028/duel ≈ +2.9 raw over 102 duels, no code-first world worse; still wins with the trader on unless > ≈ 9% of last-tick accepts slip**; hot `approve` dry-run on 29aa1be clean; new-sha path also needs the repo-sets test edit + SET=C+ (verifier caught it) · intel/duel-lab.md top + first-wave checklist; duel_gates.live_set knows C+
   - Sun 07:25 · operator · directive 07:40: public CHA bids are NOT pulled when our trade part caps (every bid ≥ 0 for us stays: relative squeeze on t18/t12/t03); the t0 watcher still drops the bid for any card t10/t01 holds
-  - Sun 07:18 · operator · contra-cha final pass: t0 re-checks /api/me + pending offers/threads (settled_or_free, 35 s + 35 s) before ANY next tier or the Chato fallback (no 2nd copy from a late settle); simple_buy re-checks /api/me/value right before matching their price (last-card guard) · **t0 re-armed, pid 22755** (repo 1917247)
 
 ## Score
 
