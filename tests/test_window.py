@@ -165,3 +165,41 @@ def test_only_what_was_stopped_comes_back(tmp_path, monkeypatch):
 def test_a_typo_in_window_stop_refuses_to_arm(monkeypatch):
     monkeypatch.setattr(w, "STOP", ("swaps", "opp"))
     assert w.main([]) == 2
+
+
+def test_reads_use_the_team_key_first_then_keyless_and_never_log_it(tmp_path, monkeypatch, capsys):
+    """Chief 11:45: the keyless limit is shared on the venue Wi-Fi."""
+    seen = []
+
+    class Resp:
+        def __init__(self, body):
+            self.body = body
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *a):
+            return False
+
+        def read(self):
+            return self.body
+
+    def urlopen(req, timeout=None):
+        seen.append(req.get_header("X-team-key"))
+        if req.get_header("X-team-key") and fail["keyed"]:
+            raise w.urllib.error.HTTPError(req.full_url, 401, "bad key", {}, None)
+        return Resp(b'{"tick": 7}')
+
+    fail = {"keyed": False}
+    monkeypatch.setattr(w.urllib.request, "urlopen", urlopen)
+    monkeypatch.setenv("BAZAAR_KEY", "tk-secret-test")
+    assert w.get("/api/clock") == {"tick": 7} and seen == ["tk-secret-test"]
+    fail["keyed"], seen[:] = True, []
+    assert w.get("/api/clock") == {"tick": 7} and seen == ["tk-secret-test", None]   # keyed failed: keyless
+    assert "tk-secret-test" not in capsys.readouterr().out
+    monkeypatch.delenv("BAZAAR_KEY")
+    monkeypatch.setattr(w, "ROOT", tmp_path)
+    (tmp_path / ".env").write_text("BAZAAR_URL=https://x\nexport BAZAAR_KEY='tk-from-env-file'\n")
+    assert w.team_key() == "tk-from-env-file"
+    (tmp_path / ".env").write_text("NOTHING=1\n")
+    assert w.team_key() is None
