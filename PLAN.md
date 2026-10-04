@@ -198,7 +198,18 @@ team_sync hook injects every change here into your Claude on your next prompt. A
      Duels III = R + 2 game h (≈ 11:00), the Final = R + 5 (≈ 14:00): re-read /api/schedule; watch it at 13:30.
    - Never pipe its output (it hangs). Never re-run start/--check while live. Stop: `--stop`. Back to Saturday's: `--rollback`.
    - Live check after two waves: `tools/duel_gates.py --session 4 --params <worktree>/run/duel_params.json`; expected deal
-     rate with rivals that spoke ≈ 0.88-0.93, 2-3 rounds/deal, no CAN'T READ on the day line. Supersedes #29-#31.
+     rate with rivals that spoke ≈ 0.88-0.93, 2-3 rounds/deal, no CAN'T READ on the day line. Supersedes #27-#31.
+   - **C+ (Duel Lab 07:38, verified: +0.028/duel, no world worse): right after the start, in the worktree $WT:**
+     `printf '{"wave": "C+ Duel Lab", "params": {"MIN_STEP_P": 15, "ACCEPT_BY": 1}}\n' > "$WT/run/c_plus.json"`
+     `(cd "$WT" && python3 tools/duel_loop.py approve --proposal run/c_plus.json --by Aleks)`; re-run both lines after ANY restart
+     (a restart reinstalls plain C). If an accept shows a send error: approve {"ACCEPT_BY": 2}.
+   - **First-wave checklist** (≈ 3 min into Duels III and the Final): (1) `grep -E "direction unknown|CAN'T READ|refused"` on the newest
+     $WT/logs/duelist/supervise-*.log prints nothing; (2) the first deal's pred = points in `uv run python -m agents.duelist review`;
+     (3) no `refused:` lines; (4) at least one of the first four rivals that spoke reached a deal. A SWITCH line: run the 4 checks first.
+   - Escape ladder: hot `use A` → the same sha with POLICY=llm → `--rollback`.
+33. **07:45, `agents/negotiator/` stays DORMANT today.** Only the Operator writes market trades (one live script per job, one key):
+   wiring it in would add a second market writer on the shared 5 req/s key and bypass the books, caps and rival-venue skips.
+   If you want it live, talk to Lucas/the Chief first.
 
 **Dani: deal desk from 15:52 (Lucas's call).** Your phone (ntfy, your channel) now gets every alert that needs a human to
 message another team: v10 radar DMs, v10 partner suggestions (Teams 15, 10, 3), opportunity SELL/BUY alerts, swap nudges.
