@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 12:57 · endgame (Analyst 13:00; basis us 93.0, t10 86.9, t12 85.5) · Chato L2 NOT filling: no spare uncommon held (LAV-08 spare → Pilar; the rest are single page copies); only feed = the book's LAT-06/07/08 bids at 12 (no fills); lat_fodder → Chato ≥ 14 if one lands; offered the Chief +1 bid (13, −0.5 neg each) · floors_1330.sh (pid 79058): trader + opps floors → 0 at 13:30 · MAL-09: t08 75 → t01 60 once
 - Sun 12:56 · Chief 12:58: (C) MAL-09 from t10 DISARMED (no buys from rivals; trade part near the cap after CHA-11) · 26452 (t08, 75) kept · mal09_repost.py (pid 77198): if 26452 lapses (tick 2347), ONE re-post to t01 at 60 on El Rastro, then stop (feed: MAL-09 held by t01 1135, t09 1323 (t09 was bidding 56, likely needs it), t04/t10/t12/t13/t17 rivals, t15) · CHA-11 ladders void (done at 190)
 - Sun 12:54 · **CHA-11 BOUGHT from t10 at 190** (Lucas: 'negociá y cerralo'): 26414 cancelled → counter 26511 on v17 (t17's stall, 0% fee) → t10 accepted within ≈ 20 s, **settlement 1429** (tick 2318) → **neg_points 54.8 → 104.8 (+50, per-trade clip; value 288)**, cash 647 → 457 · the superseding 190/194/197/200 ladder was moot (closed at its floor) · leaderboard **#1** (35.81) · still live: MAL-09 → t08 at 75 (26452)
 - Sun 12:51 · MAL-09 (Lucas: raise the t08 bid) · mal09_bid.py stopped, 26022 cancelled → **26452** → t08, El Rastro, 75 (value-when-last 95.4 → +20.4), exp tick 2347, no auto re-post · (C) t10 ≤ 45 armed, waits for Lucas's go
