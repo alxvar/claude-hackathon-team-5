@@ -1428,5 +1428,79 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 2016,
+ "done": {
+  "duel": 11429,
+  "session": 4,
+  "status": "deal",
+  "role": "buyer",
+  "item": "San Isidro",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 2.02,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 187,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Verde",
+  "deadline_tick": 2017,
+  "decay_per_round": 0.1,
+  "rounds": 0,
+  "your_offer": {
+   "id": 15317,
+   "price": 176,
+   "tick": 2015,
+   "days": 0
+  },
+  "rival_offer": null,
+  "messages": [
+   {
+    "tick": 2005,
+    "from": "you",
+    "text": "I offer 117 P for delivery on day 0.",
+    "price": 117,
+    "days": 0
+   },
+   {
+    "tick": 2011,
+    "from": "you",
+    "text": "I can do 128 P, delivery on day 0.",
+    "price": 128,
+    "days": 0
+   },
+   {
+    "tick": 2012,
+    "from": "you",
+    "text": "I can do 140 P, delivery on day 0.",
+    "price": 140,
+    "days": 0
+   },
+   {
+    "tick": 2013,
+    "from": "you",
+    "text": "I can do 152 P, delivery on day 0.",
+    "price": 152,
+    "days": 0
+   },
+   {
+    "tick": 2014,
+    "from": "you",
+    "text": "I can do 164 P, delivery on day 0.",
+    "price": 164,
+    "days": 0
+   },
+   {
+    "tick": 2015,
+    "from": "you",
+    "text": "I can do 176 P, delivery on day 0.",
+    "price": 176,
+    "days": 0
+   }
+  ],
+  "result": 11.0,
+  "price": 176,
+  "days": 0
+ }
 }

@@ -1,13 +1,11 @@
 # Flips: team bids a dealer can fill (Team 10's playbook)
 
-_Written by `tools/reactor.py` at 11:37 (tick 2011). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
+_Written by `tools/reactor.py` at 11:39 (tick 2019). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
 
 ## Open bids (HUNT digest)
 
 | bid P | card | bidder | venue | dealer est. | spread | offer | until |
 |---|---|---|---|---|---|---|---|
-| 170 | LAV-11 La Casa Encendida (epic) | t12 | v21 → t04 | none (all minted or no dealer) | - | 23969 | 11:37 |
-| 170 | LAV-11 La Casa Encendida (epic) | t12 | v21 → t06 | none (all minted or no dealer) | - | 23970 | 11:37 |
 | 150 | MAL-11 La Sala Pentagrama (epic) | t17 | rastro | picaros 150 | +0 | 24250 | 11:47 |
 | 135 | SAL-11 La Puerta de Alcalá (epic) | t10 | v19 → t08 | none (all minted or no dealer) | - | 24327 | 11:44 |
 | 114 | LAT-11 San Francisco el Grande (epic) | t06 | v21 | picaros 150 | -36 | 23890 | 11:49 |
