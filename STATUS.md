@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sun 10:48** · tick 1819 (15 s/tick) · game hour 15.19 · running · today closes 15:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sun 10:53** · tick 1839 (15 s/tick) · game hour 15.27 · running · today closes 15:00._
 
 ## Team: now and latest
 
@@ -17,25 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Sun: CHA page COMPLETE (+50). RET-11 kept (t13 asks lapsed); MAL decision ≈ 12:00 (Chief); Duels III ≈ 11:00 (duelist stopped on Aleks's machine at 09:46: Chief alerted). (Sat history:) Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
-  - Sun 10:42 · MAL-09 bid moved (Chief: t13 refuses El Rastro) · 22594 cancelled; NEW 22688: addressed to t13 on v21 (Team 9's 0% board, non-rival), give 48, want MAL-09, exp tick 1914; mal_close.py (pid 79615) now posts on v21 at ≤ value − 1 (non-last) / ≤ value-when-last − 50 (last); MAL-07 → t15 also on v21 · LAT-04 → the Pícaros at 5 (opening 4): ladder 0.253 → 0.311; L4 now full (0.075/0.081/0.058); LAT-01/03 walked at 4 · next: dups.sh (LAV-04/SAL-04 spare copies, LAT-01/03 → the Abuela ≥ 6)
-  - Sun 10:41 · CHA-bid ping batch (t16/t09/t15 re: CHA bids on v10; t08 re: MAL-06) · no reply from any of the 4 in ~20 ticks, threads closed · team threads stay silent all weekend: no more ping batches; trade only through posted offers
-  - Sun 10:40 · Chief 10:40 (MAL via team trades; dups → dealers; flag OFF) · (a) run/sunday/mal_close.py (pid 72997): ONE addressed want-card bid at a time on El Rastro; MAL-09 → t13 at 45 (value 49; 45 + 5% + 1 = 48.25), offer 22594 exp tick 1897; when it lands, MAL-07 LAST → t15 at ≤ value-when-last − 50; re-posts on expiry, never two live, cutoff 13:55 · (b) LAT-01 at the Pícaros: their opening/final was 4, below floor 5, walked (their 4 never counts); dups.sh (pid 74498) after the LAT job: LAV-04 + SAL-04 spare copies → the Pícaros ≥ 5 else the Abuela ≥ 6 (keep 1 copy); LAT-01/03/04 → the Abuela ≥ 6 (Chato/Pilar don't buy commons) · (c) trader (CASH_FLOOR 176) + book (floor 0) restarted 10:39:50 on c361ff2 (includes 5c976e2 venue flag); run/venue_allow.json absent = OFF · next: watch 22594, dups
+  - Sun 10:52 · dups.sh done · sold: LAT-04 (the Pícaros 5), LAV-04 spare (the Pícaros 5), SAL-04 spare (the Pícaros 5), LAT-01 (the Abuela 6) · LAT-03 kept: the Abuela stuck at 5 = her opening (never counts) = our value, walked · ladder 0.253 → 0.342 · no spares left (pages hold 1 copy each)
+  - Sun 10:51 · book hygiene · run/book.json still held CHA-02/03 buy entries at 8 (not live; CHA page complete; the t0 watcher just dropped CHA-06): removed all CHA entries, the book is now LAT-06/07/08 bids on v15 only · LAT-01 → the Abuela at 6 (value 5) · Chief approved the reward tightenings (LAT only, non-rivals, never t10/t13, ≤ 2 per team)
+  - Sun 10:49 · Chief 10:45-10:47 · (1) 22688 (t13) cancelled; MAL-09 bid → t08 on v21 at 48: 22816, exp 1930 (mal_close.py pid 86706; MAL-07 → t15 on v21 after) · (2) v10 deal reward (GUARDRAIL, Lucas's call; RULES fair play: 'don't feed another team' → every buy ≤ our value, so ≥ 0 for us): run/sunday/v10_reward.py (pid 90593) watches data/feed.jsonl for settlement venue v10; buys ONE LAT first copy we lack from a party (feed holdings evidence), ≤ value, ≤ 10 each, ≤ 100 total, on v21 (v05 for t09), logs the v10 settlement id; non-rivals only (policy.check), never t10, ≤ 2 per team; MAL-07/09 left to mal_close (no two live MAL bids); dry run OK · (3) v10 ad text → deal reward, re-announced 10:46:06 (pid 85429) · dups: LAV-04, SAL-04 spares → the Pícaros at 5 (ladder 0.342), LAT-01 → the Abuela; LAT-03 in progress
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 32.43 | 4 | 22.62 | 9.81 | 0.00 | 0.34 | 0.90 | 69 | 5 | 635 | 49/60 |
+| 32.42 | 3 | 22.59 | 9.83 | 0.00 | 0.34 | 0.90 | 69 | 5 | 635 | 49/60 |
 
-Leaderboard (snapshot at tick 1802; refreshes every few minutes):
+Leaderboard (snapshot at tick 1822; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 12 | 34.41 | 22.87 | 11.54 | 76 |
-| 2 | Team 18 | 32.85 | 24.37 | 8.48 | 54 |
-| 3 | Team 10 | 32.72 | 20.55 | 12.17 | 69 |
-| 4 | Team 5 | 32.43 | 22.62 | 9.81 | 67 |
-| 5 | Team 3 | 29.29 | 21.86 | 7.43 | 39 |
+| 1 | Team 12 | 34.66 | 23.13 | 11.52 | 77 |
+| 2 | Team 18 | 33.23 | 24.72 | 8.51 | 55 |
+| 3 | Team 5 | 32.42 | 22.59 | 9.83 | 69 |
+| 4 | Team 10 | 32.35 | 20.19 | 12.16 | 69 |
+| 5 | Team 3 | 29.11 | 21.63 | 7.48 | 39 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 15.37 | ~11 min | duels | Duels III: two issues, shorter clock, harder decay |
-| 17.00 | ~109 min | bench | The Market Test: every venue gets the same synthetic book |
-| 18.17 | ~179 min | announce | finale warning |
-| 18.37 | ~191 min | persona | Finale: stalls close |
-| 18.37 | ~191 min | persona | Finale: stalls close |
-| 18.37 | ~191 min | persona | Finale: stalls close |
-| 18.37 | ~191 min | persona | Finale: stalls close |
-| 18.37 | ~191 min | persona | Finale: stalls close |
+| 15.37 | ~6 min | duels | Duels III: two issues, shorter clock, harder decay |
+| 17.00 | ~104 min | bench | The Market Test: every venue gets the same synthetic book |
+| 18.17 | ~174 min | announce | finale warning |
+| 18.37 | ~186 min | persona | Finale: stalls close |
+| 18.37 | ~186 min | persona | Finale: stalls close |
+| 18.37 | ~186 min | persona | Finale: stalls close |
+| 18.37 | ~186 min | persona | Finale: stalls close |
+| 18.37 | ~186 min | persona | Finale: stalls close |
 
 ## Our dealer deals
 
@@ -85,16 +85,16 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | 2661 | picaros | sell | 1 card(s) | 4 | 12 | 5 | +25% | 7 | deal |  |
 | 2668 | picaros | sell | 1 card(s) | 4 | 12 | 5 | +25% | 15 | deal |  |
 | 2681 | abuela | sell | 1 card(s) | 5 | 10 | 6 | +20% | 11 | deal |  |
-| 2687 | abuela | sell | 1 card(s) | 5 | 10 | — | — | 4 | open |  |
+| 2687 | abuela | sell | 1 card(s) | 5 | 10 | — | — | 11 | closed |  |
 
 ## Abuela benchmark: every team's deals with her (public feed)
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
-| common card | team buys | 103 | 9 | 7 | 15 | 9 | 8.78 |
+| common card | team buys | 106 | 9.00 | 7 | 15 | 9 | 8.78 |
 | common card | team sells | 122 | 6.00 | 2 | 23 | 6 | 5.50 |
 | sobre_barrio | team buys | 45 | 22 | 17 | 30 | 3 | 20.33 |
-| uncommon card | team buys | 99 | 23 | 17 | 29 | 7 | 23.43 |
+| uncommon card | team buys | 100 | 23.00 | 17 | 29 | 7 | 23.43 |
 | uncommon card | team sells | 13 | 15 | 12 | 22 | 0 | — |
 
 ## Duels
