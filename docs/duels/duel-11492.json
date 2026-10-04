@@ -2894,5 +2894,119 @@
     "settles_at_tick": 1982
    }
   }
- ]
+ ],
+ "last_seen_tick": 1982,
+ "done": {
+  "duel": 11492,
+  "session": 4,
+  "status": "deal",
+  "role": "seller",
+  "item": "Museo Sorolla",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 6.54,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 53,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Oro",
+  "deadline_tick": 1983,
+  "decay_per_round": 0.1,
+  "rounds": 2,
+  "your_offer": {
+   "id": 14442,
+   "price": 58,
+   "tick": 1980,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 14475,
+   "price": 68,
+   "tick": 1981,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1971,
+    "from": "you",
+    "text": "I'd like to open at 76 P for delivery on day 10.",
+    "price": 76,
+    "days": 10
+   },
+   {
+    "tick": 1971,
+    "from": "Rival Oro",
+    "text": "52 with delivery on day 0. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+    "price": 52,
+    "days": 0
+   },
+   {
+    "tick": 1973,
+    "from": "Rival Oro",
+    "text": "54 with delivery on day 0. Fast deal before the pie shrinks?",
+    "price": 54,
+    "days": 0
+   },
+   {
+    "tick": 1974,
+    "from": "Rival Oro",
+    "text": "56 with delivery on day 0. Fast deal before the pie shrinks?",
+    "price": 56,
+    "days": 0
+   },
+   {
+    "tick": 1975,
+    "from": "Rival Oro",
+    "text": "58 with delivery on day 0. Fast deal before the pie shrinks?",
+    "price": 58,
+    "days": 0
+   },
+   {
+    "tick": 1976,
+    "from": "Rival Oro",
+    "text": "60 with delivery on day 0. Fast deal before the pie shrinks?",
+    "price": 60,
+    "days": 0
+   },
+   {
+    "tick": 1977,
+    "from": "Rival Oro",
+    "text": "62 with delivery on day 0. Fast deal before the pie shrinks?",
+    "price": 62,
+    "days": 0
+   },
+   {
+    "tick": 1978,
+    "from": "Rival Oro",
+    "text": "64 with delivery on day 0. Fast deal before the pie shrinks?",
+    "price": 64,
+    "days": 0
+   },
+   {
+    "tick": 1979,
+    "from": "Rival Oro",
+    "text": "66 with delivery on day 0. Fast deal before the pie shrinks?",
+    "price": 66,
+    "days": 0
+   },
+   {
+    "tick": 1980,
+    "from": "you",
+    "text": "I can do 58 P, delivery on day 10.",
+    "price": 58,
+    "days": 10
+   },
+   {
+    "tick": 1981,
+    "from": "Rival Oro",
+    "text": "68 with delivery on day 0. Fast deal before the pie shrinks?",
+    "price": 68,
+    "days": 0
+   }
+  ],
+  "result": 10.5,
+  "price": 66,
+  "days": 0
+ }
 }
