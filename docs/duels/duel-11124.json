@@ -122,6 +122,133 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1883,
+   "raw": {
+    "duel": 11124,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Cine Doré",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.83,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 40,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Verde",
+    "deadline_tick": 1886,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 12149,
+     "price": 42,
+     "tick": 1883,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 12003,
+     "price": 46,
+     "tick": 1876,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1874,
+      "from": "you",
+      "text": "I'd like to propose 57 primas with delivery on day 10.",
+      "price": 57,
+      "days": 10
+     },
+     {
+      "tick": 1876,
+      "from": "Rival Verde",
+      "text": "Rápido y justo: 46 P, día 0. ¿Qué día de entrega te va mejor? / Quick and fair: 46 P, day 0. Which delivery day suits you best?",
+      "price": 46,
+      "days": 0
+     },
+     {
+      "tick": 1883,
+      "from": "you",
+      "text": "I can do 42 P, delivery on day 10.",
+      "price": 42,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1884,
+   "raw": {
+    "duel": 11124,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Cine Doré",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.83,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 40,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Verde",
+    "deadline_tick": 1886,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 12166,
+     "price": 27,
+     "tick": 1884,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 12003,
+     "price": 46,
+     "tick": 1876,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1874,
+      "from": "you",
+      "text": "I'd like to propose 57 primas with delivery on day 10.",
+      "price": 57,
+      "days": 10
+     },
+     {
+      "tick": 1876,
+      "from": "Rival Verde",
+      "text": "Rápido y justo: 46 P, día 0. ¿Qué día de entrega te va mejor? / Quick and fair: 46 P, day 0. Which delivery day suits you best?",
+      "price": 46,
+      "days": 0
+     },
+     {
+      "tick": 1883,
+      "from": "you",
+      "text": "I can do 42 P, delivery on day 10.",
+      "price": 42,
+      "days": 10
+     },
+     {
+      "tick": 1884,
+      "from": "you",
+      "text": "I can do 27 P, delivery on day 10.",
+      "price": 27,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -326,6 +453,401 @@
     "ACCEPT_BY": 1,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1879,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11124,
+     "role": "seller",
+     "limit": 40,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.83,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to propose 57 primas with delivery on day 10.",
+      "offer": {
+       "price": 57,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1874,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Rápido y justo: 46 P, día 0. ¿Qué día de entrega te va mejor? / Quick and fair: 46 P, day 0. Which delivery day suits you best?",
+      "offer": {
+       "price": 46,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1876,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 46,
+     "days": 0
+    },
+    "tick": 1879,
+    "ticks_left": 7,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 57,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1882,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11124,
+     "role": "seller",
+     "limit": 40,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.83,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to propose 57 primas with delivery on day 10.",
+      "offer": {
+       "price": 57,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1874,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Rápido y justo: 46 P, día 0. ¿Qué día de entrega te va mejor? / Quick and fair: 46 P, day 0. Which delivery day suits you best?",
+      "offer": {
+       "price": 46,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1876,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 46,
+     "days": 0
+    },
+    "tick": 1882,
+    "ticks_left": 4,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 57,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1883,
+   "took_s": 1.57,
+   "cost_usd": 0.00119,
+   "obs": {
+    "view": {
+     "duel_id": 11124,
+     "role": "seller",
+     "limit": 40,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.83,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to propose 57 primas with delivery on day 10.",
+      "offer": {
+       "price": 57,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1874,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Rápido y justo: 46 P, día 0. ¿Qué día de entrega te va mejor? / Quick and fair: 46 P, day 0. Which delivery day suits you best?",
+      "offer": {
+       "price": 46,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1876,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 46,
+     "days": 0
+    },
+    "tick": 1883,
+    "ticks_left": 3,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 42 P, delivery on day 10.",
+    "price": 42,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 24.65,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.57,
+       "in": 981,
+       "out": 41,
+       "cost_usd": 0.00119,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 33,
+     "floor": 40.3
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1884,
+   "took_s": 1.43,
+   "cost_usd": 0.00118,
+   "obs": {
+    "view": {
+     "duel_id": 11124,
+     "role": "seller",
+     "limit": 40,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.83,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to propose 57 primas with delivery on day 10.",
+      "offer": {
+       "price": 57,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1874,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Rápido y justo: 46 P, día 0. ¿Qué día de entrega te va mejor? / Quick and fair: 46 P, day 0. Which delivery day suits you best?",
+      "offer": {
+       "price": 46,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1876,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 42 P, delivery on day 10.",
+      "offer": {
+       "price": 42,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1883,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 46,
+     "days": 0
+    },
+    "tick": 1884,
+    "ticks_left": 2,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 27 P, delivery on day 10.",
+    "price": 27,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 17.15,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.43,
+       "in": 1017,
+       "out": 32,
+       "cost_usd": 0.00118,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 25,
+     "floor": 25.3
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -359,6 +881,82 @@
      "id": 11955,
      "price": 57,
      "tick": 1874,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1883,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 42 P, delivery on day 10.",
+    "price": 42,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 24.65,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.57,
+       "in": 981,
+       "out": 41,
+       "cost_usd": 0.00119,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 33,
+     "floor": 40.3
+    }
+   },
+   "result": {
+    "duel": 11124,
+    "offer": {
+     "id": 12149,
+     "price": 42,
+     "tick": 1883,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1884,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 27 P, delivery on day 10.",
+    "price": 27,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 17.15,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.43,
+       "in": 1017,
+       "out": 32,
+       "cost_usd": 0.00118,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 25,
+     "floor": 25.3
+    }
+   },
+   "result": {
+    "duel": 11124,
+    "offer": {
+     "id": 12166,
+     "price": 27,
+     "tick": 1884,
      "days": 10
     }
    }

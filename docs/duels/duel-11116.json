@@ -449,5 +449,56 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1881,
+ "done": {
+  "duel": 11116,
+  "session": 4,
+  "status": "deal",
+  "role": "seller",
+  "item": "San Isidro",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 4.21,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 119,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Rojo",
+  "deadline_tick": 1885,
+  "decay_per_round": 0.1,
+  "rounds": 1,
+  "your_offer": {
+   "id": 11936,
+   "price": 169,
+   "tick": 1873,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 11986,
+   "price": 131,
+   "tick": 1875,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1873,
+    "from": "you",
+    "text": "I'd like to open at 169 P for delivery on day 10.",
+    "price": 169,
+    "days": 10
+   },
+   {
+    "tick": 1875,
+    "from": "Rival Rojo",
+    "text": "Hi there. 131 P from my side. Delivery on day 0.",
+    "price": 131,
+    "days": 0
+   }
+  ],
+  "result": 82.9,
+  "price": 169,
+  "days": 10
+ }
 }
