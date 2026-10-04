@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sun 12:22: **§3j cap RETRACTED (neg 50 → 52.2 [V]); MAL closer GO again (§4.14).** Our RET-03 sale settled on t10's v07 (feeds t10's VC): no offers on rival venues. Final basis (12:11): t12 86.6 · us 84.8 · t18 83.1 · t10 82.9 · t03 ≈ 81 (rising, ladder at every dealer)._
+_Last update: Sun 12:27 (snapshot 2202): **phase = 1.000: the board now equals the final basis ÷ 2.5. Final basis: t12 85.40 · us 84.03 · t10 83.58 · t18 81.62 · t03 80.82 · t04 77.07.** t10 is 0.45 behind us (its v07 VC includes our RET-03 sale: no more offers on rival venues). §3j cap retracted (neg 52.2); MAL closer GO (§4.14). Left: the 12:37 bench, MAL, Chato L2 slots, v10 pairs, the Final (≈ 14:00)._
 _Note: the §4 version labels "00:05" to "02:10" are sequence markers written between Sat 23:50 and Sun 00:42 (my labels ran ahead of the wall clock); real times are in `git log`. The Sunday clock in §4.7 is unaffected._
 
 ## 1. Board = Friday × Saturday blend [V]
