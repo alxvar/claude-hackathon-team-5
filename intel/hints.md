@@ -363,3 +363,4 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 10:48 · message tick 1818 · banco → t12 · That is Spain's gold, señor, not mine. The golden chulapa has its own story, and you have not told it. La Reina de la Movida: seven hundred sixty-one. Unchanged.
 - Sun 10:49 · taller.crafted tick 1819 ·  → t02 · Team 2 turned three common cards into La Vía Láctea (uncommon) at The Workshop
 - Sun 10:51 · message tick 1829 · pilar → t02 · Twenty-nine, still theatre, querido. I will stretch to seventeen pesetas — that is courtesy, not negotiation. And if you like stories, ask Carmen at El Rastro about the golden chulapa. Only one ever printed, they say.
+- Sun 11:00 · catalog.minted LAV-11 (La Casa Encendida, epic, print run 9): hidden=False minted=8 (was 7)

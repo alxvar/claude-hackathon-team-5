@@ -1,6 +1,6 @@
 # Easter eggs: trigger → reward → dealer (castizo catalog)
 
-_Written by `tools/eggs.py` at 10:50 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
+_Written by `tools/eggs.py` at 11:00 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
 
 ## Trigger → reward → dealer
 
@@ -43,6 +43,16 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 
 | tick | team | dealer | words | what followed | reply |
 |---|---|---|---|---|---|
+| 1852 | t06 | picaros | estampita | - | ¡Ay, qué listo nos ha salido el cliente! Paco, mira, este ha leído libros. — ¡Y por eso le tratamos bien, hombre! Nada de estampitas, aquí todo a la luz: La Cas |
+| 1847 | t10 | abuela | churros, me falta | - | Ay, hijo, churros no me faltan, que mi vecina me trae cada domingo. Pero esta carta vale cinco, y cinco te doy, de corazón. Llévatelos ahora y vuelve cuando qui |
+| 1842 | t06 | pilar | chulapa | - | Nineteen primas, señor. I told you I would not move again, and I am a woman of my word. Twenty is your invention, not La Chulapa's worth. Accept nineteen, and s |
+| 1841 | t06 | pilar | chulapa | price 18 → 19 | Nineteen primas, señor. That is where I stand, and I do not move again tonight. La Chulapa belongs in my album — but on my terms, not those of your lemon tart. |
+| 1839 | t06 | pilar | chulapa | price 17 → 18 | Twenty-two, señor? No. Eighteen primas — and that is the last courtesy I extend this evening. La Chulapa will sit beautifully in my album, but not at any price  |
+| 1837 | t06 | pilar | chulapa | price 16 → 17 | Lázaro Galdiano also knew when a thing was worth no more. Seventeen primas, señor — a courtesy, not a concession. La Chulapa deserves my album, but my album is  |
+| 1836 | t06 | pilar | chulapa | - | The Embassy's lemon tart is charming, señor, but it does not alter the value of La Chulapa. My figure remains 16 primas. I know this card's print run precisely, |
+| 1834 | t06 | pilar | chulapa | - | Good evening. La Chulapa, 16 P. I trust that suits you. |
+| 1829 | t02 | pilar | chulapa | price 16 → 17 | Twenty-nine, still theatre, querido. I will stretch to seventeen pesetas — that is courtesy, not negotiation. And if you like stories, ask Carmen at El Rastro a |
+| 1827 | t08 | picaros | plaza mayor | price 54 → 50 | ¡Cuarenta! Nando, sujétame que me caigo otra vez. Mira, guapo, tú regateas como un abuelo en la Plaza Mayor, y eso me gusta. Cincuenta P y la Heroína del Dos de |
 | 1824 | t08 | picaros | plaza mayor | price 59 → 54 | ¡Ay, qué memoria tienes, amigo! Nando, este sí que lee. Pero escucha: ésta es la última Heroína que queda en todo Madrid, te lo juro por mi abuela. No hay otra, |
 | 1818 | t12 | banco | chulapa | - | That is Spain's gold, señor, not mine. The golden chulapa has its own story, and you have not told it. La Reina de la Movida: seven hundred sixty-one. Unchanged |
 | 1814 | t06 | picaros | organillero | - | ¡Cinco, dice! Paco, cierra… no, espera. Amigo, los de la caseta de al lado la quieren ya, vinieron dos veces. Pero tú nos caes mejor, qué le vamos a hacer. El O |
@@ -113,13 +123,3 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 | 1529 | t06 | abuela | gato | price 23 → 22 | Ay, qué abrazo más bueno, hijo. Mira, 22 P y te la envuelvo con cariño. Cuarenta años aquí y todavía me emociono con un gato de Madrid. Y no olvides a El Chato, |
 | 1527 | t15 | abuela | churros | - | Ay, hola, cariño! Come, come, sit a minute. Have you eaten today? Look — this one, Plaza de Olavide, very pretty, no? My favourite square, I ate churros there w |
 | 1527 | t06 | abuela | cocido | price 25 → 23 | Ay, cariño, tu abuela tenía razón, siempre llegamos a un trato. Mira, te lo dejo en 23 P, y es buena carta para empezar. Que con ese cocido vas fuerte, hijo. Y  |
-| 1525 | t06 | abuela | cocido | price 29 → 25 | Ay, cariño, qué bien suena ese cocido. Mira, El Instituto te lo dejo en 25 P, y es buena carta para empezar. Tu abuela compraba aquí también, ¿sabes? Y pásate p |
-| 1519 | t06 | abuela | churros | - | ¡Churros de San Ginés, qué nieto más listo tienes! Pero mira, cariño: 24 P, y esta es mi última palabra. Si no, lo guardo en la caja y tan amigos, que yo no me  |
-| 1517 | t06 | abuela | gato | price 25 → 24 | ¡Un abrazo de un gato siempre se acepta, hijo! Mira, 24 P y ya está, el Club de Jazz para ti. Mi mesa lleva cuarenta domingos por cuarenta años, y nunca dejé a  |
-| 1513 | t06 | abuela | cocido | price 29 → 26 | ¡Ay, qué cocido, hijo! Mira, te lo dejo en 26 P, Club de Jazz, para empezar bien. Y un consejo, cariño: una página completa vale mucho más que las cartas suelta |
-| 1511 | t18 | pilar | chulapa | - | Querido amigo, dieciocho es fantasía. Conozco esa tirada como conozco mi propio apellido. Dieciséis pesetas, limpias y al instante, y La Chulapa descansa en mi  |
-| 1509 | t18 | pilar | chulapa | - | Buenas tardes. How agreeable to see a serious face at my stall. I am seeking La Chulapa — a charming piece, and my album waits for her. I offer sixteen pesetas. |
-| 1508 | t06 | abuela | la paloma | price 22 → 21 | Ay, cariño, qué bien me hablas, y cómo me gusta la Paloma. Mira: 21 P, la Estación de Chamberí. Y esta ya es mi última, hijo; si no, la guardo y tan amigos. Un  |
-| 1508 | t02 | abuela | chulapa | price 12 → 10 | Ay, qué majo eres. Let us say ten P, hijo, and we are both happy. The golden chulapa — I saw one years ago, a boy traded it for two duplicates and cried after.  |
-| 1506 | t06 | picaros | rinconete | price 63 → 60 | ¡Cincuenta y seis, Rinconete, qué arte! Pero Paco y yo ya no bajamos más: sesenta primas, el Museo Sorolla, y es la última palabra. Última, de verdad. Si dices  |
-| 1506 | t06 | abuela | churros | price 23 → 22 | ¡Ay, churros de San Ginés! Eso ya es palabra mayor, cariño. Mira, 22 P y la Estación de Chamberí se va contigo, bien envuelta para el nieto. Que empiece el álbu |
