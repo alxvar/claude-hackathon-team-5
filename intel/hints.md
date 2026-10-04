@@ -328,3 +328,5 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 09:56 · egg.found tick 1609 · abuela → t16 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t16", "name": "Team 16"}
 - Sun 09:56 · egg.found tick 1609 · chato → t16 · {"persona": "chato", "persona_name": "El Chato", "team": "t16", "name": "Team 16"}
 - Sun 09:56 · egg.given tick 1609 · chato → t16 · {"team": "t16", "name": "Team 16", "cash": 0, "packs": ["sobre_barrio"], "cards": [], "reason": "easter egg"}
+- Sun 09:56 · egg.found tick 1612 · abuela → t16 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t16", "name": "Team 16"}
+- Sun 09:56 · egg.given tick 1612 · abuela → t16 · {"team": "t16", "name": "Team 16", "cash": 0, "packs": [], "cards": ["LAT-06"], "reason": "easter egg"}
