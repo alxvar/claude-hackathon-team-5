@@ -71,6 +71,14 @@ All three commit every ~5 min: cut to their cadence above to reduce git churn on
 
 ## Live log
 
+### 09:57 · snapshot 1602 (phase 0.28)
+| Metric | Actual | Note |
+|---|---|---|
+| M5 trade cap | +50 np moved our Sunday round ≈ 11 → 20.6 (+9.6). Before Duels III the trade part is on a 15 scale (×0.6 once duels score) → **N ≈ 78 [L]: NOT capped** | more positive team trades still add directly |
+| M8 Sunday round (±1) | t18 30.0 · t13 24.1 · **us 20.6** · t03 20.2 · t12 16.6 · t06 13.9 · t10 10.2 | running totals: t10 59.19 · t12 57.26 · t18 55.18 · **us 54.13** · t03 50.10 |
+**PROPOSE:** keep pushing positive team trades. **RET-11 → t13 at ≥ 248 is worth ≈ +5-6 Sunday pts now** (≈ +3-4 after the duel rescale).
+SAL-03 watch: t15's public ask at 7 (t03's SAL closer) expired unfilled at tick 1593. If it relists, ask t15 to pull it.
+
 ### 09:52 · tick 1586 · case J
 - **CHA page CLOSED with the +50** [V me.jsonl: neg_points 0 → **50.0** at tick 1585]. Route: CHA-06 from Abuela at 22 (1553), CHA-07
   from the Workshop, **CHA-05 last from t02 at 72 on El Rastro** (team trade, closer). Cash 373. Pages 3 → 4 at the next snapshot.
