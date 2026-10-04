@@ -492,6 +492,101 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 2025,
+   "raw": {
+    "duel": 11573,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "San Isidro",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.52,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 187,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Oro",
+    "deadline_tick": 2028,
+    "decay_per_round": 0.1,
+    "rounds": 2,
+    "your_offer": {
+     "id": 15492,
+     "price": 124,
+     "tick": 2025,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 15502,
+     "price": 124,
+     "tick": 2025,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 2016,
+      "from": "you",
+      "text": "I'd like to open at 117 P for delivery on day 0.",
+      "price": 117,
+      "days": 0
+     },
+     {
+      "tick": 2016,
+      "from": "Rival Oro",
+      "text": "I can do 243 with delivery on day 10. That is a fair deal for both of us.",
+      "price": 243,
+      "days": 10
+     },
+     {
+      "tick": 2017,
+      "from": "Rival Oro",
+      "text": "I can do 222 with delivery on day 10. That is a fair deal for both of us.",
+      "price": 222,
+      "days": 10
+     },
+     {
+      "tick": 2018,
+      "from": "Rival Oro",
+      "text": "I can do 188 with delivery on day 10. That is a fair deal for both of us.",
+      "price": 188,
+      "days": 10
+     },
+     {
+      "tick": 2019,
+      "from": "Rival Oro",
+      "text": "I can do 155 with delivery on day 10. That is a fair deal for both of us.",
+      "price": 155,
+      "days": 10
+     },
+     {
+      "tick": 2020,
+      "from": "Rival Oro",
+      "text": "I can do 117 with delivery on day 10. That is a fair deal for both of us.",
+      "price": 117,
+      "days": 10
+     },
+     {
+      "tick": 2025,
+      "from": "you",
+      "text": "I can meet you at 124 P, but I need delivery on day 0 instead of day 10.",
+      "price": 124,
+      "days": 0
+     },
+     {
+      "tick": 2025,
+      "from": "Rival Oro",
+      "text": "I can do 124 with delivery on day 10. That is a fair deal for both of us.",
+      "price": 124,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {

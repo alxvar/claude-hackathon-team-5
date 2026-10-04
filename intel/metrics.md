@@ -1,22 +1,22 @@
-# Metrics (auto, 11:38, game tick 2016)
+# Metrics (auto, 11:40, game tick 2025)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
-1. Team 12 34.7 (+0.2 / -0.3) deals 78
-2. Team 10 34.5 (+0.2 / +1.0) deals 70
-3. Team 18 33.4 (+0.9 / +0.4) deals 56
-4. Team 5 33.0 (+0.8 / +0.6) deals 69 ← US
-5. Team 3 30.6 (+0.1 / +1.0) deals 39
-6. Team 6 29.5 (+1.4 / +2.6) deals 86
-7. Team 9 28.9 (+1.0 / +5.6) deals 52
-8. Team 15 27.4 (+1.8 / +5.5) deals 65
-9. Team 13 27.3 (+0.2 / -0.0) deals 102
-10. Team 4 27.3 (+1.0 / +4.5) deals 89
+1. Team 12 34.7 (+0.3 / -0.2) deals 78
+2. Team 10 34.1 (-0.5 / +1.0) deals 70
+3. Team 18 33.0 (+0.4 / -0.1) deals 56
+4. Team 5 32.8 (+0.5 / +0.6) deals 69 ← US
+5. Team 3 30.5 (+0.0 / +1.0) deals 39
+6. Team 6 29.2 (+0.7 / +2.4) deals 86
+7. Team 4 28.9 (+2.6 / +6.4) deals 89
+8. Team 9 28.9 (+0.5 / +5.5) deals 52
+9. Team 15 27.2 (+1.3 / +5.5) deals 66
+10. Team 13 27.1 (-0.3 / -0.2) deals 102
 Us: #4
 
 ## Us
 
-score 32.97 · neg_points 50.0 (15 min ago 50.0) · ladder 0.342 · duel 20.72 · cash 635 · level 5 · deals 69
+score 32.75 · neg_points 50.0 (15 min ago 50.0) · ladder 0.342 · duel 21.83 · cash 635 · level 5 · deals 69
 
 ## Our holdings (card (rarity): value of each copy; a sale gives up the cheapest copy)
 
@@ -54,9 +54,8 @@ CHA-01 (common): 122; CHA-02 (common): 122; CHA-03 (common): 122; CHA-04 (common
 - tick 1817 abuela sell Huevos Rotos: 5 → 5, ours 6 · closed
 - tick 1995 picaros buy MAL-09: 73 → 58, ours 44 · closed
 
-## Trades between teams (194 so far; last 12)
+## Trades between teams (195 so far; last 12)
 
-- tick 1585: CHA-05 (common) t02→t05 for 72 P
 - tick 1647: MAL-07 (uncommon) t15→t03 for 9 P
 - tick 1677: RET-09 (rare) t07→t09 for 68 P
 - tick 1712: LAV-07 (uncommon) t13→t12 for 40 P
@@ -68,14 +67,15 @@ CHA-01 (common): 122; CHA-02 (common): 122; CHA-03 (common): 122; CHA-04 (common
 - tick 1841: MAL-04 (common) t06→t07 for 12 P
 - tick 1858: SAL-11 (epic) t04→t02 for 220 P
 - tick 1886: SAL-12 (legendary) t12→t16 for 380 P
+- tick 2022: CHA-10 (rare) t15→t16 for 65 P
 
-Who buys which set (team trades): t01: MAL×4, SAL×4, RET×2; t02: RET×4, MAL×3, LAT×1, SAL×1; t03: SAL×3, LAT×2, LAV×1, MAL×1; t04: RET×6, MAL×6, LAV×4, LAT×3; t05: MAL×4, SAL×4, LAV×1, RET×1, CHA×1; t06: SAL×4, RET×3, LAT×2, LAV×1; t07: RET×9, LAV×7, MAL×5, LAT×4, SAL×1; t08: MAL×3, LAT×3, LAV×3, SAL×2, RET×1; t09: RET×6, SAL×5, MAL×4, LAV×1, LAT×1; t10: LAV×2, MAL×2, SAL×1, RET×1; t12: LAT×8, LAV×3, MAL×2, RET×2; t13: MAL×9, SAL×3, LAV×1; t14: LAT×4, RET×4, SAL×2, LAV×1, MAL×1; t15: LAT×6, MAL×4, RET×3, SAL×3, LAV×3; t16: RET×4, LAT×2, MAL×1, LAV×1, CHA×1, SAL×1; t17: MAL×5, SAL×4; t18: LAT×2, SAL×1, RET×1, CHA×1
+Who buys which set (team trades): t01: MAL×4, SAL×4, RET×2; t02: RET×4, MAL×3, LAT×1, SAL×1; t03: SAL×3, LAT×2, LAV×1, MAL×1; t04: RET×6, MAL×6, LAV×4, LAT×3; t05: MAL×4, SAL×4, LAV×1, RET×1, CHA×1; t06: SAL×4, RET×3, LAT×2, LAV×1; t07: RET×9, LAV×7, MAL×5, LAT×4, SAL×1; t08: MAL×3, LAT×3, LAV×3, SAL×2, RET×1; t09: RET×6, SAL×5, MAL×4, LAV×1, LAT×1; t10: LAV×2, MAL×2, SAL×1, RET×1; t12: LAT×8, LAV×3, MAL×2, RET×2; t13: MAL×9, SAL×3, LAV×1; t14: LAT×4, RET×4, SAL×2, LAV×1, MAL×1; t15: LAT×6, MAL×4, RET×3, SAL×3, LAV×3; t16: RET×4, LAT×2, CHA×2, MAL×1, LAV×1, SAL×1; t17: MAL×5, SAL×4; t18: LAT×2, SAL×1, RET×1, CHA×1
 
 ## Dealer prices, last 60 ticks (median per item)
 
 - abuela common (team buys): median 10 over 1
 - abuela common (team sells): median 6 over 2
-- abuela uncommon (team buys): median 24 over 2
+- abuela uncommon (team buys): median 25 over 1
 - picaros epic (team buys): median 150 over 3
 - picaros rare (team buys): median 52 over 1
 - pilar uncommon (team sells): median 19 over 1
@@ -100,12 +100,12 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×2; t02: RET×4, MAL�
 
 Asks by others (card, price: count): LAV-04 7: 1; RET-03 10: 1; LAV-02 7: 1; LAV-06 22: 1; LAV-02 9: 1; LAV-04 9: 1; MAL-01 10: 1; MAL-02 10: 1; MAL-03 10: 1; MAL-04 10: 1; MAL-05 10: 1; sobre_plata 130: 1; RET-05 9: 1; MAL-01 6: 1; LAT-01 8: 1
 
-## Our duels: 4 live, 198 finished (last 10)
+## Our duels: 2 live, 199 finished (last 10)
 
-- {"duel": 11510, "session": 4, "status": "deal", "role": "buyer", "item": "Vinilo de la Movida", "issues": ["price", "days"], "your_days_weight": 0.39, "days_meaning": "each delivery day costs you this much cash", "your_limit": 129, "limit_meaning": "never pay 
 - {"duel": 11511, "session": 4, "status": "deal", "role": "seller", "item": "Vinilo de la Movida", "issues": ["price", "days"], "your_days_weight": 3.34, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 128, "limit_meaning": "n
 - {"duel": 11518, "session": 4, "status": "no_deal", "role": "buyer", "item": "Cine Dor\u00e9", "issues": ["price", "days"], "your_days_weight": 6.2, "days_meaning": "each delivery day costs you this much cash", "your_limit": 107, "limit_meaning": "never pay abo
 - {"duel": 11519, "session": 4, "status": "deal", "role": "seller", "item": "Cine Dor\u00e9", "issues": ["price", "days"], "your_days_weight": 5.84, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 59, "limit_meaning": "never s
+- {"duel": 11548, "session": 4, "status": "live", "role": "seller", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 2.93, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 110, "limit_meaning": "never s
 - {"duel": 11572, "session": 4, "status": "deal", "role": "seller", "item": "San Isidro", "issues": ["price", "days"], "your_days_weight": 6.53, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 43, "limit_meaning": "never sell 
 - {"duel": 11573, "session": 4, "status": "live", "role": "buyer", "item": "San Isidro", "issues": ["price", "days"], "your_days_weight": 1.52, "days_meaning": "each delivery day costs you this much cash", "your_limit": 187, "limit_meaning": "never pay above you
 - {"duel": 11610, "session": 4, "status": "no_deal", "role": "seller", "item": "Escaparate de Serrano", "issues": ["price", "days"], "your_days_weight": 1.06, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 81, "limit_meaning"
