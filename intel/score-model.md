@@ -461,6 +461,11 @@ of 30 → whether VC can exceed +5 board on Sunday: reconcile with the Market se
 - Odds (Saturday rounds as the Sunday expectation; t12's 38.75 includes the +7.03 VC bump, so it's likely an overstatement) [L]:
   P(top 2) ≈ 5-9%, **P(top 3) ≈ 28-38%** (ladder 0.29-0.38). P(#1) ≤ 0.2%.
 - Board display: every board fell at the open because round 3 enters at phase 0.08 with a near-zero Sunday score. It's not a loss.
+- **Saturday market bug: FULLY CORRECTED [L+] (Chief's question, 10:03).** Under the fixed rule ("a value-destroying trade is the seller's
+  loss, never the market's"), our VC = the MAL-07 trade only (tick 311, t10 → t01 at 14, ≈ +19.2); the SAL-07 trade (tick 398, ≈ −10.2)
+  is excluded. Score = 7.5 × 19.2/M with M ≈ 53 at the close = **2.70**, exactly what the board shows. Real trades are cumulative, not
+  session-averaged [V: our gap moved within one snapshot of ticks 311 and 398], and only round finals count (RULES). So the afternoon's
+  mm −5.2 cost nothing at the close. No claim to the organisers; at most ask them to confirm end-of-round VC with negatives excluded.
 
 ## 4. OVERNIGHT PROGRAM (Analyst, Sat 23:30 → Sun 07:30; final Saturday snapshot 1440)
 
