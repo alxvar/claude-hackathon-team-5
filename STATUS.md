@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sun 09:47** · tick 1576 (15 s/tick) · game hour 14.18 · running · today closes 15:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sun 09:52** · tick 1596 (15 s/tick) · game hour 14.26 · running · today closes 15:00._
 
 ## Team: now and latest
 
@@ -16,26 +16,26 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 16:00 · judges: **showcase designed in Figma and built as `/show`** (brief `judges/dashboard-brief.md`) · Figma "Team 5 · Judges showcase" (https://www.figma.com/design/picVx0KcLHR9uY0ctMuVTu, my drafts): tokens as two collections, Dark and Light (the Starter plan allows one mode per collection), 13 text styles (Inter stands in for the dashboard's system-ui), 9 components (evidence chip [V]/[L]/[?], stat tile, fact card, section header, live indicator, waterfall bar, chat bubble us/rival, architecture node code/agent/human, learning-loop card) and the 1440 desktop frame (dark) with the real race (18 teams, ticks 90-630) and the Duels I waterfall; **the phone and light frames were not drawn in Figma: the Starter plan's MCP call limit ran out** (the build covers both) · **build:** `dashboard/show.html` + `/show` and `/api/show` in `dashboard/server.py`; story texts in `judges/show.json` (re-read every minute, no restart; `{deal_pct}`-style live values in headlines); no external files (works offline), light/dark (button or `?theme=`), phone layout checked at 390 px; **no extra game request** ("last seen" = last commit on origin/main; our `/api/me` rows at the story's ticks come from the collector's full history) · live now: #5, 28.34; Duels I 30/34 (88 %) vs the field 74 % (227/304, live; the brief's 76 % was 226/299) · dashboard restarted 15:58 on this code (key, hub on, 0 errors) · next: Dani reviews the page; fill the analysts' cost (TBD) in `show.json`; on Sunday add a day mark in `race.days` and point the waterfall at Duels II/III
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
-**Lucas** — Sun: CHA 9/10; closer bid 21210 (CHA-05 ← t02, El Rastro, 72) waiting for t02's accept; RET-11 ask to t13 at 248 live. (Sat history:) Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+**Lucas** — Sun: CHA page COMPLETE (+50). RET-11 ask to t13 at 235 live; MAL decision ≈ 12:00 (Chief); Duels III ≈ 11:00 (duelist stopped on Aleks's machine at 09:46: Chief alerted). (Sat history:) Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sun 09:50 · operator · **CHA PAGE COMPLETE** (settlement 1225, tick 1585: CHA-05 t02 → t05 on El Rastro at 72, t02 paid the 5 fee) → `neg_points` 0 → **50.0** (cap), pages **4**, cash 373 · CHA total 196 P (Pícaros 55; Abuela 8/9/8/9/22/21; t02 72; pack CHA-07 + CHA-10) · RET-11: 248 lapsed → re-posted at 235 (21141, exp 1594) · proposed floors 176 until the MAL call
   - Sun 09:43 · operator · closer moved (Chief: no evidence t13 holds CHA-05; t02 bought one from Abuela at 10, tick 1541): 21142 (t13) **cancelled**, then **closer bid 21210: CHA-05 ← t02, El Rastro, 72** (exp 1680); the only closer live · Dani asks t02 to accept · organisers: a bug bounty silver pack to Team 12
   - Sun 09:42 · operator · **CHA 9/10** · CHA-08 from Abuela at 21 (her final, cap 22) · CHA-06 from Abuela at 22 (cap 25; 29 → 22 final) · only CHA-05 missing; /api/me/value CHA-05 = 122 (page bonus) → **closer bid 21142: want CHA-05, addressed to t13, El Rastro, 72** (exp tick 1674); public CHA-05 bid pulled · Lucas to ask t13 to accept · cash 445, ladder 0.172
-  - Sun 09:38 · operator · **CHA-04 from Abuela at 9** (7/10: 01-04, 07, 09, 10) · CHA-06 → Abuela walked (her final 25 = list > cap 22) · Chief approved cap **25** (< value 40, 0 neg) for CHA-06/08 → job bt7e6ssrd re-runs CHA-08 then CHA-06 at ≤ 25 once Abuela is free (the cap-22 CHA-08 thread runs first) · public bids stay at 22
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 29.54 | 4 | 21.45 | 8.09 | 0.00 | 0.17 | — | 62 | 5 | 445 | 49/60 |
+| 29.12 | 4 | 21.15 | 7.97 | 0.00 | 0.17 | — | 63 | 5 | 373 | 50/60 |
 
-Leaderboard (snapshot at tick 1562; refreshes every few minutes):
+Leaderboard (snapshot at tick 1582; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 10 | 33.22 | 22.35 | 10.87 | 63 |
-| 2 | Team 12 | 32.19 | 21.81 | 10.38 | 73 |
-| 3 | Team 18 | 31.10 | 24.57 | 6.52 | 54 |
-| 4 | Team 5 | 29.54 | 21.45 | 8.09 | 62 |
-| 5 | Team 3 | 28.17 | 22.88 | 5.29 | 36 |
+| 1 | Team 10 | 33.75 | 23.04 | 10.71 | 65 |
+| 2 | Team 12 | 32.53 | 22.30 | 10.23 | 75 |
+| 3 | Team 18 | 31.08 | 24.65 | 6.43 | 54 |
+| 4 | Team 5 | 29.12 | 21.15 | 7.97 | 62 |
+| 5 | Team 3 | 27.92 | 22.71 | 5.22 | 36 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 14.65 | ~28 min | bench | The hard Market Test: firmer and more impatient traders |
-| 15.00 | ~49 min | bench | The Market Test: every venue gets the same synthetic book |
-| 15.37 | ~72 min | duels | Duels III: two issues, shorter clock, harder decay |
-| 17.00 | ~169 min | bench | The Market Test: every venue gets the same synthetic book |
-| 18.17 | ~240 min | announce | finale warning |
-| 18.37 | ~252 min | persona | Finale: stalls close |
-| 18.37 | ~252 min | persona | Finale: stalls close |
-| 18.37 | ~252 min | persona | Finale: stalls close |
+| 14.65 | ~24 min | bench | The hard Market Test: firmer and more impatient traders |
+| 15.00 | ~45 min | bench | The Market Test: every venue gets the same synthetic book |
+| 15.37 | ~67 min | duels | Duels III: two issues, shorter clock, harder decay |
+| 17.00 | ~165 min | bench | The Market Test: every venue gets the same synthetic book |
+| 18.17 | ~235 min | announce | finale warning |
+| 18.37 | ~247 min | persona | Finale: stalls close |
+| 18.37 | ~247 min | persona | Finale: stalls close |
+| 18.37 | ~247 min | persona | Finale: stalls close |
 
 ## Our dealer deals
 
@@ -91,8 +91,8 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
-| common card | team buys | 96 | 9.00 | 7 | 15 | 9 | 8.78 |
-| common card | team sells | 114 | 6.00 | 2 | 23 | 5 | 5.40 |
+| common card | team buys | 100 | 9.00 | 7 | 15 | 9 | 8.78 |
+| common card | team sells | 115 | 6 | 2 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 45 | 22 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 93 | 23 | 17 | 29 | 7 | 23.43 |
 | uncommon card | team sells | 13 | 15 | 12 | 22 | 0 | — |
