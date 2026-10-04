@@ -19,6 +19,7 @@ checks fall back to price alone and the code rules above leave the duel to the m
 """
 from __future__ import annotations
 
+import asyncio
 import json
 import math
 from dataclasses import dataclass, field
@@ -28,7 +29,7 @@ from typing import Any, Literal
 
 from pydantic import BaseModel, Field
 
-from engine import LLMError, Model, Reply
+from engine import CACHE_PREFIX_END, LLMError, Model, Reply
 
 from .days import DayValues
 from .guards import (claims, mentions_past_limit, past_limit, price_at, reads_as_agreement, standing_problems,
@@ -74,6 +75,10 @@ class BandPlan(BaseModel):
                                          "duel is on price only")
     angle: str = Field(description="one sentence for the negotiator: the tone, or which prices and days to name; "
                                    "never facts about the item, costs, the market or other offers")
+    next_tick_surplus: float | None = Field(default=None, ge=0, allow_inf_nan=False,
+        description="expected pre-decay surplus if we close next tick; null when not reliably estimable")
+    next_tick_deal_probability: float = Field(default=1.0, ge=0, le=1, allow_inf_nan=False,
+        description="probability the estimated next-tick deal actually closes")
 
 
 class Decision(BaseModel):
@@ -280,7 +285,7 @@ def day_lines(obs: Observation) -> list[str]:
     return lines
 
 
-def ledger(obs: Observation) -> str:
+def ledger(obs: Observation, *, tick_decay: bool = False) -> str:
     """Facts for the strategist, computed from the duel. No advice, except the day call its own day rules make
     (`day_read`)."""
     v = obs.view
@@ -307,13 +312,18 @@ def ledger(obs: Observation) -> str:
     else:
         total = f" of {v.duel_ticks}" if v.duel_ticks else ""
         lines.append(f"- Ticks left in the duel, including this one: {obs.ticks_left}{total}.")
-    rounds = obs.rounds if obs.rounds is not None else min(len(obs.ours), len(obs.theirs))
+    rounds = obs.rounds if obs.rounds is not None else (max(0, v.duel_ticks - obs.ticks_left)
+        if tick_decay and v.duel_ticks and obs.ticks_left is not None else min(len(obs.ours), len(obs.theirs)))
     if v.decay:
-        lines.append(f"- Rounds so far: {rounds}, the smaller of the two sides' message counts. Each round costs any "
-                     f"deal about {v.decay:.0%} of its value; sending nothing costs nothing.")
-        lines.append("- Any message your side sends now adds a round (they have sent more messages than you)."
-                     if len(obs.ours) < len(obs.theirs) else
-                     "- A message from your side now adds no round by itself; any reply from them would.")
+        if tick_decay:
+            lines.append(f"- Elapsed rounds: {rounds}. Every tick costs {v.decay:.0%}, including silence. "
+                         f"Waiting one tick requires > {v.decay / (1 - v.decay):.1%} more surplus before failure risk.")
+        else:
+            lines.append(f"- Rounds so far: {rounds}, the smaller of the two sides' message counts. Each round costs any "
+                         f"deal about {v.decay:.0%} of its value; sending nothing costs nothing.")
+            lines.append("- Any message your side sends now adds a round (they have sent more messages than you)."
+                         if len(obs.ours) < len(obs.theirs) else
+                         "- A message from your side now adds no round by itself; any reply from them would.")
     standing = standing_offer(obs)
     their = standing.price if standing is not None else None
     dv = v.day_values
@@ -346,6 +356,10 @@ def ledger(obs: Observation) -> str:
             lines.append(f"- Counting the days too, your last offer is worth {f(abs(round(more, 1)))} "
                          f"{'more' if more >= 0 else 'less'} to you than theirs.")
         step = f(math.ceil(min_step(v, ours[-1], standing) - 1e-9))
+        if tick_decay:
+            lines.append("- No fixed step floor or cap: make the move justified by tick decay and closing probability.")
+            lines += day_lines(obs)
+            return "\n".join(lines)
         lines.append(f"- The smallest step worth sending now: {step} ({MIN_STEP_SHARE:.0%} of the gap, at least "
                      f"{f(MIN_STEP_P)}). A smaller step is not sent.")
         gap = worth(v, ours[-1].price, ours[-1].days) - worth(v, standing.price, standing.days)
@@ -387,13 +401,16 @@ def days_private(view: DuelView) -> str:
     return "\n".join(lines) + "\n"
 
 
-def brief(view: DuelView, *, strategist: bool) -> dict[str, str]:
+def brief(view: DuelView, *, strategist: bool, tick_decay: bool = False) -> dict[str, str]:
     """The placeholders the system prompts fill. Only the strategist's include the limit and the raw extras."""
     rules = ["- Prices are whole primas (P). Each side may send one message per tick; an offer is binding once "
              "the other side accepts it, and settles at the next tick.",
              f"- The duel lasts {view.duel_ticks} ticks." if view.duel_ticks else
              "- The duel has a deadline; the facts each turn say how many ticks are left."]
-    if view.decay:
+    if view.decay and tick_decay:
+        rules.append(f"- Every tick is a round and costs {view.decay:.0%} of the deal's value, including silence. "
+                     "Answer this tick; compare accepting now with the risk-adjusted value after another tick.")
+    elif view.decay:
         rules.append(f"- Every round shrinks the value of any deal by about {view.decay:.0%}. The rounds are the "
                      "smaller of the two sides' numbers of messages, priced or not: each message your side sends "
                      "costs a round once the other side has sent as many, and sending nothing is free. When your "
@@ -421,7 +438,7 @@ def brief(view: DuelView, *, strategist: bool) -> dict[str, str]:
             "extra": ("Other fields of the duel, as the game gives them:\n" + json.dumps(view.extra)[:1500] + "\n"
                       if view.extra else ""),
             "days_private": days_private(view),
-            "days_guide": days_guide(view.currency) if view.has_days else "",
+            "days_guide": days_guide(view.currency, late_switch=not tick_decay) if view.has_days else "",
         }
     else:
         out["days_negotiator"] = ("- The duel also settles a delivery day (0 to 10). Your brief names the day your "
@@ -434,10 +451,10 @@ def brief(view: DuelView, *, strategist: bool) -> dict[str, str]:
     return out
 
 
-def days_guide(currency: str = "P") -> str:
+def days_guide(currency: str = "P", *, late_switch: bool = True) -> str:
     """The strategist's day rules (docs/duels-1-review.md §3.1); the facts give the call they make each turn."""
     f = lambda p: money(p, currency)  # noqa: E731
-    return f"""
+    guide = f"""
 The delivery day: set "days" (0 to 10) every turn. Each side values the day privately, and the pie is biggest on the day that suits the side that cares more about it. The facts below the conversation read their day against yours and give the call these rules make:
 1. Their first priced offer names their day: most rivals open on their own best day.
 2. If their day costs you at most {f(DAY_SAME_SIDE_P)} (the facts say it is on your side), take it at once and haggle the price only.
@@ -450,6 +467,16 @@ The delivery day: set "days" (0 to 10) every turn. Each side values the day priv
 6. If your system says which days you prefer is a guess, don't give the day first; follow their day only if it costs you at most {f(DAY_SAME_SIDE_P)} at the worse reading.
 Near the end, your system makes one move on its own: with {LATE_SWITCH_LEFT} ticks left and the days still apart, it offers their day at the price that keeps the deal worth the same to you, so a quarrel over the day never costs the deal. After that, keep their day.
 """
+    return guide if late_switch else guide.split("Near the end, your system makes one move", 1)[0]
+
+
+def tick_prefix(name: str) -> str:
+    return (PROMPTS / f"{name}-tick.md").read_text().strip()
+
+
+def tick_system(name: str, view: DuelView) -> str:
+    return tick_prefix(name) + CACHE_PREFIX_END + render(f"{name}-context",
+        **brief(view, strategist=name == "strategist", tick_decay=True))
 
 
 def quoted(text: str) -> str:
@@ -506,19 +533,27 @@ def with_note(messages: list[dict[str, str]], note: str) -> list[dict[str, str]]
 # The agent
 
 class DuelAgent:
-    def __init__(self, view: DuelView, strategist: Model, negotiator: Model | None = None):
+    def __init__(self, view: DuelView, strategist: Model, negotiator: Model | None = None, *,
+                 tick_decay: bool = False, strategy_timeout_s: float = 8.0, negotiation_timeout_s: float = 3.0):
         self.view = view
         self.s = sign(view.role)
         self.strategist = strategist
         self.negotiator = negotiator or strategist
-        self.strategist_system = render("strategist", **brief(view, strategist=True))
+        self.tick_decay = tick_decay
+        self.strategy_timeout_s, self.negotiation_timeout_s = strategy_timeout_s, negotiation_timeout_s
+        self.cached_band: tuple[Band, int | None, BandPlan, int, dict[str, Any]] | None = None
+        self.strategist_system = (tick_system("strategist", view) if tick_decay else
+                                  render("strategist", **brief(view, strategist=True)))
         self.switched = False                     # the late day switch went out (`late_switch`)
-        self.negotiator_system = render("negotiator", **brief(view, strategist=False))
+        self.negotiator_system = (tick_system("negotiator", view) if tick_decay else
+                                  render("negotiator", **brief(view, strategist=False)))
         self.calls: list[dict[str, Any]] = []         # per turn: stage, latency, tokens, cost
 
     def _record(self, stage: str, r: Reply) -> None:
         self.calls.append({"stage": stage, "latency_s": round(r.latency_s, 2), "in": r.input_tokens,
-                           "out": r.output_tokens, "cost_usd": round(r.cost_usd, 5), "model": r.model})
+                           "out": r.output_tokens, "cost_usd": round(r.cost_usd, 5), "model": r.model,
+                           "cache_creation_input_tokens": r.cache_creation_input_tokens,
+                           "cache_read_input_tokens": r.cache_read_input_tokens})
 
     # The strategist
 
@@ -533,7 +568,7 @@ class DuelAgent:
         return out
 
     async def plan(self, obs: Observation) -> BandPlan:
-        prompt = (f"The conversation so far:\n\n{transcript_text(obs)}\n\n{ledger(obs)}\n\n"
+        prompt = (f"The conversation so far:\n\n{transcript_text(obs)}\n\n{ledger(obs, tick_decay=self.tick_decay)}\n\n"
                   "Set the band for your side's next message.")
 
         async def ask(text: str) -> BandPlan:
@@ -745,8 +780,89 @@ class DuelAgent:
                                                                  else ".")
         return Move("offer", text, price=price, days=days, meta={"repaired": True, **meta})
 
+    @staticmethod
+    def band_context(view: DuelView) -> dict[str, Any]:
+        return view.model_dump(include={"duel_id", "role", "limit", "issues", "days_weight", "days_meaning", "decay"})
+
+    def cache_plan(self, plan: BandPlan, obs: Observation) -> tuple[Band, int | None]:
+        days = self._days(plan, obs)
+        band = make_band(self.view, plan, days)
+        if obs.tick is not None and not self._plan_problems(plan):
+            self.cached_band = (band, days, plan, obs.tick, self.band_context(obs.view))
+        else:
+            self.cached_band = None
+        return band, days
+
+    def accept_cached(self, obs: Observation) -> Move | None:
+        """Authorize this tick and the following one; compare packages, including better-than-best offers."""
+        if not self.tick_decay or self.cached_band is None or obs.tick is None:
+            return None
+        band, days, plan, made_tick, context = self.cached_band
+        if not made_tick <= obs.tick <= made_tick + 1 or context != self.band_context(obs.view):
+            return None
+        v, their = obs.view, standing_offer(obs)
+        dv = v.day_values
+        if their is None or their.price < 1 or (v.has_days and
+                (dv is None or not dv.sure or their.days is None or not 0 <= their.days <= 10)):
+            return None
+        value = worth(v, their.price, their.days)
+        if value <= 0 or past_limit(v, their.price, their.days):
+            return None
+        threshold = worth(v, band.worst, days)
+        why = "strategist band" if value >= threshold else None
+        if why is None and plan.next_tick_surplus is not None and v.decay is not None:
+            expected = (1 - v.decay) * plan.next_tick_surplus * plan.next_tick_deal_probability
+            if value >= expected:
+                why = "tick break-even"
+        if why is None:
+            return None
+        return Move("accept", "Agreed.", price=their.price, days=their.days,
+                    meta={"rule": why, "band": band.__dict__, "plan": plan.model_dump(),
+                          "band_tick": made_tick, "tick_decay": True})
+
+    def band_fallback(self, obs: Observation, authorized_band: Band, days: int | None, **meta: Any) -> Move:
+        """Keep the validated strategy when the message writer fails or runs out of time."""
+        if (accept := self.accept_cached(obs)) is not None:
+            return self.final(accept, obs)
+        text = f"I can do {money(authorized_band.target, self.view.currency)}" + (f", delivery on day {days}."
+                                                                    if days is not None else ".")
+        return self.final(Move("offer", text, price=authorized_band.target, days=days, meta=meta), obs)
+
+    async def _respond_tick(self, obs: Observation) -> Move:
+        if (accept := self.accept_cached(obs)) is not None:
+            return self.final(accept, obs)
+        try:
+            plan = await asyncio.wait_for(self.plan(obs), self.strategy_timeout_s)
+        except (LLMError, TimeoutError) as e:
+            return self.final(self.safe_move(obs, f"strategist: {type(e).__name__}: {e}"), obs)
+        if self._plan_problems(plan):
+            self.cached_band = None
+            return self.final(self.safe_move(obs, "strategist: invalid band after retry"), obs)
+        band, days = self.cache_plan(plan, obs)
+        meta = {"band": band.__dict__, "plan": plan.model_dump(), "band_tick": obs.tick, "tick_decay": True}
+        if (accept := self.accept_cached(obs)) is not None:
+            return self.final(accept, obs)
+        vetoes: list[str] = []
+        feedback = None
+        try:
+            # Both drafts, SDK retries and failover share the same stage deadline.
+            async with asyncio.timeout(self.negotiation_timeout_s):
+                for _ in range(2):
+                    d = await self.negotiate(obs, band, plan, days, feedback)
+                    if not (found := self.check(d, obs, band, days)):
+                        return self.final(self.to_move(d, obs, days, **meta,
+                            **({"vetoes": vetoes} if vetoes else {})), obs)
+                    vetoes += found
+                    feedback = f"{OWN_NOTE} Your previous draft was rejected: {' '.join(found)} Decide again."
+        except (LLMError, TimeoutError) as e:
+            return self.band_fallback(obs, band, days, **meta, vetoes=vetoes,
+                                      fallback=f"negotiator: {type(e).__name__}: {e}")
+        return self.band_fallback(obs, band, days, **meta, vetoes=vetoes, repaired=True)
+
     async def respond(self, obs: Observation) -> Move:
         self.calls = []
+        if self.tick_decay:
+            return await self._respond_tick(obs)
         try:
             plan = await self.plan(obs)
         except LLMError as e:

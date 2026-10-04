@@ -40,4 +40,10 @@ class Failover:
                 if self.failures >= self.trip:
                     self.skip_until = time.monotonic() + self.cooldown_s
                 self.log.append(f"{self.primary.label}: {e!r}")
+            except asyncio.CancelledError:
+                # A stage deadline must cancel us, not launch work outside its budget.
+                self.failures += 1
+                if self.failures >= self.trip:
+                    self.skip_until = time.monotonic() + self.cooldown_s
+                raise
         return await self.backup.parse(schema, system, messages)

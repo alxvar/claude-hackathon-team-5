@@ -10,7 +10,7 @@ from typing import Any
 import anthropic
 from pydantic import BaseModel, ValidationError
 
-from . import LLMError, Reply
+from . import CACHE_PREFIX_END, LLMError, Reply
 
 # USD per MTok (input, output), for the running cost line in the logs.
 PRICES = {"claude-opus-5-5": (4.0, 20.0), "claude-sonnet-5-5": (2.0, 10.0), "claude-haiku-4-5": (1.0, 5.0)}
@@ -42,12 +42,16 @@ class Claude:
     def label(self) -> str:
         return f"{self.model}/{self.effort}"
 
-    async def parse(self, schema: type[BaseModel], system: str, messages: list[dict[str, str]]) -> Reply:
+    def _request(self, system: str, messages: list[dict[str, str]]) -> tuple[Any, dict[str, Any]]:
+        prefix, boundary, context = system.partition(CACHE_PREFIX_END)
+        blocks = [{"type": "text", "text": prefix, "cache_control": {"type": "ephemeral"}}]
+        if boundary and context:
+            # A second breakpoint also reuses this duel's private context on later turns.
+            blocks.append({"type": "text", "text": context, "cache_control": {"type": "ephemeral"}})
         kwargs: dict[str, Any] = {
             "model": self.model,
             "max_tokens": self.max_tokens,
-            # An agent's system prompt is the same every turn: cache it.
-            "system": [{"type": "text", "text": system, "cache_control": {"type": "ephemeral"}}],
+            "system": blocks,
             "messages": messages,
         }
         haiku = self.model.startswith("claude-haiku")
@@ -60,6 +64,38 @@ class Claude:
             kwargs["betas"] = ["server-side-fallback-2026-07-01"]
             kwargs["fallbacks"] = "default"
             api = self._client.beta.messages
+        return api, kwargs
+
+    def _usage(self, msg: Any, latency: float, parsed: BaseModel | None = None) -> Reply:
+        pin, pout = PRICES.get(self.model, (0.0, 0.0))
+        u = msg.usage
+        created = getattr(u, "cache_creation_input_tokens", 0) or 0
+        read = getattr(u, "cache_read_input_tokens", 0) or 0
+        read_rate = 0.05 if self.model == "claude-opus-5-5" else 0.1
+        cost = ((u.input_tokens + 1.25 * created + read_rate * read) * pin + u.output_tokens * pout) / 1e6
+        return Reply(parsed=parsed, latency_s=latency, input_tokens=u.input_tokens, output_tokens=u.output_tokens,
+                     cost_usd=cost, model=msg.model, cache_creation_input_tokens=created,
+                     cache_read_input_tokens=read)
+
+    async def warmup(self, schema: type[BaseModel], prefix: str) -> dict[str, Any]:
+        """Write the exact model/effort/schema prefix, without parsing the deliberately truncated reply."""
+        api, kwargs = self._request(prefix, [{"role": "user", "content": "Prepare for the next duel."}])
+        kwargs["max_tokens"] = 1
+        config = kwargs.setdefault("output_config", {})
+        config["format"] = {"type": "json_schema", "schema": anthropic.transform_schema(schema)}
+        start = time.perf_counter()
+        try:
+            msg = await api.create(**kwargs)
+        except (anthropic.APIError, TypeError) as e:
+            raise LLMError(f"cache warmup: {e}") from e
+        r = self._usage(msg, time.perf_counter() - start)
+        return {"model": r.model, "latency_s": round(r.latency_s, 2), "cost_usd": round(r.cost_usd, 6),
+                "cache_creation_input_tokens": r.cache_creation_input_tokens,
+                "cache_read_input_tokens": r.cache_read_input_tokens,
+                "cached": bool(r.cache_creation_input_tokens or r.cache_read_input_tokens)}
+
+    async def parse(self, schema: type[BaseModel], system: str, messages: list[dict[str, str]]) -> Reply:
+        api, kwargs = self._request(system, messages)
         start = time.perf_counter()
         try:
             msg = await api.parse(output_format=schema, **kwargs)
@@ -77,7 +113,4 @@ class Claude:
         parsed = getattr(msg, "parsed_output", None)
         if parsed is None:
             raise LLMError(f"no parsed output (stop_reason={msg.stop_reason})")
-        pin, pout = PRICES.get(self.model, (0.0, 0.0))
-        u = msg.usage
-        return Reply(parsed=parsed, latency_s=latency, input_tokens=u.input_tokens, output_tokens=u.output_tokens,
-                     cost_usd=(u.input_tokens * pin + u.output_tokens * pout) / 1e6, model=msg.model)
+        return self._usage(msg, latency, parsed)

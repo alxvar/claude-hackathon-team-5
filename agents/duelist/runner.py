@@ -18,6 +18,7 @@ write per tick at most. The SDK is synchronous, so every call runs in a thread a
 from __future__ import annotations
 
 import asyncio
+import contextlib
 import hashlib
 import json
 import time
@@ -83,6 +84,7 @@ class Memory:
     pending: tuple[Move, Any, int | None] | None = None  # a move held back on its tick, for the next one
     first_tick: int | None = None                        # the tick this process first saw the duel
     force: bool = False                                  # decide again even if the rival hasn't moved
+    sending: bool = False                                # don't cancel an SDK write running in a thread
 
 
 def by_code(v: DuelView) -> bool:
@@ -114,7 +116,9 @@ def answered(msgs: list[Turn]) -> bool:
 class DuelRunner:
     def __init__(self, b: Bazaar, strategist: Model, negotiator: Model, *, dry_run: bool, log: Log,
                  decay: float | None, duel_ticks: int | None, poll_s: float, records: Records | None = None,
-                 days_read: str = "auto"):
+                 days_read: str = "auto", tick_decay: bool = False, decision_timeout_s: float = 12.0,
+                 strategy_timeout_s: float = 8.0, negotiation_timeout_s: float = 3.0,
+                 warm_cache: bool = True):
         self.b = b
         set_days_mode(days_read)                   # PLAN #24: auto (as read), flip or unsure, for every duel
         self.days_read = days_read
@@ -133,6 +137,35 @@ class DuelRunner:
         self.spent_usd = 0.0
         self.swings: dict[Any, dict[Any, float]] = {}   # session -> duel -> our day weight's size, for its rank
         self.records = records
+        if not 0 < decision_timeout_s <= 12:
+            raise ValueError("decision timeout must be greater than 0 and no more than 12 seconds")
+        self.tick_decay, self.decision_timeout_s = tick_decay, decision_timeout_s
+        self.strategy_timeout_s, self.negotiation_timeout_s = strategy_timeout_s, negotiation_timeout_s
+        self.tick_deadline: float | None = None
+        self.warm_cache = warm_cache and tick_decay
+        self.warm_task: asyncio.Task | None = None
+        self.warmed_session: Any = None
+
+    def new_agent(self, view: DuelView) -> DuelAgent:
+        return DuelAgent(view, self.strategist, self.negotiator, tick_decay=self.tick_decay,
+                         strategy_timeout_s=self.strategy_timeout_s,
+                         negotiation_timeout_s=self.negotiation_timeout_s)
+
+    def decision_budget(self) -> float:
+        if not self.tick_decay:
+            return max(8.0, self.tick_seconds - 5.0)
+        budget = self.decision_timeout_s
+        if self.tick_deadline is not None:
+            budget = min(budget, self.tick_deadline - time.monotonic() - 1.0)
+        return max(0.0, budget)
+
+    async def warm_prefixes(self) -> None:
+        from .warmup import warm_models
+        results = await warm_models(self.strategist, self.negotiator)
+        for result in results:
+            self.spent_usd += result.get("cost_usd", 0)
+            self.log.write("cache_warmup", **result)
+            say(f"cache warmup: {result}")
 
     def record(self, key: Any, **fields: Any) -> None:
         """Into the duel's record; a failure here must never stop a duel."""
@@ -171,6 +204,12 @@ class DuelRunner:
             self.log.write("upcoming_session", at_hours=nxt.get("at_hours"), params=p)
             say(f"next duel session: {p.get('name')} at hour {nxt.get('at_hours')}, {p.get('duel_ticks')} ticks, "
                 f"decay {p.get('decay')}, {p.get('max_concurrent')} at once, issues {p.get('issues', ['price'])}")
+        if (self.warm_cache and nxt and now_hours is not None and not self.duels
+                and 0 <= (float(nxt["at_hours"]) - now_hours) * 3600 <= 120
+                and self.warmed_session != (nxt.get("at_hours"), nxt.get("params", {}).get("name"))
+                and (self.warm_task is None or self.warm_task.done())):
+            self.warmed_session = (nxt.get("at_hours"), nxt.get("params", {}).get("name"))
+            self.warm_task = asyncio.create_task(self.warm_prefixes())
 
     def learn_sessions(self, events: list[dict[str, Any]]) -> None:
         for num, params in sessions_in(events).items():
@@ -223,7 +262,7 @@ class DuelRunner:
                 if self.log.changed(f"unreadable:{key}", snap.problems):
                     say(f"duel {key}: can't read it ({'; '.join(snap.problems)}); see {self.log.path}")
                 return None
-            agent = DuelAgent(snap.view, self.strategist, self.negotiator)
+            agent = self.new_agent(snap.view)
             mem = self.duels[key] = Memory(agent=agent, snap=snap, first_tick=self.tick)
             if (dv := snap.view.day_values) is not None:
                 self.swings.setdefault(raw.get("session"), {})[key] = swing(dv)
@@ -239,7 +278,14 @@ class DuelRunner:
             self.record(key, session=self.sessions.get(raw.get("session")) or {"session": raw.get("session")},
                         first_tick=self.tick, view=v.model_dump(), days_reading=days,
                         models={"strategist": self.strategist.label, "negotiator": self.negotiator.label},
-                        strategist_system=agent.strategist_system, negotiator_system=agent.negotiator_system)
+                        strategist_system=agent.strategist_system, negotiator_system=agent.negotiator_system,
+                        decay_mode="tick" if self.tick_decay else "exchange")
+        elif snap.view is not None and mem.agent.band_context(snap.view) != mem.agent.band_context(mem.agent.view):
+            # Never reuse an authorization after the reservation value, issues or day semantics change.
+            if mem.task is not None and not mem.sending:
+                mem.task.cancel()
+            mem.agent = self.new_agent(snap.view)
+            mem.force = True
         mem.snap = snap
         self.check_ours(mem)
         if snap.messages is None and snap.rival_offer is not None:
@@ -282,8 +328,12 @@ class DuelRunner:
             return mem.pending[2] != self.tick
         if mem.force:
             return True
+        if self.tick_decay and not self.accepted(mem) and mem.agent.accept_cached(self.observe(mem)) is not None:
+            return True
         if mem.decided_tick == self.tick or self.accepted(mem):
             return False
+        if self.tick_decay:
+            return True                            # silence incurs decay; re-evaluate every tick
         if not mem.sent and self.waits_to_open(mem):
             return False
         if not mem.sent or signature(mem.snap) != mem.decided_on:
@@ -340,7 +390,12 @@ class DuelRunner:
         "small gap": the gap to our standing offer is no more than one more round risks (`small_gap`).
         With days, the surplus is the package's worth to us, day included; a days duel whose weight we can't
         read is left to the models (`by_code`)."""
+        if (self.tick_decay and mem.snap.live and mem.sent_tick != self.tick and not self.accepted(mem)
+                and (accept := mem.agent.accept_cached(self.observe(mem))) is not None):
+            return accept.meta["rule"]
         v, left = mem.agent.view, mem.snap.ticks_left
+        if self.tick_decay and v.has_days and (v.day_values is None or not v.day_values.sure):
+            return None
         if (not mem.snap.live or not by_code(v) or left is None or mem.snap.view is None or self.accepted(mem)
                 or mem.sent_tick == self.tick):
             return None
@@ -351,6 +406,17 @@ class DuelRunner:
         if left <= ACCEPT_BY:
             return "deadline"
         return "small gap" if self.small_gap(mem, their, surplus) else None
+
+    async def interrupt_for_offer(self, mem: Memory) -> None:
+        """An authorized counteroffer needn't wait for a slow model call to finish."""
+        if (not self.tick_decay or mem.task is None or mem.sending or mem.sent_tick == self.tick
+                or mem.agent.accept_cached(self.observe(mem)) is None):
+            return
+        mem.task.cancel()
+        with contextlib.suppress(asyncio.CancelledError):
+            await mem.task
+        mem.task = None
+        mem.force = True
 
     def small_gap(self, mem: Memory, their: Offer, surplus: float) -> bool:
         """Their offer is within max(2 P, 2d/(1-d) x our surplus at it) of our standing offer (plan §4D): one
@@ -378,25 +444,42 @@ class DuelRunner:
         mem.decided_tick = self.tick
         obs = self.observe(mem)
         start = time.perf_counter()
-        timeout = max(8.0, self.tick_seconds - 5.0)
+        timeout = self.decision_budget()
+        mem.agent.calls = []
         if why := self.closing(mem):
             move = mem.agent.final(mem.agent.close(obs, why), obs)
-        elif (switch := mem.agent.take_switch(obs)) is not None:
+        elif not self.tick_decay and (switch := mem.agent.take_switch(obs)) is not None:
             move = mem.agent.final(switch, obs)
-        elif self.silent_rival(mem):
+        elif not self.tick_decay and self.silent_rival(mem):
             if (step := mem.agent.silent_move(obs)) is None:
                 return                            # nothing to send this tick
             move = mem.agent.final(step, obs)
         else:
             try:
+                if timeout <= 0:
+                    raise TimeoutError
                 move = await asyncio.wait_for(mem.agent.respond(obs), timeout)
             except TimeoutError:
-                move = mem.agent.final(mem.agent.safe_move(obs, f"timeout after {timeout:.0f} s"), obs)
+                cached = mem.agent.cached_band
+                if self.tick_decay and cached is not None and cached[3] == obs.tick:
+                    move = mem.agent.band_fallback(obs, cached[0], cached[1], band=cached[0].__dict__,
+                        plan=cached[2].model_dump(), band_tick=cached[3], tick_decay=True,
+                        fallback=f"decision timeout after {timeout:.2f} s")
+                else:
+                    move = mem.agent.final(mem.agent.safe_move(obs, f"timeout after {timeout:.2f} s"), obs)
             except Exception as e:                # never let one duel's bug stop the loop
                 self.log.write("error", where="respond", duel=mem.snap.id, error=repr(e))
                 move = mem.agent.final(mem.agent.safe_move(obs, f"error: {e!r}"), obs)
-            if move.action != "accept" and (why := self.closing(mem)):   # things moved while the models thought
-                move = mem.agent.final(mem.agent.close(obs, why), obs)
+            if self.tick_decay and self.tick != obs.tick:
+                mem.force = True
+                return                             # a stale decision can't write in a new tick
+            fresh = self.observe(mem)
+            if move.action != "accept" and (why := self.closing(mem)):
+                move = mem.agent.final(mem.agent.close(fresh, why), fresh)
+                sig = signature(mem.snap)
+            elif self.tick_decay and signature(mem.snap) != sig:
+                mem.force = True
+                return
         took = time.perf_counter() - start
         cost = sum(c["cost_usd"] for c in move.meta.get("calls", []))
         self.spent_usd += cost
@@ -441,10 +524,14 @@ class DuelRunner:
         result: Any = "dry-run"
         if not self.dry_run:
             try:
-                if move.action == "accept":
-                    result = await self.call(self.b.duel_accept, did)
-                else:
-                    result = await self.call(self.b.duel_say, did, move.text, move.price, move.days)
+                mem.sending = True
+                try:
+                    if move.action == "accept":
+                        result = await self.call(self.b.duel_accept, did)
+                    else:
+                        result = await self.call(self.b.duel_say, did, move.text, move.price, move.days)
+                finally:
+                    mem.sending = False
             except BazaarError as e:
                 self.log.write("send_error", duel=did, tick=self.tick, code=e.code, message=e.message,
                                extra=e.extra, move=move.__dict__)
@@ -456,7 +543,7 @@ class DuelRunner:
                     return
                 if e.code == "missing_days" and "days" not in v.issues:
                     v.issues.append("days")
-                    mem.agent = DuelAgent(v, self.strategist, self.negotiator)
+                    mem.agent = self.new_agent(v)
                     mem.force = True
                 say(f"duel {did}: refused: {e.code}: {e.message}")
                 return
@@ -508,13 +595,18 @@ class DuelRunner:
         me = await self.call(self.b.me)
         self.team = {str(me.get("id")), str(me.get("name"))}
         say(f"{me.get('name')} ({me.get('id')}): {'DRY RUN, ' if self.dry_run else ''}strategist "
-            f"{self.strategist.label}, negotiator {self.negotiator.label}; log {self.log.path}")
+            f"{self.strategist.label}, negotiator {self.negotiator.label}; "
+            f"decay {'tick' if self.tick_decay else 'exchange'}, decision ceiling {self.decision_timeout_s}s; "
+            f"log {self.log.path}")
         await self.refresh_session()
         await self.sweep()
         last_schedule = time.monotonic()
         while True:
             try:
+                clock_started = time.monotonic()
                 clock = await self.call(self.b.clock)
+                if clock.get("next_tick_in") is not None:
+                    self.tick_deadline = clock_started + float(clock["next_tick_in"])
                 if clock.get("tick") != self.tick:
                     self.tick = clock.get("tick")
                     self.tick_seconds = float(clock.get("tick_seconds") or self.tick_seconds)
@@ -549,6 +641,7 @@ class DuelRunner:
                 keys.add(mem.snap.id)
                 polled.append(mem)
             for mem in polled:
+                await self.interrupt_for_offer(mem)
                 if self.due(mem):
                     mem.task = asyncio.create_task(self._decide(mem))
             if gone := [k for k in self.duels if k not in keys and self.duels[k].task is None]:
