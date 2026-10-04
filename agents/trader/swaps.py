@@ -129,8 +129,8 @@ def pick_venue(to: str, venues: dict, top: set) -> str | None:
     counterparty owns the partner venue (it can't trade on its own stall)."""
     for v in PARTNERS:
         x = venues.get(v) or {}
-        if x.get("status") == "open" and x.get("owner") and x["owner"] not in top and x["owner"] != to \
-                and v not in policy.NEVER_VENUES:
+        if x.get("status") == "open" and x.get("owner") and (x["owner"] not in top or v in policy.venue_allow()) \
+                and x["owner"] != to and v not in policy.NEVER_VENUES:
             return v
     if any((venues.get(v) or {}).get("owner") == to for v in PARTNERS) and (venues.get(HOUSE) or {}).get("status") \
             in (None, "open"):

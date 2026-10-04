@@ -542,3 +542,12 @@ def test_the_book_never_posts_on_v07_or_a_rival_s_venue():
     assert bk.venue_for({"venue": "v07"}, venues, set()) == bk.HOUSE
     assert bk.venue_for({"venue": "v18"}, venues, {"t18"}) == bk.HOUSE
     assert bk.venue_for({"venue": "v15"}, venues, {"t18"}) == "v15"
+
+
+def test_the_book_may_post_on_a_pact_venue_only_with_the_allow_file(tmp_path, monkeypatch):
+    monkeypatch.setattr(bk.policy, "VENUE_ALLOW", tmp_path / "venue_allow.json")
+    venues = {"v24": {"owner": "t13", "status": "open"}}
+    assert bk.venue_for({"venue": "v24"}, venues, {"t13"}) == bk.HOUSE
+    (tmp_path / "venue_allow.json").write_text('{"venues": ["v24"]}')
+    assert bk.venue_for({"venue": "v24"}, venues, {"t13"}) == "v24"
+    assert bk.venue_for({"venue": "v24", "to": "t13"}, venues, {"t13"}) == bk.HOUSE   # never with t13 there

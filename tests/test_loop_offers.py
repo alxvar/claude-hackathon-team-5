@@ -670,3 +670,13 @@ def test_exclude_never_buys_or_swaps_for_a_matching_card():
     assert run(b, "--exclude", "cha-*,MAL-*") is None and b.accepted == [] and b.value_calls == []
     args = loop.parse_args(["--exclude", "cha-*, MAL-*"])
     assert args.exclude == ["CHA-*", "MAL-*"]
+
+
+def test_a_pact_venue_opens_only_with_the_allow_file(tmp_path, monkeypatch):
+    monkeypatch.setattr(loop.policy, "VENUE_ALLOW", tmp_path / "venue_allow.json")
+    b = FakeBazaar(boards={"v03": [ask(40, "MAL-08", 1, venue="v03")]})      # t13's venue: blocked by default
+    assert run(b) is None and "v03" not in b.board_calls
+    (tmp_path / "venue_allow.json").write_text('{"venues": ["v03"]}')
+    b = FakeBazaar(boards={"v03": [ask(41, "MAL-08", 1, venue="v03")]})
+    best = run(b)
+    assert "v03" in b.board_calls and best["owner"] == "t13" and b.accepted == [(41, None)]

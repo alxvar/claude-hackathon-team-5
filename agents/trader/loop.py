@@ -419,12 +419,16 @@ def evaluate(b, o, me, held, st, args):
         book = sum(RARITY_BOOK.get((held[r][0] or {}).get("rarity"), 0) for r in refs)
         pages = any(1 <= int(r.split("-")[1]) <= 10 for r in refs if r.split("-")[-1].isdigit())
         why, c["bidder"] = feeding_skip(b, o, me, st, price, book, page_cards=pages)
+        if not why and venue in policy.venue_allow() and c["bidder"] == owner:
+            why = f"{owner} on its own venue {venue}"     # nobody trades on its own market
         if why:
             c.update(skip=why, ok=False)
     elif c["ok"] and kind == "buy":           # policy (16:20): never the top 5 nor a rival, their gain unknown
         team = bidder(b, o, st)
         ok, why = policy.check(team, teams=[{"team": t, "score": s} for t, s in st.scores.items()])
         c["bidder"] = team
+        if venue in policy.venue_allow() and team == owner:
+            c.update(skip=f"{owner} on its own venue {venue}", ok=False)   # nobody trades on its own market
         if not ok:
             c.update(skip=why, ok=False)
     return c

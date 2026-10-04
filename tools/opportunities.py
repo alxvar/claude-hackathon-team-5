@@ -520,7 +520,8 @@ def venue_for(o, venues, top):
     if o.get("completes") or (o["side"] == "SELL" and not o.get("other_lacks")):
         return house
     v = venues.get(DEFAULT_VENUE)
-    if DEFAULT_VENUE in (HOUSE, *policy.NEVER_VENUES) or not v or v.get("status") != "open" or v.get("owner") in top \
+    if DEFAULT_VENUE in (HOUSE, *policy.NEVER_VENUES) or not v or v.get("status") != "open" \
+            or (v.get("owner") in top and DEFAULT_VENUE not in policy.venue_allow()) \
             or v.get("owner") == o.get("team"):         # a rival's venue, or the counterparty's own stall
         return house
     return DEFAULT_VENUE, v.get("name") or DEFAULT_VENUE
