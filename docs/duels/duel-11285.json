@@ -1633,5 +1633,91 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1947,
+ "done": {
+  "duel": 11285,
+  "session": 4,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Escaparate de Serrano",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 1.25,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 106,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Luna",
+  "deadline_tick": 1947,
+  "decay_per_round": 0.1,
+  "rounds": 2,
+  "your_offer": {
+   "id": 13669,
+   "price": 106,
+   "tick": 1946,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 13657,
+   "price": 134,
+   "tick": 1945,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1935,
+    "from": "you",
+    "text": "I'm looking to acquire Escaparate de Serrano at 66 P with delivery on day 0.",
+    "price": 66,
+    "days": 0
+   },
+   {
+    "tick": 1935,
+    "from": "Rival Luna",
+    "text": "97 with delivery on day 10. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+    "price": 97,
+    "days": 10
+   },
+   {
+    "tick": 1936,
+    "from": "you",
+    "text": "Your offer is too high. I'll propose 58 P with delivery on day 10.",
+    "price": 58,
+    "days": 10
+   },
+   {
+    "tick": 1944,
+    "from": "you",
+    "text": "I can do 73 P, delivery on day 10.",
+    "price": 73,
+    "days": 10
+   },
+   {
+    "tick": 1945,
+    "from": "you",
+    "text": "I'll meet you closer at 85 P with delivery on day 10.",
+    "price": 85,
+    "days": 10
+   },
+   {
+    "tick": 1945,
+    "from": "Rival Luna",
+    "text": "134 with delivery on day 0. Fast deal before the pie shrinks?",
+    "price": 134,
+    "days": 0
+   },
+   {
+    "tick": 1946,
+    "from": "you",
+    "text": "I can't go that high. I offer 106 P with delivery on day 0.",
+    "price": 106,
+    "days": 0
+   }
+  ],
+  "result": 0.0,
+  "price": 106,
+  "days": 0
+ }
 }

@@ -303,6 +303,82 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1947,
+   "raw": {
+    "duel": 11372,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.42,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 30,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 1949,
+    "decay_per_round": 0.1,
+    "rounds": 0,
+    "your_offer": {
+     "id": 13686,
+     "price": 3,
+     "tick": 1947,
+     "days": 10
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1937,
+      "from": "you",
+      "text": "I'd like to open at 43 primas for delivery on day 10.",
+      "price": 43,
+      "days": 10
+     },
+     {
+      "tick": 1943,
+      "from": "you",
+      "text": "I can do 35 P, delivery on day 10.",
+      "price": 35,
+      "days": 10
+     },
+     {
+      "tick": 1944,
+      "from": "you",
+      "text": "I can do 27 P, delivery on day 10.",
+      "price": 27,
+      "days": 10
+     },
+     {
+      "tick": 1945,
+      "from": "you",
+      "text": "I can do 19 P, delivery on day 10.",
+      "price": 19,
+      "days": 10
+     },
+     {
+      "tick": 1946,
+      "from": "you",
+      "text": "I can do 11 P, delivery on day 10.",
+      "price": 11,
+      "days": 10
+     },
+     {
+      "tick": 1947,
+      "from": "you",
+      "text": "I can do 3 P, delivery on day 10.",
+      "price": 3,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -898,6 +974,149 @@
     "LATE_SWITCH_LEFT": 0,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1947,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11372,
+     "role": "seller",
+     "limit": 30,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.42,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 43 primas for delivery on day 10.",
+      "offer": {
+       "price": 43,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1937,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 35 P, delivery on day 10.",
+      "offer": {
+       "price": 35,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1943,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 27 P, delivery on day 10.",
+      "offer": {
+       "price": 27,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1944,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 19 P, delivery on day 10.",
+      "offer": {
+       "price": 19,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1945,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 11 P, delivery on day 10.",
+      "offer": {
+       "price": 11,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1946,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1947,
+    "ticks_left": 2,
+    "rounds": 0,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 3 P, delivery on day 10.",
+    "price": 3,
+    "days": 10,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -1026,6 +1245,103 @@
      "days": 10
     }
    }
+  },
+  {
+   "tick": 1947,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 3 P, delivery on day 10.",
+    "price": 3,
+    "days": 10,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 11372,
+    "offer": {
+     "id": 13686,
+     "price": 3,
+     "tick": 1947,
+     "days": 10
+    }
+   }
   }
- ]
+ ],
+ "last_seen_tick": 1949,
+ "done": {
+  "duel": 11372,
+  "session": 4,
+  "status": "no_deal",
+  "role": "seller",
+  "item": "Museo Sorolla",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 3.42,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 30,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Oro",
+  "deadline_tick": 1949,
+  "decay_per_round": 0.1,
+  "rounds": 0,
+  "your_offer": {
+   "id": 13686,
+   "price": 3,
+   "tick": 1947,
+   "days": 10
+  },
+  "rival_offer": null,
+  "messages": [
+   {
+    "tick": 1937,
+    "from": "you",
+    "text": "I'd like to open at 43 primas for delivery on day 10.",
+    "price": 43,
+    "days": 10
+   },
+   {
+    "tick": 1943,
+    "from": "you",
+    "text": "I can do 35 P, delivery on day 10.",
+    "price": 35,
+    "days": 10
+   },
+   {
+    "tick": 1944,
+    "from": "you",
+    "text": "I can do 27 P, delivery on day 10.",
+    "price": 27,
+    "days": 10
+   },
+   {
+    "tick": 1945,
+    "from": "you",
+    "text": "I can do 19 P, delivery on day 10.",
+    "price": 19,
+    "days": 10
+   },
+   {
+    "tick": 1946,
+    "from": "you",
+    "text": "I can do 11 P, delivery on day 10.",
+    "price": 11,
+    "days": 10
+   },
+   {
+    "tick": 1947,
+    "from": "you",
+    "text": "I can do 3 P, delivery on day 10.",
+    "price": 3,
+    "days": 10
+   }
+  ],
+  "result": 0.0,
+  "price": null,
+  "days": null
+ }
 }
