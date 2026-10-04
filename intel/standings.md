@@ -7,10 +7,10 @@ _Final Saturday snapshot 1440 (Sat 23:00, doors closed; clock paused at game 13.
 plus judges on 40. Board now = (0.5·Fri + Sat)/1.5 for each part [V fit], so a team's round score = Negotiating + Market
 for that day: **Fri** = board at tick 160 (frozen; market was 0 for everyone), **Sat** = 1.5 × board − 0.5 × Fri.
 
-**Headline:** board #3 at 30.49. On 0.5·Fri + Sat: t10 56.37 · t18 46.89 · **us 45.73** · t12 45.63 · t03 44.51 · t06 43.14.
-t10 is 10.6 ahead (its v07 value created at the cap is 7.5 of it); **#2 is a three-way race with t18 (+1.16) and t12 (−0.10)**.
-Our mm_points flipped −5.2 → +2.2 at the close (score-model §3h): ≥ +1.05 (up to +3.3) Saturday points if it lands [L], and
-Saturday's round may continue Sunday morning (score-model §4.7).
+**SATURDAY FINAL (Sun 09:20, first round-3 snapshot 1462) [V]:** game total (0.5·Fri + Sat): **t10 56.38 · t12 52.66 · us 48.46 · t18 46.91 ·
+t03 44.52 · t06 42.24**. At the close our mm flip landed (+2.72) and **t12 jumped +7.03** (market 10.88 → 17.91; field-wide recompute).
+**Sunday margins:** beat t12 by > 4.20 for #2 (t10 by > 7.92 for #1); we lead t18 by 1.55 and t03 by 3.94 (#3 to defend).
+Odds [L]: P(top 2) ≈ 5-9%, P(top 3) ≈ 28-38% (score-model §3i). The tables below are the pre-close snapshot 1440 (history).
 
 ## 1. Round scores (snapshot 1440, sorted by 0.5·Fri + Sat)
 

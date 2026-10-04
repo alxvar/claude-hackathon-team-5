@@ -9,6 +9,13 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sun 09:20 · first round-3 snapshot 1462 (Saturday final)
+- **t12 +7.03 at the close** with no trade of its own: its Saturday market went 10.88 → 17.91, i.e. its v02 real trades went from 0 to
+  ≈ +6.7 when the close recomputed values (the same recompute flipped our mm −5.2 → +2.2: us +2.72). t12 is now #2 on the game
+  total (52.66). Watch v02 on Sunday: it may carry the same VC logic.
+- t06 −0.90, t14 −0.34, t17 −0.21: their market parts fell at the close (the top-3 mean rose with t12).
+- Board drops at the open (t10 −1.94, t18 −1.61, t03 −1.53) are the phase-0.08 blend of round 3, not losses.
+
 ### Sat 23:00 · final snapshot 1440 (doors closed; clock paused at game 13.367, round 2 still active)
 - Board: t10 37.58 · t18 31.26 · **us 30.49 (#3)** · t12 30.42 · t03 29.67 · t06 28.76 · t14 27.67. Game total (0.5·Fri + Sat):
   t10 56.37 · t18 46.89 · us 45.73 · t12 45.63 · t03 44.51 · t06 43.14 (intel/standings.md).
