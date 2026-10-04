@@ -9,6 +9,12 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sun 10:23 · tick 1715
+- **t12 closed LAV via a TEAM trade: LAV-07 from t13 at 40 on El Rastro (tick 1712) → +50 closer** (≈ +6-10 Sunday, pre-duel scale).
+- **t10 closed SAL via Chato** (SAL-08 at 30, tick 1715): a dealer close, no bonus.
+- **t13 is the closer broker:** CHA-01 → t18 (72), SAL-10 → t03 (108), LAV-07 → t12 (40). It sells page closers to whoever asks.
+- t03 bought MAL-07 from t15 at 9 (tick 1647): t15's spare MAL-07 (once our MAL closer source) is gone.
+
 ### Sun 09:58 · snapshot 1602 (phase 0.28)
 - Sunday so far (±1): t18 30.0 · t13 24.1 · **us 20.6 (CHA closer +50 via t02 at 72)** · t03 20.2 · t08 18.1 · t12 16.6 · t06 13.9 · t10 10.2.
 - **t03** sold RET-09 to Pilar at 73 and RET-10 at 67 (L3 ladder slots; it doesn't hold the RET page). It still lacks SAL-03 for SAL 10/10.
