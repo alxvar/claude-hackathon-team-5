@@ -11,6 +11,7 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ### Sun 12:41 · snapshot 2242 (phase 1.0: board × 2.5 = the final basis)
 - **t10 sold CHA-11 (epic) to t06 at 184 on OUR v10** (tick 2228): v10 VC → 114.4, so our real trades are capped (7.5). t10's negotiating +0.77 on it.
+  It was a dealer → team flip, t13's pattern: bought from the Pícaros at 149 (2225), sold 3 ticks later. v10's 0% fee drew it onto our venue.
 - Final basis: **us 88.5** · t10 85.5 · t12 85.3 · t18 81.5 · t03 80.7 · t04 77.
 - Earlier leak (12:22): our RET-03 sale settled on t10's v07 and gave t10 real-trades VC (market 12.00 → 12.48).
 
