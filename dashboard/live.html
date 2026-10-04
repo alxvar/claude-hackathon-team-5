@@ -103,7 +103,7 @@ main { padding: 16px 20px 48px; max-width: 1500px; margin: 0 auto; display: grid
 
 /* deck */
 .set { display: grid; grid-template-columns: 170px 1fr; gap: 4px 12px; padding: 8px 0; border-top: 1px solid var(--grid); align-items: center; }
-.set:first-child { border-top: 0; }
+.set:first-child, .deckgrid .set:nth-child(2) { border-top: 0; }
 .sl b { font-size: 13px; }
 .sl .sm { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-muted); margin-top: 2px; }
 .sl .sm .meter { flex: 1; margin-top: 0; height: 6px; }
@@ -122,6 +122,36 @@ main { padding: 16px 20px 48px; max-width: 1500px; margin: 0 auto; display: grid
 .legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 11.5px; color: var(--text-muted); margin-top: 8px; }
 .legend i { display: inline-block; width: 14px; height: 5px; border-radius: 2px; vertical-align: middle; margin-right: 4px; }
 @media (max-width: 560px) { .set { grid-template-columns: 1fr; } .missing { grid-column: 1; } }
+
+/* leaderboard */
+.lbwrap { overflow-x: auto; }
+.lb { width: 100%; border-collapse: collapse; font-size: 13px; }
+.lb th { text-align: left; color: var(--text-muted); font-size: 11px; font-weight: 500; letter-spacing: .03em; padding: 0 6px 6px; white-space: nowrap; }
+.lb td { padding: 4px 6px; border-top: 1px solid var(--grid); vertical-align: middle; white-space: nowrap; }
+.lb th.n, .lb td.n { text-align: right; font-variant-numeric: tabular-nums; }
+.lb tbody tr { cursor: pointer; }
+.lb tbody tr:hover td { background: var(--surface-2); }
+.lb tr.us td { background: rgba(57,135,229,0.13); }
+.lb tr.us td:first-child { box-shadow: inset 3px 0 0 var(--series-1); }
+.lb .rk { font-weight: 700; font-size: 15px; width: 44px; }
+.lb .mv { font-size: 10.5px; font-weight: 600; margin-left: 3px; }
+.lb .tm { font-weight: 600; }
+.lb .lv { display: inline-flex; align-items: center; gap: 2px; margin-left: 8px; padding: 0 6px; border: 1px solid var(--border); border-radius: 9px;
+          font-size: 10.5px; font-weight: 700; color: var(--text-secondary); line-height: 16px; }
+.lb .lv i { width: 4px; height: 4px; border-radius: 50%; background: var(--text-muted); display: inline-block; }
+.lb .lv i.on { background: var(--warning); }
+.lb .bd { font-size: 11px; color: var(--text-muted); margin-left: 4px; }
+.lb .sc { width: 34%; min-width: 150px; }
+.lb .scw { display: flex; align-items: center; gap: 8px; }
+.lb .sc b { font-size: 15px; min-width: 34px; }
+.lb .rk.first { color: var(--warning); }
+.lb .sbar { flex: 1; display: flex; gap: 2px; height: 6px; border-radius: 3px; background: var(--surface-2); overflow: hidden; }
+.lb .sbar i { display: block; height: 100%; }
+.lb .rr { max-width: 170px; overflow: hidden; text-overflow: ellipsis; color: var(--text-secondary); }
+.lb .rr b { color: var(--warning); font-weight: 700; margin-right: 4px; }
+.sub-note { margin: 8px 0 0; font-size: 11.5px; color: var(--text-muted); }
+.deckgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(560px, 1fr)); column-gap: 28px; }
+@media (max-width: 700px) { .lb .hide-s { display: none; } .deckgrid { grid-template-columns: 1fr; } }
 
 /* race card + explorer */
 .xbtn { margin-left: auto; background: none; border: 1px solid var(--border); color: var(--text-secondary); border-radius: 6px;
@@ -202,27 +232,13 @@ main > * { min-width: 0; }
 <main>
   <section class="kpis" id="kpis"></section>
 
-  <section class="card">
-    <div class="head">
-      <h2>Battles</h2>
-      <span class="pill" id="livePill"></span>
-      <div class="seg" id="seg"><button data-f="all">All</button><button data-f="duel">Duels</button><button data-f="dealer">Dealers</button></div>
-    </div>
-    <ul class="alerts" id="alerts"></ul>
-    <div class="bgrid" id="battles"></div>
-  </section>
-
   <div class="row2">
     <section class="card">
-      <div class="head"><h2>My deck</h2><span class="meta" id="deckSum"></span></div>
-      <div id="deck"></div>
-      <div class="legend">
-        <span><i style="background:var(--r1)"></i>common</span><span><i style="background:var(--r2)"></i>uncommon</span>
-        <span><i style="background:var(--r3)"></i>rare</span><span><i style="background:var(--r4)"></i>epic</span>
-        <span><i style="background:var(--r5)"></i>legendary</span>
-        <span>dashed = missing</span><span><b style="background:var(--series-2);color:#fff;border-radius:4px;padding:0 3px;font-size:10px">×2</b> duplicate</span>
-        <span>after the gap: epic/legendary, outside the page</span>
-      </div>
+      <div class="head"><h2>Leaderboard</h2>
+        <span class="keys" style="margin:0"><span><i style="background:var(--series-1)"></i>Negotiating /30</span><span><i style="background:var(--series-3)"></i>Market-making /30</span></span>
+        <span class="pill" id="lbNext" style="margin-left:auto"></span></div>
+      <div class="lbwrap"><table class="lb" id="lbT"></table></div>
+      <p class="sub-note">Click a team to see its race and why it jumped. ▲▼ next to the rank and Δ: since the previous snapshot. “vs us” = its score minus ours.</p>
     </section>
     <div class="col">
       <section class="card">
@@ -236,6 +252,29 @@ main > * { min-width: 0; }
       </section>
     </div>
   </div>
+
+  <section class="card">
+    <div class="head">
+      <h2>Battles</h2>
+      <span class="pill" id="livePill"></span>
+      <div class="seg" id="seg"><button data-f="all">All</button><button data-f="duel">Duels</button><button data-f="dealer">Dealers</button></div>
+    </div>
+    <ul class="alerts" id="alerts"></ul>
+    <div class="bgrid" id="battles"></div>
+  </section>
+
+
+    <section class="card">
+      <div class="head"><h2>My deck</h2><span class="meta" id="deckSum"></span></div>
+      <div id="deck" class="deckgrid"></div>
+      <div class="legend">
+        <span><i style="background:var(--r1)"></i>common</span><span><i style="background:var(--r2)"></i>uncommon</span>
+        <span><i style="background:var(--r3)"></i>rare</span><span><i style="background:var(--r4)"></i>epic</span>
+        <span><i style="background:var(--r5)"></i>legendary</span>
+        <span>dashed = missing</span><span><b style="background:var(--series-2);color:#fff;border-radius:4px;padding:0 3px;font-size:10px">×2</b> duplicate</span>
+        <span>after the gap: epic/legendary, outside the page</span>
+      </div>
+    </section>
 </main>
 
 <dialog id="focus">
@@ -452,6 +491,48 @@ function kpis(d) {
   ];
   $("#kpis").innerHTML = T.map(([k, v, dd, viz]) => `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${dd}</div>${viz || ""}</div>`).join("");
 }
+// ------------------------------------------------------------------ leaderboard (the organisers' table, plus moves and the gap to us)
+const STARS = { common: 1, uncommon: 2, rare: 3, epic: 4, legendary: 5 };
+let LB_NEXT = null;   // when the next standings land (ms, local clock)
+function leaderboardTable(d) {
+  const lb = d.leaderboard || {}, rows = lb.teams || [], c = d.clock || {};
+  if (!rows.length) { $("#lbT").innerHTML = `<tr><td class="muted">Waiting for the leaderboard…</td></tr>`; return; }
+  const w = lb.weights || {}, wn = w.negotiating ?? 30, wm = w.market ?? 30, max = wn + wm;
+  const us = rows.find(r => r.us), maxLv = Math.max(5, (d.dealers || []).length);
+  if (lb.next_refresh_tick != null && c.tick != null) {
+    const ticks = lb.next_refresh_tick - c.tick;
+    LB_NEXT = Date.now() + Math.max(0, (ticks - 1) * (c.tick_seconds || 15) + (c.next_tick_in || 0)) * 1000;
+  }
+  lbCountdown();
+  const arrow = (v, d2 = 0) => v ? `<span class="mv ${v > 0 ? "up" : "down"}">${v > 0 ? "▲" : "▼"}${d2 ? Math.abs(v).toFixed(d2) : Math.abs(v)}</span>` : "";
+  $("#lbT").innerHTML = `<thead><tr><th>#</th><th>Team</th><th>Score / ${max}</th><th class="n hide-s">Δ</th><th class="n hide-s">vs us</th>`
+    + `<th class="n">Album</th><th class="hide-s">Rarest card</th></tr></thead><tbody>`
+    + rows.map(r => {
+      const neg = r.negotiating ?? 0, mkt = r.market ?? 0, gap = us && !r.us && r.score != null ? r.score - us.score : null;
+      const rr = r.rarest || {}, warn = r.frozen || r.adjustments.length;
+      return `<tr class="${r.us ? "us" : ""}" data-t="${esc(r.team)}" title="${esc(r.name)}: negotiating ${fmt(neg, 2)} · market ${fmt(mkt, 2)} · ${r.deals ?? "—"} deals${r.badges.length ? " · badges: " + esc(r.badges.join(", ")) : ""}">`
+        + `<td class="rk ${r.rank === 1 ? "first" : ""}">${r.rank ?? "—"}${arrow(r.moved)}</td>`
+        + `<td><span class="tm">${esc(r.name)}${r.us ? " ★" : ""}</span>`
+        + (r.level != null ? `<span class="lv">L${r.level}${Array.from({ length: maxLv }, (_, i) => `<i class="${i < r.level ? "on" : ""}"></i>`).join("")}</span>` : "")
+        + (r.badges.length ? `<span class="bd">+${r.badges.length}</span>` : "")
+        + (warn ? ` <span class="down" title="${r.frozen ? "frozen" : ""} ${esc(JSON.stringify(r.adjustments))}">⚠</span>` : "") + `</td>`
+        + `<td class="sc"><div class="scw"><b>${fmt(r.score, 1)}</b>`
+        + `<div class="sbar"><i style="width:${100 * neg / max}%;background:var(--series-1)"></i><i style="width:${100 * mkt / max}%;background:var(--series-3)"></i></div></div></td>`
+        + `<td class="n hide-s">${r.delta != null && Math.abs(r.delta) >= 0.005 ? arrow(r.delta, 2) : `<span class="muted">0</span>`}</td>`
+        + `<td class="n hide-s">${gap == null ? `<span class="muted">—</span>` : `<span class="muted">${gap > 0 ? "+" : ""}${gap.toFixed(2)}</span>`}</td>`
+        + `<td class="n">${r.album[0] ?? "—"}/${r.album[1] ?? "—"} <span class="muted">· ${r.pages ?? 0}p</span></td>`
+        + `<td class="rr hide-s">${rr.ref ? `<b>★${STARS[rr.rarity] || "?"}</b>${esc(rr.name || rr.ref)} <span class="muted">#${rr.serial ?? "?"}/${rr.print_run ?? "?"}</span>` : `<span class="muted">—</span>`}</td></tr>`;
+    }).join("") + `</tbody>`;
+}
+function lbCountdown() {
+  const el = $("#lbNext");
+  if (!el || LB_NEXT == null) return;
+  const s = Math.round((LB_NEXT - Date.now()) / 1000);
+  el.innerHTML = s > 0 ? `next standings in <b>${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}</b>` : `<span class="dot live"></span>new standings…`;
+}
+setInterval(lbCountdown, 1000);
+$("#lbT").addEventListener("click", e => { const tr = e.target.closest("tr[data-t]"); if (tr) openRace(tr.dataset.t); });
+
 // us between the teams above and below, placed by score
 function raceTrack(d) {
   const us = d.lb_score, pts = [d.below && { s: d.below.score, us: false }, { s: us, us: true }, d.above && { s: d.above.score, us: false }].filter(Boolean);
@@ -864,7 +945,7 @@ function render() {
   const d = DATA; if (!d) return;
   if (d.fatal) { $("#clock").innerHTML = `<span class="err">server error: ${esc(d.fatal)}</span>`; return; }
   timeTable(d);
-  const parts = [["header", header], ["kpis", kpis], ["battles", battles], ["deck", deck], ["race", race], ["arenas", arenas],
+  const parts = [["header", header], ["kpis", kpis], ["leaderboard", leaderboardTable], ["battles", battles], ["deck", deck], ["race", race], ["arenas", arenas],
                  ["explorer", () => renderRace(false)]];
   for (const [name, fn] of parts) {
     try { fn(d); } catch (e) { console.error(name, e); }

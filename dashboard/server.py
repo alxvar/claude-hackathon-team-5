@@ -1503,7 +1503,10 @@ class Analysis:
                         "per_duel": round(res / n, 1) if n else None,
                         "per_deal": round(res / len(deals), 1) if deals else None,
                         "dp": dp, "dp_per_duel": round(dp / n, 3) if dp is not None and n else None,
-                        "rounds": round(statistics.mean(x["rounds"] or 0 for x in deals), 1) if deals else None})
+                        "rounds": round(statistics.mean(x["rounds"] or 0 for x in deals), 1) if deals else None,
+                        # the whole field from the public duel.closed events (no team ids): its deal rate per session
+                        "field_done": sum(1 for p in self.duel_closed if p.get("session") == sid),
+                        "field_deals": sum(1 for p in self.duel_closed if p.get("session") == sid and p.get("status") == "deal")})
         return out
 
     def conversations(self, n=60):
@@ -1570,6 +1573,27 @@ class Analysis:
                 "market_start": rows[0]["market"] if rows else None, "market_now": rows[-1]["market"] if rows else None,
                 "series": [[r["tick"], r["market"]] for r in rows if r["tick"] <= start + ticks + 4][-40:],
                 "bench_efficiency": (self.me.get("score") or {}).get("bench_efficiency")}
+
+    def leaderboard(self):
+        """The public leaderboard as the organisers show it (score /60 split into negotiating and market, level,
+        album, rarest card, badges, adjustments), plus each team's move since the previous snapshot. No extra request:
+        the collector already reads /api/leaderboard every tick."""
+        lb = self.lb or {}
+        prev = self.lb_hist[-2]["teams"] if len(self.lb_hist) >= 2 else {}
+        prev_rank = {k: i + 1 for i, k in enumerate(sorted(prev, key=lambda k: -(prev[k].get("score") or 0)))}
+        rows = []
+        for t in sorted(lb.get("teams", []), key=lambda t: t.get("rank") or 99):
+            tid, before = t.get("team"), prev.get(t.get("team"), {})
+            rows.append({"team": tid, "name": t.get("name"), "rank": t.get("rank"), "us": tid == self.us,
+                         "score": t.get("score"), "negotiating": t.get("negotiating"), "market": t.get("market"),
+                         "level": t.get("level"), "album": [t.get("album_filled"), t.get("album_slots")],
+                         "pages": t.get("pages_complete"), "rarest": t.get("rarest"), "badges": t.get("badges") or [],
+                         "adjustments": t.get("adjustments") or [], "frozen": t.get("frozen"), "deals": t.get("deals"),
+                         "moved": prev_rank[tid] - t["rank"] if tid in prev_rank and t.get("rank") else None,
+                         "delta": round(t["score"] - before["score"], 2)
+                         if t.get("score") is not None and before.get("score") is not None else None})
+        return {"snapshot_tick": lb.get("snapshot_tick"), "next_refresh_tick": lb.get("next_refresh_tick"),
+                "weights": lb.get("weights"), "teams": rows}
 
     # -------------------------------------------------------------------------------------- game time → wall clock
     def time_model(self):
@@ -1988,6 +2012,7 @@ class Analysis:
                          "scores": {k: v.get("score") for k, v in h["teams"].items()}} for h in self.lb_hist],
             "timeline": timeline,
             "jumps": self.team_jumps(),
+            "leaderboard": self.leaderboard(),
             "names": self.names,
             "teams": prof,
             "insights": self.insights(prof, market),
