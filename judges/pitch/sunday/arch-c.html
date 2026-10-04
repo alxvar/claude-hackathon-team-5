@@ -34,7 +34,7 @@
   <div class="tot"><div class="p">37.26</div><div class="d">#1 · lead 3.09 · 13:20 <span class="tag v">V</span></div></div>
   <svg class="wires" viewBox="0 0 1920 1080" id="flows"></svg>
   <div id="nodes"></div>
-  <div class="note"><span><b>Scored 0:</b> RET-11 sold at 240 · the MAL page (never closed) · cash held</span><span><b>Not shown:</b> judges' 40 · the Grand Final duels</span></div>
+  <div class="note"><span><b>Scored 0:</b> RET-11 at 240 · MAL page · cash held</span><span><b>v10:</b> first 5 sellers got a bounty, paid in cards at ≤ value</span><span><b>Not shown:</b> judges' 40 · Grand Final</span></div>
   <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i style="width:100%"></i></div><div class="lvl">ARCH C</div><div class="who">Impact map</div></div>
 </div>
 <script src="icons.js"></script>
@@ -42,7 +42,7 @@
 // Final game points as of 13:20 (tick 2422), from me.jsonl + leaderboard.jsonl. Sum 37.27 vs board 37.26 (rounding).
 const K = 14, TOP = 304;
 const SRC = [
-  {id:'duelist',  t:'Duelist',        d:'code + Haiku',      c:'#f2555a', i:'sword'},
+  {id:'duelist',  t:'Duelist',        d:'LLM → code-first',      c:'#f2555a', i:'sword'},
   {id:'operator', t:'Operator', d:'+ bots: trades · dealers',    c:'#ffc547', i:'swap'},
   {id:'market',   t:'Market v10',   d:'stall + real trades',        c:'#4a8af4', i:'store'},
 ];
@@ -51,9 +51,9 @@ const MID = [
   {s:'operator', t:'4 page closes via team trades',  v:6.09, g:'neg', tag:'L'},
   {s:'operator', t:'CHA-11 epic, bought from Team 10',      v:1.48, g:'neg', tag:'V'},
   {s:'operator', t:'Dealer ladder',                  v:6.41, g:'neg', tag:'L'},
-  {s:'operator', t:'Small trades, flags, dealer losses', v:3.46, g:'neg', tag:'L'},
+  {s:'operator', t:'Friday rest, small trades, flags, losses', v:3.45, g:'neg', tag:'L'},
   {s:'market',   t:'Market Test at par (every stall)', v:9.00, g:'mm', tag:'V', par:1},
-  {s:'market',   t:'v10 real trades: full marks',    v:4.08, g:'mm', tag:'V'},
+  {s:'market',   t:'v10 real trades (gap vs stall-only)', v:4.08, g:'mm', tag:'V'},
 ];
 const COMP = [
   {id:'neg', t:'Negotiating', d:'duels · ladder · team trades', c:'#ffc547'},

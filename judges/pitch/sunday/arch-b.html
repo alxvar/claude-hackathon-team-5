@@ -54,7 +54,7 @@
     <div class="k">One real lap · Sunday</div>
     <div class="h">The "round cap" <span class="y">belief</span></div>
     <div id="rows"></div>
-    <div class="res"><p><span class="big">1 h 51</span>belief → correction, from our own data. The next trade with a gain, CHA&#8209;11: <b>+1.48 board</b> <span class="tag v">V</span></p></div>
+    <div class="res"><p><span class="big">1 h 51</span>belief → correction, from our own data. The next +50 trade, CHA&#8209;11: <b>+1.48 board</b> <span class="tag v">V</span></p></div>
   </div>
   <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i style="width:66%"></i></div><div class="lvl">ARCH B</div><div class="who">The loop</div></div>
 </div>
@@ -65,8 +65,8 @@ const cx = 700, cy = 660, r = 280;
 const st = [
   {k:'S', n:1, a:-90, t:'Sense',   d:'collector · watch · scout',          m:'data/*.jsonl · STATUS.md'},
   {k:'D', n:2, a:-18, t:'Decide',  d:'Lucas + the Chief of staff',         m:'directives.md + evidence'},
-  {k:'A', n:3, a:54,  t:'Act',     d:'Operator · Duelist · Market',        m:'one writer per job'},
-  {k:'M', n:4, a:126, t:'Measure', d:'metrics · judge · Duel Lab',         m:'me.jsonl: score per tick'},
+  {k:'A', n:3, a:54,  t:'Act',     d:'Operator · Duelist · Market',        m:'only two write to the game'},
+  {k:'M', n:4, a:126, t:'Measure', d:'metrics · judge · Duel Lab',         m:'me.jsonl: every score change'},
   {k:'L', n:5, a:198, t:'Learn',   d:'verifier · contrarian · experiments', m:'GAME.md: measured facts'},
 ];
 document.getElementById('st').innerHTML = st.map(s => {
@@ -80,10 +80,10 @@ document.getElementById('chev').innerHTML = [-54, 18, 90, 162, 234].map(a => {
 }).join('');
 const rows = [
   {k:'S', n:1, t:'10:27', p:'RET&#8209;11 sells at 240. Expected <b>+29</b> negotiating points; the score <b>doesn\'t move</b>. <span class="tag v">V</span>'},
-  {k:'D', n:2, t:'10:31', p:'Belief: <b>trade gains cap at 50 per round</b>. At 11:33 the Chief calls the MAL page closer <b>NO&#8209;GO</b>.'},
-  {k:'A', n:3, t:'11:33', p:'MAL closer stopped. The page stays at 8 of 10.'},
-  {k:'M', n:4, t:'12:17', p:'A 5 P sale moves negotiating <b>50.0 → 52.2</b>. No cap. <span class="tag v">V</span>'},
-  {k:'L', n:5, t:'12:22', p:'Fact corrected: the 50 is a <b>per-trade</b> clip; RET&#8209;11 was simply worth less at sale. Buyers back <b>ON</b>.'},
+  {k:'D', n:2, t:'10:31', p:'Belief, from the Analyst: <b>trade gains cap at 50 per round</b>. The Chief calls the MAL page closer <b>NO&#8209;GO</b>.'},
+  {k:'A', n:3, t:'11:33', p:'MAL closer stopped (logged 11:48).'},
+  {k:'M', n:4, t:'12:17', p:'A 5 P sale moves neg_points <b>50.0 → 52.2</b>. No cap. <span class="tag v">V</span>'},
+  {k:'L', n:5, t:'12:22', p:'Fact corrected: the 50 is a <b>per-trade</b> clip. RET&#8209;11 scored 0 because its value had risen to ≈ 227 <span class="tag l">L</span>. Buyers back <b>ON</b>.'},
 ];
 document.getElementById('rows').innerHTML = rows.map(w => `<div class="row" style="--c:${C[w.k]}"><div class="b">${w.n}</div><time>${w.t}</time><p>${w.p}</p></div>`).join('');
 </script>
