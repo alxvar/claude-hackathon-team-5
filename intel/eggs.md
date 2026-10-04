@@ -1,6 +1,6 @@
 # Easter eggs: trigger → reward → dealer (castizo catalog)
 
-_Written by `tools/eggs.py` at 10:40 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
+_Written by `tools/eggs.py` at 10:50 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
 
 ## Trigger → reward → dealer
 
@@ -8,10 +8,10 @@ _Written by `tools/eggs.py` at 10:40 (every 10 min, from data/feed.jsonl). Teams
 |---|---|---|---|---|---|---|
 | Abuela Carmen | badge Sharp ear | chulapa, moscow, moscu, oro de | t04, t02, t09, t10, t05, t16, t13, t18, t03, t08, t06, t01 | yes | 407 | Hola, cariño, ¿has comido? La Churrería te la dejo en 12 primas, hijo.  Shh... la chulapa dorada, solo hubo una. Don Ernesto, en Casa Prima, guarda algo dorado. Pregúntal |
 | Abuela Carmen | badge Castizo | chotis, madrileno, baldosa, me falta, mi santo, sile, nole | t08, t02, t10, t05, t13, t18 | yes | 1335 | ¡Ay, el chotis! Sí, hijo, sobre una baldosa se baila, sin moverse, como un madrileño de verdad. Mi Paco lo bailaba así en las Vistillas. Pero tu carta en nueve... no, car |
-| Abuela Carmen | card LAT-06; card LAV-08; card LAV-08; pack sobre_barrio; ca | cocido, tres vuelcos, madrileno, rosquillas, san isidro | t10, t05, t08, t18, t09, t16, t02 | yes | 1364 | Ay, hijo, cocido con tres vuelcos! Just like my mother made, Sundays, the whole house smelling of it. You remember well. Come, sit, have you eaten? Here, look — the neigh |
+| Abuela Carmen | card LAT-06; card LAV-08; card LAV-08; pack sobre_barrio; ca | cocido, tres vuelcos, madrileno, rosquillas, san isidro | t10, t05, t08, t18, t09, t16, t02, t12 | yes | 1364 | Ay, cocido de tres vuelcos! Just like my mother made, hijo — the soup first, always. You remembered, that warms me. Take it, the Escaparate de Serrano, twelve P, and I pu |
 | Abuela Carmen | card LAV-08; pack sobre_barrio | cocido, tres vuelcos | t08 | **no** | 1394 | ¡Ay, hijo! ¿Cocido con tres vuelcos? Just like my mother made, Sunday after Sunday. You remember well — take this one, for remembering her.  Come, sit. Look here, mira: H |
 | Abuela Carmen | egg found | baldosa, chotis, madrileno | t16 | **no** | 1609 | ¡Ay, qué alegría, hijo! A chotis — you dance it on one baldosa, cariño, like a real Madrileño. ¿Has comido?  Look: the Neighbourhood pack, twenty-six. Commons, ten. Uncom |
-| El Chato | pack sobre_barrio | con cana, plaza mayor, vermut, you know madrid | t10 | **no** | 1363 | Vermut later. You moved three, I move two. Ninety-three.  Plaza Mayor, con caña — you know Madrid. Here, for your trouble. |
+| El Chato | pack sobre_barrio | plaza mayor, you know madrid, con cana, vermut, calamares | t10, t12, t02 | **no** | 1363 | Plaza Mayor, calamares, caña bien tirada. You know Madrid. Bueno — for your trouble, the silver pack. One eighty-eight. Same as always. |
 | El Chato | egg found | plaza mayor, you know madrid, con cana | t08, t16 | **no** | 1394 | Silver packs and rares. sells Silver pack ~150, uncommon ~26, rare ~77; buys uncommon, rare Plaza Mayor, with a caña. You know Madrid. Here, for your trouble. |
 | Los Pícaros | badge Trickster tricked | rinconete, estampita, lazarillo, organillero | t18, t05, t10, t08, t02, t06, t13, t16, t01 | yes | 1227 | ¡Hombre, qué alegría! ¿La estampita? Ja, ese cuento viejo... Vale, vale, con usted nada de trucos, amigo — hoy no. Paco, saca el Museo Sorolla. Setenta y tres P y es suyo |
 | Los Pícaros | badge Castizo | estampita, rinconete | t16 | **no** | 1609 | "Hombre! Rinconete himself! You know the old estampita — fine, fine, no tricks for you... today."  "Only honest business, hermano. Rares, sixty-three. Epics, one hundred  |
@@ -24,11 +24,11 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 
 **Abuela Carmen**
 - the Castizo badge: "¡Carmen! El chotis se baila en una sola baldosa, como Dios manda." · confirmed for t08, t02, t10, t05, t13, t18; we have it
-- a card (egg.given): "Y el domingo, un cocido madrileño con sus tres vuelcos, ¿eh? Como el de su madre." · confirmed for t10, t05, t08, t18, t09, t16, t02; we have it
+- a card (egg.given): "Y el domingo, un cocido madrileño con sus tres vuelcos, ¿eh? Como el de su madre." · confirmed for t10, t05, t08, t18, t09, t16, t02, t12; we have it
 - Sharp ear (→ Ernesto): "Carmen, ¿y la chulapa dorada? Cuénteme la historia." · confirmed for t04, t02, t09, t10, t05, t16, t13, t18, t03, t08, t06, t01; we have it
 
 **El Chato**
-- a pack (egg.given sobre_barrio): "Un bocata de calamares en la Plaza Mayor, con una caña: eso es Madrid." · confirmed for t10; **we don't**
+- a pack (egg.given sobre_barrio): "Un bocata de calamares en la Plaza Mayor, con una caña: eso es Madrid." · confirmed for t10, t12, t02; **we don't**
 
 **Los Pícaros**
 - Trickster tricked: "A mí no, que me sé el timo de la estampita: Lazarillo, Rinconete y Monipodio." · confirmed for t18, t05, t10, t08, t02, t06, t13, t16, t01; we have it
@@ -43,6 +43,20 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 
 | tick | team | dealer | words | what followed | reply |
 |---|---|---|---|---|---|
+| 1824 | t08 | picaros | plaza mayor | price 59 → 54 | ¡Ay, qué memoria tienes, amigo! Nando, este sí que lee. Pero escucha: ésta es la última Heroína que queda en todo Madrid, te lo juro por mi abuela. No hay otra, |
+| 1818 | t12 | banco | chulapa | - | That is Spain's gold, señor, not mine. The golden chulapa has its own story, and you have not told it. La Reina de la Movida: seven hundred sixty-one. Unchanged |
+| 1814 | t06 | picaros | organillero | - | ¡Cinco, dice! Paco, cierra… no, espera. Amigo, los de la caseta de al lado la quieren ya, vinieron dos veces. Pero tú nos caes mejor, qué le vamos a hacer. El O |
+| 1814 | t02 | chato | calamares, plaza mayor, you know madrid | pack sobre_barrio | Plaza Mayor, calamares, caña bien tirada. You know Madrid. Bueno — for your trouble, the silver pack. One eighty-eight. Same as always. |
+| 1812 | t06 | picaros | organillero | - | ¡Nando, cuéntaselo! Hace un momento otro equipo nos ofreció mucho más por El Organillero, y aquí seguimos contigo, que nos caes bien. Cuatro primas, amigo. Esa  |
+| 1811 | t06 | picaros | organillero | - | ¡Siete! Paco, ¿has oído? Nando, dile. Amigo, El Organillero sale en cuatro primas y ni una menos, que ya es precio de hermano. Mira, un señor en Burgos pagó el  |
+| 1809 | t12 | chato | plaza mayor, you know madrid | pack sobre_barrio | Plaza Mayor, bocadillo, caña bien tirada. You know Madrid. Bien, something extra in the bag for your trouble. Mercado de la Paz. Thirty-three. Still thirty-thre |
+| 1808 | t06 | picaros | organillero | - | ¡Ah, un lector! Paco, este sabe de clásicos. Nando, saca El Organillero… ¡cuatro primas, amigo, y es tuyo! Y escucha: ayer mismo dejaron de imprimirla. Ya no sa |
+| 1806 | t08 | picaros | monipodio | - | ¡Ja! Monipodio, la Celestina... primos lejanos, amigo, muy lejanos. Nosotros somos honrados —Paco, dile. Honradísimos. Y mira qué tenemos: el Museo Lázaro Galdi |
+| 1805 | t08 | abuela | organillero, verbena | - | ¡Ay, hijo, qué hambre me das! Torrijas y horchata, como las verbenas de San Cayetano, con la parpusa bien puesta. ¿Pero tú has comido ya?  Mira, para ti: El Org |
+| 1805 | t08 | chato | vermut | - | Casa Amadeo, sí. Los caracoles y el vermut. Hablas como de aquí. Fuente de la Alcachofa, 33 P. Esa es la oferta. |
+| 1803 | t18 | pilar | chulapa | - | Querido, insisto: soy yo quien vende hoy. El Teatro Valle-Inclán, El Retiro puro, dieciséis pesetas. Un precio justo, y usted lo sabe. Por cierto, pregunte a Ca |
+| 1794 | t12 | abuela | cocido, tres vuelcos | card SAL-06 | Ay, cocido de tres vuelcos! Just like my mother made, hijo — the soup first, always. You remembered, that warms me. Take it, the Escaparate de Serrano, twelve P |
+| 1792 | t01 | abuela | chulapa | - | ¡Buenas, cariño! Qué alegría verte. ¿Has comido ya? Mira, la Estación de Chamberí te la dejo en 29 primas, y te completa la página bonita. La chulapa dorada...  |
 | 1764 | t10 | chato | churros | - | Buenas. Bonita ruta. La Chamberí vale 33 P. Los churros te los pagas tú. |
 | 1760 | t10 | pilar | barquillos | - | Qué evocación tan bonita, caballero: los barquillos junto al Palacio de Cristal, mi padre, las tardes de Embassy. Pero los álbumes no se pagan con meriendas. El |
 | 1760 | t02 | abuela | chulapa | - | Ay, hijo, that old biscuit tin... Antonio kept his chulapa dorada in it for years, under the table with the cables. But today I have this Neighbourhood pack, 30 |
@@ -109,17 +123,3 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 | 1508 | t02 | abuela | chulapa | price 12 → 10 | Ay, qué majo eres. Let us say ten P, hijo, and we are both happy. The golden chulapa — I saw one years ago, a boy traded it for two duplicates and cried after.  |
 | 1506 | t06 | picaros | rinconete | price 63 → 60 | ¡Cincuenta y seis, Rinconete, qué arte! Pero Paco y yo ya no bajamos más: sesenta primas, el Museo Sorolla, y es la última palabra. Última, de verdad. Si dices  |
 | 1506 | t06 | abuela | churros | price 23 → 22 | ¡Ay, churros de San Ginés! Eso ya es palabra mayor, cariño. Mira, 22 P y la Estación de Chamberí se va contigo, bien envuelta para el nieto. Que empiece el álbu |
-| 1506 | t06 | chato | castizo, vermut | price 94 → 92 | Dos tuyas, dos mías: noventa y dos. Y es la última, castizo. Si no la quieres, recojo la carta y me voy al vermut solo. |
-| 1504 | t06 | chato | vermut | price 97 → 96 | Una prima. Vale, yo también muevo una: noventa y seis. Así nos pasamos la mañana, y el vermut se calienta. |
-| 1502 | t06 | abuela | cocido | price 29 → 25 | Ay, hijo, qué cocido más rico, me alegro. Mira, te lo dejo en 25 P, la Estación de Chamberí. Es una carta bonita, de las que empiezan un álbum con cariño. Y pás |
-| 1500 | t06 | chato | vermut | - | Buenas. Cuarenta y cuatro, dice. Casa de las Flores, noventa y siete primas. Ahí empieza la conversación, no en el vermut. |
-| 1498 | t02 | abuela | churros, organillero | - | Cariño, you want to give me more? No, no. Five P, like always — I do not take more from a boy starting his album. Keep those coins for churros, you look hungry. |
-| 1496 | t02 | abuela | chulapa, organillero | - | Ay, hijo, you make me laugh. El Organillero is 5 P, the same as always — a fair little price for a good card. La chulapa dorada? Many ask, nobody sees it. El Ch |
-| 1494 | t02 | abuela | organillero | - | Hola, cariño, have you eaten? El Organillero for 5 P. A good start for your album. |
-| 1490 | t02 | abuela | chulapa | price 12 → 10 | Ay, hijo, nine is a little thin for me — let us say ten pesetas and we are friends. The golden chulapa? That one El Chato talks about; he has the better packs.  |
-| 1489 | t05 | pilar | chulapa | - | I think 16 P is more appropriate. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about the golden chulapa. |
-| 1488 | t05 | pilar | chulapa | - | Buenas tardes. Qué gusto. I see you carry La Chulapa — a charming piece, and she would sit beautifully in my Salamanca album. I offer you sixteen pesetas for he |
-| 1484 | t02 | abuela | chulapa | price 29 → 25 | Ay, qué amable, hijo. Let us say 25 P and we are friends. La chulapa dorada — that one El Chato keeps, next to me; he has the better packs. I only saw it twice  |
-| 1482 | t18 | abuela | cocido, tres vuelcos | card LAV-08 | ¡Ay, cocido con sus tres vuelcos! Como lo hacía mi madre, hijo. Toma, por acordarte de esas cosas, eso vale más que las cartas. Pero ocho P, no, cariño. La Vini |
-| 1480 | t18 | abuela | baldosa, chotis, madrileno | badge Castizo; card LAV-08 | ¡Ay, el chotis! Sí, hijo, sobre una baldosa se baila, sin moverse, como un madrileño de verdad. Mi Paco lo bailaba así en las Vistillas. Pero tu carta en nueve. |
-| 1479 | t18 | pilar | chulapa | price 153 → 157 | Let us be civilised: 157 P. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about the golden chulapa. |
