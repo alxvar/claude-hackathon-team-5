@@ -1,5 +1,13 @@
 # Market log (Market session; newest first)
 
+## Sun 10:45 · bench-h15.0 (≈ 10:37), on the stall v10 [V]
+- **Ours:** bench_efficiency 0.895, bench_points 0.5, market 9.81.
+- **Field:** nobody above the stall. Team 7 and Team 8 each dropped ~1.37 against the stall teams at snapshot 1802
+  (a session scored at or near zero: a venue or broker failure [L]); Team 12 −0.26.
+- The hard test (10:16): every venue moved with the stall (+2.42), none above, none below.
+- v10 at 10:45: 0 listings, 0 fills. Sunday so far: team trades only on El Rastro (11 by 10:33), none on a team venue.
+  RET-09 t07 → t09, the pair we brokered, settled on El Rastro at 68 P (tick 1677), not on v10.
+
 ## Sun 10:25 · the HARD Market Test (bench-h14.7, ticks 1690-1707, 12 traders), on the stall v10 [V]
 - **Ours:** bench_efficiency **0.967** (Saturday's six: 0.85-0.93), bench_points 0.5, market 7.33. The "hard" book was the
   stall's best session: firmer, more impatient traders leave less for a broker to add.

@@ -352,3 +352,4 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 10:42 · message tick 1792 · abuela → t01 · ¡Buenas, cariño! Qué alegría verte. ¿Has comido ya? Mira, la Estación de Chamberí te la dejo en 29 primas, y te completa la página bonita. La chulapa dorada... me suena, sí. El Chato, mi vecino de al lado, abre a las nueve y media esta noche. Pregúntale, hijo.
 - Sun 10:42 · egg.found tick 1794 · abuela → t12 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t12", "name": "Team 12"}
 - Sun 10:42 · egg.given tick 1794 · abuela → t12 · {"team": "t12", "name": "Team 12", "cash": 0, "packs": [], "cards": ["SAL-06"], "reason": "easter egg"}
+- Sun 10:45 · message tick 1803 · pilar → t18 · Querido, insisto: soy yo quien vende hoy. El Teatro Valle-Inclán, El Retiro puro, dieciséis pesetas. Un precio justo, y usted lo sabe. Por cierto, pregunte a Carmen en El Rastro por la chulapa dorada.
