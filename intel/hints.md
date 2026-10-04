@@ -403,3 +403,6 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 12:28 · taller.crafted tick 2216 ·  → t18 · Team 18 turned three common cards into La Chulapa (uncommon) at The Workshop
 - Sun 12:32 · message tick 2232 · banco → t07 · Buenas tardes. You have come to the wrong table for commons — I do not trade in them. Epics, legendaries, gold packs. Say what you came for, señor. I have time.
 - Sun 12:35 · message tick 2242 · pilar → t01 · Caballero, los relojes no me apuran. El sobre dorado sigue aquí, y por cortesía se lo dejo en 494 primas. Es un precio digno, y yo no regateo como en un mercadillo. Decida usted con calma.
+- Sun 12:35 · egg.found tick 2244 · chato → t01 · {"persona": "chato", "persona_name": "El Chato", "team": "t01", "name": "Team 1"}
+- Sun 12:35 · egg.given tick 2244 · chato → t01 · {"team": "t01", "name": "Team 1", "cash": 0, "packs": ["sobre_barrio"], "cards": [], "reason": "easter egg"}
+- Sun 12:35 · message tick 2244 · pilar → t17 · Caballero, my patience is long but my purse is not. Seventeen primas, as I said — the figure will not grow. Decide, por favor. And if you crave legends, ask Carmen at El Rastro about the golden chulapa.
