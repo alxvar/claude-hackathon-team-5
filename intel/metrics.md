@@ -1,4 +1,4 @@
-# Metrics (auto, 13:06, game tick 2364)
+# Metrics (auto, 13:08, game tick 2373)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -76,20 +76,20 @@ Who buys which set (team trades): t01: RET×5, MAL×4, SAL×4; t02: RET×4, MAL�
 ## Dealer prices, last 60 ticks (median per item)
 
 - abuela common (team buys): median 8 over 1
-- abuela sobre_barrio (team buys): median 22 over 3
-- abuela uncommon (team buys): median 20 over 2
+- abuela common (team sells): median 5 over 1
+- abuela sobre_barrio (team buys): median 22 over 2
+- abuela uncommon (team buys): median 20 over 1
 - chato rare (team sells): median 47 over 1
-- chato sobre_plata (team buys): median 185 over 1
-- picaros epic (team buys): median 159 over 1
-- picaros rare (team buys): median 53 over 5
+- chato uncommon (team sells): median 15 over 1
+- picaros rare (team buys): median 53 over 6
 - picaros uncommon (team sells): median 11 over 3
-- pilar rare (team sells): median 61 over 2
+- pilar rare (team sells): median 64 over 3
 - pilar uncommon (team sells): median 25 over 2
 
 ## El Rastro now: top bids by price (team, card, price)
 
 - t03: SAL-11 (epic) 170 P · offer 26817
-- t17: LAV-11 (epic) 112 P · offer 26470
+- t17: LAV-11 (epic) 112 P · offer 27000
 - t18: LAV-11 (epic) 107 P · offer 26386
 - t18: MAL-11 (epic) 76 P · offer 26403
 - t18: LAV-09 (rare) 35 P · offer 25477
@@ -104,7 +104,7 @@ Who buys which set (team trades): t01: RET×5, MAL×4, SAL×4; t02: RET×4, MAL�
 - t05 (US): LAT-07 (uncommon) 14 P · offer 26656
 - t05 (US): LAT-08 (uncommon) 14 P · offer 26658
 
-Asks by others (card, price: count): SAL-03 7: 1; SAL-04 7: 1; SAL-03 8: 1; SAL-08 20: 1; RET-01 30: 1; MAL-03 6: 1; MAL-01 6: 1; LAT-05 9: 1; LAV-04 10: 1; RET-05 9: 1; RET-03 9: 1; SAL-05 8: 1; MAL-07 23: 1; LAV-02 7: 1; MAL-05 9: 1
+Asks by others (card, price: count): SAL-03 8: 1; SAL-08 20: 1; RET-01 30: 1; MAL-03 6: 1; MAL-01 6: 1; LAV-04 10: 1; RET-05 9: 1; RET-03 9: 1; SAL-05 8: 1; MAL-07 23: 1; LAV-02 7: 1; MAL-05 9: 1; LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1
 
 ## Our duels: 0 live, 204 finished (last 10)
 
