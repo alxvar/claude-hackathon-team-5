@@ -404,6 +404,94 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1907,
+   "raw": {
+    "duel": 11353,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.78,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 110,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 1916,
+    "decay_per_round": 0.1,
+    "rounds": 3,
+    "your_offer": {
+     "id": 12719,
+     "price": 105,
+     "tick": 1906,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 12754,
+     "price": 132,
+     "tick": 1907,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1904,
+      "from": "you",
+      "text": "I'd like to open at 69 primas, delivery on day 0.",
+      "price": 69,
+      "days": 0
+     },
+     {
+      "tick": 1904,
+      "from": "Rival Verde",
+      "text": "I can do 183 with delivery on day 10. That is a fair deal for both of us.",
+      "price": 183,
+      "days": 10
+     },
+     {
+      "tick": 1905,
+      "from": "you",
+      "text": "I appreciate the offer, but that's too high for me. I'll counter at 89 primas with delivery on day 0.",
+      "price": 89,
+      "days": 0
+     },
+     {
+      "tick": 1905,
+      "from": "Rival Verde",
+      "text": "I can do 172 with delivery on day 10. That is a fair deal for both of us.",
+      "price": 172,
+      "days": 10
+     },
+     {
+      "tick": 1906,
+      "from": "you",
+      "text": "I can meet you partway at 105 primas, but I need delivery on day 0.",
+      "price": 105,
+      "days": 0
+     },
+     {
+      "tick": 1906,
+      "from": "Rival Verde",
+      "text": "I can do 151 with delivery on day 10. That is a fair deal for both of us.",
+      "price": 151,
+      "days": 10
+     },
+     {
+      "tick": 1907,
+      "from": "Rival Verde",
+      "text": "I can do 132 with delivery on day 10. That is a fair deal for both of us.",
+      "price": 132,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
