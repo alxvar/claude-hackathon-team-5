@@ -1,22 +1,22 @@
-# Metrics (auto, 11:42, game tick 2034)
+# Metrics (auto, 11:45, game tick 2043)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
-1. Team 12 34.7 (+0.3 / -0.2) deals 78
-2. Team 10 34.1 (-0.5 / +1.0) deals 70
-3. Team 18 33.0 (+0.4 / -0.1) deals 56
-4. Team 5 32.8 (+0.5 / +0.6) deals 69 ← US
-5. Team 3 30.5 (+0.0 / +1.0) deals 39
-6. Team 6 29.2 (+0.7 / +2.4) deals 86
-7. Team 4 28.9 (+2.6 / +6.4) deals 89
-8. Team 9 28.9 (+0.5 / +5.5) deals 52
-9. Team 15 27.2 (+1.3 / +5.5) deals 66
-10. Team 13 27.1 (-0.3 / -0.2) deals 102
+1. Team 12 34.5 (+0.1 / +0.1) deals 78
+2. Team 10 33.7 (-0.9 / +1.0) deals 70
+3. Team 18 33.1 (+0.5 / +0.2) deals 56
+4. Team 5 32.9 (+0.6 / +0.4) deals 69 ← US
+5. Team 3 30.5 (+0.0 / +1.2) deals 39
+6. Team 6 29.0 (+0.5 / +2.5) deals 86
+7. Team 4 28.9 (+2.6 / +6.6) deals 89
+8. Team 9 28.8 (+0.5 / +5.5) deals 52
+9. Team 15 27.5 (+1.6 / +5.9) deals 66
+10. Team 13 26.9 (-0.5 / -0.4) deals 102
 Us: #4
 
 ## Us
 
-score 32.75 · neg_points 50.0 (15 min ago 50.0) · ladder 0.342 · duel 22.23 · cash 635 · level 5 · deals 69
+score 32.86 · neg_points 50.0 (15 min ago 50.0) · ladder 0.342 · duel 23.82 · cash 635 · level 5 · deals 69
 
 ## Our holdings (card (rarity): value of each copy; a sale gives up the cheapest copy)
 
@@ -74,10 +74,8 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×2; t02: RET×4, MAL�
 ## Dealer prices, last 60 ticks (median per item)
 
 - abuela common (team sells): median 6 over 2
-- abuela uncommon (team buys): median 25 over 1
 - picaros epic (team buys): median 156 over 2
 - picaros rare (team buys): median 52 over 1
-- pilar uncommon (team sells): median 19 over 1
 
 ## El Rastro now: top bids by price (team, card, price)
 
@@ -97,20 +95,20 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×2; t02: RET×4, MAL�
 - t09: CHA-02 (common) 5 P · offer 23049
 - t09: CHA-03 (common) 5 P · offer 23050
 
-Asks by others (card, price: count): LAV-06 22: 1; LAV-02 9: 1; LAV-04 9: 1; MAL-01 10: 1; MAL-02 10: 1; MAL-03 10: 1; MAL-04 10: 1; MAL-05 10: 1; sobre_plata 130: 1; LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAT-01 9: 1
+Asks by others (card, price: count): LAV-06 22: 1; LAV-02 9: 1; LAV-04 9: 1; MAL-01 10: 1; MAL-02 10: 1; MAL-03 10: 1; MAL-04 10: 1; MAL-05 10: 1; sobre_plata 130: 1; LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAT-09 68: 1
 
-## Our duels: 3 live, 201 finished (last 10)
+## Our duels: 2 live, 203 finished (last 10)
 
-- {"duel": 11519, "session": 4, "status": "deal", "role": "seller", "item": "Cine Dor\u00e9", "issues": ["price", "days"], "your_days_weight": 5.84, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 59, "limit_meaning": "never s
-- {"duel": 11548, "session": 4, "status": "live", "role": "seller", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 2.93, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 110, "limit_meaning": "never s
-- {"duel": 11549, "session": 4, "status": "live", "role": "buyer", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 4.9, "days_meaning": "each delivery day costs you this much cash", "your_limit": 117, "limit_meaning": "never pay above y
+- {"duel": 11549, "session": 4, "status": "deal", "role": "buyer", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 4.9, "days_meaning": "each delivery day costs you this much cash", "your_limit": 117, "limit_meaning": "never pay above y
 - {"duel": 11572, "session": 4, "status": "deal", "role": "seller", "item": "San Isidro", "issues": ["price", "days"], "your_days_weight": 6.53, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 43, "limit_meaning": "never sell 
 - {"duel": 11573, "session": 4, "status": "deal", "role": "buyer", "item": "San Isidro", "issues": ["price", "days"], "your_days_weight": 1.52, "days_meaning": "each delivery day costs you this much cash", "your_limit": 187, "limit_meaning": "never pay above you
 - {"duel": 11610, "session": 4, "status": "no_deal", "role": "seller", "item": "Escaparate de Serrano", "issues": ["price", "days"], "your_days_weight": 1.06, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 81, "limit_meaning"
 - {"duel": 11612, "session": 4, "status": "deal", "role": "seller", "item": "Cine Dor\u00e9", "issues": ["price", "days"], "your_days_weight": 3.32, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 104, "limit_meaning": "never 
 - {"duel": 11613, "session": 4, "status": "deal", "role": "buyer", "item": "Cine Dor\u00e9", "issues": ["price", "days"], "your_days_weight": 6.02, "days_meaning": "each delivery day costs you this much cash", "your_limit": 132, "limit_meaning": "never pay above
 - {"duel": 11640, "session": 4, "status": "deal", "role": "seller", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 5.13, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 104, "limit_meaning": "never s
-- {"duel": 11641, "session": 4, "status": "live", "role": "buyer", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 5.93, "days_meaning": "each delivery day costs you this much cash", "your_limit": 116, "limit_meaning": "never pay above 
+- {"duel": 11641, "session": 4, "status": "deal", "role": "buyer", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 5.93, "days_meaning": "each delivery day costs you this much cash", "your_limit": 116, "limit_meaning": "never pay above 
+- {"duel": 11674, "session": 4, "status": "live", "role": "seller", "item": "Escaparate de Serrano", "issues": ["price", "days"], "your_days_weight": 1.63, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 42, "limit_meaning": "
+- {"duel": 11675, "session": 4, "status": "live", "role": "buyer", "item": "Escaparate de Serrano", "issues": ["price", "days"], "your_days_weight": 0.83, "days_meaning": "each delivery day costs you this much cash", "your_limit": 171, "limit_meaning": "never pa
 
 ## Latest announcements
 
