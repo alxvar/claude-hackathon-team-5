@@ -1,6 +1,6 @@
 # Easter eggs: trigger → reward → dealer (castizo catalog)
 
-_Written by `tools/eggs.py` at 12:10 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
+_Written by `tools/eggs.py` at 12:20 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
 
 ## Trigger → reward → dealer
 
@@ -43,6 +43,13 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 
 | tick | team | dealer | words | what followed | reply |
 |---|---|---|---|---|---|
+| 2177 | t06 | chato | chulapa | - | You're Carmen's friend. La Chulapa, 13 P. |
+| 2167 | t04 | abuela | rosquillas | - | ¡Ay, qué goloso eres, hijo! Las rosquillas te las acepto encantada, pero el Frutero... cinco P, cariño, como siempre, con todo mi cariño. Anda, dámelo y vete co |
+| 2166 | t04 | abuela | rosquillas | - | ¡Ay, las tontas y las listas, hijo, qué domingo más bonito me cuentas! Yo también me quedo con los claveles. Pero el Frutero, cinco P, cariño, como siempre. Y c |
+| 2152 | t06 | pilar | san isidro | - | Buenas tardes. El Embassy, qué recuerdos. Pero hablemos de lo serio: tengo un San Isidro que le ofrezco por 47 primas. Pieza digna de un álbum bien llevado, se  |
+| 2149 | t13 | pilar | chulapa | - | Buenos días, y bienvenido. La Chulapa, sí, conozco bien su tirada. Impecable, lo concedo. Pero veintisiete, no. Le ofrezco dieciséis primas, y las pago hoy mism |
+| 2146 | t13 | picaros | chulapa | - | "¡Amigo, amigo! Paco here — and Nando, the handsome one. Look, look, before the suitcase closes: La Chulapa, mint, barely breathed on. For you, because you have |
+| 2146 | t03 | chato | vermut | - | You moved two. I already moved. Thirteen. Still thirteen. Vermut del Domingo doesn't get cheaper while people keep buying it. |
 | 2144 | t03 | chato | vermut | - | You again. Fine. Vermut del Domingo, thirteen. Good card, better than you'll find down that row. Take it or walk. |
 | 2141 | t06 | chato | san isidro | - | You're Carmen's friend. San Isidro, 39 P. |
 | 2125 | t05 | picaros | organillero | - | ¡Hecho! Paco, the hand — Nando, the case! Five P, El Organillero is yours, amigo, and may he play sweetly in your collection. ¡Una sonrisa, como prometiste! Kee |
@@ -116,10 +123,3 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 | 1811 | t06 | picaros | organillero | - | ¡Siete! Paco, ¿has oído? Nando, dile. Amigo, El Organillero sale en cuatro primas y ni una menos, que ya es precio de hermano. Mira, un señor en Burgos pagó el  |
 | 1809 | t12 | chato | plaza mayor, you know madrid | pack sobre_barrio | Plaza Mayor, bocadillo, caña bien tirada. You know Madrid. Bien, something extra in the bag for your trouble. Mercado de la Paz. Thirty-three. Still thirty-thre |
 | 1808 | t06 | picaros | organillero | - | ¡Ah, un lector! Paco, este sabe de clásicos. Nando, saca El Organillero… ¡cuatro primas, amigo, y es tuyo! Y escucha: ayer mismo dejaron de imprimirla. Ya no sa |
-| 1806 | t08 | picaros | monipodio | - | ¡Ja! Monipodio, la Celestina... primos lejanos, amigo, muy lejanos. Nosotros somos honrados —Paco, dile. Honradísimos. Y mira qué tenemos: el Museo Lázaro Galdi |
-| 1805 | t08 | abuela | organillero, verbena | - | ¡Ay, hijo, qué hambre me das! Torrijas y horchata, como las verbenas de San Cayetano, con la parpusa bien puesta. ¿Pero tú has comido ya?  Mira, para ti: El Org |
-| 1805 | t08 | chato | vermut | - | Casa Amadeo, sí. Los caracoles y el vermut. Hablas como de aquí. Fuente de la Alcachofa, 33 P. Esa es la oferta. |
-| 1803 | t18 | pilar | chulapa | - | Querido, insisto: soy yo quien vende hoy. El Teatro Valle-Inclán, El Retiro puro, dieciséis pesetas. Un precio justo, y usted lo sabe. Por cierto, pregunte a Ca |
-| 1794 | t12 | abuela | cocido, tres vuelcos | card SAL-06 | Ay, cocido de tres vuelcos! Just like my mother made, hijo — the soup first, always. You remembered, that warms me. Take it, the Escaparate de Serrano, twelve P |
-| 1792 | t01 | abuela | chulapa | - | ¡Buenas, cariño! Qué alegría verte. ¿Has comido ya? Mira, la Estación de Chamberí te la dejo en 29 primas, y te completa la página bonita. La chulapa dorada...  |
-| 1764 | t10 | chato | churros | - | Buenas. Bonita ruta. La Chamberí vale 33 P. Los churros te los pagas tú. |
