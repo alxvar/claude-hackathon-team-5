@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sun 08:05** · tick 1445 (30 s/tick) · game hour 13.37 · PAUSED · today closes 23:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sun 09:02** · tick 1445 (15 s/tick) · game hour 13.37 · PAUSED · today closes 15:00._
 
 ## Team: now and latest
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 14.65 | ~77 min (after today's close) | bench | The hard Market Test: firmer and more impatient traders |
-| 15.00 | ~98 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
-| 16.65 | ~197 min (after today's close) | set_release | Chamberí released |
-| 16.65 | ~197 min (after today's close) | round | Round 3 starts |
-| 16.65 | ~197 min (after today's close) | day_closes | Closed until Sunday 09:00 |
-| 16.65 | ~197 min (after today's close) | day_opens | Sunday opens |
-| 16.70 | ~200 min (after today's close) | grant_all | The Sunday allowance: 150 primas for everyone |
-| 17.00 | ~218 min (after today's close) | bench | The Market Test: every venue gets the same synthetic book |
+| 13.37 | ~-0 min | set_release | Chamberí released |
+| 13.37 | ~0 min | round | Round 3 starts |
+| 13.42 | ~3 min | grant_all | The Sunday allowance: 150 primas for everyone |
+| 14.65 | ~77 min | bench | The hard Market Test: firmer and more impatient traders |
+| 15.00 | ~98 min | bench | The Market Test: every venue gets the same synthetic book |
+| 15.37 | ~120 min | duels | Duels III: two issues, shorter clock, harder decay |
+| 17.00 | ~218 min | bench | The Market Test: every venue gets the same synthetic book |
+| 18.17 | ~288 min | announce | finale warning |
 
 ## Our dealer deals
 
