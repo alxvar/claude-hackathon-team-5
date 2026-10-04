@@ -9,6 +9,13 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sun 09:58 · snapshot 1602 (phase 0.28)
+- Sunday so far (±1): t18 30.0 · t13 24.1 · **us 20.6 (CHA closer +50 via t02 at 72)** · t03 20.2 · t08 18.1 · t12 16.6 · t06 13.9 · t10 10.2.
+- **t03** sold RET-09 to Pilar at 73 and RET-10 at 67 (L3 ladder slots; it doesn't hold the RET page). It still lacks SAL-03 for SAL 10/10.
+  t15's public SAL-03 ask at 7 expired unfilled (tick 1593).
+- **t06** closed CHA via Abuela (CHA-05 at 9): a dealer close, no bonus. t18 (via t13) and us (via t02) closed through team trades.
+- t10 and t12: still no Sunday deals; their Sunday is market VC + duels so far.
+
 ### Sun 09:40 · snapshot 1542 (phase 0.20)
 - Running game totals: t10 56.37 · t18 52.86 · t12 52.65 · **us 50.65** · t03 46.94 · t06 43.85. Sunday so far (±1): t18 ≈ +30 · t13 ≈ +25
   · t03 ≈ +12 · us ≈ +11 · t06 ≈ +8 · **t10 and t12 ≈ 0 (no Sunday deals yet)**.

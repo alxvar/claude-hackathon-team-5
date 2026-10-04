@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sun 09:40 (tick 1544; snapshot 1542, phase 0.20): running totals t10 56.37 · t18 52.86 · t12 52.65 · us 50.65 · t03 46.94. Sunday so far: t18 ≈ +30 (CHA closer via t13), us ≈ +11 (ladder 0.17, 0 trade points), t10/t12 ≈ 0. Saturday final in §3i._
+_Last update: Sun 09:58 (tick ≈ 1605; snapshot 1602, phase 0.28): **our CHA closed with +50 (CHA-05 from t02 at 72)**; Sunday so far t18 30.0 · us 20.6 · t03 20.2 · t12 16.6 · t10 10.2; running totals t10 59.19 · t12 57.26 · t18 55.18 · us 54.13 · t03 50.10. M5: trade part not capped (N ≈ 78 on the pre-duel 15 scale) [L]. Duelist live at 29aa1be (one process)._
 _Note: the §4 version labels "00:05" to "02:10" are sequence markers written between Sat 23:50 and Sun 00:42 (my labels ran ahead of the wall clock); real times are in `git log`. The Sunday clock in §4.7 is unaffected._
 
 ## 1. Board = Friday × Saturday blend [V]
