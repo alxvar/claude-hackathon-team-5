@@ -71,6 +71,16 @@ All three commit every ~5 min: cut to their cadence above to reduce git churn on
 
 ## Live log
 
+### 10:11 · tick ≈ 1665 · snapshot 1662 (phase 0.35)
+| Metric | Actual | Note |
+|---|---|---|
+| Our deals | **none since tick 1585** (25 min): neg 50, ladder 0.172, cash 373 | relative scoring: idle = slipping (board −0.27 per snapshot) |
+| M6 v10 | **0 trades today, mm 0**: the Sunday real-trades part (up to 7.5) is untouched | the RET-09 / club pairs never fired |
+| Open offers | **RET-11 → t02 at 240 on El Rastro** (1663; ≈ +42 np if it fills, the taker pays the fee) · fodder bids LAT-06/07/08 at 9 (v15) | OK in the bands |
+| M8 Sunday (±1) | t18 29.7 · t13 23.8 · t03 20.8 · **us 19.8** · t12 16.0 · t10 9.7 | running: t10 59.80 · t12 58.28 · t18 57.36 · **us 55.43** · t03 51.86 |
+**ESCALATE:** v10 pairs are the largest idle lever: ≈ +2.6 EV, up to +7.5 Sunday, 0 P, and they squeeze t10/t12's top-3 mean. Fire the
+pre-agreed pairs now (RET-09 → t09 first). Duels III ≈ 11:00 will absorb attention.
+
 ### 09:57 · snapshot 1602 (phase 0.28)
 | Metric | Actual | Note |
 |---|---|---|
