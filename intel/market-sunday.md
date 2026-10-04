@@ -1,4 +1,4 @@
-# Market plan for Sunday (Market session) · written Sun 07:00
+# Market plan for Sunday (Market session) · written Sun 07:01
 
 _Sources: intel/matches.md (matchmaker run 06:58, tick 1440; its VC estimates move between runs, so re-read it before acting), leaderboard snapshot 1440 (us 30.49), intel/market-log.md, intel/directives.md (Club Castizo, Sat 22:55). Labels: [V] measured, [L] inferred, [?] unknown. An independent verifier audited the 22:52 draft; its ten flags are applied here._
 
@@ -57,7 +57,7 @@ _Sources: intel/matches.md (matchmaker run 06:58, tick 1440; its VC estimates mo
 
 **No bid, opening price, step or max closes within 2 ticks with any reliability [V]:** on Saturday 8 of 750 open bid quotes were hit within 2 ticks, and at book or above 2 of 30 (too few to put a percentage on). Over its whole life a bid at book or above was hit 6/30 times, median wait 49.5 ticks. What closes in the same tick is our own accept. So the answer is a procedure, not a price:
 
-1. **A standing ask at or under the 'take' price below: accept it the tick it appears** (one accept per tick). Nobody can snipe that. **The trader's auto-accept does not enforce this table:** `agents/trader/loop.py` accepts any buy whose gain is at least `--min-gain` (default 3), which for a CHA rare means up to about 109 P. The Operator has to apply the take prices by hand or raise `--min-gain`.
+1. **A standing ask at or under the 'take' price below: accept it the tick it appears** (one accept per tick). Nobody can snipe that. The trader now runs with `--max-ratio 0.8 --exclude CHA-*,MAL-*` (directive after 01:15), so it never pays more than 0.8 of our value and leaves CHA and MAL buys to the Operator, who applies the take prices below by hand.
 2. **No ask: agree by WhatsApp first**, then the seller posts the ask ADDRESSED to us on a 0% venue and we accept in that tick. Addressed, so no rival bot can take it.
 3. **Fallback: one open bid at the max, left standing**, no ladder, on El Rastro or a member's 0% market (the maker pays no fee). It is a slow tool (see the waits above), and only where no dealer sells the card cheaper: the 00:25 dealer accept prices (commons 9, uncommons 22, Pícaros CHA rare 54) come first. A team buy scores points (value − price); a dealer buy does not.
 
@@ -187,7 +187,7 @@ Simulation [L, model; every parameter is an assumption: 11 rival venues with Sat
 | 2× (15 s ticks, +550 P a team) | 18, 26 | 30% | 58% | 90% | 99% | 100% | 100% |
 | 3× | 26, 35 | 21% | 41% | 74% | 92% | 99% | 100% |
 
-Our VC needed for full marks with 80% confidence (2× case): **6 after 30 min · 8 after 1 h · 13 after 2 h · 17 after 3 h · 21 after 4 h · 28 at the close.** The audit's independent estimate is 40-50 net VC by the close; plan for the higher figure. **Unit caveat [?]:** these are scoring units inferred from Saturday (about 2 per trade on Team 10's venue); the matchmaker's estimates in §2 (+7 for a common, +68 for RET-09) may be in larger units. If they are the same units, the RET-09 trade alone carries v10 for the whole day; if not, divide the §2 figures by about 3-4. Either way: **no negative trade**. One bad trade took a venue's real-trades score to zero three times on Saturday (ours, Team 12's, Team 7's).
+Our VC needed for full marks with 80% confidence (2× case): **6 after 30 min · 8 after 1 h · 13 after 2 h · 17 after 3 h · 21 after 4 h · 28 at the close.** The audit's independent estimate is 40-50 net VC by the close; plan for the higher figure. **There is no stop on v10 (directive 01:40):** 40-50 is the floor for full marks, and every unit past it still raises the top-three mean against Team 10's v07. **Unit caveat [?]:** these are scoring units inferred from Saturday (about 2 per trade on Team 10's venue); the matchmaker's estimates in §2 (+7 for a common, +68 for RET-09) may be in larger units. If they are the same units, the RET-09 trade alone carries v10 for the whole day; if not, divide the §2 figures by about 3-4. Either way: **no negative trade**. One bad trade took a venue's real-trades score to zero three times on Saturday (ours, Team 12's, Team 7's).
 
 ## 2. The best v10 trades for 09:00
 
