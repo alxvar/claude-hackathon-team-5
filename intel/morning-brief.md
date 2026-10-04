@@ -16,12 +16,12 @@ The plan is `intel/sunday-final.md`. The Operator runs the game; the Chief (Luca
 4. Review the Operator's log (`team/lucas.md` top) if you want; any "stop" or "undo" goes to the Chief.
 5. After 15:00: pitch.
 
-## Aleks (duelist; final sha re-audited: GO)
-1. **Before 10:30**, in your checkout, in zsh (keep the braces):
-   `SHA=29aa1bed66962959ce633492d84bbc321385c7e7`
-   `COMMIT=$SHA bash <(git show "${SHA}:tools/duelist_sunday.sh") --check` (expect "steps 1-4 passed"), then
-   `COMMIT=$SHA AUTOSWITCH=1 bash <(git show "${SHA}:tools/duelist_sunday.sh")`
-2. It runs in its own worktree (no merge), refuses if a duelist already runs, installs set C (code policy, Haiku text, failover 8 s), and switches C → A once if the deal rate drops.
-3. Status: `--status`. Stop: `--stop`. Back to Saturday's duelist: `--rollback`.
-4. Don't pipe its output (`| tee` etc. hangs it). Don't re-run start/`--check` while it's live.
-5. Your PLAN.md #32 has the same; details in `docs/duelist-loop.md` and `intel/duelist-reaudit.md`.
+## Aleks (duelist; final sha re-audited twice: GO) = PLAN.md #32
+1. **08:30**, in zsh (keep the braces): `SHA=29aa1bed66962959ce633492d84bbc321385c7e7`, then
+   `bash <(git show "${SHA}:tools/duelist_sunday.sh") --status`. If Saturday's duelist is up: `COMMIT=$SHA bash <(git show "${SHA}:tools/duelist_sunday.sh") --stop`.
+   Then `COMMIT=$SHA bash <(git show "${SHA}:tools/duelist_sunday.sh") --check` (expect "steps 1-4 passed").
+2. **Start at R+5 min** (R = round 3's first tick, ≈ 09:05 if the clock jumps): `COMMIT=$SHA AUTOSWITCH=1 bash <(git show "${SHA}:tools/duelist_sunday.sh")`.
+   It runs set C (code policy, Haiku text, failover 8 s) in its own worktree, with no merge, and switches C → A once if the deal rate drops.
+3. Duels III = R + 2 game h (≈ 11:00), the Final ≈ 14:00: re-read /api/schedule and check again at 13:30.
+4. Never pipe its output (it hangs); never re-run start/--check while it's live. Stop: `--stop`. Back to Saturday's duelist: `--rollback`.
+5. After two waves: `tools/duel_gates.py --session 4 --params <worktree>/run/duel_params.json`. Expected: a deal rate of 0.88-0.93 with rivals that spoke, and 2-3 rounds per deal.
