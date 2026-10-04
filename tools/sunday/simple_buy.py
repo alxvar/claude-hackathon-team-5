@@ -22,6 +22,15 @@ def log(**e):
     print(json.dumps({"t": time.strftime("%H:%M:%S"), **e}), flush=True)
 
 
+def retry(fn, *a, **k):
+    """contra-cha §10: one retry on any API error (429 on close/open/me must not crash with a thread open)."""
+    try:
+        return fn(*a, **k)
+    except Exception as e:  # noqa: BLE001
+        log(event="retry", call=getattr(fn, "__name__", "?"), error=repr(e)[:100]); time.sleep(3)
+        return fn(*a, **k)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("card")
@@ -33,10 +42,15 @@ def main():
     ap.add_argument("--deadline", type=int, default=360)
     ap.add_argument("--resume", type=int, default=0)
     ap.add_argument("--offer-only", action="store_true", help="never accept: send their standing price as our offer")
+    ap.add_argument("--base-value", type=float, default=0, help="last-card guard: exit if /api/me/value is above this (page bonus priced in)")
     ap.add_argument("--first-text", default="", help="text of our FIRST priced message (e.g. the Pícaros egg line), {p} = price")
     a = ap.parse_args()
     b = Bazaar(os.environ["BAZAAR_URL"], os.environ["BAZAAR_KEY"], timeout=8.0, wait_on_tick=False, retries=1)
-    me = b.me()
+    me = retry(b.me)
+    if a.base_value:
+        v = float(retry(b.value, a.card)["your_value"])
+        if v > a.base_value + 1:
+            sys.exit(f"last card guard: {a.card} worth {v} > base {a.base_value} (its page bonus is priced in: team trade only)")
     if not a.resume and any(x.get("ref") == a.card for x in me["assets"]):
         sys.exit(f"already hold {a.card}")
     if me["cash"] - a.cap < a.floor_cash:
@@ -49,7 +63,7 @@ def main():
             if m.get("sender") != a.dealer and (m.get("offer") or {}).get("give", {}).get("cash"):
                 ours = int(m["offer"]["give"]["cash"])
     else:
-        t = b.open_thread(a.dealer, topic={"buy": {"card": a.card}})
+        t = retry(b.open_thread, a.dealer, topic={"buy": {"card": a.card}})
     tid, turn, first, accepted, t0 = t["id"], (1 if ours else 0), None, False, time.time()
     log(event="open", thread=tid, card=a.card, cap=a.cap)
     name = NAMES.get(a.dealer, a.dealer)
@@ -59,7 +73,7 @@ def main():
         except Exception as e:  # noqa: BLE001
             log(event="error", error=repr(e)[:120]); time.sleep(12); continue
         if t["status"] != "open":
-            after = {k: b.me()["score"].get(k) for k in ("neg_points", "ladder_points")}
+            after = {k: retry(b.me)["score"].get(k) for k in ("neg_points", "ladder_points")}
             log(event="end", status=t["status"], first=first, ours=ours, before=before, after=after); return
         hers = [o for o in t.get("standing_offers", []) if o.get("maker") == a.dealer and o.get("status") == "open"]
         if not hers:
@@ -84,7 +98,7 @@ def main():
                 log(event="accept_error", error=repr(e)[:120])
             time.sleep(12); continue
         if o.get("final") and price > a.cap:
-            b.close_thread(tid); log(event="walk", his=price, ours=ours); continue
+            retry(b.close_thread, tid); log(event="walk", his=price, ours=ours); continue
         nxt = a.open if ours is None else min(ours + a.step, price - 1, a.cap)
         her_turn = bool(t.get("messages")) and t["messages"][-1].get("sender") == a.dealer
         if ours is None or (nxt > ours and her_turn):  # one message per reply of hers: never two per tick
@@ -97,8 +111,8 @@ def main():
         time.sleep(12)
     log(event="deadline", ours=ours)
     try:
-        if b.thread(tid)["status"] == "open":
-            b.close_thread(tid); log(event="closed_at_deadline")
+        if retry(b.thread, tid)["status"] == "open":
+            retry(b.close_thread, tid); log(event="closed_at_deadline")
     except Exception as e:  # noqa: BLE001
         log(event="close_error", error=repr(e)[:120])
 
