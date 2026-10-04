@@ -122,6 +122,133 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1929,
+   "raw": {
+    "duel": 11284,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Escaparate de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.46,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 86,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 1940,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 13249,
+     "price": 123,
+     "tick": 1928,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 13280,
+     "price": 71,
+     "tick": 1929,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1928,
+      "from": "you",
+      "text": "I'm looking to offer 123 P with delivery on day 10 for Escaparate de Serrano.",
+      "price": 123,
+      "days": 10
+     },
+     {
+      "tick": 1928,
+      "from": "Rival Oro",
+      "text": "69 with delivery on day 10. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "price": 69,
+      "days": 10
+     },
+     {
+      "tick": 1929,
+      "from": "Rival Oro",
+      "text": "71 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 71,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1930,
+   "raw": {
+    "duel": 11284,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Escaparate de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.46,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 86,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 1940,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 13249,
+     "price": 123,
+     "tick": 1928,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 13291,
+     "price": 74,
+     "tick": 1930,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1928,
+      "from": "you",
+      "text": "I'm looking to offer 123 P with delivery on day 10 for Escaparate de Serrano.",
+      "price": 123,
+      "days": 10
+     },
+     {
+      "tick": 1928,
+      "from": "Rival Oro",
+      "text": "69 with delivery on day 10. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "price": 69,
+      "days": 10
+     },
+     {
+      "tick": 1929,
+      "from": "Rival Oro",
+      "text": "71 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 71,
+      "days": 10
+     },
+     {
+      "tick": 1930,
+      "from": "Rival Oro",
+      "text": "74 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 74,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -311,6 +438,124 @@
     },
     "tick": 1929,
     "ticks_left": 11,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 123,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "take",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1930,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11284,
+     "role": "seller",
+     "limit": 86,
+     "currency": "P",
+     "item": "Escaparate de Serrano",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.46,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm looking to offer 123 P with delivery on day 10 for Escaparate de Serrano.",
+      "offer": {
+       "price": 123,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1928,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "69 with delivery on day 10. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "offer": {
+       "price": 69,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1928,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "71 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 71,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1929,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 71,
+     "days": 10
+    },
+    "tick": 1930,
+    "ticks_left": 10,
     "rounds": 1,
     "day_swings": [
      59.3,
