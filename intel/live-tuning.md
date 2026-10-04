@@ -71,6 +71,13 @@ All three commit every ~5 min: cut to their cadence above to reduce git churn on
 
 ## Live log
 
+### 10:46 · snapshot 1802 (phase ≈ 0.53)
+- Pícaros SELLS: LAT-04 at 5 (1794) and spare LAV-04 at 5 (1800), both at ≥ value, 0 neg → ladder 0.253 → **0.311**. The Pícaros' best 3:
+  CHA-09 (0.075) · MAL-10 (0.081) · a common sell (≈ 0.03-0.06).
+- **PROPOSE:** MAL-09 at the Pícaros ≤ 49 now **upgrades** the common slot (share ≈ 0.9 vs ≈ 0.4-0.65: passes the +0.10 rule). No more common sells
+  to the Pícaros (they'd be a 4th deal that doesn't upgrade).
+- Board: us 32.43 (+0.30), 0.29 behind t10 and 0.42 behind t18. Projection §3k: #3 ≈ 3 away on the final basis. v10 is still 0 trades.
+
 ### 10:36 · snapshot 1762 (phase ≈ 0.47)
 | Metric | Actual | Book | n | Note |
 |---|---|---|---|---|
