@@ -6,11 +6,14 @@ LAT first copies only: MAL-07/09 stay with mal_close.py (never two live MAL bids
 (settlement items, offer.listed gives). Counterparty passes policy.check (no rivals), never t10; at most 2 rewards per team
 (a cap against two teams farming it with empty trades). One addressed bid per reward, 120 ticks, not re-posted.
 
-BOUNTY (GUARDRAIL 11:25, Lucas's explicit call; the Chief flagged the fair-play review risk): the FIRST 3 trades settled
-on v10 between two other teams (any team except t10), max 1 per seller, pay the SELLER a 10 P bonus: one addressed
-want-card bid to the seller for a card the feed shows it holds, at our value + 10 (max 10 P over value), on El Rastro. Prefer a LAT first copy we lack; otherwise any card, most recently seen first. MAL-07/09 are left out
-(mal_close.py owns them: never two live MAL bids). Each bounty is logged with its v10 settlement id. Later trades get
-the LAT reward above."""
+BOUNTY (GUARDRAIL 11:38, Lucas: "spend big to get trades on v10"; the Chief flagged the fair-play review risk): the FIRST
+5 trades settled on v10 between two other teams (any team except t10), max 2 per seller, pay the SELLER ~20 P, on EL
+RASTRO as maker. In kind first (0 cost to our score): buy cards the seller holds (feed evidence) that we LACK (LAT first
+copies, MAL-07/09) at <= our value: one card worth >= 20, else up to 3 lacked cards whose values sum to >= 20 (one
+offer wanting all of them). Only if that falls short: top up to 20 with cash over value, or any card the seller holds at
+value + up to 20. The SUM of (price - our value) over all bounties <= 29 P (our slack under the round cap of 50:
+uncapped ~79). Never two of our addressed bids live for the same card. Each bounty logged with its v10 settlement id.
+Later trades get the LAT reward above."""
 import os, sys, json, time
 ROOT = '/Users/lucaswiese/Documents/claude-hackathon-team-5'
 sys.path.insert(0, ROOT + '/bazaar-kit'); sys.path.insert(0, ROOT + '/tools')
@@ -33,7 +36,9 @@ def retry(f, *a, **kw):
 try: st = json.load(open(STATE))
 except Exception: st = {"done": [], "bids": []}   # bids: {settlement, team, card, price, offer, venue}
 st.setdefault("bounties", []); st.setdefault("bounty_trades", [])
-BOUNTIES, BONUS = 3, 10
+BOUNTIES, BONUS, PER_SELLER, SLACK = 5, 20, 2, 29
+st.setdefault("over_used", 0.0)
+LACK_ALSO = ["MAL-07", "MAL-09"]
 def save():
     json.dump(st, open(STATE + '.tmp', 'w'), indent=1); os.replace(STATE + '.tmp', STATE)
 
@@ -75,23 +80,45 @@ def bounty_eligible(p):
     parties = [t for t in p.get('parties') or [] if t]
     if len(parties) != 2 or not all(t.startswith('t') for t in parties) or 't05' in parties or 't10' in parties: return False
     s = seller_of(p)
-    return bool(s) and len(st['bounty_trades']) < BOUNTIES and all(x['seller'] != s for x in st['bounties'])
+    return bool(s) and len(st['bounty_trades']) < BOUNTIES and sum(x['seller'] == s for x in st['bounties']) < PER_SELLER
 
 def bounty(e):
     p = e['payload']; sid = p['settlement']; s = seller_of(p)
     st['bounty_trades'].append(sid); st['done'].append(sid); save()
     held = {a['ref'] for a in retry(b.me)['assets']}
-    recent = [c for c in holds_recent(s) if not c.startswith('MAL-')]
-    pick = next((c for c in recent if c in WANT and c not in held), None) or (recent[0] if recent else None)
+    mine = [o for o in retry(b.my_offers).get('offers', []) if o.get('status') == 'open' and o.get('to')]
+    addressed = {t[5:] for o in mine for t in (o.get('want') or {}).get('types') or [] if t.startswith('card:')}
+    recent = [c for c in holds_recent(s) if c not in addressed]
+    val = {}
+    def v(c):
+        if c not in val: val[c] = float(retry(b.value, c)['your_value'])
+        return val[c]
+    lacked = sorted((c for c in recent if (c in WANT or c in LACK_ALSO) and c not in held), key=lambda c: -v(c))
+    slack = max(0.0, SLACK - st['over_used'])
+    pick, over = None, 0
+    big = [c for c in lacked if v(c) >= BONUS]
+    if big:
+        pick = [big[-1]]                                   # the cheapest single lacked card worth >= 20
+    elif lacked:
+        bundle, tot = [], 0.0
+        for c in lacked:
+            if len(bundle) < 3: bundle.append(c); tot += v(c)
+            if tot >= BONUS: break
+        pick = bundle
+        if tot < BONUS: over = min(BONUS - int(tot), int(slack))
+    elif recent and slack >= 1:
+        pick, over = [recent[0]], min(BONUS, int(slack))
     if not pick:
-        st['bounties'].append({"settlement": sid, "seller": s, "card": None, "price": 0, "offer": None}); save()
-        log(event="bounty_skip", settlement=sid, seller=s, why="no card of the seller's known from the feed"); return
-    v = float(retry(b.value, pick)['your_value']); price = int(v) + BONUS
-    venue = 'rastro'  # Chief 11:33: our trades add no VC to other venues; maker pays no fee
-    r = retry(b.list_offer, give={"cash": price}, want={"types": [f"card:{pick}"]}, venue=venue, to=s, expires_in_ticks=120)
-    st['bounties'].append({"settlement": sid, "seller": s, "card": pick, "price": price, "value": v, "offer": r.get('id'), "venue": venue}); save()
-    log(event="bounty", n=len(st['bounty_trades']), settlement=sid, seller=s, card=pick, price=price, value=v,
-        lacked=pick in WANT and pick not in held, venue=venue, offer=r.get('id'), exp=r.get('expires_tick'))
+        st['bounties'].append({"settlement": sid, "seller": s, "cards": [], "price": 0, "offer": None}); save()
+        log(event="bounty_skip", settlement=sid, seller=s, why=f"no card of the seller's known (or slack {slack:g} used up)"); return
+    value = sum(v(c) for c in pick); price = int(value) + over
+    r = retry(b.list_offer, give={"cash": price}, want={"types": [f"card:{c}" for c in pick]}, venue='rastro', to=s, expires_in_ticks=120)
+    st['over_used'] = st['over_used'] + max(0.0, price - value)
+    st['bounties'].append({"settlement": sid, "seller": s, "cards": pick, "price": price, "value": value, "over": max(0.0, price - value),
+                           "offer": r.get('id'), "venue": 'rastro'}); save()
+    log(event="bounty", n=len(st['bounty_trades']), settlement=sid, seller=s, cards=pick, price=price, value=value,
+        over=round(max(0.0, price - value), 2), over_used=round(st['over_used'], 2), in_kind=over == 0 and all(c in lacked for c in pick),
+        venue='rastro', offer=r.get('id'), exp=r.get('expires_tick'))
 
 def committed():
     """P in reward bids that are open or filled (an expired/cancelled one releases its budget)."""
