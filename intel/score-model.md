@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sun 11:41 (snapshot 2022, phase 0.81): **final basis t12 86.5 · t10 84.0 · t18 83.1 · us 82.1 · t03 76.4: #3 is 1.0 away.** Duels III waves 8-13: 22/25 deals, duel_points 20.72. Real trades: 1 each on v21, v15, v05, v29; v10 still 0. MAL math §4.14 (page NO-GO under the cap; MAL-09 ≤ 49 GO)._
+_Last update: Sun 11:57 (snapshot 2082, phase 0.89; **Duels III finished at tick 2074**, duel_points 24.68): **final basis t12 85.9 · t10 83.0 = t18 83.0 · us 82.5 · t03 76.4: #3 is 0.5 away.** Left: the 12:37 bench (the stall holds 0.5), the Grand Final (≈ 14:00), v10 real trades (still 0), MAL-09 ≤ 49 (ladder)._
 _Note: the §4 version labels "00:05" to "02:10" are sequence markers written between Sat 23:50 and Sun 00:42 (my labels ran ahead of the wall clock); real times are in `git log`. The Sunday clock in §4.7 is unaffected._
 
 ## 1. Board = Friday × Saturday blend [V]
