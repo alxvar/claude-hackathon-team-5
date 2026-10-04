@@ -924,6 +924,156 @@ class Analysis:
                             "pages": sum(1 for s in sets if s["complete"])},
                 "rivals": sorted(rival)}
 
+    def venue_story(self, prof, tt):
+        """Everything that happens on our stall (v10), not just what is open now: every offer posted today grouped by
+        (maker, side, cards, addressee) with its outcome (filled, open, expired, cancelled), why the open and expired ones
+        don't close and what would close them; every trade settled here with its estimated value created and the
+        measured effect on our market part (our market change between the snapshots around it, minus the field's
+        average change, so a Market Test re-grade that moves everyone doesn't count); and our own team trades."""
+        vid = getattr(self, "our_vid", None)
+        if not vid:
+            return None
+        tick, opened = self.clock.get("tick") or 0, self._day_open()
+        byprof = {p["team"]: p for p in prof}
+        us = byprof.get(self.us) or {}
+        rival = {p["team"] for p in prof if not p["us"] and (p["rank"] <= 6 or (us.get("score") is not None and p["score"] is not None
+                                                                              and abs(p["score"] - us["score"]) <= 3.0))} | {"t13", "t17"}
+        med = collections.defaultdict(list)
+        for tr in self.trades:
+            if tr["kind"] == "team" and (tr["tick"] or 0) >= opened and len(tr["items"]) == 1 and tr["price"]:
+                med[tr["items"][0].get("rarity")].append(tr["price"])
+        med = {k: median(v) for k, v in med.items()}
+        # open offers anywhere (feed), to find a counterpart that already exists on another venue
+        cancelled = {(e.get("payload") or {}).get("offer") for e in self.events if e.get("type") == "offer.cancelled"}
+        open_any = collections.defaultdict(list)   # (side, ref) -> [(price, maker, venue)]
+        for e in self.events:
+            if e.get("type") != "offer.listed" or (e.get("tick") or 0) < tick - 120:
+                continue
+            o = (e.get("payload") or {}).get("offer") or {}
+            if o.get("id") in cancelled or (o.get("expires_tick") is not None and o["expires_tick"] <= tick) or o.get("to"):
+                continue
+            side, refs, price = offer_terms(o)
+            if len(refs) == 1 and side in ("bid", "ask"):
+                open_any[(side, refs[0])].append((price, e.get("actor") or o.get("maker"), o.get("venue")))
+        active = collections.Counter()
+        for e in self.events:
+            if (e.get("tick") or 0) >= tick - 120 and e.get("type") in ("offer.listed", "settlement", "thread.opened"):
+                p = e.get("payload") or {}
+                for t in [e.get("actor")] + list(p.get("parties") or []) + [p.get("team")]:
+                    if t:
+                        active[t] += 1
+        here = [tr for tr in self.trades if tr.get("venue") == vid]
+
+        def outcome(o, team, refs, price):
+            if o.get("id") in self.v_cancelled:
+                return "cancelled"
+            if any((tr["tick"] or 0) >= (o.get("created_tick") or 0) and team in tr["parties"] and tr["price"] == price
+                   and sorted(i.get("ref") for i in tr["items"] if i.get("ref")) == sorted(refs) for tr in here):
+                return "filled"
+            if o.get("expires_tick") is not None and o["expires_tick"] <= tick:
+                return "expired"
+            return "open"
+
+        groups = {}
+        for oid, o in self.v_listed.items():
+            if (o.get("created_tick") or 0) < opened:
+                continue
+            team = o.get("maker")
+            side, refs, price = offer_terms(o)
+            key = (team, side, tuple(refs), o.get("to"))
+            g = groups.setdefault(key, {"team": team, "name": self.name(team), "rank": (byprof.get(team) or {}).get("rank"),
+                                        "side": side, "refs": list(refs), "to": o.get("to"),
+                                        "to_name": self.name(o.get("to")) if o.get("to") else None, "posts": 0,
+                                        "first": o.get("created_tick"), "last": None, "prices": [], "outcomes": collections.Counter()})
+            g["posts"] += 1
+            g["prices"].append(price)
+            g["outcomes"][outcome(o, team, refs, price)] += 1
+            if g["last"] is None or (o.get("created_tick") or 0) >= g["last"]:
+                g["last"], g["price"], g["latest"] = o.get("created_tick"), price, outcome(o, team, refs, price)
+        rows = []
+        for g in groups.values():
+            ref = g["refs"][0] if g["refs"] else None
+            cd = self.cards.get(ref) or {}
+            book = cd.get("book") or self.book.get(cd.get("rarity"))
+            s = set_of(ref)
+            why, how = [], []
+            if g["outcomes"]["filled"]:
+                why.append(f"filled {g['outcomes']['filled']}×")
+            elif g["side"] == "bid":
+                asks = sorted(x for x in open_any.get(("ask", ref), []) if x[1] != g["team"])
+                if asks and asks[0][0] <= g["price"]:
+                    how.append(f"{self.name(asks[0][1])} asks {asks[0][0]} P on {asks[0][2]}: ask them to sell here (0 % fee)")
+                elif asks:
+                    why.append(f"cheapest ask elsewhere is {asks[0][0]} P (by {self.name(asks[0][1])}), above this bid")
+                if book and g["price"] < 0.7 * book:
+                    why.append(f"bid at {round(g['price'] / book, 2)}× book; {cd.get('rarity')}s trade at ~{med.get(cd.get('rarity'), '?')} P today")
+                sellers = [p["name"] for p in prof if s in (p.get("dumps") or []) and p["team"] != g["team"] and not p["us"]][:3]
+                if sellers:
+                    how.append(f"teams that get rid of {s}: {', '.join(sellers)}")
+            elif g["side"] == "ask":
+                bids = sorted((x for x in open_any.get(("bid", ref), []) if x[1] != g["team"]), reverse=True)
+                if bids and bids[0][0] >= g["price"]:
+                    how.append(f"{self.name(bids[0][1])} bids {bids[0][0]} P on {bids[0][2]}: tell them to buy here")
+                elif bids:
+                    why.append(f"best bid elsewhere is {bids[0][0]} P, below this ask")
+                m = med.get(cd.get("rarity"))
+                if m and g["price"] > 1.5 * m:
+                    why.append(f"asks {g['price']} P vs ~{m} P for a {cd.get('rarity')} today")
+                buyers = [p["name"] + (" (rival)" if p["team"] in rival else "") for p in prof
+                          if s in (p.get("wants") or []) and p["team"] != g["team"] and not p["us"]][:3]
+                if buyers:
+                    how.append(f"collectors of {s}: {', '.join(buyers)}")
+            if g["to"] and not active.get(g["to"]):
+                why.append(f"addressed to {g['to_name']}, who hasn't moved in the last hour")
+            buyer = g["to"] if g["side"] == "ask" else g["team"]
+            seller = g["team"] if g["side"] == "ask" else g["to"]
+            vc = None
+            if buyer and seller:
+                bw, sd = s in (byprof.get(buyer, {}).get("wants") or []), s in (byprof.get(seller, {}).get("dumps") or [])
+                vc = "+" if bw and sd else "−" if s in (byprof.get(buyer, {}).get("dumps") or []) else "?"
+            rows.append({**{k: g[k] for k in ("team", "name", "rank", "side", "refs", "to", "to_name", "posts", "first", "last", "price")},
+                         "card": cd.get("name"), "rarity": cd.get("rarity"), "vs_book": round(g["price"] / book, 2) if book and g["price"] else None,
+                         "status": g["latest"], "outcomes": dict(g["outcomes"]), "ts": self.ts_of_tick(g["last"]),
+                         "rival": g["team"] in rival, "why": why, "how": how, "vc": vc})
+        order = {"open": 0, "filled": 1, "expired": 2, "cancelled": 3}
+        rows.sort(key=lambda r: (order.get(r["status"], 4), -(r["last"] or 0)))
+
+        snaps = self.lb_hist
+        created = {(r["tick"], tuple(r["refs"])): r.get("created") for r in tt.get("rows", []) if r.get("on_ours")}
+        trades = []
+        for tr in sorted(here, key=lambda t: -(t["tick"] or 0)):
+            before = next((h for h in reversed(snaps) if h["tick"] <= (tr["tick"] or 0)), None)
+            after = next((h for h in snaps if h["tick"] > (tr["tick"] or 0)), None)
+            eff = None
+            if before and after and self.us in before["teams"] and self.us in after["teams"]:
+                ours = (after["teams"][self.us].get("market") or 0) - (before["teams"][self.us].get("market") or 0)
+                others = [(after["teams"][t].get("market") or 0) - (v.get("market") or 0) for t, v in before["teams"].items()
+                          if t != self.us and t in after["teams"]]
+                eff = round(ours - (statistics.mean(others) if others else 0), 2)
+            refs = tuple(i.get("ref") for i in tr["items"])
+            i = tr["items"][0] if tr["items"] else {}
+            trades.append({"tick": tr["tick"], "ts": self.ts_of_tick(tr["tick"]), "today": (tr["tick"] or 0) >= opened,
+                           "seller": self.name(i.get("frm")), "buyer": self.name(i.get("to")), "refs": list(refs),
+                           "price": tr["price"], "created": created.get((tr["tick"], refs)), "effect": eff,
+                           "window": [before["tick"] if before else None, after["tick"] if after else None],
+                           "verdict": None if eff is None else "helped us" if eff > 0.1 else "hurt us" if eff < -0.1 else "no visible effect"})
+        mine = [tr for tr in self.trades if tr["kind"] == "team" and self.us in tr["parties"]]
+        mine_today = [tr for tr in mine if (tr["tick"] or 0) >= opened]
+        posts_today = sum(r["posts"] for r in rows)
+        snap_today = next((h for h in snaps if h["tick"] >= opened), None)
+        return {"venue": vid, "now": tick, "rows": rows, "trades": trades,
+                "summary": {"posts": posts_today, "offers": len(rows), "filled": sum(1 for r in rows if r["outcomes"].get("filled")),
+                            "open": sum(1 for r in rows if r["status"] == "open"),
+                            "closed_today": sum(1 for t in trades if t["today"]), "closed_all": len(trades),
+                            "effect_today": round(sum(t["effect"] or 0 for t in trades if t["today"]), 2),
+                            "market_now": (snaps[-1]["teams"].get(self.us) or {}).get("market") if snaps else None,
+                            "market_day_start": (snap_today["teams"].get(self.us) or {}).get("market") if snap_today else None,
+                            "makers": collections.Counter(r["name"] for r in rows for _ in range(r["posts"])).most_common(6)},
+                "ours": {"today": len(mine_today), "all": len(mine),
+                         "by_venue": collections.Counter("El Rastro" if tr["venue"] == "rastro" else tr["venue"] for tr in mine_today).most_common(),
+                         "list": [{"tick": tr["tick"], "ts": self.ts_of_tick(tr["tick"]), "text": self._deal_text(tr, self.us)}
+                                  for tr in sorted(mine_today, key=lambda t: -(t["tick"] or 0))[:15]]}}
+
     def _day_open(self):
         return max((e.get("tick") or 0 for e in self.events if e.get("type") == "day.opened"), default=0)
 
@@ -2060,6 +2210,7 @@ class Analysis:
         below = next((p for p in prof if us and p["rank"] == us["rank"] + 1), None)
         neighbours = [p["team"] for p in prof if us and abs(p["rank"] - us["rank"]) <= 2]
         duelview = self.duel_view()
+        tt_rows = self.team_trades(prof)
         return {
             "duelview": duelview,
             "duelmon": self.duel_monitor(duelview),
@@ -2100,7 +2251,8 @@ class Analysis:
             "market": market,
             "prices": price_rows,
             "tape": self.tape(),
-            "team_trades": self.team_trades(prof),
+            "team_trades": tt_rows,
+            "venue_story": self.venue_story(prof, tt_rows),
             "pulse": self.market_pulse(prof),
             "collection": self.collection(prof),
             "strategies": self.strategies(prof),

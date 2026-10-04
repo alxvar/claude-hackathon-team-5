@@ -134,6 +134,7 @@ tr.sel td { background: rgba(57,135,229,0.22) !important; }
     <button data-tab="duelmon">Duel monitor</button>
     <button data-tab="convs">Conversations</button>
     <button data-tab="market">Market</button>
+    <button data-tab="ourmkt">Our market</button>
     <button data-tab="trades">Team trades</button>
     <button data-tab="pulse">Market pulse</button>
     <button data-tab="strat">Strategies</button>
@@ -471,6 +472,31 @@ tr.sel td { background: rgba(57,135,229,0.22) !important; }
     <h2>Our duplicates</h2>
     <p class="sub">Every card we hold more than once. <b>Spare worth</b> = what one copy is worth to us (the game's <code>your_value</code> for our lowest copy: a 2nd copy counts 25 %, a 3rd 10 %), so a sale above it plus the fee gains us points. <b>Market today</b> = the median team price for that rarity today. <b>Who might want it</b> = non-rival teams that bid for the card on El Rastro or collect the set (rivals: live top 6, within 3 points of us, Teams 13 and 17). Selling a spare never breaks a page: we keep one copy. Lucas's Operator does any sale; this page only reads.</p>
     <div class="scroll" style="max-height:620px"><table id="ocDups"></table></div>
+  </section>
+</section>
+
+<!-- ============================================================ OUR MARKET (v10) -->
+<section class="tab" id="tab-ourmkt">
+  <div class="tiles" id="omTiles"></div>
+  <section class="card">
+    <h2>Did each trade on v10 help us or hurt us?</h2>
+    <p class="sub">Every trade settled on our stall. <b>Effect</b> = our market part's change between the leaderboard snapshots around the trade, minus the field's average change in the same window (so a Market Test re-grade that moves everyone doesn't count) [L: two trades in one window share it]. <b>Est. value created</b> = book × (buyer's − seller's set multiplier), the Team trades estimate. A trade helps us when the buyer values the cards more than the seller.</p>
+    <div class="scroll"><table id="omTrades"></table></div>
+  </section>
+  <section class="card">
+    <h2>How to get them closed</h2>
+    <p class="sub">For every offer on v10 that is still open or expired unfilled today: what blocks it and what would close it (a counterpart that already exists on another venue, the teams that collect or get rid of that set). Lucas's Operator and you in the room act; this page only reads. Rivals = live top 6, within 3 points of us, Teams 13 and 17. "+ for us" = the buyer collects the set and the seller gets rid of it.</p>
+    <ul class="ins" id="omHow"></ul>
+  </section>
+  <section class="card">
+    <h2>Everything posted on v10 today</h2>
+    <p class="sub">Every offer on our stall today, including the ones addressed to one team (hidden from the public board) and the ones that expired or were cancelled. Reposts of the same offer are grouped: "posts" counts them.</p>
+    <div class="scroll" style="max-height:560px"><table id="omOffers"></table></div>
+  </section>
+  <section class="card">
+    <h2>Our own trades with other teams today</h2>
+    <p class="sub" id="omOursSub"></p>
+    <ul class="ins" id="omOurs"></ul>
   </section>
 </section>
 
@@ -1197,6 +1223,58 @@ function duelVsField(d, m) {
   $("#dmVerdict").innerHTML = out.join("") || `<li><span class="muted">Needs two scored sessions.</span></li>`;
 }
 
+// ------------------------------------------------------------------ our market (v10): everything, and whether it helped
+function ourMarketTab(d) {
+  const v = d.venue_story;
+  const hm = t => typeof t === "number" && t > 1e9 ? new Date(t * 1000).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) : (t ?? "—");
+  if (!v) { $("#omTiles").innerHTML = `<span class="muted">Restart the dashboard server to load this tab (needs our venue).</span>`; return; }
+  const s = v.summary, o = v.ours;
+  const dm = s.market_now != null && s.market_day_start != null ? s.market_now - s.market_day_start : null;
+  const T = [
+    ["Posted on v10 today", s.posts, `<span class="d">${s.offers} distinct offers · ${s.open} open now · most by ${esc((s.makers[0] || ["—"])[0])}</span>`],
+    ["Closed on v10", `${s.closed_today} today`, `<span class="d">${s.closed_all} since Friday · ${s.offers ? Math.round(100 * s.filled / s.offers) : 0}% of today's offers filled</span>`],
+    ["Effect of today's v10 trades", `${s.effect_today > 0 ? "+" : ""}${s.effect_today}`, `<span class="d">on our market part vs the field · market ${num(s.market_day_start, 2)} → ${num(s.market_now, 2)}${dm != null ? ` (${dm > 0 ? "+" : ""}${dm.toFixed(2)} today)` : ""}</span>`],
+    ["Our own team trades", `${o.today} today`, `<span class="d">${o.all} since Friday · ${o.by_venue.map(([k, n]) => `${esc(k)} ${n}`).join(", ") || "none today"}</span>`],
+  ];
+  $("#omTiles").innerHTML = T.map(([k, val, dl]) => `<div class="tile"><div class="k">${k}</div><div class="v">${val}</div>${dl}</div>`).join("");
+
+  table($("#omTrades"), "omTrades", v.trades, [
+    ["tick", "When", r => `${esc(r.ts ? hm(r.ts) : "tick " + r.tick)}${r.today ? "" : ` <span class="muted">(earlier)</span>`}`],
+    ["seller", "Seller → buyer", r => `${esc(r.seller)} → ${esc(r.buyer)}`],
+    ["refs", "Cards", r => `<b>${esc(r.refs.join(", "))}</b>`],
+    ["price", "Price P", null, true],
+    ["created", "Est. value created", r => r.created == null ? "—" : `<span class="${r.created > 0 ? "up" : r.created < 0 ? "down" : ""}">${sgn(r.created, 1)}</span>`, true],
+    ["effect", "Effect on our market", r => r.effect == null ? `<span class="muted">next snapshot</span>` : `<b class="${r.effect > 0.1 ? "up" : r.effect < -0.1 ? "down" : ""}">${sgn(r.effect, 2)}</b>`, true],
+    ["verdict", "Verdict", r => r.verdict ? `<span class="tag ${r.verdict === "helped us" ? "up" : r.verdict === "hurt us" ? "down" : "info"}">${esc(r.verdict.toUpperCase())}</span>` : "—"],
+  ]);
+
+  const act = v.rows.filter(r => r.status !== "filled" && (r.how.length || r.why.length));
+  $("#omHow").innerHTML = act.length ? act.slice(0, 25).map(r => {
+    const what = `${esc(r.name)}${r.rank ? ` #${r.rank}` : ""}${r.rival ? " (rival)" : ""} ${r.side === "bid" ? "wants to buy" : r.side === "ask" ? "sells" : "swaps"} <b>${esc(r.refs.join(", "))}</b> <span class="muted">${esc(r.card || "")}</span> at <b>${r.price} P</b>${r.to_name ? ` → ${esc(r.to_name)}` : " (anyone)"}`;
+    const vc = r.vc === "+" ? `<span class="chip">+ for us</span>` : r.vc === "−" ? `<span class="chip">would cost us market</span>` : "";
+    return `<li><span class="tag ${r.status === "open" ? "watch" : "info"}">${esc(r.status.toUpperCase())}</span><span>${what} ${vc}`
+      + `${r.why.length ? `<br><span class="muted">Blocked: ${r.why.map(esc).join(" · ")}</span>` : ""}`
+      + `${r.how.length ? `<br>To close: ${r.how.map(esc).join(" · ")}` : ""}</span></li>`;
+  }).join("") : `<li><span class="muted">Nothing open or blocked today.</span></li>`;
+
+  table($("#omOffers"), "omOffers", v.rows, [
+    ["status", "Status", r => `<span class="chip">${esc(r.status)}</span>`],
+    ["name", "Maker", r => `${esc(r.name)}${r.rank ? ` <span class="muted">#${r.rank}</span>` : ""}${r.rival ? " ⚔" : ""}`],
+    ["side", "Side", r => r.side === "bid" ? "buys" : r.side === "ask" ? "sells" : esc(r.side)],
+    ["refs", "Cards", r => `<b>${esc(r.refs.join(", "))}</b> <span class="muted">${esc(r.rarity || "")}</span>`],
+    ["price", "Price P", null, true],
+    ["vs_book", "× book", r => r.vs_book != null ? r.vs_book + "×" : "—", true],
+    ["to_name", "To", r => r.to_name ? esc(r.to_name) : `<span class="muted">anyone</span>`],
+    ["posts", "Posts", null, true],
+    ["last", "Last posted", r => esc(r.ts ? hm(r.ts) : r.last)],
+    ["outcomes", "Outcomes", r => Object.entries(r.outcomes).map(([k, n]) => `${esc(k)} ${n}`).join(" · ")],
+  ]);
+
+  $("#omOursSub").textContent = `Team 5's trades with other teams today, on any venue (we can't trade on our own stall): ${o.today} today, ${o.all} since Friday.`;
+  $("#omOurs").innerHTML = o.list.length ? o.list.map(x => `<li><span class="tag info">${esc(x.ts ? hm(x.ts) : x.tick)}</span><span>${esc(x.text)}</span></li>`).join("")
+    : `<li><span class="muted">No team trade of ours today yet.</span></li>`;
+}
+
 // ------------------------------------------------------------------ live duel cards
 function liveDuelCards(d, m) {
   const box = $("#dmCards"), tsec = d.clock.tick_seconds || 30, now = d.clock.tick;
@@ -1383,6 +1461,7 @@ function render() {
   if (tab === "duelmon") duelmonTab(d);
   if (tab === "convs") convsTab(d);
   if (tab === "market") { marketTable(d); holdersTable(d); pricesTables(d); }
+  if (tab === "ourmkt") ourMarketTab(d);
   if (tab === "trades") tradesTab(d);
   if (tab === "pulse") pulseTab(d);
   if (tab === "strat") stratTab(d);
