@@ -122,6 +122,66 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1878,
+   "raw": {
+    "duel": 11117,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "San Isidro",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.87,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 140,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1885,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 11935,
+     "price": 88,
+     "tick": 1873,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 12046,
+     "price": 70,
+     "tick": 1878,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1873,
+      "from": "you",
+      "text": "I offer 88 P for delivery on day 0.",
+      "price": 88,
+      "days": 0
+     },
+     {
+      "tick": 1875,
+      "from": "Rival Rojo",
+      "text": "Hello! I can let it go for 87 P. Delivery on day 10.",
+      "price": 87,
+      "days": 10
+     },
+     {
+      "tick": 1878,
+      "from": "Rival Rojo",
+      "text": "70 P, then. Delivery on day 10.",
+      "price": 70,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -291,6 +351,94 @@
     },
     "tick": 1875,
     "ticks_left": 10,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 88,
+    "days": 0,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1878,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11117,
+     "role": "buyer",
+     "limit": 140,
+     "currency": "P",
+     "item": "San Isidro",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.87,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I offer 88 P for delivery on day 0.",
+      "offer": {
+       "price": 88,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1873,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hello! I can let it go for 87 P. Delivery on day 10.",
+      "offer": {
+       "price": 87,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1875,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 87,
+     "days": 10
+    },
+    "tick": 1878,
+    "ticks_left": 7,
     "rounds": 1,
     "day_swings": [
      59.3,
