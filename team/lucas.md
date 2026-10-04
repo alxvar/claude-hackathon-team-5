@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 12:51 · MAL-09 (Lucas: raise the t08 bid) · mal09_bid.py stopped, 26022 cancelled → **26452** → t08, El Rastro, 75 (value-when-last 95.4 → +20.4), exp tick 2347, no auto re-post · (C) t10 ≤ 45 armed, waits for Lucas's go
 - Sun 12:50 · CHA-11 (Lucas: not from t08; agreed 190 with t10) · 26349 cancelled; cha11_t10.py stopped (one path only) → **26414** → t10, El Rastro, 190, exp tick 2363; value 288 → +50 (clipped)
 - Sun 12:49 · CHA-11: t10 is flipping CHA-11 (Pícaros 149 → t06 on v10 184; Pícaros 150 → public El Rastro ask 26209 at 162) · Chief GO on taking 26209: cancelled 25784, but t10 had cancelled 26209 at tick 2290 (accept refused ×6), nothing bought · t08 bid re-posted **26349** (240, exp 2356) · cha11_t10.py (pid 66887): if t10 lists CHA-11 on El Rastro ≤ 190 (to us or public), it cancels the t08 bid, then accepts · our posting on v10 is impossible (RULES: no trading on your own venue); the Chief's move (1) is void · MAL-09 from t10 (≤ 45) armed, waits for Lucas's go; the feed says t10 still holds MAL-09 (bought from the Pícaros at tick 967, no later sale)
 - Sun 12:46 · Market: v10 has 5 fills since 11:56 (two commons, Team 10's CHA-11 epic to t06 at 184, two RET rares t17 → t01) · mm_points 9.7, market 13.08, score 35.81, RANK 1; benches 14.65 (0.967), 15.0 (0.895), 17.0 (0.890) all at the stall's 0.5, nobody above it · next: keep flow on v10 through the 14:15 push (`intel/market-log.md`)
