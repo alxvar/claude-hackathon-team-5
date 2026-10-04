@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team 5 Swiss Deck</title>
+<style>
+@font-face{font-family:"SwHead";src:local("HelveticaNeue-CondensedBlack"),local("Helvetica Neue Condensed Black"),local("HelveticaNeue-CondensedBold"),local("Helvetica Neue Condensed Bold"),local("ArialNarrow-Bold"),local("Arial Narrow Bold")}
+:root{
+  --paper:#F4F1EA;--ink:#111;--red:#E2231A;--blue:#1F4AFF;--mute:#5f5b53;--hair:rgba(17,17,17,.16);
+  --head:"SwHead","Helvetica Neue","Arial Narrow",Arial,sans-serif;
+  --body:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#d9d5cc;overflow:hidden}
+body{font-family:var(--body);color:var(--ink);-webkit-font-smoothing:antialiased}
+.stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center center;overflow:hidden;display:none;
+  background-color:var(--paper);
+  background-image:repeating-linear-gradient(to right,rgba(17,17,17,.045) 0 1px,transparent 1px 146px);
+  background-position:96px 0;background-size:1752px 100%;background-repeat:no-repeat}
+.stage.on{display:block}
+.a{position:absolute}
+/* chrome */
+.topline{position:absolute;left:96px;right:96px;top:40px;display:flex;justify-content:space-between;align-items:center;font:600 16px var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.rule{position:absolute;left:96px;right:96px;height:0;border-top:3px solid var(--ink)}
+.hair{position:absolute;left:96px;right:96px;height:0;border-top:1px solid var(--hair)}
+.num{position:absolute;left:88px;font:900 230px/0.8 var(--head);font-stretch:condensed;color:var(--red);letter-spacing:-.02em}
+.ql{position:absolute;left:96px;width:400px;font:600 15px/1.45 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.title{position:absolute;left:534px;width:1290px;margin:0;font:900 120px/0.92 var(--head);font-stretch:condensed;letter-spacing:-.01em}
+.sub{position:absolute;left:534px;width:1100px;font:400 28px/1.3 var(--body);color:var(--ink)}
+.foot{position:absolute;left:96px;right:96px;bottom:34px;display:flex;justify-content:space-between;font:600 15px var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.foot b{color:var(--red)}
+.mono{font-family:var(--mono)}
+.lab{font:700 15px var(--mono);letter-spacing:.16em;text-transform:uppercase}
+.red{color:var(--red)}.blue{color:var(--blue)}
+/* slide 1 */
+.box{position:absolute;border:2px solid var(--ink);background:var(--paper);padding:18px 22px}
+.box .k{font:700 15px var(--mono);letter-spacing:.16em;color:var(--red)}
+.box .h{font:900 64px/0.95 var(--head);font-stretch:condensed;margin:6px 0 10px;text-transform:uppercase}
+.box p{margin:0;font:400 21px/1.32 var(--body)}
+.box .m{margin-top:10px;font:600 15px/1.4 var(--mono);color:var(--mute)}
+.band{position:absolute;background:var(--ink);color:var(--paper);padding:20px 26px;display:grid;grid-template-columns:330px 1fr;gap:24px;align-items:center}
+.band .h{font:900 52px/0.95 var(--head);font-stretch:condensed;text-transform:uppercase}
+.band .s{font:500 24px/1.3 var(--body)}
+.band .m{font:600 16px/1.5 var(--mono);color:#cfc9bd;margin-top:6px}
+.band .m b{color:#fff}
+.stat{position:absolute;left:1462px;width:362px;border-top:1px solid var(--ink);padding-top:12px}
+.stat .v{font:900 64px/0.95 var(--head);font-stretch:condensed}
+.stat .c{font:400 18px/1.3 var(--body);color:var(--mute);margin-top:6px}
+/* slide 2 */
+.grp{position:absolute;border-top:3px solid var(--ink);padding-top:8px}
+.who{position:absolute;left:96px;width:404px;display:grid;grid-template-columns:96px 1fr;align-items:baseline;border-bottom:1px solid var(--hair);padding:7px 0}
+.who b{font:900 30px var(--head);font-stretch:condensed;text-transform:uppercase}
+.who span{font:400 18px var(--body);color:var(--mute)}
+.blk{position:absolute;background:var(--ink);color:var(--paper);padding:16px 22px}
+.blk .h{font:900 46px/1 var(--head);font-stretch:condensed;text-transform:uppercase}
+.blk p{margin:6px 0 0;font:400 19px/1.3 var(--body);color:#e9e4d9}
+.blk p b{color:#fff}
+.node{position:absolute;border:2px solid var(--ink);border-top:8px solid var(--red);padding:12px 18px;background:var(--paper)}
+.node .h{font:900 42px/1 var(--head);font-stretch:condensed;text-transform:uppercase}
+.node p{margin:4px 0 0;font:400 18px/1.3 var(--body)}
+.node.ph{border-top-color:var(--blue)}
+.chips{position:absolute;display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font:600 15px var(--mono);padding:5px 9px;border:1.5px solid var(--ink);background:var(--paper)}
+.chips span.alg{border-color:var(--red);color:var(--red)}
+.cell{position:absolute;width:420px;height:80px;border-bottom:1px solid var(--hair);padding-top:6px}
+.cell b{display:block;font:900 27px/1.05 var(--head);font-stretch:condensed;text-transform:uppercase}
+.cell span{font:400 17px/1.3 var(--body);color:var(--mute)}
+.shot{position:absolute;display:flex;gap:12px;align-items:center}
+.shot img{width:138px;height:76px;object-fit:cover;object-position:left top;border:1.5px solid var(--ink)}
+.shot span{font:600 13px/1.4 var(--mono);color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
+.api{position:absolute;left:96px;right:96px;top:886px;height:68px;background:var(--ink);color:var(--paper);display:flex;align-items:center;gap:34px;padding:0 24px}
+.api .h{font:900 36px var(--head);font-stretch:condensed;text-transform:uppercase}
+.api .r{font:400 19px var(--body)}
+.api .r b{font:700 14px var(--mono);letter-spacing:.14em;margin-right:8px}
+.api .l{margin-left:auto;font:600 14px/1.45 var(--mono);letter-spacing:.1em;text-align:right;color:#cfc9bd}
+.legend{position:absolute;right:96px;top:206px;display:flex;gap:26px;font:600 14px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.legend span{display:flex;align-items:center;gap:8px}
+.wl{font:700 14px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.dots{display:flex;gap:7px;margin-left:18px}.dots i{width:11px;height:11px;border:1.5px solid var(--ink)}.dots i.on{background:var(--red);border-color:var(--red)}
+.why{position:absolute;left:96px;right:96px;top:244px;height:620px;background:var(--paper);display:grid;grid-template-columns:repeat(3,1fr);gap:24px;border-top:3px solid var(--ink)}
+.why div{border-right:1px solid var(--hair);padding:18px 26px 0 0}
+.why div:last-child{border-right:0}
+.why .n{font:900 170px/0.8 var(--head);font-stretch:condensed;color:var(--red)}
+.why .h{font:900 50px/0.98 var(--head);font-stretch:condensed;text-transform:uppercase;margin:16px 0 14px}
+.why p{margin:0 0 14px;font:400 23px/1.36 var(--body)}
+.why p b{font-weight:700}
+.why .bc{font:700 15px/1.45 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--red);border-top:1px solid var(--hair);padding-top:12px}
+/* slide 3 */
+.learn{position:absolute;top:430px;width:558px;border-top:3px solid var(--ink);padding-top:14px}
+.learn .h{font:900 58px/0.98 var(--head);font-stretch:condensed;margin:10px 0 16px}
+.learn p{margin:0;font:400 24px/1.38 var(--body)}
+.learn .w{margin-top:16px;font:600 15px var(--mono);letter-spacing:.1em;color:var(--mute);text-transform:uppercase}
+.close{position:absolute;left:96px;right:96px;top:868px;font:900 62px/1 var(--head);font-stretch:condensed;text-transform:uppercase;border-top:3px solid var(--ink);padding-top:16px}
+/* motion */
+[data-s],.wipe{transition:clip-path .6s cubic-bezier(.7,0,.2,1),opacity .4s ease}
+.hid{clip-path:inset(0 100% 0 0);opacity:0}
+.stage.on .wipe{animation:wipe .7s cubic-bezier(.7,0,.2,1) both}
+@keyframes wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+.why.hid{clip-path:inset(0 0 0 100%)}
+@page{size:1920px 1080px;margin:0}
+@media print{
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  html,body{height:auto!important;overflow:visible!important;background:var(--paper)}
+  .stage{display:block!important;position:relative!important;left:0!important;top:0!important;transform:none!important;break-after:page;page-break-after:always}
+  .stage .wipe{animation:none!important}
+  .hint{display:none}
+}
+body.print .stage{display:block!important}
+.hint{position:fixed;right:12px;bottom:8px;font:600 12px var(--mono);color:#8a857b;z-index:5}
+</style>
+</head>
+<body>
+
+<!-- 01 · Q1 · approach -->
+<section class="stage" data-n="1">
+  <div class="topline"><span>Team 5 — The Bazaar — Causa Prima, Madrid</span><span>01 / 03</span></div>
+  <div class="rule" style="top:76px"></div>
+  <div class="num" style="top:104px">01</div>
+  <div class="ql" style="top:312px">Q1 — How did you approach the challenge?</div>
+  <h1 class="title wipe" style="top:104px">Adapt faster than the game changes</h1>
+  <div class="sub" style="top:340px">Learn, decide, act, then again. You can't react fast without every number live.</div>
+
+  <svg class="a" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080">
+    <defs>
+      <marker id="k1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#111"/></marker>
+      <marker id="b1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4AFF"/></marker>
+    </defs>
+    <path d="M498 566H538" stroke="#111" stroke-width="4" marker-end="url(#k1)"/>
+    <path d="M943 566H983" stroke="#111" stroke-width="4" marker-end="url(#k1)"/>
+    <path d="M1186 470V446H296V466" fill="none" stroke="#111" stroke-width="4" marker-end="url(#k1)"/>
+    <rect x="640" y="433" width="270" height="26" fill="#F4F1EA"/>
+    <text x="775" y="452" text-anchor="middle" class="wl" fill="#E2231A">adapt · again</text>
+    <path d="M296 740V664" stroke="#1F4AFF" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#b1)"/>
+    <path d="M741 740V664" stroke="#1F4AFF" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#b1)"/>
+    <path d="M1186 740V664" stroke="#1F4AFF" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#b1)"/>
+  </svg>
+
+  <div class="box wipe" style="left:96px;top:472px;width:402px;height:188px"><div class="k">1 —</div><div class="h">Learn</div><p>Rules, the organisers' changes, our own measurements.</p><div class="m">→ GAME.md · measured facts</div></div>
+  <div class="box wipe" style="left:541px;top:472px;width:402px;height:188px"><div class="k">2 —</div><div class="h">Decide</div><p>Humans + the Chief of staff.</p><div class="m">→ directives.md · 100 decisions · 24 guardrails in 38 h</div></div>
+  <div class="box wipe" style="left:986px;top:472px;width:402px;height:188px"><div class="k">3 —</div><div class="h">Act</div><p>The Operator and the Duelist trade; read-only watchers measure the result.</p></div>
+
+  <div class="band wipe" style="left:96px;top:744px;width:1292px;height:150px">
+    <div class="h">Real-time context</div>
+    <div><div class="s">feed · scores · duels · market · rivals · news</div>
+      <div class="m"><b>35,767</b> public events captured · <b>42,791</b> data rows · STATUS every 5 min · phone alerts</div></div>
+  </div>
+
+  <div class="lab red a" style="left:1462px;top:446px">Adaptation</div>
+  <div class="stat" style="top:478px"><div class="v">60 → 30 → 15 s</div><div class="c">the tick, Friday → Sunday</div></div>
+  <div class="stat" style="top:610px"><div class="v">2 nights, 2 redesigns</div><div class="c">Friday: the Saturday plan · Saturday: the code-first duelist</div></div>
+  <div class="stat" style="top:760px;border-top:3px solid var(--red)"><div class="v red">#3 → #1</div><div class="c">7.09 behind Team 10 at Saturday's close → final 37.73, 1.97 ahead</div></div>
+
+  <div class="foot"><span>The Bazaar · Team 5</span><span><b>#1</b> · 37.73</span></div>
+</section>
+
+<!-- 02 · Q2 + Q3 · build + why -->
+<section class="stage" data-n="2" data-steps="3">
+  <div class="topline"><span>Team 5 — The Bazaar — Causa Prima, Madrid</span><span style="display:flex;align-items:center">02 / 03<span class="dots" id="dots"><i></i><i></i><i></i><i></i></span></span></div>
+  <div class="rule" style="top:76px"></div>
+  <div class="num" style="top:100px;font-size:150px">02</div>
+  <h1 class="title" style="top:104px;font-size:92px">Who decides, who acts, who checks</h1>
+  <div class="ql" style="left:534px;top:206px;width:900px">Q2 — What did you build? &nbsp; Q3 — Why that way?</div>
+  <div class="legend"><span><svg width="46" height="10"><path d="M0 5H38" stroke="#111" stroke-width="4"/><path d="M36 0L46 5L36 10z" fill="#111"/></svg>authority / write</span><span class="blue"><svg width="46" height="10"><path d="M0 5H38" stroke="#1F4AFF" stroke-width="3" stroke-dasharray="7 6"/><path d="M36 0L46 5L36 10z" fill="#1F4AFF"/></svg>data</span></div>
+
+  <svg class="a" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080">
+    <defs>
+      <marker id="k2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#111"/></marker>
+      <marker id="r2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#E2231A"/></marker>
+      <marker id="b2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4AFF"/></marker>
+    </defs>
+    <g data-s="0"><path d="M506 352H592" stroke="#111" stroke-width="4" marker-end="url(#k2)"/></g>
+    <g data-s="1">
+      <path d="M680 418V472H288V496" fill="none" stroke="#111" stroke-width="4" marker-end="url(#k2)"/>
+      <text x="300" y="464" class="wl" fill="#111">directives + limits</text>
+      <path d="M860 418V496" stroke="#111" stroke-width="4" marker-end="url(#k2)"/>
+      <text x="872" y="488" class="wl" fill="#111">params</text>
+      <path d="M288 852V882" stroke="#E2231A" stroke-width="5" marker-end="url(#r2)"/>
+      <path d="M706 852V882" stroke="#E2231A" stroke-width="5" marker-end="url(#r2)"/>
+      <text x="300" y="874" class="wl" fill="#E2231A">writes</text><text x="718" y="874" class="wl" fill="#E2231A">writes</text>
+    </g>
+    <g data-s="2">
+      <path d="M1392 884V856" stroke="#1F4AFF" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#b2)"/>
+      <text x="1404" y="876" class="wl" fill="#1F4AFF">reads</text>
+      <path d="M1180 462V380H1146" fill="none" stroke="#1F4AFF" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#b2)"/>
+      <text x="1192" y="446" class="wl" fill="#1F4AFF">live numbers · verdicts</text>
+      <path d="M1640 462V420" stroke="#1F4AFF" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#b2)"/>
+      <text x="1652" y="446" class="wl" fill="#1F4AFF">deal alerts</text>
+    </g>
+  </svg>
+
+  <!-- A · decide -->
+  <div data-s="0">
+    <div class="grp" style="left:96px;top:250px;width:1050px"><span class="lab red">A — Decide</span></div>
+    <div class="who" style="top:288px"><b>Lucas</b><span>goals + hard limits</span></div>
+    <div class="who" style="top:332px"><b>Aleks</b><span>wrote the duelist + the hub</span></div>
+    <div class="who" style="top:376px"><b>Dani</b><span>the room · rivals · dashboard</span></div>
+    <div class="blk" style="left:600px;top:290px;width:546px;height:128px"><div class="h">Chief of staff</div><p>Claude Code · makes the big calls, logs them with evidence · <b>never writes to the game</b></p></div>
+  </div>
+  <!-- B · act -->
+  <div data-s="1">
+    <div class="grp" style="left:96px;top:458px;width:804px"><span class="lab red" style="background:var(--paper);padding-right:10px;position:relative;z-index:1">B — Act · two writer roles</span></div>
+    <div class="node" style="left:96px;top:500px;width:384px;height:104px"><div class="h">Operator</div><p>Claude Code · the only trade writer</p></div>
+    <div class="chips" style="left:96px;top:618px;width:384px"><span>trader · taker</span><span>book · maker</span><span>dealer bots</span><span>page closers</span><span>counterparty policy</span></div>
+    <div class="node" style="left:512px;top:500px;width:388px;height:104px"><div class="h">Duelist</div><p>code decides accept / hold / step / day · Haiku 4.5 writes</p></div>
+    <div class="chips" style="left:512px;top:618px;width:388px"><span>guards</span><span>8 s failover</span><span class="alg">27 hot-reloaded tunables</span><span>C → A switch</span><span class="alg">5-world simulator</span></div>
+  </div>
+  <!-- C · sense / check + phones -->
+  <div data-s="2">
+    <div class="grp" style="left:960px;top:458px;width:864px"><span class="lab blue" style="background:var(--paper);padding-right:10px;position:relative;z-index:1">C — Sense · check · read-only</span></div>
+    <div class="cell" style="left:960px;top:494px"><b>Market session</b><span>venue v10 at 0 % · Market Test recorder</span></div>
+    <div class="cell" style="left:960px;top:582px"><b>Collector + status</b><span>feed · me · board → data/, STATUS.md</span></div>
+    <div class="cell" style="left:960px;top:670px"><b>Reactor</b><span>the live event stream → alerts</span></div>
+    <div class="cell" style="left:960px;top:758px"><b>Dashboard + Neon hub</b><span>Dani's screen · one copy of the game</span></div>
+    <div class="cell" style="left:1404px;top:494px"><b>Analysts</b><span>scout + judge on the Claude API</span></div>
+    <div class="cell" style="left:1404px;top:582px"><b>Duel Lab</b><span>5-world simulator, validated on Duels II</span></div>
+    <div class="cell" style="left:1404px;top:670px"><b>Verifiers</b><span>fresh subagents + contrarian reviews</span></div>
+    <div class="shot" style="left:1404px;top:762px"><img src="../img/dashboard.png" alt="Dani's live dashboard"><span>Dani's live dashboard<br>14:26 · us #1</span></div>
+    <div class="node ph" style="left:1236px;top:290px;width:588px;height:128px"><div class="h">Phone alerts · ntfy</div><p>reactor + opportunity finder → Lucas + Dani → they walk to the team in the room</p></div>
+  </div>
+
+  <div class="api"><div class="h">The Bazaar · game API</div><div class="r"><b class="red">WRITE</b>offers · accepts · threads · duels</div><div class="r"><b class="blue">READ</b>me · clock · board · event stream</div><div class="l">ONE KEY · 5 REQ/S<br>1 ACCEPT PER TICK</div></div>
+
+  <!-- the three decisions -->
+  <div class="why" data-s="3">
+    <div><div class="n">1</div><div class="h">Code decides, the LLM writes</div><p>Price, day and accept are code; Haiku writes the words in <b>≈ 2 s vs 9.4 s</b> when the LLM decided. Guards in code.</p><div class="bc">Because a 15 s tick doesn't wait</div></div>
+    <div><div class="n">2</div><div class="h">2 writers · 1 orchestrator · 14 watchers</div><p>Two roles act, one Chief decides, fourteen read-only daemons sense. Every hard limit is a written <b>GUARDRAIL</b> line.</p><div class="bc">Because one key and its limits are shared</div></div>
+    <div><div class="n">3</div><div class="h">Redesigned every night, pressure-tested</div><p>Saturday night the duelist went code-first (<b>547 tests green</b>) and was checked on the simulator; Sunday 07:25 contrarian reviews fixed the plan; verifiers re-checked every claim; <b>163 tests</b> guard the bots.</p><div class="bc">Because the author can't grade its own work</div></div>
+  </div>
+
+  <div class="foot"><span>The Bazaar · Team 5</span><span><b>#1</b> · 37.73</span></div>
+</section>
+
+<!-- 03 · Q4 · learned -->
+<section class="stage" data-n="3">
+  <div class="topline"><span>Team 5 — The Bazaar — Causa Prima, Madrid</span><span>03 / 03</span></div>
+  <div class="rule" style="top:76px"></div>
+  <div class="num" style="top:104px">03</div>
+  <div class="ql" style="top:312px">Q4 — What did you learn? Technically, and about negotiation and marketplaces</div>
+  <h1 class="title wipe" style="top:104px">What we learned</h1>
+  <div class="learn wipe" style="left:96px"><div class="lab red">Technical</div><div class="h">Real-time shared context is everything.</div><p>Day one, three people and their agents worked in silos. By Sunday every agent saw every update as it happened.</p><div class="w">— Lucas, Aleks</div></div>
+  <div class="learn wipe" style="left:681px"><div class="lab red">Negotiation</div><div class="h">Time can beat price.</div><p>A fast good deal beats a slow perfect one. And people still decide: alliances made in the room outweighed agent tactics.</p><div class="w">— Aleks, Lucas</div></div>
+  <div class="learn wipe" style="left:1266px"><div class="lab red">Marketplace</div><div class="h">Trust moves trades, not fees.</div><p>Zero commission wasn't enough; trust and returned favours brought trades to our market. Incentives can break.</p><div class="w">— Dani, Aleks</div></div>
+  <div class="close wipe">Three humans set the limits. <span class="red">Claude ran the bazaar, and checked itself.</span></div>
+  <div class="foot" style="bottom:20px"><span>The Bazaar · Team 5</span><span><b>#1</b> · 37.73</span></div>
+</section>
+
+<div class="hint" id="hint">← → · F</div>
+<script>
+const PRINT = /print/.test(location.search);
+if (PRINT) {
+  document.body.classList.add('print');
+  const s2 = document.querySelector('[data-steps]'), c = s2.cloneNode(true);
+  s2.dataset.fixed = 2; c.dataset.fixed = 3; s2.after(c);
+}
+const S = [...document.querySelectorAll('.stage')];
+let cur = 0, sub = 0;
+function applySteps(el, n) {
+  el.querySelectorAll('[data-s]').forEach(e => e.classList.toggle('hid', +e.dataset.s > n));
+  el.querySelectorAll('.dots i').forEach((d, i) => d.classList.toggle('on', i <= n));
+}
+function show(i, s) {
+  cur = Math.max(0, Math.min(S.length - 1, i)); const el = S[cur], max = +(el.dataset.steps || 0);
+  sub = s === undefined ? 0 : Math.max(0, Math.min(max, s));
+  S.forEach(x => x.classList.remove('on')); el.classList.add('on');
+  // restart the wipe animations on entry
+  el.querySelectorAll('.wipe').forEach(w => { w.style.animation = 'none'; void w.offsetWidth; w.style.animation = ''; });
+  applySteps(el, sub);
+  document.getElementById('hint').textContent = `${cur + 1}/${S.length}${max ? ' · step ' + (sub + 1) + '/' + (max + 1) : ''} · ← → · F`;
+}
+function next() { const max = +(S[cur].dataset.steps || 0); if (sub < max) { sub++; applySteps(S[cur], sub); show(cur, sub); } else show(cur + 1); }
+function prev() { if (sub > 0) show(cur, sub - 1); else { const p = Math.max(0, cur - 1); show(p, +(S[p].dataset.steps || 0)); } }
+function fit() { const k = Math.min(innerWidth / 1920, innerHeight / 1080); S.forEach(x => x.style.transform = 'translate(-50%,-50%) scale(' + k + ')'); }
+if (PRINT) {
+  S.forEach(x => { x.classList.add('on'); if (x.dataset.steps) applySteps(x, +x.dataset.fixed); });
+} else {
+  addEventListener('resize', fit); fit();
+  addEventListener('keydown', e => {
+    if (['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); next(); }
+    else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(e.key)) { e.preventDefault(); prev(); }
+    else if (e.key === 'f' || e.key === 'F') { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); }
+  });
+  addEventListener('click', e => (e.clientX > innerWidth / 3 ? next() : prev()));
+  const m0 = /#(\d+)(?:\.(\d))?/.exec(location.hash);
+  show(m0 ? +m0[1] - 1 : 0, m0 && m0[2] ? +m0[2] : undefined);
+}
+</script>
+</body>
+</html>

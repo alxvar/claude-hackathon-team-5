@@ -60,6 +60,12 @@
 /* print */
 body.print .stage{display:block!important}
 body.print .hint{display:none}
+/* q4 v2 */
+.ins{position:absolute;top:300px;width:516px;height:500px;padding:30px 32px}
+.ins .q{font:700 16px var(--mono);letter-spacing:.2em;color:var(--c);text-transform:uppercase}
+.ins .t{font:800 54px/1.02 var(--head);text-transform:uppercase;margin:16px 0 18px}
+.ins p{font:400 25px/1.4 var(--body);color:var(--ink2);margin:0}
+.ins .who2{position:absolute;left:32px;bottom:26px;font:600 16px var(--mono);letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
 /* nav */
 .hint{position:fixed;right:14px;bottom:10px;font:600 12px var(--mono);color:#3a4560;letter-spacing:.08em;z-index:5}
 .short .skip{display:none!important}
@@ -68,41 +74,26 @@ body.print .hint{display:none}
 <body>
 
 <!-- 1 · Q1 · HOW WE APPROACHED IT (B · the loop) -->
-<div class="stage frame on" data-t="60s"><iframe data-src="arch-b.html"></iframe></div>
+<div class="stage frame on" data-t="50s"><iframe data-src="arch-b.html"></iframe></div>
 
 <!-- 2 · Q2 + Q3 · WHAT WE BUILT, WHY (A · control room, 4 click steps) -->
-<div class="stage frame" data-t="2:30-3:00" data-steps="3"><iframe data-src="arch-a.html"></iframe></div>
+<div class="stage frame" data-t="1:40" data-steps="3"><iframe data-src="arch-a.html"></iframe></div>
 
-<!-- 3 · Q4 · WHAT WE LEARNED (draft slots for the team) -->
-<div class="stage warm" data-t="45-60s">
+<!-- 3 · Q4 · WHAT WE LEARNED (from the team's voice memo) -->
+<div class="stage warm" data-t="30s">
   <div class="kicker">Q4 · What did you learn? Technically, and about negotiation and marketplaces</div>
   <h1>What we <em>learned</em></h1>
-  <div class="card top lcol" style="left:128px;--c:var(--blue)"><div class="t">Technical <span class="draft">draft</span></div><ul>
-    <li><b>Code decides, the LLM writes.</b> On a 15 s tick, latency is a rule: Haiku ≈ 2 s vs 9.4 s when the LLM decided.</li>
-    <li><b>The generator can't grade itself.</b> A separate verifier caught errors the author missed, in this very deck too.</li></ul></div>
-  <div class="card top lcol" style="left:702px;--c:var(--red)"><div class="t">Negotiation <span class="draft">draft</span></div><ul>
-    <li><b>Decay is per exchange, so silence is free.</b> Hold instead of talking.</li>
-    <li><b>Take the good offer when it's there.</b> 23 Duels III deals closed below an offer the rival had already made (≈ 197 P, the monitor's price check).</li></ul></div>
-  <div class="card top lcol" style="left:1276px;--c:var(--yellow)"><div class="t">Marketplace <span class="draft">draft</span></div><ul>
-    <li><b>Value created, not activity.</b> A trade with a rival lifts the rival as much as you: CHA-11, +1.48 each.</li>
-    <li><b>Pushing partners moved trades; the bounty didn't.</b> 0 fills at 10:45, 8 at the close; the bounty paid nobody.</li>
-    <li><b>Nobody beat the free stall.</b> 0.5 in all eleven Market Tests: no bond needed.</li></ul></div>
-  <div class="more"><span class="k">With one more day <span class="draft">draft</span></span><span>Merge the Sunday duelist into main</span><span>Switch on the broker we staged</span><span>A verifier gate on every directive</span></div>
-  <div class="close" style="top:914px;font-size:40px">Three humans set the limits. <span class="y">Claude ran the bazaar, and checked itself.</span></div>
+  <div class="card top ins" style="left:128px;--c:var(--blue)"><div class="q">Technical</div><div class="t">Real-time shared context is everything</div>
+    <p>Day one, three people and their agents worked in silos. By Sunday every agent saw every update as it happened.</p><div class="who2">Lucas · Aleks</div></div>
+  <div class="card top ins" style="left:702px;--c:var(--red)"><div class="q">Negotiation</div><div class="t">Time can beat price</div>
+    <p>A fast good deal beats a slow perfect one. And people still decide: alliances made in the room outweighed agent tactics.</p><div class="who2">Aleks · Lucas</div></div>
+  <div class="card top ins" style="left:1276px;--c:var(--yellow)"><div class="q">Marketplace</div><div class="t">Trust moves trades, not fees</div>
+    <p>Zero commission wasn't enough. Trust and returned favours brought trades to our market; incentives can break.</p><div class="who2">Dani · Aleks</div></div>
+  <div class="close" style="top:860px;font-size:48px">Three humans set the limits. <span class="y">Claude ran the bazaar, and checked itself.</span></div>
   <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i></i></div><div class="lvl"></div><div class="who">Thank you</div></div>
 </div>
 
 <!-- BACKUP (Q&A only) -->
-<!-- 1 · HOOK + RESULT -->
-<div class="stage backup" data-t="backup">
-  <div class="pills"><span class="pill" style="color:var(--yellow)">Team 5</span><span class="pill" style="color:var(--grey)">3 humans</span><span class="pill" style="color:var(--blue)">7+ Claude Code sessions</span><span class="pill" style="color:var(--green)">19 daemons built</span><span class="pill" style="color:var(--red)">2 trading roles</span></div>
-  <h1 class="hero">From #6 to <em>#1</em></h1>
-  <div class="lede">Friday final <b>#6</b> · first <b>#1</b> Sat 16:44 · <b>#1 since 12:35</b> today · board <b id="lead"></b> <span class="tag v">V</span></div>
-  <svg id="race" viewBox="0 0 1664 560"></svg>
-  <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i></i></div><div class="lvl"></div><div class="who">Final pitch</div></div>
-</div>
-
-
 <!-- 3 · HYPOTHESES → CHALLENGES → CHANGES -->
 <div class="stage backup" data-t="backup">
   <div class="kicker">First idea, and what changed it</div>
@@ -168,6 +159,7 @@ document.getElementById('hyp').innerHTML = H.map((h, i) => `<div class="card hro
 
 // ---------- slide 1: the race ----------
 (function () {
+  if (!document.getElementById('race')) return;
   const R = window.RACE, W = 1664, Hh = 560, m = {l: 56, r: 210, t: 40, b: 40};
   const X = i => m.l + (W - m.l - m.r) * i / (R.n - 1), Y = v => m.t + (Hh - m.t - m.b) * (1 - (v - 10) / 30);
   const col = {t05: '#ffc547', t12: '#a46bf5', t10: '#4a8af4', t03: '#3ddc97', t18: '#8b95aa'};
@@ -192,7 +184,7 @@ document.getElementById('hyp').innerHTML = H.map((h, i) => `<div class="card hro
   const last = us[us.length - 1];
   s += `<circle cx="${X(last[0])}" cy="${Y(last[1])}" r="11" fill="#ffc547"><animate attributeName="r" values="9;14;9" dur="1.6s" repeatCount="indefinite"/></circle>`;
   document.getElementById('race').innerHTML = s;
-  const f = R.final; document.getElementById('lead').textContent = f[0][2].toFixed(2) + ', lead ' + (f[0][2] - f[1][2]).toFixed(2) + ' at ' + R.as_of.slice(4);
+  const f = R.final; if (document.getElementById('lead')) document.getElementById('lead').textContent = f[0][2].toFixed(2) + ', lead ' + (f[0][2] - f[1][2]).toFixed(2) + ' at ' + R.as_of.slice(4);
 })();
 
 // ---------- print mode (?print): every slide on its own page; slide 2 twice (full map, then the why callouts) ----------

@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team 5 · Nova</title>
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#05060f;--ink:#f4f5ff;--ink2:#c3c7e6;--muted:#8a8fb5;--dim:#5a5f86;
+  --vi:#7c3aed;--vi2:#a78bfa;--cy:#22d3ee;--mg:#ec4899;--gr:#34d399;--am:#fbbf24;
+  --glass:rgba(255,255,255,.06);--glass2:rgba(255,255,255,.09);--edge:rgba(255,255,255,.12);
+  --head:"Avenir Next","Futura",system-ui,-apple-system,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#020309;overflow:hidden}
+body{font-family:var(--head);color:var(--ink);-webkit-font-smoothing:antialiased}
+.stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center;overflow:hidden;background:var(--bg);display:none}
+.stage.on{display:block}
+/* aurora + grid */
+.aur{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.aur i{position:absolute;border-radius:50%;filter:blur(110px);opacity:.42;animation:drift 22s ease-in-out infinite alternate}
+.aur i:nth-child(1){width:900px;height:620px;left:-200px;top:-260px;background:var(--vi)}
+.aur i:nth-child(2){width:760px;height:540px;right:-220px;top:-120px;background:var(--cy);opacity:.26;animation-duration:28s}
+.aur i:nth-child(3){width:820px;height:520px;left:620px;bottom:-360px;background:var(--mg);opacity:.24;animation-duration:32s}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(80px,40px) scale(1.08)}100%{transform:translate(-60px,70px) scale(.95)}}
+.grid{position:absolute;left:-10%;right:-10%;bottom:-120px;height:520px;pointer-events:none;opacity:.22;
+  background-image:linear-gradient(rgba(124,58,237,.55) 1px,transparent 1px),linear-gradient(90deg,rgba(34,211,238,.45) 1px,transparent 1px);
+  background-size:80px 80px;transform:perspective(700px) rotateX(64deg);transform-origin:bottom;
+  -webkit-mask-image:linear-gradient(to top,#000 10%,transparent 85%);mask-image:linear-gradient(to top,#000 10%,transparent 85%)}
+/* type */
+.kicker{position:absolute;left:128px;top:104px;font:600 21px var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--cy)}
+h1{position:absolute;left:124px;top:140px;margin:0;font:800 84px/1.02 var(--head);letter-spacing:-.02em;color:var(--ink);white-space:nowrap}
+.grad{background:linear-gradient(90deg,#c4b5fd 0%,#22d3ee 50%,#f0abfc 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{position:absolute;background:var(--glass);border:1px solid var(--edge);border-radius:22px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 20px 60px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.08)}
+.lbl{font:600 15px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.neon{color:var(--ink);text-shadow:0 0 18px rgba(34,211,238,.65),0 0 42px rgba(124,58,237,.45)}
+.ico{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;flex:none;border:1px solid var(--c,var(--cy));color:var(--c,var(--cy));background:rgba(255,255,255,.04);box-shadow:0 0 18px color-mix(in srgb,var(--c,var(--cy)) 35%,transparent)}
+.ico svg{width:24px;height:24px}
+/* footer */
+.foot{position:absolute;left:128px;right:128px;bottom:36px;height:36px;display:flex;align-items:center;gap:24px;font:600 18px var(--mono);letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
+.foot .dots{margin-left:auto;display:flex;gap:10px}
+.foot .dots i{width:44px;height:5px;border-radius:5px;background:rgba(255,255,255,.12)}
+.foot .dots i.on{background:linear-gradient(90deg,var(--vi),var(--cy));box-shadow:0 0 12px rgba(34,211,238,.6)}
+.tag{font:700 13px var(--mono);letter-spacing:.06em;padding:2px 7px;border-radius:6px;border:1px solid currentColor;color:var(--gr);vertical-align:3px}
+/* ---------- slide 1 ---------- */
+.res{position:absolute;right:128px;top:24px;padding:14px 22px;display:flex;align-items:center;gap:18px}
+.res .p{font:800 54px/1 var(--head)}
+.res .l{font:600 15px/1.45 var(--mono);letter-spacing:.1em;color:var(--ink2);text-transform:uppercase}
+.step{top:300px;width:512px;height:262px;padding:26px 30px}
+.step .n{font:800 15px var(--mono);letter-spacing:.24em;color:var(--c)}
+.step .t{font:800 50px/1 var(--head);margin:10px 0 12px;letter-spacing:-.01em}
+.step p{margin:0;font:400 22px/1.38 var(--head);color:var(--ink2)}
+.step p b{color:var(--ink);font-weight:600}
+.step .file{position:absolute;left:30px;bottom:22px;font:600 15px var(--mono);color:var(--c);letter-spacing:.06em}
+.base{left:128px;top:626px;width:1664px;height:150px;padding:22px 30px;border-color:rgba(34,211,238,.35);background:linear-gradient(90deg,rgba(34,211,238,.10),rgba(124,58,237,.10))}
+.base .t{font:800 34px var(--head);letter-spacing:.01em}
+.base .row{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.chip{font:600 16px var(--mono);letter-spacing:.04em;color:var(--ink2);padding:6px 12px;border-radius:9px;background:rgba(255,255,255,.06);border:1px solid var(--edge)}
+.base .stats{position:absolute;right:30px;top:20px;text-align:right;font:500 18px/1.55 var(--head);color:var(--ink2)}
+.base .stats b{font:800 30px var(--head);color:var(--ink)}
+.adapt{top:812px;width:532px;height:150px;padding:18px 26px}
+.adapt .v{font:800 46px/1.05 var(--head);letter-spacing:-.01em}
+.adapt p{margin:6px 0 0;font:400 19px/1.35 var(--head);color:var(--ink2)}
+/* ---------- slide 2 ---------- */
+[data-s]{transition:opacity .5s ease,transform .5s ease}
+.off{opacity:0!important;transform:translateY(12px)}
+.grp{position:absolute;border-radius:24px;border:1px dashed var(--c);background:color-mix(in srgb,var(--c) 6%,transparent)}
+.grp .gl{position:absolute;left:24px;top:-14px;padding:2px 12px;border-radius:8px;background:var(--bg);font:700 16px var(--mono);letter-spacing:.22em;color:var(--c);text-transform:uppercase}
+.node{position:absolute;display:flex;gap:14px;align-items:center;padding:10px 16px;background:var(--glass2);border:1px solid var(--edge);border-left:4px solid var(--c);border-radius:16px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.node .t{font:800 26px/1.05 var(--head);letter-spacing:-.005em}
+.node .d{font:400 17px/1.28 var(--head);color:var(--ink2);margin-top:3px}
+.node.sm{padding:7px 12px}.node.sm .t{font-size:20px}.node.sm .d{font-size:15px}
+.node.sm .ico{width:36px;height:36px;border-radius:10px}.node.sm .ico svg{width:19px;height:19px}
+.node.live .ico{animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--c) 55%,transparent)}50%{box-shadow:0 0 0 10px transparent}}
+.chips{position:absolute;display:flex;gap:7px;flex-wrap:wrap}
+.chips span{font:600 14.5px var(--mono);letter-spacing:.03em;color:var(--ink2);padding:5px 9px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid var(--edge)}
+.chips span.k{color:var(--ink);border-color:color-mix(in srgb,var(--c) 70%,transparent);background:color-mix(in srgb,var(--c) 14%,transparent)}
+.game{left:128px;top:886px;width:1664px;height:70px;display:flex;align-items:center;gap:26px;padding:0 26px;border-radius:18px;background:linear-gradient(90deg,rgba(124,58,237,.22),rgba(34,211,238,.12));border-color:rgba(167,139,250,.45)}
+.game .t{font:800 28px var(--head)}
+.game .rw{font:500 18px var(--head);color:var(--ink2)}
+.game .rw b{font:700 13px var(--mono);letter-spacing:.14em;margin-right:8px}
+.game .lim{margin-left:auto;font:600 14px/1.5 var(--mono);letter-spacing:.12em;color:var(--muted);text-align:right}
+.legend{position:absolute;right:128px;top:226px;display:flex;gap:26px;font:600 14px var(--mono);letter-spacing:.08em;color:var(--ink2);text-transform:uppercase}
+.legend span{display:flex;align-items:center;gap:10px}
+.phones{left:1132px;top:272px;width:320px;height:172px;padding:18px 20px;border-color:rgba(236,72,153,.5);background:rgba(236,72,153,.08)}
+.phones .t{font:800 26px var(--head);margin:10px 0 4px}
+.phones p{margin:0;font:400 17px/1.35 var(--head);color:var(--ink2)}
+.shot{left:1476px;top:272px;width:316px;height:172px;overflow:hidden;padding:0}
+.shot img{width:100%;height:100%;object-fit:cover;opacity:.85;display:block}
+.shot .cap{position:absolute;left:0;right:0;bottom:0;padding:8px 12px;background:linear-gradient(transparent,rgba(5,6,15,.92));font:600 13px var(--mono);letter-spacing:.08em;color:var(--ink);text-transform:uppercase}
+.shot .cap b{color:var(--gr)}
+.wl{font:700 13px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+#dim{position:absolute;inset:0;background:rgba(3,4,12,.82)}
+.why{top:276px;width:530px;height:560px;padding:30px 32px;border-top:3px solid var(--c)}
+.why .n{font:800 92px/.9 var(--head);color:var(--c);text-shadow:0 0 30px color-mix(in srgb,var(--c) 60%,transparent)}
+.why .t{font:800 40px/1.06 var(--head);margin:14px 0 16px;letter-spacing:-.01em}
+.why p{margin:0 0 14px;font:400 22px/1.4 var(--head);color:var(--ink2)}
+.why p b{color:var(--ink);font-weight:600}
+.why .bc{position:absolute;left:32px;right:32px;bottom:28px;font:700 14px/1.45 var(--mono);letter-spacing:.08em;color:var(--c);text-transform:uppercase;border-top:1px solid var(--edge);padding-top:14px}
+/* ---------- slide 3 ---------- */
+.learn{top:290px;width:528px;height:520px;padding:32px 34px}
+.learn .lbl{color:var(--c)}
+.learn .t{font:800 46px/1.06 var(--head);margin:18px 0 18px;letter-spacing:-.015em}
+.learn p{margin:0;font:400 24px/1.42 var(--head);color:var(--ink2)}
+.learn .who{position:absolute;left:34px;bottom:28px;font:600 15px var(--mono);letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.close{position:absolute;left:128px;right:128px;top:858px;font:800 50px/1.1 var(--head);letter-spacing:-.015em}
+svg.wires{position:absolute;left:0;top:0;width:1920px;height:1080px;pointer-events:none;overflow:visible}
+.hint{position:fixed;right:14px;bottom:10px;font:600 12px var(--mono);color:#353a5c;letter-spacing:.08em;z-index:5}
+/* print */
+@page{size:1920px 1080px;margin:0}
+@media print{
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;animation:none!important}
+  html,body{height:auto!important;overflow:visible!important;background:var(--bg)}
+  .stage{display:block!important;position:relative!important;left:0!important;top:0!important;transform:none!important;break-after:page;page-break-after:always}
+  .glass,.node{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+  .glass{background:#11132a}.node{background:#161936}
+  .base{background:linear-gradient(90deg,#0c2232,#1a1336)}
+  .phones{background:#251230}.game{background:linear-gradient(90deg,#221548,#0f2232)}
+  .hint{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= SLIDE 1 · Q1 ================= -->
+<section class="stage" data-n="1">
+  <div class="aur"><i></i><i></i><i></i></div><div class="grid"></div>
+  <div class="kicker">Q1 · How did you approach the challenge?</div>
+  <h1>Adapt faster than <span class="grad">the game changes</span></h1>
+  <div class="glass res"><div class="p neon">#1</div><div class="l">37.73 · final<br>1.97 ahead of Team 10</div></div>
+
+  <svg class="wires" viewBox="0 0 1920 1080">
+    <defs>
+      <linearGradient id="lg1" x1="0" x2="1"><stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
+      <marker id="m1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#22d3ee"/></marker>
+    </defs>
+    <path id="loop1" d="M1536 296 C1536 238 384 238 384 292" fill="none" stroke="url(#lg1)" stroke-width="3" stroke-dasharray="6 9" marker-end="url(#m1)" opacity=".85"/>
+    <text x="960" y="252" text-anchor="middle" class="wl" fill="#c3c7e6" style="paint-order:stroke;stroke:#05060f;stroke-width:8px">over and over · three days</text>
+    <circle r="7" fill="#22d3ee"><animateMotion dur="5s" repeatCount="indefinite"><mpath href="#loop1"/></animateMotion></circle>
+    <path d="M644 430H700" stroke="#a78bfa" stroke-width="4" marker-end="url(#m1)"/>
+    <path d="M1220 430H1276" stroke="#a78bfa" stroke-width="4" marker-end="url(#m1)"/>
+    <g id="ups"></g>
+  </svg>
+
+  <div class="glass step" style="left:128px;--c:#22d3ee"><div class="n">01 · Learn</div><div class="t">Learn</div><p>The rules, the organisers' changes and <b>our own measurements</b>, written down as facts.</p><div class="file">GAME.md · measured facts</div></div>
+  <div class="glass step" style="left:704px;--c:#a78bfa"><div class="n">02 · Decide</div><div class="t">Decide</div><p>Humans + the Chief of staff: <b class="neon">100 logged decisions, 24 guardrails</b> in 38 h.</p><div class="file">directives.md · with evidence</div></div>
+  <div class="glass step" style="left:1280px;--c:#ec4899"><div class="n">03 · Act</div><div class="t">Act</div><p>The <b>Operator</b> and the <b>Duelist</b> trade; read-only watchers measure the result.</p><div class="file">two writer roles · live</div></div>
+
+  <div class="glass base">
+    <div class="lbl" style="color:var(--cy)">The base under all three</div>
+    <div class="t">Real-time context</div>
+    <div class="row"><span class="chip">feed</span><span class="chip">scores</span><span class="chip">duels</span><span class="chip">market</span><span class="chip">rivals</span><span class="chip">news</span><span class="chip">STATUS every 5 min</span><span class="chip">phone alerts</span></div>
+    <div class="stats"><b class="neon">35,767</b> public events captured<br><b class="neon">42,791</b> data rows</div>
+  </div>
+
+  <div class="glass adapt" style="left:128px"><div class="lbl">The tick sped up</div><div class="v">60 s → 30 s → <span class="grad">15 s</span></div><p>Friday, Saturday, Sunday: we kept pace.</p></div>
+  <div class="glass adapt" style="left:694px"><div class="lbl">Rebuilt overnight</div><div class="v">2 <span class="grad">redesigns</span></div><p>Fri night: the Saturday plan · Sat night: the code-first duelist.</p></div>
+  <div class="glass adapt" style="left:1260px"><div class="lbl">Result</div><div class="v">#3 → <span class="grad">#1</span></div><p>7.09 behind at Saturday's close → 37.73 at the end.</p></div>
+
+  <div class="foot"><span>The Bazaar · Team 5</span><span class="dots"><i class="on"></i><i></i><i></i></span><span>01 / 03</span></div>
+</section>
+
+<!-- ================= SLIDE 2 · Q2 + Q3 ================= -->
+<section class="stage" data-n="2" data-steps="3">
+  <div class="aur"><i></i><i></i><i></i></div><div class="grid" style="opacity:.12"></div>
+  <div class="kicker">Q2 · What did you build? &nbsp;·&nbsp; Q3 · Why that way?</div>
+  <h1>Who decides, who acts, <span class="grad">who checks</span></h1>
+  <div class="legend"><span><svg width="52" height="12"><path d="M2 6H42" stroke="#a78bfa" stroke-width="4"/><path d="M40 1L50 6L40 11z" fill="#a78bfa"/></svg>authority / game write</span><span><svg width="52" height="12"><path d="M2 6H42" stroke="#22d3ee" stroke-width="3" stroke-dasharray="7 6"/><path d="M40 1L50 6L40 11z" fill="#22d3ee"/></svg>data</span></div>
+
+  <div class="grp" data-s="0" style="left:128px;top:272px;width:980px;height:172px;--c:#a78bfa"><div class="gl">Decide</div></div>
+  <div class="grp" data-s="1" style="left:128px;top:500px;width:772px;height:352px;--c:#ec4899"><div class="gl">Act · two writer roles</div></div>
+  <div class="grp" data-s="2" style="left:940px;top:500px;width:852px;height:352px;--c:#22d3ee"><div class="gl">Sense · check</div></div>
+
+  <svg class="wires" viewBox="0 0 1920 1080">
+    <defs>
+      <marker id="mv" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#a78bfa"/></marker>
+      <marker id="mm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ec4899"/></marker>
+      <marker id="mc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#22d3ee"/></marker>
+    </defs>
+    <g data-s="0"><path d="M474 360H554" stroke="#a78bfa" stroke-width="4" fill="none" marker-end="url(#mv)"/></g>
+    <g data-s="1">
+      <path d="M700 432V470H440V530" stroke="#a78bfa" stroke-width="4" fill="none" marker-end="url(#mv)"/>
+      <text x="454" y="463" class="wl" fill="#c4b5fd">directives + limits</text>
+      <path d="M860 432V530" stroke="#a78bfa" stroke-width="4" fill="none" marker-end="url(#mv)"/>
+      <text x="740" y="522" class="wl" fill="#c4b5fd">params</text>
+      <path d="M330 852V880" stroke="#ec4899" stroke-width="5" fill="none" marker-end="url(#mm)"/>
+      <path d="M704 852V880" stroke="#ec4899" stroke-width="5" fill="none" marker-end="url(#mm)"/>
+      <text x="346" y="874" class="wl" fill="#f9a8d4">writes</text><text x="720" y="874" class="wl" fill="#f9a8d4">writes</text>
+    </g>
+    <g data-s="2">
+      <path id="pR" d="M1300 884V856" stroke="#22d3ee" stroke-width="3" fill="none" stroke-dasharray="7 6" marker-end="url(#mc)"/>
+      <text x="1314" y="876" class="wl" fill="#67e8f9">reads</text>
+      <path id="pC" d="M1100 500V400H1084" stroke="#22d3ee" stroke-width="3" fill="none" stroke-dasharray="7 6" marker-end="url(#mc)"/>
+      <text x="1112" y="482" class="wl" fill="#67e8f9">live numbers</text>
+      <path id="pP" d="M1292 500V448" stroke="#ec4899" stroke-width="3" fill="none" stroke-dasharray="7 6" marker-end="url(#mm)"/>
+      <text x="1306" y="482" class="wl" fill="#f9a8d4">deal alerts</text>
+      <circle r="5" fill="#22d3ee"><animateMotion dur="1.6s" repeatCount="indefinite"><mpath href="#pR"/></animateMotion></circle>
+      <circle r="5" fill="#22d3ee"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#pC"/></animateMotion></circle>
+      <circle r="5" fill="#ec4899"><animateMotion dur="1.4s" repeatCount="indefinite"><mpath href="#pP"/></animateMotion></circle>
+    </g>
+  </svg>
+
+  <!-- decide -->
+  <div data-s="0">
+    <div class="node sm" style="left:150px;top:290px;width:322px;--c:#a78bfa" data-i="user"><div><div class="t">Lucas</div><div class="d">goals + hard limits</div></div></div>
+    <div class="node sm" style="left:150px;top:340px;width:322px;--c:#a78bfa" data-i="user"><div><div class="t">Aleks</div><div class="d">wrote the duelist + hub</div></div></div>
+    <div class="node sm" style="left:150px;top:390px;width:322px;--c:#a78bfa" data-i="user"><div><div class="t">Dani</div><div class="d">the room · rivals · dashboard</div></div></div>
+    <div class="node" style="left:560px;top:290px;width:520px;height:140px;--c:#a78bfa" data-i="compass"><div><div class="t" style="font-size:34px">Chief of staff</div><div class="d">Claude Code · makes the big calls, logs them with evidence · <b style="color:var(--ink)">never writes to the game</b></div></div></div>
+  </div>
+  <!-- act -->
+  <div data-s="1">
+    <div class="node live" style="left:152px;top:532px;width:356px;height:104px;--c:#ec4899" data-i="swap"><div><div class="t">Operator</div><div class="d">Claude Code · the only trade writer</div></div></div>
+    <div class="chips" style="left:152px;top:652px;width:356px;--c:#ec4899"><span>trader · taker</span><span>book · maker</span><span>dealer bots</span><span>page closers</span><span>counterparty policy</span></div>
+    <div class="node live" style="left:532px;top:532px;width:346px;height:104px;--c:#ec4899" data-i="sword"><div><div class="t">Duelist</div><div class="d">code decides · Haiku writes the words</div></div></div>
+    <div class="chips" style="left:532px;top:652px;width:346px;--c:#ec4899"><span class="k">27 hot-reloaded tunables</span><span class="k">5-world simulator</span><span>guards</span><span>8 s failover</span><span>C → A switch</span></div>
+  </div>
+  <!-- sense / check + phones -->
+  <div data-s="2">
+    <div class="node sm" style="left:962px;top:530px;width:400px;height:86px;--c:#22d3ee" data-i="store"><div><div class="t">Market</div><div class="d">venue v10 at 0 % · Market Test recorder</div></div></div>
+    <div class="node sm" style="left:962px;top:632px;width:400px;height:86px;--c:#22d3ee" data-i="db"><div><div class="t">Collector + status</div><div class="d">feed · me · board → data/, STATUS</div></div></div>
+    <div class="node sm live" style="left:962px;top:734px;width:400px;height:86px;--c:#22d3ee" data-i="eye"><div><div class="t">Reactor</div><div class="d">live event stream → alerts</div></div></div>
+    <div class="node sm" style="left:1384px;top:530px;width:388px;height:86px;--c:#34d399" data-i="search"><div><div class="t">Analysts</div><div class="d">scout + judge on the Claude API</div></div></div>
+    <div class="node sm" style="left:1384px;top:632px;width:388px;height:86px;--c:#34d399" data-i="flask"><div><div class="t">Duel Lab</div><div class="d">simulator · tests params first</div></div></div>
+    <div class="node sm" style="left:1384px;top:734px;width:388px;height:86px;--c:#34d399" data-i="shield"><div><div class="t">Verifiers</div><div class="d">subagents · contrarian reviews</div></div></div>
+    <div class="glass phones" style="--c:#ec4899"><div style="display:flex;align-items:center;gap:12px"><span data-i2="phone"></span><span class="lbl" style="color:#f9a8d4">Humans in the loop</span></div><div class="t">Phone alerts · ntfy</div><p>to Lucas + Dani → we walk to the team in the room</p></div>
+    <div class="glass shot"><img src="../img/dashboard.png" alt="Dani's live dashboard"><div class="cap"><b>● Live 14:26</b> · Dani's dashboard + Neon hub</div></div>
+  </div>
+
+  <div class="glass game">
+    <div class="t">The Bazaar · game API</div>
+    <div class="rw"><b style="color:#f9a8d4">WRITE</b>offers · accepts · threads · duels</div>
+    <div class="rw"><b style="color:#67e8f9">READ</b>me · clock · board · event stream</div>
+    <div class="lim">ONE KEY · 5 REQ/S<br>1 ACCEPT PER TICK</div>
+  </div>
+
+  <div id="dim" data-s="3"></div>
+  <div data-s="3">
+    <div class="glass why" style="left:128px;--c:#ec4899"><div class="n">1</div><div class="t">Code decides, the LLM writes</div>
+      <p>Price, day and accept are code; Haiku writes the words in <b>≈ 2 s vs 9.4 s</b> when the LLM decided.</p><p>Guards in code, not in the prompt.</p><div class="bc">Because a 15 s tick doesn't wait</div></div>
+    <div class="glass why" style="left:695px;--c:#a78bfa"><div class="n">2</div><div class="t">2 writers · 1 orchestrator · 14 watchers</div>
+      <p>Two roles act, one Chief decides, fourteen read-only daemons sense.</p><p>Every hard limit is a written <b>GUARDRAIL</b> line.</p><div class="bc">Because one key and its limits are shared</div></div>
+    <div class="glass why" style="left:1262px;--c:#22d3ee"><div class="n">3</div><div class="t">Redesigned every night, pressure-tested</div>
+      <p>Saturday night the duelist went code-first (<b>547 tests green</b>), checked on the simulator. Sunday 07:25, contrarian reviews of CHA, duels and market fixed the plan.</p><p>Verifier agents re-checked every claim; <b>163 tests</b> guard the bots.</p><div class="bc">Because the author can't grade its own work</div></div>
+  </div>
+
+  <div class="foot"><span>The Bazaar · Team 5</span><span class="dots"><i class="on"></i><i class="on"></i><i></i></span><span>02 / 03</span></div>
+</section>
+
+<!-- ================= SLIDE 3 · Q4 ================= -->
+<section class="stage" data-n="3">
+  <div class="aur"><i></i><i></i><i></i></div><div class="grid"></div>
+  <div class="kicker">Q4 · What did you learn?</div>
+  <h1>What we <span class="grad">learned</span></h1>
+  <div class="glass learn" style="left:128px;--c:#22d3ee"><div class="lbl">Technical</div><div class="t">Real-time shared context is everything.</div><p>Day one, three people and their agents worked in silos. By Sunday every agent saw every update as it happened.</p><div class="who">Lucas · Aleks</div></div>
+  <div class="glass learn" style="left:696px;--c:#a78bfa"><div class="lbl">Negotiation</div><div class="t">Time can beat price.</div><p>A fast good deal beats a slow perfect one. And people still decide: alliances made in the room outweighed agent tactics.</p><div class="who">Aleks · Lucas</div></div>
+  <div class="glass learn" style="left:1264px;--c:#ec4899"><div class="lbl">Marketplace</div><div class="t">Trust moves trades, not fees.</div><p>Zero commission wasn't enough; trust and returned favours brought trades to our market. Incentives can break.</p><div class="who">Dani · Aleks</div></div>
+  <div class="close">Three humans set the limits. <span class="grad">Claude ran the bazaar, and checked itself.</span></div>
+  <div class="foot"><span>The Bazaar · Team 5</span><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i></span><span>03 / 03</span></div>
+</section>
+
+<div class="hint" id="hint">← → · F</div>
+<script>
+const IC = {
+  user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>',
+  compass:'<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',
+  swap:'<path d="M4 8h15l-4-4M20 16H5l4 4"/>',
+  sword:'<path d="M14.5 3.5H20.5V9.5L10 20L4 14z"/><path d="M7 17l-4 4M8 12l4 4"/>',
+  store:'<path d="M4 9l2-5h12l2 5M4 9h16v11H4zM9 20v-6h6v6"/>',
+  db:'<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
+  eye:'<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+  search:'<circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/>',
+  flask:'<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/>',
+  shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',
+  phone:'<rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/>',
+};
+const ico = (n, c) => `<div class="ico" style="--c:${c}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${IC[n]}</svg></div>`;
+document.querySelectorAll('[data-i]').forEach(n => n.insertAdjacentHTML('afterbegin', ico(n.dataset.i, getComputedStyle(n).getPropertyValue('--c').trim() || '#22d3ee')));
+document.querySelectorAll('[data-i2]').forEach(n => n.outerHTML = ico(n.dataset.i2, '#ec4899'));
+// slide 1: upward data flow from the base into each step
+document.getElementById('ups').innerHTML = [384, 960, 1536].map((x, i) => `<path id="up${i}" d="M${x} 624V566" stroke="#22d3ee" stroke-width="3" stroke-dasharray="6 6" fill="none" marker-end="url(#m1)"/><circle r="5" fill="#22d3ee"><animateMotion dur="${1.3 + i * .2}s" repeatCount="indefinite"><mpath href="#up${i}"/></animateMotion></circle>`).join('');
+
+const PRINT = /print/.test(location.search);
+function applyStep(stage, s) {
+  stage.dataset.cur = s;
+  stage.querySelectorAll('[data-s]').forEach(el => el.classList.toggle('off', +el.dataset.s > s));
+}
+if (PRINT) {
+  const s2 = document.querySelector('.stage[data-steps]'), c = s2.cloneNode(true);
+  s2.after(c); applyStep(s2, 2); applyStep(c, 3);
+}
+const S = [...document.querySelectorAll('.stage')];
+function fit() { const k = Math.min(innerWidth / 1920, innerHeight / 1080); S.forEach(el => el.style.transform = PRINT ? 'none' : `translate(-50%,-50%) scale(${k})`); }
+addEventListener('resize', fit); fit();
+let cur = 0, sub = 0;
+function show(i, s) {
+  cur = Math.max(0, Math.min(S.length - 1, i)); const el = S[cur], max = +(el.dataset.steps || 0);
+  sub = s === undefined ? 0 : Math.max(0, Math.min(max, s));
+  S.forEach(x => x.classList.remove('on')); el.classList.add('on');
+  if (max) applyStep(el, sub);
+  document.getElementById('hint').textContent = `${cur + 1}/${S.length}${max ? ' · step ' + (sub + 1) + '/' + (max + 1) : ''} · ← → · F`;
+}
+function next() { const max = +(S[cur].dataset.steps || 0); if (sub < max) show(cur, sub + 1); else show(cur + 1); }
+function prev() { if (sub > 0) show(cur, sub - 1); else { const p = Math.max(0, cur - 1); show(p, +(S[p].dataset.steps || 0)); } }
+if (!PRINT) {
+  addEventListener('keydown', e => {
+    if (['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); next(); }
+    else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(e.key)) { e.preventDefault(); prev(); }
+    else if (e.key === 'Home') show(0); else if (e.key === 'End') show(S.length - 1, 99);
+    else if (e.key === 'f' || e.key === 'F') { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); }
+  });
+  addEventListener('click', e => (e.clientX > innerWidth / 3 ? next() : prev()));
+  const m0 = /#(\d+)(?:\.(\d))?/.exec(location.hash); show(m0 ? +m0[1] - 1 : 0, m0 && m0[2] ? +m0[2] : undefined);
+} else { S.forEach(x => x.classList.add('on')); document.getElementById('hint').style.display = 'none'; }
+</script>
+</body>
+</html>
