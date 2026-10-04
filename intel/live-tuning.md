@@ -71,7 +71,7 @@ All three commit every ~5 min: cut to their cadence above to reduce git churn on
 
 ## Live log
 
-### 09:38 · tick ≈ 1490 · case J (round 3 since tick 1446; snapshot 1482, phase 0.12)
+### 09:25 · tick ≈ 1490 · case J (round 3 since tick 1446; snapshot 1482, phase 0.12)
 | Metric | Actual | Book | n | Note |
 |---|---|---|---|---|
 | M1 Pícaros CHA rare | CHA-09 at **55** (tick 1472) | ≤ 57 → 60 → 62 (07:25) | 1 (ours) + t18 at 58 | inside the band |
