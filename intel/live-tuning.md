@@ -71,6 +71,11 @@ All three commit every ~5 min: cut to their cadence above to reduce git churn on
 
 ## Live log
 
+### 13:41 · LAST CALL before the ≈ 14:00 dealer close
+- Our ladder hasn't moved since tick ≈ 1822 (0.364). **Chato L2 is still empty for us; t03 is filling its own (MAL-06 at 18, LAT-07 at 13).**
+  If a spare uncommon exists: sell to Chato at 14-16 now (≈ +1.8 Sunday ≈ +0.7 final). Never buy from Chato.
+- Standing (final basis): us 93.15 · t12 85.43 · t10 84.65 · t03 84.62 (lead ≈ 7.7). Next: the Grand Final ≈ 14:00 (one duelist, f57a002).
+
 ### 13:14 · LADDER MAX BEFORE 13:55 (Chief's ask) · ladder now 0.364
 | Dealer (level, full slot) | Our best 3 | Gap | Action at ≥ 0 (never above our value: losses count in full) | Gain |
 |---|---|---|---|---|

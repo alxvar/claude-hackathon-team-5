@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sun 13:25 (snapshot 2422, phase 1.0): **final basis us 93.15 · t12 85.43 · t10 84.65 · t03 84.62 · t18 81.30 (lead ≈ 7.7).** v10 VC 245. t10 buys CHA-11 from the Pícaros at 150-155 (each buy a loss on its board: −0.78, −0.85) and flips to teams at 184-190. t03 closed RET via t01 (+1.27). Left: Chato L2 sales (≈ +1.8), Pilar ≥ 19, MAL-09 closer (team), the Grand Final (≈ 14:00)._
+_Last update: Sun 13:41 (snapshot 2482, phase 1.0): final basis **us 93.15** · t12 85.43 · t10 84.65 · t03 84.62 · t18 81.30 (lead ≈ 7.7). The field is quiet before the Final; t10 flipped CHA-11 to t01 at 160 (v24); t03 filled a Chato L2 slot (MAL-06 at 18). Our Chato L2 is still empty. Grand Final ≈ 14:00._
 _Note: the §4 version labels "00:05" to "02:10" are sequence markers written between Sat 23:50 and Sun 00:42 (my labels ran ahead of the wall clock); real times are in `git log`. The Sunday clock in §4.7 is unaffected._
 
 ## 1. Board = Friday × Saturday blend [V]
