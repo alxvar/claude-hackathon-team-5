@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sun 07:10 (tick 1445, doors closed; snapshot 1440): us #3 at 30.49. §4.13: the ladder reference is relative and includes us [V-strong]; trades relative [L+]. MAL and v10 stay worth it past our cap; surplus→ladder downgraded (a loss lowers the reference for rivals)._
+_Last update: Sun 09:03 (tick 1445, doors open, clock paused; snapshot 1440): **case J confirmed by the re-anchored schedule (§4.7).** Round 3 + CHA fire on the first live tick._
 _Note: the §4 version labels "00:05" to "02:10" are sequence markers written between Sat 23:50 and Sun 00:42 (my labels ran ahead of the wall clock); real times are in `git log`. The Sunday clock in §4.7 is unaffected._
 
 ## 1. Board = Friday × Saturday blend [V]
@@ -539,6 +539,9 @@ any closer bought from a team at ≤ value + bonus − 50 scores the full +50 (t
 keep that margin). Prefer a cheap common or uncommon as the closer. CHA is scarce early (print runs 300 / 90 / 30; packs and dealers).
 
 ### 4.7 First 60 minutes (Operator) [V schedule/clock at Sat 23:45 · L wall times]
+**SUN 09:00 [V /api/schedule, re-anchored at the open]: CASE J.** CHA release + round 3 at 13.367 = the first live tick; +150 ≈ 09:03;
+hard Market Test ≈ 10:16, MT ≈ 10:37 (both Sunday sessions now); **Duels III ≈ 11:00**; MT ≈ 12:37; finale warning 13:48; **dealers
+close + Final ≈ 14:00**; freeze 15:00. No Saturday tail. [?]: whether round 2's final keeps our mm +2.2 (no post-resume snapshot).
 **At 08:55 read `/api/clock` (`t_hours`, `round`, `tick_seconds`) and `/api/schedule`; the case = `round` at the first tick.**
 **Correction 01:45 [V, sunday-redteam §1.1]: game time advances `tick_seconds` per tick, so a game hour = a wall hour at any tick
 length** (Friday 159 ticks × 60 s = 2.65 h; Saturday 1285 × 30 s = 10.71 h). The 00:05 rows "A15 98 min" and "B15: Duels III 10:00"
