@@ -71,6 +71,14 @@ All three commit every ~5 min: cut to their cadence above to reduce git churn on
 
 ## Live log
 
+### 09:52 · tick 1586 · case J
+- **CHA page CLOSED with the +50** [V me.jsonl: neg_points 0 → **50.0** at tick 1585]. Route: CHA-06 from Abuela at 22 (1553), CHA-07
+  from the Workshop, **CHA-05 last from t02 at 72 on El Rastro** (team trade, closer). Cash 373. Pages 3 → 4 at the next snapshot.
+- t06 closed CHA at tick 1586 via **Abuela** (CHA-05 at 9): a dealer close, so **no bonus** for t06. t18 closed via t13 (team): +50.
+- Next 0-P / trade items: **RET-11 → t13 at ≥ 248** (up to +50 more, but our trade part may now be near its cap: M5 test on the next
+  positive team trade); v10 pairs (mm still 0); fodder to Pilar at ≥ 19; MAL gate at ≈ 12:00.
+**PROPOSE:** none new. **ESCALATE:** none (the closer is done).
+
 ### 09:41 · tick 1544 · case J (snapshot 1542, phase ≈ 0.20)
 | Metric | Actual | Book | n | Note |
 |---|---|---|---|---|
