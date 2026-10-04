@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 06:47 · Duel Lab · morning check: **GO as written** (duelist-loop 29aa1be: seller opener 0.42 price per the 01:38 ruling, switch C → A only, sets validate; schedule unchanged: Duels III 12 ticks / 10% / 4 at once) · 08:00 command: `AUTOSWITCH=1 COMMIT=<approved sha> bash <(git show origin/duelist-loop:tools/duelist_sunday.sh)` · expected [L] +0.087/duel vs today ≈ +5.9 pts in Duels III · scratch worktree removed · overnight program done
 - Sun 06:43 · operator · MAL-07 (last MAL card) from Team 15 → our addressed bid on **v26** (Team 2 'El Rastro Express', 0 bps, owner t02, board [V]), not El Rastro (Chief: the club settles member trades on member markets; Lucas's 08:30 WhatsApp tells t15) · final plan: intel/sunday-final.md at 07:30
 - Sun 01:40 · Builder · **duelist-loop final sha 29aa1be** (579 green, `--check` passes): re-audit fixes R1 rollback (checks before stopping, no --records), R2 (refuse before touching params), R5/R6/R9 + seller opener 0.42 in price (Duel Lab ruling; buyer 0.37, pinned by a test) → Chief → Aleks pins it at 08:00
 - Sun 01:35 · operator · directive 01:40: MAL close GO whenever ≥ 150 P is left after CHA (replaces the 10:30 M5 gate; relative scoring past our cap); RET-11 → Pilar only at ≥ 198 (the surplus option withdrawn); fodder stays on → run/mal_book.json + §FAST-START updated
