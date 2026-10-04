@@ -81,6 +81,66 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1863,
+   "raw": {
+    "duel": 11128,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Vinilo de la Movida",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 0.94,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 186,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Luna",
+    "deadline_tick": 1874,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 11726,
+     "price": 112,
+     "tick": 1863,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 11698,
+     "price": 152,
+     "tick": 1862,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1862,
+      "from": "you",
+      "text": "I'm interested in the Vinilo de la Movida. I'll offer 117 P for delivery on day 0.",
+      "price": 117,
+      "days": 0
+     },
+     {
+      "tick": 1862,
+      "from": "Rival Luna",
+      "text": "Hola, Rival Noche, voy con prisa: Vinilo de la Movida por 152 y cerramos ya. Entrega en 10 días.",
+      "price": 152,
+      "days": 10
+     },
+     {
+      "tick": 1863,
+      "from": "you",
+      "text": "I can do 112 P, delivery on day 10.",
+      "price": 112,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -193,6 +253,106 @@
     "ACCEPT_BY": 1,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1863,
+   "took_s": 2.45,
+   "cost_usd": 0.00116,
+   "obs": {
+    "view": {
+     "duel_id": 11128,
+     "role": "buyer",
+     "limit": 186,
+     "currency": "P",
+     "item": "Vinilo de la Movida",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 0.94,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm interested in the Vinilo de la Movida. I'll offer 117 P for delivery on day 0.",
+      "offer": {
+       "price": 117,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1862,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hola, Rival Noche, voy con prisa: Vinilo de la Movida por 152 y cerramos ya. Entrega en 10 días.",
+      "offer": {
+       "price": 152,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1862,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 152,
+     "days": 10
+    },
+    "tick": 1863,
+    "ticks_left": 11,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 112 P, delivery on day 10.",
+    "price": 112,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "give",
+     "rule": "code step",
+     "step": 5.33,
+     "closing": false,
+     "text": "rejected: plain words",
+     "text_problems": [
+      "the message names 152, 10: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "Entiendo tu prisa, pero 152 es alto para mí. Te propongo 112 P con entrega en día 10.",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 2.45,
+       "in": 964,
+       "out": 40,
+       "cost_usd": 0.00116,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ]
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -227,6 +387,47 @@
      "price": 117,
      "tick": 1862,
      "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1863,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 112 P, delivery on day 10.",
+    "price": 112,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "give",
+     "rule": "code step",
+     "step": 5.33,
+     "closing": false,
+     "text": "rejected: plain words",
+     "text_problems": [
+      "the message names 152, 10: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "Entiendo tu prisa, pero 152 es alto para mí. Te propongo 112 P con entrega en día 10.",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 2.45,
+       "in": 964,
+       "out": 40,
+       "cost_usd": 0.00116,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 11128,
+    "offer": {
+     "id": 11726,
+     "price": 112,
+     "tick": 1863,
+     "days": 10
     }
    }
   }
