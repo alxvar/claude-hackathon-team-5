@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sun 10:26 (tick 1722, phase 0.43; the hard Market Test is in: stall 0.5): running totals t12 67.79 · t10 65.57 · t18 63.43 · us 61.07 · t03 57.48. Sunday so far t18 38.5 · t12 35.2 (LAV closer via t13) · us 29.4. t13 flips dealer cards into page closers (rivals.md)._
+_Last update: Sun 10:43 (snapshot 1782, phase 0.505): **§3k final-basis projection: t12 84.6 · t10 82.3 · t18 82.0 · us 78.9 · t03 76.4.** #3 is ≈ 3 away; v10 real trades (0 so far, up to +7.5) are the swing. §3j: Sunday team-trade gains capped at 50 (working rule)._
 _Note: the §4 version labels "00:05" to "02:10" are sequence markers written between Sat 23:50 and Sun 00:42 (my labels ran ahead of the wall clock); real times are in `git log`. The Sunday clock in §4.7 is unaffected._
 
 ## 1. Board = Friday × Saturday blend [V]
@@ -451,6 +451,20 @@ of 30 → whether VC can exceed +5 board on Sunday: reconcile with the Market se
   post-resume snapshot, and whether its final score uses this live state is [?].
 - **Consequence:** our v10 VC already counts above zero → any positive v10 trade adds 5/M ≥ +0.33 board per +1 of VC [L];
   a negative one subtracts. The §3 "need 14.2 first" hurdle is stale (GAME.md line 150 too).
+
+## 3k. Final-basis projection (Sun 10:43, snapshot 1782, phase 0.505) [V current parts · L projection]
+The final counts each team's FULL Sunday round: game = (0.5·Fri + Sat + Sun)/2.5. Duels III rescales every team's pre-duel negotiating
+parts ×0.6 and adds the duel part (≤ 12). Sunday market so far = the stall 11.25 for every top team (no Sunday VC yet anywhere).
+| Team | G = 0.5·Fri + Sat | Sun market | Sun neg (pre-duel, /30) | G + Sun now | **Projected** (neg × 0.6 + duel guess) | Duel guess [L] |
+|---|---|---|---|---|---|---|
+| t12 | 52.66 | 11.23 | 22.77 | 86.7 | **84.6** | 7.0 |
+| t10 | 56.38 | 11.28 | 8.57 | 76.2 | **82.3** | 9.5 (strong duelist) |
+| t18 | 46.91 | 11.24 | 27.26 | 85.4 | **82.0** | 7.5 |
+| **t05** | 48.46 | 11.24 | 20.37 | 80.1 | **78.9** | 7.0 |
+| t03 | 44.52 | 11.26 | 17.71 | 73.5 | **76.4** | 10.0 |
+**Reading:** #3 is ≈ 3.1-3.4 away (t18 / t10); #5 t03 is 2.5 behind. Remaining swings: **v10 real trades 0 → up to +7.5** (nobody has Sunday VC
+yet; t10's v07 and t12's v02 can also add), duels (each +1 duel point ≈ +1), ladder (MAL-09 L4 slot ≈ +0.5 after the rescale). Team trades
+are capped at 50 (§3j), so they add nothing more for us, t12 or t18.
 
 ## 3j. Sunday anomaly: RET-11 sale scored 0 (Sun 10:31) [V data · ? cause]
 - Tick 1730, settlement 1280: RET-11 sold to t02 at 240 on El Rastro (we were the taker, fee 13). Expected +29 (240 − 13 − 198).
