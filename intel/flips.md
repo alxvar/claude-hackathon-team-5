@@ -1,6 +1,6 @@
 # Flips: team bids a dealer can fill (Team 10's playbook)
 
-_Written by `tools/reactor.py` at 12:25 (tick 2205). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
+_Written by `tools/reactor.py` at 12:27 (tick 2210). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
 
 ## Open bids (HUNT digest)
 
@@ -8,10 +8,6 @@ _Written by `tools/reactor.py` at 12:25 (tick 2205). The open team bids for rare
 |---|---|---|---|---|---|---|---|
 | 184 | CHA-11 Andén 0 (epic) | t06 | v21 → t08 | picaros 145 | +39 | 25515 | 12:54 |
 | 182 | SAL-11 La Puerta de Alcalá (epic) | t03 | rastro | none (all minted or no dealer) | - | 25549 | 12:32 |
-| 175 | LAV-11 La Casa Encendida (epic) | t12 | v21 → t04 | none (all minted or no dealer) | - | 25303 | 12:47 |
-| 175 | LAV-11 La Casa Encendida (epic) | t12 | v21 → t06 | none (all minted or no dealer) | - | 25306 | 12:47 |
-| 175 | LAV-11 La Casa Encendida (epic) | t12 | v21 → t14 | none (all minted or no dealer) | - | 25307 | 12:47 |
-| 170 | SAL-11 La Puerta de Alcalá (epic) | t03 | rastro | none (all minted or no dealer) | - | 25355 | 12:26 |
 | 113 | RET-11 Palacio de Cristal (epic) | t06 | v19 → t10 | picaros 145 | -32 | 25057 | 12:39 |
 | 112 | LAV-11 La Casa Encendida (epic) | t17 | rastro | none (all minted or no dealer) | - | 25508 | 12:38 |
 | 100 | CHA-11 Andén 0 (epic) | t10 | rastro | picaros 145 | -45 | 25486 | 12:53 |

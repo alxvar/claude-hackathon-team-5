@@ -395,3 +395,5 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 12:12 · message tick 2149 · pilar → t13 · Buenos días, y bienvenido. La Chulapa, sí, conozco bien su tirada. Impecable, lo concedo. Pero veintisiete, no. Le ofrezco dieciséis primas, y las pago hoy mismo. Por cierto, pregunte a Carmen en El Rastro por la chulapa dorada.
 - Sun 12:23 · message tick 2195 · pilar → t07 · Setenta y cinco? Querido amigo, I know that card's print run as well as my own name. It is charming, not legendary. I shall say 49, and I say it sincerely.
 - Sun 12:25 · message tick 2205 · banco → t12 · Buenas tardes. You come at a quiet hour; that suits me. La Reina de la Movida, from my vault. My terms: 761. I do not haggle over her.
+- Sun 12:26 · message tick 2206 · banco → t12 · Paciencia I have in abundance, señor. But my terms do not move with the hour. La Reina de la Movida: 761. She waits in the vault either way.
+- Sun 12:26 · message tick 2208 · banco → t12 · Un peso at a time, señor? We would both grow old. La Reina de la Movida: 758. The vault is cool, and she keeps well.
