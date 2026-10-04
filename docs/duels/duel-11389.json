@@ -154,6 +154,316 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1963,
+   "raw": {
+    "duel": 11389,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.35,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 64,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1966,
+    "decay_per_round": 0.1,
+    "rounds": 2,
+    "your_offer": {
+     "id": 14065,
+     "price": 74,
+     "tick": 1963,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 13879,
+     "price": 56,
+     "tick": 1955,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1954,
+      "from": "Rival Azul",
+      "text": "Hola, Rival Plata, voy con prisa: 38 por Museo Sorolla y cerramos ya. Entrega inmediata.",
+      "price": 38,
+      "days": 0
+     },
+     {
+      "tick": 1954,
+      "from": "you",
+      "text": "I can do 91 P, delivery on day 10.",
+      "price": 91,
+      "days": 10
+     },
+     {
+      "tick": 1955,
+      "from": "Rival Azul",
+      "text": "56 y lo cerramos ahora. Entrega inmediata.",
+      "price": 56,
+      "days": 0
+     },
+     {
+      "tick": 1963,
+      "from": "you",
+      "text": "I can do 74 P, delivery on day 10.",
+      "price": 74,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1963,
+   "raw": {
+    "duel": 11389,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.35,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 64,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1966,
+    "decay_per_round": 0.1,
+    "rounds": 2,
+    "your_offer": {
+     "id": 14065,
+     "price": 74,
+     "tick": 1963,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 14075,
+     "price": 64,
+     "tick": 1963,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1954,
+      "from": "Rival Azul",
+      "text": "Hola, Rival Plata, voy con prisa: 38 por Museo Sorolla y cerramos ya. Entrega inmediata.",
+      "price": 38,
+      "days": 0
+     },
+     {
+      "tick": 1954,
+      "from": "you",
+      "text": "I can do 91 P, delivery on day 10.",
+      "price": 91,
+      "days": 10
+     },
+     {
+      "tick": 1955,
+      "from": "Rival Azul",
+      "text": "56 y lo cerramos ahora. Entrega inmediata.",
+      "price": 56,
+      "days": 0
+     },
+     {
+      "tick": 1963,
+      "from": "you",
+      "text": "I can do 74 P, delivery on day 10.",
+      "price": 74,
+      "days": 10
+     },
+     {
+      "tick": 1963,
+      "from": "Rival Azul",
+      "text": "64, último paso. Entrega inmediata.",
+      "price": 64,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1964,
+   "raw": {
+    "duel": 11389,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.35,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 64,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1966,
+    "decay_per_round": 0.1,
+    "rounds": 3,
+    "your_offer": {
+     "id": 14101,
+     "price": 59,
+     "tick": 1964,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 14075,
+     "price": 64,
+     "tick": 1963,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1954,
+      "from": "Rival Azul",
+      "text": "Hola, Rival Plata, voy con prisa: 38 por Museo Sorolla y cerramos ya. Entrega inmediata.",
+      "price": 38,
+      "days": 0
+     },
+     {
+      "tick": 1954,
+      "from": "you",
+      "text": "I can do 91 P, delivery on day 10.",
+      "price": 91,
+      "days": 10
+     },
+     {
+      "tick": 1955,
+      "from": "Rival Azul",
+      "text": "56 y lo cerramos ahora. Entrega inmediata.",
+      "price": 56,
+      "days": 0
+     },
+     {
+      "tick": 1963,
+      "from": "you",
+      "text": "I can do 74 P, delivery on day 10.",
+      "price": 74,
+      "days": 10
+     },
+     {
+      "tick": 1963,
+      "from": "Rival Azul",
+      "text": "64, último paso. Entrega inmediata.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1964,
+      "from": "you",
+      "text": "I can do 59 P, delivery on day 10.",
+      "price": 59,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1965,
+   "raw": {
+    "duel": 11389,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.35,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 64,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 1966,
+    "decay_per_round": 0.1,
+    "rounds": 3,
+    "your_offer": {
+     "id": 14101,
+     "price": 59,
+     "tick": 1964,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 14111,
+     "price": 79,
+     "tick": 1965,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1954,
+      "from": "Rival Azul",
+      "text": "Hola, Rival Plata, voy con prisa: 38 por Museo Sorolla y cerramos ya. Entrega inmediata.",
+      "price": 38,
+      "days": 0
+     },
+     {
+      "tick": 1954,
+      "from": "you",
+      "text": "I can do 91 P, delivery on day 10.",
+      "price": 91,
+      "days": 10
+     },
+     {
+      "tick": 1955,
+      "from": "Rival Azul",
+      "text": "56 y lo cerramos ahora. Entrega inmediata.",
+      "price": 56,
+      "days": 0
+     },
+     {
+      "tick": 1963,
+      "from": "you",
+      "text": "I can do 74 P, delivery on day 10.",
+      "price": 74,
+      "days": 10
+     },
+     {
+      "tick": 1963,
+      "from": "Rival Azul",
+      "text": "64, último paso. Entrega inmediata.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1964,
+      "from": "you",
+      "text": "I can do 59 P, delivery on day 10.",
+      "price": 59,
+      "days": 10
+     },
+     {
+      "tick": 1965,
+      "from": "Rival Azul",
+      "text": "Venga, 79; no tengo mucho tiempo. Entrega inmediata.",
+      "price": 79,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -707,6 +1017,494 @@
     "LATE_SWITCH_LEFT": 0,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1963,
+   "took_s": 0.99,
+   "cost_usd": 0.00111,
+   "obs": {
+    "view": {
+     "duel_id": 11389,
+     "role": "seller",
+     "limit": 64,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.35,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hola, Rival Plata, voy con prisa: 38 por Museo Sorolla y cerramos ya. Entrega inmediata.",
+      "offer": {
+       "price": 38,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1954,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 91 P, delivery on day 10.",
+      "offer": {
+       "price": 91,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1954,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "56 y lo cerramos ahora. Entrega inmediata.",
+      "offer": {
+       "price": 56,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1955,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 56,
+     "days": 0
+    },
+    "tick": 1963,
+    "ticks_left": 3,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 74 P, delivery on day 10.",
+    "price": 74,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 34.25,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 0.99,
+       "in": 980,
+       "out": 26,
+       "cost_usd": 0.00111,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 57,
+     "floor": 43.4
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1964,
+   "took_s": 1.15,
+   "cost_usd": 0.0012,
+   "obs": {
+    "view": {
+     "duel_id": 11389,
+     "role": "seller",
+     "limit": 64,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.35,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hola, Rival Plata, voy con prisa: 38 por Museo Sorolla y cerramos ya. Entrega inmediata.",
+      "offer": {
+       "price": 38,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1954,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 91 P, delivery on day 10.",
+      "offer": {
+       "price": 91,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1954,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "56 y lo cerramos ahora. Entrega inmediata.",
+      "offer": {
+       "price": 56,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1955,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 74 P, delivery on day 10.",
+      "offer": {
+       "price": 74,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1963,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "64, último paso. Entrega inmediata.",
+      "offer": {
+       "price": 64,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1963,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 64,
+     "days": 0
+    },
+    "tick": 1964,
+    "ticks_left": 2,
+    "rounds": 2,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 59 P, delivery on day 10.",
+    "price": 59,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 21.75,
+     "closing": true,
+     "text": "rejected: plain words",
+     "text_problems": [
+      "the message names 10: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "A 53 P me acerco más, pero necesito día 10 para la entrega.",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.15,
+       "in": 1041,
+       "out": 31,
+       "cost_usd": 0.0012,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 53,
+     "floor": 28.5
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1965,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11389,
+     "role": "seller",
+     "limit": 64,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Azul",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.35,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "Hola, Rival Plata, voy con prisa: 38 por Museo Sorolla y cerramos ya. Entrega inmediata.",
+      "offer": {
+       "price": 38,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1954,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 91 P, delivery on day 10.",
+      "offer": {
+       "price": 91,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1954,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "56 y lo cerramos ahora. Entrega inmediata.",
+      "offer": {
+       "price": 56,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1955,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 74 P, delivery on day 10.",
+      "offer": {
+       "price": 74,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1963,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "64, último paso. Entrega inmediata.",
+      "offer": {
+       "price": 64,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1963,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 59 P, delivery on day 10.",
+      "offer": {
+       "price": 59,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1964,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Venga, 79; no tengo mucho tiempo. Entrega inmediata.",
+      "offer": {
+       "price": 79,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1965,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 79,
+     "days": 0
+    },
+    "tick": 1965,
+    "ticks_left": 1,
+    "rounds": 3,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 79,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -747,6 +1545,106 @@
      "tick": 1954,
      "days": 10
     }
+   }
+  },
+  {
+   "tick": 1963,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 74 P, delivery on day 10.",
+    "price": 74,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 34.25,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 0.99,
+       "in": 980,
+       "out": 26,
+       "cost_usd": 0.00111,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 57,
+     "floor": 43.4
+    }
+   },
+   "result": {
+    "duel": 11389,
+    "offer": {
+     "id": 14065,
+     "price": 74,
+     "tick": 1963,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1964,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 59 P, delivery on day 10.",
+    "price": 59,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 21.75,
+     "closing": true,
+     "text": "rejected: plain words",
+     "text_problems": [
+      "the message names 10: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "A 53 P me acerco más, pero necesito día 10 para la entrega.",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.15,
+       "in": 1041,
+       "out": 31,
+       "cost_usd": 0.0012,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 53,
+     "floor": 28.5
+    }
+   },
+   "result": {
+    "duel": 11389,
+    "offer": {
+     "id": 14101,
+     "price": 59,
+     "tick": 1964,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1965,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 79,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 79,
+    "settles_at_tick": 1966
    }
   }
  ]
