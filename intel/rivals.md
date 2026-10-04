@@ -9,6 +9,14 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sun 09:40 · snapshot 1542 (phase 0.20)
+- Running game totals: t10 56.37 · t18 52.86 · t12 52.65 · **us 50.65** · t03 46.94 · t06 43.85. Sunday so far (±1): t18 ≈ +30 · t13 ≈ +25
+  · t03 ≈ +12 · us ≈ +11 · t06 ≈ +8 · **t10 and t12 ≈ 0 (no Sunday deals yet)**.
+- **t13 is the hub feeding our rivals** [V feed]: bought SAL-11 from t18 (238), sold CHA-01 to t18 (72, t18's CHA closer) and SAL-10 to
+  t03 (108, toward t03's SAL page). t13 values epics high and sells page cards at ~70-110: our RET-11 buyer and CHA-05 source.
+- t03: SAL 9/10 (lacked SAL-03 and SAL-10 on the feed; bought SAL-10). If SAL-03 comes from a team, t03 closes SAL (+50) and
+  enters the #3 race.
+
 ### Sun 09:32 · snapshot 1502 (phase 0.15)
 - **t18: CHA sprint, 9/10 by tick 1506 (lacks CHA-01)** [V feed]: CHA-09 Pícaros 58 (1484), CHA-06 Chato 31 (1485), CHA-10 Pícaros 54
   (1491), CHA-07 Chato 31, CHA-02/03/04 Abuela 9-10, CHA-08 Chato 31, CHA-11 epic Pícaros 145 (1496). It **sold SAL-11 to t13 at 238**
