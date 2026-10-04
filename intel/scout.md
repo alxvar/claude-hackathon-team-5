@@ -1,34 +1,20 @@
-# Scout (claude-sonnet-5-5, Sun 08:16)
+# Scout (claude-sonnet-5-5, Sun 09:12)
 
 ## Top 3 actions now
 
-1. **Hold the CHA fast start and the 08:45 t0 chain; no new trades before doors open.**
-   - Executor: operator's t0 job (pid 22755), as armed.
-   - Evidence: metrics at 08:14 read "Closed until Sunday 09:00", with no open offers, cash 392 and neg_points 119.1.
-   - Directives: Pícaros CHA rares ≤ 57, then 60, then 62. Every page closer goes on El Rastro, addressed, with the seller's fee added.
-   - Effect: a CHA page closer is worth at most +50 per trade (cap). Confidence: med.
-
-2. **Sell the spare commons on El Rastro, but only to teams ≥ 10 points below us.**
-   - Spares: LAV-02 ×3 (1.3 each), LAV-03 ×2 and LAV-04 ×2 (3.2 each), LAT-03 and LAT-04 (5 each). The 07:15 plan sends LAV-02 ×2 and LAV-03 to the Workshop at C, so keep those.
-   - Evidence: asks on the board for LAV-02 10, LAT-04 9 and LAT-02 9 show cards of this kind listed at about 9-10. Team 8's bid for RET-02 is 5, but Team 8 is not a page-closer buyer.
-   - Executor: the maker book via `trade.py`. Buyers must pass the feeding rule; the current table shows none above our value + 3.
-   - Effect: the gain per sale is price minus our value, about +5 to +7 each on LAV spares if a buyer appears. Confidence: low (no qualifying buyer yet).
-
-3. **Do not dump below value for the ladder.**
-   - Evidence: the ladder rose 0.373 → 0.437 while `negotiating` stayed flat at 21.88, and flags are spent (8 tried, 3 scored).
-   - Directive 01:40 withdrew the RET-11 surplus→ladder option; RET-11 goes to Pilar only at ≥ 198.
-   - Action: keep RET-11 (value 198) unsold unless Pilar bids ≥ 198. The operator checks the Pilar bid on Sunday.
-   - Effect: avoids a below-value loss. Confidence: med.
+1. **Run the CHA page build on the first live tick (case J: CHA released at round 3; Operator, `t0` pid 22755, already armed).** Order: Pícaros CHA rares ≤ 57 → 60 → 62, Abuela commons CHA-01..03 from C+5, uncommons and CHA-04 public until C+45. Evidence: neg_points 119.1, cash 392, floors.env 110/110. CHA is worth 1.6× to us, and its rares are worth 112 against a Pícaros list of 63 and Saturday finals of 55-60. Expected effect: each rare bought below value scores 0 as a dealer deal, so the gain comes from the page bonus and the closing trade. The closer goes on El Rastro, addressed to the seller, with the seller's fee added, capped at +50. Confidence: med.
+2. **Sell the surplus copies on El Rastro as maker, addressed to a non-top-4 buyer ≥ 10 below us, at or above value + 3.** Candidates: LAV-02 ×3 (1.3 each; Workshop takes 2 of them at C), LAV-03/04 ×2 (3.2 each), MAL-01..05 (7), LAT-03/04 (5). Evidence: asks for LAV-02 at 10, MAL-01/03/04 at 12 and LAT-04 at 9 are already on the board. t04 bids SAL-03 at 4 and MAL-06 at 17 and t16 bids LAV-10 at 28 and RET-06 at 18. Our MAL-06 and RET-06 are worth 17.5 and 100.4, so those bids are not worth taking. The profiles show no buyer ≥ 10 below us above value + 3 yet, so check the buyer's rank and set progress before each sale. Expected effect: small, +2 to +5 neg_points each, and cash is needed for CHA. Confidence: low-med.
+3. **Keep the public CHA bids that are ≥ 0 for us after the trade part caps, and cancel any bid for a card t10 or t01 holds (Operator and `t0` watcher, per the 07:40 directive).** Evidence: the leaderboard has t10 at 37.6, t18 at 31.3 and t12 at 30.4 against our 30.5. Value past our cap still raises the top-3 reference and pushes t18, t12 and t03 down. Expected effect: no direct neg_points, only relative score. Confidence: low-med (the Analyst §4.13 reasoning is likely, not verified).
 
 ## What the climbing teams are doing
 
-- **Team 12 (#4 in metrics, #3 in Dani's profile, 70 deals).** It bought RET-11 (epic) from t06 for 216 P at tick 1245, plus LAT-10 from t01 at 86 and LAT-06 at 20. Its trades are epics and rares.
-- **Team 18 (#2, 31.3, Δ +0.8 in Dani's profile).** It bought LAT-10 from t13 at 72 at tick 1332. It sits just above us, so its rare purchases at 72 are the price reference.
-- **Team 10 (#1, 37.6).** It sold MAL-06 at 20 to t09, sold SAL-11 (epic) to t17 at 207, and bought MAL-11 (epic) at 195 from t08 at tick 1264. It also bought RET-03 at 8 from t10→t06 at tick 1392, so its flow is epics at ~200.
-- **Team 6 (71 deals).** It sold RET-10 (rare) to t04 at 84 and RET-06 (uncommon) to t07 at 30. It sells RET cards at above-book prices, which is where our RET buys would meet it.
+- **t10 (#1, 37.6) takes epics from other teams.** It bought MAL-11 from t08 at 195 (tick 1264) and sold SAL-11 to t17 at 207 (tick 1296). It also sold MAL-06 to t09 at 20 (tick 1230). Its listed prices are c 10, u 23, r 70, e 207.
+- **t12 (#4) buys across sets.** It paid 216 for RET-11 (tick 1245) and bought LAT-10 at 86 (tick 1304), LAT-06 at 20 (tick 1303) and LAV-08 at 14 (tick 1420). That is 70 deals and LAT×8 in team buys.
+- **t18 (#2, 31.3) buys single rares.** LAT-10 from t13 at 72 (tick 1332), after SAL-10 from t12 at 80 earlier. It has only 40 deals but gained +0.8 in 30 ticks.
+- **t06 sells RET cards into RET collectors.** RET-10 to t04 at 84 (tick 1257), RET-06 to t07 at 30 (tick 1417) and RET-11 to t12 at 216. Its score fell 2.4 over the same window.
 
 ## Threats
 
-- **Team 10 leads at 37.6, 7.1 above us.** It holds the club venue at v10, and club deals go half to v10 and half to members' markets, so each club trade feeds it. Keep page closers on El Rastro.
-- **Team 17 and Team 1 hold the leaderboard's #8 and #9 slots (25.8 and 25.6).** Both are buyers for SAL and MAL. Dani's "buyer" tags name MAL/LAV/SAL for Team 17. Avoid selling SAL page-completers to them unless they are ≥ 10 below us.
-- **Public bids on CHA cards.** The feed shows addressed offers in full, and directive 07:40 keeps ≥ 0 bids public. Team 10 and Team 01 can see them and hold cards we need, so cancel any bid for a CHA card they hold.
+- **t12 and t18 are close behind us** (30.4 and 31.3 against 30.5). Any page closer or epic we sell to them feeds a rival. The profiles mark them top 4, never feed.
+- **Competing bids for rares.** t09 bids 68 for SAL-10 and t04 bids 44. Our SAL-10 is worth 122.6, so nothing there is worth selling. For CHA, t10 and t01 may hold cards we need, and the watcher drops our bid if they obtain one.
+- **Club routing feeds member markets.** Half the club deals now go to members' markets, so check that none of them is a top-3 team.
