@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sun 09:57** · tick 1616 (15 s/tick) · game hour 14.34 · running · today closes 15:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sun 10:02** · tick 1636 (15 s/tick) · game hour 14.43 · running · today closes 15:00._
 
 ## Team: now and latest
 
@@ -25,17 +25,17 @@ _From `team/<name>.md`; each person writes only their own file._
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 30.48 | 4 | 22.63 | 7.86 | 0.00 | 0.17 | — | 63 | 5 | 373 | 50/60 |
+| 30.34 | 4 | 22.59 | 7.75 | 0.00 | 0.17 | — | 63 | 5 | 373 | 50/60 |
 
-Leaderboard (snapshot at tick 1602; refreshes every few minutes):
+Leaderboard (snapshot at tick 1622; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 10 | 33.33 | 22.77 | 10.56 | 65 |
-| 2 | Team 12 | 32.24 | 22.15 | 10.08 | 75 |
-| 3 | Team 18 | 31.07 | 24.73 | 6.34 | 54 |
-| 4 | Team 5 | 30.48 | 22.63 | 7.86 | 63 |
-| 5 | Team 3 | 28.21 | 23.07 | 5.14 | 38 |
+| 1 | Team 10 | 33.00 | 22.59 | 10.41 | 65 |
+| 2 | Team 12 | 32.01 | 22.07 | 9.94 | 75 |
+| 3 | Team 18 | 31.05 | 24.81 | 6.25 | 54 |
+| 4 | Team 5 | 30.34 | 22.59 | 7.75 | 63 |
+| 5 | Team 3 | 28.09 | 23.02 | 5.07 | 38 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 14.65 | ~18 min | bench | The hard Market Test: firmer and more impatient traders |
-| 15.00 | ~39 min | bench | The Market Test: every venue gets the same synthetic book |
-| 15.37 | ~62 min | duels | Duels III: two issues, shorter clock, harder decay |
-| 17.00 | ~159 min | bench | The Market Test: every venue gets the same synthetic book |
-| 18.17 | ~230 min | announce | finale warning |
-| 18.37 | ~242 min | persona | Finale: stalls close |
-| 18.37 | ~242 min | persona | Finale: stalls close |
-| 18.37 | ~242 min | persona | Finale: stalls close |
+| 14.65 | ~13 min | bench | The hard Market Test: firmer and more impatient traders |
+| 15.00 | ~34 min | bench | The Market Test: every venue gets the same synthetic book |
+| 15.37 | ~57 min | duels | Duels III: two issues, shorter clock, harder decay |
+| 17.00 | ~154 min | bench | The Market Test: every venue gets the same synthetic book |
+| 18.17 | ~225 min | announce | finale warning |
+| 18.37 | ~237 min | persona | Finale: stalls close |
+| 18.37 | ~237 min | persona | Finale: stalls close |
+| 18.37 | ~237 min | persona | Finale: stalls close |
 
 ## Our dealer deals
 
@@ -58,7 +58,6 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Thread | Dealer | Side | Item | Her first | Our first | Deal | vs her first | Msgs | Status | Closed |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 1294 | picaros | buy | MAL-10 | 73 | — | — | — | 13 | closed |  |
 | 1533 | pilar | sell | 1 card(s) | 16 | 30 | — | — | 7 | closed |  |
 | 1539 | abuela | buy | LAT-02 | 12 | — | — | — | 2 | closed |  |
 | 1541 | picaros | sell | 1 card(s) | 4 | 12 | — | — | 7 | closed |  |
@@ -92,7 +91,7 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
 | common card | team buys | 102 | 9.00 | 7 | 15 | 9 | 8.78 |
-| common card | team sells | 116 | 6.00 | 2 | 23 | 5 | 5.40 |
+| common card | team sells | 117 | 6 | 2 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 45 | 22 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 93 | 23 | 17 | 29 | 7 | 23.43 |
 | uncommon card | team sells | 13 | 15 | 12 | 22 | 0 | — |
