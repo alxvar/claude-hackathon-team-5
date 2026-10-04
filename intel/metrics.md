@@ -1,22 +1,22 @@
-# Metrics (auto, 10:03, game tick 1639)
+# Metrics (auto, 10:05, game tick 1647)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
-1. Team 10 33.0 (-0.2 / -4.6) deals 65
-2. Team 12 32.0 (-0.2 / +1.6) deals 75
-3. Team 18 31.1 (-0.1 / -0.2) deals 54
-4. Team 5 30.3 (+0.8 / -0.1) deals 63 ← US
-5. Team 3 28.1 (-0.1 / -1.6) deals 38
-6. Team 6 25.8 (+0.1 / -3.0) deals 81
-7. Team 13 24.9 (-0.2 / -0.1) deals 97
-8. Team 8 23.7 (+1.0 / -1.2) deals 79
-9. Team 14 23.3 (-1.0 / -4.4) deals 58
-10. Team 1 22.4 (-0.7 / -3.2) deals 37
+1. Team 10 32.7 (-1.1 / -4.9) deals 65
+2. Team 12 31.8 (-0.7 / +1.4) deals 75
+3. Team 18 31.0 (-0.0 / -0.2) deals 54
+4. Team 5 30.2 (+1.1 / -0.3) deals 63 ← US
+5. Team 3 28.0 (+0.1 / -1.7) deals 38
+6. Team 6 25.6 (-0.6 / -3.2) deals 81
+7. Team 13 24.9 (-0.1 / -0.1) deals 97
+8. Team 8 23.6 (+0.7 / -1.3) deals 80
+9. Team 14 23.0 (-0.9 / -4.7) deals 58
+10. Team 1 22.2 (-0.7 / -3.4) deals 37
 Us: #4
 
 ## Us
 
-score 30.34 · neg_points 50.0 (15 min ago 0.0) · ladder 0.172 · duel 0.0 · cash 373 · level 5 · deals 63
+score 30.2 · neg_points 50.0 (15 min ago 0.0) · ladder 0.172 · duel 0.0 · cash 373 · level 5 · deals 63
 
 ## Our holdings (card (rarity): value of each copy; a sale gives up the cheapest copy)
 
@@ -55,9 +55,8 @@ CHA-01 (common): 122; CHA-02 (common): 122; CHA-03 (common): 122; CHA-04 (common
 - tick 1534 abuela buy CHA-08: 29 → 21, ours 21 · deal
 - tick 1545 abuela buy CHA-06: 29 → 22, ours 22 · deal
 
-## Trades between teams (183 so far; last 12)
+## Trades between teams (184 so far; last 12)
 
-- tick 1303: LAT-06 (uncommon) t09→t12 for 20 P
 - tick 1304: LAT-10 (rare) t01→t12 for 86 P
 - tick 1332: LAT-10 (rare) t13→t18 for 72 P
 - tick 1392: RET-03 (common) t10→t06 for 8 P
@@ -69,17 +68,18 @@ CHA-01 (common): 122; CHA-02 (common): 122; CHA-03 (common): 122; CHA-04 (common
 - tick 1528: SAL-10 (rare) t13→t03 for 108 P
 - tick 1555: MAL-06 (uncommon) t12→t04 for 17 P
 - tick 1585: CHA-05 (common) t02→t05 for 72 P
+- tick 1647: MAL-07 (uncommon) t15→t03 for 9 P
 
-Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET×3, LAT×1; t03: SAL×3, LAT×2, LAV×1; t04: RET×6, MAL×6, LAV×4, LAT×3; t05: MAL×4, SAL×4, LAV×1, RET×1, CHA×1; t06: SAL×4, RET×3, LAT×2, LAV×1; t07: RET×9, LAV×7, LAT×4, MAL×3; t08: MAL×3, LAT×3, LAV×3, SAL×2, RET×1; t09: SAL×5, RET×5, MAL×4, LAV×1, LAT×1; t10: LAV×2, MAL×2, SAL×1, RET×1; t12: LAT×8, MAL×2, LAV×2, RET×2; t13: MAL×9, SAL×3, LAV×1; t14: LAT×4, RET×4, SAL×2, LAV×1, MAL×1; t15: LAT×6, MAL×4, RET×3, SAL×3, LAV×3; t16: RET×4, LAT×2, MAL×1, LAV×1; t17: MAL×5, SAL×4; t18: LAT×2, SAL×1, RET×1, CHA×1
+Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET×3, LAT×1; t03: SAL×3, LAT×2, LAV×1, MAL×1; t04: RET×6, MAL×6, LAV×4, LAT×3; t05: MAL×4, SAL×4, LAV×1, RET×1, CHA×1; t06: SAL×4, RET×3, LAT×2, LAV×1; t07: RET×9, LAV×7, LAT×4, MAL×3; t08: MAL×3, LAT×3, LAV×3, SAL×2, RET×1; t09: SAL×5, RET×5, MAL×4, LAV×1, LAT×1; t10: LAV×2, MAL×2, SAL×1, RET×1; t12: LAT×8, MAL×2, LAV×2, RET×2; t13: MAL×9, SAL×3, LAV×1; t14: LAT×4, RET×4, SAL×2, LAV×1, MAL×1; t15: LAT×6, MAL×4, RET×3, SAL×3, LAV×3; t16: RET×4, LAT×2, MAL×1, LAV×1; t17: MAL×5, SAL×4; t18: LAT×2, SAL×1, RET×1, CHA×1
 
 ## Dealer prices, last 60 ticks (median per item)
 
-- abuela common (team buys): median 9 over 6
+- abuela common (team buys): median 8 over 3
 - abuela common (team sells): median 6 over 3
 - abuela uncommon (team buys): median 23 over 1
 - picaros epic (team buys): median 140 over 1
 - picaros rare (team buys): median 60 over 2
-- pilar rare (team sells): median 71 over 3
+- pilar rare (team sells): median 67 over 1
 
 ## El Rastro now: top bids by price (team, card, price)
 
