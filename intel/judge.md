@@ -1,49 +1,53 @@
-# Judge (claude-opus-5-5, Sun 09:05)
+# Judge (claude-opus-5-5, Sun 09:37)
 
 ## Verdict
-**Holding at #3 (30.5) after a frozen night, but stalled.** We trail Team 10 by 7.1 and Team 18 by 0.8, and lead Team 12 by only 0.1. `neg_points` has sat at 119.1 since tick 988, about 450 Saturday ticks with no scored deal, while Team 18 gained +0.8 and Team 12 +0.4 late Saturday (Dani's Δ).
+**Slipping.** We are #4 at 30.15 (−0.3 in 15 min). t12 is +1.0 to 31.5, and t18 passed us at 31.1, so the #3 spot that the 09:28 directive told us to defend is lost. t10 still leads at 33.7 but fell 3.9. Our `neg_points` this round are 0.0 with 0 team trades. t18's jump came from one team trade, CHA-01 bought from t13 at 72, which closed its CHA page (likely the +50 cap).
 
 ## Our strategies: keep / kill / scale
-- **t0 CHA chain (pid 22755): KEEP.** It is the day's biggest lever. CHA rares are worth 112 against a Pícaros cap of ≤ 62, so it carries no dealer losses. The page bonus is 106 (capped at +50 per team-trade closer). Case J fires at the first live tick.
-- **Dealer bot: KEEP.**
-  - LAV-04 to Pícaros: it walked at her opening price of 4, which is correct (RULES:35). `neg_points` was unchanged.
-  - Ladder went 0.437 → 0.483 after 19:04. The source of that rise is not in the data, and per the Chief at 17:45 the ladder no longer moves the board.
-- **Trading loop: KEEP, but verify it is alive now.**
-  - Its last scored accepts were Saturday: tick 669 (+6.2) and tick 904 (+15.5 window).
-  - Since then it has logged only errors (`no card sobre_bienvenida` every minute, then DNS failures 22:55-23:24). Its last line was 00:36, with nothing logged since doors opened.
-  - The Mac slept 08:28-09:00.
-- **Our bids and listings: SCALE.**
-  - We have 0 open offers. The plan's maker book target is 20-30.
-  - Our last own team trade, SAL-06 at 28, scored +40.4.
-  - We hold 392 cash, and the Sunday GUARDRAIL says cash goes to 0 by 14:00.
-- **Flags: KILLED.** Three scored (+10 each), one cost −10, and flag 8 scored 0 after an hour. The cap does not reset.
-- **Club routing on v10 (our venue), 50/50: KEEP per the 08:05 directive.** The current `mm_points` value is not in the data.
-- **Duelist: KEEP.** Duel score is 35.39. Session 3's last 10 duels gave 8 deals and 2 no-deals. C+ was confirmed by the Duel Lab at 07:38.
+- **Abuela CHA commons: keep, but only as page building.**
+  - CHA-01 to CHA-04 cost 8, 9, 8, 9 against a value of 16, with `neg_points` flat at 0 (dealer gains are clipped).
+  - Level 1 is full: the best 3 deals are 8, 9, 8, so CHA-04 at 9 and the open CHA-06 thread add no ladder.
+  - Rule: never buy the page's last card from a dealer. The closer scores only through a team trade.
+- **Pilar fodder: keep, one slot left.** Ladder went 0.075 → 0.115 → 0.148 → 0.168 (LAT-06 at 18, LAV-07 at 17), with no neg cost. Level 3 has 2 of 3 deals filled. The board effect of the ladder is [L] only (Chief's 17:45 note).
+- **Pícaros: done, keep the result.** CHA-09 at 55 against a value of 112 cost 0 neg. LAV-04 was walked correctly (their final 4 was below our floor of 5).
+- **Public CHA bids (CHA-08/06 at 22, CHA-05 at 9): keep, but they are not working.** 0 fills. No team has a CHA ask on the boards.
+- **LAT-06/07/08 bids at 9: kill unless they feed level 3's last slot.**
+  - 0 fills, and the only asks for these cards sit at 30.
+  - Worth at most about +3.5 each (LAT uncommon value 12.5), and nothing as a score once level 3 is full.
+- **RET-11 to t13 at 248 (offer 20815): scale it, it is our only live +50.** Value 198, not a page card, and t13 is #7 at 24.6. Keep the planned single re-post at 235.
+- **Trading loop: unproven this round.**
+  - Its log has no Sunday entry after the 00:36 "closed" event, and there are 0 accepts since the R+10 restart.
+  - Saturday's last two accepts gained +6.2 and +15.5.
+  - Check that it is actually alive (see change 3).
+- **In-room trades: none this round.** t18's +50 came exactly from one of these. This is the gap.
 
 ## Check the scout
 - **Holds:**
-  - Pícaros tiers 57/60/62 and closers on El Rastro, addressed with the fee added (07:25).
-  - RET-11 goes to Pilar only at ≥ 198 (01:40).
-  - Ladder 0.373 → 0.437 with `negotiating` flat at 21.88.
-  - The Team 12, 18 and 6 trade figures.
-  - Teams 17 and 1 fail the ≥ 10 feeding rule (4.7 and 4.9 below us).
-- **Wrong: "Team 10 holds the club venue at v10, each club trade feeds it."** v10 is OUR venue (GAME.md: v10 trades moved our `mm_points`). Club deals on v10 feed us, not Team 10.
-- **Wrong: Team 10 "bought RET-03 at 8."** The trade was t10→t06, so Team 10 sold it.
-- **Wrong: "Team 8's bid for RET-02 is 5."** The bid is for RET-01.
-- **Weak: the spare-sale evidence.** LAV-02 at 10 and LAT-04 at 9 are rival asks, which shows supply, not demand. No bid exists for these cards, and no buyer passes the feeding rule.
-- **Inaccurate: LAT-03 and LAT-04 called "spares".** We hold one copy of each, so they are not spares.
-- **Stale: "08:45 t0 chain".** Case J moved t0 to the first live tick.
+  - Abuela commons close at ≤ 9 (confirmed four times).
+  - Pilar fodder gives about +0.02 ladder per deal (+0.022 and +0.033 measured).
+  - The CHA bids are unfilled because no seller exists.
+  - t12 is the main rival.
+  - Never sell SAL-09/10 below 122.6.
+- **Stale or wrong:**
+  - "We're #3 (+0.3)" is false: we are #4 at −0.3, and t18 is above us.
+  - t12 shows "+2.0"; the metrics show +1.0.
+  - Thread 2258 was CHA-01, not CHA-02.
+  - Bid 20536 has been replaced by 20793.
+  - LAV-07 is already sold (at 17, ladder 0.148), so action 3 is already done.
+  - t03's SAL-10 bid is gone: t03 bought SAL-10 from t13 at 108.
+- **Risky:** action 1 includes CHA-05 from Abuela. That is harmless only if a team-bought card ends up last. The Chief's plan, with CHA-05 last from a team, is the right one.
 
 ## The 3 changes with the highest expected gain
-1. **Keep the Mac awake until 15:00 (a human runs `caffeinate`/pmset), then confirm live PIDs and one instance each.** The processes to check are t0 22755, window.sh 58604, the trader and the book.
-   - Effect: protects the whole CHA chain (up to +50 per closer, plus value − price on each CHA buy) and the trader's accepts. The 08:28 sleep already delayed t0's 08:35 step to 08:45.
-   - Risk: a double instance on restart. Use the PID lock.
-2. **At C, open sobre_plata first, then rebuild a maker book of ≥ 20 offers via `trade.py`.**
-   - Bids: CHA bids inside the 54/22/9 public limits, and below-value team buys under the 12:00 cash-sink order.
-   - Asks: spares at about 9-10, to buyers that pass the feeding rule only.
-   - Reprice anything unfilled for 10 minutes.
-   - Effect: restarts scored team trades after 450 flat ticks and turns 392 non-scoring cash into points.
-   - Risk: overspending before the CHA rares fill. Respect the 110 floor until 13:30.
-3. **Fix the trader's `sobre_bienvenida` error before it masks real failures, and drop that card from the loop's config.**
-   - Effect: restores clean monitoring. A silent loop failure on Saturday would have hidden the +15.5-type accepts.
-   - Risk: a mid-window restart. Do it before Duels III at about 11:00.
+1. **Close CHA with a team trade now, copying t18 (expected +50 neg, the largest single lever).**
+   - Finish CHA-06/08 at Abuela at ≤ 40 (`cha_close.sh` already does this).
+   - Meanwhile Dani asks the room who holds a spare CHA-05, CHA-06 or CHA-08. t13 sold CHA-01, so it likely holds CHA spares.
+   - Make whichever card a non-rival holds the last one. Post it on El Rastro, addressed, at value-when-last − 50 with the seller's fee added (07:25 directive).
+   - Risk: the Chief's 72 bid targets t13, which is on `policy.rivals`, and 07:05 (3) says bids above the public limit must go to non-rival teams. Have the Chief confirm in writing, or prefer a non-rival holder. If nobody holds the card, the page stalls at 9/10.
+2. **Sell surplus to teams at our value + 50 for capped trades (+50 each).**
+   - RET-11 is live. If t13 lets offer 20815 expire at tick 1552, re-post once at 235 to a non-top-4 RET collector (t02, t07, t16).
+   - Never sell to t10, t12, t18 or t03.
+   - Risk: a fill at a lower price still scores 50 only if the price is ≥ 248 (198 + 50). Below that, we get price − 198. Do not drop below 198 (01:40 directive).
+3. **Confirm the trader and opps processes are running and logging on HEAD 46dc399.**
+   - A dead loop means missed maker fills, which are the only other source of neg this round.
+   - Cost: one `daemons.sh` status check.
+   - Risk: none. If they are down, restart them with the floors (110).
