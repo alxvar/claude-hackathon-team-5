@@ -914,6 +914,136 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 2020,
+   "raw": {
+    "duel": 11493,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.82,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 126,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Rojo",
+    "deadline_tick": 2022,
+    "decay_per_round": 0.1,
+    "rounds": 3,
+    "your_offer": {
+     "id": 15433,
+     "price": 113,
+     "tick": 2020,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 15427,
+     "price": 113,
+     "tick": 2020,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 2010,
+      "from": "you",
+      "text": "I'd like to open at 79 primas for delivery on day 0.",
+      "price": 79,
+      "days": 0
+     },
+     {
+      "tick": 2010,
+      "from": "Rival Rojo",
+      "text": "116 with delivery on day 10. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "price": 116,
+      "days": 10
+     },
+     {
+      "tick": 2011,
+      "from": "Rival Rojo",
+      "text": "115 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 115,
+      "days": 10
+     },
+     {
+      "tick": 2012,
+      "from": "Rival Rojo",
+      "text": "114 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 114,
+      "days": 10
+     },
+     {
+      "tick": 2013,
+      "from": "Rival Rojo",
+      "text": "113 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 113,
+      "days": 10
+     },
+     {
+      "tick": 2014,
+      "from": "Rival Rojo",
+      "text": "112 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 112,
+      "days": 10
+     },
+     {
+      "tick": 2015,
+      "from": "Rival Rojo",
+      "text": "111 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 111,
+      "days": 10
+     },
+     {
+      "tick": 2016,
+      "from": "Rival Rojo",
+      "text": "110 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 110,
+      "days": 10
+     },
+     {
+      "tick": 2017,
+      "from": "Rival Rojo",
+      "text": "109 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 109,
+      "days": 10
+     },
+     {
+      "tick": 2018,
+      "from": "Rival Rojo",
+      "text": "108 with delivery on day 10. Fast deal before the pie shrinks?",
+      "price": 108,
+      "days": 10
+     },
+     {
+      "tick": 2019,
+      "from": "you",
+      "text": "I can do 98 P, delivery on day 0.",
+      "price": 98,
+      "days": 0
+     },
+     {
+      "tick": 2020,
+      "from": "Rival Rojo",
+      "text": "113 with delivery on day 0. Fast deal before the pie shrinks?",
+      "price": 113,
+      "days": 0
+     },
+     {
+      "tick": 2020,
+      "from": "you",
+      "text": "I can do 113 P, delivery on day 0.",
+      "price": 113,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -2847,6 +2977,521 @@
     "ACCEPT_BY": 1,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 2020,
+   "took_s": 1.07,
+   "cost_usd": 0.00142,
+   "obs": {
+    "view": {
+     "duel_id": 11493,
+     "role": "buyer",
+     "limit": 126,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.82,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 79 primas for delivery on day 0.",
+      "offer": {
+       "price": 79,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2010,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "116 with delivery on day 10. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "offer": {
+       "price": 116,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2010,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "115 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 115,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2011,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "114 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 114,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2012,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "113 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 113,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2013,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "112 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 112,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2014,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "111 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 111,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2015,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "110 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 110,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2016,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "109 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 109,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2017,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "108 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 108,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2018,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 98 P, delivery on day 0.",
+      "offer": {
+       "price": 98,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2019,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 108,
+     "days": 10
+    },
+    "tick": 2020,
+    "ticks_left": 2,
+    "rounds": 2,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5,
+     51.0,
+     65.4,
+     33.8,
+     10.600000000000001,
+     44.3,
+     3.8,
+     38.6,
+     62.5,
+     30.4,
+     33.4,
+     65.3,
+     15.700000000000001,
+     51.3,
+     5.8,
+     20.2,
+     48.2,
+     49.400000000000006,
+     6.8999999999999995,
+     15.2
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 113 P, delivery on day 0.",
+    "price": 113,
+    "days": 0,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 29.1,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.07,
+       "in": 1247,
+       "out": 34,
+       "cost_usd": 0.00142,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 126,
+     "floor": 13.0
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.08,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 2021,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11493,
+     "role": "buyer",
+     "limit": 126,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.82,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 79 primas for delivery on day 0.",
+      "offer": {
+       "price": 79,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2010,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "116 with delivery on day 10. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+      "offer": {
+       "price": 116,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2010,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "115 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 115,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2011,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "114 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 114,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2012,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "113 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 113,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2013,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "112 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 112,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2014,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "111 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 111,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2015,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "110 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 110,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2016,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "109 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 109,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2017,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "108 with delivery on day 10. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 108,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 2018,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 98 P, delivery on day 0.",
+      "offer": {
+       "price": 98,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2019,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "113 with delivery on day 0. Fast deal before the pie shrinks?",
+      "offer": {
+       "price": 113,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2020,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 113 P, delivery on day 0.",
+      "offer": {
+       "price": 113,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 2020,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 113,
+     "days": 0
+    },
+    "tick": 2021,
+    "ticks_left": 1,
+    "rounds": 3,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5,
+     51.0,
+     65.4,
+     33.8,
+     10.600000000000001,
+     44.3,
+     3.8,
+     38.6,
+     62.5,
+     30.4,
+     33.4,
+     65.3,
+     15.700000000000001,
+     51.3,
+     5.8,
+     20.2,
+     48.2,
+     49.400000000000006,
+     6.8999999999999995,
+     15.2
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 113,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.08,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -2921,6 +3566,191 @@
      "days": 0
     }
    }
+  },
+  {
+   "tick": 2020,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 113 P, delivery on day 0.",
+    "price": 113,
+    "days": 0,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 29.1,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.07,
+       "in": 1247,
+       "out": 34,
+       "cost_usd": 0.00142,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 126,
+     "floor": 13.0
+    }
+   },
+   "result": {
+    "duel": 11493,
+    "offer": {
+     "id": 15433,
+     "price": 113,
+     "tick": 2020,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 2021,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 113,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 113,
+    "settles_at_tick": 2022
+   }
   }
- ]
+ ],
+ "last_seen_tick": 2022,
+ "done": {
+  "duel": 11493,
+  "session": 4,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Museo Sorolla",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 4.82,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 126,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Rojo",
+  "deadline_tick": 2022,
+  "decay_per_round": 0.1,
+  "rounds": 3,
+  "your_offer": {
+   "id": 15433,
+   "price": 113,
+   "tick": 2020,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 15427,
+   "price": 113,
+   "tick": 2020,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 2010,
+    "from": "you",
+    "text": "I'd like to open at 79 primas for delivery on day 0.",
+    "price": 79,
+    "days": 0
+   },
+   {
+    "tick": 2010,
+    "from": "Rival Rojo",
+    "text": "116 with delivery on day 10. How much does each day of delay cost or earn you? Tell me your number per day and the day goes to whoever cares more; we split the gain.",
+    "price": 116,
+    "days": 10
+   },
+   {
+    "tick": 2011,
+    "from": "Rival Rojo",
+    "text": "115 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 115,
+    "days": 10
+   },
+   {
+    "tick": 2012,
+    "from": "Rival Rojo",
+    "text": "114 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 114,
+    "days": 10
+   },
+   {
+    "tick": 2013,
+    "from": "Rival Rojo",
+    "text": "113 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 113,
+    "days": 10
+   },
+   {
+    "tick": 2014,
+    "from": "Rival Rojo",
+    "text": "112 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 112,
+    "days": 10
+   },
+   {
+    "tick": 2015,
+    "from": "Rival Rojo",
+    "text": "111 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 111,
+    "days": 10
+   },
+   {
+    "tick": 2016,
+    "from": "Rival Rojo",
+    "text": "110 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 110,
+    "days": 10
+   },
+   {
+    "tick": 2017,
+    "from": "Rival Rojo",
+    "text": "109 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 109,
+    "days": 10
+   },
+   {
+    "tick": 2018,
+    "from": "Rival Rojo",
+    "text": "108 with delivery on day 10. Fast deal before the pie shrinks?",
+    "price": 108,
+    "days": 10
+   },
+   {
+    "tick": 2019,
+    "from": "you",
+    "text": "I can do 98 P, delivery on day 0.",
+    "price": 98,
+    "days": 0
+   },
+   {
+    "tick": 2020,
+    "from": "Rival Rojo",
+    "text": "113 with delivery on day 0. Fast deal before the pie shrinks?",
+    "price": 113,
+    "days": 0
+   },
+   {
+    "tick": 2020,
+    "from": "you",
+    "text": "I can do 113 P, delivery on day 0.",
+    "price": 113,
+    "days": 0
+   }
+  ],
+  "result": 9.5,
+  "price": 113,
+  "days": 0
+ }
 }

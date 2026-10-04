@@ -15,7 +15,8 @@ _Independent quant pass, analysis only: no game calls, no keys, no edits outside
 _Data: the 45 Duels III records that had closed by 11:30 (12 ticks, 10% decay, price + days), on the live code policy
 (set C, `MIN_STEP_P` 15, `MAX_STEP_SHARE` 0.12, openers 0.42 / 0.37, `ACCEPT_BY` 2 (19 duels ran with 1), plus
 506a2fd's last-tick accept). Outputs: scratchpad `out/iii_summary.out`, `fit_sun.out`, `sun_cand.out`,
-`sun_combo.out`, `labsim_ab.out`._
+`sun_combo.out`, `sun_extra.out`, `labsim_ab.out`. An independent verifier pass on this section flagged 2 major and
+8 minor issues (2 live counts, labels, the team mix); all are fixed below._
 
 **Recommendation: keep set C and set `ACCEPT_BY` 1** (accept their in-limit offer only on the last tick). Change nothing
 else. Confidence: **medium**. Both simulators agree on the sign, the gain is small, and the live data are consistent but
@@ -23,21 +24,24 @@ not conclusive.
 
 | | My model (Final mix, share × 0.9^rounds) | Duel Lab simulator (5 worlds × H1 / H2) |
 |---|---|---|
-| `ACCEPT_BY` 1 vs 2 | **+0.029 ± 0.006 per duel** (better against 16 of 17 teams). Range across 6 world variants +0.009 to +0.033 | **+0.007 to +0.008 in all 10 cells** |
+| `ACCEPT_BY` 1 vs 2 | **+0.029 ± 0.006 per duel** (better against 16 of 17 teams). Range across 6 world variants +0.011 to +0.034 | **+0.007 to +0.008 in all 10 cells** |
 | Over the Final's 34 duels | ≈ +1.0 duel point | ≈ +0.25 |
 
 **Why it works [L].** At 2 ticks left our closing offer is still standing, and the rival may accept it. Taking their
 weaker in-limit offer at that tick throws that chance away.
 
-**Why it's safe now [V].**
-- 506a2fd accepts an in-limit offer posted on the last tick.
-- All 19 accepts today were queued, the last-tick ones included.
+**Why it's safe now.**
+- **[code]** 506a2fd accepts an in-limit offer posted on the last tick. No record shows it firing yet.
+- **[V]** All 22 accepts in the snapshot were queued, the last-tick ones included.
 - Only one rival made its offer worse between 2 ticks left and the last tick (11124, and it improved again on the last
   tick).
 - **Live comparison [V, confounded, not significant]:** the duels that ran `ACCEPT_BY` 1 scored 25.0 P per responding
-  rival (13 deals in 15); `ACCEPT_BY` 2 scored 22.4 P (19 in 20).
+  rival (13 deals in 15); `ACCEPT_BY` 2 scored 21.8 P (22 in 23).
+- **`ACCEPT_BY` 1's two no-deals didn't come from the setting [V].** Their offer was outside our limit 2 ticks before
+  the end: 11124 at −14, 11352 at −23. `ACCEPT_BY` 2 would have changed nothing. 11124 is the case 506a2fd fixes.
 
-**Rejected [L]** (single changes on top of `ACCEPT_BY` 1):
+**Rejected [L].** The rows marked † were measured against LIVE (`ACCEPT_BY` 2, `sun_cand.out`); the others on top of
+`ACCEPT_BY` 1 (`sun_combo.out`).
 
 | Change | My model | Lab simulator | Verdict |
 |---|---|---|---|
@@ -45,26 +49,29 @@ weaker in-limit offer at that tick throws that chance away.
 | `OPEN_WAIT` 2 | +0.005 | −0.009 to +0.004 | models disagree |
 | `CLOSING_TICKS` 2 | +0.015, but −0.014 with no deadline accepts and deal rate −5 points | −0.024 to −0.039 | reject |
 | `CLOSING_TICKS` 4, `MONO_END_SHARE` 0.4 | −0.012 to −0.024; zero-worth deals up from 4% to 9% | not run | reject |
-| `MONO_END_SHARE` 0.15, `END_STEP_SHARE` 0.3, `SILENT_KEEP` 0.05 / 0.3, `ACCEPT_RATIO` 0.8 / 0.9 | within ±0.005 | not run | no change |
-| `MIN_STEP_P` 8 | −0.011 | not run | keep 15 |
-| `LATE_SWITCH_LEFT` 2 / 3 | −0.011 / −0.017: switches away from day 10 against rivals that would have taken it | not run | reject |
-| Code idea: a mirror-day switch | −0.012 as a generic rule | not run | reject |
+| `MONO_END_SHARE` 0.15, `END_STEP_SHARE` 0.3, `SILENT_KEEP` 0.05 / 0.3 †, `ACCEPT_RATIO` 0.8 / 0.9 † | within ±0.005 | not run | no change |
+| `MIN_STEP_P` 8 † | −0.011 | not run | keep 15 |
+| `LATE_SWITCH_LEFT` 2 / 3 † | −0.010 / −0.018: switches away from day 10 against rivals that would have taken it | not run | reject |
+| Code idea: a mirror-day switch † | −0.011 as a generic rule | not run | reject |
 | Code idea: a closing floor at 5% of the limit | +0.004; removes the zero-worth deals | not run | not worth a code change now |
 
 **Re-fit on today's records.**
-- **Silent rivals: 7 of 45 duels (16%), from 3 or 4 teams.** Two pairs never spoke or accepted: 11120/1 and 11144/5.
+- **Silent rivals: 7 of 45 duels (16%), from 3 to 5 teams** (silent duels carry no template to tell teams apart). Two pairs never spoke or accepted: 11120/1 and 11144/5.
   11372 is silent too. Two silent rivals accepted our walk: 11241 (worth 8) and 11490 (worth 50).
-  - In the model: 3 silent teams of 17 in the Final, ≈ 6 duels at 0.
+  - **Model mix for the Final (17 opponents):** 11 active (A, B, C, E, F, H, I, K (tentative link), L, N, Q), the
+    mirror, 3 dead-silent (P-like), and 2 slots split evenly over the unseen D, G, J, M and O. The 3 dead-silent teams
+    are ≈ 6 duels at 0.
   - Nothing to gain on the dead ones. They didn't take offers worth 5–14 P to us, and `SILENT_KEEP` 0.05–0.3 is flat.
 - **Teams.** Seen today by template:
   - active: A, B, C, E, F, H, I, K, L, N and Q;
-  - **new: a mirror bot** (Rival Verde, 11352/11353, "I can do N with delivery on day N. That is a fair deal…");
+  - **new: a mirror bot**, identified by its template "I can do N with delivery on day N. That is a fair deal for both
+    of us." (11352/11353). Display names like "Rival Verde" repeat across teams;
   - not seen today: D, G, J, M and O, probably the silent ones and the mirror.
 - **Day-rigid rivals are the norm:** 30 of 38 responding rivals offered one day only.
   - **As buyers,** most still took our day-10 offers or offered day 10 themselves (B, F, I, N), so seller day 10
     stays.
-  - **As sellers on day 10,** F, L and the mirror took our day-0 offer only at our limit: 11125, 11285 and 11353
-    closed at worth 0.
+  - **As sellers on day 10** (L also offered day 0 once), F, L and the mirror took our day-0 offer only at our limit:
+    11125, 11285 and 11353 closed at worth 0.
 - **The mirror bot** moves to our price on its own day, then copies each new price we offer.
   - In 11352 its offer was inside our limit at t4 (121 on day 0, worth 11). Later it copied our falling prices below
     our cost, and the duel ended with no deal.
@@ -77,14 +84,16 @@ weaker in-limit offer at that tick throws that chance away.
   - 11124 is now fixed by 506a2fd (worth 20);
   - 11518 would have been worth 2 with the fix;
   - only 11352 (the mirror) was a real deal lost (worth 11).
-- **Modelled ceiling [L]:** the rival's reservation is beyond our limit in ≈ 93% of responding duels. The model's live
+- **Modelled ceiling [L]:** the rival's reservation is beyond our limit in ≈ 93% of responding duels (`sun_extra.out`). The model's live
   deal rate is 0.90.
 - **So at most 1–3 more deals in 100 are available, and they'd be worth ≈ 0.** The real slack is the value per deal:
   - 3 of the 35 deals are worth 0 and 4 are worth 2–7 P;
   - only 32 of 38 responding duels (84%) closed at a positive worth.
   - `ACCEPT_BY` 1 is the lever on value per deal; the deal rate stays the same (model 0.90 → 0.90).
-- **Calibration:** the model's live config gives 0.283 share per duel for a Final-like mix. Duels III actual: 0.30–0.34
-  per closed duel (`duel_points` 10.66 after 31 duels).
+- **Calibration:** the model's live config gives 0.283 share per duel for a Final-like mix. Duels III actual: ≈ 0.34–0.36
+  per closed duel (`duel_points` 10.66 after ≈ 31 duels, 18.17 after ≈ 50).
+  - So the model runs ≈ 20% pessimistic, as it did on Duels II in P.
+  - The ranking of the configs is what's used here.
 
 ---
 
