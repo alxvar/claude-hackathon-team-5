@@ -408,3 +408,5 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 12:35 · message tick 2244 · pilar → t17 · Caballero, my patience is long but my purse is not. Seventeen primas, as I said — the figure will not grow. Decide, por favor. And if you crave legends, ask Carmen at El Rastro about the golden chulapa.
 - Sun 12:37 · message tick 2250 · pilar → t01 · Sin prisa, entonces, caballero: quinientos pesos. Ni uno menos. Un sobre dorado mío no es mercancía de cambio apresurado; es pieza de colección. Piénselo con calma, que aquí estaré.
 - Sun 12:40 · catalog.minted CHA-11 (Andén 0, epic, print run 9): hidden=False minted=4 (was 3)
+- Sun 12:43 · egg.found tick 2273 · abuela → t01 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t01", "name": "Team 1"}
+- Sun 12:43 · message tick 2274 · pilar → t06 · Seventeen primas, señor. That is my last word — refuse it and I close the album and we part as friends. One more thing: ask Carmen at El Rastro about the golden chulapa. Only one printed, they say.
