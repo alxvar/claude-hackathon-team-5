@@ -9,6 +9,12 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sun 10:56 · snapshot 1842 (phase 0.58)
+- **Real trades today: 1 in the whole field** (t07's v29). v07 / v02 / v01 / v10 at 0. New board venues: t14 v27 (1589), **t18 v28
+  "Mercado Chamberí" (1662)**, t07 v29 (1758).
+- t12 sold SAL-06 to Pilar at 25; t18 sold LAV-08 to Pilar at 19 and SAL-05 to t07 at 5 (ladder and fodder). t10: no deals since 1745.
+- Board: t12 34.61 · t18 33.38 · **us 32.40 (#3)** · t10 32.18 · t03 29.07.
+
 ### Sun 10:26 · snapshot 1722 (phase 0.43; the 10:16 hard Market Test is now in: every board +≈ 2.1)
 - **t13's mechanic, a dealer → team closer flip** [V feed]: LAV-07 bought from Abuela at 25 (tick 1711), sold to t12 at 40 one tick later
   (1712). t13 books a team-trade margin, and the buyer still gets the +50 closer because the LAST hop is a team trade. Its Sunday ≈ 35.

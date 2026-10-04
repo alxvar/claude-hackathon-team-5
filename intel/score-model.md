@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sun 10:43 (snapshot 1782, phase 0.505): **§3k final-basis projection: t12 84.6 · t10 82.3 · t18 82.0 · us 78.9 · t03 76.4.** #3 is ≈ 3 away; v10 real trades (0 so far, up to +7.5) are the swing. §3j: Sunday team-trade gains capped at 50 (working rule)._
+_Last update: Sun 10:56 (snapshot 1842, phase 0.58): we're #3 on the board (32.40). **Only ONE real trade in the whole field today (v29): one positive v10 pair likely caps +7.5 (§3k).** Projection §3k: t12 84.6 · t10 82.3 · t18 82.0 · us 78.9._
 _Note: the §4 version labels "00:05" to "02:10" are sequence markers written between Sat 23:50 and Sun 00:42 (my labels ran ahead of the wall clock); real times are in `git log`. The Sunday clock in §4.7 is unaffected._
 
 ## 1. Board = Friday × Saturday blend [V]
@@ -465,6 +465,10 @@ parts ×0.6 and adds the duel part (≤ 12). Sunday market so far = the stall 11
 **Reading:** #3 is ≈ 3.1-3.4 away (t18 / t10); #5 t03 is 2.5 behind. Remaining swings: **v10 real trades 0 → up to +7.5** (nobody has Sunday VC
 yet; t10's v07 and t12's v02 can also add), duels (each +1 duel point ≈ +1), ladder (MAL-09 L4 slot ≈ +0.5 after the rescale). Team trades
 are capped at 50 (§3j), so they add nothing more for us, t12 or t18.
+**10:56 [V venue counters]: the field has ONE real trade today (t07's new v29, 1 trade, volume 14).** v07, v02, v01 and v10 are all at 0;
+counters reset per round. RT = 7.5 × min(1, VC/M), M = the top-3 mean, and on Saturday the top venue was always at the full cap
+(market-test-audit §2). So **one positive pair on v10 with VC ≥ ½ of v29's likely caps our Sunday real trades: +7.5**, more than the
+≈ 3-point gap to #3. t10 (v07) and t12 (v02) can do the same. New venues today: t14 v27 (1589), t18 v28 (1662), t07 v29 (1758).
 
 ## 3j. Sunday anomaly: RET-11 sale scored 0 (Sun 10:31) [V data · ? cause]
 - Tick 1730, settlement 1280: RET-11 sold to t02 at 240 on El Rastro (we were the taker, fee 13). Expected +29 (240 − 13 − 198).
