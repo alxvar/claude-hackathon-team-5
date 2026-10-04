@@ -1,31 +1,29 @@
-# Metrics (auto, 12:17, game tick 2173)
+# Metrics (auto, 12:20, game tick 2181)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
-1. Team 12 34.6 (+0.2 / -0.2) deals 82
-2. Team 5 33.9 (+0.1 / +2.2) deals 71 ← US
-3. Team 18 33.3 (+0.2 / +0.9) deals 56
-4. Team 10 33.2 (-0.2 / -0.5) deals 70
-5. Team 3 33.0 (+2.5 / +2.5) deals 44
-6. Team 4 31.1 (+0.7 / +4.9) deals 90
-7. Team 9 29.4 (+0.4 / +2.3) deals 52
-8. Team 6 29.2 (+0.2 / +1.1) deals 87
-9. Team 15 28.0 (+0.2 / +2.1) deals 69
-10. Team 2 27.4 (+0.6 / +1.4) deals 78
+1. Team 12 34.6 (+0.3 / +0.1) deals 82
+2. Team 5 34.0 (+0.2 / +1.8) deals 72 ← US
+3. Team 10 33.7 (+0.3 / -0.7) deals 70
+4. Team 18 33.3 (+0.2 / +0.8) deals 56
+5. Team 3 33.0 (+2.1 / +2.4) deals 44
+6. Team 4 31.3 (+0.8 / +5.0) deals 91
+7. Team 9 29.4 (+0.3 / +1.6) deals 52
+8. Team 6 29.2 (+0.3 / +1.1) deals 87
+9. Team 15 28.0 (+0.0 / +2.5) deals 69
+10. Team 2 27.4 (+0.2 / +1.0) deals 78
 Us: #2
 
 ## Us
 
-score 33.92 · neg_points 52.2 (15 min ago 50.0) · ladder 0.364 · duel 24.68 · cash 662 · level 5 · deals 72
+score 34.01 · neg_points 52.2 (15 min ago 50.0) · ladder 0.364 · duel 24.68 · cash 662 · level 5 · deals 72
 
 ## Our holdings (card (rarity): value of each copy; a sale gives up the cheapest copy)
 
 CHA-01 (common): 122; CHA-02 (common): 122; CHA-03 (common): 122; CHA-04 (common): 122; CHA-05 (common): 122; CHA-06 (uncommon): 146; CHA-07 (uncommon): 146; CHA-08 (uncommon): 146; CHA-09 (rare): 218; CHA-10 (rare): 218; LAT-03 (common): 5; LAV-01 (common): 99.1; LAV-02 (common): 99.1; LAV-03 (common): 99.1; LAV-04 (common): 99.1; LAV-05 (common): 99.1; LAV-06 (uncommon): 118.6; LAV-07 (uncommon): 118.6; LAV-08 (uncommon): 118.6; LAV-09 (rare): 177.1; LAV-10 (rare): 177.1; MAL-01 (common): 7; MAL-02 (common): 7; MAL-03 (common): 7; MAL-04 (common): 7; MAL-05 (common): 7; MAL-06 (uncommon): 17.5; MAL-08 (uncommon): 17.5; MAL-10 (rare): 49; RET-01 (common): 83.9; RET-02 (common): 83.9; RET-03 (common): 83.9; RET-04 (common): 83.9; RET-05 (common): 83.9; RET-06 (uncommon): 100.4; RET-07 (uncommon): 100.4; RET-08 (uncommon): 100.4; RET-09 (rare): 149.9; RET-10 (rare): 149.9; SAL-01 (common): 68.6; SAL-02 (common): 68.6; SAL-03 (common): 68.6; SAL-04 (common): 68.6; SAL-05 (common): 68.6; SAL-06 (uncommon): 82.1; SAL-07 (uncommon): 82.1; SAL-08 (uncommon): 82.1; SAL-09 (rare): 122.6; SAL-10 (rare): 122.6
 
-## Our open offers (5)
+## Our open offers (3)
 
-- 24703: bid 49 for MAL-09 · to t13 · expires tick 2208
-- 24785: bid 20 for LAT-01 · to t02 · expires tick 2222
 - 25107: bid 9 for LAT-06 · to anyone · expires tick 2307
 - 25111: bid 9 for LAT-07 · to anyone · expires tick 2307
 - 25112: bid 9 for LAT-08 · to anyone · expires tick 2307
@@ -75,7 +73,7 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×3; t02: RET×4, MAL�
 
 ## Dealer prices, last 60 ticks (median per item)
 
-- abuela common (team buys): median 9 over 3
+- abuela common (team buys): median 9 over 5
 - abuela uncommon (team buys): median 22 over 1
 - chato uncommon (team buys): median 31 over 1
 - chato uncommon (team sells): median 13 over 1
@@ -86,18 +84,18 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×3; t02: RET×4, MAL�
 
 ## El Rastro now: top bids by price (team, card, price)
 
-- t03: SAL-11 (epic) 166 P · offer 25297
+- t03: SAL-11 (epic) 170 P · offer 25355
 - t17: LAV-11 (epic) 112 P · offer 25046
 - t10: CHA-11 (epic) 76 P · offer 24621
 - t09: CHA-06 (uncommon) 15 P · offer 24746
 - t09: CHA-07 (uncommon) 15 P · offer 24747
 - t09: CHA-08 (uncommon) 15 P · offer 24748
-- t03: RET-06 (uncommon) 12 P · offer 25079
-- t03: RET-07 (uncommon) 12 P · offer 25140
+- t03: RET-06 (uncommon) 12 P · offer 25330
+- t03: RET-07 (uncommon) 12 P · offer 25362
 - t05 (US): LAT-06 (uncommon) 9 P · offer 25107
 - t05 (US): LAT-07 (uncommon) 9 P · offer 25111
 - t05 (US): LAT-08 (uncommon) 9 P · offer 25112
-- t03: MAL-08 (uncommon) 7 P · offer 25078
+- t03: MAL-08 (uncommon) 7 P · offer 25328
 - t09: CHA-01 (common) 5 P · offer 24738
 - t09: CHA-02 (common) 5 P · offer 24739
 - t09: CHA-03 (common) 5 P · offer 24740
