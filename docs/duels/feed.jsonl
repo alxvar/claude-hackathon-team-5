@@ -1839,3 +1839,6 @@
 {"id": 94962, "tick": 2062, "t": 16.2, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11633, "session": 4, "status": "no_deal", "item": "Museo Sorolla"}}
 {"id": 95141, "tick": 2069, "t": 16.2292, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11643, "session": 4, "status": "no_deal", "item": "Vinilo de la Movida"}}
 {"id": 95144, "tick": 2069, "t": 16.2292, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11661, "session": 4, "status": "no_deal", "item": "Vinilo de la Movida"}}
+{"id": 95237, "tick": 2073, "t": 16.2458, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11686, "session": 4, "status": "no_deal", "item": "Escaparate de Serrano"}}
+{"id": 95247, "tick": 2074, "t": 16.25, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11687, "session": 4, "status": "no_deal", "item": "Escaparate de Serrano"}}
+{"id": 95250, "tick": 2074, "t": 16.25, "type": "duels.finished", "scope": "public", "actor": "", "payload": {"session": 4, "name": "Duels III"}}
