@@ -39,7 +39,8 @@ st.setdefault("bounties", []); st.setdefault("bounty_trades", [])
 BOUNTIES, BONUS, PER_SELLER, SLACK = 5, 20, 2, 0   # Chief 12:20: in kind only (no round cap: overpay costs real neg points)
 st.setdefault("over_used", 0.0)
 LACK_ALSO = ["MAL-07", "MAL-09"]
-STICKY_RIVALS = {"t03", "t06", "t10", "t12", "t13", "t17", "t18"}   # Chief 12:33: the reward is non-rivals only (live + this list)
+STICKY_RIVALS = {"t03", "t06", "t10", "t12", "t13", "t17", "t18"}
+LOCKED = {"t10", "t12", "t18", "t03", "t04"}   # Chief 12:33: the reward is non-rivals only (live + this list)
 BOOK = ROOT + '/run/book.json'
 
 def all_bid_cards():
@@ -100,6 +101,7 @@ def bounty_eligible(p):
     parties = [t for t in p.get('parties') or [] if t]
     if len(parties) != 2 or not all(t.startswith('t') for t in parties) or 't05' in parties or 't10' in parties: return False
     s = seller_of(p)
+    if s in LOCKED: return False   # Chief 13:05 LOCK THE LEAD: zero trades with t10/t12/t18/t03/t04
     return bool(s) and len(st['bounty_trades']) < BOUNTIES and sum(x['seller'] == s for x in st['bounties']) < PER_SELLER
 
 def bounty(e):
