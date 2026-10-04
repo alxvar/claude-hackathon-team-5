@@ -7,6 +7,12 @@ dealer haggling per team, duels and the schedule.
 
     python dashboard/server.py        # open http://127.0.0.1:8765
 
+**Two views.** `/` is the compact live view (`live.html`): six KPI tiles, every battle we fight (duels and dealer
+haggles, live ones first) with its price chart (us vs them vs our limit, or the card's worth to us) and messages,
+click one for the full chat; our deck set by set; the race around us; and our record per arena (duels, dealers,
+El Rastro, Market Test). `?f=duel|dealer` filters the battles; `#d6191` or `#t2351` opens one. `/full` is the
+detailed view below (`index.html`), with every tab.
+
 On Windows, double-click `dashboard/start.bat`: it starts the server in the background (it keeps running after
 VS Code or the window closes) and opens the browser. Every teammate can run their own copy with their own key.
 

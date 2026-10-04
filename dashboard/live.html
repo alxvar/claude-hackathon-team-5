@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team 5 · Live</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+/* The compact view: one screen, live battles first. Same tokens as index.html (the full view, at /full). */
+.viz-root {
+  color-scheme: dark;
+  --page: #0d0d0d;
+  --surface-1: #1a1a19;
+  --surface-2: #222220;
+  --text-primary: #ffffff;
+  --text-secondary: #c3c2b7;
+  --text-muted: #898781;
+  --grid: #2c2c2a;
+  --axis: #383835;
+  --border: rgba(255,255,255,0.10);
+  --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70; --series-4: #c98500;
+  --other: #4a4a46;
+  --good: #0ca30c; --warning: #fab219; --serious: #ec835a; --critical: #d03b3b;
+  /* rarity: one ordinal blue ramp, rarer = lighter (stands out more on the dark surface) */
+  --r0: #4a4a46; --r1: #184f95; --r2: #256abf; --r3: #3987e5; --r4: #6da7ec; --r5: #9ec5f4;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--text-primary);
+       font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--text-secondary); }
+header { position: sticky; top: 0; z-index: 5; background: var(--page); border-bottom: 1px solid var(--border); padding: 10px 20px; }
+.bar { display: flex; flex-wrap: wrap; gap: 4px 18px; align-items: baseline; max-width: 1500px; margin: 0 auto; }
+h1 { font-size: 17px; margin: 0; }
+.meta { color: var(--text-secondary); font-size: 13px; }
+.meta b { color: var(--text-primary); font-weight: 600; }
+.bar .link { margin-left: auto; font-size: 13px; }
+main { padding: 16px 20px 48px; max-width: 1500px; margin: 0 auto; display: grid; gap: 16px; }
+.muted { color: var(--text-muted); }
+.err { color: var(--critical); font-size: 12px; }
+.up { color: var(--good); } .down { color: var(--critical); }
+
+/* KPI tiles */
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+.tile { background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px 12px; min-width: 0; }
+.tile .k { color: var(--text-secondary); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tile .v { font-size: 28px; font-weight: 600; line-height: 1.2; margin-top: 2px; white-space: nowrap; }
+.tile .v small { font-size: 13px; font-weight: 600; margin-left: 6px; }
+.tile .d { font-size: 12px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tile svg { display: block; margin-top: 6px; }
+.meter { display: flex; gap: 2px; height: 8px; margin-top: 8px; border-radius: 4px; overflow: hidden; background: rgba(57,135,229,0.18); }
+.meter i { display: block; height: 100%; }
+
+/* cards */
+.card { background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; min-width: 0; }
+.head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; margin-bottom: 10px; }
+.head h2 { font-size: 15px; margin: 0; }
+.seg { margin-left: auto; display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.seg button { background: none; border: 0; color: var(--text-secondary); font: inherit; font-size: 12.5px; padding: 4px 12px; cursor: pointer; }
+.seg button + button { border-left: 1px solid var(--border); }
+.seg button.on { background: var(--surface-2); color: var(--text-primary); font-weight: 600; }
+.pill { font-size: 12.5px; color: var(--text-secondary); }
+.pill b { color: var(--text-primary); }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: 1px; }
+.dot.live { background: var(--warning); box-shadow: 0 0 0 0 rgba(250,178,25,0.6); animation: pulse 1.6s infinite; }
+@keyframes pulse { 70% { box-shadow: 0 0 0 7px rgba(250,178,25,0); } 100% { box-shadow: 0 0 0 0 rgba(250,178,25,0); } }
+@media (prefers-reduced-motion: reduce) { .dot.live { animation: none; } }
+
+/* battles */
+.alerts { list-style: none; margin: 0 0 10px; padding: 0; display: grid; gap: 6px; }
+.alerts li { padding: 6px 10px; border-radius: 6px; background: var(--surface-2); font-size: 13px; border-left: 3px solid var(--warning); }
+.alerts li.critical { border-left-color: var(--critical); }
+.alerts b { margin-right: 6px; }
+.bgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 12px; }
+.bcard { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; cursor: pointer; min-width: 0;
+         display: flex; flex-direction: column; gap: 4px; }
+.bcard:hover { border-color: rgba(255,255,255,0.28); }
+.bcard.live { border-color: rgba(250,178,25,0.55); }
+.btop { display: flex; justify-content: space-between; gap: 8px; font-size: 11px; letter-spacing: .04em; color: var(--text-muted); font-weight: 700; }
+.st { font-weight: 700; white-space: nowrap; }
+.st.live { color: var(--warning); } .st.deal { color: var(--good); } .st.no_deal { color: var(--critical); }
+.bvs { font-size: 15px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bitem { font-size: 12.5px; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.keys { display: flex; flex-wrap: wrap; gap: 2px 12px; font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+.keys i { display: inline-block; width: 12px; height: 3px; border-radius: 2px; vertical-align: middle; margin-right: 4px; }
+.keys i.dash { background: repeating-linear-gradient(90deg, var(--text-muted) 0 4px, transparent 4px 7px); }
+.mini { position: relative; height: 110px; }
+.facts { display: flex; flex-wrap: wrap; gap: 2px 14px; font-size: 12px; color: var(--text-muted); }
+.facts b { color: var(--text-primary); font-weight: 600; }
+.facts .good { color: var(--good); }
+.msg { font-size: 12.5px; color: var(--text-secondary); border-left: 2px solid var(--axis); padding-left: 8px;
+       display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.msg .who { color: var(--text-muted); }
+.empty { color: var(--text-muted); font-size: 13px; padding: 6px 0; }
+
+/* bottom row */
+.row2 { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 16px; align-items: start; }
+.col { display: grid; gap: 16px; }
+@media (max-width: 1100px) { .row2 { grid-template-columns: 1fr; } }
+.chartbox { position: relative; height: 230px; }
+
+/* deck */
+.set { display: grid; grid-template-columns: 170px 1fr; gap: 4px 12px; padding: 8px 0; border-top: 1px solid var(--grid); align-items: center; }
+.set:first-child { border-top: 0; }
+.sl b { font-size: 13px; }
+.sl .sm { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+.sl .sm .meter { flex: 1; margin-top: 0; height: 6px; }
+.sl .done { color: var(--good); font-weight: 700; }
+.cards { display: flex; flex-wrap: wrap; gap: 4px; }
+.mc { position: relative; width: 34px; height: 44px; border-radius: 6px; display: inline-flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 600; background: var(--surface-2); border: 1px solid var(--border); overflow: hidden; }
+.mc i { position: absolute; left: 0; right: 0; bottom: 0; height: 5px; }
+.mc em { position: absolute; top: -1px; right: -1px; font-style: normal; font-size: 10px; line-height: 14px; padding: 0 3px;
+         border-radius: 0 6px 0 6px; background: var(--series-2); color: #fff; }
+.mc.miss { background: transparent; border: 1px dashed rgba(255,255,255,0.22); color: var(--text-muted); font-weight: 400; }
+.mc.miss i { opacity: .35; }
+.mc.ex { margin-left: 6px; }
+.mc.ex + .mc.ex { margin-left: 0; }
+.missing { grid-column: 2; font-size: 12px; color: var(--text-muted); }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 11.5px; color: var(--text-muted); margin-top: 8px; }
+.legend i { display: inline-block; width: 14px; height: 5px; border-radius: 2px; vertical-align: middle; margin-right: 4px; }
+@media (max-width: 560px) { .set { grid-template-columns: 1fr; } .missing { grid-column: 1; } }
+
+/* arenas */
+.arow { display: grid; grid-template-columns: 96px 1fr; gap: 2px 12px; padding: 8px 0; border-top: 1px solid var(--grid); }
+.arow:first-child { border-top: 0; padding-top: 0; }
+.arow .an { font-weight: 600; font-size: 13px; }
+.arow .ab { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+.arow .ab .meter { flex: 0 0 90px; margin-top: 0; }
+.arow .ad { grid-column: 2; font-size: 12px; color: var(--text-muted); }
+
+/* focus dialog */
+dialog { background: var(--surface-1); color: var(--text-primary); border: 1px solid var(--border); border-radius: 12px;
+         width: min(920px, calc(100vw - 32px)); max-height: calc(100vh - 40px); padding: 16px 18px; }
+dialog::backdrop { background: rgba(0,0,0,0.6); }
+.fhead { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.fhead button { background: none; border: 1px solid var(--border); color: var(--text-secondary); border-radius: 6px; font: inherit; padding: 2px 10px; cursor: pointer; }
+.big { position: relative; height: 280px; margin: 10px 0; }
+.chat { display: flex; flex-direction: column; gap: 8px; max-height: 340px; overflow: auto; padding: 4px 2px; margin-top: 10px; }
+.bubble { max-width: 82%; padding: 7px 10px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--border); font-size: 13px; }
+.bubble.us { align-self: flex-end; background: rgba(57,135,229,0.16); border-color: rgba(57,135,229,0.35); }
+.bubble .who { font-size: 11px; color: var(--text-muted); margin-bottom: 2px; }
+.bubble .px { display: inline-block; margin-left: 6px; padding: 0 6px; border-radius: 8px; background: var(--page); font-size: 11px; font-variant-numeric: tabular-nums; }
+main > * { min-width: 0; }
+.tile svg { max-width: 100%; }
+.arow .ab { flex-wrap: wrap; }
+@media (max-width: 560px) {
+  main, header { padding-left: 16px; padding-right: 16px; }
+  .bgrid { grid-template-columns: 1fr; }
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .tile { padding: 8px 10px 10px; }
+  .tile .v { font-size: 22px; }
+}
+</style>
+</head>
+<body class="viz-root">
+<header>
+  <div class="bar">
+    <h1>Team 5 <span class="muted" style="font-weight:400">· Bazaar live</span></h1>
+    <span class="meta" id="clock">connecting…</span>
+    <span class="meta" id="next"></span>
+    <a class="link" href="/full">Full detail →</a>
+  </div>
+</header>
+<main>
+  <section class="kpis" id="kpis"></section>
+
+  <section class="card">
+    <div class="head">
+      <h2>Battles</h2>
+      <span class="pill" id="livePill"></span>
+      <div class="seg" id="seg"><button data-f="all">All</button><button data-f="duel">Duels</button><button data-f="dealer">Dealers</button></div>
+    </div>
+    <ul class="alerts" id="alerts"></ul>
+    <div class="bgrid" id="battles"></div>
+  </section>
+
+  <div class="row2">
+    <section class="card">
+      <div class="head"><h2>My deck</h2><span class="meta" id="deckSum"></span></div>
+      <div id="deck"></div>
+      <div class="legend">
+        <span><i style="background:var(--r1)"></i>common</span><span><i style="background:var(--r2)"></i>uncommon</span>
+        <span><i style="background:var(--r3)"></i>rare</span><span><i style="background:var(--r4)"></i>epic</span>
+        <span><i style="background:var(--r5)"></i>legendary</span>
+        <span>dashed = missing</span><span><b style="background:var(--series-2);color:#fff;border-radius:4px;padding:0 3px;font-size:10px">×2</b> duplicate</span>
+        <span>after the gap: epic/legendary, outside the page</span>
+      </div>
+    </section>
+    <div class="col">
+      <section class="card">
+        <div class="head"><h2>The race</h2><span class="meta">us and the two teams above and below</span></div>
+        <div class="chartbox"><canvas id="race"></canvas></div>
+      </section>
+      <section class="card">
+        <div class="head"><h2>By arena</h2><span class="meta">everything we played today and before</span></div>
+        <div id="arenas"></div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<dialog id="focus">
+  <div class="fhead"><div><div class="btop" id="fTop"></div><div class="bvs" id="fVs"></div><div class="bitem" id="fItem"></div></div>
+    <button id="fClose">Close</button></div>
+  <div class="big"><canvas id="fChart"></canvas></div>
+  <div class="facts" id="fFacts"></div>
+  <div class="chat" id="fChat"></div>
+</dialog>
+
+<script>
+const $ = s => document.querySelector(s);
+const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmt = (v, d = 0) => v == null ? "—" : Number(v).toLocaleString("en-US", { maximumFractionDigits: d, minimumFractionDigits: d });
+const sgn = (v, d = 2) => v == null ? "—" : (v > 0 ? "+" : "") + v.toFixed(d);
+const css = n => getComputedStyle(document.body).getPropertyValue(n).trim();
+const store = { get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } },
+                set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} } };
+// ?f=duel|dealer|all picks the filter; #d6191 (duel) or #t2351 (dealer thread) opens that battle on load
+let DATA = null, BATTLES = {}, FOCUS = null;
+let FILTER = new URLSearchParams(location.search).get("f") || store.get("bz-live-filter", "all");
+let HASH = location.hash.slice(1);
+const charts = {};
+
+// Same team colours as the full view (shared localStorage): a team keeps its slot.
+const SLOTS = [2,3,4,5,6,7,8].map(i => `--series-${i}`);
+const colorMap = store.get("bz-colors", {});
+function teamColor(id, us) {
+  if (id === us) return css("--series-1");
+  if (!(id in colorMap)) {
+    const used = new Set(Object.values(colorMap)), free = SLOTS.findIndex((c, i) => !used.has(i));
+    if (free < 0) return css("--other");
+    colorMap[id] = free; store.set("bz-colors", colorMap);
+  }
+  return css(SLOTS[colorMap[id]]) || css("--other");
+}
+
+const axis = (extra = {}) => ({ grid: { color: css("--grid") }, ticks: { color: css("--text-muted"), font: { size: 10 } },
+                                border: { color: css("--axis") }, ...extra });
+function chart(id, type, data, options) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (!window.Chart) { el.parentElement.innerHTML = `<p class="err">Chart library blocked (cdn.jsdelivr.net).</p>`; return; }
+  const opts = { responsive: true, maintainAspectRatio: false, animation: false, ...options };
+  const c = charts[id];
+  if (c && c.canvas === el) { c.data = data; c.options = opts; c.update("none"); return; }
+  if (c) c.destroy();
+  charts[id] = new Chart(el, { type, data, options: opts });
+}
+function dropDetached() {
+  Object.keys(charts).forEach(k => { if (!document.body.contains(charts[k].canvas)) { charts[k].destroy(); delete charts[k]; } });
+}
+
+// sparkline: de-emphasis line, the current value as an accent dot
+function spark(series, invert = false, w = 150, h = 24) {
+  const ys = series.filter(v => typeof v === "number");
+  if (ys.length < 2) return "";
+  const lo = Math.min(...ys), hi = Math.max(...ys), span = hi - lo || 1;
+  const pt = (v, i) => [i / (ys.length - 1) * (w - 6) + 3, invert ? (v - lo) / span * (h - 8) + 4 : h - 4 - (v - lo) / span * (h - 8)];
+  const pts = ys.map(pt), [ex, ey] = pts[pts.length - 1];
+  return `<svg width="${w}" height="${h}" aria-hidden="true"><polyline points="${pts.map(p => p.map(n => n.toFixed(1)).join(",")).join(" ")}" fill="none" stroke="${css("--text-muted")}" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>`
+    + `<circle cx="${ex.toFixed(1)}" cy="${ey.toFixed(1)}" r="4" fill="${css("--series-1")}" stroke="${css("--surface-1")}" stroke-width="2"/></svg>`;
+}
+
+// ------------------------------------------------------------------ header
+function header(d) {
+  const c = d.clock || {};
+  let left = "";
+  if (c.closes) {
+    const ms = new Date(c.closes) - new Date();
+    if (ms > 0) left = ` (in ${Math.floor(ms / 3.6e6)} h ${String(Math.floor(ms / 6e4) % 60).padStart(2, "0")} m)`;
+  }
+  $("#clock").innerHTML = `${c.paused ? `<b class="down">PAUSED</b>` : `<span class="dot live"></span>`}tick <b>${c.tick ?? "—"}</b> · ${c.tick_seconds ?? "—"} s/tick`
+    + ` · closes <b>${esc((c.closes || "").slice(11, 16) || "—")}</b>${left} · data ${esc(d.updated || "—")}`
+    + (d.errors && d.errors.length ? ` · <span class="err">${d.errors.length} errors</span>` : "");
+  const next = (d.schedule || []).filter(s => s.action === "duels" || s.action === "bench" || s.action === "announce").slice(0, 3);
+  $("#next").innerHTML = next.length ? "Next: " + next.map(s => `<b>${esc(nextName(s))}</b> ${s.eta_min} min`).join(" · ") : "";
+}
+function nextName(s) {
+  let p = {}; try { p = JSON.parse(s.params || "{}"); } catch {}
+  if (s.action === "duels") return p.name || "Duels";
+  if (s.action === "bench") return p.name || "Market Test";
+  return s.note || s.action;
+}
+
+// ------------------------------------------------------------------ KPI tiles
+function kpis(d) {
+  const s = d.me.score || {}, st = d.story || [], h = d.me_hist || [];
+  const ref = st.length ? st[Math.max(0, st.length - 7)] : null;
+  const rank = d.lb_rank ?? s.rank, score = d.lb_score ?? s.score;
+  const rankMove = ref && rank ? (ref.rank_from ?? ref.rank) - rank : 0;
+  const scoreThen = ref ? ref.score - ref.delta : null;
+  const since = ref ? `since tick ${ref.from}` : "";
+  const dl = (v, txt, good) => `<small class="${good ? "up" : "down"}">${v > 0 ? "▲" : "▼"} ${txt}</small>`;
+  const neg = s.negotiating ?? 0, mkt = s.market ?? 0, tot = (neg + mkt) || 1;
+  const above = d.above, below = d.below;
+  const pages = d.collection ? d.collection.summary.pages : s.pages_complete;
+  const nsets = d.collection ? d.collection.sets.length : 6;
+  const [filled, slots] = String(d.me.album || "0/0").split("/").map(Number);
+  const T = [
+    ["Rank", `#${rank ?? "—"}${rankMove ? dl(rankMove, Math.abs(rankMove), rankMove > 0) : ""}`,
+      rankMove ? since : "steady over the last ~30 ticks", spark(st.map(x => x.rank), true)],
+    ["Score", `${fmt(score, 2)}${scoreThen != null && score != null && Math.abs(score - scoreThen) >= 0.005 ? dl(score - scoreThen, Math.abs(score - scoreThen).toFixed(2), score >= scoreThen) : ""}`,
+      since, spark(st.map(x => x.score))],
+    [above ? `Gap to #${above.rank} ${esc(above.name)}` : "Gap to the team above", above ? (above.score - score).toFixed(2) : "we lead",
+      below ? `lead over #${below.rank} ${esc(below.name)}: <b style="color:var(--text-secondary)">${(score - below.score).toFixed(2)}</b>` : "", raceTrack(d)],
+    ["Negotiating · Market", `${fmt(neg, 1)} <span class="muted" style="font-weight:400">·</span> ${fmt(mkt, 1)}`,
+      `deals &amp; duels · Market Tests`,
+      `<div class="meter" style="background:transparent"><i style="width:${100 * neg / tot}%;background:var(--series-1);border-radius:4px 0 0 4px"></i><i style="width:${100 * mkt / tot}%;background:var(--series-3);border-radius:0 4px 4px 0"></i></div>`],
+    ["Cash", `${fmt(d.me.cash)} P`, `level ${d.me.level ?? "—"} · ${s.deals ?? "—"} deals`, spark(h.map(r => r.cash))],
+    ["Album", `${filled || 0}/${slots || 0}`, `${pages ?? "—"}/${nsets} pages complete · worth ${fmt(d.me.collection_value)} P`,
+      `<div class="meter"><i style="width:${slots ? 100 * filled / slots : 0}%;background:var(--series-1);border-radius:4px"></i></div>`],
+  ];
+  $("#kpis").innerHTML = T.map(([k, v, dd, viz]) => `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${dd}</div>${viz || ""}</div>`).join("");
+}
+// us between the teams above and below, placed by score
+function raceTrack(d) {
+  const us = d.lb_score, pts = [d.below && { s: d.below.score, us: false }, { s: us, us: true }, d.above && { s: d.above.score, us: false }].filter(Boolean);
+  if (pts.length < 2 || us == null) return "";
+  const w = 150, h = 24, lo = Math.min(...pts.map(p => p.s)), hi = Math.max(...pts.map(p => p.s)), span = hi - lo || 1;
+  const x = s => 6 + (s - lo) / span * (w - 12);
+  return `<svg width="${w}" height="${h}" aria-hidden="true"><line x1="6" x2="${w - 6}" y1="12" y2="12" stroke="${css("--axis")}" stroke-width="2" stroke-linecap="round"/>`
+    + pts.map(p => `<circle cx="${x(p.s).toFixed(1)}" cy="12" r="${p.us ? 5 : 4}" fill="${p.us ? css("--series-1") : css("--text-muted")}" stroke="${css("--surface-1")}" stroke-width="2"/>`).join("") + `</svg>`;
+}
+
+// ------------------------------------------------------------------ battles: duels and dealer haggles as one model
+function duelBattles(d) {
+  const dm = d.duelmon || {}, rows = Object.fromEntries((dm.live || []).map(r => [r.duel, r])), now = d.clock.tick || 0;
+  return (d.duelview?.duels || []).map(x => {
+    const msgs = (x.messages || []).map(m => ({ ...m, who: m.us ? "us" : m.who }));
+    const ticks = msgs.map(m => m.tick).filter(t => t != null);
+    const live = x.status === "live", r = rows[x.duel] || {}, buy = x.role === "buyer";
+    const left = live && x.deadline != null ? x.deadline - now : null;
+    const facts = live
+      ? [["ours", x.our_now], ["theirs", x.their_now], ["limit", x.limit], ["left", left != null ? `${left} ticks` : "—"],
+         r.accept_now != null ? ["accept now", `<span class="good">+${r.accept_now} P</span>`] : null]
+      : x.status === "deal"
+        ? [["price", x.price], ["limit", x.limit], ["points", `<span class="good">+${fmt(x.result, 1)}</span>`], ["rounds", x.rounds]]
+        : [["best offer", x.rival_best ?? "—"], ["limit", x.limit], ["rounds", x.rounds],
+           x.missed ? ["missed", `<span class="down">+${x.gain_missed} P</span>`] : x.rival_silent ? ["rival", "silent"] : null];
+    return {
+      key: `d${x.duel}`, arena: "duel", label: `Duel ${x.duel}`, status: x.status, rival: x.rival || "rival",
+      role: buy ? "buy" : "sell", item: x.item || "", left,
+      sort: live ? 1e9 - (left ?? 0) : Math.max(x.deadline || 0, ...ticks),
+      outcome: live ? `● LIVE${left != null ? ` · ${left} ticks left` : ""}` : x.status === "deal" ? `✓ DEAL ${x.price} P` : "✗ NO DEAL",
+      us: msgs.filter(m => m.us && m.price != null).map(m => ({ x: m.tick, y: m.price, d: m.days })),
+      them: msgs.filter(m => !m.us && m.price != null).map(m => ({ x: m.tick, y: m.price, d: m.days })),
+      line: x.limit != null ? { y: x.limit, label: `our limit ${x.limit}` } : null,
+      xmax: live ? x.deadline : null, facts: facts.filter(Boolean), msgs,
+    };
+  });
+}
+function dealerBattles(d) {
+  return ((d.our_threads || {}).rows || []).map(t => {
+    const msgs = t.log.map(m => ({ ...m, who: m.us ? "us" : t.dealer_name }));
+    const her = msgs.filter(m => !m.us && m.price != null).map(m => m.price);
+    const first = her[0], last = t.price ?? her[her.length - 1];
+    const buy = t.side === "buy", move = first && last != null ? Math.round(100 * (last - first) / first) : null;
+    const good = move != null && (buy ? move < 0 : move > 0);
+    return {
+      key: `t${t.thread}`, arena: "dealer", label: "Dealer", status: t.status, rival: t.dealer_name,
+      role: t.side, item: `${t.ref || "?"}${t.card ? " · " + t.card : ""}${t.rarity ? ` (${t.rarity})` : ""}`, left: null,
+      sort: t.status === "live" ? 1e9 : t.end,
+      outcome: t.status === "live" ? "● LIVE" : t.status === "deal" ? `✓ ${buy ? "BOUGHT" : "SOLD"} ${t.price} P` : "✗ NO DEAL",
+      us: msgs.filter(m => m.us && m.price != null).map(m => ({ x: m.tick, y: m.price })),
+      them: msgs.filter(m => !m.us && m.price != null).map(m => ({ x: m.tick, y: m.price })),
+      line: t.value != null ? { y: t.value, label: `worth to us ${fmt(t.value, 1)}` } : null, xmax: null,
+      facts: [["her first", first ?? "—"], [t.status === "deal" ? (buy ? "paid" : "got") : "her last", last ?? "—"],
+              move != null ? ["moved", `<span class="${good ? "good" : ""}">${move > 0 ? "+" : ""}${move}%</span>`] : null,
+              ["msgs", t.msgs]].filter(Boolean),
+      msgs,
+    };
+  });
+}
+
+function battles(d) {
+  const all = [...duelBattles(d), ...dealerBattles(d)];
+  BATTLES = Object.fromEntries(all.map(b => [b.key, b]));
+  const live = all.filter(b => b.status === "live");
+  const nextDuel = (d.schedule || []).find(s => s.action === "duels"), nextBench = (d.schedule || []).find(s => s.action === "bench");
+  const bench = d.bench && d.bench.live ? d.bench : null;
+  $("#livePill").innerHTML = live.length || bench
+    ? `<span class="dot live"></span><b>${live.length + (bench ? 1 : 0)}</b> live now`
+    : `nothing live now${nextDuel ? ` · ${esc(nextName(nextDuel))} in <b>${nextDuel.eta_min} min</b>` : ""}${nextBench ? ` · ${esc(nextName(nextBench))} in <b>${nextBench.eta_min} min</b>` : ""}`;
+  document.querySelectorAll("#seg button").forEach(b => b.classList.toggle("on", b.dataset.f === FILTER));
+
+  const alerts = ((d.duelmon || {}).alerts || []).filter(a => a.sev === "critical" || a.sev === "watch").slice(0, 3);
+  $("#alerts").innerHTML = alerts.map(a => `<li class="${a.sev}"><b>${a.sev === "critical" ? "ACT NOW" : "WATCH"}</b>${esc(a.text)}</li>`).join("");
+
+  const shown = all.filter(b => FILTER === "all" || b.arena === FILTER).sort((a, b) => b.sort - a.sort).slice(0, 8);
+  const box = $("#battles"), sig = (bench ? "bench," : "") + shown.map(b => b.key).join(",");
+  if (box.dataset.sig !== sig) {
+    box.innerHTML = (bench ? `<div class="bcard live" id="b-bench"></div>` : "")
+      + shown.map(b => `<div class="bcard" id="b-${b.key}" data-key="${b.key}"><div class="btop"></div><div class="bvs"></div><div class="bitem"></div>`
+        + `<div class="keys"></div><div class="mini"><canvas id="bc-${b.key}"></canvas></div><div class="facts"></div><div class="msg"></div></div>`).join("")
+      + (shown.length || bench ? "" : `<p class="empty">No ${FILTER === "all" ? "" : FILTER + " "}battles yet.</p>`);
+    box.dataset.sig = sig;
+    box.querySelectorAll(".bcard[data-key]").forEach(el => el.onclick = () => openFocus(el.dataset.key));
+    dropDetached();
+  }
+  if (bench) benchCard(d, bench);
+  shown.forEach(b => fillCard(document.getElementById(`b-${b.key}`), b));
+}
+
+function fillCard(el, b) {
+  el.classList.toggle("live", b.status === "live");
+  el.querySelector(".btop").innerHTML = `<span>${b.arena === "duel" ? "⚔ " : "⚖ "}${esc(b.label.toUpperCase())}</span><span class="st ${b.status}">${esc(b.outcome)}</span>`;
+  el.querySelector(".bvs").innerHTML = `${b.role === "buy" ? "We buy from" : b.role === "sell" ? "We sell to" : "vs"} ${esc(b.rival)}`;
+  el.querySelector(".bitem").textContent = b.item;
+  el.querySelector(".keys").innerHTML = keys(b);
+  el.querySelector(".facts").innerHTML = b.facts.map(([k, v]) => `<span>${k} <b>${v}</b></span>`).join("");
+  const last = [...b.msgs].reverse().find(m => m.text) || [...b.msgs].reverse()[0];
+  el.querySelector(".msg").innerHTML = last ? `<span class="who">${esc(last.who)}:</span> ${esc(last.text || (last.price != null ? `offer ${last.price} P` : ""))}` : `<span class="who">no messages</span>`;
+  priceChart(`bc-${b.key}`, b, false);
+}
+// The reference line is drawn only when it sits near the prices: a card that completed a page is worth ~10× its
+// price to us, and drawing that line would flatten the haggle into the floor. Off the chart it stays in the key.
+function lineOn(b) {
+  const ys = [...b.us, ...b.them].map(p => p.y);
+  return !!b.line && (!ys.length || (b.line.y <= 2 * Math.max(...ys) && b.line.y >= Math.min(...ys) / 2));
+}
+const keys = b => `<span><i style="background:var(--series-1)"></i>us</span><span><i style="background:var(--series-2)"></i>${esc(b.rival)}</span>`
+  + (b.line ? `<span>${lineOn(b) ? `<i class="dash"></i>${esc(b.line.label)}` : `${esc(b.line.label)} <b style="color:var(--text-secondary)">${b.line.y > 0 && b.us.concat(b.them).every(p => p.y < b.line.y) ? "↑" : "↓"} off chart</b>`}</span>` : "");
+
+// price path: us vs them over ticks, with our limit (duel) or the card's worth to us (dealer) as a dashed line
+function priceChart(id, b, big) {
+  const pt = (color, data, label) => ({ label, data, borderColor: color, backgroundColor: color, borderWidth: 2, stepped: true,
+    pointRadius: big ? 5 : 4, pointHoverRadius: 6, pointHitRadius: 10, pointBorderColor: css(big ? "--surface-1" : "--surface-2"), pointBorderWidth: 2,
+    pointBackgroundColor: color });
+  const xs = [...b.us, ...b.them].map(p => p.x).filter(v => v != null);
+  const x0 = xs.length ? Math.min(...xs) : 0, x1 = Math.max(b.xmax ?? 0, xs.length ? Math.max(...xs) : 1);
+  const ds = [pt(css("--series-1"), b.us, "us"), pt(css("--series-2"), b.them, b.rival)];
+  const on = lineOn(b);
+  if (on) ds.push({ label: b.line.label, data: [{ x: x0, y: b.line.y }, { x: x1, y: b.line.y }], borderColor: css("--text-muted"),
+                    backgroundColor: css("--text-muted"), borderDash: [5, 4], borderWidth: 1.5, pointRadius: 0, pointHitRadius: 0 });
+  // prices are never negative: pad the range by 10% and floor it at 0
+  const ys = [...b.us, ...b.them].map(p => p.y).concat(on ? [b.line.y] : []);
+  const lo = ys.length ? Math.min(...ys) : 0, hi = ys.length ? Math.max(...ys) : 1, pad = (hi - lo) * 0.1 || 5;
+  chart(id, "line", { datasets: ds }, {
+    interaction: { mode: "nearest", intersect: false },
+    layout: { padding: { top: 4, right: 4 } },
+    scales: { x: { type: "linear", min: x0, max: x1 > x0 ? x1 : x0 + 1, ...axis(), ticks: { color: css("--text-muted"), font: { size: 10 }, precision: 0, maxTicksLimit: big ? 10 : 4 } },
+              y: { ...axis(), min: Math.max(0, Math.floor(lo - pad)), max: Math.ceil(hi + pad),
+                   ticks: { color: css("--text-muted"), font: { size: 10 }, maxTicksLimit: big ? 8 : 4 } } },
+    plugins: { legend: { display: big, labels: { color: css("--text-secondary"), boxWidth: 14, boxHeight: 3 } },
+               tooltip: { filter: it => it.datasetIndex < 2, callbacks: { title: it => `tick ${it[0].parsed.x}`,
+                 label: it => ` ${it.dataset.label}: ${it.parsed.y} P${it.raw && it.raw.d != null ? ` · day ${it.raw.d}` : ""}` } } },
+  });
+}
+
+// the Market Test while it runs: our market score through its window
+function benchCard(d, bn) {
+  const el = $("#b-bench");
+  if (!el.dataset.built) {
+    el.innerHTML = `<div class="btop"><span>◆ MARKET TEST</span><span class="st live" id="bnSt"></span></div><div class="bvs" id="bnName"></div>`
+      + `<div class="bitem" id="bnSub"></div><div class="mini"><canvas id="bc-bench"></canvas></div><div class="facts" id="bnFacts"></div>`;
+    el.dataset.built = "1";
+  }
+  $("#bnSt").textContent = `● LIVE · ${bn.done}/${bn.ticks} ticks`;
+  $("#bnName").textContent = bn.name || "Market Test";
+  $("#bnSub").textContent = `${bn.venues} venues get the same synthetic traders${bn.ours_in === false ? " · our venue is not in it" : ""}`;
+  const dm = bn.market_now != null && bn.market_start != null ? bn.market_now - bn.market_start : null;
+  $("#bnFacts").innerHTML = `<span>market <b>${fmt(bn.market_now, 2)}</b></span><span>since start <b class="${dm > 0 ? "up" : dm < 0 ? "down" : ""}">${dm != null ? sgn(dm) : "—"}</b></span>`
+    + (bn.bench_efficiency != null ? `<span>efficiency <b>${fmt(bn.bench_efficiency, 2)}</b></span>` : "");
+  chart("bc-bench", "line", { datasets: [{ label: "our market score", data: bn.series.map(([x, y]) => ({ x, y })), borderColor: css("--series-3"),
+      backgroundColor: css("--series-3"), borderWidth: 2, pointRadius: 0, pointHoverRadius: 5, pointHitRadius: 8, stepped: true }] }, {
+    interaction: { mode: "nearest", intersect: false },
+    scales: { x: { type: "linear", min: bn.start, max: bn.start + bn.ticks, ...axis(), ticks: { color: css("--text-muted"), font: { size: 10 }, precision: 0, maxTicksLimit: 4 } },
+              y: { ...axis(), grace: "10%", ticks: { color: css("--text-muted"), font: { size: 10 }, maxTicksLimit: 4 } } },
+    plugins: { legend: { display: false }, tooltip: { callbacks: { title: it => `tick ${it[0].parsed.x}`, label: it => ` market: ${it.parsed.y}` } } },
+  });
+}
+
+// ------------------------------------------------------------------ focus: one battle, big chart and every message
+function openFocus(key) {
+  FOCUS = key;
+  const dlg = $("#focus");
+  if (!dlg.open) dlg.showModal();
+  renderFocus();
+}
+function renderFocus() {
+  const b = FOCUS && BATTLES[FOCUS];
+  if (!b) return;
+  $("#fTop").innerHTML = `<span>${b.arena === "duel" ? "⚔ " : "⚖ "}${esc(b.label.toUpperCase())}</span><span class="st ${b.status}">${esc(b.outcome)}</span>`;
+  $("#fVs").innerHTML = `${b.role === "buy" ? "We buy from" : b.role === "sell" ? "We sell to" : "vs"} ${esc(b.rival)}`;
+  $("#fItem").textContent = b.item;
+  $("#fFacts").innerHTML = b.facts.map(([k, v]) => `<span>${k} <b>${v}</b></span>`).join("");
+  priceChart("fChart", b, true);
+  const c = $("#fChat"), atBottom = c.scrollTop + c.clientHeight >= c.scrollHeight - 8;
+  c.innerHTML = b.msgs.length ? b.msgs.map(m => `<div class="bubble ${m.us ? "us" : ""}"><div class="who">${esc(m.us ? "us (Team 5)" : m.who)} · tick ${m.tick ?? "—"}</div>`
+    + `${esc(m.text || "")}${m.price != null ? `<span class="px">${m.price} P${m.days != null ? ` · day ${m.days}` : ""}${m.final ? " · final" : ""}</span>` : ""}</div>`).join("")
+    : `<p class="muted">No messages.</p>`;
+  if (atBottom || c.dataset.key !== FOCUS) { c.scrollTop = c.scrollHeight; c.dataset.key = FOCUS; }
+}
+$("#fClose").onclick = () => $("#focus").close();
+$("#focus").addEventListener("close", () => { FOCUS = null; if (charts.fChart) { charts.fChart.destroy(); delete charts.fChart; } });
+$("#focus").addEventListener("click", e => { if (e.target === $("#focus")) $("#focus").close(); });
+
+// ------------------------------------------------------------------ deck
+const RAR = ["common", "uncommon", "rare", "epic", "legendary"];
+function deck(d) {
+  const c = d.collection;
+  if (!c) { $("#deck").innerHTML = `<p class="empty">${d.has_key ? "Loading our cards…" : "Needs the team key (our /api/me)."}</p>`; return; }
+  const s = c.summary;
+  $("#deckSum").innerHTML = `<b>${s.copies}</b> cards · <b>${s.distinct}</b> different · <b>${s.pages}/${c.sets.length}</b> pages · <b>${s.extra}</b> spare`;
+  $("#deck").innerHTML = c.sets.map(st => {
+    const missing = st.cards.slice(0, st.page_size).filter(x => !x.n);
+    return `<div class="set"><div class="sl"><div><b>${esc(st.set)}</b> <span class="muted">${esc(st.name || "")}</span> <span class="muted">×${st.affinity ?? "—"}</span></div>`
+      + `<div class="sm"><span class="meter"><i style="width:${st.page_size ? 100 * st.page_have / st.page_size : 0}%;background:${st.complete ? "var(--good)" : "var(--series-1)"};border-radius:3px"></i></span>`
+      + `${st.complete ? `<span class="done">✓ page</span>` : `${st.page_have}/${st.page_size}`}</div></div>`
+      + `<div class="cards">${st.cards.map((x, i) => mcard(x, i >= st.page_size)).join("")}</div>`
+      + (missing.length && missing.length <= 4 ? `<div class="missing">to complete: ${missing.map(x => `<b style="color:var(--text-secondary)">${esc(x.ref)}</b> ${esc(x.name || "")}`).join(" · ")}</div>` : "")
+      + `</div>`;
+  }).join("");
+}
+function mcard(x, outside) {
+  const r = RAR.indexOf(x.rarity) + 1;
+  const tip = `${x.ref} · ${x.name || ""} · ${x.rarity || "?"} · ${x.n ? `${x.n} cop${x.n > 1 ? "ies" : "y"}` : "missing"}${x.value != null ? ` · worth ${x.value} P to us` : ""}`;
+  return `<span class="mc ${x.n ? "has" : "miss"}${outside ? " ex" : ""}" title="${esc(tip)}">${esc(x.ref.slice(4))}<i style="background:var(--r${r})"></i>${x.n > 1 ? `<em>×${x.n}</em>` : ""}</span>`;
+}
+
+// ------------------------------------------------------------------ race
+function race(d) {
+  const ids = d.neighbours || [], hist = (d.lb_hist || []).slice(-60);
+  const ds = ids.map(id => {
+    const color = teamColor(id, d.us), us = id === d.us;
+    return { label: (us ? "★ " : "") + (d.names[id] || id), data: hist.filter(h => h.scores[id] != null).map(h => ({ x: h.tick, y: h.scores[id] })),
+             borderColor: color, backgroundColor: color, borderWidth: us ? 3 : 2, pointRadius: 0, pointHoverRadius: 5, pointHitRadius: 8,
+             tension: 0.15, order: us ? 0 : 1 };
+  });
+  chart("race", "line", { datasets: ds }, {
+    interaction: { mode: "index", intersect: false },
+    scales: { x: { type: "linear", min: hist[0]?.tick, max: hist[hist.length - 1]?.tick, ...axis(),
+                   ticks: { color: css("--text-muted"), font: { size: 10 }, precision: 0, maxTicksLimit: 6 } },
+              y: { ...axis(), ticks: { color: css("--text-muted"), font: { size: 10 }, maxTicksLimit: 6 } } },
+    plugins: { legend: { position: "bottom", labels: { color: css("--text-secondary"), boxWidth: 12, boxHeight: 3, font: { size: 11 } } },
+               tooltip: { itemSort: (a, b) => b.parsed.y - a.parsed.y, callbacks: { title: it => `tick ${it[0]?.parsed.x}`, label: it => ` ${it.dataset.label}: ${it.parsed.y.toFixed(2)}` } } },
+  });
+}
+
+// ------------------------------------------------------------------ by arena
+function arenas(d) {
+  const ds = (d.duelview || {}).summary || {}, th = d.our_threads || {}, s = d.me.score || {};
+  const ab = (d.abuela || []).filter(r => r.us && r.threads), abN = ab.reduce((a, r) => a + r.threads, 0);
+  const avgMove = abN ? ab.reduce((a, r) => a + r.avg_move * r.threads, 0) / abN : null;
+  const tt = ((d.team_trades || {}).rows || []).filter(r => r.ours);
+  const buys = tt.filter(r => r.buyer === d.us), sells = tt.filter(r => r.seller === d.us);
+  const sched = a => (d.schedule || []).find(x => x.action === a);
+  const nd = sched("duels"), nb = sched("bench");
+  const meter = (n, of, color) => `<span class="meter"><i style="width:${of ? 100 * n / of : 0}%;background:${color};border-radius:4px"></i></span>`;
+  const rows = [
+    ["⚔ Duels", ds.decided ? `${meter(ds.deals, ds.decided, "var(--series-1)")}<span><b>${ds.deals}</b>/${ds.decided} deals · <b class="up">+${fmt(ds.points)} P</b></span>` : `<span class="muted">none yet</span>`,
+      `${ds.decided ? `${Math.round(100 * ds.deals / ds.decided)}% closed · ${ds.missed_gain ?? 0} P left on the table · ${ds.silent ?? 0} silent rivals` : ""}${nd ? ` · next ${esc(nextName(nd))} in ${nd.eta_min} min` : ""}`],
+    ["⚖ Dealers", th.total ? `${meter(th.deals, th.total, "var(--series-1)")}<span><b>${th.deals}</b>/${th.total} haggles won</span>` : `<span class="muted">none yet</span>`,
+      `${avgMove != null ? `dealers came down ${avgMove.toFixed(1)}% from their first price on average` : ""}${th.live ? ` · ${th.live} live` : ""}`],
+    ["El Rastro", `<span><b>${tt.length}</b> trades with teams · <b>${buys.length}</b> bought · <b>${sells.length}</b> sold</span>`,
+      tt.length ? `last: ${esc(tt[0].buyer === d.us ? "bought" : "sold")} ${esc(tt[0].card || tt[0].refs?.[0] || "")} ${tt[0].buyer === d.us ? "from " + esc(tt[0].seller_name) : "to " + esc(tt[0].buyer_name)} for ${tt[0].price} P (tick ${tt[0].tick})` : ""],
+    ["◆ Market Test", `<span>market score <b>${fmt(s.market, 2)}</b>${d.bench ? ` · ${d.bench.session} sessions` : ""}</span>`,
+      `${d.bench && d.bench.live ? "running now" : nb ? `next ${esc(nextName(nb))} in ${nb.eta_min} min` : ""}`],
+  ];
+  $("#arenas").innerHTML = rows.map(([n, b, dd]) => `<div class="arow"><div class="an">${n}</div><div class="ab">${b}</div><div class="ad">${dd}</div></div>`).join("");
+}
+
+// ------------------------------------------------------------------ loop
+function render() {
+  const d = DATA; if (!d) return;
+  if (d.fatal) { $("#clock").innerHTML = `<span class="err">server error: ${esc(d.fatal)}</span>`; return; }
+  const parts = [["header", header], ["kpis", kpis], ["battles", battles], ["deck", deck], ["race", race], ["arenas", arenas]];
+  for (const [name, fn] of parts) {
+    try { fn(d); } catch (e) { console.error(name, e); }
+  }
+  if (HASH && BATTLES[HASH]) { openFocus(HASH); HASH = ""; }
+  if (FOCUS) renderFocus();
+}
+document.querySelectorAll("#seg button").forEach(b => b.onclick = () => { FILTER = b.dataset.f; store.set("bz-live-filter", FILTER); render(); });
+async function refresh() {
+  try {
+    const r = await fetch("/api/data", { cache: "no-store" });
+    DATA = await r.json(); render();
+  } catch (e) { $("#clock").innerHTML = `<span class="err">dashboard server not reachable: ${esc(e.message)}</span>`; }
+}
+refresh(); setInterval(refresh, 10000);
+</script>
+</body>
+</html>

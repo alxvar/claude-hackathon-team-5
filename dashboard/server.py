@@ -477,6 +477,7 @@ class Analysis:
         self.trades = []
         self.holder = {}
         self.threads = {}
+        self.closed_threads = set()
         self.packs = collections.Counter()
         self.gifts = collections.Counter()
         self.listings = collections.Counter()
@@ -529,6 +530,8 @@ class Analysis:
                     th["item"] = th["item"] or ", ".join(refs_of(o.get("give")) + refs_of(o.get("want"))) or None
                 th["log"].append({"tick": e.get("tick"), "dealer": mine, "text": (p.get("text") or "")[:400],
                                   "price": price, "final": bool(o.get("final")) if o else False})
+            elif ty == "thread.closed":
+                self.closed_threads.add(p.get("thread"))
             elif ty == "duel.closed":
                 self.duel_closed.append(p)
             elif ty == "pack.opened":
@@ -887,7 +890,9 @@ class Analysis:
             if not st.get("released") and not any(set_of(r) == sid for r in vals):
                 continue
             sets.append({"set": sid, "name": st.get("name"), "affinity": self.aff.get(sid),
-                         "cards": [{"ref": r, "n": len(vals.get(r, [])), "rarity": (self.cards.get(r) or {}).get("rarity")}
+                         "cards": [{"ref": r, "n": len(vals.get(r, [])), "rarity": (self.cards.get(r) or {}).get("rarity"),
+                                    "name": (self.cards.get(r) or {}).get("name"),
+                                    "value": self.value_held(r) if vals.get(r) else self.value_more(r)}
                                    for r in page + extra],
                          "page_have": sum(1 for r in page if vals.get(r)), "page_size": len(page),
                          "complete": bool(page) and all(vals.get(r) for r in page)})
@@ -1514,6 +1519,56 @@ class Analysis:
         out.sort(key=lambda x: -(x["end"] or 0))
         return out[:n]
 
+    def our_threads(self, n=12):
+        """Our dealer haggles, newest first, each with how it ended: the dealer settlement with us that followed it
+        (same dealer and card, between its first message and 3 ticks after its last) or none. Live = no settlement,
+        not closed, and a message in the last 4 ticks. `value` is the card's worth to us, the line a good price must
+        beat: the copy at stake, which is our lowest copy while we hold it (a sale not done, a purchase done) and one
+        more copy while we don't (a purchase not done, a sale done: the copy we gave up was the spare)."""
+        tick = self.clock.get("tick") or 0
+        deals = [tr for tr in self.trades if tr["kind"] == "dealer" and self.us in (tr["parties"] or [])]
+        out = []
+        for tid, th in self.threads.items():
+            if th["team"] != self.us or not th["log"]:
+                continue
+            start, end = th["log"][0]["tick"] or 0, th["log"][-1]["tick"] or 0
+            ref = (th["item"] or "").split(",")[0].strip() or None
+            deal = next((tr for tr in deals if tr["dealer"] == th["dealer"] and start <= (tr["tick"] or 0) <= end + 3
+                         and (not ref or any(i.get("ref") == ref for i in tr["items"]))), None)
+            buys = th["side"] == "team buys"
+            held = buys == bool(deal)
+            out.append({"thread": tid, "dealer": th["dealer"], "dealer_name": self.name(th["dealer"]),
+                        "side": "buy" if buys else "sell" if th["side"] else None,
+                        "ref": ref, "card": (self.cards.get(ref) or {}).get("name") if ref else None,
+                        "rarity": self.rarity(ref) if ref else None,
+                        "value": ((self.value_held(ref) if held else None) or self.value_more(ref)) if ref else None,
+                        "start": start, "end": end, "msgs": th["msgs"],
+                        "status": "deal" if deal else "live" if tid not in self.closed_threads and tick - end <= 4 else "no_deal",
+                        "price": deal["price"] if deal else None,
+                        "log": [{"tick": m["tick"], "us": not m["dealer"], "price": m["price"], "text": m["text"],
+                                 "final": m["final"]} for m in th["log"][-30:]]})
+        out.sort(key=lambda x: -x["end"])
+        return {"rows": out[:n], "total": len(out), "deals": sum(1 for x in out if x["status"] == "deal"),
+                "live": sum(1 for x in out if x["status"] == "live")}
+
+    def bench(self):
+        """The latest Market Test (`bench.started`): its window and our market score inside it, from /api/me rows.
+        Its synthetic traders don't show in the feed, so the market column is the only live read on it."""
+        ev = [e for e in self.events if e.get("type") == "bench.started"]
+        if not ev:
+            return None
+        p = ev[-1].get("payload") or {}
+        start, ticks = p.get("start_tick") or ev[-1].get("tick") or 0, p.get("ticks") or 16
+        tick = self.clock.get("tick") or 0
+        rows = [r for r in self.me_hist if (r.get("tick") or 0) >= start - 1 and r.get("market") is not None]
+        venue = next((v.get("venue") for v in self.venues if v.get("owner") == self.us), None)
+        return {"session": p.get("session"), "name": p.get("name"), "start": start, "ticks": ticks,
+                "live": start <= tick < start + ticks, "done": min(max(tick - start, 0), ticks),
+                "ours_in": venue in (p.get("venues") or []) if venue else None, "venues": len(p.get("venues") or []),
+                "market_start": rows[0]["market"] if rows else None, "market_now": rows[-1]["market"] if rows else None,
+                "series": [[r["tick"], r["market"]] for r in rows if r["tick"] <= start + ticks + 4][-40:],
+                "bench_efficiency": (self.me.get("score") or {}).get("bench_efficiency")}
+
     # -------------------------------------------------------------------------------------- why our score moved
     def our_trade_text(self, tr):
         i = tr["items"][0] if tr["items"] else {}
@@ -1752,6 +1807,8 @@ class Analysis:
             "duelview": duelview,
             "duelmon": self.duel_monitor(duelview),
             "conversations": self.conversations(),
+            "our_threads": self.our_threads(),
+            "bench": self.bench(),
             "story": story,
             "moves": self.moves(story),
             "decisions": self.decisions(),
@@ -1861,7 +1918,9 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
     def do_GET(self):
-        if self.path in ("/", "/index.html"):
+        if self.path.split("?")[0] in ("/", "/live", "/live.html"):
+            return self._send(200, (HERE / "live.html").read_bytes(), "text/html; charset=utf-8")
+        if self.path.split("?")[0] in ("/full", "/index.html"):
             return self._send(200, (HERE / "index.html").read_bytes(), "text/html; charset=utf-8")
         if self.path.split("?")[0] in ("/show", "/show.html"):
             return self._send(200, (HERE / "show.html").read_bytes(), "text/html; charset=utf-8")
