@@ -72,7 +72,8 @@ RIVAL_GAIN_MAX = 10.0      # a rival on either side: its gain at our suggested p
 TABLE_LINES, DM_LINES = 20, 8
 V10 = "v10"                # our stall: value created between other teams there is our market score
 CLUB = ("t02", "t04", "t07", "t08", "t09", "t15")   # the club (Lucas, Sun 08:00)
-CLUB_VENUES = {"t04": "v05", "t08": "v06", "t07": "v11", "t15": "v15", "t09": "v21", "t02": "v26"}  # members' markets
+CLUB_VENUES = {"t04": "v05", "t08": "v06", "t07": "v11", "t15": "v15", "t09": "v21", "t02": "v26"}  # fallback only:
+#   the live venue list wins (Market 10:50: t07's v11 closed for v29, v06 charges 1%)
 CLUB_MIN_VC = 3.0          # Chief 01:25: the Market fires no deal under +3 VC nor one with a rival party
 ROUTING = ROOT / "run" / "club_routing.json"   # the day's club venue assignments, so a row keeps its venue across runs
 LAST_VENUES: dict = {}     # venue id → {owner, status, name}: the last live leaderboard's venues
@@ -495,18 +496,16 @@ def route(rows: list, *, teams, venues: dict | None, state: dict, riv=frozenset(
     on its own venue) nor by a rival (policy.rival_venue); the least used today first, then the lowest market score.
     Any deal with a non-member, a rival party or under CLUB_MIN_VC value created (the Market doesn't fire those) stays
     on v10 and doesn't count. `state` (run/club_routing.json) keeps each deal's venue
-    for the day, so a row doesn't change venue between runs. Sets r["venue"], r["venue_name"], r["club"]; → state."""
+    for the day, so a row doesn't change venue between runs. A member's market comes from the live venue list (its
+    open venue, the lowest fee when it has several; CLUB_VENUES only without a list); a lower fee wins a tie of uses.
+    Sets r["venue"], r["venue_name"] ("Team N's market": venue names can carry stale fees), r["club"]; → state."""
     day = day or time.strftime("%Y-%m-%d")
     if state.get("day") != day:
         state.clear()
         state.update(day=day, v10=0, member=0, uses={}, assigned={})
     market = {t["team"]: (t.get("market") or 0) for t in teams or []}
-    if venues:
-        opts = {o: v for o, v in CLUB_VENUES.items() if (venues.get(v) or {}).get("status") == "open"
-                and (venues.get(v) or {}).get("owner") == o}
-    else:
-        opts = dict(CLUB_VENUES)
-    names = {v: (venues or {}).get(v, {}).get("name") or v for v in [V10, *CLUB_VENUES.values()]}
+    opts = member_markets(venues)
+    fee = {v: ((venues or {}).get(v) or {}).get("fee_bps") or 0 for v in opts.values()}
 
     def ok(v, r):
         owner = next((o for o, x in opts.items() if x == v), None)
@@ -523,16 +522,32 @@ def route(rows: list, *, teams, venues: dict | None, state: dict, riv=frozenset(
                     state["member" if venue != V10 else "v10"] -= 1
                 venue = V10
                 if not r["closer"] and state["member"] < state["v10"]:
-                    pick = sorted((state["uses"].get(v, 0), market.get(o, 0), v) for o, v in opts.items()
+                    pick = sorted((state["uses"].get(v, 0), fee[v], market.get(o, 0), v) for o, v in opts.items()
                                   if ok(v, r))
-                    venue = pick[0][2] if pick else V10
+                    venue = pick[0][-1] if pick else V10
                 state["v10" if venue == V10 else "member"] += 1
                 if venue != V10:
                     state["uses"][venue] = state["uses"].get(venue, 0) + 1
                 state["assigned"][key] = venue
-        r["venue"], r["venue_name"] = venue, names.get(venue, venue)
+        owner = next((o for o, x in opts.items() if x == venue), None)
+        r["venue"], r["venue_name"] = venue, (f"Team {int(owner[1:])}'s market" if owner else venue)
         r["dm_seller"], r["dm_buyer"] = dm_seller(r), dm_buyer(r)
     return state
+
+
+def member_markets(venues: dict | None) -> dict:
+    """{member: venue id}: each club member's open market from the live venue list (Market 10:50: teams replace their
+    stalls), the lowest fee (bps, then per card) and then the newest when it has several; CLUB_VENUES without a list."""
+    if not venues:
+        return dict(CLUB_VENUES)
+    out: dict = {}
+    for vid, x in venues.items():
+        o = (x or {}).get("owner")
+        if o in CLUB and x.get("status") == "open" and not x.get("house"):
+            key = (x.get("fee_bps") or 0, x.get("fee_per_card") or 0, -(x.get("opened_tick") or 0))
+            if o not in out or key < out[o][0]:
+                out[o] = (key, vid)
+    return {o: v for o, (_, v) in out.items()}
 
 
 def _on(r: dict) -> str:
