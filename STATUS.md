@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sun 11:47** · tick 2054 (15 s/tick) · game hour 16.17 · running · today closes 15:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sun 11:53** · tick 2075 (15 s/tick) · game hour 16.25 · running · today closes 15:00._
 
 ## Team: now and latest
 
@@ -25,17 +25,17 @@ _From `team/<name>.md`; each person writes only their own file._
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 32.86 | 4 | 22.86 | 10.00 | 24.68 | 0.34 | 0.90 | 69 | 5 | 635 | 49/60 |
+| 32.93 | 4 | 22.92 | 10.01 | 24.68 | 0.34 | 0.90 | 69 | 5 | 635 | 49/60 |
 
-Leaderboard (snapshot at tick 2042; refreshes every few minutes):
+Leaderboard (snapshot at tick 2062; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 12 | 34.48 | 23.09 | 11.39 | 78 |
-| 2 | Team 10 | 33.71 | 21.66 | 12.05 | 70 |
-| 3 | Team 18 | 33.07 | 24.23 | 8.84 | 56 |
-| 4 | Team 5 | 32.86 | 22.86 | 10.00 | 69 |
-| 5 | Team 3 | 30.49 | 22.56 | 7.93 | 39 |
+| 1 | Team 12 | 34.41 | 23.03 | 11.38 | 78 |
+| 2 | Team 10 | 33.57 | 21.53 | 12.04 | 70 |
+| 3 | Team 18 | 33.08 | 24.21 | 8.87 | 56 |
+| 4 | Team 5 | 32.93 | 22.92 | 10.01 | 69 |
+| 5 | Team 3 | 30.51 | 22.54 | 7.97 | 39 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 17.00 | ~50 min | bench | The Market Test: every venue gets the same synthetic book |
-| 18.17 | ~120 min | announce | finale warning |
-| 18.37 | ~132 min | persona | Finale: stalls close |
-| 18.37 | ~132 min | persona | Finale: stalls close |
-| 18.37 | ~132 min | persona | Finale: stalls close |
-| 18.37 | ~132 min | persona | Finale: stalls close |
-| 18.37 | ~132 min | persona | Finale: stalls close |
-| 18.37 | ~132 min | duels | The Grand Final: the last duel wave, on the big screen |
+| 17.00 | ~45 min | bench | The Market Test: every venue gets the same synthetic book |
+| 18.17 | ~115 min | announce | finale warning |
+| 18.37 | ~127 min | persona | Finale: stalls close |
+| 18.37 | ~127 min | persona | Finale: stalls close |
+| 18.37 | ~127 min | persona | Finale: stalls close |
+| 18.37 | ~127 min | persona | Finale: stalls close |
+| 18.37 | ~127 min | persona | Finale: stalls close |
+| 18.37 | ~127 min | duels | The Grand Final: the last duel wave, on the big screen |
 
 ## Our dealer deals
 
@@ -92,14 +92,14 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 ## Duels
 
-Live: 1 · finished: 204
+Live: 0 · finished: 204
 
 - {"duel": 11548, "session": 4, "status": "deal", "role": "seller", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 2.93, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 110, "limit_meaning": "never sell below your cost", "rival": "Rival Ve
 - {"duel": 11549, "session": 4, "status": "deal", "role": "buyer", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 4.9, "days_meaning": "each delivery day costs you this much cash", "your_limit": 117, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "deadl
 - {"duel": 11572, "session": 4, "status": "deal", "role": "seller", "item": "San Isidro", "issues": ["price", "days"], "your_days_weight": 6.53, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 43, "limit_meaning": "never sell below your cost", "rival": "Rival Oro", 
 - {"duel": 11573, "session": 4, "status": "deal", "role": "buyer", "item": "San Isidro", "issues": ["price", "days"], "your_days_weight": 1.52, "days_meaning": "each delivery day costs you this much cash", "your_limit": 187, "limit_meaning": "never pay above your value", "rival": "Rival Oro", "deadlin
 - {"duel": 11610, "session": 4, "status": "no_deal", "role": "seller", "item": "Escaparate de Serrano", "issues": ["price", "days"], "your_days_weight": 1.06, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 81, "limit_meaning": "never sell below your cost", "rival":
-- {"duel": 11611, "session": 4, "status": "live", "role": "buyer", "item": "Escaparate de Serrano", "issues": ["price", "days"], "your_days_weight": 1.26, "days_meaning": "each delivery day costs you this much cash", "your_limit": 163, "limit_meaning": "never pay above your value", "rival": "Rival Sol
+- {"duel": 11611, "session": 4, "status": "no_deal", "role": "buyer", "item": "Escaparate de Serrano", "issues": ["price", "days"], "your_days_weight": 1.26, "days_meaning": "each delivery day costs you this much cash", "your_limit": 163, "limit_meaning": "never pay above your value", "rival": "Rival 
 - {"duel": 11612, "session": 4, "status": "deal", "role": "seller", "item": "Cine Dor\u00e9", "issues": ["price", "days"], "your_days_weight": 3.32, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 104, "limit_meaning": "never sell below your cost", "rival": "Rival O
 - {"duel": 11613, "session": 4, "status": "deal", "role": "buyer", "item": "Cine Dor\u00e9", "issues": ["price", "days"], "your_days_weight": 6.02, "days_meaning": "each delivery day costs you this much cash", "your_limit": 132, "limit_meaning": "never pay above your value", "rival": "Rival Rojo", "de
 - {"duel": 11640, "session": 4, "status": "deal", "role": "seller", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 5.13, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 104, "limit_meaning": "never sell below your cost", "rival": "Rival Lu
