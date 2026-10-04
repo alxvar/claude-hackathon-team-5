@@ -91,7 +91,7 @@ document.getElementById('chev').innerHTML = [-54, 18, 90, 162, 234].map(a => {
   return `<path d="M-9 -12L9 0L-9 12" fill="none" stroke="#e8ecf6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" transform="translate(${x} ${y}) rotate(${a + 90})"/>`;
 }).join('');
 const rows = [
-  {k:'S', n:1, t:'Sat · Duels II', p:'With the LLM deciding, replies took <b>9.2 s</b>, 29 % over 10 s. Sunday\'s tick: <b>15 s</b>. <span class="tag v">V</span>'},
+  {k:'S', n:1, t:'Sat · Duels II', p:'With the LLM deciding, replies took <b>9.4 s</b>, 29 % over 10 s. Sunday\'s tick: <b>15 s</b>. <span class="tag v">V</span>'},
   {k:'D', n:2, t:'Sat 22:30', p:'<b>Code decides</b> price, day and accept; the LLM only writes. Checked first on a simulator validated on Duels II.'},
   {k:'A', n:3, t:'Sat 22:48 →<br>Sun 09:45', p:'Branch <b>duelist-loop</b>: Haiku ≈ 2 s, guards, 8 s failover, hot-reloaded params.'},
   {k:'M', n:4, t:'Sun 10:59', p:'Duels III, shorter clock, harder decay: <b>57 of 68</b> (84 %); the Grand Final <b>27 of 34</b> (79 %), both above the field. The monitor reviews every deal. <span class="tag v">V</span>'},

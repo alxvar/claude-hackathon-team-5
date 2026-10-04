@@ -75,7 +75,7 @@
   <div class="kicker">Q4 · What did you learn? Technically, and about negotiation and marketplaces</div>
   <h1>What we <em>learned</em></h1>
   <div class="card top lcol" style="left:128px;--c:var(--blue)"><div class="t">Technical <span class="draft">draft</span></div><ul>
-    <li><b>Code decides, the LLM writes.</b> On a 15 s tick, latency is a rule: Haiku ≈ 2 s vs 9.2 s when the LLM decided.</li>
+    <li><b>Code decides, the LLM writes.</b> On a 15 s tick, latency is a rule: Haiku ≈ 2 s vs 9.4 s when the LLM decided.</li>
     <li><b>The generator can't grade itself.</b> A separate verifier caught errors the author missed, in this very deck too.</li></ul></div>
   <div class="card top lcol" style="left:702px;--c:var(--red)"><div class="t">Negotiation <span class="draft">draft</span></div><ul>
     <li><b>Decay is per exchange, so silence is free.</b> Hold instead of talking.</li>
@@ -149,7 +149,7 @@ const H = [
    x:'Dealer gains clip to 0, losses count in full: RET-09 at 87, worth 77 → <b>−10</b>. <span class="tag v">V</span>',
    g:'<b>Pages close only through team trades.</b> Dealers only for the ladder; autoflip killed.'},
   {c:'var(--red)', k:'Duels', b:'An LLM should negotiate the duels.',
-   x:'LLM replies took <b>9.2 s</b> on average, <b>29 % over 10 s</b>, on a 15 s tick. <span class="tag v">V</span>',
+   x:'LLM decisions took <b>9.4 s</b> on average, <b>29 % over 10 s</b>; Sunday\'s tick: 15 s. <span class="tag v">V</span>',
    g:'<b>Code decides, Haiku only writes.</b> 8 s failover. Duels III: <b>57 of 68</b> closed. <span class="tag v">V</span>'},
   {c:'var(--purple)', k:'Scoring', b:'Trade gains cap at 50 per round (10:31).',
    x:'A 5 P sale moved neg_points <b>50.0 → 52.2</b> at 12:17. <span class="tag v">V</span>',

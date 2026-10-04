@@ -58,9 +58,9 @@ Sources: S = `Sunday.pdf`, K = `Kickoff.pdf`, P = `Payday.pdf`, plus `bazaar-kit
 
 | Criterion | Slide | Evidence |
 |---|---|---|
-| Q1 first idea → what changed it | 3 · Five beliefs our data broke (+ 6 · the loop) | 5 belief → breaker → change rows, each breaker tagged V (RET-09 −10, 9.2 s, 50.0 → 52.2, CHA-11 +1.48 both sides, 0 fills by 10:45) |
+| Q1 first idea → what changed it | 3 · Five beliefs our data broke (+ 6 · the loop) | 5 belief → breaker → change rows, each breaker tagged V (RET-09 −10, 9.4 s, 50.0 → 52.2, CHA-11 +1.48 both sides, 0 fills by 10:45) |
 | Q2 what we built (shown, not listed) | 2 · Architecture A (control room); B and C are alternative views | every box exists in the repo (verifier pass 13:36); writers vs readers vs checkers drawn as lanes |
-| Q3 the decision we'd defend | 2 + 3 · "the Chief never writes; code decides, the LLM talks" | latency 9.2 s → Haiku ≈ 2 s (docs/duelist-sunday-summary.md); Duels III 57/68 |
+| Q3 the decision we'd defend | 2 + 3 · "the Chief never writes; code decides, the LLM talks" | latency 9.4 s → Haiku ≈ 2 s (docs/duelist-sunday-summary.md); Duels III 57/68 |
 | Q4 learned: technical | 7 · column 1 | code-first, decide/write/check split, beliefs as bugs (round-cap lap) |
 | Q4 learned: negotiation and markets | 7 · column 2 (+ 4 · impact map) | relative scoring (CHA-11), losses count / gains clip, a market needs a first trade (+4.08 over stall-only) |
 | One more day | 7 · column 3 | merge the Sunday duelist into main; run the staged broker; verifier gate on every directive |
