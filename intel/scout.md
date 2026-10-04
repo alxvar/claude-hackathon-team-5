@@ -1,25 +1,27 @@
-# Scout (claude-sonnet-5-5, Sun 11:14)
+# Scout (claude-sonnet-5-5, Sun 11:30)
 
 ## Top 3 actions now
-1. **Keep the MAL-09 close alive (offer 22816, bid 48 to t08, expires tick 1930).** The mal_close.py job re-posts on expiry, one live bid at a time.
-   - Evidence: t09 bids 68 P for MAL-10 (offer 23637), and we already hold MAL-10 (value 49). The Chief's 10:25 directive says MAL is the #3 race vs t18, and our trade part is not capped. Our neg_points is 0.0 → 50.0 after CHA at tick 1585, with 50.0 shown in the 15-min column.
-   - Effect: the last MAL card scores about +50 only if the bid is ≤ value-when-last − 50. Everything before the last card must be ≥ 0. The effect on the board is not in the data.
-   - Confidence: med. Operator, via mal_close.py. Never a dealer for the last card.
-2. **Sell MAL-10 to t09 at 68 P (offer 23637) only if the MAL page stays out of reach.**
-   - Evidence: the book value of MAL-10 to us is 49, so selling at 68 gives +19 gross before the fee. Our sale proceeds depend on t09 accepting, and t09 is #8 at 26.4, far below us at 32.2, so it passes the feeding rule.
-   - Catch: MAL-10 is a card for our own page, so selling it kills action 1. Decide at the Chief's ≈ 12:00 MAL call.
-   - Confidence: low. Operator, accept only, never a gift.
-3. **Reprice the LAT-06/07/08 bids (22613/22614/22615/22813 at 9 P) to match the v10 reward and the market.**
-   - Evidence: asks by others include LAT-08 at 30, and our LAT bids sit at 9. Clearing price for LAT commons is 7.5 and for LAT uncommons 21.5. The v10 reward (≤ 10 P each, ≤ 100 P total, LAT first copies) is already automated by v10_reward.py.
-   - Effect: team-trade buys at ≤ value score ≥ 0. We don't lose points, and cash doesn't score. This is a low-value lever.
-   - Confidence: low. Trader and book daemons.
+1. **MAL close: keep ≥ 0 by construction (mal_close, Chief's 12:00 call).**
+   - Non-last MAL cards go at price + fee ≤ our value. We hold MAL-01..06, 08, 10 and lack MAL-07/09 (7, 17.5 and 49 per copy).
+   - The LAST card is ONE addressed El Rastro bid to a non-rival (t13 or t15) at ≤ value-when-last − 50.
+   - Evidence: t15 sold MAL-07 to t03 at 9 P (tick 1647), so MAL-07 is cheap. t13 buys MAL×9. Our neg_points are 50.0, and the directive says our trade part is not capped.
+   - Effect: up to +50 neg_points if it closes. Never use a dealer for the last card (Pícaros MAL-09 went 73 → 49 and closed without scoring). Confidence: med.
+2. **Run the v10 first-trades bounty only as Lucas's GUARDRAIL allows (v10_reward.py, Builder/Operator).**
+   - We pay 10 P over our value for one seller card, off v10/v24. The cap is 30 np and the cost is ≤ ~1 neg point, because uncapped neg is about 49 or more.
+   - Evidence: the pact check at 11:15 found no v10 settlement. t13's v10 offer 23043 was cancelled. Venue value_created is 0.
+   - Effect: v10's first positive trade is worth about +7.5 mm points (Lucas's estimate). Risk: the Chief flagged a fair-play review. Don't extend beyond the 3 bounties. Confidence: low-med.
+3. **Sell spare cards to non-top-4 buyers, only at ≥ value + 3 (trader/Operator).**
+   - Evidence: t07 bids 8 for CHA-01..05 and t09 bids 15 for CHA-06..08. Our CHA copies are worth 122-146 to us, so those bids are far below value and must stay unfilled.
+   - No buyer currently passes the feeding rule above our value + 3 (Dani's table). Do not sell anything.
+   - Spare cheap cards: a LAT-03 sale (value 5) and the MAL commons (value 7) are fine at ≥ 10, but the asks sit at 10 and MAL stays reserved for the close. Gain is under 1 point. Confidence: low.
 
 ## What the climbing teams are doing
-- **t12 (#1, 34.9, +3.5 in 60 min):** it moves expensive cards: LAV-07 bought from t13 at 40 (tick 1712) and SAL-12 (legendary) sold to t16 at 380 (tick 1886). It has 78 deals and 29 team trades, and it is the #2 rival we must not feed.
-- **t09 (#8, +6.9 in 60 min) and t04 (#10, +5.0):** both are broad team-trade buyers. t09 has RET×6, SAL×5, MAL×4, and t04 has RET×6, MAL×6, LAV×4. t04 also sold SAL-11 (epic) to t02 at 220 (tick 1858), which moves value. Climbing comes from volume across sets.
-- **Epic trades:** RET-11 t05→t02 at 240 (tick 1730) and SAL-11 at 220 show epics trading at 220-240. Our RET-11 sale scored −119.1 neg (the reset to 0.0 at tick 1466), so the epic route is not a cap-free gain for us.
+- **t10 (#1, 34.6, +1.7/15 min)** has 70 deals but only 16 team trades. It collects LAV/RET and is mostly on dealers (46 dealer trades). It is the venue owner of v10, whose bounty we are discussing.
+- **t09 (#7, +5.0/60 min)** buys RET×6, SAL×5 and MAL×4 and bids 15 for CHA uncommons and 5 for CHA commons. It is building from many small buys.
+- **t12 (#2)** is the closer of big cards: SAL-12 (legendary) to t16 for 380 P at tick 1886. It also buys LAT×8 and sold LAV-07 at 40 P to t13's counterpart at tick 1712.
+- **Epic/legendary flow:** RET-11 t05→t02 at 240, SAL-11 t04→t02 at 220, SAL-12 t12→t16 at 380. t02 is a high-end buyer (#10, +3.1/60 min).
 
 ## Threats
-- **t18 (#3, 32.2, tied with us at #4):** it collects CHA/RET and is the main race for #3. We feed it nothing, and cards must not go to t18 or t03.
-- **t09 CHA bids are a trap:** t09 bids 15 for CHA-06/07/08 and 5 for CHA-01..05, while our CHA cards are worth 122-146 to us. t15 bids 6. Our page is complete, so these offers must not fill: a sale would cost a page.
-- **v10 reward:** the Chief flagged a fair-play review risk on paying for venue activity. Our spend is capped at ≤ 100 P and ≤ 10 P per card, and each buy is ≥ 0 for us.
+- **t18 (#3, 32.6)** is 0.4 ahead of us (32.2) and collects CHA/RET. Its CHA-01 and SAL-10 deals were closers. Don't give it a page closer.
+- **t12 (#2) and t10 (#1)** are both ahead of us. Any MAL or LAT card sold to t12 feeds a rival (LAT-08, MAL-03, MAL-08 are its gaps).
+- **t03 (#5, 30.5, +0.7/60 min)** is 1.7 behind us and is a buyer for SAL/LAT/LAV. Don't sell it SAL, LAT or LAV cards.
