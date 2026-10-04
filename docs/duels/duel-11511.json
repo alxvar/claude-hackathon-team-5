@@ -453,5 +453,56 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1999,
+ "done": {
+  "duel": 11511,
+  "session": 4,
+  "status": "deal",
+  "role": "seller",
+  "item": "Vinilo de la Movida",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 3.34,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 128,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Noche",
+  "deadline_tick": 2004,
+  "decay_per_round": 0.1,
+  "rounds": 1,
+  "your_offer": {
+   "id": 14737,
+   "price": 182,
+   "tick": 1992,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 14820,
+   "price": 110,
+   "tick": 1996,
+   "days": 10
+  },
+  "messages": [
+   {
+    "tick": 1992,
+    "from": "you",
+    "text": "I'm offering 182 P for delivery on day 10.",
+    "price": 182,
+    "days": 10
+   },
+   {
+    "tick": 1996,
+    "from": "Rival Noche",
+    "text": "Hola. I like it, and I can pay 110 P, delivery day 10.",
+    "price": 110,
+    "days": 10
+   }
+  ],
+  "result": 78.6,
+  "price": 182,
+  "days": 10
+ }
 }

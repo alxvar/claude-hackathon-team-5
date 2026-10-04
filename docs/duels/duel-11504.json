@@ -154,6 +154,228 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1998,
+   "raw": {
+    "duel": 11504,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.86,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 111,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 2001,
+    "decay_per_round": 0.1,
+    "rounds": 2,
+    "your_offer": {
+     "id": 14879,
+     "price": 141,
+     "tick": 1998,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 14697,
+     "price": 126,
+     "tick": 1990,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1989,
+      "from": "Rival Rojo",
+      "text": "I can do 108 P with delivery in 0 days. Every round costs us both, so let's close.",
+      "price": 108,
+      "days": 0
+     },
+     {
+      "tick": 1989,
+      "from": "you",
+      "text": "I need 158 P, and I can deliver on day 10 rather than day 0 if that helps close the gap.",
+      "price": 158,
+      "days": 10
+     },
+     {
+      "tick": 1990,
+      "from": "Rival Rojo",
+      "text": "126 P with delivery in 0 days works for me and we can close now.",
+      "price": 126,
+      "days": 0
+     },
+     {
+      "tick": 1998,
+      "from": "you",
+      "text": "I can do 141 P, delivery on day 10.",
+      "price": 141,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1998,
+   "raw": {
+    "duel": 11504,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.86,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 111,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 2001,
+    "decay_per_round": 0.1,
+    "rounds": 2,
+    "your_offer": {
+     "id": 14879,
+     "price": 141,
+     "tick": 1998,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 14889,
+     "price": 138,
+     "tick": 1998,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1989,
+      "from": "Rival Rojo",
+      "text": "I can do 108 P with delivery in 0 days. Every round costs us both, so let's close.",
+      "price": 108,
+      "days": 0
+     },
+     {
+      "tick": 1989,
+      "from": "you",
+      "text": "I need 158 P, and I can deliver on day 10 rather than day 0 if that helps close the gap.",
+      "price": 158,
+      "days": 10
+     },
+     {
+      "tick": 1990,
+      "from": "Rival Rojo",
+      "text": "126 P with delivery in 0 days works for me and we can close now.",
+      "price": 126,
+      "days": 0
+     },
+     {
+      "tick": 1998,
+      "from": "you",
+      "text": "I can do 141 P, delivery on day 10.",
+      "price": 141,
+      "days": 10
+     },
+     {
+      "tick": 1998,
+      "from": "Rival Rojo",
+      "text": "I can do 138 P with delivery in 0 days to close today.",
+      "price": 138,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1999,
+   "raw": {
+    "duel": 11504,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.86,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 111,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 2001,
+    "decay_per_round": 0.1,
+    "rounds": 3,
+    "your_offer": {
+     "id": 14921,
+     "price": 126,
+     "tick": 1999,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 14889,
+     "price": 138,
+     "tick": 1998,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1989,
+      "from": "Rival Rojo",
+      "text": "I can do 108 P with delivery in 0 days. Every round costs us both, so let's close.",
+      "price": 108,
+      "days": 0
+     },
+     {
+      "tick": 1989,
+      "from": "you",
+      "text": "I need 158 P, and I can deliver on day 10 rather than day 0 if that helps close the gap.",
+      "price": 158,
+      "days": 10
+     },
+     {
+      "tick": 1990,
+      "from": "Rival Rojo",
+      "text": "126 P with delivery in 0 days works for me and we can close now.",
+      "price": 126,
+      "days": 0
+     },
+     {
+      "tick": 1998,
+      "from": "you",
+      "text": "I can do 141 P, delivery on day 10.",
+      "price": 141,
+      "days": 10
+     },
+     {
+      "tick": 1998,
+      "from": "Rival Rojo",
+      "text": "I can do 138 P with delivery in 0 days to close today.",
+      "price": 138,
+      "days": 0
+     },
+     {
+      "tick": 1999,
+      "from": "you",
+      "text": "I can do 126 P, delivery on day 10.",
+      "price": 126,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -758,6 +980,519 @@
     "ACCEPT_BY": 1,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1998,
+   "took_s": 1.69,
+   "cost_usd": 0.00117,
+   "obs": {
+    "view": {
+     "duel_id": 11504,
+     "role": "seller",
+     "limit": 111,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.86,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "I can do 108 P with delivery in 0 days. Every round costs us both, so let's close.",
+      "offer": {
+       "price": 108,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1989,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I need 158 P, and I can deliver on day 10 rather than day 0 if that helps close the gap.",
+      "offer": {
+       "price": 158,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1989,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "126 P with delivery in 0 days works for me and we can close now.",
+      "offer": {
+       "price": 126,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1990,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 126,
+     "days": 0
+    },
+    "tick": 1998,
+    "ticks_left": 3,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5,
+     51.0,
+     65.4,
+     33.8,
+     10.600000000000001,
+     44.3,
+     3.8,
+     38.6,
+     62.5,
+     30.4,
+     33.4
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 141 P, delivery on day 10.",
+    "price": 141,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 35.3,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.69,
+       "in": 985,
+       "out": 36,
+       "cost_usd": 0.00117,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 123,
+     "floor": 67.9
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.08,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1999,
+   "took_s": 1.81,
+   "cost_usd": 0.00121,
+   "obs": {
+    "view": {
+     "duel_id": 11504,
+     "role": "seller",
+     "limit": 111,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.86,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "I can do 108 P with delivery in 0 days. Every round costs us both, so let's close.",
+      "offer": {
+       "price": 108,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1989,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I need 158 P, and I can deliver on day 10 rather than day 0 if that helps close the gap.",
+      "offer": {
+       "price": 158,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1989,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "126 P with delivery in 0 days works for me and we can close now.",
+      "offer": {
+       "price": 126,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1990,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 141 P, delivery on day 10.",
+      "offer": {
+       "price": 141,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1998,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can do 138 P with delivery in 0 days to close today.",
+      "offer": {
+       "price": 138,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1998,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 138,
+     "days": 0
+    },
+    "tick": 1999,
+    "ticks_left": 2,
+    "rounds": 2,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5,
+     51.0,
+     65.4,
+     33.8,
+     10.600000000000001,
+     44.3,
+     3.8,
+     38.6,
+     62.5,
+     30.4,
+     33.4,
+     65.3
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 126 P, delivery on day 10.",
+    "price": 126,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 20.8,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.81,
+       "in": 1052,
+       "out": 31,
+       "cost_usd": 0.00121,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 121,
+     "floor": 53.6
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.08,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 2000,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11504,
+     "role": "seller",
+     "limit": 111,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.86,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": false,
+      "text": "I can do 108 P with delivery in 0 days. Every round costs us both, so let's close.",
+      "offer": {
+       "price": 108,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1989,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I need 158 P, and I can deliver on day 10 rather than day 0 if that helps close the gap.",
+      "offer": {
+       "price": 158,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1989,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "126 P with delivery in 0 days works for me and we can close now.",
+      "offer": {
+       "price": 126,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1990,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 141 P, delivery on day 10.",
+      "offer": {
+       "price": 141,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1998,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I can do 138 P with delivery in 0 days to close today.",
+      "offer": {
+       "price": 138,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1998,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 126 P, delivery on day 10.",
+      "offer": {
+       "price": 126,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1999,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 138,
+     "days": 0
+    },
+    "tick": 2000,
+    "ticks_left": 1,
+    "rounds": 3,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5,
+     51.0,
+     65.4,
+     33.8,
+     10.600000000000001,
+     44.3,
+     3.8,
+     38.6,
+     62.5,
+     30.4,
+     33.4,
+     65.3
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 138,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.08,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -793,6 +1528,101 @@
      "tick": 1989,
      "days": 10
     }
+   }
+  },
+  {
+   "tick": 1998,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 141 P, delivery on day 10.",
+    "price": 141,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 35.3,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.69,
+       "in": 985,
+       "out": 36,
+       "cost_usd": 0.00117,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 123,
+     "floor": 67.9
+    }
+   },
+   "result": {
+    "duel": 11504,
+    "offer": {
+     "id": 14879,
+     "price": 141,
+     "tick": 1998,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1999,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 126 P, delivery on day 10.",
+    "price": 126,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 20.8,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.81,
+       "in": 1052,
+       "out": 31,
+       "cost_usd": 0.00121,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 121,
+     "floor": 53.6
+    }
+   },
+   "result": {
+    "duel": 11504,
+    "offer": {
+     "id": 14921,
+     "price": 126,
+     "tick": 1999,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 2000,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 138,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 138,
+    "settles_at_tick": 2001
    }
   }
  ]
