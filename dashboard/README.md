@@ -13,6 +13,14 @@ click one for the full chat; our deck set by set; the race around us; and our re
 El Rastro, Market Test). `?f=duel|dealer` filters the battles; `#d6191` or `#t2351` opens one. `/full` is the
 detailed view below (`index.html`), with every tab.
 
+**The race explorer** (⤢ Explore on the race card, or `#race`, `#race:t10`, `#race:t10:5`): every team's score on a
+wall-clock axis (day and hour; nights and pauses take no room), range buttons (last 2 h, each day, all), drag to zoom,
+shift + drag to pan, double-click to reset; pick the teams to draw; click a line or a team to list its jumps of 1 point
+or more, each with why: the part that moved (negotiating or market), the field's drift (the median change of the teams
+with no deal then: the board is relative), its own deals and the trades on its stall, a page completed, and what ran
+then (duels, a Market Test, a dealer opening); click a jump to zoom on it. Wall times come from the history of
+`STATUS.md` (`tools/status.py` writes its local time, tick and game hour every few minutes): local git only.
+
 On Windows, double-click `dashboard/start.bat`: it starts the server in the background (it keeps running after
 VS Code or the window closes) and opens the browser. Every teammate can run their own copy with their own key.
 

@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Team 5 · Live</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
 <style>
 /* The compact view: one screen, live battles first. Same tokens as index.html (the full view, at /full). */
 .viz-root {
@@ -19,6 +21,7 @@
   --axis: #383835;
   --border: rgba(255,255,255,0.10);
   --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70; --series-4: #c98500;
+  --series-5: #d55181; --series-6: #008300; --series-7: #9085e9; --series-8: #e66767;
   --other: #4a4a46;
   --good: #0ca30c; --warning: #fab219; --serious: #ec835a; --critical: #d03b3b;
   /* rarity: one ordinal blue ramp, rarer = lighter (stands out more on the dark surface) */
@@ -120,6 +123,41 @@ main { padding: 16px 20px 48px; max-width: 1500px; margin: 0 auto; display: grid
 .legend i { display: inline-block; width: 14px; height: 5px; border-radius: 2px; vertical-align: middle; margin-right: 4px; }
 @media (max-width: 560px) { .set { grid-template-columns: 1fr; } .missing { grid-column: 1; } }
 
+/* race card + explorer */
+.xbtn { margin-left: auto; background: none; border: 1px solid var(--border); color: var(--text-secondary); border-radius: 6px;
+        font: inherit; font-size: 12.5px; padding: 2px 10px; cursor: pointer; }
+.xbtn:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.28); }
+#raceBox { cursor: zoom-in; }
+dialog.wide { width: min(1240px, calc(100vw - 32px)); }
+.rxbar { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; margin: 10px 0 8px; }
+.rxbar .seg { margin-left: 0; }
+.rxbar .hint { font-size: 12px; color: var(--text-muted); margin-left: auto; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.tchip { display: inline-flex; align-items: center; gap: 6px; padding: 2px 8px 2px 6px; border-radius: 12px; font-size: 12px; cursor: pointer;
+         border: 1px solid var(--border); background: var(--surface-2); color: var(--text-secondary); user-select: none; }
+.tchip i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.tchip.off { background: transparent; color: var(--text-muted); }
+.tchip.off i { background: transparent !important; border: 1px solid var(--text-muted); }
+.tchip.focus { border-color: var(--text-primary); color: var(--text-primary); }
+.tchip .x { color: var(--text-muted); padding-left: 2px; }
+.tchip .x:hover { color: var(--text-primary); }
+.big.tall { height: 420px; }
+.why { margin-top: 12px; border-top: 1px solid var(--grid); padding-top: 10px; }
+.whyhead { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin-bottom: 8px; font-size: 13px; color: var(--text-secondary); }
+.whyhead b { color: var(--text-primary); font-size: 15px; }
+.whyhead .seg { margin-left: auto; }
+.jumps { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; max-height: 300px; overflow: auto; }
+.jumps li { display: grid; grid-template-columns: 72px 150px 1fr; gap: 2px 12px; padding: 6px 10px; border-radius: 8px;
+            background: var(--surface-2); border: 1px solid transparent; cursor: pointer; font-size: 12.5px; }
+.jumps li:hover { border-color: rgba(255,255,255,0.22); }
+.jumps li.sel { border-color: var(--series-1); }
+.jumps .jd { font-weight: 700; font-size: 13px; }
+.jumps .jt { color: var(--text-muted); }
+.jumps .jw { color: var(--text-secondary); }
+.jumps .jw b { color: var(--text-primary); font-weight: 600; }
+.kind { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: .03em; color: var(--text-muted); margin-right: 6px; }
+@media (max-width: 700px) { .jumps li { grid-template-columns: 72px 1fr; } .jumps .jw { grid-column: 1 / -1; } }
+
 /* arenas */
 .arow { display: grid; grid-template-columns: 96px 1fr; gap: 2px 12px; padding: 8px 0; border-top: 1px solid var(--grid); }
 .arow:first-child { border-top: 0; padding-top: 0; }
@@ -188,8 +226,9 @@ main > * { min-width: 0; }
     </section>
     <div class="col">
       <section class="card">
-        <div class="head"><h2>The race</h2><span class="meta">us and the two teams above and below</span></div>
-        <div class="chartbox"><canvas id="race"></canvas></div>
+        <div class="head"><h2>The race</h2><span class="meta">us and the two teams above and below</span>
+          <button class="xbtn" id="raceOpen" title="Zoom, every team, and why each one jumped">⤢ Explore</button></div>
+        <div class="chartbox" id="raceBox"><canvas id="race"></canvas></div>
       </section>
       <section class="card">
         <div class="head"><h2>By arena</h2><span class="meta">everything we played today and before</span></div>
@@ -207,6 +246,22 @@ main > * { min-width: 0; }
   <div class="chat" id="fChat"></div>
 </dialog>
 
+<dialog id="raceX" class="wide">
+  <div class="fhead">
+    <div><h2 style="margin:0;font-size:16px">The race, explored</h2>
+      <div class="muted" style="font-size:12.5px">Click a line or a team to see why it jumped · drag on the chart to zoom · shift + drag to pan · double-click to reset</div></div>
+    <button id="rxClose">Close</button>
+  </div>
+  <div class="rxbar">
+    <div class="seg" id="rxRange"></div>
+    <div class="seg" id="rxSet"><button data-s="near">Around us</button><button data-s="top">Top 6</button><button data-s="all">All teams</button></div>
+    <span class="hint" id="rxHint"></span>
+  </div>
+  <div class="chips" id="rxTeams"></div>
+  <div class="big tall"><canvas id="rxChart"></canvas></div>
+  <div class="why" id="rxWhy"></div>
+</dialog>
+
 <script>
 const $ = s => document.querySelector(s);
 const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -215,36 +270,121 @@ const sgn = (v, d = 2) => v == null ? "—" : (v > 0 ? "+" : "") + v.toFixed(d);
 const css = n => getComputedStyle(document.body).getPropertyValue(n).trim();
 const store = { get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } },
                 set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} } };
-// ?f=duel|dealer|all picks the filter; #d6191 (duel) or #t2351 (dealer thread) opens that battle on load
+// ?f=duel|dealer|all picks the filter; #d6191 (duel) or #t2351 (dealer thread) opens that battle on load;
+// #race opens the race explorer, #race:t10 with Team 10's jumps, #race:t10:5 zoomed on one of them
 let DATA = null, BATTLES = {}, FOCUS = null;
 let FILTER = new URLSearchParams(location.search).get("f") || store.get("bz-live-filter", "all");
 let HASH = location.hash.slice(1);
 const charts = {};
 
-// Same team colours as the full view (shared localStorage): a team keeps its slot.
-const SLOTS = [2,3,4,5,6,7,8].map(i => `--series-${i}`);
-const colorMap = store.get("bz-colors", {});
-function teamColor(id, us) {
-  if (id === us) return css("--series-1");
-  if (!(id in colorMap)) {
-    const used = new Set(Object.values(colorMap)), free = SLOTS.findIndex((c, i) => !used.has(i));
-    if (free < 0) return css("--other");
-    colorMap[id] = free; store.set("bz-colors", colorMap);
-  }
-  return css(SLOTS[colorMap[id]]) || css("--other");
-}
-
 const axis = (extra = {}) => ({ grid: { color: css("--grid") }, ticks: { color: css("--text-muted"), font: { size: 10 } },
                                 border: { color: css("--axis") }, ...extra });
-function chart(id, type, data, options) {
+function chart(id, type, data, options, plugins = []) {
   const el = document.getElementById(id);
   if (!el) return;
   if (!window.Chart) { el.parentElement.innerHTML = `<p class="err">Chart library blocked (cdn.jsdelivr.net).</p>`; return; }
   const opts = { responsive: true, maintainAspectRatio: false, animation: false, ...options };
   const c = charts[id];
-  if (c && c.canvas === el) { c.data = data; c.options = opts; c.update("none"); return; }
+  if (c && c.canvas === el) { c.data = data; c.options = opts; c.update("none"); return c; }
   if (c) c.destroy();
-  charts[id] = new Chart(el, { type, data, options: opts });
+  return charts[id] = new Chart(el, { type, data, options: opts, plugins });
+}
+const alpha = (hex, a) => { const n = parseInt(hex.slice(1), 16); return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a})`; };
+
+// ------------------------------------------------------------------ time: game hours → wall clock
+// The server dates every leaderboard snapshot (ts) from STATUS.md's history. Race axes run on game hours (t), so
+// nights and pauses take no room; labels and tooltips show the wall time.
+let TL = { t: [], ts: [], tick: [] };
+function timeTable(d) {
+  const h = (d.lb_hist || []).filter(x => x.t != null && x.ts != null);
+  TL = { t: h.map(x => x.t), ts: h.map(x => x.ts), tick: h.map(x => x.tick) };
+}
+const WD = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+function when(ts, withDay = true) {
+  if (ts == null) return "";
+  const dt = new Date(ts * 1000), hm = `${String(dt.getHours()).padStart(2, "0")}:${String(dt.getMinutes()).padStart(2, "0")}`;
+  return withDay ? `${WD[dt.getDay()]} ${hm}` : hm;
+}
+const sameDay = (a, b) => a != null && b != null && new Date(a * 1000).toDateString() === new Date(b * 1000).toDateString();
+function bisect(a, x) { let lo = 0, hi = a.length; while (lo < hi) { const m = (lo + hi) >> 1; if (a[m] < x) lo = m + 1; else hi = m; } return lo; }
+// x → y over a sorted table, extrapolating past the ends at `rate` (1 game hour = 3600 s)
+function lerp(X, Y, x, rate) {
+  if (!X.length || x == null) return null;
+  const i = bisect(X, x), n = X.length;
+  if (i === 0) return Y[0] - (X[0] - x) * rate;
+  if (i >= n) return Y[n - 1] + (x - X[n - 1]) * rate;
+  return X[i] === X[i - 1] ? Y[i] : Y[i - 1] + (x - X[i - 1]) / (X[i] - X[i - 1]) * (Y[i] - Y[i - 1]);
+}
+const tToTs = t => lerp(TL.t, TL.ts, t, 3600);
+const tickTs = k => lerp(TL.tick, TL.ts, k, (DATA?.clock?.tick_seconds) || 15);
+// axis ticks on round wall times (local), skipping nights and pauses
+function timeTicks(min, max) {
+  const T = TL.t, S = TL.ts;
+  if (T.length < 2 || !(max > min)) return null;
+  const step = [[1.5, 900], [3, 1800], [8, 3600], [16, 7200], [Infinity, 10800]].find(([h]) => max - min <= h)[1];
+  const a = tToTs(min), b = tToTs(max), off = new Date(a * 1000).getTimezoneOffset() * 60, out = [];
+  for (let w = Math.ceil((a - off) / step) * step + off; w <= b; w += step) {
+    const i = bisect(S, w);
+    let t;
+    if (i === 0 || i >= S.length) t = i === 0 ? T[0] - (S[0] - w) / 3600 : T[S.length - 1] + (w - S[S.length - 1]) / 3600;
+    else {
+      const dS = S[i] - S[i - 1], dT = (T[i] - T[i - 1]) * 3600;
+      if (dS - dT > 600) continue;   // the clock was stopped: night or pause
+      t = T[i - 1] + (w - S[i - 1]) / dS * (T[i] - T[i - 1]);
+    }
+    if (t >= min && t <= max) out.push(t);
+  }
+  const k = Math.ceil(out.length / 12);
+  return out.filter((_, i) => i % k === 0);
+}
+function timeAxis(extra = {}) {
+  return { type: "linear", ...axis(), ...extra,
+    afterBuildTicks: sc => { const v = timeTicks(sc.min, sc.max); if (v && v.length) sc.ticks = v.map(value => ({ value })); },
+    ticks: { color: css("--text-muted"), font: { size: 10 }, autoSkip: false, maxRotation: 0,
+             callback: (v, i, ticks) => { const ts = tToTs(v), prev = i ? tToTs(ticks[i - 1].value) : null;
+               return prev != null && sameDay(ts, prev) ? when(ts, false) : when(ts); } } };
+}
+// a dashed line and the day's name where each game day starts
+const dayLines = { id: "dayLines", afterDraw(c) {
+  const days = (DATA && DATA.timeline && DATA.timeline.days) || [], x = c.scales.x, ar = c.chartArea, ctx = c.ctx;
+  ctx.save(); ctx.strokeStyle = css("--text-muted"); ctx.fillStyle = css("--text-secondary"); ctx.font = "11px system-ui, sans-serif"; ctx.setLineDash([4, 4]);
+  days.forEach(dd => {
+    if (dd.t <= x.min || dd.t >= x.max) return;
+    const px = x.getPixelForValue(dd.t);
+    ctx.beginPath(); ctx.moveTo(px, ar.top); ctx.lineTo(px, ar.bottom); ctx.stroke(); ctx.fillText(dd.label || "", px + 4, ar.top + 12);
+  });
+  ctx.restore();
+} };
+// one tooltip row per team at the hovered snapshot; a jump marker under the pointer wins
+if (window.Chart) Chart.Interaction.modes.race = function (c, e, opts, useFinal) {
+  const M = Chart.Interaction.modes;
+  const mk = M.nearest(c, e, { intersect: true }, useFinal).filter(it => c.data.datasets[it.datasetIndex].isMarkers);
+  if (mk.length) return [mk[0]];
+  const near = M.nearest(c, e, { intersect: false, axis: "x" }, useFinal).filter(it => !c.data.datasets[it.datasetIndex].isMarkers);
+  if (!near.length) return [];
+  const x = c.data.datasets[near[0].datasetIndex].data[near[0].index].x, out = [];
+  c.data.datasets.forEach((ds, di) => {
+    if (ds.isMarkers || !c.isDatasetVisible(di)) return;
+    const i = ds.data.findIndex(p => p.x === x);
+    if (i >= 0) out.push({ element: c.getDatasetMeta(di).data[i], datasetIndex: di, index: i });
+  });
+  return out;
+};
+if (window.Chart && window.ChartZoom) Chart.register(window.ChartZoom);
+
+// Race colours: a team keeps its slot; the teams drawn together never share one (us = slot 1).
+const RSLOTS = [2, 3, 4, 5, 6, 7, 8];
+const raceMap = store.get("bz-race-colors", {});
+function raceColors(ids, us) {
+  const out = {}, used = new Set();
+  ids.forEach(id => { const s = raceMap[id]; if (id !== us && s != null && !used.has(s)) { out[id] = s; used.add(s); } });
+  ids.forEach(id => {
+    if (id === us || out[id] != null) return;
+    const free = RSLOTS.findIndex((_, i) => !used.has(i));
+    if (free >= 0) { out[id] = raceMap[id] = free; used.add(free); }
+  });
+  store.set("bz-race-colors", raceMap);
+  return id => id === us ? css("--series-1") : out[id] != null ? css(`--series-${RSLOTS[out[id]]}`) : css("--other");
 }
 function dropDetached() {
   Object.keys(charts).forEach(k => { if (!document.body.contains(charts[k].canvas)) { charts[k].destroy(); delete charts[k]; } });
@@ -289,7 +429,7 @@ function kpis(d) {
   const rank = d.lb_rank ?? s.rank, score = d.lb_score ?? s.score;
   const rankMove = ref && rank ? (ref.rank_from ?? ref.rank) - rank : 0;
   const scoreThen = ref ? ref.score - ref.delta : null;
-  const since = ref ? `since tick ${ref.from}` : "";
+  const since = ref ? `since ${when(tickTs(ref.from), false) || "tick " + ref.from}` : "";
   const dl = (v, txt, good) => `<small class="${good ? "up" : "down"}">${v > 0 ? "▲" : "▼"} ${txt}</small>`;
   const neg = s.negotiating ?? 0, mkt = s.market ?? 0, tot = (neg + mkt) || 1;
   const above = d.above, below = d.below;
@@ -331,7 +471,7 @@ function duelBattles(d) {
     const live = x.status === "live", r = rows[x.duel] || {}, buy = x.role === "buyer";
     const left = live && x.deadline != null ? x.deadline - now : null;
     const facts = live
-      ? [["ours", x.our_now], ["theirs", x.their_now], ["limit", x.limit], ["left", left != null ? `${left} ticks` : "—"],
+      ? [["ours", x.our_now ?? "—"], ["theirs", x.their_now ?? "—"], ["limit", x.limit], ["left", left != null ? `${left} tick${left === 1 ? "" : "s"}` : "—"],
          r.accept_now != null ? ["accept now", `<span class="good">+${r.accept_now} P</span>`] : null]
       : x.status === "deal"
         ? [["price", x.price], ["limit", x.limit], ["points", `<span class="good">+${fmt(x.result, 1)}</span>`], ["rounds", x.rounds]]
@@ -341,11 +481,12 @@ function duelBattles(d) {
       key: `d${x.duel}`, arena: "duel", label: `Duel ${x.duel}`, status: x.status, rival: x.rival || "rival",
       role: buy ? "buy" : "sell", item: x.item || "", left,
       sort: live ? 1e9 - (left ?? 0) : Math.max(x.deadline || 0, ...ticks),
-      outcome: live ? `● LIVE${left != null ? ` · ${left} ticks left` : ""}` : x.status === "deal" ? `✓ DEAL ${x.price} P` : "✗ NO DEAL",
-      us: msgs.filter(m => m.us && m.price != null).map(m => ({ x: m.tick, y: m.price, d: m.days })),
-      them: msgs.filter(m => !m.us && m.price != null).map(m => ({ x: m.tick, y: m.price, d: m.days })),
+      outcome: live ? `● LIVE${left != null ? ` · ${left} tick${left === 1 ? "" : "s"} left` : ""}` : x.status === "deal" ? `✓ DEAL ${x.price} P` : "✗ NO DEAL",
+      us: msgs.filter(m => m.us && m.price != null).map(m => ({ x: m.tick, y: m.price, d: m.days, ts: m.ts })),
+      them: msgs.filter(m => !m.us && m.price != null).map(m => ({ x: m.tick, y: m.price, d: m.days, ts: m.ts })),
       line: x.limit != null ? { y: x.limit, label: `our limit ${x.limit}` } : null,
       xmax: live ? x.deadline : null, facts: facts.filter(Boolean), msgs,
+      xmin: live && x.deadline != null ? x.deadline - ((d.duelmon || {}).duel_ticks || 12) : null,
     };
   });
 }
@@ -361,8 +502,8 @@ function dealerBattles(d) {
       role: t.side, item: `${t.ref || "?"}${t.card ? " · " + t.card : ""}${t.rarity ? ` (${t.rarity})` : ""}`, left: null,
       sort: t.status === "live" ? 1e9 : t.end,
       outcome: t.status === "live" ? "● LIVE" : t.status === "deal" ? `✓ ${buy ? "BOUGHT" : "SOLD"} ${t.price} P` : "✗ NO DEAL",
-      us: msgs.filter(m => m.us && m.price != null).map(m => ({ x: m.tick, y: m.price })),
-      them: msgs.filter(m => !m.us && m.price != null).map(m => ({ x: m.tick, y: m.price })),
+      us: msgs.filter(m => m.us && m.price != null).map(m => ({ x: m.tick, y: m.price, ts: m.ts })),
+      them: msgs.filter(m => !m.us && m.price != null).map(m => ({ x: m.tick, y: m.price, ts: m.ts })),
       line: t.value != null ? { y: t.value, label: `worth to us ${fmt(t.value, 1)}` } : null, xmax: null,
       facts: [["her first", first ?? "—"], [t.status === "deal" ? (buy ? "paid" : "got") : "her last", last ?? "—"],
               move != null ? ["moved", `<span class="${good ? "good" : ""}">${move > 0 ? "+" : ""}${move}%</span>`] : null,
@@ -427,7 +568,9 @@ function priceChart(id, b, big) {
     pointRadius: big ? 5 : 4, pointHoverRadius: 6, pointHitRadius: 10, pointBorderColor: css(big ? "--surface-1" : "--surface-2"), pointBorderWidth: 2,
     pointBackgroundColor: color });
   const xs = [...b.us, ...b.them].map(p => p.x).filter(v => v != null);
-  const x0 = xs.length ? Math.min(...xs) : 0, x1 = Math.max(b.xmax ?? 0, xs.length ? Math.max(...xs) : 1);
+  let x0 = Math.min(b.xmin ?? Infinity, ...xs);
+  if (!isFinite(x0)) x0 = 0;
+  const x1 = Math.max(b.xmax ?? -Infinity, ...xs, x0 + 1);
   const ds = [pt(css("--series-1"), b.us, "us"), pt(css("--series-2"), b.them, b.rival)];
   const on = lineOn(b);
   if (on) ds.push({ label: b.line.label, data: [{ x: x0, y: b.line.y }, { x: x1, y: b.line.y }], borderColor: css("--text-muted"),
@@ -440,9 +583,9 @@ function priceChart(id, b, big) {
     layout: { padding: { top: 4, right: 4 } },
     scales: { x: { type: "linear", min: x0, max: x1 > x0 ? x1 : x0 + 1, ...axis(), ticks: { color: css("--text-muted"), font: { size: 10 }, precision: 0, maxTicksLimit: big ? 10 : 4 } },
               y: { ...axis(), min: Math.max(0, Math.floor(lo - pad)), max: Math.ceil(hi + pad),
-                   ticks: { color: css("--text-muted"), font: { size: 10 }, maxTicksLimit: big ? 8 : 4 } } },
+                   ticks: { color: css("--text-muted"), font: { size: 10 }, maxTicksLimit: big ? 8 : 4, includeBounds: false } } },
     plugins: { legend: { display: big, labels: { color: css("--text-secondary"), boxWidth: 14, boxHeight: 3 } },
-               tooltip: { filter: it => it.datasetIndex < 2, callbacks: { title: it => `tick ${it[0].parsed.x}`,
+               tooltip: { filter: it => it.datasetIndex < 2, callbacks: { title: it => `${it[0].raw?.ts ? when(it[0].raw.ts) + " · " : ""}tick ${it[0].parsed.x}`,
                  label: it => ` ${it.dataset.label}: ${it.parsed.y} P${it.raw && it.raw.d != null ? ` · day ${it.raw.d}` : ""}` } } },
   });
 }
@@ -486,7 +629,7 @@ function renderFocus() {
   $("#fFacts").innerHTML = b.facts.map(([k, v]) => `<span>${k} <b>${v}</b></span>`).join("");
   priceChart("fChart", b, true);
   const c = $("#fChat"), atBottom = c.scrollTop + c.clientHeight >= c.scrollHeight - 8;
-  c.innerHTML = b.msgs.length ? b.msgs.map(m => `<div class="bubble ${m.us ? "us" : ""}"><div class="who">${esc(m.us ? "us (Team 5)" : m.who)} · tick ${m.tick ?? "—"}</div>`
+  c.innerHTML = b.msgs.length ? b.msgs.map(m => `<div class="bubble ${m.us ? "us" : ""}"><div class="who">${esc(m.us ? "us (Team 5)" : m.who)} · ${m.ts ? when(m.ts) + " · " : ""}tick ${m.tick ?? "—"}</div>`
     + `${esc(m.text || "")}${m.price != null ? `<span class="px">${m.price} P${m.days != null ? ` · day ${m.days}` : ""}${m.final ? " · final" : ""}</span>` : ""}</div>`).join("")
     : `<p class="muted">No messages.</p>`;
   if (atBottom || c.dataset.key !== FOCUS) { c.scrollTop = c.scrollHeight; c.dataset.key = FOCUS; }
@@ -519,23 +662,179 @@ function mcard(x, outside) {
 }
 
 // ------------------------------------------------------------------ race
+const raceLine = (d, id, color, hist, extra = {}) => ({
+  label: (id === d.us ? "★ " : "") + (d.names[id] || id), team: id,
+  data: hist.filter(h => h.scores[id] != null && h.t != null).map(h => ({ x: h.t, y: h.scores[id], ts: h.ts, tick: h.tick })),
+  borderColor: color, backgroundColor: color, borderWidth: id === d.us ? 3 : 2, pointRadius: 0, pointHoverRadius: 5, pointHitRadius: 8,
+  tension: 0.15, order: id === d.us ? 0 : 1, ...extra });
+const raceTip = J => ({ itemSort: (a, b) => b.parsed.y - a.parsed.y, callbacks: {
+  title: it => { const r = it[0]?.raw || {}; if (it[0]?.dataset.isMarkers) { const j = J[r.j]; return `${when(j.ts0)} → ${when(j.ts1, !sameDay(j.ts0, j.ts1))}`; }
+                 return `${when(r.ts)} · tick ${r.tick}`; },
+  label: it => it.dataset.isMarkers ? ` ${sgn(J[it.raw.j].delta)} points · ${J[it.raw.j].why[0]}` : ` ${it.dataset.label}: ${it.parsed.y.toFixed(2)}`,
+  afterLabel: it => it.dataset.isMarkers ? J[it.raw.j].why.slice(1, 5).map(w => "   " + w) : "" } });
+
 function race(d) {
-  const ids = d.neighbours || [], hist = (d.lb_hist || []).slice(-60);
-  const ds = ids.map(id => {
-    const color = teamColor(id, d.us), us = id === d.us;
-    return { label: (us ? "★ " : "") + (d.names[id] || id), data: hist.filter(h => h.scores[id] != null).map(h => ({ x: h.tick, y: h.scores[id] })),
-             borderColor: color, backgroundColor: color, borderWidth: us ? 3 : 2, pointRadius: 0, pointHoverRadius: 5, pointHitRadius: 8,
-             tension: 0.15, order: us ? 0 : 1 };
-  });
-  chart("race", "line", { datasets: ds }, {
-    interaction: { mode: "index", intersect: false },
-    scales: { x: { type: "linear", min: hist[0]?.tick, max: hist[hist.length - 1]?.tick, ...axis(),
-                   ticks: { color: css("--text-muted"), font: { size: 10 }, precision: 0, maxTicksLimit: 6 } },
+  const ids = d.neighbours || [], hist = (d.lb_hist || []).slice(-60), col = raceColors(ids, d.us);
+  chart("race", "line", { datasets: ids.map(id => raceLine(d, id, col(id), hist)) }, {
+    interaction: { mode: window.Chart && Chart.Interaction.modes.race ? "race" : "index", intersect: false },
+    onClick: () => openRace(),
+    scales: { x: timeAxis({ min: hist[0]?.t, max: hist[hist.length - 1]?.t }),
               y: { ...axis(), ticks: { color: css("--text-muted"), font: { size: 10 }, maxTicksLimit: 6 } } },
     plugins: { legend: { position: "bottom", labels: { color: css("--text-secondary"), boxWidth: 12, boxHeight: 3, font: { size: 11 } } },
-               tooltip: { itemSort: (a, b) => b.parsed.y - a.parsed.y, callbacks: { title: it => `tick ${it[0]?.parsed.x}`, label: it => ` ${it.dataset.label}: ${it.parsed.y.toFixed(2)}` } } },
-  });
+               tooltip: raceTip([]) },
+  }, [dayLines]);
 }
+
+// ------------------------------------------------------------------ race explorer: every team, zoom, why each jump
+const RX = { range: store.get("bz-rx-range", "all"), shown: null, focus: null, sel: null, order: "big", all: false, band: null, view: null };
+const KIND = { deal: "DEALS", duel: "DUELS", market: "MARKET", page: "PAGE", field: "THE FIELD", other: "RE-GRADE" };
+const bandPlugin = { id: "band", beforeDatasetsDraw(c) {
+  const b = RX.band; if (!b) return;
+  const x = c.scales.x, ar = c.chartArea;
+  const x0 = Math.max(ar.left, x.getPixelForValue(b[0])), x1 = Math.min(ar.right, x.getPixelForValue(b[1]));
+  if (x1 < x0) return;
+  c.ctx.save(); c.ctx.fillStyle = "rgba(57,135,229,0.16)"; c.ctx.fillRect(x0 - 1, ar.top, Math.max(3, x1 - x0 + 2), ar.bottom - ar.top); c.ctx.restore();
+} };
+const jumpsOf = (d, id) => ((d.jumps || {})[id] || []);
+
+function rxRanges(d) {
+  const T = TL.t; if (!T.length) return [];
+  const last = T[T.length - 1], days = ((d.timeline || {}).days || []).filter(x => x.t < last);
+  const out = [["2h", "Last 2 h", [Math.max(T[0], last - 2), last]]];
+  days.forEach((x, i) => out.push([`day${i}`, i === days.length - 1 ? `Today` : (x.label || "").slice(0, 3),
+                                    [Math.max(x.t, T[0]), i + 1 < days.length ? days[i + 1].t : last]]));
+  out.push(["all", "All", [T[0], last]]);
+  return out;
+}
+function rxTeamsFor(d, s) {
+  const byRank = [...(d.teams || [])].sort((a, b) => a.rank - b.rank).map(t => t.team);
+  if (s === "all") return byRank;
+  if (s === "top") return [...new Set([...byRank.slice(0, 6), d.us])];
+  return d.neighbours || [d.us];
+}
+function openRace(team) {
+  const d = DATA; if (!d) return;
+  if (!RX.shown) RX.shown = new Set(rxTeamsFor(d, "near"));
+  RX.focus = team || RX.focus || d.us;
+  RX.shown.add(RX.focus);
+  const dlg = $("#raceX");
+  if (!dlg.open) dlg.showModal();
+  renderRace(true);
+}
+function rxSetRange(key) {
+  RX.range = key; store.set("bz-rx-range", key); RX.band = null; RX.sel = null;
+  renderRace(true);
+}
+function fitY(c) {
+  const x = c.scales.x; let a = Infinity, b = -Infinity;
+  c.data.datasets.forEach((ds, i) => {
+    if (ds.isMarkers || !c.isDatasetVisible(i)) return;
+    ds.data.forEach(p => { if (p.x >= x.min && p.x <= x.max && p.y != null) { a = Math.min(a, p.y); b = Math.max(b, p.y); } });
+  });
+  if (a === Infinity) return;
+  const pad = Math.max(0.4, (b - a) * 0.08);
+  c.options.scales.y.min = Math.floor(a - pad); c.options.scales.y.max = Math.ceil(b + pad);
+  c.update("none");
+}
+
+function renderRace(applyRange) {
+  const d = DATA, dlg = $("#raceX");
+  if (!d || !dlg.open) return;
+  const ranges = rxRanges(d);
+  if (!ranges.find(r => r[0] === RX.range)) RX.range = "all";
+  $("#rxRange").innerHTML = ranges.map(([k, label]) => `<button data-r="${k}" class="${k === RX.range ? "on" : ""}">${esc(label)}</button>`).join("");
+  const all = [...(d.teams || [])].sort((a, b) => a.rank - b.rank);
+  const shownIds = all.map(t => t.team).filter(id => RX.shown.has(id));
+  const col = raceColors(shownIds, d.us);
+  $("#rxTeams").innerHTML = all.map(t => { const on = RX.shown.has(t.team);
+    return `<span class="tchip ${on ? "" : "off"} ${t.team === RX.focus ? "focus" : ""}" data-t="${t.team}" title="${on ? "click: why it moved" : "click: draw it"}">`
+      + `<i style="background:${on ? col(t.team) : "transparent"}"></i>#${t.rank} ${esc(t.name)}${t.us ? " ★" : ""} <span class="muted">${fmt(t.score, 1)}</span>`
+      + `<span class="x" data-x="${t.team}" title="${on ? "hide" : "show"}">${on ? "×" : "+"}</span></span>`; }).join("");
+
+  const hist = d.lb_hist || [], J = jumpsOf(d, RX.focus);
+  const ds = shownIds.map(id => { const c = col(id), f = id === RX.focus;
+    return raceLine(d, id, RX.focus && !f ? alpha(c, 0.35) : c, hist, { borderWidth: f ? 3 : id === d.us ? 2.5 : 1.75, order: f ? 0 : 2 }); });
+  if (J.length && RX.shown.has(RX.focus)) ds.push({ label: "jumps", isMarkers: true, showLine: false, order: -1,
+    data: J.map((j, i) => ({ x: j.t1, y: j.score, j: i })), pointStyle: "triangle",
+    pointRotation: J.map(j => j.delta > 0 ? 0 : 180), pointRadius: J.map((_, i) => i === RX.sel ? 9 : 6), pointHoverRadius: 9, pointHitRadius: 8,
+    pointBackgroundColor: J.map(j => j.delta > 0 ? css("--good") : css("--critical")), pointBorderColor: css("--surface-1"), pointBorderWidth: 2 });
+
+  const rng = (ranges.find(r => r[0] === RX.range) || ranges[ranges.length - 1] || [0, 0, [undefined, undefined]])[2];
+  if (applyRange || !RX.view) RX.view = rng;
+  const [xmin, xmax] = RX.view;
+  const c = chart("rxChart", "line", { datasets: ds }, {
+    interaction: { mode: Chart.Interaction.modes.race ? "race" : "index", intersect: false },
+    onClick: (e, els, ch) => {
+      const p = Chart.Interaction.modes.nearest(ch, e, { intersect: false, axis: "xy" }, false)[0];
+      if (!p) return;
+      const set = ch.data.datasets[p.datasetIndex];
+      if (set.isMarkers) rxSelect(set.data[p.index].j); else rxFocus(set.team);
+    },
+    scales: { x: timeAxis({ min: xmin, max: xmax }), y: { ...axis(), ticks: { color: css("--text-muted"), font: { size: 10 }, includeBounds: false } } },
+    plugins: { legend: { display: false }, tooltip: raceTip(J),
+      zoom: { zoom: { drag: { enabled: true, threshold: 6, backgroundColor: "rgba(57,135,229,0.15)", borderColor: css("--series-1"), borderWidth: 1 },
+                      wheel: { enabled: true, modifierKey: "ctrl" }, pinch: { enabled: true }, mode: "x", onZoomComplete: ({ chart }) => rxViewed(chart) },
+              pan: { enabled: true, mode: "x", modifierKey: "shift", onPanComplete: ({ chart }) => rxViewed(chart) } } },
+  }, [dayLines, bandPlugin]);
+  if (c) {
+    fitY(c);
+    if (!c.canvas.dataset.dbl) { c.canvas.addEventListener("dblclick", () => rxSetRange(RX.range)); c.canvas.dataset.dbl = "1"; }
+  }
+  $("#rxHint").textContent = window.ChartZoom ? "" : "zoom library blocked: use the range buttons";
+  rxWhy(d, col);
+}
+
+function rxViewed(c) { RX.view = [c.scales.x.min, c.scales.x.max]; fitY(c); }
+function rxFocus(id) { RX.focus = id; RX.sel = null; RX.band = null; RX.all = false; RX.shown.add(id); renderRace(false); }
+function rxSelect(i) {
+  const d = DATA, j = jumpsOf(d, RX.focus)[i], c = charts.rxChart;
+  if (!j || !c) return;
+  RX.sel = i; RX.band = [j.t0, j.t1];
+  const mid = (j.t0 + j.t1) / 2, half = Math.max(0.75, (j.t1 - j.t0) * 4), T = TL.t;
+  RX.view = [Math.max(T[0], mid - half), Math.min(T[T.length - 1], mid + half)];
+  renderRace(false);
+  const li = document.querySelector(`#rxWhy li[data-j="${i}"]`);
+  if (li) li.scrollIntoView({ block: "nearest" });
+}
+function rxWhy(d, col) {
+  const id = RX.focus, p = (d.teams || []).find(t => t.team === id) || {}, J = jumpsOf(d, id);
+  const idx = J.map((_, i) => i);
+  const order = RX.order === "big" ? idx.sort((a, b) => Math.abs(J[b].delta) - Math.abs(J[a].delta)) : idx.reverse();
+  const list = RX.all ? order : order.slice(0, 10);
+  const ups = J.filter(j => j.delta > 0).length;
+  $("#rxWhy").innerHTML = `<div class="whyhead"><span><i style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${col(id)}"></i></span>`
+    + `<b>${esc(p.name || id)}${p.us ? " ★" : ""}</b><span>#${p.rank ?? "—"} · score <b style="font-size:13px">${fmt(p.score, 2)}</b> · negotiating ${fmt(p.negotiating, 1)} · market ${fmt(p.market, 1)} · ${p.pages ?? "—"} pages</span>`
+    + `${(p.wants || []).length ? `<span>collects ${esc(p.wants.join(", "))}</span>` : ""}${(p.labels || []).length ? `<span class="muted">${esc(p.labels.join(" · "))}</span>` : ""}`
+    + `<div class="seg" id="rxOrder"><button data-o="big" class="${RX.order === "big" ? "on" : ""}">Biggest</button><button data-o="new" class="${RX.order === "new" ? "on" : ""}">Latest</button></div></div>`
+    + `<div class="muted" style="font-size:12px;margin-bottom:6px">${J.length} jumps of 1 point or more: <span class="up">▲ ${ups}</span> · <span class="down">▼ ${J.length - ups}</span>. `
+    + `Click one to zoom the chart on it. “The field” = the median change of the teams with no deal then: the board is relative, so a team that stands still moves with it.</div>`
+    + `<ul class="jumps">${list.map(i => { const j = J[i], up = j.delta > 0;
+        return `<li data-j="${i}" class="${i === RX.sel ? "sel" : ""}"><span class="jd ${up ? "up" : "down"}">${up ? "▲" : "▼"} ${sgn(j.delta)}`
+          + `<br><span class="muted" style="font-weight:400;font-size:11px">own ${sgn(j.own)}</span></span>`
+          + `<span class="jt">${when(j.ts0)} → ${when(j.ts1, !sameDay(j.ts0, j.ts1))}<br><span class="kind">${KIND[j.kind] || ""}</span>tick ${j.from}–${j.to}</span>`
+          + `<span class="jw">${j.why.map((w, k) => k === 0 ? `<b>${esc(w)}</b>` : esc(w)).join(" · ")}</span></li>`; }).join("")
+        || `<li class="muted" style="cursor:default">No jump of 1 point or more yet.</li>`}</ul>`
+    + (J.length > 10 ? `<p style="margin:6px 0 0;font-size:12px"><a href="#" id="rxMore">${RX.all ? "show the 10 biggest only" : `show all ${J.length}`}</a></p>` : "");
+}
+
+$("#raceOpen").onclick = () => openRace();
+$("#rxClose").onclick = () => $("#raceX").close();
+$("#raceX").addEventListener("click", e => {
+  if (e.target === $("#raceX")) return $("#raceX").close();
+  const r = e.target.closest("#rxRange button"); if (r) return rxSetRange(r.dataset.r);
+  const s = e.target.closest("#rxSet button");
+  if (s) { RX.shown = new Set(rxTeamsFor(DATA, s.dataset.s)); RX.shown.add(RX.focus); return renderRace(false); }
+  const x = e.target.closest(".tchip .x");
+  if (x) { const id = x.dataset.x;
+    if (RX.shown.has(id) && RX.shown.size > 1) { RX.shown.delete(id); if (RX.focus === id) { RX.focus = [...RX.shown][0]; RX.sel = null; RX.band = null; } }
+    else RX.shown.add(id);
+    return renderRace(false); }
+  const t = e.target.closest(".tchip"); if (t) return rxFocus(t.dataset.t);
+  const o = e.target.closest("#rxOrder button"); if (o) { RX.order = o.dataset.o; return rxWhy(DATA, raceColors([...RX.shown], DATA.us)); }
+  const li = e.target.closest("#rxWhy li[data-j]"); if (li) return rxSelect(+li.dataset.j);
+  if (e.target.id === "rxMore") { e.preventDefault(); RX.all = !RX.all; return rxWhy(DATA, raceColors([...RX.shown], DATA.us)); }
+});
+$("#raceX").addEventListener("close", () => { RX.band = null; RX.sel = null; RX.view = null; if (charts.rxChart) { charts.rxChart.destroy(); delete charts.rxChart; } });
 
 // ------------------------------------------------------------------ by arena
 function arenas(d) {
@@ -564,11 +863,18 @@ function arenas(d) {
 function render() {
   const d = DATA; if (!d) return;
   if (d.fatal) { $("#clock").innerHTML = `<span class="err">server error: ${esc(d.fatal)}</span>`; return; }
-  const parts = [["header", header], ["kpis", kpis], ["battles", battles], ["deck", deck], ["race", race], ["arenas", arenas]];
+  timeTable(d);
+  const parts = [["header", header], ["kpis", kpis], ["battles", battles], ["deck", deck], ["race", race], ["arenas", arenas],
+                 ["explorer", () => renderRace(false)]];
   for (const [name, fn] of parts) {
     try { fn(d); } catch (e) { console.error(name, e); }
   }
   if (HASH && BATTLES[HASH]) { openFocus(HASH); HASH = ""; }
+  if (HASH.startsWith("race")) {   // #race, #race:t10 or #race:t10:5 (its 5th jump, in time order)
+    const [, t, j] = HASH.split(":"); HASH = "";
+    openRace(t);
+    if (j != null && j !== "") rxSelect(+j);
+  }
   if (FOCUS) renderFocus();
 }
 document.querySelectorAll("#seg button").forEach(b => b.onclick = () => { FILTER = b.dataset.f; store.set("bz-live-filter", FILTER); render(); });

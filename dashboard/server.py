@@ -18,6 +18,7 @@ rounds, and merges the events, leaderboard snapshots and /api/me rows it hasn't 
 the holes left while the dashboard was off. Without the URL or psycopg it runs as before.
 """
 import argparse
+import bisect
 import collections
 import json
 import math
@@ -28,7 +29,7 @@ import subprocess
 import sys
 import threading
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -1289,7 +1290,8 @@ class Analysis:
                 continue
             seen.add(did)
             role, limit = d.get("role"), d.get("your_limit")
-            msgs = [{"tick": m.get("tick"), "us": m.get("from") == "you", "who": "us" if m.get("from") == "you" else m.get("from"),
+            msgs = [{"tick": m.get("tick"), "ts": self.ts_of_tick(m.get("tick")), "us": m.get("from") == "you",
+                     "who": "us" if m.get("from") == "you" else m.get("from"),
                      "text": (m.get("text") or "")[:500], "price": m.get("price"), "days": m.get("days")}
                     for m in (d.get("messages") or [])]
             ours = [m for m in msgs if m["us"] and m["price"] is not None]
@@ -1545,8 +1547,8 @@ class Analysis:
                         "start": start, "end": end, "msgs": th["msgs"],
                         "status": "deal" if deal else "live" if tid not in self.closed_threads and tick - end <= 4 else "no_deal",
                         "price": deal["price"] if deal else None,
-                        "log": [{"tick": m["tick"], "us": not m["dealer"], "price": m["price"], "text": m["text"],
-                                 "final": m["final"]} for m in th["log"][-30:]]})
+                        "log": [{"tick": m["tick"], "ts": self.ts_of_tick(m["tick"]), "us": not m["dealer"], "price": m["price"],
+                                 "text": m["text"], "final": m["final"]} for m in th["log"][-30:]]})
         out.sort(key=lambda x: -x["end"])
         return {"rows": out[:n], "total": len(out), "deals": sum(1 for x in out if x["status"] == "deal"),
                 "live": sum(1 for x in out if x["status"] == "live")}
@@ -1568,6 +1570,156 @@ class Analysis:
                 "market_start": rows[0]["market"] if rows else None, "market_now": rows[-1]["market"] if rows else None,
                 "series": [[r["tick"], r["market"]] for r in rows if r["tick"] <= start + ticks + 4][-40:],
                 "bench_efficiency": (self.me.get("score") or {}).get("bench_efficiency")}
+
+    # -------------------------------------------------------------------------------------- game time → wall clock
+    def time_model(self):
+        """Game time to wall clock. The feed's `t` (game hours) runs with the ticks and stops in a pause and at night,
+        so wall = t + an offset that jumps at each pause and drifts a little in between (ticks run slightly slow).
+        The offsets come from STATUS.md's history (status_anchors) plus the clock now; inside a segment the offset
+        is interpolated between anchors; a jump is placed at the pause's `clock.changed`/`day.opened` event between
+        the two anchors around it, else halfway. Sets the tick → t table and the segments, and returns where each
+        day starts (the page labels its axes from the snapshots' t and ts)."""
+        known = {e["tick"]: e["t"] for e in self.events if e.get("tick") is not None and e.get("t") is not None}
+        known.update({h["tick"]: h["t"] for h in self.lb_hist if h.get("t") is not None})
+        if self.clock.get("tick") is not None and self.clock.get("t_hours") is not None:
+            known[self.clock["tick"]] = self.clock["t_hours"]
+        for k, t, _ in status_anchors():   # ticks before the dashboard's first event (it started at tick 67)
+            known.setdefault(k, t)
+        self._kt = sorted(known.items())
+        self._kticks = [k for k, _ in self._kt]
+        anchors = [(t, ts - t * 3600) for _, t, ts in status_anchors()]
+        if self.c.updated and self.clock.get("t_hours") is not None:
+            anchors.append((self.clock["t_hours"], self.c.updated - self.clock["t_hours"] * 3600))
+        anchors.sort()
+        pauses = sorted({e["t"] for e in self.events if e.get("t") is not None and (
+            e.get("type") == "day.opened" or (e.get("type") == "clock.changed" and (e.get("payload") or {}).get("paused")))})
+        segs, cur = [], [anchors[0]] if anchors else []
+        for (ta, oa), (tb, ob) in zip(anchors, anchors[1:]):
+            if abs(ob - oa) > 90:   # anchors are minute-precise: a bigger jump is a pause between them
+                ps = [p for p in pauses if ta <= p < tb]
+                segs.append([ps[-1] if ps else (ta + tb) / 2, cur])
+                cur = []
+            cur.append((tb, ob))
+        if cur:
+            segs.append([None, cur])
+        self._segs = segs
+        days = [{"t": e["t"], "label": (e.get("payload") or {}).get("name") or (e.get("payload") or {}).get("day")}
+                for e in self.events if e.get("type") == "day.opened" and e.get("t") is not None]
+        if self._kt and (not days or days[0]["t"] > self._kt[0][1]):
+            days.insert(0, {"t": self._kt[0][1], "label": "Friday"})
+        return {"days": days, "anchors": len(anchors)}
+
+    def t_of_tick(self, tick):
+        if tick is None or not getattr(self, "_kt", None):
+            return None
+        i = bisect.bisect_left(self._kticks, tick)
+        if i < len(self._kt) and self._kt[i][0] == tick:
+            return self._kt[i][1]
+        if 0 < i < len(self._kt):
+            (k0, t0), (k1, t1) = self._kt[i - 1], self._kt[i]
+            return t0 + (tick - k0) * (t1 - t0) / (k1 - k0)
+        k, t = self._kt[-1] if i else self._kt[0]
+        return t + (tick - k) * (self.clock.get("tick_seconds") or 15) / 3600
+
+    def ts_of_t(self, t):
+        if t is None or not getattr(self, "_segs", None):
+            return None
+        for end, pts in self._segs:
+            if end is None or t <= end:
+                i = bisect.bisect_left(pts, (t,))
+                if i == 0 or i == len(pts):
+                    off = pts[0][1] if i == 0 else pts[-1][1]
+                else:
+                    (t0, o0), (t1, o1) = pts[i - 1], pts[i]
+                    off = o0 + (o1 - o0) * (t - t0) / (t1 - t0) if t1 > t0 else o1
+                return round(t * 3600 + off)
+        return None
+
+    def ts_of_tick(self, tick):
+        return self.ts_of_t(self.t_of_tick(tick))
+
+    # -------------------------------------------------------------------------------------- every team's jumps
+    def team_jumps(self, thr=1.0):
+        """Every jump of every team's score between two leaderboard snapshots (|Δ| ≥ thr), and why: the part that
+        moved (negotiating or market); the field drift, i.e. the median change of the teams with no deal in the window
+        (the board is relative, so a team that stands still moves with it); the team's own deals and the trades on its
+        stall; a page completed; and what ran then (a duel session, a Market Test, a dealer opening, a new round)."""
+        vown = {v.get("venue"): v.get("owner") for v in self.venues}
+        sessions, benches, marks = {}, [], []
+        for e in self.events:
+            p, ty, k = e.get("payload") or {}, e.get("type"), e.get("tick") or 0
+            if ty == "duels.scheduled":
+                sessions[p.get("session")] = [p.get("name") or "duels", k, None]
+            elif ty == "duels.finished" and p.get("session") in sessions:
+                sessions[p["session"]][2] = k
+            elif ty == "bench.started":
+                start = p.get("start_tick") or k
+                benches.append([f"Market Test {p.get('session')}" if p.get("session") else "a Market Test", start,
+                                start + (p.get("ticks") or 16)])
+            elif ty == "level.activated":
+                marks.append((k, None, f"{p.get('name') or p.get('level')} opened (new dealer)"))
+            elif ty == "persona.open_to_all":
+                marks.append((k, None, f"{p.get('name') or p.get('persona')} opened to every team"))
+            elif ty == "set.released":
+                marks.append((k, None, f"new set released: {p.get('name') or p.get('set')}"))
+            elif ty == "round.started":
+                marks.append((k, None, f"round {p.get('round')} started ({p.get('name')})"))
+            elif ty == "level.unlocked":
+                marks.append((k, p.get("team"), f"unlocked {p.get('persona_name') or p.get('persona')}"))
+            elif ty == "taller.crafted":
+                marks.append((k, p.get("team"), f"crafted {p.get('card') or 'a card'} in the Workshop"))
+            elif ty == "pack.opened":
+                marks.append((k, p.get("team"), "opened a pack"))
+        windows = [(n, a, b) for n, a, b in sessions.values()] + [(n, a, b) for n, a, b in benches]
+        duel_names = {n for n, _, _ in sessions.values()}
+
+        out = collections.defaultdict(list)
+        for a, b in zip(self.lb_hist, self.lb_hist[1:]):
+            ta, tb = a["tick"], b["tick"]
+            trades = [tr for tr in self.trades if ta < (tr["tick"] or 0) <= tb]
+            active = {pt for tr in trades for pt in tr["parties"]}
+
+            def dl(tid, key):
+                x, y = a["teams"].get(tid, {}).get(key), b["teams"].get(tid, {}).get(key)
+                return y - x if x is not None and y is not None else None
+            idle = [k for k in b["teams"] if k in a["teams"] and k not in active and not dl(k, "deals")]
+            drift = {key: median([d for k in idle if (d := dl(k, key)) is not None] or [0.0])
+                     for key in ("score", "negotiating", "market")}
+            running = [n for n, s, e in windows if s <= tb and (e is None or e >= ta)]
+            for tid in b["teams"]:
+                d = dl(tid, "score")
+                if d is None or abs(d) < thr:
+                    continue
+                dn, dm = dl(tid, "negotiating") or 0.0, dl(tid, "market") or 0.0
+                part, other = ("negotiating", "market") if abs(dn) >= abs(dm) else ("market", "negotiating")
+                pv, ov = (dn, dm) if part == "negotiating" else (dm, dn)
+                why = [f"{part} {pv:+.2f}" + (f", {other} {ov:+.2f}" if abs(ov) >= 0.3 else "")]
+                own = d - drift["score"]
+                if abs(drift["score"]) >= 0.3:
+                    why.append(f"the field moved {drift['score']:+.2f} (median of {len(idle)} teams with no deal)"
+                               + (": mostly that, not this team" if abs(own) < 0.3 else ""))
+                pa, pb = a["teams"].get(tid, {}).get("pages"), b["teams"].get(tid, {}).get("pages")
+                if pa is not None and pb is not None and pa != pb:
+                    why.append(f"{'completed' if pb > pa else 'broke'} a page ({pa} → {pb})")
+                deals = [self._deal_text(tr, tid) for tr in trades if tid in tr["parties"]]
+                stall = [self._deal_text(tr, tid) for tr in trades
+                         if tr["kind"] == "team" and vown.get(tr["venue"]) == tid and tid not in tr["parties"]]
+                why += deals[:4] + ([f"+{len(deals) - 4} more deals"] if len(deals) > 4 else []) + stall[:2]
+                why += [f"during {n}" for n in running]
+                why += [txt for k, who, txt in marks if ta - 2 < k <= tb and who in (None, tid)][:3]
+                if not deals and not stall and not running and (pa == pb) and abs(own) >= 0.3:
+                    why.append("no deal of its own: market re-scored (a Market Test's result, or the value made on its stall)"
+                               if part == "market" else
+                               "no deal of its own in the window: duel or ladder points landed, or a re-grade")
+                kind = ("field" if abs(own) < 0.3 else "page" if pa is not None and pb is not None and pb > pa
+                        else "deal" if deals or stall else "duel" if any(n in duel_names for n in running)
+                        else "market" if part == "market" else "other")
+                t0, t1 = a.get("t") or self.t_of_tick(ta), b.get("t") or self.t_of_tick(tb)
+                out[tid].append({"from": ta, "to": tb, "t0": t0, "t1": t1, "ts0": self.ts_of_t(t0), "ts1": self.ts_of_t(t1),
+                                 "delta": round(d, 2), "own": round(own, 2), "neg": round(dn, 2), "mkt": round(dm, 2),
+                                 "drift": round(drift["score"], 2), "score": b["teams"][tid].get("score"),
+                                 "kind": kind, "why": why})
+        return dict(out)
 
     # -------------------------------------------------------------------------------------- why our score moved
     def our_trade_text(self, tr):
@@ -1791,6 +1943,7 @@ class Analysis:
 
     def build(self):
         self.scan()
+        timeline = self.time_model()
         prof = self.profiles()
         market = self.market()
         story = self.story()
@@ -1831,8 +1984,10 @@ class Analysis:
                    "score": {k: s.get(k) for k in ("score", "rank", "negotiating", "market", "neg_points", "ladder_points",
                                                    "duel_points", "bench_efficiency", "deals", "pages_complete", "luck")}},
             "me_hist": self.me_hist[-500:],
-            "lb_hist": [{"tick": h["tick"], "scores": {k: v.get("score") for k, v in h["teams"].items()}}
-                        for h in self.lb_hist],
+            "lb_hist": [{"tick": h["tick"], "t": (t := h.get("t") or self.t_of_tick(h["tick"])), "ts": self.ts_of_t(t),
+                         "scores": {k: v.get("score") for k, v in h["teams"].items()}} for h in self.lb_hist],
+            "timeline": timeline,
+            "jumps": self.team_jumps(),
             "names": self.names,
             "teams": prof,
             "insights": self.insights(prof, market),
@@ -1880,6 +2035,44 @@ def last_seen(files, _cache={}):
                     break
             _cache[f] = (time.time(), v)
         out[f] = v
+    return out
+
+
+STATUS_LINE = re.compile(r"Last update \*\*(\w{3}) (\d{1,2}):(\d{2})\*\* · tick (\d+) .*?game hour ([\d.]+)")
+WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+
+
+def status_anchors(_cache={}):
+    """Wall-clock anchors (tick, game hour, epoch s) from the history of STATUS.md, which tools/status.py rewrites
+    every few minutes with its local time, the tick and the game hour: the only record of when each tick happened,
+    pauses and nights included (the feed's `t` stops in a pause). Local git only, no game request; cached 2 minutes."""
+    t, v = _cache.get("a", (0.0, []))
+    if time.time() - t < 120:
+        return v
+    out = []
+    for ref in ("origin/main", "HEAD"):
+        try:
+            r = _run(["git", "-C", str(ROOT), "log", ref, "--format=@@%ct", "-p", "-U0", "--", "STATUS.md"],
+                     capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=20)
+        except (OSError, subprocess.SubprocessError):
+            continue
+        ct = None
+        for line in (r.stdout or "").splitlines() if r.returncode == 0 else []:
+            if line.startswith("@@") and line[2:].isdigit():
+                ct = int(line[2:])
+            elif ct and line.startswith("+") and (m := STATUS_LINE.search(line)):
+                day, hh, mm, tick, gh = m.groups()
+                base = datetime.fromtimestamp(ct)
+                for back in range(3):  # the line's weekday, on or just before the commit's date
+                    d = base - timedelta(days=back)
+                    if WEEKDAYS[d.weekday()] == day:
+                        out.append((int(tick), float(gh), d.replace(hour=int(hh), minute=int(mm), second=30,
+                                                                    microsecond=0).timestamp()))
+                        break
+        if out:
+            break
+    out.sort()
+    _cache["a"] = (time.time(), out)
     return out
 
 
