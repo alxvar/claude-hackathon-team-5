@@ -122,6 +122,376 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1919,
+   "raw": {
+    "duel": 11195,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.66,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 138,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 1925,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 12889,
+     "price": 86,
+     "tick": 1913,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 13031,
+     "price": 125,
+     "tick": 1919,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1913,
+      "from": "you",
+      "text": "I'd like to open at 86 primas, with delivery on day 0.",
+      "price": 86,
+      "days": 0
+     },
+     {
+      "tick": 1916,
+      "from": "Rival Verde",
+      "text": "Hello. My number is 144.",
+      "price": 144,
+      "days": 10
+     },
+     {
+      "tick": 1919,
+      "from": "Rival Verde",
+      "text": "That was a real step from my side: 125.",
+      "price": 125,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1920,
+   "raw": {
+    "duel": 11195,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.66,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 138,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 1925,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 12889,
+     "price": 86,
+     "tick": 1913,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 13057,
+     "price": 116,
+     "tick": 1920,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1913,
+      "from": "you",
+      "text": "I'd like to open at 86 primas, with delivery on day 0.",
+      "price": 86,
+      "days": 0
+     },
+     {
+      "tick": 1916,
+      "from": "Rival Verde",
+      "text": "Hello. My number is 144.",
+      "price": 144,
+      "days": 10
+     },
+     {
+      "tick": 1919,
+      "from": "Rival Verde",
+      "text": "That was a real step from my side: 125.",
+      "price": 125,
+      "days": 10
+     },
+     {
+      "tick": 1920,
+      "from": "Rival Verde",
+      "text": "That was a real step from my side: 116.",
+      "price": 116,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1921,
+   "raw": {
+    "duel": 11195,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.66,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 138,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 1925,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 12889,
+     "price": 86,
+     "tick": 1913,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 13072,
+     "price": 105,
+     "tick": 1921,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1913,
+      "from": "you",
+      "text": "I'd like to open at 86 primas, with delivery on day 0.",
+      "price": 86,
+      "days": 0
+     },
+     {
+      "tick": 1916,
+      "from": "Rival Verde",
+      "text": "Hello. My number is 144.",
+      "price": 144,
+      "days": 10
+     },
+     {
+      "tick": 1919,
+      "from": "Rival Verde",
+      "text": "That was a real step from my side: 125.",
+      "price": 125,
+      "days": 10
+     },
+     {
+      "tick": 1920,
+      "from": "Rival Verde",
+      "text": "That was a real step from my side: 116.",
+      "price": 116,
+      "days": 10
+     },
+     {
+      "tick": 1921,
+      "from": "Rival Verde",
+      "text": "That was a real step from my side: 105.",
+      "price": 105,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1922,
+   "raw": {
+    "duel": 11195,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.66,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 138,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 1925,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 12889,
+     "price": 86,
+     "tick": 1913,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 13098,
+     "price": 99,
+     "tick": 1922,
+     "days": 8
+    },
+    "messages": [
+     {
+      "tick": 1913,
+      "from": "you",
+      "text": "I'd like to open at 86 primas, with delivery on day 0.",
+      "price": 86,
+      "days": 0
+     },
+     {
+      "tick": 1916,
+      "from": "Rival Verde",
+      "text": "Hello. My number is 144.",
+      "price": 144,
+      "days": 10
+     },
+     {
+      "tick": 1919,
+      "from": "Rival Verde",
+      "text": "That was a real step from my side: 125.",
+      "price": 125,
+      "days": 10
+     },
+     {
+      "tick": 1920,
+      "from": "Rival Verde",
+      "text": "That was a real step from my side: 116.",
+      "price": 116,
+      "days": 10
+     },
+     {
+      "tick": 1921,
+      "from": "Rival Verde",
+      "text": "That was a real step from my side: 105.",
+      "price": 105,
+      "days": 10
+     },
+     {
+      "tick": 1922,
+      "from": "Rival Verde",
+      "text": "That was a real step from my side: 99.",
+      "price": 99,
+      "days": 8
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1922,
+   "raw": {
+    "duel": 11195,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 3.66,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 138,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 1925,
+    "decay_per_round": 0.1,
+    "rounds": 2,
+    "your_offer": {
+     "id": 13113,
+     "price": 101,
+     "tick": 1922,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 13098,
+     "price": 99,
+     "tick": 1922,
+     "days": 8
+    },
+    "messages": [
+     {
+      "tick": 1913,
+      "from": "you",
+      "text": "I'd like to open at 86 primas, with delivery on day 0.",
+      "price": 86,
+      "days": 0
+     },
+     {
+      "tick": 1916,
+      "from": "Rival Verde",
+      "text": "Hello. My number is 144.",
+      "price": 144,
+      "days": 10
+     },
+     {
+      "tick": 1919,
+      "from": "Rival Verde",
+      "text": "That was a real step from my side: 125.",
+      "price": 125,
+      "days": 10
+     },
+     {
+      "tick": 1920,
+      "from": "Rival Verde",
+      "text": "That was a real step from my side: 116.",
+      "price": 116,
+      "days": 10
+     },
+     {
+      "tick": 1921,
+      "from": "Rival Verde",
+      "text": "That was a real step from my side: 105.",
+      "price": 105,
+      "days": 10
+     },
+     {
+      "tick": 1922,
+      "from": "Rival Verde",
+      "text": "That was a real step from my side: 99.",
+      "price": 99,
+      "days": 8
+     },
+     {
+      "tick": 1922,
+      "from": "you",
+      "text": "I can do 101 P, delivery on day 0.",
+      "price": 101,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -350,6 +720,689 @@
     "LATE_SWITCH_LEFT": 0,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1919,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11195,
+     "role": "buyer",
+     "limit": 138,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.66,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 86 primas, with delivery on day 0.",
+      "offer": {
+       "price": 86,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1913,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hello. My number is 144.",
+      "offer": {
+       "price": 144,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1916,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 125.",
+      "offer": {
+       "price": 125,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1919,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 125,
+     "days": 10
+    },
+    "tick": 1919,
+    "ticks_left": 6,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 86,
+    "days": 0,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1920,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11195,
+     "role": "buyer",
+     "limit": 138,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.66,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 86 primas, with delivery on day 0.",
+      "offer": {
+       "price": 86,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1913,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hello. My number is 144.",
+      "offer": {
+       "price": 144,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1916,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 125.",
+      "offer": {
+       "price": 125,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1919,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 116.",
+      "offer": {
+       "price": 116,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1920,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 116,
+     "days": 10
+    },
+    "tick": 1920,
+    "ticks_left": 5,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 86,
+    "days": 0,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1921,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11195,
+     "role": "buyer",
+     "limit": 138,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.66,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 86 primas, with delivery on day 0.",
+      "offer": {
+       "price": 86,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1913,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hello. My number is 144.",
+      "offer": {
+       "price": 144,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1916,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 125.",
+      "offer": {
+       "price": 125,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1919,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 116.",
+      "offer": {
+       "price": 116,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1920,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 105.",
+      "offer": {
+       "price": 105,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1921,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 105,
+     "days": 10
+    },
+    "tick": 1921,
+    "ticks_left": 4,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 86,
+    "days": 0,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1922,
+   "took_s": 1.22,
+   "cost_usd": 0.00124,
+   "obs": {
+    "view": {
+     "duel_id": 11195,
+     "role": "buyer",
+     "limit": 138,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.66,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 86 primas, with delivery on day 0.",
+      "offer": {
+       "price": 86,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1913,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hello. My number is 144.",
+      "offer": {
+       "price": 144,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1916,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 125.",
+      "offer": {
+       "price": 125,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1919,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 116.",
+      "offer": {
+       "price": 116,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1920,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 105.",
+      "offer": {
+       "price": 105,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1921,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 105,
+     "days": 10
+    },
+    "tick": 1922,
+    "ticks_left": 3,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 101 P, delivery on day 0.",
+    "price": 101,
+    "days": 0,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 27.8,
+     "closing": true,
+     "text": "rejected: plain words",
+     "text_problems": [
+      "the message names 10: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "I see you're moving steadily down. I'll offer 113 primas on day 0, or we could meet on your day 10 at a higher price.",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.22,
+       "in": 1013,
+       "out": 45,
+       "cost_usd": 0.00124,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 113,
+     "floor": 37.0
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1923,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11195,
+     "role": "buyer",
+     "limit": 138,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 3.66,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 86 primas, with delivery on day 0.",
+      "offer": {
+       "price": 86,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1913,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hello. My number is 144.",
+      "offer": {
+       "price": 144,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1916,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 125.",
+      "offer": {
+       "price": 125,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1919,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 116.",
+      "offer": {
+       "price": 116,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1920,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 105.",
+      "offer": {
+       "price": 105,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1921,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "That was a real step from my side: 99.",
+      "offer": {
+       "price": 99,
+       "days": 8
+      },
+      "accept": false,
+      "tick": 1922,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 101 P, delivery on day 0.",
+      "offer": {
+       "price": 101,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1922,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 99,
+     "days": 8
+    },
+    "tick": 1923,
+    "ticks_left": 2,
+    "rounds": 2,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 99,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -385,6 +1438,68 @@
      "tick": 1913,
      "days": 0
     }
+   }
+  },
+  {
+   "tick": 1922,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 101 P, delivery on day 0.",
+    "price": 101,
+    "days": 0,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 27.8,
+     "closing": true,
+     "text": "rejected: plain words",
+     "text_problems": [
+      "the message names 10: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "I see you're moving steadily down. I'll offer 113 primas on day 0, or we could meet on your day 10 at a higher price.",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.22,
+       "in": 1013,
+       "out": 45,
+       "cost_usd": 0.00124,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 113,
+     "floor": 37.0
+    }
+   },
+   "result": {
+    "duel": 11195,
+    "offer": {
+     "id": 13113,
+     "price": 101,
+     "tick": 1922,
+     "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1923,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 99,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 99,
+    "settles_at_tick": 1924
    }
   }
  ]

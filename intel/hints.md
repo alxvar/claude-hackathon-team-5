@@ -369,3 +369,5 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 11:11 · message tick 1908 · banco → t04 · The market is not my concern, señor. I have shaved one peseta, and that is the whole of my movement: 760 P. The card waits in my vault either way.
 - Sun 11:11 · message tick 1908 · picaros → t06 · ¡Anda, un lector! Paco, este sabe más que nosotros. Mira, sin humo, sin cuento: El Organillero, pieza fina, suena solo cuando lo abres... —y te lo dejamos en 4 primas. Cuatro, hermano. Pero decide ya, que el tren nos silba y la maleta se cierra sola.
 - Sun 11:12 · message tick 1911 · banco → t04 · You repeat yourself, señor; I do not. Seven hundred fifty pesetas, and that is the whole of today's movement. The gato sleeps well in my vault.
+- Sun 11:14 · message tick 1921 · banco → t04 · Patience is not a discount, señor. The term stands: 761 P. El Gato waits in the vault; he has waited longer than either of us.
+- Sun 11:14 · message tick 1922 · banco → t04 · Respect does not move terms, señor. Let it be 760 P — one peseta, to mark the courtesy. El Gato stays in the vault until you meet it.
