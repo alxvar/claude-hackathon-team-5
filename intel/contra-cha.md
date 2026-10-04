@@ -6,20 +6,58 @@ Read: sunday-final, dealer-lab (§2, FAST-START), dealer-lab-ladder (§1, §5-6)
 book_cha_entries.json, score-model §4.6-4.13, live-tuning, directives (top), sunday-redteam, adversary-t10, contra-ops,
 contra-market (skimmed), RULES, GAME.md. Checked against `data/feed.jsonl` (Fri-Sat, to tick 1445), `run/sunday/simple_buy.py`,
 `run/sunday/t0.sh`, `agents/trader/loop.py`, `agents/trader/book.py`, `tools/opportunities.py`, `tools/policy.py`.
-Labels: **[V]** read from data or code · **[L]** inferred · **[?]** open. Points are Sunday round points (× 0.4 = final)._
+Labels: **[V]** read from data or code · **[L]** inferred · **[?]** open. Points are Sunday round points (× 0.4 = final).
+Updated 07:35 after an independent verification pass (feed stats, code and arithmetic re-run; corrections applied) and after
+directive 07:25 adopted most fixes._
+
+## Status at 07:35: adopted, and still open
+
+**Adopted (directive 07:25, t0.sh re-armed at 07:14:32 as pid 15531 on the new file [V lsof]):**
+- #1 per-thread caps 57 → 60 → 62, reopening only after a logged walk;
+- #2 closers on El Rastro;
+- #4 LAV asks dropped, the Workshop at C, LAV-04 → the Pícaros;
+- #5 MAL out of the chain;
+- #6 floors at 110;
+- #7 Abuela commons from C+5;
+- #8 the sink order;
+- #9 the t10/t01 watcher;
+- #10 simple_buy retries and the last-card guard; CHA-09/10 public only at C+60.
+
+**Still open (review of the new t0.sh / simple_buy.py):**
+1. **The Chato fallback fires on anything that isn't a logged walk** [V t0.sh lines 77-81]:
+   - A Pícaros run that ends by deadline counts, and so does a trick-guard stall. simple_buy waits on a bait-and-switch offer
+     until it expires. The Pícaros bait and switch in ≈ 15-22% of offers [L dealer-lab-ladder].
+   - Both send the rare to Chato ≤ 100: no L4 slot (Chato's rare finals are 77-93 [V feed, n = 31]).
+   - A run that offered the Pícaros' price, where the deal hasn't settled within 15 s (an organiser pause), also goes to Chato.
+     That can buy a **2nd copy at ≈ 77-93, worth 28: ≈ −50 to −65 np** counted in full.
+   - **Fix:** if the log shows `offer_their_price`, poll `held` for 2 min before doing anything else. Go to Chato only on
+     `closed_reason` `sold_out` or `persona_quota`, or when the thread can't be opened. On a deadline or a trick stall, reopen
+     at the Pícaros at the same cap.
+2. **The last-card guard runs only at start** [V simple_buy.py:50-53].
+   - A public fill of another CHA card mid-thread can make this card the last one, and the dealer deal then closes the page
+     without the bonus.
+   - **Fix:** re-read `/api/me/value` just before `offer_their_price` and walk if it is above base + 1.
+3. **The closer still has no seller (#3).** 07:25 covers the venue but not the relay.
+   - sunday-final still says "pre-agreed", which can't happen at 08:30: nobody holds CHA before C.
+   - Either ask one non-rival member at 08:30 to buy CHA-05/08 at Abuela at C and hold them, or accept the 09:15 feed search.
+     The search sees only dealer buyers, because pack pulls are hidden.
+4. **t15's MAL-07** should stay unlisted until we bid (#5, g). An ask addressed to us is still visible in the feed, and t10
+   needs MAL-07.
+5. **Docs:** sunday-final stage 1 still says "10 public bids … 54". t0 posts 8, plus CHA-09/10 only at C+60 if a rare is
+   missing. Doc only.
 
 ## Verdict per stage
 
 | Stage | Verdict | Why |
 |---|---|---|
 | **1 CHA page** | **GO, with 4 changes** (#1, #2, #3, #7) | The rare chain is stricter than the Pícaros' measured finals. The closer has no seller at 09:00 and no venue rule. The Abuela window can't finish the page before Duels III |
-| **4 MAL close** | **NO-GO at 09:00. Re-decide at ≈ 12:00 on M5** (#5) | At ≤ 49 it can't fill: 0 of 8 Saturday Pícaros MAL rare finals and sales were below 57. In the chain it only blocks the Pícaros. Relaxed, it's worth ≈ +20-28 np, and only while our trade part is live |
+| **4 MAL close** | **NO-GO at 09:00. Re-decide at ≈ 12:00 on M5** (#5) | At ≤ 49 it can't fill: 0 of 8 Saturday Pícaros MAL rare finals and sales were below 57. In the chain it only blocks the Pícaros. Relaxed, it's worth ≈ +17-28 np, and only while our trade part is live |
 | **5 Fodder** | **GO, re-allocate the LAV spares** (#4) | Most of the value is one Pícaros common sale (an L4 slot nobody has scheduled), plus the pack and the Workshop. The LAT bids are lottery tickets. Two staged LAV asks eat the Workshop's inputs |
 | **Cash** | **No overspend path. The risk runs the other way** (#6, #8) | The trader and opps floors count our open CHA bids twice, so both stay inert all morning. ≈ 300 P will sit idle at 15:00 |
 
 Combined, the fixes are worth ≈ +2-5 Sunday points (≈ +1-2 final) [L; the ranges overlap and are not additive].
 
-## Issues ranked by expected points
+## Issues ranked by expected points (EV midpoint, weighted by evidence: #1 rests on [V] data; #2's size hinges on a [?])
 
 | # | Issue | EV of the fix | Fix (owner, when) |
 |---|---|---|---|
@@ -28,7 +66,7 @@ Combined, the fixes are worth ≈ +2-5 Sunday points (≈ +1-2 final) [L; the ra
 | 3 | The CHA closer has no seller at C and lands ≈ 12:45-13:45 | +0.3-0.8 | 08:30 relay with one non-rival club member: it buys CHA-05 and CHA-08 from Abuela at C and sells both to us by addressed El Rastro bids at cost + 5-8 (Lucas/Dani, 08:30) |
 | 4 | Pícaros L4 slot 3 is unscheduled; 4 LAV spares are booked for 7 uses | +0.3-0.7 | Drop both staged LAV asks. LAV-04 → Pícaros right after the CHA rares. LAV-02, LAV-02, LAV-03 → Workshop at C (Operator, before 08:45) |
 | 5 | The MAL legs in t0.sh can't fill at ≤ 49 and hold the Pícaros 10-28 min | +0.2-0.8 | Delete the MAL loop from the chain. At ≈ 12:00, if M5 is live: relaxed MAL (Pícaros ≤ 60, t15's MAL-07 confirmed first, closer on El Rastro), with a GUARDRAIL line. Else drop it and its 126 P (Chief) |
-| 6 | Trader/opps floors 464 double-count our open bids | +0.2-0.6 | Floor = planned spend not already in open bids + 50 ≈ 100-120 at R+10; 0 at 13:30 (Operator) |
+| 6 | Trader/opps floors 464 double-count our open bids | +0.2-0.6 | Floor = planned spend not already in open bids + 50 ≈ 80-122 at R+10; 0 at 13:30 (Operator) |
 | 7 | Abuela window 10:00-10:40 is too short for 6 cards | +0.2-0.5 | Commons CHA-01..03 at Abuela from C+5, in parallel with the Pícaros. Uncommons and CHA-04 stay public until C+45, then Abuela (Operator) |
 | 8 | ≈ 300 P strands at 15:00 | +0.1-0.5 | 12:00 sink order: floors → relaxed MAL if live → ladder upgrades ≤ value → non-rival asks ≤ value − 10 (Chief) |
 | 9 | Public CHA bids pay a duplicate holder almost as much as us, and t10 can fill them | +0.1-0.4 | Cancel the public bid for any CHA card the feed shows t10/t01 holding; pull all public CHA bids once M5 says capped (Operator) |
@@ -45,14 +83,16 @@ Combined, the fixes are worth ≈ +2-5 Sunday points (≈ +1-2 final) [L; the ra
   |---|---|---|---|---|
   | Share of finals | 17% | 52% | 96% | 100% |
 
-  - Settled rare buys (n = 52): 29% at ≤ 54, 63% at ≤ 57, 90% at ≤ 62.
+  - Settled non-MAL rare buys (n = 47): 32% at ≤ 54, 68% at ≤ 57, 89% at ≤ 62.
   - Finals are close to binding: teams beat a dealer's final in 7 of 183 deals [V dealer-lab-ladder §0.4].
-- t0.sh runs `B 42 54`, then, if the card isn't held, `B 42 57`, then the next card [V].
-  - P(per rare) ≈ 0.6-0.74. **P(both rares) ≈ 0.36-0.55.**
-  - So about half the time a CHA rare is still missing at ≈ 09:30, and nothing says what comes next.
-  - Chato finals run 82-96, above list 77, so a Chato rare carries no ladder slot.
+- The 07:04 t0.sh ran `B 42 54`, then, if the card wasn't held, `B 42 57`, then the next card [V].
+  - P(per rare) ≈ 0.52-0.78 (the low end assumes a card's final carries over between threads).
+  - **P(both rares) ≈ 0.3-0.6.**
+  - So about half the time a CHA rare would still have been missing at ≈ 09:30, with nothing saying what comes next.
+  - Chato's rare finals run 77-93 (n = 31) [V feed]: at or above list 77, so a Chato rare carries no ladder slot.
 - The walk buys little share:
-  - The same price of 54 gave shares of 0.79 (SAL-09, +0.070) and 0.71 (SAL-10, +0.063) [V dealer-lab].
+  - The same price of 54 gave shares of ≈ 0.79 (SAL-09, +0.070) and ≈ 0.71 (SAL-10, +0.063). The ladder moves are [V
+    dealer-lab]; the shares are derived as Δ / 0.089 [L].
   - So the range is per conversation [L]: a final taken near its own limit keeps most of the share.
   - Every price ≤ 62 is below list 63 (the ladder counts it) and below our value of 112 (0 np).
 - Print runs are global, 30 per CHA rare. SAL-09 hit 29/30 in one day [V redteam §1.2]. A slow chain risks the card itself, not just
@@ -135,12 +175,13 @@ Combined, the fixes are worth ≈ +2-5 Sunday points (≈ +1-2 final) [L; the ra
   - Supply is thin: 1 of 8 Saturday LAT-uncommon team trades went at ≤ 12 [V redteam §2D].
   - The likeliest seller is t10, which dumps LAT [L adversary]. Its gain would be ≤ ≈ 9, inside the 10 P rule.
   - Expect 0-1 fills.
-- **Sale floors are hardcoded to Saturday's openings** (Pilar 16, Chato 13).
+- **The sale floors come from Saturday's openings** (Pilar 16, Chato 13: directive 00:44 and dealer-lab). `dealer_sell.py`
+  takes `--floor` as an argument, so the Operator types it.
   - The dealers were patched 7 times over the weekend (`persona.updated` [V feed]).
   - Pilar opens at 22 for SAL/RET.
-  - Use the dealer's first bid in that thread + 1.
-- **Pack duplicates of reserved refs** (SAL-0x, MAL-0x, RET-11) are blocked by ref in `policy.py` [V]. Sell those by hand, by
-  asset id, and only a 2nd copy.
+  - Pass the dealer's first bid in that thread + 1.
+- **Pack duplicates of reserved refs** are blocked by ref in `policy.py` [V]: MAL-01..06 and 08, SAL-01..05 and 07..10, RET-11.
+  Sell those by hand, by asset id, and only a 2nd copy.
 - **Dealer resale is harmless.**
   - A rival buying our fodder back from Chato pays list: no ladder, 0 np, and no team-trade close.
   - Pilar and the Pícaros don't sell singles of what they buy [V menus].
@@ -149,7 +190,7 @@ Combined, the fixes are worth ≈ +2-5 Sunday points (≈ +1-2 final) [L; the ra
 
 - **The dealer legs can't fill.**
   - Pícaros MAL rare finals on Saturday: 57, 60, 63. MAL rares the Pícaros sold: 57, 59, 60, 61, 61 [V feed].
-  - Pícaros rare finals ≤ 49, all sets: 1 of 23.
+  - Pícaros rare finals ≤ 49, all sets: 1 of 26.
   - So MAL-09/10 at ≤ 49 (our value) fill with P ≈ 0-5% each.
 - **They still cost time.**
   - t0.sh runs MAL-09 and MAL-10, two threads each with a 420 s deadline, as soon as cash ≥ 373 (always true) [V].
@@ -164,7 +205,8 @@ Combined, the fixes are worth ≈ +2-5 Sunday points (≈ +1-2 final) [L; the ra
   - At ≈ 12:00, after Duels III and after the CHA closer:
     - **If M5 shows our trade part still live, run a relaxed MAL.** t15 confirms in writing that it holds MAL-07. MAL-09/10 at
       the Pícaros ≤ 60: −11 np each, still below list, so they count as L4 upgrades. MAL-07 last, on El Rastro, at ≤ 25.
-      Net ≈ +20-28 np ≈ +1.5-2.5 points. It buys above our value, so it needs a GUARDRAIL line from Lucas.
+      Net ≈ +17-28 np (+17 at the caps: 63.9 − 25 − 22) ≈ +1.5-2.5 points. It buys above our value, so it needs a
+      GUARDRAIL line from Lucas.
     - **If M5 says capped,** no MAL, and the 126 P leave every floor.
 - **(g) t15's MAL-07.**
   - The plan asks t15 to post an ask addressed to us (market-sunday; contra-ops 08:30 "sellers post now").
@@ -174,7 +216,7 @@ Combined, the fixes are worth ≈ +2-5 Sunday points (≈ +1-2 final) [L; the ra
 ### 6. Trader and opps floors count our CHA bids twice (f)
 
 - How the floors work:
-  - The trader skips a buy when cash − bid_cash − cost < floor [V loop.py:384].
+  - The trader skips a buy when cash − bid_cash − cost < floor [V loop.py:391].
   - opps nets all our open bids against its floor too [V opportunities.py:25].
   - Both floors are 464 = CHA 288 + MAL 126 + 50 [V lucas.md 00:40, run/floors.env]. The CHA 288 is mostly the open bids
     themselves (199, rising to 219 at the caps), plus 30-36 of LAT bids.
@@ -183,7 +225,7 @@ Combined, the fixes are worth ≈ +2-5 Sunday points (≈ +1-2 final) [L; the ra
   - At contra-ops' 09:30 floor of ≈ 300: ≈ 430 − ≈ 150 − 300 < 0.
 - **Fix:**
   - Set the floor to the planned spend **not already in open bids**, + 50. That is the unposted closer premium (≈ 30 with the
-    relay, ≤ 72 without), so TRADER/OPPS_FLOOR ≈ 100-120 at R+10.
+    relay, ≤ 72 without), so TRADER/OPPS_FLOOR ≈ 80-122 at R+10. It was set to 110 at 07:14.
   - Add 126 only if the relaxed MAL goes live at 12:00. Set 0 at 13:30.
   - Every trader buy stays ≥ 0 np: max ratio 0.8, CHA-*/MAL-* excluded. The trader stays held until `run/trader_ok` exists
     (rival-venue skip).
@@ -192,7 +234,7 @@ Combined, the fixes are worth ≈ +2-5 Sunday points (≈ +1-2 final) [L; the ra
 
 - Directive 07:05 (5) runs Abuela from C+60 to D3−20, one thread at a time: 40 min for up to 6 cards.
 - Abuela needs 4-7 rounds per card (≈ 3-5 min at 15 s ticks), plus reopens.
-  - On Saturday, uncommon threads ended at ≤ 22 in 26% of cases and common threads at ≤ 9 in 34% [V feed]. Those numbers
+  - On Saturday, uncommon threads ended at ≤ 22 in 24% of cases and common threads at ≤ 9 in 33% [V feed]. Those numbers
     include impatient teams; among settled deals it was 44% and 65%.
   - Expect 1-3 cards to slip past Duels III.
 - **Fix:**
@@ -226,7 +268,7 @@ Combined, the fixes are worth ≈ +2-5 Sunday points (≈ +1-2 final) [L; the ra
 ### 9. Public CHA bids pay the filler about as much as us, and can't exclude t10 (b, g)
 
 - **Who gains.**
-  - A duplicate CHA uncommon sold into our 22: we gain +18, the seller ≈ +15-17 (22 − 3 fee − its duplicate value of 3-6).
+  - A duplicate CHA uncommon sold into our 22: we gain +18, the seller ≈ +13-16 (22 − 3 fee − its duplicate value of 3-6).
   - Once our trade part is capped (M5), the filler still gains points and we don't.
   - Stage 7 says "no deal with t10 as a party". A public bid can't enforce that, and t10 is the likeliest low-CHA seller [L
     adversary §1.3 note].

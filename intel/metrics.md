@@ -1,4 +1,4 @@
-# Metrics (auto, 07:13, game tick 1445)
+# Metrics (auto, 07:16, game tick 1445)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -22,10 +22,8 @@ score 30.49 · neg_points 119.1 (15 min ago 119.1) · ladder 0.483 · duel 35.39
 
 LAT-03 (common): 5; LAT-04 (common): 5; LAV-01 (common): 99.1; LAV-02 (common): 1.3 / 1.3 / 1.3; LAV-03 (common): 3.2 / 3.2; LAV-04 (common): 3.2 / 3.2; LAV-05 (common): 99.1; LAV-06 (uncommon): 118.6; LAV-07 (uncommon): 118.6; LAV-08 (uncommon): 118.6; LAV-09 (rare): 177.1; LAV-10 (rare): 177.1; MAL-01 (common): 7; MAL-02 (common): 7; MAL-03 (common): 7; MAL-04 (common): 7; MAL-05 (common): 7; MAL-06 (uncommon): 17.5; MAL-08 (uncommon): 17.5; RET-01 (common): 83.9; RET-02 (common): 83.9; RET-03 (common): 83.9; RET-04 (common): 83.9; RET-05 (common): 83.9; RET-06 (uncommon): 100.4; RET-07 (uncommon): 100.4; RET-08 (uncommon): 100.4; RET-09 (rare): 149.9; RET-10 (rare): 149.9; RET-11 (epic): 198; SAL-01 (common): 68.6; SAL-02 (common): 68.6; SAL-03 (common): 68.6; SAL-04 (common): 68.6; SAL-05 (common): 68.6; SAL-06 (uncommon): 82.1; SAL-07 (uncommon): 82.1; SAL-08 (uncommon): 82.1; SAL-09 (rare): 122.6; SAL-10 (rare): 122.6; sobre_plata (pack): 71.6
 
-## Our open offers (2)
+## Our open offers (0)
 
-- 19979: sell LAV-03 for 6 · to t04 · expires tick 1455
-- 19981: sell LAV-04 for 6 · to t01 · expires tick 1455
 
 ## What each of our deals did to neg_points (measured, last 12)
 
