@@ -122,6 +122,133 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1957,
+   "raw": {
+    "duel": 11360,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Escaparate de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.51,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 109,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Plata",
+    "deadline_tick": 1961,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 13735,
+     "price": 155,
+     "tick": 1949,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 13939,
+     "price": 119,
+     "tick": 1957,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1949,
+      "from": "you",
+      "text": "I'd like to propose 155 P with delivery on day 10.",
+      "price": 155,
+      "days": 10
+     },
+     {
+      "tick": 1949,
+      "from": "Rival Plata",
+      "text": "Propuesta justa para cerrar pronto: 87 P y 0 días.",
+      "price": 87,
+      "days": 0
+     },
+     {
+      "tick": 1957,
+      "from": "Rival Plata",
+      "text": "Me muevo para acercarnos: 119 P con 0 días.",
+      "price": 119,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1958,
+   "raw": {
+    "duel": 11360,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Escaparate de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 1.51,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 109,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Plata",
+    "deadline_tick": 1961,
+    "decay_per_round": 0.1,
+    "rounds": 2,
+    "your_offer": {
+     "id": 13951,
+     "price": 140,
+     "tick": 1958,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 13939,
+     "price": 119,
+     "tick": 1957,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1949,
+      "from": "you",
+      "text": "I'd like to propose 155 P with delivery on day 10.",
+      "price": 155,
+      "days": 10
+     },
+     {
+      "tick": 1949,
+      "from": "Rival Plata",
+      "text": "Propuesta justa para cerrar pronto: 87 P y 0 días.",
+      "price": 87,
+      "days": 0
+     },
+     {
+      "tick": 1957,
+      "from": "Rival Plata",
+      "text": "Me muevo para acercarnos: 119 P con 0 días.",
+      "price": 119,
+      "days": 0
+     },
+     {
+      "tick": 1958,
+      "from": "you",
+      "text": "I can do 140 P, delivery on day 10.",
+      "price": 140,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -497,6 +624,400 @@
     "LATE_SWITCH_LEFT": 0,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1956,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11360,
+     "role": "seller",
+     "limit": 109,
+     "currency": "P",
+     "item": "Escaparate de Serrano",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.51,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to propose 155 P with delivery on day 10.",
+      "offer": {
+       "price": 155,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1949,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 87 P y 0 días.",
+      "offer": {
+       "price": 87,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1949,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 87,
+     "days": 0
+    },
+    "tick": 1956,
+    "ticks_left": 5,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 155,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1957,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11360,
+     "role": "seller",
+     "limit": 109,
+     "currency": "P",
+     "item": "Escaparate de Serrano",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.51,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to propose 155 P with delivery on day 10.",
+      "offer": {
+       "price": 155,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1949,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 87 P y 0 días.",
+      "offer": {
+       "price": 87,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1949,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 119 P con 0 días.",
+      "offer": {
+       "price": 119,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1957,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 119,
+     "days": 0
+    },
+    "tick": 1957,
+    "ticks_left": 4,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 155,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1958,
+   "took_s": 1.78,
+   "cost_usd": 0.00124,
+   "obs": {
+    "view": {
+     "duel_id": 11360,
+     "role": "seller",
+     "limit": 109,
+     "currency": "P",
+     "item": "Escaparate de Serrano",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 1.51,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to propose 155 P with delivery on day 10.",
+      "offer": {
+       "price": 155,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1949,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 87 P y 0 días.",
+      "offer": {
+       "price": 87,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1949,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 119 P con 0 días.",
+      "offer": {
+       "price": 119,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1957,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 119,
+     "days": 0
+    },
+    "tick": 1958,
+    "ticks_left": 3,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 140 P, delivery on day 10.",
+    "price": 140,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 25.55,
+     "closing": true,
+     "text": "rejected: plain words",
+     "text_problems": [
+      "the message names 10, 0: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "Veo que buscas cerrar rápido; te propongo 130 P con entrega en día 10, o podemos acordar día 0 a un precio más alto.",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.78,
+       "in": 983,
+       "out": 51,
+       "cost_usd": 0.00124,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 130,
+     "floor": 46.1
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -530,6 +1051,49 @@
      "id": 13735,
      "price": 155,
      "tick": 1949,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1958,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 140 P, delivery on day 10.",
+    "price": 140,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 25.55,
+     "closing": true,
+     "text": "rejected: plain words",
+     "text_problems": [
+      "the message names 10, 0: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "Veo que buscas cerrar rápido; te propongo 130 P con entrega en día 10, o podemos acordar día 0 a un precio más alto.",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.78,
+       "in": 983,
+       "out": 51,
+       "cost_usd": 0.00124,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 130,
+     "floor": 46.1
+    }
+   },
+   "result": {
+    "duel": 11360,
+    "offer": {
+     "id": 13951,
+     "price": 140,
+     "tick": 1958,
      "days": 10
     }
    }
