@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 11:16 · Builder · duelist-loop **506a2fd**: last-tick accept after our send (duel 11124: their 60 d0, +20, never accepted) · runner closing()/due() · test fails on 29aa1be, 581 green · Aleks restarts between Duels III and the Final (keep the C+ overrides) · also today: club markets read live 48a1a5b, DMs 'venue twice' 8bab5c9, venue pact flag OFF 5c976e2
 - Sun 11:25 · Duel Lab · Duels III check for the Chief · LATE_SWITCH_LEFT 2 = NO (sim: −0.005 to −0.015/duel in every world, deal rate −4 to −9 pts); 11124 = runner once-per-tick miss (their +20 posted just before our last-tick send; `sent_tick == tick` blocks the accept), fix with the Builder; 11352 = not a deadline miss (their +11 was mid-duel; the last offers were outside our limit); Duels III ≈ 0.30 pts/duel vs Duels II 0.52, driven by 4/21 silent rivals + 4 deals worth ≈ 0; no param change · review the Builder's fix diff (GO/NO-GO) before the Final
 
 - Sun 11:15 · pact check · t13's v10 offer 23043 (to t12) CANCELLED at tick 1899 (feed 85377), never settled; no v10 settlement in the feed, venue value_created 0 → pact NOT met: venue_allow.json absent, no v24 · full v10 ad posted 11:05:32 · Duels III running (duel_points 5.74)
