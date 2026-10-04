@@ -73,6 +73,7 @@ TABLE_LINES, DM_LINES = 20, 8
 V10 = "v10"                # our stall: value created between other teams there is our market score
 CLUB = ("t02", "t04", "t07", "t08", "t09", "t15")   # the club (Lucas, Sun 08:00)
 CLUB_VENUES = {"t04": "v05", "t08": "v06", "t07": "v11", "t15": "v15", "t09": "v21", "t02": "v26"}  # members' markets
+CLUB_MIN_VC = 3.0          # Chief 01:25: the Market fires no deal under +3 VC nor one with a rival party
 ROUTING = ROOT / "run" / "club_routing.json"   # the day's club venue assignments, so a row keeps its venue across runs
 LAST_VENUES: dict = {}     # venue id → {owner, status, name}: the last live leaderboard's venues
 _CARD = re.compile(r"\b[A-Z]{3}-\d{2}\b")
@@ -492,7 +493,8 @@ def route(rows: list, *, teams, venues: dict | None, state: dict, riv=frozenset(
     in CLUB) alternates, in list order: one on v10, the next on a member's market, then v10 again; a page-closer is
     always on v10 (it counts as a v10 turn). A member's market: open, owned by neither side of the deal (nobody trades
     on its own venue) nor by a rival (policy.rival_venue); the least used today first, then the lowest market score.
-    Any deal with a non-member stays on v10 and doesn't count. `state` (run/club_routing.json) keeps each deal's venue
+    Any deal with a non-member, a rival party or under CLUB_MIN_VC value created (the Market doesn't fire those) stays
+    on v10 and doesn't count. `state` (run/club_routing.json) keeps each deal's venue
     for the day, so a row doesn't change venue between runs. Sets r["venue"], r["venue_name"], r["club"]; → state."""
     day = day or time.strftime("%Y-%m-%d")
     if state.get("day") != day:
@@ -510,7 +512,8 @@ def route(rows: list, *, teams, venues: dict | None, state: dict, riv=frozenset(
         owner = next((o for o, x in opts.items() if x == v), None)
         return v == V10 or (owner and owner not in (r["buyer"], r["seller"]) and not policy.rival_venue(v, owner, riv))
     for r in rows:
-        r["club"] = r["buyer"] in CLUB and r["seller"] in CLUB
+        r["club"] = r["buyer"] in CLUB and r["seller"] in CLUB and not r.get("rival_buyer") \
+            and not r.get("rival_seller") and r.get("vc", CLUB_MIN_VC) >= CLUB_MIN_VC
         venue = V10
         if r["club"]:
             key = f"{r['seller']}>{r['buyer']}:{r['card']}"

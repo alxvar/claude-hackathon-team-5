@@ -337,3 +337,12 @@ def test_a_closed_or_rival_market_is_never_picked():
     mm.route(rows, teams=CLUB_TEAMS, venues=VENUES, state={}, riv={"t07", "t15", "t09", "t08", "t02", "t04"},
              day="d1")
     assert rows[1]["venue"] == "v10"                                     # every member a rival: v10
+
+
+def test_a_deal_the_market_doesn_t_fire_doesn_t_take_a_turn():
+    """Chief 01:25: no club deal under +3 VC nor with a rival party: v10, not counted."""
+    rows = [crow("t07", "t09"), {**crow("t04", "t07", "SAL-01"), "vc": 1.2},
+            {**crow("t02", "t08", "RET-03"), "rival_buyer": True}, crow("t02", "t04", "RET-06")]
+    st = mm.route(rows, teams=CLUB_TEAMS, venues=VENUES, state={}, day="d1")
+    assert [r["venue"] for r in rows] == ["v10", "v10", "v10", "v15"] and [r["club"] for r in rows] == \
+        [True, False, False, True] and (st["v10"], st["member"]) == (1, 1)
