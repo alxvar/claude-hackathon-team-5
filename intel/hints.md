@@ -393,3 +393,4 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 12:00 · catalog.minted LAT-11 (San Francisco el Grande, epic, print run 9): hidden=False minted=6 (was 5)
 - Sun 12:10 · taller.crafted tick 2144 ·  → t13 · Team 13 turned three common cards into La Chulapa (uncommon) at The Workshop
 - Sun 12:12 · message tick 2149 · pilar → t13 · Buenos días, y bienvenido. La Chulapa, sí, conozco bien su tirada. Impecable, lo concedo. Pero veintisiete, no. Le ofrezco dieciséis primas, y las pago hoy mismo. Por cierto, pregunte a Carmen en El Rastro por la chulapa dorada.
+- Sun 12:23 · message tick 2195 · pilar → t07 · Setenta y cinco? Querido amigo, I know that card's print run as well as my own name. It is charming, not legendary. I shall say 49, and I say it sincerely.
