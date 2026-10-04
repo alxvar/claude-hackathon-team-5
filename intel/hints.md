@@ -383,3 +383,4 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 11:31 · message tick 1986 · abuela → t10 · Ay, la chulapa dorada... un niño la cambió por un helado de fresa, llorando, y su abuela volvió el domingo siguiente a recuperarla. Así aprendió a no cambiar con prisa, cariño. Del jardín, nada sé, cuentos de Antonio. El Andén de Metro, doce P para ti. ¿Has comido algo?
 - Sun 11:31 · message tick 1989 · chato → t10 · Luego, dice. Bueno. El silver pack: 188 P. Carmen te manda, pero paga lo mismo que todos.
 - Sun 11:40 · catalog.minted LAT-11 (San Francisco el Grande, epic, print run 9): hidden=False minted=5 (was 4)
+- Sun 11:55 · message tick 2084 · banco → t10 · Buenas tardes. La historia la cuenta usted bien; la chulapa sigue en su sitio. Hoy le ofrezco otra cosa: El Gato de Lavapiés, 761 P. Esos son mis términos.
