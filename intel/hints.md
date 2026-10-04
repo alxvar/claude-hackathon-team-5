@@ -297,3 +297,6 @@ La Caña te la dejo en 10 P, cariño. Y esta noche a las nueve y media abre El C
 - Sun 09:30 · catalog.minted LAV-11 (La Casa Encendida, epic, print run 9): hidden=False minted=5 (was 4)
 - Sun 09:30 · catalog.minted CHA-11 (Andén 0, epic, print run 9): hidden=False minted=1 (was 0)
 - Sun 09:30 · message tick 1508 · abuela → t02 · Ay, qué majo eres. Let us say ten P, hijo, and we are both happy. The golden chulapa — I saw one years ago, a boy traded it for two duplicates and cried after. El Chato gets the better packs, ask him, cariño.
+- Sun 09:37 · message tick 1534 · abuela → t04 · Ay, la chulapa dorada... una sola se imprimió, dicen, y un niño la cambió por un helado. Otro día te cuento entera, hija.
+
+El pack, 26 primas y tuyo. Y oye, junta página completa, vale mucho más suelta. Doña Pilar paga bien los sábados a las once.
