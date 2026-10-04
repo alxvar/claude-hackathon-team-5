@@ -335,3 +335,6 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 10:10 · catalog.minted CHA-11 (Andén 0, epic, print run 9): hidden=False minted=3 (was 2)
 - Sun 10:18 · message tick 1699 · chato → t10 · Thirty-three. I said it once. Card doesn't get cheaper because you say "fair."
 - Sun 10:20 · catalog.minted LAT-11 (San Francisco el Grande, epic, print run 9): hidden=False minted=3 (was 2)
+- Sun 10:20 · message tick 1707 · chato → t10 · Twenty-two. No. Thirty-three. I said it once already. Card does not get cheaper because you say "fair."
+- Sun 10:22 · message tick 1712 · pilar → t13 · Qué gusto, y sí, encontré la rana siendo niña — suerte no me faltó. Pero hablemos claro: por esas Samosas de la Plaza le ofrezco 16. Es lo que vale, ni un céntimo escondido.
+- Sun 10:23 · taller.crafted tick 1718 ·  → t10 · Team 10 turned three common cards into Club de Jazz (uncommon) at The Workshop
