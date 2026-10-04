@@ -66,3 +66,17 @@ def test_a_team_within_3_of_us_is_a_rival_like_the_top_6():
                                                                          {"team": "t16", "score": 10}]
     assert policy.TOP_N == 6 and "t10" in policy.rivals(teams) and "t16" not in policy.rivals(teams)
     assert not policy.check("t10", teams=teams, our_gain=8, their_gain=3)[0] and policy.check("t16", teams=teams)[0]
+
+
+def test_venue_allow_is_off_by_default_and_never_lets_v07_in(tmp_path, monkeypatch):
+    """Chief 10:35: the Team 13 pact (v24) needs run/venue_allow.json; absent, rival venues stay blocked."""
+    f = tmp_path / "venue_allow.json"
+    monkeypatch.setattr(policy, "VENUE_ALLOW", f)
+    assert policy.venue_allow() == frozenset()
+    assert policy.rival_venue("v24", "t13", {"t10"})                     # t13 is in RIVALS: blocked
+    f.write_text('{"venues": ["v24", "v07"]}')
+    assert policy.venue_allow() == {"v24"}                               # v07 never
+    assert policy.rival_venue("v24", "t13", {"t10"}) == "" and policy.rival_venue("v07", "t10", set())
+    assert policy.rival_venue("v18", "t18", {"t18"})                    # other rival venues still blocked
+    f.write_text("not json")
+    assert policy.venue_allow() == frozenset()                           # unreadable: off

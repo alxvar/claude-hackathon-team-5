@@ -47,7 +47,7 @@ import alerts  # noqa: E402  the phone policy (Chief 17:40)
 _notify = None             # alerts.act's own transport (tools/notify.py) unless a test passes one
 NUDGE_MIN_GAIN, NUDGE_EVERY_S = 10.0, 7200   # Chief 17:40: one push per (team, give, get) per 2 h, gain >= 10
 
-PARTNERS = ("v15",)   # Chief 17:45: never a rival's venue (value created lifts its market); t15 -> El Rastro
+PARTNERS = tuple(os.environ.get("SWAPS_PARTNERS", "v15").split(","))   # Chief 17:45: never a rival's venue; Sun 11:33: rastro via run/daemons.env
 HOUSE = "rastro"
 MIN_OUR_GAIN = 3.0
 PACK_DRAG = 2.5        # an unopened pack drags each trade's score ~-2.4 (GAME.md): raise our bar while we hold one
@@ -129,7 +129,8 @@ def pick_venue(to: str, venues: dict, top: set) -> str | None:
     counterparty owns the partner venue (it can't trade on its own stall)."""
     for v in PARTNERS:
         x = venues.get(v) or {}
-        if x.get("status") == "open" and x.get("owner") and x["owner"] not in top and x["owner"] != to:
+        if x.get("status") == "open" and x.get("owner") and (x["owner"] not in top or v in policy.venue_allow()) \
+                and x["owner"] != to and v not in policy.NEVER_VENUES:
             return v
     if any((venues.get(v) or {}).get("owner") == to for v in PARTNERS) and (venues.get(HOUSE) or {}).get("status") \
             in (None, "open"):
@@ -246,6 +247,8 @@ class Engine:
         hit = self.values.get(card)
         if hit is not None and tick - hit[1] < VALUE_TICKS:
             return hit[0]
+        if not policy.is_card(card):
+            return None                               # a pack or another asset: no value lookup (Chief 23:30)
         if self._reads >= VALUE_READS:
             return None                               # next run
         if self._reads:

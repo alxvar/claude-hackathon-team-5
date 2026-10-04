@@ -1,0 +1,218 @@
+<title>Team 5 Lab Notebook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Caveat:wght@500;700&display=swap">
+<style>
+/* Layout: a bound lab notebook. Each screen is one numbered page on graph paper: a left margin with the timestamp, entries in Hypothesis / Prediction / Measured / Verdict form, corrections struck through in red pencil and kept. */
+:root{
+  --paper:#F2F6F4; --grid:#D3E0E8; --margin:#E39A9F; --ink:#1B2A4A; --soft:#56657F;
+  --pencil:#C2303A; --hl:#FFE36E; --stamp:#1E7A52;
+  --display:"Zilla Slab",Rockwell,Georgia,serif;
+  --body:"Atkinson Hyperlegible",system-ui,sans-serif;
+  --hand:"Caveat","Bradley Hand","Segoe Print",cursive;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#13202E; --grid:#20324A; --margin:#7A3A44; --ink:#E4ECF6; --soft:#93A3BC;
+  --pencil:#FF7B83; --hl:#6E5C12; --stamp:#58CC92; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#13202E; --grid:#20324A; --margin:#7A3A44; --ink:#E4ECF6; --soft:#93A3BC;
+  --pencil:#FF7B83; --hl:#6E5C12; --stamp:#58CC92; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;padding-inline:16px;color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;
+  background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:3;background:var(--paper);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding-block:10px;border-bottom:2px solid var(--ink);font-size:14px}
+.top b{font-family:var(--display);font-size:17px}
+.top button{font:inherit;color:var(--ink);background:var(--paper);border:1.5px solid var(--ink);border-radius:2px;padding:3px 10px;cursor:pointer}
+.top button:focus-visible{outline:2px solid var(--pencil);outline-offset:2px}
+main{max-width:1060px;margin:0 auto}
+.page{display:grid;grid-template-columns:96px 1fr;gap:0 22px;padding-block:44px;border-bottom:2px dashed var(--grid)}
+@media (min-width:900px){.page{min-height:calc(100vh - 48px);align-content:center}}
+@media (max-width:640px){.page{grid-template-columns:1fr}.margin{border-right:0;border-bottom:2px solid var(--margin);padding-bottom:6px;display:flex;gap:12px;align-items:baseline}}
+.margin{border-right:2px solid var(--margin);padding-right:12px;font-family:var(--hand);font-size:22px;line-height:1.1;color:var(--soft)}
+.margin .pg{font-family:var(--display);font-size:15px;color:var(--ink);display:block}
+.body{min-width:0;display:flex;flex-direction:column;gap:18px}
+h1,h2{font-family:var(--display);margin:0;line-height:1.05;text-wrap:balance}
+h1{font-size:clamp(40px,6.4vw,78px)}
+h2{font-size:clamp(28px,3.8vw,46px)}
+.note{font-family:var(--hand);font-size:24px;color:var(--pencil);line-height:1.15;transform:rotate(-1.2deg)}
+.struck{text-decoration:line-through;text-decoration-color:var(--pencil);text-decoration-thickness:2px;color:var(--soft)}
+mark{background:var(--hl);color:inherit;padding:0 3px}
+.num{font-variant-numeric:tabular-nums;font-weight:700}
+.src{font-size:12.5px;color:var(--soft);font-style:italic}
+.lbl{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:1.5px solid currentColor;border-radius:2px;padding:0 4px;margin-left:4px}
+.V{color:var(--stamp)} .L{color:#A16A00} .Q{color:var(--soft)}
+:root[data-theme="dark"] .L{color:#E8B44A}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .L{color:#E8B44A}}
+.entries{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,430px),1fr))}
+.entry{border:1.5px solid var(--ink);background:var(--paper);padding:14px 16px;position:relative;min-width:0}
+.entry h3{font-family:var(--display);font-size:21px;margin:0 0 8px}
+.entry dl{display:grid;grid-template-columns:92px 1fr;gap:3px 10px;margin:0}
+.entry dt{font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--soft);padding-top:4px}
+.entry dd{margin:0}
+.stamp{position:absolute;top:10px;right:12px;font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.1em;color:var(--stamp);border:2.5px solid var(--stamp);padding:1px 7px;transform:rotate(6deg)}
+.stamp.open{color:var(--soft);border-color:var(--soft)}
+.stamp.fail{color:var(--pencil);border-color:var(--pencil)}
+.sketch{width:100%;height:auto;display:block}
+.sketch text{font-family:var(--body);font-size:13px;fill:var(--ink)}
+.sketch .h{font-family:var(--hand);font-size:19px;fill:var(--pencil)}
+.sketch .sm{font-size:11px;fill:var(--soft)}
+ol.proto{margin:0;padding-left:22px;display:grid;gap:8px;max-width:70ch}
+.cols{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+details.script{border:1.5px dashed var(--soft);padding:10px 14px;background:var(--paper);max-width:78ch}
+details.script summary{cursor:pointer;font-weight:700;font-size:13px;color:var(--soft)}
+details.script p{margin:8px 0 0}
+body.noscript details.script{display:none}
+</style>
+
+<div class="top"><span><b>Team 5 · Lab notebook</b> &nbsp;concept B · as of Sat 20:05 · refresh before presenting</span>
+<span><span id="pos">p. 1/7</span> · ←/→ &nbsp;<button id="tog" type="button">Hide script (S)</button></span></div>
+
+<main>
+<!-- p1 HOOK -->
+<section class="page" id="p1"><div class="margin"><span class="pg">p. 1</span>Fri 21:15<br>→ Sat 16:44</div>
+<div class="body">
+  <h1>Our first finding was wrong. We kept it on the page.</h1>
+  <p><span class="struck">Finding 0: "dealer buys don't move our score."</span> <span class="lbl Q">corrected 22:00</span><br>
+     <span class="struck">Finding 11: "buy from dealers, sell to teams."</span> <span class="lbl Q">partly wrong</span></p>
+  <p class="note">→ Every wrong finding stays on the page, struck through, next to its correction.</p>
+  <span class="src">LOG.md "Findings history"</span>
+  <details class="script" open><summary>Script · 0:00–0:15 · 45 words</summary>
+  <p>Friday, 21:15, page one of our notebook: "dealer buys don't count." Struck through at 22:00: wrong. Finding eleven: "buy from dealers, sell to teams." Partly wrong. We kept every wrong finding on the record. This notebook is how three humans and their agents played the Bazaar.</p></details>
+</div></section>
+
+<!-- p2 APPARATUS -->
+<section class="page" id="p2"><div class="margin"><span class="pg">p. 2</span>Apparatus</div>
+<div class="body">
+  <h2>The apparatus: three humans, six sessions, one writer.</h2>
+  <svg class="sketch" viewBox="0 0 960 300" role="img" aria-label="System sketch: facts flow from code to agents to the Chief, then to the single Operator that writes to the game">
+    <g fill="none" stroke="var(--ink)" stroke-width="1.6">
+      <rect x="10" y="40" width="190" height="200"/><rect x="250" y="40" width="200" height="200"/><rect x="500" y="40" width="200" height="200"/><rect x="750" y="40" width="200" height="200"/>
+      <path d="M200 140h44M450 140h44M700 140h44"/><path d="M238 134l8 6-8 6M488 134l8 6-8 6M738 134l8 6-8 6"/>
+    </g>
+    <text x="22" y="30" class="sm">FACTS · plain code, no LLM</text><text x="262" y="30" class="sm">ADVICE · agents</text><text x="512" y="30" class="sm">DECISIONS</text><text x="762" y="30" class="sm">ACTIONS · the game</text>
+    <text x="24" y="76">collector · every ~15 s</text><text x="24" y="104">metrics · every 2 min</text><text x="24" y="132">hub + demand model</text><text x="24" y="160">hint miner, radar</text><text x="24" y="188">status → git</text>
+    <text x="264" y="76">Analyst: score model</text><text x="264" y="104">Duel Lab: duel policy</text><text x="264" y="132">Market: bench, venue</text><text x="264" y="160">scout / judge /</text><text x="264" y="178">strategist (API)</text>
+    <text x="514" y="76">Chief of staff</text><text x="514" y="94" class="sm">writes directives.md</text><text x="514" y="128">Lucas: GUARDRAIL</text><text x="514" y="146" class="sm">only way to move a limit</text><text x="514" y="180">Builder: tools, tests</text>
+    <text x="764" y="76">Operator</text><text x="764" y="94" class="sm">only writer: trades, dealers</text><text x="764" y="128">Duelist (Aleks)</text><text x="764" y="146" class="sm">Opus plans, Sonnet talks,</text><text x="764" y="162" class="sm">code holds the limit</text><text x="764" y="196">Dani: the room</text>
+    <text x="250" y="282" class="h">everything logs to git: 1,577 commits</text>
+  </svg>
+  <span class="src">docs/judges/facts.md "Architecture" · intel/chief-handoff.md · tools/daemons.sh (17 daemon types) · git log Sat 20:07</span>
+  <details class="script" open><summary>Script · 0:15–0:45 · 72 words</summary>
+  <p>The apparatus. Plain code collects the facts. Agents advise: an Analyst turns the leaderboard into a score model, a Duel Lab tests duel policy. A Chief of staff decides. Only one session, the Operator, may write to the game. Aleks's duel agent has Opus plan and Sonnet talk, while code holds the limit. Lucas moves a limit only with a GUARDRAIL line. Everything is logged in git.</p></details>
+</div></section>
+
+<!-- p3 EXPERIMENTS -->
+<section class="page" id="p3"><div class="margin"><span class="pg">p. 3</span>Experiments<br>Fri–Sat</div>
+<div class="body">
+  <h2>Four experiments: two predicted, two caught in the data.</h2>
+  <div class="entries">
+    <div class="entry"><span class="stamp">VERIFIED</span><h3>E-1 · Do dealer gains score?</h3><dl>
+      <dt>Hypothesis</dt><dd>Organisers' hint: value 18, pay 14 → +4</dd>
+      <dt>Prediction</dt><dd>0 if clipped; +2 each if counted</dd>
+      <dt>Measured</dt><dd><mark class="num">0 → 0, twice</mark> <span class="lbl V">V n=2</span></dd>
+      <dt>Rule</dt><dd>Dealers are a ladder tool only</dd></dl>
+      <span class="src">GAME.md · directive 09:58</span></div>
+    <div class="entry"><span class="stamp">VERIFIED</span><h3>E-2 · Is there a per-trade cap?</h3><dl>
+      <dt>Hypothesis</dt><dd>Page bonus pays only via a team trade, capped near 50</dd>
+      <dt>Prediction</dt><dd>+50 if capped; 63.9 if not</dd>
+      <dt>Measured</dt><dd><mark class="num">+50.0 exactly</mark> (RET-01 at 20 P) <span class="lbl V">V n=2</span></dd>
+      <dt>Rule</dt><dd>A page closer is worth at most 50 + price</dd></dl>
+      <span class="src">team/lucas.md 10:27 · GAME.md</span></div>
+    <div class="entry"><span class="stamp">KEPT</span><h3>E-3 · Does a venue earn from others' trades?</h3><dl>
+      <dt>Observed</dt><dd>One 7 P trade gave a rival the market lead</dd>
+      <dt>Action</dt><dd>Our stall v10 fee 3 % → 0 %</dd>
+      <dt>Measured</dt><dd>First v10 trade: market <mark class="num">7.32 → 12.47</mark> <span class="lbl Q">n=1</span></dd>
+      <dt>Rule</dt><dd>Only collector-buys: value created is net</dd></dl>
+      <span class="src">directives 10:06, 11:31 · facts.md #31–32</span></div>
+    <div class="entry"><span class="stamp">VERIFIED</span><h3>E-4 · What does a duel round cost?</h3><dl>
+      <dt>Hypothesis</dt><dd>Only priced offers count as rounds</dd>
+      <dt>Measured</dt><dd><span class="struck">wrong</span>: every message is a round, silence is the only free hold; duel 278 scored <span class="num">2.7</span>, not <span class="num">4.7</span></dd>
+      <dt>Result</dt><dd>Duels I: <mark class="num">30/34</mark> deals (88 %) vs field 77 %</dd>
+      <dt>Rule</dt><dd>A hold sends nothing</dd></dl>
+      <span class="src">team/aleks.md 09:48, 13:20</span></div>
+  </div>
+  <p class="note">Open: E-5, the Duels II day reading. Switch built (auto / flip / unsure), 440 tests pass. Result after 20:33 → TBD</p>
+  <span class="src">team/aleks.md 18:18, 19:26 · red team: read right 0.47 pts/duel, backwards −0.18</span>
+  <details class="script" open><summary>Script · 0:45–1:35 · 115 words</summary>
+  <p>Four experiments: two predicted, two caught in the data. One: the organisers hinted that buying from a dealer below value scores. We predicted zero. Two clean buys: zero, zero. Two: a page bonus only scores through a team trade, and we suspected a cap. Our last Retiro card, bought for 20: plus 50.0 exactly, where uncapped would be 63.9. Three: one seven-peseta trade gave a rival the market lead, so we cut our stall's fee to zero. First trade on it: market 7.3 to 12.5. Four: we thought only priced duel offers counted as rounds. Wrong: every message does; silence is the only free hold. Duels I: 30 deals of 34. Still open tonight: how we read the delivery day.</p></details>
+</div></section>
+
+<!-- p4 METHOD -->
+<section class="page" id="p4"><div class="margin"><span class="pg">p. 4</span>Method</div>
+<div class="body">
+  <h2>Protocol: how a decision gets made.</h2>
+  <ol class="proto">
+    <li><b>Write the prediction first.</b> RET-09 predicted −10.0, measured −10.0. <span class="src">team/lucas.md 09:55</span></li>
+    <li><b>One deal per measurement window,</b> packs opened, nothing else filling. <span class="src">directive 09:46</span></li>
+    <li><b>Label every fact</b> [V] verified, [L] likely, [?] open. <span class="src">GAME.md</span></li>
+    <li><b>Price it in board points.</b> 1 negotiating point ≈ 0.05 board by evening <span class="lbl V">V</span>; a +50 page close ≈ +2.2 <span class="lbl L">L</span>. <span class="src">score-model §2</span></li>
+    <li><b>Over 20 P, an independent verifier</b> before the directive. <span class="src">chief-handoff.md</span></li>
+    <li><b>Limits move only by a GUARDRAIL line;</b> the duel limit lives in code, not the prompt. Broken once: the RET-10 cap went 88 → 91 without one, and Dani's audit caught it. <span class="src">DECISIONS.md #20 · facts.md</span></li>
+  </ol>
+  <p class="note">e.g. a denial buy: rival's page close ≈ +2.4 board to them, ≈ −1 to us → allowed, cap 35 P (directive 19:05)</p>
+  <details class="script" open><summary>Script · 1:35–2:00 · 58 words</summary>
+  <p>Our protocol. Write the prediction first: one rare was predicted at minus ten and measured at minus ten. One deal per measurement window. Label every fact verified, likely or open. Price every decision in board points. Anything over 20 pesetas gets an independent verifier first. And a limit moves only when Lucas writes a line that says GUARDRAIL.</p></details>
+</div></section>
+
+<!-- p5 FIELD NOTES -->
+<section class="page" id="p5"><div class="margin"><span class="pg">p. 5</span>Field notes<br>(rivals)</div>
+<div class="body">
+  <h2>Field notes: what the other 17 teams taught us.</h2>
+  <div class="cols">
+    <div class="entry"><h3>Fri: one rare, between teams</h3><p>Three teams went ~11 → 22–26 with a single rare at 65–70 P. We switched to team trades at 21:14.</p><span class="src">LOG.md E3</span></div>
+    <div class="entry"><h3>Our sale fed a rival</h3><p>We sold SAL-06 to a team collecting Salamanca; it went 15.5 → 23.7 and passed us. Now: no page closers to teams near us.</p><span class="src">DECISIONS.md #7</span></div>
+    <div class="entry"><h3>The ladder is graded on a curve</h3><p>The #2 team slid to #7: weak duels plus a ladder score that eroded as the field copied the play. Ours capped at 17:45; we stopped.</p><span class="src">score-model §1d, directive 17:45 <span class="lbl L">L</span></span></div>
+    <div class="entry"><h3>The cheap page close</h3><p>Today's leader buys a page's dear cards from dealers at value and closes with a cheap team trade: +3.33 board. Our Sunday recipe.</p><span class="src">score-model §3e <span class="lbl L">L</span></span></div>
+  </div>
+  <p class="note">Duel opponents: 16 of 17 scripted, 1 silent, 0 LLMs (team/aleks.md 16:55)</p>
+  <details class="script" open><summary>Script · 2:00–2:25 · 70 words</summary>
+  <p>Field notes. On Friday the leaders jumped on one rare traded between teams, so we switched to team trades. We also sold a card to a rival who used it to pass us; that became a rule. The second-placed team slid to seventh on weak duels and a ladder score everyone copied. And today's leader closes pages cheaply, which is exactly our Sunday plan.</p></details>
+</div></section>
+
+<!-- p6 ERRATA -->
+<section class="page" id="p6"><div class="margin" style="color:var(--pencil)"><span class="pg">p. 6</span>Errata</div>
+<div class="body">
+  <h2>Errata: what we got wrong today.</h2>
+  <div class="entries">
+    <div class="entry"><span class="stamp fail">ERROR</span><h3>10:18 · venue swap with Team 10</h3>
+      <p>Our sale on their venue gave them ≈ <span class="num">+4.3</span> market <span class="lbl L">L</span>. Their sale on ours (tick 398) took us <span class="num">+4.99 → −5.2</span>, #3 → #7.</p>
+      <p class="note">fix → never trade on a rival's venue</p><span class="src">directive 19:40 · GAME.md</span></div>
+    <div class="entry"><span class="stamp fail">MISSED</span><h3>The golden chulapa</h3>
+      <p>First hint to us at tick <span class="num">512</span>. We asked at <span class="num">1047</span>. The one-print card left at <span class="num">1021</span>.</p>
+      <p class="note">fix → hint miner: 126 lines backfilled</p><span class="src">data/feed.jsonl thread 737 · intel/hints.md · GAME.md · team/lucas.md 19:00</span></div>
+    <div class="entry"><span class="stamp fail">ERROR</span><h3>10:10 · "a 3rd Chato deal unlocks level 3"</h3>
+      <p>It didn't. Cost ≈ −2.5 vs the cheaper dealer. The directive opened with "my 10:10 call was wrong".</p><span class="src">directive 10:22</span></div>
+    <div class="entry"><span class="stamp fail">ERROR</span><h3>Fri 22:01 · autoflip</h3>
+      <p>Bought a card worth 17.5 at 29: <span class="num">−11.8</span>. Killed; never above value.</p><span class="src">LOG.md finding 13</span></div>
+  </div>
+  <details class="script" open><summary>Script · 2:25–2:45 · 64 words</summary>
+  <p>Errata. At 10:18 we swapped venue traffic with Team 10. Our sale on their venue gave them four points of market; their sale on ours wiped our five. Never again on a rival's venue. And at tick 512 a dealer told us to ask about a golden chulapa. We asked at 1047; the only copy had gone at 1021. So we built a hint miner.</p></details>
+</div></section>
+
+<!-- p7 CONCLUSION -->
+<section class="page" id="p7"><div class="margin"><span class="pg">p. 7</span>Results</div>
+<div class="body">
+  <h2>Conclusion: predict, measure, write it into code.</h2>
+  <div class="cols">
+    <div class="entry"><h3>Board</h3><p><mark class="num">#3 · 31.92</mark> at Sat 20:04; #1 four times on Saturday</p><span class="src">STATUS.md · leaderboard.jsonl ticks 780, 830, 990, 1060</span></div>
+    <div class="entry"><h3>Pages</h3><p><mark class="num">3</mark>: Lavapiés, Retiro, Salamanca, each closed by a team trade</p><span class="src">team/lucas.md Fri 22:54, 10:27, 18:29</span></div>
+    <div class="entry"><h3>Cost</h3><p><mark class="num">$1.62</mark> of model calls logged for 34 scored duels</p><span class="src">team/aleks.md 13:20 · the meter skips cache tokens (17:32)</span></div>
+    <div class="entry"><h3>Open</h3><p>Duels II (20:33) · Sunday final: <b>TBD</b></p></div>
+  </div>
+  <details class="script" open><summary>Script · 2:45–3:00 · 36 words</summary>
+  <p>Three pages, each closed by a team trade. First on the board four times on Saturday; [final rank]. A dollar sixty of model calls logged for 34 duels. Our method fits on one line: predict, measure, write it into code.</p></details>
+</div></section>
+</main>
+
+<script>
+const P=[...document.querySelectorAll('.page')],pos=document.getElementById('pos');let cur=0;
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){cur=P.indexOf(e.target);pos.textContent='p. '+(cur+1)+'/7'}}),{threshold:.5});P.forEach(p=>io.observe(p));
+const go=d=>{cur=Math.max(0,Math.min(6,cur+d));P[cur].scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})};
+const tog=()=>{document.body.classList.toggle('noscript');document.getElementById('tog').textContent=document.body.classList.contains('noscript')?'Show script (S)':'Hide script (S)'};
+document.getElementById('tog').onclick=tog;
+addEventListener('keydown',e=>{if(e.target.closest('summary,button'))return;
+  if(['ArrowRight','ArrowDown','PageDown','j',' '].includes(e.key)){e.preventDefault();go(1)}
+  else if(['ArrowLeft','ArrowUp','PageUp','k'].includes(e.key)){e.preventDefault();go(-1)}
+  else if(e.key==='s'||e.key==='S')tog();});
+</script>

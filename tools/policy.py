@@ -28,6 +28,30 @@ RIVAL_WITHIN = 3.0
 TOP_RATIO = 3.0
 PAGE_CLOSER_GAP = 6
 RIVALS = frozenset({"t13", "t17"})
+BOOK_ONLY = ("CHA-", "MAL-")   # directive 07:05: these sets are bought only through the Operator's books
+NEVER_VENUES = frozenset({"v07"})   # Chief 07:15 (contra-market): Team 10's venue, whatever the leaderboard says
+VENUE_ALLOW = None   # run/venue_allow.json ({"venues": ["v24"]}): rival venues allowed anyway (a venue pact); OFF when absent
+_allow_cache: dict = {}
+
+
+def venue_allow(path: Path | None = None) -> frozenset:
+    """Rival-owned venues we may trade on anyway (Chief 10:35: the Team 13 pact, v24), from run/venue_allow.json,
+    re-read whenever the file changes so the Operator turns it on or off without a restart. Absent, empty or unreadable:
+    none (the default). Never v07 (NEVER_VENUES wins)."""
+    p = Path(path or VENUE_ALLOW or ROOT / "run" / "venue_allow.json")
+    try:
+        stamp = p.stat().st_mtime_ns
+    except OSError:
+        return frozenset()
+    if _allow_cache.get("key") != (str(p), stamp):
+        try:
+            data = json.loads(p.read_text())
+            vs = data.get("venues") if isinstance(data, dict) else data
+            vs = frozenset(v for v in vs or [] if isinstance(v, str)) - NEVER_VENUES
+        except (OSError, ValueError, TypeError, AttributeError):
+            vs = frozenset()
+        _allow_cache.update(key=(str(p), stamp), venues=vs)
+    return _allow_cache["venues"]
 
 
 def reserved_refs(path: Path | None = None, handoff: Path | None = None) -> set:
@@ -50,6 +74,36 @@ def reserved_refs(path: Path | None = None, handoff: Path | None = None) -> set:
         return set()
     m = re.search(r"^## Reserved[^\n]*\n(.*?)(?=^## |\Z)", text, re.S | re.M)
     return set(_CARD.findall(m.group(1))) if m else set()
+
+
+def rival_venue(venue, owner, rivals) -> str:
+    """Why a fill on `venue` would feed a rival ("" = fine): every trade on a team venue raises its owner's market
+    score, so never v07, never a venue owned by `rivals` (rivals() | RIVALS), and never a team venue while the rivals
+    or its owner are unknown. El Rastro ("rastro", the house) is always fine."""
+    if venue in (None, "rastro"):
+        return ""
+    if venue in NEVER_VENUES:
+        return f"{venue}: never (Team 10's venue)"
+    if venue in venue_allow():
+        return ""                                    # a venue pact (run/venue_allow.json): its owner still never trades
+    if rivals is None:
+        return f"{venue}: rivals unknown (no leaderboard read)"
+    if not owner or owner == "?":
+        return f"{venue}: owner unknown"
+    if owner in rivals or owner in RIVALS:
+        return f"{venue}: a rival's venue ({owner})"
+    return ""
+
+
+def book_only(ref) -> bool:
+    """A card no taker script buys (reactor BUY lines, rbuy.py): its set goes through the Operator's books only."""
+    return isinstance(ref, str) and ref.startswith(BOOK_ONLY)
+
+
+def is_card(ref) -> bool:
+    """A card id (SET-NN). Packs ("sobre_bienvenida") and other assets aren't: /api/me/value answers unknown_card for
+    them (trader, Sat 22:41-22:45), so every value lookup skips them (Chief 23:30)."""
+    return isinstance(ref, str) and bool(_CARD.fullmatch(ref))
 
 
 def committed(offers, me_id: str = ME) -> set:

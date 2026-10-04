@@ -91,6 +91,7 @@ def main(argv=None):
 
 def _loop(b, args, tid, first, stuck, turn, ours, cap, before, stuck_since, stuck_s, cards):
     idle, accepted = 0, False
+    tricked: set = set()                          # offer ids already logged as a TRICK
     while True:
         ab.watchdog()
         t = b.thread(tid)
@@ -116,7 +117,11 @@ def _loop(b, args, tid, first, stuck, turn, ours, cap, before, stuck_since, stuc
         price = ab.her_price(o, "buy")
         first = price if first is None else first
         ab.log({"event": "tick", "thread": tid, "his": price, "final": o.get("final"), "ours": ours})
-        if price <= cap and ours is not None and (o.get("final") or price - ours <= 1):
+        trick = ab.offer_matches(o, {"buy": {"card": args.card}}, "buy", cards)
+        if trick and o.get("id") not in tricked:      # never accepted (red team, Sun 01:30): keep haggling, open
+            tricked.add(o.get("id"))
+            ab.log({"event": "TRICK", "thread": tid, "offer": o.get("id"), "why": trick, "his": price})
+        if not trick and price <= cap and ours is not None and (o.get("final") or price - ours <= 1):
             _, why = page_check(b, args, cards)
             if why:                               # another buy made this card the page's last one: teams only
                 b.close_thread(tid)
@@ -145,7 +150,7 @@ def _loop(b, args, tid, first, stuck, turn, ours, cap, before, stuck_since, stuc
             ab.log({"event": "accept", "thread": tid, "price": price})
             b.wait_tick()
             continue
-        if o.get("final") and price > cap:
+        if o.get("final") and price > cap and not trick:
             b.close_thread(tid)
             ab.log({"event": "walk", "thread": tid, "his": price, "ours": ours})
             continue

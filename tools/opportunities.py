@@ -49,7 +49,7 @@ DATA, STATE, OUT = ROOT / "data", ROOT / "run" / "opportunities_state.json", ROO
 BOOK = ROOT / "run" / "book.json"   # the maker book's desired offers (agents/trader/book.py)
 URL = os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai")
 HOUSE = "rastro"
-DEFAULT_VENUE = os.environ.get("DEFAULT_VENUE", "v15")   # Team 15's venue at 0% (Chief 17:45: v07's owner is a rival)
+DEFAULT_VENUE = os.environ.get("DEFAULT_VENUE", "v15")   # Team 15's venue at 0% (Chief 17:45: v07's owner is a rival); Sun 11:33: rastro via run/daemons.env
 
 FRESH_S = 120              # collector files younger than this are used instead of fetching
 CONF_H = 0.5               # a signal older than 30 game minutes is low confidence: listed, never alerted
@@ -515,11 +515,13 @@ def venue_for(o, venues, top):
     theirs (a SELL to a team with no other known lack in that set: unknown counts as closing): the page bonus's value
     created must not land on a team's venue. Otherwise DEFAULT_VENUE while it is open and its owner is not in the top
     4; otherwise El Rastro."""
+    import policy                                   # NEVER_VENUES: v07 whatever the leaderboard says (Chief 07:15)
     house = (HOUSE, "El Rastro")
     if o.get("completes") or (o["side"] == "SELL" and not o.get("other_lacks")):
         return house
     v = venues.get(DEFAULT_VENUE)
-    if DEFAULT_VENUE == HOUSE or not v or v.get("status") != "open" or v.get("owner") in top \
+    if DEFAULT_VENUE in (HOUSE, *policy.NEVER_VENUES) or not v or v.get("status") != "open" \
+            or (v.get("owner") in top and DEFAULT_VENUE not in policy.venue_allow()) \
             or v.get("owner") == o.get("team"):         # a rival's venue, or the counterparty's own stall
         return house
     return DEFAULT_VENUE, v.get("name") or DEFAULT_VENUE
@@ -678,6 +680,9 @@ def run_once(api, *, dry_run, now=None, state_path=STATE, out_path=OUT, data_dir
     values = {}
 
     def value_of(card):
+        import policy as _policy
+        if not _policy.is_card(card):
+            return None                               # a pack or another asset (Chief 23:30)
         if card not in values:
             try:
                 values[card] = float(api.value(card)["your_value"])

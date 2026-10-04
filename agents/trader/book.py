@@ -107,7 +107,8 @@ def venue_for(e: dict, venues: dict, top: set | None) -> str:
         return HOUSE
     want = e.get("venue") or DEFAULT_VENUE
     v = venues.get(want)
-    if want == HOUSE or not v or v.get("status") != "open" or v.get("owner") in top or v.get("owner") == e.get("to"):
+    if want == HOUSE or want in policy.NEVER_VENUES or not v or v.get("status") != "open" \
+            or (v.get("owner") in top and want not in policy.venue_allow()) or v.get("owner") == e.get("to"):
         return HOUSE
     return want
 
@@ -177,6 +178,8 @@ class Book:
     def value(self, card: str) -> float | None:
         """Our value, re-read every VALUE_TICKS: it moves with our holdings (the last card of a page jumps by the
         page bonus, CHA +106)."""
+        if not policy.is_card(card):
+            return None                               # a pack or another asset: no value lookup (Chief 23:30)
         hit = self.values.get(card)
         if hit is None or self.tick - hit[1] >= VALUE_TICKS:
             try:

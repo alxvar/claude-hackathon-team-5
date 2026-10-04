@@ -60,11 +60,12 @@ def last_id(path):
 def main():
     DATA.mkdir(exist_ok=True)
     b = Bazaar(os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai"), os.environ["BAZAAR_KEY"])
+    pub = Bazaar(b.url, ""); pub._headers = {}  # keyless: public reads don't spend the team key's 5 req/s (duelist)
     feed_path, seen = DATA / "feed.jsonl", last_id(DATA / "feed.jsonl")
     makers, last_me, last_snap, last_metrics = {}, None, None, 0
     while True:
         try:
-            for e in b.feed(limit=1000).get("events", []):
+            for e in pub.feed(limit=1000).get("events", []):
                 if e["id"] > seen:
                     append(feed_path, e)
                     seen = e["id"]
@@ -75,13 +76,14 @@ def main():
             if changed(mine, last_me):
                 append(DATA / "me.jsonl", mine)
                 last_me = mine
-            lb = b.leaderboard()
+            lb = pub.leaderboard()
             if lb.get("snapshot_tick") != last_snap:
                 append(DATA / "leaderboard.jsonl", {"t": time.time(), "tick": lb.get("snapshot_tick"),
-                       "teams": [{k: t.get(k) for k in ("team", "name", "score", "negotiating", "market", "deals")}
+                       "teams": [{k: t.get(k) for k in ("team", "name", "score", "negotiating", "market", "deals",
+                                                    "album_filled", "album_slots", "pages_complete", "rarest")}
                                  for t in lb.get("teams", [])]})
                 last_snap = lb.get("snapshot_tick")
-            board = b.board("rastro").get("offers", [])
+            board = pub.board("rastro").get("offers", [])
             for o in board:
                 o["team"] = makers.get(o["id"], "?")
             (DATA / "board.json").write_text(json.dumps({"t": time.time(), "me": me.get("id"), "offers": board}))

@@ -19,16 +19,23 @@ game's (`records.summary`). If they differ, fix the reading here.
 from __future__ import annotations
 
 import json
+import os
 import re
 from dataclasses import dataclass
 from typing import Any
 
 DAYS = range(11)
+# PLAN #24 (Duel Lab 18:30): an override for the day reading, set at start (--days-read or env DAYS_READ).
+#   auto: as read (the default, unchanged); flip: the reading's direction reversed (day d takes day 10 - d's value,
+#   `sure` kept); unsure: each day at the worse of the reading and its mirror, sure=False (the safe mode).
+MODES = ("auto", "flip", "unsure")
+MODE = os.environ.get("DAYS_READ", "auto") if os.environ.get("DAYS_READ", "auto") in MODES else "auto"
 _EARLY = re.compile(r"\b(?:earl(?:y|ier|iest)|soon(?:er|est)?|fast(?:er|est)?|quick(?:er|ly)?|urgent\w*|asap|"
                     r"lower days?|fewer days)\b", re.IGNORECASE)
 _LATE = re.compile(r"\b(?:lat(?:e|er|est)|delay\w*|slow(?:er)?|more time|higher days?|more days)\b", re.IGNORECASE)
 _COST = re.compile(r"\b(?:costs?|costing|los(?:e|es|t|ing)|penalt\w*|subtract\w*|minus|deduct\w*|reduc\w*)\b",
                    re.IGNORECASE)
+_ADDS = re.compile(r"\b(?:adds?|adding|added|earns?|gains?|to your side|in your favou?r)\b", re.IGNORECASE)
 _PREFER = re.compile(r"\b(?:prefer\w*|want\w*|better|rather|like\w*|favou?r\w*)\b", re.IGNORECASE)
 _NUMBER = re.compile(r"-?\d+(?:\.\d+)?")
 PER_DAY_KEYS = ("per_day", "weight", "value", "w", "slope", "points_per_day", "value_per_day", "cost_per_day",
@@ -43,6 +50,8 @@ class DayValues:
     values: tuple[float, ...]     # day 0 to 10: what the day adds to a deal for us, 0 at our best day, else less
     sure: bool                    # False: the direction is a guess, and each day counts at the worse reading
     how: str                      # one line on how we read the weight, for the console, the records, the strategist
+    offset: float = 0.0           # what our best day adds in the game's own terms: 10 x w when "each delivery day
+                                  # adds w to your side" (day 0 adds 0), else 0. Only the limit check uses it.
 
     def __call__(self, day: int | None) -> float:
         """The day's value; a missing day counts as our worst."""
@@ -83,6 +92,14 @@ def direction(text: str) -> str | None:
     text = re.sub(r"\([^)]*\)", " ", text.replace("_", " "))
     early, late = bool(_EARLY.search(text)), bool(_LATE.search(text))
     if early == late:
+        if early:
+            return None
+        # Duels II's own words name no direction (Sat 21:20, live payloads): "each delivery day adds this much cash
+        # to your side" (seller: more days, more for us → late) and "each delivery day costs you this much cash"
+        # (buyer: more days, more cost → early).
+        adds, costs = bool(_ADDS.search(text)), bool(_COST.search(text))
+        if adds != costs:
+            return "late" if adds else "early"
         return None
     named = "early" if early else "late"
     if _COST.search(text) and not _PREFER.search(text):
@@ -110,7 +127,33 @@ def _per_day(w: float, prefer: str | None, how: str) -> DayValues:
                      f"({_amount(w)} per day)")
 
 
-def read_days(weight: Any, meaning: str | None = None) -> DayValues | None:
+def set_mode(mode: str) -> None:
+    """The day-reading override for this process (PLAN #24)."""
+    global MODE
+    if mode not in MODES:
+        raise ValueError(f"--days-read must be one of {', '.join(MODES)}, not {mode!r}")
+    MODE = mode
+
+
+def apply_mode(v: DayValues | None, mode: str) -> DayValues | None:
+    """The reading `v` under `mode`; auto returns `v` itself."""
+    if v is None or mode == "auto":
+        return v
+    if mode == "flip":                            # a flipped reading drops the bonus offset: the safe side
+        return DayValues(tuple(v.values[10 - d] for d in DAYS), v.sure, f"{v.how} [flipped: --days-read flip]")
+    if mode == "unsure":
+        return DayValues(tuple(min(v.values[d], v.values[10 - d]) for d in DAYS), False,
+                         f"{v.how} [direction distrusted: --days-read unsure]")
+    raise ValueError(f"unknown --days-read mode {mode!r}")
+
+
+def read_days(weight: Any, meaning: str | None = None, mode: str | None = None) -> DayValues | None:
+    """Our value of each day from the game's weight and its explanation, under the --days-read mode (default: this
+    process's MODE, auto unless set); None when the shape isn't one we know."""
+    return apply_mode(_read_days(weight, meaning), mode or MODE)
+
+
+def _read_days(weight: Any, meaning: str | None = None) -> DayValues | None:
     """Our value of each day from the game's weight and its explanation; None when the shape isn't one we know."""
     text = meaning or ""
     if isinstance(weight, str):
@@ -143,4 +186,16 @@ def read_days(weight: Any, meaning: str | None = None) -> DayValues | None:
     prefer = direction(text) if text else None
     if prefer is None and w < 0:
         prefer = "early"                          # w x day with a negative w: the early days are worth more
-    return _per_day(w, prefer, f"{_amount(w)} per day" + (" (direction from the game's words)" if text and prefer else ""))
+    v = _per_day(w, prefer, f"{_amount(w)} per day" + (" (direction from the game's words)" if text and prefer else ""))
+    if prefer == "late" and _bonus(text):
+        # "each delivery day adds w to your side": a bonus counted from day 0 (duel 5616: day 0 scored the price
+        # margin alone), so day d is worth +w x d in the game's terms, not w x (d - 10).
+        v = DayValues(v.values, v.sure, f"{v.how}; a bonus from day 0 (day 10 adds {_amount(10 * abs(w))})",
+                      offset=10 * abs(w))
+    return v
+
+
+def _bonus(text: str) -> bool:
+    """The game's Duels II seller wording: the day adds cash to our side, with no early/late word."""
+    t = re.sub(r"\([^)]*\)", " ", text.replace("_", " "))
+    return (bool(_ADDS.search(t)) and not _COST.search(t) and not _EARLY.search(t) and not _LATE.search(t))

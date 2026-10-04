@@ -142,6 +142,74 @@ team_sync hook injects every change here into your Claude on your next prompt. A
    [L, Duel Lab red team: backwards = −0.18/duel]. Runbook at the first days duel: compare the console day line
    against `days_meaning` by eye. Reversed → restart with `flip`; ambiguous → restart with `unsure`. If it can't
    be done green by 19:45, skip it and keep the live code.
+25. **19:30, #24 is MERGED on main (Chief, on your call; 440 tests green on the merge).** To load it: `git pull`, run
+   the suite, then Ctrl-C supervise.sh and restart with your current flags plus `--days-read auto`, by 20:15. The
+   console must print `day reading: --days-read auto`. At the first days duel: day line reversed vs `days_meaning` →
+   restart with `--days-read flip`; unclear → `--days-read unsure`. From 20:25 Lucas's bots pause to free the 5 req/s
+   for you.
+26. **22:00, OVERNIGHT LEARNING LOOP (Lucas: Team 10's duelist beat ours in Duels II by ≈ 2.3-3.0 board; tomorrow we
+   beat it).** Built overnight for your 08:00 review, nothing on main or live without you:
+   (a) Duel Lab: rival models fitted on our ≈ 100 records; your redteam-sim extended with days (buyer −w·d, seller
+   +w·d) and Duels III's shorter clock and harder decay; a policy search over opener, step cap, accept threshold,
+   silent-keep, day give cap and late switch; a best-vs-current report with confidence → intel/duel-lab.md 07:30.
+   (b) Builder, branch `duelist-loop`: run/duel_params.json hot-reloaded each tick (defaults = today's constants), a
+   between-waves loop that proposes ≤ 3 bounded param changes (you or the Chief approve), and code-first
+   accept/hold/step decisions (the LLM writes text only) so each decision lands < 5 s at 15 s ticks.
+   Morning: 08:00 review → merge what's green and better in the sim → duelist up by 08:50.
+27. **22:10, SUNDAY DUEL SETTINGS (Duel Lab, intel/duel-lab.md top, 6c66f2b, verified twice).** Before 08:50:
+   (a) LATENCY, the one real change: run the strategist on **Opus effort LOW** (not medium). In Duels II 29-35% of
+   decisions took > 10 s on medium; Duels I on low: 1%. Fix `failover.timeout_s` (20 s is longer than the runner's
+   10 s decision timeout at 15 s ticks, so the backup never fires). Gate: a smoke test of 4 concurrent days duels at
+   15 s ticks with p95 < 9 s.
+   (b) Accept rules: KEEP. Every broad rule loses on replay, also at 10% decay. Optional: break-even accept ONLY in
+   the last 4 ticks (+3 P / 30 duels).
+   (c) Late switch: optional skip when an in-limit offer stands AND the rival is a clock bot.
+   (d) Your MAX_STEP_SHARE 0.25 (22:01) stays unless the overnight sim says otherwise (07:30 report).
+28. **22:35, Duel Lab checkpoint 1 (intel/duel-lab.md 5d3fa40, verified) for DUELS III + FINAL: 12 ticks, 10%
+   decay, 4 at once [V schedule].** [L, sim calibrated on Duels II] MIN_STEP_P 3 → 5, MAX_STEP_SHARE 0.25 → 0.18,
+   LATE_SWITCH_LEFT 4 → 2: +0.027/duel (≈ +7%; the gain is holding in narrow gaps and closing in the last ticks).
+   Two code guards [V, records]: (1) never send an offer worth less to us than the rival's standing offer; accept
+   theirs instead (5968, 6095); (2) enforce the day call on our FIRST offer, because the LLM opener overrode
+   "give only if C ≤ 15" in 6049 (−25.3 for 18 P). Latency: code-first after the opener, text from a template or a
+   3 s-capped line. Final numbers at 07:30; decide at 08:00 with the full suite.
+29. **22:40, branch `duelist-loop` is READY for your 08:00 review** (origin/duelist-loop @ ba8726c, 547 green; notes in
+   docs/duelist-loop.md; main and live untouched). Hot-reload params (run/duel_params.json, 27 bounded tunables),
+   the wave loop (tools/duel_loop.py: proposes ±1 step changes, `approve --by NAME`, `revert`), and `--policy code`:
+   code decides accept/hold/step/day, one text call (Haiku ≈ 1.8 s) → ≈ 2 s per decision vs 9.2 s mean / 29% > 10 s
+   today; sim +0.008-0.010/duel at 12 ticks/10%. Suggested: dry-run one live wave with `--policy code
+   --negotiator-model claude-haiku-4-5`, then `git merge --no-ff origin/duelist-loop` if it looks right.
+30. **23:45, DUEL LAB FINAL for Duels III + Final (intel/duel-lab.md top, c0aadfd, verified twice).** Pick ONE:
+   **A (recommended)**: merge `duelist-loop` (guards on, `{"GUARDS": 0}` turns them off live) + write
+   run/duel_params.json = {"MIN_STEP_P": 5, "MAX_STEP_SHARE": 0.18, "LATE_SWITCH_LEFT": 2, "MONO_END_SHARE": 0.5}
+   → +0.038-0.040/duel vs today's main (worst world +0.034), ≈ +2.6 points in Duels III and +1.3 in the Final [L].
+   **B (no merge)**: change the same three constants in agent.py (l.50/52/54) → +0.032-0.034/duel.
+   Never negative in 17 simulated worlds. Opener: keep the LLM's. Same settings for the Final.
+   Live gates (tools/duel_gates.py, advisory): revert MIN_STEP_P to 3 if the deal rate < 0.75 over ≥ 8 duels; step to
+   6 if rounds/deal > 3.5 at deal rate ≥ 0.85. Expected: deal rate ≈ 0.94, ≈ 3.0 rounds/deal.
+31. **00:05, TIMING [V Sunday ticks 15 s; L wall times]: Duels III may start as early as ≈ 10:00** (and the Final ≈ 11:30)
+   if the clock jumps to round 3 at 09:00. **Have the duelist live and tested by 09:55**; the Operator confirms the real
+   times at 08:55.
+32. **07:05 Sun, FINAL duelist for Duels III + Final: GO (sha 29aa1be, re-audited twice; intel/duelist-reaudit.md).** Set C, code policy,
+   Haiku text, failover 8 s, AUTOSWITCH C → A once. No merge: it runs in its own worktree. In zsh, keep the braces:
+   - 08:30: `SHA=29aa1bed66962959ce633492d84bbc321385c7e7`; then `bash <(git show "${SHA}:tools/duelist_sunday.sh") --status`;
+     if Saturday's duelist is up: `COMMIT=$SHA bash <(git show "${SHA}:tools/duelist_sunday.sh") --stop`;
+     then `COMMIT=$SHA bash <(git show "${SHA}:tools/duelist_sunday.sh") --check` (expect "steps 1-4 passed").
+   - **Start at R+5 min** (R = the first tick of round 3; ≈ 09:05 if the clock jumps): `COMMIT=$SHA AUTOSWITCH=1 bash <(git show "${SHA}:tools/duelist_sunday.sh")`.
+     Duels III = R + 2 game h (≈ 11:00), the Final = R + 5 (≈ 14:00): re-read /api/schedule; watch it at 13:30.
+   - Never pipe its output (it hangs). Never re-run start/--check while live. Stop: `--stop`. Back to Saturday's: `--rollback`.
+   - Live check after two waves: `tools/duel_gates.py --session 4 --params <worktree>/run/duel_params.json`; expected deal
+     rate with rivals that spoke ≈ 0.88-0.93, 2-3 rounds/deal, no CAN'T READ on the day line. Supersedes #27-#31.
+   - **C+ (Duel Lab 07:38, verified: +0.028/duel, no world worse): right after the start, in the worktree $WT:**
+     `printf '{"wave": "C+ Duel Lab", "params": {"MIN_STEP_P": 15, "ACCEPT_BY": 1}}\n' > "$WT/run/c_plus.json"`
+     `(cd "$WT" && python3 tools/duel_loop.py approve --proposal run/c_plus.json --by Aleks)`; re-run both lines after ANY restart
+     (a restart reinstalls plain C). If an accept shows a send error: approve {"ACCEPT_BY": 2}.
+   - **First-wave checklist** (≈ 3 min into Duels III and the Final): (1) `grep -E "direction unknown|CAN'T READ|refused"` on the newest
+     $WT/logs/duelist/supervise-*.log prints nothing; (2) the first deal's pred = points in `uv run python -m agents.duelist review`;
+     (3) no `refused:` lines; (4) at least one of the first four rivals that spoke reached a deal. A SWITCH line: run the 4 checks first.
+   - Escape ladder: hot `use A` → the same sha with POLICY=llm → `--rollback`.
+33. **07:45, `agents/negotiator/` stays DORMANT today.** Only the Operator writes market trades (one live script per job, one key):
+   wiring it in would add a second market writer on the shared 5 req/s key and bypass the books, caps and rival-venue skips.
+   If you want it live, talk to Lucas/the Chief first.
 
 **Dani: deal desk from 15:52 (Lucas's call).** Your phone (ntfy, your channel) now gets every alert that needs a human to
 message another team: v10 radar DMs, v10 partner suggestions (Teams 15, 10, 3), opportunity SELL/BUY alerts, swap nudges.

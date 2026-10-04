@@ -1,66 +1,66 @@
 # Standings (Analyst; refreshed hourly)
 
-_Snapshot 990 (Sat 18:31). Source: `/api/leaderboard` (keyless) + the board fit in `intel/score-model.md` §1._
+_Final Saturday snapshot 1440 (Sat 23:00, doors closed; clock paused at game 13.367 in round 2). Source: `/api/leaderboard`
+(keyless) + the board fit in `intel/score-model.md` §1._
 
 **Final formula [V, organisers' desk]:** game = (0.5·Fri + Sat + Sun)/2.5 on 60 points (Negotiating 30 + Market 30),
 plus judges on 40. Board now = (0.5·Fri + Sat)/1.5 for each part [V fit], so a team's round score = Negotiating + Market
 for that day: **Fri** = board at tick 160 (frozen; market was 0 for everyone), **Sat** = 1.5 × board − 0.5 × Fri.
 
-**Headline:** **#1 on the board at 31.97** after the SAL page close (SAL-06 from t08 at 28: +40.4 neg_points → +2.00 board). On 0.5·Fri + Sat we lead: 47.95 vs t06 47.52 and t14 47.28. Thin margin; Duels II (≈ 20:33) decides the evening.
+**SATURDAY FINAL (Sun 09:20, first round-3 snapshot 1462) [V]:** game total (0.5·Fri + Sat): **t10 56.38 · t12 52.66 · us 48.46 · t18 46.91 ·
+t03 44.52 · t06 42.24**. At the close our mm flip landed (+2.72) and **t12 jumped +7.03** (market 10.88 → 17.91; field-wide recompute).
+**Sunday margins:** beat t12 by > 4.20 for #2 (t10 by > 7.92 for #1); we lead t18 by 1.55 and t03 by 3.94 (#3 to defend).
+Odds [L]: P(top 2) ≈ 5-9%, P(top 3) ≈ 28-38% (score-model §3i). The tables below are the pre-close snapshot 1440 (history).
 
-## 1. Round scores now (snapshot 990)
+## 1. Round scores (snapshot 1440, sorted by 0.5·Fri + Sat)
 
 | Team | Board rank | Fri (frozen) | Sat Negotiating | Sat Market | **Sat total** | 0.5·Fri + Sat |
 |---|---|---|---|---|---|---|
-| t06 | #2 | 12.67 | 23.11 | 18.08 | 41.19 | 47.52 |
-| t14 | #3 | 18.06 | 23.95 | 14.29 | 38.25 | 47.28 |
-| **t05** | #1 | 19.99 | 26.71 | 11.25 | 37.96 | 47.95 |
-| t03 | #4 | 14.60 | 28.96 | 8.19 | 37.15 | 44.45 |
-| t16 | #7 | 6.84 | 24.31 | 11.25 | 35.56 | 38.98 |
-| t18 | #6 | 19.16 | 21.02 | 11.25 | 32.27 | 41.85 |
-| t10 | #5 | 20.75 | 13.38 | 18.75 | 32.13 | 42.51 |
-| t01 | #11 | 8.39 | 20.82 | 11.25 | 32.08 | 36.27 |
-| t15 | #12 | 10.33 | 19.60 | 11.25 | 30.85 | 36.02 |
-| t02 | #15 | 6.83 | 19.03 | 11.25 | 30.28 | 33.69 |
+| t10 | #1 (37.58) | 20.75 | 27.24 | 18.75 | 45.99 | 56.37 |
+| t18 | #2 (31.26) | 19.16 | 26.06 | 11.25 | 37.31 | 46.89 |
+| **t05** | #3 (30.49) | 19.99 | 24.49 | 11.25 | 35.74 | 45.73 |
+| t12 | #4 (30.42) | 27.82 | 20.85 | 10.88 | 31.72 | 45.63 |
+| t03 | #5 (29.67) | 14.60 | 28.08 | 9.12 | 37.20 | 44.51 |
+| t06 | #6 (28.76) | 12.67 | 19.01 | 17.80 | 36.82 | 43.14 |
+| t14 | #7 (27.67) | 18.06 | 18.52 | 13.95 | 32.48 | 41.51 |
+| t17 | #8 (25.82) | 22.03 | 14.77 | 12.96 | 27.73 | 38.73 |
+| t01 | #9 (25.65) | 8.39 | 23.03 | 11.25 | 34.28 | 38.47 |
+| t13 | #10 (25.02) | 29.94 | 12.40 | 10.15 | 22.56 | 37.53 |
 
-## 2. Gaps: what we must win by
+## 2. Gaps: what we must win Sunday by
 
-| Rival | Our Sat lead now | Sunday margin we need (> 0 = beat them by this) |
+| Rival | Our Sat lead | Sunday margin we need (> 0 = beat them by this) |
 |---|---|---|
-| t06 | -3.23 | **-0.43** |
-| t14 | -0.29 | **-0.68** |
-| t03 | +0.81 | **-3.51** |
-| t10 | +5.83 | **-5.45** |
-| t18 | +5.69 | **-6.11** |
-| t16 | +2.40 | **-8.97** |
-| t12 | +14.19 | **-10.28** |
-| t17 | +11.39 | **-10.37** |
+| t10 | −10.25 | **+10.63** |
+| t18 | −1.57 | **+1.16** |
+| t12 | +4.02 | **−0.10** |
+| t03 | −1.46 | **−1.23** |
+| t06 | −1.08 | **−2.59** |
+| t14 | +3.27 | **−4.23** |
+| t17 | +8.01 | **−7.00** |
+| t01 | +1.46 | **−7.26** |
 
-Rule: we finish the game ahead of a rival when 0.5·ΔFri + ΔSat + ΔSun > 0 (Δ = us − them). Every Saturday point we add
-from now counts 1:1 against that, and so does every Sunday point. Friday counts half.
+Rule: we finish ahead of a rival when 0.5·ΔFri + ΔSat + ΔSun > 0 (Δ = us − them). Every Saturday point added in a Sunday-morning
+tail counts 1:1, and so does every Sunday point. Friday counts half. P(#1) ≤ 4% in every variant. P(top 2) in case J (round 3 at ≈ 09:00, the flip lands): **≈ 19% without
+ladder fodder, ≈ 24-27% with the approved fodder** (ladder ≈ 0.34-0.38); 13-15% if the flip doesn't land (score-model §4.12).
 
-## 3. Rival upside still open today [L]
+## 3. Rivals' Sunday upside [L]
 
-| Rival | Duel part (Duels II ≈ 20:33, max 12 Sat) | L4 (Los Pícaros) | Market value created (cap +5 board = +7.5 Sat) |
+| Rival | Saturday round | Where its points came from | Sunday risk to us |
 |---|---|---|---|
-| t14 | mid; Duels I part ~8-12 (mixed with deals) | **not early: opens to it ≈ 17:35** (+0.4-1 board) | gap 1.76 → room ≈ +3.2 board |
-| t01 | Duels I clean ~10.4 | early; 2 L4 buys done (LAV-09 58, MAL-10 59) | stall, gap 0 → room +5 |
-| t12 | weak (Duels I ~7) | not early | at 12.12 (near cap) |
-| t10 | ~10 | early | at cap (12.5) |
-| t03 | strong (~11) | early; LAV-09 59 done | board venue, bench 4.75 (below the stall) |
-| t06 | ~8 | not early | 11.48 (board venue + VC) |
+| t10 | 45.99 (≈ ceiling 48.75) | duels strong, trades + ladder ≈ caps, **v07 VC at the cap (+7.5)** | repeats unless v07's flow dries up |
+| t18 | 37.31 | negotiating 26.06 (duels + ladder), stall only | no venue VC; beatable via v10 VC |
+| t12 | 31.72 | Friday 27.82 (best), v02 board venue below the stall | weak Saturday; its v02 VC can come back |
+| t03 | 37.20 | negotiating 28.08 (best duels/ladder), v20 below the stall | strong negotiator; market weak |
+| t06 | 36.82 | market 17.80 (v01 VC ≈ cap) | Friday 12.67 holds it back |
 
-Watch t14 at 17:35 (L4 opens to it) and every trade on v14; watch t01's Duels II and its ladder.
+## 4. Our Sunday levers (detail: score-model §4.3, first hour §4.7)
 
-## 4. Our levers left today (board points, expected; refreshed 17:57) [L]
-
-| Lever | Expected | Cost / risk | Owner |
-|---|---|---|---|
-| ~~SAL page close~~ **DONE 18:30** (SAL-06 from t08 at 28) | **+2.00 measured** | — | — |
-| MAL-rare flip to t15 (Pícaros buy ≤ 60-62 → t15 at 85-90) | +0.7-1.45 per rare | t15 has 98 P (one rare unless it raises cash) | Lucas / Operator |
-| Duels II (≈ 20:33; days rule) | +0.5-1.5 | relative to the field | Aleks |
-| Team trades / swaps with positive neg_points (trade part live: ≈ 0.048 board per point) | +0.25-0.75 each | none | Operator |
-| v10 value created (t15's duplicates → t09 / t02) | +3-5 if they land; EV ≈ +1 | Lucas's DMs | Lucas |
-| Ladder deals (any dealer) | **0: our ladder part is capped** | cash, neg | stop |
-| Flags | 0 (scored flags capped at ≈ 3) unless the hourly-reset probe scores | a wrong flag −10 | Operator |
-| Fever resale of SAL rares to Pilar | cash only (no board) | — | only if cash is needed |
+| Lever | Sunday round pts | Cost |
+|---|---|---|
+| v10 value created (pairs: duplicates → first copies) | 0 → 7.5 (field-normalised, §3h) | 0 P |
+| Saturday tail, if the clock resumes at 13.367 (v10 pairs only; trade part has ≈ 6 np headroom) | up to ≈ +4 Saturday pts | 0 P |
+| Duels III + Grand Final | ≈ 7 → 8-9 | 0 P |
+| CHA page (team closer +50) + CHA dealer buys ≤ list (ladder: Abuela + Pícaros) | ≈ +7 (incl. ladder ≈ 2.8) | ≈ 330 P |
+| Fresh ladder sells (MAL-08 → Pilar ≥ 20, spare non-SAL rare → Pilar ≈ 55, spare common → Pícaros 5; RET-11 only ≥ 198) | +1.5-3 | cash + |
+| MAL close | +1-3 | ≈ 160 P |

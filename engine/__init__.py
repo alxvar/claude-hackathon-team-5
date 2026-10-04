@@ -17,12 +17,14 @@ class LLMError(Exception):
 
 @dataclass
 class Reply:
-    parsed: BaseModel
+    parsed: BaseModel | None
     latency_s: float
     input_tokens: int
     output_tokens: int
     cost_usd: float
     model: str
+    cache_creation_input_tokens: int = 0
+    cache_read_input_tokens: int = 0
 
 
 class Model(Protocol):
@@ -37,3 +39,6 @@ class Model(Protocol):
 
 
 __all__ = ["LLMError", "Model", "Reply"]
+
+# Providers split a reusable prefix from private, request-specific context at this boundary.
+CACHE_PREFIX_END = "\n\n<!-- uncached context -->\n\n"

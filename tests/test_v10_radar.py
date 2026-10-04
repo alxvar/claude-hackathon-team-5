@@ -54,8 +54,8 @@ class Col:
         return self
 
     def allows(self, team, set_id):
-        if team == "t10":
-            return False, "t10 dumps SAL (teams.md)"
+        if team in ("t10", "t04"):                     # t04, the seller of ASK, dumps SAL: a valid giver (Chief 21:40)
+            return False, f"{team} dumps SAL (teams.md)"
         return team in ("t16", "t17", "t13", "t06"), "collects"
 
 
@@ -93,7 +93,7 @@ def test_dry_and_empty_board(tmp_path):
 
 def test_a_high_multiplier_team_selling_a_duplicate_creates_value():
     # Analyst 12:05 [V]: t15 (LAT ~1.45) sold duplicates to t12 (~0.8): +4.36 and +2.76 on other venues.
-    ask = {"id": 77, "give": {"assets": [{"ref": "SAL-06"}]}, "want": {"cash": 24}}
+    ask = {"id": 77, "give": {"assets": [{"ref": "SAL-06"}]}, "want": {"cash": 15}}   # both gain at 15 (Chief 21:40)
     held = {("t15", "SAL-06"): {501, 502}}                               # the seller holds two copies
     teams = [{"team": "t16", "name": "Team 16", "score": 5, "rank": 9}, {"team": "t05", "score": 24}]
     class Ok:
@@ -116,7 +116,7 @@ def test_the_analysts_multipliers_win_where_confident_and_the_conservative_estim
     m = vr.load_mult({"t12": {"LAT": 1.4, "MAL": 0.9}}, f)
     assert m["t12"]["LAT"] == (0.8, 0.7, 0.9) and m["t12"]["MAL"] == (0.9, 0.9, 0.9)   # "?" keeps the hub's
     cat = {"sets": [{"id": "LAT", "cards": [{"id": "LAT-07", "rarity": "uncommon", "book": 25}]}]}
-    ask = {"id": 5, "give": {"assets": [{"ref": "LAT-07"}]}, "want": {"cash": 20}}
+    ask = {"id": 5, "give": {"assets": [{"ref": "LAT-07"}]}, "want": {"cash": 12}}
 
     class Ok:
         def allows(self, team, set_id):
@@ -127,8 +127,10 @@ def test_the_analysts_multipliers_win_where_confident_and_the_conservative_estim
     # t15 sells its 2nd copy (0.25): 25 x (0.8 - 1.45 x 0.25) = +10.9, at least 25 x (0.7 - 1.6 x 0.25) = +7.5
     b = vr.buyers_for(ask, seller="t15", held={("t15", "LAT-07"): {1, 2}}, **kw)
     assert b and b[0]["vc"] == 10.9 and b[0]["vc_low"] == 7.5
-    # its only copy: value destroyed, no DM
+    # its only copy: value destroyed, no DM (and no true duplicate: Chief 21:40)
     assert vr.buyers_for(ask, seller="t15", held={("t15", "LAT-07"): {1}}, **kw) == []
+    # at 20 the buyer's conservative value (25 x 0.7 = 17.5) is below the price: either side's gain <= 0 drops it
+    assert vr.buyers_for({**ask, "want": {"cash": 20}}, seller="t15", held={("t15", "LAT-07"): {1, 2}}, **kw) == []
 
 
 # ------------------------------------------------------------ addressed offers on v10 (hidden from the public board)
@@ -140,6 +142,14 @@ def listed(eid, tick, oid, maker, to, give, want, expires=30):
 
 
 ASK_TO = ({"cash": 0, "assets": [{"id": 366, "ref": "SAL-03"}]}, {"cash": 13})
+
+
+class DumpsT10:
+    def get(self):
+        return self
+
+    def allows(self, team, set_id):
+        return (False, "t10 dumps SAL (teams.md)") if team == "t10" else (True, "collects")
 
 
 def test_open_addressed_drops_cancelled_expired_and_settled_offers():
@@ -160,21 +170,30 @@ def test_an_addressed_ask_pages_lucas_with_a_dm_to_the_addressee_only_when_it_cr
     r.cards = vr.card_index(CATALOG)
     teams = [{"team": "t10", "name": "Team 10", "rank": 5}, {"team": "t17", "name": "Team 17", "rank": 9}]
     o = vr.open_addressed([listed(1, 10, 8031, "t10", "t17", *ASK_TO)], 12)[0]
-    good = vr.addressed_match(o, teams=teams, mult={"t17": {"SAL": 1.6}, "t10": {"SAL": 0.5}}, cards=r.cards, held={})
+    good = vr.addressed_match(o, teams=teams, mult={"t17": {"SAL": 1.6}, "t10": {"SAL": 0.5}}, cards=r.cards, held={},
+                              collectors=DumpsT10())
     assert good["side"] == "ask" and good["seller"] == "t10" and good["vc"] == 11.0
     r.alert_addressed(good, 12)
     assert [n[0] for n in notes] == ["dani"] and "Team 10 has an offer for you on v10" in notes[0][2]
     assert "Hi Team 17! Team 10 has an offer for you on v10: Card 3 (SAL-03) for 13 P, offer 8031. Thanks!" in notes[0][2]
     assert "Offer 8031 on v10, valid until ~" in notes[0][2]
-    bad = vr.addressed_match(o, teams=teams, mult={"t17": {"SAL": 0.5}, "t10": {"SAL": 1.6}}, cards=r.cards, held={})
-    r.alert_addressed(bad, 12)
-    assert len(notes) == 1 and any("not paged" in x for x in logs)     # est. value created < 0: logged only
+    bad = vr.addressed_match(o, teams=teams, mult={"t17": {"SAL": 0.5}, "t10": {"SAL": 1.6}}, cards=r.cards, held={},
+                             collectors=DumpsT10())
+    assert bad is None and len(notes) == 1                             # the buyer would lose at 13: no match at all
+    keeps = vr.addressed_match(o, teams=teams, mult={"t17": {"SAL": 1.6}, "t10": {"SAL": 0.5}}, cards=r.cards,
+                               held={}, collectors=AllCollect())      # t10 collects SAL and shows 0-1 copy: no giver
+    assert keeps is None
+    has_one = vr.addressed_match(o, teams=teams, mult={"t17": {"SAL": 1.6}, "t10": {"SAL": 0.5}}, cards=r.cards,
+                                 held={("t17", "SAL-03"): {12}}, collectors=DumpsT10())   # the buyer holds one
+    assert has_one is None
 
 
 def test_an_addressed_bid_reads_the_maker_as_buyer():
     o = vr.open_addressed([listed(1, 10, 9000, "t06", "t10", {"cash": 24}, {"cards": ["SAL-07"]})], 12)[0]
-    m = vr.addressed_match(o, teams=[], mult={}, cards=vr.card_index(CATALOG), held={})
+    m = vr.addressed_match(o, teams=[], mult={"t06": {"SAL": 1.6}, "t10": {"SAL": 0.5}}, cards=vr.card_index(CATALOG),
+                           held={}, collectors=DumpsT10())
     assert m["side"] == "bid" and m["seller"] == "t10" and m["team"] == "t10" and m["price"] == 24
+    assert vr.SPARE_LINE in vr.dm_addressed({**m, "name": "Team 10", "maker_name": "Team 6"}, "Card 7")   # t10 gives
 
 
 # ------------------------------------------------------------ partner suggestions (Chief 15:45)
@@ -195,11 +214,12 @@ def test_a_partner_s_2nd_copy_goes_to_the_best_buyer_outside_the_top_5():
              (("t14", 40), ("t13", 39), ("t18", 38), ("t12", 37), ("t02", 36), ("t05", 24), ("t16", 5), ("t17", 6))]
     held = {("t15", "SAL-06"): {501, 502}, ("t15", "SAL-07"): {503}}       # one 2-copy card; SAL-07 is its only copy
     lines = sugg(held, teams, {"t15": {"SAL": 1.45}, "t16": {"SAL": 0.8}, "t17": {"SAL": 0.6}, "t02": {"SAL": 1.6}})
-    assert [(x["card"], x["buyer"], x["price"]) for x in lines] == [("SAL-06", "t16", 20)]   # t02 is 5th: excluded
-    # price: the clearing 24.5, capped at what SAL-06 is worth to Team 16 (25 x 0.8 = 20)
+    assert [(x["card"], x["buyer"], x["price"]) for x in lines] == [("SAL-06", "t16", 19)]   # t02 is 5th: excluded
+    # price: the clearing 24.5, kept below what SAL-06 is worth to Team 16 (25 x 0.8 = 20): both gain (Chief 21:40)
     assert lines[0]["vc"] > vr.SUGGEST_VC
     text = vr.suggestion_text(lines, vr.card_index(CATALOG))
-    assert text == "Suggestions for v10: your Card 6 (SAL-06) → Team 16 at ~20 P. Thanks!"
+    assert text == ("Suggestions for v10: your Card 6 (SAL-06) → Team 16 at ~19 P. Only if it's a spare for you, "
+                    "keep one copy. Thanks!")
 
 
 def test_no_line_below_plus_5_and_at_most_3_lines():
@@ -221,12 +241,14 @@ def test_no_act_when_a_party_is_a_rival(tmp_path):
                                                                          {"team": "t05", "score": 24},
                                                                          {"team": "t17", "score": 5}]
     mult = {"t17": {"SAL": 1.6}, "t10": {"SAL": 0.5}}
-    big = vr.open_addressed([listed(1, 10, 8032, "t10", "t17", {"cash": 0, "assets": [{"id": 9, "ref": "SAL-03"}]},
+    big = vr.open_addressed([listed(1, 10, 8032, "t10", "t17", {"cash": 0, "assets": [{"id": 9, "ref": "SAL-06"}]},
                                     {"cash": 30})], 12)[0]
-    r.alert_addressed(vr.addressed_match(big, teams=r._teams, mult=mult, cards=r.cards, held={}), 12)
-    assert notes == [] and any("rival" in x for x in logs)              # t10 (#6) gains 30 - 5 = 25 > 10: no ACT
+    r.alert_addressed(vr.addressed_match(big, teams=r._teams, mult=mult, cards=r.cards, held={},
+                                         collectors=DumpsT10()), 12)
+    assert notes == [] and any("rival" in x for x in logs)              # t10 (#6) gains 30 - 12.5 = 17.5 > 10: no ACT
     small = vr.open_addressed([listed(1, 10, 8031, "t10", "t17", *ASK_TO)], 12)[0]
-    r.alert_addressed(vr.addressed_match(small, teams=r._teams, mult=mult, cards=r.cards, held={}), 12)
+    r.alert_addressed(vr.addressed_match(small, teams=r._teams, mult=mult, cards=r.cards, held={},
+                                         collectors=DumpsT10()), 12)
     assert len(notes) == 1 and "offer 8031" in notes[0][1]              # value created 11 >= 8, its gain 8 <= 10 (17:50)
 
 

@@ -66,7 +66,10 @@ def env_value(name):
     env = ROOT / ".env"
     if env.exists():
         for line in env.read_text(encoding="utf-8").splitlines():
-            if line.strip().startswith(name + "="):
+            line = line.strip()
+            if line.startswith("export "):   # Lucas's .env: `export NAME=value`
+                line = line[len("export "):].lstrip()
+            if line.startswith(name + "="):
                 return line.split("=", 1)[1].strip().strip('"').strip("'") or None
     return None
 

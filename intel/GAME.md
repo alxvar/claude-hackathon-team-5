@@ -7,6 +7,7 @@
 - Never counts: number of trades, fees earned, pack luck, gifts.
 
 ## Measured facts (operator-maintained; verified Sat 00:00-01:15 by independent agents; [V] verified, [L] likely, [?] open)
+- **No round cap on neg_points; the +50 is per trade** [V, Sun 12:17, tick 2169]: a team sale of RET-03 at 5 (worth 2.8) took `neg_points` 50.0 → 52.2. Earlier peaks: Fri 67.8, Sat 119.1 (data/me.jsonl). The Friday '50.0 exactly, uncapped 63.9' was ONE trade (−21.5 → +28.5) clipped at +50. RET-11's 0 (Sun 10:26) = its value at sale ≈ 227, not a cap.
 **Dealer playbook (Sat 13:30, from today's measured deals; details in the entries below)**
 1. A dealer deal scores min(0, ΔV − price): gains clip to 0, losses count in full. Buy only at ≤ our value, sell only at
    ≥ our value. Dealers pay only through the **ladder** (best 3 deals per level; L3 ≈ 3× L2: Pilar +0.050 vs Chato +0.017).
@@ -138,6 +139,16 @@
 - **Easter egg (chulapa dorada)** [V feed, Sat]: ask Abuela about 'la chulapa dorada' (text only) → `egg.found` for the team
   (t05 at tick 1047); she points to Don Ernesto + 'el oro de Moscú', which paid t02 LAT-13 (print run 1) at 1021, then no
   more ('not mine today'). Score effect of egg.found alone: unknown.
+  Pícaros egg [V, tick 1231]: text 'Conozco el timo de la estampita…' → egg.found + badge 'Trickster tricked' ('sin trucos para
+  ti... hoy'); the Abuela egg gave badge 'Sharp ear'. Badges: score effect unknown.
+  Castizo eggs [V, ticks 1368-1369]: Madrid references in dealer threads ('cocido con sus tres vuelcos', rosquillas de San Isidro)
+  → Abuela egg.given MAL-06 + badge 'Castizo' (t10 got a sobre_barrio from Chato for Plaza Mayor + caña; not repeated for us).
+- **Payday** [V, Sat 20:37, game paused at tick 1201]: every team +400 P ('a second starting purse… Only deals score, never
+  cash you hold'). Ours 120 → 520.
+- **CHA page closed Sunday by a team trade** [V, tick 1585]: 9 cards from dealers/pack at 0 neg (Pícaros CHA-09 55; Abuela 8/9/8/9/22/21; pack CHA-07/10), then the last (CHA-05, value 122 with the bonus) from t02 by our addressed El Rastro bid at 72 → neg 0 → 50 (cap). Total 196 P.
+- **Broker announcements: 1 per venue per 20 ticks** [V, Sat 21:48: `wait: one announcement per venue every 20 ticks`].
+- **`GET /api/cards/{id}` masks other holders** [V, Sun 03:00]: our cards show `owner: t05`; others `owner: "a team"`, and the history
+  masks teams too ("to": "a team"), but shows each card's origin (pack # / El Taller / trade #). The server accepts cancels while closed.
 - **Abuela gifts** [V, tick 261]: after our 5th Abuela deal of the day she gave us LAT-08 ("gift from Abuela Carmen",
   `gift.given`); Team 7 got LAT-06 the same way on Friday (tick 157). Gifts never score, but the card is ours to sell.
 - **Value created on our venue is NET and can go negative** [V, Sat 11:30]: tick 311 on v10, t10 → t01 MAL-07 at 14:

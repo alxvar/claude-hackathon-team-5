@@ -35,6 +35,7 @@ FEED_LIMIT = 500            # the server's cap
 STATE_EVERY_S = 60          # schedule, levels, dealers, venues
 CATALOG_EVERY_S = 1800
 GAP_MIN_EVENTS = FEED_LIMIT  # a full window whose oldest id is newer than ours = we may have missed events
+BOARD_EVERY_TICKS = 2       # Chief 11:40: every venue board every pass hit the 60/s keyless limit (11:36-11:39)
 
 
 def log(*a):
@@ -268,10 +269,16 @@ class Collector:
         self.last_snap = None
         self.next_state = self.next_catalog = 0.0
         self.venues = ["rastro"]
+        self.board_tick = None         # the tick of the last board sweep
         self.clock = {}
         self.started = time.time()
         self.stats = {"new": 0, "boards": 0, "errors": 0}
         self.last_error = None
+
+    def boards_due(self, tick) -> bool:
+        """Sweep the boards on this pass? Once every BOARD_EVERY_TICKS ticks; always when the tick is unknown."""
+        return tick is None or self.board_tick is None or tick - self.board_tick >= BOARD_EVERY_TICKS \
+            or tick < self.board_tick
 
     def _err(self, where, e):
         self.stats["errors"] += 1
@@ -344,19 +351,25 @@ class Collector:
             except Exception as e:
                 self._err("catalog", e)
 
-        # Boards: every open venue, once per pass (passes are a third of a tick apart at most).
+        # Boards: every open venue, once every BOARD_EVERY_TICKS ticks (the feed carries every offer meanwhile); a 429
+        # ends the sweep at once, so the address's other readers (window.sh, the monitors) keep their share.
         n = 0
-        for v in self.venues:
-            try:
-                offers = self.api.get(f"/api/venues/{v}/offers").get("offers") or []
-                self.store.put_board(v, offers, tick)
-                n += 1
-            except urllib.error.HTTPError as e:
-                if e.code != 404:
+        if self.boards_due(tick):
+            self.board_tick = tick
+            for v in self.venues:
+                try:
+                    offers = self.api.get(f"/api/venues/{v}/offers").get("offers") or []
+                    self.store.put_board(v, offers, tick)
+                    n += 1
+                except urllib.error.HTTPError as e:
+                    if e.code == 429:
+                        self._err(f"board {v}", e)
+                        break
+                    if e.code != 404:
+                        self._err(f"board {v}", e)
+                except Exception as e:
                     self._err(f"board {v}", e)
-            except Exception as e:
-                self._err(f"board {v}", e)
-        self.stats["boards"] = n
+            self.stats["boards"] = n
 
         try:
             stored = self.store.heartbeat(tick, self.seen_max, n, self.last_error, self.started)

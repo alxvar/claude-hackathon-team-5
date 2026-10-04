@@ -12,3 +12,9 @@ _Every item from GET /api/news (sources: boletin, radio, tablon), oldest first, 
 - Sat 17:11 · tick 835 (hour 8.2833) · Radio Rastro · **Half-hour queue at the San Ginés churro shop** ·  · Names: none
 - Sat 18:05 · tick 943 (hour 9.1833) · Radio Rastro · **Abuela pays more for uncommon cards until teatime** · She wants to complete her grandchildren's album. · Names: dealer abuela
 - Sat 18:48 · tick 1027 (hour 9.8833) · Radio Rastro · **Sun and 24 degrees; a storm after ten** ·  · Names: none
+- Sat 19:36 · tick 1123 (hour 10.6833) · El Tablón · **All of Lavapiés will be reprinted tonight** · If you have spare Lavapiés cards, sell them now. · Names: set LAV
+- Sun 09:20 · tick 1464 (hour 13.6833) · El Tablón · **Someone lost a red umbrella next to Abuela's stall** ·  · Names: dealer abuela
+- Sun 09:21 · tick 1470 (hour 13.7333) · El Tablón · **Tomorrow common cards will be worth double** ·  · Names: none
+- Sun 09:24 · tick 1482 (hour 13.7833) · Radio Rastro · **Bonus pay: the Bazaar gives everyone 60 primas in one hour** ·  · Names: price
+- Sun 09:27 · tick 1494 (hour 13.8333) · El Tablón · **El Rastro closes at midnight for roadworks** ·  · Names: venue rastro
+- Sun 09:30 · tick 1506 (hour 13.8833) · El Tablón · **Anyone want to swap a Cine Doré for two roast chestnuts?** ·  · Names: none

@@ -1,5 +1,170 @@
 # Market log (Market session; newest first)
 
+## Sun 12:46 · v10 has trades: five fills, we are #1 [V]
+| Tick | Trade on v10 | Price | mm_points after |
+|---|---|---|---|
+| 2087 | RET-02 t13 → t17 (common) | 8 | 0.9 |
+| 2102 | RET-01 t02 → t08 (common; the pair we pushed) | 6 | 1.8 |
+| 2228 | CHA-11 t10 → t06 (epic) | 184 | 5.9 |
+| 2265 | RET-09 t17 → t01 (rare) | 40 | 8.6 |
+| 2268 | RET-10 t17 → t01 (rare) | 33 | 9.7 |
+- **/api/me at tick 2283:** mm_points 9.7 · venue value_created 175.4 (5 trades, 271 P) · market 13.08 · score 35.81 ·
+  **rank 1** (t12 34.20, t10 34.08, t18 32.54, t03 32.23).
+- Market gap over the stall teams (9.0): us +4.08, of which ~1.1 is Saturday's carry-over, so Sunday's real trades are
+  worth ~+3.0 to us now = the full 7.5 round points × 0.4 [L]. Team 9 +4.98 (Saturday carry ~2.4 + Sunday ~2.5).
+  mm_points is not capped at 7.5 (it reads 9.7); what it measures exactly is still open.
+- **bench-h17.0 (12:38-12:42) on the stall:** efficiency 0.890, bench_points 0.5; stall teams' number unchanged (9.0).
+- How v10 got its flow: Lucas's pact with Team 13 (its bot posts bids and asks there since 10:56), then pushes to
+  Teams 2/8/16/1, then Team 10 listing there after the one v07 trade. Eight teams quote on v10. RET-09 t07 → t09, the
+  pair we brokered at 08:30, settled on El Rastro instead (10:13): texts now say "on v10" twice.
+- One trade of ours settled on v07 (RET-03 → t01 at 5, tick 2169, a manual one-off): Team 10 +0.37.
+
+## Sun 10:45 · bench-h15.0 (≈ 10:37), on the stall v10 [V]
+- **Ours:** bench_efficiency 0.895, bench_points 0.5, market 9.81.
+- **Field:** nobody above the stall. Team 7 and Team 8 each dropped ~1.37 against the stall teams at snapshot 1802
+  (a session scored at or near zero: a venue or broker failure [L]); Team 12 −0.26.
+- The hard test (10:16): every venue moved with the stall (+2.42), none above, none below.
+- v10 at 10:45: 0 listings, 0 fills. Sunday so far: team trades only on El Rastro (11 by 10:33), none on a team venue.
+  RET-09 t07 → t09, the pair we brokered, settled on El Rastro at 68 P (tick 1677), not on v10.
+
+## Sun 10:25 · the HARD Market Test (bench-h14.7, ticks 1690-1707, 12 traders), on the stall v10 [V]
+- **Ours:** bench_efficiency **0.967** (Saturday's six: 0.85-0.93), bench_points 0.5, market 7.33. The "hard" book was the
+  stall's best session: firmer, more impatient traders leave less for a broker to add.
+- Round 3 began at tick 1446 (09:15 wall, live ticks from 09:20); mm_points reset to 0.0. No trade on any team venue
+  yet on Sunday (6 team trades on El Rastro by 09:54). Saturday's real-trades scores were re-scored overnight after the
+  organisers' bug fix ("a trade that destroys value is the seller's loss, never the market's"): we read +1.6 for Saturday.
+- v10: 0 listings, 0 fills at 10:25. Pushes sent 10:02 to Lucas and Dani (RET-09 t07 → t09; RET-11 to Team 2 at 240).
+- Next benches: 15.0 (≈ 10:37), 17.0 (≈ 12:37).
+
+## Sun 00:30 · CORRECTION to the 21:15 entry: the deck split was backwards [V, intel/market-test-audit.md]
+- The Payday slide reads **Market Test 22.5 + Real trades 7.5**, not 7.5 + 22.5. The 21:15 entry took the numbers from
+  the 21:10 directive. Consequences: (1) the stall's 7.5 on the board is HALF the Market Test, not its maximum: the other
+  11.25 round points are unclaimed by every team; (2) +5.0 on the board is the FULL real-trades score (7.5 round points =
+  3.0 final on Sunday): there is no 22.5 to unlock on v10.
+- Unchanged: keep the stall (no broker of ours beats it in the sims; 51 rival board sessions, none above it); the
+  real-trades fit (top-three mean); spares only, no negative trade.
+- Changed: "the bench is maxed, no broker upside" is withdrawn. The upside exists; we have no broker that takes it. Desk
+  question now: does one venue beating the stall by a hair get full Market Test points?
+- VC scale: Saturday's top-three mean was ≤ ~15 units (audit §3b); my first sim assumed ~60-150. Sunday's target is
+  about 30-50 net VC at the close, not 170. `mm_points` read +2.2 at the close with no new trade [V], market still 7.5.
+- `intel/market-sunday.md` §0 (negotiation model; two verifier passes applied), §1, §4 and §6 rewritten accordingly.
+
+## Sat 22:50 · bench-h13.0 (ticks 1401-1414), on the stall v10: Saturday's last
+- **Ours [V]:** bench_efficiency 0.854 (0.899 · 0.933 · 0.878 · 0.891 · 0.886 before), bench_points 0.5, market 7.5.
+- **Field at snapshot 1420 [V]:** t10 12.5 · t06 11.87 · t09 10.89 · t16 10.16 · t14 9.3 · t17 8.64 · t08 8.45 · stall
+  teams 7.5 (us, t18, t15, t11, t07, t04, t02, t01) · t12 7.25 · t13 6.77 · t03 6.08. Six benches, nobody above the stall.
+- **Saturday's market result for us: 7.5 of the 12.5 seen at the top.** The whole gap is real trades: v10 had 2 fills
+  all day (+4.99, then −10.2), mm −5.2. The rebate (21:15-23:00) got no listing; 0 P owed.
+- Sunday plan: `intel/market-sunday.md`.
+
+## Partner audit · Sat 22:38 · tick 1401 · snapshot 1400: stall teams 7.5 · us 7.5 (+0.00)
+- **Team 15** (v15, market 7.5 = +0.00): on v10 0 open offers, 1 trades (26 P) · ours on v15: 5 open offers, 0 trades (0 P)
+  - v10 trade tick 398: [('SAL-07', 't10', '→', 't15')] at 26
+- **Team 10** (v07, market 12.5 = +5.00): on v10 0 open offers, 2 trades (40 P) · ours on v07: 0 open offers, 4 trades (32 P)
+  - v10 trade tick 311: [('MAL-07', 't10', '→', 't01')] at 14
+  - v10 trade tick 398: [('SAL-07', 't10', '→', 't15')] at 26
+  - our trade on v07 tick 351: [('SAL-01', 't05', '→', 't03')] at 7
+  - our trade on v07 tick 404: [('MAL-03', 't04', '→', 't05')] at 5
+  - our trade on v07 tick 714: [('MAL-01', 't06', '→', 't05')] at 5
+  - our trade on v07 tick 760: [('MAL-08', 't14', '→', 't05')] at 15
+- **Team 3** (v20): no deal yet, nothing on v10.
+- **Alerts:** Team 15: 0 offers and 0 trades on v10, 385 min after the deal; Team 15: no open offer on v10 now (1 trades so far); Team 15: offer imbalance, ours on v15 5 vs theirs on v10 0; Team 10: no open offer on v10 now (2 trades so far)
+- **Rebates owed (10 P a card sold on v10 since tick 1228, max 2 per team, cap 80; rivals t10 t06 t14 t03 t18 t13 t17 excluded, t01 t16 re-checked at payout):** none · total 0 P
+
+## Partner audit · Sat 22:08 · tick 1341 · snapshot 1340: stall teams 7.5 · us 7.5 (+0.00)
+- **Team 15** (v15, market 7.5 = +0.00): on v10 0 open offers, 1 trades (26 P) · ours on v15: 5 open offers, 0 trades (0 P)
+  - v10 trade tick 398: [('SAL-07', 't10', '→', 't15')] at 26
+- **Team 10** (v07, market 12.5 = +5.00): on v10 0 open offers, 2 trades (40 P) · ours on v07: 0 open offers, 4 trades (32 P)
+  - v10 trade tick 311: [('MAL-07', 't10', '→', 't01')] at 14
+  - v10 trade tick 398: [('SAL-07', 't10', '→', 't15')] at 26
+  - our trade on v07 tick 351: [('SAL-01', 't05', '→', 't03')] at 7
+  - our trade on v07 tick 404: [('MAL-03', 't04', '→', 't05')] at 5
+  - our trade on v07 tick 714: [('MAL-01', 't06', '→', 't05')] at 5
+  - our trade on v07 tick 760: [('MAL-08', 't14', '→', 't05')] at 15
+- **Team 3** (v20): no deal yet, nothing on v10.
+- **Alerts:** Team 15: 0 offers and 0 trades on v10, 355 min after the deal; Team 15: no open offer on v10 now (1 trades so far); Team 15: offer imbalance, ours on v15 5 vs theirs on v10 0; Team 10: no open offer on v10 now (2 trades so far)
+- **Rebates owed (10 P a card sold on v10 since tick 1228, max 2 per team, cap 80; rivals t10 t06 t14 t03 t18 t13 t17 excluded, t01 t16 re-checked at payout):** none · total 0 P
+
+## Partner audit · Sat 21:38 · tick 1281 · snapshot 1280: stall teams 7.5 · us 7.5 (+0.00)
+- **Team 15** (v15, market 7.5 = +0.00): on v10 0 open offers, 1 trades (26 P) · ours on v15: 6 open offers, 0 trades (0 P)
+  - v10 trade tick 398: [('SAL-07', 't10', '→', 't15')] at 26
+- **Team 10** (v07, market 12.5 = +5.00): on v10 0 open offers, 2 trades (40 P) · ours on v07: 0 open offers, 4 trades (32 P)
+  - v10 trade tick 311: [('MAL-07', 't10', '→', 't01')] at 14
+  - v10 trade tick 398: [('SAL-07', 't10', '→', 't15')] at 26
+  - our trade on v07 tick 351: [('SAL-01', 't05', '→', 't03')] at 7
+  - our trade on v07 tick 404: [('MAL-03', 't04', '→', 't05')] at 5
+  - our trade on v07 tick 714: [('MAL-01', 't06', '→', 't05')] at 5
+  - our trade on v07 tick 760: [('MAL-08', 't14', '→', 't05')] at 15
+- **Team 3** (v20): no deal yet, nothing on v10.
+- **Alerts:** Team 15: 0 offers and 0 trades on v10, 325 min after the deal; Team 15: no open offer on v10 now (1 trades so far); Team 15: offer imbalance, ours on v15 6 vs theirs on v10 0; Team 10: no open offer on v10 now (2 trades so far)
+- **Rebates owed (10 P a card sold on v10 since tick 1228, max 2 per team, cap 80; rivals t10 t06 t14 t03 t18 t13 t17 excluded, t01 t16 re-checked at payout):** none · total 0 P
+
+## Partner audit · Sat 21:07 · tick 1221 · snapshot 1220: stall teams 7.5 · us 7.5 (+0.00)
+- **Team 15** (v15, market 7.5 = +0.00): on v10 0 open offers, 1 trades (26 P) · ours on v15: 3 open offers, 0 trades (0 P)
+  - v10 trade tick 398: [('SAL-07', 't10', '→', 't15')] at 26
+- **Team 10** (v07, market 12.5 = +5.00): on v10 0 open offers, 2 trades (40 P) · ours on v07: 0 open offers, 4 trades (32 P)
+  - v10 trade tick 311: [('MAL-07', 't10', '→', 't01')] at 14
+  - v10 trade tick 398: [('SAL-07', 't10', '→', 't15')] at 26
+  - our trade on v07 tick 351: [('SAL-01', 't05', '→', 't03')] at 7
+  - our trade on v07 tick 404: [('MAL-03', 't04', '→', 't05')] at 5
+  - our trade on v07 tick 714: [('MAL-01', 't06', '→', 't05')] at 5
+  - our trade on v07 tick 760: [('MAL-08', 't14', '→', 't05')] at 15
+- **Team 3** (v20): no deal yet, nothing on v10.
+- **Alerts:** Team 15: 0 offers and 0 trades on v10, 295 min after the deal; Team 15: no open offer on v10 now (1 trades so far); Team 10: no open offer on v10 now (2 trades so far)
+- **Rebates owed (5 P a card sold on v10, cap 30):** Team 8 0 P · Team 7 0 P · total 0 P
+
+## Sat 21:15 · the Payday deck reconciled with our data (deck: "Market-making 30 = Market Test 7.5 + Real trades 22.5")
+- **Market Test = 7.5 = what every stall team already shows [L].** When the top three are the stall, "half" and "full"
+  coincide: the bench is maxed. A better broker has no upside. Board-venue question closed.
+- **Real trades formula [L, strong]: points = 5.0 × min(1, VC / mean VC of the top three venues).** Fit at snapshot 560
+  (Team 6's rare lands): predicted t14 3.11, t12 3.02, t17 1.97; observed 3.10, 3.02, 1.96. Full mark seen all day: 5.0,
+  never 22.5 [?: desk question].
+- **VC = the two teams' gains = buyer's value − seller's value** (price cancels). Our SAL-07 trade: 25 × (0.5 − 0.9) =
+  −10.0 vs the measured mm swing −10.19 [V swing, L cause].
+- **Swaps settle on stalls by acceptance [V]:** 13 card-for-card settlements today, two on Team 7's stall v11. Neither
+  the auto engine nor the starter broker pairs two mirror swap offers (cash ask × cash bid only).
+- **Payday [V]:** +400 P to every team at 20:37; Sunday +150 P at 09:00, new round. Re-score: keep the stall, no bond.
+- **Sunday design:** v10 = swap desk. Pair-finder (wants × duplicates) from the radar; hand the 3-5 best two-way
+  duplicate swaps their exact offers at 09:00; duplicates only; page-finishers only for teams well below us.
+
+## Partner audit · Sat 20:08 · tick 1187 · snapshot 1180: stall teams 7.5 · us 7.5 (+0.00)
+- **Team 15** (v15, market 7.5 = +0.00): on v10 0 open offers, 1 trades (26 P) · ours on v15: 4 open offers, 0 trades (0 P)
+  - v10 trade tick 398: [('SAL-07', 't10', '→', 't15')] at 26
+- **Team 10** (v07, market 12.5 = +5.00): on v10 0 open offers, 2 trades (40 P) · ours on v07: 0 open offers, 4 trades (32 P)
+  - v10 trade tick 311: [('MAL-07', 't10', '→', 't01')] at 14
+  - v10 trade tick 398: [('SAL-07', 't10', '→', 't15')] at 26
+  - our trade on v07 tick 351: [('SAL-01', 't05', '→', 't03')] at 7
+  - our trade on v07 tick 404: [('MAL-03', 't04', '→', 't05')] at 5
+  - our trade on v07 tick 714: [('MAL-01', 't06', '→', 't05')] at 5
+  - our trade on v07 tick 760: [('MAL-08', 't14', '→', 't05')] at 15
+- **Team 3** (v20): no deal yet, nothing on v10.
+- **Alerts:** Team 15: 0 offers and 0 trades on v10, 278 min after the deal; Team 15: no open offer on v10 now (1 trades so far); Team 10: no open offer on v10 now (2 trades so far)
+- **Rebates owed (5 P a card sold on v10, cap 30):** Team 8 0 P · Team 7 0 P · total 0 P
+
+## Sat 20:08 · bench-h11.0, on the stall v10
+- **Ours [V]:** bench_efficiency 0.886 (0.899 · 0.933 · 0.878 · 0.891 before), bench_points 0.5, market 7.5 = stall teams.
+- **Field at snapshot 1180 [V]:** t10 12.5 · t06 11.9 · t09 10.94 · t14 9.33 · t07 9.17 · t17 8.66 · t16 8.63 · t08 8.52
+  · stall teams 7.5. No market above 12.5 has ever appeared: nobody beats the stall on the bench. Stay on the stall.
+- **Bench split of rivals [L, from snapshots at bench ends; bench part = 15 × average bench points]:** t10 = stall level
+  every session (its market never moves at a bench end); t06 ≈ 0.38 at 3.0, then ≈ 0.5 (its market creeps up at each
+  bench end). All of t10's 5.0 above the stall is value created at the cap.
+- v10: empty since tick 941, no fill since tick 398; mm −5.2. Rebates owed: 0 P.
+- Next: bench 13.0 (~21:55), the hard bench at 14.65 (~23:34 if the clock runs on), then 15.0.
+
+## Partner audit · Sat 19:38 · tick 1126 · snapshot 1120: stall teams 7.5 · us 7.5 (+0.00)
+- **Team 15** (v15, market 7.5 = +0.00): on v10 0 open offers, 1 trades (26 P) · ours on v15: 4 open offers, 0 trades (0 P)
+  - v10 trade tick 398: [('SAL-07', 't10', '→', 't15')] at 26
+- **Team 10** (v07, market 12.5 = +5.00): on v10 0 open offers, 2 trades (40 P) · ours on v07: 0 open offers, 4 trades (32 P)
+  - v10 trade tick 311: [('MAL-07', 't10', '→', 't01')] at 14
+  - v10 trade tick 398: [('SAL-07', 't10', '→', 't15')] at 26
+  - our trade on v07 tick 351: [('SAL-01', 't05', '→', 't03')] at 7
+  - our trade on v07 tick 404: [('MAL-03', 't04', '→', 't05')] at 5
+  - our trade on v07 tick 714: [('MAL-01', 't06', '→', 't05')] at 5
+  - our trade on v07 tick 760: [('MAL-08', 't14', '→', 't05')] at 15
+- **Team 3** (v20): no deal yet, nothing on v10.
+- **Alerts:** Team 15: 0 offers and 0 trades on v10, 248 min after the deal; Team 15: no open offer on v10 now (1 trades so far); Team 10: no open offer on v10 now (2 trades so far)
+- **Rebates owed (5 P a card sold on v10, cap 30):** Team 8 0 P · Team 7 0 P · total 0 P
+
 ## Partner audit · Sat 19:08 · tick 1066 · snapshot 1060: stall teams 7.5 · us 7.5 (+0.00)
 - **Team 15** (v15, market 7.5 = +0.00): on v10 0 open offers, 1 trades (26 P) · ours on v15: 4 open offers, 0 trades (0 P)
   - v10 trade tick 398: [('SAL-07', 't10', '→', 't15')] at 26

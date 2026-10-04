@@ -1,20 +1,20 @@
-# v10 suggestions (Sat 19:06, tick 1062)
+# v10 suggestions (Sun 12:46, tick 2286)
 
 _Written every 30 min by `tools/v10_radar.py`: every team holding 2+ copies of a card (feed, a lower bound), its best buyer that is no rival (est. value created > +5, copy-weighted; no page-closer to a team within 6 of us). A rival seller only at value created >= 8 and its own gain <= 10 P. Ranked; the top 3 go to Dani as ACTs. Est. [L]. Price: the clearing price, capped at the buyer's value._
 
-- Team 8 → Team 9: SAL-09 (holds 2) at ~70 P · est. value created +46.3 · seller's gain +44.5
-- Team 1 → Team 9: MAL-06 (holds 2) at ~25 P · est. value created +19.4 · seller's gain +19.4
-- Team 6 → Team 15: LAT-04 (holds 4) at ~8 P · est. value created +13.7 · seller's gain +7.2 · rival seller
-- Team 14 → Team 15: LAT-04 (holds 3) at ~8 P · est. value created +13.3 · seller's gain +6.8 · rival seller
-- Team 1 → Team 8: SAL-03 (holds 3) at ~9 P · est. value created +13.2 · seller's gain +7.7
-- Team 8 → Team 1: SAL-04 (holds 4) at ~9 P · est. value created +12 · seller's gain +7.5
-- Team 8 → Team 15: LAT-04 (holds 2) at ~8 P · est. value created +11.9 · seller's gain +5.4
-- Team 18 → Team 8: MAL-05 (holds 2) at ~9 P · est. value created +11.5 · seller's gain +7.4 · rival seller
-- Team 2 → Team 8: SAL-03 (holds 2) at ~9 P · est. value created +11.4 · seller's gain +5.8
-- Team 14 → Team 1: SAL-04 (holds 2) at ~9 P · est. value created +11.3 · seller's gain +6.8 · rival seller
+- Team 16 → Team 14: LAT-06 (holds 2) at ~22 P · est. value created +22.5 · seller's gain +14.5
+- Team 1 → Team 7: CHA-08 (holds 2) at ~24 P · est. value created +20.2 · seller's gain +15.8
+- Team 16 → Team 14: LAV-01 (holds 2) at ~9 P · est. value created +13 · seller's gain +7.5
+- Team 1 → Team 8: SAL-03 (holds 3) at ~9 P · est. value created +12.6 · seller's gain +7.7
+- Team 8 → Team 1: SAL-04 (holds 4) at ~9 P · est. value created +12.1 · seller's gain +7.6
+- Team 17 → Team 14: LAV-01 (holds 2) at ~9 P · est. value created +12 · seller's gain +6.5
+- Team 7 → Team 1: SAL-04 (holds 2) at ~9 P · est. value created +11.2 · seller's gain +6.7
+- Team 14 → Team 1: SAL-04 (holds 2) at ~9 P · est. value created +11.1 · seller's gain +6.5
+- Team 3 → Team 14: LAV-01 (holds 2) at ~9 P · est. value created +11.1 · seller's gain +5.6 · rival seller
+- Team 1 → Team 2: SAL-01 (holds 3) at ~9 P · est. value created +11 · seller's gain +7.7
 
-ACT: ask Team 8: "Hi Team 8! If you list your El Marqués (SAL-09) on v10 at ~70 P, Team 9 may take it. Thanks!"
+ACT: ask Team 16: "Hi Team 16! If you list your La Chulapa (LAT-06) on v10 at ~22 P, Team 14 may take it. Only if it's a spare for you, keep one copy. Thanks!"
 
-ACT: ask Team 6: "Hi Team 6! If you list your Mercado de la Cebada (LAT-04) on v10 at ~8 P, Team 15 may take it. Thanks!"
+ACT: ask Team 1: "Hi Team 1! If you list your El Instituto (CHA-08) on v10 at ~24 P, Team 7 may take it. Only if it's a spare for you, keep one copy. Thanks!"
 
-ACT: ask Team 1: "Hi Team 1! If you list your Perrito con Abrigo (SAL-03) on v10 at ~9 P, Team 8 may take it. Thanks!"
+ACT: ask Team 1: "Hi Team 1! If you list your Perrito con Abrigo (SAL-03) on v10 at ~9 P, Team 8 may take it. Only if it's a spare for you, keep one copy. Thanks!"

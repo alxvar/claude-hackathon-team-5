@@ -29,7 +29,7 @@ def day_value(view: DuelView, day: int | None) -> float:
     """What the delivery day adds to a deal for us: 0 or less, against our best day (`days.read_days`). 0 on price
     only or when we can't read the weight; a days duel's offer without a day counts at our worst day."""
     dv = view.day_values
-    return 0.0 if dv is None else dv(day)
+    return 0.0 if dv is None else dv(day) + dv.offset    # offset: a seller's day bonus counted from day 0
 
 
 def worth(view: DuelView, price: float, day: int | None = None) -> float:

@@ -533,3 +533,21 @@ def test_never_asks_our_last_copy_of_a_complete_page_when_the_other_is_committed
     g.offers.clear()                                                    # nothing else committed: one may go
     run(g, [{"card": "LAV-03", "side": "sell", "to": "t16", "price": 6, "floor": 5}])
     assert len(g.posted) == 1
+
+
+def test_the_book_never_posts_on_v07_or_a_rival_s_venue():
+    """Chief 07:15: v07 whatever its owner; a rival-owned venue falls back to El Rastro."""
+    venues = {"v07": {"owner": "t09", "status": "open"}, "v15": {"owner": "t15", "status": "open"},
+              "v18": {"owner": "t18", "status": "open"}}
+    assert bk.venue_for({"venue": "v07"}, venues, set()) == bk.HOUSE
+    assert bk.venue_for({"venue": "v18"}, venues, {"t18"}) == bk.HOUSE
+    assert bk.venue_for({"venue": "v15"}, venues, {"t18"}) == "v15"
+
+
+def test_the_book_may_post_on_a_pact_venue_only_with_the_allow_file(tmp_path, monkeypatch):
+    monkeypatch.setattr(bk.policy, "VENUE_ALLOW", tmp_path / "venue_allow.json")
+    venues = {"v24": {"owner": "t13", "status": "open"}}
+    assert bk.venue_for({"venue": "v24"}, venues, {"t13"}) == bk.HOUSE
+    (tmp_path / "venue_allow.json").write_text('{"venues": ["v24"]}')
+    assert bk.venue_for({"venue": "v24"}, venues, {"t13"}) == "v24"
+    assert bk.venue_for({"venue": "v24", "to": "t13"}, venues, {"t13"}) == bk.HOUSE   # never with t13 there

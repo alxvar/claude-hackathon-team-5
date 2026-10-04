@@ -562,6 +562,15 @@ def git(*args: str, root: Path = ROOT) -> str:
     return subprocess.run(["git", "-C", str(root), *args], capture_output=True, text=True).stdout.strip()
 
 
+def latest_duelist_commit(root: Path = ROOT) -> tuple[str, str, str] | None:
+    """(sha, author, subject) of the newest commit touching the duelist or the engine, by anyone (Sat 21:30: b7d91f3,
+    a Duels II hotfix committed from Lucas's machine, went untested because the watch skipped our own commits; the
+    tests run on a clean `git archive` copy, so our half-done edits can't reach them)."""
+    out = git("log", "-1", "--format=%H%x09%an%x09%s", "--", *WATCH_PATHS, root=root)
+    sha, author, subject = (out.split("\t", 2) + ["", ""])[:3]
+    return (sha, author, subject) if sha else None
+
+
 def latest_foreign_commit(me: str, root: Path = ROOT) -> tuple[str, str, str] | None:
     """(sha, author, subject) of the newest commit touching the duelist or the engine by someone other than `me`."""
     out = git("log", "-50", "--format=%H%x09%an%x09%s", "--", *WATCH_PATHS, root=root)
@@ -670,7 +679,7 @@ class Monitor:
         self.state_path, self.review_path = state_path, review_path
         self.me = me if me is not None else git("config", "user.name")
         self.test_watch, self.records, self.run_tests = test_watch, records, run_tests
-        self.foreign_commit = foreign_commit or (lambda: latest_foreign_commit(self.me))
+        self.foreign_commit = foreign_commit or latest_duelist_commit
         self.batch = batch
         self.state = self._load()
         self._sched_at = self._feed_at = self._tests_at = self._done_at = 0.0

@@ -54,3 +54,43 @@ def test_the_feed_is_read_incrementally(tmp_path):
                        log=lambda s: None).run_once()
     assert [h["dealer"] for h in hits] == ["banco"]
     assert "banco" in (tmp_path / "h.md").read_text()
+
+
+
+def test_the_keepers_answer_to_an_egg_team_is_always_a_hit():
+    # Sat 19:20: Don Ernesto's "The gold of Moscow — an old story, and not mine today" matched no pattern.
+    events = [{"id": 1, "tick": 1074, "type": "egg.found", "payload": {"persona": "abuela", "team": "t18"}},
+              msg(2, 1080, "banco", "t18", "Buenas. Carmen talks, as always. Terms: El Ahuehuete, 761 P."),
+              msg(9, 1080, "banco", "t18", "Ciento trece, señor. I said the number twice."),             # haggling: out
+              msg(3, 1081, "banco", "t08", "Terms: La Casa Encendida, 113 P."),
+              msg(4, 1082, "banco", "t05", "The gold of Moscow — an old story, and not mine today.")]
+    hits, seen = hints.scan_events(events)
+    assert [(h["kind"], h["dealer"], h["teams"]) for h in hits] == [("egg.found", "abuela", ["t18"]),
+                                                                    ("message", "banco", ["t18"]),
+                                                                    ("message", "banco", ["t05"])]
+    later, _ = hints.scan_events([msg(5, 1090, "banco", "t18", "Carmen sends you? Then the vault opens.")], seen)
+    assert later and later[0]["teams"] == ["t18"]                    # the egg teams survive across runs
+
+
+
+def test_his_gold_pack_menu_is_not_the_egg():
+    events = [{"id": 1, "tick": 1074, "type": "egg.found", "payload": {"persona": "abuela", "team": "t13"}},
+              msg(2, 1119, "banco", "t13", "My desk is open. A gold pack today, terms are five hundred forty-six P."),
+              msg(3, 1120, "banco", "t13", "Carmen's regards are noted; the gold chulapa stays in the vault today.")]
+    hits, _ = hints.scan_events(events)
+    assert [h["first"] for h in hits if h["kind"] == "message"] == [1120]
+
+
+
+def test_a_reprint_shows_as_a_print_run_change():
+    _, snap = hints.scan_catalog({"sets": [{"cards": [{"id": "LAV-03", "rarity": "common", "print_run": 300}]}]}, {})
+    new, _ = hints.scan_catalog({"sets": [{"cards": [{"id": "LAV-03", "rarity": "common", "print_run": 600}]}]}, snap)
+    assert [(h["kind"], h["card"], h["was"], h["print_run"]) for h in new] == [("catalog.print_run", "LAV-03", 300, 600)]
+
+
+
+def test_his_vault_card_pitch_is_not_the_egg_but_the_vault_alone_is():
+    assert not hints.egg_topic("La Puerta de Alcalá, gold, from my own vault: one hundred thirteen.")
+    assert hints.egg_topic("The vault opens for those Carmen sends.")
+    assert hints.egg_topic("Gold sleeps in my vault; it waits for the right words.")
+    assert hints.egg_topic("The gold of Moscow — an old story, and not mine today.")

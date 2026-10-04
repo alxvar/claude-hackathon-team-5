@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team 5 · Pitch concepts (session a5)</title>
+<style>
+body{margin:0;background:#0d0d0d;color:#fff;font:16px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1040px;margin:0 auto;padding:44px 20px 60px}
+h1{font-size:30px;margin:0 0 6px;letter-spacing:-.01em}
+p{color:#c3c2b7;margin:0 0 22px;max-width:760px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+a.card{display:block;text-decoration:none;color:inherit;border:1px solid #383835;border-radius:12px;padding:18px 18px 16px;background:#1a1a19}
+a.card:hover{border-color:#3987e5}
+.sw{height:84px;border-radius:8px;margin-bottom:14px}
+h2{font-size:20px;margin:0 0 4px}
+.card p{font-size:14.5px;margin:0 0 10px}
+.card small{color:#898781;font:12px ui-monospace,Menlo,monospace}
+kbd{font:12px ui-monospace,Menlo,monospace;border:1px solid #52514e;border-radius:4px;padding:1px 5px}
+</style>
+</head>
+<body><main>
+<h1>Team 5 · three pitch concepts</h1>
+<p>Same seven beats and the same sourced facts, three different heroes. Each is 7 screens with a 3-minute script.
+Keys: <kbd>→</kbd> <kbd>←</kbd> move · <kbd>S</kbd> script · <kbd>T</kbd> restart the timer · add <kbd>?present</kbd> to hide the script.
+Live numbers come from <code>race-data.js</code>: refresh it with <code>python3 judges/pitch/a5/race_data.py</code>.</p>
+<div class="cards">
+  <a class="card" href="a-race.html"><div class="sw" style="background:#f9f9f7;border-bottom:4px solid #2a78d6"></div><h2>A · The Race</h2><p>The hero is the score line. One chart of all 18 teams stays on screen; each beat zooms into a jump or a drop and names its cause.</p><small>light · editorial · real leaderboard data</small></a>
+  <a class="card" href="b-notebook.html"><div class="sw" style="background:#f7f2e4;border-bottom:4px solid #c0322b"></div><h2>B · Lab notebook</h2><p>The hero is the method. Each spread is an experiment: prediction, measurement, stamp. Wrong findings stay on the page, crossed out.</p><small>paper · typewriter + red pen</small></a>
+  <a class="card" href="c-control-room.html"><div class="sw" style="background:#10233d;border-bottom:4px solid #0ca30c"></div><h2>C · Control room</h2><p>The hero is the multi-agent system. The agent graph stays on screen; each beat replays a real incident and lights the agents involved. Mistakes add nodes.</p><small>dark · console · incident replays</small></a>
+</div>
+</main></body>
+</html>

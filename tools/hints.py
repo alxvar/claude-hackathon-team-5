@@ -9,9 +9,11 @@ Every tick this reads new events in data/feed.jsonl (the collector's) and:
   only one, ask her/him about, knows, golden/dorad*, oro, treasure, vault, password, phrase, saint, a quoted phrase…)
   becomes a hit, de-duplicated per (dealer, text without numbers): first/last tick, count, teams;
 - every egg.found / egg.given / taller.crafted / persona.updated / persona.open_to_all / set.released is a hit;
-- every 10 min, /api/catalog: a new card with hidden=true, or a changed `minted` on an epic or legendary, is a hit;
+- every 10 min, /api/catalog: a new card, a card turning hidden, a changed print run (a reprint), or a changed
+  `minted` on an epic or legendary is a hit;
 - intel/news.md lines matching the patterns are hits.
 Each new hit prints one `HINT …` line (the Builder relays it to the Chief) and is appended to intel/hints.md.
+Every 10 minutes it also rewrites intel/eggs.md, the egg-trigger catalog (tools/eggs.py, Chief 22:30).
 
     python3 -u tools/hints.py                 # daemon (tools/daemons.sh start hints)
     python3 tools/hints.py --backfill --dry   # every hit in the whole feed, printed only
@@ -28,6 +30,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "bazaar-kit"))
+sys.path.insert(0, str(ROOT / "tools"))
+import eggs  # noqa: E402  the egg-trigger catalog, written every eggs.EGGS_EVERY_S
 FEED, NEWS = ROOT / "data" / "feed.jsonl", ROOT / "intel" / "news.md"
 OUT, STATE = ROOT / "intel" / "hints.md", ROOT / "run" / "hints_state.json"
 URL = os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai")
@@ -40,7 +44,16 @@ HINT = re.compile(   # strong patterns only: flavour words (grandchildren, saint
     r"knows? (the story|where|more)\b|conoce la historia|sabe (dónde|más)\b|él sabrá|ella sabrá|he will know|"
     r"he'll know|keeps something|guarda algo|\blegend\w*|leyenda\w*|\bhidden\b|escondid\w*|\bvault\b|bóveda|"
     r"password|contraseña|santo y seña|easter|golden \w*chulapa|chulapa dorada|dorad[ao]s? |oro de mosc\w*|"
-    r"moscow gold|el oro\b)", re.I)
+    r"moscow gold|gold of mosc\w*|el oro\b|carmen (sends|speaks|talks)|sends you|me manda|te manda)", re.I)
+KEEPER = "banco"   # Don Ernesto keeps the golden chulapa: his lines to a team that found an egg, on the egg's topic
+EGG_WORDS = re.compile(r"(chulapa|carmen|mosc|story|stories|historia|legend|leyenda|sends|manda)", re.I)
+VAULT_WORDS = re.compile(r"(vault|bóveda|cámara|\boro\b(?! pack)|gold(?:en)?\b(?! pack))", re.I)
+SALE_PITCH = re.compile(r"puerta de alcal|gold pack|sobre de oro", re.I)   # his menu, not the egg
+
+
+def egg_topic(text: str) -> bool:
+    """Don Ernesto on the egg: the chulapa, Carmen, Moscow, a story; gold or the vault only outside his sales pitch."""
+    return bool(EGG_WORDS.search(text)) or (bool(VAULT_WORDS.search(text)) and not SALE_PITCH.search(text))
 NOISE = re.compile(r"(not a legend|no secrets?|hardly a treasure|not a treasure|is a story|a story, not)", re.I)
 QUOTED = re.compile(r"\b(say|tell (him|her|them)|dile|díle|diga|di|pronounce|whisper)\b[^.]{0,20}[\"“«]([^\"”»]{3,60})[\"”»]", re.I)
 NUM = re.compile(r"\d+|\b(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|"
@@ -58,16 +71,21 @@ def norm(text: str) -> str:
 
 
 def scan_events(events, seen: dict | None = None) -> tuple[list[dict], dict]:
-    """New hits from feed events. `seen`: {(dealer, norm text): hit} to de-duplicate across runs."""
+    """New hits from feed events. `seen`: {(dealer, norm text): hit} to de-duplicate across runs (it also keeps the
+    teams that found an egg, under "eggs")."""
     seen = {} if seen is None else seen
+    eggs = set(seen.get("eggs", {}).get("teams", []))
     new = []
     for e in events:
         p = e.get("payload") if isinstance(e.get("payload"), dict) else {}
+        if e.get("type") == "egg.found" and p.get("team"):
+            eggs.add(p["team"])
         if e.get("type") == "thread.message":
             sender, text = p.get("sender"), p.get("text") or ""
             if not sender or is_team(sender) or not text:
                 continue
-            if not HINT.search(text) and not QUOTED.search(text):
+            keeper = sender == KEEPER and p.get("team") in eggs and egg_topic(text)   # not plain haggling
+            if not keeper and not HINT.search(text) and not QUOTED.search(text):
                 continue
             if NOISE.search(text) and not re.search(r"chulapa|oro|moscow|ask (her|him)|pregúnt", text, re.I):
                 continue
@@ -91,6 +109,7 @@ def scan_events(events, seen: dict | None = None) -> tuple[list[dict], dict]:
                    "text": p.get("text") or json.dumps(p)[:300]}
             seen[key] = hit
             new.append(hit)
+    seen["eggs"] = {"kind": "_eggs", "teams": sorted(eggs)}
     return new, seen
 
 
@@ -107,6 +126,8 @@ def scan_catalog(catalog: dict, before: dict) -> tuple[list[dict], dict]:
                 new.append({"kind": "catalog.new_card", "card": cid, **now[cid]})
             elif old and now[cid]["hidden"] and not old.get("hidden"):
                 new.append({"kind": "catalog.hidden", "card": cid, **now[cid]})
+            elif old and old.get("print_run") is not None and old.get("print_run") != c.get("print_run"):
+                new.append({"kind": "catalog.print_run", "card": cid, "was": old.get("print_run"), **now[cid]})
             elif old and c.get("rarity") in ("epic", "legendary") and old.get("minted") != c.get("minted"):
                 new.append({"kind": "catalog.minted", "card": cid, "was": old.get("minted"), **now[cid]})
     return new, now
@@ -140,7 +161,20 @@ class Miner:
             st = {}
         self.pos, self.seen = st.get("pos", 0), st.get("seen", {})
         self.catalog, self.news_seen = st.get("catalog", {}), set(st.get("news_seen", []))
-        self._cat_at = 0.0
+        self._cat_at = self._eggs_at = 0.0
+        if "eggs" not in self.seen and self.pos:      # state from before the egg list: seed it from the whole feed
+            teams = set()
+            try:
+                with Path(feed).open() as f:
+                    for raw in f:
+                        if '"egg.found"' in raw:
+                            try:
+                                teams.add((json.loads(raw).get("payload") or {}).get("team"))
+                            except ValueError:
+                                continue
+            except OSError:
+                pass
+            self.seen["eggs"] = {"kind": "_eggs", "teams": sorted(t for t in teams if t)}
 
     def read_new(self) -> list:
         """Events appended to the feed since the last read (complete lines only; a truncated feed restarts)."""
@@ -177,6 +211,13 @@ class Miner:
                 hits += new
             except Exception as e:  # noqa: BLE001
                 self.log(f"hints: catalog unavailable ({e!r})"[:200])
+        if not self.dry and time.time() - self._eggs_at >= eggs.EGGS_EVERY_S:   # the egg-trigger catalog (Chief 22:30)
+            self._eggs_at = time.time()
+            try:
+                cat = eggs.write(Path(self.feed), eggs.OUT)
+                self.log(f"hints: eggs.md · {len(cat['rewards'])} rewards, {len(cat['refs'])} Madrid replies")
+            except Exception as e:  # noqa: BLE001
+                self.log(f"hints: eggs.md not written ({e!r})"[:200])
         for h in hits:
             self.log(line(h))
         if hits and not self.dry:

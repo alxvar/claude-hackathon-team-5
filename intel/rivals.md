@@ -9,6 +9,105 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sun 13:17 · snapshot 2382
+- **t03 likely closed RET via a team trade:** RET-07 from t01 at 30 on t04's v05 (2381), after buying RET-01/02/06/08/09/10 from dealers today.
+  t03 +1.27 → final basis ≈ 84.6 (#4). t04 +0.75 from v05's VC.
+- v10: t01 → t08 LAT-08 at 22 (2380): our VC 245. Final basis: **us ≈ 93.2** · t10 86.8 · t12 85.4 · t03 84.6 · t18 81.3.
+
+### Sun 12:58 · snapshot 2302
+- **t10 flips CHA-11 epics:** Pícaros 149 → t06 at 184 on v10 (2228), then Pícaros 150 → **us at 190 on v17** (2318). t10 nets ≈ +35-40 cash per
+  flip and its trade gain; our side is a first copy (≈ 288) → +50. t10's negotiating −0.78 at snapshot 2302 (a loss elsewhere?).
+- v10 pairs: t17 → t01 RET-09 at 40 (2265), RET-10 at 33 (2268) → VC 175.4.
+- t03 keeps filling ladder: Abuela RET-02 (8), RET-06 (21).
+- Final basis: **us 89.5** · t12 85.5 · t10 83.3 · t18 81.4 · t03 81.0.
+
+### Sun 12:41 · snapshot 2242 (phase 1.0: board × 2.5 = the final basis)
+- **t10 sold CHA-11 (epic) to t06 at 184 on OUR v10** (tick 2228): v10 VC → 114.4, so our real trades are capped (7.5). t10's negotiating +0.77 on it.
+  It was a dealer → team flip, t13's pattern: bought from the Pícaros at 149 (2225), sold 3 ticks later. v10's 0% fee drew it onto our venue.
+- Final basis: **us 88.5** · t10 85.5 · t12 85.3 · t18 81.5 · t03 80.7 · t04 77.
+- Earlier leak (12:22): our RET-03 sale settled on t10's v07 and gave t10 real-trades VC (market 12.00 → 12.48).
+
+### Sun 12:11 · snapshot 2142 (phase 0.96; Duels III done at 2074)
+- **Final basis (G + Sunday now): t12 86.6 · us 84.8 · t18 83.1 · t10 82.9 · t03 79.8.** Our v10 club pairs landed (VC 6.4): we're #2.
+- **t12 flips dealer cards for ladder:** SAL-10 bought from the Pícaros at 56 (2129), sold to Pilar at 72 (2139). That's an L4 buy plus an L3
+  sell (two slots) and +16 cash. Not copyable for us: a SAL rare duplicate is worth ≈ 16 to us, so the buy is a ≈ −40 loss.
+- **t03 climbing:** RET-10 from the Pícaros at 53 (L4); its Sunday ≈ 35.3. t04 (Sunday ≈ 39.2, v05 VC) and t09 (≈ 38.8, v21 VC) lead Sunday
+  among the mid-table.
+
+### Sun 11:26 · snapshot 1962 (phase 0.74; Duels III scored)
+- Final basis (G + Sunday now): t12 85.5 · t10 84.8 · t18 82.2 · **us 80.6** · t03 76.6. t10 passed t12 on the board (duels).
+- **t09: Sunday ≈ 39.0**, market 13.41: real-trades VC on its v21 from t12 → t16 SAL-12 at 380. That raises the top-3 VC reference for everyone.
+- **t13 offers SAL-03 to t03 on OUR v10** (38 → 30, addressed): t03's SAL closer. If it fills, our v10 VC ≈ +60-70 (a large share of the
+  7.5); t03 gets at most ≈ +6. Let it fill (Chief told at 11:17).
+
+### Sun 11:14 · snapshot 1902 (phase 0.66; Duels III running)
+- **t12 sold SAL-12 to t16 at 380 on t09's v21** (tick 1886): a team trade, but t12 is at the Sunday 50 cap, so it likely scores 0 for t12.
+  It lifts t09's v21 VC and the real-trades top-3 mean.
+- t06 bought LAV-11 from the Pícaros at 140 (an L4 epic slot). t10 sold LAT-04 to Abuela at 5.
+- Duels III so far (board moves): t03 +1.79, t12 +0.51, t10 +0.82 at the first wave; us mixed. Running totals: t12 75.36 · t10 70.93 · t18 69.44 =
+  us 69.44 · t03 65.26.
+
+### Sun 10:56 · snapshot 1842 (phase 0.58)
+- **Real trades today: 1 in the whole field** (t07's v29). v07 / v02 / v01 / v10 at 0. New board venues: t14 v27 (1589), **t18 v28
+  "Mercado Chamberí" (1662)**, t07 v29 (1758).
+- t12 sold SAL-06 to Pilar at 25; t18 sold LAV-08 to Pilar at 19 and SAL-05 to t07 at 5 (ladder and fodder). t10: no deals since 1745.
+- Board: t12 34.61 · t18 33.38 · **us 32.40 (#3)** · t10 32.18 · t03 29.07.
+
+### Sun 10:26 · snapshot 1722 (phase 0.43; the 10:16 hard Market Test is now in: every board +≈ 2.1)
+- **t13's mechanic, a dealer → team closer flip** [V feed]: LAV-07 bought from Abuela at 25 (tick 1711), sold to t12 at 40 one tick later
+  (1712). t13 books a team-trade margin, and the buyer still gets the +50 closer because the LAST hop is a team trade. Its Sunday ≈ 35.
+- Running totals: t12 67.79 · t10 65.57 · t18 63.43 · **us 61.07** · t03 57.48 · t13 52.55. Sunday so far: t18 38.5 · t12 35.2 · t13 35.0 ·
+  t03 30.2 · **us 29.4** · t06 23.6 · t10 21.4.
+
+### Sun 10:23 · tick 1715
+- **t12 closed LAV via a TEAM trade: LAV-07 from t13 at 40 on El Rastro (tick 1712) → +50 closer** (≈ +6-10 Sunday, pre-duel scale).
+- **t10 closed SAL via Chato** (SAL-08 at 30, tick 1715): a dealer close, no bonus.
+- **t13 is the closer broker:** CHA-01 → t18 (72), SAL-10 → t03 (108), LAV-07 → t12 (40). It sells page closers to whoever asks.
+- t03 bought MAL-07 from t15 at 9 (tick 1647): t15's spare MAL-07 (once our MAL closer source) is gone.
+
+### Sun 09:58 · snapshot 1602 (phase 0.28)
+- Sunday so far (±1): t18 30.0 · t13 24.1 · **us 20.6 (CHA closer +50 via t02 at 72)** · t03 20.2 · t08 18.1 · t12 16.6 · t06 13.9 · t10 10.2.
+- **t03** sold RET-09 to Pilar at 73 and RET-10 at 67 (L3 ladder slots; it doesn't hold the RET page). It still lacks SAL-03 for SAL 10/10.
+  t15's public SAL-03 ask at 7 expired unfilled (tick 1593).
+- **t06** closed CHA via Abuela (CHA-05 at 9): a dealer close, no bonus. t18 (via t13) and us (via t02) closed through team trades.
+- t10 and t12: still no Sunday deals; their Sunday is market VC + duels so far.
+
+### Sun 09:40 · snapshot 1542 (phase 0.20)
+- Running game totals: t10 56.37 · t18 52.86 · t12 52.65 · **us 50.65** · t03 46.94 · t06 43.85. Sunday so far (±1): t18 ≈ +30 · t13 ≈ +25
+  · t03 ≈ +12 · us ≈ +11 · t06 ≈ +8 · **t10 and t12 ≈ 0 (no Sunday deals yet)**.
+- **t13 is the hub feeding our rivals** [V feed]: bought SAL-11 from t18 (238), sold CHA-01 to t18 (72, t18's CHA closer) and SAL-10 to
+  t03 (108, toward t03's SAL page). t13 values epics high and sells page cards at ~70-110: our RET-11 buyer and CHA-05 source.
+- t03: SAL 9/10 (lacked SAL-03 and SAL-10 on the feed; bought SAL-10). If SAL-03 comes from a team, t03 closes SAL (+50) and
+  enters the #3 race.
+
+### Sun 09:32 · snapshot 1502 (phase 0.15)
+- **t18: CHA sprint, 9/10 by tick 1506 (lacks CHA-01)** [V feed]: CHA-09 Pícaros 58 (1484), CHA-06 Chato 31 (1485), CHA-10 Pícaros 54
+  (1491), CHA-07 Chato 31, CHA-02/03/04 Abuela 9-10, CHA-08 Chato 31, CHA-11 epic Pícaros 145 (1496). It **sold SAL-11 to t13 at 238**
+  on El Rastro (1494). Sunday round ≈ +25 so far; game total 50.61 vs ours 50.07. Its CHA closer needs a TEAM seller of CHA-01 (+50).
+  Chato buys at 31 sit above list 26: no ladder for t18 there (it bought speed).
+- t13 pays big for epics (SAL-11 at 238): a buyer for our RET-11.
+- t10, t12, t06: no Sunday deals yet (Sunday ≈ 0).
+
+### Sun 09:20 · first round-3 snapshot 1462 (Saturday final)
+- **t12 +7.03 at the close** with no trade of its own: its Saturday market went 10.88 → 17.91, i.e. its v02 real trades went from 0 to
+  ≈ +6.7 when the close recomputed values (the same recompute flipped our mm −5.2 → +2.2: us +2.72). t12 is now #2 on the game
+  total (52.66). Watch v02 on Sunday: it may carry the same VC logic.
+- t06 −0.90, t14 −0.34, t17 −0.21: their market parts fell at the close (the top-3 mean rose with t12).
+- Board drops at the open (t10 −1.94, t18 −1.61, t03 −1.53) are the phase-0.08 blend of round 3, not losses.
+
+### Sat 23:00 · final snapshot 1440 (doors closed; clock paused at game 13.367, round 2 still active)
+- Board: t10 37.58 · t18 31.26 · **us 30.49 (#3)** · t12 30.42 · t03 29.67 · t06 28.76 · t14 27.67. Game total (0.5·Fri + Sat):
+  t10 56.37 · t18 46.89 · us 45.73 · t12 45.63 · t03 44.51 · t06 43.14 (intel/standings.md).
+- **t06 fell #2 → #6 by selling a page card** (tick 1417-1418): it sold RET-06 to t07 at 30 on El Rastro and bought another
+  RET-06 from Chato at 61 (list 26). Negotiating −2.12 board ≈ −13.7 neg_points [V attrib]. That confirms the guardrail: never
+  sell a card from a complete page (the deck's −130), and dealer buys above list never count.
+- **t18 climbed on late Pilar sells**: SAL-10 at 71 (tick ≈ 1395, +0.82 board ≈ +6.3 np) and RET-07 at 25 (1426, +0.28). These are
+  ladder slots at L3. A copyable play for Sunday's fresh ladder: our RET-11 and MAL-08 go to Pilar (score-model §4.5).
+- t12: LAV-08 from t08 at 14 on v11 (+0.73 board ≈ +4.7 np); market −0.25 (bench session 6; v02 is a board venue below the stall).
+- t10: RET-11 from the Pícaros at 142, and t12: MAL-11 from the Pícaros at 139. Neither moved the board (dealer buys never score
+  negotiation; ladder already capped).
+- **Our mm_points −5.2 → +2.2 at the close** with no v10 trade (score-model §3h): the next snapshot shows the board effect.
+
 ### t14 deep dive (Sat 19:10; Chief's ask: "Team 14 says it is 100% sure to win")
 - **Pages [V leaderboard, L feed]:** pages_complete 3 since snapshot 950. Feed-visible: RET 10/10; LAV 8/10 (missing LAV-01,
   LAV-08); LAT 8/10 (missing LAT-06, LAT-07); SAL 4/10; MAL 1/10. With 3 complete pages, LAV and LAT are most likely complete
@@ -23,6 +122,44 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 - **Sunday:** cash not public; it raised cash in the fever. CHA multiplier unknown (if 1.6, its CHA page is worth the same +50 as ours).
 - **Market:** v14 stall, one trade all day (418); market 9.53 = 7.5 + VC ≈ 2.0 → room ≈ +3 to the cap.
 
+
+### Sat 22:25 · snapshot 1370
+- Board: t10 37.91 · t06 31.42 · **us 30.87 (#3)** · t12 30.57 · t18 30.11 · t03 30.03 · t14 28.20.
+- **t10's lead decomposed** (game total = 0.5·Fri + Sat, snapshot 1360): Friday ½ +0.39 · Saturday negotiating +2.84 ·
+  **Saturday market +7.50** (v07 value created at the cap vs our 0). 70% of its lead is market; repeatable Sunday.
+- **t14 completed its SAL page through a DEALER** (SAL-06 from Abuela at 24, tick 1371): no page bonus scored (dealer gains
+  clipped). Its SAL rares came from the Pícaros (57/56), SAL-07/08 from Abuela.
+
+### Sat 22:10 · snapshot 1340
+- Board: t10 38.29 · t06 32.63 · **t12 31.02** · **us 30.95 (#4)** · t18 30.05 · t03 29.97 · t14 28.37.
+- Game total so far (0.5·Fri + Sat): t10 57.44 · t06 48.95 · t12 46.53 · **us 46.42** · t18 45.08 · t03 44.95 · t14 42.55.
+- t12 +1.55 at 1310 with no team trade (Duels II or dealer deals) [L]; t18 +1.92 at 1340: LAT-10 bought from t13 at 72 (1332),
+  likely its LAT page close.
+
+### Sat 21:58 · snapshot 1300 (Duels II running since 1239)
+- Board: **t10 38.36** · t06 32.55 · **us 30.85 (#3)** · t14 28.63. On 0.5·Fri + Sat (= 1.5 × board): **t10 57.54 · t06 48.82 ·
+  us 46.28** · t14 42.95. To finish #1 we'd need to beat t10 by > 11.3 points of Sunday's 60-point round; t06 by > 2.5.
+- **t10's Duels II edge [L]:** Saturday negotiating +5.6 since 1240, ≈ +2.5-3.5 of it from duels (windows without t10 deals:
+  +1.03, +1.14, +0.08, −0.27); ours −1.6 over the same windows (duel part graded below the field's rise + ladder erosion).
+  t10's duel part ≈ 2.3-3.0 board above ours.
+- t10 also flipped epics: SAL-11 from the Pícaros at 155 (1267) → sold to a team at 207 (1296); bought MAL-11 from a team at 195.
+- t06: RET-11 from the Pícaros at 137 → sold at 216 on El Rastro (1245); RET-10 sold 84, re-bought from the Pícaros at 58.
+
+### Sat 19:41 · snapshot 1130
+- Board: **t10 34.02** · t06 32.80 · **us 31.92 (#3)** · t14 30.32 · t18 30.26 · t03 29.75.
+- **t10 keeps the SAL-rare cash loop + L4** [V feed]: Pilar SAL-09 84 (1101), Pícaros SAL-10 55 (1108), Pilar SAL-10 80 (1121),
+  Pícaros SAL-09 55 (1128): +25-30 cash per round trip and fresh ladder share while below its cap. +0.65 at 1110, +0.24 at 1130.
+- t06 +0.82 at 1110: Pícaros RET-09 at 54 (L4) + Pilar LAT-08 20.
+- **t14 −0.77 at 1110**: bought SAL-11 (epic) from the Pícaros at 140 (1104); a loss if its SAL value < 140 [L].
+- Epic churn: t16 sold SAL-11 to Don Ernesto at 116 then bought another from the Pícaros at 146; t08 bought MAL-11 at 128.
+
+### Sat 19:27 · snapshot 1100
+- Board: **t10 33.13 (#1)** · t06 32.08 · **us 31.68 (#3)** · t14 31.19 · t18 30.28 · t03 29.42.
+- **t10 +0.46 (1080) and +0.88 (1090) with no settlement of its own** while the field was flat → matches ≈ 3 scored flags on
+  Pícaros lies (+10 neg_points each) [L]. Then +0.21 at 1100 (Pícaros SAL-09 54, Abuela MAL-07 19).
+- t06 +0.54 at 1100: MAL-04 → Pícaros 5 (L4); SAL-09 → Chato at 29 [? a loss on paper].
+- Don Ernesto open to all since 1091; t08 sold LAV-11 (epic) to him at 120 after buying it from the Pícaros at 147.
+- t12 and t14 keep the SAL-rare loop (Pícaros ~52 → Pilar 76-87).
 
 ### Sat 19:11 · snapshot 1070
 - Board: **us 31.68 (#1)** · t06 31.60 · t10 31.58 · t14 31.28 · **t18 30.31 (+0.90: Pícaros LAT-09 at 55)** · t03 29.51 · t16 27.39.

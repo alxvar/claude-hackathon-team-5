@@ -182,6 +182,42 @@ def check_buy(b, card: str, cards: dict, me: dict) -> tuple:
 
 # ---------------------------------------------------------------------------------------------------- negotiation
 
+CARDS: dict = {}     # the catalog's cards (card_index), for the rarity check in offer_matches; filled by main
+
+
+def offer_matches(o: dict, topic: dict, side: str, cards: dict | None = None) -> str:
+    """"" when a dealer's offer is exactly the thread's target, else why not (red team, Sun 01:30: we accepted after
+    checking cash only, and Los Pícaros swap the card). Buy: they give the card or pack the topic names (a type
+    "card:X" / "pack:P", or one asset of that ref and the catalog's rarity) and want cash only. Sell: they want
+    exactly our assets and give cash only."""
+    g, w = o.get("give") or {}, o.get("want") or {}
+    t = topic.get(side) or {}
+    if side == "buy":
+        target = f"card:{t['card']}" if t.get("card") else f"pack:{t['pack']}" if t.get("pack") else None
+        if g.get("cash") or w.get("assets") or w.get("types"):
+            return "it asks for more than cash"
+        types, assets = list(g.get("types") or []), [a for a in g.get("assets") or [] if isinstance(a, dict)]
+        if target is None:
+            return "" if types or assets else "it gives nothing"
+        if types and not assets:
+            return "" if types == [target] else f"it gives {', '.join(types)}, not {target}"
+        if len(assets) == 1 and not types:
+            a = assets[0]
+            got = f"{a.get('kind', 'card')}:{a.get('ref')}"
+            if got != target:
+                return f"it gives {got}, not {target}"
+            rarity = (cards or {}).get(a.get("ref"), {}).get("rarity")
+            if rarity and a.get("rarity") and a["rarity"] != rarity:
+                return f"{a.get('ref')} as {a['rarity']}, not {rarity}"
+            return ""
+        return f"it gives {len(types)} type(s) and {len(assets)} asset(s), not just {target}"
+    ids = sorted(t.get("assets") or [])
+    wanted = sorted(x.get("id") if isinstance(x, dict) else x for x in w.get("assets") or [])
+    if g.get("assets") or g.get("types") or w.get("cash") or w.get("types"):
+        return "it asks for more than our card(s)"
+    return "" if wanted == ids else f"it wants assets {wanted}, not {ids}"
+
+
 def her_price(offer: dict, side: str) -> int:
     """Cash in her offer: what she asks when we buy, what she pays when we sell."""
     want, give = offer.get("want", {}).get("cash", 0), offer.get("give", {}).get("cash", 0)
@@ -272,6 +308,7 @@ def _haggle(b, tid, topic, side, cap, fast, resume, accepted):
                 turn += 1
     log({"event": "open", "thread": tid, "topic": topic, "cap": cap, "her_first": first, "ours": ours})
     heard, quiet, idle = None, 0, 0
+    tricked: set = set()                          # offer ids already logged as a TRICK
     while True:
         watchdog()
         t = b.thread(tid)
@@ -310,6 +347,12 @@ def _haggle(b, tid, topic, side, cap, fast, resume, accepted):
         price = her_price(o, side)
         first = first if first is not None else price
         within_cap = not better(cap, price)  # her price is at least as good for us as our cap
+        trick = offer_matches(o, topic, side, CARDS)
+        if trick:                                 # never accepted: we counter on our own topic, the thread stays open
+            if o.get("id") not in tricked:
+                tricked.add(o.get("id"))
+                log({"event": "TRICK", "thread": tid, "offer": o.get("id"), "why": trick, "her": price})
+            within_cap = False
         if ours is None:
             nxt = round(first * FIRST_COUNTER) if side == "buy" else round(first / FIRST_COUNTER)
         else:
@@ -362,7 +405,7 @@ def _haggle(b, tid, topic, side, cap, fast, resume, accepted):
             log({"event": "accept", "thread": tid, "price": price, "negotiated": price != first})
             b.wait_tick()
             continue
-        if o.get("final") or nxt == ours:  # final outside our cap, or we can't move without repeating
+        if (o.get("final") or nxt == ours) and not trick:  # final outside our cap, or we'd repeat: walk
             b.close_thread(tid)
             log({"event": "walk", "thread": tid, "her": price, "ours": ours, "final": o.get("final")})
             continue
@@ -401,6 +444,7 @@ def plan(b: Bazaar) -> tuple:
              if a["id"] not in listed]  # a spare already listed for other teams stays there
     sells.sort(key=lambda a: a["your_value"])
     cards = card_index(b.catalog())
+    CARDS.update(cards)
     aff = me.get("affinity") or {}
     menu = b.dealer(DEALER).get("menu", {}).get("sells", [])
     list_price = {m["rarity"]: m.get("list_price", 0) for m in menu if "rarity" in m}

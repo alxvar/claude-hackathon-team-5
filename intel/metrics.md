@@ -1,43 +1,37 @@
-# Metrics (auto, 19:11, game tick 1073)
+# Metrics (auto, 13:08, game tick 2373)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
-1. Team 5 31.7 (+0.0 / +1.7) deals 52 ← US
-2. Team 6 31.6 (-0.1 / -0.1) deals 53
-3. Team 10 31.6 (-0.1 / +3.9) deals 43
-4. Team 14 31.3 (-0.5 / -0.3) deals 47
-5. Team 18 30.3 (+0.9 / +2.4) deals 36
-6. Team 3 29.5 (-0.1 / +0.3) deals 29
-7. Team 16 27.4 (-0.1 / +1.4) deals 43
-8. Team 12 27.3 (+1.6 / +1.5) deals 57
-9. Team 17 25.4 (-0.1 / +0.3) deals 31
-10. Team 13 24.7 (-0.1 / -0.1) deals 74
+1. Team 5 37.4 (+1.5 / +3.5) deals 74 ← US
+2. Team 10 34.9 (+1.6 / +1.6) deals 74
+3. Team 12 34.5 (+0.3 / +0.1) deals 82
+4. Team 18 32.7 (+0.2 / -0.4) deals 57
+5. Team 3 32.6 (+0.2 / +1.7) deals 47
+6. Team 6 30.5 (+0.2 / +1.6) deals 88
+7. Team 4 30.0 (+0.0 / -0.4) deals 91
+8. Team 9 29.2 (+0.2 / +0.0) deals 55
+9. Team 15 28.5 (+0.0 / +0.5) deals 69
+10. Team 16 27.3 (+0.0 / +0.6) deals 60
 Us: #1
 
 ## Us
 
-score 31.68 · neg_points 119.1 (15 min ago 119.1) · ladder 0.437 · duel 13.93 · cash 120 · level 5 · deals 52
+score 37.36 · neg_points 104.8 (15 min ago 54.8) · ladder 0.364 · duel 24.68 · cash 457 · level 5 · deals 74
 
 ## Our holdings (card (rarity): value of each copy; a sale gives up the cheapest copy)
 
-LAT-03 (common): 5; LAT-04 (common): 5; LAV-01 (common): 99.1; LAV-02 (common): 1.3 / 1.3 / 1.3; LAV-03 (common): 3.2 / 3.2; LAV-04 (common): 3.2 / 3.2; LAV-05 (common): 99.1; LAV-06 (uncommon): 118.6; LAV-07 (uncommon): 118.6; LAV-08 (uncommon): 118.6; LAV-09 (rare): 177.1; LAV-10 (rare): 177.1; MAL-01 (common): 7; MAL-02 (common): 7; MAL-03 (common): 7; MAL-04 (common): 7; MAL-05 (common): 7; MAL-08 (uncommon): 17.5; RET-01 (common): 83.9; RET-02 (common): 83.9; RET-03 (common): 83.9; RET-04 (common): 83.9; RET-05 (common): 83.9; RET-06 (uncommon): 100.4; RET-07 (uncommon): 100.4; RET-08 (uncommon): 100.4; RET-09 (rare): 149.9; RET-10 (rare): 149.9; SAL-01 (common): 68.6; SAL-02 (common): 68.6; SAL-03 (common): 68.6; SAL-04 (common): 68.6; SAL-05 (common): 68.6; SAL-06 (uncommon): 82.1; SAL-07 (uncommon): 82.1; SAL-08 (uncommon): 82.1; SAL-09 (rare): 122.6; SAL-10 (rare): 122.6; sobre_plata (pack): 76.5
+CHA-01 (common): 122; CHA-02 (common): 122; CHA-03 (common): 122; CHA-04 (common): 122; CHA-05 (common): 122; CHA-06 (uncommon): 146; CHA-07 (uncommon): 146; CHA-08 (uncommon): 146; CHA-09 (rare): 218; CHA-10 (rare): 218; CHA-11 (epic): 288; LAT-03 (common): 5; LAV-01 (common): 99.1; LAV-02 (common): 99.1; LAV-03 (common): 99.1; LAV-04 (common): 99.1; LAV-05 (common): 99.1; LAV-06 (uncommon): 118.6; LAV-07 (uncommon): 118.6; LAV-08 (uncommon): 118.6; LAV-09 (rare): 177.1; LAV-10 (rare): 177.1; MAL-01 (common): 7; MAL-02 (common): 7; MAL-03 (common): 7; MAL-04 (common): 7; MAL-05 (common): 7; MAL-06 (uncommon): 17.5; MAL-07 (uncommon): 17.5; MAL-08 (uncommon): 17.5; MAL-10 (rare): 49; RET-01 (common): 83.9; RET-02 (common): 83.9; RET-03 (common): 83.9; RET-04 (common): 83.9; RET-05 (common): 83.9; RET-06 (uncommon): 100.4; RET-07 (uncommon): 100.4; RET-08 (uncommon): 100.4; RET-09 (rare): 149.9; RET-10 (rare): 149.9; SAL-01 (common): 68.6; SAL-02 (common): 68.6; SAL-03 (common): 68.6; SAL-04 (common): 68.6; SAL-05 (common): 68.6; SAL-06 (uncommon): 82.1; SAL-07 (uncommon): 82.1; SAL-08 (uncommon): 82.1; SAL-09 (rare): 122.6; SAL-10 (rare): 122.6
 
-## Our open offers (6)
+## Our open offers (5)
 
-- 15872: sell MAL-03 for 9 · to t09 · expires tick 1097
-- 15961: sell MAL-02 for 9 · to t15 · expires tick 1106
-- 15962: sell MAL-05 for 9 · to t15 · expires tick 1106
-- 15963: sell LAV-04 for 9 · to t04 · expires tick 1106
-- 15991: sell LAV-03 for 6 · to t09 · expires tick 1108
-- 16001: sell MAL-08 for 24 · to t01 · expires tick 1109
+- 25997: bid 10 for LAT-05, LAT-01 · to t17 · expires tick 2385
+- 26654: bid 14 for LAT-06 · to anyone · expires tick 2534
+- 26656: bid 14 for LAT-07 · to anyone · expires tick 2534
+- 26658: bid 14 for LAT-08 · to anyone · expires tick 2534
+- 26796: bid 60 for MAL-09 · to t01 · expires tick 2408
 
 ## What each of our deals did to neg_points (measured, last 12)
 
-- tick 351: +4.7 → 33.2 · team sell SAL-01 at 7 with t03
-- tick 404: +2.0 → 35.2 · team buy MAL-03 at 5 with t04
-- tick 632: -2.7 → 32.5 · chato sell LAT-08 at 14 with chato; pilar sell MAL-07 at 19 with pilar; pilar sell SAL-08 at 23 with pilar; pilar sell MAL-06 at 19 with pilar; abuela buy SAL-06 at 23 with abuela
-- tick 669: +6.2 → 38.7 · pilar sell SAL-06 at 25 with pilar; team buy SAL-04, RET-04 at 0 with t08
-- tick 714: +2.0 → 40.7 · chato sell LAT-08 at 14 with chato; team buy MAL-01 at 5 with t06
 - tick 760: +2.5 → 43.2 · team buy MAL-08 at 15 with t14
 - tick 766: +10.0 → 53.2 · no deal of ours in between
 - tick 769: +10.0 → 63.2 · no deal of ours in between
@@ -45,77 +39,91 @@ LAT-03 (common): 5; LAT-04 (common): 5; LAV-01 (common): 99.1; LAV-02 (common): 
 - tick 774: -10.0 → 63.2 · no deal of ours in between
 - tick 904: +15.5 → 78.7 · picaros buy SAL-09 at 54 with picaros; picaros buy SAL-10 at 54 with picaros; pilar sell MAL-06 at 20 with pilar; pilar sell MAL-09 at 56 with pilar; picaros sell SAL-04 at 5 with picaros; team buy SAL-07, LAT-01 at 0 with t07
 - tick 988: +40.4 → 119.1 · team buy SAL-06 at 28 with t08
+- tick 1466: -119.1 → 0.0 · picaros buy RET-11 at 128 with picaros
+- tick 1585: +50.0 → 50.0 · picaros buy CHA-09 at 55 with picaros; abuela buy CHA-01 at 8 with abuela; pilar sell LAT-06 at 18 with pilar; abuela buy CHA-02 at 9 with abuela; pilar sell LAV-07 at 17 with pilar; abuela buy CHA-03 at 8 with abuela; abuela buy CHA-04 at 9 with abuela; abuela buy CHA-08 at 21 with abuela; abuela buy CHA-06 at 22 with abuela; team buy CHA-05 at 72 with t02
+- tick 2169: +2.2 → 52.2 · team sell RET-11 at 240 with t02; picaros buy MAL-10 at 46 with picaros; picaros sell LAT-04 at 5 with picaros; picaros sell LAV-04 at 5 with picaros; picaros sell SAL-04 at 5 with picaros; abuela sell LAT-01 at 6 with abuela; pilar sell LAV-08 at 17 with pilar; picaros sell LAT-05 at 5 with picaros; team sell RET-03 at 5 with t01
+- tick 2263: +2.6 → 54.8 · team buy MAL-07 at 15 with t07
+- tick 2318: +50.0 → 104.8 · team buy CHA-11 at 190 with t10
 
 ## Our dealer conversations (last 8: dealer's first → last price, our last, outcome)
 
-- tick 881 picaros sell Café en Goya: 4 → 5, ours 5 · deal
-- tick 887 chato sell La Vía Láctea: 13 → 14, ours 19 · closed
-- tick 895 picaros buy MAL-10: 73 → 73, ours - · closed
-- tick 1044 pilar sell La Vía Láctea: 16 → 16, ours 28 · closed
-- tick 1046 abuela buy LAT-02: 12 → 12, ours - · closed
-- tick 1049 picaros sell Mercado de la Cebada: 4 → 4, ours 10 · closed
-- tick 1050 banco buy sobre_oro: 546 → 546, ours - · closed
-- tick 1054 picaros sell Mural de la Esquina: 4 → 4, ours 7 · closed
+- tick 1995 picaros buy MAL-09: 73 → 58, ours 44 · closed
+- tick 2100 chato buy None: ? → ?, ours - · closed (sold_out)
+- tick 2105 pilar sell Teatro Valle-Inclán: 16 → 17, ours 17 · deal
+- tick 2105 picaros sell El Titiritero: 4 → 4, ours 11 · closed
+- tick 2109 abuela sell El Titiritero: 5 → 5, ours 6 · closed
+- tick 2117 picaros sell El Organillero: 4 → 5, ours 5 · deal
+- tick 2126 picaros buy None: ? → ?, ours - · closed (not_traded)
+- tick 2184 picaros buy MAL-09: 73 → 56, ours 44 · closed
 
-## Trades between teams (153 so far; last 12)
+## Trades between teams (211 so far; last 12)
 
-- tick 904: LAT-01 (common) t18→t07 for 8 P
-- tick 904: SAL-07 (uncommon) t07→t05, LAT-01 (common) t05→t07 for 0 P
-- tick 905: RET-03 (common) t12→t06 for 6 P
-- tick 929: MAL-02 (common) t03→t17 for 3 P
-- tick 939: SAL-04 (common) t16→t14, MAL-05 (common) t14→t16 for 0 P
-- tick 946: RET-03 (common) t02→t14 for 7 P
-- tick 988: SAL-06 (uncommon) t08→t05 for 28 P
-- tick 1022: RET-08 (uncommon) t15→t16 for 13 P
-- tick 1023: RET-05 (common) t15→t16 for 5 P
-- tick 1023: RET-07 (uncommon) t15→t16 for 13 P
-- tick 1033: RET-03 (common) t06→t10 for 12 P
-- tick 1057: RET-08 (uncommon) t09→t07 for 24 P
+- tick 2144: LAV-04 (common) t01→t13 for 6 P
+- tick 2169: RET-03 (common) t05→t01 for 5 P
+- tick 2189: CHA-01 (common) t13→t16 for 40 P
+- tick 2228: CHA-11 (epic) t10→t06 for 184 P
+- tick 2263: MAL-07 (uncommon) t07→t05 for 15 P
+- tick 2265: RET-09 (rare) t17→t01 for 40 P
+- tick 2268: RET-10 (rare) t17→t01 for 33 P
+- tick 2290: RET-06 (uncommon) t09→t17 for 19 P
+- tick 2302: RET-09 (rare) t01→t17 for 85 P
+- tick 2317: CHA-06 (uncommon) t01→t09 for 15 P
+- tick 2318: CHA-11 (epic) t10→t05 for 190 P
+- tick 2332: CHA-08 (uncommon) t01→t09 for 15 P
 
-Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: RET×3, MAL×2, LAT×1; t03: SAL×2, LAT×2, LAV×1; t04: RET×5, LAV×4, MAL×4, LAT×3; t05: MAL×4, SAL×4, LAV×1, RET×1; t06: SAL×4, RET×2, LAV×1, LAT×1; t07: LAV×7, RET×6, LAT×4, MAL×3; t08: MAL×3, LAT×3, LAV×3, SAL×2, RET×1; t09: RET×5, MAL×3, SAL×2, LAV×1; t10: LAV×2, MAL×1, SAL×1, RET×1; t12: LAT×4, MAL×2, LAV×1, RET×1; t13: MAL×7, SAL×2, LAV×1; t14: LAT×4, RET×4, SAL×2, LAV×1; t15: LAT×6, MAL×4, RET×3, SAL×3, LAV×3; t16: RET×4, LAT×2, MAL×1; t17: MAL×5, SAL×3; t18: SAL×1, LAT×1, RET×1
+Who buys which set (team trades): t01: RET×5, MAL×4, SAL×4; t02: RET×4, MAL×3, LAT×1, SAL×1; t03: SAL×3, LAT×2, LAV×1, MAL×1; t04: RET×6, MAL×6, LAV×4, LAT×3; t05: MAL×5, SAL×4, CHA×2, LAV×1, RET×1; t06: SAL×4, LAT×3, RET×3, LAV×1, CHA×1; t07: RET×9, LAV×7, MAL×5, LAT×4, SAL×1; t08: MAL×3, LAT×3, LAV×3, SAL×2, RET×2; t09: RET×6, SAL×5, MAL×4, CHA×2, LAV×1, LAT×1; t10: LAV×2, MAL×2, SAL×1, RET×1; t12: LAT×8, LAV×3, MAL×2, RET×2; t13: MAL×9, SAL×3, LAV×2; t14: LAT×4, RET×4, SAL×2, LAV×1, MAL×1; t15: LAT×6, MAL×4, RET×3, SAL×3, LAV×3; t16: RET×4, CHA×4, LAT×2, MAL×1, LAV×1, SAL×1; t17: MAL×5, SAL×4, RET×3; t18: LAT×2, SAL×1, RET×1, CHA×1
 
 ## Dealer prices, last 60 ticks (median per item)
 
-- abuela common (team buys): median 10 over 2
-- abuela common (team sells): median 6 over 2
-- abuela uncommon (team buys): median 26 over 2
-- abuela uncommon (team sells): median 20 over 2
-- picaros epic (team buys): median 143 over 2
-- picaros rare (team buys): median 56 over 9
-- pilar rare (team sells): median 79 over 4
-- pilar uncommon (team sells): median 19 over 3
+- abuela common (team buys): median 8 over 1
+- abuela common (team sells): median 5 over 1
+- abuela sobre_barrio (team buys): median 22 over 2
+- abuela uncommon (team buys): median 20 over 1
+- chato rare (team sells): median 47 over 1
+- chato uncommon (team sells): median 15 over 1
+- picaros rare (team buys): median 53 over 6
+- picaros uncommon (team sells): median 11 over 3
+- pilar rare (team sells): median 64 over 3
+- pilar uncommon (team sells): median 25 over 2
 
 ## El Rastro now: top bids by price (team, card, price)
 
-- t07: RET-09 (rare) 38 P · offer 16030
-- t09: MAL-06 (uncommon) 20 P · offer 15884
-- t16: RET-06 (uncommon) 13 P · offer 15965
-- t16: RET-01 (common) 4 P · offer 15949
-- t16: RET-02 (common) 4 P · offer 15956
-- t16: RET-03 (common) 4 P · offer 15977
-- t13: RET-02 (common) 2 P · offer 15848
-- t13: RET-01 (common) 2 P · offer 15876
+- t03: SAL-11 (epic) 170 P · offer 26817
+- t17: LAV-11 (epic) 112 P · offer 27000
+- t18: LAV-11 (epic) 107 P · offer 26386
+- t18: MAL-11 (epic) 76 P · offer 26403
+- t18: LAV-09 (rare) 35 P · offer 25477
+- t18: LAV-10 (rare) 35 P · offer 25494
+- t16: RET-09 (rare) 32 P · offer 26910
+- t16: RET-10 (rare) 32 P · offer 26911
+- t18: MAL-09 (rare) 25 P · offer 25495
+- t18: MAL-10 (rare) 25 P · offer 25496
+- t16: LAV-10 (rare) 24 P · offer 26912
+- t09: CHA-07 (uncommon) 15 P · offer 26671
+- t05 (US): LAT-06 (uncommon) 14 P · offer 26654
+- t05 (US): LAT-07 (uncommon) 14 P · offer 26656
+- t05 (US): LAT-08 (uncommon) 14 P · offer 26658
 
-Asks by others (card, price: count): LAV-05 5: 2; LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAT-06 20: 1; SAL-02 7: 1; RET-01 7: 1; LAT-09 70: 1; SAL-03 6: 1; LAT-02 6: 1; SAL-01 12: 1; SAL-02 6: 1; MAL-03 14: 1
+Asks by others (card, price: count): SAL-03 8: 1; SAL-08 20: 1; RET-01 30: 1; MAL-03 6: 1; MAL-01 6: 1; LAV-04 10: 1; RET-05 9: 1; RET-03 9: 1; SAL-05 8: 1; MAL-07 23: 1; LAV-02 7: 1; MAL-05 9: 1; LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1
 
-## Our duels: 0 live, 68 finished (last 10)
+## Our duels: 0 live, 204 finished (last 10)
 
-- {"duel": 2522, "session": 2, "status": "deal", "role": "seller", "item": "Caf\u00e9 en Goya", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 44, "limit_meaning": "never sell below your cost", "rival": "Rival Plata", "deadlin
-- {"duel": 2523, "session": 2, "status": "no_deal", "role": "buyer", "item": "Caf\u00e9 en Goya", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 196, "limit_meaning": "never pay above your value", "rival": "Rival Noche", "dead
-- {"duel": 2530, "session": 2, "status": "deal", "role": "seller", "item": "Mercado de la Paz", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 87, "limit_meaning": "never sell below your cost", "rival": "Rival Azul", "deadline
-- {"duel": 2531, "session": 2, "status": "deal", "role": "buyer", "item": "Mercado de la Paz", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 146, "limit_meaning": "never pay above your value", "rival": "Rival Sol", "deadline_
-- {"duel": 2534, "session": 2, "status": "deal", "role": "seller", "item": "Caf\u00e9 en Goya", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 129, "limit_meaning": "never sell below your cost", "rival": "Rival Sol", "deadline
-- {"duel": 2535, "session": 2, "status": "deal", "role": "buyer", "item": "Caf\u00e9 en Goya", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 219, "limit_meaning": "never pay above your value", "rival": "Rival Noche", "deadlin
-- {"duel": 2540, "session": 2, "status": "deal", "role": "seller", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 71, "limit_meaning": "never sell below your cost", "rival": "Rival Luna", "d
-- {"duel": 2541, "session": 2, "status": "deal", "role": "buyer", "item": "El Mes\u00f3n de la Cava", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 108, "limit_meaning": "never pay above your value", "rival": "Rival Azul", "d
-- {"duel": 2584, "session": 2, "status": "deal", "role": "seller", "item": "Mercado de la Paz", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 122, "limit_meaning": "never sell below your cost", "rival": "Rival Verde", "deadli
-- {"duel": 2585, "session": 2, "status": "deal", "role": "buyer", "item": "Mercado de la Paz", "issues": ["price"], "your_days_weight": null, "days_meaning": null, "your_limit": 160, "limit_meaning": "never pay above your value", "rival": "Rival Rojo", "deadline
+- {"duel": 11572, "session": 4, "status": "deal", "role": "seller", "item": "San Isidro", "issues": ["price", "days"], "your_days_weight": 6.53, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 43, "limit_meaning": "never sell 
+- {"duel": 11573, "session": 4, "status": "deal", "role": "buyer", "item": "San Isidro", "issues": ["price", "days"], "your_days_weight": 1.52, "days_meaning": "each delivery day costs you this much cash", "your_limit": 187, "limit_meaning": "never pay above you
+- {"duel": 11610, "session": 4, "status": "no_deal", "role": "seller", "item": "Escaparate de Serrano", "issues": ["price", "days"], "your_days_weight": 1.06, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 81, "limit_meaning"
+- {"duel": 11611, "session": 4, "status": "no_deal", "role": "buyer", "item": "Escaparate de Serrano", "issues": ["price", "days"], "your_days_weight": 1.26, "days_meaning": "each delivery day costs you this much cash", "your_limit": 163, "limit_meaning": "never
+- {"duel": 11612, "session": 4, "status": "deal", "role": "seller", "item": "Cine Dor\u00e9", "issues": ["price", "days"], "your_days_weight": 3.32, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 104, "limit_meaning": "never 
+- {"duel": 11613, "session": 4, "status": "deal", "role": "buyer", "item": "Cine Dor\u00e9", "issues": ["price", "days"], "your_days_weight": 6.02, "days_meaning": "each delivery day costs you this much cash", "your_limit": 132, "limit_meaning": "never pay above
+- {"duel": 11640, "session": 4, "status": "deal", "role": "seller", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 5.13, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 104, "limit_meaning": "never s
+- {"duel": 11641, "session": 4, "status": "deal", "role": "buyer", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 5.93, "days_meaning": "each delivery day costs you this much cash", "your_limit": 116, "limit_meaning": "never pay above 
+- {"duel": 11674, "session": 4, "status": "deal", "role": "seller", "item": "Escaparate de Serrano", "issues": ["price", "days"], "your_days_weight": 1.63, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 42, "limit_meaning": "
+- {"duel": 11675, "session": 4, "status": "deal", "role": "buyer", "item": "Escaparate de Serrano", "issues": ["price", "days"], "your_days_weight": 0.83, "days_meaning": "each delivery day costs you this much cash", "your_limit": 171, "limit_meaning": "never pa
 
 ## Latest announcements
 
-- tick 971 level.unlocked: {"team": "t08", "name": "Team 8", "persona": "banco", "persona_name": "Don Ernesto", "level": 5, "why": "8 deals with pilar"}
-- tick 971 level.unlocked: {"team": "t10", "name": "Team 10", "persona": "banco", "persona_name": "Don Ernesto", "level": 5, "why": "5 deals with pilar"}
-- tick 971 level.unlocked: {"team": "t14", "name": "Team 14", "persona": "banco", "persona_name": "Don Ernesto", "level": 5, "why": "5 deals with pilar"}
-- tick 971 level.unlocked: {"team": "t15", "name": "Team 15", "persona": "banco", "persona_name": "Don Ernesto", "level": 5, "why": "3 deals with pilar"}
-- tick 1011 level.unlocked: {"team": "t16", "name": "Team 16", "persona": "banco", "persona_name": "Don Ernesto", "level": 5, "why": "3 deals with pilar"}
+- tick 1201 announcement: {"text": "Play resumes now. Duels II starts in about 20 minutes: make sure your agent is running."}
+- tick 1415 announcement: {"text": "We close at 23:00. Offers stay open; the clock stops."}
+- tick 1445 announcement: {"text": "Closed until Sunday 09:00. Offers stay open; the clock stops."}
+- tick 1445 announcement: {"text": "Good morning! The Bazaar is open again: Sunday until 15:00, one tick every 15 s."}
+- tick 1553 announcement: {"text": "Bug bounty: thank you, Team 12! You found and documented a real scoring bug, fixed overnight. A silver pack is on its way to you."}
 

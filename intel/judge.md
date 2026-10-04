@@ -1,53 +1,64 @@
-# Judge (claude-opus-5-5, Sat 19:01)
+# Judge (claude-opus-5-5, Sun 12:46)
 
 ## Verdict
-Holding, not gaining: #3 at 31.68, 0.12 behind Team 14 (31.8). Our +1.7 over 60 min beats Team 14 (+0.3) and Team 6 (+0.9), but we are −0.3 in the last 15 min (idle drift since #1 at 31.97 at 18:30). Team 10 is level with us at 31.7 after +3.3 in 15 min.
+Gaining: we are #1 at 35.39 (+1.8 over 15 min, +2.6 over 60 min). t10 is at 34.2 (+0.1/60) and t12 at 34.1 (−0.5/60), so our lead is 1.2.
 
 ## Our strategies: keep / kill / scale
-- **Bargains daemon plus taker accepts by hand: SCALE.** The SAL-06 ask at 28 scored +40.4 neg, worth +1.99 board. It is our only large win since 17:45.
-- **Ladder sells, job bxpdvaqj5 (MAL-08 → Pilar, LAT-04 / LAV-04 → Pícaros): CUT TO ONE TEST.**
-  - /api/me still reads ladder 0.437, so the "fell below its cap" premise is not shown.
-  - At 17:45, three ladder deals moved ladder 0.373 → 0.437 and left `negotiating` flat.
-  - The Pícaros LAT-04 thread shows her bid at 4 against our 12, for a card worth 5 to us.
-- **Trading loop: KEEP.** The last fill was the t07 swap at 17:46 (+15.5 measured). Since then: no errors and no fills.
-- **Maker asks to t09 and t15 (MAL at 9, LAV-03 at 6): KEEP.** Each is +2 to +2.8 if filled, with no fee for us. None has filled; 15458 has been live since about tick 1000 at least.
-- **Offer 15667 (LAV-02 at 0 to t01): KILL, do not repost.**
-  - It loses 1.3.
-  - t01 collects LAV and sits only 7.6 below us, so it fails the ≥10 feeding rule.
-  - t01 is allied with t10, which is level with us.
-- **v10 value-created pushes (ad job, Dani): KEEP, but no measured effect.**
-  - Since 17:40 the trade list shows no settlement on v10.
-  - The t03 → t09 LAV deal never appeared.
-  - t15 posted one sale, with 0 settlements.
-- **Unopened silver pack: COSTING US.** Pack drag took the SAL close from the +50 cap to +40.4. The pack fell 87.1 → 76.5 since 18:20.
+- **MAL closer: keep.**
+  - MAL-07 filled through the public bid at 15: neg 52.2 → 54.8.
+  - MAL-09 is now the last card (value-when-last 95.4). Bid 26022 at 60 to t08 is worth +35.4 if it fills; it expires at tick 2308.
+  - 60 is above the 12:22 limit of ≤ 49. The Chief approved it at 12:43, and it is still ≥ 0.
+- **CHA-11 epic bid: keep.** 25784 at 240 vs value 288 is +48. It expires at tick 2303 (about 26 ticks).
+- **Dealer spare sales (Pícaros/Abuela/Pilar): kill.**
+  - The tick-2169 batch and LAT-05 at 5: neg 50.0 → 50.0, ladder 0.364 flat. Zero gain, accepts and attention spent.
+  - LAT-05 and LAT-01 were sold to dealers at 5 and 6. Bounty bid 25997 now buys them back at 10, which is pure churn.
+  - Pícaros MAL-09 threads walked twice (58, 56). A dealer last card scores 0 by rule anyway.
+- **Spare sales to non-rival teams: keep, small.** RET-03 → t01 at 5 (worth 2.8) gave +2.2.
+- **LAT book bids (31 / 12 / 4): keep, low value.**
+  - None has filled since posting.
+  - LAT-09/10 are worth 35, so the max gain is +4 each. Never raise above 35, even though t01 paid t06 44.
+- **v10 bounty/reward: keep (Lucas's GUARDRAIL).**
+  - The 3rd settlement took v10 value created to 114.4 and mm_points 0.9 → 5.9.
+  - Paying in kind at value costs 0 np.
+  - Risk: the fair-play review the Chief flagged.
+- **Trading loop: verify it is running.**
+  - Its log has no Sunday entry (the last line is "closed" at 00:36), yet the 12:22 directive says ON.
+  - Low stakes right now: no current ask is ≥ our value + 3 + fee.
+- **teams.md "Who to sell" table: kill its rows.** It suggests selling MAL-10, MAL-06 and MAL-08 to t17. Those are MAL page cards, and selling any one destroys the +35-50 closer.
+- **Duels: no change.** The Duel Lab Final check says NO CHANGE; duel score is 24.68.
 
-## Check the scout
+## Check the scout (12:30 notes)
 - **Holds:**
-  - Team 10 is the fastest climber (+3.3 / +3.9). Its MAL-10 at 74 (tick 585) and RET-03 at 12 (tick 1033) are confirmed.
-  - Team 16 bought t15's RET cards at ticks 1022-1023.
-  - The earlier Pilar sells scored +0.050 and +0.040.
-  - We have 3 complete pages.
-  - Skipping LAV-05 at 5 is correct: a duplicate is worth 3.25 to us, less than 5 + fee.
-- **Does not hold:**
-  - "Ladder 0.437, dropped 0.28": the ladder reads 0.437, unchanged. The 0.28 is a board drop, not ladder release, and its source is not in the data.
-  - "Board effect low": stronger than that. It measured 0 on three deals at 17:45.
-- **Stale:** "v10 7.5 vs 9.15-12.5" is the 17:50 figure. No current `mm` figure exists in the metrics.
+  - t18 bids 25 for MAL-09/10.
+  - LAT-09/10 are worth about 35 and our 31 bids are likely unfilled.
+  - t15 sold CHA-09/10 to t16 at 65, and t13 sold CHA-01 to t16 at 40.
+  - t12 sold SAL-12 to t16 at 380.
+  - t03's trend is +1.8/60.
+- **Stale:**
+  - "t12 #1, leads us by 0.6": we are now #1, 1.3 above t12.
+  - "t03 1.3 behind": it is now 3.1 behind.
+  - "MAL-07 last from t15": MAL-07 filled from t07, so MAL-09 is last.
+  - "bid 25451 at 48" has been replaced by 26022 at 60.
+  - "CHA-11 25638 at 220" has been replaced by 25784 at 240.
 - **Wrong:**
-  - "MAL needs only MAL-09/10": we also lack MAL-06 and MAL-07 (both sold to Pilar). MAL is 4 cards from a page.
-  - "LAT-02 at 8" is no bargain: our value is 5, and 8 + fee 2 nets −5.
+  - "t04 +4.5 in 60 min": the metrics show +1.7.
+  - "t10 bids only 100 for CHA-11": the Chief has t10 at 210, and t10 sold CHA-11 to t06 at 184 (tick 2228).
+  - "t12 collects LAT": teams.md says RET/MAL/LAV, though the metrics show LAT×8 buys, so this is mixed.
+  - "SAL-11 t04→t02 at 220 (tick 1858)": not in the data.
 
 ## The 3 changes with the highest expected gain
-1. **Duels II (about 20:33): verify the day reading live.**
-   - Action: Aleks runs `--days-read auto`, checks the first 2-3 settled `days` duels against predicted surplus, and flips the switch if they read backwards.
-   - Expected gain: the Duel Lab puts it at +0.47/duel if right vs −0.18/duel if backwards, over 68 duels. This is the largest swing left on Saturday.
-   - Main risk: too few early duels to tell the two readings apart.
-2. **Ladder: one measured MAL-08 sale, then decide.**
-   - Action: sell only MAL-08 to Pilar (floor 18 ≥ its value of 17.5). Read `negotiating` at the next refresh, about 10 ticks later.
-   - If it is flat, stop job bxpdvaqj5 (LAT-04 and LAV-04 included) and cancel 15762.
-   - Expected gain: 0 to a small ladder move, and it saves Operator attention and accepts before Duels II.
-   - Main risk: we lose a small gain if the cap really did reset.
-3. **Decide the silver pack before any further card buy (Chief, before Sunday's CHA purchases).**
-   - Every acquisition we make while it stays unopened loses value to pack drag (≈9.6 on SAL-06).
-   - Weigh that drag against pulling CHA cards on Sunday by opening it after the release.
-   - Expected gain: the avoided drag on each CHA buy. The size of a CHA pull is not in the data.
-   - Main risk: opening before the CHA release forfeits any CHA pull.
+1. **Land CHA-11 before tick 2303 (+48).**
+   - Dani confirms in the room that t08 will accept 25784 at 240.
+   - On expiry, make one move to t16 (#11, non-rival) at ≤ 238 (value − 50). Never t10 or t06 (Chief's rival list).
+   - Risk: t08 sells elsewhere first.
+2. **Land MAL-09 before tick 2308 (+35.4 at 60; +50 at ≤ 45).**
+   - Dani confirms in the room that t08 holds MAL-09. Holders are anonymous in the API.
+   - If t08 doesn't hold it, mal09_bid.py's single move to t13 stands.
+   - Keep it a team trade on El Rastro. Never buy the last card from the Pícaros (scores 0).
+   - Risk: t18 (top 4) outbids us. Its bid is 25 now, so the risk is low.
+3. **After 1-2 resolve, use spare cash for one epic closer-style bid: LAV-11 at ≤ 184.**
+   - Value 234 = 180 × 1.3, [L] by analogy with CHA-11 = 288. That makes it a +50 team trade.
+   - Address one El Rastro bid to a non-rival holder that Dani finds in the room. The holder is not in the data.
+   - t17's 112 is the only LAV-11 bid on the board.
+   - Risk: the holder is a top-4 rival (then don't bid) or won't sell under the Pícaros' epic price (~149).
+   - Cash 647 − 416 in bids leaves room, and leftover cash doesn't score.

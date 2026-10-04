@@ -10,6 +10,10 @@ for each ask (cards for cash), ranks the likely buyers with the bots' buyer mode
   gives up its last copy, the buyer gains its next. Copies are counted from the feed (settlements, pack pulls,
   listings), so they are lower bounds: starting cards are invisible [L]. Analyst, Sat 12:05: a high-multiplier team
   selling a duplicate to a lower-multiplier collector creates value (v14 +4.36, v17 +2.76 [V]).
+Hard rule (Chief 21:40, every path: asks, addressed offers, suggestions): the giver shows 2+ distinct copies in the
+feed or dumps the set (giver_ok); the receiver shows no copy and collects the set (receiver_ok; run/known_holdings.json,
+tools/known.py, beats the feed); both sides gain > 0 at the price, conservatively (gains_ok); every DM to a giver says
+"Only if it's a spare for you, keep one copy."
 Never the top 4, never the seller or us, and never a team within 10 points of us for a card that may close its page
 (it lacks at most one other card of the set). The conservative estimate (buyer's low multiplier, seller's high) must be above 0. A strong match pages Lucas once per (ask, buyer) with a ready WhatsApp DM
 and is logged to intel/v10-radar.md. Read-only: it never trades.
@@ -45,6 +49,7 @@ from collectors import CachedCollectors, set_of  # noqa: E402
 import opportunities as op  # noqa: E402
 import policy  # noqa: E402
 import alerts  # noqa: E402
+import known as known_mod  # noqa: E402
 
 URL = os.environ.get("BAZAAR_URL", "https://bazaar.causaprima.ai")
 VENUE, ME = "v10", "t05"
@@ -55,6 +60,7 @@ PARTNER_TEAMS = ("t10", "t15", "t03")
 SUGGEST_VC, SUGGEST_LINES, SUGGEST_TOP = 5.0, 3, 5
 SUGGEST_ACTS, SUGGEST_KEY_EVERY_S = 3, 7200    # the top 3 pairs to Dani as ACTs, each pair at most once per 2 h
 RIVAL_VC_MIN, RIVAL_GAIN_MAX = 8.0, 10.0       # Chief 17:50: a rival seller only if value created >= 8 and its gain <= 10 P
+SPARE_LINE = "Only if it's a spare for you, keep one copy."   # Chief 21:40: in every DM to the side that gives a card
 CLEARING = {"common": 9, "uncommon": 24.5, "rare": 70}   # GAME.md clearing prices: the price to suggest
 CLEARING_SET = {("LAT", "common"): 7.5, ("LAT", "uncommon"): 21.5, ("MAL", "uncommon"): 26}   # GAME.md, per set
 MULT_FILE = ROOT / "intel" / "multipliers.json"   # the Analyst's estimates: {team: {SET: {m, lo, hi, conf, why}}}
@@ -169,35 +175,83 @@ def copy_weight(n_after: int) -> float:
     return COPY[min(max(n_after, 1), len(COPY)) - 1]
 
 
-def buyers_for(ask: dict, *, seller, teams, top, ours, last, prof, mult, collectors, cards, held=None) -> list[dict]:
-    """Ranked likely buyers for one ask: [{team, rank, m_buyer, m_seller, vc, lacks, why}]."""
+def giver_ok(seller, card: str, *, held: dict, collectors, known=None) -> tuple[bool, str]:
+    """Chief 21:40 (hard rule; one swap wiped Team 7's value created, t13 gave a card it needed): the giver shows 2+
+    distinct copies in the feed (a true duplicate), or dumps the set (and hasn't told us that page is complete)."""
+    if not seller:
+        return False, "giver unknown"
+    n = len(held.get((seller, card), ()))
+    if n >= 2:
+        return True, f"{seller} holds {n}"
+    st = card.split("-")[0]
+    if known_mod.holds(known, seller, card) and st in ((known or {}).get(seller) or {}).get("complete", ()):
+        return False, f"{seller} told us its {st} page is complete and shows 1 copy"
+    _, why = collectors.allows(seller, st)
+    if "dumps" in why:
+        return True, why
+    return False, f"{seller} shows {n} cop{'y' if n == 1 else 'ies'} and collects or may need it"
+
+
+def receiver_ok(team, card: str, *, held: dict, last: dict, prof: dict, collectors, known=None) -> tuple[bool, str]:
+    """Chief 21:40 (hard rule): the receiver shows no copy and collects the set; a team in run/known_holdings.json
+    takes only the cards it said it misses (Chief 21:50)."""
+    k = known_mod.buys(known, team, card)
+    if k is False:
+        return False, f"{team} told us it doesn't need {card}"
+    if k is None:
+        sig = last.get((team, card))
+        if held.get((team, card)) or (sig and sig.get("kind") == "hold"):
+            return False, f"{team} shows a copy of {card}"
+    st = card.split("-")[0]
+    ok, why = collectors.allows(team, st)
+    if "dumps" in why:
+        return False, why
+    if ok or (prof.get((team, st)) or {}).get("collects") or k:
+        return True, why
+    return False, why
+
+
+def gains_ok(price, *, book, m_b, m_s, c_b, c_s) -> tuple[bool, float, float]:
+    """(both gain > 0, buyer's gain, seller's gain) at `price`, conservatively: the buyer at its low multiplier, the
+    seller at its high (Chief 21:40: drop anything where either side's gain is <= 0 or unknown)."""
+    if price is None:
+        return False, 0.0, 0.0
+    (_, lo_b, _), (_, _, hi_s) = _triple(m_b), _triple(m_s)
+    gb, gs = round(book * lo_b * c_b - price, 1), round(price - book * hi_s * c_s, 1)
+    return gb > 0 and gs > 0, gb, gs
+
+
+def buyers_for(ask: dict, *, seller, teams, top, ours, last, prof, mult, collectors, cards, held=None,
+               known=None) -> list[dict]:
+    """Ranked likely buyers for one ask: [{team, rank, m_buyer, m_seller, vc, lacks, why}]. The giver and receiver
+    rules (giver_ok, receiver_ok) hold for every pair; an ask with a price also needs both gains > 0 (gains_ok)."""
     refs = [a.get("ref") for a in (ask.get("give") or {}).get("assets") or [] if isinstance(a, dict)]
     if len(refs) != 1 or refs[0] not in cards:
         return []
     card = refs[0]
     c = cards[card]
     st, book = c["set"], c["book"]
-    m_s, _, hi_s = _triple((mult.get(seller) or {}).get(st, 1.0)) if seller else (1.0, 1.0, 1.0)
     held = held or {}
+    if not giver_ok(seller, card, held=held, collectors=collectors, known=known)[0]:
+        return []
+    m_s, _, hi_s = _triple((mult.get(seller) or {}).get(st, 1.0))
     c_s = copy_weight(len(held.get((seller, card), ())) or 1)      # the seller gives up its last copy
+    price = (ask.get("want") or {}).get("cash")
     out = []
     for t in teams:
         team = t["team"]
         if team in (ME, seller) or team in top:
             continue
-        ok, why = collectors.allows(team, st)
-        p = prof.get((team, st), {})
-        if not ok and not p.get("collects"):
-            continue
-        if "dumps" in why:
+        ok, why = receiver_ok(team, card, held=held, last=last, prof=prof, collectors=collectors, known=known)
+        if not ok:
             continue
         sig = last.get((team, card))
-        n_b = len(held.get((team, card), ()))
-        if sig and sig["kind"] == "hold":
-            n_b = max(n_b, 1)
-        lacks = bool(sig and sig["kind"] == "lack") and n_b == 0
+        lacks = bool(sig and sig["kind"] == "lack") or bool(known_mod.buys(known, team, card))
         m_b, lo_b, _ = _triple((mult.get(team) or {}).get(st, 1.0))
-        c_b = copy_weight(n_b + 1)                      # the buyer gains its next copy
+        c_b = copy_weight(1)                            # the buyer gains its first copy (receiver_ok)
+        if price is not None and not gains_ok(price, book=book, m_b=(mult.get(team) or {}).get(st, 1.0),
+                                              m_s=(mult.get(seller) or {}).get(st, 1.0), c_b=c_b, c_s=c_s)[0]:
+            continue
         vc = round(book * (m_b * c_b - m_s * c_s), 1)
         vc_low = round(book * (lo_b * c_b - hi_s * c_s), 1)   # conservative: buyer at lo, seller at hi (Analyst)
         if vc_low <= 0 or (not lacks and vc < MIN_VC):
@@ -245,8 +299,9 @@ def open_addressed(events, tick) -> list[dict]:
     return [o for o in listed.values() if (o.get("expires_tick") or 0) > tick and o["to"] != ME and o["maker"] != ME]
 
 
-def addressed_match(o: dict, *, teams, mult, cards, held) -> dict | None:
-    """One addressed offer as a radar row: who buys, who sells, the card, the estimated value created."""
+def addressed_match(o: dict, *, teams, mult, cards, held, collectors, last=None, prof=None, known=None) -> dict | None:
+    """One addressed offer as a radar row: who buys, who sells, the card, the estimated value created. None unless
+    the giver and receiver rules hold and both sides gain > 0 at its price (Chief 21:40)."""
     give, want = o.get("give") or {}, o.get("want") or {}
     assets = [a for a in give.get("assets") or [] if isinstance(a, dict)]
     if len(assets) == 1 and want.get("cash") and not give.get("cash"):
@@ -261,9 +316,15 @@ def addressed_match(o: dict, *, teams, mult, cards, held) -> dict | None:
     if not c:
         return None
     st = c["set"]
+    last, prof = last or {}, prof or {}
+    if not giver_ok(seller, card, held=held, collectors=collectors, known=known)[0] or \
+            not receiver_ok(buyer, card, held=held, last=last, prof=prof, collectors=collectors, known=known)[0]:
+        return None
     m_b, m_s = (mult.get(buyer) or {}).get(st, 1.0), (mult.get(seller) or {}).get(st, 1.0)
-    c_b = copy_weight(len(held.get((buyer, card), ())) + 1)
+    c_b = copy_weight(1)
     c_s = copy_weight(len(held.get((seller, card), ())) or 1)
+    if not gains_ok(price, book=c["book"], m_b=m_b, m_s=m_s, c_b=c_b, c_s=c_s)[0]:
+        return None
     vc, vc_low = value_created(c["book"], m_b, m_s, c_b, c_s)
     names = {t["team"]: t.get("name", t["team"]) for t in teams}
     rank = {t["team"]: t.get("rank") for t in teams}
@@ -280,7 +341,7 @@ def rival_seller_ok(vc: float, seller_gain: float) -> bool:
 
 
 def suggestions(partner: str, *, teams, held, mult, cards, last, prof, collectors, ours, limit=SUGGEST_LINES,
-                riv=frozenset(), exclude=frozenset()) -> list[dict]:
+                riv=frozenset(), exclude=frozenset(), known=None) -> list[dict]:
     """Up to `limit` {card, n, buyer, name, price, vc, seller_gain} for one seller: its 2+ copy cards, each with its
     best buyer that is no rival (buyers_for), est. value created > SUGGEST_VC; a rival seller (`riv`) only where
     rival_seller_ok."""
@@ -291,13 +352,16 @@ def suggestions(partner: str, *, teams, held, mult, cards, last, prof, collector
             continue
         ask = {"give": {"assets": [{"ref": card}]}}
         ranked = [b for b in buyers_for(ask, seller=partner, teams=teams, top=top, ours=ours, last=last, prof=prof,
-                                        mult=mult, collectors=collectors, cards=cards, held=held)
+                                        mult=mult, collectors=collectors, cards=cards, held=held, known=known)
                   if b["vc"] > SUGGEST_VC and (b["team"], card) not in exclude]
         rarity, st = cards[card]["rarity"], cards[card]["set"]
         if ranked and rarity in CLEARING:              # epics and legendaries: no clearing price, no suggestion
             b = ranked[0]
-            worth = cards[card]["book"] * b["m_buyer"] * b["c_buyer"]   # never suggest above the buyer's value
-            price = max(1, round(min(CLEARING_SET.get((st, rarity), CLEARING[rarity]), worth)))
+            worth = cards[card]["book"] * b["m_buyer"] * b["c_buyer"]   # never suggest at or above the buyer's value
+            price = max(1, round(min(CLEARING_SET.get((st, rarity), CLEARING[rarity]), worth - 1)))
+            if not gains_ok(price, book=cards[card]["book"], m_b=(mult.get(b["team"]) or {}).get(st, 1.0),
+                            m_s=(mult.get(partner) or {}).get(st, 1.0), c_b=b["c_buyer"], c_s=b["c_seller"])[0]:
+                continue                                   # Chief 21:40: both sides gain > 0, conservatively
             seller_gain = round(price - cards[card]["book"] * b["m_seller"] * b["c_seller"], 1)
             if partner in riv and not rival_seller_ok(b["vc"], seller_gain):
                 continue
@@ -322,7 +386,7 @@ def sold_before(events) -> set:
 
 
 def all_suggestions(*, teams, held, mult, cards, last, prof, collectors, ours, riv, sold=frozenset(),
-                    exclude=frozenset()) -> list[dict]:
+                    exclude=frozenset(), known=None) -> list[dict]:
     """Every seller with 2+ copies of a card (feed, a lower bound), its best pairs, ranked by est. value created
     (ties: a non-rival seller first). A buyer that sold the card before counts as holding one; excluded (buyer, card)
     pairs are skipped."""
@@ -334,7 +398,7 @@ def all_suggestions(*, teams, held, mult, cards, last, prof, collectors, ours, r
     out = []
     for s in sorted(sellers):
         out += suggestions(s, teams=teams, held=held, mult=mult, cards=cards, last=last, prof=prof,
-                           collectors=collectors, ours=ours, limit=None, riv=riv, exclude=exclude)
+                           collectors=collectors, ours=ours, limit=None, riv=riv, exclude=exclude, known=known)
     out.sort(key=lambda x: (-x["vc"], x["seller"] in riv))
     return out
 
@@ -354,7 +418,7 @@ def top_per_buyer(pairs: list, n: int) -> list:
 def ask_text(x: dict, seller_name: str, cards: dict) -> str:
     """The DM to a seller: transactional only (Lucas 17:20)."""
     return (f"Hi {seller_name}! If you list your {cards.get(x['card'], {}).get('name', x['card'])} ({x['card']}) on v10 at "
-            f"~{x['price']} P, {x['name']} may take it. Thanks!")
+            f"~{x['price']} P, {x['name']} may take it. {SPARE_LINE} Thanks!")
 
 
 # Ready-to-send texts are transactional only (Lucas, Sat 17:20): what, offer id, price, thanks. Never why: no value
@@ -363,7 +427,7 @@ def ask_text(x: dict, seller_name: str, cards: dict) -> str:
 def suggestion_text(lines: list[dict], cards: dict) -> str:
     return "Suggestions for v10: " + "; ".join(
         f"your {cards.get(x['card'], {}).get('name', x['card'])} ({x['card']}) → {x['name']} at ~{x['price']} P"
-        for x in lines) + ". Thanks!"
+        for x in lines) + f". {SPARE_LINE} Thanks!"
 
 
 def dm_addressed(f: dict, card_name: str) -> str:
@@ -371,7 +435,7 @@ def dm_addressed(f: dict, card_name: str) -> str:
         return (f"Hi {f['name']}! {f['maker_name']} has an offer for you on v10: {card_name} ({f['card']}) for "
                 f"{f['price']} P, offer {f['offer']}. Thanks!")
     return (f"Hi {f['name']}! {f['maker_name']} offers you {f['price']} P for your {card_name} ({f['card']}) on v10, "
-            f"offer {f['offer']}. Thanks!")
+            f"offer {f['offer']}. {SPARE_LINE} Thanks!")
 
 
 def dm(team_name: str, card_name: str, card: str, price, set_id: str = "", offer=None) -> str:
@@ -421,18 +485,20 @@ class Radar:
         who = sellers(events)
         held = holdings(events)
         col = self.collectors.get()
+        known = known_mod.load()
         found = []
         for a in asks:
             seller = who.get(a["id"])
             ranked = buyers_for(a, seller=seller, teams=teams, top=top, ours=ours, last=last, prof=prof, mult=self.mult,
-                                collectors=col, cards=self.cards, held=held)
+                                collectors=col, cards=self.cards, held=held, known=known)
             for b in ranked[:2]:
                 found.append({"offer": a["id"], "seller": seller, "price": (a.get("want") or {}).get("cash"),
                               "card": [x.get("ref") for x in a["give"]["assets"]][0],
                               "asset": [x.get("id") for x in a["give"]["assets"]][0],
                               "expires_tick": a.get("expires_tick"), **b})
         for o in direct:
-            m = addressed_match(o, teams=teams, mult=self.mult, cards=self.cards, held=held)
+            m = addressed_match(o, teams=teams, mult=self.mult, cards=self.cards, held=held, collectors=col, last=last,
+                                prof=prof, known=known)
             if m:
                 found.append(m)
         for f in found:
@@ -521,7 +587,8 @@ class Radar:
         held, col = holdings(events), self.collectors.get()
         riv = alerts.rivals(teams)                    # rivals: top 6 or within 3, re-read now (Chief 17:40/17:50)
         pairs = all_suggestions(teams=teams, held=held, mult=self.mult, cards=self.cards, last=last, prof=prof,
-                                collectors=col, ours=ours, riv=riv, sold=sold_before(events), exclude=excluded_pairs())
+                                collectors=col, ours=ours, riv=riv, sold=sold_before(events), exclude=excluded_pairs(),
+                                known=known_mod.load())
         found = {p: [x for x in pairs if x["seller"] == p] for p in PARTNER_TEAMS}
         L = [f"# v10 suggestions ({time.strftime('%a %H:%M')}, tick {tick})", "",
              "_Written every 30 min by `tools/v10_radar.py`: every team holding 2+ copies of a card (feed, a lower bound), "

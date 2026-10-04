@@ -24,6 +24,7 @@ from engine import Model
 from engine.claude import Claude, require_credentials
 from engine.failover import Failover
 
+from .days import MODE, MODES
 from .agent import DuelAgent
 from .model import DuelView, Observation, Offer, Role, Turn
 from .records import Records, review as review_table
@@ -50,9 +51,10 @@ def models(a: argparse.Namespace) -> tuple[Model, Model]:
     negotiator: Model = Claude(model=a.negotiator_model or a.model, effort=a.negotiator_effort or a.effort,
                                thinking_off=a.thinking_off)
     if not getattr(a, "no_failover", False):
-        wrap = lambda m: Failover(m, Claude(model=BACKUP[m.model], effort="low", timeout_s=20)) \
+        wrap = lambda m, timeout: Failover(m, Claude(model=BACKUP[m.model], effort="low", timeout_s=3),
+                                           timeout_s=timeout) \
             if m.model in BACKUP else m  # noqa: E731
-        strategist, negotiator = wrap(strategist), wrap(negotiator)
+        strategist, negotiator = wrap(strategist, 6.0), wrap(negotiator, 2.0)
     return strategist, negotiator
 
 
@@ -80,7 +82,7 @@ def smoke(a: argparse.Namespace) -> None:
              Turn(mine=False, text="Fine, 30, and that's generous.", offer=d(30), tick=2)]
     obs = Observation(view=view, turns=turns, rival_offer=d(30), tick=3, ticks_left=10)
     strategist, negotiator = models(a)
-    agent = DuelAgent(view, strategist, negotiator)
+    agent = DuelAgent(view, strategist, negotiator, tick_decay=a.decay_mode == "tick")
     move = asyncio.run(agent.respond(obs))
     print(json.dumps({"action": move.action, "price": move.price, "days": move.days, "text": move.text,
                       **move.meta}, indent=2, default=str))
@@ -109,7 +111,11 @@ def run(a: argparse.Namespace) -> None:
     lock = None if a.dry_run else single_instance()  # noqa: F841  (held for the life of the process)
     strategist, negotiator = models(a)
     runner = DuelRunner(bazaar(), strategist, negotiator, dry_run=a.dry_run, log=Log(LOGS), decay=a.decay,
-                        duel_ticks=a.duel_ticks, poll_s=a.poll, records=Records())
+                        duel_ticks=a.duel_ticks, poll_s=a.poll, records=Records(), days_read=a.days_read,
+                        tick_decay=a.decay_mode == "tick", decision_timeout_s=a.decision_timeout,
+                        strategy_timeout_s=a.strategy_timeout, negotiation_timeout_s=a.negotiation_timeout,
+                        warm_cache=not a.no_warm_cache)
+    print(f"day reading: --days-read {a.days_read}", flush=True)
     try:
         asyncio.run(runner.run())
     except KeyboardInterrupt:
@@ -129,28 +135,43 @@ def monitor(a: argparse.Namespace) -> None:
     serve(a.port, folder=Path(a.records)) if a.records else serve(a.port)
 
 
+def warmup(a: argparse.Namespace) -> None:
+    from .warmup import warm_models
+    strategist, negotiator = models(a)
+    print(json.dumps(asyncio.run(warm_models(strategist, negotiator)), indent=2))
+
+
 def main() -> None:
     load_dotenv(find_dotenv(usecwd=True))
     p = argparse.ArgumentParser(prog="agents.duelist", description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
     sub = p.add_subparsers(dest="cmd", required=True)
     sub.add_parser("probe", help="print and save what the game shows now")
-    for name, fn in (("smoke", smoke), ("run", run)):
+    for name, fn in (("smoke", smoke), ("run", run), ("warmup", warmup)):
         s = sub.add_parser(name)
         s.set_defaults(fn=fn)
         s.add_argument("--model", default="claude-opus-5-5", help="strategist model (and negotiator by default)")
         s.add_argument("--effort", default="low", choices=["low", "medium", "high", "xhigh", "max"])
-        s.add_argument("--negotiator-model", help="e.g. claude-sonnet-5-5 or claude-haiku-4-5 for a faster turn")
-        s.add_argument("--negotiator-effort", choices=["low", "medium", "high"])
+        s.add_argument("--negotiator-model", default="claude-sonnet-5-5", help="negotiator model")
+        s.add_argument("--negotiator-effort", default="low", choices=["low", "medium", "high"])
+        s.add_argument("--decay-mode", choices=["tick", "exchange"], default="tick",
+                       help="tick: silence incurs decay; exchange: historical replay behavior")
         s.add_argument("--thinking-off", action="store_true", help="Sonnet 5.5 only: thinking between_tools")
         s.add_argument("--no-failover", action="store_true",
                        help="no backup model (default: Opus -> Sonnet, Sonnet -> Haiku, Haiku -> Sonnet)")
         if name == "smoke":
             s.add_argument("--days", action="store_true", help="a two-issue duel (price and delivery day)")
-        else:
+        elif name == "run":
             s.add_argument("--dry-run", action="store_true", help="decide and print, but send nothing")
             s.add_argument("--decay", type=float, help="decay per round, when the duel doesn't state it")
             s.add_argument("--duel-ticks", type=int, help="ticks per duel, when the feed doesn't say")
             s.add_argument("--poll", type=float, default=2.0, help="seconds between polls (two reads each)")
+            s.add_argument("--decision-timeout", type=float, default=12.0, help="whole decision ceiling, max 12 s")
+            s.add_argument("--strategy-timeout", type=float, default=8.0, help="all strategy calls/retries, seconds")
+            s.add_argument("--negotiation-timeout", type=float, default=3.0, help="all writing calls/retries, seconds")
+            s.add_argument("--no-warm-cache", action="store_true", help="disable automatic pre-session warming")
+            s.add_argument("--days-read", choices=MODES, default=MODE,
+                           help="day reading override (PLAN #24): auto = as read (default), flip = direction "
+                                "reversed, unsure = sure=False safe mode; env DAYS_READ sets the default")
     sub.add_parser("review", help="every recorded duel in one table").set_defaults(fn=review)
     m = sub.add_parser("monitor", help="a local page following our duels and the field, live (read-only, no team key)")
     m.add_argument("--port", type=int, default=8766)

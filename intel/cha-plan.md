@@ -1,5 +1,7 @@
 # Sunday: the Chamberí (CHA) page (Builder, Sat 11:40; team bids 12:10; reviews 12:30, 13:30, 13:55, fixes applied)
 
+> **Sat 23:55, Chief (Operator's dealer lab, verified):** dealer fallback for CHA RARES = **Los Pícaros**, target 48-52, accept ≤ 54 (walk on a final ≥ 57, then reopen): they close below list (≈ 0.78 of their opening), so the buy also fills an L4 ladder slot. Chato (finals 82-93, above list 77, no ladder) only if the Pícaros have no CHA rare. Abuela commons 8 (≤ 9), uncommons 20-21 (≤ 22). Order unchanged: team bids first, dealers second, the LAST card always from a team. CHA is released at round 3 (game 16.65), which may come 1.5-3 h after the 09:00 open (see sunday-plan).
+
 > **Sat 19:00, Chief (Analyst [V feed]: how t10 closed RET for +3.3 board):** buy the expensive CHA cards from DEALERS at ≤ our value (0 neg), and keep the LAST missing card for a cheap TEAM trade, because the page bonus (≈ 25% × 265 × 1.6 = 106 → +50 capped) scores only through a team trade. Never let a dealer buy, a pack or the Workshop deliver the last card. Open the silver pack (asset 1013) BEFORE the page is 9/10, or after it closes, never at 9/10.
 
 **Goal:** complete the CHA page Sunday morning, **buying from teams first** (Chief 12:05, from intel/rivals.md play 1).

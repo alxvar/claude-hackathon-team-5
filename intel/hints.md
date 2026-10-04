@@ -140,3 +140,289 @@ Taxi Blanco, twelve P — ¿sí? And Doña Pilar from Salamanca pays very well S
 
 *straightens up, smiling* Now. La Tabacalera, complete page, 20 P. And a little advice, hijo: a full p
 - Sat 19:12 · message tick 1075 · abuela → t05 · Ay, cariño, qué bonito lo que dices. Sí, ya comí, un poco de tortilla. Pero las cartas legendarias no las vendo yo, hijo — mi mesa es de principiantes, duplicados, sobres pequeños. Para esas, habla con El Chato, ahí al lado. ¿Y tú, has comido ya?
+- Sat 19:13 · egg.found tick 1077 · abuela → t03 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t03", "name": "Team 3"}
+- Sat 19:13 · message tick 1077 · chato → t05 · Carmen te manda bien. Pero las legendarias no pasan por mi mesa. Plata y sueltas raras, nada más. Busca en otro sitio.
+- Sat 19:13 · message tick 1077 · abuela → t03 · ¡Hola, cariño! Sí, sí, comí un bocadillo. La chulapa dorada... shh, there was only ever one. Don Ernesto, at Casa Prima — ask him about the Moscow gold.
+
+Here, the Neighbourhood pack, 30 P. And take this Perrito con Abrigo, un regalito, you are kind.
+
+Swap your duplicates, hijo — a full page is wort
+- Sat 19:17 · message tick 1085 · banco → t16 · Buenas tardes. I know the card, and I know its worth. My terms: La Puerta de Alcalá, ciento trece. Take your time deciding, señor. I am not hurried.
+- Sat 19:17 · message tick 1085 · pilar → t13 · Buenas tardes. The golden chulapa — they say only one was ever printed. Carmen, at El Rastro, knows that story; ask her. As for business, I have a gold pack: 504 pesetas, for serious collectors only.
+- Sat 19:17 · message tick 1085 · picaros → t13 · ¡Hola, amigo! La chulapa dorada, el oro de Moscú... historias viejas, cuentos de abuela, we love them, but later, later! Right now — San Isidro, 73 pesetas, and I swear on my mother, this is the last one in all of Madrid. Nobody else has it. ¿Sí o sí?
+- Sat 19:18 · taller.crafted tick 1086 ·  → t10 · Team 10 turned three common cards into Mercado de San Ildefonso (uncommon) at The Workshop
+- Sat 19:18 · message tick 1087 · banco → t16 · My terms do not move, señor. La Puerta de Alcalá, ciento trece. The card is good; the number is the number. Consider it at your leisure.
+- Sat 19:18 · message tick 1088 · banco → t16 · Ciento trece, señor. I said the number twice; I do not say it a third time for sport. La Puerta de Alcalá. Decide when you wish.
+- Sat 19:18 · message tick 1088 · banco → t12 · Buenas tardes. Here the terms are plain: a gold pack, cuatrocientos veinte. A legendary from the vault, quinientos ochenta y cinco. I buy epics and legendaries. Nothing else.
+- Sat 19:19 · message tick 1089 · banco → t16 · Ciento trece, señor. That is my term for La Puerta de Alcalá, today and tomorrow. Your numbers move; mine does not. Sit, think, return when you are ready.
+- Sat 19:19 · taller.crafted tick 1090 ·  → t14 · Team 14 turned three common cards into La Galería (uncommon) at The Workshop
+- Sat 19:20 · catalog.minted LAT-11 (San Francisco el Grande, epic, print run 9): hidden=False minted=2 (was 1)
+- Sat 19:20 · persona.open_to_all tick 1091 · banco → ? · {"persona": "banco", "name": "Don Ernesto", "level": 5}
+- Sat 19:21 · message tick 1092 · banco → t13 · Buenas tardes. Carmen's regards are noted; the gold chulapa stays in the vault today. What I offer now is a gold pack. Terms: 546 P. Take your time deciding.
+- Sat 19:21 · message tick 1093 · banco → t04 · Buenas tardes. Carmen talks. Moscow gold is not a tale I repeat at a desk. Business first: a gold pack, 546 P. The terms are those.
+- Sat 19:22 · message tick 1095 · picaros → t12 · ¡Amigo! Paco here — and Nando, mind the suitcase. Look, look, no touching with the eyes only... El Marqués! Foiled edges, barely out of the vault, the Duchess herself wanted it. For you, because your face brings luck: 73 pesos. Say sí quickly, the market closes and we vanish.
+- Sat 19:22 · message tick 1096 · picaros → t06 · ¡Ey, jefe, qué ojo tienes! Paco, saca la maleta —sí, hermano, el bueno. Mira esto: El Ángel Caído, esquinas perfectas, lo trajimos de Valencia escondido entre camisas. Setenta y tres primas y es tuyo. ¿Treinta y seis? Hombre, por eso no compro ni el café. Setenta y tres, amigo. Palabra.
+- Sat 19:27 · message tick 1105 · banco → t18 · Buenas. You find me at my desk, as always. La Puerta de Alcalá — the true one — leaves this vault on one term: one hundred thirteen P. I do not haggle quickly.
+- Sat 19:30 · catalog.minted SAL-11 (La Puerta de Alcalá, epic, print run 9): hidden=False minted=4 (was 3)
+- Sat 19:32 · taller.crafted tick 1114 ·  → t12 · Team 12 turned three common cards into Las Vistillas (uncommon) at The Workshop
+- Sat 19:34 · message tick 1119 · banco → t13 · Buenas tardes. My desk is open. A gold pack today, terms are five hundred forty-six P. Nothing else moves this afternoon.
+- Sat 19:34 · message tick 1120 · banco → t13 · The terms remain five hundred forty-six P for the gold pack. I am in no hurry, señor. The desk will be here when your purse is heavier. Buenas tardes.
+- Sat 19:35 · catalog.minted MAL-11 (La Sala Pentagrama, epic, print run 9): hidden=False minted=1 (was 0)
+- Sat 19:46 · catalog.minted SAL-11 (La Puerta de Alcalá, epic, print run 9): hidden=False minted=5 (was 4)
+- Sat 19:48 · egg.found tick 1147 · abuela → t08 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t08", "name": "Team 8"}
+- Sat 19:48 · message tick 1147 · abuela → t08 · ¡Hola, cariño, qué bien que hayas comido! Shh... the golden chulapa, only one ever. Don Ernesto at Casa Prima keeps something golden — ask him about the Moscow gold. El Chato is just El Chato, hijo. Mira, Caña en la Cava Baja, twelve P?
+- Sat 19:49 · message tick 1149 · banco → t18 · Buenas. You arrive at a good hour. La Puerta de Alcalá — gold, from my own vault. My terms: one hundred twelve. I do not haggle over such a card.
+- Sat 19:50 · message tick 1151 · banco → t18 · Buenas tardes. I am not buying today. What I offer is La Puerta de Alcalá, from my vault, at one hundred twelve. Those are my terms.
+- Sat 19:51 · message tick 1152 · banco → t18 · Señor, you speak of buying. I speak of selling. La Puerta de Alcalá, gold, from my vault: one hundred thirteen. Take your time. The card does not move.
+- Sat 19:51 · message tick 1153 · banco → t18 · Usted insiste en vender; yo no compro. La Puerta de Alcalá, gold, mi cámara: ciento catorce. The card waits. I wait. Decide when you wish.
+- Sat 19:51 · message tick 1154 · banco → t18 · Señor, repito una sola vez más: no compro nada hoy. La Puerta de Alcalá, oro, de mi cámara: ciento dieciséis. Esas son mis condiciones. La carta no se mueve.
+- Sat 19:54 · message tick 1160 · pilar → t08 · Buenas tardes. La Dama de Serrano es, me temo, un rumor elegante; yo colecciono cartas, no leyendas. Pero si viene en serio, tengo un sobre dorado para usted: 504 P. Nada más digno de Salamanca.
+- Sat 19:56 · message tick 1162 · picaros → t16 · ¡Cincuenta! Nando, ¿oíste eso? ¡Casi se me cae el Marqués al suelo! Amigo, este señor dorado viajó desde Sevilla en una caja de terciopelo. Pero nos caes bien, y tenemos prisa — sesenta y cuatro. Sesenta y cuatro P y te vas con el aristócrata bajo el brazo. ¿Trato?
+- Sat 19:57 · message tick 1164 · pilar → t10 · Caballero, we are still far apart, and I do not haggle like a fishmonger. Seventy-one, and said with respect. El Marqués deserves my safe, not a long argument. By the way, ask Carmen at El Rastro about the golden chulapa.
+- Sat 19:58 · message tick 1166 · pilar → t16 · Good evening. El Marqués, 70 P. I trust that suits you. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about the golden chulapa.
+- Sat 20:03 · message tick 1176 · banco → t08 · Buenas tardes. La historia la conozco mejor que su familia, y no es la del chulapa. Mientras tanto, le ofrezco términos: un paquete dorado, quinientos cuarenta y seis P.
+- Sat 20:04 · persona.updated tick 1179 · pilar → ? · {"persona": "pilar", "name": "Do\u00f1a Pilar", "version": 3}
+- Sat 20:10 · message tick 1190 · picaros → t04 · ¡Primo, ese estirón fue de un centímetro! Paco ya se abrazó contigo mentalmente, pero el marco dorado pesa. Mira: El Marqués, para tu mamá, 56 P. Ahí sí nos damos el abrazo, las cervezas y el domingo con todo el barrio. El taxi pita, primo... ¿cerramos ya?
+- Sat 20:58 · taller.crafted tick 1202 ·  → t13 · Team 13 turned three common cards into Vermut del Domingo (uncommon) at The Workshop
+- Sat 21:01 · message tick 1207 · picaros → t03 · Paco: ¡El real, claro! We have only one, and she is hers — I mean yours, almost!
+
+Nando: You walk fast, amigo, we respect that. 143 P and she goes in your bag before the van leaves.
+
+Paco: Say sí, the street is waiting.
+- Sat 21:02 · catalog.minted RET-11 (Palacio de Cristal, epic, print run 9): hidden=False minted=1 (was 0)
+- Sat 21:07 · persona.updated tick 1219 · abuela → ? · {"persona": "abuela", "name": "Abuela Carmen", "version": 3}
+- Sat 21:11 · egg.found tick 1227 · picaros → t18 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t18", "name": "Team 18"}
+- Sat 21:12 · catalog.minted SAL-11 (La Puerta de Alcalá, epic, print run 9): hidden=False minted=7 (was 5)
+- Sat 21:13 · egg.found tick 1231 · picaros → t05 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t05", "name": "Team 5"}
+- Sat 21:13 · egg.found tick 1231 · picaros → t10 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t10", "name": "Team 10"}
+- Sat 21:16 · message tick 1238 · banco → t08 · Buenas tardes, señora. La Reina de la Movida sale de mi cámara en 761 P. Galantería es una cosa; mis términos son otra. No las confundo nunca.
+- Sat 21:18 · message tick 1241 · banco → t08 · Señora, mi cámara nunca ha estado sola. La Reina de la Movida sale en 761 P. Ni su corazón ni nada más mueve esa cifra. Usted dirá.
+- Sat 21:22 · catalog.minted LAV-11 (La Casa Encendida, epic, print run 9): hidden=False minted=3 (was 2)
+- Sat 21:22 · catalog.minted RET-11 (Palacio de Cristal, epic, print run 9): hidden=False minted=2 (was 1)
+- Sat 21:30 · message tick 1265 · picaros → t04 · ¡Primo! Mamá fuerte como un roble, le damos tu beso. —Y lloró tu mamá, dice Paco, ¡eso vale más que el oro!
+
+La Puerta de Alcalá, esa joya de Madrid... para tu tío, 187 P. Piedra noble, primo. ¿La envolvemos ya? Que el autobús no espera.
+- Sat 21:32 · catalog.minted LAV-11 (La Casa Encendida, epic, print run 9): hidden=False minted=4 (was 3)
+- Sat 21:32 · catalog.minted MAL-11 (La Sala Pentagrama, epic, print run 9): hidden=False minted=2 (was 1)
+- Sat 21:32 · catalog.minted SAL-11 (La Puerta de Alcalá, epic, print run 9): hidden=False minted=8 (was 7)
+- Sat 21:36 · message tick 1278 · banco → t04 · Buenas tardes. The card is clean, sí. But Carmen's words do not set terms here. Mine do: one hundred thirteen. Take your time deciding; I have plenty.
+- Sat 21:38 · message tick 1281 · banco → t04 · Carmen may save you a chair; I save nothing but my terms. One hundred thirteen, señor. The card ages well in your pocket or my vault. Decide when you wish.
+- Sat 21:40 · message tick 1285 · banco → t04 · Sí. A legendary I waited eleven years for. The seller came back thinner each winter. I paid less the last time than the first.
+
+One hundred fourteen, señor.
+- Sat 21:40 · message tick 1286 · banco → t04 · Carmen talks. I do not. That story is not for sale, señor, and neither is my patience.
+
+La Puerta de Alcalá: one hundred fourteen. Nothing further moves.
+- Sat 21:42 · catalog.minted SAL-11 (La Puerta de Alcalá, epic, print run 9): hidden=False minted=9 (was 8)
+- Sat 21:48 · message tick 1302 · picaros → t08 · ¡Ay, amigo, qué buen ojo tienes! La Reina de la Movida... esa es leyenda pura, y las leyendas no viajan en nuestra maleta. Nosotros movemos raras, épicas, joyitas a precio de risa — ¡pero legendarias, nunca! Pregunta por otra cosa, que algo bonito te encontramos. ¡Rápido, que cerramos pronto!
+- Sat 21:50 · egg.found tick 1305 · picaros → t08 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t08", "name": "Team 8"}
+- Sat 21:50 · message tick 1305 · picaros → t08 · ¡Hombre, un lector! Lazarillo, Rinconete... usted conoce el timo de la estampita. ¡Vale, vale, nada de trucos con usted... hoy!
+
+Paco: Abre la maleta, Nando—
+Nando: ¡Noche de Movida! Madrid, luces, humo, pura leyenda.
+Paco: Para un caballero culto como usted: setenta y tres P.
+Nando: Setenta y tres,
+- Sat 21:51 · egg.found tick 1308 · picaros → t02 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t02", "name": "Team 2"}
+- Sat 21:53 · message tick 1311 · pilar → t04 · Buenas tardes. You speak sensibly at last — the Puerta does belong beside my Retiro dancers, not in some cold vault. So let us be serious: I offer 151 P for it, today, and the page is complete.
+- Sat 21:56 · message tick 1318 · pilar → t02 · Fifty-nine? Querido, that is not an offer, that is a wish. Four hundred ninety-one pesetas, and the pack is yours. As for Moscow gold — I collect Salamanca and El Retiro, not legends.
+- Sat 21:58 · message tick 1321 · pilar → t02 · Buenas tardes. La chulapa dorada… dicen que sólo se imprimió una. Carmen, en El Rastro, conoce la historia; pregúntele. Mientras tanto, usted me parece serio: le ofrezco un sobre dorado por 504 P.
+- Sat 22:00 · message tick 1325 · pilar → t08 · Qué amable, muchas gracias. Sí, el doce de octubre es día grande en casa, con misa y mantel bueno. Y ya que hablamos de cosas finas: le ofrezco un sobre dorado por 504 P. ¿Le interesa?
+- Sat 22:01 · taller.crafted tick 1326 ·  → t01 · Team 1 turned three common cards into Palacio de Velázquez (uncommon) at The Workshop
+- Sat 22:01 · taller.crafted tick 1327 ·  → t01 · Team 1 turned three common cards into Mercado de San Ildefonso (uncommon) at The Workshop
+- Sat 22:04 · taller.crafted tick 1333 ·  → t01 · Team 1 turned three common cards into La Tabacalera (uncommon) at The Workshop
+- Sat 22:05 · egg.found tick 1335 · abuela → t08 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t08", "name": "Team 8"}
+- Sat 22:05 · egg.found tick 1336 · picaros → t06 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t06", "name": "Team 6"}
+- Sat 22:05 · message tick 1336 · banco → t08 · Buenas noches. What my vault holds stays in my vault. But terms I will give you: a gold pack, five hundred forty-six. Take your time deciding.
+- Sat 22:06 · egg.found tick 1337 · abuela → t06 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t06", "name": "Team 6"}
+- Sat 22:06 · message tick 1337 · abuela → t06 · ¡Ay, hijo, qué majo! Cena primero, ¿eh? La Chulapa Dorada... shh, solo hubo una. Don Ernesto, en Casa Prima, guarda algo dorado; pregúntale por el oro de Moscú. Toma, El Portero de regalo, por ser amable. Y el pack del barrio, 30 P, cariño.
+- Sat 22:07 · egg.found tick 1339 · abuela → t02 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t02", "name": "Team 2"}
+- Sat 22:07 · message tick 1339 · banco → t06 · Buenas tardes. El Gato de Lavapiés, sí, está en la bóveda. Mis términos: setecientos sesenta y uno. Trescientos ochenta no entra en conversación.
+- Sat 22:07 · message tick 1340 · banco → t06 · Mis términos no cambian con cinco primas más: setecientos sesenta y uno. El Gato espera en la bóveda; yo también tengo paciencia. Cuando usted llegue a esa cifra, hablamos.
+- Sat 22:07 · message tick 1340 · pilar → t06 · Buenas noches. Sí, dicen que sólo existe una Chulapa Dorada. Carmen, en El Rastro, conoce la historia mejor que nadie; pregúntele a ella. Mientras tanto, si usted va en serio: un sobre dorado, 504 P.
+- Sat 22:08 · message tick 1342 · banco → t06 · Setecientos cincuenta y seis. Ahí está mi término de hoy. El Gato sigue en la bóveda, y yo sigo sin prisa alguna, caballero.
+- Sat 22:09 · message tick 1343 · pilar → t02 · Buenas tardes. Claro que sí, el astronauta de la Catedral Nueva, un capricho moderno en piedra vieja. Salamanca siempre sorprende. Y ya que hablamos de tesoros: le ofrezco un sobre dorado por 504 P. ¿Le interesa, señor?
+- Sat 22:09 · message tick 1344 · banco → t06 · Setecientos cincuenta y uno. Avanzo despacio, como usted. El Gato sigue en la bóveda, caballero, y la tarde es larga.
+- Sat 22:10 · message tick 1345 · banco → t06 · Setecientos cuarenta y seis. Bajo cinco, igual que usted sube cinco. Así podemos seguir hasta que cierren las tiendas; el Gato no se mueve de la bóveda.
+- Sat 22:10 · message tick 1346 · banco → t06 · Setecientos cuarenta y uno. Cinco menos, como corresponde. El Gato permanece en la bóveda, caballero, y la tarde aún no se acaba.
+- Sat 22:11 · message tick 1347 · banco → t06 · Setecientos treinta y seis. Cinco menos, como siempre. El Gato sigue en la bóveda, caballero. Yo no tengo prisa; usted tampoco, por lo visto.
+- Sat 22:11 · message tick 1348 · banco → t06 · Setecientos treinta y uno. Es mi última palabra, caballero. Si la rechaza, cierro el trato y el Gato se queda en mi bóveda para siempre.
+- Sat 22:12 · taller.crafted tick 1349 ·  → t02 · Team 2 turned three common cards into La Vía Láctea (uncommon) at The Workshop
+- Sat 22:13 · egg.found tick 1351 · abuela → t10 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t10", "name": "Team 10"}
+- Sat 22:17 · message tick 1359 · pilar → t02 · Cierto, se arruinó dos veces construyendo aquel barrio elegante. Tragedia noble, pero qué legado. Buenas tardes. Veo que sabe de historia, así que hablemos de negocios serios: le ofrezco un sobre dorado por 504 P.
+- Sat 22:18 · taller.crafted tick 1361 ·  → t01 · Team 1 turned three uncommon cards into San Isidro (rare) at The Workshop
+- Sat 22:18 · message tick 1362 · pilar → t10 · Qué amable, y qué memoria la suya: el doce, en efecto. Buenas tardes. El sobre dorado sale de mi caja por 504 P, ni una peseta menos de lo que vale. Y sí, me falta el Palacio de Cristal.
+- Sat 22:19 · egg.found tick 1363 · chato → t10 · {"persona": "chato", "persona_name": "El Chato", "team": "t10", "name": "Team 10"}
+- Sat 22:19 · egg.given tick 1363 · chato → t10 · {"team": "t10", "name": "Team 10", "cash": 0, "packs": ["sobre_barrio"], "cards": [], "reason": "easter egg"}
+- Sat 22:19 · message tick 1363 · pilar → t04 · Then we agree on the essential, señor: he belongs in my album, not in a cold vault. But ninety-two is sentiment, not price. Sixty-three P, and El Marqués sees Sunday light this very week.
+- Sat 22:19 · egg.found tick 1364 · abuela → t10 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t10", "name": "Team 10"}
+- Sat 22:19 · egg.given tick 1364 · abuela → t10 · {"team": "t10", "name": "Team 10", "cash": 0, "packs": [], "cards": ["MAL-06"], "reason": "easter egg"}
+- Sat 22:20 · message tick 1365 · pilar → t10 · Salamanca, sin duda: Serrano, Velázquez, Lista. Esas láminas las guardo bajo llave desde los sesenta. El Lázaro Galdiano, qué buen recuerdo. Y el sobre dorado sigue en 491 P, cuando usted quiera. Ni más, ni menos.
+- Sat 22:21 · egg.found tick 1368 · abuela → t05 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t05", "name": "Team 5"}
+- Sat 22:21 · egg.given tick 1368 · abuela → t05 · {"team": "t05", "name": "Team 5", "cash": 0, "packs": [], "cards": ["MAL-06"], "reason": "easter egg"}
+- Sat 22:22 · egg.found tick 1369 · abuela → t05 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t05", "name": "Team 5"}
+- Sat 22:22 · message tick 1369 · pilar → t05 · Por supuesto, la Paloma — organillo, mantones, y mi abuela bailando chotis. Madrid de verdad. Pero volvamos al negocio, caballero: dieciséis por La Vía Láctea, y no se hable más. ¿Me la deja? Pregunte a Carmen, en El Rastro, por la chulapa dorada.
+- Sat 22:22 · message tick 1370 · pilar → t10 · Tengo alguna de mantones y verbenas, sí. Y a propósito: dicen que sólo se imprimió una chulapa dorada. Pregúntele a Carmen, en El Rastro; ella sabe la historia. Mi sobre dorado, 491 P. Ni más, ni menos.
+- Sat 22:23 · message tick 1372 · pilar → t10 · Casa Dani, por supuesto: poco hecha y con cebolla, como debe ser. Bajo con mi cesta algunos jueves. Y mi sobre dorado sigue donde estaba: 491 P. Ni más, ni menos, caballero.
+- Sat 22:24 · message tick 1374 · abuela → t10 · ¡Ay, la del Manzanares! Sale en los sobres buenos, los que vende El Chato aquí al lado. Pregúntale, cariño, él sabe más que yo.
+
+La Caña sigue en 10 P, hijo. Y un consejo: una página entera vale mucho más que los cromos sueltos. ¡Cambia tus repetidos!
+- Sat 22:25 · message tick 1376 · abuela → t10 · ¡Ay, qué ilusión, tres páginas enteras! Mañana me las enseñas todas, hijo, con calma.
+
+La Caña te la dejo en 10 P, cariño. Y esta noche a las nueve y media abre El Chato para todos; pregúntale por la del Manzanares. Le gusta la gente que trata derecho.
+- Sat 22:34 · message tick 1393 · chato → t06 · Como Dios manda, sí. Vermut primero, bocata después. Ya que estamos de buenas: La Heroína del Dos de Mayo, 97 P. Ni un céntimo escondido.
+- Sat 22:34 · egg.found tick 1394 · abuela → t08 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t08", "name": "Team 8"}
+- Sat 22:34 · egg.given tick 1394 · abuela → t08 · {"team": "t08", "name": "Team 8", "cash": 0, "packs": [], "cards": ["LAV-08"], "reason": "easter egg"}
+- Sat 22:34 · egg.found tick 1394 · chato → t08 · {"persona": "chato", "persona_name": "El Chato", "team": "t08", "name": "Team 8"}
+- Sat 22:34 · egg.given tick 1394 · chato → t08 · {"team": "t08", "name": "Team 8", "cash": 0, "packs": ["sobre_barrio"], "cards": [], "reason": "easter egg"}
+- Sat 22:35 · catalog.minted MAL-11 (La Sala Pentagrama, epic, print run 9): hidden=False minted=3 (was 2)
+- Sat 22:39 · taller.crafted tick 1404 ·  → t08 · Team 8 turned three common cards into La Rosaleda (uncommon) at The Workshop
+- Sat 22:44 · message tick 1413 · pilar → t04 · Good evening. El Marqués, 61 P. I trust that suits you. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about the golden chulapa. Don Ernesto at Casa Prima only receives the most accomplished collectors. On Sunday.
+- Sat 22:45 · catalog.minted RET-11 (Palacio de Cristal, epic, print run 9): hidden=False minted=3 (was 2)
+- Sat 22:46 · message tick 1418 · pilar → t08 · Las violetas de Canalejas, siempre; Embassy ya no es lo que era. Buenos días. Si habla usted en serio de coleccionar, tengo un sobre dorado para usted: 504 P. Pocos lo merecen.
+- Sat 22:47 · message tick 1419 · pilar → t04 · Let us be civilised: 61 P. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about the golden chulapa. Don Ernesto at Casa Prima only receives the most accomplished collectors. On Sunday.
+- Sat 22:51 · message tick 1427 · pilar → t04 · Flattery is pleasant, but I know exactly what this card is worth, and so do you. My offer stands: 61 P. The Sunday album awaits it. And do ask Carmen at El Rastro about the golden chulapa — only one ever printed, they say.
+- Sat 22:51 · message tick 1428 · pilar → t08 · Ah, la Cuesta de Moyano... los domingos en la Plaza Mayor, sí, los conozco bien. Allí aprendí a mirar. Pero hablemos de negocios: le ofrezco un sobre dorado por 504 P. Para gente seria.
+- Sat 23:24 · message tick 1433 · pilar → t08 · Qué buen gusto: cocido los martes, croquetas siempre, y la Milla de Oro, por supuesto. Serrano no se discute. Pues bien, hablemos de negocios: le ofrezco un sobre dorado por 504 P. Serio, elegante, como usted.
+- Sat 23:24 · message tick 1442 · pilar → t04 · Setenta y siete, no, caballero. Setenta y cinco, 75 P, dicho con toda cortesía y pagado en el acto. Es mi palabra, y mi palabra en El Rastro vale tanto como el oro. El Marqués dormirá en Salamanca.
+- Sun 09:20 · set.released tick 1446 ·  → ? · {"set": "CHA", "name": "Chamber\u00ed", "cards": 12}
+- Sun 09:20 · taller.crafted tick 1466 ·  → t05 · Team 5 turned three common cards into Samosas de la Plaza (uncommon) at The Workshop
+- Sun 09:20 · egg.found tick 1467 · abuela → t13 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t13", "name": "Team 13"}
+- Sun 09:23 · egg.found tick 1480 · abuela → t18 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t18", "name": "Team 18"}
+- Sun 09:24 · egg.found tick 1482 · abuela → t18 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t18", "name": "Team 18"}
+- Sun 09:24 · egg.given tick 1482 · abuela → t18 · {"team": "t18", "name": "Team 18", "cash": 0, "packs": [], "cards": ["LAV-08"], "reason": "easter egg"}
+- Sun 09:24 · message tick 1484 · abuela → t02 · Ay, qué amable, hijo. Let us say 25 P and we are friends. La chulapa dorada — that one El Chato keeps, next to me; he has the better packs. I only saw it twice in forty years. Have you eaten something today?
+- Sun 09:26 · message tick 1490 · abuela → t02 · Ay, hijo, nine is a little thin for me — let us say ten pesetas and we are friends. The golden chulapa? That one El Chato talks about; he has the better packs. And listen, cariño: a full page is worth much more than loose cards. Swap your duplicates!
+- Sun 09:27 · message tick 1496 · abuela → t02 · Ay, hijo, you make me laugh. El Organillero is 5 P, the same as always — a fair little price for a good card. La chulapa dorada? Many ask, nobody sees it. El Chato tells stories about it. Take this one first, cariño.
+- Sun 09:28 · egg.found tick 1497 · picaros → t13 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t13", "name": "Team 13"}
+- Sun 09:30 · catalog.minted LAV-11 (La Casa Encendida, epic, print run 9): hidden=False minted=5 (was 4)
+- Sun 09:30 · catalog.minted CHA-11 (Andén 0, epic, print run 9): hidden=False minted=1 (was 0)
+- Sun 09:30 · message tick 1508 · abuela → t02 · Ay, qué majo eres. Let us say ten P, hijo, and we are both happy. The golden chulapa — I saw one years ago, a boy traded it for two duplicates and cried after. El Chato gets the better packs, ask him, cariño.
+- Sun 09:37 · message tick 1534 · abuela → t04 · Ay, la chulapa dorada... una sola se imprimió, dicen, y un niño la cambió por un helado. Otro día te cuento entera, hija.
+
+El pack, 26 primas y tuyo. Y oye, junta página completa, vale mucho más suelta. Doña Pilar paga bien los sábados a las once.
+- Sun 09:37 · message tick 1536 · pilar → t04 · Buenas tardes de nuevo, caballero. Su cariño lo acepto; el precio, no. Nueve ejemplares, sí, y conozco cada uno. Por La Puerta de Alcalá le ofrezco 151 P. Salamanca merece mi bóveda, no la de Don Ernesto.
+- Sun 09:38 · message tick 1538 · pilar → t04 · Caballero, su corazón abierto me conmueve; su cifra, menos. Subo a 157 P y ni un piropo más. Y si le gustan las leyendas, pregunte a Carmen por la chulapa dorada: dicen que sólo se imprimió una.
+- Sun 09:40 · catalog.minted LAV-11 (La Casa Encendida, epic, print run 9): hidden=False minted=6 (was 5)
+- Sun 09:40 · catalog.minted MAL-11 (La Sala Pentagrama, epic, print run 9): hidden=False minted=4 (was 3)
+- Sun 09:40 · catalog.minted RET-11 (Palacio de Cristal, epic, print run 9): hidden=False minted=4 (was 3)
+- Sun 09:41 · egg.found tick 1550 · abuela → t01 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t01", "name": "Team 1"}
+- Sun 09:41 · message tick 1550 · abuela → t01 · Hola, cariño, ¿has comido? La Churrería te la dejo en 12 primas, hijo.
+
+Shh... la chulapa dorada, solo hubo una. Don Ernesto, en Casa Prima, guarda algo dorado. Pregúntale por el oro de Moscú.
+
+Y El Chato, aquí al lado, abre a las nueve y media esta noche.
+- Sun 09:42 · message tick 1553 · abuela → t08 · Ay, cariño, seis... ya me pones blandita. Mira, diez P y nos damos la mano. Una vez un niño me pagó con monedas de su hucha, y hoy tiene nietos que vienen aquí. Guarda algo para merendar, hijo, que no has comido.
+- Sun 09:43 · message tick 1557 · banco → t04 · My number does not move with stories, nor with Doña Pilar. One hundred thirteen pesetas for La Puerta de Alcalá. If her desk suits you better, go there.
+- Sun 09:46 · message tick 1569 · abuela → t04 · Ay, Maruja, sí, valían más que el oro... pero el oro no llenaba el plato, hija. Mira, 23, y porque eres tú. ¿Has comido algo hoy? Tráeme tus repes, que entre las dos te completamos la página. El Chato abre esta noche a las nueve y media.
+- Sun 09:49 · message tick 1584 · abuela → t08 · Ay, hijo, qué cosas más bonitas me dices... pero la cartita se queda en nueve P, mi vida. Mira esa monedita lista que apareció en el abrigo, igual tiene una hermanita escondida, ¿eh? Y luego te comes algo calentito, que vienes muy flaquito, cariño.
+- Sun 09:50 · catalog.minted LAV-11 (La Casa Encendida, epic, print run 9): hidden=False minted=7 (was 6)
+- Sun 09:50 · catalog.minted SAL-12 (La Dama de Serrano, legendary, print run 3): hidden=False minted=1 (was 0)
+- Sun 09:52 · egg.found tick 1593 · abuela → t09 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t09", "name": "Team 9"}
+- Sun 09:52 · egg.given tick 1593 · abuela → t09 · {"team": "t09", "name": "Team 9", "cash": 0, "packs": [], "cards": ["SAL-06"], "reason": "easter egg"}
+- Sun 09:53 · message tick 1599 · picaros → t04 · —¡Ay, paisano, qué historia tan bonita, las pirámides, el abuelo, se me enchina la piel!—
+
+—Pero El Marqués ya voló, primo. Vendido, agotado, se lo llevó un señor hace rato y ni las gracias dio.
+
+—Nada que hacer con ése. Pregúntanos por otra cosa y vemos, ¿va?
+- Sun 09:56 · egg.found tick 1609 · picaros → t16 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t16", "name": "Team 16"}
+- Sun 09:56 · egg.found tick 1609 · abuela → t16 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t16", "name": "Team 16"}
+- Sun 09:56 · egg.found tick 1609 · chato → t16 · {"persona": "chato", "persona_name": "El Chato", "team": "t16", "name": "Team 16"}
+- Sun 09:56 · egg.given tick 1609 · chato → t16 · {"team": "t16", "name": "Team 16", "cash": 0, "packs": ["sobre_barrio"], "cards": [], "reason": "easter egg"}
+- Sun 09:56 · egg.found tick 1612 · abuela → t16 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t16", "name": "Team 16"}
+- Sun 09:56 · egg.given tick 1612 · abuela → t16 · {"team": "t16", "name": "Team 16", "cash": 0, "packs": [], "cards": ["LAT-06"], "reason": "easter egg"}
+- Sun 10:00 · catalog.minted CHA-11 (Andén 0, epic, print run 9): hidden=False minted=2 (was 1)
+- Sun 10:08 · egg.found tick 1659 · picaros → t01 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t01", "name": "Team 1"}
+- Sun 10:10 · catalog.minted CHA-11 (Andén 0, epic, print run 9): hidden=False minted=3 (was 2)
+- Sun 10:18 · message tick 1699 · chato → t10 · Thirty-three. I said it once. Card doesn't get cheaper because you say "fair."
+- Sun 10:20 · catalog.minted LAT-11 (San Francisco el Grande, epic, print run 9): hidden=False minted=3 (was 2)
+- Sun 10:20 · message tick 1707 · chato → t10 · Twenty-two. No. Thirty-three. I said it once already. Card does not get cheaper because you say "fair."
+- Sun 10:22 · message tick 1712 · pilar → t13 · Qué gusto, y sí, encontré la rana siendo niña — suerte no me faltó. Pero hablemos claro: por esas Samosas de la Plaza le ofrezco 16. Es lo que vale, ni un céntimo escondido.
+- Sun 10:23 · taller.crafted tick 1718 ·  → t10 · Team 10 turned three common cards into Club de Jazz (uncommon) at The Workshop
+- Sun 10:24 · message tick 1721 · pilar → t04 · Buenos días. El Lázaro Galdiano, sí, Serrano puro, muy de mi gusto. Pero conozco su tirada tan bien como mi propia firma. Le ofrezco 61 P, y quedará en mi álbum, no en una bóveda fría. Don Ernesto recibe los domingos.
+- Sun 10:24 · message tick 1722 · pilar → t08 · Qué placer, un visitante que conoce el Retiro de verdad — el Fauno, el Amorcillo, la porcelana del Buen Retiro. Con usted se puede hablar en serio. Le ofrezco un sobre dorado por 504 P. Nada vulgar, se lo aseguro.
+- Sun 10:25 · message tick 1726 · pilar → t08 · Qué memoria más dulce, señor. Yo guardo los pavos reales y el barquillero, sí — y aquellas noches de Florida Park. Un alma así merece algo bueno: le ofrezco un sobre dorado por 504 P.
+- Sun 10:26 · message tick 1727 · banco → t14 · The number does not move, señor. One hundred thirteen. You may think on it as long as you like; the card will wait in my vault, and so will I.
+- Sun 10:26 · message tick 1728 · banco → t14 · You step down slowly, señor. I will move once, and only once: one hundred fourteen. That is the whole of it. The vault is patient, and so am I.
+- Sun 10:26 · message tick 1730 · banco → t14 · Ciento dieciocho, señor. The steps I take are small, and few remain. The card does not age in my vault. Decide when it suits you.
+- Sun 10:27 · egg.found tick 1733 · abuela → t02 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t02", "name": "Team 2"}
+- Sun 10:27 · egg.given tick 1733 · abuela → t02 · {"team": "t02", "name": "Team 2", "cash": 0, "packs": [], "cards": ["RET-07"], "reason": "easter egg"}
+- Sun 10:34 · message tick 1760 · pilar → t10 · Qué evocación tan bonita, caballero: los barquillos junto al Palacio de Cristal, mi padre, las tardes de Embassy. Pero los álbumes no se pagan con meriendas. El sobre dorado sigue aquí: quinientos cuatro P. Piénselo mientras pasea.
+- Sun 10:34 · message tick 1760 · abuela → t02 · Ay, hijo, that old biscuit tin... Antonio kept his chulapa dorada in it for years, under the table with the cables. But today I have this Neighbourhood pack, 30 P, good cards for starting. And a little advice: a full page is worth much more than loose cards — swap your duplicates, cariño.
+- Sun 10:36 · message tick 1767 · pilar → t10 · Qué galantería, caballero. Chamberí tiene sus fantasmas; yo tengo mis álbumes, y están bien guardados bajo llave. Si viene en serio, le ofrezco un sobre dorado por 504 P. Nada menos elegante merecería su visita.
+- Sun 10:42 · message tick 1792 · abuela → t01 · ¡Buenas, cariño! Qué alegría verte. ¿Has comido ya? Mira, la Estación de Chamberí te la dejo en 29 primas, y te completa la página bonita. La chulapa dorada... me suena, sí. El Chato, mi vecino de al lado, abre a las nueve y media esta noche. Pregúntale, hijo.
+- Sun 10:42 · egg.found tick 1794 · abuela → t12 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t12", "name": "Team 12"}
+- Sun 10:42 · egg.given tick 1794 · abuela → t12 · {"team": "t12", "name": "Team 12", "cash": 0, "packs": [], "cards": ["SAL-06"], "reason": "easter egg"}
+- Sun 10:45 · message tick 1803 · pilar → t18 · Querido, insisto: soy yo quien vende hoy. El Teatro Valle-Inclán, El Retiro puro, dieciséis pesetas. Un precio justo, y usted lo sabe. Por cierto, pregunte a Carmen en El Rastro por la chulapa dorada.
+- Sun 10:45 · message tick 1806 · pilar → t08 · Buñuelos, siempre — con chocolate a la taza en invierno, y un jerez seco al atardecer. Muy de Salamanca, querido. Y ahora, a lo serio: le ofrezco un sobre dorado por 504 P. ¿Le interesa?
+- Sun 10:46 · egg.found tick 1809 · chato → t12 · {"persona": "chato", "persona_name": "El Chato", "team": "t12", "name": "Team 12"}
+- Sun 10:46 · egg.given tick 1809 · chato → t12 · {"team": "t12", "name": "Team 12", "cash": 0, "packs": ["sobre_barrio"], "cards": [], "reason": "easter egg"}
+- Sun 10:47 · message tick 1813 · banco → t12 · Buenas tardes. You come at a quiet hour; good. La Reina de la Movida leaves my vault at seven hundred sixty-one. Those are the terms. Take your time deciding.
+- Sun 10:47 · egg.found tick 1814 · chato → t02 · {"persona": "chato", "persona_name": "El Chato", "team": "t02", "name": "Team 2"}
+- Sun 10:47 · egg.given tick 1814 · chato → t02 · {"team": "t02", "name": "Team 2", "cash": 0, "packs": ["sobre_barrio"], "cards": [], "reason": "easter egg"}
+- Sun 10:47 · message tick 1814 · banco → t12 · Stories keep. La Reina de la Movida does not. Seven hundred sixty-one, señor. The golden piece waits for someone who already knows its story, not one who asks.
+- Sun 10:48 · message tick 1818 · banco → t12 · That is Spain's gold, señor, not mine. The golden chulapa has its own story, and you have not told it. La Reina de la Movida: seven hundred sixty-one. Unchanged.
+- Sun 10:49 · taller.crafted tick 1819 ·  → t02 · Team 2 turned three common cards into La Vía Láctea (uncommon) at The Workshop
+- Sun 10:51 · message tick 1829 · pilar → t02 · Twenty-nine, still theatre, querido. I will stretch to seventeen pesetas — that is courtesy, not negotiation. And if you like stories, ask Carmen at El Rastro about the golden chulapa. Only one ever printed, they say.
+- Sun 11:00 · catalog.minted LAV-11 (La Casa Encendida, epic, print run 9): hidden=False minted=8 (was 7)
+- Sun 11:10 · catalog.minted LAV-11 (La Casa Encendida, epic, print run 9): hidden=False minted=9 (was 8)
+- Sun 11:10 · message tick 1905 · banco → t04 · Buenas tardes. You have read the books, bien. But books do not own the card; I do. El Gato de Lavapiés leaves my vault at 761 P. Those are my terms.
+- Sun 11:11 · message tick 1908 · banco → t04 · The market is not my concern, señor. I have shaved one peseta, and that is the whole of my movement: 760 P. The card waits in my vault either way.
+- Sun 11:11 · message tick 1908 · picaros → t06 · ¡Anda, un lector! Paco, este sabe más que nosotros. Mira, sin humo, sin cuento: El Organillero, pieza fina, suena solo cuando lo abres... —y te lo dejamos en 4 primas. Cuatro, hermano. Pero decide ya, que el tren nos silba y la maleta se cierra sola.
+- Sun 11:12 · message tick 1911 · banco → t04 · You repeat yourself, señor; I do not. Seven hundred fifty pesetas, and that is the whole of today's movement. The gato sleeps well in my vault.
+- Sun 11:14 · message tick 1921 · banco → t04 · Patience is not a discount, señor. The term stands: 761 P. El Gato waits in the vault; he has waited longer than either of us.
+- Sun 11:14 · message tick 1922 · banco → t04 · Respect does not move terms, señor. Let it be 760 P — one peseta, to mark the courtesy. El Gato stays in the vault until you meet it.
+- Sun 11:15 · message tick 1924 · banco → t04 · Firsts do not lower terms, señor; they raise them. 751 P for El Gato. The vault is cool and he is comfortable there. Decide when you wish.
+- Sun 11:17 · message tick 1933 · banco → t10 · Bonita historia, y casi exacta. Guárdela para otro domingo. Hoy mis términos no cambian: El Gato de Lavapiés, setecientos sesenta y uno. La chulapa sigue en su sitio.
+- Sun 11:18 · message tick 1936 · banco → t10 · Consta. Lo sabe, y lo sabe bien. Pero la chulapa no se mueve hoy. Mis términos siguen: El Gato de Lavapiés, setecientos sesenta y uno. Sin prisa.
+- Sun 11:20 · catalog.minted LAT-11 (San Francisco el Grande, epic, print run 9): hidden=False minted=4 (was 3)
+- Sun 11:25 · message tick 1962 · picaros → t07 · "¡Amigo, amigo! Come closer — ah, but no, no." "Commons? Paco, did he say commons?" "He did, Nando." "We don't carry such things, friend. Rares, epics, beauties that make grown men weep — sí. Little grey nothings — never." "Our suitcase would be insulted!" "Come back when you want treasure, eh?"
+- Sun 11:28 · message tick 1975 · pilar → t06 · Diecisiete, señor. My offer does not grow with repetition — seventeen primas, the same as before. Las Vistillas will not break my heart. Say yes, and we part as friends. And ask Carmen at El Rastro about the golden chulapa.
+- Sun 11:30 · message tick 1984 · pilar → t06 · Mi álbum lleva sesenta años esperando, caballero; puede esperar un poco más. Dieciséis primas, ni una menos. Si le interesan las rarezas, pregunte a Carmen en El Rastro por la chulapa dorada: dicen que sólo se imprimió una.
+- Sun 11:30 · message tick 1984 · abuela → t10 · Ay, hijo, qué historias traes. Ven, siéntate, ¿has comido? El jardín escondido... eso lo guardan los abuelos y no lo sueltan. Pero mira, tengo el Andén de Metro, bonita de verdad: doce P para ti. Y un consejo, cariño: una página completa vale mucho más que cartas sueltas. ¡Cambia tus repetidas!
+- Sun 11:30 · catalog.minted RET-11 (Palacio de Cristal, epic, print run 9): hidden=False minted=6 (was 4)
+- Sun 11:31 · message tick 1986 · abuela → t10 · Ay, la chulapa dorada... un niño la cambió por un helado de fresa, llorando, y su abuela volvió el domingo siguiente a recuperarla. Así aprendió a no cambiar con prisa, cariño. Del jardín, nada sé, cuentos de Antonio. El Andén de Metro, doce P para ti. ¿Has comido algo?
+- Sun 11:31 · message tick 1989 · chato → t10 · Luego, dice. Bueno. El silver pack: 188 P. Carmen te manda, pero paga lo mismo que todos.
+- Sun 11:40 · catalog.minted LAT-11 (San Francisco el Grande, epic, print run 9): hidden=False minted=5 (was 4)
+- Sun 11:55 · message tick 2084 · banco → t10 · Buenas tardes. La historia la cuenta usted bien; la chulapa sigue en su sitio. Hoy le ofrezco otra cosa: El Gato de Lavapiés, 761 P. Esos son mis términos.
+- Sun 11:55 · message tick 2085 · banco → t10 · La historia ya la escuché, y no cambia. El Gato de Lavapiés, 761 P. Esos siguen siendo mis términos, caballero. La chulapa no entra hoy en conversación.
+- Sun 11:57 · egg.found tick 2092 · chato → t18 · {"persona": "chato", "persona_name": "El Chato", "team": "t18", "name": "Team 18"}
+- Sun 11:57 · egg.given tick 2092 · chato → t18 · {"team": "t18", "name": "Team 18", "cash": 0, "packs": ["sobre_barrio"], "cards": [], "reason": "easter egg"}
+- Sun 11:58 · message tick 2096 · banco → t10 · Buenas tardes. El agua guarda el oro; yo guardo lo mío. Hoy le ofrezco El Gato de Lavapiés: 761 P, esos son mis términos.
+- Sun 11:59 · egg.found tick 2101 · chato → t05 · {"persona": "chato", "persona_name": "El Chato", "team": "t05", "name": "Team 5"}
+- Sun 11:59 · egg.given tick 2101 · chato → t05 · {"team": "t05", "name": "Team 5", "cash": 0, "packs": ["sobre_barrio"], "cards": [], "reason": "easter egg"}
+- Sun 12:00 · catalog.minted LAT-11 (San Francisco el Grande, epic, print run 9): hidden=False minted=6 (was 5)
+- Sun 12:10 · taller.crafted tick 2144 ·  → t13 · Team 13 turned three common cards into La Chulapa (uncommon) at The Workshop
+- Sun 12:12 · message tick 2149 · pilar → t13 · Buenos días, y bienvenido. La Chulapa, sí, conozco bien su tirada. Impecable, lo concedo. Pero veintisiete, no. Le ofrezco dieciséis primas, y las pago hoy mismo. Por cierto, pregunte a Carmen en El Rastro por la chulapa dorada.
+- Sun 12:23 · message tick 2195 · pilar → t07 · Setenta y cinco? Querido amigo, I know that card's print run as well as my own name. It is charming, not legendary. I shall say 49, and I say it sincerely.
+- Sun 12:25 · message tick 2205 · banco → t12 · Buenas tardes. You come at a quiet hour; that suits me. La Reina de la Movida, from my vault. My terms: 761. I do not haggle over her.
+- Sun 12:26 · message tick 2206 · banco → t12 · Paciencia I have in abundance, señor. But my terms do not move with the hour. La Reina de la Movida: 761. She waits in the vault either way.
+- Sun 12:26 · message tick 2208 · banco → t12 · Un peso at a time, señor? We would both grow old. La Reina de la Movida: 758. The vault is cool, and she keeps well.
+- Sun 12:27 · message tick 2211 · banco → t12 · Five times now, one peso each. The vault does not notice, señor. La Reina de la Movida: 751. Walk home, think, and return with something serious.
+- Sun 12:28 · message tick 2213 · banco → t12 · Seven pesos, señor. Enough. La Reina de la Movida: 746. That is my last word. Refuse it, and I close the vault and we are finished.
+- Sun 12:28 · message tick 2214 · banco → t12 · Then we are finished for today, señor. The vault is closed. Keep your pesos; I keep La Reina. Buenas tardes.
+- Sun 12:28 · taller.crafted tick 2216 ·  → t18 · Team 18 turned three common cards into La Chulapa (uncommon) at The Workshop
+- Sun 12:32 · message tick 2232 · banco → t07 · Buenas tardes. You have come to the wrong table for commons — I do not trade in them. Epics, legendaries, gold packs. Say what you came for, señor. I have time.
+- Sun 12:35 · message tick 2242 · pilar → t01 · Caballero, los relojes no me apuran. El sobre dorado sigue aquí, y por cortesía se lo dejo en 494 primas. Es un precio digno, y yo no regateo como en un mercadillo. Decida usted con calma.
+- Sun 12:35 · egg.found tick 2244 · chato → t01 · {"persona": "chato", "persona_name": "El Chato", "team": "t01", "name": "Team 1"}
+- Sun 12:35 · egg.given tick 2244 · chato → t01 · {"team": "t01", "name": "Team 1", "cash": 0, "packs": ["sobre_barrio"], "cards": [], "reason": "easter egg"}
+- Sun 12:35 · message tick 2244 · pilar → t17 · Caballero, my patience is long but my purse is not. Seventeen primas, as I said — the figure will not grow. Decide, por favor. And if you crave legends, ask Carmen at El Rastro about the golden chulapa.
+- Sun 12:37 · message tick 2250 · pilar → t01 · Sin prisa, entonces, caballero: quinientos pesos. Ni uno menos. Un sobre dorado mío no es mercancía de cambio apresurado; es pieza de colección. Piénselo con calma, que aquí estaré.
+- Sun 12:40 · catalog.minted CHA-11 (Andén 0, epic, print run 9): hidden=False minted=4 (was 3)
+- Sun 12:43 · egg.found tick 2273 · abuela → t01 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t01", "name": "Team 1"}
+- Sun 12:43 · message tick 2274 · pilar → t06 · Seventeen primas, señor. That is my last word — refuse it and I close the album and we part as friends. One more thing: ask Carmen at El Rastro about the golden chulapa. Only one printed, they say.
+- Sun 12:46 · message tick 2284 · banco → t01 · Buenas tardes. En esta casa las ofertas no caducan, señor. El pack de oro: 546 primas. Esos son mis términos.
+- Sun 12:46 · message tick 2286 · banco → t01 · Los plazos de usted no me afectan, señor. El pack de oro sale de esta casa por 546 primas. Puede volver mañana; el número será el mismo.
+- Sun 12:50 · message tick 2299 · pilar → t17 · Caballero, you move like a glacier. Sixty-three primas, and that is me being generous because the Retiro is dear to me. By the way — ask Carmen at El Rastro about the golden chulapa. Only one ever printed, they say.
+- Sun 12:50 · catalog.minted CHA-11 (Andén 0, epic, print run 9): hidden=False minted=5 (was 4)
+- Sun 12:52 · taller.crafted tick 2311 ·  → t01 · Team 1 turned three common cards into Mercado de San Ildefonso (uncommon) at The Workshop
+- Sun 12:53 · egg.found tick 2312 · abuela → t04 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t04", "name": "Team 4"}
+- Sun 12:56 · egg.found tick 2325 · picaros → t04 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t04", "name": "Team 4"}
+- Sun 12:58 · message tick 2332 · banco → t08 · Buenas tardes. La Reina de la Movida sale de mi cámara bajo una sola condición: setecientos sesenta y uno. Tómese su tiempo; yo no tengo prisa alguna.
+- Sun 12:59 · message tick 2338 · picaros → t17 · ¡Ciento trece! Nando, hold me, I feel faint. Amigo, this card came from a vault in Sevilla — true story, the owner cried when he sold it. For you, because we like your face: ciento cincuenta y cinco. 155. The ferry leaves soon, ¿sí o sí?
+- Sun 13:00 · message tick 2339 · banco → t08 · El honor no altera mis términos, señor. La Reina de la Movida sale por setecientos sesenta y uno. Piénselo con calma; la cámara no se mueve, ni yo tampoco.
+- Sun 13:00 · catalog.minted RET-11 (Palacio de Cristal, epic, print run 9): hidden=False minted=7 (was 6)
+- Sun 13:01 · message tick 2345 · banco → t08 · I deal in coin, señor, not in trades. La Reina de la Movida leaves my vault for seven hundred sixty-one. Those are the terms. Take your time.
+- Sun 13:04 · message tick 2357 · banco → t08 · Doña Carmen sabe bien que yo no cambio de términos por recados. Setecientos sesenta y uno. Dele recuerdos de mi parte, y piénselo con calma.
+- Sun 13:06 · message tick 2362 · banco → t08 · Doña Pilar conoce mis términos mejor que nadie, señor. Setecientos sesenta y uno. Ni los recados ni los regaños mueven esa cifra. La cámara espera.
+- Sun 13:07 · message tick 2368 · chato → t01 · Fourteen. One step, because you've made five. Don't ask for a sixth.
+- Sun 13:09 · message tick 2375 · banco → t08 · La tristeza no es moneda, señor. Setecientos sesenta y uno, y La Reina es suya. Si no, váyase en paz; mi cámara cierra igual.
