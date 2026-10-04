@@ -28,6 +28,47 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1926,
+   "raw": {
+    "duel": 11305,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.84,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 85,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 1938,
+    "decay_per_round": 0.1,
+    "rounds": 0,
+    "your_offer": {
+     "id": 13200,
+     "price": 121,
+     "tick": 1926,
+     "days": 10
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1926,
+      "from": "you",
+      "text": "I offer 121 P with delivery on day 10.",
+      "price": 121,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
