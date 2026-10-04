@@ -70,6 +70,11 @@ PAGE_BONUS = 0.25          # catalog values.page_bonus
 CAP = 50                   # a team trade scores at most +50 per side (GAME.md [V] for the buyer; the seller [L])
 RIVAL_GAIN_MAX = 10.0      # a rival on either side: its gain at our suggested price stays <= this (Chief 17:50)
 TABLE_LINES, DM_LINES = 20, 8
+V10 = "v10"                # our stall: value created between other teams there is our market score
+CLUB = ("t02", "t04", "t07", "t08", "t09", "t15")   # the club (Lucas, Sun 08:00)
+CLUB_VENUES = {"t04": "v05", "t08": "v06", "t07": "v11", "t15": "v15", "t09": "v21", "t02": "v26"}  # members' markets
+ROUTING = ROOT / "run" / "club_routing.json"   # the day's club venue assignments, so a row keeps its venue across runs
+LAST_VENUES: dict = {}     # venue id → {owner, status, name}: the last live leaderboard's venues
 _CARD = re.compile(r"\b[A-Z]{3}-\d{2}\b")
 _TEAM = re.compile(r"\b(?:t|team\s*)(\d{1,2})\b", re.I)
 _NUM = re.compile(r"(?<![\w-])(\d+(?:\.\d+)?)\s*(?:P\b|primas?\b|pesetas?\b)?", re.I)
@@ -109,6 +114,8 @@ def live_leaderboard() -> tuple[dict | None, int | None]:
     try:
         with urllib.request.urlopen(URL.rstrip("/") + "/api/leaderboard", timeout=15) as r:
             d = json.load(r)
+        LAST_VENUES.clear()
+        LAST_VENUES.update({v["venue"]: v for v in d.get("venues") or [] if v.get("venue")})
         return {t["team"]: t for t in d.get("teams") or []}, d.get("tick")
     except Exception:  # noqa: BLE001
         return None, None
@@ -480,15 +487,66 @@ def rank(r: dict) -> tuple:
 SPARE_LINE = "Only if it's a spare for you, keep one copy."   # Chief 21:40: in every DM to the side that gives a card
 
 
+def route(rows: list, *, teams, venues: dict | None, state: dict, riv=frozenset(), day: str | None = None) -> dict:
+    """Club venue routing (directives 01:10/01:20; Lucas Sun 08:00: half and half). A club deal (buyer and seller both
+    in CLUB) alternates, in list order: one on v10, the next on a member's market, then v10 again; a page-closer is
+    always on v10 (it counts as a v10 turn). A member's market: open, owned by neither side of the deal (nobody trades
+    on its own venue) nor by a rival (policy.rival_venue); the least used today first, then the lowest market score.
+    Any deal with a non-member stays on v10 and doesn't count. `state` (run/club_routing.json) keeps each deal's venue
+    for the day, so a row doesn't change venue between runs. Sets r["venue"], r["venue_name"], r["club"]; → state."""
+    day = day or time.strftime("%Y-%m-%d")
+    if state.get("day") != day:
+        state.clear()
+        state.update(day=day, v10=0, member=0, uses={}, assigned={})
+    market = {t["team"]: (t.get("market") or 0) for t in teams or []}
+    if venues:
+        opts = {o: v for o, v in CLUB_VENUES.items() if (venues.get(v) or {}).get("status") == "open"
+                and (venues.get(v) or {}).get("owner") == o}
+    else:
+        opts = dict(CLUB_VENUES)
+    names = {v: (venues or {}).get(v, {}).get("name") or v for v in [V10, *CLUB_VENUES.values()]}
+
+    def ok(v, r):
+        owner = next((o for o, x in opts.items() if x == v), None)
+        return v == V10 or (owner and owner not in (r["buyer"], r["seller"]) and not policy.rival_venue(v, owner, riv))
+    for r in rows:
+        r["club"] = r["buyer"] in CLUB and r["seller"] in CLUB
+        venue = V10
+        if r["club"]:
+            key = f"{r['seller']}>{r['buyer']}:{r['card']}"
+            venue = state["assigned"].get(key)
+            if venue is None or not ok(venue, r):
+                if venue is not None:                    # its market closed since: back in the rotation
+                    state["member" if venue != V10 else "v10"] -= 1
+                venue = V10
+                if not r["closer"] and state["member"] < state["v10"]:
+                    pick = sorted((state["uses"].get(v, 0), market.get(o, 0), v) for o, v in opts.items()
+                                  if ok(v, r))
+                    venue = pick[0][2] if pick else V10
+                state["v10" if venue == V10 else "member"] += 1
+                if venue != V10:
+                    state["uses"][venue] = state["uses"].get(venue, 0) + 1
+                state["assigned"][key] = venue
+        r["venue"], r["venue_name"] = venue, names.get(venue, venue)
+        r["dm_seller"], r["dm_buyer"] = dm_seller(r), dm_buyer(r)
+    return state
+
+
+def _on(r: dict) -> str:
+    v = r.get("venue") or V10
+    n = r.get("venue_name") or v
+    return v if n == v else f"{v} ({n})"
+
+
 def dm_seller(r: dict) -> str:
     """Transactional only (Lucas 17:20): what, where, price, thanks. Never why. Addressed to the buyer (directive
     01:15: pairs are pre-agreed and addressed, never an open ask)."""
-    return (f"Hi {r['seller_name']}! Could you post your {r['card_name']} ({r['card']}) on v10 as an ask addressed to "
-            f"{r['buyer_name']}, at ~{r['price']} P? They're ready to take it. {SPARE_LINE} Thanks!")
+    return (f"Hi {r['seller_name']}! Could you post your {r['card_name']} ({r['card']}) on {_on(r)} as an ask "
+            f"addressed to {r['buyer_name']}, at ~{r['price']} P? They're ready to take it. {SPARE_LINE} Thanks!")
 
 
 def dm_buyer(r: dict) -> str:
-    return (f"Hi {r['buyer_name']}! {r['seller_name']} can post {r['card_name']} ({r['card']}) on v10 as an ask "
+    return (f"Hi {r['buyer_name']}! {r['seller_name']} can post {r['card_name']} ({r['card']}) on {_on(r)} as an ask "
             f"addressed to {r['buyer_name']}, at ~{r['price']} P: accept it there once it's up. Thanks!")
 
 
@@ -513,24 +571,27 @@ def render(rows, held_back, prog, names, pg, *, tick=None, now=None, me=ME, riv=
         "(held back when its page is complete and under two copies are seen after its last craft); receiver: no copy, "
         "collects the set; both gain > 0 at the price (conservative multipliers). Want-lists: `intel/wants.md`. "
         "Never a page-closer for a rival or a team < "
-        f"{policy.PAGE_CLOSER_GAP} below us; a rival on either side gains <= {RIVAL_GAIN_MAX:g} P at our price._\n",
+        f"{policy.PAGE_CLOSER_GAP} below us; a rival on either side gains <= {RIVAL_GAIN_MAX:g} P at our price. "
+        "Venue: a club deal (both sides in the club) alternates v10 / a member's market (least used, then lowest "
+        "market score, never either side's own; page-closers on v10); every other deal on v10._\n",
         "## Matches (best first)\n",
     ]
     if rows:
-        lines += ["| # | Buyer | Card | Seller | Price | Value created | Closer | Rival | Why |",
-                  "|---|---|---|---|---|---|---|---|---|"]
+        lines += ["| # | Buyer | Card | Seller | Venue | Price | Value created | Closer | Rival | Why |",
+                  "|---|---|---|---|---|---|---|---|---|---|"]
         for i, r in enumerate(rows[:TABLE_LINES], 1):
             why = " · ".join(r["sources"]) + (" ✓" if r["confirmed"] else "")
             why += {"gap": " · gap proven", "undecided": " · undecided"}.get(r.get("holding"), "")
             why += f" · seller {r['seller_why']}" + (f" · also {', '.join(r['also'][:3])}" if r["also"] else "")
             why += f" · {r['note']}" if r["note"] else ""
             lines.append(f"| {i} | {r['buyer_name']} | {r['card']} {r['card_name']} | {r['seller_name']} | "
+                         f"{r.get('venue') or V10}{' · club' if r.get('club') else ''} | "
                          f"~{r['price']} | {r['vc']:+g} (low {r['vc_low']:+g}) | "
                          f"{'**page ' + str(r['have'] + 1) + '/' + str(r['page_size']) + '**' if r['closer'] else ''} | "
                          f"{_flags(r)} | {why} |")
         lines.append("\n## Ready DMs\n")
         for i, r in enumerate(rows[:DM_LINES], 1):
-            lines += [f"**{i}. {r['card']} · {r['seller_name']} → {r['buyer_name']} at ~{r['price']} P**",
+            lines += [f"**{i}. {r['card']} · {r['seller_name']} → {r['buyer_name']} at ~{r['price']} P on {_on(r)}**",
                       f"- To {r['seller_name']}: \"{r['dm_seller']}\"",
                       f"- To {r['buyer_name']}: \"{r['dm_buyer']}\"\n"]
     else:
@@ -597,6 +658,16 @@ def run_once(*, dry=False, out: Path = OUT, wants_path: Path = WANTS, now=None) 
                                            mult=mult, coll=coll, known=load_known(), lb=lb, tick=lb_tick or tick,
                                            info=info)
     riv = policy.rivals(teams) | set(policy.RIVALS)
+    try:
+        state = json.loads(ROUTING.read_text())
+    except (OSError, ValueError):
+        state = {}
+    route(rows, teams=teams, venues=LAST_VENUES or None, state=state, riv=riv)
+    if not dry:
+        ROUTING.parent.mkdir(parents=True, exist_ok=True)
+        tmp = ROUTING.with_suffix(".tmp")
+        tmp.write_text(json.dumps(state, indent=1))
+        tmp.replace(ROUTING)
     text = render(rows, held_back, prog, names, pages(catalog), tick=lb_tick or tick, now=now, riv=riv, lb=lb,
                   albums=info.get("albums"), rejected=info.get("rejected"))
     if dry:

@@ -282,3 +282,58 @@ def test_dms_are_addressed_to_the_other_side():
     r = run(events)[0][0]
     assert "addressed to Team 9" in r["dm_seller"] and "addressed to Team 9" in r["dm_buyer"]
     assert "Team 8" in r["dm_buyer"] and "open" not in (r["dm_seller"] + r["dm_buyer"]).lower()
+
+
+# ---- club venue routing (directives 01:10/01:20; Lucas Sun 08:00: half on v10, half on members' markets)
+
+def crow(seller, buyer, card="RET-05", closer=False):
+    return {"seller": seller, "buyer": buyer, "card": card, "closer": closer, "seller_name": f"Team {int(seller[1:])}",
+            "buyer_name": f"Team {int(buyer[1:])}", "card_name": card, "price": 9}
+
+
+VENUES = {v: {"owner": o, "status": "open", "name": f"Mercado {o}"} for o, v in mm.CLUB_VENUES.items()}
+CLUB_TEAMS = [{"team": t, "market": m} for t, m in
+              {"t02": 1.0, "t04": 5.0, "t07": 0.5, "t08": 3.0, "t09": 2.0, "t15": 0.0}.items()]
+
+
+def test_club_deals_alternate_v10_and_a_member_market():
+    rows = [crow("t07", "t09"), crow("t02", "t04", "RET-06"), crow("t08", "t15", "RET-07"), crow("t04", "t02", "RET-01")]
+    st = mm.route(rows, teams=CLUB_TEAMS, venues=VENUES, state={}, day="d1")
+    assert [r["venue"] for r in rows] == ["v10", "v15", "v10", "v11"]    # t15's v15 (lowest market), then t07's v11
+    assert st["v10"] == 2 and st["member"] == 2                          # (v15 already used once)
+    assert "on v15 (Mercado t15) as an ask addressed to Team 4" in rows[1]["dm_seller"]
+    assert "on v10 as an ask addressed to Team 9" in rows[0]["dm_buyer"]
+
+
+def test_never_a_party_s_own_market_and_closers_and_outsiders_stay_on_v10():
+    rows = [crow("t15", "t07"), crow("t07", "t15", "RET-02"),            # v10, then a market owned by neither
+            crow("t09", "t02", "RET-09", closer=True),                   # a page-closer: v10 (a v10 turn)
+            crow("t16", "t09", "RET-03"),                                # a non-member: v10, not counted
+            crow("t08", "t04", "RET-04")]                                # member turn
+    st = mm.route(rows, teams=CLUB_TEAMS, venues=VENUES, state={}, day="d1")
+    assert [r["venue"] for r in rows] == ["v10", "v26", "v10", "v10", "v15"]
+    assert not rows[3]["club"] and st["v10"] == 2 and st["member"] == 2
+    for r in rows:
+        assert r["venue"] not in (mm.CLUB_VENUES.get(r["buyer"]), mm.CLUB_VENUES.get(r["seller"]))
+
+
+def test_a_row_keeps_its_venue_across_runs_and_the_day_resets():
+    st = mm.route([crow("t07", "t09"), crow("t02", "t04", "RET-06")], teams=CLUB_TEAMS, venues=VENUES, state={},
+                  day="d1")
+    again = [crow("t02", "t04", "RET-06"), crow("t08", "t15", "RET-07")]   # the first deal fired and left the list
+    mm.route(again, teams=CLUB_TEAMS, venues=VENUES, state=st, day="d1")
+    assert again[0]["venue"] == "v15" and again[1]["venue"] == "v10"    # kept; the new one takes the next turn
+    fresh = [crow("t02", "t04", "RET-06")]
+    mm.route(fresh, teams=CLUB_TEAMS, venues=VENUES, state=st, day="d2")
+    assert fresh[0]["venue"] == "v10" and st["day"] == "d2"             # a new day starts on v10
+
+
+def test_a_closed_or_rival_market_is_never_picked():
+    closed = {**VENUES, "v15": {**VENUES["v15"], "status": "closed"}}
+    rows = [crow("t07", "t09"), crow("t02", "t04", "RET-06")]
+    mm.route(rows, teams=CLUB_TEAMS, venues=closed, state={}, day="d1")
+    assert rows[1]["venue"] == "v11"                                     # v15 closed: the next lowest
+    rows = [crow("t07", "t09"), crow("t02", "t04", "RET-06")]
+    mm.route(rows, teams=CLUB_TEAMS, venues=VENUES, state={}, riv={"t07", "t15", "t09", "t08", "t02", "t04"},
+             day="d1")
+    assert rows[1]["venue"] == "v10"                                     # every member a rival: v10
