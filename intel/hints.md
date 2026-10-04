@@ -362,3 +362,4 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 10:47 · message tick 1814 · banco → t12 · Stories keep. La Reina de la Movida does not. Seven hundred sixty-one, señor. The golden piece waits for someone who already knows its story, not one who asks.
 - Sun 10:48 · message tick 1818 · banco → t12 · That is Spain's gold, señor, not mine. The golden chulapa has its own story, and you have not told it. La Reina de la Movida: seven hundred sixty-one. Unchanged.
 - Sun 10:49 · taller.crafted tick 1819 ·  → t02 · Team 2 turned three common cards into La Vía Láctea (uncommon) at The Workshop
+- Sun 10:51 · message tick 1829 · pilar → t02 · Twenty-nine, still theatre, querido. I will stretch to seventeen pesetas — that is courtesy, not negotiation. And if you like stories, ask Carmen at El Rastro about the golden chulapa. Only one ever printed, they say.
