@@ -208,6 +208,80 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1871,
+   "raw": {
+    "duel": 11128,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Vinilo de la Movida",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 0.94,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 186,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Luna",
+    "deadline_tick": 1874,
+    "decay_per_round": 0.1,
+    "rounds": 2,
+    "your_offer": {
+     "id": 11906,
+     "price": 123,
+     "tick": 1871,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 11753,
+     "price": 134,
+     "tick": 1864,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1862,
+      "from": "you",
+      "text": "I'm interested in the Vinilo de la Movida. I'll offer 117 P for delivery on day 0.",
+      "price": 117,
+      "days": 0
+     },
+     {
+      "tick": 1862,
+      "from": "Rival Luna",
+      "text": "Hola, Rival Noche, voy con prisa: Vinilo de la Movida por 152 y cerramos ya. Entrega en 10 días.",
+      "price": 152,
+      "days": 10
+     },
+     {
+      "tick": 1863,
+      "from": "you",
+      "text": "I can do 112 P, delivery on day 10.",
+      "price": 112,
+      "days": 10
+     },
+     {
+      "tick": 1864,
+      "from": "Rival Luna",
+      "text": "Venga, 134. Entrega en 10 días.",
+      "price": 134,
+      "days": 10
+     },
+     {
+      "tick": 1871,
+      "from": "you",
+      "text": "Vamos a 123 P en día 10. La diferencia se achica.",
+      "price": 123,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -632,6 +706,229 @@
     "ACCEPT_BY": 1,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1870,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11128,
+     "role": "buyer",
+     "limit": 186,
+     "currency": "P",
+     "item": "Vinilo de la Movida",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 0.94,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm interested in the Vinilo de la Movida. I'll offer 117 P for delivery on day 0.",
+      "offer": {
+       "price": 117,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1862,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hola, Rival Noche, voy con prisa: Vinilo de la Movida por 152 y cerramos ya. Entrega en 10 días.",
+      "offer": {
+       "price": 152,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1862,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 112 P, delivery on day 10.",
+      "offer": {
+       "price": 112,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1863,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Venga, 134. Entrega en 10 días.",
+      "offer": {
+       "price": 134,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1864,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 134,
+     "days": 10
+    },
+    "tick": 1870,
+    "ticks_left": 4,
+    "rounds": 2,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 112,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "give",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1871,
+   "took_s": 1.21,
+   "cost_usd": 0.00117,
+   "obs": {
+    "view": {
+     "duel_id": 11128,
+     "role": "buyer",
+     "limit": 186,
+     "currency": "P",
+     "item": "Vinilo de la Movida",
+     "context": "",
+     "rival": "Rival Luna",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 0.94,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm interested in the Vinilo de la Movida. I'll offer 117 P for delivery on day 0.",
+      "offer": {
+       "price": 117,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1862,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hola, Rival Noche, voy con prisa: Vinilo de la Movida por 152 y cerramos ya. Entrega en 10 días.",
+      "offer": {
+       "price": 152,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1862,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 112 P, delivery on day 10.",
+      "offer": {
+       "price": 112,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1863,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Venga, 134. Entrega en 10 días.",
+      "offer": {
+       "price": 134,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1864,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 134,
+     "days": 10
+    },
+    "tick": 1871,
+    "ticks_left": 3,
+    "rounds": 2,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "Vamos a 123 P en día 10. La diferencia se achica.",
+    "price": 123,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "give",
+     "rule": "code step",
+     "step": 11.0,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.21,
+       "in": 1029,
+       "out": 28,
+       "cost_usd": 0.00117,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ]
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -706,6 +1003,42 @@
      "id": 11726,
      "price": 112,
      "tick": 1863,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1871,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Vamos a 123 P en día 10. La diferencia se achica.",
+    "price": 123,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "give",
+     "rule": "code step",
+     "step": 11.0,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.21,
+       "in": 1029,
+       "out": 28,
+       "cost_usd": 0.00117,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 11128,
+    "offer": {
+     "id": 11906,
+     "price": 123,
+     "tick": 1871,
      "days": 10
     }
    }

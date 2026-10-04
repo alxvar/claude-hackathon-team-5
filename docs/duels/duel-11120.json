@@ -69,6 +69,240 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1868,
+   "raw": {
+    "duel": 11120,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "San Isidro",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.93,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 74,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Noche",
+    "deadline_tick": 1874,
+    "decay_per_round": 0.1,
+    "rounds": 0,
+    "your_offer": {
+     "id": 11825,
+     "price": 91,
+     "tick": 1868,
+     "days": 10
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1862,
+      "from": "you",
+      "text": "I offer 106 P for delivery on day 10.",
+      "price": 106,
+      "days": 10
+     },
+     {
+      "tick": 1868,
+      "from": "you",
+      "text": "I can do 91 P, delivery on day 10.",
+      "price": 91,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1869,
+   "raw": {
+    "duel": 11120,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "San Isidro",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.93,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 74,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Noche",
+    "deadline_tick": 1874,
+    "decay_per_round": 0.1,
+    "rounds": 0,
+    "your_offer": {
+     "id": 11848,
+     "price": 75,
+     "tick": 1869,
+     "days": 10
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1862,
+      "from": "you",
+      "text": "I offer 106 P for delivery on day 10.",
+      "price": 106,
+      "days": 10
+     },
+     {
+      "tick": 1868,
+      "from": "you",
+      "text": "I can do 91 P, delivery on day 10.",
+      "price": 91,
+      "days": 10
+     },
+     {
+      "tick": 1869,
+      "from": "you",
+      "text": "I can do 75 P, delivery on day 10.",
+      "price": 75,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1870,
+   "raw": {
+    "duel": 11120,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "San Isidro",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.93,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 74,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Noche",
+    "deadline_tick": 1874,
+    "decay_per_round": 0.1,
+    "rounds": 0,
+    "your_offer": {
+     "id": 11873,
+     "price": 60,
+     "tick": 1870,
+     "days": 10
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1862,
+      "from": "you",
+      "text": "I offer 106 P for delivery on day 10.",
+      "price": 106,
+      "days": 10
+     },
+     {
+      "tick": 1868,
+      "from": "you",
+      "text": "I can do 91 P, delivery on day 10.",
+      "price": 91,
+      "days": 10
+     },
+     {
+      "tick": 1869,
+      "from": "you",
+      "text": "I can do 75 P, delivery on day 10.",
+      "price": 75,
+      "days": 10
+     },
+     {
+      "tick": 1870,
+      "from": "you",
+      "text": "I can do 60 P, delivery on day 10.",
+      "price": 60,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1871,
+   "raw": {
+    "duel": 11120,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "San Isidro",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.93,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 74,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Noche",
+    "deadline_tick": 1874,
+    "decay_per_round": 0.1,
+    "rounds": 0,
+    "your_offer": {
+     "id": 11902,
+     "price": 44,
+     "tick": 1871,
+     "days": 10
+    },
+    "rival_offer": null,
+    "messages": [
+     {
+      "tick": 1862,
+      "from": "you",
+      "text": "I offer 106 P for delivery on day 10.",
+      "price": 106,
+      "days": 10
+     },
+     {
+      "tick": 1868,
+      "from": "you",
+      "text": "I can do 91 P, delivery on day 10.",
+      "price": 91,
+      "days": 10
+     },
+     {
+      "tick": 1869,
+      "from": "you",
+      "text": "I can do 75 P, delivery on day 10.",
+      "price": 75,
+      "days": 10
+     },
+     {
+      "tick": 1870,
+      "from": "you",
+      "text": "I can do 60 P, delivery on day 10.",
+      "price": 60,
+      "days": 10
+     },
+     {
+      "tick": 1871,
+      "from": "you",
+      "text": "I can do 44 P, delivery on day 10.",
+      "price": 44,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -181,6 +415,344 @@
     "ACCEPT_BY": 1,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1868,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11120,
+     "role": "seller",
+     "limit": 74,
+     "currency": "P",
+     "item": "San Isidro",
+     "context": "",
+     "rival": "Rival Noche",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.93,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I offer 106 P for delivery on day 10.",
+      "offer": {
+       "price": 106,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1862,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1868,
+    "ticks_left": 6,
+    "rounds": 0,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 91 P, delivery on day 10.",
+    "price": 91,
+    "days": 10,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1869,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11120,
+     "role": "seller",
+     "limit": 74,
+     "currency": "P",
+     "item": "San Isidro",
+     "context": "",
+     "rival": "Rival Noche",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.93,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I offer 106 P for delivery on day 10.",
+      "offer": {
+       "price": 106,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1862,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 91 P, delivery on day 10.",
+      "offer": {
+       "price": 91,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1868,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1869,
+    "ticks_left": 5,
+    "rounds": 0,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 75 P, delivery on day 10.",
+    "price": 75,
+    "days": 10,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1870,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11120,
+     "role": "seller",
+     "limit": 74,
+     "currency": "P",
+     "item": "San Isidro",
+     "context": "",
+     "rival": "Rival Noche",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.93,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I offer 106 P for delivery on day 10.",
+      "offer": {
+       "price": 106,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1862,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 91 P, delivery on day 10.",
+      "offer": {
+       "price": 91,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1868,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 75 P, delivery on day 10.",
+      "offer": {
+       "price": 75,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1869,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1870,
+    "ticks_left": 4,
+    "rounds": 0,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 60 P, delivery on day 10.",
+    "price": 60,
+    "days": 10,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1871,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11120,
+     "role": "seller",
+     "limit": 74,
+     "currency": "P",
+     "item": "San Isidro",
+     "context": "",
+     "rival": "Rival Noche",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.93,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I offer 106 P for delivery on day 10.",
+      "offer": {
+       "price": 106,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1862,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 91 P, delivery on day 10.",
+      "offer": {
+       "price": 91,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1868,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 75 P, delivery on day 10.",
+      "offer": {
+       "price": 75,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1869,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 60 P, delivery on day 10.",
+      "offer": {
+       "price": 60,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1870,
+      "decision": null
+     }
+    ],
+    "rival_offer": null,
+    "tick": 1871,
+    "ticks_left": 3,
+    "rounds": 0,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 44 P, delivery on day 10.",
+    "price": 44,
+    "days": 10,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -214,6 +786,98 @@
      "id": 11701,
      "price": 106,
      "tick": 1862,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1868,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 91 P, delivery on day 10.",
+    "price": 91,
+    "days": 10,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 11120,
+    "offer": {
+     "id": 11825,
+     "price": 91,
+     "tick": 1868,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1869,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 75 P, delivery on day 10.",
+    "price": 75,
+    "days": 10,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 11120,
+    "offer": {
+     "id": 11848,
+     "price": 75,
+     "tick": 1869,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1870,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 60 P, delivery on day 10.",
+    "price": 60,
+    "days": 10,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 11120,
+    "offer": {
+     "id": 11873,
+     "price": 60,
+     "tick": 1870,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1871,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 44 P, delivery on day 10.",
+    "price": 44,
+    "days": 10,
+    "meta": {
+     "rule": "silent rival",
+     "calls": []
+    }
+   },
+   "result": {
+    "duel": 11120,
+    "offer": {
+     "id": 11902,
+     "price": 44,
+     "tick": 1871,
      "days": 10
     }
    }
