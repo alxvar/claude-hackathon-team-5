@@ -338,3 +338,4 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 10:20 · message tick 1707 · chato → t10 · Twenty-two. No. Thirty-three. I said it once already. Card does not get cheaper because you say "fair."
 - Sun 10:22 · message tick 1712 · pilar → t13 · Qué gusto, y sí, encontré la rana siendo niña — suerte no me faltó. Pero hablemos claro: por esas Samosas de la Plaza le ofrezco 16. Es lo que vale, ni un céntimo escondido.
 - Sun 10:23 · taller.crafted tick 1718 ·  → t10 · Team 10 turned three common cards into Club de Jazz (uncommon) at The Workshop
+- Sun 10:24 · message tick 1721 · pilar → t04 · Buenos días. El Lázaro Galdiano, sí, Serrano puro, muy de mi gusto. Pero conozco su tirada tan bien como mi propia firma. Le ofrezco 61 P, y quedará en mi álbum, no en una bóveda fría. Don Ernesto recibe los domingos.
