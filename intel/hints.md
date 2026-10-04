@@ -346,3 +346,5 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 10:26 · message tick 1730 · banco → t14 · Ciento dieciocho, señor. The steps I take are small, and few remain. The card does not age in my vault. Decide when it suits you.
 - Sun 10:27 · egg.found tick 1733 · abuela → t02 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t02", "name": "Team 2"}
 - Sun 10:27 · egg.given tick 1733 · abuela → t02 · {"team": "t02", "name": "Team 2", "cash": 0, "packs": [], "cards": ["RET-07"], "reason": "easter egg"}
+- Sun 10:34 · message tick 1760 · pilar → t10 · Qué evocación tan bonita, caballero: los barquillos junto al Palacio de Cristal, mi padre, las tardes de Embassy. Pero los álbumes no se pagan con meriendas. El sobre dorado sigue aquí: quinientos cuatro P. Piénselo mientras pasea.
+- Sun 10:34 · message tick 1760 · abuela → t02 · Ay, hijo, that old biscuit tin... Antonio kept his chulapa dorada in it for years, under the table with the cables. But today I have this Neighbourhood pack, 30 P, good cards for starting. And a little advice: a full page is worth much more than loose cards — swap your duplicates, cariño.
