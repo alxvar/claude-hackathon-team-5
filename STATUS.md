@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sun 09:37** · tick 1535 (15 s/tick) · game hour 14.00 · running · today closes 15:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sun 09:42** · tick 1555 (15 s/tick) · game hour 14.09 · running · today closes 15:00._
 
 ## Team: now and latest
 
@@ -17,25 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Sun: t0 (pid 22755) + window.sh (pid 58604) armed; case J; waiting for the first live tick (R = C). (Sat history:) Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sun 09:38 · operator · **CHA-04 from Abuela at 9** (7/10: 01-04, 07, 09, 10) · CHA-06 → Abuela walked (her final 25 = list > cap 22) · Chief approved cap **25** (< value 40, 0 neg) for CHA-06/08 → job bt7e6ssrd re-runs CHA-08 then CHA-06 at ≤ 25 once Abuela is free (the cap-22 CHA-08 thread runs first) · public bids stay at 22
   - Sun 09:34 · operator · Chief (t18 closed CHA with a team trade, CHA-01 from t13 at 72; we copy it): **cha_close.sh pid 1728**: Abuela now CHA-04 → CHA-06 → CHA-08 (CHA-05 last; touch run/cha_last_is_08 to swap if t13 holds 08), then at 9/10 ONE addressed bid to t13 on El Rastro at min(72, value-when-last − 50), with that card's public bid pulled · CHA-04 thread 2315 open
   - Sun 09:32 · operator · R+10 ran at 09:30:35: trader on HEAD 46dc399 (cash-floor 110), opps RET 110, swaps · recorder restarted (pid 99610; t0's 08:35 stop had left it down) for the 10:15/10:35 Market Test benches · bargains down (the reactor covers it)
-  - Sun 09:32 · operator · Chief (Analyst 09:32): (1) t18 is CHA 9/10, lacking only CHA-01 → our CHA-01 is a page card (reserved), not in any offer; no bot can post or fill it; no denial buy · (2) **RET-11 → t13 addressed on El Rastro at 248** (offer 20815, 40 ticks, their taker fee; t13 paid t18 238 for SAL-11): checked first that RET-11 is NOT a page card (catalog page false; epic 'Palacio de Cristal'); value 198 → a fill = +50 trade cap; a watcher re-posts once at 235 if unfilled, then stops and tells the Chief
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 30.15 | 4 | 21.81 | 8.34 | 0.00 | 0.17 | — | 60 | 5 | 488 | 47/60 |
+| 29.81 | 4 | 21.60 | 8.21 | 0.00 | 0.17 | — | 62 | 5 | 445 | 49/60 |
 
-Leaderboard (snapshot at tick 1522; refreshes every few minutes):
+Leaderboard (snapshot at tick 1542; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 10 | 33.69 | 22.48 | 11.20 | 62 |
-| 2 | Team 12 | 31.46 | 20.76 | 10.70 | 70 |
-| 3 | Team 18 | 31.13 | 24.41 | 6.72 | 54 |
-| 4 | Team 5 | 30.15 | 21.81 | 8.34 | 59 |
-| 5 | Team 3 | 26.73 | 21.27 | 5.45 | 33 |
+| 1 | Team 10 | 33.18 | 22.15 | 11.04 | 62 |
+| 2 | Team 18 | 31.11 | 24.49 | 6.62 | 54 |
+| 3 | Team 12 | 30.99 | 20.45 | 10.54 | 70 |
+| 4 | Team 5 | 29.81 | 21.60 | 8.21 | 61 |
+| 5 | Team 3 | 27.63 | 22.26 | 5.37 | 34 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 14.65 | ~39 min | bench | The hard Market Test: firmer and more impatient traders |
-| 15.00 | ~60 min | bench | The Market Test: every venue gets the same synthetic book |
-| 15.37 | ~82 min | duels | Duels III: two issues, shorter clock, harder decay |
-| 17.00 | ~180 min | bench | The Market Test: every venue gets the same synthetic book |
-| 18.17 | ~250 min | announce | finale warning |
-| 18.37 | ~262 min | persona | Finale: stalls close |
-| 18.37 | ~262 min | persona | Finale: stalls close |
-| 18.37 | ~262 min | persona | Finale: stalls close |
+| 14.65 | ~34 min | bench | The hard Market Test: firmer and more impatient traders |
+| 15.00 | ~55 min | bench | The Market Test: every venue gets the same synthetic book |
+| 15.37 | ~77 min | duels | Duels III: two issues, shorter clock, harder decay |
+| 17.00 | ~175 min | bench | The Market Test: every venue gets the same synthetic book |
+| 18.17 | ~245 min | announce | finale warning |
+| 18.37 | ~257 min | persona | Finale: stalls close |
+| 18.37 | ~257 min | persona | Finale: stalls close |
+| 18.37 | ~257 min | persona | Finale: stalls close |
 
 ## Our dealer deals
 
@@ -58,7 +58,6 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Thread | Dealer | Side | Item | Her first | Our first | Deal | vs her first | Msgs | Status | Closed |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 1278 | chato | sell | 1 card(s) | 13 | 24 | — | — | 12 | closed |  |
 | 1294 | picaros | buy | MAL-10 | 73 | — | — | — | 13 | closed |  |
 | 1533 | pilar | sell | 1 card(s) | 16 | 30 | — | — | 7 | closed |  |
 | 1539 | abuela | buy | LAT-02 | 12 | — | — | — | 2 | closed |  |
@@ -85,16 +84,17 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | 2288 | abuela | buy | CHA-03 | 12 | 5 | 8 | -33% | 9 | deal |  |
 | 2315 | abuela | buy | CHA-04 | 12 | 5 | 9 | -25% | 11 | deal |  |
 | 2330 | abuela | buy | CHA-06 | 29 | 12 | — | — | 9 | closed |  |
-| 2340 | abuela | buy | CHA-08 | 29 | 12 | — | — | 2 | open |  |
+| 2340 | abuela | buy | CHA-08 | 29 | 12 | 21 | -28% | 11 | deal |  |
+| 2351 | abuela | buy | CHA-06 | 29 | 14 | 22 | -24% | 15 | deal |  |
 
 ## Abuela benchmark: every team's deals with her (public feed)
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
-| common card | team buys | 88 | 9.00 | 7 | 15 | 9 | 8.78 |
+| common card | team buys | 90 | 9.00 | 7 | 15 | 9 | 8.78 |
 | common card | team sells | 114 | 6.00 | 2 | 23 | 5 | 5.40 |
 | sobre_barrio | team buys | 43 | 22 | 17 | 30 | 3 | 20.33 |
-| uncommon card | team buys | 90 | 23.00 | 17 | 29 | 5 | 24.20 |
+| uncommon card | team buys | 92 | 23.00 | 17 | 29 | 7 | 23.43 |
 | uncommon card | team sells | 13 | 15 | 12 | 22 | 0 | — |
 
 ## Duels
