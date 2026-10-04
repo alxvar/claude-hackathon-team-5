@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 12:35 · CHA-11 (Chief 12:36: t08 sells at 240; t16 won't; t10 offers 210 but is a rival) · cha11.py stopped, 25638 cancelled → **25784** → t08, El Rastro, 240, exp tick 2303; value 288 → +48; the only CHA-11 bid live; no auto re-post
 - Sun 12:33 · Chief 12:33: reward 25697 (LAT-06 → t06) cancelled: t06 is a rival on the Chief's list (live policy.rivals had dropped it: now t03 t04 t10 t12 t18 + t13 t17) · v10_reward.py (pid 45047): skips live rivals ∪ RIVALS ∪ {t03,t06,t10,t12,t13,t17,t18}; never bids a card with any open bid of ours (book included), so the LAT reward is superseded by the book; a bounty needing a book card takes it out of run/book.json + cancels the public bid first · no more v07 posts (even with Team 10)
 - Sun 12:32 · **3rd v10 settlement #1394: t10 → t06 CHA-11 at 184** → v10 value_created 3.4 → **114.4**, trades 3, traders 6, mm_points 0.9 → **5.9** · Team 10 completed a sale on v10 (Lucas's reciprocity condition; our RET-03 spare already gone) · reactor: t10 excluded → t06 LAT reward LAT-06 at 10 (value 12.5), offer 25697, El Rastro
 - Sun 12:28 · CHA-11 (Chief 12:26; epic we lack, value 288.0; held by t08/t16, non-rivals) · bid 25638 → t08, El Rastro, 220 (= min(220, value − 50): a +50 trade), exp tick 2275 · cha11.py (pid 40018): one CHA-11 bid live at a time, one move to t16 on expiry · cash 662, 177 in other bids → ≈ 265 free after it (≥ 100 for MAL) · book re-posted at the Chief's prices (LAT-07/08 12, MAL-07 15)
