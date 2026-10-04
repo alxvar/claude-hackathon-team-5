@@ -4,6 +4,7 @@ _Written by the strategy session. It never touches the game: no trades, no bots.
 
 ## Sat 17:25 — rivals and alerts
 
+- 13:12 Sun · GUARDRAIL · **LOCK THE LEAD (Lucas: no risk until 15:00)** · board 2322: us 37.21 · t10 34.77 · t12 34.19 · **zero trades with t10/t12/t18/t03/t04, either side, any venue** · the book's public bids cancelled (keep only LAT 14 until 13:55 + the addressed MAL-09) · no new scripts, no param changes, the duelist untouched · lesson [L, V board]: the CHA-11 gave t10 ≈ +1.47 too (negotiating 20.98 → 22.46, the same as ours), so rivals' values can sit far below book; never assume a rival gains little
 - 13:05 Sun · GUARDRAIL · **Chato L2 fodder: LAT-06/07/08 bids raised 12 → 14 on El Rastro** (value 12.5: −1.5 np each ≈ −0.11 Sunday at most, vs +0.4-0.6 ladder per slot [Analyst L]) · fills go to Chato at ≥ 14 · cancel unfilled at 13:55 · we hold no spare uncommon (LAV-08 went to Pilar)
 - 12:58 Sun · **CHA-11 (Lucas): no t08 deal, 26349 cancelled; ONE bid addressed to t10 on El Rastro at 190** (agreed by WhatsApp; our gain +50, t10 ≈ +10 [L]) · supersedes 12:50/12:52 prices
 - 12:52 Sun · **CHA-11: take t10's public ask 26209 at 162 on El Rastro** (≈ 171 with the fee; value 288 → +50; at 162 t10 gains little or loses, since its value ≈ 180 [L]) · cancel 25784 (t08) first; if 26209 is gone, re-post 25784 · v10 bids by us are refused (own venue, RULES), so every t10 deal goes on El Rastro · supersedes the v10 part of 12:50
