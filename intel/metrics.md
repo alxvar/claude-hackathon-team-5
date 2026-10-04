@@ -1,4 +1,4 @@
-# Metrics (auto, 11:51, game tick 2069)
+# Metrics (auto, 11:53, game tick 2077)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -73,12 +73,11 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×2; t02: RET×4, MAL�
 
 ## Dealer prices, last 60 ticks (median per item)
 
-- abuela common (team sells): median 6 over 1
 
 ## El Rastro now: top bids by price (team, card, price)
 
 - t17: MAL-11 (epic) 150 P · offer 24464
-- t10: CHA-11 (epic) 65 P · offer 24517
+- t10: CHA-11 (epic) 76 P · offer 24621
 - t09: CHA-06 (uncommon) 15 P · offer 23065
 - t09: CHA-07 (uncommon) 15 P · offer 23066
 - t09: CHA-08 (uncommon) 15 P · offer 23069
@@ -93,7 +92,7 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×2; t02: RET×4, MAL�
 - t09: CHA-01 (common) 5 P · offer 23048
 - t09: CHA-02 (common) 5 P · offer 23049
 
-Asks by others (card, price: count): LAV-06 22: 1; LAV-02 9: 1; LAV-04 9: 1; MAL-01 10: 1; MAL-02 10: 1; MAL-03 10: 1; MAL-04 10: 1; MAL-05 10: 1; sobre_plata 130: 1; LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; MAL-01 9: 1
+Asks by others (card, price: count): LAV-06 22: 1; LAV-02 9: 1; LAV-04 9: 1; MAL-01 10: 1; MAL-02 10: 1; MAL-03 10: 1; MAL-04 10: 1; MAL-05 10: 1; sobre_plata 130: 1; LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; MAL-07 33: 1
 
 ## Our duels: 0 live, 204 finished (last 10)
 
