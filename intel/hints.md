@@ -400,3 +400,4 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 12:27 · message tick 2211 · banco → t12 · Five times now, one peso each. The vault does not notice, señor. La Reina de la Movida: 751. Walk home, think, and return with something serious.
 - Sun 12:28 · message tick 2213 · banco → t12 · Seven pesos, señor. Enough. La Reina de la Movida: 746. That is my last word. Refuse it, and I close the vault and we are finished.
 - Sun 12:28 · message tick 2214 · banco → t12 · Then we are finished for today, señor. The vault is closed. Keep your pesos; I keep La Reina. Buenas tardes.
+- Sun 12:28 · taller.crafted tick 2216 ·  → t18 · Team 18 turned three common cards into La Chulapa (uncommon) at The Workshop

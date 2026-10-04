@@ -1,6 +1,6 @@
 # Easter eggs: trigger → reward → dealer (castizo catalog)
 
-_Written by `tools/eggs.py` at 12:20 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
+_Written by `tools/eggs.py` at 12:30 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
 
 ## Trigger → reward → dealer
 
@@ -43,6 +43,7 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 
 | tick | team | dealer | words | what followed | reply |
 |---|---|---|---|---|---|
+| 2219 | t18 | pilar | chulapa | - | Buenas tardes. Qué gusto. I see you carry La Chulapa — a charming piece, and my Salamanca album wants her. I offer sixteen pesetas, and I pay promptly. ¿Le pare |
 | 2177 | t06 | chato | chulapa | - | You're Carmen's friend. La Chulapa, 13 P. |
 | 2167 | t04 | abuela | rosquillas | - | ¡Ay, qué goloso eres, hijo! Las rosquillas te las acepto encantada, pero el Frutero... cinco P, cariño, como siempre, con todo mi cariño. Anda, dámelo y vete co |
 | 2166 | t04 | abuela | rosquillas | - | ¡Ay, las tontas y las listas, hijo, qué domingo más bonito me cuentas! Yo también me quedo con los claveles. Pero el Frutero, cinco P, cariño, como siempre. Y c |
@@ -122,4 +123,3 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 | 1812 | t06 | picaros | organillero | - | ¡Nando, cuéntaselo! Hace un momento otro equipo nos ofreció mucho más por El Organillero, y aquí seguimos contigo, que nos caes bien. Cuatro primas, amigo. Esa  |
 | 1811 | t06 | picaros | organillero | - | ¡Siete! Paco, ¿has oído? Nando, dile. Amigo, El Organillero sale en cuatro primas y ni una menos, que ya es precio de hermano. Mira, un señor en Burgos pagó el  |
 | 1809 | t12 | chato | plaza mayor, you know madrid | pack sobre_barrio | Plaza Mayor, bocadillo, caña bien tirada. You know Madrid. Bien, something extra in the bag for your trouble. Mercado de la Paz. Thirty-three. Still thirty-thre |
-| 1808 | t06 | picaros | organillero | - | ¡Ah, un lector! Paco, este sabe de clásicos. Nando, saca El Organillero… ¡cuatro primas, amigo, y es tuyo! Y escucha: ayer mismo dejaron de imprimirla. Ya no sa |
