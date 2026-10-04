@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Architecture C · Impact map</title>
+<link rel="stylesheet" href="bz.css">
+<style>
+.nd{position:absolute;display:flex;align-items:center;gap:14px;padding:0 16px;border-left:6px solid var(--c);border-radius:12px}
+.nd .t{font-size:26px;white-space:nowrap}
+.nd .d{font-size:16px;margin-top:2px}
+.nd .p{margin-left:auto;font:800 36px/1 var(--head);color:var(--c)}
+.mid{position:absolute;display:flex;align-items:center;gap:10px;padding:0 14px;background:var(--card);border:1.5px solid var(--line);border-left:5px solid var(--c);border-radius:10px}
+.mid .n{font:600 18px/1.1 var(--body);color:var(--ink)}
+.mid .p{margin-left:auto;font:800 24px/1 var(--head);color:var(--ink)}
+.mid .tag{font-size:11px;padding:1px 6px}
+.mid.par{border-left-color:var(--grey);background:#10162a}.mid.par .n,.mid.par .p{color:var(--ink2)}
+.comp{position:absolute;padding:18px 20px;border-radius:14px;background:var(--card);border:1.5px solid var(--line);border-top:5px solid var(--c)}
+.comp .t{font:800 30px/1 var(--head);text-transform:uppercase}
+.comp .p{font:800 72px/1 var(--head);color:var(--c);margin-top:10px}
+.comp .d{font:400 17px/1.3 var(--body);color:var(--ink2);margin-top:6px}
+.tot{position:absolute;right:128px;top:116px;text-align:right}
+.tot .p{font:800 104px/0.9 var(--head);color:var(--yellow);text-shadow:0 0 40px rgba(255,197,71,.35)}
+.tot .d{font:700 18px var(--mono);letter-spacing:.14em;color:var(--ink2);text-transform:uppercase;margin-top:6px}
+.note{position:absolute;left:128px;right:128px;top:944px;display:flex;gap:40px;font:500 16px var(--mono);color:var(--muted)}
+.note b{color:var(--ink2)}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="kicker">Architecture · C · the impact map</div>
+  <h1 style="font-size:86px;top:146px">Where the <em>points</em> came from</h1>
+  <div class="sub" style="font-size:22px;top:250px">Final game points by the part of the system that earned them · <span class="tag v">V</span> measured <span class="tag l">L</span> modelled</div>
+  <div class="tot"><div class="p">37.26</div><div class="d">#1 · lead 3.09 · 13:20 <span class="tag v">V</span></div></div>
+  <svg class="wires" viewBox="0 0 1920 1080" id="flows"></svg>
+  <div id="nodes"></div>
+  <div class="note"><span><b>Scored 0:</b> RET-11 sold at 240 · the MAL page (never closed) · cash held</span><span><b>Not shown:</b> judges' 40 · the Grand Final duels</span></div>
+  <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i style="width:100%"></i></div><div class="lvl">ARCH C</div><div class="who">Impact map</div></div>
+</div>
+<script src="icons.js"></script>
+<script>
+// Final game points as of 13:20 (tick 2422), from me.jsonl + leaderboard.jsonl. Sum 37.27 vs board 37.26 (rounding).
+const K = 14, TOP = 304;
+const SRC = [
+  {id:'duelist',  t:'Duelist',        d:'code + Haiku',      c:'#f2555a', i:'sword'},
+  {id:'operator', t:'Operator', d:'+ bots: trades · dealers',    c:'#ffc547', i:'swap'},
+  {id:'market',   t:'Market v10',   d:'stall + real trades',        c:'#4a8af4', i:'store'},
+];
+const MID = [
+  {s:'duelist',  t:'Duels I–III · 143 of 170 closed', v:6.75, g:'neg', tag:'L'},
+  {s:'operator', t:'4 page closes via team trades',  v:6.09, g:'neg', tag:'L'},
+  {s:'operator', t:'CHA-11 epic, bought from Team 10',      v:1.48, g:'neg', tag:'V'},
+  {s:'operator', t:'Dealer ladder',                  v:6.41, g:'neg', tag:'L'},
+  {s:'operator', t:'Small trades, flags, dealer losses', v:3.46, g:'neg', tag:'L'},
+  {s:'market',   t:'Market Test at par (every stall)', v:9.00, g:'mm', tag:'V', par:1},
+  {s:'market',   t:'v10 real trades: full marks',    v:4.08, g:'mm', tag:'V'},
+];
+const COMP = [
+  {id:'neg', t:'Negotiating', d:'duels · ladder · team trades', c:'#ffc547'},
+  {id:'mm',  t:'Market-making', d:'Market Test · real trades on v10', c:'#4a8af4'},
+];
+const XL0 = 128, XL1 = 470, XM0 = 700, XM1 = 1150, XR0 = 1380, XR1 = 1792, GAP = 34, MGAP = 9;
+// left nodes
+let y = TOP; const L = {};
+SRC.forEach(s => { s.v = MID.filter(m => m.s === s.id).reduce((a, m) => a + m.v, 0); L[s.id] = {y0: y, cur: y}; y += s.v * K + GAP; });
+// middle
+y = TOP; MID.forEach((m, i) => { if (i && MID[i - 1].g !== m.g) y += GAP - MGAP; m.y0 = y; m.h = Math.max(m.v * K, 26); y += m.h + MGAP; });
+// right
+const R = {}; y = TOP;
+COMP.forEach(c => { c.v = MID.filter(m => m.g === c.id).reduce((a, m) => a + m.v, 0); R[c.id] = {y0: y, cur: y}; c.y0 = y; c.h = c.v * K; y += c.h + GAP; });
+// align the market-making block with its sources
+const band = (x0, a0, x1, a1, h, col, op) => { const xm = (x0 + x1) / 2;
+  return `<path d="M${x0} ${a0}C${xm} ${a0} ${xm} ${a1} ${x1} ${a1}L${x1} ${a1 + h}C${xm} ${a1 + h} ${xm} ${a0 + h} ${x0} ${a0 + h}Z" fill="${col}" opacity="${op}"/>`; };
+let f = '';
+MID.forEach(m => { const s = SRC.find(z => z.id === m.s), h = m.v * K;
+  const col = m.par ? '#8b95aa' : s.c;
+  f += band(XL1, L[m.s].cur, XM0, m.y0, h, col, m.par ? .18 : .32); L[m.s].cur += h;
+  f += band(XM1, m.y0, XR0, R[m.g].cur, h, col, m.par ? .14 : .26); R[m.g].cur += h; });
+document.getElementById('flows').innerHTML = f;
+let html = SRC.map(s => `<div class="card nd" style="left:${XL0}px;top:${L[s.id].y0}px;width:${XL1 - XL0}px;height:${s.v * K}px;--c:${s.c}">${icon(s.i, s.c)}<div><div class="t">${s.t}</div><div class="d">${s.d}</div></div><div class="p">${s.v.toFixed(2)}</div></div>`).join('');
+html += MID.map(m => { const s = SRC.find(z => z.id === m.s);
+  return `<div class="mid${m.par ? ' par' : ''}" style="left:${XM0}px;top:${m.y0}px;width:${XM1 - XM0}px;height:${m.h}px;--c:${s.c}"><span class="n">${m.t}</span><span class="tag ${m.tag === 'V' ? 'v' : 'l'}">${m.tag}</span><span class="p">${m.v.toFixed(2)}</span></div>`; }).join('');
+html += COMP.map(c => `<div class="comp" style="left:${XR0}px;top:${c.y0}px;width:${XR1 - XR0}px;height:${c.h}px;--c:${c.c}"><div class="t">${c.t}</div><div class="p">${c.v.toFixed(2)}</div><div class="d">${c.d}</div></div>`).join('');
+document.getElementById('nodes').innerHTML = html;
+</script>
+<script src="bz.js"></script>
+</body>
+</html>

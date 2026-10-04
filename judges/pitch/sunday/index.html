@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team 5 Sunday Pitch</title>
+<link rel="stylesheet" href="bz.css">
+<style>
+html,body{overflow:auto;height:auto}
+body{background:linear-gradient(180deg,#0b1020,#0a0e1a);min-height:100vh;padding:40px 32px 60px}
+.top{max-width:1800px;margin:0 auto 26px}
+.top .kicker{position:static}
+.top h1{position:static;font-size:64px;white-space:normal}
+.top p{font:400 20px/1.45 var(--body);color:var(--ink2);margin:10px 0 0;max-width:1100px}
+.grid{max-width:1800px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(520px,1fr));gap:26px}
+.opt{background:var(--card);border:1.5px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.opt .fr{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#05070d}
+.opt iframe{position:absolute;left:0;top:0;width:1920px;height:1080px;border:0;transform-origin:0 0;pointer-events:none}
+.opt .tx{padding:18px 22px 22px}
+.opt .t{font:800 34px/1 var(--head);text-transform:uppercase}
+.opt .t span{color:var(--yellow)}
+.opt .d{font:400 18px/1.4 var(--body);color:var(--ink2);margin-top:8px}
+.opt .d b{color:var(--ink)}
+.opt a{display:inline-block;margin-top:12px;font:700 15px var(--mono);letter-spacing:.12em;color:var(--yellow);text-decoration:none;border:1.5px solid var(--yellow);border-radius:999px;padding:7px 16px}
+.links{max-width:1800px;margin:28px auto 0;display:flex;gap:14px;flex-wrap:wrap}
+.links a{font:700 15px var(--mono);letter-spacing:.12em;color:var(--ink2);text-decoration:none;border:1.5px solid var(--line2);border-radius:999px;padding:8px 18px}
+@media (max-width:600px){.grid{grid-template-columns:1fr}.top h1{font-size:44px}}
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="kicker">Team 5 · Sunday pitch · pick one</div>
+  <h1>Three ways to show <em>the architecture</em></h1>
+  <p>Same system, three stories. <b style="color:var(--ink)">A</b> answers "what did you build" (structure). <b style="color:var(--ink)">B</b> answers "how did you approach it and what changed" (process, with one real lap). <b style="color:var(--ink)">C</b> answers "why it worked" (points by part). Numbers as of 13:20, tick 2422; refreshed after 15:00.</p>
+</div>
+<div class="grid">
+  <div class="opt"><div class="fr"><iframe src="arch-a.html"></iframe></div><div class="tx">
+    <div class="t">A · <span>Control room</span></div>
+    <div class="d">Who decides, who acts, who checks. Humans set limits, the Chief of staff decides and never touches the game, one writer per job, 19 daemons read, an independent check column. <b>Best for "show what you built".</b> Densest of the three.</div>
+    <a href="arch-a.html">OPEN A →</a></div></div>
+  <div class="opt"><div class="fr"><iframe src="arch-b.html"></iframe></div><div class="tx">
+    <div class="t">B · <span>The loop</span></div>
+    <div class="d">Sense → decide → act → measure → learn, with git at the centre and one real Sunday lap: the "round cap of 50" belief, refuted from our own data in 1 h 51. <b>Best for "your first idea, and what changed it"</b> and "what did you learn". Easiest to narrate in 30 s.</div>
+    <a href="arch-b.html">OPEN B →</a></div></div>
+  <div class="opt"><div class="fr"><iframe src="arch-c.html"></iframe></div><div class="tx">
+    <div class="t">C · <span>Impact map</span></div>
+    <div class="d">The architecture sized by the points each part earned: Duelist 6.75, Operator + bots 17.44, Market v10 13.08 → 37.26. Shows the strategy, and that the par Market Test (grey) is not ours. <b>Best for "why did you build it that way".</b> Doubles as the impact slide.</div>
+    <a href="arch-c.html">OPEN C →</a></div></div>
+</div>
+<div class="links"><a href="deck.html">FULL DECK →</a><a href="script.md">SCRIPT</a><a href="review.md">WHAT MAKES A GOOD PITCH</a></div>
+<script>
+function fit(){document.querySelectorAll('.fr').forEach(f=>{f.querySelector('iframe').style.transform='scale('+(f.clientWidth/1920)+')'})}
+addEventListener('resize',fit);addEventListener('load',fit);fit();
+</script>
+</body>
+</html>

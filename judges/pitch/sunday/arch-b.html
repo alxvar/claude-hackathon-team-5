@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Architecture B · The loop</title>
+<link rel="stylesheet" href="bz.css">
+<style>
+.st{position:absolute;width:300px;height:112px;padding:14px 18px 12px 18px;border-top:5px solid var(--c)}
+.st .n{position:absolute;right:16px;top:12px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font:800 20px var(--head);color:#0b1020;background:var(--c)}
+.st .t{font-size:34px;color:var(--c)}
+.st .d{font-size:17px;margin-top:2px;color:var(--ink)}
+.st .m{margin-top:4px;font-size:13.5px}
+.core{position:absolute;left:560px;top:520px;width:280px;height:280px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  background:radial-gradient(circle at 50% 40%,#1a2442 0%,#0e1427 70%);border:1.5px solid var(--line2);box-shadow:0 0 80px rgba(74,138,244,.12)}
+.core .t{font:800 34px/1 var(--head);letter-spacing:.03em;text-transform:uppercase}
+.core .d{font:400 17px/1.3 var(--body);color:var(--ink2);margin-top:8px;max-width:210px}
+.core .ico{margin-bottom:10px}
+.lap{position:absolute;left:1190px;top:300px;width:602px;height:664px;padding:26px 30px}
+.lap .k{font:700 17px var(--mono);letter-spacing:.2em;color:var(--yellow);text-transform:uppercase}
+.lap .h{font:800 44px/1 var(--head);text-transform:uppercase;margin:8px 0 18px}
+.row{display:grid;grid-template-columns:40px 70px 1fr;gap:12px;align-items:start;padding:11px 0;border-top:1px solid var(--line)}
+.row .b{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font:800 19px var(--head);color:#0b1020;background:var(--c)}
+.row time{font:700 18px var(--mono);color:var(--ink2);padding-top:6px}
+.row p{margin:0;font:400 19px/1.32 var(--body);color:var(--ink2)}
+.row p b{color:var(--ink);font-weight:600}
+.res{margin-top:12px;padding:14px 18px;border-radius:14px;background:#0f2a22;border:1.5px solid #1f5c46}
+.res p{margin:0;font:500 19px/1.35 var(--body);color:var(--ink)}
+.res .big{font:800 36px/1 var(--head);color:var(--green);margin-right:10px;vertical-align:-3px}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="kicker">Architecture · B · the loop</div>
+  <h1>Every lap leaves <em>evidence</em></h1>
+  <svg class="wires" viewBox="0 0 1920 1080">
+    <defs>
+      <linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4a8af4"/><stop offset=".35" stop-color="#ffc547"/><stop offset=".6" stop-color="#f2555a"/><stop offset=".8" stop-color="#3ddc97"/><stop offset="1" stop-color="#a46bf5"/></linearGradient>
+    </defs>
+    <circle cx="700" cy="660" r="280" fill="none" stroke="#1b2540" stroke-width="16"/>
+    <circle cx="700" cy="660" r="280" fill="none" stroke="url(#rg)" stroke-width="4" opacity=".75"/>
+    <circle cx="700" cy="660" r="280" fill="none" stroke="#fff" stroke-width="3" class="flow" opacity=".35" transform="rotate(0 700 660)"/>
+    <g id="chev"></g>
+    <circle r="11" fill="#ffc547" stroke="#0b1020" stroke-width="3">
+      <animateMotion dur="9s" repeatCount="indefinite" path="M700 380 A280 280 0 1 1 699.9 380"/>
+    </circle>
+  </svg>
+  <div id="st"></div>
+  <div class="core">
+    <div class="t">Git</div>
+    <div class="d">one owner per file: directives, measured facts, every experiment</div>
+  </div>
+  <div class="card lap">
+    <div class="k">One real lap · Sunday</div>
+    <div class="h">The "round cap" <span class="y">belief</span></div>
+    <div id="rows"></div>
+    <div class="res"><p><span class="big">1 h 51</span>belief → correction, from our own data. The next trade with a gain, CHA&#8209;11: <b>+1.48 board</b> <span class="tag v">V</span></p></div>
+  </div>
+  <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i style="width:66%"></i></div><div class="lvl">ARCH B</div><div class="who">The loop</div></div>
+</div>
+<script src="icons.js"></script>
+<script>
+const C = {S:'var(--blue)', D:'var(--yellow)', A:'var(--red)', M:'var(--green)', L:'var(--purple)'};
+const cx = 700, cy = 660, r = 280;
+const st = [
+  {k:'S', n:1, a:-90, t:'Sense',   d:'collector · watch · scout',          m:'data/*.jsonl · STATUS.md'},
+  {k:'D', n:2, a:-18, t:'Decide',  d:'Lucas + the Chief of staff',         m:'directives.md + evidence'},
+  {k:'A', n:3, a:54,  t:'Act',     d:'Operator · Duelist · Market',        m:'one writer per job'},
+  {k:'M', n:4, a:126, t:'Measure', d:'metrics · judge · Duel Lab',         m:'me.jsonl: score per tick'},
+  {k:'L', n:5, a:198, t:'Learn',   d:'verifier · contrarian · experiments', m:'GAME.md: measured facts'},
+];
+document.getElementById('st').innerHTML = st.map(s => {
+  const x = cx + r * Math.cos(s.a * Math.PI / 180), y = cy + r * Math.sin(s.a * Math.PI / 180);
+  return `<div class="card st" style="left:${x - 150}px;top:${y - 56}px;--c:${C[s.k]}"><div class="n">${s.n}</div><div class="t">${s.t}</div><div class="d">${s.d}</div><div class="m">${s.m}</div></div>`;
+}).join('');
+// chevrons between stations, pointing clockwise
+document.getElementById('chev').innerHTML = [-54, 18, 90, 162, 234].map(a => {
+  const x = cx + r * Math.cos(a * Math.PI / 180), y = cy + r * Math.sin(a * Math.PI / 180);
+  return `<path d="M-9 -12L9 0L-9 12" fill="none" stroke="#e8ecf6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" transform="translate(${x} ${y}) rotate(${a + 90})"/>`;
+}).join('');
+const rows = [
+  {k:'S', n:1, t:'10:27', p:'RET&#8209;11 sells at 240. Expected <b>+29</b> negotiating points; the score <b>doesn\'t move</b>. <span class="tag v">V</span>'},
+  {k:'D', n:2, t:'10:31', p:'Belief: <b>trade gains cap at 50 per round</b>. At 11:33 the Chief calls the MAL page closer <b>NO&#8209;GO</b>.'},
+  {k:'A', n:3, t:'11:33', p:'MAL closer stopped. The page stays at 8 of 10.'},
+  {k:'M', n:4, t:'12:17', p:'A 5 P sale moves negotiating <b>50.0 → 52.2</b>. No cap. <span class="tag v">V</span>'},
+  {k:'L', n:5, t:'12:22', p:'Fact corrected: the 50 is a <b>per-trade</b> clip; RET&#8209;11 was simply worth less at sale. Buyers back <b>ON</b>.'},
+];
+document.getElementById('rows').innerHTML = rows.map(w => `<div class="row" style="--c:${C[w.k]}"><div class="b">${w.n}</div><time>${w.t}</time><p>${w.p}</p></div>`).join('');
+</script>
+<script src="bz.js"></script>
+</body>
+</html>

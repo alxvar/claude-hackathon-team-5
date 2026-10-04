@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Architecture A · Control room</title>
+<link rel="stylesheet" href="bz.css">
+<style>
+.node{display:flex;gap:16px;align-items:center;padding:12px 18px}
+.node .t{font-size:28px}
+.node .d{font-size:18px;margin-top:3px}
+.node.sm{padding:10px 16px}.node.sm .t{font-size:24px}.node.sm .d{font-size:16px;margin-top:1px}
+.node.sm .ico{width:40px;height:40px}
+.human{background:#1a1530;border-color:#3b2d63}
+.chief{background:#1c1a14;border-color:#5a4a1d;box-shadow:0 0 0 1px rgba(255,197,71,.15),0 0 60px rgba(255,197,71,.12)}
+.chief .t{font-size:36px}
+.lane{position:absolute;top:516px;font:700 17px var(--mono);letter-spacing:.2em;text-transform:uppercase}
+.game{display:flex;align-items:center;gap:28px;padding:0 26px;background:linear-gradient(90deg,#10203d,#13182c);border-color:#2b4473}
+.game .t{font-size:32px}
+.game .rw{font:500 19px var(--body);color:var(--ink2)}
+.game .rw b{font:700 15px var(--mono);letter-spacing:.12em;margin-right:8px}
+.game .lim{margin-left:auto;font:600 16px var(--mono);letter-spacing:.1em;color:var(--grey);text-align:right;line-height:1.5}
+.wl{font:700 14px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="kicker">Architecture · A · the control room</div>
+  <h1>Who decides, who acts, <em>who checks</em></h1>
+  <div id="nodes"></div>
+  <div class="lane" style="left:128px;color:var(--red)">Act · one writer per job ↓</div>
+  <div class="lane" style="left:720px;color:var(--blue)">Sense · 19 daemons ↑</div>
+  <div class="lane" style="left:1372px;color:var(--green)">Check · verdicts ↑</div>
+  <svg class="wires" viewBox="0 0 1920 1080">
+    <defs>
+      <marker id="ay" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ffc547"/></marker>
+      <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#f2555a"/></marker>
+      <marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#4a8af4"/></marker>
+      <marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#3ddc97"/></marker>
+    </defs>
+    <!-- humans → chief -->
+    <path d="M960 356V388" stroke="#ffc547" stroke-width="3" fill="none" marker-end="url(#ay)"/>
+    <!-- Aleks owns the duelist -->
+    <path d="M128 323H98V704H124" stroke="#a46bf5" stroke-width="2.5" fill="none" stroke-dasharray="6 6" marker-end="url(#ay)"/>
+    <!-- chief → act (directives) -->
+    <path d="M760 492V508H560V544" stroke="#ffc547" stroke-width="3" fill="none" marker-end="url(#ay)"/>
+    <text x="574" y="503" class="wl" fill="#ffc547">directives</text>
+    <!-- sense → chief -->
+    <path d="M1150 548V496" stroke="#4a8af4" stroke-width="3" fill="none" marker-end="url(#ab)"/>
+    
+    <!-- check → chief -->
+    <path d="M1340 548V512H1232V496" stroke="#3ddc97" stroke-width="3" fill="none" stroke-dasharray="7 6" marker-end="url(#ag)"/>
+    
+    <!-- builder / git side links -->
+    <path d="M548 442H646" stroke="#4c5670" stroke-width="2.5" fill="none"/>
+    <path d="M1274 442H1368" stroke="#4c5670" stroke-width="2.5" fill="none"/>
+    <!-- write bus: act → game -->
+    <path d="M640 596H668M640 704H668M640 812H668" stroke="#f2555a" stroke-width="3" fill="none"/>
+    <path d="M668 596V882" stroke="#f2555a" stroke-width="4" fill="none" marker-end="url(#ar)"/>
+    <path d="M668 596V882" stroke="#ffd2d3" stroke-width="2" fill="none" class="flow" opacity=".55"/>
+    <!-- read bus: game → sense -->
+    <path d="M694 888V584" stroke="#4a8af4" stroke-width="4" fill="none"/>
+    <path d="M694 888V584" stroke="#cfe0ff" stroke-width="2" fill="none" class="flow" opacity=".55"/>
+    <path d="M694 584H716M694 664H716M694 744H716M694 824H716" stroke="#4a8af4" stroke-width="3" fill="none" marker-end="url(#ab)"/>
+  </svg>
+  <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i style="width:33%"></i></div><div class="lvl">ARCH A</div><div class="who">Control room</div></div>
+</div>
+<script src="icons.js"></script>
+<script>
+const P = 'var(--purple)', Y = 'var(--yellow)', R = 'var(--red)', B = 'var(--blue)', G = 'var(--green)', N = 'var(--grey)';
+const nodes = [
+  // humans
+  {x:128, y:290, w:420, h:66, c:P, i:'user', t:'Aleks', d:'owns the duelist + the shared hub', k:'human sm'},
+  {x:620, y:290, w:680, h:66, c:P, i:'user', t:'Lucas', d:'strategy: sets goals + hard limits, talks only to the Chief', k:'human sm'},
+  {x:1372,y:290, w:420, h:66, c:P, i:'user', t:'Dani', d:'the room: organisers\' desk, rivals, dashboard', k:'human sm'},
+  // decide
+  {x:128, y:392, w:420, h:100, c:N, i:'wrench', t:'Builder', d:'Claude Code · builds the tools + the duelist loop'},
+  {x:650, y:392, w:620, h:100, c:Y, i:'compass', t:'Chief of staff', d:'Claude Code · decides, logs each directive with its evidence · <b style="color:var(--ink)">never writes to the game</b>', k:'chief'},
+  {x:1372,y:392, w:420, h:100, c:N, i:'git', t:'Git = shared memory', d:'one owner per file · directives · LOG · team/*.md'},
+  // act
+  {x:128, y:548, w:512, h:96, c:R, i:'swap', t:'Operator', d:'Claude Code · the only trade writer: taker, maker book, dealer bots', k:'top'},
+  {x:128, y:656, w:512, h:96, c:R, i:'sword', t:'Duelist', d:'code decides · Haiku talks · 8 s failover', k:'top'},
+  {x:128, y:764, w:512, h:96, c:R, i:'store', t:'Market', d:'Claude Code · our venue v10 at 0 % fee + Market Test recorder', k:'top'},
+  // sense
+  {x:720, y:548, w:500, h:72, c:B, i:'db', t:'Collector', d:'every endpoint → data/*.jsonl', k:'sm'},
+  {x:720, y:628, w:500, h:72, c:B, i:'gauge', t:'Metrics + status', d:'live score components → STATUS.md', k:'sm'},
+  {x:720, y:708, w:500, h:72, c:B, i:'eye', t:'Reactor + watch', d:'live event stream → Operator + phones', k:'sm'},
+  {x:720, y:788, w:500, h:72, c:B, i:'monitor', t:'Dashboard + hub', d:'Dani\'s screen · Neon Postgres', k:'sm'},
+  // check
+  {x:1292,y:548, w:500, h:72, c:G, i:'shield', t:'Verifier', d:'fresh agent re-checks every claim', k:'sm'},
+  {x:1292,y:628, w:500, h:72, c:G, i:'flask', t:'Duel Lab', d:'duel simulator + an independent crosscheck', k:'sm'},
+  {x:1292,y:708, w:500, h:72, c:G, i:'search', t:'Analysts', d:'scout · judge · strategist on the Claude API', k:'sm'},
+  {x:1292,y:788, w:500, h:72, c:G, i:'scale', t:'Audits', d:'contrarian reviews: duels, market, CHA, ops', k:'sm'},
+];
+document.getElementById('nodes').innerHTML = nodes.map(n =>
+  `<div class="card node ${n.k||''}" style="left:${n.x}px;top:${n.y}px;width:${n.w}px;height:${n.h}px;--c:${n.c}">${icon(n.i, n.c)}<div><div class="t">${n.t}</div><div class="d">${n.d}</div></div></div>`).join('') +
+  `<div class="card game" style="left:128px;top:888px;width:1664px;height:76px">${icon('server', B)}<div class="t">The Bazaar · game API</div>
+   <div class="rw"><b style="color:var(--red)">WRITE</b>offers · accepts · threads · duels · venue</div>
+   <div class="rw"><b style="color:var(--blue)">READ</b>me · clock · leaderboard · event stream</div>
+   <div class="lim">ONE TEAM KEY · 5 REQ/S<br>1 ACCEPT PER TICK</div></div>`;
+</script>
+<script src="bz.js"></script>
+</body>
+</html>
