@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sun 10:28** · tick 1738 (15 s/tick) · game hour 14.85 · running · today closes 15:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sun 10:33** · tick 1758 (15 s/tick) · game hour 14.93 · running · today closes 15:00._
 
 ## Team: now and latest
 
@@ -17,25 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Sun: CHA page COMPLETE (+50). RET-11 kept (t13 asks lapsed); MAL decision ≈ 12:00 (Chief); Duels III ≈ 11:00 (duelist stopped on Aleks's machine at 09:46: Chief alerted). (Sat history:) Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
+  - Sun 10:31 · operator · Analyst [V]: the RET-11 sale scored 0 → neg likely capped at 50 per round → MAL-07 closer on HOLD; pivot to the ladder · MAL-09 → Pícaros: **bait and switch** (73 → 50 on MAL-09, then 'final 47' with card:MAL-07), trick guard held 6×, thread 2595 closed, no buy · v10 pair threads: t08 2604, t16 2605, t02 2606; t04 failed (too_many_threads 6), retry after the t13/t15 threads close · cash jump 373 → 433 = Market Test payout (Chief) · ladder plan: LAT-01/03/04 + the LAV-04 spare → Pícaros ≥ 5 (L4); LAT-07/08 fills → Pilar/Chato
   - Sun 10:27 · operator · **RET-11 SOLD to t02 at 240** (t02's public bid 22286: our ask 21836 cancelled, accepted as taker, fee 13; settlement tick 1730) → cash 433 → **660**; expected +29 but neg_points still 50.0 (lag or a per-round cap? asked the Analyst) · cash 373 → 433 earlier with no settlement of ours (bench payout?; market 7.33 → 9.73) · team pings t07/t09/t02 (RET-09 pair, RET-11 nudge): 0 replies · **MAL close GO** (Chief 10:25): threads to t13/t15 (MAL-07/09/10?), Pícaros MAL-09 → MAL-10 at ≤ 49 (value, 0 neg, L4) starting; MAL-07 last → one addressed closer to t15/t13
   - Sun 10:09 · operator · RET-11 → t02 at 240 (21583) expired unfilled → re-posted **21836**, 240, El Rastro, 120 ticks (exp 1783) (Chief: El Rastro, not a member market; Dani's WhatsApp is the trigger) · a watcher re-posts once at 230, then stops
-  - Sun 10:07 · operator · v10 ad (Chief: NO cash rebates, RULES l.71/l.131): first post 10:07:21 {ok: true}: 'v10 (Puesto de Team 5): 0% fee. Selling here instead of El Rastro saves you 5% + 1 P per card. Post your spares open on v10; buyers' bots watch it.' · job run/sunday/v10_ad_sun.py pid 35906, every 15 min until 15:00
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 31.66 | 4 | 21.93 | 9.73 | 0.00 | 0.17 | 0.97 | 64 | 5 | 660 | 50/60 |
+| 31.63 | 4 | 21.88 | 9.75 | 0.00 | 0.25 | 0.97 | 65 | 5 | 614 | 51/60 |
 
-Leaderboard (snapshot at tick 1722; refreshes every few minutes):
+Leaderboard (snapshot at tick 1742; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 12 | 35.14 | 23.36 | 11.78 | 76 |
-| 2 | Team 10 | 33.99 | 21.76 | 12.22 | 68 |
-| 3 | Team 18 | 32.88 | 24.55 | 8.33 | 54 |
-| 4 | Team 5 | 31.66 | 21.93 | 9.73 | 63 |
-| 5 | Team 3 | 29.80 | 22.57 | 7.23 | 39 |
+| 1 | Team 12 | 35.15 | 23.37 | 11.78 | 76 |
+| 2 | Team 10 | 33.82 | 21.61 | 12.21 | 68 |
+| 3 | Team 18 | 32.95 | 24.58 | 8.37 | 54 |
+| 4 | Team 5 | 31.63 | 21.88 | 9.75 | 64 |
+| 5 | Team 3 | 29.81 | 22.52 | 7.28 | 39 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 15.00 | ~9 min | bench | The Market Test: every venue gets the same synthetic book |
-| 15.37 | ~31 min | duels | Duels III: two issues, shorter clock, harder decay |
-| 17.00 | ~129 min | bench | The Market Test: every venue gets the same synthetic book |
-| 18.17 | ~199 min | announce | finale warning |
-| 18.37 | ~211 min | persona | Finale: stalls close |
-| 18.37 | ~211 min | persona | Finale: stalls close |
-| 18.37 | ~211 min | persona | Finale: stalls close |
-| 18.37 | ~211 min | persona | Finale: stalls close |
+| 15.00 | ~4 min | bench | The Market Test: every venue gets the same synthetic book |
+| 15.37 | ~26 min | duels | Duels III: two issues, shorter clock, harder decay |
+| 17.00 | ~124 min | bench | The Market Test: every venue gets the same synthetic book |
+| 18.17 | ~194 min | announce | finale warning |
+| 18.37 | ~206 min | persona | Finale: stalls close |
+| 18.37 | ~206 min | persona | Finale: stalls close |
+| 18.37 | ~206 min | persona | Finale: stalls close |
+| 18.37 | ~206 min | persona | Finale: stalls close |
 
 ## Our dealer deals
 
@@ -58,9 +58,6 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Thread | Dealer | Side | Item | Her first | Our first | Deal | vs her first | Msgs | Status | Closed |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 1533 | pilar | sell | 1 card(s) | 16 | 30 | — | — | 7 | closed |  |
-| 1539 | abuela | buy | LAT-02 | 12 | — | — | — | 2 | closed |  |
-| 1541 | picaros | sell | 1 card(s) | 4 | 12 | — | — | 7 | closed |  |
 | 1544 | banco | buy | sobre_oro | 546 | — | — | — | 2 | closed |  |
 | 1554 | picaros | sell | 1 card(s) | 4 | 10 | — | — | 9 | closed |  |
 | 1582 | abuela | buy | LAT-12 | — | — | — | — | 2 | closed | not_traded |
@@ -85,7 +82,8 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | 2330 | abuela | buy | CHA-06 | 29 | 12 | — | — | 9 | closed |  |
 | 2340 | abuela | buy | CHA-08 | 29 | 12 | 21 | -28% | 11 | deal |  |
 | 2351 | abuela | buy | CHA-06 | 29 | 14 | 22 | -24% | 15 | deal |  |
-| 2595 | picaros | buy | MAL-09 | 73 | 38 | — | — | 4 | open |  |
+| 2595 | picaros | buy | MAL-09 | 73 | 38 | — | — | 11 | closed |  |
+| 2610 | picaros | buy | MAL-10 | 73 | 38 | 46 | -37% | 11 | deal |  |
 
 ## Abuela benchmark: every team's deals with her (public feed)
 
