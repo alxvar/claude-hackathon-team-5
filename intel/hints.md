@@ -360,3 +360,5 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 10:47 · egg.found tick 1814 · chato → t02 · {"persona": "chato", "persona_name": "El Chato", "team": "t02", "name": "Team 2"}
 - Sun 10:47 · egg.given tick 1814 · chato → t02 · {"team": "t02", "name": "Team 2", "cash": 0, "packs": ["sobre_barrio"], "cards": [], "reason": "easter egg"}
 - Sun 10:47 · message tick 1814 · banco → t12 · Stories keep. La Reina de la Movida does not. Seven hundred sixty-one, señor. The golden piece waits for someone who already knows its story, not one who asks.
+- Sun 10:48 · message tick 1818 · banco → t12 · That is Spain's gold, señor, not mine. The golden chulapa has its own story, and you have not told it. La Reina de la Movida: seven hundred sixty-one. Unchanged.
+- Sun 10:49 · taller.crafted tick 1819 ·  → t02 · Team 2 turned three common cards into La Vía Láctea (uncommon) at The Workshop
