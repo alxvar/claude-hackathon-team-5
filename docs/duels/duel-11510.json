@@ -69,6 +69,119 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1901,
+   "raw": {
+    "duel": 11510,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Vinilo de la Movida",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 0.39,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 129,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 1909,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 12498,
+     "price": 81,
+     "tick": 1897,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 12596,
+     "price": 134,
+     "tick": 1901,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1897,
+      "from": "you",
+      "text": "I'd like to propose 81 P with delivery on day 0.",
+      "price": 81,
+      "days": 0
+     },
+     {
+      "tick": 1901,
+      "from": "Rival Verde",
+      "text": "Hola. This one is in perfect condition. 134 P, delivery day 10.",
+      "price": 134,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1901,
+   "raw": {
+    "duel": 11510,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Vinilo de la Movida",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 0.39,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 129,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Verde",
+    "deadline_tick": 1909,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 12606,
+     "price": 83,
+     "tick": 1901,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 12596,
+     "price": 134,
+     "tick": 1901,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1897,
+      "from": "you",
+      "text": "I'd like to propose 81 P with delivery on day 0.",
+      "price": 81,
+      "days": 0
+     },
+     {
+      "tick": 1901,
+      "from": "Rival Verde",
+      "text": "Hola. This one is in perfect condition. 134 P, delivery day 10.",
+      "price": 134,
+      "days": 10
+     },
+     {
+      "tick": 1901,
+      "from": "you",
+      "text": "Entiendo, pero veo una brecha grande. Ofrezco 83 P con entrega en día 10.",
+      "price": 83,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -192,6 +305,113 @@
     "ACCEPT_BY": 1,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1901,
+   "took_s": 1.1,
+   "cost_usd": 0.00111,
+   "obs": {
+    "view": {
+     "duel_id": 11510,
+     "role": "buyer",
+     "limit": 129,
+     "currency": "P",
+     "item": "Vinilo de la Movida",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 0.39,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to propose 81 P with delivery on day 0.",
+      "offer": {
+       "price": 81,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1897,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hola. This one is in perfect condition. 134 P, delivery day 10.",
+      "offer": {
+       "price": 134,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1901,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 134,
+     "days": 10
+    },
+    "tick": 1901,
+    "ticks_left": 8,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "Entiendo, pero veo una brecha grande. Ofrezco 83 P con entrega en día 10.",
+    "price": 83,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "give",
+     "rule": "code step",
+     "step": 6.83,
+     "closing": false,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.1,
+       "in": 930,
+       "out": 36,
+       "cost_usd": 0.00111,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ]
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -226,6 +446,42 @@
      "price": 81,
      "tick": 1897,
      "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1901,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Entiendo, pero veo una brecha grande. Ofrezco 83 P con entrega en día 10.",
+    "price": 83,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "give",
+     "rule": "code step",
+     "step": 6.83,
+     "closing": false,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.1,
+       "in": 930,
+       "out": 36,
+       "cost_usd": 0.00111,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 11510,
+    "offer": {
+     "id": 12606,
+     "price": 83,
+     "tick": 1901,
+     "days": 10
     }
    }
   }
