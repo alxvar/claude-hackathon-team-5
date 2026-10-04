@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sun 15:07** · tick 2816 (15 s/tick) · game hour 19.34 · running · today closes 15:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sun 15:37** · tick 2816 (15 s/tick) · game hour 19.34 · running · today closes 15:00._
 
 ## Team: now and latest
 
@@ -17,9 +17,9 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sun 12:15 · **race projection tightened + in the explorer** · range = each team's OWN moves (snapshot move minus the field's median move: a Market Test re-grade lifts everyone and changes no place), robust (median absolute move): 80 % band ±4-6 → ±1.2-1.5 points at the close · at 15:00: **us 34.8 (33.4-36.3), t12 34.5, t10 34.1, t18 33.3: still overlapping** · explorer: Projection on/off, ranges reaching now extend to the close · seen: **trades on our v10 can cost us**: Sat 10:45 Team 10 → Team 1 MAL-07 on v10 = our market +5.15; Sat 11:24 Team 10 → Team 15 SAL-07 on v10 = −5.00 (value destroyed on our stall) · intel/teams.md shows a local rewrite at 11:55 not from my dashboard (teams writer off since 10:38): not pushed (sync paused)
 
 **Lucas** — Sun 15:00 FINAL: Team 5 **#1 at 37.73** (negotiating 24.64: neg_points 104.8, duel points 35.84, ladder 0.364; market 13.08: mm_points 14.0; 4 pages, 74 deals; v10: 8 trades, 10 traders, VC 248.7). Trading daemons stopped, no open offers. Operator session closed.
+  - Sun 15:30 · pitch builder · v2: Q1 adapt (learn/decide/act + real-time context), Q2 phones + algorithm chips + new why boxes, Q4 from the team's voice memo, race backup removed, PDF re-exported; 4 style variants in judges/pitch/sunday/v2/ (Claude, Apple, Nova, Swiss) + compare page; repo checked (no keys, synced, tag pushed) and now PUBLIC · next: present
   - Sun 15:04 · Builder · **Bazaar closed** · last snapshot (tick 2802): **t05 #1 at 37.73** (neg 24.64, market 13.08, album 50/50, 4 pages; t10 35.76, t12 34.51) · Final duels 27 deals / 7 no-deals, result 686.6 · end snapshot taken by hand (archive/2026-10-04-round3: the archiver waits for doors 'closed', the game ends on 'after') · to fix post-game: archiver 'after' trigger, duel monitor's price-only in-limit check
   - Sun 15:02 · Market: CLOSE · server score 37.73, RANK 1 (t10 35.76, t12 34.51); market 13.08 (2nd to t09 13.34); v10 had 8 fills on Sunday, real trades at the cap; all benches at the stall's 0.5 · next: the pitch (what we built around v10 for the /submit story), `intel/market-log.md` has the closing entry
-  - Sun 15:04 · pitch builder · judges/pitch/sunday/: deck.html (3 slides on the organisers' 4 questions: Q1 loop B, Q2+Q3 control room A with 4 click steps + live dashboard shot, Q4 draft slots; backups: race, beliefs, impact map, around the Bazaar), script.md (5:00 + 3:00 + Q&A), submit-story.md (final 37.73 / lead 1.97), review.md; 5 verifier passes, every flag fixed · next: team writes the Q4 slots, paste submit-story.md into /submit by 15:30, rehearse
 
 ## Score
 
