@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 13:30 · floors → 0 at 13:30:17 (floors_1330.sh): trader + opps restarted with CASH_FLOOR=0, El Rastro routing (daemons.env), rivals excluded · live: LAT-06/07/08 at 14 (till 13:55), MAL-09 v01 chain (27446 → t01)
 - Sun 13:28 · MAL-09 chain on v01 (Chief 13:30, Lucas; Team 6 lobbies the sellers): mal09_v01.py: 27446 → t01 (live) → on lapse t09 → t15, 60, 40 ticks, always addressed; accepts a counter to us on v01 ≤ 75 (cancels ours first); never t04/t10/t12/t13/t17/t18; cutoff 14:55
 - Sun 13:25 · MAL-09: 26796 (t01, 60, El Rastro) lapsed unfilled at 2408 · Lucas: goodwill to t06's venue → **27446** on v01 (Mercado Team 6, board, 0%) → t01, 60, exp 2482 (+35 if filled), no auto re-post · Chief agreed: no dealer buy threads (losses count in full)
 - Sun 13:11 · **6th v10 settlement** #1453 t01 ↔ t08 LAT-08 at 22 → bounty #5 (last slot): seller t01, in kind LAT-02 at 5 = value, offer 27109; all 5 bounty slots used (ad → base line) · Chief asked for haggled dealer BUYS for the ladder (Chato L2 empty): NOT started, recommended against: dealer losses count in full [V Sat: RET-09 at 87, worth 77 → −10]; Chato's uncommons list 26 (buy finals ≈ 30) vs our LAT 12.5, rares 77 vs 35, silver pack 150-188 → ≈ −14 to −60 np per buy vs +0.4-0.6 per L2 slot; buys DO count for the ladder (L1 CHA buys, L4 CHA-09/MAL-10 buys) · best-3: L1 full, L2 0/3, L3 3/3, L4 3/3, L5 locked
