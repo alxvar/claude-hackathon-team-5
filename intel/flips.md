@@ -1,6 +1,6 @@
 # Flips: team bids a dealer can fill (Team 10's playbook)
 
-_Written by `tools/reactor.py` at 12:20 (tick 2183). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
+_Written by `tools/reactor.py` at 12:21 (tick 2187). The open team bids for rare, epic and legendary cards seen in the last 2 h (cancelled and expired ones dropped; one may have filled since), with the cheapest dealer that sells the rarity (menu list price; the median of its last 2 h of sales when lower) while copies are unminted. FLIP: bid >= dealer + 30 and our est. score >= +20, never t10's bid. Read-only: the Operator executes._
 
 ## Open bids (HUNT digest)
 
@@ -9,16 +9,17 @@ _Written by `tools/reactor.py` at 12:20 (tick 2183). The open team bids for rare
 | 175 | LAV-11 La Casa Encendida (epic) | t12 | v21 → t04 | none (all minted or no dealer) | - | 25303 | 12:47 |
 | 175 | LAV-11 La Casa Encendida (epic) | t12 | v21 → t06 | none (all minted or no dealer) | - | 25306 | 12:47 |
 | 175 | LAV-11 La Casa Encendida (epic) | t12 | v21 → t14 | none (all minted or no dealer) | - | 25307 | 12:47 |
+| 174 | SAL-11 La Puerta de Alcalá (epic) | t03 | rastro | none (all minted or no dealer) | - | 25408 | 12:28 |
 | 170 | SAL-11 La Puerta de Alcalá (epic) | t03 | rastro | none (all minted or no dealer) | - | 25355 | 12:26 |
 | 113 | RET-11 Palacio de Cristal (epic) | t06 | v19 → t10 | picaros 145 | -32 | 25057 | 12:39 |
 | 112 | LAV-11 La Casa Encendida (epic) | t17 | rastro | none (all minted or no dealer) | - | 25046 | 12:24 |
 | 81 | MAL-11 La Sala Pentagrama (epic) | t06 | v21 | picaros 145 | -64 | 24796 | 12:30 |
-| 76 | CHA-11 Andén 0 (epic) | t10 | rastro | picaros 145 | -69 | 24621 | 12:22 |
-| 44 | LAT-09 San Isidro (rare) | t06 | v21 | picaros 56 | -12 | 24850 | 12:31 |
+| 76 | CHA-11 Andén 0 (epic) | t10 | rastro | picaros 145 | -69 | 24621 | 12:23 |
+| 44 | LAT-09 San Isidro (rare) | t06 | v21 | picaros 56 | -12 | 24850 | 12:32 |
 | 44 | LAT-10 El Mesón de la Cava (rare) | t06 | v21 | picaros 56 | -12 | 24880 | 12:33 |
 | 31 | MAL-09 La Heroína del Dos de Mayo (rare) | t06 | v21 | picaros 56 | -25 | 24986 | 12:38 |
-| 24 | LAV-09 Cine Doré (rare) | t08 | v05 → t16 | picaros 56 | -32 | 25373 | 12:20 |
 
 ## Flips today (newest last)
 
 - FLIP-HOLD 20754 · CHA-01 Andén de Metro (common) · t18 bids 72 P on rastro · dealer abuela est. 9 (list 10, 298 unminted) · our value 4 · est. score +45 (buy -5, sell +50 at 71) · cash 497 → 488 after the buy · until 10:29 · held: t18 is a live rival (top 6 or within 3 of us)
+- FLIP 25379 · CHA-01 Andén de Metro (common) · t16 bids 40 P on rastro · dealer abuela est. 10 (list 10, 294 unminted) · our value 4 · est. score +29 (buy -6, sell +35 at 39) · cash 662 → 652 after the buy · until 12:30
