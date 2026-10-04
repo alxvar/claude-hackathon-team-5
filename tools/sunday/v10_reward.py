@@ -4,7 +4,14 @@ teams: we cannot trade on our own venue), buy ONE spare card from one of its par
 (v21; v05 if the party is t09), never v10 or v24 and never the party's own venue. Each buy is logged with its v10 settlement id.
 LAT first copies only: MAL-07/09 stay with mal_close.py (never two live MAL bids). Holdings are evidence from the feed
 (settlement items, offer.listed gives). Counterparty passes policy.check (no rivals), never t10; at most 2 rewards per team
-(a cap against two teams farming it with empty trades). One addressed bid per reward, 120 ticks, not re-posted."""
+(a cap against two teams farming it with empty trades). One addressed bid per reward, 120 ticks, not re-posted.
+
+BOUNTY (GUARDRAIL 11:25, Lucas's explicit call; the Chief flagged the fair-play review risk): the FIRST 3 trades settled
+on v10 between two other teams (any team except t10), max 1 per seller, pay the SELLER a 10 P bonus: one addressed
+want-card bid to the seller for a card the feed shows it holds, at our value + 10 (max 10 P over value), on v21 (v05 if
+the seller is t09). Prefer a LAT first copy we lack; otherwise any card, most recently seen first. MAL-07/09 are left out
+(mal_close.py owns them: never two live MAL bids). Each bounty is logged with its v10 settlement id. Later trades get
+the LAT reward above."""
 import os, sys, json, time
 ROOT = '/Users/lucaswiese/Documents/claude-hackathon-team-5'
 sys.path.insert(0, ROOT + '/bazaar-kit'); sys.path.insert(0, ROOT + '/tools')
@@ -26,6 +33,8 @@ def retry(f, *a, **kw):
 
 try: st = json.load(open(STATE))
 except Exception: st = {"done": [], "bids": []}   # bids: {settlement, team, card, price, offer, venue}
+st.setdefault("bounties", []); st.setdefault("bounty_trades", [])
+BOUNTIES, BONUS = 3, 10
 def save():
     json.dump(st, open(STATE + '.tmp', 'w'), indent=1); os.replace(STATE + '.tmp', STATE)
 
@@ -40,8 +49,50 @@ def learn(e):
         for a in (o.get('give') or {}).get('assets') or []:
             if a.get('kind') == 'card' and o.get('maker', '').startswith('t'): owner[a['id']] = (o['maker'], a.get('ref'))
 
+seen_at = {}   # asset id -> feed id of the latest evidence (recency for the bounty's fallback card)
+_learn = learn
+def learn(e):
+    _learn(e)
+    p = e.get('payload') or {}
+    ids = [it['id'] for it in p.get('items') or [] if it.get('kind') == 'card'] if e['type'] == 'settlement' else \
+          [a['id'] for a in ((p.get('offer') or {}).get('give') or {}).get('assets') or [] if a.get('kind') == 'card'] if e['type'] == 'offer.listed' else []
+    for i in ids: seen_at[i] = e.get('id', 0)
+
 def holds(team):
     return {ref for t, ref in owner.values() if t == team}
+
+def holds_recent(team):
+    """Refs the feed shows `team` holding, most recent evidence first."""
+    out = []
+    for i in sorted((i for i, (t, r) in owner.items() if t == team), key=lambda i: -seen_at.get(i, 0)):
+        if owner[i][1] not in out: out.append(owner[i][1])
+    return out
+
+def seller_of(p):
+    cards = [it for it in p.get('items') or [] if it.get('kind') == 'card']
+    return cards[0].get('frm') if cards else None
+
+def bounty_eligible(p):
+    parties = [t for t in p.get('parties') or [] if t]
+    if len(parties) != 2 or not all(t.startswith('t') for t in parties) or 't05' in parties or 't10' in parties: return False
+    s = seller_of(p)
+    return bool(s) and len(st['bounty_trades']) < BOUNTIES and all(x['seller'] != s for x in st['bounties'])
+
+def bounty(e):
+    p = e['payload']; sid = p['settlement']; s = seller_of(p)
+    st['bounty_trades'].append(sid); st['done'].append(sid); save()
+    held = {a['ref'] for a in retry(b.me)['assets']}
+    recent = [c for c in holds_recent(s) if not c.startswith('MAL-')]
+    pick = next((c for c in recent if c in WANT and c not in held), None) or (recent[0] if recent else None)
+    if not pick:
+        st['bounties'].append({"settlement": sid, "seller": s, "card": None, "price": 0, "offer": None}); save()
+        log(event="bounty_skip", settlement=sid, seller=s, why="no card of the seller's known from the feed"); return
+    v = float(retry(b.value, pick)['your_value']); price = int(v) + BONUS
+    venue = 'v05' if s == 't09' else 'v21'
+    r = retry(b.list_offer, give={"cash": price}, want={"types": [f"card:{pick}"]}, venue=venue, to=s, expires_in_ticks=120)
+    st['bounties'].append({"settlement": sid, "seller": s, "card": pick, "price": price, "value": v, "offer": r.get('id'), "venue": venue}); save()
+    log(event="bounty", n=len(st['bounty_trades']), settlement=sid, seller=s, card=pick, price=price, value=v,
+        lacked=pick in WANT and pick not in held, venue=venue, offer=r.get('id'), exp=r.get('expires_tick'))
 
 def committed():
     """P in reward bids that are open or filled (an expired/cancelled one releases its budget)."""
@@ -101,7 +152,7 @@ while time.strftime('%H%M') < '1400':
         p = e.get('payload') or {}
         if e['type'] == 'settlement' and p.get('venue') == 'v10' and p.get('kind') == 'trade':
             log(event="v10_trade", settlement=p.get('settlement'), parties=p.get('parties'), items=[i.get('ref') for i in p.get('items') or []], price=p.get('price'))
-            try: reward(e)
+            try: bounty(e) if bounty_eligible(p) else reward(e)
             except Exception as ex: log(event="error", settlement=p.get('settlement'), err=repr(ex)[:200])
     time.sleep(5)
 log(event="end", why="14:00 cutoff (new dealer/thread cut; rewards stop)")

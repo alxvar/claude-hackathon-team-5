@@ -8,6 +8,13 @@ def full(cards):
     return (f"v10 (Puesto de Team 5), 0% fee: standing bids live now for {', '.join(cards[:-1]) + ' and ' + cards[-1] if len(cards) > 1 else cards[0]} "
             "at 6 P, and they fill in the same tick. Post your spares on v10. Deal reward: close a trade on v10 and Team 5 buys "
             "one of your spare LAT cards at a fair price.")
+BOUNTY = ("v10 (Puesto de Team 5), 0% fee: the first 3 trades on v10 today earn the seller a 10 P bonus from Team 5. "
+          "Post your spares on v10.")  # Chief 11:25; posted only while bounty slots remain (run/v10_reward.json)
+
+def bounty_open():
+    try: return len(json.load(open("/Users/lucaswiese/Documents/claude-hackathon-team-5/run/v10_reward.json")).get("bounty_trades", [])) < 3
+    except Exception: return True
+
 BASE = ("v10 (Puesto de Team 5), 0% fee. Post your spares on v10. Deal reward: close a trade on v10 and Team 5 buys one "
         "of your spare LAT cards at a fair price.")
 URL = os.environ["BAZAAR_URL"]
@@ -33,10 +40,10 @@ def _bids_live():
 
 time.sleep(float(sys.argv[1]) if len(sys.argv) > 1 else 0)  # optional start delay (1 announcement per 20 ticks)
 while time.strftime("%H%M") < "1500":
-    cards = bids_live()
-    text = full(cards) if cards else BASE
+    cards = [] if bounty_open() else bids_live()
+    text = BOUNTY if bounty_open() else (full(cards) if cards else BASE)
     try:
-        print(time.strftime("%H:%M:%S"), "ANNOUNCE", ("full " + ",".join(cards)) if cards else "base", br.announce(text), flush=True)
+        print(time.strftime("%H:%M:%S"), "ANNOUNCE", "bounty" if text is BOUNTY else ("full " + ",".join(cards)) if cards else "base", br.announce(text), flush=True)
     except Exception as e:  # noqa: BLE001
         print(time.strftime("%H:%M:%S"), "ERR", repr(e)[:150], flush=True); time.sleep(60); continue
     time.sleep(900)

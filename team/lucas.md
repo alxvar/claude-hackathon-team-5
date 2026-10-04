@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 11:27 · v10 first-trades bounty (GUARDRAIL 11:25, Lucas's explicit call; the Chief flagged the fair-play review risk) · v10_reward.py (pid 50163): the first 3 v10 trades between two other teams (not t10), max 1 per seller → ONE addressed want-card bid to the SELLER at our value + 10 on v21 (v05 for t09); LAT first copy we lack preferred, else the seller's most recently seen card; MAL excluded (mal_close owns MAL: never two live MAL bids); logged with the v10 settlement id; later trades → the LAT reward (≤ value) · dry run OK (3 bounties, t10 excluded, repeat seller → reward) · score cost ≤ ≈ 1 neg pt: uncapped neg ≈ 79 (CHA closer +50, RET-11 +29) − 30 → ≈ 49 · ad → bounty text while slots remain (pid 50221, next ≈ 11:36), then the CHA-bids/base line
 - Sun 11:19 · Duel Lab · review of the Builder's 11124 fix (duelist-loop 506a2fd: runner due()/closing() accept after a send on the last tick + 2 tests) · **GO**: 581 tests pass on a scratch copy; diff matches the spec · after the restart re-approve MIN_STEP_P 15 (use C reinstalls 8), then the first-wave checklist
 
 - Sun 11:16 · Builder · duelist-loop **506a2fd**: last-tick accept after our send (duel 11124: their 60 d0, +20, never accepted) · runner closing()/due() · test fails on 29aa1be, 581 green · Aleks restarts between Duels III and the Final (keep the C+ overrides) · also today: club markets read live 48a1a5b, DMs 'venue twice' 8bab5c9, venue pact flag OFF 5c976e2
