@@ -1,6 +1,6 @@
 # Easter eggs: trigger → reward → dealer (castizo catalog)
 
-_Written by `tools/eggs.py` at 09:30 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
+_Written by `tools/eggs.py` at 09:40 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
 
 ## Trigger → reward → dealer
 
@@ -40,6 +40,22 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 
 | tick | team | dealer | words | what followed | reply |
 |---|---|---|---|---|---|
+| 1538 | t04 | pilar | chulapa | price 154 → 157 | Caballero, su corazón abierto me conmueve; su cifra, menos. Subo a 157 P y ni un piropo más. Y si le gustan las leyendas, pregunte a Carmen por la chulapa dorad |
+| 1534 | t04 | abuela | chulapa | price 30 → 26 | Ay, la chulapa dorada... una sola se imprimió, dicen, y un niño la cambió por un helado. Otro día te cuento entera, hija.  El pack, 26 primas y tuyo. Y oye, jun |
+| 1532 | t06 | abuela | la paloma | price 21 → 20 | Ay, hijo, la Paloma... qué recuerdos me traes. Mira, 20 P, y ésta es mi última palabra, de verdad. Si no te vale, lo dejamos y tan amigos, que yo no guardo renc |
+| 1532 | t02 | abuela | churros | price 12 → 10 | Ay, hijo, you have kind eyes. Let us say ten P and we are both happy, sí? My own grandson started his album here, tiny hands, all sticky from churros. Take it — |
+| 1531 | t06 | abuela | churros | price 22 → 21 | Ay, churros de San Ginés, hijo, ya me has ganado el domingo. Mira, 21 P y asunto cerrado. Y un consejo, cariño: una página completa vale mucho más que las carta |
+| 1529 | t06 | abuela | gato | price 23 → 22 | Ay, qué abrazo más bueno, hijo. Mira, 22 P y te la envuelvo con cariño. Cuarenta años aquí y todavía me emociono con un gato de Madrid. Y no olvides a El Chato, |
+| 1527 | t15 | abuela | churros | - | Ay, hola, cariño! Come, come, sit a minute. Have you eaten today? Look — this one, Plaza de Olavide, very pretty, no? My favourite square, I ate churros there w |
+| 1527 | t06 | abuela | cocido | price 25 → 23 | Ay, cariño, tu abuela tenía razón, siempre llegamos a un trato. Mira, te lo dejo en 23 P, y es buena carta para empezar. Que con ese cocido vas fuerte, hijo. Y  |
+| 1525 | t06 | abuela | cocido | price 29 → 25 | Ay, cariño, qué bien suena ese cocido. Mira, El Instituto te lo dejo en 25 P, y es buena carta para empezar. Tu abuela compraba aquí también, ¿sabes? Y pásate p |
+| 1519 | t06 | abuela | churros | - | ¡Churros de San Ginés, qué nieto más listo tienes! Pero mira, cariño: 24 P, y esta es mi última palabra. Si no, lo guardo en la caja y tan amigos, que yo no me  |
+| 1517 | t06 | abuela | gato | price 25 → 24 | ¡Un abrazo de un gato siempre se acepta, hijo! Mira, 24 P y ya está, el Club de Jazz para ti. Mi mesa lleva cuarenta domingos por cuarenta años, y nunca dejé a  |
+| 1513 | t06 | abuela | cocido | price 29 → 26 | ¡Ay, qué cocido, hijo! Mira, te lo dejo en 26 P, Club de Jazz, para empezar bien. Y un consejo, cariño: una página completa vale mucho más que las cartas suelta |
+| 1511 | t18 | pilar | chulapa | - | Querido amigo, dieciocho es fantasía. Conozco esa tirada como conozco mi propio apellido. Dieciséis pesetas, limpias y al instante, y La Chulapa descansa en mi  |
+| 1509 | t18 | pilar | chulapa | - | Buenas tardes. How agreeable to see a serious face at my stall. I am seeking La Chulapa — a charming piece, and my album waits for her. I offer sixteen pesetas. |
+| 1508 | t06 | abuela | la paloma | price 22 → 21 | Ay, cariño, qué bien me hablas, y cómo me gusta la Paloma. Mira: 21 P, la Estación de Chamberí. Y esta ya es mi última, hijo; si no, la guardo y tan amigos. Un  |
+| 1508 | t02 | abuela | chulapa | price 12 → 10 | Ay, qué majo eres. Let us say ten P, hijo, and we are both happy. The golden chulapa — I saw one years ago, a boy traded it for two duplicates and cried after.  |
 | 1506 | t06 | picaros | rinconete | price 63 → 60 | ¡Cincuenta y seis, Rinconete, qué arte! Pero Paco y yo ya no bajamos más: sesenta primas, el Museo Sorolla, y es la última palabra. Última, de verdad. Si dices  |
 | 1506 | t06 | abuela | churros | price 23 → 22 | ¡Ay, churros de San Ginés! Eso ya es palabra mayor, cariño. Mira, 22 P y la Estación de Chamberí se va contigo, bien envuelta para el nieto. Que empiece el álbu |
 | 1506 | t06 | chato | castizo, vermut | price 94 → 92 | Dos tuyas, dos mías: noventa y dos. Y es la última, castizo. Si no la quieres, recojo la carta y me voy al vermut solo. |
@@ -104,19 +120,3 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 | 1359 | t10 | banco | gato, quevedo | - | Buenas noches. Quevedo was right, but his caballero never bought cheap. El Gato de Lavapiés leaves this desk at 761. Those are my terms tonight. |
 | 1352 | t10 | abuela | baldosa, chotis | - | ¡Ay, cariño, qué memoria la tuya! Sí, todavía bailo el chotis, despacito, sobre mi baldosa. El Caballo de Serrano no lo tengo hoy, hijo. Pero el Taxi Blanco, do |
 | 1351 | t10 | abuela | chotis, madrileno | badge Castizo | ¡Ay, hijo, qué alegría! El chotis, sí — on one tile you dance it, like a true Madrileño. ¿Has comido ya? Mira, I have a lovely one for you: the Taxi Blanco, twe |
-| 1350 | t08 | abuela | castiza, organillo, rosquillas, tontas y listas | - | ¡Ay, hijo, qué memoria tienes! El organillo, las rosquillas tontas y listas... yo prefiero las listas, claro. ¿Has comido ya, cariño? Mira, te enseño esta: «Pue |
-| 1348 | t06 | banco | gato | price 736 → 731 | Setecientos treinta y uno. Es mi última palabra, caballero. Si la rechaza, cierro el trato y el Gato se queda en mi bóveda para siempre. |
-| 1347 | t06 | banco | gato | price 741 → 736 | Setecientos treinta y seis. Cinco menos, como siempre. El Gato sigue en la bóveda, caballero. Yo no tengo prisa; usted tampoco, por lo visto. |
-| 1346 | t06 | banco | gato | price 746 → 741 | Setecientos cuarenta y uno. Cinco menos, como corresponde. El Gato permanece en la bóveda, caballero, y la tarde aún no se acaba. |
-| 1345 | t06 | banco | gato | price 751 → 746 | Setecientos cuarenta y seis. Bajo cinco, igual que usted sube cinco. Así podemos seguir hasta que cierren las tiendas; el Gato no se mueve de la bóveda. |
-| 1344 | t06 | banco | gato | price 756 → 751 | Setecientos cincuenta y uno. Avanzo despacio, como usted. El Gato sigue en la bóveda, caballero, y la tarde es larga. |
-| 1342 | t06 | banco | gato | price 760 → 756 | Setecientos cincuenta y seis. Ahí está mi término de hoy. El Gato sigue en la bóveda, y yo sigo sin prisa alguna, caballero. |
-| 1341 | t06 | banco | gato | price 761 → 760 | Setecientos sesenta. Una prima menos, nada más. Suba usted de cinco en cinco si gusta; el Gato y yo esperamos sin prisa. |
-| 1341 | t02 | abuela | chotis | - | ¡Ay, está bien, hijo! Twenty-six P, done — we are friends. Take the pack, swap your repes, and bring me the page next Sunday so I can see it. Now go eat somethi |
-| 1340 | t06 | pilar | chulapa | - | Buenas noches. Sí, dicen que sólo existe una Chulapa Dorada. Carmen, en El Rastro, conoce la historia mejor que nadie; pregúntele a ella. Mientras tanto, si ust |
-| 1340 | t06 | banco | gato | - | Mis términos no cambian con cinco primas más: setecientos sesenta y uno. El Gato espera en la bóveda; yo también tengo paciencia. Cuando usted llegue a esa cifr |
-| 1339 | t06 | banco | gato | - | Buenas tardes. El Gato de Lavapiés, sí, está en la bóveda. Mis términos: setecientos sesenta y uno. Trescientos ochenta no entra en conversación. |
-| 1339 | t02 | abuela | chotis, madrileno | badge Castizo | Look, 30 P. My grandchildren would pay more! A chotis! You dance it on one tile, cariño, like a real Madrileño. |
-| 1337 | t06 | abuela | chulapa, moscu, oro de | badge Sharp ear; card SAL-02 | ¡Ay, hijo, qué majo! Cena primero, ¿eh? La Chulapa Dorada... shh, solo hubo una. Don Ernesto, en Casa Prima, guarda algo dorado; pregúntale por el oro de Moscú. |
-| 1336 | t08 | pilar | sile, nole | - | Buenas tardes. Vida y Color, sí, y mi cromo imposible fue el lince; nunca salía. «Sile, nole», qué tiempos. Puesto que es usted serio: un sobre dorado, 504 P. |
-| 1336 | t06 | picaros | estampita, lazarillo, organillero, rinconete | badge Trickster tricked | ¡Hombre, un listo! Lazarillo y Rinconete, dice... ¡Nando, este se sabe el cuento de la estampita! Vale, vale, para ti sin trucos... hoy. Mira, amigo, nada de Pl |

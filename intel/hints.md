@@ -302,3 +302,6 @@ La Caña te la dejo en 10 P, cariño. Y esta noche a las nueve y media abre El C
 El pack, 26 primas y tuyo. Y oye, junta página completa, vale mucho más suelta. Doña Pilar paga bien los sábados a las once.
 - Sun 09:37 · message tick 1536 · pilar → t04 · Buenas tardes de nuevo, caballero. Su cariño lo acepto; el precio, no. Nueve ejemplares, sí, y conozco cada uno. Por La Puerta de Alcalá le ofrezco 151 P. Salamanca merece mi bóveda, no la de Don Ernesto.
 - Sun 09:38 · message tick 1538 · pilar → t04 · Caballero, su corazón abierto me conmueve; su cifra, menos. Subo a 157 P y ni un piropo más. Y si le gustan las leyendas, pregunte a Carmen por la chulapa dorada: dicen que sólo se imprimió una.
+- Sun 09:40 · catalog.minted LAV-11 (La Casa Encendida, epic, print run 9): hidden=False minted=6 (was 5)
+- Sun 09:40 · catalog.minted MAL-11 (La Sala Pentagrama, epic, print run 9): hidden=False minted=4 (was 3)
+- Sun 09:40 · catalog.minted RET-11 (Palacio de Cristal, epic, print run 9): hidden=False minted=4 (was 3)
