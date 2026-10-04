@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 14:03 · the Market's final v10 announcement (ES/EN) posted once 14:03:31, RET-01 clause dropped (not on v10's board in 4 reads; CHA-02/03 at 6, LAT-01 at 2, RET-04 ask at 8 were there) · v10_ad_sun.py stopped: its fallback promised the LAT reward and the reactor ended at 14:00 · MAL-09 round 2: 28505 (t01) lapsed → 28643 → t09 at 75, exp 2609
 - Sun 14:01 · Finale: all 5 dealer stalls CLOSED at 14:01 → ladder final at 0.364 (L1 full, L2 empty, L3 3/3, L4 3/3) · the Grand Final duel wave is the duelist's · still running till 15:00: trader (floor 0, El Rastro, rivals excluded), MAL-09 round 2 on v01 (75; counter-watch till 14:55)
 - Sun 13:57 · MAL-09 round 2 (Chief 13:58): mal09_v01b.py (pid 40809): v01, addressed, 75, 20 ticks each, t01 → t09 → t15, no posts after 14:50; counter-watch (≤ 75 to us on v01) till 14:55 · first **28505** → t01, exp 2588
 - Sun 13:57 · MAL-09 chain done: t15 28039 lapsed too (t01, t09, t15 all passed at 60 on v01) → MAL 9/10 · window.sh STOPPED opps/swaps/recorder 13:56 for the Final duels (no restart) · no offers of ours live; trader running (floor 0) · neg 104.8, #1
