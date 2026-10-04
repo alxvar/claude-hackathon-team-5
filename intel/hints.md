@@ -406,3 +406,4 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 12:35 · egg.found tick 2244 · chato → t01 · {"persona": "chato", "persona_name": "El Chato", "team": "t01", "name": "Team 1"}
 - Sun 12:35 · egg.given tick 2244 · chato → t01 · {"team": "t01", "name": "Team 1", "cash": 0, "packs": ["sobre_barrio"], "cards": [], "reason": "easter egg"}
 - Sun 12:35 · message tick 2244 · pilar → t17 · Caballero, my patience is long but my purse is not. Seventeen primas, as I said — the figure will not grow. Decide, por favor. And if you crave legends, ask Carmen at El Rastro about the golden chulapa.
+- Sun 12:37 · message tick 2250 · pilar → t01 · Sin prisa, entonces, caballero: quinientos pesos. Ni uno menos. Un sobre dorado mío no es mercancía de cambio apresurado; es pieza de colección. Piénselo con calma, que aquí estaré.
