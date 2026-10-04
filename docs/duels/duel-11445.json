@@ -244,6 +244,80 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 2023,
+   "raw": {
+    "duel": 11445,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "San Isidro",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.94,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 94,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Azul",
+    "deadline_tick": 2025,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 15477,
+     "price": 88,
+     "tick": 2023,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 15414,
+     "price": 103,
+     "tick": 2019,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 2013,
+      "from": "you",
+      "text": "I'd like to open at 134 P for delivery on day 10.",
+      "price": 134,
+      "days": 10
+     },
+     {
+      "tick": 2019,
+      "from": "you",
+      "text": "I can do 119 P, delivery on day 10.",
+      "price": 119,
+      "days": 10
+     },
+     {
+      "tick": 2019,
+      "from": "Rival Azul",
+      "text": "Propongo este precio, creo que es justo para los dos.",
+      "price": 103,
+      "days": 0
+     },
+     {
+      "tick": 2022,
+      "from": "you",
+      "text": "I can do 103 P, delivery on day 10.",
+      "price": 103,
+      "days": 10
+     },
+     {
+      "tick": 2023,
+      "from": "you",
+      "text": "I can do 88 P, delivery on day 10.",
+      "price": 88,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1147,6 +1221,121 @@
      "days": 10
     }
    }
+  },
+  {
+   "tick": 2023,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 88 P, delivery on day 10.",
+    "price": 88,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 24.7,
+     "closing": true,
+     "text": "rejected: plain words",
+     "text_problems": [
+      "the message names 10: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "Ese precio está lejos de lo que necesito. Propongo 79 P con entrega en el día 10.",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.11,
+       "in": 1012,
+       "out": 36,
+       "cost_usd": 0.00119,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 79,
+     "floor": 43.4
+    }
+   },
+   "result": {
+    "duel": 11445,
+    "offer": {
+     "id": 15477,
+     "price": 88,
+     "tick": 2023,
+     "days": 10
+    }
+   }
   }
- ]
+ ],
+ "last_seen_tick": 2024,
+ "done": {
+  "duel": 11445,
+  "session": 4,
+  "status": "deal",
+  "role": "seller",
+  "item": "San Isidro",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 4.94,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 94,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Azul",
+  "deadline_tick": 2025,
+  "decay_per_round": 0.1,
+  "rounds": 1,
+  "your_offer": {
+   "id": 15477,
+   "price": 88,
+   "tick": 2023,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 15414,
+   "price": 103,
+   "tick": 2019,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 2013,
+    "from": "you",
+    "text": "I'd like to open at 134 P for delivery on day 10.",
+    "price": 134,
+    "days": 10
+   },
+   {
+    "tick": 2019,
+    "from": "you",
+    "text": "I can do 119 P, delivery on day 10.",
+    "price": 119,
+    "days": 10
+   },
+   {
+    "tick": 2019,
+    "from": "Rival Azul",
+    "text": "Propongo este precio, creo que es justo para los dos.",
+    "price": 103,
+    "days": 0
+   },
+   {
+    "tick": 2022,
+    "from": "you",
+    "text": "I can do 103 P, delivery on day 10.",
+    "price": 103,
+    "days": 10
+   },
+   {
+    "tick": 2023,
+    "from": "you",
+    "text": "I can do 88 P, delivery on day 10.",
+    "price": 88,
+    "days": 10
+   }
+  ],
+  "result": 52.5,
+  "price": 103,
+  "days": 10
+ }
 }
