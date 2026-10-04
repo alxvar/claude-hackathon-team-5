@@ -69,6 +69,59 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1875,
+   "raw": {
+    "duel": 11116,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "San Isidro",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.21,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 119,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1885,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 11936,
+     "price": 169,
+     "tick": 1873,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 11986,
+     "price": 131,
+     "tick": 1875,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1873,
+      "from": "you",
+      "text": "I'd like to open at 169 P for delivery on day 10.",
+      "price": 169,
+      "days": 10
+     },
+     {
+      "tick": 1875,
+      "from": "Rival Rojo",
+      "text": "Hi there. 131 P from my side. Delivery on day 0.",
+      "price": 131,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -175,6 +228,94 @@
     }
    },
    "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1875,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11116,
+     "role": "seller",
+     "limit": 119,
+     "currency": "P",
+     "item": "San Isidro",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.21,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 169 P for delivery on day 10.",
+      "offer": {
+       "price": 169,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1873,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hi there. 131 P from my side. Delivery on day 0.",
+      "offer": {
+       "price": 131,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1875,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 131,
+     "days": 0
+    },
+    "tick": 1875,
+    "ticks_left": 10,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 169,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
    "params_set": "C",
    "params": {
     "MIN_STEP_P": 15.0,
