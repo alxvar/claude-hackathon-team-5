@@ -1037,6 +1037,136 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1903,
+   "raw": {
+    "duel": 11352,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 6.83,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 110,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Verde",
+    "deadline_tick": 1904,
+    "decay_per_round": 0.1,
+    "rounds": 6,
+    "your_offer": {
+     "id": 12647,
+     "price": 70,
+     "tick": 1903,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 12635,
+     "price": 87,
+     "tick": 1902,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1892,
+      "from": "you",
+      "text": "I'd like to propose 157 P with delivery on day 10.",
+      "price": 157,
+      "days": 10
+     },
+     {
+      "tick": 1892,
+      "from": "Rival Verde",
+      "text": "I can do 53 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 53,
+      "days": 0
+     },
+     {
+      "tick": 1893,
+      "from": "you",
+      "text": "That's quite far from where I am. I'll offer 137 P with delivery on day 10.",
+      "price": 137,
+      "days": 10
+     },
+     {
+      "tick": 1893,
+      "from": "Rival Verde",
+      "text": "I can do 64 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1894,
+      "from": "you",
+      "text": "I'm moving to 121 P with delivery on day 10. We're still far apart, but I'm closing the gap.",
+      "price": 121,
+      "days": 10
+     },
+     {
+      "tick": 1894,
+      "from": "Rival Verde",
+      "text": "I can do 84 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 84,
+      "days": 0
+     },
+     {
+      "tick": 1895,
+      "from": "Rival Verde",
+      "text": "I can do 102 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 102,
+      "days": 0
+     },
+     {
+      "tick": 1896,
+      "from": "Rival Verde",
+      "text": "I can do 121 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 121,
+      "days": 0
+     },
+     {
+      "tick": 1901,
+      "from": "you",
+      "text": "I can do 104 P, delivery on day 10.",
+      "price": 104,
+      "days": 10
+     },
+     {
+      "tick": 1901,
+      "from": "Rival Verde",
+      "text": "I can do 104 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 104,
+      "days": 0
+     },
+     {
+      "tick": 1902,
+      "from": "you",
+      "text": "I can do 87 P, delivery on day 10.",
+      "price": 87,
+      "days": 10
+     },
+     {
+      "tick": 1902,
+      "from": "Rival Verde",
+      "text": "I can do 87 with delivery on day 0. That is a fair deal for both of us.",
+      "price": 87,
+      "days": 0
+     },
+     {
+      "tick": 1903,
+      "from": "you",
+      "text": "I can do 70 P, delivery on day 10.",
+      "price": 70,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -2817,5 +2947,140 @@
     }
    }
   }
- ]
+ ],
+ "last_seen_tick": 1904,
+ "done": {
+  "duel": 11352,
+  "session": 4,
+  "status": "no_deal",
+  "role": "seller",
+  "item": "Museo Sorolla",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 6.83,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 110,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Verde",
+  "deadline_tick": 1904,
+  "decay_per_round": 0.1,
+  "rounds": 6,
+  "your_offer": {
+   "id": 12647,
+   "price": 70,
+   "tick": 1903,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 12655,
+   "price": 70,
+   "tick": 1903,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1892,
+    "from": "you",
+    "text": "I'd like to propose 157 P with delivery on day 10.",
+    "price": 157,
+    "days": 10
+   },
+   {
+    "tick": 1892,
+    "from": "Rival Verde",
+    "text": "I can do 53 with delivery on day 0. That is a fair deal for both of us.",
+    "price": 53,
+    "days": 0
+   },
+   {
+    "tick": 1893,
+    "from": "you",
+    "text": "That's quite far from where I am. I'll offer 137 P with delivery on day 10.",
+    "price": 137,
+    "days": 10
+   },
+   {
+    "tick": 1893,
+    "from": "Rival Verde",
+    "text": "I can do 64 with delivery on day 0. That is a fair deal for both of us.",
+    "price": 64,
+    "days": 0
+   },
+   {
+    "tick": 1894,
+    "from": "you",
+    "text": "I'm moving to 121 P with delivery on day 10. We're still far apart, but I'm closing the gap.",
+    "price": 121,
+    "days": 10
+   },
+   {
+    "tick": 1894,
+    "from": "Rival Verde",
+    "text": "I can do 84 with delivery on day 0. That is a fair deal for both of us.",
+    "price": 84,
+    "days": 0
+   },
+   {
+    "tick": 1895,
+    "from": "Rival Verde",
+    "text": "I can do 102 with delivery on day 0. That is a fair deal for both of us.",
+    "price": 102,
+    "days": 0
+   },
+   {
+    "tick": 1896,
+    "from": "Rival Verde",
+    "text": "I can do 121 with delivery on day 0. That is a fair deal for both of us.",
+    "price": 121,
+    "days": 0
+   },
+   {
+    "tick": 1901,
+    "from": "you",
+    "text": "I can do 104 P, delivery on day 10.",
+    "price": 104,
+    "days": 10
+   },
+   {
+    "tick": 1901,
+    "from": "Rival Verde",
+    "text": "I can do 104 with delivery on day 0. That is a fair deal for both of us.",
+    "price": 104,
+    "days": 0
+   },
+   {
+    "tick": 1902,
+    "from": "you",
+    "text": "I can do 87 P, delivery on day 10.",
+    "price": 87,
+    "days": 10
+   },
+   {
+    "tick": 1902,
+    "from": "Rival Verde",
+    "text": "I can do 87 with delivery on day 0. That is a fair deal for both of us.",
+    "price": 87,
+    "days": 0
+   },
+   {
+    "tick": 1903,
+    "from": "you",
+    "text": "I can do 70 P, delivery on day 10.",
+    "price": 70,
+    "days": 10
+   },
+   {
+    "tick": 1903,
+    "from": "Rival Verde",
+    "text": "I can do 70 with delivery on day 0. That is a fair deal for both of us.",
+    "price": 70,
+    "days": 0
+   }
+  ],
+  "result": 0.0,
+  "price": null,
+  "days": null
+ }
 }

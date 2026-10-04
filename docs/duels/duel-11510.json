@@ -412,6 +412,115 @@
     "ACCEPT_BY": 1,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1904,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11510,
+     "role": "buyer",
+     "limit": 129,
+     "currency": "P",
+     "item": "Vinilo de la Movida",
+     "context": "",
+     "rival": "Rival Verde",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 0.39,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to propose 81 P with delivery on day 0.",
+      "offer": {
+       "price": 81,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1897,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hola. This one is in perfect condition. 134 P, delivery day 10.",
+      "offer": {
+       "price": 134,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1901,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Entiendo, pero veo una brecha grande. Ofrezco 83 P con entrega en día 10.",
+      "offer": {
+       "price": 83,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1901,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 134,
+     "days": 10
+    },
+    "tick": 1904,
+    "ticks_left": 5,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 83,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "give",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "ACCEPT_BY": 1,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
