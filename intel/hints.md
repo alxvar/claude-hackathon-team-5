@@ -416,3 +416,4 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 12:50 · catalog.minted CHA-11 (Andén 0, epic, print run 9): hidden=False minted=5 (was 4)
 - Sun 12:52 · taller.crafted tick 2311 ·  → t01 · Team 1 turned three common cards into Mercado de San Ildefonso (uncommon) at The Workshop
 - Sun 12:53 · egg.found tick 2312 · abuela → t04 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t04", "name": "Team 4"}
+- Sun 12:56 · egg.found tick 2325 · picaros → t04 · {"persona": "picaros", "persona_name": "Los P\u00edcaros", "team": "t04", "name": "Team 4"}
