@@ -1,4 +1,4 @@
-# Metrics (auto, 12:35, game tick 2242)
+# Metrics (auto, 12:37, game tick 2251)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -35,7 +35,7 @@ CHA-01 (common): 122; CHA-02 (common): 122; CHA-03 (common): 122; CHA-04 (common
 - 25512: bid 15 for MAL-07 · to anyone · expires tick 2358
 - 25564: bid 12 for LAT-07 · to anyone · expires tick 2364
 - 25565: bid 12 for LAT-08 · to anyone · expires tick 2364
-- 25638: bid 220 for CHA-11 · to t08 · expires tick 2275
+- 25784: bid 240 for CHA-11 · to t08 · expires tick 2303
 
 ## What each of our deals did to neg_points (measured, last 12)
 
@@ -82,11 +82,11 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×3; t02: RET×4, MAL�
 
 ## Dealer prices, last 60 ticks (median per item)
 
-- abuela common (team buys): median 8 over 3
+- abuela common (team buys): median 8 over 1
 - picaros epic (team buys): median 149 over 1
-- picaros rare (team buys): median 54 over 2
-- pilar rare (team sells): median 56 over 1
-- pilar uncommon (team sells): median 16 over 1
+- picaros rare (team buys): median 54 over 4
+- pilar rare (team sells): median 59 over 2
+- pilar uncommon (team sells): median 18 over 2
 
 ## El Rastro now: top bids by price (team, card, price)
 
