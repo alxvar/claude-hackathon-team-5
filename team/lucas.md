@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 09:34 · operator · Chief (t18 closed CHA with a team trade, CHA-01 from t13 at 72; we copy it): **cha_close.sh pid 1728**: Abuela now CHA-04 → CHA-06 → CHA-08 (CHA-05 last; touch run/cha_last_is_08 to swap if t13 holds 08), then at 9/10 ONE addressed bid to t13 on El Rastro at min(72, value-when-last − 50), with that card's public bid pulled · CHA-04 thread 2315 open
 - Sun 09:32 · operator · R+10 ran at 09:30:35: trader on HEAD 46dc399 (cash-floor 110), opps RET 110, swaps · recorder restarted (pid 99610; t0's 08:35 stop had left it down) for the 10:15/10:35 Market Test benches · bargains down (the reactor covers it)
 - Sun 09:32 · operator · Chief (Analyst 09:32): (1) t18 is CHA 9/10, lacking only CHA-01 → our CHA-01 is a page card (reserved), not in any offer; no bot can post or fill it; no denial buy · (2) **RET-11 → t13 addressed on El Rastro at 248** (offer 20815, 40 ticks, their taker fee; t13 paid t18 238 for SAL-11): checked first that RET-11 is NOT a page card (catalog page false; epic 'Palacio de Cristal'); value 198 → a fill = +50 trade cap; a watcher re-posts once at 235 if unfilled, then stops and tells the Chief
 - Sun 09:30 · operator · **CHA-03 from Abuela at 8** (L1 slot 3) → `ladder_points` **0.168**, cash 497 · CHA held: 01, 02, 03, 07, 09, 10 · next: CHA-06 + CHA-04 → Abuela at C+45 (≈ 10:05); CHA-05/08 = team relay (last card +50) · L1 full (3); L3 2 of 3; L4 1 of 3
