@@ -17,10 +17,13 @@ For the Chief (Lucas's request).
 - **Labels:** [V] = measured on our records or code; [L] = modelled.
 - **Sources:** scratchpad `final/`: `extract.py` → `d3rows.json`, `calib.py` / `calib.out`, `sim4.py`, `program.out`
   to `program5.out`.
-- **sim4 = sim3** (the Duels II-validated simulator) plus three additions:
+- **sim4 = sim3** (the Duels II-validated simulator) plus five additions:
   - a Verde-type mirror rival;
   - the 506a2fd last-tick accept;
-  - an optional worth floor on our own offers.
+  - an optional worth floor on our own offers;
+  - `acc_ratio` (ACCEPT_RATIO);
+  - `tick_decay` (§4).
+  - Its own random-number stream means sim3 numbers don't reproduce exactly. Every comparison here is within sim4.
 - **Every comparison is paired:** 8,000 duels per world, 12 ticks, 10% decay, H1 unless stated, ± = 95% CI.
 
 ### 1. Today's opponents (Duels III, our 33 closed duels at fit time, 41 now) [V]
@@ -28,45 +31,49 @@ For the Chief (Lucas's request).
   - Verde posts at its own day;
   - its price is capped at our latest price (11352, 11353).
 - **Deals:**
-  - 26 of the 28 rivals that spoke (0.93); 27 of 33 overall (0.82);
-  - the rival accepted our offer in 12 deals, we accepted theirs in 15;
+  - 26 of the 28 rivals that spoke (0.93); 26 of 33 overall (0.79);
+  - the rival accepted our offer in 12 deals, we accepted theirs in 14;
   - worth per deal 0.27 of our limit; 1.7 rounds per deal.
-- **Near-zero deals:** 8 of 27 deals were worth ≤ 0.06 of our limit, 3 of them at exactly 0.
+- **Near-zero deals:** 8 of 26 deals were worth ≤ 0.06 of our limit, 3 of them at exactly 0.
   - They score ≈ 0: 11240 added +0.04 points, 11242 +0.06.
-  - Pies are ≈ 30-40 P from the score increments, so these were tough rivals, not tiny pies.
+  - Pies are ≈ 30-40 P from the score increments, so these were tough rivals, not tiny pies [L: inferred].
 - **Points:** 10.66 over 33 duels ≈ 0.32 a duel at fit time; now 13.81 over 41 ≈ 0.34 (Duels II: 0.52).
-- **The field** (feed `duel.closed`, all teams): Duels III deal rate 0.73 (200 of 275 at 11:20), against our 0.82.
+- **The field** (feed `duel.closed`, all teams): Duels III deal rate 0.73 (200 of 275 at 11:20), against our 0.79.
 - **Fit [L]:** a grid over rival toughness, end softening, floors, concession speed and pie size, scored on 5 moments
-  (`calib.out`). The three best distinct fits are D3a, D3b (smaller pies) and D3c (tough).
-  - They sit within ≈ 1 SE of every moment except near-zero deals: 0.17-0.20 simulated vs 0.31 observed.
+  (`calib.out`).
+  - My choice of three distinct fits from the top 8: the best overall (D3a), the best with smaller pies (D3b, 4th) and
+    the best tough one (D3c, 7th).
+  - They sit within ≈ 1 SE of every moment except near-zero deals (0.14-0.20 simulated vs 0.31 observed). D3b's deal
+    rate with responders is 1.4 SE low.
+  - The fit plays ACCEPT_BY 2, although Duels III's first ≈ 16-19 duels ran ACCEPT_BY 1.
   - Stress worlds: tiny pies, smaller pies, 20% mirrors, 25% silent plus 10% accept-only, H2, and the Duels II fit
     R1.
-- **Rivals rarely retreat [V]:** when an in-limit rival offer stood with 2 ticks left, at 1 tick left it was the same 20
-  times, better 3 and worse once (Duels I-III).
+- **Rivals rarely retreat [V]:** when an in-limit rival offer stood with 2 ticks left, at 1 tick left it was the same 27
+  times, better 4 and worse once (Duels I-III, `retreat.out`).
 
 ### 2. Results [L] (`program.out`, `program2.out`, `program3.out`, `program5.out`)
 
-| vs live (MIN_STEP_P 15, ACCEPT_BY 2, 506a2fd fix) | D3a | D3b | D3c | Range over the worlds run (8; 9 for the last two rows) |
+| vs live (MIN_STEP_P 15, ACCEPT_BY 2, 506a2fd fix) | D3a | D3b | D3c | Range over the worlds run (* = 4 worlds: D3a-c and R1; else 8; the last two rows 9) |
 |---|---|---|---|---|
-| Live without the fix | −0.001 | −0.001 | −0.000 | −0.000 to −0.001 |
+| Live without the fix * | −0.001 | −0.001 | −0.000 | −0.000 to −0.001 |
 | ACCEPT_BY 1 | +0.008 | +0.013 | +0.009 | +0.005 to +0.019, all > 4 SE |
-| ACCEPT_BY 3 | −0.014 | −0.020 | −0.017 | negative everywhere |
-| MIN_STEP_P 8 / 12 | −0.008 / −0.003 | −0.020 / −0.008 | −0.034 / −0.008 | 15 (the bound) is best |
-| MAX_STEP_SHARE 0.08 (the code step is min(0.12, MAX) × gap) | +0.002 | +0.004 | +0.009 | 0.000 to +0.009 |
+| ACCEPT_BY 3 * | −0.014 | −0.020 | −0.017 | negative everywhere |
+| MIN_STEP_P 8 / 12 * | −0.008 / −0.003 | −0.020 / −0.008 | −0.034 / −0.008 | 15 (the bound) is best |
+| MAX_STEP_SHARE 0.08 (the code step is min(0.12, MAX) × gap) | +0.002 | +0.004 | +0.009 | −0.000 to +0.009 |
 | CODE_STEP_SHARE + MAX_STEP_SHARE 0.18 | −0.007 | −0.011 | −0.026 | negative except tiny pies |
-| MONO_END_SHARE 0.15 / 0.40 / 0.60 | 0.000 / −0.012 / −0.026 | −0.001 / −0.009 / −0.027 | +0.001 / −0.021 / −0.041 | 0.25 stays |
-| ACCEPT_RATIO 0.9 / 0.8 | 0.000 | 0.000 | 0.000 | never binds |
-| Worth floor 0.05 / 0.10 / 0.15 × limit (code) | +0.006 / +0.013 / +0.005 | +0.009 / +0.017 / 0.000 | +0.006 / +0.017 / +0.018 | 0.10 turns −0.007 with tiny pies |
+| MONO_END_SHARE 0.15 / 0.40 / 0.60 * | 0.000 / −0.012 / −0.026 | −0.001 / −0.009 / −0.027 | +0.001 / −0.021 / −0.041 | 0.25 stays |
+| ACCEPT_RATIO 0.9 / 0.8 | 0.000 | 0.000 | 0.000 | no measurable effect (≤ 0.0002) |
+| Worth floor 0.05 / 0.10 / 0.15 × limit (code; 0.15 *) | +0.006 / +0.013 / +0.005 | +0.009 / +0.017 / 0.000 | +0.006 / +0.017 / +0.018 | 0.10 turns −0.007 with tiny pies |
 | **Params only: ACCEPT_BY 1 + MAX_STEP_SHARE 0.08** | **+0.010** | **+0.017** | **+0.018** | **+0.008 to +0.019, all > 4 SE** |
 | **Recommended: params + floor 0.075 × limit** | **+0.022** | **+0.033** | **+0.029** | **+0.018 to +0.033, all > 9 SE** |
-| Aleks's c95b700, exchange mode (proxy, 10% timeouts) | −0.042 | −0.080 | −0.116 | −0.04 to −0.12 |
+| Aleks's c95b700, exchange mode (proxy, 10% timeouts) * | −0.042 | −0.080 | −0.116 | −0.04 to −0.12 |
 
 - **Deal rate with rivals that spoke:**
   - live: 0.89-0.92 on the D3 fits;
   - recommended: 0.87-0.91, while 0-worth deals go from ≈ 0.03 a duel to 0.
   - The floor trades only near-zero deals for a little deal rate. Floor 0.10 costs more (0.85-0.90).
 - **Floor 0.075 × limit is the robust size.** It is positive in all 9 worlds, including tiny pies (+0.003 on top of
-  ACCEPT_BY 1) and smaller pies (+0.016). 0.10 scores ≈ +0.001-0.007 more on the fits but turns negative with tiny pies.
+  ACCEPT_BY 1) and smaller pies (+0.016). 0.10 scores ≈ +0.001-0.006 more on the D3 fits but turns negative with tiny pies.
 - **The 506a2fd fix is worth little in the sim** (+0.0002 to +0.0013): the sim's rival posts before our move inside a
   tick. In the records it cost one deal in 33 (11124).
 
@@ -90,8 +97,8 @@ For the Chief (Lucas's request).
 
 ### 4. Sensitivity: what if decay applied per TICK? (`program4.out`)
 Robustness only: the server data says per exchange.
-- **Live would lose ≈ 0.044-0.048 a duel** to the tick-mode proxy or a fast variant in two worlds, and still win in the
-  tough one.
+- **Live would lose ≈ 0.044-0.048 a duel** to the tick-mode proxy (0.040-0.044 to a fast variant) in two worlds, and
+  still win in the tough one.
 - **The recommended config stays at or above live** in all three (+0.005 to +0.009).
 
 ### 5. Recommendation
@@ -110,14 +117,16 @@ Robustness only: the server data says per exchange.
   - The silent walk's floor becomes the larger of the SILENT_KEEP floor and this floor.
   - Test: a code end step that would land at 0 worth lands at the floor; an accept of a +1 offer still goes out.
 - **Not recommended:**
-  - LATE_SWITCH_LEFT 2 (11:14: −0.005 to −0.015);
+  - LATE_SWITCH_LEFT 2 (11:14, `v2/ls2.out`: −0.005 to −0.015);
   - MONO_END_SHARE above 0.25 (raises the close rate only by adding 0-worth deals: 0.06-0.12 a duel);
   - MIN_STEP_P below 15;
   - ACCEPT_BY 3;
   - c95b700, in either mode.
 - **Caveats [L]:**
   - Every number is modelled. Live data can't resolve 0.01 a duel: the SE is ≈ 0.05 over 34 duels.
-  - The sim under-produces near-zero deals, so the floor's gain may be understated.
+  - The floor touches only near-zero deals where the rival accepted OUR offer: 4 of the 8 (11125, 11285 and 11353 at
+    0; 11241 at +0.06, which a floor could lose).
+  - The other 4 were our accepts of their offers, which the floor leaves alone.
   - The floor's real risk is a scenario where the rival's limit sits within 0.075 × our limit of ours. That is the
     tiny-pie world, where the floor still gained +0.003.
 
