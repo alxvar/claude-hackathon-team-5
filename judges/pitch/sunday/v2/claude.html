@@ -37,17 +37,17 @@ svg.wires{position:absolute;left:0;top:0;width:1920px;height:1080px;pointer-even
 .wl{font:600 14px var(--mono);letter-spacing:.08em;text-transform:uppercase}
 
 /* ---------- slide 1 ---------- */
-.res{position:absolute;right:128px;top:104px;text-align:right}
+.res{position:absolute;right:128px;top:96px;text-align:right;max-width:380px}
 .res .big{font:400 64px/1 var(--serif);color:var(--ink)}
 .res .big em{font-style:italic;color:var(--coral)}
 .res .sm{font:500 17px var(--sans);color:var(--muted);margin-top:8px}
-.step{position:absolute;top:336px;width:322px;height:228px;padding:26px 28px;background:var(--card);border:1.5px solid var(--line);border-radius:18px}
+.step{position:absolute;top:326px;width:322px;height:262px;padding:26px 28px;background:var(--card);border:1.5px solid var(--line);border-radius:18px}
 .step .num{font:600 15px var(--mono);letter-spacing:.14em;color:var(--muted)}
 .step .t{font:400 50px/1 var(--serif);margin:10px 0 14px}
-.step .d{font:400 20px/1.38 var(--sans);color:var(--ink2)}
+.step .d{font:400 19px/1.38 var(--sans);color:var(--ink2)}
 .step .d b{font-weight:600;color:var(--ink)}
 .step .a{position:absolute;left:28px;bottom:22px;font:500 15px var(--mono);color:var(--coral)}
-.base{position:absolute;left:128px;top:648px;width:1112px;height:226px;padding:24px 30px;border-radius:18px;background:var(--bg2);border:1.5px solid var(--line)}
+.base{position:absolute;left:128px;top:664px;width:1112px;height:214px;padding:24px 30px;border-radius:18px;background:var(--bg2);border:1.5px solid var(--line)}
 .base .h{font:600 16px var(--mono);letter-spacing:.14em;color:var(--blue);text-transform:uppercase}
 .base .why{font:400 24px/1.3 var(--serif);font-style:italic;color:var(--ink2);margin:8px 0 14px}
 .base .row{display:flex;gap:44px;align-items:flex-end}
@@ -73,14 +73,17 @@ svg.wires{position:absolute;left:0;top:0;width:1920px;height:1080px;pointer-even
 .node.sm{padding:9px 14px}
 .node.sm .t{font-size:23px}
 .node.sm .d{font-size:15px;margin-top:2px}
+.node.hum{width:330px;height:44px;padding:7px 14px}
+.node.hum .t{font-size:21px;white-space:nowrap}
+.node.hum .t span:not(.dot){font:400 15px var(--sans);color:var(--ink2)}
 .node .dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--c);margin-right:9px;vertical-align:4px}
 .chips2{position:absolute}
 .phones{position:absolute;left:1236px;top:250px;width:556px;height:176px;padding:20px 24px;border-radius:18px;background:var(--coral2);border:1.5px solid #E9C2AF}
 .phones .h{font:600 15px var(--mono);letter-spacing:.14em;color:var(--coral);text-transform:uppercase}
-.phones .t{font:400 30px/1.1 var(--serif);margin:8px 0 6px}
+.phones .t{font:400 28px/1.1 var(--serif);margin:8px 0 4px;white-space:nowrap}
 .phones .d{font:400 17px/1.4 var(--sans);color:var(--ink2)}
-.phones .flowline{display:flex;align-items:center;gap:10px;font:500 15px var(--mono);color:var(--ink2);margin-top:10px}
-.phones .flowline span{padding:4px 10px;border-radius:999px;background:var(--card);border:1.5px solid #E9C2AF}
+.phones .flowline{display:flex;align-items:center;gap:7px;font:500 13.5px var(--mono);white-space:nowrap;color:var(--ink2);margin-top:10px}
+.phones .flowline span{padding:3px 8px;border-radius:999px;background:var(--card);border:1.5px solid #E9C2AF}
 .game{position:absolute;left:128px;top:892px;width:1664px;height:62px;display:flex;align-items:center;gap:28px;padding:0 24px;border-radius:14px;background:var(--ink);color:#F0EEE6}
 .game .t{font:400 26px var(--serif)}
 .game .rw{font:400 17px var(--sans);color:#C9C6BC}
@@ -125,7 +128,7 @@ body.print .hint{display:none}
   <div class="label">Team 5 · The Bazaar</div>
   <div class="kicker">Q1 · How did you approach the challenge?</div>
   <h1>Adapt faster than <em>the game changes</em></h1>
-  <div class="res"><div class="big">#3 → <em>#1</em></div><div class="sm">Saturday's close, 7.09 behind → final 37.73, 1.97 ahead</div></div>
+  <div class="res"><div class="big"><em>#1</em> · 37.73</div><div class="sm">1.97 ahead of Team 10<br>#1 at every snapshot from Sunday 12:35</div></div>
 
   <svg class="wires" viewBox="0 0 1920 1080">
     <defs>
@@ -134,15 +137,15 @@ body.print .hint{display:none}
       <marker id="m1b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6A9BCC"/></marker>
     </defs>
     <!-- step to step -->
-    <path d="M452 450H514" stroke="#141413" stroke-width="2" fill="none" marker-end="url(#m1)"/>
-    <path d="M846 450H908" stroke="#141413" stroke-width="2" fill="none" marker-end="url(#m1)"/>
+    <path d="M452 456H514" stroke="#141413" stroke-width="2" fill="none" marker-end="url(#m1)"/>
+    <path d="M846 456H908" stroke="#141413" stroke-width="2" fill="none" marker-end="url(#m1)"/>
     <!-- loop back: act → learn -->
-    <path d="M1074 332C1074 280 1046 270 1000 270H360C314 270 289 280 289 326" stroke="#D97757" stroke-width="2" fill="none" class="flow" marker-end="url(#m1c)"/>
-    <text x="682" y="262" text-anchor="middle" class="wl" fill="#D97757">and again · and again</text>
+    <path d="M1074 322C1074 276 1046 266 1000 266H360C314 266 289 276 289 318" stroke="#D97757" stroke-width="2" fill="none" class="flow" marker-end="url(#m1c)"/>
+    <text x="682" y="258" text-anchor="middle" class="wl" fill="#D97757">and again · and again</text>
     <!-- context feeds every step -->
-    <path d="M289 646V570" stroke="#6A9BCC" stroke-width="2" fill="none" class="flow" marker-end="url(#m1b)"/>
-    <path d="M681 646V570" stroke="#6A9BCC" stroke-width="2" fill="none" class="flow" marker-end="url(#m1b)"/>
-    <path d="M1073 646V570" stroke="#6A9BCC" stroke-width="2" fill="none" class="flow" marker-end="url(#m1b)"/>
+    <path d="M289 662V594" stroke="#6A9BCC" stroke-width="2" fill="none" class="flow" marker-end="url(#m1b)"/>
+    <path d="M681 662V594" stroke="#6A9BCC" stroke-width="2" fill="none" class="flow" marker-end="url(#m1b)"/>
+    <path d="M1073 662V594" stroke="#6A9BCC" stroke-width="2" fill="none" class="flow" marker-end="url(#m1b)"/>
   </svg>
 
   <div class="step" style="left:128px"><div class="num">01</div><div class="t">Learn</div><div class="d">The rules, the organisers' changes and our own measurements.</div><div class="a">→ GAME.md · measured facts</div></div>
@@ -163,7 +166,7 @@ body.print .hint{display:none}
     <div class="h">Adaptation</div>
     <div class="s"><div class="v">60 → 30 → <em>15 s</em></div><div class="l">The tick sped up every day; our loop kept pace.</div></div>
     <div class="s"><div class="v"><em>2</em> overnight redesigns</div><div class="l">Friday night: the Saturday plan. Saturday night: the code-first duelist.</div></div>
-    <div class="s"><div class="v">#3 → <em>#1</em></div><div class="l">From Saturday's close to the end of the game.</div></div>
+    <div class="s"><div class="v">#3 → <em>#1</em></div><div class="l">Saturday's close, 7.09 behind Team 10, to the end of the game.</div></div>
   </div>
   <div class="foot"><div class="brand">Team 5 · The Bazaar</div><div class="prog"><i></i></div><div class="n"></div></div>
 </section>
@@ -179,7 +182,7 @@ body.print .hint{display:none}
   <!-- groups -->
   <div class="grp" data-s="0" style="left:128px;top:250px;width:1066px;height:176px;--c:var(--coral);--t:rgba(217,119,87,.035)"><div class="gl">Decide</div></div>
   <div class="grp" data-s="1" style="left:128px;top:474px;width:784px;height:384px;--c:var(--ink);--t:rgba(20,20,19,.02)"><div class="gl">Act · two writer roles</div></div>
-  <div class="grp" data-s="2" style="left:948px;top:474px;width:844px;height:384px;--c:var(--blue);--t:rgba(106,155,204,.05)"><div class="gl">Sense · check · read-only</div></div>
+  <div class="grp" data-s="2" style="left:948px;top:474px;width:844px;height:384px;--c:var(--blue);--t:rgba(106,155,204,.05)"><div class="gl">Sense · check</div></div>
 
   <svg class="wires" viewBox="0 0 1920 1080">
     <defs>
@@ -187,12 +190,12 @@ body.print .hint{display:none}
       <marker id="c" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#D97757"/></marker>
       <marker id="b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6A9BCC"/></marker>
     </defs>
-    <g data-s="0"><path d="M476 338H558" stroke="#D97757" stroke-width="2.5" fill="none" marker-end="url(#c)"/></g>
+    <g data-s="0"><path d="M488 338H558" stroke="#D97757" stroke-width="2.5" fill="none" marker-end="url(#c)"/></g>
     <g data-s="1">
-      <path d="M720 406V446H330V500" stroke="#141413" stroke-width="2.5" fill="none" marker-end="url(#k)"/>
-      <text x="344" y="438" class="wl" fill="#141413">directives + limits</text>
+      <path d="M720 406V446H470V500" stroke="#141413" stroke-width="2.5" fill="none" marker-end="url(#k)"/>
+      <text x="484" y="438" class="wl" fill="#141413">directives + limits</text>
       <path d="M900 406V500" stroke="#141413" stroke-width="2.5" fill="none" marker-end="url(#k)"/>
-      <text x="756" y="490" class="wl" fill="#141413">params</text>
+      <text x="822" y="438" class="wl" fill="#141413">params</text>
       <path d="M330 858V886" stroke="#D97757" stroke-width="3" fill="none" marker-end="url(#c)"/>
       <path d="M712 858V886" stroke="#D97757" stroke-width="3" fill="none" marker-end="url(#c)"/>
       <text x="346" y="880" class="wl" fill="#D97757">writes</text><text x="728" y="880" class="wl" fill="#D97757">writes</text>
@@ -200,18 +203,16 @@ body.print .hint{display:none}
     <g data-s="2">
       <path d="M1180 890V862" stroke="#6A9BCC" stroke-width="2.5" fill="none" class="flow" marker-end="url(#b)"/>
       <text x="1196" y="882" class="wl" fill="#6A9BCC">reads</text>
-      <path d="M1110 474V362H1034" stroke="#6A9BCC" stroke-width="2.5" fill="none" class="flow" marker-end="url(#b)"/>
-      <text x="1122" y="458" class="wl" fill="#6A9BCC">live numbers · verdicts</text>
+      <path d="M1214 474V362H1036" stroke="#6A9BCC" stroke-width="2.5" fill="none" class="flow" marker-end="url(#b)"/>
       <path d="M1520 474V432" stroke="#D97757" stroke-width="2.5" fill="none" class="flow" marker-end="url(#c)"/>
-      <text x="1534" y="460" class="wl" fill="#D97757">deal alerts</text>
     </g>
   </svg>
 
   <!-- DECIDE -->
   <div data-s="0">
-    <div class="node sm" style="left:152px;top:270px;width:322px;--c:var(--coral)"><div class="t"><span class="dot"></span>Lucas</div><div class="d">goals + hard limits</div></div>
-    <div class="node sm" style="left:152px;top:322px;width:322px;--c:var(--coral)"><div class="t"><span class="dot"></span>Aleks</div><div class="d">wrote the duelist + hub</div></div>
-    <div class="node sm" style="left:152px;top:374px;width:322px;height:44px;--c:var(--coral);padding-top:6px"><div class="t" style="font-size:21px"><span class="dot"></span>Dani <span style="font:400 15px var(--sans);color:var(--ink2)">· the room, rivals, dashboard</span></div></div>
+    <div class="node sm hum" style="left:152px;top:268px;--c:var(--coral)"><div class="t"><span class="dot"></span>Lucas <span>· goals + hard limits</span></div></div>
+    <div class="node sm hum" style="left:152px;top:318px;--c:var(--coral)"><div class="t"><span class="dot"></span>Aleks <span>· wrote the duelist + hub</span></div></div>
+    <div class="node sm hum" style="left:152px;top:368px;--c:var(--coral)"><div class="t"><span class="dot"></span>Dani <span>· the room, rivals, dashboard</span></div></div>
     <div class="node big" style="left:566px;top:268px;width:464px;height:138px;border-left:4px solid var(--coral)"><div class="t">Chief of staff</div><div class="d">Claude Code · makes the big calls, logs them with evidence · <b style="color:var(--ink)">never writes to the game</b></div></div>
   </div>
 
@@ -236,9 +237,9 @@ body.print .hint{display:none}
     <div class="node sm" style="left:1386px;top:762px;width:382px;padding:0;overflow:hidden;height:72px"><img src="../img/dashboard.png" alt="Dani's live dashboard at 14:26" style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;opacity:.92"></div>
     <div class="phones">
       <div class="h">Humans in the loop</div>
-      <div class="t">Phone alerts, then a walk across the room</div>
-      <div class="flowline"><span>reactor · opportunities</span>→<span>ntfy</span>→<span>Lucas + Dani</span>→<span>teams in the room</span></div>
-      <div class="d" style="margin-top:8px">When a deal fits our market, we tell the team face to face.</div>
+      <div class="t">Alerts, then a walk across the room</div>
+      <div class="flowline"><span>reactor</span>→<span>ntfy</span>→<span>Lucas + Dani</span>→<span>teams in the room</span></div>
+      <div class="d" style="margin-top:10px">A deal fits our market → we tell that team face to face.</div>
     </div>
   </div>
 

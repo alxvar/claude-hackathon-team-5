@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team 5 Style Compare</title>
+<style>
+:root{color-scheme:dark;--bg:#0b0d14;--card:#141824;--line:#262c3d;--ink:#eef0f6;--ink2:#a8afc2;--acc:#ffc547}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Avenir Next",system-ui,sans-serif;padding:32px 28px 60px}
+h1{font:800 44px/1 "Avenir Next Condensed","Futura",system-ui;letter-spacing:.01em;text-transform:uppercase;margin:0 0 6px}
+h1 span{color:var(--acc)}
+.lede{color:var(--ink2);font-size:17px;margin:0 0 26px;max-width:1100px}
+.row{margin:0 0 30px;padding:18px;border-radius:16px;background:var(--card);border:1px solid var(--line)}
+.row h2{margin:0 0 4px;font:700 22px "Avenir Next",system-ui}
+.row h2 a{color:var(--acc);text-decoration:none;font:600 13px ui-monospace,Menlo,monospace;letter-spacing:.1em;margin-left:12px;border:1px solid var(--acc);border-radius:999px;padding:3px 10px;vertical-align:3px}
+.row p{margin:0 0 12px;color:var(--ink2);font-size:15px}
+.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.fr{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:10px;background:#000;border:1px solid var(--line)}
+.fr iframe{position:absolute;left:0;top:0;width:1920px;height:1080px;border:0;transform-origin:0 0;pointer-events:none}
+.cap{font:600 12px ui-monospace,Menlo,monospace;letter-spacing:.1em;color:var(--ink2);margin-top:6px;text-transform:uppercase}
+@media (max-width:900px){.thumbs{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<h1>Same 3 slides, <span>five styles</span></h1>
+<p class="lede">Content is identical (v2/content.md, every number verified). Click a style to present it: ← → moves, slide 2 has 4 click steps, F = full screen, <code>?print=1</code> for PDF. Thumbnails show slide 1, slide 2 at its full map, and slide 3.</p>
+<div id="rows"></div>
+<script>
+const S = [
+  {k:'Bazaar (organisers\' look)', f:'../deck.html', d:'Dark navy, condensed caps, the organisers\' Sunday deck look. The current main deck, with backups and the PDF.'},
+  {k:'Claude', f:'claude.html', d:'Warm ivory, serif headlines, one coral accent, calm line diagrams.'},
+  {k:'Apple keynote', f:'apple.html', d:'Black stage, huge type, one idea per beat, gradient hero numbers.'},
+  {k:'Nova', f:'nova.html', d:'Deep-space dark, aurora gradients, glass cards, animated data flow.'},
+  {k:'Swiss editorial', f:'swiss.html', d:'Paper white, heavy grotesk, signal red, strict grid, numbered sections.'},
+];
+document.getElementById('rows').innerHTML = S.map(s => `<div class="row"><h2>${s.k}<a href="${s.f}">PRESENT →</a></h2><p>${s.d}</p><div class="thumbs">
+  ${[['#1','slide 1 · Q1'],['#2.2','slide 2 · Q2+Q3 map'],['#3','slide 3 · Q4']].map(([h,c]) => `<div><div class="fr"><iframe src="${s.f}${h}" loading="lazy"></iframe></div><div class="cap">${c}</div></div>`).join('')}
+</div></div>`).join('');
+function fit(){document.querySelectorAll('.fr').forEach(f=>{f.querySelector('iframe').style.transform='scale('+(f.clientWidth/1920)+')'})}
+addEventListener('resize',fit);addEventListener('load',fit);fit();
+</script>
+</body>
+</html>

@@ -17,15 +17,15 @@ html,body{margin:0;height:100%;background:#000;overflow:hidden}
 body{font-family:var(--sf);color:var(--ink);-webkit-font-smoothing:antialiased}
 .stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center center;overflow:hidden;background:var(--bg);display:none}
 .stage.on{display:block}
-[data-s]{transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
+[data-s],[data-h]{transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
 .off{opacity:0!important;transform:translateY(18px) scale(.985)!important;pointer-events:none}
 .kick{position:absolute;left:120px;top:72px;font:600 26px var(--sf);letter-spacing:-.005em;color:var(--muted)}
 h1{position:absolute;left:116px;top:108px;margin:0;font:700 96px/1.02 var(--sf);letter-spacing:-.025em;color:var(--ink)}
 .grad{background:linear-gradient(90deg,#f5f5f7 0%,#a1a1a6 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .vivid{background:linear-gradient(90deg,#2997ff 0%,#a855f7 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .foot{position:absolute;left:120px;right:120px;bottom:40px;display:flex;align-items:center;font:500 20px var(--sf);color:var(--dim)}
-.foot .n{margin-left:auto}
-.dots{display:flex;gap:10px;margin-left:28px}.dots i{width:9px;height:9px;border-radius:50%;background:#2c2c2e}.dots i.on{background:var(--ink2)}
+.foot .n{margin-left:0}
+.dots{display:flex;gap:10px;margin-left:auto;margin-right:26px}.dots i{width:9px;height:9px;border-radius:50%;background:#2c2c2e}.dots i.on{background:var(--ink2)}
 svg.w{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:visible;pointer-events:none}
 
 /* ---------- slide 1 ---------- */
@@ -72,7 +72,7 @@ svg.w{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:visible
 .wl{font:600 15px var(--sf);letter-spacing:.06em;text-transform:uppercase}
 .legend{position:absolute;left:120px;bottom:40px;display:flex;gap:32px;font:500 18px var(--sf);color:var(--muted);align-items:center}
 .legend svg{vertical-align:middle;margin-right:10px}
-.dim{position:absolute;inset:0;background:rgba(0,0,0,.9)}
+.dim{position:absolute;inset:0;background:rgba(0,0,0,.965)}
 .why{position:absolute;top:330px;width:520px}
 .why .n{font:700 130px/1 var(--sf);letter-spacing:-.04em}
 .why .t{font:700 46px/1.08 var(--sf);letter-spacing:-.02em;margin-top:18px}
@@ -100,7 +100,7 @@ svg.w{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:visible
 body.print{overflow:visible;height:auto}
 body.print .stage{display:block!important;position:relative!important;left:0!important;top:0!important;transform:none!important;break-after:page;page-break-after:always}
 body.print .hint{display:none}
-body.print [data-s]{transition:none}
+body.print [data-s],body.print [data-h]{transition:none}
 </style>
 </head>
 <body>
@@ -143,10 +143,10 @@ body.print [data-s]{transition:none}
 
 <!-- ============ 2 · Q2 + Q3 · THE MACHINE ============ -->
 <section class="stage s2" data-max="3">
-  <div class="kick">Q2 · What did you build? · Q3 · Why that way?</div>
-  <h1>Who decides, who acts, <span class="grad">who checks.</span></h1>
+  <div class="kick" data-h="3">Q2 · What did you build? · Q3 · Why that way?</div>
+  <h1 data-h="3">Who decides, who acts, <span class="grad">who checks.</span></h1>
 
-  <svg class="w" viewBox="0 0 1920 1080">
+  <svg class="w" viewBox="0 0 1920 1080" data-h="3">
     <defs>
       <marker id="mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0a84ff"/></marker>
       <marker id="mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ff375f"/></marker>
@@ -173,26 +173,26 @@ body.print [data-s]{transition:none}
   </svg>
 
   <!-- decide -->
-  <div data-s="0">
+  <div data-s="0" data-h="3">
     <div class="grp" style="left:120px;top:228px;width:980px;height:206px;--c:var(--blue)"><div class="gl">Decide</div></div>
-    <div class="pill" style="left:150px;top:252px">Lucas <span>goals + hard limits</span></div>
-    <div class="pill" style="left:150px;top:304px">Aleks <span>wrote the duelist + hub</span></div>
-    <div class="pill" style="left:150px;top:356px">Dani <span>the room · rivals · dashboard</span></div>
-    <svg class="w" viewBox="0 0 1920 1080"><path d="M492 326H552" stroke="#0a84ff" stroke-width="3.5" fill="none" marker-end="url(#mb)"/></svg>
+    <div class="pill" style="left:150px;top:244px">Lucas <span>goals + hard limits</span></div>
+    <div class="pill" style="left:150px;top:294px">Aleks <span>wrote the duelist + hub</span></div>
+    <div class="pill" style="left:150px;top:344px">Dani <span>the room · rivals · dashboard</span></div>
+    <svg class="w" viewBox="0 0 1920 1080"><path d="M492 316H552" stroke="#0a84ff" stroke-width="3.5" fill="none" marker-end="url(#mb)"/></svg>
     <div class="node" style="left:560px;top:250px;width:510px;height:162px;box-shadow:0 0 0 1px rgba(10,132,255,.35),0 0 60px rgba(10,132,255,.18)"><div class="t">Chief of staff</div><div class="d">Claude Code · makes the big calls, logs them with evidence · <b>never writes to the game</b></div></div>
   </div>
 
   <!-- act -->
-  <div data-s="1">
+  <div data-s="1" data-h="3">
     <div class="grp" style="left:120px;top:482px;width:780px;height:380px;--c:var(--pink)"><div class="gl">Act · two writer roles</div></div>
-    <div class="node" style="left:150px;top:528px;width:350px;height:110px"><div class="t">Operator</div><div class="d">Claude Code · the only trade writer</div></div>
-    <div class="chips" style="left:150px;top:654px;width:350px"><span>trader · taker</span><span>book · maker</span><span>dealer bots</span><span>page closers</span><span>counterparty policy</span></div>
-    <div class="node" style="left:530px;top:528px;width:340px;height:110px"><div class="t">Duelist</div><div class="d">code decides · Haiku writes</div></div>
-    <div class="chips" style="left:530px;top:654px;width:340px"><span class="hl">27 hot-reloaded tunables</span><span class="hl">5-world simulator</span><span>guards</span><span>8 s failover</span><span>C → A switch</span></div>
+    <div class="node" style="left:150px;top:528px;width:350px;height:118px"><div class="t">Operator</div><div class="d">Claude Code · the only trade writer</div></div>
+    <div class="chips" style="left:150px;top:664px;width:350px"><span>trader · taker</span><span>book · maker</span><span>dealer bots</span><span>page closers</span><span>counterparty policy</span></div>
+    <div class="node" style="left:530px;top:528px;width:340px;height:118px"><div class="t">Duelist</div><div class="d">code decides · Haiku writes</div></div>
+    <div class="chips" style="left:530px;top:664px;width:340px"><span class="hl">27 hot-reloaded tunables</span><span class="hl">5-world simulator</span><span>guards</span><span>8 s failover</span><span>C → A switch</span></div>
   </div>
 
   <!-- sense · check + humans in the loop -->
-  <div data-s="2">
+  <div data-s="2" data-h="3">
     <div class="grp" style="left:940px;top:482px;width:860px;height:380px;--c:var(--green)"><div class="gl">Sense · check · read-only</div></div>
     <div class="item" style="left:968px;top:506px;--c:var(--green)"><div class="t">Market</div><div class="d">venue v10 at 0 % · Market Test recorder</div></div>
     <div class="item" style="left:968px;top:582px;--c:var(--green)"><div class="t">Collector + status</div><div class="d">feed · me · board → data/, STATUS</div></div>
@@ -204,13 +204,13 @@ body.print [data-s]{transition:none}
     <div class="node" style="left:1140px;top:228px;width:660px;height:206px;background:#1a1220;box-shadow:0 0 0 1px rgba(191,90,242,.35)"><div class="t" style="color:#d9a6f7">Humans in the loop</div><div class="d"><b>Phone alerts (ntfy)</b> from the reactor and the opportunity finder → Lucas and Dani walk to the team in the room when a deal fits our market.</div></div>
   </div>
 
-  <div class="game">
+  <div class="game" data-h="3">
     <div class="t">The Bazaar · game API</div>
     <div><b style="color:var(--pink)">WRITE</b>offers · accepts · threads · duels</div>
     <div><b style="color:var(--green)">READ</b>me · clock · board · event stream</div>
     <div class="lim">one key · 5 req/s · 1 accept per tick</div>
   </div>
-  <div class="legend">
+  <div class="legend" data-h="3">
     <span><svg width="56" height="10"><path d="M2 5H54" stroke="#f5f5f7" stroke-width="3"/></svg>authority / a write to the game</span>
     <span><svg width="56" height="10"><path d="M2 5H54" stroke="#f5f5f7" stroke-width="3" stroke-dasharray="8 7"/></svg>data</span>
   </div>
@@ -250,10 +250,10 @@ const S0 = [...document.querySelectorAll('.stage')];
 // footer on every slide
 S0.forEach((st, i) => { st.querySelector('.foot')?.remove(); st.insertAdjacentHTML('beforeend', `<div class="foot"><span>Team 5 · The Bazaar</span><span class="dots"></span><span class="n">${i + 1} / ${S0.length}</span></div>`); });
 // the slide 2 legend sits where the footer's left text is: hide that text there
-S0[1].querySelector('.foot span').style.visibility = 'hidden';
+S0[1].querySelector('.foot span').style.display = 'none';
 function apply(st, n) {
   st.dataset.step = n;
-  st.querySelectorAll('[data-s]').forEach(el => el.classList.toggle('off', +el.dataset.s > n));
+  st.querySelectorAll('[data-s],[data-h]').forEach(el => el.classList.toggle('off', (el.dataset.s !== undefined && +el.dataset.s > n) || (el.dataset.h !== undefined && n >= +el.dataset.h)));
   const max = +st.dataset.max, d = st.querySelector('.dots');
   if (d) d.innerHTML = max ? Array.from({length: max + 1}, (_, k) => `<i class="${k <= n ? 'on' : ''}"></i>`).join('') : '';
 }
