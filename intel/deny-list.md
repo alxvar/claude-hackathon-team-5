@@ -1,5 +1,11 @@
 # Deny-list (Analyst, Sun 00:30; read-only; final Saturday snapshot 1440)
 
+> **CORRECTION, Sun 11:52 (Chief, from Team 3 to Lucas):** t03 already holds SAL-03; its Saturday SAL-03 sale (settlement 1008, tick 1130) was
+> a spare. My SAL-03 alerts (09:53, 11:17, 11:50) were wrong. Rule from now on: **feed holdings are a lower bound (they miss starting
+> albums and spares). A team that sold or listed a card may still hold another copy. Only a rival's OWN live bid proves it lacks a card.**
+> The denial watch now alerts only on that evidence. Today's claims checked against the closes: t18 CHA-01, t12 LAV-07, t06 CHA-05 and
+> t10 SAL-08 were right (each closed with that card). t03 SAL-03 was wrong. t18 RET-07 and t12 LAT-08 are unknown, likely held (each sold one).
+
 **Verdict: no denial buy is ≥ 0 for our score at today's asks. Drop the 35-50 P denial reserve and put it into CHA or v10.**
 The cheap "denial" is (1) never selling our spares or page cards to a rival, and (2) pulling trades off t10's v07 onto v10
 (score-model §4.9: P(#1) 1.7% → ≈ 7%).
