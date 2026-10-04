@@ -1,57 +1,53 @@
 # v10 matchmaker: page finishers and first copies
 
-_Written by `tools/matchmaker.py` at 12:54 (tick 2302). Read-only. Holdings: the feed's copies (gifts, eggs and Workshop crafts included) plus the page arithmetic on the leaderboard's album_filled/pages_complete and minted supply (`tools/album.py`; 0 conflicts with intel/holdings-audit.md). ✓ = a proven gap, a bid since Saturday, or a want-list; "undecided" = the buyer may hold it. Giver: a true duplicate or a set it dumps (held back when its page is complete and under two copies are seen after its last craft); receiver: no copy, collects the set; both gain > 0 at the price (conservative multipliers). Want-lists: `intel/wants.md`. Never a page-closer for a rival or a team < 6 below us; a rival on either side gains <= 10 P at our price. Venue: a club deal (both sides in the club) alternates v10 / a member's market (least used, then lowest market score, never either side's own; page-closers on v10); every other deal on v10._
+_Written by `tools/matchmaker.py` at 12:59 (tick 2322). Read-only. Holdings: the feed's copies (gifts, eggs and Workshop crafts included) plus the page arithmetic on the leaderboard's album_filled/pages_complete and minted supply (`tools/album.py`; 0 conflicts with intel/holdings-audit.md). ✓ = a proven gap, a bid since Saturday, or a want-list; "undecided" = the buyer may hold it. Giver: a true duplicate or a set it dumps (held back when its page is complete and under two copies are seen after its last craft); receiver: no copy, collects the set; both gain > 0 at the price (conservative multipliers). Want-lists: `intel/wants.md`. Never a page-closer for a rival or a team < 6 below us; a rival on either side gains <= 10 P at our price. Venue: a club deal (both sides in the club) alternates v10 / a member's market (least used, then lowest market score, never either side's own; page-closers on v10); every other deal on v10._
 
 ## Matches (best first)
 
 | # | Buyer | Card | Seller | Venue | Price | Value created | Closer | Rival | Why |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | Team 16 | RET-09 El Ángel Caído | Team 17 | v10 | ~29 | +43.2 (low +43.2) |  | rival seller | bid ✓ · gap proven · seller holds 2 |
-| 2 | Team 7 | CHA-08 El Instituto | Team 1 | v10 | ~24 | +21.8 (low +21.8) |  |  | bid ✓ · gap proven · seller holds 2 |
-| 3 | Team 8 | MAL-06 Tienda de Discos | Team 3 | v10 | ~24 | +14.4 (low +14.4) |  | rival seller | bid · **ask first** · seller dumps MAL · ask first: t08 sold a MAL-06 at tick 510, it may keep another |
-| 4 | Team 16 | RET-01 Barca del Estanque | Team 1 | v10 | ~8 | +7 (low +7) |  |  | bid ✓ · gap proven · seller holds 2 · also t08 · spare unverified: 0 seen after its common craft at tick 2311 |
-| 5 | Team 16 | RET-04 Paseo de Coches | Team 1 | v10 | ~8 | +7 (low +7) |  |  | bid ✓ · gap proven · seller holds 2 · also t08 · spare unverified: 0 seen after its common craft at tick 2311 |
-| 6 | Team 8 | MAL-02 Plaza del Dos de Mayo | Team 14 | v10 | ~9 | +6.3 (low +6.3) |  |  | bid · **ask first** · seller dumps MAL · also t16, t02, t03 · ask first: t08 sold a MAL-02 at tick 171, it may keep another |
-| 7 | Team 16 | RET-06 La Rosaleda | Team 8 | v10 | ~22 | +6 (low +6) |  |  | bid ✓ · gap proven · seller dumps RET |
-| 8 | Team 16 | RET-03 El Titiritero | Team 4 | v10 | ~8 | +5.4 (low +5.4) |  |  | bid ✓ · gap proven · seller holds 2 · also t08 |
-| 9 | Team 3 | LAT-05 El Organillero | Team 2 | v10 | ~8 | +5 (low +4) |  | rival buyer | bid ✓ · undecided · seller dumps LAT · also t09 |
+| 1 | Team 8 | MAL-06 Tienda de Discos | Team 3 | v10 | ~24 | +13.9 (low +13.9) |  | rival seller | bid · **ask first** · seller dumps MAL · ask first: t08 sold a MAL-06 at tick 510, it may keep another |
+| 2 | Team 16 | RET-01 Barca del Estanque | Team 1 | v10 | ~8 | +7 (low +7) |  |  | bid ✓ · gap proven · seller holds 2 · also t08 · spare unverified: 0 seen after its common craft at tick 2311 |
+| 3 | Team 16 | RET-04 Paseo de Coches | Team 1 | v10 | ~8 | +7 (low +7) |  |  | bid ✓ · gap proven · seller holds 2 · also t08 · spare unverified: 1 seen after its common craft at tick 2311 |
+| 4 | Team 8 | MAL-02 Plaza del Dos de Mayo | Team 14 | v10 | ~9 | +6.2 (low +6.2) |  |  | bid · **ask first** · seller dumps MAL · also t16, t02, t03 · ask first: t08 sold a MAL-02 at tick 171, it may keep another |
+| 5 | Team 16 | RET-06 La Rosaleda | Team 8 | v10 | ~22 | +6.2 (low +6.2) |  |  | bid ✓ · gap proven · seller dumps RET |
+| 6 | Team 16 | RET-03 El Titiritero | Team 4 | v10 | ~8 | +5.4 (low +5.4) |  |  | bid ✓ · gap proven · seller holds 2 · also t08 |
+| 7 | Team 3 | LAT-05 El Organillero | Team 2 | v10 | ~8 | +5 (low +4) |  | rival buyer | bid ✓ · undecided · seller dumps LAT · also t09 |
 
 ## Ready DMs
 
-**1. RET-09 · Team 17 → Team 16 at ~29 P on v10**
-- To Team 17: "Hi Team 17! Could you post your El Ángel Caído (RET-09) on v10 as an ask addressed to Team 16, at ~29 P? Only there, please: they're ready to take it on v10. Only if it's a spare for you, keep one copy. Thanks!"
-- To Team 16: "Hi Team 16! Team 17 can post El Ángel Caído (RET-09) on v10 as an ask addressed to Team 16, at ~29 P: please accept it there, on v10, once it's up, and don't bid for it elsewhere meanwhile. Thanks!"
-
-**2. CHA-08 · Team 1 → Team 7 at ~24 P on v10**
-- To Team 1: "Hi Team 1! Could you post your El Instituto (CHA-08) on v10 as an ask addressed to Team 7, at ~24 P? Only there, please: they're ready to take it on v10. Only if it's a spare for you, keep one copy. Thanks!"
-- To Team 7: "Hi Team 7! Team 1 can post El Instituto (CHA-08) on v10 as an ask addressed to Team 7, at ~24 P: please accept it there, on v10, once it's up, and don't bid for it elsewhere meanwhile. Thanks!"
-
-**3. MAL-06 · Team 3 → Team 8 at ~24 P on v10**
+**1. MAL-06 · Team 3 → Team 8 at ~24 P on v10**
 - To Team 3: "Hi Team 3! Could you post your Tienda de Discos (MAL-06) on v10 as an ask addressed to Team 8, at ~24 P? Only there, please: they're ready to take it on v10. Only if it's a spare for you, keep one copy. Thanks!"
 - To Team 8: "Hi Team 8! Team 3 can post Tienda de Discos (MAL-06) on v10 as an ask addressed to Team 8, at ~24 P: please accept it there, on v10, once it's up, and don't bid for it elsewhere meanwhile. Thanks!"
 
-**4. RET-01 · Team 1 → Team 16 at ~8 P on v10**
+**2. RET-01 · Team 1 → Team 16 at ~8 P on v10**
 - To Team 1: "Hi Team 1! Could you post your Barca del Estanque (RET-01) on v10 as an ask addressed to Team 16, at ~8 P? Only there, please: they're ready to take it on v10. Only if it's a spare for you, keep one copy. Thanks!"
 - To Team 16: "Hi Team 16! Team 1 can post Barca del Estanque (RET-01) on v10 as an ask addressed to Team 16, at ~8 P: please accept it there, on v10, once it's up, and don't bid for it elsewhere meanwhile. Thanks!"
 
-**5. RET-04 · Team 1 → Team 16 at ~8 P on v10**
+**3. RET-04 · Team 1 → Team 16 at ~8 P on v10**
 - To Team 1: "Hi Team 1! Could you post your Paseo de Coches (RET-04) on v10 as an ask addressed to Team 16, at ~8 P? Only there, please: they're ready to take it on v10. Only if it's a spare for you, keep one copy. Thanks!"
 - To Team 16: "Hi Team 16! Team 1 can post Paseo de Coches (RET-04) on v10 as an ask addressed to Team 16, at ~8 P: please accept it there, on v10, once it's up, and don't bid for it elsewhere meanwhile. Thanks!"
 
-**6. MAL-02 · Team 14 → Team 8 at ~9 P on v10**
+**4. MAL-02 · Team 14 → Team 8 at ~9 P on v10**
 - To Team 14: "Hi Team 14! Could you post your Plaza del Dos de Mayo (MAL-02) on v10 as an ask addressed to Team 8, at ~9 P? Only there, please: they're ready to take it on v10. Only if it's a spare for you, keep one copy. Thanks!"
 - To Team 8: "Hi Team 8! Team 14 can post Plaza del Dos de Mayo (MAL-02) on v10 as an ask addressed to Team 8, at ~9 P: please accept it there, on v10, once it's up, and don't bid for it elsewhere meanwhile. Thanks!"
 
-**7. RET-06 · Team 8 → Team 16 at ~22 P on v10**
+**5. RET-06 · Team 8 → Team 16 at ~22 P on v10**
 - To Team 8: "Hi Team 8! Could you post your La Rosaleda (RET-06) on v10 as an ask addressed to Team 16, at ~22 P? Only there, please: they're ready to take it on v10. Only if it's a spare for you, keep one copy. Thanks!"
 - To Team 16: "Hi Team 16! Team 8 can post La Rosaleda (RET-06) on v10 as an ask addressed to Team 16, at ~22 P: please accept it there, on v10, once it's up, and don't bid for it elsewhere meanwhile. Thanks!"
 
-**8. RET-03 · Team 4 → Team 16 at ~8 P on v10**
+**6. RET-03 · Team 4 → Team 16 at ~8 P on v10**
 - To Team 4: "Hi Team 4! Could you post your El Titiritero (RET-03) on v10 as an ask addressed to Team 16, at ~8 P? Only there, please: they're ready to take it on v10. Only if it's a spare for you, keep one copy. Thanks!"
 - To Team 16: "Hi Team 16! Team 4 can post El Titiritero (RET-03) on v10 as an ask addressed to Team 16, at ~8 P: please accept it there, on v10, once it's up, and don't bid for it elsewhere meanwhile. Thanks!"
 
+**7. LAT-05 · Team 2 → Team 3 at ~8 P on v10**
+- To Team 2: "Hi Team 2! Could you post your El Organillero (LAT-05) on v10 as an ask addressed to Team 3, at ~8 P? Only there, please: they're ready to take it on v10. Only if it's a spare for you, keep one copy. Thanks!"
+- To Team 3: "Hi Team 3! Team 2 can post El Organillero (LAT-05) on v10 as an ask addressed to Team 3, at ~8 P: please accept it there, on v10, once it's up, and don't bid for it elsewhere meanwhile. Thanks!"
+
 ## Teams one or two cards from a page
 
+- Team 3 SAL 9/10 · missing SAL-03 (undecided) · rival · **may be complete**
+- Team 8 SAL 8/10 · missing SAL-03 (undecided), SAL-06 (undecided) · **may be complete**
 - Team 3 LAV 8/10 · missing LAV-02 (undecided), LAV-04 (undecided) · rival · **may be complete**
 
 ## Held back (never suggested)
@@ -71,19 +67,19 @@ _Written by `tools/matchmaker.py` at 12:54 (tick 2302). Read-only. Holdings: the
 
 | Team | Status | Held | Proven gaps | Undecided |
 |---|---|---|---|---|
-| Team 1 | exact | 50/50 | 10 | 0 |
+| Team 1 | exact | 51/51 | 9 | 0 |
 | Team 2 | partial | 36/41 | 2 | 22 |
-| Team 3 | partial | 33/41 | 8 | 19 |
+| Team 3 | partial | 32/42 | 8 | 20 |
 | Team 4 | exact | 43/43 | 17 | 0 |
 | Team 6 | repaired | 40/48 | 11 | 9 |
 | Team 7 | exact | 41/41 | 19 | 0 |
-| Team 8 | partial | 40/44 | 3 | 17 |
-| Team 9 | repaired | 30/48 | 7 | 23 |
+| Team 8 | partial | 38/45 | 3 | 19 |
+| Team 9 | repaired | 30/49 | 6 | 24 |
 | Team 10 | exact | 41/41 | 19 | 0 |
 | Team 11 | partial | 1/13 | 12 | 47 |
 | Team 12 | exact | 45/45 | 15 | 0 |
 | Team 13 | repaired | 30/33 | 26 | 4 |
-| Team 14 | partial | 42/43 | 8 | 10 |
+| Team 14 | exact | 43/43 | 17 | 0 |
 | Team 15 | exact | 43/43 | 17 | 0 |
 | Team 16 | exact | 44/44 | 16 | 0 |
 | Team 17 | exact | 42/42 | 18 | 0 |
