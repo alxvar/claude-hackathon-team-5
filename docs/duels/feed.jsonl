@@ -1837,3 +1837,5 @@
 {"id": 94841, "tick": 2057, "t": 16.1792, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11618, "session": 4, "status": "no_deal", "item": "Museo Sorolla"}}
 {"id": 94927, "tick": 2061, "t": 16.1958, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11619, "session": 4, "status": "no_deal", "item": "Museo Sorolla"}}
 {"id": 94962, "tick": 2062, "t": 16.2, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11633, "session": 4, "status": "no_deal", "item": "Museo Sorolla"}}
+{"id": 95141, "tick": 2069, "t": 16.2292, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11643, "session": 4, "status": "no_deal", "item": "Vinilo de la Movida"}}
+{"id": 95144, "tick": 2069, "t": 16.2292, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11661, "session": 4, "status": "no_deal", "item": "Vinilo de la Movida"}}
