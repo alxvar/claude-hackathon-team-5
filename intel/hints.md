@@ -290,3 +290,4 @@ La Caña te la dejo en 10 P, cariño. Y esta noche a las nueve y media abre El C
 - Sun 09:23 · egg.found tick 1480 · abuela → t18 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t18", "name": "Team 18"}
 - Sun 09:24 · egg.found tick 1482 · abuela → t18 · {"persona": "abuela", "persona_name": "Abuela Carmen", "team": "t18", "name": "Team 18"}
 - Sun 09:24 · egg.given tick 1482 · abuela → t18 · {"team": "t18", "name": "Team 18", "cash": 0, "packs": [], "cards": ["LAV-08"], "reason": "easter egg"}
+- Sun 09:24 · message tick 1484 · abuela → t02 · Ay, qué amable, hijo. Let us say 25 P and we are friends. La chulapa dorada — that one El Chato keeps, next to me; he has the better packs. I only saw it twice in forty years. Have you eaten something today?
