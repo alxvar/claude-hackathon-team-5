@@ -340,3 +340,4 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 10:23 · taller.crafted tick 1718 ·  → t10 · Team 10 turned three common cards into Club de Jazz (uncommon) at The Workshop
 - Sun 10:24 · message tick 1721 · pilar → t04 · Buenos días. El Lázaro Galdiano, sí, Serrano puro, muy de mi gusto. Pero conozco su tirada tan bien como mi propia firma. Le ofrezco 61 P, y quedará en mi álbum, no en una bóveda fría. Don Ernesto recibe los domingos.
 - Sun 10:24 · message tick 1722 · pilar → t08 · Qué placer, un visitante que conoce el Retiro de verdad — el Fauno, el Amorcillo, la porcelana del Buen Retiro. Con usted se puede hablar en serio. Le ofrezco un sobre dorado por 504 P. Nada vulgar, se lo aseguro.
+- Sun 10:25 · message tick 1726 · pilar → t08 · Qué memoria más dulce, señor. Yo guardo los pavos reales y el barquillero, sí — y aquellas noches de Florida Park. Un alma así merece algo bueno: le ofrezco un sobre dorado por 504 P.
