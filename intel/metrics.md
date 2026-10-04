@@ -1,4 +1,4 @@
-# Metrics (auto, 12:50, game tick 2303)
+# Metrics (auto, 12:52, game tick 2312)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -32,8 +32,8 @@ CHA-01 (common): 122; CHA-02 (common): 122; CHA-03 (common): 122; CHA-04 (common
 - 25564: bid 12 for LAT-07 · to anyone · expires tick 2364
 - 25565: bid 12 for LAT-08 · to anyone · expires tick 2364
 - 25997: bid 10 for LAT-05, LAT-01 · to t17 · expires tick 2385
-- 26022: bid 60 for MAL-09 · to t08 · expires tick 2308
 - 26414: bid 190 for CHA-11 · to t10 · expires tick 2363
+- 26452: bid 75 for MAL-09 · to t08 · expires tick 2347
 
 ## What each of our deals did to neg_points (measured, last 12)
 
@@ -81,17 +81,19 @@ Who buys which set (team trades): t01: RET×5, MAL×4, SAL×4; t02: RET×4, MAL�
 ## Dealer prices, last 60 ticks (median per item)
 
 - abuela common (team buys): median 8 over 3
-- abuela sobre_barrio (team buys): median 22 over 1
+- abuela sobre_barrio (team buys): median 21 over 2
+- abuela uncommon (team buys): median 21 over 1
 - banco epic (team sells): median 119 over 1
 - chato rare (team sells): median 41 over 1
-- picaros epic (team buys): median 150 over 1
-- picaros rare (team buys): median 54 over 4
-- pilar rare (team sells): median 62 over 1
-- pilar uncommon (team sells): median 18 over 2
+- chato sobre_plata (team buys): median 185 over 1
+- picaros epic (team buys): median 154 over 2
+- picaros rare (team buys): median 54 over 2
+- pilar uncommon (team sells): median 17 over 1
 
 ## El Rastro now: top bids by price (team, card, price)
 
-- t17: LAV-11 (epic) 112 P · offer 25864
+- t03: SAL-11 (epic) 150 P · offer 26477
+- t17: LAV-11 (epic) 112 P · offer 26470
 - t18: LAV-11 (epic) 107 P · offer 26386
 - t18: MAL-11 (epic) 76 P · offer 26403
 - t18: LAV-09 (rare) 35 P · offer 25477
@@ -105,7 +107,6 @@ Who buys which set (team trades): t01: RET×5, MAL×4, SAL×4; t02: RET×4, MAL�
 - t09: CHA-08 (uncommon) 15 P · offer 24748
 - t05 (US): LAT-06 (uncommon) 12 P · offer 25488
 - t18: LAV-06 (uncommon) 12 P · offer 25497
-- t18: LAV-07 (uncommon) 12 P · offer 25498
 
 Asks by others (card, price: count): sobre_plata 130: 1; SAL-05 10: 1; RET-05 9: 1; RET-03 9: 1; LAV-04 8: 1; LAV-02 8: 1; LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; MAL-05 8: 1; MAL-03 8: 1; MAL-01 8: 1; SAL-01 8: 1
 
