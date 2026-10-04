@@ -98,6 +98,16 @@ def test_no_buy_from_rivals_dealers_our_venue_or_small_gains(tmp_path):
     assert r.handle(ask("t09", "RET-03", 10, to="t05"))[0].startswith("BUY ")   # addressed to us: fine
 
 
+def test_no_buy_line_for_cha_or_mal_cards(tmp_path):
+    """Directive 07:05: CHA and MAL are bought only through the Operator's books, never from a reactor BUY line."""
+    r, *_ = make(tmp_path, {"CHA-04": 112, "MAL-07": 90, "RET-03": 40})
+    assert r.handle(ask("t09", "CHA-04", 80)) == [] and r.handle(ask("t09", "MAL-07", 20)) == []
+    r, *_ = make(tmp_path, {"CHA-04": 112, "MAL-07": 90, "RET-03": 40}, cash=10)
+    assert r.handle(ask("t09", "CHA-04", 80)) == []                  # no BUY-NOCASH either
+    assert r.handle(ask("t09", "RET-03", 10))[0].startswith("BUY-NOCASH ")
+    assert rx.policy.book_only("CHA-12") and rx.policy.book_only("MAL-01") and not rx.policy.book_only("RET-09")
+
+
 def test_value_lookups_are_cached_paced_and_dropped_after_our_trades(tmp_path):
     r, clock, sent, logs = make(tmp_path, {"RET-03": 40, "RET-04": 40})
     r.handle(ask("t09", "RET-03", 10))

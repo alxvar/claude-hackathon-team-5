@@ -28,6 +28,7 @@ RIVAL_WITHIN = 3.0
 TOP_RATIO = 3.0
 PAGE_CLOSER_GAP = 6
 RIVALS = frozenset({"t13", "t17"})
+BOOK_ONLY = ("CHA-", "MAL-")   # directive 07:05: these sets are bought only through the Operator's books
 
 
 def reserved_refs(path: Path | None = None, handoff: Path | None = None) -> set:
@@ -50,6 +51,11 @@ def reserved_refs(path: Path | None = None, handoff: Path | None = None) -> set:
         return set()
     m = re.search(r"^## Reserved[^\n]*\n(.*?)(?=^## |\Z)", text, re.S | re.M)
     return set(_CARD.findall(m.group(1))) if m else set()
+
+
+def book_only(ref) -> bool:
+    """A card no taker script buys (reactor BUY lines, rbuy.py): its set goes through the Operator's books only."""
+    return isinstance(ref, str) and ref.startswith(BOOK_ONLY)
 
 
 def is_card(ref) -> bool:

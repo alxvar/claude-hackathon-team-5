@@ -485,6 +485,8 @@ class Reactor:
             return None                               # never on our own venue (RULES)
         if owner in riv or maker in riv:
             return None                               # a rival's market or a rival seller (its gain unknown)
+        if any(policy.book_only(r) for r in refs):
+            return None                               # CHA/MAL: the Operator's books only (directive 07:05)
         values = [self.value(r) for r in refs]
         if any(x is None for x in values):
             return None
