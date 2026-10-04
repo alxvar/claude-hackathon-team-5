@@ -4,7 +4,7 @@ How each component maps to board points, from `data/leaderboard.jsonl` × `data/
 Labels: **[V]** measured/exact fit · **[L]** fits the data, alternatives not ruled out · **[?]** open.
 Scripts: scratchpad `attrib.py` (score change per snapshot → events), `buyers.py` (implied card values).
 
-_Last update: Sun 11:14 (snapshot 1902, phase 0.66; Duels III running): running totals t12 75.36 · t10 70.93 · t18 69.44 = us 69.44 · t03 65.26. Duels III waves 1-3: 9/13 deals (= the field's 69%), duel_points 5.14. Real trades today: 1 each on v21 (t09; t12 → t16 SAL-12 at 380), v15, v29; **v10 still 0**: one big pair (RET-09, VC ≈ +68) still likely caps us (§3k)._
+_Last update: Sun 11:26 (snapshot 1962, phase 0.74; Duels III scored): **final basis (G + Sunday now): t12 85.5 · t10 84.8 · t18 82.2 · us 80.6 · t03 76.6: #3 is 1.6 away.** Duels III waves 1-8: 29/37 deals (78%) vs the field's ≈ 72%; duel_points 11.82. t09's v21 VC (t12's SAL-12 sale at 380) raises the real-trades top-3 mean: one v10 pair may now earn part of the 7.5 rather than all of it. Remaining: v10 VC, the 12:37 bench, the Final (14:00), MAL-09 (an L4 upgrade)._
 _Note: the §4 version labels "00:05" to "02:10" are sequence markers written between Sat 23:50 and Sun 00:42 (my labels ran ahead of the wall clock); real times are in `git log`. The Sunday clock in §4.7 is unaffected._
 
 ## 1. Board = Friday × Saturday blend [V]

@@ -9,6 +9,12 @@ are used wherever they exist. Raw counts cross-check exactly with the leaderboar
 
 ## Live (Analyst; newest first)
 
+### Sun 11:26 · snapshot 1962 (phase 0.74; Duels III scored)
+- Final basis (G + Sunday now): t12 85.5 · t10 84.8 · t18 82.2 · **us 80.6** · t03 76.6. t10 passed t12 on the board (duels).
+- **t09: Sunday ≈ 39.0**, market 13.41: real-trades VC on its v21 from t12 → t16 SAL-12 at 380. That raises the top-3 VC reference for everyone.
+- **t13 offers SAL-03 to t03 on OUR v10** (38 → 30, addressed): t03's SAL closer. If it fills, our v10 VC ≈ +60-70 (a large share of the
+  7.5); t03 gets at most ≈ +6. Let it fill (Chief told at 11:17).
+
 ### Sun 11:14 · snapshot 1902 (phase 0.66; Duels III running)
 - **t12 sold SAL-12 to t16 at 380 on t09's v21** (tick 1886): a team trade, but t12 is at the Sunday 50 cap, so it likely scores 0 for t12.
   It lifts t09's v21 VC and the real-trades top-3 mean.
