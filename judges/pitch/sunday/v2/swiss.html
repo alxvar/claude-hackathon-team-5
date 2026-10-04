@@ -5,10 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Team 5 Swiss Deck</title>
 <style>
-@font-face{font-family:"SwHead";src:local("HelveticaNeue-CondensedBlack"),local("Helvetica Neue Condensed Black"),local("HelveticaNeue-CondensedBold"),local("Helvetica Neue Condensed Bold"),local("ArialNarrow-Bold"),local("Arial Narrow Bold")}
 :root{
   --paper:#F4F1EA;--ink:#111;--red:#E2231A;--blue:#1F4AFF;--mute:#5f5b53;--hair:rgba(17,17,17,.16);
-  --head:"SwHead","Helvetica Neue","Arial Narrow",Arial,sans-serif;
+  --head:"Helvetica Neue","Arial Narrow",Arial,sans-serif;
   --body:"Helvetica Neue",Helvetica,Arial,sans-serif;
   --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
 }
@@ -38,15 +37,15 @@ body{font-family:var(--body);color:var(--ink);-webkit-font-smoothing:antialiased
 .box{position:absolute;border:2px solid var(--ink);background:var(--paper);padding:18px 22px}
 .box .k{font:700 15px var(--mono);letter-spacing:.16em;color:var(--red)}
 .box .h{font:900 64px/0.95 var(--head);font-stretch:condensed;margin:6px 0 10px;text-transform:uppercase}
-.box p{margin:0;font:400 21px/1.32 var(--body)}
-.box .m{margin-top:10px;font:600 15px/1.4 var(--mono);color:var(--mute)}
+.box p{margin:0;font:400 19px/1.32 var(--body)}
+.box .m{margin-top:8px;font:600 14px/1.4 var(--mono);color:var(--mute)}
 .band{position:absolute;background:var(--ink);color:var(--paper);padding:20px 26px;display:grid;grid-template-columns:330px 1fr;gap:24px;align-items:center}
 .band .h{font:900 52px/0.95 var(--head);font-stretch:condensed;text-transform:uppercase}
 .band .s{font:500 24px/1.3 var(--body)}
 .band .m{font:600 16px/1.5 var(--mono);color:#cfc9bd;margin-top:6px}
 .band .m b{color:#fff}
 .stat{position:absolute;left:1462px;width:362px;border-top:1px solid var(--ink);padding-top:12px}
-.stat .v{font:900 64px/0.95 var(--head);font-stretch:condensed}
+.stat .v{font:900 54px/1 var(--head);font-stretch:condensed;white-space:nowrap}
 .stat .c{font:400 18px/1.3 var(--body);color:var(--mute);margin-top:6px}
 /* slide 2 */
 .grp{position:absolute;border-top:3px solid var(--ink);padding-top:8px}
@@ -79,7 +78,7 @@ body{font-family:var(--body);color:var(--ink);-webkit-font-smoothing:antialiased
 .legend span{display:flex;align-items:center;gap:8px}
 .wl{font:700 14px var(--mono);letter-spacing:.12em;text-transform:uppercase}
 .dots{display:flex;gap:7px;margin-left:18px}.dots i{width:11px;height:11px;border:1.5px solid var(--ink)}.dots i.on{background:var(--red);border-color:var(--red)}
-.why{position:absolute;left:96px;right:96px;top:244px;height:620px;background:var(--paper);display:grid;grid-template-columns:repeat(3,1fr);gap:24px;border-top:3px solid var(--ink)}
+.why{position:absolute;z-index:5;left:96px;right:96px;top:244px;height:620px;background:var(--paper);display:grid;grid-template-columns:repeat(3,1fr);gap:24px;border-top:3px solid var(--ink)}
 .why div{border-right:1px solid var(--hair);padding:18px 26px 0 0}
 .why div:last-child{border-right:0}
 .why .n{font:900 170px/0.8 var(--head);font-stretch:condensed;color:var(--red)}
@@ -132,14 +131,14 @@ body.print .stage{display:block!important}
     <path d="M1186 470V446H296V466" fill="none" stroke="#111" stroke-width="4" marker-end="url(#k1)"/>
     <rect x="640" y="433" width="270" height="26" fill="#F4F1EA"/>
     <text x="775" y="452" text-anchor="middle" class="wl" fill="#E2231A">adapt · again</text>
-    <path d="M296 740V664" stroke="#1F4AFF" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#b1)"/>
-    <path d="M741 740V664" stroke="#1F4AFF" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#b1)"/>
-    <path d="M1186 740V664" stroke="#1F4AFF" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#b1)"/>
+    <path d="M296 740V692" stroke="#1F4AFF" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#b1)"/>
+    <path d="M741 740V692" stroke="#1F4AFF" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#b1)"/>
+    <path d="M1186 740V692" stroke="#1F4AFF" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#b1)"/>
   </svg>
 
-  <div class="box wipe" style="left:96px;top:472px;width:402px;height:188px"><div class="k">1 —</div><div class="h">Learn</div><p>Rules, the organisers' changes, our own measurements.</p><div class="m">→ GAME.md · measured facts</div></div>
-  <div class="box wipe" style="left:541px;top:472px;width:402px;height:188px"><div class="k">2 —</div><div class="h">Decide</div><p>Humans + the Chief of staff.</p><div class="m">→ directives.md · 100 decisions · 24 guardrails in 38 h</div></div>
-  <div class="box wipe" style="left:986px;top:472px;width:402px;height:188px"><div class="k">3 —</div><div class="h">Act</div><p>The Operator and the Duelist trade; read-only watchers measure the result.</p></div>
+  <div class="box wipe" style="left:96px;top:472px;width:402px;height:214px"><div class="k">1 —</div><div class="h">Learn</div><p>Rules, the organisers' changes, our own measurements.</p><div class="m">→ GAME.md · measured facts</div></div>
+  <div class="box wipe" style="left:541px;top:472px;width:402px;height:214px"><div class="k">2 —</div><div class="h">Decide</div><p>Humans + the Chief of staff.</p><div class="m">→ directives.md · 100 decisions · 24 guardrails in 38 h</div></div>
+  <div class="box wipe" style="left:986px;top:472px;width:402px;height:214px"><div class="k">3 —</div><div class="h">Act</div><p>The Operator and the Duelist trade; read-only watchers measure the result.</p></div>
 
   <div class="band wipe" style="left:96px;top:744px;width:1292px;height:150px">
     <div class="h">Real-time context</div>
@@ -149,8 +148,8 @@ body.print .stage{display:block!important}
 
   <div class="lab red a" style="left:1462px;top:446px">Adaptation</div>
   <div class="stat" style="top:478px"><div class="v">60 → 30 → 15 s</div><div class="c">the tick, Friday → Sunday</div></div>
-  <div class="stat" style="top:610px"><div class="v">2 nights, 2 redesigns</div><div class="c">Friday: the Saturday plan · Saturday: the code-first duelist</div></div>
-  <div class="stat" style="top:760px;border-top:3px solid var(--red)"><div class="v red">#3 → #1</div><div class="c">7.09 behind Team 10 at Saturday's close → final 37.73, 1.97 ahead</div></div>
+  <div class="stat" style="top:604px"><div class="v">2 redesigns</div><div class="c">overnight: the Saturday plan (Fri), the code-first duelist (Sat)</div></div>
+  <div class="stat" style="top:752px;border-top:3px solid var(--red)"><div class="v red">#3 → #1</div><div class="c">7.09 behind Team 10 at Saturday's close → final 37.73, 1.97 ahead</div></div>
 
   <div class="foot"><span>The Bazaar · Team 5</span><span><b>#1</b> · 37.73</span></div>
 </section>
@@ -160,7 +159,7 @@ body.print .stage{display:block!important}
   <div class="topline"><span>Team 5 — The Bazaar — Causa Prima, Madrid</span><span style="display:flex;align-items:center">02 / 03<span class="dots" id="dots"><i></i><i></i><i></i><i></i></span></span></div>
   <div class="rule" style="top:76px"></div>
   <div class="num" style="top:100px;font-size:150px">02</div>
-  <h1 class="title" style="top:104px;font-size:92px">Who decides, who acts, who checks</h1>
+  <h1 class="title" style="top:112px;font-size:78px">Who decides, who acts, who checks</h1>
   <div class="ql" style="left:534px;top:206px;width:900px">Q2 — What did you build? &nbsp; Q3 — Why that way?</div>
   <div class="legend"><span><svg width="46" height="10"><path d="M0 5H38" stroke="#111" stroke-width="4"/><path d="M36 0L46 5L36 10z" fill="#111"/></svg>authority / write</span><span class="blue"><svg width="46" height="10"><path d="M0 5H38" stroke="#1F4AFF" stroke-width="3" stroke-dasharray="7 6"/><path d="M36 0L46 5L36 10z" fill="#1F4AFF"/></svg>data</span></div>
 
@@ -172,8 +171,8 @@ body.print .stage{display:block!important}
     </defs>
     <g data-s="0"><path d="M506 352H592" stroke="#111" stroke-width="4" marker-end="url(#k2)"/></g>
     <g data-s="1">
-      <path d="M680 418V472H288V496" fill="none" stroke="#111" stroke-width="4" marker-end="url(#k2)"/>
-      <text x="300" y="464" class="wl" fill="#111">directives + limits</text>
+      <path d="M680 418V440H440V496" fill="none" stroke="#111" stroke-width="4" marker-end="url(#k2)"/>
+      <text x="458" y="434" class="wl" fill="#111">directives + limits</text>
       <path d="M860 418V496" stroke="#111" stroke-width="4" marker-end="url(#k2)"/>
       <text x="872" y="488" class="wl" fill="#111">params</text>
       <path d="M288 852V882" stroke="#E2231A" stroke-width="5" marker-end="url(#r2)"/>
@@ -203,8 +202,8 @@ body.print .stage{display:block!important}
     <div class="grp" style="left:96px;top:458px;width:804px"><span class="lab red" style="background:var(--paper);padding-right:10px;position:relative;z-index:1">B — Act · two writer roles</span></div>
     <div class="node" style="left:96px;top:500px;width:384px;height:104px"><div class="h">Operator</div><p>Claude Code · the only trade writer</p></div>
     <div class="chips" style="left:96px;top:618px;width:384px"><span>trader · taker</span><span>book · maker</span><span>dealer bots</span><span>page closers</span><span>counterparty policy</span></div>
-    <div class="node" style="left:512px;top:500px;width:388px;height:104px"><div class="h">Duelist</div><p>code decides accept / hold / step / day · Haiku 4.5 writes</p></div>
-    <div class="chips" style="left:512px;top:618px;width:388px"><span>guards</span><span>8 s failover</span><span class="alg">27 hot-reloaded tunables</span><span>C → A switch</span><span class="alg">5-world simulator</span></div>
+    <div class="node" style="left:512px;top:500px;width:388px;height:104px"><div class="h">Duelist</div><p>code decides, Haiku 4.5 writes the words</p></div>
+    <div class="chips" style="left:512px;top:618px;width:388px"><span>accept · hold · step · day</span><span>guards</span><span>8 s failover</span><span class="alg">27 hot-reloaded tunables</span><span>C → A switch</span><span class="alg">5-world simulator</span></div>
   </div>
   <!-- C · sense / check + phones -->
   <div data-s="2">
