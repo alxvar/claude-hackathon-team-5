@@ -1,4 +1,4 @@
-# Metrics (auto, 10:09, game tick 1664)
+# Metrics (auto, 10:12, game tick 1673)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -74,32 +74,31 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 
 ## Dealer prices, last 60 ticks (median per item)
 
-- abuela common (team buys): median 8 over 1
 - abuela common (team sells): median 6 over 1
-- abuela uncommon (team buys): median 22 over 2
+- abuela uncommon (team buys): median 23 over 3
 - chato uncommon (team buys): median 27 over 1
 - picaros epic (team buys): median 146 over 1
 - picaros rare (team buys): median 60 over 4
 
 ## El Rastro now: top bids by price (team, card, price)
 
-- t16: SAL-11 (epic) 176 P · offer 21757
-- t16: CHA-09 (rare) 69 P · offer 21758
+- t16: SAL-11 (epic) 176 P · offer 21884
 - t16: CHA-10 (rare) 69 P · offer 21828
+- t16: CHA-09 (rare) 69 P · offer 21885
 - t09: RET-09 (rare) 68 P · offer 21548
 - t12: LAV-07 (uncommon) 24 P · offer 21827
-- t16: CHA-06 (uncommon) 19 P · offer 21759
 - t16: CHA-07 (uncommon) 19 P · offer 21773
 - t09: CHA-06 (uncommon) 15 P · offer 21563
 - t09: CHA-07 (uncommon) 15 P · offer 21564
 - t09: CHA-08 (uncommon) 15 P · offer 21572
 - t04: SAL-06 (uncommon) 12 P · offer 21480
-- t16: CHA-01 (common) 10 P · offer 21763
 - t16: CHA-02 (common) 10 P · offer 21774
+- t16: CHA-03 (common) 10 P · offer 21888
 - t09: CHA-01 (common) 5 P · offer 21549
 - t09: CHA-02 (common) 5 P · offer 21550
+- t09: CHA-03 (common) 5 P · offer 21551
 
-Asks by others (card, price: count): LAT-01 8: 2; LAT-02 8: 2; LAT-06 21: 2; LAV-01 5: 2; LAV-05 5: 2; LAV-04 9: 1; sobre_plata 130: 1; LAV-08 23: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; MAL-04 12: 1; MAL-03 12: 1; MAL-01 12: 1; LAT-01 9: 1
+Asks by others (card, price: count): LAT-01 8: 2; LAT-02 8: 2; LAV-01 5: 2; LAV-05 5: 2; LAV-04 9: 1; sobre_plata 130: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAT-02 7: 1; LAV-06 45: 1; RET-07 45: 1; RET-08 45: 1; SAL-05 9: 1; MAL-01 14: 1
 
 ## Our duels: 0 live, 136 finished (last 10)
 
