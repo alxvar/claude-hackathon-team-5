@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sun 11:53** · tick 2075 (15 s/tick) · game hour 16.25 · running · today closes 15:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sun 11:58** · tick 2095 (15 s/tick) · game hour 16.34 · running · today closes 15:00._
 
 ## Team: now and latest
 
@@ -17,25 +17,25 @@ _From `team/<name>.md`; each person writes only their own file._
   - Sat 13:28 · judges: **showcase dashboard brief** `judges/dashboard-brief.md` (for the Figma design + build): one page, 8 sections (hero, race, why we moved, Duels I, architecture, learning loop, what we measured, cost), components, rules (sources and [V]/[L] on every number, no room prices), build as `/show` on the dashboard, read-only, no extra game requests · now #5 (28.15); Duels I done for us: 30/34 deals, 478.9 of 591 P, 112 P lost to rounds; field 226/299 · Figma isn't connected in my Claude Code yet → next: connect Figma in claude.ai, new session designs from the brief
 
 **Lucas** — Sun: CHA page COMPLETE (+50). RET-11 kept (t13 asks lapsed); MAL decision ≈ 12:00 (Chief); Duels III ≈ 11:00 (duelist stopped on Aleks's machine at 09:46: Chief alerted). (Sat history:) Saturday: follow `intel/saturday-plan.md` (verified Fri night by 10 analyses, 4 verifiers, a pre-mortem and a fact-check). Four sessions on Lucas's machine (`intel/saturday-sessions.md`): **Chief of staff** (the only one Lucas talks to), **Operator** (the only game writer for trades and dealers), **Builder** (tools), **Market** (recorder, broker, venue). Morning steps: `intel/morning-start.md`. Trader and analysts are stopped until the operator's 09:00 checks.
-  - Sun 11:47 · Builder · shipped: duelist-loop **f57a002** (WORTH_FLOOR_SHARE, default off, + 11124 fix) for the 12:37 restart · main 2bd3cf8 matchmaker 'ask first' (buyer sold the card) + settlements last · fe397fb hub boards every 2 ticks, 429 ends the sweep · 7a71041 window.py keyed reads (venue Wi-Fi shares the keyless 60/s) → Operator restarts window.sh
-  - Sun 11:46 · Chief 11:50 (team trades at zero marginal value under the cap) · (1) trader STOPPED for the day · (2) book kept: LAT-06/07/08 bids at 9 on El Rastro = ladder fodder → run/sunday/lat_fodder.py (pid 87090): a filled LAT uncommon goes to Pilar > 16 (empty 3rd L3 slot) first, then Chato > 13 (3 empty L2 slots); one try per dealer per copy; stops after 1 + 3 deals or 14:00 · (3) opps + swaps stay DOWN: run/floors.env → floors.env.off (window.py restart() then restarts nothing); window_fallback.sh (pid 85571) now brings back only the recorder (12:37 bench) after Duels III + 180 s · undo: mv floors.env.off floors.env
-  - Sun 11:45 · Duel Lab · review of the Builder's worth floor (duelist-loop f57a002 on 506a2fd: WORTH_FLOOR_SHARE in final(), accepts untouched, silent walk max floor, hold via is_hold) · **GO, 0.075 confirmed**: 584 tests pass on a scratch copy · Final restart: f57a002 + {MIN_STEP_P 15, ACCEPT_BY 1, MAX_STEP_SHARE 0.08, WORTH_FLOOR_SHARE 0.075}; never raise the floor mid-session
+  - Sun 11:57 · Chief: v24 stays OFF (no third-party trades to route; the ≤ 1.7 VC cap makes it moot); a specific t13 trade on v24 only on the Chief's word · bounty 24703 stays on El Rastro (an MAL-09 fill on a team venue would hand it ≈ +37 VC)
+  - Sun 11:57 · **FIRST v10 settlement** #1351 (tick 2087): t13 → t17 RET-02 at 8 → v10 trades 1, traders 2, value_created 3.4, mm_points 0.9 · bounty #1 (v10 settlement 1351): seller t13, in kind MAL-09 at 49 = our value (0 over; slack 29 left), offer 24703, El Rastro, exp 2208 · pact condition technically met (t13-side VC on v10 > 0) but v24 flag NOT enabled: conflicts with the Chief's 11:33 El Rastro-only rule; asked the Chief
+  - Sun 11:56 · Duels III finished 11:53 (t 16.25) · window.sh (restarted 11:46 on 7a71041, keyed clock reads) logged NOT restarting as intended (floors.env.off) · window_fallback started the recorder 11:56:13 (12:37 bench); opps/swaps/trader stay DOWN; book up (LAT fodder) · next: v10 bounty/reward, lat_fodder, ad every 15 min; dealer threads cut 14:00, Grand Final ≈ 14:15
 
 ## Score
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 32.93 | 4 | 22.92 | 10.01 | 24.68 | 0.34 | 0.90 | 69 | 5 | 635 | 49/60 |
+| 32.93 | 4 | 22.91 | 10.03 | 24.68 | 0.34 | 0.90 | 69 | 5 | 635 | 49/60 |
 
-Leaderboard (snapshot at tick 2062; refreshes every few minutes):
+Leaderboard (snapshot at tick 2082; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 12 | 34.41 | 23.03 | 11.38 | 78 |
-| 2 | Team 10 | 33.57 | 21.53 | 12.04 | 70 |
-| 3 | Team 18 | 33.08 | 24.21 | 8.87 | 56 |
-| 4 | Team 5 | 32.93 | 22.92 | 10.01 | 69 |
-| 5 | Team 3 | 30.51 | 22.54 | 7.97 | 39 |
+| 1 | Team 12 | 34.40 | 23.03 | 11.37 | 79 |
+| 2 | Team 10 | 33.49 | 21.46 | 12.04 | 70 |
+| 3 | Team 18 | 33.08 | 24.19 | 8.89 | 56 |
+| 4 | Team 5 | 32.93 | 22.91 | 10.03 | 69 |
+| 5 | Team 3 | 30.50 | 22.50 | 8.01 | 39 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 17.00 | ~45 min | bench | The Market Test: every venue gets the same synthetic book |
-| 18.17 | ~115 min | announce | finale warning |
-| 18.37 | ~127 min | persona | Finale: stalls close |
-| 18.37 | ~127 min | persona | Finale: stalls close |
-| 18.37 | ~127 min | persona | Finale: stalls close |
-| 18.37 | ~127 min | persona | Finale: stalls close |
-| 18.37 | ~127 min | persona | Finale: stalls close |
-| 18.37 | ~127 min | duels | The Grand Final: the last duel wave, on the big screen |
+| 17.00 | ~40 min | bench | The Market Test: every venue gets the same synthetic book |
+| 18.17 | ~110 min | announce | finale warning |
+| 18.37 | ~122 min | persona | Finale: stalls close |
+| 18.37 | ~122 min | persona | Finale: stalls close |
+| 18.37 | ~122 min | persona | Finale: stalls close |
+| 18.37 | ~122 min | persona | Finale: stalls close |
+| 18.37 | ~122 min | persona | Finale: stalls close |
+| 18.37 | ~122 min | duels | The Grand Final: the last duel wave, on the big screen |
 
 ## Our dealer deals
 
@@ -85,7 +85,7 @@ _Her first = her first price in the conversation. A deal at her first price prob
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
 | common card | team buys | 112 | 9.00 | 7 | 15 | 9 | 8.78 |
-| common card | team sells | 129 | 6 | 2 | 23 | 6 | 5.50 |
+| common card | team sells | 130 | 6.00 | 2 | 23 | 6 | 5.50 |
 | sobre_barrio | team buys | 45 | 22 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 102 | 23.00 | 17 | 29 | 7 | 23.43 |
 | uncommon card | team sells | 13 | 15 | 12 | 22 | 0 | — |
