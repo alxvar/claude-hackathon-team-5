@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 13:03 · MAL-09: 26452 (t08, 75) lapsed unfilled at 2347 → the one re-post **26796** → t01, El Rastro, 60, exp 2408 (+35 if filled); no more re-posts
 - Sun 13:01 · **LOCK THE LEAD** (Chief 13:05, Lucas: no risk until 15:00; board 2322: us 37.21, t10 34.77, t12 34.19; CHA-11 also gave t10 ≈ +1.47) · run/book.json emptied, public bids LAT-02/04/09/10 cancelled · live: LAT-06/07/08 at 14 (till 13:55), MAL-09 → t08 75 (→ t01 60 once), bounty #3 → t17 (10 = value) · v10 bounty now refuses sellers t10/t12/t18/t03/t04 (safety-only change) · trader/opps: live rivals excluded (= the list) + t13/t17; floors → 0 at 13:30 · no new scripts, no other param changes, no page-card sales
 - Sun 12:58 · Chief 13:03 GO: LAT-06/07/08 at 14 (value 12.5, −1.5 np each, for Chato L2 slots) · book.py won't bid above value → manual lat14.py (pid 79933): out of book.json, the book's 12 bids cancelled, public El Rastro bids 26654/26656/26658 at 14; unfilled cancelled at 13:55 · lat_fodder (pid 8465) sells each fill to Chato ≥ 14
 - Sun 12:57 · endgame (Analyst 13:00; basis us 93.0, t10 86.9, t12 85.5) · Chato L2 NOT filling: no spare uncommon held (LAV-08 spare → Pilar; the rest are single page copies); only feed = the book's LAT-06/07/08 bids at 12 (no fills); lat_fodder → Chato ≥ 14 if one lands; offered the Chief +1 bid (13, −0.5 neg each) · floors_1330.sh (pid 79058): trader + opps floors → 0 at 13:30 · MAL-09: t08 75 → t01 60 once
