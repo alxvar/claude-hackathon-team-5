@@ -1,4 +1,4 @@
-# Metrics (auto, 09:39, game tick 1545)
+# Metrics (auto, 09:42, game tick 1553)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -16,19 +16,17 @@ Us: #4
 
 ## Us
 
-score 29.81 · neg_points 0.0 (15 min ago 0.0) · ladder 0.17 · duel 0.0 · cash 467 · level 5 · deals 61
+score 29.81 · neg_points 0.0 (15 min ago 0.0) · ladder 0.172 · duel 0.0 · cash 445 · level 5 · deals 62
 
 ## Our holdings (card (rarity): value of each copy; a sale gives up the cheapest copy)
 
-CHA-01 (common): 16; CHA-02 (common): 16; CHA-03 (common): 16; CHA-04 (common): 16; CHA-07 (uncommon): 40; CHA-08 (uncommon): 40; CHA-09 (rare): 112; CHA-10 (rare): 112; LAT-01 (common): 5; LAT-03 (common): 5; LAT-04 (common): 5; LAV-01 (common): 99.1; LAV-02 (common): 99.1; LAV-03 (common): 99.1; LAV-04 (common): 3.2 / 3.2; LAV-05 (common): 99.1; LAV-06 (uncommon): 118.6; LAV-07 (uncommon): 118.6; LAV-08 (uncommon): 118.6; LAV-09 (rare): 177.1; LAV-10 (rare): 177.1; MAL-01 (common): 7; MAL-02 (common): 7; MAL-03 (common): 7; MAL-04 (common): 7; MAL-05 (common): 7; MAL-06 (uncommon): 17.5; MAL-08 (uncommon): 17.5; RET-01 (common): 83.9; RET-02 (common): 83.9; RET-03 (common): 83.9; RET-04 (common): 83.9; RET-05 (common): 83.9; RET-06 (uncommon): 100.4; RET-07 (uncommon): 100.4; RET-08 (uncommon): 100.4; RET-09 (rare): 149.9; RET-10 (rare): 149.9; RET-11 (epic): 198; SAL-01 (common): 68.6; SAL-02 (common): 68.6; SAL-03 (common): 68.6; SAL-04 (common): 2.2 / 2.2; SAL-05 (common): 68.6; SAL-06 (uncommon): 82.1; SAL-07 (uncommon): 82.1; SAL-08 (uncommon): 82.1; SAL-09 (rare): 122.6; SAL-10 (rare): 122.6
+CHA-01 (common): 16; CHA-02 (common): 16; CHA-03 (common): 16; CHA-04 (common): 16; CHA-06 (uncommon): 40; CHA-07 (uncommon): 40; CHA-08 (uncommon): 40; CHA-09 (rare): 112; CHA-10 (rare): 112; LAT-01 (common): 5; LAT-03 (common): 5; LAT-04 (common): 5; LAV-01 (common): 99.1; LAV-02 (common): 99.1; LAV-03 (common): 99.1; LAV-04 (common): 3.2 / 3.2; LAV-05 (common): 99.1; LAV-06 (uncommon): 118.6; LAV-07 (uncommon): 118.6; LAV-08 (uncommon): 118.6; LAV-09 (rare): 177.1; LAV-10 (rare): 177.1; MAL-01 (common): 7; MAL-02 (common): 7; MAL-03 (common): 7; MAL-04 (common): 7; MAL-05 (common): 7; MAL-06 (uncommon): 17.5; MAL-08 (uncommon): 17.5; RET-01 (common): 83.9; RET-02 (common): 83.9; RET-03 (common): 83.9; RET-04 (common): 83.9; RET-05 (common): 83.9; RET-06 (uncommon): 100.4; RET-07 (uncommon): 100.4; RET-08 (uncommon): 100.4; RET-09 (rare): 149.9; RET-10 (rare): 149.9; RET-11 (epic): 198; SAL-01 (common): 68.6; SAL-02 (common): 68.6; SAL-03 (common): 68.6; SAL-04 (common): 2.2 / 2.2; SAL-05 (common): 68.6; SAL-06 (uncommon): 82.1; SAL-07 (uncommon): 82.1; SAL-08 (uncommon): 82.1; SAL-09 (rare): 122.6; SAL-10 (rare): 122.6
 
-## Our open offers (6)
+## Our open offers (4)
 
 - 20331: bid 9 for LAT-07 · to anyone · expires tick 1630
 - 20332: bid 9 for LAT-08 · to anyone · expires tick 1630
 - 20680: bid 9 for LAT-06 · to anyone · expires tick 1660
-- 20793: bid 22 for CHA-06 · to anyone · expires tick 1589
-- 20815: sell RET-11 for 248 · to t13 · expires tick 1552
 - 21030: bid 9 for CHA-05 · to anyone · expires tick 1625
 
 ## What each of our deals did to neg_points (measured, last 12)
@@ -55,7 +53,7 @@ CHA-01 (common): 16; CHA-02 (common): 16; CHA-03 (common): 16; CHA-04 (common): 
 - tick 1520 abuela buy CHA-04: 12 → 9, ours 9 · deal
 - tick 1528 abuela buy CHA-06: 29 → 25, ours 15 · closed
 - tick 1534 abuela buy CHA-08: 29 → 21, ours 21 · deal
-- tick 1545 abuela buy CHA-06: ? → ?, ours - · open
+- tick 1545 abuela buy CHA-06: 29 → 22, ours 22 · deal
 
 ## Trades between teams (181 so far; last 12)
 
@@ -76,20 +74,19 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 
 ## Dealer prices, last 60 ticks (median per item)
 
-- abuela common (team buys): median 9 over 15
+- abuela common (team buys): median 9 over 13
 - abuela common (team sells): median 5 over 1
 - abuela uncommon (team buys): median 22 over 6
-- chato uncommon (team buys): median 31 over 3
+- chato uncommon (team buys): median 31 over 1
 - picaros epic (team buys): median 145 over 5
-- picaros rare (team buys): median 54 over 3
-- pilar uncommon (team sells): median 17 over 3
+- picaros rare (team buys): median 59 over 3
+- pilar uncommon (team sells): median 16 over 2
 
 ## El Rastro now: top bids by price (team, card, price)
 
 - t04: MAL-10 (rare) 50 P · offer 20359
 - t04: SAL-10 (rare) 44 P · offer 20282
 - t04: MAL-09 (rare) 36 P · offer 20355
-- t05 (US): CHA-06 (uncommon) 22 P · offer 20793
 - t09: SAL-06 (uncommon) 20 P · offer 20846
 - t04: CHA-06 (uncommon) 20 P · offer 20924
 - t04: CHA-07 (uncommon) 20 P · offer 20925
@@ -101,6 +98,7 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 - t04: CHA-02 (common) 8 P · offer 20920
 - t04: CHA-03 (common) 8 P · offer 20921
 - t04: CHA-04 (common) 8 P · offer 20922
+- t04: CHA-05 (common) 8 P · offer 20923
 
 Asks by others (card, price: count): RET-01 7: 1; sobre_plata 130: 1; LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; SAL-02 7: 1; LAV-04 10: 1; RET-01 6: 1; SAL-05 9: 1; LAT-08 30: 1; LAT-06 30: 1; LAT-07 30: 1; MAL-04 12: 1
 
@@ -119,9 +117,9 @@ Asks by others (card, price: count): RET-01 7: 1; sobre_plata 130: 1; LAT-01 8: 
 
 ## Latest announcements
 
-- tick 1201 announcement: {"text": "Payday in Madrid: every team gets 400 primas, a second starting purse. Don Ernesto's vault and Los P\u00edcaros' epics are within reach. Only deals sc
 - tick 1201 announcement: {"text": "Play resumes now. Duels II starts in about 20 minutes: make sure your agent is running."}
 - tick 1415 announcement: {"text": "We close at 23:00. Offers stay open; the clock stops."}
 - tick 1445 announcement: {"text": "Closed until Sunday 09:00. Offers stay open; the clock stops."}
 - tick 1445 announcement: {"text": "Good morning! The Bazaar is open again: Sunday until 15:00, one tick every 15 s."}
+- tick 1553 announcement: {"text": "Bug bounty: thank you, Team 12! You found and documented a real scoring bug, fixed overnight. A silver pack is on its way to you."}
 
