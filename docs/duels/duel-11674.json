@@ -3825,5 +3825,140 @@
     "settles_at_tick": 2052
    }
   }
- ]
+ ],
+ "last_seen_tick": 2052,
+ "done": {
+  "duel": 11674,
+  "session": 4,
+  "status": "deal",
+  "role": "seller",
+  "item": "Escaparate de Serrano",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 1.63,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 42,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Rojo",
+  "deadline_tick": 2052,
+  "decay_per_round": 0.1,
+  "rounds": 3,
+  "your_offer": {
+   "id": 15754,
+   "price": 45,
+   "tick": 2050,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 15760,
+   "price": 58,
+   "tick": 2051,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 2040,
+    "from": "you",
+    "text": "I'd like to open at 60 P for delivery on day 10.",
+    "price": 60,
+    "days": 10
+   },
+   {
+    "tick": 2040,
+    "from": "Rival Rojo",
+    "text": "Hello! I can do 34 with delivery on day 0.",
+    "price": 34,
+    "days": 0
+   },
+   {
+    "tick": 2041,
+    "from": "Rival Rojo",
+    "text": "Thanks for the reply. 40, delivery day 0.",
+    "price": 40,
+    "days": 0
+   },
+   {
+    "tick": 2043,
+    "from": "Rival Rojo",
+    "text": "Let me move closer: 44, day 0.",
+    "price": 44,
+    "days": 0
+   },
+   {
+    "tick": 2044,
+    "from": "Rival Rojo",
+    "text": "I'd like to close this: 47 with day 0.",
+    "price": 47,
+    "days": 0
+   },
+   {
+    "tick": 2045,
+    "from": "Rival Rojo",
+    "text": "Meeting you halfway: 50, delivered day 0.",
+    "price": 50,
+    "days": 0
+   },
+   {
+    "tick": 2046,
+    "from": "Rival Rojo",
+    "text": "Final stretch from me: 52, day 0.",
+    "price": 52,
+    "days": 0
+   },
+   {
+    "tick": 2047,
+    "from": "Rival Rojo",
+    "text": "Hello! I can do 53 with delivery on day 0.",
+    "price": 53,
+    "days": 0
+   },
+   {
+    "tick": 2048,
+    "from": "Rival Rojo",
+    "text": "Thanks for the reply. 54, delivery day 0.",
+    "price": 54,
+    "days": 0
+   },
+   {
+    "tick": 2049,
+    "from": "you",
+    "text": "I can meet you at 49 P, but I need delivery on day 10 rather than day 0.",
+    "price": 49,
+    "days": 10
+   },
+   {
+    "tick": 2049,
+    "from": "Rival Rojo",
+    "text": "Let me move closer: 56, day 0.",
+    "price": 56,
+    "days": 0
+   },
+   {
+    "tick": 2050,
+    "from": "you",
+    "text": "I'll step down to 45 P if you can meet me on day 10 delivery.",
+    "price": 45,
+    "days": 10
+   },
+   {
+    "tick": 2050,
+    "from": "Rival Rojo",
+    "text": "I'd like to close this: 57 with day 0.",
+    "price": 57,
+    "days": 0
+   },
+   {
+    "tick": 2051,
+    "from": "Rival Rojo",
+    "text": "Meeting you halfway: 58, delivered day 0.",
+    "price": 58,
+    "days": 0
+   }
+  ],
+  "result": 11.7,
+  "price": 58,
+  "days": 0
+ }
 }

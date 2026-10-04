@@ -1,4 +1,4 @@
-# Metrics (auto, 11:45, game tick 2043)
+# Metrics (auto, 11:47, game tick 2051)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -74,12 +74,12 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×2; t02: RET×4, MAL�
 ## Dealer prices, last 60 ticks (median per item)
 
 - abuela common (team sells): median 6 over 2
-- picaros epic (team buys): median 156 over 2
-- picaros rare (team buys): median 52 over 1
+- picaros epic (team buys): median 163 over 1
 
 ## El Rastro now: top bids by price (team, card, price)
 
-- t17: MAL-11 (epic) 150 P · offer 24250
+- t17: MAL-11 (epic) 150 P · offer 24464
+- t10: CHA-11 (epic) 65 P · offer 24432
 - t09: CHA-06 (uncommon) 15 P · offer 23065
 - t09: CHA-07 (uncommon) 15 P · offer 23066
 - t09: CHA-08 (uncommon) 15 P · offer 23069
@@ -93,21 +93,20 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×2; t02: RET×4, MAL�
 - t07: CHA-05 (common) 8 P · offer 23941
 - t09: CHA-01 (common) 5 P · offer 23048
 - t09: CHA-02 (common) 5 P · offer 23049
-- t09: CHA-03 (common) 5 P · offer 23050
 
-Asks by others (card, price: count): LAV-06 22: 1; LAV-02 9: 1; LAV-04 9: 1; MAL-01 10: 1; MAL-02 10: 1; MAL-03 10: 1; MAL-04 10: 1; MAL-05 10: 1; sobre_plata 130: 1; LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAT-09 68: 1
+Asks by others (card, price: count): LAV-06 22: 1; LAV-02 9: 1; LAV-04 9: 1; MAL-01 10: 1; MAL-02 10: 1; MAL-03 10: 1; MAL-04 10: 1; MAL-05 10: 1; sobre_plata 130: 1; LAT-01 8: 1; LAT-02 8: 1; LAT-03 8: 1; LAT-04 8: 1; LAT-05 8: 1; LAT-06 30: 1
 
-## Our duels: 2 live, 203 finished (last 10)
+## Our duels: 2 live, 204 finished (last 10)
 
-- {"duel": 11549, "session": 4, "status": "deal", "role": "buyer", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 4.9, "days_meaning": "each delivery day costs you this much cash", "your_limit": 117, "limit_meaning": "never pay above y
 - {"duel": 11572, "session": 4, "status": "deal", "role": "seller", "item": "San Isidro", "issues": ["price", "days"], "your_days_weight": 6.53, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 43, "limit_meaning": "never sell 
 - {"duel": 11573, "session": 4, "status": "deal", "role": "buyer", "item": "San Isidro", "issues": ["price", "days"], "your_days_weight": 1.52, "days_meaning": "each delivery day costs you this much cash", "your_limit": 187, "limit_meaning": "never pay above you
 - {"duel": 11610, "session": 4, "status": "no_deal", "role": "seller", "item": "Escaparate de Serrano", "issues": ["price", "days"], "your_days_weight": 1.06, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 81, "limit_meaning"
+- {"duel": 11611, "session": 4, "status": "live", "role": "buyer", "item": "Escaparate de Serrano", "issues": ["price", "days"], "your_days_weight": 1.26, "days_meaning": "each delivery day costs you this much cash", "your_limit": 163, "limit_meaning": "never pa
 - {"duel": 11612, "session": 4, "status": "deal", "role": "seller", "item": "Cine Dor\u00e9", "issues": ["price", "days"], "your_days_weight": 3.32, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 104, "limit_meaning": "never 
 - {"duel": 11613, "session": 4, "status": "deal", "role": "buyer", "item": "Cine Dor\u00e9", "issues": ["price", "days"], "your_days_weight": 6.02, "days_meaning": "each delivery day costs you this much cash", "your_limit": 132, "limit_meaning": "never pay above
 - {"duel": 11640, "session": 4, "status": "deal", "role": "seller", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 5.13, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 104, "limit_meaning": "never s
 - {"duel": 11641, "session": 4, "status": "deal", "role": "buyer", "item": "Museo Sorolla", "issues": ["price", "days"], "your_days_weight": 5.93, "days_meaning": "each delivery day costs you this much cash", "your_limit": 116, "limit_meaning": "never pay above 
-- {"duel": 11674, "session": 4, "status": "live", "role": "seller", "item": "Escaparate de Serrano", "issues": ["price", "days"], "your_days_weight": 1.63, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 42, "limit_meaning": "
+- {"duel": 11674, "session": 4, "status": "deal", "role": "seller", "item": "Escaparate de Serrano", "issues": ["price", "days"], "your_days_weight": 1.63, "days_meaning": "each delivery day adds this much cash to your side", "your_limit": 42, "limit_meaning": "
 - {"duel": 11675, "session": 4, "status": "live", "role": "buyer", "item": "Escaparate de Serrano", "issues": ["price", "days"], "your_days_weight": 0.83, "days_meaning": "each delivery day costs you this much cash", "your_limit": 171, "limit_meaning": "never pa
 
 ## Latest announcements
