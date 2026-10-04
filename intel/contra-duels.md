@@ -3,24 +3,28 @@
 _Contrarian review, read-only. No game calls, no keys, nothing started, nothing on the branch changed._
 - _**Read:** sunday-final, duel-lab (SUNDAY v2 + morning check), duel-crosscheck, duelist-reaudit (incl. Delta audit
   29aa1be), duelist-audit, `docs/duelist-loop.md` and `docs/duel_sets.json` at origin/duelist-loop, RULES.md,
-  audit-why-we-lost, ops-contention, the code at 29aa1be, and our 140 duel records._
+  audit-why-we-lost, ops-contention, the code at 29aa1be, and our 136 duel records._
 - _**Re-ran both simulators read-only:** the Lab's `v2/sim3.py` and the cross-check's `robust.py` / `labpol.py`. The
-  drivers and outputs are in this session's scratchpad `contra/` (`overnight.py`, `mirror.py`, `fallbacks.py`,
-  `pols_contra.json`, `*.out`). They are temporary._
+  drivers and outputs are in this session's scratchpad `contra/`, which is temporary:
+  - drivers: `overnight.py`, `mirror.py`, `fallbacks.py`, `pols_contra.json`;
+  - outputs: `overnight_H1.out`, `overnight_H2.out`, `mirror.out`, `fallbacks.out`, `xcheck_share.out`,
+    `xcheck_paired.out`, `pols_contra_robust.pkl`._
+- _**Checked:** an independent verifier pass audited this file against its sources: 1 major and 11 minor flags, all
+  fixed below._
 - _**Labels:** [V] measured on records or code, [L] modelled, [?] unknown._
 - _**Units:** the Lab's "+5.4 / +2.7" are raw duel points (share × 0.9^rounds, summed over duels). The Analyst's
   Duels III +4.7 and Final +2.3 Sunday points, at ≈ 0.42 a duel, imply **1 raw duel point ≈ 0.16 Sunday points ≈
   0.07 final** [L]. Saturday's 6.9 of 12 at 35.4 raw implies 0.2._
 
-## Verdict: CHANGE four things, KEEP the core
+## Verdict: CHANGE five things, KEEP the core
 
 | # | Issue | Expected Sunday points at stake | Fix | Verdict |
 |---|---|---|---|---|
-| 1 | Set C stops at the corner of the Lab's own grid. Both simulators prefer holding longer and accepting one tick later | **+0.5 to +0.7** [L] | **C+** = C plus `MIN_STEP_P` 15 and `ACCEPT_BY` 1. Two hot params, no code, no restart | **CHANGE** |
-| 2 | No first-wave check. The switch can't fix a misread or a new issue, and its SWITCH line hides one | EV **+0.15 to +0.5**, tail −4 to −11 | A four-line check on the first wave of each session, and a SWITCH line read as an alarm | **CHANGE** (add) |
-| 3 | The only real escape is `--rollback` to main, ≈ −0.09 a duel against C | ≈ +0.1 EV, but **−1.5 to −2** if pulled at the start | Three tiers: hot `use A`, the same sha with `POLICY=llm`, then rollback (with faster flags) | **CHANGE** |
-| 4 | Ops: three different start commands, the pipe hang, stale briefs for Aleks | +0.05 to +0.15 | One zsh-safe block, run in a plain Terminal tab | **CHANGE** |
-| 5 | Units: the plan prices the duel delta about 5× too high, and the duel window over-protects it | duel-side ≈ 0; market-side [?] | Restate: C over today's setup ≈ +1.5 Sunday points. Keep the trader and dealer threads in the window | CHANGE the wording and the window rule |
+| 1 | Set C stops at the corner of the Lab's own grid. Both simulators prefer accepting one tick later. The Lab's also prefers holding longer; in the cross-check's, holding alone is a wash | **+0.5 to +0.7** [L] | **C+** = C plus `MIN_STEP_P` 15 and `ACCEPT_BY` 1. Two hot params, no code, no restart. Only with the trader, swaps and opps off in the duel window | **CHANGE** |
+| 2 | No first-wave check. The switch can't fix a misread or a new issue, and its SWITCH line hides one | EV **+0.15 to +0.5** [L, on a [?] 3-5% chance], tail −4 to −11 | A four-line check on the first wave of each session, and a SWITCH line read as an alarm | **CHANGE** (add) |
+| 3 | The only real escape is `--rollback` to main, ≈ −0.09 a duel against C | ≈ +0.1 EV [L], but **−1.5 to −2** if pulled at the start | Three tiers: hot `use A`, the same sha with `POLICY=llm`, then rollback (with faster flags) | **CHANGE** |
+| 4 | Ops: three different start commands, the pipe hang, stale briefs for Aleks | +0.05 to +0.15 [L] | One zsh-safe block, run in a plain Terminal tab | **CHANGE** |
+| 5 | Units: the plan prices the duel delta about 5× too high. The duel window also blocks dealer threads, which cost duels nothing | duel-side ≈ 0; market-side [?] | Restate: C over today's setup ≈ +1.5 Sunday points. Allow the Operator's dealer threads in the window; keep the trader, swaps and opps off | **CHANGE** (wording and the window rule) |
 | 6 | The C → A switch: timing and carry-over | ≈ 0 (≤ 0.03) | None: carry A into the Final as the Lab says | KEEP |
 | 7 | Code vs LLM policy at 15 s ticks; Haiku down or slow | 0 | None | KEEP code |
 | 8 | Free offers under rounds = min(ours, theirs) once we're ahead in the count | ≈ +0.1 [L, rough] | A count-aware walk: a code change | KEEP for today |
