@@ -17,3 +17,4 @@ _Every item from GET /api/news (sources: boletin, radio, tablon), oldest first, 
 - Sun 09:21 · tick 1470 (hour 13.7333) · El Tablón · **Tomorrow common cards will be worth double** ·  · Names: none
 - Sun 09:24 · tick 1482 (hour 13.7833) · Radio Rastro · **Bonus pay: the Bazaar gives everyone 60 primas in one hour** ·  · Names: price
 - Sun 09:27 · tick 1494 (hour 13.8333) · El Tablón · **El Rastro closes at midnight for roadworks** ·  · Names: venue rastro
+- Sun 09:30 · tick 1506 (hour 13.8833) · El Tablón · **Anyone want to swap a Cine Doré for two roast chestnuts?** ·  · Names: none
