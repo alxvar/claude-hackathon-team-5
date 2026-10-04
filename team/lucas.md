@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 13:57 · MAL-09 chain done: t15 28039 lapsed too (t01, t09, t15 all passed at 60 on v01) → MAL 9/10 · window.sh STOPPED opps/swaps/recorder 13:56 for the Final duels (no restart) · no offers of ours live; trader running (floor 0) · neg 104.8, #1
 - Sun 13:55 · LAT-06/07/08 bids at 14 (26654/56/58) expired at tick 2534 (≈ 13:49) unfilled; lat14 end 13:55, none held → Chato L2 stays empty (no ≥ 0 way to fill it) · MAL-09 chain: t01 27446 and t09 27687 lapsed → t15 28039 on v01 at 60 (exp 2564), the last; counter-accept ≤ 75 until 14:55 · only live offer of ours: 28039 · Grand Final 14:00 (dealers close)
 - Sun 13:30 · floors → 0 at 13:30:17 (floors_1330.sh): trader + opps restarted with CASH_FLOOR=0, El Rastro routing (daemons.env), rivals excluded · live: LAT-06/07/08 at 14 (till 13:55), MAL-09 v01 chain (27446 → t01)
 - Sun 13:28 · MAL-09 chain on v01 (Chief 13:30, Lucas; Team 6 lobbies the sellers): mal09_v01.py: 27446 → t01 (live) → on lapse t09 → t15, 60, 40 ticks, always addressed; accepts a counter to us on v01 ≤ 75 (cancels ours first); never t04/t10/t12/t13/t17/t18; cutoff 14:55
