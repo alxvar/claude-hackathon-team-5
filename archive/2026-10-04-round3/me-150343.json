@@ -1,0 +1,44 @@
+{
+ "id": "t05",
+ "name": "Team 5",
+ "tick": 2816,
+ "cash": 457,
+ "level": 5,
+ "score": {
+  "team": "t05",
+  "name": "Team 5",
+  "score": 37.73,
+  "negotiating": 24.64,
+  "market": 13.08,
+  "neg_points": 104.8,
+  "mm_points": 14.0,
+  "duel_points": 35.84,
+  "ladder_points": 0.364,
+  "bench_efficiency": 0.89,
+  "bench_points": 0.5,
+  "bench_venue": "v10",
+  "level": 5,
+  "album_filled": 50,
+  "album_slots": 60,
+  "pages_complete": 4,
+  "rarest": {
+   "ref": "CHA-11",
+   "name": "And\u00e9n 0",
+   "serial": 5,
+   "print_run": 9,
+   "rarity": "epic"
+  },
+  "luck": -67.1,
+  "deals": 74,
+  "badges": [
+   "Sharp ear",
+   "Trickster tricked",
+   "Castizo"
+  ],
+  "adjustments": [],
+  "frozen": false,
+  "venue": "v10",
+  "luck_private": 35.7,
+  "rank": 1
+ }
+}

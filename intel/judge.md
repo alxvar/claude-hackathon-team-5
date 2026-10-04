@@ -1,64 +1,45 @@
-# Judge (claude-opus-5-5, Sun 12:46)
+# Judge (claude-opus-5-5, Sun 14:50)
 
 ## Verdict
-Gaining: we are #1 at 35.39 (+1.8 over 15 min, +2.6 over 60 min). t10 is at 34.2 (+0.1/60) and t12 at 34.1 (−0.5/60), so our lead is 1.2.
+**Holding #1, but the lead is shrinking.** At 13:12 we led t10 37.21 to 34.77, a gap of 2.44. At 14:48 it is 37.7 to 35.8, a gap of 1.9. Over the last 60 min t10 gained +0.9 and we gained +0.5. Over the last 15 min t10 gained +0.5 and we lost 0.1. t12 (34.5) and t03 (34.2) are flat. `neg_points` have stayed at 104.8 since tick 2318.
 
 ## Our strategies: keep / kill / scale
-- **MAL closer: keep.**
-  - MAL-07 filled through the public bid at 15: neg 52.2 → 54.8.
-  - MAL-09 is now the last card (value-when-last 95.4). Bid 26022 at 60 to t08 is worth +35.4 if it fills; it expires at tick 2308.
-  - 60 is above the 12:22 limit of ≤ 49. The Chief approved it at 12:43, and it is still ≥ 0.
-- **CHA-11 epic bid: keep.** 25784 at 240 vs value 288 is +48. It expires at tick 2303 (about 26 ticks).
-- **Dealer spare sales (Pícaros/Abuela/Pilar): kill.**
-  - The tick-2169 batch and LAT-05 at 5: neg 50.0 → 50.0, ladder 0.364 flat. Zero gain, accepts and attention spent.
-  - LAT-05 and LAT-01 were sold to dealers at 5 and 6. Bounty bid 25997 now buys them back at 10, which is pure churn.
-  - Pícaros MAL-09 threads walked twice (58, 56). A dealer last card scores 0 by rule anyway.
-- **Spare sales to non-rival teams: keep, small.** RET-03 → t01 at 5 (worth 2.8) gave +2.2.
-- **LAT book bids (31 / 12 / 4): keep, low value.**
-  - None has filled since posting.
-  - LAT-09/10 are worth 35, so the max gain is +4 each. Never raise above 35, even though t01 paid t06 44.
-- **v10 bounty/reward: keep (Lucas's GUARDRAIL).**
-  - The 3rd settlement took v10 value created to 114.4 and mm_points 0.9 → 5.9.
-  - Paying in kind at value costs 0 np.
-  - Risk: the fair-play review the Chief flagged.
-- **Trading loop: verify it is running.**
-  - Its log has no Sunday entry (the last line is "closed" at 00:36), yet the 12:22 directive says ON.
-  - Low stakes right now: no current ask is ≥ our value + 3 + fee.
-- **teams.md "Who to sell" table: kill its rows.** It suggests selling MAL-10, MAL-06 and MAL-08 to t17. Those are MAL page cards, and selling any one destroys the +35-50 closer.
-- **Duels: no change.** The Duel Lab Final check says NO CHANGE; duel score is 24.68.
+- **Dealer bot:** finished. The stalls closed at 14:01 and the ladder is final at 0.364 (Chato L2 never filled). Nothing to run.
+- **Trading loop (floor 0, El Rastro, rivals excluded):** keep it running until 15:00. It is harmless: its last fill was the t07 swap on Saturday (+15.5) and it has made no Sunday fills.
+- **Our bids and listings:** we have 0 offers live.
+  - CHA-11 at 190 scored +50 at tick 2318, the best trade of the day.
+  - The LAT-06/07/08 bids at 14 expired unfilled.
+  - The MAL-09 chain is dead. Six addressed bids (60, then 75, to t01/t09/t15) lapsed with no counter, so MAL stays at 9/10.
+- **In-room trades:** these produced the only Sunday gains: CHA-05 +50, CHA-11 +50, MAL-07 +2.6. Scale them for the last 12 minutes (see change 1).
+- **Duelist (Grand Final wave):** untouched per the 13:12 guardrail. Duel points read 35.84 with 0 live.
 
-## Check the scout (12:30 notes)
-- **Holds:**
-  - t18 bids 25 for MAL-09/10.
-  - LAT-09/10 are worth about 35 and our 31 bids are likely unfilled.
-  - t15 sold CHA-09/10 to t16 at 65, and t13 sold CHA-01 to t16 at 40.
-  - t12 sold SAL-12 to t16 at 380.
-  - t03's trend is +1.8/60.
-- **Stale:**
-  - "t12 #1, leads us by 0.6": we are now #1, 1.3 above t12.
-  - "t03 1.3 behind": it is now 3.1 behind.
-  - "MAL-07 last from t15": MAL-07 filled from t07, so MAL-09 is last.
-  - "bid 25451 at 48" has been replaced by 26022 at 60.
-  - "CHA-11 25638 at 220" has been replaced by 25784 at 240.
-- **Wrong:**
-  - "t04 +4.5 in 60 min": the metrics show +1.7.
-  - "t10 bids only 100 for CHA-11": the Chief has t10 at 210, and t10 sold CHA-11 to t06 at 184 (tick 2228).
-  - "t12 collects LAT": teams.md says RET/MAL/LAV, though the metrics show LAT×8 buys, so this is mixed.
-  - "SAL-11 t04→t02 at 220 (tick 1858)": not in the data.
+## Check the scout
+- **Holds:** the 0 open offers, dealers closed, and neg at 104.8.
+- **Holds:** no lever is left in the El Rastro asks. LAT-01/05 at 8 are first copies worth 5 to us, and LAT-07/08 at 19 are worth 12.5. A buy at either price is a loss.
+- **Holds:** every page is complete except MAL, with only MAL-09 missing.
+- **Holds:** t10 is climbing on epic trades (RET-11 at 216 at tick 2757).
+- **Wrong:** the scout says rivals are "+0.0 over 15 min" and puts t10 at 35.2. The metrics show t10 at 35.8 and +0.5 in 15 min, so the threat is understated.
+- **Stale:** the scout puts t03's SAL-11 bid at 215 (29255). The live bid is 216 (29308). t09 is +2.2 over 60 min, not +1.7.
+- **MAL-09 maths is muddled:**
+  - The scout calls MAL-09's rarity "not in the data", then values it as a common.
+  - The data says MAL-09 is a rare. Card 09 is a rare in every set (LAV-09, RET-09, SAL-09), and the Pícaros and Pilar priced MAL-09 at 56-73.
+  - So its value as our last MAL card is about 49 + 46.4 ≈ 95. A bid at 45 or less would score +50 (Lucas's 12:50 figure).
+- **Unrealistic:** the scout suggests a ≤ 49 bid now. The same holders already ignored 60 and 75, so a 49 bid will almost certainly not fill.
 
 ## The 3 changes with the highest expected gain
-1. **Land CHA-11 before tick 2303 (+48).**
-   - Dani confirms in the room that t08 will accept 25784 at 240.
-   - On expiry, make one move to t16 (#11, non-rival) at ≤ 238 (value − 50). Never t10 or t06 (Chief's rival list).
-   - Risk: t08 sells elsewhere first.
-2. **Land MAL-09 before tick 2308 (+35.4 at 60; +50 at ≤ 45).**
-   - Dani confirms in the room that t08 holds MAL-09. Holders are anonymous in the API.
-   - If t08 doesn't hold it, mal09_bid.py's single move to t13 stands.
-   - Keep it a team trade on El Rastro. Never buy the last card from the Pícaros (scores 0).
-   - Risk: t18 (top 4) outbids us. Its bid is 25 now, so the risk is low.
-3. **After 1-2 resolve, use spare cash for one epic closer-style bid: LAV-11 at ≤ 184.**
-   - Value 234 = 180 × 1.3, [L] by analogy with CHA-11 = 288. That makes it a +50 team trade.
-   - Address one El Rastro bid to a non-rival holder that Dani finds in the room. The holder is not in the data.
-   - t17's 112 is the only LAV-11 bid on the board.
-   - Risk: the holder is a top-4 rival (then don't bid) or won't sell under the Pícaros' epic price (~149).
-   - Cash 647 − 416 in bids leaves room, and leftover cash doesn't score.
+1. **Close MAL-09 in the room, by 14:55.**
+   - Lucas or Dani asks t01, t09 and t15 face to face to fill a fresh addressed El Rastro bid at 75. That is the Chief's 13:58 cap; do not exceed it. The operator posts the bid only for the team that says yes.
+   - Expected gain: about +20 `neg_points` (95 − 75; we are the maker, so no fee). At Saturday's measured rate of about 0.05 board points per neg point, that is roughly +1 board point, half of t10's gap.
+   - Risks:
+     - The seller's gain cannot be quantified (not in the data). t09 is 6.9 below us and climbing, so check t09 is still ≥ 5 below us before it fills.
+     - Never t10, t12, t03, t18 or t04.
+2. **Freeze everything else (13:12 guardrail).**
+   - No public bids at all. A public MAL-09 bid could be filled by t10, which holds a copy it bought at tick 967.
+   - No sales of our cards: every El Rastro bid on them (CHA bids at 5-15) is far below our value.
+   - Leave the trader on, rivals excluded.
+   - Expected effect: protects the 1.9 lead. Risk: none beyond the opportunity cost.
+3. **Judges (40% of the score): Dani confirms the `/submit` story is filed now.**
+   - Use the tick-2516 call for "built something outside the Bazaar" (the market recorder, the opportunities desk, the measured-facts table).
+   - Its deadline and weight are not in the data, so do it before 15:00.
+   - Expected effect: it is the largest score component still open.
+   - Risk: a rushed text. Reuse `docs/demo.md` and GAME.md's [V] facts rather than writing anything new.

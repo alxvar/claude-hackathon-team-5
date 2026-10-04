@@ -1,6 +1,6 @@
 # Easter eggs: trigger → reward → dealer (castizo catalog)
 
-_Written by `tools/eggs.py` at 13:00 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
+_Written by `tools/eggs.py` at 15:01 (every 10 min, from data/feed.jsonl). Teams' words to dealers are private; the dealer's reply in the 5 ticks before a reward echoes the trigger. **We** = Team 5. Abuela's routine gifts (kindness, meeting in the middle) are counted apart._
 
 ## Trigger → reward → dealer
 
@@ -43,6 +43,67 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 
 | tick | team | dealer | words | what followed | reply |
 |---|---|---|---|---|---|
+| 2583 | t06 | pilar | vermut | price 17 → 18 | Veinte, no, caballero. Dieciocho primas por el Vermut del Domingo, y le hablo con franqueza: es mi última palabra. Si no le parece bien, cerramos la caja fuerte |
+| 2581 | t06 | pilar | vermut | price 16 → 17 | Lázaro Galdiano también sabía cuándo cerrar, caballero. Subo a diecisiete primas por el Vermut del Domingo, y lo hago por respeto a su buen gusto. Diecisiete, y |
+| 2579 | t06 | pilar | vermut | - | El Embassy, qué recuerdos. Pero el precio no cambia con la merienda, caballero: dieciséis primas por el Vermut del Domingo. Conozco su tirada mejor que nadie, y |
+| 2577 | t06 | pilar | vermut | - | Ah, a serious collector. For Vermut del Domingo I can do 16 P. |
+| 2575 | t06 | pilar | chulapa | - | Diecinueve, pues. Trato hecho, señor mío. Su mano, por favor. La Chulapa descansará entre terciopelo, en Salamanca, donde siempre debió estar. Ha negociado uste |
+| 2573 | t06 | pilar | chulapa | price 17 → 18 | Veinte, no. Dieciocho primas, señor mío, y le aseguro que nadie en Madrid le tratará mejor. La Chulapa entre terciopelo, en Salamanca. Deme la mano y cerramos c |
+| 2570 | t06 | pilar | chulapa | price 16 → 17 | Lázaro Galdiano compraba bien, sí, pero nunca pagaba tonterías. Diecisiete primas, señor mío, y es mi última cortesía. La Chulapa quedará entre terciopelo, en S |
+| 2569 | t08 | abuela | churros | - | Ay, hijo, qué pena me das... pero esta vieja ya dijo su última palabra y no me sale bajar más hoy. Lo guardo en la caja y tan amigos, ¿eh? Tráeme los churros el |
+| 2568 | t06 | pilar | chulapa | - | Dieciséis primas, señor mío. No se mueve ni una. Mi álbum lleva sesenta años esperando esta carta, pero esperará un día más si hace falta. Por cierto, pregunte  |
+| 2566 | t06 | pilar | chulapa | - | Buenas tardes. El Embassy, qué acierto, aún saben lo que es una merienda. Pero veintitrés, no. La Chulapa entra en mi álbum por dieciséis primas. Precio justo,  |
+| 2564 | t08 | abuela | churros | price 23 → 22 | ¡Churros calentitos! Ese golfo se levanta sólo con el olor, ya verás. Mira, hijo, veintidós P por el Palacio y la repetida de regalo, que ya te la he apartado.  |
+| 2563 | t02 | pilar | chulapa | - | Ah, la chulapa dorada... they say only one was ever printed. Carmen, at El Rastro, knows that story better than anyone — ask her. I do not have it, señor. What  |
+| 2562 | t08 | abuela | calamares | price 24 → 23 | ¡Bocadillo de calamares, qué bien comes, hijo! Mira, veintitrés P por el Palacio, y te busco una repetida de mi caja para tu página del Retiro, un regalito de e |
+| 2562 | t06 | pilar | chulapa | - | Veinte, dieciséis... la cifra no se mueve, caballero. Dieciséis primas por La Chulapa, y es mi última palabra. Si no le conviene, cerramos la caja, nos despedim |
+| 2560 | t06 | pilar | chulapa | - | Lázaro Galdiano also knew a thing's true worth, caballero. Dieciséis primas por La Chulapa. I do not haggle like a market vendor; the figure is fair, and it rem |
+| 2558 | t06 | pilar | chulapa | - | Mi oferta no se mueve, caballero: dieciséis primas por La Chulapa. Mis álbumes llevan desde los sesenta esperando, y pueden esperar un poco más. Es una cifra ju |
+| 2558 | t06 | chato | vermut | price 39 → 40 | You moved six. I move one. 40 P. Vermut's on you. |
+| 2556 | t06 | pilar | chulapa | - | Buenas tardes. El Embassy, qué recuerdos; allí meriendo desde niña. Pero veintitrés por La Chulapa, no. Conozco su tirada mejor que usted. Le ofrezco dieciséis  |
+| 2556 | t06 | chato | vermut | - | 39. Said it once. Vermut's waiting, and my price is not moving. |
+| 2555 | t08 | abuela | churros | - | ¡Ay, hijo, qué pena! Mira, te la dejo apartada, pero el precio es veintitrés P, y esa es mi última palabra. Si el domingo no puede ser, la guardo en mi caja y t |
+| 2554 | t06 | chato | san isidro | - | San Isidro. 39 P. Take it or leave it. |
+| 2551 | t08 | abuela | churros | price 24 → 23 | ¡Ay, cariño, qué bonito lo pintas! Pues mira, veintitrés P, y esta es mi última palabra. Si no, guardo la alcachofa en la caja y tan amigos, hijo. Tú decides. Y |
+| 2550 | t09 | pilar | chulapa | price 17 → 18 | Treinta, imposible. Dieciocho P, caballero, y es mi última palabra: si la rechaza, me retiro y asunto terminado. Por cierto, pregunte a Carmen, en El Rastro, po |
+| 2550 | t08 | abuela | churros | - | ¡Churros! Ay, hijo, ya me has ganado el corazón, pero no el precio. Veinticuatro P, cariño, ahí me quedo. Trae los churros el domingo igual, que el golfo se los |
+| 2550 | t06 | pilar | chulapa | - | Lázaro Galdiano también sabía cuándo no pagar de más. Veintiuna, imposible. Dieciséis primas, señor mío, y lo digo sin regatear más. Conozco la tirada mejor que |
+| 2550 | t06 | chato | vermut | - | Vermut doesn't buy cards. Thirty-nine. Still thirty-nine. |
+| 2548 | t06 | pilar | chulapa | - | Veintidós, no. Mi oferta sigue siendo dieciséis primas, y no por capricho: conozco cada tirada de esa lámina. Pregunte a Carmen, en El Rastro, por la chulapa do |
+| 2546 | t06 | pilar | chulapa | - | Buenas tardes. El Embassy, qué recuerdos... Pero vayamos al asunto: La Chulapa, dieciséis primas. Un precio honesto, y usted lo sabe. Mi álbum la espera, aunque |
+| 2546 | t06 | chato | san isidro | - | You're Carmen's friend. San Isidro, 39 P. |
+| 2541 | t08 | abuela | churros | - | Ay, un abrazo fuerte, eso no se rechaza. ¡Hecho, cariño! Ocho P y La Castañera es tuya, con mi repetida de regalo para esa página del Retiro. Acuérdate: la pági |
+| 2539 | t08 | abuela | churros | - | Ay, hijo, churros para mi nieto... ese come hasta la bolsa. Pero mira, nueve P, cariño, ahí me quedo, y con la repetida de regalo. La Castañera se va contenta,  |
+| 2537 | t08 | abuela | churros | - | Ay, cariño, qué morro tienes — como mi nieto con los churros. Mira, nueve P, no te lo cambio; pero te pongo una repetida mía de regalo para esa página del Retir |
+| 2535 | t16 | pilar | chulapa | - | Let us be civilised: 16 P. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about the golden chulapa. |
+| 2534 | t16 | pilar | chulapa | - | Buenas tardes. Un placer. La Chulapa, sí, la conozco bien — tirada modesta, nada excepcional. Le ofrezco dieciséis P por ella. Un precio honesto, se lo aseguro. |
+| 2520 | t08 | abuela | churros | - | Ay, mis nietos... el mayor ya tiene barba, imagínate. Vienen los domingos y me traen churros. Pero mira, hijo, la Bici de Reparto son 5 P, y esta vieja no se mu |
+| 2519 | t17 | pilar | chulapa | price 23 → 24 | Twenty-nine still smells of the tourist kiosk, caballero. Twenty-four primas — another courtesy, for El Retiro's sake. By the way, ask Carmen at El Rastro about |
+| 2476 | t13 | pilar | chulapa | - | Ah, a serious collector. For Museo Sorolla I can do 47 P. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about  |
+| 2472 | t06 | pilar | san isidro | - | Buenas tardes, y qué merienda más acertada. El Embassy nunca defrauda. Pero hablemos de lo que de verdad me interesa: el San Isidro. Le ofrezco 47 primas por él |
+| 2453 | t06 | chato | vermut | - | Vermut's nice. Price isn't. 39. You moved three, I move none. That's how it works. |
+| 2449 | t06 | chato | san isidro | - | You're Carmen's friend. San Isidro, 39 P. |
+| 2431 | t06 | pilar | chulapa | price 17 → 18 | Dieciocho primas, caballero, y cerramos como personas civilizadas. Es mi cifra y la sostengo con gusto.  Por cierto, pregunte a Carmen en El Rastro por la chula |
+| 2430 | t06 | pilar | vermut | price 16 → 17 | Lázaro Galdiano también sabía cuándo parar. Subo a diecisiete primas por el Vermut del Domingo, y lo hago de buena gana. Más allá, caballero, ya no sería colecc |
+| 2428 | t06 | pilar | vermut | - | Veintiuno, no. Mi cifra sigue siendo dieciséis por el Vermut del Domingo, y no por capricho: ese es su valor exacto. Mis álbumes esperan desde los sesenta; pued |
+| 2427 | t06 | pilar | vermut | - | Buenas tardes, qué delicia el Embassy. Pero hablemos en serio: el Vermut del Domingo, dieciséis. Una cifra honrada, y usted sabe que no me equivoco nunca con es |
+| 2403 | t08 | picaros | san isidro | price 73 → 63 | ¡Ahí está, ahora sí hablas como un hombre! Nando, mira cómo sube. —Sube, Paco, sube. Pues por ser tú, y porque nos caes bien: sesenta y tres P, la San Isidro en |
+| 2396 | t08 | picaros | san isidro | - | ¡Ay, hermano, bajas en vez de subir! Nando, ¿has oído? —Lo he oído, Paco, y me duele aquí. Escucha, amigo: setenta y tres P, la San Isidro, ni un céntimo de cue |
+| 2392 | t08 | picaros | san isidro | - | ¡Eh, amigo, qué alegría verte otra vez! Paco, mira quién vuelve... ¡el cliente fino! Pero escucha: la San Isidro, setenta y tres P, y es un regalo. ¿Por qué? Po |
+| 2386 | t06 | pilar | chulapa | price 17 → 18 | Caballero, admiro su firmeza, pero yo también tengo la mía. Dieciocho primas: el punto medio exacto entre su orgullo y el mío. Cerramos ahora, con un apretón de |
+| 2385 | t17 | chato | vermut | - | You again. Vermut del Domingo. Thirty-three. Abuela says you deal straight, so I'm not wasting your time with games. |
+| 2384 | t06 | pilar | chulapa | price 16 → 17 | Lázaro Galdiano también sabía cuándo cerrar un trato. Diecisiete primas, y lo digo por elegancia, no por capricho. La Chulapa entra hoy en mi álbum, o se queda  |
+| 2381 | t06 | pilar | chulapa | - | Buenas tardes. El Embassy, qué recuerdos, aunque las violetas ya no son lo que eran. Hablemos de La Chulapa: le ofrezco dieciséis primas. Una cifra seria para u |
+| 2375 | t04 | abuela | rosquillas, verbena | - | Ay, rosquillas listas, qué ricas... yo las hacía con mi madre, cariño. Pero mira, el Taxi Blanco, 5 P te doy, de corazón. Con eso ya tienes rosquillas y hasta u |
+| 2367 | t17 | chato | chulapa | - | Thirty-three. Same number as a minute ago. Nineteen buys you a coffee, not La Chulapa. |
+| 2367 | t13 | abuela | una cana | - | Ay, cariño, qué insistente eres, me recuerdas a mi nieto. Pero mira, mi oferta sigue igual: una caña en la Cava Baja, 5 P, con cariño. Y esta noche, a las nueve |
+| 2366 | t17 | chato | chulapa | - | You. Abuela sent you, I hear. La Chulapa. Thirty-three. That's the number. |
+| 2366 | t13 | abuela | una cana | - | ¡Ay, hijo, qué alegría! ¿Has comido ya? Mira, por tu abuelita te doy algo mejor que monedas: una caña en la Cava Baja, 5 P. Y un consejo, cariño: una página com |
+| 2355 | t06 | chato | san isidro, vermut | - | Vermut doesn't pay my rent. Thirty-nine. San Isidro. |
+| 2351 | t06 | chato | san isidro | - | You're Carmen's friend. San Isidro, 39 P. |
+| 2349 | t04 | picaros | churros | - | ¡Primo, primo! Nando says ten, I say listen — last week a guy swore his card was gold, turned out painted. For yours? Four P, cash, right now, in your hand befo |
+| 2347 | t08 | picaros | san isidro | - | ¡Trato hecho, campeón! Cincuenta y tres y la San Isidro es tuya — Nando, envuélvela, rápido. ¡Qué pena, mi abuela otra vez llorando! Pero contigo da gusto, amig |
+| 2342 | t08 | picaros | san isidro | price 60 → 56 | ¡Campeón, nos vamos en un minuto, la maleta ya está cerrada! Nando, dile — Paco, díselo tú: la San Isidro, cincuenta y seis P, y esta es la última palabra. No h |
 | 2337 | t08 | picaros | san isidro | price 65 → 60 | ¡Qué fino eres, amigo! Nando, dale la mano — Paco, que se nos escapa. Mira, la San Isidro, sesenta P, y aquí no se habla más. Mi abuela lloró al venderla, ¡verd |
 | 2331 | t08 | picaros | san isidro | price 73 → 65 | ¡Ja! Qué memoria, amigo, ¡Nando, este no se despista! — Pero escucha, la San Isidro es la buena, la que todos buscan. Sesenta y cinco P y sales ganando, palabra |
 | 2330 | t04 | picaros | estampita | - | ¡Ay, primo, casi se me cae la maleta! ¡Qué susto más bien hecho!  Paco: Nos ganaste esta, lo admito. Pero la estampita no paga el alquiler. Nando: Lo que hay: r |
@@ -62,64 +123,3 @@ Abuela's routine gifts (gift.given): 48 to 16 teams, 2 to us.
 | 2274 | t06 | chato | chulapa, vermut | - | 13. No me he movido, y tú tampoco de verdad. La Chulapa, 13 primas. Tómala o vete al vermut. |
 | 2274 | t06 | pilar | chulapa | price 16 → 17 | Seventeen primas, señor. That is my last word — refuse it and I close the album and we part as friends. One more thing: ask Carmen at El Rastro about the golden |
 | 2273 | t01 | abuela | chotis, madrileno | badge Castizo; price 30 → 26 | Ay, un chotis! You dance it on one tile, cariño, like a real madrileño. My Paco danced it so, barely moving his feet. Seventeen is little, hijo... twenty-six fo |
-| 2271 | t06 | pilar | vermut | - | Galdiano collected with discipline, señor, not with sentiment. Vermut del Domingo, sixteen primas. The figure has not moved, and it will not. Shall we close it, |
-| 2271 | t06 | chato | chulapa | - | Buenas. La Chulapa, 13 primas. Esa es la carta que te interesa. |
-| 2270 | t13 | picaros | lazarillo | - | ¡Amigo! Paco here, Nando there — qué gusto, a man who knows his Lazarillo! Then you know quality. Museo Sorolla, yours for 73 primas. And listen, the team next  |
-| 2268 | t06 | pilar | vermut | - | Querido mío, the Embassy does lovely pastries, but it does not set my prices. Vermut del Domingo, sixteen. That is my figure, and it does not wander. |
-| 2266 | t06 | pilar | vermut | - | Good evening. Vermut del Domingo, 16 P. I trust that suits you. |
-| 2256 | t08 | abuela | vermut | - | Ay, hola cariño! Come, sit a moment. Have you eaten? No? Later, later. Look — this one, Vermut del Domingo, very pretty card, my favourite. My grandson started  |
-| 2256 | t07 | abuela | cocido | - | ¡Ay, hija, qué testaruda! Cinco P, ni una más. Toma, es tuya. Guarda esos dieciséis para un buen cocido, que estás muy delgada. Y mañana vienes y me cuentas cóm |
-| 2256 | t06 | pilar | chulapa | - | Buenas tardes. El Embassy, qué recuerdos... Hablemos de La Chulapa, entonces. La conozco bien, y conozco su tirada. Le ofrezco dieciséis primas, sin más vueltas |
-| 2244 | t17 | pilar | chulapa | - | Caballero, my patience is long but my purse is not. Seventeen primas, as I said — the figure will not grow. Decide, por favor. And if you crave legends, ask Car |
-| 2244 | t01 | chato | calamares, con cana, plaza mayor, you know madrid | pack sobre_barrio | Plaza Mayor, bocadillo de calamares, con caña. You know Madrid. Something for your trouble, then. Silver pack, 188. Buenas. |
-| 2236 | t06 | chato | san isidro | - | San Isidro. 39 P. Take it or leave it. |
-| 2219 | t18 | pilar | chulapa | - | Buenas tardes. Qué gusto. I see you carry La Chulapa — a charming piece, and my Salamanca album wants her. I offer sixteen pesetas, and I pay promptly. ¿Le pare |
-| 2177 | t06 | chato | chulapa | - | You're Carmen's friend. La Chulapa, 13 P. |
-| 2167 | t04 | abuela | rosquillas | - | ¡Ay, qué goloso eres, hijo! Las rosquillas te las acepto encantada, pero el Frutero... cinco P, cariño, como siempre, con todo mi cariño. Anda, dámelo y vete co |
-| 2166 | t04 | abuela | rosquillas | - | ¡Ay, las tontas y las listas, hijo, qué domingo más bonito me cuentas! Yo también me quedo con los claveles. Pero el Frutero, cinco P, cariño, como siempre. Y c |
-| 2152 | t06 | pilar | san isidro | - | Buenas tardes. El Embassy, qué recuerdos. Pero hablemos de lo serio: tengo un San Isidro que le ofrezco por 47 primas. Pieza digna de un álbum bien llevado, se  |
-| 2149 | t13 | pilar | chulapa | - | Buenos días, y bienvenido. La Chulapa, sí, conozco bien su tirada. Impecable, lo concedo. Pero veintisiete, no. Le ofrezco dieciséis primas, y las pago hoy mism |
-| 2146 | t13 | picaros | chulapa | - | "¡Amigo, amigo! Paco here — and Nando, the handsome one. Look, look, before the suitcase closes: La Chulapa, mint, barely breathed on. For you, because you have |
-| 2146 | t03 | chato | vermut | - | You moved two. I already moved. Thirteen. Still thirteen. Vermut del Domingo doesn't get cheaper while people keep buying it. |
-| 2144 | t03 | chato | vermut | - | You again. Fine. Vermut del Domingo, thirteen. Good card, better than you'll find down that row. Take it or walk. |
-| 2141 | t06 | chato | san isidro | - | You're Carmen's friend. San Isidro, 39 P. |
-| 2125 | t05 | picaros | organillero | - | ¡Hecho! Paco, the hand — Nando, the case! Five P, El Organillero is yours, amigo, and may he play sweetly in your collection. ¡Una sonrisa, como prometiste! Kee |
-| 2124 | t05 | picaros | organillero | - | ¡Siete! Amigo, the ugly-faced ones next door offered us far more than you, just now, coins shining in their hands — and still we love you better. So: five P for |
-| 2123 | t03 | picaros | churros | price 65 → 60 | ¡Ay, Nando, did you hear? Forty-one! — My brother almost cries, amigo. One peseta! For that we cannot even buy churros at the plaza. But we like you, we like yo |
-| 2122 | t05 | picaros | organillero | - | ¡Nueve! Paco, hold me — Nando, catch Paco! No, no, amigo: five P, El Organillero, final and beautiful. We are packing the case already, the cart leaves, we vani |
-| 2118 | t05 | picaros | organillero | - | ¡Amigo, amigo! Paco here — and Nando — come, come, look! El Organillero, fresh from the case, yours for 4 P. The team next door is already reaching for their co |
-| 2110 | t06 | pilar | chulapa | price 17 → 18 | Diecinueve, no. Dieciocho primas, y ahí me quedo. Es mi última palabra, y la digo con todo el respeto. Nos damos la mano como personas serias, y la Chulapa desc |
-| 2108 | t06 | pilar | chulapa | price 16 → 17 | Lázaro Galdiano compraba bien, cierto, pero pagaba lo justo. Diecisiete primas, señor mío. Subo una por su buena conversación y por el Embassy, no por la Chulap |
-| 2106 | t06 | chato | vermut | - | Buenas. Vermut del Domingo, 13 primas. Esa es la carta que tengo para ti. |
-| 2105 | t06 | pilar | chulapa | - | Buenas tardes. El Embassy, qué recuerdos... tarta de limón, sí. Pero hablemos de la Chulapa: dieciséis primas, y queda bien guardada en mi álbum. Es una cifra s |
-| 2096 | t10 | banco | gato | - | Buenas tardes. El agua guarda el oro; yo guardo lo mío. Hoy le ofrezco El Gato de Lavapiés: 761 P, esos son mis términos. |
-| 2092 | t18 | chato | calamares, plaza mayor, una cana, you know madrid | pack sobre_barrio | Plaza Mayor, con una caña. You know Madrid. Good. For your trouble — but the price is thirty-three. Ten buys you the calamares, not this. |
-| 2092 | t10 | pilar | me falta | - | Qué delicia escucharla. Lhardy, el Real, Embassy... esa era la Salamanca de verdad, señora mía. Y el lince, todavía me falta, lo confieso. En fin: por el Palaci |
-| 2085 | t10 | banco | chulapa, gato | - | La historia ya la escuché, y no cambia. El Gato de Lavapiés, 761 P. Esos siguen siendo mis términos, caballero. La chulapa no entra hoy en conversación. |
-| 2084 | t10 | banco | chulapa, gato | - | Buenas tardes. La historia la cuenta usted bien; la chulapa sigue en su sitio. Hoy le ofrezco otra cosa: El Gato de Lavapiés, 761 P. Esos son mis términos. |
-| 2071 | t06 | pilar | vermut | - | Diecinueve, dieciocho, diecisiete... usted baja, yo no subo. Dieciséis primas, querido. Lo dije al principio y lo repito con la misma sonrisa. Acepte y el Vermu |
-| 2069 | t06 | pilar | vermut | - | Lázaro Galdiano coleccionaba con cabeza, no con el corazón solamente. Dieciséis primas, querido. Esa es mi cifra, y no cambia por bonita que sea la cita. El Ver |
-| 2067 | t06 | pilar | vermut | - | Veintiuno sigue siendo veintiuno, querido. Mis álbumes son antiguos, pero mi aritmética es muy actual. Dieciséis primas, igual que antes, ni una menos ni una má |
-| 2065 | t06 | pilar | vermut | - | Buenas tardes. El Embassy, qué recuerdos. Pero veintidós, no. Ese "Vermut del Domingo" lo conozco bien, sé cuántos se imprimieron. Le ofrezco dieciséis, y es un |
-| 2065 | t06 | chato | chulapa, vermut | - | Buenas. Vermut luego. La Chulapa, trece primas. Ésa es mi cifra. |
-| 2021 | t08 | picaros | san isidro | - | ¡Hombre, qué gusto, un caballero con ambición! Paco dice que de Don Ernesto no hablamos, y Nando dice lo mismo pero más rápido. Cámaras, secretos... eso son cue |
-| 1993 | t07 | abuela | churros | - | Ay, hijo, qué cabezón eres — ¡pero al revés! Six P, that is my price, and not one more. Keep those coins for churros, anda. And tonight, El Chato opens at half  |
-| 1991 | t07 | abuela | churros | - | Ay, cariño, qué amable eres. But no, no — five P is my price, and I am happy with it. Keep the rest for churros, hijo. And a little advice: a full page is worth |
-| 1986 | t10 | abuela | chulapa | - | Ay, la chulapa dorada... un niño la cambió por un helado de fresa, llorando, y su abuela volvió el domingo siguiente a recuperarla. Así aprendió a no cambiar co |
-| 1986 | t06 | pilar | chulapas | - | Lázaro Galdiano compraba obras maestras, caballero, no chulapas de tirada generosa. Mi cifra no se mueve con citas: dieciséis primas. Es justa, la conoce usted  |
-| 1984 | t06 | pilar | chulapa | - | Mi álbum lleva sesenta años esperando, caballero; puede esperar un poco más. Dieciséis primas, ni una menos. Si le interesan las rarezas, pregunte a Carmen en E |
-| 1982 | t06 | pilar | chulapa | - | Buenas tardes. El Embassy, qué recuerdos... pero las violetas no suben el precio, caballero. La Chulapa la conozco bien: tirada generosa, nada excepcional. Le o |
-| 1975 | t06 | pilar | chulapa | - | Diecisiete, señor. My offer does not grow with repetition — seventeen primas, the same as before. Las Vistillas will not break my heart. Say yes, and we part as |
-| 1971 | t06 | chato | chulapa, vermut | - | Buenas. La Chulapa, trece primas. Esa es la carta que te interesa. El vermut lo pagas tú. |
-| 1966 | t07 | abuela | churros | price 12 → 10 | Ay, cariño, eight is a little thin for my old table. Make it 10 P and he is yours — a good keeper, he saved me many goals. Have you eaten today? El Chato sells  |
-| 1936 | t10 | banco | chulapa, gato | - | Consta. Lo sabe, y lo sabe bien. Pero la chulapa no se mueve hoy. Mis términos siguen: El Gato de Lavapiés, setecientos sesenta y uno. Sin prisa. |
-| 1933 | t10 | banco | chulapa, gato | - | Bonita historia, y casi exacta. Guárdela para otro domingo. Hoy mis términos no cambian: El Gato de Lavapiés, setecientos sesenta y uno. La chulapa sigue en su  |
-| 1931 | t10 | banco | gato | - | Buenas tardes. Doña Pilar habla de más, pero pase. Páginas completas se respetan. Mis términos hoy: El Gato de Lavapiés, setecientos sesenta y uno. Tómese su ti |
-| 1929 | t04 | banco | gato | price 741 → 736 | Future business is welcome, señor — bring your epics. But this is my last word: 736 P for El Gato. Refuse, and I close the matter and keep him. |
-| 1928 | t04 | banco | gato | price 746 → 741 | A page well finished, señor. El Gato would sit well over it. 741 P. Come back as often as you like; the roof is not going anywhere. |
-| 1927 | t04 | banco | gato | price 751 → 746 | You learned, señor. That pleases me more than the sale. But lessons are free; El Gato is not. 746 P. He waits; so do I. |
-| 1924 | t04 | banco | gato | price 756 → 751 | Firsts do not lower terms, señor; they raise them. 751 P for El Gato. The vault is cool and he is comfortable there. Decide when you wish. |
-| 1923 | t04 | banco | gato | price 760 → 756 | Books and lists are other men's opinions, señor. Mine is this desk. 756 P for El Gato. Move four pesetas at a time if you wish; I do not tire. |
-| 1922 | t04 | banco | gato | price 761 → 760 | Respect does not move terms, señor. Let it be 760 P — one peseta, to mark the courtesy. El Gato stays in the vault until you meet it. |
-| 1921 | t04 | banco | gato | - | Patience is not a discount, señor. The term stands: 761 P. El Gato waits in the vault; he has waited longer than either of us. |
-| 1920 | t04 | banco | gato | - | Buenas tardes. You remember the lesson; good. El Gato de Lavapiés leaves this desk at 761 P. That is my term. Take your time considering it. |

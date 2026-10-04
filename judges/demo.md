@@ -38,11 +38,11 @@
  [agent] CHIEF OF STAFF session -> intel/directives.md  <--  [human] LUCAS: GUARDRAIL lines, venue/cash calls
             |
  [agent] OPERATOR session (the only game writer for trades and dealers)
-            |-> loop.py (maker book), abuela_bot / chato_steady (dealers)
+            |-> loop.py (taker) + book.py (maker book), abuela_bot / chato_steady (dealers)
             |-> opportunities.py -> ntfy alert -> [human] DANI points a team at a live offer in the room
             v
-          GAME  <-- accept arbiter (1 accept per tick) -->  [agent+code] DUELIST (Aleks's Mac)
-                                                            Opus strategist + Sonnet negotiator + code guards
+          GAME  <-- accept arbiter (1 accept per tick) -->  [agent+code] DUELIST (Aleks's code; on Sunday it runs on Lucas's Mac, branch duelist-loop @ f57a002)
+                                                            code-first policy + Haiku negotiator + code guards
  [agent] MARKET session: recorder, broker simulations, our venue v10
  [agent] BUILDER session: tools, tests, fixes
  Everything logs to git: team/*.md, intel/*.md, docs/duels/
@@ -112,7 +112,7 @@
 
 - Chamberí is our best set (1.6×). Page bonus ~106; values: common 16, uncommon 40, rare 112, above El Chato's ~90, so dealer buys carry no losses (saturday-plan.md §4B; intel/GAME.md).
 - Cash goes to 0 by Sunday 14:00, into buys at or below our value, Chamberí first (GUARDRAIL, directives 02:20).
-- 15 s ticks: the Opus strategist peaked at 14.2 s, too slow, so Sunday runs a Sonnet strategist (saturday-plan.md §4D; intel/duel-review.md).
+- 15 s ticks: with the LLM deciding, replies averaged 9.2 s (29 % over 10 s), so Sunday's duelist is code-first: code decides price and day, Claude Haiku 4.5 writes the words (≈ 2 s), with an 8 s failover (docs/duelist-sunday-summary.md).
 - Sunday Market Tests: 3 (hours 17, 19, 21) per Dani's audit, newer than the plan's 2. The venue gate deadline is Sun 09:30 (team/dani.md 10:16; directives 09:55).
 - What we'd change: one rule, one check (the feeding rule and the cash floor exist in several versions); code edits only in worktrees; test a lever by hand before automating it (DECISIONS.md, entries 3, 7, 12, 16).
 

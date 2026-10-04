@@ -426,3 +426,30 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 13:06 · message tick 2362 · banco → t08 · Doña Pilar conoce mis términos mejor que nadie, señor. Setecientos sesenta y uno. Ni los recados ni los regaños mueven esa cifra. La cámara espera.
 - Sun 13:07 · message tick 2368 · chato → t01 · Fourteen. One step, because you've made five. Don't ask for a sixth.
 - Sun 13:09 · message tick 2375 · banco → t08 · La tristeza no es moneda, señor. Setecientos sesenta y uno, y La Reina es suya. Si no, váyase en paz; mi cámara cierra igual.
+- Sun 13:10 · message tick 2379 · banco → t08 · Vaya con bien, señor. La puerta queda abierta: setecientos sesenta y uno, y La Reina sale conmigo de la cámara. Ni un real menos, ningún día.
+- Sun 13:10 · taller.crafted tick 2382 ·  → t13 · Team 13 turned three common cards into La Galería (uncommon) at The Workshop
+- Sun 13:20 · catalog.minted CHA-11 (Andén 0, epic, print run 9): hidden=False minted=6 (was 5)
+- Sun 13:23 · message tick 2431 · pilar → t06 · Dieciocho primas, caballero, y cerramos como personas civilizadas. Es mi cifra y la sostengo con gusto.
+
+Por cierto, pregunte a Carmen en El Rastro por la chulapa dorada; dicen que sólo se imprimió una.
+- Sun 13:34 · message tick 2476 · pilar → t13 · Ah, a serious collector. For Museo Sorolla I can do 47 P. They say only one golden chulapa was ever printed. Carmen at El Rastro knows the story; ask her about the golden chulapa.
+- Sun 13:41 · message tick 2502 · picaros → t13 · ¡Ay, treinta y ocho! Paco: Hermano, mira mis bolsillos, vacíos como promesa de político. Nando: Cincuenta y siete primas, y lo hacemos porque nos caes bien, no por negocio. Paco: Busca en el otro bolsillo, que siempre hay algo escondido. Nando: ¡Rápido, que el taxista ya pita dos veces!
+- Sun 13:43 · message tick 2512 · banco → t15 · Doscientos cuarenta y ocho changes nothing, señor. My terms stand: ciento trece. The card waits in my vault, and I wait with it. Patience costs me nothing.
+- Sun 13:45 · message tick 2519 · pilar → t17 · Twenty-nine still smells of the tourist kiosk, caballero. Twenty-four primas — another courtesy, for El Retiro's sake. By the way, ask Carmen at El Rastro about the golden chulapa; only one was ever printed, they say.
+- Sun 13:48 · message tick 2530 · picaros → t07 · ¡Ay, amigo, qué ojo tienes! Pero no, ese sobre de barrio no lo vendemos. Nando lo tiene prometido a otro, ¿verdad, Nando? Prometidísimo. Once P es buen dinero, sí, pero no hay trato hoy. ¡Pregúntanos por otra cosa, que la maleta está llena!
+- Sun 13:50 · catalog.minted CHA-11 (Andén 0, epic, print run 9): hidden=False minted=7 (was 6)
+- Sun 13:52 · message tick 2548 · pilar → t06 · Veintidós, no. Mi oferta sigue siendo dieciséis primas, y no por capricho: conozco cada tirada de esa lámina. Pregunte a Carmen, en El Rastro, por la chulapa dorada; dicen que sólo se imprimió una. Eso sí merece discusión.
+- Sun 13:53 · message tick 2550 · pilar → t09 · Treinta, imposible. Dieciocho P, caballero, y es mi última palabra: si la rechaza, me retiro y asunto terminado. Por cierto, pregunte a Carmen, en El Rastro, por la chulapa dorada. Dicen que solo se imprimió una. ¿Cerramos?
+- Sun 13:54 · message tick 2554 · banco → t16 · My desk: sells Gold pack ~420, legendary ~585; buys epic, legendary
+- Sun 13:56 · message tick 2563 · pilar → t02 · Ah, la chulapa dorada... they say only one was ever printed. Carmen, at El Rastro, knows that story better than anyone — ask her. I do not have it, señor. What I have is this gold pack, sealed: 504 pesetas.
+- Sun 13:57 · message tick 2568 · pilar → t06 · Dieciséis primas, señor mío. No se mueve ni una. Mi álbum lleva sesenta años esperando esta carta, pero esperará un día más si hace falta. Por cierto, pregunte a Carmen en El Rastro por la chulapa dorada; dicen que sólo se imprimió una.
+- Sun 13:59 · taller.crafted tick 2575 ·  → t01 · Team 1 turned three common cards into La Rosaleda (uncommon) at The Workshop
+- Sun 14:01 · catalog.minted MAL-11 (La Sala Pentagrama, epic, print run 9): hidden=False minted=5 (was 4)
+- Sun 14:01 · catalog.minted LAT-11 (San Francisco el Grande, epic, print run 9): hidden=False minted=8 (was 6)
+- Sun 14:01 · catalog.minted RET-11 (Palacio de Cristal, epic, print run 9): hidden=False minted=8 (was 7)
+- Sun 14:01 · catalog.minted CHA-11 (Andén 0, epic, print run 9): hidden=False minted=8 (was 7)
+- Sun 14:01 · persona.updated tick 2582 · abuela → ? · {"persona": "abuela", "name": "Abuela Carmen", "version": 4}
+- Sun 14:01 · persona.updated tick 2582 · chato → ? · {"persona": "chato", "name": "El Chato", "version": 4}
+- Sun 14:01 · persona.updated tick 2582 · pilar → ? · {"persona": "pilar", "name": "Do\u00f1a Pilar", "version": 4}
+- Sun 14:01 · persona.updated tick 2582 · picaros → ? · {"persona": "picaros", "name": "Los P\u00edcaros", "version": 2}
+- Sun 14:01 · persona.updated tick 2582 · banco → ? · {"persona": "banco", "name": "Don Ernesto", "version": 3}

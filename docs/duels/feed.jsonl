@@ -1842,3 +1842,311 @@
 {"id": 95237, "tick": 2073, "t": 16.2458, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11686, "session": 4, "status": "no_deal", "item": "Escaparate de Serrano"}}
 {"id": 95247, "tick": 2074, "t": 16.25, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11687, "session": 4, "status": "no_deal", "item": "Escaparate de Serrano"}}
 {"id": 95250, "tick": 2074, "t": 16.25, "type": "duels.finished", "scope": "public", "actor": "", "payload": {"session": 4, "name": "Duels III"}}
+{"id": 111033, "tick": 2582, "t": 18.3667, "type": "duels.scheduled", "scope": "public", "actor": "", "payload": {"session": 5, "name": "Final duels", "duels": 306, "rounds": 1, "duel_ticks": 12, "decay": 0.1}}
+{"id": 111361, "tick": 2589, "t": 18.3958, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15830, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 111364, "tick": 2589, "t": 18.3958, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16083, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 111405, "tick": 2590, "t": 18.4, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15961, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 111438, "tick": 2591, "t": 18.4042, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15960, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 111487, "tick": 2592, "t": 18.4083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15827, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 111490, "tick": 2592, "t": 18.4083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15831, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 111493, "tick": 2592, "t": 18.4083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15858, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 111547, "tick": 2593, "t": 18.4125, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15826, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 111550, "tick": 2593, "t": 18.4125, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15844, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 111553, "tick": 2593, "t": 18.4125, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15859, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 111556, "tick": 2593, "t": 18.4125, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15865, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 111559, "tick": 2593, "t": 18.4125, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16058, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 111562, "tick": 2593, "t": 18.4125, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16059, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 111565, "tick": 2593, "t": 18.4125, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16082, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 111568, "tick": 2593, "t": 18.4125, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16089, "session": 5, "status": "deal", "item": "Mural de la Esquina"}}
+{"id": 111618, "tick": 2594, "t": 18.4167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15818, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 111621, "tick": 2594, "t": 18.4167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15819, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 111624, "tick": 2594, "t": 18.4167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15820, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 111627, "tick": 2594, "t": 18.4167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15821, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 111630, "tick": 2594, "t": 18.4167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15822, "session": 5, "status": "no_deal", "item": "El Ahuehuete"}}
+{"id": 111633, "tick": 2594, "t": 18.4167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15823, "session": 5, "status": "no_deal", "item": "El Ahuehuete"}}
+{"id": 111636, "tick": 2594, "t": 18.4167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15824, "session": 5, "status": "no_deal", "item": "La Castañera"}}
+{"id": 111639, "tick": 2594, "t": 18.4167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15825, "session": 5, "status": "no_deal", "item": "La Castañera"}}
+{"id": 111642, "tick": 2594, "t": 18.4167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15828, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 111645, "tick": 2594, "t": 18.4167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15829, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 111648, "tick": 2594, "t": 18.4167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15832, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 111651, "tick": 2594, "t": 18.4167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15833, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 111654, "tick": 2594, "t": 18.4167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15836, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 111657, "tick": 2594, "t": 18.4167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15837, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 111660, "tick": 2594, "t": 18.4167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15840, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 111663, "tick": 2594, "t": 18.4167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15841, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 111666, "tick": 2594, "t": 18.4167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15845, "session": 5, "status": "no_deal", "item": "La Sala Pentagrama"}}
+{"id": 111669, "tick": 2594, "t": 18.4167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15852, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 111672, "tick": 2594, "t": 18.4167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15853, "session": 5, "status": "no_deal", "item": "La Castañera"}}
+{"id": 111675, "tick": 2594, "t": 18.4167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15860, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 111678, "tick": 2594, "t": 18.4167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15864, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 111681, "tick": 2594, "t": 18.4167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16088, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 111791, "tick": 2596, "t": 18.425, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15872, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 111794, "tick": 2596, "t": 18.425, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15944, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 111797, "tick": 2596, "t": 18.425, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16116, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 111844, "tick": 2597, "t": 18.4292, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15882, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 111918, "tick": 2599, "t": 18.4375, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15880, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 111921, "tick": 2599, "t": 18.4375, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15945, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 111951, "tick": 2600, "t": 18.4417, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15868, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 112002, "tick": 2601, "t": 18.4458, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15849, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 112005, "tick": 2601, "t": 18.4458, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15926, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 112060, "tick": 2602, "t": 18.45, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15869, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 112104, "tick": 2603, "t": 18.4542, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15854, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 112150, "tick": 2604, "t": 18.4583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15834, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 112153, "tick": 2604, "t": 18.4583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15862, "session": 5, "status": "no_deal", "item": "El Ahuehuete"}}
+{"id": 112156, "tick": 2604, "t": 18.4583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15866, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 112159, "tick": 2604, "t": 18.4583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15878, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 112162, "tick": 2604, "t": 18.4583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15888, "session": 5, "status": "deal", "item": "Mural de la Esquina"}}
+{"id": 112165, "tick": 2604, "t": 18.4583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15902, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 112168, "tick": 2604, "t": 18.4583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15910, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 112227, "tick": 2605, "t": 18.4625, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15835, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 112230, "tick": 2605, "t": 18.4625, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15846, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 112233, "tick": 2605, "t": 18.4625, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15848, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 112236, "tick": 2605, "t": 18.4625, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15873, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 112239, "tick": 2605, "t": 18.4625, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15876, "session": 5, "status": "no_deal", "item": "La Castañera"}}
+{"id": 112242, "tick": 2605, "t": 18.4625, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15881, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 112245, "tick": 2605, "t": 18.4625, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15906, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 112248, "tick": 2605, "t": 18.4625, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15911, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 112251, "tick": 2605, "t": 18.4625, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15922, "session": 5, "status": "deal", "item": "Mural de la Esquina"}}
+{"id": 112254, "tick": 2605, "t": 18.4625, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15998, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 112257, "tick": 2605, "t": 18.4625, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16078, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 112330, "tick": 2606, "t": 18.4667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15838, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 112333, "tick": 2606, "t": 18.4667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15839, "session": 5, "status": "deal", "item": "Mural de la Esquina"}}
+{"id": 112336, "tick": 2606, "t": 18.4667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15842, "session": 5, "status": "no_deal", "item": "El Ahuehuete"}}
+{"id": 112339, "tick": 2606, "t": 18.4667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15843, "session": 5, "status": "no_deal", "item": "El Ahuehuete"}}
+{"id": 112342, "tick": 2606, "t": 18.4667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15850, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 112345, "tick": 2606, "t": 18.4667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15851, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 112348, "tick": 2606, "t": 18.4667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15856, "session": 5, "status": "no_deal", "item": "La Castañera"}}
+{"id": 112351, "tick": 2606, "t": 18.4667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15861, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 112354, "tick": 2606, "t": 18.4667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15874, "session": 5, "status": "no_deal", "item": "La Sala Pentagrama"}}
+{"id": 112408, "tick": 2607, "t": 18.4708, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15916, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 112455, "tick": 2608, "t": 18.475, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15900, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 112458, "tick": 2608, "t": 18.475, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15927, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 112461, "tick": 2608, "t": 18.475, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16024, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 112511, "tick": 2609, "t": 18.4792, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15883, "session": 5, "status": "no_deal", "item": "El Ahuehuete"}}
+{"id": 112558, "tick": 2610, "t": 18.4833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15903, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 112606, "tick": 2611, "t": 18.4875, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15879, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 112609, "tick": 2611, "t": 18.4875, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16006, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 112646, "tick": 2612, "t": 18.4917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15962, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 112649, "tick": 2612, "t": 18.4917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16098, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 112704, "tick": 2613, "t": 18.4958, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16008, "session": 5, "status": "no_deal", "item": "La Castañera"}}
+{"id": 112757, "tick": 2614, "t": 18.5, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15855, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 112760, "tick": 2614, "t": 18.5, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15885, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 112804, "tick": 2615, "t": 18.5042, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15867, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 112807, "tick": 2615, "t": 18.5042, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15892, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 112859, "tick": 2616, "t": 18.5083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15847, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 112862, "tick": 2616, "t": 18.5083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15863, "session": 5, "status": "no_deal", "item": "El Ahuehuete"}}
+{"id": 112865, "tick": 2616, "t": 18.5083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15889, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 112868, "tick": 2616, "t": 18.5083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15893, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 112871, "tick": 2616, "t": 18.5083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15901, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 112874, "tick": 2616, "t": 18.5083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15907, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 112877, "tick": 2616, "t": 18.5083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15914, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 112880, "tick": 2616, "t": 18.5083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15917, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 112883, "tick": 2616, "t": 18.5083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15918, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 112886, "tick": 2616, "t": 18.5083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15950, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 112889, "tick": 2616, "t": 18.5083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15956, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 112892, "tick": 2616, "t": 18.5083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15992, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 112895, "tick": 2616, "t": 18.5083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16022, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 112967, "tick": 2617, "t": 18.5125, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15870, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 112970, "tick": 2617, "t": 18.5125, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15877, "session": 5, "status": "no_deal", "item": "La Castañera"}}
+{"id": 112973, "tick": 2617, "t": 18.5125, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15884, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 113015, "tick": 2618, "t": 18.5167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15857, "session": 5, "status": "no_deal", "item": "La Castañera"}}
+{"id": 113018, "tick": 2618, "t": 18.5167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15875, "session": 5, "status": "no_deal", "item": "La Sala Pentagrama"}}
+{"id": 113021, "tick": 2618, "t": 18.5167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15896, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 113024, "tick": 2618, "t": 18.5167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15932, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 113027, "tick": 2618, "t": 18.5167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16056, "session": 5, "status": "no_deal", "item": "Paseo de Coches"}}
+{"id": 113030, "tick": 2618, "t": 18.5167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16074, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 113085, "tick": 2619, "t": 18.5208, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15898, "session": 5, "status": "no_deal", "item": "La Sala Pentagrama"}}
+{"id": 113088, "tick": 2619, "t": 18.5208, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15904, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 113091, "tick": 2619, "t": 18.5208, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15912, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 113094, "tick": 2619, "t": 18.5208, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15963, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 113097, "tick": 2619, "t": 18.5208, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16018, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 113153, "tick": 2620, "t": 18.525, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15920, "session": 5, "status": "no_deal", "item": "La Castañera"}}
+{"id": 113189, "tick": 2621, "t": 18.5292, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15871, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 113192, "tick": 2621, "t": 18.5292, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15894, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 113195, "tick": 2621, "t": 18.5292, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16054, "session": 5, "status": "no_deal", "item": "La Sala Pentagrama"}}
+{"id": 113198, "tick": 2621, "t": 18.5292, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16068, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 113236, "tick": 2622, "t": 18.5333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15905, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 113285, "tick": 2623, "t": 18.5375, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16042, "session": 5, "status": "deal", "item": "Mural de la Esquina"}}
+{"id": 113318, "tick": 2624, "t": 18.5417, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16099, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 113362, "tick": 2625, "t": 18.5458, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15930, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 113365, "tick": 2625, "t": 18.5458, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15976, "session": 5, "status": "deal", "item": "Mural de la Esquina"}}
+{"id": 113368, "tick": 2625, "t": 18.5458, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16009, "session": 5, "status": "no_deal", "item": "La Castañera"}}
+{"id": 113371, "tick": 2625, "t": 18.5458, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16028, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 113374, "tick": 2625, "t": 18.5458, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16100, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 113425, "tick": 2626, "t": 18.55, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16004, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 113428, "tick": 2626, "t": 18.55, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16079, "session": 5, "status": "deal", "item": "Mural de la Esquina"}}
+{"id": 113471, "tick": 2627, "t": 18.5542, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15908, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 113474, "tick": 2627, "t": 18.5542, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15954, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 113477, "tick": 2627, "t": 18.5542, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15993, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 113480, "tick": 2627, "t": 18.5542, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16007, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 113483, "tick": 2627, "t": 18.5542, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16023, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 113486, "tick": 2627, "t": 18.5542, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16094, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 113531, "tick": 2628, "t": 18.5583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15886, "session": 5, "status": "deal", "item": "Mural de la Esquina"}}
+{"id": 113534, "tick": 2628, "t": 18.5583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15919, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 113537, "tick": 2628, "t": 18.5583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15921, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 113540, "tick": 2628, "t": 18.5583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15933, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 113543, "tick": 2628, "t": 18.5583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15937, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 113546, "tick": 2628, "t": 18.5583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15970, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 113549, "tick": 2628, "t": 18.5583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16062, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 113607, "tick": 2629, "t": 18.5625, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15897, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 113610, "tick": 2629, "t": 18.5625, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15913, "session": 5, "status": "no_deal", "item": "La Castañera"}}
+{"id": 113613, "tick": 2629, "t": 18.5625, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15936, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 113616, "tick": 2629, "t": 18.5625, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15974, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 113619, "tick": 2629, "t": 18.5625, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16019, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 113622, "tick": 2629, "t": 18.5625, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16069, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 113687, "tick": 2630, "t": 18.5667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15895, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 113690, "tick": 2630, "t": 18.5667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15958, "session": 5, "status": "no_deal", "item": "La Sala Pentagrama"}}
+{"id": 113693, "tick": 2630, "t": 18.5667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16005, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 113696, "tick": 2630, "t": 18.5667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16120, "session": 5, "status": "no_deal", "item": "Paseo de Coches"}}
+{"id": 113740, "tick": 2631, "t": 18.5708, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15899, "session": 5, "status": "no_deal", "item": "La Sala Pentagrama"}}
+{"id": 113743, "tick": 2631, "t": 18.5708, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15948, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 113746, "tick": 2631, "t": 18.5708, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15966, "session": 5, "status": "no_deal", "item": "El Ahuehuete"}}
+{"id": 113749, "tick": 2631, "t": 18.5708, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15990, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 113752, "tick": 2631, "t": 18.5708, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16090, "session": 5, "status": "no_deal", "item": "La Sala Pentagrama"}}
+{"id": 113806, "tick": 2632, "t": 18.575, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16014, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 113845, "tick": 2633, "t": 18.5792, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15986, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 113848, "tick": 2633, "t": 18.5792, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16036, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 113895, "tick": 2634, "t": 18.5833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16108, "session": 5, "status": "deal", "item": "Mural de la Esquina"}}
+{"id": 113937, "tick": 2635, "t": 18.5875, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15955, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 113940, "tick": 2635, "t": 18.5875, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16043, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 113987, "tick": 2636, "t": 18.5917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16075, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 114024, "tick": 2637, "t": 18.5958, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15924, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 114027, "tick": 2637, "t": 18.5958, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15928, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 114030, "tick": 2637, "t": 18.5958, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15931, "session": 5, "status": "no_deal", "item": "La Castañera"}}
+{"id": 114033, "tick": 2637, "t": 18.5958, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15957, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 114036, "tick": 2637, "t": 18.5958, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16076, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 114084, "tick": 2638, "t": 18.6, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15909, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 114087, "tick": 2638, "t": 18.6, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15929, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 114090, "tick": 2638, "t": 18.6, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15971, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 114093, "tick": 2638, "t": 18.6, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15978, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 114160, "tick": 2639, "t": 18.6042, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15890, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 114163, "tick": 2639, "t": 18.6042, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15940, "session": 5, "status": "no_deal", "item": "El Ahuehuete"}}
+{"id": 114166, "tick": 2639, "t": 18.6042, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15972, "session": 5, "status": "no_deal", "item": "La Castañera"}}
+{"id": 114169, "tick": 2639, "t": 18.6042, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15999, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 114213, "tick": 2640, "t": 18.6083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15887, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 114216, "tick": 2640, "t": 18.6083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15973, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 114219, "tick": 2640, "t": 18.6083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15984, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 114222, "tick": 2640, "t": 18.6083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15988, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 114225, "tick": 2640, "t": 18.6083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16047, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 114228, "tick": 2640, "t": 18.6083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16066, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 114296, "tick": 2641, "t": 18.6125, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15949, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 114299, "tick": 2641, "t": 18.6125, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16020, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 114302, "tick": 2641, "t": 18.6125, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16046, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 114305, "tick": 2641, "t": 18.6125, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16110, "session": 5, "status": "no_deal", "item": "El Ahuehuete"}}
+{"id": 114355, "tick": 2642, "t": 18.6167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15891, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 114358, "tick": 2642, "t": 18.6167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15934, "session": 5, "status": "no_deal", "item": "La Castañera"}}
+{"id": 114361, "tick": 2642, "t": 18.6167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15951, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 114364, "tick": 2642, "t": 18.6167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16021, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 114411, "tick": 2643, "t": 18.6208, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15967, "session": 5, "status": "no_deal", "item": "El Ahuehuete"}}
+{"id": 114414, "tick": 2643, "t": 18.6208, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15991, "session": 5, "status": "no_deal", "item": "La Sala Pentagrama"}}
+{"id": 114417, "tick": 2643, "t": 18.6208, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16050, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 114467, "tick": 2644, "t": 18.625, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15938, "session": 5, "status": "no_deal", "item": "El Ahuehuete"}}
+{"id": 114470, "tick": 2644, "t": 18.625, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15979, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 114473, "tick": 2644, "t": 18.625, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16052, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 114518, "tick": 2645, "t": 18.6292, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15923, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 114521, "tick": 2645, "t": 18.6292, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15935, "session": 5, "status": "no_deal", "item": "La Castañera"}}
+{"id": 114524, "tick": 2645, "t": 18.6292, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16060, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 114527, "tick": 2645, "t": 18.6292, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16104, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 114568, "tick": 2646, "t": 18.6333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15952, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 114571, "tick": 2646, "t": 18.6333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16015, "session": 5, "status": "deal", "item": "Mural de la Esquina"}}
+{"id": 114574, "tick": 2646, "t": 18.6333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16109, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 114624, "tick": 2647, "t": 18.6375, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15983, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 114627, "tick": 2647, "t": 18.6375, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16016, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 114630, "tick": 2647, "t": 18.6375, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16037, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 114633, "tick": 2647, "t": 18.6375, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16106, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 114671, "tick": 2648, "t": 18.6417, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16053, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 114707, "tick": 2649, "t": 18.6458, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15925, "session": 5, "status": "no_deal", "item": "Paseo de Coches"}}
+{"id": 114710, "tick": 2649, "t": 18.6458, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15942, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 114713, "tick": 2649, "t": 18.6458, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15946, "session": 5, "status": "no_deal", "item": "La Castañera"}}
+{"id": 114716, "tick": 2649, "t": 18.6458, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15947, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 114719, "tick": 2649, "t": 18.6458, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15953, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 114722, "tick": 2649, "t": 18.6458, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16070, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 114725, "tick": 2649, "t": 18.6458, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16102, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 114779, "tick": 2650, "t": 18.65, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15982, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 114819, "tick": 2651, "t": 18.6542, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15941, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 114822, "tick": 2651, "t": 18.6542, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15985, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 114825, "tick": 2651, "t": 18.6542, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16118, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 114862, "tick": 2652, "t": 18.6583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15959, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 114865, "tick": 2652, "t": 18.6583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15964, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 114868, "tick": 2652, "t": 18.6583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15968, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 114871, "tick": 2652, "t": 18.6583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15989, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 114874, "tick": 2652, "t": 18.6583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16051, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 114877, "tick": 2652, "t": 18.6583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16092, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 114942, "tick": 2653, "t": 18.6625, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16012, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 114945, "tick": 2653, "t": 18.6625, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16038, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 114948, "tick": 2653, "t": 18.6625, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16044, "session": 5, "status": "deal", "item": "Mural de la Esquina"}}
+{"id": 114951, "tick": 2653, "t": 18.6625, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16067, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 114999, "tick": 2654, "t": 18.6667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16032, "session": 5, "status": "no_deal", "item": "El Ahuehuete"}}
+{"id": 115002, "tick": 2654, "t": 18.6667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16072, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 115043, "tick": 2655, "t": 18.6708, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15994, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 115046, "tick": 2655, "t": 18.6708, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16000, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 115049, "tick": 2655, "t": 18.6708, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16039, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 115052, "tick": 2655, "t": 18.6708, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16061, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 115055, "tick": 2655, "t": 18.6708, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16077, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 115090, "tick": 2656, "t": 18.675, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15939, "session": 5, "status": "no_deal", "item": "El Ahuehuete"}}
+{"id": 115093, "tick": 2656, "t": 18.675, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15980, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 115096, "tick": 2656, "t": 18.675, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15987, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 115099, "tick": 2656, "t": 18.675, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15996, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 115102, "tick": 2656, "t": 18.675, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16093, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 115159, "tick": 2657, "t": 18.6792, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15981, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 115162, "tick": 2657, "t": 18.6792, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16071, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 115199, "tick": 2658, "t": 18.6833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15997, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 115202, "tick": 2658, "t": 18.6833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16029, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 115205, "tick": 2658, "t": 18.6833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16055, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 115208, "tick": 2658, "t": 18.6833, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16101, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 115251, "tick": 2659, "t": 18.6875, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16017, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 115287, "tick": 2660, "t": 18.6917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15915, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 115290, "tick": 2660, "t": 18.6917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15969, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 115293, "tick": 2660, "t": 18.6917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15975, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 115296, "tick": 2660, "t": 18.6917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16048, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 115299, "tick": 2660, "t": 18.6917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16095, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 115343, "tick": 2661, "t": 18.6958, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15965, "session": 5, "status": "no_deal", "item": "El Ahuehuete"}}
+{"id": 115370, "tick": 2662, "t": 18.7, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16001, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 115373, "tick": 2662, "t": 18.7, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16049, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 115410, "tick": 2663, "t": 18.7042, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15995, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 115413, "tick": 2663, "t": 18.7042, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16086, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 115416, "tick": 2663, "t": 18.7042, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16112, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 115419, "tick": 2663, "t": 18.7042, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16119, "session": 5, "status": "deal", "item": "La Sala Pentagrama"}}
+{"id": 115458, "tick": 2664, "t": 18.7083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16073, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 115461, "tick": 2664, "t": 18.7083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16084, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 115464, "tick": 2664, "t": 18.7083, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16113, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 115507, "tick": 2665, "t": 18.7125, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16013, "session": 5, "status": "no_deal", "item": "La Castañera"}}
+{"id": 115510, "tick": 2665, "t": 18.7125, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16045, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 115557, "tick": 2666, "t": 18.7167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16026, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 115560, "tick": 2666, "t": 18.7167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16033, "session": 5, "status": "no_deal", "item": "El Ahuehuete"}}
+{"id": 115563, "tick": 2666, "t": 18.7167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16105, "session": 5, "status": "deal", "item": "Mural de la Esquina"}}
+{"id": 115601, "tick": 2667, "t": 18.7208, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15977, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 115604, "tick": 2667, "t": 18.7208, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16107, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 115607, "tick": 2667, "t": 18.7208, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16111, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 115635, "tick": 2668, "t": 18.725, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16002, "session": 5, "status": "no_deal", "item": "Paseo de Coches"}}
+{"id": 115638, "tick": 2668, "t": 18.725, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16003, "session": 5, "status": "no_deal", "item": "Paseo de Coches"}}
+{"id": 115641, "tick": 2668, "t": 18.725, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16025, "session": 5, "status": "no_deal", "item": "La Sala Pentagrama"}}
+{"id": 115644, "tick": 2668, "t": 18.725, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16040, "session": 5, "status": "no_deal", "item": "El Ahuehuete"}}
+{"id": 115647, "tick": 2668, "t": 18.725, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16080, "session": 5, "status": "no_deal", "item": "El Ahuehuete"}}
+{"id": 115680, "tick": 2669, "t": 18.7292, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 15943, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 115683, "tick": 2669, "t": 18.7292, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16057, "session": 5, "status": "no_deal", "item": "Paseo de Coches"}}
+{"id": 115720, "tick": 2670, "t": 18.7333, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16114, "session": 5, "status": "deal", "item": "Mural de la Esquina"}}
+{"id": 115773, "tick": 2671, "t": 18.7375, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16027, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 115776, "tick": 2671, "t": 18.7375, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16030, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 115779, "tick": 2671, "t": 18.7375, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16081, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 115782, "tick": 2671, "t": 18.7375, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16087, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 115817, "tick": 2672, "t": 18.7417, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16041, "session": 5, "status": "no_deal", "item": "El Ahuehuete"}}
+{"id": 115854, "tick": 2673, "t": 18.7458, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16096, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 115885, "tick": 2674, "t": 18.75, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16031, "session": 5, "status": "deal", "item": "Paseo de Coches"}}
+{"id": 115888, "tick": 2674, "t": 18.75, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16034, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 115891, "tick": 2674, "t": 18.75, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16063, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 115918, "tick": 2675, "t": 18.7542, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16097, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 115936, "tick": 2676, "t": 18.7583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16085, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 115939, "tick": 2676, "t": 18.7583, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16103, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 115971, "tick": 2677, "t": 18.7625, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16035, "session": 5, "status": "no_deal", "item": "La Castañera"}}
+{"id": 115986, "tick": 2678, "t": 18.7667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16010, "session": 5, "status": "no_deal", "item": "El Ahuehuete"}}
+{"id": 115989, "tick": 2678, "t": 18.7667, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16115, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 116010, "tick": 2679, "t": 18.7708, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16117, "session": 5, "status": "deal", "item": "El Ahuehuete"}}
+{"id": 116040, "tick": 2680, "t": 18.775, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16011, "session": 5, "status": "no_deal", "item": "El Ahuehuete"}}
+{"id": 116043, "tick": 2680, "t": 18.775, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16064, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 116079, "tick": 2681, "t": 18.7792, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16091, "session": 5, "status": "no_deal", "item": "La Sala Pentagrama"}}
+{"id": 116082, "tick": 2681, "t": 18.7792, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16122, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 116138, "tick": 2686, "t": 18.8, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16123, "session": 5, "status": "deal", "item": "La Castañera"}}
+{"id": 116198, "tick": 2690, "t": 18.8167, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16065, "session": 5, "status": "no_deal", "item": "Mural de la Esquina"}}
+{"id": 116255, "tick": 2692, "t": 18.825, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 16121, "session": 5, "status": "no_deal", "item": "Paseo de Coches"}}
+{"id": 116258, "tick": 2692, "t": 18.825, "type": "duels.finished", "scope": "public", "actor": "", "payload": {"session": 5, "name": "Final duels"}}

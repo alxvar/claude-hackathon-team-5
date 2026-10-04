@@ -1,5 +1,20 @@
 # Market log (Market session; newest first)
 
+## Sun 15:02 · CLOSE: #1 on the server score, market 13.08 [V, /api/me at tick 2816 + snapshot 2802]
+- **Final server standing (before the judges' 40):** us 37.73 · t10 35.76 · t12 34.51 · t03 34.19 · t18 32.27 · t09 30.83.
+- **Our market: 13.08**, second in that column to Team 9's 13.34 (t10 12.26, t15 12.00, t12 11.44). bench_points 0.5 in
+  every session of the weekend (eleven benches; nobody ever beat the free stall); Sunday's real trades at the cap.
+- **v10 on Sunday: 8 fills** between other teams (ticks 2087-2778): RET-02 t13 → t17, RET-01 t02 → t08, CHA-11 t10 → t06
+  (184), RET-09 and RET-10 t17 → t01, LAT-08 t01 → t08, RET-01 t07 → t13, LAV-04 t04 → t14. mm_points 14.0. Eleven
+  teams quoted there. Saturday: 2 fills.
+- **What worked:** staying on the free stall (zero bench risk, same half as every broker); fee 0 from Saturday 10:04;
+  getting other teams' bots to post on v10 (the Team 13 pact, pushes to Teams 2/8/16/1); addressed, pre-agreed pairs.
+- **What did not:** brokered pairs by WhatsApp were slow and leaked (RET-09 t07 → t09 settled on El Rastro); rebates got
+  no listing; our broker never beat the stall offline, and nobody's did live.
+- **Errors of mine, for the record:** I took "Market Test 7.5 + real trades 22.5" from a directive and built on it (it was
+  22.5 + 7.5); I called SAL-03 Team 3's last SAL card when the audit had it undecided; a push to Dani carried a wrong
+  card name for two minutes. Each was corrected the same hour.
+
 ## Sun 12:46 · v10 has trades: five fills, we are #1 [V]
 | Tick | Trade on v10 | Price | mm_points after |
 |---|---|---|---|
