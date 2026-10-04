@@ -39,6 +39,26 @@ st.setdefault("bounties", []); st.setdefault("bounty_trades", [])
 BOUNTIES, BONUS, PER_SELLER, SLACK = 5, 20, 2, 0   # Chief 12:20: in kind only (no round cap: overpay costs real neg points)
 st.setdefault("over_used", 0.0)
 LACK_ALSO = ["MAL-07", "MAL-09"]
+STICKY_RIVALS = {"t03", "t06", "t10", "t12", "t13", "t17", "t18"}   # Chief 12:33: the reward is non-rivals only (live + this list)
+BOOK = ROOT + '/run/book.json'
+
+def all_bid_cards():
+    """Cards any open offer of ours wants (the book's public bids included): never a second bid on one card."""
+    return {t[5:] for o in retry(b.my_offers).get('offers', []) if o.get('status') == 'open' and o.get('maker') == 't05'
+            for t in (o.get('want') or {}).get('types') or [] if t.startswith('card:')}
+
+def take_from_book(cards):
+    """A bounty bid replaces the book's public bid for the same card: drop it from run/book.json, cancel the live one."""
+    try:
+        bk = json.load(open(BOOK)); n = len(bk['offers'])
+        bk['offers'] = [e for e in bk['offers'] if not (e['card'] in cards and e['side'] == 'buy')]
+        if len(bk['offers']) != n: json.dump(bk, open(BOOK + '.tmp', 'w'), indent=1); os.replace(BOOK + '.tmp', BOOK)
+        for o in retry(b.my_offers).get('offers', []):
+            if o.get('status') == 'open' and o.get('maker') == 't05' and not o.get('to') and \
+                    any(f'card:{c}' in ((o.get('want') or {}).get('types') or []) for c in cards):
+                retry(b.cancel, o['id']); log(event="book_handoff", offer=o['id'], cards=cards)
+    except Exception as e:
+        log(event="error", where="take_from_book", err=repr(e)[:150])
 def save():
     json.dump(st, open(STATE + '.tmp', 'w'), indent=1); os.replace(STATE + '.tmp', STATE)
 
@@ -112,6 +132,7 @@ def bounty(e):
         st['bounties'].append({"settlement": sid, "seller": s, "cards": [], "price": 0, "offer": None}); save()
         log(event="bounty_skip", settlement=sid, seller=s, why=f"no card of the seller's known (or slack {slack:g} used up)"); return
     value = sum(v(c) for c in pick); price = int(value) + over
+    take_from_book([c for c in pick if c in all_bid_cards()])
     r = retry(b.list_offer, give={"cash": price}, want={"types": [f"card:{c}" for c in pick]}, venue='rastro', to=s, expires_in_ticks=120)
     st['over_used'] = st['over_used'] + max(0.0, price - value)
     st['bounties'].append({"settlement": sid, "seller": s, "cards": pick, "price": price, "value": value, "over": max(0.0, price - value),
@@ -138,12 +159,13 @@ def reward(e):
     teams = retry(b.leaderboard).get('teams') or []
     held = {a['ref'] for a in retry(b.me)['assets']}
     mine = {o['id']: o for o in retry(b.my_offers).get('offers', [])}
-    bidding = {x['card'] for x in st['bids'] if (mine.get(x['offer']) or {}).get('status') == 'open'}
+    bidding = {x['card'] for x in st['bids'] if (mine.get(x['offer']) or {}).get('status') == 'open'} | all_bid_cards()
     lack = [c for c in WANT if c not in held and c not in bidding]
     budget = TOTAL - committed()
     if budget < 1: log(event="skip", settlement=sid, why="100 P budget used"); return
     for team in parties:
-        if team == 't10': continue
+        if team == 't10' or team in STICKY_RIVALS or team in policy.rivals(teams) or team in policy.RIVALS:
+            log(event="skip", settlement=sid, team=team, why="rival (live policy.rivals, RIVALS or the Chief's list)"); continue
         if sum(x['team'] == team for x in st['bids']) >= PER_TEAM: log(event="skip", settlement=sid, team=team, why="2 rewards already"); continue
         cands = [c for c in lack if c in holds(team)]
         best = None
