@@ -1,4 +1,4 @@
-# Metrics (auto, 09:02, game tick 1445)
+# Metrics (auto, 09:04, game tick 1445)
 
 ## Leaderboard (score, change over 15 min / 60 min)
 
@@ -82,11 +82,14 @@ Who buys which set (team trades): t01: MAL×4, SAL×4, RET×1; t02: MAL×3, RET�
 
 - t01: MAL-11 (epic) 152 P · offer 20243
 - t09: SAL-10 (rare) 68 P · offer 20260
+- t04: SAL-10 (rare) 44 P · offer 20262
 - t16: LAV-10 (rare) 28 P · offer 20217
 - t09: SAL-06 (uncommon) 20 P · offer 20259
 - t16: RET-06 (uncommon) 18 P · offer 20219
-- t08: LAT-08 (uncommon) 5 P · offer 20246
-- t08: RET-02 (common) 5 P · offer 20248
+- t04: MAL-06 (uncommon) 17 P · offer 20263
+- t04: SAL-08 (uncommon) 14 P · offer 20264
+- t08: RET-01 (common) 5 P · offer 20261
+- t04: SAL-03 (common) 4 P · offer 20265
 
 Asks by others (card, price: count): RET-03 10: 1; RET-01 8: 1; LAV-02 10: 1; SAL-11 245: 1; LAT-08 30: 1; sobre_plata 130: 1; LAT-06 30: 1; MAL-03 12: 1; MAL-01 12: 1; LAT-01 9: 1; MAL-04 12: 1; LAT-02 9: 1; LAT-04 9: 1; LAT-07 30: 1; LAT-11 247: 1
 
