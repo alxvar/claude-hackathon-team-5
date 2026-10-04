@@ -208,6 +208,249 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1968,
+   "raw": {
+    "duel": 11361,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Escaparate de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 0.72,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 136,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Sol",
+    "deadline_tick": 1972,
+    "decay_per_round": 0.1,
+    "rounds": 2,
+    "your_offer": {
+     "id": 14036,
+     "price": 86,
+     "tick": 1961,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 14181,
+     "price": 110,
+     "tick": 1968,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1960,
+      "from": "you",
+      "text": "I'd like to open at 85 P for delivery on day 0.",
+      "price": 85,
+      "days": 0
+     },
+     {
+      "tick": 1960,
+      "from": "Rival Sol",
+      "text": "Propuesta justa para cerrar pronto: 152 P y 10 días.",
+      "price": 152,
+      "days": 10
+     },
+     {
+      "tick": 1961,
+      "from": "you",
+      "text": "Veo la urgencia de cerrar. Ofrezco 86 P para entrega en día 10.",
+      "price": 86,
+      "days": 10
+     },
+     {
+      "tick": 1962,
+      "from": "Rival Sol",
+      "text": "Me muevo para acercarnos: 133 P con 10 días.",
+      "price": 133,
+      "days": 10
+     },
+     {
+      "tick": 1968,
+      "from": "Rival Sol",
+      "text": "Yo ya me he movido. Propongo 110 P y 10 días.",
+      "price": 110,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1969,
+   "raw": {
+    "duel": 11361,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Escaparate de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 0.72,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 136,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Sol",
+    "deadline_tick": 1972,
+    "decay_per_round": 0.1,
+    "rounds": 3,
+    "your_offer": {
+     "id": 14199,
+     "price": 98,
+     "tick": 1969,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 14181,
+     "price": 110,
+     "tick": 1968,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1960,
+      "from": "you",
+      "text": "I'd like to open at 85 P for delivery on day 0.",
+      "price": 85,
+      "days": 0
+     },
+     {
+      "tick": 1960,
+      "from": "Rival Sol",
+      "text": "Propuesta justa para cerrar pronto: 152 P y 10 días.",
+      "price": 152,
+      "days": 10
+     },
+     {
+      "tick": 1961,
+      "from": "you",
+      "text": "Veo la urgencia de cerrar. Ofrezco 86 P para entrega en día 10.",
+      "price": 86,
+      "days": 10
+     },
+     {
+      "tick": 1962,
+      "from": "Rival Sol",
+      "text": "Me muevo para acercarnos: 133 P con 10 días.",
+      "price": 133,
+      "days": 10
+     },
+     {
+      "tick": 1968,
+      "from": "Rival Sol",
+      "text": "Yo ya me he movido. Propongo 110 P y 10 días.",
+      "price": 110,
+      "days": 10
+     },
+     {
+      "tick": 1969,
+      "from": "you",
+      "text": "Sigo acercándome: 98 P con entrega en día 10.",
+      "price": 98,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1970,
+   "raw": {
+    "duel": 11361,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Escaparate de Serrano",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 0.72,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 136,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Sol",
+    "deadline_tick": 1972,
+    "decay_per_round": 0.1,
+    "rounds": 3,
+    "your_offer": {
+     "id": 14199,
+     "price": 98,
+     "tick": 1969,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 14226,
+     "price": 98,
+     "tick": 1970,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1960,
+      "from": "you",
+      "text": "I'd like to open at 85 P for delivery on day 0.",
+      "price": 85,
+      "days": 0
+     },
+     {
+      "tick": 1960,
+      "from": "Rival Sol",
+      "text": "Propuesta justa para cerrar pronto: 152 P y 10 días.",
+      "price": 152,
+      "days": 10
+     },
+     {
+      "tick": 1961,
+      "from": "you",
+      "text": "Veo la urgencia de cerrar. Ofrezco 86 P para entrega en día 10.",
+      "price": 86,
+      "days": 10
+     },
+     {
+      "tick": 1962,
+      "from": "Rival Sol",
+      "text": "Me muevo para acercarnos: 133 P con 10 días.",
+      "price": 133,
+      "days": 10
+     },
+     {
+      "tick": 1968,
+      "from": "Rival Sol",
+      "text": "Yo ya me he movido. Propongo 110 P y 10 días.",
+      "price": 110,
+      "days": 10
+     },
+     {
+      "tick": 1969,
+      "from": "you",
+      "text": "Sigo acercándome: 98 P con entrega en día 10.",
+      "price": 98,
+      "days": 10
+     },
+     {
+      "tick": 1970,
+      "from": "Rival Sol",
+      "text": "Propuesta justa para cerrar pronto: 98 P y 10 días.",
+      "price": 98,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -770,6 +1013,481 @@
     "LATE_SWITCH_LEFT": 0,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1968,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11361,
+     "role": "buyer",
+     "limit": 136,
+     "currency": "P",
+     "item": "Escaparate de Serrano",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 0.72,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 85 P for delivery on day 0.",
+      "offer": {
+       "price": 85,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1960,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 152 P y 10 días.",
+      "offer": {
+       "price": 152,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1960,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Veo la urgencia de cerrar. Ofrezco 86 P para entrega en día 10.",
+      "offer": {
+       "price": 86,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1961,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 133 P con 10 días.",
+      "offer": {
+       "price": 133,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1962,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 133,
+     "days": 10
+    },
+    "tick": 1968,
+    "ticks_left": 4,
+    "rounds": 2,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 86,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "give",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1969,
+   "took_s": 1.16,
+   "cost_usd": 0.00119,
+   "obs": {
+    "view": {
+     "duel_id": 11361,
+     "role": "buyer",
+     "limit": 136,
+     "currency": "P",
+     "item": "Escaparate de Serrano",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 0.72,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 85 P for delivery on day 0.",
+      "offer": {
+       "price": 85,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1960,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 152 P y 10 días.",
+      "offer": {
+       "price": 152,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1960,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Veo la urgencia de cerrar. Ofrezco 86 P para entrega en día 10.",
+      "offer": {
+       "price": 86,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1961,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 133 P con 10 días.",
+      "offer": {
+       "price": 133,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1962,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Yo ya me he movido. Propongo 110 P y 10 días.",
+      "offer": {
+       "price": 110,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1968,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 110,
+     "days": 10
+    },
+    "tick": 1969,
+    "ticks_left": 3,
+    "rounds": 2,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "Sigo acercándome: 98 P con entrega en día 10.",
+    "price": 98,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "give",
+     "rule": "code step",
+     "step": 12.0,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.16,
+       "in": 1050,
+       "out": 28,
+       "cost_usd": 0.00119,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ]
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1970,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11361,
+     "role": "buyer",
+     "limit": 136,
+     "currency": "P",
+     "item": "Escaparate de Serrano",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 0.72,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 85 P for delivery on day 0.",
+      "offer": {
+       "price": 85,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1960,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Propuesta justa para cerrar pronto: 152 P y 10 días.",
+      "offer": {
+       "price": 152,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1960,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Veo la urgencia de cerrar. Ofrezco 86 P para entrega en día 10.",
+      "offer": {
+       "price": 86,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1961,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Me muevo para acercarnos: 133 P con 10 días.",
+      "offer": {
+       "price": 133,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1962,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Yo ya me he movido. Propongo 110 P y 10 días.",
+      "offer": {
+       "price": 110,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1968,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "Sigo acercándome: 98 P con entrega en día 10.",
+      "offer": {
+       "price": 98,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1969,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 110,
+     "days": 10
+    },
+    "tick": 1970,
+    "ticks_left": 2,
+    "rounds": 3,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5,
+     51.0
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 110,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -842,6 +1560,147 @@
      "days": 10
     }
    }
+  },
+  {
+   "tick": 1969,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Sigo acercándome: 98 P con entrega en día 10.",
+    "price": 98,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "give",
+     "rule": "code step",
+     "step": 12.0,
+     "closing": true,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.16,
+       "in": 1050,
+       "out": 28,
+       "cost_usd": 0.00119,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 11361,
+    "offer": {
+     "id": 14199,
+     "price": 98,
+     "tick": 1969,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1970,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 110,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 110,
+    "settles_at_tick": 1971
+   }
   }
- ]
+ ],
+ "last_seen_tick": 1971,
+ "done": {
+  "duel": 11361,
+  "session": 4,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Escaparate de Serrano",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 0.72,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 136,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Sol",
+  "deadline_tick": 1972,
+  "decay_per_round": 0.1,
+  "rounds": 3,
+  "your_offer": {
+   "id": 14199,
+   "price": 98,
+   "tick": 1969,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 14226,
+   "price": 98,
+   "tick": 1970,
+   "days": 10
+  },
+  "messages": [
+   {
+    "tick": 1960,
+    "from": "you",
+    "text": "I'd like to open at 85 P for delivery on day 0.",
+    "price": 85,
+    "days": 0
+   },
+   {
+    "tick": 1960,
+    "from": "Rival Sol",
+    "text": "Propuesta justa para cerrar pronto: 152 P y 10 días.",
+    "price": 152,
+    "days": 10
+   },
+   {
+    "tick": 1961,
+    "from": "you",
+    "text": "Veo la urgencia de cerrar. Ofrezco 86 P para entrega en día 10.",
+    "price": 86,
+    "days": 10
+   },
+   {
+    "tick": 1962,
+    "from": "Rival Sol",
+    "text": "Me muevo para acercarnos: 133 P con 10 días.",
+    "price": 133,
+    "days": 10
+   },
+   {
+    "tick": 1968,
+    "from": "Rival Sol",
+    "text": "Yo ya me he movido. Propongo 110 P y 10 días.",
+    "price": 110,
+    "days": 10
+   },
+   {
+    "tick": 1969,
+    "from": "you",
+    "text": "Sigo acercándome: 98 P con entrega en día 10.",
+    "price": 98,
+    "days": 10
+   },
+   {
+    "tick": 1970,
+    "from": "Rival Sol",
+    "text": "Propuesta justa para cerrar pronto: 98 P y 10 días.",
+    "price": 98,
+    "days": 10
+   }
+  ],
+  "result": 13.7,
+  "price": 110,
+  "days": 10
+ }
 }

@@ -323,6 +323,175 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1968,
+   "raw": {
+    "duel": 11452,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Cine Doré",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.57,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 52,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 1971,
+    "decay_per_round": 0.1,
+    "rounds": 2,
+    "your_offer": {
+     "id": 14179,
+     "price": 59,
+     "tick": 1968,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 14165,
+     "price": 69,
+     "tick": 1967,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1959,
+      "from": "you",
+      "text": "I'd like to open at 74 P for delivery on day 10.",
+      "price": 74,
+      "days": 10
+     },
+     {
+      "tick": 1961,
+      "from": "Rival Sol",
+      "text": "We can do 56 P, delivery on day 0. Thank you for the talk.",
+      "price": 56,
+      "days": 0
+     },
+     {
+      "tick": 1963,
+      "from": "Rival Sol",
+      "text": "64 P, delivery on day 0 works well for us.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1965,
+      "from": "Rival Sol",
+      "text": "Our offer is 67 P, delivery on day 0.",
+      "price": 67,
+      "days": 0
+     },
+     {
+      "tick": 1967,
+      "from": "Rival Sol",
+      "text": "Let's meet at 69 P, delivery on day 0, fair for both.",
+      "price": 69,
+      "days": 0
+     },
+     {
+      "tick": 1968,
+      "from": "you",
+      "text": "I can do 59 P, delivery on day 10.",
+      "price": 59,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1968,
+   "raw": {
+    "duel": 11452,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Cine Doré",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.57,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 52,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 1971,
+    "decay_per_round": 0.1,
+    "rounds": 2,
+    "your_offer": {
+     "id": 14179,
+     "price": 59,
+     "tick": 1968,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 14189,
+     "price": 70,
+     "tick": 1968,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1959,
+      "from": "you",
+      "text": "I'd like to open at 74 P for delivery on day 10.",
+      "price": 74,
+      "days": 10
+     },
+     {
+      "tick": 1961,
+      "from": "Rival Sol",
+      "text": "We can do 56 P, delivery on day 0. Thank you for the talk.",
+      "price": 56,
+      "days": 0
+     },
+     {
+      "tick": 1963,
+      "from": "Rival Sol",
+      "text": "64 P, delivery on day 0 works well for us.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1965,
+      "from": "Rival Sol",
+      "text": "Our offer is 67 P, delivery on day 0.",
+      "price": 67,
+      "days": 0
+     },
+     {
+      "tick": 1967,
+      "from": "Rival Sol",
+      "text": "Let's meet at 69 P, delivery on day 0, fair for both.",
+      "price": 69,
+      "days": 0
+     },
+     {
+      "tick": 1968,
+      "from": "you",
+      "text": "I can do 59 P, delivery on day 10.",
+      "price": 59,
+      "days": 10
+     },
+     {
+      "tick": 1968,
+      "from": "Rival Sol",
+      "text": "70 P, delivery on day 0, and we close now.",
+      "price": 70,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -1017,6 +1186,355 @@
     "LATE_SWITCH_LEFT": 0,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1968,
+   "took_s": 1.47,
+   "cost_usd": 0.00122,
+   "obs": {
+    "view": {
+     "duel_id": 11452,
+     "role": "seller",
+     "limit": 52,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.57,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 74 P for delivery on day 10.",
+      "offer": {
+       "price": 74,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1959,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "We can do 56 P, delivery on day 0. Thank you for the talk.",
+      "offer": {
+       "price": 56,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1961,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "64 P, delivery on day 0 works well for us.",
+      "offer": {
+       "price": 64,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1963,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Our offer is 67 P, delivery on day 0.",
+      "offer": {
+       "price": 67,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1965,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Let's meet at 69 P, delivery on day 0, fair for both.",
+      "offer": {
+       "price": 69,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1967,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 69,
+     "days": 0
+    },
+    "tick": 1968,
+    "ticks_left": 3,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 59 P, delivery on day 10.",
+    "price": 59,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 25.35,
+     "closing": true,
+     "text": "rejected: plain words",
+     "text_problems": [
+      "the message states facts (costs). Say nothing about the item (its quality, condition, history, location, rarity or demand), costs, budgets, limits, other buyers, sellers or offers, or the market: talk only about prices, days, the moves on both sides and how you see the gap.",
+      "the message names 0: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "I see you want day 0, but that costs us both time. I'll offer 49 P on day 10 instead.",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.47,
+       "in": 1036,
+       "out": 37,
+       "cost_usd": 0.00122,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 49,
+     "floor": 52.7
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1969,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11452,
+     "role": "seller",
+     "limit": 52,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.57,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 74 P for delivery on day 10.",
+      "offer": {
+       "price": 74,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1959,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "We can do 56 P, delivery on day 0. Thank you for the talk.",
+      "offer": {
+       "price": 56,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1961,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "64 P, delivery on day 0 works well for us.",
+      "offer": {
+       "price": 64,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1963,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Our offer is 67 P, delivery on day 0.",
+      "offer": {
+       "price": 67,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1965,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Let's meet at 69 P, delivery on day 0, fair for both.",
+      "offer": {
+       "price": 69,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1967,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 59 P, delivery on day 10.",
+      "offer": {
+       "price": 59,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1968,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "70 P, delivery on day 0, and we close now.",
+      "offer": {
+       "price": 70,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1968,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 70,
+     "days": 0
+    },
+    "tick": 1969,
+    "ticks_left": 2,
+    "rounds": 2,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 70,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -1053,6 +1571,155 @@
      "days": 10
     }
    }
+  },
+  {
+   "tick": 1968,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 59 P, delivery on day 10.",
+    "price": 59,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 25.35,
+     "closing": true,
+     "text": "rejected: plain words",
+     "text_problems": [
+      "the message states facts (costs). Say nothing about the item (its quality, condition, history, location, rarity or demand), costs, budgets, limits, other buyers, sellers or offers, or the market: talk only about prices, days, the moves on both sides and how you see the gap.",
+      "the message names 0: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "I see you want day 0, but that costs us both time. I'll offer 49 P on day 10 instead.",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.47,
+       "in": 1036,
+       "out": 37,
+       "cost_usd": 0.00122,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 49,
+     "floor": 52.7
+    }
+   },
+   "result": {
+    "duel": 11452,
+    "offer": {
+     "id": 14179,
+     "price": 59,
+     "tick": 1968,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1969,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 70,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 70,
+    "settles_at_tick": 1970
+   }
   }
- ]
+ ],
+ "last_seen_tick": 1970,
+ "done": {
+  "duel": 11452,
+  "session": 4,
+  "status": "deal",
+  "role": "seller",
+  "item": "Cine Doré",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 4.57,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 52,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Sol",
+  "deadline_tick": 1971,
+  "decay_per_round": 0.1,
+  "rounds": 2,
+  "your_offer": {
+   "id": 14179,
+   "price": 59,
+   "tick": 1968,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 14189,
+   "price": 70,
+   "tick": 1968,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1959,
+    "from": "you",
+    "text": "I'd like to open at 74 P for delivery on day 10.",
+    "price": 74,
+    "days": 10
+   },
+   {
+    "tick": 1961,
+    "from": "Rival Sol",
+    "text": "We can do 56 P, delivery on day 0. Thank you for the talk.",
+    "price": 56,
+    "days": 0
+   },
+   {
+    "tick": 1963,
+    "from": "Rival Sol",
+    "text": "64 P, delivery on day 0 works well for us.",
+    "price": 64,
+    "days": 0
+   },
+   {
+    "tick": 1965,
+    "from": "Rival Sol",
+    "text": "Our offer is 67 P, delivery on day 0.",
+    "price": 67,
+    "days": 0
+   },
+   {
+    "tick": 1967,
+    "from": "Rival Sol",
+    "text": "Let's meet at 69 P, delivery on day 0, fair for both.",
+    "price": 69,
+    "days": 0
+   },
+   {
+    "tick": 1968,
+    "from": "you",
+    "text": "I can do 59 P, delivery on day 10.",
+    "price": 59,
+    "days": 10
+   },
+   {
+    "tick": 1968,
+    "from": "Rival Sol",
+    "text": "70 P, delivery on day 0, and we close now.",
+    "price": 70,
+    "days": 0
+   }
+  ],
+  "result": 14.6,
+  "price": 70,
+  "days": 0
+ }
 }

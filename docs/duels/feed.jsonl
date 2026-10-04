@@ -1587,3 +1587,13 @@
 {"id": 89979, "tick": 1963, "t": 15.7875, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11487, "session": 4, "status": "deal", "item": "Cine Doré"}}
 {"id": 89982, "tick": 1963, "t": 15.7875, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11569, "session": 4, "status": "deal", "item": "Museo Sorolla"}}
 {"id": 89985, "tick": 1963, "t": 15.7875, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11602, "session": 4, "status": "deal", "item": "Cine Doré"}}
+{"id": 90039, "tick": 1964, "t": 15.7917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11393, "session": 4, "status": "deal", "item": "Museo Sorolla"}}
+{"id": 90042, "tick": 1964, "t": 15.7917, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11588, "session": 4, "status": "deal", "item": "Vinilo de la Movida"}}
+{"id": 90102, "tick": 1965, "t": 15.7958, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11299, "session": 4, "status": "no_deal", "item": "Vinilo de la Movida"}}
+{"id": 90105, "tick": 1965, "t": 15.7958, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11382, "session": 4, "status": "deal", "item": "San Isidro"}}
+{"id": 90108, "tick": 1965, "t": 15.7958, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11413, "session": 4, "status": "deal", "item": "Escaparate de Serrano"}}
+{"id": 90111, "tick": 1965, "t": 15.7958, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11642, "session": 4, "status": "no_deal", "item": "Vinilo de la Movida"}}
+{"id": 90165, "tick": 1966, "t": 15.8, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11377, "session": 4, "status": "deal", "item": "Vinilo de la Movida"}}
+{"id": 90168, "tick": 1966, "t": 15.8, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11389, "session": 4, "status": "deal", "item": "Museo Sorolla"}}
+{"id": 90171, "tick": 1966, "t": 15.8, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11501, "session": 4, "status": "deal", "item": "Museo Sorolla"}}
+{"id": 90223, "tick": 1967, "t": 15.8042, "type": "duel.closed", "scope": "public", "actor": "", "payload": {"duel": 11465, "session": 4, "status": "deal", "item": "Museo Sorolla"}}

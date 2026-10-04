@@ -69,6 +69,119 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1968,
+   "raw": {
+    "duel": 11519,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Cine Doré",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.84,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 59,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 1978,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 14137,
+     "price": 84,
+     "tick": 1966,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 14194,
+     "price": 64,
+     "tick": 1968,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1966,
+      "from": "you",
+      "text": "I'd like to open at 84 P for delivery on day 10.",
+      "price": 84,
+      "days": 10
+     },
+     {
+      "tick": 1968,
+      "from": "Rival Sol",
+      "text": "Hello, and thank you for meeting me. I would propose 64 P with delivery on day 0.",
+      "price": 64,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1971,
+   "raw": {
+    "duel": 11519,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Cine Doré",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.84,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 59,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Sol",
+    "deadline_tick": 1978,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 14137,
+     "price": 84,
+     "tick": 1966,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 14230,
+     "price": 72,
+     "tick": 1970,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1966,
+      "from": "you",
+      "text": "I'd like to open at 84 P for delivery on day 10.",
+      "price": 84,
+      "days": 10
+     },
+     {
+      "tick": 1968,
+      "from": "Rival Sol",
+      "text": "Hello, and thank you for meeting me. I would propose 64 P with delivery on day 0.",
+      "price": 64,
+      "days": 0
+     },
+     {
+      "tick": 1970,
+      "from": "Rival Sol",
+      "text": "I appreciate it, thank you. Could we close at 72 P, delivery on day 0, please?",
+      "price": 72,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -210,6 +323,263 @@
     }
    },
    "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1968,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11519,
+     "role": "seller",
+     "limit": 59,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.84,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 84 P for delivery on day 10.",
+      "offer": {
+       "price": 84,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1966,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hello, and thank you for meeting me. I would propose 64 P with delivery on day 0.",
+      "offer": {
+       "price": 64,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1968,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 64,
+     "days": 0
+    },
+    "tick": 1968,
+    "ticks_left": 10,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 84,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "hold",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1971,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11519,
+     "role": "seller",
+     "limit": 59,
+     "currency": "P",
+     "item": "Cine Doré",
+     "context": "",
+     "rival": "Rival Sol",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.84,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 84 P for delivery on day 10.",
+      "offer": {
+       "price": 84,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1966,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hello, and thank you for meeting me. I would propose 64 P with delivery on day 0.",
+      "offer": {
+       "price": 64,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1968,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "I appreciate it, thank you. Could we close at 72 P, delivery on day 0, please?",
+      "offer": {
+       "price": 72,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1970,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 72,
+     "days": 0
+    },
+    "tick": 1971,
+    "ticks_left": 7,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5,
+     58.3,
+     45.7,
+     7.199999999999999,
+     58.4,
+     33.5,
+     51.0,
+     65.4
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "",
+    "price": 84,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "hold",
+     "rule": "code: small step",
+     "calls": []
+    }
+   },
+   "hold": true,
    "params_set": "C",
    "params": {
     "MIN_STEP_P": 15.0,
