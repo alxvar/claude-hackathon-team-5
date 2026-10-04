@@ -1,6 +1,6 @@
 # Team 5 — live status
 
-_Auto-updated by `tools/status.py` (read-only). Last update **Sun 12:13** · tick 2156 (15 s/tick) · game hour 16.59 · running · today closes 15:00._
+_Auto-updated by `tools/status.py` (read-only). Last update **Sun 12:18** · tick 2176 (15 s/tick) · game hour 16.68 · running · today closes 15:00._
 
 ## Team: now and latest
 
@@ -25,17 +25,17 @@ _From `team/<name>.md`; each person writes only their own file._
 
 | Total | Rank | Negotiating | Market | Duel pts | Ladder pts | Bench eff. | Deals | Level | Cash | Album |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 33.87 | 2 | 22.99 | 10.88 | 24.68 | 0.36 | 0.90 | 71 | 5 | 657 | 49/60 |
+| 33.92 | 2 | 23.02 | 10.90 | 24.68 | 0.36 | 0.90 | 72 | 5 | 662 | 49/60 |
 
-Leaderboard (snapshot at tick 2142; refreshes every few minutes):
+Leaderboard (snapshot at tick 2162; refreshes every few minutes):
 
 | # | Team | Score | Negotiating | Market | Deals |
 |---|---|---|---|---|---|
-| 1 | Team 12 | 34.64 | 23.30 | 11.34 | 81 |
-| 2 | Team 5 | 33.87 | 22.99 | 10.88 | 71 |
-| 3 | Team 10 | 33.26 | 21.25 | 12.01 | 70 |
-| 4 | Team 18 | 33.20 | 24.23 | 8.97 | 56 |
-| 5 | Team 3 | 31.88 | 23.78 | 8.11 | 40 |
+| 1 | Team 12 | 34.63 | 23.30 | 11.33 | 82 |
+| 2 | Team 5 | 33.92 | 23.02 | 10.90 | 71 |
+| 3 | Team 18 | 33.28 | 24.29 | 8.99 | 56 |
+| 4 | Team 10 | 33.21 | 21.21 | 12.00 | 70 |
+| 5 | Team 3 | 32.98 | 24.84 | 8.14 | 44 |
 
 ## Next on the schedule
 
@@ -43,14 +43,14 @@ _ETA assumes no pause (a tick advances tick_seconds of game time, so a game hour
 
 | Game hour | ETA | Action | Note |
 |---|---|---|---|
-| 17.00 | ~24 min | bench | The Market Test: every venue gets the same synthetic book |
-| 18.17 | ~95 min | announce | finale warning |
-| 18.37 | ~107 min | persona | Finale: stalls close |
-| 18.37 | ~107 min | persona | Finale: stalls close |
-| 18.37 | ~107 min | persona | Finale: stalls close |
-| 18.37 | ~107 min | persona | Finale: stalls close |
-| 18.37 | ~107 min | persona | Finale: stalls close |
-| 18.37 | ~107 min | duels | The Grand Final: the last duel wave, on the big screen |
+| 17.00 | ~19 min | bench | The Market Test: every venue gets the same synthetic book |
+| 18.17 | ~90 min | announce | finale warning |
+| 18.37 | ~102 min | persona | Finale: stalls close |
+| 18.37 | ~102 min | persona | Finale: stalls close |
+| 18.37 | ~102 min | persona | Finale: stalls close |
+| 18.37 | ~102 min | persona | Finale: stalls close |
+| 18.37 | ~102 min | persona | Finale: stalls close |
+| 18.37 | ~102 min | duels | The Grand Final: the last duel wave, on the big screen |
 
 ## Our dealer deals
 
@@ -80,7 +80,7 @@ _Her first = her first price in the conversation. A deal at her first price prob
 
 | Item | Side | All deals | Median | Min | Max | Ours | Our avg |
 |---|---|---|---|---|---|---|---|
-| common card | team buys | 113 | 9 | 7 | 15 | 9 | 8.78 |
+| common card | team buys | 116 | 9.00 | 7 | 15 | 9 | 8.78 |
 | common card | team sells | 130 | 6.00 | 2 | 23 | 6 | 5.50 |
 | sobre_barrio | team buys | 45 | 22 | 17 | 30 | 3 | 20.33 |
 | uncommon card | team buys | 103 | 23 | 17 | 29 | 7 | 23.43 |
