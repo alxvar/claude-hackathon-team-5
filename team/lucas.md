@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 14:51 · the timed-out RET-11 POST landed late as 29354 (a duplicate of 29351) → cancelled 14:51:19, 0 held (lesson: after a POST timeout, re-check my_offers again after a few seconds before trusting it) · non-rival venue sweep: no ask ≤ value − 3; free cash ≈ 0 · 14:54 re-price armed (value − 5, same holders, 12 ticks) · 14:57 cancel-all armed
 - Sun 14:49 · final push (Chief 14:46: t10 +0.52 in 20 ticks, lead 1.97) · 3 addressed El Rastro bids at value − 15 to non-rival holders (feed): **29351** RET-11 → t09 183 (198), **29352** SAL-11 → t02 147 (162), **29353** MAL-11 → t15 111 (126); total 441; exp 2811; ALL our open offers cancelled at 14:57 (offers stay open when the clock stops) · the first post timed out without landing; checked, posted once
 - Sun 14:46 · MAL-09 round 2 over: t01 28505, t09 28643, t15 28719 all lapsed at 75 (v01) → MAL 9/10; counter-watch till 14:55; no offers of ours live; trader only (floor 0, El Rastro, rivals excluded) · score 37.72, duel points 34.65, negotiating 24.64, neg 104.8, ladder 0.364 final
 - Sun 14:03 · the Market's final v10 announcement (ES/EN) posted once 14:03:31, RET-01 clause dropped (not on v10's board in 4 reads; CHA-02/03 at 6, LAT-01 at 2, RET-04 ask at 8 were there) · v10_ad_sun.py stopped: its fallback promised the LAT reward and the reactor ended at 14:00 · MAL-09 round 2: 28505 (t01) lapsed → 28643 → t09 at 75, exp 2609
