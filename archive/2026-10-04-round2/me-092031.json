@@ -1,0 +1,44 @@
+{
+ "id": "t05",
+ "name": "Team 5",
+ "tick": 1467,
+ "cash": 542,
+ "level": 5,
+ "score": {
+  "team": "t05",
+  "name": "Team 5",
+  "score": 30.63,
+  "negotiating": 21.81,
+  "market": 8.82,
+  "neg_points": 0.0,
+  "mm_points": 0.0,
+  "duel_points": 0.0,
+  "ladder_points": 0.0,
+  "bench_efficiency": null,
+  "bench_points": null,
+  "bench_venue": null,
+  "level": 5,
+  "album_filled": 43,
+  "album_slots": 60,
+  "pages_complete": 3,
+  "rarest": {
+   "ref": "RET-11",
+   "name": "Palacio de Cristal",
+   "serial": 1,
+   "print_run": 9,
+   "rarity": "epic"
+  },
+  "luck": -78.3,
+  "deals": 53,
+  "badges": [
+   "Sharp ear",
+   "Trickster tricked",
+   "Castizo"
+  ],
+  "adjustments": [],
+  "frozen": false,
+  "venue": "v10",
+  "luck_private": 30.4,
+  "rank": 3
+ }
+}
