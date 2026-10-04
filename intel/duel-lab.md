@@ -11,6 +11,116 @@ _Lucas's Duel Lab session. It never writes to the game or to `agents/duelist/`._
   fixed below._
 - _**Labels:** [V] measured on our records or code, [L] modelled or inferred, [?] unknown._
 
+## Pre-Final program (Sun 11:30): one config for the Final, one hot change now
+
+For the Chief (Lucas's request).
+- **Labels:** [V] = measured on our records or code; [L] = modelled.
+- **Sources:** scratchpad `final/`: `extract.py` → `d3rows.json`, `calib.py` / `calib.out`, `sim4.py`, `program.out`
+  to `program5.out`.
+- **sim4 = sim3** (the Duels II-validated simulator) plus three additions:
+  - a Verde-type mirror rival;
+  - the 506a2fd last-tick accept;
+  - an optional worth floor on our own offers.
+- **Every comparison is paired:** 8,000 duels per world, 12 ticks, 10% decay, H1 unless stated, ± = 95% CI.
+
+### 1. Today's opponents (Duels III, our 33 closed duels at fit time, 41 now) [V]
+- **Silent rivals:** 5 of 33 (15%). 1 more only accepted (3%), and 2 were the Verde mirror (6%):
+  - Verde posts at its own day;
+  - its price is capped at our latest price (11352, 11353).
+- **Deals:**
+  - 26 of the 28 rivals that spoke (0.93); 27 of 33 overall (0.82);
+  - the rival accepted our offer in 12 deals, we accepted theirs in 15;
+  - worth per deal 0.27 of our limit; 1.7 rounds per deal.
+- **Near-zero deals:** 8 of 27 deals were worth ≤ 0.06 of our limit, 3 of them at exactly 0.
+  - They score ≈ 0: 11240 added +0.04 points, 11242 +0.06.
+  - Pies are ≈ 30-40 P from the score increments, so these were tough rivals, not tiny pies.
+- **Points:** 10.66 over 33 duels ≈ 0.32 a duel at fit time; now 13.81 over 41 ≈ 0.34 (Duels II: 0.52).
+- **The field** (feed `duel.closed`, all teams): Duels III deal rate 0.73 (200 of 275 at 11:20), against our 0.82.
+- **Fit [L]:** a grid over rival toughness, end softening, floors, concession speed and pie size, scored on 5 moments
+  (`calib.out`). The three best distinct fits are D3a, D3b (smaller pies) and D3c (tough).
+  - They sit within ≈ 1 SE of every moment except near-zero deals: 0.17-0.20 simulated vs 0.31 observed.
+  - Stress worlds: tiny pies, smaller pies, 20% mirrors, 25% silent plus 10% accept-only, H2, and the Duels II fit
+    R1.
+- **Rivals rarely retreat [V]:** when an in-limit rival offer stood with 2 ticks left, at 1 tick left it was the same 20
+  times, better 3 and worse once (Duels I-III).
+
+### 2. Results [L] (`program.out`, `program2.out`, `program3.out`, `program5.out`)
+
+| vs live (MIN_STEP_P 15, ACCEPT_BY 2, 506a2fd fix) | D3a | D3b | D3c | Range over all 9 worlds |
+|---|---|---|---|---|
+| Live without the fix | −0.001 | −0.001 | −0.000 | −0.000 to −0.001 |
+| ACCEPT_BY 1 | +0.008 | +0.013 | +0.009 | +0.005 to +0.019, all > 4 SE |
+| ACCEPT_BY 3 | −0.014 | −0.020 | −0.017 | negative everywhere |
+| MIN_STEP_P 8 / 12 | −0.008 / −0.003 | −0.020 / −0.008 | −0.034 / −0.008 | 15 (the bound) is best |
+| MAX_STEP_SHARE 0.08 (the code step is min(0.12, MAX) × gap) | +0.002 | +0.004 | +0.009 | 0.000 to +0.009 |
+| CODE_STEP_SHARE + MAX_STEP_SHARE 0.18 | −0.007 | −0.011 | −0.026 | negative except tiny pies |
+| MONO_END_SHARE 0.15 / 0.40 / 0.60 | 0.000 / −0.012 / −0.026 | −0.001 / −0.009 / −0.027 | +0.001 / −0.021 / −0.041 | 0.25 stays |
+| ACCEPT_RATIO 0.9 / 0.8 | 0.000 | 0.000 | 0.000 | never binds |
+| Worth floor 0.05 / 0.10 / 0.15 × limit (code) | +0.006 / +0.013 / +0.005 | +0.009 / +0.017 / 0.000 | +0.006 / +0.017 / +0.018 | 0.10 turns −0.007 with tiny pies |
+| **Params only: ACCEPT_BY 1 + MAX_STEP_SHARE 0.08** | **+0.010** | **+0.017** | **+0.018** | **+0.008 to +0.019, all > 4 SE** |
+| **Recommended: params + floor 0.075 × limit** | **+0.022** | **+0.033** | **+0.029** | **+0.018 to +0.033, all > 9 SE** |
+| Aleks's c95b700, exchange mode (proxy, 10% timeouts) | −0.042 | −0.080 | −0.116 | −0.04 to −0.12 |
+
+- **Deal rate with rivals that spoke:**
+  - live: 0.89-0.92 on the D3 fits;
+  - recommended: 0.87-0.91, while 0-worth deals go from ≈ 0.03 a duel to 0.
+  - The floor trades only near-zero deals for a little deal rate. Floor 0.10 costs more (0.85-0.90).
+- **Floor 0.075 × limit is the robust size.** It is positive in all 9 worlds, including tiny pies (+0.003 on top of
+  ACCEPT_BY 1) and smaller pies (+0.016). 0.10 scores ≈ +0.002-0.007 more on the fits but turns negative with tiny pies.
+- **The 506a2fd fix is worth little in the sim** (+0.0002 to +0.0013): the sim's rival posts before our move inside a
+  tick. In the records it cost one deal in 33 (11124).
+
+### 3. Aleks's c95b700 (`--decay-mode exchange`) and how faithful the proxy is
+- **What it is [V, code]:** main's LLM duelist.
+  - Opus low as strategist, Sonnet low as negotiator, a 12 s decision ceiling and an 8 s strategy budget.
+  - The strategist's band authorises acceptance.
+  - Today's defaults: MIN_STEP_P 3, MAX_STEP_SHARE 0.25, LATE_SWITCH_LEFT 4, ACCEPT_BY 2, OPEN_WAIT 2.
+  - It has no code-first policy, no MONO_END guard and not the 506a2fd fix.
+  - Its default `--decay-mode tick` treats silence as costly, which contradicts the verified scoring. Only
+    `exchange` matches the game.
+- **Proxy:** sim3's "today" policy with today's params:
+  - LLM-sized concessions fitted on Duels I-II (validated on Duels II per role within +7 / −3 / +17%);
+  - safe_move on 10% or 30% timeouts;
+  - break-even band accepts (acc_f 0.9, which changed nothing).
+- **Faithfulness: moderate.**
+  - The direction is robust: the code policy beat this proxy in every world here, and in the Duels II out-of-sample
+    test.
+  - The size is uncertain: new prompts (per-tick bands, accept shortcuts), a Sonnet negotiator and the writer fallback
+    aren't modelled. Read −0.04 to −0.12 as "clearly worse", ±50%.
+
+### 4. Sensitivity: what if decay applied per TICK? (`program4.out`)
+Robustness only: the server data says per exchange.
+- **Live would lose ≈ 0.044-0.048 a duel** to the tick-mode proxy or a fast variant in two worlds, and still win in the
+  tough one.
+- **The recommended config stays at or above live** in all three (+0.005 to +0.009).
+
+### 5. Recommendation
+- **Now (rest of Duels III), hot:** `{"ACCEPT_BY": 1, "MAX_STEP_SHARE": 0.08}`. Sent at 11:29.
+  - ≈ +0.010-0.018 a duel × ≈ 27 duels left ≈ +0.3-0.5 raw.
+  - Undo: `{"ACCEPT_BY": 2, "MAX_STEP_SHARE": 0.12}`.
+- **The Final, ONE config:** set C with MIN_STEP_P 15, ACCEPT_BY 1 and MAX_STEP_SHARE 0.08, on 506a2fd, plus a worth
+  floor of 0.075 × our limit if the Builder ships it with a test before the restart.
+  - ≈ +0.025 a duel × 34 ≈ +0.85 raw over live. Params only: ≈ +0.5.
+  - After the restart's `use C`, re-approve `{"MIN_STEP_P": 15, "ACCEPT_BY": 1, "MAX_STEP_SHARE": 0.08}`.
+- **Floor spec for the Builder:**
+  - A new param `WORTH_FLOOR_SHARE` (0-0.3, default 0 = off) in `final()`, the guard every move passes.
+  - If an offer's worth to us is below `WORTH_FLOOR_SHARE` × our limit, raise it to that worth at the same day.
+  - If that equals our standing offer, hold and send nothing. A repeat would cost a round.
+  - Accepts are unchanged: any in-limit standing offer is still taken by the deadline and small-gap rules.
+  - The silent walk's floor becomes the larger of the SILENT_KEEP floor and this floor.
+  - Test: a code end step that would land at 0 worth lands at the floor; an accept of a +1 offer still goes out.
+- **Not recommended:**
+  - LATE_SWITCH_LEFT 2 (11:14: −0.005 to −0.015);
+  - MONO_END_SHARE above 0.25 (raises the close rate only by adding 0-worth deals: 0.074-0.117 a duel);
+  - MIN_STEP_P below 15;
+  - ACCEPT_BY 3;
+  - c95b700, in either mode.
+- **Caveats [L]:**
+  - Every number is modelled. Live data can't resolve 0.01 a duel: the SE is ≈ 0.05 over 34 duels.
+  - The sim under-produces near-zero deals, so the floor's gain may be understated.
+  - The floor's real risk is a scenario where the rival's limit sits within 0.075 × our limit of ours. That is the
+    tiny-pie world, where the floor still gained +0.003.
+
 ## C+ verdict (Sun 07:35): YES, play C+ (C plus MIN_STEP_P 15 and ACCEPT_BY 1), applied hot on 29aa1be
 
 This answers the Chief's 08:15 question on `intel/contra-duels.md` §1. An independent verifier audited this section
