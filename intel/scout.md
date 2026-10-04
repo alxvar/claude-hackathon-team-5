@@ -1,31 +1,17 @@
-# Scout (claude-sonnet-5-5, Sun 02:40)
+# Scout (claude-sonnet-5-5, Sun 02:55)
 
 ## Top 3 actions now
 
-1. **Hold position until Sunday 09:00, then run the CHA fast start** (operator; Pícaros CHA rares at the first tick of round 3, `--offer-only`, trick guard on).
-   - Evidence: metrics say "Closed until Sunday 09:00" (tick 1445). Cash is 392. The CHA book needs A 242 / B 250 / C 282. CHA is released Sunday and our multiplier is 1.6.
-   - Effect: CHA page close, capped at +50 per trade. Not in the data: neg_points for the full page.
-   - Confidence: high.
-
-2. **Keep LAV-03 (offer 19979, 6, to t04) and LAV-04 (offer 19981, 6, to t01) live, and re-list them OPEN at 9-10 on a non-rival member's venue if they are not filled by 09:00** (operator).
-   - Evidence: open asks fill 10× more than addressed ones (3.5% vs 0.3%). Both offers expire at tick 1455. Our copies are worth 3.2 each.
-   - Buyer check: t04 and t01 sit at 25.1 and 25.8, more than 10 points below our 30.5. Neither is a top 4 team.
-   - Effect: about +2 to +3 neg_points each. Spare LAV copies are also fodder for the Workshop.
-   - Confidence: med.
-
-3. **Sell RET-11 (epic, worth 198 to us) only if a bid reaches ≥198; target the 216 that t12 paid** (operator via Pilar, or an addressed ask).
-   - Evidence: RET-11 changed hands t06→t12 at 216 at tick 1245. Pilar buys epics at about 140 (LAV-11), and Pícaros epics sit at 140 median. Lucas's directive 01:40 sets the floor at ≥198.
-   - Do not sell to t12 (#4, a top 4 team); it is already the buyer, so look for another counterparty. No bid for RET-11 is visible on El Rastro right now.
-   - Effect: gain is unmeasured, since trade scores are capped at 50. A sale at 216 is +18 over value before the cap.
-   - Confidence: low.
+1. **Do nothing new on the market tonight.** The game is closed until Sun 09:00 ("Closed until Sunday 09:00. Offers stay open"), tick 1445. Executor: the Operator keeps overnight offers 19979 (LAV-03 → t04 at 6) and 19981 (LAV-04 → t01 at 6). Both expire at tick 1455 and are worth only 3.2 each to us. Gain is about +2.8 each, and neg_points are unlikely to move. Confidence: high.
+2. **09:00 v10 list, row #1: RET-09 t07 → t09 (page finisher for t09).** Executor: the Operator posts it addressed after a WhatsApp check by Lucas or Dani. Evidence: directive 01:00 puts it at +67.6 VC, which likely caps v10's real trades alone. t09 is on 23.3, so we pass the "≥10 below us" test. Effect: market-making real-trades score (7.5 of the 30), not neg_points. Confidence: med, because holdings are masked ("a team") and the seller must confirm first.
+3. **Round 3 first tick: CHA rares from the Pícaros, in parallel with the capped public bids.** Executor: Operator, with simple_buy.py in --offer-only mode and a card and rarity check before accepting. Evidence: SAL-09 has a 29/30 print run and SAL-11 9/9 (red-team). The Pícaros bought SAL-09 at 54 on Saturday (tick 904), and a CHA rare is worth 112 to us (m 1.6), so there is no dealer loss. Effect: the CHA page, with the bonus 106 × m priced into the last card, capped at +50 per trade. Confidence: med.
 
 ## What the climbing teams are doing
-- **Team 18 (#2, +0.8 per 30 ticks)** collects RET/LAT. It bought LAT-10 from t13 at 72 (tick 1332). That is under the 86 that t12 paid t01 at tick 1304.
-- **Team 10 (#1, 37.6)** sells epics (MAL-11 to t10 at 195, SAL-11 to t17 at 207, tick 1296). It also moves commons and uncommons to rivals (MAL-06 to t09 at 20, RET-03 to t06 at 8). 467 listings, 62 deals. This is volume plus epic arbitrage between teams.
-- **Team 12 (#4, +0.4)** bought RET-11 at 216 and LAT-10 at 86, and sold SAL-09 to t09 at 70. It pays for rares and epics.
-- **Team 16 (+0.3)** is climbing from 23.7 with 796 listings.
+- **Team 10 (#1, 37.6)** moves epics at 195-207: MAL-11 from t08 at 195 (tick 1264), SAL-11 to t17 at 207 (tick 1296). It also pulls LAV and RET cards (RET-03 from us region at 8, tick 1392). It collects LAV/RET and runs 467 listings with 62 deals.
+- **Team 12 (#4, 30.4, +0.4 in the last window)** buys at volume: RET-11 from t6 at 216 (tick 1245), LAT-10 from t1 at 86 (tick 1304), LAT-06 at 20 (tick 1303), and 8 LAT buys. It also took LAV-08 from t8 at 14 (tick 1420).
+- **Team 18 (#2, 31.0, +0.8)** collects RET/LAT. It bought LAT-10 from t13 at 72 (tick 1332), at or near clearing price, and has 40 deals against our 53.
 
 ## Threats
-- **Team 10 is 7.1 points ahead of us (37.6 vs 30.5)** and is the #1 buyer for LAV/RET. Our top-3 mean directives already feed its venue v10 deliberately. Check that every club deal on v10 has positive VC.
-- **Team 12 (30.4) and Team 18 (31.3) are within 1 point of us.** Both collect RET. An epic like RET-11 going to them would feed a rival. Keep the page-closer rule: never sell to the top 4.
-- **Pícaros print runs run out** (SAL-09 29/30, SAL-11 9/9). Public CHA bids may be sniped at the first tick of round 3. Post them in parallel at T0.
+- **Team 12 (30.6 on Dani's board, 30.4 in the metrics) is 0.1 behind us** and is buying RET and LAV pieces. LAV-08 at 14 shows it is hunting cheap uncommons. Never sell it page cards.
+- **Team 10 leads by 7.1 points (37.6 v 30.5)** and is the buyer for LAV/RET. RET-09/10 flow to the t07/t04 holders, so a page completion there feeds a leader. Check that t09 and t07 are not rivals before row #1.
+- **Open bid pressure on SAL-10 (t09 at 68) and RET-06 (t16 at 18)** is below our values (122.6 and 100.4). Do not sell into these, as there is no gain.
