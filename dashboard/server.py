@@ -1811,6 +1811,12 @@ class Analysis:
         lb = self.lb or {}
         prev = self.lb_hist[-2]["teams"] if len(self.lb_hist) >= 2 else {}
         prev_rank = {k: i + 1 for i, k in enumerate(sorted(prev, key=lambda k: -(prev[k].get("score") or 0)))}
+        # the same, part by part, so the live view can rank by negotiating or by market alone
+        prev_rank_part = {part: {k: i + 1 for i, k in enumerate(sorted(prev, key=lambda k: -(prev[k].get(part) or 0)))}
+                          for part in ("negotiating", "market")}
+
+        def part_delta(t, before, part):
+            return round(t[part] - before[part], 2) if t.get(part) is not None and before.get(part) is not None else None
         rows = []
         for t in sorted(lb.get("teams", []), key=lambda t: t.get("rank") or 99):
             tid, before = t.get("team"), prev.get(t.get("team"), {})
@@ -1821,7 +1827,10 @@ class Analysis:
                          "adjustments": t.get("adjustments") or [], "frozen": t.get("frozen"), "deals": t.get("deals"),
                          "moved": prev_rank[tid] - t["rank"] if tid in prev_rank and t.get("rank") else None,
                          "delta": round(t["score"] - before["score"], 2)
-                         if t.get("score") is not None and before.get("score") is not None else None})
+                         if t.get("score") is not None and before.get("score") is not None else None,
+                         "d_negotiating": part_delta(t, before, "negotiating"), "d_market": part_delta(t, before, "market"),
+                         "prev_rank_negotiating": prev_rank_part["negotiating"].get(tid),
+                         "prev_rank_market": prev_rank_part["market"].get(tid)})
         return {"snapshot_tick": lb.get("snapshot_tick"), "next_refresh_tick": lb.get("next_refresh_tick"),
                 "weights": lb.get("weights"), "teams": rows}
 

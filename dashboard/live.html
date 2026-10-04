@@ -124,6 +124,8 @@ main { padding: 16px 20px 48px; max-width: 1500px; margin: 0 auto; display: grid
 @media (max-width: 560px) { .set { grid-template-columns: 1fr; } .missing { grid-column: 1; } }
 
 /* leaderboard */
+.lbsel { background: var(--surface-2); color: var(--text-primary); border: 1px solid var(--border); border-radius: 6px;
+         padding: 2px 6px; font: inherit; font-size: 12.5px; }
 .lbwrap { overflow-x: auto; }
 .lb { width: 100%; border-collapse: collapse; font-size: 13px; }
 .lb th { text-align: left; color: var(--text-muted); font-size: 11px; font-weight: 500; letter-spacing: .03em; padding: 0 6px 6px; white-space: nowrap; }
@@ -247,6 +249,11 @@ main > * { min-width: 0; }
   <div class="row2">
     <section class="card">
       <div class="head"><h2>Leaderboard</h2>
+        <select id="lbView" class="lbsel" aria-label="Rank by">
+          <option value="general">General</option>
+          <option value="negotiating">Negotiating only</option>
+          <option value="market">Market-making only</option>
+        </select>
         <span class="keys" style="margin:0"><span><i style="background:var(--series-1)"></i>Negotiating /30</span><span><i style="background:var(--series-3)"></i>Market-making /30</span></span>
         <span class="pill" id="lbNext" style="margin-left:auto"></span></div>
       <div class="lbwrap"><table class="lb" id="lbT"></table></div>
@@ -518,10 +525,19 @@ function kpis(d) {
 // ------------------------------------------------------------------ leaderboard (the organisers' table, plus moves and the gap to us)
 const STARS = { common: 1, uncommon: 2, rare: 3, epic: 4, legendary: 5 };
 let LB_NEXT = null;   // when the next standings land (ms, local clock)
+let LB_VIEW = store.get("bz-lb-view", "general");   // general · negotiating · market (the dropdown)
 function leaderboardTable(d) {
-  const lb = d.leaderboard || {}, rows = lb.teams || [], c = d.clock || {};
+  const lb = d.leaderboard || {}, c = d.clock || {};
+  let rows = lb.teams || [];
   if (!rows.length) { $("#lbT").innerHTML = `<tr><td class="muted">Waiting for the leaderboard…</td></tr>`; return; }
-  const w = lb.weights || {}, wn = w.negotiating ?? 30, wm = w.market ?? 30, max = wn + wm;
+  const w = lb.weights || {}, wn = w.negotiating ?? 30, wm = w.market ?? 30;
+  const part = LB_VIEW === "negotiating" || LB_VIEW === "market" ? LB_VIEW : null;
+  if ($("#lbView").value !== (part || "general")) $("#lbView").value = part || "general";
+  if (part) {   // rank by one part alone: its own order, rank moves, Δ and gap to us; the overall rank as context
+    rows = [...rows].sort((a, b) => (b[part] ?? -1) - (a[part] ?? -1)).map((r, i) => ({ ...r, overall: r.rank, rank: i + 1,
+      score: r[part], moved: r["prev_rank_" + part] != null ? r["prev_rank_" + part] - (i + 1) : null, delta: r["d_" + part] }));
+  }
+  const max = part === "negotiating" ? wn : part === "market" ? wm : wn + wm;
   const us = rows.find(r => r.us), maxLv = Math.max(5, (d.dealers || []).length);
   if (lb.next_refresh_tick != null && c.tick != null) {
     const ticks = lb.next_refresh_tick - c.tick;
@@ -529,7 +545,9 @@ function leaderboardTable(d) {
   }
   lbCountdown();
   const arrow = (v, d2 = 0) => v ? `<span class="mv ${v > 0 ? "up" : "down"}">${v > 0 ? "▲" : "▼"}${d2 ? Math.abs(v).toFixed(d2) : Math.abs(v)}</span>` : "";
-  $("#lbT").innerHTML = `<thead><tr><th>#</th><th>Team</th><th>Score / ${max}</th><th class="n hide-s">Δ</th><th class="n hide-s">vs us</th>`
+  const label = part === "negotiating" ? "Negotiating" : part === "market" ? "Market-making" : "Score";
+  $("#lbT").innerHTML = `<thead><tr><th>#</th><th>Team</th><th>${label} / ${max}</th><th class="n hide-s">Δ</th><th class="n hide-s">vs us</th>`
+    + (part ? `<th class="n">General #</th>` : "")
     + `<th class="n">Album</th><th class="hide-s">Rarest card</th></tr></thead><tbody>`
     + rows.map(r => {
       const neg = r.negotiating ?? 0, mkt = r.market ?? 0, gap = us && !r.us && r.score != null ? r.score - us.score : null;
@@ -541,9 +559,11 @@ function leaderboardTable(d) {
         + (r.badges.length ? `<span class="bd">+${r.badges.length}</span>` : "")
         + (warn ? ` <span class="down" title="${r.frozen ? "frozen" : ""} ${esc(JSON.stringify(r.adjustments))}">⚠</span>` : "") + `</td>`
         + `<td class="sc"><div class="scw"><b>${fmt(r.score, 1)}</b>`
-        + `<div class="sbar"><i style="width:${100 * neg / max}%;background:var(--series-1)"></i><i style="width:${100 * mkt / max}%;background:var(--series-3)"></i></div></div></td>`
+        + `<div class="sbar">${part === "market" ? "" : `<i style="width:${100 * neg / max}%;background:var(--series-1)"></i>`}`
+        + `${part === "negotiating" ? "" : `<i style="width:${100 * mkt / max}%;background:var(--series-3)"></i>`}</div></div></td>`
         + `<td class="n hide-s">${r.delta != null && Math.abs(r.delta) >= 0.005 ? arrow(r.delta, 2) : `<span class="muted">0</span>`}</td>`
         + `<td class="n hide-s">${gap == null ? `<span class="muted">—</span>` : `<span class="muted">${gap > 0 ? "+" : ""}${gap.toFixed(2)}</span>`}</td>`
+        + (part ? `<td class="n"><span class="muted">${r.overall ?? "—"}</span></td>` : "")
         + `<td class="n">${r.album[0] ?? "—"}/${r.album[1] ?? "—"} <span class="muted">· ${r.pages ?? 0}p</span></td>`
         + `<td class="rr hide-s">${rr.ref ? `<b>★${STARS[rr.rarity] || "?"}</b>${esc(rr.name || rr.ref)} <span class="muted">#${rr.serial ?? "?"}/${rr.print_run ?? "?"}</span>` : `<span class="muted">—</span>`}</td></tr>`;
     }).join("") + `</tbody>`;
@@ -556,6 +576,7 @@ function lbCountdown() {
 }
 setInterval(lbCountdown, 1000);
 $("#lbT").addEventListener("click", e => { const tr = e.target.closest("tr[data-t]"); if (tr) openRace(tr.dataset.t); });
+$("#lbView").addEventListener("change", e => { LB_VIEW = e.target.value; store.set("bz-lb-view", LB_VIEW); if (DATA) leaderboardTable(DATA); });
 
 // ------------------------------------------------------------------ our market (v10): open offers and trades on our stall
 const SIDE = { ask: "SELLS", bid: "BUYS", swap: "SWAPS" };
