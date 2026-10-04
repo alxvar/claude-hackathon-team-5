@@ -757,6 +757,375 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1953,
+   "raw": {
+    "duel": 11500,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.84,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 87,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 1956,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 13620,
+     "price": 124,
+     "tick": 1944,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 13833,
+     "price": 96,
+     "tick": 1953,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1944,
+      "from": "you",
+      "text": "I'm interested in Museo Sorolla at 124 P, with delivery on day 10.",
+      "price": 124,
+      "days": 10
+     },
+     {
+      "tick": 1944,
+      "from": "Rival Oro",
+      "text": "Te ofrezco 42 primas y entrega en 0 días; me cuesta subir más.",
+      "price": 42,
+      "days": 0
+     },
+     {
+      "tick": 1945,
+      "from": "Rival Oro",
+      "text": "48 primas y entrega en 2 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 48,
+      "days": 2
+     },
+     {
+      "tick": 1946,
+      "from": "Rival Oro",
+      "text": "Mi propuesta: 55 primas y entrega en 3 días. Dame una cifra concreta y la miro.",
+      "price": 55,
+      "days": 3
+     },
+     {
+      "tick": 1947,
+      "from": "Rival Oro",
+      "text": "Puedo llegar a 61 primas y entrega en 4 días. Dime si cerramos.",
+      "price": 61,
+      "days": 4
+     },
+     {
+      "tick": 1948,
+      "from": "Rival Oro",
+      "text": "Te ofrezco 67 primas y entrega en 3 días; me cuesta subir más.",
+      "price": 67,
+      "days": 3
+     },
+     {
+      "tick": 1949,
+      "from": "Rival Oro",
+      "text": "71 primas y entrega en 3 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 71,
+      "days": 3
+     },
+     {
+      "tick": 1950,
+      "from": "Rival Oro",
+      "text": "Mi propuesta: 77 primas y entrega en 2 días. Dame una cifra concreta y la miro.",
+      "price": 77,
+      "days": 2
+     },
+     {
+      "tick": 1951,
+      "from": "Rival Oro",
+      "text": "Puedo llegar a 83 primas y entrega en 1 días. Dime si cerramos.",
+      "price": 83,
+      "days": 1
+     },
+     {
+      "tick": 1952,
+      "from": "Rival Oro",
+      "text": "Te ofrezco 96 primas y entrega en 0 días; me cuesta subir más.",
+      "price": 96,
+      "days": 0
+     },
+     {
+      "tick": 1953,
+      "from": "Rival Oro",
+      "text": "96 primas y entrega en 0 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 96,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1953,
+   "raw": {
+    "duel": 11500,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.84,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 87,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 1956,
+    "decay_per_round": 0.1,
+    "rounds": 2,
+    "your_offer": {
+     "id": 13838,
+     "price": 103,
+     "tick": 1953,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 13833,
+     "price": 96,
+     "tick": 1953,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1944,
+      "from": "you",
+      "text": "I'm interested in Museo Sorolla at 124 P, with delivery on day 10.",
+      "price": 124,
+      "days": 10
+     },
+     {
+      "tick": 1944,
+      "from": "Rival Oro",
+      "text": "Te ofrezco 42 primas y entrega en 0 días; me cuesta subir más.",
+      "price": 42,
+      "days": 0
+     },
+     {
+      "tick": 1945,
+      "from": "Rival Oro",
+      "text": "48 primas y entrega en 2 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 48,
+      "days": 2
+     },
+     {
+      "tick": 1946,
+      "from": "Rival Oro",
+      "text": "Mi propuesta: 55 primas y entrega en 3 días. Dame una cifra concreta y la miro.",
+      "price": 55,
+      "days": 3
+     },
+     {
+      "tick": 1947,
+      "from": "Rival Oro",
+      "text": "Puedo llegar a 61 primas y entrega en 4 días. Dime si cerramos.",
+      "price": 61,
+      "days": 4
+     },
+     {
+      "tick": 1948,
+      "from": "Rival Oro",
+      "text": "Te ofrezco 67 primas y entrega en 3 días; me cuesta subir más.",
+      "price": 67,
+      "days": 3
+     },
+     {
+      "tick": 1949,
+      "from": "Rival Oro",
+      "text": "71 primas y entrega en 3 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 71,
+      "days": 3
+     },
+     {
+      "tick": 1950,
+      "from": "Rival Oro",
+      "text": "Mi propuesta: 77 primas y entrega en 2 días. Dame una cifra concreta y la miro.",
+      "price": 77,
+      "days": 2
+     },
+     {
+      "tick": 1951,
+      "from": "Rival Oro",
+      "text": "Puedo llegar a 83 primas y entrega en 1 días. Dime si cerramos.",
+      "price": 83,
+      "days": 1
+     },
+     {
+      "tick": 1952,
+      "from": "Rival Oro",
+      "text": "Te ofrezco 96 primas y entrega en 0 días; me cuesta subir más.",
+      "price": 96,
+      "days": 0
+     },
+     {
+      "tick": 1953,
+      "from": "Rival Oro",
+      "text": "96 primas y entrega en 0 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 96,
+      "days": 0
+     },
+     {
+      "tick": 1953,
+      "from": "you",
+      "text": "I can do 103 P, delivery on day 10.",
+      "price": 103,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1954,
+   "raw": {
+    "duel": 11500,
+    "session": 4,
+    "status": "live",
+    "role": "seller",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 5.84,
+    "days_meaning": "each delivery day adds this much cash to your side",
+    "your_limit": 87,
+    "limit_meaning": "never sell below your cost",
+    "rival": "Rival Oro",
+    "deadline_tick": 1956,
+    "decay_per_round": 0.1,
+    "rounds": 2,
+    "your_offer": {
+     "id": 13838,
+     "price": 103,
+     "tick": 1953,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 13859,
+     "price": 96,
+     "tick": 1954,
+     "days": 0
+    },
+    "messages": [
+     {
+      "tick": 1944,
+      "from": "you",
+      "text": "I'm interested in Museo Sorolla at 124 P, with delivery on day 10.",
+      "price": 124,
+      "days": 10
+     },
+     {
+      "tick": 1944,
+      "from": "Rival Oro",
+      "text": "Te ofrezco 42 primas y entrega en 0 días; me cuesta subir más.",
+      "price": 42,
+      "days": 0
+     },
+     {
+      "tick": 1945,
+      "from": "Rival Oro",
+      "text": "48 primas y entrega en 2 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 48,
+      "days": 2
+     },
+     {
+      "tick": 1946,
+      "from": "Rival Oro",
+      "text": "Mi propuesta: 55 primas y entrega en 3 días. Dame una cifra concreta y la miro.",
+      "price": 55,
+      "days": 3
+     },
+     {
+      "tick": 1947,
+      "from": "Rival Oro",
+      "text": "Puedo llegar a 61 primas y entrega en 4 días. Dime si cerramos.",
+      "price": 61,
+      "days": 4
+     },
+     {
+      "tick": 1948,
+      "from": "Rival Oro",
+      "text": "Te ofrezco 67 primas y entrega en 3 días; me cuesta subir más.",
+      "price": 67,
+      "days": 3
+     },
+     {
+      "tick": 1949,
+      "from": "Rival Oro",
+      "text": "71 primas y entrega en 3 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 71,
+      "days": 3
+     },
+     {
+      "tick": 1950,
+      "from": "Rival Oro",
+      "text": "Mi propuesta: 77 primas y entrega en 2 días. Dame una cifra concreta y la miro.",
+      "price": 77,
+      "days": 2
+     },
+     {
+      "tick": 1951,
+      "from": "Rival Oro",
+      "text": "Puedo llegar a 83 primas y entrega en 1 días. Dime si cerramos.",
+      "price": 83,
+      "days": 1
+     },
+     {
+      "tick": 1952,
+      "from": "Rival Oro",
+      "text": "Te ofrezco 96 primas y entrega en 0 días; me cuesta subir más.",
+      "price": 96,
+      "days": 0
+     },
+     {
+      "tick": 1953,
+      "from": "Rival Oro",
+      "text": "96 primas y entrega en 0 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "price": 96,
+      "days": 0
+     },
+     {
+      "tick": 1953,
+      "from": "you",
+      "text": "I can do 103 P, delivery on day 10.",
+      "price": 103,
+      "days": 10
+     },
+     {
+      "tick": 1954,
+      "from": "Rival Oro",
+      "text": "Mi propuesta: 96 primas y entrega en 0 días. Dame una cifra concreta y la miro.",
+      "price": 96,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -2216,6 +2585,464 @@
     "LATE_SWITCH_LEFT": 0,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1953,
+   "took_s": 1.05,
+   "cost_usd": 0.00151,
+   "obs": {
+    "view": {
+     "duel_id": 11500,
+     "role": "seller",
+     "limit": 87,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.84,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm interested in Museo Sorolla at 124 P, with delivery on day 10.",
+      "offer": {
+       "price": 124,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1944,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Te ofrezco 42 primas y entrega en 0 días; me cuesta subir más.",
+      "offer": {
+       "price": 42,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1944,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "48 primas y entrega en 2 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "offer": {
+       "price": 48,
+       "days": 2
+      },
+      "accept": false,
+      "tick": 1945,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Mi propuesta: 55 primas y entrega en 3 días. Dame una cifra concreta y la miro.",
+      "offer": {
+       "price": 55,
+       "days": 3
+      },
+      "accept": false,
+      "tick": 1946,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 61 primas y entrega en 4 días. Dime si cerramos.",
+      "offer": {
+       "price": 61,
+       "days": 4
+      },
+      "accept": false,
+      "tick": 1947,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Te ofrezco 67 primas y entrega en 3 días; me cuesta subir más.",
+      "offer": {
+       "price": 67,
+       "days": 3
+      },
+      "accept": false,
+      "tick": 1948,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "71 primas y entrega en 3 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "offer": {
+       "price": 71,
+       "days": 3
+      },
+      "accept": false,
+      "tick": 1949,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Mi propuesta: 77 primas y entrega en 2 días. Dame una cifra concreta y la miro.",
+      "offer": {
+       "price": 77,
+       "days": 2
+      },
+      "accept": false,
+      "tick": 1950,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 83 primas y entrega en 1 días. Dime si cerramos.",
+      "offer": {
+       "price": 83,
+       "days": 1
+      },
+      "accept": false,
+      "tick": 1951,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Te ofrezco 96 primas y entrega en 0 días; me cuesta subir más.",
+      "offer": {
+       "price": 96,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1952,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "96 primas y entrega en 0 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "offer": {
+       "price": 96,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1953,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 96,
+     "days": 0
+    },
+    "tick": 1953,
+    "ticks_left": 3,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 103 P, delivery on day 10.",
+    "price": 103,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "hold",
+     "rule": "worth floor",
+     "step": 43.2,
+     "closing": true,
+     "text": "rejected: plain words",
+     "text_problems": [
+      "the message names 10: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "Ofrezco 81 primas y entrega en día 10. Cerramos aquí y evitamos más vueltas.",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.05,
+       "in": 1308,
+       "out": 40,
+       "cost_usd": 0.00151,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 81,
+     "floor": 73.8
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
+  },
+  {
+   "tick": 1954,
+   "took_s": 0.0,
+   "cost_usd": 0,
+   "obs": {
+    "view": {
+     "duel_id": 11500,
+     "role": "seller",
+     "limit": 87,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Oro",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 5.84,
+     "days_meaning": "each delivery day adds this much cash to your side",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'm interested in Museo Sorolla at 124 P, with delivery on day 10.",
+      "offer": {
+       "price": 124,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1944,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Te ofrezco 42 primas y entrega en 0 días; me cuesta subir más.",
+      "offer": {
+       "price": 42,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1944,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "48 primas y entrega en 2 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "offer": {
+       "price": 48,
+       "days": 2
+      },
+      "accept": false,
+      "tick": 1945,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Mi propuesta: 55 primas y entrega en 3 días. Dame una cifra concreta y la miro.",
+      "offer": {
+       "price": 55,
+       "days": 3
+      },
+      "accept": false,
+      "tick": 1946,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 61 primas y entrega en 4 días. Dime si cerramos.",
+      "offer": {
+       "price": 61,
+       "days": 4
+      },
+      "accept": false,
+      "tick": 1947,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Te ofrezco 67 primas y entrega en 3 días; me cuesta subir más.",
+      "offer": {
+       "price": 67,
+       "days": 3
+      },
+      "accept": false,
+      "tick": 1948,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "71 primas y entrega en 3 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "offer": {
+       "price": 71,
+       "days": 3
+      },
+      "accept": false,
+      "tick": 1949,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Mi propuesta: 77 primas y entrega en 2 días. Dame una cifra concreta y la miro.",
+      "offer": {
+       "price": 77,
+       "days": 2
+      },
+      "accept": false,
+      "tick": 1950,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Puedo llegar a 83 primas y entrega en 1 días. Dime si cerramos.",
+      "offer": {
+       "price": 83,
+       "days": 1
+      },
+      "accept": false,
+      "tick": 1951,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Te ofrezco 96 primas y entrega en 0 días; me cuesta subir más.",
+      "offer": {
+       "price": 96,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1952,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "96 primas y entrega en 0 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+      "offer": {
+       "price": 96,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1953,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 103 P, delivery on day 10.",
+      "offer": {
+       "price": 103,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1953,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 96,
+     "days": 0
+    },
+    "tick": 1954,
+    "ticks_left": 2,
+    "rounds": 2,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1,
+     33.5
+    ]
+   },
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 96,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -2252,6 +3079,196 @@
      "days": 10
     }
    }
+  },
+  {
+   "tick": 1953,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 103 P, delivery on day 10.",
+    "price": 103,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "hold",
+     "rule": "worth floor",
+     "step": 43.2,
+     "closing": true,
+     "text": "rejected: plain words",
+     "text_problems": [
+      "the message names 10: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "Ofrezco 81 primas y entrega en día 10. Cerramos aquí y evitamos más vueltas.",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.05,
+       "in": 1308,
+       "out": 40,
+       "cost_usd": 0.00151,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 81,
+     "floor": 73.8
+    }
+   },
+   "result": {
+    "duel": 11500,
+    "offer": {
+     "id": 13838,
+     "price": 103,
+     "tick": 1953,
+     "days": 10
+    }
+   }
+  },
+  {
+   "tick": 1954,
+   "dry_run": false,
+   "move": {
+    "action": "accept",
+    "text": "Agreed.",
+    "price": 96,
+    "days": null,
+    "meta": {
+     "rule": "deadline",
+     "calls": []
+    }
+   },
+   "result": {
+    "queued": true,
+    "price": 96,
+    "settles_at_tick": 1955
+   }
   }
- ]
+ ],
+ "last_seen_tick": 1954,
+ "done": {
+  "duel": 11500,
+  "session": 4,
+  "status": "deal",
+  "role": "seller",
+  "item": "Museo Sorolla",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 5.84,
+  "days_meaning": "each delivery day adds this much cash to your side",
+  "your_limit": 87,
+  "limit_meaning": "never sell below your cost",
+  "rival": "Rival Oro",
+  "deadline_tick": 1956,
+  "decay_per_round": 0.1,
+  "rounds": 2,
+  "your_offer": {
+   "id": 13838,
+   "price": 103,
+   "tick": 1953,
+   "days": 10
+  },
+  "rival_offer": {
+   "id": 13859,
+   "price": 96,
+   "tick": 1954,
+   "days": 0
+  },
+  "messages": [
+   {
+    "tick": 1944,
+    "from": "you",
+    "text": "I'm interested in Museo Sorolla at 124 P, with delivery on day 10.",
+    "price": 124,
+    "days": 10
+   },
+   {
+    "tick": 1944,
+    "from": "Rival Oro",
+    "text": "Te ofrezco 42 primas y entrega en 0 días; me cuesta subir más.",
+    "price": 42,
+    "days": 0
+   },
+   {
+    "tick": 1945,
+    "from": "Rival Oro",
+    "text": "48 primas y entrega en 2 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+    "price": 48,
+    "days": 2
+   },
+   {
+    "tick": 1946,
+    "from": "Rival Oro",
+    "text": "Mi propuesta: 55 primas y entrega en 3 días. Dame una cifra concreta y la miro.",
+    "price": 55,
+    "days": 3
+   },
+   {
+    "tick": 1947,
+    "from": "Rival Oro",
+    "text": "Puedo llegar a 61 primas y entrega en 4 días. Dime si cerramos.",
+    "price": 61,
+    "days": 4
+   },
+   {
+    "tick": 1948,
+    "from": "Rival Oro",
+    "text": "Te ofrezco 67 primas y entrega en 3 días; me cuesta subir más.",
+    "price": 67,
+    "days": 3
+   },
+   {
+    "tick": 1949,
+    "from": "Rival Oro",
+    "text": "71 primas y entrega en 3 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+    "price": 71,
+    "days": 3
+   },
+   {
+    "tick": 1950,
+    "from": "Rival Oro",
+    "text": "Mi propuesta: 77 primas y entrega en 2 días. Dame una cifra concreta y la miro.",
+    "price": 77,
+    "days": 2
+   },
+   {
+    "tick": 1951,
+    "from": "Rival Oro",
+    "text": "Puedo llegar a 83 primas y entrega en 1 días. Dime si cerramos.",
+    "price": 83,
+    "days": 1
+   },
+   {
+    "tick": 1952,
+    "from": "Rival Oro",
+    "text": "Te ofrezco 96 primas y entrega en 0 días; me cuesta subir más.",
+    "price": 96,
+    "days": 0
+   },
+   {
+    "tick": 1953,
+    "from": "Rival Oro",
+    "text": "96 primas y entrega en 0 días. Me muevo poco ya, pero si tú bajas, cerramos.",
+    "price": 96,
+    "days": 0
+   },
+   {
+    "tick": 1953,
+    "from": "you",
+    "text": "I can do 103 P, delivery on day 10.",
+    "price": 103,
+    "days": 10
+   },
+   {
+    "tick": 1954,
+    "from": "Rival Oro",
+    "text": "Mi propuesta: 96 primas y entrega en 0 días. Dame una cifra concreta y la miro.",
+    "price": 96,
+    "days": 0
+   }
+  ],
+  "result": 7.3,
+  "price": 96,
+  "days": 0
+ }
 }

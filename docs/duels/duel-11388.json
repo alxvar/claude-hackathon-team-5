@@ -122,6 +122,133 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1952,
+   "raw": {
+    "duel": 11388,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.18,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 164,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1955,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 13822,
+     "price": 130,
+     "tick": 1952,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 13604,
+     "price": 171,
+     "tick": 1943,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1943,
+      "from": "you",
+      "text": "I'll open at 103 P for delivery on day 0.",
+      "price": 103,
+      "days": 0
+     },
+     {
+      "tick": 1943,
+      "from": "Rival Rojo",
+      "text": "Hola, Rival Oro, voy con prisa: Museo Sorolla por 171 y cerramos ya. Entrega en 10 días.",
+      "price": 171,
+      "days": 10
+     },
+     {
+      "tick": 1952,
+      "from": "you",
+      "text": "I can do 130 P, delivery on day 0.",
+      "price": 130,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1953,
+   "raw": {
+    "duel": 11388,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Museo Sorolla",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 4.18,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 164,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Rojo",
+    "deadline_tick": 1955,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 13839,
+     "price": 150,
+     "tick": 1953,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 13604,
+     "price": 171,
+     "tick": 1943,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1943,
+      "from": "you",
+      "text": "I'll open at 103 P for delivery on day 0.",
+      "price": 103,
+      "days": 0
+     },
+     {
+      "tick": 1943,
+      "from": "Rival Rojo",
+      "text": "Hola, Rival Oro, voy con prisa: Museo Sorolla por 171 y cerramos ya. Entrega en 10 días.",
+      "price": 171,
+      "days": 10
+     },
+     {
+      "tick": 1952,
+      "from": "you",
+      "text": "I can do 130 P, delivery on day 0.",
+      "price": 130,
+      "days": 0
+     },
+     {
+      "tick": 1953,
+      "from": "you",
+      "text": "I can do 150 P, delivery on day 0.",
+      "price": 150,
+      "days": 0
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -741,6 +868,151 @@
     "LATE_SWITCH_LEFT": 0,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1953,
+   "took_s": 1.09,
+   "cost_usd": 0.00119,
+   "obs": {
+    "view": {
+     "duel_id": 11388,
+     "role": "buyer",
+     "limit": 164,
+     "currency": "P",
+     "item": "Museo Sorolla",
+     "context": "",
+     "rival": "Rival Rojo",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 4.18,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'll open at 103 P for delivery on day 0.",
+      "offer": {
+       "price": 103,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1943,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Hola, Rival Oro, voy con prisa: Museo Sorolla por 171 y cerramos ya. Entrega en 10 días.",
+      "offer": {
+       "price": 171,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1943,
+      "decision": null
+     },
+     {
+      "mine": true,
+      "text": "I can do 130 P, delivery on day 0.",
+      "offer": {
+       "price": 130,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1952,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 171,
+     "days": 10
+    },
+    "tick": 1953,
+    "ticks_left": 2,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999,
+     48.4,
+     9.7,
+     14.6,
+     29.6,
+     41.6,
+     12.5,
+     34.2,
+     52.400000000000006,
+     41.8,
+     58.4,
+     62.0,
+     15.1
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "I can do 150 P, delivery on day 0.",
+    "price": 150,
+    "days": 0,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 41.4,
+     "closing": true,
+     "text": "rejected: plain words",
+     "text_problems": [
+      "the message names 0, 10: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "Acercándonos: 164 P en el día 0, o esperas al día 10 con tu precio.",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.09,
+       "in": 1001,
+       "out": 37,
+       "cost_usd": 0.00119,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 164,
+     "floor": 13.3
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -820,6 +1092,114 @@
      "days": 0
     }
    }
+  },
+  {
+   "tick": 1953,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "I can do 150 P, delivery on day 0.",
+    "price": 150,
+    "days": 0,
+    "meta": {
+     "policy": "code",
+     "day_call": "menu",
+     "rule": "worth floor",
+     "step": 41.4,
+     "closing": true,
+     "text": "rejected: plain words",
+     "text_problems": [
+      "the message names 0, 10: write no number but your price and your day (a menu names your offer first, then one other package)."
+     ],
+     "drafted_text": "Acercándonos: 164 P en el día 0, o esperas al día 10 con tu precio.",
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.09,
+       "in": 1001,
+       "out": 37,
+       "cost_usd": 0.00119,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ],
+     "drafted": 164,
+     "floor": 13.3
+    }
+   },
+   "result": {
+    "duel": 11388,
+    "offer": {
+     "id": 13839,
+     "price": 150,
+     "tick": 1953,
+     "days": 0
+    }
+   }
   }
- ]
+ ],
+ "last_seen_tick": 1954,
+ "done": {
+  "duel": 11388,
+  "session": 4,
+  "status": "deal",
+  "role": "buyer",
+  "item": "Museo Sorolla",
+  "issues": [
+   "price",
+   "days"
+  ],
+  "your_days_weight": 4.18,
+  "days_meaning": "each delivery day costs you this much cash",
+  "your_limit": 164,
+  "limit_meaning": "never pay above your value",
+  "rival": "Rival Rojo",
+  "deadline_tick": 1955,
+  "decay_per_round": 0.1,
+  "rounds": 1,
+  "your_offer": {
+   "id": 13839,
+   "price": 150,
+   "tick": 1953,
+   "days": 0
+  },
+  "rival_offer": {
+   "id": 13604,
+   "price": 171,
+   "tick": 1943,
+   "days": 10
+  },
+  "messages": [
+   {
+    "tick": 1943,
+    "from": "you",
+    "text": "I'll open at 103 P for delivery on day 0.",
+    "price": 103,
+    "days": 0
+   },
+   {
+    "tick": 1943,
+    "from": "Rival Rojo",
+    "text": "Hola, Rival Oro, voy con prisa: Museo Sorolla por 171 y cerramos ya. Entrega en 10 días.",
+    "price": 171,
+    "days": 10
+   },
+   {
+    "tick": 1952,
+    "from": "you",
+    "text": "I can do 130 P, delivery on day 0.",
+    "price": 130,
+    "days": 0
+   },
+   {
+    "tick": 1953,
+    "from": "you",
+    "text": "I can do 150 P, delivery on day 0.",
+    "price": 150,
+    "days": 0
+   }
+  ],
+  "result": 30.6,
+  "price": 130,
+  "days": 0
+ }
 }
