@@ -1,6 +1,6 @@
 """MAL close by team trades (Chief 10:40; venue moved 10:43: t13 refuses El Rastro): ONE addressed want-card bid at a time,
 on v21 (Team 9's 0% board; non-rival club market; never v10/v24/v15/El Rastro).
-MAL-09 (non-last) from t13 at price <= our value - 1; when MAL-09 lands, MAL-07 LAST from t15 at <= value-when-last - 50.
+MAL-09 (non-last) from t08 (t13 out 10:45) at price <= our value - 1; when MAL-09 lands, MAL-07 LAST from t15 at <= value-when-last - 50.
 Never two closer bids live; never t10. A bid that expires unfilled is re-posted (still one live). Stops at 13:55."""
 import os, sys, json, time
 ROOT = '/Users/lucaswiese/Documents/claude-hackathon-team-5'
@@ -8,7 +8,7 @@ sys.path.insert(0, ROOT + '/bazaar-kit')
 from bazaar_sdk import Bazaar
 b = Bazaar(os.environ['BAZAAR_URL'], os.environ['BAZAAR_KEY'], wait_on_tick=False, timeout=10.0)
 PAGE = [f"MAL-{i:02d}" for i in range(1, 11)]
-SELLER = {"MAL-09": "t13", "MAL-07": "t15"}
+SELLER = {"MAL-09": "t08", "MAL-07": "t15"}  # Chief 10:47: t13 out; t08 (MAL 6/10, no page break) is the MAL-09 seller
 CAP = {"MAL-09": 48, "MAL-07": 999}
 VENUE = {"MAL-09": "v21", "MAL-07": "v21"}
 
