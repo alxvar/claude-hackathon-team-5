@@ -46,7 +46,7 @@ For the Chief (Lucas's request).
 
 ### 2. Results [L] (`program.out`, `program2.out`, `program3.out`, `program5.out`)
 
-| vs live (MIN_STEP_P 15, ACCEPT_BY 2, 506a2fd fix) | D3a | D3b | D3c | Range over all 9 worlds |
+| vs live (MIN_STEP_P 15, ACCEPT_BY 2, 506a2fd fix) | D3a | D3b | D3c | Range over the worlds run (8; 9 for the last two rows) |
 |---|---|---|---|---|
 | Live without the fix | −0.001 | −0.001 | −0.000 | −0.000 to −0.001 |
 | ACCEPT_BY 1 | +0.008 | +0.013 | +0.009 | +0.005 to +0.019, all > 4 SE |
@@ -66,7 +66,7 @@ For the Chief (Lucas's request).
   - recommended: 0.87-0.91, while 0-worth deals go from ≈ 0.03 a duel to 0.
   - The floor trades only near-zero deals for a little deal rate. Floor 0.10 costs more (0.85-0.90).
 - **Floor 0.075 × limit is the robust size.** It is positive in all 9 worlds, including tiny pies (+0.003 on top of
-  ACCEPT_BY 1) and smaller pies (+0.016). 0.10 scores ≈ +0.002-0.007 more on the fits but turns negative with tiny pies.
+  ACCEPT_BY 1) and smaller pies (+0.016). 0.10 scores ≈ +0.001-0.007 more on the fits but turns negative with tiny pies.
 - **The 506a2fd fix is worth little in the sim** (+0.0002 to +0.0013): the sim's rival posts before our move inside a
   tick. In the records it cost one deal in 33 (11124).
 
@@ -100,7 +100,7 @@ Robustness only: the server data says per exchange.
   - Undo: `{"ACCEPT_BY": 2, "MAX_STEP_SHARE": 0.12}`.
 - **The Final, ONE config:** set C with MIN_STEP_P 15, ACCEPT_BY 1 and MAX_STEP_SHARE 0.08, on 506a2fd, plus a worth
   floor of 0.075 × our limit if the Builder ships it with a test before the restart.
-  - ≈ +0.025 a duel × 34 ≈ +0.85 raw over live. Params only: ≈ +0.5.
+  - ≈ +0.028 a duel on the D3 fits × 34 ≈ +0.95 raw over live. Params only: ≈ +0.5.
   - After the restart's `use C`, re-approve `{"MIN_STEP_P": 15, "ACCEPT_BY": 1, "MAX_STEP_SHARE": 0.08}`.
 - **Floor spec for the Builder:**
   - A new param `WORTH_FLOOR_SHARE` (0-0.3, default 0 = off) in `final()`, the guard every move passes.
@@ -111,7 +111,7 @@ Robustness only: the server data says per exchange.
   - Test: a code end step that would land at 0 worth lands at the floor; an accept of a +1 offer still goes out.
 - **Not recommended:**
   - LATE_SWITCH_LEFT 2 (11:14: −0.005 to −0.015);
-  - MONO_END_SHARE above 0.25 (raises the close rate only by adding 0-worth deals: 0.074-0.117 a duel);
+  - MONO_END_SHARE above 0.25 (raises the close rate only by adding 0-worth deals: 0.06-0.12 a duel);
   - MIN_STEP_P below 15;
   - ACCEPT_BY 3;
   - c95b700, in either mode.
