@@ -414,3 +414,4 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 12:46 · message tick 2286 · banco → t01 · Los plazos de usted no me afectan, señor. El pack de oro sale de esta casa por 546 primas. Puede volver mañana; el número será el mismo.
 - Sun 12:50 · message tick 2299 · pilar → t17 · Caballero, you move like a glacier. Sixty-three primas, and that is me being generous because the Retiro is dear to me. By the way — ask Carmen at El Rastro about the golden chulapa. Only one ever printed, they say.
 - Sun 12:50 · catalog.minted CHA-11 (Andén 0, epic, print run 9): hidden=False minted=5 (was 4)
+- Sun 12:52 · taller.crafted tick 2311 ·  → t01 · Team 1 turned three common cards into Mercado de San Ildefonso (uncommon) at The Workshop
