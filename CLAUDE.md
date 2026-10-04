@@ -1,12 +1,12 @@
 # Team 5 — The Bazaar (Causa Prima, Madrid, Oct 2–4)
 
-**Saturday: start with `intel/saturday-plan.md`** (the verified plan: the game on one page, the 09:00 decision tree, each person's job), then `intel/GAME.md` (measured facts), `PLAN.md` "RIGHT NOW" (orders by person), `STATUS.md` (live numbers) and your own `team/` file. The operator session follows `intel/ORCHESTRATOR.md`. `LOG.md`, `CROSSWALK.md`, `docs/` and `research/` are history (pre-rules or Friday).
+**Saturday: start with `intel/saturday-plan.md`** (the verified plan: the game on one page, the 09:00 decision tree, each person's job), then `intel/GAME.md` (measured facts), `PLAN.md` "RIGHT NOW" (orders by person), `STATUS.md` (live numbers) and your own `team/` file. The operator session follows `intel/ORCHESTRATOR.md`. `LOG.md`, `archive/history/CROSSWALK.md`, `docs/` and `research/` are history (pre-rules or Friday).
 
 **Write only in your own file: `team/aleks.md`, `team/dani.md` or `team/lucas.md`.** Keep its **Now** line current, and after every run, experiment or decision add one line at the top of its log: `time · what · result · next`. Never edit another person's file, `STATUS.md` (written by a script) or `LOG.md` (findings and experiments, maintained by Lucas). Because nobody shares a file, pushes never conflict; logs also merge with `merge=union` (`.gitattributes`). Pull before, push right after. This is how the three of us, and each of our Claude Code sessions, stay in sync.
 
 ## Source of truth
 
-`bazaar-kit/RULES.md` and the live server (`GET /api/schedule`, `/api/clock`, `/api/levels`) beat everything, then `intel/GAME.md` (measured facts), then `intel/saturday-plan.md`. `intel/strategy|judge|scout.md` are advisory and can be stale. `docs/`, `research/` and `CROSSWALK.md` were written before the rules came out.
+`bazaar-kit/RULES.md` and the live server (`GET /api/schedule`, `/api/clock`, `/api/levels`) beat everything, then `intel/GAME.md` (measured facts), then `intel/saturday-plan.md`. `intel/strategy|judge|scout.md` are advisory and can be stale. `docs/`, `research/` and `archive/history/CROSSWALK.md` were written before the rules came out.
 
 ## Map
 
@@ -15,7 +15,7 @@
 | `bazaar-kit/` | The organisers' kit: SDK, starter agent, starter broker, `RULES.md`. Don't edit it; copy out of it | organisers |
 | `docs/` | `duelist-runbook.md`, per-duel records (`docs/duels/`); the rest are pre-rules design notes (history) | Aleks |
 | `research/` | Evidence base (`01`), offense (`02`), defense (`03`), red team (`04`), sponsor (`05`), hypotheses and experiment plan (`06`), spec kit (`07`), field-tested MIT prompts. `_data/` holds the MIT competition data behind `01`; the two files over 30 MB are left out | Lucas |
-| `CROSSWALK.md` | Research × simulations × real rules, hypothesis by hypothesis | team |
+| `archive/history/CROSSWALK.md` | Research × simulations × real rules, hypothesis by hypothesis | team |
 | `STATUS.md` | Live numbers from the server. Written only by `tools/status.py`; don't edit by hand | Lucas's machine |
 | `LOG.md` | Findings, experiments E1-E7, history | Lucas |
 | `team/*.md` | Each person's Now line and log | each owner |
