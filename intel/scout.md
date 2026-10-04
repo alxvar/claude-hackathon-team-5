@@ -1,34 +1,17 @@
-# Scout (claude-sonnet-5-5, Sun 04:11)
+# Scout (claude-sonnet-5-5, Sun 04:27)
 
 ## Top 3 actions now
-
-1. **Be ready for the CHA release at Sun 09:00 and fund it first.** Operator.
-   - Run the CHA book per dealer-lab §FAST-START. Pícaros CHA-09 thread at round 3's first tick, with `--offer-only` and a manual card and rarity check. Open the silver pack right after the CHA release.
-   - Public CHA bids stay capped at the dealer accept price: rares 54, uncommons 22, commons 9.
-   - Evidence: cash 392; CHA case A/B/C needs 242/250/282, and the full MAL fits in every case. CHA multiplier is 1.6, so rare 112 and uncommon 40 sit above dealer prices.
-   - Effect: the CHA page bonus is 106. A team-trade close is capped at +50. Page-close points come only via a team trade, so the last card is bought from a non-rival.
-   - Confidence: med-high.
-
-2. **Execute the 09:00 v10 list (Lucas directive 01:00) and keep the overnight asks.** Operator and the human at the desk.
-   - Row #1: RET-09 t07 → t09, approved. That is +67.6 VC on v10 and likely caps v10's real trades by itself. Rows #5 RET-01 t02 → t16 and #6 RET-03 t04 → t16 only if t16 is not a rival at 08:30.
-   - Keep our asks 19979 (LAV-03 at 6 to t04) and 19981 (LAV-04 at 6 to t01). Both expire at tick 1455. Post third-party spares OPEN: open asks fill 10× more than addressed ones (3.5% vs 0.3%).
-   - Evidence: the market-making split is Market Test 22.5 + real trades 7.5. Our own trades never count as VC.
-   - Effect on our neg_points or ladder: none. This is market-making score; it feeds v10, not a rival.
-   - Confidence: med.
-
-3. **Fodder for the ladder after the CHA buys.** Operator.
-   - Buy only cards we hold 0 copies of, at price + fee ≤ 12 as maker or ≤ 10 as taker. Sell to Pilar above 16 (target 19-21), then to Chato above 13 (target 15-16). At most 3 per dealer.
-   - Evidence: ladder 0.483, level 5. Pilar MAL-07 at 19 gave +0.050. The Chato sale at 14 gave +0.017. Saturday's ladder did not move the board: `negotiating` stayed 21.88 while the ladder rose 0.373 → 0.437.
-   - Effect: small ladder gain (about +1-2 Sunday points per the directive, [L]); no neg_points effect.
-   - Confidence: low-med.
+1. **Hold the two open spares, then fill the CHA book at the round 3 start (Operator).** Offers 19979 (LAV-03 at 6 to t04) and 19981 (LAV-04 at 6 to t01) expire at tick 1455. Our value for these is 3.2 each, so each sale gains little: the effect is ≈ 0 neg_points. Leave them as is. The real lever is the CHA fast start: both Pícaros rares at the first tick of round 3 with `--offer-only` and the trick guard, plus capped public bids. Evidence: CHA is worth 1.6×, and the directive says print runs run out (SAL-09 29/30). Effect: high, a page-closer is worth up to +50 per trade. Confidence: med.
+2. **MAL close, when ≥ 150 P is left after CHA (Operator, per the 01:40 directive).** We hold MAL-01 to -05, MAL-06 and MAL-08, and we lack MAL-07, 09, 10 and 11. Cash is 392. The directive expects ≈ +30 np past our cap, which lowers rivals through the relative scoring. Confidence: low-med. Buy only at ≤ value (MAL-06 is worth 17.5). The market's MAL-11 bid is 152 from t01, so a MAL epic is expensive. Check `/api/me/value` first.
+3. **Sell RET-11 (epic, value 198) only at ≥ 198 to Pilar (directive 3).** The Saturday comparable is t06 → t12 at 216 P (tick 1245), and t10's MAL-11 went at 195. Pilar paid 140 for an epic on Saturday, so she is likely too low. Teams are the buyers: t01's MAL-11 bid at 152 shows demand exists, but it is a MAL card, not RET. A RET-11 sale is a team trade. A buyer must pass the feeding rule and be ≥ 10 points below us. Confidence: low. This needs a named buyer first, so it is not for the first hour.
 
 ## What the climbing teams are doing
-- **Team 18 (#2, +0.8 per 30 ticks)** collects RET/LAT. It took LAT-10 from t13 at 72 (tick 1332), which is below the 86 that t12 paid at tick 1304. It is a buyer of cheap rares.
-- **Team 12 (#4, +0.4)** is the most active big buyer. It paid 216 for RET-11 (t06, tick 1245), 86 for LAT-10 (t01) and 20 for LAT-06 (t09). It also dumped SAL-09 to t09 at 70. It holds 70 deals.
-- **Team 10 (#1, 37.6)** is the market leader. It sold SAL-11 to t17 at 207 (tick 1296), MAL-11 was bought from t08 at 195, and it sold MAL-06 to t09 at 20. It holds 467 listings. It is trading on volume of listings and epics.
-- **Team 6** trades at volume: RET-10 to t04 at 84, RET-06 to t07 at 30. The 969 listings feed the RET buyers t04, t07 and t09.
+- **Team 18 (#2, +0.8 per 30 ticks)** collects RET/LAT and dumps LAV/MAL. It bought LAT-10 at 72 from t13 (tick 1332). It buys rares below book (70) from teams.
+- **Team 12 (#3/#4, +0.4)** is the heaviest LAT buyer (LAT×8) and paid 216 for RET-11 (tick 1245). It took LAT-06 at 20, LAT-10 at 86 and LAV-08 at 14. It is buying cheap uncommons and epics at book.
+- **Team 10 (#1, 37.6)** has 62 deals and 467 listings. It sells epics at 195-207 (MAL-11 to t10 at 195, SAL-11 from t10 at 207). It leads by 6.3 over us.
+- **Team 6 (#6, 969 listings)** sells RET rares (RET-10 at 84, RET-06 at 30, RET-03 at 8) and its score is falling (−2.4).
 
 ## Threats
-- **RET-09 t07 → t09 helps t09 close its RET page.** It is the directive's #1 row. It is approved because t09 is 7.3 below us, which meets the ≥ 6 rule.
-- **Team 12 is only 0.1 below us (30.4 vs 30.5) and buys LAT/RET at volume.** Team 18 is 0.8 above us. Either could pass us on Sunday CHA closes. The directive's relative-scoring MAL close (≥ 150 P left after CHA) is the counter.
-- **Dealer print runs run out.** Pícaros SAL-09 was at 29/30 and SAL-11 at 9/9 per the red-team notes. CHA rares from the Pícaros must go at the first tick of round 3.
+- **Team 12** is 0.1 behind us (30.4 vs 30.5) and is buying RET epics and LAT. It is a likely rival for CHA and RET stock. Never sell to the top 4.
+- **Team 10** at 37.6 collects LAV/RET and is the leader. Our LAV and RET trades on v03 or v10 feed it, so we skip them. Its RET-09 handover to t09 is a v10 matter.
+- **Dealer data is thin.** The data has one sample per price row (for example "pilar rare median 73 over 2"). Do not size CHA rare bids off it. The Pícaros print runs may run out. Flags are spent (the cap does not reset).
