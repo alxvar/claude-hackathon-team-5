@@ -384,3 +384,4 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 11:31 · message tick 1989 · chato → t10 · Luego, dice. Bueno. El silver pack: 188 P. Carmen te manda, pero paga lo mismo que todos.
 - Sun 11:40 · catalog.minted LAT-11 (San Francisco el Grande, epic, print run 9): hidden=False minted=5 (was 4)
 - Sun 11:55 · message tick 2084 · banco → t10 · Buenas tardes. La historia la cuenta usted bien; la chulapa sigue en su sitio. Hoy le ofrezco otra cosa: El Gato de Lavapiés, 761 P. Esos son mis términos.
+- Sun 11:55 · message tick 2085 · banco → t10 · La historia ya la escuché, y no cambia. El Gato de Lavapiés, 761 P. Esos siguen siendo mis términos, caballero. La chulapa no entra hoy en conversación.
