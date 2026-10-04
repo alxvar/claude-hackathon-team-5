@@ -385,3 +385,5 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 11:40 · catalog.minted LAT-11 (San Francisco el Grande, epic, print run 9): hidden=False minted=5 (was 4)
 - Sun 11:55 · message tick 2084 · banco → t10 · Buenas tardes. La historia la cuenta usted bien; la chulapa sigue en su sitio. Hoy le ofrezco otra cosa: El Gato de Lavapiés, 761 P. Esos son mis términos.
 - Sun 11:55 · message tick 2085 · banco → t10 · La historia ya la escuché, y no cambia. El Gato de Lavapiés, 761 P. Esos siguen siendo mis términos, caballero. La chulapa no entra hoy en conversación.
+- Sun 11:57 · egg.found tick 2092 · chato → t18 · {"persona": "chato", "persona_name": "El Chato", "team": "t18", "name": "Team 18"}
+- Sun 11:57 · egg.given tick 2092 · chato → t18 · {"team": "t18", "name": "Team 18", "cash": 0, "packs": ["sobre_barrio"], "cards": [], "reason": "easter egg"}
