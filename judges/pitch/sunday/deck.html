@@ -38,6 +38,17 @@
 .lcol li{font:400 25px/1.34 var(--body);color:var(--ink2);padding:12px 0;border-top:1px solid var(--line)}
 .lcol li b{color:var(--ink);font-weight:600}
 .close{position:absolute;left:128px;right:128px;top:852px;font:800 54px/1.05 var(--head);text-transform:uppercase}
+/* 5 · around the bazaar */
+.big{position:absolute;left:128px;top:300px;width:700px;height:640px;padding:30px 34px}
+.big .t{font-size:46px;margin:14px 0 4px}
+.big .q{font:700 16px var(--mono);letter-spacing:.16em;color:var(--yellow);text-transform:uppercase}
+.big p{font:400 25px/1.38 var(--body);color:var(--ink2);margin:14px 0 0}
+.big p b{color:var(--ink);font-weight:600}
+.big .src,.sm .src{position:static;margin-top:16px;font-size:14px;color:var(--muted)}
+.sm{position:absolute;width:448px;height:310px;padding:24px 26px}
+.sm .t{font-size:32px;margin:12px 0 2px}
+.sm p{font:400 21px/1.36 var(--body);color:var(--ink2);margin:8px 0 0}
+.sm p b{color:var(--ink);font-weight:600}
 /* nav */
 .hint{position:fixed;right:14px;bottom:10px;font:600 12px var(--mono);color:#3a4560;letter-spacing:.08em;z-index:5}
 .short .skip{display:none!important}
@@ -69,6 +80,29 @@
 <!-- 4 · IMPACT BY ACTION (C) -->
 <div class="stage frame" data-t="45s"><iframe data-src="arch-c.html"></iframe></div>
 
+<!-- 5 · BUILT AROUND THE BAZAAR -->
+<div class="stage" data-t="40s">
+  <div class="kicker">Outside the game's own tools</div>
+  <h1>What we built <em>around</em> the Bazaar</h1>
+  <div class="card top big" style="--c:var(--yellow)">
+    <div class="q">A market with more than two sides</div>
+    ${icon('swap','var(--yellow)')}
+    <div class="t">The club matchmaker</div>
+    <p>We rebuild <b>every team's album from the public feed</b>, match one team's spare copy to another team's missing card, page-closers first, and price each deal <b>halfway between the two values</b>, so both sides gain.</p>
+    <p>Seven teams invited to a club; hosting <b>rotates across members' markets</b>, so the matching pays more than one venue.</p>
+    <div class="src">tools/matchmaker.py · intel/club-pitch.md · brokered RET-01 Team 2 → Team 8 on v10</div>
+  </div>
+  <div class="card top sm" style="left:862px;top:300px;--c:var(--blue)">${icon('db','var(--blue)')}<div class="t">Demand model + hub</div>
+    <p>What <b>every card is worth to every team</b>, from public behaviour alone, no LLM. A shared Neon archive keeps the history the 500-event feed drops.</p><div class="src">hub/demand.py · hub/README.md</div></div>
+  <div class="card top sm" style="left:1344px;top:300px;--c:var(--green)">${icon('flask','var(--green)')}<div class="t">Market Test lab</div>
+    <p>A recorder captures <b>every bench session</b>; an offline simulator tests broker strategies against the free stall before we risk a bond.</p><div class="src">broker/record_bench.py · broker/sim.py</div></div>
+  <div class="card top sm" style="left:862px;top:630px;--c:var(--orange)">${icon('store','var(--orange)')}<div class="t">Incentives in kind</div>
+    <p>v10's first-trades bounty paid sellers in <b>cards we lacked, at ≤ our value</b>: never cash, never a gift; capped at five trades.</p><div class="src">tools/sunday/v10_reward.py · directives 10:50</div></div>
+  <div class="card top sm" style="left:1344px;top:630px;--c:var(--purple)">${icon('monitor','var(--purple)')}<div class="t">Judges' showcase</div>
+    <p>Dani's live dashboard and a <b>/show</b> page: read-only, built to run offline, the whole game on one screen.</p><div class="src">dashboard/server.py · dashboard/show.html</div></div>
+  <div class="foot"><div class="brand">The Bazaar · Team 5</div><div class="bar"><i></i></div><div class="lvl"></div><div class="who">Around the Bazaar</div></div>
+</div>
+
 <!-- 5 · THE LOOP (B) · skippable in the 3-minute cut -->
 <div class="stage frame skip" data-t="45s"><iframe data-src="arch-b.html"></iframe></div>
 
@@ -83,7 +117,7 @@
   <div class="card top lcol" style="left:702px;--c:var(--yellow)"><div class="t">Negotiation + markets</div><ul>
     <li><b>Scoring is relative.</b> A trade with a rival pays them too: CHA-11, +1.48 each.</li>
     <li><b>Losses count, gains clip.</b> Never sell below value; dealers only for the ladder.</li>
-    <li><b>A market needs a first trade.</b> 0 % fee alone: 0 fills. A bounty in cards: 6.</li></ul></div>
+    <li><b>A market needs a first trade.</b> 0 % fee alone: 0 fills. Brokering + a bounty in cards: 6.</li></ul></div>
   <div class="card top lcol" style="left:1276px;--c:var(--green)"><div class="t">One more day</div><ul>
     <li><b>Merge the Sunday duelist</b> and learn day-weights per opponent.</li>
     <li><b>Run the broker</b> we built and staged but never switched on.</li>
@@ -96,6 +130,8 @@
 <script src="icons.js"></script>
 <script src="race-data.js"></script>
 <script>
+// ---------- icons in static slides ----------
+document.querySelectorAll('.stage').forEach(st => { if (st.innerHTML.includes('${icon(')) st.innerHTML = st.innerHTML.replace(/\$\{icon\('(\w+)','([^']+)'\)\}/g, (m, a, b) => icon(a, b)); });
 // ---------- slide 3: hypotheses ----------
 const H = [
   {c:'var(--orange)', k:'Dealers', b:'Any trade at a gain scores, dealers included.',
@@ -112,7 +148,7 @@ const H = [
    g:'<b>Lock the lead (13:05):</b> no deals that feed the five closest rivals.'},
   {c:'var(--blue)', k:'Market', b:'A 0 % fee venue attracts trades.',
    x:'v10 at 0 % since Saturday: <b>0 fills</b> by 10:45 today. <span class="tag v">V</span>',
-   g:'<b>A first-trades bounty,</b> paid in cards at ≤ value: 6 fills, <b>+4.08</b> over stall-only teams. <span class="tag v">V</span>'},
+   g:'<b>We brokered pairs ourselves,</b> Team 13\'s bot quoted on v10, plus a bounty in cards: 6 fills, <b>+4.08</b> over stall-only teams. <span class="tag v">V</span>'},
 ];
 document.getElementById('hyp').innerHTML = H.map((h, i) => `<div class="card hrow" style="top:${320 + i * 130}px;--c:${h.c}"><div class="topic">${h.k}</div><p>${h.b}</p><p>${h.x}</p><p class="chg">${h.g}</p></div>`).join('');
 
