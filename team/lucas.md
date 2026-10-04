@@ -6,6 +6,7 @@
 
 ## Log (newest on top: `time · what · result · next`)
 
+- Sun 09:32 · operator · Chief (Analyst 09:32): (1) t18 is CHA 9/10, lacking only CHA-01 → our CHA-01 is a page card (reserved), not in any offer; no bot can post or fill it; no denial buy · (2) **RET-11 → t13 addressed on El Rastro at 248** (offer 20815, 40 ticks, their taker fee; t13 paid t18 238 for SAL-11): checked first that RET-11 is NOT a page card (catalog page false; epic 'Palacio de Cristal'); value 198 → a fill = +50 trade cap; a watcher re-posts once at 235 if unfilled, then stops and tells the Chief
 - Sun 09:30 · operator · **CHA-03 from Abuela at 8** (L1 slot 3) → `ladder_points` **0.168**, cash 497 · CHA held: 01, 02, 03, 07, 09, 10 · next: CHA-06 + CHA-04 → Abuela at C+45 (≈ 10:05); CHA-05/08 = team relay (last card +50) · L1 full (3); L3 2 of 3; L4 1 of 3
 - Sun 09:28 · operator · **CHA-02 from Abuela at 9** (L1) · **LAV-07 spare → Pilar at 17** (fodder, L3) → `ladder_points` **0.148**, neg 0, cash 505 · CHA held: 01, 02, 07, 09, 10 (missing 03-06, 08) · Abuela CHA-03 next; uncommons + CHA-04 at C+45 ≈ 10:05 · L3 slots: LAT-06 18, LAV-07 17 (1 left: RET-11 ≥ 198 or more fodder)
 - Sun 09:27 · operator · **CHA-01 from Abuela at 8** (her 12 → 8; L1 +0.018) · **LAT-06 → Pilar at 18** (fodder; her 16 → 18, ours 30 → 26, we offered her 18; L3 +0.022) → `ladder_points` 0.075 → **0.115**, neg 0, cash 497 · next: CHA-02/03 (Abuela), LAV-07 spare → Pilar
