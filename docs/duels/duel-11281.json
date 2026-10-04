@@ -69,6 +69,119 @@
     "price": null,
     "days": null
    }
+  },
+  {
+   "tick": 1924,
+   "raw": {
+    "duel": 11281,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Vinilo de la Movida",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 0.94,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 159,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1936,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 13146,
+     "price": 100,
+     "tick": 1924,
+     "days": 0
+    },
+    "rival_offer": {
+     "id": 13161,
+     "price": 128,
+     "tick": 1924,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1924,
+      "from": "you",
+      "text": "I'd like to open at 100 P with delivery on day 0.",
+      "price": 100,
+      "days": 0
+     },
+     {
+      "tick": 1924,
+      "from": "Rival Plata",
+      "text": "Fair opening: 128 P with 10 days delivery.",
+      "price": 128,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
+  },
+  {
+   "tick": 1925,
+   "raw": {
+    "duel": 11281,
+    "session": 4,
+    "status": "live",
+    "role": "buyer",
+    "item": "Vinilo de la Movida",
+    "issues": [
+     "price",
+     "days"
+    ],
+    "your_days_weight": 0.94,
+    "days_meaning": "each delivery day costs you this much cash",
+    "your_limit": 159,
+    "limit_meaning": "never pay above your value",
+    "rival": "Rival Plata",
+    "deadline_tick": 1936,
+    "decay_per_round": 0.1,
+    "rounds": 1,
+    "your_offer": {
+     "id": 13183,
+     "price": 95,
+     "tick": 1925,
+     "days": 10
+    },
+    "rival_offer": {
+     "id": 13161,
+     "price": 128,
+     "tick": 1924,
+     "days": 10
+    },
+    "messages": [
+     {
+      "tick": 1924,
+      "from": "you",
+      "text": "I'd like to open at 100 P with delivery on day 0.",
+      "price": 100,
+      "days": 0
+     },
+     {
+      "tick": 1924,
+      "from": "Rival Plata",
+      "text": "Fair opening: 128 P with 10 days delivery.",
+      "price": 128,
+      "days": 10
+     },
+     {
+      "tick": 1925,
+      "from": "you",
+      "text": "Your offer is well above my range. I'll counter at 95 P with day 10 delivery.",
+      "price": 95,
+      "days": 10
+     }
+    ],
+    "result": null,
+    "price": null,
+    "days": null
+   }
   }
  ],
  "session": {
@@ -200,6 +313,121 @@
     "LATE_SWITCH_LEFT": 0,
     "OPEN_WAIT": 0
    }
+  },
+  {
+   "tick": 1925,
+   "took_s": 1.38,
+   "cost_usd": 0.00108,
+   "obs": {
+    "view": {
+     "duel_id": 11281,
+     "role": "buyer",
+     "limit": 159,
+     "currency": "P",
+     "item": "Vinilo de la Movida",
+     "context": "",
+     "rival": "Rival Plata",
+     "market": null,
+     "issues": [
+      "price",
+      "days"
+     ],
+     "days_weight": 0.94,
+     "days_meaning": "each delivery day costs you this much cash",
+     "decay": 0.1,
+     "duel_ticks": 12,
+     "extra": {}
+    },
+    "turns": [
+     {
+      "mine": true,
+      "text": "I'd like to open at 100 P with delivery on day 0.",
+      "offer": {
+       "price": 100,
+       "days": 0
+      },
+      "accept": false,
+      "tick": 1924,
+      "decision": null
+     },
+     {
+      "mine": false,
+      "text": "Fair opening: 128 P with 10 days delivery.",
+      "offer": {
+       "price": 128,
+       "days": 10
+      },
+      "accept": false,
+      "tick": 1924,
+      "decision": null
+     }
+    ],
+    "rival_offer": {
+     "price": 128,
+     "days": 10
+    },
+    "tick": 1925,
+    "ticks_left": 11,
+    "rounds": 1,
+    "day_swings": [
+     59.3,
+     22.0,
+     9.399999999999999,
+     48.9,
+     42.1,
+     18.700000000000003,
+     38.3,
+     53.2,
+     33.199999999999996,
+     57.800000000000004,
+     31.299999999999997,
+     24.0,
+     60.199999999999996,
+     68.3,
+     3.9000000000000004,
+     30.6,
+     54.699999999999996,
+     57.800000000000004,
+     36.6,
+     16.1,
+     36.6,
+     41.8,
+     13.3,
+     39.6,
+     9.399999999999999
+    ]
+   },
+   "move": {
+    "action": "offer",
+    "text": "Your offer is well above my range. I'll counter at 95 P with day 10 delivery.",
+    "price": 95,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "give",
+     "rule": "code step",
+     "step": 4.49,
+     "closing": false,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.38,
+       "in": 924,
+       "out": 31,
+       "cost_usd": 0.00108,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ]
+    }
+   },
+   "hold": false,
+   "params_set": "C",
+   "params": {
+    "MIN_STEP_P": 15.0,
+    "MAX_STEP_SHARE": 0.12,
+    "LATE_SWITCH_LEFT": 0,
+    "OPEN_WAIT": 0
+   }
   }
  ],
  "sent": [
@@ -234,6 +462,42 @@
      "price": 100,
      "tick": 1924,
      "days": 0
+    }
+   }
+  },
+  {
+   "tick": 1925,
+   "dry_run": false,
+   "move": {
+    "action": "offer",
+    "text": "Your offer is well above my range. I'll counter at 95 P with day 10 delivery.",
+    "price": 95,
+    "days": 10,
+    "meta": {
+     "policy": "code",
+     "day_call": "give",
+     "rule": "code step",
+     "step": 4.49,
+     "closing": false,
+     "calls": [
+      {
+       "stage": "text",
+       "latency_s": 1.38,
+       "in": 924,
+       "out": 31,
+       "cost_usd": 0.00108,
+       "model": "claude-haiku-4-5-20251001"
+      }
+     ]
+    }
+   },
+   "result": {
+    "duel": 11281,
+    "offer": {
+     "id": 13183,
+     "price": 95,
+     "tick": 1925,
+     "days": 10
     }
    }
   }

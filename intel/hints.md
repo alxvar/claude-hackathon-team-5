@@ -371,3 +371,4 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 11:12 · message tick 1911 · banco → t04 · You repeat yourself, señor; I do not. Seven hundred fifty pesetas, and that is the whole of today's movement. The gato sleeps well in my vault.
 - Sun 11:14 · message tick 1921 · banco → t04 · Patience is not a discount, señor. The term stands: 761 P. El Gato waits in the vault; he has waited longer than either of us.
 - Sun 11:14 · message tick 1922 · banco → t04 · Respect does not move terms, señor. Let it be 760 P — one peseta, to mark the courtesy. El Gato stays in the vault until you meet it.
+- Sun 11:15 · message tick 1924 · banco → t04 · Firsts do not lower terms, señor; they raise them. 751 P for El Gato. The vault is cool and he is comfortable there. Decide when you wish.
