@@ -424,3 +424,4 @@ Y El Chato, aquí al lado, abre a las nueve y media esta noche.
 - Sun 13:01 · message tick 2345 · banco → t08 · I deal in coin, señor, not in trades. La Reina de la Movida leaves my vault for seven hundred sixty-one. Those are the terms. Take your time.
 - Sun 13:04 · message tick 2357 · banco → t08 · Doña Carmen sabe bien que yo no cambio de términos por recados. Setecientos sesenta y uno. Dele recuerdos de mi parte, y piénselo con calma.
 - Sun 13:06 · message tick 2362 · banco → t08 · Doña Pilar conoce mis términos mejor que nadie, señor. Setecientos sesenta y uno. Ni los recados ni los regaños mueven esa cifra. La cámara espera.
+- Sun 13:07 · message tick 2368 · chato → t01 · Fourteen. One step, because you've made five. Don't ask for a sixth.
